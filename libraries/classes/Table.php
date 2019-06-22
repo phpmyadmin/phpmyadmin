@@ -316,7 +316,7 @@ class Table
         // we have to get the table's details
         if ($this->_dbi->getCachedTableContent([$db, $table]) == null
             || $force_read
-            || count($this->_dbi->getCachedTableContent([$db, $table])) == 1
+            || count($this->_dbi->getCachedTableContent([$db, $table])) === 1
         ) {
             $this->_dbi->getTablesFull($db, $table);
         }

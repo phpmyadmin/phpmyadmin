@@ -1331,7 +1331,7 @@ class DatabaseInterface
     ): array {
         $sql = $this->getColumnsSql($database, $table, $column, $full);
         $fields = $this->fetchResult($sql, 'Field', null, $link);
-        if (! is_array($fields) || count($fields) == 0) {
+        if (! is_array($fields) || count($fields) === 0) {
             return [];
         }
         // Check if column is a part of multiple-column index and set its 'Key'.
@@ -1379,7 +1379,7 @@ class DatabaseInterface
         // We only need the 'Field' column which contains the table's column names
         $fields = array_keys($this->fetchResult($sql, 'Field', null, $link));
 
-        if (! is_array($fields) || count($fields) == 0) {
+        if (! is_array($fields) || count($fields) === 0) {
             return null;
         }
         return $fields;
@@ -2418,7 +2418,7 @@ class DatabaseInterface
      */
     public function getCurrentUserAndHost(): array
     {
-        if (count($this->_current_user) == 0) {
+        if (count($this->_current_user) === 0) {
             $user = $this->getCurrentUser();
             $this->_current_user = explode("@", $user);
         }

@@ -237,7 +237,7 @@ class ImportShp extends ImportPlugin
             }
         }
 
-        if (count($rows) == 0) {
+        if (count($rows) === 0) {
             $error = true;
             $message = Message::error(
                 __('The imported file does not contain any data!')

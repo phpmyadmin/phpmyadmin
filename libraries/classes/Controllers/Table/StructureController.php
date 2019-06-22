@@ -191,7 +191,7 @@ class StructureController extends AbstractController
                 if (Context::isKeyword(trim($this->table), true)) {
                     $reserved_keywords_names[] = trim($this->table);
                 }
-                if (count($reserved_keywords_names) == 0) {
+                if (count($reserved_keywords_names) === 0) {
                     $this->response->setRequestStatus(false);
                 }
                 $this->response->addJSON(
@@ -541,7 +541,7 @@ class StructureController extends AbstractController
                 $selected[$i],
                 true
             );
-            if (count($value) == 0) {
+            if (count($value) === 0) {
                 $message = Message::error(
                     __('Failed to get description of column %s!')
                 );

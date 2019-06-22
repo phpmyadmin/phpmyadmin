@@ -281,7 +281,7 @@ class ImportOds extends ImportPlugin
             }
 
             /* Skip over empty sheets */
-            if (count($tempRows) == 0 || count($tempRows[0]) == 0) {
+            if (count($tempRows) == 0 || count($tempRows[0]) === 0) {
                 $col_names = [];
                 $tempRow = [];
                 $tempRows = [];

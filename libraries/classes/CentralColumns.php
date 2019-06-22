@@ -1053,7 +1053,7 @@ class CentralColumns
         //get current values of $db from central column list
         $query = 'SELECT COUNT(db_name) FROM ' . Util::backquote($central_list_table) . ' '
             . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\'' .
-            ($num == 0 ? '' : 'LIMIT ' . $from . ', ' . $num) . ';';
+            ($num === 0 ? '' : 'LIMIT ' . $from . ', ' . $num) . ';';
         $result = (array) $this->dbi->fetchResult(
             $query,
             null,

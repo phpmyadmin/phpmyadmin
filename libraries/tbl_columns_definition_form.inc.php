@@ -221,7 +221,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
             Util::getValueByKey($_POST, "field_key.${columnNumber}", ''),
             2
         );
-        if (count($parts) == 2 && $parts[1] == $columnNumber) {
+        if (count($parts) === 2 && $parts[1] == $columnNumber) {
             $columnMeta['Key'] = Util::getValueByKey(
                 [
                     'primary' => 'PRI',

@@ -383,7 +383,7 @@ class NavigationTree
             return $retval;
         }
 
-        if (count($containers) == 1) {
+        if (count($containers) === 1) {
             $container = array_shift($containers);
         } else {
             $container = $db->getChild($path[0], true);
@@ -759,7 +759,7 @@ class NavigationTree
             }
         }
         // rfe #1634 Don't group if there's only one group and no other items
-        if (count($prefixes) == 1) {
+        if (count($prefixes) === 1) {
             $keys = array_keys($prefixes);
             $key = $keys[0];
             if ($prefixes[$key] == count($node->children) - 1) {
@@ -1059,7 +1059,7 @@ class NavigationTree
         ) {
             $response = Response::getInstance();
             if ($node->type == Node::CONTAINER
-                && count($node->children) == 0
+                && count($node->children) === 0
                 && ! $response->isAjax()
             ) {
                 return '';

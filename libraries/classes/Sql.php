@@ -527,9 +527,9 @@ class Sql
             && isset($analyzed_sql_results['select_expr'])
             && isset($analyzed_sql_results['select_tables'])
             && (empty($analyzed_sql_results['select_expr'])
-                || ((count($analyzed_sql_results['select_expr']) == 1)
+                || ((count($analyzed_sql_results['select_expr']) === 1)
                     && ($analyzed_sql_results['select_expr'][0] == '*')))
-            && count($analyzed_sql_results['select_tables']) == 1;
+            && count($analyzed_sql_results['select_tables']) === 1;
     }
 
     /**
@@ -574,7 +574,7 @@ class Sql
             && $analyzed_sql_results['select_from']
             && (count($analyzed_sql_results['select_tables']) === 1)
             && (empty($analyzed_sql_results['statement']->where)
-                || (count($analyzed_sql_results['statement']->where) == 1
+                || (count($analyzed_sql_results['statement']->where) === 1
                     && $analyzed_sql_results['statement']->where[0]->expr === '1'))
             && empty($analyzed_sql_results['group'])
             && ! isset($find_real_end)

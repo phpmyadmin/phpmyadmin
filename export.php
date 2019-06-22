@@ -411,7 +411,7 @@ if ($save_on_server) {
         // HTML
         if ($export_type == 'database') {
             $num_tables = count($tables);
-            if ($num_tables == 0) {
+            if ($num_tables === 0) {
                 $message = PhpMyAdmin\Message::error(
                     __('No tables found in database.')
                 );

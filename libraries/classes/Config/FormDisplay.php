@@ -519,7 +519,7 @@ class FormDisplay
     public function displayErrors()
     {
         $this->_validate();
-        if (count($this->_errors) == 0) {
+        if (count($this->_errors) === 0) {
             return null;
         }
 
@@ -545,7 +545,7 @@ class FormDisplay
     public function fixErrors()
     {
         $this->_validate();
-        if (count($this->_errors) == 0) {
+        if (count($this->_errors) === 0) {
             return;
         }
 

@@ -129,7 +129,7 @@ class HomeController extends AbstractController
         if ($this->config->getServerCount() > 0) {
             $serverDefaultOptions['values']['0'] = __('let the user choose');
             $serverDefaultOptions['values']['-'] = '------------------------------';
-            if ($this->config->getServerCount() == 1) {
+            if ($this->config->getServerCount() === 1) {
                 $serverDefaultOptions['values_disabled'][] = '0';
             }
             $serverDefaultOptions['values_disabled'][] = '-';

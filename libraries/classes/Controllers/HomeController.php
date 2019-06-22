@@ -88,7 +88,7 @@ class HomeController extends AbstractController
             $hasServerSelection = $cfg['ServerDefault'] == 0
                 || (! $cfg['NavigationDisplayServers']
                 && (count($cfg['Servers']) > 1
-                || ($server == 0 && count($cfg['Servers']) == 1)));
+                || ($server == 0 && count($cfg['Servers']) === 1)));
             if ($hasServerSelection) {
                 $serverSelection = Select::render(true, true);
             }

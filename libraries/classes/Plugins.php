@@ -377,7 +377,7 @@ class Plugins
         if (method_exists($propertyGroup, "getDoc")) {
             $doc = $propertyGroup->getDoc();
             if ($doc != null) {
-                if (count($doc) == 3) {
+                if (count($doc) === 3) {
                     $ret .= Util::showMySQLDocu(
                         $doc[1],
                         false,
@@ -385,7 +385,7 @@ class Plugins
                         null,
                         $doc[2]
                     );
-                } elseif (count($doc) == 1) {
+                } elseif (count($doc) === 1) {
                     $ret .= Util::showDocu('faq', $doc[0]);
                 } else {
                     $ret .= Util::showMySQLDocu(

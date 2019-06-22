@@ -4554,7 +4554,7 @@ class Privileges
         if (isset($is_valid_pred_dbname) && $is_valid_pred_dbname) {
             $dbname = $_POST['pred_dbname'];
             // If dbname contains only one database.
-            if (count($dbname) == 1) {
+            if (count($dbname) === 1) {
                 $dbname = $dbname[0];
             }
         } elseif (isset($is_valid_dbname) && $is_valid_dbname) {

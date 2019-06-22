@@ -827,7 +827,7 @@ class Import
 
         if ($cell == (string) (float) $cell
             && mb_strpos($cell, ".") !== false
-            && mb_substr_count($cell, ".") == 1
+            && mb_substr_count($cell, ".") === 1
         ) {
             return self::DECIMAL;
         }
@@ -1212,7 +1212,7 @@ class Import
         for ($i = 0; $i < $additional_sql_len; ++$i) {
             preg_match($view_pattern, $additional_sql[$i], $regs);
 
-            if (count($regs) == 0) {
+            if (count($regs) === 0) {
                 preg_match($table_pattern, $additional_sql[$i], $regs);
             }
 
@@ -1681,7 +1681,7 @@ class Import
     public function isTableTransactional(string $table): bool
     {
         $table = explode('.', $table);
-        if (count($table) == 2) {
+        if (count($table) === 2) {
             $db = Util::unQuote($table[0]);
             $table = Util::unQuote($table[1]);
         } else {

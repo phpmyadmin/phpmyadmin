@@ -1367,7 +1367,7 @@ class Qbe
         array $where_clause_columns,
         array $where_clause_tables
     ) {
-        if (count($where_clause_tables) == 1) {
+        if (count($where_clause_tables) === 1) {
             // If there is exactly one column that has a decent where-clause
             // we will just use this
             return key($where_clause_tables);
@@ -1614,7 +1614,7 @@ class Qbe
                         }
 
                         // We are done if no unfinalized tables anymore
-                        if (count($tempUnfinalized) == 0) {
+                        if (count($tempUnfinalized) === 0) {
                             break 3;
                         }
                     }

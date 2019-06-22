@@ -509,7 +509,7 @@ class Normalization
             __('The second step of normalization is complete for table \'%1$s\'.'),
             htmlspecialchars($table)
         ) . '</h3>';
-        if (count((array) $partialDependencies) == 1) {
+        if (count((array) $partialDependencies) === 1) {
             return [
                 'legendText' => __('End of step'),
                 'headText' => $headText,
@@ -582,7 +582,7 @@ class Normalization
         $i = 1;
         $newTables = [];
         foreach ($tables as $table => $arrDependson) {
-            if (count(array_unique($arrDependson)) == 1) {
+            if (count(array_unique($arrDependson)) === 1) {
                 continue;
             }
             $primary = Index::getPrimary($table, $db);
@@ -648,7 +648,7 @@ class Normalization
         $headText = '<h3>' .
             __('The third step of normalization is complete.')
             . '</h3>';
-        if (count((array) $newTables) == 0) {
+        if (count((array) $newTables) === 0) {
             return [
                 'legendText' => __('End of step'),
                 'headText' => $headText,

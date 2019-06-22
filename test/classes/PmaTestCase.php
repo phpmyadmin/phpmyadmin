@@ -76,7 +76,7 @@ class PmaTestCase extends TestCase
 
         if (count($param) > 0) {
             if (is_array($param[0])) {
-                if (is_array($param[0][0]) && count($param) == 1) {
+                if (is_array($param[0][0]) && count($param) === 1) {
                     $param = $param[0];
                     if (is_int(end($param))) {
                         $http_response_code_param = end($param);

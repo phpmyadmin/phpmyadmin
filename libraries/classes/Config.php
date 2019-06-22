@@ -1717,7 +1717,7 @@ class Config
     public function checkServers(): void
     {
         // Do we have some server?
-        if (! isset($this->settings['Servers']) || count($this->settings['Servers']) == 0) {
+        if (! isset($this->settings['Servers']) || count($this->settings['Servers']) === 0) {
             // No server => create one with defaults
             $this->settings['Servers'] = [1 => $this->default_server];
         } else {

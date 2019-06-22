@@ -301,7 +301,7 @@ class Tracking
         /*
          *  First, list tracked data definition statements
          */
-        if (count($data['ddlog']) == 0 && count($data['dmlog']) == 0) {
+        if (count($data['ddlog']) == 0 && count($data['dmlog']) === 0) {
             $msg = Message::notice(__('No data'));
             $msg->display();
         }

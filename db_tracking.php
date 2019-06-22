@@ -101,7 +101,7 @@ if (isset($_POST['delete_tracking']) && isset($_POST['table'])) {
 $data = Tracker::getTrackedData($db, '', '1');
 
 // No tables present and no log exist
-if ($num_tables == 0 && count($data['ddlog']) == 0) {
+if ($num_tables == 0 && count($data['ddlog']) === 0) {
     echo '<p>' , __('No tables found in database.') , '</p>' , "\n";
 
     if (empty($db_is_system_schema)) {

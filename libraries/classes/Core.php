@@ -735,7 +735,7 @@ class Core
 
         // remove empty nested arrays
         for (; $depth >= 0; $depth--) {
-            if (! isset($path[$depth + 1]) || count($path[$depth + 1]) == 0) {
+            if (! isset($path[$depth + 1]) || count($path[$depth + 1]) === 0) {
                 unset($path[$depth][$keys[$depth]]);
             } else {
                 break;

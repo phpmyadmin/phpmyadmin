@@ -153,7 +153,7 @@ class VersionInformation
 
             // We evalute MySQL version constraint if there are only
             // one server configured.
-            if (count($GLOBALS['cfg']['Servers']) == 1) {
+            if (count($GLOBALS['cfg']['Servers']) === 1) {
                 $mysqlVersions = $release->mysql_versions;
                 $mysqlConditions = explode(",", $mysqlVersions);
                 foreach ($mysqlConditions as $mysqlCondition) {

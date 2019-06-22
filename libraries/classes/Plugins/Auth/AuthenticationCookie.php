@@ -376,7 +376,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             ) {
                 if ($GLOBALS['cfg']['ArbitraryServerRegexp']) {
                     $parts = explode(' ', $_REQUEST['pma_servername']);
-                    if (count($parts) == 2) {
+                    if (count($parts) === 2) {
                         $tmp_host = $parts[0];
                     } else {
                         $tmp_host = $_REQUEST['pma_servername'];
@@ -491,7 +491,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         ) {
             /* Allow to specify 'host port' */
             $parts = explode(' ', $GLOBALS['pma_auth_server']);
-            if (count($parts) == 2) {
+            if (count($parts) === 2) {
                 $tmp_host = $parts[0];
                 $tmp_port = $parts[1];
             } else {

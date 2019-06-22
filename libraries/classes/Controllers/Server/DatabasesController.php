@@ -321,7 +321,7 @@ class DatabasesController extends AbstractController
                         );
 
                         if (strlen((string) $key) > 0
-                            || count($replication_info[$type]['Do_DB']) == 0
+                            || count($replication_info[$type]['Do_DB']) === 0
                         ) {
                             // if ($key != null) did not work for index "0"
                             $replication[$type]['is_replicated'] = true;

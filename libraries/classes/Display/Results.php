@@ -727,7 +727,7 @@ class Results
                 || $this->__get('is_analyse'))
             && ! empty($analyzed_sql_results['select_from'])
             && ! empty($analyzed_sql_results['statement']->from)
-            && (count($analyzed_sql_results['statement']->from) == 1)
+            && (count($analyzed_sql_results['statement']->from) === 1)
             && ! empty($analyzed_sql_results['statement']->from[0]->table);
     }
 
@@ -4923,7 +4923,7 @@ class Results
             && ! isset($printview)
             && empty($analyzed_sql_results['procedure'])
         ) {
-            if (count($analyzed_sql_results['select_tables']) == 1) {
+            if (count($analyzed_sql_results['select_tables']) === 1) {
                 $_url_params['single_table'] = 'true';
             }
 
