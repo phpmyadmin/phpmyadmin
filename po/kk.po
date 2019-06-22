@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-06-22 12:17+0200\n"
-"PO-Revision-Date: 2019-06-21 08:00+0000\n"
+"PO-Revision-Date: 2019-06-24 14:00+0000\n"
 "Last-Translator: WWWesten <wwwesten@gmail.com>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "kk/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7\n"
+"X-Generator: Weblate 3.7.1-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -13243,7 +13243,7 @@ msgstr "joǵarydaǵy bireýi de joq"
 
 #: libraries/db_common.inc.php:153 tbl_operations.php:243
 msgid "No collation provided."
-msgstr ""
+msgstr "Kolasıa jetkizilmedi."
 
 #: libraries/mult_submits.inc.php:59 templates/select_all.twig:2
 #: templates/select_all.twig:6
