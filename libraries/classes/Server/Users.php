@@ -43,7 +43,7 @@ class Users
             ];
         }
 
-        $retval  = '<ul id="topmenu2">';
+        $retval  = '<div class="row"><ul id="topmenu2">';
         foreach ($items as $item) {
             $class = '';
             if ($item['url'] === $selfUrl) {
@@ -56,7 +56,7 @@ class Users
             $retval .= '</a>';
             $retval .= '</li>';
         }
-        $retval .= '</ul>';
+        $retval .= '</ul></div>';
         $retval .= '<div class="clearfloat"></div>';
 
         return $retval;

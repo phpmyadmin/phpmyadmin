@@ -51,7 +51,7 @@ if (! $dbi->isSuperuser()) {
     exit;
 }
 
-$response->addHTML('<div>');
+$response->addHTML('<div class="container-fluid">');
 $response->addHTML(Users::getHtmlForSubMenusOnUsersPage('server_user_groups.php'));
 
 /**
