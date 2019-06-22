@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-06-22 11:54+0200\n"
-"PO-Revision-Date: 2019-06-19 16:37+0000\n"
+"POT-Creation-Date: 2019-04-27 18:51+0200\n"
+"PO-Revision-Date: 2019-06-22 09:58+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ja/>\n"
@@ -535,16 +535,10 @@ msgid "Output"
 msgstr "成形結果"
 
 #: gis_data_editor.php:423
-#, fuzzy
-#| msgid ""
-#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-#| "below into the \"Value\" field."
 msgid ""
 "Choose \"ST_GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
-msgstr ""
-"「関数」の項目で「GeomFromText」を選択して、下の文字列を「値」の項目に貼り付"
-"けてください。"
+msgstr "「関数」の項目で「ST_GeomFromText」を選択して、下の文字列を「値」の項目に貼り付けてください。"
 
 #: import.php:73
 msgid "Succeeded"

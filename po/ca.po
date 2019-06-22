@@ -3,17 +3,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-06-22 11:54+0200\n"
-"PO-Revision-Date: 2019-01-28 16:46+0000\n"
-"Last-Translator: Robert Antoni Buj Gelonch <robert.buj@gmail.com>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
+"POT-Creation-Date: 2019-06-19 13:37-0300\n"
+"PO-Revision-Date: 2019-06-22 09:58+0000\n"
+"Last-Translator: Joan Montané <joan@montane.cat>\n"
+"Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.5-dev\n"
+"X-Generator: Weblate 3.7\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -542,16 +542,12 @@ msgid "Output"
 msgstr "Sortida"
 
 #: gis_data_editor.php:423
-#, fuzzy
-#| msgid ""
-#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-#| "below into the \"Value\" field."
 msgid ""
 "Choose \"ST_GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Trieu \"GeomFromText\" de la columna \"Funció\" i enganxeu la cadena de sota "
-"al camp \"Valor\"."
+"Trieu \"ST_GeomFromText\" de la columna \"Funció\" i enganxeu la cadena de "
+"sota al camp \"Valor\"."
 
 #: import.php:73
 msgid "Succeeded"
@@ -1127,10 +1123,8 @@ msgid "Y values"
 msgstr "Valors Y"
 
 #: js/messages.php:142
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "Introduïu el mateix valor un altre cop"
+msgstr "Introduïu primer la consulta SQL."
 
 #: js/messages.php:145
 msgid "The host name is empty!"
@@ -14205,10 +14199,8 @@ msgstr ""
 "p. ex. mitjançant %sSetup script%s."
 
 #: prefs_manage.php:309
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as JSON file"
-msgstr "Desa com un fitxer"
+msgstr "Desa com un fitxer JSON"
 
 #: prefs_manage.php:314
 msgid "Save as PHP file"
@@ -14244,10 +14236,8 @@ msgid "View dump (schema) of databases"
 msgstr "Mostra el bolcat (esquema) de les bases de dades"
 
 #: server_privileges.php:74
-#, fuzzy
-#| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
-msgstr "Permet esborrar dades."
+msgstr "Permet esborrar files històriques."
 
 #: server_privileges.php:145 server_replication.php:38
 #: server_user_groups.php:31 templates/server/databases/create.twig:46

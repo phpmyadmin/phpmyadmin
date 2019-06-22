@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-06-22 11:54+0200\n"
-"PO-Revision-Date: 2019-06-19 16:37+0000\n"
-"Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
+"POT-Creation-Date: 2019-04-27 18:51+0200\n"
+"PO-Revision-Date: 2019-06-22 09:58+0000\n"
+"Last-Translator: Filippo Tessarotto <zoeslam@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "it/>\n"
 "Language: it\n"
@@ -5922,7 +5922,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:1319
 #: libraries/classes/SqlQueryForm.php:356
 msgid "Retain query box"
-msgstr "Nascondi riquadro query SQL"
+msgstr "Mantieni riquadro query SQL"
 
 #: libraries/classes/Config/Descriptions.php:1321
 msgid "Allow to display database and table statistics (eg. space usage)."
