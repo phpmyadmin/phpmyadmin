@@ -106,7 +106,7 @@ jobs:
       node_js: 10
       before_install:
         - brew link --force gettext
-        - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /usr/local/etc/php/7.2/php.ini
+        - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /usr/local/etc/php/7.3/php.ini
         - mysql.server start
       addons:
         homebrew:
