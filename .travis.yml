@@ -48,6 +48,7 @@ cache:
 jobs:
   allow_failures:
     - php: nightly
+    - os: osx
     - name: "PHP 7.1 with dbase extension"
     - name: "PHP 7.4"
 
@@ -106,7 +107,8 @@ jobs:
       node_js: 10
       before_install:
         - brew link --force gettext
-        - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /usr/local/etc/php/7.3/php.ini
+        - echo "memory_limit=-1" > /usr/local/etc/php/7.3/conf.d/50-travis.ini
+        - echo "pcre.jit=0" >> /usr/local/etc/php/7.3/conf.d/50-travis.ini
         - mysql.server start
       addons:
         homebrew:
