@@ -781,47 +781,71 @@ class DbiDummy implements DbiExtension
             ],
             [
                 'query'   => 'SELECT `CHARACTER_SET_NAME` AS `Charset`,'
-                    . ' `DESCRIPTION` AS `Description`'
+                    . ' `DEFAULT_COLLATE_NAME` AS `Default collation`,'
+                    . ' `DESCRIPTION` AS `Description`,'
+                    . ' `MAXLEN` AS `Maxlen`'
                     . ' FROM `information_schema`.`CHARACTER_SETS`',
                 'columns' => [
                     'Charset',
+                    'Default collation',
                     'Description',
-                ],
-                'result'  => [
-                    [
-                        'utf8',
-                        'UTF-8 Unicode',
-                    ],
-                    [
-                        'latin1',
-                        'cp1252 West European',
-                    ],
-                ],
-            ],
-            [
-                'query'   => 'SELECT `CHARACTER_SET_NAME` AS `Charset`,'
-                    . ' `COLLATION_NAME` AS `Collation`, `IS_DEFAULT` AS `Default`'
-                    . ' FROM `information_schema`.`COLLATIONS`',
-                'columns' => [
-                    'Charset',
-                    'Collation',
-                    'Default',
+                    'Maxlen',
                 ],
                 'result'  => [
                     [
                         'utf8',
                         'utf8_general_ci',
-                        'Yes',
-                    ],
-                    [
-                        'utf8',
-                        'utf8_bin',
-                        '',
+                        'UTF-8 Unicode',
+                        '3',
                     ],
                     [
                         'latin1',
                         'latin1_swedish_ci',
+                        'cp1252 West European',
+                        '1',
+                    ],
+                ],
+            ],
+            [
+                'query'   => 'SELECT `COLLATION_NAME` AS `Collation`,'
+                    . ' `CHARACTER_SET_NAME` AS `Charset`,'
+                    . ' `ID` AS `Id`,'
+                    . ' `IS_DEFAULT` AS `Default`,'
+                    . ' `IS_COMPILED` AS `Compiled`,'
+                    . ' `SORTLEN` AS `Sortlen`'
+                    . ' FROM `information_schema`.`COLLATIONS`',
+                'columns' => [
+                    'Collation',
+                    'Charset',
+                    'Id',
+                    'Default',
+                    'Compiled',
+                    'Sortlen',
+                ],
+                'result'  => [
+                    [
+                        'utf8_general_ci',
+                        'utf8',
+                        '33',
                         'Yes',
+                        'Yes',
+                        '1',
+                    ],
+                    [
+                        'utf8_bin',
+                        'utf8',
+                        '83',
+                        '',
+                        'Yes',
+                        '1',
+                    ],
+                    [
+                        'latin1_swedish_ci',
+                        'latin1',
+                        '8',
+                        'Yes',
+                        'Yes',
+                        '1',
                     ],
                 ],
             ],

@@ -1,0 +1,13 @@
+<select lang="en" dir="ltr" name="{{ name|default('character_set') }}"
+  {%- if id is not empty %} id="{{ id }}"{% endif -%}
+  {%- if submit_on_change %} class="autosubmit"{% endif %}>
+  {% if has_label %}
+    <option value="">{% trans 'Charset' %}</option>
+  {% endif %}
+  <option value=""></option>
+  {% for charset in charsets %}
+    <option value="{{ charset.name }}" title="{{ charset.description }}"{{ charset.is_selected ? ' selected' }}>
+      {{- charset.name -}}
+    </option>
+  {% endfor %}
+</select>

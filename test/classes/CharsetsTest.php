@@ -459,6 +459,6 @@ class CharsetsTest extends TestCase
         $this->assertStringNotContainsString('Charset</option>', $result);
         $this->assertStringContainsString('class="autosubmit"', $result);
         $this->assertStringContainsString('id="test_id"', $result);
-        $this->assertStringContainsString('selected="selected">latin1', $result);
+        $this->assertStringContainsString('selected>latin1', $result);
     }
 }

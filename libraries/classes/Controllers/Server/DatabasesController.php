@@ -157,16 +157,16 @@ class DatabasesController extends AbstractController
         $sqlQuery = 'CREATE DATABASE ' . Util::backquote($params['new_db']);
         if (! empty($params['db_collation'])) {
             list($databaseCharset) = explode('_', $params['db_collation']);
-            $charsets = Charsets::getMySQLCharsets(
+            $charsets = Charsets::getCharsets(
                 $this->dbi,
                 $cfg['Server']['DisableIS']
             );
-            $collations = Charsets::getMySQLCollations(
+            $collations = Charsets::getCollations(
                 $this->dbi,
                 $cfg['Server']['DisableIS']
             );
-            if (in_array($databaseCharset, $charsets)
-                && in_array($params['db_collation'], $collations[$databaseCharset])
+            if (in_array($databaseCharset, array_keys($charsets))
+                && in_array($params['db_collation'], array_keys($collations[$databaseCharset]))
             ) {
                 $sqlQuery .= ' DEFAULT'
                     . Util::getCharsetQueryPart($params['db_collation']);

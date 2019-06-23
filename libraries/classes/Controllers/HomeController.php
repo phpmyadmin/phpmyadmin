@@ -167,12 +167,7 @@ class HomeController extends AbstractController
                 $hostInfo .= ')';
             }
 
-            $unicode = Charsets::$mysql_charset_map['utf-8'];
-            $charsets = Charsets::getMySQLCharsetsDescriptions(
-                $this->dbi,
-                $cfg['Server']['DisableIS']
-            );
-
+            $serverCharset = Charsets::getServerCharset($this->dbi, $cfg['Server']['DisableIS']);
             $databaseServer = [
                 'host' => $hostInfo,
                 'type' => Util::getServerType(),
@@ -180,7 +175,7 @@ class HomeController extends AbstractController
                 'version' => $this->dbi->getVersionString() . ' - ' . $this->dbi->getVersionComment(),
                 'protocol' => $this->dbi->getProtoInfo(),
                 'user' => $this->dbi->fetchValue('SELECT USER();'),
-                'charset' => $charsets[$unicode] . ' (' . $unicode . ')',
+                'charset' => $serverCharset->getDescription() . ' (' . $serverCharset->getName() . ')',
             ];
         }
 
