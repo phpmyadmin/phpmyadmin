@@ -48,7 +48,6 @@ cache:
 jobs:
   allow_failures:
     - php: nightly
-    - os: osx
     - name: "PHP 7.1 with dbase extension"
     - name: "PHP 7.4"
 
@@ -115,6 +114,7 @@ jobs:
             - php
             - composer
             - mariadb
+          update: true
 
     - stage: "PHP Unit tests"
       name: "Windows"
