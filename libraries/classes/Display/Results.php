@@ -1400,6 +1400,9 @@ class Results
             ? ' colspan="4"'
             : '';
 
+        $leftOrBoth = $GLOBALS['cfg']['RowActionLinks'] === self::POSITION_LEFT
+                   || $GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH;
+
         //     ... before the result table
         if (($displayParts['edit_lnk'] == self::NO_EDIT_OR_DELETE)
             && ($displayParts['del_lnk'] == self::NO_EDIT_OR_DELETE)
@@ -1408,9 +1411,7 @@ class Results
             $display_params['emptypre']
                 = ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
                 && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE) ? 4 : 0;
-        } elseif (($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_LEFT)
-            || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH)
-            && ($displayParts['text_btn'] == '1')
+        } elseif ($leftOrBoth && ($displayParts['text_btn'] == '1')
         ) {
             //     ... at the left column of the result table header if possible
             //     and required
@@ -1421,8 +1422,7 @@ class Results
 
             $button_html .= '<th class="column_action print_ignore" ' . $colspan
                 . '>' . $full_or_partial_text_link . '</th>';
-        } elseif (($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_LEFT)
-            || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH)
+        } elseif ($leftOrBoth
             && (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
             || ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE))
         ) {
