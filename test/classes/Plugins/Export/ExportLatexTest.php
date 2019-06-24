@@ -324,7 +324,7 @@ class ExportLatexTest extends PmaTestCase
         );
 
         $this->assertEquals(
-            'Display media (MIME) types',
+            'Display media types',
             $property->getText()
         );
 

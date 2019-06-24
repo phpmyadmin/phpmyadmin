@@ -565,7 +565,7 @@ class ExportHtmlwordTest extends PmaTestCase
             '<td class="print"><strong>Null</strong></td>' .
             '<td class="print"><strong>Default</strong></td>' .
             '<td class="print"><strong>Comments</strong></td>' .
-            '<td class="print"><strong>Media (MIME) type</strong></td></tr>' .
+            '<td class="print"><strong>Media type</strong></td></tr>' .
             '1<td class="print"></td><td class="print">Test&lt;</td></tr></table>',
             $result
         );
