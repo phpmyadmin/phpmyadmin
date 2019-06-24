@@ -113,7 +113,7 @@ class ExportOdt extends ExportPlugin
             if (! empty($GLOBALS['cfgRelation']['mimework'])) {
                 $leaf = new BoolPropertyItem(
                     "mime",
-                    __('Display MIME types')
+                    __('Display media (MIME) types')
                 );
                 $structureOptions->addProperty($leaf);
             }
@@ -512,7 +512,7 @@ class ExportOdt extends ExportPlugin
         }
         if ($do_mime && $cfgRelation['mimework']) {
             $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-                . '<text:p>' . __('MIME type') . '</text:p>'
+                . '<text:p>' . __('Media (MIME) type') . '</text:p>'
                 . '</table:table-cell>';
             $mime_map = $this->transformations->getMime($db, $table, true);
         }
