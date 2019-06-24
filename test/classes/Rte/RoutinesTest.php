@@ -369,27 +369,27 @@ class RoutinesTest extends TestCase
             [
                 $data,
                 0,
-                "<select name='item_param_dir[0]'",
+                '<select name="item_param_dir[0]"',
             ],
             [
                 $data,
                 0,
-                "<input name='item_param_name[0]'",
+                '<input name="item_param_name[0]"',
             ],
             [
                 $data,
                 0,
-                "<select name='item_param_type[0]'",
+                '<select name="item_param_type[0]"',
             ],
             [
                 $data,
                 0,
-                "<select name='item_param_opts_num[0]'",
+                '<select name="item_param_opts_num[0]"',
             ],
             [
                 $data,
                 0,
-                "<a href='#' class='routine_param_remove_anchor'",
+                '<a href="#" class="routine_param_remove_anchor"',
             ],
         ];
     }
@@ -452,23 +452,23 @@ class RoutinesTest extends TestCase
         return [
             [
                 $data,
-                "<select name='item_param_dir[%s]'",
+                '<select name="item_param_dir[%s]"',
             ],
             [
                 $data,
-                "<input name='item_param_name[%s]'",
+                '<input name="item_param_name[%s]"',
             ],
             [
                 $data,
-                "<select name='item_param_dir[%s]'",
+                '<select name="item_param_dir[%s]"',
             ],
             [
                 $data,
-                "<select name='item_param_opts_num[%s]'",
+                '<select name="item_param_opts_num[%s]"',
             ],
             [
                 $data,
-                "<a href='#' class='routine_param_remove_anchor'",
+                '<a href="#" class="routine_param_remove_anchor"',
             ],
         ];
     }
