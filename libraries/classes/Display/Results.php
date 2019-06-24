@@ -1395,9 +1395,10 @@ class Results
         // 1. Displays the full/partial text button (part 1)...
         $button_html .= '<thead><tr>' . "\n";
 
-        $colspan = ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
-            && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)
-            ? ' colspan="4"'
+        $emptyPreCondition = $displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE
+                           && $displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE;
+
+        $colspan = $emptyPreCondition ? ' colspan="4"'
             : '';
 
         $leftOrBoth = $GLOBALS['cfg']['RowActionLinks'] === self::POSITION_LEFT
@@ -1408,17 +1409,13 @@ class Results
             && ($displayParts['del_lnk'] == self::NO_EDIT_OR_DELETE)
             && ($displayParts['text_btn'] == '1')
         ) {
-            $display_params['emptypre']
-                = ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
-                && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE) ? 4 : 0;
+            $display_params['emptypre'] = $emptyPreCondition ? 4 : 0;
         } elseif ($leftOrBoth && ($displayParts['text_btn'] == '1')
         ) {
             //     ... at the left column of the result table header if possible
             //     and required
 
-            $display_params['emptypre']
-                = ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
-                && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE) ? 4 : 0;
+            $display_params['emptypre'] = $emptyPreCondition ? 4 : 0;
 
             $button_html .= '<th class="column_action print_ignore" ' . $colspan
                 . '>' . $full_or_partial_text_link . '</th>';
@@ -1428,9 +1425,7 @@ class Results
         ) {
             //     ... elseif no button, displays empty(ies) col(s) if required
 
-            $display_params['emptypre']
-                = ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
-                && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE) ? 4 : 0;
+            $display_params['emptypre'] = $emptyPreCondition ? 4 : 0;
 
             $button_html .= '<td ' . $colspan . '></td>';
         } elseif ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_NONE) {
