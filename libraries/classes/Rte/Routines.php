@@ -999,13 +999,20 @@ class Routines
         $retval .= "<tr class='routine_return_row" . $isfunction_class . "'>";
         $retval .= "    <td>" . __('Return options') . "</td>";
         $retval .= "    <td><div>";
-        $retval .= Charsets::getCharsetDropdownBox(
-            $this->dbi,
-            $GLOBALS['cfg']['Server']['DisableIS'],
-            "item_returnopts_text",
-            null,
-            $routine['item_returnopts_text']
-        );
+        $retval .= '<select lang="en" dir="ltr" name="item_returnopts_text">' . "\n";
+        $retval .= '<option value="">' . __('Charset') . '</option>' . "\n";
+        $retval .= '<option value=""></option>' . "\n";
+
+        $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
+        /** @var Charset $charset */
+        foreach ($charsets as $charset) {
+            $retval .= '<option value="' . $charset->getName()
+                . '" title="' . $charset->getDescription() . '"'
+                . ($routine['item_returnopts_text'] == $charset->getName() ? ' selected' : '') . '>'
+                . $charset->getName() . '</option>' . "\n";
+        }
+
+        $retval .= '</select>' . "\n";
         $retval .= "    </div>";
         $retval .= "    <div><select name='item_returnopts_num'>";
         $retval .= "        <option value=''></option>";

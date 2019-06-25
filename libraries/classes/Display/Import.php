@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Display;
 
+use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Display\ImportAjax;
 use PhpMyAdmin\Encoding;
@@ -88,6 +90,16 @@ class Import
             $compressions[] = 'zip';
         }
 
+        $allCharsets = Charsets::getCharsets($GLOBALS['dbi'], $cfg['Server']['DisableIS']);
+        $charsets = [];
+        /** @var Charset $charset */
+        foreach ($allCharsets as $charset) {
+            $charsets[] = [
+                'name' => $charset->getName(),
+                'description' => $charset->getDescription(),
+            ];
+        }
+
         return $template->render('display/import/import', [
             'upload_id' => $uploadId,
             'handler' => $_SESSION[$SESSION_KEY]["handler"],
@@ -106,11 +118,10 @@ class Import
             'is_encoding_supported' => Encoding::isSupported(),
             'encodings' => Encoding::listEncodings(),
             'import_charset' => isset($cfg['Import']['charset']) ? $cfg['Import']['charset'] : null,
-            'dbi' => $GLOBALS['dbi'],
-            'disable_is' => $cfg['Server']['DisableIS'],
             'timeout_passed' => isset($timeoutPassed) ? $timeoutPassed : null,
             'offset' => isset($offset) ? $offset : null,
             'can_convert_kanji' => Encoding::canConvertKanji(),
+            'charsets' => $charsets,
         ]);
     }
 }

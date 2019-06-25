@@ -437,28 +437,4 @@ class CharsetsTest extends TestCase
         $this->assertStringNotContainsString('value="latin2_general1_ci"', $result);
         $this->assertStringContainsString('title="Swedish', $result);
     }
-
-    /**
-     * Test for getCharsetDropdownBox
-     *
-     * @return void
-     * @test
-     */
-    public function testGetCharsetDropdownBox()
-    {
-        $result = Charsets::getCharsetDropdownBox(
-            $GLOBALS['dbi'],
-            $GLOBALS['cfg']['Server']['DisableIS'],
-            null,
-            "test_id",
-            "latin1",
-            false,
-            true
-        );
-        $this->assertStringContainsString('name="character_set"', $result);
-        $this->assertStringNotContainsString('Charset</option>', $result);
-        $this->assertStringContainsString('class="autosubmit"', $result);
-        $this->assertStringContainsString('id="test_id"', $result);
-        $this->assertStringContainsString('selected>latin1', $result);
-    }
 }

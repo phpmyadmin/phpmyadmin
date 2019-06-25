@@ -188,50 +188,6 @@ class Charsets
     }
 
     /**
-     * Generate charset dropdown box
-     *
-     * @param DatabaseInterface $dbi            DatabaseInterface instance
-     * @param boolean           $disableIs      Disable use of INFORMATION_SCHEMA
-     * @param string            $name           Element name
-     * @param string            $id             Element id
-     * @param null|string       $default        Default value
-     * @param bool              $label          Label
-     * @param bool              $submitOnChange Submit on change
-     *
-     * @return string
-     */
-    public static function getCharsetDropdownBox(
-        DatabaseInterface $dbi,
-        bool $disableIs,
-        ?string $name = null,
-        ?string $id = null,
-        ?string $default = null,
-        bool $label = true,
-        bool $submitOnChange = false
-    ): string {
-        self::loadCharsets($dbi, $disableIs);
-
-        $charsets = [];
-        /** @var Charset $charset */
-        foreach (self::$charsets as $charset) {
-            $charsets[] = [
-                'name' => $charset->getName(),
-                'description' => $charset->getDescription(),
-                'is_selected' => $default === $charset->getName(),
-            ];
-        }
-
-        $template = new Template();
-        return $template->render('charset_select', [
-            'name' => $name,
-            'id' => $id,
-            'submit_on_change' => $submitOnChange,
-            'has_label' => $label,
-            'charsets' => $charsets,
-        ]);
-    }
-
-    /**
      * Generate collation dropdown box
      *
      * @param DatabaseInterface $dbi            DatabaseInterface instance
