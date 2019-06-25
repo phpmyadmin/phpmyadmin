@@ -188,60 +188,6 @@ class Charsets
     }
 
     /**
-     * Generate collation dropdown box
-     *
-     * @param DatabaseInterface $dbi            DatabaseInterface instance
-     * @param boolean           $disableIs      Disable use of INFORMATION_SCHEMA
-     * @param string            $name           Element name
-     * @param string            $id             Element id
-     * @param null|string       $default        Default value
-     * @param bool              $label          Label
-     * @param bool              $submitOnChange Submit on change
-     *
-     * @return string
-     */
-    public static function getCollationDropdownBox(
-        DatabaseInterface $dbi,
-        bool $disableIs,
-        ?string $name = null,
-        ?string $id = null,
-        ?string $default = null,
-        bool $label = true,
-        bool $submitOnChange = false
-    ): string {
-        self::loadCharsets($dbi, $disableIs);
-        self::loadCollations($dbi, $disableIs);
-
-        $charsets = [];
-        /** @var Charset $charset */
-        foreach (self::$charsets as $charset) {
-            $collations = [];
-            /** @var Collation $collation */
-            foreach (self::$collations[$charset->getName()] as $collation) {
-                $collations[] = [
-                    'name' => $collation->getName(),
-                    'description' => $collation->getDescription(),
-                    'is_selected' => $default === $collation->getName(),
-                ];
-            }
-            $charsets[] = [
-                'name' => $charset->getName(),
-                'description' => $charset->getDescription(),
-                'collations' => $collations,
-            ];
-        }
-
-        $template = new Template();
-        return $template->render('collation_select', [
-            'name' => $name,
-            'id' => $id,
-            'submit_on_change' => $submitOnChange,
-            'has_label' => $label,
-            'charsets' => $charsets,
-        ]);
-    }
-
-    /**
      * Returns description for given collation
      *
      * @param string $collation MySQL collation string

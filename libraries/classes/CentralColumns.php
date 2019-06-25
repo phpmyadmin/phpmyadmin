@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Charsets\Charset;
+use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\Message;
 
 /**
@@ -808,17 +810,28 @@ class CentralColumns
                 'char_editing' => $this->charEditing,
             ])
             . '</td>';
-        $tableHtml .=
-            '<td name="collation" class="nowrap">'
-            . Charsets::getCollationDropdownBox(
-                $this->dbi,
-                $this->disableIs,
-                'field_collation[' . $row_num . ']',
-                'field_' . $row_num . '_4',
-                $row['col_collation'],
-                false
-            )
-            . '</td>';
+        $tableHtml .= '<td name="collation" class="nowrap">';
+        $tableHtml .= '<select lang="en" dir="ltr" name="field_collation[' . $row_num . ']"';
+        $tableHtml .= ' id="field_' . $row_num . '_4">' . "\n";
+        $tableHtml .= '<option value=""></option>' . "\n";
+
+        $charsets = Charsets::getCharsets($this->dbi, $this->disableIs);
+        $collations = Charsets::getCollations($this->dbi, $this->disableIs);
+        /** @var Charset $charset */
+        foreach ($charsets as $charset) {
+            $tableHtml .= '<optgroup label="' . $charset->getName()
+                . '" title="' . $charset->getDescription() . '">' . "\n";
+            /** @var Collation $collation */
+            foreach ($collations[$charset->getName()] as $collation) {
+                $tableHtml .= '<option value="' . $collation->getName()
+                    . '" title="' . $collation->getDescription() . '"'
+                    . ($row['col_collation'] == $collation->getName() ? ' selected' : '') . '>'
+                    . $collation->getName() . '</option>' . "\n";
+            }
+            $tableHtml .= '</optgroup>' . "\n";
+        }
+        $tableHtml .= '</select>' . "\n";
+        $tableHtml .= '</td>';
         $tableHtml .=
             '<td class="nowrap" name="col_attribute">'
             . $this->template->render('columns_definitions/column_attribute', [
@@ -1153,9 +1166,28 @@ class CentralColumns
             $row_num++;
         }
 
+        $charsets = Charsets::getCharsets($this->dbi, $this->disableIs);
+        $collations = Charsets::getCollations($this->dbi, $this->disableIs);
+        $charsetsList = [];
+        /** @var Charset $charset */
+        foreach ($charsets as $charset) {
+            $collationsList = [];
+            /** @var Collation $collation */
+            foreach ($collations[$charset->getName()] as $collation) {
+                $collationsList[] = [
+                    'name' => $collation->getName(),
+                    'description' => $collation->getDescription(),
+                ];
+            }
+            $charsetsList[] = [
+                'name' => $charset->getName(),
+                'description' => $charset->getDescription(),
+                'collations' => $collationsList,
+            ];
+        }
+
         return $this->template->render('database/central_columns/main', [
             "db" => $db,
-            "dbi" => $this->dbi,
             "total_rows" => $total_rows,
             "max_rows" => $max_rows,
             "pos" => $pos,
@@ -1167,9 +1199,9 @@ class CentralColumns
             "rows_list" => $rows_list,
             "rows_meta" => $rows_meta,
             "types_upper" => $types_upper,
-            "disableIs" => $this->disableIs,
             "pmaThemeImage" => $pmaThemeImage,
             "text_dir" => $text_dir,
+            'charsets' => $charsetsList,
         ]);
     }
 }

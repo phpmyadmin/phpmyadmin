@@ -412,29 +412,4 @@ class CharsetsTest extends TestCase
             ],
         ];
     }
-
-    /**
-     * Test for getCollationDropdownBox
-     *
-     * @return void
-     * @test
-     */
-    public function testGetCollationDropdownBox()
-    {
-        $result = Charsets::getCollationDropdownBox(
-            $GLOBALS['dbi'],
-            $GLOBALS['cfg']['Server']['DisableIS']
-        );
-
-        $this->assertStringContainsString('name="collation"', $result);
-        $this->assertStringNotContainsString('id="', $result);
-        $this->assertStringNotContainsString('class="autosubmit"', $result);
-        $this->assertStringContainsString('<option value="">Collation', $result);
-        $this->assertStringContainsString('<option value=""></option>', $result);
-        $this->assertStringContainsString('<optgroup label="latin1', $result);
-        $this->assertStringNotContainsString('<optgroup label="latin2', $result);
-        $this->assertStringContainsString('title="cp1252', $result);
-        $this->assertStringNotContainsString('value="latin2_general1_ci"', $result);
-        $this->assertStringContainsString('title="Swedish', $result);
-    }
 }

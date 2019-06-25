@@ -10,6 +10,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Charsets\Charset;
+use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
@@ -114,15 +116,26 @@ class HomeController extends AbstractController
                     ]);
                 }
 
-                $serverCollation = Charsets::getCollationDropdownBox(
-                    $this->dbi,
-                    $cfg['Server']['DisableIS'],
-                    'collation_connection',
-                    'select_collation_connection',
-                    $collation_connection,
-                    true,
-                    true
-                );
+                $charsets = Charsets::getCharsets($this->dbi, $cfg['Server']['DisableIS']);
+                $collations = Charsets::getCollations($this->dbi, $cfg['Server']['DisableIS']);
+                $charsetsList = [];
+                /** @var Charset $charset */
+                foreach ($charsets as $charset) {
+                    $collationsList = [];
+                    /** @var Collation $collation */
+                    foreach ($collations[$charset->getName()] as $collation) {
+                        $collationsList[] = [
+                            'name' => $collation->getName(),
+                            'description' => $collation->getDescription(),
+                            'is_selected' => $collation_connection === $collation->getName(),
+                        ];
+                    }
+                    $charsetsList[] = [
+                        'name' => $charset->getName(),
+                        'description' => $charset->getDescription(),
+                        'collations' => $collationsList,
+                    ];
+                }
 
                 $userPreferences = $this->template->render('list/item', [
                     'content' => Util::getImage('b_tblops') . ' ' . __(
@@ -251,7 +264,7 @@ class HomeController extends AbstractController
             'has_server_selection' => $hasServerSelection ?? false,
             'server_selection' => $serverSelection ?? '',
             'change_password' => $changePassword ?? '',
-            'server_collation' => $serverCollation ?? '',
+            'charsets' => $charsetsList ?? [],
             'language_selector' => $languageSelector,
             'theme_selection' => $themeSelection,
             'user_preferences' => $userPreferences ?? '',

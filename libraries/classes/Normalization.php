@@ -9,6 +9,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Charsets\Charset;
+use PhpMyAdmin\Charsets\Collation;
+
 /**
  * Set of functions used for normalization
  *
@@ -157,6 +160,26 @@ class Normalization
             ];
         }
 
+        $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
+        $collations = Charsets::getCollations($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
+        $charsetsList = [];
+        /** @var Charset $charset */
+        foreach ($charsets as $charset) {
+            $collationsList = [];
+            /** @var Collation $collation */
+            foreach ($collations[$charset->getName()] as $collation) {
+                $collationsList[] = [
+                    'name' => $collation->getName(),
+                    'description' => $collation->getDescription(),
+                ];
+            }
+            $charsetsList[] = [
+                'name' => $charset->getName(),
+                'description' => $charset->getDescription(),
+                'collations' => $collationsList,
+            ];
+        }
+
         return $this->template->render('columns_definitions/table_fields_definitions', [
             'is_backup' => true,
             'fields_meta' => null,
@@ -171,8 +194,7 @@ class Normalization
             'attribute_types' => $this->dbi->types->getAttributes(),
             'privs_available' => $GLOBALS['col_priv'] && $GLOBALS['is_reload_priv'],
             'max_length' => $this->dbi->getVersion() >= 50503 ? 1024 : 255,
-            'dbi' => $this->dbi,
-            'disable_is' => $GLOBALS['cfg']['Server']['DisableIS'],
+            'charsets' => $charsetsList,
         ]);
     }
 

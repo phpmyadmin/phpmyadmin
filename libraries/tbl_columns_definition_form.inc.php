@@ -8,6 +8,9 @@
  */
 declare(strict_types=1);
 
+use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Charsets\Charset;
+use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Partition;
 use PhpMyAdmin\Relation;
@@ -479,6 +482,27 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
 } // end for
 
 $partitionDetails = TablePartitionDefinition::getDetails();
+
+$charsets = Charsets::getCharsets($GLOBALS['dbi'], $GLOBALS['cfg']['Server']['DisableIS']);
+$collations = Charsets::getCollations($GLOBALS['dbi'], $GLOBALS['cfg']['Server']['DisableIS']);
+$charsetsList = [];
+/** @var Charset $charset */
+foreach ($charsets as $charset) {
+    $collationsList = [];
+    /** @var Collation $collation */
+    foreach ($collations[$charset->getName()] as $collation) {
+        $collationsList[] = [
+            'name' => $collation->getName(),
+            'description' => $collation->getDescription(),
+        ];
+    }
+    $charsetsList[] = [
+        'name' => $charset->getName(),
+        'description' => $charset->getDescription(),
+        'collations' => $collationsList,
+    ];
+}
+
 $html = $template->render('columns_definitions/column_definitions_form', [
     'is_backup' => $is_backup,
     'fields_meta' => isset($fields_meta) ? $fields_meta : null,
@@ -495,6 +519,7 @@ $html = $template->render('columns_definitions/column_definitions_form', [
     'table' => isset($_POST['table']) ? $_POST['table'] : null,
     'comment' => isset($_POST['comment']) ? $_POST['comment'] : null,
     'tbl_collation' => isset($_POST['tbl_collation']) ? $_POST['tbl_collation'] : null,
+    'charsets' => $charsetsList,
     'tbl_storage_engine' => isset($_POST['tbl_storage_engine']) ? $_POST['tbl_storage_engine'] : null,
     'connection' => isset($_POST['connection']) ? $_POST['connection'] : null,
     'change_column' => isset($_POST['change_column']) ? $_POST['change_column'] : null,

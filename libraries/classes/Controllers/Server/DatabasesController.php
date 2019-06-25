@@ -10,6 +10,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Charsets\Charset;
+use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
@@ -97,16 +99,28 @@ class DatabasesController extends AbstractController
 
         $databases = $this->getDatabases($replication_types ?? []);
 
-        $collationDropdownBox = '';
+        $charsetsList = [];
         if ($cfg['ShowCreateDb'] && $is_create_db_priv) {
-            $collationDropdownBox = Charsets::getCollationDropdownBox(
-                $this->dbi,
-                $cfg['Server']['DisableIS'],
-                'db_collation',
-                null,
-                $this->dbi->getServerCollation(),
-                true
-            );
+            $charsets = Charsets::getCharsets($this->dbi, $cfg['Server']['DisableIS']);
+            $collations = Charsets::getCollations($this->dbi, $cfg['Server']['DisableIS']);
+            $serverCollation = $this->dbi->getServerCollation();
+            /** @var Charset $charset */
+            foreach ($charsets as $charset) {
+                $collationsList = [];
+                /** @var Collation $collation */
+                foreach ($collations[$charset->getName()] as $collation) {
+                    $collationsList[] = [
+                        'name' => $collation->getName(),
+                        'description' => $collation->getDescription(),
+                        'is_selected' => $serverCollation === $collation->getName(),
+                    ];
+                }
+                $charsetsList[] = [
+                    'name' => $charset->getName(),
+                    'description' => $charset->getDescription(),
+                    'collations' => $collationsList,
+                ];
+            }
         }
 
         $headerStatistics = $this->getStatisticsColumns();
@@ -119,7 +133,7 @@ class DatabasesController extends AbstractController
             'databases' => $databases['databases'],
             'total_statistics' => $databases['total_statistics'],
             'header_statistics' => $headerStatistics,
-            'collation_dropdown_box' => $collationDropdownBox,
+            'charsets' => $charsetsList,
             'database_count' => $this->databaseCount,
             'pos' => $this->position,
             'url_params' => $urlParams,
