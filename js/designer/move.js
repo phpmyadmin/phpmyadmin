@@ -627,7 +627,7 @@ DesignerMove.save = function (url) {
         document.getElementById('t_h_' + key + '_').value = document.getElementById('check_vis_' + key).checked ? 1 : 0;
     }
     document.form1.action = url;
-    $(document.form1).submit();
+    $(document.form1).trigger('submit');
 };
 
 DesignerMove.getUrlPos = function (forceString) {
@@ -735,7 +735,7 @@ DesignerMove.save3 = function (callback) {
         var buttonOptions = {};
         buttonOptions[Messages.strGo] = function () {
             var $form = $('#save_page');
-            $form.submit();
+            $form.trigger('submit');
         };
         buttonOptions[Messages.strCancel] = function () {
             $(this).dialog('close');
@@ -1043,7 +1043,7 @@ DesignerMove.promptToSaveCurrentPage = function (callback) {
 DesignerMove.exportPages = function () {
     var buttonOptions = {};
     buttonOptions[Messages.strGo] = function () {
-        $('#id_export_pages').submit();
+        $('#id_export_pages').trigger('submit');
         $(this).dialog('close');
     };
     buttonOptions[Messages.strCancel] = function () {

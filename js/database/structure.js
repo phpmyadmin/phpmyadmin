@@ -222,7 +222,7 @@ AJAX.registerOnload('database/structure.js', function () {
             event.stopPropagation();
             jqConfirm(
                 Messages.makeConsistentMessage, function () {
-                    $('#tablesForm').submit();
+                    $('#tablesForm').trigger('submit');
                 }
             );
             return false;
@@ -254,7 +254,7 @@ AJAX.registerOnload('database/structure.js', function () {
                 $('body').append(dialogObj);
                 var buttonOptions = {};
                 buttonOptions[Messages.strContinue] = function () {
-                    $('#ajax_form').submit();
+                    $('#ajax_form').trigger('submit');
                     $(this).dialog('close');
                 };
                 buttonOptions[Messages.strCancel] = function () {
@@ -270,7 +270,7 @@ AJAX.registerOnload('database/structure.js', function () {
                 });
             });
         } else {
-            $('#tablesForm').submit();
+            $('#tablesForm').trigger('submit');
         }
     });
 

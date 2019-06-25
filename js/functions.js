@@ -1021,7 +1021,7 @@ AJAX.registerOnload('functions.js', function () {
                         $('.ui-dialog').each(function () {
                             $('#' + $(this).attr('aria-describedby')).dialog('close');
                         });
-                        $('#input_username').focus();
+                        $('#input_username').trigger('focus');
                     } else {
                         CommonParams.set('token', data.new_token);
                         $('input[name=token]').val(data.new_token);
@@ -1846,7 +1846,7 @@ AJAX.registerOnload('functions.js', function () {
             return false;
         }
         $('.success').hide();
-        $fakeForm.appendTo($('body')).submit();
+        $fakeForm.appendTo($('body')).trigger('submit');
     });
 
     $(document).on('click', 'input#sql_query_edit_discard', function () {
@@ -1990,7 +1990,7 @@ Functions.bindCodeMirrorToInlineEditor = function () {
                 .on('keydown', Functions.catchKeypressesFromSqlInlineEdit);
         } else {
             $inlineEditor
-                .focus()
+                .trigger('focus')
                 .on('keydown', Functions.catchKeypressesFromSqlInlineEdit);
         }
     }
@@ -2455,7 +2455,7 @@ $(function () {
         var $temp = $('<input>');
         $temp.css({ 'position': 'fixed', 'width': '2em', 'border': 0, 'top': 0, 'left': 0, 'padding': 0, 'background': 'transparent' });
         $('body').append($temp);
-        $temp.val(text).select();
+        $temp.val(text).trigger('select');
         try {
             var res = document.execCommand('copy');
             $temp.remove();
@@ -3066,7 +3066,7 @@ Functions.checkPassword = function ($theForm) {
         alert(alertMessage);
         $password.val('');
         $passwordRepeat.val('');
-        $password.focus();
+        $password.trigger('focus');
         return false;
     }
     return true;
@@ -3088,7 +3088,7 @@ AJAX.registerOnload('functions.js', function () {
         } else if (this.value === 'hosttable') {
             hostname.val('').prop('required', false);
         } else if (this.value === 'userdefined') {
-            hostname.focus().select().prop('required', true);
+            hostname.trigger('focus').select().prop('required', true);
         }
     });
 
@@ -3104,7 +3104,7 @@ AJAX.registerOnload('functions.js', function () {
             $('#pma_username').val('').prop('required', false);
             $('#user_exists_warning').css('display', 'none');
         } else if (this.value === 'userdefined') {
-            $('#pma_username').focus().select().prop('required', true);
+            $('#pma_username').trigger('focus').select().prop('required', true);
         }
     });
 
@@ -3121,7 +3121,7 @@ AJAX.registerOnload('functions.js', function () {
             $('#text_pma_pw').prop('required', false).val('');
         } else if (this.value === 'userdefined') {
             $('#text_pma_pw2').prop('required', true);
-            $('#text_pma_pw').prop('required', true).focus().select();
+            $('#text_pma_pw').prop('required', true).trigger('focus').select();
         } else {
             $('#text_pma_pw2').prop('required', false);
             $('#text_pma_pw').prop('required', false);
@@ -3218,7 +3218,7 @@ AJAX.registerOnload('functions.js', function () {
             $('fieldset#fieldset_change_password')
                 .find('legend').remove().end()
                 .find('table.noclick').unwrap().addClass('some-margin')
-                .find('input#text_pma_pw').focus();
+                .find('input#text_pma_pw').trigger('focus');
             $('#fieldset_change_password_footer').hide();
             Functions.ajaxRemoveMessage($msgbox);
             Functions.displayPasswordGenerateButton();
@@ -3500,7 +3500,7 @@ AJAX.registerOnload('functions.js', function () {
             buttons: buttonOptions,
             open: function () {
                 // Focus the "Go" button after opening the dialog
-                $(this).closest('.ui-dialog').find('.ui-dialog-buttonpane button:first').focus();
+                $(this).closest('.ui-dialog').find('.ui-dialog-buttonpane button:first').trigger('focus');
             },
             close: function () {
                 $(this).remove();
@@ -3646,7 +3646,7 @@ AJAX.registerOnload('functions.js', function () {
                     }
                     return false;
                 });
-                $(this).closest('.ui-dialog').find('.ui-dialog-buttonpane button:first').focus();
+                $(this).closest('.ui-dialog').find('.ui-dialog-buttonpane button:first').trigger('focus');
             },
             close: function () {
                 $('#col_list').off('click', '.pick');
@@ -3738,7 +3738,7 @@ AJAX.registerOnload('functions.js', function () {
             if ($(this).find('option:selected').val() === '') {
                 return true;
             }
-            $(this).closest('tr').find('input').focus();
+            $(this).closest('tr').find('input').trigger('focus');
         };
 
         while (rowsToAdd--) {
@@ -3882,14 +3882,14 @@ Functions.showIndexEditDialog = function ($outer) {
         if ($(this).find('option:selected').val() === '') {
             return true;
         }
-        $(this).closest('tr').find('input').focus();
+        $(this).closest('tr').find('input').trigger('focus');
     });
     // Focus the slider, otherwise it looks nearly transparent
     $('a.ui-slider-handle').addClass('ui-state-focus');
     // set focus on index name input, if empty
     var input = $outer.find('input#input_index_name');
     if (! input.val()) {
-        input.focus();
+        input.trigger('focus');
     }
 };
 
@@ -4342,7 +4342,7 @@ AJAX.registerOnload('functions.js', function () {
             codeMirrorEditor.on('blur', Functions.updateQueryParameters);
         } else {
             // without codemirror
-            $elm.focus().on('blur', Functions.updateQueryParameters);
+            $elm.trigger('focus').on('blur', Functions.updateQueryParameters);
         }
     }
     Functions.highlightSql($('body'));
@@ -4437,7 +4437,7 @@ AJAX.registerOnload('functions.js', function () {
      * Automatic form submission on change.
      */
     $(document).on('change', '.autosubmit', function () {
-        $(this).closest('form').submit();
+        $(this).closest('form').trigger('submit');
     });
 
     /**
@@ -4542,7 +4542,7 @@ AJAX.registerOnload('functions.js', function () {
 
                 // with preventing default, selection by <select> tag
                 // was also prevented in IE
-                $(this).blur();
+                $(this).trigger('blur');
 
                 $(this).closest('.ui-dialog').find('.ui-button:first').trigger('click');
             }
@@ -4594,7 +4594,7 @@ Functions.createViewDialog = function ($this) {
             });
             // Attach syntax highlighted editor
             codeMirrorEditor = Functions.getSqlEditor($dialog.find('textarea'));
-            $('input:visible[type=text]', $dialog).first().focus();
+            $('input:visible[type=text]', $dialog).first().trigger('focus');
         } else {
             Functions.ajaxShowMessage(data.error);
         }
@@ -4890,7 +4890,7 @@ Functions.toggleDatepickerIfInvalid = function ($td, $inputField) {
  * Function to submit the login form after validation is done.
  */
 Functions.recaptchaCallback = function () {
-    $('#login_form').submit();
+    $('#login_form').trigger('submit');
 };
 
 /**
@@ -4913,7 +4913,7 @@ AJAX.registerOnload('functions.js', function () {
             if (! $form.find('input[type="submit"]:first') ||
                 ! $form.find('input[type="submit"]:first').trigger('click')
             ) {
-                $form.submit();
+                $form.trigger('submit');
             }
         }
     });

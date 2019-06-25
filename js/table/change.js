@@ -463,7 +463,7 @@ AJAX.registerOnload('table/change.js', function () {
     /**
      * Handle ENTER key when press on Continue insert with field
      */
-    $('#insert_rows').keypress(function (e) {
+    $('#insert_rows').on('keypress', function (e) {
         var key = e.which;
         if (key === 13) {
             addNewContinueInsertionFiels(e);

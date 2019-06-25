@@ -1318,7 +1318,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             drawTimeSpan = false;
         });
 
-        $(document.body).mouseup(function () {
+        $(document.body).on('mouseup', function () {
             if ($('#selection_box').length) {
                 $('#selection_box').remove();
             }
