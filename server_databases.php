@@ -30,18 +30,18 @@ $dbi = $containerBuilder->get(DatabaseInterface::class);
 $checkUserPrivileges = new CheckUserPrivileges($dbi);
 $checkUserPrivileges->getPrivileges();
 
-if ( ! empty($_REQUEST['favorite_db'])) {
+if ( ! empty($_POST['favorite_db'])) {
     $json = $controller->addRemoveFavoriteDatabaseAction([
-        'favorite_database' => $_REQUEST['favorite_db'],
-        'favoriteDatabases' => $_REQUEST['favoriteDatabases'] ?? null,
-        'sync_favorite_databases' => $_REQUEST['sync_favorite_databases'] ?? null,
-        'add_favorite' => $_REQUEST['add_favorite'] ?? null,
-        'remove_favorite' => $_REQUEST['remove_favorite'] ?? null,
+        'favorite_database' => $_POST['favorite_db'],
+        'favoriteDatabases' => $_POST['favoriteDatabases'] ?? null,
+        'sync_favorite_databases' => $_POST['sync_favorite_databases'] ?? null,
+        'add_favorite' => $_POST['add_favorite'] ?? null,
+        'remove_favorite' => $_POST['remove_favorite'] ?? null,
     ]);
     if ($json !== null) {
         $response->addJSON($json);
     }
-} 
+}
 elseif (isset($_POST['drop_selected_dbs'])
     && $response->isAjax()
     && ($dbi->isSuperuser() || $GLOBALS['cfg']['AllowUserDropDatabase'])

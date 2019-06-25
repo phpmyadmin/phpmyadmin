@@ -1574,9 +1574,9 @@ class NavigationTree
             $retval .= RecentFavoriteTable::getInstance('favorite_table')
                 ->getHtml();
         }
-        $retval .= FavoriteDatabase::getInstance('favorite_db')         
+        $retval .= FavoriteDatabase::getInstance('favorite_db')
         ->getHtml();
-        
+
         $retval .= '<div class="clearfloat"></div>';
         $retval .= '</div>';
 

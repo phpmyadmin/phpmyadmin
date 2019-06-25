@@ -78,7 +78,7 @@ class RecentFavoriteTable
      */
     public static function getInstance($type)
     {
-        
+
         if (! array_key_exists($type, self::$_instances)) {
             self::$_instances[$type] = new RecentFavoriteTable($type);
         }
@@ -233,7 +233,7 @@ class RecentFavoriteTable
                     $html .= '</li>';
                 }
             }
-        } else {    
+        } else {
                     $html = '<li class="warp_link">';
                     if ($this->_tableType == 'recent'){
                      $html .= 'There are no recent tables' ;
@@ -262,12 +262,12 @@ class RecentFavoriteTable
             $html .= '<button title="' . __('Recent tables')
                 . '" class="drop_button btn">'
                 . __('Recent') . '</button><ul id="pma_recent_list">';
-        } 
+        }
         if ($this->_tableType == 'favorite_table') {
             $html .= '<button title="' . __('Favorite tables')
                 . '" class="drop_button btn">'
                 . __('Favorite Tables') . '</button><ul id="pma_favorite_list">';
-        } 
+        }
 
         $html .= $this->getHtmlList();
         $html .= '</ul></div>';
@@ -374,33 +374,6 @@ class RecentFavoriteTable
         }
         return $retval;
     }
-
-        /**
-     * Generate Html for sync Favorite Databases anchor. (from localStorage to pmadb)
-     *
-     * @return string
-     */
-    // public function getHtmlSyncFavoriteDatabases()
-    // {
-    //     $retval = '';
-    //     $server_id = $GLOBALS['server'];
-    //     if ($server_id == 0) {
-    //         return '';
-    //     }
-    //     $cfgRelation = $this->relation->getRelationsParam();
-    //     // Not to show this once list is synchronized.
-    //     if ($cfgRelation['favoritework'] && ! isset($_SESSION['tmpval']['favorites_synced'][$server_id])) {
-    //         $params  = [
-    //             'ajax_request' => true,
-    //             'favorite_db' => true,
-    //             'sync_favorite_tables' => true,
-    //         ];
-    //         $url     = 'db_structure.php' . Url::getCommon($params);
-    //         $retval  = '<a class="hide" id="sync_favorite_databases"';
-    //         $retval .= ' href="' . $url . '"></a>';
-    //     }
-    //     return $retval;
-    // }
 
     /**
      * Generate Html to update recent tables.

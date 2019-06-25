@@ -67,7 +67,7 @@ class FavoriteDatabase
 
         }
         $this->_databases
-            =& $_SESSION['tmpval'][$this->_tableType . 'Tables'][$server_id];           
+            =& $_SESSION['tmpval'][$this->_tableType . 'Tables'][$server_id];
 
     }
 
@@ -80,7 +80,7 @@ class FavoriteDatabase
      */
     public static function getInstance($type)
     {
-        
+
         if (! array_key_exists($type, self::$_instances)) {
             self::$_instances[$type] = new FavoriteDatabase($type);
         }
@@ -129,7 +129,7 @@ class FavoriteDatabase
     {
         $username = $GLOBALS['cfg']['Server']['user'];
         $sql_query
-            = " REPLACE INTO " . $this->_getPmaTable() . " (`username`, `tables`)" .
+            = " INSERT OR IGNORE INTO " . $this->_getPmaTable() . " (`username`, `tables`)" .
                 " VALUES ('" . $GLOBALS['dbi']->escapeString($username) . "', '"
                 . $GLOBALS['dbi']->escapeString(
                     json_encode($this->_databases)
@@ -149,7 +149,7 @@ class FavoriteDatabase
                 '<br><br>'
             );
             return $message;
-        
+
         return true;
     }
 
@@ -163,7 +163,7 @@ class FavoriteDatabase
         $html = '';
         if (count($this->_databases)) {
                 foreach ($this->_databases as $db) {
-                    
+
                     $html .= '<li class="warp_link">';
 
                     $html .= '<a class="ajax favorite_database_anchor" ';
@@ -190,7 +190,7 @@ class FavoriteDatabase
                     $html .= htmlspecialchars($db['db']) . '</a>';
                     $html .= '</li>';
             }
-        } else {    
+        } else {
                     $html = '<li class="warp_link">';
                         $html.= ('There are no favorite Databases.');
                   $html.= '</li>';
@@ -226,7 +226,7 @@ class FavoriteDatabase
      */
     public function add($db)
     {
-        
+
         $table_arr = [];
         $table_arr['db'] = $db;
 
@@ -244,7 +244,7 @@ class FavoriteDatabase
     /**
      * Remove favorite tables.
      *
-     * @param string $db    database name 
+     * @param string $db    database name
      *
      * @return true|Message True if success, Message if not
      */
@@ -266,7 +266,7 @@ class FavoriteDatabase
     /**
      * Reutrn the name of the configuration storage table
      *
-     * @return string pma table name
+     * @return string|null pma table name
      */
     private function _getPmaTable()
     {
