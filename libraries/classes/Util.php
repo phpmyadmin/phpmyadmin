@@ -4788,10 +4788,11 @@ class Util
      * Generates random string consisting of ASCII chars
      *
      * @param integer $length Length of string
+     * @param bool    $asHex  (optional) Send the result as hex
      *
      * @return string
      */
-    public static function generateRandom($length)
+    public static function generateRandom(int $length, bool $asHex = false): string
     {
         $result = '';
         if (class_exists(Random::class)) {
@@ -4811,7 +4812,7 @@ class Util
                 $result .= chr($byte);
             }
         }
-        return $result;
+        return $asHex ? bin2hex($result) : $result;
     }
 
     /**
