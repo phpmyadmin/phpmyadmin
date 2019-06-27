@@ -4584,10 +4584,11 @@ class Util
      * Generates random string consisting of ASCII chars
      *
      * @param integer $length Length of string
+     * @param bool    $asHex  (optional) Send the result as hex
      *
      * @return string
      */
-    public static function generateRandom($length)
+    public static function generateRandom($length, $asHex = false)
     {
         $result = '';
         if (class_exists('phpseclib\\Crypt\\Random')) {
@@ -4604,7 +4605,7 @@ class Util
                 $result .= chr($byte);
             }
         }
-        return $result;
+        return $asHex ? bin2hex($result) : $result;
     }
 
     /**
