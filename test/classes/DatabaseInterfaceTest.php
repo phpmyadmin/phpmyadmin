@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbi\DbiDummy;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Util;
 use stdClass;
@@ -113,7 +113,7 @@ class DatabaseInterfaceTest extends PmaTestCase
      */
     public function testPMAGetColumnMap()
     {
-        $extension = $this->getMockBuilder('PhpMyAdmin\Dbi\DbiDummy')
+        $extension = $this->getMockBuilder(DbiDummy::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -567,7 +567,7 @@ class DatabaseInterfaceTest extends PmaTestCase
      */
     public function testSetCollation()
     {
-        $extension = $this->getMockBuilder('PhpMyAdmin\Dbi\DbiDummy')
+        $extension = $this->getMockBuilder(DbiDummy::class)
             ->disableOriginalConstructor()
             ->getMock();
         $extension->expects($this->any())->method('escapeString')

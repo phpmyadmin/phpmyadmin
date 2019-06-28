@@ -12,7 +12,9 @@
  */
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Dbi;
+namespace PhpMyAdmin\Tests\Stubs;
+
+use PhpMyAdmin\Dbi\DbiExtension;
 
 /**
  * Fake database driver for testing purposes

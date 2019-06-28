@@ -11,7 +11,6 @@ namespace PhpMyAdmin;
 
 use mysqli_result;
 use PhpMyAdmin\Database\DatabaseList;
-use PhpMyAdmin\Dbi\DbiDummy;
 use PhpMyAdmin\Dbi\DbiExtension;
 use PhpMyAdmin\Dbi\DbiMysqli;
 use PhpMyAdmin\SqlParser\Context;
@@ -3136,35 +3135,34 @@ class DatabaseInterface
     /**
      * Load correct database driver
      *
-     * @return DatabaseInterface
+     * @param DbiExtension|null $extension Force the use of an alternative extension
+     *
+     * @return self
      */
-    public static function load(): DatabaseInterface
+    public static function load(?DbiExtension $extension = null): self
     {
         global $dbi;
 
-        if (defined('TESTSUITE')) {
-            /**
-             * For testsuite we use dummy driver which can fake some queries.
-             */
-            $extension = new DbiDummy();
-        } else {
-            if (! self::checkDbExtension('mysqli')) {
-                $docurl = Util::getDocuLink('faq', 'faqmysql');
-                $doclink = sprintf(
-                    __('See %sour documentation%s for more information.'),
-                    '[a@' . $docurl . '@documentation]',
-                    '[/a]'
-                );
-                Core::warnMissingExtension(
-                    'mysqli',
-                    true,
-                    $doclink
-                );
-            }
-            $extension = new DbiMysqli();
+        if ($extension !== null) {
+            $dbi = new self($extension);
+            return $dbi;
         }
-        $dbi = new DatabaseInterface($extension);
 
+        if (! self::checkDbExtension('mysqli')) {
+            $docUrl = Util::getDocuLink('faq', 'faqmysql');
+            $docLink = sprintf(
+                __('See %sour documentation%s for more information.'),
+                '[a@' . $docUrl . '@documentation]',
+                '[/a]'
+            );
+            Core::warnMissingExtension(
+                'mysqli',
+                true,
+                $docLink
+            );
+        }
+
+        $dbi = new self(new DbiMysqli());
         return $dbi;
     }
 }

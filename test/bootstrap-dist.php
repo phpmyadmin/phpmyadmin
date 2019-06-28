@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\MoTranslator\Loader;
 use PhpMyAdmin\Theme;
@@ -79,7 +80,7 @@ define('PMA_MAJOR_VERSION', $GLOBALS['PMA_Config']->get('PMA_MAJOR_VERSION'));
 LanguageManager::getInstance()->getLanguage('en')->activate();
 
 /* Load Database interface */
-$GLOBALS['dbi'] = DatabaseInterface::load();
+$GLOBALS['dbi'] = DatabaseInterface::load(new DbiDummy());
 
 // Set proxy information from env, if available
 $http_proxy = getenv('http_proxy');
