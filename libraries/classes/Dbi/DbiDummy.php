@@ -1580,6 +1580,65 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
+                'query' => "SELECT *, CAST(BIN_NAME AS CHAR CHARACTER SET utf8) AS SCHEMA_NAME FROM (SELECT BINARY s.SCHEMA_NAME AS BIN_NAME, s.DEFAULT_COLLATION_NAME FROM `information_schema`.SCHEMATA s GROUP BY BINARY s.SCHEMA_NAME, s.DEFAULT_COLLATION_NAME ORDER BY BINARY `SCHEMA_NAME` ASC) a",
+                'columns' => [
+                    'BIN_NAME',
+                    'DEFAULT_COLLATION_NAME',
+                    'SCHEMA_NAME',
+                ],
+                'result' => [
+                    [
+                        'sakila',
+                        'utf8_general_ci',
+                        'sakila',
+                    ],
+                    [
+                        'employees',
+                        'latin1_swedish_ci',
+                        'employees',
+                    ],
+                ],
+            ],
+
+            [
+                'query' => "SELECT *, CAST(BIN_NAME AS CHAR CHARACTER SET utf8) AS SCHEMA_NAME FROM (SELECT BINARY s.SCHEMA_NAME AS BIN_NAME, s.DEFAULT_COLLATION_NAME, COUNT(t.TABLE_SCHEMA) AS SCHEMA_TABLES, SUM(t.TABLE_ROWS) AS SCHEMA_TABLE_ROWS, SUM(t.DATA_LENGTH) AS SCHEMA_DATA_LENGTH, SUM(t.MAX_DATA_LENGTH) AS SCHEMA_MAX_DATA_LENGTH, SUM(t.INDEX_LENGTH) AS SCHEMA_INDEX_LENGTH, SUM(t.DATA_LENGTH + t.INDEX_LENGTH) AS SCHEMA_LENGTH, SUM(IF(t.ENGINE <> 'InnoDB', t.DATA_FREE, 0)) AS SCHEMA_DATA_FREE FROM `information_schema`.SCHEMATA s LEFT JOIN `information_schema`.TABLES t ON BINARY t.TABLE_SCHEMA = BINARY s.SCHEMA_NAME GROUP BY BINARY s.SCHEMA_NAME, s.DEFAULT_COLLATION_NAME ORDER BY `SCHEMA_TABLES` DESC) a",
+                'columns' => [
+                    'BIN_NAME',
+                    'DEFAULT_COLLATION_NAME',
+                    'SCHEMA_TABLES',
+                    'SCHEMA_TABLE_ROWS',
+                    'SCHEMA_DATA_LENGTH',
+                    'SCHEMA_INDEX_LENGTH',
+                    'SCHEMA_LENGTH',
+                    'SCHEMA_DATA_FREE',
+                    'SCHEMA_NAME',
+                ],
+                'result' => [
+                    [
+                        'sakila',
+                        'utf8_general_ci',
+                        '23',
+                        '47274',
+                        '4358144',
+                        '2392064',
+                        '6750208',
+                        '0',
+                        'sakila',
+                    ],
+                    [
+                        'employees',
+                        'latin1_swedish_ci',
+                        '8',
+                        '3912174',
+                        '148111360',
+                        '5816320',
+                        '153927680',
+                        '0',
+                        'employees',
+                    ],
+                ],
+            ],
+            [
                 'query'  => "SELECT @@have_partitioning;",
                 'result' => [],
             ],

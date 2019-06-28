@@ -49,41 +49,15 @@ class DatabasesControllerTest extends TestCase
     {
         global $cfg, $dblist, $is_create_db_priv;
 
-        $databases = [
-            [
-                'DEFAULT_COLLATION_NAME' => 'utf8_general_ci',
-                'SCHEMA_TABLES' => '23',
-                'SCHEMA_TABLE_ROWS' => '47274',
-                'SCHEMA_DATA_LENGTH' => '4358144',
-                'SCHEMA_INDEX_LENGTH' => '2392064',
-                'SCHEMA_LENGTH' => '6750208',
-                'SCHEMA_DATA_FREE' => '0',
-                'SCHEMA_NAME' => 'sakila',
-            ],
-            [
-                'DEFAULT_COLLATION_NAME' => 'utf8mb4_general_ci',
-                'SCHEMA_TABLES' => '8',
-                'SCHEMA_TABLE_ROWS' => '3912174',
-                'SCHEMA_DATA_LENGTH' => '148111360',
-                'SCHEMA_INDEX_LENGTH' => '5816320',
-                'SCHEMA_LENGTH' => '153927680',
-                'SCHEMA_DATA_FREE' => '0',
-                'SCHEMA_NAME' => 'employees',
-            ],
-        ];
-
         $dblist = new stdClass();
-        $dblist->databases = $databases;
-
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->method('getDatabasesFull')
-            ->willReturn($databases);
+        $dblist->databases = [
+            'sakila',
+            'employees',
+        ];
 
         $controller = new DatabasesController(
             Response::getInstance(),
-            $dbi,
+            $GLOBALS['dbi'],
             new Template()
         );
 
@@ -99,9 +73,9 @@ class DatabasesControllerTest extends TestCase
         $this->assertStringContainsString('utf8_general_ci', $actual);
         $this->assertStringContainsString('title="Unicode, case-insensitive"', $actual);
         $this->assertStringContainsString('data-filter-row="SAKILA"', $actual);
-        $this->assertStringContainsString('sakila', $actual);
-        $this->assertStringContainsString('utf8mb4_general_ci', $actual);
-        $this->assertStringContainsString('title="Unicode (UCA 4.0.0), case-insensitive"', $actual);
+        $this->assertStringContainsString('employees', $actual);
+        $this->assertStringContainsString('latin1_swedish_ci', $actual);
+        $this->assertStringContainsString('title="Swedish, case-insensitive"', $actual);
         $this->assertStringContainsString('<span id="filter-rows-count">2</span>', $actual);
         $this->assertStringContainsString('name="pos" value="0"', $actual);
         $this->assertStringContainsString('name="sort_by" value="SCHEMA_NAME"', $actual);

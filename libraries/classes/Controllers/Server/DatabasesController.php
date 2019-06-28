@@ -307,7 +307,7 @@ class DatabasesController extends AbstractController
      */
     private function getDatabases(array $replicationTypes): array
     {
-        global $replication_info;
+        global $cfg, $replication_info;
 
         $databases = [];
         $totalStatistics = $this->getStatisticsColumns();
@@ -352,14 +352,9 @@ class DatabasesController extends AbstractController
                 }
             }
 
-            $databases[] = [
+            $databases[$database['SCHEMA_NAME']] = [
                 'name' => $database['SCHEMA_NAME'],
-                'collation' => [
-                    'name' => $database['DEFAULT_COLLATION_NAME'],
-                    'description' => Charsets::getCollationDescr(
-                        $database['DEFAULT_COLLATION_NAME']
-                    ),
-                ],
+                'collation' => [],
                 'statistics' => $statistics,
                 'replication' => $replication,
                 'is_system_schema' => $this->dbi->isSystemSchema(
@@ -367,6 +362,17 @@ class DatabasesController extends AbstractController
                     true
                 ),
             ];
+            $collation = Charsets::findCollationByName(
+                $this->dbi,
+                $cfg['Server']['DisableIS'],
+                $database['DEFAULT_COLLATION_NAME']
+            );
+            if ($collation !== null) {
+                $databases[$database['SCHEMA_NAME']]['collation'] = [
+                    'name' => $collation->getName(),
+                    'description' => $collation->getDescription(),
+                ];
+            }
         }
 
         return [

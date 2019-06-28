@@ -188,6 +188,24 @@ class Charsets
     }
 
     /**
+     * @param DatabaseInterface $dbi       DatabaseInterface instance
+     * @param bool              $disableIs Disable use of INFORMATION_SCHEMA
+     * @param string            $name      Collation name
+     *
+     * @return Collation|null
+     */
+    public static function findCollationByName(DatabaseInterface $dbi, bool $disableIs, string $name): ?Collation
+    {
+        $pieces = explode('_', $name);
+        if ($pieces === false || ! isset($pieces[0])) {
+            return null;
+        }
+        $charset = $pieces[0];
+        $collations = self::getCollations($dbi, $disableIs);
+        return $collations[$charset][$name] ?? null;
+    }
+
+    /**
      * Returns description for given collation
      *
      * @param string $collation MySQL collation string
