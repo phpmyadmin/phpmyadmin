@@ -179,12 +179,11 @@ class AuthenticationCookie extends AuthenticationPlugin
             echo '</div>';
         }
         echo '
-    <br>
     <!-- Login form -->
-    <form method="post" id="login_form" action="index.php" name="login_form"' , $autocomplete ,
+    <form class="form-horizontal" method="post" id="login_form" action="index.php" name="login_form"' , $autocomplete ,
             ' class="' . ($session_expired ? "" : "disableAjax hide ") . 'login js-show">
         <fieldset>
-        <legend>';
+        <legend class="col-form-label">';
         echo '<input type="hidden" name="set_session" value="', htmlspecialchars(session_id()), '">';
 
         // Add a hidden element session_timedout which is used to check if the user requested login after session expiration
@@ -196,7 +195,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         echo '</legend>';
         if ($GLOBALS['cfg']['AllowArbitraryServer']) {
             echo '
-            <div class="item">
+            <div class="item form-group">
                 <label for="input_servername" title="';
             echo __(
                 'You can enter hostname/IP address and port separated by space.'
@@ -213,16 +212,20 @@ class AuthenticationCookie extends AuthenticationPlugin
             ); echo '">
             </div>';
         }
-            echo '<div class="item">
-                <label for="input_username">' , __('Username:') , '</label>
+            echo '<div class="item form-row">
+                <label for="input_username" class="col-3 d-flex align-items-center">' , __('Username:') , '</label>
+                <div class="col-8">
                 <input type="text" name="pma_username" id="input_username" '
                 , 'value="' , htmlspecialchars($default_user) , '" size="24"'
-                , ' class="textfield">
+                , ' class="textfield form-control">
+                </div>
             </div>
-            <div class="item">
-                <label for="input_password">' , __('Password:') , '</label>
+            <div class="item form-row">
+                <label for="input_password" class="col-3 d-flex align-items-center">' , __('Password:') , '</label>
+                <div class="col-8">
                 <input type="password" name="pma_password" id="input_password"'
-                , ' value="" size="24" class="textfield">
+                , ' value="" size="24" class="textfield form-control">
+                </div>
             </div>';
         if (count($GLOBALS['cfg']['Servers']) > 1) {
             echo '<div class="item">
