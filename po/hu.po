@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-06-22 11:54+0200\n"
+"POT-Creation-Date: 2019-06-29 15:30-0300\n"
 "PO-Revision-Date: 2018-02-10 23:35+0000\n"
 "Last-Translator: Marczis István <marczisi@yahoo.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -3308,12 +3308,12 @@ msgctxt "Collation"
 msgid "Binary"
 msgstr "Bináris"
 
-#: libraries/classes/Charsets.php:361 libraries/classes/Charsets.php:591
+#: libraries/classes/Charsets.php:361 libraries/classes/Charsets.php:595
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicode"
 
-#: libraries/classes/Charsets.php:371 libraries/classes/Charsets.php:542
+#: libraries/classes/Charsets.php:371 libraries/classes/Charsets.php:546
 msgctxt "Collation"
 msgid "West European"
 msgstr "Nyugat-európai"
@@ -3333,237 +3333,237 @@ msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Egyszerűsített kínai"
 
-#: libraries/classes/Charsets.php:395 libraries/classes/Charsets.php:513
-msgctxt "Collation"
-msgid "Japanese"
-msgstr "Japán"
-
-#: libraries/classes/Charsets.php:400
-msgctxt "Collation"
-msgid "Baltic"
-msgstr "Balti"
-
-#: libraries/classes/Charsets.php:405
-msgctxt "Collation"
-msgid "Armenian"
-msgstr "Örmény"
-
-#: libraries/classes/Charsets.php:408
+#: libraries/classes/Charsets.php:391
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Hagyományos kínai"
 
-#: libraries/classes/Charsets.php:411
-msgctxt "Collation"
-msgid "Cyrillic"
-msgstr "Cirill"
-
-#: libraries/classes/Charsets.php:414
-msgctxt "Collation"
-msgid "Arabic"
-msgstr "Arab"
-
-#: libraries/classes/Charsets.php:417 libraries/classes/Charsets.php:528
-msgctxt "Collation"
-msgid "Korean"
-msgstr "Koreai"
-
-#: libraries/classes/Charsets.php:420
-msgctxt "Collation"
-msgid "Hebrew"
-msgstr "Héber"
-
-#: libraries/classes/Charsets.php:423
-msgctxt "Collation"
-msgid "Georgian"
-msgstr "Grúz"
-
-#: libraries/classes/Charsets.php:426
-msgctxt "Collation"
-msgid "Greek"
-msgstr "Görög"
-
-#: libraries/classes/Charsets.php:429
-msgctxt "Collation"
-msgid "Czech-Slovak"
-msgstr "Csehszlovák"
-
-#: libraries/classes/Charsets.php:432 libraries/classes/Charsets.php:583
-msgctxt "Collation"
-msgid "Ukrainian"
-msgstr "Ukrán"
-
-#: libraries/classes/Charsets.php:435 libraries/classes/Charsets.php:579
-msgctxt "Collation"
-msgid "Turkish"
-msgstr "Török"
-
-#: libraries/classes/Charsets.php:438 libraries/classes/Charsets.php:571
-msgctxt "Collation"
-msgid "Swedish"
-msgstr "Svéd"
-
-#: libraries/classes/Charsets.php:441 libraries/classes/Charsets.php:575
-msgctxt "Collation"
-msgid "Thai"
-msgstr "Thai"
-
-#: libraries/classes/Charsets.php:444
-msgctxt "Collation"
-msgid "Unknown"
-msgstr "Ismeretlen"
-
-#: libraries/classes/Charsets.php:460
-msgctxt "Collation"
-msgid "Bulgarian"
-msgstr "Bolgár"
-
-#: libraries/classes/Charsets.php:465
+#: libraries/classes/Charsets.php:394 libraries/classes/Charsets.php:469
 msgctxt "Collation"
 msgid "Chinese"
 msgstr "Kínai"
 
-#: libraries/classes/Charsets.php:470
+#: libraries/classes/Charsets.php:402 libraries/classes/Charsets.php:517
+msgctxt "Collation"
+msgid "Japanese"
+msgstr "Japán"
+
+#: libraries/classes/Charsets.php:407
+msgctxt "Collation"
+msgid "Baltic"
+msgstr "Balti"
+
+#: libraries/classes/Charsets.php:412
+msgctxt "Collation"
+msgid "Armenian"
+msgstr "Örmény"
+
+#: libraries/classes/Charsets.php:415
+msgctxt "Collation"
+msgid "Cyrillic"
+msgstr "Cirill"
+
+#: libraries/classes/Charsets.php:418
+msgctxt "Collation"
+msgid "Arabic"
+msgstr "Arab"
+
+#: libraries/classes/Charsets.php:421 libraries/classes/Charsets.php:532
+msgctxt "Collation"
+msgid "Korean"
+msgstr "Koreai"
+
+#: libraries/classes/Charsets.php:424
+msgctxt "Collation"
+msgid "Hebrew"
+msgstr "Héber"
+
+#: libraries/classes/Charsets.php:427
+msgctxt "Collation"
+msgid "Georgian"
+msgstr "Grúz"
+
+#: libraries/classes/Charsets.php:430
+msgctxt "Collation"
+msgid "Greek"
+msgstr "Görög"
+
+#: libraries/classes/Charsets.php:433
+msgctxt "Collation"
+msgid "Czech-Slovak"
+msgstr "Csehszlovák"
+
+#: libraries/classes/Charsets.php:436 libraries/classes/Charsets.php:587
+msgctxt "Collation"
+msgid "Ukrainian"
+msgstr "Ukrán"
+
+#: libraries/classes/Charsets.php:439 libraries/classes/Charsets.php:583
+msgctxt "Collation"
+msgid "Turkish"
+msgstr "Török"
+
+#: libraries/classes/Charsets.php:442 libraries/classes/Charsets.php:575
+msgctxt "Collation"
+msgid "Swedish"
+msgstr "Svéd"
+
+#: libraries/classes/Charsets.php:445 libraries/classes/Charsets.php:579
+msgctxt "Collation"
+msgid "Thai"
+msgstr "Thai"
+
+#: libraries/classes/Charsets.php:448
+msgctxt "Collation"
+msgid "Unknown"
+msgstr "Ismeretlen"
+
+#: libraries/classes/Charsets.php:464
+msgctxt "Collation"
+msgid "Bulgarian"
+msgstr "Bolgár"
+
+#: libraries/classes/Charsets.php:474
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Horvát"
 
-#: libraries/classes/Charsets.php:474
+#: libraries/classes/Charsets.php:478
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Cseh"
 
-#: libraries/classes/Charsets.php:478
+#: libraries/classes/Charsets.php:482
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Dán"
 
-#: libraries/classes/Charsets.php:482
+#: libraries/classes/Charsets.php:486
 msgctxt "Collation"
 msgid "English"
 msgstr "Angol"
 
-#: libraries/classes/Charsets.php:486
+#: libraries/classes/Charsets.php:490
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Eszperantó"
 
-#: libraries/classes/Charsets.php:490
+#: libraries/classes/Charsets.php:494
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Észt"
 
-#: libraries/classes/Charsets.php:493 libraries/classes/Charsets.php:610
+#: libraries/classes/Charsets.php:497 libraries/classes/Charsets.php:614
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "Német (szótár sorrend)"
 
-#: libraries/classes/Charsets.php:496 libraries/classes/Charsets.php:607
+#: libraries/classes/Charsets.php:500 libraries/classes/Charsets.php:611
 msgctxt "Collation"
 msgid "German (phone book order)"
 msgstr "Német (telefonkönyv sorrend)"
 
-#: libraries/classes/Charsets.php:505
+#: libraries/classes/Charsets.php:509
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Magyar"
 
-#: libraries/classes/Charsets.php:509
+#: libraries/classes/Charsets.php:513
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Izlandi"
 
-#: libraries/classes/Charsets.php:516
+#: libraries/classes/Charsets.php:520
 msgctxt "Collation"
 msgid "Classical Latin"
 msgstr "Klasszikus latin"
 
-#: libraries/classes/Charsets.php:520
+#: libraries/classes/Charsets.php:524
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Lett"
 
-#: libraries/classes/Charsets.php:524
+#: libraries/classes/Charsets.php:528
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Litván"
 
-#: libraries/classes/Charsets.php:532
+#: libraries/classes/Charsets.php:536
 msgctxt "Collation"
 msgid "Burmese"
 msgstr "Burmai"
 
-#: libraries/classes/Charsets.php:535
+#: libraries/classes/Charsets.php:539
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Perzsa"
 
-#: libraries/classes/Charsets.php:539
+#: libraries/classes/Charsets.php:543
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Lengyel"
 
-#: libraries/classes/Charsets.php:546
+#: libraries/classes/Charsets.php:550
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Román"
 
-#: libraries/classes/Charsets.php:550
+#: libraries/classes/Charsets.php:554
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "Szingaléz"
 
-#: libraries/classes/Charsets.php:554
+#: libraries/classes/Charsets.php:558
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Szlovák"
 
-#: libraries/classes/Charsets.php:558
+#: libraries/classes/Charsets.php:562
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Szlovén"
 
-#: libraries/classes/Charsets.php:561 libraries/classes/Charsets.php:621
+#: libraries/classes/Charsets.php:565 libraries/classes/Charsets.php:625
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr "Spanyol (modern)"
 
-#: libraries/classes/Charsets.php:568 libraries/classes/Charsets.php:618
+#: libraries/classes/Charsets.php:572 libraries/classes/Charsets.php:622
 msgctxt "Collation"
 msgid "Spanish (traditional)"
 msgstr "Spanyol (hagyományos)"
 
-#: libraries/classes/Charsets.php:587
+#: libraries/classes/Charsets.php:591
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnámi"
 
-#: libraries/classes/Charsets.php:654
+#: libraries/classes/Charsets.php:658
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "a kis- és nagybetű nem különbözik"
 
-#: libraries/classes/Charsets.php:657
+#: libraries/classes/Charsets.php:661
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "a kis- és nagybetű különbözik"
 
-#: libraries/classes/Charsets.php:660
+#: libraries/classes/Charsets.php:664
 msgctxt "Collation variant"
 msgid "accent-insensitive"
 msgstr "ékezetek figyelmen kívül hagyva"
 
-#: libraries/classes/Charsets.php:663
+#: libraries/classes/Charsets.php:667
 msgctxt "Collation variant"
 msgid "accent-sensitive"
 msgstr "ékezetek figyelembe véve"
 
-#: libraries/classes/Charsets.php:667
+#: libraries/classes/Charsets.php:671
 msgctxt "Collation variant"
 msgid "multi-level"
 msgstr "több-szintű"
 
-#: libraries/classes/Charsets.php:670
+#: libraries/classes/Charsets.php:674
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "bináris"
@@ -7367,7 +7367,7 @@ msgstr "Teljes szövegek"
 #: libraries/classes/Display/Results.php:2131
 #: libraries/classes/Operations.php:818
 #: libraries/classes/Server/Status/Processes.php:157
-#: libraries/classes/Util.php:4699 libraries/classes/Util.php:4716
+#: libraries/classes/Util.php:4700 libraries/classes/Util.php:4717
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/database/multi_table_query/form.twig:63
@@ -7380,7 +7380,7 @@ msgstr "Csökkenő"
 #: libraries/classes/Display/Results.php:2127
 #: libraries/classes/Operations.php:815
 #: libraries/classes/Server/Status/Processes.php:160
-#: libraries/classes/Util.php:4694 libraries/classes/Util.php:4711
+#: libraries/classes/Util.php:4695 libraries/classes/Util.php:4712
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/database/multi_table_query/form.twig:62
@@ -13965,7 +13965,7 @@ msgstr ""
 msgid "Users"
 msgstr "Felhasználók"
 
-#: libraries/classes/Util.php:4686
+#: libraries/classes/Util.php:4687
 #: templates/database/multi_table_query/form.twig:61
 msgid "Sort"
 msgstr "Rendezés"

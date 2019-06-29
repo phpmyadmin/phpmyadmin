@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-06-22 11:54+0200\n"
+"POT-Creation-Date: 2019-06-29 15:30-0300\n"
 "PO-Revision-Date: 2018-12-18 22:09+0000\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
@@ -820,8 +820,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"phpMyAdmin හි configuration storage සම්පූර්ණයෙන් සකසා නැති බැවින් යම් විස්තෘත විශේෂාංග "
-"අක්‍රිය වී ඇත. %sඇයිදැයි සොයා බලන්න%s. "
+"phpMyAdmin හි configuration storage සම්පූර්ණයෙන් සකසා නැති බැවින් යම් විස්තෘත විශේෂාංග අක්‍"
+"රිය වී ඇත. %sඇයිදැයි සොයා බලන්න%s. "
 
 #: index.php:623
 msgid ""
@@ -3423,14 +3423,14 @@ msgctxt "Collation"
 msgid "Binary"
 msgstr "ද්වීමය"
 
-#: libraries/classes/Charsets.php:361 libraries/classes/Charsets.php:591
+#: libraries/classes/Charsets.php:361 libraries/classes/Charsets.php:595
 #, fuzzy
 #| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "යුනිකෝඩ්"
 
-#: libraries/classes/Charsets.php:371 libraries/classes/Charsets.php:542
+#: libraries/classes/Charsets.php:371 libraries/classes/Charsets.php:546
 #, fuzzy
 #| msgid "West European"
 msgctxt "Collation"
@@ -3458,319 +3458,319 @@ msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "සරලකරන ලද චීන"
 
-#: libraries/classes/Charsets.php:395 libraries/classes/Charsets.php:513
-#, fuzzy
-#| msgid "Japanese"
-msgctxt "Collation"
-msgid "Japanese"
-msgstr "ජපන්"
-
-#: libraries/classes/Charsets.php:400
-#, fuzzy
-#| msgid "Baltic"
-msgctxt "Collation"
-msgid "Baltic"
-msgstr "බෝල්ටික"
-
-#: libraries/classes/Charsets.php:405
-#, fuzzy
-#| msgid "Armenian"
-msgctxt "Collation"
-msgid "Armenian"
-msgstr "ඇමෙරිකානු"
-
-#: libraries/classes/Charsets.php:408
+#: libraries/classes/Charsets.php:391
 #, fuzzy
 #| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "සාම්ප්‍රධායික චීන"
 
-#: libraries/classes/Charsets.php:411
+#: libraries/classes/Charsets.php:394 libraries/classes/Charsets.php:469
+msgctxt "Collation"
+msgid "Chinese"
+msgstr ""
+
+#: libraries/classes/Charsets.php:402 libraries/classes/Charsets.php:517
+#, fuzzy
+#| msgid "Japanese"
+msgctxt "Collation"
+msgid "Japanese"
+msgstr "ජපන්"
+
+#: libraries/classes/Charsets.php:407
+#, fuzzy
+#| msgid "Baltic"
+msgctxt "Collation"
+msgid "Baltic"
+msgstr "බෝල්ටික"
+
+#: libraries/classes/Charsets.php:412
+#, fuzzy
+#| msgid "Armenian"
+msgctxt "Collation"
+msgid "Armenian"
+msgstr "ඇමෙරිකානු"
+
+#: libraries/classes/Charsets.php:415
 #, fuzzy
 #| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "සිරිලික්"
 
-#: libraries/classes/Charsets.php:414
+#: libraries/classes/Charsets.php:418
 #, fuzzy
 #| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "අරාබියානු"
 
-#: libraries/classes/Charsets.php:417 libraries/classes/Charsets.php:528
+#: libraries/classes/Charsets.php:421 libraries/classes/Charsets.php:532
 #, fuzzy
 #| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "කොරියානු"
 
-#: libraries/classes/Charsets.php:420
+#: libraries/classes/Charsets.php:424
 #, fuzzy
 #| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "හීබෲ"
 
-#: libraries/classes/Charsets.php:423
+#: libraries/classes/Charsets.php:427
 #, fuzzy
 #| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "ජෝජියානු‍"
 
-#: libraries/classes/Charsets.php:426
+#: libraries/classes/Charsets.php:430
 #, fuzzy
 #| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "ග්‍රීක්"
 
-#: libraries/classes/Charsets.php:429
+#: libraries/classes/Charsets.php:433
 #, fuzzy
 #| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "චෙකොස්ලෝවැකියානු-ස්ලෝවැකියානු"
 
-#: libraries/classes/Charsets.php:432 libraries/classes/Charsets.php:583
+#: libraries/classes/Charsets.php:436 libraries/classes/Charsets.php:587
 #, fuzzy
 #| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "යුක්රේනියානු"
 
-#: libraries/classes/Charsets.php:435 libraries/classes/Charsets.php:579
+#: libraries/classes/Charsets.php:439 libraries/classes/Charsets.php:583
 #, fuzzy
 #| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "තුර්කි"
 
-#: libraries/classes/Charsets.php:438 libraries/classes/Charsets.php:571
+#: libraries/classes/Charsets.php:442 libraries/classes/Charsets.php:575
 #, fuzzy
 #| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "ස්වීඩන"
 
-#: libraries/classes/Charsets.php:441 libraries/classes/Charsets.php:575
+#: libraries/classes/Charsets.php:445 libraries/classes/Charsets.php:579
 #, fuzzy
 #| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "තායි"
 
-#: libraries/classes/Charsets.php:444
+#: libraries/classes/Charsets.php:448
 #, fuzzy
 #| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "නොදන්නා"
 
-#: libraries/classes/Charsets.php:460
+#: libraries/classes/Charsets.php:464
 #, fuzzy
 #| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "බල්ගේරියානු"
 
-#: libraries/classes/Charsets.php:465
-msgctxt "Collation"
-msgid "Chinese"
-msgstr ""
-
-#: libraries/classes/Charsets.php:470
+#: libraries/classes/Charsets.php:474
 #, fuzzy
 #| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "ක්‍රොයේශියානු"
 
-#: libraries/classes/Charsets.php:474
+#: libraries/classes/Charsets.php:478
 #, fuzzy
 #| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "චෙකොස්ලෝවැකියානු"
 
-#: libraries/classes/Charsets.php:478
+#: libraries/classes/Charsets.php:482
 #, fuzzy
 #| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "ඩෙන්මාර්කියානු"
 
-#: libraries/classes/Charsets.php:482
+#: libraries/classes/Charsets.php:486
 #, fuzzy
 #| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "ඉංග්‍රීසි"
 
-#: libraries/classes/Charsets.php:486
+#: libraries/classes/Charsets.php:490
 #, fuzzy
 #| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "එස්පෙරන්තෝ"
 
-#: libraries/classes/Charsets.php:490
+#: libraries/classes/Charsets.php:494
 #, fuzzy
 #| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "එස්තෝනියානු"
 
-#: libraries/classes/Charsets.php:493 libraries/classes/Charsets.php:610
+#: libraries/classes/Charsets.php:497 libraries/classes/Charsets.php:614
 #, fuzzy
 #| msgid "Data Dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "දත්ත කෝෂය"
 
-#: libraries/classes/Charsets.php:496 libraries/classes/Charsets.php:607
+#: libraries/classes/Charsets.php:500 libraries/classes/Charsets.php:611
 msgctxt "Collation"
 msgid "German (phone book order)"
 msgstr ""
 
-#: libraries/classes/Charsets.php:505
+#: libraries/classes/Charsets.php:509
 #, fuzzy
 #| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "හංගේරියානු"
 
-#: libraries/classes/Charsets.php:509
+#: libraries/classes/Charsets.php:513
 #, fuzzy
 #| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "අයිස්ලන්තික"
 
-#: libraries/classes/Charsets.php:516
+#: libraries/classes/Charsets.php:520
 msgctxt "Collation"
 msgid "Classical Latin"
 msgstr ""
 
-#: libraries/classes/Charsets.php:520
+#: libraries/classes/Charsets.php:524
 #, fuzzy
 #| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "ලැට්වියානු"
 
-#: libraries/classes/Charsets.php:524
+#: libraries/classes/Charsets.php:528
 #, fuzzy
 #| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "ලිතුවේනියානු"
 
-#: libraries/classes/Charsets.php:532
+#: libraries/classes/Charsets.php:536
 msgctxt "Collation"
 msgid "Burmese"
 msgstr ""
 
-#: libraries/classes/Charsets.php:535
+#: libraries/classes/Charsets.php:539
 #, fuzzy
 #| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "පර්සියානු"
 
-#: libraries/classes/Charsets.php:539
+#: libraries/classes/Charsets.php:543
 #, fuzzy
 #| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "පෝලන්ත"
 
-#: libraries/classes/Charsets.php:546
+#: libraries/classes/Charsets.php:550
 #, fuzzy
 #| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "රුමේනියානු"
 
-#: libraries/classes/Charsets.php:550
+#: libraries/classes/Charsets.php:554
 #, fuzzy
 #| msgid "Sinhalese"
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "සිංහල"
 
-#: libraries/classes/Charsets.php:554
+#: libraries/classes/Charsets.php:558
 #, fuzzy
 #| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "ස්ලෝවැකි"
 
-#: libraries/classes/Charsets.php:558
+#: libraries/classes/Charsets.php:562
 #, fuzzy
 #| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "ස්ලෝවේනියානු"
 
-#: libraries/classes/Charsets.php:561 libraries/classes/Charsets.php:621
+#: libraries/classes/Charsets.php:565 libraries/classes/Charsets.php:625
 #, fuzzy
 #| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr "ස්පාඤ්ඤ"
 
-#: libraries/classes/Charsets.php:568 libraries/classes/Charsets.php:618
+#: libraries/classes/Charsets.php:572 libraries/classes/Charsets.php:622
 msgctxt "Collation"
 msgid "Spanish (traditional)"
 msgstr ""
 
-#: libraries/classes/Charsets.php:587
+#: libraries/classes/Charsets.php:591
 #, fuzzy
 #| msgid "Vietnamese"
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "වියට්නාම්"
 
-#: libraries/classes/Charsets.php:654
+#: libraries/classes/Charsets.php:658
 #, fuzzy
 #| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "පුවරු සංවේදී නොවන"
 
-#: libraries/classes/Charsets.php:657
+#: libraries/classes/Charsets.php:661
 #, fuzzy
 #| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "පුවරු සංවේදී"
 
-#: libraries/classes/Charsets.php:660
+#: libraries/classes/Charsets.php:664
 #, fuzzy
 #| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
 msgstr "පුවරු සංවේදී නොවන"
 
-#: libraries/classes/Charsets.php:663
+#: libraries/classes/Charsets.php:667
 #, fuzzy
 #| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
 msgstr "පුවරු සංවේදී"
 
-#: libraries/classes/Charsets.php:667
+#: libraries/classes/Charsets.php:671
 #, fuzzy
 #| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
 msgstr "බහුභාෂා"
 
-#: libraries/classes/Charsets.php:670
+#: libraries/classes/Charsets.php:674
 #, fuzzy
 #| msgid "Binary"
 msgctxt "Collation variant"
@@ -4805,8 +4805,8 @@ msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
 msgstr ""
-"සක්‍රීය කළහොත් විමසුම් වැඩි ගණනක් එකවර ක්‍රියාත්මක කිරීමේදී එක විමසුමක් අසමත් වුවද ඉතිරි විමසුම් "
-"ක්‍රියාත්මක කරවයි."
+"සක්‍රීය කළහොත් විමසුම් වැඩි ගණනක් එකවර ක්‍රියාත්මක කිරීමේදී එක විමසුමක් අසමත් වුවද ඉතිරි විමසුම් ක්‍"
+"රියාත්මක කරවයි."
 
 #: libraries/classes/Config/Descriptions.php:619
 msgid "Ignore multiple statement errors"
@@ -5873,8 +5873,8 @@ msgstr "සබැඳුම් දත්ත ඇතුලත් වගුව"
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
-"උදාහරණයක් ලෙස [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]සත්‍යාපන "
-"ක්‍රම[/a] බලන්න"
+"උදාහරණයක් ලෙස [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]සත්‍යාපන ක්‍"
+"රම[/a] බලන්න"
 
 #: libraries/classes/Config/Descriptions.php:1145
 msgid "Signon session name"
@@ -7757,7 +7757,7 @@ msgstr "පූර්ණ පෙළ"
 #: libraries/classes/Display/Results.php:2131
 #: libraries/classes/Operations.php:818
 #: libraries/classes/Server/Status/Processes.php:157
-#: libraries/classes/Util.php:4699 libraries/classes/Util.php:4716
+#: libraries/classes/Util.php:4700 libraries/classes/Util.php:4717
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/database/multi_table_query/form.twig:63
@@ -7770,7 +7770,7 @@ msgstr "අවරෝහන"
 #: libraries/classes/Display/Results.php:2127
 #: libraries/classes/Operations.php:815
 #: libraries/classes/Server/Status/Processes.php:160
-#: libraries/classes/Util.php:4694 libraries/classes/Util.php:4711
+#: libraries/classes/Util.php:4695 libraries/classes/Util.php:4712
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/database/multi_table_query/form.twig:62
@@ -9566,8 +9566,8 @@ msgid ""
 "configuration and make sure that they correspond to the information given by "
 "the administrator of the MySQL server."
 msgstr ""
-"phpMyAdmin MySQL සේවාදායකය වෙත සම්බන්ධ වීමට උත්සාහ කල මුත් සේවාදායකය විසින් සම්බන්ධතාව "
-"ප්‍රතික්ෂේප කරන ලදී. ඔබ ඔබගේ වින්‍යාස ගොනුවේ, දායකය, භාවිත නාමය සහ මුරපදය සඳහා අගයන් "
+"phpMyAdmin MySQL සේවාදායකය වෙත සම්බන්ධ වීමට උත්සාහ කල මුත් සේවාදායකය විසින් සම්බන්ධතාව ප්‍"
+"රතික්ෂේප කරන ලදී. ඔබ ඔබගේ වින්‍යාස ගොනුවේ, දායකය, භාවිත නාමය සහ මුරපදය සඳහා අගයන් "
 "MySQL සේවාදායකයේ පරිපාලකයා විසින් ලබා දුන් දත්ත සමග ගැලපේ දැයි පරීක්ෂා කල යුතුය."
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:153
@@ -10933,8 +10933,8 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master."
 msgstr ""
-"සේවාදායකය නැවත පණගැන්වීමෙන් අනතුරුව 'යන්න' බොත්තම ඔබන්න. ඉන් අනතුරුව මෙම සේවාදායකය "
-"ප්‍රධාන සේවාදායකය ලෙස සකසා <b>ඇති</b> බවට පණිවිඩයක් දර්ශනය වනු ඇත."
+"සේවාදායකය නැවත පණගැන්වීමෙන් අනතුරුව 'යන්න' බොත්තම ඔබන්න. ඉන් අනතුරුව මෙම සේවාදායකය ප්‍"
+"රධාන සේවාදායකය ලෙස සකසා <b>ඇති</b> බවට පණිවිඩයක් දර්ශනය වනු ඇත."
 
 #: libraries/classes/ReplicationGui.php:153
 #: templates/server/databases/table_header.twig:35
@@ -12313,14 +12313,14 @@ msgstr ""
 #: libraries/classes/Server/Status.php:107
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
-"මෙම MySQL සේවාදායකය <b>අනුරූකරණ</b> ක්‍රියාවලියේදී <b>ප්‍රධාන සේවාදායකය</b> ලෙස "
-"ක්‍රියාකරයි."
+"මෙම MySQL සේවාදායකය <b>අනුරූකරණ</b> ක්‍රියාවලියේදී <b>ප්‍රධාන සේවාදායකය</b> ලෙස ක්‍"
+"රියාකරයි."
 
 #: libraries/classes/Server/Status.php:112
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
-"මෙම MySQL සේවාදායකය <b>අනුරූකරණ</b> ක්‍රියාවලියේදී <b>අනුගාමි සේවාදායකය</b> ලෙස "
-"ක්‍රියාකරයි."
+"මෙම MySQL සේවාදායකය <b>අනුරූකරණ</b> ක්‍රියාවලියේදී <b>අනුගාමි සේවාදායකය</b> ලෙස ක්‍"
+"රියාකරයි."
 
 #: libraries/classes/Server/Status.php:124
 msgid "Replication status"
@@ -12544,8 +12544,8 @@ msgid ""
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
-"ඔබගේ බ්‍රව්සරය විසින් නියමිත කාලාන්තරයකට වරක් සියලුම ප්‍රස්ථාර යාවත්කාලීන කෙරෙනු ඇත. ඔබට "
-"ප්‍රස්ථාර එකතු කිරීම, 'සිටුවම්' භාවිතා කරමින් යාවත්කාලීන කරන වේගය වෙනස් කිරීම හෝ අදාල ප්‍රස්ථාරය "
+"ඔබගේ බ්‍රව්සරය විසින් නියමිත කාලාන්තරයකට වරක් සියලුම ප්‍රස්ථාර යාවත්කාලීන කෙරෙනු ඇත. ඔබට ප්‍"
+"රස්ථාර එකතු කිරීම, 'සිටුවම්' භාවිතා කරමින් යාවත්කාලීන කරන වේගය වෙනස් කිරීම හෝ අදාල ප්‍රස්ථාරය "
 "මත ඇති අයිකනය භාවිතා කර ඕනෑම ප්‍රස්ථාරයක් ඉවත් කිරීම සිදු කල හැක."
 
 #: libraries/classes/Server/Status/Monitor.php:144
@@ -12573,8 +12573,8 @@ msgid ""
 msgstr ""
 "general_log සක්‍රීය කිරීම සේවාදායකය මත භාරය 5-15% අතර ප්‍රමාණයකින් වැඩි කරයි. එමෙන්ම "
 "ලොගගත දත්ත මගින් සංඛ්‍යාලේඛන උත්පාදනය කිරීම අධික භාරයක් ගෙනදෙන කාර්යයක් බව සලකන්න. එම නිසා "
-"මේ සඳහා කුඩා කාල පරාසයක් තෝරා ගැනීමද අධීක්ෂණය තවදුරටත් අවශ්‍ය නොවන විට general_log "
-"අක්‍රීය කිරීම හා ඊට අයත් වගුව හිස් කිරීම ද නිර්දේශිතය."
+"මේ සඳහා කුඩා කාල පරාසයක් තෝරා ගැනීමද අධීක්ෂණය තවදුරටත් අවශ්‍ය නොවන විට general_log අක්‍"
+"රීය කිරීම හා ඊට අයත් වගුව හිස් කිරීම ද නිර්දේශිතය."
 
 #: libraries/classes/Server/Status/Monitor.php:178
 #: libraries/classes/Server/Status/Monitor.php:286
@@ -14239,7 +14239,7 @@ msgstr ""
 msgid "Users"
 msgstr "භාවිතා කරන්නන්"
 
-#: libraries/classes/Util.php:4686
+#: libraries/classes/Util.php:4687
 #: templates/database/multi_table_query/form.twig:61
 msgid "Sort"
 msgstr "සුබෙදන්න"
@@ -18561,9 +18561,9 @@ msgstr "concurrent_insert ශුන්‍යයට සිටුවා ඇත"
 #~ "default, is open to intrusion, and you really should fix this security "
 #~ "hole by setting a password for user 'root'."
 #~ msgstr ""
-#~ "ඔබගේ සිටුවම් ගොනුවේ අඩංගු සිටුවම් (භාවිත නාමය root වන හා මුරපදයක් නොමැති), පෙරනිමි, "
-#~ "වරප්‍රසාදැති MySQL ගිණුමට අදාළ වේ. මෙම පෙරනිමි අගයන් භාවිතා කිරීම අනවසර ඇතුල්වීම් වලට "
-#~ "හේතු විය හැකි බැවින් ඔබ 'root' භාවිතා කරන්නා සඳහා වෙනත් මුරපදයක් ලබා දිය යුතුය."
+#~ "ඔබගේ සිටුවම් ගොනුවේ අඩංගු සිටුවම් (භාවිත නාමය root වන හා මුරපදයක් නොමැති), පෙරනිමි, වරප්‍"
+#~ "රසාදැති MySQL ගිණුමට අදාළ වේ. මෙම පෙරනිමි අගයන් භාවිතා කිරීම අනවසර ඇතුල්වීම් වලට හේතු "
+#~ "විය හැකි බැවින් ඔබ 'root' භාවිතා කරන්නා සඳහා වෙනත් මුරපදයක් ලබා දිය යුතුය."
 
 #~ msgid "Create database:"
 #~ msgstr "දත්තගබඩාවක් සාදන්න:"
@@ -19075,8 +19075,8 @@ msgstr "concurrent_insert ශුන්‍යයට සිටුවා ඇත"
 #~ "parent window, or your browser's security settings are configured to "
 #~ "block cross-window updates."
 #~ msgstr ""
-#~ "ඉලක්කගත බ්‍රව්සර කවුලුව යාවත්කාලීන කල නොහැක. ඔබ එහි මව් කවුලුව වසා තිබීම හෝ ඔබගේ "
-#~ "බ්‍රව්සරයේ ආරක්ෂක සැකසුම් අන්තර් කවුළු යාවත්කාලීන කිරීම් අවහිර කරන ලෙස සකසා තිබීම මීට හේතු විය "
+#~ "ඉලක්කගත බ්‍රව්සර කවුලුව යාවත්කාලීන කල නොහැක. ඔබ එහි මව් කවුලුව වසා තිබීම හෝ ඔබගේ බ්‍"
+#~ "රව්සරයේ ආරක්ෂක සැකසුම් අන්තර් කවුළු යාවත්කාලීන කිරීම් අවහිර කරන ලෙස සකසා තිබීම මීට හේතු විය "
 #~ "හැක."
 
 #~ msgid "Show binary contents as HEX by default."
@@ -19622,8 +19622,8 @@ msgstr "concurrent_insert ශුන්‍යයට සිටුවා ඇත"
 #~ "phpMyAdmin functionality will be missing. For example navigation frame "
 #~ "will not refresh automatically."
 #~ msgstr ""
-#~ "ඔබගේ බවුසරයේ Javascript සහය නැත/අක්‍රිය කර ඇත. එබැවින් යම් phpMyAdmin විශේෂාංග "
-#~ "අක්‍රිය වී ඇත. උදාහරණයක් ලෙස යාත්‍රණ රාමුව ස්වයංක්‍රියව යාවත්කාලීන නොවේ."
+#~ "ඔබගේ බවුසරයේ Javascript සහය නැත/අක්‍රිය කර ඇත. එබැවින් යම් phpMyAdmin විශේෂාංග අක්‍"
+#~ "රිය වී ඇත. උදාහරණයක් ලෙස යාත්‍රණ රාමුව ස්වයංක්‍රියව යාවත්කාලීන නොවේ."
 
 #~ msgid "Add a value"
 #~ msgstr "අගයක් එක් කරන්න"

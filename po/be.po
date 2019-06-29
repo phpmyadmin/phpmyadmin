@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-06-22 11:54+0200\n"
+"POT-Creation-Date: 2019-06-29 15:30-0300\n"
 "PO-Revision-Date: 2018-02-10 23:34+0000\n"
 "Last-Translator: Viktar Vauchkevich <victorenator@gmail.com>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -3162,12 +3162,12 @@ msgctxt "Collation"
 msgid "Binary"
 msgstr "Двайковы"
 
-#: libraries/classes/Charsets.php:361 libraries/classes/Charsets.php:591
+#: libraries/classes/Charsets.php:361 libraries/classes/Charsets.php:595
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Юнікод"
 
-#: libraries/classes/Charsets.php:371 libraries/classes/Charsets.php:542
+#: libraries/classes/Charsets.php:371 libraries/classes/Charsets.php:546
 msgctxt "Collation"
 msgid "West European"
 msgstr "Заходне-еўрапейская"
@@ -3187,237 +3187,237 @@ msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Кітайская спрошчаная"
 
-#: libraries/classes/Charsets.php:395 libraries/classes/Charsets.php:513
-msgctxt "Collation"
-msgid "Japanese"
-msgstr "Японская"
-
-#: libraries/classes/Charsets.php:400
-msgctxt "Collation"
-msgid "Baltic"
-msgstr "Балтыйская"
-
-#: libraries/classes/Charsets.php:405
-msgctxt "Collation"
-msgid "Armenian"
-msgstr "Армянская"
-
-#: libraries/classes/Charsets.php:408
+#: libraries/classes/Charsets.php:391
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Традыцыйная кітайская"
 
-#: libraries/classes/Charsets.php:411
-msgctxt "Collation"
-msgid "Cyrillic"
-msgstr "Кірылічная"
-
-#: libraries/classes/Charsets.php:414
-msgctxt "Collation"
-msgid "Arabic"
-msgstr "Арабская"
-
-#: libraries/classes/Charsets.php:417 libraries/classes/Charsets.php:528
-msgctxt "Collation"
-msgid "Korean"
-msgstr "Карэйская"
-
-#: libraries/classes/Charsets.php:420
-msgctxt "Collation"
-msgid "Hebrew"
-msgstr "Габрэйская"
-
-#: libraries/classes/Charsets.php:423
-msgctxt "Collation"
-msgid "Georgian"
-msgstr "Грузінская"
-
-#: libraries/classes/Charsets.php:426
-msgctxt "Collation"
-msgid "Greek"
-msgstr "Грэцкая"
-
-#: libraries/classes/Charsets.php:429
-msgctxt "Collation"
-msgid "Czech-Slovak"
-msgstr "Чэхаславацкая"
-
-#: libraries/classes/Charsets.php:432 libraries/classes/Charsets.php:583
-msgctxt "Collation"
-msgid "Ukrainian"
-msgstr "Украінская"
-
-#: libraries/classes/Charsets.php:435 libraries/classes/Charsets.php:579
-msgctxt "Collation"
-msgid "Turkish"
-msgstr "Турэцкая"
-
-#: libraries/classes/Charsets.php:438 libraries/classes/Charsets.php:571
-msgctxt "Collation"
-msgid "Swedish"
-msgstr "Шведская"
-
-#: libraries/classes/Charsets.php:441 libraries/classes/Charsets.php:575
-msgctxt "Collation"
-msgid "Thai"
-msgstr "Тайландская"
-
-#: libraries/classes/Charsets.php:444
-msgctxt "Collation"
-msgid "Unknown"
-msgstr "Невядома"
-
-#: libraries/classes/Charsets.php:460
-msgctxt "Collation"
-msgid "Bulgarian"
-msgstr "Балгарская"
-
-#: libraries/classes/Charsets.php:465
+#: libraries/classes/Charsets.php:394 libraries/classes/Charsets.php:469
 msgctxt "Collation"
 msgid "Chinese"
 msgstr "Кітайская"
 
-#: libraries/classes/Charsets.php:470
+#: libraries/classes/Charsets.php:402 libraries/classes/Charsets.php:517
+msgctxt "Collation"
+msgid "Japanese"
+msgstr "Японская"
+
+#: libraries/classes/Charsets.php:407
+msgctxt "Collation"
+msgid "Baltic"
+msgstr "Балтыйская"
+
+#: libraries/classes/Charsets.php:412
+msgctxt "Collation"
+msgid "Armenian"
+msgstr "Армянская"
+
+#: libraries/classes/Charsets.php:415
+msgctxt "Collation"
+msgid "Cyrillic"
+msgstr "Кірылічная"
+
+#: libraries/classes/Charsets.php:418
+msgctxt "Collation"
+msgid "Arabic"
+msgstr "Арабская"
+
+#: libraries/classes/Charsets.php:421 libraries/classes/Charsets.php:532
+msgctxt "Collation"
+msgid "Korean"
+msgstr "Карэйская"
+
+#: libraries/classes/Charsets.php:424
+msgctxt "Collation"
+msgid "Hebrew"
+msgstr "Габрэйская"
+
+#: libraries/classes/Charsets.php:427
+msgctxt "Collation"
+msgid "Georgian"
+msgstr "Грузінская"
+
+#: libraries/classes/Charsets.php:430
+msgctxt "Collation"
+msgid "Greek"
+msgstr "Грэцкая"
+
+#: libraries/classes/Charsets.php:433
+msgctxt "Collation"
+msgid "Czech-Slovak"
+msgstr "Чэхаславацкая"
+
+#: libraries/classes/Charsets.php:436 libraries/classes/Charsets.php:587
+msgctxt "Collation"
+msgid "Ukrainian"
+msgstr "Украінская"
+
+#: libraries/classes/Charsets.php:439 libraries/classes/Charsets.php:583
+msgctxt "Collation"
+msgid "Turkish"
+msgstr "Турэцкая"
+
+#: libraries/classes/Charsets.php:442 libraries/classes/Charsets.php:575
+msgctxt "Collation"
+msgid "Swedish"
+msgstr "Шведская"
+
+#: libraries/classes/Charsets.php:445 libraries/classes/Charsets.php:579
+msgctxt "Collation"
+msgid "Thai"
+msgstr "Тайландская"
+
+#: libraries/classes/Charsets.php:448
+msgctxt "Collation"
+msgid "Unknown"
+msgstr "Невядома"
+
+#: libraries/classes/Charsets.php:464
+msgctxt "Collation"
+msgid "Bulgarian"
+msgstr "Балгарская"
+
+#: libraries/classes/Charsets.php:474
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Харвацкая"
 
-#: libraries/classes/Charsets.php:474
+#: libraries/classes/Charsets.php:478
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Чэская"
 
-#: libraries/classes/Charsets.php:478
+#: libraries/classes/Charsets.php:482
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Дацкая"
 
-#: libraries/classes/Charsets.php:482
+#: libraries/classes/Charsets.php:486
 msgctxt "Collation"
 msgid "English"
 msgstr "Ангельская"
 
-#: libraries/classes/Charsets.php:486
+#: libraries/classes/Charsets.php:490
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Эсперанта"
 
-#: libraries/classes/Charsets.php:490
+#: libraries/classes/Charsets.php:494
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Эстонская"
 
-#: libraries/classes/Charsets.php:493 libraries/classes/Charsets.php:610
+#: libraries/classes/Charsets.php:497 libraries/classes/Charsets.php:614
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "Нямецкая (парадак слоўніка)"
 
-#: libraries/classes/Charsets.php:496 libraries/classes/Charsets.php:607
+#: libraries/classes/Charsets.php:500 libraries/classes/Charsets.php:611
 msgctxt "Collation"
 msgid "German (phone book order)"
 msgstr "Нямецкая (парадак тэлефоннай кнігі)"
 
-#: libraries/classes/Charsets.php:505
+#: libraries/classes/Charsets.php:509
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Вугорская"
 
-#: libraries/classes/Charsets.php:509
+#: libraries/classes/Charsets.php:513
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Ісландская"
 
-#: libraries/classes/Charsets.php:516
+#: libraries/classes/Charsets.php:520
 msgctxt "Collation"
 msgid "Classical Latin"
 msgstr "Лацінская класічная"
 
-#: libraries/classes/Charsets.php:520
+#: libraries/classes/Charsets.php:524
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Латвійская"
 
-#: libraries/classes/Charsets.php:524
+#: libraries/classes/Charsets.php:528
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Літоўская"
 
-#: libraries/classes/Charsets.php:532
+#: libraries/classes/Charsets.php:536
 msgctxt "Collation"
 msgid "Burmese"
 msgstr "Бірманская"
 
-#: libraries/classes/Charsets.php:535
+#: libraries/classes/Charsets.php:539
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Персідская"
 
-#: libraries/classes/Charsets.php:539
+#: libraries/classes/Charsets.php:543
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Польская"
 
-#: libraries/classes/Charsets.php:546
+#: libraries/classes/Charsets.php:550
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Румынская"
 
-#: libraries/classes/Charsets.php:550
+#: libraries/classes/Charsets.php:554
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "Сінгальская"
 
-#: libraries/classes/Charsets.php:554
+#: libraries/classes/Charsets.php:558
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Славацкая"
 
-#: libraries/classes/Charsets.php:558
+#: libraries/classes/Charsets.php:562
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Славенская"
 
-#: libraries/classes/Charsets.php:561 libraries/classes/Charsets.php:621
+#: libraries/classes/Charsets.php:565 libraries/classes/Charsets.php:625
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr "Іспанская (мадэрн)"
 
-#: libraries/classes/Charsets.php:568 libraries/classes/Charsets.php:618
+#: libraries/classes/Charsets.php:572 libraries/classes/Charsets.php:622
 msgctxt "Collation"
 msgid "Spanish (traditional)"
 msgstr "Іспанская (традыцыйная)"
 
-#: libraries/classes/Charsets.php:587
+#: libraries/classes/Charsets.php:591
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "В'етнамская"
 
-#: libraries/classes/Charsets.php:654
+#: libraries/classes/Charsets.php:658
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "без уліку рэгістру"
 
-#: libraries/classes/Charsets.php:657
+#: libraries/classes/Charsets.php:661
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "з улікам рэгістру"
 
-#: libraries/classes/Charsets.php:660
+#: libraries/classes/Charsets.php:664
 msgctxt "Collation variant"
 msgid "accent-insensitive"
 msgstr "без уліку акцэнту"
 
-#: libraries/classes/Charsets.php:663
+#: libraries/classes/Charsets.php:667
 msgctxt "Collation variant"
 msgid "accent-sensitive"
 msgstr "з улікам акцэнту"
 
-#: libraries/classes/Charsets.php:667
+#: libraries/classes/Charsets.php:671
 msgctxt "Collation variant"
 msgid "multi-level"
 msgstr "шматузроўневае"
 
-#: libraries/classes/Charsets.php:670
+#: libraries/classes/Charsets.php:674
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "двайковы"
@@ -6858,7 +6858,7 @@ msgstr "Поўныя тэксты"
 #: libraries/classes/Display/Results.php:2131
 #: libraries/classes/Operations.php:818
 #: libraries/classes/Server/Status/Processes.php:157
-#: libraries/classes/Util.php:4699 libraries/classes/Util.php:4716
+#: libraries/classes/Util.php:4700 libraries/classes/Util.php:4717
 #: libraries/config.values.php:71
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/database/multi_table_query/form.twig:63
@@ -6871,7 +6871,7 @@ msgstr "адваротны"
 #: libraries/classes/Display/Results.php:2127
 #: libraries/classes/Operations.php:815
 #: libraries/classes/Server/Status/Processes.php:160
-#: libraries/classes/Util.php:4694 libraries/classes/Util.php:4711
+#: libraries/classes/Util.php:4695 libraries/classes/Util.php:4712
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/database/multi_table_query/form.twig:62
@@ -13144,7 +13144,7 @@ msgstr ""
 msgid "Users"
 msgstr "Карыстальнікі"
 
-#: libraries/classes/Util.php:4686
+#: libraries/classes/Util.php:4687
 #: templates/database/multi_table_query/form.twig:61
 msgid "Sort"
 msgstr "Парадак"
