@@ -402,6 +402,26 @@ class CollationTest extends TestCase
                 'utf8mb4_de_0900_ai_ci',
                 'German (dictionary order) (UCA 9.0.0), accent-insensitive, case-insensitive',
             ],
+            [
+                'utf8_myanmar_ci',
+                'Burmese, case-insensitive',
+            ],
+            [
+                'utf8mb4_la_0900_as_cs',
+                'Classical Latin (UCA 9.0.0), accent-sensitive, case-sensitive',
+            ],
+            [
+                'utf8_sinhala_ci',
+                'Sinhalese, case-insensitive',
+            ],
+            [
+                'utf8_vietnamese_ci',
+                'Vietnamese, case-insensitive',
+            ],
+            [
+                'gb18030_chinese_ci',
+                'Chinese, case-insensitive',
+            ],
         ];
     }
 }
