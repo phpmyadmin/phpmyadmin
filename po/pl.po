@@ -4,9 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-06-22 11:54+0200\n"
-"PO-Revision-Date: 2018-06-15 18:33+0000\n"
-"Last-Translator: Kuba Niewiarowski <jakub@niewiarowski.it>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/4-8/pl/"
+"PO-Revision-Date: 2019-06-29 18:27+0000\n"
+"Last-Translator: Kozioł Marcin <koziol.martin@gmail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/4-9/pl/"
 ">\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.7.1\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -962,6 +962,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
+"Próbujesz zmniejszyć liczbę wierszy, ale już wprowadziłeś dane w tych "
+"wierszach, które zostaną utracone. Czy chcesz kontynuować?"
 
 #: js/messages.php:74
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -2320,7 +2322,7 @@ msgstr ""
 
 #: js/messages.php:564
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "value/subQuery jest pusta"
 
 #: js/messages.php:565 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
@@ -7322,6 +7324,8 @@ msgid ""
 "Please disable mysql.allow_local_infile in your PHP configuration or install "
 "the mysqli extension."
 msgstr ""
+"Proszę wyłącz mysql.allow_local_infile w swojej konfiguracji PHP lub "
+"zainstaluj rozszerzenie mysqli."
 
 #: libraries/classes/Dbi/DbiMysqli.php:163
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -8334,7 +8338,7 @@ msgstr "Widok"
 #: libraries/classes/Menu.php:296 libraries/classes/Menu.php:315
 #, php-format
 msgid "“%s”"
-msgstr ""
+msgstr "“%s”"
 
 #: libraries/classes/Menu.php:350
 #: libraries/classes/Navigation/Nodes/NodeTable.php:300
@@ -9107,7 +9111,7 @@ msgstr "Kontynuacja nagłówka tabeli"
 
 #: libraries/classes/Operations.php:326
 msgid "Change all tables columns collations"
-msgstr ""
+msgstr "Zmień wszystkie sortowania kolumn tabel"
 
 #: libraries/classes/Operations.php:803
 msgid "Alter table order by"
@@ -9371,7 +9375,7 @@ msgstr "Wprowadzona captcha jest niewłaściwa, spróbuj ponownie!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:320
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
-msgstr ""
+msgstr "Brak weryfikacji reCAPTCHA może być zablokowany przez adblock?"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:344
 msgid "You are not allowed to log in to this MySQL server!"
@@ -9404,7 +9408,7 @@ msgstr "Nie udało się zalogować na serwer MySQL"
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:335
 msgid "You have enabled two factor authentication, please confirm your login."
-msgstr ""
+msgstr "Włączyłeś uwierzytelnianie dwuskładnikowe, potwierdź swój login."
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:101
 #: templates/display/import/import.twig:168
@@ -10404,6 +10408,8 @@ msgid ""
 "The gd PHP extension was not found. The QRcode can not be displayed without "
 "the gd PHP extension."
 msgstr ""
+"Rozszerzenie gd PHP nie zostało znalezione. QRcode nie może być wyświetlany "
+"bez rozszerzenia gd PHP."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:146
 #, fuzzy
@@ -10416,15 +10422,19 @@ msgid ""
 "Provides authentication using HOTP and TOTP applications such as FreeOTP, "
 "Google Authenticator or Authy."
 msgstr ""
+"Zapewnia uwierzytelnianie za pomocą aplikacji HOTP i TOTP, takich jak "
+"FreeOTP, Google Authenticator lub Authy."
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:186
 msgid "Hardware Security Key (FIDO U2F)"
-msgstr ""
+msgstr "Klucz bezpieczeństwa sprzętowego (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:196
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F."
 msgstr ""
+"Zapewnia uwierzytelnianie za pomocą sprzętowych tokenów bezpieczeństwa "
+"obsługujących FIDO U2F."
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:52
 #, fuzzy
@@ -10450,11 +10460,11 @@ msgstr "Uwierzytelnianie sprzętowe nie powiodło się!"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:127
 msgid "No Two-Factor"
-msgstr ""
+msgstr "Brak dwóch czynników"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:137
 msgid "Login using password only."
-msgstr ""
+msgstr "Zaloguj się tylko przy użyciu hasła."
 
 #: libraries/classes/RecentFavoriteTable.php:145
 msgid "Could not save recent table!"
@@ -14093,19 +14103,19 @@ msgstr "Wykonaj"
 
 #: libraries/classes/Util.php:3861
 msgid "SSL is not being used"
-msgstr ""
+msgstr "SSL nie jest używany"
 
 #: libraries/classes/Util.php:3866
 msgid "SSL is used with disabled verification"
-msgstr ""
+msgstr "SSL jest używany z wyłączoną weryfikacją"
 
 #: libraries/classes/Util.php:3868
 msgid "SSL is used without certification authority"
-msgstr ""
+msgstr "SSL jest używany bez urzędu certyfikacji"
 
 #: libraries/classes/Util.php:3871
 msgid "SSL is used"
-msgstr ""
+msgstr "SSL jest używany"
 
 #: libraries/classes/Util.php:3992
 msgid "Users"
@@ -14129,6 +14139,8 @@ msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
+"Nie można ustawić pliku cookie sesji. Być może używasz protokołu HTTP "
+"zamiast HTTPS, aby uzyskać dostęp do phpMyAdmin."
 
 #: libraries/common.inc.php:342
 msgid "Invalid authentication method set in configuration:"
@@ -14253,7 +14265,7 @@ msgstr "żadne z powyższych"
 
 #: libraries/db_common.inc.php:151 tbl_operations.php:224
 msgid "No collation provided."
-msgstr ""
+msgstr "Brak zestawień."
 
 #: libraries/mult_submits.inc.php:337
 msgid "Success!"
@@ -14289,7 +14301,7 @@ msgstr ""
 
 #: prefs_forms.php:30 setup/frames/form.inc.php:21
 msgid "Incorrect form specified!"
-msgstr ""
+msgstr "Podano nieprawidłowy formularz!"
 
 #: prefs_forms.php:82
 msgid "Cannot save settings, submitted form contains errors!"
@@ -14777,20 +14789,24 @@ msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
 msgstr ""
+"Zeskanuj poniższy kod QR do aplikacji uwierzytelniającej dwuskładnikowej na "
+"urządzeniu i wprowadź wygenerowany kod uwierzytelniający."
 
 #: templates/login/twofactor/application_configure.twig:11
 msgid ""
 "Please enter following secret/key into the two-factor authentication app on "
 "your device and enter authentication code it generates."
 msgstr ""
+"Wprowadź następujący sekretny/klucz do aplikacji uwierzytelniania "
+"dwuskładnikowego na urządzeniu i wprowadź wygenerowany kod uwierzytelniający."
 
 #: templates/login/twofactor/application_configure.twig:14
 msgid "OTP url:"
-msgstr ""
+msgstr "Url OTP:"
 
 #: templates/login/twofactor/application_configure.twig:18
 msgid "Secret/key:"
-msgstr ""
+msgstr "Tajny/klucz:"
 
 #: templates/login/twofactor/application_configure.twig:21
 #: templates/login/twofactor/application.twig:2
@@ -14985,7 +15001,7 @@ msgstr "Przenieś kolumny"
 
 #: templates/table/structure/optional_action_links.twig:25
 msgid "Normalize"
-msgstr ""
+msgstr "Normalizuj"
 
 #: templates/table/structure/optional_action_links.twig:31
 msgid "Track view"
@@ -15466,6 +15482,8 @@ msgid ""
 "Open the two-factor authentication app on your device to view your "
 "authentication code and verify your identity."
 msgstr ""
+"Otwórz aplikację uwierzytelniania dwuskładnikowego na urządzeniu, aby "
+"wyświetlić kod uwierzytelniający i zweryfikować swoją tożsamość."
 
 #: templates/table/secondary_tabs.twig:9
 msgid "Relation view"
@@ -15673,7 +15691,7 @@ msgstr "Modyfikuj kolumnę(y)"
 
 #: templates/database/multi_table_query/form.twig:140
 msgid "Enter criteria as free text"
-msgstr ""
+msgstr "Wprowadź kryteria jako wolny tekst"
 
 #: templates/database/multi_table_query/form.twig:148
 #, fuzzy
@@ -15739,6 +15757,8 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm registration on the device."
 msgstr ""
+"Podłącz urządzenie FIDO U2F do portu USB komputera. Następnie potwierdź "
+"rejestrację na urządzeniu."
 
 #: templates/display/import/javascript.twig:12
 msgid ""
@@ -15798,6 +15818,9 @@ msgid ""
 "lead to non working phpMyAdmin or a security risk. Please fix your server "
 "configuration to indicate HTTPS properly."
 msgstr ""
+"Istnieje niezgodność między wskazaniem HTTPS na serwerze a klientem. Może to "
+"prowadzić do niepracującego phpMyAdmina lub zagrożenia bezpieczeństwa. "
+"Napraw konfigurację serwera, aby poprawnie wskazać HTTPS."
 
 #: templates/columns_definitions/move_column.twig:7
 msgid "first"
@@ -15914,6 +15937,8 @@ msgid ""
 "You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
 "most likely refuse to authenticate you."
 msgstr ""
+"Nie używasz https do uzyskania dostępu do phpMyAdmin, dlatego urządzenie "
+"FIDO U2F najprawdopodobniej odmówi uwierzytelnienia."
 
 #: templates/database/create_table.twig:15
 msgid "Number of columns"
@@ -15958,6 +15983,8 @@ msgid ""
 "By disabling two factor authentication you will be again able to login using "
 "password only."
 msgstr ""
+"Wyłączając uwierzytelnianie dwuskładnikowe, ponownie będziesz mógł zalogować "
+"się tylko przy użyciu hasła."
 
 #: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:37
 #, fuzzy
@@ -16075,19 +16102,25 @@ msgid ""
 "Two-factor authentication is not available, please install optional "
 "dependencies to enable authentication backends."
 msgstr ""
+"Uwierzytelnianie dwuskładnikowe nie jest dostępne, zainstaluj opcjonalne "
+"zależności, aby włączyć zaplecze uwierzytelniania."
 
 #: templates/prefs_twofactor.twig:10
 msgid "Following composer packages are missing:"
-msgstr ""
+msgstr "Brakuje następujących pakietów kompozytorskich:"
 
 #: templates/prefs_twofactor.twig:18
 msgid "Two-factor authentication is available and configured for this account."
 msgstr ""
+"Uwierzytelnianie dwuskładnikowe jest dostępne i skonfigurowane dla tego "
+"konta."
 
 #: templates/prefs_twofactor.twig:20
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
 msgstr ""
+"Uwierzytelnianie dwuskładnikowe jest dostępne, ale nie jest skonfigurowane "
+"dla tego konta."
 
 #: templates/prefs_twofactor.twig:24
 #, fuzzy
@@ -16373,7 +16406,7 @@ msgstr "Konwersja do Kana"
 
 #: templates/login/twofactor.twig:5
 msgid "Verify"
-msgstr ""
+msgstr "Zweryfikować"
 
 #: templates/table/relation/common_form.twig:6
 msgid "Foreign key constraints"
@@ -16609,6 +16642,8 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm login on the device."
 msgstr ""
+"Podłącz urządzenie FIDO U2F do portu USB komputera. Następnie potwierdź "
+"logowanie na urządzeniu."
 
 #: templates/server/databases/table_row.twig:13
 #, fuzzy, php-format
