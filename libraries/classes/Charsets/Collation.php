@@ -233,10 +233,17 @@ final class Collation
                     case 'koi8r':
                         $name = _pgettext('Collation', 'Russian');
                         break;
-                    // Simplified Chinese charsets
+                    // Chinese charsets
                     case 'gb2312':
                     case 'gbk':
                         $name = _pgettext('Collation', 'Simplified Chinese');
+                        break;
+                    case 'big5':
+                        $name = _pgettext('Collation', 'Traditional Chinese');
+                        break;
+                    case 'gb18030':
+                        $name = _pgettext('Collation', 'Chinese');
+                        $unicode = true;
                         break;
                     // Japanese charsets
                     case 'sjis':
@@ -254,9 +261,6 @@ final class Collation
                     case 'armscii8':
                     case 'armscii':
                         $name = _pgettext('Collation', 'Armenian');
-                        break;
-                    case 'big5':
-                        $name = _pgettext('Collation', 'Traditional Chinese');
                         break;
                     case 'cp1251':
                         $name = _pgettext('Collation', 'Cyrillic');
