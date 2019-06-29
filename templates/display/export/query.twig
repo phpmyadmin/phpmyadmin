@@ -1,0 +1,18 @@
+<div class="exportoptions">
+  {# l10n: Title of the option on the Export page #}
+	<h3>{% trans 'SQL query:' %}</h3>
+	<div class="floatleft">
+		<div id="sqlqueryform">
+      {# l10n: Button to show the SQL query on the export page #}
+			<input class="btn btn-secondary" type="submit" id="showsqlquery" value="{% trans 'Show SQL query' %}">
+		</div>
+		<div class="d-none">
+      <div id="export_sql_modal_content">
+        <code class="sql">
+          <pre id="sql_preview_query">{{ sql_query }}</pre>
+        </code>
+      </div>
+    </div>
+	</div>
+	<div class="clearfloat"></div>
+</div>
