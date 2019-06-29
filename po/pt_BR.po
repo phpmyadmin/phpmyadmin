@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-06-29 15:30-0300\n"
-"PO-Revision-Date: 2019-06-19 16:45+0000\n"
+"PO-Revision-Date: 2019-06-29 18:49+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-9/pt_BR/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.7\n"
+"X-Generator: Weblate 3.7.1\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -14037,7 +14037,7 @@ msgstr "nenhuma das acima"
 
 #: libraries/db_common.inc.php:151 tbl_operations.php:224
 msgid "No collation provided."
-msgstr ""
+msgstr "Nenhum agrupamento fornecido."
 
 #: libraries/mult_submits.inc.php:337
 msgid "Success!"
