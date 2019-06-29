@@ -5,7 +5,6 @@ declare(strict_types=1);
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
-use PhpMyAdmin\Twig\CharsetsExtension;
 use PhpMyAdmin\Twig\CoreExtension;
 use PhpMyAdmin\Twig\I18nExtension;
 use PhpMyAdmin\Twig\MessageExtension;
@@ -43,7 +42,6 @@ $twig = new Environment($loader, array(
     'cache' => $tmpDir,
     'auto_reload' => true
 ));
-$twig->addExtension(new CharsetsExtension());
 $twig->addExtension(new CoreExtension());
 $twig->addExtension(new I18nExtension());
 $twig->addExtension(new MessageExtension());

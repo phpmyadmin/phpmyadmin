@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\CentralColumns;
+use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Core;
@@ -1308,6 +1309,7 @@ class StructureController extends AbstractController
         $displayed_fields = [];
         $row_comments = [];
         $extracted_columnspecs = [];
+        $collations = [];
         foreach ($fields as &$field) {
             $rownum += 1;
             $columns_list[] = $field['Field'];
@@ -1337,6 +1339,18 @@ class StructureController extends AbstractController
                 $displayed_fields[$rownum]->icon .=
                 Util::getImage('bd_primary', __('Index'));
             }
+
+            $collation = Charsets::findCollationByName(
+                $this->dbi,
+                $GLOBALS['cfg']['Server']['DisableIS'],
+                $field['Collation'] ?? ''
+            );
+            if ($collation !== null) {
+                $collations[$collation->getName()] = [
+                    'name' => $collation->getName(),
+                    'description' => $collation->getDescription(),
+                ];
+            }
         }
 
         $engine = $this->table_obj->getStorageEngine();
@@ -1345,6 +1359,7 @@ class StructureController extends AbstractController
                 'db' => $this->db,
                 'table' => $this->table,
             ],
+            'collations' => $collations,
             'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
             'displayIndexesHtml' => Index::getHtmlForDisplayIndexes(),
             'cfg_relation' => $this->relation->getRelationsParam(),
@@ -1374,7 +1389,7 @@ class StructureController extends AbstractController
             'relation_mimework' => $GLOBALS['cfgRelation']['mimework'],
             'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork'],
             'mysql_int_version' => $this->dbi->getVersion(),
-            'is_mariadb' => $GLOBALS['dbi']->isMariaDB(),
+            'is_mariadb' => $this->dbi->isMariaDB(),
             'pma_theme_image' => $GLOBALS['pmaThemeImage'],
             'text_dir' => $GLOBALS['text_dir'],
             'is_active' => Tracker::isActive(),
@@ -1471,6 +1486,19 @@ class StructureController extends AbstractController
         $innodb_file_per_table = $innodbEnginePlugin->supportsFilePerTable();
 
         $engine = $this->dbi->getTable($this->db, $this->table)->getStorageEngine();
+
+        $tableCollation = [];
+        $collation = Charsets::findCollationByName(
+            $this->dbi,
+            $GLOBALS['cfg']['Server']['DisableIS'],
+            $this->_tbl_collation
+        );
+        if ($collation !== null) {
+            $tableCollation = [
+                'name' => $collation->getName(),
+                'description' => $collation->getDescription(),
+            ];
+        }
         return $this->template->render('table/structure/display_table_stats', [
             'url_params' => [
                 'db' => $GLOBALS['db'],
@@ -1484,7 +1512,7 @@ class StructureController extends AbstractController
             'db_is_system_schema' => $this->_db_is_system_schema,
             'tbl_storage_engine' => $this->_tbl_storage_engine,
             'url_query' => $this->_url_query,
-            'tbl_collation' => $this->_tbl_collation,
+            'table_collation' => $tableCollation,
             'is_innodb' => $is_innodb,
             'mergetable' => $mergetable,
             'avg_size' => isset($avg_size) ? $avg_size : null,

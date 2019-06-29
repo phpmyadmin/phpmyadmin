@@ -74,7 +74,7 @@ class CollationsControllerTest extends TestCase
             $actual
         );
         $this->assertStringContainsString(
-            '<td>' . Charsets::getCollationDescr('utf8_general_ci') . '</td>',
+            '<td>Unicode, case-insensitive</td>',
             $actual
         );
         $this->assertStringContainsString(

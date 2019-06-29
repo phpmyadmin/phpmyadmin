@@ -50,9 +50,9 @@
             </dfn>
         </th>
         <th>
-            {% if db_collation is not empty %}
-                <dfn title="{{ get_collation_descr(db_collation) }} ({% trans 'Default' %})">
-                    {{ db_collation }}
+            {% if database_collation is not empty %}
+                <dfn title="{{ database_collation.description }} ({% trans 'Default' %})">
+                    {{ database_collation.name }}
                 </dfn>
             {% endif %}
         </th>
@@ -71,7 +71,7 @@
     {% endif %}
 
     {% if show_charset %}
-        <th>{{ db_charset }}</th>
+        <th>{{ database_charset }}</th>
     {% endif %}
     {% if show_comment %}
         <th></th>

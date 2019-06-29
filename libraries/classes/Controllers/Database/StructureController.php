@@ -389,15 +389,22 @@ class StructureController extends AbstractController
                 $sum_entries += $current_table['TABLE_ROWS'];
             }
 
+            $collationDefinition = '---';
             if (isset($current_table['Collation'])) {
-                $collation = '<dfn title="'
-                    . Charsets::getCollationDescr($current_table['Collation']) . '">'
-                    . $current_table['Collation'] . '</dfn>';
-            } else {
-                $collation = '---';
+                $tableCollation = Charsets::findCollationByName(
+                    $this->dbi,
+                    $GLOBALS['cfg']['Server']['DisableIS'],
+                    $current_table['Collation']
+                );
+                if ($tableCollation !== null) {
+                    $collationDefinition = '<dfn title="'
+                        . $tableCollation->getDescription() . '">'
+                        . $tableCollation->getName() . '</dfn>';
+                }
             }
 
             if ($this->isShowStats) {
+                $overhead = '-';
                 if ($formatted_overhead != '') {
                     $overhead = '<a href="tbl_structure.php'
                         . $tbl_url_query . '#showusage">'
@@ -406,16 +413,13 @@ class StructureController extends AbstractController
                         . '</a>' . "\n";
                     $overhead_check = true;
                     $input_class[] = 'tbl-overhead';
-                } else {
-                    $overhead = '-';
                 }
-            } // end if
+            }
 
             if ($GLOBALS['cfg']['ShowDbStructureCharset']) {
-                if (isset($current_table['Collation'])) {
-                    $charset = mb_substr($collation, 0, mb_strpos($collation, "_"));
-                } else {
-                    $charset = '';
+                $charset = '';
+                if (isset($tableCollation)) {
+                    $charset = $tableCollation->getCharset();
                 }
             }
 
@@ -559,7 +563,7 @@ class StructureController extends AbstractController
                 'titles' => $titles,
                 'drop_query' => $drop_query,
                 'drop_message' => $drop_message,
-                'collation' => $collation,
+                'collation' => $collationDefinition,
                 'formatted_size' => $formatted_size,
                 'unit' => $unit,
                 'overhead' => $overhead,
@@ -590,10 +594,22 @@ class StructureController extends AbstractController
             ];
 
             $overall_approx_rows = $overall_approx_rows || $approx_rows;
-        } // end foreach
+        }
 
-        $db_collation = $this->dbi->getDbCollation($this->db);
-        $db_charset = mb_substr($db_collation, 0, mb_strpos($db_collation, "_"));
+        $databaseCollation = [];
+        $databaseCharset = '';
+        $collation = Charsets::findCollationByName(
+            $this->dbi,
+            $GLOBALS['cfg']['Server']['DisableIS'],
+            $this->dbi->getDbCollation($this->db)
+        );
+        if ($collation !== null) {
+            $databaseCollation = [
+                'name' => $collation->getName(),
+                'description' => $collation->getDescription(),
+            ];
+            $databaseCharset = $collation->getCharset();
+        }
 
         // table form
         $html .= $this->template->render('database/structure/table_header', [
@@ -614,9 +630,9 @@ class StructureController extends AbstractController
                 'server_slave_status' => $GLOBALS['replication_info']['slave']['status'],
                 'db_is_system_schema' => $this->dbIsSystemSchema,
                 'sum_entries' => $sum_entries,
-                'db_collation' => $db_collation,
+                'database_collation' => $databaseCollation,
                 'is_show_stats' => $this->isShowStats,
-                'db_charset' => $db_charset,
+                'database_charset' => $databaseCharset,
                 'sum_size' => $sum_size,
                 'overhead_size' => $overhead_size,
                 'create_time_all' => $create_time_all ? Util::localisedDate(strtotime($create_time_all)) : '-',
