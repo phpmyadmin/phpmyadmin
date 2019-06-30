@@ -465,6 +465,7 @@ class Charsets
                         break;
                     case 'chinese':
                     case 'cn':
+                    case 'zh':
                         if ($unicode) {
                             $name = _pgettext('Collation', 'Chinese');
                         }
@@ -549,12 +550,15 @@ class Charsets
                     case 'ro':
                         $name = _pgettext('Collation', 'Romanian');
                         break;
+                    case 'ru':
+                        $name = _pgettext('Collation', 'Russian');
+                        break;
                     case 'si':
                     case 'sinhala':
                         $name = _pgettext('Collation', 'Sinhalese');
                         break;
                     case 'slovak':
-                    case 'sl':
+                    case 'sk':
                         $name = _pgettext('Collation', 'Slovak');
                         break;
                     case 'slovenian':
@@ -572,6 +576,7 @@ class Charsets
                         $name = _pgettext('Collation', 'Spanish (traditional)');
                         break;
                     case 'swedish':
+                    case 'sv':
                         $name = _pgettext('Collation', 'Swedish');
                         break;
                     case 'thai':
