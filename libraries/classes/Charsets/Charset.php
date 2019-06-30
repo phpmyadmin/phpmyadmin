@@ -65,7 +65,7 @@ final class Charset
             $state['Charset'] ?? '',
             $state['Description'] ?? '',
             $state['Default collation'] ?? '',
-            (int) $state['Maxlen'] ?? 0
+            (int) ($state['Maxlen'] ?? 0)
         );
     }
 

@@ -9,7 +9,6 @@ namespace PhpMyAdmin\Tests\Charsets;
 
 use PhpMyAdmin\Charsets\Collation;
 use PHPUnit\Framework\TestCase;
-use ReflectionMethod;
 
 /**
  * Class CollationTest
@@ -18,32 +17,53 @@ use ReflectionMethod;
 class CollationTest extends TestCase
 {
     /**
-     * Test case for getCollationDescription()
+     * @return void
+     */
+    public function testFromServer(): void
+    {
+        $serverCollation = [
+            'Collation' => 'utf8_general_ci',
+            'Charset' => 'utf8',
+            'Id' => '33',
+            'Default' => 'Yes',
+            'Compiled' => 'Yes',
+            'Sortlen' => '1',
+            'Pad_attribute' => 'PAD SPACE',
+        ];
+
+        $collation = Collation::fromServer($serverCollation);
+
+        $this->assertInstanceOf(Collation::class, $collation);
+        $this->assertSame('utf8_general_ci', $collation->getName());
+        $this->assertSame('Unicode, case-insensitive', $collation->getDescription());
+        $this->assertSame('utf8', $collation->getCharset());
+        $this->assertSame(33, $collation->getId());
+        $this->assertTrue($collation->isDefault());
+        $this->assertTrue($collation->isCompiled());
+        $this->assertSame(1, $collation->getSortLength());
+        $this->assertSame('PAD SPACE', $collation->getPadAttribute());
+    }
+
+    /**
+     * Test case for buildDescription()
      *
      * @param string $collation   Collation for which description is reqd
      * @param string $description Expected Description
      *
      * @return void
-     * @test
-     * @dataProvider providerGetCollationDescriptions
+     *
+     * @dataProvider providerTestBuildDescription
      */
-    public function testGetCollationDescription($collation, $description): void
+    public function testBuildDescription($collation, $description): void
     {
-        $method = new ReflectionMethod(Collation::class, 'getCollationDescription');
-        $method->setAccessible(true);
-
-        $this->assertEquals(
-            $description,
-            $method->invokeArgs(null, [$collation])
-        );
+        $actual = Collation::fromServer(['Collation' => $collation]);
+        $this->assertEquals($description, $actual->getDescription());
     }
 
     /**
-     * Data Provider for testGetCollationDescr()
-     *
-     * @return array Test data for testGetCollationDescr()
+     * @return array
      */
-    public function providerGetCollationDescriptions()
+    public function providerTestBuildDescription(): array
     {
         return [
             [
@@ -429,6 +449,10 @@ class CollationTest extends TestCase
             [
                 'utf8mb4_unicode_520_nopad_ci',
                 'Unicode (UCA 5.2.0), no-pad, case-insensitive',
+            ],
+            [
+                'utf8mb4_ru_0900_as_cs',
+                'Russian (UCA 9.0.0), accent-sensitive, case-sensitive',
             ],
         ];
     }

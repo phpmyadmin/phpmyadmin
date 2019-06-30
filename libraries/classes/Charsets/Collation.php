@@ -88,7 +88,7 @@ final class Collation
         $this->isCompiled = $isCompiled;
         $this->sortLength = $sortLength;
         $this->padAttribute = $padAttribute;
-        $this->description = self::getCollationDescription($this->name);
+        $this->description = $this->buildDescription();
     }
 
     /**
@@ -100,10 +100,10 @@ final class Collation
         return new self(
             $state['Collation'] ?? '',
             $state['Charset'] ?? '',
-            (int) $state['Id'] ?? 0,
+            (int) ($state['Id'] ?? 0),
             isset($state['Default']) && ($state['Default'] === 'Yes' || $state['Default'] === '1'),
             isset($state['Compiled']) && ($state['Compiled'] === 'Yes' || $state['Compiled'] === '1'),
-            (int) $state['Sortlen'] ?? 0,
+            (int) ($state['Sortlen'] ?? 0),
             $state['Pad_attribute'] ?? ''
         );
     }
@@ -175,13 +175,11 @@ final class Collation
     /**
      * Returns description for given collation
      *
-     * @param string $collation MySQL collation string
-     *
      * @return string collation description
      */
-    private static function getCollationDescription(string $collation): string
+    private function buildDescription(): string
     {
-        $parts = explode('_', $collation);
+        $parts = explode('_', $this->getName());
 
         $name = __('Unknown');
         $variant = null;
