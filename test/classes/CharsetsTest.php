@@ -36,6 +36,12 @@ class CharsetsTest extends TestCase
         $this->assertNull(Charsets::findCollationByName(
             $GLOBALS['dbi'],
             $GLOBALS['cfg']['Server']['DisableIS'],
+            null
+        ));
+
+        $this->assertNull(Charsets::findCollationByName(
+            $GLOBALS['dbi'],
+            $GLOBALS['cfg']['Server']['DisableIS'],
             ''
         ));
 

@@ -190,13 +190,13 @@ class Charsets
     /**
      * @param DatabaseInterface $dbi       DatabaseInterface instance
      * @param bool              $disableIs Disable use of INFORMATION_SCHEMA
-     * @param string            $name      Collation name
+     * @param string|null       $name      Collation name
      *
      * @return Collation|null
      */
-    public static function findCollationByName(DatabaseInterface $dbi, bool $disableIs, string $name): ?Collation
+    public static function findCollationByName(DatabaseInterface $dbi, bool $disableIs, ?string $name): ?Collation
     {
-        $pieces = explode('_', $name);
+        $pieces = explode('_', (string) $name);
         if ($pieces === false || ! isset($pieces[0])) {
             return null;
         }
