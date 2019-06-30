@@ -422,6 +422,14 @@ class CollationTest extends TestCase
                 'gb18030_chinese_ci',
                 'Chinese, case-insensitive',
             ],
+            [
+                'utf8mb4_ja_0900_as_cs_ks',
+                'Japanese (UCA 9.0.0), accent-sensitive, case-sensitive, kana-sensitive',
+            ],
+            [
+                'utf8mb4_unicode_520_nopad_ci',
+                'Unicode (UCA 5.2.0), no-pad, case-insensitive',
+            ],
         ];
     }
 }
