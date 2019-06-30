@@ -138,6 +138,7 @@ class CharsetsTest extends TestCase
             array('utf8mb4_es_0900_ai_ci', 'Spanish (modern) (UCA 9.0.0), accent-insensitive, case-insensitive'),
             array('utf8mb4_de_pb_0900_ai_ci', 'German (phone book order) (UCA 9.0.0), accent-insensitive, case-insensitive'),
             array('utf8mb4_de_0900_ai_ci', 'German (dictionary order) (UCA 9.0.0), accent-insensitive, case-insensitive'),
+            array('utf8mb4_ja_0900_as_cs_ks', 'Japanese (UCA 9.0.0), accent-sensitive, case-sensitive, kana-sensitive'),
         );
     }
 

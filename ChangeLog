@@ -12,6 +12,7 @@ phpMyAdmin - ChangeLog
 - issue #14918 Use hex for the phpMyAdmin session token
 - issue        Added GB18030 Chinese collations description
 - issue        Added Russian, Swedish, Slovak and Chinese UCA 9.0.0 collations description
+- issue        Added description for the _ks (kana-sensitive) collation suffix
 
 4.9.0.1 (2019-06-04)
 - issue #14478 phpMyAdmin no longer streams the export data

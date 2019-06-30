@@ -671,6 +671,9 @@ class Charsets
                     case 'as':
                         $suffixes[] = _pgettext('Collation variant', 'accent-sensitive');
                         break;
+                    case 'ks':
+                        $suffixes[] = _pgettext('Collation variant', 'kana-sensitive');
+                        break;
                     case 'w2':
                     case 'l2':
                         $suffixes[] = _pgettext('Collation variant', 'multi-level');
