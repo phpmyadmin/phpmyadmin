@@ -681,6 +681,9 @@ class Charsets
                     case 'bin':
                         $suffixes[] = _pgettext('Collation variant', 'binary');
                         break;
+                    case 'nopad':
+                        $suffixes[] = _pgettext('Collation variant', 'no-pad');
+                        break;
                 }
             }
         }
