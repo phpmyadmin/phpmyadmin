@@ -42,7 +42,7 @@ $foreigners = $relation->getForeigners(
 
 $foreignData = $relation->getForeignData(
     $foreigners,
-   'id',
+    $_POST['column'],
     false,
     '',
     ''
