@@ -1560,7 +1560,7 @@ class ExportSql extends ExportPlugin
                 );
 
                 // exclude definition of current user
-                if ($GLOBALS['sql_view_current_user']) {
+                if (isset($GLOBALS['sql_view_current_user'])) {
                     $create_query = preg_replace(
                         '/(^|\s)DEFINER=([\S]+)/',
                         '',
@@ -1569,7 +1569,7 @@ class ExportSql extends ExportPlugin
                 }
 
                 // whether to replace existing view or not
-                if ($GLOBALS['sql_or_replace_view']) {
+                if (isset($GLOBALS['sql_or_replace_view'])) {
                     $create_query = preg_replace(
                         '/^CREATE/',
                         'CREATE OR REPLACE',
