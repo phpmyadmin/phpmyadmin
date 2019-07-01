@@ -229,7 +229,7 @@ class ErrorReport
      *
      * @param array $report the report info to be sent
      *
-     * @return string|bool the reply of the server
+     * @return string|null|bool the reply of the server
      */
     public function send(array $report)
     {

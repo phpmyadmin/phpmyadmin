@@ -62,7 +62,7 @@ if (isset($_POST['send_error_report'])
     // report if and only if there were 'actual' errors.
     if (count($reportData) > 0) {
         $server_response = $errorReport->send($reportData);
-        if ($server_response === false) {
+        if (! is_string($server_response)) {
             $success = false;
         } else {
             $decoded_response = json_decode($server_response, true);
