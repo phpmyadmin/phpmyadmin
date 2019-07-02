@@ -103,7 +103,7 @@ class HomeController extends AbstractController
                             'Change password'
                         ),
                         'id' => 'li_change_password',
-                        'class' => 'no_bullets',
+                        'class' => 'no_bullets list-group-item',
                         'url' => [
                             'href' => 'user_password.php' . Url::getCommon(),
                             'target' => null,
@@ -129,7 +129,7 @@ class HomeController extends AbstractController
                         'More settings'
                     ),
                     'id' => 'li_user_preferences',
-                    'class' => 'no_bullets',
+                    'class' => 'no_bullets list-group-item',
                     'url' => [
                         'href' => 'prefs_manage.php' . Url::getCommon(),
                         'target' => null,

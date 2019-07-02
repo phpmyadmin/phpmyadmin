@@ -1913,6 +1913,9 @@ div#queryboxcontainer div#bookmarkoptions {
 
   li {
     margin-bottom: 0.3em;
+    padding: 0;
+    background: none;
+    border: 0;
   }
 }
 
@@ -1932,7 +1935,6 @@ div#queryboxcontainer div#bookmarkoptions {
 
 li.no_bullets {
   list-style-type: none !important;
-  margin-#{$left}: -25px !important; //align with other list items which have bullets
 }
 
 // end iconic view for ul items
@@ -2087,7 +2089,6 @@ div.sqlvalidate {
   }
 
   margin-bottom: 1em;
-  padding-bottom: 1em;
 
   h2 {
     background-color: #bbb;
