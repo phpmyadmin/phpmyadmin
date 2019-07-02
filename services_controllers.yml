@@ -128,6 +128,7 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
+      plugins: '@server_plugins'
 
   PhpMyAdmin\Controllers\Server\ReplicationController:
     class: 'PhpMyAdmin\Controllers\Server\ReplicationController'

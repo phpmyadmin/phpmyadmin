@@ -103,6 +103,10 @@ services:
   response:
     factory: 'PhpMyAdmin\Response::getInstance'
 
+  server_plugins:
+    class: 'PhpMyAdmin\Server\Plugins'
+    arguments: ['@dbi']
+
   server_privileges:
     class: 'PhpMyAdmin\Server\Privileges'
     arguments: ['@template', '@dbi', '@relation', '@relation_cleanup']
