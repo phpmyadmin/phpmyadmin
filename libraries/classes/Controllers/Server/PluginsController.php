@@ -57,15 +57,7 @@ class PluginsController extends AbstractController
         $plugins = [];
         $serverPlugins = $this->plugins->getAll();
         foreach ($serverPlugins as $plugin) {
-            $plugins[$plugin->getType()][] = [
-                'name' => $plugin->getName(),
-                'type' => $plugin->getType(),
-                'version' => $plugin->getVersion(),
-                'description' => $plugin->getDescription(),
-                'author' => $plugin->getAuthor(),
-                'license' => $plugin->getLicense(),
-                'status' => $plugin->getStatus(),
-            ];
+            $plugins[$plugin->getType()][] = $plugin->toArray();
         }
         ksort($plugins);
 
