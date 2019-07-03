@@ -35,9 +35,9 @@ class Plugins
     {
         global $cfg;
 
-        $sql = 'SHOW PLUGINS;';
+        $sql = 'SHOW PLUGINS';
         if (! $cfg['Server']['DisableIS']) {
-            $sql = 'SELECT * FROM information_schema.PLUGINS ORDER BY PLUGIN_TYPE, PLUGIN_NAME;';
+            $sql = 'SELECT * FROM information_schema.PLUGINS ORDER BY PLUGIN_TYPE, PLUGIN_NAME';
         }
         $result = $this->dbi->query($sql);
         $plugins = [];

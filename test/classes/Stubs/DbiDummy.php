@@ -1307,9 +1307,35 @@ class DbiDummy implements DbiExtension
                 'result' => [],
             ],
             [
-                'query'  => "SHOW PLUGINS",
+                'query' => 'SHOW PLUGINS',
                 'result' => [
-                    ['Name' => 'partition'],
+                    [
+                        'Name' => 'partition',
+                        'Status' => 'ACTIVE',
+                        'Type' => 'STORAGE ENGINE',
+                        'Library' => null,
+                        'License' => 'GPL',
+                    ],
+                ],
+            ],
+            [
+                'query' => 'SELECT * FROM information_schema.PLUGINS ORDER BY PLUGIN_TYPE, PLUGIN_NAME',
+                'result' => [
+                    [
+                        'PLUGIN_NAME' => 'BLACKHOLE',
+                        'PLUGIN_VERSION' => '1.0',
+                        'PLUGIN_STATUS' => 'ACTIVE',
+                        'PLUGIN_TYPE' => 'STORAGE ENGINE',
+                        'PLUGIN_TYPE_VERSION' => '100316.0',
+                        'PLUGIN_LIBRARY' => 'ha_blackhole.so',
+                        'PLUGIN_LIBRARY_VERSION' => '1.13',
+                        'PLUGIN_AUTHOR' => 'MySQL AB',
+                        'PLUGIN_DESCRIPTION' => '/dev/null storage engine (anything you write to it disappears)',
+                        'PLUGIN_LICENSE' => 'GPL',
+                        'LOAD_OPTION' => 'ON',
+                        'PLUGIN_MATURITY' => 'Stable',
+                        'PLUGIN_AUTH_VERSION' => '1.0',
+                    ],
                 ],
             ],
             [
