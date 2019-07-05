@@ -95,5 +95,6 @@ class SchemaDia extends SchemaPlugin
     {
         $export = new DiaRelationSchema($db);
         $export->showOutput();
+        return true;
     }
 }
