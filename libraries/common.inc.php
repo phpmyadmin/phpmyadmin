@@ -52,7 +52,7 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 /**
  * block attempts to directly run this script
  */
-if (getcwd() == dirname(__FILE__)) {
+if (getcwd() == __DIR__) {
     die('Attack stopped');
 }
 
@@ -60,10 +60,10 @@ if (getcwd() == dirname(__FILE__)) {
  * Minimum PHP version; can't call Core::fatalError() which uses a
  * PHP 5 function, so cannot easily localize this message.
  */
-if (version_compare(PHP_VERSION, '7.1.3', 'lt')) {
+if (PHP_VERSION_ID < 70103) {
     die(
         'PHP 7.1.3+ is required. <br> Currently installed version is: '
-        . phpversion()
+        . PHP_VERSION
     );
 }
 
