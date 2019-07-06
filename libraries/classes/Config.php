@@ -447,7 +447,7 @@ class Config
         if (false !== strpos($ref_head, '/')) {
             // remove ref: prefix
             $ref_head = substr(trim($ref_head), 5);
-            if (substr($ref_head, 0, 11) === 'refs/heads/') {
+            if (0 === strpos($ref_head, 'refs/heads/')) {
                 $branch = substr($ref_head, 11);
             } else {
                 $branch = basename($ref_head);
