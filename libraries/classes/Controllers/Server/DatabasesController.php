@@ -179,8 +179,8 @@ class DatabasesController extends AbstractController
                 $this->dbi,
                 $cfg['Server']['DisableIS']
             );
-            if (in_array($databaseCharset, array_keys($charsets))
-                && in_array($params['db_collation'], array_keys($collations[$databaseCharset]))
+            if (array_key_exists($databaseCharset, $charsets)
+                && array_key_exists($params['db_collation'], $collations[$databaseCharset])
             ) {
                 $sqlQuery .= ' DEFAULT'
                     . Util::getCharsetQueryPart($params['db_collation']);
