@@ -280,7 +280,7 @@ class File
         ) {
             return false;
         }
-        $file = File::fetchUploadedFromTblChangeRequestMultiple(
+        $file = $this->fetchUploadedFromTblChangeRequestMultiple(
             $_FILES['fields_upload'],
             $rownumber,
             $key

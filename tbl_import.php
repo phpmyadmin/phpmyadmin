@@ -35,7 +35,7 @@ require_once ROOT_PATH . 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_import.php&amp;back=tbl_import.php';
 
 $response->addHTML(
-    $import->get(
+    $import::get(
         'table',
         $db,
         $table,

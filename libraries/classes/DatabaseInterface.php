@@ -2313,7 +2313,7 @@ class DatabaseInterface
      */
     public function isSuperuser(): bool
     {
-        return self::isUserType('super');
+        return $this->isUserType('super');
     }
 
     /**
