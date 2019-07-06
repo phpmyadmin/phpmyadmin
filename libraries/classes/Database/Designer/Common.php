@@ -14,6 +14,7 @@ use PhpMyAdmin\Index;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Util;
+use function rawurlencode;
 
 /**
  * Common functions for Designer
@@ -273,8 +274,8 @@ class Common
             if (Util::isForeignKeySupported($GLOBALS['designer']['TABLE_TYPE'][$i])) {
                 $j = 1;
             }
-            $retval['j_tabs'][\rawurlencode($GLOBALS['designer_url']['TABLE_NAME'][$i])] = $j;
-            $retval['h_tabs'][\rawurlencode($GLOBALS['designer_url']['TABLE_NAME'][$i])] = 1;
+            $retval['j_tabs'][rawurlencode($GLOBALS['designer_url']['TABLE_NAME'][$i])] = $j;
+            $retval['h_tabs'][rawurlencode($GLOBALS['designer_url']['TABLE_NAME'][$i])] = 1;
         }
         return $retval;
     }

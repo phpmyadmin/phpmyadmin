@@ -14,6 +14,7 @@ use mysqli;
 use mysqli_result;
 use PhpMyAdmin\DatabaseInterface;
 use stdClass;
+use function mysqli_init;
 
 /**
  * Interface to the MySQL Improved extension (MySQLi)
@@ -59,7 +60,7 @@ class DbiMysqli implements DbiExtension
                 : $server['host'];
         }
 
-        $mysqli = \mysqli_init();
+        $mysqli = mysqli_init();
 
         $client_flags = 0;
 
