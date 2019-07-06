@@ -2437,8 +2437,7 @@ class Table
                 }
 
                 if (empty($one_field) && empty($foreign_field[$key])) {
-                    unset($master_field[$key]);
-                    unset($foreign_field[$key]);
+                    unset($master_field[$key], $foreign_field[$key]);
                 }
             }
 

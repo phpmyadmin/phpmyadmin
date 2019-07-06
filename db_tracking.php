@@ -56,7 +56,7 @@ list(
     $pos
 ) = Util::getDbInfo($db, $sub_part === null ? '' : $sub_part);
 
-if (isset($_POST['delete_tracking']) && isset($_POST['table'])) {
+if (isset($_POST['delete_tracking'], $_POST['table'])) {
     Tracker::deleteTracking($db, $_POST['table']);
     Message::success(
         __('Tracking data deleted successfully.')

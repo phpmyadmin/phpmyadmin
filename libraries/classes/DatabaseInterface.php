@@ -1073,8 +1073,7 @@ class DatabaseInterface
             $sorter = 'strcasecmp';
         }
         /* No sorting when key is not present */
-        if (! isset($a[$GLOBALS['callback_sort_by']])
-            || ! isset($b[$GLOBALS['callback_sort_by']])
+        if (! isset($a[$GLOBALS['callback_sort_by']], $b[$GLOBALS['callback_sort_by']])
         ) {
             return 0;
         }

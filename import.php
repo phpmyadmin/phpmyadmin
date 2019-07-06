@@ -65,9 +65,7 @@ if (isset($_GET['console_bookmark_refresh'])) {
 }
 // If it's a console bookmark add request
 if (isset($_POST['console_bookmark_add'])) {
-    if (isset($_POST['label']) && isset($_POST['db'])
-        && isset($_POST['bookmark_query']) && isset($_POST['shared'])
-    ) {
+    if (isset($_POST['label'], $_POST['db'], $_POST['bookmark_query'], $_POST['shared'])) {
         $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
         $bookmarkFields = [
             'bkm_database' => $_POST['db'],

@@ -20,7 +20,7 @@ require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $sqlQuery = null;
 
-if (isset($_GET['sql_query']) && isset($_GET['sql_signature'])) {
+if (isset($_GET['sql_query'], $_GET['sql_signature'])) {
     if (Core::checkSqlQuerySignature($_GET['sql_query'], $_GET['sql_signature'])) {
         $sqlQuery = $_GET['sql_query'];
     }

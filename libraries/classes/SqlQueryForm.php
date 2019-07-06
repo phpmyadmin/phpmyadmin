@@ -287,10 +287,7 @@ class SqlQueryForm
                 $html .= '<option value="'
                     . Util::backquote(htmlspecialchars($field['Field']))
                     . '"';
-                if (isset($field['Field'])
-                    && strlen($field['Field']) > 0
-                    && isset($field['Comment'])
-                ) {
+                if (isset($field['Field'], $field['Comment']) && strlen($field['Field']) > 0) {
                     $html .= ' title="' . htmlspecialchars($field['Comment']) . '"';
                 }
                 $html .= '>' . htmlspecialchars($field['Field']) . '</option>' . "\n";

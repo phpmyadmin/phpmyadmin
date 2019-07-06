@@ -464,7 +464,7 @@ class Monitor
      */
     public function getJsonForLoggingVars(?string $name, ?string $value): array
     {
-        if (isset($name) && isset($value)) {
+        if (isset($name, $value)) {
             $escapedValue = $this->dbi->escapeString($value);
             if (! is_numeric($escapedValue)) {
                 $escapedValue = "'" . $escapedValue . "'";

@@ -41,8 +41,7 @@ if (isset($_POST['send_error_report'])
          * If reporting is done in some time interval,
          *  just clear them & clear json data too.
          */
-        if (isset($_SESSION['prev_error_subm_time'])
-            && isset($_SESSION['error_subm_count'])
+        if (isset($_SESSION['prev_error_subm_time'], $_SESSION['error_subm_count'])
             && $_SESSION['error_subm_count'] >= 3
             && ($_SESSION['prev_error_subm_time'] - time()) <= 3000
         ) {

@@ -252,8 +252,7 @@ class RelationController extends AbstractController
 
         // (for now, one index name only; we keep the definitions if the
         // foreign db is not the same)
-        if (isset($_POST['destination_foreign_db'])
-            && isset($_POST['destination_foreign_table'])
+        if (isset($_POST['destination_foreign_db'], $_POST['destination_foreign_table'])
             && isset($_POST['destination_foreign_column'])) {
             list($html, $preview_sql_data, $display_query, $seen_error)
                 = $this->upd_query->updateForeignKeys(

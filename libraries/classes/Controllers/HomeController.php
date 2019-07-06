@@ -402,9 +402,10 @@ class HomeController extends AbstractController
         /**
          * Warning if using the default MySQL controluser account
          */
-        if ($server != 0
-            && isset($cfg['Server']['controluser']) && $cfg['Server']['controluser'] == 'pma'
-            && isset($cfg['Server']['controlpass']) && $cfg['Server']['controlpass'] == 'pmapass'
+        if (isset($cfg['Server']['controluser'], $cfg['Server']['controlpass'])
+            && $server != 0
+            && $cfg['Server']['controluser'] == 'pma'
+            && $cfg['Server']['controlpass'] == 'pmapass'
         ) {
             trigger_error(
                 __(

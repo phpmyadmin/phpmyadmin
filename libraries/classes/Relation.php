@@ -609,11 +609,11 @@ class Relation
             $cfgRelation['relwork']     = true;
         }
 
-        if (isset($cfgRelation['relation']) && isset($cfgRelation['table_info'])) {
+        if (isset($cfgRelation['relation'], $cfgRelation['table_info'])) {
             $cfgRelation['displaywork'] = true;
         }
 
-        if (isset($cfgRelation['table_coords']) && isset($cfgRelation['pdf_pages'])) {
+        if (isset($cfgRelation['table_coords'], $cfgRelation['pdf_pages'])) {
             $cfgRelation['pdfwork']     = true;
         }
 
@@ -652,7 +652,7 @@ class Relation
             $cfgRelation['bookmarkwork']     = true;
         }
 
-        if (isset($cfgRelation['users']) && isset($cfgRelation['usergroups'])) {
+        if (isset($cfgRelation['users'], $cfgRelation['usergroups'])) {
             $cfgRelation['menuswork']        = true;
         }
 

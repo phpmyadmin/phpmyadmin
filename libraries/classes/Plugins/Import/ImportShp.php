@@ -290,8 +290,7 @@ class ImportShp extends ImportPlugin
         $null_param = null;
         $this->import->buildSql($db_name, $tables, $analyses, $null_param, $options, $sql_data);
 
-        unset($tables);
-        unset($analyses);
+        unset($tables, $analyses);
 
         $finished = true;
         $error = false;

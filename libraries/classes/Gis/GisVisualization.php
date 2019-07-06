@@ -668,9 +668,7 @@ class GisVisualization
                 continue;
             }
             $label = '';
-            if (isset($this->_settings['labelColumn'])
-                && isset($row[$this->_settings['labelColumn']])
-            ) {
+            if (isset($this->_settings['labelColumn'], $row[$this->_settings['labelColumn']])) {
                 $label = $row[$this->_settings['labelColumn']];
             }
 

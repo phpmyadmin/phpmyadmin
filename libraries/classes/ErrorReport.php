@@ -208,10 +208,7 @@ class ErrorReport
         // remove deployment specific details to make uri more generic
         if (isset($components["query"])) {
             parse_str($components["query"], $queryArray);
-            unset($queryArray["db"]);
-            unset($queryArray["table"]);
-            unset($queryArray["token"]);
-            unset($queryArray["server"]);
+            unset($queryArray["db"], $queryArray["table"], $queryArray["token"], $queryArray["server"]);
             $query = http_build_query($queryArray);
         } else {
             $query = '';

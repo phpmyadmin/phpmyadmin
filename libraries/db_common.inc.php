@@ -87,10 +87,7 @@ if (! isset($is_db) || ! $is_db) {
 /**
  * Changes database charset if requested by the user
  */
-if (isset($_POST['submitcollation'])
-    && isset($_POST['db_collation'])
-    && ! empty($_POST['db_collation'])
-) {
+if (isset($_POST['submitcollation'], $_POST['db_collation']) && ! empty($_POST['db_collation'])) {
     list($db_charset) = explode('_', $_POST['db_collation']);
     $sql_query        = 'ALTER DATABASE '
         . Util::backquote($db)
@@ -141,10 +138,7 @@ if (isset($_POST['submitcollation'])
         $response->addJSON('message', $message);
         exit;
     }
-} elseif (isset($_POST['submitcollation'])
-    && isset($_POST['db_collation'])
-    && empty($_POST['db_collation'])
-) {
+} elseif (isset($_POST['submitcollation'], $_POST['db_collation']) && empty($_POST['db_collation'])) {
     $response = Response::getInstance();
     if ($response->isAjax()) {
         $response->setRequestStatus(false);

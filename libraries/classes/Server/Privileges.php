@@ -1937,9 +1937,7 @@ class Privileges
         $authentication_plugin = 'mysql_native_password';
         $serverVersion = $this->dbi->getVersion();
 
-        if (isset($username) && isset($hostname)
-            && $mode == 'change'
-        ) {
+        if (isset($username, $hostname) && $mode == 'change') {
             $row = $this->dbi->fetchSingleRow(
                 'SELECT `plugin` FROM `mysql`.`user` WHERE '
                 . '`User` = "' . $username . '" AND `Host` = "' . $hostname . '" LIMIT 1'
@@ -2006,10 +2004,7 @@ class Privileges
         // similar logic in user_password.php
         $message = null;
 
-        if (empty($_POST['nopass'])
-            && isset($_POST['pma_pw'])
-            && isset($_POST['pma_pw2'])
-        ) {
+        if (isset($_POST['pma_pw'], $_POST['pma_pw2']) && empty($_POST['nopass'])) {
             if ($_POST['pma_pw'] != $_POST['pma_pw2']) {
                 $message = Message::error(__('The passwords aren\'t the same!'));
             } elseif (empty($_POST['pma_pw']) || empty($_POST['pma_pw2'])) {
@@ -4386,9 +4381,7 @@ class Privileges
                 if (! $this->dbi->tryQuery($create_user_real)) {
                     $_error = true;
                 }
-                if (isset($password_set_real) && ! empty($password_set_real)
-                    && isset($_POST['authentication_plugin'])
-                ) {
+                if (isset($password_set_real, $_POST['authentication_plugin']) && ! empty($password_set_real)) {
                     $this->setProperPasswordHashing(
                         $_POST['authentication_plugin']
                     );
@@ -4432,9 +4425,7 @@ class Privileges
         }
         $queries[] = $real_sql_query;
 
-        if (isset($password_set_real) && ! empty($password_set_real)
-            && isset($_POST['authentication_plugin'])
-        ) {
+        if (isset($password_set_real, $_POST['authentication_plugin']) && ! empty($password_set_real)) {
             $this->setProperPasswordHashing(
                 $_POST['authentication_plugin']
             );
@@ -4560,8 +4551,7 @@ class Privileges
         } elseif (isset($is_valid_dbname) && $is_valid_dbname) {
             $dbname = $_REQUEST['dbname'];
         } else {
-            unset($dbname);
-            unset($tablename);
+            unset($dbname, $tablename);
         }
 
         if (isset($dbname)) {

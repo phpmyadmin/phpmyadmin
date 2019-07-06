@@ -261,9 +261,8 @@ class Bookmark
         array $bkm_fields,
         bool $all_users = false
     ) {
-        if (! (isset($bkm_fields['bkm_sql_query'])
+        if (! (isset($bkm_fields['bkm_sql_query'], $bkm_fields['bkm_label'])
             && strlen($bkm_fields['bkm_sql_query']) > 0
-            && isset($bkm_fields['bkm_label'])
             && strlen($bkm_fields['bkm_label']) > 0)
         ) {
             return false;
