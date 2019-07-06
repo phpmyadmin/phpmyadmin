@@ -652,8 +652,7 @@ class FormDisplay
                 if ($isSetupScript
                     && isset($this->_userprefsKeys[$systemPath])
                 ) {
-                    if (isset($this->_userprefsDisallow[$systemPath])
-                        && isset($_POST[$key . '-userprefs-allow'])
+                    if (isset($this->_userprefsDisallow[$systemPath], $_POST[$key . '-userprefs-allow'])
                     ) {
                         unset($this->_userprefsDisallow[$systemPath]);
                     } elseif (! isset($_POST[$key . '-userprefs-allow'])) {

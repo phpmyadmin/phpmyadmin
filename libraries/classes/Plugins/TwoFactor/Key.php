@@ -76,7 +76,7 @@ class Key extends TwoFactorPlugin
     public function check()
     {
         $this->_provided = false;
-        if (! isset($_POST['u2f_authentication_response']) || ! isset($_SESSION['authenticationRequest'])) {
+        if (! isset($_POST['u2f_authentication_response'], $_SESSION['authenticationRequest'])) {
             return false;
         }
         $this->_provided = true;
@@ -165,7 +165,7 @@ class Key extends TwoFactorPlugin
     public function configure()
     {
         $this->_provided = false;
-        if (! isset($_POST['u2f_registration_response']) || ! isset($_SESSION['registrationRequest'])) {
+        if (! isset($_POST['u2f_registration_response'], $_SESSION['registrationRequest'])) {
             return false;
         }
         $this->_provided = true;

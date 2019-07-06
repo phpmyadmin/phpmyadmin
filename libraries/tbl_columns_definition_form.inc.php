@@ -343,10 +343,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
 
     // Variable tell if current column is bound in a foreign key constraint or not.
     // MySQL version from 5.6.6 allow renaming columns with foreign keys
-    if (isset($columnMeta['Field'])
-        && isset($form_params['table'])
-        && $GLOBALS['dbi']->getVersion() < 50606
-    ) {
+    if (isset($columnMeta['Field'], $form_params['table']) && $GLOBALS['dbi']->getVersion() < 50606) {
         $columnMeta['column_status'] = $relation->checkChildForeignReferences(
             $form_params['db'],
             $form_params['table'],

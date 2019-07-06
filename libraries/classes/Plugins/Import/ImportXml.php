@@ -278,9 +278,7 @@ class ImportXml extends ImportPlugin
                 $tempCells = [];
             }
 
-            unset($tempRow);
-            unset($tempCells);
-            unset($xml);
+            unset($tempRow, $tempCells, $xml);
 
             /**
              * Bring accumulated rows into the corresponding table
@@ -311,9 +309,7 @@ class ImportXml extends ImportPlugin
             }
         }
 
-        unset($xml);
-        unset($tempCells);
-        unset($rows);
+        unset($xml, $tempCells, $rows);
 
         /**
          * Only build SQL from data if there is data present
@@ -365,9 +361,7 @@ class ImportXml extends ImportPlugin
         /* Created and execute necessary SQL statements from data */
         $this->import->buildSql($db_name, $tables, $analyses, $create, $options, $sql_data);
 
-        unset($analyses);
-        unset($tables);
-        unset($create);
+        unset($analyses, $tables, $create);
 
         /* Commit any possible data in buffers */
         $this->import->runQuery('', '', $sql_data);

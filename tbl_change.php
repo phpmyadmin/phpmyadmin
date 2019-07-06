@@ -187,7 +187,7 @@ foreach ($rows as $row_id => $current_row) {
     $jsvkey = $row_id;
     $vkey = '[multi_edit][' . $jsvkey . ']';
 
-    $current_result = (isset($result) && is_array($result) && isset($result[$row_id])
+    $current_result = (isset($result, $result[$row_id]) && is_array($result)
         ? $result[$row_id]
         : $result);
     $repopulate = [];

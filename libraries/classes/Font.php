@@ -183,9 +183,10 @@ class Font
         int $fontSize,
         ?array $charLists = null
     ): int {
-        if (empty($charLists)
-            || ! isset($charLists[0]["chars"]) || ! is_array($charLists[0]["chars"])
-            || ! isset($charLists[0]["modifier"])
+        if (! isset($charLists[0]["chars"], $charLists[0]["modifier"]) || empty($charLists)
+            || ! is_array(
+                $charLists[0]["chars"]
+            )
         ) {
             $charLists = $this->getCharLists();
         }

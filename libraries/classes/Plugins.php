@@ -175,10 +175,7 @@ class Plugins
             return htmlspecialchars($_GET[$opt]);
         }
 
-        if (isset($GLOBALS['timeout_passed'])
-            && $GLOBALS['timeout_passed']
-            && isset($_REQUEST[$opt])
-        ) {
+        if (isset($GLOBALS['timeout_passed'], $_REQUEST[$opt]) && $GLOBALS['timeout_passed']) {
             return htmlspecialchars($_REQUEST[$opt]);
         }
 

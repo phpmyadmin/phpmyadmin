@@ -987,8 +987,7 @@ class StructureController extends AbstractController
             // While changing the Column Collation
             // First change to BLOB
             for ($i = 0; $i < $field_cnt; $i++) {
-                if (isset($_POST['field_collation'][$i])
-                    && isset($_POST['field_collation_orig'][$i])
+                if (isset($_POST['field_collation'][$i], $_POST['field_collation_orig'][$i])
                     && $_POST['field_collation'][$i] !== $_POST['field_collation_orig'][$i]
                     && ! in_array($_POST['field_orig'][$i], $columns_with_index)
                 ) {
@@ -1001,8 +1000,7 @@ class StructureController extends AbstractController
                     . ' ' . Util::backquote($_POST['field_orig'][$i])
                     . ' BLOB';
 
-                    if (isset($_POST['field_virtuality'][$i])
-                        && isset($_POST['field_expression'][$i])) {
+                    if (isset($_POST['field_virtuality'][$i], $_POST['field_expression'][$i])) {
                         if ($_POST['field_virtuality'][$i]) {
                             $secondary_query .= ' AS (' . $_POST['field_expression'][$i] . ') '
                                 . $_POST['field_virtuality'][$i];

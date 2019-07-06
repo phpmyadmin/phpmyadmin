@@ -77,9 +77,7 @@ class ChartController extends AbstractController
     public function indexAction()
     {
         $response = Response::getInstance();
-        if ($response->isAjax()
-            && isset($_REQUEST['pos'])
-            && isset($_REQUEST['session_max_rows'])
+        if (isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $response->isAjax()
         ) {
             $this->ajaxAction();
             return;

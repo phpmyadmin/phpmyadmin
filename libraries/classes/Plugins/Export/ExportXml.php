@@ -338,8 +338,7 @@ class ExportXml extends ExportPlugin
                             $head .= '            </pma:trigger>' . $crlf;
                         }
 
-                        unset($trigger);
-                        unset($triggers);
+                        unset($trigger, $triggers);
                     }
                 }
             }

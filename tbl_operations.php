@@ -222,9 +222,8 @@ if (isset($_POST['submitoptions'])) {
         $warning_messages = $operations->getWarningMessagesArray();
     }
 
-    if (isset($_POST['tbl_collation'])
+    if (isset($_POST['tbl_collation'], $_POST['change_all_collations'])
         && ! empty($_POST['tbl_collation'])
-        && isset($_POST['change_all_collations'])
         && ! empty($_POST['change_all_collations'])
     ) {
         $operations->changeAllColumnsCollation(
