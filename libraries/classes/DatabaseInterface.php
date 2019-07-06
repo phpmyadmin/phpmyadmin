@@ -562,12 +562,8 @@ class DatabaseInterface
         if (true === $limit_count) {
             $limit_count = $GLOBALS['cfg']['MaxTableList'];
         }
-        // prepare and check parameters
-        if (! is_array($database)) {
-            $databases = [$database];
-        } else {
-            $databases = $database;
-        }
+
+        $databases = [$database];
 
         $tables = [];
 
@@ -816,10 +812,6 @@ class DatabaseInterface
         // cache table data
         // so Table does not require to issue SHOW TABLE STATUS again
         $this->_cacheTableData($tables, $table);
-
-        if (is_array($database)) {
-            return $tables;
-        }
 
         if (isset($tables[$database])) {
             return $tables[$database];
