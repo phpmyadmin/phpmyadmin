@@ -33,7 +33,7 @@ class EnvironmentTest extends TestCase
     public function testPhpVersion()
     {
         $this->assertTrue(
-            version_compare('7.1.3', phpversion(), '<='),
+            version_compare('7.1.3', PHP_VERSION, '<='),
             'phpMyAdmin requires PHP 7.1.3 or above'
         );
     }
