@@ -1309,7 +1309,7 @@ class StructureController extends AbstractController
         $extracted_columnspecs = [];
         $collations = [];
         foreach ($fields as &$field) {
-            $rownum += 1;
+            ++$rownum;
             $columns_list[] = $field['Field'];
 
             $extracted_columnspecs[$rownum] = Util::extractColumnSpec($field['Type']);
