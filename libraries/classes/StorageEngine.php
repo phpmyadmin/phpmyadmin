@@ -335,7 +335,7 @@ class StorageEngine
                 $mysql_vars[$row['Variable_name']]
                     = $variables[$row['Variable_name']];
             } elseif (! $like
-                && mb_strpos(mb_strtolower($row['Variable_name']), mb_strtolower($this->engine)) !== 0
+                && mb_stripos($row['Variable_name'], $this->engine) !== 0
             ) {
                 continue;
             }

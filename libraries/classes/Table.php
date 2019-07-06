@@ -503,10 +503,7 @@ class Table
     ) {
         /** @var DatabaseInterface $dbi */
         $dbi = $GLOBALS['dbi'];
-        $is_timestamp = mb_strpos(
-            mb_strtoupper($type),
-            'TIMESTAMP'
-        ) !== false;
+        $is_timestamp = mb_stripos($type, 'TIMESTAMP') !== false;
 
         $query = Util::backquote($name) . ' ' . $type;
 

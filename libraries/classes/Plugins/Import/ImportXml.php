@@ -262,7 +262,7 @@ class ImportXml extends ImportPlugin
 
                 foreach ($v1 as $v2) {
                     $row_attr = $v2->attributes();
-                    if (! array_search((string) $row_attr['name'], $tempRow)) {
+                    if (! in_array((string) $row_attr['name'], $tempRow)) {
                         $tempRow[] = (string) $row_attr['name'];
                     }
                     $tempCells[] = (string) $v2;
