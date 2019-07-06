@@ -1702,7 +1702,7 @@ class ExportSql extends ExportPlugin
                         // Creating the parts that add indexes (must not be
                         // constraints).
                         if ($field->key->type === 'FULLTEXT KEY') {
-                            $indexes_fulltext[] = $field->build($field);
+                            $indexes_fulltext[] = $field::build($field);
                             unset($statement->fields[$key]);
                         } else {
                             if (empty($GLOBALS['sql_if_not_exists'])) {

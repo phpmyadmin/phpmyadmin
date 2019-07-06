@@ -47,7 +47,7 @@ list(
 
 $response = Response::getInstance();
 $response->addHTML(
-    $import->get(
+    $import::get(
         'database',
         $db,
         $table,
