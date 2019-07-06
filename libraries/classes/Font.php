@@ -184,9 +184,7 @@ class Font
         ?array $charLists = null
     ): int {
         if (! isset($charLists[0]["chars"], $charLists[0]["modifier"]) || empty($charLists)
-            || ! is_array(
-                $charLists[0]["chars"]
-            )
+            || ! is_array($charLists[0]["chars"])
         ) {
             $charLists = $this->getCharLists();
         }
