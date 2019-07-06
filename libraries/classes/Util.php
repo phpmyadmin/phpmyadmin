@@ -3647,7 +3647,7 @@ class Util
             'type' => 'int',
         ];
 
-        $geom_type = trim(mb_strtolower((string) $geom_type));
+        $geom_type = mb_strtolower(trim((string) $geom_type));
         if ($display && $geom_type != 'geometry' && $geom_type != 'multipoint') {
             $funcs[] = ['display' => '--------'];
         }
