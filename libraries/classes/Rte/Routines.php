@@ -1436,7 +1436,7 @@ class Routines
             // Generate output
             if ($outcome) {
                 // Pass the SQL queries through the "pretty printer"
-                $output  = Util::formatSql(implode($queries, "\n"));
+                $output  = Util::formatSql(implode("\n", $queries));
 
                 // Display results
                 $output .= "<fieldset><legend>";

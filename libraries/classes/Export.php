@@ -589,7 +589,7 @@ class Export
         string $separate_files
     ): void {
         if (! empty($db_select)) {
-            $tmp_select = implode($db_select, '|');
+            $tmp_select = implode('|', $db_select);
             $tmp_select = '|' . $tmp_select . '|';
         }
         // Walk over databases
