@@ -96,5 +96,6 @@ class SchemaEps extends SchemaPlugin
     {
         $export = new EpsRelationSchema($db);
         $export->showOutput();
+        return true;
     }
 }
