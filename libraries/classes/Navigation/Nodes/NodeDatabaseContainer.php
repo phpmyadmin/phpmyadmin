@@ -42,8 +42,8 @@ class NodeDatabaseContainer extends Node
             $new->isNew = true;
             $new->icon = Util::getImage('b_newdb', '');
             $new->links = [
-                'text' => 'server_databases.php?server=' . $GLOBALS['server'],
-                'icon' => 'server_databases.php?server=' . $GLOBALS['server'],
+                'text' => 'index.php?route=/server/databases&server=' . $GLOBALS['server'],
+                'icon' => 'index.php?route=/server/databases&server=' . $GLOBALS['server'],
             ];
             $new->classes = 'new_database italics';
             $this->addChild($new);

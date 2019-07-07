@@ -3193,7 +3193,7 @@ class Util
                 case 'welcome':
                     return 'index.php';
                 case 'databases':
-                    return 'server_databases.php';
+                    return 'index.php?route=/server/databases';
                 case 'status':
                     return 'server_status.php';
                 case 'variables':

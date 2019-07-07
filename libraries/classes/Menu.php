@@ -578,7 +578,7 @@ class Menu
         $tabs = [];
 
         $tabs['databases']['icon'] = 's_db';
-        $tabs['databases']['link'] = 'server_databases.php';
+        $tabs['databases']['link'] = 'index.php?route=/server/databases';
         $tabs['databases']['text'] = __('Databases');
 
         $tabs['sql']['icon'] = 'b_sql';

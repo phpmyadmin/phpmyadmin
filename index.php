@@ -7,12 +7,16 @@
  */
 declare(strict_types=1);
 
+use FastRoute\Dispatcher;
+use FastRoute\RouteCollector;
 use PhpMyAdmin\Controllers\HomeController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
+use function FastRoute\simpleDispatcher;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
@@ -21,6 +25,26 @@ if (! defined('ROOT_PATH')) {
 global $server;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
+
+if (isset($_GET['route']) || isset($_POST['route'])) {
+    $dispatcher = simpleDispatcher(function (RouteCollector $r) {
+        $r->addRoute([
+            'GET',
+            'POST',
+        ], '/server/databases', function () {
+            require_once ROOT_PATH . 'server_databases.php';
+        });
+    });
+    $routeInfo = $dispatcher->dispatch(
+        $_SERVER['REQUEST_METHOD'],
+        rawurldecode($_GET['route'] ?? $_POST['route'])
+    );
+    if ($routeInfo[0] === Dispatcher::FOUND) {
+        $handler = $routeInfo[1];
+        $handler($routeInfo[2]);
+        exit;
+    }
+}
 
 /**
  * pass variables to child pages
