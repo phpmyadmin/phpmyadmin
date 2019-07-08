@@ -659,7 +659,7 @@ class Menu
         $tabs['engine']['text'] = __('Engines');
 
         $tabs['plugins']['icon'] = 'b_plugin';
-        $tabs['plugins']['link'] = 'server_plugins.php';
+        $tabs['plugins']['link'] = Url::getFromRoute('/server/plugins');
         $tabs['plugins']['text'] = __('Plugins');
 
         return $tabs;
