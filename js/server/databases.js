@@ -19,7 +19,7 @@ AJAX.registerTeardown('server/databases.js', function () {
 });
 
 /**
- * AJAX scripts for server_databases.php
+ * AJAX scripts for /server/databases
  *
  * Actions ajaxified here:
  * Drop Databases

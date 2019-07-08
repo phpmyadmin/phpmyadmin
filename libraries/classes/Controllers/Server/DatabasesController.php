@@ -226,13 +226,14 @@ class DatabasesController extends AbstractController
      */
     public function dropDatabasesAction(array $params): array
     {
-        global $submit_mult, $mult_btn, $selected;
+        global $submit_mult, $mult_btn, $selected, $err_url;
 
         if (! isset($params['selected_dbs'])) {
             $message = Message::error(__('No databases selected.'));
         } else {
-            $action = 'server_databases.php';
-            $err_url = $action . Url::getCommon();
+            // for mult_submits.inc.php
+            $action = Url::getFromRoute('/server/databases');
+            $err_url = $action;
 
             $submit_mult = 'drop_db';
             $mult_btn = __('Yes');

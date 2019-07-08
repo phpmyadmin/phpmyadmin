@@ -45,7 +45,6 @@ class Core
         'pdf_schema.php',
         'server_binlog.php',
         'server_collations.php',
-        'server_databases.php',
         'server_engines.php',
         'server_export.php',
         'server_import.php',
