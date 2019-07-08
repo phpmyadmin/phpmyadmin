@@ -700,7 +700,7 @@ class ExportLatexTest extends PmaTestCase
                     'name1' => [
                         'values' => 'test-',
                         'transformation' => 'testfoo',
-                        'mimetype' => 'testmimetype_'
+                        'mimetype' => 'testmimetype_',
                     ],
                 ]
             );
@@ -710,7 +710,7 @@ class ExportLatexTest extends PmaTestCase
                 'Null' => 'Yes',
                 'Field' => 'name1',
                 'Key' => 'PRI',
-                'Type' => 'set(abc)enum123'
+                'Type' => 'set(abc)enum123',
             ],
             [
                 'Null' => 'NO',
@@ -788,7 +788,7 @@ class ExportLatexTest extends PmaTestCase
             ' \\multicolumn{1}{|c|}{\\textbf{Comments}} & \\multicolumn{1}' .
             '{|c|}{\\textbf{MIME}} \\\\ \\hline \\hline' . "\n" .
             '\\endfirsthead' . "\n" . ' \\hline \\multicolumn{1}{|c|}' .
-            '{\\textbf{Column}} & \\multicolumn{1}' . '{|c|}{\\textbf{Type}}' .
+            '{\\textbf{Column}} & \\multicolumn{1}{|c|}{\\textbf{Type}}' .
             ' & \\multicolumn{1}{|c|}{\\textbf{Null}} & \\multicolumn' .
             '{1}{|c|}{\\textbf{Default}} & \\multicolumn{1}{|c|}{\\textbf' .
             '{Comments}} & \\multicolumn{1}{|c|}{\\textbf{MIME}} \\\\ ' .
@@ -820,7 +820,7 @@ class ExportLatexTest extends PmaTestCase
                     'field' => [
                         'values' => 'test-',
                         'transformation' => 'testfoo',
-                        'mimetype' => 'test<'
+                        'mimetype' => 'test<',
                     ],
                 ]
             );

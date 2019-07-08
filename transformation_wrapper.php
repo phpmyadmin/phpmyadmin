@@ -8,6 +8,7 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Transformations;
@@ -16,18 +17,22 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-/**
- *
- */
 define('IS_TRANSFORMATION_WRAPPER', true);
 
-/**
- * Gets a core script and starts output buffering work
- */
+global $db, $table;
+
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$transformations = new Transformations();
-$relation = new Relation($GLOBALS['dbi']);
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $containerBuilder->get(DatabaseInterface::class);
+
+/** @var Transformations $transformations */
+$transformations = $containerBuilder->get('transformations');
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
 $cfgRelation = $relation->getRelationsParam();
 
 /**
@@ -67,22 +72,22 @@ foreach ($request_params as $one_request_param) {
 /**
  * Get the list of the fields of the current table
  */
-$GLOBALS['dbi']->selectDb($db);
+$dbi->selectDb($db);
 if (isset($where_clause)) {
-    $result = $GLOBALS['dbi']->query(
+    $result = $dbi->query(
         'SELECT * FROM ' . PhpMyAdmin\Util::backquote($table)
         . ' WHERE ' . $where_clause . ';',
         PhpMyAdmin\DatabaseInterface::CONNECT_USER,
         PhpMyAdmin\DatabaseInterface::QUERY_STORE
     );
-    $row = $GLOBALS['dbi']->fetchAssoc($result);
+    $row = $dbi->fetchAssoc($result);
 } else {
-    $result = $GLOBALS['dbi']->query(
+    $result = $dbi->query(
         'SELECT * FROM ' . PhpMyAdmin\Util::backquote($table) . ' LIMIT 1;',
         PhpMyAdmin\DatabaseInterface::CONNECT_USER,
         PhpMyAdmin\DatabaseInterface::QUERY_STORE
     );
-    $row = $GLOBALS['dbi']->fetchAssoc($result);
+    $row = $dbi->fetchAssoc($result);
 }
 
 // No row returned
@@ -106,8 +111,6 @@ if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
     }
 }
 
-// Only output the http headers
-$response = Response::getInstance();
 $response->getHeader()->sendHttpHeaders();
 
 // [MIME]

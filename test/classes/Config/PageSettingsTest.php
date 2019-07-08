@@ -28,10 +28,12 @@ class PageSettingsTest extends PmaTestCase
     protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
+        $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = '';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
     }
 
     /**
@@ -73,9 +75,9 @@ class PageSettingsTest extends PmaTestCase
         );
 
         $this->assertStringContainsString(
-            "validateField('MaxRows', 'PMA_validatePositiveNumber', true);\n"
-            . "validateField('RepeatCells', 'PMA_validateNonNegativeNumber', true);\n"
-            . "validateField('LimitChars', 'PMA_validatePositiveNumber', true);\n",
+            "registerFieldValidator('MaxRows', 'validatePositiveNumber', true);\n"
+            . "registerFieldValidator('RepeatCells', 'validateNonNegativeNumber', true);\n"
+            . "registerFieldValidator('LimitChars', 'validatePositiveNumber', true);\n",
             $html
         );
     }

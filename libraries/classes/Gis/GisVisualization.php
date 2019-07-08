@@ -164,6 +164,14 @@ class GisVisualization
     private function _modifySqlQuery($sql_query, $rows, $pos)
     {
         $modified_query = 'SELECT ';
+        $spatialAsText = 'ASTEXT';
+        $spatialSrid = 'SRID';
+
+        if ($this->_userSpecifiedSettings['mysqlVersion'] >= 50600) {
+            $spatialAsText = 'ST_ASTEXT';
+            $spatialSrid = 'ST_SRID';
+        }
+
         // If label column is chosen add it to the query
         if (! empty($this->_userSpecifiedSettings['labelColumn'])) {
             $modified_query .= Util::backquote(
@@ -171,8 +179,8 @@ class GisVisualization
             )
             . ', ';
         }
-        // Wrap the spatial column with 'ASTEXT()' function and add it
-        $modified_query .= 'ASTEXT('
+        // Wrap the spatial column with 'ST_ASTEXT()' function and add it
+        $modified_query .= $spatialAsText . '('
             . Util::backquote($this->_userSpecifiedSettings['spatialColumn'])
             . ') AS ' . Util::backquote(
                 $this->_userSpecifiedSettings['spatialColumn']
@@ -180,7 +188,7 @@ class GisVisualization
             . ', ';
 
         // Get the SRID
-        $modified_query .= 'SRID('
+        $modified_query .= $spatialSrid . '('
             . Util::backquote($this->_userSpecifiedSettings['spatialColumn'])
             . ') AS ' . Util::backquote('srid') . ' ';
 
@@ -231,7 +239,7 @@ class GisVisualization
      */
     private function _handleOptions()
     {
-        if (! is_null($this->_userSpecifiedSettings)) {
+        if ($this->_userSpecifiedSettings !== null) {
             $this->_settings = array_merge(
                 $this->_settings,
                 $this->_userSpecifiedSettings
@@ -295,7 +303,7 @@ class GisVisualization
     {
         $this->init();
 
-        $output = '<?xml version="1.0" encoding="UTF-8" standalone="no"?' . ' >'
+        $output = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>'
             . "\n"
             . '<svg version="1.1" xmlns:svg="http://www.w3.org/2000/svg"'
             . ' xmlns="http://www.w3.org/2000/svg"'
@@ -546,7 +554,12 @@ class GisVisualization
      */
     private function _scaleDataSet(array $data)
     {
-        $min_max = [];
+        $min_max = [
+            'maxX' => 0.0,
+            'maxY' => 0.0,
+            'minX' => 0.0,
+            'minY' => 0.0,
+        ];
         $border = 15;
         // effective width and height of the plot
         $plot_width = $this->_settings['width'] - 2 * $border;
@@ -640,7 +653,7 @@ class GisVisualization
 
         // loop through the rows
         foreach ($data as $row) {
-            $index = $color_number % sizeof($this->_settings['colors']);
+            $index = $color_number % count($this->_settings['colors']);
 
             // Figure out the data type
             $ref_data = $row[$this->_settings['spatialColumn']];

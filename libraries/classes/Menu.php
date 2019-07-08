@@ -17,13 +17,6 @@ namespace PhpMyAdmin;
 class Menu
 {
     /**
-     * Server id
-     *
-     * @access private
-     * @var int
-     */
-    private $_server;
-    /**
      * Database name
      *
      * @access private
@@ -46,13 +39,11 @@ class Menu
     /**
      * Creates a new instance of Menu
      *
-     * @param int    $server Server id
-     * @param string $db     Database name
-     * @param string $table  Table name
+     * @param string $db    Database name
+     * @param string $table Table name
      */
-    public function __construct($server, $db, $table)
+    public function __construct($db, $table)
     {
-        $this->_server = $server;
         $this->_db = $db;
         $this->_table = $table;
         $this->relation = new Relation($GLOBALS['dbi']);
@@ -639,6 +630,7 @@ class Menu
             [
                 'prefs_forms.php',
                 'prefs_manage.php',
+                'prefs_twofactor.php',
             ]
         );
 

@@ -28,7 +28,7 @@ class SanitizeTest extends TestCase
     {
         $this->assertEquals(
             '[a@javascript:alert(\'XSS\');@target]link</a>',
-            Sanitize::sanitize('[a@javascript:alert(\'XSS\');@target]link[/a]')
+            Sanitize::sanitizeMessage('[a@javascript:alert(\'XSS\');@target]link[/a]')
         );
     }
 
@@ -45,7 +45,7 @@ class SanitizeTest extends TestCase
         unset($GLOBALS['lang']);
         $this->assertEquals(
             '<a href="./url.php?url=https%3A%2F%2Fwww.phpmyadmin.net%2F" target="target">link</a>',
-            Sanitize::sanitize('[a@https://www.phpmyadmin.net/@target]link[/a]')
+            Sanitize::sanitizeMessage('[a@https://www.phpmyadmin.net/@target]link[/a]')
         );
 
         $GLOBALS['lang'] = $lang;
@@ -65,7 +65,7 @@ class SanitizeTest extends TestCase
     {
         $this->assertEquals(
             '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2F' . $expected . '" target="documentation">doclink</a>',
-            Sanitize::sanitize('[doc@' . $link . ']doclink[/doc]')
+            Sanitize::sanitizeMessage('[doc@' . $link . ']doclink[/doc]')
         );
     }
 
@@ -105,7 +105,7 @@ class SanitizeTest extends TestCase
     {
         $this->assertEquals(
             '[a@./Documentation.html@INVALID9]doc</a>',
-            Sanitize::sanitize('[a@./Documentation.html@INVALID9]doc[/a]')
+            Sanitize::sanitizeMessage('[a@./Documentation.html@INVALID9]doc[/a]')
         );
     }
 
@@ -118,7 +118,7 @@ class SanitizeTest extends TestCase
     {
         $this->assertEquals(
             '[a@./Documentation.html" onmouseover="alert(foo)"]doc</a>',
-            Sanitize::sanitize('[a@./Documentation.html" onmouseover="alert(foo)"]doc[/a]')
+            Sanitize::sanitizeMessage('[a@./Documentation.html" onmouseover="alert(foo)"]doc[/a]')
         );
     }
 
@@ -131,7 +131,7 @@ class SanitizeTest extends TestCase
     {
         $this->assertEquals(
             '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2F">doc</a>[a@javascript:alert(\'XSS\');@target]link</a>',
-            Sanitize::sanitize('[a@https://docs.phpmyadmin.net/]doc[/a][a@javascript:alert(\'XSS\');@target]link[/a]')
+            Sanitize::sanitizeMessage('[a@https://docs.phpmyadmin.net/]doc[/a][a@javascript:alert(\'XSS\');@target]link[/a]')
         );
     }
 
@@ -144,7 +144,7 @@ class SanitizeTest extends TestCase
     {
         $this->assertEquals(
             '&lt;div onclick=""&gt;',
-            Sanitize::sanitize('<div onclick="">')
+            Sanitize::sanitizeMessage('<div onclick="">')
         );
     }
 
@@ -157,7 +157,7 @@ class SanitizeTest extends TestCase
     {
         $this->assertEquals(
             '<strong>strong</strong>',
-            Sanitize::sanitize('[strong]strong[/strong]')
+            Sanitize::sanitizeMessage('[strong]strong[/strong]')
         );
     }
 
@@ -170,7 +170,7 @@ class SanitizeTest extends TestCase
     {
         $this->assertEquals(
             '&lt;strong&gt;strong&lt;/strong&gt;',
-            Sanitize::sanitize('[strong]strong[/strong]', true)
+            Sanitize::sanitizeMessage('[strong]strong[/strong]', true)
         );
     }
 

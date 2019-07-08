@@ -8,6 +8,7 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\Export as DisplayExport;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Message;
@@ -18,19 +19,24 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-/**
- * Gets some core libraries
- */
+global $db, $table, $url_query;
+
 require_once ROOT_PATH . 'libraries/common.inc.php';
+
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
 PageSettings::showGroup('Export');
 
-$response = Response::getInstance();
-$header   = $response->getHeader();
-$scripts  = $header->getScripts();
+$header = $response->getHeader();
+$scripts = $header->getScripts();
 $scripts->addFile('export.js');
 
-$export = new Export();
+/** @var Export $export */
+$export = $containerBuilder->get('export');
 
 // $sub_part is used in Util::getDbInfo() to see if we are coming from
 // db_export.php, in which case we don't obey $cfg['MaxTableList']
@@ -48,7 +54,7 @@ list(
     $tooltip_truename,
     $tooltip_aliasname,
     $pos
-) = Util::getDbInfo($db, is_null($sub_part) ? '' : $sub_part);
+) = Util::getDbInfo($db, $sub_part === null ? '' : $sub_part);
 
 /**
  * Displays the form
@@ -149,7 +155,7 @@ if (! isset($num_tables)) {
 if (! isset($unlim_num_rows)) {
     $unlim_num_rows = 0;
 }
-if (is_null($multi_values)) {
+if ($multi_values === null) {
     $multi_values = '';
 }
 $response = Response::getInstance();

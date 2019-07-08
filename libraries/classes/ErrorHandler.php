@@ -550,12 +550,12 @@ class ErrorHandler
         if ($GLOBALS['cfg']['SendErrorReports'] == 'always') {
             if ($response->isAjax()) {
                 // set flag for automatic report submission.
-                $response->addJSON('_sendErrorAlways', '1');
+                $response->addJSON('sendErrorAlways', '1');
             } else {
                 // send the error reports asynchronously & without asking user
                 $jsCode .= '$("#pma_report_errors_form").submit();'
-                        . 'PMA_ajaxShowMessage(
-                            PMA_messages["phpErrorsBeingSubmitted"], false
+                        . 'Functions.ajaxShowMessage(
+                            Messages.phpErrorsBeingSubmitted, false
                         );';
                 // js code to appropriate focusing,
                 $jsCode .= '$("html, body").animate({
@@ -566,22 +566,22 @@ class ErrorHandler
             //ask user whether to submit errors or not.
             if (! $response->isAjax()) {
                 // js code to show appropriate msgs, event binding & focusing.
-                $jsCode = 'PMA_ajaxShowMessage(PMA_messages["phpErrorsFound"]);'
-                        . '$("#pma_ignore_errors_popup").bind("click", function() {
-                            PMA_ignorePhpErrors()
+                $jsCode = 'Functions.ajaxShowMessage(Messages.phpErrorsFound);'
+                        . '$("#pma_ignore_errors_popup").on("click", function() {
+                            Functions.ignorePhpErrors()
                         });'
-                        . '$("#pma_ignore_all_errors_popup").bind("click",
+                        . '$("#pma_ignore_all_errors_popup").on("click",
                             function() {
-                                PMA_ignorePhpErrors(false)
+                                Functions.ignorePhpErrors(false)
                             });'
-                        . '$("#pma_ignore_errors_bottom").bind("click", function(e) {
+                        . '$("#pma_ignore_errors_bottom").on("click", function(e) {
                             e.preventDefault();
-                            PMA_ignorePhpErrors()
+                            Functions.ignorePhpErrors()
                         });'
-                        . '$("#pma_ignore_all_errors_bottom").bind("click",
+                        . '$("#pma_ignore_all_errors_bottom").on("click",
                             function(e) {
                                 e.preventDefault();
-                                PMA_ignorePhpErrors(false)
+                                Functions.ignorePhpErrors(false)
                             });'
                         . '$("html, body").animate({
                             scrollTop:$(document).height()

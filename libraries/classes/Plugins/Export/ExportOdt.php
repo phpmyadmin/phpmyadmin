@@ -14,12 +14,12 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\OpenDocument;
 use PhpMyAdmin\Plugins\ExportPlugin;
-use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
+use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 
@@ -305,14 +305,18 @@ class ExportOdt extends ExportPlugin
         while ($row = $GLOBALS['dbi']->fetchRow($result)) {
             $GLOBALS['odt_buffer'] .= '<table:table-row>';
             for ($j = 0; $j < $fields_cnt; $j++) {
-                if (! isset($row[$j]) || is_null($row[$j])) {
+                if ($fields_meta[$j]->type === 'geometry') {
+                    // export GIS types as hex
+                    $row[$j] = '0x' . bin2hex($row[$j]);
+                }
+                if (! isset($row[$j]) || $row[$j] === null) {
                     $GLOBALS['odt_buffer']
                         .= '<table:table-cell office:value-type="string">'
                         . '<text:p>'
                         . htmlspecialchars($GLOBALS[$what . '_null'])
                         . '</text:p>'
                         . '</table:table-cell>';
-                } elseif (stristr($field_flags[$j], 'BINARY')
+                } elseif (false !== stripos($field_flags[$j], 'BINARY')
                     && $fields_meta[$j]->blob
                 ) {
                     // ignore BLOB
@@ -410,7 +414,7 @@ class ExportOdt extends ExportPlugin
 
         $GLOBALS['odt_buffer'] .= '</table:table>';
 
-        return true;
+        return '';
     }
 
     /**

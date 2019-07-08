@@ -35,6 +35,7 @@ declare(strict_types=1);
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Di\Migration;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Logging;
@@ -44,6 +45,9 @@ use PhpMyAdmin\Session;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Util;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 /**
  * block attempts to directly run this script
@@ -56,9 +60,9 @@ if (getcwd() == dirname(__FILE__)) {
  * Minimum PHP version; can't call Core::fatalError() which uses a
  * PHP 5 function, so cannot easily localize this message.
  */
-if (version_compare(PHP_VERSION, '7.1.0', 'lt')) {
+if (version_compare(PHP_VERSION, '7.1.3', 'lt')) {
     die(
-        'PHP 7.1+ is required. <br> Currently installed version is: '
+        'PHP 7.1.3+ is required. <br> Currently installed version is: '
         . phpversion()
     );
 }
@@ -85,15 +89,20 @@ if (! @is_readable(AUTOLOAD_FILE)) {
 }
 require_once AUTOLOAD_FILE;
 
+$containerBuilder = new ContainerBuilder();
+$loader = new YamlFileLoader($containerBuilder, new FileLocator(__DIR__));
+$loader->load('../services.yml');
+$loader->load('../services_controllers.yml');
+/** @var Migration $diMigration */
+$diMigration = $containerBuilder->get('di_migration');
+
 /**
  * Load gettext functions.
  */
 PhpMyAdmin\MoTranslator\Loader::loadFunctions();
 
-/**
- * initialize the error handler
- */
-$GLOBALS['error_handler'] = new ErrorHandler();
+/** @var ErrorHandler $GLOBALS['error_handler'] */
+$GLOBALS['error_handler'] = $containerBuilder->get('error_handler');
 
 /**
  * Warning about missing PHP extensions.
@@ -118,7 +127,8 @@ Core::cleanupPathInfo();
  * force reading of config file, because we removed sensitive values
  * in the previous iteration
  */
-$GLOBALS['PMA_Config'] = new Config(CONFIG_FILE);
+$GLOBALS['PMA_Config'] = $containerBuilder->get('config');
+//$containerBuilder->set('config', $GLOBALS['PMA_Config']);
 
 /**
  * include session handling after the globals, to prevent overwriting
@@ -135,17 +145,17 @@ if (! defined('PMA_NO_SESSION')) {
  * holds parameters to be passed to next page
  * @global array $GLOBALS['url_params']
  */
-$GLOBALS['url_params'] = [];
+$diMigration->setGlobal('url_params', []);
 
 /**
  * holds page that should be displayed
  * @global string $GLOBALS['goto']
  */
-$GLOBALS['goto'] = '';
+$diMigration->setGlobal('goto', '');
 // Security fix: disallow accessing serious server files via "?goto="
 if (isset($_REQUEST['goto']) && Core::checkPageValidity($_REQUEST['goto'])) {
-    $GLOBALS['goto'] = $_REQUEST['goto'];
-    $GLOBALS['url_params']['goto'] = $_REQUEST['goto'];
+    $diMigration->setGlobal('goto', $_REQUEST['goto']);
+    $diMigration->setGlobal('url_params', ['goto' => $_REQUEST['goto']]);
 } else {
     unset($_REQUEST['goto'], $_GET['goto'], $_POST['goto'], $_COOKIE['goto']);
 }
@@ -155,7 +165,7 @@ if (isset($_REQUEST['goto']) && Core::checkPageValidity($_REQUEST['goto'])) {
  * @global string $GLOBALS['back']
  */
 if (isset($_REQUEST['back']) && Core::checkPageValidity($_REQUEST['back'])) {
-    $GLOBALS['back'] = $_REQUEST['back'];
+    $diMigration->setGlobal('back', $_REQUEST['back']);
 } else {
     unset($_REQUEST['back'], $_GET['back'], $_POST['back'], $_COOKIE['back']);
 }
@@ -225,24 +235,32 @@ Core::setGlobalDbOrTable('table');
 if (isset($_REQUEST['selected_recent_table']) && Core::isValid($_REQUEST['selected_recent_table'])) {
     $recent_table = json_decode($_REQUEST['selected_recent_table'], true);
 
-    $GLOBALS['db']
-        = (array_key_exists('db', $recent_table) && is_string($recent_table['db'])) ?
-            $recent_table['db'] : '';
-    $GLOBALS['url_params']['db'] = $GLOBALS['db'];
+    $diMigration->setGlobal(
+        'db',
+        (array_key_exists('db', $recent_table) && is_string($recent_table['db'])) ? $recent_table['db'] : ''
+    );
+    $diMigration->setGlobal(
+        'url_params',
+        ['db' => $containerBuilder->getParameter('db')] + $containerBuilder->getParameter('url_params')
+    );
 
-    $GLOBALS['table']
-        = (array_key_exists('table', $recent_table) && is_string($recent_table['table'])) ?
-            $recent_table['table'] : '';
-    $GLOBALS['url_params']['table'] = $GLOBALS['table'];
+    $diMigration->setGlobal(
+        'table',
+        (array_key_exists('table', $recent_table) && is_string($recent_table['table'])) ? $recent_table['table'] : ''
+    );
+    $diMigration->setGlobal(
+        'url_params',
+        ['table' => $containerBuilder->getParameter('table')] + $containerBuilder->getParameter('url_params')
+    );
 }
 
 /**
  * SQL query to be executed
  * @global string $GLOBALS['sql_query']
  */
-$GLOBALS['sql_query'] = '';
+$diMigration->setGlobal('sql_query', '');
 if (Core::isValid($_POST['sql_query'])) {
-    $GLOBALS['sql_query'] = $_POST['sql_query'];
+    $diMigration->setGlobal('sql_query', $_POST['sql_query']);
 }
 
 //$_REQUEST['set_theme'] // checked later in this file LABEL_theme_setup
@@ -280,8 +298,8 @@ $GLOBALS['PMA_Config']->checkServers();
  * current server
  * @global integer $GLOBALS['server']
  */
-$GLOBALS['server'] = $GLOBALS['PMA_Config']->selectServer();
-$GLOBALS['url_params']['server'] = $GLOBALS['server'];
+$diMigration->setGlobal('server', $GLOBALS['PMA_Config']->selectServer());
+$diMigration->setGlobal('url_params', ['server' => $containerBuilder->getParameter('server')] + $containerBuilder->getParameter('url_params'));
 
 /**
  * BC - enable backward compatibility
@@ -309,7 +327,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /**
          * Loads the proper database interface for this server
          */
-        DatabaseInterface::load();
+        $containerBuilder->set(DatabaseInterface::class, DatabaseInterface::load());
+        $containerBuilder->setAlias('dbi', DatabaseInterface::class);
 
         // get LoginCookieValidity from preferences cache
         // no generic solution for loading preferences from cache as some settings
@@ -339,8 +358,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 . ' ' . $cfg['Server']['auth_type']
             );
         }
-        if (isset($_REQUEST['pma_password']) && strlen($_REQUEST['pma_password']) > 256) {
-            $_REQUEST['pma_password'] = substr($_REQUEST['pma_password'], 0, 256);
+        if (isset($_POST['pma_password']) && strlen($_POST['pma_password']) > 256) {
+            $_POST['pma_password'] = substr($_POST['pma_password'], 0, 256);
         }
         $auth_plugin = new $auth_class();
 
@@ -447,10 +466,14 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         );
         exit;
     }
+
+    $containerBuilder->set('response', Response::getInstance());
 }
 
 // load user preferences
 $GLOBALS['PMA_Config']->loadUserPreferences();
+
+$containerBuilder->set('theme_manager', ThemeManager::getInstance());
 
 /* Tell tracker that it can actually work */
 Tracker::enable();

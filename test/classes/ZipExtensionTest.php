@@ -63,7 +63,7 @@ class ZipExtensionTest extends PmaTestCase
                 null,
                 [
                     'error' => '',
-                    'data' => 'TEST FILE' . "\n"
+                    'data' => 'TEST FILE' . "\n",
                 ],
             ],
             [
@@ -71,7 +71,7 @@ class ZipExtensionTest extends PmaTestCase
                 'test',
                 [
                     'error' => 'Error in ZIP archive: Could not find "test"',
-                    'data' => ''
+                    'data' => '',
                 ],
             ],
         ];

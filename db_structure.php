@@ -8,9 +8,7 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Database\StructureController;
-use PhpMyAdmin\Di\Container;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Replication;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 
 if (! defined('ROOT_PATH')) {
@@ -20,28 +18,19 @@ if (! defined('ROOT_PATH')) {
 require_once ROOT_PATH . 'libraries/common.inc.php';
 require_once ROOT_PATH . 'libraries/db_common.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->factory(StructureController::class);
-$container->set(Response::class, Response::getInstance());
-$container->alias('response', Response::class);
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
 
-/* Define dependencies for the concerned controller */
-$dependency_definitions = [
-    'db' => $db,
-    'relation' => new Relation($GLOBALS['dbi']),
-    'replication' => new Replication(),
-];
+/** @var DatabaseInterface $dbi */
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
 /** @var StructureController $controller */
-$controller = $container->get(StructureController::class, $dependency_definitions);
-
-/** @var Response $response */
-$response = $container->get(Response::class);
+$controller = $containerBuilder->get(StructureController::class);
 
 if ($response->isAjax() && ! empty($_REQUEST['favorite_table'])) {
     $json = $controller->addRemoveFavoriteTablesAction([
         'favorite_table' => $_REQUEST['favorite_table'],
-        'favorite_tables' => $_REQUEST['favorite_tables'] ?? null,
+        'favoriteTables' => $_REQUEST['favoriteTables'] ?? null,
         'sync_favorite_tables' => $_REQUEST['sync_favorite_tables'] ?? null,
         'add_favorite' => $_REQUEST['add_favorite'] ?? null,
         'remove_favorite' => $_REQUEST['remove_favorite'] ?? null,
@@ -59,8 +48,8 @@ if ($response->isAjax() && ! empty($_REQUEST['favorite_table'])) {
     ]));
 } else {
     $response->getHeader()->getScripts()->addFiles([
-        'db_structure.js',
-        'tbl_change.js',
+        'database/structure.js',
+        'table/change.js',
     ]);
 
     $response->addHTML($controller->index([

@@ -133,7 +133,7 @@ class FooterTest extends PmaTestCase
         $this->_callPrivateFunction(
             '_removeRecursion',
             [
-                &$object
+                &$object,
             ]
         );
 
@@ -162,7 +162,7 @@ class FooterTest extends PmaTestCase
             $this->_callPrivateFunction(
                 '_getSelfLink',
                 [
-                    $this->object->getSelfUrl()
+                    $this->object->getSelfUrl(),
                 ]
             )
         );
@@ -189,7 +189,7 @@ class FooterTest extends PmaTestCase
             $this->_callPrivateFunction(
                 '_getSelfLink',
                 [
-                    $this->object->getSelfUrl()
+                    $this->object->getSelfUrl(),
                 ]
             )
         );
@@ -264,7 +264,7 @@ class FooterTest extends PmaTestCase
         $footer = new Footer();
         $footer->setMinimal();
         $this->assertEquals(
-            '</div></body></html>',
+            "  </div>\n  </body>\n</html>\n",
             $footer->getDisplay()
         );
     }

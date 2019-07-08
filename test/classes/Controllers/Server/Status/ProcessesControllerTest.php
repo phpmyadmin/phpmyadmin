@@ -14,6 +14,7 @@ use PhpMyAdmin\Controllers\Server\Status\ProcessesController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
 
@@ -110,6 +111,7 @@ class ProcessesControllerTest extends TestCase
         $controller = new ProcessesController(
             Response::getInstance(),
             $GLOBALS['dbi'],
+            new Template(),
             $this->data
         );
 
@@ -226,7 +228,7 @@ class ProcessesControllerTest extends TestCase
             'Command' => 'Command1',
             'Info' => 'Info1',
             'State' => 'State1',
-            'Time' => 'Time1'
+            'Time' => 'Time1',
         ];
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 12;
         $GLOBALS['dbi']->expects($this->any())->method('fetchAssoc')
@@ -235,6 +237,7 @@ class ProcessesControllerTest extends TestCase
         $controller = new ProcessesController(
             Response::getInstance(),
             $GLOBALS['dbi'],
+            new Template(),
             $this->data
         );
 

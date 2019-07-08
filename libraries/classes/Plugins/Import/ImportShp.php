@@ -102,7 +102,7 @@ class ImportShp extends ImportPlugin
             $temp = $GLOBALS['PMA_Config']->getTempDir('shp');
             // If we can extract the zip archive to 'TempDir'
             // and use the files in it for import
-            if ($compression == 'application/zip' && ! is_null($temp)) {
+            if ($compression == 'application/zip' && $temp !== null) {
                 $dbf_file_name = $this->zipExtension->findFile(
                     $import_file,
                     '/^.*\.dbf$/i'
@@ -200,7 +200,7 @@ class ImportShp extends ImportPlugin
         }
 
         if (isset($gis_type)) {
-            /** @var GisMultiLineString|\PhpMyAdmin\Gis\GisMultiPoint|\PhpMyAdmin\Gis\GisPoint|GisPolygon $gis_obj */
+            /** @var GisMultiLineString|GisMultiPoint|GisPoint|GisPolygon $gis_obj */
             $gis_obj = GisFactory::factory($gis_type);
         } else {
             $gis_obj = null;
@@ -208,7 +208,7 @@ class ImportShp extends ImportPlugin
 
         $num_rows = count($shp->records);
         // If .dbf file is loaded, the number of extra data columns
-        $num_data_cols = ! is_null($shp->getDBFHeader()) ? count($shp->getDBFHeader()) : 0;
+        $num_data_cols = $shp->getDBFHeader() !== null ? count($shp->getDBFHeader()) : 0;
 
         $rows = [];
         $col_names = [];
@@ -222,7 +222,7 @@ class ImportShp extends ImportPlugin
                         . $gis_obj->getShape($record->SHPData) . "')";
                 }
 
-                if (! is_null($shp->getDBFHeader())) {
+                if ($shp->getDBFHeader() !== null) {
                     foreach ($shp->getDBFHeader() as $c) {
                         $cell = trim($record->DBFData[$c[0]]);
 
@@ -237,7 +237,7 @@ class ImportShp extends ImportPlugin
             }
         }
 
-        if (count($rows) == 0) {
+        if (count($rows) === 0) {
             $error = true;
             $message = Message::error(
                 __('The imported file does not contain any data!')

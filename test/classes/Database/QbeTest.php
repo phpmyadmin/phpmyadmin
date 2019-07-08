@@ -10,6 +10,8 @@ namespace PhpMyAdmin\Tests\Database;
 
 use PhpMyAdmin\Database\Qbe;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionClass;
 
@@ -34,7 +36,7 @@ class QbeTest extends PmaTestCase
      */
     protected function setUp(): void
     {
-        $this->object = new Qbe($GLOBALS['dbi'], 'pma_test');
+        $this->object = new Qbe(new Relation($GLOBALS['dbi']), new Template(), $GLOBALS['dbi'], 'pma_test');
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'pma_test';
         //mock DBI
@@ -340,7 +342,7 @@ class QbeTest extends PmaTestCase
                     3,
                     [
                         'and' => '',
-                        'or' => ' checked="checked"'
+                        'or' => ' checked="checked"',
                     ],
                 ]
             )
@@ -459,7 +461,7 @@ class QbeTest extends PmaTestCase
         $this->assertEquals(
             [
                 'unique' => [],
-                'index' => []
+                'index' => [],
             ],
             $this->_callProtectedFunction(
                 '_getIndexes',

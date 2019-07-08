@@ -44,7 +44,7 @@ class Descriptions
         $value = self::getString($key, $type);
 
         /* Fallback to path for name and empty string for description and comment */
-        if (is_null($value)) {
+        if ($value === null) {
             if ($type == 'name') {
                 $value = $path;
             } else {
@@ -52,7 +52,7 @@ class Descriptions
             }
         }
 
-        return Sanitize::sanitize($value);
+        return Sanitize::sanitizeMessage($value);
     }
 
     /**
@@ -928,9 +928,7 @@ class Descriptions
         ];
 
         $key = $path . '_' . $type;
-        if (array_key_exists($key, $descriptions)) {
-            return $descriptions[$key];
-        }
-        return null;
+
+        return $descriptions[$key] ?? null;
     }
 }

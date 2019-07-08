@@ -72,7 +72,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'host',
                             ],
                         ],
-                        'default_page' => './server_privileges.php'
+                        'default_page' => './server_privileges.php',
                     ],
                     'table_name' => [
                         'link_param' => 'table',
@@ -96,7 +96,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'Table_name',
                             ],
                         ],
-                        'default_page' => './tbl_structure.php?change_column=1'
+                        'default_page' => './tbl_structure.php?change_column=1',
                     ],
                 ],
                 'db' => [
@@ -108,7 +108,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'host',
                             ],
                         ],
-                        'default_page' => './server_privileges.php'
+                        'default_page' => './server_privileges.php',
                     ],
                 ],
                 'event' => [
@@ -120,7 +120,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'db',
                             ],
                         ],
-                        'default_page' => './db_events.php?edit_item=1'
+                        'default_page' => './db_events.php?edit_item=1',
                     ],
 
                 ],
@@ -147,7 +147,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'table_name',
                             ],
                         ],
-                        'default_page' => './tbl_structure.php'
+                        'default_page' => './tbl_structure.php',
                     ],
                 ],
                 'innodb_table_stats' => [
@@ -175,7 +175,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'type',
                             ],
                         ],
-                        'default_page' => './db_routines.php?edit_item=1'
+                        'default_page' => './db_routines.php?edit_item=1',
                     ],
                     'specific_name' => [
                         'link_param' => 'item_name',
@@ -189,7 +189,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'type',
                             ],
                         ],
-                        'default_page' => './db_routines.php?edit_item=1'
+                        'default_page' => './db_routines.php?edit_item=1',
                     ],
                 ],
                 'proc_priv' => [
@@ -201,7 +201,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'Host',
                             ],
                         ],
-                        'default_page' => './server_privileges.php'
+                        'default_page' => './server_privileges.php',
                     ],
                     'routine_name' => [
                         'link_param' => 'item_name',
@@ -215,7 +215,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'Routine_type',
                             ],
                         ],
-                        'default_page' => './db_routines.php?edit_item=1'
+                        'default_page' => './db_routines.php?edit_item=1',
                     ],
                 ],
                 'proxies_priv' => [
@@ -227,7 +227,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'Host',
                             ],
                         ],
-                        'default_page' => './server_privileges.php'
+                        'default_page' => './server_privileges.php',
                     ],
                 ],
                 'tables_priv' => [
@@ -239,7 +239,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'Host',
                             ],
                         ],
-                        'default_page' => './server_privileges.php'
+                        'default_page' => './server_privileges.php',
                     ],
                     'table_name' => [
                         'link_param' => 'table',
@@ -261,9 +261,9 @@ class SpecialSchemaLinks
                                 'column_name' => 'host',
                             ],
                         ],
-                        'default_page' => './server_privileges.php'
+                        'default_page' => './server_privileges.php',
                     ],
-                ]
+                ],
             ],
             'information_schema' => [
                 'columns' => [
@@ -289,7 +289,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'table_name',
                             ],
                         ],
-                        'default_page' => './tbl_structure.php?change_column=1'
+                        'default_page' => './tbl_structure.php?change_column=1',
                     ],
                 ],
                 'key_column_usage' => [
@@ -315,7 +315,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'table_name',
                             ],
                         ],
-                        'default_page' => './tbl_structure.php?change_column=1'
+                        'default_page' => './tbl_structure.php?change_column=1',
                     ],
                     'referenced_table_name' => [
                         'link_param' => 'table',
@@ -339,7 +339,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'referenced_table_name',
                             ],
                         ],
-                        'default_page' => './tbl_structure.php?change_column=1'
+                        'default_page' => './tbl_structure.php?change_column=1',
                     ],
                 ],
                 'partitions' => [
@@ -363,7 +363,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'host',
                             ],
                         ],
-                        'default_page' => './server_privileges.php'
+                        'default_page' => './server_privileges.php',
                     ],
                 ],
                 'referential_constraints' => [
@@ -401,7 +401,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'routine_type',
                             ],
                         ],
-                        'default_page' => './db_routines.php'
+                        'default_page' => './db_routines.php',
                     ],
                 ],
                 'schemata' => [
@@ -433,7 +433,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'table_name',
                             ],
                         ],
-                        'default_page' => './tbl_structure.php?change_column=1'
+                        'default_page' => './tbl_structure.php?change_column=1',
                     ],
                 ],
                 'tables' => [

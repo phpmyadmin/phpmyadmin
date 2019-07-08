@@ -391,11 +391,9 @@ class CreateAddField
         }
 
         if (! empty($_POST['partitions'])) {
-            $i = 0;
             $partitions = [];
             foreach ($_POST['partitions'] as $partition) {
                 $partitions[] = $this->getPartitionDefinition($partition);
-                $i++;
             }
             $sqlQuery .= " (" . implode(", ", $partitions) . ")";
         }
@@ -452,14 +450,12 @@ class CreateAddField
         }
 
         if (! empty($partition['subpartitions'])) {
-            $j = 0;
             $subpartitions = [];
             foreach ($partition['subpartitions'] as $subpartition) {
                 $subpartitions[] = $this->getPartitionDefinition(
                     $subpartition,
                     true
                 );
-                $j++;
             }
             $sqlQuery .= " (" . implode(", ", $subpartitions) . ")";
         }

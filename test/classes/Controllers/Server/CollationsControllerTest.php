@@ -13,6 +13,7 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\CollationsController;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -44,38 +45,10 @@ class CollationsControllerTest extends TestCase
      */
     public function testIndexAction(): void
     {
-        $charsets = [
-            'armscii8',
-            'ascii',
-            'big5',
-            'binary',
-        ];
-        $charsetsDescriptions = [
-            'armscii8' => 'PMA_armscii8_general_ci',
-            'ascii' => 'PMA_ascii_general_ci',
-            'big5' => 'PMA_big5_general_ci',
-            'binary' => 'PMA_binary_general_ci',
-        ];
-        $collations = [
-            'armscii8' => ['armscii8'],
-            'ascii' => ['ascii'],
-            'big5' => ['big5'],
-            'binary' => ['binary'],
-        ];
-        $defaultCollations = [
-            'armscii8' => 'armscii8',
-            'ascii' => 'ascii',
-            'big5' => 'big5',
-            'binary' => 'binary',
-        ];
-
         $controller = new CollationsController(
             Response::getInstance(),
             $GLOBALS['dbi'],
-            $charsets,
-            $charsetsDescriptions,
-            $collations,
-            $defaultCollations
+            new Template()
         );
 
         $actual = $controller->indexAction();
@@ -93,31 +66,27 @@ class CollationsControllerTest extends TestCase
             $actual
         );
         $this->assertStringContainsString(
-            '<em>PMA_armscii8_general_ci</em>',
+            '<em>UTF-8 Unicode</em>',
             $actual
         );
         $this->assertStringContainsString(
-            '<td>armscii8</td>',
+            '<td>utf8_general_ci</td>',
             $actual
         );
         $this->assertStringContainsString(
-            '<td>' . Charsets::getCollationDescr('armscii8') . '</td>',
+            '<td>Unicode, case-insensitive</td>',
             $actual
         );
         $this->assertStringContainsString(
-            '<em>PMA_ascii_general_ci</em>',
+            '<em>cp1252 West European</em>',
             $actual
         );
         $this->assertStringContainsString(
-            '<td>ascii</td>',
+            '<td>latin1_swedish_ci</td>',
             $actual
         );
         $this->assertStringContainsString(
-            '<em>PMA_big5_general_ci</em>',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<td>big5</td>',
+            '<td>Swedish, case-insensitive</td>',
             $actual
         );
     }

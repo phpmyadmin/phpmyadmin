@@ -141,7 +141,7 @@
         {% if not (show_charset > 1) %}
             {% if charset|length > 0 %}
                 <td class="nowrap">
-                    {{ charset }}
+                    {{ charset|raw }}
                 </td>
             {% endif %}
         {% endif %}

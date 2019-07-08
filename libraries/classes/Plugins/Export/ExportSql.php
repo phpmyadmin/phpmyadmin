@@ -727,7 +727,7 @@ class ExportSql extends ExportPlugin
         . $this->_exportComment(
             __('Server version:') . ' ' . $GLOBALS['dbi']->getVersionString()
         )
-        . $this->_exportComment(__('PHP Version:') . ' ' . phpversion())
+        . $this->_exportComment(__('PHP Version:') . ' ' . PHP_VERSION)
         . $this->_possibleCRLF();
 
         if (isset($GLOBALS['sql_header_comment'])
@@ -775,13 +775,13 @@ class ExportSql extends ExportPlugin
             // so that a utility like the mysql client can interpret
             // the file correctly
             if (isset($GLOBALS['charset'])
-                && isset(Charsets::$mysql_charset_map[$GLOBALS['charset']])
+                && isset(Charsets::$mysqlCharsetMap[$GLOBALS['charset']])
             ) {
                 // we got a charset from the export dialog
-                $set_names = Charsets::$mysql_charset_map[$GLOBALS['charset']];
+                $set_names = Charsets::$mysqlCharsetMap[$GLOBALS['charset']];
             } else {
                 // by default we use the connection charset
-                $set_names = Charsets::$mysql_charset_map['utf-8'];
+                $set_names = Charsets::$mysqlCharsetMap['utf-8'];
             }
             if ($set_names == 'utf8' && $GLOBALS['dbi']->getVersion() > 50503) {
                 $set_names = 'utf8mb4';
@@ -1560,7 +1560,7 @@ class ExportSql extends ExportPlugin
                 );
 
                 // exclude definition of current user
-                if ($GLOBALS['sql_view_current_user']) {
+                if (isset($GLOBALS['sql_view_current_user'])) {
                     $create_query = preg_replace(
                         '/(^|\s)DEFINER=([\S]+)/',
                         '',
@@ -1569,7 +1569,7 @@ class ExportSql extends ExportPlugin
                 }
 
                 // whether to replace existing view or not
-                if ($GLOBALS['sql_or_replace_view']) {
+                if (isset($GLOBALS['sql_or_replace_view'])) {
                     $create_query = preg_replace(
                         '/^CREATE/',
                         'CREATE OR REPLACE',
@@ -2237,7 +2237,7 @@ class ExportSql extends ExportPlugin
         ) {
             $head = $this->_possibleCRLF()
                 . $this->_exportComment()
-                . $this->_exportComment('VIEW ' . ' ' . $formatted_table_name)
+                . $this->_exportComment('VIEW ' . $formatted_table_name)
                 . $this->_exportComment(__('Data:') . ' ' . __('None'))
                 . $this->_exportComment()
                 . $this->_possibleCRLF();
@@ -2426,7 +2426,7 @@ class ExportSql extends ExportPlugin
             $values = [];
             for ($j = 0; $j < $fields_cnt; $j++) {
                 // NULL
-                if (! isset($row[$j]) || is_null($row[$j])) {
+                if (! isset($row[$j]) || $row[$j] === null) {
                     $values[] = 'NULL';
                 } elseif ($fields_meta[$j]->numeric
                     && $fields_meta[$j]->type != 'timestamp'
@@ -2436,7 +2436,7 @@ class ExportSql extends ExportPlugin
                     // timestamp is numeric on some MySQL 4.1, BLOBs are
                     // sometimes numeric
                     $values[] = $row[$j];
-                } elseif (stristr($field_flags[$j], 'BINARY') !== false
+                } elseif (false !== stripos($field_flags[$j], 'BINARY')
                     && isset($GLOBALS['sql_hex_for_binary'])
                 ) {
                     // a true BLOB
@@ -2462,6 +2462,9 @@ class ExportSql extends ExportPlugin
                         )
                     )
                     . "'";
+                } elseif ($fields_meta[$j]->type === 'geometry') {
+                    // export GIS types as hex
+                    $values[] = '0x' . bin2hex($row[$j]);
                 } elseif (! empty($GLOBALS['exporting_metadata'])
                     && $row[$j] == '@LAST_PAGE'
                 ) {
@@ -2764,7 +2767,7 @@ class ExportSql extends ExportPlugin
                 $flag = true;
             }
 
-            /** @var \PhpMyAdmin\SqlParser\Components\CreateDefinition $field */
+            /** @var CreateDefinition $field */
             foreach ($statement->fields as $field) {
                 // Column name.
                 if (! empty($field->type)) {

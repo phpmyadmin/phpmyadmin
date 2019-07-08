@@ -91,14 +91,18 @@
                             } only %}
                         </td>
                         <td name="collation" class="nowrap">
-                            {{ get_collation_dropdown_box(
-                                    dbi,
-                                    disableIs,
-                                    'field_collation[0]',
-                                    'field_0_4',
-                                    null,
-                                    false
-                                ) | raw }}
+                          <select lang="en" dir="ltr" name="field_collation[0]" id="field_0_4">
+                            <option value=""></option>
+                            {% for charset in charsets %}
+                              <optgroup label="{{ charset.name }}" title="{{ charset.description }}">
+                                {% for collation in charset.collations %}
+                                  <option value="{{ collation.name }}" title="{{ collation.description }}">
+                                    {{- collation.name -}}
+                                  </option>
+                                {% endfor %}
+                              </optgroup>
+                            {% endfor %}
+                          </select>
                         </td>
                         <td class="nowrap" name="col_attribute">
                             {% include 'columns_definitions/column_attribute.twig' with {
@@ -173,8 +177,6 @@
                     </form>
                 </td>
             {% endif %}
-            </form>
-            </td>
             <td class="navigation_separator"></td>
             <td>
                 <span>{% trans 'Filter rows' %}:</span>
@@ -338,13 +340,19 @@
                             </td>
                             <td name="collation" class="nowrap">
                                 <span>{{ row['col_collation'] }}</span>
-                                {{ get_collation_dropdown_box(
-                                    dbi,
-                                    disableIs,
-                                    'field_collation[' ~ row_num ~ ']',
-                                    'field_' ~ row_num ~ '_4', row['col_collation'],
-                                    false
-                                    ) | raw }}
+                                <select lang="en" dir="ltr" name="field_collation[{{ row_num }}]" id="field_{{ row_num }}_4">
+                                  <option value=""></option>
+                                  {% for charset in charsets %}
+                                    <optgroup label="{{ charset.name }}" title="{{ charset.description }}">
+                                      {% for collation in charset.collations %}
+                                        <option value="{{ collation.name }}" title="{{ collation.description }}"
+                                          {{- collation.name == row['col_collation'] ? ' selected' }}>
+                                          {{- collation.name -}}
+                                        </option>
+                                      {% endfor %}
+                                    </optgroup>
+                                  {% endfor %}
+                                </select>
                             </td>
                             <td class="nowrap" name="col_attribute">
                                 <span>{{ row['col_attribute']?(row['col_attribute']):"" }}</span>

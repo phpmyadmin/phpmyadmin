@@ -2006,7 +2006,8 @@ Navigation panel setup
 
     Enter :term:`URL` where logo in the navigation panel will point to.
     For use especially with self made theme which changes this.
-    For external URLs, you should include URL scheme as well.
+    For relative/internal URLs, you need to have leading `` ./ `` or trailing characters `` ? `` such as ``'./sql.php?'``.
+    For external URLs, you should include URL protocol schemes (``http`` or ``https``) with absolute URLs.
 
 .. config:option:: $cfg['NavigationLogoLinkWindow']
 
@@ -3504,7 +3505,6 @@ This example uses :file:`examples/signon.php` to demonstrate usage of :ref:`auth
     $cfg['Servers'][$i]['auth_type']     = 'signon';
     $cfg['Servers'][$i]['SignonSession'] = 'SignonSession';
     $cfg['Servers'][$i]['SignonURL']     = 'examples/signon.php';
-    ?>`
 
 Example for IP address limited autologin
 ++++++++++++++++++++++++++++++++++++++++
@@ -3560,7 +3560,6 @@ following example shows two of them:
     $cfg['ServerDefault'] = 0; // to choose the server on startup
 
     // further general options ...
-    ?>
 
 .. _example-google-ssl:
 

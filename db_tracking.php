@@ -19,9 +19,8 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-/**
- * Run common work
- */
+global $db, $pmaThemeImage, $text_dir, $url_query;
+
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 //Get some js files needed for Ajax requests
@@ -29,9 +28,10 @@ $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
-$scripts->addFile('db_tracking.js');
+$scripts->addFile('database/tracking.js');
 
-$tracking = new Tracking();
+/** @var Tracking $tracking */
+$tracking = $containerBuilder->get('tracking');
 
 /**
  * If we are not in an Ajax request, then do the common work and show the links etc.
@@ -54,10 +54,10 @@ list(
     $tooltip_truename,
     $tooltip_aliasname,
     $pos
-) = Util::getDbInfo($db, is_null($sub_part) ? '' : $sub_part);
+) = Util::getDbInfo($db, $sub_part === null ? '' : $sub_part);
 
 if (isset($_POST['delete_tracking']) && isset($_POST['table'])) {
-    Tracker::deleteTracking($GLOBALS['db'], $_POST['table']);
+    Tracker::deleteTracking($db, $_POST['table']);
     Message::success(
         __('Tracking data deleted successfully.')
     )->display();
@@ -76,7 +76,7 @@ if (isset($_POST['delete_tracking']) && isset($_POST['table'])) {
     if (! empty($_POST['selected_tbl'])) {
         if ($_POST['submit_mult'] == 'delete_tracking') {
             foreach ($_POST['selected_tbl'] as $table) {
-                Tracker::deleteTracking($GLOBALS['db'], $table);
+                Tracker::deleteTracking($db, $table);
             }
             Message::success(
                 __('Tracking data deleted successfully.')
@@ -85,7 +85,7 @@ if (isset($_POST['delete_tracking']) && isset($_POST['table'])) {
             echo $tracking->getHtmlForDataDefinitionAndManipulationStatements(
                 'db_tracking.php' . $url_query,
                 0,
-                $GLOBALS['db'],
+                $db,
                 $_POST['selected_tbl']
             );
             exit;
@@ -98,10 +98,10 @@ if (isset($_POST['delete_tracking']) && isset($_POST['table'])) {
 }
 
 // Get tracked data about the database
-$data = Tracker::getTrackedData($GLOBALS['db'], '', '1');
+$data = Tracker::getTrackedData($db, '', '1');
 
 // No tables present and no log exist
-if ($num_tables == 0 && count($data['ddlog']) == 0) {
+if ($num_tables == 0 && count($data['ddlog']) === 0) {
     echo '<p>' , __('No tables found in database.') , '</p>' , "\n";
 
     if (empty($db_is_system_schema)) {
@@ -112,7 +112,7 @@ if ($num_tables == 0 && count($data['ddlog']) == 0) {
 
 // ---------------------------------------------------------------------------
 echo $tracking->getHtmlForDbTrackingTables(
-    $GLOBALS['db'],
+    $db,
     $url_query,
     $pmaThemeImage,
     $text_dir

@@ -10,6 +10,8 @@ namespace PhpMyAdmin\Tests\Database;
 
 use PhpMyAdmin\Database\Designer;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\Template;
 use PHPUnit\Framework\TestCase;
 use ReflectionMethod;
 
@@ -48,7 +50,7 @@ class DesignerTest extends TestCase
                     'PMA_VERSION' => PMA_VERSION,
                     'db' => 'pmadb',
                     'pdf_pages' => 'pdf_pages',
-                    'pdfwork' => true
+                    'pdfwork' => true,
                 ],
             ],
             ' PMA_token ' => 'token',
@@ -110,7 +112,8 @@ class DesignerTest extends TestCase
         $db = 'db';
         $this->_mockDatabaseInteraction($db);
 
-        $this->designer = new Designer($GLOBALS['dbi']);
+        $template = new Template();
+        $this->designer = new Designer($GLOBALS['dbi'], new Relation($GLOBALS['dbi'], $template), $template);
 
         $method = new ReflectionMethod(Designer::class, 'getPageIdsAndNames');
         $method->setAccessible(true);
@@ -136,7 +139,8 @@ class DesignerTest extends TestCase
         $operation = 'edit';
         $this->_mockDatabaseInteraction($db);
 
-        $this->designer = new Designer($GLOBALS['dbi']);
+        $template = new Template();
+        $this->designer = new Designer($GLOBALS['dbi'], new Relation($GLOBALS['dbi'], $template), $template);
 
         $result = $this->designer->getHtmlForEditOrDeletePages($db, $operation);
         $this->assertStringContainsString(
@@ -164,7 +168,8 @@ class DesignerTest extends TestCase
         $db = 'db';
         $this->_mockDatabaseInteraction($db);
 
-        $this->designer = new Designer($GLOBALS['dbi']);
+        $template = new Template();
+        $this->designer = new Designer($GLOBALS['dbi'], new Relation($GLOBALS['dbi'], $template), $template);
 
         $result = $this->designer->getHtmlForPageSaveAs($db);
         $this->assertStringContainsString(
@@ -206,7 +211,8 @@ class DesignerTest extends TestCase
         $db = 'db';
         $page = 2;
 
-        $this->designer = new Designer($GLOBALS['dbi']);
+        $template = new Template();
+        $this->designer = new Designer($GLOBALS['dbi'], new Relation($GLOBALS['dbi'], $template), $template);
 
         $result = $this->designer->getHtmlForSchemaExport($db, $page);
         // export type

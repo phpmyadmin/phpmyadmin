@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Rte;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Rte\Events;
 use PHPUnit\Framework\TestCase;
@@ -32,21 +33,13 @@ class EventsTest extends TestCase
      */
     protected function setUp(): void
     {
+        $GLOBALS['PMA_Config'] = new Config();
+        $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
-        $GLOBALS['cfg']['AllowThirdPartyFraming'] = false;
-        $GLOBALS['cfg']['SendErrorReports'] = 'ask';
-        $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
-        $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'] = true;
-        $GLOBALS['cfg']['DefaultTabTable'] = 'browse';
-        $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = 'structure';
-        $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'] = '';
-        $GLOBALS['cfg']['LimitChars'] = 50;
-        $GLOBALS['cfg']['Confirm'] = true;
-        $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
-        $GLOBALS['cfg']['ServerDefault'] = '';
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['tear_down']['server'] = true;
 
         $this->events = new Events($GLOBALS['dbi']);

@@ -11,6 +11,10 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\CentralColumns;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 
 /**
  * Class CentralColumnsController
@@ -26,14 +30,15 @@ class CentralColumnsController extends AbstractController
     /**
      * CentralColumnsController constructor.
      *
-     * @param \PhpMyAdmin\Response          $response       Response instance
-     * @param \PhpMyAdmin\DatabaseInterface $dbi            DatabaseInterface instance
-     * @param string                        $db             Database name
-     * @param CentralColumns                $centralColumns CentralColumns instance
+     * @param Response          $response       Response instance
+     * @param DatabaseInterface $dbi            DatabaseInterface instance
+     * @param Template          $template       Template object
+     * @param string            $db             Database name
+     * @param CentralColumns    $centralColumns CentralColumns instance
      */
-    public function __construct($response, $dbi, $db, $centralColumns)
+    public function __construct($response, $dbi, Template $template, $db, $centralColumns)
     {
-        parent::__construct($response, $dbi, $db);
+        parent::__construct($response, $dbi, $template, $db);
         $this->centralColumns = $centralColumns;
     }
 
@@ -93,7 +98,7 @@ class CentralColumnsController extends AbstractController
 
     /**
      * @param array $params Request parameters
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function editSave(array $params)
     {
@@ -117,7 +122,7 @@ class CentralColumnsController extends AbstractController
 
     /**
      * @param array $params Request parameters
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function addNewColumn(array $params)
     {
@@ -141,7 +146,7 @@ class CentralColumnsController extends AbstractController
 
     /**
      * @param array $params Request parameters
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function addColumn(array $params)
     {
@@ -166,7 +171,7 @@ class CentralColumnsController extends AbstractController
 
     /**
      * @param array $params Request parameters
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function updateMultipleColumn(array $params)
     {
@@ -175,7 +180,7 @@ class CentralColumnsController extends AbstractController
 
     /**
      * @param array $params Request parameters
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function deleteSave(array $params)
     {

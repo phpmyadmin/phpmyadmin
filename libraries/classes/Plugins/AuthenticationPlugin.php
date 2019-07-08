@@ -16,9 +16,9 @@ use PhpMyAdmin\Logging;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
-use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Session;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Url;
 
 /**
@@ -346,7 +346,7 @@ abstract class AuthenticationPlugin
         $response = Response::getInstance();
         if ($response->loginPage()) {
             if (defined('TESTSUITE')) {
-                return true;
+                return;
             } else {
                 exit;
             }

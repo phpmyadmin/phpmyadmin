@@ -13,6 +13,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\SavedSearches;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -211,7 +212,7 @@ class Qbe
      * Current search
      *
      * @access private
-     * @var \PhpMyAdmin\SavedSearches
+     * @var SavedSearches
      */
     private $_currentSearch = null;
 
@@ -233,12 +234,16 @@ class Qbe
     /**
      * Public Constructor
      *
-     * @param DatabaseInterface         $dbi             DatabaseInterface object
-     * @param string                    $dbname          Database name
-     * @param array                     $savedSearchList List of saved searches
-     * @param \PhpMyAdmin\SavedSearches $currentSearch   Current search id
+     * @param Relation          $relation        Relation object
+     * @param Template          $template        Template object
+     * @param DatabaseInterface $dbi             DatabaseInterface object
+     * @param string            $dbname          Database name
+     * @param array             $savedSearchList List of saved searches
+     * @param SavedSearches     $currentSearch   Current search id
      */
     public function __construct(
+        Relation $relation,
+        Template $template,
         $dbi,
         $dbname,
         array $savedSearchList = [],
@@ -248,8 +253,8 @@ class Qbe
         $this->_savedSearchList = $savedSearchList;
         $this->_currentSearch = $currentSearch;
         $this->dbi = $dbi;
-        $this->relation = new Relation($this->dbi);
-        $this->template = new Template();
+        $this->relation = $relation;
+        $this->template = $template;
 
         $this->_loadCriterias();
         // Sets criteria parameters
@@ -279,7 +284,7 @@ class Qbe
     /**
      * Getter for current search
      *
-     * @return \PhpMyAdmin\SavedSearches
+     * @return SavedSearches
      */
     private function _getCurrentSearch()
     {
@@ -1005,7 +1010,7 @@ class Qbe
             }
             $html_output .= '<td class="center">';
             $html_output .= '<input type="text"'
-                . ' name="Or' . $new_row_index . '[' . $new_column_count . ']' . '"'
+                . ' name="Or' . $new_row_index . '[' . $new_column_count . ']"'
                 . ' value="' . htmlspecialchars($tmp_or) . '" class="textfield"'
                 . ' style="width: ' . $this->_realwidth . '" size="20">';
             $html_output .= '</td>';
@@ -1279,7 +1284,7 @@ class Qbe
 
         return [
             'unique' => $unique_columns,
-            'index' => $index_columns
+            'index' => $index_columns,
         ];
     }
 
@@ -1362,7 +1367,7 @@ class Qbe
         array $where_clause_columns,
         array $where_clause_tables
     ) {
-        if (count($where_clause_tables) == 1) {
+        if (count($where_clause_tables) === 1) {
             // If there is exactly one column that has a decent where-clause
             // we will just use this
             return key($where_clause_tables);
@@ -1457,7 +1462,7 @@ class Qbe
             // we can check which of our columns has a where clause
             if (! empty($this->_criteria[$column_index])) {
                 if (mb_substr($this->_criteria[$column_index], 0, 1) == '='
-                    || stristr($this->_criteria[$column_index], 'is')
+                    || false !== stripos($this->_criteria[$column_index], 'is')
                 ) {
                     $where_clause_columns[$column] = $column;
                     $where_clause_tables[$table]  = $table;
@@ -1512,8 +1517,8 @@ class Qbe
         if (empty($from_clause)) {
             // Create cartesian product
             $from_clause = implode(
-                ", ",
-                array_map(['PhpMyAdmin\Util', 'backquote'], $search_tables)
+                ', ',
+                array_map([Util::class, 'backquote'], $search_tables)
             );
         }
 
@@ -1609,7 +1614,7 @@ class Qbe
                         }
 
                         // We are done if no unfinalized tables anymore
-                        if (count($tempUnfinalized) == 0) {
+                        if (count($tempUnfinalized) === 0) {
                             break 3;
                         }
                     }
@@ -1622,7 +1627,7 @@ class Qbe
                 // Add these tables as cartesian product before joined tables
                 $join .= implode(
                     ', ',
-                    array_map(['PhpMyAdmin\Util', 'backquote'], $unfinalized)
+                    array_map([Util::class, 'backquote'], $unfinalized)
                 );
             }
         }

@@ -7,9 +7,9 @@
  */
 declare(strict_types=1);
 
+use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\ThemeManager;
-use PhpMyAdmin\Response;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
@@ -17,7 +17,8 @@ if (! defined('ROOT_PATH')) {
 
 include ROOT_PATH . 'libraries/common.inc.php';
 
-$template = new Template();
+/** @var Template $template */
+$template = $containerBuilder->get('template');
 
 $response = Response::getInstance();
 $response->getFooter()->setMinimal();

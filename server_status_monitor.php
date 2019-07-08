@@ -8,8 +8,7 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Server\Status\MonitorController;
-use PhpMyAdmin\Server\Status\Data;
-use PhpMyAdmin\Server\Status\Monitor;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 
 if (! defined('ROOT_PATH')) {
@@ -20,14 +19,14 @@ require_once ROOT_PATH . 'libraries/common.inc.php';
 require_once ROOT_PATH . 'libraries/server_common.inc.php';
 require_once ROOT_PATH . 'libraries/replication.inc.php';
 
-$response = Response::getInstance();
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
 
-$controller = new MonitorController(
-    $response,
-    $GLOBALS['dbi'],
-    new Data,
-    new Monitor($GLOBALS['dbi'])
-);
+/** @var DatabaseInterface $dbi */
+$dbi = $containerBuilder->get(DatabaseInterface::class);
+
+/** @var MonitorController $controller */
+$controller = $containerBuilder->get(MonitorController::class);
 
 /**
  * Ajax request
@@ -80,8 +79,8 @@ if ($response->isAjax() && isset($_POST['chart_data']) && $_POST['type'] === 'ch
     $scripts->addFile('vendor/jqplot/plugins/jqplot.cursor.js');
     $scripts->addFile('jqplot/plugins/jqplot.byteFormatter.js');
 
-    $scripts->addFile('server_status_monitor.js');
-    $scripts->addFile('server_status_sorter.js');
+    $scripts->addFile('server/status/monitor.js');
+    $scripts->addFile('server/status/sorter.js');
 
     $response->addHTML($controller->index());
 }

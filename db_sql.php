@@ -8,21 +8,29 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Database\SqlController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\SqlQueryForm;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
+global $containerBuilder;
+
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$response = Response::getInstance();
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
 
-$controller = new SqlController(
-    $response,
-    $GLOBALS['dbi'],
-    $db
-);
+/** @var DatabaseInterface $dbi */
+$dbi = $containerBuilder->get(DatabaseInterface::class);
+
+/** @var SqlController $controller */
+$controller = $containerBuilder->get(SqlController::class);
+
+/** @var SqlQueryForm $sqlQueryForm */
+$sqlQueryForm = $containerBuilder->get('sql_query_form');
 
 $header = $response->getHeader();
 $scripts = $header->getScripts();
@@ -30,6 +38,11 @@ $scripts->addFile('makegrid.js');
 $scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
 $scripts->addFile('sql.js');
 
-$response->addHTML($controller->index([
-    'delimiter' => $_POST['delimiter'] ?? null,
-]));
+$response->addHTML(
+    $controller->index(
+        [
+            'delimiter' => $_POST['delimiter'] ?? null,
+        ],
+        $sqlQueryForm
+    )
+);

@@ -7,35 +7,37 @@
  */
 declare(strict_types=1);
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-/**
- *
- */
+global $sql_query, $url_query;
+
 require_once ROOT_PATH . 'libraries/common.inc.php';
+
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
 $pma_table = new Table($GLOBALS['table'], $GLOBALS['db']);
 
-/**
- * Load JavaScript files
- */
-$response = Response::getInstance();
-$header   = $response->getHeader();
-$scripts  = $header->getScripts();
-$scripts->addFile('tbl_operations.js');
+$header = $response->getHeader();
+$scripts = $header->getScripts();
+$scripts->addFile('table/operations.js');
 
-$template = new Template();
+/** @var Template $template */
+$template = $containerBuilder->get('template');
 
 /**
  * Runs common work
@@ -44,8 +46,9 @@ require ROOT_PATH . 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=view_operations.php&amp;back=view_operations.php';
 $url_params['goto'] = $url_params['back'] = 'view_operations.php';
 
-$relation = new Relation($GLOBALS['dbi']);
-$operations = new Operations($GLOBALS['dbi'], $relation);
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
+$operations = new Operations($dbi, $relation);
 
 /**
  * Updates if required
@@ -111,7 +114,7 @@ $drop_view_url_params = array_merge(
             __('View %s has been dropped.'),
             $GLOBALS['table']
         ),
-        'table' => $GLOBALS['table']
+        'table' => $GLOBALS['table'],
     ]
 );
 

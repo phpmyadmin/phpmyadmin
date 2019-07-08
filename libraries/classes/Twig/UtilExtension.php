@@ -10,8 +10,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Twig;
 
 use Twig\Extension\AbstractExtension;
-use Twig\TwigFunction;
 use Twig\TwigFilter;
+use Twig\TwigFunction;
 
 /**
  * Class UtilExtension
@@ -162,6 +162,11 @@ class UtilExtension extends AbstractExtension
             new TwigFunction(
                 'show_mysql_docu',
                 'PhpMyAdmin\Util::showMySQLDocu',
+                ['is_safe' => ['html']]
+            ),
+            new TwigFunction(
+                'get_mysql_docu_url',
+                'PhpMyAdmin\Util::getMySQLDocuURL',
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(

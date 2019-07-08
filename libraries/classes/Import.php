@@ -95,8 +95,7 @@ class Import
      */
     public function executeQuery(string $sql, string $full, array &$sql_data): void
     {
-        global $go_sql,
-            $sql_query, $my_die, $error, $reload,
+        global $sql_query, $my_die, $error, $reload,
             $result, $msg,
             $cfg, $sql_query_disabled, $db;
 
@@ -186,10 +185,8 @@ class Import
         string $full = '',
         array &$sql_data = []
     ): void {
-        global $import_run_buffer, $go_sql, $complete_query, $display_query,
-            $sql_query, $error, $reload, $result, $msg,
-            $skip_queries, $executed_queries, $max_sql_len, $read_multiply,
-            $cfg, $sql_query_disabled, $db, $run_query;
+        global $import_run_buffer, $go_sql, $complete_query, $display_query, $sql_query, $msg,
+            $skip_queries, $executed_queries, $max_sql_len, $read_multiply, $sql_query_disabled, $run_query;
         $read_multiply = 1;
         if (! isset($import_run_buffer)) {
             // Do we have something to push into buffer?
@@ -367,7 +364,7 @@ class Import
      */
     public function getNextChunk(int $size = 32768)
     {
-        global $compression, $import_handle, $charset_conversion, $charset_of_file,
+        global $import_handle, $charset_conversion, $charset_of_file,
             $read_multiply;
 
         // Add some progression while reading large amount of data
@@ -830,12 +827,12 @@ class Import
 
         if ($cell == (string) (float) $cell
             && mb_strpos($cell, ".") !== false
-            && mb_substr_count($cell, ".") == 1
+            && mb_substr_count($cell, ".") === 1
         ) {
             return self::DECIMAL;
         }
 
-        if (abs($cell) > 2147483647) {
+        if (abs((int) $cell) > 2147483647) {
             return self::BIGINT;
         }
 
@@ -975,13 +972,13 @@ class Import
         $import_notice = null;
 
         /* Take care of the options */
-        if (isset($options['db_collation']) && ! is_null($options['db_collation'])) {
+        if (isset($options['db_collation']) && $options['db_collation'] !== null) {
             $collation = $options['db_collation'];
         } else {
             $collation = "utf8_general_ci";
         }
 
-        if (isset($options['db_charset']) && ! is_null($options['db_charset'])) {
+        if (isset($options['db_charset']) && $options['db_charset'] !== null) {
             $charset = $options['db_charset'];
         } else {
             $charset = "utf8";
@@ -1063,7 +1060,7 @@ class Import
 
             /* TODO: Do more checking here to make sure they really are matched */
             if (count($tables) != count($analyses)) {
-                exit();
+                exit;
             }
 
             /* Create SQL code to create the tables */
@@ -1211,11 +1208,11 @@ class Import
 
         $inTables = false;
 
-        $additional_sql_len = is_null($additional_sql) ? 0 : count($additional_sql);
+        $additional_sql_len = $additional_sql === null ? 0 : count($additional_sql);
         for ($i = 0; $i < $additional_sql_len; ++$i) {
             preg_match($view_pattern, $additional_sql[$i], $regs);
 
-            if (count($regs) == 0) {
+            if (count($regs) === 0) {
                 preg_match($table_pattern, $additional_sql[$i], $regs);
             }
 
@@ -1332,8 +1329,6 @@ class Import
 
         global $import_notice;
         $import_notice = $message;
-
-        unset($tables);
     }
 
 
@@ -1686,7 +1681,7 @@ class Import
     public function isTableTransactional(string $table): bool
     {
         $table = explode('.', $table);
-        if (count($table) == 2) {
+        if (count($table) === 2) {
             $db = Util::unQuote($table[0]);
             $table = Util::unQuote($table[1]);
         } else {

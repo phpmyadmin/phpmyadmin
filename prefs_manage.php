@@ -12,10 +12,12 @@ use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\UserPreferences;
-use PhpMyAdmin\Template;
+use PhpMyAdmin\UserPreferencesHeader;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
@@ -26,7 +28,10 @@ if (! defined('ROOT_PATH')) {
  */
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$template = new Template();
+/** @var Template $template */
+$template = $containerBuilder->get('template');
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
 
 $userPreferences = new UserPreferences();
 
@@ -122,13 +127,13 @@ if (isset($_POST['submit_export'])
         }
         if (! $all_ok) {
             // mimic original form and post json in a hidden field
-            include ROOT_PATH . 'libraries/user_preferences.inc.php';
+            echo UserPreferencesHeader::getContent($template, $relation);
 
             echo $template->render('preferences/manage/error', [
                 'form_errors' => $form_display->displayErrors(),
                 'json' => $json,
                 'import_merge' => isset($_POST['import_merge']) ? $_POST['import_merge'] : null,
-                'return_url' => $return_url
+                'return_url' => $return_url,
             ]);
             exit;
         }
@@ -194,7 +199,7 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('config.js');
 
-require ROOT_PATH . 'libraries/user_preferences.inc.php';
+echo UserPreferencesHeader::getContent($template, $relation);
 if ($error) {
     if (! $error instanceof Message) {
         $error = Message::error($error);
@@ -209,7 +214,7 @@ echo $template->render('preferences/manage/main', [
 ]);
 
 if ($response->isAjax()) {
-    $response->addJSON('_disableNaviSettings', true);
+    $response->addJSON('disableNaviSettings', true);
 } else {
     define('PMA_DISABLE_NAVI_SETTINGS', true);
 }

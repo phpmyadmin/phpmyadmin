@@ -147,7 +147,7 @@ class Footer
             "sql.php$url_query&amp;goto=db_events.php" . urlencode("?db=$db"),
             'sql_query',
             $options,
-            'PMA_slidingMessage(data.sql_query);'
+            'Functions.slidingMessage(data.sql_query);'
         );
         $retval .= "        </div>\n";
         $retval .= "    </fieldset>\n";

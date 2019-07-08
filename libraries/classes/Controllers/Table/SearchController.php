@@ -11,7 +11,9 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 /**
@@ -88,22 +90,26 @@ class SearchController extends AbstractController
     /**
      * Constructor
      *
-     * @param \PhpMyAdmin\Response $response   Response object
-     * @param DatabaseInterface    $dbi        DatabaseInterface object
-     * @param string               $db         Database name
-     * @param string               $table      Table name
-     * @param string               $searchType Search type
-     * @param string               $url_query  URL query
+     * @param Response          $response   Response object
+     * @param DatabaseInterface $dbi        DatabaseInterface object
+     * @param Template          $template   Template object
+     * @param string            $db         Database name
+     * @param string            $table      Table name
+     * @param string            $searchType Search type
+     * @param string            $url_query  URL query
+     * @param Relation          $relation   Relation instance
      */
     public function __construct(
         $response,
         $dbi,
+        Template $template,
         $db,
         $table,
         $searchType,
-        $url_query
+        $url_query,
+        Relation $relation
     ) {
-        parent::__construct($response, $dbi, $db, $table);
+        parent::__construct($response, $dbi, $template, $db, $table);
 
         $this->url_query = $url_query;
         $this->_searchType = $searchType;
@@ -113,7 +119,7 @@ class SearchController extends AbstractController
         $this->_columnCollations = [];
         $this->_geomColumnFlag = false;
         $this->_foreigners = [];
-        $this->relation = new Relation($dbi);
+        $this->relation = $relation;
         // Loads table's information
         $this->_loadTableInfo();
         $this->_connectionCharSet = $this->dbi->fetchValue(
@@ -159,8 +165,8 @@ class SearchController extends AbstractController
                 if (! preg_match('@BINARY[\(]@i', $type)) {
                     $type = str_ireplace("BINARY", '', $type);
                 }
-                $type = preg_replace('@ZEROFILL@i', '', $type);
-                $type = preg_replace('@UNSIGNED@i', '', $type);
+                $type = str_ireplace("ZEROFILL", '', $type);
+                $type = str_ireplace("UNSIGNED", '', $type);
                 $type = mb_strtolower($type);
             }
             if (empty($type)) {
@@ -196,7 +202,7 @@ class SearchController extends AbstractController
                 $this->response
                 ->getHeader()
                 ->getScripts()
-                ->addFile('tbl_find_replace.js');
+                ->addFile('table/find_replace.js');
 
                 if (isset($_POST['replace'])) {
                     $this->replaceAction();
@@ -213,8 +219,8 @@ class SearchController extends AbstractController
                     [
                         'makegrid.js',
                         'sql.js',
-                        'tbl_select.js',
-                        'tbl_change.js',
+                        'table/select.js',
+                        'table/change.js',
                         'vendor/jquery/jquery.uitablefilter.js',
                         'gis_data_editor.js',
                     ]
@@ -251,8 +257,8 @@ class SearchController extends AbstractController
                         'vendor/jqplot/plugins/jqplot.dateAxisRenderer.js',
                         'vendor/jqplot/plugins/jqplot.highlighter.js',
                         'vendor/jqplot/plugins/jqplot.cursor.js',
-                        'tbl_zoom_plot_jqplot.js',
-                        'tbl_change.js',
+                        'table/zoom_plot_jqplot.js',
+                        'table/change.js',
                     ]
                 );
 
@@ -360,7 +366,7 @@ class SearchController extends AbstractController
                     $row[$_POST['criteriaColumnNames'][0]],
                 $_POST['criteriaColumnNames'][1] =>
                     $row[$_POST['criteriaColumnNames'][1]],
-                'where_clause' => $uniqueCondition[0]
+                'where_clause' => $uniqueCondition[0],
             ];
             $tmpData[$dataLabel] = $dataLabel ? $row[$dataLabel] : '';
             $data[] = $tmpData;
@@ -477,8 +483,6 @@ class SearchController extends AbstractController
         /**
          * Add this to ensure following procedures included running correctly.
          */
-        $db = $this->db;
-
         $sql = new Sql();
         $sql->executeQueryAndSendQueryResponse(
             null, // analyzed_sql_results
@@ -696,7 +700,7 @@ class SearchController extends AbstractController
      * @param string $replaceWith string to replace with
      * @param string $charSet     character set of the connection
      *
-     * @return array Array containing original values, replaced values and count
+     * @return array|bool Array containing original values, replaced values and count
      */
     private function _getRegexReplaceRows(
         $columnIndex,
@@ -970,7 +974,7 @@ class SearchController extends AbstractController
             'type' => $type,
             'collation' => $collation,
             'func' => $func,
-            'value' => $value
+            'value' => $value,
         ];
     }
 
@@ -1094,7 +1098,7 @@ class SearchController extends AbstractController
             return Util::backquote($names) . " " . $func_type;
         } elseif ($geom_funcs[$geom_func]['params'] > 1) {
             // create gis data from the criteria input
-            $gis_data = Util::createGISData($criteriaValues);
+            $gis_data = Util::createGISData($criteriaValues, $this->dbi->getVersion());
             return $geom_func . '(' . Util::backquote($names)
                 . ', ' . $gis_data . ')';
         }
@@ -1113,7 +1117,7 @@ class SearchController extends AbstractController
             && ! empty($criteriaValues)
         ) {
             // create gis data from the criteria input
-            $gis_data = Util::createGISData($criteriaValues);
+            $gis_data = Util::createGISData($criteriaValues, $this->dbi->getVersion());
             $where = $geom_function_applied . " " . $func_type . " " . $gis_data;
         } elseif (strlen($criteriaValues) > 0) {
             $where = $geom_function_applied . " "

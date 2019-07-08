@@ -19,10 +19,12 @@ use PhpMyAdmin\SqlQueryForm;
 class SqlController extends AbstractController
 {
     /**
-     * @param array $params Request parameters
+     * @param array        $params       Request parameters
+     * @param SqlQueryForm $sqlQueryForm SqlQueryForm instance
+     *
      * @return string HTML
      */
-    public function index(array $params): string
+    public function index(array $params, SqlQueryForm $sqlQueryForm): string
     {
         global $url_query, $err_url, $goto, $back;
 
@@ -39,8 +41,6 @@ class SqlController extends AbstractController
          */
         $goto = 'tbl_sql.php';
         $back = 'tbl_sql.php';
-
-        $sqlQueryForm = new SqlQueryForm();
 
         return $sqlQueryForm->getHtml(
             $params['sql_query'] ?? true,

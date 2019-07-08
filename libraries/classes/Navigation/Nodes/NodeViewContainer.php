@@ -33,15 +33,15 @@ class NodeViewContainer extends NodeDatabaseChildContainer
                 . '&amp;db=%1$s&amp;tbl_type=view',
         ];
         $this->classes = 'viewContainer subContainer';
-        $this->real_name = 'views';
+        $this->realName = 'views';
 
-        $new_label = _pgettext('Create new view', 'New');
+        $newLabel = _pgettext('Create new view', 'New');
         $new = NodeFactory::getInstance(
             'Node',
-            $new_label
+            $newLabel
         );
         $new->isNew = true;
-        $new->icon = Util::getImage('b_view_add', $new_label);
+        $new->icon = Util::getImage('b_view_add', $newLabel);
         $new->links = [
             'text' => 'view_create.php?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s',

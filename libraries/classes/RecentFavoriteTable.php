@@ -60,13 +60,13 @@ class RecentFavoriteTable
         $this->relation = new Relation($GLOBALS['dbi']);
         $this->_tableType = $type;
         $server_id = $GLOBALS['server'];
-        if (! isset($_SESSION['tmpval'][$this->_tableType . '_tables'][$server_id])
+        if (! isset($_SESSION['tmpval'][$this->_tableType . 'Tables'][$server_id])
         ) {
-            $_SESSION['tmpval'][$this->_tableType . '_tables'][$server_id]
+            $_SESSION['tmpval'][$this->_tableType . 'Tables'][$server_id]
                 = $this->_getPmaTable() ? $this->getFromDb() : [];
         }
         $this->_tables
-            =& $_SESSION['tmpval'][$this->_tableType . '_tables'][$server_id];
+            =& $_SESSION['tmpval'][$this->_tableType . 'Tables'][$server_id];
     }
 
     /**
@@ -251,13 +251,13 @@ class RecentFavoriteTable
     {
         $html  = '<div class="drop_list">';
         if ($this->_tableType == 'recent') {
-            $html .= '<span title="' . __('Recent tables')
-                . '" class="drop_button">'
-                . __('Recent') . '</span><ul id="pma_recent_list">';
+            $html .= '<button title="' . __('Recent tables')
+                . '" class="drop_button btn">'
+                . __('Recent') . '</button><ul id="pma_recent_list">';
         } else {
-            $html .= '<span title="' . __('Favorite tables')
-                . '" class="drop_button">'
-                . __('Favorites') . '</span><ul id="pma_favorite_list">';
+            $html .= '<button title="' . __('Favorite tables')
+                . '" class="drop_button btn">'
+                . __('Favorites') . '</button><ul id="pma_favorite_list">';
         }
         $html .= $this->getHtmlList();
         $html .= '</ul></div>';
@@ -327,9 +327,6 @@ class RecentFavoriteTable
      */
     public function remove($db, $table)
     {
-        $table_arr = [];
-        $table_arr['db'] = $db;
-        $table_arr['table'] = $table;
         foreach ($this->_tables as $key => $value) {
             if ($value['db'] == $db && $value['table'] == $table) {
                 unset($this->_tables[$key]);
@@ -386,11 +383,11 @@ class RecentFavoriteTable
     }
 
     /**
-     * Reutrn the name of the configuration storage table
+     * Return the name of the configuration storage table
      *
-     * @return string pma table name
+     * @return string|null pma table name
      */
-    private function _getPmaTable()
+    private function _getPmaTable(): ?string
     {
         $cfgRelation = $this->relation->getRelationsParam();
         if (! empty($cfgRelation['db'])

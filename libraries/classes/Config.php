@@ -10,9 +10,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use DirectoryIterator;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Error;
 use PhpMyAdmin\LanguageManager;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
@@ -324,8 +326,8 @@ class Config
         // some versions return Microsoft-IIS, some Microsoft/IIS
         // we could use a preg_match() but it's slower
         if (Core::getenv('SERVER_SOFTWARE')
-            && stristr(Core::getenv('SERVER_SOFTWARE'), 'Microsoft')
-            && stristr(Core::getenv('SERVER_SOFTWARE'), 'IIS')
+            && false !== stripos(Core::getenv('SERVER_SOFTWARE'), 'Microsoft')
+            && false !== stripos(Core::getenv('SERVER_SOFTWARE'), 'IIS')
         ) {
             $this->set('PMA_IS_IIS', 1);
         } else {
@@ -344,10 +346,10 @@ class Config
         $this->set('PMA_IS_WINDOWS', 0);
         // If PHP_OS is defined then continue
         if (defined('PHP_OS')) {
-            if (stristr(PHP_OS, 'win') && ! stristr(PHP_OS, 'darwin')) {
+            if (false !== stripos(PHP_OS, 'win') && false === stripos(PHP_OS, 'darwin')) {
                 // Is it some version of Windows
                 $this->set('PMA_IS_WINDOWS', 1);
-            } elseif (stristr(PHP_OS, 'OS/2')) {
+            } elseif (false !== stripos(PHP_OS, 'OS/2')) {
                 // Is it OS/2 (No file permissions like Windows)
                 $this->set('PMA_IS_WINDOWS', 1);
             }
@@ -442,7 +444,7 @@ class Config
 
         $branch = false;
         // are we on any branch?
-        if (strstr($ref_head, '/')) {
+        if (false !== strpos($ref_head, '/')) {
             // remove ref: prefix
             $ref_head = substr(trim($ref_head), 5);
             if (substr($ref_head, 0, 11) === 'refs/heads/') {
@@ -711,12 +713,12 @@ class Config
             $author = [
                 'name' => '',
                 'email' => '',
-                'date' => ''
+                'date' => '',
             ];
             $committer = [
                 'name' => '',
                 'email' => '',
-                'date' => ''
+                'date' => '',
             ];
 
             do {
@@ -729,7 +731,7 @@ class Config
                     $user2 = [
                         'name' => trim($user[1]),
                         'email' => trim($user[2]),
-                        'date' => date('Y-m-d H:i:s', (int) $user[3])
+                        'date' => date('Y-m-d H:i:s', (int) $user[3]),
                     ];
                     if (isset($user[4])) {
                         $user2['date'] .= $user[4];
@@ -742,12 +744,12 @@ class Config
             $author = [
                 'name' => $commit_json->author->name,
                 'email' => $commit_json->author->email,
-                'date' => $commit_json->author->date
+                'date' => $commit_json->author->date,
             ];
             $committer = [
                 'name' => $commit_json->committer->name,
                 'email' => $commit_json->committer->email,
-                'date' => $commit_json->committer->date
+                'date' => $commit_json->committer->date,
             ];
             $message = trim($commit_json->message);
         } else {
@@ -1041,7 +1043,7 @@ class Config
      * @param mixed       $new_cfg_value new value
      * @param mixed       $default_value default value
      *
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function setUserValue(
         ?string $cookie_name,
@@ -1715,7 +1717,7 @@ class Config
     public function checkServers(): void
     {
         // Do we have some server?
-        if (! isset($this->settings['Servers']) || count($this->settings['Servers']) == 0) {
+        if (! isset($this->settings['Servers']) || count($this->settings['Servers']) === 0) {
             // No server => create one with defaults
             $this->settings['Servers'] = [1 => $this->default_server];
         } else {
@@ -1750,5 +1752,5 @@ class Config
 }
 
 if (! defined('TESTSUITE')) {
-    register_shutdown_function(['PhpMyAdmin\Config', 'fatalErrorHandler']);
+    register_shutdown_function([Config::class, 'fatalErrorHandler']);
 }

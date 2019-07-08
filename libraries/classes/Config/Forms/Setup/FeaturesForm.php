@@ -40,7 +40,7 @@ class FeaturesForm extends \PhpMyAdmin\Config\Forms\User\FeaturesForm
             'ZipDump',
             'GZipDump',
             'BZipDump',
-            'CompressOnFly'
+            'CompressOnFly',
         ];
         $result['Security'] = [
             'blowfish_secret',

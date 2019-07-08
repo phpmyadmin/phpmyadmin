@@ -8,10 +8,11 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Partition;
 use PhpMyAdmin\Operations;
+use PhpMyAdmin\Partition;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
@@ -21,20 +22,38 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
+global $url_query;
+
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $containerBuilder->get(DatabaseInterface::class);
+
+/** @var string $db */
+$db = $containerBuilder->getParameter('db');
+
+/** @var string $table */
+$table = $containerBuilder->getParameter('table');
+
+/** @var CheckUserPrivileges $checkUserPrivileges */
+$checkUserPrivileges = $containerBuilder->get('check_user_privileges');
 $checkUserPrivileges->getPrivileges();
 
-$pma_table = new Table($GLOBALS['table'], $GLOBALS['db']);
+// lower_case_table_names=1 `DB` becomes `db`
+$lowerCaseNames = $dbi->getLowerCaseNames() === '1';
 
-/**
- * Load JavaScript files
- */
-$response = Response::getInstance();
-$header   = $response->getHeader();
-$scripts  = $header->getScripts();
-$scripts->addFile('tbl_operations.js');
+if ($lowerCaseNames) {
+    $table = mb_strtolower($table);
+}
+
+$pma_table = new Table($table, $db);
+
+$header = $response->getHeader();
+$scripts = $header->getScripts();
+$scripts->addFile('table/operations.js');
 
 /**
  * Runs common work
@@ -46,21 +65,23 @@ $url_params['goto'] = $url_params['back'] = 'tbl_operations.php';
 /**
  * Gets relation settings
  */
-$relation = new Relation($GLOBALS['dbi']);
-$operations = new Operations($GLOBALS['dbi'], $relation);
-
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
 $cfgRelation = $relation->getRelationsParam();
+
+/** @var Operations $operations */
+$operations = $containerBuilder->get('operations');
 
 // reselect current db (needed in some cases probably due to
 // the calling of PhpMyAdmin\Relation)
-$GLOBALS['dbi']->selectDb($GLOBALS['db']);
+$dbi->selectDb($db);
 
 /**
  * Gets tables information
  */
-$pma_table = $GLOBALS['dbi']->getTable(
-    $GLOBALS['db'],
-    $GLOBALS['table']
+$pma_table = $dbi->getTable(
+    $db,
+    $table
 );
 $reread_info = $pma_table->getStatusInfo(null, false);
 $GLOBALS['showtable'] = $pma_table->getStatusInfo(null, (isset($reread_info) && $reread_info ? true : false));
@@ -92,9 +113,9 @@ if ($pma_table->isEngine('ARIA')) {
     $create_options['page_checksum'] = isset($create_options['page_checksum']) ? $create_options['page_checksum'] : '';
 }
 
-$pma_table = $GLOBALS['dbi']->getTable(
-    $GLOBALS['db'],
-    $GLOBALS['table']
+$pma_table = $dbi->getTable(
+    $db,
+    $table
 );
 $reread_info = false;
 $table_alters = [];
@@ -123,6 +144,12 @@ if (isset($_POST['submitoptions'])) {
     $warning_messages = [];
 
     if (isset($_POST['new_name'])) {
+        // lower_case_table_names=1 `DB` becomes `db`
+        if ($lowerCaseNames) {
+            $_POST['new_name'] = mb_strtolower(
+                $_POST['new_name']
+            );
+        }
         // Get original names before rename operation
         $oldTable = $pma_table->getName();
         $oldDb = $pma_table->getDbName();
@@ -140,11 +167,11 @@ if (isset($_POST['submitoptions'])) {
             }
 
             // Reselect the original DB
-            $GLOBALS['db'] = $oldDb;
-            $GLOBALS['dbi']->selectDb($oldDb);
+            $db = $oldDb;
+            $dbi->selectDb($oldDb);
             $_message .= $pma_table->getLastMessage();
             $result = true;
-            $GLOBALS['table'] = $pma_table->getName();
+            $table = $pma_table->getName();
             $reread_info = true;
             $reload = true;
         } else {
@@ -186,10 +213,10 @@ if (isset($_POST['submitoptions'])) {
 
     if (count($table_alters) > 0) {
         $sql_query      = 'ALTER TABLE '
-            . Util::backquote($GLOBALS['table']);
+            . Util::backquote($table);
         $sql_query     .= "\r\n" . implode("\r\n", $table_alters);
         $sql_query     .= ';';
-        $result         = $GLOBALS['dbi']->query($sql_query) ? true : false;
+        $result         = $dbi->query($sql_query) ? true : false;
         $reread_info    = true;
         unset($table_alters);
         $warning_messages = $operations->getWarningMessagesArray();
@@ -201,10 +228,22 @@ if (isset($_POST['submitoptions'])) {
         && ! empty($_POST['change_all_collations'])
     ) {
         $operations->changeAllColumnsCollation(
-            $GLOBALS['db'],
-            $GLOBALS['table'],
+            $db,
+            $table,
             $_POST['tbl_collation']
         );
+    }
+
+    if (isset($_POST['tbl_collation']) && empty($_POST['tbl_collation'])) {
+        $response = Response::getInstance();
+        if ($response->isAjax()) {
+            $response->setRequestStatus(false);
+            $response->addJSON(
+                'message',
+                Message::error(__('No collation provided.'))
+            );
+            exit;
+        }
     }
 }
 /**
@@ -226,8 +265,8 @@ if (isset($_POST['submit_partition'])
 if ($reread_info) {
     // to avoid showing the old value (for example the AUTO_INCREMENT) after
     // a change, clear the cache
-    $GLOBALS['dbi']->clearTableCache();
-    $GLOBALS['dbi']->selectDb($GLOBALS['db']);
+    $dbi->clearTableCache();
+    $dbi->selectDb($db);
     $GLOBALS['showtable'] = $pma_table->getStatusInfo(null, true);
     if ($pma_table->isView()) {
         $tbl_is_view = true;
@@ -310,7 +349,7 @@ $url_params['goto']
 /**
  * Get columns names
  */
-$columns = $GLOBALS['dbi']->getColumns($GLOBALS['db'], $GLOBALS['table']);
+$columns = $dbi->getColumns($db, $table);
 
 /**
  * Displays the page
@@ -324,7 +363,7 @@ $hideOrderTable = false;
 // a user-defined clustered index (PRIMARY KEY or NOT NULL UNIQUE index).
 // InnoDB always orders table rows according to such an index if one is present.
 if ($tbl_storage_engine == 'INNODB') {
-    $indexes = Index::getFromTable($GLOBALS['table'], $GLOBALS['db']);
+    $indexes = Index::getFromTable($table, $db);
     foreach ($indexes as $name => $idx) {
         if ($name == 'PRIMARY') {
             $hideOrderTable = true;
@@ -409,7 +448,7 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
         && ! (isset($db_is_system_schema) && $db_is_system_schema)
     ) {
         $this_sql_query = 'TRUNCATE TABLE '
-            . Util::backquote($GLOBALS['table']);
+            . Util::backquote($table);
         $truncate_table_url_params = array_merge(
             $url_params,
             [
@@ -425,7 +464,7 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
     }
     if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
         $this_sql_query = 'DROP TABLE '
-            . Util::backquote($GLOBALS['table']);
+            . Util::backquote($table);
         $drop_table_url_params = array_merge(
             $url_params,
             [
@@ -442,7 +481,7 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
                 ),
                 // table name is needed to avoid running
                 // PhpMyAdmin\RelationCleanup::database() on the whole db later
-                'table' => $GLOBALS['table'],
+                'table' => $table,
             ]
         );
     }
@@ -457,7 +496,7 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
 if (Partition::havePartitioning()) {
     $partition_names = Partition::getPartitionNames($db, $table);
     // show the Partition maintenance section only if we detect a partition
-    if (! is_null($partition_names[0])) {
+    if ($partition_names[0] !== null) {
         $response->addHTML(
             $operations->getHtmlForPartitionMaintenance($partition_names, $url_params)
         );
@@ -472,8 +511,8 @@ unset($partition_names);
 // this choice (InnoDB maintains integrity by itself)
 
 if ($cfgRelation['relwork'] && ! $pma_table->isEngine("INNODB")) {
-    $GLOBALS['dbi']->selectDb($GLOBALS['db']);
-    $foreign = $relation->getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'internal');
+    $dbi->selectDb($db);
+    $foreign = $relation->getForeigners($db, $table, '', 'internal');
 
     if (! empty($foreign)) {
         $response->addHTML(

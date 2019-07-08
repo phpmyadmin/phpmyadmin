@@ -20,6 +20,7 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Replication;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -71,13 +72,14 @@ class StructureController extends AbstractController
      *
      * @param Response          $response    Response instance
      * @param DatabaseInterface $dbi         DatabaseInterface instance
+     * @param Template          $template    Template object
      * @param string            $db          Database name
      * @param Relation          $relation    Relation instance
      * @param Replication       $replication Replication instance
      */
-    public function __construct($response, $dbi, $db, $relation, $replication)
+    public function __construct($response, $dbi, Template $template, $db, $relation, $replication)
     {
-        parent::__construct($response, $dbi, $db);
+        parent::__construct($response, $dbi, $template, $db);
         $this->relation = $relation;
         $this->replication = $replication;
     }
@@ -196,8 +198,8 @@ class StructureController extends AbstractController
         global $cfg;
 
         $favoriteInstance = RecentFavoriteTable::getInstance('favorite');
-        if (isset($params['favorite_tables'])) {
-            $favoriteTables = json_decode($params['favorite_tables'], true);
+        if (isset($params['favoriteTables'])) {
+            $favoriteTables = json_decode($params['favoriteTables'], true);
         } else {
             $favoriteTables = [];
         }
@@ -255,7 +257,7 @@ class StructureController extends AbstractController
         ];
 
         $json['user'] = $user;
-        $json['favorite_tables'] = json_encode($favoriteTables);
+        $json['favoriteTables'] = json_encode($favoriteTables);
         $json['list'] = $favoriteInstance->getHtmlList();
         $json['anchor'] = $this->template->render('database/structure/favorite_anchor', [
             'table_name_hash' => md5($favoriteTable),
@@ -339,20 +341,6 @@ class StructureController extends AbstractController
 
         // filtering
         $html .= $this->template->render('filter', ['filter_value' => '']);
-        // table form
-        $html .= $this->template->render('database/structure/table_header', [
-            'db' => $this->db,
-            'db_is_system_schema' => $this->dbIsSystemSchema,
-            'replication' => $GLOBALS['replication_info']['slave']['status'],
-            'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
-            'is_show_stats' => $GLOBALS['is_show_stats'],
-            'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
-            'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
-            'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],
-            'show_last_update' => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
-            'show_last_check' => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
-            'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
-        ]);
 
         $i = $sum_entries = 0;
         $overhead_check = false;
@@ -368,6 +356,7 @@ class StructureController extends AbstractController
 
         $hidden_fields = [];
         $overall_approx_rows = false;
+        $structure_table_rows = [];
         foreach ($this->tables as $keyname => $current_table) {
             // Get valid statistics whatever is the table type
 
@@ -400,15 +389,22 @@ class StructureController extends AbstractController
                 $sum_entries += $current_table['TABLE_ROWS'];
             }
 
+            $collationDefinition = '---';
             if (isset($current_table['Collation'])) {
-                $collation = '<dfn title="'
-                    . Charsets::getCollationDescr($current_table['Collation']) . '">'
-                    . $current_table['Collation'] . '</dfn>';
-            } else {
-                $collation = '---';
+                $tableCollation = Charsets::findCollationByName(
+                    $this->dbi,
+                    $GLOBALS['cfg']['Server']['DisableIS'],
+                    $current_table['Collation']
+                );
+                if ($tableCollation !== null) {
+                    $collationDefinition = '<dfn title="'
+                        . $tableCollation->getDescription() . '">'
+                        . $tableCollation->getName() . '</dfn>';
+                }
             }
 
             if ($this->isShowStats) {
+                $overhead = '-';
                 if ($formatted_overhead != '') {
                     $overhead = '<a href="tbl_structure.php'
                         . $tbl_url_query . '#showusage">'
@@ -417,16 +413,13 @@ class StructureController extends AbstractController
                         . '</a>' . "\n";
                     $overhead_check = true;
                     $input_class[] = 'tbl-overhead';
-                } else {
-                    $overhead = '-';
                 }
-            } // end if
+            }
 
             if ($GLOBALS['cfg']['ShowDbStructureCharset']) {
-                if (isset($current_table['Collation'])) {
-                    $charset = mb_substr($collation, 0, mb_strpos($collation, "_"));
-                } else {
-                    $charset = '';
+                $charset = '';
+                if (isset($tableCollation)) {
+                    $charset = $tableCollation->getCharset();
                 }
             }
 
@@ -463,10 +456,7 @@ class StructureController extends AbstractController
                 }
             }
 
-            $truename = ! empty($tooltip_truename)
-                    && isset($tooltip_truename[$current_table['TABLE_NAME']])
-                ? $tooltip_truename[$current_table['TABLE_NAME']]
-                : $current_table['TABLE_NAME'];
+            $truename = $current_table['TABLE_NAME'];
 
             $i++;
 
@@ -516,8 +506,6 @@ class StructureController extends AbstractController
             ) {
                 $row_count = 1;
 
-                $html .= '</tr></tbody></table></div></form>';
-
                 $html .= $this->template->render('database/structure/table_header', [
                     'db' => $this->db,
                     'db_is_system_schema' => $this->dbIsSystemSchema,
@@ -530,7 +518,9 @@ class StructureController extends AbstractController
                     'show_last_update' => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
                     'show_last_check' => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
                     'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
+                    'structure_table_rows' => $structure_table_rows,
                 ]);
+                $structure_table_rows = [];
             }
 
             list($approx_rows, $show_superscript) = $this->isRowCountApproximated(
@@ -540,7 +530,7 @@ class StructureController extends AbstractController
 
             list($do, $ignored) = $this->getReplicationStatus($truename);
 
-            $html .= $this->template->render('database/structure/structure_table_row', [
+            $structure_table_rows[] = [
                 'table_name_hash' => md5($current_table['TABLE_NAME']),
                 'db_table_name_hash' => md5($this->db . '.' . $current_table['TABLE_NAME']),
                 'db' => $this->db,
@@ -573,7 +563,7 @@ class StructureController extends AbstractController
                 'titles' => $titles,
                 'drop_query' => $drop_query,
                 'drop_message' => $drop_message,
-                'collation' => $collation,
+                'collation' => $collationDefinition,
                 'formatted_size' => $formatted_size,
                 'unit' => $unit,
                 'overhead' => $overhead,
@@ -601,54 +591,74 @@ class StructureController extends AbstractController
                 'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],
                 'show_last_update' => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
                 'show_last_check' => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
-            ]);
+            ];
 
             $overall_approx_rows = $overall_approx_rows || $approx_rows;
-        } // end foreach
+        }
 
-        $html .= '</tbody>';
+        $databaseCollation = [];
+        $databaseCharset = '';
+        $collation = Charsets::findCollationByName(
+            $this->dbi,
+            $GLOBALS['cfg']['Server']['DisableIS'],
+            $this->dbi->getDbCollation($this->db)
+        );
+        if ($collation !== null) {
+            $databaseCollation = [
+                'name' => $collation->getName(),
+                'description' => $collation->getDescription(),
+            ];
+            $databaseCharset = $collation->getCharset();
+        }
 
-        $db_collation = $this->dbi->getDbCollation($this->db);
-        $db_charset = mb_substr($db_collation, 0, mb_strpos($db_collation, "_"));
-
-        // Show Summary
-        $html .= $this->template->render('database/structure/body_for_table_summary', [
-            'num_tables' => $this->numTables,
-            'server_slave_status' => $GLOBALS['replication_info']['slave']['status'],
+        // table form
+        $html .= $this->template->render('database/structure/table_header', [
+            'db' => $this->db,
             'db_is_system_schema' => $this->dbIsSystemSchema,
-            'sum_entries' => $sum_entries,
-            'db_collation' => $db_collation,
-            'is_show_stats' => $this->isShowStats,
-            'db_charset' => $db_charset,
-            'sum_size' => $sum_size,
-            'overhead_size' => $overhead_size,
-            'create_time_all' => $create_time_all ? Util::localisedDate(strtotime($create_time_all)) : '-',
-            'update_time_all' => $update_time_all ? Util::localisedDate(strtotime($update_time_all)) : '-',
-            'check_time_all' => $check_time_all ? Util::localisedDate(strtotime($check_time_all)) : '-',
-            'approx_rows' => $overall_approx_rows,
-            'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
-            'db' => $GLOBALS['db'],
+            'replication' => $GLOBALS['replication_info']['slave']['status'],
             'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
-            'dbi' => $this->dbi,
+            'is_show_stats' => $GLOBALS['is_show_stats'],
             'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
             'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
             'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],
             'show_last_update' => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
             'show_last_check' => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
+            'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
+            'structure_table_rows' => $structure_table_rows,
+            'body_for_table_summary' => [
+                'num_tables' => $this->numTables,
+                'server_slave_status' => $GLOBALS['replication_info']['slave']['status'],
+                'db_is_system_schema' => $this->dbIsSystemSchema,
+                'sum_entries' => $sum_entries,
+                'database_collation' => $databaseCollation,
+                'is_show_stats' => $this->isShowStats,
+                'database_charset' => $databaseCharset,
+                'sum_size' => $sum_size,
+                'overhead_size' => $overhead_size,
+                'create_time_all' => $create_time_all ? Util::localisedDate(strtotime($create_time_all)) : '-',
+                'update_time_all' => $update_time_all ? Util::localisedDate(strtotime($update_time_all)) : '-',
+                'check_time_all' => $check_time_all ? Util::localisedDate(strtotime($check_time_all)) : '-',
+                'approx_rows' => $overall_approx_rows,
+                'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
+                'db' => $GLOBALS['db'],
+                'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
+                'dbi' => $this->dbi,
+                'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
+                'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
+                'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],
+                'show_last_update' => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
+                'show_last_check' => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
+            ],
+            'check_all_tables' => [
+                'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+                'text_dir' => $GLOBALS['text_dir'],
+                'overhead_check' => $overhead_check,
+                'db_is_system_schema' => $this->dbIsSystemSchema,
+                'hidden_fields' => $hidden_fields,
+                'disable_multi_table' => $GLOBALS['cfg']['DisableMultiTableMaintenance'],
+                'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork'],
+            ],
         ]);
-        $html .= '</table>';
-
-        //check all
-        $html .= $this->template->render('database/structure/check_all_tables', [
-            'pma_theme_image' => $GLOBALS['pmaThemeImage'],
-            'text_dir' => $GLOBALS['text_dir'],
-            'overhead_check' => $overhead_check,
-            'db_is_system_schema' => $this->dbIsSystemSchema,
-            'hidden_fields' => $hidden_fields,
-            'disable_multi_table' => $GLOBALS['cfg']['DisableMultiTableMaintenance'],
-            'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork'],
-        ]);
-        $html .= '</form>'; //end of form
 
         return $html;
     }
@@ -711,7 +721,7 @@ class StructureController extends AbstractController
             ) {
                 $approx_rows = true;
                 $show_superscript = Util::showHint(
-                    Sanitize::sanitize(
+                    Sanitize::sanitizeMessage(
                         sprintf(
                             __(
                                 'This view has at least this number of '
@@ -814,8 +824,8 @@ class StructureController extends AbstractController
         $favoriteTables[$user] = $favoriteInstance->getTables();
 
         $json = [
-            'favorite_tables' => json_encode($favoriteTables),
-            'list' => $favoriteInstance->getHtmlList()
+            'favoriteTables' => json_encode($favoriteTables),
+            'list' => $favoriteInstance->getHtmlList(),
         ];
         $serverId = $GLOBALS['server'];
         // Set flag when localStorage and pmadb(if present) are in sync.
@@ -833,9 +843,9 @@ class StructureController extends AbstractController
      */
     protected function checkFavoriteTable(string $currentTable): bool
     {
-        // ensure $_SESSION['tmpval']['favorite_tables'] is initialized
+        // ensure $_SESSION['tmpval']['favoriteTables'] is initialized
         RecentFavoriteTable::getInstance('favorite');
-        foreach ($_SESSION['tmpval']['favorite_tables'][$GLOBALS['server']] as $value) {
+        foreach ($_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']] as $value) {
             if ($value['db'] == $this->db && $value['table'] == $currentTable) {
                 return true;
             }

@@ -8,7 +8,6 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Server\CollationsController;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 
 if (! defined('ROOT_PATH')) {
@@ -17,22 +16,9 @@ if (! defined('ROOT_PATH')) {
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->factory(
-    'PhpMyAdmin\Controllers\Server\CollationsController'
-);
-$container->alias(
-    'CollationsController',
-    'PhpMyAdmin\Controllers\Server\CollationsController'
-);
-$container->set('PhpMyAdmin\Response', Response::getInstance());
-$container->alias('response', 'PhpMyAdmin\Response');
-
 /** @var CollationsController $controller */
-$controller = $container->get(
-    'CollationsController',
-    []
-);
-$response = $container->get('response');
+$controller = $containerBuilder->get(CollationsController::class);
 
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
 $response->addHTML($controller->indexAction());

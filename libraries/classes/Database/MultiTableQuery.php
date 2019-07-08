@@ -62,11 +62,13 @@ class MultiTableQuery
      * Constructor
      *
      * @param DatabaseInterface $dbi                DatabaseInterface instance
+     * @param Template          $template           Template instance
      * @param string            $dbName             Database name
      * @param integer           $defaultNoOfColumns Default number of columns
      */
     public function __construct(
         DatabaseInterface $dbi,
+        Template $template,
         $dbName,
         $defaultNoOfColumns = 3
     ) {
@@ -74,7 +76,7 @@ class MultiTableQuery
         $this->db = $dbName;
         $this->defaultNoOfColumns = $defaultNoOfColumns;
 
-        $this->template = new Template();
+        $this->template = $template;
 
         $this->tables = $this->dbi->getTables($this->db);
     }
@@ -114,7 +116,6 @@ class MultiTableQuery
         list(
             $analyzedSqlResults,
             $db,
-            $tableFromSql
         ) = ParseAnalyze::sqlQuery($sqlQuery, $db);
 
         extract($analyzedSqlResults);

@@ -100,7 +100,7 @@ class InsertEditTest extends TestCase
     {
         $where_clause = [
             'foo' => 'bar ',
-            '1' => ' test'
+            '1' => ' test',
         ];
         $_POST['clause_is_unique'] = false;
         $_POST['sql_query'] = 'SELECT a';
@@ -123,7 +123,7 @@ class InsertEditTest extends TestCase
                 'sql_query' => 'SELECT a',
                 'where_clause[foo]' => 'bar',
                 'where_clause[1]' => 'test',
-                'clause_is_unique' => false
+                'clause_is_unique' => false,
             ],
             $result
         );
@@ -341,7 +341,7 @@ class InsertEditTest extends TestCase
             [
                 '0' => 1,
                 'where_clause' => 'bar=2',
-                'sql_query' => 'SELECT 1'
+                'sql_query' => 'SELECT 1',
             ],
             $result
         );
@@ -408,7 +408,7 @@ class InsertEditTest extends TestCase
         $column = [
             'Field' => '1<2',
             'Field_md5' => 'pswd',
-            'Type' => 'float(10, 1)'
+            'Type' => 'float(10, 1)',
         ];
 
         $result = $this->callProtectedMethod('analyzeTableColumnsArray', [
@@ -1229,11 +1229,11 @@ class InsertEditTest extends TestCase
             [
                 [
                     'plain' => '<abc>',
-                    'html' => '&lt;abc&gt;'
+                    'html' => '&lt;abc&gt;',
                 ],
                 [
                     'plain' => '"foo"',
-                    'html' => '&quot;foo&quot;'
+                    'html' => '&quot;foo&quot;',
                 ],
             ],
             $result
@@ -1468,11 +1468,11 @@ class InsertEditTest extends TestCase
                 [
                     [
                         'plain' => 'a',
-                        'html' => 'a'
+                        'html' => 'a',
                     ],
                     [
                         'plain' => '<',
-                        'html' => '&lt;'
+                        'html' => '&lt;',
                     ],
                 ],
                 2,
@@ -2175,7 +2175,7 @@ class InsertEditTest extends TestCase
         $url_params = ['ShowFunctionFields' => 2];
 
         $result = $this->callProtectedMethod('getHeadAndFootOfInsertRowTable', [
-            $url_params
+            $url_params,
         ]);
 
         $this->assertStringContainsString(
@@ -3681,7 +3681,7 @@ class InsertEditTest extends TestCase
                     [
                         [
                             'Comment' => 'b',
-                            'Field' => 'd'
+                            'Field' => 'd',
                         ],
                     ]
                 )
@@ -3725,7 +3725,7 @@ class InsertEditTest extends TestCase
             [
                 'db' => 'foo',
                 'sql_query' => 'SELECT',
-                'table' => 'bar'
+                'table' => 'bar',
             ],
             $this->insertEdit->getUrlParameters('foo', 'bar')
         );
@@ -4114,8 +4114,7 @@ class InsertEditTest extends TestCase
             $actual
         );
         $this->assertStringContainsString(
-            '<textarea name="fields[37b51d194a7513e45b56f6524f2d51f2]" '
-            . 'class="" readonly="readonly"',
+            '<textarea name="fields[37b51d194a7513e45b56f6524f2d51f2]"',
             $actual
         );
     }

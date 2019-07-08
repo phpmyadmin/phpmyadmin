@@ -55,7 +55,7 @@ abstract class ImportPlugin
     /**
      * Gets the import specific format plugin properties
      *
-     * @return \PhpMyAdmin\Properties\Plugins\ImportPluginProperties
+     * @return ImportPluginProperties
      */
     public function getProperties()
     {

@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\DatabaseInterface;
+
 /**
  * Class holding type definitions for MySQL and MariaDB.
  *
@@ -17,14 +19,14 @@ namespace PhpMyAdmin;
 class Types
 {
     /**
-     * @var \PhpMyAdmin\DatabaseInterface Database interface
+     * @var DatabaseInterface Database interface
      */
     private $_dbi;
 
     /**
      * Constructor
      *
-     * @param \PhpMyAdmin\DatabaseInterface $dbi Database interface instance
+     * @param DatabaseInterface $dbi Database interface instance
      */
     public function __construct($dbi)
     {
@@ -603,26 +605,49 @@ class Types
                 return $ret;
 
             case 'SPATIAL':
-                return [
-                    'GeomFromText',
-                    'GeomFromWKB',
+                if ($serverVersion >= 50600) {
+                    return [
+                        'ST_GeomFromText',
+                        'ST_GeomFromWKB',
 
-                    'GeomCollFromText',
-                    'LineFromText',
-                    'MLineFromText',
-                    'PointFromText',
-                    'MPointFromText',
-                    'PolyFromText',
-                    'MPolyFromText',
+                        'ST_GeomCollFromText',
+                        'ST_LineFromText',
+                        'ST_MLineFromText',
+                        'ST_PointFromText',
+                        'ST_MPointFromText',
+                        'ST_PolyFromText',
+                        'ST_MPolyFromText',
 
-                    'GeomCollFromWKB',
-                    'LineFromWKB',
-                    'MLineFromWKB',
-                    'PointFromWKB',
-                    'MPointFromWKB',
-                    'PolyFromWKB',
-                    'MPolyFromWKB',
-                ];
+                        'ST_GeomCollFromWKB',
+                        'ST_LineFromWKB',
+                        'ST_MLineFromWKB',
+                        'ST_PointFromWKB',
+                        'ST_MPointFromWKB',
+                        'ST_PolyFromWKB',
+                        'ST_MPolyFromWKB',
+                    ];
+                } else {
+                    return [
+                        'GeomFromText',
+                        'GeomFromWKB',
+
+                        'GeomCollFromText',
+                        'LineFromText',
+                        'MLineFromText',
+                        'PointFromText',
+                        'MPointFromText',
+                        'PolyFromText',
+                        'MPolyFromText',
+
+                        'GeomCollFromWKB',
+                        'LineFromWKB',
+                        'MLineFromWKB',
+                        'PointFromWKB',
+                        'MPointFromWKB',
+                        'PolyFromWKB',
+                        'MPolyFromWKB',
+                    ];
+                }
         }
         return [];
     }
@@ -837,7 +862,7 @@ class Types
                     '-9223372036854775808',
                     '9223372036854775807',
                 ],
-            ]
+            ],
         ];
         $relevantArray = $signed
             ? $min_max_data['signed']

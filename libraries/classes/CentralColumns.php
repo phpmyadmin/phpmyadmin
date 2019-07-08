@@ -9,6 +9,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Charsets\Charset;
+use PhpMyAdmin\Charsets\Collation;
+use PhpMyAdmin\Message;
+
 /**
  * PhpMyAdmin\CentralColumns class
  *
@@ -299,7 +303,7 @@ class CentralColumns
      * @param string $table        if $isTable is false, then table name to
      *                             which columns belong
      *
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function syncUniqueColumns(
         array $field_select,
@@ -420,7 +424,7 @@ class CentralColumns
      *                             selected list of columns to remove from central list
      * @param bool   $isTable      if passed array is of tables or columns
      *
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function deleteColumnsFromList(
         string $database,
@@ -506,7 +510,7 @@ class CentralColumns
      * @param string $db              current database
      * @param array  $selected_tables list of selected tables.
      *
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function makeConsistentWithList(
         string $db,
@@ -624,7 +628,7 @@ class CentralColumns
      * @param string $col_extra     new column extra property
      * @param string $col_default   new column default value
      *
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function updateOneColumn(
         string $db,
@@ -682,7 +686,7 @@ class CentralColumns
      * Update Multiple column in central columns list if a change is requested
      *
      * @param array $params Request parameters
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function updateMultipleColumn(array $params)
     {
@@ -806,17 +810,28 @@ class CentralColumns
                 'char_editing' => $this->charEditing,
             ])
             . '</td>';
-        $tableHtml .=
-            '<td name="collation" class="nowrap">'
-            . Charsets::getCollationDropdownBox(
-                $this->dbi,
-                $this->disableIs,
-                'field_collation[' . $row_num . ']',
-                'field_' . $row_num . '_4',
-                $row['col_collation'],
-                false
-            )
-            . '</td>';
+        $tableHtml .= '<td name="collation" class="nowrap">';
+        $tableHtml .= '<select lang="en" dir="ltr" name="field_collation[' . $row_num . ']"';
+        $tableHtml .= ' id="field_' . $row_num . '_4">' . "\n";
+        $tableHtml .= '<option value=""></option>' . "\n";
+
+        $charsets = Charsets::getCharsets($this->dbi, $this->disableIs);
+        $collations = Charsets::getCollations($this->dbi, $this->disableIs);
+        /** @var Charset $charset */
+        foreach ($charsets as $charset) {
+            $tableHtml .= '<optgroup label="' . $charset->getName()
+                . '" title="' . $charset->getDescription() . '">' . "\n";
+            /** @var Collation $collation */
+            foreach ($collations[$charset->getName()] as $collation) {
+                $tableHtml .= '<option value="' . $collation->getName()
+                    . '" title="' . $collation->getDescription() . '"'
+                    . ($row['col_collation'] == $collation->getName() ? ' selected' : '') . '>'
+                    . $collation->getName() . '</option>' . "\n";
+            }
+            $tableHtml .= '</optgroup>' . "\n";
+        }
+        $tableHtml .= '</select>' . "\n";
+        $tableHtml .= '</td>';
         $tableHtml .=
             '<td class="nowrap" name="col_attribute">'
             . $this->template->render('columns_definitions/column_attribute', [
@@ -1051,7 +1066,7 @@ class CentralColumns
         //get current values of $db from central column list
         $query = 'SELECT COUNT(db_name) FROM ' . Util::backquote($central_list_table) . ' '
             . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\'' .
-            ($num == 0 ? '' : 'LIMIT ' . $from . ', ' . $num) . ';';
+            ($num === 0 ? '' : 'LIMIT ' . $from . ', ' . $num) . ';';
         $result = (array) $this->dbi->fetchResult(
             $query,
             null,
@@ -1151,9 +1166,28 @@ class CentralColumns
             $row_num++;
         }
 
+        $charsets = Charsets::getCharsets($this->dbi, $this->disableIs);
+        $collations = Charsets::getCollations($this->dbi, $this->disableIs);
+        $charsetsList = [];
+        /** @var Charset $charset */
+        foreach ($charsets as $charset) {
+            $collationsList = [];
+            /** @var Collation $collation */
+            foreach ($collations[$charset->getName()] as $collation) {
+                $collationsList[] = [
+                    'name' => $collation->getName(),
+                    'description' => $collation->getDescription(),
+                ];
+            }
+            $charsetsList[] = [
+                'name' => $charset->getName(),
+                'description' => $charset->getDescription(),
+                'collations' => $collationsList,
+            ];
+        }
+
         return $this->template->render('database/central_columns/main', [
             "db" => $db,
-            "dbi" => $this->dbi,
             "total_rows" => $total_rows,
             "max_rows" => $max_rows,
             "pos" => $pos,
@@ -1165,9 +1199,9 @@ class CentralColumns
             "rows_list" => $rows_list,
             "rows_meta" => $rows_meta,
             "types_upper" => $types_upper,
-            "disableIs" => $this->disableIs,
             "pmaThemeImage" => $pmaThemeImage,
             "text_dir" => $text_dir,
+            'charsets' => $charsetsList,
         ]);
     }
 }

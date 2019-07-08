@@ -31,7 +31,23 @@
           <input type="text" name="new_db" maxlength="64" class="textfield" value="
             {{- database_to_create }}" id="text_create_db" placeholder="
             {%- trans 'Database name' %}" required>
-          {{ collation_dropdown_box|raw }}
+
+          {% if charsets is not empty %}
+            <select lang="en" dir="ltr" name="db_collation">
+              <option value="">{% trans 'Collation' %}</option>
+              <option value=""></option>
+              {% for charset in charsets %}
+                <optgroup label="{{ charset.name }}" title="{{ charset.description }}">
+                  {% for collation in charset.collations %}
+                    <option value="{{ collation.name }}" title="{{ collation.description }}"{{ collation.is_selected ? ' selected' }}>
+                      {{- collation.name -}}
+                    </option>
+                  {% endfor %}
+                </optgroup>
+              {% endfor %}
+            </select>
+          {% endif %}
+
           <input id="buttonGo" class="btn btn-primary" type="submit" value="{% trans 'Create' %}">
         </form>
       {% else %}

@@ -8,9 +8,12 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Util;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
@@ -18,12 +21,17 @@ if (! defined('ROOT_PATH')) {
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-// Also initialises the collapsible tree class
-$response = Response::getInstance();
-$navigation = new Navigation();
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $containerBuilder->get(DatabaseInterface::class);
+
+/** @var Navigation $navigation */
+$navigation = $containerBuilder->get('navigation');
 if (! $response->isAjax()) {
     $response->addHTML(
-        PhpMyAdmin\Message::error(
+        Message::error(
             __('Fatal error: The navigation can only be accessed via AJAX')
         )
     );
@@ -32,10 +40,15 @@ if (! $response->isAjax()) {
 
 if (isset($_POST['getNaviSettings']) && $_POST['getNaviSettings']) {
     $response->addJSON('message', PageSettings::getNaviSettings());
-    exit();
+    exit;
 }
 
-$relation = new Relation($GLOBALS['dbi']);
+if (isset($_POST['reload'])) {
+    Util::cacheSet('dbs_to_test', false);// Empty database list cache, see #14252
+}
+
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
 $cfgRelation = $relation->getRelationsParam();
 if ($cfgRelation['navwork']) {
     if (isset($_POST['hideNavItem'])) {

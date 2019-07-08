@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Charsets\Charset;
+use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\Engines\Innodb;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 
@@ -87,8 +89,8 @@ class Operations
             . '<form id="rename_db_form" '
             . 'class="ajax" '
             . 'method="post" action="db_operations.php" '
-            . 'onsubmit="return emptyCheckTheField(this, \'newname\')">';
-        if (! is_null($db_collation)) {
+            . 'onsubmit="return Functions.emptyCheckTheField(this, \'newname\')">';
+        if ($db_collation !== null) {
             $html_output .= '<input type="hidden" name="db_collation" '
                 . 'value="' . $db_collation
                 . '">' . "\n";
@@ -206,9 +208,9 @@ class Operations
         $html_output .= '<form id="copy_db_form" '
             . 'class="ajax" '
             . 'method="post" action="db_operations.php" '
-            . 'onsubmit="return emptyCheckTheField(this, \'newname\')">';
+            . 'onsubmit="return Functions.emptyCheckTheField(this, \'newname\')">';
 
-        if (! is_null($db_collation)) {
+        if ($db_collation !== null) {
             $html_output .= '<input type="hidden" name="db_collation" '
             . 'value="' . $db_collation . '">' . "\n";
         }
@@ -308,16 +310,27 @@ class Operations
         }
         $html_output .= '<label for="select_db_collation">' . __('Collation')
             . '</label>' . "\n"
-            . '</legend>' . "\n"
-            . Charsets::getCollationDropdownBox(
-                $this->dbi,
-                $GLOBALS['cfg']['Server']['DisableIS'],
-                'db_collation',
-                'select_db_collation',
-                ! is_null($db_collation) ? $db_collation : '',
-                false
-            )
-            . '<br>'
+            . '</legend>' . "\n";
+        $html_output .= '<select lang="en" dir="ltr" name="db_collation" id="select_db_collation">' . "\n";
+        $html_output .= '<option value=""></option>' . "\n";
+
+        $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
+        $collations = Charsets::getCollations($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
+        /** @var Charset $charset */
+        foreach ($charsets as $charset) {
+            $html_output .= '<optgroup label="' . $charset->getName()
+                . '" title="' . $charset->getDescription() . '">' . "\n";
+            /** @var Collation $collation */
+            foreach ($collations[$charset->getName()] as $collation) {
+                $html_output .= '<option value="' . $collation->getName()
+                    . '" title="' . $collation->getDescription() . '"'
+                    . ($db_collation == $collation->getName() ? ' selected' : '') . '>'
+                    . $collation->getName() . '</option>' . "\n";
+            }
+            $html_output .= '</optgroup>' . "\n";
+        }
+        $html_output .= '</select>' . "\n";
+        $html_output .= '<br>'
             . '<input type="checkbox" name="change_all_tables_collations"'
             . 'id="checkbox_change_all_tables_collations">'
             . '<label for="checkbox_change_all_tables_collations">'
@@ -866,7 +879,7 @@ class Operations
         $html_output = '<div>';
         $html_output .= '<form method="post" action="tbl_operations.php"'
             . ' id="moveTableForm" class="ajax"'
-            . ' onsubmit="return emptyCheckTheField(this, \'new_name\')">'
+            . ' onsubmit="return Functions.emptyCheckTheField(this, \'new_name\')">'
             . Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
 
         $html_output .= '<input type="hidden" name="reload" value="1">'
@@ -931,7 +944,7 @@ class Operations
      *
      * @param Table  $pma_table          Table object
      * @param string $comment            Comment
-     * @param array  $tbl_collation      table collation
+     * @param string $tbl_collation      table collation
      * @param string $tbl_storage_engine table storage engine
      * @param string $pack_keys          pack keys
      * @param string $auto_increment     value of auto increment
@@ -1083,7 +1096,7 @@ class Operations
      *
      * @param Table  $pma_table          Table object
      * @param string $comment            Comment
-     * @param array  $tbl_collation      table collation
+     * @param string $tbl_collation      table collation
      * @param string $tbl_storage_engine table storage engine
      * @param string $pack_keys          pack keys
      * @param string $delay_key_write    delay key write
@@ -1128,16 +1141,27 @@ class Operations
 
         //Table character set
         $html_output .= '<tr><td class="vmiddle">' . __('Collation') . '</td>'
-            . '<td>'
-            . Charsets::getCollationDropdownBox(
-                $this->dbi,
-                $GLOBALS['cfg']['Server']['DisableIS'],
-                'tbl_collation',
-                null,
-                $tbl_collation,
-                false
-            )
-            . '</td>'
+            . '<td>';
+        $html_output .= '<select lang="en" dir="ltr" name="tbl_collation">' . "\n";
+        $html_output .= '<option value=""></option>' . "\n";
+
+        $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
+        $collations = Charsets::getCollations($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
+        /** @var Charset $charset */
+        foreach ($charsets as $charset) {
+            $html_output .= '<optgroup label="' . $charset->getName()
+                . '" title="' . $charset->getDescription() . '">' . "\n";
+            /** @var Collation $collation */
+            foreach ($collations[$charset->getName()] as $collation) {
+                $html_output .= '<option value="' . $collation->getName()
+                    . '" title="' . $collation->getDescription() . '"'
+                    . ($tbl_collation == $collation->getName() ? ' selected' : '') . '>'
+                    . $collation->getName() . '</option>' . "\n";
+            }
+            $html_output .= '</optgroup>' . "\n";
+        }
+        $html_output .= '</select>' . "\n";
+        $html_output .= '</td>'
             . '</tr>';
 
         // Change all Column collations
@@ -1182,7 +1206,7 @@ class Operations
         } // end if (ARIA)
 
         if (strlen($auto_increment) > 0
-            && $pma_table->isEngine(['MYISAM', 'ARIA', 'INNODB', 'PBXT'])
+            && $pma_table->isEngine(['MYISAM', 'ARIA', 'INNODB', 'PBXT', 'ROCKSDB'])
         ) {
             $html_output .= '<tr><td class="vmiddle">'
                 . '<label for="auto_increment_opt">AUTO_INCREMENT</label></td>'
@@ -1261,25 +1285,25 @@ class Operations
             'ARIA'  => [
                 'FIXED'     => 'FIXED',
                 'DYNAMIC'   => 'DYNAMIC',
-                'PAGE'      => 'PAGE'
+                'PAGE'      => 'PAGE',
             ],
             'MARIA'  => [
                 'FIXED'     => 'FIXED',
                 'DYNAMIC'   => 'DYNAMIC',
-                'PAGE'      => 'PAGE'
+                'PAGE'      => 'PAGE',
             ],
             'MYISAM' => [
                 'FIXED'    => 'FIXED',
-                'DYNAMIC'  => 'DYNAMIC'
+                'DYNAMIC'  => 'DYNAMIC',
             ],
             'PBXT'   => [
                 'FIXED'    => 'FIXED',
-                'DYNAMIC'  => 'DYNAMIC'
+                'DYNAMIC'  => 'DYNAMIC',
             ],
             'INNODB' => [
                 'COMPACT'  => 'COMPACT',
                 'REDUNDANT' => 'REDUNDANT',
-            ]
+            ],
         ];
 
         /** @var Innodb $innodbEnginePlugin */
@@ -1317,7 +1341,7 @@ class Operations
             . 'name="copyTable" '
             . 'id="copyTable" '
             . ' class="ajax" '
-            . 'onsubmit="return emptyCheckTheField(this, \'new_name\')">'
+            . 'onsubmit="return Functions.emptyCheckTheField(this, \'new_name\')">'
             . Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
             . '<input type="hidden" name="reload" value="1">';
 
@@ -1911,7 +1935,7 @@ class Operations
             $table_alters[] = 'delay_key_write = ' . $_POST['new_delay_key_write'];
         }
 
-        if ($pma_table->isEngine(['MYISAM', 'ARIA', 'INNODB', 'PBXT'])
+        if ($pma_table->isEngine(['MYISAM', 'ARIA', 'INNODB', 'PBXT', 'ROCKSDB'])
             && ! empty($_POST['new_auto_increment'])
             && (! isset($auto_increment)
             || $_POST['new_auto_increment'] !== $auto_increment)

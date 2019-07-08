@@ -10,6 +10,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 
 /**
  * Class AjaxController
@@ -25,13 +29,14 @@ class AjaxController extends AbstractController
     /**
      * AjaxController constructor.
      *
-     * @param \PhpMyAdmin\Response          $response Response instance
-     * @param \PhpMyAdmin\DatabaseInterface $dbi      DatabaseInterface instance
-     * @param Config                        $config   Config instance
+     * @param Response          $response Response instance
+     * @param DatabaseInterface $dbi      DatabaseInterface instance
+     * @param Template          $template Template object
+     * @param Config            $config   Config instance
      */
-    public function __construct($response, $dbi, $config)
+    public function __construct($response, $dbi, Template $template, $config)
     {
-        parent::__construct($response, $dbi);
+        parent::__construct($response, $dbi, $template);
         $this->config = $config;
     }
 
@@ -79,7 +84,7 @@ class AjaxController extends AbstractController
 
     /**
      * @param array $params Request parameters
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function setConfig(array $params)
     {

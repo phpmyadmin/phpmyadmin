@@ -10,6 +10,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Charsets\Charset;
+use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
@@ -97,16 +99,28 @@ class DatabasesController extends AbstractController
 
         $databases = $this->getDatabases($replication_types ?? []);
 
-        $collationDropdownBox = '';
+        $charsetsList = [];
         if ($cfg['ShowCreateDb'] && $is_create_db_priv) {
-            $collationDropdownBox = Charsets::getCollationDropdownBox(
-                $this->dbi,
-                $cfg['Server']['DisableIS'],
-                'db_collation',
-                null,
-                $this->dbi->getServerCollation(),
-                true
-            );
+            $charsets = Charsets::getCharsets($this->dbi, $cfg['Server']['DisableIS']);
+            $collations = Charsets::getCollations($this->dbi, $cfg['Server']['DisableIS']);
+            $serverCollation = $this->dbi->getServerCollation();
+            /** @var Charset $charset */
+            foreach ($charsets as $charset) {
+                $collationsList = [];
+                /** @var Collation $collation */
+                foreach ($collations[$charset->getName()] as $collation) {
+                    $collationsList[] = [
+                        'name' => $collation->getName(),
+                        'description' => $collation->getDescription(),
+                        'is_selected' => $serverCollation === $collation->getName(),
+                    ];
+                }
+                $charsetsList[] = [
+                    'name' => $charset->getName(),
+                    'description' => $charset->getDescription(),
+                    'collations' => $collationsList,
+                ];
+            }
         }
 
         $headerStatistics = $this->getStatisticsColumns();
@@ -119,7 +133,7 @@ class DatabasesController extends AbstractController
             'databases' => $databases['databases'],
             'total_statistics' => $databases['total_statistics'],
             'header_statistics' => $headerStatistics,
-            'collation_dropdown_box' => $collationDropdownBox,
+            'charsets' => $charsetsList,
             'database_count' => $this->databaseCount,
             'pos' => $this->position,
             'url_params' => $urlParams,
@@ -144,22 +158,29 @@ class DatabasesController extends AbstractController
     {
         global $cfg, $db;
 
+        // lower_case_table_names=1 `DB` becomes `db`
+        if ($this->dbi->getLowerCaseNames() === '1') {
+            $params['new_db'] = mb_strtolower(
+                $params['new_db']
+            );
+        }
+
         /**
          * Builds and executes the db creation sql query
          */
         $sqlQuery = 'CREATE DATABASE ' . Util::backquote($params['new_db']);
         if (! empty($params['db_collation'])) {
             list($databaseCharset) = explode('_', $params['db_collation']);
-            $charsets = Charsets::getMySQLCharsets(
+            $charsets = Charsets::getCharsets(
                 $this->dbi,
                 $cfg['Server']['DisableIS']
             );
-            $collations = Charsets::getMySQLCollations(
+            $collations = Charsets::getCollations(
                 $this->dbi,
                 $cfg['Server']['DisableIS']
             );
-            if (in_array($databaseCharset, $charsets)
-                && in_array($params['db_collation'], $collations[$databaseCharset])
+            if (in_array($databaseCharset, array_keys($charsets))
+                && in_array($params['db_collation'], array_keys($collations[$databaseCharset]))
             ) {
                 $sqlQuery .= ' DEFAULT'
                     . Util::getCharsetQueryPart($params['db_collation']);
@@ -286,7 +307,7 @@ class DatabasesController extends AbstractController
      */
     private function getDatabases(array $replicationTypes): array
     {
-        global $replication_info;
+        global $cfg, $replication_info;
 
         $databases = [];
         $totalStatistics = $this->getStatisticsColumns();
@@ -314,7 +335,7 @@ class DatabasesController extends AbstractController
                         );
 
                         if (strlen((string) $key) > 0
-                            || count($replication_info[$type]['Do_DB']) == 0
+                            || count($replication_info[$type]['Do_DB']) === 0
                         ) {
                             // if ($key != null) did not work for index "0"
                             $replication[$type]['is_replicated'] = true;
@@ -331,14 +352,9 @@ class DatabasesController extends AbstractController
                 }
             }
 
-            $databases[] = [
+            $databases[$database['SCHEMA_NAME']] = [
                 'name' => $database['SCHEMA_NAME'],
-                'collation' => [
-                    'name' => $database['DEFAULT_COLLATION_NAME'],
-                    'description' => Charsets::getCollationDescr(
-                        $database['DEFAULT_COLLATION_NAME']
-                    ),
-                ],
+                'collation' => [],
                 'statistics' => $statistics,
                 'replication' => $replication,
                 'is_system_schema' => $this->dbi->isSystemSchema(
@@ -346,6 +362,17 @@ class DatabasesController extends AbstractController
                     true
                 ),
             ];
+            $collation = Charsets::findCollationByName(
+                $this->dbi,
+                $cfg['Server']['DisableIS'],
+                $database['DEFAULT_COLLATION_NAME']
+            );
+            if ($collation !== null) {
+                $databases[$database['SCHEMA_NAME']]['collation'] = [
+                    'name' => $collation->getName(),
+                    'description' => $collation->getDescription(),
+                ];
+            }
         }
 
         return [

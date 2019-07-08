@@ -346,7 +346,7 @@ class Theme
      */
     public function getImgPath($file = null, $fallback = null)
     {
-        if (is_null($file)) {
+        if ($file === null) {
             return $this->img_path;
         }
 
@@ -354,7 +354,7 @@ class Theme
             return $this->img_path . $file;
         }
 
-        if (! is_null($fallback)) {
+        if ($fallback !== null) {
             return $this->getImgPath($fallback);
         }
 

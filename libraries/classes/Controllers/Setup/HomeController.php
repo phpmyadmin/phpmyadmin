@@ -67,7 +67,7 @@ class HomeController extends AbstractController
                     'notice',
                     uniqid('config_saved'),
                     __('Configuration saved.'),
-                    Sanitize::sanitize(
+                    Sanitize::sanitizeMessage(
                         __(
                             'Configuration saved to file config/config.inc.php in phpMyAdmin '
                             . 'top level directory, copy it to top level one and delete '
@@ -82,7 +82,7 @@ class HomeController extends AbstractController
                     'notice',
                     uniqid('config_not_saved'),
                     __('Configuration not saved!'),
-                    Sanitize::sanitize(
+                    Sanitize::sanitizeMessage(
                         __(
                             'Please create web server writable folder [em]config[/em] in '
                             . 'phpMyAdmin top level directory as described in '
@@ -129,7 +129,7 @@ class HomeController extends AbstractController
         if ($this->config->getServerCount() > 0) {
             $serverDefaultOptions['values']['0'] = __('let the user choose');
             $serverDefaultOptions['values']['-'] = '------------------------------';
-            if ($this->config->getServerCount() == 1) {
+            if ($this->config->getServerCount() === 1) {
                 $serverDefaultOptions['values_disabled'][] = '0';
             }
             $serverDefaultOptions['values_disabled'][] = '-';
@@ -194,7 +194,7 @@ class HomeController extends AbstractController
         $eolOptions = [
             'values' => [
                 'unix' => 'UNIX / Linux (\n)',
-                'win' => 'Windows (\r\n)'
+                'win' => 'Windows (\r\n)',
             ],
             'values_escaped' => true,
         ];

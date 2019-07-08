@@ -61,8 +61,7 @@
             'attribute_types': attribute_types,
             'privs_available': privs_available,
             'max_length': max_length,
-            'dbi': dbi,
-            'disable_is': disable_is
+            'charsets': charsets
         } only %}
     {% endif %}
     {% if action == 'tbl_create.php' %}
@@ -94,14 +93,19 @@
                 </td>
                 <td width="25">&nbsp;</td>
                 <td>
-                    {{ get_collation_dropdown_box(
-                        dbi,
-                        disable_is,
-                        'tbl_collation',
-                        null,
-                        tbl_collation,
-                        false
-                    ) }}
+                  <select lang="en" dir="ltr" name="tbl_collation">
+                    <option value=""></option>
+                    {% for charset in charsets %}
+                      <optgroup label="{{ charset.name }}" title="{{ charset.description }}">
+                        {% for collation in charset.collations %}
+                          <option value="{{ collation.name }}" title="{{ collation.description }}"
+                            {{- collation.name == tbl_collation ? ' selected' }}>
+                            {{- collation.name -}}
+                          </option>
+                        {% endfor %}
+                      </optgroup>
+                    {% endfor %}
+                  </select>
                 </td>
                 <td width="25">&nbsp;</td>
                 <td>

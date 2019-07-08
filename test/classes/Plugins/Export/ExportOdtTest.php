@@ -417,9 +417,11 @@ class ExportOdtTest extends PmaTestCase
 
         $flags = [];
         $a = new stdClass();
+        $a->type = '';
         $flags[] = $a;
 
         $a = new stdClass();
+        $a->type = '';
         $a->blob = true;
         $flags[] = $a;
 
@@ -673,8 +675,9 @@ class ExportOdtTest extends PmaTestCase
             ->with(2)
             ->will($this->returnValue('c2'));
 
-        $this->assertTrue(
-            $this->object->getTableDefStandIn('db', 'v&w', '#')
+        $this->assertSame(
+            $this->object->getTableDefStandIn('db', 'v&w', '#'),
+            ''
         );
 
         $this->assertStringContainsString(
@@ -714,7 +717,7 @@ class ExportOdtTest extends PmaTestCase
                     'fieldname' => [
                         'values' => 'test-',
                         'transformation' => 'testfoo',
-                        'mimetype' => 'test<'
+                        'mimetype' => 'test<',
                     ],
                 ]
             );
@@ -820,7 +823,7 @@ class ExportOdtTest extends PmaTestCase
                     'field' => [
                         'values' => 'test-',
                         'transformation' => 'testfoo',
-                        'mimetype' => 'test<'
+                        'mimetype' => 'test<',
                     ],
                 ]
             );
@@ -900,7 +903,7 @@ class ExportOdtTest extends PmaTestCase
                 'name' => 'tna"me',
                 'action_timing' => 'ac>t',
                 'event_manipulation' => 'manip&',
-                'definition' => 'def'
+                'definition' => 'def',
             ],
         ];
 
@@ -1094,7 +1097,7 @@ class ExportOdtTest extends PmaTestCase
             'Null' => 'Yes',
             'Field' => 'field',
             'Key' => 'PRI',
-            'Type' => 'set(abc)enum123'
+            'Type' => 'set(abc)enum123',
         ];
 
         $col_alias = 'alias';

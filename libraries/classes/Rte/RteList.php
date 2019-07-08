@@ -156,7 +156,6 @@ class RteList
         }
         $retval .= "        </tr>\n";
         $retval .= "        <!-- TABLE DATA -->\n";
-        $count = 0;
         $response = Response::getInstance();
         foreach ($items as $item) {
             if ($response->isAjax() && empty($_REQUEST['ajax_page_request'])) {
@@ -178,7 +177,6 @@ class RteList
                 default:
                     break;
             }
-            $count++;
         }
         $retval .= "    </table>\n";
 

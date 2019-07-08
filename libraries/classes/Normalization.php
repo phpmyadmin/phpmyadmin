@@ -9,6 +9,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Charsets\Charset;
+use PhpMyAdmin\Charsets\Collation;
+
 /**
  * Set of functions used for normalization
  *
@@ -41,14 +44,17 @@ class Normalization
     /**
      * Constructor
      *
-     * @param DatabaseInterface $dbi DatabaseInterface instance
+     * @param DatabaseInterface $dbi             DatabaseInterface instance
+     * @param Relation          $relation        Relation instance
+     * @param Transformations   $transformations Transformations instance
+     * @param Template          $template        Template instance
      */
-    public function __construct(DatabaseInterface $dbi)
+    public function __construct(DatabaseInterface $dbi, Relation $relation, Transformations $transformations, Template $template)
     {
         $this->dbi = $dbi;
-        $this->relation = new Relation($this->dbi);
-        $this->transformations = new Transformations();
-        $this->template = new Template();
+        $this->relation = $relation;
+        $this->transformations = $transformations;
+        $this->template = $template;
     }
 
     /**
@@ -130,7 +136,7 @@ class Normalization
         if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
             $mimeMap = $this->transformations->getMime($db, $table);
             $availableMimeTypes = $this->transformations->getAvailableMimeTypes();
-            if (! is_null($availableMimeTypes)) {
+            if ($availableMimeTypes !== null) {
                 $availableMime = $availableMimeTypes;
             }
         }
@@ -150,7 +156,27 @@ class Normalization
                 'move_columns' => [],
                 'cfg_relation' => $cfgRelation,
                 'available_mime' => $availableMime,
-                'mime_map' => $mimeMap
+                'mime_map' => $mimeMap,
+            ];
+        }
+
+        $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
+        $collations = Charsets::getCollations($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
+        $charsetsList = [];
+        /** @var Charset $charset */
+        foreach ($charsets as $charset) {
+            $collationsList = [];
+            /** @var Collation $collation */
+            foreach ($collations[$charset->getName()] as $collation) {
+                $collationsList[] = [
+                    'name' => $collation->getName(),
+                    'description' => $collation->getDescription(),
+                ];
+            }
+            $charsetsList[] = [
+                'name' => $charset->getName(),
+                'description' => $charset->getDescription(),
+                'collations' => $collationsList,
             ];
         }
 
@@ -168,8 +194,7 @@ class Normalization
             'attribute_types' => $this->dbi->types->getAttributes(),
             'privs_available' => $GLOBALS['col_priv'] && $GLOBALS['is_reload_priv'],
             'max_length' => $this->dbi->getVersion() >= 50503 ? 1024 : 255,
-            'dbi' => $this->dbi,
-            'disable_is' => $GLOBALS['cfg']['Server']['DisableIS'],
+            'charsets' => $charsetsList,
         ]);
     }
 
@@ -234,7 +259,7 @@ class Normalization
      * @param string $db    current database
      * @param string $table current table
      *
-     * @return string HTML contents for step 1.2
+     * @return string[] HTML contents for step 1.2
      */
     public function getHtmlContentsFor1NFStep2($db, $table)
     {
@@ -274,7 +299,7 @@ class Normalization
             'headText' => $headText,
             'subText' => $subText,
             'hasPrimaryKey' => $hasPrimaryKey,
-            'extra' => $extra
+            'extra' => $extra,
         ];
     }
 
@@ -284,7 +309,7 @@ class Normalization
      * @param string $db    current database
      * @param string $table current table
      *
-     * @return string HTML contents for step 1.4
+     * @return string[] HTML contents for step 1.4
      */
     public function getHtmlContentsFor1NFStep4($db, $table)
     {
@@ -310,7 +335,7 @@ class Normalization
             'legendText' => $legendText,
             'headText' => $headText,
             'subText' => $subText,
-            'extra' => $extra
+            'extra' => $extra,
         ];
     }
 
@@ -320,7 +345,7 @@ class Normalization
      * @param string $db    current database
      * @param string $table current table
      *
-     * @return string HTML contents for step 1.3
+     * @return string[] HTML contents for step 1.3
      */
     public function getHtmlContentsFor1NFStep3($db, $table)
     {
@@ -365,7 +390,7 @@ class Normalization
      * @param string $db    current database
      * @param string $table current table
      *
-     * @return string HTML contents for 2NF step 2.1
+     * @return string[] HTML contents for 2NF step 2.1
      */
     public function getHtmlFor2NFstep1($db, $table)
     {
@@ -506,7 +531,7 @@ class Normalization
             __('The second step of normalization is complete for table \'%1$s\'.'),
             htmlspecialchars($table)
         ) . '</h3>';
-        if (count((array) $partialDependencies) == 1) {
+        if (count((array) $partialDependencies) === 1) {
             return [
                 'legendText' => __('End of step'),
                 'headText' => $headText,
@@ -559,7 +584,7 @@ class Normalization
             'legendText' => __('End of step'),
             'headText' => $headText,
             'queryError' => $error,
-            'extra' => $message
+            'extra' => $message,
         ];
     }
 
@@ -579,7 +604,7 @@ class Normalization
         $i = 1;
         $newTables = [];
         foreach ($tables as $table => $arrDependson) {
-            if (count(array_unique($arrDependson)) == 1) {
+            if (count(array_unique($arrDependson)) === 1) {
                 continue;
             }
             $primary = Index::getPrimary($table, $db);
@@ -625,7 +650,7 @@ class Normalization
         return [
             'html' => $html,
             'newTables' => $newTables,
-            'success' => true
+            'success' => true,
         ];
     }
 
@@ -645,7 +670,7 @@ class Normalization
         $headText = '<h3>' .
             __('The third step of normalization is complete.')
             . '</h3>';
-        if (count((array) $newTables) == 0) {
+        if (count((array) $newTables) === 0) {
             return [
                 'legendText' => __('End of step'),
                 'headText' => $headText,
@@ -715,7 +740,7 @@ class Normalization
             'legendText' => __('End of step'),
             'headText' => $headText,
             'queryError' => $error,
-            'extra' => $message
+            'extra' => $message,
         ];
     }
 
@@ -788,7 +813,7 @@ class Normalization
         }
         return [
             'queryError' => $error,
-            'message' => $message
+            'message' => $message,
         ];
     }
 
@@ -798,7 +823,7 @@ class Normalization
      * @param string $db     current database
      * @param array  $tables tables formed after 2NF and need to process for 3NF
      *
-     * @return string
+     * @return string[]
      */
     public function getHtmlFor3NFstep1($db, array $tables)
     {
@@ -868,7 +893,7 @@ class Normalization
             'legendText' => $legendText,
             'headText' => $headText,
             'subText' => $subText,
-            'extra' => $extra
+            'extra' => $extra,
         ];
     }
 
@@ -893,7 +918,7 @@ class Normalization
         $choices = [
             '1nf' => __('First step of normalization (1NF)'),
             '2nf'      => __('Second step of normalization (1NF+2NF)'),
-            '3nf'  => __('Third step of normalization (1NF+2NF+3NF)')
+            '3nf'  => __('Third step of normalization (1NF+2NF+3NF)'),
         ];
 
         $htmlOutput .= Util::getRadioFields(
@@ -1016,7 +1041,7 @@ class Normalization
         $query = 'SELECT '
             . 'COUNT(DISTINCT ' . $partialKey . ',' . $column . ') as pkColCnt '
             . 'FROM (SELECT * FROM ' . Util::backquote($table)
-            . ' LIMIT 500) as dt' . ';';
+            . ' LIMIT 500) as dt;';
         $res = $this->dbi->fetchResult($query, null, null);
         $pkColCnt = $res[0];
         if ($pkCnt && $pkCnt == $colCnt && $colCnt == $pkColCnt) {
@@ -1049,7 +1074,7 @@ class Normalization
         }
         $query = trim($query, ', ');
         $query .= ' FROM (SELECT * FROM ' . Util::backquote($table)
-            . ' LIMIT 500) as dt' . ';';
+            . ' LIMIT 500) as dt;';
         $res = $this->dbi->fetchResult($query, null, null);
         foreach ($columns as $column) {
             if ($column) {

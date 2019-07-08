@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\HttpRequest;
 use \stdClass;
 
@@ -138,7 +137,7 @@ class VersionInformation
      *
      * @param array $releases array of information related to each version
      *
-     * @return array containing the version and date of latest compatible version
+     * @return array|null containing the version and date of latest compatible version
      */
     public function getLatestCompatibleVersion(array $releases)
     {
@@ -146,14 +145,14 @@ class VersionInformation
             $phpVersions = $release->php_versions;
             $phpConditions = explode(",", $phpVersions);
             foreach ($phpConditions as $phpCondition) {
-                if (! $this->evaluateVersionCondition("PHP", $phpCondition)) {
+                if (! $this->evaluateVersionCondition('PHP', $phpCondition)) {
                     continue 2;
                 }
             }
 
             // We evalute MySQL version constraint if there are only
             // one server configured.
-            if (count($GLOBALS['cfg']['Servers']) == 1) {
+            if (count($GLOBALS['cfg']['Servers']) === 1) {
                 $mysqlVersions = $release->mysql_versions;
                 $mysqlConditions = explode(",", $mysqlVersions);
                 foreach ($mysqlConditions as $mysqlCondition) {
@@ -181,7 +180,7 @@ class VersionInformation
      *
      * @return boolean whether the condition is met
      */
-    public function evaluateVersionCondition($type, $condition)
+    public function evaluateVersionCondition(string $type, string $condition)
     {
         $operator = null;
         $version = null;
@@ -209,7 +208,7 @@ class VersionInformation
             $myVersion = $this->getMySQLVersion();
         }
 
-        if ($myVersion != null && $operator != null) {
+        if ($myVersion !== null && $operator !== null) {
             return version_compare($myVersion, $version, $operator);
         }
         return false;
@@ -228,7 +227,7 @@ class VersionInformation
     /**
      * Returns the MySQL version if connected to a database
      *
-     * @return string MySQL version
+     * @return string|null MySQL version
      */
     protected function getMySQLVersion()
     {

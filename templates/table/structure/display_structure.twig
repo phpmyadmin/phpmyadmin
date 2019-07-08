@@ -28,7 +28,7 @@
                     <th>{% trans 'Comments' %}</th>
                 {%- endif %}
                 <th>{% trans 'Extra' %}</th>
-                {# @see tbl_structure.js, function moreOptsMenuResize() #}
+                {# @see table/structure.js, function moreOptsMenuResize() #}
                 {% if not db_is_system_schema and not tbl_is_view %}
                     <th colspan="{{ show_icons('ActionLinksMode') ? '8' : '9' -}}
                         " class="action print_ignore">{% trans 'Action' %}</th>
@@ -73,7 +73,7 @@
             </td>
             <td>
             {% if row['Collation'] is not empty %}
-                <dfn title="{{ get_collation_descr(row['Collation']) }}">{{ row['Collation'] }}</dfn>
+                <dfn title="{{ collations[row['Collation']].description }}">{{ collations[row['Collation']].name }}</dfn>
             {% endif %}
             </td>
             <td class="column_attribute nowrap">{{ attributes[rownum] }}</td>
@@ -380,16 +380,19 @@
     {% endif %}
     <a href="#" id="printView">{{ get_icon('b_print', 'Print'|trans, true) }}</a>
     {% if not tbl_is_view and not db_is_system_schema %}
-        <a href="sql.php" data-post="{{ url_query|raw }}&amp;session_max_rows=all&amp;sql_query=
-            {{- ('SELECT * FROM ' ~ backquote(table) ~ ' PROCEDURE ANALYSE()')|url_encode -}}
-            " style="margin-right: 0;">
-            {{ get_icon(
-                'b_tblanalyse',
-                'Propose table structure'|trans,
-                true
-            ) }}
-        </a>
-        {{ show_mysql_docu('procedure_analyse') }}
+        {# Only display propose table structure for MySQL < 8.0 #}
+        {% if mysql_int_version < 80000 or is_mariadb %}
+          <a href="sql.php" data-post="{{ url_query|raw }}&amp;session_max_rows=all&amp;sql_query=
+              {{- ('SELECT * FROM ' ~ backquote(table) ~ ' PROCEDURE ANALYSE()')|url_encode -}}
+              " style="margin-right: 0;">
+              {{ get_icon(
+                  'b_tblanalyse',
+                  'Propose table structure'|trans,
+                  true
+              ) }}
+          </a>
+          {{ show_mysql_docu('procedure_analyse') }}
+        {% endif %}
         {% if is_active %}
             <a href="tbl_tracking.php{{ url_query|raw }}">
                 {{ get_icon('eye', 'Track table'|trans, true) }}

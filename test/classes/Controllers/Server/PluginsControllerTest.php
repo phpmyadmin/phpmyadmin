@@ -13,6 +13,8 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\PluginsController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Server\Plugins;
+use PhpMyAdmin\Template;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -50,13 +52,13 @@ class PluginsControllerTest extends TestCase
          * Prepare plugin list
          */
         $row = [
-            'plugin_name' => 'plugin_name1',
-            'plugin_type' => 'plugin_type1',
-            'plugin_type_version' => 'plugin_version1',
-            'plugin_author' => 'plugin_author1',
-            'plugin_license' => 'plugin_license1',
-            'plugin_description' => 'plugin_description1',
-            'is_active' => true,
+            'PLUGIN_NAME' => 'plugin_name1',
+            'PLUGIN_TYPE' => 'plugin_type1',
+            'PLUGIN_VERSION' => 'plugin_version1',
+            'PLUGIN_AUTHOR' => 'plugin_author1',
+            'PLUGIN_LICENSE' => 'plugin_license1',
+            'PLUGIN_DESCRIPTION' => 'plugin_description1',
+            'PLUGIN_STATUS' => 'ACTIVE',
         ];
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -77,7 +79,9 @@ class PluginsControllerTest extends TestCase
 
         $controller = new PluginsController(
             Response::getInstance(),
-            $dbi
+            $dbi,
+            new Template(),
+            new Plugins($dbi)
         );
         $actual = $controller->index();
 

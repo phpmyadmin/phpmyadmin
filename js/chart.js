@@ -28,7 +28,7 @@ var ColumnType = {
 var ChartFactory = function () {
 };
 ChartFactory.prototype = {
-    createChart : function (type, options) {
+    createChart : function () {
         throw new Error('createChart must be implemented by a subclass');
     }
 };
@@ -43,10 +43,10 @@ var Chart = function (elementId) {
     this.elementId = elementId;
 };
 Chart.prototype = {
-    draw : function (data, options) {
+    draw : function () {
         throw new Error('draw must be implemented by a subclass');
     },
-    redraw : function (options) {
+    redraw : function () {
         throw new Error('redraw must be implemented by a subclass');
     },
     destroy : function () {
@@ -153,6 +153,7 @@ ScatterChart.prototype.validateColumns = function (dataTable) {
 /**
  * The data table contains column information and data for the chart.
  */
+// eslint-disable-next-line no-unused-vars
 var DataTable = function () {
     var columns = [];
     var data = null;
@@ -228,15 +229,15 @@ JQPlotChart.prototype.redraw = function (options) {
         this.plot.replot(options);
     }
 };
-JQPlotChart.prototype.toImageString = function (options) {
+JQPlotChart.prototype.toImageString = function () {
     if (this.plot !== null) {
         return $('#' + this.elementId).jqplotToImageStr({});
     }
 };
-JQPlotChart.prototype.populateOptions = function (dataTable, options) {
+JQPlotChart.prototype.populateOptions = function () {
     throw new Error('populateOptions must be implemented by a subclass');
 };
-JQPlotChart.prototype.prepareData = function (dataTable) {
+JQPlotChart.prototype.prepareData = function () {
     throw new Error('prepareData must be implemented by a subclass');
 };
 

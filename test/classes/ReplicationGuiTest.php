@@ -10,7 +10,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Replication;
 use PhpMyAdmin\ReplicationGui;
+use PhpMyAdmin\SqlParser\Statements\ReplaceStatement;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme;
 use PHPUnit\Framework\TestCase;
 
@@ -60,7 +63,7 @@ class ReplicationGuiTest extends TestCase
         $GLOBALS['table'] = "table";
         $GLOBALS['url_params'] = [];
 
-        $this->replicationGui = new ReplicationGui();
+        $this->replicationGui = new ReplicationGui(new Replication(), new Template());
 
         //$_SESSION
 
@@ -69,11 +72,11 @@ class ReplicationGuiTest extends TestCase
         $slave_host = [
             [
                 'Server_id' => 'Server_id1',
-                'Host' => 'Host1'
+                'Host' => 'Host1',
             ],
             [
                 'Server_id' => 'Server_id2',
-                'Host' => 'Host2'
+                'Host' => 'Host2',
             ],
         ];
 

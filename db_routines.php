@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\Database\RoutinesController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -19,24 +20,32 @@ if (! defined('ROOT_PATH')) {
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
-$checkUserPrivileges->getPrivileges();
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
 
-$response = Response::getInstance();
+/** @var DatabaseInterface $dbi */
+$dbi = $containerBuilder->get(DatabaseInterface::class);
+
+/** @var string $db */
+$db = $containerBuilder->getParameter('db');
+
+/** @var string $table */
+$table = $containerBuilder->getParameter('table');
+
+/** @var CheckUserPrivileges $checkUserPrivileges */
+$checkUserPrivileges = $containerBuilder->get('check_user_privileges');
+$checkUserPrivileges->getPrivileges();
 
 $_PMA_RTE = 'RTN';
 
-$controller = new RoutinesController(
-    $response,
-    $GLOBALS['dbi'],
-    $db
-);
+/** @var RoutinesController $controller */
+$controller = $containerBuilder->get(RoutinesController::class);
 
 if (! $response->isAjax()) {
     /**
      * Displays the header and tabs
      */
-    if (! empty($table) && in_array($table, $GLOBALS['dbi']->getTables($db))) {
+    if (! empty($table) && in_array($table, $dbi->getTables($db))) {
         include_once ROOT_PATH . 'libraries/tbl_common.inc.php';
     } else {
         $table = '';
@@ -61,7 +70,7 @@ if (! $response->isAjax()) {
      * create the missing $url_query variable
      */
     if (strlen($db) > 0) {
-        $GLOBALS['dbi']->selectDb($db);
+        $dbi->selectDb($db);
         if (! isset($url_query)) {
             $url_query = Url::getCommon(
                 [

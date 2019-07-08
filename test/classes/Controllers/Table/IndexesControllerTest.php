@@ -9,10 +9,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\IndexesController;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Url;
@@ -40,6 +40,7 @@ class IndexesControllerTest extends PmaTestCase
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['pmadb'] = '';
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['url_params'] = [
             'db' => 'db',
             'server' => 1,
@@ -94,19 +95,14 @@ class IndexesControllerTest extends PmaTestCase
         $GLOBALS['dbi']->expects($this->any())->method('getTable')
             ->will($this->returnValue($table));
 
-        $container = Container::getDefaultContainer();
-        $container->set('db', 'db');
-        $container->set('table', 'table');
-        $container->set('dbi', $GLOBALS['dbi']);
         $response = new ResponseStub();
-        $container->set('PhpMyAdmin\Response', $response);
-        $container->alias('response', 'PhpMyAdmin\Response');
 
         $ctrl = new IndexesController(
-            $container->get('response'),
-            $container->get('dbi'),
-            $container->get('db'),
-            $container->get('table'),
+            $response,
+            $GLOBALS['dbi'],
+            new Template(),
+            $GLOBALS['db'],
+            $GLOBALS['table'],
             null
         );
 
@@ -152,20 +148,15 @@ class IndexesControllerTest extends PmaTestCase
         $GLOBALS['dbi']->expects($this->any())->method('getTable')
             ->will($this->returnValue($table));
 
-        $container = Container::getDefaultContainer();
-        $container->set('db', 'db');
-        $container->set('table', 'table');
-        $container->set('dbi', $GLOBALS['dbi']);
         $response = new ResponseStub();
-        $container->set('PhpMyAdmin\Response', $response);
-        $container->alias('response', 'PhpMyAdmin\Response');
         $index = new Index();
 
         $ctrl = new IndexesController(
-            $container->get('response'),
-            $container->get('dbi'),
-            $container->get('db'),
-            $container->get('table'),
+            $response,
+            $GLOBALS['dbi'],
+            new Template(),
+            $GLOBALS['db'],
+            $GLOBALS['table'],
             $index
         );
 

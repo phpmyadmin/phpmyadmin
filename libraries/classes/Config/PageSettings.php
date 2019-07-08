@@ -65,7 +65,7 @@ class PageSettings
         $this->userPreferences = new UserPreferences();
 
         $formClass = PageFormList::get($formGroupName);
-        if (is_null($formClass)) {
+        if ($formClass === null) {
             return;
         }
 
@@ -115,7 +115,7 @@ class PageSettings
                 Core::sendHeaderLocation(
                     $response->getFooter()->getSelfUrl()
                 );
-                exit();
+                exit;
             } else {
                 $error = $result;
             }

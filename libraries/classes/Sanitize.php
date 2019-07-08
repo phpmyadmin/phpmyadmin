@@ -56,7 +56,7 @@ class Sanitize
             './server_privileges.php?',
             './tbl_structure.php?',
         ];
-        $is_setup = ! is_null($GLOBALS['PMA_Config']) && $GLOBALS['PMA_Config']->get('is_setup');
+        $is_setup = $GLOBALS['PMA_Config'] !== null && $GLOBALS['PMA_Config']->get('is_setup');
         // Adjust path to setup script location
         if ($is_setup) {
             foreach ($valid_starts as $key => $value) {
@@ -156,9 +156,9 @@ class Sanitize
      *
      * Examples:
      *
-     * <p><?php echo Sanitize::sanitize($foo); ?></p>
+     * <p><?php echo Sanitize::sanitizeMessage($foo); ?></p>
      *
-     * <a title="<?php echo Sanitize::sanitize($foo, true); ?>">bar</a>
+     * <a title="<?php echo Sanitize::sanitizeMessage($foo, true); ?>">bar</a>
      *
      * @param string  $message the message
      * @param boolean $escape  whether to escape html in result
@@ -166,7 +166,7 @@ class Sanitize
      *
      * @return string   the sanitized message
      */
-    public static function sanitize($message, $escape = false, $safe = false)
+    public static function sanitizeMessage($message, $escape = false, $safe = false)
     {
         if (! $safe) {
             $message = strtr((string) $message, ['<' => '&lt;', '>' => '&gt;']);
@@ -300,7 +300,7 @@ class Sanitize
                     '\'' => '\\\'',
                     '"' => '\"',
                     "\n" => '\n',
-                    "\r" => '\r'
+                    "\r" => '\r',
                 ]
             )
         );
@@ -418,12 +418,12 @@ class Sanitize
     /**
      * Removes all variables from request except whitelisted ones.
      *
-     * @param string $whitelist list of variables to allow
+     * @param string[] $whitelist list of variables to allow
      *
      * @return void
      * @access public
      */
-    public static function removeRequestVars(&$whitelist)
+    public static function removeRequestVars(&$whitelist): void
     {
         // do not check only $_REQUEST because it could have been overwritten
         // and use type casting because the variables could have become

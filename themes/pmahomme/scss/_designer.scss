@@ -113,6 +113,10 @@ canvas.designer {
   display: none;
 }
 
+#designer_body #page_content {
+  margin: 0;
+}
+
 .scroll_tab {
   overflow: auto;
   width: 100%;
@@ -485,6 +489,7 @@ a {
     display: block;
     float: none;
     overflow: hidden;
+    line-height: 1em;
   }
 
   img,
@@ -499,7 +504,7 @@ a {
   background: #efefef;
   width: 100%;
   font-size: 1.2em;
-  padding: 10px;
+  padding: 5px;
   font-weight: bold;
 }
 

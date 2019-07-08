@@ -29,15 +29,32 @@ class UtilTest extends PmaTestCase
      *
      * @return void
      */
-    public function testCreateGISData()
+    public function testCreateGISDataOldMysql(): void
     {
         $this->assertEquals(
             "abc",
-            Util::createGISData("abc")
+            Util::createGISData("abc", 50500)
         );
         $this->assertEquals(
             "GeomFromText('POINT()',10)",
-            Util::createGISData("'POINT()',10")
+            Util::createGISData("'POINT()',10", 50500)
+        );
+    }
+
+    /**
+     * Test for createGISData
+     *
+     * @return void
+     */
+    public function testCreateGISDataNewMysql(): void
+    {
+        $this->assertEquals(
+            "abc",
+            Util::createGISData("abc", 50600)
+        );
+        $this->assertEquals(
+            "ST_GeomFromText('POINT()',10)",
+            Util::createGISData("'POINT()',10", 50600)
         );
     }
 
@@ -46,7 +63,7 @@ class UtilTest extends PmaTestCase
      *
      * @return void
      */
-    public function testGetGISFunctions()
+    public function testGetGISFunctions(): void
     {
         $funcs = Util::getGISFunctions();
         $this->assertArrayHasKey(
@@ -178,7 +195,7 @@ class UtilTest extends PmaTestCase
             . '<div id="upload_form_status" class="hide"></div>'
             . '<div id="upload_form_status_info" class="hide"></div>'
             . '<input type="file" name="import_file" id="input_import_file">'
-            . "(" . __('Max: ') . $res . $unit . ")" . "\n"
+            . "(" . __('Max: ') . $res . $unit . ')' . "\n"
             . '<input type="hidden" name="MAX_FILE_SIZE" value="'
             . $size . '">' . "\n"
         );
@@ -669,7 +686,7 @@ class UtilTest extends PmaTestCase
                     ],
                     'attribute' => ' ',
                     'can_contain_collation' => true,
-                    'displayed_type' => "set('a', 'b')"
+                    'displayed_type' => "set('a', 'b')",
                 ],
             ],
             [
@@ -687,7 +704,7 @@ class UtilTest extends PmaTestCase
                     ],
                     'attribute' => ' ',
                     'can_contain_collation' => true,
-                    'displayed_type' => "set('\'a', 'b')"
+                    'displayed_type' => "set('\'a', 'b')",
                 ],
             ],
             [
@@ -705,7 +722,7 @@ class UtilTest extends PmaTestCase
                     ],
                     'attribute' => ' ',
                     'can_contain_collation' => true,
-                    'displayed_type' => "set('''a', 'b')"
+                    'displayed_type' => "set('''a', 'b')",
                 ],
             ],
             [
@@ -724,7 +741,7 @@ class UtilTest extends PmaTestCase
                     ],
                     'attribute' => ' ',
                     'can_contain_collation' => true,
-                    'displayed_type' => "enum('a&amp;b', 'b''c\\'d', 'e\\\\f')"
+                    'displayed_type' => "enum('a&amp;b', 'b''c\\'d', 'e\\\\f')",
                 ],
             ],
             [
@@ -739,7 +756,7 @@ class UtilTest extends PmaTestCase
                     'enum_set_values' => [],
                     'attribute' => 'UNSIGNED ZEROFILL',
                     'can_contain_collation' => false,
-                    'displayed_type' => "int"
+                    'displayed_type' => "int",
                 ],
             ],
             [
@@ -754,7 +771,7 @@ class UtilTest extends PmaTestCase
                     'enum_set_values' => [],
                     'attribute' => ' ',
                     'can_contain_collation' => true,
-                    'displayed_type' => "varchar(255)"
+                    'displayed_type' => "varchar(255)",
                 ],
             ],
             [
@@ -769,7 +786,7 @@ class UtilTest extends PmaTestCase
                     'enum_set_values' => [],
                     'attribute' => ' ',
                     'can_contain_collation' => false,
-                    'displayed_type' => "varbinary(255)"
+                    'displayed_type' => "varbinary(255)",
                 ],
             ],
         ];
@@ -996,7 +1013,7 @@ class UtilTest extends PmaTestCase
                 ],
             ],
             [
-                doubleval(52) + doubleval(2048),
+                floatval(52) + floatval(2048),
                 3,
                 1,
                 [

@@ -9,8 +9,9 @@ declare(strict_types=1);
 
 use PhpMyAdmin\BrowseForeigners;
 use PhpMyAdmin\Controllers\BrowseForeignersController;
-use PhpMyAdmin\Relation;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 if (! defined('ROOT_PATH')) {
@@ -21,20 +22,29 @@ require_once ROOT_PATH . 'libraries/common.inc.php';
 
 Util::checkParameters(['db', 'table', 'field'], true);
 
-$response = Response::getInstance();
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
 
-$controller = new BrowseForeignersController(
-    $response,
-    $GLOBALS['dbi'],
+/** @var DatabaseInterface $dbi */
+$dbi = $containerBuilder->get(DatabaseInterface::class);
+
+/** @var Template $template */
+$template = $containerBuilder->get('template');
+/* Register BrowseForeignersController dependencies */
+$containerBuilder->set(
+    'browse_foreigners',
     new BrowseForeigners(
         $GLOBALS['cfg']['LimitChars'],
         $GLOBALS['cfg']['MaxRows'],
         $GLOBALS['cfg']['RepeatCells'],
         $GLOBALS['cfg']['ShowAll'],
-        $GLOBALS['pmaThemeImage']
-    ),
-    new Relation($GLOBALS['dbi'])
+        $GLOBALS['pmaThemeImage'],
+        $template
+    )
 );
+
+/** @var BrowseForeignersController $controller */
+$controller = $containerBuilder->get(BrowseForeignersController::class);
 
 $response->getFooter()->setMinimal();
 $header = $response->getHeader();

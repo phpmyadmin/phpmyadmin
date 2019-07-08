@@ -32,15 +32,15 @@ class NodeFunctionContainer extends NodeDatabaseChildContainer
             'icon' => 'db_routines.php?server=' . $GLOBALS['server']
                 . '&amp;db=%1$s&amp;type=FUNCTION',
         ];
-        $this->real_name = 'functions';
+        $this->realName = 'functions';
 
-        $new_label = _pgettext('Create new function', 'New');
+        $newLabel = _pgettext('Create new function', 'New');
         $new = NodeFactory::getInstance(
             'Node',
-            $new_label
+            $newLabel
         );
         $new->isNew = true;
-        $new->icon = Util::getImage('b_routine_add', $new_label);
+        $new->icon = Util::getImage('b_routine_add', $newLabel);
         $new->links = [
             'text' => 'db_routines.php?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s&add_item=1&amp;item_type=FUNCTION',

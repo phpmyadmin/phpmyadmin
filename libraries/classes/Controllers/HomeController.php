@@ -10,14 +10,19 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Charsets\Charset;
+use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\GitRevision;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Select;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
@@ -42,15 +47,17 @@ class HomeController extends AbstractController
     /**
      * HomeController constructor.
      *
-     * @param \PhpMyAdmin\Response          $response Response instance
-     * @param \PhpMyAdmin\DatabaseInterface $dbi      DatabaseInterface instance
-     * @param Config                        $config   Config instance
+     * @param Response          $response     Response instance
+     * @param DatabaseInterface $dbi          DatabaseInterface instance
+     * @param Template          $template     Template object
+     * @param Config            $config       Config instance
+     * @param ThemeManager      $themeManager ThemeManager instance
      */
-    public function __construct($response, $dbi, $config)
+    public function __construct($response, $dbi, Template $template, $config, ThemeManager $themeManager)
     {
-        parent::__construct($response, $dbi);
+        parent::__construct($response, $dbi, $template);
         $this->config = $config;
-        $this->themeManager = ThemeManager::getInstance();
+        $this->themeManager = $themeManager;
     }
 
 
@@ -83,7 +90,7 @@ class HomeController extends AbstractController
             $hasServerSelection = $cfg['ServerDefault'] == 0
                 || (! $cfg['NavigationDisplayServers']
                 && (count($cfg['Servers']) > 1
-                || ($server == 0 && count($cfg['Servers']) == 1)));
+                || ($server == 0 && count($cfg['Servers']) === 1)));
             if ($hasServerSelection) {
                 $serverSelection = Select::render(true, true);
             }
@@ -109,15 +116,26 @@ class HomeController extends AbstractController
                     ]);
                 }
 
-                $serverCollation = Charsets::getCollationDropdownBox(
-                    $this->dbi,
-                    $cfg['Server']['DisableIS'],
-                    'collation_connection',
-                    'select_collation_connection',
-                    $collation_connection,
-                    true,
-                    true
-                );
+                $charsets = Charsets::getCharsets($this->dbi, $cfg['Server']['DisableIS']);
+                $collations = Charsets::getCollations($this->dbi, $cfg['Server']['DisableIS']);
+                $charsetsList = [];
+                /** @var Charset $charset */
+                foreach ($charsets as $charset) {
+                    $collationsList = [];
+                    /** @var Collation $collation */
+                    foreach ($collations[$charset->getName()] as $collation) {
+                        $collationsList[] = [
+                            'name' => $collation->getName(),
+                            'description' => $collation->getDescription(),
+                            'is_selected' => $collation_connection === $collation->getName(),
+                        ];
+                    }
+                    $charsetsList[] = [
+                        'name' => $charset->getName(),
+                        'description' => $charset->getDescription(),
+                        'collations' => $collationsList,
+                    ];
+                }
 
                 $userPreferences = $this->template->render('list/item', [
                     'content' => Util::getImage('b_tblops') . ' ' . __(
@@ -138,7 +156,7 @@ class HomeController extends AbstractController
 
         $languageSelector = '';
         if (empty($cfg['Lang']) && $languageManager->hasChoice()) {
-            $languageSelector = $languageManager->getSelectorDisplay();
+            $languageSelector = $languageManager->getSelectorDisplay($this->template);
         }
 
         $themeSelection = '';
@@ -162,12 +180,7 @@ class HomeController extends AbstractController
                 $hostInfo .= ')';
             }
 
-            $unicode = Charsets::$mysql_charset_map['utf-8'];
-            $charsets = Charsets::getMySQLCharsetsDescriptions(
-                $this->dbi,
-                $cfg['Server']['DisableIS']
-            );
-
+            $serverCharset = Charsets::getServerCharset($this->dbi, $cfg['Server']['DisableIS']);
             $databaseServer = [
                 'host' => $hostInfo,
                 'type' => Util::getServerType(),
@@ -175,7 +188,7 @@ class HomeController extends AbstractController
                 'version' => $this->dbi->getVersionString() . ' - ' . $this->dbi->getVersionComment(),
                 'protocol' => $this->dbi->getProtoInfo(),
                 'user' => $this->dbi->fetchValue('SELECT USER();'),
-                'charset' => $charsets[$unicode] . ' (' . $unicode . ')',
+                'charset' => $serverCharset->getDescription() . ' (' . $serverCharset->getName() . ')',
             ];
         }
 
@@ -191,7 +204,7 @@ class HomeController extends AbstractController
 
                 $webServer['database'] = $clientVersion;
                 $webServer['php_extensions'] = Util::listPHPExtensions();
-                $webServer['php_version'] = phpversion();
+                $webServer['php_version'] = PHP_VERSION;
             }
         }
         if ($cfg['ShowPhpInfo']) {
@@ -251,7 +264,7 @@ class HomeController extends AbstractController
             'has_server_selection' => $hasServerSelection ?? false,
             'server_selection' => $serverSelection ?? '',
             'change_password' => $changePassword ?? '',
-            'server_collation' => $serverCollation ?? '',
+            'charsets' => $charsetsList ?? [],
             'language_selector' => $languageSelector,
             'theme_selection' => $themeSelection,
             'user_preferences' => $userPreferences ?? '',
@@ -463,7 +476,7 @@ class HomeController extends AbstractController
         }
 
         /* Missing template cache */
-        if (is_null($this->config->getTempDir('twig'))) {
+        if ($this->config->getTempDir('twig') === null) {
             trigger_error(
                 sprintf(
                     __(

@@ -34,7 +34,7 @@ class ExportTest extends TestCase
      */
     protected function setUp(): void
     {
-        $this->export = new Export();
+        $this->export = new Export($GLOBALS['dbi']);
     }
 
     /**

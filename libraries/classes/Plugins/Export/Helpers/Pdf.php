@@ -164,10 +164,6 @@ class Pdf extends PdfLib
         $this->SetAutoPageBreak(false);
         // Check if header for this page already exists
         if (! isset($this->headerset[$this->page])) {
-            $fullwidth = 0;
-            foreach ($this->tablewidths as $width) {
-                $fullwidth += $width;
-            }
             $this->SetY($this->tMargin - ($this->FontSizePt / $this->k) * 5);
             $this->cellFontSize = $this->FontSizePt;
             $this->SetFont(
@@ -355,13 +351,8 @@ class Pdf extends PdfLib
      */
     public function getTriggers($db, $table)
     {
-        $i = 0;
         $triggers = $GLOBALS['dbi']->getTriggers($db, $table);
-        foreach ($triggers as $trigger) {
-            $i++;
-            break;
-        }
-        if ($i == 0) {
+        if ([] === $triggers) {
             return; //prevents printing blank trigger list for any table
         }
 
@@ -410,8 +401,6 @@ class Pdf extends PdfLib
         $tmpheight = [];
         $maxpage = $this->page;
         $data = [];
-
-        $triggers = $GLOBALS['dbi']->getTriggers($db, $table);
 
         foreach ($triggers as $trigger) {
             $data[] = $trigger['name'];
@@ -588,18 +577,6 @@ class Pdf extends PdfLib
         }
 
         $columns = $GLOBALS['dbi']->getColumns($db, $table);
-        /**
-         * Get the unique keys in the table.
-         * Presently, this information is not used. We will have to find out
-         * way of displaying it.
-         */
-        $unique_keys = [];
-        $keys = $GLOBALS['dbi']->getTableIndexes($db, $table);
-        foreach ($keys as $key) {
-            if ($key['Non_unique'] == 0) {
-                $unique_keys[] = $key['Column_name'];
-            }
-        }
 
         // some things to set and 'remember'
         $l = $this->lMargin;
@@ -786,7 +763,7 @@ class Pdf extends PdfLib
                  * @todo do not deactivate completely the display
                  * but show the field's name and [BLOB]
                  */
-                    if (stristr($this->fields[$i]->flags, 'BINARY')) {
+                    if (false !== stripos($this->fields[$i]->flags, 'BINARY')) {
                         $this->display_column[$i] = false;
                         unset($this->colTitles[$i]);
                     }
@@ -843,8 +820,8 @@ class Pdf extends PdfLib
         }
 
         if ($adjustingMode) {
-            $surplus = (sizeof($colFits) * $this->sColWidth) - $totAlreadyFitted;
-            $surplusToAdd = $surplus / ($this->numFields - sizeof($colFits));
+            $surplus = (count($colFits) * $this->sColWidth) - $totAlreadyFitted;
+            $surplusToAdd = $surplus / ($this->numFields - count($colFits));
         } else {
             $surplusToAdd = 0;
         }

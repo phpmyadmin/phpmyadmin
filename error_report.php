@@ -27,7 +27,8 @@ if (! isset($_POST['exception_type'])
 
 $response = Response::getInstance();
 
-$errorReport = new ErrorReport(new HttpRequest());
+/** @var ErrorReport $errorReport */
+$errorReport = $containerBuilder->get('error_report');
 
 if (isset($_POST['send_error_report'])
     && ($_POST['send_error_report'] == true
@@ -47,7 +48,7 @@ if (isset($_POST['send_error_report'])
         ) {
             $_SESSION['error_subm_count'] = 0;
             $_SESSION['prev_errors'] = '';
-            $response->addJSON('_stopErrorReportLoop', '1');
+            $response->addJSON('stopErrorReportLoop', '1');
         } else {
             $_SESSION['prev_error_subm_time'] = time();
             $_SESSION['error_subm_count'] = (
@@ -61,7 +62,7 @@ if (isset($_POST['send_error_report'])
     // report if and only if there were 'actual' errors.
     if (count($reportData) > 0) {
         $server_response = $errorReport->send($reportData);
-        if ($server_response === false) {
+        if (! is_string($server_response)) {
             $success = false;
         } else {
             $decoded_response = json_decode($server_response, true);
@@ -107,10 +108,10 @@ if (isset($_POST['send_error_report'])
             if ($_POST['exception_type'] == 'js') {
                 $response->addJSON('message', $msg);
             } else {
-                $response->addJSON('_errSubmitMsg', $msg);
+                $response->addJSON('errSubmitMsg', $msg);
             }
         } elseif ($_POST['exception_type'] == 'php') {
-            $jsCode = 'PMA_ajaxShowMessage("<div class=\"error\">'
+            $jsCode = 'Functions.ajaxShowMessage("<div class=\"error\">'
                     . $msg
                     . '</div>", false);';
             $response->getFooter()->getScripts()->addCode($jsCode);

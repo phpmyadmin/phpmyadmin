@@ -40,7 +40,7 @@ class SanitizeExtension extends AbstractExtension
             ),
             new TwigFilter(
                 'sanitize',
-                'PhpMyAdmin\Sanitize::sanitize',
+                'PhpMyAdmin\Sanitize::sanitizeMessage',
                 ['is_safe' => ['html']]
             ),
         ];
@@ -58,7 +58,7 @@ class SanitizeExtension extends AbstractExtension
                 'get_js_value',
                 'PhpMyAdmin\Sanitize::getJsValue',
                 ['is_safe' => ['html']]
-            )
+            ),
         ];
     }
 }

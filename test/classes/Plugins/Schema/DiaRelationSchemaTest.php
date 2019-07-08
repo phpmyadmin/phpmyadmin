@@ -54,7 +54,7 @@ class DiaRelationSchemaTest extends PmaTestCase
             'db' => "information_schema",
             'table_info' => 'table_info',
             'relwork' => 'relwork',
-            'relation' => 'relation'
+            'relation' => 'relation',
         ];
         $relation = new Relation($GLOBALS['dbi']);
         $relation->getRelationsParam();

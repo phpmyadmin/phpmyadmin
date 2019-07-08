@@ -356,12 +356,6 @@ class FormDisplayTemplate
                 . '>' . htmlspecialchars(implode("\n", $value)) . '</textarea>';
                 break;
         }
-        if (isset($opts['comment']) && $opts['comment']) {
-            $class = 'field-comment-mark';
-            if (isset($opts['comment_warning']) && $opts['comment_warning']) {
-                $class .= ' field-comment-warning';
-            }
-        }
         if ($isSetupScript
             && isset($opts['userprefs_comment'])
             && $opts['userprefs_comment']
@@ -487,13 +481,12 @@ class FormDisplayTemplate
         foreach ((array) $validators as $validator) {
             $validator = (array) $validator;
             $vName = array_shift($validator);
-            $vName = "PMA_" . $vName;
             $vArgs = [];
             foreach ($validator as $arg) {
                 $vArgs[] = Sanitize::escapeJsString($arg);
             }
             $vArgs = $vArgs ? ", ['" . implode("', '", $vArgs) . "']" : '';
-            $jsArray[] = "validateField('$fieldId', '$vName', true$vArgs)";
+            $jsArray[] = "registerFieldValidator('$fieldId', '$vName', true$vArgs)";
         }
     }
 

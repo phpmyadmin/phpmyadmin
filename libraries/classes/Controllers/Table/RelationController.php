@@ -13,7 +13,9 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 /**
@@ -61,20 +63,23 @@ class RelationController extends AbstractController
     /**
      * Constructor
      *
-     * @param \PhpMyAdmin\Response $response           Response object
-     * @param DatabaseInterface    $dbi                DatabaseInterface object
-     * @param string               $db                 Database name
-     * @param string               $table              Table name
-     * @param array|null           $options_array      Options
-     * @param array|null           $cfgRelation        Config relation
-     * @param string               $tbl_storage_engine Table storage engine
-     * @param array|null           $existrel           Relations
-     * @param array|null           $existrel_foreign   External relations
-     * @param string               $upd_query          Update query
+     * @param Response          $response           Response object
+     * @param DatabaseInterface $dbi                DatabaseInterface object
+     * @param Template          $template           Template object
+     * @param string            $db                 Database name
+     * @param string            $table              Table name
+     * @param array|null        $options_array      Options
+     * @param array|null        $cfgRelation        Config relation
+     * @param string            $tbl_storage_engine Table storage engine
+     * @param array|null        $existrel           Relations
+     * @param array|null        $existrel_foreign   External relations
+     * @param Table             $upd_query          Update query
+     * @param Relation          $relation           Relation instance
      */
     public function __construct(
         $response,
         $dbi,
+        Template $template,
         $db,
         $table,
         $options_array,
@@ -82,9 +87,10 @@ class RelationController extends AbstractController
         $tbl_storage_engine,
         $existrel,
         $existrel_foreign,
-        $upd_query
+        $upd_query,
+        Relation $relation
     ) {
-        parent::__construct($response, $dbi, $db, $table);
+        parent::__construct($response, $dbi, $template, $db, $table);
 
         $this->options_array = $options_array;
         $this->cfgRelation = $cfgRelation;
@@ -92,7 +98,7 @@ class RelationController extends AbstractController
         $this->existrel = $existrel;
         $this->existrel_foreign = $existrel_foreign;
         $this->upd_query = $upd_query;
-        $this->relation = new Relation($dbi);
+        $this->relation = $relation;
     }
 
     /**
@@ -118,7 +124,7 @@ class RelationController extends AbstractController
 
         $this->response->getHeader()->getScripts()->addFiles(
             [
-                'tbl_relation.js',
+                'table/relation.js',
                 'indexes.js',
             ]
         );

@@ -19,15 +19,17 @@ use PhpMyAdmin\Response;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$response = Response::getInstance();
-$centralColumns = new CentralColumns($GLOBALS['dbi']);
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
 
-$controller = new CentralColumnsController(
-    $response,
-    $GLOBALS['dbi'],
-    $db,
-    $centralColumns
-);
+/** @var CentralColumns $centralColumns */
+$centralColumns = $containerBuilder->get('central_columns');
+
+/** @var CentralColumnsController $controller */
+$controller = $containerBuilder->get(CentralColumnsController::class);
+
+/** @var string $db */
+$db = $containerBuilder->getParameter('db');
 
 if (isset($_POST['edit_save'])) {
     echo $controller->editSave([
@@ -79,7 +81,7 @@ $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
 $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
-$scripts->addFile('db_central_columns.js');
+$scripts->addFile('database/central_columns.js');
 
 if (isset($_POST['edit_central_columns_page'])) {
     $response->addHTML($controller->editPage([

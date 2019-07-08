@@ -17,6 +17,7 @@ use PhpMyAdmin\SysInfo;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
+use Throwable;
 
 /**
  * Advisor class
@@ -244,12 +245,12 @@ class Advisor
     /**
      * Stores current error in run results.
      *
-     * @param string     $description description of an error.
-     * @param \Throwable $exception   exception raised
+     * @param string    $description description of an error.
+     * @param Throwable $exception   exception raised
      *
      * @return void
      */
-    public function storeError(string $description, \Throwable $exception): void
+    public function storeError(string $description, Throwable $exception): void
     {
         $this->runResult['errors'][] = $description
             . ' '
@@ -357,7 +358,7 @@ class Advisor
     public function translate(string $str, ?string $param = null): string
     {
         $string = _gettext(self::escapePercent($str));
-        if (! is_null($param)) {
+        if ($param !== null) {
             $params = $this->ruleExprEvaluate('[' . $param . ']');
         } else {
             $params = [];

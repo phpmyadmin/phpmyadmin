@@ -313,4 +313,6 @@ linkcheck_ignore = [
     r'https://pecl.php.net/.*',
     # 403 Client Error: Forbidden
     r'https://authy.com/.*',
+    # 500 Server Error: Internal Server Error
+    r'http://www.scriptalicious.com/.*',
 ]

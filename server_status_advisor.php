@@ -8,8 +8,8 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Server\Status\AdvisorController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Server\Status\Data;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
@@ -18,14 +18,16 @@ if (! defined('ROOT_PATH')) {
 require_once ROOT_PATH . 'libraries/common.inc.php';
 require_once ROOT_PATH . 'libraries/replication.inc.php';
 
-$response = Response::getInstance();
-$scripts = $response->getHeader()->getScripts();
-$scripts->addFile('server_status_advisor.js');
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
 
-$controller = new AdvisorController(
-    $response,
-    $GLOBALS['dbi'],
-    new Data()
-);
+/** @var DatabaseInterface $dbi */
+$dbi = $containerBuilder->get(DatabaseInterface::class);
+
+$scripts = $response->getHeader()->getScripts();
+$scripts->addFile('server/status/advisor.js');
+
+/** @var AdvisorController $controller */
+$controller = $containerBuilder->get(AdvisorController::class);
 
 $response->addHTML($controller->index());

@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\Server\DatabasesController;
-use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 
 if (! defined('ROOT_PATH')) {
@@ -18,32 +18,21 @@ if (! defined('ROOT_PATH')) {
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->factory(
-    'PhpMyAdmin\Controllers\Server\DatabasesController'
-);
-$container->alias(
-    'DatabasesController',
-    'PhpMyAdmin\Controllers\Server\DatabasesController'
-);
-$container->set('PhpMyAdmin\Response', Response::getInstance());
-$container->alias('response', 'PhpMyAdmin\Response');
-
 /** @var DatabasesController $controller */
-$controller = $container->get(
-    'DatabasesController',
-    []
-);
+$controller = $containerBuilder->get(DatabasesController::class);
 
 /** @var Response $response */
-$response = $container->get('response');
+$response = $containerBuilder->get(Response::class);
 
-$checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
+/** @var DatabaseInterface $dbi */
+$dbi = $containerBuilder->get(DatabaseInterface::class);
+
+$checkUserPrivileges = new CheckUserPrivileges($dbi);
 $checkUserPrivileges->getPrivileges();
 
 if (isset($_POST['drop_selected_dbs'])
     && $response->isAjax()
-    && ($GLOBALS['dbi']->isSuperuser() || $GLOBALS['cfg']['AllowUserDropDatabase'])
+    && ($dbi->isSuperuser() || $GLOBALS['cfg']['AllowUserDropDatabase'])
 ) {
     $response->addJSON($controller->dropDatabasesAction([
         'drop_selected_dbs' => $_POST['drop_selected_dbs'],
@@ -59,7 +48,7 @@ if (isset($_POST['drop_selected_dbs'])
 } else {
     $header = $response->getHeader();
     $scripts = $header->getScripts();
-    $scripts->addFile('server_databases.js');
+    $scripts->addFile('server/databases.js');
 
     $response->addHTML($controller->indexAction([
         'statistics' => $_REQUEST['statistics'] ?? null,

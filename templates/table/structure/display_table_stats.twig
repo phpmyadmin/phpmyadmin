@@ -53,7 +53,8 @@
                     and (tbl_storage_engine == 'MYISAM'
                     or tbl_storage_engine == 'ARIA'
                     or tbl_storage_engine == 'MARIA'
-                    or tbl_storage_engine == 'BDB') %}
+                    or tbl_storage_engine == 'BDB')
+                    or (tbl_storage_engine == 'INNODB' and innodb_file_per_table == true) %}
                     <tr class="tblFooters print_ignore">
                         <td colspan="3" class="center">
                             <a href="sql.php" data-post="{{ url_query }}&amp;pos=0&amp;sql_query=
@@ -96,12 +97,12 @@
                     </tr>
                 {% endif %}
 
-                {% if tbl_collation is not empty %}
+                {% if table_collation is not empty %}
                     <tr>
                     <th class="name">{% trans 'Collation' %}</th>
                     <td class="value">
-                        <dfn title="{{ get_collation_descr(tbl_collation) }}">
-                            {{ tbl_collation }}
+                        <dfn title="{{ table_collation.description }}">
+                            {{ table_collation.name }}
                         </dfn>
                     </td>
                     </tr>

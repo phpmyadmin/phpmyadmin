@@ -10,9 +10,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbi\DbiDummy;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Util;
+use stdClass;
 
 /**
  * Tests basic functionality of dummy dbi driver
@@ -112,7 +113,7 @@ class DatabaseInterfaceTest extends PmaTestCase
      */
     public function testPMAGetColumnMap()
     {
-        $extension = $this->getMockBuilder('PhpMyAdmin\Dbi\DbiDummy')
+        $extension = $this->getMockBuilder(DbiDummy::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -120,11 +121,11 @@ class DatabaseInterfaceTest extends PmaTestCase
             ->method('realQuery')
             ->will($this->returnValue(true));
 
-        $meta1 = new \stdClass();
+        $meta1 = new stdClass();
         $meta1->table = "meta1_table";
         $meta1->name = "meta1_name";
 
-        $meta2 = new \stdClass();
+        $meta2 = new stdClass();
         $meta2->table = "meta2_table";
         $meta2->name = "meta2_name";
 
@@ -156,7 +157,7 @@ class DatabaseInterfaceTest extends PmaTestCase
             [
                 'table_name' => 'meta1_table',
                 'refering_column' => 'meta1_name',
-                'real_column' => 'view_columns1'
+                'real_column' => 'view_columns1',
             ],
             $column_map[0]
         );
@@ -164,7 +165,7 @@ class DatabaseInterfaceTest extends PmaTestCase
             [
                 'table_name' => 'meta2_table',
                 'refering_column' => 'meta2_name',
-                'real_column' => 'view_columns2'
+                'real_column' => 'view_columns2',
             ],
             $column_map[1]
         );
@@ -566,7 +567,7 @@ class DatabaseInterfaceTest extends PmaTestCase
      */
     public function testSetCollation()
     {
-        $extension = $this->getMockBuilder('PhpMyAdmin\Dbi\DbiDummy')
+        $extension = $this->getMockBuilder(DbiDummy::class)
             ->disableOriginalConstructor()
             ->getMock();
         $extension->expects($this->any())->method('escapeString')

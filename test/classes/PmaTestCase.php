@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Response;
+use PHPUnit\Framework\MockObject\MockBuilder;
 use PHPUnit\Framework\TestCase;
 use ReflectionProperty;
 
@@ -21,12 +22,12 @@ use ReflectionProperty;
 class PmaTestCase extends TestCase
 {
     /**
-     * @var Response
+     * @var Response|null
      */
     protected $restoreInstance = null;
+
     /**
-     * class Response
-     * @var ReflectionProperty
+     * @var ReflectionProperty|null
      */
     protected $attrInstance = null;
 
@@ -46,7 +47,7 @@ class PmaTestCase extends TestCase
      *
      * @param mixed[] ...$param parameter for header method
      *
-     * @return \PHPUnit\Framework\MockObject\MockBuilder
+     * @return MockBuilder
      */
     public function mockResponse(...$param)
     {
@@ -75,7 +76,7 @@ class PmaTestCase extends TestCase
 
         if (count($param) > 0) {
             if (is_array($param[0])) {
-                if (is_array($param[0][0]) && count($param) == 1) {
+                if (is_array($param[0][0]) && count($param) === 1) {
                     $param = $param[0];
                     if (is_int(end($param))) {
                         $http_response_code_param = end($param);
@@ -111,7 +112,7 @@ class PmaTestCase extends TestCase
      */
     protected function tearDown(): void
     {
-        if (! is_null($this->attrInstance) && ! is_null($this->restoreInstance)) {
+        if ($this->attrInstance !== null && $this->restoreInstance !== null) {
             $this->attrInstance->setValue($this->restoreInstance);
             $this->restoreInstance = null;
             $this->attrInstance = null;

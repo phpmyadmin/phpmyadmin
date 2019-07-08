@@ -8,6 +8,7 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Database\TriggersController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -18,21 +19,28 @@ if (! defined('ROOT_PATH')) {
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$response = Response::getInstance();
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
 $_PMA_RTE = 'TRI';
 
-$controller = new TriggersController(
-    $response,
-    $GLOBALS['dbi'],
-    $db
-);
+/** @var TriggersController $controller */
+$controller = $containerBuilder->get(TriggersController::class);
+
+/** @var string $db */
+$db = $containerBuilder->getParameter('db');
+
+/** @var string $table */
+$table = $containerBuilder->getParameter('table');
 
 if (! $response->isAjax()) {
     /**
      * Displays the header and tabs
      */
-    if (! empty($table) && in_array($table, $GLOBALS['dbi']->getTables($db))) {
+    if (! empty($table) && in_array($table, $dbi->getTables($db))) {
         include_once ROOT_PATH . 'libraries/tbl_common.inc.php';
     } else {
         $table = '';
@@ -57,7 +65,7 @@ if (! $response->isAjax()) {
      * create the missing $url_query variable
      */
     if (strlen($db) > 0) {
-        $GLOBALS['dbi']->selectDb($db);
+        $dbi->selectDb($db);
         if (! isset($url_query)) {
             $url_query = Url::getCommon(
                 [

@@ -54,7 +54,7 @@ class FileListing
      * @param string $extensions regular expression to match files
      * @param string $active     currently active choice
      *
-     * @return array|bool sorted file list on success, false on failure
+     * @return string|false Html <option> field, false if not files in dir
      */
     public function getFileSelectOptions(
         string $dir,

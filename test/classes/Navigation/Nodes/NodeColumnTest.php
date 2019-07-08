@@ -37,7 +37,13 @@ class NodeColumnTest extends PmaTestCase
      */
     public function testConstructor()
     {
-        $parent = NodeFactory::getInstance('NodeColumn');
+        $parent = NodeFactory::getInstance(
+            'NodeColumn',
+            [
+                'name' => 'name',
+                'key' => 'key',
+            ]
+        );
         $this->assertArrayHasKey(
             'text',
             $parent->links

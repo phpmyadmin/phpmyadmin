@@ -15,10 +15,10 @@ namespace PhpMyAdmin\Plugins\Import;
 use PhpMyAdmin\Import;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
-use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
+use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use SimpleXMLElement;
 
 /**
@@ -281,7 +281,7 @@ class ImportOds extends ImportPlugin
             }
 
             /* Skip over empty sheets */
-            if (count($tempRows) == 0 || count($tempRows[0]) == 0) {
+            if (count($tempRows) == 0 || count($tempRows[0]) === 0) {
                 $col_names = [];
                 $tempRow = [];
                 $tempRows = [];

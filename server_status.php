@@ -8,8 +8,9 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Server\Status\StatusController;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Server\Status\Data;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
@@ -19,12 +20,16 @@ require_once ROOT_PATH . 'libraries/common.inc.php';
 require_once ROOT_PATH . 'libraries/server_common.inc.php';
 require_once ROOT_PATH . 'libraries/replication.inc.php';
 
-$response = Response::getInstance();
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
 
-$controller = new StatusController(
-    $response,
-    $GLOBALS['dbi'],
-    new Data()
-);
+/** @var DatabaseInterface $dbi */
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
-$response->addHTML($controller->index());
+/** @var StatusController $controller */
+$controller = $containerBuilder->get(StatusController::class);
+
+/** @var ReplicationGui $replicationGui */
+$replicationGui = $containerBuilder->get('replication_gui');
+
+$response->addHTML($controller->index($replicationGui));

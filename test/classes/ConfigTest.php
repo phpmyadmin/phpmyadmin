@@ -45,6 +45,7 @@ class ConfigTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        $_SERVER['HTTP_USER_AGENT'] = '';
         $this->object = new Config();
         $GLOBALS['server'] = 0;
         $_SESSION['git_location'] = '.git';
@@ -1354,7 +1355,7 @@ class ConfigTest extends PmaTestCase
 
         $this->object->settings['Servers'] = $settings;
         $this->object->checkServers();
-        if (is_null($expected)) {
+        if ($expected === null) {
             $expected = $this->object->default_server;
         } else {
             $expected = array_merge($this->object->default_server, $expected);
@@ -1382,7 +1383,7 @@ class ConfigTest extends PmaTestCase
                 [1 => ['host' => '']],
                 [
                     'verbose' => 'Server 1',
-                    'host' => ''
+                    'host' => '',
                 ],
             ],
             'invalid' => [
@@ -1440,7 +1441,7 @@ class ConfigTest extends PmaTestCase
                 [
                     1 => [
                         'verbose' => 'Server 1',
-                        'host' => ''
+                        'host' => '',
                     ],
                 ],
                 'Server 1',
@@ -1450,7 +1451,7 @@ class ConfigTest extends PmaTestCase
                 [
                     66 => [
                         'verbose' => 'Server 1',
-                        'host' => ''
+                        'host' => '',
                     ],
                 ],
                 '753f173bd4ac8a45eae0fe9a4fbe0fc0',

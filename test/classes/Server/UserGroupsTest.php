@@ -36,7 +36,7 @@ class UserGroupsTest extends TestCase
             'PMA_VERSION' => PMA_VERSION,
             'db' => 'pmadb',
             'users' => 'users',
-            'usergroups' => 'usergroups'
+            'usergroups' => 'usergroups',
         ];
     }
 
@@ -108,7 +108,7 @@ class UserGroupsTest extends TestCase
                     [
                         'usergroup' => 'usergroup',
                         'tab' => 'server_sql',
-                        'allowed' => 'Y'
+                        'allowed' => 'Y',
                     ]
                 )
             );
@@ -141,7 +141,7 @@ class UserGroupsTest extends TestCase
             . Url::getCommon(
                 [
                     'editUserGroup' => 1,
-                    'userGroup' => htmlspecialchars('usergroup')
+                    'userGroup' => htmlspecialchars('usergroup'),
                 ],
                 ''
             );
@@ -153,7 +153,7 @@ class UserGroupsTest extends TestCase
             . Url::getCommon(
                 [
                     'deleteUserGroup' => 1,
-                    'userGroup' => htmlspecialchars('usergroup')
+                    'userGroup' => htmlspecialchars('usergroup'),
                 ],
                 ''
             );
@@ -226,7 +226,7 @@ class UserGroupsTest extends TestCase
                 [
                     'usergroup' => 'ug',
                     'tab' => 'server_sql',
-                    'allowed' => 'Y'
+                    'allowed' => 'Y',
                 ],
                 false
             );

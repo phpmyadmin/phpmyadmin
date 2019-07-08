@@ -13,10 +13,10 @@ namespace PhpMyAdmin\Plugins\Export;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\ExportPlugin;
-use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
+use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 
 /**
  * Handles the export for the YAML format
@@ -191,7 +191,7 @@ class ExportYaml extends ExportPlugin
                     continue;
                 }
 
-                if (is_null($record[$i])) {
+                if ($record[$i] === null) {
                     $buffer .= '  ' . $columns[$i] . ': null' . $crlf;
                     continue;
                 }

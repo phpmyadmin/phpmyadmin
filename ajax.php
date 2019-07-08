@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\AjaxController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
 
@@ -20,14 +21,15 @@ $_GET['ajax_request'] = 'true';
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$response = Response::getInstance();
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
 $response->setAjax(true);
 
-$controller = new AjaxController(
-    $response,
-    $GLOBALS['dbi'],
-    $GLOBALS['PMA_Config']
-);
+/** @var DatabaseInterface $dbi */
+$dbi = $containerBuilder->get(DatabaseInterface::class);
+
+/** @var AjaxController $controller */
+$controller = $containerBuilder->get(AjaxController::class);
 
 if (empty($_POST['type'])) {
     Core::fatalError(__('Bad type!'));

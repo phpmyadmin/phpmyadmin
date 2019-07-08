@@ -10,8 +10,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Gis\GisVisualization;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
 /**
@@ -37,26 +40,28 @@ class GisVisualizationController extends AbstractController
     protected $visualizationSettings;
 
     /**
-     * @var \PhpMyAdmin\Gis\GisVisualization
+     * @var GisVisualization
      */
     protected $visualization;
 
     /**
      * Constructor
      *
-     * @param \PhpMyAdmin\Response          $response              Response object
-     * @param \PhpMyAdmin\DatabaseInterface $dbi                   DatabaseInterface object
-     * @param string                        $db                    Database name
-     * @param string                        $table                 Table name
-     * @param string                        $sql_query             SQL query for retrieving GIS data
-     * @param array                         $url_params            array of URL parameters
-     * @param string                        $goto                  goto script
-     * @param string                        $back                  back script
-     * @param array                         $visualizationSettings visualization settings
+     * @param Response          $response              Response object
+     * @param DatabaseInterface $dbi                   DatabaseInterface object
+     * @param Template          $template              Template object
+     * @param string            $db                    Database name
+     * @param string            $table                 Table name
+     * @param string            $sql_query             SQL query for retrieving GIS data
+     * @param array             $url_params            array of URL parameters
+     * @param string            $goto                  goto script
+     * @param string            $back                  back script
+     * @param array             $visualizationSettings visualization settings
      */
     public function __construct(
         $response,
         $dbi,
+        Template $template,
         $db,
         $table,
         $sql_query,
@@ -65,7 +70,7 @@ class GisVisualizationController extends AbstractController
         $back,
         array $visualizationSettings
     ) {
-        parent::__construct($response, $dbi, $db, $table);
+        parent::__construct($response, $dbi, $template, $db, $table);
 
         require_once ROOT_PATH . 'libraries/common.inc.php';
         require_once ROOT_PATH . 'libraries/db_common.inc.php';
@@ -86,7 +91,7 @@ class GisVisualizationController extends AbstractController
     {
         $this->response->disable();
         $file_name = $this->visualizationSettings['spatialColumn'];
-        $save_format = $_REQUEST['fileFormat'];
+        $save_format = $_GET['fileFormat'];
         $this->visualization->toFile($file_name, $save_format);
     }
 
@@ -123,9 +128,12 @@ class GisVisualizationController extends AbstractController
         }
 
         // Get settings if any posted
-        if (Core::isValid($_REQUEST['visualizationSettings'], 'array')) {
-            $this->visualizationSettings = $_REQUEST['visualizationSettings'];
+        if (Core::isValid($_POST['visualizationSettings'], 'array')) {
+            $this->visualizationSettings = $_POST['visualizationSettings'];
         }
+
+        // Check mysql version
+        $this->visualizationSettings['mysqlVersion'] = $this->dbi->getVersion();
 
         if (! isset($this->visualizationSettings['labelColumn'])
             && isset($labelCandidates[0])
@@ -139,10 +147,10 @@ class GisVisualizationController extends AbstractController
         }
 
         // Convert geometric columns from bytes to text.
-        $pos = isset($_REQUEST['pos']) ? $_REQUEST['pos']
+        $pos = isset($_GET['pos']) ? $_GET['pos']
             : $_SESSION['tmpval']['pos'];
-        if (isset($_REQUEST['session_max_rows'])) {
-            $rows = $_REQUEST['session_max_rows'];
+        if (isset($_GET['session_max_rows'])) {
+            $rows = $_GET['session_max_rows'];
         } else {
             if ($_SESSION['tmpval']['max_rows'] != 'all') {
                 $rows = $_SESSION['tmpval']['max_rows'];
@@ -157,7 +165,7 @@ class GisVisualizationController extends AbstractController
             $pos
         );
 
-        if (isset($_REQUEST['saveToFile'])) {
+        if (isset($_GET['saveToFile'])) {
             $this->saveToFileAction();
             return;
         }
@@ -166,12 +174,12 @@ class GisVisualizationController extends AbstractController
             [
                 'vendor/openlayers/OpenLayers.js',
                 'vendor/jquery/jquery.svg.js',
-                'tbl_gis_visualization.js',
+                'table/gis_visualization.js',
             ]
         );
 
         // If all the rows contain SRID, use OpenStreetMaps on the initial loading.
-        if (! isset($_REQUEST['displayVisualization'])) {
+        if (! isset($_POST['displayVisualization'])) {
             if ($this->visualization->hasSrid()) {
                 $this->visualizationSettings['choice'] = 'useBaseLayer';
             } else {
@@ -198,7 +206,7 @@ class GisVisualizationController extends AbstractController
                 [
                     'saveToFile' => true,
                     'session_max_rows' => $rows,
-                    'pos' => $pos
+                    'pos' => $pos,
                 ]
             )
         );

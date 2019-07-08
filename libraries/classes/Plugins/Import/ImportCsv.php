@@ -14,8 +14,8 @@ namespace PhpMyAdmin\Plugins\Import;
 use PhpMyAdmin\Import;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
-use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\NumberPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Util;
 
 /**

@@ -19,6 +19,8 @@ use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statements\AlterStatement;
+use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Statements\DropStatement;
 use PhpMyAdmin\SqlParser\Utils\Table as TableUtils;
 use PhpMyAdmin\Util;
@@ -86,11 +88,11 @@ class Table
     /**
      * Constructor
      *
-     * @param string            $table_name table name
-     * @param string            $db_name    database name
-     * @param DatabaseInterface $dbi        database interface for the table
+     * @param string                 $table_name table name
+     * @param string                 $db_name    database name
+     * @param DatabaseInterface|null $dbi        database interface for the table
      */
-    public function __construct($table_name, $db_name, DatabaseInterface $dbi = null)
+    public function __construct($table_name, $db_name, ?DatabaseInterface $dbi = null)
     {
         if (empty($dbi)) {
             $dbi = $GLOBALS['dbi'];
@@ -115,13 +117,13 @@ class Table
     /**
      * Table getter
      *
-     * @param string            $table_name table name
-     * @param string            $db_name    database name
-     * @param DatabaseInterface $dbi        database interface for the table
+     * @param string                 $table_name table name
+     * @param string                 $db_name    database name
+     * @param DatabaseInterface|null $dbi        database interface for the table
      *
      * @return Table
      */
-    public static function get($table_name, $db_name, DatabaseInterface $dbi = null)
+    public static function get($table_name, $db_name, ?DatabaseInterface $dbi = null)
     {
         return new Table($table_name, $db_name, $dbi);
     }
@@ -314,7 +316,7 @@ class Table
         // we have to get the table's details
         if ($this->_dbi->getCachedTableContent([$db, $table]) == null
             || $force_read
-            || count($this->_dbi->getCachedTableContent([$db, $table])) == 1
+            || count($this->_dbi->getCachedTableContent([$db, $table])) === 1
         ) {
             $this->_dbi->getTablesFull($db, $table);
         }
@@ -534,17 +536,29 @@ class Table
             }
         }
 
+        // if column is virtual, check if server type is Mysql as only Mysql server
+        // supports extra column properties
+        $isVirtualColMysql = $virtuality && in_array(Util::getServerType(), ['MySQL', 'Percona Server']);
+        // if column is virtual, check if server type is MariaDB as MariaDB server
+        // supports no extra virtual column properties except CHARACTER SET for text column types
+        $isVirtualColMariaDB = $virtuality && Util::getServerType() === 'MariaDB';
+
+        $matches = preg_match(
+            '@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR|CHAR|ENUM|SET)$@i',
+            $type
+        );
+        if (! empty($collation) && $collation != 'NULL' && $matches) {
+            $query .= Util::getCharsetQueryPart(
+                $isVirtualColMariaDB ? preg_replace('~_.+~s', '', $collation) : $collation,
+                true
+            );
+        }
+
         if ($virtuality) {
             $query .= ' AS (' . $expression . ') ' . $virtuality;
-        } else {
-            $matches = preg_match(
-                '@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR|CHAR|ENUM|SET)$@i',
-                $type
-            );
-            if (! empty($collation) && $collation != 'NULL' && $matches) {
-                $query .= Util::getCharsetQueryPart($collation, true);
-            }
+        }
 
+        if (! $virtuality || $isVirtualColMysql) {
             if ($null !== false) {
                 if ($null == 'NULL') {
                     $query .= ' NULL';
@@ -553,62 +567,69 @@ class Table
                 }
             }
 
-            switch ($default_type) {
-                case 'USER_DEFINED':
-                    if ($is_timestamp && $default_value === '0') {
-                        // a TIMESTAMP does not accept DEFAULT '0'
-                        // but DEFAULT 0 works
-                        $query .= ' DEFAULT 0';
-                    } elseif ($type == 'BIT') {
-                        $query .= ' DEFAULT b\''
-                        . preg_replace('/[^01]/', '0', $default_value)
-                        . '\'';
-                    } elseif ($type == 'BOOLEAN') {
-                        if (preg_match('/^1|T|TRUE|YES$/i', (string) $default_value)) {
-                            $query .= ' DEFAULT TRUE';
-                        } elseif (preg_match('/^0|F|FALSE|NO$/i', $default_value)) {
-                            $query .= ' DEFAULT FALSE';
+            if (! $virtuality) {
+                switch ($default_type) {
+                    case 'USER_DEFINED':
+                        if ($is_timestamp && $default_value === '0') {
+                            // a TIMESTAMP does not accept DEFAULT '0'
+                            // but DEFAULT 0 works
+                            $query .= ' DEFAULT 0';
+                        } elseif ($type == 'BIT') {
+                            $query .= ' DEFAULT b\''
+                            . preg_replace('/[^01]/', '0', $default_value)
+                            . '\'';
+                        } elseif ($type == 'BOOLEAN') {
+                            if (preg_match('/^1|T|TRUE|YES$/i', (string) $default_value)) {
+                                $query .= ' DEFAULT TRUE';
+                            } elseif (preg_match('/^0|F|FALSE|NO$/i', $default_value)) {
+                                $query .= ' DEFAULT FALSE';
+                            } else {
+                                // Invalid BOOLEAN value
+                                $query .= ' DEFAULT \''
+                                . $dbi->escapeString($default_value) . '\'';
+                            }
+                        } elseif ($type == 'BINARY' || $type == 'VARBINARY') {
+                            $query .= ' DEFAULT 0x' . $default_value;
                         } else {
-                            // Invalid BOOLEAN value
                             $query .= ' DEFAULT \''
-                            . $dbi->escapeString($default_value) . '\'';
+                            . $dbi->escapeString((string) $default_value) . '\'';
                         }
-                    } elseif ($type == 'BINARY' || $type == 'VARBINARY') {
-                        $query .= ' DEFAULT 0x' . $default_value;
-                    } else {
-                        $query .= ' DEFAULT \''
-                        . $dbi->escapeString((string) $default_value) . '\'';
-                    }
-                    break;
-            /** @noinspection PhpMissingBreakStatementInspection */
-                case 'NULL':
-                    // If user uncheck null checkbox and not change default value null,
-                    // default value will be ignored.
-                    if ($null !== false && $null !== 'NULL') {
                         break;
-                    }
-                    // else fall-through intended, no break here
-                case 'CURRENT_TIMESTAMP':
-                case 'current_timestamp()':
-                    $query .= ' DEFAULT ' . $default_type;
+                /** @noinspection PhpMissingBreakStatementInspection */
+                    case 'NULL':
+                        // If user uncheck null checkbox and not change default value null,
+                        // default value will be ignored.
+                        if ($null !== false && $null !== 'NULL') {
+                            break;
+                        }
+                        // else fall-through intended, no break here
+                    case 'CURRENT_TIMESTAMP':
+                    case 'current_timestamp()':
+                        $query .= ' DEFAULT ' . $default_type;
 
-                    if (strlen($length) !== 0
-                    && $length !== 0
-                    && $is_timestamp
-                    && $default_type !== 'NULL' // Not to be added in case of NULL
-                    ) {
-                        $query .= '(' . $length . ')';
-                    }
-                    break;
-                case 'NONE':
-                default:
-                    break;
+                        if (strlen($length) !== 0
+                        && $length !== 0
+                        && $is_timestamp
+                        && $default_type !== 'NULL' // Not to be added in case of NULL
+                        ) {
+                            $query .= '(' . $length . ')';
+                        }
+                        break;
+                    case 'NONE':
+                    default:
+                        break;
+                }
             }
 
             if (! empty($extra)) {
+                if ($virtuality) {
+                    $extra = trim(preg_replace('~^\s*AUTO_INCREMENT\s*~is', ' ', $extra));
+                }
+
                 $query .= ' ' . $extra;
             }
         }
+
         if (! empty($comment)) {
             $query .= " COMMENT '" . $dbi->escapeString($comment) . "'";
         }
@@ -620,7 +641,7 @@ class Table
             $query .= ' AFTER ' . Util::backquote($move_to);
         }
         if (! $virtuality && ! empty($extra)) {
-            if ($columns_with_index !== null && ! in_array($name, $columns_with_index)) {
+            if (is_array($columns_with_index) && ! in_array($name, $columns_with_index)) {
                 $query .= ', add PRIMARY KEY (' . Util::backquote($name) . ')';
             }
         }
@@ -1120,7 +1141,7 @@ class Table
 
                 /**
                  * The CREATE statement of this structure.
-                 * @var \PhpMyAdmin\SqlParser\Statements\CreateStatement $statement
+                 * @var CreateStatement $statement
                  */
                 $statement = $parser->statements[0];
 
@@ -1146,7 +1167,7 @@ class Table
 
                 /**
                  * The ALTER statement that generates the constraints.
-                 * @var \PhpMyAdmin\SqlParser\Statements\AlterStatement $statement
+                 * @var AlterStatement $statement
                  */
                 $statement = $parser->statements[0];
 
@@ -1184,7 +1205,7 @@ class Table
                 $GLOBALS['sql_indexes'] = '';
                 /**
                  * The ALTER statement that generates the indexes.
-                 * @var \PhpMyAdmin\SqlParser\Statements\AlterStatement $statement
+                 * @var AlterStatement $statement
                  */
                 foreach ($parser->statements as $statement) {
                     // Changing the altered table to the destination.
@@ -1224,7 +1245,7 @@ class Table
 
                     /**
                      * The ALTER statement that alters the AUTO_INCREMENT value.
-                     * @var \PhpMyAdmin\SqlParser\Statements\AlterStatement $statement
+                     * @var AlterStatement $statement
                      */
                     $statement = $parser->statements[0];
 
@@ -1333,7 +1354,7 @@ class Table
                     . ($GLOBALS['cfgRelation']['mimework']
                         ? ', mimetype, transformation, transformation_options'
                         : '')
-                    . ') ' . ' VALUES(' . '\'' . $dbi->escapeString($target_db)
+                    . ') VALUES(\'' . $dbi->escapeString($target_db)
                     . '\',\'' . $dbi->escapeString($target_table) . '\',\''
                     . $dbi->escapeString($comments_copy_row['column_name'])
                     . '\',\''
@@ -1343,10 +1364,10 @@ class Table
                         ? ',\'' . $dbi->escapeString(
                             $comments_copy_row['mimetype']
                         )
-                        . '\',' . '\'' . $dbi->escapeString(
+                        . '\',\'' . $dbi->escapeString(
                             $comments_copy_row['transformation']
                         )
-                        . '\',' . '\'' . $dbi->escapeString(
+                        . '\',\'' . $dbi->escapeString(
                             $comments_copy_row['transformation_options']
                         )
                         . '\''
@@ -1777,7 +1798,10 @@ class Table
                     $value = Util::backquote($value);
                 }
 
-                if (strpos($column['Extra'], 'GENERATED') === false && strpos($column['Extra'], 'VIRTUAL') === false) {
+                if ((
+                    strpos($column['Extra'], 'GENERATED') === false
+                    && strpos($column['Extra'], 'VIRTUAL') === false
+                    ) || $column['Extra'] === 'DEFAULT_GENERATED') {
                     $ret[] = $value;
                 }
             }
@@ -2660,7 +2684,7 @@ class Table
 
         $parser = new Parser($createTable);
         /**
-         * @var \PhpMyAdmin\SqlParser\Statements\CreateStatement $stmt
+         * @var CreateStatement $stmt
         */
         $stmt = $parser->statements[0];
         $fields = TableUtils::getFields($stmt);

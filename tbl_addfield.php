@@ -7,7 +7,9 @@
  */
 declare(strict_types=1);
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\CreateAddField;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Transformations;
@@ -18,20 +20,33 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-/**
- * Get some core libraries
- */
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$response = Response::getInstance();
-$header   = $response->getHeader();
-$scripts  = $header->getScripts();
-$scripts->addFile('tbl_structure.js');
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $containerBuilder->get(DatabaseInterface::class);
+
+$header = $response->getHeader();
+$scripts = $header->getScripts();
+$scripts->addFile('table/structure.js');
 
 // Check parameters
 Util::checkParameters(['db', 'table']);
 
-$transformations = new Transformations();
+/** @var Transformations $transformations */
+$transformations = $containerBuilder->get('transformations');
+
+/** @var string $db */
+$db = $containerBuilder->getParameter('db');
+
+/** @var string $table */
+$table = $containerBuilder->getParameter('table');
+
+/** @var Config $config */
+$config = $containerBuilder->get('config');
+$cfg = $config->settings;
 
 /**
  * Defines the url to return to in case of error in a sql statement
@@ -72,7 +87,7 @@ if (isset($_POST['do_save_data'])) {
     //tbl_structure.php below
     unset($_POST['do_save_data']);
 
-    $createAddField = new CreateAddField($GLOBALS['dbi']);
+    $createAddField = new CreateAddField($dbi);
 
     list($result, $sql_query) = $createAddField->tryColumnCreationQuery($db, $table, $err_url);
 
@@ -127,7 +142,7 @@ if (isset($_POST['do_save_data'])) {
 /**
  * Displays the form used to define the new field
  */
-if ($abort == false) {
+if ($abort === false) {
     /**
      * Gets tables information
      */

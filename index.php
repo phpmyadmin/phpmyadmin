@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\HomeController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -16,6 +17,8 @@ use PhpMyAdmin\Util;
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
+
+global $server;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
@@ -56,13 +59,14 @@ if (! empty($_REQUEST['target'])
     exit;
 }
 
-$response = Response::getInstance();
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
 
-$controller = new HomeController(
-    $response,
-    $GLOBALS['dbi'],
-    $GLOBALS['PMA_Config']
-);
+/** @var DatabaseInterface $dbi */
+$dbi = $containerBuilder->get(DatabaseInterface::class);
+
+/** @var HomeController $controller */
+$controller = $containerBuilder->get(HomeController::class);
 
 if (isset($_REQUEST['ajax_request']) && ! empty($_REQUEST['access_time'])) {
     exit;

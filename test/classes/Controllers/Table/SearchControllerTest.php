@@ -10,8 +10,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\SearchController;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Types;
@@ -26,9 +26,14 @@ use stdClass;
 class SearchControllerTest extends PmaTestCase
 {
     /**
-     * @var \PhpMyAdmin\Tests\Stubs\Response
+     * @var ResponseStub
      */
     private $_response;
+
+    /**
+     * @var Template
+     */
+    private $template;
 
     /**
      * Setup function for test cases
@@ -44,8 +49,8 @@ class SearchControllerTest extends PmaTestCase
         $_POST['zoom_submit'] = 'zoom';
 
         $GLOBALS['server'] = 1;
-        $GLOBALS['db'] = 'db';
-        $GLOBALS['table'] = 'table';
+        $GLOBALS['db'] = 'PMA';
+        $GLOBALS['table'] = 'PMA_BookMark';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $relation = new Relation($GLOBALS['dbi']);
         $GLOBALS['cfgRelation'] = $relation->getRelationsParam();
@@ -93,13 +98,7 @@ class SearchControllerTest extends PmaTestCase
         $relation->dbi = $dbi;
 
         $this->_response = new ResponseStub();
-
-        $container = Container::getDefaultContainer();
-        $container->set('db', 'PMA');
-        $container->set('table', 'PMA_BookMark');
-        $container->set('dbi', $GLOBALS['dbi']);
-        $container->set('response', $this->_response);
-        $container->set('searchType', 'replace');
+        $this->template = new Template();
     }
 
     /**
@@ -119,15 +118,15 @@ class SearchControllerTest extends PmaTestCase
      */
     public function testReplace()
     {
-        $container = Container::getDefaultContainer();
-
         $tableSearch = new SearchController(
-            $container->get('response'),
-            $container->get('dbi'),
-            $container->get('db'),
-            $container->get('table'),
+            $this->_response,
+            $GLOBALS['dbi'],
+            $this->template,
+            $GLOBALS['db'],
+            $GLOBALS['table'],
             "zoom",
-            null
+            null,
+            new Relation($GLOBALS['dbi'], $this->template)
         );
         $columnIndex = 0;
         $find = "Field";
@@ -166,18 +165,18 @@ class SearchControllerTest extends PmaTestCase
         $_POST['order'] = "asc";
         $_POST['customWhereClause'] = "name='pma'";
 
-        $container = Container::getDefaultContainer();
-
-        $class = new ReflectionClass('PhpMyAdmin\Controllers\Table\SearchController');
+        $class = new ReflectionClass(SearchController::class);
         $method = $class->getMethod('_buildSqlQuery');
         $method->setAccessible(true);
         $tableSearch = new SearchController(
-            $container->get('response'),
-            $container->get('dbi'),
-            $container->get('db'),
-            $container->get('table'),
+            $this->_response,
+            $GLOBALS['dbi'],
+            $this->template,
+            $GLOBALS['db'],
+            $GLOBALS['table'],
             "zoom",
-            null
+            null,
+            new Relation($GLOBALS['dbi'], $this->template)
         );
 
         $sql = $method->invoke($tableSearch);
@@ -265,14 +264,16 @@ class SearchControllerTest extends PmaTestCase
         $GLOBALS['dbi']->expects($this->any())->method('fetchSingleRow')
             ->will($this->returnArgument(0));
 
-        $container = Container::getDefaultContainer();
-        $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PhpMyAdmin\Controllers\Table\SearchController');
-        $container->alias(
-            'SearchController',
-            'PhpMyAdmin\Controllers\Table\SearchController'
+        $ctrl = new SearchController(
+            $this->_response,
+            $GLOBALS['dbi'],
+            $this->template,
+            $GLOBALS['db'],
+            $GLOBALS['table'],
+            'replace',
+            null,
+            new Relation($GLOBALS['dbi'], $this->template)
         );
-        $ctrl = $container->get('SearchController');
 
         $result = $ctrl->getColumnMinMax('column');
         $expected = 'SELECT MIN(`column`) AS `min`, '
@@ -302,13 +303,16 @@ class SearchControllerTest extends PmaTestCase
         $method = $class->getMethod('_generateWhereClause');
         $method->setAccessible(true);
 
-        $container = Container::getDefaultContainer();
-        $container->factory('\PhpMyAdmin\Controllers\Table\SearchController');
-        $container->alias(
-            'SearchController',
-            'PhpMyAdmin\Controllers\Table\SearchController'
+        $ctrl = new SearchController(
+            $this->_response,
+            $GLOBALS['dbi'],
+            $this->template,
+            $GLOBALS['db'],
+            $GLOBALS['table'],
+            'replace',
+            null,
+            new Relation($GLOBALS['dbi'], $this->template)
         );
-        $ctrl = $container->get('SearchController');
 
         $_POST['customWhereClause'] = '`table` = \'PMA_BookMark\'';
         $result = $method->invoke($ctrl);
@@ -394,14 +398,16 @@ class SearchControllerTest extends PmaTestCase
                 )
             );
 
-        $container = Container::getDefaultContainer();
-        $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('\PhpMyAdmin\Controllers\Table\SearchController');
-        $container->alias(
-            'SearchController',
-            'PhpMyAdmin\Controllers\Table\SearchController'
+        $ctrl = new SearchController(
+            $this->_response,
+            $GLOBALS['dbi'],
+            $this->template,
+            $GLOBALS['db'],
+            $GLOBALS['table'],
+            'replace',
+            null,
+            new Relation($GLOBALS['dbi'], $this->template)
         );
-        $ctrl = $container->get('SearchController');
 
         $_POST['db'] = 'PMA';
         $_POST['table'] = 'PMA_BookMark';

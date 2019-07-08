@@ -222,18 +222,18 @@ class Privileges
             $grants = $this->getGrantsArray();
         }
 
-        if (! is_null($row) && isset($row['Table_priv'])) {
+        if ($row !== null && isset($row['Table_priv'])) {
             $this->fillInTablePrivileges($row);
         }
 
         $privs = [];
         $allPrivileges = true;
         foreach ($grants as $current_grant) {
-            if ((! is_null($row) && isset($row[$current_grant[0]]))
-                || (is_null($row) && isset($GLOBALS[$current_grant[0]]))
+            if (($row !== null && isset($row[$current_grant[0]]))
+                || ($row === null && isset($GLOBALS[$current_grant[0]]))
             ) {
-                if ((! is_null($row) && $row[$current_grant[0]] == 'Y')
-                    || (is_null($row)
+                if (($row !== null && $row[$current_grant[0]] == 'Y')
+                    || ($row === null
                     && ($GLOBALS[$current_grant[0]] == 'Y'
                     || (is_array($GLOBALS[$current_grant[0]])
                     && count($GLOBALS[$current_grant[0]]) == $_REQUEST['column_count']
@@ -271,7 +271,7 @@ class Privileges
             if ($enableHTML) {
                 $privs = ['<dfn title="'
                     . __('Includes all privileges except GRANT.')
-                    . '">ALL PRIVILEGES</dfn>'
+                    . '">ALL PRIVILEGES</dfn>',
                 ];
             } else {
                 $privs = ['ALL PRIVILEGES'];
@@ -472,6 +472,16 @@ class Privileges
                 __('Allows performing SHOW CREATE VIEW queries.'),
             ],
             [
+                'Delete_history_priv',
+                'DELETE HISTORY',
+                $GLOBALS['strPrivDescDeleteHistoricalRows'],
+            ],
+            [
+                'Delete versioning rows_priv',
+                'DELETE HISTORY',
+                $GLOBALS['strPrivDescDeleteHistoricalRows'],
+            ],
+            [
                 'Create_routine_priv',
                 'CREATE ROUTINE',
                 __('Allows creating stored routines.'),
@@ -600,7 +610,7 @@ class Privileges
         return $this->template->render('server/privileges/choose_user_group', [
             'all_user_groups' => $allUserGroups,
             'user_group' => $userGroup,
-            'params' => ['username' => $username]
+            'params' => ['username' => $username],
         ]);
     }
 
@@ -614,7 +624,7 @@ class Privileges
      */
     public function setUserGroup($username, $userGroup)
     {
-        $userGroup = is_null($userGroup) ? '' : $userGroup;
+        $userGroup = $userGroup === null ? '' : $userGroup;
         $cfgRelation = $this->relation->getRelationsParam();
         if (empty($cfgRelation['db']) || empty($cfgRelation['users']) || empty($cfgRelation['usergroups'])) {
             return;
@@ -1163,6 +1173,9 @@ class Privileges
             } elseif ($current_grant == 'Show view_priv') {
                 $tmp_current_grant = 'ShowView_priv';
                 $current_grant = 'Show_view_priv';
+            } elseif ($current_grant == 'Delete versioning rows_priv') {
+                $tmp_current_grant = 'DeleteHistoricalRows_priv';
+                $current_grant = 'Delete_history_priv';
             } else {
                 $tmp_current_grant = $current_grant;
             }
@@ -2434,11 +2447,11 @@ class Privileges
                 . '</td>'
                 . '<td>' . htmlspecialchars($row['Host'])
                 . '</td>'
-                . '<td>' . 'routine'
+                . '<td>routine'
                 . '</td>'
-                . '<td>' . '<code>' . htmlspecialchars($row['Routine_name']) . '</code>'
+                . '<td><code>' . htmlspecialchars($row['Routine_name']) . '</code>'
                 . '</td>'
-                . '<td>' . 'Yes'
+                . '<td>Yes'
                 . '</td>';
             $current_user = $row['User'];
             $current_host = $row['Host'];
@@ -2541,7 +2554,7 @@ class Privileges
         }
 
         $response = Response::getInstance();
-        if ($response->isAjax() == true
+        if ($response->isAjax() === true
             && empty($_REQUEST['ajax_page_request'])
         ) {
             $message = Message::success(__('User has been added.'));
@@ -3084,7 +3097,7 @@ class Privileges
     ) {
         if (isset($GLOBALS['dbname'])) {
             //if (preg_match('/\\\\(?:_|%)/i', $dbname)) {
-            if (preg_match('/(?<!\\\\)(?:_|%)/i', $GLOBALS['dbname'])) {
+            if (preg_match('/(?<!\\\\)(?:_|%)/', $GLOBALS['dbname'])) {
                 $dbname_is_wildcard = true;
             } else {
                 $dbname_is_wildcard = false;
@@ -4165,7 +4178,7 @@ class Privileges
                 // Always use 'authentication_string' column
                 // for MySQL 5.7.6+ since it does not have
                 // the 'password' column at all
-                if (Util::getServerType() == 'MySQL'
+                if (in_array(Util::getServerType(), ['MySQL', 'Percona Server'])
                     && $serverVersion >= 50706
                     && isset($row['authentication_string'])
                 ) {
@@ -4193,7 +4206,7 @@ class Privileges
     {
         if (isset($_POST['change_copy'])) {
             $selected_usr = [
-                $_POST['old_username'] . '&amp;#27;' . $_POST['old_hostname']
+                $_POST['old_username'] . '&amp;#27;' . $_POST['old_hostname'],
             ];
         } else {
             $selected_usr = $_POST['selected_usr'];
@@ -4232,7 +4245,7 @@ class Privileges
      *
      * @return Message|null
      */
-    public function updateMessageForReload()
+    public function updateMessageForReload(): ?Message
     {
         $message = null;
         if (isset($_GET['flush_privileges'])) {
@@ -4256,7 +4269,7 @@ class Privileges
      * @param array      $queries             queries array
      * @param array|null $queries_for_display queries array for display
      *
-     * @return null
+     * @return array
      */
     public function getDataForQueries(array $queries, $queries_for_display)
     {
@@ -4369,7 +4382,7 @@ class Privileges
         if (empty($_POST['change_copy'])) {
             $_error = false;
 
-            if (! is_null($create_user_real)) {
+            if ($create_user_real !== null) {
                 if (! $this->dbi->tryQuery($create_user_real)) {
                     $_error = true;
                 }
@@ -4414,7 +4427,7 @@ class Privileges
             isset($_POST['old_usergroup']) ? $_POST['old_usergroup'] : null;
         $this->setUserGroup($_POST['username'], $old_usergroup);
 
-        if (is_null($create_user_real)) {
+        if ($create_user_real === null) {
             $queries[] = $create_user_real;
         }
         $queries[] = $real_sql_query;
@@ -4465,11 +4478,11 @@ class Privileges
         // Set the hashing method used by PASSWORD()
         // to be of type depending upon $authentication_plugin
         if ($auth_plugin == 'sha256_password') {
-            $this->dbi->tryQuery('SET `old_passwords` = 2');
+            $this->dbi->tryQuery('SET `old_passwords` = 2;');
         } elseif ($auth_plugin == 'mysql_old_password') {
-            $this->dbi->tryQuery('SET `old_passwords` = 1');
+            $this->dbi->tryQuery('SET `old_passwords` = 1;');
         } else {
-            $this->dbi->tryQuery('SET `old_passwords` = 0');
+            $this->dbi->tryQuery('SET `old_passwords` = 0;');
         }
     }
 
@@ -4541,7 +4554,7 @@ class Privileges
         if (isset($is_valid_pred_dbname) && $is_valid_pred_dbname) {
             $dbname = $_POST['pred_dbname'];
             // If dbname contains only one database.
-            if (count($dbname) == 1) {
+            if (count($dbname) === 1) {
                 $dbname = $dbname[0];
             }
         } elseif (isset($is_valid_dbname) && $is_valid_dbname) {
@@ -4579,7 +4592,7 @@ class Privileges
         // check if given $dbname is a wildcard or not
         if (isset($dbname)) {
             //if (preg_match('/\\\\(?:_|%)/i', $dbname)) {
-            if (! is_array($dbname) && preg_match('/(?<!\\\\)(?:_|%)/i', $dbname)) {
+            if (! is_array($dbname) && preg_match('/(?<!\\\\)(?:_|%)/', $dbname)) {
                 $dbname_is_wildcard = true;
             } else {
                 $dbname_is_wildcard = false;
@@ -5375,7 +5388,7 @@ class Privileges
      * @param string $hostname host name
      * @param string $password password
      *
-     * @return array ($create_user_real, $create_user_show,$real_sql_query, $sql_query
+     * @return array ($create_user_real, $create_user_show, $real_sql_query, $sql_query
      *                $password_set_real, $password_set_show, $alter_real_sql_query, $alter_sql_query)
      */
     public function getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
@@ -5599,7 +5612,9 @@ class Privileges
             $password_set_real = null;
             $password_set_show = null;
         } else {
-            $password_set_real .= ";";
+            if ($password_set_real !== null) {
+                $password_set_real .= ";";
+            }
             $password_set_show .= ";";
         }
 

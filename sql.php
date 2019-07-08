@@ -11,36 +11,44 @@ declare(strict_types=1);
 
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Core;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-/**
- * Gets some core libraries
- */
+global $cfg, $containerBuilder, $pmaThemeImage;
+
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $containerBuilder->get(DatabaseInterface::class);
+
+/** @var CheckUserPrivileges $checkUserPrivileges */
+$checkUserPrivileges = $containerBuilder->get('check_user_privileges');
 $checkUserPrivileges->getPrivileges();
 
 PageSettings::showGroup('Browse');
 
-$response = Response::getInstance();
-$header   = $response->getHeader();
-$scripts  = $header->getScripts();
+$header = $response->getHeader();
+$scripts = $header->getScripts();
 $scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
-$scripts->addFile('tbl_change.js');
+$scripts->addFile('table/change.js');
 $scripts->addFile('indexes.js');
 $scripts->addFile('gis_data_editor.js');
 $scripts->addFile('multi_column_sort.js');
 
-$sql = new Sql();
+/** @var Sql $sql */
+$sql = $containerBuilder->get('sql');
 
 /**
  * Set ajax_reload in the response if it was already set
@@ -56,12 +64,12 @@ $is_gotofile  = true;
 if (empty($goto)) {
     if (empty($table)) {
         $goto = Util::getScriptNameForOption(
-            $GLOBALS['cfg']['DefaultTabDatabase'],
+            $cfg['DefaultTabDatabase'],
             'database'
         );
     } else {
         $goto = Util::getScriptNameForOption(
-            $GLOBALS['cfg']['DefaultTabTable'],
+            $cfg['DefaultTabTable'],
             'table'
         );
     }
@@ -82,6 +90,10 @@ if (isset($_POST['bkm_fields']['bkm_sql_query'])) {
     $sql_query = $_POST['bkm_fields']['bkm_sql_query'];
 } elseif (isset($_POST['sql_query'])) {
     $sql_query = $_POST['sql_query'];
+} elseif (isset($_GET['sql_query']) && isset($_GET['sql_signature'])) {
+    if (Core::checkSqlQuerySignature($_GET['sql_query'], $_GET['sql_signature'])) {
+        $sql_query = $_GET['sql_query'];
+    }
 }
 
 // This one is just to fill $db
@@ -167,7 +179,7 @@ if ($table != $table_from_sql && ! empty($table_from_sql)) {
 if ($sql->hasNoRightsToDropDatabase(
     $analyzed_sql_results,
     $cfg['AllowUserDropDatabase'],
-    $GLOBALS['dbi']->isSuperuser()
+    $dbi->isSuperuser()
 )) {
     Util::mysqlDie(
         __('"DROP DATABASE" statements are disabled.'),

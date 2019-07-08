@@ -315,7 +315,7 @@ class InsertEdit
      *
      * @param string $which function|type
      *
-     * @return string an HTML snippet
+     * @return string|null an HTML snippet
      */
     private function showTypeOrFunctionLabel($which)
     {
@@ -599,13 +599,13 @@ class InsertEdit
      * @param array $foreigners  keys into foreign fields
      * @param array $foreignData data about the foreign keys
      *
-     * @return integer
+     * @return string
      */
     private function getNullifyCodeForNullColumn(
         array $column,
         array $foreigners,
         array $foreignData
-    ) {
+    ): string {
         $foreigner = $this->relation->searchColumnInForeigners($foreigners, $column['Field']);
         if (mb_strstr($column['True_Type'], 'enum')) {
             if (mb_strlen((string) $column['Type']) > 20) {
@@ -1271,7 +1271,7 @@ class InsertEdit
         $html_output = $backup_field . "\n";
         $html_output .= '<input type="hidden" name="fields_type'
             . $column_name_appendix . '" value="set">';
-        $html_output .= '<select name="fields' . $column_name_appendix . '[]' . '"'
+        $html_output .= '<select name="fields' . $column_name_appendix . '[]"'
             . ' class="textfield"'
             . ($readOnly ? ' disabled' : '')
             . ' size="' . $select_size . '"'
@@ -1293,7 +1293,7 @@ class InsertEdit
 
         //Add hidden input, as disabled <select> input does not included in POST.
         if ($readOnly) {
-            $html_output .= '<input name="fields' . $column_name_appendix . '[]' . '"'
+            $html_output .= '<input name="fields' . $column_name_appendix . '[]"'
                 . ' type="hidden" value="' . $selected_html . '">';
         }
         return $html_output;
@@ -1542,7 +1542,7 @@ class InsertEdit
                 . __('The directory you set for upload work cannot be reached.') . "\n";
         } elseif (! empty($files)) {
             return "<br>\n"
-                . '<i>' . __('Or') . '</i>' . ' '
+                . '<i>' . __('Or') . '</i> '
                 . __('web server upload directory:') . '<br>' . "\n"
                 . '<select size="1" name="fields_uploadlocal'
                 . $vkey . '[' . $column['Field_md5'] . ']">' . "\n"
@@ -1674,7 +1674,7 @@ class InsertEdit
                 $readOnly
             );
 
-            if (preg_match('/(VIRTUAL|PERSISTENT|GENERATED)/', $column['Extra'])) {
+            if (preg_match('/(VIRTUAL|PERSISTENT|GENERATED)/', $column['Extra']) && $column['Extra'] !== 'DEFAULT_GENERATED') {
                 $html_output .= '<input type="hidden" name="virtual'
                     . $column_name_appendix . '" value="1">';
             }
@@ -2187,7 +2187,7 @@ class InsertEdit
             $header = $response->getHeader();
             $scripts = $header->getScripts();
             $scripts->addFile('vendor/jquery/additional-methods.js');
-            $scripts->addFile('tbl_change.js');
+            $scripts->addFile('table/change.js');
             if (! defined('TESTSUITE')) {
                 include ROOT_PATH . 'tbl_change.php';
                 exit;
@@ -2308,9 +2308,8 @@ class InsertEdit
             $insert_command . 'INTO '
             . Util::backquote($GLOBALS['table'])
             . ' (' . implode(', ', $query_fields) . ') VALUES ('
-            . implode('), (', $value_sets) . ')'
+            . implode('), (', $value_sets) . ')',
         ];
-        unset($insert_command, $query_fields);
         return $query;
     }
 
@@ -2422,7 +2421,7 @@ class InsertEdit
             $foreigner['foreign_table']
         );
         // Field to display from the foreign table?
-        if (! is_null($display_field) && strlen($display_field) > 0) {
+        if ($display_field !== null && strlen($display_field) > 0) {
             $dispsql = 'SELECT ' . Util::backquote($display_field)
                 . ' FROM ' . Util::backquote($foreigner['foreign_db'])
                 . '.' . Util::backquote($foreigner['foreign_table'])
@@ -2571,7 +2570,7 @@ class InsertEdit
      * @param array  $func_no_param           array of set of string
      * @param string $key                     an md5 of the column name
      *
-     * @return array
+     * @return string
      */
     public function getCurrentValueAsAnArrayForMultipleEdit(
         $multi_edit_funcs,
@@ -3157,9 +3156,6 @@ class InsertEdit
     ) {
         $column = $table_columns[$column_number];
         $readOnly = false;
-        if (! $this->userHasColumnPrivileges($column, $insert_mode)) {
-            $readOnly = true;
-        }
 
         if (! isset($column['processed'])) {
             $column = $this->analyzeTableColumnsArray(
@@ -3200,7 +3196,7 @@ class InsertEdit
 
         if ($column['Type'] === 'datetime'
             && ! isset($column['Default'])
-            && ! is_null($column['Default'])
+            && $column['Default'] !== null
             && $insert_mode
         ) {
             $column['Default'] = date('Y-m-d H:i:s', time());
@@ -3311,9 +3307,9 @@ class InsertEdit
             $match[0] = trim($match[0], '()');
             $no_decimals = $match[0];
         }
-        $html_output .= '<td' . ' data-type="' . $type . '"' . ' data-decimals="'
+        $html_output .= '<td data-type="' . $type . '" data-decimals="'
             . $no_decimals . '">' . "\n";
-        // Will be used by js/tbl_change.js to set the default value
+        // Will be used by js/table/change.js to set the default value
         // for the "Continue insertion" feature
         $html_output .= '<span class="default_value hide">'
             . $special_chars . '</span>';
@@ -3521,20 +3517,5 @@ class InsertEdit
             . '<div class="clearfloat"></div>';
 
         return $html_output;
-    }
-
-    /**
-     * Returns whether the user has necessary insert/update privileges for the column
-     *
-     * @param array $table_column array of column details
-     * @param bool  $insert_mode  whether on insert mode
-     *
-     * @return boolean whether user has necessary privileges
-     */
-    private function userHasColumnPrivileges(array $table_column, $insert_mode)
-    {
-        $privileges = $table_column['Privileges'];
-        return ($insert_mode && strstr($privileges, 'insert') !== false)
-            || (! $insert_mode && strstr($privileges, 'update') !== false);
     }
 }

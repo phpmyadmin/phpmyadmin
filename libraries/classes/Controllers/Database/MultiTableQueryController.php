@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Database\MultiTableQuery;
+use PhpMyAdmin\Template;
 
 /**
  * Handles database multi-table querying
@@ -18,11 +19,13 @@ use PhpMyAdmin\Database\MultiTableQuery;
 class MultiTableQueryController extends AbstractController
 {
     /**
+     * @param Template $template Templace instance
+     *
      * @return string HTML
      */
-    public function index(): string
+    public function index(Template $template): string
     {
-        $queryInstance = new MultiTableQuery($this->dbi, $this->db);
+        $queryInstance = new MultiTableQuery($this->dbi, $template, $this->db);
 
         return $queryInstance->getFormHtml();
     }

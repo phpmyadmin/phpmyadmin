@@ -20,6 +20,8 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
 }
 
+global $cfg;
+
 require ROOT_PATH . 'setup/lib/common.inc.php';
 
 if (@file_exists(CONFIG_FILE) && ! $cfg['DBG']['demo']) {

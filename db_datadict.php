@@ -8,9 +8,7 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Database\DataDictionaryController;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 
 if (! defined('ROOT_PATH')) {
@@ -21,15 +19,11 @@ require_once ROOT_PATH . 'libraries/common.inc.php';
 
 Util::checkParameters(['db']);
 
-$response = Response::getInstance();
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
 
-$controller = new DataDictionaryController(
-    $response,
-    $GLOBALS['dbi'],
-    $db,
-    new Relation($GLOBALS['dbi']),
-    new Transformations()
-);
+/** @var DataDictionaryController $controller */
+$controller = $containerBuilder->get(DataDictionaryController::class);
 
 $header = $response->getHeader();
 $header->enablePrintView();

@@ -13,12 +13,12 @@ namespace PhpMyAdmin\Plugins\Export;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\ExportPlugin;
-use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
+use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
@@ -226,7 +226,7 @@ class ExportLatex extends ExportPlugin
             . '% ' . __('Generation Time:') . ' '
             . Util::localisedDate() . $crlf
             . '% ' . __('Server version:') . ' ' . $GLOBALS['dbi']->getVersionString() . $crlf
-            . '% ' . __('PHP Version:') . ' ' . phpversion() . $crlf;
+            . '% ' . __('PHP Version:') . ' ' . PHP_VERSION . $crlf;
 
         return $this->export->outputHandler($head);
     }
@@ -256,7 +256,7 @@ class ExportLatex extends ExportPlugin
         }
         global $crlf;
         $head = '% ' . $crlf
-            . '% ' . __('Database:') . ' ' . '\'' . $db_alias . '\'' . $crlf
+            . '% ' . __('Database:') . ' \'' . $db_alias . '\'' . $crlf
             . '% ' . $crlf;
 
         return $this->export->outputHandler($head);
@@ -344,7 +344,7 @@ class ExportLatex extends ExportPlugin
                     $GLOBALS['latex_data_caption'],
                     [
                         'texEscape',
-                        get_class($this),
+                        static::class,
                     ],
                     [
                         'table' => $table_alias,
@@ -385,7 +385,7 @@ class ExportLatex extends ExportPlugin
                         $GLOBALS['latex_data_continued_caption'],
                         [
                             'texEscape',
-                            get_class($this),
+                            static::class,
                         ],
                         [
                             'table' => $table_alias,
@@ -412,8 +412,7 @@ class ExportLatex extends ExportPlugin
             $buffer = '';
             // print each row
             for ($i = 0; $i < $columns_cnt; $i++) {
-                if ((! function_exists('is_null')
-                    || ! is_null($record[$columns[$i]]))
+                if ($record[$columns[$i]] !== null
                     && isset($record[$columns[$i]])
                 ) {
                     $column_value = self::texEscape(
@@ -560,7 +559,7 @@ class ExportLatex extends ExportPlugin
                     $GLOBALS['latex_structure_caption'],
                     [
                         'texEscape',
-                        get_class($this),
+                        static::class,
                     ],
                     [
                         'table' => $table_alias,
@@ -587,7 +586,7 @@ class ExportLatex extends ExportPlugin
                     $GLOBALS['latex_structure_continued_caption'],
                     [
                         'texEscape',
-                        get_class($this),
+                        static::class,
                     ],
                     [
                         'table' => $table_alias,

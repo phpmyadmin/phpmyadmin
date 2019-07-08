@@ -8,9 +8,8 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Table\IndexesController;
-use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
-use PhpMyAdmin\Response;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
@@ -18,15 +17,14 @@ if (! defined('ROOT_PATH')) {
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->factory(IndexesController::class);
-$container->set('PhpMyAdmin\Response', Response::getInstance());
-$container->alias('response', 'PhpMyAdmin\Response');
+/** @var DatabaseInterface $dbi */
+$dbi = $containerBuilder->get('dbi');
 
-/* Define dependencies for the concerned controller */
-$db = $container->get('db');
-$table = $container->get('table');
-$dbi = $container->get('dbi');
+/** @var string $db */
+$db = $containerBuilder->getParameter('db');
+
+/** @var string $table */
+$table = $containerBuilder->getParameter('table');
 
 if (! isset($_POST['create_edit_table'])) {
     include_once ROOT_PATH . 'libraries/tbl_common.inc.php';
@@ -42,10 +40,9 @@ if (isset($_POST['index'])) {
     $index = new Index();
 }
 
-$dependency_definitions = [
-    "index" => $index,
-];
+/* Define dependencies for the concerned controller */
+$containerBuilder->setParameter('index', $index);
 
 /** @var IndexesController $controller */
-$controller = $container->get(IndexesController::class, $dependency_definitions);
+$controller = $containerBuilder->get(IndexesController::class);
 $controller->indexAction();

@@ -428,24 +428,24 @@ class TypesTest extends PmaTestCase
             [
                 'SPATIAL',
                 [
-                    'GeomFromText',
-                    'GeomFromWKB',
+                    'ST_GeomFromText',
+                    'ST_GeomFromWKB',
 
-                    'GeomCollFromText',
-                    'LineFromText',
-                    'MLineFromText',
-                    'PointFromText',
-                    'MPointFromText',
-                    'PolyFromText',
-                    'MPolyFromText',
+                    'ST_GeomCollFromText',
+                    'ST_LineFromText',
+                    'ST_MLineFromText',
+                    'ST_PointFromText',
+                    'ST_MPointFromText',
+                    'ST_PolyFromText',
+                    'ST_MPolyFromText',
 
-                    'GeomCollFromWKB',
-                    'LineFromWKB',
-                    'MLineFromWKB',
-                    'PointFromWKB',
-                    'MPointFromWKB',
-                    'PolyFromWKB',
-                    'MPolyFromWKB',
+                    'ST_GeomCollFromWKB',
+                    'ST_LineFromWKB',
+                    'ST_MLineFromWKB',
+                    'ST_PointFromWKB',
+                    'ST_MPointFromWKB',
+                    'ST_PolyFromWKB',
+                    'ST_MPolyFromWKB',
                 ],
             ],
             [
@@ -761,8 +761,8 @@ class TypesTest extends PmaTestCase
                     'GEOMETRYCOLLECTION',
                 ],
                 'JSON' => [
-                    'JSON'
-                ]
+                    'JSON',
+                ],
             ],
             $this->object->getColumns()
         );

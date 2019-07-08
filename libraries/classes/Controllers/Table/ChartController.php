@@ -9,11 +9,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Components\Limit;
-use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statements\SelectStatement;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 /**
@@ -41,24 +43,26 @@ class ChartController extends AbstractController
     /**
      * Constructor
      *
-     * @param Response                      $response  Response object
-     * @param \PhpMyAdmin\DatabaseInterface $dbi       DatabaseInterface object
-     * @param string                        $db        Database name
-     * @param string                        $table     Table name
-     * @param string                        $sql_query Query
-     * @param string                        $url_query Query URL
-     * @param array                         $cfg       Configuration
+     * @param Response          $response  Response object
+     * @param DatabaseInterface $dbi       DatabaseInterface object
+     * @param Template          $template  Template object
+     * @param string            $db        Database name
+     * @param string            $table     Table name
+     * @param string            $sql_query Query
+     * @param string            $url_query Query URL
+     * @param array             $cfg       Configuration
      */
     public function __construct(
         $response,
         $dbi,
+        Template $template,
         $db,
         $table,
         $sql_query,
         $url_query,
         array $cfg
     ) {
-        parent::__construct($response, $dbi, $db, $table);
+        parent::__construct($response, $dbi, $template, $db, $table);
 
         $this->sql_query = $sql_query;
         $this->url_query = $url_query;
@@ -93,7 +97,7 @@ class ChartController extends AbstractController
         $this->response->getHeader()->getScripts()->addFiles(
             [
                 'chart.js',
-                'tbl_chart.js',
+                'table/chart.js',
                 'vendor/jqplot/jquery.jqplot.js',
                 'vendor/jqplot/plugins/jqplot.barRenderer.js',
                 'vendor/jqplot/plugins/jqplot.canvasAxisLabelRenderer.js',
@@ -245,7 +249,7 @@ class ChartController extends AbstractController
         foreach ($data as $data_row_number => $data_row) {
             $tmp_row = [];
             foreach ($data_row as $data_column => $data_value) {
-                $escaped_value = is_null($data_value) ? null : htmlspecialchars($data_value);
+                $escaped_value = $data_value === null ? null : htmlspecialchars($data_value);
                 $tmp_row[htmlspecialchars($data_column)] = $escaped_value;
             }
             $sanitized_data[] = $tmp_row;

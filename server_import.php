@@ -15,9 +15,8 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-/**
- *
- */
+global $db, $table;
+
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 PageSettings::showGroup('Import');

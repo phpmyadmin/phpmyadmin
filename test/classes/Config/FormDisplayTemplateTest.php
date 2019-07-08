@@ -548,10 +548,10 @@ class FormDisplayTemplateTest extends TestCase
 
         $this->assertEquals(
             [
-                'validateField(\'testID\', \'PMA_\\\';\', true, '
+                'registerFieldValidator(\'testID\', \'\\\';\', true, '
                     . '[\'\\\\r\\\\n\\\\\\\''
                     . '<scrIpt></\\\' + \\\'script>\'])',
-                'validateField(\'testID\', \'PMA_\', true)',
+                'registerFieldValidator(\'testID\', \'\', true)',
             ],
             $js
         );
@@ -585,24 +585,5 @@ class FormDisplayTemplateTest extends TestCase
             . "\n" . '</script>' . "\n",
             $result
         );
-    }
-
-    /**
-     * Test for displayErrors()
-     *
-     * @return void
-     */
-    public function testDisplayErrors()
-    {
-        $errors = [
-            '<err1>',
-            '&err2',
-        ];
-
-        $result = $this->formDisplayTemplate->displayErrors('err"Name1"', $errors);
-
-        $this->assertStringContainsString('<dt>err&quot;Name1&quot;</dt>', $result);
-        $this->assertStringContainsString('<dd>&lt;err1&gt;</dd>', $result);
-        $this->assertStringContainsString('<dd>&amp;err2</dd>', $result);
     }
 }
