@@ -101,7 +101,7 @@ DesignerMove.mouseDown = function (e) {
     }
 
     if (curClick !== null) {
-        document.getElementById('canvas').style.display = 'none';
+        $('#canvas')[0].style.display = 'none';
         curClick.style.zIndex = 2;
     }
 };
@@ -159,14 +159,14 @@ DesignerMove.mouseMove = function (e) {
     }
 
     if (onRelation || onDisplayField) {
-        document.getElementById('designer_hint').style.left = (globX + 20) + 'px';
-        document.getElementById('designer_hint').style.top  = (globY + 20) + 'px';
+        $('#designer_hint')[0].style.left = globX + 20 + 'px';
+        $('#designer_hint')[0].style.top  = globY + 20 + 'px';
     }
 };
 
 DesignerMove.mouseUp = function () {
     if (curClick !== null) {
-        document.getElementById('canvas').style.display = 'inline-block';
+        $('#canvas')[0].style.display = 'inline-block';
         DesignerMove.reload();
         curClick.style.zIndex = 1;
         curClick = null;
@@ -177,18 +177,18 @@ DesignerMove.mouseUp = function () {
 // ------------------------------------------------------------------------------
 
 DesignerMove.canvasPos = function () {
-    canvasWidth  = document.getElementById('canvas').width  = osnTabWidth  - 3;
-    canvasHeight = document.getElementById('canvas').height = osnTabHeight - 3;
+    canvasWidth  = $('#canvas')[0].width  = osnTabWidth  - 3;
+    canvasHeight = $('#canvas')[0].height = osnTabHeight - 3;
 
     if (isIe) {
-        document.getElementById('canvas').style.width  = ((osnTabWidth  - 3) ? (osnTabWidth  - 3) : 0) + 'px';
-        document.getElementById('canvas').style.height = ((osnTabHeight - 3) ? (osnTabHeight - 3) : 0) + 'px';
+        $('#canvas')[0].style.width  = ((osnTabWidth  - 3) ? (osnTabWidth  - 3) : 0) + 'px';
+        $('#canvas')[0].style.height = ((osnTabHeight - 3) ? (osnTabHeight - 3) : 0) + 'px';
     }
 };
 
 DesignerMove.osnTabPos = function () {
-    osnTabWidth  = parseInt(document.getElementById('osn_tab').style.width, 10);
-    osnTabHeight = parseInt(document.getElementById('osn_tab').style.height, 10);
+    osnTabWidth  = parseInt($('#osn_tab')[0].style.width, 10);
+    osnTabHeight = parseInt($('#osn_tab')[0].style.height, 10);
 };
 
 DesignerMove.setDefaultValuesFromSavedState = function () {
@@ -239,7 +239,7 @@ DesignerMove.setDefaultValuesFromSavedState = function () {
 DesignerMove.main = function () {
     // ---CROSS
 
-    document.getElementById('layer_menu').style.top = -1000 + 'px'; // fast scroll
+    $('#layer_menu')[0].style.top = -1000 + 'px'; // fast scroll
     DesignerMove.osnTabPos();
     DesignerMove.canvasPos();
     DesignerMove.smallTabRefresh();
@@ -254,8 +254,8 @@ DesignerMove.resizeOsnTab = function () {
     var maxX = 0;
     var maxY = 0;
     for (var key in jTabs) {
-        var kX = parseInt(document.getElementById(key).style.left, 10) + document.getElementById(key).offsetWidth;
-        var kY = parseInt(document.getElementById(key).style.top, 10) + document.getElementById(key).offsetHeight;
+        var kX = parseInt($('#' + key)[0].style.left, 10) + $('#' + key)[0].offsetWidth;
+        var kY = parseInt($('#' + key)[0].style.top, 10) + $('#' + key)[0].offsetHeight;
         maxX = maxX < kX ? kX : maxX;
         maxY = maxY < kY ? kY : maxY;
     }
@@ -263,8 +263,8 @@ DesignerMove.resizeOsnTab = function () {
     osnTabWidth  = maxX + 50;
     osnTabHeight = maxY + 50;
     DesignerMove.canvasPos();
-    document.getElementById('osn_tab').style.width = osnTabWidth + 'px';
-    document.getElementById('osn_tab').style.height = osnTabHeight + 'px';
+    $('#osn_tab')[0].style.width = osnTabWidth + 'px';
+    $('#osn_tab')[0].style.height = osnTabHeight + 'px';
 };
 
 /**
@@ -288,15 +288,15 @@ DesignerMove.reload = function () {
                 // table name
                 for (key3 in contr[K][key][key2]) {
                     // field name
-                    if (!document.getElementById('check_vis_' + key2).checked ||
-                        !document.getElementById('check_vis_' + contr[K][key][key2][key3][0]).checked) {
+                    if (!$('#check_vis_' + key2)[0].checked ||
+                        !$('#check_vis_' + contr[K][key][key2][key3][0])[0].checked) {
                         // if hide
                         continue;
                     }
-                    var x1Left  = document.getElementById(key2).offsetLeft + 1;
-                    var x1Right = x1Left + document.getElementById(key2).offsetWidth;
-                    var x2Left  = document.getElementById(contr[K][key][key2][key3][0]).offsetLeft;
-                    var x2Right = x2Left + document.getElementById(contr[K][key][key2][key3][0]).offsetWidth;
+                    var x1Left  = $('#' + key2)[0].offsetLeft + 1;
+                    var x1Right = x1Left + $('#' + key2)[0].offsetWidth;
+                    var x2Left  = $('#' + contr[K][key][key2][key3][0])[0].offsetLeft;
+                    var x2Right = x2Left + $('#' + contr[K][key][key2][key3][0])[0].offsetWidth;
                     a[0] = Math.abs(x1Left - x2Left);
                     a[1] = Math.abs(x1Left - x2Right);
                     a[2] = Math.abs(x1Right - x2Left);
@@ -333,10 +333,10 @@ DesignerMove.reload = function () {
                     }
 
                     var rowOffsetTop = 0;
-                    var tabHideButton = document.getElementById('id_hide_tbody_' + key2);
+                    var tabHideButton = $('#id_hide_tbody_' + key2)[0];
 
                     if (tabHideButton.innerHTML === 'v') {
-                        var fromColumn = document.getElementById(key2 + '.' + key3);
+                        var fromColumn = $('#' + key2 + '.' + key3)[0];
                         if (fromColumn) {
                             rowOffsetTop = fromColumn.offsetTop;
                         } else {
@@ -344,16 +344,16 @@ DesignerMove.reload = function () {
                         }
                     }
 
-                    var y1 = document.getElementById(key2).offsetTop +
+                    var y1 = $('#' + key2)[0].offsetTop +
                         rowOffsetTop +
                         heightField;
 
 
                     rowOffsetTop = 0;
-                    tabHideButton = document.getElementById('id_hide_tbody_' + contr[K][key][key2][key3][0]);
+                    tabHideButton = $('#id_hide_tbody_' + contr[K][key][key2][key3][0])[0];
                     if (tabHideButton.innerHTML === 'v') {
-                        var toColumn = document.getElementById(contr[K][key][key2][key3][0] +
-                            '.' + contr[K][key][key2][key3][1]);
+                        var toColumn = $('#' + contr[K][key][key2][key3][0] +
+                            '.' + contr[K][key][key2][key3][1])[0];
                         if (toColumn) {
                             rowOffsetTop = toColumn.offsetTop;
                         } else {
@@ -362,11 +362,11 @@ DesignerMove.reload = function () {
                     }
 
                     var y2 =
-                        document.getElementById(contr[K][key][key2][key3][0]).offsetTop +
+                        $('#' + contr[K][key][key2][key3][0])[0].offsetTop +
                         rowOffsetTop +
                         heightField;
 
-                    var osnTab = document.getElementById('osn_tab');
+                    var osnTab = $('#osn_tab')[0];
 
                     DesignerMove.line0(
                         x1 + osnTab.offsetLeft,
@@ -385,7 +385,7 @@ DesignerMove.reload = function () {
  * draws a line from x1:y1 to x2:y2 with color
  */
 DesignerMove.line = function (x1, y1, x2, y2, colorLine) {
-    var canvas = document.getElementById('canvas');
+    var canvas = $('#canvas')[0];
     var ctx    = canvas.getContext('2d');
     ctx.strokeStyle = colorLine;
     ctx.lineWidth = 1;
@@ -481,7 +481,7 @@ DesignerMove.line3 = function (x1, y1, x2, y2, colorLine) {
 };
 
 DesignerMove.circle = function (x, y, r, w, color) {
-    var ctx = document.getElementById('canvas').getContext('2d');
+    var ctx = $('#canvas')[0].getContext('2d');
     ctx.beginPath();
     ctx.moveTo(x, y);
     ctx.lineWidth = w;
@@ -491,13 +491,13 @@ DesignerMove.circle = function (x, y, r, w, color) {
 };
 
 DesignerMove.clear = function () {
-    var canvas = document.getElementById('canvas');
+    var canvas = $('#canvas')[0];
     var ctx    = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 };
 
 DesignerMove.rect = function (x1, y1, w, h, color) {
-    var ctx = document.getElementById('canvas').getContext('2d');
+    var ctx = $('#canvas')[0].getContext('2d');
     ctx.fillStyle = color;
     ctx.fillRect(x1, y1, w, h);
 };
@@ -621,10 +621,10 @@ DesignerMove.new = function () {
 // (del?) no for pdf
 DesignerMove.save = function (url) {
     for (var key in jTabs) {
-        document.getElementById('t_x_' + key + '_').value = parseInt(document.getElementById(key).style.left, 10);
-        document.getElementById('t_y_' + key + '_').value = parseInt(document.getElementById(key).style.top, 10);
-        document.getElementById('t_v_' + key + '_').value = document.getElementById('id_tbody_' + key).style.display === 'none' ? 0 : 1;
-        document.getElementById('t_h_' + key + '_').value = document.getElementById('check_vis_' + key).checked ? 1 : 0;
+        $('#t_x_' + key + '_')[0].value = parseInt($('#' + key)[0].style.left, 10);
+        $('#t_y_' + key + '_')[0].value = parseInt($('#' + key)[0].style.top, 10);
+        $('#t_v_' + key + '_')[0].value = $('#id_tbody_' + key)[0].style.display === 'none' ? 0 : 1;
+        $('#t_h_' + key + '_')[0].value = $('#check_vis_' + key)[0].checked ? 1 : 0;
     }
     document.form1.action = url;
     $(document.form1).submit();
@@ -636,18 +636,18 @@ DesignerMove.getUrlPos = function (forceString) {
         var poststr = '';
         var argsep = CommonParams.get('arg_separator');
         for (key in jTabs) {
-            poststr += argsep + 't_x[' + key + ']=' + parseInt(document.getElementById(key).style.left, 10);
-            poststr += argsep + 't_y[' + key + ']=' + parseInt(document.getElementById(key).style.top, 10);
-            poststr += argsep + 't_v[' + key + ']=' + (document.getElementById('id_tbody_' + key).style.display === 'none' ? 0 : 1);
-            poststr += argsep + 't_h[' + key + ']=' + (document.getElementById('check_vis_' + key).checked ? 1 : 0);
+            poststr += argsep + 't_x[' + key + ']=' + parseInt($('#' + key)[0].style.left, 10);
+            poststr += argsep + 't_y[' + key + ']=' + parseInt($('#' + key)[0].style.top, 10);
+            poststr += argsep + 't_v[' + key + ']=' + ($('#id_tbody_' + key)[0].style.display === 'none' ? 0 : 1);
+            poststr += argsep + 't_h[' + key + ']=' + ($('#check_vis_' + key)[0].checked ? 1 : 0);
         }
         return poststr;
     } else {
         var coords = [];
         for (key in jTabs) {
-            if (document.getElementById('check_vis_' + key).checked) {
-                var x = parseInt(document.getElementById(key).style.left, 10);
-                var y = parseInt(document.getElementById(key).style.top, 10);
+            if ($('#check_vis_' + key)[0].checked) {
+                var x = parseInt($('#' + key)[0].style.left, 10);
+                var y = parseInt($('#' + key)[0].style.top, 10);
                 var tbCoords = new DesignerObjects.TableCoordinate(db, key.split('.')[1], -1, x, y);
                 coords.push(tbCoords);
             }
@@ -1125,9 +1125,9 @@ DesignerMove.grid = function () {
     if (!onGrid) {
         onGrid = 1;
         valueSent = 'on';
-        document.getElementById('grid_button').className = 'M_butt_Selected_down';
+        $('#grid_button')[0].className = 'M_butt_Selected_down';
     } else {
-        document.getElementById('grid_button').className = 'M_butt';
+        $('#grid_button')[0].className = 'M_butt';
         onGrid = 0;
         valueSent = 'off';
     }
@@ -1139,11 +1139,11 @@ DesignerMove.angularDirect = function () {
     if (onAngularDirect) {
         onAngularDirect = 0;
         valueSent = 'angular';
-        document.getElementById('angular_direct_button').className = 'M_butt_Selected_down';
+        $('#angular_direct_button')[0].className = 'M_butt_Selected_down';
     } else {
         onAngularDirect = 1;
         valueSent = 'direct';
-        document.getElementById('angular_direct_button').className = 'M_butt';
+        $('#angular_direct_button')[0].className = 'M_butt';
     }
     DesignerMove.saveValueInConfig('angular_direct', valueSent);
     DesignerMove.reload();
@@ -1172,11 +1172,11 @@ DesignerMove.startRelation = function () {
     }
 
     if (!onRelation) {
-        document.getElementById('foreign_relation').style.display = '';
+        $('#foreign_relation')[0].style.display = '';
         onRelation = 1;
-        document.getElementById('designer_hint').innerHTML = Messages.strSelectReferencedKey;
-        document.getElementById('designer_hint').style.display = 'block';
-        document.getElementById('rel_button').className = 'M_butt_Selected_down';
+        $('#designer_hint')[0].innerHTML = Messages.strSelectReferencedKey;
+        $('#designer_hint')[0].style.display = 'block';
+        $('#rel_button')[0].className = 'M_butt_Selected_down';
     } else {
         document.getElementById('designer_hint').innerHTML = '';
         document.getElementById('designer_hint').style.display = 'none';
