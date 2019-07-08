@@ -11,7 +11,7 @@
   <ul>
     <li id="li_create_database" class="no_bullets">
       {% if has_create_database_privileges %}
-        <form method="post" action="index.php?route=/server/databases" id="create_database_form" class="ajax">
+        <form method="post" action="{{ get_url_from_route('/server/databases') }}" id="create_database_form" class="ajax">
           <p>
             <strong>
               <label for="text_create_db">
@@ -80,12 +80,12 @@
       database_count,
       pos,
       url_params,
-      'index.php?route=/server/databases',
+      get_url_from_route('/server/databases'),
       'frame_content',
       max_db_list
     ) }}
 
-    <form class="ajax" action="index.php?route=/server/databases" method="post" name="dbStatsForm" id="dbStatsForm">
+    <form class="ajax" action="{{ get_url_from_route('/server/databases') }}" method="post" name="dbStatsForm" id="dbStatsForm">
       {{ get_hidden_inputs(url_params) }}
       <div class="responsivetable">
         <table id="tabledatabases" class="data">
@@ -95,11 +95,11 @@
                 <th></th>
               {% endif %}
               <th>
-                <a href="index.php?route=/server/databases{{ get_common(url_params|merge({
+                <a href="{{ get_url_from_route('/server/databases', url_params|merge({
                   'sort_by': 'SCHEMA_NAME',
                   'sort_order': url_params.sort_by == 'SCHEMA_NAME'
                   and url_params.sort_order == 'asc' ? 'desc' : 'asc'
-                }), '&') }}">
+                })) }}">
                   {% trans 'Database' %}
                   {% if url_params.sort_by == 'SCHEMA_NAME' %}
                     {% if url_params.sort_order == 'asc' %}
@@ -112,11 +112,11 @@
               </th>
 
               <th>
-                <a href="index.php?route=/server/databases{{ get_common(url_params|merge({
+                <a href="{{ get_url_from_route('/server/databases', url_params|merge({
                   'sort_by': 'DEFAULT_COLLATION_NAME',
                   'sort_order': url_params.sort_by == 'DEFAULT_COLLATION_NAME'
                     and url_params.sort_order == 'asc' ? 'desc' : 'asc'
-                }), '&') }}">
+                })) }}">
                   {% trans 'Collation' %}
                   {% if url_params.sort_by == 'DEFAULT_COLLATION_NAME' %}
                     {% if url_params.sort_order == 'asc' %}
@@ -131,11 +131,11 @@
               {% if has_statistics %}
                 {% for name, statistic in header_statistics %}
                   <th{{ statistic.format == 'byte' ? ' colspan="2"' }}>
-                    <a href="index.php?route=/server/databases{{ get_common(url_params|merge({
+                    <a href="{{ get_url_from_route('/server/databases', url_params|merge({
                       'sort_by': name,
                       'sort_order': url_params.sort_by == name
                       and url_params.sort_order == 'asc' ? 'desc' : 'asc'
-                    }), '&') }}">
+                    })) }}">
                       {{ statistic.title }}
                       {% if url_params.sort_by == name %}
                         {% if url_params.sort_order == 'asc' %}
@@ -316,7 +316,7 @@
           'content': content,
           'class': 'li_switch_dbstats',
           'url': {
-            'href': 'index.php?route=/server/databases' ~ get_common({'statistics': '1'}, '&'),
+            'href': get_url_from_route('/server/databases', {'statistics': '1'}),
             'title': 'Enable statistics'|trans
           }
         }] %}

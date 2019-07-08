@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Navigation\NodeFactory;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
@@ -42,8 +43,8 @@ class NodeDatabaseContainer extends Node
             $new->isNew = true;
             $new->icon = Util::getImage('b_newdb', '');
             $new->links = [
-                'text' => 'index.php?route=/server/databases&server=' . $GLOBALS['server'],
-                'icon' => 'index.php?route=/server/databases&server=' . $GLOBALS['server'],
+                'text' => Url::getFromRoute('/server/databases', ['server' => $GLOBALS['server']]),
+                'icon' => Url::getFromRoute('/server/databases', ['server' => $GLOBALS['server']]),
             ];
             $new->classes = 'new_database italics';
             $this->addChild($new);
