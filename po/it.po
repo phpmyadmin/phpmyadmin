@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-06-29 15:34-0300\n"
-"PO-Revision-Date: 2019-06-19 16:50+0000\n"
+"PO-Revision-Date: 2019-07-09 14:00+0000\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/it/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7\n"
+"X-Generator: Weblate 3.8-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -5598,7 +5598,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:823
 #: libraries/classes/SqlQueryForm.php:369
 msgid "Retain query box"
-msgstr "Nascondi riquadro query SQL"
+msgstr "Conserva il riquadro della query"
 
 #: libraries/classes/Config/Descriptions.php:824
 msgid "Allow to display database and table statistics (eg. space usage)."
@@ -9069,10 +9069,8 @@ msgstr ""
 "pannello di navigazione."
 
 #: libraries/classes/Navigation/NavigationTree.php:795
-#, fuzzy
-#| msgid "Groups:"
 msgid "Groups"
-msgstr "Gruppi:"
+msgstr "Gruppi"
 
 #: libraries/classes/Navigation/NavigationTree.php:961
 #, php-format
@@ -13453,7 +13451,7 @@ msgstr "nessuno dei precedenti"
 
 #: libraries/db_common.inc.php:153 tbl_operations.php:243
 msgid "No collation provided."
-msgstr ""
+msgstr "Nessuna collazione disponibile."
 
 #: libraries/mult_submits.inc.php:59 templates/select_all.twig:2
 #: templates/select_all.twig:6
@@ -13492,7 +13490,7 @@ msgstr "L'autenticazione a due fattori è stata configurata."
 
 #: server_export.php:30
 msgid "View dump (schema) of databases"
-msgstr "Visualizza il dump (schema) dei databases"
+msgstr "Visualizza il dump (schema) dei database"
 
 #: server_privileges.php:89
 msgid "Allows deleting historical rows."
