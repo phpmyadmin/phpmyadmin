@@ -32,7 +32,7 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
             'GET',
             'POST',
         ], '/server/databases', function () {
-            require_once ROOT_PATH . 'server_databases.php';
+            require_once ROOT_PATH . 'libraries/entry_points/server_databases.php';
         });
     });
     $routeInfo = $dispatcher->dispatch(
