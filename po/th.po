@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-06-29 15:30-0300\n"
-"PO-Revision-Date: 2018-08-17 10:42+0000\n"
-"Last-Translator: Anusuk Sangubon <jaideejung007@gmail.com>\n"
-"Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-8/th/"
-">\n"
+"PO-Revision-Date: 2019-07-10 09:00+0000\n"
+"Last-Translator: Kongfa Warorot <gongpha@hotmail.com>\n"
+"Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-9/th/>"
+"\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 3.8-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -334,12 +334,11 @@ msgstr "จำเป็นต้องเลือกแสดงอย่าง
 #, fuzzy
 #| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "จำลองการทำงาน"
+msgstr "เรียกใช้หลายตาราง"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
-#, fuzzy
 msgid "Query by example"
-msgstr "ชนิดคำค้น"
+msgstr "เรียกใช้โดยตัวอย่าง"
 
 #: db_qbe.php:168
 #, php-format
@@ -420,10 +419,8 @@ msgid "Geometry %d:"
 msgstr "เรขาคณิต %d:"
 
 #: gis_data_editor.php:221
-#, fuzzy
-#| msgid "Point"
 msgid "Point:"
-msgstr "จุด"
+msgstr "จุด:"
 
 #: gis_data_editor.php:222 gis_data_editor.php:249 gis_data_editor.php:305
 #: gis_data_editor.php:378 js/messages.php:521
