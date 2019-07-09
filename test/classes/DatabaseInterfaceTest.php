@@ -439,7 +439,7 @@ class DatabaseInterfaceTest extends PmaTestCase
             [
                 1005,
                 'msg',
-                'server_engines.php',
+                'index.php?route=/server/engines',
             ],
             [
                 1005,

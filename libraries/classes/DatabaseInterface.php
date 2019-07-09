@@ -2269,18 +2269,18 @@ class DatabaseInterface
                         'Please check privileges of directory containing database.'
                     );
             } else {
-                /* InnoDB constraints, see
+                /**
+                 * InnoDB constraints, see
                  * https://dev.mysql.com/doc/refman/5.0/en/
-                 *  innodb-foreign-key-constraints.html
+                 * innodb-foreign-key-constraints.html
                  */
                 $error .= ' - ' . $error_message .
-                    ' (<a href="server_engines.php' .
-                    Url::getCommon(
-                        [
-                            'engine' => 'InnoDB',
-                            'page' => 'Status',
-                        ]
-                    ) . '">' . __('Details…') . '</a>)';
+                    ' (<a href="' .
+                    Url::getFromRoute('/server/engines', [
+                        'engine' => 'InnoDB',
+                        'page' => 'Status',
+                    ]) .
+                    '">' . __('Details…') . '</a>)';
             }
         } else {
             $error .= ' - ' . $error_message;

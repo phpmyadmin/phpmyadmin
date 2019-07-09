@@ -655,7 +655,7 @@ class Menu
         $tabs['charset']['text'] = __('Charsets');
 
         $tabs['engine']['icon'] = 'b_engine';
-        $tabs['engine']['link'] = 'server_engines.php';
+        $tabs['engine']['link'] = Url::getFromRoute('/server/engines');
         $tabs['engine']['text'] = __('Engines');
 
         $tabs['plugins']['icon'] = 'b_plugin';
