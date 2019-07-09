@@ -101,7 +101,7 @@ DesignerMove.mouseDown = function (e) {
     }
 
     if (curClick !== null) {
-        $('#canvas')[0].style.display = 'none';
+        $('#canvas').css("display", 'none');
         curClick.style.zIndex = 2;
     }
 };
@@ -159,14 +159,14 @@ DesignerMove.mouseMove = function (e) {
     }
 
     if (onRelation || onDisplayField) {
-        $('#designer_hint')[0].style.left = globX + 20 + 'px';
-        $('#designer_hint')[0].style.top  = globY + 20 + 'px';
+        $('#designer_hint').offset({left:globX + 20});
+        $('#designer_hint').offset({top:globY + 20});
     }
 };
 
 DesignerMove.mouseUp = function () {
     if (curClick !== null) {
-        $('#canvas')[0].style.display = 'inline-block';
+        $('#canvas').css("display", 'inline-block');
         DesignerMove.reload();
         curClick.style.zIndex = 1;
         curClick = null;
@@ -177,18 +177,18 @@ DesignerMove.mouseUp = function () {
 // ------------------------------------------------------------------------------
 
 DesignerMove.canvasPos = function () {
-    canvasWidth  = $('#canvas')[0].width  = osnTabWidth  - 3;
-    canvasHeight = $('#canvas')[0].height = osnTabHeight - 3;
+    canvasWidth  = $('#canvas').width(osnTabWidth  - 3);
+    canvasHeight = $('#canvas').height(osnTabHeight - 3);
 
     if (isIe) {
-        $('#canvas')[0].style.width  = ((osnTabWidth  - 3) ? (osnTabWidth  - 3) : 0) + 'px';
-        $('#canvas')[0].style.height = ((osnTabHeight - 3) ? (osnTabHeight - 3) : 0) + 'px';
+        $('#canvas').width((osnTabWidth  - 3) ? (osnTabWidth  - 3) : 0);
+        $('#canvas').height((osnTabHeight - 3) ? (osnTabHeight - 3) : 0);
     }
 };
 
 DesignerMove.osnTabPos = function () {
-    osnTabWidth  = parseInt($('#osn_tab')[0].style.width, 10);
-    osnTabHeight = parseInt($('#osn_tab')[0].style.height, 10);
+    osnTabWidth  = parseInt($('#osn_tab').width(), 10);
+    osnTabHeight = parseInt($('#osn_tab').height(), 10);
 };
 
 DesignerMove.setDefaultValuesFromSavedState = function () {
@@ -239,7 +239,7 @@ DesignerMove.setDefaultValuesFromSavedState = function () {
 DesignerMove.main = function () {
     // ---CROSS
 
-    $('#layer_menu')[0].style.top = -1000 + 'px'; // fast scroll
+    $('#layer_menu').offset({top:-1000}); // fast scroll
     DesignerMove.osnTabPos();
     DesignerMove.canvasPos();
     DesignerMove.smallTabRefresh();
@@ -254,8 +254,8 @@ DesignerMove.resizeOsnTab = function () {
     var maxX = 0;
     var maxY = 0;
     for (var key in jTabs) {
-        var kX = parseInt($('#' + key)[0].style.left, 10) + $('#' + key)[0].offsetWidth;
-        var kY = parseInt($('#' + key)[0].style.top, 10) + $('#' + key)[0].offsetHeight;
+        var kX = parseInt($('#' + key).offset().left, 10) + Math.round(parseFloat($('#' + key).outerWidth()));
+        var kY = parseInt($('#' + key).offset().top, 10) + Math.round(parseFloat($('#' + key).outerHeight()));
         maxX = maxX < kX ? kX : maxX;
         maxY = maxY < kY ? kY : maxY;
     }
@@ -263,8 +263,8 @@ DesignerMove.resizeOsnTab = function () {
     osnTabWidth  = maxX + 50;
     osnTabHeight = maxY + 50;
     DesignerMove.canvasPos();
-    $('#osn_tab')[0].style.width = osnTabWidth + 'px';
-    $('#osn_tab')[0].style.height = osnTabHeight + 'px';
+    $('#osn_tab').width(osnTabWidth);
+    $('#osn_tab').height(osnTabHeight);
 };
 
 /**
@@ -288,15 +288,15 @@ DesignerMove.reload = function () {
                 // table name
                 for (key3 in contr[K][key][key2]) {
                     // field name
-                    if (!$('#check_vis_' + key2)[0].checked ||
-                        !$('#check_vis_' + contr[K][key][key2][key3][0])[0].checked) {
+                    if (!$('#check_vis_' + key2).is(":checked") ||
+                        !$('#check_vis_' + contr[K][key][key2][key3][0]).is(":checked")) {
                         // if hide
                         continue;
                     }
-                    var x1Left  = $('#' + key2)[0].offsetLeft + 1;
-                    var x1Right = x1Left + $('#' + key2)[0].offsetWidth;
-                    var x2Left  = $('#' + contr[K][key][key2][key3][0])[0].offsetLeft;
-                    var x2Right = x2Left + $('#' + contr[K][key][key2][key3][0])[0].offsetWidth;
+                    var x1Left  = $('#' + key2).position().left + parseInt($('#' + key2).css("marginLeft")) + 1;
+                    var x1Right = x1Left + Math.round(parseFloat($('#' + key2).outerWidth()));
+                    var x2Left  = $('#' + contr[K][key][key2][key3][0]).position().left + parseInt($('#' + contr[K][key][key2][key3][0]).css("marginLeft"));
+                    var x2Right = x2Left + Math.round(parseFloat($('#' + contr[K][key][key2][key3][0]).outertWidth()));
                     a[0] = Math.abs(x1Left - x2Left);
                     a[1] = Math.abs(x1Left - x2Right);
                     a[2] = Math.abs(x1Right - x2Left);
@@ -338,13 +338,13 @@ DesignerMove.reload = function () {
                     if (tabHideButton.innerHTML === 'v') {
                         var fromColumn = $('#' + key2 + '.' + key3)[0];
                         if (fromColumn) {
-                            rowOffsetTop = fromColumn.offsetTop;
+                            rowOffsetTop = $('#' + key2 + '.' + key3).position().top + parseInt($('#' + key2 + '.' + key3).css('marginTop'));
                         } else {
                             continue;
                         }
                     }
 
-                    var y1 = $('#' + key2)[0].offsetTop +
+                    var y1 = $('#' + key2).position().top + parseInt($('#' + key2).css('marginTop')) +
                         rowOffsetTop +
                         heightField;
 
@@ -355,24 +355,24 @@ DesignerMove.reload = function () {
                         var toColumn = $('#' + contr[K][key][key2][key3][0] +
                             '.' + contr[K][key][key2][key3][1])[0];
                         if (toColumn) {
-                            rowOffsetTop = toColumn.offsetTop;
+                            rowOffsetTop = $('#' + contr[K][key][key2][key3][0] + '.' + contr[K][key][key2][key3][1]).position().top + parseInt($('#' + contr[K][key][key2][key3][0] + '.' + contr[K][key][key2][key3][1]).css("marginTop"));
                         } else {
                             continue;
                         }
                     }
 
                     var y2 =
-                        $('#' + contr[K][key][key2][key3][0])[0].offsetTop +
+                        $('#' + contr[K][key][key2][key3][0]).position().top + parseInt($('#' + contr[K][key][key2][key3][0]).css("marginTop")) +
                         rowOffsetTop +
                         heightField;
 
-                    var osnTab = $('#osn_tab')[0];
+                    var osnTab = $('#osn_tab');
 
                     DesignerMove.line0(
-                        x1 + osnTab.offsetLeft,
-                        y1 - osnTab.offsetTop,
-                        x2 + osnTab.offsetLeft,
-                        y2 - osnTab.offsetTop,
+                        x1 + osnTab.position().left + parseInt(osnTab.css("marginLeft")),
+                        y1 - osnTab.position().top + parseInt(osnTab.css("marginTop")),
+                        x2 + osnTab.position().left + parseInt(osnTab.css("marginLeft")),
+                        y2 - osnTab.position().top + parseInt(osnTab.css("marginTop")),
                         DesignerMove.getColorByTarget(contr[K][key][key2][key3][0] + '.' + contr[K][key][key2][key3][1])
                     );
                 }
@@ -621,10 +621,10 @@ DesignerMove.new = function () {
 // (del?) no for pdf
 DesignerMove.save = function (url) {
     for (var key in jTabs) {
-        $('#t_x_' + key + '_')[0].value = parseInt($('#' + key)[0].style.left, 10);
-        $('#t_y_' + key + '_')[0].value = parseInt($('#' + key)[0].style.top, 10);
-        $('#t_v_' + key + '_')[0].value = $('#id_tbody_' + key)[0].style.display === 'none' ? 0 : 1;
-        $('#t_h_' + key + '_')[0].value = $('#check_vis_' + key)[0].checked ? 1 : 0;
+        $('#t_x_' + key + '_').val(parseInt($('#' + key).offset().left, 10));
+        $('#t_y_' + key + '_').val(parseInt($('#' + key).offset().top, 10));
+        $('#t_v_' + key + '_').val($('#id_tbody_' + key).css("display", 'none' ? 0 : 1));
+        $('#t_h_' + key + '_').val($('#check_vis_' + key).is(":checked") ? 1 : 0);
     }
     document.form1.action = url;
     $(document.form1).submit();
@@ -636,18 +636,18 @@ DesignerMove.getUrlPos = function (forceString) {
         var poststr = '';
         var argsep = CommonParams.get('arg_separator');
         for (key in jTabs) {
-            poststr += argsep + 't_x[' + key + ']=' + parseInt($('#' + key)[0].style.left, 10);
-            poststr += argsep + 't_y[' + key + ']=' + parseInt($('#' + key)[0].style.top, 10);
-            poststr += argsep + 't_v[' + key + ']=' + ($('#id_tbody_' + key)[0].style.display === 'none' ? 0 : 1);
-            poststr += argsep + 't_h[' + key + ']=' + ($('#check_vis_' + key)[0].checked ? 1 : 0);
+            poststr += argsep + 't_x[' + key + ']=' + parseInt($('#' + key).offset().left, 10);
+            poststr += argsep + 't_y[' + key + ']=' + parseInt($('#' + key).offset().top, 10);
+            poststr += argsep + 't_v[' + key + ']=' + ($('#id_tbody_' + key).css("display", 'none' ? 0 : 1));
+            poststr += argsep + 't_h[' + key + ']=' + ($('#check_vis_' + key).is(":checked") ? 1 : 0);
         }
         return poststr;
     } else {
         var coords = [];
         for (key in jTabs) {
             if ($('#check_vis_' + key)[0].checked) {
-                var x = parseInt($('#' + key)[0].style.left, 10);
-                var y = parseInt($('#' + key)[0].style.top, 10);
+                var x = parseInt($('#' + key).offset().left, 10);
+                var y = parseInt($('#' + key).offset().top, 10);
                 var tbCoords = new DesignerObjects.TableCoordinate(db, key.split('.')[1], -1, x, y);
                 coords.push(tbCoords);
             }
@@ -1172,10 +1172,10 @@ DesignerMove.startRelation = function () {
     }
 
     if (!onRelation) {
-        $('#foreign_relation')[0].style.display = '';
+        $('#foreign_relation').css("display", '');
         onRelation = 1;
         $('#designer_hint')[0].innerHTML = Messages.strSelectReferencedKey;
-        $('#designer_hint')[0].style.display = 'block';
+        $('#designer_hint').css("display", 'block');
         $('#rel_button')[0].className = 'M_butt_Selected_down';
     } else {
         document.getElementById('designer_hint').innerHTML = '';
