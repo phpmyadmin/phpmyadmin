@@ -651,7 +651,7 @@ class Menu
         $tabs['vars']['text'] = __('Variables');
 
         $tabs['charset']['icon'] = 's_asci';
-        $tabs['charset']['link'] = 'server_collations.php';
+        $tabs['charset']['link'] = Url::getFromRoute('/server/collations');
         $tabs['charset']['text'] = __('Charsets');
 
         $tabs['engine']['icon'] = 'b_engine';

@@ -25,6 +25,9 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
             require_once ROOT_PATH . 'libraries/entry_points/home.php';
         });
         $routes->addGroup('/server', function (RouteCollector $routes) {
+            $routes->addRoute('GET', '/collations', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/server_collations.php';
+            });
             $routes->addRoute(['GET', 'POST'], '/databases', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/server_databases.php';
             });
