@@ -121,9 +121,8 @@ DesignerPage.showNewPageTables = function (check) {
     for (var tab = 0; tab < allTablesLength; tab++) {
         var input = allTables[tab];
         if (input.value) {
-            var element = $('#' + input.value);
-            element.style.top = DesignerPage.getRandom(550, 20) + 'px';
-            element.style.left = DesignerPage.getRandom(700, 20) + 'px';
+            $('#' + input.value).offset({top:DesignerPage.getRandom(550, 20)});
+            $('#' + input.value).offset({left:DesignerPage.getRandom(700, 20)});
             DesignerMove.visibleTab(input, input.value);
         }
     }
@@ -140,13 +139,11 @@ DesignerPage.loadHtmlForPage = function (pageId) {
         var tblCordsLength = tblCords.length;
         for (var t = 0; t < tblCordsLength; t++) {
             var tbId = db + '.' + tblCords[t].tableName;
-            var table = $('#' + tbId);
-            table.style.top = tblCords[t].y + 'px';
-            table.style.left = tblCords[t].x + 'px';
+            $('#' + tbId).offset({top:tblCords[t].y});
+            $('#' + tbId).offset({left:tblCords[t].x});
 
-            var checkbox = $('#check_vis_' + tbId);
-            checkbox.checked = true;
-            DesignerMove.visibleTab(checkbox, checkbox.value);
+            $('#check_vis_' + tbId).prop('checked', true);
+            DesignerMove.visibleTab($('#check_vis_' + tbId), $('#check_vis_' + tbId).val());
         }
         selectedPage = page.pgNr;
     });
