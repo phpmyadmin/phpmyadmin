@@ -54,15 +54,15 @@ AJAX.registerOnload('designer/init.js', function () {
     }
 
     $('#query_Aggregate_Button').on('click', function () {
-        $('#query_Aggregate').style.display = 'none';
+        $('#query_Aggregate').css("display", 'none');
     });
 
     $('#query_having_button').on('click', function () {
-        $('#query_having').style.display = 'none';
+        $('#query_having').css("display", 'none');
     });
 
     $('#query_rename_to_button').on('click', function () {
-        $('#query_rename_to').style.display = 'none';
+        $('#query_rename_to').css("display", 'none');
     });
 
     $('#build_query_button').on('click', function () {
@@ -70,6 +70,6 @@ AJAX.registerOnload('designer/init.js', function () {
     });
 
     $('#query_where_button').on('click', function () {
-        $('#query_where').style.display = 'none';
+        $('#query_where').css("display", 'none');
     });
 });
