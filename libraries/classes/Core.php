@@ -51,7 +51,6 @@ class Core
         'server_status.php',
         'server_status_advisor.php',
         'server_status_monitor.php',
-        'server_status_queries.php',
         'server_status_variables.php',
         'server_variables.php',
         'sql.php',

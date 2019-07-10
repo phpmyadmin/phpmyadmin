@@ -37,6 +37,11 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
             $routes->addRoute('GET', '/plugins', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/server_plugins.php';
             });
+            $routes->addGroup('/status', function (RouteCollector $routes) {
+                $routes->addRoute('GET', '/queries', function () {
+                    require_once ROOT_PATH . 'libraries/entry_points/server_status_queries.php';
+                });
+            });
         });
     });
     $routeInfo = $dispatcher->dispatch(

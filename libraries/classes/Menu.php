@@ -588,17 +588,15 @@ class Menu
         $tabs['status']['icon'] = 's_status';
         $tabs['status']['link'] = 'server_status.php';
         $tabs['status']['text'] = __('Status');
-        $tabs['status']['active'] = in_array(
-            basename($GLOBALS['PMA_PHP_SELF']),
-            [
-                'server_status.php',
-                'server_status_advisor.php',
-                'server_status_monitor.php',
-                'server_status_queries.php',
-                'server_status_variables.php',
-                'server_status_processes.php',
-            ]
-        );
+        $tabs['status']['active'] = in_array(basename($GLOBALS['PMA_PHP_SELF']), [
+            'server_status.php',
+            'server_status_advisor.php',
+            'server_status_monitor.php',
+            'server_status_variables.php',
+            'server_status_processes.php',
+        ]) || (isset($_REQUEST['route']) && in_array($_REQUEST['route'], [
+            '/server/status/queries'
+        ]));
 
         if ($is_superuser || $isCreateOrGrantUser) {
             $tabs['rights']['icon'] = 's_rights';
