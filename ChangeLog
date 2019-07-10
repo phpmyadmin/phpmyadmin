@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+5.1.0 (not yet released)
+
 5.0.0 (not yet released)
 - issue #13896 Drop support for PHP 5.5, PHP 5.6, PHP 7.0 and HHVM
 - issue #14007 Enable columns names by default for CSV exports
