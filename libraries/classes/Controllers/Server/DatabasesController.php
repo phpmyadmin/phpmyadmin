@@ -265,7 +265,7 @@ class DatabasesController extends AbstractController
             $favoriteDatabases = [];
         }
         // Required to keep each user's preferences separate.
-        $user = hash(sha1($cfg['Server']['user']));
+        $user = hash('sha1', $cfg['Server']['user']);
 
         $changes = true;
         $titles = Util::buildActionTitles();
@@ -292,8 +292,6 @@ class DatabasesController extends AbstractController
         $json = [];
         $json['changes'] = $changes;
         if (! $changes) {
-            print('hello');
-            die();
             $json['message'] = $this->template->render('components/error_message', [
                 'msg' => __("Favorite list is full!"),
             ]);
@@ -311,7 +309,7 @@ class DatabasesController extends AbstractController
         $json['list'] = $favoriteInstance->getHtmlList();
         $json['anchor'] = $this->template->render('server/databases/favorite_anchor', [
             'database_name' => $favoriteDatabase,
-            'database_name_hash' => hash(sha1($favoriteDatabase)),
+            'database_name_hash' => hash('sha1', $favoriteDatabase),
             'already_favorite' => $alreadyFavorite,
             'fav_params' => $favoriteParams,
             'titles' => $titles,
@@ -432,7 +430,7 @@ class DatabasesController extends AbstractController
 
             $databases[] = [
                 'name' => $database['SCHEMA_NAME'],
-                'name_hash' => hash(sha1($database['SCHEMA_NAME'])),
+                'name_hash' =>hash('sha1', $database['SCHEMA_NAME']),
                 'collation' => [
                     'name' => $database['DEFAULT_COLLATION_NAME'],
                     'description' => Charsets::getCollationDescr(

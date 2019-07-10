@@ -30,13 +30,13 @@ $dbi = $containerBuilder->get(DatabaseInterface::class);
 $checkUserPrivileges = new CheckUserPrivileges($dbi);
 $checkUserPrivileges->getPrivileges();
 
-if ( ! empty($_POST['favorite_db'])) {
+if ( ! empty($_GET['favorite_db'])) {
     $json = $controller->addRemoveFavoriteDatabaseAction([
-        'favorite_database' => $_POST['favorite_db'],
-        'favoriteDatabases' => $_POST['favoriteDatabases'] ?? null,
-        'sync_favorite_databases' => $_POST['sync_favorite_databases'] ?? null,
-        'add_favorite' => $_POST['add_favorite'] ?? null,
-        'remove_favorite' => $_POST['remove_favorite'] ?? null,
+        'favorite_database' => $_GET['favorite_db'],
+        'favoriteDatabases' => $_GET['favoriteDatabases'] ?? null,
+        'sync_favorite_databases' => $_GET['sync_favorite_databases'] ?? null,
+        'add_favorite' => $_GET['add_favorite'] ?? null,
+        'remove_favorite' => $_GET['remove_favorite'] ?? null,
     ]);
     if ($json !== null) {
         $response->addJSON($json);

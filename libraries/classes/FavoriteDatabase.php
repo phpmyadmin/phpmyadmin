@@ -210,7 +210,7 @@ class FavoriteDatabase
         if ($this->_tableType == 'favorite_db') {
             $html .= '<button title="' . __('Favorite Databases')
             . '" class="drop_button btn">'
-            . __('Databases') . '</button><ul id="pma_favorite_db_list">';
+            . __('Favorite Database') . '</button><ul id="pma_favorite_db_list">';
         }
         $html .= $this->getHtmlList();
         $html .= '</ul></div>';
