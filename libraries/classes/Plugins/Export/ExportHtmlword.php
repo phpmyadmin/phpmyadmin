@@ -412,7 +412,7 @@ class ExportHtmlword extends ExportPlugin
         }
         if ($do_mime && $cfgRelation['mimework']) {
             $schema_insert .= '<td class="print"><strong>'
-                . htmlspecialchars('MIME')
+                . __('Media (MIME) type')
                 . '</strong></td>';
             $mime_map = $this->transformations->getMime($db, $table, true);
         }
