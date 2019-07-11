@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-06-29 15:30-0300\n"
-"PO-Revision-Date: 2019-07-10 09:00+0000\n"
+"PO-Revision-Date: 2019-07-12 02:00+0000\n"
 "Last-Translator: Kongfa Warorot <gongpha@hotmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-9/th/>"
 "\n"
@@ -331,8 +331,6 @@ msgid "You have to choose at least one column to display!"
 msgstr "จำเป็นต้องเลือกแสดงอย่างน้อยหนึ่งคอลัมน์!"
 
 #: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
 msgstr "เรียกใช้หลายตาราง"
 
@@ -544,20 +542,16 @@ msgid ""
 msgstr "เลือก \"GeomFromText\" จากแถวฟังก์ชัน และวางลงในข้อความช่อง \"ค่า\""
 
 #: import.php:73
-#, fuzzy
-#| msgid "Access denied!"
 msgid "Succeeded"
-msgstr "ไม่อนุญาตให้ใช้งาน"
+msgstr "สำเร็จ"
 
 #: import.php:77 js/messages.php:619
 msgid "Failed"
 msgstr "ผิดพลาด"
 
 #: import.php:81
-#, fuzzy
-#| msgid "Complete inserts"
 msgid "Incomplete params"
-msgstr "คำสั่ง INSERT เต็มรูปแบบ"
+msgstr "พารามิเตอร์ไม่สมบูรณ์"
 
 #: import.php:205
 #, php-format
@@ -596,21 +590,19 @@ msgid "Bookmark %s has been created."
 msgstr "ที่คั่นหน้า %s ได้ถูกสร้างขึ้น"
 
 #: import.php:597
-#, fuzzy, php-format
-#| msgid "Import has been successfully finished, %d queries executed."
+#, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "นำเข้าสำเร็จเรียบร้อย การสอบถาม %d รายการได้ถูกดำเนินการแล้ว"
+msgstr[0] "นำเข้าสำเร็จเรียบร้อย การเรียกใช้ %d รายการได้ถูกดำเนินการแล้ว"
 
 #: import.php:628
-#, fuzzy, php-format
-#| msgid ""
-#| "Script timeout passed, if you want to finish import, please resubmit same "
-#| "file and import will resume."
+#, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
-msgstr "หมดเวลาการนำเข้าแล้ว หากคุณต้องการดำเนินการต่อให้เรียบร้อย กรุณานำเข้าไฟล์เดิมอีกรอบ"
+msgstr ""
+"หมดเวลาการนำเข้าแล้ว หากคุณต้องการดำเนินการต่อให้เรียบร้อย "
+"กรุณา%sนำเข้าไฟล์เดิม%sอีกรอบ"
 
 #: import.php:638
 msgid ""
@@ -1008,8 +1000,9 @@ msgstr ""
 "เราแนะนำให้คุณแปลงกลับไปเป็นชุดอักขระเดิมแล้วดำเนินการตามเคล็ดลับที่ "
 
 #: js/messages.php:95
+#, fuzzy
 msgid "Garbled Data"
-msgstr ""
+msgstr "ข้อมูลที่ไม่สามารถอ่านได้"
 
 #: js/messages.php:97
 msgid "Are you sure you wish to change the collation and convert the data?"
@@ -1119,10 +1112,8 @@ msgid "Y values"
 msgstr "ค่าแกน Y"
 
 #: js/messages.php:142
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter the SQL query first."
-msgstr "﻿%d ไม่ใช่หมายเลขแถวที่ถูกต้อง"
+msgstr "กรุณากรอกการเรียกใช้ SQL ก่อน"
 
 #: js/messages.php:145
 msgid "The host name is empty!"
@@ -1257,13 +1248,11 @@ msgstr "หน่วยความจำที่ใช้ไป"
 #, fuzzy
 #| msgid "Total Swap"
 msgid "Total swap"
-msgstr "จำนวน Swap"
+msgstr "จำนวนการสลับทั้งหมด"
 
 #: js/messages.php:193
-#, fuzzy
-#| msgid "Cached Swap"
 msgid "Cached swap"
-msgstr "จำนวน Swap ที่ถูกใช้"
+msgstr "การสลับที่ถูกแคช"
 
 #: js/messages.php:194
 #, fuzzy
@@ -1356,10 +1345,8 @@ msgid "Add chart to grid"
 msgstr "เพิ่มแสดงผลไปในตารางข้อมูล"
 
 #: js/messages.php:219
-#, fuzzy
-#| msgid "Please add at least one variable to the series"
 msgid "Please add at least one variable to the series!"
-msgstr "กรุณาเพิ่มค่าตัวแปรอย่างน้อยหนึ่งตัวเข้าไปในลำดับ"
+msgstr "กรุณาเพิ่มค่าตัวแปรอย่างน้อยหนึ่งตัวเข้าไปในลำดับ!"
 
 #: js/messages.php:220 libraries/classes/Display/Results.php:1470
 #: libraries/classes/Plugins/Export/ExportSql.php:2195
@@ -1386,11 +1373,11 @@ msgstr "หยุดการแสดงผล"
 
 #: js/messages.php:223 libraries/classes/Server/Status/Processes.php:46
 msgid "Start auto refresh"
-msgstr ""
+msgstr "เริ่มการรีเฟรชอัตโนมัติ"
 
 #: js/messages.php:224
 msgid "Stop auto refresh"
-msgstr ""
+msgstr "หยุดการรีเฟรชอัตโนมัติ"
 
 #: js/messages.php:226
 msgid "general_log and slow_query_log are enabled."
@@ -1457,10 +1444,9 @@ msgstr "ปิดใช้งาน %s"
 
 #. l10n: %d seconds
 #: js/messages.php:249
-#, fuzzy, php-format
-#| msgid "Set long_query_time to %ds"
+#, php-format
 msgid "Set long_query_time to %d seconds."
-msgstr "ตั้ง long_query_time เป็น %ds"
+msgstr "ตั้ง long_query_time เป็น %d วินาที"
 
 #: js/messages.php:251
 msgid ""
