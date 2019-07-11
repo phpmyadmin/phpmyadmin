@@ -94,7 +94,7 @@ class ThemeTest extends PmaTestCase
         $this->object->setPath(ROOT_PATH . 'test/classes/_data/gen_version_info');
         $this->assertTrue($this->object->loadInfo());
         $this->assertEquals('Test Theme', $this->object->getName());
-        $this->assertEquals('5.0', $this->object->getVersion());
+        $this->assertEquals('5.1', $this->object->getVersion());
     }
 
     /**
