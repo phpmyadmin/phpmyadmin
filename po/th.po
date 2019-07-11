@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-06-29 15:34-0300\n"
-"PO-Revision-Date: 2018-05-19 17:39+0000\n"
-"Last-Translator: Anawin Wongsadit <imonmac@hotmail.com>\n"
+"PO-Revision-Date: 2019-07-12 01:00+0000\n"
+"Last-Translator: Kongfa Warorot <gongpha@hotmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "th/>\n"
 "Language: th\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.0-dev\n"
+"X-Generator: Weblate 3.8-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -85,8 +85,6 @@ msgstr "ข้อมูล"
 #: db_export.php:87 templates/server/replication/database_multibox.twig:7
 #: templates/display/export/select_options.twig:4
 #: templates/database/search/main.twig:32
-#, fuzzy
-#| msgid "Select All"
 msgid "Select all"
 msgstr "เลือกทั้งหมด"
 
@@ -119,15 +117,12 @@ msgid "You have to choose at least one column to display!"
 msgstr "จำเป็นต้องเลือกแสดงอย่างน้อยหนึ่งคอลัมน์!"
 
 #: db_qbe.php:159 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "จำลองการทำงาน"
+msgstr "เรียกใช้หลายตาราง"
 
 #: db_qbe.php:163 templates/database/multi_table_query/form.twig:3
-#, fuzzy
 msgid "Query by example"
-msgstr "ชนิดคำค้น"
+msgstr "เรียกใช้โดยตัวอย่าง"
 
 #: db_qbe.php:182
 #, php-format
@@ -190,20 +185,16 @@ msgid "Bad parameters!"
 msgstr "พารามิเตอร์ไม่ถูกต้อง!"
 
 #: import.php:86
-#, fuzzy
-#| msgid "Access denied!"
 msgid "Succeeded"
-msgstr "ไม่อนุญาตให้ใช้งาน"
+msgstr "สำเร็จ"
 
 #: import.php:90 js/messages.php:628
 msgid "Failed"
 msgstr "ผิดพลาด"
 
 #: import.php:94
-#, fuzzy
-#| msgid "Complete inserts"
 msgid "Incomplete params"
-msgstr "คำสั่ง INSERT เต็มรูปแบบ"
+msgstr "พารามิเตอร์ไม่สมบูรณ์"
 
 #: import.php:218
 #, php-format
@@ -242,21 +233,19 @@ msgid "Bookmark %s has been created."
 msgstr "ที่คั่นหน้า %s ได้ถูกสร้างขึ้น"
 
 #: import.php:615
-#, fuzzy, php-format
-#| msgid "Import has been successfully finished, %d queries executed."
+#, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "นำเข้าสำเร็จเรียบร้อย การสอบถาม %d รายการได้ถูกดำเนินการแล้ว"
+msgstr[0] "นำเข้าสำเร็จเรียบร้อย การเรียกใช้ %d รายการได้ถูกดำเนินการแล้ว"
 
 #: import.php:646
-#, fuzzy, php-format
-#| msgid ""
-#| "Script timeout passed, if you want to finish import, please resubmit same "
-#| "file and import will resume."
+#, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
-msgstr "หมดเวลาการนำเข้าแล้ว หากคุณต้องการดำเนินการต่อให้เรียบร้อย กรุณานำเข้าไฟล์เดิมอีกรอบ"
+msgstr ""
+"หมดเวลาการนำเข้าแล้ว หากคุณต้องการดำเนินการต่อให้เรียบร้อย "
+"กรุณา%sนำเข้าไฟล์เดิม%sอีกรอบ"
 
 #: import.php:656
 msgid ""
@@ -408,8 +397,9 @@ msgstr ""
 "เราแนะนำให้คุณแปลงกลับไปเป็นชุดอักขระเดิมแล้วดำเนินการตามเคล็ดลับที่ "
 
 #: js/messages.php:99
+#, fuzzy
 msgid "Garbled Data"
-msgstr ""
+msgstr "ข้อมูลที่ไม่สามารถอ่านได้"
 
 #: js/messages.php:101
 msgid "Are you sure you wish to change the collation and convert the data?"
@@ -520,10 +510,8 @@ msgid "Y values"
 msgstr "ค่าแกน Y"
 
 #: js/messages.php:146
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter the SQL query first."
-msgstr "﻿%d ไม่ใช่หมายเลขแถวที่ถูกต้อง"
+msgstr "กรุณากรอกการเรียกใช้ SQL ก่อน"
 
 #: js/messages.php:149
 msgid "The host name is empty!"
@@ -659,13 +647,11 @@ msgstr "หน่วยความจำที่ใช้ไป"
 #, fuzzy
 #| msgid "Total Swap"
 msgid "Total swap"
-msgstr "จำนวน Swap"
+msgstr "จำนวนการสลับทั้งหมด"
 
 #: js/messages.php:197
-#, fuzzy
-#| msgid "Cached Swap"
 msgid "Cached swap"
-msgstr "จำนวน Swap ที่ถูกใช้"
+msgstr "การสลับที่ถูกแคช"
 
 #: js/messages.php:198
 #, fuzzy
@@ -758,10 +744,8 @@ msgid "Add chart to grid"
 msgstr "เพิ่มแสดงผลไปในตารางข้อมูล"
 
 #: js/messages.php:223
-#, fuzzy
-#| msgid "Please add at least one variable to the series"
 msgid "Please add at least one variable to the series!"
-msgstr "กรุณาเพิ่มค่าตัวแปรอย่างน้อยหนึ่งตัวเข้าไปในลำดับ"
+msgstr "กรุณาเพิ่มค่าตัวแปรอย่างน้อยหนึ่งตัวเข้าไปในลำดับ!"
 
 #: js/messages.php:224 libraries/classes/Display/Results.php:1364
 #: libraries/classes/Plugins/Export/ExportSql.php:2241
@@ -788,11 +772,11 @@ msgstr "หยุดการแสดงผล"
 
 #: js/messages.php:227 templates/server/status/processes/index.twig:49
 msgid "Start auto refresh"
-msgstr ""
+msgstr "เริ่มการรีเฟรชอัตโนมัติ"
 
 #: js/messages.php:228
 msgid "Stop auto refresh"
-msgstr ""
+msgstr "หยุดการรีเฟรชอัตโนมัติ"
 
 #: js/messages.php:230
 msgid "general_log and slow_query_log are enabled."
@@ -859,10 +843,9 @@ msgstr "ปิดใช้งาน %s"
 
 #. l10n: %d seconds
 #: js/messages.php:253
-#, fuzzy, php-format
-#| msgid "Set long_query_time to %ds"
+#, php-format
 msgid "Set long_query_time to %d seconds."
-msgstr "ตั้ง long_query_time เป็น %ds"
+msgstr "ตั้ง long_query_time เป็น %d วินาที"
 
 #: js/messages.php:255
 msgid ""
@@ -1103,16 +1086,12 @@ msgid "Please select the file you want to import."
 msgstr "กรุณาเลือกไฟล์ที่คุณต้องการนำเข้า"
 
 #: js/messages.php:339
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a valid table name."
-msgstr "﻿%d ไม่ใช่หมายเลขแถวที่ถูกต้อง"
+msgstr "กรุณากรอกชื่อตารางที่ถูกต้อง"
 
 #: js/messages.php:341
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a valid database name."
-msgstr "﻿%d ไม่ใช่หมายเลขแถวที่ถูกต้อง"
+msgstr "กรุณากรอกชื่อฐานข้อมูลที่ถูกต้อง"
 
 #: js/messages.php:342
 msgid "No files available on server for import!"
