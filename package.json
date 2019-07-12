@@ -17,19 +17,19 @@
     "jquery.event.drag": "2.2.2",
     "js-cookie": "2.2.0",
     "popper.js": "^1.14.6",
-    "sass": "^1.20.3",
+    "sass": "^1.22.4",
     "tracekit": "0.4.5",
     "u2f-api-polyfill": "0.4.4",
     "updated-jqplot": "1.0.9",
     "zxcvbn": "4.4.2"
   },
   "devDependencies": {
-    "eslint": "^5.16.0",
-    "eslint-plugin-no-jquery": "^2.0.0",
-    "stylelint": "^10.0.1",
+    "eslint": "^6.0.1",
+    "eslint-plugin-no-jquery": "^2.1.0",
+    "stylelint": "^10.1.0",
     "stylelint-config-recommended-scss": "^3.3.0",
     "stylelint-config-standard": "^18.3.0",
-    "stylelint-scss": "^3.7.0"
+    "stylelint-scss": "^3.9.1"
   },
   "scripts": {
     "postinstall": "yarn run --silent css-compile --quiet --style=compressed",
