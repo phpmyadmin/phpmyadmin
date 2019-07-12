@@ -10,20 +10,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use Closure;
-use PhpMyAdmin\Core;
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\FileListing;
-use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
-use PhpMyAdmin\Response;
-use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\Utils\Error as ParserError;
-use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 use phpseclib\Crypt\Random;
 use stdClass;
 use Williamdes\MariaDBMySQLKBS\KBException;
@@ -3193,7 +3185,7 @@ class Util
                 case 'welcome':
                     return 'index.php';
                 case 'databases':
-                    return 'server_databases.php';
+                    return Url::getFromRoute('/server/databases');
                 case 'status':
                     return 'server_status.php';
                 case 'variables':

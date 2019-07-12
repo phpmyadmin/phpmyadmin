@@ -46,6 +46,7 @@
         "ext-pcre": "*",
         "ext-xml": "*",
         "google/recaptcha": "^1.1",
+        "nikic/fast-route": "^1.3",
         "phpmyadmin/motranslator": "^4.0",
         "phpmyadmin/shapefile": "^2.0",
         "phpmyadmin/sql-parser": "^5.0",

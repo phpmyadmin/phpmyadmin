@@ -578,7 +578,7 @@ class Menu
         $tabs = [];
 
         $tabs['databases']['icon'] = 's_db';
-        $tabs['databases']['link'] = 'server_databases.php';
+        $tabs['databases']['link'] = Url::getFromRoute('/server/databases');
         $tabs['databases']['text'] = __('Databases');
 
         $tabs['sql']['icon'] = 'b_sql';
@@ -588,17 +588,15 @@ class Menu
         $tabs['status']['icon'] = 's_status';
         $tabs['status']['link'] = 'server_status.php';
         $tabs['status']['text'] = __('Status');
-        $tabs['status']['active'] = in_array(
-            basename($GLOBALS['PMA_PHP_SELF']),
-            [
-                'server_status.php',
-                'server_status_advisor.php',
-                'server_status_monitor.php',
-                'server_status_queries.php',
-                'server_status_variables.php',
-                'server_status_processes.php',
-            ]
-        );
+        $tabs['status']['active'] = in_array(basename($GLOBALS['PMA_PHP_SELF']), [
+            'server_status.php',
+            'server_status_advisor.php',
+            'server_status_monitor.php',
+            'server_status_variables.php',
+            'server_status_processes.php',
+        ]) || (isset($_REQUEST['route']) && in_array($_REQUEST['route'], [
+            '/server/status/queries'
+        ]));
 
         if ($is_superuser || $isCreateOrGrantUser) {
             $tabs['rights']['icon'] = 's_rights';
@@ -651,15 +649,15 @@ class Menu
         $tabs['vars']['text'] = __('Variables');
 
         $tabs['charset']['icon'] = 's_asci';
-        $tabs['charset']['link'] = 'server_collations.php';
+        $tabs['charset']['link'] = Url::getFromRoute('/server/collations');
         $tabs['charset']['text'] = __('Charsets');
 
         $tabs['engine']['icon'] = 'b_engine';
-        $tabs['engine']['link'] = 'server_engines.php';
+        $tabs['engine']['link'] = Url::getFromRoute('/server/engines');
         $tabs['engine']['text'] = __('Engines');
 
         $tabs['plugins']['icon'] = 'b_plugin';
-        $tabs['plugins']['link'] = 'server_plugins.php';
+        $tabs['plugins']['link'] = Url::getFromRoute('/server/plugins');
         $tabs['plugins']['text'] = __('Plugins');
 
         return $tabs;

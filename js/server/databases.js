@@ -19,7 +19,7 @@ AJAX.registerTeardown('server/databases.js', function () {
 });
 
 /**
- * AJAX scripts for server_databases.php
+ * AJAX scripts for /server/databases
  *
  * Actions ajaxified here:
  * Drop Databases
@@ -61,7 +61,7 @@ AJAX.registerOnload('server/databases.js', function () {
         var argsep = CommonParams.get('arg_separator');
         $(this).confirm(
             question,
-            $form.prop('action') + '?' + $(this).serialize() +
+            $form.prop('action') + '&' + $(this).serialize() +
                 argsep + 'drop_selected_dbs=1',
             function (url) {
                 Functions.ajaxShowMessage(Messages.strProcessingRequest, false);

@@ -11,11 +11,12 @@ use PhpMyAdmin\Controllers\Server\Status\QueriesController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
-require_once ROOT_PATH . 'libraries/common.inc.php';
+global $containerBuilder;
+
 require_once ROOT_PATH . 'libraries/server_common.inc.php';
 require_once ROOT_PATH . 'libraries/replication.inc.php';
 
