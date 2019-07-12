@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-07-12 01:21-0300\n"
-"PO-Revision-Date: 2019-06-24 14:00+0000\n"
+"PO-Revision-Date: 2019-07-13 11:00+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7.1-dev\n"
+"X-Generator: Weblate 3.8-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -361,8 +361,7 @@ msgstr "İzlenen veri başarılı olarak silindi."
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr ""
-"Seçilen tablolar için sürüm %1$s oluşturuldu, bunlar için izleme aktif."
+msgstr "Seçilen tablolar için sürüm %1$s oluşturuldu, bunlar için izleme etkin."
 
 #: db_tracking.php:95
 msgid "No tables selected."
@@ -3537,12 +3536,9 @@ msgid "accent-sensitive"
 msgstr "vurgu duyarlı"
 
 #: libraries/classes/Charsets.php:675
-#, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "accent-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "vurgu duyarlı"
+msgstr "kana türüne duyarlı"
 
 #: libraries/classes/Charsets.php:679
 msgctxt "Collation variant"
@@ -3557,7 +3553,7 @@ msgstr "ikili değer"
 #: libraries/classes/Charsets.php:685
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "doldurma yok"
 
 #: libraries/classes/Config.php:1122
 #, php-format
@@ -11653,7 +11649,7 @@ msgstr "… eski olanı kullanıcı tablolarından sil."
 #: libraries/classes/Server/Privileges.php:3101
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
-msgstr "… eski olandan bütün aktif yetkileri geri al ve sonra da sil."
+msgstr "… eski olandan bütün etkin yetkileri geri al ve sonra da sil."
 
 #: libraries/classes/Server/Privileges.php:3105
 msgid ""
@@ -12205,7 +12201,7 @@ msgstr "Süzgeçler"
 
 #: libraries/classes/Server/Status/Processes.php:243
 msgid "Show only active"
-msgstr "Sadece aktif olanı göster"
+msgstr "Sadece etkin olanı göster"
 
 #: libraries/classes/Server/Status/Queries.php:40
 #, php-format
@@ -13399,17 +13395,17 @@ msgstr "Sürüm %1$s / %2$s oluşturuldu."
 #: libraries/classes/Tracking.php:1017
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
-msgstr "Sürüm %1$s oluşturuldu, %2$s için izleme aktif."
+msgstr "Sürüm %1$s oluşturuldu, %2$s için izleme etkin."
 
 #: libraries/classes/Tracking.php:1114 libraries/classes/Tracking.php:1258
 #: templates/table/tracking/selectable_tables.twig:9
 msgid "active"
-msgstr "aktif"
+msgstr "etkin"
 
 #: libraries/classes/Tracking.php:1117 libraries/classes/Tracking.php:1253
 #: templates/table/tracking/selectable_tables.twig:11
 msgid "not active"
-msgstr "aktif değil"
+msgstr "etkin değil"
 
 #: libraries/classes/Types.php:203
 msgid ""
@@ -14625,7 +14621,7 @@ msgstr "Seçilen kullanıcı hesaplarını kaldır"
 
 #: templates/privileges/delete_user_fieldset.twig:6
 msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr "Kullanıcılardan tüm aktif yetkileri geri alır ve sonra da siler."
+msgstr "Kullanıcılardan tüm etkin yetkileri geri alır ve sonra da siler."
 
 #: templates/privileges/delete_user_fieldset.twig:7
 #: templates/privileges/delete_user_fieldset.twig:10
@@ -15027,7 +15023,7 @@ msgstr "%s MiB'tan büyük tabloları atla"
 
 #: templates/database/designer/query_details.twig:6
 msgid "Active options"
-msgstr "Aktif seçenekler"
+msgstr "Etkin seçenekler"
 
 #: templates/columns_definitions/column_default.twig:3
 msgctxt "for default"
@@ -15524,11 +15520,11 @@ msgstr "%s sütunu kaldırıldı."
 
 #: templates/database/structure/tracking_icon.twig:3
 msgid "Tracking is active."
-msgstr "İzleme aktif."
+msgstr "İzleme etkin."
 
 #: templates/database/structure/tracking_icon.twig:5
 msgid "Tracking is not active."
-msgstr "İzleme aktif değil."
+msgstr "İzleme etkin değil."
 
 #: templates/table/gis_visualization/gis_visualization.twig:3
 msgid "Display GIS Visualization"
