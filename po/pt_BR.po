@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-07-12 01:21-0300\n"
-"PO-Revision-Date: 2019-06-29 18:49+0000\n"
+"PO-Revision-Date: 2019-07-12 04:35+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-9/pt_BR/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.8-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -3566,12 +3566,9 @@ msgid "accent-sensitive"
 msgstr "Diferencia letras acentuadas"
 
 #: libraries/classes/Charsets.php:675
-#, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "accent-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "Diferencia letras acentuadas"
+msgstr "Diferencia kanas"
 
 #: libraries/classes/Charsets.php:679
 msgctxt "Collation variant"
@@ -3586,7 +3583,7 @@ msgstr "binário"
 #: libraries/classes/Charsets.php:685
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "Diferencia espaços"
 
 #: libraries/classes/Config.php:1122
 #, php-format
