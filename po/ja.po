@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-07-12 02:20-0300\n"
-"PO-Revision-Date: 2019-06-24 14:00+0000\n"
+"PO-Revision-Date: 2019-07-14 00:00+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.7.1-dev\n"
+"X-Generator: Weblate 3.8-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -3154,12 +3154,9 @@ msgid "accent-sensitive"
 msgstr "アクセントを区別する"
 
 #: libraries/classes/Charsets/Collation.php:524
-#, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "accent-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "アクセントを区別する"
+msgstr "かなを区別する"
 
 #: libraries/classes/Charsets/Collation.php:528
 msgctxt "Collation variant"
@@ -3174,7 +3171,7 @@ msgstr "バイナリ"
 #: libraries/classes/Charsets/Collation.php:534
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "パッドなし"
 
 #: libraries/classes/Config.php:1144
 #, php-format
@@ -3698,10 +3695,8 @@ msgstr "ラベルキー"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:557
 #: templates/database/data_dictionary/index.twig:25
 #: templates/columns_definitions/table_fields_definitions.twig:71
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media type"
-msgstr "MIME タイプ"
+msgstr "メディアタイプ"
 
 #: libraries/classes/Config/Descriptions.php:219
 #: libraries/classes/Config/Descriptions.php:231
@@ -4892,16 +4887,11 @@ msgid "Bookmark table"
 msgstr "ブックマークテーブル"
 
 #: libraries/classes/Config/Descriptions.php:616
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: "
-#| "[kbd]pma__column_info[/kbd]."
 msgid ""
 "Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
-"カラムのコメントと MIME タイプ機能を使わない場合は空欄にします。"
-"[kbd]pma__column_info[/kbd] としておくのがいいでしょう。"
+"カラムのコメントと メディア タイプ機能を使わない場合は空欄にします。[kbd]pma__column_info[/kbd] としておくのがいいでしょう。"
 
 #: libraries/classes/Config/Descriptions.php:619
 msgid "Column information table"
@@ -9830,10 +9820,8 @@ msgstr "コメントを表示する"
 #: libraries/classes/Plugins/Export/ExportLatex.php:156
 #: libraries/classes/Plugins/Export/ExportOdt.php:116
 #: libraries/classes/Plugins/Export/ExportSql.php:132
-#, fuzzy
-#| msgid "Display MIME types"
 msgid "Display media types"
-msgstr "MIME タイプを表示する"
+msgstr "メディア タイプを表示する"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
 msgid "Put columns names in the first row:"
@@ -10116,10 +10104,8 @@ msgid "AUTO_INCREMENT for table"
 msgstr "テーブルのAUTO_INCREMENT"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1911
-#, fuzzy
-#| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
-msgstr "テーブルに含まれている MIME タイプ"
+msgstr "テーブルに含まれている メディア タイプ"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1934
 msgid "RELATIONSHIPS FOR TABLE"
@@ -14604,10 +14590,8 @@ msgid "Check for latest version"
 msgstr "バージョンアップの確認"
 
 #: templates/transformation_overview.twig:1
-#, fuzzy
-#| msgid "Available MIME types"
 msgid "Available media types"
-msgstr "利用できる MIME タイプ"
+msgstr "利用できる メディア タイプ"
 
 #: templates/transformation_overview.twig:13
 msgid "Available browser display transformations"
@@ -14620,8 +14604,6 @@ msgstr "ブラウザ表示変換"
 
 #: templates/transformation_overview.twig:19
 #: templates/transformation_overview.twig:38
-#, fuzzy
-#| msgid "Description"
 msgctxt "for media type transformation"
 msgid "Description"
 msgstr "説明"
@@ -15002,10 +14984,8 @@ msgid "Requery"
 msgstr "再クエリ"
 
 #: templates/table/structure/display_structure.twig:70
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media type:"
-msgstr "MIME タイプ"
+msgstr "メディア タイプ:"
 
 #: templates/table/structure/display_structure.twig:112
 #, php-format
@@ -15380,26 +15360,20 @@ msgid "Author"
 msgstr "作者"
 
 #: templates/server/plugins/index.twig:37
-#, fuzzy
-#| msgid "active"
 msgid "inactive"
-msgstr "アクティブ"
+msgstr "非アクティブ"
 
 #: templates/server/plugins/index.twig:39
 msgid "disabled"
 msgstr "無効"
 
 #: templates/server/plugins/index.twig:41
-#, fuzzy
-#| msgid "Deleting"
 msgid "deleting"
 msgstr "削除しています"
 
 #: templates/server/plugins/index.twig:43
-#, fuzzy
-#| msgid "Delete"
 msgid "deleted"
-msgstr "削除"
+msgstr "削除しました"
 
 #: templates/database/structure/show_create.twig:2
 msgid "Showing create queries"
