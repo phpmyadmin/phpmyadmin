@@ -1623,7 +1623,7 @@ It means "average".
   any) will be included in backup.
 * "Enclose table and column names with backquotes" ensures that column
   and table names formed with special characters are protected.
-* "Add into comments" includes column comments, relations, and media (MIME)
+* "Add into comments" includes column comments, relations, and media
   types set in the pmadb in the dump as :term:`SQL` comments
   (*/\* xxx \*/*).
 

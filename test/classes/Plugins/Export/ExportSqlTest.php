@@ -1284,7 +1284,7 @@ class ExportSqlTest extends PmaTestCase
         );
 
         $this->assertStringContainsString(
-            "-- MEDIA (MIME) TYPES FOR TABLE :\n" .
+            "-- MEDIA TYPES FOR TABLE :\n" .
             "--   fieldname\n" .
             "--       Test<",
             $result

@@ -54,7 +54,7 @@ class TransformationOverviewControllerTest extends TestCase
         $actual = $controller->indexAction();
 
         $this->assertStringContainsString(
-            __('Available media (MIME) types'),
+            __('Available media types'),
             $actual
         );
         $this->assertStringContainsString(

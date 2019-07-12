@@ -129,7 +129,7 @@ class ExportSql extends ExportPlugin
             if (! empty($GLOBALS['cfgRelation']['mimework'])) {
                 $leaf = new BoolPropertyItem(
                     'mime',
-                    __('Display media (MIME) types')
+                    __('Display media types')
                 );
                 $subgroup->addProperty($leaf);
             }
@@ -1908,7 +1908,7 @@ class ExportSql extends ExportPlugin
             $schema_create .= $this->_possibleCRLF()
                 . $this->_exportComment()
                 . $this->_exportComment(
-                    __('MEDIA (MIME) TYPES FOR TABLE') . ' '
+                    __('MEDIA TYPES FOR TABLE') . ' '
                     . Util::backquote($table, $sql_backquotes) . ':'
                 );
             foreach ($mime_map as $mime_field => $mime) {

@@ -554,7 +554,7 @@ class Pdf extends PdfLib
             $columns_cnt++;
         }
         if ($do_mime && $cfgRelation['mimework']) {
-            $this->colTitles[$columns_cnt] = __('Media (MIME) type');
+            $this->colTitles[$columns_cnt] = __('Media type');
             $this->display_column[$columns_cnt] = true;
             $this->colAlign[$columns_cnt] = 'L';
             $this->tablewidths[$columns_cnt] = 120;
