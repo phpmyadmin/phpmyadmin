@@ -1618,12 +1618,10 @@ jquery-ui@1.12.1:
   resolved "https://registry.yarnpkg.com/jquery-ui/-/jquery-ui-1.12.1.tgz#bcb4045c8dd0539c134bc1488cdd3e768a7a9e51"
   integrity sha1-vLQEXI3QU5wTS8FIjN0+dop6nlE=
 
-jquery-validation@1.19.0:
-  version "1.19.0"
-  resolved "https://registry.yarnpkg.com/jquery-validation/-/jquery-validation-1.19.0.tgz#0fedf0c0483a030c4fff072398898ac18cfd6e40"
-  integrity sha512-i1ygcs9K9eI0jqQ8fiOZdT0Ofw941YII1zyPQDUkBS8t2G8SoSWz8UUEVT6gV1KvsaBbovtL8YxjLALACR0syQ==
-  dependencies:
-    jquery "^1.7 || ^2.0 || ^3.1"
+jquery-validation@1.19.1:
+  version "1.19.1"
+  resolved "https://registry.yarnpkg.com/jquery-validation/-/jquery-validation-1.19.1.tgz#a85043467dc2b70d9fff05778646d150e747742f"
+  integrity sha512-QNnrZBqSltWUEJx+shOY5WtfrIb0gWmDjFfQP8rZKqMMSfpRSwEkSqhfHPvDfkObD8Hnv5KHSYI8yg73sVFdqA==
 
 jquery.event.drag@2.2.2:
   version "2.2.2"
@@ -1634,11 +1632,6 @@ jquery@3.4.1:
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.4.1.tgz#714f1f8d9dde4bdfa55764ba37ef214630d80ef2"
   integrity sha512-36+AdBzCL+y6qjw5Tx7HgzeGCzC81MDDgaUP8ld2zhx58HdqXGoBd+tHdrBMiyjGQs0Hxs/MLZTu/eHNJJuWPw==
-
-"jquery@^1.7 || ^2.0 || ^3.1":
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
-  integrity sha512-Ubldcmxp5np52/ENotGxlLe6aGMvmF4R8S6tZjsP6Knsaxd/xp3Zrh50cG93lR6nPXyUFwzN3ZSOQI0wRJNdGg==
 
 js-cookie@2.2.0:
   version "2.2.0"
