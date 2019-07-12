@@ -273,7 +273,9 @@ class AuthenticationCookie extends AuthenticationPlugin
         if ($GLOBALS['error_handler']->hasDisplayErrors()) {
             echo '<div id="pma_errors">';
             $GLOBALS['error_handler']->dispErrors();
-            echo '</div>';
+            echo '</div>
+            </div>
+        </div>';
         }
 
         // close the wrapping div tag, if the request is after session timeout
