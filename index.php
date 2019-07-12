@@ -26,20 +26,20 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
         });
         $routes->addGroup('/server', function (RouteCollector $routes) {
             $routes->addRoute('GET', '/collations', function () {
-                require_once ROOT_PATH . 'libraries/entry_points/server_collations.php';
+                require_once ROOT_PATH . 'libraries/entry_points/server/collations.php';
             });
             $routes->addRoute(['GET', 'POST'], '/databases', function () {
-                require_once ROOT_PATH . 'libraries/entry_points/server_databases.php';
+                require_once ROOT_PATH . 'libraries/entry_points/server/databases.php';
             });
             $routes->addRoute('GET', '/engines', function () {
-                require_once ROOT_PATH . 'libraries/entry_points/server_engines.php';
+                require_once ROOT_PATH . 'libraries/entry_points/server/engines.php';
             });
             $routes->addRoute('GET', '/plugins', function () {
-                require_once ROOT_PATH . 'libraries/entry_points/server_plugins.php';
+                require_once ROOT_PATH . 'libraries/entry_points/server/plugins.php';
             });
             $routes->addGroup('/status', function (RouteCollector $routes) {
                 $routes->addRoute('GET', '/queries', function () {
-                    require_once ROOT_PATH . 'libraries/entry_points/server_status_queries.php';
+                    require_once ROOT_PATH . 'libraries/entry_points/server/status/queries.php';
                 });
             });
         });
