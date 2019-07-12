@@ -31,6 +31,9 @@
     "stylelint-config-standard": "^18.3.0",
     "stylelint-scss": "^3.9.1"
   },
+  "resolutions": {
+    "lodash": "^4.17.13"
+  },
   "scripts": {
     "postinstall": "yarn run --silent css-compile --quiet --style=compressed",
     "css-compile": "sass themes/pmahomme/scss:themes/pmahomme/css themes/original/scss:themes/original/css themes/metro/scss:themes/metro/css",
