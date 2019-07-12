@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-07-12 00:21-0300\n"
+"POT-Creation-Date: 2019-07-12 02:20-0300\n"
 "PO-Revision-Date: 2019-04-27 17:19+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Malay <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -3955,7 +3955,7 @@ msgstr ""
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #, fuzzy
 #| msgid "Display Features"
-msgid "Media (MIME) type"
+msgid "Media type"
 msgstr "Paparkan Ciri-ciri"
 
 #: libraries/classes/Config/Descriptions.php:219
@@ -5188,7 +5188,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:616
 msgid ""
-"Leave blank for no column comments/media (MIME) types, suggested: "
+"Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
 
@@ -10025,7 +10025,7 @@ msgstr "Memaparkan Komen Kolum"
 #: libraries/classes/Plugins/Export/ExportSql.php:132
 #, fuzzy
 #| msgid "Display Features"
-msgid "Display media (MIME) types"
+msgid "Display media types"
 msgstr "Paparkan Ciri-ciri"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
@@ -10344,7 +10344,7 @@ msgid "AUTO_INCREMENT for table"
 msgstr "Tambahkan nilai AUTO_INCREMENT"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1911
-msgid "MEDIA (MIME) TYPES FOR TABLE"
+msgid "MEDIA TYPES FOR TABLE"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1934
@@ -15006,7 +15006,7 @@ msgstr ""
 #: templates/transformation_overview.twig:1
 #, fuzzy
 #| msgid "Display Features"
-msgid "Available media (MIME) types"
+msgid "Available media types"
 msgstr "Paparkan Ciri-ciri"
 
 #: templates/transformation_overview.twig:13
@@ -15024,7 +15024,7 @@ msgstr "Informasi MasaJana"
 #: templates/transformation_overview.twig:38
 #, fuzzy
 #| msgid "Description"
-msgctxt "for media (MIME) type transformation"
+msgctxt "for media type transformation"
 msgid "Description"
 msgstr "Keterangan"
 
@@ -15471,7 +15471,7 @@ msgstr "pada kueri"
 #: templates/table/structure/display_structure.twig:70
 #, fuzzy
 #| msgid "Display Features"
-msgid "Media (MIME) type:"
+msgid "Media type:"
 msgstr "Paparkan Ciri-ciri"
 
 #: templates/table/structure/display_structure.twig:112
@@ -18098,6 +18098,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgctxt "for media (MIME) type transformation"
+#~ msgid "Description"
+#~ msgstr "Keterangan"
 
 #, fuzzy
 #~ msgctxt "for MIME transformation"

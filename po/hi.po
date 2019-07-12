@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-07-12 00:21-0300\n"
+"POT-Creation-Date: 2019-07-12 02:20-0300\n"
 "PO-Revision-Date: 2017-12-26 21:10+0000\n"
 "Last-Translator: Yash Kothari <yashkothari1000@gmail.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4111,7 +4111,7 @@ msgstr "लेबल कुंजी"
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #, fuzzy
 #| msgid "MIME type"
-msgid "Media (MIME) type"
+msgid "Media type"
 msgstr "MIME प्रकार"
 
 #: libraries/classes/Config/Descriptions.php:219
@@ -5529,7 +5529,7 @@ msgstr "बुकमार्क टेबल"
 #| "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 #| "kbd]"
 msgid ""
-"Leave blank for no column comments/media (MIME) types, suggested: "
+"Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
 "कोई डिजाइनर समर्थन के लिए खाली छोड़ दें, सुझाव [kbd]pma_designer_coords[/kbd]"
@@ -10550,7 +10550,7 @@ msgstr "फीचरस दिखाओ"
 #: libraries/classes/Plugins/Export/ExportSql.php:132
 #, fuzzy
 #| msgid "Display Features"
-msgid "Display media (MIME) types"
+msgid "Display media types"
 msgstr "फीचरस दिखाओ"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
@@ -10870,7 +10870,7 @@ msgstr "AUTO_INCREMENT मूल्य जोडें"
 #: libraries/classes/Plugins/Export/ExportSql.php:1911
 #, fuzzy
 #| msgid "MIME TYPES FOR TABLE"
-msgid "MEDIA (MIME) TYPES FOR TABLE"
+msgid "MEDIA TYPES FOR TABLE"
 msgstr "टेबल के लिए MIME प्रकार"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1934
@@ -15717,7 +15717,7 @@ msgstr "नवीनतम संस्करण के लिए जाँच"
 #: templates/transformation_overview.twig:1
 #, fuzzy
 #| msgid "Available MIME types"
-msgid "Available media (MIME) types"
+msgid "Available media types"
 msgstr "MIME परकआर जो उपलब्ध हैं"
 
 #: templates/transformation_overview.twig:13
@@ -15737,7 +15737,7 @@ msgstr "सामग्री दिखाने"
 #: templates/transformation_overview.twig:38
 #, fuzzy
 #| msgid "Description"
-msgctxt "for media (MIME) type transformation"
+msgctxt "for media type transformation"
 msgid "Description"
 msgstr "वर्णन"
 
@@ -16190,7 +16190,7 @@ msgstr "उप-क्वरी"
 #: templates/table/structure/display_structure.twig:70
 #, fuzzy
 #| msgid "MIME type"
-msgid "Media (MIME) type:"
+msgid "Media type:"
 msgstr "MIME प्रकार"
 
 #: templates/table/structure/display_structure.twig:112
@@ -18920,6 +18920,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 0 पर सेट है"
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgctxt "for media (MIME) type transformation"
+#~ msgid "Description"
+#~ msgstr "वर्णन"
 
 #, fuzzy
 #~| msgid "MIME type"

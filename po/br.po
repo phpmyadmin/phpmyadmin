@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-07-12 00:21-0300\n"
+"POT-Creation-Date: 2019-07-12 02:20-0300\n"
 "PO-Revision-Date: 2019-04-27 17:19+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Breton <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4044,7 +4044,7 @@ msgstr "Alc'hwez an dikedenn"
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #, fuzzy
 #| msgid "MIME type"
-msgid "Media (MIME) type"
+msgid "Media type"
 msgstr "Seurt MIME"
 
 #: libraries/classes/Config/Descriptions.php:219
@@ -5378,7 +5378,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:616
 msgid ""
-"Leave blank for no column comments/media (MIME) types, suggested: "
+"Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
 
@@ -10228,8 +10228,10 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportLatex.php:156
 #: libraries/classes/Plugins/Export/ExportOdt.php:116
 #: libraries/classes/Plugins/Export/ExportSql.php:132
-msgid "Display media (MIME) types"
-msgstr ""
+#, fuzzy
+#| msgid "Display errors"
+msgid "Display media types"
+msgstr "Diskouez ar fazioù"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
 #, fuzzy
@@ -10537,7 +10539,7 @@ msgid "AUTO_INCREMENT for table"
 msgstr "Ouzhpennañ talvoud an AUTO_INCREMENT"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1911
-msgid "MEDIA (MIME) TYPES FOR TABLE"
+msgid "MEDIA TYPES FOR TABLE"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1934
@@ -15202,7 +15204,7 @@ msgid "Check for latest version"
 msgstr ""
 
 #: templates/transformation_overview.twig:1
-msgid "Available media (MIME) types"
+msgid "Available media types"
 msgstr ""
 
 #: templates/transformation_overview.twig:13
@@ -15222,7 +15224,7 @@ msgstr "Dibarzhioù diskwel ar servijerioù"
 #: templates/transformation_overview.twig:38
 #, fuzzy
 #| msgid "Description"
-msgctxt "for media (MIME) type transformation"
+msgctxt "for media type transformation"
 msgid "Description"
 msgstr "Deskrivadur"
 
@@ -15661,7 +15663,7 @@ msgstr "Reked SQL"
 #: templates/table/structure/display_structure.twig:70
 #, fuzzy
 #| msgid "MIME type"
-msgid "Media (MIME) type:"
+msgid "Media type:"
 msgstr "Seurt MIME"
 
 #: templates/table/structure/display_structure.twig:112
@@ -18316,6 +18318,12 @@ msgid "concurrent_insert is set to 0"
 msgstr ""
 
 #, fuzzy
+#~| msgid "Description"
+#~ msgctxt "for media (MIME) type transformation"
+#~ msgid "Description"
+#~ msgstr "Deskrivadur"
+
+#, fuzzy
 #~| msgid "MIME type"
 #~ msgid "MIME"
 #~ msgstr "Seurt MIME"
@@ -18699,9 +18707,6 @@ msgstr ""
 
 #~ msgid "Default display direction"
 #~ msgstr "Talvoud dre ziouer durc'hadur an diskwel"
-
-#~ msgid "Display errors"
-#~ msgstr "Diskouez ar fazioù"
 
 #, fuzzy
 #~| msgid "Invalid export type"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-07-12 00:21-0300\n"
+"POT-Creation-Date: 2019-07-12 02:20-0300\n"
 "PO-Revision-Date: 2019-06-24 14:00+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -3758,7 +3758,7 @@ msgstr "Rótulo da chave"
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #, fuzzy
 #| msgid "MIME type"
-msgid "Media (MIME) type"
+msgid "Media type"
 msgstr "Tipo MIME"
 
 #: libraries/classes/Config/Descriptions.php:219
@@ -4989,7 +4989,7 @@ msgstr "Tabela de favoritos"
 #| "Leave blank for no column comments/mime types, suggested: "
 #| "[kbd]pma__column_info[/kbd]."
 msgid ""
-"Leave blank for no column comments/media (MIME) types, suggested: "
+"Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
 "Deixe em branco quando não houver colunas de comentário/tipo mime, "
@@ -10055,7 +10055,7 @@ msgstr "Exibir comentários"
 #: libraries/classes/Plugins/Export/ExportSql.php:132
 #, fuzzy
 #| msgid "Display MIME types"
-msgid "Display media (MIME) types"
+msgid "Display media types"
 msgstr "Exibir os tipos MIME"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
@@ -10352,7 +10352,7 @@ msgstr "AUTO_INCREMENT de tabela"
 #: libraries/classes/Plugins/Export/ExportSql.php:1911
 #, fuzzy
 #| msgid "MIME TYPES FOR TABLE"
-msgid "MEDIA (MIME) TYPES FOR TABLE"
+msgid "MEDIA TYPES FOR TABLE"
 msgstr "TIPOS MIME PARA TABELAS"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1934
@@ -14888,7 +14888,7 @@ msgstr "Verificar se é a última versão"
 #: templates/transformation_overview.twig:1
 #, fuzzy
 #| msgid "Available MIME types"
-msgid "Available media (MIME) types"
+msgid "Available media types"
 msgstr "Tipos de MIME disponíveis"
 
 #: templates/transformation_overview.twig:13
@@ -14904,7 +14904,7 @@ msgstr "Transformação de visualização do navegador"
 #: templates/transformation_overview.twig:38
 #, fuzzy
 #| msgid "Description"
-msgctxt "for media (MIME) type transformation"
+msgctxt "for media type transformation"
 msgid "Description"
 msgstr "Descrição"
 
@@ -15285,7 +15285,7 @@ msgstr "Re-consultar"
 #: templates/table/structure/display_structure.twig:70
 #, fuzzy
 #| msgid "MIME type"
-msgid "Media (MIME) type:"
+msgid "Media type:"
 msgstr "Tipo MIME"
 
 #: templates/table/structure/display_structure.twig:112
@@ -17912,6 +17912,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert é definido como 0"
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgctxt "for media (MIME) type transformation"
+#~ msgid "Description"
+#~ msgstr "Descrição"
 
 #~ msgid "MIME"
 #~ msgstr "MIME"

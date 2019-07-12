@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-07-12 00:21-0300\n"
+"POT-Creation-Date: 2019-07-12 02:20-0300\n"
 "PO-Revision-Date: 2018-12-18 22:09+0000\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -3991,7 +3991,7 @@ msgstr "ලේබල යතුර"
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #, fuzzy
 #| msgid "MIME type"
-msgid "Media (MIME) type"
+msgid "Media type"
 msgstr "MIME වර්ගය"
 
 #: libraries/classes/Config/Descriptions.php:219
@@ -5281,7 +5281,7 @@ msgstr "පොත්සලකුණු ගොනුව"
 #| "Leave blank for no column comments/mime types, suggested: "
 #| "[kbd]pma__column_info[/kbd]"
 msgid ""
-"Leave blank for no column comments/media (MIME) types, suggested: "
+"Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
 "තීර විස්තර/mime වර්ග විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න. යෝජිත: [kbd]pma__column_info[/"
@@ -10310,7 +10310,7 @@ msgstr "විස්තර පෙන්වන්න"
 #: libraries/classes/Plugins/Export/ExportSql.php:132
 #, fuzzy
 #| msgid "Display MIME types"
-msgid "Display media (MIME) types"
+msgid "Display media types"
 msgstr "MIME වර්ග පෙන්වන්න"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
@@ -10640,7 +10640,7 @@ msgstr "AUTO_INCREMENT අගයක් එක් කරන්න"
 #: libraries/classes/Plugins/Export/ExportSql.php:1911
 #, fuzzy
 #| msgid "MIME TYPES FOR TABLE"
-msgid "MEDIA (MIME) TYPES FOR TABLE"
+msgid "MEDIA TYPES FOR TABLE"
 msgstr "MIME TYPES FOR TABLE"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1934
@@ -15371,7 +15371,7 @@ msgstr "නවතම අනුවාදය සඳහා පරීක්ෂා �
 #: templates/transformation_overview.twig:1
 #, fuzzy
 #| msgid "Display MIME types"
-msgid "Available media (MIME) types"
+msgid "Available media types"
 msgstr "MIME වර්ග පෙන්වන්න"
 
 #: templates/transformation_overview.twig:13
@@ -15391,7 +15391,7 @@ msgstr "බ්‍රව්සර රූපාන්තරනය"
 #: templates/transformation_overview.twig:38
 #, fuzzy
 #| msgid "Description"
-msgctxt "for media (MIME) type transformation"
+msgctxt "for media type transformation"
 msgid "Description"
 msgstr "විස්තරය"
 
@@ -15840,7 +15840,7 @@ msgstr "උප විමසුම"
 #: templates/table/structure/display_structure.twig:70
 #, fuzzy
 #| msgid "MIME type"
-msgid "Media (MIME) type:"
+msgid "Media type:"
 msgstr "MIME වර්ගය"
 
 #: templates/table/structure/display_structure.twig:112
@@ -18451,6 +18451,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert ශුන්‍යයට සිටුවා ඇත"
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgctxt "for media (MIME) type transformation"
+#~ msgid "Description"
+#~ msgstr "විස්තරය"
 
 #, fuzzy
 #~| msgid "MIME type"

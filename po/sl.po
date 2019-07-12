@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-07-12 00:21-0300\n"
+"POT-Creation-Date: 2019-07-12 02:20-0300\n"
 "PO-Revision-Date: 2019-06-24 14:00+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -3737,7 +3737,7 @@ msgstr "Označi ključ"
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #, fuzzy
 #| msgid "MIME type"
-msgid "Media (MIME) type"
+msgid "Media type"
 msgstr "Vrsta MIME"
 
 #: libraries/classes/Config/Descriptions.php:219
@@ -4955,7 +4955,7 @@ msgstr "Tabela zaznamkov"
 #| "Leave blank for no column comments/mime types, suggested: "
 #| "[kbd]pma__column_info[/kbd]."
 msgid ""
-"Leave blank for no column comments/media (MIME) types, suggested: "
+"Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
 "Pustite prazno, če ne želite pripomb/vrst MIME stolpcev; predlagano: "
@@ -9959,7 +9959,7 @@ msgstr "Prikaži pripombe"
 #: libraries/classes/Plugins/Export/ExportSql.php:132
 #, fuzzy
 #| msgid "Display MIME types"
-msgid "Display media (MIME) types"
+msgid "Display media types"
 msgstr "Prikaži vrste MIME"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
@@ -10253,7 +10253,7 @@ msgstr "AUTO_INCREMENT tabele"
 #: libraries/classes/Plugins/Export/ExportSql.php:1911
 #, fuzzy
 #| msgid "MIME TYPES FOR TABLE"
-msgid "MEDIA (MIME) TYPES FOR TABLE"
+msgid "MEDIA TYPES FOR TABLE"
 msgstr "VRSTE MIME ZA TABELO"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1934
@@ -14774,7 +14774,7 @@ msgstr "Preveri za najnovejšo različico"
 #: templates/transformation_overview.twig:1
 #, fuzzy
 #| msgid "Available MIME types"
-msgid "Available media (MIME) types"
+msgid "Available media types"
 msgstr "Razpoložljive vrste MIME"
 
 #: templates/transformation_overview.twig:13
@@ -14790,7 +14790,7 @@ msgstr "Pretvorba brskalnikovega prikaza"
 #: templates/transformation_overview.twig:38
 #, fuzzy
 #| msgid "Description"
-msgctxt "for media (MIME) type transformation"
+msgctxt "for media type transformation"
 msgid "Description"
 msgstr "Opis"
 
@@ -15170,7 +15170,7 @@ msgstr "Ponovna poizvedba"
 #: templates/table/structure/display_structure.twig:70
 #, fuzzy
 #| msgid "MIME type"
-msgid "Media (MIME) type:"
+msgid "Media type:"
 msgstr "Vrsta MIME"
 
 #: templates/table/structure/display_structure.twig:112
@@ -17762,6 +17762,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastavljeno na 0"
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgctxt "for media (MIME) type transformation"
+#~ msgid "Description"
+#~ msgstr "Opis"
 
 #~ msgid "MIME"
 #~ msgstr "MIME"

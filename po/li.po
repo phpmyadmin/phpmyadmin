@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-07-12 00:21-0300\n"
+"POT-Creation-Date: 2019-07-12 02:20-0300\n"
 "PO-Revision-Date: 2015-12-29 15:36+0000\n"
 "Last-Translator: Robin van der Vliet <info@robinvandervliet.nl>\n"
 "Language-Team: Limburgish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -3584,7 +3584,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:557
 #: templates/database/data_dictionary/index.twig:25
 #: templates/columns_definitions/table_fields_definitions.twig:71
-msgid "Media (MIME) type"
+msgid "Media type"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:219
@@ -4717,7 +4717,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:616
 msgid ""
-"Leave blank for no column comments/media (MIME) types, suggested: "
+"Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
 
@@ -9251,7 +9251,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportLatex.php:156
 #: libraries/classes/Plugins/Export/ExportOdt.php:116
 #: libraries/classes/Plugins/Export/ExportSql.php:132
-msgid "Display media (MIME) types"
+msgid "Display media types"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
@@ -9521,7 +9521,7 @@ msgid "AUTO_INCREMENT for table"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1911
-msgid "MEDIA (MIME) TYPES FOR TABLE"
+msgid "MEDIA TYPES FOR TABLE"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1934
@@ -13747,7 +13747,7 @@ msgid "Check for latest version"
 msgstr ""
 
 #: templates/transformation_overview.twig:1
-msgid "Available media (MIME) types"
+msgid "Available media types"
 msgstr ""
 
 #: templates/transformation_overview.twig:13
@@ -13761,7 +13761,7 @@ msgstr ""
 
 #: templates/transformation_overview.twig:19
 #: templates/transformation_overview.twig:38
-msgctxt "for media (MIME) type transformation"
+msgctxt "for media type transformation"
 msgid "Description"
 msgstr ""
 
@@ -14137,7 +14137,7 @@ msgid "Requery"
 msgstr ""
 
 #: templates/table/structure/display_structure.twig:70
-msgid "Media (MIME) type:"
+msgid "Media type:"
 msgstr ""
 
 #: templates/table/structure/display_structure.twig:112

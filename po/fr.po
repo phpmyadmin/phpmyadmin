@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-07-12 00:21-0300\n"
+"POT-Creation-Date: 2019-07-12 02:20-0300\n"
 "PO-Revision-Date: 2019-06-24 14:00+0000\n"
 "Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -3774,7 +3774,7 @@ msgstr "Clé de libellé"
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #, fuzzy
 #| msgid "MIME type"
-msgid "Media (MIME) type"
+msgid "Media type"
 msgstr "Type MIME"
 
 #: libraries/classes/Config/Descriptions.php:219
@@ -5005,7 +5005,7 @@ msgstr "Mettre la table en signet"
 #| "Leave blank for no column comments/mime types, suggested: "
 #| "[kbd]pma__column_info[/kbd]."
 msgid ""
-"Leave blank for no column comments/media (MIME) types, suggested: "
+"Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
 "Laisser vider pour désactiver les commentaires sur les colonnes et les types "
@@ -10100,7 +10100,7 @@ msgstr "Afficher les commentaires"
 #: libraries/classes/Plugins/Export/ExportSql.php:132
 #, fuzzy
 #| msgid "Display MIME types"
-msgid "Display media (MIME) types"
+msgid "Display media types"
 msgstr "Afficher les types MIME"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
@@ -10399,7 +10399,7 @@ msgstr "AUTO_INCREMENT pour la table"
 #: libraries/classes/Plugins/Export/ExportSql.php:1911
 #, fuzzy
 #| msgid "MIME TYPES FOR TABLE"
-msgid "MEDIA (MIME) TYPES FOR TABLE"
+msgid "MEDIA TYPES FOR TABLE"
 msgstr "TYPES MIME POUR LA TABLE"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1934
@@ -14991,7 +14991,7 @@ msgstr "Vérifier la présence d'une nouvelle version"
 #: templates/transformation_overview.twig:1
 #, fuzzy
 #| msgid "Available MIME types"
-msgid "Available media (MIME) types"
+msgid "Available media types"
 msgstr "Types MIME disponibles"
 
 #: templates/transformation_overview.twig:13
@@ -15007,7 +15007,7 @@ msgstr "Transformation d'affichage"
 #: templates/transformation_overview.twig:38
 #, fuzzy
 #| msgid "Description"
-msgctxt "for media (MIME) type transformation"
+msgctxt "for media type transformation"
 msgid "Description"
 msgstr "Description"
 
@@ -15390,7 +15390,7 @@ msgstr "Exécuter la requête à nouveau"
 #: templates/table/structure/display_structure.twig:70
 #, fuzzy
 #| msgid "MIME type"
-msgid "Media (MIME) type:"
+msgid "Media type:"
 msgstr "Type MIME"
 
 #: templates/table/structure/display_structure.twig:112
@@ -18023,6 +18023,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "Le paramètre concurrent_insert a une valeur de 0"
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgctxt "for media (MIME) type transformation"
+#~ msgid "Description"
+#~ msgstr "Description"
 
 #~ msgid "MIME"
 #~ msgstr "MIME"

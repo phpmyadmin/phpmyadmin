@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-07-12 00:21-0300\n"
+"POT-Creation-Date: 2019-07-12 02:20-0300\n"
 "PO-Revision-Date: 2019-07-12 03:59+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
@@ -3758,7 +3758,9 @@ msgstr "Rótulo da chave"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:557
 #: templates/database/data_dictionary/index.twig:25
 #: templates/columns_definitions/table_fields_definitions.twig:71
-msgid "Media (MIME) type"
+#, fuzzy
+#| msgid "Media (MIME) type"
+msgid "Media type"
 msgstr "Tipo de mídia (MIME)"
 
 #: libraries/classes/Config/Descriptions.php:219
@@ -4982,8 +4984,12 @@ msgid "Bookmark table"
 msgstr "Tabela de favoritos"
 
 #: libraries/classes/Config/Descriptions.php:616
+#, fuzzy
+#| msgid ""
+#| "Leave blank for no column comments/media (MIME) types, suggested: "
+#| "[kbd]pma__column_info[/kbd]."
 msgid ""
-"Leave blank for no column comments/media (MIME) types, suggested: "
+"Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
 "Deixe em branco quando não houver comentários/tipos de mídia (MIME), "
@@ -10037,7 +10043,9 @@ msgstr "Exibir comentários"
 #: libraries/classes/Plugins/Export/ExportLatex.php:156
 #: libraries/classes/Plugins/Export/ExportOdt.php:116
 #: libraries/classes/Plugins/Export/ExportSql.php:132
-msgid "Display media (MIME) types"
+#, fuzzy
+#| msgid "Display media (MIME) types"
+msgid "Display media types"
 msgstr "Exibir os tipos de mídia (MIME)"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
@@ -10331,7 +10339,9 @@ msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT de tabela"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1911
-msgid "MEDIA (MIME) TYPES FOR TABLE"
+#, fuzzy
+#| msgid "MEDIA (MIME) TYPES FOR TABLE"
+msgid "MEDIA TYPES FOR TABLE"
 msgstr "TIPOS DE MÍDIA (MIME) PARA TABELAS"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1934
@@ -14870,7 +14880,9 @@ msgid "Check for latest version"
 msgstr "Verificar a última versão"
 
 #: templates/transformation_overview.twig:1
-msgid "Available media (MIME) types"
+#, fuzzy
+#| msgid "Available media (MIME) types"
+msgid "Available media types"
 msgstr "Tipos de mídia (MIME) disponíveis"
 
 #: templates/transformation_overview.twig:13
@@ -14884,7 +14896,9 @@ msgstr "Transformação de visualização do navegador"
 
 #: templates/transformation_overview.twig:19
 #: templates/transformation_overview.twig:38
-msgctxt "for media (MIME) type transformation"
+#, fuzzy
+#| msgid "Description"
+msgctxt "for media type transformation"
 msgid "Description"
 msgstr "Descrição"
 
@@ -15263,7 +15277,9 @@ msgid "Requery"
 msgstr "Repetir consulta"
 
 #: templates/table/structure/display_structure.twig:70
-msgid "Media (MIME) type:"
+#, fuzzy
+#| msgid "Media (MIME) type:"
+msgid "Media type:"
 msgstr "Tipo de mídia (MIME):"
 
 #: templates/table/structure/display_structure.twig:112
@@ -17881,6 +17897,10 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert está com valor 0"
+
+#~ msgctxt "for media (MIME) type transformation"
+#~ msgid "Description"
+#~ msgstr "Descrição"
 
 #~ msgid "MIME"
 #~ msgstr "MIME"

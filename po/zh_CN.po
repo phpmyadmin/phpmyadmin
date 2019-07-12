@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-07-12 00:21-0300\n"
+"POT-Creation-Date: 2019-07-12 02:20-0300\n"
 "PO-Revision-Date: 2019-04-27 17:19+0000\n"
 "Last-Translator: Joseph Lee <cn.airsoftware@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -3612,7 +3612,7 @@ msgstr "标签"
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #, fuzzy
 #| msgid "MIME type"
-msgid "Media (MIME) type"
+msgid "Media type"
 msgstr "MIME 类型"
 
 #: libraries/classes/Config/Descriptions.php:219
@@ -4777,7 +4777,7 @@ msgstr "书签表"
 #| "Leave blank for no column comments/mime types, suggested: "
 #| "[kbd]pma__column_info[/kbd]."
 msgid ""
-"Leave blank for no column comments/media (MIME) types, suggested: "
+"Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr "留空则不使用列信息和MIME类型。推荐: [kbd]pma__column_info[/kbd]。"
 
@@ -9487,7 +9487,7 @@ msgstr "显示注释"
 #: libraries/classes/Plugins/Export/ExportSql.php:132
 #, fuzzy
 #| msgid "Display MIME types"
-msgid "Display media (MIME) types"
+msgid "Display media types"
 msgstr "显示 MIME 类型"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
@@ -9770,7 +9770,7 @@ msgstr "使用表AUTO_INCREMENT"
 #: libraries/classes/Plugins/Export/ExportSql.php:1911
 #, fuzzy
 #| msgid "MIME TYPES FOR TABLE"
-msgid "MEDIA (MIME) TYPES FOR TABLE"
+msgid "MEDIA TYPES FOR TABLE"
 msgstr "MIME 类型表"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1934
@@ -14119,7 +14119,7 @@ msgstr "检查更新"
 #: templates/transformation_overview.twig:1
 #, fuzzy
 #| msgid "Available MIME types"
-msgid "Available media (MIME) types"
+msgid "Available media types"
 msgstr "可用的 MIME 类型"
 
 #: templates/transformation_overview.twig:13
@@ -14135,7 +14135,7 @@ msgstr "浏览器显示转换"
 #: templates/transformation_overview.twig:38
 #, fuzzy
 #| msgid "Description"
-msgctxt "for media (MIME) type transformation"
+msgctxt "for media type transformation"
 msgid "Description"
 msgstr "说明"
 
@@ -14510,7 +14510,7 @@ msgstr "重新查询"
 #: templates/table/structure/display_structure.twig:70
 #, fuzzy
 #| msgid "MIME type"
-msgid "Media (MIME) type:"
+msgid "Media type:"
 msgstr "MIME 类型"
 
 #: templates/table/structure/display_structure.twig:112
@@ -16930,6 +16930,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 被设为 0"
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgctxt "for media (MIME) type transformation"
+#~ msgid "Description"
+#~ msgstr "说明"
 
 #~ msgid "MIME"
 #~ msgstr "MIME"

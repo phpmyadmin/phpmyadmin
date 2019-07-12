@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-07-12 00:21-0300\n"
+"POT-Creation-Date: 2019-07-12 02:20-0300\n"
 "PO-Revision-Date: 2019-07-12 01:00+0000\n"
 "Last-Translator: Kongfa Warorot <gongpha@hotmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -3980,7 +3980,7 @@ msgstr "คีย์ป้ายชื่อ"
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #, fuzzy
 #| msgid "MIME type"
-msgid "Media (MIME) type"
+msgid "Media type"
 msgstr "MIME-type"
 
 #: libraries/classes/Config/Descriptions.php:219
@@ -5244,7 +5244,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:616
 msgid ""
-"Leave blank for no column comments/media (MIME) types, suggested: "
+"Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
 
@@ -10174,7 +10174,7 @@ msgstr "แสดงหมายเหตุของคอลัมน์"
 #: libraries/classes/Plugins/Export/ExportSql.php:132
 #, fuzzy
 #| msgid "Available MIME types"
-msgid "Display media (MIME) types"
+msgid "Display media types"
 msgstr "MIME-types ที่มีอยู่"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
@@ -10490,7 +10490,7 @@ msgid "AUTO_INCREMENT for table"
 msgstr "เพิ่มค่า AUTO_INCREMENT"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1911
-msgid "MEDIA (MIME) TYPES FOR TABLE"
+msgid "MEDIA TYPES FOR TABLE"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1934
@@ -15307,7 +15307,7 @@ msgstr ""
 #: templates/transformation_overview.twig:1
 #, fuzzy
 #| msgid "Available MIME types"
-msgid "Available media (MIME) types"
+msgid "Available media types"
 msgstr "MIME-types ที่มีอยู่"
 
 #: templates/transformation_overview.twig:13
@@ -15326,7 +15326,7 @@ msgstr "การแปลงที่เรียกใช้ได้"
 #: templates/transformation_overview.twig:38
 #, fuzzy
 #| msgid "Description"
-msgctxt "for media (MIME) type transformation"
+msgctxt "for media type transformation"
 msgid "Description"
 msgstr "คำอธิบาย"
 
@@ -15778,7 +15778,7 @@ msgstr "ในคำค้น"
 #: templates/table/structure/display_structure.twig:70
 #, fuzzy
 #| msgid "MIME type"
-msgid "Media (MIME) type:"
+msgid "Media type:"
 msgstr "MIME-type"
 
 #: templates/table/structure/display_structure.twig:112
@@ -18517,6 +18517,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert ถูกตั้งค่าไว้ที่ 0"
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgctxt "for media (MIME) type transformation"
+#~ msgid "Description"
+#~ msgstr "คำอธิบาย"
 
 #, fuzzy
 #~| msgid "MIME type"

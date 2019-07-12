@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-07-12 00:21-0300\n"
+"POT-Creation-Date: 2019-07-12 02:20-0300\n"
 "PO-Revision-Date: 2019-04-27 17:19+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -4164,7 +4164,7 @@ msgstr ""
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #, fuzzy
 #| msgid "MIME type"
-msgid "Media (MIME) type"
+msgid "Media type"
 msgstr "MIME-ის ტიპი"
 
 #: libraries/classes/Config/Descriptions.php:219
@@ -5489,7 +5489,7 @@ msgstr "ცხრილის ჩანიშვნა"
 #| msgid ""
 #| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
 msgid ""
-"Leave blank for no column comments/media (MIME) types, suggested: "
+"Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
@@ -10610,7 +10610,7 @@ msgstr "Displaying Column Comments"
 #: libraries/classes/Plugins/Export/ExportSql.php:132
 #, fuzzy
 #| msgid "Available MIME types"
-msgid "Display media (MIME) types"
+msgid "Display media types"
 msgstr "MIME-ის ხელმისაწვდომი ტიპები"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
@@ -10934,7 +10934,7 @@ msgstr "Add AUTO_INCREMENT value"
 #: libraries/classes/Plugins/Export/ExportSql.php:1911
 #, fuzzy
 #| msgid "MIME TYPES FOR TABLE"
-msgid "MEDIA (MIME) TYPES FOR TABLE"
+msgid "MEDIA TYPES FOR TABLE"
 msgstr "MIME TYPES FOR TABLE"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1934
@@ -15824,7 +15824,7 @@ msgstr "უკანასკნელ ვერსიაზე შემოწ�
 #: templates/transformation_overview.twig:1
 #, fuzzy
 #| msgid "Available MIME types"
-msgid "Available media (MIME) types"
+msgid "Available media types"
 msgstr "MIME-ის ხელმისაწვდომი ტიპები"
 
 #: templates/transformation_overview.twig:13
@@ -15844,7 +15844,7 @@ msgstr "ინფორმაცია ბრაუზერის შესა�
 #: templates/transformation_overview.twig:38
 #, fuzzy
 #| msgid "Description"
-msgctxt "for media (MIME) type transformation"
+msgctxt "for media type transformation"
 msgid "Description"
 msgstr "აღწერილობა"
 
@@ -16306,7 +16306,7 @@ msgstr "მოთხოვნაში"
 #: templates/table/structure/display_structure.twig:70
 #, fuzzy
 #| msgid "MIME type"
-msgid "Media (MIME) type:"
+msgid "Media type:"
 msgstr "MIME-ის ტიპი"
 
 #: templates/table/structure/display_structure.twig:112
@@ -19089,6 +19089,12 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
 msgstr "max. concurrent connections"
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgctxt "for media (MIME) type transformation"
+#~ msgid "Description"
+#~ msgstr "აღწერილობა"
 
 #, fuzzy
 #~| msgid "MIME type"

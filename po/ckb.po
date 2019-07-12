@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-07-12 00:21-0300\n"
+"POT-Creation-Date: 2019-07-12 02:20-0300\n"
 "PO-Revision-Date: 2019-06-02 20:04+0000\n"
 "Last-Translator: suhaibsliman <swhaebs@gmail.com>\n"
 "Language-Team: Sorani <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -3650,8 +3650,10 @@ msgstr ""
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:557
 #: templates/database/data_dictionary/index.twig:25
 #: templates/columns_definitions/table_fields_definitions.twig:71
-msgid "Media (MIME) type"
-msgstr ""
+#, fuzzy
+#| msgid "Bad type!"
+msgid "Media type"
+msgstr "جۆری هەڵە !"
 
 #: libraries/classes/Config/Descriptions.php:219
 #: libraries/classes/Config/Descriptions.php:231
@@ -4794,7 +4796,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:616
 msgid ""
-"Leave blank for no column comments/media (MIME) types, suggested: "
+"Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
 
@@ -9388,8 +9390,10 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportLatex.php:156
 #: libraries/classes/Plugins/Export/ExportOdt.php:116
 #: libraries/classes/Plugins/Export/ExportSql.php:132
-msgid "Display media (MIME) types"
-msgstr ""
+#, fuzzy
+#| msgid "Display chart"
+msgid "Display media types"
+msgstr "پێشاندانی هێلکاری"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
 msgid "Put columns names in the first row:"
@@ -9661,7 +9665,7 @@ msgid "AUTO_INCREMENT for table"
 msgstr "زۆرکردنی نرخی زۆربوونی خۆکارانە"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1911
-msgid "MEDIA (MIME) TYPES FOR TABLE"
+msgid "MEDIA TYPES FOR TABLE"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1934
@@ -13929,7 +13933,7 @@ msgid "Check for latest version"
 msgstr "پشکنین بۆ دۆزینەوەی نوێترین وەشان"
 
 #: templates/transformation_overview.twig:1
-msgid "Available media (MIME) types"
+msgid "Available media types"
 msgstr ""
 
 #: templates/transformation_overview.twig:13
@@ -13945,7 +13949,7 @@ msgstr ""
 #: templates/transformation_overview.twig:38
 #, fuzzy
 #| msgid "Description"
-msgctxt "for media (MIME) type transformation"
+msgctxt "for media type transformation"
 msgid "Description"
 msgstr "پێناسە"
 
@@ -14348,8 +14352,10 @@ msgid "Requery"
 msgstr "داواکاری"
 
 #: templates/table/structure/display_structure.twig:70
-msgid "Media (MIME) type:"
-msgstr ""
+#, fuzzy
+#| msgid "Server type:"
+msgid "Media type:"
+msgstr "جۆری ڕاژە:"
 
 #: templates/table/structure/display_structure.twig:112
 #, php-format
@@ -16691,6 +16697,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "نرخی concurrent_insert ڕێکخراوە بۆ 0"
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgctxt "for media (MIME) type transformation"
+#~ msgid "Description"
+#~ msgstr "پێناسە"
 
 #, fuzzy
 #~| msgid "Copying database"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-07-12 00:21-0300\n"
+"POT-Creation-Date: 2019-07-12 02:20-0300\n"
 "PO-Revision-Date: 2019-04-27 17:19+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Urdu <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4073,7 +4073,7 @@ msgstr "سرنامہ کلید"
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #, fuzzy
 #| msgid "MIME type"
-msgid "Media (MIME) type"
+msgid "Media type"
 msgstr "MIME قسم"
 
 #: libraries/classes/Config/Descriptions.php:219
@@ -5513,7 +5513,7 @@ msgstr "جدول نشان کریں"
 #| "Leave blank for no column comments/mime types, suggested: "
 #| "[kbd]pma_column_info[/kbd]"
 msgid ""
-"Leave blank for no column comments/media (MIME) types, suggested: "
+"Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
 "کالم تبصرہ/mime اقسام کے لیے خالی چھوڑیں, مجوزہ: [kbd]pma_column_info[/kbd]"
@@ -10486,8 +10486,10 @@ msgstr "ٹیبل کمنٹس"
 #: libraries/classes/Plugins/Export/ExportLatex.php:156
 #: libraries/classes/Plugins/Export/ExportOdt.php:116
 #: libraries/classes/Plugins/Export/ExportSql.php:132
-msgid "Display media (MIME) types"
-msgstr ""
+#, fuzzy
+#| msgid "Table comments"
+msgid "Display media types"
+msgstr "ٹیبل کمنٹس"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
 #, fuzzy
@@ -10799,7 +10801,7 @@ msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT قدر اضافہ کریں"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1911
-msgid "MEDIA (MIME) TYPES FOR TABLE"
+msgid "MEDIA TYPES FOR TABLE"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1934
@@ -15519,7 +15521,7 @@ msgid "Check for latest version"
 msgstr ""
 
 #: templates/transformation_overview.twig:1
-msgid "Available media (MIME) types"
+msgid "Available media types"
 msgstr ""
 
 #: templates/transformation_overview.twig:13
@@ -15539,7 +15541,7 @@ msgstr "سرور دکھانے کے اختیارات"
 #: templates/transformation_overview.twig:38
 #, fuzzy
 #| msgid "Description"
-msgctxt "for media (MIME) type transformation"
+msgctxt "for media type transformation"
 msgid "Description"
 msgstr "تفصیل"
 
@@ -15983,7 +15985,7 @@ msgstr "Submit Query"
 #: templates/table/structure/display_structure.twig:70
 #, fuzzy
 #| msgid "MIME type"
-msgid "Media (MIME) type:"
+msgid "Media type:"
 msgstr "MIME قسم"
 
 #: templates/table/structure/display_structure.twig:112
@@ -18656,6 +18658,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgctxt "for media (MIME) type transformation"
+#~ msgid "Description"
+#~ msgstr "تفصیل"
 
 #, fuzzy
 #~| msgid "MIME type"
