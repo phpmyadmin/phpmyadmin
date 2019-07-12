@@ -39,6 +39,8 @@
         "no-new-func": "error",
         "no-new-object": "error",
         "no-param-reassign": "error",
+        "no-prototype-builtins": "off",
+        "no-redeclare": ["error", { "builtinGlobals": false }],
         "no-trailing-spaces": "error",
         "no-underscore-dangle": "error",
         "no-unneeded-ternary": "error",
