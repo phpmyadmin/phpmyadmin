@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-06-29 15:34-0300\n"
+"POT-Creation-Date: 2019-07-12 00:18-0300\n"
 "PO-Revision-Date: 2019-04-27 17:19+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -512,7 +512,7 @@ msgstr "Seleccione a(s) columna(s) do índice."
 
 #: js/messages.php:134 libraries/classes/InsertEdit.php:1931
 #: templates/table/index_form.twig:220
-#: templates/table/relation/common_form.twig:215
+#: templates/table/relation/common_form.twig:216
 #: templates/columns_definitions/column_definitions_form.twig:149
 msgid "Preview SQL"
 msgstr "Visualización do SQL"
@@ -1344,7 +1344,7 @@ msgstr "A cambiar o xogo de caracteres"
 #: templates/server/privileges/privileges_summary.twig:37
 #: templates/server/privileges/privileges_summary.twig:40
 #: templates/server/privileges/privileges_summary.twig:42
-#: templates/database/central_columns/main.twig:372
+#: templates/database/central_columns/main.twig:370
 #: templates/preferences/manage/error.twig:19
 #: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/table/structure/display_structure.twig:80
@@ -1456,8 +1456,8 @@ msgstr "Mostrar a caixa de consultas"
 #: libraries/classes/Server/UserGroups.php:136 libraries/classes/Util.php:647
 #: libraries/classes/Util.php:1135 libraries/classes/Util.php:3456
 #: libraries/classes/Util.php:3457
-#: templates/database/central_columns/main.twig:283
-#: templates/database/central_columns/main.twig:404
+#: templates/database/central_columns/main.twig:281
+#: templates/database/central_columns/main.twig:402
 #: templates/setup/home/index.twig:57 templates/console/bookmark_content.twig:7
 #: templates/console/display.twig:31 templates/console/display.twig:175
 #: templates/server/variables/index.twig:38
@@ -1471,8 +1471,8 @@ msgstr "Editar"
 #: libraries/classes/Server/UserGroups.php:148
 #: libraries/classes/SqlQueryForm.php:438 libraries/classes/Tracking.php:298
 #: templates/database/search/results.twig:43
-#: templates/database/central_columns/main.twig:286
-#: templates/database/central_columns/main.twig:411
+#: templates/database/central_columns/main.twig:284
+#: templates/database/central_columns/main.twig:409
 #: templates/setup/home/index.twig:61
 #: templates/display/export/template_loading.twig:22
 #: templates/console/bookmark_content.twig:7
@@ -1660,7 +1660,7 @@ msgstr "Non hai ningunha dependencia seleccionada!"
 #: js/messages.php:491 libraries/classes/CentralColumns.php:965
 #: libraries/classes/InsertEdit.php:1845
 #: templates/table/gis_visualization/gis_visualization.twig:48
-#: templates/table/relation/common_form.twig:216
+#: templates/table/relation/common_form.twig:217
 #: templates/columns_definitions/column_definitions_form.twig:152
 #: templates/table/structure/partition_definition_form.twig:12
 #: templates/server/variables/index.twig:9
@@ -1830,7 +1830,7 @@ msgstr "Engadir un círculo interno"
 #: templates/server/privileges/privileges_summary.twig:37
 #: templates/server/privileges/privileges_summary.twig:40
 #: templates/server/privileges/privileges_summary.twig:42
-#: templates/database/central_columns/main.twig:372
+#: templates/database/central_columns/main.twig:370
 #: templates/preferences/manage/error.twig:18
 #: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/table/structure/display_structure.twig:80
@@ -2771,7 +2771,7 @@ msgstr "Nome da chave"
 #: templates/server/status/variables/index.twig:72
 #: templates/server/engines/index.twig:10
 #: templates/server/collations/index.twig:11
-#: templates/server/plugins/index.twig:24
+#: templates/server/plugins/index.twig:23
 msgid "Description"
 msgstr "Descrición"
 
@@ -2830,7 +2830,7 @@ msgstr "NON"
 #: libraries/classes/Rte/RteList.php:117 libraries/classes/Rte/RteList.php:129
 #: libraries/classes/Rte/RteList.php:144
 #: templates/database/central_columns/main.twig:17
-#: templates/database/central_columns/main.twig:238
+#: templates/database/central_columns/main.twig:236
 #: templates/database/create_table.twig:11 templates/setup/home/index.twig:43
 #: templates/table/structure/display_structure.twig:21
 #: templates/columns_definitions/table_fields_definitions.twig:9
@@ -2855,7 +2855,7 @@ msgstr "Nome"
 #: libraries/classes/Rte/RteList.php:119 libraries/classes/Rte/RteList.php:147
 #: libraries/classes/Server/Privileges.php:2712
 #: templates/database/central_columns/main.twig:21
-#: templates/database/central_columns/main.twig:242
+#: templates/database/central_columns/main.twig:240
 #: templates/database/structure/table_header.twig:30
 #: templates/table/search/fields_table.twig:8
 #: templates/table/tracking/structure_snapshot_columns.twig:7
@@ -2884,7 +2884,7 @@ msgstr "Tamaño/Valores"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:689
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:722
 #: templates/database/central_columns/main.twig:29
-#: templates/database/central_columns/main.twig:250
+#: templates/database/central_columns/main.twig:248
 #: templates/table/tracking/structure_snapshot_columns.twig:10
 #: templates/table/structure/display_structure.twig:26
 #: templates/database/data_dictionary/index.twig:19
@@ -2897,7 +2897,7 @@ msgstr "Predeterminado"
 #: libraries/classes/CentralColumns.php:1018 libraries/classes/Index.php:722
 #: libraries/classes/Operations.php:311 libraries/classes/Operations.php:1143
 #: templates/database/central_columns/main.twig:33
-#: templates/database/central_columns/main.twig:254
+#: templates/database/central_columns/main.twig:252
 #: templates/database/structure/table_header.twig:31
 #: templates/server/databases/index.twig:37
 #: templates/server/databases/index.twig:120
@@ -2932,7 +2932,7 @@ msgstr "Atributos"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:688
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:721
 #: templates/database/central_columns/main.twig:41
-#: templates/database/central_columns/main.twig:262
+#: templates/database/central_columns/main.twig:260
 #: templates/table/tracking/structure_snapshot_columns.twig:9
 #: templates/table/structure/display_structure.twig:25
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
@@ -2944,387 +2944,400 @@ msgstr "Nulo"
 
 #: libraries/classes/CentralColumns.php:1021
 #: templates/database/central_columns/main.twig:45
-#: templates/database/central_columns/main.twig:266
+#: templates/database/central_columns/main.twig:264
 msgid "A_I"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:186
+#: libraries/classes/Charsets/Collation.php:184
 #, fuzzy
 #| msgid "unknown"
 msgid "Unknown"
 msgstr "descoñecido"
 
-#: libraries/classes/Charsets/Collation.php:200
+#: libraries/classes/Charsets/Collation.php:198
 #, fuzzy
 #| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Binario"
 
-#: libraries/classes/Charsets/Collation.php:212
-#: libraries/classes/Charsets/Collation.php:446
+#: libraries/classes/Charsets/Collation.php:210
+#: libraries/classes/Charsets/Collation.php:449
 #, fuzzy
 #| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicode"
 
-#: libraries/classes/Charsets/Collation.php:222
-#: libraries/classes/Charsets/Collation.php:397
+#: libraries/classes/Charsets/Collation.php:220
+#: libraries/classes/Charsets/Collation.php:396
 #, fuzzy
 #| msgid "West European"
 msgctxt "Collation"
 msgid "West European"
 msgstr "Europeo occidental"
 
-#: libraries/classes/Charsets/Collation.php:229
+#: libraries/classes/Charsets/Collation.php:227
 #, fuzzy
 #| msgid "Central European"
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Centroeuropeo"
 
-#: libraries/classes/Charsets/Collation.php:234
+#: libraries/classes/Charsets/Collation.php:232
+#: libraries/classes/Charsets/Collation.php:403
 #, fuzzy
 #| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Ruso"
 
-#: libraries/classes/Charsets/Collation.php:239
+#: libraries/classes/Charsets/Collation.php:237
 #, fuzzy
 #| msgid "Simplified Chinese"
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Chinés simplificado"
 
-#: libraries/classes/Charsets/Collation.php:242
+#: libraries/classes/Charsets/Collation.php:240
 #, fuzzy
 #| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Chinés tradicional"
 
-#: libraries/classes/Charsets/Collation.php:245
-#: libraries/classes/Charsets/Collation.php:320
+#: libraries/classes/Charsets/Collation.php:243
+#: libraries/classes/Charsets/Collation.php:319
 msgctxt "Collation"
 msgid "Chinese"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:253
-#: libraries/classes/Charsets/Collation.php:368
+#: libraries/classes/Charsets/Collation.php:251
+#: libraries/classes/Charsets/Collation.php:367
 #, fuzzy
 #| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Xaponés"
 
-#: libraries/classes/Charsets/Collation.php:258
+#: libraries/classes/Charsets/Collation.php:256
 #, fuzzy
 #| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Báltico"
 
-#: libraries/classes/Charsets/Collation.php:263
+#: libraries/classes/Charsets/Collation.php:261
 #, fuzzy
 #| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Armenio"
 
-#: libraries/classes/Charsets/Collation.php:266
+#: libraries/classes/Charsets/Collation.php:264
 #, fuzzy
 #| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Cirílico"
 
-#: libraries/classes/Charsets/Collation.php:269
+#: libraries/classes/Charsets/Collation.php:267
 #, fuzzy
 #| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Árabe"
 
-#: libraries/classes/Charsets/Collation.php:272
-#: libraries/classes/Charsets/Collation.php:383
+#: libraries/classes/Charsets/Collation.php:270
+#: libraries/classes/Charsets/Collation.php:382
 #, fuzzy
 #| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Coreano"
 
-#: libraries/classes/Charsets/Collation.php:275
+#: libraries/classes/Charsets/Collation.php:273
 #, fuzzy
 #| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Hebreo"
 
-#: libraries/classes/Charsets/Collation.php:278
+#: libraries/classes/Charsets/Collation.php:276
 #, fuzzy
 #| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Xeorxiano"
 
-#: libraries/classes/Charsets/Collation.php:281
+#: libraries/classes/Charsets/Collation.php:279
 #, fuzzy
 #| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Grego"
 
-#: libraries/classes/Charsets/Collation.php:284
+#: libraries/classes/Charsets/Collation.php:282
 #, fuzzy
 #| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Checo-eslovaco"
 
-#: libraries/classes/Charsets/Collation.php:287
-#: libraries/classes/Charsets/Collation.php:438
+#: libraries/classes/Charsets/Collation.php:285
+#: libraries/classes/Charsets/Collation.php:441
 #, fuzzy
 #| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ucraíno"
 
-#: libraries/classes/Charsets/Collation.php:290
-#: libraries/classes/Charsets/Collation.php:434
+#: libraries/classes/Charsets/Collation.php:288
+#: libraries/classes/Charsets/Collation.php:437
 #, fuzzy
 #| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Turco"
 
-#: libraries/classes/Charsets/Collation.php:293
-#: libraries/classes/Charsets/Collation.php:426
+#: libraries/classes/Charsets/Collation.php:291
+#: libraries/classes/Charsets/Collation.php:429
 #, fuzzy
 #| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Sueco"
 
-#: libraries/classes/Charsets/Collation.php:296
-#: libraries/classes/Charsets/Collation.php:430
+#: libraries/classes/Charsets/Collation.php:294
+#: libraries/classes/Charsets/Collation.php:433
 #, fuzzy
 #| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Tailandés"
 
-#: libraries/classes/Charsets/Collation.php:299
+#: libraries/classes/Charsets/Collation.php:297
 #, fuzzy
 #| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "descoñecido"
 
-#: libraries/classes/Charsets/Collation.php:315
+#: libraries/classes/Charsets/Collation.php:313
 #, fuzzy
 #| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Búlgaro"
 
-#: libraries/classes/Charsets/Collation.php:325
+#: libraries/classes/Charsets/Collation.php:324
 #, fuzzy
 #| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Croata"
 
-#: libraries/classes/Charsets/Collation.php:329
+#: libraries/classes/Charsets/Collation.php:328
 #, fuzzy
 #| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Checo"
 
-#: libraries/classes/Charsets/Collation.php:333
+#: libraries/classes/Charsets/Collation.php:332
 #, fuzzy
 #| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Dinamarqués"
 
-#: libraries/classes/Charsets/Collation.php:337
+#: libraries/classes/Charsets/Collation.php:336
 #, fuzzy
 #| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "Inglés"
 
-#: libraries/classes/Charsets/Collation.php:341
+#: libraries/classes/Charsets/Collation.php:340
 #, fuzzy
 #| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Esperanto"
 
-#: libraries/classes/Charsets/Collation.php:345
+#: libraries/classes/Charsets/Collation.php:344
 #, fuzzy
 #| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Estoniano"
 
-#: libraries/classes/Charsets/Collation.php:348
-#: libraries/classes/Charsets/Collation.php:465
+#: libraries/classes/Charsets/Collation.php:347
+#: libraries/classes/Charsets/Collation.php:468
 #, fuzzy
 #| msgid "Data Dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "Dicionario de datos"
 
-#: libraries/classes/Charsets/Collation.php:351
-#: libraries/classes/Charsets/Collation.php:462
+#: libraries/classes/Charsets/Collation.php:350
+#: libraries/classes/Charsets/Collation.php:465
 msgctxt "Collation"
 msgid "German (phone book order)"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:360
+#: libraries/classes/Charsets/Collation.php:359
 #, fuzzy
 #| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Húngaro"
 
-#: libraries/classes/Charsets/Collation.php:364
+#: libraries/classes/Charsets/Collation.php:363
 #, fuzzy
 #| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Islandés"
 
-#: libraries/classes/Charsets/Collation.php:371
+#: libraries/classes/Charsets/Collation.php:370
 msgctxt "Collation"
 msgid "Classical Latin"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:375
+#: libraries/classes/Charsets/Collation.php:374
 #, fuzzy
 #| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Letonio"
 
-#: libraries/classes/Charsets/Collation.php:379
+#: libraries/classes/Charsets/Collation.php:378
 #, fuzzy
 #| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Lituano"
 
-#: libraries/classes/Charsets/Collation.php:387
+#: libraries/classes/Charsets/Collation.php:386
 msgctxt "Collation"
 msgid "Burmese"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:390
+#: libraries/classes/Charsets/Collation.php:389
 #, fuzzy
 #| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Persa"
 
-#: libraries/classes/Charsets/Collation.php:394
+#: libraries/classes/Charsets/Collation.php:393
 #, fuzzy
 #| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Polonés"
 
-#: libraries/classes/Charsets/Collation.php:401
+#: libraries/classes/Charsets/Collation.php:400
 #, fuzzy
 #| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Romeno"
 
-#: libraries/classes/Charsets/Collation.php:405
+#: libraries/classes/Charsets/Collation.php:407
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:409
+#: libraries/classes/Charsets/Collation.php:411
 #, fuzzy
 #| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Eslovaco"
 
-#: libraries/classes/Charsets/Collation.php:413
+#: libraries/classes/Charsets/Collation.php:415
 #, fuzzy
 #| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Esloveno"
 
-#: libraries/classes/Charsets/Collation.php:416
-#: libraries/classes/Charsets/Collation.php:476
+#: libraries/classes/Charsets/Collation.php:418
+#: libraries/classes/Charsets/Collation.php:479
 #, fuzzy
 #| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr "Español"
 
-#: libraries/classes/Charsets/Collation.php:423
-#: libraries/classes/Charsets/Collation.php:473
+#: libraries/classes/Charsets/Collation.php:425
+#: libraries/classes/Charsets/Collation.php:476
 msgctxt "Collation"
 msgid "Spanish (traditional)"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:442
+#: libraries/classes/Charsets/Collation.php:445
 #, fuzzy
 #| msgid "File name"
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Nome do ficheiro"
 
-#: libraries/classes/Charsets/Collation.php:509
+#: libraries/classes/Charsets/Collation.php:512
 #, fuzzy
 #| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "sen distinguir maiúsculas de minúsculas"
 
-#: libraries/classes/Charsets/Collation.php:512
+#: libraries/classes/Charsets/Collation.php:515
 #, fuzzy
 #| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "distinguindo maiúsculas de minúsculas"
 
-#: libraries/classes/Charsets/Collation.php:515
+#: libraries/classes/Charsets/Collation.php:518
 #, fuzzy
 #| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
 msgstr "sen distinguir maiúsculas de minúsculas"
 
-#: libraries/classes/Charsets/Collation.php:518
+#: libraries/classes/Charsets/Collation.php:521
 #, fuzzy
 #| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
 msgstr "distinguindo maiúsculas de minúsculas"
 
-#: libraries/classes/Charsets/Collation.php:522
+#: libraries/classes/Charsets/Collation.php:524
+#, fuzzy
+#| msgid "case-sensitive"
+msgctxt "Collation variant"
+msgid "kana-sensitive"
+msgstr "distinguindo maiúsculas de minúsculas"
+
+#: libraries/classes/Charsets/Collation.php:528
 #, fuzzy
 #| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
 msgstr "multilingüe"
 
-#: libraries/classes/Charsets/Collation.php:525
+#: libraries/classes/Charsets/Collation.php:531
 #, fuzzy
 #| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "Binario"
+
+#: libraries/classes/Charsets/Collation.php:534
+msgctxt "Collation variant"
+msgid "no-pad"
+msgstr ""
 
 #: libraries/classes/Config.php:1144
 #, php-format
@@ -3890,9 +3903,15 @@ msgstr "Chave da etiqueta"
 #: libraries/classes/Config/Descriptions.php:217
 #: libraries/classes/Config/Descriptions.php:229
 #: libraries/classes/Config/Descriptions.php:267
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:415
 #: libraries/classes/Plugins/Export/ExportOdt.php:515
+#: libraries/classes/Plugins/Export/ExportTexytext.php:395
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:557
+#: templates/database/data_dictionary/index.twig:25
 #: templates/columns_definitions/table_fields_definitions.twig:71
-msgid "MIME type"
+#, fuzzy
+#| msgid "MIME type"
+msgid "Media (MIME) type"
 msgstr "Tipo MIME"
 
 #: libraries/classes/Config/Descriptions.php:219
@@ -5155,8 +5174,12 @@ msgid "Bookmark table"
 msgstr "Táboa de marcadores"
 
 #: libraries/classes/Config/Descriptions.php:616
+#, fuzzy
+#| msgid ""
+#| "Leave blank for no column comments/mime types, suggested: "
+#| "[kbd]pma__column_info[/kbd]."
 msgid ""
-"Leave blank for no column comments/mime types, suggested: "
+"Leave blank for no column comments/media (MIME) types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
 "Déixeo en branco se non quere comentarios/tipos mime das columnas; suxírese: "
@@ -5925,7 +5948,7 @@ msgstr ""
 #: templates/server/databases/index.twig:103
 #: templates/console/bookmark_content.twig:7
 #: templates/table/relation/common_form.twig:35
-#: templates/table/relation/common_form.twig:167
+#: templates/table/relation/common_form.twig:168
 #: templates/console/display.twig:40 templates/console/display.twig:184
 #: templates/table/relation/foreign_key_row.twig:96
 msgid "Database"
@@ -5965,7 +5988,7 @@ msgstr "Título da xanela do navegador cando unha táboa estea seleccionada."
 #: templates/database/tracking/tables.twig:13
 #: templates/database/tracking/tables.twig:120
 #: templates/table/relation/common_form.twig:36
-#: templates/table/relation/common_form.twig:174
+#: templates/table/relation/common_form.twig:175
 #: templates/table/relation/foreign_key_row.twig:106
 msgid "Table"
 msgstr "Táboa"
@@ -6201,28 +6224,28 @@ msgid "Server connection collation"
 msgstr "Ordenación alfabética (collation) da conexión do servidor"
 
 #: libraries/classes/Config/FormDisplay.php:102
-#: libraries/classes/Config/Validator.php:525
+#: libraries/classes/Config/Validator.php:529
 msgid "Not a positive number!"
 msgstr "Non é un número positivo!"
 
 #: libraries/classes/Config/FormDisplay.php:103
-#: libraries/classes/Config/Validator.php:547
+#: libraries/classes/Config/Validator.php:551
 msgid "Not a non-negative number!"
 msgstr "Non é un número negativo!"
 
 #: libraries/classes/Config/FormDisplay.php:104
-#: libraries/classes/Config/Validator.php:503
+#: libraries/classes/Config/Validator.php:507
 msgid "Not a valid port number!"
 msgstr "Non é un número de porto aceptábel!"
 
 #: libraries/classes/Config/FormDisplay.php:105
 #: libraries/classes/Config/FormDisplay.php:683
-#: libraries/classes/Config/Validator.php:568
+#: libraries/classes/Config/Validator.php:572
 msgid "Incorrect value!"
 msgstr "O valor é incorrecto!"
 
 #: libraries/classes/Config/FormDisplay.php:106
-#: libraries/classes/Config/Validator.php:585
+#: libraries/classes/Config/Validator.php:589
 #, php-format
 msgid "Value must be less than or equal to %s!"
 msgstr "O valor debe ser igual ou menor a %s!"
@@ -6519,24 +6542,24 @@ msgstr ""
 "A %scompresión e descompresión con GZip%s require funcións (%s) que non "
 "están dispoñíbeis neste sistema."
 
-#: libraries/classes/Config/Validator.php:217
-#: libraries/classes/Config/Validator.php:224
+#: libraries/classes/Config/Validator.php:221
+#: libraries/classes/Config/Validator.php:228
 msgid "Could not connect to the database server!"
 msgstr "Non foi posíbel conectar co servidor de bases de datos!"
 
-#: libraries/classes/Config/Validator.php:259
+#: libraries/classes/Config/Validator.php:263
 #, fuzzy
 #| msgid "Authentication type"
 msgid "Invalid authentication type!"
 msgstr "Tipo de autenticación"
 
-#: libraries/classes/Config/Validator.php:266
+#: libraries/classes/Config/Validator.php:270
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
 "Atopouse un nome de usuario baleiro ao empregar o método de autenticación "
 "mediante [kbd]configuración[/kbd]!"
 
-#: libraries/classes/Config/Validator.php:274
+#: libraries/classes/Config/Validator.php:278
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
@@ -6544,20 +6567,20 @@ msgstr ""
 "Atopouse un nome de rexistro da sesión baleiro ao empregar o método de "
 "autenticación mediante [kbd]rexistro de acceso[/kbd]!"
 
-#: libraries/classes/Config/Validator.php:283
+#: libraries/classes/Config/Validator.php:287
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
 "Atopouse un URL de acceso baleiro ao empregar o método de autenticación "
 "mediante [kbd]rexistro de acceso[/kbd]!"
 
-#: libraries/classes/Config/Validator.php:336
+#: libraries/classes/Config/Validator.php:340
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "Atopouse un usuario de control de phpMyAdmin baleiro ao empregar phpMyAdmin "
 "configuration storage!"
 
-#: libraries/classes/Config/Validator.php:343
+#: libraries/classes/Config/Validator.php:347
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
@@ -6565,11 +6588,11 @@ msgstr ""
 "Atopouse un contrasinal de control de phpMyAdmin baleiro ao empregar "
 "phpMyAdmin configuration storage!"
 
-#: libraries/classes/Config/Validator.php:432
+#: libraries/classes/Config/Validator.php:436
 msgid "Incorrect value:"
 msgstr "O valor é incorrecto:"
 
-#: libraries/classes/Config/Validator.php:441
+#: libraries/classes/Config/Validator.php:445
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "O enderezo de IP é incorrecto: %s"
@@ -7829,63 +7852,63 @@ msgstr "posíbel vulnerabilidade (exploit)"
 msgid "Could not load schema plugins, please check your installation!"
 msgstr "Non foi posíbel importar os engadidos - Comprobe a instalación!"
 
-#: libraries/classes/Database/Designer/Common.php:594
+#: libraries/classes/Database/Designer/Common.php:595
 #, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
 msgstr "Erro: xa existe unha relación."
 
-#: libraries/classes/Database/Designer/Common.php:643
+#: libraries/classes/Database/Designer/Common.php:644
 #, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been added."
 msgstr "Engadiuse unha relación cunha CHAVE EXTERNA"
 
-#: libraries/classes/Database/Designer/Common.php:650
+#: libraries/classes/Database/Designer/Common.php:651
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Erro: non se engadiu a relación."
 
-#: libraries/classes/Database/Designer/Common.php:657
+#: libraries/classes/Database/Designer/Common.php:658
 msgid "Error: Missing index on column(s)."
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:665
+#: libraries/classes/Database/Designer/Common.php:666
 msgid "Error: Relational features are disabled!"
 msgstr "Erro: As funcionalidades relacionais están desactivadas!"
 
-#: libraries/classes/Database/Designer/Common.php:690
+#: libraries/classes/Database/Designer/Common.php:691
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationship has been added."
 msgstr "Engadiuse a relación interna"
 
-#: libraries/classes/Database/Designer/Common.php:697
+#: libraries/classes/Database/Designer/Common.php:698
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be added!"
 msgstr "Erro: non se engadiu a relación."
 
-#: libraries/classes/Database/Designer/Common.php:737
+#: libraries/classes/Database/Designer/Common.php:738
 #, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "Engadiuse unha relación cunha CHAVE EXTERNA"
 
-#: libraries/classes/Database/Designer/Common.php:744
+#: libraries/classes/Database/Designer/Common.php:745
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "Erro: non se engadiu a relación."
 
-#: libraries/classes/Database/Designer/Common.php:771
+#: libraries/classes/Database/Designer/Common.php:772
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Erro: non se engadiu a relación."
 
-#: libraries/classes/Database/Designer/Common.php:777
+#: libraries/classes/Database/Designer/Common.php:778
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationship has been removed."
@@ -8070,7 +8093,7 @@ msgstr ""
 msgid "See %sour documentation%s for more information."
 msgstr ""
 
-#: libraries/classes/Dbi/DbiMysqli.php:133
+#: libraries/classes/Dbi/DbiMysqli.php:134
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
@@ -8885,7 +8908,7 @@ msgstr "Non se definiu ningún índice!"
 #: libraries/classes/Server/Privileges.php:3720
 #: libraries/classes/Server/UserGroups.php:95
 #: templates/server/privileges/privileges_summary.twig:22
-#: templates/database/central_columns/main.twig:236
+#: templates/database/central_columns/main.twig:234
 #: templates/database/structure/table_header.twig:22
 #: templates/table/structure/display_partitions.twig:33
 #: templates/server/databases/index.twig:160
@@ -8924,8 +8947,8 @@ msgstr "Empaquetado"
 #: templates/table/relation/common_form.twig:17
 #: templates/table/relation/common_form.twig:22
 #: templates/table/relation/common_form.twig:37
-#: templates/table/relation/common_form.twig:116
-#: templates/table/relation/common_form.twig:181
+#: templates/table/relation/common_form.twig:117
+#: templates/table/relation/common_form.twig:182
 #: templates/table/relation/foreign_key_row.twig:118
 #: templates/table/relation/foreign_key_row.twig:128
 #: templates/table/search/zoom_result_form.twig:34
@@ -10379,7 +10402,9 @@ msgstr "Mostrar os comentarios"
 #: libraries/classes/Plugins/Export/ExportLatex.php:156
 #: libraries/classes/Plugins/Export/ExportOdt.php:116
 #: libraries/classes/Plugins/Export/ExportSql.php:132
-msgid "Display MIME types"
+#, fuzzy
+#| msgid "Display MIME types"
+msgid "Display media (MIME) types"
 msgstr "Mostrar os tipos MIME"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
@@ -10713,7 +10738,9 @@ msgid "AUTO_INCREMENT for table"
 msgstr "Engadir o valor incremental (AUTO_INCREMENT)"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1911
-msgid "MIME TYPES FOR TABLE"
+#, fuzzy
+#| msgid "MIME TYPES FOR TABLE"
+msgid "MEDIA (MIME) TYPES FOR TABLE"
 msgstr "TIPOS MIME PARA A TÁBOA"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1934
@@ -10757,12 +10784,6 @@ msgstr "Táboa:"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:183
 msgid "Purpose:"
 msgstr ""
-
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:557
-#, fuzzy
-#| msgid "MIME type"
-msgid "MIME"
-msgstr "Tipo MIME"
 
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:53
 msgid ""
@@ -14219,14 +14240,14 @@ msgid "Add new column"
 msgstr "Engadir unha columna nova"
 
 #: templates/database/central_columns/main.twig:25
-#: templates/database/central_columns/main.twig:246
+#: templates/database/central_columns/main.twig:244
 #, fuzzy
 #| msgid "Length/Values"
 msgid "Length/Value"
 msgstr "Tamaño/Valores"
 
 #: templates/database/central_columns/main.twig:37
-#: templates/database/central_columns/main.twig:258
+#: templates/database/central_columns/main.twig:256
 msgid "Attribute"
 msgstr "Atributo"
 
@@ -14236,30 +14257,30 @@ msgstr "Atributo"
 msgid "The central list of columns for the current database is empty"
 msgstr "A lista de columnas central da base de datos actual está baleira."
 
-#: templates/database/central_columns/main.twig:184
+#: templates/database/central_columns/main.twig:182
 #: templates/display/results/table_navigation.twig:73
 msgid "Filter rows"
 msgstr "Filtrar filas"
 
-#: templates/database/central_columns/main.twig:185
+#: templates/database/central_columns/main.twig:183
 #: templates/display/results/table_navigation.twig:75
 msgid "Search this table"
 msgstr "Buscar nesta táboa"
 
-#: templates/database/central_columns/main.twig:196
+#: templates/database/central_columns/main.twig:194
 #: templates/table/structure/display_structure.twig:420
 msgid "Add column"
 msgstr "Engadir unha columna"
 
-#: templates/database/central_columns/main.twig:205
+#: templates/database/central_columns/main.twig:203
 msgid "Select a table"
 msgstr "Seleccionar unha táboa"
 
-#: templates/database/central_columns/main.twig:212
+#: templates/database/central_columns/main.twig:210
 msgid "Select a column."
 msgstr "Seleccionar unha columna."
 
-#: templates/database/central_columns/main.twig:214
+#: templates/database/central_columns/main.twig:212
 #: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
 #: templates/export/alias_add.twig:46
 #: templates/columns_definitions/column_definitions_form.twig:32
@@ -14267,7 +14288,7 @@ msgstr "Seleccionar unha columna."
 msgid "Add"
 msgstr "Engadir"
 
-#: templates/database/central_columns/main.twig:231
+#: templates/database/central_columns/main.twig:229
 msgid "Click to sort."
 msgstr "Prema para ordenar."
 
@@ -15599,7 +15620,9 @@ msgid "Check for latest version"
 msgstr "Comprobar cal é a última versión"
 
 #: templates/transformation_overview.twig:1
-msgid "Available MIME types"
+#, fuzzy
+#| msgid "Available MIME types"
+msgid "Available media (MIME) types"
 msgstr "Tipos MIME dispoñíbeis"
 
 #: templates/transformation_overview.twig:13
@@ -15617,7 +15640,9 @@ msgstr "Transformación do navegador"
 
 #: templates/transformation_overview.twig:19
 #: templates/transformation_overview.twig:38
-msgctxt "for MIME transformation"
+#, fuzzy
+#| msgid "Description"
+msgctxt "for media (MIME) type transformation"
 msgid "Description"
 msgstr "Descrición"
 
@@ -15816,7 +15841,7 @@ msgstr "Modificar o servidor"
 msgid "Add a new server"
 msgstr "Engadir un servidor novo"
 
-#: templates/table/tracking/main.twig:28 templates/server/plugins/index.twig:25
+#: templates/table/tracking/main.twig:28 templates/server/plugins/index.twig:24
 msgid "Version"
 msgstr "Versión"
 
@@ -16077,6 +16102,12 @@ msgstr "Expandir"
 #| msgid "subquery"
 msgid "Requery"
 msgstr "subconsulta"
+
+#: templates/table/structure/display_structure.twig:70
+#, fuzzy
+#| msgid "MIME type"
+msgid "Media (MIME) type:"
+msgstr "Tipo MIME"
 
 #: templates/table/structure/display_structure.twig:112
 #, php-format
@@ -16401,7 +16432,7 @@ msgstr "Obter axuda"
 msgid "List of changes"
 msgstr "Listaxe de cambios"
 
-#: templates/home/index.twig:195 templates/server/plugins/index.twig:27
+#: templates/home/index.twig:195 templates/server/plugins/index.twig:26
 msgid "License"
 msgstr "Licen"
 
@@ -16454,17 +16485,35 @@ msgstr "Ningún"
 msgid "Database comment:"
 msgstr "Comentario da base de datos"
 
-#: templates/server/plugins/index.twig:23
+#: templates/server/plugins/index.twig:22
 msgid "Plugin"
 msgstr "Engadido"
 
-#: templates/server/plugins/index.twig:26
+#: templates/server/plugins/index.twig:25
 msgid "Author"
 msgstr "Autor"
 
 #: templates/server/plugins/index.twig:37
+#, fuzzy
+#| msgid "active"
+msgid "inactive"
+msgstr "activado"
+
+#: templates/server/plugins/index.twig:39
 msgid "disabled"
 msgstr "desactivado"
+
+#: templates/server/plugins/index.twig:41
+#, fuzzy
+#| msgid "Deleting"
+msgid "deleting"
+msgstr "A eliminar"
+
+#: templates/server/plugins/index.twig:43
+#, fuzzy
+#| msgid "Delete"
+msgid "deleted"
+msgstr "Eliminar"
 
 #: templates/database/structure/show_create.twig:2
 #, fuzzy
@@ -16741,18 +16790,18 @@ msgstr "Límite das chaves externas"
 msgid "+ Add constraint"
 msgstr "Engadir limitacións"
 
-#: templates/table/relation/common_form.twig:102
-#: templates/table/relation/common_form.twig:111
+#: templates/table/relation/common_form.twig:103
+#: templates/table/relation/common_form.twig:112
 #, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relationships"
 msgstr "Relacións internas"
 
-#: templates/table/relation/common_form.twig:117
+#: templates/table/relation/common_form.twig:118
 msgid "Internal relation"
 msgstr "Relación interna"
 
-#: templates/table/relation/common_form.twig:119
+#: templates/table/relation/common_form.twig:120
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
@@ -16760,7 +16809,7 @@ msgstr ""
 "Non se precisa unha relación interna cando existe unha CHAVE EXTERNA "
 "correspondente."
 
-#: templates/table/relation/common_form.twig:199
+#: templates/table/relation/common_form.twig:200
 msgid "Choose column to display:"
 msgstr "Escolla a columna que desexe mostrar:"
 
@@ -18830,6 +18879,15 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert está definido como 0"
+
+#, fuzzy
+#~| msgid "MIME type"
+#~ msgid "MIME"
+#~ msgstr "Tipo MIME"
+
+#~ msgctxt "for MIME transformation"
+#~ msgid "Description"
+#~ msgstr "Descrición"
 
 #~ msgid "Full start"
 #~ msgstr "Inicio completo"
