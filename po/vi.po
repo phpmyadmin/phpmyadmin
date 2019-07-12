@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-06-29 15:30-0300\n"
+"POT-Creation-Date: 2019-07-12 01:21-0300\n"
 "PO-Revision-Date: 2018-05-18 08:42+0000\n"
 "Last-Translator: Xuan Hung <mr.hungdx@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/"
@@ -3293,12 +3293,12 @@ msgctxt "Collation"
 msgid "Binary"
 msgstr "Nhị phân"
 
-#: libraries/classes/Charsets.php:361 libraries/classes/Charsets.php:595
+#: libraries/classes/Charsets.php:361 libraries/classes/Charsets.php:600
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicode"
 
-#: libraries/classes/Charsets.php:371 libraries/classes/Charsets.php:546
+#: libraries/classes/Charsets.php:371 libraries/classes/Charsets.php:547
 msgctxt "Collation"
 msgid "West European"
 msgstr "Tây Âu"
@@ -3308,7 +3308,7 @@ msgctxt "Collation"
 msgid "Central European"
 msgstr "Trung Âu"
 
-#: libraries/classes/Charsets.php:383
+#: libraries/classes/Charsets.php:383 libraries/classes/Charsets.php:554
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Tiếng Nga"
@@ -3323,12 +3323,12 @@ msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Tiếng Trung phồn thể"
 
-#: libraries/classes/Charsets.php:394 libraries/classes/Charsets.php:469
+#: libraries/classes/Charsets.php:394 libraries/classes/Charsets.php:470
 msgctxt "Collation"
 msgid "Chinese"
 msgstr "Tiếng Trung"
 
-#: libraries/classes/Charsets.php:402 libraries/classes/Charsets.php:517
+#: libraries/classes/Charsets.php:402 libraries/classes/Charsets.php:518
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Tiếng Nhật"
@@ -3357,7 +3357,7 @@ msgctxt "Collation"
 msgid "Arabic"
 msgstr "Tiếng Ả Rập"
 
-#: libraries/classes/Charsets.php:421 libraries/classes/Charsets.php:532
+#: libraries/classes/Charsets.php:421 libraries/classes/Charsets.php:533
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Tiếng Hàn Quốc"
@@ -3386,22 +3386,22 @@ msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Cộng hòa Xlô-vác"
 
-#: libraries/classes/Charsets.php:436 libraries/classes/Charsets.php:587
+#: libraries/classes/Charsets.php:436 libraries/classes/Charsets.php:592
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Tiếng Ukraina"
 
-#: libraries/classes/Charsets.php:439 libraries/classes/Charsets.php:583
+#: libraries/classes/Charsets.php:439 libraries/classes/Charsets.php:588
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Tiếng Thổ Nhĩ Kỳ"
 
-#: libraries/classes/Charsets.php:442 libraries/classes/Charsets.php:575
+#: libraries/classes/Charsets.php:442 libraries/classes/Charsets.php:580
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Tiếng Thụy điển"
 
-#: libraries/classes/Charsets.php:445 libraries/classes/Charsets.php:579
+#: libraries/classes/Charsets.php:445 libraries/classes/Charsets.php:584
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Tiếng Thái"
@@ -3416,175 +3416,187 @@ msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Tiếng Bun-ga-ri"
 
-#: libraries/classes/Charsets.php:474
+#: libraries/classes/Charsets.php:475
 #, fuzzy
 #| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Tiếng Croát-chi-a"
 
-#: libraries/classes/Charsets.php:478
+#: libraries/classes/Charsets.php:479
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Tiếng Séc"
 
-#: libraries/classes/Charsets.php:482
+#: libraries/classes/Charsets.php:483
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Tiếng Đan Mạch"
 
-#: libraries/classes/Charsets.php:486
+#: libraries/classes/Charsets.php:487
 msgctxt "Collation"
 msgid "English"
 msgstr "Tiếng Anh"
 
-#: libraries/classes/Charsets.php:490
+#: libraries/classes/Charsets.php:491
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Quốc tế ngữ"
 
-#: libraries/classes/Charsets.php:494
+#: libraries/classes/Charsets.php:495
 #, fuzzy
 #| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Tiếng E-x-tô-ni"
 
-#: libraries/classes/Charsets.php:497 libraries/classes/Charsets.php:614
+#: libraries/classes/Charsets.php:498 libraries/classes/Charsets.php:619
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "Tiếng Đức (thứ tự từ điển)"
 
-#: libraries/classes/Charsets.php:500 libraries/classes/Charsets.php:611
+#: libraries/classes/Charsets.php:501 libraries/classes/Charsets.php:616
 msgctxt "Collation"
 msgid "German (phone book order)"
 msgstr "Tiếng Đức (thứ tự theo danh bạ)"
 
-#: libraries/classes/Charsets.php:509
+#: libraries/classes/Charsets.php:510
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Tiếng Hung Ga Ri"
 
-#: libraries/classes/Charsets.php:513
+#: libraries/classes/Charsets.php:514
 #, fuzzy
 #| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Tiếng Ai-xơ-len"
 
-#: libraries/classes/Charsets.php:520
+#: libraries/classes/Charsets.php:521
 msgctxt "Collation"
 msgid "Classical Latin"
 msgstr "Tiếng Latin cổ điển"
 
-#: libraries/classes/Charsets.php:524
+#: libraries/classes/Charsets.php:525
 #, fuzzy
 #| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Tiếng Lát-vi-a"
 
-#: libraries/classes/Charsets.php:528
+#: libraries/classes/Charsets.php:529
 #, fuzzy
 #| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Tiếng Lát-vi"
 
-#: libraries/classes/Charsets.php:536
+#: libraries/classes/Charsets.php:537
 #, fuzzy
 msgctxt "Collation"
 msgid "Burmese"
 msgstr "Tiếng Miến Điện"
 
-#: libraries/classes/Charsets.php:539
+#: libraries/classes/Charsets.php:540
 #, fuzzy
 #| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Tiếng Ba Tư"
 
-#: libraries/classes/Charsets.php:543
+#: libraries/classes/Charsets.php:544
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Tiếng Ba Lan"
 
-#: libraries/classes/Charsets.php:550
+#: libraries/classes/Charsets.php:551
 #, fuzzy
 #| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Tiếng Ru-ma-ni"
 
-#: libraries/classes/Charsets.php:554
+#: libraries/classes/Charsets.php:558
 #, fuzzy
 #| msgid "Sinhalese"
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "Sinhalese"
 
-#: libraries/classes/Charsets.php:558
+#: libraries/classes/Charsets.php:562
 #, fuzzy
 #| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Tiếng Xlô-vác"
 
-#: libraries/classes/Charsets.php:562
+#: libraries/classes/Charsets.php:566
 #, fuzzy
 #| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Tiếng Xlô-ven"
 
-#: libraries/classes/Charsets.php:565 libraries/classes/Charsets.php:625
+#: libraries/classes/Charsets.php:569 libraries/classes/Charsets.php:630
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr "Tiếng Tây Ban Nha (hiện đại)"
 
-#: libraries/classes/Charsets.php:572 libraries/classes/Charsets.php:622
+#: libraries/classes/Charsets.php:576 libraries/classes/Charsets.php:627
 msgctxt "Collation"
 msgid "Spanish (traditional)"
 msgstr "Tiếng Tây Ban Nha (truyền thống)"
 
-#: libraries/classes/Charsets.php:591
+#: libraries/classes/Charsets.php:596
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Tiếng Việt"
 
-#: libraries/classes/Charsets.php:658
+#: libraries/classes/Charsets.php:663
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "không phân biệt HOA/thường"
 
-#: libraries/classes/Charsets.php:661
+#: libraries/classes/Charsets.php:666
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "phân biệt chữ HOA/thường"
 
-#: libraries/classes/Charsets.php:664
+#: libraries/classes/Charsets.php:669
 #, fuzzy
 #| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
 msgstr "không phân biệt HOA/thường"
 
-#: libraries/classes/Charsets.php:667
+#: libraries/classes/Charsets.php:672
 #, fuzzy
 #| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
 msgstr "phân biệt chữ HOA/thường"
 
-#: libraries/classes/Charsets.php:671
+#: libraries/classes/Charsets.php:675
+#, fuzzy
+#| msgid "case-sensitive"
+msgctxt "Collation variant"
+msgid "kana-sensitive"
+msgstr "phân biệt chữ HOA/thường"
+
+#: libraries/classes/Charsets.php:679
 msgctxt "Collation variant"
 msgid "multi-level"
 msgstr "đa cấp độ"
 
-#: libraries/classes/Charsets.php:674
+#: libraries/classes/Charsets.php:682
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "Nhị phân"
+
+#: libraries/classes/Charsets.php:685
+msgctxt "Collation variant"
+msgid "no-pad"
+msgstr ""
 
 #: libraries/classes/Config.php:1122
 #, php-format
