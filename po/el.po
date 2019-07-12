@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-06-29 15:34-0300\n"
+"POT-Creation-Date: 2019-07-12 00:18-0300\n"
 "PO-Revision-Date: 2018-01-25 13:37+0000\n"
 "Last-Translator: Vangelis Skarmoutsos <skarmoutsosv@gmail.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -516,7 +516,7 @@ msgstr "Επιλέξτε στήλη(ες) για το ευρετήριο."
 
 #: js/messages.php:134 libraries/classes/InsertEdit.php:1931
 #: templates/table/index_form.twig:220
-#: templates/table/relation/common_form.twig:215
+#: templates/table/relation/common_form.twig:216
 #: templates/columns_definitions/column_definitions_form.twig:149
 msgid "Preview SQL"
 msgstr "Προεπισκόπηση SQL"
@@ -1345,7 +1345,7 @@ msgstr "Αλλαγή συνόλου χαρακτήρων"
 #: templates/server/privileges/privileges_summary.twig:37
 #: templates/server/privileges/privileges_summary.twig:40
 #: templates/server/privileges/privileges_summary.twig:42
-#: templates/database/central_columns/main.twig:372
+#: templates/database/central_columns/main.twig:370
 #: templates/preferences/manage/error.twig:19
 #: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/table/structure/display_structure.twig:80
@@ -1460,8 +1460,8 @@ msgstr "Προβολή παραθύρου ερωτήματος"
 #: libraries/classes/Server/UserGroups.php:136 libraries/classes/Util.php:647
 #: libraries/classes/Util.php:1135 libraries/classes/Util.php:3456
 #: libraries/classes/Util.php:3457
-#: templates/database/central_columns/main.twig:283
-#: templates/database/central_columns/main.twig:404
+#: templates/database/central_columns/main.twig:281
+#: templates/database/central_columns/main.twig:402
 #: templates/setup/home/index.twig:57 templates/console/bookmark_content.twig:7
 #: templates/console/display.twig:31 templates/console/display.twig:175
 #: templates/server/variables/index.twig:38
@@ -1475,8 +1475,8 @@ msgstr "Επεξεργασία"
 #: libraries/classes/Server/UserGroups.php:148
 #: libraries/classes/SqlQueryForm.php:438 libraries/classes/Tracking.php:298
 #: templates/database/search/results.twig:43
-#: templates/database/central_columns/main.twig:286
-#: templates/database/central_columns/main.twig:411
+#: templates/database/central_columns/main.twig:284
+#: templates/database/central_columns/main.twig:409
 #: templates/setup/home/index.twig:61
 #: templates/display/export/template_loading.twig:22
 #: templates/console/bookmark_content.twig:7
@@ -1664,7 +1664,7 @@ msgstr "Δεν έχετε επιλέξει εξαρτήσεις!"
 #: js/messages.php:491 libraries/classes/CentralColumns.php:965
 #: libraries/classes/InsertEdit.php:1845
 #: templates/table/gis_visualization/gis_visualization.twig:48
-#: templates/table/relation/common_form.twig:216
+#: templates/table/relation/common_form.twig:217
 #: templates/columns_definitions/column_definitions_form.twig:152
 #: templates/table/structure/partition_definition_form.twig:12
 #: templates/server/variables/index.twig:9
@@ -1838,7 +1838,7 @@ msgstr "Προσθήκη εσωτερικού δακτυλίου"
 #: templates/server/privileges/privileges_summary.twig:37
 #: templates/server/privileges/privileges_summary.twig:40
 #: templates/server/privileges/privileges_summary.twig:42
-#: templates/database/central_columns/main.twig:372
+#: templates/database/central_columns/main.twig:370
 #: templates/preferences/manage/error.twig:18
 #: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/table/structure/display_structure.twig:80
@@ -2778,7 +2778,7 @@ msgstr "Όνομα κλειδιού"
 #: templates/server/status/variables/index.twig:72
 #: templates/server/engines/index.twig:10
 #: templates/server/collations/index.twig:11
-#: templates/server/plugins/index.twig:24
+#: templates/server/plugins/index.twig:23
 msgid "Description"
 msgstr "Περιγραφή"
 
@@ -2837,7 +2837,7 @@ msgstr "ΌΧΙ"
 #: libraries/classes/Rte/RteList.php:117 libraries/classes/Rte/RteList.php:129
 #: libraries/classes/Rte/RteList.php:144
 #: templates/database/central_columns/main.twig:17
-#: templates/database/central_columns/main.twig:238
+#: templates/database/central_columns/main.twig:236
 #: templates/database/create_table.twig:11 templates/setup/home/index.twig:43
 #: templates/table/structure/display_structure.twig:21
 #: templates/columns_definitions/table_fields_definitions.twig:9
@@ -2862,7 +2862,7 @@ msgstr "Όνομα"
 #: libraries/classes/Rte/RteList.php:119 libraries/classes/Rte/RteList.php:147
 #: libraries/classes/Server/Privileges.php:2712
 #: templates/database/central_columns/main.twig:21
-#: templates/database/central_columns/main.twig:242
+#: templates/database/central_columns/main.twig:240
 #: templates/database/structure/table_header.twig:30
 #: templates/table/search/fields_table.twig:8
 #: templates/table/tracking/structure_snapshot_columns.twig:7
@@ -2891,7 +2891,7 @@ msgstr "Μήκος/Τιμές*"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:689
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:722
 #: templates/database/central_columns/main.twig:29
-#: templates/database/central_columns/main.twig:250
+#: templates/database/central_columns/main.twig:248
 #: templates/table/tracking/structure_snapshot_columns.twig:10
 #: templates/table/structure/display_structure.twig:26
 #: templates/database/data_dictionary/index.twig:19
@@ -2904,7 +2904,7 @@ msgstr "Προεπιλογή"
 #: libraries/classes/CentralColumns.php:1018 libraries/classes/Index.php:722
 #: libraries/classes/Operations.php:311 libraries/classes/Operations.php:1143
 #: templates/database/central_columns/main.twig:33
-#: templates/database/central_columns/main.twig:254
+#: templates/database/central_columns/main.twig:252
 #: templates/database/structure/table_header.twig:31
 #: templates/server/databases/index.twig:37
 #: templates/server/databases/index.twig:120
@@ -2939,7 +2939,7 @@ msgstr "Χαρακτηριστικά"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:688
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:721
 #: templates/database/central_columns/main.twig:41
-#: templates/database/central_columns/main.twig:262
+#: templates/database/central_columns/main.twig:260
 #: templates/table/tracking/structure_snapshot_columns.twig:9
 #: templates/table/structure/display_structure.twig:25
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
@@ -2951,291 +2951,305 @@ msgstr "Κενό"
 
 #: libraries/classes/CentralColumns.php:1021
 #: templates/database/central_columns/main.twig:45
-#: templates/database/central_columns/main.twig:266
+#: templates/database/central_columns/main.twig:264
 msgid "A_I"
 msgstr "Α/Α"
 
-#: libraries/classes/Charsets/Collation.php:186
+#: libraries/classes/Charsets/Collation.php:184
 msgid "Unknown"
 msgstr "Άγνωστο"
 
-#: libraries/classes/Charsets/Collation.php:200
+#: libraries/classes/Charsets/Collation.php:198
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Δυαδικό"
 
-#: libraries/classes/Charsets/Collation.php:212
-#: libraries/classes/Charsets/Collation.php:446
+#: libraries/classes/Charsets/Collation.php:210
+#: libraries/classes/Charsets/Collation.php:449
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicode"
 
-#: libraries/classes/Charsets/Collation.php:222
-#: libraries/classes/Charsets/Collation.php:397
+#: libraries/classes/Charsets/Collation.php:220
+#: libraries/classes/Charsets/Collation.php:396
 msgctxt "Collation"
 msgid "West European"
 msgstr "Δυτικής Ευρώπης"
 
-#: libraries/classes/Charsets/Collation.php:229
+#: libraries/classes/Charsets/Collation.php:227
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Κεντρικής Ευρώπης"
 
-#: libraries/classes/Charsets/Collation.php:234
+#: libraries/classes/Charsets/Collation.php:232
+#: libraries/classes/Charsets/Collation.php:403
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Ρωσικά"
 
-#: libraries/classes/Charsets/Collation.php:239
+#: libraries/classes/Charsets/Collation.php:237
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Απλοποιημένα Κινέζικα"
 
-#: libraries/classes/Charsets/Collation.php:242
+#: libraries/classes/Charsets/Collation.php:240
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Παραδοσιακά Κινέζικα"
 
-#: libraries/classes/Charsets/Collation.php:245
-#: libraries/classes/Charsets/Collation.php:320
+#: libraries/classes/Charsets/Collation.php:243
+#: libraries/classes/Charsets/Collation.php:319
 msgctxt "Collation"
 msgid "Chinese"
 msgstr "Κινέζικα"
 
-#: libraries/classes/Charsets/Collation.php:253
-#: libraries/classes/Charsets/Collation.php:368
+#: libraries/classes/Charsets/Collation.php:251
+#: libraries/classes/Charsets/Collation.php:367
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Ιαπωνικά"
 
-#: libraries/classes/Charsets/Collation.php:258
+#: libraries/classes/Charsets/Collation.php:256
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Βαλτικής"
 
-#: libraries/classes/Charsets/Collation.php:263
+#: libraries/classes/Charsets/Collation.php:261
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Αρμενικά"
 
-#: libraries/classes/Charsets/Collation.php:266
+#: libraries/classes/Charsets/Collation.php:264
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Κυριλλικά"
 
-#: libraries/classes/Charsets/Collation.php:269
+#: libraries/classes/Charsets/Collation.php:267
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Αραβικά"
 
-#: libraries/classes/Charsets/Collation.php:272
-#: libraries/classes/Charsets/Collation.php:383
+#: libraries/classes/Charsets/Collation.php:270
+#: libraries/classes/Charsets/Collation.php:382
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Κορεατικά"
 
-#: libraries/classes/Charsets/Collation.php:275
+#: libraries/classes/Charsets/Collation.php:273
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Εβραϊκά"
 
-#: libraries/classes/Charsets/Collation.php:278
+#: libraries/classes/Charsets/Collation.php:276
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Γεωργιανά"
 
-#: libraries/classes/Charsets/Collation.php:281
+#: libraries/classes/Charsets/Collation.php:279
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Ελληνικά"
 
-#: libraries/classes/Charsets/Collation.php:284
+#: libraries/classes/Charsets/Collation.php:282
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Τσέχο-Σλοβάκικα"
 
-#: libraries/classes/Charsets/Collation.php:287
-#: libraries/classes/Charsets/Collation.php:438
+#: libraries/classes/Charsets/Collation.php:285
+#: libraries/classes/Charsets/Collation.php:441
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ουκρανικά"
 
-#: libraries/classes/Charsets/Collation.php:290
-#: libraries/classes/Charsets/Collation.php:434
+#: libraries/classes/Charsets/Collation.php:288
+#: libraries/classes/Charsets/Collation.php:437
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Τουρκικά"
 
-#: libraries/classes/Charsets/Collation.php:293
-#: libraries/classes/Charsets/Collation.php:426
+#: libraries/classes/Charsets/Collation.php:291
+#: libraries/classes/Charsets/Collation.php:429
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Σουηδικά"
 
-#: libraries/classes/Charsets/Collation.php:296
-#: libraries/classes/Charsets/Collation.php:430
+#: libraries/classes/Charsets/Collation.php:294
+#: libraries/classes/Charsets/Collation.php:433
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Ταϊλανδικά"
 
-#: libraries/classes/Charsets/Collation.php:299
+#: libraries/classes/Charsets/Collation.php:297
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "Άγνωστο"
 
-#: libraries/classes/Charsets/Collation.php:315
+#: libraries/classes/Charsets/Collation.php:313
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Βουλγαρικά"
 
-#: libraries/classes/Charsets/Collation.php:325
+#: libraries/classes/Charsets/Collation.php:324
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Κροατικά"
 
-#: libraries/classes/Charsets/Collation.php:329
+#: libraries/classes/Charsets/Collation.php:328
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Τσεχικά"
 
-#: libraries/classes/Charsets/Collation.php:333
+#: libraries/classes/Charsets/Collation.php:332
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Δανέζικα"
 
-#: libraries/classes/Charsets/Collation.php:337
+#: libraries/classes/Charsets/Collation.php:336
 msgctxt "Collation"
 msgid "English"
 msgstr "Αγγλικά"
 
-#: libraries/classes/Charsets/Collation.php:341
+#: libraries/classes/Charsets/Collation.php:340
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Εσπεράντο"
 
-#: libraries/classes/Charsets/Collation.php:345
+#: libraries/classes/Charsets/Collation.php:344
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Εσθονικά"
 
-#: libraries/classes/Charsets/Collation.php:348
-#: libraries/classes/Charsets/Collation.php:465
+#: libraries/classes/Charsets/Collation.php:347
+#: libraries/classes/Charsets/Collation.php:468
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "Γερμανικά (ταξινόμηση λεξικού)"
 
-#: libraries/classes/Charsets/Collation.php:351
-#: libraries/classes/Charsets/Collation.php:462
+#: libraries/classes/Charsets/Collation.php:350
+#: libraries/classes/Charsets/Collation.php:465
 msgctxt "Collation"
 msgid "German (phone book order)"
 msgstr "Γερμανικά (ταξινόμηση τηλεφωνικού καταλόγου)"
 
-#: libraries/classes/Charsets/Collation.php:360
+#: libraries/classes/Charsets/Collation.php:359
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Ουγγρικά"
 
-#: libraries/classes/Charsets/Collation.php:364
+#: libraries/classes/Charsets/Collation.php:363
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Ισλανδικά"
 
-#: libraries/classes/Charsets/Collation.php:371
+#: libraries/classes/Charsets/Collation.php:370
 msgctxt "Collation"
 msgid "Classical Latin"
 msgstr "Κλασσικά Λατινικά"
 
-#: libraries/classes/Charsets/Collation.php:375
+#: libraries/classes/Charsets/Collation.php:374
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Λετονικά"
 
-#: libraries/classes/Charsets/Collation.php:379
+#: libraries/classes/Charsets/Collation.php:378
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Λιθουανικά"
 
-#: libraries/classes/Charsets/Collation.php:387
+#: libraries/classes/Charsets/Collation.php:386
 msgctxt "Collation"
 msgid "Burmese"
 msgstr "Μπουρμέζικα"
 
-#: libraries/classes/Charsets/Collation.php:390
+#: libraries/classes/Charsets/Collation.php:389
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Περσικά"
 
-#: libraries/classes/Charsets/Collation.php:394
+#: libraries/classes/Charsets/Collation.php:393
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Πολωνικά"
 
-#: libraries/classes/Charsets/Collation.php:401
+#: libraries/classes/Charsets/Collation.php:400
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Ρουμάνικα"
 
-#: libraries/classes/Charsets/Collation.php:405
+#: libraries/classes/Charsets/Collation.php:407
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "Σινχαλέζικα"
 
-#: libraries/classes/Charsets/Collation.php:409
+#: libraries/classes/Charsets/Collation.php:411
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Σλοβάκικα"
 
-#: libraries/classes/Charsets/Collation.php:413
+#: libraries/classes/Charsets/Collation.php:415
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Σλοβένικα"
 
-#: libraries/classes/Charsets/Collation.php:416
-#: libraries/classes/Charsets/Collation.php:476
+#: libraries/classes/Charsets/Collation.php:418
+#: libraries/classes/Charsets/Collation.php:479
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr "Ισπανικά (μοντέρνα)"
 
-#: libraries/classes/Charsets/Collation.php:423
-#: libraries/classes/Charsets/Collation.php:473
+#: libraries/classes/Charsets/Collation.php:425
+#: libraries/classes/Charsets/Collation.php:476
 msgctxt "Collation"
 msgid "Spanish (traditional)"
 msgstr "Ισπανικά (παραδοσιακά)"
 
-#: libraries/classes/Charsets/Collation.php:442
+#: libraries/classes/Charsets/Collation.php:445
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Βιετναμέζικα"
 
-#: libraries/classes/Charsets/Collation.php:509
+#: libraries/classes/Charsets/Collation.php:512
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "χωρίς ταίριασμα πεζών-κεφαλαίων"
 
-#: libraries/classes/Charsets/Collation.php:512
+#: libraries/classes/Charsets/Collation.php:515
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "ταίριασμα πεζών-κεφαλαίων"
 
-#: libraries/classes/Charsets/Collation.php:515
+#: libraries/classes/Charsets/Collation.php:518
 msgctxt "Collation variant"
 msgid "accent-insensitive"
 msgstr "χωρίς ταίριασμα τονισμένων"
 
-#: libraries/classes/Charsets/Collation.php:518
+#: libraries/classes/Charsets/Collation.php:521
 msgctxt "Collation variant"
 msgid "accent-sensitive"
 msgstr "ταίριασμα τονισμένων"
 
-#: libraries/classes/Charsets/Collation.php:522
+#: libraries/classes/Charsets/Collation.php:524
+#, fuzzy
+#| msgctxt "Collation variant"
+#| msgid "accent-sensitive"
+msgctxt "Collation variant"
+msgid "kana-sensitive"
+msgstr "ταίριασμα τονισμένων"
+
+#: libraries/classes/Charsets/Collation.php:528
 msgctxt "Collation variant"
 msgid "multi-level"
 msgstr "πολυεπίπεδο"
 
-#: libraries/classes/Charsets/Collation.php:525
+#: libraries/classes/Charsets/Collation.php:531
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "δυαδικό"
+
+#: libraries/classes/Charsets/Collation.php:534
+msgctxt "Collation variant"
+msgid "no-pad"
+msgstr ""
 
 #: libraries/classes/Config.php:1144
 #, php-format
@@ -3760,9 +3774,15 @@ msgstr "Κλειδί ετικέτας"
 #: libraries/classes/Config/Descriptions.php:217
 #: libraries/classes/Config/Descriptions.php:229
 #: libraries/classes/Config/Descriptions.php:267
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:415
 #: libraries/classes/Plugins/Export/ExportOdt.php:515
+#: libraries/classes/Plugins/Export/ExportTexytext.php:395
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:557
+#: templates/database/data_dictionary/index.twig:25
 #: templates/columns_definitions/table_fields_definitions.twig:71
-msgid "MIME type"
+#, fuzzy
+#| msgid "MIME type"
+msgid "Media (MIME) type"
 msgstr "Τύπος MIME"
 
 #: libraries/classes/Config/Descriptions.php:219
@@ -5000,8 +5020,12 @@ msgid "Bookmark table"
 msgstr "Πίνακας σελιδοδεικτών"
 
 #: libraries/classes/Config/Descriptions.php:616
+#, fuzzy
+#| msgid ""
+#| "Leave blank for no column comments/mime types, suggested: "
+#| "[kbd]pma__column_info[/kbd]."
 msgid ""
-"Leave blank for no column comments/mime types, suggested: "
+"Leave blank for no column comments/media (MIME) types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
 "Αφήστε κενό για να μη υπάρχουν σχόλια/τύποι mime στις στήλες, προτείνεται: "
@@ -5715,7 +5739,7 @@ msgstr ""
 #: templates/server/databases/index.twig:103
 #: templates/console/bookmark_content.twig:7
 #: templates/table/relation/common_form.twig:35
-#: templates/table/relation/common_form.twig:167
+#: templates/table/relation/common_form.twig:168
 #: templates/console/display.twig:40 templates/console/display.twig:184
 #: templates/table/relation/foreign_key_row.twig:96
 msgid "Database"
@@ -5756,7 +5780,7 @@ msgstr "Τίτλος του παραθύρου του φυλλομετρητή �
 #: templates/database/tracking/tables.twig:13
 #: templates/database/tracking/tables.twig:120
 #: templates/table/relation/common_form.twig:36
-#: templates/table/relation/common_form.twig:174
+#: templates/table/relation/common_form.twig:175
 #: templates/table/relation/foreign_key_row.twig:106
 msgid "Table"
 msgstr "Πίνακας"
@@ -5970,28 +5994,28 @@ msgid "Server connection collation"
 msgstr "Σύνθεση σύνδεσης διακομιστή"
 
 #: libraries/classes/Config/FormDisplay.php:102
-#: libraries/classes/Config/Validator.php:525
+#: libraries/classes/Config/Validator.php:529
 msgid "Not a positive number!"
 msgstr "Δεν είναι θετικός αριθμός!"
 
 #: libraries/classes/Config/FormDisplay.php:103
-#: libraries/classes/Config/Validator.php:547
+#: libraries/classes/Config/Validator.php:551
 msgid "Not a non-negative number!"
 msgstr "Δεν είναι μη αρνητικός αριθμός!"
 
 #: libraries/classes/Config/FormDisplay.php:104
-#: libraries/classes/Config/Validator.php:503
+#: libraries/classes/Config/Validator.php:507
 msgid "Not a valid port number!"
 msgstr "Μη έγκυρος αριθμός θύρας!"
 
 #: libraries/classes/Config/FormDisplay.php:105
 #: libraries/classes/Config/FormDisplay.php:683
-#: libraries/classes/Config/Validator.php:568
+#: libraries/classes/Config/Validator.php:572
 msgid "Incorrect value!"
 msgstr "Εσφαλμένη τιμή!"
 
 #: libraries/classes/Config/FormDisplay.php:106
-#: libraries/classes/Config/Validator.php:585
+#: libraries/classes/Config/Validator.php:589
 #, php-format
 msgid "Value must be less than or equal to %s!"
 msgstr "Η τιμή πρέπει να είναι ίση ή μικρότερη από %s!"
@@ -6268,22 +6292,22 @@ msgstr ""
 "Η %1$sσυμπίεση και αποσυμπίεση GZip%2$s απαιτεί συναρτήσεις (%3$s) που δεν "
 "είναι διαθέσιμες σε αυτό το σύστημα."
 
-#: libraries/classes/Config/Validator.php:217
-#: libraries/classes/Config/Validator.php:224
+#: libraries/classes/Config/Validator.php:221
+#: libraries/classes/Config/Validator.php:228
 msgid "Could not connect to the database server!"
 msgstr "Αδύνατη η σύνδεση με τον διακομιστή βάσης δεδομένων!"
 
-#: libraries/classes/Config/Validator.php:259
+#: libraries/classes/Config/Validator.php:263
 msgid "Invalid authentication type!"
 msgstr "Μη έγκυρος τύπος επικύρωσης!"
 
-#: libraries/classes/Config/Validator.php:266
+#: libraries/classes/Config/Validator.php:270
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
 "Άδειασμα ονόματος χρήστη ενώ χρησιμοποιείτε μέθοδο επικύρωσης [kbd]config[/"
 "kbd]!"
 
-#: libraries/classes/Config/Validator.php:274
+#: libraries/classes/Config/Validator.php:278
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
@@ -6291,20 +6315,20 @@ msgstr ""
 "Άδειασμα ονομασίας συνεδρίας σύνδεσης ενώ χρησιμοποιείτε μέθοδο επικύρωσης "
 "[kbd]signon[/kbd]!"
 
-#: libraries/classes/Config/Validator.php:283
+#: libraries/classes/Config/Validator.php:287
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
 "Άδειασμα διεύθυνση URL σύνδεσης ενώ χρησιμοποιείτε μέθοδο επικύρωσης "
 "[kbd]signon[/kbd]!"
 
-#: libraries/classes/Config/Validator.php:336
+#: libraries/classes/Config/Validator.php:340
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "Άδειασμα ελέγχου χρήστη του phpMyAdmin ενώ χρησιμοποιείτε phpMyAdmin "
 "configuration storage!"
 
-#: libraries/classes/Config/Validator.php:343
+#: libraries/classes/Config/Validator.php:347
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
@@ -6312,11 +6336,11 @@ msgstr ""
 "Άδειασμα ελέγχου κωδικού πρόσβασης του phpMyAdmin ενώ χρησιμοποιείτε την "
 "αποθήκευση ρυθμίσεων του phpMyAdmin!"
 
-#: libraries/classes/Config/Validator.php:432
+#: libraries/classes/Config/Validator.php:436
 msgid "Incorrect value:"
 msgstr "Εσφαλμένη τιμή:"
 
-#: libraries/classes/Config/Validator.php:441
+#: libraries/classes/Config/Validator.php:445
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Εσφαλμένη διεύθυνση IP: %s"
@@ -7589,47 +7613,47 @@ msgid "Could not load schema plugins, please check your installation!"
 msgstr ""
 "Αδύνατη η φόρτωση προσθέτων σχήματος, για αυτό ελέξτε την εγκατάστασή σας!"
 
-#: libraries/classes/Database/Designer/Common.php:594
+#: libraries/classes/Database/Designer/Common.php:595
 msgid "Error: relationship already exists."
 msgstr "Σφάλμα: η συσχέτιση υπαρχει ήδη."
 
-#: libraries/classes/Database/Designer/Common.php:643
+#: libraries/classes/Database/Designer/Common.php:644
 msgid "FOREIGN KEY relationship has been added."
 msgstr "Έχει προστεθεί η συσχέτιση FOREIGN KEY."
 
-#: libraries/classes/Database/Designer/Common.php:650
+#: libraries/classes/Database/Designer/Common.php:651
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Σφάλμα: Δεν μπόρεσε να προστεθεί η συσχέτιση FOREIGN KEY!"
 
-#: libraries/classes/Database/Designer/Common.php:657
+#: libraries/classes/Database/Designer/Common.php:658
 msgid "Error: Missing index on column(s)."
 msgstr "Σφάλμα: Ανύπαρκτο ευρετήριο στη(ις) στήλη(ες)."
 
-#: libraries/classes/Database/Designer/Common.php:665
+#: libraries/classes/Database/Designer/Common.php:666
 msgid "Error: Relational features are disabled!"
 msgstr "Σφάλμα: Τα χαρακτηριστικά συσχέτισης είναι απεπεργοποιημένα!"
 
-#: libraries/classes/Database/Designer/Common.php:690
+#: libraries/classes/Database/Designer/Common.php:691
 msgid "Internal relationship has been added."
 msgstr "Η εσωτερική συσχέτιση έχει προστεθεί."
 
-#: libraries/classes/Database/Designer/Common.php:697
+#: libraries/classes/Database/Designer/Common.php:698
 msgid "Error: Internal relationship could not be added!"
 msgstr "Σφάλμα: Δεν μπόρεσε να προστεθεί η εσωτερική συσχέτιση!"
 
-#: libraries/classes/Database/Designer/Common.php:737
+#: libraries/classes/Database/Designer/Common.php:738
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "Έχει απομακρυνθεί η συσχέτιση FOREIGN KEY."
 
-#: libraries/classes/Database/Designer/Common.php:744
+#: libraries/classes/Database/Designer/Common.php:745
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "Σφάλμα: Δεν μπόρεσε να απομακρυνθεί η συσχέτιση FOREIGN KEY!"
 
-#: libraries/classes/Database/Designer/Common.php:771
+#: libraries/classes/Database/Designer/Common.php:772
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Σφάλμα: Δεν μπόρεσε να απομακρυνθεί η εσωτερική συσχέτιση!"
 
-#: libraries/classes/Database/Designer/Common.php:777
+#: libraries/classes/Database/Designer/Common.php:778
 msgid "Internal relationship has been removed."
 msgstr "Η εσωτερική συσχέτιση έχει απομακρυνθεί."
 
@@ -7804,7 +7828,7 @@ msgstr "Ανεπιτυχής σύνδεση του χρήστη ελέγχου �
 msgid "See %sour documentation%s for more information."
 msgstr "Δείτε την %sτεκμηρίωσή μας%s για περισσότερες πληροφορίες."
 
-#: libraries/classes/Dbi/DbiMysqli.php:133
+#: libraries/classes/Dbi/DbiMysqli.php:134
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "Ο διακομιστής δεσμεύει για σύνδεση SSL και ενεργοποιείται αυτόματα."
 
@@ -8620,7 +8644,7 @@ msgstr "Δεν ορίστηκε ευρετήριο!"
 #: libraries/classes/Server/Privileges.php:3720
 #: libraries/classes/Server/UserGroups.php:95
 #: templates/server/privileges/privileges_summary.twig:22
-#: templates/database/central_columns/main.twig:236
+#: templates/database/central_columns/main.twig:234
 #: templates/database/structure/table_header.twig:22
 #: templates/table/structure/display_partitions.twig:33
 #: templates/server/databases/index.twig:160
@@ -8659,8 +8683,8 @@ msgstr "Συμπιεσμένο"
 #: templates/table/relation/common_form.twig:17
 #: templates/table/relation/common_form.twig:22
 #: templates/table/relation/common_form.twig:37
-#: templates/table/relation/common_form.twig:116
-#: templates/table/relation/common_form.twig:181
+#: templates/table/relation/common_form.twig:117
+#: templates/table/relation/common_form.twig:182
 #: templates/table/relation/foreign_key_row.twig:118
 #: templates/table/relation/foreign_key_row.twig:128
 #: templates/table/search/zoom_result_form.twig:34
@@ -10122,7 +10146,9 @@ msgstr "Εμφάνιση σχολίων"
 #: libraries/classes/Plugins/Export/ExportLatex.php:156
 #: libraries/classes/Plugins/Export/ExportOdt.php:116
 #: libraries/classes/Plugins/Export/ExportSql.php:132
-msgid "Display MIME types"
+#, fuzzy
+#| msgid "Display MIME types"
+msgid "Display media (MIME) types"
 msgstr "Διαθέσιμοι τύποι MIME"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
@@ -10438,7 +10464,9 @@ msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT για πίνακα"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1911
-msgid "MIME TYPES FOR TABLE"
+#, fuzzy
+#| msgid "MIME TYPES FOR TABLE"
+msgid "MEDIA (MIME) TYPES FOR TABLE"
 msgstr "ΤΥΠΟΙ MIME ΓΙΑ ΠΙΝΑΚΑ"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1934
@@ -10478,10 +10506,6 @@ msgstr "Πίνακας:"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:183
 msgid "Purpose:"
 msgstr "Σκοπός:"
-
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:557
-msgid "MIME"
-msgstr "MIME"
 
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:53
 msgid ""
@@ -13759,14 +13783,14 @@ msgid "Add new column"
 msgstr "Προσθήκη νέας στήλης"
 
 #: templates/database/central_columns/main.twig:25
-#: templates/database/central_columns/main.twig:246
+#: templates/database/central_columns/main.twig:244
 #, fuzzy
 #| msgid "Length/Values"
 msgid "Length/Value"
 msgstr "Μήκος/Τιμές*"
 
 #: templates/database/central_columns/main.twig:37
-#: templates/database/central_columns/main.twig:258
+#: templates/database/central_columns/main.twig:256
 msgid "Attribute"
 msgstr "Χαρακτηριστικό"
 
@@ -13776,30 +13800,30 @@ msgstr "Χαρακτηριστικό"
 msgid "The central list of columns for the current database is empty"
 msgstr "Η κεντρική λίστα στηλών για την τρέχουσα βάση δεδομένων είναι άδεια."
 
-#: templates/database/central_columns/main.twig:184
+#: templates/database/central_columns/main.twig:182
 #: templates/display/results/table_navigation.twig:73
 msgid "Filter rows"
 msgstr "Φιλτράρισμα εγγραφών"
 
-#: templates/database/central_columns/main.twig:185
+#: templates/database/central_columns/main.twig:183
 #: templates/display/results/table_navigation.twig:75
 msgid "Search this table"
 msgstr "Αναζήτηση σε αυτόν τον πίνακα"
 
-#: templates/database/central_columns/main.twig:196
+#: templates/database/central_columns/main.twig:194
 #: templates/table/structure/display_structure.twig:420
 msgid "Add column"
 msgstr "Προσθήκη στήλης"
 
-#: templates/database/central_columns/main.twig:205
+#: templates/database/central_columns/main.twig:203
 msgid "Select a table"
 msgstr "Επιλογή ενός πίνακα"
 
-#: templates/database/central_columns/main.twig:212
+#: templates/database/central_columns/main.twig:210
 msgid "Select a column."
 msgstr "Επιλογή μιας στήλης."
 
-#: templates/database/central_columns/main.twig:214
+#: templates/database/central_columns/main.twig:212
 #: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
 #: templates/export/alias_add.twig:46
 #: templates/columns_definitions/column_definitions_form.twig:32
@@ -13807,7 +13831,7 @@ msgstr "Επιλογή μιας στήλης."
 msgid "Add"
 msgstr "Προσθήκη"
 
-#: templates/database/central_columns/main.twig:231
+#: templates/database/central_columns/main.twig:229
 msgid "Click to sort."
 msgstr "Πατήστε για ταξινόμηση."
 
@@ -15048,7 +15072,9 @@ msgid "Check for latest version"
 msgstr "Έλεγχος για τελευταία έκδοση"
 
 #: templates/transformation_overview.twig:1
-msgid "Available MIME types"
+#, fuzzy
+#| msgid "Available MIME types"
+msgid "Available media (MIME) types"
 msgstr "Διαθέσιμοι τύποι MIME"
 
 #: templates/transformation_overview.twig:13
@@ -15062,7 +15088,9 @@ msgstr "Μετατροπή προβολής περιηγητή"
 
 #: templates/transformation_overview.twig:19
 #: templates/transformation_overview.twig:38
-msgctxt "for MIME transformation"
+#, fuzzy
+#| msgid "Description"
+msgctxt "for media (MIME) type transformation"
 msgid "Description"
 msgstr "Περιγραφή"
 
@@ -15227,7 +15255,7 @@ msgstr "Επεξεργασία διακομιστή"
 msgid "Add a new server"
 msgstr "Προσθήκη ενός νέου διακομιστή"
 
-#: templates/table/tracking/main.twig:28 templates/server/plugins/index.twig:25
+#: templates/table/tracking/main.twig:28 templates/server/plugins/index.twig:24
 msgid "Version"
 msgstr "Έκδοση"
 
@@ -15457,6 +15485,12 @@ msgstr "Ανάπτυξη"
 #: templates/console/display.twig:175
 msgid "Requery"
 msgstr "Επανερώτημα"
+
+#: templates/table/structure/display_structure.twig:70
+#, fuzzy
+#| msgid "MIME type"
+msgid "Media (MIME) type:"
+msgstr "Τύπος MIME"
 
 #: templates/table/structure/display_structure.twig:112
 #, php-format
@@ -15781,7 +15815,7 @@ msgstr "Υποστήριξη"
 msgid "List of changes"
 msgstr "Λίστα αλλαγών"
 
-#: templates/home/index.twig:195 templates/server/plugins/index.twig:27
+#: templates/home/index.twig:195 templates/server/plugins/index.twig:26
 msgid "License"
 msgstr "Άδεια"
 
@@ -15838,17 +15872,35 @@ msgstr "Κανένα"
 msgid "Database comment:"
 msgstr "Σχόλιο βάσης δεδομένων"
 
-#: templates/server/plugins/index.twig:23
+#: templates/server/plugins/index.twig:22
 msgid "Plugin"
 msgstr "Πρόσθετο"
 
-#: templates/server/plugins/index.twig:26
+#: templates/server/plugins/index.twig:25
 msgid "Author"
 msgstr "Δημιουργός"
 
 #: templates/server/plugins/index.twig:37
+#, fuzzy
+#| msgid "active"
+msgid "inactive"
+msgstr "ενεργή"
+
+#: templates/server/plugins/index.twig:39
 msgid "disabled"
 msgstr "Απενεργοποιημένο"
+
+#: templates/server/plugins/index.twig:41
+#, fuzzy
+#| msgid "Deleting"
+msgid "deleting"
+msgstr "Διαγραφή"
+
+#: templates/server/plugins/index.twig:43
+#, fuzzy
+#| msgid "Delete"
+msgid "deleted"
+msgstr "Διαγραφή"
 
 #: templates/database/structure/show_create.twig:2
 msgid "Showing create queries"
@@ -16094,16 +16146,16 @@ msgstr "Όριο μη διακριτού κλειδιού"
 msgid "+ Add constraint"
 msgstr "+Προσθήκη περιορισμού"
 
-#: templates/table/relation/common_form.twig:102
-#: templates/table/relation/common_form.twig:111
+#: templates/table/relation/common_form.twig:103
+#: templates/table/relation/common_form.twig:112
 msgid "Internal relationships"
 msgstr "Εσωτερικές συσχετίσεις"
 
-#: templates/table/relation/common_form.twig:117
+#: templates/table/relation/common_form.twig:118
 msgid "Internal relation"
 msgstr "Εσωτερική συσχέτιση"
 
-#: templates/table/relation/common_form.twig:119
+#: templates/table/relation/common_form.twig:120
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
@@ -16111,7 +16163,7 @@ msgstr ""
 "Μια εσωτερική συσχέτιση δεν είναι απαραίτητη όταν υπάρχει μια αντίστοιχη "
 "συσχέτιση FOREIGN KEY."
 
-#: templates/table/relation/common_form.twig:199
+#: templates/table/relation/common_form.twig:200
 msgid "Choose column to display:"
 msgstr "Επιλέξτε στήλη για εμφάνιση:"
 
@@ -18119,6 +18171,13 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "Το concurrent_insert έχει οριστεί στο 0"
+
+#~ msgid "MIME"
+#~ msgstr "MIME"
+
+#~ msgctxt "for MIME transformation"
+#~ msgid "Description"
+#~ msgstr "Περιγραφή"
 
 #~ msgid "Full start"
 #~ msgstr "Πλήρης εκκίνηση"

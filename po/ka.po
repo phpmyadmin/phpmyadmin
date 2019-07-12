@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-06-29 15:34-0300\n"
+"POT-Creation-Date: 2019-07-12 00:18-0300\n"
 "PO-Revision-Date: 2019-04-27 17:19+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -543,7 +543,7 @@ msgstr "%s ველის დამატება"
 
 #: js/messages.php:134 libraries/classes/InsertEdit.php:1931
 #: templates/table/index_form.twig:220
-#: templates/table/relation/common_form.twig:215
+#: templates/table/relation/common_form.twig:216
 #: templates/columns_definitions/column_definitions_form.twig:149
 msgid "Preview SQL"
 msgstr ""
@@ -1462,7 +1462,7 @@ msgstr "სიმბოლოთა ნაკრები"
 #: templates/server/privileges/privileges_summary.twig:37
 #: templates/server/privileges/privileges_summary.twig:40
 #: templates/server/privileges/privileges_summary.twig:42
-#: templates/database/central_columns/main.twig:372
+#: templates/database/central_columns/main.twig:370
 #: templates/preferences/manage/error.twig:19
 #: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/table/structure/display_structure.twig:80
@@ -1592,8 +1592,8 @@ msgstr "SQL Query box"
 #: libraries/classes/Server/UserGroups.php:136 libraries/classes/Util.php:647
 #: libraries/classes/Util.php:1135 libraries/classes/Util.php:3456
 #: libraries/classes/Util.php:3457
-#: templates/database/central_columns/main.twig:283
-#: templates/database/central_columns/main.twig:404
+#: templates/database/central_columns/main.twig:281
+#: templates/database/central_columns/main.twig:402
 #: templates/setup/home/index.twig:57 templates/console/bookmark_content.twig:7
 #: templates/console/display.twig:31 templates/console/display.twig:175
 #: templates/server/variables/index.twig:38
@@ -1607,8 +1607,8 @@ msgstr "რედაქტირება"
 #: libraries/classes/Server/UserGroups.php:148
 #: libraries/classes/SqlQueryForm.php:438 libraries/classes/Tracking.php:298
 #: templates/database/search/results.twig:43
-#: templates/database/central_columns/main.twig:286
-#: templates/database/central_columns/main.twig:411
+#: templates/database/central_columns/main.twig:284
+#: templates/database/central_columns/main.twig:409
 #: templates/setup/home/index.twig:61
 #: templates/display/export/template_loading.twig:22
 #: templates/console/bookmark_content.twig:7
@@ -1798,7 +1798,7 @@ msgstr ""
 #: js/messages.php:491 libraries/classes/CentralColumns.php:965
 #: libraries/classes/InsertEdit.php:1845
 #: templates/table/gis_visualization/gis_visualization.twig:48
-#: templates/table/relation/common_form.twig:216
+#: templates/table/relation/common_form.twig:217
 #: templates/columns_definitions/column_definitions_form.twig:152
 #: templates/table/structure/partition_definition_form.twig:12
 #: templates/server/variables/index.twig:9
@@ -1991,7 +1991,7 @@ msgstr "შიდა ქსელის დამატება"
 #: templates/server/privileges/privileges_summary.twig:37
 #: templates/server/privileges/privileges_summary.twig:40
 #: templates/server/privileges/privileges_summary.twig:42
-#: templates/database/central_columns/main.twig:372
+#: templates/database/central_columns/main.twig:370
 #: templates/preferences/manage/error.twig:18
 #: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/table/structure/display_structure.twig:80
@@ -3041,7 +3041,7 @@ msgstr ""
 #: templates/server/status/variables/index.twig:72
 #: templates/server/engines/index.twig:10
 #: templates/server/collations/index.twig:11
-#: templates/server/plugins/index.twig:24
+#: templates/server/plugins/index.twig:23
 msgid "Description"
 msgstr "აღწერილობა"
 
@@ -3100,7 +3100,7 @@ msgstr ""
 #: libraries/classes/Rte/RteList.php:117 libraries/classes/Rte/RteList.php:129
 #: libraries/classes/Rte/RteList.php:144
 #: templates/database/central_columns/main.twig:17
-#: templates/database/central_columns/main.twig:238
+#: templates/database/central_columns/main.twig:236
 #: templates/database/create_table.twig:11 templates/setup/home/index.twig:43
 #: templates/table/structure/display_structure.twig:21
 #: templates/columns_definitions/table_fields_definitions.twig:9
@@ -3125,7 +3125,7 @@ msgstr "სახელი"
 #: libraries/classes/Rte/RteList.php:119 libraries/classes/Rte/RteList.php:147
 #: libraries/classes/Server/Privileges.php:2712
 #: templates/database/central_columns/main.twig:21
-#: templates/database/central_columns/main.twig:242
+#: templates/database/central_columns/main.twig:240
 #: templates/database/structure/table_header.twig:30
 #: templates/table/search/fields_table.twig:8
 #: templates/table/tracking/structure_snapshot_columns.twig:7
@@ -3154,7 +3154,7 @@ msgstr ""
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:689
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:722
 #: templates/database/central_columns/main.twig:29
-#: templates/database/central_columns/main.twig:250
+#: templates/database/central_columns/main.twig:248
 #: templates/table/tracking/structure_snapshot_columns.twig:10
 #: templates/table/structure/display_structure.twig:26
 #: templates/database/data_dictionary/index.twig:19
@@ -3167,7 +3167,7 @@ msgstr "სტანდარტული"
 #: libraries/classes/CentralColumns.php:1018 libraries/classes/Index.php:722
 #: libraries/classes/Operations.php:311 libraries/classes/Operations.php:1143
 #: templates/database/central_columns/main.twig:33
-#: templates/database/central_columns/main.twig:254
+#: templates/database/central_columns/main.twig:252
 #: templates/database/structure/table_header.twig:31
 #: templates/server/databases/index.twig:37
 #: templates/server/databases/index.twig:120
@@ -3202,7 +3202,7 @@ msgstr "ატრიბუტები"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:688
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:721
 #: templates/database/central_columns/main.twig:41
-#: templates/database/central_columns/main.twig:262
+#: templates/database/central_columns/main.twig:260
 #: templates/table/tracking/structure_snapshot_columns.twig:9
 #: templates/table/structure/display_structure.twig:25
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
@@ -3214,375 +3214,386 @@ msgstr "Null"
 
 #: libraries/classes/CentralColumns.php:1021
 #: templates/database/central_columns/main.twig:45
-#: templates/database/central_columns/main.twig:266
+#: templates/database/central_columns/main.twig:264
 msgid "A_I"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:186
+#: libraries/classes/Charsets/Collation.php:184
 #, fuzzy
 #| msgid "unknown"
 msgid "Unknown"
 msgstr "უცნობი"
 
-#: libraries/classes/Charsets/Collation.php:200
+#: libraries/classes/Charsets/Collation.php:198
 #, fuzzy
 #| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
 msgstr "ბინარული"
 
-#: libraries/classes/Charsets/Collation.php:212
-#: libraries/classes/Charsets/Collation.php:446
+#: libraries/classes/Charsets/Collation.php:210
+#: libraries/classes/Charsets/Collation.php:449
 #, fuzzy
 #| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "უნიკოდი"
 
-#: libraries/classes/Charsets/Collation.php:222
-#: libraries/classes/Charsets/Collation.php:397
+#: libraries/classes/Charsets/Collation.php:220
+#: libraries/classes/Charsets/Collation.php:396
 msgctxt "Collation"
 msgid "West European"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:229
+#: libraries/classes/Charsets/Collation.php:227
 #, fuzzy
 #| msgid "CHAR textarea columns"
 msgctxt "Collation"
 msgid "Central European"
 msgstr "CHAR textarea columns"
 
-#: libraries/classes/Charsets/Collation.php:234
+#: libraries/classes/Charsets/Collation.php:232
+#: libraries/classes/Charsets/Collation.php:403
 #, fuzzy
 #| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "რუსული"
 
-#: libraries/classes/Charsets/Collation.php:239
+#: libraries/classes/Charsets/Collation.php:237
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:242
+#: libraries/classes/Charsets/Collation.php:240
 #, fuzzy
 #| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "ტრადიციული ჩინური"
 
-#: libraries/classes/Charsets/Collation.php:245
-#: libraries/classes/Charsets/Collation.php:320
+#: libraries/classes/Charsets/Collation.php:243
+#: libraries/classes/Charsets/Collation.php:319
 msgctxt "Collation"
 msgid "Chinese"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:253
-#: libraries/classes/Charsets/Collation.php:368
+#: libraries/classes/Charsets/Collation.php:251
+#: libraries/classes/Charsets/Collation.php:367
 #, fuzzy
 #| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "იაპონური"
 
-#: libraries/classes/Charsets/Collation.php:258
+#: libraries/classes/Charsets/Collation.php:256
 #, fuzzy
 #| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "ბალტიური"
 
-#: libraries/classes/Charsets/Collation.php:263
+#: libraries/classes/Charsets/Collation.php:261
 #, fuzzy
 #| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "სომხური"
 
-#: libraries/classes/Charsets/Collation.php:266
+#: libraries/classes/Charsets/Collation.php:264
 #, fuzzy
 #| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "კირილიცა"
 
-#: libraries/classes/Charsets/Collation.php:269
+#: libraries/classes/Charsets/Collation.php:267
 #, fuzzy
 #| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "არაბული"
 
-#: libraries/classes/Charsets/Collation.php:272
-#: libraries/classes/Charsets/Collation.php:383
+#: libraries/classes/Charsets/Collation.php:270
+#: libraries/classes/Charsets/Collation.php:382
 #, fuzzy
 #| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "კორეული"
 
-#: libraries/classes/Charsets/Collation.php:275
+#: libraries/classes/Charsets/Collation.php:273
 #, fuzzy
 #| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "ებრაული"
 
-#: libraries/classes/Charsets/Collation.php:278
+#: libraries/classes/Charsets/Collation.php:276
 #, fuzzy
 #| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "ქართული"
 
-#: libraries/classes/Charsets/Collation.php:281
+#: libraries/classes/Charsets/Collation.php:279
 #, fuzzy
 #| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "ბერძნული"
 
-#: libraries/classes/Charsets/Collation.php:284
+#: libraries/classes/Charsets/Collation.php:282
 #, fuzzy
 #| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "ჩეხოსლოვალური"
 
-#: libraries/classes/Charsets/Collation.php:287
-#: libraries/classes/Charsets/Collation.php:438
+#: libraries/classes/Charsets/Collation.php:285
+#: libraries/classes/Charsets/Collation.php:441
 #, fuzzy
 #| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "უკრაინული"
 
-#: libraries/classes/Charsets/Collation.php:290
-#: libraries/classes/Charsets/Collation.php:434
+#: libraries/classes/Charsets/Collation.php:288
+#: libraries/classes/Charsets/Collation.php:437
 #, fuzzy
 #| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "თურქული"
 
-#: libraries/classes/Charsets/Collation.php:293
-#: libraries/classes/Charsets/Collation.php:426
+#: libraries/classes/Charsets/Collation.php:291
+#: libraries/classes/Charsets/Collation.php:429
 #, fuzzy
 #| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "შვედური"
 
-#: libraries/classes/Charsets/Collation.php:296
-#: libraries/classes/Charsets/Collation.php:430
+#: libraries/classes/Charsets/Collation.php:294
+#: libraries/classes/Charsets/Collation.php:433
 #, fuzzy
 #| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Thai"
 
-#: libraries/classes/Charsets/Collation.php:299
+#: libraries/classes/Charsets/Collation.php:297
 #, fuzzy
 #| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "უცნობი"
 
-#: libraries/classes/Charsets/Collation.php:315
+#: libraries/classes/Charsets/Collation.php:313
 #, fuzzy
 #| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "ბულგარული"
 
-#: libraries/classes/Charsets/Collation.php:325
+#: libraries/classes/Charsets/Collation.php:324
 #, fuzzy
 #| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "ხორვატული"
 
-#: libraries/classes/Charsets/Collation.php:329
+#: libraries/classes/Charsets/Collation.php:328
 #, fuzzy
 #| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "ჩეხური"
 
-#: libraries/classes/Charsets/Collation.php:333
+#: libraries/classes/Charsets/Collation.php:332
 #, fuzzy
 #| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "დანიური"
 
-#: libraries/classes/Charsets/Collation.php:337
+#: libraries/classes/Charsets/Collation.php:336
 #, fuzzy
 #| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "ინგლისური"
 
-#: libraries/classes/Charsets/Collation.php:341
+#: libraries/classes/Charsets/Collation.php:340
 #, fuzzy
 #| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "ესპერანტო"
 
-#: libraries/classes/Charsets/Collation.php:345
+#: libraries/classes/Charsets/Collation.php:344
 #, fuzzy
 #| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "ესტონური"
 
-#: libraries/classes/Charsets/Collation.php:348
-#: libraries/classes/Charsets/Collation.php:465
+#: libraries/classes/Charsets/Collation.php:347
+#: libraries/classes/Charsets/Collation.php:468
 #, fuzzy
 #| msgid "Data Dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "მონაცემების ლექსიკონი"
 
-#: libraries/classes/Charsets/Collation.php:351
-#: libraries/classes/Charsets/Collation.php:462
+#: libraries/classes/Charsets/Collation.php:350
+#: libraries/classes/Charsets/Collation.php:465
 msgctxt "Collation"
 msgid "German (phone book order)"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:360
+#: libraries/classes/Charsets/Collation.php:359
 #, fuzzy
 #| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "უნგრული"
 
-#: libraries/classes/Charsets/Collation.php:364
+#: libraries/classes/Charsets/Collation.php:363
 #, fuzzy
 #| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "ისლანდიური"
 
-#: libraries/classes/Charsets/Collation.php:371
+#: libraries/classes/Charsets/Collation.php:370
 msgctxt "Collation"
 msgid "Classical Latin"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:375
+#: libraries/classes/Charsets/Collation.php:374
 #, fuzzy
 #| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "ლატვიური"
 
-#: libraries/classes/Charsets/Collation.php:379
+#: libraries/classes/Charsets/Collation.php:378
 #, fuzzy
 #| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "ლიტვური"
 
-#: libraries/classes/Charsets/Collation.php:387
+#: libraries/classes/Charsets/Collation.php:386
 msgctxt "Collation"
 msgid "Burmese"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:390
+#: libraries/classes/Charsets/Collation.php:389
 #, fuzzy
 #| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "სპარსული"
 
-#: libraries/classes/Charsets/Collation.php:394
+#: libraries/classes/Charsets/Collation.php:393
 #, fuzzy
 #| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "პოლონური"
 
-#: libraries/classes/Charsets/Collation.php:401
+#: libraries/classes/Charsets/Collation.php:400
 #, fuzzy
 #| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "რუმინული"
 
-#: libraries/classes/Charsets/Collation.php:405
+#: libraries/classes/Charsets/Collation.php:407
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:409
+#: libraries/classes/Charsets/Collation.php:411
 #, fuzzy
 #| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "სლოვაკური"
 
-#: libraries/classes/Charsets/Collation.php:413
+#: libraries/classes/Charsets/Collation.php:415
 #, fuzzy
 #| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "სლოვენური"
 
-#: libraries/classes/Charsets/Collation.php:416
-#: libraries/classes/Charsets/Collation.php:476
+#: libraries/classes/Charsets/Collation.php:418
+#: libraries/classes/Charsets/Collation.php:479
 #, fuzzy
 #| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr "ესპანური"
 
-#: libraries/classes/Charsets/Collation.php:423
-#: libraries/classes/Charsets/Collation.php:473
+#: libraries/classes/Charsets/Collation.php:425
+#: libraries/classes/Charsets/Collation.php:476
 msgctxt "Collation"
 msgid "Spanish (traditional)"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:442
+#: libraries/classes/Charsets/Collation.php:445
 #, fuzzy
 #| msgid "Table name"
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "ცხრილის სახელი"
 
-#: libraries/classes/Charsets/Collation.php:509
+#: libraries/classes/Charsets/Collation.php:512
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:512
+#: libraries/classes/Charsets/Collation.php:515
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:515
+#: libraries/classes/Charsets/Collation.php:518
 msgctxt "Collation variant"
 msgid "accent-insensitive"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:518
+#: libraries/classes/Charsets/Collation.php:521
 msgctxt "Collation variant"
 msgid "accent-sensitive"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:522
+#: libraries/classes/Charsets/Collation.php:524
+msgctxt "Collation variant"
+msgid "kana-sensitive"
+msgstr ""
+
+#: libraries/classes/Charsets/Collation.php:528
 #, fuzzy
 #| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
 msgstr "მრავალენოვანი"
 
-#: libraries/classes/Charsets/Collation.php:525
+#: libraries/classes/Charsets/Collation.php:531
 #, fuzzy
 #| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "ბინარული"
+
+#: libraries/classes/Charsets/Collation.php:534
+msgctxt "Collation variant"
+msgid "no-pad"
+msgstr ""
 
 #: libraries/classes/Config.php:1144
 #, php-format
@@ -4145,9 +4156,15 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:217
 #: libraries/classes/Config/Descriptions.php:229
 #: libraries/classes/Config/Descriptions.php:267
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:415
 #: libraries/classes/Plugins/Export/ExportOdt.php:515
+#: libraries/classes/Plugins/Export/ExportTexytext.php:395
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:557
+#: templates/database/data_dictionary/index.twig:25
 #: templates/columns_definitions/table_fields_definitions.twig:71
-msgid "MIME type"
+#, fuzzy
+#| msgid "MIME type"
+msgid "Media (MIME) type"
 msgstr "MIME-ის ტიპი"
 
 #: libraries/classes/Config/Descriptions.php:219
@@ -5472,7 +5489,7 @@ msgstr "ცხრილის ჩანიშვნა"
 #| msgid ""
 #| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
 msgid ""
-"Leave blank for no column comments/mime types, suggested: "
+"Leave blank for no column comments/media (MIME) types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
@@ -6206,7 +6223,7 @@ msgstr ""
 #: templates/server/databases/index.twig:103
 #: templates/console/bookmark_content.twig:7
 #: templates/table/relation/common_form.twig:35
-#: templates/table/relation/common_form.twig:167
+#: templates/table/relation/common_form.twig:168
 #: templates/console/display.twig:40 templates/console/display.twig:184
 #: templates/table/relation/foreign_key_row.twig:96
 msgid "Database"
@@ -6248,7 +6265,7 @@ msgstr ""
 #: templates/database/tracking/tables.twig:13
 #: templates/database/tracking/tables.twig:120
 #: templates/table/relation/common_form.twig:36
-#: templates/table/relation/common_form.twig:174
+#: templates/table/relation/common_form.twig:175
 #: templates/table/relation/foreign_key_row.twig:106
 msgid "Table"
 msgstr "ცხრილი"
@@ -6457,21 +6474,21 @@ msgid "Server connection collation"
 msgstr "MySQL კავშირის კოლაცია"
 
 #: libraries/classes/Config/FormDisplay.php:102
-#: libraries/classes/Config/Validator.php:525
+#: libraries/classes/Config/Validator.php:529
 #, fuzzy
 #| msgid "Not a positive number"
 msgid "Not a positive number!"
 msgstr "არადადებითი რიცხვი"
 
 #: libraries/classes/Config/FormDisplay.php:103
-#: libraries/classes/Config/Validator.php:547
+#: libraries/classes/Config/Validator.php:551
 #, fuzzy
 #| msgid "Not a positive number"
 msgid "Not a non-negative number!"
 msgstr "არადადებითი რიცხვი"
 
 #: libraries/classes/Config/FormDisplay.php:104
-#: libraries/classes/Config/Validator.php:503
+#: libraries/classes/Config/Validator.php:507
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Not a valid port number!"
@@ -6479,14 +6496,14 @@ msgstr "პორტის ნომერი არასწორია"
 
 #: libraries/classes/Config/FormDisplay.php:105
 #: libraries/classes/Config/FormDisplay.php:683
-#: libraries/classes/Config/Validator.php:568
+#: libraries/classes/Config/Validator.php:572
 #, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value!"
 msgstr "არასწორი მნიშვნელობა"
 
 #: libraries/classes/Config/FormDisplay.php:106
-#: libraries/classes/Config/Validator.php:585
+#: libraries/classes/Config/Validator.php:589
 #, php-format
 msgid "Value must be less than or equal to %s!"
 msgstr ""
@@ -6807,25 +6824,25 @@ msgstr ""
 "decompression[/a] requires functions (%s) which are unavailable on this "
 "system."
 
-#: libraries/classes/Config/Validator.php:217
-#: libraries/classes/Config/Validator.php:224
+#: libraries/classes/Config/Validator.php:221
+#: libraries/classes/Config/Validator.php:228
 #, fuzzy
 msgid "Could not connect to the database server!"
 msgstr "MySQL სერვერთან დაკავშირება ვერ მოხერხდა"
 
-#: libraries/classes/Config/Validator.php:259
+#: libraries/classes/Config/Validator.php:263
 #, fuzzy
 #| msgid "Authentication type"
 msgid "Invalid authentication type!"
 msgstr "ავთენტიფიკაციის ტიპი"
 
-#: libraries/classes/Config/Validator.php:266
+#: libraries/classes/Config/Validator.php:270
 #, fuzzy
 #| msgid "Enter login options for signon authentication"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr "Enter login options for signon authentication"
 
-#: libraries/classes/Config/Validator.php:274
+#: libraries/classes/Config/Validator.php:278
 #, fuzzy
 #| msgid "Enter login options for signon authentication"
 msgid ""
@@ -6833,30 +6850,30 @@ msgid ""
 "method!"
 msgstr "Enter login options for signon authentication"
 
-#: libraries/classes/Config/Validator.php:283
+#: libraries/classes/Config/Validator.php:287
 #, fuzzy
 #| msgid "Enter login options for signon authentication"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "Enter login options for signon authentication"
 
-#: libraries/classes/Config/Validator.php:336
+#: libraries/classes/Config/Validator.php:340
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 
-#: libraries/classes/Config/Validator.php:343
+#: libraries/classes/Config/Validator.php:347
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
 msgstr ""
 
-#: libraries/classes/Config/Validator.php:432
+#: libraries/classes/Config/Validator.php:436
 #, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value:"
 msgstr "არასწორი მნიშვნელობა"
 
-#: libraries/classes/Config/Validator.php:441
+#: libraries/classes/Config/Validator.php:445
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "IP მისამართი არასწორია: %s"
@@ -7999,63 +8016,63 @@ msgstr ""
 msgid "Could not load schema plugins, please check your installation!"
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:594
+#: libraries/classes/Database/Designer/Common.php:595
 #, fuzzy
 #| msgid "Table %s already exists!"
 msgid "Error: relationship already exists."
 msgstr "ცხრილი %s უკვე არსებობს!"
 
-#: libraries/classes/Database/Designer/Common.php:643
+#: libraries/classes/Database/Designer/Common.php:644
 #, fuzzy
 #| msgid "Modifications have been saved"
 msgid "FOREIGN KEY relationship has been added."
 msgstr "ცვლილებები შენახულია"
 
-#: libraries/classes/Database/Designer/Common.php:650
+#: libraries/classes/Database/Designer/Common.php:651
 #, fuzzy
 #| msgid "File could not be read"
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "ფაილის წაკითხვა ვერ მოხერხდა"
 
-#: libraries/classes/Database/Designer/Common.php:657
+#: libraries/classes/Database/Designer/Common.php:658
 msgid "Error: Missing index on column(s)."
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:665
+#: libraries/classes/Database/Designer/Common.php:666
 msgid "Error: Relational features are disabled!"
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:690
+#: libraries/classes/Database/Designer/Common.php:691
 #, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relationship has been added."
 msgstr "Internal relations"
 
-#: libraries/classes/Database/Designer/Common.php:697
+#: libraries/classes/Database/Designer/Common.php:698
 #, fuzzy
 #| msgid "File could not be read"
 msgid "Error: Internal relationship could not be added!"
 msgstr "ფაილის წაკითხვა ვერ მოხერხდა"
 
-#: libraries/classes/Database/Designer/Common.php:737
+#: libraries/classes/Database/Designer/Common.php:738
 #, fuzzy
 #| msgid "Modifications have been saved"
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "ცვლილებები შენახულია"
 
-#: libraries/classes/Database/Designer/Common.php:744
+#: libraries/classes/Database/Designer/Common.php:745
 #, fuzzy
 #| msgid "File could not be read"
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "ფაილის წაკითხვა ვერ მოხერხდა"
 
-#: libraries/classes/Database/Designer/Common.php:771
+#: libraries/classes/Database/Designer/Common.php:772
 #, fuzzy
 #| msgid "File could not be read"
 msgid "Error: Internal relationship could not be removed!"
 msgstr "ფაილის წაკითხვა ვერ მოხერხდა"
 
-#: libraries/classes/Database/Designer/Common.php:777
+#: libraries/classes/Database/Designer/Common.php:778
 #, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relationship has been removed."
@@ -8264,7 +8281,7 @@ msgstr ""
 msgid "See %sour documentation%s for more information."
 msgstr ""
 
-#: libraries/classes/Dbi/DbiMysqli.php:133
+#: libraries/classes/Dbi/DbiMysqli.php:134
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
@@ -9053,7 +9070,7 @@ msgstr "ინდექსი არაა განსაზღვრული!
 #: libraries/classes/Server/Privileges.php:3720
 #: libraries/classes/Server/UserGroups.php:95
 #: templates/server/privileges/privileges_summary.twig:22
-#: templates/database/central_columns/main.twig:236
+#: templates/database/central_columns/main.twig:234
 #: templates/database/structure/table_header.twig:22
 #: templates/table/structure/display_partitions.twig:33
 #: templates/server/databases/index.twig:160
@@ -9092,8 +9109,8 @@ msgstr "შეკუმშული"
 #: templates/table/relation/common_form.twig:17
 #: templates/table/relation/common_form.twig:22
 #: templates/table/relation/common_form.twig:37
-#: templates/table/relation/common_form.twig:116
-#: templates/table/relation/common_form.twig:181
+#: templates/table/relation/common_form.twig:117
+#: templates/table/relation/common_form.twig:182
 #: templates/table/relation/foreign_key_row.twig:118
 #: templates/table/relation/foreign_key_row.twig:128
 #: templates/table/search/zoom_result_form.twig:34
@@ -10593,7 +10610,7 @@ msgstr "Displaying Column Comments"
 #: libraries/classes/Plugins/Export/ExportSql.php:132
 #, fuzzy
 #| msgid "Available MIME types"
-msgid "Display MIME types"
+msgid "Display media (MIME) types"
 msgstr "MIME-ის ხელმისაწვდომი ტიპები"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
@@ -10915,7 +10932,9 @@ msgid "AUTO_INCREMENT for table"
 msgstr "Add AUTO_INCREMENT value"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1911
-msgid "MIME TYPES FOR TABLE"
+#, fuzzy
+#| msgid "MIME TYPES FOR TABLE"
+msgid "MEDIA (MIME) TYPES FOR TABLE"
 msgstr "MIME TYPES FOR TABLE"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1934
@@ -10962,12 +10981,6 @@ msgstr "ცხრილი"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:183
 msgid "Purpose:"
 msgstr ""
-
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:557
-#, fuzzy
-#| msgid "MIME type"
-msgid "MIME"
-msgstr "MIME-ის ტიპი"
 
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:53
 msgid ""
@@ -14399,12 +14412,12 @@ msgid "Add new column"
 msgstr "%s ველის დამატება"
 
 #: templates/database/central_columns/main.twig:25
-#: templates/database/central_columns/main.twig:246
+#: templates/database/central_columns/main.twig:244
 msgid "Length/Value"
 msgstr ""
 
 #: templates/database/central_columns/main.twig:37
-#: templates/database/central_columns/main.twig:258
+#: templates/database/central_columns/main.twig:256
 #, fuzzy
 #| msgid "Attributes"
 msgid "Attribute"
@@ -14414,39 +14427,39 @@ msgstr "ატრიბუტები"
 msgid "The central list of columns for the current database is empty"
 msgstr ""
 
-#: templates/database/central_columns/main.twig:184
+#: templates/database/central_columns/main.twig:182
 #: templates/display/results/table_navigation.twig:73
 #, fuzzy
 msgid "Filter rows"
 msgstr "ფაილები"
 
-#: templates/database/central_columns/main.twig:185
+#: templates/database/central_columns/main.twig:183
 #: templates/display/results/table_navigation.twig:75
 #, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
 msgstr "მონაცემთა ბაზაში ძებნა"
 
-#: templates/database/central_columns/main.twig:196
+#: templates/database/central_columns/main.twig:194
 #: templates/table/structure/display_structure.twig:420
 #, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add column"
 msgstr "%s ველის დამატება"
 
-#: templates/database/central_columns/main.twig:205
+#: templates/database/central_columns/main.twig:203
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select a table"
 msgstr "ცხრილების არჩევა"
 
-#: templates/database/central_columns/main.twig:212
+#: templates/database/central_columns/main.twig:210
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Select a column."
 msgstr "ველის სვეტების დამატება/წაშლა"
 
-#: templates/database/central_columns/main.twig:214
+#: templates/database/central_columns/main.twig:212
 #: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
 #: templates/export/alias_add.twig:46
 #: templates/columns_definitions/column_definitions_form.twig:32
@@ -14456,7 +14469,7 @@ msgstr "ველის სვეტების დამატება/წა
 msgid "Add"
 msgstr "და"
 
-#: templates/database/central_columns/main.twig:231
+#: templates/database/central_columns/main.twig:229
 msgid "Click to sort."
 msgstr ""
 
@@ -15809,7 +15822,9 @@ msgid "Check for latest version"
 msgstr "უკანასკნელ ვერსიაზე შემოწმება"
 
 #: templates/transformation_overview.twig:1
-msgid "Available MIME types"
+#, fuzzy
+#| msgid "Available MIME types"
+msgid "Available media (MIME) types"
 msgstr "MIME-ის ხელმისაწვდომი ტიპები"
 
 #: templates/transformation_overview.twig:13
@@ -15829,7 +15844,7 @@ msgstr "ინფორმაცია ბრაუზერის შესა�
 #: templates/transformation_overview.twig:38
 #, fuzzy
 #| msgid "Description"
-msgctxt "for MIME transformation"
+msgctxt "for media (MIME) type transformation"
 msgid "Description"
 msgstr "აღწერილობა"
 
@@ -16037,7 +16052,7 @@ msgstr "სერვერის რედაქტირება"
 msgid "Add a new server"
 msgstr "ახალი სერვერის დამატება"
 
-#: templates/table/tracking/main.twig:28 templates/server/plugins/index.twig:25
+#: templates/table/tracking/main.twig:28 templates/server/plugins/index.twig:24
 #, fuzzy
 msgid "Version"
 msgstr "სპარსული"
@@ -16287,6 +16302,12 @@ msgstr ""
 #| msgid "in query"
 msgid "Requery"
 msgstr "მოთხოვნაში"
+
+#: templates/table/structure/display_structure.twig:70
+#, fuzzy
+#| msgid "MIME type"
+msgid "Media (MIME) type:"
+msgstr "MIME-ის ტიპი"
 
 #: templates/table/structure/display_structure.twig:112
 #, fuzzy, php-format
@@ -16666,7 +16687,7 @@ msgstr "ექსპორტი"
 msgid "List of changes"
 msgstr "ცვლილების გარეშე"
 
-#: templates/home/index.twig:195 templates/server/plugins/index.twig:27
+#: templates/home/index.twig:195 templates/server/plugins/index.twig:26
 msgid "License"
 msgstr ""
 
@@ -16719,19 +16740,35 @@ msgstr "არაა"
 msgid "Database comment:"
 msgstr "კომენტარი მონაცემთა ბაზაში"
 
-#: templates/server/plugins/index.twig:23
+#: templates/server/plugins/index.twig:22
 msgid "Plugin"
 msgstr ""
 
-#: templates/server/plugins/index.twig:26
+#: templates/server/plugins/index.twig:25
 msgid "Author"
 msgstr ""
 
 #: templates/server/plugins/index.twig:37
+msgid "inactive"
+msgstr ""
+
+#: templates/server/plugins/index.twig:39
 #, fuzzy
 #| msgid "Disabled"
 msgid "disabled"
 msgstr "გათიშულია"
+
+#: templates/server/plugins/index.twig:41
+#, fuzzy
+#| msgid "Deleting %s"
+msgid "deleting"
+msgstr "%s-ის წაშლა"
+
+#: templates/server/plugins/index.twig:43
+#, fuzzy
+#| msgid "Delete"
+msgid "deleted"
+msgstr "წაშლა"
 
 #: templates/database/structure/show_create.twig:2
 #, fuzzy
@@ -17021,26 +17058,26 @@ msgstr "Foreign key limit"
 msgid "+ Add constraint"
 msgstr "Foreign key limit"
 
-#: templates/table/relation/common_form.twig:102
-#: templates/table/relation/common_form.twig:111
+#: templates/table/relation/common_form.twig:103
+#: templates/table/relation/common_form.twig:112
 #, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relationships"
 msgstr "Internal relations"
 
-#: templates/table/relation/common_form.twig:117
+#: templates/table/relation/common_form.twig:118
 #, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relation"
 msgstr "Internal relations"
 
-#: templates/table/relation/common_form.twig:119
+#: templates/table/relation/common_form.twig:120
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
 msgstr ""
 
-#: templates/table/relation/common_form.twig:199
+#: templates/table/relation/common_form.twig:200
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display:"
@@ -19052,6 +19089,17 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
 msgstr "max. concurrent connections"
+
+#, fuzzy
+#~| msgid "MIME type"
+#~ msgid "MIME"
+#~ msgstr "MIME-ის ტიპი"
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgctxt "for MIME transformation"
+#~ msgid "Description"
+#~ msgstr "აღწერილობა"
 
 #, fuzzy
 #~ msgid "Full start"

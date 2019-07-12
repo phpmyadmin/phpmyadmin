@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-06-29 15:34-0300\n"
+"POT-Creation-Date: 2019-07-12 00:18-0300\n"
 "PO-Revision-Date: 2015-10-15 11:22+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Belarusian (latin) <https://hosted.weblate.org/projects/"
@@ -573,7 +573,7 @@ msgstr "Dadać %s novyja pali"
 
 #: js/messages.php:134 libraries/classes/InsertEdit.php:1931
 #: templates/table/index_form.twig:220
-#: templates/table/relation/common_form.twig:215
+#: templates/table/relation/common_form.twig:216
 #: templates/columns_definitions/column_definitions_form.twig:149
 msgid "Preview SQL"
 msgstr ""
@@ -1497,7 +1497,7 @@ msgstr "Kadyroŭka"
 #: templates/server/privileges/privileges_summary.twig:37
 #: templates/server/privileges/privileges_summary.twig:40
 #: templates/server/privileges/privileges_summary.twig:42
-#: templates/database/central_columns/main.twig:372
+#: templates/database/central_columns/main.twig:370
 #: templates/preferences/manage/error.twig:19
 #: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/table/structure/display_structure.twig:80
@@ -1629,8 +1629,8 @@ msgstr "U vyhladzie SQL-zapytu"
 #: libraries/classes/Server/UserGroups.php:136 libraries/classes/Util.php:647
 #: libraries/classes/Util.php:1135 libraries/classes/Util.php:3456
 #: libraries/classes/Util.php:3457
-#: templates/database/central_columns/main.twig:283
-#: templates/database/central_columns/main.twig:404
+#: templates/database/central_columns/main.twig:281
+#: templates/database/central_columns/main.twig:402
 #: templates/setup/home/index.twig:57 templates/console/bookmark_content.twig:7
 #: templates/console/display.twig:31 templates/console/display.twig:175
 #: templates/server/variables/index.twig:38
@@ -1644,8 +1644,8 @@ msgstr "Redagavać"
 #: libraries/classes/Server/UserGroups.php:148
 #: libraries/classes/SqlQueryForm.php:438 libraries/classes/Tracking.php:298
 #: templates/database/search/results.twig:43
-#: templates/database/central_columns/main.twig:286
-#: templates/database/central_columns/main.twig:411
+#: templates/database/central_columns/main.twig:284
+#: templates/database/central_columns/main.twig:409
 #: templates/setup/home/index.twig:61
 #: templates/display/export/template_loading.twig:22
 #: templates/console/bookmark_content.twig:7
@@ -1841,7 +1841,7 @@ msgstr "Nia vybranaja baza dadzienych."
 #: js/messages.php:491 libraries/classes/CentralColumns.php:965
 #: libraries/classes/InsertEdit.php:1845
 #: templates/table/gis_visualization/gis_visualization.twig:48
-#: templates/table/relation/common_form.twig:216
+#: templates/table/relation/common_form.twig:217
 #: templates/columns_definitions/column_definitions_form.twig:152
 #: templates/table/structure/partition_definition_form.twig:12
 #: templates/server/variables/index.twig:9
@@ -2036,7 +2036,7 @@ msgstr ""
 #: templates/server/privileges/privileges_summary.twig:37
 #: templates/server/privileges/privileges_summary.twig:40
 #: templates/server/privileges/privileges_summary.twig:42
-#: templates/database/central_columns/main.twig:372
+#: templates/database/central_columns/main.twig:370
 #: templates/preferences/manage/error.twig:18
 #: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/table/structure/display_structure.twig:80
@@ -3090,7 +3090,7 @@ msgstr "Imia kluča"
 #: templates/server/status/variables/index.twig:72
 #: templates/server/engines/index.twig:10
 #: templates/server/collations/index.twig:11
-#: templates/server/plugins/index.twig:24
+#: templates/server/plugins/index.twig:23
 msgid "Description"
 msgstr "Apisańnie"
 
@@ -3149,7 +3149,7 @@ msgstr ""
 #: libraries/classes/Rte/RteList.php:117 libraries/classes/Rte/RteList.php:129
 #: libraries/classes/Rte/RteList.php:144
 #: templates/database/central_columns/main.twig:17
-#: templates/database/central_columns/main.twig:238
+#: templates/database/central_columns/main.twig:236
 #: templates/database/create_table.twig:11 templates/setup/home/index.twig:43
 #: templates/table/structure/display_structure.twig:21
 #: templates/columns_definitions/table_fields_definitions.twig:9
@@ -3174,7 +3174,7 @@ msgstr "Nazva"
 #: libraries/classes/Rte/RteList.php:119 libraries/classes/Rte/RteList.php:147
 #: libraries/classes/Server/Privileges.php:2712
 #: templates/database/central_columns/main.twig:21
-#: templates/database/central_columns/main.twig:242
+#: templates/database/central_columns/main.twig:240
 #: templates/database/structure/table_header.twig:30
 #: templates/table/search/fields_table.twig:8
 #: templates/table/tracking/structure_snapshot_columns.twig:7
@@ -3203,7 +3203,7 @@ msgstr "Daŭžynia/Značeńni*"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:689
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:722
 #: templates/database/central_columns/main.twig:29
-#: templates/database/central_columns/main.twig:250
+#: templates/database/central_columns/main.twig:248
 #: templates/table/tracking/structure_snapshot_columns.twig:10
 #: templates/table/structure/display_structure.twig:26
 #: templates/database/data_dictionary/index.twig:19
@@ -3216,7 +3216,7 @@ msgstr "Pa zmoŭčańni"
 #: libraries/classes/CentralColumns.php:1018 libraries/classes/Index.php:722
 #: libraries/classes/Operations.php:311 libraries/classes/Operations.php:1143
 #: templates/database/central_columns/main.twig:33
-#: templates/database/central_columns/main.twig:254
+#: templates/database/central_columns/main.twig:252
 #: templates/database/structure/table_header.twig:31
 #: templates/server/databases/index.twig:37
 #: templates/server/databases/index.twig:120
@@ -3251,7 +3251,7 @@ msgstr "Atrybuty"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:688
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:721
 #: templates/database/central_columns/main.twig:41
-#: templates/database/central_columns/main.twig:262
+#: templates/database/central_columns/main.twig:260
 #: templates/table/tracking/structure_snapshot_columns.twig:9
 #: templates/table/structure/display_structure.twig:25
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
@@ -3263,387 +3263,400 @@ msgstr "Nul"
 
 #: libraries/classes/CentralColumns.php:1021
 #: templates/database/central_columns/main.twig:45
-#: templates/database/central_columns/main.twig:266
+#: templates/database/central_columns/main.twig:264
 msgid "A_I"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:186
+#: libraries/classes/Charsets/Collation.php:184
 #, fuzzy
 #| msgid "unknown"
 msgid "Unknown"
 msgstr "nieviadoma"
 
-#: libraries/classes/Charsets/Collation.php:200
+#: libraries/classes/Charsets/Collation.php:198
 #, fuzzy
 #| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Dvajkovy"
 
-#: libraries/classes/Charsets/Collation.php:212
-#: libraries/classes/Charsets/Collation.php:446
+#: libraries/classes/Charsets/Collation.php:210
+#: libraries/classes/Charsets/Collation.php:449
 #, fuzzy
 #| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Junikod"
 
-#: libraries/classes/Charsets/Collation.php:222
-#: libraries/classes/Charsets/Collation.php:397
+#: libraries/classes/Charsets/Collation.php:220
+#: libraries/classes/Charsets/Collation.php:396
 #, fuzzy
 #| msgid "West European"
 msgctxt "Collation"
 msgid "West European"
 msgstr "Zachodnieeŭrapiejskaja"
 
-#: libraries/classes/Charsets/Collation.php:229
+#: libraries/classes/Charsets/Collation.php:227
 #, fuzzy
 #| msgid "Central European"
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Centralnaeŭrapiejskaja"
 
-#: libraries/classes/Charsets/Collation.php:234
+#: libraries/classes/Charsets/Collation.php:232
+#: libraries/classes/Charsets/Collation.php:403
 #, fuzzy
 #| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Rasiejskaja"
 
-#: libraries/classes/Charsets/Collation.php:239
+#: libraries/classes/Charsets/Collation.php:237
 #, fuzzy
 #| msgid "Simplified Chinese"
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Kitajskaja sproščanaja"
 
-#: libraries/classes/Charsets/Collation.php:242
+#: libraries/classes/Charsets/Collation.php:240
 #, fuzzy
 #| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Tradycyjnaja kitajskaja"
 
-#: libraries/classes/Charsets/Collation.php:245
-#: libraries/classes/Charsets/Collation.php:320
+#: libraries/classes/Charsets/Collation.php:243
+#: libraries/classes/Charsets/Collation.php:319
 msgctxt "Collation"
 msgid "Chinese"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:253
-#: libraries/classes/Charsets/Collation.php:368
+#: libraries/classes/Charsets/Collation.php:251
+#: libraries/classes/Charsets/Collation.php:367
 #, fuzzy
 #| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Japonskaja"
 
-#: libraries/classes/Charsets/Collation.php:258
+#: libraries/classes/Charsets/Collation.php:256
 #, fuzzy
 #| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Bałtyjskaja"
 
-#: libraries/classes/Charsets/Collation.php:263
+#: libraries/classes/Charsets/Collation.php:261
 #, fuzzy
 #| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Armianskaja"
 
-#: libraries/classes/Charsets/Collation.php:266
+#: libraries/classes/Charsets/Collation.php:264
 #, fuzzy
 #| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Kiryličnaja"
 
-#: libraries/classes/Charsets/Collation.php:269
+#: libraries/classes/Charsets/Collation.php:267
 #, fuzzy
 #| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Arabskaja"
 
-#: libraries/classes/Charsets/Collation.php:272
-#: libraries/classes/Charsets/Collation.php:383
+#: libraries/classes/Charsets/Collation.php:270
+#: libraries/classes/Charsets/Collation.php:382
 #, fuzzy
 #| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Karejskaja"
 
-#: libraries/classes/Charsets/Collation.php:275
+#: libraries/classes/Charsets/Collation.php:273
 #, fuzzy
 #| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Habrejskaja"
 
-#: libraries/classes/Charsets/Collation.php:278
+#: libraries/classes/Charsets/Collation.php:276
 #, fuzzy
 #| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Hruzinskaja"
 
-#: libraries/classes/Charsets/Collation.php:281
+#: libraries/classes/Charsets/Collation.php:279
 #, fuzzy
 #| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Hreckaja"
 
-#: libraries/classes/Charsets/Collation.php:284
+#: libraries/classes/Charsets/Collation.php:282
 #, fuzzy
 #| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Čechasłavackaja"
 
-#: libraries/classes/Charsets/Collation.php:287
-#: libraries/classes/Charsets/Collation.php:438
+#: libraries/classes/Charsets/Collation.php:285
+#: libraries/classes/Charsets/Collation.php:441
 #, fuzzy
 #| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ukrainskaja"
 
-#: libraries/classes/Charsets/Collation.php:290
-#: libraries/classes/Charsets/Collation.php:434
+#: libraries/classes/Charsets/Collation.php:288
+#: libraries/classes/Charsets/Collation.php:437
 #, fuzzy
 #| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Tureckaja"
 
-#: libraries/classes/Charsets/Collation.php:293
-#: libraries/classes/Charsets/Collation.php:426
+#: libraries/classes/Charsets/Collation.php:291
+#: libraries/classes/Charsets/Collation.php:429
 #, fuzzy
 #| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Švedzkaja"
 
-#: libraries/classes/Charsets/Collation.php:296
-#: libraries/classes/Charsets/Collation.php:430
+#: libraries/classes/Charsets/Collation.php:294
+#: libraries/classes/Charsets/Collation.php:433
 #, fuzzy
 #| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Tajlandzkaja"
 
-#: libraries/classes/Charsets/Collation.php:299
+#: libraries/classes/Charsets/Collation.php:297
 #, fuzzy
 #| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "nieviadoma"
 
-#: libraries/classes/Charsets/Collation.php:315
+#: libraries/classes/Charsets/Collation.php:313
 #, fuzzy
 #| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Baŭharskaja"
 
-#: libraries/classes/Charsets/Collation.php:325
+#: libraries/classes/Charsets/Collation.php:324
 #, fuzzy
 #| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Charvackaja"
 
-#: libraries/classes/Charsets/Collation.php:329
+#: libraries/classes/Charsets/Collation.php:328
 #, fuzzy
 #| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Českaja"
 
-#: libraries/classes/Charsets/Collation.php:333
+#: libraries/classes/Charsets/Collation.php:332
 #, fuzzy
 #| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Dackaja"
 
-#: libraries/classes/Charsets/Collation.php:337
+#: libraries/classes/Charsets/Collation.php:336
 #, fuzzy
 #| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "Anhielskaja"
 
-#: libraries/classes/Charsets/Collation.php:341
+#: libraries/classes/Charsets/Collation.php:340
 #, fuzzy
 #| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Esperanta"
 
-#: libraries/classes/Charsets/Collation.php:345
+#: libraries/classes/Charsets/Collation.php:344
 #, fuzzy
 #| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Estonskaja"
 
-#: libraries/classes/Charsets/Collation.php:348
-#: libraries/classes/Charsets/Collation.php:465
+#: libraries/classes/Charsets/Collation.php:347
+#: libraries/classes/Charsets/Collation.php:468
 #, fuzzy
 #| msgid "Data Dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "Słoŭnik dadzienych"
 
-#: libraries/classes/Charsets/Collation.php:351
-#: libraries/classes/Charsets/Collation.php:462
+#: libraries/classes/Charsets/Collation.php:350
+#: libraries/classes/Charsets/Collation.php:465
 msgctxt "Collation"
 msgid "German (phone book order)"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:360
+#: libraries/classes/Charsets/Collation.php:359
 #, fuzzy
 #| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Vuhorskaja"
 
-#: libraries/classes/Charsets/Collation.php:364
+#: libraries/classes/Charsets/Collation.php:363
 #, fuzzy
 #| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Iślandzkaja"
 
-#: libraries/classes/Charsets/Collation.php:371
+#: libraries/classes/Charsets/Collation.php:370
 msgctxt "Collation"
 msgid "Classical Latin"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:375
+#: libraries/classes/Charsets/Collation.php:374
 #, fuzzy
 #| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Łatvijskaja"
 
-#: libraries/classes/Charsets/Collation.php:379
+#: libraries/classes/Charsets/Collation.php:378
 #, fuzzy
 #| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Litoŭskaja"
 
-#: libraries/classes/Charsets/Collation.php:387
+#: libraries/classes/Charsets/Collation.php:386
 msgctxt "Collation"
 msgid "Burmese"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:390
+#: libraries/classes/Charsets/Collation.php:389
 #, fuzzy
 #| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Persydzkaja"
 
-#: libraries/classes/Charsets/Collation.php:394
+#: libraries/classes/Charsets/Collation.php:393
 #, fuzzy
 #| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Polskaja"
 
-#: libraries/classes/Charsets/Collation.php:401
+#: libraries/classes/Charsets/Collation.php:400
 #, fuzzy
 #| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Rumynskaja"
 
-#: libraries/classes/Charsets/Collation.php:405
+#: libraries/classes/Charsets/Collation.php:407
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:409
+#: libraries/classes/Charsets/Collation.php:411
 #, fuzzy
 #| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Słavackaja"
 
-#: libraries/classes/Charsets/Collation.php:413
+#: libraries/classes/Charsets/Collation.php:415
 #, fuzzy
 #| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Słavienskaja"
 
-#: libraries/classes/Charsets/Collation.php:416
-#: libraries/classes/Charsets/Collation.php:476
+#: libraries/classes/Charsets/Collation.php:418
+#: libraries/classes/Charsets/Collation.php:479
 #, fuzzy
 #| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr "Hišpanskaja"
 
-#: libraries/classes/Charsets/Collation.php:423
-#: libraries/classes/Charsets/Collation.php:473
+#: libraries/classes/Charsets/Collation.php:425
+#: libraries/classes/Charsets/Collation.php:476
 msgctxt "Collation"
 msgid "Spanish (traditional)"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:442
+#: libraries/classes/Charsets/Collation.php:445
 #, fuzzy
 #| msgid "Table name"
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Imia tablicy"
 
-#: libraries/classes/Charsets/Collation.php:509
+#: libraries/classes/Charsets/Collation.php:512
 #, fuzzy
 #| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "biez uliku rehistru"
 
-#: libraries/classes/Charsets/Collation.php:512
+#: libraries/classes/Charsets/Collation.php:515
 #, fuzzy
 #| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "z ulikam rehistru"
 
-#: libraries/classes/Charsets/Collation.php:515
+#: libraries/classes/Charsets/Collation.php:518
 #, fuzzy
 #| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
 msgstr "biez uliku rehistru"
 
-#: libraries/classes/Charsets/Collation.php:518
+#: libraries/classes/Charsets/Collation.php:521
 #, fuzzy
 #| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
 msgstr "z ulikam rehistru"
 
-#: libraries/classes/Charsets/Collation.php:522
+#: libraries/classes/Charsets/Collation.php:524
+#, fuzzy
+#| msgid "case-sensitive"
+msgctxt "Collation variant"
+msgid "kana-sensitive"
+msgstr "z ulikam rehistru"
+
+#: libraries/classes/Charsets/Collation.php:528
 #, fuzzy
 #| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
 msgstr "šmatmoŭnaja"
 
-#: libraries/classes/Charsets/Collation.php:525
+#: libraries/classes/Charsets/Collation.php:531
 #, fuzzy
 #| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "Dvajkovy"
+
+#: libraries/classes/Charsets/Collation.php:534
+msgctxt "Collation variant"
+msgid "no-pad"
+msgstr ""
 
 #: libraries/classes/Config.php:1144
 #, php-format
@@ -4190,9 +4203,15 @@ msgstr "Kluč mietki"
 #: libraries/classes/Config/Descriptions.php:217
 #: libraries/classes/Config/Descriptions.php:229
 #: libraries/classes/Config/Descriptions.php:267
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:415
 #: libraries/classes/Plugins/Export/ExportOdt.php:515
+#: libraries/classes/Plugins/Export/ExportTexytext.php:395
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:557
+#: templates/database/data_dictionary/index.twig:25
 #: templates/columns_definitions/table_fields_definitions.twig:71
-msgid "MIME type"
+#, fuzzy
+#| msgid "MIME type"
+msgid "Media (MIME) type"
 msgstr "MIME-typ"
 
 #: libraries/classes/Config/Descriptions.php:219
@@ -5472,7 +5491,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:616
 msgid ""
-"Leave blank for no column comments/mime types, suggested: "
+"Leave blank for no column comments/media (MIME) types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
 
@@ -6123,7 +6142,7 @@ msgstr ""
 #: templates/server/databases/index.twig:103
 #: templates/console/bookmark_content.twig:7
 #: templates/table/relation/common_form.twig:35
-#: templates/table/relation/common_form.twig:167
+#: templates/table/relation/common_form.twig:168
 #: templates/console/display.twig:40 templates/console/display.twig:184
 #: templates/table/relation/foreign_key_row.twig:96
 msgid "Database"
@@ -6165,7 +6184,7 @@ msgstr ""
 #: templates/database/tracking/tables.twig:13
 #: templates/database/tracking/tables.twig:120
 #: templates/table/relation/common_form.twig:36
-#: templates/table/relation/common_form.twig:174
+#: templates/table/relation/common_form.twig:175
 #: templates/table/relation/foreign_key_row.twig:106
 msgid "Table"
 msgstr "Tablica"
@@ -6369,17 +6388,17 @@ msgid "Server connection collation"
 msgstr "Supastaŭleńnie padłučeńnia da MySQL"
 
 #: libraries/classes/Config/FormDisplay.php:102
-#: libraries/classes/Config/Validator.php:525
+#: libraries/classes/Config/Validator.php:529
 msgid "Not a positive number!"
 msgstr ""
 
 #: libraries/classes/Config/FormDisplay.php:103
-#: libraries/classes/Config/Validator.php:547
+#: libraries/classes/Config/Validator.php:551
 msgid "Not a non-negative number!"
 msgstr ""
 
 #: libraries/classes/Config/FormDisplay.php:104
-#: libraries/classes/Config/Validator.php:503
+#: libraries/classes/Config/Validator.php:507
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Not a valid port number!"
@@ -6387,12 +6406,12 @@ msgstr "%d nie źjaŭlajecca karektnym numaram radka."
 
 #: libraries/classes/Config/FormDisplay.php:105
 #: libraries/classes/Config/FormDisplay.php:683
-#: libraries/classes/Config/Validator.php:568
+#: libraries/classes/Config/Validator.php:572
 msgid "Incorrect value!"
 msgstr ""
 
 #: libraries/classes/Config/FormDisplay.php:106
-#: libraries/classes/Config/Validator.php:585
+#: libraries/classes/Config/Validator.php:589
 #, php-format
 msgid "Value must be less than or equal to %s!"
 msgstr ""
@@ -6636,24 +6655,24 @@ msgid ""
 "are unavailable on this system."
 msgstr ""
 
-#: libraries/classes/Config/Validator.php:217
-#: libraries/classes/Config/Validator.php:224
+#: libraries/classes/Config/Validator.php:221
+#: libraries/classes/Config/Validator.php:228
 msgid "Could not connect to the database server!"
 msgstr ""
 
-#: libraries/classes/Config/Validator.php:259
+#: libraries/classes/Config/Validator.php:263
 #, fuzzy
 #| msgid "No valid authentication key plugged"
 msgid "Invalid authentication type!"
 msgstr "Dziejny kluč aŭtentyfikacyi nie padklučany"
 
-#: libraries/classes/Config/Validator.php:266
+#: libraries/classes/Config/Validator.php:270
 #, fuzzy
 #| msgid "Authenticating…"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr "Aŭtentyfikacyja…"
 
-#: libraries/classes/Config/Validator.php:274
+#: libraries/classes/Config/Validator.php:278
 #, fuzzy
 #| msgid "Authenticating…"
 msgid ""
@@ -6661,28 +6680,28 @@ msgid ""
 "method!"
 msgstr "Aŭtentyfikacyja…"
 
-#: libraries/classes/Config/Validator.php:283
+#: libraries/classes/Config/Validator.php:287
 #, fuzzy
 #| msgid "Authenticating…"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "Aŭtentyfikacyja…"
 
-#: libraries/classes/Config/Validator.php:336
+#: libraries/classes/Config/Validator.php:340
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 
-#: libraries/classes/Config/Validator.php:343
+#: libraries/classes/Config/Validator.php:347
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
 msgstr ""
 
-#: libraries/classes/Config/Validator.php:432
+#: libraries/classes/Config/Validator.php:436
 msgid "Incorrect value:"
 msgstr ""
 
-#: libraries/classes/Config/Validator.php:441
+#: libraries/classes/Config/Validator.php:445
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr ""
@@ -7943,65 +7962,65 @@ msgid "Could not load schema plugins, please check your installation!"
 msgstr ""
 "Niemahčyma zahruzić płahiny impartavańnia, kali łaska, praviercie ŭstaloŭku!"
 
-#: libraries/classes/Database/Designer/Common.php:594
+#: libraries/classes/Database/Designer/Common.php:595
 #, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
 msgstr "Pamyłka: suviaź užo isnuje."
 
-#: libraries/classes/Database/Designer/Common.php:643
+#: libraries/classes/Database/Designer/Common.php:644
 #, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been added."
 msgstr "Suviaź FOREIGN KEY była dadadzienaja"
 
-#: libraries/classes/Database/Designer/Common.php:650
+#: libraries/classes/Database/Designer/Common.php:651
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Pamyłka: suviaź nie dadadzienaja."
 
-#: libraries/classes/Database/Designer/Common.php:657
+#: libraries/classes/Database/Designer/Common.php:658
 msgid "Error: Missing index on column(s)."
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:665
+#: libraries/classes/Database/Designer/Common.php:666
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relational features are disabled!"
 msgstr "Pamyłka: suviaź nie dadadzienaja."
 
-#: libraries/classes/Database/Designer/Common.php:690
+#: libraries/classes/Database/Designer/Common.php:691
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationship has been added."
 msgstr "Unutranaja suviaź dadadzienaja"
 
-#: libraries/classes/Database/Designer/Common.php:697
+#: libraries/classes/Database/Designer/Common.php:698
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be added!"
 msgstr "Pamyłka: suviaź nie dadadzienaja."
 
-#: libraries/classes/Database/Designer/Common.php:737
+#: libraries/classes/Database/Designer/Common.php:738
 #, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "Suviaź FOREIGN KEY była dadadzienaja"
 
-#: libraries/classes/Database/Designer/Common.php:744
+#: libraries/classes/Database/Designer/Common.php:745
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "Pamyłka: suviaź nie dadadzienaja."
 
-#: libraries/classes/Database/Designer/Common.php:771
+#: libraries/classes/Database/Designer/Common.php:772
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Pamyłka: suviaź nie dadadzienaja."
 
-#: libraries/classes/Database/Designer/Common.php:777
+#: libraries/classes/Database/Designer/Common.php:778
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationship has been removed."
@@ -8212,7 +8231,7 @@ msgstr ""
 msgid "See %sour documentation%s for more information."
 msgstr ""
 
-#: libraries/classes/Dbi/DbiMysqli.php:133
+#: libraries/classes/Dbi/DbiMysqli.php:134
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
@@ -9067,7 +9086,7 @@ msgstr "Indeks nia vyznačany!"
 #: libraries/classes/Server/Privileges.php:3720
 #: libraries/classes/Server/UserGroups.php:95
 #: templates/server/privileges/privileges_summary.twig:22
-#: templates/database/central_columns/main.twig:236
+#: templates/database/central_columns/main.twig:234
 #: templates/database/structure/table_header.twig:22
 #: templates/table/structure/display_partitions.twig:33
 #: templates/server/databases/index.twig:160
@@ -9106,8 +9125,8 @@ msgstr "Ścisnutaja"
 #: templates/table/relation/common_form.twig:17
 #: templates/table/relation/common_form.twig:22
 #: templates/table/relation/common_form.twig:37
-#: templates/table/relation/common_form.twig:116
-#: templates/table/relation/common_form.twig:181
+#: templates/table/relation/common_form.twig:117
+#: templates/table/relation/common_form.twig:182
 #: templates/table/relation/foreign_key_row.twig:118
 #: templates/table/relation/foreign_key_row.twig:128
 #: templates/table/search/zoom_result_form.twig:34
@@ -10630,7 +10649,7 @@ msgstr "Pakazvać kamentary kalonak"
 #: libraries/classes/Plugins/Export/ExportSql.php:132
 #, fuzzy
 #| msgid "Available MIME types"
-msgid "Display MIME types"
+msgid "Display media (MIME) types"
 msgstr "Dastupnyja MIME-typy"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
@@ -10957,7 +10976,9 @@ msgid "AUTO_INCREMENT for table"
 msgstr "Dadać značeńnie AUTO_INCREMENT"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1911
-msgid "MIME TYPES FOR TABLE"
+#, fuzzy
+#| msgid "MIME TYPES FOR TABLE"
+msgid "MEDIA (MIME) TYPES FOR TABLE"
 msgstr "MIME-typy tablicy"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1934
@@ -11003,12 +11024,6 @@ msgstr "Tablica"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:183
 msgid "Purpose:"
 msgstr ""
-
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:557
-#, fuzzy
-#| msgid "MIME type"
-msgid "MIME"
-msgstr "MIME-typ"
 
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:53
 msgid ""
@@ -14523,14 +14538,14 @@ msgid "Add new column"
 msgstr "Dadać %s novyja pali"
 
 #: templates/database/central_columns/main.twig:25
-#: templates/database/central_columns/main.twig:246
+#: templates/database/central_columns/main.twig:244
 #, fuzzy
 #| msgid "Length/Values"
 msgid "Length/Value"
 msgstr "Daŭžynia/Značeńni*"
 
 #: templates/database/central_columns/main.twig:37
-#: templates/database/central_columns/main.twig:258
+#: templates/database/central_columns/main.twig:256
 #, fuzzy
 #| msgid "Attributes"
 msgid "Attribute"
@@ -14540,40 +14555,40 @@ msgstr "Atrybuty"
 msgid "The central list of columns for the current database is empty"
 msgstr ""
 
-#: templates/database/central_columns/main.twig:184
+#: templates/database/central_columns/main.twig:182
 #: templates/display/results/table_navigation.twig:73
 #, fuzzy
 #| msgid "Files"
 msgid "Filter rows"
 msgstr "Fajły"
 
-#: templates/database/central_columns/main.twig:185
+#: templates/database/central_columns/main.twig:183
 #: templates/display/results/table_navigation.twig:75
 #, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
 msgstr "Pošuk u bazie dadzienych"
 
-#: templates/database/central_columns/main.twig:196
+#: templates/database/central_columns/main.twig:194
 #: templates/table/structure/display_structure.twig:420
 #, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add column"
 msgstr "Dadać %s novyja pali"
 
-#: templates/database/central_columns/main.twig:205
+#: templates/database/central_columns/main.twig:203
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select a table"
 msgstr "Vybierycie tablicu(y)"
 
-#: templates/database/central_columns/main.twig:212
+#: templates/database/central_columns/main.twig:210
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Select a column."
 msgstr "Dadać/vydalić kalonku kryteru"
 
-#: templates/database/central_columns/main.twig:214
+#: templates/database/central_columns/main.twig:212
 #: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
 #: templates/export/alias_add.twig:46
 #: templates/columns_definitions/column_definitions_form.twig:32
@@ -14583,7 +14598,7 @@ msgstr "Dadać/vydalić kalonku kryteru"
 msgid "Add"
 msgstr "I"
 
-#: templates/database/central_columns/main.twig:231
+#: templates/database/central_columns/main.twig:229
 msgid "Click to sort."
 msgstr ""
 
@@ -15941,7 +15956,9 @@ msgid "Check for latest version"
 msgstr ""
 
 #: templates/transformation_overview.twig:1
-msgid "Available MIME types"
+#, fuzzy
+#| msgid "Available MIME types"
+msgid "Available media (MIME) types"
 msgstr "Dastupnyja MIME-typy"
 
 #: templates/transformation_overview.twig:13
@@ -15961,7 +15978,7 @@ msgstr "Pieraŭtvareńnie MIME-typu braŭzeram"
 #: templates/transformation_overview.twig:38
 #, fuzzy
 #| msgid "Description"
-msgctxt "for MIME transformation"
+msgctxt "for media (MIME) type transformation"
 msgid "Description"
 msgstr "Apisańnie"
 
@@ -16167,7 +16184,7 @@ msgstr ""
 msgid "Add a new server"
 msgstr ""
 
-#: templates/table/tracking/main.twig:28 templates/server/plugins/index.twig:25
+#: templates/table/tracking/main.twig:28 templates/server/plugins/index.twig:24
 msgid "Version"
 msgstr ""
 
@@ -16412,6 +16429,12 @@ msgstr ""
 #| msgid "in query"
 msgid "Requery"
 msgstr "pa zapytu"
+
+#: templates/table/structure/display_structure.twig:70
+#, fuzzy
+#| msgid "MIME type"
+msgid "Media (MIME) type:"
+msgstr "MIME-typ"
 
 #: templates/table/structure/display_structure.twig:112
 #, fuzzy, php-format
@@ -16785,7 +16808,7 @@ msgstr ""
 msgid "List of changes"
 msgstr "Niama źmienaŭ"
 
-#: templates/home/index.twig:195 templates/server/plugins/index.twig:27
+#: templates/home/index.twig:195 templates/server/plugins/index.twig:26
 msgid "License"
 msgstr ""
 
@@ -16838,19 +16861,35 @@ msgstr "Nijakaja"
 msgid "Database comment:"
 msgstr "Kamentar da bazy dadzienych"
 
-#: templates/server/plugins/index.twig:23
+#: templates/server/plugins/index.twig:22
 msgid "Plugin"
 msgstr ""
 
-#: templates/server/plugins/index.twig:26
+#: templates/server/plugins/index.twig:25
 msgid "Author"
 msgstr ""
 
 #: templates/server/plugins/index.twig:37
+msgid "inactive"
+msgstr ""
+
+#: templates/server/plugins/index.twig:39
 #, fuzzy
 #| msgid "Disabled"
 msgid "disabled"
 msgstr "Adklučana"
+
+#: templates/server/plugins/index.twig:41
+#, fuzzy
+#| msgid "Deleting %s"
+msgid "deleting"
+msgstr "Vydaleńnie %s"
+
+#: templates/server/plugins/index.twig:43
+#, fuzzy
+#| msgid "Delete"
+msgid "deleted"
+msgstr "Vydalić"
 
 #: templates/database/structure/show_create.twig:2
 #, fuzzy
@@ -17142,20 +17181,20 @@ msgstr ""
 msgid "+ Add constraint"
 msgstr "Dadać abmiežavańni"
 
-#: templates/table/relation/common_form.twig:102
-#: templates/table/relation/common_form.twig:111
+#: templates/table/relation/common_form.twig:103
+#: templates/table/relation/common_form.twig:112
 #, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relationships"
 msgstr "Unutranyja suviazi"
 
-#: templates/table/relation/common_form.twig:117
+#: templates/table/relation/common_form.twig:118
 #, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relation"
 msgstr "Unutranyja suviazi"
 
-#: templates/table/relation/common_form.twig:119
+#: templates/table/relation/common_form.twig:120
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
@@ -17163,7 +17202,7 @@ msgstr ""
 "Unutranaja suviaź nie źjaŭlajecca abaviazkovaj, kali isnuje adpaviednaja "
 "suviaź FOREIGN KEY."
 
-#: templates/table/relation/common_form.twig:199
+#: templates/table/relation/common_form.twig:200
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display:"
@@ -19185,6 +19224,17 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
 msgstr "maksymum adnačasovych złučeńniaŭ"
+
+#, fuzzy
+#~| msgid "MIME type"
+#~ msgid "MIME"
+#~ msgstr "MIME-typ"
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgctxt "for MIME transformation"
+#~ msgid "Description"
+#~ msgstr "Apisańnie"
 
 #, fuzzy
 #~| msgid "per second"
