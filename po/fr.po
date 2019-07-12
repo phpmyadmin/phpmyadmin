@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-07-12 02:20-0300\n"
-"PO-Revision-Date: 2019-06-24 14:00+0000\n"
-"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
+"PO-Revision-Date: 2019-07-14 00:00+0000\n"
+"Last-Translator: Ezéchiel Amen AGBLA <ezchilamen@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.7.1-dev\n"
+"X-Generator: Weblate 3.8-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -3214,12 +3214,9 @@ msgid "accent-sensitive"
 msgstr "sensible aux signes diacritiques"
 
 #: libraries/classes/Charsets/Collation.php:524
-#, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "accent-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "sensible aux signes diacritiques"
+msgstr "sensible aux caractères japonais (Hiragana et Katakana)"
 
 #: libraries/classes/Charsets/Collation.php:528
 msgctxt "Collation variant"
@@ -3234,7 +3231,7 @@ msgstr "binaire"
 #: libraries/classes/Charsets/Collation.php:534
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "pas de pad"
 
 #: libraries/classes/Config.php:1144
 #, php-format
@@ -5000,15 +4997,11 @@ msgid "Bookmark table"
 msgstr "Mettre la table en signet"
 
 #: libraries/classes/Config/Descriptions.php:616
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: "
-#| "[kbd]pma__column_info[/kbd]."
 msgid ""
 "Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Laisser vider pour désactiver les commentaires sur les colonnes et les types "
+"Laisser vide pour désactiver les commentaires sur les colonnes et les types "
 "MIME; suggestion : [kbd]pma__column_info[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:619
@@ -10098,8 +10091,6 @@ msgstr "Afficher les commentaires"
 #: libraries/classes/Plugins/Export/ExportLatex.php:156
 #: libraries/classes/Plugins/Export/ExportOdt.php:116
 #: libraries/classes/Plugins/Export/ExportSql.php:132
-#, fuzzy
-#| msgid "Display MIME types"
 msgid "Display media types"
 msgstr "Afficher les types MIME"
 
@@ -10397,8 +10388,6 @@ msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT pour la table"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1911
-#, fuzzy
-#| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "TYPES MIME POUR LA TABLE"
 
@@ -14989,8 +14978,6 @@ msgid "Check for latest version"
 msgstr "Vérifier la présence d'une nouvelle version"
 
 #: templates/transformation_overview.twig:1
-#, fuzzy
-#| msgid "Available MIME types"
 msgid "Available media types"
 msgstr "Types MIME disponibles"
 
@@ -15005,8 +14992,6 @@ msgstr "Transformation d'affichage"
 
 #: templates/transformation_overview.twig:19
 #: templates/transformation_overview.twig:38
-#, fuzzy
-#| msgid "Description"
 msgctxt "for media type transformation"
 msgid "Description"
 msgstr "Description"
@@ -15388,10 +15373,8 @@ msgid "Requery"
 msgstr "Exécuter la requête à nouveau"
 
 #: templates/table/structure/display_structure.twig:70
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media type:"
-msgstr "Type MIME"
+msgstr "Type de média:"
 
 #: templates/table/structure/display_structure.twig:112
 #, php-format
@@ -15773,10 +15756,8 @@ msgid "Author"
 msgstr "Auteur"
 
 #: templates/server/plugins/index.twig:37
-#, fuzzy
-#| msgid "active"
 msgid "inactive"
-msgstr "actif"
+msgstr "inactif"
 
 #: templates/server/plugins/index.twig:39
 msgid "disabled"
@@ -15789,10 +15770,8 @@ msgid "deleting"
 msgstr "Suppression en cours"
 
 #: templates/server/plugins/index.twig:43
-#, fuzzy
-#| msgid "Delete"
 msgid "deleted"
-msgstr "Supprimer"
+msgstr "Supprimé"
 
 #: templates/database/structure/show_create.twig:2
 msgid "Showing create queries"
