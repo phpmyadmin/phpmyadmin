@@ -153,7 +153,7 @@ class ExportLatex extends ExportPlugin
             if (! empty($GLOBALS['cfgRelation']['mimework'])) {
                 $leaf = new BoolPropertyItem(
                     "mime",
-                    __('Display MIME types')
+                    __('Display media (MIME) types')
                 );
                 $structureOptions->addProperty($leaf);
             }

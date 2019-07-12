@@ -230,7 +230,7 @@ class ExportOdtTest extends PmaTestCase
         );
 
         $this->assertEquals(
-            'Display MIME types',
+            'Display media (MIME) types',
             $property->getText()
         );
 
@@ -791,7 +791,7 @@ class ExportOdtTest extends PmaTestCase
         );
 
         $this->assertStringContainsString(
-            '<table:table-cell office:value-type="string"><text:p>MIME type' .
+            '<table:table-cell office:value-type="string"><text:p>Media (MIME) type' .
             '</text:p></table:table-cell>',
             $GLOBALS['odt_buffer']
         );

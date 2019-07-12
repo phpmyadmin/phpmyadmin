@@ -392,7 +392,7 @@ class ExportTexytext extends ExportPlugin
             $comments = $this->relation->getComments($db, $table);
         }
         if ($do_mime && $cfgRelation['mimework']) {
-            $text_output .= '|' . htmlspecialchars('MIME');
+            $text_output .= '|' . __('Media (MIME) type');
             $mime_map = $this->transformations->getMime($db, $table, true);
         }
         $text_output .= "\n|------\n";
