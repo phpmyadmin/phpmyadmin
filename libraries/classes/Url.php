@@ -274,6 +274,6 @@ class Url
      */
     public static function getFromRoute(string $route, array $additionalParameters = []): string
     {
-        return 'index.php?route=' . $route . self::getCommonRaw($additionalParameters, '&');
+        return 'index.php?route=' . $route . self::getCommon($additionalParameters, '&');
     }
 }

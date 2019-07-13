@@ -49,7 +49,8 @@ class UrlExtension extends AbstractExtension
             ),
             new TwigFunction(
                 'get_url_from_route',
-                'PhpMyAdmin\Url::getFromRoute'
+                'PhpMyAdmin\Url::getFromRoute',
+                ['is_safe' => ['html']]
             ),
         ];
     }
