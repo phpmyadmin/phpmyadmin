@@ -424,7 +424,7 @@ class Advisor
                 $rule['issue'] = $this->translate($rule['issue']);
 
                 // Replaces {server_variable} with 'server_variable'
-                // linking to server_variables.php
+                // linking to /server/variables
                 $rule['recommendation'] = preg_replace_callback(
                     '/\{([a-z_0-9]+)\}/Ui',
                     [
@@ -470,7 +470,7 @@ class Advisor
      */
     private function replaceVariable(array $matches): string
     {
-        return '<a href="server_variables.php' . Url::getCommon(['filter' => $matches[1]])
+        return '<a href="' . Url::getFromRoute('/server/variables', ['filter' => $matches[1]])
                 . '">' . htmlspecialchars($matches[1]) . '</a>';
     }
 

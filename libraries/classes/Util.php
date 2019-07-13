@@ -3183,13 +3183,13 @@ class Util
             // Values for $cfg['DefaultTabServer']
             switch ($target) {
                 case 'welcome':
-                    return 'index.php';
+                    return Url::getFromRoute('/');
                 case 'databases':
                     return Url::getFromRoute('/server/databases');
                 case 'status':
                     return 'server_status.php';
                 case 'variables':
-                    return 'server_variables.php';
+                    return Url::getFromRoute('/server/variables');
                 case 'privileges':
                     return 'server_privileges.php';
             }

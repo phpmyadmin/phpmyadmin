@@ -99,7 +99,7 @@ class VariablesControllerTest extends TestCase
         $html = $controller->index([]);
 
         $this->assertStringContainsString(
-            'server_variables.php' . Url::getCommon(),
+            'index.php?route=/server/variables',
             $html
         );
         $this->assertStringContainsString(

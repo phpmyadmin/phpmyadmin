@@ -42,6 +42,9 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
                     require_once ROOT_PATH . 'libraries/entry_points/server/status/queries.php';
                 });
             });
+            $routes->addRoute(['GET', 'POST'], '/variables', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/server/variables.php';
+            });
         });
     });
     $routeInfo = $dispatcher->dispatch(

@@ -211,8 +211,8 @@ class AdvisorTest extends PmaTestCase
                     'id' => 'Variable',
                     'name' => 'Variable',
                     'issue' => 'issue',
-                    'recommendation' => 'Recommend <a href="server_variables.php?' .
-                    'filter=status_var&amp;lang=en">status_var</a>',
+                    'recommendation' => 'Recommend <a href="index.php?route=/server/variables&' .
+                    'filter=status_var&lang=en">status_var</a>',
                 ],
                 null,
             ],

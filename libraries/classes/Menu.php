@@ -645,7 +645,7 @@ class Menu
         }
 
         $tabs['vars']['icon'] = 's_vars';
-        $tabs['vars']['link'] = 'server_variables.php';
+        $tabs['vars']['link'] = Url::getFromRoute('/server/variables');
         $tabs['vars']['text'] = __('Variables');
 
         $tabs['charset']['icon'] = 's_asci';
