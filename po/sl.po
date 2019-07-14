@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-07-12 02:20-0300\n"
-"PO-Revision-Date: 2019-06-24 14:00+0000\n"
+"PO-Revision-Date: 2019-07-15 22:00+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -12,9 +12,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 3.7.1-dev\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 3.8-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -3187,12 +3187,9 @@ msgid "accent-sensitive"
 msgstr "razlikuje med naglasnimi znamenji"
 
 #: libraries/classes/Charsets/Collation.php:524
-#, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "accent-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "razlikuje med naglasnimi znamenji"
+msgstr "razlikuje med znamenji kana"
 
 #: libraries/classes/Charsets/Collation.php:528
 msgctxt "Collation variant"
@@ -3207,7 +3204,7 @@ msgstr "dvojiško"
 #: libraries/classes/Charsets/Collation.php:534
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "brez zapolnjevanja"
 
 #: libraries/classes/Config.php:1144
 #, php-format
@@ -3735,10 +3732,8 @@ msgstr "Označi ključ"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:557
 #: templates/database/data_dictionary/index.twig:25
 #: templates/columns_definitions/table_fields_definitions.twig:71
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media type"
-msgstr "Vrsta MIME"
+msgstr "Vrsta predstavnosti"
 
 #: libraries/classes/Config/Descriptions.php:219
 #: libraries/classes/Config/Descriptions.php:231
@@ -4950,16 +4945,12 @@ msgid "Bookmark table"
 msgstr "Tabela zaznamkov"
 
 #: libraries/classes/Config/Descriptions.php:616
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: "
-#| "[kbd]pma__column_info[/kbd]."
 msgid ""
 "Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Pustite prazno, če ne želite pripomb/vrst MIME stolpcev; predlagano: "
-"[kbd]pma__column_info[/kbd]."
+"Pustite prazno, če ne želite pripomb/vrst predstavnosti stolpcev; predlagano:"
+" [kbd]pma__column_info[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:619
 msgid "Column information table"
@@ -9957,10 +9948,8 @@ msgstr "Prikaži pripombe"
 #: libraries/classes/Plugins/Export/ExportLatex.php:156
 #: libraries/classes/Plugins/Export/ExportOdt.php:116
 #: libraries/classes/Plugins/Export/ExportSql.php:132
-#, fuzzy
-#| msgid "Display MIME types"
 msgid "Display media types"
-msgstr "Prikaži vrste MIME"
+msgstr "Prikaži vrste predstavnosti"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
 msgid "Put columns names in the first row:"
@@ -10251,10 +10240,8 @@ msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT tabele"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1911
-#, fuzzy
-#| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
-msgstr "VRSTE MIME ZA TABELO"
+msgstr "VRSTE PREDSTAVNOSTI ZA TABELO"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1934
 msgid "RELATIONSHIPS FOR TABLE"
@@ -14772,10 +14759,8 @@ msgid "Check for latest version"
 msgstr "Preveri za najnovejšo različico"
 
 #: templates/transformation_overview.twig:1
-#, fuzzy
-#| msgid "Available MIME types"
 msgid "Available media types"
-msgstr "Razpoložljive vrste MIME"
+msgstr "Razpoložljive vrste predstavnosti"
 
 #: templates/transformation_overview.twig:13
 msgid "Available browser display transformations"
@@ -14788,8 +14773,6 @@ msgstr "Pretvorba brskalnikovega prikaza"
 
 #: templates/transformation_overview.twig:19
 #: templates/transformation_overview.twig:38
-#, fuzzy
-#| msgid "Description"
 msgctxt "for media type transformation"
 msgid "Description"
 msgstr "Opis"
@@ -15168,10 +15151,8 @@ msgid "Requery"
 msgstr "Ponovna poizvedba"
 
 #: templates/table/structure/display_structure.twig:70
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media type:"
-msgstr "Vrsta MIME"
+msgstr "Vrsta predstavnosti:"
 
 #: templates/table/structure/display_structure.twig:112
 #, php-format
@@ -15549,26 +15530,20 @@ msgid "Author"
 msgstr "Avtor"
 
 #: templates/server/plugins/index.twig:37
-#, fuzzy
-#| msgid "active"
 msgid "inactive"
-msgstr "aktivno"
+msgstr "neaktivno"
 
 #: templates/server/plugins/index.twig:39
 msgid "disabled"
 msgstr "onemogočeno"
 
 #: templates/server/plugins/index.twig:41
-#, fuzzy
-#| msgid "Deleting"
 msgid "deleting"
-msgstr "Brisanje"
+msgstr "brisanje"
 
 #: templates/server/plugins/index.twig:43
-#, fuzzy
-#| msgid "Delete"
 msgid "deleted"
-msgstr "Izbriši"
+msgstr "izbrisano"
 
 #: templates/database/structure/show_create.twig:2
 msgid "Showing create queries"
