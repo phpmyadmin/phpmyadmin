@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-07-12 02:20-0300\n"
-"PO-Revision-Date: 2019-06-21 08:00+0000\n"
+"PO-Revision-Date: 2019-07-15 22:00+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ia/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7\n"
+"X-Generator: Weblate 3.8-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -3219,12 +3219,9 @@ msgid "accent-sensitive"
 msgstr "sensibile al accento"
 
 #: libraries/classes/Charsets/Collation.php:524
-#, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "accent-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "sensibile al accento"
+msgstr "sensibile al kana"
 
 #: libraries/classes/Charsets/Collation.php:528
 msgctxt "Collation variant"
@@ -3772,10 +3769,8 @@ msgstr "Clave de etiquetta"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:557
 #: templates/database/data_dictionary/index.twig:25
 #: templates/columns_definitions/table_fields_definitions.twig:71
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media type"
-msgstr "Typo MIME"
+msgstr "Typo de media"
 
 #: libraries/classes/Config/Descriptions.php:219
 #: libraries/classes/Config/Descriptions.php:231
@@ -5001,15 +4996,11 @@ msgid "Bookmark table"
 msgstr "Tabella de marcatores de libro"
 
 #: libraries/classes/Config/Descriptions.php:616
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: "
-#| "[kbd]pma__column_info[/kbd]."
 msgid ""
 "Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Lassa vacue pro nulle commentos/typos mime de columna, proponite:  "
+"Lassa vacue pro nulle commentos/typos de media de columna, proponite:  "
 "[kbd]pma__column_info[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:619
@@ -9943,10 +9934,8 @@ msgstr "Monstra commentos"
 #: libraries/classes/Plugins/Export/ExportLatex.php:156
 #: libraries/classes/Plugins/Export/ExportOdt.php:116
 #: libraries/classes/Plugins/Export/ExportSql.php:132
-#, fuzzy
-#| msgid "Display MIME types"
 msgid "Display media types"
-msgstr "Monstra typos MIME"
+msgstr "Monstra typos de media"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
 msgid "Put columns names in the first row:"
@@ -10241,10 +10230,8 @@ msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT pro tabella"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1911
-#, fuzzy
-#| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
-msgstr "MIME TYPES FOR TABLE"
+msgstr "MEDIA TYPES FOR TABLE"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1934
 msgid "RELATIONSHIPS FOR TABLE"
@@ -14586,10 +14573,8 @@ msgid "Check for latest version"
 msgstr "Verifica le ultime version"
 
 #: templates/transformation_overview.twig:1
-#, fuzzy
-#| msgid "Display MIME types"
 msgid "Available media types"
-msgstr "Monstra typos MIME"
+msgstr "Typos de media disponibile"
 
 #: templates/transformation_overview.twig:13
 msgid "Available browser display transformations"
@@ -14602,8 +14587,6 @@ msgstr "Transformation de monstrator de navigator"
 
 #: templates/transformation_overview.twig:19
 #: templates/transformation_overview.twig:38
-#, fuzzy
-#| msgid "Description"
 msgctxt "for media type transformation"
 msgid "Description"
 msgstr "Description"
@@ -14619,7 +14602,7 @@ msgstr "Transformation de ingresso"
 
 #: templates/themes.twig:4
 msgid "Get more themes!"
-msgstr ""
+msgstr "Obtene altere themas!"
 
 #: templates/database/multi_table_query/form.twig:16
 msgid "Query window"
@@ -14973,10 +14956,8 @@ msgid "Requery"
 msgstr "Repite Query"
 
 #: templates/table/structure/display_structure.twig:70
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media type:"
-msgstr "Typo MIME"
+msgstr "Typo de media:"
 
 #: templates/table/structure/display_structure.twig:112
 #, php-format
@@ -15344,26 +15325,20 @@ msgid "Author"
 msgstr "Autor"
 
 #: templates/server/plugins/index.twig:37
-#, fuzzy
-#| msgid "active"
 msgid "inactive"
-msgstr "active"
+msgstr "inactive"
 
 #: templates/server/plugins/index.twig:39
 msgid "disabled"
 msgstr "dishabilitate"
 
 #: templates/server/plugins/index.twig:41
-#, fuzzy
-#| msgid "Deleting"
 msgid "deleting"
-msgstr "Delente"
+msgstr "delente"
 
 #: templates/server/plugins/index.twig:43
-#, fuzzy
-#| msgid "Delete"
 msgid "deleted"
-msgstr "Dele"
+msgstr "delite"
 
 #: templates/database/structure/show_create.twig:2
 msgid "Showing create queries"
