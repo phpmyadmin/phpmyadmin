@@ -24,6 +24,11 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
         $routes->addRoute(['GET', 'POST'], '[/]', function () {
             require_once ROOT_PATH . 'libraries/entry_points/home.php';
         });
+        $routes->addGroup('/database', function (RouteCollector $routes) {
+            $routes->addRoute(['GET', 'POST'], '/tracking', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/database/tracking.php';
+            });
+        });
         $routes->addGroup('/server', function (RouteCollector $routes) {
             $routes->addRoute('GET', '/collations', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/server/collations.php';
@@ -44,6 +49,11 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
             });
             $routes->addRoute(['GET', 'POST'], '/variables', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/server/variables.php';
+            });
+        });
+        $routes->addGroup('/table', function (RouteCollector $routes) {
+            $routes->addRoute(['GET', 'POST'], '/tracking', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/table/tracking.php';
             });
         });
     });

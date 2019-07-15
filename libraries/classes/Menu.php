@@ -420,7 +420,8 @@ class Menu
         if (Tracker::isActive() && ! $db_is_system_schema) {
             $tabs['tracking']['icon'] = 'eye';
             $tabs['tracking']['text'] = __('Tracking');
-            $tabs['tracking']['link'] = 'tbl_tracking.php';
+            $tabs['tracking']['link'] = Url::getFromRoute('/table/tracking');
+            $tabs['tracking']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/table/tracking';
         }
         if (! $db_is_system_schema
             && Util::currentUserHasPrivilege(
@@ -532,7 +533,8 @@ class Menu
         if (Tracker::isActive() && ! $db_is_system_schema) {
             $tabs['tracking']['text'] = __('Tracking');
             $tabs['tracking']['icon'] = 'eye';
-            $tabs['tracking']['link'] = 'db_tracking.php';
+            $tabs['tracking']['link'] = Url::getFromRoute('/database/tracking');
+            $tabs['tracking']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/database/tracking';
         }
 
         if (! $db_is_system_schema) {

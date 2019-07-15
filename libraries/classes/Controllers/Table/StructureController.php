@@ -1355,10 +1355,7 @@ class StructureController extends AbstractController
 
         $engine = $this->table_obj->getStorageEngine();
         return $this->template->render('table/structure/display_structure', [
-            'url_params' => [
-                'db' => $this->db,
-                'table' => $this->table,
-            ],
+            'url_params' => $url_params,
             'collations' => $collations,
             'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
             'displayIndexesHtml' => Index::getHtmlForDisplayIndexes(),

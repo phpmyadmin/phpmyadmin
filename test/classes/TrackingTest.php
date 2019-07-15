@@ -159,8 +159,6 @@ class TrackingTest extends TestCase
     }
 
     /**
-     * Tests for getHtmlForDataDefinitionAndManipulationStatements() method.
-     *
      * @return void
      * @test
      */
@@ -168,7 +166,6 @@ class TrackingTest extends TestCase
     {
         $last_version = 3;
         $url_params = [];
-        $url_query = "select * from PMA";
         $pmaThemeImage = "themePath/img";
         $text_dir = "ltr";
 
@@ -215,7 +212,6 @@ class TrackingTest extends TestCase
         $this->tracking = new Tracking(new SqlQueryForm(), new Template(), new Relation($dbi));
 
         $html = $this->tracking->getHtmlForMainPage(
-            $url_query,
             $url_params,
             $pmaThemeImage,
             $text_dir,
@@ -247,11 +243,6 @@ class TrackingTest extends TestCase
          */
         $this->assertStringContainsString(
             '<div id="div_create_version">',
-            $html
-        );
-
-        $this->assertStringContainsString(
-            $url_query,
             $html
         );
 
@@ -295,7 +286,6 @@ class TrackingTest extends TestCase
             ->will($this->returnValue($fetchArray));
         $GLOBALS['dbi'] = $dbi;
         $html = $this->tracking->getHtmlForMainPage(
-            $url_query,
             $url_params,
             $pmaThemeImage,
             $text_dir,
@@ -471,7 +461,6 @@ class TrackingTest extends TestCase
         $_POST['date_to'] = "date_to";
         $_POST['users'] = "users";
         $_POST['logtype'] = 'logtype';
-        $url_query = "select * from PMA";
         $data = [
             'tracking' => 'tracking',
             'ddlog' => ['ddlog'],
@@ -486,7 +475,6 @@ class TrackingTest extends TestCase
         $filter_users = [];
 
         $html = $this->tracking->getHtmlForTrackingReport(
-            $url_query,
             $data,
             $url_params,
             $selection_schema,
@@ -499,11 +487,6 @@ class TrackingTest extends TestCase
 
         $this->assertStringContainsString(
             __('Tracking report'),
-            $html
-        );
-
-        $this->assertStringContainsString(
-            $url_query,
             $html
         );
 

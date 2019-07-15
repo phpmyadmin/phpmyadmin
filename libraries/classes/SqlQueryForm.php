@@ -7,7 +7,7 @@
  * @usedby  db_sql.php
  * @usedby  tbl_sql.php
  * @usedby  tbl_structure.php
- * @usedby  tbl_tracking.php
+ * @usedby  /table/tracking
  * @package PhpMyAdmin
  */
 declare(strict_types=1);
@@ -42,7 +42,7 @@ class SqlQueryForm
      * @usedby  db_sql.php
      * @usedby  tbl_sql.php
      * @usedby  tbl_structure.php
-     * @usedby  tbl_tracking.php
+     * @usedby  /table/tracking
      */
     public function getHtml(
         $query = true,

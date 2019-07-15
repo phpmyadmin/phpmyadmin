@@ -11,14 +11,13 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Tracking;
+use PhpMyAdmin\Url;
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
-global $pmaThemeImage, $text_dir, $url_query;
-
-require_once ROOT_PATH . 'libraries/common.inc.php';
+global $containerBuilder, $pmaThemeImage, $text_dir, $url_query;
 
 //Get some js files needed for Ajax requests
 $response = Response::getInstance();
@@ -49,9 +48,9 @@ if (Tracker::isActive()
     $response->addHTML($msg->getDisplay());
 }
 
-$url_query .= '&amp;goto=tbl_tracking.php&amp;back=tbl_tracking.php';
-$url_params['goto'] = 'tbl_tracking.php';
-$url_params['back'] = 'tbl_tracking.php';
+$url_params['goto'] = Url::getFromRoute('/table/tracking');
+$url_params['back'] = Url::getFromRoute('/table/tracking');
+$url_query .= Url::getCommon($url_params, '&');
 $data               = [];
 $entries            = [];
 $filter_ts_from     = '';
@@ -167,7 +166,7 @@ if (isset($_POST['report_export']) && $_POST['export_type'] == 'sqldump') {
  * Schema snapshot
  */
 if (isset($_POST['snapshot'])) {
-    $html .= $tracking->getHtmlForSchemaSnapshot($url_query);
+    $html .= $tracking->getHtmlForSchemaSnapshot($url_params);
 }
 // end of snapshot report
 
@@ -182,7 +181,6 @@ if (isset($_POST['report'])
 
 if (isset($_POST['report']) || isset($_POST['report_export'])) {
     $html .= $tracking->getHtmlForTrackingReport(
-        $url_query,
         $data,
         $url_params,
         $selection_schema,
@@ -198,7 +196,6 @@ if (isset($_POST['report']) || isset($_POST['report_export'])) {
  * Main page
  */
 $html .= $tracking->getHtmlForMainPage(
-    $url_query,
     $url_params,
     $pmaThemeImage,
     $text_dir

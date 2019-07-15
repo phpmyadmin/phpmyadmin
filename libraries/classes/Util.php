@@ -1666,7 +1666,11 @@ class Util
             if (! empty($tab['args']) && is_array($tab['args'])) {
                 $url_params = array_merge($url_params, $tab['args']);
             }
-            $tab['link'] = htmlentities($tab['link']) . Url::getCommon($url_params);
+            if (strpos($tab['link'], '?') === false) {
+                $tab['link'] = htmlentities($tab['link']) . Url::getCommon($url_params);
+            } else {
+                $tab['link'] = htmlentities($tab['link']) . Url::getCommon($url_params, '&');
+            }
         }
 
         if (! empty($tab['fragment'])) {
