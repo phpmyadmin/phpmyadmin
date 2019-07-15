@@ -333,12 +333,12 @@ DesignerMove.reload = function () {
                     }
 
                     var rowOffsetTop = 0;
-                    var tabHideButton = $('#id_hide_tbody_' + key2)[0];
+                    var tabHideButton = $('#id_hide_tbody_' + key2);
 
-                    if (tabHideButton.innerHTML === 'v') {
-                        var fromColumn = $('#' + key2 + '.' + key3)[0];
+                    if (tabHideButton.html() === 'v') {
+                        var fromColumn = $('#' + key2 + '.' + key3);
                         if (fromColumn) {
-                            rowOffsetTop = $('#' + key2 + '.' + key3).position().top + parseInt($('#' + key2 + '.' + key3).css('marginTop'));
+                            rowOffsetTop = fromColumn.position().top + parseInt(fromColumn.css('marginTop'));
                         } else {
                             continue;
                         }
@@ -350,12 +350,12 @@ DesignerMove.reload = function () {
 
 
                     rowOffsetTop = 0;
-                    tabHideButton = $('#id_hide_tbody_' + contr[K][key][key2][key3][0])[0];
-                    if (tabHideButton.innerHTML === 'v') {
+                    tabHideButton = $('#id_hide_tbody_' + contr[K][key][key2][key3][0]);
+                    if (tabHideButton.html() === 'v') {
                         var toColumn = $('#' + contr[K][key][key2][key3][0] +
-                            '.' + contr[K][key][key2][key3][1])[0];
+                            '.' + contr[K][key][key2][key3][1]);
                         if (toColumn) {
-                            rowOffsetTop = $('#' + contr[K][key][key2][key3][0] + '.' + contr[K][key][key2][key3][1]).position().top + parseInt($('#' + contr[K][key][key2][key3][0] + '.' + contr[K][key][key2][key3][1]).css("marginTop"));
+                            rowOffsetTop = toColumn.position().top + parseInt(toColumn.css("marginTop"));
                         } else {
                             continue;
                         }
@@ -1125,9 +1125,9 @@ DesignerMove.grid = function () {
     if (!onGrid) {
         onGrid = 1;
         valueSent = 'on';
-        $('#grid_button')[0].className = 'M_butt_Selected_down';
+        $('#grid_button').addClass('M_butt_Selected_down');
     } else {
-        $('#grid_button')[0].className = 'M_butt';
+        $('#grid_button').addClass('M_butt');
         onGrid = 0;
         valueSent = 'off';
     }
@@ -1139,11 +1139,11 @@ DesignerMove.angularDirect = function () {
     if (onAngularDirect) {
         onAngularDirect = 0;
         valueSent = 'angular';
-        $('#angular_direct_button')[0].className = 'M_butt_Selected_down';
+        $('#angular_direct_button').addClass('M_butt_Selected_down');
     } else {
         onAngularDirect = 1;
         valueSent = 'direct';
-        $('#angular_direct_button')[0].className = 'M_butt';
+        $('#angular_direct_button').addClass('M_butt');
     }
     DesignerMove.saveValueInConfig('angular_direct', valueSent);
     DesignerMove.reload();
@@ -1174,13 +1174,13 @@ DesignerMove.startRelation = function () {
     if (!onRelation) {
         $('#foreign_relation').css("display", '');
         onRelation = 1;
-        $('#designer_hint')[0].innerHTML = Messages.strSelectReferencedKey;
+        $('#designer_hint').html(Messages.strSelectReferencedKey);
         $('#designer_hint').css("display", 'block');
-        $('#rel_button')[0].className = 'M_butt_Selected_down';
+        $('#rel_button').addClass('M_butt_Selected_down');
     } else {
-        document.getElementById('designer_hint').innerHTML = '';
-        document.getElementById('designer_hint').style.display = 'none';
-        document.getElementById('rel_button').className = 'M_butt';
+        $('#designer_hint').html('');
+        $('#designer_hint').css("display", 'none');
+        $('#rel_button').addClass('M_butt');
         clickField = 0;
         onRelation = 0;
     }
@@ -1198,21 +1198,19 @@ DesignerMove.clickField = function (db, T, f, pk) {
                 return;// 0;
             }// PK
             if (jTabs[db + '.' + T] !== 1) {
-                document.getElementById('foreign_relation').style.display = 'none';
+                $('#foreign_relation').css("display", 'none');
             }
             clickField = 1;
             linkRelation = 'DB1=' + db + argsep + 'T1=' + T + argsep + 'F1=' + f;
-            document.getElementById('designer_hint').innerHTML = Messages.strSelectForeignKey;
+            $('#designer_hint').html(Messages.strSelectForeignKey);
         } else {
             DesignerMove.startRelation(); // hidden hint...
             if (jTabs[db + '.' + T] !== 1 || !pkLocal) {
-                document.getElementById('foreign_relation').style.display = 'none';
+                $('#foreign_relation').css("display", 'none');
             }
-            var left = globX - (document.getElementById('layer_new_relation').offsetWidth >> 1);
-            document.getElementById('layer_new_relation').style.left = left + 'px';
-            var top = globY - document.getElementById('layer_new_relation').offsetHeight;
-            document.getElementById('layer_new_relation').style.top  = top + 'px';
-            document.getElementById('layer_new_relation').style.display = 'block';
+            $('#layer_new_relation').offset({left:globX - (Math.round(parseFloat($('#layer_new_relation').outerWidth())) >> 1)});
+            $('#layer_new_relation').offset({top:globY - Math.round(parseFloat($('#layer_new_relation').outerHeight()))});
+            $('#layer_new_relation').css("display", 'block');
             linkRelation += argsep + 'DB2=' + db + argsep + 'T2=' + T + argsep + 'F2=' + f;
         }
     }
@@ -1223,15 +1221,15 @@ DesignerMove.clickField = function (db, T, f, pk) {
             delete displayField[T];
         } else {
             if (displayField[T]) {
-                document.getElementById('id_tr_' + T + '.' + displayField[T]).className = 'tab_field';
+                $('#id_tr_' + T + '.' + displayField[T]).addClass('tab_field');
                 delete displayField[T];
             }
             displayField[T] = f;
         }
         onDisplayField = 0;
-        document.getElementById('designer_hint').innerHTML = '';
-        document.getElementById('designer_hint').style.display = 'none';
-        document.getElementById('display_field_button').className = 'M_butt';
+        $('#designer_hint').html('');
+        $('#designer_hint').css("display", 'none');
+        $('#display_field_button').addClass('M_butt');
 
         var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
         $.post('db_designer.php',
@@ -1255,10 +1253,10 @@ DesignerMove.clickField = function (db, T, f, pk) {
 };
 
 DesignerMove.newRelation = function () {
-    document.getElementById('layer_new_relation').style.display = 'none';
+    $('#layer_new_relation').css("display", 'none');
     var argsep = CommonParams.get('arg_separator');
     linkRelation += argsep + 'server=' + server + argsep + 'db=' + db + argsep + 'db2=p';
-    linkRelation += argsep + 'on_delete=' + document.getElementById('on_delete').value + argsep + 'on_update=' + document.getElementById('on_update').value;
+    linkRelation += argsep + 'on_delete=' + $('#on_delete').val() + argsep + 'on_update=' + $('#on_update').val();
     linkRelation += argsep + 'operation=addNewRelation' + argsep + 'ajax_request=true';
 
     var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
@@ -1292,7 +1290,7 @@ DesignerMove.smallTabAll = function (idThis) {
 
     if (icon.alt === 'v') {
         for (key in jTabs) {
-            if (document.getElementById('id_hide_tbody_' + key).innerHTML === 'v') {
+            if ($('#id_hide_tbody_' + key).html() === 'v') {
                 DesignerMove.smallTab(key, 0);
             }
         }
@@ -1301,7 +1299,7 @@ DesignerMove.smallTabAll = function (idThis) {
         valueSent = 'v';
     } else {
         for (key in jTabs) {
-            if (document.getElementById('id_hide_tbody_' + key).innerHTML !== 'v') {
+            if ($('#id_hide_tbody_' + key).html() !== 'v') {
                 DesignerMove.smallTab(key, 0);
             }
         }
@@ -1333,22 +1331,22 @@ DesignerMove.relationLinesInvert = function () {
 
 DesignerMove.smallTabRefresh = function () {
     for (var key in jTabs) {
-        if (document.getElementById('id_hide_tbody_' + key).innerHTML !== 'v') {
+        if ($('#id_hide_tbody_' + key).html() !== 'v') {
             DesignerMove.smallTab(key, 0);
         }
     }
 };
 
 DesignerMove.smallTab = function (t, reload) {
-    var id      = document.getElementById('id_tbody_' + t);
-    var idThis = document.getElementById('id_hide_tbody_' + t);
-    if (idThis.innerHTML === 'v') {
+    var id      = $('#id_tbody_' + t);
+    var idThis = $('#id_hide_tbody_' + t);
+    if (idThis.html() === 'v') {
         // ---CROSS
-        id.style.display = 'none';
-        idThis.innerHTML = '>';
+        id.css("display", 'none');
+        idThis.html('>');
     } else {
-        id.style.display = '';
-        idThis.innerHTML = 'v';
+        id.css("display", '');
+        idThis.html('v');
     }
     if (reload) {
         DesignerMove.reload();
@@ -1356,18 +1354,18 @@ DesignerMove.smallTab = function (t, reload) {
 };
 
 DesignerMove.selectTab = function (t) {
-    var idZag = document.getElementById('id_zag_' + t);
-    if (idZag.className !== 'tab_zag_3') {
-        document.getElementById('id_zag_' + t).className = 'tab_zag_2';
+    var idZag = $('#id_zag_' + t);
+    if (!idZag.hasClass('tab_zag_3')) {
+        $('#id_zag_' + t).addClass('tab_zag_2');
     } else {
-        document.getElementById('id_zag_' + t).className = 'tab_zag';
+        $('#id_zag_' + t).addClass('tab_zag');
     }
     // ----------
-    var idT = document.getElementById(t);
-    window.scrollTo(parseInt(idT.style.left, 10) - 300, parseInt(idT.style.top, 10) - 300);
+    var idT = $("#" + t);
+    window.scrollTo(parseInt(idT.offset().left, 10) - 300, parseInt(idT.offset().top, 10) - 300);
     setTimeout(
         function () {
-            document.getElementById('id_zag_' + t).className = 'tab_zag';
+            $('#id_zag_' + t).addClass('tab_zag');
         },
         800
     );
@@ -1397,14 +1395,14 @@ DesignerMove.canvasClick = function (id, event) {
         for (key in contr[K]) {
             for (key2 in contr[K][key]) {
                 for (key3 in contr[K][key][key2]) {
-                    if (! document.getElementById('check_vis_' + key2).checked ||
-                        ! document.getElementById('check_vis_' + contr[K][key][key2][key3][0]).checked) {
+                    if (! $('#check_vis_' + key2).is(":checked") ||
+                        ! $('#check_vis_' + contr[K][key][key2][key3][0]).is(":checked")) {
                         continue; // if hide
                     }
-                    var x1Left  = document.getElementById(key2).offsetLeft + 1;// document.getElementById(key2+"."+key3).offsetLeft;
-                    var x1Right = x1Left + document.getElementById(key2).offsetWidth;
-                    var x2Left  = document.getElementById(contr[K][key][key2][key3][0]).offsetLeft;// +document.getElementById(contr[K][key2][key3][0]+"."+contr[K][key2][key3][1]).offsetLeft
-                    var x2Right = x2Left + document.getElementById(contr[K][key][key2][key3][0]).offsetWidth;
+                    var x1Left  = $('#' + key2).position().left + parseInt($('#' + key2).css("marginLeft")) + 1;// document.getElementById(key2+"."+key3).offsetLeft;
+                    var x1Right = x1Left + Math.round(parseFloat($('#' + key2).outerWidth()));
+                    var x2Left  = $('#' + contr[K][key][key2][key3][0]).position().left + parseInt($('#' + contr[K][key][key2][key3][0]).css("marginLeft"));// +document.getElementById(contr[K][key2][key3][0]+"."+contr[K][key2][key3][1]).offsetLeft
+                    var x2Right = x2Left + Math.round(parseFloat($('#' + contr[K][key][key2][key3][0]).outertWidth()));
                     a[0] = Math.abs(x1Left - x2Left);
                     a[1] = Math.abs(x1Left - x2Right);
                     a[2] = Math.abs(x1Right - x2Left);
@@ -1439,18 +1437,20 @@ DesignerMove.canvasClick = function (id, event) {
                         x2 = x2Left - smS;
                         sLeft    = 1;
                     }
+                    var y1 = $('#' + key2).position().top + parseInt($('#' + key2).css('marginTop')) +
+                                     $('#' + key2 + '.' + key3).position().top + parseInt($('#' + key2 + '.' + key3).css('marginTop')) +
+                                     heightField;
+                    var y2 = $('#' + contr[K][key][key2][key3][0]).position().top + parseInt($('#' + contr[K][key][key2][key3][0]).css('marginTop')) +
+                                     $('#' + contr[K][key][key2][key3][0] + '.' + contr[K][key][key2][key3][1]).position().top + parseInt($('#' + contr[K][key][key2][key3][0] + '.' + contr[K][key][key2][key3][1]).css('marginTop')) +
+                                     heightField;
 
-                    var y1 = document.getElementById(key2).offsetTop + document.getElementById(key2 + '.' + key3).offsetTop + heightField;
-                    var y2 = document.getElementById(contr[K][key][key2][key3][0]).offsetTop +
-                                     document.getElementById(contr[K][key][key2][key3][0] + '.' + contr[K][key][key2][key3][1]).offsetTop + heightField;
-
-                    var osnTab = document.getElementById('osn_tab');
+                    var osnTab = $('#osn_tab');
                     if (!selected && localX > x1 - 10 && localX < x1 + 10 && localY > y1 - 7 && localY < y1 + 7) {
                         DesignerMove.line0(
-                            x1 + osnTab.offsetLeft,
-                            y1 - osnTab.offsetTop,
-                            x2 + osnTab.offsetLeft,
-                            y2 - osnTab.offsetTop,
+                            x1 + osnTab.position().left + parseInt(osnTab.css("marginLeft")),
+                            y1 - osnTab.position().top + parseInt(osnTab.css('marginTop')),
+                            x2 + osnTab.position().left + parseInt(osnTab.css("marginLeft")),
+                            y2 - osnTab.position().top + parseInt(osnTab.css('marginTop')),
                             'rgba(255,0,0,1)');
 
                         selected = 1;
@@ -1461,10 +1461,10 @@ DesignerMove.canvasClick = function (id, event) {
                         Key = K;
                     } else {
                         DesignerMove.line0(
-                            x1 + osnTab.offsetLeft,
-                            y1 - osnTab.offsetTop,
-                            x2 + osnTab.offsetLeft,
-                            y2 - osnTab.offsetTop,
+                            x1 + osnTab.position().left + parseInt(osnTab.css("marginLeft")),
+                            y1 - osnTab.position().top + parseInt(osnTab.css('marginTop')),
+                            x2 + osnTab.position().left + parseInt(osnTab.css("marginLeft")),
+                            y2 - osnTab.position().top + parseInt(osnTab.css('marginTop')),
                             DesignerMove.getColorByTarget(contr[K][key][key2][key3][0] + '.' + contr[K][key][key2][key3][1])
                         );
                     }
@@ -1474,18 +1474,16 @@ DesignerMove.canvasClick = function (id, event) {
     }
     if (selected) {
         // select relations
-        var left = globX - (document.getElementById('layer_upd_relation').offsetWidth >> 1);
-        document.getElementById('layer_upd_relation').style.left = left + 'px';
-        var top = globY - document.getElementById('layer_upd_relation').offsetHeight - 10;
-        document.getElementById('layer_upd_relation').style.top = top + 'px';
-        document.getElementById('layer_upd_relation').style.display = 'block';
+        $('#layer_upd_relation').offset({left:globX - (Math.round(parseFloat($('#layer_upd_relation').outerWidth())) >> 1)});
+        $('#layer_upd_relation').offset({top:globY - Math.round(parseFloat($('#layer_upd_relation').outerHeight())) - 10});
+        $('#layer_upd_relation').css("display", 'block');
         var argsep = CommonParams.get('arg_separator');
         linkRelation = 'T1=' + Key0 + argsep + 'F1=' + Key1 + argsep + 'T2=' + Key2 + argsep + 'F2=' + Key3 + argsep + 'K=' + Key;
     }
 };
 
 DesignerMove.updRelation = function () {
-    document.getElementById('layer_upd_relation').style.display = 'none';
+    $('#layer_upd_relation').css("display", 'none');
     var argsep = CommonParams.get('arg_separator');
     linkRelation += argsep + 'server=' + server + argsep + 'db=' + db;
     linkRelation += argsep + 'operation=removeRelation' + argsep + 'ajax_request=true';
@@ -1503,9 +1501,9 @@ DesignerMove.updRelation = function () {
 
 DesignerMove.visibleTab = function (id, tN) {
     if (id.checked) {
-        document.getElementById(tN).style.display = 'block';
+        $("#" + tN).css("display", 'block');
     } else {
-        document.getElementById(tN).style.display = 'none';
+        $("#" + tN).css("display", 'none');
     }
     DesignerMove.reload();
 };
@@ -1524,10 +1522,10 @@ DesignerMove.hideTabAll = function (idThis) {
         if (E.elements[i].type === 'checkbox' && E.elements[i].id.substring(0, 10) === 'check_vis_') {
             if (idThis.alt === 'v') {
                 E.elements[i].checked = true;
-                document.getElementById(E.elements[i].value).style.display = '';
+                $("#" + E.elements[i].value).css("display", '');
             } else {
                 E.elements[i].checked = false;
-                document.getElementById(E.elements[i].value).style.display = 'none';
+                $("#" + E.elements[i].value).css("display", 'none');
             }
         }
     }
@@ -1577,10 +1575,10 @@ DesignerMove.noHaveConstr = function (idThis) {
             if (!DesignerMove.inArrayK(E.elements[i].value, a)) {
                 if (idThis.alt === 'v') {
                     E.elements[i].checked = true;
-                    document.getElementById(E.elements[i].value).style.display = '';
+                    $("#" + E.elements[i].value).css("display", '');
                 } else {
                     E.elements[i].checked = false;
-                    document.getElementById(E.elements[i].value).style.display = 'none';
+                    $("#" + E.elements[i].value).css("display", 'none');
                 }
             }
         }
@@ -1592,8 +1590,8 @@ DesignerMove.generalScroll = function () {
     clearTimeout(timeoutId);
     timeoutId = setTimeout(
         function () {
-            document.getElementById('top_menu').style.left = document.body.scrollLeft + 'px';
-            document.getElementById('top_menu').style.top  = document.body.scrollTop + 'px';
+            $('#top_menu').offset({left:document.body.scrollLeft});
+            $('#top_menu').css({top:document.body.scrollTop});
         },
         200
     );
@@ -1604,16 +1602,16 @@ DesignerMove.showLeftMenu = function (idThis) {
     var icon = idThis.children[0];
     $('#key_Show_left_menu').toggleClass('M_butt_Selected_down');
     if (icon.alt === 'v') {
-        document.getElementById('layer_menu').style.top = '0px';
-        document.getElementById('layer_menu').style.display = 'block';
+        $('#layer_menu').offset({top:0});
+        $('#layer_menu').css("display", 'block');
         icon.alt = '>';
         icon.src = icon.dataset.up;
         if (isIe) {
             DesignerMove.generalScroll();
         }
     } else {
-        document.getElementById('layer_menu').style.top = -1000 + 'px'; // fast scroll
-        document.getElementById('layer_menu').style.display = 'none';
+        $('#layer_menu').offset({top:-1000}); // fast scroll
+        $('#layer_menu').css("display", 'none');
         icon.alt = 'v';
         icon.src = icon.dataset.down;
     }
@@ -1662,17 +1660,17 @@ DesignerMove.startDisplayField = function () {
     }
     if (!onDisplayField) {
         onDisplayField = 1;
-        document.getElementById('designer_hint').innerHTML = Messages.strChangeDisplay;
-        document.getElementById('designer_hint').style.display = 'block';
-        document.getElementById('display_field_button').className = 'M_butt_Selected_down';// '#FFEE99';gray #AAAAAA
+        $('#designer_hint').html(Messages.strChangeDisplay);
+        $('#designer_hint').css("display", 'block');
+        $('#display_field_button').addClass('M_butt_Selected_down');// '#FFEE99';gray #AAAAAA
 
         if (isIe) { // correct for IE
-            document.getElementById('display_field_button').className = 'M_butt_Selected_down_IE';
+            $('#display_field_button').addClass('M_butt_Selected_down_IE');
         }
     } else {
-        document.getElementById('designer_hint').innerHTML = '';
-        document.getElementById('designer_hint').style.display = 'none';
-        document.getElementById('display_field_button').className = 'M_butt';
+        $('#designer_hint').html('');
+        $('#designer_hint').css("display", 'none');
+        $('#display_field_button').addClass('M_butt');
         onDisplayField = 0;
     }
 };
@@ -1720,27 +1718,26 @@ DesignerMove.getColorByTarget = function (target) {
 };
 
 DesignerMove.clickOption = function (idThis, columnName, tableName) {
-    var left = globX - (document.getElementById(idThis).offsetWidth >> 1);
-    document.getElementById(idThis).style.left = left + 'px';
+    $("#" + idThis).offset({left:globX - (Math.round(parseFloat($('#' + idThis).outerWidth())) >> 1)});
     // var top = globY - document.getElementById(id_this).offsetHeight - 10;
-    document.getElementById(idThis).style.top  = (screen.height / 4) + 'px';
-    document.getElementById(idThis).style.display = 'block';
-    document.getElementById('option_col_name').innerHTML = '<strong>' + Functions.sprintf(Messages.strAddOption, decodeURI(columnName)) + '</strong>';
+    $("#" + idThis).offset({top:(screen.height / 4)});
+    $("#" + idThis).css("display", 'block');
+    $('#option_col_name').html('<strong>' + Functions.sprintf(Messages.strAddOption, decodeURI(columnName)) + '</strong>');
     colName = columnName;
     tabName = tableName;
 };
 
 DesignerMove.closeOption = function () {
-    document.getElementById('designer_optionse').style.display = 'none';
-    document.getElementById('rel_opt').value = '--';
-    document.getElementById('Query').value = '';
-    document.getElementById('new_name').value = '';
-    document.getElementById('operator').value = '---';
-    document.getElementById('groupby').checked = false;
-    document.getElementById('h_rel_opt').value = '--';
-    document.getElementById('h_operator').value = '---';
-    document.getElementById('having').value = '';
-    document.getElementById('orderby').value = '---';
+    $('#designer_optionse').css("display", 'none');
+    $('#rel_opt').val('--');
+    $('#Query').val('');
+    $('#new_name').val('');
+    $('#operator').val('---');
+    $('#groupby').prop('checked', false);
+    $('#h_rel_opt').val('--');
+    $('#h_operator').val('---');
+    $('#having').val('');
+    $('#orderby').val('---');
 };
 
 DesignerMove.selectAll = function (idThis, owner) {
@@ -1751,7 +1748,7 @@ DesignerMove.selectAll = function (idThis, owner) {
     var tab = [];
     for (i = 0; i < parent.elements.length; i++) {
         if (parent.elements[i].type === 'checkbox' && parent.elements[i].id.substring(0, (9 + idThis.length)) === 'select_' + idThis + '._') {
-            if (document.getElementById('select_all_' + idThis).checked === true) {
+            if ($('#select_all_' + idThis).is(":checked")) {
                 parent.elements[i].checked = true;
                 parent.elements[i].disabled = true;
             } else {
@@ -1760,7 +1757,7 @@ DesignerMove.selectAll = function (idThis, owner) {
             }
         }
     }
-    if (document.getElementById('select_all_' + idThis).checked === true) {
+    if ($('#select_all_' + idThis).is(":checked")) {
         selectField.push('`' + idThis.substring(owner.length + 1) + '`.*');
         tab = idThis.split('.');
         fromArray.push(tab[1]);
@@ -1783,14 +1780,14 @@ DesignerMove.selectAll = function (idThis, owner) {
 DesignerMove.tableOnOver = function (idThis, val, buil) {
     var builLocal = parseInt(buil);
     if (!val) {
-        document.getElementById('id_zag_' + idThis).className = 'tab_zag_2';
+        $('#id_zag_' + idThis).addClass('tab_zag_2');
         if (builLocal) {
-            document.getElementById('id_zag_' + idThis + '_2').className = 'tab_zag_2';
+            $('#id_zag_' + idThis + '_2').addClass('tab_zag_2');
         }
     } else {
-        document.getElementById('id_zag_' + idThis).className = 'tab_zag';
+        $('#id_zag_' + idThis).addClass('tab_zag');
         if (builLocal) {
-            document.getElementById('id_zag_' + idThis + '_2').className = 'tab_zag';
+            $('#id_zag_' + idThis + '_2').addClass('tab_zag');
         }
     }
 };
@@ -1802,7 +1799,7 @@ DesignerMove.tableOnOver = function (idThis, val, buil) {
 DesignerMove.storeColumn = function (idThis, owner, col) {
     var i;
     var k;
-    if (document.getElementById('select_' + owner + '.' + idThis + '._' + col).checked === true) {
+    if ($('#select_' + owner + '.' + idThis + '._' + col).is(":checked")) {
         selectField.push('`' + idThis + '`.`' + col + '`');
         fromArray.push(idThis);
     } else {
@@ -1829,58 +1826,57 @@ DesignerMove.storeColumn = function (idThis, owner, col) {
 DesignerMove.addObject = function () {
     var p;
     var whereObj;
-    var rel = document.getElementById('rel_opt');
+    var rel = $('#rel_opt');
     var sum = 0;
     var init = historyArray.length;
-    if (rel.value !== '--') {
-        if (document.getElementById('Query').value === '') {
+    if (rel.val() !== '--') {
+        if ($('#Query').val() === '') {
             Functions.ajaxShowMessage(Functions.sprintf(Messages.strQueryEmpty));
             return;
         }
-        p = document.getElementById('Query');
-        whereObj = new DesignerHistory.Where(rel.value, p.value);// make where object
+        p = $('#Query');
+        whereObj = new DesignerHistory.Where(rel.val(), p.val());// make where object
         historyArray.push(new DesignerHistory.HistoryObj(colName, whereObj, tabName, hTabs[downer + '.' + tabName], 'Where'));
         sum = sum + 1;
     }
-    if (document.getElementById('new_name').value !== '') {
-        var renameObj = new DesignerHistory.Rename(document.getElementById('new_name').value);// make Rename object
+    if ($('#new_name').val() !== '') {
+        var renameObj = new DesignerHistory.Rename($('#new_name').val());// make Rename object
         historyArray.push(new DesignerHistory.HistoryObj(colName, renameObj, tabName, hTabs[downer + '.' + tabName], 'Rename'));
         sum = sum + 1;
     }
-    if (document.getElementById('operator').value !== '---') {
-        var aggregateObj = new DesignerHistory.Aggregate(document.getElementById('operator').value);
+    if ($('#operator').val() !== '---') {
+        var aggregateObj = new DesignerHistory.Aggregate($('#operator').val());
         historyArray.push(new DesignerHistory.HistoryObj(colName, aggregateObj, tabName, hTabs[downer + '.' + tabName], 'Aggregate'));
         sum = sum + 1;
         // make aggregate operator
     }
-    if (document.getElementById('groupby').checked === true) {
+    if ($('#groupby').is(":checked") === true) {
         historyArray.push(new DesignerHistory.HistoryObj(colName, 'GroupBy', tabName, hTabs[downer + '.' + tabName], 'GroupBy'));
         sum = sum + 1;
         // make groupby
     }
-    if (document.getElementById('h_rel_opt').value !== '--') {
-        if (document.getElementById('having').value === '') {
+    if ($('#h_rel_opt').val() !== '--') {
+        if ($('#having').val() === '') {
             return;
         }
         whereObj = new DesignerHistory.Having(
-            document.getElementById('h_rel_opt').value,
-            document.getElementById('having').value,
-            document.getElementById('h_operator').value
+            $('#h_rel_opt').val(),
+            $('#having').val(),
+            $('#h_operator').val()
         );// make where object
         historyArray.push(new DesignerHistory.HistoryObj(colName, whereObj, tabName, hTabs[downer + '.' + tabName], 'Having'));
         sum = sum + 1;
         // make having
     }
-    if (document.getElementById('orderby').value !== '---') {
-        var orderByObj = new DesignerHistory.OrderBy(document.getElementById('orderby').value);
+    if ($('#orderby').val() !== '---') {
+        var orderByObj = new DesignerHistory.OrderBy($('#orderby').val());
         historyArray.push(new DesignerHistory.HistoryObj(colName, orderByObj, tabName, hTabs[downer + '.' + tabName], 'OrderBy'));
         sum = sum + 1;
         // make orderby
     }
     Functions.ajaxShowMessage(Functions.sprintf(Messages.strObjectsCreated, sum));
     // output sum new objects created
-    var existingDiv = document.getElementById('ab');
-    existingDiv.innerHTML = DesignerHistory.display(init, historyArray.length);
+    $('#ab').html(DesignerHistory.display(init, historyArray.length));
     DesignerMove.closeOption();
     $('#ab').accordion('refresh');
 };
@@ -2082,7 +2078,7 @@ AJAX.registerOnload('designer/move.js', function () {
         DesignerMove.updRelation();
     });
     $('input#cancel_button').on('click', function () {
-        document.getElementById('layer_upd_relation').style.display = 'none';
+        $('#layer_upd_relation').css("display", 'none');
         DesignerMove.reload();
     });
     $('input#ok_add_object').on('click', function () {
@@ -2095,7 +2091,7 @@ AJAX.registerOnload('designer/move.js', function () {
         DesignerMove.newRelation();
     });
     $('input#cancel_new_rel_panel').on('click', function () {
-        document.getElementById('layer_new_relation').style.display = 'none';
+        $('#layer_new_relation').css("display", 'none');
     });
     $('#page_content').on('mousedown', function (e) {
         DesignerMove.mouseDown(e);
