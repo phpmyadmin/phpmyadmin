@@ -39,7 +39,6 @@ class Sanitize
             './index.php?',
             './server_status.php?',
             './server_privileges.php?',
-            './db_structure.php?',
             './db_sql.php?',
             './db_search.php?',
             './db_operations.php?',

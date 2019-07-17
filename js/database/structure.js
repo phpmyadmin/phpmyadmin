@@ -11,7 +11,7 @@
 var DatabaseStructure = {};
 
 /**
- * AJAX scripts for db_structure.php
+ * AJAX scripts for /database/structure
  *
  * Actions ajaxified here:
  * Drop Database
@@ -245,7 +245,7 @@ AJAX.registerOnload('database/structure.js', function () {
             }
             $.ajax({
                 type: 'POST',
-                url: 'db_structure.php',
+                url: 'index.php?route=/database/structure',
                 dataType: 'html',
                 data: formData
 

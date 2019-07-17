@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
@@ -27,10 +28,16 @@ class NodeViewContainer extends NodeDatabaseChildContainer
         parent::__construct(__('Views'), Node::CONTAINER);
         $this->icon = Util::getImage('b_views', __('Views'));
         $this->links = [
-            'text' => 'db_structure.php?server=' . $GLOBALS['server']
-                . '&amp;db=%1$s&amp;tbl_type=view',
-            'icon' => 'db_structure.php?server=' . $GLOBALS['server']
-                . '&amp;db=%1$s&amp;tbl_type=view',
+            'text' => Url::getFromRoute('/database/structure', [
+                'server' => $GLOBALS['server'],
+                'db' => '%1\$s',
+                'tbl_type' => 'view',
+            ]),
+            'icon' => Url::getFromRoute('/database/structure', [
+                'server' => $GLOBALS['server'],
+                'db' => '%1\$s',
+                'tbl_type' => 'view',
+            ]),
         ];
         $this->classes = 'viewContainer subContainer';
         $this->realName = 'views';

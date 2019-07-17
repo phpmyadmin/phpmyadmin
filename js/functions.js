@@ -2845,7 +2845,7 @@ AJAX.registerTeardown('functions.js', function () {
 
 /**
  * jQuery coding for 'Create Table'.  Used on db_operations.php,
- * db_structure.php and /database/tracking (i.e., wherever
+ * /database/structure and /database/tracking (i.e., wherever
  * PhpMyAdmin\Display\CreateTable is used)
  *
  * Attach Ajax Event handlers for Create Table
@@ -2941,7 +2941,7 @@ AJAX.registerOnload('functions.js', function () {
                         }
                         var tableStructureUrl = 'tbl_structure.php?server=' + data.params.server +
                             argsep + 'db=' + data.params.db + argsep + 'token=' + data.params.token +
-                            argsep + 'goto=db_structure.php' + argsep + 'table=' + data.params.table + '';
+                            argsep + 'goto=' + encodeURIComponent('index.php?route=/database/structure') + argsep + 'table=' + data.params.table + '';
                         $.get(tableStructureUrl, params12, AJAX.responseHandler);
                     } else {
                         Functions.ajaxShowMessage(

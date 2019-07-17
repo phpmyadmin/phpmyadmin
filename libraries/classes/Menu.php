@@ -459,9 +459,10 @@ class Menu
 
         $tabs = [];
 
-        $tabs['structure']['link'] = 'db_structure.php';
+        $tabs['structure']['link'] = Url::getFromRoute('/database/structure');
         $tabs['structure']['text'] = __('Structure');
         $tabs['structure']['icon'] = 'b_props';
+        $tabs['structure']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/database/structure';
 
         $tabs['sql']['link'] = 'db_sql.php';
         $tabs['sql']['text'] = __('SQL');

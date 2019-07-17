@@ -293,7 +293,7 @@ if ($import_type == 'table') {
     if (strlen($table) > 0 && strlen($db) > 0) {
         $goto = 'tbl_structure.php';
     } elseif (strlen($db) > 0) {
-        $goto = 'db_structure.php';
+        $goto = Url::getFromRoute('/database/structure');
     } else {
         $goto = 'server_sql.php';
     }

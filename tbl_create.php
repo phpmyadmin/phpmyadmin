@@ -72,7 +72,7 @@ if ($dbi->getColumns($db, $table)) {
         sprintf(__('Table %s already exists!'), htmlspecialchars($table)),
         '',
         false,
-        'db_structure.php' . Url::getCommon(['db' => $db])
+        Url::getFromRoute('/database/structure', ['db' => $db])
     );
 }
 

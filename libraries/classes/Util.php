@@ -3139,7 +3139,7 @@ class Util
      *                       $cfg['NavigationTreeDefaultTabTable2'],
      *                       $cfg['DefaultTabTable'] or $cfg['DefaultTabDatabase']
      *
-     * @return string Title for the $cfg value
+     * @return string|bool Title for the $cfg value
      */
     public static function getTitleForTarget($target)
     {
@@ -3150,22 +3150,8 @@ class Util
             'insert' => __('Insert'),
             'browse' => __('Browse'),
             'operations' => __('Operations'),
-
-            // For backward compatiblity
-
-            // Values for $cfg['DefaultTabTable']
-            'tbl_structure.php' =>  __('Structure'),
-            'tbl_sql.php' => __('SQL'),
-            'tbl_select.php' => __('Search'),
-            'tbl_change.php' => __('Insert'),
-            'sql.php' => __('Browse'),
-            // Values for $cfg['DefaultTabDatabase']
-            'db_structure.php' => __('Structure'),
-            'db_sql.php' => __('SQL'),
-            'db_search.php' => __('Search'),
-            'db_operations.php' => __('Operations'),
         ];
-        return isset($mapping[$target]) ? $mapping[$target] : false;
+        return $mapping[$target] ?? false;
     }
 
     /**
@@ -3201,7 +3187,7 @@ class Util
             // Values for $cfg['DefaultTabDatabase']
             switch ($target) {
                 case 'structure':
-                    return 'db_structure.php';
+                    return Url::getFromRoute('/database/structure');
                 case 'sql':
                     return 'db_sql.php';
                 case 'search':
@@ -4951,7 +4937,7 @@ class Util
             $urlParams['tbl_group'] = $_REQUEST['tbl_group'];
         }
 
-        $url = 'db_structure.php' . Url::getCommon($urlParams);
+        $url = Url::getFromRoute('/database/structure', $urlParams);
 
         return self::linkOrButton($url, $title . $orderImg, $orderLinkParams);
     }

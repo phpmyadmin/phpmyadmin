@@ -137,11 +137,11 @@ class StructureController extends AbstractController
         // If there are no tables, the user is redirected to the last page
         // having any.
         if ($this->totalNumTables > 0 && $this->position > $this->totalNumTables) {
-            $uri = './db_structure.php' . Url::getCommonRaw([
+            $uri = './index.php?route=/database/structure' . Url::getCommonRaw([
                 'db' => $this->db,
                 'pos' => max(0, $this->totalNumTables - $cfg['MaxTableList']),
                 'reload' => 1,
-            ]);
+            ], '&');
             Core::sendHeaderLocation($uri);
         }
 
@@ -164,7 +164,7 @@ class StructureController extends AbstractController
                 $this->totalNumTables,
                 $this->position,
                 $urlParams,
-                'db_structure.php',
+                Url::getFromRoute('/database/structure'),
                 'frame_content',
                 $cfg['MaxTableList']
             );
@@ -313,14 +313,13 @@ class StructureController extends AbstractController
      */
     public function multiSubmitAction(): void
     {
-        $action = 'db_structure.php';
-        $err_url = 'db_structure.php' . Url::getCommon(
-            ['db' => $this->db]
-        );
+        // for mult_submits.inc.php
+        $action = Url::getFromRoute('/database/structure');
+        $err_url = Url::getFromRoute('/database/structure', ['db' => $this->db]);
 
         // see bug #2794840; in this case, code path is:
-        // db_structure.php -> libraries/mult_submits.inc.php -> sql.php
-        // -> db_structure.php and if we got an error on the multi submit,
+        // /database/structure -> libraries/mult_submits.inc.php -> sql.php
+        // -> /database/structure and if we got an error on the multi submit,
         // we must display it here and not call again mult_submits.inc.php
         if (! isset($_POST['error']) || false === $_POST['error']) {
             include ROOT_PATH . 'libraries/mult_submits.inc.php';
@@ -617,7 +616,7 @@ class StructureController extends AbstractController
             'db_is_system_schema' => $this->dbIsSystemSchema,
             'replication' => $GLOBALS['replication_info']['slave']['status'],
             'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
-            'is_show_stats' => $GLOBALS['is_show_stats'],
+            'is_show_stats' => $this->isShowStats,
             'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
             'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
             'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],

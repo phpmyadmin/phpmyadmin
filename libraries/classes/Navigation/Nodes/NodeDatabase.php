@@ -47,9 +47,10 @@ class NodeDatabase extends Node
             $GLOBALS['cfg']['DefaultTabDatabase'],
             'database'
         );
+        $hasRoute = strpos($scriptName, '?');
         $this->links = [
-            'text'  => $scriptName
-                . '?server=' . $GLOBALS['server']
+            'text'  => $scriptName . ($hasRoute === false ? '?' : '&')
+                . 'server=' . $GLOBALS['server']
                 . '&amp;db=%1$s',
             'icon'  => 'db_operations.php?server=' . $GLOBALS['server']
                 . '&amp;db=%1$s&amp;',

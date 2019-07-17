@@ -48,7 +48,7 @@ class NodeViewContainerTest extends PmaTestCase
             $parent->links
         );
         $this->assertStringContainsString(
-            'db_structure.php',
+            'index.php?route=/database/structure',
             $parent->links['text']
         );
         $this->assertEquals('views', $parent->realName);

@@ -2000,39 +2000,27 @@ class UtilTest extends PmaTestCase
     {
         return [
             [
-                'tbl_structure.php',
+                'structure',
                 __('Structure'),
             ],
             [
-                'tbl_sql.php',
+                'sql',
                 __('SQL'),
             ],
             [
-                'tbl_select.php',
+                'search',
                 __('Search'),
             ],
             [
-                'tbl_change.php',
+                'insert',
                 __('Insert'),
             ],
             [
-                'sql.php',
+                'browse',
                 __('Browse'),
             ],
             [
-                'db_structure.php',
-                __('Structure'),
-            ],
-            [
-                'db_sql.php',
-                __('SQL'),
-            ],
-            [
-                'db_search.php',
-                __('Search'),
-            ],
-            [
-                'db_operations.php',
+                'operations',
                 __('Operations'),
             ],
         ];
