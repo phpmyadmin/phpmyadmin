@@ -151,8 +151,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         }
 
         // Avoid showing the password in phpinfo()'s output
-        unset($GLOBALS['PHP_AUTH_PW']);
-        unset($_SERVER['PHP_AUTH_PW']);
+        unset($GLOBALS['PHP_AUTH_PW'], $_SERVER['PHP_AUTH_PW']);
 
         // Decode possibly encoded information (used by IIS/CGI/FastCGI)
         // (do not use explode() because a user might have a colon in his password

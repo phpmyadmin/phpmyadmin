@@ -84,7 +84,7 @@ class AuthenticationSignon extends AuthenticationPlugin
                 unset($sessionCookieParams['samesite']);
         }
 
-        if (version_compare(phpversion(), '7.3.0', '>=')) {
+        if (version_compare(PHP_VERSION, '7.3.0', '>=')) {
             session_set_cookie_params($sessionCookieParams);
         }
 

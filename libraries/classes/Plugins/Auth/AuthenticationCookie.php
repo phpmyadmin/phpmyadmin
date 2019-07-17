@@ -837,8 +837,11 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         $data = json_decode($encdata, true);
 
-        if (! is_array($data) || ! isset($data['mac']) || ! isset($data['iv']) || ! isset($data['payload'])
-            || ! is_string($data['mac']) || ! is_string($data['iv']) || ! is_string($data['payload'])
+        if (! isset($data['mac'], $data['iv'], $data['payload'])
+            || ! is_array($data)
+            || ! is_string($data['mac'])
+            || ! is_string($data['iv'])
+            || ! is_string($data['payload'])
             ) {
             return false;
         }

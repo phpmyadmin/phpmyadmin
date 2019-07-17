@@ -567,8 +567,7 @@ class Routines
         $retval['item_param_length']    = [];
         $retval['item_param_opts_num']  = [];
         $retval['item_param_opts_text'] = [];
-        if (isset($_POST['item_param_name'])
-            && isset($_POST['item_param_type'])
+        if (isset($_POST['item_param_name'], $_POST['item_param_type'])
             && isset($_POST['item_param_length'])
             && isset($_POST['item_param_opts_num'])
             && isset($_POST['item_param_opts_text'])
@@ -877,12 +876,14 @@ class Routines
             $routine['item_param_opts_text'][] = '';
             $routine['item_num_params']++;
         } elseif ($operation == 'remove') {
-            unset($routine['item_param_dir'][$routine['item_num_params'] - 1]);
-            unset($routine['item_param_name'][$routine['item_num_params'] - 1]);
-            unset($routine['item_param_type'][$routine['item_num_params'] - 1]);
-            unset($routine['item_param_length'][$routine['item_num_params'] - 1]);
-            unset($routine['item_param_opts_num'][$routine['item_num_params'] - 1]);
-            unset($routine['item_param_opts_text'][$routine['item_num_params'] - 1]);
+            unset(
+                $routine['item_param_dir'][$routine['item_num_params'] - 1],
+                $routine['item_param_name'][$routine['item_num_params'] - 1],
+                $routine['item_param_type'][$routine['item_num_params'] - 1],
+                $routine['item_param_length'][$routine['item_num_params'] - 1],
+                $routine['item_param_opts_num'][$routine['item_num_params'] - 1],
+                $routine['item_param_opts_text'][$routine['item_num_params'] - 1]
+            );
             $routine['item_num_params']--;
         }
         $disableRemoveParam = '';
@@ -1435,7 +1436,7 @@ class Routines
             // Generate output
             if ($outcome) {
                 // Pass the SQL queries through the "pretty printer"
-                $output  = Util::formatSql(implode($queries, "\n"));
+                $output  = Util::formatSql(implode("\n", $queries));
 
                 // Display results
                 $output .= "<fieldset><legend>";

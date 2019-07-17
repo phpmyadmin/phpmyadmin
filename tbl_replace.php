@@ -307,7 +307,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
             $key
         );
 
-        if (! isset($multi_edit_virtual) || ! isset($multi_edit_virtual[$key])) {
+        if (! isset($multi_edit_virtual, $multi_edit_virtual[$key])) {
             list($query_values, $query_fields)
                 = $insertEdit->getQueryValuesForInsertAndUpdateInMultipleEdit(
                     $multi_edit_columns_name,

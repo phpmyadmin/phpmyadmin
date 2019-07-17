@@ -356,12 +356,7 @@ class Pdf extends PdfLib
             return; //prevents printing blank trigger list for any table
         }
 
-        unset($this->tablewidths);
-        unset($this->colTitles);
-        unset($this->titleWidth);
-        unset($this->colFits);
-        unset($this->display_column);
-        unset($this->colAlign);
+        unset($this->tablewidths, $this->colTitles, $this->titleWidth, $this->colFits, $this->display_column, $this->colAlign);
 
         /**
          * Making table heading
@@ -495,12 +490,7 @@ class Pdf extends PdfLib
         // since the class initialization
         global $cfgRelation;
 
-        unset($this->tablewidths);
-        unset($this->colTitles);
-        unset($this->titleWidth);
-        unset($this->colFits);
-        unset($this->display_column);
-        unset($this->colAlign);
+        unset($this->tablewidths, $this->colTitles, $this->titleWidth, $this->colFits, $this->display_column, $this->colAlign);
 
         /**
          * Gets fields properties
@@ -702,12 +692,7 @@ class Pdf extends PdfLib
      */
     public function mysqlReport($query)
     {
-        unset($this->tablewidths);
-        unset($this->colTitles);
-        unset($this->titleWidth);
-        unset($this->colFits);
-        unset($this->display_column);
-        unset($this->colAlign);
+        unset($this->tablewidths, $this->colTitles, $this->titleWidth, $this->colFits, $this->display_column, $this->colAlign);
 
         /**
          * Pass 1 for column widths

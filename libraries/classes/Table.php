@@ -503,10 +503,7 @@ class Table
     ) {
         /** @var DatabaseInterface $dbi */
         $dbi = $GLOBALS['dbi'];
-        $is_timestamp = mb_strpos(
-            mb_strtoupper($type),
-            'TIMESTAMP'
-        ) !== false;
+        $is_timestamp = mb_stripos($type, 'TIMESTAMP') !== false;
 
         $query = Util::backquote($name) . ' ' . $type;
 
@@ -2437,8 +2434,7 @@ class Table
                 }
 
                 if (empty($one_field) && empty($foreign_field[$key])) {
-                    unset($master_field[$key]);
-                    unset($foreign_field[$key]);
+                    unset($master_field[$key], $foreign_field[$key]);
                 }
             }
 

@@ -562,12 +562,8 @@ class DatabaseInterface
         if (true === $limit_count) {
             $limit_count = $GLOBALS['cfg']['MaxTableList'];
         }
-        // prepare and check parameters
-        if (! is_array($database)) {
-            $databases = [$database];
-        } else {
-            $databases = $database;
-        }
+
+        $databases = [$database];
 
         $tables = [];
 
@@ -816,10 +812,6 @@ class DatabaseInterface
         // cache table data
         // so Table does not require to issue SHOW TABLE STATUS again
         $this->_cacheTableData($tables, $table);
-
-        if (is_array($database)) {
-            return $tables;
-        }
 
         if (isset($tables[$database])) {
             return $tables[$database];
@@ -1073,8 +1065,7 @@ class DatabaseInterface
             $sorter = 'strcasecmp';
         }
         /* No sorting when key is not present */
-        if (! isset($a[$GLOBALS['callback_sort_by']])
-            || ! isset($b[$GLOBALS['callback_sort_by']])
+        if (! isset($a[$GLOBALS['callback_sort_by']], $b[$GLOBALS['callback_sort_by']])
         ) {
             return 0;
         }
@@ -2314,7 +2305,7 @@ class DatabaseInterface
      */
     public function isSuperuser(): bool
     {
-        return self::isUserType('super');
+        return $this->isUserType('super');
     }
 
     /**

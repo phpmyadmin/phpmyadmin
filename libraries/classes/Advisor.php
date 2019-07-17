@@ -631,10 +631,10 @@ class Advisor
             $num *= 60;
             $per = __('per minute');
         } elseif ($num * 60 * 60 >= 1) { // per hour
-            $num = $num * 60 * 60;
+            $num *= 60 * 60;
             $per = __('per hour');
         } else {
-            $num = $num * 60 * 60 * 24;
+            $num *= 24 * 60 * 60;
             $per = __('per day');
         }
 

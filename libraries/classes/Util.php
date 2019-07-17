@@ -3399,8 +3399,7 @@ class Util
         $matcher = '@\.(' . $extensions . ')(\.('
             . $fileListing->supportedDecompressions() . '))?$@';
 
-        $active = (isset($GLOBALS['timeout_passed']) && $GLOBALS['timeout_passed']
-            && isset($GLOBALS['local_import_file']))
+        $active = (isset($GLOBALS['timeout_passed'], $GLOBALS['local_import_file']) && $GLOBALS['timeout_passed'])
             ? $GLOBALS['local_import_file']
             : '';
 
@@ -3648,7 +3647,7 @@ class Util
             'type' => 'int',
         ];
 
-        $geom_type = trim(mb_strtolower((string) $geom_type));
+        $geom_type = mb_strtolower(trim((string) $geom_type));
         if ($display && $geom_type != 'geometry' && $geom_type != 'multipoint') {
             $funcs[] = ['display' => '--------'];
         }

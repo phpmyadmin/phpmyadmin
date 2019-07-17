@@ -227,10 +227,7 @@ abstract class GisGeometry
             // Extract coordinates of the point
             $cordinates = explode(" ", $point);
 
-            if (isset($cordinates[0]) && trim($cordinates[0]) != ''
-                && isset($cordinates[1])
-                && trim($cordinates[1]) != ''
-            ) {
+            if (isset($cordinates[0], $cordinates[1]) && trim($cordinates[0]) != '' && trim($cordinates[1]) != '') {
                 if ($scale_data != null) {
                     $x = ($cordinates[0] - $scale_data['x']) * $scale_data['scale'];
                     $y = $scale_data['height']

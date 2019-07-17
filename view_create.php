@@ -199,7 +199,7 @@ $view = [
 ];
 
 // Used to prefill the fields when editing a view
-if (isset($_GET['db']) && isset($_GET['table'])) {
+if (isset($_GET['db'], $_GET['table'])) {
     $item = $dbi->fetchSingleRow(
         sprintf(
             "SELECT `VIEW_DEFINITION`, `CHECK_OPTION`, `DEFINER`,

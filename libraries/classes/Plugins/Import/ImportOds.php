@@ -322,11 +322,7 @@ class ImportOds extends ImportPlugin
             $max_cols = 0;
         }
 
-        unset($tempRow);
-        unset($tempRows);
-        unset($col_names);
-        unset($sheets);
-        unset($xml);
+        unset($tempRow, $tempRows, $col_names, $sheets, $xml);
 
         /**
          * Bring accumulated rows into the corresponding table
@@ -381,8 +377,7 @@ class ImportOds extends ImportPlugin
         /* Created and execute necessary SQL statements from data */
         $this->import->buildSql($db_name, $tables, $analyses, $create, $options, $sql_data);
 
-        unset($tables);
-        unset($analyses);
+        unset($tables, $analyses);
 
         /* Commit any possible data in buffers */
         $this->import->runQuery('', '', $sql_data);

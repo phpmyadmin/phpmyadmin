@@ -518,14 +518,13 @@ class Sql
      */
     private function isRememberSortingOrder(array $analyzed_sql_results)
     {
-        return $GLOBALS['cfg']['RememberSorting']
+        return isset($analyzed_sql_results['select_expr'], $analyzed_sql_results['select_tables'])
+            && $GLOBALS['cfg']['RememberSorting']
             && ! ($analyzed_sql_results['is_count']
                 || $analyzed_sql_results['is_export']
                 || $analyzed_sql_results['is_func']
                 || $analyzed_sql_results['is_analyse'])
             && $analyzed_sql_results['select_from']
-            && isset($analyzed_sql_results['select_expr'])
-            && isset($analyzed_sql_results['select_tables'])
             && (empty($analyzed_sql_results['select_expr'])
                 || ((count($analyzed_sql_results['select_expr']) === 1)
                     && ($analyzed_sql_results['select_expr'][0] == '*')))
@@ -1753,11 +1752,7 @@ class Sql
     {
         // BEGIN INDEX CHECK See if indexes should be checked.
         $output = '';
-        if (isset($queryType)
-            && $queryType == 'check_tbl'
-            && isset($selectedTables)
-            && is_array($selectedTables)
-        ) {
+        if (isset($queryType, $selectedTables) && $queryType == 'check_tbl' && is_array($selectedTables)) {
             foreach ($selectedTables as $table) {
                 $check = Index::findDuplicates($table, $database);
                 if (! empty($check)) {

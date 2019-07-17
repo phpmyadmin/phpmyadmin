@@ -774,9 +774,7 @@ class ExportSql extends ExportPlugin
             // we are saving as file, therefore we provide charset information
             // so that a utility like the mysql client can interpret
             // the file correctly
-            if (isset($GLOBALS['charset'])
-                && isset(Charsets::$mysqlCharsetMap[$GLOBALS['charset']])
-            ) {
+            if (isset($GLOBALS['charset'], Charsets::$mysqlCharsetMap[$GLOBALS['charset']])) {
                 // we got a charset from the export dialog
                 $set_names = Charsets::$mysqlCharsetMap[$GLOBALS['charset']];
             } else {
@@ -1704,7 +1702,7 @@ class ExportSql extends ExportPlugin
                         // Creating the parts that add indexes (must not be
                         // constraints).
                         if ($field->key->type === 'FULLTEXT KEY') {
-                            $indexes_fulltext[] = $field->build($field);
+                            $indexes_fulltext[] = $field::build($field);
                             unset($statement->fields[$key]);
                         } else {
                             if (empty($GLOBALS['sql_if_not_exists'])) {
@@ -2323,10 +2321,7 @@ class ExportSql extends ExportPlugin
             }
 
             // insert ignore?
-            if (isset($GLOBALS['sql_type'])
-                && $GLOBALS['sql_type'] == 'INSERT'
-                && isset($GLOBALS['sql_ignore'])
-            ) {
+            if (isset($GLOBALS['sql_type'], $GLOBALS['sql_ignore']) && $GLOBALS['sql_type'] == 'INSERT') {
                 $insert_delayed .= ' IGNORE';
             }
             //truncate table before insert
