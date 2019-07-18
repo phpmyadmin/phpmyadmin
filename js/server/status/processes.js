@@ -78,7 +78,7 @@ var processList = {
      *
      * @return void
      */
-    refresh: function (event) {
+    refresh: function () {
         // abort any previous pending requests
         // this is necessary, it may go into
         // multiple loops causing unnecessary
@@ -151,7 +151,7 @@ var processList = {
     }
 };
 
-AJAX.registerOnload('server_status_processes.js', function () {
+AJAX.registerOnload('server/status/processes.js', function () {
     processList.init();
     // Bind event handler for kill_process
     $('#tableprocesslist').on(
@@ -166,7 +166,7 @@ AJAX.registerOnload('server_status_processes.js', function () {
         processList.setRefreshLabel();
     });
     // Bind event handler for change in refresh rate
-    $('#id_refreshRate').on('change', function (event) {
+    $('#id_refreshRate').on('change', function () {
         processList.refreshInterval = $(this).val();
         processList.refresh();
     });
@@ -179,7 +179,7 @@ AJAX.registerOnload('server_status_processes.js', function () {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('server_status_processes.js', function () {
+AJAX.registerTeardown('server/status/processes.js', function () {
     $('#tableprocesslist').off('click', 'a.kill_process');
     $('a#toggleRefresh').off('click');
     $('#id_refreshRate').off('change');

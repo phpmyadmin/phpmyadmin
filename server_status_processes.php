@@ -48,7 +48,7 @@ if ($response->isAjax() && ! empty($_POST['kill'])) {
 } else {
     $header = $response->getHeader();
     $scripts = $header->getScripts();
-    $scripts->addFile('server_status_processes.js');
+    $scripts->addFile('server/status/processes.js');
 
     $response->addHTML($controller->index([
         'showExecuting' => $_POST['showExecuting'] ?? null,

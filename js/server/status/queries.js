@@ -8,19 +8,19 @@
  * @requires    js/functions.js
  */
 
-/* global initTableSorter */ // js/server_status_sorter.js
+/* global initTableSorter */ // js/server/status/sorter.js
 
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('server_status_queries.js', function () {
+AJAX.registerTeardown('server/status/queries.js', function () {
     var queryPieChart = $('#serverstatusquerieschart').data('queryPieChart');
     if (queryPieChart) {
         queryPieChart.destroy();
     }
 });
 
-AJAX.registerOnload('server_status_queries.js', function () {
+AJAX.registerOnload('server/status/queries.js', function () {
     // Build query statistics chart
     var cdata = [];
     try {

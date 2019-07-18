@@ -2,7 +2,7 @@
 /**
  * Functions used in server plugins pages
  */
-AJAX.registerOnload('server_plugins.js', function () {
+AJAX.registerOnload('server/plugins.js', function () {
     // Make columns sortable, but only for tables with more than 1 data row
     var $tables = $('#plugins_plugins table:has(tbody tr + tr)');
     $tables.tablesorter({

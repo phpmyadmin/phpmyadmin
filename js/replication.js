@@ -16,7 +16,7 @@ function updateConfig () {
     var confDo = 'binlog_do_db=';
     var databaseList = '';
 
-    if ($('#db_select option:selected').size() === 0) {
+    if ($('#db_select option:selected').length === 0) {
         $('#rep').text(confPrefix);
     } else if ($('#db_type option:selected').val() === 'all') {
         $('#db_select option:selected').each(function () {

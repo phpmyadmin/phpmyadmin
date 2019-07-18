@@ -27,14 +27,12 @@ var CommonParams = (function () {
          * @return void
          */
         setAll: function (obj) {
-            var reload = false;
             var updateNavigation = false;
             for (var i in obj) {
                 if (params[i] !== undefined && params[i] !== obj[i]) {
                     if (i === 'db' || i === 'table') {
                         updateNavigation = true;
                     }
-                    reload = true;
                 }
                 params[i] = obj[i];
             }
@@ -108,6 +106,7 @@ var CommonParams = (function () {
  * The content for this is normally loaded from Header.php or
  * Response.php and executed by ajax.js
  */
+// eslint-disable-next-line no-unused-vars
 var CommonActions = {
     /**
      * Saves the database name when it's changed

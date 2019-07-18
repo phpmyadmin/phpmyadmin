@@ -8,6 +8,7 @@
 
 <div id="maincontainer">
   {{ sync_favorite_tables|raw }}
+<<<<<<< HEAD
   <div class="container">
     <div class="row">
       <div id="main_pane_left" class="col-7 col-xs-12">
@@ -53,6 +54,7 @@
                 {{ user_preferences is not empty ? user_preferences|raw }}
               </ul>
             </div>
+
           {% endif %}
 
             <div class="group">
@@ -145,6 +147,7 @@
           </div>
         {% endif %}
 
+<<<<<<< HEAD
           <div class="group pmagroup">
             <h2>phpMyAdmin</h2>
             <ul>
@@ -185,8 +188,81 @@
             </ul>
           </div>
         </div>
+=======
+  <div id="main_pane_right" class="col-5 col-xs-12">
+    {% if database_server is not empty %}
+      <div class="group">
+        <h2>{% trans 'Database server' %}</h2>
+        <ul>
+          <li id="li_server_info">
+            {% trans 'Server:' %}
+            {{ database_server.host }}
+          </li>
+          <li id="li_server_type">
+            {% trans 'Server type:' %}
+            {{ database_server.type }}
+          </li>
+          <li id="li_server_connection">
+            {% trans 'Server connection:' %}
+            {{ database_server.connection|raw }}
+          </li>
+          <li id="li_server_version">
+            {% trans 'Server version:' %}
+            {{ database_server.version }}
+          </li>
+          <li id="li_mysql_proto">
+            {% trans 'Protocol version:' %}
+            {{ database_server.protocol }}
+          </li>
+          <li id="li_user_info">
+            {% trans 'User:' %}
+            {{ database_server.user }}
+          </li>
+          <li id="li_mysql_charset">
+            {% trans 'Server charset:' %}
+            <span lang="en" dir="ltr">
+              {{ database_server.charset }}
+            </span>
+          </li>
+        </ul>
+      </div>
+    {% endif %}
+
+    {% if web_server is not empty or php_info is not empty %}
+      <div class="group">
+        <h2>{% trans 'Web server' %}</h2>
+        <ul>
+          {% if web_server is not empty %}
+            <li id="li_web_server_software">
+              {{ web_server.software }}
+            </li>
+            <li id="li_mysql_client_version">
+              {% trans 'Database client version:' %}
+              {{ web_server.database }}
+            </li>
+            <li id="li_used_php_extension">
+              {% trans 'PHP extension:' %}
+              {% for extension in web_server.php_extensions %}
+                {{ extension }}
+                {{ show_php_docu('book.' ~ extension ~ '.php') }}
+              {% endfor %}
+            </li>
+            <li id="li_used_php_version">
+              {% trans 'PHP version:' %}
+              {{ web_server.php_version }}
+            </li>
+          {% endif %}
+          {% if php_info is not empty %}
+            {{ php_info|raw }}
+          {% endif %}
+        </ul>
+>>>>>>> 8994c48f2b00e1300defb135069233641d3a5c01
       </div>
     </div>
   </div>
+<<<<<<< HEAD
+=======
+</div></div></div>
+>>>>>>> 8994c48f2b00e1300defb135069233641d3a5c01
 
 {{ config_storage_message|raw }}

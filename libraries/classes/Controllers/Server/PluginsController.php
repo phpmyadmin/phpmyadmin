@@ -52,7 +52,7 @@ class PluginsController extends AbstractController
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();
         $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
-        $scripts->addFile('server_plugins.js');
+        $scripts->addFile('server/plugins.js');
 
         $pluginsTypeClean = [];
         foreach (array_keys($this->plugins) as $pluginType) {

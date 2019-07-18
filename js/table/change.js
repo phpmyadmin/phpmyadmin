@@ -306,7 +306,7 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('tbl_change.js', function () {
+AJAX.registerTeardown('table/change.js', function () {
     $(document).off('click', 'span.open_gis_editor');
     $(document).off('click', 'input[name^=\'insert_ignore_\']');
     $(document).off('click', 'input[name=\'gis_data[save]\']');
@@ -322,11 +322,11 @@ AJAX.registerTeardown('tbl_change.js', function () {
  * Submit Data to be inserted into the table.
  * Restart insertion with 'N' rows.
  */
-AJAX.registerOnload('tbl_change.js', function () {
+AJAX.registerOnload('table/change.js', function () {
     if ($('#insertForm').length) {
         // validate the comment form when it is submitted
         $('#insertForm').validate();
-        jQuery.validator.addMethod('validationFunctionForHex', function (value, element) {
+        jQuery.validator.addMethod('validationFunctionForHex', function (value) {
             return value.match(/^[a-f0-9]*$/i) !== null;
         });
 
@@ -401,14 +401,14 @@ AJAX.registerOnload('tbl_change.js', function () {
     /**
      * Forced validation check of fields
      */
-    $(document).on('click','input[name^=\'insert_ignore_\']', function (event) {
+    $(document).on('click','input[name^=\'insert_ignore_\']', function () {
         $('#insertForm').valid();
     });
 
     /**
      * Uncheck the null checkbox as geometry data is placed on the input field
      */
-    $(document).on('click', 'input[name=\'gis_data[save]\']', function (event) {
+    $(document).on('click', 'input[name=\'gis_data[save]\']', function () {
         var inputName = $('form#gis_data_editor_form').find('input[name=\'input_name\']').val();
         var $nullCheckbox = $('input[name=\'' + inputName + '\']').parents('tr').find('.checkbox_null');
         $nullCheckbox.prop('checked', false);
@@ -704,6 +704,7 @@ function addNewContinueInsertionFiels (event) {
     Functions.addDateTimePicker();
 }
 
+// eslint-disable-next-line no-unused-vars
 function changeValueFieldType (elem, searchIndex) {
     var fieldsValue = $('select#fieldID_' + searchIndex);
     if (0 === fieldsValue.size()) {

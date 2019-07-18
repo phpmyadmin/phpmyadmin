@@ -6,7 +6,7 @@
  * @requires    js/functions.js
  */
 
-/* global changeValueFieldType */ // js/tbl_change.js
+/* global changeValueFieldType */ // js/table/change.js
 /* global openGISEditor, gisEditorLoaded, loadJSAndGISEditor, loadGISEditor */ // js/gis_data_editor.js
 
 var TableSelect = {};
@@ -46,7 +46,7 @@ TableSelect.checkIfDataTypeNumericOrDate = function (dataType) {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('tbl_select.js', function () {
+AJAX.registerTeardown('table/select.js', function () {
     $('#togglesearchformlink').off('click');
     $(document).off('submit', '#tbl_search_form.ajax');
     $('select.geom_func').off('change');
@@ -54,7 +54,7 @@ AJAX.registerTeardown('tbl_select.js', function () {
     $('body').off('change', 'select[name*="criteriaColumnOperators"]'); // Fix for bug #13778, changed 'click' to 'change'
 });
 
-AJAX.registerOnload('tbl_select.js', function () {
+AJAX.registerOnload('table/select.js', function () {
     /**
      * Prepare a div containing a link, otherwise it's incorrectly displayed
      * after a couple of clicks
@@ -398,7 +398,7 @@ AJAX.registerOnload('tbl_select.js', function () {
                         Functions.ajaxShowMessage(response.error);
                     }
                 },
-                error: function (response) {
+                error: function () {
                     Functions.ajaxShowMessage(Messages.strErrorProcessingRequest);
                 }
             });

@@ -1,24 +1,32 @@
-
 //Copyright 2014-2015 Google Inc. All rights reserved.
 
 //Use of this source code is governed by a BSD-style
 //license that can be found in the LICENSE file or at
 //https://developers.google.com/open-source/licenses/bsd
 
+// NOTE FROM MAINTAINER: This file is copied from google/u2f-ref-code with as
+// few alterations as possible. Any changes that were necessary are annotated
+// with "NECESSARY CHANGE". These changes, as well as this note, should be
+// preserved when updating this file from the source.
+
 /**
  * @fileoverview The U2F api.
  */
 'use strict';
 
+// NECESSARY CHANGE: wrap the whole file in a closure
 (function (){
+  // NECESSARY CHANGE: detect UA to avoid clobbering other browser's U2F API.
   var isChrome = 'chrome' in window && window.navigator.userAgent.indexOf('Edge') < 0;
   if ('u2f' in window || !isChrome) {
     return;
   }
 
-  /** Namespace for the U2F api.
+  /**
+   * Namespace for the U2F api.
    * @type {Object}
    */
+  // NECESSARY CHANGE: define the window.u2f API.
   var u2f = window.u2f = {};
 
   /**
@@ -34,7 +42,7 @@
   // The Chrome packaged app extension ID.
   // Uncomment this if you want to deploy a server instance that uses
   // the package Chrome app and does not require installing the U2F Chrome extension.
-   u2f.EXTENSION_ID = 'kmendfapggjehodndflmmgagdbamhnfd';
+  u2f.EXTENSION_ID = 'kmendfapggjehodndflmmgagdbamhnfd';
   // The U2F Chrome extension ID.
   // Uncomment this if you want to deploy a server instance that uses
   // the U2F Chrome extension to authenticate.
@@ -105,7 +113,7 @@
 
   /**
    * Data object for a single sign request.
-   * @typedef {enum {BLUETOOTH_RADIO, BLUETOOTH_LOW_ENERGY, USB, NFC}}
+   * @typedef {enum {BLUETOOTH_RADIO, BLUETOOTH_LOW_ENERGY, USB, NFC, USB_INTERNAL}}
    */
   u2f.Transport;
 
@@ -434,7 +442,7 @@
     if (name == 'message') {
       var self = this;
       /* Register a callback to that executes when
-       * chrome injects the response. */
+      * chrome injects the response. */
       window.addEventListener(
           'message', self.onRequestUpdate_.bind(self, handler), false);
     } else {
@@ -722,24 +730,24 @@
    * @param {number=} opt_timeoutSeconds
    */
   u2f.getApiVersion = function(callback, opt_timeoutSeconds) {
-   u2f.getPortSingleton_(function(port) {
-     // If we are using Android Google Authenticator or iOS client app,
-     // do not fire an intent to ask which JS API version to use.
-     if (port.getPortType) {
-       var apiVersion;
-       switch (port.getPortType()) {
-         case 'WrappedIosPort_':
-         case 'WrappedAuthenticatorPort_':
-           apiVersion = 1.1;
-           break;
+  u2f.getPortSingleton_(function(port) {
+    // If we are using Android Google Authenticator or iOS client app,
+    // do not fire an intent to ask which JS API version to use.
+    if (port.getPortType) {
+      var apiVersion;
+      switch (port.getPortType()) {
+        case 'WrappedIosPort_':
+        case 'WrappedAuthenticatorPort_':
+          apiVersion = 1.1;
+          break;
 
-         default:
-           apiVersion = 0;
-           break;
-       }
-       callback({ 'js_api_version': apiVersion });
-       return;
-     }
+        default:
+          apiVersion = 0;
+          break;
+      }
+      callback({ 'js_api_version': apiVersion });
+      return;
+    }
       var reqId = ++u2f.reqCounter_;
       u2f.callbackMap_[reqId] = callback;
       var req = {

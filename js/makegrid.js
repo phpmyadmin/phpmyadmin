@@ -14,6 +14,7 @@
  * @param enableVisib Optional, if false, show/hide column feature will be disabled
  * @param enableGridEdit Optional, if false, grid editing feature will be disabled
  */
+// eslint-disable-next-line no-unused-vars
 var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGridEdit) {
     var isResizeEnabled = enableResize === undefined ? true : enableResize;
     var isReorderEnabled = enableReorder === undefined ? true : enableReorder;
@@ -143,14 +144,15 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
          * @param e event
          */
         dragMove: function (e) {
+            var dx;
             if (g.colRsz) {
-                var dx = e.pageX - g.colRsz.x0;
+                dx = e.pageX - g.colRsz.x0;
                 if (g.colRsz.objWidth + dx > g.minColWidth) {
                     $(g.colRsz.obj).css('left', g.colRsz.objLeft + dx + 'px');
                 }
             } else if (g.colReorder) {
                 // dragged column animation
-                var dx = e.pageX - g.colReorder.x0;
+                dx = e.pageX - g.colReorder.x0;
                 $(g.cCpy)
                     .css('left', g.colReorder.objLeft + dx)
                     .show();
@@ -865,6 +867,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 // reset the position of the edit_area div after closing datetime picker
                 $(g.cEdit).find('.edit_area').css({ 'top' :'0','position':'' });
 
+                var postParams;
                 if ($td.is('.relation')) {
                     // handle relations
                     $editArea.addClass('edit_area_loading');
@@ -875,7 +878,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     /**
                      * @var post_params Object containing parameters for the POST request
                      */
-                    var postParams = {
+                    postParams = {
                         'ajax_request' : true,
                         'get_relational_values' : true,
                         'server' : g.server,
@@ -921,7 +924,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     /**
                      * @var post_params Object containing parameters for the POST request
                      */
-                    var postParams = {
+                    postParams = {
                         'ajax_request' : true,
                         'get_enum_values' : true,
                         'server' : g.server,
@@ -1055,7 +1058,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
                             if (datetimeValue) {
                                 datetimeValue += '000000';
-                                var datetimeValue = datetimeValue.substring(0, datetimeValue.indexOf('.') + 7);
+                                datetimeValue = datetimeValue.substring(0, datetimeValue.indexOf('.') + 7);
                                 $inputField.val(datetimeValue);
                             }
                         } else {
@@ -1064,7 +1067,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
                             if (datetimeValue) {
                                 datetimeValue += '000';
-                                var datetimeValue = datetimeValue.substring(0, datetimeValue.indexOf('.') + 4);
+                                datetimeValue = datetimeValue.substring(0, datetimeValue.indexOf('.') + 4);
                                 $inputField.val(datetimeValue);
                             }
                         }
@@ -1083,8 +1086,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                             e.preventDefault();
                             e.stopPropagation();
                             g.saveOrPostEditedCell();
-                        } else if (e.which === 27) {
-                        } else {
+                        } else if (e.which !== 27) {
                             Functions.toggleDatepickerIfInvalid($td, $inputField);
                         }
                     });
@@ -1599,14 +1601,15 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
             // initialize column order
             var $colOrder = $(g.o).find('.col_order');   // check if column order is passed from PHP
+            var i;
             if ($colOrder.length > 0) {
                 g.colOrder = $colOrder.val().split(',');
-                for (var i = 0; i < g.colOrder.length; i++) {
+                for (i = 0; i < g.colOrder.length; i++) {
                     g.colOrder[i] = parseInt(g.colOrder[i], 10);
                 }
             } else {
                 g.colOrder = [];
-                for (var i = 0; i < $firstRowCols.length; i++) {
+                for (i = 0; i < $firstRowCols.length; i++) {
                     g.colOrder.push(i);
                 }
             }
@@ -1717,9 +1720,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
                 // create column visibility drop-down arrow(s)
                 $colVisibTh.each(function () {
-                    var $th = $(this);
                     var cd = document.createElement('div'); // column drop-down arrow
-                    var pos = $th.position();
                     $(cd).addClass('coldrop')
                         .on('click', function () {
                             if (g.cList.style.display === 'none') {
@@ -1794,14 +1795,11 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 whereClause = '';
             }
             var found = false;
-            var $foundRow;
             var $prevRow;
-            var j = 0;
 
             $thisField.parents('tr').first().parents('tbody').children().each(function () {
                 if ($(this).find('.where_clause').val() === whereClause) {
                     found = true;
-                    $foundRow = $(this);
                 }
                 if (!found) {
                     $prevRow = $(this);
@@ -1837,14 +1835,12 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 whereClause = '';
             }
             var found = false;
-            var $foundRow;
             var $nextRow;
             var j = 0;
             var nextRowFound = false;
             $thisField.parents('tr').first().parents('tbody').children().each(function () {
                 if ($(this).find('.where_clause').val() === whereClause) {
                     found = true;
-                    $foundRow = $(this);
                 }
                 if (found) {
                     if (j >= 1 && ! nextRowFound) {
@@ -1885,7 +1881,6 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
             }
             var found = false;
             var $foundRow;
-            var j = 0;
             $thisField.parents('tr').first().parents('tbody').children().each(function () {
                 if ($(this).find('.where_clause').val() === whereClause) {
                     found = true;

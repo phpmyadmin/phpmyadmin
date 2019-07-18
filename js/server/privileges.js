@@ -17,6 +17,7 @@
  *
  * @return boolean  whether the form is validated or not
  */
+// eslint-disable-next-line no-unused-vars
 function checkAddUser (theForm) {
     if (theForm.elements.pred_hostname.value === 'userdefined' && theForm.elements.hostname.value === '') {
         alert(Messages.strHostEmpty);
@@ -82,7 +83,7 @@ function checkPasswordStrength (value, meterObject, meterObjectLabel, username) 
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('server_privileges.js', function () {
+AJAX.registerTeardown('server/privileges.js', function () {
     $('#fieldset_add_user_login').off('change', 'input[name=\'username\']');
     $(document).off('click', '#fieldset_delete_user_footer #buttonGo.ajax');
     $(document).off('click', 'a.edit_user_group_anchor.ajax');
@@ -96,7 +97,7 @@ AJAX.registerTeardown('server_privileges.js', function () {
     $(document).off('change', '#select_authentication_plugin');
 });
 
-AJAX.registerOnload('server_privileges.js', function () {
+AJAX.registerOnload('server/privileges.js', function () {
     /**
      * Display a warning if there is already a user by the name entered as the username.
      */
@@ -399,7 +400,7 @@ AJAX.registerOnload('server_privileges.js', function () {
         }); // end $.get
     }); // end of the paginate users table
 
-    $(document).on('change', 'input[name="ssl_type"]', function (e) {
+    $(document).on('change', 'input[name="ssl_type"]', function () {
         var $div = $('#specified_div');
         if ($('#ssl_type_SPECIFIED').is(':checked')) {
             $div.find('input').prop('disabled', false);
@@ -408,7 +409,7 @@ AJAX.registerOnload('server_privileges.js', function () {
         }
     });
 
-    $(document).on('change', '#checkbox_SSL_priv', function (e) {
+    $(document).on('change', '#checkbox_SSL_priv', function () {
         var $div = $('#require_ssl_div');
         if ($(this).is(':checked')) {
             $div.find('input').prop('disabled', false);

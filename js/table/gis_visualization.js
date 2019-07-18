@@ -191,7 +191,7 @@ function getRelativeCoords (e) {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('tbl_gis_visualization.js', function () {
+AJAX.registerTeardown('table/gis_visualization.js', function () {
     $(document).off('click', '#choice');
     $(document).off('mousewheel', '#placeholder');
     $(document).off('dragstart', 'svg');
@@ -208,7 +208,7 @@ AJAX.registerTeardown('tbl_gis_visualization.js', function () {
     $('.vector').off('mousemove').off('mouseout');
 });
 
-AJAX.registerOnload('tbl_gis_visualization.js', function () {
+AJAX.registerOnload('table/gis_visualization.js', function () {
     // If we are in GIS visualization, initialize it
     if ($('#gis_div').length > 0) {
         initGISVisualization();
@@ -257,7 +257,7 @@ AJAX.registerOnload('tbl_gis_visualization.js', function () {
         dragY = Math.round(dd.offsetY);
     });
 
-    $(document).on('mouseup', 'svg', function (event) {
+    $(document).on('mouseup', 'svg', function () {
         $('#placeholder').removeClass('placeholderDrag');
     });
 
@@ -362,7 +362,7 @@ AJAX.registerOnload('tbl_gis_visualization.js', function () {
     /**
      * Detect the mouseout event and hide tooltips.
      */
-    $('.vector').on('mouseout', function (event) {
+    $('.vector').on('mouseout', function () {
         $('#tooltip').remove();
     });
 });

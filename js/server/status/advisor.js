@@ -8,14 +8,14 @@
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('server_status_advisor.js', function () {
+AJAX.registerTeardown('server/status/advisor.js', function () {
     $('a[href="#openAdvisorInstructions"]').off('click');
     $('#statustabs_advisor').html('');
     $('#advisorDialog').remove();
     $('#instructionsDialog').remove();
 });
 
-AJAX.registerOnload('server_status_advisor.js', function () {
+AJAX.registerOnload('server/status/advisor.js', function () {
     // if no advisor is loaded
     if ($('#advisorData').length === 0) {
         return;
@@ -42,7 +42,6 @@ AJAX.registerOnload('server_status_advisor.js', function () {
     var $cnt = $('#statustabs_advisor');
     var $tbody;
     var $tr;
-    var str;
     var even = true;
 
     var data = JSON.parse($('#advisorData').text());

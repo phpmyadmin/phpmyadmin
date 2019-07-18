@@ -98,7 +98,6 @@
         if (hasVScroll) {
             windowWidth += 15;
         }
-        var navigationWidth = wmax;
         if (windowWidth < 768) {
             wmax = 2000;
         }

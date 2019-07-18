@@ -8,7 +8,8 @@
  * @required    js/functions.js
  */
 
-/* global primaryIndexes, indexes, fulltextIndexes, spatialIndexes */ // js/functions.js
+// eslint-disable-next-line no-unused-vars
+/* global primaryIndexes:writable, indexes:writable, fulltextIndexes:writable, spatialIndexes:writable */ // js/functions.js
 /* global sprintf */ // js/vendor/sprintf.js
 
 /**
@@ -45,7 +46,7 @@ function checkFirst () {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('tbl_structure.js', function () {
+AJAX.registerTeardown('table/structure.js', function () {
     $(document).off('click', 'a.drop_column_anchor.ajax');
     $(document).off('click', 'a.add_key.ajax');
     $(document).off('click', '#move_columns_anchor');
@@ -56,7 +57,7 @@ AJAX.registerTeardown('tbl_structure.js', function () {
     $(document).off('click', '#remove_partitioning.ajax');
 });
 
-AJAX.registerOnload('tbl_structure.js', function () {
+AJAX.registerOnload('table/structure.js', function () {
     // Re-initialize variables.
     primaryIndexes = [];
     indexes = [];
@@ -102,7 +103,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
             }); // end $.post()
         }
 
-        function checkIfConfirmRequired ($form, $fieldCnt) {
+        function checkIfConfirmRequired ($form) {
             var i = 0;
             var id;
             var elm;
@@ -143,11 +144,11 @@ AJAX.registerOnload('tbl_structure.js', function () {
                 // User wants to submit the form
 
                 // If Collation is changed, Warn and Confirm
-                if (checkIfConfirmRequired($form, fieldCnt)) {
+                if (checkIfConfirmRequired($form)) {
                     var question = sprintf(
                         Messages.strChangeColumnCollation, 'https://wiki.phpmyadmin.net/pma/Garbled_data'
                     );
-                    $form.confirm(question, $form.attr('action'), function (url) {
+                    $form.confirm(question, $form.attr('action'), function () {
                         submitForm();
                     });
                 } else {
@@ -434,13 +435,11 @@ AJAX.registerOnload('tbl_structure.js', function () {
         }
 
         if ($link.is('#partition_action_DROP')) {
-            var question = Messages.strDropPartitionWarning;
-            $link.confirm(question, $link.attr('href'), function (url) {
+            $link.confirm(Messages.strDropPartitionWarning, $link.attr('href'), function (url) {
                 submitPartitionAction(url);
             });
         } else if ($link.is('#partition_action_TRUNCATE')) {
-            var question = Messages.strTruncatePartitionWarning;
-            $link.confirm(question, $link.attr('href'), function (url) {
+            $link.confirm(Messages.strTruncatePartitionWarning, $link.attr('href'), function (url) {
                 submitPartitionAction(url);
             });
         } else {
@@ -472,7 +471,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
 });
 
 /** Handler for "More" dropdown in structure table rows */
-AJAX.registerOnload('tbl_structure.js', function () {
+AJAX.registerOnload('table/structure.js', function () {
     var windowwidth = $(window).width();
     if (windowwidth > 768) {
         if (! $('#fieldsForm').hasClass('HideStructureActions')) {

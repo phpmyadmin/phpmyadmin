@@ -103,7 +103,7 @@ $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
 $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
-$scripts->addFile('db_central_columns.js');
+$scripts->addFile('database/central_columns.js');
 
 if (isset($_POST['edit_central_columns_page'])) {
     $response->addHTML($controller->editPage([

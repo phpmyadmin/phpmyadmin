@@ -13,7 +13,7 @@
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('server_databases.js', function () {
+AJAX.registerTeardown('server/databases.js', function () {
     $(document).off('submit', '#dbStatsForm');
     $(document).off('submit', '#create_database_form.ajax');
 });
@@ -25,7 +25,7 @@ AJAX.registerTeardown('server_databases.js', function () {
  * Drop Databases
  *
  */
-AJAX.registerOnload('server_databases.js', function () {
+AJAX.registerOnload('server/databases.js', function () {
     /**
      * Attach Event Handler for 'Drop Databases'
      */
@@ -144,7 +144,7 @@ AJAX.registerOnload('server_databases.js', function () {
     }
 
     var tableRows = $('.server_databases');
-    $.each(tableRows, function (index, item) {
+    $.each(tableRows, function () {
         $(this).on('click', function () {
             CommonActions.setDb($(this).attr('data'));
         });

@@ -8,14 +8,14 @@
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('server_status_variables.js', function () {
+AJAX.registerTeardown('server/status/variables.js', function () {
     $('#filterAlert').off('change');
     $('#filterText').off('keyup');
     $('#filterCategory').off('change');
     $('#dontFormat').off('change');
 });
 
-AJAX.registerOnload('server_status_variables.js', function () {
+AJAX.registerOnload('server/status/variables.js', function () {
     // Filters for status variables
     var textFilter = null;
     var alertFilter = $('#filterAlert').prop('checked');
@@ -41,7 +41,7 @@ AJAX.registerOnload('server_status_variables.js', function () {
         $('#serverstatusvariables').show();
     }).trigger('change');
 
-    $('#filterText').on('keyup', function (e) {
+    $('#filterText').on('keyup', function () {
         var word = $(this).val().replace(/_/g, ' ');
         if (word.length === 0) {
             textFilter = null;

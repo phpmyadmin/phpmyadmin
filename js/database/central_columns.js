@@ -16,7 +16,7 @@
  *
  */
 
-AJAX.registerTeardown('db_central_columns.js', function () {
+AJAX.registerTeardown('database/central_columns.js', function () {
     $('.edit').off('click');
     $('.edit_save_form').off('click');
     $('.edit_cancel_form').off('click');
@@ -33,7 +33,7 @@ AJAX.registerTeardown('db_central_columns.js', function () {
     $('button[name=\'edit_central_columns\']').off('click');
 });
 
-AJAX.registerOnload('db_central_columns.js', function () {
+AJAX.registerOnload('database/central_columns.js', function () {
     $('#tableslistcontainer input,#tableslistcontainer select,#tableslistcontainer .default_value,#tableslistcontainer .open_enum_editor').hide();
     $('#tableslistcontainer').find('.checkall').show();
     $('#tableslistcontainer').find('.checkall_box').show();
@@ -117,7 +117,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
         event.stopPropagation();
         var $td = $(this);
         var question = Messages.strDeleteCentralColumnWarning;
-        $td.confirm(question, null, function (url) {
+        $td.confirm(question, null, function () {
             var rownum = $td.data('rownum');
             $('#del_col_name').val('selected_fld%5B%5D=' + $('#checkbox_row_' + rownum).val());
             $('#del_form').submit();
@@ -191,7 +191,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
             }
         });
     });
-    $('#table-select').on('change', function (e) {
+    $('#table-select').on('change', function () {
         var selectValue = $(this).val();
         var defaultColumnSelect = $('#column-select').find('option:first');
         var href = 'db_central_columns.php';
@@ -217,7 +217,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
             e.stopPropagation();
         }
     });
-    $('#add_col_div').find('>a').on('click', function (event) {
+    $('#add_col_div').find('>a').on('click', function () {
         $('#add_new').slideToggle('slow');
         var $addColDivLinkSpan = $('#add_col_div').find('>a span');
         if ($addColDivLinkSpan.html() === '+') {
@@ -226,7 +226,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
             $addColDivLinkSpan.html('+');
         }
     });
-    $('#add_new').submit(function (event) {
+    $('#add_new').submit(function () {
         $('#add_new').toggle();
     });
     $('#tableslistcontainer').find('select.default_type').on('change', function () {

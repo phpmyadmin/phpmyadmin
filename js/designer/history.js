@@ -8,7 +8,7 @@
   */
 
 /* global contr */ // js/designer/init.js
-/* global fromArray */ // js/designer/move.js
+/* global fromArray:writable */ // js/designer/move.js
 /* global pmaThemeImage */ // js/messages.php
 
 var DesignerHistory = {};
@@ -638,7 +638,6 @@ DesignerHistory.queryFrom = function () {
     var i;
     var tabLeft = [];
     var tabUsed = [];
-    var tTabUsed = [];
     var tTabLeft = [];
     var temp;
     var query = '';
@@ -746,12 +745,8 @@ DesignerHistory.queryFrom = function () {
  * @uses DesignerHistory.queryGroupBy()
  * @uses DesignerHistory.queryHaving()
  * @uses DesignerHistory.queryOrderBy()
- *
- * @param formTitle title for the form
- * @param fadin
  */
-
-DesignerHistory.buildQuery = function (formTitle, fadin) {
+DesignerHistory.buildQuery = function () {
     var qSelect = 'SELECT ';
     var temp;
     if (selectField.length > 0) {

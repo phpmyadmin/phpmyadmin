@@ -96,17 +96,9 @@ function getType (field) {
 }
 
 /**
- ** Scrolls the view to the display section
- **/
-function scrollToChart () {
-    var x = $('#dataDisplay').offset().top - 100; // 100 provides buffer in viewport
-    $('html,body').animate({ scrollTop: x }, 500);
-}
-
-/**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('tbl_zoom_plot_jqplot.js', function () {
+AJAX.registerTeardown('table/zoom_plot_jqplot.js', function () {
     $('#tableid_0').off('change');
     $('#tableid_1').off('change');
     $('#tableid_2').off('change');
@@ -119,8 +111,7 @@ AJAX.registerTeardown('tbl_zoom_plot_jqplot.js', function () {
     $('div#querychart').off('jqplotDataClick');
 });
 
-AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
-    var cursorMode = ($('input[name=\'mode\']:checked').val() === 'edit') ? 'crosshair' : 'pointer';
+AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
     var currentChart = null;
     var searchedDataKey = null;
     var xLabel = $('#tableid_0').val();
@@ -129,10 +120,6 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
     var xType = $('#types_0').val();
     var yType = $('#types_1').val();
     var dataLabel = $('#dataLabel').val();
-    var lastX;
-    var lastY;
-    var zoomRatio = 1;
-
 
     // Get query result
     var searchedData;
@@ -446,17 +433,9 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             .text(Messages.strShowSearchCriteria);
         $('#togglesearchformdiv').show();
         var selectedRow;
-        var colorCodes = ['#FF0000', '#00FFFF', '#0000FF', '#0000A0', '#FF0080', '#800080', '#FFFF00', '#00FF00', '#FF00FF'];
         var series = [];
         var xCord = [];
         var yCord = [];
-        var tempX;
-        var tempY;
-        var it = 0;
-        var xMax; // xAxis extreme max
-        var xMin; // xAxis extreme min
-        var yMax; // yAxis extreme max
-        var yMin; // yAxis extreme min
         var xVal;
         var yVal;
         var format;
@@ -574,7 +553,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         });
 
         $('div#resizer').resizable();
-        $('div#resizer').on('resizestop', function (event, ui) {
+        $('div#resizer').on('resizestop', function () {
             // make room so that the handle will still appear
             $('div#querychart').height($('div#resizer').height() * 0.96);
             $('div#querychart').width($('div#resizer').width() * 0.96);

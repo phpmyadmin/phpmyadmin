@@ -6,11 +6,11 @@
  * @requires    jQuery
  * @requires    jQueryUI
  * @requires    js/functions.js
- * @requires    js/db_query_generator.js
+ * @requires    js/database/query_generator.js
  *
  */
 
-/* global generateFromBlock, generateWhereBlock */ // js/db_query_generator.js
+/* global generateFromBlock, generateWhereBlock */ // js/database/query_generator.js
 
 /**
  * js file for handling AJAX and other events in db_multi_table_query.php
@@ -19,7 +19,7 @@
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('db_multi_table_query.js', function () {
+AJAX.registerTeardown('database/multi_table_query.js', function () {
     $('.tableNameSelect').each(function () {
         $(this).off('change');
     });
@@ -27,7 +27,7 @@ AJAX.registerTeardown('db_multi_table_query.js', function () {
     $('#add_column_button').off('click');
 });
 
-AJAX.registerOnload('db_multi_table_query.js', function () {
+AJAX.registerOnload('database/multi_table_query.js', function () {
     var editor = Functions.getSqlEditor($('#MultiSqlquery'), {}, 'both');
     $('.CodeMirror-line').css('text-align', 'left');
     editor.setSize(-1, 50);

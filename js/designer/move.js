@@ -5,13 +5,12 @@
 
 /* global DesignerObjects */ // js/designer/objects.js
 /* global DesignerHistory, historyArray, selectField */ // js/designer/history.js
-/* global contr, db, designerTablesEnabled, displayField, hTabs, jTabs, selectedPage, server */ // js/designer/init.js
+/* global contr, db, designerTablesEnabled, displayField, hTabs, jTabs, selectedPage:writable, server */ // js/designer/init.js
 /* global DesignerPage */ // js/designer/page.js
 
 var DesignerMove = {};
 
 var change = 0; // variable to track any change in designer layout.
-var staying = 0; //  variable to check if the user stayed after seeing the confirmation prompt.
 var showRelationLines = true;
 var alwaysShowText = false;
 
@@ -40,10 +39,6 @@ AJAX.registerOnload('designer/move.js', function () {
     $('#selflink').hide();
 });
 
-DesignerMove.makeZero = function () {   // Function called if the user stays after seeing the confirmation prompt.
-    staying = 0;
-};
-
 DesignerMove.markSaved = function () {
     change = 0;
     $('#saved_state').text('');
@@ -54,12 +49,7 @@ DesignerMove.markUnsaved = function () {
     $('#saved_state').text('*');
 };
 
-var dx;
-var dy;
 var curClick = null;
-// update in DesignerMove.main()
-var smX = 2;
-var smY = 2;
 var smS           = 0;
 var smAdd         = 10;
 var sLeft         = 0;
@@ -71,7 +61,6 @@ var onDisplayField = 0;
 var onAngularDirect = 1;
 var clickField    = 0;
 var linkRelation  = '';
-var idHint;
 var canvasWidth   = 0;
 var canvasHeight  = 0;
 var osnTabWidth  = 0;
@@ -81,8 +70,6 @@ var globX;
 var globY;
 var timeoutId;
 var layerMenuCurClick = 0;
-var step = 10;
-var oldClass;
 var fromArray = [];
 var downer;
 var menuMoved = false;
@@ -100,8 +87,8 @@ if (isIe) {
 }
 
 DesignerMove.mouseDown = function (e) {
-    globX = dx = isIe ? e.clientX + document.body.scrollLeft : e.pageX;
-    globY = dy = isIe ? e.clientY + document.body.scrollTop : e.pageY;
+    globX = isIe ? e.clientX + document.body.scrollLeft : e.pageX;
+    globY = isIe ? e.clientY + document.body.scrollTop : e.pageY;
 
     if (e.target.tagName === 'SPAN') {
         curClick = e.target.parentNode.parentNode.parentNode.parentNode;
@@ -144,9 +131,6 @@ DesignerMove.mouseMove = function (e) {
         var newX = curX - deltaX;
         var newY = curY - deltaY;
 
-        dx = newDx;
-        dy = newDy;
-
         $curClick.attr('data-left', newX);
         $curClick.attr('data-top', newY);
 
@@ -163,8 +147,6 @@ DesignerMove.mouseMove = function (e) {
         $curClick.css('left', newX + 'px');
         $curClick.css('top', newY + 'px');
     } else if (layerMenuCurClick) {
-        dx = newDx;
-        dy = newDy;
         if (menuMoved) {
             deltaX = -deltaX;
         }
@@ -172,8 +154,6 @@ DesignerMove.mouseMove = function (e) {
         var newWidth = $layerMenu.width() + deltaX;
         if (newWidth < 150) {
             newWidth = 150;
-        } else {
-            dx = e.pageX;
         }
         $layerMenu.width(newWidth);
     }
@@ -184,7 +164,7 @@ DesignerMove.mouseMove = function (e) {
     }
 };
 
-DesignerMove.mouseUp = function (e) {
+DesignerMove.mouseUp = function () {
     if (curClick !== null) {
         document.getElementById('canvas').style.display = 'inline-block';
         DesignerMove.reload();
@@ -260,14 +240,11 @@ DesignerMove.main = function () {
     // ---CROSS
 
     document.getElementById('layer_menu').style.top = -1000 + 'px'; // fast scroll
-    // smX += document.getElementById('osn_tab').offsetLeft;
-    // smY += document.getElementById('osn_tab').offsetTop;
     DesignerMove.osnTabPos();
     DesignerMove.canvasPos();
     DesignerMove.smallTabRefresh();
     DesignerMove.reload();
     DesignerMove.setDefaultValuesFromSavedState();
-    idHint = document.getElementById('designer_hint');
     if (isIe) {
         DesignerMove.generalScroll();
     }
@@ -654,10 +631,11 @@ DesignerMove.save = function (url) {
 };
 
 DesignerMove.getUrlPos = function (forceString) {
+    var key;
     if (designerTablesEnabled || forceString) {
         var poststr = '';
         var argsep = CommonParams.get('arg_separator');
-        for (var key in jTabs) {
+        for (key in jTabs) {
             poststr += argsep + 't_x[' + key + ']=' + parseInt(document.getElementById(key).style.left, 10);
             poststr += argsep + 't_y[' + key + ']=' + parseInt(document.getElementById(key).style.top, 10);
             poststr += argsep + 't_v[' + key + ']=' + (document.getElementById('id_tbody_' + key).style.display === 'none' ? 0 : 1);
@@ -666,7 +644,7 @@ DesignerMove.getUrlPos = function (forceString) {
         return poststr;
     } else {
         var coords = [];
-        for (var key in jTabs) {
+        for (key in jTabs) {
             if (document.getElementById('check_vis_' + key).checked) {
                 var x = parseInt(document.getElementById(key).style.left, 10);
                 var y = parseInt(document.getElementById(key).style.top, 10);
@@ -700,7 +678,7 @@ DesignerMove.save2 = function (callback) {
         });
     } else {
         var name = $('#page_name').html().trim();
-        DesignerPage.saveToSelectedPage(db, selectedPage, name, DesignerMove.getUrlPos(), function (page) {
+        DesignerPage.saveToSelectedPage(db, selectedPage, name, DesignerMove.getUrlPos(), function () {
             DesignerMove.markSaved();
             if (typeof callback !== 'undefined') {
                 callback();
@@ -1242,10 +1220,8 @@ DesignerMove.clickField = function (db, T, f, pk) {
     if (onDisplayField) {
         // if is display field
         if (displayField[T] === f) {
-            oldClass = 'tab_field';
             delete displayField[T];
         } else {
-            oldClass = 'tab_field_3';
             if (displayField[T]) {
                 document.getElementById('id_tr_' + T + '.' + displayField[T]).className = 'tab_field';
                 delete displayField[T];
@@ -1366,7 +1342,6 @@ DesignerMove.smallTabRefresh = function () {
 DesignerMove.smallTab = function (t, reload) {
     var id      = document.getElementById('id_tbody_' + t);
     var idThis = document.getElementById('id_hide_tbody_' + t);
-    var idT = document.getElementById(t);
     if (idThis.innerHTML === 'v') {
         // ---CROSS
         id.style.display = 'none';
@@ -1400,7 +1375,6 @@ DesignerMove.selectTab = function (t) {
 
 DesignerMove.canvasClick = function (id, event) {
     var n = 0;
-    var relationName = 0;
     var selected = 0;
     var a = [];
     var Key0;
@@ -1480,7 +1454,6 @@ DesignerMove.canvasClick = function (id, event) {
                             'rgba(255,0,0,1)');
 
                         selected = 1;
-                        relationName = key;
                         Key0 = contr[K][key][key2][key3][0];
                         Key1 = contr[K][key][key2][key3][1];
                         Key2 = key2;
@@ -1709,9 +1682,9 @@ var TargetColors = [];
 DesignerMove.getColorByTarget = function (target) {
     var color = '';  // "rgba(0,100,150,1)";
 
-    for (var a in TargetColors) {
-        if (TargetColors[a][0] === target) {
-            color = TargetColors[a][1];
+    for (var targetColor in TargetColors) {
+        if (TargetColors[targetColor][0] === target) {
+            color = TargetColors[targetColor][1];
             break;
         }
     }
@@ -1781,7 +1754,6 @@ DesignerMove.selectAll = function (idThis, owner) {
             if (document.getElementById('select_all_' + idThis).checked === true) {
                 parent.elements[i].checked = true;
                 parent.elements[i].disabled = true;
-                var temp = '`' + idThis.substring(owner.length + 1) + '`.*';
             } else {
                 parent.elements[i].checked = false;
                 parent.elements[i].disabled = false;

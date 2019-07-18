@@ -1,4 +1,5 @@
 // TODO: tablesorter shouldn't sort already sorted columns
+// eslint-disable-next-line no-unused-vars
 function initTableSorter (tabid) {
     var $table;
     var opts;

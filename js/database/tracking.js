@@ -1,7 +1,7 @@
 /**
  * Unbind all event handlers before tearing down the page
  */
-AJAX.registerTeardown('db_tracking.js', function () {
+AJAX.registerTeardown('database/tracking.js', function () {
     $('body').off('click', '#trackedForm.ajax button[name="submit_mult"], #trackedForm.ajax input[name="submit_mult"]');
     $('body').off('click', '#untrackedForm.ajax button[name="submit_mult"], #untrackedForm.ajax input[name="submit_mult"]');
     $('body').off('click', 'a.delete_tracking_anchor.ajax');
@@ -10,7 +10,7 @@ AJAX.registerTeardown('db_tracking.js', function () {
 /**
  * Bind event handlers
  */
-AJAX.registerOnload('db_tracking.js', function () {
+AJAX.registerOnload('database/tracking.js', function () {
     var $versions = $('#versions');
     $versions.find('tr:first th').append($('<div class="sorticon"></div>'));
     $versions.tablesorter({

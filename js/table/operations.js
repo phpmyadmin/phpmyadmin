@@ -1,7 +1,7 @@
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('tbl_operations.js', function () {
+AJAX.registerTeardown('table/operations.js', function () {
     $(document).off('submit', '#copyTable.ajax');
     $(document).off('submit', '#moveTableForm');
     $(document).off('submit', '#tableOptionsForm');
@@ -16,7 +16,7 @@ AJAX.registerTeardown('tbl_operations.js', function () {
  * jQuery coding for 'Table operations'.  Used on tbl_operations.php
  * Attach Ajax Event handlers for Table operations
  */
-AJAX.registerOnload('tbl_operations.js', function () {
+AJAX.registerOnload('table/operations.js', function () {
     /**
      *Ajax action for submitting the "Copy table"
      **/
@@ -91,7 +91,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
             Functions.prepareForAjaxRequest($form);
 
             if ($tblCollationField.val() !== collationOrigValue && $changeAllColumnCollationsCheckBox.is(':checked')) {
-                $form.confirm(question, $form.attr('action'), function (url) {
+                $form.confirm(question, $form.attr('action'), function () {
                     submitOptionsForm();
                 });
             } else {
@@ -99,7 +99,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
             }
         } else {
             if ($tblCollationField.val() !== collationOrigValue && $changeAllColumnCollationsCheckBox.is(':checked')) {
-                $form.confirm(question, $form.attr('action'), function (url) {
+                $form.confirm(question, $form.attr('action'), function () {
                     $form.removeClass('ajax').submit().addClass('ajax');
                 });
             } else {
@@ -202,13 +202,11 @@ AJAX.registerOnload('tbl_operations.js', function () {
         }
 
         if ($('#partition_operation_DROP').is(':checked')) {
-            var question = Messages.strDropPartitionWarning;
-            $form.confirm(question, $form.attr('action'), function (url) {
+            $form.confirm(Messages.strDropPartitionWarning, $form.attr('action'), function () {
                 submitPartitionMaintenance();
             });
         } else if ($('#partition_operation_TRUNCATE').is(':checked')) {
-            var question = Messages.strTruncatePartitionWarning;
-            $form.confirm(question, $form.attr('action'), function (url) {
+            $form.confirm(Messages.strTruncatePartitionWarning, $form.attr('action'), function () {
                 submitPartitionMaintenance();
             });
         } else {

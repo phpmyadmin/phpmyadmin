@@ -23,7 +23,7 @@ var DatabaseStructure = {};
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('db_structure.js', function () {
+AJAX.registerTeardown('database/structure.js', function () {
     $(document).off('click', 'a.truncate_table_anchor.ajax');
     $(document).off('click', 'a.drop_table_anchor.ajax');
     $(document).off('click', '#real_end_input');
@@ -53,7 +53,7 @@ DatabaseStructure.adjustTotals = function () {
      */
     var $allTr = $('#tablesForm').find('table.data tbody:first tr');
     // New summary values for the table
-    var tableSum = $allTr.size();
+    var tableSum = $allTr.length;
     var rowsSum = 0;
     var sizeSum = 0;
     var overheadSum = 0;
@@ -185,7 +185,7 @@ DatabaseStructure.fetchRealRowCount = function ($target) {
     });
 };
 
-AJAX.registerOnload('db_structure.js', function () {
+AJAX.registerOnload('database/structure.js', function () {
 /**
  * function to open the confirmation dialog for making table consistent with central list
  *

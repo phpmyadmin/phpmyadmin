@@ -81,6 +81,7 @@ function queryChart (data, columnNames, settings) {
     }
 
     var i;
+    var values = [];
     if (settings.seriesColumn === null) {
         $.each(settings.selectedSeries, function (index, element) {
             dataTable.addColumn(ColumnType.NUMBER, columnNames[element]);
@@ -91,7 +92,6 @@ function queryChart (data, columnNames, settings) {
         $.each(settings.selectedSeries, function (index, element) {
             columnsToExtract.push(element);
         });
-        var values = [];
         var newRow;
         var row;
         var col;
@@ -126,7 +126,7 @@ function queryChart (data, columnNames, settings) {
             }
         }
 
-        $.each(seriesNames, function (seriesName, seriesNumber) {
+        $.each(seriesNames, function (seriesName) {
             dataTable.addColumn(ColumnType.NUMBER, seriesName);
         });
 
@@ -146,7 +146,6 @@ function queryChart (data, columnNames, settings) {
             value[seriesNumber] = parseFloat(data[i][valueColumnName]);
         }
 
-        var values = [];
         $.each(valueMap, function (index, value) {
             values.push(value);
         });
@@ -238,7 +237,7 @@ function onDataSeriesChange () {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('tbl_chart.js', function () {
+AJAX.registerTeardown('table/chart.js', function () {
     $('input[name="chartType"]').off('click');
     $('input[name="barStacked"]').off('click');
     $('input[name="chkAlternative"]').off('click');
@@ -253,9 +252,9 @@ AJAX.registerTeardown('tbl_chart.js', function () {
     $('#tblchartform').off('submit');
 });
 
-AJAX.registerOnload('tbl_chart.js', function () {
+AJAX.registerOnload('table/chart.js', function () {
     // handle manual resize
-    $('#resizer').on('resizestop', function (event, ui) {
+    $('#resizer').on('resizestop', function () {
         // make room so that the handle will still appear
         $('#querychart').height($('#resizer').height() * 0.96);
         $('#querychart').width($('#resizer').width() * 0.96);
@@ -362,7 +361,7 @@ AJAX.registerOnload('tbl_chart.js', function () {
     });
 
     // handler for ajax form submission
-    $('#tblchartform').submit(function (event) {
+    $('#tblchartform').submit(function () {
         var $form = $(this);
         if (codeMirrorEditor) {
             $form[0].elements.sql_query.value = codeMirrorEditor.getValue();

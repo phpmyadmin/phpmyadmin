@@ -2187,7 +2187,7 @@ class InsertEdit
             $header = $response->getHeader();
             $scripts = $header->getScripts();
             $scripts->addFile('vendor/jquery/additional-methods.js');
-            $scripts->addFile('tbl_change.js');
+            $scripts->addFile('table/change.js');
             if (! defined('TESTSUITE')) {
                 include ROOT_PATH . 'tbl_change.php';
                 exit;
@@ -3309,7 +3309,7 @@ class InsertEdit
         }
         $html_output .= '<td' . ' data-type="' . $type . '"' . ' data-decimals="'
             . $no_decimals . '">' . "\n";
-        // Will be used by js/tbl_change.js to set the default value
+        // Will be used by js/table/change.js to set the default value
         // for the "Continue insertion" feature
         $html_output .= '<span class="default_value hide">'
             . $special_chars . '</span>';

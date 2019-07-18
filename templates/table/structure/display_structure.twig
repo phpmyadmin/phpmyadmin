@@ -28,7 +28,7 @@
                     <th>{% trans 'Comments' %}</th>
                 {%- endif %}
                 <th>{% trans 'Extra' %}</th>
-                {# @see tbl_structure.js, function moreOptsMenuResize() #}
+                {# @see table/structure.js, function moreOptsMenuResize() #}
                 {% if not db_is_system_schema and not tbl_is_view %}
                     <th colspan="{{ show_icons('ActionLinksMode') ? '8' : '9' -}}
                         " class="action print_ignore">{% trans 'Action' %}</th>

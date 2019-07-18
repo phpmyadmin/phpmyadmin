@@ -328,7 +328,7 @@ $(function () {
         Navigation.reload(hideNav);
     });
 
-    $(document).on('change', '#navi_db_select',  function (event) {
+    $(document).on('change', '#navi_db_select',  function () {
         if (! $(this).val()) {
             CommonParams.set('db', '');
             Navigation.reload();
@@ -647,7 +647,7 @@ $(function () {
     if (isStorageSupported('sessionStorage')) {
         var storage = window.sessionStorage;
         // remove tree from storage if Navi_panel config form is submitted
-        $(document).on('submit', 'form.config-form', function (event) {
+        $(document).on('submit', 'form.config-form', function () {
             storage.removeItem('navTreePaths');
         });
         // Initialize if no previous state is defined
@@ -761,8 +761,9 @@ Navigation.showCurrent = function () {
     $('#pma_navigation_tree')
         .find('li.selected')
         .removeClass('selected');
+    var $dbItem;
     if (db) {
-        var $dbItem = findLoadedItem(
+        $dbItem = findLoadedItem(
             $('#pma_navigation_tree').find('> div'), db, 'database', !table
         );
         if ($('#navi_db_select').length &&
@@ -775,7 +776,7 @@ Navigation.showCurrent = function () {
             if ($('#pma_navigation_tree_content').find('span.loaded_db:first').text()
                 !== $('#navi_db_select').val()
             ) {
-                Navigation.loadChildNodes(false, $('option:selected', $('#navi_db_select')), function (data) {
+                Navigation.loadChildNodes(false, $('option:selected', $('#navi_db_select')), function () {
                     handleTableOrDb(table, $('#pma_navigation_tree_content'));
                     var $children = $('#pma_navigation_tree_content').children('div.list_container');
                     $children.promise().done(Navigation.treeStateUpdate);
@@ -801,7 +802,7 @@ Navigation.showCurrent = function () {
             }
         });
 
-        var $dbItem = findLoadedItem(
+        $dbItem = findLoadedItem(
             $('#pma_navigation_tree').find('> div'), dbItemName, 'database', !table
         );
 
@@ -924,7 +925,7 @@ Navigation.showCurrent = function () {
     }
 
     function loadAndShowTableOrView ($expander, $relatedContainer, itemName) {
-        Navigation.loadChildNodes(true, $expander, function (data) {
+        Navigation.loadChildNodes(true, $expander, function () {
             var $whichItem = findLoadedItem(
                 $relatedContainer.children('div.list_container'),
                 itemName, null, true
@@ -936,7 +937,7 @@ Navigation.showCurrent = function () {
     }
 
     function showTableOrView ($whichItem, $expander) {
-        Navigation.expandTreeNode($expander, function (data) {
+        Navigation.expandTreeNode($expander, function () {
             if ($whichItem) {
                 Navigation.scrollToView($whichItem, false);
             }
@@ -946,7 +947,6 @@ Navigation.showCurrent = function () {
     function isItemInContainer ($container, name, clazz) {
         var $whichItem = null;
         var $items = $container.find(clazz);
-        var found = false;
         $items.each(function () {
             if ($(this).children('a').text() === name) {
                 $whichItem = $(this);
@@ -1094,8 +1094,9 @@ Navigation.treePagination = function ($this) {
     $.post(url, params, function (data) {
         if (typeof data !== 'undefined' && data.success) {
             Functions.ajaxRemoveMessage($msgbox);
+            var val;
             if (isDbSelector) {
-                var val = Navigation.FastFilter.getSearchClause();
+                val = Navigation.FastFilter.getSearchClause();
                 $('#pma_navigation_tree')
                     .html(data.message)
                     .children('div')
@@ -1107,7 +1108,7 @@ Navigation.treePagination = function ($this) {
                 }
             } else {
                 var $parent = $this.closest('div.list_container').parent();
-                var val = Navigation.FastFilter.getSearchClause2($this);
+                val = Navigation.FastFilter.getSearchClause2($this);
                 $this.closest('div.list_container').html(
                     $(data.message).children().show()
                 );
@@ -1306,7 +1307,7 @@ Navigation.ResizeHandler = function () {
      *
      * @return void
      */
-    this.treeResize = function (event) {
+    this.treeResize = function () {
         var $nav = $('#pma_navigation');
         var $navTree = $('#pma_navigation_tree');
         var $navHeader = $('#pma_navigation_header');
@@ -1436,7 +1437,7 @@ Navigation.FastFilter = {
      *                  at the top of this file
      */
     events: {
-        focus: function (event) {
+        focus: function () {
             var $obj = $(this).closest('div.list_container');
             if (! $obj.data('fastFilter')) {
                 $obj.data(
@@ -1450,7 +1451,7 @@ Navigation.FastFilter = {
                 $(this).select();
             }
         },
-        blur: function (event) {
+        blur: function () {
             if ($(this).val() === '') {
                 $(this).val(this.defaultValue);
             }

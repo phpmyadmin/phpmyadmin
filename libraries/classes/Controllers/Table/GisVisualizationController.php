@@ -174,7 +174,7 @@ class GisVisualizationController extends AbstractController
             [
                 'vendor/openlayers/OpenLayers.js',
                 'vendor/jquery/jquery.svg.js',
-                'tbl_gis_visualization.js',
+                'table/gis_visualization.js',
             ]
         );
 

@@ -9,7 +9,7 @@
  */
 
 /* global isStorageSupported */ // js/config.js
-/* global codeMirrorEditor */ // js/functions.js
+/* global codeMirrorEditor:writable */ // js/functions.js
 /* global pmaThemeImage */ // js/messages.php
 /* global variableNames */ // templates/server/status/monitor/index.twig
 
@@ -21,7 +21,7 @@ var serverDbIsLocal;
 var chartSize;
 var monitorSettings;
 
-AJAX.registerOnload('server_status_monitor.js', function () {
+AJAX.registerOnload('server/status/monitor.js', function () {
     var $jsDataForm = $('#js_data');
     serverTimeDiff = new Date().getTime() - $jsDataForm.find('input[name=server_time]').val();
     serverOs = $jsDataForm.find('input[name=server_os]').val();
@@ -32,7 +32,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('server_status_monitor.js', function () {
+AJAX.registerTeardown('server/status/monitor.js', function () {
     $('#emptyDialog').remove();
     $('#addChartDialog').remove();
     $('a.popupLink').off('click');
@@ -41,7 +41,7 @@ AJAX.registerTeardown('server_status_monitor.js', function () {
 /**
  * Popup behaviour
  */
-AJAX.registerOnload('server_status_monitor.js', function () {
+AJAX.registerOnload('server/status/monitor.js', function () {
     $('<div></div>')
         .attr('id', 'emptyDialog')
         .appendTo('#page_content');
@@ -73,7 +73,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     });
 });
 
-AJAX.registerTeardown('server_status_monitor.js', function () {
+AJAX.registerTeardown('server/status/monitor.js', function () {
     $('a[href="#rearrangeCharts"], a[href="#endChartEditMode"]').off('click');
     $('div.popupContent select[name="chartColumns"]').off('change');
     $('div.popupContent select[name="gridChartRefresh"]').off('change');
@@ -97,7 +97,7 @@ AJAX.registerTeardown('server_status_monitor.js', function () {
     destroyGrid();
 });
 
-AJAX.registerOnload('server_status_monitor.js', function () {
+AJAX.registerOnload('server/status/monitor.js', function () {
     // Show tab links
     $('div.tabLinks').show();
     $('#loadingMonitorIcon').remove();
@@ -204,12 +204,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     var selectionTimeDiff = [];
     var selectionStartX;
     var selectionStartY;
-    var selectionEndX;
-    var selectionEndY;
     var drawTimeSpan = false;
-
-    // chart tooltip
-    var tooltipBox;
 
     /* Add OS specific system info charts to the preset chart list */
     switch (serverOs) {
@@ -430,7 +425,6 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         /* Reorder all charts that it fills all column cells */
         var numColumns;
         var $tr = $('#chartGrid').find('tr:first');
-        var row = 0;
 
         var tempManageCols = function () {
             if (numColumns > monitorSettings.columns) {
@@ -464,7 +458,6 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             }
 
             $tr = $tr.next();
-            row++;
         }
 
         if (monitorSettings.gridMaxPoints === 'auto') {
@@ -1025,7 +1018,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
         /* Add all charts - in correct order */
         var keys = [];
-        $.each(runtime.charts, function (key, value) {
+        $.each(runtime.charts, function (key) {
             keys.push(key);
         });
         keys.sort();
@@ -1270,7 +1263,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         }
 
         // time span selection
-        $('#gridchart' + runtime.chartAI).on('jqplotMouseDown', function (ev, gridpos, datapos, neighbor, plot) {
+        $('#gridchart' + runtime.chartAI).on('jqplotMouseDown', function (ev, gridpos, datapos) {
             drawTimeSpan = true;
             selectionTimeDiff.push(datapos.xaxis);
             if ($('#selection_box').length) {
@@ -1289,7 +1282,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 .fadeIn();
         });
 
-        $('#gridchart' + runtime.chartAI).on('jqplotMouseUp', function (ev, gridpos, datapos, neighbor, plot) {
+        $('#gridchart' + runtime.chartAI).on('jqplotMouseUp', function (ev, gridpos, datapos) {
             if (! drawTimeSpan || editMode) {
                 return;
             }
@@ -1308,7 +1301,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             drawTimeSpan = false;
         });
 
-        $('#gridchart' + runtime.chartAI).on('jqplotMouseMove', function (ev, gridpos, datapos, neighbor, plot) {
+        $('#gridchart' + runtime.chartAI).on('jqplotMouseMove', function (ev) {
             if (! drawTimeSpan || editMode) {
                 return;
             }
@@ -1321,7 +1314,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             }
         });
 
-        $('#gridchart' + runtime.chartAI).on('jqplotMouseLeave', function (ev, gridpos, datapos, neighbor, plot) {
+        $('#gridchart' + runtime.chartAI).on('jqplotMouseLeave', function () {
             drawTimeSpan = false;
         });
 
@@ -1601,7 +1594,6 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
     /* Loads the log table data, generates the table and handles the filters */
     function loadLogStatistics (opts) {
-        var tableStr = '';
         var logRequest = null;
 
         if (! opts.removeVariables) {
@@ -1721,7 +1713,6 @@ AJAX.registerOnload('server_status_monitor.js', function () {
          *                to group queries ignoring data in WHERE clauses
         */
         function filterQueries (varFilterChange) {
-            var cell;
             var textFilter;
             var val = $('#filterQueryText').val();
 
@@ -1910,7 +1901,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
         $('#logTable').html($table);
 
-        var tempPushKey = function (key, value) {
+        var tempPushKey = function (key) {
             cols.push(key);
         };
 
@@ -1933,7 +1924,6 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             }
 
             $tBody.append($tRow = $('<tr class="noclick"></tr>'));
-            var cl = '';
             for (var j = 0, ll = cols.length; j < ll; j++) {
                 // Assuming the query column is the second last
                 if (j === cols.length - 2 && rows[i][cols[j]].match(/^SELECT/i)) {
@@ -2183,7 +2173,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 });
 
 // Run the monitor once loaded
-AJAX.registerOnload('server_status_monitor.js', function () {
+AJAX.registerOnload('server/status/monitor.js', function () {
     $('a[href="#pauseCharts"]').trigger('click');
 });
 
@@ -2206,16 +2196,22 @@ function destroyGrid () {
         $.each(runtime.charts, function (key, value) {
             try {
                 value.chart.destroy();
-            } catch (err) {}
+            } catch (err) {
+                // continue regardless of error
+            }
         });
     }
 
     try {
         runtime.refreshRequest.abort();
-    } catch (err) {}
+    } catch (err) {
+        // continue regardless of error
+    }
     try {
         clearTimeout(runtime.refreshTimeout);
-    } catch (err) {}
+    } catch (err) {
+        // continue regardless of error
+    }
     $('#chartGrid').html('');
     runtime.charts = null;
     runtime.chartAI = 0;

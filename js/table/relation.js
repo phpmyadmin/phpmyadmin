@@ -121,7 +121,7 @@ TableRelation.getDropdownValues = function ($dropdown) {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('tbl_relation.js', function () {
+AJAX.registerTeardown('table/relation.js', function () {
     $('body').off('change',
         'select[name^="destination_db"], ' +
         'select[name^="destination_table"], ' +
@@ -133,7 +133,7 @@ AJAX.registerTeardown('tbl_relation.js', function () {
     $('a.drop_foreign_key_anchor.ajax').off('click');
 });
 
-AJAX.registerOnload('tbl_relation.js', function () {
+AJAX.registerOnload('table/relation.js', function () {
     /**
      * Ajax event handler to fetch table/column dropdown values.
      */

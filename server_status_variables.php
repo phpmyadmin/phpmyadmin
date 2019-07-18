@@ -35,9 +35,9 @@ $controller = $containerBuilder->get(VariablesController::class);
 
 $header = $response->getHeader();
 $scripts = $header->getScripts();
-$scripts->addFile('server_status_variables.js');
+$scripts->addFile('server/status/variables.js');
 $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
-$scripts->addFile('server_status_sorter.js');
+$scripts->addFile('server/status/sorter.js');
 
 $response->addHTML($controller->index([
     'flush' => $_POST['flush'] ?? null,

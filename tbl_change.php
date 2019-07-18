@@ -85,7 +85,7 @@ $comments_map = $insertEdit->getCommentsMap($db, $table);
 $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('sql.js');
-$scripts->addFile('tbl_change.js');
+$scripts->addFile('table/change.js');
 $scripts->addFile('vendor/jquery/additional-methods.js');
 $scripts->addFile('gis_data_editor.js');
 
