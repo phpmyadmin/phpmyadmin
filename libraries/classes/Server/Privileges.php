@@ -3692,22 +3692,22 @@ class Privileges
             . '" method="post">' . "\n"
             . Url::getHiddenInputs('', '')
             . '<div class="responsivetable row">'
-            . '<table id="tableuserrights" class="data">' . "\n"
+            . '<table id="tableuserrights" class="table table-responsive table-hover table-striped">' . "\n"
             . '<thead>' . "\n"
-            . '<tr><th></th>' . "\n"
-            . '<th>' . __('User name') . '</th>' . "\n"
-            . '<th>' . __('Host name') . '</th>' . "\n"
-            . '<th>' . __('Password') . '</th>' . "\n"
-            . '<th>' . __('Global privileges') . ' '
+            . '<tr><th scope="col"></th>' . "\n"
+            . '<th scope="col">' . __('User name') . '</th>' . "\n"
+            . '<th scope="col">' . __('Host name') . '</th>' . "\n"
+            . '<th scope="col">' . __('Password') . '</th>' . "\n"
+            . '<th scope="col">' . __('Global privileges') . ' '
             . Util::showHint(
                 __('Note: MySQL privilege names are expressed in English.')
             )
             . '</th>' . "\n";
         if ($GLOBALS['cfgRelation']['menuswork']) {
-            $html_output .= '<th>' . __('User group') . '</th>' . "\n";
+            $html_output .= '<th scope="col">' . __('User group') . '</th>' . "\n";
         }
-        $html_output .= '<th>' . __('Grant') . '</th>' . "\n"
-            . '<th colspan="' . ($user_group_count > 0 ? '3' : '2') . '">'
+        $html_output .= '<th scope="col">' . __('Grant') . '</th>' . "\n"
+            . '<th colspan="' . ($user_group_count > 0 ? '3' : '2') . '" scope="col">'
             . __('Action') . '</th>' . "\n"
             . '</tr>' . "\n"
             . '</thead>' . "\n";

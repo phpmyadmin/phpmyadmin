@@ -94,13 +94,13 @@
     <form class="ajax" action="{{ url('/server/databases') }}" method="post" name="dbStatsForm" id="dbStatsForm">
       {{ get_hidden_inputs(url_params) }}
       <div class="responsivetable row">
-        <table id="tabledatabases" class="data">
+        <table id="tabledatabases" class="table table-responsive table-striped table-hover">
           <thead>
             <tr>
               {% if is_drop_allowed %}
-                <th></th>
+                <th scope="col"></th>
               {% endif %}
-              <th>
+              <th scope="col">
                 <a href="{{ url('/server/databases', url_params|merge({
                   'sort_by': 'SCHEMA_NAME',
                   'sort_order': url_params.sort_by == 'SCHEMA_NAME'
@@ -117,7 +117,7 @@
                 </a>
               </th>
 
-              <th>
+              <th scope="col">
                 <a href="{{ url('/server/databases', url_params|merge({
                   'sort_by': 'DEFAULT_COLLATION_NAME',
                   'sort_order': url_params.sort_by == 'DEFAULT_COLLATION_NAME'
@@ -156,14 +156,14 @@
               {% endif %}
 
               {% if has_master_replication %}
-                <th>{% trans 'Master replication' %}</th>
+                <th scope="col">{% trans 'Master replication' %}</th>
               {% endif %}
 
               {% if has_slave_replication %}
-                <th>{% trans 'Slave replication' %}</th>
+                <th scope="col">{% trans 'Slave replication' %}</th>
               {% endif %}
 
-              <th>{% trans 'Action' %}</th>
+              <th scope="col">{% trans 'Action' %}</th>
             </tr>
           </thead>
 

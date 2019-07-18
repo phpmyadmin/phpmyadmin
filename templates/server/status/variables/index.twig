@@ -61,7 +61,7 @@
   </div>
 
   <div class="responsivetable row">
-    <table class="data noclick" id="serverstatusvariables">
+    <table class="noclick table table-responsive table-hover table-striped" id="serverstatusvariables">
       <colgroup>
         <col class="namecol">
         <col class="valuecol">
@@ -69,15 +69,15 @@
       </colgroup>
       <thead>
         <tr>
-          <th>{% trans 'Variable' %}</th>
-          <th>{% trans 'Value' %}</th>
-          <th>{% trans 'Description' %}</th>
+          <th scope="col">{% trans 'Variable' %}</th>
+          <th scope="col">{% trans 'Value' %}</th>
+          <th scope="col">{% trans 'Description' %}</th>
         </tr>
       </thead>
       <tbody>
         {% for variable in variables %}
           <tr{% if variable.class is not empty %} class="s_{{ variable.class }}"{% endif %}>
-            <th class="name">
+            <th class="name" scope="row">
               {{ variable.name|replace({'_': ' '}) }}
               {{ variable.doc|raw }}
             </th>
