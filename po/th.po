@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-07-12 01:21-0300\n"
-"PO-Revision-Date: 2019-07-18 00:03+0000\n"
-"Last-Translator: mokong123 <taokaeg2@gmail.com>\n"
+"PO-Revision-Date: 2019-07-19 16:06+0000\n"
+"Last-Translator: Kongfa Warorot <gongpha@hotmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-9/th/>"
 "\n"
 "Language: th\n"
@@ -206,7 +206,7 @@ msgstr "คีย์หลัก"
 #: templates/privileges/privileges_summary_row.twig:9
 #: templates/prefs_autoload.twig:12
 msgid "No"
-msgstr "ไม่ใช่"
+msgstr "ไม่"
 
 #: db_datadict.php:166 js/messages.php:532
 #: libraries/classes/CentralColumns.php:998
@@ -352,15 +352,15 @@ msgstr "ไม่อนุญาตให้ใช้งาน"
 
 #: db_tracking.php:55 db_tracking.php:80
 msgid "Tracking data deleted successfully."
-msgstr "ลบข้อมูลการติดตามแล้ว"
+msgstr "ลบข้อมูลติดตามเรียบร้อยแล้ว"
 
 #: db_tracking.php:64
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
-"เวอร์ชัน %1$s "
-"ถูกสร้างขึ้นสำหรับตารางที่เลือกการติดตามจะเปิดใช้งานสำหรับพวกเขา"
+"เวอร์ชัน %1$s ถูกสร้างขึ้นสำหรับตารางที่เลือก "
+"การติดตามจะเปิดใช้งานกับตารางพวกนั้น"
 
 #: db_tracking.php:95
 msgid "No tables selected."
@@ -577,10 +577,9 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr "ไม่สามารถโหลดนำเข้าปลั๊กอินได้ กรุณาตรวจสอบการติดตั้งของคุณ!"
 
 #: import.php:587 libraries/classes/Sql.php:827 libraries/classes/Sql.php:1619
-#, fuzzy, php-format
-#| msgid "Bookmark %s created"
+#, php-format
 msgid "Bookmark %s has been created."
-msgstr "ที่คั่นหน้า %s ได้ถูกสร้างขึ้น"
+msgstr "บุ๊คมาร์ค %s ได้ถูกสร้างขึ้น"
 
 #: import.php:597
 #, php-format
@@ -629,10 +628,8 @@ msgstr ""
 
 #: index.php:202 libraries/classes/Footer.php:81
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:115
-#, fuzzy
-#| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Demo Server"
-msgstr "หน้าเว็บ phpMyAdmin"
+msgstr "เซิร์ฟเวอร์ phpMyAdmin ทดลองใช้งาน"
 
 #: index.php:206 libraries/classes/Plugins/Auth/AuthenticationCookie.php:118
 #, php-format
@@ -662,10 +659,8 @@ msgid "Server connection collation"
 msgstr "ตรวจทานการเชื่อมต่อเซิร์ฟเวอร์"
 
 #: index.php:285
-#, fuzzy
-#| msgid "Appearance Settings"
 msgid "Appearance settings"
-msgstr "ตั้งค่าลักษณะที่ปรากฏ"
+msgstr "การตั้งค่าลักษณะ"
 
 #: index.php:318 prefs_manage.php:276
 msgid "More settings"
@@ -680,72 +675,54 @@ msgid "Server:"
 msgstr "เซิร์ฟเวอร์:"
 
 #: index.php:347
-#, fuzzy
 msgid "Server type:"
-msgstr "ตัวเลือกเซิร์ฟเวอร์"
+msgstr "ชนิดเซิร์ฟเวอร์:"
 
 #: index.php:351
-#, fuzzy
-#| msgid "Insecure connection"
 msgid "Server connection:"
-msgstr "การเชื่อมต่อที่ไม่ปลอดภัย"
+msgstr "การเชื่อมต่อเซิร์ฟเวอร์:"
 
 #: index.php:355 libraries/classes/Plugins/Export/ExportLatex.php:223
 #: libraries/classes/Plugins/Export/ExportSql.php:705
 #: libraries/classes/Plugins/Export/ExportXml.php:245
-#, fuzzy
-#| msgid "Server version"
 msgid "Server version:"
-msgstr "รุ่นของเซิร์ฟเวอร์"
+msgstr "เวอร์ชันของเซิร์ฟเวอร์:"
 
 #: index.php:361
-#, fuzzy
-#| msgid "Protocol version"
 msgid "Protocol version:"
-msgstr "รุ่นของโพรโทคอล"
+msgstr "เวอร์ชันของโพรโทคอล:"
 
 #: index.php:365
-#, fuzzy
-#| msgid "User"
 msgid "User:"
-msgstr "ผู้ใช้"
+msgstr "ผู้ใช้:"
 
 #: index.php:370
-#, fuzzy
-#| msgid "Server charset"
 msgid "Server charset:"
-msgstr "ชุดอักขระเซิร์ฟเวอร์"
+msgstr "ชุดอักขระของเซิร์ฟเวอร์:"
 
 #: index.php:388
 msgid "Web server"
 msgstr "เว็บเซิร์ฟเวอร์"
 
 #: index.php:399
-#, fuzzy
-#| msgid "Database client version"
 msgid "Database client version:"
-msgstr "รุ่นไคลเอนต์ฐานข้อมูล"
+msgstr "เวอร์ชันของไคลเอนต์ฐานข้อมูล:"
 
 #: index.php:403
-#, fuzzy
-#| msgid "PHP extension"
 msgid "PHP extension:"
-msgstr "ส่วนขยาย PHP"
+msgstr "ส่วนขยาย PHP:"
 
 #: index.php:417
-#, fuzzy
-#| msgid "PHP Version"
 msgid "PHP version:"
-msgstr "รุ่นของ PHP"
+msgstr "เวอร์ชันของ PHP:"
 
 #: index.php:428
 msgid "Show PHP information"
 msgstr "แสดงข้อมูลของ PHP"
 
 #: index.php:447
-#, fuzzy
 msgid "Version information:"
-msgstr "ข้อมูลล็อกอิน"
+msgstr "ข้อมูลเวอร์ชัน:"
 
 #: index.php:456 libraries/classes/Config/FormDisplayTemplate.php:164
 #: libraries/classes/Display/Export.php:350
@@ -945,6 +922,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
+"คุณกำลังพยายามลดจำนวนแถวแต่ได้ป้อนข้อมูลในแถวเหล่านั้นซึ่งจะสูญหายไป "
+"คุณต้องการดำเนินการต่อหรือไม่?"
 
 #: js/messages.php:74
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -1199,8 +1178,6 @@ msgid "Query cache used"
 msgstr "คำสั่งที่ถูกรันไปในหน่วยความจำแล้ว"
 
 #: js/messages.php:181
-#, fuzzy
-#| msgid "System CPU Usage"
 msgid "System CPU usage"
 msgstr "การใช้งาน CPU ของระบบ"
 
@@ -1237,8 +1214,6 @@ msgid "Used memory"
 msgstr "หน่วยความจำที่ใช้ไป"
 
 #: js/messages.php:192
-#, fuzzy
-#| msgid "Total Swap"
 msgid "Total swap"
 msgstr "จำนวนการสลับทั้งหมด"
 
@@ -1247,16 +1222,12 @@ msgid "Cached swap"
 msgstr "การสลับที่ถูกแคช"
 
 #: js/messages.php:194
-#, fuzzy
-#| msgid "Used Swap"
 msgid "Used swap"
-msgstr "จำนวน Swap ที่ใช้ไป"
+msgstr "จำนวนการสลับที่ใช้ไป"
 
 #: js/messages.php:195
-#, fuzzy
-#| msgid "Free Swap"
 msgid "Free swap"
-msgstr "จำนวน Swap ที่ว่าง"
+msgstr "จำนวนการสลับที่ว่าง"
 
 #: js/messages.php:197
 msgid "Bytes sent"
@@ -1458,7 +1429,7 @@ msgstr "ค่าที่ถูกตั้งปัจจุบัน"
 #, fuzzy
 #| msgid "Import files"
 msgid "Chart title"
-msgstr "นำเข้าไฟล์"
+msgstr "ชื่อแผนภูมิ"
 
 #. l10n: As in differential values
 #: js/messages.php:259
@@ -1484,7 +1455,7 @@ msgstr "จากประวัติทั่วไป"
 
 #: js/messages.php:266
 msgid "The database name is not known for this query in the server's logs."
-msgstr ""
+msgstr "ชื่อฐานข้อมูลไม่ถูกรู้จักสำหรับการเรียกใช้นี้ในบันทึกเซิร์ฟเวอร์"
 
 #: js/messages.php:268
 msgid "Analysing logs"
@@ -1578,22 +1549,16 @@ msgid "Chart"
 msgstr "ชุดแสดงผล"
 
 #: js/messages.php:299 libraries/classes/Display/Export.php:579
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "ฐานข้อมูล"
 
 #: js/messages.php:300 libraries/classes/Display/Export.php:591
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "ตาราง"
 
 #: js/messages.php:301 libraries/classes/Display/Export.php:602
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "คอลัมน์"
@@ -1674,20 +1639,16 @@ msgid "Import monitor configuration"
 msgstr "ตั้งค่าการตรวจสอบการนำเข้า"
 
 #: js/messages.php:333
-#, fuzzy
-#| msgid "Please select the file you want to import"
 msgid "Please select the file you want to import."
 msgstr "กรุณาเลือกไฟล์ที่คุณต้องการนำเข้า"
 
 #: js/messages.php:334
 msgid "No files available on server for import!"
-msgstr ""
+msgstr "ไม่มีไฟล์ที่ใช้งานได้บนเซิร์ฟเวอร์ที่จะนำเข้า!"
 
 #: js/messages.php:336
-#, fuzzy
-#| msgid "Analyse Query"
 msgid "Analyse query"
-msgstr "วิเคราะห์คำสั่ง"
+msgstr "วิเคราะห์การเรียกใช้"
 
 #: js/messages.php:340
 msgid "Advisor system"
@@ -1723,13 +1684,11 @@ msgstr "ทดสอบ"
 
 #: js/messages.php:350
 msgid "Formatting SQL…"
-msgstr ""
+msgstr "กำลังจัดรูปแบบ SQL …"
 
 #: js/messages.php:351
-#, fuzzy
-#| msgid "Bad parameters!"
 msgid "No parameters found!"
-msgstr "พารามิเตอร์ไม่ถูกต้อง!"
+msgstr "ไม่พบพารามิเตอร์!"
 
 #: js/messages.php:355 templates/server/variables/link_template.twig:5
 #: templates/database/designer/delete_relation_panel.twig:30
@@ -1743,42 +1702,33 @@ msgid "Cancel"
 msgstr "ยกเลิก"
 
 #: js/messages.php:358 libraries/classes/Header.php:461
-#, fuzzy
-#| msgid "Change settings"
 msgid "Page-related settings"
-msgstr "เปลี่ยนการตั้งค่า"
+msgstr "การตั้งค่าที่เกี่ยวข้องกับหน้า"
 
 #: js/messages.php:359 templates/config/form_display/fieldset_bottom.twig:8
 msgid "Apply"
-msgstr ""
+msgstr "นำไปใช้"
 
 #: js/messages.php:362 libraries/classes/Navigation/NavigationHeader.php:61
 #: libraries/classes/Server/Status/Monitor.php:130
-#, fuzzy
-#| msgid "Loading"
 msgid "Loading…"
-msgstr "กำลังโหลด"
+msgstr "กำลังโหลด…"
 
 #: js/messages.php:363
 msgid "Request aborted!!"
-msgstr ""
+msgstr "การร้องขอถูกยกเลิก!!"
 
 #: js/messages.php:364
-#, fuzzy
-#| msgid "Processing Request"
 msgid "Processing request"
-msgstr "กำลังประมวลผล"
+msgstr "กำลังประมวลผลคำร้องขอ"
 
 #: js/messages.php:365
-#, fuzzy
 msgid "Request failed!!"
-msgstr "ชนิดคำค้น"
+msgstr "การร้องขอล้มเหลว!!"
 
 #: js/messages.php:366
-#, fuzzy
-#| msgid "Processes"
 msgid "Error in processing request"
-msgstr "โพรเซส"
+msgstr "ข้อผิดพลาดในการประมวลผลคำร้องขอ"
 
 #: js/messages.php:367
 #, php-format
@@ -1795,6 +1745,8 @@ msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
+"ดูเหมือนว่าการเชื่อมต่อกับเซิร์ฟเวอร์ได้สูญหายไป "
+"กรุณาตรวจสอบการเชื่อมต่อเครือข่ายและสถานะของเซิร์ฟเวอร์"
 
 #: js/messages.php:373
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:194
@@ -1803,22 +1755,16 @@ msgid "No databases selected."
 msgstr "ไม่มีฐานข้อมูลที่ถูกเลือก"
 
 #: js/messages.php:374
-#, fuzzy
-#| msgid "No rows selected"
 msgid "No accounts selected."
-msgstr "ยังไม่ได้เลือกแถว"
+msgstr "ยังไม่ได้เลือกบัญชี"
 
 #: js/messages.php:375
-#, fuzzy
-#| msgid "Dropping Column"
 msgid "Dropping column"
-msgstr "ทิ้งสดมส์"
+msgstr "ทิ้งคอลัมน์"
 
 #: js/messages.php:376
-#, fuzzy
-#| msgid "Add primary key"
 msgid "Adding primary key"
-msgstr "เพิ่มคีย์หลัก"
+msgstr "กำลังเพิ่มคีย์หลัก"
 
 #: js/messages.php:377 templates/database/designer/options_panel.twig:251
 #: templates/console/display.twig:129
@@ -1835,20 +1781,14 @@ msgid "Click to dismiss this notification"
 msgstr "กดเพื่อยกเลิกการเตือนนี้"
 
 #: js/messages.php:381
-#, fuzzy
-#| msgid "Renaming Databases"
 msgid "Renaming databases"
 msgstr "กำลังเปลี่ยนชื่อฐานข้อมูล"
 
 #: js/messages.php:382
-#, fuzzy
-#| msgid "Copying Database"
 msgid "Copying database"
 msgstr "กำลังคัดลอกฐานข้อมูล"
 
 #: js/messages.php:383
-#, fuzzy
-#| msgid "Changing Charset"
 msgid "Changing charset"
 msgstr "กำลังเปลี่ยนชุดตัวอักษร"
 
@@ -1859,10 +1799,8 @@ msgid "Enable foreign key checks"
 msgstr "ตรวจสอบคีย์ต่างประเทศ:"
 
 #: js/messages.php:390
-#, fuzzy
-#| msgid "Failed to fetch headers"
 msgid "Failed to get real row count."
-msgstr "การดึงค่าส่วนหัวไม่สำเร็จ"
+msgstr "การรับจำนวนแถวจริงล้มเหลว"
 
 #: js/messages.php:393
 msgid "Searching"
@@ -1929,10 +1867,8 @@ msgid "Values for a new column"
 msgstr "ค่าสำหรับคอลัมน์ใหม่"
 
 #: js/messages.php:411
-#, fuzzy
-#| msgid "Enter each value in a separate field"
 msgid "Enter each value in a separate field."
-msgstr "ป้อนค่าในช่องต่างๆ"
+msgstr "ป้อนค่าในช่องต่าง ๆ"
 
 #: js/messages.php:412
 #, php-format
@@ -1999,26 +1935,21 @@ msgid "No auto-saved query"
 msgstr ""
 
 #: js/messages.php:427
-#, fuzzy, php-format
-#| msgid "Variable"
+#, php-format
 msgid "Variable %d:"
-msgstr "ตัวแปร"
+msgstr "ตัวแปร %d:"
 
 #: js/messages.php:430 libraries/classes/Normalization.php:967
 msgid "Pick"
-msgstr ""
+msgstr "เลือก"
 
 #: js/messages.php:431
-#, fuzzy
-#| msgid "No rows selected"
 msgid "Column selector"
-msgstr "ยังไม่ได้เลือกแถว"
+msgstr "ตัวเลือกคอลัมน์"
 
 #: js/messages.php:432
-#, fuzzy
-#| msgid "Search in database"
 msgid "Search this list"
-msgstr "ค้นหาในฐานข้อมูล"
+msgstr "ค้นหารายการนี้"
 
 #: js/messages.php:434
 #, php-format
@@ -2026,16 +1957,17 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
+"ไม่มีคอลัมน์ในรายการส่วนกลาง "
+"ตรวจสอบให้แน่ใจว่ารายการคอลัมน์ส่วนกลางสำหรับฐานข่อมูล %s "
+"มีคอลัมน์ที่ไม่มีอยู่ในตารางปัจจุบัน"
 
 #: js/messages.php:437
-#, fuzzy
-#| msgid "Free memory"
 msgid "See more"
-msgstr "หน่วยความจำว่าง"
+msgstr "ดูเพิ่มเติม"
 
 #: js/messages.php:438
 msgid "Are you sure?"
-msgstr ""
+msgstr "คุณแน่ใจหรือไม่?"
 
 #: js/messages.php:440
 msgid ""
@@ -2044,40 +1976,32 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:443
-#, fuzzy
-#| msgid "Contribute"
 msgid "Continue"
-msgstr "สนับสนุน"
+msgstr "ต่อ"
 
 #: js/messages.php:446
 msgid "Add primary key"
 msgstr "เพิ่มคีย์หลัก"
 
 #: js/messages.php:447
-#, fuzzy
-#| msgid "A primary key has been added on %s."
 msgid "Primary key added."
-msgstr "ได้เพิ่มไพรมารีคีย์แล้วใน %s"
+msgstr "เพิ่มคีย์หลักแล้ว"
 
 #: js/messages.php:448 libraries/classes/Normalization.php:242
-#, fuzzy
-#| msgid "Tracking report"
 msgid "Taking you to next step…"
-msgstr "รายงานผลการติดตาม"
+msgstr "กำลังพาคุณไปยังขั้นตอนต่อไป …"
 
 #: js/messages.php:450
-#, php-format
+#, fuzzy, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr ""
+msgstr "ขั้นตอนแรกของการฟื้นฟูจะเสร็จสมบูรณ์สำหรับตาราง '%s '"
 
 #: js/messages.php:451 libraries/classes/Normalization.php:510
 #: libraries/classes/Normalization.php:557
 #: libraries/classes/Normalization.php:643
 #: libraries/classes/Normalization.php:707
-#, fuzzy
-#| msgid "End of line"
 msgid "End of step"
-msgstr "ท้ายบรรทัด"
+msgstr "ขั้นตอนสุดท้าย"
 
 #: js/messages.php:452
 msgid "Second step of normalization (2NF)"
