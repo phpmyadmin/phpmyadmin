@@ -1,10 +1,10 @@
 <div class="responsivetable row">
-  <table id="tableprocesslist" class="data clearfloat noclick sortable">
+  <table id="tableprocesslist" class="clearfloat noclick sortable table table-responsive table-hover table-striped">
     <thead>
       <tr>
-        <th>{% trans 'Processes' %}</th>
+        <th scope="col">{% trans 'Processes' %}</th>
         {% for column in columns %}
-          <th>
+          <th scope="col">
             <a href="server_status_processes.php" data-post="{{ get_common(column.params) }}" class="sortlink">
               {{ column.name }}
               {% if column.is_sorted %}

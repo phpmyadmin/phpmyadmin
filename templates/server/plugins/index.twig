@@ -14,26 +14,27 @@
       {% endfor %}
     </div>
   </div>
+<<<<<<< HEAD
   {% for type, list in plugins %}
     <div class="responsivetable row">
       <div class="col-12">
-        <table class="data_full_width" id="plugins-{{ clean_types[type] }}">
+        <table class="data_full_width table table-responsive table-hover table-striped" id="plugins-{{ clean_types[type] }}">
           <caption class="tblHeaders">
             {{ type }}
           </caption>
           <thead>
             <tr>
-              <th>{% trans 'Plugin' %}</th>
-              <th>{% trans 'Description' %}</th>
-              <th>{% trans 'Version' %}</th>
-              <th>{% trans 'Author' %}</th>
-              <th>{% trans 'License' %}</th>
+              <th scope="col">{% trans 'Plugin' %}</th>
+              <th scope="col">{% trans 'Description' %}</th>
+              <th scope="col">{% trans 'Version' %}</th>
+              <th scope="col">{% trans 'Author' %}</th>
+              <th scope="col">{% trans 'License' %}</th>
             </tr>
           </thead>
           <tbody>
             {% for plugin in list %}
               <tr class="noclick">
-                <th>
+                <th scope="row">
                   {{ plugin.name }}
                   {% if plugin.status != 'ACTIVE' %}
                     <small class="attention">
