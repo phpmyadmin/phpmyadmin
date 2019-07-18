@@ -261,7 +261,7 @@ class FormDisplayTemplate
         $trClass = $trClass ? ' class="' . $trClass . '"' : '';
 
         $htmlOutput = '<tr' . $trClass . '>';
-        $htmlOutput .= '<th>';
+        $htmlOutput .= '<th scope="row">';
         $htmlOutput .= '<label for="' . htmlspecialchars($path) . '">' . htmlspecialchars_decode($name)
             . '</label>';
 

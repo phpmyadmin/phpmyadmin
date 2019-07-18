@@ -21,7 +21,7 @@
     {% endif %}
   </ul>
 
-  <table id="serverstatusqueriesdetails" class="width100 data sortable noclick">
+  <table id="serverstatusqueriesdetails" class="width100 sortable noclick table table-responsive table-hover table-striped">
     <colgroup>
       <col class="namecol">
       <col class="valuecol" span="3">
@@ -29,17 +29,17 @@
 
     <thead>
       <tr>
-        <th>{% trans 'Statements' %}</th>
-        <th>{% trans %}#{% notes %}# = Amount of queries{% endtrans %}</th>
-        <th>ø {% trans 'per hour' %}</th>
-        <th>%</th>
+        <th scope="col">{% trans 'Statements' %}</th>
+        <th scope="col">{% trans %}#{% notes %}# = Amount of queries{% endtrans %}</th>
+        <th scope="col">ø {% trans 'per hour' %}</th>
+        <th scope="col">%</th>
       </tr>
     </thead>
 
     <tbody>
       {% for query in queries %}
         <tr>
-          <th class="name">{{ query.name }}</th>
+          <th class="name" scope="row">{{ query.name }}</th>
           <td class="value">{{ format_number(query.value, 5, 0, true) }}</td>
           <td class="value">{{ format_number(query.per_hour, 4, 1, true) }}</td>
           <td class="value">{{ format_number(query.percentage, 0, 2) }}</td>

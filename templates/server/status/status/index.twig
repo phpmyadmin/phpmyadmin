@@ -6,46 +6,46 @@
   <h3>{{ 'Network traffic since startup: %s'|trans|format(network_traffic) }}</h3>
   <p>{{ 'This MySQL server has been running for %1$s. It started up on %2$s.'|trans|format(uptime, start_time) }}</p>
 
-  <table id="serverstatustraffic" class="width100 data noclick">
+  <table id="serverstatustraffic" class="width100 noclick table table-responsive table-hover table-striped">
     <thead>
       <tr>
-        <th>
+        <th scope="col">
           {% trans 'Traffic' %}
           {{ show_hint('On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.'|trans) }}
         </th>
-        <th>#</th>
-        <th>&oslash; {% trans 'per hour' %}</th>
+        <th scope="col">#</th>
+        <th scope="col">&oslash; {% trans 'per hour' %}</th>
       </tr>
     </thead>
 
     <tbody>
       {% for each_traffic in traffic %}
         <tr>
-          <th class="name">{{ each_traffic.name }}</th>
-          <td class="value">{{ each_traffic.number }}</td>
-          <td class="value">{{ each_traffic.per_hour }}</td>
+          <th class="name" scope="row">{{ each_traffic.name }}</th>
+          <td class="value" scope="row">{{ each_traffic.number }}</td>
+          <td class="value" scope="row">{{ each_traffic.per_hour }}</td>
         </tr>
       {% endfor %}
     </tbody>
   </table>
 
-  <table id="serverstatusconnections" class="width100 data noclick">
+  <table id="serverstatusconnections" class="width100 noclick table table-responsive table-hover table-striped">
     <thead>
       <tr>
-        <th>{% trans 'Connections' %}</th>
-        <th>#</th>
-        <th>&oslash; {% trans 'per hour' %}</th>
-        <th>%</th>
+        <th scope="col">{% trans 'Connections' %}</th>
+        <th scope="col">#</th>
+        <th scope="col">&oslash; {% trans 'per hour' %}</th>
+        <th scope="col">%</th>
       </tr>
     </thead>
 
     <tbody>
       {% for connection in connections %}
         <tr>
-          <th class="name">{{ connection.name }}</th>
-          <td class="value">{{ connection.number }}</td>
-          <td class="value">{{ connection.per_hour }}</td>
-          <td class="value">{{ connection.percentage }}</td>
+          <th class="name" scope="row">{{ connection.name }}</th>
+          <td class="value" scope="row">{{ connection.number }}</td>
+          <td class="value" scope="row">{{ connection.per_hour }}</td>
+          <td class="value" scope="row">{{ connection.percentage }}</td>
         </tr>
       {% endfor %}
     </tbody>

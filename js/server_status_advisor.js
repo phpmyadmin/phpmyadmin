@@ -62,7 +62,7 @@ AJAX.registerOnload('server_status_advisor.js', function () {
 
     if (data.run.fired.length > 0) {
         $cnt.append('<p><b>' + Messages.strPerformanceIssues + '</b></p>');
-        $cnt.append('<table class="data" id="rulesFired" border="0"><thead><tr>' +
+        $cnt.append('<table class="table table-responsive table-hover table-striped" id="rulesFired" border="0"><thead><tr>' +
                     '<th>' + Messages.strIssuse + '</th><th>' + Messages.strRecommendation +
                     '</th></tr></thead><tbody></tbody></table>');
         $tbody = $cnt.find('table#rulesFired');
