@@ -95,7 +95,7 @@
         <td class="value tbl_rows"
             data-table="{{ current_table['TABLE_NAME'] }}">
             {% if approx_rows %}
-                <a href="{{ get_url_from_route('/database/structure', {
+                <a href="{{ url('/database/structure', {
                     'ajax_request': true,
                     'db': db,
                     'table': current_table['TABLE_NAME'],

@@ -1,6 +1,6 @@
 <a id="{{ table_name_hash }}_favorite_anchor"
     class="ajax favorite_table_anchor"
-    href="{{ get_url_from_route('/database/structure', fav_params) }}"
+    href="{{ url('/database/structure', fav_params) }}"
     title="{{ already_favorite ? 'Remove from Favorites'|trans : 'Add to Favorites'|trans }}"
     data-favtargets="{{ db_table_name_hash }}" >
     {{ already_favorite ? titles['Favorite']|raw : titles['NoFavorite']|raw }}

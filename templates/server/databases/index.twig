@@ -11,7 +11,7 @@
   <ul>
     <li id="li_create_database" class="no_bullets">
       {% if has_create_database_privileges %}
-        <form method="post" action="{{ get_url_from_route('/server/databases') }}" id="create_database_form" class="ajax">
+        <form method="post" action="{{ url('/server/databases') }}" id="create_database_form" class="ajax">
           <p>
             <strong>
               <label for="text_create_db">
@@ -80,12 +80,12 @@
       database_count,
       pos,
       url_params,
-      get_url_from_route('/server/databases'),
+      url('/server/databases'),
       'frame_content',
       max_db_list
     ) }}
 
-    <form class="ajax" action="{{ get_url_from_route('/server/databases') }}" method="post" name="dbStatsForm" id="dbStatsForm">
+    <form class="ajax" action="{{ url('/server/databases') }}" method="post" name="dbStatsForm" id="dbStatsForm">
       {{ get_hidden_inputs(url_params) }}
       <div class="responsivetable">
         <table id="tabledatabases" class="data">
@@ -95,7 +95,7 @@
                 <th></th>
               {% endif %}
               <th>
-                <a href="{{ get_url_from_route('/server/databases', url_params|merge({
+                <a href="{{ url('/server/databases', url_params|merge({
                   'sort_by': 'SCHEMA_NAME',
                   'sort_order': url_params.sort_by == 'SCHEMA_NAME'
                   and url_params.sort_order == 'asc' ? 'desc' : 'asc'
@@ -112,7 +112,7 @@
               </th>
 
               <th>
-                <a href="{{ get_url_from_route('/server/databases', url_params|merge({
+                <a href="{{ url('/server/databases', url_params|merge({
                   'sort_by': 'DEFAULT_COLLATION_NAME',
                   'sort_order': url_params.sort_by == 'DEFAULT_COLLATION_NAME'
                     and url_params.sort_order == 'asc' ? 'desc' : 'asc'
@@ -131,7 +131,7 @@
               {% if has_statistics %}
                 {% for name, statistic in header_statistics %}
                   <th{{ statistic.format == 'byte' ? ' colspan="2"' }}>
-                    <a href="{{ get_url_from_route('/server/databases', url_params|merge({
+                    <a href="{{ url('/server/databases', url_params|merge({
                       'sort_by': name,
                       'sort_order': url_params.sort_by == name
                       and url_params.sort_order == 'asc' ? 'desc' : 'asc'
@@ -316,7 +316,7 @@
           'content': content,
           'class': 'li_switch_dbstats',
           'url': {
-            'href': get_url_from_route('/server/databases', {'statistics': '1'}),
+            'href': url('/server/databases', {'statistics': '1'}),
             'title': 'Enable statistics'|trans
           }
         }] %}

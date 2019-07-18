@@ -28,7 +28,7 @@
     {% endif %}
     {% if approx_rows %}
         {% set cell_text -%}
-            <a href="{{ get_url_from_route('/database/structure', row_sum_url) }}" class="ajax row_count_sum">~
+            <a href="{{ url('/database/structure', row_sum_url) }}" class="ajax row_count_sum">~
                 {{- row_count_sum -}}
             </a>
         {%- endset %}
