@@ -394,7 +394,7 @@
           {{ show_mysql_docu('procedure_analyse') }}
         {% endif %}
         {% if is_active %}
-            <a href="{{ get_url_from_route('/table/tracking', url_params) }}">
+            <a href="{{ url('/table/tracking', url_params) }}">
                 {{ get_icon('eye', 'Track table'|trans, true) }}
             </a>
         {% endif %}
@@ -407,7 +407,7 @@
     {% endif %}
     {% if tbl_is_view and not db_is_system_schema %}
         {% if is_active %}
-            <a href="{{ get_url_from_route('/table/tracking', url_params) }}">
+            <a href="{{ url('/table/tracking', url_params) }}">
                 {{ get_icon('eye', 'Track view'|trans, true) }}
             </a>
         {% endif %}

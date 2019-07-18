@@ -1,5 +1,5 @@
 {% if selectable_tables_num_rows > 0 %}
-    <form method="post" action="{{ get_url_from_route('/table/tracking', url_params) }}">
+    <form method="post" action="{{ url('/table/tracking', url_params) }}">
         {{ get_hidden_inputs(db, table) }}
         <select name="table" class="autosubmit">
             {% for entry in selectable_tables_entries %}
@@ -19,7 +19,7 @@
 {% endif %}
 <br>
 {% if last_version > 0 %}
-    <form method="post" action="{{ get_url_from_route('/table/tracking') }}" name="versionsForm" id="versionsForm" class="ajax">
+    <form method="post" action="{{ url('/table/tracking') }}" name="versionsForm" id="versionsForm" class="ajax">
         {{ get_hidden_inputs(db, table) }}
         <table id="versions" class="data">
             <thead>
@@ -56,7 +56,7 @@
                             <td>{% trans 'not active' %}</td>
                         {% endif %}
                         <td>
-                            <a class="delete_version_anchor ajax" href="{{ get_url_from_route('/table/tracking') }}" data-post="
+                            <a class="delete_version_anchor ajax" href="{{ url('/table/tracking') }}" data-post="
                                 {{- get_common(url_params|merge({
                                     'version': version['version'],
                                     'submit_delete_version': true
@@ -65,14 +65,14 @@
                             </a>
                         </td>
                         <td>
-                            <a href="{{ get_url_from_route('/table/tracking') }}" data-post="
+                            <a href="{{ url('/table/tracking') }}" data-post="
                                 {{- get_common(url_params|merge({
                                     'version': version['version'],
                                     'report': 'true'
                                 }), '') }}">
                                 {{ get_icon('b_report', 'Tracking report'|trans) }}
                             </a>
-                            <a href="{{ get_url_from_route('/table/tracking') }}" data-post="
+                            <a href="{{ url('/table/tracking') }}" data-post="
                                 {{- get_common(url_params|merge({
                                     'version': version['version'],
                                     'snapshot': 'true'
@@ -99,7 +99,7 @@
     </form>
     {% set last_version_element = versions|first %}
     <div>
-        <form method="post" action="{{ get_url_from_route('/table/tracking', url_params) }}">
+        <form method="post" action="{{ url('/table/tracking', url_params) }}">
             {{ get_hidden_inputs(db, table) }}
             <fieldset>
                 <legend>
