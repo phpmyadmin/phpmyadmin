@@ -128,7 +128,7 @@ class UserGroups
                     . Url::getCommon(
                         [
                             'editUserGroup' => 1,
-                            'userGroup' => $groupName
+                            'userGroup' => $groupName,
                         ],
                         ''
                     )
@@ -140,7 +140,7 @@ class UserGroups
                     . Url::getCommon(
                         [
                             'deleteUserGroup' => 1,
-                            'userGroup' => $groupName
+                            'userGroup' => $groupName,
                         ],
                         ''
                     )

@@ -131,7 +131,7 @@ class Data
             'tc'            => __('Transaction coordinator'),
             'files'         => __('Files'),
             'ssl'           => 'SSL',
-            'other'         => __('Other')
+            'other'         => __('Other'),
         ];
     }
 
@@ -194,15 +194,15 @@ class Data
         $links['Slow_queries']['doc'] = 'slow_query_log';
 
         $links['innodb'][__('Variables')] = [
-            'url' => 'server_engines.php',
-            'params' => Url::getCommon(['engine' => 'InnoDB'], ''),
+            'url' => Url::getFromRoute('/server/engines', ['engine' => 'InnoDB']),
+            'params' => '',
         ];
         $links['innodb'][__('InnoDB Status')] = [
-            'url' => 'server_engines.php',
-            'params' => Url::getCommon([
+            'url' => Url::getFromRoute('/server/engines', [
                 'engine' => 'InnoDB',
                 'page' => 'Status',
-            ], ''),
+            ]),
+            'params' => '',
         ];
         $links['innodb']['doc'] = 'innodb';
 
@@ -220,8 +220,7 @@ class Data
     private function _calculateValues(array $server_status, array $server_variables)
     {
         // Key_buffer_fraction
-        if (isset($server_status['Key_blocks_unused'])
-            && isset($server_variables['key_cache_block_size'])
+        if (isset($server_status['Key_blocks_unused'], $server_variables['key_cache_block_size'])
             && isset($server_variables['key_buffer_size'])
             && $server_variables['key_buffer_size'] != 0
         ) {
@@ -231,8 +230,7 @@ class Data
                 * $server_variables['key_cache_block_size']
                 / $server_variables['key_buffer_size']
                 * 100;
-        } elseif (isset($server_status['Key_blocks_used'])
-            && isset($server_variables['key_buffer_size'])
+        } elseif (isset($server_status['Key_blocks_used'], $server_variables['key_buffer_size'])
             && $server_variables['key_buffer_size'] != 0
         ) {
             $server_status['Key_buffer_fraction_%']
@@ -242,8 +240,7 @@ class Data
         }
 
         // Ratio for key read/write
-        if (isset($server_status['Key_writes'])
-            && isset($server_status['Key_write_requests'])
+        if (isset($server_status['Key_writes'], $server_status['Key_write_requests'])
             && $server_status['Key_write_requests'] > 0
         ) {
             $key_writes = $server_status['Key_writes'];
@@ -252,8 +249,7 @@ class Data
                 = 100 * $key_writes / $key_write_requests;
         }
 
-        if (isset($server_status['Key_reads'])
-            && isset($server_status['Key_read_requests'])
+        if (isset($server_status['Key_reads'], $server_status['Key_read_requests'])
             && $server_status['Key_read_requests'] > 0
         ) {
             $key_reads = $server_status['Key_reads'];
@@ -263,8 +259,7 @@ class Data
         }
 
         // Threads_cache_hitrate
-        if (isset($server_status['Threads_created'])
-            && isset($server_status['Connections'])
+        if (isset($server_status['Threads_created'], $server_status['Connections'])
             && $server_status['Connections'] > 0
         ) {
             $server_status['Threads_cache_hitrate_%']
@@ -421,7 +416,7 @@ class Data
             'Com_dealloc_sql' => 'Com_stmt_close',
         ];
         foreach ($deprecated as $old => $new) {
-            if (isset($server_status[$old]) && isset($server_status[$new])) {
+            if (isset($server_status[$old], $server_status[$new])) {
                 unset($server_status[$old]);
             }
         }

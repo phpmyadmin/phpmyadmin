@@ -421,7 +421,7 @@ class NormalizationTest extends TestCase
                     'table2' =>  [
                         'pk' => 'id',
                         'nonpk' => 'col4, col5',
-                    ]
+                    ],
                 ],
             ],
             $result1['newTables']
@@ -445,7 +445,7 @@ class NormalizationTest extends TestCase
         $newTables = [
             'PMA_table' => [
                 'PMA_table' => $cols,
-                'table1' => $cols1
+                'table1' => $cols1,
             ],
         ];
         $result = $this->normalization->createNewTablesFor3NF(
@@ -547,7 +547,7 @@ class NormalizationTest extends TestCase
         $choices = [
             '1nf' => __('First step of normalization (1NF)'),
             '2nf'      => __('Second step of normalization (1NF+2NF)'),
-            '3nf'  => __('Third step of normalization (1NF+2NF+3NF)')
+            '3nf'  => __('Third step of normalization (1NF+2NF+3NF)'),
         ];
 
         $htmlTmp = Util::getRadioFields(

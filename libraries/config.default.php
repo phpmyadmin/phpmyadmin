@@ -3148,7 +3148,7 @@ $cfg['ShowGitRevision'] = true;
  */
 $cfg['MysqlMinVersion'] = [
     'internal' => 50500,
-    'human' => '5.5.0'
+    'human' => '5.5.0',
 ];
 
 /**

@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Display\Export as DisplayExport;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Message;
@@ -24,14 +23,11 @@ global $db, $table, $url_query;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
-
 /** @var Response $response */
-$response = $container->get(Response::class);
+$response = $containerBuilder->get(Response::class);
 
 /** @var DatabaseInterface $dbi */
-$dbi = $container->get(DatabaseInterface::class);
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
 PageSettings::showGroup('Export');
 
@@ -58,7 +54,7 @@ list(
     $tooltip_truename,
     $tooltip_aliasname,
     $pos
-) = Util::getDbInfo($db, is_null($sub_part) ? '' : $sub_part);
+) = Util::getDbInfo($db, $sub_part === null ? '' : $sub_part);
 
 /**
  * Displays the form
@@ -159,7 +155,7 @@ if (! isset($num_tables)) {
 if (! isset($unlim_num_rows)) {
     $unlim_num_rows = 0;
 }
-if (is_null($multi_values)) {
+if ($multi_values === null) {
     $multi_values = '';
 }
 $response = Response::getInstance();

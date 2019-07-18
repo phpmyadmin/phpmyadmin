@@ -14,6 +14,7 @@ use PhpMyAdmin\Index;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Util;
+use function rawurlencode;
 
 /**
  * Common functions for Designer
@@ -28,7 +29,7 @@ class Common
     private $relation;
 
     /**
-     * @var \PhpMyAdmin\DatabaseInterface
+     * @var DatabaseInterface
      */
     private $dbi;
 
@@ -273,8 +274,8 @@ class Common
             if (Util::isForeignKeySupported($GLOBALS['designer']['TABLE_TYPE'][$i])) {
                 $j = 1;
             }
-            $retval['j_tabs'][\rawurlencode($GLOBALS['designer_url']['TABLE_NAME'][$i])] = $j;
-            $retval['h_tabs'][\rawurlencode($GLOBALS['designer_url']['TABLE_NAME'][$i])] = 1;
+            $retval['j_tabs'][rawurlencode($GLOBALS['designer_url']['TABLE_NAME'][$i])] = $j;
+            $retval['h_tabs'][rawurlencode($GLOBALS['designer_url']['TABLE_NAME'][$i])] = 1;
         }
         return $retval;
     }
@@ -383,9 +384,9 @@ class Common
      *
      * @param string $db database
      *
-     * @return int id of the default pdf page for the database
+     * @return int|null id of the default pdf page for the database
      */
-    public function getDefaultPage($db)
+    public function getDefaultPage($db): ?int
     {
         $cfgRelation = $this->relation->getRelationsParam();
         if (! $cfgRelation['pdfwork']) {

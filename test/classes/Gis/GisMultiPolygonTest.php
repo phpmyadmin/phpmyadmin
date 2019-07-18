@@ -103,7 +103,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
                             'x' => 20,
                             'y' => 30,
                         ],
-                    ]
+                    ],
                 ],
                 1 => [
                     'no_of_lines' => 1,
@@ -125,8 +125,8 @@ class GisMultiPolygonTest extends GisGeomTestCase
                             'x' => 123,
                             'y' => 0,
                         ],
-                    ]
-                ]
+                    ],
+                ],
             ],
         ];
     }
@@ -205,7 +205,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
                 null,
                 [
                     'srid' => '124',
-                    0 => $temp
+                    0 => $temp,
                 ],
             ],
             [

@@ -10,12 +10,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema;
 
+use PhpMyAdmin\Plugins\Schema\Dia\DiaRelationSchema;
+use PhpMyAdmin\Plugins\SchemaPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
-use PhpMyAdmin\Plugins\SchemaPlugin;
-use PhpMyAdmin\Plugins\Schema\Dia\DiaRelationSchema;
-use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
 use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
+use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
 
 /**
  * Handles the schema export for the Dia format
@@ -95,5 +95,6 @@ class SchemaDia extends SchemaPlugin
     {
         $export = new DiaRelationSchema($db);
         $export->showOutput();
+        return true;
     }
 }

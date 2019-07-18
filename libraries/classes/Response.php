@@ -194,9 +194,9 @@ class Response
      *
      * @return void
      */
-    public function setAjax($isAjax)
+    public function setAjax(bool $isAjax): void
     {
-        $this->_isAjax = (bool) $isAjax;
+        $this->_isAjax = $isAjax;
         $this->_header->setAjax($this->_isAjax);
         $this->_footer->setAjax($this->_isAjax);
     }
@@ -222,9 +222,9 @@ class Response
      *
      * @return void
      */
-    public function setRequestStatus($state)
+    public function setRequestStatus(bool $state): void
     {
-        $this->_isSuccess = ($state == true);
+        $this->_isSuccess = ($state === true);
     }
 
     /**
@@ -233,7 +233,7 @@ class Response
      *
      * @return bool
      */
-    public function isAjax()
+    public function isAjax(): bool
     {
         return $this->_isAjax;
     }

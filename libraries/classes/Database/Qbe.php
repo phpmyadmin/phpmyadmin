@@ -585,8 +585,7 @@ class Qbe
             }
             // If they have chosen all fields using the * selector,
             // then sorting is not available, Fix for Bug #570698
-            if (isset($_POST['criteriaSort'][$colInd])
-                && isset($_POST['criteriaColumn'][$colInd])
+            if (isset($_POST['criteriaSort'][$colInd], $_POST['criteriaColumn'][$colInd])
                 && mb_substr($_POST['criteriaColumn'][$colInd], -2) == '.*'
             ) {
                 $_POST['criteriaSort'][$colInd] = '';
@@ -1010,7 +1009,7 @@ class Qbe
             }
             $html_output .= '<td class="center">';
             $html_output .= '<input type="text"'
-                . ' name="Or' . $new_row_index . '[' . $new_column_count . ']' . '"'
+                . ' name="Or' . $new_row_index . '[' . $new_column_count . ']"'
                 . ' value="' . htmlspecialchars($tmp_or) . '" class="textfield"'
                 . ' style="width: ' . $this->_realwidth . '" size="20">';
             $html_output .= '</td>';
@@ -1123,11 +1122,10 @@ class Qbe
         $where_clause = '';
         $criteria_cnt = 0;
         for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
-            if (! empty($this->_formColumns[$column_index])
+            if (isset($last_where, $this->_formAndOrCols)
+                && ! empty($this->_formColumns[$column_index])
                 && ! empty($this->_formCriterions[$column_index])
                 && $column_index
-                && isset($last_where)
-                && isset($this->_formAndOrCols)
             ) {
                 $where_clause .= ' '
                     . mb_strtoupper($this->_formAndOrCols[$last_where])
@@ -1284,7 +1282,7 @@ class Qbe
 
         return [
             'unique' => $unique_columns,
-            'index' => $index_columns
+            'index' => $index_columns,
         ];
     }
 
@@ -1367,7 +1365,7 @@ class Qbe
         array $where_clause_columns,
         array $where_clause_tables
     ) {
-        if (count($where_clause_tables) == 1) {
+        if (count($where_clause_tables) === 1) {
             // If there is exactly one column that has a decent where-clause
             // we will just use this
             return key($where_clause_tables);
@@ -1614,7 +1612,7 @@ class Qbe
                         }
 
                         // We are done if no unfinalized tables anymore
-                        if (count($tempUnfinalized) == 0) {
+                        if (count($tempUnfinalized) === 0) {
                             break 3;
                         }
                     }

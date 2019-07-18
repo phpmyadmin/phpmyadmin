@@ -95,11 +95,11 @@
         <td class="value tbl_rows"
             data-table="{{ current_table['TABLE_NAME'] }}">
             {% if approx_rows %}
-                <a href="db_structure.php{{ get_common({
+                <a href="{{ get_url_from_route('/database/structure', {
                     'ajax_request': true,
                     'db': db,
                     'table': current_table['TABLE_NAME'],
-                    'real_row_count': 'true'
+                    'real_row_count': true
                 }) }}" class="ajax real_row_count">
                     <bdi>
                         ~{{ row_count }}

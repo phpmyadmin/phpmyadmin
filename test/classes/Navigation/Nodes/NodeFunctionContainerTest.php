@@ -46,6 +46,6 @@ class NodeFunctionContainerTest extends PmaTestCase
             'db_routines.php',
             $parent->links['text']
         );
-        $this->assertEquals('functions', $parent->real_name);
+        $this->assertEquals('functions', $parent->realName);
     }
 }

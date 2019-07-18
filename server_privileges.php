@@ -10,7 +10,6 @@ declare(strict_types=1);
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
@@ -27,10 +26,11 @@ global $db, $pmaThemeImage, $text_dir, $url_query;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$container = Container::getDefaultContainer();
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
 
 /** @var DatabaseInterface $dbi */
-$dbi = $container->get(DatabaseInterface::class);
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
 $checkUserPrivileges = new CheckUserPrivileges($dbi);
 $checkUserPrivileges->getPrivileges();
@@ -42,7 +42,6 @@ $cfgRelation = $relation->getRelationsParam();
 /**
  * Does the common work
  */
-$response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server/privileges.js');
@@ -325,7 +324,7 @@ if (isset($_POST['change_copy'])) {
  * Reloads the privilege tables into memory
  */
 $message_ret = $serverPrivileges->updateMessageForReload();
-if (! is_null($message_ret)) {
+if ($message_ret !== null) {
     $message = $message_ret;
     unset($message_ret);
 }
@@ -381,7 +380,7 @@ if (isset($_GET['viewing_mode']) && $_GET['viewing_mode'] == 'db') {
         $tooltip_truename,
         $tooltip_aliasname,
         $pos
-    ) = PhpMyAdmin\Util::getDbInfo($db, is_null($sub_part) ? '' : $sub_part);
+    ) = PhpMyAdmin\Util::getDbInfo($db, $sub_part === null ? '' : $sub_part);
 
     $content = ob_get_contents();
     ob_end_clean();

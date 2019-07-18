@@ -41,8 +41,7 @@ if (isset($_POST['send_error_report'])
          * If reporting is done in some time interval,
          *  just clear them & clear json data too.
          */
-        if (isset($_SESSION['prev_error_subm_time'])
-            && isset($_SESSION['error_subm_count'])
+        if (isset($_SESSION['prev_error_subm_time'], $_SESSION['error_subm_count'])
             && $_SESSION['error_subm_count'] >= 3
             && ($_SESSION['prev_error_subm_time'] - time()) <= 3000
         ) {
@@ -62,7 +61,7 @@ if (isset($_POST['send_error_report'])
     // report if and only if there were 'actual' errors.
     if (count($reportData) > 0) {
         $server_response = $errorReport->send($reportData);
-        if ($server_response === false) {
+        if (! is_string($server_response)) {
             $success = false;
         } else {
             $decoded_response = json_decode($server_response, true);

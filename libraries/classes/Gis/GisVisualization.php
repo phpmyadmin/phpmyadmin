@@ -239,7 +239,7 @@ class GisVisualization
      */
     private function _handleOptions()
     {
-        if (! is_null($this->_userSpecifiedSettings)) {
+        if ($this->_userSpecifiedSettings !== null) {
             $this->_settings = array_merge(
                 $this->_settings,
                 $this->_userSpecifiedSettings
@@ -303,7 +303,7 @@ class GisVisualization
     {
         $this->init();
 
-        $output = '<?xml version="1.0" encoding="UTF-8" standalone="no"?' . ' >'
+        $output = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>'
             . "\n"
             . '<svg version="1.1" xmlns:svg="http://www.w3.org/2000/svg"'
             . ' xmlns="http://www.w3.org/2000/svg"'
@@ -653,7 +653,7 @@ class GisVisualization
 
         // loop through the rows
         foreach ($data as $row) {
-            $index = $color_number % sizeof($this->_settings['colors']);
+            $index = $color_number % count($this->_settings['colors']);
 
             // Figure out the data type
             $ref_data = $row[$this->_settings['spatialColumn']];
@@ -668,9 +668,7 @@ class GisVisualization
                 continue;
             }
             $label = '';
-            if (isset($this->_settings['labelColumn'])
-                && isset($row[$this->_settings['labelColumn']])
-            ) {
+            if (isset($this->_settings['labelColumn'], $row[$this->_settings['labelColumn']])) {
                 $label = $row[$this->_settings['labelColumn']];
             }
 

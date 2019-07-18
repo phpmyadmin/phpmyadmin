@@ -32,15 +32,15 @@ class NodeIndexContainer extends Node
             'icon' => 'tbl_structure.php?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s&amp;table=%1$s',
         ];
-        $this->real_name = 'indexes';
+        $this->realName = 'indexes';
 
-        $new_label = _pgettext('Create new index', 'New');
+        $newLabel = _pgettext('Create new index', 'New');
         $new = NodeFactory::getInstance(
             'Node',
-            $new_label
+            $newLabel
         );
         $new->isNew = true;
-        $new->icon = Util::getImage('b_index_add', $new_label);
+        $new->icon = Util::getImage('b_index_add', $newLabel);
         $new->links = [
             'text' => 'tbl_indexes.php?server=' . $GLOBALS['server']
                 . '&amp;create_index=1&amp;added_fields=2'

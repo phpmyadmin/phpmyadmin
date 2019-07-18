@@ -23,7 +23,7 @@
         {% endif %}
 
         <div id="navipanellinks">
-          <a href="index.php{{ get_common() }}" title="{% trans 'Home' %}">
+          <a href="{{ get_url_from_route('/') }}" title="{% trans 'Home' %}">
             {{- get_image('b_home', 'Home'|trans) -}}
           </a>
 

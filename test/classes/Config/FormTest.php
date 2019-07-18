@@ -124,7 +124,7 @@ class FormTest extends PmaTestCase
             [
                 'auto' => 'auto',
                 '1' => 1,
-                '0' => 0
+                '0' => 0,
             ],
             $this->object->getOptionValueList("OBGzip")
         );
@@ -134,7 +134,7 @@ class FormTest extends PmaTestCase
                 'none' => 'Nowhere',
                 'left' => 'Left',
                 'right' => 'Right',
-                'both' =>   "Both"
+                'both' =>   "Both",
             ],
             $this->object->getOptionValueList("RowActionLinks")
         );
@@ -155,7 +155,7 @@ class FormTest extends PmaTestCase
             "foo" => [
                 "bar" => [
                     'test' => 1,
-                    1 => ':group:end'
+                    1 => ':group:end',
                 ],
             ],
         ];
@@ -207,7 +207,7 @@ class FormTest extends PmaTestCase
             "foo" => [
                 "bar" => [
                     'test' => 1,
-                    1 => ':group:end'
+                    1 => ':group:end',
                 ],
             ],
         ];
@@ -262,7 +262,7 @@ class FormTest extends PmaTestCase
             "pma_form1" => "Servers/1/port",
             "pma_form2" => "Servers/1/auth_type",
             ":group:end:0" => "preffoo/foo/bar/test",
-            "1" => "preffoo/foo/bar/:group:end:0"
+            "1" => "preffoo/foo/bar/:group:end:0",
         ];
 
         $attrFieldsTypes = $reflection->getProperty('_fieldsTypes');
@@ -275,7 +275,7 @@ class FormTest extends PmaTestCase
                 "pma_form1" => "integer",
                 "pma_form2" => "select",
                 ":group:end:0" => "group",
-                "1" => "NULL"
+                "1" => "NULL",
             ],
             $attrFieldsTypes->getValue($this->object)
         );

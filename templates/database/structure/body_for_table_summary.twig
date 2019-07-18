@@ -28,8 +28,7 @@
     {% endif %}
     {% if approx_rows %}
         {% set cell_text -%}
-            <a href="db_structure.php
-                {{- get_common(row_sum_url) }}" class="ajax row_count_sum">~
+            <a href="{{ get_url_from_route('/database/structure', row_sum_url) }}" class="ajax row_count_sum">~
                 {{- row_count_sum -}}
             </a>
         {%- endset %}
@@ -50,9 +49,9 @@
             </dfn>
         </th>
         <th>
-            {% if db_collation is not empty %}
-                <dfn title="{{ get_collation_descr(db_collation) }} ({% trans 'Default' %})">
-                    {{ db_collation }}
+            {% if database_collation is not empty %}
+                <dfn title="{{ database_collation.description }} ({% trans 'Default' %})">
+                    {{ database_collation.name }}
                 </dfn>
             {% endif %}
         </th>
@@ -71,7 +70,7 @@
     {% endif %}
 
     {% if show_charset %}
-        <th>{{ db_charset }}</th>
+        <th>{{ database_charset }}</th>
     {% endif %}
     {% if show_comment %}
         <th></th>

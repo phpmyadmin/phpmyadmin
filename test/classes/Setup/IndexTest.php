@@ -143,12 +143,12 @@ class IndexTest extends TestCase
                 [
                     'title' => 'foo',
                     'message' => '123',
-                    'fresh' => false
+                    'fresh' => false,
                 ],
                 [
                     'title' => 'bar',
                     'message' => '321',
-                    'fresh' => true
+                    'fresh' => true,
                 ],
             ],
         ];

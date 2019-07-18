@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\CentralColumns;
+use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Core;
@@ -34,6 +35,7 @@ use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use stdClass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
@@ -190,7 +192,7 @@ class StructureController extends AbstractController
                 if (Context::isKeyword(trim($this->table), true)) {
                     $reserved_keywords_names[] = trim($this->table);
                 }
-                if (count($reserved_keywords_names) == 0) {
+                if (count($reserved_keywords_names) === 0) {
                     $this->response->setRequestStatus(false);
                 }
                 $this->response->addJSON(
@@ -540,7 +542,7 @@ class StructureController extends AbstractController
                 $selected[$i],
                 true
             );
-            if (count($value) == 0) {
+            if (count($value) === 0) {
                 $message = Message::error(
                     __('Failed to get description of column %s!')
                 );
@@ -592,7 +594,7 @@ class StructureController extends AbstractController
     /**
      * Extracts partition details from CREATE TABLE statement
      *
-     * @return array[] array of partition details
+     * @return array[]|null array of partition details
      */
     private function _extractPartitionDetails()
     {
@@ -784,7 +786,7 @@ class StructureController extends AbstractController
     /**
      * Function to get the type of command for multiple field handling
      *
-     * @return string
+     * @return string|null
      */
     protected function getMultipleFieldCommandType()
     {
@@ -985,8 +987,7 @@ class StructureController extends AbstractController
             // While changing the Column Collation
             // First change to BLOB
             for ($i = 0; $i < $field_cnt; $i++) {
-                if (isset($_POST['field_collation'][$i])
-                    && isset($_POST['field_collation_orig'][$i])
+                if (isset($_POST['field_collation'][$i], $_POST['field_collation_orig'][$i])
                     && $_POST['field_collation'][$i] !== $_POST['field_collation_orig'][$i]
                     && ! in_array($_POST['field_orig'][$i], $columns_with_index)
                 ) {
@@ -999,8 +1000,7 @@ class StructureController extends AbstractController
                     . ' ' . Util::backquote($_POST['field_orig'][$i])
                     . ' BLOB';
 
-                    if (isset($_POST['field_virtuality'][$i])
-                        && isset($_POST['field_expression'][$i])) {
+                    if (isset($_POST['field_virtuality'][$i], $_POST['field_expression'][$i])) {
                         if ($_POST['field_virtuality'][$i]) {
                             $secondary_query .= ' AS (' . $_POST['field_expression'][$i] . ') '
                                 . $_POST['field_virtuality'][$i];
@@ -1307,8 +1307,9 @@ class StructureController extends AbstractController
         $displayed_fields = [];
         $row_comments = [];
         $extracted_columnspecs = [];
+        $collations = [];
         foreach ($fields as &$field) {
-            $rownum += 1;
+            ++$rownum;
             $columns_list[] = $field['Field'];
 
             $extracted_columnspecs[$rownum] = Util::extractColumnSpec($field['Type']);
@@ -1317,7 +1318,7 @@ class StructureController extends AbstractController
                 $attributes[$rownum] = 'on update CURRENT_TIMESTAMP';
             }
 
-            $displayed_fields[$rownum] = new \stdClass();
+            $displayed_fields[$rownum] = new stdClass();
             $displayed_fields[$rownum]->text = $field['Field'];
             $displayed_fields[$rownum]->icon = "";
             $row_comments[$rownum] = '';
@@ -1336,14 +1337,24 @@ class StructureController extends AbstractController
                 $displayed_fields[$rownum]->icon .=
                 Util::getImage('bd_primary', __('Index'));
             }
+
+            $collation = Charsets::findCollationByName(
+                $this->dbi,
+                $GLOBALS['cfg']['Server']['DisableIS'],
+                $field['Collation'] ?? ''
+            );
+            if ($collation !== null) {
+                $collations[$collation->getName()] = [
+                    'name' => $collation->getName(),
+                    'description' => $collation->getDescription(),
+                ];
+            }
         }
 
         $engine = $this->table_obj->getStorageEngine();
         return $this->template->render('table/structure/display_structure', [
-            'url_params' => [
-                'db' => $this->db,
-                'table' => $this->table,
-            ],
+            'url_params' => $url_params,
+            'collations' => $collations,
             'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
             'displayIndexesHtml' => Index::getHtmlForDisplayIndexes(),
             'cfg_relation' => $this->relation->getRelationsParam(),
@@ -1373,7 +1384,7 @@ class StructureController extends AbstractController
             'relation_mimework' => $GLOBALS['cfgRelation']['mimework'],
             'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork'],
             'mysql_int_version' => $this->dbi->getVersion(),
-            'is_mariadb' => $GLOBALS['dbi']->isMariaDB(),
+            'is_mariadb' => $this->dbi->isMariaDB(),
             'pma_theme_image' => $GLOBALS['pmaThemeImage'],
             'text_dir' => $GLOBALS['text_dir'],
             'is_active' => Tracker::isActive(),
@@ -1421,7 +1432,7 @@ class StructureController extends AbstractController
             $max_digits,
             $decimals
         );
-        if ($mergetable == false) {
+        if ($mergetable === false) {
             list($index_size, $index_unit) = Util::formatByteDown(
                 $this->_showtable['Index_length'],
                 $max_digits,
@@ -1470,6 +1481,19 @@ class StructureController extends AbstractController
         $innodb_file_per_table = $innodbEnginePlugin->supportsFilePerTable();
 
         $engine = $this->dbi->getTable($this->db, $this->table)->getStorageEngine();
+
+        $tableCollation = [];
+        $collation = Charsets::findCollationByName(
+            $this->dbi,
+            $GLOBALS['cfg']['Server']['DisableIS'],
+            $this->_tbl_collation
+        );
+        if ($collation !== null) {
+            $tableCollation = [
+                'name' => $collation->getName(),
+                'description' => $collation->getDescription(),
+            ];
+        }
         return $this->template->render('table/structure/display_table_stats', [
             'url_params' => [
                 'db' => $GLOBALS['db'],
@@ -1483,7 +1507,7 @@ class StructureController extends AbstractController
             'db_is_system_schema' => $this->_db_is_system_schema,
             'tbl_storage_engine' => $this->_tbl_storage_engine,
             'url_query' => $this->_url_query,
-            'tbl_collation' => $this->_tbl_collation,
+            'table_collation' => $tableCollation,
             'is_innodb' => $is_innodb,
             'mergetable' => $mergetable,
             'avg_size' => isset($avg_size) ? $avg_size : null,

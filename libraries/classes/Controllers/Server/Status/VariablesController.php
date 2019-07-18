@@ -181,7 +181,7 @@ class VariablesController extends AbstractController
 
             // alert if more than 95% of thread cache is in use
             'Threads_cached' => isset($this->data->variables['thread_cache_size'])
-                ? 0.95 * $this->data->variables['thread_cache_size'] : 0
+                ? 0.95 * $this->data->variables['thread_cache_size'] : 0,
 
             // higher is better
             // variable => min value
@@ -633,7 +633,7 @@ class VariablesController extends AbstractController
             ),
             'Threads_running' => __(
                 'The number of threads that are not sleeping.'
-            )
+            ),
         ];
     }
 }

@@ -53,7 +53,7 @@ class SysInfoSunOS extends SysInfoBase
     /**
      * Checks whether class is supported in this environment
      *
-     * @return true on success
+     * @return bool true on success
      */
     public function supported()
     {

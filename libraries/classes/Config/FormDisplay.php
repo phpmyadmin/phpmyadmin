@@ -103,7 +103,7 @@ class FormDisplay
             'error_nan_nneg' => __('Not a non-negative number!'),
             'error_incorrect_port' => __('Not a valid port number!'),
             'error_invalid_value' => __('Incorrect value!'),
-            'error_value_lte' => __('Value must be less than or equal to %s!')
+            'error_value_lte' => __('Value must be less than or equal to %s!'),
         ];
         $this->_configFile = $cf;
         // initialize validators
@@ -379,7 +379,7 @@ class FormDisplay
      * @param array     $jsDefault          array which stores JavaScript code
      *                                      to be displayed
      *
-     * @return string HTML for input field
+     * @return string|null HTML for input field
      */
     private function _displayFieldInput(
         Form $form,
@@ -406,7 +406,7 @@ class FormDisplay
             'doc' => $this->getDocLink($systemPath),
             'show_restore_default' => $showRestoreDefault,
             'userprefs_allow' => $userPrefsAllow,
-            'userprefs_comment' => Descriptions::get($systemPath, 'cmt')
+            'userprefs_comment' => Descriptions::get($systemPath, 'cmt'),
         ];
         if (isset($form->default[$systemPath])) {
             $opts['setvalue'] = (string) $form->default[$systemPath];
@@ -514,12 +514,12 @@ class FormDisplay
     /**
      * Displays errors
      *
-     * @return string HTML for errors
+     * @return string|null HTML for errors
      */
     public function displayErrors()
     {
         $this->_validate();
-        if (count($this->_errors) == 0) {
+        if (count($this->_errors) === 0) {
             return null;
         }
 
@@ -545,7 +545,7 @@ class FormDisplay
     public function fixErrors()
     {
         $this->_validate();
-        if (count($this->_errors) == 0) {
+        if (count($this->_errors) === 0) {
             return;
         }
 
@@ -652,8 +652,7 @@ class FormDisplay
                 if ($isSetupScript
                     && isset($this->_userprefsKeys[$systemPath])
                 ) {
-                    if (isset($this->_userprefsDisallow[$systemPath])
-                        && isset($_POST[$key . '-userprefs-allow'])
+                    if (isset($this->_userprefsDisallow[$systemPath], $_POST[$key . '-userprefs-allow'])
                     ) {
                         unset($this->_userprefsDisallow[$systemPath]);
                     } elseif (! isset($_POST[$key . '-userprefs-allow'])) {

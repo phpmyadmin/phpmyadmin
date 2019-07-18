@@ -311,14 +311,14 @@ AJAX.registerOnload('table/chart.js', function () {
 
     // handle changes in chart title
     $('input[name="chartTitle"]')
-        .focus(function () {
+        .on('focus', function () {
             tempChartTitle = $(this).val();
         })
         .on('keyup', function () {
             currentSettings.title = $('input[name="chartTitle"]').val();
             drawChart();
         })
-        .blur(function () {
+        .on('blur', function () {
             if ($(this).val() !== tempChartTitle) {
                 drawChart();
             }
@@ -421,5 +421,5 @@ AJAX.registerOnload('table/chart.js', function () {
     onXAxisChange();
     onDataSeriesChange();
 
-    $('#tblchartform').submit();
+    $('#tblchartform').trigger('submit');
 });

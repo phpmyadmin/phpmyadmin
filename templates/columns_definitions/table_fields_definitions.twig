@@ -68,7 +68,7 @@
 
         {% if mimework and browse_mime %}
             <th>
-                {% trans 'MIME type' %}
+                {% trans 'Media type' %}
             </th>
             <th>
                 <a href="transformation_overview.php
@@ -114,8 +114,7 @@
                 'attribute_types': attribute_types,
                 'privs_available': privs_available,
                 'max_length': max_length,
-                'dbi': dbi,
-                'disable_is': disable_is
+                'charsets': charsets
             }) only %}
         </tr>
     {% endfor %}

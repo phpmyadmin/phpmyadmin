@@ -101,7 +101,7 @@ class GisPolygonTest extends GisGeomTestCase
                         'x' => 20,
                         'y' => 30,
                     ],
-                ]
+                ],
             ],
         ];
     }
@@ -190,7 +190,7 @@ class GisPolygonTest extends GisGeomTestCase
                 null,
                 [
                     'srid' => '124',
-                    0 => $temp
+                    0 => $temp,
                 ],
             ],
             [
@@ -401,10 +401,10 @@ class GisPolygonTest extends GisGeomTestCase
 
         return [
             [
-                $temp['POLYGON'][0]
+                $temp['POLYGON'][0],
             ],
             [
-                $temp['POLYGON'][1]
+                $temp['POLYGON'][1],
             ],
         ];
     }

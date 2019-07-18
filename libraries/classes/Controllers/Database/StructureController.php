@@ -137,11 +137,11 @@ class StructureController extends AbstractController
         // If there are no tables, the user is redirected to the last page
         // having any.
         if ($this->totalNumTables > 0 && $this->position > $this->totalNumTables) {
-            $uri = './db_structure.php' . Url::getCommonRaw([
+            $uri = './index.php?route=/database/structure' . Url::getCommonRaw([
                 'db' => $this->db,
                 'pos' => max(0, $this->totalNumTables - $cfg['MaxTableList']),
                 'reload' => 1,
-            ]);
+            ], '&');
             Core::sendHeaderLocation($uri);
         }
 
@@ -164,7 +164,7 @@ class StructureController extends AbstractController
                 $this->totalNumTables,
                 $this->position,
                 $urlParams,
-                'db_structure.php',
+                Url::getFromRoute('/database/structure'),
                 'frame_content',
                 $cfg['MaxTableList']
             );
@@ -313,14 +313,13 @@ class StructureController extends AbstractController
      */
     public function multiSubmitAction(): void
     {
-        $action = 'db_structure.php';
-        $err_url = 'db_structure.php' . Url::getCommon(
-            ['db' => $this->db]
-        );
+        // for mult_submits.inc.php
+        $action = Url::getFromRoute('/database/structure');
+        $err_url = Url::getFromRoute('/database/structure', ['db' => $this->db]);
 
         // see bug #2794840; in this case, code path is:
-        // db_structure.php -> libraries/mult_submits.inc.php -> sql.php
-        // -> db_structure.php and if we got an error on the multi submit,
+        // /database/structure -> libraries/mult_submits.inc.php -> sql.php
+        // -> /database/structure and if we got an error on the multi submit,
         // we must display it here and not call again mult_submits.inc.php
         if (! isset($_POST['error']) || false === $_POST['error']) {
             include ROOT_PATH . 'libraries/mult_submits.inc.php';
@@ -389,15 +388,22 @@ class StructureController extends AbstractController
                 $sum_entries += $current_table['TABLE_ROWS'];
             }
 
+            $collationDefinition = '---';
             if (isset($current_table['Collation'])) {
-                $collation = '<dfn title="'
-                    . Charsets::getCollationDescr($current_table['Collation']) . '">'
-                    . $current_table['Collation'] . '</dfn>';
-            } else {
-                $collation = '---';
+                $tableCollation = Charsets::findCollationByName(
+                    $this->dbi,
+                    $GLOBALS['cfg']['Server']['DisableIS'],
+                    $current_table['Collation']
+                );
+                if ($tableCollation !== null) {
+                    $collationDefinition = '<dfn title="'
+                        . $tableCollation->getDescription() . '">'
+                        . $tableCollation->getName() . '</dfn>';
+                }
             }
 
             if ($this->isShowStats) {
+                $overhead = '-';
                 if ($formatted_overhead != '') {
                     $overhead = '<a href="tbl_structure.php'
                         . $tbl_url_query . '#showusage">'
@@ -406,16 +412,13 @@ class StructureController extends AbstractController
                         . '</a>' . "\n";
                     $overhead_check = true;
                     $input_class[] = 'tbl-overhead';
-                } else {
-                    $overhead = '-';
                 }
-            } // end if
+            }
 
             if ($GLOBALS['cfg']['ShowDbStructureCharset']) {
-                if (isset($current_table['Collation'])) {
-                    $charset = mb_substr($collation, 0, mb_strpos($collation, "_"));
-                } else {
-                    $charset = '';
+                $charset = '';
+                if (isset($tableCollation)) {
+                    $charset = $tableCollation->getCharset();
                 }
             }
 
@@ -559,7 +562,7 @@ class StructureController extends AbstractController
                 'titles' => $titles,
                 'drop_query' => $drop_query,
                 'drop_message' => $drop_message,
-                'collation' => $collation,
+                'collation' => $collationDefinition,
                 'formatted_size' => $formatted_size,
                 'unit' => $unit,
                 'overhead' => $overhead,
@@ -590,10 +593,22 @@ class StructureController extends AbstractController
             ];
 
             $overall_approx_rows = $overall_approx_rows || $approx_rows;
-        } // end foreach
+        }
 
-        $db_collation = $this->dbi->getDbCollation($this->db);
-        $db_charset = mb_substr($db_collation, 0, mb_strpos($db_collation, "_"));
+        $databaseCollation = [];
+        $databaseCharset = '';
+        $collation = Charsets::findCollationByName(
+            $this->dbi,
+            $GLOBALS['cfg']['Server']['DisableIS'],
+            $this->dbi->getDbCollation($this->db)
+        );
+        if ($collation !== null) {
+            $databaseCollation = [
+                'name' => $collation->getName(),
+                'description' => $collation->getDescription(),
+            ];
+            $databaseCharset = $collation->getCharset();
+        }
 
         // table form
         $html .= $this->template->render('database/structure/table_header', [
@@ -601,7 +616,7 @@ class StructureController extends AbstractController
             'db_is_system_schema' => $this->dbIsSystemSchema,
             'replication' => $GLOBALS['replication_info']['slave']['status'],
             'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
-            'is_show_stats' => $GLOBALS['is_show_stats'],
+            'is_show_stats' => $this->isShowStats,
             'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
             'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
             'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],
@@ -614,9 +629,9 @@ class StructureController extends AbstractController
                 'server_slave_status' => $GLOBALS['replication_info']['slave']['status'],
                 'db_is_system_schema' => $this->dbIsSystemSchema,
                 'sum_entries' => $sum_entries,
-                'db_collation' => $db_collation,
+                'database_collation' => $databaseCollation,
                 'is_show_stats' => $this->isShowStats,
-                'db_charset' => $db_charset,
+                'database_charset' => $databaseCharset,
                 'sum_size' => $sum_size,
                 'overhead_size' => $overhead_size,
                 'create_time_all' => $create_time_all ? Util::localisedDate(strtotime($create_time_all)) : '-',
@@ -641,7 +656,7 @@ class StructureController extends AbstractController
                 'hidden_fields' => $hidden_fields,
                 'disable_multi_table' => $GLOBALS['cfg']['DisableMultiTableMaintenance'],
                 'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork'],
-            ]
+            ],
         ]);
 
         return $html;
@@ -705,7 +720,7 @@ class StructureController extends AbstractController
             ) {
                 $approx_rows = true;
                 $show_superscript = Util::showHint(
-                    Sanitize::sanitize(
+                    Sanitize::sanitizeMessage(
                         sprintf(
                             __(
                                 'This view has at least this number of '
@@ -809,7 +824,7 @@ class StructureController extends AbstractController
 
         $json = [
             'favoriteTables' => json_encode($favoriteTables),
-            'list' => $favoriteInstance->getHtmlList()
+            'list' => $favoriteInstance->getHtmlList(),
         ];
         $serverId = $GLOBALS['server'];
         // Set flag when localStorage and pmadb(if present) are in sync.

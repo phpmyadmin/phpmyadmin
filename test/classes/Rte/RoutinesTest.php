@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Rte;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Rte\Routines;
@@ -34,27 +35,13 @@ class RoutinesTest extends TestCase
      */
     protected function setUp(): void
     {
-        $GLOBALS['cfg']['ShowFunctionFields'] = false;
-        $GLOBALS['cfg']['ServerDefault'] = 1;
-        $GLOBALS['cfg']['DefaultFunctions']['FUNC_NUMBER'] = '';
-        $GLOBALS['cfg']['DefaultFunctions']['FUNC_DATE'] = '';
-        $GLOBALS['cfg']['DefaultFunctions']['FUNC_SPATIAL'] = 'GeomFromText';
-        $GLOBALS['cfg']['AllowThirdPartyFraming'] = false;
-        $GLOBALS['cfg']['SendErrorReports'] = 'ask';
-        $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
-        $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'] = true;
-        $GLOBALS['cfg']['DefaultTabTable'] = 'browse';
-        $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = 'structure';
-        $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'] = '';
-        $GLOBALS['cfg']['LimitChars'] = 50;
-        $GLOBALS['cfg']['Confirm'] = true;
-        $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
+        $GLOBALS['PMA_Config'] = new Config();
+        $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
-        $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
 
         $this->routines = new Routines($GLOBALS['dbi']);
     }
@@ -113,7 +100,7 @@ class RoutinesTest extends TestCase
                     'item_returntype'           => '',
                     'item_isdeterministic'      => '',
                     'item_securitytype'         => '',
-                    'item_sqldataaccess'        => ''
+                    'item_sqldataaccess'        => '',
                 ],
                 [
                     'item_name'                 => '',
@@ -181,7 +168,7 @@ class RoutinesTest extends TestCase
                     'item_returntype'           => '',
                     'item_isdeterministic'      => 'ON',
                     'item_securitytype'         => 'INVOKER',
-                    'item_sqldataaccess'        => 'NO SQL'
+                    'item_sqldataaccess'        => 'NO SQL',
                 ],
                 [
                     'item_name'                 => 'proc2',
@@ -267,7 +254,7 @@ class RoutinesTest extends TestCase
                     'item_returntype'           => 'VARCHAR',
                     'item_isdeterministic'      => '',
                     'item_securitytype'         => 'DEFINER',
-                    'item_sqldataaccess'        => ''
+                    'item_sqldataaccess'        => '',
                 ],
                 [
                     'item_name'                 => 'func2',
@@ -382,27 +369,27 @@ class RoutinesTest extends TestCase
             [
                 $data,
                 0,
-                "<select name='item_param_dir[0]'",
+                '<select name="item_param_dir[0]"',
             ],
             [
                 $data,
                 0,
-                "<input name='item_param_name[0]'",
+                '<input name="item_param_name[0]"',
             ],
             [
                 $data,
                 0,
-                "<select name='item_param_type[0]'",
+                '<select name="item_param_type[0]"',
             ],
             [
                 $data,
                 0,
-                "<select name='item_param_opts_num[0]'",
+                '<select name="item_param_opts_num[0]"',
             ],
             [
                 $data,
                 0,
-                "<a href='#' class='routine_param_remove_anchor'",
+                '<a href="#" class="routine_param_remove_anchor"',
             ],
         ];
     }
@@ -465,23 +452,23 @@ class RoutinesTest extends TestCase
         return [
             [
                 $data,
-                "<select name='item_param_dir[%s]'",
+                '<select name="item_param_dir[%s]"',
             ],
             [
                 $data,
-                "<input name='item_param_name[%s]'",
+                '<input name="item_param_name[%s]"',
             ],
             [
                 $data,
-                "<select name='item_param_dir[%s]'",
+                '<select name="item_param_dir[%s]"',
             ],
             [
                 $data,
-                "<select name='item_param_opts_num[%s]'",
+                '<select name="item_param_opts_num[%s]"',
             ],
             [
                 $data,
-                "<a href='#' class='routine_param_remove_anchor'",
+                '<a href="#" class="routine_param_remove_anchor"',
             ],
         ];
     }
@@ -1264,7 +1251,7 @@ class RoutinesTest extends TestCase
                     'item_returntype'           => '',
                     'item_isdeterministic'      => '',
                     'item_securitytype'         => 'INVOKER',
-                    'item_sqldataaccess'        => 'NO SQL'
+                    'item_sqldataaccess'        => 'NO SQL',
                 ],
                 'CREATE DEFINER=`me`@`home` PROCEDURE `p r o c`() COMMENT \'foo\' '
                 . 'DETERMINISTIC NO SQL SQL SECURITY INVOKER SELECT 0;',
@@ -1307,7 +1294,7 @@ class RoutinesTest extends TestCase
                     ],
                     'item_returntype'           => '',
                     'item_securitytype'         => 'DEFINER',
-                    'item_sqldataaccess'        => 'foobar'
+                    'item_sqldataaccess'        => 'foobar',
                 ],
                 'CREATE DEFINER=`someuser`@`somehost` PROCEDURE `pr````oc`'
                 . '(IN `pa``ram` INT(10) ZEROFILL, INOUT `par 2` ENUM(\'a\', \'b\')'
@@ -1335,7 +1322,7 @@ class RoutinesTest extends TestCase
                     'item_returntype'           => 'DECIMAL',
                     'item_isdeterministic'      => 'ON',
                     'item_securitytype'         => 'DEFINER',
-                    'item_sqldataaccess'        => 'READ SQL DATA'
+                    'item_sqldataaccess'        => 'READ SQL DATA',
                 ],
                 'CREATE FUNCTION `func\\`(`pa``ram` VARCHAR(45) CHARSET latin1) '
                 . 'RETURNS DECIMAL(5,5) UNSIGNED ZEROFILL COMMENT \'foo\\\'s bar\' '
@@ -1355,7 +1342,7 @@ class RoutinesTest extends TestCase
                     'item_num_params'           => '1',
                     'item_returntype'           => 'VARCHAR',
                     'item_securitytype'         => 'DEFINER',
-                    'item_sqldataaccess'        => 'READ SQL DATA'
+                    'item_sqldataaccess'        => 'READ SQL DATA',
                 ],
                 'CREATE FUNCTION `func`() RETURNS VARCHAR(20) CHARSET utf8 NOT '
                 . 'DETERMINISTIC SQL SECURITY DEFINER SELECT 0;',
@@ -1387,7 +1374,7 @@ class RoutinesTest extends TestCase
                     'item_returntype'           => '',
                     'item_isdeterministic'      => '',
                     'item_securitytype'         => 'INVOKER',
-                    'item_sqldataaccess'        => 'NO SQL'
+                    'item_sqldataaccess'        => 'NO SQL',
                 ],
                 'CREATE PROCEDURE `proc`() COMMENT \'foo\' DETERMINISTIC '
                 . 'NO SQL SQL SECURITY INVOKER SELECT 0;', // valid query
@@ -1430,7 +1417,7 @@ class RoutinesTest extends TestCase
                     ],
                     'item_returntype'           => '',
                     'item_securitytype'         => 'DEFINER',
-                    'item_sqldataaccess'        => 'foobar' // invalid, will just be ignored without throwing errors
+                    'item_sqldataaccess'        => 'foobar', // invalid, will just be ignored without throwing errors
                 ],
                 'CREATE PROCEDURE `proc`((10) ZEROFILL, '
                 . 'INOUT `goo` ENUM CHARSET latin1) NOT DETERMINISTIC '
@@ -1456,7 +1443,7 @@ class RoutinesTest extends TestCase
                     'item_param_opts_text'      => ['latin1'],
                     'item_returntype'           => 'VARCHAR',
                     'item_securitytype'         => 'DEFINER',
-                    'item_sqldataaccess'        => ''
+                    'item_sqldataaccess'        => '',
                 ],
                 'CREATE FUNCTION `func`() RETURNS VARCHAR CHARSET utf8 NOT '
                 . 'DETERMINISTIC SQL SECURITY DEFINER SELECT 0;', // invalid query
@@ -1475,7 +1462,7 @@ class RoutinesTest extends TestCase
                     'item_num_params'           => '0',
                     'item_returntype'           => 'FAIL', // invalid return type
                     'item_securitytype'         => 'DEFINER',
-                    'item_sqldataaccess'        => ''
+                    'item_sqldataaccess'        => '',
                 ],
                 'CREATE FUNCTION `func`()  NOT DETERMINISTIC SQL '
                 . 'SECURITY DEFINER SELECT 0;', // invalid query

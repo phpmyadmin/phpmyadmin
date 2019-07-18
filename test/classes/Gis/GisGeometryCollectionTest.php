@@ -124,7 +124,7 @@ class GisGeometryCollectionTest extends TestCase
                     1 => [
                         'x' => 6.14,
                         'y' => 0.15,
-                    ]
+                    ],
                 ],
             ],
         ];
@@ -178,9 +178,9 @@ class GisGeometryCollectionTest extends TestCase
                             '1' => [
                                 'x' => 6.14,
                                 'y' => 0.15,
-                            ]
+                            ],
                         ],
-                    ]
+                    ],
                 ],
             ],
         ];

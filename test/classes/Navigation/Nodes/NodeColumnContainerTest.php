@@ -46,6 +46,6 @@ class NodeColumnContainerTest extends PmaTestCase
             'tbl_structure.php',
             $parent->links['text']
         );
-        $this->assertEquals('columns', $parent->real_name);
+        $this->assertEquals('columns', $parent->realName);
     }
 }

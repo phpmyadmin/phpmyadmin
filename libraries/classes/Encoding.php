@@ -160,7 +160,7 @@ class Encoding
      */
     public static function isSupported(): bool
     {
-        if (is_null(self::$_engine)) {
+        if (self::$_engine === null) {
             self::initEngine();
         }
         return self::$_engine != self::ENGINE_NONE;
@@ -186,7 +186,7 @@ class Encoding
         if ($src_charset == $dest_charset) {
             return $what;
         }
-        if (is_null(self::$_engine)) {
+        if (self::$_engine === null) {
             self::initEngine();
         }
         switch (self::$_engine) {
@@ -342,7 +342,7 @@ class Encoding
      */
     public static function listEncodings(): array
     {
-        if (is_null(self::$_engine)) {
+        if (self::$_engine === null) {
             self::initEngine();
         }
         /* Most engines do not support listing */

@@ -46,6 +46,6 @@ class NodeIndexContainerTest extends PmaTestCase
             'tbl_structure.php',
             $parent->links['text']
         );
-        $this->assertEquals('indexes', $parent->real_name);
+        $this->assertEquals('indexes', $parent->realName);
     }
 }

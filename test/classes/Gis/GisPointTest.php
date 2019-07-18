@@ -154,7 +154,7 @@ class GisPointTest extends GisGeomTestCase
                         'POINT'    => [
                             'x' => '5.02',
                             'y' => '8.45',
-                        ]
+                        ],
                     ],
                 ],
             ],
