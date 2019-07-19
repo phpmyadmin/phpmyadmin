@@ -2106,7 +2106,6 @@ div.sqlvalidate {
 
 .group-cnt {
   padding: 0;
-  padding-#{$left}: 0.5em;
   display: inline-block;
   width: 98%;
 }
@@ -2778,7 +2777,6 @@ fieldset {
 }
 
 .prefsmanage_opts {
-  margin-#{$left}: 2em;
 }
 
 #prefs_autoload {
