@@ -42,7 +42,6 @@ class Sanitize
             './db_sql.php?',
             './db_search.php?',
             './db_operations.php?',
-            './tbl_structure.php?',
             './tbl_sql.php?',
             './tbl_select.php?',
             './tbl_change.php?',
@@ -51,7 +50,6 @@ class Sanitize
             './db_events.php?',
             './db_routines.php?',
             './server_privileges.php?',
-            './tbl_structure.php?',
         ];
         $is_setup = $GLOBALS['PMA_Config'] !== null && $GLOBALS['PMA_Config']->get('is_setup');
         // Adjust path to setup script location

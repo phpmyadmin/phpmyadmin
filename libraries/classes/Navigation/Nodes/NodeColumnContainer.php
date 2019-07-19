@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
@@ -27,10 +28,16 @@ class NodeColumnContainer extends Node
         parent::__construct(__('Columns'), Node::CONTAINER);
         $this->icon = Util::getImage('pause', __('Columns'));
         $this->links = [
-            'text' => 'tbl_structure.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;table=%1$s',
-            'icon' => 'tbl_structure.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;table=%1$s',
+            'text' => Url::getFromRoute('/table/structure', [
+                'server' => $GLOBALS['server'],
+                'db' => '%2\$s',
+                'table' => '%1\$s',
+            ]),
+            'icon' => Url::getFromRoute('/table/structure', [
+                'server' => $GLOBALS['server'],
+                'db' => '%2\$s',
+                'table' => '%1\$s',
+            ]),
         ];
         $this->realName = 'columns';
 

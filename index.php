@@ -55,6 +55,9 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
             });
         });
         $routes->addGroup('/table', function (RouteCollector $routes) {
+            $routes->addRoute(['GET', 'POST'], '/structure', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/table/structure.php';
+            });
             $routes->addRoute(['GET', 'POST'], '/tracking', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/table/tracking.php';
             });

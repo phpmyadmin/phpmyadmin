@@ -3201,7 +3201,7 @@ class Util
             // $cfg['NavigationTreeDefaultTabTable2']
             switch ($target) {
                 case 'structure':
-                    return 'tbl_structure.php';
+                    return Url::getFromRoute('/table/structure');
                 case 'sql':
                     return 'tbl_sql.php';
                 case 'search':

@@ -13,7 +13,7 @@
 /* global sprintf */ // js/vendor/sprintf.js
 
 /**
- * AJAX scripts for tbl_structure.php
+ * AJAX scripts for /table/structure
  *
  * Actions ajaxified here:
  * Drop Column

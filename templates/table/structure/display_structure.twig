@@ -1,6 +1,6 @@
 {% extends 'table/page_with_secondary_tabs.twig' %}
 {% block content %}
-<form method="post" action="tbl_structure.php" name="fieldsForm" id="fieldsForm"
+<form method="post" action="{{ url('/table/structure') }}" name="fieldsForm" id="fieldsForm"
     class="ajax{{ hide_structure_actions ? ' HideStructureActions' }}">
     {{ get_hidden_inputs(db, table) }}
     <input type="hidden" name="table_type" value=
@@ -99,8 +99,10 @@
             <td class="nowrap">{{ row['Extra']|upper }}</td>
             {% if not tbl_is_view and not db_is_system_schema %}
                 <td class="edit center print_ignore">
-                    <a class="change_column_anchor ajax" href="tbl_structure.php
-                        {{- url_query }}&amp;field={{ row['Field']|url_encode }}&amp;change_column=1">
+                    <a class="change_column_anchor ajax" href="{{ url('/table/structure', url_params|merge({
+                      'field': row['Field']|url_encode,
+                      'change_column': 1
+                    })) }}">
                         {{ titles['Change']|raw }}
                     </a>
                 </td>
@@ -215,7 +217,7 @@
                                 or tbl_storage_engine == 'MARIA'
                                 or (tbl_storage_engine == 'INNODB' and mysql_int_version >= 50604)
                             ) and ('text' in type or 'char' in type) %}
-                            <a rel="samepage" class="ajax add_key add_fulltext_anchor" href="tbl_structure.php"
+                            <a rel="samepage" class="ajax add_key add_fulltext_anchor" href="{{ url('/table/structure') }}"
                                 data-post="{{- url_query|raw }}&amp;add_key=1&amp;sql_query=
                                 {{- ('ALTER TABLE ' ~ backquote(table)
                                     ~ ' ADD FULLTEXT(' ~ backquote(row['Field'])
@@ -362,7 +364,7 @@
 <hr class="print_ignore">
 <div id="move_columns_dialog" class="hide" title="{% trans 'Move columns' %}">
     <p>{% trans 'Move the columns by dragging them up and down.' %}</p>
-    <form action="tbl_structure.php" name="move_column_form" id="move_column_form">
+    <form action="{{ url('/table/structure') }}" name="move_column_form" id="move_column_form">
         <div>
             {{ get_hidden_inputs(db, table) }}
             <ul></ul>

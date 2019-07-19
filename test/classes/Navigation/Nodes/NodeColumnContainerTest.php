@@ -43,7 +43,7 @@ class NodeColumnContainerTest extends PmaTestCase
             $parent->links
         );
         $this->assertStringContainsString(
-            'tbl_structure.php',
+            'index.php?route=/table/structure',
             $parent->links['text']
         );
         $this->assertEquals('columns', $parent->realName);

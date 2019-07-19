@@ -16,7 +16,7 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-global $db_is_system_schema, $tbl_is_view, $tbl_storage_engine;
+global $containerBuilder, $db_is_system_schema, $tbl_is_view, $tbl_storage_engine;
 global $table_info_num_rows, $tbl_collation, $showtable;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';

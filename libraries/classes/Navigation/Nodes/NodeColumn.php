@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
@@ -33,12 +34,20 @@ class NodeColumn extends Node
         parent::__construct($item['name'], $type, $isGroup);
         $this->icon = Util::getImage($this->getColumnIcon($item['key']), __('Column'));
         $this->links = [
-            'text'  => 'tbl_structure.php?server=' . $GLOBALS['server']
-                . '&amp;db=%3$s&amp;table=%2$s&amp;field=%1$s'
-                . '&amp;change_column=1',
-            'icon'  => 'tbl_structure.php?server=' . $GLOBALS['server']
-                . '&amp;db=%3$s&amp;table=%2$s&amp;field=%1$s'
-                . '&amp;change_column=1',
+            'text' => Url::getFromRoute('/table/structure', [
+                'server' => $GLOBALS['server'],
+                'db' => '%3\$s',
+                'table' => '%2\$s',
+                'field' => '%1\$s',
+                'change_column' => 1,
+            ]),
+            'icon' => Url::getFromRoute('/table/structure', [
+                'server' => $GLOBALS['server'],
+                'db' => '%3\$s',
+                'table' => '%2\$s',
+                'field' => '%1\$s',
+                'change_column' => 1,
+            ]),
             'title' => __('Structure'),
         ];
     }

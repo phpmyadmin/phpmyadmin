@@ -83,8 +83,8 @@ if (isset($_POST['submit_num_fields'])) {
 }
 
 if (isset($_POST['do_save_data'])) {
-    //avoid an incorrect calling of PMA_updateColumns() via
-    //tbl_structure.php below
+    // avoid an incorrect calling of PMA_updateColumns() via
+    // /table/structure below
     unset($_POST['do_save_data']);
 
     $createAddField = new CreateAddField($dbi);
@@ -148,7 +148,7 @@ if ($abort === false) {
      */
     include_once ROOT_PATH . 'libraries/tbl_common.inc.php';
 
-    $active_page = 'tbl_structure.php';
+    $active_page = Url::getFromRoute('/table/structure');
     /**
      * Display the form
      */
