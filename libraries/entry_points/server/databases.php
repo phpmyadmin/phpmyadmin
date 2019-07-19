@@ -10,24 +10,19 @@ declare(strict_types=1);
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\Server\DatabasesController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
-require_once ROOT_PATH . 'libraries/common.inc.php';
-
-$response = $containerBuilder->get('response', ContainerInterface::NULL_ON_INVALID_REFERENCE) ?? Response::getInstance();
-
-$container = Container::getDefaultContainer();
-$container->set(Response::class, $response);
-$container->alias('response', Response::class);
+global $containerBuilder;
 
 /** @var DatabasesController $controller */
 $controller = $containerBuilder->get(DatabasesController::class);
+
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
 
 /** @var DatabaseInterface $dbi */
 $dbi = $containerBuilder->get(DatabaseInterface::class);

@@ -14,44 +14,22 @@ if (! defined('ROOT_PATH')) {
 use PhpMyAdmin\CentralColumns;
 use PhpMyAdmin\Controllers\Database\CentralColumnsController;
 use PhpMyAdmin\Core;
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
-use Symfony\Component\DependencyInjection\Definition;
-
-global $db;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
-
 /** @var Response $response */
-$response = $container->get(Response::class);
+$response = $containerBuilder->get(Response::class);
 
-/** @var DatabaseInterface $dbi */
-$dbi = $container->get(DatabaseInterface::class);
-
-$centralColumns = new CentralColumns($dbi);
-/* Define dependencies for the concerned controller */
-$dependency_definitions = [
-    'db' => $container->get('db'),
-    'centralColumns' => $centralColumns,
-];
-
-/** @var Definition $definition */
-$definition = $containerBuilder->getDefinition(CentralColumnsController::class);
-array_map(
-    static function (string $parameterName, $value) use ($definition) {
-        $definition->replaceArgument($parameterName, $value);
-    },
-    array_keys($dependency_definitions),
-    $dependency_definitions
-);
+/** @var CentralColumns $centralColumns */
+$centralColumns = $containerBuilder->get('central_columns');
 
 /** @var CentralColumnsController $controller */
 $controller = $containerBuilder->get(CentralColumnsController::class);
+
+/** @var string $db */
+$db = $containerBuilder->getParameter('db');
 
 if (isset($_POST['edit_save'])) {
     echo $controller->editSave([

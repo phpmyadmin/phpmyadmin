@@ -6,7 +6,7 @@
 </h2>
 
 {% if variables is not empty %}
-  <a href="server_variables.php{{ get_common() }}" class="ajax saveLink hide">
+  <a href="{{ url('/server/variables') }}" class="ajax saveLink hide">
     {{ get_icon('b_save', 'Save'|trans) }}
   </a>
   <a href="#" class="cancelLink hide">

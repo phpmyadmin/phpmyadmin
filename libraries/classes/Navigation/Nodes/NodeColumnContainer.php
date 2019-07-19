@@ -32,15 +32,15 @@ class NodeColumnContainer extends Node
             'icon' => 'tbl_structure.php?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s&amp;table=%1$s',
         ];
-        $this->real_name = 'columns';
+        $this->realName = 'columns';
 
-        $new_label = _pgettext('Create new column', 'New');
+        $newLabel = _pgettext('Create new column', 'New');
         $new = NodeFactory::getInstance(
             'Node',
-            $new_label
+            $newLabel
         );
         $new->isNew = true;
-        $new->icon = Util::getImage('b_column_add', $new_label);
+        $new->icon = Util::getImage('b_column_add', $newLabel);
         $new->links = [
             'text' => 'tbl_addfield.php?server=' . $GLOBALS['server']
                 . '&amp;db=%3$s&amp;table=%2$s'

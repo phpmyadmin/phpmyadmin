@@ -16,6 +16,10 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\UserPreferencesHeader;
+use Throwable;
+use Twig_Error_Loader;
+use Twig_Error_Runtime;
+use Twig_Error_Syntax;
 
 /**
  * tests for methods under PhpMyAdmin\UserPreferencesHeader class
@@ -43,10 +47,10 @@ class UserPreferencesHeaderTest extends PmaTestCase
      * Test for getContent with selected tab
      *
      * @return void
-     * @throws \Throwable
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
+     * @throws Throwable
+     * @throws Twig_Error_Loader
+     * @throws Twig_Error_Runtime
+     * @throws Twig_Error_Syntax
      */
     public function testGetContentWithSelectedTab(): void
     {
@@ -58,14 +62,19 @@ class UserPreferencesHeaderTest extends PmaTestCase
         $_GET['form'] = 'Features';
 
         $template = new Template();
+        $content = UserPreferencesHeader::getContent($template, new Relation($dbi, $template));
+
         $this->assertStringContainsString(
-            '<li class="active">' . \PHP_EOL
-            . \PHP_EOL
-            . '            <a href="prefs_forms.php?form=Features&amp;server=0&amp;lang=en" class="tabactive">' . \PHP_EOL
-            . '            <img src="themes/dot.gif" title="Features" alt="Features" class="icon ic_b_tblops">&nbsp;Features' . \PHP_EOL
-            . '            </a>' . \PHP_EOL
-            . '        </li>',
-            UserPreferencesHeader::getContent($template, new Relation($dbi, $template))
+            '<li class="active">',
+            $content
+        );
+        $this->assertStringContainsString(
+            '<a href="prefs_forms.php?form=Features&amp;server=0&amp;lang=en" class="tabactive">',
+            $content
+        );
+        $this->assertStringContainsString(
+            '<img src="themes/dot.gif" title="Features" alt="Features" class="icon ic_b_tblops">&nbsp;Features',
+            $content
         );
     }
 
@@ -73,10 +82,10 @@ class UserPreferencesHeaderTest extends PmaTestCase
      * Test for getContent with "saved" get parameter
      *
      * @return void
-     * @throws \Throwable
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
+     * @throws Throwable
+     * @throws Twig_Error_Loader
+     * @throws Twig_Error_Runtime
+     * @throws Twig_Error_Syntax
      */
     public function testGetContentAfterSave(): void
     {
@@ -98,10 +107,10 @@ class UserPreferencesHeaderTest extends PmaTestCase
      * Test for getContent with session storage
      *
      * @return void
-     * @throws \Throwable
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
+     * @throws Throwable
+     * @throws Twig_Error_Loader
+     * @throws Twig_Error_Runtime
+     * @throws Twig_Error_Syntax
      */
     public function testGetContentWithSessionStorage(): void
     {

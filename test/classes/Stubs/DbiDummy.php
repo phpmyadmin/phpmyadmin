@@ -12,7 +12,9 @@
  */
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Dbi;
+namespace PhpMyAdmin\Tests\Stubs;
+
+use PhpMyAdmin\Dbi\DbiExtension;
 
 /**
  * Fake database driver for testing purposes
@@ -781,47 +783,71 @@ class DbiDummy implements DbiExtension
             ],
             [
                 'query'   => 'SELECT `CHARACTER_SET_NAME` AS `Charset`,'
-                    . ' `DESCRIPTION` AS `Description`'
+                    . ' `DEFAULT_COLLATE_NAME` AS `Default collation`,'
+                    . ' `DESCRIPTION` AS `Description`,'
+                    . ' `MAXLEN` AS `Maxlen`'
                     . ' FROM `information_schema`.`CHARACTER_SETS`',
                 'columns' => [
                     'Charset',
+                    'Default collation',
                     'Description',
-                ],
-                'result'  => [
-                    [
-                        'utf8',
-                        'UTF-8 Unicode',
-                    ],
-                    [
-                        'latin1',
-                        'cp1252 West European',
-                    ],
-                ],
-            ],
-            [
-                'query'   => 'SELECT `CHARACTER_SET_NAME` AS `Charset`,'
-                    . ' `COLLATION_NAME` AS `Collation`, `IS_DEFAULT` AS `Default`'
-                    . ' FROM `information_schema`.`COLLATIONS`',
-                'columns' => [
-                    'Charset',
-                    'Collation',
-                    'Default',
+                    'Maxlen',
                 ],
                 'result'  => [
                     [
                         'utf8',
                         'utf8_general_ci',
-                        'Yes',
-                    ],
-                    [
-                        'utf8',
-                        'utf8_bin',
-                        '',
+                        'UTF-8 Unicode',
+                        '3',
                     ],
                     [
                         'latin1',
                         'latin1_swedish_ci',
+                        'cp1252 West European',
+                        '1',
+                    ],
+                ],
+            ],
+            [
+                'query'   => 'SELECT `COLLATION_NAME` AS `Collation`,'
+                    . ' `CHARACTER_SET_NAME` AS `Charset`,'
+                    . ' `ID` AS `Id`,'
+                    . ' `IS_DEFAULT` AS `Default`,'
+                    . ' `IS_COMPILED` AS `Compiled`,'
+                    . ' `SORTLEN` AS `Sortlen`'
+                    . ' FROM `information_schema`.`COLLATIONS`',
+                'columns' => [
+                    'Collation',
+                    'Charset',
+                    'Id',
+                    'Default',
+                    'Compiled',
+                    'Sortlen',
+                ],
+                'result'  => [
+                    [
+                        'utf8_general_ci',
+                        'utf8',
+                        '33',
                         'Yes',
+                        'Yes',
+                        '1',
+                    ],
+                    [
+                        'utf8_bin',
+                        'utf8',
+                        '83',
+                        '',
+                        'Yes',
+                        '1',
+                    ],
+                    [
+                        'latin1_swedish_ci',
+                        'latin1',
+                        '8',
+                        'Yes',
+                        'Yes',
+                        '1',
                     ],
                 ],
             ],
@@ -1281,9 +1307,35 @@ class DbiDummy implements DbiExtension
                 'result' => [],
             ],
             [
-                'query'  => "SHOW PLUGINS",
+                'query' => 'SHOW PLUGINS',
                 'result' => [
-                    ['Name' => 'partition'],
+                    [
+                        'Name' => 'partition',
+                        'Status' => 'ACTIVE',
+                        'Type' => 'STORAGE ENGINE',
+                        'Library' => null,
+                        'License' => 'GPL',
+                    ],
+                ],
+            ],
+            [
+                'query' => 'SELECT * FROM information_schema.PLUGINS ORDER BY PLUGIN_TYPE, PLUGIN_NAME',
+                'result' => [
+                    [
+                        'PLUGIN_NAME' => 'BLACKHOLE',
+                        'PLUGIN_VERSION' => '1.0',
+                        'PLUGIN_STATUS' => 'ACTIVE',
+                        'PLUGIN_TYPE' => 'STORAGE ENGINE',
+                        'PLUGIN_TYPE_VERSION' => '100316.0',
+                        'PLUGIN_LIBRARY' => 'ha_blackhole.so',
+                        'PLUGIN_LIBRARY_VERSION' => '1.13',
+                        'PLUGIN_AUTHOR' => 'MySQL AB',
+                        'PLUGIN_DESCRIPTION' => '/dev/null storage engine (anything you write to it disappears)',
+                        'PLUGIN_LICENSE' => 'GPL',
+                        'LOAD_OPTION' => 'ON',
+                        'PLUGIN_MATURITY' => 'Stable',
+                        'PLUGIN_AUTH_VERSION' => '1.0',
+                    ],
                 ],
             ],
             [
@@ -1556,6 +1608,65 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
+                'query' => "SELECT *, CAST(BIN_NAME AS CHAR CHARACTER SET utf8) AS SCHEMA_NAME FROM (SELECT BINARY s.SCHEMA_NAME AS BIN_NAME, s.DEFAULT_COLLATION_NAME FROM `information_schema`.SCHEMATA s GROUP BY BINARY s.SCHEMA_NAME, s.DEFAULT_COLLATION_NAME ORDER BY BINARY `SCHEMA_NAME` ASC) a",
+                'columns' => [
+                    'BIN_NAME',
+                    'DEFAULT_COLLATION_NAME',
+                    'SCHEMA_NAME',
+                ],
+                'result' => [
+                    [
+                        'sakila',
+                        'utf8_general_ci',
+                        'sakila',
+                    ],
+                    [
+                        'employees',
+                        'latin1_swedish_ci',
+                        'employees',
+                    ],
+                ],
+            ],
+
+            [
+                'query' => "SELECT *, CAST(BIN_NAME AS CHAR CHARACTER SET utf8) AS SCHEMA_NAME FROM (SELECT BINARY s.SCHEMA_NAME AS BIN_NAME, s.DEFAULT_COLLATION_NAME, COUNT(t.TABLE_SCHEMA) AS SCHEMA_TABLES, SUM(t.TABLE_ROWS) AS SCHEMA_TABLE_ROWS, SUM(t.DATA_LENGTH) AS SCHEMA_DATA_LENGTH, SUM(t.MAX_DATA_LENGTH) AS SCHEMA_MAX_DATA_LENGTH, SUM(t.INDEX_LENGTH) AS SCHEMA_INDEX_LENGTH, SUM(t.DATA_LENGTH + t.INDEX_LENGTH) AS SCHEMA_LENGTH, SUM(IF(t.ENGINE <> 'InnoDB', t.DATA_FREE, 0)) AS SCHEMA_DATA_FREE FROM `information_schema`.SCHEMATA s LEFT JOIN `information_schema`.TABLES t ON BINARY t.TABLE_SCHEMA = BINARY s.SCHEMA_NAME GROUP BY BINARY s.SCHEMA_NAME, s.DEFAULT_COLLATION_NAME ORDER BY `SCHEMA_TABLES` DESC) a",
+                'columns' => [
+                    'BIN_NAME',
+                    'DEFAULT_COLLATION_NAME',
+                    'SCHEMA_TABLES',
+                    'SCHEMA_TABLE_ROWS',
+                    'SCHEMA_DATA_LENGTH',
+                    'SCHEMA_INDEX_LENGTH',
+                    'SCHEMA_LENGTH',
+                    'SCHEMA_DATA_FREE',
+                    'SCHEMA_NAME',
+                ],
+                'result' => [
+                    [
+                        'sakila',
+                        'utf8_general_ci',
+                        '23',
+                        '47274',
+                        '4358144',
+                        '2392064',
+                        '6750208',
+                        '0',
+                        'sakila',
+                    ],
+                    [
+                        'employees',
+                        'latin1_swedish_ci',
+                        '8',
+                        '3912174',
+                        '148111360',
+                        '5816320',
+                        '153927680',
+                        '0',
+                        'employees',
+                    ],
+                ],
+            ],
+            [
                 'query'  => "SELECT @@have_partitioning;",
                 'result' => [],
             ],
@@ -1592,6 +1703,13 @@ class DbiDummy implements DbiExtension
                     . "( SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) "
                     . "DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA "
                     . "WHERE `SCHEMA_NAME` < 'db' ) t",
+                'result' => [],
+            ],
+            [
+                'query'  => "SELECT (COUNT(DB_first_level) DIV 100) * 100 from "
+                    . "( SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) "
+                    . "DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA "
+                    . "WHERE `SCHEMA_NAME` < 'pma_test' ) t",
                 'result' => [],
             ],
             [

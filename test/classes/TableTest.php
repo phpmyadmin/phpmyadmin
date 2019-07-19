@@ -10,12 +10,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbi\DbiDummy;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionClass;
+use stdClass;
 
 /**
  * Tests behaviour of Table class
@@ -46,7 +47,7 @@ class TableTest extends PmaTestCase
 
         $relation = new Relation($GLOBALS['dbi']);
         $GLOBALS['cfgRelation'] = $relation->getRelationsParam();
-        $GLOBALS['dblist'] = new \stdClass();
+        $GLOBALS['dblist'] = new stdClass();
         $GLOBALS['dblist']->databases = new class
         {
             /**
@@ -143,7 +144,7 @@ class TableTest extends PmaTestCase
                 [
                     [
                         'COLUMN_NAME' => 'COLUMN_NAME',
-                        'DATA_TYPE' => 'DATA_TYPE'
+                        'DATA_TYPE' => 'DATA_TYPE',
                     ],
                 ],
             ],
@@ -205,7 +206,7 @@ class TableTest extends PmaTestCase
                         'Null' => 'NO',
                         'Key' => '',
                         'Default' => null,
-                        'Extra' => ''
+                        'Extra' => '',
                     ],
                     [
                         'Field' => 'COLUMN_NAME2',
@@ -213,7 +214,7 @@ class TableTest extends PmaTestCase
                         'Null' => 'YES',
                         'Key' => '',
                         'Default' => null,
-                        'Extra' => 'STORED GENERATED'
+                        'Extra' => 'STORED GENERATED',
                     ],
                 ],
             ],

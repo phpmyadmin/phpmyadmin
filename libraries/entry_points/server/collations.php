@@ -8,21 +8,17 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Server\CollationsController;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
-require_once ROOT_PATH . 'libraries/common.inc.php';
-
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
-$container->alias('response', Response::class);
+global $containerBuilder;
 
 /** @var CollationsController $controller */
 $controller = $containerBuilder->get(CollationsController::class);
-$response = $container->get('response');
 
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
 $response->addHTML($controller->indexAction());

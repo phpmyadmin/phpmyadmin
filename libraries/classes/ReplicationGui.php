@@ -46,9 +46,7 @@ class ReplicationGui
     public function getHtmlForErrorMessage()
     {
         $html = '';
-        if (isset($_SESSION['replication']['sr_action_status'])
-            && isset($_SESSION['replication']['sr_action_info'])
-        ) {
+        if (isset($_SESSION['replication']['sr_action_status'], $_SESSION['replication']['sr_action_info'])) {
             if ($_SESSION['replication']['sr_action_status'] == 'error') {
                 $error_message = $_SESSION['replication']['sr_action_info'];
                 $html .= Message::error($error_message)->getDisplay();

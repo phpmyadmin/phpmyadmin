@@ -9,23 +9,17 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Core;
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\FileListing;
-use PhpMyAdmin\Message;
+use Closure;
 use PhpMyAdmin\Plugins\ImportPlugin;
-use PhpMyAdmin\Response;
-use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\Utils\Error as ParserError;
-use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
-use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
-use Williamdes\MariaDBMySQLKBS\KBException;
 use phpseclib\Crypt\Random;
+use stdClass;
+use Williamdes\MariaDBMySQLKBS\KBException;
+use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
 
 /**
  * Misc functions used all over the scripts.
@@ -458,7 +452,7 @@ class Util
          * provide consistent URL for testsuite
          */
         if (! defined('TESTSUITE') && @file_exists(ROOT_PATH . 'doc/html/index.html')) {
-            return ROOT_PATH . 'doc/html/' . $url;
+            return 'doc/html/' . $url;
         }
 
         return Core::linkURL('https://docs.phpmyadmin.net/en/latest/' . $url);
@@ -1013,9 +1007,9 @@ class Util
             $retval .= $message->getDisplay();
         } else {
             $retval .= '<div class="' . $type . '">';
-            $retval .= Sanitize::sanitize($message);
+            $retval .= Sanitize::sanitizeMessage($message);
             if (isset($GLOBALS['special_message'])) {
-                $retval .= Sanitize::sanitize($GLOBALS['special_message']);
+                $retval .= Sanitize::sanitizeMessage($GLOBALS['special_message']);
                 unset($GLOBALS['special_message']);
             }
             $retval .= '</div>';
@@ -1256,7 +1250,7 @@ class Util
             while ($row = $GLOBALS['dbi']->fetchRow($result)) {
                 $values = '|';
                 foreach ($row as $value) {
-                    if (is_null($value)) {
+                    if ($value === null) {
                         $value = 'NULL';
                     }
                     $values .= ' ' . $value . ' |';
@@ -1299,7 +1293,7 @@ class Util
      * @param int        $limes the sensitiveness
      * @param int        $comma the number of decimals to retain
      *
-     * @return array    the formatted value and its unit
+     * @return array|null the formatted value and its unit
      *
      * @access  public
      */
@@ -1429,7 +1423,7 @@ class Util
             5 => 'P',
             6 => 'E',
             7 => 'Z',
-            8 => 'Y'
+            8 => 'Y',
         ];
         /* l10n: Decimal separator */
         $decimal_sep = __('.');
@@ -1658,7 +1652,7 @@ class Util
                 || Core::isValid($GLOBALS['active_page'], 'identical', $tab['link'])
             ) {
                 $tab['class'] = 'active';
-            } elseif (is_null($tab['active']) && empty($GLOBALS['active_page'])
+            } elseif ($tab['active'] === null && empty($GLOBALS['active_page'])
                 && (basename($GLOBALS['PMA_PHP_SELF']) == $tab['link'])
             ) {
                 $tab['class'] = 'active';
@@ -1672,7 +1666,11 @@ class Util
             if (! empty($tab['args']) && is_array($tab['args'])) {
                 $url_params = array_merge($url_params, $tab['args']);
             }
-            $tab['link'] = htmlentities($tab['link']) . Url::getCommon($url_params);
+            if (strpos($tab['link'], '?') === false) {
+                $tab['link'] = htmlentities($tab['link']) . Url::getCommon($url_params);
+            } else {
+                $tab['link'] = htmlentities($tab['link']) . Url::getCommon($url_params, '&');
+            }
         }
 
         if (! empty($tab['fragment'])) {
@@ -1828,7 +1826,8 @@ class Util
         $tag_params_strings = [];
         if (($url_length > $GLOBALS['cfg']['LinkLengthLimit'])
             || ! $in_suhosin_limits
-            || strpos($url, 'sql_query=') !== false
+            // Has as sql_query without a signature
+            || ( strpos($url, 'sql_query=') !== false && strpos($url, 'sql_signature=') === false)
             || strpos($url, 'view[as]=') !== false
         ) {
             $parts = explode('?', $url, 2);
@@ -1961,7 +1960,7 @@ class Util
      *
      * @param resource       $handle               current query result
      * @param integer        $fields_cnt           number of fields
-     * @param \stdClass[]    $fields_meta          meta information about fields
+     * @param stdClass[]     $fields_meta          meta information about fields
      * @param array          $row                  current row
      * @param boolean        $force_unique         generate condition only on pk
      *                                             or unique
@@ -2052,7 +2051,7 @@ class Util
             } // end if... else...
             $condition = ' ' . $con_key . ' ';
 
-            if (! isset($row[$i]) || is_null($row[$i])) {
+            if (! isset($row[$i]) || $row[$i] === null) {
                 $con_val = 'IS NULL';
             } else {
                 // timestamp is numeric on some MySQL 4.1
@@ -2349,7 +2348,7 @@ class Util
      */
     public static function getPageFromPosition($pos, $max_count)
     {
-        return floor($pos / $max_count) + 1;
+        return (int) floor($pos / $max_count) + 1;
     }
 
     /**
@@ -2719,7 +2718,7 @@ class Util
             'toggle_on' => $options[1]['label'],
             'toggle_off' => $options[0]['label'],
             'callback' => $callback,
-            'state' => $state
+            'state' => $state,
         ]);
     }
 
@@ -2764,8 +2763,8 @@ class Util
     /**
      * Gets cached information from the session
      *
-     * @param string   $var      variable name
-     * @param \Closure $callback callback to fetch the value
+     * @param string  $var      variable name
+     * @param Closure $callback callback to fetch the value
      *
      * @return mixed
      */
@@ -2985,7 +2984,7 @@ class Util
             'zerofill' => $zerofill,
             'attribute' => $attribute,
             'can_contain_collation' => $can_contain_collation,
-            'displayed_type' => $displayed_type
+            'displayed_type' => $displayed_type,
         ];
     }
 
@@ -3140,7 +3139,7 @@ class Util
      *                       $cfg['NavigationTreeDefaultTabTable2'],
      *                       $cfg['DefaultTabTable'] or $cfg['DefaultTabDatabase']
      *
-     * @return string Title for the $cfg value
+     * @return string|bool Title for the $cfg value
      */
     public static function getTitleForTarget($target)
     {
@@ -3151,22 +3150,8 @@ class Util
             'insert' => __('Insert'),
             'browse' => __('Browse'),
             'operations' => __('Operations'),
-
-            // For backward compatiblity
-
-            // Values for $cfg['DefaultTabTable']
-            'tbl_structure.php' =>  __('Structure'),
-            'tbl_sql.php' => __('SQL'),
-            'tbl_select.php' => __('Search'),
-            'tbl_change.php' => __('Insert'),
-            'sql.php' => __('Browse'),
-            // Values for $cfg['DefaultTabDatabase']
-            'db_structure.php' => __('Structure'),
-            'db_sql.php' => __('SQL'),
-            'db_search.php' => __('Search'),
-            'db_operations.php' => __('Operations'),
         ];
-        return isset($mapping[$target]) ? $mapping[$target] : false;
+        return $mapping[$target] ?? false;
     }
 
     /**
@@ -3188,13 +3173,13 @@ class Util
             // Values for $cfg['DefaultTabServer']
             switch ($target) {
                 case 'welcome':
-                    return 'index.php';
+                    return Url::getFromRoute('/');
                 case 'databases':
-                    return 'server_databases.php';
+                    return Url::getFromRoute('/server/databases');
                 case 'status':
                     return 'server_status.php';
                 case 'variables':
-                    return 'server_variables.php';
+                    return Url::getFromRoute('/server/variables');
                 case 'privileges':
                     return 'server_privileges.php';
             }
@@ -3202,7 +3187,7 @@ class Util
             // Values for $cfg['DefaultTabDatabase']
             switch ($target) {
                 case 'structure':
-                    return 'db_structure.php';
+                    return Url::getFromRoute('/database/structure');
                 case 'sql':
                     return 'db_sql.php';
                 case 'search':
@@ -3291,7 +3276,7 @@ class Util
         ];
 
         /* Optional escaping */
-        if (! is_null($escape)) {
+        if ($escape !== null) {
             if (is_array($escape)) {
                 $escape_class = new $escape[1];
                 $escape_method = $escape[0];
@@ -3320,10 +3305,10 @@ class Util
             );
 
             // sometimes the table no longer exists at this point
-            if (! is_null($columns_list)) {
+            if ($columns_list !== null) {
                 $column_names = [];
                 foreach ($columns_list as $column) {
-                    if (! is_null($escape)) {
+                    if ($escape !== null) {
                         $column_names[] = self::$escape($column['Field']);
                     } else {
                         $column_names[] = $column['Field'];
@@ -3400,8 +3385,7 @@ class Util
         $matcher = '@\.(' . $extensions . ')(\.('
             . $fileListing->supportedDecompressions() . '))?$@';
 
-        $active = (isset($GLOBALS['timeout_passed']) && $GLOBALS['timeout_passed']
-            && isset($GLOBALS['local_import_file']))
+        $active = (isset($GLOBALS['timeout_passed'], $GLOBALS['local_import_file']) && $GLOBALS['timeout_passed'])
             ? $GLOBALS['local_import_file']
             : '';
 
@@ -3626,30 +3610,30 @@ class Util
         // Unary functions common to all geometry types
         $funcs['Dimension']    = [
             'params' => 1,
-            'type' => 'int'
+            'type' => 'int',
         ];
         $funcs['Envelope']     = [
             'params' => 1,
-            'type' => 'Polygon'
+            'type' => 'Polygon',
         ];
         $funcs['GeometryType'] = [
             'params' => 1,
-            'type' => 'text'
+            'type' => 'text',
         ];
         $funcs['SRID']         = [
             'params' => 1,
-            'type' => 'int'
+            'type' => 'int',
         ];
         $funcs['IsEmpty']      = [
             'params' => 1,
-            'type' => 'int'
+            'type' => 'int',
         ];
         $funcs['IsSimple']     = [
             'params' => 1,
-            'type' => 'int'
+            'type' => 'int',
         ];
 
-        $geom_type = trim(mb_strtolower((string) $geom_type));
+        $geom_type = mb_strtolower(trim((string) $geom_type));
         if ($display && $geom_type != 'geometry' && $geom_type != 'multipoint') {
             $funcs[] = ['display' => '--------'];
         }
@@ -3658,70 +3642,70 @@ class Util
         if ($geom_type == 'point') {
             $funcs['X'] = [
                 'params' => 1,
-                'type' => 'float'
+                'type' => 'float',
             ];
             $funcs['Y'] = [
                 'params' => 1,
-                'type' => 'float'
+                'type' => 'float',
             ];
         } elseif ($geom_type == 'linestring') {
             $funcs['EndPoint']   = [
                 'params' => 1,
-                'type' => 'point'
+                'type' => 'point',
             ];
             $funcs['GLength']    = [
                 'params' => 1,
-                'type' => 'float'
+                'type' => 'float',
             ];
             $funcs['NumPoints']  = [
                 'params' => 1,
-                'type' => 'int'
+                'type' => 'int',
             ];
             $funcs['StartPoint'] = [
                 'params' => 1,
-                'type' => 'point'
+                'type' => 'point',
             ];
             $funcs['IsRing']     = [
                 'params' => 1,
-                'type' => 'int'
+                'type' => 'int',
             ];
         } elseif ($geom_type == 'multilinestring') {
             $funcs['GLength']  = [
                 'params' => 1,
-                'type' => 'float'
+                'type' => 'float',
             ];
             $funcs['IsClosed'] = [
                 'params' => 1,
-                'type' => 'int'
+                'type' => 'int',
             ];
         } elseif ($geom_type == 'polygon') {
             $funcs['Area']         = [
                 'params' => 1,
-                'type' => 'float'
+                'type' => 'float',
             ];
             $funcs['ExteriorRing'] = [
                 'params' => 1,
-                'type' => 'linestring'
+                'type' => 'linestring',
             ];
             $funcs['NumInteriorRings'] = [
                 'params' => 1,
-                'type' => 'int'
+                'type' => 'int',
             ];
         } elseif ($geom_type == 'multipolygon') {
             $funcs['Area']     = [
                 'params' => 1,
-                'type' => 'float'
+                'type' => 'float',
             ];
             $funcs['Centroid'] = [
                 'params' => 1,
-                'type' => 'point'
+                'type' => 'point',
             ];
             // Not yet implemented in MySQL
             //$funcs['PointOnSurface'] = array('params' => 1, 'type' => 'point');
         } elseif ($geom_type == 'geometrycollection') {
             $funcs['NumGeometries'] = [
                 'params' => 1,
-                'type' => 'int'
+                'type' => 'int',
             ];
         }
 
@@ -3735,70 +3719,70 @@ class Util
             if ($GLOBALS['dbi']->getVersion() < 50601) {
                 $funcs['Crosses']    = [
                     'params' => 2,
-                    'type' => 'int'
+                    'type' => 'int',
                 ];
                 $funcs['Contains']   = [
                     'params' => 2,
-                    'type' => 'int'
+                    'type' => 'int',
                 ];
                 $funcs['Disjoint']   = [
                     'params' => 2,
-                    'type' => 'int'
+                    'type' => 'int',
                 ];
                 $funcs['Equals']     = [
                     'params' => 2,
-                    'type' => 'int'
+                    'type' => 'int',
                 ];
                 $funcs['Intersects'] = [
                     'params' => 2,
-                    'type' => 'int'
+                    'type' => 'int',
                 ];
                 $funcs['Overlaps']   = [
                     'params' => 2,
-                    'type' => 'int'
+                    'type' => 'int',
                 ];
                 $funcs['Touches']    = [
                     'params' => 2,
-                    'type' => 'int'
+                    'type' => 'int',
                 ];
                 $funcs['Within']     = [
                     'params' => 2,
-                    'type' => 'int'
+                    'type' => 'int',
                 ];
             } else {
                 // If MySQl version is greater than or equal 5.6.1,
                 // use the ST_ prefix.
                 $funcs['ST_Crosses']    = [
                     'params' => 2,
-                    'type' => 'int'
+                    'type' => 'int',
                 ];
                 $funcs['ST_Contains']   = [
                     'params' => 2,
-                    'type' => 'int'
+                    'type' => 'int',
                 ];
                 $funcs['ST_Disjoint']   = [
                     'params' => 2,
-                    'type' => 'int'
+                    'type' => 'int',
                 ];
                 $funcs['ST_Equals']     = [
                     'params' => 2,
-                    'type' => 'int'
+                    'type' => 'int',
                 ];
                 $funcs['ST_Intersects'] = [
                     'params' => 2,
-                    'type' => 'int'
+                    'type' => 'int',
                 ];
                 $funcs['ST_Overlaps']   = [
                     'params' => 2,
-                    'type' => 'int'
+                    'type' => 'int',
                 ];
                 $funcs['ST_Touches']    = [
                     'params' => 2,
-                    'type' => 'int'
+                    'type' => 'int',
                 ];
                 $funcs['ST_Within']     = [
                     'params' => 2,
-                    'type' => 'int'
+                    'type' => 'int',
                 ];
             }
 
@@ -3808,31 +3792,31 @@ class Util
             // Minimum bounding rectangle functions
             $funcs['MBRContains']   = [
                 'params' => 2,
-                'type' => 'int'
+                'type' => 'int',
             ];
             $funcs['MBRDisjoint']   = [
                 'params' => 2,
-                'type' => 'int'
+                'type' => 'int',
             ];
             $funcs['MBREquals']     = [
                 'params' => 2,
-                'type' => 'int'
+                'type' => 'int',
             ];
             $funcs['MBRIntersects'] = [
                 'params' => 2,
-                'type' => 'int'
+                'type' => 'int',
             ];
             $funcs['MBROverlaps']   = [
                 'params' => 2,
-                'type' => 'int'
+                'type' => 'int',
             ];
             $funcs['MBRTouches']    = [
                 'params' => 2,
-                'type' => 'int'
+                'type' => 'int',
             ];
             $funcs['MBRWithin']     = [
                 'params' => 2,
-                'type' => 'int'
+                'type' => 'int',
             ];
         }
         return $funcs;
@@ -4170,7 +4154,7 @@ class Util
 
         foreach ($regex_array as $test_regex) {
             if (preg_match($test_regex, $query, $matches, PREG_OFFSET_CAPTURE)) {
-                if (is_null($minimum_first_occurence_index)
+                if ($minimum_first_occurence_index === null
                     || ($matches[0][1] < $minimum_first_occurence_index)
                 ) {
                     $regex = $test_regex;
@@ -4186,7 +4170,7 @@ class Util
      *
      * @param string $level 'server', 'db' or 'table' level
      *
-     * @return array list of tabs for the menu
+     * @return array|null list of tabs for the menu
      */
     public static function getMenuTabList($level = null)
     {
@@ -4785,10 +4769,11 @@ class Util
      * Generates random string consisting of ASCII chars
      *
      * @param integer $length Length of string
+     * @param bool    $asHex  (optional) Send the result as hex
      *
      * @return string
      */
-    public static function generateRandom($length)
+    public static function generateRandom(int $length, bool $asHex = false): string
     {
         $result = '';
         if (class_exists(Random::class)) {
@@ -4808,7 +4793,7 @@ class Util
                 $result .= chr($byte);
             }
         }
-        return $result;
+        return $asHex ? bin2hex($result) : $result;
     }
 
     /**
@@ -4952,7 +4937,7 @@ class Util
             $urlParams['tbl_group'] = $_REQUEST['tbl_group'];
         }
 
-        $url = 'db_structure.php' . Url::getCommon($urlParams);
+        $url = Url::getFromRoute('/database/structure', $urlParams);
 
         return self::linkOrButton($url, $title . $orderImg, $orderLinkParams);
     }

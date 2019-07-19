@@ -45,7 +45,7 @@ AJAX.registerOnload('database/qbe.js', function () {
      */
     $(document).on('change', '#searchId', function () {
         $('#action').val('load');
-        $('#formQBE').submit();
+        $('#formQBE').trigger('submit');
     });
 
     /**

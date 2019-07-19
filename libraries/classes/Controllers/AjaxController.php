@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 
@@ -83,7 +84,7 @@ class AjaxController extends AbstractController
 
     /**
      * @param array $params Request parameters
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function setConfig(array $params)
     {

@@ -561,7 +561,7 @@ class ImportMediawiki extends ImportPlugin
             return $cell;
         }
 
-        if (count($cell_data) == 1) {
+        if (count($cell_data) === 1) {
             return $cell_data[0];
         }
 

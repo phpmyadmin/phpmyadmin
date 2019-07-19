@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Utils\Table as TableUtils;
 
 /**
@@ -608,11 +609,11 @@ class Relation
             $cfgRelation['relwork']     = true;
         }
 
-        if (isset($cfgRelation['relation']) && isset($cfgRelation['table_info'])) {
+        if (isset($cfgRelation['relation'], $cfgRelation['table_info'])) {
             $cfgRelation['displaywork'] = true;
         }
 
-        if (isset($cfgRelation['table_coords']) && isset($cfgRelation['pdf_pages'])) {
+        if (isset($cfgRelation['table_coords'], $cfgRelation['pdf_pages'])) {
             $cfgRelation['pdfwork']     = true;
         }
 
@@ -651,7 +652,7 @@ class Relation
             $cfgRelation['bookmarkwork']     = true;
         }
 
-        if (isset($cfgRelation['users']) && isset($cfgRelation['usergroups'])) {
+        if (isset($cfgRelation['users'], $cfgRelation['usergroups'])) {
             $cfgRelation['menuswork']        = true;
         }
 
@@ -824,7 +825,7 @@ class Relation
             if ($show_create_table) {
                 $parser = new Parser($show_create_table);
                 /**
-                 * @var \PhpMyAdmin\SqlParser\Statements\CreateStatement $stmt
+                 * @var CreateStatement $stmt
                  */
                 $stmt = $parser->statements[0];
                 $foreign['foreign_keys_data'] = TableUtils::getForeignKeys(
@@ -867,7 +868,7 @@ class Relation
      * @param string $db    the name of the db to check for
      * @param string $table the name of the table to check for
      *
-     * @return string   field name
+     * @return string|false field name or false
      *
      * @access  public
      */
@@ -1469,7 +1470,7 @@ class Relation
             $moreThanLimit = $this->dbi->getTable($foreign_db, $foreign_table)
                 ->checkIfMinRecordsExist($GLOBALS['cfg']['ForeignKeyMaxLimit']);
 
-            if ($override_total == true
+            if ($override_total === true
                 || ! $moreThanLimit
             ) {
                 // foreign_display can be false if no display field defined:
@@ -1477,7 +1478,7 @@ class Relation
 
                 $f_query_main = 'SELECT ' . Util::backquote($foreign_field)
                     . (
-                        $foreign_display == false
+                        $foreign_display === false
                             ? ''
                             : ', ' . Util::backquote($foreign_display)
                     );
@@ -1487,13 +1488,13 @@ class Relation
                     . Util::backquote($foreign_field)
                     . ' LIKE "%' . $this->dbi->escapeString($foreign_filter) . '%"'
                     . (
-                    $foreign_display == false
+                    $foreign_display === false
                         ? ''
                         : ' OR ' . Util::backquote($foreign_display)
                         . ' LIKE "%' . $this->dbi->escapeString($foreign_filter)
                         . '%"'
                     );
-                $f_query_order = $foreign_display == false ? '' : ' ORDER BY '
+                $f_query_order = $foreign_display === false ? '' : ' ORDER BY '
                     . Util::backquote($foreign_table) . '.'
                     . Util::backquote($foreign_display);
 
@@ -1896,10 +1897,10 @@ class Relation
             $child_references = $this->getChildReferences($db, $table, $column);
         }
 
-        if (sizeof($child_references, 0) > 0
+        if (count($child_references) > 0
             || $foreigner
         ) {
-            if (sizeof($child_references, 0) > 0) {
+            if (count($child_references) > 0) {
                 $column_status['isReferenced'] = true;
                 foreach ($child_references as $columns) {
                     $column_status['references'][] = Util::backquote($columns['table_schema'])
@@ -2083,7 +2084,7 @@ class Relation
 
             if ($cfgRelation['recentwork']) {
                 $recent_tables = RecentFavoriteTable::getInstance('recent');
-                $_SESSION['tmpval']['recent_tables'][$GLOBALS['server']]
+                $_SESSION['tmpval']['recentTables'][$GLOBALS['server']]
                     = $recent_tables->getFromDb();
             }
 

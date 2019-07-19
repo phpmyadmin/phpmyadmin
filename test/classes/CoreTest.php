@@ -33,7 +33,6 @@ class CoreTest extends PmaTestCase
         'pdf_pages.php',
         'pdf_schema.php',
         'server_binlog.php',
-        'server_variables.php',
         'sql.php',
         'tbl_select.php',
         'transformation_overview.php',
@@ -82,7 +81,7 @@ class CoreTest extends PmaTestCase
                         'b',
                         'c',
                     ], 4,
-                ]
+                ],
             ],
         ];
 
@@ -185,7 +184,7 @@ class CoreTest extends PmaTestCase
                         'b',
                         'c',
                     ], 4,
-                ]
+                ],
             ],
         ];
 
@@ -254,7 +253,7 @@ class CoreTest extends PmaTestCase
                         'b',
                         'c',
                     ], 4,
-                ]
+                ],
             ],
         ];
 
@@ -1416,5 +1415,110 @@ class CoreTest extends PmaTestCase
         ob_end_clean();
 
         $this->assertGreaterThan(0, mb_strpos($printed, $warn));
+    }
+
+    /**
+     * Test for Core::signSqlQuery
+     *
+     * @return void
+     */
+    public function testSignSqlQuery()
+    {
+        $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
+        $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
+        $signature = Core::signSqlQuery($sqlQuery);
+        $hmac = '33371e8680a640dc05944a2a24e6e630d3e9e3dba24464135f2fb954c3a4ffe2';
+        $this->assertSame($hmac, $signature, 'The signature must match the computed one');
+    }
+
+    /**
+     * Test for Core::checkSqlQuerySignature
+     *
+     * @return void
+     */
+    public function testCheckSqlQuerySignature()
+    {
+        $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
+        $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
+        $hmac = '33371e8680a640dc05944a2a24e6e630d3e9e3dba24464135f2fb954c3a4ffe2';
+        $this->assertTrue(Core::checkSqlQuerySignature($sqlQuery, $hmac));
+    }
+
+    /**
+     * Test for Core::checkSqlQuerySignature
+     *
+     * @return void
+     */
+    public function testCheckSqlQuerySignatureFails()
+    {
+        $_SESSION[' HMAC_secret '] = hash('sha1', '132654987gguieunofz');
+        $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
+        $hmac = '33371e8680a640dc05944a2a24e6e630d3e9e3dba24464135f2fb954c3a4ffe2';
+        $this->assertFalse(Core::checkSqlQuerySignature($sqlQuery, $hmac));
+    }
+
+    /**
+     * Test for Core::checkSqlQuerySignature
+     *
+     * @return void
+     */
+    public function testCheckSqlQuerySignatureFailsBadHash()
+    {
+        $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
+        $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
+        $hmac = '3333333380a640dc05944a2a24e6e630d3e9e3dba24464135f2fb954c3eeeeee';
+        $this->assertFalse(Core::checkSqlQuerySignature($sqlQuery, $hmac));
+    }
+
+    /**
+     * Test for Core::checkSqlQuerySignature
+     *
+     * @return void
+     */
+    public function testCheckSqlQuerySignatureFailsNoSession()
+    {
+        $_SESSION[' HMAC_secret '] = 'empty';
+        $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
+        $hmac = '3333333380a640dc05944a2a24e6e630d3e9e3dba24464135f2fb954c3eeeeee';
+        $this->assertFalse(Core::checkSqlQuerySignature($sqlQuery, $hmac));
+    }
+
+    /**
+     * Test for Core::checkSqlQuerySignature
+     *
+     * @return void
+     */
+    public function testCheckSqlQuerySignatureFailsFromAnotherSession()
+    {
+        $_SESSION[' HMAC_secret '] = hash('sha1', 'firstSession');
+        $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
+        $hmac = Core::signSqlQuery($sqlQuery);
+        $this->assertTrue(Core::checkSqlQuerySignature($sqlQuery, $hmac));
+        $_SESSION[' HMAC_secret '] = hash('sha1', 'secondSession');
+        // Try to use the token (hmac) from the previous session
+        $this->assertFalse(Core::checkSqlQuerySignature($sqlQuery, $hmac));
+    }
+
+    /**
+     * Test for Core::checkSqlQuerySignature
+     *
+     * @return void
+     */
+    public function testCheckSqlQuerySignatureFailsBlowfishSecretChanged()
+    {
+        $GLOBALS['cfg']['blowfish_secret'] = '';
+        $_SESSION[' HMAC_secret '] = hash('sha1', 'firstSession');
+        $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
+        $hmac = Core::signSqlQuery($sqlQuery);
+        $this->assertTrue(Core::checkSqlQuerySignature($sqlQuery, $hmac));
+        $GLOBALS['cfg']['blowfish_secret'] = '32154987zd';
+        // Try to use the previous HMAC signature
+        $this->assertFalse(Core::checkSqlQuerySignature($sqlQuery, $hmac));
+
+        $GLOBALS['cfg']['blowfish_secret'] = '32154987zd';
+        // Generate the HMAC signature to check that it works
+        $hmac = Core::signSqlQuery($sqlQuery);
+        // Must work now, (good secret and blowfish_secret)
+        $this->assertTrue(Core::checkSqlQuerySignature($sqlQuery, $hmac));
     }
 }

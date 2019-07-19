@@ -74,7 +74,7 @@ class EnginesControllerTest extends TestCase
             $actual
         );
         $this->assertStringContainsString(
-            'server_engines.php?engine=FEDERATED',
+            'index.php?route=/server/engines&amp;engine=FEDERATED',
             $actual
         );
 
@@ -87,7 +87,7 @@ class EnginesControllerTest extends TestCase
             $actual
         );
         $this->assertStringContainsString(
-            'server_engines.php?engine=dummy',
+            'index.php?route=/server/engines&amp;engine=dummy',
             $actual
         );
     }
@@ -135,15 +135,7 @@ class EnginesControllerTest extends TestCase
             $actual
         );
         $this->assertStringContainsString(
-            Url::getCommon([
-                'engine' => 'Pbxt',
-                'page' => 'Documentation'
-            ]),
-            $actual
-        );
-
-        $this->assertStringContainsString(
-            Url::getCommon(['engine' => 'Pbxt']),
+            'index.php?route=/server/engines&amp;engine=Pbxt&amp;page=Documentation',
             $actual
         );
         $this->assertStringContainsString(

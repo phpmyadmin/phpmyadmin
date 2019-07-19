@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\MoTranslator\Loader;
 
 if (! defined('ROOT_PATH')) {
@@ -38,4 +39,4 @@ $GLOBALS['PMA_Config']->enableBc();// Defines constants, phpstan:level=1
 
 Loader::loadFunctions();
 
-DatabaseInterface::load();
+$GLOBALS['dbi'] = DatabaseInterface::load(new DbiDummy());

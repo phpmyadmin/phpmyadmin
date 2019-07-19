@@ -16,9 +16,9 @@ use PhpMyAdmin\Logging;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
-use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Session;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Url;
 
 /**
@@ -282,9 +282,7 @@ abstract class AuthenticationPlugin
 
         // Check IP-based Allow/Deny rules as soon as possible to reject the
         // user based on mod_access in Apache
-        if (isset($cfg['Server']['AllowDeny'])
-            && isset($cfg['Server']['AllowDeny']['order'])
-        ) {
+        if (isset($cfg['Server']['AllowDeny']['order'])) {
             $allowDeny_forbidden         = false; // default
             if ($cfg['Server']['AllowDeny']['order'] == 'allow,deny') {
                 $allowDeny_forbidden     = true;
@@ -346,7 +344,7 @@ abstract class AuthenticationPlugin
         $response = Response::getInstance();
         if ($response->loginPage()) {
             if (defined('TESTSUITE')) {
-                return true;
+                return;
             } else {
                 exit;
             }

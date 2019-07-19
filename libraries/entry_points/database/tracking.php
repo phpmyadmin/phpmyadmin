@@ -9,19 +9,18 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Display\CreateTable;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Tracking;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
-global $db, $pmaThemeImage, $text_dir, $url_query;
-
-require_once ROOT_PATH . 'libraries/common.inc.php';
+global $containerBuilder, $db, $pmaThemeImage, $text_dir, $url_query;
 
 //Get some js files needed for Ajax requests
 $response = Response::getInstance();
@@ -33,13 +32,16 @@ $scripts->addFile('database/tracking.js');
 /** @var Tracking $tracking */
 $tracking = $containerBuilder->get('tracking');
 
+/** @var Template $template */
+$template = $containerBuilder->get('template');
+
 /**
  * If we are not in an Ajax request, then do the common work and show the links etc.
  */
 require ROOT_PATH . 'libraries/db_common.inc.php';
-$url_query .= '&amp;goto=tbl_tracking.php&amp;back=db_tracking.php';
-$url_params['goto'] = 'tbl_tracking.php';
-$url_params['back'] = 'db_tracking.php';
+$url_params['goto'] = Url::getFromRoute('/table/tracking');
+$url_params['back'] = Url::getFromRoute('/database/tracking');
+$url_query .= Url::getCommon($url_params, '&');
 
 // Get the database structure
 $sub_part = '_structure';
@@ -54,9 +56,9 @@ list(
     $tooltip_truename,
     $tooltip_aliasname,
     $pos
-) = Util::getDbInfo($db, is_null($sub_part) ? '' : $sub_part);
+) = Util::getDbInfo($db, $sub_part === null ? '' : $sub_part);
 
-if (isset($_POST['delete_tracking']) && isset($_POST['table'])) {
+if (isset($_POST['delete_tracking'], $_POST['table'])) {
     Tracker::deleteTracking($db, $_POST['table']);
     Message::success(
         __('Tracking data deleted successfully.')
@@ -82,12 +84,15 @@ if (isset($_POST['delete_tracking']) && isset($_POST['table'])) {
                 __('Tracking data deleted successfully.')
             )->display();
         } elseif ($_POST['submit_mult'] == 'track') {
-            echo $tracking->getHtmlForDataDefinitionAndManipulationStatements(
-                'db_tracking.php' . $url_query,
-                0,
-                $db,
-                $_POST['selected_tbl']
-            );
+            echo $template->render('create_tracking_version', [
+                'route' => '/database/tracking',
+                'url_params' => $url_params,
+                'last_version' => 0,
+                'db' => $db,
+                'selected' => $_POST['selected_tbl'],
+                'type' => 'both',
+                'default_statements' => $GLOBALS['cfg']['Server']['tracking_default_statements'],
+            ]);
             exit;
         }
     } else {
@@ -101,7 +106,7 @@ if (isset($_POST['delete_tracking']) && isset($_POST['table'])) {
 $data = Tracker::getTrackedData($db, '', '1');
 
 // No tables present and no log exist
-if ($num_tables == 0 && count($data['ddlog']) == 0) {
+if ($num_tables == 0 && count($data['ddlog']) === 0) {
     echo '<p>' , __('No tables found in database.') , '</p>' , "\n";
 
     if (empty($db_is_system_schema)) {
@@ -113,7 +118,7 @@ if ($num_tables == 0 && count($data['ddlog']) == 0) {
 // ---------------------------------------------------------------------------
 echo $tracking->getHtmlForDbTrackingTables(
     $db,
-    $url_query,
+    $url_params,
     $pmaThemeImage,
     $text_dir
 );

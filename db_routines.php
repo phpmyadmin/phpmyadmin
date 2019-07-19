@@ -10,37 +10,33 @@ declare(strict_types=1);
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\Database\RoutinesController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use Symfony\Component\DependencyInjection\Definition;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-global $db, $table;
-
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
-
 /** @var Response $response */
-$response = $container->get(Response::class);
+$response = $containerBuilder->get(Response::class);
 
 /** @var DatabaseInterface $dbi */
-$dbi = $container->get(DatabaseInterface::class);
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
-$checkUserPrivileges = new CheckUserPrivileges($dbi);
+/** @var string $db */
+$db = $containerBuilder->getParameter('db');
+
+/** @var string $table */
+$table = $containerBuilder->getParameter('table');
+
+/** @var CheckUserPrivileges $checkUserPrivileges */
+$checkUserPrivileges = $containerBuilder->get('check_user_privileges');
 $checkUserPrivileges->getPrivileges();
 
 $_PMA_RTE = 'RTN';
-
-/** @var Definition $definition */
-$definition = $containerBuilder->getDefinition(RoutinesController::class);
-$definition->replaceArgument('db', $container->get('db'));
 
 /** @var RoutinesController $controller */
 $controller = $containerBuilder->get(RoutinesController::class);

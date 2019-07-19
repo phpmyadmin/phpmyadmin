@@ -55,7 +55,7 @@ AJAX.registerOnload('database/central_columns.js', function () {
         }
         Functions.ajaxShowMessage();
         $('#del_col_name').val(multiDeleteColumns);
-        $('#del_form').submit();
+        $('#del_form').trigger('submit');
     });
     $('#tableslistcontainer').find('button[name="edit_central_columns"]').on('click', function (event) {
         event.preventDefault();
@@ -120,7 +120,7 @@ AJAX.registerOnload('database/central_columns.js', function () {
         $td.confirm(question, null, function () {
             var rownum = $td.data('rownum');
             $('#del_col_name').val('selected_fld%5B%5D=' + $('#checkbox_row_' + rownum).val());
-            $('#del_form').submit();
+            $('#del_form').trigger('submit');
         });
     });
     $('.edit_cancel_form').on('click', function (event) {

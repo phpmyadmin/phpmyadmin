@@ -13,11 +13,11 @@ namespace PhpMyAdmin\Plugins\Export;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\ExportPlugin;
-use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
+use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Util;
 
 /* Can't do server export */
@@ -275,7 +275,7 @@ class ExportXml extends ExportPlugin
                 . '" collation="' . htmlspecialchars($db_collation) . '" charset="' . htmlspecialchars($db_charset)
                 . '">' . $crlf;
 
-            if (is_null($tables)) {
+            if ($tables === null) {
                 $tables = [];
             }
 
@@ -338,8 +338,7 @@ class ExportXml extends ExportPlugin
                             $head .= '            </pma:trigger>' . $crlf;
                         }
 
-                        unset($trigger);
-                        unset($triggers);
+                        unset($trigger, $triggers);
                     }
                 }
             }
@@ -417,7 +416,7 @@ class ExportXml extends ExportPlugin
             && $GLOBALS['xml_export_contents']
         ) {
             $head = '    <!--' . $crlf
-                . '    - ' . __('Database:') . ' ' . '\''
+                . '    - ' . __('Database:') . ' \''
                 . htmlspecialchars($db_alias) . '\'' . $crlf
                 . '    -->' . $crlf . '    <database name="'
                 . htmlspecialchars($db_alias) . '">' . $crlf;
@@ -524,7 +523,7 @@ class ExportXml extends ExportPlugin
                     }
                     // If a cell is NULL, still export it to preserve
                     // the XML structure
-                    if (! isset($record[$i]) || is_null($record[$i])) {
+                    if (! isset($record[$i]) || $record[$i] === null) {
                         $record[$i] = 'NULL';
                     }
                     $buffer .= '            <column name="'

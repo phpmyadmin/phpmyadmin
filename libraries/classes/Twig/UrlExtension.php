@@ -47,6 +47,11 @@ class UrlExtension extends AbstractExtension
                 'PhpMyAdmin\Url::getCommonRaw',
                 ['is_safe' => ['html']]
             ),
+            new TwigFunction(
+                'url',
+                'PhpMyAdmin\Url::getFromRoute',
+                ['is_safe' => ['html']]
+            ),
         ];
     }
 }

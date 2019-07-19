@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Transformations;
@@ -24,14 +23,11 @@ global $db, $table;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
-
 /** @var Response $response */
-$response = $container->get(Response::class);
+$response = $containerBuilder->get(Response::class);
 
 /** @var DatabaseInterface $dbi */
-$dbi = $container->get(DatabaseInterface::class);
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
 /** @var Transformations $transformations */
 $transformations = $containerBuilder->get('transformations');

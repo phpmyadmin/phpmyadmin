@@ -9,8 +9,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Utils;
 
-use PhpMyAdmin\Utils\HttpRequest;
 use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Utils\HttpRequest;
 use ReflectionClass;
 
 /**

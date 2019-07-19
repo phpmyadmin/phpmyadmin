@@ -777,7 +777,7 @@ class PdfRelationSchema extends ExportRelationSchema
                     isset($comments[$field_name])
                         ? $comments[$field_name]
                         : '',
-                    isset($mime_map) && isset($mime_map[$field_name])
+                    isset($mime_map, $mime_map[$field_name])
                         ? str_replace('_', '/', $mime_map[$field_name]['mimetype'])
                         : '',
                 ];

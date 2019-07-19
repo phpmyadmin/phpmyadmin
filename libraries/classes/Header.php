@@ -261,11 +261,9 @@ class Header
             'is_https' => $GLOBALS['PMA_Config']->isHttps(),
             'rootPath' => $GLOBALS['PMA_Config']->getRootPath(),
             'arg_separator' => Url::getArgSeparator(),
-            'PMA_VERSION' => PMA_VERSION
+            'PMA_VERSION' => PMA_VERSION,
         ];
-        if (isset($GLOBALS['cfg']['Server'])
-            && isset($GLOBALS['cfg']['Server']['auth_type'])
-        ) {
+        if (isset($GLOBALS['cfg']['Server'], $GLOBALS['cfg']['Server']['auth_type'])) {
             $params['auth_type'] = $GLOBALS['cfg']['Server']['auth_type'];
             if (isset($GLOBALS['cfg']['Server']['user'])) {
                 $params['user'] = $GLOBALS['cfg']['Server']['user'];

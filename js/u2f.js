@@ -23,7 +23,7 @@ AJAX.registerOnload('u2f.js', function () {
 
                 // Fill and submit form.
                 $inputReg.val(JSON.stringify(data));
-                $formReg.submit();
+                $formReg.trigger('submit');
             });
         }, 1000);
     }
@@ -50,7 +50,7 @@ AJAX.registerOnload('u2f.js', function () {
 
                 // Fill and submit form.
                 $inputAuth.val(JSON.stringify(data));
-                $formAuth.submit();
+                $formAuth.trigger('submit');
             });
         }, 1000);
     }

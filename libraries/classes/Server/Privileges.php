@@ -222,18 +222,18 @@ class Privileges
             $grants = $this->getGrantsArray();
         }
 
-        if (! is_null($row) && isset($row['Table_priv'])) {
+        if ($row !== null && isset($row['Table_priv'])) {
             $this->fillInTablePrivileges($row);
         }
 
         $privs = [];
         $allPrivileges = true;
         foreach ($grants as $current_grant) {
-            if ((! is_null($row) && isset($row[$current_grant[0]]))
-                || (is_null($row) && isset($GLOBALS[$current_grant[0]]))
+            if (($row !== null && isset($row[$current_grant[0]]))
+                || ($row === null && isset($GLOBALS[$current_grant[0]]))
             ) {
-                if ((! is_null($row) && $row[$current_grant[0]] == 'Y')
-                    || (is_null($row)
+                if (($row !== null && $row[$current_grant[0]] == 'Y')
+                    || ($row === null
                     && ($GLOBALS[$current_grant[0]] == 'Y'
                     || (is_array($GLOBALS[$current_grant[0]])
                     && count($GLOBALS[$current_grant[0]]) == $_REQUEST['column_count']
@@ -271,7 +271,7 @@ class Privileges
             if ($enableHTML) {
                 $privs = ['<dfn title="'
                     . __('Includes all privileges except GRANT.')
-                    . '">ALL PRIVILEGES</dfn>'
+                    . '">ALL PRIVILEGES</dfn>',
                 ];
             } else {
                 $privs = ['ALL PRIVILEGES'];
@@ -610,7 +610,7 @@ class Privileges
         return $this->template->render('server/privileges/choose_user_group', [
             'all_user_groups' => $allUserGroups,
             'user_group' => $userGroup,
-            'params' => ['username' => $username]
+            'params' => ['username' => $username],
         ]);
     }
 
@@ -624,7 +624,7 @@ class Privileges
      */
     public function setUserGroup($username, $userGroup)
     {
-        $userGroup = is_null($userGroup) ? '' : $userGroup;
+        $userGroup = $userGroup === null ? '' : $userGroup;
         $cfgRelation = $this->relation->getRelationsParam();
         if (empty($cfgRelation['db']) || empty($cfgRelation['users']) || empty($cfgRelation['usergroups'])) {
             return;
@@ -1937,9 +1937,7 @@ class Privileges
         $authentication_plugin = 'mysql_native_password';
         $serverVersion = $this->dbi->getVersion();
 
-        if (isset($username) && isset($hostname)
-            && $mode == 'change'
-        ) {
+        if (isset($username, $hostname) && $mode == 'change') {
             $row = $this->dbi->fetchSingleRow(
                 'SELECT `plugin` FROM `mysql`.`user` WHERE '
                 . '`User` = "' . $username . '" AND `Host` = "' . $hostname . '" LIMIT 1'
@@ -2006,10 +2004,7 @@ class Privileges
         // similar logic in user_password.php
         $message = null;
 
-        if (empty($_POST['nopass'])
-            && isset($_POST['pma_pw'])
-            && isset($_POST['pma_pw2'])
-        ) {
+        if (isset($_POST['pma_pw'], $_POST['pma_pw2']) && empty($_POST['nopass'])) {
             if ($_POST['pma_pw'] != $_POST['pma_pw2']) {
                 $message = Message::error(__('The passwords aren\'t the same!'));
             } elseif (empty($_POST['pma_pw']) || empty($_POST['pma_pw2'])) {
@@ -2447,11 +2442,11 @@ class Privileges
                 . '</td>'
                 . '<td>' . htmlspecialchars($row['Host'])
                 . '</td>'
-                . '<td>' . 'routine'
+                . '<td>routine'
                 . '</td>'
-                . '<td>' . '<code>' . htmlspecialchars($row['Routine_name']) . '</code>'
+                . '<td><code>' . htmlspecialchars($row['Routine_name']) . '</code>'
                 . '</td>'
-                . '<td>' . 'Yes'
+                . '<td>Yes'
                 . '</td>';
             $current_user = $row['User'];
             $current_host = $row['Host'];
@@ -2554,7 +2549,7 @@ class Privileges
         }
 
         $response = Response::getInstance();
-        if ($response->isAjax() == true
+        if ($response->isAjax() === true
             && empty($_REQUEST['ajax_page_request'])
         ) {
             $message = Message::success(__('User has been added.'));
@@ -4206,7 +4201,7 @@ class Privileges
     {
         if (isset($_POST['change_copy'])) {
             $selected_usr = [
-                $_POST['old_username'] . '&amp;#27;' . $_POST['old_hostname']
+                $_POST['old_username'] . '&amp;#27;' . $_POST['old_hostname'],
             ];
         } else {
             $selected_usr = $_POST['selected_usr'];
@@ -4245,7 +4240,7 @@ class Privileges
      *
      * @return Message|null
      */
-    public function updateMessageForReload()
+    public function updateMessageForReload(): ?Message
     {
         $message = null;
         if (isset($_GET['flush_privileges'])) {
@@ -4269,7 +4264,7 @@ class Privileges
      * @param array      $queries             queries array
      * @param array|null $queries_for_display queries array for display
      *
-     * @return null
+     * @return array
      */
     public function getDataForQueries(array $queries, $queries_for_display)
     {
@@ -4382,13 +4377,11 @@ class Privileges
         if (empty($_POST['change_copy'])) {
             $_error = false;
 
-            if (! is_null($create_user_real)) {
+            if ($create_user_real !== null) {
                 if (! $this->dbi->tryQuery($create_user_real)) {
                     $_error = true;
                 }
-                if (isset($password_set_real) && ! empty($password_set_real)
-                    && isset($_POST['authentication_plugin'])
-                ) {
+                if (isset($password_set_real, $_POST['authentication_plugin']) && ! empty($password_set_real)) {
                     $this->setProperPasswordHashing(
                         $_POST['authentication_plugin']
                     );
@@ -4427,14 +4420,12 @@ class Privileges
             isset($_POST['old_usergroup']) ? $_POST['old_usergroup'] : null;
         $this->setUserGroup($_POST['username'], $old_usergroup);
 
-        if (is_null($create_user_real)) {
+        if ($create_user_real === null) {
             $queries[] = $create_user_real;
         }
         $queries[] = $real_sql_query;
 
-        if (isset($password_set_real) && ! empty($password_set_real)
-            && isset($_POST['authentication_plugin'])
-        ) {
+        if (isset($password_set_real, $_POST['authentication_plugin']) && ! empty($password_set_real)) {
             $this->setProperPasswordHashing(
                 $_POST['authentication_plugin']
             );
@@ -4554,14 +4545,13 @@ class Privileges
         if (isset($is_valid_pred_dbname) && $is_valid_pred_dbname) {
             $dbname = $_POST['pred_dbname'];
             // If dbname contains only one database.
-            if (count($dbname) == 1) {
+            if (count($dbname) === 1) {
                 $dbname = $dbname[0];
             }
         } elseif (isset($is_valid_dbname) && $is_valid_dbname) {
             $dbname = $_REQUEST['dbname'];
         } else {
-            unset($dbname);
-            unset($tablename);
+            unset($dbname, $tablename);
         }
 
         if (isset($dbname)) {

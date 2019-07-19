@@ -32,7 +32,7 @@ class NodeEventContainer extends NodeDatabaseChildContainer
             'icon' => 'db_events.php?server=' . $GLOBALS['server']
                 . '&amp;db=%1$s',
         ];
-        $this->real_name = 'events';
+        $this->realName = 'events';
 
         $new = NodeFactory::getInstance(
             'Node',

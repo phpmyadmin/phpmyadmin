@@ -8,9 +8,8 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Table\GisVisualizationController;
-use PhpMyAdmin\Di\Container;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Core;
 use Symfony\Component\DependencyInjection\Definition;
 
 if (! defined('ROOT_PATH')) {
@@ -19,15 +18,19 @@ if (! defined('ROOT_PATH')) {
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
-$container->alias('response', Response::class);
+$sqlQuery = null;
+
+if (isset($_GET['sql_query'], $_GET['sql_signature'])) {
+    if (Core::checkSqlQuerySignature($_GET['sql_query'], $_GET['sql_signature'])) {
+        $sqlQuery = $_GET['sql_query'];
+    }
+} elseif (isset($_POST['sql_query'])) {
+    $sqlQuery = $_POST['sql_query'];
+}
 
 /* Define dependencies for the concerned controller */
 $dependency_definitions = [
-    'db' => $container->get('db'),
-    'table' => $container->get('table'),
-    'sql_query' => &$GLOBALS['sql_query'],
+    'sql_query' => $sqlQuery,
     'url_params' => &$GLOBALS['url_params'],
     'goto' => Util::getScriptNameForOption(
         $GLOBALS['cfg']['DefaultTabDatabase'],

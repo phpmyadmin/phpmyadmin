@@ -220,7 +220,7 @@ Navigation.collapseTreeNode = function ($expandElem) {
             $children.slideUp('fast');
         }
     }
-    $expandElem.blur();
+    $expandElem.trigger('blur');
     $children.promise().done(Navigation.treeStateUpdate);
 };
 
@@ -720,7 +720,7 @@ Navigation.expandTreeNode = function ($expandElem, callback) {
             $children.promise().done(Navigation.treeStateUpdate);
         });
     }
-    $expandElem.blur();
+    $expandElem.trigger('blur');
 };
 
 /**
@@ -1448,7 +1448,7 @@ Navigation.FastFilter = {
             if ($(this).val() === this.defaultValue) {
                 $(this).val('');
             } else {
-                $(this).select();
+                $(this).trigger('select');
             }
         },
         blur: function () {
@@ -1647,7 +1647,7 @@ Navigation.FastFilter.Filter.prototype.restore = function (focus) {
         this.$this.html(this.$clone.html()).children().show();
         this.$this.data('fastFilter', this);
         if (focus) {
-            this.$this.find('li.fast_filter input.searchClause').focus();
+            this.$this.find('li.fast_filter input.searchClause').trigger('focus');
         }
     }
     this.searchClause = '';

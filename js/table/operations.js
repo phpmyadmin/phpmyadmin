@@ -100,10 +100,10 @@ AJAX.registerOnload('table/operations.js', function () {
         } else {
             if ($tblCollationField.val() !== collationOrigValue && $changeAllColumnCollationsCheckBox.is(':checked')) {
                 $form.confirm(question, $form.attr('action'), function () {
-                    $form.removeClass('ajax').submit().addClass('ajax');
+                    $form.removeClass('ajax').trigger('submit').addClass('ajax');
                 });
             } else {
-                $form.removeClass('ajax').submit().addClass('ajax');
+                $form.removeClass('ajax').trigger('submit').addClass('ajax');
             }
         }
 

@@ -70,7 +70,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
                         1 => [
                             'x' => 6.14,
                             'y' => 0.15,
-                        ]
+                        ],
                     ],
                     1 => [
                         'no_of_points' => 2,
@@ -81,8 +81,8 @@ class GisMultiLineStringTest extends GisGeomTestCase
                         1 => [
                             'x' => 9.15,
                             'y' => 0.47,
-                        ]
-                    ]
+                        ],
+                    ],
                 ],
             ],
         ];
@@ -215,7 +215,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
                         'x' => 9.15,
                         'y' => 0.47,
                     ],
-                ]
+                ],
             ],
         ];
 
@@ -228,7 +228,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
                 null,
                 [
                     'srid' => '124',
-                    0 => $temp
+                    0 => $temp,
                 ],
             ],
             [

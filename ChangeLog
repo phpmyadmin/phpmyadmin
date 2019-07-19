@@ -1,6 +1,10 @@
 phpMyAdmin - ChangeLog
 ======================
 
+5.1.0 (not yet released)
+- issue #15350 Change Media (MIME) type references to Media type
+- issue #15377 Add a request router
+
 5.0.0 (not yet released)
 - issue #13896 Drop support for PHP 5.5, PHP 5.6, PHP 7.0 and HHVM
 - issue #14007 Enable columns names by default for CSV exports
@@ -37,8 +41,21 @@ phpMyAdmin - ChangeLog
 - issue #15072 Add 'Close' button to the Monitor Instructions modal
 - issue #15174 Improved filter method in server variables page
 - issue #15266 Add an external dependency injection system
+- issue #15350 Change MIME type references to Media (MIME) type
 
 4.9.1 (not yet released)
+- issue #15313 Added support for Twig 2
+- issue #15315 Fix cannot edit or export column with default CURRENT_TIMESTAMP in MySQL >= 8.0.13
+- issue        Fix a TypeError in Import class with PHP 8
+- issue #14270 Fix Middle-click on foreign key link broken
+- issue #14363 Fix broken relational links in tables
+- issue #14987 Fix weird error for empty collation
+- issue #15334 Fix export of GIS visualisation not working (PNG, PDF, SVG)
+- issue #14918 Use hex for the phpMyAdmin session token
+- issue        Added GB18030 Chinese collations description
+- issue        Added Russian, Swedish, Slovak and Chinese UCA 9.0.0 collations description
+- issue        Added description for the _ks (kana-sensitive) collation suffix
+- issue        Added description for the _nopad (NO PAD) collation suffix
 
 4.9.0.1 (2019-06-04)
 - issue #14478 phpMyAdmin no longer streams the export data

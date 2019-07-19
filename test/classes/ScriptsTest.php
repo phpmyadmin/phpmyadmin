@@ -12,6 +12,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Scripts;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionClass;
+use ReflectionProperty;
 
 /**
  * Tests for Script.php
@@ -127,7 +128,7 @@ class ScriptsTest extends PmaTestCase
      */
     public function testAddFile()
     {
-        $reflection = new \ReflectionProperty(Scripts::class, '_files');
+        $reflection = new ReflectionProperty(Scripts::class, '_files');
         $reflection->setAccessible(true);
 
         // Assert empty _files property of
@@ -155,7 +156,7 @@ class ScriptsTest extends PmaTestCase
      */
     public function testAddFiles()
     {
-        $reflection = new \ReflectionProperty(Scripts::class, '_files');
+        $reflection = new ReflectionProperty(Scripts::class, '_files');
         $reflection->setAccessible(true);
 
         $filenames = [

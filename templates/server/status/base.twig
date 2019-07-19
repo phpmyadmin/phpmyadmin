@@ -11,7 +11,7 @@
       </a>
     </li>
     <li>
-      <a href="server_status_queries.php{{ get_common() }}"{{ active == 'queries' ? ' class="tabactive"' }}>
+      <a href="{{ url('/server/status/queries') }}"{{ active == 'queries' ? ' class="tabactive"' }}>
         {% trans 'Query statistics' %}
       </a>
     </li>

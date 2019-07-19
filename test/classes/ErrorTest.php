@@ -62,7 +62,7 @@ class ErrorTest extends PmaTestCase
                 'file' => 'bt1',
                 'line' => 2,
                 'function' => 'bar',
-                'args' => ['foo' => $this]
+                'args' => ['foo' => $this],
             ],
         ];
         $this->object->setBacktrace($bt);
@@ -191,25 +191,25 @@ class ErrorTest extends PmaTestCase
                 'file' => 'bt1',
                 'line' => 2,
                 'function' => 'bar',
-                'args' => ['foo' => 1]
+                'args' => ['foo' => 1],
             ],
             [
                 'file' => 'bt2',
                 'line' => 2,
                 'function' => 'bar',
-                'args' => ['foo' => 2]
+                'args' => ['foo' => 2],
             ],
             [
                 'file' => 'bt3',
                 'line' => 2,
                 'function' => 'bar',
-                'args' => ['foo' => 3]
+                'args' => ['foo' => 3],
             ],
             [
                 'file' => 'bt4',
                 'line' => 2,
                 'function' => 'bar',
-                'args' => ['foo' => 4]
+                'args' => ['foo' => 4],
             ],
         ];
 
