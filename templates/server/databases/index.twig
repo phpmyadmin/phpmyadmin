@@ -174,8 +174,7 @@
                 {% endif %}
 
                 <td class="name">
-                  <a href="{{ get_script_name_for_option(default_tab_database, 'database') }}
-                    {{- get_common({'db': database.name}) }}" title="
+                  <a href="{{ database.url }}" title="
                     {{- "Jump to database '%s'"|trans|format(database.name) }}">
                     {{ database.name }}
                   </a>
