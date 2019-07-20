@@ -14,8 +14,8 @@ namespace PhpMyAdmin\Plugins\Import;
 use PhpMyAdmin\Import;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
-use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\NumberPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Util;
 
 /**
@@ -145,7 +145,7 @@ class ImportCsv extends AbstractImportCsv
         $import_file_name = basename($import_file_name, ".csv");
         $import_file_name = mb_strtolower($import_file_name);
         $import_file_name = preg_replace("/[^a-zA-Z0-9_]/", "_", $import_file_name);
-        
+
         $replacements = [
             '\\n' => "\n",
             '\\t' => "\t",
@@ -683,7 +683,7 @@ class ImportCsv extends AbstractImportCsv
                 $tbl_name = $_REQUEST['csv_new_tbl_name'];
             } elseif (mb_strlen((string) $db)) {
                 $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
-                
+
                 // logic to get table name from filename
                 // if no table then use filename as table name
                 if (count($result) === 0) {
@@ -751,8 +751,7 @@ class ImportCsv extends AbstractImportCsv
             /* Created and execute necessary SQL statements from data */
             $this->import->buildSql($db_name, $tables, $analyses, $create, $options, $sql_data);
 
-            unset($tables);
-            unset($analyses);
+            unset($tables, $analyses);
         }
 
         // Commit any possible data in buffers

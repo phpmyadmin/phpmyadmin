@@ -35,7 +35,7 @@ $import = new Import();
 
 $response = Response::getInstance();
 $response->addHTML(
-    $import->get(
+    $import::get(
         'server',
         $db,
         $table,

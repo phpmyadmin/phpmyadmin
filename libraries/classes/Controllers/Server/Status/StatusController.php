@@ -11,6 +11,10 @@ namespace PhpMyAdmin\Controllers\Server\Status;
 
 use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\Util;
+use Throwable;
+use Twig_Error_Loader;
+use Twig_Error_Runtime;
+use Twig_Error_Syntax;
 
 /**
  * Class StatusController
@@ -22,10 +26,10 @@ class StatusController extends AbstractController
      * @param ReplicationGui $replicationGui ReplicationGui instance
      *
      * @return string
-     * @throws \Throwable
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
+     * @throws Throwable
+     * @throws Twig_Error_Loader
+     * @throws Twig_Error_Runtime
+     * @throws Twig_Error_Syntax
      */
     public function index(ReplicationGui $replicationGui): string
     {

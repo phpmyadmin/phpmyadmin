@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Server\ReplicationController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\Response;
 
@@ -21,14 +20,11 @@ require_once ROOT_PATH . 'libraries/common.inc.php';
 require_once ROOT_PATH . 'libraries/server_common.inc.php';
 require_once ROOT_PATH . 'libraries/replication.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
-
 /** @var Response $response */
-$response = $container->get(Response::class);
+$response = $containerBuilder->get(Response::class);
 
 /** @var DatabaseInterface $dbi */
-$dbi = $container->get(DatabaseInterface::class);
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
 /** @var ReplicationController $controller */
 $controller = $containerBuilder->get(ReplicationController::class);
@@ -38,7 +34,7 @@ $replicationGui = $containerBuilder->get('replication_gui');
 
 $header = $response->getHeader();
 $scripts = $header->getScripts();
-$scripts->addFile('server_privileges.js');
+$scripts->addFile('server/privileges.js');
 $scripts->addFile('replication.js');
 $scripts->addFile('vendor/zxcvbn.js');
 

@@ -145,7 +145,7 @@ $js_messages['strYValues'] = __('Y values');
 /* Database multi-table query */
 $js_messages['strEmptyQuery'] = __('Please enter the SQL query first.');
 
-/* For server_privileges.js */
+/* For server/privileges.js */
 $js_messages['strHostEmpty'] = __('The host name is empty!');
 $js_messages['strUserEmpty'] = __('The user name is empty!');
 $js_messages['strPasswordEmpty'] = __('The password is empty!');
@@ -385,7 +385,7 @@ $js_messages['strAddingPrimaryKey'] = __('Adding primary key');
 $js_messages['strOK'] = __('OK');
 $js_messages['strDismiss'] = __('Click to dismiss this notification');
 
-/* For db_operations.js */
+/* For database/operations.js */
 $js_messages['strRenamingDatabases'] = __('Renaming databases');
 $js_messages['strCopyingDatabase'] = __('Copying database');
 $js_messages['strChangingCharset'] = __('Changing charset');
@@ -397,7 +397,7 @@ $js_messages['strForeignKeyCheck'] = __('Enable foreign key checks');
 /* For db_stucture.js */
 $js_messages['strErrorRealRowCount'] = __('Failed to get real row count.');
 
-/* For db_search.js */
+/* For database/search.js */
 $js_messages['strSearching'] = __('Searching');
 $js_messages['strHideSearchResults'] = __('Hide search results');
 $js_messages['strShowSearchResults'] = __('Show search results');
@@ -487,10 +487,10 @@ $js_messages['strConfirmTd'] = __('Confirm transitive dependencies');
 $js_messages['strSelectedTd'] = __('Selected dependencies are as follows:');
 $js_messages['strNoTdSelected'] = __('No dependencies selected!');
 
-/* For server_variables.js */
+/* For server/variables.js */
 $js_messages['strSave'] = __('Save');
 
-/* For tbl_select.js */
+/* For table/select.js */
 $js_messages['strHideSearchCriteria'] = __('Hide search criteria');
 $js_messages['strShowSearchCriteria'] = __('Show search criteria');
 $js_messages['strRangeSearch'] = __('Range search');
@@ -499,11 +499,11 @@ $js_messages['strColumnMin'] = __('Column minimum:');
 $js_messages['strMinValue'] = __('Minimum value:');
 $js_messages['strMaxValue'] = __('Maximum value:');
 
-/* For tbl_find_replace.js */
+/* For table/find_replace.js */
 $js_messages['strHideFindNReplaceCriteria'] = __('Hide find and replace criteria');
 $js_messages['strShowFindNReplaceCriteria'] = __('Show find and replace criteria');
 
-/* For tbl_zoom_plot_jqplot.js */
+/* For table/zoom_plot_jqplot.js */
 $js_messages['strDisplayHelp'] = '<ul><li>'
     . __('Each point represents a data row.')
     . '</li><li>'
@@ -524,7 +524,7 @@ $js_messages['strSameInputs'] = '<strong>'
     . '</strong>';
 $js_messages['strDataPointContent'] = __('Data point content');
 
-/* For tbl_change.js */
+/* For table/change.js */
 $js_messages['strIgnore'] = __('Ignore');
 $js_messages['strCopy'] = __('Copy');
 $js_messages['strX'] = __('X');
@@ -745,7 +745,7 @@ $js_messages['strConsoleDebugShowArgs'] = __('Show arguments');
 $js_messages['strConsoleDebugHideArgs'] = __('Hide arguments');
 $js_messages['strConsoleDebugTimeTaken'] = __('Time taken:');
 $js_messages['strNoLocalStorage'] = __('There was a problem accessing your browser storage, some features may not work properly for you. It is likely that the browser doesn\'t support storage or the quota limit has been reached. In Firefox, corrupted storage can also cause such a problem, clearing your "Offline Website Data" might help. In Safari, such problem is commonly caused by "Private Mode Browsing".');
-// For modals in db_structure.php
+// For modals in /database/structure
 $js_messages['strCopyTablesTo'] = __('Copy tables to');
 $js_messages['strAddPrefix'] = __('Add table prefix');
 $js_messages['strReplacePrefix'] = __('Replace table with prefix');

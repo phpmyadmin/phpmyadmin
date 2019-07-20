@@ -41,7 +41,7 @@ $(function () {
 });
 
 // set document width
-$(document).ready(function () {
+$(function () {
     var width = 0;
     $('ul.tabs li').each(function () {
         width += $(this).width() + 10;

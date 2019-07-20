@@ -228,7 +228,7 @@ class ProcessesControllerTest extends TestCase
             'Command' => 'Command1',
             'Info' => 'Info1',
             'State' => 'State1',
-            'Time' => 'Time1'
+            'Time' => 'Time1',
         ];
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 12;
         $GLOBALS['dbi']->expects($this->any())->method('fetchAssoc')

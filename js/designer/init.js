@@ -9,13 +9,16 @@
 /* global DesignerPage */ // js/designer/page.js
 /* global designerConfig */ // templates/database/designer/main.twig
 
+/* eslint-disable no-unused-vars */
 var jTabs;
 var hTabs;
 var contr;
 var displayField;
 var server;
-var db;
 var selectedPage;
+/* eslint-enable no-unused-vars */
+
+var db;
 var designerTablesEnabled;
 
 AJAX.registerTeardown('designer/init.js', function () {
@@ -51,15 +54,15 @@ AJAX.registerOnload('designer/init.js', function () {
     }
 
     $('#query_Aggregate_Button').on('click', function () {
-        document.getElementById('query_Aggregate').style.display = 'none';
+        $('#query_Aggregate').style.display = 'none';
     });
 
     $('#query_having_button').on('click', function () {
-        document.getElementById('query_having').style.display = 'none';
+        $('#query_having').style.display = 'none';
     });
 
     $('#query_rename_to_button').on('click', function () {
-        document.getElementById('query_rename_to').style.display = 'none';
+        $('#query_rename_to').style.display = 'none';
     });
 
     $('#build_query_button').on('click', function () {
@@ -67,6 +70,6 @@ AJAX.registerOnload('designer/init.js', function () {
     });
 
     $('#query_where_button').on('click', function () {
-        document.getElementById('query_where').style.display = 'none';
+        $('#query_where').style.display = 'none';
     });
 });

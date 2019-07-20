@@ -114,7 +114,7 @@ class ZipExtension
      * @param string $file  path to zip file
      * @param string $regex regular expression for the file name to match
      *
-     * @return string the file name of the first file that matches the given regular expression
+     * @return string|false the file name of the first file that matches the given regular expression
      */
     public function findFile($file, $regex)
     {
@@ -286,8 +286,8 @@ class ZipExtension
         $temp_ctrldir = implode('', $ctrl_dir);
         $header = $temp_ctrldir .
             $eof_ctrl_dir .
-            pack('v', sizeof($ctrl_dir)) . //total #of entries "on this disk"
-            pack('v', sizeof($ctrl_dir)) . //total #of entries overall
+            pack('v', count($ctrl_dir)) . //total #of entries "on this disk"
+            pack('v', count($ctrl_dir)) . //total #of entries overall
             pack('V', strlen($temp_ctrldir)) . //size of central dir
             pack('V', $old_offset) . //offset to start of central dir
             "\x00\x00";                         //.zip file comment length

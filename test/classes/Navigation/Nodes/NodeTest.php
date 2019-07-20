@@ -48,7 +48,7 @@ class NodeTest extends PmaTestCase
             $child
         );
         $this->assertEquals(
-            $parent->getChild($child->real_name, true),
+            $parent->getChild($child->realName, true),
             $child
         );
     }
@@ -100,7 +100,7 @@ class NodeTest extends PmaTestCase
     public function testNodeHasChildren()
     {
         $parent = NodeFactory::getInstance();
-        $empty_container = NodeFactory::getInstance(
+        $emptyContainer = NodeFactory::getInstance(
             'Node',
             'empty',
             Node::CONTAINER
@@ -116,7 +116,7 @@ class NodeTest extends PmaTestCase
             false
         );
         // test with an empty container
-        $parent->addChild($empty_container);
+        $parent->addChild($emptyContainer);
         $this->assertEquals(
             $parent->hasChildren(true),
             true
@@ -293,7 +293,7 @@ class NodeTest extends PmaTestCase
     {
         $method = new ReflectionMethod(
             'PhpMyAdmin\Navigation\Nodes\Node',
-            '_getWhereClause'
+            'getWhereClause'
         );
         $method->setAccessible(true);
 

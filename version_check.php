@@ -8,8 +8,8 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Core;
-use PhpMyAdmin\VersionInformation;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\VersionInformation;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);

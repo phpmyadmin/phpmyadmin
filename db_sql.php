@@ -9,31 +9,22 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Database\SqlController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlQueryForm;
-use Symfony\Component\DependencyInjection\Definition;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-global $db;
+global $containerBuilder;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
-
 /** @var Response $response */
-$response = $container->get(Response::class);
+$response = $containerBuilder->get(Response::class);
 
 /** @var DatabaseInterface $dbi */
-$dbi = $container->get(DatabaseInterface::class);
-
-/** @var Definition $definition */
-$definition = $containerBuilder->getDefinition(SqlController::class);
-$definition->replaceArgument('db', $container->get('db'));
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
 /** @var SqlController $controller */
 $controller = $containerBuilder->get(SqlController::class);

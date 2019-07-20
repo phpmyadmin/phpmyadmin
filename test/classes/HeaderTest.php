@@ -14,6 +14,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionMethod;
+use ReflectionProperty;
 
 /**
  * Test for PhpMyAdmin\Header class
@@ -143,7 +144,7 @@ class HeaderTest extends PmaTestCase
      */
     public function testDisableWarnings()
     {
-        $reflection = new \ReflectionProperty(Header::class, '_warningsEnabled');
+        $reflection = new ReflectionProperty(Header::class, '_warningsEnabled');
         $reflection->setAccessible(true);
 
         $header = new Header();

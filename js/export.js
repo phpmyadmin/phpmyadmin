@@ -531,7 +531,7 @@ Export.toggleTableSelectAllData = function () {
     }
 };
 
-Export.checkSelectedTables = function (argument) {
+Export.checkSelectedTables = function () {
     $('.export_table_select tbody tr').each(function () {
         Export.checkTableSelected(this);
     });
@@ -923,7 +923,6 @@ AJAX.registerOnload('export.js', function () {
     });
     $('#db_alias_select').on('change', function () {
         Export.aliasToggleRow($(this));
-        var db = $(this).val();
         var table = CommonParams.get('table');
         if (table) {
             var option = $('<option></option>');

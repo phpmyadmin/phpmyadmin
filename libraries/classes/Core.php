@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Di\Migration;
 use PhpMyAdmin\Display\Error as DisplayError;
 
 /**
@@ -32,7 +33,6 @@ class Core
         'db_importdocsql.php',
         'db_multi_table_query.php',
         'db_qbe.php',
-        'db_structure.php',
         'db_import.php',
         'db_operations.php',
         'db_search.php',
@@ -43,9 +43,6 @@ class Core
         'pdf_pages.php',
         'pdf_schema.php',
         'server_binlog.php',
-        'server_collations.php',
-        'server_databases.php',
-        'server_engines.php',
         'server_export.php',
         'server_import.php',
         'server_privileges.php',
@@ -53,9 +50,7 @@ class Core
         'server_status.php',
         'server_status_advisor.php',
         'server_status_monitor.php',
-        'server_status_queries.php',
         'server_status_variables.php',
-        'server_variables.php',
         'sql.php',
         'tbl_addfield.php',
         'tbl_change.php',
@@ -65,7 +60,6 @@ class Core
         'tbl_sql.php',
         'tbl_export.php',
         'tbl_operations.php',
-        'tbl_structure.php',
         'tbl_relation.php',
         'tbl_replace.php',
         'tbl_row_action.php',
@@ -276,7 +270,9 @@ class Core
          * Avoid using Response class as config does not have to be loaded yet
          * (this can happen on early fatal error)
          */
-        if (isset($GLOBALS['dbi']) && ! is_null($GLOBALS['dbi']) && isset($GLOBALS['PMA_Config']) && $GLOBALS['PMA_Config']->get('is_setup') === false && Response::getInstance()->isAjax()) {
+        if (isset($GLOBALS['dbi'], $GLOBALS['PMA_Config']) && $GLOBALS['dbi'] !== null
+            && $GLOBALS['PMA_Config']->get('is_setup') === false
+            && Response::getInstance()->isAjax()) {
             $response = Response::getInstance();
             $response->setRequestStatus(false);
             $response->addJSON('message', Message::error($error_message));
@@ -734,7 +730,7 @@ class Core
 
         // remove empty nested arrays
         for (; $depth >= 0; $depth--) {
-            if (! isset($path[$depth + 1]) || count($path[$depth + 1]) == 0) {
+            if (! isset($path[$depth + 1]) || count($path[$depth + 1]) === 0) {
                 unset($path[$depth][$keys[$depth]]);
             } else {
                 break;
@@ -764,7 +760,7 @@ class Core
         parse_str($arr["query"], $vars);
         $query = http_build_query(["url" => $vars["url"]]);
 
-        if (! is_null($GLOBALS['PMA_Config']) && $GLOBALS['PMA_Config']->get('is_setup')) {
+        if ($GLOBALS['PMA_Config'] !== null && $GLOBALS['PMA_Config']->get('is_setup')) {
             $url = '../url.php?' . $query;
         } else {
             $url = './url.php?' . $query;
@@ -905,7 +901,7 @@ class Core
         foreach (array_keys($_POST) as $post_key) {
             foreach ($post_patterns as $one_post_pattern) {
                 if (preg_match($one_post_pattern, $post_key)) {
-                    $GLOBALS[$post_key] = $_POST[$post_key];
+                    Migration::getInstance()->setGlobal($post_key, $_POST[$post_key]);
                 }
             }
         }
@@ -920,13 +916,12 @@ class Core
      */
     public static function setGlobalDbOrTable(string $param): void
     {
-        $GLOBALS[$param] = '';
+        $value = '';
         if (self::isValid($_REQUEST[$param])) {
-            // can we strip tags from this?
-            // only \ and / is not allowed in db names for MySQL
-            $GLOBALS[$param] = $_REQUEST[$param];
-            $GLOBALS['url_params'][$param] = $GLOBALS[$param];
+            $value = $_REQUEST[$param];
         }
+        Migration::getInstance()->setGlobal($param, $value);
+        Migration::getInstance()->setGlobal('url_params', [$param => $value] + $GLOBALS['url_params']);
     }
 
     /**
@@ -1270,5 +1265,33 @@ class Core
         if (count($_REQUEST) > 1000) {
             self::fatalError(__('possible exploit'));
         }
+    }
+
+    /**
+     * Sign the sql query using hmac using the session token
+     *
+     * @param string $sqlQuery The sql query
+     * @return string
+     */
+    public static function signSqlQuery($sqlQuery)
+    {
+        /** @var array $cfg */
+        global $cfg;
+        return hash_hmac('sha256', $sqlQuery, $_SESSION[' HMAC_secret '] . $cfg['blowfish_secret']);
+    }
+
+    /**
+     * Check that the sql query has a valid hmac signature
+     *
+     * @param string $sqlQuery  The sql query
+     * @param string $signature The Signature to check
+     * @return bool
+     */
+    public static function checkSqlQuerySignature($sqlQuery, $signature)
+    {
+        /** @var array $cfg */
+        global $cfg;
+        $hmac = hash_hmac('sha256', $sqlQuery, $_SESSION[' HMAC_secret '] . $cfg['blowfish_secret']);
+        return hash_equals($hmac, $signature);
     }
 }

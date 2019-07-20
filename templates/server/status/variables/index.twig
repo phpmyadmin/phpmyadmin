@@ -51,7 +51,7 @@
             {% if link_name == 'doc' %}
               {{ show_mysql_docu(link_url) }}
             {% else %}
-              <a href="{{ link_url.url }}" data-post="{{ link_url.params }}">{{ link_name }}</a>
+              <a href="{{ link_url.url }}"{% if link_url.params is not empty %} data-post="{{ link_url.params }}"{% endif %}>{{ link_name }}</a>
             {% endif %}
             |
           {% endfor %}

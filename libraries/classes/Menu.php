@@ -344,15 +344,10 @@ class Menu
         $tabs['browse']['args']['pos'] = 0;
 
         $tabs['structure']['icon'] = 'b_props';
-        $tabs['structure']['link'] = 'tbl_structure.php';
+        $tabs['structure']['link'] = Url::getFromRoute('/table/structure');
         $tabs['structure']['text'] = __('Structure');
-        $tabs['structure']['active'] = in_array(
-            basename($GLOBALS['PMA_PHP_SELF']),
-            [
-                'tbl_structure.php',
-                'tbl_relation.php',
-            ]
-        );
+        $tabs['structure']['active'] = basename($GLOBALS['PMA_PHP_SELF']) === 'tbl_relation.php' ||
+            (isset($_REQUEST['route']) && in_array($_REQUEST['route'], ['/table/structure']));
 
         $tabs['sql']['icon'] = 'b_sql';
         $tabs['sql']['link'] = 'tbl_sql.php';
@@ -420,7 +415,8 @@ class Menu
         if (Tracker::isActive() && ! $db_is_system_schema) {
             $tabs['tracking']['icon'] = 'eye';
             $tabs['tracking']['text'] = __('Tracking');
-            $tabs['tracking']['link'] = 'tbl_tracking.php';
+            $tabs['tracking']['link'] = Url::getFromRoute('/table/tracking');
+            $tabs['tracking']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/table/tracking';
         }
         if (! $db_is_system_schema
             && Util::currentUserHasPrivilege(
@@ -458,9 +454,10 @@ class Menu
 
         $tabs = [];
 
-        $tabs['structure']['link'] = 'db_structure.php';
+        $tabs['structure']['link'] = Url::getFromRoute('/database/structure');
         $tabs['structure']['text'] = __('Structure');
         $tabs['structure']['icon'] = 'b_props';
+        $tabs['structure']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/database/structure';
 
         $tabs['sql']['link'] = 'db_sql.php';
         $tabs['sql']['text'] = __('SQL');
@@ -532,7 +529,8 @@ class Menu
         if (Tracker::isActive() && ! $db_is_system_schema) {
             $tabs['tracking']['text'] = __('Tracking');
             $tabs['tracking']['icon'] = 'eye';
-            $tabs['tracking']['link'] = 'db_tracking.php';
+            $tabs['tracking']['link'] = Url::getFromRoute('/database/tracking');
+            $tabs['tracking']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/database/tracking';
         }
 
         if (! $db_is_system_schema) {
@@ -578,7 +576,7 @@ class Menu
         $tabs = [];
 
         $tabs['databases']['icon'] = 's_db';
-        $tabs['databases']['link'] = 'server_databases.php';
+        $tabs['databases']['link'] = Url::getFromRoute('/server/databases');
         $tabs['databases']['text'] = __('Databases');
 
         $tabs['sql']['icon'] = 'b_sql';
@@ -588,17 +586,15 @@ class Menu
         $tabs['status']['icon'] = 's_status';
         $tabs['status']['link'] = 'server_status.php';
         $tabs['status']['text'] = __('Status');
-        $tabs['status']['active'] = in_array(
-            basename($GLOBALS['PMA_PHP_SELF']),
-            [
-                'server_status.php',
-                'server_status_advisor.php',
-                'server_status_monitor.php',
-                'server_status_queries.php',
-                'server_status_variables.php',
-                'server_status_processes.php',
-            ]
-        );
+        $tabs['status']['active'] = in_array(basename($GLOBALS['PMA_PHP_SELF']), [
+            'server_status.php',
+            'server_status_advisor.php',
+            'server_status_monitor.php',
+            'server_status_variables.php',
+            'server_status_processes.php',
+        ]) || (isset($_REQUEST['route']) && in_array($_REQUEST['route'], [
+            '/server/status/queries'
+        ]));
 
         if ($is_superuser || $isCreateOrGrantUser) {
             $tabs['rights']['icon'] = 's_rights';
@@ -647,19 +643,19 @@ class Menu
         }
 
         $tabs['vars']['icon'] = 's_vars';
-        $tabs['vars']['link'] = 'server_variables.php';
+        $tabs['vars']['link'] = Url::getFromRoute('/server/variables');
         $tabs['vars']['text'] = __('Variables');
 
         $tabs['charset']['icon'] = 's_asci';
-        $tabs['charset']['link'] = 'server_collations.php';
+        $tabs['charset']['link'] = Url::getFromRoute('/server/collations');
         $tabs['charset']['text'] = __('Charsets');
 
         $tabs['engine']['icon'] = 'b_engine';
-        $tabs['engine']['link'] = 'server_engines.php';
+        $tabs['engine']['link'] = Url::getFromRoute('/server/engines');
         $tabs['engine']['text'] = __('Engines');
 
         $tabs['plugins']['icon'] = 'b_plugin';
-        $tabs['plugins']['link'] = 'server_plugins.php';
+        $tabs['plugins']['link'] = Url::getFromRoute('/server/plugins');
         $tabs['plugins']['text'] = __('Plugins');
 
         return $tabs;

@@ -9,18 +9,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Encoding;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\DeleteStatement;
 use PhpMyAdmin\SqlParser\Statements\InsertStatement;
 use PhpMyAdmin\SqlParser\Statements\ReplaceStatement;
 use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
-use PhpMyAdmin\Table;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 
 /**
  * Library that provides common import functions that are used by import plugins
@@ -827,12 +821,12 @@ class Import
 
         if ($cell == (string) (float) $cell
             && mb_strpos($cell, ".") !== false
-            && mb_substr_count($cell, ".") == 1
+            && mb_substr_count($cell, ".") === 1
         ) {
             return self::DECIMAL;
         }
 
-        if (abs($cell) > 2147483647) {
+        if (abs((int) $cell) > 2147483647) {
             return self::BIGINT;
         }
 
@@ -972,13 +966,13 @@ class Import
         $import_notice = null;
 
         /* Take care of the options */
-        if (isset($options['db_collation']) && ! is_null($options['db_collation'])) {
+        if (isset($options['db_collation']) && $options['db_collation'] !== null) {
             $collation = $options['db_collation'];
         } else {
             $collation = "utf8_general_ci";
         }
 
-        if (isset($options['db_charset']) && ! is_null($options['db_charset'])) {
+        if (isset($options['db_charset']) && $options['db_charset'] !== null) {
             $charset = $options['db_charset'];
         } else {
             $charset = "utf8";
@@ -1208,11 +1202,11 @@ class Import
 
         $inTables = false;
 
-        $additional_sql_len = is_null($additional_sql) ? 0 : count($additional_sql);
+        $additional_sql_len = $additional_sql === null ? 0 : count($additional_sql);
         for ($i = 0; $i < $additional_sql_len; ++$i) {
             preg_match($view_pattern, $additional_sql[$i], $regs);
 
-            if (count($regs) == 0) {
+            if (count($regs) === 0) {
                 preg_match($table_pattern, $additional_sql[$i], $regs);
             }
 
@@ -1235,7 +1229,7 @@ class Import
         }
 
         $params = ['db' => $db_name];
-        $db_url = 'db_structure.php' . Url::getCommon($params);
+        $db_url = Url::getFromRoute('/database/structure', $params);
         $db_ops_url = 'db_operations.php' . Url::getCommon($params);
 
         $message = '<br><br>';
@@ -1276,7 +1270,7 @@ class Import
                 'table' => (string) $table[self::TBL_NAME],
             ];
             $tbl_url = 'sql.php' . Url::getCommon($params);
-            $tbl_struct_url = 'tbl_structure.php' . Url::getCommon($params);
+            $tbl_struct_url = Url::getFromRoute('/table/structure', $params);
             $tbl_ops_url = 'tbl_operations.php' . Url::getCommon($params);
 
             unset($params);
@@ -1681,7 +1675,7 @@ class Import
     public function isTableTransactional(string $table): bool
     {
         $table = explode('.', $table);
-        if (count($table) == 2) {
+        if (count($table) === 2) {
             $db = Util::unQuote($table[0]);
             $table = Util::unQuote($table[1]);
         } else {

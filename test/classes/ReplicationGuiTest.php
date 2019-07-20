@@ -72,11 +72,11 @@ class ReplicationGuiTest extends TestCase
         $slave_host = [
             [
                 'Server_id' => 'Server_id1',
-                'Host' => 'Host1'
+                'Host' => 'Host1',
             ],
             [
                 'Server_id' => 'Server_id2',
-                'Host' => 'Host2'
+                'Host' => 'Host2',
             ],
         ];
 

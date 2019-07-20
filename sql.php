@@ -12,31 +12,29 @@ declare(strict_types=1);
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Core;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-global $cfg, $pmaThemeImage;
+global $cfg, $containerBuilder, $pmaThemeImage;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
-
 /** @var Response $response */
-$response = $container->get(Response::class);
+$response = $containerBuilder->get(Response::class);
 
 /** @var DatabaseInterface $dbi */
-$dbi = $container->get(DatabaseInterface::class);
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
-$checkUserPrivileges = new CheckUserPrivileges($dbi);
+/** @var CheckUserPrivileges $checkUserPrivileges */
+$checkUserPrivileges = $containerBuilder->get('check_user_privileges');
 $checkUserPrivileges->getPrivileges();
 
 PageSettings::showGroup('Browse');
@@ -44,12 +42,13 @@ PageSettings::showGroup('Browse');
 $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
-$scripts->addFile('tbl_change.js');
+$scripts->addFile('table/change.js');
 $scripts->addFile('indexes.js');
 $scripts->addFile('gis_data_editor.js');
 $scripts->addFile('multi_column_sort.js');
 
-$sql = new Sql();
+/** @var Sql $sql */
+$sql = $containerBuilder->get('sql');
 
 /**
  * Set ajax_reload in the response if it was already set
@@ -91,6 +90,10 @@ if (isset($_POST['bkm_fields']['bkm_sql_query'])) {
     $sql_query = $_POST['bkm_fields']['bkm_sql_query'];
 } elseif (isset($_POST['sql_query'])) {
     $sql_query = $_POST['sql_query'];
+} elseif (isset($_GET['sql_query'], $_GET['sql_signature'])) {
+    if (Core::checkSqlQuerySignature($_GET['sql_query'], $_GET['sql_signature'])) {
+        $sql_query = $_GET['sql_query'];
+    }
 }
 
 // This one is just to fill $db

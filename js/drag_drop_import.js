@@ -73,7 +73,6 @@ var DragDropImport = {
      */
     sendFileToServer: function (formData, hash) {
         var uploadURL = './import.php'; // Upload URL
-        var extraData = {};
         var jqXHR = $.ajax({
             xhr: function () {
                 var xhrobj = $.ajaxSettings.xhr();

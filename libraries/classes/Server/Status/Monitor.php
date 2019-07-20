@@ -276,7 +276,7 @@ class Monitor
 
         $return = [
             'rows' => [],
-            'sum' => []
+            'sum' => [],
         ];
 
         while ($row = $this->dbi->fetchAssoc($result)) {
@@ -356,7 +356,7 @@ class Monitor
 
         $return = [
             'rows' => [],
-            'sum' => []
+            'sum' => [],
         ];
         $insertTables = [];
         $insertTablesFirst = -1;
@@ -464,7 +464,7 @@ class Monitor
      */
     public function getJsonForLoggingVars(?string $name, ?string $value): array
     {
-        if (isset($name) && isset($value)) {
+        if (isset($name, $value)) {
             $escapedValue = $this->dbi->escapeString($value);
             if (! is_numeric($escapedValue)) {
                 $escapedValue = "'" . $escapedValue . "'";

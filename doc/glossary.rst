@@ -220,6 +220,12 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <https://secure.php.net/mcrypt>
 
+    Media type
+      A media type (formerly known as MIME type) is a two-part identifier
+      for file formats and format contents transmitted on the Internet.
+
+      .. seealso:: <https://en.wikipedia.org/wiki/Media_type>
+
     MIME
       Multipurpose Internet Mail Extensions is
       an Internet Standard for the format of e-mail.

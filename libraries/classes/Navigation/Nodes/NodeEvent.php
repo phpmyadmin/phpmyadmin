@@ -21,14 +21,14 @@ class NodeEvent extends NodeDatabaseChild
     /**
      * Initialises the class
      *
-     * @param string $name     An identifier for the new node
-     * @param int    $type     Type of node, may be one of CONTAINER or OBJECT
-     * @param bool   $is_group Whether this object has been created
-     *                         while grouping nodes
+     * @param string $name    An identifier for the new node
+     * @param int    $type    Type of node, may be one of CONTAINER or OBJECT
+     * @param bool   $isGroup Whether this object has been created
+     *                        while grouping nodes
      */
-    public function __construct($name, $type = Node::OBJECT, $is_group = false)
+    public function __construct($name, $type = Node::OBJECT, $isGroup = false)
     {
-        parent::__construct($name, $type, $is_group);
+        parent::__construct($name, $type, $isGroup);
         $this->icon = Util::getImage('b_events');
         $this->links = [
             'text' => 'db_events.php?server=' . $GLOBALS['server']

@@ -51,7 +51,7 @@ class ConfigFileTest extends PmaTestCase
      */
     protected function tearDown(): void
     {
-        unset($_SESSION[$this->readAttribute($this->object, "_id")]);
+        $this->object->setConfigData([]);
         unset($this->object);
     }
 
@@ -97,7 +97,7 @@ class ConfigFileTest extends PmaTestCase
         $default_config = [
             self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $default_simple_value,
             'Servers/1/host' => $default_host,
-            'Servers/2/host' => $default_host
+            'Servers/2/host' => $default_host,
         ];
 
         /**
@@ -198,7 +198,7 @@ class ConfigFileTest extends PmaTestCase
                     1 => [
                         'passthrough1' => 1,
                         'passthrough2' => 2,
-                        'value1' => 3
+                        'value1' => 3,
                     ],
                 ],
             ],
@@ -522,7 +522,7 @@ class ConfigFileTest extends PmaTestCase
                         "auth_type" => "config",
                         "user" => "testUser",
                         "host" => "example.com",
-                        "port" => "21"
+                        "port" => "21",
                     ],
                 ],
             ]
@@ -559,7 +559,7 @@ class ConfigFileTest extends PmaTestCase
                         "user" => "testUser",
                         "host" => "example.com",
                         "port" => "21",
-                        "password" => "testPass"
+                        "password" => "testPass",
                     ],
                 ],
             ]
@@ -616,7 +616,7 @@ class ConfigFileTest extends PmaTestCase
                 'Array/test' => [
                     'x',
                     'y',
-                ]
+                ],
             ],
             $this->object->getConfigArray()
         );

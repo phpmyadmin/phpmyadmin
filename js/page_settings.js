@@ -11,7 +11,7 @@
 function showSettings (selector) {
     var buttons = {};
     buttons[Messages.strApply] = function () {
-        $('.config-form').submit();
+        $('.config-form').trigger('submit');
     };
 
     buttons[Messages.strCancel] = function () {

@@ -27,7 +27,7 @@ abstract class NodeDatabaseChildContainer extends NodeDatabaseChild
         parent::__construct($name, $type);
         if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
             $this->separator = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
-            $this->separator_depth = (int) $GLOBALS['cfg']['NavigationTreeTableLevel'];
+            $this->separatorDepth = (int) $GLOBALS['cfg']['NavigationTreeTableLevel'];
         }
     }
 

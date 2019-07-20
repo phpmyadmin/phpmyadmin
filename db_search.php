@@ -11,7 +11,6 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
@@ -24,21 +23,18 @@ global $db, $url_query;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
-
 /** @var Response $response */
-$response = $container->get(Response::class);
+$response = $containerBuilder->get(Response::class);
 
 /** @var DatabaseInterface $dbi */
-$dbi = $container->get(DatabaseInterface::class);
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
 /** @var Template $template */
 $template = $containerBuilder->get('template');
 
 $header = $response->getHeader();
 $scripts = $header->getScripts();
-$scripts->addFile('db_search.js');
+$scripts->addFile('database/search.js');
 $scripts->addFile('sql.js');
 $scripts->addFile('makegrid.js');
 

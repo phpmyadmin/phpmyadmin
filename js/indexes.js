@@ -8,7 +8,7 @@
  * @required    js/functions.js
  */
 
-/* global fulltextIndexes, indexes, primaryIndexes, spatialIndexes, uniqueIndexes */ // js/functions.js
+/* global fulltextIndexes:writable, indexes:writable, primaryIndexes:writable, spatialIndexes:writable, uniqueIndexes:writable */ // js/functions.js
 
 var Indexes = {};
 
@@ -382,12 +382,12 @@ Indexes.showAddIndexDialog = function (sourceArray, arrayIndex, targetColumns, c
             Functions.ajaxShowMessage(data.error, false);
         } else {
             Functions.ajaxRemoveMessage($msgbox);
+            var $div = $('<div></div>');
             if (showDialogLocal) {
                 // Show dialog if the request was successful
                 if ($('#addIndex').length > 0) {
                     $('#addIndex').remove();
                 }
-                var $div = $('<div></div>');
                 $div
                     .append(data.message)
                     .dialog({
@@ -416,7 +416,6 @@ Indexes.showAddIndexDialog = function (sourceArray, arrayIndex, targetColumns, c
                         }
                     });
             } else {
-                var $div = $('<div></div>');
                 $div
                     .append(data.message);
                 $div.css({ 'display' : 'none' });
@@ -524,7 +523,7 @@ Indexes.indexTypeSelectionDialog = function (sourceArray, indexChoice, colIndex)
         }
         $(this).remove();
     };
-    var $dialog = $('<div></div>').append($dialogContent).dialog({
+    $('<div></div>').append($dialogContent).dialog({
         minWidth: 525,
         minHeight: 200,
         modal: true,
@@ -600,7 +599,7 @@ AJAX.registerOnload('indexes.js', function () {
         var $form = $('#index_frm');
         var argsep = CommonParams.get('arg_separator');
         var submitData = $form.serialize() + argsep + 'do_save_data=1' + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
-        var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+        Functions.ajaxShowMessage(Messages.strProcessingRequest);
         AJAX.source = $form;
         $.post($form.attr('action'), submitData, AJAX.responseHandler);
     });

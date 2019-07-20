@@ -108,14 +108,15 @@
                         {% endfor %}
                     </select>
                 {% else %}
-                    {{ get_charset_dropdown_box(
-                        dbi,
-                        disable_is,
-                        'charset_of_file',
-                        'charset_of_file',
-                        'utf8',
-                        false
-                    ) }}
+                  <select lang="en" dir="ltr" name="charset_of_file" id="charset_of_file">
+                    <option value=""></option>
+                    {% for charset in charsets %}
+                      <option value="{{ charset.name }}" title="{{ charset.description }}"
+                        {{- charset.name == 'utf8' ? ' selected' }}>
+                        {{- charset.name -}}
+                      </option>
+                    {% endfor %}
+                  </select>
                 {% endif %}
             </div>
         </div>

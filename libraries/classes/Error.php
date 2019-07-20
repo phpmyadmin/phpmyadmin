@@ -351,7 +351,7 @@ class Error extends Message
         $retval = '';
 
         foreach ($backtrace as $step) {
-            if (isset($step['file']) && isset($step['line'])) {
+            if (isset($step['file'], $step['line'])) {
                 $retval .= self::relPath($step['file'])
                     . '#' . $step['line'] . ': ';
             }

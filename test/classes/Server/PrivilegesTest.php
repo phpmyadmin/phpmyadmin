@@ -17,6 +17,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
+use stdClass;
 
 /**
  * PhpMyAdmin\Tests\Server\PrivilegesTest class
@@ -100,7 +101,7 @@ class PrivilegesTest extends TestCase
             'db' => 'pmadb',
             'users' => 'users',
             'usergroups' => 'usergroups',
-            'menuswork' => true
+            'menuswork' => true,
         ];
 
         $pmaconfig = $this->getMockBuilder('PhpMyAdmin\Config')
@@ -1986,7 +1987,7 @@ class PrivilegesTest extends TestCase
 
         //new_privileges
         $this->assertStringContainsString(
-            join(', ', $this->serverPrivileges->extractPrivInfo(null, true)),
+            implode(', ', $this->serverPrivileges->extractPrivInfo(null, true)),
             $extra_data['new_privileges']
         );
     }
@@ -2548,7 +2549,7 @@ class PrivilegesTest extends TestCase
         );
 
         // Test case 2
-        $GLOBALS['dblist'] = new \stdClass();
+        $GLOBALS['dblist'] = new stdClass();
         $GLOBALS['dblist']->databases = [
             'x',
             'y',
@@ -2631,7 +2632,7 @@ class PrivilegesTest extends TestCase
                     'Host' => 'local',
                     'Password' => '?',
                     'Grant_priv' => 'N',
-                    'privs' => ['USAGE']
+                    'privs' => ['USAGE'],
                 ],
             ],
         ];

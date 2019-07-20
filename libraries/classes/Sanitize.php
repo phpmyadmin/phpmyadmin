@@ -37,15 +37,11 @@ class Sanitize
             './doc/html/',
             // possible return values from Util::getScriptNameForOption
             './index.php?',
-            './server_databases.php?',
             './server_status.php?',
-            './server_variables.php?',
             './server_privileges.php?',
-            './db_structure.php?',
             './db_sql.php?',
             './db_search.php?',
             './db_operations.php?',
-            './tbl_structure.php?',
             './tbl_sql.php?',
             './tbl_select.php?',
             './tbl_change.php?',
@@ -54,9 +50,8 @@ class Sanitize
             './db_events.php?',
             './db_routines.php?',
             './server_privileges.php?',
-            './tbl_structure.php?',
         ];
-        $is_setup = ! is_null($GLOBALS['PMA_Config']) && $GLOBALS['PMA_Config']->get('is_setup');
+        $is_setup = $GLOBALS['PMA_Config'] !== null && $GLOBALS['PMA_Config']->get('is_setup');
         // Adjust path to setup script location
         if ($is_setup) {
             foreach ($valid_starts as $key => $value) {
@@ -156,9 +151,9 @@ class Sanitize
      *
      * Examples:
      *
-     * <p><?php echo Sanitize::sanitize($foo); ?></p>
+     * <p><?php echo Sanitize::sanitizeMessage($foo); ?></p>
      *
-     * <a title="<?php echo Sanitize::sanitize($foo, true); ?>">bar</a>
+     * <a title="<?php echo Sanitize::sanitizeMessage($foo, true); ?>">bar</a>
      *
      * @param string  $message the message
      * @param boolean $escape  whether to escape html in result
@@ -166,7 +161,7 @@ class Sanitize
      *
      * @return string   the sanitized message
      */
-    public static function sanitize($message, $escape = false, $safe = false)
+    public static function sanitizeMessage($message, $escape = false, $safe = false)
     {
         if (! $safe) {
             $message = strtr((string) $message, ['<' => '&lt;', '>' => '&gt;']);
@@ -300,7 +295,7 @@ class Sanitize
                     '\'' => '\\\'',
                     '"' => '\"',
                     "\n" => '\n',
-                    "\r" => '\r'
+                    "\r" => '\r',
                 ]
             )
         );
