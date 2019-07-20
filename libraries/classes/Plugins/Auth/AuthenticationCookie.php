@@ -180,8 +180,8 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
         echo '
     <!-- Login form -->
-    <form class="form-horizontal" method="post" id="login_form" action="index.php" name="login_form"' , $autocomplete ,
-            ' class="' . ($session_expired ? "" : "disableAjax hide ") . 'login js-show">
+    <form method="post" id="login_form" action="index.php" name="login_form"' , $autocomplete ,
+            ' class="' . ($session_expired ? "" : "disableAjax hide ") . 'login js-show form-horizontal">
         <fieldset>
         <legend class="col-form-label">';
         echo '<input type="hidden" name="set_session" value="', htmlspecialchars(session_id()), '">';

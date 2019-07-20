@@ -130,7 +130,7 @@ class ProcessesControllerTest extends TestCase
         );
         // Test tab links
         $this->assertStringContainsString(
-            '<div class="tabLinks">',
+            '<div class="tabLinks row">',
             $html
         );
         $this->assertStringContainsString(
