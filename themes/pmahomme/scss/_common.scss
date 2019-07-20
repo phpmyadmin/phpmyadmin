@@ -244,6 +244,10 @@ select {
   -ms-transition: all 0.2s;
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
+
+  &#sel-lang {
+    width: auto;
+  }
 }
 
 input {
@@ -1005,13 +1009,6 @@ div#modalOverlay {
 }
 
 form.login {
-  label {
-    width: 10em;
-    font-weight: bolder;
-    display: inline-block;
-    margin-#{$left}: 2em;
-  }
-
   input {
     &[type=text],
     &[type=password] {
@@ -1024,6 +1021,10 @@ form.login {
     box-sizing: border-box;
     width: 14em;
   }
+}
+
+label.col-3.d-flex.align-items-center {
+  font-weight: bolder;
 }
 
 .commented_column {
