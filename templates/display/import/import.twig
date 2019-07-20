@@ -1,6 +1,6 @@
 <iframe id="import_upload_iframe" name="import_upload_iframe" width="1" height="1" class="hide"></iframe>
 <div id="import_form_status" class="hide"></div>
-<div id="importmain">
+<div id="importmain" class="container-fluid">
     <img src="{{ pma_theme_image }}ajax_clock_small.gif" width="16" height="16" alt="ajax clock" class="hide">
 
     <script type="text/javascript">
@@ -33,7 +33,7 @@
         {% endif %}
         <input type="hidden" name="import_type" value="{{ import_type }}">
 
-        <div class="exportoptions" id="header">
+        <div class="exportoptions row" id="header">
             <h2>
                 {{ get_image('b_import', 'Import'|trans) }}
                 {% if import_type == 'server' %}
@@ -46,7 +46,7 @@
             </h2>
         </div>
 
-        <div class="importoptions">
+        <div class="importoptions row">
             <h3>{% trans 'File to import:' %}</h3>
 
             {# We don't have show anything about compression, when no supported #}
@@ -121,7 +121,7 @@
             </div>
         </div>
 
-        <div class="importoptions">
+        <div class="importoptions row">
             <h3>{% trans 'Partial import:' %}</h3>
 
             {% if timeout_passed is defined and timeout_passed %}
@@ -158,20 +158,20 @@
             {% endif %}
         </div>
 
-        <div class="importoptions">
+        <div class="importoptions row">
             <h3>{% trans 'Other options:' %}</h3>
             <div class="formelementrow">
                 {{ get_fk_checkbox() }}
             </div>
         </div>
 
-        <div class="importoptions">
+        <div class="importoptions row">
             <h3>{% trans 'Format:' %}</h3>
             {{ get_choice('Import', 'format', import_list) }}
             <div id="import_notification"></div>
         </div>
 
-        <div class="importoptions" id="format_specific_opts">
+        <div class="importoptions row" id="format_specific_opts">
             <h3>{% trans 'Format-specific options:' %}</h3>
             <p class="no_js_msg" id="scroll_to_options_msg">
                 {% trans 'Scroll down to fill in the options for the selected format and ignore the options for other formats.' %}
@@ -188,7 +188,7 @@
             </div>
         {% endif %}
 
-        <div class="importoptions" id="submit">
+        <div class="importoptions row justify-content-end" id="submit">
             <input id="buttonGo" class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
         </div>
     </form>

@@ -3695,7 +3695,7 @@ class Privileges
             = '<form name="usersForm" id="usersForm" action="server_privileges.php" '
             . 'method="post">' . "\n"
             . Url::getHiddenInputs('', '')
-            . '<div class="responsivetable">'
+            . '<div class="responsivetable row">'
             . '<table id="tableuserrights" class="data">' . "\n"
             . '<thead>' . "\n"
             . '<tr><th></th>' . "\n"
@@ -3721,7 +3721,7 @@ class Privileges
         $html_output .= '</tbody>'
             . '</table></div>' . "\n";
 
-        $html_output .= '<div class="floatleft">'
+        $html_output .= '<div class="floatleft row">'
             . $this->template->render('select_all', [
                 'pma_theme_image' => $pmaThemeImage,
                 'text_dir' => $text_dir,
@@ -4804,10 +4804,10 @@ class Privileges
      */
     public function getHtmlForUserOverview($pmaThemeImage, $text_dir)
     {
-        $html_output = '<h2>' . "\n"
+        $html_output = '<div class="row"><h2>' . "\n"
            . Util::getIcon('b_usrlist')
            . __('User accounts overview') . "\n"
-           . '</h2>' . "\n";
+           . '</h2></div>' . "\n";
 
         $password_column = 'Password';
         $server_type = Util::getServerType();

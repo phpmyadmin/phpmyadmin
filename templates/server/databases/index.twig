@@ -1,13 +1,17 @@
-<h2>
-  {{ get_image('s_db') }}
-  {% if has_statistics %}
-    {% trans 'Databases statistics' %}
-  {% else %}
-    {% trans 'Databases' %}
-  {% endif %}
-</h2>
+<div class="container-fluid">
+<div class="row">
+  <h2>
+    {{ get_image('s_db') }}
+    {% if has_statistics %}
+      {% trans 'Databases statistics' %}
+    {% else %}
+      {% trans 'Databases' %}
+    {% endif %}
+  </h2>
+</div>
 
 {% if is_create_database_shown %}
+<div class="row">
   <ul>
     <li id="li_create_database" class="no_bullets">
       {% if has_create_database_privileges %}
@@ -70,12 +74,14 @@
       {% endif %}
     </li>
   </ul>
+</div>
 {% endif %}
 
 {% if database_count > 0 %}
   {% include 'filter.twig' with {'filter_value': ''} only %}
 
-  <div id="tableslistcontainer">
+  <div id="tableslistcontainer row">
+  <div class="container-fluid">
     {{ get_list_navigator(
       database_count,
       pos,
@@ -87,7 +93,7 @@
 
     <form class="ajax" action="{{ url('/server/databases') }}" method="post" name="dbStatsForm" id="dbStatsForm">
       {{ get_hidden_inputs(url_params) }}
-      <div class="responsivetable">
+      <div class="responsivetable row">
         <table id="tabledatabases" class="data">
           <thead>
             <tr>
@@ -306,8 +312,11 @@
 
       {# Enable statistics #}
       {% if not has_statistics %}
+        <div class="row">
         {{ 'Note: Enabling the database statistics here might cause heavy traffic between the web server and the MySQL server.'|trans|notice }}
+        </div>
 
+        <div class="row">
         {% set content %}
           <strong>{% trans 'Enable statistics' %}</strong>
         {% endset %}
@@ -320,9 +329,12 @@
           }
         }] %}
         {% include 'list/unordered.twig' with {'items': items} only %}
+        </div>
       {% endif %}
     </form>
   </div>
+  </div>
+</div>
 {% else %}
   <p>{{ 'No databases'|trans|notice }}</p>
 {% endif %}
