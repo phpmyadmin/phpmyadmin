@@ -4208,6 +4208,7 @@ class Util
                 'charset'     => __('Charsets'),
                 'plugins'     => __('Plugins'),
                 'engine'      => __('Engines'),
+                'navigation'  => __('Navigation'),
             ],
             'db'     => [
                 'structure'   => __('Structure'),

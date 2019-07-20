@@ -662,6 +662,10 @@ class Menu
         $tabs['plugins']['link'] = 'server_plugins.php';
         $tabs['plugins']['text'] = __('Plugins');
 
+        $tabs['navigation']['icon'] = 'b_plugin';
+        $tabs['navigation']['link'] = 'server_navigation.php';
+        $tabs['navigation']['text'] = __('Navigation');
+
         return $tabs;
     }
 

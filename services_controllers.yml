@@ -130,6 +130,13 @@ services:
       template: '@template'
       plugins: '@server_plugins'
 
+  PhpMyAdmin\Controllers\Server\NavigationController:
+    class: 'PhpMyAdmin\Controllers\Server\NavigationController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+
   PhpMyAdmin\Controllers\Server\ReplicationController:
     class: 'PhpMyAdmin\Controllers\Server\ReplicationController'
     arguments:

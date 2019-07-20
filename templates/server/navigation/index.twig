@@ -1,0 +1,58 @@
+<h2>
+  {{ get_image('s_vars') }}
+  {% trans 'Navigation Tab' %}
+  {{ show_mysql_docu('server_system_variables') }}
+</h2>
+
+{% if variables is not empty %}
+  <a href="server_variables.php{{ get_common() }}" class="ajax saveLink hide">
+    {{ get_icon('b_save', 'Save'|trans) }}
+  </a>
+  <a href="#" class="cancelLink hide">
+    {{ get_icon('b_close', 'Cancel'|trans) }}
+  </a>
+  {{ get_image('b_help', 'Documentation'|trans, {
+    'class': 'hide',
+    'id': 'docImage'
+  }) }}
+
+  {% include 'filter.twig' with {
+    'filter_value': filter_value
+  } only %}
+
+  <div class="responsivetable">
+    <table id="serverVariables" class="width100 data filteredData noclick">
+      <thead>
+        <tr class="var-header var-row">
+          <td class="var-name">{% trans 'Name' %}</td>
+          <td class="var-value">{% trans 'Type' %}</td>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for variable in variables %}
+          <tr class="var-row{{ variable.has_session_value ? ' diffSession' }}" data-filter-row="{{ variable.name|upper }}">
+
+            <td class="var-name">
+              {% if variable.link != null %}
+                <span title="{{ variable.name|replace({'_': ' '}) }}">
+                  <a href ={{ variable.link|raw }}> {{ variable.name|replace({'_': ' '}) }} </a>
+                </span>
+              {% else %}
+                {{ variable.name|replace({'_': ' '}) }}
+              {% endif %}
+            </td>
+            <td class="var-value value{{ is_superuser ? ' editable' }}">
+              {% if variable.is_escaped %}
+                {{ variable.value|raw }}
+              {% else %}
+                {{ variable.value|e|replace({',': ',&#8203;'})|raw }}
+              {% endif %}
+            </td>
+          </tr>
+
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endif %}
