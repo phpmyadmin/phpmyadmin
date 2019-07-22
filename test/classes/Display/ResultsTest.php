@@ -48,6 +48,7 @@ class ResultsTest extends PmaTestCase
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['text_dir'] = 'ltr';
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -575,7 +576,7 @@ class ResultsTest extends PmaTestCase
                 . 'message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb'
                 . '%3DData%26table%3Dcustomer%26sql_query%3DSELECT%2B%252A%2BFROM'
                 . '%2B%2560customer%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen'
-                . '%2Bdeleted%26goto%3Dtbl_structure.php',
+                . '%2Bdeleted%26goto%3Dindex.php%253Froute%253D%252Ftable%252Fstructure',
                 '<span class="nowrap"><img src="themes/dot.gif" title="Delete" '
                 . 'alt="Delete" class="icon ic_b_drop"> Delete</span>',
                 'DELETE FROM `Data`.`customer` WHERE `customer`.`id` = 1',
@@ -586,7 +587,7 @@ class ResultsTest extends PmaTestCase
                 . '+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php'
                 . '%3Fdb%3DData%26table%3Dcustomer%26sql_query%3DSELECT%2B%252A%2B'
                 . 'FROM%2B%2560customer%2560%26message_to_show%3DThe%2Brow%2Bhas%2B'
-                . 'been%2Bdeleted%26goto%3Dtbl_structure.php" '
+                . 'been%2Bdeleted%26goto%3Dindex.php%253Froute%253D%252Ftable%252Fstructure" '
                 . 'class="delete_row requireConfirm"><span class="nowrap"><img src="themes/dot.'
                 . 'gif" title="Delete" alt="Delete" class="icon ic_b_drop"> '
                 . 'Delete</span></a>'
@@ -648,7 +649,7 @@ class ResultsTest extends PmaTestCase
                 . 'The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3D'
                 . 'new%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26'
                 . 'message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3D'
-                . 'tbl_structure.php',
+                . 'index.php%253Froute%253D%252Ftable%252Fstructure',
                 [
                     'edit_lnk' => 'ur',
                     'del_lnk' => 'dr',
@@ -706,7 +707,7 @@ class ResultsTest extends PmaTestCase
                 . 'message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3F'
                 . 'db%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B'
                 . '%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2B'
-                . 'deleted%26goto%3Dtbl_structure.php" '
+                . 'deleted%26goto%3Dindex.php%253Froute%253D%252Ftable%252Fstructure" '
                 . 'class="delete_row requireConfirm"><span class="nowrap"><img src="themes/dot.'
                 . 'gif" title="Delete" alt="Delete" class="icon ic_b_drop"> '
                 . 'Delete</span></a>'
@@ -719,8 +720,8 @@ class ResultsTest extends PmaTestCase
                 . '.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show='
                 . 'The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3D'
                 . 'new%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message'
-                . '_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_'
-                . 'structure.php',
+                . '_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3D'
+                . 'index.php%253Froute%253D%252Ftable%252Fstructure',
                 [
                     'edit_lnk' => 'ur',
                     'del_lnk' => 'dr',
@@ -756,7 +757,7 @@ class ResultsTest extends PmaTestCase
                 . 'message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb'
                 . '%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B%25'
                 . '60new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted'
-                . '%26goto%3Dtbl_structure.php" class="delete'
+                . '%26goto%3Dindex.php%253Froute%253D%252Ftable%252Fstructure" class="delete'
                 . '_row requireConfirm"><span class="nowrap"><img src="themes/dot.gif" title='
                 . '"Delete" alt="Delete" class="icon ic_b_drop"> Delete</span></a>'
                 . '<div class="hide">DELETE FROM `data`.`new` WHERE `new`.'

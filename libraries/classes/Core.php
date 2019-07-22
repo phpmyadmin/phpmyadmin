@@ -60,7 +60,6 @@ class Core
         'tbl_sql.php',
         'tbl_export.php',
         'tbl_operations.php',
-        'tbl_structure.php',
         'tbl_relation.php',
         'tbl_replace.php',
         'tbl_row_action.php',

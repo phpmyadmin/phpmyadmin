@@ -118,11 +118,6 @@ class UtilExtension extends AbstractExtension
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
-                'get_script_name_for_option',
-                'PhpMyAdmin\Util::getScriptNameForOption',
-                ['is_safe' => ['html']]
-            ),
-            new TwigFunction(
                 'get_start_and_number_of_rows_panel',
                 'PhpMyAdmin\Util::getStartAndNumberOfRowsPanel',
                 ['is_safe' => ['html']]

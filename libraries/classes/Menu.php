@@ -344,15 +344,10 @@ class Menu
         $tabs['browse']['args']['pos'] = 0;
 
         $tabs['structure']['icon'] = 'b_props';
-        $tabs['structure']['link'] = 'tbl_structure.php';
+        $tabs['structure']['link'] = Url::getFromRoute('/table/structure');
         $tabs['structure']['text'] = __('Structure');
-        $tabs['structure']['active'] = in_array(
-            basename($GLOBALS['PMA_PHP_SELF']),
-            [
-                'tbl_structure.php',
-                'tbl_relation.php',
-            ]
-        );
+        $tabs['structure']['active'] = basename($GLOBALS['PMA_PHP_SELF']) === 'tbl_relation.php' ||
+            (isset($_REQUEST['route']) && in_array($_REQUEST['route'], ['/table/structure']));
 
         $tabs['sql']['icon'] = 'b_sql';
         $tabs['sql']['link'] = 'tbl_sql.php';

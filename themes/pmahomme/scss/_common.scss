@@ -241,6 +241,10 @@ select {
   -ms-transition: all 0.2s;
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
+
+  &#sel-lang {
+    width: auto;
+  }
 }
 
 input {
@@ -1041,13 +1045,6 @@ div#modalOverlay {
 }
 
 form.login {
-  label {
-    width: 10em;
-    font-weight: bolder;
-    display: inline-block;
-    margin-#{$left}: 2em;
-  }
-
   input {
 
     &[type=text],
@@ -1061,6 +1058,10 @@ form.login {
     box-sizing: border-box;
     width: 14em;
   }
+}
+
+label.col-3.d-flex.align-items-center {
+  font-weight: bolder;
 }
 
 .commented_column {
@@ -1152,7 +1153,7 @@ ul {
 
   &#topmenu2 {
     margin: 0.25em 0.5em 0;
-    height: 2em;
+    overflow: auto;
     clear: both;
   }
 
@@ -1590,7 +1591,6 @@ table {
 
   &#serverstatusconnections {
     float: $left;
-    margin-#{$left}: 30px;
   }
 }
 
@@ -1635,7 +1635,6 @@ table#chartGrid {
 }
 
 div.tabLinks {
-  margin-#{$left}: 0.3em;
   float: $left;
   padding: 5px 0;
 
@@ -2588,7 +2587,6 @@ table#index_columns {
 .config-form {
   ul.tabs {
     margin: 1.1em 0.2em 0;
-    padding: 0 0 0.3em 0;
     list-style: none;
     font-weight: bold;
 
@@ -4221,10 +4219,6 @@ body .ui-dialog {
 
   // For mobile phones:
   #main_pane_left {
-    width: 100%;
-  }
-
-  #main_pane_right {
     width: 100%;
   }
 

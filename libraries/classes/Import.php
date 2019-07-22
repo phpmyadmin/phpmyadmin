@@ -1270,7 +1270,7 @@ class Import
                 'table' => (string) $table[self::TBL_NAME],
             ];
             $tbl_url = 'sql.php' . Url::getCommon($params);
-            $tbl_struct_url = 'tbl_structure.php' . Url::getCommon($params);
+            $tbl_struct_url = Url::getFromRoute('/table/structure', $params);
             $tbl_ops_url = 'tbl_operations.php' . Url::getCommon($params);
 
             unset($params);

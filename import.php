@@ -291,7 +291,7 @@ if ($import_type == 'table') {
     $goto = 'server_import.php';
 } elseif (empty($goto) || ! preg_match('@^(server|db|tbl)(_[a-z]*)*\.php$@i', $goto)) {
     if (strlen($table) > 0 && strlen($db) > 0) {
-        $goto = 'tbl_structure.php';
+        $goto = Url::getFromRoute('/table/structure');
     } elseif (strlen($db) > 0) {
         $goto = Url::getFromRoute('/database/structure');
     } else {

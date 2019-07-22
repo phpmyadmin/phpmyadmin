@@ -6,7 +6,7 @@
  * @usedby  server_sql.php
  * @usedby  db_sql.php
  * @usedby  tbl_sql.php
- * @usedby  tbl_structure.php
+ * @usedby  /table/structure
  * @usedby  /table/tracking
  * @package PhpMyAdmin
  */
@@ -41,7 +41,7 @@ class SqlQueryForm
      * @usedby  server_sql.php
      * @usedby  db_sql.php
      * @usedby  tbl_sql.php
-     * @usedby  tbl_structure.php
+     * @usedby  /table/structure
      * @usedby  /table/tracking
      */
     public function getHtml(

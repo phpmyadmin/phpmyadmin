@@ -1,4 +1,5 @@
-<div>
+<div class="container-fluid">
+<div class="row">  
   <ul id="topmenu2">
     <li>
       <a href="server_status.php{{ get_common() }}"{{ active == 'status' ? ' class="tabactive"' }}>
@@ -31,9 +32,8 @@
       </a>
     </li>
   </ul>
+  </div>
   <div class="clearfloat"></div>
 
-  <div>
     {% block content %}{% endblock %}
-  </div>
 </div>

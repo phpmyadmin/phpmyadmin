@@ -16,6 +16,7 @@ use PhpMyAdmin\Partition;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 if (! defined('ROOT_PATH')) {
@@ -452,7 +453,7 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
             $url_params,
             [
                 'sql_query' => $this_sql_query,
-                'goto' => 'tbl_structure.php',
+                'goto' => Url::getFromRoute('/table/structure'),
                 'reload' => '1',
                 'message_to_show' => sprintf(
                     __('Table %s has been emptied.'),

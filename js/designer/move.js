@@ -1280,7 +1280,7 @@ DesignerMove.startTableNew = function () {
 
 DesignerMove.startTabUpd = function (table) {
     CommonParams.set('table', table);
-    CommonActions.refreshMain('tbl_structure.php');
+    CommonActions.refreshMain('index.php?route=/table/structure');
 };
 
 // --------------------------- hide tables --------------------------------------

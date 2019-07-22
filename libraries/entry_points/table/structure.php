@@ -12,14 +12,12 @@ use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\DatabaseInterface;
 use Symfony\Component\DependencyInjection\Definition;
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
-global $db_is_system_schema, $tbl_is_view, $tbl_storage_engine;
+global $containerBuilder, $db_is_system_schema, $tbl_is_view, $tbl_storage_engine;
 global $table_info_num_rows, $tbl_collation, $showtable;
-
-require_once ROOT_PATH . 'libraries/common.inc.php';
 
 /** @var DatabaseInterface $dbi */
 $dbi = $containerBuilder->get('dbi');

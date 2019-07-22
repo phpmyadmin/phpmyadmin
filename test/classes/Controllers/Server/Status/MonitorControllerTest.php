@@ -121,7 +121,7 @@ class MonitorControllerTest extends TestCase
         $html = $controller->index();
 
         $this->assertStringContainsString(
-            '<div class="tabLinks">',
+            '<div class="tabLinks row">',
             $html
         );
         $this->assertStringContainsString(

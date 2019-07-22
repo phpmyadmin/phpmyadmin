@@ -54,7 +54,7 @@ class CollationsControllerTest extends TestCase
         $actual = $controller->indexAction();
 
         $this->assertStringContainsString(
-            '<div id="div_mysql_charset_collations">',
+            '<div id="div_mysql_charset_collations" class="row">',
             $actual
         );
         $this->assertStringContainsString(

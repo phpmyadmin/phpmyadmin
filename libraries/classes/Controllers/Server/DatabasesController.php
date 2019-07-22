@@ -141,7 +141,6 @@ class DatabasesController extends AbstractController
             'has_master_replication' => $replication_info['master']['status'],
             'has_slave_replication' => $replication_info['slave']['status'],
             'is_drop_allowed' => $this->dbi->isSuperuser() || $cfg['AllowUserDropDatabase'],
-            'default_tab_database' => $cfg['DefaultTabDatabase'],
             'pma_theme_image' => $pmaThemeImage,
             'text_dir' => $text_dir,
         ]);
@@ -353,6 +352,12 @@ class DatabasesController extends AbstractController
                 }
             }
 
+            $url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+            if (strpos($url, '?') === false) {
+                $url .= Url::getCommonRaw(['db' => $database['SCHEMA_NAME']]);
+            } else {
+                $url .= Url::getCommonRaw(['db' => $database['SCHEMA_NAME']], '&');
+            }
             $databases[$database['SCHEMA_NAME']] = [
                 'name' => $database['SCHEMA_NAME'],
                 'collation' => [],
@@ -362,6 +367,7 @@ class DatabasesController extends AbstractController
                     $database['SCHEMA_NAME'],
                     true
                 ),
+                'url' => $url,
             ];
             $collation = Charsets::findCollationByName(
                 $this->dbi,
