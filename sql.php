@@ -73,17 +73,20 @@ if (empty($goto)) {
             'table'
         );
     }
-} // end if
+}
 
 if (! isset($err_url)) {
-    $err_url = (! empty($back) ? $back : $goto)
-        . '?' . Url::getCommon(['db' => $GLOBALS['db']])
-        . ((mb_strpos(' ' . $goto, 'db_') != 1
-            && strlen($table) > 0)
-            ? '&amp;table=' . urlencode($table)
-            : ''
-        );
-} // end if
+    $err_url = ! empty($back) ? $back : $goto;
+    $err_url .= Url::getCommon(
+        ['db' => $GLOBALS['db']],
+        strpos($err_url, '?') === false ? '?' : '&'
+    );
+    if ((mb_strpos(' ' . $err_url, 'db_') !== 1 || mb_strpos($err_url, '?route=/database/') === false)
+        && strlen($table) > 0
+    ) {
+        $err_url .= '&amp;table=' . urlencode($table);
+    }
+}
 
 // Coming from a bookmark dialog
 if (isset($_POST['bkm_fields']['bkm_sql_query'])) {

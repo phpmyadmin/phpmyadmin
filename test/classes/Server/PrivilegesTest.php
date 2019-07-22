@@ -1600,7 +1600,7 @@ class PrivilegesTest extends TestCase
 
         //validate 1: Url::getCommon
         $this->assertStringContainsString(
-            Url::getCommon(['db' => $db]),
+            Url::getCommon(['db' => $db], ''),
             $html
         );
 
@@ -1694,12 +1694,10 @@ class PrivilegesTest extends TestCase
         );
 
         //validate 2: Url::getCommon
-        $item = Url::getCommon(
-            [
-                'db' => $db,
-                'table' => $table,
-            ]
-        );
+        $item = Url::getCommon([
+            'db' => $db,
+            'table' => $table,
+        ], '');
         $this->assertStringContainsString(
             $item,
             $html
@@ -2131,12 +2129,10 @@ class PrivilegesTest extends TestCase
             ),
             $html
         );
-        $item = Url::getCommon(
-            [
-                'db' => $url_dbname,
-                'reload' => 1,
-            ]
-        );
+        $item = Url::getCommon([
+            'db' => $url_dbname,
+            'reload' => 1,
+        ], '');
         $this->assertStringContainsString(
             $item,
             $html
@@ -2158,13 +2154,11 @@ class PrivilegesTest extends TestCase
             ),
             $html
         );
-        $item = Url::getCommon(
-            [
-                'db' => $url_dbname,
-                'table' => $tablename,
-                'reload' => 1,
-            ]
-        );
+        $item = Url::getCommon([
+            'db' => $url_dbname,
+            'table' => $tablename,
+            'reload' => 1,
+        ], '');
         $this->assertStringContainsString(
             $item,
             $html

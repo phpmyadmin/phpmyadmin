@@ -2503,16 +2503,17 @@ class Privileges
             $html_output .= Url::getHiddenInputs($db);
             $html_output .= '<div class="width100">';
             $html_output .= '<fieldset>';
+            $scriptName = Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabDatabase'],
+                'database'
+            );
             $html_output .= '<legend>' . "\n"
                 . Util::getIcon('b_usrcheck')
                 . '    '
                 . sprintf(
                     __('Users having access to "%s"'),
-                    '<a href="' . Util::getScriptNameForOption(
-                        $GLOBALS['cfg']['DefaultTabDatabase'],
-                        'database'
-                    )
-                    . Url::getCommon(['db' => $db]) . '">'
+                    '<a href="' . $scriptName
+                    . Url::getCommon(['db' => $db], strpos($scriptName, '?') === false ? '?' : '&') . '">'
                     . htmlspecialchars($db)
                     . '</a>'
                 )
@@ -2579,20 +2580,19 @@ class Privileges
             $html_output  = '<form id="usersForm" action="server_privileges.php">';
             $html_output .= Url::getHiddenInputs($db, $table);
             $html_output .= '<fieldset>';
+            $scriptName = Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabTable'],
+                'table'
+            );
             $html_output .= '<legend>'
                 . Util::getIcon('b_usrcheck')
                 . sprintf(
                     __('Users having access to "%s"'),
-                    '<a href="' . Util::getScriptNameForOption(
-                        $GLOBALS['cfg']['DefaultTabTable'],
-                        'table'
-                    )
-                    . Url::getCommon(
-                        [
-                            'db' => $db,
-                            'table' => $table,
-                        ]
-                    ) . '">'
+                    '<a href="' . $scriptName
+                    . Url::getCommon([
+                        'db' => $db,
+                        'table' => $table,
+                    ], strpos($scriptName, '?') === false ? '?' : '&') . '">'
                     . htmlspecialchars($db) . '.' . htmlspecialchars($table)
                     . '</a>'
                 )
@@ -3303,17 +3303,16 @@ class Privileges
      */
     public function getLinkToDbAndTable($url_dbname, $dbname, $tablename)
     {
+        $scriptName = Util::getScriptNameForOption(
+            $GLOBALS['cfg']['DefaultTabDatabase'],
+            'database'
+        );
         $html_output = '[ ' . __('Database')
-            . ' <a href="' . Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabDatabase'],
-                'database'
-            )
-            . Url::getCommon(
-                [
-                    'db' => $url_dbname,
-                    'reload' => 1,
-                ]
-            )
+            . ' <a href="' . $scriptName
+            . Url::getCommon([
+                'db' => $url_dbname,
+                'reload' => 1,
+            ], strpos($scriptName, '?') === false ? '?' : '&')
             . '">'
             . htmlspecialchars(Util::unescapeMysqlWildcards($dbname)) . ': '
             . Util::getTitleForTarget(
@@ -3322,18 +3321,17 @@ class Privileges
             . "</a> ]\n";
 
         if (strlen($tablename) > 0) {
+            $scriptName = Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabTable'],
+                'table'
+            );
             $html_output .= ' [ ' . __('Table') . ' <a href="'
-                . Util::getScriptNameForOption(
-                    $GLOBALS['cfg']['DefaultTabTable'],
-                    'table'
-                )
-                . Url::getCommon(
-                    [
-                        'db' => $url_dbname,
-                        'table' => $tablename,
-                        'reload' => 1,
-                    ]
-                )
+                . $scriptName
+                . Url::getCommon([
+                    'db' => $url_dbname,
+                    'table' => $tablename,
+                    'reload' => 1,
+                ], strpos($scriptName, '?') === false ? '?' : '&')
                 . '">' . htmlspecialchars($tablename) . ': '
                 . Util::getTitleForTarget(
                     $GLOBALS['cfg']['DefaultTabTable']

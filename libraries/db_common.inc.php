@@ -43,8 +43,8 @@ $err_url_0 = 'index.php' . Url::getCommon();
 $err_url = Util::getScriptNameForOption(
     $GLOBALS['cfg']['DefaultTabDatabase'],
     'database'
-)
-    . Url::getCommon(['db' => $db]);
+);
+$err_url .= Url::getCommon(['db' => $db], strpos($err_url, '?') === false ? '?' : '&');
 
 /**
  * Ensures the database exists (else move to the "parent" script) and displays

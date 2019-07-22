@@ -197,13 +197,14 @@ class Menu
                 ['class' => 'item']
             );
         }
+        $scriptName = Util::getScriptNameForOption(
+            $GLOBALS['cfg']['DefaultTabServer'],
+            'server'
+        );
         $retval .= sprintf(
             $item,
-            Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabServer'],
-                'server'
-            ),
-            Url::getCommon(),
+            $scriptName,
+            Url::getCommon([], strpos($scriptName, '?') === false ? '?' : '&'),
             htmlspecialchars($server_info),
             __('Server')
         );
@@ -217,13 +218,14 @@ class Menu
                     ['class' => 'item']
                 );
             }
+            $scriptName = Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabDatabase'],
+                'database'
+            );
             $retval .= sprintf(
                 $item,
-                Util::getScriptNameForOption(
-                    $GLOBALS['cfg']['DefaultTabDatabase'],
-                    'database'
-                ),
-                Url::getCommon(['db' => $this->_db]),
+                $scriptName,
+                Url::getCommon(['db' => $this->_db], strpos($scriptName, '?') === false ? '?' : '&'),
                 htmlspecialchars($this->_db),
                 __('Database')
             );
@@ -252,18 +254,17 @@ class Menu
                         ['class' => 'item']
                     );
                 }
+                $scriptName = Util::getScriptNameForOption(
+                    $GLOBALS['cfg']['DefaultTabTable'],
+                    'table'
+                );
                 $retval .= sprintf(
                     $item,
-                    Util::getScriptNameForOption(
-                        $GLOBALS['cfg']['DefaultTabTable'],
-                        'table'
-                    ),
-                    Url::getCommon(
-                        [
-                            'db' => $this->_db,
-                            'table' => $this->_table,
-                        ]
-                    ),
+                    $scriptName,
+                    Url::getCommon([
+                        'db' => $this->_db,
+                        'table' => $this->_table,
+                    ], strpos($scriptName, '?') === false ? '?' : '&'),
                     str_replace(' ', '&nbsp;', htmlspecialchars($this->_table)),
                     $tbl_is_view ? __('View') : __('Table')
                 );

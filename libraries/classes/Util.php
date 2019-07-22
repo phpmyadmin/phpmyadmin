@@ -2513,12 +2513,14 @@ class Util
             $database = self::unescapeMysqlWildcards($database);
         }
 
+        $scriptName = self::getScriptNameForOption(
+            $GLOBALS['cfg']['DefaultTabDatabase'],
+            'database'
+        );
         return '<a href="'
-            . self::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabDatabase'],
-                'database'
-            )
-            . Url::getCommon(['db' => $database]) . '" title="'
+            . $scriptName
+            . Url::getCommon(['db' => $database], strpos($scriptName, '?') === false ? '?' : '&')
+            . '" title="'
             . htmlspecialchars(
                 sprintf(
                     __('Jump to database “%s”.'),
