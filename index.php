@@ -10,6 +10,7 @@ declare(strict_types=1);
 use FastRoute\Dispatcher;
 use FastRoute\RouteCollector;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Message;
 
 use function FastRoute\simpleDispatcher;
 
@@ -67,7 +68,16 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
         $_SERVER['REQUEST_METHOD'],
         rawurldecode($_GET['route'] ?? $_POST['route'])
     );
-    if ($routeInfo[0] === Dispatcher::FOUND) {
+    if ($routeInfo[0] === Dispatcher::NOT_FOUND) {
+        Message::error(sprintf(
+            __('Error 404! The page <code>%s</code> was not found.'),
+            $_GET['route'] ?? $_POST['route']
+        ))->display();
+        exit;
+    } elseif ($routeInfo[0] === Dispatcher::METHOD_NOT_ALLOWED) {
+        Message::error(__('Error 405! Request method not allowed.'))->display();
+        exit;
+    } elseif ($routeInfo[0] === Dispatcher::FOUND) {
         $handler = $routeInfo[1];
         $handler($routeInfo[2]);
         exit;
