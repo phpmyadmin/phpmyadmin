@@ -242,6 +242,12 @@ DesignerMove.main = function () {
     document.getElementById('layer_menu').style.top = -1000 + 'px'; // fast scroll
     DesignerMove.osnTabPos();
     DesignerMove.canvasPos();
+    var length = $('.designer_tab').length;
+      for (var i = 0; i < length; i++) {
+        var key = $('.designer_tab')[i].id;
+        document.getElementById('id_tbody_' + key).innerHTML = localStorage.getItem('id_tbody_' + key);
+        document.getElementById('id_hide_tbody_' + key).innerHTML = localStorage.getItem('id_hide_tbody_' + key);
+    }
     DesignerMove.smallTabRefresh();
     DesignerMove.reload();
     DesignerMove.setDefaultValuesFromSavedState();
@@ -2049,7 +2055,12 @@ AJAX.registerOnload('designer/move.js', function () {
         DesignerMove.selectAll($(this).attr('designer_url_table_name'), $(this).attr('designer_out_owner'));
     });
     $('.designer_tab').on('click', '.small_tab,.small_tab2', function () {
-        DesignerMove.smallTab($(this).attr('table_name'), 1);
+        var t = $(this).attr('table_name');
+        var id      = document.getElementById('id_tbody_' + t);
+        var idThis = document.getElementById('id_hide_tbody_' + t);
+        DesignerMove.smallTab(t, 1);
+        localStorage.setItem('id_tbody_' + t, id.innerHTML);
+        localStorage.setItem('id_hide_tbody_' + t, idThis.innerHTML);
     });
     $('.designer_tab').on('click', '.small_tab_pref_1', function () {
         DesignerMove.startTabUpd($(this).attr('table_name_small'));
