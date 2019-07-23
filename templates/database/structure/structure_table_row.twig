@@ -83,8 +83,8 @@
                 {{- get_common(table_url_params|merge({
                   'reload': 1,
                   'purge': 1,
-                  'sql_query': drop_query|url_encode,
-                  'message_to_show': drop_message|url_encode
+                  'sql_query': drop_query,
+                  'message_to_show': drop_message
                 }), '') }}">
                 {{ titles['Drop']|raw }}
             </a>
