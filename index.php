@@ -50,6 +50,9 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
                 require_once ROOT_PATH . 'libraries/entry_points/server/privileges.php';
             });
             $routes->addGroup('/status', function (RouteCollector $routes) {
+                $routes->addRoute('GET', '', function () {
+                    require_once ROOT_PATH . 'libraries/entry_points/server/status.php';
+                });
                 $routes->addRoute('GET', '/queries', function () {
                     require_once ROOT_PATH . 'libraries/entry_points/server/status/queries.php';
                 });

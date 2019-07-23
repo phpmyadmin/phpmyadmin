@@ -3179,7 +3179,7 @@ class Util
                 case 'databases':
                     return Url::getFromRoute('/server/databases');
                 case 'status':
-                    return 'server_status.php';
+                    return Url::getFromRoute('/server/status');
                 case 'variables':
                     return Url::getFromRoute('/server/variables');
                 case 'privileges':

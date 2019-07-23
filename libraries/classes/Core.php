@@ -46,7 +46,6 @@ class Core
         'server_export.php',
         'server_import.php',
         'server_sql.php',
-        'server_status.php',
         'server_status_advisor.php',
         'server_status_monitor.php',
         'server_status_variables.php',

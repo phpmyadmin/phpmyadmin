@@ -37,7 +37,6 @@ class Sanitize
             './doc/html/',
             // possible return values from Util::getScriptNameForOption
             './index.php?',
-            './server_status.php?',
             './db_sql.php?',
             './db_search.php?',
             './db_operations.php?',
