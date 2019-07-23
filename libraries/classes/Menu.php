@@ -388,7 +388,7 @@ class Menu
         if (($is_superuser || $isCreateOrGrantUser)
             && ! $db_is_system_schema
         ) {
-            $tabs['privileges']['link'] = 'server_privileges.php';
+            $tabs['privileges']['link'] = Url::getFromRoute('/server/privileges');
             $tabs['privileges']['args']['checkprivsdb'] = $this->_db;
             $tabs['privileges']['args']['checkprivstable'] = $this->_table;
             // stay on table view
@@ -502,7 +502,7 @@ class Menu
             $tabs['operation']['icon'] = 'b_tblops';
 
             if ($is_superuser || $isCreateOrGrantUser) {
-                $tabs['privileges']['link'] = 'server_privileges.php';
+                $tabs['privileges']['link'] = Url::getFromRoute('/server/privileges');
                 $tabs['privileges']['args']['checkprivsdb'] = $this->_db;
                 // stay on database view
                 $tabs['privileges']['args']['viewing_mode'] = 'db';
@@ -599,15 +599,10 @@ class Menu
 
         if ($is_superuser || $isCreateOrGrantUser) {
             $tabs['rights']['icon'] = 's_rights';
-            $tabs['rights']['link'] = 'server_privileges.php';
+            $tabs['rights']['link'] = Url::getFromRoute('/server/privileges');
             $tabs['rights']['text'] = __('User accounts');
-            $tabs['rights']['active'] = in_array(
-                basename($GLOBALS['PMA_PHP_SELF']),
-                [
-                    'server_privileges.php',
-                    'server_user_groups.php',
-                ]
-            );
+            $tabs['rights']['active'] = basename($GLOBALS['PMA_PHP_SELF']) === 'server_user_groups.php' ||
+                (isset($_REQUEST['route']) && in_array($_REQUEST['route'], ['/server/privileges']));
             $tabs['rights']['args']['viewing_mode'] = 'server';
         }
 

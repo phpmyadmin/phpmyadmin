@@ -3183,7 +3183,7 @@ class Util
                 case 'variables':
                     return Url::getFromRoute('/server/variables');
                 case 'privileges':
-                    return 'server_privileges.php';
+                    return Url::getFromRoute('/server/privileges');
             }
         } elseif ($location == 'database') {
             // Values for $cfg['DefaultTabDatabase']

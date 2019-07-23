@@ -45,7 +45,6 @@ class Core
         'server_binlog.php',
         'server_export.php',
         'server_import.php',
-        'server_privileges.php',
         'server_sql.php',
         'server_status.php',
         'server_status_advisor.php',

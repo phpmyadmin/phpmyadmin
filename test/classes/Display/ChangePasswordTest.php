@@ -46,7 +46,7 @@ class ChangePasswordTest extends TestCase
         $GLOBALS['cfg']['ShowHint'] = true;
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['PMA_PHP_SELF'] = "server_privileges.php";
+        $GLOBALS['PMA_PHP_SELF'] = '';
         $GLOBALS['server'] = 0;
 
         //$_SESSION
@@ -62,13 +62,13 @@ class ChangePasswordTest extends TestCase
     {
         $username = "pma_username";
         $hostname = "pma_hostname";
+        $_REQUEST['route'] = '/server/privileges';
 
         //Call the test function
         $html = ChangePassword::getHtml('change_pw', $username, $hostname);
 
-        //PMA_PHP_SELF
         $this->assertStringContainsString(
-            $GLOBALS['PMA_PHP_SELF'],
+            Url::getFromRoute('/server/privileges'),
             $html
         );
 

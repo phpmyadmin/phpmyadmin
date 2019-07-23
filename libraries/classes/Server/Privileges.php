@@ -474,12 +474,12 @@ class Privileges
             [
                 'Delete_history_priv',
                 'DELETE HISTORY',
-                $GLOBALS['strPrivDescDeleteHistoricalRows'],
+                __('Allows deleting historical rows.'),
             ],
             [
                 'Delete versioning rows_priv',
                 'DELETE HISTORY',
-                $GLOBALS['strPrivDescDeleteHistoricalRows'],
+                __('Allows deleting historical rows.'),
             ],
             [
                 'Create_routine_priv',
@@ -2304,7 +2304,7 @@ class Privileges
            . '</h2>' . "\n"
            . '<form name="usersForm" id="addUsersForm"'
            . ' onsubmit="return checkAddUser(this);"'
-           . ' action="server_privileges.php" method="post" autocomplete="off" >' . "\n"
+           . ' action="' . Url::getFromRoute('/server/privileges') . '" method="post" autocomplete="off" >' . "\n"
            . Url::getHiddenInputs('', '')
            . $this->getHtmlForLoginInformationFields('new');
 
@@ -2499,7 +2499,7 @@ class Privileges
 
         if ($this->dbi->isSuperuser()) {
             // check the privileges for a particular database.
-            $html_output  = '<form id="usersForm" action="server_privileges.php">';
+            $html_output  = '<form id="usersForm" action="' . Url::getFromRoute('/server/privileges') . '">';
             $html_output .= Url::getHiddenInputs($db);
             $html_output .= '<div class="width100">';
             $html_output .= '<fieldset>';
@@ -2577,7 +2577,7 @@ class Privileges
         $html_output = '';
         if ($this->dbi->isSuperuser()) {
             // check the privileges for a particular table.
-            $html_output  = '<form id="usersForm" action="server_privileges.php">';
+            $html_output  = '<form id="usersForm" action="' . Url::getFromRoute('/server/privileges') . '">';
             $html_output .= Url::getHiddenInputs($db, $table);
             $html_output .= '<fieldset>';
             $scriptName = Util::getScriptNameForOption(
@@ -2975,11 +2975,11 @@ class Privileges
                 break;
         }
 
-        $html .= ' href="server_privileges.php';
+        $html .= ' href="' . Url::getFromRoute('/server/privileges');
         if ($linktype == 'revoke') {
             $html .= '" data-post="' . Url::getCommon($params, '');
         } else {
-            $html .= Url::getCommon($params);
+            $html .= Url::getCommon($params, '&');
         }
         $html .= '">';
 
@@ -3009,8 +3009,7 @@ class Privileges
     public function getUserGroupEditLink($username)
     {
          return '<a class="edit_user_group_anchor ajax"'
-            . ' href="server_privileges.php'
-            . Url::getCommon(['username' => $username])
+            . ' href="' . Url::getFromRoute('/server/privileges', ['username' => $username])
             . '">'
             . Util::getIcon('b_usrlist', __('Edit user group'))
             . '</a>';
@@ -3191,8 +3190,7 @@ class Privileges
             $new_user_initial = mb_strtoupper(
                 mb_substr($username, 0, 1)
             );
-            $newUserInitialString = '<a href="server_privileges.php'
-                . Url::getCommon(['initial' => $new_user_initial]) . '">'
+            $newUserInitialString = '<a href="' . Url::getFromRoute('/server/privileges', ['initial' => $new_user_initial]) . '">'
                 . $new_user_initial . '</a>';
             $extra_data['new_user_initial'] = $new_user_initial;
             $extra_data['new_user_initial_string'] = $newUserInitialString;
@@ -3248,8 +3246,8 @@ class Privileges
             ),
         ];
 
-        $html_output = '<form action="server_privileges.php" '
-            . 'onsubmit="return checkAddUser(this);" '
+        $html_output = '<form action="' . Url::getFromRoute('/server/privileges')
+            . '" onsubmit="return checkAddUser(this);" '
             . 'method="post" class="copyUserForm submenu-item">' . "\n"
             . Url::getHiddenInputs('', '')
             . '<input type="hidden" name="old_username" '
@@ -3690,8 +3688,8 @@ class Privileges
         }
 
         $html_output
-            = '<form name="usersForm" id="usersForm" action="server_privileges.php" '
-            . 'method="post">' . "\n"
+            = '<form name="usersForm" id="usersForm" action="' . Url::getFromRoute('/server/privileges')
+            . '" method="post">' . "\n"
             . Url::getHiddenInputs('', '')
             . '<div class="responsivetable row">'
             . '<table id="tableuserrights" class="data">' . "\n"
@@ -4716,15 +4714,12 @@ class Privileges
 
         if (! empty($dbname)) {
             $html_output .= ' <i><a class="edit_user_anchor"'
-                . ' href="server_privileges.php'
-                . Url::getCommon(
-                    [
-                        'username' => $username,
-                        'hostname' => $hostname,
-                        'dbname' => '',
-                        'tablename' => '',
-                    ]
-                )
+                . ' href="' . Url::getFromRoute('/server/privileges', [
+                    'username' => $username,
+                    'hostname' => $hostname,
+                    'dbname' => '',
+                    'tablename' => '',
+                ])
                 . '">\'' . htmlspecialchars($username)
                 . '\'@\'' . htmlspecialchars($hostname)
                 . '\'</a></i>' . "\n";
@@ -4734,30 +4729,24 @@ class Privileges
                 || is_array($dbname) && count($dbname) > 1
                 ? __('Databases') : __('Database');
             if (! empty($entity_name) && $entity_type === 'table') {
-                $html_output .= ' <i><a href="server_privileges.php'
-                    . Url::getCommon(
-                        [
-                            'username' => $username,
-                            'hostname' => $hostname,
-                            'dbname' => $url_dbname,
-                            'tablename' => '',
-                        ]
-                    )
+                $html_output .= ' <i><a href="' . Url::getFromRoute('/server/privileges', [
+                    'username' => $username,
+                    'hostname' => $hostname,
+                    'dbname' => $url_dbname,
+                    'tablename' => '',
+                ])
                     . '">' . htmlspecialchars($dbname)
                     . '</a></i>';
 
                 $html_output .= ' - ' . __('Table')
                     . ' <i>' . htmlspecialchars($entity_name) . '</i>';
             } elseif (! empty($entity_name)) {
-                $html_output .= ' <i><a href="server_privileges.php'
-                    . Url::getCommon(
-                        [
-                            'username' => $username,
-                            'hostname' => $hostname,
-                            'dbname' => $url_dbname,
-                            'routinename' => '',
-                        ]
-                    )
+                $html_output .= ' <i><a href="' . Url::getFromRoute('/server/privileges', [
+                    'username' => $username,
+                    'hostname' => $hostname,
+                    'dbname' => $url_dbname,
+                    'routinename' => '',
+                ])
                     . '">' . htmlspecialchars($dbname)
                     . '</a></i>';
 
@@ -4933,8 +4922,7 @@ class Privileges
                         Message::NOTICE
                     );
                     $flushnote->addParamHtml(
-                        '<a href="server_privileges.php'
-                        . Url::getCommon(['flush_privileges' => 1])
+                        '<a href="' . Url::getFromRoute('/server/privileges', ['flush_privileges' => 1])
                         . '" id="reload_privileges_anchor">'
                     );
                     $flushnote->addParamHtml('</a>');
@@ -5023,7 +5011,7 @@ class Privileges
         }
 
         $html_output .= '<form class="submenu-item" name="usersForm" '
-            . 'id="addUsersForm" action="server_privileges.php" method="post">' . "\n";
+            . 'id="addUsersForm" action="' . Url::getFromRoute('/server/privileges') . '" method="post">' . "\n";
         $html_output .= Url::getHiddenInputs($_params);
         $html_output .= $this->getHtmlToDisplayPrivilegesTable(
             // If $dbname is an array, pass any one db as all have same privs.

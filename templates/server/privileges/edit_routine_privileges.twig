@@ -1,6 +1,6 @@
 <div id="edit_user_dialog">
     {{ header|raw }}
-    <form class="submenu-item" name="usersForm" id="addUsersForm" action="server_privileges.php" method="post">
+    <form class="submenu-item" name="usersForm" id="addUsersForm" action="{{ url('/server/privileges') }}" method="post">
         {{ get_hidden_inputs() }}
         <input type="hidden" name="username" value="{{ username }}">
         <input type="hidden" name="hostname" value="{{ hostname }}">

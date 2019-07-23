@@ -17,14 +17,13 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Server\Users;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
-global $db, $pmaThemeImage, $text_dir, $url_query;
-
-require_once ROOT_PATH . 'libraries/common.inc.php';
+global $containerBuilder, $db, $pmaThemeImage, $text_dir, $url_query;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);
@@ -57,7 +56,7 @@ if ((isset($_GET['viewing_mode'])
     && $GLOBALS['cfgRelation']['menuswork']
 ) {
     $response->addHTML('<div class="container-fluid">');
-    $response->addHTML(Users::getHtmlForSubMenusOnUsersPage('server_privileges.php'));
+    $response->addHTML(Users::getHtmlForSubMenusOnUsersPage(Url::getFromRoute('/server/privileges')));
 }
 
 /**

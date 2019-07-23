@@ -45,7 +45,7 @@ class SpecialSchemaLinks
      *                     )
      *                 ),
      *                 // Page to link
-     *                 'default_page' => './server_privileges.php'
+     *                 'default_page' => './' . Url::getFromRoute('/server/privileges')
      *             )
      *         )
      *     )
@@ -73,7 +73,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'host',
                             ],
                         ],
-                        'default_page' => './server_privileges.php',
+                        'default_page' => './' . Url::getFromRoute('/server/privileges'),
                     ],
                     'table_name' => [
                         'link_param' => 'table',
@@ -109,7 +109,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'host',
                             ],
                         ],
-                        'default_page' => './server_privileges.php',
+                        'default_page' => './' . Url::getFromRoute('/server/privileges'),
                     ],
                 ],
                 'event' => [
@@ -202,7 +202,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'Host',
                             ],
                         ],
-                        'default_page' => './server_privileges.php',
+                        'default_page' => './' . Url::getFromRoute('/server/privileges'),
                     ],
                     'routine_name' => [
                         'link_param' => 'item_name',
@@ -228,7 +228,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'Host',
                             ],
                         ],
-                        'default_page' => './server_privileges.php',
+                        'default_page' => './' . Url::getFromRoute('/server/privileges'),
                     ],
                 ],
                 'tables_priv' => [
@@ -240,7 +240,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'Host',
                             ],
                         ],
-                        'default_page' => './server_privileges.php',
+                        'default_page' => './' . Url::getFromRoute('/server/privileges'),
                     ],
                     'table_name' => [
                         'link_param' => 'table',
@@ -262,7 +262,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'host',
                             ],
                         ],
-                        'default_page' => './server_privileges.php',
+                        'default_page' => './' . Url::getFromRoute('/server/privileges'),
                     ],
                 ],
             ],
@@ -364,7 +364,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'host',
                             ],
                         ],
-                        'default_page' => './server_privileges.php',
+                        'default_page' => './' . Url::getFromRoute('/server/privileges'),
                     ],
                 ],
                 'referential_constraints' => [
