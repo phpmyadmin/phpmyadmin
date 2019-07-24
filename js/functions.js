@@ -2844,7 +2844,7 @@ AJAX.registerTeardown('functions.js', function () {
 });
 
 /**
- * jQuery coding for 'Create Table'.  Used on db_operations.php,
+ * jQuery coding for 'Create Table'. Used on /database/operations,
  * /database/structure and /database/tracking (i.e., wherever
  * PhpMyAdmin\Display\CreateTable is used)
  *

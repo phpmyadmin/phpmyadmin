@@ -3195,7 +3195,7 @@ class Util
                 case 'search':
                     return Url::getFromRoute('/database/search');
                 case 'operations':
-                    return 'db_operations.php';
+                    return Url::getFromRoute('/database/operations');
             }
         } elseif ($location == 'table') {
             // Values for $cfg['DefaultTabTable'],

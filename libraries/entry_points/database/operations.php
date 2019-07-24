@@ -23,15 +23,14 @@ use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
-global $cfg, $db, $server, $url_query;
-
-require_once ROOT_PATH . 'libraries/common.inc.php';
+global $cfg, $containerBuilder, $db, $server, $url_query;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);
@@ -236,7 +235,9 @@ if (isset($_POST['comment'])) {
 }
 
 require ROOT_PATH . 'libraries/db_common.inc.php';
-$url_query .= '&amp;goto=db_operations.php';
+
+$url_params['goto'] = Url::getFromRoute('/database/operations');
+$url_query .= Url::getCommon($url_params, '&');
 
 // Gets the database structure
 $sub_part = '_structure';

@@ -497,7 +497,7 @@ class Menu
             $tabs['import']['text'] = __('Import');
             $tabs['import']['icon'] = 'b_import';
 
-            $tabs['operation']['link'] = 'db_operations.php';
+            $tabs['operation']['link'] = Url::getFromRoute('/database/operations');
             $tabs['operation']['text'] = __('Operations');
             $tabs['operation']['icon'] = 'b_tblops';
 

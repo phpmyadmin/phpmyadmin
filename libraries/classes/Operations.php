@@ -53,7 +53,9 @@ class Operations
     public function getHtmlForDatabaseComment($db)
     {
         $html_output = '<div>'
-            . '<form method="post" action="db_operations.php" id="formDatabaseComment">'
+            . '<form method="post" action="'
+            . Url::getFromRoute('/database/operations')
+            . '" id="formDatabaseComment">'
             . Url::getHiddenInputs($db)
             . '<fieldset>'
             . '<legend>';
@@ -88,8 +90,8 @@ class Operations
         $html_output = '<div>'
             . '<form id="rename_db_form" '
             . 'class="ajax" '
-            . 'method="post" action="db_operations.php" '
-            . 'onsubmit="return Functions.emptyCheckTheField(this, \'newname\')">';
+            . 'method="post" action="' . Url::getFromRoute('/database/operations')
+            . '" onsubmit="return Functions.emptyCheckTheField(this, \'newname\')">';
         if ($db_collation !== null) {
             $html_output .= '<input type="hidden" name="db_collation" '
                 . 'value="' . $db_collation
@@ -153,7 +155,7 @@ class Operations
         $this_sql_query = 'DROP DATABASE ' . Util::backquote($db);
         $this_url_params = [
             'sql_query' => $this_sql_query,
-            'back' => 'db_operations.php',
+            'back' => Url::getFromRoute('/database/operations'),
             'goto' => 'index.php',
             'reload' => '1',
             'purge' => '1',
@@ -207,8 +209,8 @@ class Operations
         $html_output = '<div>';
         $html_output .= '<form id="copy_db_form" '
             . 'class="ajax" '
-            . 'method="post" action="db_operations.php" '
-            . 'onsubmit="return Functions.emptyCheckTheField(this, \'newname\')">';
+            . 'method="post" action="' . Url::getFromRoute('/database/operations')
+            . '" onsubmit="return Functions.emptyCheckTheField(this, \'newname\')">';
 
         if ($db_collation !== null) {
             $html_output .= '<input type="hidden" name="db_collation" '
@@ -299,7 +301,7 @@ class Operations
         $html_output = '<div>'
             . '<form id="change_db_charset_form" ';
         $html_output .= 'class="ajax" ';
-        $html_output .= 'method="post" action="db_operations.php">';
+        $html_output .= 'method="post" action="' . Url::getFromRoute('/database/operations') . '">';
 
         $html_output .= Url::getHiddenInputs($db);
 

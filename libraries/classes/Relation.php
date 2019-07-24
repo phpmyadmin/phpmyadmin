@@ -2105,10 +2105,14 @@ class Relation
     {
         $retval = '';
 
-        $url_query = Url::getCommon(['db' => $GLOBALS['db']], '');
+        $params = [
+            'db' => $GLOBALS['db'],
+            'goto' => Url::getFromRoute('/database/operations'),
+        ];
+
         if ($allTables) {
             if ($createDb) {
-                $url_query .= '&amp;goto=db_operations.php&amp;create_pmadb=1';
+                $params['create_pmadb'] = 1;
                 $message = Message::notice(
                     __(
                         '%sCreate%s a database named \'phpmyadmin\' and setup '
@@ -2116,7 +2120,7 @@ class Relation
                     )
                 );
             } else {
-                $url_query .= '&amp;goto=db_operations.php&amp;fixall_pmadb=1';
+                $params['fixall_pmadb'] = 1;
                 $message = Message::notice(
                     __(
                         '%sCreate%s the phpMyAdmin configuration storage in the '
@@ -2125,12 +2129,14 @@ class Relation
                 );
             }
         } else {
-            $url_query .= '&amp;goto=db_operations.php&amp;fix_pmadb=1';
+            $params['fix_pmadb'] = 1;
             $message = Message::notice(
                 __('%sCreate%s missing phpMyAdmin configuration storage tables.')
             );
         }
-        $message->addParamHtml('<a href="./chk_rel.php" data-post="' . $url_query . '">');
+        $message->addParamHtml(
+            '<a href="./chk_rel.php" data-post="' . Url::getCommon($params, '') . '">'
+        );
         $message->addParamHtml('</a>');
 
         $retval .= $message->getDisplay();

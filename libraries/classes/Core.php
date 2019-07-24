@@ -34,7 +34,6 @@ class Core
         'db_multi_table_query.php',
         'db_qbe.php',
         'db_import.php',
-        'db_operations.php',
         'db_routines.php',
         'export.php',
         'import.php',
