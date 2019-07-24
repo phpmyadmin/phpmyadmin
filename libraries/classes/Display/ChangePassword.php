@@ -50,16 +50,21 @@ class ChangePassword
          */
         $chg_evt_handler = 'onchange';
 
-        $is_privileges = basename($_SERVER['SCRIPT_NAME']) === 'server_privileges.php';
+        $is_privileges = isset($_REQUEST['route']) && $_REQUEST['route'] === '/server/privileges';
+
+        $action = basename($GLOBALS['PMA_PHP_SELF']);
+        if ($is_privileges) {
+            $action = Url::getFromRoute('/server/privileges');
+        }
 
         $html = '<form method="post" id="change_password_form" '
-            . 'action="' . basename($GLOBALS['PMA_PHP_SELF']) . '" '
+            . 'action="' . $action . '" '
             . 'name="chgPassword" '
             . 'class="' . ($is_privileges ? 'submenu-item' : '') . '">';
 
         $html .= Url::getHiddenInputs();
 
-        if (strpos($GLOBALS['PMA_PHP_SELF'], 'server_privileges') !== false) {
+        if ($is_privileges) {
             $html .= '<input type="hidden" name="username" '
                 . 'value="' . htmlspecialchars($username) . '">'
                 . '<input type="hidden" name="hostname" '

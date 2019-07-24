@@ -169,7 +169,7 @@ class IndexesController extends AbstractController
                     )
                 );
             } else {
-                include ROOT_PATH . 'tbl_structure.php';
+                include ROOT_PATH . 'libraries/entry_points/table/structure.php';
             }
         } else {
             $this->response->setRequestStatus(false);

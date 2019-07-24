@@ -52,7 +52,7 @@ class NodeDatabase extends Node
             'text'  => $scriptName . ($hasRoute === false ? '?' : '&')
                 . 'server=' . $GLOBALS['server']
                 . '&amp;db=%1$s',
-            'icon'  => 'db_operations.php?server=' . $GLOBALS['server']
+            'icon'  => Url::getFromRoute('/database/operations') . '&amp;server=' . $GLOBALS['server']
                 . '&amp;db=%1$s&amp;',
             'title' => __('Structure'),
         ];

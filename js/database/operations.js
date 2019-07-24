@@ -10,7 +10,7 @@
  */
 
 /**
- * Ajax event handlers here for db_operations.php
+ * Ajax event handlers here for /database/operations
  *
  * Actions Ajaxified here:
  * Rename Database

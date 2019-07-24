@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
@@ -30,10 +31,12 @@ class NodeView extends NodeDatabaseChild
     {
         parent::__construct($name, $type, $isGroup);
         $this->icon = Util::getImage('b_props', __('View'));
+        $iconLink = Url::getFromRoute('/table/structure');
         $this->links = [
             'text' => 'sql.php?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s&amp;table=%1$s&amp;pos=0',
-            'icon' => 'tbl_structure.php?server=' . $GLOBALS['server']
+            'icon' => $iconLink . (strpos($iconLink, '?') === false ? '?' : '&')
+                . 'server=' . $GLOBALS['server']
                 . '&amp;db=%2$s&amp;table=%1$s',
         ];
         $this->classes = 'view';

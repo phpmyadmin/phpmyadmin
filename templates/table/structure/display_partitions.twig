@@ -76,7 +76,7 @@
                         <td>{{ partition.getComment() }}</td>
                         {% for action, icon in action_icons %}
                             <td>
-                                <a href="tbl_structure.php" data-post="{{ url_query -}}
+                                <a href="{{ url('/table/structure') }}" data-post="{{ url_query -}}
                                     &amp;partition_maintenance=1&amp;sql_query=
                                     {{- ("ALTER TABLE " ~ backquote(table) ~ " " ~ action
                                         ~ " PARTITION " ~ partition.getName())|url_encode }}"
@@ -128,7 +128,7 @@
         {% endif %}
     </fieldset>
     <fieldset class="tblFooters print_ignore">
-        <form action="tbl_structure.php" method="post">
+        <form action="{{ url('/table/structure') }}" method="post">
             {{ get_hidden_inputs(db, table) }}
             <input type="hidden" name="edit_partitioning" value="true">
             {% if partitions is empty %}

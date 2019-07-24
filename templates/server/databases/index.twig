@@ -1,13 +1,17 @@
-<h2>
-  {{ get_image('s_db') }}
-  {% if has_statistics %}
-    {% trans 'Databases statistics' %}
-  {% else %}
-    {% trans 'Databases' %}
-  {% endif %}
-</h2>
+<div class="container-fluid">
+<div class="row">
+  <h2>
+    {{ get_image('s_db') }}
+    {% if has_statistics %}
+      {% trans 'Databases statistics' %}
+    {% else %}
+      {% trans 'Databases' %}
+    {% endif %}
+  </h2>
+</div>
 
 {% if is_create_database_shown %}
+<div class="row">
   <ul>
     <li id="li_create_database" class="no_bullets">
       {% if has_create_database_privileges %}
@@ -70,12 +74,14 @@
       {% endif %}
     </li>
   </ul>
+</div>
 {% endif %}
 
 {% if database_count > 0 %}
   {% include 'filter.twig' with {'filter_value': ''} only %}
 
-  <div id="tableslistcontainer">
+  <div id="tableslistcontainer row">
+  <div class="container-fluid">
     {{ get_list_navigator(
       database_count,
       pos,
@@ -87,8 +93,13 @@
 
     <form class="ajax" action="{{ url('/server/databases') }}" method="post" name="dbStatsForm" id="dbStatsForm">
       {{ get_hidden_inputs(url_params) }}
+<<<<<<< HEAD
       <div class="responsivetable">
         <table id="tabledatabases" class="table table-responsive table-striped table-hover">
+=======
+      <div class="responsivetable row">
+        <table id="tabledatabases" class="data">
+>>>>>>> 469fd5c05c35f2eab9b566b4ed59531fe0ec4683
           <thead>
             <tr>
               {% if is_drop_allowed %}
@@ -174,8 +185,7 @@
                 {% endif %}
 
                 <td class="name">
-                  <a href="{{ get_script_name_for_option(default_tab_database, 'database') }}
-                    {{- get_common({'db': database.name}) }}" title="
+                  <a href="{{ database.url }}" title="
                     {{- "Jump to database '%s'"|trans|format(database.name) }}">
                     {{ database.name }}
                   </a>
@@ -233,11 +243,10 @@
 
                 <td class="tool">
                   <a class="server_databases" data="
-                    {{- database.name|js_format }}" href="server_privileges.php
-                    {{- get_common({
-                          'db': database.name,
-                          'checkprivsdb': database.name
-                        }) }}" title="
+                    {{- database.name|js_format }}" href="{{ url('/server/privileges', {
+                      'db': database.name,
+                      'checkprivsdb': database.name
+                    }) }}" title="
                     {{- 'Check privileges for database "%s".'|trans|format(database.name) }}">
                     {{ get_icon('s_rights', 'Check privileges'|trans) }}
                   </a>
@@ -307,8 +316,11 @@
 
       {# Enable statistics #}
       {% if not has_statistics %}
+        <div class="row">
         {{ 'Note: Enabling the database statistics here might cause heavy traffic between the web server and the MySQL server.'|trans|notice }}
+        </div>
 
+        <div class="row">
         {% set content %}
           <strong>{% trans 'Enable statistics' %}</strong>
         {% endset %}
@@ -321,9 +333,12 @@
           }
         }] %}
         {% include 'list/unordered.twig' with {'items': items} only %}
+        </div>
       {% endif %}
     </form>
   </div>
+  </div>
+</div>
 {% else %}
   <p>{{ 'No databases'|trans|notice }}</p>
 {% endif %}

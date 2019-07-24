@@ -141,7 +141,6 @@ class DatabasesController extends AbstractController
             'has_master_replication' => $replication_info['master']['status'],
             'has_slave_replication' => $replication_info['slave']['status'],
             'is_drop_allowed' => $this->dbi->isSuperuser() || $cfg['AllowUserDropDatabase'],
-            'default_tab_database' => $cfg['DefaultTabDatabase'],
             'pma_theme_image' => $pmaThemeImage,
             'text_dir' => $text_dir,
         ]);
@@ -204,13 +203,18 @@ class DatabasesController extends AbstractController
             $message = Message::success(__('Database %1$s has been created.'));
             $message->addParam($params['new_db']);
 
+            $scriptName = Util::getScriptNameForOption(
+                $cfg['DefaultTabDatabase'],
+                'database'
+            );
+
             $json = [
                 'message' => $message,
                 'sql_query' => Util::getMessage(null, $sqlQuery, 'success'),
-                'url_query' => Util::getScriptNameForOption(
-                    $cfg['DefaultTabDatabase'],
-                    'database'
-                ) . Url::getCommon(['db' => $params['new_db']]),
+                'url_query' => $scriptName . Url::getCommon(
+                    ['db' => $params['new_db']],
+                    strpos($scriptName, '?') === false ? '?' : '&'
+                ),
             ];
         }
 
@@ -353,6 +357,11 @@ class DatabasesController extends AbstractController
                 }
             }
 
+            $url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+            $url .= Url::getCommonRaw(
+                ['db' => $database['SCHEMA_NAME']],
+                strpos($url, '?') === false ? '?' : '&'
+            );
             $databases[$database['SCHEMA_NAME']] = [
                 'name' => $database['SCHEMA_NAME'],
                 'collation' => [],
@@ -362,6 +371,7 @@ class DatabasesController extends AbstractController
                     $database['SCHEMA_NAME'],
                     true
                 ),
+                'url' => $url,
             ];
             $collation = Charsets::findCollationByName(
                 $this->dbi,

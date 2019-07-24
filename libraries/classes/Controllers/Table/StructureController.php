@@ -215,7 +215,11 @@ class StructureController extends AbstractController
          * A click on Change has been made for one column
          */
         if (isset($_GET['change_column'])) {
-            $this->displayHtmlForColumnChange(null, 'tbl_structure.php', $containerBuilder);
+            $this->displayHtmlForColumnChange(
+                null,
+                Url::getFromRoute('/table/structure'),
+                $containerBuilder
+            );
             return;
         }
 
@@ -247,7 +251,7 @@ class StructureController extends AbstractController
                 } else {
                     // handle multiple field commands
                     // handle confirmation of deleting multiple columns
-                    $action = 'tbl_structure.php';
+                    $action = Url::getFromRoute('/table/structure');
                     $GLOBALS['selected'] = $_POST['selected_fld'];
                     list(
                         $what_ret, $query_type_ret, $is_unset_submit_mult,
@@ -348,12 +352,12 @@ class StructureController extends AbstractController
         $this->_url_query = Url::getCommonRaw([
             'db' => $db,
             'table' => $table,
-            'goto' => 'tbl_structure.php',
-            'back' => 'tbl_structure.php',
+            'goto' => Url::getFromRoute('/table/structure'),
+            'back' => Url::getFromRoute('/table/structure'),
         ]);
         /* The url_params array is initialized in above include */
-        $url_params['goto'] = 'tbl_structure.php';
-        $url_params['back'] = 'tbl_structure.php';
+        $url_params['goto'] = Url::getFromRoute('/table/structure');
+        $url_params['back'] = Url::getFromRoute('/table/structure');
 
         // 2. Gets table keys and retains them
         // @todo should be: $server->db($db)->table($table)->primary()
@@ -885,12 +889,10 @@ class StructureController extends AbstractController
      */
     protected function updateColumns()
     {
-        $err_url = 'tbl_structure.php' . Url::getCommon(
-            [
-                'db' => $this->db,
-                'table' => $this->table,
-            ]
-        );
+        $err_url = Url::getFromRoute('/table/structure', [
+            'db' => $this->db,
+            'table' => $this->table,
+        ]);
         $regenerate = false;
         $field_cnt = count($_POST['field_name']);
         $changes = [];
@@ -1624,7 +1626,7 @@ class StructureController extends AbstractController
                 // the rendering
                 exit;
             case 'browse':
-                // this should already be handled by tbl_structure.php
+                // this should already be handled by /table/structure
         }
 
         return [

@@ -26,7 +26,6 @@ class CoreTest extends PmaTestCase
         'db_datadict.php',
         'db_sql.php',
         'db_export.php',
-        'db_search.php',
         'export.php',
         'import.php',
         'index.php',

@@ -14,6 +14,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 if (! defined('ROOT_PATH')) {
@@ -31,7 +32,7 @@ $response = $containerBuilder->get(Response::class);
 /** @var DatabaseInterface $dbi */
 $dbi = $containerBuilder->get(DatabaseInterface::class);
 
-$url_params['goto'] = 'tbl_structure.php';
+$url_params['goto'] = Url::getFromRoute('/table/structure');
 $url_params['back'] = 'view_create.php';
 
 /** @var Template $template */
@@ -168,7 +169,7 @@ if (isset($_POST['createview']) || isset($_POST['alterview'])) {
 
     if (! isset($_POST['ajax_dialog'])) {
         $message = Message::success();
-        include ROOT_PATH . 'tbl_structure.php';
+        include ROOT_PATH . 'libraries/entry_points/table/structure.php';
     } else {
         $response->addJSON(
             'message',

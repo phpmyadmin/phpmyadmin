@@ -3,6 +3,7 @@
 {% block content %}
 
 {% if is_data_loaded %}
+<div class="row">
   <fieldset id="tableFilter">
     <legend>{% trans 'Filters' %}</legend>
     <form action="server_status_variables.php" method="post">
@@ -39,6 +40,7 @@
       </div>
     </form>
   </fieldset>
+</div>
 
   <div id="linkSuggestions" class="defaultLinks hide">
     <p class="notice">
@@ -58,8 +60,13 @@
     </p>
   </div>
 
+<<<<<<< HEAD
   <div class="responsivetable">
     <table class="noclick table table-responsive table-hover table-striped" id="serverstatusvariables">
+=======
+  <div class="responsivetable row">
+    <table class="data noclick" id="serverstatusvariables">
+>>>>>>> 469fd5c05c35f2eab9b566b4ed59531fe0ec4683
       <colgroup>
         <col class="namecol">
         <col class="valuecol">

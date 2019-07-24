@@ -2408,8 +2408,8 @@ Functions.checkReservedWordColumns = function ($form) {
     var isConfirmed = true;
     $.ajax({
         type: 'POST',
-        url: 'tbl_structure.php',
-        data: $form.serialize() + CommonParams.get('arg_separator') + 'reserved_word_check=1',
+        url: 'index.php',
+        data: $form.serialize() + CommonParams.get('arg_separator') + 'reserved_word_check=1' + CommonParams.get('arg_separator') + 'route=/table/structure',
         success: function (data) {
             if (typeof data.success !== 'undefined' && data.success === true) {
                 isConfirmed = confirm(data.message);
@@ -2844,7 +2844,7 @@ AJAX.registerTeardown('functions.js', function () {
 });
 
 /**
- * jQuery coding for 'Create Table'.  Used on db_operations.php,
+ * jQuery coding for 'Create Table'. Used on /database/operations,
  * /database/structure and /database/tracking (i.e., wherever
  * PhpMyAdmin\Display\CreateTable is used)
  *
@@ -2939,7 +2939,7 @@ AJAX.registerOnload('functions.js', function () {
                         if (! (history && history.pushState)) {
                             params12 += MicroHistory.menus.getRequestParam();
                         }
-                        var tableStructureUrl = 'tbl_structure.php?server=' + data.params.server +
+                        var tableStructureUrl = 'index.php?route=/table/structure' + argsep + 'server=' + data.params.server +
                             argsep + 'db=' + data.params.db + argsep + 'token=' + data.params.token +
                             argsep + 'goto=' + encodeURIComponent('index.php?route=/database/structure') + argsep + 'table=' + data.params.table + '';
                         $.get(tableStructureUrl, params12, AJAX.responseHandler);

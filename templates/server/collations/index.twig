@@ -1,10 +1,18 @@
-<h2>
-  {{ get_image('s_asci') }}
-  {% trans 'Character sets and collations' %}
-</h2>
+<div class=container-fluid>
+<div class="row">
+  <h2>
+    {{ get_image('s_asci') }}
+    {% trans 'Character sets and collations' %}
+  </h2>
+</div>
 
+<<<<<<< HEAD
 <div id="div_mysql_charset_collations">
   <table class="data noclick table table-responsive table-hover table-striped">
+=======
+<div id="div_mysql_charset_collations" class="row">
+  <table class="data noclick">
+>>>>>>> 469fd5c05c35f2eab9b566b4ed59531fe0ec4683
     <thead>
       <tr>
         <th id="collationHeader">{% trans 'Collation' %}</th>
@@ -29,4 +37,5 @@
       {% endfor %}
     {% endfor %}
   </table>
+</div>
 </div>

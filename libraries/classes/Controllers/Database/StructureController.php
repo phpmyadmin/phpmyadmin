@@ -366,12 +366,10 @@ class StructureController extends AbstractController
 
             $table_is_view = false;
             // Sets parameters for links
-            $tbl_url_query = Url::getCommon(
-                [
-                    'db' => $this->db,
-                    'table' => $current_table['TABLE_NAME'],
-                ]
-            );
+            $tableUrlParams = [
+                'db' => $this->db,
+                'table' => $current_table['TABLE_NAME'],
+            ];
             // do not list the previous table's size info for a view
 
             list($current_table, $formatted_size, $unit, $formatted_overhead,
@@ -405,8 +403,8 @@ class StructureController extends AbstractController
             if ($this->isShowStats) {
                 $overhead = '-';
                 if ($formatted_overhead != '') {
-                    $overhead = '<a href="tbl_structure.php'
-                        . $tbl_url_query . '#showusage">'
+                    $overhead = '<a href="' . Url::getFromRoute('/table/structure', $tableUrlParams)
+                        . '#showusage">'
                         . '<span>' . $formatted_overhead . '</span>&nbsp;'
                         . '<span class="unit">' . $overhead_unit . '</span>'
                         . '</a>' . "\n";
@@ -541,10 +539,8 @@ class StructureController extends AbstractController
                 'search_table_title' => $may_have_rows ? $titles['Search'] : $titles['NoSearch'],
                 'browse_table_label_title' => htmlspecialchars($current_table['TABLE_COMMENT']),
                 'browse_table_label_truename' => $truename,
-                'empty_table_sql_query' => urlencode(
-                    'TRUNCATE ' . Util::backquote(
-                        $current_table['TABLE_NAME']
-                    )
+                'empty_table_sql_query' => 'TRUNCATE ' . Util::backquote(
+                    $current_table['TABLE_NAME']
                 ),
                 'empty_table_message_to_show' => urlencode(
                     sprintf(
@@ -557,7 +553,7 @@ class StructureController extends AbstractController
                 'empty_table_title' => $may_have_rows ? $titles['Empty'] : $titles['NoEmpty'],
                 'tracking_icon' => $this->getTrackingIcon($truename),
                 'server_slave_status' => $GLOBALS['replication_info']['slave']['status'],
-                'tbl_url_query' => $tbl_url_query,
+                'table_url_params' => $tableUrlParams,
                 'db_is_system_schema' => $this->dbIsSystemSchema,
                 'titles' => $titles,
                 'drop_query' => $drop_query,

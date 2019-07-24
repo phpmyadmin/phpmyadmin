@@ -123,7 +123,7 @@ abstract class ExportPlugin
     );
 
     /**
-     * The following methods are used in export.php or in db_operations.php,
+     * The following methods are used in export.php or in /database/operations,
      * but they are not implemented by all export plugins
      */
 

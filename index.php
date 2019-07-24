@@ -10,6 +10,7 @@ declare(strict_types=1);
 use FastRoute\Dispatcher;
 use FastRoute\RouteCollector;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Message;
 
 use function FastRoute\simpleDispatcher;
 
@@ -25,6 +26,12 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
             require_once ROOT_PATH . 'libraries/entry_points/home.php';
         });
         $routes->addGroup('/database', function (RouteCollector $routes) {
+            $routes->addRoute(['GET', 'POST'], '/operations', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/database/operations.php';
+            });
+            $routes->addRoute(['GET', 'POST'], '/search', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/database/search.php';
+            });
             $routes->addRoute(['GET', 'POST'], '/structure', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/database/structure.php';
             });
@@ -45,7 +52,13 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
             $routes->addRoute('GET', '/plugins', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/server/plugins.php';
             });
+            $routes->addRoute(['GET', 'POST'], '/privileges', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/server/privileges.php';
+            });
             $routes->addGroup('/status', function (RouteCollector $routes) {
+                $routes->addRoute('GET', '', function () {
+                    require_once ROOT_PATH . 'libraries/entry_points/server/status.php';
+                });
                 $routes->addRoute('GET', '/queries', function () {
                     require_once ROOT_PATH . 'libraries/entry_points/server/status/queries.php';
                 });
@@ -55,6 +68,9 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
             });
         });
         $routes->addGroup('/table', function (RouteCollector $routes) {
+            $routes->addRoute(['GET', 'POST'], '/structure', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/table/structure.php';
+            });
             $routes->addRoute(['GET', 'POST'], '/tracking', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/table/tracking.php';
             });
@@ -64,7 +80,16 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
         $_SERVER['REQUEST_METHOD'],
         rawurldecode($_GET['route'] ?? $_POST['route'])
     );
-    if ($routeInfo[0] === Dispatcher::FOUND) {
+    if ($routeInfo[0] === Dispatcher::NOT_FOUND) {
+        Message::error(sprintf(
+            __('Error 404! The page <code>%s</code> was not found.'),
+            $_GET['route'] ?? $_POST['route']
+        ))->display();
+        exit;
+    } elseif ($routeInfo[0] === Dispatcher::METHOD_NOT_ALLOWED) {
+        Message::error(__('Error 405! Request method not allowed.'))->display();
+        exit;
+    } elseif ($routeInfo[0] === Dispatcher::FOUND) {
         $handler = $routeInfo[1];
         $handler($routeInfo[2]);
         exit;

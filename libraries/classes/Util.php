@@ -2513,12 +2513,14 @@ class Util
             $database = self::unescapeMysqlWildcards($database);
         }
 
+        $scriptName = self::getScriptNameForOption(
+            $GLOBALS['cfg']['DefaultTabDatabase'],
+            'database'
+        );
         return '<a href="'
-            . self::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabDatabase'],
-                'database'
-            )
-            . Url::getCommon(['db' => $database]) . '" title="'
+            . $scriptName
+            . Url::getCommon(['db' => $database], strpos($scriptName, '?') === false ? '?' : '&')
+            . '" title="'
             . htmlspecialchars(
                 sprintf(
                     __('Jump to database “%s”.'),
@@ -3177,11 +3179,11 @@ class Util
                 case 'databases':
                     return Url::getFromRoute('/server/databases');
                 case 'status':
-                    return 'server_status.php';
+                    return Url::getFromRoute('/server/status');
                 case 'variables':
                     return Url::getFromRoute('/server/variables');
                 case 'privileges':
-                    return 'server_privileges.php';
+                    return Url::getFromRoute('/server/privileges');
             }
         } elseif ($location == 'database') {
             // Values for $cfg['DefaultTabDatabase']
@@ -3191,9 +3193,9 @@ class Util
                 case 'sql':
                     return 'db_sql.php';
                 case 'search':
-                    return 'db_search.php';
+                    return Url::getFromRoute('/database/search');
                 case 'operations':
-                    return 'db_operations.php';
+                    return Url::getFromRoute('/database/operations');
             }
         } elseif ($location == 'table') {
             // Values for $cfg['DefaultTabTable'],
@@ -3201,7 +3203,7 @@ class Util
             // $cfg['NavigationTreeDefaultTabTable2']
             switch ($target) {
                 case 'structure':
-                    return 'tbl_structure.php';
+                    return Url::getFromRoute('/table/structure');
                 case 'sql':
                     return 'tbl_sql.php';
                 case 'search':

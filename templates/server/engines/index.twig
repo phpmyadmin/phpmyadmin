@@ -1,8 +1,12 @@
-<h2>
-  {{ get_image('b_engine') }}
-  {% trans 'Storage engines' %}
-</h2>
+<div class="container-fluid">
+  <div class="row">
+  <h2>
+    {{ get_image('b_engine') }}
+    {% trans 'Storage engines' %}
+  </h2>
+  </div>
 
+<<<<<<< HEAD
 <table class="noclick table table-responsive table-hover table-striped">
   <thead>
     <tr>
@@ -21,7 +25,30 @@
           </a>
         </td>
         <td>{{ details['Comment'] }}</td>
+=======
+  <div class="row">
+  <table class="noclick">
+    <thead>
+      <tr>
+        <th>{% trans 'Storage Engine' %}</th>
+        <th>{% trans 'Description' %}</th>
+>>>>>>> 469fd5c05c35f2eab9b566b4ed59531fe0ec4683
       </tr>
-    {% endfor %}
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      {% for engine, details in engines %}
+        <tr class="
+          {{- details['Support'] == 'NO' or details['Support'] == 'DISABLED' ? ' disabled' }}
+          {{ details['Support'] == 'DEFAULT' ? ' marked' }}">
+          <td>
+            <a rel="newpage" href="{{ url('/server/engines', {'engine': engine}) }}">
+              {{ details['Engine'] }}
+            </a>
+          </td>
+          <td>{{ details['Comment'] }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</div>

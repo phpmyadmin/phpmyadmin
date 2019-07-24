@@ -40,3 +40,6 @@ $GLOBALS['PMA_Config']->enableBc();// Defines constants, phpstan:level=1
 Loader::loadFunctions();
 
 $GLOBALS['dbi'] = DatabaseInterface::load(new DbiDummy());
+
+// for PhpMyAdmin\Plugins\Import\ImportLdi
+$GLOBALS['plugin_param'] = 'table';

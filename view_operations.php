@@ -14,6 +14,7 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 if (! defined('ROOT_PATH')) {
@@ -107,7 +108,7 @@ $drop_view_url_params = array_merge(
     $url_params,
     [
         'sql_query' => 'DROP VIEW ' . Util::backquote($GLOBALS['table']),
-        'goto' => 'tbl_structure.php',
+        'goto' => Url::getFromRoute('/table/structure'),
         'reload' => '1',
         'purge' => '1',
         'message_to_show' => sprintf(
