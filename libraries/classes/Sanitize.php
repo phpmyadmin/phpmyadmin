@@ -38,7 +38,6 @@ class Sanitize
             // possible return values from Util::getScriptNameForOption
             './index.php?',
             './db_sql.php?',
-            './db_search.php?',
             './db_operations.php?',
             './tbl_sql.php?',
             './tbl_select.php?',

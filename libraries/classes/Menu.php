@@ -466,7 +466,7 @@ class Menu
 
         $tabs['search']['text'] = __('Search');
         $tabs['search']['icon'] = 'b_search';
-        $tabs['search']['link'] = 'db_search.php';
+        $tabs['search']['link'] = Url::getFromRoute('/database/search');
         if ($num_tables == 0) {
             $tabs['search']['warning'] = __('Database seems to be empty!');
         }

@@ -3193,7 +3193,7 @@ class Util
                 case 'sql':
                     return 'db_sql.php';
                 case 'search':
-                    return 'db_search.php';
+                    return Url::getFromRoute('/database/search');
                 case 'operations':
                     return 'db_operations.php';
             }

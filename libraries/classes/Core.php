@@ -35,7 +35,6 @@ class Core
         'db_qbe.php',
         'db_import.php',
         'db_operations.php',
-        'db_search.php',
         'db_routines.php',
         'export.php',
         'import.php',
