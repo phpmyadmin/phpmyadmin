@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-07-25 16:54-0300\n"
-"PO-Revision-Date: 2019-07-12 05:32+0000\n"
+"PO-Revision-Date: 2019-07-25 20:26+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/pt_BR/>\n"
@@ -230,14 +230,13 @@ msgid "Back"
 msgstr "Voltar"
 
 #: index.php:85
-#, fuzzy, php-format
-#| msgid "Source database `%s` was not found!"
+#, php-format
 msgid "Error 404! The page %s was not found."
-msgstr "O banco de dados fonte `%s` não foi encontrado!"
+msgstr "Erro 404! A página %s não foi encontrada."
 
 #: index.php:90
 msgid "Error 405! Request method not allowed."
-msgstr ""
+msgstr "Erro 405! Método de requisição não permitido."
 
 #: js/messages.php:46
 msgid "Confirm"
