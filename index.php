@@ -82,8 +82,8 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
     );
     if ($routeInfo[0] === Dispatcher::NOT_FOUND) {
         Message::error(sprintf(
-            __('Error 404! The page <code>%s</code> was not found.'),
-            $_GET['route'] ?? $_POST['route']
+            __('Error 404! The page %s was not found.'),
+            '<code>' . ($_GET['route'] ?? $_POST['route']) . '</code>'
         ))->display();
         exit;
     } elseif ($routeInfo[0] === Dispatcher::METHOD_NOT_ALLOWED) {
