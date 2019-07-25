@@ -33,7 +33,6 @@ class CoreTest extends PmaTestCase
         'pdf_schema.php',
         'server_binlog.php',
         'sql.php',
-        'tbl_select.php',
         'transformation_overview.php',
         'transformation_wrapper.php',
         'user_password.php',

@@ -3207,7 +3207,7 @@ class Util
                 case 'sql':
                     return 'tbl_sql.php';
                 case 'search':
-                    return 'tbl_select.php';
+                    return Url::getFromRoute('/table/search');
                 case 'insert':
                     return 'tbl_change.php';
                 case 'browse':

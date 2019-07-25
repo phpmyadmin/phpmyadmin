@@ -1,6 +1,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * @fileoverview JavaScript functions used on tbl_select.php
+ * @fileoverview JavaScript functions used on /table/select
  *
  * @requires    jQuery
  * @requires    js/functions.js
@@ -297,7 +297,7 @@ AJAX.registerOnload('table/select.js', function () {
         if ((operator === 'BETWEEN' || operator === 'NOT BETWEEN') && dataType) {
             var $msgbox = Functions.ajaxShowMessage();
             $.ajax({
-                url: 'tbl_select.php',
+                url: 'index.php?route=/table/search',
                 type: 'POST',
                 data: {
                     'server': CommonParams.get('server'),

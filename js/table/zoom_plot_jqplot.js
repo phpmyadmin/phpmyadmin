@@ -1,7 +1,7 @@
 // TODO: change the axis
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- ** @fileoverview JavaScript functions used on tbl_select.php
+ ** @fileoverview JavaScript functions used on /table/select
  **
  ** @requires    jQuery
  ** @requires    js/functions.js
