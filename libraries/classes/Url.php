@@ -248,7 +248,7 @@ class Url
             if (mb_strpos($arg_separator, ';') !== false) {
                 $separator = ';';
             } elseif (strlen($arg_separator) > 0) {
-                $separator = $arg_separator{0};
+                $separator = $arg_separator[0];
             } else {
                 $separator = '&';
             }
