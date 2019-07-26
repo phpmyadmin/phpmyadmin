@@ -360,40 +360,64 @@ class InsertEditTest extends TestCase
 
         $result = $this->insertEdit->showTypeOrFunction('function', $url_params, false);
 
-        $this->assertEquals(
-            ' : <a href="tbl_change.php" data-post="ShowFunctionFields=1&amp;ShowFieldTypesIn'
-            . 'DataEditView=1&amp;goto=sql.php&amp;lang=en">'
-            . 'Function</a>',
+        $this->assertStringContainsString(
+            'index.php?route=/table/change',
+            $result
+        );
+        $this->assertStringContainsString(
+            'ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=1&amp;goto=sql.php',
+            $result
+        );
+        $this->assertStringContainsString(
+            'Function',
             $result
         );
 
         // case 2
         $result = $this->insertEdit->showTypeOrFunction('function', $url_params, true);
 
-        $this->assertEquals(
-            '<th><a href="tbl_change.php" data-post="ShowFunctionFields=0&amp;ShowFieldTypesIn'
-            . 'DataEditView=1&amp;goto=sql.php&amp;lang=en" title='
-            . '"Hide">Function</a></th>',
+        $this->assertStringContainsString(
+            'index.php?route=/table/change',
+            $result
+        );
+        $this->assertStringContainsString(
+            'ShowFunctionFields=0&amp;ShowFieldTypesInDataEditView=1&amp;goto=sql.php',
+            $result
+        );
+        $this->assertStringContainsString(
+            'Function',
             $result
         );
 
         // case 3
         $result = $this->insertEdit->showTypeOrFunction('type', $url_params, false);
 
-        $this->assertEquals(
-            ' : <a href="tbl_change.php" data-post="ShowFunctionFields=1&amp;ShowFieldTypesIn'
-            . 'DataEditView=1&amp;goto=sql.php&amp;lang=en">'
-            . 'Type</a>',
+        $this->assertStringContainsString(
+            'index.php?route=/table/change',
+            $result
+        );
+        $this->assertStringContainsString(
+            'ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=1&amp;goto=sql.php',
+            $result
+        );
+        $this->assertStringContainsString(
+            'Type',
             $result
         );
 
         // case 4
         $result = $this->insertEdit->showTypeOrFunction('type', $url_params, true);
 
-        $this->assertEquals(
-            '<th><a href="tbl_change.php" data-post="ShowFunctionFields=1&amp;ShowFieldTypesIn'
-            . 'DataEditView=0&amp;goto=sql.php&amp;lang=en" title='
-            . '"Hide">Type</a></th>',
+        $this->assertStringContainsString(
+            'index.php?route=/table/change',
+            $result
+        );
+        $this->assertStringContainsString(
+            'ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=0&amp;goto=sql.php',
+            $result
+        );
+        $this->assertStringContainsString(
+            'Type',
             $result
         );
     }
@@ -2179,12 +2203,17 @@ class InsertEditTest extends TestCase
         ]);
 
         $this->assertStringContainsString(
-            'tbl_change.php" data-post="ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=0',
+            'index.php?route=/table/change',
             $result
         );
 
         $this->assertStringContainsString(
-            'tbl_change.php" data-post="ShowFunctionFields=0&amp;ShowFieldTypesInDataEditView=1',
+            'ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=0',
+            $result
+        );
+
+        $this->assertStringContainsString(
+            'ShowFunctionFields=0&amp;ShowFieldTypesInDataEditView=1',
             $result
         );
     }
@@ -2588,7 +2617,7 @@ class InsertEditTest extends TestCase
 
         $_POST['after_insert'] = 'new_insert';
         $this->assertEquals(
-            'tbl_change.php',
+            'libraries/entry_points/table/change.php',
             $this->insertEdit->getGotoInclude('index')
         );
     }
@@ -2602,7 +2631,7 @@ class InsertEditTest extends TestCase
     {
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $this->assertEquals(
-            'tbl_change.php?lang=en',
+            'index.php?route=/table/change&amp;lang=en',
             $this->insertEdit->getErrorUrl([])
         );
 
@@ -3718,8 +3747,10 @@ class InsertEditTest extends TestCase
      */
     public function testGetUrlParameters()
     {
+        global $goto;
+
         $_POST['sql_query'] = 'SELECT';
-        $GLOBALS['goto'] = 'tbl_change.php';
+        $goto = 'tbl_sql.php';
 
         $this->assertEquals(
             [

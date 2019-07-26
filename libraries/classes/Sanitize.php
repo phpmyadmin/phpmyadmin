@@ -39,7 +39,6 @@ class Sanitize
             './index.php?',
             './db_sql.php?',
             './tbl_sql.php?',
-            './tbl_change.php?',
             './sql.php?',
             // Hardcoded options in \PhpMyAdmin\Config\SpecialSchemaLinks
             './db_events.php?',

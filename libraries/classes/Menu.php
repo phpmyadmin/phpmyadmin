@@ -366,7 +366,7 @@ class Menu
 
         if (! $db_is_system_schema && (! $tbl_is_view || $updatable_view)) {
             $tabs['insert']['icon'] = 'b_insrow';
-            $tabs['insert']['link'] = 'tbl_change.php';
+            $tabs['insert']['link'] = Url::getFromRoute('/table/change');
             $tabs['insert']['text'] = __('Insert');
         }
 

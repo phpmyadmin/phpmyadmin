@@ -3209,7 +3209,7 @@ class Util
                 case 'search':
                     return Url::getFromRoute('/table/search');
                 case 'insert':
-                    return 'tbl_change.php';
+                    return Url::getFromRoute('/table/change');
                 case 'browse':
                     return 'sql.php';
             }
@@ -3528,7 +3528,7 @@ class Util
 
     /**
      * Returns a list of datatypes that are not (yet) handled by PMA.
-     * Used by: tbl_change.php and libraries/db_routines.inc.php
+     * Used by: /table/change and libraries/db_routines.inc.php
      *
      * @return array   list of datatypes
      */

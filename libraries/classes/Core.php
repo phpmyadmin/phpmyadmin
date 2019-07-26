@@ -49,7 +49,6 @@ class Core
         'server_status_variables.php',
         'sql.php',
         'tbl_addfield.php',
-        'tbl_change.php',
         'tbl_create.php',
         'tbl_import.php',
         'tbl_indexes.php',

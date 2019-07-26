@@ -58,7 +58,7 @@
 
     {% if not db_is_system_schema %}
         <td class="insert_table center print_ignore">
-            <a href="tbl_change.php{{ get_common(table_url_params) }}">{{ titles['Insert']|raw }}</a>
+            <a href="{{ url('/table/change', table_url_params) }}">{{ titles['Insert']|raw }}</a>
         </td>
         {% if table_is_view %}
             <td class="center print_ignore">

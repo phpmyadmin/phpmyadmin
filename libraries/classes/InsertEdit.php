@@ -298,12 +298,12 @@ class InsertEdit
         $this_url_params = array_merge($url_params, $params);
 
         if (! $is_show) {
-            return ' : <a href="tbl_change.php" data-post="'
+            return ' : <a href="' . Url::getFromRoute('/table/change') . '" data-post="'
                 . Url::getCommon($this_url_params, '') . '">'
                 . $this->showTypeOrFunctionLabel($which)
                 . '</a>';
         }
-        return '<th><a href="tbl_change.php" data-post="'
+        return '<th><a href="' . Url::getFromRoute('/table/change') . '" data-post="'
             . Url::getCommon($this_url_params, '')
             . '" title="' . __('Hide') . '">'
             . $this->showTypeOrFunctionLabel($which)
@@ -2189,7 +2189,7 @@ class InsertEdit
             $scripts->addFile('vendor/jquery/additional-methods.js');
             $scripts->addFile('table/change.js');
             if (! defined('TESTSUITE')) {
-                include ROOT_PATH . 'tbl_change.php';
+                include ROOT_PATH . 'libraries/entry_points/table/change.php';
                 exit;
             }
         }
@@ -2249,7 +2249,7 @@ class InsertEdit
         if (isset($_POST['after_insert'])
             && in_array($_POST['after_insert'], $valid_options)
         ) {
-            $goto_include = 'tbl_change.php';
+            $goto_include = 'libraries/entry_points/table/change.php';
         } elseif (! empty($GLOBALS['goto'])) {
             if (! preg_match('@^[a-z_]+\.php$@', $GLOBALS['goto'])) {
                 // this should NOT happen
@@ -2285,7 +2285,7 @@ class InsertEdit
             return $_POST['err_url'];
         }
 
-        return 'tbl_change.php' . Url::getCommon($url_params);
+        return Url::getFromRoute('/table/change', $url_params);
     }
 
     /**
@@ -2985,6 +2985,7 @@ class InsertEdit
      */
     public function getUrlParameters($db, $table)
     {
+        global $goto;
         /**
          * @todo check if we could replace by "db_|tbl_" - please clarify!?
          */
@@ -2993,7 +2994,7 @@ class InsertEdit
             'sql_query' => $_POST['sql_query'],
         ];
 
-        if (0 === strpos($GLOBALS['goto'], "tbl_")) {
+        if (0 === strpos($goto, "tbl_")) {
             $url_params['table'] = $table;
         }
 

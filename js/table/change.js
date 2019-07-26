@@ -422,7 +422,7 @@ AJAX.registerOnload('table/change.js', function () {
      */
     $(document).on('click', 'input.checkbox_null', function () {
         nullify(
-            // use hidden fields populated by tbl_change.php
+            // use hidden fields populated by /table/change
             $(this).siblings('.nullify_code').val(),
             $(this).closest('tr').find('input:hidden').first().val(),
             $(this).siblings('.hashed_field').val(),
@@ -553,7 +553,7 @@ function addNewContinueInsertionFiels (event) {
                 $thisElement
                     .off('change')
                     // Remove onchange attribute that was placed
-                    // by tbl_change.php; it refers to the wrong row index
+                    // by /table/change; it refers to the wrong row index
                     .attr('onchange', null)
                     // Keep these values to be used when the element
                     // will change
