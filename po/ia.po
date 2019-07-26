@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-07-25 16:54-0300\n"
-"PO-Revision-Date: 2019-07-15 22:00+0000\n"
+"PO-Revision-Date: 2019-07-30 00:41+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ia/>\n"
@@ -237,14 +237,13 @@ msgid "Back"
 msgstr "Retro"
 
 #: index.php:85
-#, fuzzy, php-format
-#| msgid "Source database `%s` was not found!"
+#, php-format
 msgid "Error 404! The page %s was not found."
-msgstr "Il non trovava base de datos de fonte '%s'!"
+msgstr "Error 404! Le pagina %s non esseva trovate."
 
 #: index.php:90
 msgid "Error 405! Request method not allowed."
-msgstr ""
+msgstr "Error 405! Le methodo requirite non es permittite."
 
 #: js/messages.php:46
 msgid "Confirm"
@@ -1454,12 +1453,16 @@ msgstr "Naviga inter valores externe"
 #: js/messages.php:434
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
+"Necun query previemente salveguardate automaticamente es disponibile. On "
+"carga le query predefinite."
 
 #: js/messages.php:435
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
+"Tu ha un query previemente salveguardate de modo automatic. Pulsa \"Obtene "
+"query\" per cargar le query."
 
 #: js/messages.php:436
 #, php-format
@@ -2295,7 +2298,7 @@ msgstr "Forte"
 
 #: js/messages.php:762
 msgid "Timed out waiting for security key activation."
-msgstr ""
+msgstr "Tempore expirava quando on attendeva per le clave de activation."
 
 #: js/messages.php:763
 #, php-format
@@ -2947,7 +2950,7 @@ msgstr "Chinese Traditional"
 #: libraries/classes/Charsets/Collation.php:319
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Cinese"
 
 #: libraries/classes/Charsets/Collation.php:251
 #: libraries/classes/Charsets/Collation.php:367
@@ -3192,7 +3195,7 @@ msgstr "binari"
 #: libraries/classes/Charsets/Collation.php:534
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "necun pad"
 
 #: libraries/classes/Config.php:1144
 #, php-format
