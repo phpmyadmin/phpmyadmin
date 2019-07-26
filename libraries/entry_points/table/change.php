@@ -19,7 +19,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $cfg, $containerBuilder, $db, $table, $text_dir;
+global $cfg, $is_upload, $containerBuilder, $db, $table, $text_dir;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);
