@@ -1,5 +1,5 @@
-<fieldset id="fieldset_add_user">
-    <legend>{% trans %}New{% context %}Create new user{% endtrans %}</legend>
+<fieldset id="fieldset_add_user" class="form-group">
+    <legend class="form-control">{% trans %}New{% context %}Create new user{% endtrans %}</legend>
     <a id="add_user_anchor" href="server_privileges.php{{ get_common(url_params) }}"
         {% if rel_params is not empty %}
             rel="{{ get_common(rel_params) }}"

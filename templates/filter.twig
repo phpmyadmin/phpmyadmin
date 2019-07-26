@@ -1,12 +1,14 @@
 <div class="row">
-	<div class="col-12">
-		<fieldset id="tableFilter">
-		    <legend>{% trans "Filters" %}</legend>
-		    <div class="formelement">
-		        <label for="filterText">{% trans "Containing the word:" %}</label>
-		        <input name="filterText" type="text" id="filterText"
-		               value="{{ filter_value }}">
-		    </div>
-		</fieldset>
-	</div>
+    <div class="col-12">
+        <fieldset id="tableFilter">
+            <legend class="form-control">{% trans "Filters" %}</legend>
+            <div class="formelement form-group row">
+                <label for="filterText" class="col-form-label col-sm-4 col-12 d-flex align-items-center">{% trans "Containing the word:" %}</label>
+                <div class="col-sm-8 col-12">
+                    <input name="filterText" type="text" id="filterText" class="form-control"
+                       value="{{ filter_value }}">
+                </div>
+            </div>
+        </fieldset>
+    </div>
 </div>

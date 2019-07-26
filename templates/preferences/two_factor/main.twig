@@ -46,12 +46,14 @@
       <form method="post" action="prefs_twofactor.php">
         {{ get_hidden_inputs() }}
         {% for backend in backends %}
-          <label class="displayblock">
-            <input type="radio" name="2fa_configure" value="{{ backend["id"] }}"
+        <div class="form-check">
+          <label class="displayblock form-check-label">
+            <input type="radio" class="form-check-input" name="2fa_configure" value="{{ backend["id"] }}"
               {{- backend["id"] == "" ? ' checked' }}>
             <strong>{{ backend["name"] }}</strong>
             <p>{{ backend["description"] }}</p>
           </label>
+        </div>
         {% endfor %}
         <input class="btn btn-secondary" type="submit" value="{% trans "Configure two-factor authentication" %}">
       </form>

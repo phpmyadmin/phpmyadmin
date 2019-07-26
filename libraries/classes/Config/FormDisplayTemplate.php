@@ -132,7 +132,7 @@ class FormDisplayTemplate
     ): string {
         $this->group = 0;
 
-        $attributes = array_merge(['class' => 'optbox'], $attributes);
+        $attributes = array_merge(['class' => 'optbox form-group'], $attributes);
 
         return $this->template->render('config/form_display/fieldset_top', [
             'attributes' => $attributes,

@@ -215,7 +215,7 @@ input {
   &[type=number],
   &[type=date],
   &[type=checkbox] {
-    margin: 6px;
+//    margin: 6px;
   }
 }
 
@@ -376,19 +376,19 @@ fieldset {
   }
 
   legend {
-    font-weight: bold;
+    font-weight: bold !important;
     color: #444;
     padding: 5px 10px;
     border-radius: 2px;
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
-    border: 1px solid #aaa;
+    border: 1px solid #aaa !important;
     background-color: #fff;
     max-width: 100%;
     -moz-box-shadow: 3px 3px 15px #bbb;
     -webkit-box-shadow: 3px 3px 15px #bbb;
     box-shadow: 3px 3px 15px #bbb;
-    width: initial;
+    width: initial !important;
     font-size: 1rem;
   }
 }
