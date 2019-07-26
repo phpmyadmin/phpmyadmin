@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-07-25 16:54-0300\n"
-"PO-Revision-Date: 2019-07-14 00:00+0000\n"
+"PO-Revision-Date: 2019-07-30 00:41+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -226,14 +226,13 @@ msgid "Back"
 msgstr "戻る"
 
 #: index.php:85
-#, fuzzy, php-format
-#| msgid "Source database `%s` was not found!"
+#, php-format
 msgid "Error 404! The page %s was not found."
-msgstr "元にするデータベース `%s` が見つかりません！"
+msgstr "エラー 404!　ページ 「%s」が見つかりませんでした。"
 
 #: index.php:90
 msgid "Error 405! Request method not allowed."
-msgstr ""
+msgstr "エラー 405!　要求メソッドは許可されていません。"
 
 #: js/messages.php:46
 msgid "Confirm"
