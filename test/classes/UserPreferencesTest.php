@@ -50,7 +50,7 @@ class UserPreferencesTest extends PmaTestCase
     {
         $GLOBALS['cfg'] = [
             'Server/hide_db' => 'testval123',
-            'Server/port' => '213'
+            'Server/port' => '213',
         ];
         $GLOBALS['cfg']['AvailableCharsets'] = [];
         $GLOBALS['cfg']['UserprefsDeveloperTab'] = null;
@@ -144,7 +144,7 @@ class UserPreferencesTest extends PmaTestCase
                     2,
                 ],
                 'mtime' => 123,
-                'type' => 'db'
+                'type' => 'db',
             ],
             $result
         );
@@ -280,7 +280,7 @@ class UserPreferencesTest extends PmaTestCase
     {
         $GLOBALS['cfg']['UserprefsDisallow'] = [
             'test' => 'val',
-            'foo' => 'bar'
+            'foo' => 'bar',
         ];
         $GLOBALS['cfg']['UserprefsDeveloperTab'] = null;
         $result = $this->userPreferences->apply(
@@ -289,7 +289,7 @@ class UserPreferencesTest extends PmaTestCase
                 'ErrorHandler/display' => true,
                 'ErrorHandler/gather' => false,
                 'Servers/foobar' => '123',
-                'Server/hide_db' => true
+                'Server/hide_db' => true,
             ]
         );
 

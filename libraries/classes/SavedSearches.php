@@ -293,7 +293,7 @@ class SavedSearches
         if (null === $this->getId()) {
             $wheres = [
                 "search_name = '" . $GLOBALS['dbi']->escapeString($this->getSearchName())
-                . "'"
+                . "'",
             ];
             $existingSearches = $this->getList($wheres);
 

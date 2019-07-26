@@ -67,7 +67,7 @@ class PdfRelationSchemaTest extends PmaTestCase
             'mimework' => 'mimework',
             'commwork' => 'commwork',
             'column_info' => 'column_info',
-            'pdf_pages' => 'pdf_pages'
+            'pdf_pages' => 'pdf_pages',
         ];
         $relation = new Relation($GLOBALS['dbi']);
         $relation->getRelationsParam();

@@ -32,15 +32,15 @@ class NodeProcedureContainer extends NodeDatabaseChildContainer
             'icon' => 'db_routines.php?server=' . $GLOBALS['server']
                 . '&amp;db=%1$s&amp;type=PROCEDURE',
         ];
-        $this->real_name = 'procedures';
+        $this->realName = 'procedures';
 
-        $new_label = _pgettext('Create new procedure', 'New');
+        $newLabel = _pgettext('Create new procedure', 'New');
         $new = NodeFactory::getInstance(
             'Node',
-            $new_label
+            $newLabel
         );
         $new->isNew = true;
-        $new->icon = Util::getImage('b_routine_add', $new_label);
+        $new->icon = Util::getImage('b_routine_add', $newLabel);
         $new->links = [
             'text' => 'db_routines.php?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s&add_item=1',

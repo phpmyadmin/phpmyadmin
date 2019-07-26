@@ -118,7 +118,7 @@ class CentralColumnsTest extends TestCase
             'relwork' => 1,
             'db' => 'phpmyadmin',
             'relation' => 'relation',
-            'central_columns' => 'pma_central_columns'
+            'central_columns' => 'pma_central_columns',
         ];
 
         // mock DBI

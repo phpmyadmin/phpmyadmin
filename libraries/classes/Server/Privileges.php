@@ -222,18 +222,18 @@ class Privileges
             $grants = $this->getGrantsArray();
         }
 
-        if (! is_null($row) && isset($row['Table_priv'])) {
+        if ($row !== null && isset($row['Table_priv'])) {
             $this->fillInTablePrivileges($row);
         }
 
         $privs = [];
         $allPrivileges = true;
         foreach ($grants as $current_grant) {
-            if ((! is_null($row) && isset($row[$current_grant[0]]))
-                || (is_null($row) && isset($GLOBALS[$current_grant[0]]))
+            if (($row !== null && isset($row[$current_grant[0]]))
+                || ($row === null && isset($GLOBALS[$current_grant[0]]))
             ) {
-                if ((! is_null($row) && $row[$current_grant[0]] == 'Y')
-                    || (is_null($row)
+                if (($row !== null && $row[$current_grant[0]] == 'Y')
+                    || ($row === null
                     && ($GLOBALS[$current_grant[0]] == 'Y'
                     || (is_array($GLOBALS[$current_grant[0]])
                     && count($GLOBALS[$current_grant[0]]) == $_REQUEST['column_count']
@@ -271,7 +271,7 @@ class Privileges
             if ($enableHTML) {
                 $privs = ['<dfn title="'
                     . __('Includes all privileges except GRANT.')
-                    . '">ALL PRIVILEGES</dfn>'
+                    . '">ALL PRIVILEGES</dfn>',
                 ];
             } else {
                 $privs = ['ALL PRIVILEGES'];
@@ -474,12 +474,12 @@ class Privileges
             [
                 'Delete_history_priv',
                 'DELETE HISTORY',
-                $GLOBALS['strPrivDescDeleteHistoricalRows'],
+                __('Allows deleting historical rows.'),
             ],
             [
                 'Delete versioning rows_priv',
                 'DELETE HISTORY',
-                $GLOBALS['strPrivDescDeleteHistoricalRows'],
+                __('Allows deleting historical rows.'),
             ],
             [
                 'Create_routine_priv',
@@ -610,7 +610,7 @@ class Privileges
         return $this->template->render('server/privileges/choose_user_group', [
             'all_user_groups' => $allUserGroups,
             'user_group' => $userGroup,
-            'params' => ['username' => $username]
+            'params' => ['username' => $username],
         ]);
     }
 
@@ -624,7 +624,7 @@ class Privileges
      */
     public function setUserGroup($username, $userGroup)
     {
-        $userGroup = is_null($userGroup) ? '' : $userGroup;
+        $userGroup = $userGroup === null ? '' : $userGroup;
         $cfgRelation = $this->relation->getRelationsParam();
         if (empty($cfgRelation['db']) || empty($cfgRelation['users']) || empty($cfgRelation['usergroups'])) {
             return;
@@ -1937,9 +1937,7 @@ class Privileges
         $authentication_plugin = 'mysql_native_password';
         $serverVersion = $this->dbi->getVersion();
 
-        if (isset($username) && isset($hostname)
-            && $mode == 'change'
-        ) {
+        if (isset($username, $hostname) && $mode == 'change') {
             $row = $this->dbi->fetchSingleRow(
                 'SELECT `plugin` FROM `mysql`.`user` WHERE '
                 . '`User` = "' . $username . '" AND `Host` = "' . $hostname . '" LIMIT 1'
@@ -2006,10 +2004,7 @@ class Privileges
         // similar logic in user_password.php
         $message = null;
 
-        if (empty($_POST['nopass'])
-            && isset($_POST['pma_pw'])
-            && isset($_POST['pma_pw2'])
-        ) {
+        if (isset($_POST['pma_pw'], $_POST['pma_pw2']) && empty($_POST['nopass'])) {
             if ($_POST['pma_pw'] != $_POST['pma_pw2']) {
                 $message = Message::error(__('The passwords aren\'t the same!'));
             } elseif (empty($_POST['pma_pw']) || empty($_POST['pma_pw2'])) {
@@ -2309,7 +2304,7 @@ class Privileges
            . '</h2>' . "\n"
            . '<form name="usersForm" id="addUsersForm"'
            . ' onsubmit="return checkAddUser(this);"'
-           . ' action="server_privileges.php" method="post" autocomplete="off" >' . "\n"
+           . ' action="' . Url::getFromRoute('/server/privileges') . '" method="post" autocomplete="off" >' . "\n"
            . Url::getHiddenInputs('', '')
            . $this->getHtmlForLoginInformationFields('new');
 
@@ -2447,11 +2442,11 @@ class Privileges
                 . '</td>'
                 . '<td>' . htmlspecialchars($row['Host'])
                 . '</td>'
-                . '<td>' . 'routine'
+                . '<td>routine'
                 . '</td>'
-                . '<td>' . '<code>' . htmlspecialchars($row['Routine_name']) . '</code>'
+                . '<td><code>' . htmlspecialchars($row['Routine_name']) . '</code>'
                 . '</td>'
-                . '<td>' . 'Yes'
+                . '<td>Yes'
                 . '</td>';
             $current_user = $row['User'];
             $current_host = $row['Host'];
@@ -2504,20 +2499,21 @@ class Privileges
 
         if ($this->dbi->isSuperuser()) {
             // check the privileges for a particular database.
-            $html_output  = '<form id="usersForm" action="server_privileges.php">';
+            $html_output  = '<form id="usersForm" action="' . Url::getFromRoute('/server/privileges') . '">';
             $html_output .= Url::getHiddenInputs($db);
             $html_output .= '<div class="width100">';
             $html_output .= '<fieldset>';
+            $scriptName = Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabDatabase'],
+                'database'
+            );
             $html_output .= '<legend>' . "\n"
                 . Util::getIcon('b_usrcheck')
                 . '    '
                 . sprintf(
                     __('Users having access to "%s"'),
-                    '<a href="' . Util::getScriptNameForOption(
-                        $GLOBALS['cfg']['DefaultTabDatabase'],
-                        'database'
-                    )
-                    . Url::getCommon(['db' => $db]) . '">'
+                    '<a href="' . $scriptName
+                    . Url::getCommon(['db' => $db], strpos($scriptName, '?') === false ? '?' : '&') . '">'
                     . htmlspecialchars($db)
                     . '</a>'
                 )
@@ -2554,7 +2550,7 @@ class Privileges
         }
 
         $response = Response::getInstance();
-        if ($response->isAjax() == true
+        if ($response->isAjax() === true
             && empty($_REQUEST['ajax_page_request'])
         ) {
             $message = Message::success(__('User has been added.'));
@@ -2581,23 +2577,22 @@ class Privileges
         $html_output = '';
         if ($this->dbi->isSuperuser()) {
             // check the privileges for a particular table.
-            $html_output  = '<form id="usersForm" action="server_privileges.php">';
+            $html_output  = '<form id="usersForm" action="' . Url::getFromRoute('/server/privileges') . '">';
             $html_output .= Url::getHiddenInputs($db, $table);
             $html_output .= '<fieldset>';
+            $scriptName = Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabTable'],
+                'table'
+            );
             $html_output .= '<legend>'
                 . Util::getIcon('b_usrcheck')
                 . sprintf(
                     __('Users having access to "%s"'),
-                    '<a href="' . Util::getScriptNameForOption(
-                        $GLOBALS['cfg']['DefaultTabTable'],
-                        'table'
-                    )
-                    . Url::getCommon(
-                        [
-                            'db' => $db,
-                            'table' => $table,
-                        ]
-                    ) . '">'
+                    '<a href="' . $scriptName
+                    . Url::getCommon([
+                        'db' => $db,
+                        'table' => $table,
+                    ], strpos($scriptName, '?') === false ? '?' : '&') . '">'
                     . htmlspecialchars($db) . '.' . htmlspecialchars($table)
                     . '</a>'
                 )
@@ -2980,11 +2975,11 @@ class Privileges
                 break;
         }
 
-        $html .= ' href="server_privileges.php';
+        $html .= ' href="' . Url::getFromRoute('/server/privileges');
         if ($linktype == 'revoke') {
             $html .= '" data-post="' . Url::getCommon($params, '');
         } else {
-            $html .= Url::getCommon($params);
+            $html .= Url::getCommon($params, '&');
         }
         $html .= '">';
 
@@ -3014,8 +3009,7 @@ class Privileges
     public function getUserGroupEditLink($username)
     {
          return '<a class="edit_user_group_anchor ajax"'
-            . ' href="server_privileges.php'
-            . Url::getCommon(['username' => $username])
+            . ' href="' . Url::getFromRoute('/server/privileges', ['username' => $username])
             . '">'
             . Util::getIcon('b_usrlist', __('Edit user group'))
             . '</a>';
@@ -3196,8 +3190,7 @@ class Privileges
             $new_user_initial = mb_strtoupper(
                 mb_substr($username, 0, 1)
             );
-            $newUserInitialString = '<a href="server_privileges.php'
-                . Url::getCommon(['initial' => $new_user_initial]) . '">'
+            $newUserInitialString = '<a href="' . Url::getFromRoute('/server/privileges', ['initial' => $new_user_initial]) . '">'
                 . $new_user_initial . '</a>';
             $extra_data['new_user_initial'] = $new_user_initial;
             $extra_data['new_user_initial_string'] = $newUserInitialString;
@@ -3253,8 +3246,8 @@ class Privileges
             ),
         ];
 
-        $html_output = '<form action="server_privileges.php" '
-            . 'onsubmit="return checkAddUser(this);" '
+        $html_output = '<form action="' . Url::getFromRoute('/server/privileges')
+            . '" onsubmit="return checkAddUser(this);" '
             . 'method="post" class="copyUserForm submenu-item">' . "\n"
             . Url::getHiddenInputs('', '')
             . '<input type="hidden" name="old_username" '
@@ -3308,17 +3301,16 @@ class Privileges
      */
     public function getLinkToDbAndTable($url_dbname, $dbname, $tablename)
     {
+        $scriptName = Util::getScriptNameForOption(
+            $GLOBALS['cfg']['DefaultTabDatabase'],
+            'database'
+        );
         $html_output = '[ ' . __('Database')
-            . ' <a href="' . Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabDatabase'],
-                'database'
-            )
-            . Url::getCommon(
-                [
-                    'db' => $url_dbname,
-                    'reload' => 1,
-                ]
-            )
+            . ' <a href="' . $scriptName
+            . Url::getCommon([
+                'db' => $url_dbname,
+                'reload' => 1,
+            ], strpos($scriptName, '?') === false ? '?' : '&')
             . '">'
             . htmlspecialchars(Util::unescapeMysqlWildcards($dbname)) . ': '
             . Util::getTitleForTarget(
@@ -3327,18 +3319,17 @@ class Privileges
             . "</a> ]\n";
 
         if (strlen($tablename) > 0) {
+            $scriptName = Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabTable'],
+                'table'
+            );
             $html_output .= ' [ ' . __('Table') . ' <a href="'
-                . Util::getScriptNameForOption(
-                    $GLOBALS['cfg']['DefaultTabTable'],
-                    'table'
-                )
-                . Url::getCommon(
-                    [
-                        'db' => $url_dbname,
-                        'table' => $tablename,
-                        'reload' => 1,
-                    ]
-                )
+                . $scriptName
+                . Url::getCommon([
+                    'db' => $url_dbname,
+                    'table' => $tablename,
+                    'reload' => 1,
+                ], strpos($scriptName, '?') === false ? '?' : '&')
                 . '">' . htmlspecialchars($tablename) . ': '
                 . Util::getTitleForTarget(
                     $GLOBALS['cfg']['DefaultTabTable']
@@ -3697,10 +3688,10 @@ class Privileges
         }
 
         $html_output
-            = '<form name="usersForm" id="usersForm" action="server_privileges.php" '
-            . 'method="post">' . "\n"
+            = '<form name="usersForm" id="usersForm" action="' . Url::getFromRoute('/server/privileges')
+            . '" method="post">' . "\n"
             . Url::getHiddenInputs('', '')
-            . '<div class="responsivetable">'
+            . '<div class="responsivetable row">'
             . '<table id="tableuserrights" class="data">' . "\n"
             . '<thead>' . "\n"
             . '<tr><th></th>' . "\n"
@@ -3726,7 +3717,7 @@ class Privileges
         $html_output .= '</tbody>'
             . '</table></div>' . "\n";
 
-        $html_output .= '<div class="floatleft">'
+        $html_output .= '<div class="floatleft row">'
             . $this->template->render('select_all', [
                 'pma_theme_image' => $pmaThemeImage,
                 'text_dir' => $text_dir,
@@ -4206,7 +4197,7 @@ class Privileges
     {
         if (isset($_POST['change_copy'])) {
             $selected_usr = [
-                $_POST['old_username'] . '&amp;#27;' . $_POST['old_hostname']
+                $_POST['old_username'] . '&amp;#27;' . $_POST['old_hostname'],
             ];
         } else {
             $selected_usr = $_POST['selected_usr'];
@@ -4245,7 +4236,7 @@ class Privileges
      *
      * @return Message|null
      */
-    public function updateMessageForReload()
+    public function updateMessageForReload(): ?Message
     {
         $message = null;
         if (isset($_GET['flush_privileges'])) {
@@ -4269,7 +4260,7 @@ class Privileges
      * @param array      $queries             queries array
      * @param array|null $queries_for_display queries array for display
      *
-     * @return null
+     * @return array
      */
     public function getDataForQueries(array $queries, $queries_for_display)
     {
@@ -4382,13 +4373,11 @@ class Privileges
         if (empty($_POST['change_copy'])) {
             $_error = false;
 
-            if (! is_null($create_user_real)) {
+            if ($create_user_real !== null) {
                 if (! $this->dbi->tryQuery($create_user_real)) {
                     $_error = true;
                 }
-                if (isset($password_set_real) && ! empty($password_set_real)
-                    && isset($_POST['authentication_plugin'])
-                ) {
+                if (isset($password_set_real, $_POST['authentication_plugin']) && ! empty($password_set_real)) {
                     $this->setProperPasswordHashing(
                         $_POST['authentication_plugin']
                     );
@@ -4427,14 +4416,12 @@ class Privileges
             isset($_POST['old_usergroup']) ? $_POST['old_usergroup'] : null;
         $this->setUserGroup($_POST['username'], $old_usergroup);
 
-        if (is_null($create_user_real)) {
+        if ($create_user_real === null) {
             $queries[] = $create_user_real;
         }
         $queries[] = $real_sql_query;
 
-        if (isset($password_set_real) && ! empty($password_set_real)
-            && isset($_POST['authentication_plugin'])
-        ) {
+        if (isset($password_set_real, $_POST['authentication_plugin']) && ! empty($password_set_real)) {
             $this->setProperPasswordHashing(
                 $_POST['authentication_plugin']
             );
@@ -4554,14 +4541,13 @@ class Privileges
         if (isset($is_valid_pred_dbname) && $is_valid_pred_dbname) {
             $dbname = $_POST['pred_dbname'];
             // If dbname contains only one database.
-            if (count($dbname) == 1) {
+            if (count($dbname) === 1) {
                 $dbname = $dbname[0];
             }
         } elseif (isset($is_valid_dbname) && $is_valid_dbname) {
             $dbname = $_REQUEST['dbname'];
         } else {
-            unset($dbname);
-            unset($tablename);
+            unset($dbname, $tablename);
         }
 
         if (isset($dbname)) {
@@ -4728,15 +4714,12 @@ class Privileges
 
         if (! empty($dbname)) {
             $html_output .= ' <i><a class="edit_user_anchor"'
-                . ' href="server_privileges.php'
-                . Url::getCommon(
-                    [
-                        'username' => $username,
-                        'hostname' => $hostname,
-                        'dbname' => '',
-                        'tablename' => '',
-                    ]
-                )
+                . ' href="' . Url::getFromRoute('/server/privileges', [
+                    'username' => $username,
+                    'hostname' => $hostname,
+                    'dbname' => '',
+                    'tablename' => '',
+                ])
                 . '">\'' . htmlspecialchars($username)
                 . '\'@\'' . htmlspecialchars($hostname)
                 . '\'</a></i>' . "\n";
@@ -4746,30 +4729,24 @@ class Privileges
                 || is_array($dbname) && count($dbname) > 1
                 ? __('Databases') : __('Database');
             if (! empty($entity_name) && $entity_type === 'table') {
-                $html_output .= ' <i><a href="server_privileges.php'
-                    . Url::getCommon(
-                        [
-                            'username' => $username,
-                            'hostname' => $hostname,
-                            'dbname' => $url_dbname,
-                            'tablename' => '',
-                        ]
-                    )
+                $html_output .= ' <i><a href="' . Url::getFromRoute('/server/privileges', [
+                    'username' => $username,
+                    'hostname' => $hostname,
+                    'dbname' => $url_dbname,
+                    'tablename' => '',
+                ])
                     . '">' . htmlspecialchars($dbname)
                     . '</a></i>';
 
                 $html_output .= ' - ' . __('Table')
                     . ' <i>' . htmlspecialchars($entity_name) . '</i>';
             } elseif (! empty($entity_name)) {
-                $html_output .= ' <i><a href="server_privileges.php'
-                    . Url::getCommon(
-                        [
-                            'username' => $username,
-                            'hostname' => $hostname,
-                            'dbname' => $url_dbname,
-                            'routinename' => '',
-                        ]
-                    )
+                $html_output .= ' <i><a href="' . Url::getFromRoute('/server/privileges', [
+                    'username' => $username,
+                    'hostname' => $hostname,
+                    'dbname' => $url_dbname,
+                    'routinename' => '',
+                ])
                     . '">' . htmlspecialchars($dbname)
                     . '</a></i>';
 
@@ -4814,10 +4791,10 @@ class Privileges
      */
     public function getHtmlForUserOverview($pmaThemeImage, $text_dir)
     {
-        $html_output = '<h2>' . "\n"
+        $html_output = '<div class="row"><h2>' . "\n"
            . Util::getIcon('b_usrlist')
            . __('User accounts overview') . "\n"
-           . '</h2>' . "\n";
+           . '</h2></div>' . "\n";
 
         $password_column = 'Password';
         $server_type = Util::getServerType();
@@ -4945,8 +4922,7 @@ class Privileges
                         Message::NOTICE
                     );
                     $flushnote->addParamHtml(
-                        '<a href="server_privileges.php'
-                        . Url::getCommon(['flush_privileges' => 1])
+                        '<a href="' . Url::getFromRoute('/server/privileges', ['flush_privileges' => 1])
                         . '" id="reload_privileges_anchor">'
                     );
                     $flushnote->addParamHtml('</a>');
@@ -5035,7 +5011,7 @@ class Privileges
         }
 
         $html_output .= '<form class="submenu-item" name="usersForm" '
-            . 'id="addUsersForm" action="server_privileges.php" method="post">' . "\n";
+            . 'id="addUsersForm" action="' . Url::getFromRoute('/server/privileges') . '" method="post">' . "\n";
         $html_output .= Url::getHiddenInputs($_params);
         $html_output .= $this->getHtmlToDisplayPrivilegesTable(
             // If $dbname is an array, pass any one db as all have same privs.

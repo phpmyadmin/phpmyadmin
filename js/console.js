@@ -182,7 +182,9 @@ var Console = {
                     var data = JSON.parse(xhr.responseText);
                     Console.ajaxCallback(data);
                 } catch (e) {
+                    // eslint-disable-next-line no-console
                     console.trace();
+                    // eslint-disable-next-line no-console
                     console.log('Failed to parse JSON: ' + e.message);
                 }
             });
@@ -195,17 +197,16 @@ var Console = {
         case 'collapse':
             Console.collapse();
             break;
-            /* jshint -W086 */// no break needed in default section
-        default:
-            Console.setConfig('Mode', 'info');
         case 'info':
-            /* jshint +W086 */
             Console.info();
             break;
         case 'show':
             Console.show(true);
             Console.scrollBottom();
             break;
+        default:
+            Console.setConfig('Mode', 'info');
+            Console.info();
         }
     },
     /**
@@ -427,8 +428,8 @@ var ConsoleResizer = {
         }
         ConsoleResizer.posY = event.pageY;
         ConsoleResizer.height = Console.$consoleContent.height();
-        $(document).mousemove(ConsoleResizer.mouseMove);
-        $(document).mouseup(ConsoleResizer.mouseUp);
+        $(document).on('mousemove', ConsoleResizer.mouseMove);
+        $(document).on('mouseup', ConsoleResizer.mouseUp);
         // Disable text selection while resizing
         $(document).on('selectstart', function () {
             return false;
@@ -973,7 +974,7 @@ var ConsoleMessages = {
             });
         }
     },
-    msgAppend: function (msgId, msgString, msgType) {
+    msgAppend: function (msgId, msgString) {
         var $targetMessage = $('#pma_console').find('.content .console_message_container .message[msgid=' + msgId + ']');
         if ($targetMessage.length === 0 || isNaN(parseInt(msgId)) || typeof(msgString) !== 'string') {
             return false;
@@ -1026,24 +1027,24 @@ var ConsoleMessages = {
  */
 var ConsoleBookmarks = {
     bookmarks: [],
-    addBookmark: function (queryString, targetDb, label, isShared, id) {
+    addBookmark: function (queryString, targetDb, label, isShared) {
         $('#pma_bookmarks').find('.add [name=shared]').prop('checked', false);
         $('#pma_bookmarks').find('.add [name=label]').val('');
         $('#pma_bookmarks').find('.add [name=targetdb]').val('');
         $('#pma_bookmarks').find('.add [name=id_bookmark]').val('');
         ConsoleInput.setText('', 'bookmark');
 
-        switch (arguments.length) {
-        case 4:
-            $('#pma_bookmarks').find('.add [name=shared]').prop('checked', isShared);
-        case 3:
-            $('#pma_bookmarks').find('.add [name=label]').val(label);
-        case 2:
-            $('#pma_bookmarks').find('.add [name=targetdb]').val(targetDb);
-        case 1:
+        if (typeof queryString !== 'undefined') {
             ConsoleInput.setText(queryString, 'bookmark');
-        default:
-            break;
+        }
+        if (typeof targetDb !== 'undefined') {
+            $('#pma_bookmarks').find('.add [name=targetdb]').val(targetDb);
+        }
+        if (typeof label !== 'undefined') {
+            $('#pma_bookmarks').find('.add [name=label]').val(label);
+        }
+        if (typeof isShared !== 'undefined') {
+            $('#pma_bookmarks').find('.add [name=shared]').prop('checked', isShared);
         }
     },
     refresh: function () {

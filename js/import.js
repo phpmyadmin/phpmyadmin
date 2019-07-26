@@ -56,7 +56,7 @@ AJAX.registerTeardown('import.js', function () {
 
 AJAX.registerOnload('import.js', function () {
     // import_file_form validation.
-    $(document).on('submit', '#import_file_form', function (event) {
+    $(document).on('submit', '#import_file_form', function () {
         var radioLocalImport = $('#radio_local_import_file');
         var radioImport = $('#radio_import_file');
         var fileMsg = '<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> ' + Messages.strImportDialogMessage + '</div>';

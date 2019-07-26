@@ -65,7 +65,7 @@ class PageSettings
         $this->userPreferences = new UserPreferences();
 
         $formClass = PageFormList::get($formGroupName);
-        if (is_null($formClass)) {
+        if ($formClass === null) {
             return;
         }
 

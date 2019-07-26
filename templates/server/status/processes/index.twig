@@ -2,6 +2,7 @@
 {% set active = 'processes' %}
 {% block content %}
 
+<div class="row">
 <fieldset id="tableFilter">
   <legend>{% trans 'Filters' %}</legend>
   <form action="server_status_processes.php" method="post">
@@ -15,12 +16,15 @@
     </div>
   </form>
 </fieldset>
+</div>
 
 {{ server_process_list|raw }}
 
+<div class="row">
 {{ 'Note: Enabling the auto refresh here might cause heavy traffic between the web server and the MySQL server.'|trans|notice }}
+</div>
 
-<div class="tabLinks">
+<div class="tabLinks row">
   <label>
     {% trans 'Refresh rate' %}:
 

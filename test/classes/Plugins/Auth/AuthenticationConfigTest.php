@@ -132,7 +132,7 @@ class AuthenticationConfigTest extends PmaTestCase
         );
 
         $this->assertStringContainsString(
-            '<a href="index.php?server=0&amp;lang=en" '
+            '<a href="index.php?route=/&amp;server=0&amp;lang=en" '
             . 'class="button disableAjax">Retry to connect</a>',
             $html
         );

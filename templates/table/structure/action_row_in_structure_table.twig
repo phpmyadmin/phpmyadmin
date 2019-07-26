@@ -14,7 +14,7 @@
             add_unique_anchor
         {%- elseif action == 'Spatial' %}
             add_spatial_anchor
-        {%- endif %}" href="tbl_structure.php" data-post="{{ url_query|raw -}}
+        {%- endif %}" href="{{ url('/table/structure') }}" data-post="{{ url_query|raw -}}
         &amp;add_key=1&amp;sql_query=
         {{- ('ALTER TABLE ' ~
             backquote(table) ~

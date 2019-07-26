@@ -48,10 +48,10 @@ class NodeTableContainerTest extends PmaTestCase
             $parent->links
         );
         $this->assertStringContainsString(
-            'db_structure.php',
+            'index.php?route=/database/structure',
             $parent->links['text']
         );
-        $this->assertEquals('tables', $parent->real_name);
+        $this->assertEquals('tables', $parent->realName);
         $this->assertStringContainsString('tableContainer', $parent->classes);
     }
 }

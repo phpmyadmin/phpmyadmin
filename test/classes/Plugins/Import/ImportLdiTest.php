@@ -8,9 +8,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Import;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportLdi;
 use PhpMyAdmin\Tests\PmaTestCase;
+use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * Tests for PhpMyAdmin\Plugins\Import\ImportLdi class
@@ -25,7 +27,7 @@ class ImportLdiTest extends PmaTestCase
     protected $object;
 
     /**
-     * @var \PhpMyAdmin\DatabaseInterface
+     * @var DatabaseInterface
      * @access protected
      */
     protected $dbi;
@@ -117,7 +119,7 @@ class ImportLdiTest extends PmaTestCase
     {
         /**
          * The \PhpMyAdmin\DatabaseInterface mocked object
-         * @var \PHPUnit\Framework\MockObject\MockObject $dbi
+         * @var MockObject $dbi
          */
         $dbi = $this->dbi;
         $dbi->expects($this->any())->method('tryQuery')
@@ -162,7 +164,7 @@ class ImportLdiTest extends PmaTestCase
         $sql_query_disabled = false;
         /**
          * The \PhpMyAdmin\DatabaseInterface mocked object
-         * @var \PHPUnit\Framework\MockObject\MockObject $dbi
+         * @var MockObject $dbi
          */
         $dbi = $this->dbi;
         $dbi->expects($this->any())->method('escapeString')
@@ -229,7 +231,7 @@ class ImportLdiTest extends PmaTestCase
         $sql_query_disabled = false;
         /**
          * The \PhpMyAdmin\DatabaseInterface mocked object
-         * @var \PHPUnit\Framework\MockObject\MockObject $dbi
+         * @var MockObject $dbi
          */
         $dbi = $this->dbi;
         $dbi->expects($this->any())->method('escapeString')

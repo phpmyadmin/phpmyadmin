@@ -251,7 +251,7 @@ class ExportXmlTest extends PmaTestCase
                     [
                         [
                             'create' => 'crt',
-                            'name' => 'trname'
+                            'name' => 'trname',
                         ],
                     ]
                 )
@@ -261,10 +261,10 @@ class ExportXmlTest extends PmaTestCase
             ->method('getProceduresOrFunctions')
             ->willReturnOnConsecutiveCalls(
                 [
-                    'fn'
+                    'fn',
                 ],
                 [
-                    'pr'
+                    'pr',
                 ]
             );
 

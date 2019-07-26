@@ -134,10 +134,12 @@ if [ $do_ci -eq 0 -a -$do_daily -eq 0 ] ; then
 
 Please ensure you have incremented rc count or version in the repository :
      - in $CONFIG_LIB Config::__constructor() the line
-          " \$this->set( 'PMA_VERSION', '$version' ); "
+          " \$this->set('PMA_VERSION', '$version'); "
      - in doc/conf.py the line
           " version = '$version' "
      - in README
+     - in package.json the line
+          " "version": "$version", "
      - set release date in ChangeLog
 
 Continue (y/n)?
@@ -180,6 +182,10 @@ if [ $do_ci -eq 0 -a -$do_daily -eq 0 ] ; then
     fi
     if ! grep -q "Version $version\$" README ; then
         echo "There seems to be wrong version in README"
+        exit 2
+    fi
+    if ! grep -q "\"version\": \"$version\"," package.json ; then
+        echo "There seems to be wrong version in package.json"
         exit 2
     fi
 fi
@@ -316,6 +322,8 @@ if [ $do_test -eq 1 ] ; then
     if [ $test_ret -ne 0 ] ; then
         exit $test_ret
     fi
+    # Remove PHPUnit cache file
+    rm -f .phpunit.result.cache
     # Remove libs installed for testing
     rm -rf build
     composer update --no-dev
@@ -340,6 +348,7 @@ for kit in $KITS ; do
         # Testsuite
         rm -rf test/
         rm phpunit.xml.* build.xml
+        rm -f .editorconfig .eslintignore .eslintrc.json .stylelintrc.json phpstan.neon.dist phpcs.xml.dist
         # Gettext po files
         rm -rf po/
         # Documentation source code

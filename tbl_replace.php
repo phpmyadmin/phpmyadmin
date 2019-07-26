@@ -3,7 +3,7 @@
 /**
  * Manipulation of table data like inserting, replacing and updating
  *
- * Usually called as form action from tbl_change.php to insert or update table rows
+ * Usually called as form action from /table/change to insert or update table rows
  *
  * @todo 'edit_next' tends to not work as expected if used ...
  * at least there is no order by it needs the original query
@@ -15,7 +15,6 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\File;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Message;
@@ -30,18 +29,15 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-global $db, $table, $url_params;
+global $containerBuilder, $db, $table, $url_params;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
-
 /** @var Response $response */
-$response = $container->get(Response::class);
+$response = $containerBuilder->get(Response::class);
 
 /** @var DatabaseInterface $dbi */
-$dbi = $container->get(DatabaseInterface::class);
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
 // Check parameters
 Util::checkParameters(['db', 'table', 'goto']);
@@ -65,9 +61,10 @@ $scripts->addFile('gis_data_editor.js');
 $relation = $containerBuilder->get('relation');
 /** @var Transformations $transformations */
 $transformations = $containerBuilder->get('transformations');
-$insertEdit = new InsertEdit($dbi);
+/** @var InsertEdit $insertEdit */
+$insertEdit = $containerBuilder->get('insert_edit');
 
-// check whether insert row mode, if so include tbl_change.php
+// check whether insert row mode, if so include /table/change
 $insertEdit->isInsertRow();
 
 $after_insert_actions = [
@@ -310,7 +307,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
             $key
         );
 
-        if (! isset($multi_edit_virtual) || ! isset($multi_edit_virtual[$key])) {
+        if (! isset($multi_edit_virtual, $multi_edit_virtual[$key])) {
             list($query_values, $query_fields)
                 = $insertEdit->getQueryValuesForInsertAndUpdateInMultipleEdit(
                     $multi_edit_columns_name,
@@ -377,7 +374,7 @@ if ($is_insert && count($value_sets) > 0) {
     $message = Message::success(__('No change'));
     // Avoid infinite recursion
     if ($goto_include == 'tbl_replace.php') {
-        $goto_include = 'tbl_change.php';
+        $goto_include = 'libraries/entry_points/table/change.php';
     }
     $active_page = $goto_include;
     include ROOT_PATH . Core::securePath($goto_include);
@@ -409,7 +406,7 @@ if ($is_insert && (count($value_sets) > 0 || $row_skipped)) {
     );
 }
 if ($row_skipped) {
-    $goto_include = 'tbl_change.php';
+    $goto_include = 'libraries/entry_points/table/change.php';
     $message->addMessagesString($insert_errors, '<br>');
     $message->isError(true);
 }
@@ -539,13 +536,13 @@ if (! empty($return_to_sql_query)) {
 }
 
 $scripts->addFile('vendor/jquery/additional-methods.js');
-$scripts->addFile('tbl_change.js');
+$scripts->addFile('table/change.js');
 
 $active_page = $goto_include;
 
 /**
  * If user asked for "and then Insert another new row" we have to remove
- * WHERE clause information so that tbl_change.php does not go back
+ * WHERE clause information so that /table/change does not go back
  * to the current record
  */
 if (isset($_POST['after_insert']) && 'new_insert' == $_POST['after_insert']) {

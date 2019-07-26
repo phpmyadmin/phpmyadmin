@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Database\Qbe;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
@@ -27,14 +26,11 @@ global $db, $pmaThemeImage, $url_query;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
-
 /** @var Response $response */
-$response = $container->get(Response::class);
+$response = $containerBuilder->get(Response::class);
 
 /** @var DatabaseInterface $dbi */
-$dbi = $container->get(DatabaseInterface::class);
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
 /** @var Relation $relation */
 $relation = $containerBuilder->get('relation');
@@ -50,7 +46,7 @@ $currentSearchId = null;
 if ($cfgRelation['savedsearcheswork']) {
     $header = $response->getHeader();
     $scripts = $header->getScripts();
-    $scripts->addFile('db_qbe.js');
+    $scripts->addFile('database/qbe.js');
 
     //Get saved search list.
     $savedSearch = new SavedSearches($GLOBALS, $relation);
@@ -144,7 +140,7 @@ list(
     $tooltip_truename,
     $tooltip_aliasname,
     $pos
-) = Util::getDbInfo($db, is_null($sub_part) ? '' : $sub_part);
+) = Util::getDbInfo($db, $sub_part === null ? '' : $sub_part);
 
 if ($message_to_display) {
     Message::error(

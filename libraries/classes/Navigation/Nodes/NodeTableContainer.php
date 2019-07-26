@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
@@ -27,21 +28,27 @@ class NodeTableContainer extends NodeDatabaseChildContainer
         parent::__construct(__('Tables'), Node::CONTAINER);
         $this->icon = Util::getImage('b_browse', __('Tables'));
         $this->links = [
-            'text' => 'db_structure.php?server=' . $GLOBALS['server']
-                . '&amp;db=%1$s&amp;tbl_type=table',
-            'icon' => 'db_structure.php?server=' . $GLOBALS['server']
-                . '&amp;db=%1$s&amp;tbl_type=table',
+            'text' => Url::getFromRoute('/database/structure', [
+                'server' => $GLOBALS['server'],
+                'db' => '%1\$s',
+                'tbl_type' => 'table',
+            ]),
+            'icon' => Url::getFromRoute('/database/structure', [
+                'server' => $GLOBALS['server'],
+                'db' => '%1\$s',
+                'tbl_type' => 'table',
+            ]),
         ];
-        $this->real_name = 'tables';
+        $this->realName = 'tables';
         $this->classes = 'tableContainer subContainer';
 
-        $new_label = _pgettext('Create new table', 'New');
+        $newLabel = _pgettext('Create new table', 'New');
         $new = NodeFactory::getInstance(
             'Node',
-            $new_label
+            $newLabel
         );
         $new->isNew = true;
-        $new->icon = Util::getImage('b_table_add', $new_label);
+        $new->icon = Util::getImage('b_table_add', $newLabel);
         $new->links = [
             'text' => 'tbl_create.php?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s',

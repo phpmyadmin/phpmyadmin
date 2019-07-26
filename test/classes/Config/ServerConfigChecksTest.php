@@ -13,6 +13,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\ServerConfigChecks;
 use PhpMyAdmin\Tests\PmaTestCase;
+use ReflectionException;
 use ReflectionProperty;
 
 /**
@@ -28,7 +29,7 @@ class ServerConfigChecksTest extends PmaTestCase
     private $sessionID;
 
     /**
-     * @throws \ReflectionException
+     * @throws ReflectionException
      *
      * @return void
      */

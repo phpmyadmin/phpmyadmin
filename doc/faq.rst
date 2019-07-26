@@ -1481,7 +1481,7 @@ create the example tables:
     country_code char(1) NOT NULL default '',
     description varchar(10) NOT NULL default '',
     PRIMARY KEY (country_code)
-    ) TYPE=MyISAM;
+    ) ENGINE=MyISAM;
 
     INSERT INTO REL_countries VALUES ('C', 'Canada');
 
@@ -1491,16 +1491,16 @@ create the example tables:
     town_code varchar(5) default '0',
     country_code char(1) NOT NULL default '',
     PRIMARY KEY (id)
-    ) TYPE=MyISAM;
+    ) ENGINE=MyISAM;
 
-    INSERT INTO REL_persons VALUES (11, 'Marc', 'S', '');
+    INSERT INTO REL_persons VALUES (11, 'Marc', 'S', 'C');
     INSERT INTO REL_persons VALUES (15, 'Paul', 'S', 'C');
 
     CREATE TABLE REL_towns (
     town_code varchar(5) NOT NULL default '0',
     description varchar(30) NOT NULL default '',
     PRIMARY KEY (town_code)
-    ) TYPE=MyISAM;
+    ) ENGINE=MyISAM;
 
     INSERT INTO REL_towns VALUES ('S', 'Sherbrooke');
     INSERT INTO REL_towns VALUES ('M', 'Montréal');
@@ -1623,7 +1623,7 @@ It means "average".
   any) will be included in backup.
 * "Enclose table and column names with backquotes" ensures that column
   and table names formed with special characters are protected.
-* "Add into comments" includes column comments, relations, and MIME
+* "Add into comments" includes column comments, relations, and media
   types set in the pmadb in the dump as :term:`SQL` comments
   (*/\* xxx \*/*).
 

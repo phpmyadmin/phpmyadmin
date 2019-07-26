@@ -11,8 +11,8 @@ namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Util;
-use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
 use Williamdes\MariaDBMySQLKBS\KBException;
+use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
 
 /**
  * Handles viewing and editing server variables
@@ -36,7 +36,7 @@ class VariablesController extends AbstractController
 
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();
-        $scripts->addFile('server_variables.js');
+        $scripts->addFile('server/variables.js');
 
         $variables = [];
         $serverVarsResult = $this->dbi->tryQuery('SHOW SESSION VARIABLES;');
@@ -185,7 +185,7 @@ class VariablesController extends AbstractController
                 $varValue[1]
             );
 
-            if ($isHtmlFormatted == false) {
+            if ($isHtmlFormatted === false) {
                 $json['variable'] = htmlspecialchars($formattedValue);
             } else {
                 $json['variable'] = $formattedValue;

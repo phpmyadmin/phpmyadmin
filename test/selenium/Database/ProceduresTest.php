@@ -24,7 +24,7 @@ class ProceduresTest extends TestBase
     /**
      * The sql_mode before tests
      *
-     * @var string
+     * @var int
      */
     private $originalSqlMode = -1;
 

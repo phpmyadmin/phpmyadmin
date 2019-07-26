@@ -19,11 +19,11 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Session;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 use phpseclib\Crypt;
-use ReCaptcha;
 use phpseclib\Crypt\Random;
+use ReCaptcha;
 
 /**
  * Remember where to redirect the user
@@ -175,16 +175,15 @@ class AuthenticationCookie extends AuthenticationPlugin
         if (empty($GLOBALS['cfg']['Lang']) && $language_manager->hasChoice()) {
             echo "<div class='hide js-show'>";
             // use fieldset, don't show doc link
-            echo $language_manager->getSelectorDisplay(true, false);
+            echo $language_manager->getSelectorDisplay(new Template(), true, false);
             echo '</div>';
         }
         echo '
-    <br>
     <!-- Login form -->
     <form method="post" id="login_form" action="index.php" name="login_form"' , $autocomplete ,
-            ' class="' . ($session_expired ? "" : "disableAjax hide ") . 'login js-show">
+            ' class="' . ($session_expired ? "" : "disableAjax hide ") . 'login js-show form-horizontal">
         <fieldset>
-        <legend>';
+        <legend class="col-form-label">';
         echo '<input type="hidden" name="set_session" value="', htmlspecialchars(session_id()), '">';
 
         // Add a hidden element session_timedout which is used to check if the user requested login after session expiration
@@ -196,7 +195,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         echo '</legend>';
         if ($GLOBALS['cfg']['AllowArbitraryServer']) {
             echo '
-            <div class="item">
+            <div class="item form-group">
                 <label for="input_servername" title="';
             echo __(
                 'You can enter hostname/IP address and port separated by space.'
@@ -213,16 +212,20 @@ class AuthenticationCookie extends AuthenticationPlugin
             ); echo '">
             </div>';
         }
-            echo '<div class="item">
-                <label for="input_username">' , __('Username:') , '</label>
+            echo '<div class="item form-row">
+                <label for="input_username" class="col-3 d-flex align-items-center">' , __('Username:') , '</label>
+                <div class="col-8">
                 <input type="text" name="pma_username" id="input_username" '
                 , 'value="' , htmlspecialchars($default_user) , '" size="24"'
-                , ' class="textfield">
+                , ' class="textfield form-control">
+                </div>
             </div>
-            <div class="item">
-                <label for="input_password">' , __('Password:') , '</label>
+            <div class="item form-row">
+                <label for="input_password" class="col-3 d-flex align-items-center">' , __('Password:') , '</label>
+                <div class="col-8">
                 <input type="password" name="pma_password" id="input_password"'
-                , ' value="" size="24" class="textfield">
+                , ' value="" size="24" class="textfield form-control">
+                </div>
             </div>';
         if (count($GLOBALS['cfg']['Servers']) > 1) {
             echo '<div class="item">
@@ -378,7 +381,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             ) {
                 if ($GLOBALS['cfg']['ArbitraryServerRegexp']) {
                     $parts = explode(' ', $_REQUEST['pma_servername']);
-                    if (count($parts) == 2) {
+                    if (count($parts) === 2) {
                         $tmp_host = $parts[0];
                     } else {
                         $tmp_host = $_REQUEST['pma_servername'];
@@ -493,7 +496,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         ) {
             /* Allow to specify 'host port' */
             $parts = explode(' ', $GLOBALS['pma_auth_server']);
-            if (count($parts) == 2) {
+            if (count($parts) === 2) {
                 $tmp_host = $parts[0];
                 $tmp_port = $parts[1];
             } else {
@@ -837,8 +840,11 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         $data = json_decode($encdata, true);
 
-        if (! is_array($data) || ! isset($data['mac']) || ! isset($data['iv']) || ! isset($data['payload'])
-            || ! is_string($data['mac']) || ! is_string($data['iv']) || ! is_string($data['payload'])
+        if (! isset($data['mac'], $data['iv'], $data['payload'])
+            || ! is_array($data)
+            || ! is_string($data['mac'])
+            || ! is_string($data['iv'])
+            || ! is_string($data['payload'])
             ) {
             return false;
         }
@@ -893,7 +899,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     public function createIV()
     {
         /* Testsuite shortcut only to allow predictable IV */
-        if (! is_null($this->_cookie_iv)) {
+        if ($this->_cookie_iv !== null) {
             return $this->_cookie_iv;
         }
         if ($this->_use_openssl) {

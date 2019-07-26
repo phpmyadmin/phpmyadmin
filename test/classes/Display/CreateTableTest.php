@@ -44,7 +44,7 @@ class CreateTableTest extends TestCase
         $GLOBALS['cfg']['Server']['user'] = "pma_user";
         $GLOBALS['cfg']['ShowHint'] = true;
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
-        $GLOBALS['PMA_PHP_SELF'] = "server_privileges.php";
+        $GLOBALS['PMA_PHP_SELF'] = Url::getFromRoute('/server/privileges');
 
         //$_SESSION
         $_SESSION['relation'][$GLOBALS['server']] = "relation";
