@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-07-12 01:21-0300\n"
-"PO-Revision-Date: 2019-07-15 22:00+0000\n"
+"PO-Revision-Date: 2019-07-30 00:41+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/ia/>\n"
@@ -2751,7 +2751,7 @@ msgstr "Forte"
 
 #: js/messages.php:751
 msgid "Timed out waiting for security key activation."
-msgstr ""
+msgstr "Tempore expirava quando on attendeva per le clave de activation."
 
 #: js/messages.php:752
 #, php-format
@@ -3362,7 +3362,7 @@ msgstr "Chinese Traditional"
 #: libraries/classes/Charsets.php:394 libraries/classes/Charsets.php:470
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Cinese"
 
 #: libraries/classes/Charsets.php:402 libraries/classes/Charsets.php:518
 msgctxt "Collation"
@@ -3597,7 +3597,7 @@ msgstr "binari"
 #: libraries/classes/Charsets.php:685
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "necun pad"
 
 #: libraries/classes/Config.php:1122
 #, php-format
