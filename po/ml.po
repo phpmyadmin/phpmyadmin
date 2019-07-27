@@ -6,20 +6,20 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-07-12 01:21-0300\n"
-"PO-Revision-Date: 2018-07-03 23:16+0000\n"
-"Last-Translator: Aswani Prakash <aswani15prakash@gmail.com>\n"
-"Language-Team: Malayalam <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
+"PO-Revision-Date: 2019-07-30 00:41+0000\n"
+"Last-Translator: Anoop Sethu <anoops93@gmail.com>\n"
+"Language-Team: Malayalam <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ml/>\n"
 "Language: ml\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.1-dev\n"
+"X-Generator: Weblate 3.8-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
-msgstr ""
+msgstr "തെറ്റായ ഇനം!"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -34,7 +34,7 @@ msgstr "നിലവിലുള്ള ഡാറ്റാബേസിലെ ക�
 
 #: db_central_columns.php:158
 msgid "Click to sort."
-msgstr ""
+msgstr "ക്രമീകരിക്കുന്നതിനായി ക്ളിക്ക് ചെയ്യുക."
 
 #: db_central_columns.php:177
 #, php-format
@@ -49,10 +49,8 @@ msgstr "വിവരശേഖര അഭിപ്രായം"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:596
 #: templates/columns_definitions/column_definitions_form.twig:72
 #: templates/table/structure/display_table_stats.twig:6
-#, fuzzy
-#| msgid "Table comments"
 msgid "Table comments:"
-msgstr "പട്ടിക അഭിപ്രയങ്ങൾ"
+msgstr "പട്ടിക അഭിപ്രായങ്ങൾ:"
 
 #: db_datadict.php:117 libraries/classes/Index.php:723
 #: libraries/classes/InsertEdit.php:1914
@@ -267,7 +265,7 @@ msgstr "വിവരശേഖരത്തിൽ ഒരു പട്ടികയ�
 #: libraries/classes/Server/Status/Data.php:128
 #: templates/database/structure/show_create.twig:14
 msgid "Tables"
-msgstr ""
+msgstr "പട്ടികകൾ"
 
 #: db_export.php:69 libraries/classes/Config/Forms/User/ExportForm.php:49
 #: libraries/classes/Config/Forms/User/ExportForm.php:93
@@ -315,6 +313,8 @@ msgstr "വിവരശേഖരത്തിനു പേര് നൽകിയ�
 #: db_operations.php:69
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
+"വിവരശേഖരം അതേ പേരിലേക്ക് തന്നെ പകർത്താൻ സാധിക്കില്ല. മറ്റൊരു പേര് നൽകിയതിനു "
+"ശേഷം വീണ്ടും ശ്രമിക്കുക."
 
 #: db_operations.php:156
 #, fuzzy, php-format
@@ -2903,7 +2903,7 @@ msgstr ""
 
 #: js/messages.php:922
 msgid "This field is required"
-msgstr ""
+msgstr "ഈ കളം നിർബന്ധമായും പൂരിപ്പിക്കേണ്ടതാണ്"
 
 #: js/messages.php:923
 msgid "Please fix this field"
