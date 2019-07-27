@@ -14,11 +14,11 @@
       {% endfor %}
     </div>
   </div>
-  {% for plugin_type, plugin_list in plugins %}
-    <div class="row">
+
+  {% for type, list in plugins %}
+    <div class="responsivetable row">
       <div class="col-12">
-        <table class="table table-responsive table-hover table-striped" id="plugins-
-          {{- plugins_type_clean[plugin_type] }}">
+        <table class="data_full_width table table-responsive table-hover table-striped" id="plugins-{{ clean_types[type] }}">
           <caption class="tblHeaders">
             {{ plugin_type }}
           </caption>
@@ -34,9 +34,9 @@
           <tbody>
             {% for plugin in plugin_list %}
               <tr class="noclick">
-                <th scope="row"> 
-                  {{ plugin.plugin_name }}
-                  {% if not plugin.is_active %}
+                <th scope="row">
+                  {{ plugin.name }}
+                  {% if plugin.status != 'ACTIVE' %}
                     <small class="attention">
                       {% trans 'disabled' %}
                     </small>

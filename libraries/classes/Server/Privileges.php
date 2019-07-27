@@ -3692,7 +3692,7 @@ class Privileges
             . '" method="post">' . "\n"
             . Url::getHiddenInputs('', '')
             . '<div class="responsivetable row">'
-            . '<table id="tableuserrights" class="table table-responsive table-hover table-striped">' . "\n
+            . '<table id="tableuserrights" class="table table-responsive table-hover table-striped">' . "\n"
             . '<thead>' . "\n"
             . '<tr><th scope="col"></th>' . "\n"
             . '<th scope="col">' . __('User name') . '</th>' . "\n"

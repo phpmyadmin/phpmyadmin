@@ -6,26 +6,26 @@
   </h2>
   </div>
 
-<div class="row">
-<table class="noclick table table-responsive table-hover table-striped">
-  <thead>
-    <tr>
-      <th scope="col">{% trans 'Storage Engine' %}</th>
-      <th scope="col">{% trans 'Description' %}</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for engine, details in engines %}
-      <tr class="
-        {{- details['Support'] == 'NO' or details['Support'] == 'DISABLED' ? ' disabled' }}
-        {{ details['Support'] == 'DEFAULT' ? ' marked' }}">
-        <td>
-          <a rel="newpage" href="{{ url('/server/engines', {'engine': engine}) }}">
-            {{ details['Engine'] }}
-          </a>
-        </td>
-        <td>{{ details['Comment'] }}</td>
+  <div class="row">
+  <table class="noclick table table-responsive table-hover table-striped">
+    <thead>
+      <tr>
+        <th scope="col">{% trans 'Storage Engine' %}</th>
+        <th scope="col">{% trans 'Description' %}</th>
       </tr>
+    </thead>
+    <tbody>
+      {% for engine, details in engines %}
+        <tr class="
+          {{- details['Support'] == 'NO' or details['Support'] == 'DISABLED' ? ' disabled' }}
+          {{ details['Support'] == 'DEFAULT' ? ' marked' }}">
+          <td>
+            <a rel="newpage" href="{{ url('/server/engines', {'engine': engine}) }}">
+              {{ details['Engine'] }}
+            </a>
+          </td>
+          <td>{{ details['Comment'] }}</td>
+        </tr>
      {% endfor %}
     </tbody>
   </table>
