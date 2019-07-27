@@ -238,11 +238,10 @@
 
                 <td class="tool">
                   <a class="server_databases" data="
-                    {{- database.name|js_format }}" href="server_privileges.php
-                    {{- get_common({
-                          'db': database.name,
-                          'checkprivsdb': database.name
-                        }) }}" title="
+                    {{- database.name|js_format }}" href="{{ url('/server/privileges', {
+                      'db': database.name,
+                      'checkprivsdb': database.name
+                    }) }}" title="
                     {{- 'Check privileges for database "%s".'|trans|format(database.name) }}">
                     {{ get_icon('s_rights', 'Check privileges'|trans) }}
                   </a>

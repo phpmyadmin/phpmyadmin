@@ -1273,7 +1273,7 @@ class UtilTest extends PmaTestCase
                 $GLOBALS['cfg']['DefaultTabDatabase'],
                 'database'
             )
-            . '?db=' . $database
+            . '&amp;db=' . $database
             . '&amp;server=99&amp;lang=en" '
             . 'title="Jump to database “'
             . htmlspecialchars($database) . '”.">'
@@ -1299,7 +1299,7 @@ class UtilTest extends PmaTestCase
                 $GLOBALS['cfg']['DefaultTabDatabase'],
                 'database'
             )
-            . '?db=' . $database
+            . '&amp;db=' . $database
             . '&amp;server=99&amp;lang=en" title="Jump to database “'
             . htmlspecialchars($database) . '”.">'
             . htmlspecialchars($database) . '</a>',
@@ -1325,7 +1325,7 @@ class UtilTest extends PmaTestCase
                 $GLOBALS['cfg']['DefaultTabDatabase'],
                 'database'
             )
-            . '?db='
+            . '&amp;db='
             . htmlspecialchars(urlencode($database))
             . '&amp;server=99&amp;lang=en" title="Jump to database “'
             . htmlspecialchars($database) . '”.">'

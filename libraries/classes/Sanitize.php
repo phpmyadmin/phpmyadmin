@@ -37,19 +37,12 @@ class Sanitize
             './doc/html/',
             // possible return values from Util::getScriptNameForOption
             './index.php?',
-            './server_status.php?',
-            './server_privileges.php?',
             './db_sql.php?',
-            './db_search.php?',
-            './db_operations.php?',
             './tbl_sql.php?',
-            './tbl_select.php?',
-            './tbl_change.php?',
             './sql.php?',
             // Hardcoded options in \PhpMyAdmin\Config\SpecialSchemaLinks
             './db_events.php?',
             './db_routines.php?',
-            './server_privileges.php?',
         ];
         $is_setup = $GLOBALS['PMA_Config'] !== null && $GLOBALS['PMA_Config']->get('is_setup');
         // Adjust path to setup script location

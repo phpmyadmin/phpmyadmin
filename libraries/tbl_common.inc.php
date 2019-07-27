@@ -8,6 +8,7 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -16,7 +17,7 @@ if (! defined('PHPMYADMIN')) {
 global $db, $table;
 
 // Check parameters
-PhpMyAdmin\Util::checkParameters(['db', 'table']);
+Util::checkParameters(['db', 'table']);
 
 $db_is_system_schema = $GLOBALS['dbi']->isSystemSchema($db);
 
@@ -36,18 +37,17 @@ $url_params['table'] = $table;
 /**
  * Defines the urls to return to in case of error in a sql statement
  */
-$err_url_0 = PhpMyAdmin\Util::getScriptNameForOption(
+$err_url_0 = Util::getScriptNameForOption(
     $GLOBALS['cfg']['DefaultTabDatabase'],
     'database'
-)
-    . Url::getCommon(['db' => $db]);
+);
+$err_url_0 .= Url::getCommon(['db' => $db], strpos($err_url_0, '?') === false ? '?' : '&');
 
-$err_url = PhpMyAdmin\Util::getScriptNameForOption(
+$err_url = Util::getScriptNameForOption(
     $GLOBALS['cfg']['DefaultTabTable'],
     'table'
-)
-    . Url::getCommon($url_params);
-
+);
+$err_url .= Url::getCommon($url_params, strpos($err_url, '?') === false ? '?' : '&');
 
 /**
  * Ensures the database and the table exist (else move to the "parent" script)

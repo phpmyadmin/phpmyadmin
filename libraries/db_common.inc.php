@@ -43,8 +43,8 @@ $err_url_0 = 'index.php' . Url::getCommon();
 $err_url = Util::getScriptNameForOption(
     $GLOBALS['cfg']['DefaultTabDatabase'],
     'database'
-)
-    . Url::getCommon(['db' => $db]);
+);
+$err_url .= Url::getCommon(['db' => $db], strpos($err_url, '?') === false ? '?' : '&');
 
 /**
  * Ensures the database exists (else move to the "parent" script) and displays
@@ -130,7 +130,7 @@ if (isset($_POST['submitcollation'], $_POST['db_collation']) && ! empty($_POST['
 
     /**
      * If we are in an Ajax request, let us stop the execution here. Necessary for
-     * db charset change action on db_operations.php.  If this causes a bug on
+     * db charset change action on /database/operations. If this causes a bug on
      * other pages, we might have to move this to a different location.
      */
     if ($response->isAjax()) {

@@ -1230,7 +1230,7 @@ class Import
 
         $params = ['db' => $db_name];
         $db_url = Url::getFromRoute('/database/structure', $params);
-        $db_ops_url = 'db_operations.php' . Url::getCommon($params);
+        $db_ops_url = Url::getFromRoute('/database/operations', $params);
 
         $message = '<br><br>';
         $message .= '<strong>' . __(

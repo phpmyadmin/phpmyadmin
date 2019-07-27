@@ -2,7 +2,7 @@
 <div class="row">  
   <ul id="topmenu2">
     <li>
-      <a href="server_status.php{{ get_common() }}"{{ active == 'status' ? ' class="tabactive"' }}>
+      <a href="{{ url('/server/status') }}"{{ active == 'status' ? ' class="tabactive"' }}>
         {% trans 'Server' %}
       </a>
     </li>

@@ -469,7 +469,7 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
             $url_params,
             [
                 'sql_query' => $this_sql_query,
-                'goto' => 'db_operations.php',
+                'goto' => Url::getFromRoute('/database/operations'),
                 'reload' => '1',
                 'purge' => '1',
                 'message_to_show' => sprintf(

@@ -65,7 +65,7 @@ function checkPasswordStrength (value, meterObject, meterObjectLabel, username) 
 }
 
 /**
- * AJAX scripts for server_privileges page.
+ * AJAX scripts for /server/privileges page.
  *
  * Actions ajaxified here:
  * Add user
@@ -245,7 +245,7 @@ AJAX.registerOnload('server/privileges.js', function () {
                         var $message = Functions.ajaxShowMessage();
                         var argsep = CommonParams.get('arg_separator');
                         $.post(
-                            'server_privileges.php',
+                            'index.php?route=/server/privileges',
                             $('#changeUserGroupDialog').find('form').serialize() + argsep + 'ajax_request=1',
                             function (data) {
                                 Functions.ajaxRemoveMessage($message);

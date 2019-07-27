@@ -14,11 +14,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Bookmark;
-use PhpMyAdmin\Encoding;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
-
 /**
  * PhpMyAdmin\SqlQueryForm class
  *
@@ -151,13 +146,12 @@ class SqlQueryForm
             // prepare for db related
             $db     = $GLOBALS['db'];
             // if you want navigation:
-            $tmp_db_link = '<a href="' . Util::getScriptNameForOption(
+            $scriptName = Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'],
                 'database'
-            )
-                . Url::getCommon(['db' => $db]) . '"';
-            $tmp_db_link .= '>'
-                . htmlspecialchars($db) . '</a>';
+            );
+            $tmp_db_link = '<a href="' . $scriptName . Url::getCommon(['db' => $db], strpos($scriptName, '?') === false ? '?' : '&') . '">';
+            $tmp_db_link .= htmlspecialchars($db) . '</a>';
             $legend = sprintf(__('Run SQL query/queries on database %s'), $tmp_db_link);
             if (empty($query)) {
                 $query = Util::expandUserString(
@@ -178,12 +172,12 @@ class SqlQueryForm
                 true
             );
 
-            $tmp_tbl_link = '<a href="' . Util::getScriptNameForOption(
+            $scriptName = Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabTable'],
                 'table'
-            ) . Url::getCommon(['db' => $db, 'table' => $table]) . '" >';
-            $tmp_tbl_link .= htmlspecialchars($db)
-                . '.' . htmlspecialchars($table) . '</a>';
+            );
+            $tmp_tbl_link = '<a href="' . $scriptName . Url::getCommon(['db' => $db, 'table' => $table]) . '">';
+            $tmp_tbl_link .= htmlspecialchars($db) . '.' . htmlspecialchars($table) . '</a>';
             $legend = sprintf(__('Run SQL query/queries on table %s'), $tmp_tbl_link);
             if (empty($query)) {
                 $query = Util::expandUserString(

@@ -203,13 +203,18 @@ class DatabasesController extends AbstractController
             $message = Message::success(__('Database %1$s has been created.'));
             $message->addParam($params['new_db']);
 
+            $scriptName = Util::getScriptNameForOption(
+                $cfg['DefaultTabDatabase'],
+                'database'
+            );
+
             $json = [
                 'message' => $message,
                 'sql_query' => Util::getMessage(null, $sqlQuery, 'success'),
-                'url_query' => Util::getScriptNameForOption(
-                    $cfg['DefaultTabDatabase'],
-                    'database'
-                ) . Url::getCommon(['db' => $params['new_db']]),
+                'url_query' => $scriptName . Url::getCommon(
+                    ['db' => $params['new_db']],
+                    strpos($scriptName, '?') === false ? '?' : '&'
+                ),
             ];
         }
 
@@ -353,11 +358,10 @@ class DatabasesController extends AbstractController
             }
 
             $url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-            if (strpos($url, '?') === false) {
-                $url .= Url::getCommonRaw(['db' => $database['SCHEMA_NAME']]);
-            } else {
-                $url .= Url::getCommonRaw(['db' => $database['SCHEMA_NAME']], '&');
-            }
+            $url .= Url::getCommonRaw(
+                ['db' => $database['SCHEMA_NAME']],
+                strpos($url, '?') === false ? '?' : '&'
+            );
             $databases[$database['SCHEMA_NAME']] = [
                 'name' => $database['SCHEMA_NAME'],
                 'collation' => [],

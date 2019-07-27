@@ -30,8 +30,8 @@ class Users
         $items = [
             [
                 'name' => __('User accounts overview'),
-                'url' => 'server_privileges.php',
-                'params' => Url::getCommon(['viewing_mode' => 'server']),
+                'url' => Url::getFromRoute('/server/privileges'),
+                'params' => Url::getCommon(['viewing_mode' => 'server'], '&'),
             ],
         ];
 

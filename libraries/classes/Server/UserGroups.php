@@ -83,7 +83,7 @@ class UserGroups
 
         if ($result && $GLOBALS['dbi']->numRows($result)) {
             $html_output .= '<form name="userGroupsForm" id="userGroupsForm"'
-                . ' action="server_privileges.php" method="post">';
+                . ' action="' . Url::getFromRoute('/server/privileges') . '" method="post">';
             $html_output .= Url::getHiddenInputs();
             $html_output .= '<table id="userGroupsTable">';
             $html_output .= '<thead><tr>';

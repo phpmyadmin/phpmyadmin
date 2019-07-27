@@ -3238,15 +3238,15 @@ class Results
             'goto'             => 'sql.php',
         ];
 
-        $edit_url = 'tbl_change.php'
-            . Url::getCommon(
-                $_url_params + ['default_action' => 'update']
-            );
+        $edit_url = Url::getFromRoute(
+            '/table/change',
+            $_url_params + ['default_action' => 'update']
+        );
 
-        $copy_url = 'tbl_change.php'
-            . Url::getCommon(
-                $_url_params + ['default_action' => 'insert']
-            );
+        $copy_url = Url::getFromRoute(
+            '/table/change',
+            $_url_params + ['default_action' => 'insert']
+        );
 
         $edit_str = $this->_getActionLinkContent(
             'b_edit',

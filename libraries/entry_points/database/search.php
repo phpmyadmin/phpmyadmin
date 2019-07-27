@@ -13,15 +13,14 @@ use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
-global $db, $url_query;
-
-require_once ROOT_PATH . 'libraries/common.inc.php';
+global $containerBuilder, $db, $url_query;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);
@@ -48,9 +47,9 @@ if (! $GLOBALS['cfg']['UseDbSearch']) {
         false,
         $err_url
     );
-} // end if
-$url_query .= '&amp;goto=db_search.php';
-$url_params['goto'] = 'db_search.php';
+}
+$url_params['goto'] = Url::getFromRoute('/database/search');
+$url_query .= Url::getCommon($url_params, '&');
 
 // Create a database search instance
 $db_search = new Search($dbi, $db, $template);

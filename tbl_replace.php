@@ -3,7 +3,7 @@
 /**
  * Manipulation of table data like inserting, replacing and updating
  *
- * Usually called as form action from tbl_change.php to insert or update table rows
+ * Usually called as form action from /table/change to insert or update table rows
  *
  * @todo 'edit_next' tends to not work as expected if used ...
  * at least there is no order by it needs the original query
@@ -64,7 +64,7 @@ $transformations = $containerBuilder->get('transformations');
 /** @var InsertEdit $insertEdit */
 $insertEdit = $containerBuilder->get('insert_edit');
 
-// check whether insert row mode, if so include tbl_change.php
+// check whether insert row mode, if so include /table/change
 $insertEdit->isInsertRow();
 
 $after_insert_actions = [
@@ -374,7 +374,7 @@ if ($is_insert && count($value_sets) > 0) {
     $message = Message::success(__('No change'));
     // Avoid infinite recursion
     if ($goto_include == 'tbl_replace.php') {
-        $goto_include = 'tbl_change.php';
+        $goto_include = 'libraries/entry_points/table/change.php';
     }
     $active_page = $goto_include;
     include ROOT_PATH . Core::securePath($goto_include);
@@ -406,7 +406,7 @@ if ($is_insert && (count($value_sets) > 0 || $row_skipped)) {
     );
 }
 if ($row_skipped) {
-    $goto_include = 'tbl_change.php';
+    $goto_include = 'libraries/entry_points/table/change.php';
     $message->addMessagesString($insert_errors, '<br>');
     $message->isError(true);
 }
@@ -542,7 +542,7 @@ $active_page = $goto_include;
 
 /**
  * If user asked for "and then Insert another new row" we have to remove
- * WHERE clause information so that tbl_change.php does not go back
+ * WHERE clause information so that /table/change does not go back
  * to the current record
  */
 if (isset($_POST['after_insert']) && 'new_insert' == $_POST['after_insert']) {

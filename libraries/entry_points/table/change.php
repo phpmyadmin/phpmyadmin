@@ -15,13 +15,11 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
-global $cfg, $containerBuilder, $db, $table, $text_dir;
-
-require_once ROOT_PATH . 'libraries/common.inc.php';
+global $cfg, $is_upload, $containerBuilder, $db, $table, $text_dir;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);

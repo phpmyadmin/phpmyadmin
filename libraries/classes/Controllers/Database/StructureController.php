@@ -539,10 +539,8 @@ class StructureController extends AbstractController
                 'search_table_title' => $may_have_rows ? $titles['Search'] : $titles['NoSearch'],
                 'browse_table_label_title' => htmlspecialchars($current_table['TABLE_COMMENT']),
                 'browse_table_label_truename' => $truename,
-                'empty_table_sql_query' => urlencode(
-                    'TRUNCATE ' . Util::backquote(
-                        $current_table['TABLE_NAME']
-                    )
+                'empty_table_sql_query' => 'TRUNCATE ' . Util::backquote(
+                    $current_table['TABLE_NAME']
                 ),
                 'empty_table_message_to_show' => urlencode(
                     sprintf(

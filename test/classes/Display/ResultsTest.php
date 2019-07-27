@@ -427,7 +427,7 @@ class ResultsTest extends PmaTestCase
     {
         return [
             [
-                'tbl_change.php?db=Data&amp;table=customer&amp;where_clause=%60'
+                'index.php?route=/table/change&db=Data&amp;table=customer&amp;where_clause=%60'
                 . 'customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
                 . 'SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;default_'
                 . 'action=update',
@@ -438,7 +438,7 @@ class ResultsTest extends PmaTestCase
                 '%60customer%60.%60id%60+%3D+1',
                 '<td class="klass edit_row_anchor center print_ignore">'
                 . '<span class="nowrap">'
-                . '<a href="tbl_change.php" data-post="db=Data&amp;table=customer&amp;where_'
+                . '<a href="index.php" data-post="route=/table/change&db=Data&amp;table=customer&amp;where_'
                 . 'clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
                 . 'sql_query=SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;'
                 . 'default_action=update"'
@@ -499,7 +499,7 @@ class ResultsTest extends PmaTestCase
     {
         return [
             [
-                'tbl_change.php?db=Data&amp;table=customer&amp;where_clause=%60cust'
+                'index.php?route=/table/change&db=Data&amp;table=customer&amp;where_clause=%60cust'
                 . 'omer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
                 . 'SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;default_'
                 . 'action=insert',
@@ -510,7 +510,7 @@ class ResultsTest extends PmaTestCase
                 'klass',
                 '<td class="klass center print_ignore"><span class='
                 . '"nowrap">'
-                . '<a href="tbl_change.php" data-post="db=Data&amp;table=customer&amp;where_'
+                . '<a href="index.php" data-post="route=/table/change&db=Data&amp;table=customer&amp;where_'
                 . 'clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
                 . 'sql_query=SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;'
                 . 'default_action=insert"'
@@ -665,10 +665,10 @@ class ResultsTest extends PmaTestCase
                 [
                     '`new`.`id`' => '= 1',
                 ],
-                'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.'
+                'index.php?route=/table/change&db=data&amp;table=new&amp;where_clause=%60new%60.'
                 . '%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+'
                 . 'FROM+%60new%60&amp;goto=sql.php&amp;default_action=update',
-                'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.'
+                'index.php?route=/table/change&db=data&amp;table=new&amp;where_clause=%60new%60.'
                 . '%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+'
                 . 'FROM+%60new%60&amp;goto=sql.php&amp;default_action=insert',
                 'edit_row_anchor',
@@ -685,7 +685,7 @@ class ResultsTest extends PmaTestCase
                 . '"condition_array" value="{&quot;`new`.`id`&quot;:&quot;= 1&quot;'
                 . '}">    </td><td class="edit_row_anchor center print_ignore"><span class='
                 . '"nowrap">'
-                . '<a href="tbl_change.php" data-post="db=data&amp;table=new&amp;where_'
+                . '<a href="index.php" data-post="route=/table/change&db=data&amp;table=new&amp;where_'
                 . 'clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
                 . 'sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default'
                 . '_action=update">'
@@ -694,7 +694,7 @@ class ResultsTest extends PmaTestCase
                 . '<input type="hidden" class="where_clause" value ="%60new%60.%60'
                 . 'id%60+%3D+1"></span></td><td class="center print_ignore"><span class'
                 . '="nowrap">'
-                . '<a href="tbl_change.php" data-post="db=data&amp;table=new&amp;where_clause'
+                . '<a href="index.php" data-post="route=/table/change&db=data&amp;table=new&amp;where_clause'
                 . '=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
                 . 'SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action='
                 . 'insert"><span class'
@@ -737,10 +737,10 @@ class ResultsTest extends PmaTestCase
                 [
                     '`new`.`id`' => '= 1',
                 ],
-                'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.'
+                'index.php?route=/table/change&amp;db=data&amp;table=new&amp;where_clause=%60new%60.'
                 . '%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+'
                 . 'FROM+%60new%60&amp;goto=sql.php&amp;default_action=update',
-                'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.'
+                'index.php?route=/table/change&amp;db=data&amp;table=new&amp;where_clause=%60new%60.'
                 . '%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+'
                 . 'FROM+%60new%60&amp;goto=sql.php&amp;default_action=insert',
                 'edit_row_anchor',
@@ -762,7 +762,7 @@ class ResultsTest extends PmaTestCase
                 . '"Delete" alt="Delete" class="icon ic_b_drop"> Delete</span></a>'
                 . '<div class="hide">DELETE FROM `data`.`new` WHERE `new`.'
                 . '`id` = 1</div></td><td class="center print_ignore"><span class="nowrap">'
-                . '<a href="tbl_change.php" data-post="db=data&amp;table=new&amp;where_'
+                . '<a href="index.php" data-post="route=/table/change&amp;db=data&amp;table=new&amp;where_'
                 . 'clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_'
                 . 'query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_'
                 . 'action=insert"><span '
@@ -771,7 +771,7 @@ class ResultsTest extends PmaTestCase
                 . '<input type="hidden" class="where_clause" value="%60new%60.%60id'
                 . '%60+%3D+1"></span></td><td class="edit_row_anchor center print_ignore">'
                 . '<span class="nowrap">'
-                . '<a href="tbl_change.php" data-post="db=data&amp;table=new&amp;where_clause'
+                . '<a href="index.php" data-post="route=/table/change&amp;db=data&amp;table=new&amp;where_clause'
                 . '=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
                 . 'SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action='
                 . 'update"><span class='
@@ -807,10 +807,10 @@ class ResultsTest extends PmaTestCase
                 [
                     '`new`.`id`' => '= 1',
                 ],
-                'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60'
+                'index.php?route=/table/change&db=data&amp;table=new&amp;where_clause=%60new%60.%60'
                 . 'id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+'
                 . '%60new%60&amp;goto=sql.php&amp;default_action=update',
-                'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60'
+                'index.php?route=/table/change&db=data&amp;table=new&amp;where_clause=%60new%60.%60'
                 . 'id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+'
                 . '%60new%60&amp;goto=sql.php&amp;default_action=insert',
                 'edit_row_anchor',
@@ -926,10 +926,10 @@ class ResultsTest extends PmaTestCase
                 [
                     '`new`.`id`' => '= 1',
                 ],
-                'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60'
+                'index.php?route=/table/change&db=data&amp;table=new&amp;where_clause=%60new%60.%60'
                 . 'id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+'
                 . '%60new%60&amp;goto=sql.php&amp;default_action=update',
-                '/tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60'
+                '/index.php?route=/table/change&db=data&amp;table=new&amp;where_clause=%60new%60.%60'
                 . 'id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+'
                 . '%60new%60&amp;goto=sql.php&amp;default_action=insert',
                 'edit_row_anchor',
