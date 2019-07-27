@@ -7,20 +7,20 @@
 <div id="plugins_plugins">
   <div id="sectionlinks" class="row no-gutters">
     <div class="col-12">
-      {% for type in plugins|keys %}
-        <a class="btn btn-primary" href="#plugins-{{ clean_types[type] }}">
-          {{ type }}
+      {% for plugin_type in plugins|keys %}
+        <a class="btn btn-primary" href="#plugins-{{- plugins_type_clean[plugin_type] }}">
+            {{ plugin_type }}
         </a>
       {% endfor %}
     </div>
   </div>
-<<<<<<< HEAD
+
   {% for type, list in plugins %}
     <div class="responsivetable row">
       <div class="col-12">
         <table class="data_full_width table table-responsive table-hover table-striped" id="plugins-{{ clean_types[type] }}">
           <caption class="tblHeaders">
-            {{ type }}
+            {{ plugin_type }}
           </caption>
           <thead>
             <tr>
@@ -32,28 +32,20 @@
             </tr>
           </thead>
           <tbody>
-            {% for plugin in list %}
+            {% for plugin in plugin_list %}
               <tr class="noclick">
                 <th scope="row">
                   {{ plugin.name }}
                   {% if plugin.status != 'ACTIVE' %}
                     <small class="attention">
-                      {% if plugin.status == 'INACTIVE' %}
-                        {% trans 'inactive' %}
-                      {% elseif plugin.status == 'DISABLED' %}
-                        {% trans 'disabled' %}
-                      {% elseif plugin.status == 'DELETING' %}
-                        {% trans 'deleting' %}
-                      {% elseif plugin.status == 'DELETED' %}
-                        {% trans 'deleted' %}
-                      {% endif %}
+                      {% trans 'disabled' %}
                     </small>
                   {% endif %}
                 </th>
-                <td>{{ plugin.description }}</td>
-                <td>{{ plugin.version }}</td>
-                <td>{{ plugin.author }}</td>
-                <td>{{ plugin.license }}</td>
+                <td>{{ plugin.plugin_description }}</td>
+                <td>{{ plugin.plugin_type_version }}</td>
+                <td>{{ plugin.plugin_author }}</td>
+                <td>{{ plugin.plugin_license }}</td>
               </tr>
             {% endfor %}
           </tbody>
