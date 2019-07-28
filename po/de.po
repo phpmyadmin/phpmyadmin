@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-07-25 16:54-0300\n"
-"PO-Revision-Date: 2019-07-19 19:06+0000\n"
+"PO-Revision-Date: 2019-07-30 00:41+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "de/>\n"
@@ -235,14 +235,13 @@ msgstr "Zurück"
 
 # source != search / Source != Suche
 #: index.php:85
-#, fuzzy, php-format
-#| msgid "Source database `%s` was not found!"
+#, php-format
 msgid "Error 404! The page %s was not found."
-msgstr "Quell-Datenbank `%s` nicht gefunden!"
+msgstr "Fehler 404! Die Seite %s wurde nicht gefunden."
 
 #: index.php:90
 msgid "Error 405! Request method not allowed."
-msgstr ""
+msgstr "Fehler 405! Anforderungsmethode nicht zulässig."
 
 #: js/messages.php:46
 msgid "Confirm"
