@@ -2077,6 +2077,8 @@ class InsertEdit
             $special_chars = Util::addMicroseconds($column['Default']);
         } elseif ($trueType == 'binary' || $trueType == 'varbinary') {
             $special_chars = bin2hex($column['Default']);
+        } elseif ('text' === substr($trueType, -4) || 'char' === substr($trueType, -4)) {
+            $special_chars = empty($column['Default']) ? '' : substr($column['Default'], 1, -1);
         } else {
             $special_chars = htmlspecialchars($column['Default']);
         }
