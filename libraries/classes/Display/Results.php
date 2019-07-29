@@ -3627,7 +3627,7 @@ class Results
 
             $cell = $this->_getRowData(
                 'right ' . $class, $condition_field,
-                $analyzed_sql_results, $meta, $map, $column,
+                $analyzed_sql_results, $meta, $map, $column, $column,
                 $transformation_plugin, $default_function, $nowrap,
                 $where_comparison, $transform_options,
                 $is_field_truncated, ''
@@ -3704,13 +3704,14 @@ class Results
             $wktval = Util::asWKT($column);
             list(
                 $is_field_truncated,
-                $wktval,
+                $displayedColumn,
                 // skip 3rd param
             ) = $this->_getPartialText($wktval);
 
             $cell = $this->_getRowData(
                 $class, $condition_field, $analyzed_sql_results, $meta, $map,
-                $wktval, $transformation_plugin, $default_function, '',
+                $wktval, $displayedColumn, $transformation_plugin,
+                $default_function, '',
                 $where_comparison, $transform_options,
                 $is_field_truncated, ''
             );
@@ -3725,13 +3726,13 @@ class Results
             $wkbval = substr(bin2hex($column), 8);
             list(
                 $is_field_truncated,
-                $wkbval,
+                $displayedColumn,
                 // skip 3rd param
             ) = $this->_getPartialText($wkbval);
 
             $cell = $this->_getRowData(
                 $class, $condition_field,
-                $analyzed_sql_results, $meta, $map, $wkbval,
+                $analyzed_sql_results, $meta, $map, $wkbval, $displayedColumn,
                 $transformation_plugin, $default_function, '',
                 $where_comparison, $transform_options,
                 $is_field_truncated, ''
@@ -3826,13 +3827,14 @@ class Results
 
         // Cut all fields to $GLOBALS['cfg']['LimitChars']
         // (unless it's a link-type transformation or binary)
+        $displayedColumn = $column;
         if (!(gettype($transformation_plugin) === "object"
             && strpos($transformation_plugin->getName(), 'Link') !== false)
             && !stristr($field_flags, self::BINARY_FIELD)
         ) {
             list(
                 $is_field_truncated,
-                $column,
+                $displayedColumn,
                 $original_length
             ) = $this->_getPartialText($column);
         }
@@ -3840,8 +3842,8 @@ class Results
         $formatted = false;
         if (isset($meta->_type) && $meta->_type === MYSQLI_TYPE_BIT) {
 
-            $column = Util::printableBitValue(
-                $column, $meta->length
+            $displayedColumn = Util::printableBitValue(
+                $displayedColumn, $meta->length
             );
 
             // some results of PROCEDURE ANALYSE() are reported as
@@ -3856,8 +3858,8 @@ class Results
             if ($meta->type === self::STRING_FIELD) {
                 $binary_or_blob = self::BINARY_FIELD;
             }
-            $column = $this->_handleNonPrintableContents(
-                $binary_or_blob, $column, $transformation_plugin,
+            $displayedColumn = $this->_handleNonPrintableContents(
+                $binary_or_blob, $displayedColumn, $transformation_plugin,
                 $transform_options, $default_function,
                 $meta, $_url_params, $is_field_truncated
             );
@@ -3876,7 +3878,7 @@ class Results
 
         if ($formatted) {
             $cell = $this->_buildValueDisplay(
-                $class, $condition_field, $column
+                $class, $condition_field, $displayedColumn
             );
             return $cell;
         }
@@ -3899,7 +3901,7 @@ class Results
 
         $cell = $this->_getRowData(
             $class, $condition_field,
-            $analyzed_sql_results, $meta, $map, $column,
+            $analyzed_sql_results, $meta, $map, $column, $displayedColumn,
             $transformation_plugin, $default_function, $nowrap,
             $where_comparison, $transform_options,
             $is_field_truncated, $original_length
@@ -5241,7 +5243,8 @@ class Results
      *
      */
     private function _getRowData(
-        $class, $condition_field, array $analyzed_sql_results, $meta, array $map, $data,
+        $class, $condition_field, array $analyzed_sql_results, $meta,
+        array $map, $data, $displayedData,
         $transformation_plugin, $default_function, $nowrap, $where_comparison,
         array $transform_options, $is_field_truncated, $original_length=''
     ) {
@@ -5331,7 +5334,7 @@ class Results
                 if ($transformation_plugin != $default_function) {
                     // always apply a transformation on the real data,
                     // not on the display field
-                    $message = $transformation_plugin->applyTransformation(
+                    $displayedData = $transformation_plugin->applyTransformation(
                         $data,
                         $transform_options,
                         $meta
@@ -5343,10 +5346,10 @@ class Results
                     ) {
                         // user chose "relational display field" in the
                         // display options, so show display field in the cell
-                        $message = $default_function($dispval);
+                        $displayedData = $default_function($dispval);
                     } else {
                         // otherwise display data in the cell
-                        $message = $default_function($data);
+                        $displayedData = $default_function($displayedData);
                     }
 
                 }
@@ -5357,7 +5360,7 @@ class Results
                 }
                 $result .= Util::linkOrButton(
                     'sql.php' . Url::getCommon($_url_params),
-                    $message, $tag_params
+                    $displayedData, $tag_params
                 );
             }
 
