@@ -3576,6 +3576,7 @@ class Results
                 $meta,
                 $map,
                 $column,
+                $column,
                 $transformation_plugin,
                 $default_function,
                 $nowrap,
@@ -3670,7 +3671,7 @@ class Results
             $wktval = Util::asWKT($column);
             list(
                 $is_field_truncated,
-                $wktval,
+                $displayedColumn,
                 // skip 3rd param
             ) = $this->_getPartialText($wktval);
 
@@ -3681,6 +3682,7 @@ class Results
                 $meta,
                 $map,
                 $wktval,
+                $displayedColumn,
                 $transformation_plugin,
                 $default_function,
                 '',
@@ -3700,7 +3702,7 @@ class Results
             $wkbval = substr(bin2hex($column), 8);
             list(
                 $is_field_truncated,
-                $wkbval,
+                $displayedColumn,
                 // skip 3rd param
             ) = $this->_getPartialText($wkbval);
 
@@ -3711,6 +3713,7 @@ class Results
                 $meta,
                 $map,
                 $wkbval,
+                $displayedColumn,
                 $transformation_plugin,
                 $default_function,
                 '',
@@ -3823,21 +3826,22 @@ class Results
 
         // Cut all fields to $GLOBALS['cfg']['LimitChars']
         // (unless it's a link-type transformation or binary)
+        $displayedColumn = $column;
         if (! (gettype($transformation_plugin) === "object"
             && strpos($transformation_plugin->getName(), 'Link') !== false)
             && false === stripos($field_flags, self::BINARY_FIELD)
         ) {
             list(
                 $is_field_truncated,
-                $column,
+                $displayedColumn,
                 $original_length
             ) = $this->_getPartialText($column);
         }
 
         $formatted = false;
         if (isset($meta->_type) && $meta->_type === MYSQLI_TYPE_BIT) {
-            $column = Util::printableBitValue(
-                (int) $column,
+            $displayedColumn = Util::printableBitValue(
+                (int) $displayedColumn,
                 (int) $meta->length
             );
 
@@ -3853,9 +3857,9 @@ class Results
             if ($meta->type === self::STRING_FIELD) {
                 $binary_or_blob = self::BINARY_FIELD;
             }
-            $column = $this->_handleNonPrintableContents(
+            $displayedColumn = $this->_handleNonPrintableContents(
                 $binary_or_blob,
-                $column,
+                $displayedColumn,
                 $transformation_plugin,
                 $transform_options,
                 $default_function,
@@ -3885,7 +3889,7 @@ class Results
             $cell = $this->_buildValueDisplay(
                 $class,
                 $condition_field,
-                $column
+                $displayedColumn
             );
             return $cell;
         }
@@ -3913,6 +3917,7 @@ class Results
             $meta,
             $map,
             $column,
+            $displayedColumn,
             $transformation_plugin,
             $default_function,
             $nowrap,
@@ -5218,6 +5223,7 @@ class Results
         $meta,
         array $map,
         $data,
+        $displayedData,
         $transformation_plugin,
         $default_function,
         $nowrap,
@@ -5313,7 +5319,7 @@ class Results
                 if ($transformation_plugin != $default_function) {
                     // always apply a transformation on the real data,
                     // not on the display field
-                    $message = $transformation_plugin->applyTransformation(
+                    $displayedData = $transformation_plugin->applyTransformation(
                         $data,
                         $transform_options,
                         $meta
@@ -5324,10 +5330,10 @@ class Results
                     ) {
                         // user chose "relational display field" in the
                         // display options, so show display field in the cell
-                        $message = $default_function($dispval);
+                        $displayedData = $default_function($dispval);
                     } else {
                         // otherwise display data in the cell
-                        $message = $default_function($data);
+                        $displayedData = $default_function($displayedData);
                     }
                 }
 
@@ -5337,7 +5343,7 @@ class Results
                 }
                 $result .= Util::linkOrButton(
                     'sql.php' . Url::getCommon($_url_params),
-                    $message,
+                    $displayedData,
                     $tag_params
                 );
             }
