@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-07-12 01:21-0300\n"
-"PO-Revision-Date: 2019-04-16 19:05+0000\n"
+"PO-Revision-Date: 2019-07-30 00:41+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
+"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6-dev\n"
+"X-Generator: Weblate 3.8-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -538,15 +538,11 @@ msgid "Output"
 msgstr "Väljund"
 
 #: gis_data_editor.php:423
-#, fuzzy
-#| msgid ""
-#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-#| "below into the \"Value\" field."
 msgid ""
 "Choose \"ST_GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Vali väärtus \"GeomFromText\" veerust \"Function\" ja kleebi allolev sõne "
+"Vali väärtus \"ST_GeomFromText\" veerust \"Function\" ja kleebi allolev sõne "
 "väljale \"Value\"."
 
 #: import.php:73
@@ -3526,12 +3522,9 @@ msgid "accent-sensitive"
 msgstr "diakriitikute tundlik"
 
 #: libraries/classes/Charsets.php:675
-#, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "accent-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "diakriitikute tundlik"
+msgstr "katakana tundlik"
 
 #: libraries/classes/Charsets.php:679
 msgctxt "Collation variant"
@@ -3546,7 +3539,7 @@ msgstr "binaarne"
 #: libraries/classes/Charsets.php:685
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "täiendusteta"
 
 #: libraries/classes/Config.php:1122
 #, php-format
@@ -13839,7 +13832,7 @@ msgstr "mitte kumbki ülal nimetatuist"
 
 #: libraries/db_common.inc.php:151 tbl_operations.php:224
 msgid "No collation provided."
-msgstr ""
+msgstr "Sortimine puudub."
 
 #: libraries/mult_submits.inc.php:337
 msgid "Success!"
@@ -13972,10 +13965,8 @@ msgid "View dump (schema) of databases"
 msgstr "Vaata andmebaaside tõmmist (skeemi)"
 
 #: server_privileges.php:74
-#, fuzzy
-#| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
-msgstr "Lubab kustutada andmeid."
+msgstr "Lubab ajalooliste ridade kustutamise."
 
 #: server_privileges.php:145 server_replication.php:38
 #: server_user_groups.php:31 templates/server/databases/create.twig:46
