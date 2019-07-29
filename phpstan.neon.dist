@@ -14,7 +14,6 @@ parameters:
         - '#Call to an undefined method PhpMyAdmin\\Navigation\\Nodes\\Node\:\:getHiddenCount#'
         - '#Undefined variable: \$array#'
         - '#Undefined variable: \$(export_type|err_url|collation_connection|filename_template|transform_key|cn|goto|token_mismatch|auth_plugin|username|hostname|display_query)#'#Others
-        - '#Undefined variable: \$(unsaved_values|is_upload)#'#libraries/entry_points/table/change.php
         - '#Undefined variable: \$max_upload_size#'#tbl_import.php
         - '#Undefined variable: \$(repobase|fullrevision|revision|repobranchbase|branch)#'#Footer.php
         - '#Undefined variable: \$(containerBuilder)#'
