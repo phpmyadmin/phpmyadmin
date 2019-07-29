@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-07-25 16:54-0300\n"
-"PO-Revision-Date: 2019-04-16 19:05+0000\n"
+"PO-Revision-Date: 2019-07-30 00:41+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/et/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6-dev\n"
+"X-Generator: Weblate 3.8-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -229,14 +229,13 @@ msgid "Back"
 msgstr "Tagasi"
 
 #: index.php:85
-#, fuzzy, php-format
-#| msgid "Source database `%s` was not found!"
+#, php-format
 msgid "Error 404! The page %s was not found."
-msgstr "Lähteandmebaasi `%s` ei leitud!"
+msgstr "Viga 404! Lehekülge %s ei leitud."
 
 #: index.php:90
 msgid "Error 405! Request method not allowed."
-msgstr ""
+msgstr "Viga 405! Päringu meetod on keelatud."
 
 #: js/messages.php:46
 msgid "Confirm"
@@ -3128,12 +3127,9 @@ msgid "accent-sensitive"
 msgstr "diakriitikute tundlik"
 
 #: libraries/classes/Charsets/Collation.php:524
-#, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "accent-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "diakriitikute tundlik"
+msgstr "katakana tundlik"
 
 #: libraries/classes/Charsets/Collation.php:528
 msgctxt "Collation variant"
@@ -3148,7 +3144,7 @@ msgstr "binaarne"
 #: libraries/classes/Charsets/Collation.php:534
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "täiendusteta"
 
 #: libraries/classes/Config.php:1144
 #, php-format
@@ -3673,10 +3669,8 @@ msgstr "Nime võti"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:547
 #: templates/database/data_dictionary/index.twig:25
 #: templates/columns_definitions/table_fields_definitions.twig:71
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media type"
-msgstr "MIME-tüüp"
+msgstr "Meedia tüüp"
 
 #: libraries/classes/Config/Descriptions.php:219
 #: libraries/classes/Config/Descriptions.php:231
@@ -4869,15 +4863,11 @@ msgid "Bookmark table"
 msgstr "Järjehoidja tabel"
 
 #: libraries/classes/Config/Descriptions.php:616
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: "
-#| "[kbd]pma__column_info[/kbd]."
 msgid ""
 "Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Jäta tühjaks, kui puuduvad kommentaarid/mime-tüübid, soovitatav: "
+"Jäta tühjaks, kui veeru kommentaarid/meedia tüübid puuduvad; soovitatav: "
 "[kbd]pma__column_info[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:619
@@ -8825,10 +8815,8 @@ msgstr ""
 "jõudlust. Kaalu navigeerimispaneelil elementide grupeerimise keelamist."
 
 #: libraries/classes/Navigation/NavigationTree.php:795
-#, fuzzy
-#| msgid "Groups:"
 msgid "Groups"
-msgstr "Grupid:"
+msgstr "Grupid"
 
 #: libraries/classes/Navigation/NavigationTree.php:961
 #, php-format
@@ -9842,10 +9830,8 @@ msgstr "Näita kommentaare"
 #: libraries/classes/Plugins/Export/ExportLatex.php:156
 #: libraries/classes/Plugins/Export/ExportOdt.php:116
 #: libraries/classes/Plugins/Export/ExportSql.php:132
-#, fuzzy
-#| msgid "Display MIME types"
 msgid "Display media types"
-msgstr "Näita MIME-tüüpe"
+msgstr "Kuva meediatüübid"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
 msgid "Put columns names in the first row:"
@@ -10138,10 +10124,8 @@ msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT tabelile"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1909
-#, fuzzy
-#| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
-msgstr "MIME TYPES FOR TABLE"
+msgstr "TABELI MEEDIATÜÜBID"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1932
 msgid "RELATIONSHIPS FOR TABLE"
@@ -11564,10 +11548,8 @@ msgstr "Lubab teostada SHOW CREATE VIEW päringuid."
 #: libraries/classes/Server/Privileges.php:477
 #: libraries/classes/Server/Privileges.php:482
 #: libraries/entry_points/server/privileges.php:88
-#, fuzzy
-#| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
-msgstr "Lubab kustutada andmeid."
+msgstr "Lubab ajalooliste ridade kustutamise."
 
 #: libraries/classes/Server/Privileges.php:487
 #: libraries/classes/Server/Privileges.php:1384
@@ -13181,7 +13163,7 @@ msgstr "mitte kumbki ülal nimetatuist"
 
 #: libraries/db_common.inc.php:147 tbl_operations.php:243
 msgid "No collation provided."
-msgstr ""
+msgstr "Sortimine puudub."
 
 #: libraries/entry_points/database/operations.php:68 tbl_create.php:50
 msgid "The database name is empty!"
@@ -14715,10 +14697,8 @@ msgid "Check for latest version"
 msgstr "Kontrolli uusimat versiooni"
 
 #: templates/transformation_overview.twig:1
-#, fuzzy
-#| msgid "Available MIME types"
 msgid "Available media types"
-msgstr "Saadavalolevad MIME-tüübid"
+msgstr "Saadavalolevad meediatüübid"
 
 #: templates/transformation_overview.twig:13
 msgid "Available browser display transformations"
@@ -14731,8 +14711,6 @@ msgstr "Veebilehitseja kuva transformatsioon"
 
 #: templates/transformation_overview.twig:19
 #: templates/transformation_overview.twig:38
-#, fuzzy
-#| msgid "Description"
 msgctxt "for media type transformation"
 msgid "Description"
 msgstr "Kirjeldus"
@@ -15110,10 +15088,8 @@ msgid "Requery"
 msgstr "Korduspäring"
 
 #: templates/table/structure/display_structure.twig:70
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media type:"
-msgstr "MIME-tüüp"
+msgstr "Meediatüüp:"
 
 #: templates/table/structure/display_structure.twig:114
 #, php-format
@@ -15491,26 +15467,20 @@ msgid "Author"
 msgstr "Autor"
 
 #: templates/server/plugins/index.twig:41
-#, fuzzy
-#| msgid "active"
 msgid "inactive"
-msgstr "aktiivne"
+msgstr "mitte aktiivne"
 
 #: templates/server/plugins/index.twig:43
 msgid "disabled"
 msgstr "keelatud"
 
 #: templates/server/plugins/index.twig:45
-#, fuzzy
-#| msgid "Deleting"
 msgid "deleting"
-msgstr "Kustutamine"
+msgstr "kustutatakse"
 
 #: templates/server/plugins/index.twig:47
-#, fuzzy
-#| msgid "Delete"
 msgid "deleted"
-msgstr "Kustuta"
+msgstr "kustutatud"
 
 #: templates/database/structure/show_create.twig:2
 msgid "Showing create queries"
@@ -15690,10 +15660,8 @@ msgid "An error has occurred while loading the navigation display"
 msgstr "Navigeerimiskuva laadimisel toimus viga"
 
 #: templates/navigation/main.twig:89
-#, fuzzy
-#| msgid "SQL dump"
 msgid "SQL upload"
-msgstr "SQL tõmmis"
+msgstr "SQL üleslaadimine"
 
 #: templates/table/page_with_secondary_tabs.twig:9
 msgid "Relation view"
