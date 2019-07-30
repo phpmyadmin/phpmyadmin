@@ -4020,7 +4020,7 @@ class Privileges
             }
             $drop_user_error = '';
             foreach ($queries as $sql_query) {
-                if ($sql_query{0} != '#') {
+                if ($sql_query[0] != '#') {
                     if (! $this->dbi->tryQuery($sql_query)) {
                         $drop_user_error .= $this->dbi->getError() . "\n";
                     }
@@ -4275,7 +4275,7 @@ class Privileges
     {
         $tmp_count = 0;
         foreach ($queries as $sql_query) {
-            if ($sql_query{0} != '#') {
+            if ($sql_query[0] != '#') {
                 $this->dbi->query($sql_query);
             }
             // when there is a query containing a hidden password, take it
