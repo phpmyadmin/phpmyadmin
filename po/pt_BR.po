@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-07-30 05:50-0300\n"
-"PO-Revision-Date: 2019-07-25 20:26+0000\n"
+"PO-Revision-Date: 2019-07-30 09:04+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/pt_BR/>\n"
@@ -14837,11 +14837,9 @@ msgid "No password"
 msgstr "Sem senha"
 
 #: templates/server/privileges/login_information_fields.twig:54
-#, fuzzy
-#| msgid "Data length"
 msgctxt "Password strength"
 msgid "Strength:"
-msgstr "Comprimento dos dados"
+msgstr "Força:"
 
 #: templates/server/privileges/login_information_fields.twig:62
 #: templates/server/replication/master_add_slave_user.twig:65
@@ -14849,31 +14847,22 @@ msgid "Re-type"
 msgstr "Re-digite"
 
 #: templates/server/privileges/login_information_fields.twig:68
-#, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication plugin"
 msgstr "Plugin de autenticação"
 
 #: templates/server/privileges/login_information_fields.twig:70
-#, fuzzy
-#| msgid "Password Hashing Method"
 msgid "Password hashing method"
 msgstr "Método de hash de senha"
 
 #: templates/server/privileges/login_information_fields.twig:79
-#, fuzzy
-#| msgid ""
-#| "This method requires using an '<i>SSL connection</i>' or an "
-#| "'<i>unencrypted connection that encrypts the password using RSA</i>'; "
-#| "while connecting to the server."
 msgid ""
 "This method requires using an '<em>SSL connection</em>' or an "
 "'<em>unencrypted connection that encrypts the password using RSA</em>'; "
 "while connecting to the server."
 msgstr ""
-"Este método requer a utilização de uma '<i> conexão SSL</i> ' ou uma '<i> "
-"conexão que realize a criptografia da senha utilizando RSA</i> 4'; durante a "
-"conexão com o servidor."
+"Este método requer a utilização de uma '<em>conexão SSL</em> ' ou uma '<em>"
+"conexão não criptografada que criptografe a senha utilizando RSA</em>'; "
+"durante a conexão com o servidor."
 
 #: templates/display/export/template_options.twig:1
 msgid "Select a template"
