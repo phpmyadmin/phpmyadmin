@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-07-30 05:50-0300\n"
-"PO-Revision-Date: 2019-07-30 00:41+0000\n"
+"PO-Revision-Date: 2019-08-01 08:53+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -14757,11 +14757,9 @@ msgid "No password"
 msgstr "Parola yok"
 
 #: templates/server/privileges/login_information_fields.twig:54
-#, fuzzy
-#| msgid "Data length"
 msgctxt "Password strength"
 msgid "Strength:"
-msgstr "Veri uzunluğu"
+msgstr "Sağlamlık:"
 
 #: templates/server/privileges/login_information_fields.twig:62
 #: templates/server/replication/master_add_slave_user.twig:65
@@ -14769,30 +14767,21 @@ msgid "Re-type"
 msgstr "Tekrar yazın"
 
 #: templates/server/privileges/login_information_fields.twig:68
-#, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication plugin"
-msgstr "Kimlik Doğrulama Eklentisi"
+msgstr "Kimlik doğrulama eklentisi"
 
 #: templates/server/privileges/login_information_fields.twig:70
-#, fuzzy
-#| msgid "Password Hashing Method"
 msgid "Password hashing method"
-msgstr "Parola Adresleme Yöntemi"
+msgstr "Parola adresleme yöntemi"
 
 #: templates/server/privileges/login_information_fields.twig:79
-#, fuzzy
-#| msgid ""
-#| "This method requires using an '<i>SSL connection</i>' or an "
-#| "'<i>unencrypted connection that encrypts the password using RSA</i>'; "
-#| "while connecting to the server."
 msgid ""
 "This method requires using an '<em>SSL connection</em>' or an "
 "'<em>unencrypted connection that encrypts the password using RSA</em>'; "
 "while connecting to the server."
 msgstr ""
-"Bu yöntem, sunucuya bağlanırken bir '<i>SSL bağlantısı</i>' veya '<i>RSA "
-"kullanarak parolayı şifreleyen şifresiz bağlantı</i>' kullanmayı gerektirir."
+"Bu yöntem, sunucuya bağlanırken bir '<em>SSL bağlantısı</em>' veya '<em>RSA "
+"kullanarak parolayı şifreleyen şifresiz bağlantı</em>' kullanmayı gerektirir."
 
 #: templates/display/export/template_options.twig:1
 msgid "Select a template"
