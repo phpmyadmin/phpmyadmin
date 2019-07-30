@@ -2299,61 +2299,20 @@ class Privileges
      */
     public function getHtmlForAddUser($dbname)
     {
-        $html_output = '<h2>' . "\n"
-           . Util::getIcon('b_usradd') . __('Add user account') . "\n"
-           . '</h2>' . "\n"
-           . '<form name="usersForm" id="addUsersForm"'
-           . ' onsubmit="return checkAddUser(this);"'
-           . ' action="' . Url::getFromRoute('/server/privileges') . '" method="post" autocomplete="off" >' . "\n"
-           . Url::getHiddenInputs('', '')
-           . $this->getHtmlForLoginInformationFields('new');
+        global $is_grantuser;
 
-        $html_output .= '<fieldset id="fieldset_add_user_database">' . "\n"
-            . '<legend>' . __('Database for user account') . '</legend>' . "\n";
-
-        $html_output .= $this->template->render('checkbox', [
-            'html_field_name' => 'createdb-1',
-            'label' => __('Create database with same name and grant all privileges.'),
-            'checked' => false,
-            'onclick' => false,
-            'html_field_id' => 'createdb-1',
-        ]);
-        $html_output .= '<br>' . "\n";
-        $html_output .= $this->template->render('checkbox', [
-            'html_field_name' => 'createdb-2',
-            'label' => __('Grant all privileges on wildcard name (username\\_%).'),
-            'checked' => false,
-            'onclick' => false,
-            'html_field_id' => 'createdb-2',
-        ]);
-        $html_output .= '<br>' . "\n";
-
-        if (! empty($dbname)) {
-            $html_output .= $this->template->render('checkbox', [
-                'html_field_name' => 'createdb-3',
-                'label' => sprintf(__('Grant all privileges on database %s.'), htmlspecialchars($dbname)),
-                'checked' => true,
-                'onclick' => false,
-                'html_field_id' => 'createdb-3',
-            ]);
-            $html_output .= '<input type="hidden" name="dbname" value="'
-                . htmlspecialchars($dbname) . '">' . "\n";
-            $html_output .= '<br>' . "\n";
+        $loginInformationFieldsNew = $this->getHtmlForLoginInformationFields('new');
+        $privilegesTable = '';
+        if ($is_grantuser) {
+            $privilegesTable = $this->getHtmlToDisplayPrivilegesTable('*', '*', false);
         }
 
-        $html_output .= '</fieldset>' . "\n";
-        if ($GLOBALS['is_grantuser']) {
-            $html_output .= $this->getHtmlToDisplayPrivilegesTable('*', '*', false);
-        }
-        $html_output .= '<fieldset id="fieldset_add_user_footer" class="tblFooters">'
-            . "\n"
-            . '<input type="hidden" name="adduser_submit" value="1">' . "\n"
-            . '<input class="btn btn-primary" type="submit" id="adduser_submit" value="' . __('Go') . '">'
-            . "\n"
-            . '</fieldset>' . "\n"
-            . '</form>' . "\n";
-
-        return $html_output;
+        return $this->template->render('server/privileges/add_user', [
+            'database' => $dbname,
+            'login_information_fields_new' => $loginInformationFieldsNew,
+            'is_grant_user' => $is_grantuser,
+            'privileges_table' => $privilegesTable,
+        ]);
     }
 
     /**
