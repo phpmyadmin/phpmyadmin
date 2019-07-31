@@ -1061,9 +1061,9 @@ class ExportSql extends ExportPlugin
     /**
      * Exports metadata from Configuration Storage
      *
-     * @param string $db            database being exported
-     * @param string $table         table being exported
-     * @param array  $metadataTypes types of metadata to export
+     * @param string      $db            database being exported
+     * @param string|null $table         table being exported
+     * @param array       $metadataTypes types of metadata to export
      *
      * @return bool Whether it succeeded
      */

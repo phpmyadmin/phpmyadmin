@@ -17,7 +17,7 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-global $containerBuilder, $db, $table;
+global $cn, $containerBuilder, $db, $table, $transform_key;
 
 define('IS_TRANSFORMATION_WRAPPER', true);
 

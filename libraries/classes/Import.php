@@ -587,7 +587,7 @@ class Import
      * Obtains the size of the given cell
      *
      * @param string|int $last_cumulative_size Last cumulative column size
-     * @param int        $last_cumulative_type Last cumulative column type
+     * @param int|null   $last_cumulative_type Last cumulative column type
      *                                         (NONE or VARCHAR or DECIMAL or INT or BIGINT)
      * @param int        $curr_type            Type of the current cell
      *                                         (NONE or VARCHAR or DECIMAL or INT or BIGINT)
@@ -600,7 +600,7 @@ class Import
      */
     public function detectSize(
         $last_cumulative_size,
-        int $last_cumulative_type,
+        ?int $last_cumulative_type,
         int $curr_type,
         string $cell
     ) {

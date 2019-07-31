@@ -18,7 +18,7 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-global $cfg, $containerBuilder;
+global $cfg, $containerBuilder, $hostname, $username;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
