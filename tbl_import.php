@@ -15,7 +15,7 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-global $db, $table, $url_query;
+global $db, $max_upload_size, $table, $url_query;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 

@@ -30,7 +30,7 @@ if (isset($_POST['format']) && $_POST['format'] == 'ldi') {
     define('PMA_ENABLE_LDI', 1);
 }
 
-global $containerBuilder, $db, $pmaThemeImage, $table;
+global $cfg, $containerBuilder, $db, $import_type, $pmaThemeImage, $table;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 

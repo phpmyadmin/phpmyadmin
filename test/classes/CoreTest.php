@@ -991,7 +991,7 @@ class CoreTest extends PmaTestCase
      */
     public function testNotSetArray()
     {
-        /** @var $array undefined array */
+        $array = [];
         $this->assertFalse(Core::isValid($array['x']));
     }
 
