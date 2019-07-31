@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-07-30 05:50-0300\n"
-"PO-Revision-Date: 2019-07-30 00:41+0000\n"
+"PO-Revision-Date: 2019-08-01 20:10+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ia/>\n"
@@ -14544,11 +14544,9 @@ msgid "No password"
 msgstr "Necun contrasigno"
 
 #: templates/server/privileges/login_information_fields.twig:54
-#, fuzzy
-#| msgid "Data length"
 msgctxt "Password strength"
 msgid "Strength:"
-msgstr "Longessa de datos"
+msgstr "Fortia:"
 
 #: templates/server/privileges/login_information_fields.twig:62
 #: templates/server/replication/master_add_slave_user.twig:65
@@ -14556,31 +14554,22 @@ msgid "Re-type"
 msgstr ""
 
 #: templates/server/privileges/login_information_fields.twig:68
-#, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication plugin"
-msgstr "Plugin de Authentication"
+msgstr "Plugin de authentication"
 
 #: templates/server/privileges/login_information_fields.twig:70
-#, fuzzy
-#| msgid "Password Hashing Method"
 msgid "Password hashing method"
-msgstr "Methodo de hashing de contrasigno"
+msgstr "Methodo de hashing per le contrasigno"
 
 #: templates/server/privileges/login_information_fields.twig:79
-#, fuzzy
-#| msgid ""
-#| "This method requires using an '<i>SSL connection</i>' or an "
-#| "'<i>unencrypted connection that encrypts the password using RSA</i>'; "
-#| "while connecting to the server."
 msgid ""
 "This method requires using an '<em>SSL connection</em>' or an "
 "'<em>unencrypted connection that encrypts the password using RSA</em>'; "
 "while connecting to the server."
 msgstr ""
-"Iste methodo require un  '<i>connexion SSL</i>' o un '<i> connexion non "
-"cryptate que crypta le contrasigno per RSA</i>'; durante que on connecte al "
-"servitor."
+"Iste methodo require que on usa un  '<em>connexion SSL</em>' o un '<em> "
+"connexion non cryptate que crypta le contrasigno usante RSA</em>'; durante "
+"que on connecte al servitor."
 
 #: templates/display/export/template_options.twig:1
 msgid "Select a template"
