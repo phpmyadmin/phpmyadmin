@@ -38,7 +38,7 @@ Util::checkParameters(
     ]
 );
 
-global $db, $table;
+global $containerBuilder, $db, $table;
 
 /** @var Relation $relation */
 $relation = $containerBuilder->get('relation');

@@ -17,9 +17,9 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-define('IS_TRANSFORMATION_WRAPPER', true);
+global $containerBuilder, $db, $table;
 
-global $db, $table;
+define('IS_TRANSFORMATION_WRAPPER', true);
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 

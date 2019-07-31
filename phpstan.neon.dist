@@ -16,7 +16,6 @@ parameters:
         - '#Undefined variable: \$(export_type|err_url|collation_connection|filename_template|transform_key|cn|goto|token_mismatch|auth_plugin|username|hostname|display_query)#'#Others
         - '#Undefined variable: \$max_upload_size#'#tbl_import.php
         - '#Undefined variable: \$(repobase|fullrevision|revision|repobranchbase|branch)#'#Footer.php
-        - '#Undefined variable: \$(containerBuilder)#'
         - '#Variable \$_(REQUEST|GET|POST|COOKIE|SESSION) in isset\(\) always exists and is not nullable#'#Sanitize.php
         - '#Variable \$msg1 might not be defined#'#Twig/I18n/NodeTrans.php
         - '#Variable \$(foreign_db|foreign_table) might not be defined#'#Relation.php, do while(false) + break
