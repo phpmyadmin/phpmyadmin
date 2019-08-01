@@ -181,12 +181,12 @@ class DatabaseInterface
     /**
      * Set an item in table cache using dot notation.
      *
-     * @param array $contentPath Array with the target path
-     * @param mixed $value       Target value
+     * @param array|null $contentPath Array with the target path
+     * @param mixed      $value       Target value
      *
      * @return void
      */
-    public function cacheTableContent(array $contentPath, $value): void
+    public function cacheTableContent(?array $contentPath, $value): void
     {
         $loc = &$this->_table_cache;
 
@@ -309,6 +309,7 @@ class DatabaseInterface
             return false;
         }
 
+        $time = 0;
         if ($debug) {
             $time = microtime(true);
         }

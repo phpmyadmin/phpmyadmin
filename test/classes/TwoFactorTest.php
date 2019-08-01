@@ -29,6 +29,7 @@ class TwoFactorTest extends PmaTestCase
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
     }
 
     /**

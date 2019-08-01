@@ -19,6 +19,7 @@ if (! defined('ROOT_PATH')) {
 define('PHPMYADMIN', true);
 define('TESTSUITE', true);
 
+include_once ROOT_PATH . 'examples/signon-script.php';
 require_once ROOT_PATH . 'libraries/config.default.php';
 require_once ROOT_PATH . 'libraries/vendor_config.php';
 require_once AUTOLOAD_FILE;

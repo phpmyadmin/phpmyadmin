@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\OutputBuffering;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -39,6 +40,8 @@ class FilesTest extends TestCase
             'ServerDefault' => 1,
         ];
         $GLOBALS['cfg'] = $cfg;
+        /** @var OutputBuffering $buffer */
+        $buffer = null;
         require ROOT_PATH . $name;
         $buffer->stop();
         $out = $buffer->getContents();

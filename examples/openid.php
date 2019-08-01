@@ -56,7 +56,7 @@ function Show_page($contents)
     </head>
     <body>
     <?php
-    if (isset($_SESSION, $_SESSION['PMA_single_signon_error_message'])) {
+    if (isset($_SESSION['PMA_single_signon_error_message'])) {
         echo '<p class="error">' , $_SESSION['PMA_single_signon_message'] , '</p>';
         unset($_SESSION['PMA_single_signon_message']);
     }

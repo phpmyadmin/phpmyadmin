@@ -284,7 +284,7 @@ class TwoFactor
      */
     public function getAllBackends()
     {
-        $all = array_merge([''], $this->available);
+        $all = array_merge([''], $this->_available);
         $backends = [];
         foreach ($all as $name) {
             $cls = $this->getBackendClass($name);

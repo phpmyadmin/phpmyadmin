@@ -14,11 +14,6 @@ use PDO;
 use PHPUnit\Framework\TestCase;
 
 /**
- *
- */
-require_once ROOT_PATH . 'config.sample.inc.php';
-
-/**
  * Environment tests
  *
  * @package PhpMyAdmin-test
