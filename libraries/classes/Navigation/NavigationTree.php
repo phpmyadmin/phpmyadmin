@@ -1152,6 +1152,8 @@ class NavigationTree
 
             $divClass = '';
 
+            $iconLinks = [];
+            $icons = [];
             if (isset($node->links['icon']) && ! empty($node->links['icon'])) {
                 $iconLinks = $node->links['icon'];
                 $icons = $node->icon;

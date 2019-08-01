@@ -122,7 +122,7 @@ class Triggers
      */
     public function handleEditor()
     {
-        global $errors, $db, $table;
+        global $db, $errors, $message, $table;
 
         if (! empty($_POST['editor_process_add'])
             || ! empty($_POST['editor_process_edit'])
@@ -259,6 +259,9 @@ class Triggers
             && (! empty($_REQUEST['add_item'])
             || ! empty($_REQUEST['edit_item']))) // FIXME: this must be simpler than that
         ) {
+            $mode = null;
+            $item = null;
+            $title = null;
             // Get the data for the form (if any)
             if (! empty($_REQUEST['add_item'])) {
                 $title = $this->words->get('add');

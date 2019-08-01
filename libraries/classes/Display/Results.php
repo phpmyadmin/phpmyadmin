@@ -2629,9 +2629,9 @@ class Results
                         $del_url,
                         $displayParts,
                         $row_no,
-                        $where_clause,
-                        $where_clause_html,
-                        $condition_array,
+                        $where_clause ?? '',
+                        $where_clause_html ?? '',
+                        $condition_array ?? [],
                         $edit_url,
                         $copy_url,
                         $edit_anchor_class,
@@ -4153,6 +4153,8 @@ class Results
         )  = $this->_setDisplayPartsAndTotal($displayParts);
 
         // 1.2 Defines offsets for the next and previous pages
+        $pos_next = null;
+        $pos_prev = null;
         if ($displayParts['nav_bar'] == '1') {
             list($pos_next, $pos_prev) = $this->_getOffsets();
         } // end if

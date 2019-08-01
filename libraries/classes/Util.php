@@ -3284,7 +3284,7 @@ class Util
                 $escape_method = $escape[0];
             }
             foreach ($replace as $key => $val) {
-                if (is_array($escape)) {
+                if (isset($escape_class, $escape_method)) {
                     $replace[$key] = $escape_class->$escape_method($val);
                 } else {
                     $replace[$key] = ($escape == 'backquote')

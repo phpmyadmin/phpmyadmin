@@ -1083,7 +1083,7 @@ class Config
      */
     public function getUserValue(string $cookie_name, $cfg_value)
     {
-        $cookie_exists = isset($_COOKIE) && ! empty($_COOKIE[$cookie_name]);
+        $cookie_exists = ! empty($_COOKIE[$cookie_name]);
         $prefs_type = $this->get('user_preferences');
         if ($prefs_type == 'db') {
             // permanent user preferences value exists, remove cookie
