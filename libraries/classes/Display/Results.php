@@ -5223,6 +5223,7 @@ class Results
      *                                             field
      * @param array         $map                   the list of relations
      * @param string        $data                  data
+     * @param string        $displayedData         data that will be displayed (maybe be chunked)
      * @param object|string $transformation_plugin transformation plugin.
      *                                             Can also be the default function:
      *                                             Core::mimeDefaultFunction
