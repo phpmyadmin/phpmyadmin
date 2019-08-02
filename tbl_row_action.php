@@ -15,7 +15,7 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-global $db, $pmaThemeImage, $sql_query, $table;
+global $containerBuilder, $db, $goto, $pmaThemeImage, $sql_query, $table;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 

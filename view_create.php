@@ -21,7 +21,7 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-global $text_dir;
+global $containerBuilder, $text_dir;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 require ROOT_PATH . 'libraries/db_common.inc.php';

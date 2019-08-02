@@ -1613,233 +1613,60 @@ class Privileges
      * Displays the fields used by the "new user" form as well as the
      * "change login information / copy user" form.
      *
-     * @param string $mode     are we creating a new user or are we just
-     *                         changing  one? (allowed values: 'new', 'change')
-     * @param string $username User name
-     * @param string $hostname Host name
-     *
-     * @global  array      $cfg     the phpMyAdmin configuration
-     * @global  resource   $user_link the database connection
+     * @param string $mode are we creating a new user or are we just
+     *                     changing  one? (allowed values: 'new', 'change')
+     * @param string $user User name
+     * @param string $host Host name
      *
      * @return string  a HTML snippet
      */
     public function getHtmlForLoginInformationFields(
         $mode = 'new',
-        $username = null,
-        $hostname = null
+        $user = null,
+        $host = null
     ) {
-        list($username_length, $hostname_length) = $this->getUsernameAndHostnameLength();
+        global $pred_username, $pred_hostname, $username, $hostname, $new_username;
 
-        if (isset($GLOBALS['username']) && strlen($GLOBALS['username']) === 0) {
-            $GLOBALS['pred_username'] = 'any';
+        list($usernameLength, $hostnameLength) = $this->getUsernameAndHostnameLength();
+
+        if (isset($username) && strlen($username) === 0) {
+            $pred_username = 'any';
         }
-        $html_output = '<fieldset id="fieldset_add_user_login">' . "\n"
-            . '<legend>' . __('Login Information') . '</legend>' . "\n"
-            . '<div class="item">' . "\n"
-            . '<label for="select_pred_username">' . "\n"
-            . '    ' . __('User name:') . "\n"
-            . '</label>' . "\n"
-            . '<span class="options">' . "\n";
 
-        $html_output .= '<select name="pred_username" id="select_pred_username" '
-            . 'title="' . __('User name') . '">' . "\n";
-
-        $html_output .= '<option value="any"'
-            . (isset($GLOBALS['pred_username']) && $GLOBALS['pred_username'] == 'any'
-                ? ' selected="selected"'
-                : '') . '>'
-            . __('Any user')
-            . '</option>' . "\n";
-
-        $html_output .= '<option value="userdefined"'
-            . (! isset($GLOBALS['pred_username'])
-                    || $GLOBALS['pred_username'] == 'userdefined'
-                ? ' selected="selected"'
-                : '') . '>'
-            . __('Use text field')
-            . ':</option>' . "\n";
-
-        $html_output .= '</select>' . "\n"
-            . '</span>' . "\n";
-
-        $html_output .= '<input type="text" name="username" id="pma_username" class="autofocus"'
-            . ' maxlength="' . $username_length . '" title="' . __('User name') . '"'
-            . (empty($GLOBALS['username'])
-               ? ''
-               : ' value="' . htmlspecialchars(
-                   isset($GLOBALS['new_username'])
-                   ? $GLOBALS['new_username']
-                   : $GLOBALS['username']
-               ) . '"'
-            )
-            . (! isset($GLOBALS['pred_username'])
-                    || $GLOBALS['pred_username'] == 'userdefined'
-                ? 'required="required"'
-                : '') . '>' . "\n";
-
-        $html_output .= '<div id="user_exists_warning"'
-            . ' name="user_exists_warning" class="hide">'
-            . Message::notice(
-                __(
-                    'An account already exists with the same username '
-                    . 'but possibly a different hostname.'
-                )
-            )->getDisplay()
-            . '</div>';
-        $html_output .= '</div>';
-
-        $html_output .= '<div class="item">' . "\n"
-            . '<label for="select_pred_hostname">' . "\n"
-            . '    ' . __('Host name:') . "\n"
-            . '</label>' . "\n";
-
-        $html_output .= '<span class="options">' . "\n"
-            . '    <select name="pred_hostname" id="select_pred_hostname" '
-            . 'title="' . __('Host name') . '"' . "\n";
-        $_current_user = $this->dbi->fetchValue('SELECT USER();');
-        if (! empty($_current_user)) {
-            $thishost = str_replace(
-                "'",
+        $currentUser = $this->dbi->fetchValue('SELECT USER();');
+        $thisHost = null;
+        if (! empty($currentUser)) {
+            $thisHost = str_replace(
+                '\'',
                 '',
                 mb_substr(
-                    $_current_user,
-                    mb_strrpos($_current_user, '@') + 1
+                    $currentUser,
+                    mb_strrpos($currentUser, '@') + 1
                 )
             );
-            if ($thishost != 'localhost' && $thishost != '127.0.0.1') {
-                $html_output .= ' data-thishost="' . htmlspecialchars($thishost) . '" ';
-            } else {
-                unset($thishost);
-            }
         }
-        $html_output .= '>' . "\n";
-        unset($_current_user);
 
-        // when we start editing a user, $GLOBALS['pred_hostname'] is not defined
-        if (! isset($GLOBALS['pred_hostname']) && isset($GLOBALS['hostname'])) {
-            switch (mb_strtolower($GLOBALS['hostname'])) {
+        if (! isset($pred_hostname) && isset($hostname)) {
+            switch (mb_strtolower($hostname)) {
                 case 'localhost':
                 case '127.0.0.1':
-                    $GLOBALS['pred_hostname'] = 'localhost';
+                    $pred_hostname = 'localhost';
                     break;
                 case '%':
-                    $GLOBALS['pred_hostname'] = 'any';
+                    $pred_hostname = 'any';
                     break;
                 default:
-                    $GLOBALS['pred_hostname'] = 'userdefined';
+                    $pred_hostname = 'userdefined';
                     break;
             }
         }
-        $html_output .=  '<option value="any"'
-            . (isset($GLOBALS['pred_hostname'])
-                    && $GLOBALS['pred_hostname'] == 'any'
-                ? ' selected="selected"'
-                : '') . '>'
-            . __('Any host')
-            . '</option>' . "\n"
-            . '<option value="localhost"'
-            . (isset($GLOBALS['pred_hostname'])
-                    && $GLOBALS['pred_hostname'] == 'localhost'
-                ? ' selected="selected"'
-                : '') . '>'
-            . __('Local')
-            . '</option>' . "\n";
-        if (! empty($thishost)) {
-            $html_output .= '<option value="thishost"'
-                . (isset($GLOBALS['pred_hostname'])
-                        && $GLOBALS['pred_hostname'] == 'thishost'
-                    ? ' selected="selected"'
-                    : '') . '>'
-                . __('This Host')
-                . '</option>' . "\n";
-        }
-        unset($thishost);
-        $html_output .= '<option value="hosttable"'
-            . (isset($GLOBALS['pred_hostname'])
-                    && $GLOBALS['pred_hostname'] == 'hosttable'
-                ? ' selected="selected"'
-                : '') . '>'
-            . __('Use Host Table')
-            . '</option>' . "\n";
-
-        $html_output .= '<option value="userdefined"'
-            . (isset($GLOBALS['pred_hostname'])
-                    && $GLOBALS['pred_hostname'] == 'userdefined'
-                ? ' selected="selected"'
-                : '') . '>'
-            . __('Use text field:') . '</option>' . "\n"
-            . '</select>' . "\n"
-            . '</span>' . "\n";
-
-        $html_output .= '<input type="text" name="hostname" id="pma_hostname" maxlength="'
-            . $hostname_length . '" value="'
-            // use default value of '%' to match with the default 'Any host'
-            . htmlspecialchars(isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '%')
-            . '" title="' . __('Host name') . '" '
-            . (isset($GLOBALS['pred_hostname'])
-                    && $GLOBALS['pred_hostname'] == 'userdefined'
-                ? 'required="required"'
-                : '')
-            . '>' . "\n"
-            . Util::showHint(
-                __(
-                    'When Host table is used, this field is ignored '
-                    . 'and values stored in Host table are used instead.'
-                )
-            )
-            . '</div>' . "\n";
-
-        $html_output .= '<div class="item">' . "\n"
-            . '<label for="select_pred_password">' . "\n"
-            . '    ' . __('Password:') . "\n"
-            . '</label>' . "\n"
-            . '<span class="options">' . "\n"
-            . '<select name="pred_password" id="select_pred_password" title="'
-            . __('Password') . '">' . "\n"
-            . ($mode == 'change' ? '<option value="keep" selected="selected">'
-                . __('Do not change the password')
-                . '</option>' . "\n" : '')
-            . '<option value="none"';
-
-        if (isset($GLOBALS['username']) && $mode != 'change') {
-            $html_output .= '  selected="selected"';
-        }
-        $html_output .= '>' . __('No Password') . '</option>' . "\n"
-            . '<option value="userdefined"'
-            . (isset($GLOBALS['username']) ? '' : ' selected="selected"') . '>'
-            . __('Use text field')
-            . ':</option>' . "\n"
-            . '</select>' . "\n"
-            . '</span>' . "\n"
-            . '<input type="password" id="text_pma_pw" name="pma_pw" '
-            . 'title="' . __('Password') . '" '
-            . (isset($GLOBALS['username']) ? '' : 'required="required"')
-            . '>' . "\n"
-            . '<span>Strength:</span> '
-            . '<meter max="4" id="password_strength_meter" name="pw_meter"></meter> '
-            . '<span id="password_strength" name="pw_strength"></span>' . "\n"
-            . '</div>' . "\n";
-
-        $html_output .= '<div class="item" '
-            . 'id="div_element_before_generate_password">' . "\n"
-            . '<label for="text_pma_pw2">' . "\n"
-            . '    ' . __('Re-type:') . "\n"
-            . '</label>' . "\n"
-            . '<span class="options">&nbsp;</span>' . "\n"
-            . '<input type="password" name="pma_pw2" id="text_pma_pw2" '
-            . 'title="' . __('Re-type') . '" '
-            . (isset($GLOBALS['username']) ? '' : 'required="required"')
-            . '>' . "\n"
-            . '</div>' . "\n"
-            . '<div class="item" id="authentication_plugin_div">'
-            . '<label for="select_authentication_plugin" >';
 
         $serverType = Util::getServerType();
         $serverVersion = $this->dbi->getVersion();
-        $orig_auth_plugin = $this->getCurrentAuthenticationPlugin(
+        $authPlugin = $this->getCurrentAuthenticationPlugin(
             $mode,
-            $username,
-            $hostname
+            $user,
+            $host
         );
 
         if (($serverType == 'MySQL'
@@ -1847,44 +1674,35 @@ class Privileges
             || ($serverType == 'MariaDB'
             && $serverVersion >= 50200)
         ) {
-            $html_output .= __('Authentication Plugin')
-            . '</label><span class="options">&nbsp;</span>' . "\n";
-
-            $auth_plugin_dropdown = $this->getHtmlForAuthPluginsDropdown(
-                $orig_auth_plugin,
+            $isNew = true;
+            $authPluginDropdown = $this->getHtmlForAuthPluginsDropdown(
+                $authPlugin,
                 $mode,
                 'new'
             );
         } else {
-            $html_output .= __('Password Hashing Method')
-                . '</label><span class="options">&nbsp;</span>' . "\n";
-            $auth_plugin_dropdown = $this->getHtmlForAuthPluginsDropdown(
-                $orig_auth_plugin,
+            $isNew = false;
+            $authPluginDropdown = $this->getHtmlForAuthPluginsDropdown(
+                $authPlugin,
                 $mode,
                 'old'
             );
         }
-        $html_output .= $auth_plugin_dropdown;
 
-        $html_output .= '<div'
-            . ($orig_auth_plugin != 'sha256_password' ? ' class="hide"' : '')
-            . ' id="ssl_reqd_warning">'
-            . Message::notice(
-                __(
-                    'This method requires using an \'<i>SSL connection</i>\' '
-                    . 'or an \'<i>unencrypted connection that encrypts the password '
-                    . 'using RSA</i>\'; while connecting to the server.'
-                )
-                . Util::showMySQLDocu('sha256-authentication-plugin')
-            )
-                ->getDisplay()
-            . '</div>';
-
-        $html_output .= '</div>' . "\n"
-            // Generate password added here via jQuery
-           . '</fieldset>' . "\n";
-
-        return $html_output;
+        return $this->template->render('server/privileges/login_information_fields', [
+            'pred_username' => $pred_username ?? null,
+            'pred_hostname' => $pred_hostname ?? null,
+            'username_length' => $usernameLength,
+            'hostname_length' => $hostnameLength,
+            'username' => $username ?? null,
+            'new_username' => $new_username ?? null,
+            'hostname' => $hostname ?? null,
+            'this_host' => $thisHost,
+            'is_change' => $mode === 'change',
+            'auth_plugin' => $authPlugin,
+            'auth_plugin_dropdown' => $authPluginDropdown,
+            'is_new' => $isNew,
+        ]);
     }
 
     /**
@@ -2299,61 +2117,20 @@ class Privileges
      */
     public function getHtmlForAddUser($dbname)
     {
-        $html_output = '<h2>' . "\n"
-           . Util::getIcon('b_usradd') . __('Add user account') . "\n"
-           . '</h2>' . "\n"
-           . '<form name="usersForm" id="addUsersForm"'
-           . ' onsubmit="return checkAddUser(this);"'
-           . ' action="' . Url::getFromRoute('/server/privileges') . '" method="post" autocomplete="off" >' . "\n"
-           . Url::getHiddenInputs('', '')
-           . $this->getHtmlForLoginInformationFields('new');
+        global $is_grantuser;
 
-        $html_output .= '<fieldset id="fieldset_add_user_database">' . "\n"
-            . '<legend>' . __('Database for user account') . '</legend>' . "\n";
-
-        $html_output .= $this->template->render('checkbox', [
-            'html_field_name' => 'createdb-1',
-            'label' => __('Create database with same name and grant all privileges.'),
-            'checked' => false,
-            'onclick' => false,
-            'html_field_id' => 'createdb-1',
-        ]);
-        $html_output .= '<br>' . "\n";
-        $html_output .= $this->template->render('checkbox', [
-            'html_field_name' => 'createdb-2',
-            'label' => __('Grant all privileges on wildcard name (username\\_%).'),
-            'checked' => false,
-            'onclick' => false,
-            'html_field_id' => 'createdb-2',
-        ]);
-        $html_output .= '<br>' . "\n";
-
-        if (! empty($dbname)) {
-            $html_output .= $this->template->render('checkbox', [
-                'html_field_name' => 'createdb-3',
-                'label' => sprintf(__('Grant all privileges on database %s.'), htmlspecialchars($dbname)),
-                'checked' => true,
-                'onclick' => false,
-                'html_field_id' => 'createdb-3',
-            ]);
-            $html_output .= '<input type="hidden" name="dbname" value="'
-                . htmlspecialchars($dbname) . '">' . "\n";
-            $html_output .= '<br>' . "\n";
+        $loginInformationFieldsNew = $this->getHtmlForLoginInformationFields('new');
+        $privilegesTable = '';
+        if ($is_grantuser) {
+            $privilegesTable = $this->getHtmlToDisplayPrivilegesTable('*', '*', false);
         }
 
-        $html_output .= '</fieldset>' . "\n";
-        if ($GLOBALS['is_grantuser']) {
-            $html_output .= $this->getHtmlToDisplayPrivilegesTable('*', '*', false);
-        }
-        $html_output .= '<fieldset id="fieldset_add_user_footer" class="tblFooters">'
-            . "\n"
-            . '<input type="hidden" name="adduser_submit" value="1">' . "\n"
-            . '<input class="btn btn-primary" type="submit" id="adduser_submit" value="' . __('Go') . '">'
-            . "\n"
-            . '</fieldset>' . "\n"
-            . '</form>' . "\n";
-
-        return $html_output;
+        return $this->template->render('server/privileges/add_user', [
+            'database' => $dbname,
+            'login_information_fields_new' => $loginInformationFieldsNew,
+            'is_grant_user' => $is_grantuser,
+            'privileges_table' => $privilegesTable,
+        ]);
     }
 
     /**
@@ -4011,7 +3788,7 @@ class Privileges
             }
             $drop_user_error = '';
             foreach ($queries as $sql_query) {
-                if ($sql_query{0} != '#') {
+                if ($sql_query[0] != '#') {
                     if (! $this->dbi->tryQuery($sql_query)) {
                         $drop_user_error .= $this->dbi->getError() . "\n";
                     }
@@ -4266,7 +4043,7 @@ class Privileges
     {
         $tmp_count = 0;
         foreach ($queries as $sql_query) {
-            if ($sql_query{0} != '#') {
+            if ($sql_query[0] != '#') {
                 $this->dbi->query($sql_query);
             }
             // when there is a query containing a hidden password, take it

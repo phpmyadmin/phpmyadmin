@@ -23,7 +23,7 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-global $cfg, $containerBuilder, $pmaThemeImage;
+global $cfg, $containerBuilder, $db, $display_query, $pmaThemeImage, $sql_query, $table;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 

@@ -1536,7 +1536,7 @@ class Relation
             }
         } while (false);
 
-        if ($get_total) {
+        if ($get_total && isset($foreign_db, $foreign_table)) {
             $the_total = $this->dbi->getTable($foreign_db, $foreign_table)
                 ->countRecords(true);
         }

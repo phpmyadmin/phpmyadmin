@@ -7,15 +7,17 @@
  */
 declare(strict_types=1);
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
-}
-
 use PhpMyAdmin\CentralColumns;
 use PhpMyAdmin\Controllers\Database\CentralColumnsController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
+
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
+global $containerBuilder;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 

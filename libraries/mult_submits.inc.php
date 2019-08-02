@@ -246,6 +246,7 @@ if (! empty($submit_mult) && ! empty($what)) {
         $GLOBALS['dbi']->freeResult($result);
     }
 
+    $default_fk_check_value = false;
     if ($query_type == 'drop_tbl'
         || $query_type == 'empty_tbl'
         || $query_type == 'row_delete'

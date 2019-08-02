@@ -4,6 +4,7 @@ phpMyAdmin - ChangeLog
 5.1.0 (not yet released)
 - issue #15350 Change Media (MIME) type references to Media type
 - issue #15377 Add a request router
+- issue        Automatically focus input in the two-factor authentication window
 
 5.0.0 (not yet released)
 - issue #13896 Drop support for PHP 5.5, PHP 5.6, PHP 7.0 and HHVM
@@ -56,6 +57,7 @@ phpMyAdmin - ChangeLog
 - issue        Added Russian, Swedish, Slovak and Chinese UCA 9.0.0 collations description
 - issue        Added description for the _ks (kana-sensitive) collation suffix
 - issue        Added description for the _nopad (NO PAD) collation suffix
+- issue #15404 Remove array/string curly braces access
 
 4.9.0.1 (2019-06-04)
 - issue #14478 phpMyAdmin no longer streams the export data

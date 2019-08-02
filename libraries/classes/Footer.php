@@ -79,6 +79,11 @@ class Footer
     {
         $message = '<a href="/">' . __('phpMyAdmin Demo Server') . '</a>: ';
         if (@file_exists(ROOT_PATH . 'revision-info.php')) {
+            $revision = '';
+            $fullrevision = '';
+            $repobase = '';
+            $repobranchbase = '';
+            $branch = '';
             include ROOT_PATH . 'revision-info.php';
             $message .= sprintf(
                 __('Currently running Git revision %1$s from the %2$s branch.'),

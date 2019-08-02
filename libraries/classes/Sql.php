@@ -1137,8 +1137,8 @@ class Sql
      * @param array        $analyzed_sql_results   analyzed sql results
      * @param string       $full_sql_query         full sql query
      * @param boolean      $is_gotofile            whether to go to a file
-     * @param string       $db                     current database
-     * @param string       $table                  current table
+     * @param string|null  $db                     current database
+     * @param string|null  $table                  current table
      * @param boolean|null $find_real_end          whether to find the real end
      * @param string       $sql_query_for_bookmark sql query to be stored as bookmark
      * @param array        $extra_data             extra data
@@ -2108,8 +2108,8 @@ class Sql
      *
      * @param array               $analyzed_sql_results   analysed sql results
      * @param bool                $is_gotofile            whether goto file or not
-     * @param string              $db                     current database
-     * @param string              $table                  current table
+     * @param string|null         $db                     current database
+     * @param string|null         $table                  current table
      * @param bool|null           $find_real_end          whether to find real end or not
      * @param string|null         $sql_query_for_bookmark the sql query to be stored as bookmark
      * @param array|null          $extra_data             extra data

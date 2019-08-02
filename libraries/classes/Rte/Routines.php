@@ -185,6 +185,9 @@ class Routines
                 $operation = 'change';
             }
             // Get the data for the form (if any)
+            $routine = null;
+            $mode = null;
+            $title = null;
             if (! empty($_REQUEST['add_item'])) {
                 $title = $this->words->get('add');
                 $routine = $this->getDataFromRequest();
@@ -251,6 +254,8 @@ class Routines
      */
     public function handleRequestCreateOrEdit(array $errors, $db)
     {
+        global $message;
+
         if (empty($_POST['editor_process_add'])
             && empty($_POST['editor_process_edit'])
         ) {
@@ -308,9 +313,6 @@ class Routines
                             $errors = array_merge($errors, $newErrors);
                         }
                         unset($newErrors);
-                        if (null === $message) {
-                            unset($message);
-                        }
                     }
                 }
             } else {
@@ -1434,6 +1436,8 @@ class Routines
             }
 
             // Generate output
+            $output = '';
+            $nbResultsetToDisplay = 0;
             if ($outcome) {
                 // Pass the SQL queries through the "pretty printer"
                 $output  = Util::formatSql(implode("\n", $queries));
@@ -1445,8 +1449,6 @@ class Routines
                     Util::backquote(htmlspecialchars($routine['item_name']))
                 );
                 $output .= "</legend>";
-
-                $nbResultsetToDisplay = 0;
 
                 do {
                     $result = $this->dbi->storeResult();

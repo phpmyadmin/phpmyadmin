@@ -355,7 +355,7 @@ abstract class AuthenticationPlugin
         )->display();
         echo $this->template->render('login/twofactor', [
             'form' => $twofactor->render(),
-            'show_submit' => $twofactor->showSubmit,
+            'show_submit' => $twofactor->showSubmit(),
         ]);
         echo $this->template->render('login/footer');
         echo Config::renderFooter();
