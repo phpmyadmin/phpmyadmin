@@ -2943,7 +2943,7 @@ class Results
 
                 $display_params['data'][$row_no][$i]
                     = $this->_getDataCellForNumericColumns(
-                        (string) $row[$i],
+                        null === $row[$i] ? null : (string) $row[$i],
                         $class,
                         $condition_field,
                         $meta,
