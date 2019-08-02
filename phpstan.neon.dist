@@ -7,7 +7,6 @@ parameters:
     ignoreErrors:
         - '#NodeTrans::__construct\(\) does not call parent constructor#'
         - '#PHPUnit\\Framework\\MockObject#'
-        - '#Access to an undefined property PhpMyAdmin\\TwoFactor\:\:\$(backend|showSubmit|available|writable)#'
         - '#Call to an undefined method PhpMyAdmin\\Navigation\\Nodes\\Node\:\:getHiddenCount#'
         - '#Variable \$http_response_header in isset\(\) always exists and is not nullable#'
         -

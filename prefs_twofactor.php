@@ -54,10 +54,10 @@ if (isset($_POST['2fa_remove'])) {
     }
 }
 
-$backend = $two_factor->backend;
+$backend = $two_factor->getBackend();
 echo $template->render('preferences/two_factor/main', [
-    'enabled' => $two_factor->writable,
-    'num_backends' => count($two_factor->available),
+    'enabled' => $two_factor->isWritable(),
+    'num_backends' => count($two_factor->getAvailable()),
     'backend_id' => $backend::$id,
     'backend_name' => $backend::getName(),
     'backend_description' => $backend::getDescription(),
