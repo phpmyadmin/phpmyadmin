@@ -644,8 +644,8 @@ table tr {
   }
 }
 
-.table-hover tbody tr:hover th,
-.table-hover tbody tr:not(.disabled):hover td {
+.table-hover tbody tr:hover td,
+.table-hover tbody tr:not(.disabled):hover th {
   background: linear-gradient(#ced6df, #b6c6d7);
   color: $browse-marker-color;
 }

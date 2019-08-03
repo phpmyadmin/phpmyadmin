@@ -1947,7 +1947,7 @@ class InsertEdit
     private function getHeadAndFootOfInsertRowTable(array $url_params)
     {
         $html_output = '<div class="responsivetable">'
-            . '<table class="insertRowTable topmargin">'
+            . '<table class="insertRowTable topmargin table table-responsive table-striped table-hover">'
             . '<thead>'
             . '<tr>'
             . '<th>' . __('Column') . '</th>';

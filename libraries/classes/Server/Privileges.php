@@ -2521,7 +2521,7 @@ class Privileges
                 . '</legend>' . "\n";
 
             $html_output .= '<div class="responsivetable jsresponsive">';
-            $html_output .= '<table id="dbspecificuserrights" class="data">';
+            $html_output .= '<table id="dbspecificuserrights" class="table table-responsive table-striped table-hover">';
             $html_output .= $this->getHtmlForPrivsTableHead();
             $privMap = $this->getPrivMap($db);
             $html_output .= $this->getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
@@ -2599,7 +2599,7 @@ class Privileges
                 . '</legend>';
 
             $html_output .= '<div class="responsivetable jsresponsive">';
-            $html_output .= '<table id="tablespecificuserrights" class="data">';
+            $html_output .= '<table id="tablespecificuserrights" class="table table-responsive table-striped table-hover">';
             $html_output .= $this->getHtmlForPrivsTableHead();
             $privMap = $this->getPrivMap($db);
             $sql_query = "SELECT `User`, `Host`, `Db`,"
