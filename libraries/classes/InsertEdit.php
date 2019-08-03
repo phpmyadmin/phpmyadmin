@@ -298,12 +298,12 @@ class InsertEdit
         $this_url_params = array_merge($url_params, $params);
 
         if (! $is_show) {
-            return ' : <a href="tbl_change.php" data-post="'
+            return ' : <a href="' . Url::getFromRoute('/table/change') . '" data-post="'
                 . Url::getCommon($this_url_params, '') . '">'
                 . $this->showTypeOrFunctionLabel($which)
                 . '</a>';
         }
-        return '<th><a href="tbl_change.php" data-post="'
+        return '<th><a href="' . Url::getFromRoute('/table/change') . '" data-post="'
             . Url::getCommon($this_url_params, '')
             . '" title="' . __('Hide') . '">'
             . $this->showTypeOrFunctionLabel($which)
@@ -315,7 +315,7 @@ class InsertEdit
      *
      * @param string $which function|type
      *
-     * @return string an HTML snippet
+     * @return string|null an HTML snippet
      */
     private function showTypeOrFunctionLabel($which)
     {
@@ -599,13 +599,13 @@ class InsertEdit
      * @param array $foreigners  keys into foreign fields
      * @param array $foreignData data about the foreign keys
      *
-     * @return integer
+     * @return string
      */
     private function getNullifyCodeForNullColumn(
         array $column,
         array $foreigners,
         array $foreignData
-    ) {
+    ): string {
         $foreigner = $this->relation->searchColumnInForeigners($foreigners, $column['Field']);
         if (mb_strstr($column['True_Type'], 'enum')) {
             if (mb_strlen((string) $column['Type']) > 20) {
@@ -1271,7 +1271,7 @@ class InsertEdit
         $html_output = $backup_field . "\n";
         $html_output .= '<input type="hidden" name="fields_type'
             . $column_name_appendix . '" value="set">';
-        $html_output .= '<select name="fields' . $column_name_appendix . '[]' . '"'
+        $html_output .= '<select name="fields' . $column_name_appendix . '[]"'
             . ' class="textfield"'
             . ($readOnly ? ' disabled' : '')
             . ' size="' . $select_size . '"'
@@ -1293,7 +1293,7 @@ class InsertEdit
 
         //Add hidden input, as disabled <select> input does not included in POST.
         if ($readOnly) {
-            $html_output .= '<input name="fields' . $column_name_appendix . '[]' . '"'
+            $html_output .= '<input name="fields' . $column_name_appendix . '[]"'
                 . ' type="hidden" value="' . $selected_html . '">';
         }
         return $html_output;
@@ -1542,7 +1542,7 @@ class InsertEdit
                 . __('The directory you set for upload work cannot be reached.') . "\n";
         } elseif (! empty($files)) {
             return "<br>\n"
-                . '<i>' . __('Or') . '</i>' . ' '
+                . '<i>' . __('Or') . '</i> '
                 . __('web server upload directory:') . '<br>' . "\n"
                 . '<select size="1" name="fields_uploadlocal'
                 . $vkey . '[' . $column['Field_md5'] . ']">' . "\n"
@@ -1674,7 +1674,7 @@ class InsertEdit
                 $readOnly
             );
 
-            if (preg_match('/(VIRTUAL|PERSISTENT|GENERATED)/', $column['Extra'])) {
+            if (preg_match('/(VIRTUAL|PERSISTENT|GENERATED)/', $column['Extra']) && $column['Extra'] !== 'DEFAULT_GENERATED') {
                 $html_output .= '<input type="hidden" name="virtual'
                     . $column_name_appendix . '" value="1">';
             }
@@ -2187,9 +2187,9 @@ class InsertEdit
             $header = $response->getHeader();
             $scripts = $header->getScripts();
             $scripts->addFile('vendor/jquery/additional-methods.js');
-            $scripts->addFile('tbl_change.js');
+            $scripts->addFile('table/change.js');
             if (! defined('TESTSUITE')) {
-                include ROOT_PATH . 'tbl_change.php';
+                include ROOT_PATH . 'libraries/entry_points/table/change.php';
                 exit;
             }
         }
@@ -2249,7 +2249,7 @@ class InsertEdit
         if (isset($_POST['after_insert'])
             && in_array($_POST['after_insert'], $valid_options)
         ) {
-            $goto_include = 'tbl_change.php';
+            $goto_include = 'libraries/entry_points/table/change.php';
         } elseif (! empty($GLOBALS['goto'])) {
             if (! preg_match('@^[a-z_]+\.php$@', $GLOBALS['goto'])) {
                 // this should NOT happen
@@ -2285,7 +2285,7 @@ class InsertEdit
             return $_POST['err_url'];
         }
 
-        return 'tbl_change.php' . Url::getCommon($url_params);
+        return Url::getFromRoute('/table/change', $url_params);
     }
 
     /**
@@ -2308,7 +2308,7 @@ class InsertEdit
             $insert_command . 'INTO '
             . Util::backquote($GLOBALS['table'])
             . ' (' . implode(', ', $query_fields) . ') VALUES ('
-            . implode('), (', $value_sets) . ')'
+            . implode('), (', $value_sets) . ')',
         ];
         return $query;
     }
@@ -2421,7 +2421,7 @@ class InsertEdit
             $foreigner['foreign_table']
         );
         // Field to display from the foreign table?
-        if (! is_null($display_field) && strlen($display_field) > 0) {
+        if ($display_field !== null && strlen($display_field) > 0) {
             $dispsql = 'SELECT ' . Util::backquote($display_field)
                 . ' FROM ' . Util::backquote($foreigner['foreign_db'])
                 . '.' . Util::backquote($foreigner['foreign_table'])
@@ -2761,9 +2761,7 @@ class InsertEdit
             if ($type != 'protected' && $type != 'set' && strlen($current_value) === 0) {
                 // best way to avoid problems in strict mode
                 // (works also in non-strict mode)
-                if (isset($multi_edit_auto_increment)
-                    && isset($multi_edit_auto_increment[$key])
-                ) {
+                if (isset($multi_edit_auto_increment, $multi_edit_auto_increment[$key])) {
                     $current_value = 'NULL';
                 } else {
                     $current_value = "''";
@@ -2987,6 +2985,7 @@ class InsertEdit
      */
     public function getUrlParameters($db, $table)
     {
+        global $goto;
         /**
          * @todo check if we could replace by "db_|tbl_" - please clarify!?
          */
@@ -2995,7 +2994,7 @@ class InsertEdit
             'sql_query' => $_POST['sql_query'],
         ];
 
-        if (0 === strpos($GLOBALS['goto'], "tbl_")) {
+        if (0 === strpos($goto, "tbl_")) {
             $url_params['table'] = $table;
         }
 
@@ -3196,7 +3195,7 @@ class InsertEdit
 
         if ($column['Type'] === 'datetime'
             && ! isset($column['Default'])
-            && ! is_null($column['Default'])
+            && $column['Default'] !== null
             && $insert_mode
         ) {
             $column['Default'] = date('Y-m-d H:i:s', time());
@@ -3307,9 +3306,9 @@ class InsertEdit
             $match[0] = trim($match[0], '()');
             $no_decimals = $match[0];
         }
-        $html_output .= '<td' . ' data-type="' . $type . '"' . ' data-decimals="'
+        $html_output .= '<td data-type="' . $type . '" data-decimals="'
             . $no_decimals . '">' . "\n";
-        // Will be used by js/tbl_change.js to set the default value
+        // Will be used by js/table/change.js to set the default value
         // for the "Continue insertion" feature
         $html_output .= '<span class="default_value hide">'
             . $special_chars . '</span>';

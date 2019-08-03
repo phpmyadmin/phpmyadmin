@@ -34,7 +34,7 @@ class ConfigFile
 
     /**
      * Stores original PMA config, not modified by user preferences
-     * @var Config
+     * @var array|null
      */
     private $_baseCfg;
 
@@ -100,7 +100,7 @@ class ConfigFile
         }
 
         $this->_baseCfg = $baseConfig;
-        $this->_isInSetup = is_null($baseConfig);
+        $this->_isInSetup = $baseConfig === null;
         $this->_id = 'ConfigFile' . $GLOBALS['server'];
         if (! isset($_SESSION[$this->_id])) {
             $_SESSION[$this->_id] = [];

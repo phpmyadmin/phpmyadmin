@@ -13,11 +13,9 @@ namespace PhpMyAdmin\Tests\Controllers\Database;
 
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Replication;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
@@ -47,6 +45,11 @@ class StructureControllerTest extends PmaTestCase
      * @var Replication
      */
     private $replication;
+
+    /**
+     * @var Template
+     */
+    private $template;
 
     /**
      * Prepares environment for the test.
@@ -82,15 +85,8 @@ class StructureControllerTest extends PmaTestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $container = Container::getDefaultContainer();
-        $container->set('db', 'db');
-        $container->set('table', 'table');
-        $container->set('dbi', $GLOBALS['dbi']);
-        $container->set('template', new Template());
+        $this->template = new Template();
         $this->response = new ResponseStub();
-        $container->set(Response::class, $this->response);
-        $container->alias('response', Response::class);
-
         $this->relation = new Relation($dbi);
         $this->replication = new Replication();
     }
@@ -103,22 +99,14 @@ class StructureControllerTest extends PmaTestCase
      */
     public function testGetValuesForInnodbTable()
     {
-        $container = Container::getDefaultContainer();
-        $container->set('db', 'db');
-        $container->set('table', 'table');
-        $container->set('dbi', $GLOBALS['dbi']);
-        $response = new ResponseStub();
-        $container->set(Response::class, $response);
-        $container->alias('response', Response::class);
-
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('getValuesForInnodbTable');
         $method->setAccessible(true);
         $controller = new StructureController(
-            $container->get('response'),
-            $container->get('dbi'),
-            $container->get('template'),
-            $container->get('db'),
+            $this->response,
+            $GLOBALS['dbi'],
+            $this->template,
+            $GLOBALS['db'],
             $this->relation,
             $this->replication
         );
@@ -133,7 +121,7 @@ class StructureControllerTest extends PmaTestCase
             'TABLE_ROWS' => 5,
             'Data_length' => 16384,
             'Index_length' => 0,
-            'TABLE_NAME' => 'table'
+            'TABLE_NAME' => 'table',
         ];
         list($currentTable,,, $sumSize) = $method->invokeArgs(
             $controller,
@@ -176,10 +164,10 @@ class StructureControllerTest extends PmaTestCase
         // Not showing statistics
         $is_show_stats = false;
         $controller = new StructureController(
-            $container->get('response'),
-            $container->get('dbi'),
-            $container->get('template'),
-            $container->get('db'),
+            $this->response,
+            $GLOBALS['dbi'],
+            $this->template,
+            $GLOBALS['db'],
             $this->relation,
             $this->replication
         );
@@ -217,16 +205,15 @@ class StructureControllerTest extends PmaTestCase
      */
     public function testGetValuesForAriaTable()
     {
-        $container = Container::getDefaultContainer();
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('getValuesForAriaTable');
         $method->setAccessible(true);
 
         $controller = new StructureController(
-            $container->get('response'),
-            $container->get('dbi'),
-            $container->get('template'),
-            $container->get('db'),
+            $this->response,
+            $GLOBALS['dbi'],
+            $this->template,
+            $GLOBALS['db'],
             $this->relation,
             $this->replication
         );
@@ -285,10 +272,10 @@ class StructureControllerTest extends PmaTestCase
         $this->assertEquals(0, $overheadSize);
 
         $controller = new StructureController(
-            $container->get('response'),
-            $container->get('dbi'),
-            $container->get('template'),
-            $container->get('db'),
+            $this->response,
+            $GLOBALS['dbi'],
+            $this->template,
+            $GLOBALS['db'],
             $this->relation,
             $this->replication
         );
@@ -307,10 +294,10 @@ class StructureControllerTest extends PmaTestCase
         $this->assertEquals(0, $sumSize);
 
         $controller = new StructureController(
-            $container->get('response'),
-            $container->get('dbi'),
-            $container->get('template'),
-            $container->get('db'),
+            $this->response,
+            $GLOBALS['dbi'],
+            $this->template,
+            $GLOBALS['db'],
             $this->relation,
             $this->replication
         );
@@ -337,16 +324,15 @@ class StructureControllerTest extends PmaTestCase
      */
     public function testHasTable()
     {
-        $container = Container::getDefaultContainer();
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('hasTable');
         $method->setAccessible(true);
 
         $controller = new StructureController(
-            $container->get('response'),
-            $container->get('dbi'),
-            $container->get('template'),
-            $container->get('db'),
+            $this->response,
+            $GLOBALS['dbi'],
+            $this->template,
+            $GLOBALS['db'],
             $this->relation,
             $this->replication
         );
@@ -359,7 +345,7 @@ class StructureControllerTest extends PmaTestCase
 
         // Correct parameter
         $tables = [
-            'db.table'
+            'db.table',
         ];
         $this->assertEquals(
             true,
@@ -368,7 +354,7 @@ class StructureControllerTest extends PmaTestCase
 
         // Table not in database
         $tables = [
-            'db.tab1e'
+            'db.tab1e',
         ];
         $this->assertEquals(
             false,
@@ -384,16 +370,15 @@ class StructureControllerTest extends PmaTestCase
      */
     public function testCheckFavoriteTable()
     {
-        $container = Container::getDefaultContainer();
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('checkFavoriteTable');
         $method->setAccessible(true);
 
         $controller = new StructureController(
-            $container->get('response'),
-            $container->get('dbi'),
-            $container->get('template'),
-            $container->get('db'),
+            $this->response,
+            $GLOBALS['dbi'],
+            $this->template,
+            $GLOBALS['db'],
             $this->relation,
             $this->replication
         );
@@ -424,7 +409,6 @@ class StructureControllerTest extends PmaTestCase
      */
     public function testSynchronizeFavoriteTables()
     {
-        $container = Container::getDefaultContainer();
         $favoriteInstance = $this->getMockBuilder(RecentFavoriteTable::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -443,10 +427,10 @@ class StructureControllerTest extends PmaTestCase
         $method->setAccessible(true);
 
         $controller = new StructureController(
-            $container->get('response'),
-            $container->get('dbi'),
-            $container->get('template'),
-            $container->get('db'),
+            $this->response,
+            $GLOBALS['dbi'],
+            $this->template,
+            $GLOBALS['db'],
             $this->relation,
             $this->replication
         );
@@ -476,13 +460,11 @@ class StructureControllerTest extends PmaTestCase
      */
     public function testHandleRealRowCountRequestAction()
     {
-        $container = Container::getDefaultContainer();
-
         $controller = new StructureController(
-            $container->get('response'),
-            $container->get('dbi'),
-            $container->get('template'),
-            $container->get('db'),
+            $this->response,
+            $GLOBALS['dbi'],
+            $this->template,
+            $GLOBALS['db'],
             $this->relation,
             $this->replication
         );

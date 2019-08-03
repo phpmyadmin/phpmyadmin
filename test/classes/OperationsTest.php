@@ -66,7 +66,7 @@ class OperationsTest extends TestCase
     {
 
         $this->assertRegExp(
-            '/.*db_operations.php(.|[\n])*Database comment.*name="comment"([\n]|.)*/m',
+            '/.*\/database\/operations(.|[\n])*Database comment.*name="comment"([\n]|.)*/m',
             $this->operations->getHtmlForDatabaseComment("pma")
         );
     }
@@ -81,7 +81,7 @@ class OperationsTest extends TestCase
 
         $db_collation = 'db1';
         $html = $this->operations->getHtmlForRenameDatabase("pma", $db_collation);
-        $this->assertStringContainsString('db_operations.php', $html);
+        $this->assertStringContainsString('index.php?route=/database/operations', $html);
         $this->assertRegExp(
             '/.*db_rename.*Rename database to.*/',
             $html
@@ -97,7 +97,7 @@ class OperationsTest extends TestCase
     {
 
         $this->assertRegExp(
-            '/.*DROP.DATABASE.*db_operations.php.*Drop the database.*/',
+            '/.*DROP.DATABASE.*%2Fdatabase%2Foperations.*Drop the database.*/',
             $this->operations->getHtmlForDropDatabaseLink("pma")
         );
     }
@@ -111,7 +111,7 @@ class OperationsTest extends TestCase
     {
         $db_collation = 'db1';
         $html = $this->operations->getHtmlForCopyDatabase("pma", $db_collation);
-        $this->assertRegExp('/.*db_operations.php.*/', $html);
+        $this->assertRegExp('/.*\/database\/operations.*/', $html);
         $this->assertRegExp('/.*db_copy.*/', $html);
         $this->assertRegExp('/.*Copy database to.*/', $html);
     }
@@ -131,7 +131,7 @@ class OperationsTest extends TestCase
             $result
         );
         $this->assertRegExp(
-            '/.*db_operations.php.*/',
+            '/.*\/database\/operations.*/',
             $result
         );
     }

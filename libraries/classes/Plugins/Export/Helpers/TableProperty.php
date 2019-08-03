@@ -37,14 +37,14 @@ class TableProperty
     /**
      * Whether the key is nullable or not
      *
-     * @var bool
+     * @var string
      */
     public $nullable;
 
     /**
      * The key
      *
-     * @var int
+     * @var string
      */
     public $key;
 
@@ -94,21 +94,21 @@ class TableProperty
     /**
      * Tells whether the key is null or not
      *
-     * @return bool true if the key is not null, false otherwise
+     * @return string true if the key is not null, false otherwise
      */
     public function isNotNull()
     {
-        return $this->nullable == "NO" ? "true" : "false";
+        return $this->nullable === "NO" ? "true" : "false";
     }
 
     /**
      * Tells whether the key is unique or not
      *
-     * @return bool true if the key is unique, false otherwise
+     * @return string "true" if the key is unique, "false" otherwise
      */
-    public function isUnique()
+    public function isUnique(): string
     {
-        return $this->key == "PRI" || $this->key == "UNI" ? "true" : "false";
+        return ($this->key === "PRI" || $this->key === "UNI") ? "true" : "false";
     }
 
     /**
@@ -199,9 +199,9 @@ class TableProperty
      *
      * @return bool true if the key is primary, false otherwise
      */
-    public function isPK()
+    public function isPK(): bool
     {
-        return $this->key == "PRI";
+        return $this->key === "PRI";
     }
 
     /**

@@ -60,13 +60,13 @@ class RecentFavoriteTable
         $this->relation = new Relation($GLOBALS['dbi']);
         $this->_tableType = $type;
         $server_id = $GLOBALS['server'];
-        if (! isset($_SESSION['tmpval'][$this->_tableType . '_tables'][$server_id])
+        if (! isset($_SESSION['tmpval'][$this->_tableType . 'Tables'][$server_id])
         ) {
-            $_SESSION['tmpval'][$this->_tableType . '_tables'][$server_id]
+            $_SESSION['tmpval'][$this->_tableType . 'Tables'][$server_id]
                 = $this->_getPmaTable() ? $this->getFromDb() : [];
         }
         $this->_tables
-            =& $_SESSION['tmpval'][$this->_tableType . '_tables'][$server_id];
+            =& $_SESSION['tmpval'][$this->_tableType . 'Tables'][$server_id];
     }
 
     /**
@@ -204,14 +204,12 @@ class RecentFavoriteTable
                     $html .= '<li class="warp_link">';
 
                     $html .= '<a class="ajax favorite_table_anchor" ';
-                    $fav_params = [
-                        'db'              => $table['db'],
-                        'ajax_request'    => true,
-                        'favorite_table'  => $table['table'],
+                    $fav_rm_url = Url::getFromRoute('/database/structure', [
+                        'db' => $table['db'],
+                        'ajax_request' => true,
+                        'favorite_table' => $table['table'],
                         'remove_favorite' => true,
-                    ];
-                    $fav_rm_url = 'db_structure.php'
-                        . Url::getCommon($fav_params);
+                    ]);
                     $html .= 'href="' . $fav_rm_url
                         . '" title="' . __("Remove from Favorites")
                         . '" data-favtargetn="'
@@ -353,12 +351,11 @@ class RecentFavoriteTable
         $cfgRelation = $this->relation->getRelationsParam();
         // Not to show this once list is synchronized.
         if ($cfgRelation['favoritework'] && ! isset($_SESSION['tmpval']['favorites_synced'][$server_id])) {
-            $params  = [
+            $url = Url::getFromRoute('/database/structure', [
                 'ajax_request' => true,
                 'favorite_table' => true,
                 'sync_favorite_tables' => true,
-            ];
-            $url     = 'db_structure.php' . Url::getCommon($params);
+            ]);
             $retval  = '<a class="hide" id="sync_favorite_tables"';
             $retval .= ' href="' . $url . '"></a>';
         }
@@ -383,11 +380,11 @@ class RecentFavoriteTable
     }
 
     /**
-     * Reutrn the name of the configuration storage table
+     * Return the name of the configuration storage table
      *
-     * @return string pma table name
+     * @return string|null pma table name
      */
-    private function _getPmaTable()
+    private function _getPmaTable(): ?string
     {
         $cfgRelation = $this->relation->getRelationsParam();
         if (! empty($cfgRelation['db'])

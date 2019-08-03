@@ -70,12 +70,12 @@ class IpAllowDenyTest extends TestCase
         unset($_SERVER['TEST_FORWARDED_HEADER']);
         $GLOBALS['cfg']['TrustedProxies'] = [];
 
-        if (! is_null($remote)) {
+        if ($remote !== null) {
             $_SERVER['REMOTE_ADDR'] = $remote;
         }
 
-        if (! is_null($header)) {
-            if (is_null($proxyip)) {
+        if ($header !== null) {
+            if ($proxyip === null) {
                 $proxyip = $remote;
             }
             $GLOBALS['cfg']['TrustedProxies'][$proxyip] = 'TEST_FORWARDED_HEADER';

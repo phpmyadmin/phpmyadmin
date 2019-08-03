@@ -199,7 +199,7 @@ class QueriesControllerTest extends TestCase
         );
 
         $this->assertStringContainsString(
-            '<div id="serverstatusquerieschart" class="width100" data-chart="',
+            '<div id="serverstatusquerieschart" class="width100 col-12 col-md-6" data-chart="',
             $html
         );
     }

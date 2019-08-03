@@ -10,8 +10,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Twig;
 
 use Twig\Extension\AbstractExtension;
-use Twig\TwigFunction;
 use Twig\TwigFilter;
+use Twig\TwigFunction;
 
 /**
  * Class UtilExtension
@@ -115,11 +115,6 @@ class UtilExtension extends AbstractExtension
             new TwigFunction(
                 'get_select_upload_file_block',
                 'PhpMyAdmin\Util::getSelectUploadFileBlock',
-                ['is_safe' => ['html']]
-            ),
-            new TwigFunction(
-                'get_script_name_for_option',
-                'PhpMyAdmin\Util::getScriptNameForOption',
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(

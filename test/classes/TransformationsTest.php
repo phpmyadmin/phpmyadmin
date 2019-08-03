@@ -129,7 +129,7 @@ class TransformationsTest extends TestCase
                     'Image/JPEG' => 'Image/JPEG',
                     'Image/PNG' => 'Image/PNG',
                     'Text/Plain' => 'Text/Plain',
-                    'Text/Octetstream' => 'Text/Octetstream'
+                    'Text/Octetstream' => 'Text/Octetstream',
                 ],
                 'transformation' =>  [
                     0 => 'Application/Octetstream: Download',

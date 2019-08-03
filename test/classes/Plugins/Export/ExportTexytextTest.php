@@ -405,7 +405,7 @@ class ExportTexytextTest extends PmaTestCase
                     'fname' => [
                         'values' => 'test-',
                         'transformation' => 'testfoo',
-                        'mimetype' => 'test<'
+                        'mimetype' => 'test<',
                     ],
                 ]
             );
@@ -479,7 +479,7 @@ class ExportTexytextTest extends PmaTestCase
                 'name' => 'tna"me',
                 'action_timing' => 'ac>t',
                 'event_manipulation' => 'manip&',
-                'definition' => 'def'
+                'definition' => 'def',
             ],
         ];
 
@@ -645,11 +645,11 @@ class ExportTexytextTest extends PmaTestCase
             'Null' => 'Yes',
             'Field' => 'field',
             'Key' => 'PRI',
-            'Type' => 'set(abc)enum123'
+            'Type' => 'set(abc)enum123',
         ];
 
         $unique_keys = [
-            'field'
+            'field',
         ];
 
         $this->assertEquals(
@@ -666,7 +666,7 @@ class ExportTexytextTest extends PmaTestCase
         ];
 
         $unique_keys = [
-            'field'
+            'field',
         ];
 
         $this->assertEquals(

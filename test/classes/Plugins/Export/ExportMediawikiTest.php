@@ -274,7 +274,7 @@ class ExportMediawikiTest extends PmaTestCase
                 'Key' => 'PRI',
                 'Type' => 'set(abc)enum123',
                 'Default' => '',
-                'Extra' => ''
+                'Extra' => '',
             ],
             [
                 'Null' => 'NO',
@@ -282,7 +282,7 @@ class ExportMediawikiTest extends PmaTestCase
                 'Key' => 'COMP',
                 'Type' => '',
                 'Default' => 'def',
-                'Extra' => 'ext'
+                'Extra' => 'ext',
             ],
         ];
 

@@ -68,7 +68,7 @@ class GisLineStringTest extends GisGeomTestCase
                     1 => [
                         'x' => 6.14,
                         'y' => 0.15,
-                    ]
+                    ],
                 ],
             ],
         ];
@@ -132,7 +132,7 @@ class GisLineStringTest extends GisGeomTestCase
                 1 => [
                     'x' => '6.14',
                     'y' => '0.15',
-                ]
+                ],
             ],
         ];
         $temp1 = $temp;
@@ -144,7 +144,7 @@ class GisLineStringTest extends GisGeomTestCase
                 null,
                 [
                     'srid' => '124',
-                    0 => $temp
+                    0 => $temp,
                 ],
             ],
             [

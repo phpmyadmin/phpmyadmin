@@ -3,10 +3,11 @@
 {% block content %}
 
 {% if is_data_loaded %}
-  <h3>{{ 'Network traffic since startup: %s'|trans|format(network_traffic) }}</h3>
-  <p>{{ 'This MySQL server has been running for %1$s. It started up on %2$s.'|trans|format(uptime, start_time) }}</p>
+  <div class="row"><h3>{{ 'Network traffic since startup: %s'|trans|format(network_traffic) }}</h3></div>
+  <div class="row"><p>{{ 'This MySQL server has been running for %1$s. It started up on %2$s.'|trans|format(uptime, start_time) }}</p></div>
 
-  <table id="serverstatustraffic" class="width100 data noclick">
+<div class="row justify-content-between">
+  <table id="serverstatustraffic" class="width100 data noclick col-12 col-md-5">
     <thead>
       <tr>
         <th>
@@ -29,7 +30,7 @@
     </tbody>
   </table>
 
-  <table id="serverstatusconnections" class="width100 data noclick">
+  <table id="serverstatusconnections" class="width100 data noclick col-12 col-md-6">
     <thead>
       <tr>
         <th>{% trans 'Connections' %}</th>
@@ -50,6 +51,7 @@
       {% endfor %}
     </tbody>
   </table>
+</div>
 
   {% if is_master or is_slave %}
     <p class="notice clearfloat">

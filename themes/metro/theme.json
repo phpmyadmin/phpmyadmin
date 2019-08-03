@@ -4,5 +4,5 @@
     "description": "Metro theme for phpMyAdmin",
     "author": "phpMyAdmin developers and hplhu",
     "url": "https://www.phpmyadmin.net/",
-    "supports": ["5.0"]
+    "supports": ["5.0", "5.1"]
 }

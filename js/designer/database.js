@@ -11,6 +11,7 @@ var designerTables = [
     }
 ];
 
+// eslint-disable-next-line no-unused-vars
 var DesignerOfflineDB = (function () {
     var designerDB = {};
     var datastore = null;
@@ -23,13 +24,14 @@ var DesignerOfflineDB = (function () {
             var db = e.target.result;
             e.target.transaction.onerror = designerDB.onerror;
 
-            for (var t in designerTables) {
+            var t;
+            for (t in designerTables) {
                 if (db.objectStoreNames.contains(designerTables[t].name)) {
                     db.deleteObjectStore(designerTables[t].name);
                 }
             }
 
-            for (var t in designerTables) {
+            for (t in designerTables) {
                 db.createObjectStore(designerTables[t].name, {
                     keyPath: designerTables[t].key,
                     autoIncrement: designerTables[t].autoIncrement
@@ -68,7 +70,7 @@ var DesignerOfflineDB = (function () {
         var cursorRequest = objStore.openCursor(keyRange);
         var results = [];
 
-        transaction.oncomplete = function (e) {
+        transaction.oncomplete = function () {
             callback(results);
         };
 
@@ -92,7 +94,7 @@ var DesignerOfflineDB = (function () {
         var cursorRequest = objStore.openCursor(keyRange);
         var firstResult = null;
 
-        transaction.oncomplete = function (e) {
+        transaction.oncomplete = function () {
             callback(firstResult);
         };
 
@@ -128,7 +130,7 @@ var DesignerOfflineDB = (function () {
         var objStore = transaction.objectStore(table);
         var request = objStore.delete(parseInt(id));
 
-        request.onsuccess = function (e) {
+        request.onsuccess = function () {
             if (typeof callback !== 'undefined' && callback !== null) {
                 callback(true);
             }
@@ -138,6 +140,7 @@ var DesignerOfflineDB = (function () {
     };
 
     designerDB.onerror = function (e) {
+        // eslint-disable-next-line no-console
         console.log(e);
     };
 

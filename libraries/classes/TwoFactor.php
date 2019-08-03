@@ -9,11 +9,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\UserPreferences;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Plugins\TwoFactor\Application;
 use PhpMyAdmin\Plugins\TwoFactor\Invalid;
+use PhpMyAdmin\Plugins\TwoFactor\Key;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
-use Samyoul\U2F\U2FServer\U2FServer;
+use PhpMyAdmin\UserPreferences;
 use PragmaRX\Google2FAQRCode\Google2FA;
+use Samyoul\U2F\U2FServer\U2FServer;
 
 /**
  * Two factor authentication wrapper class
@@ -38,7 +41,7 @@ class TwoFactor
     protected $_writable;
 
     /**
-     * @var \PhpMyAdmin\Plugins\TwoFactorPlugin
+     * @var TwoFactorPlugin
      */
     protected $_backend;
 
@@ -141,19 +144,19 @@ class TwoFactor
         $result = [];
         if (! class_exists(Google2FA::class)) {
             $result[] = [
-                'class' => \PhpMyAdmin\Plugins\TwoFactor\Application::getName(),
+                'class' => Application::getName(),
                 'dep' => 'pragmarx/google2fa-qrcode',
             ];
         }
         if (! class_exists('BaconQrCode\Renderer\Image\Png')) {
             $result[] = [
-                'class' => \PhpMyAdmin\Plugins\TwoFactor\Application::getName(),
+                'class' => Application::getName(),
                 'dep' => 'bacon/bacon-qr-code',
             ];
         }
         if (! class_exists(U2FServer::class)) {
             $result[] = [
-                'class' => \PhpMyAdmin\Plugins\TwoFactor\Key::getName(),
+                'class' => Key::getName(),
                 'dep' => 'samyoul/u2f-php-server',
             ];
         }
@@ -181,7 +184,7 @@ class TwoFactor
     /**
      * Returns backend for current user
      *
-     * @return \PhpMyAdmin\Plugins\TwoFactorPlugin
+     * @return TwoFactorPlugin
      */
     public function getBackend()
     {
@@ -230,7 +233,7 @@ class TwoFactor
     /**
      * Saves current configuration.
      *
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function save()
     {

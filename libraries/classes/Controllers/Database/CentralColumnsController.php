@@ -12,6 +12,7 @@ namespace PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\CentralColumns;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 
@@ -97,7 +98,7 @@ class CentralColumnsController extends AbstractController
 
     /**
      * @param array $params Request parameters
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function editSave(array $params)
     {
@@ -121,7 +122,7 @@ class CentralColumnsController extends AbstractController
 
     /**
      * @param array $params Request parameters
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function addNewColumn(array $params)
     {
@@ -145,7 +146,7 @@ class CentralColumnsController extends AbstractController
 
     /**
      * @param array $params Request parameters
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function addColumn(array $params)
     {
@@ -170,7 +171,7 @@ class CentralColumnsController extends AbstractController
 
     /**
      * @param array $params Request parameters
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function updateMultipleColumn(array $params)
     {
@@ -179,7 +180,7 @@ class CentralColumnsController extends AbstractController
 
     /**
      * @param array $params Request parameters
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function deleteSave(array $params)
     {

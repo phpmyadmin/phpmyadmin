@@ -85,7 +85,7 @@ if (! empty($submit_mult)) {
             // As we got the rows to be edited from the
             // 'rows_to_delete' checkbox, we use the index of it as the
             // indicating WHERE clause. Then we build the array which is used
-            // for the tbl_change.php script.
+            // for the /table/change script.
             $where_clause = [];
             if (isset($_POST['rows_to_delete'])
             && is_array($_POST['rows_to_delete'])
@@ -94,8 +94,8 @@ if (! empty($submit_mult)) {
                     $where_clause[] = $i_where_clause;
                 }
             }
-            $active_page = 'tbl_change.php';
-            include ROOT_PATH . 'tbl_change.php';
+            $active_page = Url::getFromRoute('/table/change');
+            include ROOT_PATH . 'libraries/entry_points/table/change.php';
             break;
 
         case 'row_export':
@@ -105,7 +105,7 @@ if (! empty($submit_mult)) {
             // As we got the rows to be exported from the
             // 'rows_to_delete' checkbox, we use the index of it as the
             // indicating WHERE clause. Then we build the array which is used
-            // for the tbl_change.php script.
+            // for the /table/change script.
             $where_clause = [];
             if (isset($_POST['rows_to_delete'])
             && is_array($_POST['rows_to_delete'])

@@ -100,7 +100,7 @@ class InsertEditTest extends TestCase
     {
         $where_clause = [
             'foo' => 'bar ',
-            '1' => ' test'
+            '1' => ' test',
         ];
         $_POST['clause_is_unique'] = false;
         $_POST['sql_query'] = 'SELECT a';
@@ -123,7 +123,7 @@ class InsertEditTest extends TestCase
                 'sql_query' => 'SELECT a',
                 'where_clause[foo]' => 'bar',
                 'where_clause[1]' => 'test',
-                'clause_is_unique' => false
+                'clause_is_unique' => false,
             ],
             $result
         );
@@ -341,7 +341,7 @@ class InsertEditTest extends TestCase
             [
                 '0' => 1,
                 'where_clause' => 'bar=2',
-                'sql_query' => 'SELECT 1'
+                'sql_query' => 'SELECT 1',
             ],
             $result
         );
@@ -360,40 +360,64 @@ class InsertEditTest extends TestCase
 
         $result = $this->insertEdit->showTypeOrFunction('function', $url_params, false);
 
-        $this->assertEquals(
-            ' : <a href="tbl_change.php" data-post="ShowFunctionFields=1&amp;ShowFieldTypesIn'
-            . 'DataEditView=1&amp;goto=sql.php&amp;lang=en">'
-            . 'Function</a>',
+        $this->assertStringContainsString(
+            'index.php?route=/table/change',
+            $result
+        );
+        $this->assertStringContainsString(
+            'ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=1&amp;goto=sql.php',
+            $result
+        );
+        $this->assertStringContainsString(
+            'Function',
             $result
         );
 
         // case 2
         $result = $this->insertEdit->showTypeOrFunction('function', $url_params, true);
 
-        $this->assertEquals(
-            '<th><a href="tbl_change.php" data-post="ShowFunctionFields=0&amp;ShowFieldTypesIn'
-            . 'DataEditView=1&amp;goto=sql.php&amp;lang=en" title='
-            . '"Hide">Function</a></th>',
+        $this->assertStringContainsString(
+            'index.php?route=/table/change',
+            $result
+        );
+        $this->assertStringContainsString(
+            'ShowFunctionFields=0&amp;ShowFieldTypesInDataEditView=1&amp;goto=sql.php',
+            $result
+        );
+        $this->assertStringContainsString(
+            'Function',
             $result
         );
 
         // case 3
         $result = $this->insertEdit->showTypeOrFunction('type', $url_params, false);
 
-        $this->assertEquals(
-            ' : <a href="tbl_change.php" data-post="ShowFunctionFields=1&amp;ShowFieldTypesIn'
-            . 'DataEditView=1&amp;goto=sql.php&amp;lang=en">'
-            . 'Type</a>',
+        $this->assertStringContainsString(
+            'index.php?route=/table/change',
+            $result
+        );
+        $this->assertStringContainsString(
+            'ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=1&amp;goto=sql.php',
+            $result
+        );
+        $this->assertStringContainsString(
+            'Type',
             $result
         );
 
         // case 4
         $result = $this->insertEdit->showTypeOrFunction('type', $url_params, true);
 
-        $this->assertEquals(
-            '<th><a href="tbl_change.php" data-post="ShowFunctionFields=1&amp;ShowFieldTypesIn'
-            . 'DataEditView=0&amp;goto=sql.php&amp;lang=en" title='
-            . '"Hide">Type</a></th>',
+        $this->assertStringContainsString(
+            'index.php?route=/table/change',
+            $result
+        );
+        $this->assertStringContainsString(
+            'ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=0&amp;goto=sql.php',
+            $result
+        );
+        $this->assertStringContainsString(
+            'Type',
             $result
         );
     }
@@ -408,7 +432,7 @@ class InsertEditTest extends TestCase
         $column = [
             'Field' => '1<2',
             'Field_md5' => 'pswd',
-            'Type' => 'float(10, 1)'
+            'Type' => 'float(10, 1)',
         ];
 
         $result = $this->callProtectedMethod('analyzeTableColumnsArray', [
@@ -1229,11 +1253,11 @@ class InsertEditTest extends TestCase
             [
                 [
                     'plain' => '<abc>',
-                    'html' => '&lt;abc&gt;'
+                    'html' => '&lt;abc&gt;',
                 ],
                 [
                     'plain' => '"foo"',
-                    'html' => '&quot;foo&quot;'
+                    'html' => '&quot;foo&quot;',
                 ],
             ],
             $result
@@ -1468,11 +1492,11 @@ class InsertEditTest extends TestCase
                 [
                     [
                         'plain' => 'a',
-                        'html' => 'a'
+                        'html' => 'a',
                     ],
                     [
                         'plain' => '<',
-                        'html' => '&lt;'
+                        'html' => '&lt;',
                     ],
                 ],
                 2,
@@ -2175,16 +2199,21 @@ class InsertEditTest extends TestCase
         $url_params = ['ShowFunctionFields' => 2];
 
         $result = $this->callProtectedMethod('getHeadAndFootOfInsertRowTable', [
-            $url_params
+            $url_params,
         ]);
 
         $this->assertStringContainsString(
-            'tbl_change.php" data-post="ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=0',
+            'index.php?route=/table/change',
             $result
         );
 
         $this->assertStringContainsString(
-            'tbl_change.php" data-post="ShowFunctionFields=0&amp;ShowFieldTypesInDataEditView=1',
+            'ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=0',
+            $result
+        );
+
+        $this->assertStringContainsString(
+            'ShowFunctionFields=0&amp;ShowFieldTypesInDataEditView=1',
             $result
         );
     }
@@ -2588,7 +2617,7 @@ class InsertEditTest extends TestCase
 
         $_POST['after_insert'] = 'new_insert';
         $this->assertEquals(
-            'tbl_change.php',
+            'libraries/entry_points/table/change.php',
             $this->insertEdit->getGotoInclude('index')
         );
     }
@@ -2602,7 +2631,7 @@ class InsertEditTest extends TestCase
     {
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $this->assertEquals(
-            'tbl_change.php?lang=en',
+            'index.php?route=/table/change&amp;lang=en',
             $this->insertEdit->getErrorUrl([])
         );
 
@@ -3681,7 +3710,7 @@ class InsertEditTest extends TestCase
                     [
                         [
                             'Comment' => 'b',
-                            'Field' => 'd'
+                            'Field' => 'd',
                         ],
                     ]
                 )
@@ -3718,14 +3747,16 @@ class InsertEditTest extends TestCase
      */
     public function testGetUrlParameters()
     {
+        global $goto;
+
         $_POST['sql_query'] = 'SELECT';
-        $GLOBALS['goto'] = 'tbl_change.php';
+        $goto = 'tbl_sql.php';
 
         $this->assertEquals(
             [
                 'db' => 'foo',
                 'sql_query' => 'SELECT',
-                'table' => 'bar'
+                'table' => 'bar',
             ],
             $this->insertEdit->getUrlParameters('foo', 'bar')
         );

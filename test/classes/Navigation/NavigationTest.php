@@ -22,7 +22,7 @@ use PhpMyAdmin\Tests\PmaTestCase;
 class NavigationTest extends PmaTestCase
 {
     /**
-     * @var \PhpMyAdmin\Navigation\Navigation
+     * @var Navigation
      */
     protected $object;
 

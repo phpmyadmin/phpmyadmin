@@ -44,7 +44,7 @@ class Descriptions
         $value = self::getString($key, $type);
 
         /* Fallback to path for name and empty string for description and comment */
-        if (is_null($value)) {
+        if ($value === null) {
             if ($type == 'name') {
                 $value = $path;
             } else {
@@ -52,7 +52,7 @@ class Descriptions
             }
         }
 
-        return Sanitize::sanitize($value);
+        return Sanitize::sanitizeMessage($value);
     }
 
     /**
@@ -214,7 +214,7 @@ class Descriptions
             'Export_latex_data_caption_name' => __('Table caption'),
             'Export_latex_data_continued_caption_name' => __('Continued table caption'),
             'Export_latex_data_label_name' => __('Label key'),
-            'Export_latex_mime_name' => __('MIME type'),
+            'Export_latex_mime_name' => __('Media type'),
             'Export_latex_null_name' => __('Replace NULL with'),
             'Export_latex_relation_name' => __('Relationships'),
             'Export_latex_structure_caption_name' => __('Table caption'),
@@ -226,7 +226,7 @@ class Descriptions
             'Export_ods_null_name' => __('Replace NULL with'),
             'Export_odt_columns_name' => __('Put columns names in the first row'),
             'Export_odt_comments_name' => __('Comments'),
-            'Export_odt_mime_name' => __('MIME type'),
+            'Export_odt_mime_name' => __('Media type'),
             'Export_odt_null_name' => __('Replace NULL with'),
             'Export_odt_relation_name' => __('Relationships'),
             'Export_odt_structure_or_data_name' => __('Dump table'),
@@ -264,7 +264,7 @@ class Descriptions
             'Export_sql_include_comments_name' => __('Comments'),
             'Export_sql_insert_syntax_name' => __('Syntax to use when inserting data'),
             'Export_sql_max_query_size_name' => __('Maximal length of created query'),
-            'Export_sql_mime_name' => __('MIME type'),
+            'Export_sql_mime_name' => __('Media type'),
             'Export_sql_procedure_function_name' => sprintf(__('Add %s'), 'CREATE PROCEDURE / FUNCTION / EVENT'),
             'Export_sql_relation_name' => __('Relationships'),
             'Export_sql_structure_or_data_name' => __('Dump table'),
@@ -613,7 +613,7 @@ class Descriptions
             ),
             'Servers_bookmarktable_name' => __('Bookmark table'),
             'Servers_column_info_desc' => __(
-                'Leave blank for no column comments/mime types, suggested: '
+                'Leave blank for no column comments/media types, suggested: '
                 . '[kbd]pma__column_info[/kbd].'
             ),
             'Servers_column_info_name' => __('Column information table'),

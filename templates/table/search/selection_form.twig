@@ -68,7 +68,7 @@
     </fieldset>
 {% elseif search_type == 'normal' %}
     {% include 'table/search/form_tag.twig' with {
-        'script_name': 'tbl_select.php',
+        'script_name': url('/table/search'),
         'form_id': 'tbl_search_form',
         'db': db,
         'table': table,

@@ -320,7 +320,7 @@ class RelationTest extends TestCase
                         'value',
                     ],
                     'on_delete' => 'CASCADE',
-                    'on_update' => 'CASCADE'
+                    'on_update' => 'CASCADE',
                 ],
             ],
         ];

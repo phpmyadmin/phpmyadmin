@@ -121,7 +121,7 @@ class MonitorControllerTest extends TestCase
         $html = $controller->index();
 
         $this->assertStringContainsString(
-            '<div class="tabLinks">',
+            '<div class="tabLinks row">',
             $html
         );
         $this->assertStringContainsString(
@@ -247,11 +247,11 @@ class MonitorControllerTest extends TestCase
         $resultRows = [
             [
                 'sql_text' => 'insert sql_text',
-                '#' => 11
+                '#' => 11,
             ],
             [
                 'sql_text' => 'update sql_text',
-                '#' => 10
+                '#' => 10,
             ],
         ];
         $resultSum = [

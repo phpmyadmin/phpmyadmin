@@ -22,7 +22,7 @@
           {% endif %}
           <th>{% trans 'Comments' %}</th>
           {% if table.has_mime %}
-            <th>MIME</th>
+            <th>{% trans 'Media type' %}</th>
           {% endif %}
         </tr>
         {% for column in table.columns %}

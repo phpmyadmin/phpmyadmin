@@ -13,6 +13,7 @@ namespace PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Template;
 
 /**
@@ -23,21 +24,20 @@ use PhpMyAdmin\Template;
 class PluginsController extends AbstractController
 {
     /**
-     * @var array plugin details
+     * @var Plugins
      */
     private $plugins;
 
     /**
-     * Constructs PluginsController
-     *
      * @param Response          $response Response object
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param Template          $template Template object
+     * @param Plugins           $plugins  Plugins object
      */
-    public function __construct($response, $dbi, Template $template)
+    public function __construct($response, $dbi, Template $template, Plugins $plugins)
     {
         parent::__construct($response, $dbi, $template);
-        $this->setPlugins();
+        $this->plugins = $plugins;
     }
 
     /**
@@ -52,45 +52,26 @@ class PluginsController extends AbstractController
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();
         $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
-        $scripts->addFile('server_plugins.js');
+        $scripts->addFile('server/plugins.js');
 
-        $pluginsTypeClean = [];
-        foreach (array_keys($this->plugins) as $pluginType) {
-            $pluginsTypeClean[$pluginType] = preg_replace(
+        $plugins = [];
+        $serverPlugins = $this->plugins->getAll();
+        foreach ($serverPlugins as $plugin) {
+            $plugins[$plugin->getType()][] = $plugin->toArray();
+        }
+        ksort($plugins);
+
+        $cleanTypes = [];
+        foreach (array_keys($plugins) as $type) {
+            $cleanTypes[$type] = preg_replace(
                 '/[^a-z]/',
                 '',
-                mb_strtolower($pluginType)
+                mb_strtolower($type)
             );
         }
         return $this->template->render('server/plugins/index', [
-            'plugins' => $this->plugins,
-            'plugins_type_clean' => $pluginsTypeClean,
+            'plugins' => $plugins,
+            'clean_types' => $cleanTypes,
         ]);
-    }
-
-    /**
-     * Sets details about server plugins
-     *
-     * @return void
-     */
-    private function setPlugins(): void
-    {
-        $sql = "SELECT plugin_name,
-                       plugin_type,
-                       (plugin_status = 'ACTIVE') AS is_active,
-                       plugin_type_version,
-                       plugin_author,
-                       plugin_description,
-                       plugin_license
-                FROM information_schema.plugins
-                ORDER BY plugin_type, plugin_name";
-
-        $res = $this->dbi->query($sql);
-        $this->plugins = [];
-        while ($row = $this->dbi->fetchAssoc($res)) {
-            $this->plugins[$row['plugin_type']][] = $row;
-        }
-        $this->dbi->freeResult($res);
-        ksort($this->plugins);
     }
 }

@@ -1,4 +1,4 @@
-<form action="tbl_structure.php" method="post">
+<form action="{{ url('/table/structure') }}" method="post">
     {{ get_hidden_inputs(db, table) }}
     <input type="hidden" name="edit_partitioning" value="true">
 

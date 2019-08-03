@@ -89,7 +89,7 @@ class UserPreferences
             return [
                 'config_data' => $_SESSION['userconfig']['db'],
                 'mtime' => $_SESSION['userconfig']['ts'],
-                'type' => 'session'
+                'type' => 'session',
             ];
         }
         // load configuration from pmadb
@@ -105,7 +105,7 @@ class UserPreferences
         return [
             'config_data' => $row ? json_decode($row['config_data'], true) : [],
             'mtime' => $row ? $row['ts'] : time(),
-            'type' => 'db'
+            'type' => 'db',
         ];
     }
 
@@ -114,7 +114,7 @@ class UserPreferences
      *
      * @param array $config_array configuration array
      *
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function save(array $config_array)
     {
@@ -218,7 +218,7 @@ class UserPreferences
      * @param mixed  $value         value
      * @param mixed  $default_value default value
      *
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function persistOption($path, $value, $default_value)
     {

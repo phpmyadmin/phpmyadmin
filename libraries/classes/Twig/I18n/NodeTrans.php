@@ -11,8 +11,8 @@ namespace PhpMyAdmin\Twig\I18n;
 
 use Twig\Compiler;
 use Twig\Extensions\Node\TransNode;
-use Twig\Node\Node;
 use Twig\Node\Expression\AbstractExpression;
+use Twig\Node\Node;
 
 /**
  * Class NodeTrans

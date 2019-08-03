@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
@@ -21,22 +22,22 @@ class NodeTable extends NodeDatabaseChild
     /**
      * Initialises the class
      *
-     * @param string $name     An identifier for the new node
-     * @param int    $type     Type of node, may be one of CONTAINER or OBJECT
-     * @param bool   $is_group Whether this object has been created
-     *                         while grouping nodes
+     * @param string $name    An identifier for the new node
+     * @param int    $type    Type of node, may be one of CONTAINER or OBJECT
+     * @param bool   $isGroup Whether this object has been created
+     *                        while grouping nodes
      */
-    public function __construct($name, $type = Node::OBJECT, $is_group = false)
+    public function __construct($name, $type = Node::OBJECT, $isGroup = false)
     {
-        parent::__construct($name, $type, $is_group);
+        parent::__construct($name, $type, $isGroup);
         $this->icon = [];
-        $this->_addIcon(
+        $this->addIcon(
             Util::getScriptNameForOption(
                 $GLOBALS['cfg']['NavigationTreeDefaultTabTable'],
                 'table'
             )
         );
-        $this->_addIcon(
+        $this->addIcon(
             Util::getScriptNameForOption(
                 $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'],
                 'table'
@@ -47,27 +48,29 @@ class NodeTable extends NodeDatabaseChild
         );
         $this->title = $title;
 
-        $script_name = Util::getScriptNameForOption(
+        $scriptName = Util::getScriptNameForOption(
             $GLOBALS['cfg']['DefaultTabTable'],
             'table'
         );
+        $firstIconLink = Util::getScriptNameForOption(
+            $GLOBALS['cfg']['NavigationTreeDefaultTabTable'],
+            'table'
+        );
+        $secondIconLink = Util::getScriptNameForOption(
+            $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'],
+            'table'
+        );
         $this->links = [
-            'text'  => $script_name
-                . '?server=' . $GLOBALS['server']
+            'text'  => $scriptName . (strpos($scriptName, '?') === false ? '?' : '&')
+                . 'server=' . $GLOBALS['server']
                 . '&amp;db=%2$s&amp;table=%1$s'
                 . '&amp;pos=0',
             'icon'  => [
-                Util::getScriptNameForOption(
-                    $GLOBALS['cfg']['NavigationTreeDefaultTabTable'],
-                    'table'
-                )
-                . '?server=' . $GLOBALS['server']
+                $firstIconLink . (strpos($firstIconLink, '?') === false ? '?' : '&')
+                . 'server=' . $GLOBALS['server']
                 . '&amp;db=%2$s&amp;table=%1$s',
-                Util::getScriptNameForOption(
-                    $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'],
-                    'table'
-                )
-                . '?server=' . $GLOBALS['server']
+                $secondIconLink . (strpos($secondIconLink, '?') === false ? '?' : '&')
+                . 'server=' . $GLOBALS['server']
                 . '&amp;db=%2$s&amp;table=%1$s',
             ],
             'title' => $this->title,
@@ -89,8 +92,8 @@ class NodeTable extends NodeDatabaseChild
     public function getPresence($type = '', $searchClause = '')
     {
         $retval = 0;
-        $db = $this->realParent()->real_name;
-        $table = $this->real_name;
+        $db = $this->realParent()->realName;
+        $table = $this->realName;
         switch ($type) {
             case 'columns':
                 if (! $GLOBALS['cfg']['Server']['DisableIS']) {
@@ -161,8 +164,8 @@ class NodeTable extends NodeDatabaseChild
     {
         $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
         $retval = [];
-        $db = $this->realParent()->real_name;
-        $table = $this->real_name;
+        $db = $this->realParent()->realName;
+        $table = $this->realName;
         switch ($type) {
             case 'columns':
                 if (! $GLOBALS['cfg']['Server']['DisableIS']) {
@@ -283,20 +286,20 @@ class NodeTable extends NodeDatabaseChild
      *
      * @return void
      */
-    private function _addIcon($page)
+    private function addIcon($page)
     {
         if (empty($page)) {
             return;
         }
 
         switch ($page) {
-            case 'tbl_structure.php':
+            case Url::getFromRoute('/table/structure'):
                 $this->icon[] = Util::getImage('b_props', __('Structure'));
                 break;
-            case 'tbl_select.php':
+            case Url::getFromRoute('/table/search'):
                 $this->icon[] = Util::getImage('b_search', __('Search'));
                 break;
-            case 'tbl_change.php':
+            case Url::getFromRoute('/table/change'):
                 $this->icon[] = Util::getImage('b_insrow', __('Insert'));
                 break;
             case 'tbl_sql.php':

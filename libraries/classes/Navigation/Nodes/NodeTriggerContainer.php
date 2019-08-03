@@ -32,7 +32,7 @@ class NodeTriggerContainer extends Node
             'icon' => 'db_triggers.php?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s&amp;table=%1$s',
         ];
-        $this->real_name = 'triggers';
+        $this->realName = 'triggers';
 
         $new = NodeFactory::getInstance(
             'Node',

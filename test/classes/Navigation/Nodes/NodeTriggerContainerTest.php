@@ -47,6 +47,6 @@ class NodeTriggerContainerTest extends PmaTestCase
             'db_triggers.php',
             $parent->links['text']
         );
-        $this->assertEquals('triggers', $parent->real_name);
+        $this->assertEquals('triggers', $parent->realName);
     }
 }

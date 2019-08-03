@@ -43,8 +43,8 @@ $err_url_0 = 'index.php' . Url::getCommon();
 $err_url = Util::getScriptNameForOption(
     $GLOBALS['cfg']['DefaultTabDatabase'],
     'database'
-)
-    . Url::getCommon(['db' => $db]);
+);
+$err_url .= Url::getCommon(['db' => $db], strpos($err_url, '?') === false ? '?' : '&');
 
 /**
  * Ensures the database exists (else move to the "parent" script) and displays
@@ -87,10 +87,7 @@ if (! isset($is_db) || ! $is_db) {
 /**
  * Changes database charset if requested by the user
  */
-if (isset($_POST['submitcollation'])
-    && isset($_POST['db_collation'])
-    && ! empty($_POST['db_collation'])
-) {
+if (isset($_POST['submitcollation'], $_POST['db_collation']) && ! empty($_POST['db_collation'])) {
     list($db_charset) = explode('_', $_POST['db_collation']);
     $sql_query        = 'ALTER DATABASE '
         . Util::backquote($db)
@@ -133,13 +130,22 @@ if (isset($_POST['submitcollation'])
 
     /**
      * If we are in an Ajax request, let us stop the execution here. Necessary for
-     * db charset change action on db_operations.php.  If this causes a bug on
+     * db charset change action on /database/operations. If this causes a bug on
      * other pages, we might have to move this to a different location.
      */
     if ($response->isAjax()) {
         $response->setRequestStatus($message->isSuccess());
         $response->addJSON('message', $message);
         exit;
+    }
+} elseif (isset($_POST['submitcollation'], $_POST['db_collation']) && empty($_POST['db_collation'])) {
+    $response = Response::getInstance();
+    if ($response->isAjax()) {
+        $response->setRequestStatus(false);
+        $response->addJSON(
+            'message',
+            Message::error(__('No collation provided.'))
+        );
     }
 }
 

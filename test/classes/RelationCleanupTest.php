@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -23,7 +24,7 @@ use PHPUnit\Framework\TestCase;
 class RelationCleanupTest extends TestCase
 {
     /**
-     * @var Relation|\PHPUnit\Framework\MockObject\MockObject
+     * @var Relation|MockObject
      */
     private $relation;
 

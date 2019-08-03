@@ -12,7 +12,7 @@
 /**
  * Register key events on load
  */
-$(document).ready(function () {
+$(function () {
     var databaseOp = false;
     var tableOp = false;
     var keyD = 68;

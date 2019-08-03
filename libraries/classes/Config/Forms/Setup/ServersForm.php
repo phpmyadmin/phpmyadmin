@@ -95,7 +95,7 @@ class ServersForm extends BaseForm
                         'central_columns' => 'pma__central_columns',
                         'designer_settings' => 'pma__designer_settings',
                         'export_templates' => 'pma__export_templates',
-                        'MaxTableUiprefs' => 100
+                        'MaxTableUiprefs' => 100,
                     ],
                 ],
             ],
