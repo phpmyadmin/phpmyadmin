@@ -3,13 +3,13 @@
 {% block content %}
 
 <fieldset id="tableFilter">
-  <legend>{% trans 'Filters' %}</legend>
+  <legend class="form-control">{% trans 'Filters' %}</legend>
   <form action="server_status_processes.php" method="post">
     {{ get_hidden_inputs(url_params) }}
     <input class="btn btn-secondary" type="submit" value="{% trans 'Refresh' %}">
-    <div class="formelement">
-      <input type="checkbox" name="showExecuting" id="showExecuting" class="autosubmit"{{ is_checked ? ' checked' }}>
-      <label for="showExecuting">
+    <div class="formelement form-check">
+      <input type="checkbox" name="showExecuting" id="showExecuting" class="autosubmit form-check-input"{{ is_checked ? ' checked' }}>
+      <label for="showExecuting" class="form-check-label">
         {% trans 'Show only active' %}
       </label>
     </div>

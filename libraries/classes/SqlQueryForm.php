@@ -243,7 +243,7 @@ class SqlQueryForm
             . $auto_sel . $locking . '>'
             . htmlspecialchars($query)
             . '</textarea>';
-        $html .= '<div id="querymessage"></div>';
+        $html .= '<div id="querymessage form-row"></div>';
         // Add buttons to generate query easily for
         // select all, single select, insert, update and delete
         if (! empty($columns_list)) {
@@ -259,18 +259,18 @@ class SqlQueryForm
                 . ' class="btn btn-secondary button sqlbutton">';
         }
         $html .= '<input type="button" value="' . __('Clear') . '" id="clear"'
-            . ' class="btn btn-secondary button sqlbutton">';
+            . ' class="btn btn-secondary button sqlbutton col-auto">';
         if ($GLOBALS['cfg']['CodemirrorEnable']) {
             $html .= '<input type="button" value="' . __('Format') . '" id="format"'
-                . ' class="btn btn-secondary button sqlbutton">';
+                . ' class="btn btn-secondary button sqlbutton col-auto">';
         }
         $html .= '<input type="button" value="' . __('Get auto-saved query')
-            . '" id="saved" class="btn btn-secondary button sqlbutton">';
+            . '" id="saved" class="btn btn-secondary button sqlbutton col-auto">';
 
         // parameter binding
-        $html .= '<div>';
-        $html .= '<input type="checkbox" name="parameterized" id="parameterized">';
-        $html .= '<label for="parameterized">' . __('Bind parameters') . '</label>';
+        $html .= '<div class="form-check">';
+        $html .= '<input type="checkbox" name="parameterized" id="parameterized" class="form-check-input">';
+        $html .= '<label for="parameterized" class="form-check-label">' . __('Bind parameters') . '</label>';
         $html .= Util::showDocu('faq', 'faq6-40');
         $html .= '<div id="parametersDiv"></div>';
         $html .= '</div>';
@@ -316,11 +316,11 @@ class SqlQueryForm
         $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
         if ($cfgBookmark) {
             $html .= '<div id="bookmarkoptions">';
-            $html .= '<div class="formelement">';
-            $html .= '<label for="bkm_label">'
+            $html .= '<div class="formelement form-row">';
+            $html .= '<label for="bkm_label col-form-label col-auto">'
                 . __('Bookmark this SQL query:') . '</label>';
-            $html .= '<input type="text" name="bkm_label" id="bkm_label"'
-                . ' tabindex="110" value="">';
+            $html .= '<div class="col-auto"><input type="text" name="bkm_label" id="bkm_label" class="form-control"'
+                . ' tabindex="110" value=""></div>';
             $html .= '</div>';
             $html .= '<div class="formelement">';
             $html .= '<input type="checkbox" name="bkm_all_users" tabindex="111"'
@@ -353,32 +353,32 @@ class SqlQueryForm
             . 'id="id_sql_delimiter"> ]';
         $html .= '</div>';
 
-        $html .= '<div class="formelement">';
+        $html .= '<div class="formelement form-check">';
         $html .= '<input type="checkbox" name="show_query" value="1" '
-            . 'id="checkbox_show_query" tabindex="132">'
-            . '<label for="checkbox_show_query">' . __('Show this query here again')
+            . 'id="checkbox_show_query" class="form-check-input" tabindex="132">'
+            . '<label for="checkbox_show_query" class="form-check-label">' . __('Show this query here again')
             . '</label>';
         $html .= '</div>';
 
-        $html .= '<div class="formelement">';
+        $html .= '<div class="formelement form-check">';
         $html .= '<input type="checkbox" name="retain_query_box" value="1" '
-            . 'id="retain_query_box" tabindex="133" '
+            . 'id="retain_query_box" class="form-check-input" tabindex="133" '
             . ($GLOBALS['cfg']['RetainQueryBox'] === false
                 ? '' : ' checked="checked"')
             . '>'
-            . '<label for="retain_query_box">' . __('Retain query box')
+            . '<label for="retain_query_box" class="form-check-label">' . __('Retain query box')
             . '</label>';
         $html .= '</div>';
 
-        $html .= '<div class="formelement">';
+        $html .= '<div class="formelement form-check">';
         $html .= '<input type="checkbox" name="rollback_query" value="1" '
-            . 'id="rollback_query" tabindex="134">'
-            . '<label for="rollback_query">' . __('Rollback when finished')
+            . 'id="rollback_query" class="form-check-input" tabindex="134">'
+            . '<label for="rollback_query" class="form-check-label">' . __('Rollback when finished')
             . '</label>';
         $html .= '</div>';
 
         // Disable/Enable foreign key checks
-        $html .= '<div class="formelement">';
+        $html .= '<div class="formelement form-check">';
         $html .= Util::getFKCheckbox();
         $html .= '</div>';
 

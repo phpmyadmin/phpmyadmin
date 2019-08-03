@@ -15,9 +15,11 @@
                     <input type="radio" id="import_text_file" class="form-check-input" name="import_type" value="text_file" checked="checked">
                     <label for="import_text_file" class="form-check-label"> {% trans 'Import from file' %} </label>
                 </div>
-                <div id="opts_import_text_file" class="prefsmanage_opts">
-                    <label for="input_import_file"> {% trans 'Browse your computer:' %} </label>
-                    <input type="file" name="import_file" id="input_import_file">
+                <div id="opts_import_text_file" class="prefsmanage_opts form-row">
+                    <label for="input_import_file" class="col-form-label col-auto"> {% trans 'Browse your computer:' %} </label>
+                    <div class="col-auto">
+                        <input type="file" name="import_file" id="input_import_file" class="form-control-file">
+                    </div>
                 </div>
                 <div class="form-check">
                     <input type="radio" id="import_local_storage" name="import_type" class="form-check-input" value="local_storage"

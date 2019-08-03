@@ -4,12 +4,14 @@
     </legend>
     <input type="hidden" name="mode" value="2">
     <p>({% trans 'Revoke all active privileges from the users and delete them afterwards.' %})</p>
-    <input type="checkbox" title="{% trans 'Drop the databases that have the same names as the users.' %}"
-        name="drop_users_db" id="checkbox_drop_users_db">
-    <label for="checkbox_drop_users_db"
-        title="{% trans 'Drop the databases that have the same names as the users.' %}">
-        {% trans 'Drop the databases that have the same names as the users.' %}
-    </label>
+    <div class="form-check">
+        <input type="checkbox" title="{% trans 'Drop the databases that have the same names as the users.' %}"
+            name="drop_users_db" id="checkbox_drop_users_db" class="form-check-input">
+        <label for="checkbox_drop_users_db" class="form-check-label"
+            title="{% trans 'Drop the databases that have the same names as the users.' %}">
+            {% trans 'Drop the databases that have the same names as the users.' %}
+        </label>
+    </div>
 </fieldset>
 
 <fieldset id="fieldset_delete_user_footer" class="tblFooters form-group">

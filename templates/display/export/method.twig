@@ -3,19 +3,23 @@
         <h3>{% trans 'Export method:' %}</h3>
         <ul>
             <li>
-                <input type="radio" name="quick_or_custom" value="quick" id="radio_quick_export"
-                    {{- export_method == 'quick' ? ' checked' }}>
-                <label for="radio_quick_export">
-                    {% trans 'Quick - display only the minimal options' %}
-                </label>
+                <div class="form-check">
+                    <input type="radio" name="quick_or_custom" value="quick" id="radio_quick_export" class="form-check-input"
+                        {{- export_method == 'quick' ? ' checked' }}>
+                    <label for="radio_quick_export" class="form-check-label">
+                        {% trans 'Quick - display only the minimal options' %}
+                    </label>
+                </div>
             </li>
 
             <li>
-                <input type="radio" name="quick_or_custom" value="custom" id="radio_custom_export"
-                    {{- export_method == 'custom' ? ' checked' }}>
-                <label for="radio_custom_export">
-                    {% trans 'Custom - display all possible options' %}
-                </label>
+                <div class="form-check">    
+                    <input type="radio" name="quick_or_custom" value="custom" id="radio_custom_export" class="form-check-input"
+                        {{- export_method == 'custom' ? ' checked' }}>
+                    <label for="radio_custom_export" class="form-check-label">
+                        {% trans 'Custom - display all possible options' %}
+                    </label>
+                </div>
             </li>
         </ul>
     </div>

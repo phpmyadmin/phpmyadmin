@@ -60,7 +60,7 @@
                 </div>
             {% endif %}
 
-            <div class="formelementrow" id="upload_form">
+            <div class="formelementrow form-row" id="upload_form">
                 {% if is_upload and upload_dir is not empty %}
                     <ul>
                         <li>
@@ -92,21 +92,23 @@
                 {% endif %}
             </div>
 
-            <div class="formelementrow" id="charaset_of_file">
+            <div class="formelementrow form-row" id="charaset_of_file">
                 {# Charset of file #}
-                <label for="charset_of_file">{% trans 'Character set of the file:' %}</label>
+                <label for="charset_of_file" class="col-form-label col-auto">{% trans 'Character set of the file:' %}</label>
                 {% if is_encoding_supported %}
-                    <select id="charset_of_file" name="charset_of_file" size="1">
-                        {% for charset in encodings %}
-                            <option value="{{ charset }}"
-                                {% if (import_charset is empty and charset == 'utf-8')
-                                    or charset == import_charset %}
-                                    selected="selected"
-                                {% endif %}>
-                                {{ charset }}
-                            </option>
-                        {% endfor %}
-                    </select>
+                    <div class="col-auto">
+                        <select id="charset_of_file" name="charset_of_file" size="1" class="form-control">
+                            {% for charset in encodings %}
+                                <option value="{{ charset }}"
+                                    {% if (import_charset is empty and charset == 'utf-8')
+                                        or charset == import_charset %}
+                                        selected="selected"
+                                    {% endif %}>
+                                    {{ charset }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
                 {% else %}
                     {{ get_charset_dropdown_box(
                         dbi,
@@ -131,21 +133,25 @@
             {% endif %}
 
             <div class="formelementrow">
-                <input type="checkbox" name="allow_interrupt" value="yes" id="checkbox_allow_interrupt"
+                <div class="form-check">
+                    <input type="checkbox" name="allow_interrupt" value="yes" id="checkbox_allow_interrupt" class="form-check-input position-static"
                     {{ checkbox_check('Import', 'allow_interrupt') }}>
+                </div>
                 <label for="checkbox_allow_interrupt">
                     {% trans 'Allow the interruption of an import in case the script detects it is close to the PHP timeout limit. <em>(This might be a good way to import large files, however it can break transactions.)</em>' %}
                 </label>
             </div>
 
             {% if not (timeout_passed is defined and timeout_passed) %}
-                <div class="formelementrow">
-                    <label for="text_skip_queries">
+                <div class="formelementrow form-row">
+                    <label for="text_skip_queries" class="col-form-label col-auto">
                         {% trans 'Skip this number of queries (for SQL) starting from the first one:' %}
                     </label>
-                    <input type="number" name="skip_queries" value="
-                        {{- get_default_plugin('Import', 'skip_queries') -}}
-                        " id="text_skip_queries" min="0">
+                    <div class="col-auto">
+                        <input type="number" name="skip_queries" value="
+                            {{- get_default_plugin('Import', 'skip_queries') -}}
+                            " id="text_skip_queries" class="form-control" min="0">
+                        </div>
                 </div>
             {% else %}
                 {# If timeout has passed,
@@ -159,7 +165,7 @@
 
         <div class="importoptions">
             <h3>{% trans 'Other options:' %}</h3>
-            <div class="formelementrow">
+            <div class="formelementrow form-check">
                 {{ get_fk_checkbox() }}
             </div>
         </div>

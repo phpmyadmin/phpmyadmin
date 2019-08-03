@@ -4,20 +4,21 @@
 
 {% if is_data_loaded %}
   <fieldset id="tableFilter">
-    <legend>{% trans 'Filters' %}</legend>
+    <legend class="form-control">{% trans 'Filters' %}</legend>
     <form action="server_status_variables.php" method="post">
       {{ get_hidden_inputs() }}
 
       <input class="btn btn-secondary" type="submit" value="{% trans 'Refresh' %}">
 
-      <div class="formelement">
-        <label for="filterText">{% trans 'Containing the word:' %}</label>
-        <input name="filterText" type="text" id="filterText" value="{{ filter_text }}">
+      <div class="formelement form-row">
+        <label for="filterText" class="col-form-label col-auto">{% trans 'Containing the word:' %}</label>
+        <div class="col-auto">
+          <input name="filterText" type="text" id="filterText" class="form-control" value="{{ filter_text }}">
       </div>
 
-      <div class="formelement">
-        <input type="checkbox" name="filterAlert" id="filterAlert"{{ is_only_alerts ? ' checked' }}>
-        <label for="filterAlert">
+      <div class="formelement form-check">
+        <input type="checkbox" name="filterAlert" class="form-check-input" id="filterAlert"{{ is_only_alerts ? ' checked' }}>
+        <label for="filterAlert" class="form-check-label">
           {% trans 'Show only alert values' %}
         </label>
       </div>
@@ -31,9 +32,9 @@
         </select>
       </div>
 
-      <div class="formelement">
-        <input type="checkbox" name="dontFormat" id="dontFormat"{{ is_not_formatted ? ' checked' }}>
-        <label for="dontFormat">
+      <div class="formelement form-check">
+        <input type="checkbox" name="dontFormat" class="form-check-input" id="dontFormat"{{ is_not_formatted ? ' checked' }}>
+        <label for="dontFormat" class="form-check-label">
           {% trans 'Show unformatted values' %}
         </label>
       </div>

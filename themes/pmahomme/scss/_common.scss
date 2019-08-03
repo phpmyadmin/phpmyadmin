@@ -595,7 +595,7 @@ fieldset {
     float: $left;
     margin-#{$right}: 0.5em;
     // IE
-    white-space: nowrap;
+    width: 100%;
   }
 
   // revert for Gecko

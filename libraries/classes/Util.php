@@ -3354,13 +3354,13 @@ class Util
         if ($GLOBALS['is_upload'] && ! empty($GLOBALS['cfg']['UploadDir'])) {
             $block_html .= '<label for="radio_import_file">';
         } else {
-            $block_html .= '<label for="input_import_file">';
+            $block_html .= '<label for="input_import_file" class="col-auto col-form-label">';
         }
 
         $block_html .= __("Browse your computer:") . '</label>'
             . '<div id="upload_form_status" class="hide"></div>'
             . '<div id="upload_form_status_info" class="hide"></div>'
-            . '<input type="file" name="import_file" id="input_import_file">'
+            . '<div class="col-auto"><input type="file" name="import_file" id="input_import_file" class="form-control-file"></div>'
             . self::getFormattedMaximumUploadSize($max_upload_size) . "\n"
             // some browsers should respect this :)
             . self::generateHiddenMaxFileSize($max_upload_size) . "\n";

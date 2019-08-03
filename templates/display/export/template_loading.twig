@@ -4,10 +4,16 @@
     <div class="floatleft">
         <form method="post" action="tbl_export.php" id="newTemplateForm" class="ajax">
             <h4>{% trans 'New template:' %}</h4>
-            <input type="text" name="templateName" id="templateName"
-                maxlength="64" placeholder="{% trans 'Template name' %}" required>
-            <input class="btn btn-secondary" type="submit" name="createTemplate" id="createTemplate"
-                value="{% trans 'Create' %}">
+            <div class="form-row">
+                <div class="col-8">
+                    <input type="text" name="templateName" id="templateName" class="form-control"
+                    maxlength="64" placeholder="{% trans 'Template name' %}" required>
+                </div>
+                <div class="col-4">
+                    <input class="btn btn-secondary form-control" type="submit" name="createTemplate" id="createTemplate"
+                    value="{% trans 'Create' %}">
+                </div>
+            </div>
         </form>
     </div>
 
