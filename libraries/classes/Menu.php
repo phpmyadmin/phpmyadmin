@@ -343,6 +343,7 @@ class Menu
         $tabs['browse']['text'] = __('Browse');
         $tabs['browse']['link'] = Url::getFromRoute('/sql');
         $tabs['browse']['args']['pos'] = 0;
+        $tabs['browse']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/sql';
 
         $tabs['structure']['icon'] = 'b_props';
         $tabs['structure']['link'] = Url::getFromRoute('/table/structure');
@@ -353,6 +354,7 @@ class Menu
         $tabs['sql']['icon'] = 'b_sql';
         $tabs['sql']['link'] = Url::getFromRoute('/table/sql');
         $tabs['sql']['text'] = __('SQL');
+        $tabs['sql']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/table/sql';
 
         $tabs['search']['icon'] = 'b_search';
         $tabs['search']['text'] = __('Search');
@@ -461,6 +463,7 @@ class Menu
         $tabs['sql']['link'] = Url::getFromRoute('/database/sql');
         $tabs['sql']['text'] = __('SQL');
         $tabs['sql']['icon'] = 'b_sql';
+        $tabs['sql']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/database/sql';
 
         $tabs['search']['text'] = __('Search');
         $tabs['search']['icon'] = 'b_search';
@@ -581,6 +584,7 @@ class Menu
         $tabs['sql']['icon'] = 'b_sql';
         $tabs['sql']['link'] = Url::getFromRoute('/server/sql');
         $tabs['sql']['text'] = __('SQL');
+        $tabs['sql']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/server/sql';
 
         $tabs['status']['icon'] = 's_status';
         $tabs['status']['link'] = Url::getFromRoute('/server/status');
