@@ -221,14 +221,13 @@ class RteList
      */
     public function getRoutineRow(array $routine, $rowclass = '')
     {
-        global $db, $table, $titles, $url_query;
+        global $db, $table, $titles;
 
         $sql_drop = sprintf(
             'DROP %s IF EXISTS %s',
             $routine['type'],
             Util::backquote($routine['name'])
         );
-        $type_link = "item_type={$routine['type']}";
 
         $retval  = "        <tr class='$rowclass'>\n";
         $retval .= "            <td>\n";
@@ -264,13 +263,14 @@ class RteList
             || $this->dbi->isSuperuser()
         ) {
             $retval .= '                <a class="ajax edit_anchor"'
-                                             . ' href="db_routines.php'
-                                             . $url_query
-                                             . '&amp;edit_item=1'
-                                             . '&amp;item_name='
-                                             . urlencode($routine['name'])
-                                             . '&amp;' . $type_link
-                                             . '">' . $titles['Edit'] . "</a>\n";
+                . ' href="db_routines.php'
+                . Url::getCommon([
+                    'db' => $db,
+                    'table' => $table,
+                    'edit_item' => 1,
+                    'item_name' => $routine['name'],
+                    'item_type' => $routine['type'],
+                ]) . '">' . $titles['Edit'] . "</a>\n";
         } else {
             $retval .= "                {$titles['NoEdit']}\n";
         }
@@ -314,15 +314,22 @@ class RteList
                     $execute_action = 'execute_dialog';
                     break;
                 }
-                $query_part = $execute_action . '=1&amp;item_name='
-                    . urlencode($routine['name']) . '&amp;' . $type_link;
+                $queryPart = [
+                    $execute_action => 1,
+                    'item_name' => $routine['name'],
+                    'item_type' => $routine['type'],
+                ];
                 $retval .= '                <a class="ajax exec_anchor"'
-                                                 . ' href="db_routines.php'
-                                                 . $url_query
-                                                 . ($execute_action == 'execute_routine'
-                                                     ? '" data-post="' . $query_part
-                                                     : '&amp;' . $query_part)
-                                                 . '">' . $titles['Execute'] . "</a>\n";
+                    . ' href="db_routines.php'
+                    . Url::getCommon([
+                        'db' => $db,
+                        'table' => $table,
+                    ])
+                    . ($execute_action === 'execute_routine'
+                        ? '" data-post="' . Url::getCommon($queryPart, '')
+                        : Url::getCommon($queryPart, '&')
+                    )
+                    . '">' . $titles['Execute'] . "</a>\n";
             } else {
                 $retval .= "                {$titles['NoExecute']}\n";
             }
@@ -335,13 +342,14 @@ class RteList
             || $this->dbi->isSuperuser()
         ) {
             $retval .= '                <a class="ajax export_anchor"'
-                                             . ' href="db_routines.php'
-                                             . $url_query
-                                             . '&amp;export_item=1'
-                                             . '&amp;item_name='
-                                             . urlencode($routine['name'])
-                                             . '&amp;' . $type_link
-                                             . '">' . $titles['Export'] . "</a>\n";
+                . ' href="db_routines.php'
+                . Url::getCommon([
+                    'db' => $db,
+                    'table' => $table,
+                    'export_item' => 1,
+                    'item_name' => $routine['name'],
+                    'item_type' => $routine['type'],
+                ]) . '">' . $titles['Export'] . "</a>\n";
         } else {
             $retval .= "                {$titles['NoExport']}\n";
         }
@@ -380,7 +388,7 @@ class RteList
      */
     public function getTriggerRow(array $trigger, $rowclass = '')
     {
-        global $url_query, $db, $table, $titles;
+        global $db, $table, $titles;
 
         $retval  = "        <tr class='$rowclass'>\n";
         $retval .= "            <td>\n";
@@ -397,32 +405,37 @@ class RteList
         $retval .= "            </td>\n";
         if (empty($table)) {
             $retval .= "            <td>\n";
-            $retval .= "<a href='db_triggers.php{$url_query}"
-                . "&amp;table=" . urlencode($trigger['table']) . "'>"
+            $retval .= '<a href="db_triggers.php'
+                . Url::getCommon([
+                    'db' => $db,
+                    'table' => $trigger['table'],
+                ]) . '">'
                 . htmlspecialchars($trigger['table']) . "</a>";
             $retval .= "            </td>\n";
         }
         $retval .= "            <td>\n";
         if (Util::currentUserHasPrivilege('TRIGGER', $db, $table)) {
             $retval .= '                <a class="ajax edit_anchor"'
-                                             . ' href="db_triggers.php'
-                                             . $url_query
-                                             . '&amp;edit_item=1'
-                                             . '&amp;item_name='
-                                             . urlencode($trigger['name'])
-                                             . '">' . $titles['Edit'] . "</a>\n";
+                . ' href="db_triggers.php'
+                . Url::getCommon([
+                    'db' => $db,
+                    'table' => $table,
+                    'edit_item' => 1,
+                    'item_name' => $trigger['name'],
+                ]) . '">' . $titles['Edit'] . "</a>\n";
         } else {
             $retval .= "                {$titles['NoEdit']}\n";
         }
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
         $retval .= '                    <a class="ajax export_anchor"'
-                                             . ' href="db_triggers.php'
-                                             . $url_query
-                                             . '&amp;export_item=1'
-                                             . '&amp;item_name='
-                                             . urlencode($trigger['name'])
-                                             . '">' . $titles['Export'] . "</a>\n";
+            . ' href="db_triggers.php'
+            . Url::getCommon([
+                'db' => $db,
+                'table' => $table,
+                'export_item' => 1,
+                'item_name' => $trigger['name'],
+            ]) . '">' . $titles['Export'] . "</a>\n";
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
         if (Util::currentUserHasPrivilege('TRIGGER', $db)) {
@@ -461,7 +474,7 @@ class RteList
      */
     public function getEventRow(array $event, $rowclass = '')
     {
-        global $db, $table, $titles, $url_query;
+        global $db, $table, $titles;
 
         $sql_drop = sprintf(
             'DROP EVENT IF EXISTS %s',
@@ -488,24 +501,26 @@ class RteList
         $retval .= "            <td>\n";
         if (Util::currentUserHasPrivilege('EVENT', $db)) {
             $retval .= '                <a class="ajax edit_anchor"'
-                                             . ' href="db_events.php'
-                                             . $url_query
-                                             . '&amp;edit_item=1'
-                                             . '&amp;item_name='
-                                             . urlencode($event['name'])
-                                             . '">' . $titles['Edit'] . "</a>\n";
+                . ' href="db_events.php'
+                . Url::getCommon([
+                    'db' => $db,
+                    'table' => $table,
+                    'edit_item' => 1,
+                    'item_name' => $event['name'],
+                ]) . '">' . $titles['Edit'] . "</a>\n";
         } else {
             $retval .= "                {$titles['NoEdit']}\n";
         }
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
         $retval .= '                <a class="ajax export_anchor"'
-                                         . ' href="db_events.php'
-                                         . $url_query
-                                         . '&amp;export_item=1'
-                                         . '&amp;item_name='
-                                         . urlencode($event['name'])
-                                         . '">' . $titles['Export'] . "</a>\n";
+            . ' href="db_events.php'
+            . Url::getCommon([
+                'db' => $db,
+                'table' => $table,
+                'export_item' => 1,
+                'item_name' => $event['name'],
+            ]) . '">' . $titles['Export'] . "</a>\n";
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
         if (Util::currentUserHasPrivilege('EVENT', $db)) {
