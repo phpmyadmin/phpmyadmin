@@ -3,7 +3,7 @@
 /**
  * SQL executor
  *
- * @todo    we must handle the case if sql.php is called directly with a query
+ * @todo    we must handle the case if /sql is called directly with a query
  *          that returns 0 rows - to prevent cyclic redirects or includes
  * @package PhpMyAdmin
  */
@@ -212,16 +212,14 @@ if (isset($_POST['store_bkm'])) {
 /**
  * Sets or modifies the $goto variable if required
  */
-if ($goto == 'sql.php') {
+if ($goto === Url::getFromRoute('/sql')) {
     $is_gotofile = false;
-    $goto = 'sql.php' . Url::getCommon(
-        [
-            'db' => $db,
-            'table' => $table,
-            'sql_query' => $sql_query,
-        ]
-    );
-} // end if
+    $goto = Url::getFromRoute('/sql', [
+        'db' => $db,
+        'table' => $table,
+        'sql_query' => $sql_query,
+    ]);
+}
 
 $sql->executeQueryAndSendQueryResponse(
     $analyzed_sql_results, // analyzed_sql_results

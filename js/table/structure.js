@@ -222,7 +222,7 @@ AJAX.registerOnload('table/structure.js', function () {
                     if (data.tableStat) {
                         $('#tablestatistics').html(data.tableStat);
                     }
-                    // refresh the list of indexes (comes from sql.php)
+                    // refresh the list of indexes (comes from /sql)
                     $('.index_info').replaceWith(data.indexes_list);
                     Navigation.reload();
                 } else {

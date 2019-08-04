@@ -131,9 +131,8 @@ if (! empty($submit_mult)) {
             }
             include ROOT_PATH . 'libraries/mult_submits.inc.php';
             $_url_params = $GLOBALS['url_params'];
-            $_url_params['goto'] = 'tbl_sql.php';
+            $_url_params['goto'] = Url::getFromRoute('/table/sql');
             $url_query = Url::getCommon($_url_params);
-
 
             /**
          * Show result of multi submit operation
@@ -154,7 +153,7 @@ if (! empty($submit_mult)) {
                 $url_query = $original_url_query;
             }
 
-            $active_page = 'sql.php';
+            $active_page = Url::getFromRoute('/sql');
             $sql = new Sql();
             $sql->executeQueryAndSendQueryResponse(
                 null, // analyzed_sql_results

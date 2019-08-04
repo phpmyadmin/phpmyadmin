@@ -7,7 +7,7 @@
             id="checkbox_tbl_{{ curr }}">
     </td>
     <th>
-        <a href="sql.php{{ get_common(table_url_params|merge({'pos': 0})) }}" title="{{ browse_table_label_title }}">
+        <a href="{{ url('/sql', table_url_params|merge({'pos': 0})) }}" title="{{ browse_table_label_title }}">
             {{ browse_table_label_truename }}
         </a>
         {{ tracking_icon|raw }}
@@ -40,7 +40,7 @@
     {% endif %}
 
     <td class="center print_ignore">
-        <a href="sql.php{{ get_common(table_url_params|merge({'pos': 0})) }}">
+        <a href="{{ url('/sql', table_url_params|merge({'pos': 0})) }}">
             {{ browse_table_title|raw }}
         </a>
 
@@ -69,7 +69,7 @@
             </td>
         {% else %}
           <td class="center print_ignore">
-                <a class="truncate_table_anchor ajax" href="sql.php" data-post="{{ get_common(table_url_params|merge({
+                <a class="truncate_table_anchor ajax" href="{{ url('/sql') }}" data-post="{{ get_common(table_url_params|merge({
                   'sql_query': empty_table_sql_query,
                   'message_to_show': empty_table_message_to_show
                 }), '') }}">
@@ -79,7 +79,7 @@
         {% endif %}
         <td class="center print_ignore">
             <a class="ajax drop_table_anchor
-                {{- table_is_view or current_table['ENGINE'] == null ? ' view' }}" href="sql.php" data-post="
+                {{- table_is_view or current_table['ENGINE'] == null ? ' view' }}" href="{{ url('/sql') }}" data-post="
                 {{- get_common(table_url_params|merge({
                   'reload': 1,
                   'purge': 1,

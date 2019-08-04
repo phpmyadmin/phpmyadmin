@@ -624,15 +624,12 @@ class Util
                 if (strlen($table) > 0) {
                     $_url_params['db'] = $db;
                     $_url_params['table'] = $table;
-                    $doedit_goto = '<a href="tbl_sql.php'
-                        . Url::getCommon($_url_params) . '">';
+                    $doedit_goto = '<a href="' . Url::getFromRoute('/table/sql', $_url_params) . '">';
                 } elseif (strlen($db) > 0) {
                     $_url_params['db'] = $db;
-                    $doedit_goto = '<a href="db_sql.php'
-                        . Url::getCommon($_url_params) . '">';
+                    $doedit_goto = '<a href="' . Url::getFromRoute('/database/sql', $_url_params) . '">';
                 } else {
-                    $doedit_goto = '<a href="server_sql.php'
-                        . Url::getCommon($_url_params) . '">';
+                    $doedit_goto = '<a href="' . Url::getFromRoute('/server/sql', $_url_params) . '">';
                 }
 
                 $error_msg .= $doedit_goto
@@ -1068,12 +1065,12 @@ class Util
                 $url_params['db'] = $GLOBALS['db'];
                 if (strlen($GLOBALS['table']) > 0) {
                     $url_params['table'] = $GLOBALS['table'];
-                    $edit_link = 'tbl_sql.php';
+                    $edit_link = Url::getFromRoute('/table/sql');
                 } else {
-                    $edit_link = 'db_sql.php';
+                    $edit_link = Url::getFromRoute('/database/sql');
                 }
             } else {
-                $edit_link = 'server_sql.php';
+                $edit_link = Url::getFromRoute('/server/sql');
             }
 
             // Want to have the query explained
@@ -1178,7 +1175,7 @@ class Util
             $retval .= '</div>';
 
             $retval .= '<div class="tools print_ignore">';
-            $retval .= '<form action="sql.php" method="post">';
+            $retval .= '<form action="' . Url::getFromRoute('/sql') . '" method="post">';
             $retval .= Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
             $retval .= '<input type="hidden" name="sql_query" value="'
                 . htmlspecialchars($sql_query) . '">';
@@ -3191,7 +3188,7 @@ class Util
                 case 'structure':
                     return Url::getFromRoute('/database/structure');
                 case 'sql':
-                    return 'db_sql.php';
+                    return Url::getFromRoute('/database/sql');
                 case 'search':
                     return Url::getFromRoute('/database/search');
                 case 'operations':
@@ -3205,13 +3202,13 @@ class Util
                 case 'structure':
                     return Url::getFromRoute('/table/structure');
                 case 'sql':
-                    return 'tbl_sql.php';
+                    return Url::getFromRoute('/table/sql');
                 case 'search':
                     return Url::getFromRoute('/table/search');
                 case 'insert':
                     return Url::getFromRoute('/table/change');
                 case 'browse':
-                    return 'sql.php';
+                    return Url::getFromRoute('/sql');
             }
         }
 

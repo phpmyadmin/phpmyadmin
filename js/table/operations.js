@@ -62,7 +62,7 @@ AJAX.registerOnload('table/operations.js', function () {
             if (typeof data !== 'undefined' && data.success === true) {
                 CommonParams.set('db', data.params.db);
                 CommonParams.set('table', data.params.table);
-                CommonActions.refreshMain('tbl_sql.php', function () {
+                CommonActions.refreshMain('index.php?route=/table/sql', function () {
                     Functions.ajaxShowMessage(data.message);
                 });
                 // Refresh navigation when the table is copied

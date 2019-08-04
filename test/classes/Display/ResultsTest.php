@@ -142,7 +142,11 @@ class ResultsTest extends PmaTestCase
         );
 
         $this->assertStringContainsString(
-            '<form action="sql.php" method="post">',
+            '<form action="index.php?route=/sql',
+            $actual
+        );
+        $this->assertStringContainsString(
+            '" method="post">',
             $actual
         );
         $this->assertStringContainsString(
@@ -344,12 +348,11 @@ class ResultsTest extends PmaTestCase
     {
         return [
             [
-                'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60'
+                'index.php?route=/sql&amp;db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60'
                 . '.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show='
-                . 'The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3D'
+                . 'The+row+has+been+deleted&amp;goto=index.php%3Froute%3D%2Fsql%26db%3Ddata%26table%3D'
                 . 'new%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message'
-                . '_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_'
-                . 'structure.php',
+                . '_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dindex.php%253Froute%253D%252Ftable%252Fstructure',
                 [
                     'edit_lnk' => 'ur',
                     'del_lnk' => 'dr',
@@ -429,7 +432,7 @@ class ResultsTest extends PmaTestCase
             [
                 'index.php?route=/table/change&db=Data&amp;table=customer&amp;where_clause=%60'
                 . 'customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
-                . 'SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;default_'
+                . 'SELECT+%2A+FROM+%60customer%60&amp;goto=index.php%3Froute%3D%2Fsql&amp;default_'
                 . 'action=update',
                 'klass edit_row_anchor',
                 '<span class="nowrap"><img src="themes/dot.gif" title="Edit" alt='
@@ -440,7 +443,7 @@ class ResultsTest extends PmaTestCase
                 . '<span class="nowrap">'
                 . '<a href="index.php" data-post="route=/table/change&db=Data&amp;table=customer&amp;where_'
                 . 'clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
-                . 'sql_query=SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;'
+                . 'sql_query=SELECT+%2A+FROM+%60customer%60&amp;goto=index.php%3Froute%3D%2Fsql&amp;'
                 . 'default_action=update"'
                 . '><span class="nowrap"><img src="themes/dot.gif" title="Edit" '
                 . 'alt="Edit" class="icon ic_b_edit"> Edit</span></a>'
@@ -501,7 +504,7 @@ class ResultsTest extends PmaTestCase
             [
                 'index.php?route=/table/change&db=Data&amp;table=customer&amp;where_clause=%60cust'
                 . 'omer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
-                . 'SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;default_'
+                . 'SELECT+%2A+FROM+%60customer%60&amp;goto=index.php%3Froute%3D%2Fsql&amp;default_'
                 . 'action=insert',
                 '<span class="nowrap"><img src="themes/dot.gif" title="Copy" alt'
                 . '="Copy" class="icon ic_b_insrow"> Copy</span>',
@@ -512,7 +515,7 @@ class ResultsTest extends PmaTestCase
                 . '"nowrap">'
                 . '<a href="index.php" data-post="route=/table/change&db=Data&amp;table=customer&amp;where_'
                 . 'clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
-                . 'sql_query=SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;'
+                . 'sql_query=SELECT+%2A+FROM+%60customer%60&amp;goto=index.php%3Froute%3D%2Fsql&amp;'
                 . 'default_action=insert"'
                 . '><span class="nowrap"><img src="themes/dot.gif" title="Copy" '
                 . 'alt="Copy" class="icon ic_b_insrow"> Copy</span></a>'
@@ -571,9 +574,9 @@ class ResultsTest extends PmaTestCase
     {
         return [
             [
-                'sql.php?db=Data&amp;table=customer&amp;sql_query=DELETE+FROM+%60'
+                'index.php?route=/sql&amp;db=Data&amp;table=customer&amp;sql_query=DELETE+FROM+%60'
                 . 'Data%60.%60customer%60+WHERE+%60customer%60.%60id%60+%3D+1&amp;'
-                . 'message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb'
+                . 'message_to_show=The+row+has+been+deleted&amp;goto=index.php%3Froute%3D%2Fsql%26db'
                 . '%3DData%26table%3Dcustomer%26sql_query%3DSELECT%2B%252A%2BFROM'
                 . '%2B%2560customer%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen'
                 . '%2Bdeleted%26goto%3Dindex.php%253Froute%253D%252Ftable%252Fstructure',
@@ -582,10 +585,10 @@ class ResultsTest extends PmaTestCase
                 'DELETE FROM `Data`.`customer` WHERE `customer`.`id` = 1',
                 'klass',
                 '<td class="klass center print_ignore">'
-                . '<a href="sql.php" data-post="db=Data&amp;table=customer&amp;sql_query=DELETE'
+                . '<a href="index.php" data-post="route=/sql&amp;db=Data&amp;table=customer&amp;sql_query=DELETE'
                 . '+FROM+%60Data%60.%60customer%60+WHERE+%60customer%60.%60id%60+%3D'
-                . '+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php'
-                . '%3Fdb%3DData%26table%3Dcustomer%26sql_query%3DSELECT%2B%252A%2B'
+                . '+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=index.php%3Froute%3D%2Fsql'
+                . '%26db%3DData%26table%3Dcustomer%26sql_query%3DSELECT%2B%252A%2B'
                 . 'FROM%2B%2560customer%2560%26message_to_show%3DThe%2Brow%2Bhas%2B'
                 . 'been%2Bdeleted%26goto%3Dindex.php%253Froute%253D%252Ftable%252Fstructure" '
                 . 'class="delete_row requireConfirm"><span class="nowrap"><img src="themes/dot.'
@@ -644,9 +647,9 @@ class ResultsTest extends PmaTestCase
         return [
             [
                 DisplayResults::POSITION_LEFT,
-                'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data'
+                'index.php?route=/sql&amp;db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data'
                 . '%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show='
-                . 'The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3D'
+                . 'The+row+has+been+deleted&amp;goto=index.php%3Froute%3D%2Fsql%26db%3Ddata%26table%3D'
                 . 'new%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26'
                 . 'message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3D'
                 . 'index.php%253Froute%253D%252Ftable%252Fstructure',
@@ -667,10 +670,10 @@ class ResultsTest extends PmaTestCase
                 ],
                 'index.php?route=/table/change&db=data&amp;table=new&amp;where_clause=%60new%60.'
                 . '%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+'
-                . 'FROM+%60new%60&amp;goto=sql.php&amp;default_action=update',
+                . 'FROM+%60new%60&amp;goto=index.php%3Froute%3D%2Fsql&amp;default_action=update',
                 'index.php?route=/table/change&db=data&amp;table=new&amp;where_clause=%60new%60.'
                 . '%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+'
-                . 'FROM+%60new%60&amp;goto=sql.php&amp;default_action=insert',
+                . 'FROM+%60new%60&amp;goto=index.php%3Froute%3D%2Fsql&amp;default_action=insert',
                 'edit_row_anchor',
                 '<span class="nowrap"><img src="themes/dot.gif" title="Edit" '
                 . 'alt="Edit" class="icon ic_b_edit"> Edit</span>',
@@ -687,7 +690,7 @@ class ResultsTest extends PmaTestCase
                 . '"nowrap">'
                 . '<a href="index.php" data-post="route=/table/change&db=data&amp;table=new&amp;where_'
                 . 'clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
-                . 'sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default'
+                . 'sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=index.php%3Froute%3D%2Fsql&amp;default'
                 . '_action=update">'
                 . '<span class="nowrap"><img src="themes/dot.gif" title="Edit" '
                 . 'alt="Edit" class="icon ic_b_edit"> Edit</span></a>'
@@ -696,15 +699,15 @@ class ResultsTest extends PmaTestCase
                 . '="nowrap">'
                 . '<a href="index.php" data-post="route=/table/change&db=data&amp;table=new&amp;where_clause'
                 . '=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
-                . 'SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action='
+                . 'SELECT+%2A+FROM+%60new%60&amp;goto=index.php%3Froute%3D%2Fsql&amp;default_action='
                 . 'insert"><span class'
                 . '="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" '
                 . 'class="icon ic_b_insrow"> Copy</span></a>'
                 . '<input type="hidden" class="where_clause" value="%60new%60.%60id'
                 . '%60+%3D+1"></span></td><td class="center print_ignore">'
-                . '<a href="sql.php" data-post="db=data&amp;table=new&amp;sql_query=DELETE+'
+                . '<a href="index.php" data-post="route=/sql&amp;db=data&amp;table=new&amp;sql_query=DELETE+'
                 . 'FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;'
-                . 'message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3F'
+                . 'message_to_show=The+row+has+been+deleted&amp;goto=index.php%3Froute%3D%2Fsql%26'
                 . 'db%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B'
                 . '%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2B'
                 . 'deleted%26goto%3Dindex.php%253Froute%253D%252Ftable%252Fstructure" '
@@ -716,9 +719,9 @@ class ResultsTest extends PmaTestCase
             ],
             [
                 DisplayResults::POSITION_RIGHT,
-                'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60'
+                'index.php?route=/sql&amp;db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60'
                 . '.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show='
-                . 'The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3D'
+                . 'The+row+has+been+deleted&amp;goto=index.php%3Froute%3D%2Fsql%26db%3Ddata%26table%3D'
                 . 'new%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message'
                 . '_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3D'
                 . 'index.php%253Froute%253D%252Ftable%252Fstructure',
@@ -739,10 +742,10 @@ class ResultsTest extends PmaTestCase
                 ],
                 'index.php?route=/table/change&amp;db=data&amp;table=new&amp;where_clause=%60new%60.'
                 . '%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+'
-                . 'FROM+%60new%60&amp;goto=sql.php&amp;default_action=update',
+                . 'FROM+%60new%60&amp;goto=index.php%3Froute%3D%2Fsql&amp;default_action=update',
                 'index.php?route=/table/change&amp;db=data&amp;table=new&amp;where_clause=%60new%60.'
                 . '%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+'
-                . 'FROM+%60new%60&amp;goto=sql.php&amp;default_action=insert',
+                . 'FROM+%60new%60&amp;goto=index.php%3Froute%3D%2Fsql&amp;default_action=insert',
                 'edit_row_anchor',
                 '<span class="nowrap"><img src="themes/dot.gif" title="Edit" '
                 . 'alt="Edit" class="icon ic_b_edit"> Edit</span>',
@@ -752,9 +755,9 @@ class ResultsTest extends PmaTestCase
                 . 'alt="Delete" class="icon ic_b_drop"> Delete</span>',
                 'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
                 '<td class="center print_ignore">'
-                . '<a href="sql.php" data-post="db=data&amp;table=new&amp;sql_query=DELETE+'
+                . '<a href="index.php" data-post="route=/sql&amp;db=data&amp;table=new&amp;sql_query=DELETE+'
                 . 'FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;'
-                . 'message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb'
+                . 'message_to_show=The+row+has+been+deleted&amp;goto=index.php%3Froute%3D%2Fsql%26db'
                 . '%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B%25'
                 . '60new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted'
                 . '%26goto%3Dindex.php%253Froute%253D%252Ftable%252Fstructure" class="delete'
@@ -764,7 +767,7 @@ class ResultsTest extends PmaTestCase
                 . '`id` = 1</div></td><td class="center print_ignore"><span class="nowrap">'
                 . '<a href="index.php" data-post="route=/table/change&amp;db=data&amp;table=new&amp;where_'
                 . 'clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_'
-                . 'query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_'
+                . 'query=SELECT+%2A+FROM+%60new%60&amp;goto=index.php%3Froute%3D%2Fsql&amp;default_'
                 . 'action=insert"><span '
                 . 'class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" '
                 . 'class="icon ic_b_insrow"> Copy</span></a>'
@@ -773,7 +776,7 @@ class ResultsTest extends PmaTestCase
                 . '<span class="nowrap">'
                 . '<a href="index.php" data-post="route=/table/change&amp;db=data&amp;table=new&amp;where_clause'
                 . '=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
-                . 'SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action='
+                . 'SELECT+%2A+FROM+%60new%60&amp;goto=index.php%3Froute%3D%2Fsql&amp;default_action='
                 . 'update"><span class='
                 . '"nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class'
                 . '="icon ic_b_edit"> Edit</span></a>'
@@ -786,12 +789,11 @@ class ResultsTest extends PmaTestCase
             ],
             [
                 DisplayResults::POSITION_NONE,
-                'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.'
+                'index.php?route=/sql&amp;db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.'
                 . '%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+'
-                . 'row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew'
+                . 'row+has+been+deleted&amp;goto=index.php%3Froute%3D%2Fsql%26db%3Ddata%26table%3Dnew'
                 . '%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message_'
-                . 'to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure'
-                . '.php',
+                . 'to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dindex.php%253Froute%253D%252Ftable%252Fstructure',
                 [
                     'edit_lnk' => 'ur',
                     'del_lnk' => 'dr',
@@ -809,10 +811,10 @@ class ResultsTest extends PmaTestCase
                 ],
                 'index.php?route=/table/change&db=data&amp;table=new&amp;where_clause=%60new%60.%60'
                 . 'id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+'
-                . '%60new%60&amp;goto=sql.php&amp;default_action=update',
+                . '%60new%60&amp;goto=index.php%3Froute%3D%2Fsql&amp;default_action=update',
                 'index.php?route=/table/change&db=data&amp;table=new&amp;where_clause=%60new%60.%60'
                 . 'id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+'
-                . '%60new%60&amp;goto=sql.php&amp;default_action=insert',
+                . '%60new%60&amp;goto=index.php%3Froute%3D%2Fsql&amp;default_action=insert',
                 'edit_row_anchor',
                 '<span class="nowrap"><img src="themes/dot.gif" title="Edit" '
                 . 'alt="Edit" class="icon ic_b_edit"> Edit</span>',
@@ -905,9 +907,9 @@ class ResultsTest extends PmaTestCase
         return [
             [
                 DisplayResults::POSITION_NONE,
-                'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.'
+                'index.php?route=/sql&amp;db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.'
                 . '%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+'
-                . 'row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew'
+                . 'row+has+been+deleted&amp;goto=index.php%3Froute%3D%2Fsql%26db%3Ddata%26table%3Dnew'
                 . '%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message_'
                 . 'to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure'
                 . '.php',
@@ -928,10 +930,10 @@ class ResultsTest extends PmaTestCase
                 ],
                 'index.php?route=/table/change&db=data&amp;table=new&amp;where_clause=%60new%60.%60'
                 . 'id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+'
-                . '%60new%60&amp;goto=sql.php&amp;default_action=update',
+                . '%60new%60&amp;goto=index.php%3Froute%3D%2Fsql&amp;default_action=update',
                 '/index.php?route=/table/change&db=data&amp;table=new&amp;where_clause=%60new%60.%60'
                 . 'id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+'
-                . '%60new%60&amp;goto=sql.php&amp;default_action=insert',
+                . '%60new%60&amp;goto=index.php%3Froute%3D%2Fsql&amp;default_action=insert',
                 'edit_row_anchor',
                 '<span class="nowrap"><img src="themes/dot.gif" title="Edit" '
                 . 'alt="Edit" class="icon ic_b_edit"> Edit</span>',

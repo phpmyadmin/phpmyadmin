@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Rte;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
@@ -107,7 +108,7 @@ class Footer
      */
     public function events()
     {
-        global $db, $url_query;
+        global $db, $table, $url_query;
 
         /**
          * For events, we show the usual 'Add event' form and also
@@ -144,7 +145,11 @@ class Footer
         $retval .= "        <div class='wrap'>\n";
         // show the toggle button
         $retval .= Util::toggleButton(
-            "sql.php$url_query&amp;goto=db_events.php" . urlencode("?db=$db"),
+            Url::getFromRoute('/sql', [
+                'db' => $db,
+                'table' => $table,
+                'goto' => 'db_events.php?db=' . $db,
+            ]),
             'sql_query',
             $options,
             'Functions.slidingMessage(data.sql_query);'

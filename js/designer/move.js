@@ -564,7 +564,7 @@ DesignerMove.addOtherDbTables = function () {
     var $selectTable = $('<select id="add_table"></select>');
     $selectTable.append('<option value="">None</option>');
 
-    $.post('sql.php', {
+    $.post('index.php?route=/sql', {
         'ajax_request' : true,
         'sql_query' : 'SHOW databases;',
         'server': CommonParams.get('server')
@@ -594,7 +594,7 @@ DesignerMove.addOtherDbTables = function () {
         if ($(this).val()) {
             var dbName = $(this).val();
             var sqlQuery = 'SHOW tables;';
-            $.post('sql.php', {
+            $.post('index.php?route=/sql', {
                 'ajax_request' : true,
                 'sql_query': sqlQuery,
                 'db' : dbName,

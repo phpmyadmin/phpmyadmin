@@ -295,7 +295,7 @@ if ($import_type == 'table') {
     } elseif (strlen($db) > 0) {
         $goto = Url::getFromRoute('/database/structure');
     } else {
-        $goto = 'server_sql.php';
+        $goto = Url::getFromRoute('/server/sql');
     }
 }
 $err_url = $goto . Url::getCommon($urlparams);

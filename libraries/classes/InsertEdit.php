@@ -294,7 +294,7 @@ class InsertEdit
                 break;
         }
 
-        $params['goto'] = 'sql.php';
+        $params['goto'] = Url::getFromRoute('/sql');
         $this_url_params = array_merge($url_params, $params);
 
         if (! $is_show) {
@@ -2484,8 +2484,7 @@ class InsertEdit
                 . ' WHERE ' . Util::backquote($foreigner['foreign_field'])
                 . $where_comparison,
         ];
-        $output = '<a href="sql.php'
-            . Url::getCommon($_url_params) . '"' . $title . '>';
+        $output = '<a href="' . Url::getFromRoute('/sql', $_url_params) . '"' . $title . '>';
 
         if ('D' == $_SESSION['tmpval']['relational_display']) {
             // user chose "relational display field" in the

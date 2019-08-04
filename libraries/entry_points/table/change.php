@@ -60,15 +60,17 @@ if (! empty($unsaved_values) && count($rows) < count($unsaved_values)) {
 if (empty($GLOBALS['goto'])) {
     if (strlen($table) > 0) {
         // avoid a problem (see bug #2202709)
-        $GLOBALS['goto'] = 'tbl_sql.php';
+        $GLOBALS['goto'] = Url::getFromRoute('/table/sql');
     } else {
-        $GLOBALS['goto'] = 'db_sql.php';
+        $GLOBALS['goto'] = Url::getFromRoute('/database/sql');
     }
 }
 
-
 $_url_params = $insertEdit->getUrlParameters($db, $table);
-$err_url = $GLOBALS['goto'] . Url::getCommon($_url_params);
+$err_url = $GLOBALS['goto'] . Url::getCommon(
+    $_url_params,
+    mb_strpos($GLOBALS['goto'], '?') === false ? '?' : '&'
+);
 unset($_url_params);
 
 $comments_map = $insertEdit->getCommentsMap($db, $table);

@@ -61,7 +61,7 @@ if (empty($is_table)
     && ! defined('PMA_SUBMIT_MULT')
     && ! defined('TABLE_MAY_BE_ABSENT')
 ) {
-    // Not a valid table name -> back to the db_sql.php
+    // Not a valid table name -> back to the /database/sql
 
     if (strlen($table) > 0) {
         $is_table = $GLOBALS['dbi']->getCachedTableContent([$db, $table], false);

@@ -365,7 +365,7 @@ class InsertEditTest extends TestCase
             $result
         );
         $this->assertStringContainsString(
-            'ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=1&amp;goto=sql.php',
+            'ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=1&amp;goto=index.php%3Froute%3D%2Fsql',
             $result
         );
         $this->assertStringContainsString(
@@ -381,7 +381,7 @@ class InsertEditTest extends TestCase
             $result
         );
         $this->assertStringContainsString(
-            'ShowFunctionFields=0&amp;ShowFieldTypesInDataEditView=1&amp;goto=sql.php',
+            'ShowFunctionFields=0&amp;ShowFieldTypesInDataEditView=1&amp;goto=index.php%3Froute%3D%2Fsql',
             $result
         );
         $this->assertStringContainsString(
@@ -397,7 +397,7 @@ class InsertEditTest extends TestCase
             $result
         );
         $this->assertStringContainsString(
-            'ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=1&amp;goto=sql.php',
+            'ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=1&amp;goto=index.php%3Froute%3D%2Fsql',
             $result
         );
         $this->assertStringContainsString(
@@ -413,7 +413,7 @@ class InsertEditTest extends TestCase
             $result
         );
         $this->assertStringContainsString(
-            'ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=0&amp;goto=sql.php',
+            'ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=0&amp;goto=index.php%3Froute%3D%2Fsql',
             $result
         );
         $this->assertStringContainsString(
@@ -2954,7 +2954,7 @@ class InsertEditTest extends TestCase
         $result = $this->insertEdit->getLinkForRelationalDisplayField($map, 'f', "=1", "a>", "b<");
 
         $this->assertEquals(
-            '<a href="sql.php?db=information_schema&amp;table=TABLES&amp;pos=0&amp;'
+            '<a href="index.php?route=/sql&amp;db=information_schema&amp;table=TABLES&amp;pos=0&amp;'
             . 'sql_query=SELECT+%2A+FROM+%60information_schema%60.%60TABLES%60+WHERE'
             . '+%60f%60%3D1&amp;lang=en" title="a&gt;">b&lt;</a>',
             $result
@@ -2964,7 +2964,7 @@ class InsertEditTest extends TestCase
         $result = $this->insertEdit->getLinkForRelationalDisplayField($map, 'f', "=1", "a>", "b<");
 
         $this->assertEquals(
-            '<a href="sql.php?db=information_schema&amp;table=TABLES&amp;pos=0&amp;'
+            '<a href="index.php?route=/sql&amp;db=information_schema&amp;table=TABLES&amp;pos=0&amp;'
             . 'sql_query=SELECT+%2A+FROM+%60information_schema%60.%60TABLES%60+WHERE'
             . '+%60f%60%3D1&amp;lang=en" title="b&lt;">a&gt;</a>',
             $result

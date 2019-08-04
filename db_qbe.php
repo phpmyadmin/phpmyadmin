@@ -100,7 +100,7 @@ if (isset($_POST['submit_sql']) && ! empty($sql_query)) {
     if (0 !== stripos($sql_query, "SELECT")) {
         $message_to_display = true;
     } else {
-        $goto = 'db_sql.php';
+        $goto = Url::getFromRoute('/database/sql');
         $sql = new Sql();
         $sql->executeQueryAndSendQueryResponse(
             null, // analyzed_sql_results

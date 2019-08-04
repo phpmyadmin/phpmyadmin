@@ -24,7 +24,6 @@ class CoreTest extends PmaTestCase
 {
     protected $goto_whitelist = [
         'db_datadict.php',
-        'db_sql.php',
         'db_export.php',
         'export.php',
         'import.php',
@@ -32,7 +31,6 @@ class CoreTest extends PmaTestCase
         'pdf_pages.php',
         'pdf_schema.php',
         'server_binlog.php',
-        'sql.php',
         'transformation_overview.php',
         'transformation_wrapper.php',
         'user_password.php',

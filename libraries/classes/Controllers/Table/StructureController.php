@@ -323,8 +323,8 @@ class StructureController extends AbstractController
         if (isset($_POST['add_key'])
             || isset($_POST['partition_maintenance'])
         ) {
-            //todo: set some variables for sql.php include, to be eliminated
-            //after refactoring sql.php
+            //todo: set some variables for /sql include, to be eliminated
+            //after refactoring /sql
             $db = $this->db;
             $table = $this->table;
             $sql_query = $GLOBALS['sql_query'];
@@ -835,7 +835,7 @@ class StructureController extends AbstractController
      */
     protected function displayTableBrowseForSelectedColumns($goto, $pmaThemeImage)
     {
-        $GLOBALS['active_page'] = 'sql.php';
+        $GLOBALS['active_page'] = Url::getFromRoute('/sql');
         $fields = [];
         foreach ($_POST['selected_fld'] as $sval) {
             $fields[] = Util::backquote($sval);

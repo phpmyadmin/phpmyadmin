@@ -190,9 +190,16 @@ class OperationsTest extends TestCase
             [],
             'doclink',
         ]);
-
-        $this->assertRegExp(
-            '/.*href="sql.php.*post.*/',
+        $this->assertStringContainsString(
+            'href="index.php?route=/sql&amp;name=foo&amp;value=bar',
+            $result
+        );
+        $this->assertStringContainsString(
+            'post',
+            $result
+        );
+        $this->assertStringContainsString(
+            'Documentation',
             $result
         );
     }
@@ -262,22 +269,26 @@ class OperationsTest extends TestCase
      */
     public function testGetHtmlForReferentialIntegrityCheck()
     {
-
-        $this->assertRegExp(
-            '/.*Check referential integrity.*href="sql.php(.|[\n])*/m',
-            $this->operations->getHtmlForReferentialIntegrityCheck(
+        $actual = $this->operations->getHtmlForReferentialIntegrityCheck(
+            [
                 [
-                    [
-                        'foreign_db'    => 'db1',
-                        'foreign_table' => "foreign1",
-                        'foreign_field' => "foreign2",
-                    ],
+                    'foreign_db' => 'db1',
+                    'foreign_table' => "foreign1",
+                    'foreign_field' => "foreign2",
                 ],
-                [
-                    "param1" => 'a',
-                    "param2" => 'b',
-                ]
-            )
+            ],
+            [
+                "param1" => 'a',
+                "param2" => 'b',
+            ]
+        );
+        $this->assertStringContainsString(
+            'Check referential integrity',
+            $actual
+        );
+        $this->assertStringContainsString(
+            'href="index.php?route=/sql',
+            $actual
         );
     }
 }

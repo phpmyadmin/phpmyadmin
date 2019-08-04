@@ -37,9 +37,6 @@ class Sanitize
             './doc/html/',
             // possible return values from Util::getScriptNameForOption
             './index.php?',
-            './db_sql.php?',
-            './tbl_sql.php?',
-            './sql.php?',
             // Hardcoded options in \PhpMyAdmin\Config\SpecialSchemaLinks
             './db_events.php?',
             './db_routines.php?',

@@ -107,7 +107,7 @@
                     </a>
                 </td>
                 <td class="drop center print_ignore">
-                    <a class="drop_column_anchor ajax" href="sql.php" data-post="{{ url_query }}&amp;sql_query=
+                    <a class="drop_column_anchor ajax" href="{{ url('/sql') }}" data-post="{{ url_query }}&amp;sql_query=
                         {{- ('ALTER TABLE ' ~ backquote(table)
                             ~ ' DROP ' ~ backquote(row['Field']) ~ ';')|url_encode -}}
                         &amp;dropped_column={{ row['Field']|url_encode }}&amp;purge=1&amp;message_to_show=
@@ -232,7 +232,7 @@
 
                         {# Distinct value action #}
                         <li class="browse nowrap">
-                            <a href="sql.php" data-post="{{ url_query|raw }}&amp;sql_query=
+                            <a href="{{ url('/sql') }}" data-post="{{ url_query|raw }}&amp;sql_query=
                                 {{- ('SELECT COUNT(*) AS ' ~ backquote('Rows'|trans)
                                     ~ ', ' ~ backquote(row['Field'])
                                     ~ ' FROM ' ~ backquote(table)
@@ -384,7 +384,7 @@
     {% if not tbl_is_view and not db_is_system_schema %}
         {# Only display propose table structure for MySQL < 8.0 #}
         {% if mysql_int_version < 80000 or is_mariadb %}
-          <a href="sql.php" data-post="{{ url_query|raw }}&amp;session_max_rows=all&amp;sql_query=
+          <a href="{{ url('/sql') }}" data-post="{{ url_query|raw }}&amp;session_max_rows=all&amp;sql_query=
               {{- ('SELECT * FROM ' ~ backquote(table) ~ ' PROCEDURE ANALYSE()')|url_encode -}}
               " style="margin-right: 0;">
               {{ get_icon(
@@ -483,7 +483,7 @@
         } only %}
 
         {% set remove_sql = 'ALTER TABLE ' ~ backquote(table) ~ ' REMOVE PARTITIONING' %}
-        {% set remove_url = 'sql.php' ~ url_query ~ '&sql_query=' ~ remove_sql|url_encode %}
+        {% set remove_url = url('/sql') ~ url_query ~ '&sql_query=' ~ remove_sql|url_encode %}
 
         {% include 'table/structure/display_partitions.twig' with {
             'db': db,

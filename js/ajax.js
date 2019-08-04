@@ -543,9 +543,9 @@ var AJAX = {
                     var source = data.selflink.split('?')[0];
                     // Check for faulty links
                     var $selflinkReplace = {
-                        'import.php': 'tbl_sql.php',
-                        'tbl_chart.php': 'sql.php',
-                        'tbl_gis_visualization.php': 'sql.php'
+                        'import.php': 'index.php?route=/table/sql',
+                        'tbl_chart.php': 'index.php?route=/sql',
+                        'tbl_gis_visualization.php': 'index.php?route=/sql'
                     };
                     if ($selflinkReplace[source]) {
                         var replacement = $selflinkReplace[source];

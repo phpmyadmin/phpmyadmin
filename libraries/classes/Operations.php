@@ -1593,7 +1593,7 @@ class Operations
     {
         return '<li>'
             . Util::linkOrButton(
-                'sql.php' . Url::getCommon(array_merge($url_params, $params)),
+                Url::getFromRoute('/sql', array_merge($url_params, $params)),
                 $action_message,
                 ['class' => 'maintain_action ajax']
             )
@@ -1653,7 +1653,7 @@ class Operations
     public function getDeleteDataOrTablelink(array $url_params, $syntax, $link, $htmlId)
     {
         return '<li>' . Util::linkOrButton(
-            'sql.php' . Url::getCommon($url_params),
+            Url::getFromRoute('/sql', $url_params),
             $link,
             [
                 'id' => $htmlId,
@@ -1742,8 +1742,7 @@ class Operations
         );
         $html_output .= '<div class="clearfloat"><br>';
 
-        $html_output .= '<a href="sql.php'
-            . Url::getCommon($this_url_params) . '">'
+        $html_output .= '<a href="' . Url::getFromRoute('/sql', $this_url_params) . '">'
             . __('Remove partitioning') . '</a>';
 
         $html_output .= '</fieldset>'
@@ -1811,9 +1810,7 @@ class Operations
             );
 
             $html_output .= '<li>'
-                . '<a href="sql.php'
-                . Url::getCommon($this_url_params)
-                . '">'
+                . '<a href="' . Url::getFromRoute('/sql', $this_url_params) . '">'
                 . $master . '&nbsp;->&nbsp;' . $arr['foreign_db'] . '.'
                 . $arr['foreign_table'] . '.' . $arr['foreign_field']
                 . '</a></li>' . "\n";

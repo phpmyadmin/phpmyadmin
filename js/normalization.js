@@ -553,7 +553,7 @@ AJAX.registerOnload('normalization.js', function () {
         $.post('tbl_addfield.php', datastring, function (data) {
             if (data.success) {
                 $.post(
-                    'sql.php',
+                    'index.php?route=/sql',
                     {
                         'ajax_request': true,
                         'db': CommonParams.get('db'),
@@ -640,7 +640,7 @@ AJAX.registerOnload('normalization.js', function () {
         });
         dropQuery = dropQuery.slice(0, -2);
         $.post(
-            'sql.php',
+            'index.php?route=/sql',
             {
                 'ajax_request': true,
                 'db': CommonParams.get('db'),

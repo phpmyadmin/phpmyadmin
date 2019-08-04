@@ -132,7 +132,7 @@ class IndexesController extends AbstractController
     /**
      * Process the data from the edit/create index form,
      * run the query to build the new index
-     * and moves back to "tbl_sql.php"
+     * and moves back to /table/sql
      *
      * @return void
      */

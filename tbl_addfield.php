@@ -53,12 +53,10 @@ $cfg = $config->settings;
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-$err_url = 'tbl_sql.php' . Url::getCommon(
-    [
-        'db' => $db,
-        'table' => $table,
-    ]
-);
+$err_url = Url::getFromRoute('/table/sql', [
+    'db' => $db,
+    'table' => $table,
+]);
 
 /**
  * The form used to define the field to add has been submitted

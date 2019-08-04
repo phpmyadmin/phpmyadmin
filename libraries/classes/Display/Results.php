@@ -418,8 +418,6 @@ class Results
      * @param boolean  $is_browse_dist whether browsing distinct values
      *
      * @return void
-     *
-     * @see     sql.php
      */
     public function setProperties(
         $unlim_num_rows,
@@ -1607,7 +1605,7 @@ class Results
 
         $tmp_image = '<img class="fulltext" src="' . $tmp_image_file . '" alt="'
                      . $tmp_txt . '" title="' . $tmp_txt . '">';
-        $tmp_url = 'sql.php' . Url::getCommon($url_params_full_text);
+        $tmp_url = Url::getFromRoute('/sql', $url_params_full_text);
 
         return Util::linkOrButton($tmp_url, $tmp_image);
     }
@@ -1725,8 +1723,8 @@ class Results
             'session_max_rows'   => $session_max_rows,
             'is_browse_distinct' => $this->__get('is_browse_distinct'),
         ];
-        $single_order_url  = 'sql.php' . Url::getCommon($_single_url_params);
-        $multi_order_url = 'sql.php' . Url::getCommon($_multi_url_params);
+        $single_order_url = Url::getFromRoute('/sql', $_single_url_params);
+        $multi_order_url = Url::getFromRoute('/sql', $_multi_url_params);
 
         // Displays the sorting URL
         // enable sort order swapping for image
@@ -3235,7 +3233,7 @@ class Results
             'where_clause'     => $where_clause,
             'clause_is_unique' => $clause_is_unique,
             'sql_query'        => $url_sql_query,
-            'goto'             => 'sql.php',
+            'goto'             => Url::getFromRoute('/sql'),
         ];
 
         $edit_url = Url::getFromRoute(
@@ -3304,10 +3302,10 @@ class Results
                 'table'     => $this->__get('table'),
                 'sql_query' => $url_sql_query,
                 'message_to_show' => __('The row has been deleted.'),
-                'goto'      => empty($goto) ? 'tbl_sql.php' : $goto,
+                'goto'      => empty($goto) ? Url::getFromRoute('/table/sql') : $goto,
             ];
 
-            $lnk_goto = 'sql.php' . Url::getCommonRaw($_url_params);
+            $lnk_goto = Url::getFromRoute('/sql', $_url_params);
 
             $del_query = 'DELETE FROM '
                 . Util::backquote($this->__get('table'))
@@ -3321,7 +3319,7 @@ class Results
                 'message_to_show' => __('The row has been deleted.'),
                 'goto'      => $lnk_goto,
             ];
-            $del_url  = 'sql.php' . Url::getCommon($_url_params);
+            $del_url  = Url::getFromRoute('/sql', $_url_params);
 
             $js_conf  = 'DELETE FROM ' . Sanitize::jsFormat($this->__get('table'))
                 . ' WHERE ' . Sanitize::jsFormat($where_clause, false)
@@ -3336,7 +3334,7 @@ class Results
                 'goto'      => 'index.php',
             ];
 
-            $lnk_goto = 'sql.php' . Url::getCommonRaw($_url_params);
+            $lnk_goto = Url::getFromRoute('/sql', $_url_params);
 
             $kill = $GLOBALS['dbi']->getKillQuery($row[0]);
 
@@ -3346,8 +3344,8 @@ class Results
                 'goto'      => $lnk_goto,
             ];
 
-            $del_url  = 'sql.php' . Url::getCommon($_url_params);
-            $js_conf  = $kill;
+            $del_url = Url::getFromRoute('/sql', $_url_params);
+            $js_conf = $kill;
             $del_str = Util::getIcon(
                 'b_drop',
                 __('Kill')
@@ -3937,8 +3935,6 @@ class Results
      * @return void
      *
      * @access  public
-     *
-     * @see     sql.php file
      */
     public function setConfigParamsForDisplayTable()
     {
@@ -4097,8 +4093,6 @@ class Results
      * @return  string   Generated HTML content for resulted table
      *
      * @access  public
-     *
-     * @see     sql.php file
      */
     public function getTable(
         &$dt_result,
@@ -5338,7 +5332,7 @@ class Results
                     $tag_params['class'] = 'ajax';
                 }
                 $result .= Util::linkOrButton(
-                    'sql.php' . Url::getCommon($_url_params),
+                    Url::getFromRoute('/sql', $_url_params),
                     $message,
                     $tag_params
                 );

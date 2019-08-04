@@ -3,9 +3,9 @@
 /**
  * functions for displaying the sql query form
  *
- * @usedby  server_sql.php
- * @usedby  db_sql.php
- * @usedby  tbl_sql.php
+ * @usedby  /server/sql
+ * @usedby  /database/sql
+ * @usedby  /table/sql
  * @usedby  /table/structure
  * @usedby  /table/tracking
  * @package PhpMyAdmin
@@ -33,9 +33,9 @@ class SqlQueryForm
      *
      * @return string
      *
-     * @usedby  server_sql.php
-     * @usedby  db_sql.php
-     * @usedby  tbl_sql.php
+     * @usedby  /server/sql
+     * @usedby  /database/sql
+     * @usedby  /table/sql
      * @usedby  /table/structure
      * @usedby  /table/tracking
      */
@@ -60,22 +60,19 @@ class SqlQueryForm
             $enctype = '';
         }
 
-        $table  = '';
-        $db     = '';
+        $table = '';
+        $db = '';
         if (strlen($GLOBALS['db']) === 0) {
             // prepare for server related
-            $goto   = empty($GLOBALS['goto']) ?
-                        'server_sql.php' : $GLOBALS['goto'];
+            $goto = empty($GLOBALS['goto']) ? Url::getFromRoute('/server/sql') : $GLOBALS['goto'];
         } elseif (strlen($GLOBALS['table']) === 0) {
             // prepare for db related
-            $db     = $GLOBALS['db'];
-            $goto   = empty($GLOBALS['goto']) ?
-                        'db_sql.php' : $GLOBALS['goto'];
+            $db = $GLOBALS['db'];
+            $goto = empty($GLOBALS['goto']) ? Url::getFromRoute('/database/sql') : $GLOBALS['goto'];
         } else {
-            $table  = $GLOBALS['table'];
-            $db     = $GLOBALS['db'];
-            $goto   = empty($GLOBALS['goto']) ?
-                        'tbl_sql.php' : $GLOBALS['goto'];
+            $table = $GLOBALS['table'];
+            $db = $GLOBALS['db'];
+            $goto = empty($GLOBALS['goto']) ? Url::getFromRoute('/table/sql') : $GLOBALS['goto'];
         }
 
         // start output

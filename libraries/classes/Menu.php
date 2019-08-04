@@ -341,7 +341,7 @@ class Menu
 
         $tabs['browse']['icon'] = 'b_browse';
         $tabs['browse']['text'] = __('Browse');
-        $tabs['browse']['link'] = 'sql.php';
+        $tabs['browse']['link'] = Url::getFromRoute('/sql');
         $tabs['browse']['args']['pos'] = 0;
 
         $tabs['structure']['icon'] = 'b_props';
@@ -351,7 +351,7 @@ class Menu
             (isset($_REQUEST['route']) && in_array($_REQUEST['route'], ['/table/structure']));
 
         $tabs['sql']['icon'] = 'b_sql';
-        $tabs['sql']['link'] = 'tbl_sql.php';
+        $tabs['sql']['link'] = Url::getFromRoute('/table/sql');
         $tabs['sql']['text'] = __('SQL');
 
         $tabs['search']['icon'] = 'b_search';
@@ -458,7 +458,7 @@ class Menu
         $tabs['structure']['icon'] = 'b_props';
         $tabs['structure']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/database/structure';
 
-        $tabs['sql']['link'] = 'db_sql.php';
+        $tabs['sql']['link'] = Url::getFromRoute('/database/sql');
         $tabs['sql']['text'] = __('SQL');
         $tabs['sql']['icon'] = 'b_sql';
 
@@ -579,7 +579,7 @@ class Menu
         $tabs['databases']['text'] = __('Databases');
 
         $tabs['sql']['icon'] = 'b_sql';
-        $tabs['sql']['link'] = 'server_sql.php';
+        $tabs['sql']['link'] = Url::getFromRoute('/server/sql');
         $tabs['sql']['text'] = __('SQL');
 
         $tabs['status']['icon'] = 's_status';

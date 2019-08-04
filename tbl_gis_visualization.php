@@ -8,6 +8,7 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Table\GisVisualizationController;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Core;
 use Symfony\Component\DependencyInjection\Definition;
@@ -38,7 +39,7 @@ $dependency_definitions = [
         $GLOBALS['cfg']['DefaultTabDatabase'],
         'database'
     ),
-    'back' => 'sql.php',
+    'back' => Url::getFromRoute('/sql'),
     'visualizationSettings' => [],
 ];
 

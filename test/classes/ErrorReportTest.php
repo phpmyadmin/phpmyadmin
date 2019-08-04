@@ -182,7 +182,7 @@ class ErrorReportTest extends TestCase
                     'context' => $context,
                 ],
             ],
-            'url' => 'http://pma.7.3.local/tbl_sql.php?db=aaaaa&table=a&server=14',
+            'url' => 'http://pma.7.3.local/index.php?route=/table/sql&db=aaaaa&table=a&server=14',
         ];
         $_POST['microhistory'] = '';
         $_POST['description'] = 'description';
@@ -197,7 +197,7 @@ class ErrorReportTest extends TestCase
             'locale' => $_COOKIE['pma_lang'],
             'configuration_storage' => 'disabled',
             'php_version' => phpversion(),
-            'script_name' => 'tbl_sql.php',
+            'script_name' => 'index.php',
             'exception_type' => 'js',
             'exception' => [
                 'mode' => 'stack',
@@ -213,7 +213,7 @@ class ErrorReportTest extends TestCase
                         'scriptname' => 'js/vendor/codemirror/addon/hint/show-hint.js',
                     ],
                 ],
-                'uri' => 'tbl_sql.php?',
+                'uri' => 'index.php?route=%2Ftable%2Fsql',
             ],
             'microhistory' => $_POST['microhistory'],
             'steps' => $_POST['description'],

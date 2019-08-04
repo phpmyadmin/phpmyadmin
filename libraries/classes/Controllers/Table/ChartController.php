@@ -16,6 +16,7 @@ use PhpMyAdmin\SqlParser\Components\Limit;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
@@ -125,7 +126,7 @@ class ChartController extends AbstractController
                 $this->cfg['DefaultTabTable'],
                 'table'
             );
-            $url_params['back'] = 'tbl_sql.php';
+            $url_params['back'] = Url::getFromRoute('/table/sql');
             include ROOT_PATH . 'libraries/tbl_common.inc.php';
             $this->dbi->selectDb($GLOBALS['db']);
         } elseif (strlen($this->db) > 0) {
@@ -133,14 +134,14 @@ class ChartController extends AbstractController
                 $this->cfg['DefaultTabDatabase'],
                 'database'
             );
-            $url_params['back'] = 'sql.php';
+            $url_params['back'] = Url::getFromRoute('/sql');
             include ROOT_PATH . 'libraries/db_common.inc.php';
         } else {
             $url_params['goto'] = Util::getScriptNameForOption(
                 $this->cfg['DefaultTabServer'],
                 'server'
             );
-            $url_params['back'] = 'sql.php';
+            $url_params['back'] = Url::getFromRoute('/sql');
             include ROOT_PATH . 'libraries/server_common.inc.php';
         }
 

@@ -375,8 +375,7 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
             sqlQuery = sqlQuery.substring(0, sqlQuery.length - 2);
             sqlQuery += ' WHERE ' + Sql.urlDecode(searchedData[searchedDataKey].where_clause);
 
-            // Post SQL query to sql.php
-            $.post('sql.php', {
+            $.post('index.php?route=/sql', {
                 'server' : CommonParams.get('server'),
                 'db' : CommonParams.get('db'),
                 'ajax_request' : true,
