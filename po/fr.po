@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-07-30 05:50-0300\n"
-"PO-Revision-Date: 2019-08-01 20:10+0000\n"
-"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
+"PO-Revision-Date: 2019-08-05 13:22+0000\n"
+"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -232,14 +232,13 @@ msgid "Back"
 msgstr "Retour"
 
 #: index.php:91
-#, fuzzy, php-format
-#| msgid "Source database `%s` was not found!"
+#, php-format
 msgid "Error 404! The page %s was not found."
-msgstr "La base de données source « %s » n'existe pas !"
+msgstr "Erreur 404 ! La page %s n'a pas été trouvée."
 
 #: index.php:96
 msgid "Error 405! Request method not allowed."
-msgstr ""
+msgstr "Erreur 405 ! Méthode de requête non autorisée."
 
 #: js/messages.php:46
 msgid "Confirm"
@@ -3188,7 +3187,7 @@ msgstr "binaire"
 #: libraries/classes/Charsets/Collation.php:534
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr "pas de pad"
+msgstr "no-pad"
 
 #: libraries/classes/Config.php:1144
 #, php-format
@@ -14942,11 +14941,9 @@ msgid "No password"
 msgstr "Pas de mot de passe"
 
 #: templates/server/privileges/login_information_fields.twig:54
-#, fuzzy
-#| msgid "Data length"
 msgctxt "Password strength"
 msgid "Strength:"
-msgstr "Taille des données"
+msgstr "Force :"
 
 #: templates/server/privileges/login_information_fields.twig:62
 #: templates/server/replication/master_add_slave_user.twig:65
@@ -14954,30 +14951,21 @@ msgid "Re-type"
 msgstr "Saisir à nouveau"
 
 #: templates/server/privileges/login_information_fields.twig:68
-#, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication plugin"
 msgstr "Extension d'authentification"
 
 #: templates/server/privileges/login_information_fields.twig:70
-#, fuzzy
-#| msgid "Password Hashing Method"
 msgid "Password hashing method"
-msgstr "Hachage du mot de passe"
+msgstr "Méthode de hachage du mot de passe"
 
 #: templates/server/privileges/login_information_fields.twig:79
-#, fuzzy
-#| msgid ""
-#| "This method requires using an '<i>SSL connection</i>' or an "
-#| "'<i>unencrypted connection that encrypts the password using RSA</i>'; "
-#| "while connecting to the server."
 msgid ""
 "This method requires using an '<em>SSL connection</em>' or an "
 "'<em>unencrypted connection that encrypts the password using RSA</em>'; "
 "while connecting to the server."
 msgstr ""
-"Cette méthode nécessite l'utilisation d'une <i>connexion SSL</i> ou d'une "
-"<i>connexion non chiffrée qui chiffre le mot de passe à l'aide de RSA</i> "
+"Cette méthode nécessite l'utilisation d'une <em>connexion SSL</em> ou d'une "
+"<em>connexion non chiffrée qui chiffre le mot de passe à l'aide de RSA</em> "
 "lors de la connexion au serveur."
 
 #: templates/display/export/template_options.twig:1
@@ -15440,7 +15428,7 @@ msgstr "Exécuter la requête à nouveau"
 
 #: templates/table/structure/display_structure.twig:70
 msgid "Media type:"
-msgstr "Type de média:"
+msgstr "Type de média :"
 
 #: templates/table/structure/display_structure.twig:114
 #, php-format
@@ -15830,8 +15818,6 @@ msgid "disabled"
 msgstr "désactivé"
 
 #: templates/server/plugins/index.twig:45
-#, fuzzy
-#| msgid "Deleting"
 msgid "deleting"
 msgstr "Suppression en cours"
 
