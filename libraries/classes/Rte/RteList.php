@@ -221,7 +221,7 @@ class RteList
      */
     public function getRoutineRow(array $routine, $rowclass = '')
     {
-        global $url_query, $db, $titles;
+        global $db, $table, $titles, $url_query;
 
         $sql_drop = sprintf(
             'DROP %s IF EXISTS %s',
@@ -348,7 +348,12 @@ class RteList
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
         $retval .= Util::linkOrButton(
-            Url::getFromRoute('/sql') . $url_query . '&amp;sql_query=' . urlencode($sql_drop) . '&amp;goto=db_routines.php' . urlencode("?db={$db}"),
+            Url::getFromRoute('/sql', [
+                'db' => $db,
+                'table' => $table,
+                'sql_query' => $sql_drop,
+                'goto' => 'db_routines.php?db=' . $db,
+            ]),
             $titles['Drop'],
             ['class' => 'ajax drop_anchor']
         );
@@ -423,9 +428,11 @@ class RteList
         if (Util::currentUserHasPrivilege('TRIGGER', $db)) {
             $retval .= Util::linkOrButton(
                 Url::getFromRoute('/sql', [
+                    'db' => $db,
+                    'table' => $table,
                     'sql_query' => $trigger['drop'],
                     'goto' => 'db_triggers.php?db=' . $db,
-                ]) . $url_query,
+                ]),
                 $titles['Drop'],
                 ['class' => 'ajax drop_anchor']
             );
@@ -454,7 +461,7 @@ class RteList
      */
     public function getEventRow(array $event, $rowclass = '')
     {
-        global $url_query, $db, $titles;
+        global $db, $table, $titles, $url_query;
 
         $sql_drop = sprintf(
             'DROP EVENT IF EXISTS %s',
@@ -504,9 +511,11 @@ class RteList
         if (Util::currentUserHasPrivilege('EVENT', $db)) {
             $retval .= Util::linkOrButton(
                 Url::getFromRoute('/sql', [
+                    'db' => $db,
+                    'table' => $table,
                     'sql_query' => $sql_drop,
                     'goto' => 'db_events.php?db=' . $db,
-                ]) . $url_query,
+                ]),
                 $titles['Drop'],
                 ['class' => 'ajax drop_anchor']
             );
