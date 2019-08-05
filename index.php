@@ -26,6 +26,9 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
             require_once ROOT_PATH . 'libraries/entry_points/home.php';
         });
         $routes->addGroup('/database', function (RouteCollector $routes) {
+            $routes->addRoute(['GET', 'POST'], '/central_columns', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/database/central_columns.php';
+            });
             $routes->addRoute(['GET', 'POST'], '/operations', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/database/operations.php';
             });

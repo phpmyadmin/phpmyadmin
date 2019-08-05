@@ -547,7 +547,8 @@ class Menu
         ) {
             $tabs['central_columns']['text'] = __('Central columns');
             $tabs['central_columns']['icon'] = 'centralColumns';
-            $tabs['central_columns']['link'] = 'db_central_columns.php';
+            $tabs['central_columns']['link'] = Url::getFromRoute('/database/central_columns');
+            $tabs['central_columns']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/database/central_columns';
         }
         return $tabs;
     }
