@@ -32,6 +32,9 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
             $routes->addRoute('GET', '/data_dictionary', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/database/datadict.php';
             });
+            $routes->addRoute(['GET', 'POST'], '/designer', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/database/designer.php';
+            });
             $routes->addRoute(['GET', 'POST'], '/operations', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/database/operations.php';
             });

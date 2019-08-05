@@ -170,11 +170,9 @@ $response->addHTML(
     ])
 );
 
-$url = 'db_designer.php' . Url::getCommon(
-    array_merge(
-        $url_params,
-        ['query' => 1]
-    )
+$url = Url::getFromRoute(
+    '/database/designer',
+    array_merge($url_params, ['query' => 1])
 );
 $response->addHTML(
     Message::notice(

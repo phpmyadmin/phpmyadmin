@@ -529,7 +529,7 @@ DesignerMove.addOtherDbTables = function () {
     buttonOptions[Messages.strGo] = function () {
         var db = $('#add_table_from').val();
         var table = $('#add_table').val();
-        $.post('db_designer.php', {
+        $.post('index.php?route=/database/designer', {
             'ajax_request' : true,
             'dialog' : 'add_table',
             'db' : db,
@@ -664,7 +664,7 @@ DesignerMove.save2 = function (callback) {
         poststr += DesignerMove.getUrlPos();
 
         var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
-        $.post('db_designer.php', poststr, function (data) {
+        $.post('index.php?route=/database/designer', poststr, function (data) {
             if (data.success === false) {
                 Functions.ajaxShowMessage(data.error, false);
             } else {
@@ -741,7 +741,7 @@ DesignerMove.save3 = function (callback) {
             $(this).dialog('close');
         };
 
-        var $form = $('<form action="db_designer.php" method="post" name="save_page" id="save_page" class="ajax"></form>')
+        var $form = $('<form action="index.php?route=/database/designer" method="post" name="save_page" id="save_page" class="ajax"></form>')
             .append('<input type="hidden" name="server" value="' + server + '">')
             .append($('<input type="hidden" name="db" />').val(db))
             .append('<input type="hidden" name="operation" value="savePage">')
@@ -786,7 +786,7 @@ DesignerMove.editPages = function () {
         };
 
         var $msgbox = Functions.ajaxShowMessage();
-        $.post('db_designer.php', {
+        $.post('index.php?route=/database/designer', {
             'ajax_request': true,
             'server': server,
             'db': db,
@@ -869,7 +869,7 @@ DesignerMove.deletePages = function () {
     };
 
     var $msgbox = Functions.ajaxShowMessage();
-    $.post('db_designer.php', {
+    $.post('index.php?route=/database/designer', {
         'ajax_request': true,
         'server': server,
         'db': db,
@@ -971,7 +971,7 @@ DesignerMove.saveAs = function () {
     };
 
     var $msgbox = Functions.ajaxShowMessage();
-    $.post('db_designer.php', {
+    $.post('index.php?route=/database/designer', {
         'ajax_request': true,
         'server': server,
         'db': db,
@@ -1052,7 +1052,7 @@ DesignerMove.exportPages = function () {
     var $msgbox = Functions.ajaxShowMessage();
     var argsep = CommonParams.get('arg_separator');
 
-    $.post('db_designer.php', {
+    $.post('index.php?route=/database/designer', {
         'ajax_request': true,
         'server': server,
         'db': db,
@@ -1105,7 +1105,7 @@ DesignerMove.loadPage = function (page) {
         if (page !== null) {
             paramPage = argsep + 'page=' + page;
         }
-        $('<a href="db_designer.php?server=' + server + argsep + 'db=' + encodeURI(db) + paramPage + '"></a>')
+        $('<a href="index.php?route=/database/designer&server=' + server + argsep + 'db=' + encodeURI(db) + paramPage + '"></a>')
             .appendTo($('#page_content'))
             .trigger('click');
     } else {
@@ -1150,7 +1150,7 @@ DesignerMove.angularDirect = function () {
 };
 
 DesignerMove.saveValueInConfig = function (indexSent, valueSent) {
-    $.post('db_designer.php',
+    $.post('index.php?route=/database/designer',
         {
             'operation': 'save_setting_value',
             'index': indexSent,
@@ -1234,7 +1234,7 @@ DesignerMove.clickField = function (db, T, f, pk) {
         document.getElementById('display_field_button').className = 'M_butt';
 
         var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
-        $.post('db_designer.php',
+        $.post('index.php?route=/database/designer',
             {
                 'operation': 'setDisplayField',
                 'ajax_request': true,
@@ -1262,7 +1262,7 @@ DesignerMove.newRelation = function () {
     linkRelation += argsep + 'operation=addNewRelation' + argsep + 'ajax_request=true';
 
     var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
-    $.post('db_designer.php', linkRelation, function (data) {
+    $.post('index.php?route=/database/designer', linkRelation, function (data) {
         if (data.success === false) {
             Functions.ajaxShowMessage(data.error, false);
         } else {
@@ -1491,7 +1491,7 @@ DesignerMove.updRelation = function () {
     linkRelation += argsep + 'operation=removeRelation' + argsep + 'ajax_request=true';
 
     var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
-    $.post('db_designer.php', linkRelation, function (data) {
+    $.post('index.php?route=/database/designer', linkRelation, function (data) {
         if (data.success === false) {
             Functions.ajaxShowMessage(data.error, false);
         } else {
