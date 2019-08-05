@@ -2593,20 +2593,20 @@ class InsertEditTest extends TestCase
         $GLOBALS['table'] = '';
 
         $this->assertEquals(
-            'db_sql.php',
+            'libraries/entry_points/database/sql.php',
             $this->insertEdit->getGotoInclude('index')
         );
 
         $GLOBALS['table'] = 'tbl';
         $this->assertEquals(
-            'tbl_sql.php',
+            'libraries/entry_points/table/sql.php',
             $this->insertEdit->getGotoInclude('index')
         );
 
-        $GLOBALS['goto'] = 'db_sql.php';
+        $GLOBALS['goto'] = 'libraries/entry_points/database/sql.php';
 
         $this->assertEquals(
-            'db_sql.php',
+            'libraries/entry_points/database/sql.php',
             $this->insertEdit->getGotoInclude('index')
         );
 

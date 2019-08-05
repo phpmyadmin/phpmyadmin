@@ -330,7 +330,7 @@ class StructureController extends AbstractController
             $sql_query = $GLOBALS['sql_query'];
             $cfg = $GLOBALS['cfg'];
             $pmaThemeImage = $GLOBALS['pmaThemeImage'];
-            include ROOT_PATH . 'sql.php';
+            include ROOT_PATH . 'libraries/entry_points/sql.php';
             $GLOBALS['reload'] = true;
         }
 

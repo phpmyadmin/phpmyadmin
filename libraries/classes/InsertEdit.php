@@ -2258,15 +2258,15 @@ class InsertEdit
             } else {
                 $goto_include = $GLOBALS['goto'];
             }
-            if ($GLOBALS['goto'] == 'db_sql.php' && strlen($GLOBALS['table']) > 0) {
+            if ($GLOBALS['goto'] == 'libraries/entry_points/database/sql.php' && strlen($GLOBALS['table']) > 0) {
                 $GLOBALS['table'] = '';
             }
         }
         if (! $goto_include) {
             if (strlen($GLOBALS['table']) === 0) {
-                $goto_include = 'db_sql.php';
+                $goto_include = 'libraries/entry_points/database/sql.php';
             } else {
-                $goto_include = 'tbl_sql.php';
+                $goto_include = 'libraries/entry_points/table/sql.php';
             }
         }
         return $goto_include;

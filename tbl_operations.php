@@ -134,7 +134,7 @@ if (isset($_POST['submit_move']) || isset($_POST['submit_copy'])) {
  * If the table has to be maintained
  */
 if (isset($_POST['table_maintenance'])) {
-    include_once ROOT_PATH . 'sql.php';
+    include_once ROOT_PATH . 'libraries/entry_points/sql.php';
     unset($result);
 }
 /**

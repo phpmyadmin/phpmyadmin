@@ -102,7 +102,7 @@ if (empty($is_table)
             }
 
             if (! $is_table) {
-                include ROOT_PATH . 'db_sql.php';
+                include ROOT_PATH . 'libraries/entry_points/database/sql.php';
                 exit;
             }
         }
