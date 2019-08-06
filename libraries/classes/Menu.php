@@ -516,9 +516,10 @@ class Menu
             $tabs['routines']['icon'] = 'b_routines';
 
             if (Util::currentUserHasPrivilege('EVENT', $this->_db)) {
-                $tabs['events']['link'] = 'db_events.php';
+                $tabs['events']['link'] = Url::getFromRoute('/database/events');
                 $tabs['events']['text'] = __('Events');
                 $tabs['events']['icon'] = 'b_events';
+                $tabs['events']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/database/events';
             }
 
             if (Util::currentUserHasPrivilege('TRIGGER', $this->_db)) {

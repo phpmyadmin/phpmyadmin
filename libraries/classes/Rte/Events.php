@@ -451,7 +451,7 @@ class Events
         // Create the output
         $retval  = "";
         $retval .= "<!-- START " . $modeToUpper . " EVENT FORM -->\n\n";
-        $retval .= "<form class='rte_form' action='db_events.php' method='post'>\n";
+        $retval .= '<form class="rte_form" action="' . Url::getFromRoute('/database/events') . '" method="post">' . "\n";
         $retval .= "<input name='{$mode}_item' type='hidden' value='1'>\n";
         $retval .= $original_data;
         $retval .= Url::getHiddenInputs($db, $table) . "\n";

@@ -148,7 +148,7 @@ class Footer
             Url::getFromRoute('/sql', [
                 'db' => $db,
                 'table' => $table,
-                'goto' => 'db_events.php?db=' . $db,
+                'goto' => Url::getFromRoute('/database/events', ['db' => $db]),
             ]),
             'sql_query',
             $options,

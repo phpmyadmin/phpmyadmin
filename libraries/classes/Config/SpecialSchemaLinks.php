@@ -121,7 +121,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'db',
                             ],
                         ],
-                        'default_page' => './db_events.php?edit_item=1',
+                        'default_page' => './' . Url::getFromRoute('/database/events', ['edit_item' => 1]),
                     ],
 
                 ],

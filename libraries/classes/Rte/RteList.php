@@ -91,7 +91,7 @@ class RteList
                 }
                 break;
             case 'event':
-                $retval .= 'db_events.php';
+                $retval .= Url::getFromRoute('/database/events');
                 break;
             default:
                 break;
@@ -500,9 +500,8 @@ class RteList
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
         if (Util::currentUserHasPrivilege('EVENT', $db)) {
-            $retval .= '                <a class="ajax edit_anchor"'
-                . ' href="db_events.php'
-                . Url::getCommon([
+            $retval .= '                <a class="ajax edit_anchor" href="'
+                . Url::getFromRoute('/database/events', [
                     'db' => $db,
                     'table' => $table,
                     'edit_item' => 1,
@@ -513,9 +512,8 @@ class RteList
         }
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
-        $retval .= '                <a class="ajax export_anchor"'
-            . ' href="db_events.php'
-            . Url::getCommon([
+        $retval .= '                <a class="ajax export_anchor" href="'
+            . Url::getFromRoute('/database/events', [
                 'db' => $db,
                 'table' => $table,
                 'export_item' => 1,
@@ -529,7 +527,7 @@ class RteList
                     'db' => $db,
                     'table' => $table,
                     'sql_query' => $sql_drop,
-                    'goto' => 'db_events.php?db=' . $db,
+                    'goto' => Url::getFromRoute('/database/events', ['db' => $db]),
                 ]),
                 $titles['Drop'],
                 ['class' => 'ajax drop_anchor']

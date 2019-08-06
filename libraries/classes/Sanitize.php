@@ -35,10 +35,8 @@ class Sanitize
             'https://',
             './url.php?url=https%3a%2f%2f',
             './doc/html/',
-            // possible return values from Util::getScriptNameForOption
             './index.php?',
             // Hardcoded options in \PhpMyAdmin\Config\SpecialSchemaLinks
-            './db_events.php?',
             './db_routines.php?',
         ];
         $is_setup = $GLOBALS['PMA_Config'] !== null && $GLOBALS['PMA_Config']->get('is_setup');
