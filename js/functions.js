@@ -5049,7 +5049,7 @@ Functions.configSet = function (key, value) {
     var serialized = JSON.stringify(value);
     localStorage.setItem(key, serialized);
     $.ajax({
-        url: 'ajax.php',
+        url: 'index.php?route=/ajax',
         type: 'POST',
         dataType: 'json',
         data: {
@@ -5099,7 +5099,7 @@ Functions.configGet = function (key, cached) {
         // processing cannot continue until that value is found.
         // Another solution is to provide a callback as a parameter.
         async: false,
-        url: 'ajax.php',
+        url: 'index.php?route=/ajax',
         type: 'POST',
         dataType: 'json',
         data: {

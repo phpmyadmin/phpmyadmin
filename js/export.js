@@ -819,7 +819,7 @@ Export.createAliasModal = function (event) {
                     'server': CommonParams.get('server'),
                     'type': 'list-databases'
                 };
-                $.post('ajax.php', params, function (response) {
+                $.post('index.php?route=/ajax', params, function (response) {
                     if (response.success === true) {
                         $.each(response.databases, function (idx, value) {
                             var option = $('<option></option>');
@@ -936,7 +936,7 @@ AJAX.registerOnload('export.js', function () {
                 'db': $(this).val(),
                 'type': 'list-tables'
             };
-            $.post('ajax.php', params, function (response) {
+            $.post('index.php?route=/ajax', params, function (response) {
                 if (response.success === true) {
                     $.each(response.tables, function (idx, value) {
                         var option = $('<option></option>');
@@ -959,7 +959,7 @@ AJAX.registerOnload('export.js', function () {
             'table': $(this).val(),
             'type': 'list-columns'
         };
-        $.post('ajax.php', params, function (response) {
+        $.post('index.php?route=/ajax', params, function (response) {
             if (response.success === true) {
                 $.each(response.columns, function (idx, value) {
                     var option = $('<option></option>');
