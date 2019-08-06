@@ -69,7 +69,7 @@ class UserPreferencesHeader
             'list/unordered',
             [
                 'id' => 'topmenu2',
-                'class' => 'user_prefs_tabs',
+                'class' => 'user_prefs_tabs nav',
                 'content' => $content,
             ]
         ) . '<div class="clearfloat"></div>';

@@ -1,32 +1,32 @@
 <div>
-  <ul id="topmenu2">
-    <li>
-      <a href="server_status.php{{ get_common() }}"{{ active == 'status' ? ' class="tabactive"' }}>
+  <ul id="topmenu2" class="nav">
+    <li class="nav-item">
+      <a href="server_status.php{{ get_common() }}"{{ active == 'status' ? ' class="tabactive nav-link"':'class="nav-link"' }}>
         {% trans 'Server' %}
       </a>
     </li>
-    <li>
-      <a href="server_status_processes.php{{ get_common() }}"{{ active == 'processes' ? ' class="tabactive"' }}>
+    <li class="nav-item">
+      <a href="server_status_processes.php{{ get_common() }}"{{ active == 'processes' ? ' class="tabactive nav-link"':'class="nav-link"' }}>
         {% trans 'Processes' %}
       </a>
     </li>
-    <li>
-      <a href="server_status_queries.php{{ get_common() }}"{{ active == 'queries' ? ' class="tabactive"' }}>
+    <li class="nav-item">
+      <a href="server_status_queries.php{{ get_common() }}"{{ active == 'queries' ? ' class="tabactive nav-link"':'class="nav-link"' }}>
         {% trans 'Query statistics' %}
       </a>
     </li>
-    <li>
-      <a href="server_status_variables.php{{ get_common() }}"{{ active == 'variables' ? ' class="tabactive"' }}>
+    <li class="nav-item">
+      <a href="server_status_variables.php{{ get_common() }}"{{ active == 'variables' ? ' class="tabactive nav-link"':'class="nav-link"' }}>
         {% trans 'All status variables' %}
       </a>
     </li>
-    <li>
-      <a href="server_status_monitor.php{{ get_common() }}"{{ active == 'monitor' ? ' class="tabactive"' }}>
+    <li class="nav-item">
+      <a href="server_status_monitor.php{{ get_common() }}"{{ active == 'monitor' ? ' class="tabactive nav-link"':'class="nav-link"' }}>
         {% trans 'Monitor' %}
       </a>
     </li>
-    <li>
-      <a href="server_status_advisor.php{{ get_common() }}"{{ active == 'advisor' ? ' class="tabactive"' }}>
+    <li class="nav-item">
+      <a href="server_status_advisor.php{{ get_common() }}"{{ active == 'advisor' ? ' class="tabactive nav-link"':'class="nav-link"' }}>
         {% trans 'Advisor' %}
       </a>
     </li>

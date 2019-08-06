@@ -43,13 +43,16 @@ class Users
             ];
         }
 
-        $retval  = '<ul id="topmenu2">';
+        $retval  = '<ul id="topmenu2" class="nav">';
         foreach ($items as $item) {
             $class = '';
             if ($item['url'] === $selfUrl) {
-                $class = ' class="tabactive"';
+                $class = ' class="tabactive nav-link"';
             }
-            $retval .= '<li>';
+            else {
+                $class = ' class=nav-link';
+            }
+            $retval .= '<li class="nav-item">';
             $retval .= '<a' . $class;
             $retval .= ' href="' . $item['url'] . $item['params'] . '">';
             $retval .= $item['name'];

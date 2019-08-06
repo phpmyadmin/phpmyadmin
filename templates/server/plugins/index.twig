@@ -7,11 +7,14 @@
 <div id="plugins_plugins">
   <div id="sectionlinks" class="row no-gutters">
     <div class="col-12">
-      {% for plugin_type in plugins|keys %}
-        <a class="btn btn-primary" href="#plugins-{{- plugins_type_clean[plugin_type] }}">
-            {{ plugin_type }}
-        </a>
-      {% endfor %}
+      <ul class="nav">
+        {% for plugin_type in plugins|keys %}
+          <li class="nav-item">  
+            <a class="btn nav-link" href="#plugins-{{- plugins_type_clean[plugin_type] }}">
+                {{ plugin_type }}
+            </a>
+          </li>
+        {% endfor %}
     </div>
   </div>
   {% for plugin_type, plugin_list in plugins %}
