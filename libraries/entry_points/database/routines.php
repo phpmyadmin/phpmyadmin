@@ -18,7 +18,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $containerBuilder;
+global $_PMA_RTE, $containerBuilder;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);

@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
@@ -31,10 +32,14 @@ class NodeTrigger extends Node
         parent::__construct($name, $type, $isGroup);
         $this->icon = Util::getImage('b_triggers');
         $this->links = [
-            'text' => 'db_triggers.php?server=' . $GLOBALS['server']
-                . '&amp;db=%3$s&amp;item_name=%1$s&amp;edit_item=1',
-            'icon' => 'db_triggers.php?server=' . $GLOBALS['server']
-                . '&amp;db=%3$s&amp;item_name=%1$s&amp;export_item=1',
+            'text' => Url::getFromRoute('/database/triggers', [
+                'server' => $GLOBALS['server'],
+                'edit_item' => 1,
+            ]) . '&amp;db=%3$s&amp;item_name=%1$s',
+            'icon' => Url::getFromRoute('/database/triggers', [
+                'server' => $GLOBALS['server'],
+                'export_item' => 1,
+            ]) . '&amp;db=%3$s&amp;item_name=%1$s',
         ];
         $this->classes = 'trigger';
     }

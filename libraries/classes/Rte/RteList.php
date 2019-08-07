@@ -85,9 +85,9 @@ class RteList
                 break;
             case 'trigger':
                 if (! empty($table)) {
-                    $retval .= 'tbl_triggers.php';
+                    $retval .= Url::getFromRoute('/table/triggers');
                 } else {
-                    $retval .= 'db_triggers.php';
+                    $retval .= Url::getFromRoute('/database/triggers');
                 }
                 break;
             case 'event':
@@ -402,8 +402,8 @@ class RteList
         $retval .= "            </td>\n";
         if (empty($table)) {
             $retval .= "            <td>\n";
-            $retval .= '<a href="db_triggers.php'
-                . Url::getCommon([
+            $retval .= '<a href="'
+                . Url::getFromRoute('/database/triggers', [
                     'db' => $db,
                     'table' => $trigger['table'],
                 ]) . '">'
@@ -413,8 +413,8 @@ class RteList
         $retval .= "            <td>\n";
         if (Util::currentUserHasPrivilege('TRIGGER', $db, $table)) {
             $retval .= '                <a class="ajax edit_anchor"'
-                . ' href="db_triggers.php'
-                . Url::getCommon([
+                . ' href="'
+                . Url::getFromRoute('/database/triggers', [
                     'db' => $db,
                     'table' => $table,
                     'edit_item' => 1,
@@ -426,8 +426,8 @@ class RteList
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
         $retval .= '                    <a class="ajax export_anchor"'
-            . ' href="db_triggers.php'
-            . Url::getCommon([
+            . ' href="'
+            . Url::getFromRoute('/database/triggers', [
                 'db' => $db,
                 'table' => $table,
                 'export_item' => 1,
@@ -441,7 +441,7 @@ class RteList
                     'db' => $db,
                     'table' => $table,
                     'sql_query' => $trigger['drop'],
-                    'goto' => 'db_triggers.php?db=' . $db,
+                    'goto' => Url::getFromRoute('/database/triggers', ['db' => $db]),
                 ]),
                 $titles['Drop'],
                 ['class' => 'ajax drop_anchor']
