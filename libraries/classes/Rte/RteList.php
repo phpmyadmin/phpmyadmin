@@ -81,7 +81,7 @@ class RteList
         $retval .= '<form id="rteListForm" class="ajax" action="';
         switch ($type) {
             case 'routine':
-                $retval .= 'db_routines.php';
+                $retval .= Url::getFromRoute('/database/routines');
                 break;
             case 'trigger':
                 if (! empty($table)) {
@@ -262,9 +262,8 @@ class RteList
             && $curr_user == $routine_definer)
             || $this->dbi->isSuperuser()
         ) {
-            $retval .= '                <a class="ajax edit_anchor"'
-                . ' href="db_routines.php'
-                . Url::getCommon([
+            $retval .= '                <a class="ajax edit_anchor" href="'
+                . Url::getFromRoute('/database/routines', [
                     'db' => $db,
                     'table' => $table,
                     'edit_item' => 1,
@@ -319,9 +318,8 @@ class RteList
                     'item_name' => $routine['name'],
                     'item_type' => $routine['type'],
                 ];
-                $retval .= '                <a class="ajax exec_anchor"'
-                    . ' href="db_routines.php'
-                    . Url::getCommon([
+                $retval .= '                <a class="ajax exec_anchor" href="'
+                    . Url::getFromRoute('/database/routines', [
                         'db' => $db,
                         'table' => $table,
                     ])
@@ -341,9 +339,8 @@ class RteList
             && $curr_user == $routine_definer)
             || $this->dbi->isSuperuser()
         ) {
-            $retval .= '                <a class="ajax export_anchor"'
-                . ' href="db_routines.php'
-                . Url::getCommon([
+            $retval .= '                <a class="ajax export_anchor" href="'
+                . Url::getFromRoute('/database/routines', [
                     'db' => $db,
                     'table' => $table,
                     'export_item' => 1,
@@ -360,7 +357,7 @@ class RteList
                 'db' => $db,
                 'table' => $table,
                 'sql_query' => $sql_drop,
-                'goto' => 'db_routines.php?db=' . $db,
+                'goto' => Url::getFromRoute('/database/routines', ['db' => $db]),
             ]),
             $titles['Drop'],
             ['class' => 'ajax drop_anchor']

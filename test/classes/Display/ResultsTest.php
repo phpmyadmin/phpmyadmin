@@ -1034,7 +1034,7 @@ class ResultsTest extends PmaTestCase
                     'routine_type' => 'FUNCTION',
                 ],
                 'routine_name',
-                'db_routines.php?item_name=circumference&db=data'
+                'index.php?route=/database/routines&item_name=circumference&db=data'
                 . '&item_type=FUNCTION&server=0&lang=en',
             ],
             [
@@ -1047,7 +1047,7 @@ class ResultsTest extends PmaTestCase
                     'routine_type' => 'PROCEDURE',
                 ],
                 'routine_name',
-                'db_routines.php?item_name=area&db=data'
+                'index.php?route=/database/routines&item_name=area&db=data'
                 . '&item_type=PROCEDURE&server=0&lang=en',
             ],
             [
@@ -1104,7 +1104,7 @@ class ResultsTest extends PmaTestCase
                                 'column_name' => 'routine_type',
                             ],
                         ],
-                        'default_page' => 'db_routines.php',
+                        'default_page' => 'index.php?route=/database/routines',
                     ],
                 ],
                 'columns' => [

@@ -176,7 +176,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'type',
                             ],
                         ],
-                        'default_page' => './db_routines.php?edit_item=1',
+                        'default_page' => './' . Url::getFromRoute('/database/routines', ['edit_item' => 1]),
                     ],
                     'specific_name' => [
                         'link_param' => 'item_name',
@@ -190,7 +190,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'type',
                             ],
                         ],
-                        'default_page' => './db_routines.php?edit_item=1',
+                        'default_page' => './' . Url::getFromRoute('/database/routines', ['edit_item' => 1]),
                     ],
                 ],
                 'proc_priv' => [
@@ -216,7 +216,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'Routine_type',
                             ],
                         ],
-                        'default_page' => './db_routines.php?edit_item=1',
+                        'default_page' => './' . Url::getFromRoute('/database/routines', ['edit_item' => 1]),
                     ],
                 ],
                 'proxies_priv' => [
@@ -402,7 +402,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'routine_type',
                             ],
                         ],
-                        'default_page' => './db_routines.php',
+                        'default_page' => './' . Url::getFromRoute('/database/routines'),
                     ],
                 ],
                 'schemata' => [

@@ -511,9 +511,10 @@ class Menu
                 $tabs['privileges']['icon'] = 's_rights';
             }
 
-            $tabs['routines']['link'] = 'db_routines.php';
+            $tabs['routines']['link'] = Url::getFromRoute('/database/routines');
             $tabs['routines']['text'] = __('Routines');
             $tabs['routines']['icon'] = 'b_routines';
+            $tabs['routines']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/database/routines';
 
             if (Util::currentUserHasPrivilege('EVENT', $this->_db)) {
                 $tabs['events']['link'] = Url::getFromRoute('/database/events');

@@ -917,7 +917,7 @@ class Routines
         $retval  = "";
         $retval .= "<!-- START " . mb_strtoupper($mode)
             . " ROUTINE FORM -->\n\n";
-        $retval .= "<form class='rte_form' action='db_routines.php' method='post'>\n";
+        $retval .= '<form class="rte_form" action="' . Url::getFromRoute('/database/routines') . '" method="post">' . "\n";
         $retval .= "<input name='{$mode}_item' type='hidden' value='1'>\n";
         $retval .= $original_routine;
         $retval .= Url::getHiddenInputs($db) . "\n";
@@ -1625,7 +1625,7 @@ class Routines
         // Create the output
         $retval  = "";
         $retval .= "<!-- START ROUTINE EXECUTE FORM -->\n\n";
-        $retval .= "<form action='db_routines.php' method='post'\n";
+        $retval .= '<form action="' . Url::getFromRoute('/database/routines') . '" method="post"' . "\n";
         $retval .= "       class='rte_form ajax' onsubmit='return false'>\n";
         $retval .= "<input type='hidden' name='item_name'\n";
         $retval .= "       value='{$routine['item_name']}'>\n";
