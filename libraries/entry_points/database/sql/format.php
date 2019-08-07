@@ -9,15 +9,9 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Response;
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
-
-/**
- * Loading common files. Used to check for authorization, localization and to
- * load the parsing library.
- */
-require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $query = ! empty($_POST['sql']) ? $_POST['sql'] : '';
 

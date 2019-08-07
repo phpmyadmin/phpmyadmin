@@ -53,8 +53,16 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
             $routes->addRoute(['GET', 'POST'], '/search', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/database/search.php';
             });
-            $routes->addRoute(['GET', 'POST'], '/sql', function () {
-                require_once ROOT_PATH . 'libraries/entry_points/database/sql.php';
+            $routes->addGroup('/sql', function (RouteCollector $routes) {
+                $routes->addRoute(['GET', 'POST'], '', function () {
+                    require_once ROOT_PATH . 'libraries/entry_points/database/sql.php';
+                });
+                $routes->addRoute('POST', '/autocomplete', function () {
+                    require_once ROOT_PATH . 'libraries/entry_points/database/sql/autocomplete.php';
+                });
+                $routes->addRoute('POST', '/format', function () {
+                    require_once ROOT_PATH . 'libraries/entry_points/database/sql/format.php';
+                });
             });
             $routes->addRoute(['GET', 'POST'], '/structure', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/database/structure.php';

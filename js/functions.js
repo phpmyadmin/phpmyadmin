@@ -1208,7 +1208,6 @@ Functions.insertQuery = function (queryType) {
             $('#querymessage').html(Messages.strFormatting +
                 '&nbsp;<img class="ajaxIcon" src="' +
                 pmaThemeImage + 'ajax_clock_small.gif" alt="">');
-            var href = 'db_sql_format.php';
             var params = {
                 'ajax_request': true,
                 'sql': codeMirrorEditor.getValue(),
@@ -1216,7 +1215,7 @@ Functions.insertQuery = function (queryType) {
             };
             $.ajax({
                 type: 'POST',
-                url: href,
+                url: 'index.php?route=/database/sql/format',
                 data: params,
                 success: function (data) {
                     if (data.success) {
@@ -1886,7 +1885,6 @@ Functions.codeMirrorAutoCompleteOnInputRead = function (instance) {
 
             sqlAutoCompleteInProgress = true;
 
-            var href = 'db_sql_autocomplete.php';
             var params = {
                 'ajax_request': true,
                 'server': CommonParams.get('server'),
@@ -1905,7 +1903,7 @@ Functions.codeMirrorAutoCompleteOnInputRead = function (instance) {
 
             $.ajax({
                 type: 'POST',
-                url: href,
+                url: 'index.php?route=/database/sql/autocomplete',
                 data: params,
                 success: function (data) {
                     if (data.success) {
