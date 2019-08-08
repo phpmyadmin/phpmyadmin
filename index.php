@@ -81,6 +81,9 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
             });
         });
         $routes->addGroup('/server', function (RouteCollector $routes) {
+            $routes->addRoute(['GET', 'POST'], '/binlog', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/server/binlog.php';
+            });
             $routes->addRoute('GET', '/collations', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/server/collations.php';
             });

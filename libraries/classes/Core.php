@@ -34,7 +34,6 @@ class Core
         'index.php',
         'pdf_pages.php',
         'pdf_schema.php',
-        'server_binlog.php',
         'server_export.php',
         'server_import.php',
         'server_status_advisor.php',

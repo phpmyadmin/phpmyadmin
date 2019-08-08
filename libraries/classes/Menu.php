@@ -633,8 +633,9 @@ class Menu
 
         if (! empty($binary_logs)) {
             $tabs['binlog']['icon'] = 's_tbl';
-            $tabs['binlog']['link'] = 'server_binlog.php';
+            $tabs['binlog']['link'] = Url::getFromRoute('/server/binlog');
             $tabs['binlog']['text'] = __('Binary log');
+            $tabs['binlog']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/server/binlog';
         }
 
         if ($is_superuser) {
