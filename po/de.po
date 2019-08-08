@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-07-30 05:50-0300\n"
-"PO-Revision-Date: 2019-07-30 00:41+0000\n"
+"PO-Revision-Date: 2019-08-09 18:22+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "de/>\n"
@@ -3203,7 +3203,7 @@ msgstr "Binär"
 #: libraries/classes/Charsets/Collation.php:534
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "No-pad"
 
 #: libraries/classes/Config.php:1144
 #, php-format
@@ -14986,31 +14986,22 @@ msgid "Re-type"
 msgstr "Wiederholen"
 
 #: templates/server/privileges/login_information_fields.twig:68
-#, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication plugin"
-msgstr "Authentifizierungs Plugin"
+msgstr "Authentifizierungs-Plugin"
 
 #: templates/server/privileges/login_information_fields.twig:70
-#, fuzzy
-#| msgid "Password Hashing Method"
 msgid "Password hashing method"
-msgstr "Passwort­verschlüsselungs­methode"
+msgstr "Passwort­-hash-methode"
 
 #: templates/server/privileges/login_information_fields.twig:79
-#, fuzzy
-#| msgid ""
-#| "This method requires using an '<i>SSL connection</i>' or an "
-#| "'<i>unencrypted connection that encrypts the password using RSA</i>'; "
-#| "while connecting to the server."
 msgid ""
 "This method requires using an '<em>SSL connection</em>' or an "
 "'<em>unencrypted connection that encrypts the password using RSA</em>'; "
 "while connecting to the server."
 msgstr ""
-"Diese Methode erfordert die Verwendung einer <i>SSL-Verbindung</i> oder "
-"einer <i>unverschlüsselte Verbindung, die das Kennwort mit RSA "
-"verschlüsselt</i> '; beim Verbinden mit dem Server."
+"Diese Methode erfordert die Verwendung einer <em>SSL-Verbindung</em> oder "
+"einer <em>unverschlüsselten Verbindung, die das Kennwort mit RSA "
+"verschlüsselt</em> '; beim Verbinden mit dem Server."
 
 #: templates/display/export/template_options.twig:1
 msgid "Select a template"
