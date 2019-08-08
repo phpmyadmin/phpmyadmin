@@ -155,15 +155,21 @@ class Footer
      */
     public function getSelfUrl(): string
     {
-        $db = isset($GLOBALS['db']) && strlen($GLOBALS['db']) ? $GLOBALS['db'] : '';
-        $table = isset($GLOBALS['table']) && strlen($GLOBALS['table']) ? $GLOBALS['table'] : '';
-        $target = isset($_REQUEST['target']) && strlen($_REQUEST['target']) ? $_REQUEST['target'] : '';
-        $params = [
-            'db' => $db,
-            'table' => $table,
-            'server' => $GLOBALS['server'],
-            'target' => $target,
-        ];
+        $params = [];
+        if (isset($_GET['route']) || isset($_POST['route'])) {
+            $params['route'] = $_GET['route'] ?? $_POST['route'];
+        }
+        if (isset($GLOBALS['db']) && strlen($GLOBALS['db']) > 0) {
+            $params['db'] = $GLOBALS['db'];
+        }
+        if (isset($GLOBALS['table']) && strlen($GLOBALS['table']) > 0) {
+            $params['table'] = $GLOBALS['table'];
+        }
+        $params['server'] = $GLOBALS['server'];
+        if (isset($_REQUEST['target']) && strlen($_REQUEST['target']) > 0) {
+            $params['target'] = $_REQUEST['target'];
+        }
+
         // needed for server privileges tabs
         if (isset($_GET['viewing_mode'])
             && in_array($_GET['viewing_mode'], ['server', 'db', 'table'])
