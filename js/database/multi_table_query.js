@@ -13,7 +13,7 @@
 /* global generateFromBlock, generateWhereBlock */ // js/database/query_generator.js
 
 /**
- * js file for handling AJAX and other events in db_multi_table_query.php
+ * js file for handling AJAX and other events in /database/multi_table_query
  */
 
 /**
@@ -71,7 +71,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         $.ajax({
             type: 'GET',
             async: false,
-            url: 'db_multi_table_query.php',
+            url: 'index.php?route=/database/multi_table_query',
             data: {
                 'server': sessionStorage.server,
                 'db': $('#db_name').val(),
@@ -133,7 +133,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         };
         $.ajax({
             type: 'POST',
-            url: 'db_multi_table_query.php',
+            url: 'index.php?route=/database/multi_table_query',
             data: data,
             success: function (data) {
                 var $resultsDom = $(data.message);

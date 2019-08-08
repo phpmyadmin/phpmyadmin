@@ -475,14 +475,10 @@ class Menu
 
         $tabs['query']['text'] = __('Query');
         $tabs['query']['icon'] = 's_db';
-        $tabs['query']['link'] = 'db_multi_table_query.php';
-        $tabs['query']['active'] = in_array(
-            basename($GLOBALS['PMA_PHP_SELF']),
-            [
-                'db_multi_table_query.php',
-                'db_qbe.php',
-            ]
-        );
+        $tabs['query']['link'] = Url::getFromRoute('/database/multi_table_query');
+        $tabs['query']['active'] = basename($GLOBALS['PMA_PHP_SELF']) === 'db_qbe.php'
+            || (isset($_REQUEST['route']) && $_REQUEST['route'] === '/database/multi_table_query');
+
         if ($num_tables == 0) {
             $tabs['query']['warning'] = __('Database seems to be empty!');
         }

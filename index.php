@@ -44,6 +44,9 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
             $routes->addRoute(['GET', 'POST'], '/events', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/database/events.php';
             });
+            $routes->addRoute(['GET', 'POST'], '/multi_table_query', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/database/multi_table_query.php';
+            });
             $routes->addRoute(['GET', 'POST'], '/operations', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/database/operations.php';
             });

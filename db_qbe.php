@@ -155,7 +155,7 @@ $db_qbe = new Qbe($relation, $template, $dbi, $db, $savedSearchList, $savedSearc
 
 $secondaryTabs = [
     'multi' => [
-        'link' => 'db_multi_table_query.php',
+        'link' => Url::getFromRoute('/database/multi_table_query'),
         'text' => __('Multi-table query'),
     ],
     'qbe' => [
