@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-07-12 01:21-0300\n"
-"PO-Revision-Date: 2019-07-19 16:06+0000\n"
+"PO-Revision-Date: 2019-08-09 18:22+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/4-9/de/"
 ">\n"
@@ -3603,7 +3603,7 @@ msgstr "Binär"
 #: libraries/classes/Charsets.php:685
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "No-pad"
 
 #: libraries/classes/Config.php:1122
 #, php-format
