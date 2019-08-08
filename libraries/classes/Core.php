@@ -28,7 +28,6 @@ class Core
     public static $goto_whitelist = [
         'db_export.php',
         'db_importdocsql.php',
-        'db_qbe.php',
         'db_import.php',
         'export.php',
         'import.php',

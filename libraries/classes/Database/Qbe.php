@@ -1763,7 +1763,7 @@ class Qbe
      */
     public function getSelectionForm()
     {
-        $html_output = '<form action="db_qbe.php" method="post" id="formQBE" '
+        $html_output = '<form action="' . Url::getFromRoute('/database/qbe') . '" method="post" id="formQBE" '
             . 'class="lock-page">';
         $html_output .= '<div class="width100">';
         $html_output .= '<fieldset>';
@@ -1798,7 +1798,7 @@ class Qbe
         // get tables select list
         $html_output .= $this->_getTablesList();
         $html_output .= '</form>';
-        $html_output .= '<form action="db_qbe.php" method="post" class="lock-page">';
+        $html_output .= '<form action="' . Url::getFromRoute('/database/qbe') . '" method="post" class="lock-page">';
         $html_output .= Url::getHiddenInputs(['db' => $this->_db]);
         // get SQL query
         $html_output .= '<div class="floatleft desktop50">';
