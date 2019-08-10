@@ -1,5 +1,5 @@
 <div class="container-fluid">
-<div class="row">  
+<div class="row">
   <ul id="topmenu2">
     <li>
       <a href="{{ url('/server/status') }}"{{ active == 'status' ? ' class="tabactive"' }}>
@@ -27,7 +27,7 @@
       </a>
     </li>
     <li>
-      <a href="server_status_advisor.php{{ get_common() }}"{{ active == 'advisor' ? ' class="tabactive"' }}>
+      <a href="{{ url('/server/status/advisor') }}"{{ active == 'advisor' ? ' class="tabactive"' }}>
         {% trans 'Advisor' %}
       </a>
     </li>
