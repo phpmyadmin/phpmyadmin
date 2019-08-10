@@ -36,7 +36,6 @@ class Core
         'pdf_schema.php',
         'server_export.php',
         'server_import.php',
-        'server_status_monitor.php',
         'server_status_variables.php',
         'tbl_addfield.php',
         'tbl_create.php',

@@ -22,7 +22,7 @@
       </a>
     </li>
     <li>
-      <a href="server_status_monitor.php{{ get_common() }}"{{ active == 'monitor' ? ' class="tabactive"' }}>
+      <a href="{{ url('/server/status/monitor') }}"{{ active == 'monitor' ? ' class="tabactive"' }}>
         {% trans 'Monitor' %}
       </a>
     </li>
