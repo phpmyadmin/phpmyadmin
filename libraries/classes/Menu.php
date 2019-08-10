@@ -640,8 +640,9 @@ class Menu
 
         if ($is_superuser) {
             $tabs['replication']['icon'] = 's_replication';
-            $tabs['replication']['link'] = 'server_replication.php';
+            $tabs['replication']['link'] = Url::getFromRoute('/server/replication');
             $tabs['replication']['text'] = __('Replication');
+            $tabs['replication']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/server/replication';
         }
 
         $tabs['vars']['icon'] = 's_vars';

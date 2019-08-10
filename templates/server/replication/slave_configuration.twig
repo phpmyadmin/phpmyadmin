@@ -3,7 +3,7 @@
   <legend>{% trans 'Slave replication' %}</legend>
   {% if server_slave_multi_replication %}
     {% trans 'Master connection:' %}
-    <form method="get" action="server_replication.php">
+    <form method="get" action="{{ url('/server/replication') }}">
       {{ get_hidden_inputs(url_params) }}
       <select name="master_connection">
         <option value="">{% trans 'Default' %}</option>
@@ -39,17 +39,17 @@
           <div id="slave_control_gui" class="hide">
             <ul>
               <li>
-                <a href="server_replication.php" data-post="{{ slave_control_full_link }}">
+                <a href="{{ url('/server/replication') }}" data-post="{{ slave_control_full_link }}">
                   {{ not slave_io_running or not slave_sql_running ? 'Full start' : 'Full stop' }}
                 </a>
               </li>
               <li>
-                <a class="ajax" id="reset_slave" href="server_replication.php" data-post="{{ slave_control_reset_link }}">
+                <a class="ajax" id="reset_slave" href="{{ url('/server/replication') }}" data-post="{{ slave_control_reset_link }}">
                   {% trans 'Reset slave' %}
                 </a>
               </li>
               <li>
-                <a href="server_replication.php" data-post="{{ slave_control_sql_link }}">
+                <a href="{{ url('/server/replication') }}" data-post="{{ slave_control_sql_link }}">
                   {% if not slave_sql_running %}
                     {% trans 'Start SQL Thread only' %}
                   {% else %}
@@ -58,7 +58,7 @@
                 </a>
               </li>
               <li>
-                <a href="server_replication.php" data-post="{{ slave_control_io_link }}">
+                <a href="{{ url('/server/replication') }}" data-post="{{ slave_control_io_link }}">
                   {% if not slave_io_running %}
                     {% trans 'Start IO Thread only' %}
                   {% else %}
@@ -77,12 +77,12 @@
             {{ 'Skipping errors might lead into unsynchronized master and slave!'|trans|error }}
             <ul>
               <li>
-                <a href="server_replication.php" data-post="{{ slave_skip_error_link }}">
+                <a href="{{ url('/server/replication') }}" data-post="{{ slave_skip_error_link }}">
                   {% trans 'Skip current error' %}
                 </a>
               </li>
               <li>
-                <form method="post" action="server_replication.php">
+                <form method="post" action="{{ url('/server/replication') }}">
                   {{ get_hidden_inputs('', '') }}
                   {{ 'Skip next %s errors.'|trans|format('<input type="text" name="sr_skip_errors_count" value="1" class="repl_gui_skip_err_cnt">')|raw }}
                   <input class="btn btn-primary" type="submit" name="sr_slave_skip_error" value="{% trans 'Go' %}">
@@ -93,14 +93,14 @@
           </div>
         </li>
         <li>
-          <a href="server_replication.php" data-post="{{ reconfigure_master_link }}">
+          <a href="{{ url('/server/replication') }}" data-post="{{ reconfigure_master_link }}">
             {% trans 'Change or reconfigure master server' %}
           </a>
         </li>
       </ul>
     </div>
   {% elseif not has_slave_configure %}
-    {% filter format('<a href="server_replication.php" data-post="' ~ get_common(url_params|merge({
+    {% filter format('<a href="' ~ url('/server/replication') ~ '" data-post="' ~ get_common(url_params|merge({
       'sl_configure': true,
       'repl_clear_scr': true
     })) ~ '">', '</a>')|raw %}
