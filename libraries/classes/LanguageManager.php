@@ -726,11 +726,11 @@ class LanguageManager
     {
         if (! $this->_available_locales) {
 
-            if (empty($GLOBALS['cfg']['FilterLanguages'])) {
+            if (! isset($GLOBALS['PMA_Config']) || empty($GLOBALS['PMA_Config']->get('FilterLanguages'))) {
                 $this->_available_locales = $this->listLocaleDir();
             } else {
                 $this->_available_locales = preg_grep(
-                    '@' . $GLOBALS['cfg']['FilterLanguages'] . '@',
+                    '@' . $GLOBALS['PMA_Config']->get('FilterLanguages') . '@',
                     $this->listLocaleDir()
                 );
             }
