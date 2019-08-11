@@ -8,7 +8,10 @@
  */
 declare(strict_types=1);
 
-use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Charsets\Charset;
+use PhpMyAdmin\Charsets\Collation;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Partition;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
@@ -35,7 +38,7 @@ Util::checkParameters(
     ]
 );
 
-global $db, $table;
+global $containerBuilder, $db, $table;
 
 /** @var Relation $relation */
 $relation = $containerBuilder->get('relation');
@@ -106,8 +109,8 @@ $comments_map = $relation->getComments($db, $table);
 
 $move_columns = [];
 if (isset($fields_meta)) {
-    /** @var PhpMyAdmin\DatabaseInterface $dbi */
-    $dbi = Container::getDefaultContainer()->get('dbi');
+    /** @var DatabaseInterface $dbi */
+    $dbi = $containerBuilder->get('dbi');
     $move_columns = $dbi->getTable($db, $table)->getColumnsMeta();
 }
 
@@ -221,14 +224,14 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
             Util::getValueByKey($_POST, "field_key.${columnNumber}", ''),
             2
         );
-        if (count($parts) == 2 && $parts[1] == $columnNumber) {
+        if (count($parts) === 2 && $parts[1] == $columnNumber) {
             $columnMeta['Key'] = Util::getValueByKey(
                 [
                     'primary' => 'PRI',
                     'index' => 'MUL',
                     'unique' => 'UNI',
                     'fulltext' => 'FULLTEXT',
-                    'spatial' => 'SPATIAL'
+                    'spatial' => 'SPATIAL',
                 ],
                 $parts[0],
                 ''
@@ -296,7 +299,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         }
         switch ($columnMeta['Default']) {
             case null:
-                if (is_null($columnMeta['Default'])) { // null
+                if ($columnMeta['Default'] === null) {
                     if ($columnMeta['Null'] == 'YES') {
                         $columnMeta['DefaultType'] = 'NULL';
                         $columnMeta['DefaultValue'] = '';
@@ -340,10 +343,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
 
     // Variable tell if current column is bound in a foreign key constraint or not.
     // MySQL version from 5.6.6 allow renaming columns with foreign keys
-    if (isset($columnMeta['Field'])
-        && isset($form_params['table'])
-        && $GLOBALS['dbi']->getVersion() < 50606
-    ) {
+    if (isset($columnMeta['Field'], $form_params['table']) && $GLOBALS['dbi']->getVersion() < 50606) {
         $columnMeta['column_status'] = $relation->checkChildForeignReferences(
             $form_params['db'],
             $form_params['table'],
@@ -474,11 +474,32 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         'move_columns' => $move_columns,
         'cfg_relation' => $cfgRelation,
         'available_mime' => $available_mime,
-        'mime_map' => isset($mime_map) ? $mime_map : []
+        'mime_map' => isset($mime_map) ? $mime_map : [],
     ];
 } // end for
 
 $partitionDetails = TablePartitionDefinition::getDetails();
+
+$charsets = Charsets::getCharsets($GLOBALS['dbi'], $GLOBALS['cfg']['Server']['DisableIS']);
+$collations = Charsets::getCollations($GLOBALS['dbi'], $GLOBALS['cfg']['Server']['DisableIS']);
+$charsetsList = [];
+/** @var Charset $charset */
+foreach ($charsets as $charset) {
+    $collationsList = [];
+    /** @var Collation $collation */
+    foreach ($collations[$charset->getName()] as $collation) {
+        $collationsList[] = [
+            'name' => $collation->getName(),
+            'description' => $collation->getDescription(),
+        ];
+    }
+    $charsetsList[] = [
+        'name' => $charset->getName(),
+        'description' => $charset->getDescription(),
+        'collations' => $collationsList,
+    ];
+}
+
 $html = $template->render('columns_definitions/column_definitions_form', [
     'is_backup' => $is_backup,
     'fields_meta' => isset($fields_meta) ? $fields_meta : null,
@@ -495,6 +516,7 @@ $html = $template->render('columns_definitions/column_definitions_form', [
     'table' => isset($_POST['table']) ? $_POST['table'] : null,
     'comment' => isset($_POST['comment']) ? $_POST['comment'] : null,
     'tbl_collation' => isset($_POST['tbl_collation']) ? $_POST['tbl_collation'] : null,
+    'charsets' => $charsetsList,
     'tbl_storage_engine' => isset($_POST['tbl_storage_engine']) ? $_POST['tbl_storage_engine'] : null,
     'connection' => isset($_POST['connection']) ? $_POST['connection'] : null,
     'change_column' => isset($_POST['change_column']) ? $_POST['change_column'] : null,

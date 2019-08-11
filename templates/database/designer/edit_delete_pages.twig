@@ -1,4 +1,4 @@
-<form action="db_designer.php" method="post" name="edit_delete_pages" id="edit_delete_pages" class="ajax">
+<form action="{{ url('/database/designer') }}" method="post" name="edit_delete_pages" id="edit_delete_pages" class="ajax">
     {{ get_hidden_inputs(db) }}
     <fieldset id="page_edit_delete_options">
         <input type="hidden" name="operation" value="{{ operation }}">

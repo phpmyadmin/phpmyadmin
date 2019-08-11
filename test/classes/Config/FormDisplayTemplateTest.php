@@ -89,7 +89,7 @@ class FormDisplayTemplateTest extends TestCase
         $result = $this->formDisplayTemplate->displayTabsTop(['one', 'two']);
 
         $this->assertStringContainsString(
-            '<ul class="tabs responsivetable"',
+            '<ul class="tabs responsivetable row"',
             $result
         );
 
@@ -104,7 +104,7 @@ class FormDisplayTemplateTest extends TestCase
         );
 
         $this->assertStringContainsString(
-            '<div class="tabs_contents"',
+            '<div class="tabs_contents row"',
             $result
         );
     }

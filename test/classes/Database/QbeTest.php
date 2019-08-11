@@ -342,7 +342,7 @@ class QbeTest extends PmaTestCase
                     3,
                     [
                         'and' => '',
-                        'or' => ' checked="checked"'
+                        'or' => ' checked="checked"',
                     ],
                 ]
             )
@@ -461,7 +461,7 @@ class QbeTest extends PmaTestCase
         $this->assertEquals(
             [
                 'unique' => [],
-                'index' => []
+                'index' => [],
             ],
             $this->_callProtectedFunction(
                 '_getIndexes',

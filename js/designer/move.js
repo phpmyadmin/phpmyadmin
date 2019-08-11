@@ -5,13 +5,12 @@
 
 /* global DesignerObjects */ // js/designer/objects.js
 /* global DesignerHistory, historyArray, selectField */ // js/designer/history.js
-/* global contr, db, designerTablesEnabled, displayField, hTabs, jTabs, selectedPage, server */ // js/designer/init.js
+/* global contr, db, designerTablesEnabled, displayField, hTabs, jTabs, selectedPage:writable, server */ // js/designer/init.js
 /* global DesignerPage */ // js/designer/page.js
 
 var DesignerMove = {};
 
 var change = 0; // variable to track any change in designer layout.
-var staying = 0; //  variable to check if the user stayed after seeing the confirmation prompt.
 var showRelationLines = true;
 var alwaysShowText = false;
 
@@ -40,10 +39,6 @@ AJAX.registerOnload('designer/move.js', function () {
     $('#selflink').hide();
 });
 
-DesignerMove.makeZero = function () {   // Function called if the user stays after seeing the confirmation prompt.
-    staying = 0;
-};
-
 DesignerMove.markSaved = function () {
     change = 0;
     $('#saved_state').text('');
@@ -54,12 +49,7 @@ DesignerMove.markUnsaved = function () {
     $('#saved_state').text('*');
 };
 
-var dx;
-var dy;
 var curClick = null;
-// update in DesignerMove.main()
-var smX = 2;
-var smY = 2;
 var smS           = 0;
 var smAdd         = 10;
 var sLeft         = 0;
@@ -71,7 +61,6 @@ var onDisplayField = 0;
 var onAngularDirect = 1;
 var clickField    = 0;
 var linkRelation  = '';
-var idHint;
 var canvasWidth   = 0;
 var canvasHeight  = 0;
 var osnTabWidth  = 0;
@@ -81,8 +70,6 @@ var globX;
 var globY;
 var timeoutId;
 var layerMenuCurClick = 0;
-var step = 10;
-var oldClass;
 var fromArray = [];
 var downer;
 var menuMoved = false;
@@ -100,8 +87,8 @@ if (isIe) {
 }
 
 DesignerMove.mouseDown = function (e) {
-    globX = dx = isIe ? e.clientX + document.body.scrollLeft : e.pageX;
-    globY = dy = isIe ? e.clientY + document.body.scrollTop : e.pageY;
+    globX = isIe ? e.clientX + document.body.scrollLeft : e.pageX;
+    globY = isIe ? e.clientY + document.body.scrollTop : e.pageY;
 
     if (e.target.tagName === 'SPAN') {
         curClick = e.target.parentNode.parentNode.parentNode.parentNode;
@@ -144,9 +131,6 @@ DesignerMove.mouseMove = function (e) {
         var newX = curX - deltaX;
         var newY = curY - deltaY;
 
-        dx = newDx;
-        dy = newDy;
-
         $curClick.attr('data-left', newX);
         $curClick.attr('data-top', newY);
 
@@ -163,8 +147,6 @@ DesignerMove.mouseMove = function (e) {
         $curClick.css('left', newX + 'px');
         $curClick.css('top', newY + 'px');
     } else if (layerMenuCurClick) {
-        dx = newDx;
-        dy = newDy;
         if (menuMoved) {
             deltaX = -deltaX;
         }
@@ -172,8 +154,6 @@ DesignerMove.mouseMove = function (e) {
         var newWidth = $layerMenu.width() + deltaX;
         if (newWidth < 150) {
             newWidth = 150;
-        } else {
-            dx = e.pageX;
         }
         $layerMenu.width(newWidth);
     }
@@ -184,7 +164,7 @@ DesignerMove.mouseMove = function (e) {
     }
 };
 
-DesignerMove.mouseUp = function (e) {
+DesignerMove.mouseUp = function () {
     if (curClick !== null) {
         document.getElementById('canvas').style.display = 'inline-block';
         DesignerMove.reload();
@@ -260,14 +240,11 @@ DesignerMove.main = function () {
     // ---CROSS
 
     document.getElementById('layer_menu').style.top = -1000 + 'px'; // fast scroll
-    // smX += document.getElementById('osn_tab').offsetLeft;
-    // smY += document.getElementById('osn_tab').offsetTop;
     DesignerMove.osnTabPos();
     DesignerMove.canvasPos();
     DesignerMove.smallTabRefresh();
     DesignerMove.reload();
     DesignerMove.setDefaultValuesFromSavedState();
-    idHint = document.getElementById('designer_hint');
     if (isIe) {
         DesignerMove.generalScroll();
     }
@@ -552,7 +529,7 @@ DesignerMove.addOtherDbTables = function () {
     buttonOptions[Messages.strGo] = function () {
         var db = $('#add_table_from').val();
         var table = $('#add_table').val();
-        $.post('db_designer.php', {
+        $.post('index.php?route=/database/designer', {
             'ajax_request' : true,
             'dialog' : 'add_table',
             'db' : db,
@@ -587,7 +564,7 @@ DesignerMove.addOtherDbTables = function () {
     var $selectTable = $('<select id="add_table"></select>');
     $selectTable.append('<option value="">None</option>');
 
-    $.post('sql.php', {
+    $.post('index.php?route=/sql', {
         'ajax_request' : true,
         'sql_query' : 'SHOW databases;',
         'server': CommonParams.get('server')
@@ -617,7 +594,7 @@ DesignerMove.addOtherDbTables = function () {
         if ($(this).val()) {
             var dbName = $(this).val();
             var sqlQuery = 'SHOW tables;';
-            $.post('sql.php', {
+            $.post('index.php?route=/sql', {
                 'ajax_request' : true,
                 'sql_query': sqlQuery,
                 'db' : dbName,
@@ -650,14 +627,15 @@ DesignerMove.save = function (url) {
         document.getElementById('t_h_' + key + '_').value = document.getElementById('check_vis_' + key).checked ? 1 : 0;
     }
     document.form1.action = url;
-    $(document.form1).submit();
+    $(document.form1).trigger('submit');
 };
 
 DesignerMove.getUrlPos = function (forceString) {
+    var key;
     if (designerTablesEnabled || forceString) {
         var poststr = '';
         var argsep = CommonParams.get('arg_separator');
-        for (var key in jTabs) {
+        for (key in jTabs) {
             poststr += argsep + 't_x[' + key + ']=' + parseInt(document.getElementById(key).style.left, 10);
             poststr += argsep + 't_y[' + key + ']=' + parseInt(document.getElementById(key).style.top, 10);
             poststr += argsep + 't_v[' + key + ']=' + (document.getElementById('id_tbody_' + key).style.display === 'none' ? 0 : 1);
@@ -666,7 +644,7 @@ DesignerMove.getUrlPos = function (forceString) {
         return poststr;
     } else {
         var coords = [];
-        for (var key in jTabs) {
+        for (key in jTabs) {
             if (document.getElementById('check_vis_' + key).checked) {
                 var x = parseInt(document.getElementById(key).style.left, 10);
                 var y = parseInt(document.getElementById(key).style.top, 10);
@@ -686,7 +664,7 @@ DesignerMove.save2 = function (callback) {
         poststr += DesignerMove.getUrlPos();
 
         var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
-        $.post('db_designer.php', poststr, function (data) {
+        $.post('index.php?route=/database/designer', poststr, function (data) {
             if (data.success === false) {
                 Functions.ajaxShowMessage(data.error, false);
             } else {
@@ -700,7 +678,7 @@ DesignerMove.save2 = function (callback) {
         });
     } else {
         var name = $('#page_name').html().trim();
-        DesignerPage.saveToSelectedPage(db, selectedPage, name, DesignerMove.getUrlPos(), function (page) {
+        DesignerPage.saveToSelectedPage(db, selectedPage, name, DesignerMove.getUrlPos(), function () {
             DesignerMove.markSaved();
             if (typeof callback !== 'undefined') {
                 callback();
@@ -757,13 +735,13 @@ DesignerMove.save3 = function (callback) {
         var buttonOptions = {};
         buttonOptions[Messages.strGo] = function () {
             var $form = $('#save_page');
-            $form.submit();
+            $form.trigger('submit');
         };
         buttonOptions[Messages.strCancel] = function () {
             $(this).dialog('close');
         };
 
-        var $form = $('<form action="db_designer.php" method="post" name="save_page" id="save_page" class="ajax"></form>')
+        var $form = $('<form action="index.php?route=/database/designer" method="post" name="save_page" id="save_page" class="ajax"></form>')
             .append('<input type="hidden" name="server" value="' + server + '">')
             .append($('<input type="hidden" name="db" />').val(db))
             .append('<input type="hidden" name="operation" value="savePage">')
@@ -808,7 +786,7 @@ DesignerMove.editPages = function () {
         };
 
         var $msgbox = Functions.ajaxShowMessage();
-        $.post('db_designer.php', {
+        $.post('index.php?route=/database/designer', {
             'ajax_request': true,
             'server': server,
             'db': db,
@@ -891,7 +869,7 @@ DesignerMove.deletePages = function () {
     };
 
     var $msgbox = Functions.ajaxShowMessage();
-    $.post('db_designer.php', {
+    $.post('index.php?route=/database/designer', {
         'ajax_request': true,
         'server': server,
         'db': db,
@@ -993,7 +971,7 @@ DesignerMove.saveAs = function () {
     };
 
     var $msgbox = Functions.ajaxShowMessage();
-    $.post('db_designer.php', {
+    $.post('index.php?route=/database/designer', {
         'ajax_request': true,
         'server': server,
         'db': db,
@@ -1065,7 +1043,7 @@ DesignerMove.promptToSaveCurrentPage = function (callback) {
 DesignerMove.exportPages = function () {
     var buttonOptions = {};
     buttonOptions[Messages.strGo] = function () {
-        $('#id_export_pages').submit();
+        $('#id_export_pages').trigger('submit');
         $(this).dialog('close');
     };
     buttonOptions[Messages.strCancel] = function () {
@@ -1074,7 +1052,7 @@ DesignerMove.exportPages = function () {
     var $msgbox = Functions.ajaxShowMessage();
     var argsep = CommonParams.get('arg_separator');
 
-    $.post('db_designer.php', {
+    $.post('index.php?route=/database/designer', {
         'ajax_request': true,
         'server': server,
         'db': db,
@@ -1127,7 +1105,7 @@ DesignerMove.loadPage = function (page) {
         if (page !== null) {
             paramPage = argsep + 'page=' + page;
         }
-        $('<a href="db_designer.php?server=' + server + argsep + 'db=' + encodeURI(db) + paramPage + '"></a>')
+        $('<a href="index.php?route=/database/designer&server=' + server + argsep + 'db=' + encodeURI(db) + paramPage + '"></a>')
             .appendTo($('#page_content'))
             .trigger('click');
     } else {
@@ -1172,7 +1150,7 @@ DesignerMove.angularDirect = function () {
 };
 
 DesignerMove.saveValueInConfig = function (indexSent, valueSent) {
-    $.post('db_designer.php',
+    $.post('index.php?route=/database/designer',
         {
             'operation': 'save_setting_value',
             'index': indexSent,
@@ -1242,10 +1220,8 @@ DesignerMove.clickField = function (db, T, f, pk) {
     if (onDisplayField) {
         // if is display field
         if (displayField[T] === f) {
-            oldClass = 'tab_field';
             delete displayField[T];
         } else {
-            oldClass = 'tab_field_3';
             if (displayField[T]) {
                 document.getElementById('id_tr_' + T + '.' + displayField[T]).className = 'tab_field';
                 delete displayField[T];
@@ -1258,7 +1234,7 @@ DesignerMove.clickField = function (db, T, f, pk) {
         document.getElementById('display_field_button').className = 'M_butt';
 
         var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
-        $.post('db_designer.php',
+        $.post('index.php?route=/database/designer',
             {
                 'operation': 'setDisplayField',
                 'ajax_request': true,
@@ -1286,7 +1262,7 @@ DesignerMove.newRelation = function () {
     linkRelation += argsep + 'operation=addNewRelation' + argsep + 'ajax_request=true';
 
     var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
-    $.post('db_designer.php', linkRelation, function (data) {
+    $.post('index.php?route=/database/designer', linkRelation, function (data) {
         if (data.success === false) {
             Functions.ajaxShowMessage(data.error, false);
         } else {
@@ -1304,7 +1280,7 @@ DesignerMove.startTableNew = function () {
 
 DesignerMove.startTabUpd = function (table) {
     CommonParams.set('table', table);
-    CommonActions.refreshMain('tbl_structure.php');
+    CommonActions.refreshMain('index.php?route=/table/structure');
 };
 
 // --------------------------- hide tables --------------------------------------
@@ -1366,7 +1342,6 @@ DesignerMove.smallTabRefresh = function () {
 DesignerMove.smallTab = function (t, reload) {
     var id      = document.getElementById('id_tbody_' + t);
     var idThis = document.getElementById('id_hide_tbody_' + t);
-    var idT = document.getElementById(t);
     if (idThis.innerHTML === 'v') {
         // ---CROSS
         id.style.display = 'none';
@@ -1400,7 +1375,6 @@ DesignerMove.selectTab = function (t) {
 
 DesignerMove.canvasClick = function (id, event) {
     var n = 0;
-    var relationName = 0;
     var selected = 0;
     var a = [];
     var Key0;
@@ -1480,7 +1454,6 @@ DesignerMove.canvasClick = function (id, event) {
                             'rgba(255,0,0,1)');
 
                         selected = 1;
-                        relationName = key;
                         Key0 = contr[K][key][key2][key3][0];
                         Key1 = contr[K][key][key2][key3][1];
                         Key2 = key2;
@@ -1518,7 +1491,7 @@ DesignerMove.updRelation = function () {
     linkRelation += argsep + 'operation=removeRelation' + argsep + 'ajax_request=true';
 
     var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
-    $.post('db_designer.php', linkRelation, function (data) {
+    $.post('index.php?route=/database/designer', linkRelation, function (data) {
         if (data.success === false) {
             Functions.ajaxShowMessage(data.error, false);
         } else {
@@ -1709,9 +1682,9 @@ var TargetColors = [];
 DesignerMove.getColorByTarget = function (target) {
     var color = '';  // "rgba(0,100,150,1)";
 
-    for (var a in TargetColors) {
-        if (TargetColors[a][0] === target) {
-            color = TargetColors[a][1];
+    for (var targetColor in TargetColors) {
+        if (TargetColors[targetColor][0] === target) {
+            color = TargetColors[targetColor][1];
             break;
         }
     }
@@ -1781,7 +1754,6 @@ DesignerMove.selectAll = function (idThis, owner) {
             if (document.getElementById('select_all_' + idThis).checked === true) {
                 parent.elements[i].checked = true;
                 parent.elements[i].disabled = true;
-                var temp = '`' + idThis.substring(owner.length + 1) + '`.*';
             } else {
                 parent.elements[i].checked = false;
                 parent.elements[i].disabled = false;

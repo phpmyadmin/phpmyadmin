@@ -17,9 +17,7 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Table\RelationController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Util;
 use Symfony\Component\DependencyInjection\Definition;
@@ -28,18 +26,16 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
+global $containerBuilder;
+
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
-$container->alias('response', Response::class);
-
 /* Define dependencies for the concerned controller */
-$db = $container->get('db');
-$table = $container->get('table');
+$db = $containerBuilder->getParameter('db');
+$table = $containerBuilder->getParameter('table');
 
 /** @var DatabaseInterface $dbi */
-$dbi = $container->get(DatabaseInterface::class);
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
 $options_array = [
     'CASCADE' => 'CASCADE',
@@ -57,8 +53,6 @@ $upd_query = new Table($table, $db, $dbi);
 
 /* Define dependencies for the concerned controller */
 $dependency_definitions = [
-    'db' => $container->get('db'),
-    'table' => $container->get('table'),
     'options_array' => $options_array,
     'cfgRelation' => $cfgRelation,
     'tbl_storage_engine' => $tbl_storage_engine,

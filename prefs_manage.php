@@ -14,14 +14,16 @@ use PhpMyAdmin\File;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\UserPreferences;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\UserPreferencesHeader;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
+
+global $containerBuilder;
 
 /**
  * Gets some core libraries and displays a top message if required
@@ -40,10 +42,7 @@ $userPreferences->pageInit($cf);
 $response = Response::getInstance();
 
 $error = '';
-if (isset($_POST['submit_export'])
-    && isset($_POST['export_type'])
-    && $_POST['export_type'] == 'text_file'
-) {
+if (isset($_POST['submit_export'], $_POST['export_type']) && $_POST['export_type'] == 'text_file') {
     // export to JSON file
     $response->disable();
     $filename = 'phpMyAdmin-config-' . urlencode(Core::getenv('HTTP_HOST')) . '.json';
@@ -51,10 +50,7 @@ if (isset($_POST['submit_export'])
     $settings = $userPreferences->load();
     echo json_encode($settings['config_data'], JSON_PRETTY_PRINT);
     exit;
-} elseif (isset($_POST['submit_export'])
-    && isset($_POST['export_type'])
-    && $_POST['export_type'] == 'php_file'
-) {
+} elseif (isset($_POST['submit_export'], $_POST['export_type']) && $_POST['export_type'] == 'php_file') {
     // export to JSON file
     $response->disable();
     $filename = 'phpMyAdmin-config-' . urlencode(Core::getenv('HTTP_HOST')) . '.php';
@@ -75,9 +71,8 @@ if (isset($_POST['submit_export'])
 } elseif (isset($_POST['submit_import'])) {
     // load from JSON file
     $json = '';
-    if (isset($_POST['import_type'])
+    if (isset($_POST['import_type'], $_FILES['import_file'])
         && $_POST['import_type'] == 'text_file'
-        && isset($_FILES['import_file'])
         && $_FILES['import_file']['error'] == UPLOAD_ERR_OK
         && is_uploaded_file($_FILES['import_file']['tmp_name'])
     ) {
@@ -133,7 +128,7 @@ if (isset($_POST['submit_export'])
                 'form_errors' => $form_display->displayErrors(),
                 'json' => $json,
                 'import_merge' => isset($_POST['import_merge']) ? $_POST['import_merge'] : null,
-                'return_url' => $return_url
+                'return_url' => $return_url,
             ]);
             exit;
         }

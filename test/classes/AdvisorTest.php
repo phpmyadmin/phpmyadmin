@@ -167,7 +167,7 @@ class AdvisorTest extends PmaTestCase
         $advisor->setVariable('value', 0);
         $advisor->addRule('fired', $rule);
         $runResult = $advisor->getRunResult();
-        if (isset($runResult['errors']) || ! is_null($error)) {
+        if (isset($runResult['errors']) || $error !== null) {
             $this->assertEquals([$error], $runResult['errors']);
         }
         if (isset($runResult['fired']) || $expected != []) {
@@ -211,7 +211,7 @@ class AdvisorTest extends PmaTestCase
                     'id' => 'Variable',
                     'name' => 'Variable',
                     'issue' => 'issue',
-                    'recommendation' => 'Recommend <a href="server_variables.php?' .
+                    'recommendation' => 'Recommend <a href="index.php?route=/server/variables&amp;' .
                     'filter=status_var&amp;lang=en">status_var</a>',
                 ],
                 null,
@@ -305,7 +305,7 @@ class AdvisorTest extends PmaTestCase
                     'issue' => 'official MySQL binaries.',
                     'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F' .
                         'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>',
-                    'id' => 'Distribution'
+                    'id' => 'Distribution',
                 ],
                 null,
             ],
@@ -322,7 +322,7 @@ class AdvisorTest extends PmaTestCase
                     'issue' => 'official MySQL binaries.',
                     'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F' .
                         'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>',
-                    'id' => 'Distribution'
+                    'id' => 'Distribution',
                 ],
                 null,
             ],
@@ -339,7 +339,7 @@ class AdvisorTest extends PmaTestCase
                     'issue' => 'official MySQL binaries.',
                     'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F' .
                         'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>',
-                    'id' => 'Distribution'
+                    'id' => 'Distribution',
                 ],
                 null,
             ],
@@ -356,7 +356,7 @@ class AdvisorTest extends PmaTestCase
                     'issue' => 'official MySQL binaries.',
                     'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F' .
                         'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>',
-                    'id' => 'Distribution'
+                    'id' => 'Distribution',
                 ],
                 null,
             ],

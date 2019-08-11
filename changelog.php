@@ -7,12 +7,14 @@
  */
 declare(strict_types=1);
 
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
+
+global $containerBuilder;
 
 /**
  * Gets core libraries and defines some variables
@@ -101,7 +103,7 @@ $replaces = [
     => '\\1<b>\\2</b>',
 
     // Links target and rel
-    '/a href="/' => 'a target="_blank" rel="noopener noreferrer" href="'
+    '/a href="/' => 'a target="_blank" rel="noopener noreferrer" href="',
 
 ];
 

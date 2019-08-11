@@ -1,7 +1,8 @@
-<div>
+<div class="container-fluid">
+<div class="row">
   <ul id="topmenu2" class="nav">
     <li class="nav-item">
-      <a href="server_status.php{{ get_common() }}"{{ active == 'status' ? ' class="tabactive nav-link"':'class="nav-link"' }}>
+      <a href="{{ url('/server/status') }}"{{ active == 'status' ? ' class="tabactive nav-link"':'class="nav-link"' }}>
         {% trans 'Server' %}
       </a>
     </li>
@@ -11,7 +12,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a href="server_status_queries.php{{ get_common() }}"{{ active == 'queries' ? ' class="tabactive nav-link"':'class="nav-link"' }}>
+      <a href="{{ url('/server/status/queries') }}"{{ active == 'queries' ? ' class="tabactive nav-link"':'class="nav-link"' }}>
         {% trans 'Query statistics' %}
       </a>
     </li>
@@ -21,19 +22,18 @@
       </a>
     </li>
     <li class="nav-item">
-      <a href="server_status_monitor.php{{ get_common() }}"{{ active == 'monitor' ? ' class="tabactive nav-link"':'class="nav-link"' }}>
+      <a href="{{ url('/server/status/monitor') }}"{{ active == 'monitor' ? ' class="tabactive nav-link"':'class="nav-link"' }}>
         {% trans 'Monitor' %}
       </a>
     </li>
-    <li class="nav-item">
-      <a href="server_status_advisor.php{{ get_common() }}"{{ active == 'advisor' ? ' class="tabactive nav-link"':'class="nav-link"' }}>
+    <li>
+      <a href="{{ url('/server/status/advisor') }}"{{ active == 'advisor' ? ' class="tabactive nav-link"':'class="nav-link"' }}>
         {% trans 'Advisor' %}
       </a>
     </li>
   </ul>
+  </div>
   <div class="clearfloat"></div>
 
-  <div>
     {% block content %}{% endblock %}
-  </div>
 </div>

@@ -8,7 +8,6 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\UserGroups;
@@ -18,16 +17,15 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
+global $containerBuilder;
+
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
-
 /** @var Response $response */
-$response = $container->get(Response::class);
+$response = $containerBuilder->get(Response::class);
 
 /** @var DatabaseInterface $dbi */
-$dbi = $container->get(DatabaseInterface::class);
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
 /** @var Relation $relation */
 $relation = $containerBuilder->get('relation');
@@ -38,7 +36,7 @@ if (! $GLOBALS['cfgRelation']['menuswork']) {
 
 $header = $response->getHeader();
 $scripts = $header->getScripts();
-$scripts->addFile('server_user_groups.js');
+$scripts->addFile('server/user_groups.js');
 
 /**
  * Only allowed to superuser
@@ -51,7 +49,7 @@ if (! $dbi->isSuperuser()) {
     exit;
 }
 
-$response->addHTML('<div>');
+$response->addHTML('<div class="container-fluid">');
 $response->addHTML(Users::getHtmlForSubMenusOnUsersPage('server_user_groups.php'));
 
 /**

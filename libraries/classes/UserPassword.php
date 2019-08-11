@@ -94,7 +94,7 @@ class UserPassword
         }
         return [
             'error' => $error,
-            'msg' => $message
+            'msg' => $message,
         ];
     }
 

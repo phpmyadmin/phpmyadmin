@@ -7,9 +7,9 @@
  */
 declare(strict_types=1);
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Transformations;
@@ -20,22 +20,19 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-global $cfg, $db, $table;
+global $containerBuilder;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
-
 /** @var Response $response */
-$response = $container->get(Response::class);
+$response = $containerBuilder->get(Response::class);
 
 /** @var DatabaseInterface $dbi */
-$dbi = $container->get(DatabaseInterface::class);
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
 $header = $response->getHeader();
 $scripts = $header->getScripts();
-$scripts->addFile('tbl_structure.js');
+$scripts->addFile('table/structure.js');
 
 // Check parameters
 Util::checkParameters(['db', 'table']);
@@ -43,15 +40,23 @@ Util::checkParameters(['db', 'table']);
 /** @var Transformations $transformations */
 $transformations = $containerBuilder->get('transformations');
 
+/** @var string $db */
+$db = $containerBuilder->getParameter('db');
+
+/** @var string $table */
+$table = $containerBuilder->getParameter('table');
+
+/** @var Config $config */
+$config = $containerBuilder->get('config');
+$cfg = $config->settings;
+
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-$err_url = 'tbl_sql.php' . Url::getCommon(
-    [
-        'db' => $db,
-        'table' => $table,
-    ]
-);
+$err_url = Url::getFromRoute('/table/sql', [
+    'db' => $db,
+    'table' => $table,
+]);
 
 /**
  * The form used to define the field to add has been submitted
@@ -78,8 +83,8 @@ if (isset($_POST['submit_num_fields'])) {
 }
 
 if (isset($_POST['do_save_data'])) {
-    //avoid an incorrect calling of PMA_updateColumns() via
-    //tbl_structure.php below
+    // avoid an incorrect calling of PMA_updateColumns() via
+    // /table/structure below
     unset($_POST['do_save_data']);
 
     $createAddField = new CreateAddField($dbi);
@@ -137,13 +142,13 @@ if (isset($_POST['do_save_data'])) {
 /**
  * Displays the form used to define the new field
  */
-if ($abort == false) {
+if ($abort === false) {
     /**
      * Gets tables information
      */
     include_once ROOT_PATH . 'libraries/tbl_common.inc.php';
 
-    $active_page = 'tbl_structure.php';
+    $active_page = Url::getFromRoute('/table/structure');
     /**
      * Display the form
      */

@@ -1,4 +1,4 @@
-<form method="post" action="sql.php" name="displayOptionsForm" class="ajax print_ignore">
+<form method="post" action="{{ url('/sql') }}" name="displayOptionsForm" class="ajax print_ignore">
     {{ get_hidden_inputs({
         'db': db,
         'table': table,

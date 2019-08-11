@@ -101,7 +101,7 @@ class StorageEngine
      * @static
      * @staticvar array $storage_engines storage engines
      * @access public
-     * @return string[] array of storage engines
+     * @return array[] array of storage engines
      */
     public static function getStorageEngines()
     {
@@ -335,7 +335,7 @@ class StorageEngine
                 $mysql_vars[$row['Variable_name']]
                     = $variables[$row['Variable_name']];
             } elseif (! $like
-                && mb_strpos(mb_strtolower($row['Variable_name']), mb_strtolower($this->engine)) !== 0
+                && mb_stripos($row['Variable_name'], $this->engine) !== 0
             ) {
                 continue;
             }

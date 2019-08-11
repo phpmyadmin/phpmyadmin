@@ -8,7 +8,7 @@
 
 <div id="maincontainer">
   {{ sync_favorite_tables|raw }}
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <div id="main_pane_left" class="col-7 col-xs-12">
         {% if has_server %}
@@ -24,7 +24,7 @@
               </p>
             </div>
           {% endif %}
-  
+
             <div class="group">
               <h2>{% trans 'General settings' %}</h2>
               <ul>
@@ -46,7 +46,21 @@
                         {% trans 'Server connection collation:' %}
                         {{ show_mysql_docu('charset-connection') }}
                       </label>
-                      {{ server_collation|raw }}
+                      {% if charsets is not empty %}
+                        <select lang="en" dir="ltr" name="collation_connection" id="select_collation_connection" class="autosubmit">
+                          <option value="">{% trans 'Collation' %}</option>
+                          <option value=""></option>
+                          {% for charset in charsets %}
+                            <optgroup label="{{ charset.name }}" title="{{ charset.description }}">
+                              {% for collation in charset.collations %}
+                                <option value="{{ collation.name }}" title="{{ collation.description }}"{{ collation.is_selected ? ' selected' }}>
+                                  {{- collation.name -}}
+                                </option>
+                              {% endfor %}
+                            </optgroup>
+                          {% endfor %}
+                        </select>
+                      {% endif %}
                     </form>
                   </li>
                 {% endif %}

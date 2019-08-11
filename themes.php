@@ -7,13 +7,15 @@
  */
 declare(strict_types=1);
 
+use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\ThemeManager;
-use PhpMyAdmin\Response;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
+
+global $containerBuilder;
 
 include ROOT_PATH . 'libraries/common.inc.php';
 

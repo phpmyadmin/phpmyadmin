@@ -7,21 +7,165 @@
  */
 declare(strict_types=1);
 
-use PhpMyAdmin\Controllers\HomeController;
+use FastRoute\Dispatcher;
+use FastRoute\RouteCollector;
 use PhpMyAdmin\Core;
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
-use PhpMyAdmin\Response;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\Message;
+
+use function FastRoute\simpleDispatcher;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-global $server;
-
 require_once ROOT_PATH . 'libraries/common.inc.php';
+
+if (isset($_GET['route']) || isset($_POST['route'])) {
+    $dispatcher = simpleDispatcher(function (RouteCollector $routes) {
+        $routes->addRoute(['GET', 'POST'], '[/]', function () {
+            require_once ROOT_PATH . 'libraries/entry_points/home.php';
+        });
+        $routes->addRoute(['GET', 'POST'], '/ajax', function () {
+            require_once ROOT_PATH . 'libraries/entry_points/ajax.php';
+        });
+        $routes->addRoute(['GET', 'POST'], '/browse_foreigners', function () {
+            require_once ROOT_PATH . 'libraries/entry_points/browse_foreigners.php';
+        });
+        $routes->addGroup('/database', function (RouteCollector $routes) {
+            $routes->addRoute(['GET', 'POST'], '/central_columns', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/database/central_columns.php';
+            });
+            $routes->addRoute('GET', '/data_dictionary', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/database/datadict.php';
+            });
+            $routes->addRoute(['GET', 'POST'], '/designer', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/database/designer.php';
+            });
+            $routes->addRoute(['GET', 'POST'], '/events', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/database/events.php';
+            });
+            $routes->addRoute(['GET', 'POST'], '/multi_table_query', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/database/multi_table_query.php';
+            });
+            $routes->addRoute(['GET', 'POST'], '/operations', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/database/operations.php';
+            });
+            $routes->addRoute(['GET', 'POST'], '/qbe', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/database/qbe.php';
+            });
+            $routes->addRoute(['GET', 'POST'], '/routines', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/database/routines.php';
+            });
+            $routes->addRoute(['GET', 'POST'], '/search', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/database/search.php';
+            });
+            $routes->addGroup('/sql', function (RouteCollector $routes) {
+                $routes->addRoute(['GET', 'POST'], '', function () {
+                    require_once ROOT_PATH . 'libraries/entry_points/database/sql.php';
+                });
+                $routes->addRoute('POST', '/autocomplete', function () {
+                    require_once ROOT_PATH . 'libraries/entry_points/database/sql/autocomplete.php';
+                });
+                $routes->addRoute('POST', '/format', function () {
+                    require_once ROOT_PATH . 'libraries/entry_points/database/sql/format.php';
+                });
+            });
+            $routes->addRoute(['GET', 'POST'], '/structure', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/database/structure.php';
+            });
+            $routes->addRoute(['GET', 'POST'], '/tracking', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/database/tracking.php';
+            });
+            $routes->addRoute(['GET', 'POST'], '/triggers', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/database/triggers.php';
+            });
+        });
+        $routes->addGroup('/server', function (RouteCollector $routes) {
+            $routes->addRoute(['GET', 'POST'], '/binlog', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/server/binlog.php';
+            });
+            $routes->addRoute('GET', '/collations', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/server/collations.php';
+            });
+            $routes->addRoute(['GET', 'POST'], '/databases', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/server/databases.php';
+            });
+            $routes->addRoute('GET', '/engines', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/server/engines.php';
+            });
+            $routes->addRoute('GET', '/plugins', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/server/plugins.php';
+            });
+            $routes->addRoute(['GET', 'POST'], '/privileges', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/server/privileges.php';
+            });
+            $routes->addRoute(['GET', 'POST'], '/replication', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/server/replication.php';
+            });
+            $routes->addRoute(['GET', 'POST'], '/sql', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/server/sql.php';
+            });
+            $routes->addGroup('/status', function (RouteCollector $routes) {
+                $routes->addRoute('GET', '', function () {
+                    require_once ROOT_PATH . 'libraries/entry_points/server/status.php';
+                });
+                $routes->addRoute('GET', '/advisor', function () {
+                    require_once ROOT_PATH . 'libraries/entry_points/server/status/advisor.php';
+                });
+                $routes->addRoute(['GET', 'POST'], '/monitor', function () {
+                    require_once ROOT_PATH . 'libraries/entry_points/server/status/monitor.php';
+                });
+                $routes->addRoute('GET', '/queries', function () {
+                    require_once ROOT_PATH . 'libraries/entry_points/server/status/queries.php';
+                });
+            });
+            $routes->addRoute(['GET', 'POST'], '/variables', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/server/variables.php';
+            });
+        });
+        $routes->addRoute(['GET', 'POST'], '/sql', function () {
+            require_once ROOT_PATH . 'libraries/entry_points/sql.php';
+        });
+        $routes->addGroup('/table', function (RouteCollector $routes) {
+            $routes->addRoute(['GET', 'POST'], '/change', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/table/change.php';
+            });
+            $routes->addRoute(['GET', 'POST'], '/search', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/table/select.php';
+            });
+            $routes->addRoute(['GET', 'POST'], '/sql', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/table/sql.php';
+            });
+            $routes->addRoute(['GET', 'POST'], '/structure', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/table/structure.php';
+            });
+            $routes->addRoute(['GET', 'POST'], '/tracking', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/table/tracking.php';
+            });
+            $routes->addRoute(['GET', 'POST'], '/triggers', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/database/triggers.php';
+            });
+        });
+    });
+    $routeInfo = $dispatcher->dispatch(
+        $_SERVER['REQUEST_METHOD'],
+        rawurldecode($_GET['route'] ?? $_POST['route'])
+    );
+    if ($routeInfo[0] === Dispatcher::NOT_FOUND) {
+        Message::error(sprintf(
+            __('Error 404! The page %s was not found.'),
+            '<code>' . ($_GET['route'] ?? $_POST['route']) . '</code>'
+        ))->display();
+        exit;
+    } elseif ($routeInfo[0] === Dispatcher::METHOD_NOT_ALLOWED) {
+        Message::error(__('Error 405! Request method not allowed.'))->display();
+        exit;
+    } elseif ($routeInfo[0] === Dispatcher::FOUND) {
+        $handler = $routeInfo[1];
+        $handler($routeInfo[2]);
+        exit;
+    }
+}
 
 /**
  * pass variables to child pages
@@ -60,65 +204,4 @@ if (! empty($_REQUEST['target'])
     exit;
 }
 
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
-
-/** @var Response $response */
-$response = $container->get(Response::class);
-
-/** @var DatabaseInterface $dbi */
-$dbi = $container->get(DatabaseInterface::class);
-
-/** @var HomeController $controller */
-$controller = $containerBuilder->get(HomeController::class);
-
-if (isset($_REQUEST['ajax_request']) && ! empty($_REQUEST['access_time'])) {
-    exit;
-}
-
-if (isset($_POST['set_theme'])) {
-    $controller->setTheme([
-        'set_theme' => $_POST['set_theme'],
-    ]);
-
-    header('Location: index.php' . Url::getCommonRaw());
-} elseif (isset($_POST['collation_connection'])) {
-    $controller->setCollationConnection([
-        'collation_connection' => $_POST['collation_connection'],
-    ]);
-
-    header('Location: index.php' . Url::getCommonRaw());
-} elseif (! empty($_REQUEST['db'])) {
-    // See FAQ 1.34
-    $page = null;
-    if (! empty($_REQUEST['table'])) {
-        $page = Util::getScriptNameForOption(
-            $GLOBALS['cfg']['DefaultTabTable'],
-            'table'
-        );
-    } else {
-        $page = Util::getScriptNameForOption(
-            $GLOBALS['cfg']['DefaultTabDatabase'],
-            'database'
-        );
-    }
-    include ROOT_PATH . $page;
-} elseif ($response->isAjax() && ! empty($_REQUEST['recent_table'])) {
-    $response->addJSON($controller->reloadRecentTablesList());
-} elseif ($GLOBALS['PMA_Config']->isGitRevision()
-    && isset($_REQUEST['git_revision'])
-    && $response->isAjax()
-) {
-    $response->addHTML($controller->gitRevision());
-} else {
-    // Handles some variables that may have been sent by the calling script
-    $GLOBALS['db'] = '';
-    $GLOBALS['table'] = '';
-    $show_query = '1';
-
-    if ($server > 0) {
-        include ROOT_PATH . 'libraries/server_common.inc.php';
-    }
-
-    $response->addHTML($controller->index());
-}
+require_once ROOT_PATH . 'libraries/entry_points/home.php';

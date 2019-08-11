@@ -65,7 +65,7 @@ class File
     protected $_chunk_size = 32768;
 
     /**
-     * @var resource file handle
+     * @var resource|null file handle
      */
     protected $_handle = null;
 
@@ -227,6 +227,9 @@ class File
      */
     public function isUploaded(): bool
     {
+        if (null === $this->getName()) {
+            return false;
+        }
         return is_uploaded_file($this->getName());
     }
 
@@ -280,7 +283,7 @@ class File
         ) {
             return false;
         }
-        $file = File::fetchUploadedFromTblChangeRequestMultiple(
+        $file = $this->fetchUploadedFromTblChangeRequestMultiple(
             $_FILES['fields_upload'],
             $rownumber,
             $key
@@ -415,7 +418,7 @@ class File
      */
     public function isError(): bool
     {
-        return ! is_null($this->_error_message);
+        return $this->_error_message !== null;
     }
 
     /**
@@ -462,7 +465,7 @@ class File
             Util::userDir($GLOBALS['cfg']['UploadDir']) . Core::securePath($name)
         );
         if (@is_link($this->getName())) {
-            $this->_error_message = __('File is a symbolic link');
+            $this->_error_message = Message::error(__('File is a symbolic link'));
             $this->setName(null);
             return false;
         }
@@ -504,7 +507,7 @@ class File
         }
 
         $tmp_subdir = $GLOBALS['PMA_Config']->getUploadTempDir();
-        if (is_null($tmp_subdir)) {
+        if ($tmp_subdir === null) {
             // cannot create directory or access, point user to FAQ 1.11
             $this->_error_message = Message::error(__(
                 'Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc].'
@@ -696,7 +699,7 @@ class File
      */
     public function eof(): bool
     {
-        if (! is_null($this->_handle)) {
+        if ($this->_handle !== null) {
             return feof($this->_handle);
         }
         return $this->_offset == strlen($this->_content);
@@ -709,7 +712,7 @@ class File
      */
     public function close(): void
     {
-        if (! is_null($this->_handle)) {
+        if ($this->_handle !== null) {
             fclose($this->_handle);
             $this->_handle = null;
         } else {

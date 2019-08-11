@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use Exception;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
@@ -43,7 +44,7 @@ class Pdf extends TCPDF
      *                             temporary data on filesystem (slower).
      * @param boolean $pdfa        If TRUE set the document to PDF/A mode.
      *
-     * @throws \Exception
+     * @throws Exception
      * @access public
      */
     public function __construct(

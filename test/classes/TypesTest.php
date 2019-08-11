@@ -761,8 +761,8 @@ class TypesTest extends PmaTestCase
                     'GEOMETRYCOLLECTION',
                 ],
                 'JSON' => [
-                    'JSON'
-                ]
+                    'JSON',
+                ],
             ],
             $this->object->getColumns()
         );

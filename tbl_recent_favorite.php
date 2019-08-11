@@ -21,4 +21,4 @@ RecentFavoriteTable::getInstance('recent')
 RecentFavoriteTable::getInstance('favorite')
     ->removeIfInvalid($_REQUEST['db'], $_REQUEST['table']);
 
-require ROOT_PATH . 'sql.php';
+require ROOT_PATH . 'libraries/entry_points/sql.php';

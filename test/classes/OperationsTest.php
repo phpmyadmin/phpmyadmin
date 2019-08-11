@@ -66,7 +66,7 @@ class OperationsTest extends TestCase
     {
 
         $this->assertRegExp(
-            '/.*db_operations.php(.|[\n])*Database comment.*name="comment"([\n]|.)*/m',
+            '/.*\/database\/operations(.|[\n])*Database comment.*name="comment"([\n]|.)*/m',
             $this->operations->getHtmlForDatabaseComment("pma")
         );
     }
@@ -81,7 +81,7 @@ class OperationsTest extends TestCase
 
         $db_collation = 'db1';
         $html = $this->operations->getHtmlForRenameDatabase("pma", $db_collation);
-        $this->assertStringContainsString('db_operations.php', $html);
+        $this->assertStringContainsString('index.php?route=/database/operations', $html);
         $this->assertRegExp(
             '/.*db_rename.*Rename database to.*/',
             $html
@@ -97,7 +97,7 @@ class OperationsTest extends TestCase
     {
 
         $this->assertRegExp(
-            '/.*DROP.DATABASE.*db_operations.php.*Drop the database.*/',
+            '/.*DROP.DATABASE.*%2Fdatabase%2Foperations.*Drop the database.*/',
             $this->operations->getHtmlForDropDatabaseLink("pma")
         );
     }
@@ -111,7 +111,7 @@ class OperationsTest extends TestCase
     {
         $db_collation = 'db1';
         $html = $this->operations->getHtmlForCopyDatabase("pma", $db_collation);
-        $this->assertRegExp('/.*db_operations.php.*/', $html);
+        $this->assertRegExp('/.*\/database\/operations.*/', $html);
         $this->assertRegExp('/.*db_copy.*/', $html);
         $this->assertRegExp('/.*Copy database to.*/', $html);
     }
@@ -131,7 +131,7 @@ class OperationsTest extends TestCase
             $result
         );
         $this->assertRegExp(
-            '/.*db_operations.php.*/',
+            '/.*\/database\/operations.*/',
             $result
         );
     }
@@ -190,9 +190,16 @@ class OperationsTest extends TestCase
             [],
             'doclink',
         ]);
-
-        $this->assertRegExp(
-            '/.*href="sql.php.*post.*/',
+        $this->assertStringContainsString(
+            'href="index.php?route=/sql&amp;name=foo&amp;value=bar',
+            $result
+        );
+        $this->assertStringContainsString(
+            'post',
+            $result
+        );
+        $this->assertStringContainsString(
+            'Documentation',
             $result
         );
     }
@@ -262,22 +269,26 @@ class OperationsTest extends TestCase
      */
     public function testGetHtmlForReferentialIntegrityCheck()
     {
-
-        $this->assertRegExp(
-            '/.*Check referential integrity.*href="sql.php(.|[\n])*/m',
-            $this->operations->getHtmlForReferentialIntegrityCheck(
+        $actual = $this->operations->getHtmlForReferentialIntegrityCheck(
+            [
                 [
-                    [
-                        'foreign_db'    => 'db1',
-                        'foreign_table' => "foreign1",
-                        'foreign_field' => "foreign2",
-                    ],
+                    'foreign_db' => 'db1',
+                    'foreign_table' => "foreign1",
+                    'foreign_field' => "foreign2",
                 ],
-                [
-                    "param1" => 'a',
-                    "param2" => 'b',
-                ]
-            )
+            ],
+            [
+                "param1" => 'a',
+                "param2" => 'b',
+            ]
+        );
+        $this->assertStringContainsString(
+            'Check referential integrity',
+            $actual
+        );
+        $this->assertStringContainsString(
+            'href="index.php?route=/sql',
+            $actual
         );
     }
 }

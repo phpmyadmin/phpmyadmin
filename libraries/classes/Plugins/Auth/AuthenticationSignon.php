@@ -84,7 +84,7 @@ class AuthenticationSignon extends AuthenticationPlugin
                 unset($sessionCookieParams['samesite']);
         }
 
-        if (version_compare(phpversion(), '7.3.0', '>=')) {
+        if (version_compare(PHP_VERSION, '7.3.0', '>=')) {
             session_set_cookie_params($sessionCookieParams);
         }
 
@@ -216,6 +216,7 @@ class AuthenticationSignon extends AuthenticationPlugin
             /* Restore our token */
             if (! empty($pma_token)) {
                 $_SESSION[' PMA_token '] = $pma_token;
+                $_SESSION[' HMAC_secret '] = Util::generateRandom(16);
             }
 
             /**

@@ -13,6 +13,10 @@ use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Util;
+use function mysql_close;
+use function mysql_connect;
+use function mysqli_close;
+use function mysqli_connect;
 
 /**
  * Validation class for various validation functions
@@ -212,27 +216,27 @@ class Validator
         }
 
         if ($extension == 'mysql') {
-            $conn = @\mysql_connect($host . $port . $socket, $user, $pass);
+            $conn = @mysql_connect($host . $port . $socket, $user, $pass);
             if (! $conn) {
                 $error = __('Could not connect to the database server!');
             } else {
-                \mysql_close($conn);
+                mysql_close($conn);
             }
         } else {
-            $conn = @\mysqli_connect($host, $user, $pass, null, $port, $socket);
+            $conn = @mysqli_connect($host, $user, $pass, null, $port, $socket);
             if (! $conn) {
                 $error = __('Could not connect to the database server!');
             } else {
-                \mysqli_close($conn);
+                mysqli_close($conn);
             }
         }
-        if (! is_null($error)) {
+        if ($error !== null) {
             $lastError = error_get_last();
             if ($lastError !== null) {
                 $error .= ' - ' . $lastError['message'];
             }
         }
-        return is_null($error) ? true : [$errorKey => $error];
+        return $error === null ? true : [$errorKey => $error];
     }
 
     /**
@@ -251,7 +255,7 @@ class Validator
             'Server' => '',
             'Servers/1/user' => '',
             'Servers/1/SignonSession' => '',
-            'Servers/1/SignonURL' => ''
+            'Servers/1/SignonURL' => '',
         ];
         $error = false;
         if (empty($values['Servers/1/auth_type'])) {

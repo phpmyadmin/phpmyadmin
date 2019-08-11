@@ -9,13 +9,15 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\UserPreferencesHeader;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
+
+global $containerBuilder;
 
 /**
  * Gets some core libraries and displays a top message if required
@@ -52,10 +54,10 @@ if (isset($_POST['2fa_remove'])) {
     }
 }
 
-$backend = $two_factor->backend;
+$backend = $two_factor->getBackend();
 echo $template->render('preferences/two_factor/main', [
-    'enabled' => $two_factor->writable,
-    'num_backends' => count($two_factor->available),
+    'enabled' => $two_factor->isWritable(),
+    'num_backends' => count($two_factor->getAvailable()),
     'backend_id' => $backend::$id,
     'backend_name' => $backend::getName(),
     'backend_description' => $backend::getDescription(),

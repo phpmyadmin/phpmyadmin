@@ -8,37 +8,34 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-global $sql_query, $url_query;
+global $containerBuilder, $sql_query, $url_query;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
-
 /** @var Response $response */
-$response = $container->get(Response::class);
+$response = $containerBuilder->get(Response::class);
 
 /** @var DatabaseInterface $dbi */
-$dbi = $container->get(DatabaseInterface::class);
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
 $pma_table = new Table($GLOBALS['table'], $GLOBALS['db']);
 
 $header = $response->getHeader();
 $scripts = $header->getScripts();
-$scripts->addFile('tbl_operations.js');
+$scripts->addFile('table/operations.js');
 
 /** @var Template $template */
 $template = $containerBuilder->get('template');
@@ -111,14 +108,14 @@ $drop_view_url_params = array_merge(
     $url_params,
     [
         'sql_query' => 'DROP VIEW ' . Util::backquote($GLOBALS['table']),
-        'goto' => 'tbl_structure.php',
+        'goto' => Url::getFromRoute('/table/structure'),
         'reload' => '1',
         'purge' => '1',
         'message_to_show' => sprintf(
             __('View %s has been dropped.'),
             $GLOBALS['table']
         ),
-        'table' => $GLOBALS['table']
+        'table' => $GLOBALS['table'],
     ]
 );
 

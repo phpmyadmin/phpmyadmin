@@ -516,8 +516,8 @@ class Message
     /**
      * Real implementation of adding message
      *
-     * @param self   $message   to be added
-     * @param string $separator to use between this and previous string/message
+     * @param Message $message   to be added
+     * @param string  $separator to use between this and previous string/message
      *
      * @return void
      */
@@ -638,7 +638,7 @@ class Message
      */
     public static function decodeBB(string $message): string
     {
-        return Sanitize::sanitize($message, false, true);
+        return Sanitize::sanitizeMessage($message, false, true);
     }
 
     /**

@@ -20,7 +20,7 @@
             {% if criteria_values[column_index] is defined %}
                 value="{{ criteria_values[column_index] }}"
             {% endif %}>
-        <a class="ajax browse_foreign" href="browse_foreigners.php" data-post="
+        <a class="ajax browse_foreign" href="{{ url('/browse_foreigners') }}" data-post="
             {{- get_common({'db': db, 'table': table}, '') -}}
             &amp;field={{ column_name|url_encode }}&amp;fieldkey=
             {{- column_index }}&amp;fromsearch=1">

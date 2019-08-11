@@ -15,7 +15,7 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-global $db, $table, $url_query;
+global $db, $max_upload_size, $table, $url_query;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
@@ -35,7 +35,7 @@ require_once ROOT_PATH . 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_import.php&amp;back=tbl_import.php';
 
 $response->addHTML(
-    $import->get(
+    $import::get(
         'table',
         $db,
         $table,

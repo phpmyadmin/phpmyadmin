@@ -78,7 +78,7 @@ RTE.COMMON = {
         // and the definition must be provided for an item
         $elm = $('table.rte_table').last().find('input[name=item_name]');
         if ($elm.val() === '') {
-            $elm.focus();
+            $elm.trigger('focus');
             alert(Messages.strFormEmpty);
             return false;
         }
@@ -87,7 +87,7 @@ RTE.COMMON = {
             if (this.syntaxHiglighter !== null) {
                 this.syntaxHiglighter.focus();
             } else {
-                $('textarea[name=item_definition]').last().focus();
+                $('textarea[name=item_definition]').last().trigger('focus');
             }
             alert(Messages.strFormEmpty);
             return false;
@@ -345,7 +345,7 @@ RTE.COMMON = {
                         if ($('#rteDialog').parents('.ui-dialog').height() > $(window).height()) {
                             $('#rteDialog').dialog('option', 'height', $(window).height());
                         }
-                        $(this).find('input[name=item_name]').focus();
+                        $(this).find('input[name=item_name]').trigger('focus');
                         $(this).find('input.datefield').each(function () {
                             Functions.addDatepicker($(this).css('width', '95%'), 'date');
                         });
@@ -458,7 +458,7 @@ RTE.COMMON = {
 
     dropMultipleDialog: function ($this) {
         // We ask for confirmation here
-        $this.confirm(Messages.strDropRTEitems, '', function (url) {
+        $this.confirm(Messages.strDropRTEitems, '', function () {
             /**
              * @var msg jQuery object containing the reference to
              *          the AJAX message shown to the user
@@ -555,7 +555,7 @@ RTE.EVENT = {
             // The interval field must not be empty for recurring events
             $elm = this.$ajaxDialog.find('input[name=item_interval_value]');
             if ($elm.val() === '') {
-                $elm.focus();
+                $elm.trigger('focus');
                 alert(Messages.strFormEmpty);
                 return false;
             }
@@ -563,7 +563,7 @@ RTE.EVENT = {
             // The execute_at field must not be empty for "once off" events
             $elm = this.$ajaxDialog.find('input[name=item_execute_at]');
             if ($elm.val() === '') {
-                $elm.focus();
+                $elm.trigger('focus');
                 alert(Messages.strFormEmpty);
                 return false;
             }
@@ -611,7 +611,7 @@ RTE.ROUTINE = {
         $('.routine_params_table tbody').sortable({
             containment: '.routine_params_table tbody',
             handle: '.dragHandle',
-            stop: function (event, ui) {
+            stop: function () {
                 that.reindexParameters();
             },
         });
@@ -673,7 +673,7 @@ RTE.ROUTINE = {
                         inputname.substr(0, 15) === 'item_param_name' ||
                         inputname.substr(0, 15) === 'item_param_type') {
                         if ($(this).val() === '') {
-                            $(this).focus();
+                            $(this).trigger('focus');
                             isSuccess = false;
                             return false;
                         }
@@ -695,7 +695,7 @@ RTE.ROUTINE = {
                 if (($inputtyp.val() === 'ENUM' || $inputtyp.val() === 'SET' || $inputtyp.val().substr(0, 3) === 'VAR') &&
                     $inputlen.val() === ''
                 ) {
-                    $inputlen.focus();
+                    $inputlen.trigger('focus');
                     isSuccess = false;
                     return false;
                 }
@@ -713,7 +713,7 @@ RTE.ROUTINE = {
             if (($returntyp.val() === 'ENUM' || $returntyp.val() === 'SET' || $returntyp.val().substr(0, 3) === 'VAR') &&
                 $returnlen.val() === ''
             ) {
-                $returnlen.focus();
+                $returnlen.trigger('focus');
                 alert(Messages.strFormEmpty);
                 return false;
             }
@@ -842,7 +842,7 @@ RTE.ROUTINE = {
                         $msg = Functions.ajaxShowMessage(
                             Messages.strProcessingRequest
                         );
-                        $.post('db_routines.php', data, function (data) {
+                        $.post('index.php?route=/database/routines', data, function (data) {
                             if (data.success === true) {
                                 // Routine executed successfully
                                 Functions.ajaxRemoveMessage($msg);
@@ -868,7 +868,7 @@ RTE.ROUTINE = {
                             $(this).remove();
                         }
                     });
-                    $ajaxDialog.find('input[name^=params]').first().focus();
+                    $ajaxDialog.find('input[name^=params]').first().trigger('focus');
                     /**
                      * Attach the datepickers to the relevant form fields
                      */

@@ -9,33 +9,32 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statements\SelectStatement;
+use PhpMyAdmin\SqlParser\Utils\Misc;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use PhpMyAdmin\Response;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-global $db, $sql_query;
+global $containerBuilder, $db, $export_type, $filename_template, $sql_query;
 
 include_once ROOT_PATH . 'libraries/common.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
-
 /** @var Response $response */
-$response = $container->get(Response::class);
+$response = $containerBuilder->get(Response::class);
 
 /** @var DatabaseInterface $dbi */
-$dbi = $container->get(DatabaseInterface::class);
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
 $header = $response->getHeader();
 $scripts = $header->getScripts();
@@ -316,12 +315,12 @@ if ($export_type == 'server') {
 // Merge SQL Query aliases with Export aliases from
 // export page, Export page aliases are given more
 // preference over SQL Query aliases.
-$parser = new \PhpMyAdmin\SqlParser\Parser($sql_query);
+$parser = new Parser($sql_query);
 $aliases = [];
 if (! empty($parser->statements[0])
-    && ($parser->statements[0] instanceof \PhpMyAdmin\SqlParser\Statements\SelectStatement)
+    && ($parser->statements[0] instanceof SelectStatement)
 ) {
-    $aliases = \PhpMyAdmin\SqlParser\Utils\Misc::getAliases($parser->statements[0], $db);
+    $aliases = Misc::getAliases($parser->statements[0], $db);
 }
 if (! empty($_POST['aliases'])) {
     $aliases = $export->mergeAliases($aliases, $_POST['aliases']);
@@ -412,7 +411,7 @@ if ($save_on_server) {
         // HTML
         if ($export_type == 'database') {
             $num_tables = count($tables);
-            if ($num_tables == 0) {
+            if ($num_tables === 0) {
                 $message = PhpMyAdmin\Message::error(
                     __('No tables found in database.')
                 );

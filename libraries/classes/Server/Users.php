@@ -30,8 +30,8 @@ class Users
         $items = [
             [
                 'name' => __('User accounts overview'),
-                'url' => 'server_privileges.php',
-                'params' => Url::getCommon(['viewing_mode' => 'server']),
+                'url' => Url::getFromRoute('/server/privileges'),
+                'params' => Url::getCommon(['viewing_mode' => 'server'], '&'),
             ],
         ];
 
@@ -43,7 +43,7 @@ class Users
             ];
         }
 
-        $retval  = '<ul id="topmenu2" class="nav">';
+        $retval  = '<div class="row"><ul id="topmenu2" class="nav">';
         foreach ($items as $item) {
             $class = '';
             if ($item['url'] === $selfUrl) {
@@ -59,7 +59,7 @@ class Users
             $retval .= '</a>';
             $retval .= '</li>';
         }
-        $retval .= '</ul>';
+        $retval .= '</ul></div>';
         $retval .= '<div class="clearfloat"></div>';
 
         return $retval;

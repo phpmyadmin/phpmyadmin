@@ -11,31 +11,28 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-global $text_dir;
+global $containerBuilder, $text_dir;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 require ROOT_PATH . 'libraries/db_common.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
-
 /** @var Response $response */
-$response = $container->get(Response::class);
+$response = $containerBuilder->get(Response::class);
 
 /** @var DatabaseInterface $dbi */
-$dbi = $container->get(DatabaseInterface::class);
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
-$url_params['goto'] = 'tbl_structure.php';
+$url_params['goto'] = Url::getFromRoute('/table/structure');
 $url_params['back'] = 'view_create.php';
 
 /** @var Template $template */
@@ -172,7 +169,7 @@ if (isset($_POST['createview']) || isset($_POST['alterview'])) {
 
     if (! isset($_POST['ajax_dialog'])) {
         $message = Message::success();
-        include ROOT_PATH . 'tbl_structure.php';
+        include ROOT_PATH . 'libraries/entry_points/table/structure.php';
     } else {
         $response->addJSON(
             'message',
@@ -203,7 +200,7 @@ $view = [
 ];
 
 // Used to prefill the fields when editing a view
-if (isset($_GET['db']) && isset($_GET['table'])) {
+if (isset($_GET['db'], $_GET['table'])) {
     $item = $dbi->fetchSingleRow(
         sprintf(
             "SELECT `VIEW_DEFINITION`, `CHECK_OPTION`, `DEFINER`,

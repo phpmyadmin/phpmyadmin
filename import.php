@@ -10,7 +10,6 @@ declare(strict_types=1);
 use PhpMyAdmin\Bookmark;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Import;
@@ -31,18 +30,15 @@ if (isset($_POST['format']) && $_POST['format'] == 'ldi') {
     define('PMA_ENABLE_LDI', 1);
 }
 
-global $db, $pmaThemeImage, $table;
+global $cfg, $collation_connection, $containerBuilder, $db, $import_type, $pmaThemeImage, $table;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$container = Container::getDefaultContainer();
-$container->set(Response::class, Response::getInstance());
-
 /** @var Response $response */
-$response = $container->get(Response::class);
+$response = $containerBuilder->get(Response::class);
 
 /** @var DatabaseInterface $dbi */
-$dbi = $container->get(DatabaseInterface::class);
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
 /** @var import $import */
 $import = $containerBuilder->get('import');
@@ -69,15 +65,13 @@ if (isset($_GET['console_bookmark_refresh'])) {
 }
 // If it's a console bookmark add request
 if (isset($_POST['console_bookmark_add'])) {
-    if (isset($_POST['label']) && isset($_POST['db'])
-        && isset($_POST['bookmark_query']) && isset($_POST['shared'])
-    ) {
+    if (isset($_POST['label'], $_POST['db'], $_POST['bookmark_query'], $_POST['shared'])) {
         $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
         $bookmarkFields = [
             'bkm_database' => $_POST['db'],
             'bkm_user'  => $cfgBookmark['user'],
             'bkm_sql_query' => $_POST['bookmark_query'],
-            'bkm_label' => $_POST['label']
+            'bkm_label' => $_POST['label'],
         ];
         $isShared = ($_POST['shared'] == 'true' ? true : false);
         $bookmark = Bookmark::createBookmark(
@@ -297,11 +291,11 @@ if ($import_type == 'table') {
     $goto = 'server_import.php';
 } elseif (empty($goto) || ! preg_match('@^(server|db|tbl)(_[a-z]*)*\.php$@i', $goto)) {
     if (strlen($table) > 0 && strlen($db) > 0) {
-        $goto = 'tbl_structure.php';
+        $goto = Url::getFromRoute('/table/structure');
     } elseif (strlen($db) > 0) {
-        $goto = 'db_structure.php';
+        $goto = Url::getFromRoute('/database/structure');
     } else {
-        $goto = 'server_sql.php';
+        $goto = Url::getFromRoute('/server/sql');
     }
 }
 $err_url = $goto . Url::getCommon($urlparams);
@@ -799,7 +793,7 @@ if ($go_sql) {
         'sql_query',
         PhpMyAdmin\Util::getMessage($msg, $sql_query, 'success')
     );
-} elseif ($result == false) {
+} elseif ($result === false) {
     $response->setRequestStatus(false);
     $response->addJSON('message', PhpMyAdmin\Message::error($msg));
 } else {

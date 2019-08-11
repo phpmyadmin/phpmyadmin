@@ -6,7 +6,8 @@
  * @requires    jQuery
  */
 
-/* global centralColumnList */ // js/functions.js
+// eslint-disable-next-line no-unused-vars
+/* global centralColumnList:writable */ // js/functions.js
 
 /**
  * AJAX scripts for normalization.php
@@ -92,7 +93,7 @@ function goTo2NFStep1 () {
             $('#mainContent #extra').html(data.extra);
             $('#mainContent #newCols').html('');
             if (data.subText !== '') {
-                var doneButton = $('<input>')
+                $('<input>')
                     .attr({ type: 'submit', value: Messages.strDone, })
                     .on('click', function () {
                         processDependencies(data.primary_key);
@@ -124,6 +125,7 @@ function goToFinish1NF () {
     $('.tblFooters').html('');
 }
 
+// eslint-disable-next-line no-unused-vars
 function goToStep4 () {
     $.post(
         'normalization.php',
@@ -443,11 +445,11 @@ function moveRepeatingGroup (repeatingCols) {
     var newTable = $('input[name=repeatGroupTable]').val();
     var newColumn = $('input[name=repeatGroupColumn]').val();
     if (!newTable) {
-        $('input[name=repeatGroupTable]').focus();
+        $('input[name=repeatGroupTable]').trigger('focus');
         return false;
     }
     if (!newColumn) {
-        $('input[name=repeatGroupColumn]').focus();
+        $('input[name=repeatGroupColumn]').trigger('focus');
         return false;
     }
     var datastring = {
@@ -527,7 +529,7 @@ AJAX.registerOnload('normalization.js', function () {
                         .attr({ type: 'submit', id: 'saveSplit', value: Messages.strSave })
                         .appendTo('.tblFooters');
 
-                    var cancelSplitButton = $('<input>')
+                    $('<input>')
                         .attr({ type: 'submit', id: 'cancelSplit', value: Messages.strCancel })
                         .on('click', function () {
                             $('#newCols').html('');
@@ -542,7 +544,7 @@ AJAX.registerOnload('normalization.js', function () {
     $('.tblFooters').on('click','#saveSplit', function () {
         centralColumnList = [];
         if ($('#newCols #field_0_1').val() === '') {
-            $('#newCols #field_0_1').focus();
+            $('#newCols #field_0_1').trigger('focus');
             return false;
         }
         var argsep = CommonParams.get('arg_separator');
@@ -551,7 +553,7 @@ AJAX.registerOnload('normalization.js', function () {
         $.post('tbl_addfield.php', datastring, function (data) {
             if (data.success) {
                 $.post(
-                    'sql.php',
+                    'index.php?route=/sql',
                     {
                         'ajax_request': true,
                         'db': CommonParams.get('db'),
@@ -638,7 +640,7 @@ AJAX.registerOnload('normalization.js', function () {
         });
         dropQuery = dropQuery.slice(0, -2);
         $.post(
-            'sql.php',
+            'index.php?route=/sql',
             {
                 'ajax_request': true,
                 'db': CommonParams.get('db'),

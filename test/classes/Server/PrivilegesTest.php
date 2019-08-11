@@ -17,6 +17,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
+use stdClass;
 
 /**
  * PhpMyAdmin\Tests\Server\PrivilegesTest class
@@ -100,7 +101,7 @@ class PrivilegesTest extends TestCase
             'db' => 'pmadb',
             'users' => 'users',
             'usergroups' => 'usergroups',
-            'menuswork' => true
+            'menuswork' => true,
         ];
 
         $pmaconfig = $this->getMockBuilder('PhpMyAdmin\Config')
@@ -1532,16 +1533,12 @@ class PrivilegesTest extends TestCase
             $html
         );
 
-        $template = new Template();
-        $item = $template->render('checkbox', [
-            'html_field_name' => 'createdb-2',
-            'label' => __('Grant all privileges on wildcard name (username\\_%).'),
-            'checked' => false,
-            'onclick' => false,
-            'html_field_id' => 'createdb-2',
-        ]);
         $this->assertStringContainsString(
-            $item,
+            __('Grant all privileges on wildcard name (username\\_%).'),
+            $html
+        );
+        $this->assertStringContainsString(
+            '<input type="checkbox" name="createdb-2" id="createdb-2">',
             $html
         );
 
@@ -1599,7 +1596,7 @@ class PrivilegesTest extends TestCase
 
         //validate 1: Url::getCommon
         $this->assertStringContainsString(
-            Url::getCommon(['db' => $db]),
+            Url::getCommon(['db' => $db], ''),
             $html
         );
 
@@ -1693,12 +1690,10 @@ class PrivilegesTest extends TestCase
         );
 
         //validate 2: Url::getCommon
-        $item = Url::getCommon(
-            [
-                'db' => $db,
-                'table' => $table,
-            ]
-        );
+        $item = Url::getCommon([
+            'db' => $db,
+            'table' => $table,
+        ], '');
         $this->assertStringContainsString(
             $item,
             $html
@@ -1851,15 +1846,13 @@ class PrivilegesTest extends TestCase
             ''
         );
 
-        $url_html = Url::getCommon(
-            [
-                'username' => $username,
-                'hostname' => $hostname,
-                'dbname' => $dbname,
-                'tablename' => $tablename,
-                'routinename' => '',
-            ]
-        );
+        $url_html = Url::getCommon([
+            'username' => $username,
+            'hostname' => $hostname,
+            'dbname' => $dbname,
+            'tablename' => $tablename,
+            'routinename' => '',
+        ], '');
         $this->assertStringContainsString(
             $url_html,
             $html
@@ -1900,14 +1893,12 @@ class PrivilegesTest extends TestCase
 
         $html = $this->serverPrivileges->getUserLink('export', $username, $hostname);
 
-        $url_html = Url::getCommon(
-            [
-                'username' => $username,
-                'hostname' => $hostname,
-                'initial' => "",
-                'export' => 1,
-            ]
-        );
+        $url_html = Url::getCommon([
+            'username' => $username,
+            'hostname' => $hostname,
+            'initial' => '',
+            'export' => 1,
+        ], '');
         $this->assertStringContainsString(
             $url_html,
             $html
@@ -1986,7 +1977,7 @@ class PrivilegesTest extends TestCase
 
         //new_privileges
         $this->assertStringContainsString(
-            join(', ', $this->serverPrivileges->extractPrivInfo(null, true)),
+            implode(', ', $this->serverPrivileges->extractPrivInfo(null, true)),
             $extra_data['new_privileges']
         );
     }
@@ -2130,12 +2121,10 @@ class PrivilegesTest extends TestCase
             ),
             $html
         );
-        $item = Url::getCommon(
-            [
-                'db' => $url_dbname,
-                'reload' => 1,
-            ]
-        );
+        $item = Url::getCommon([
+            'db' => $url_dbname,
+            'reload' => 1,
+        ], '');
         $this->assertStringContainsString(
             $item,
             $html
@@ -2157,13 +2146,11 @@ class PrivilegesTest extends TestCase
             ),
             $html
         );
-        $item = Url::getCommon(
-            [
-                'db' => $url_dbname,
-                'table' => $tablename,
-                'reload' => 1,
-            ]
-        );
+        $item = Url::getCommon([
+            'db' => $url_dbname,
+            'table' => $tablename,
+            'reload' => 1,
+        ], '');
         $this->assertStringContainsString(
             $item,
             $html
@@ -2287,7 +2274,7 @@ class PrivilegesTest extends TestCase
 
         //Url::getCommon
         $this->assertStringContainsString(
-            Url::getCommon(['adduser' => 1]),
+            Url::getCommon(['adduser' => 1], ''),
             $html
         );
 
@@ -2358,7 +2345,7 @@ class PrivilegesTest extends TestCase
         $html = $this->serverPrivileges->getAddUserHtmlFieldset();
 
         $this->assertStringContainsString(
-            Url::getCommon(['adduser' => 1]),
+            Url::getCommon(['adduser' => 1], ''),
             $html
         );
         $this->assertStringContainsString(
@@ -2407,14 +2394,12 @@ class PrivilegesTest extends TestCase
         );
 
         //Url::getCommon
-        $item = Url::getCommon(
-            [
-                'username' => $username,
-                'hostname' => $hostname,
-                'dbname' => '',
-                'tablename' => '',
-            ]
-        );
+        $item = Url::getCommon([
+            'username' => $username,
+            'hostname' => $hostname,
+            'dbname' => '',
+            'tablename' => '',
+        ], '');
         $this->assertStringContainsString(
             $item,
             $html
@@ -2443,14 +2428,12 @@ class PrivilegesTest extends TestCase
         );
 
         //Url::getCommon
-        $item = Url::getCommon(
-            [
-                'username' => $username,
-                'hostname' => $hostname,
-                'dbname' => $url_dbname,
-                'tablename' => '',
-            ]
-        );
+        $item = Url::getCommon([
+            'username' => $username,
+            'hostname' => $hostname,
+            'dbname' => $url_dbname,
+            'tablename' => '',
+        ], '');
         $this->assertStringContainsString(
             $item,
             $html
@@ -2548,7 +2531,7 @@ class PrivilegesTest extends TestCase
         );
 
         // Test case 2
-        $GLOBALS['dblist'] = new \stdClass();
+        $GLOBALS['dblist'] = new stdClass();
         $GLOBALS['dblist']->databases = [
             'x',
             'y',
@@ -2580,12 +2563,12 @@ class PrivilegesTest extends TestCase
         $this->assertStringContainsString('<td>A</td>', $actual);
         $this->assertStringContainsString('<td>Z</td>', $actual);
         $this->assertStringContainsString(
-            '<a class="ajax" href="server_privileges.php?initial=-&amp;'
+            '<a class="ajax" href="index.php?route=/server/privileges&amp;initial=-&amp;'
             . 'server=1&amp;lang=en">-</a>',
             $actual
         );
         $this->assertStringContainsString(
-            '<a class="ajax" href="server_privileges.php?initial=%22&amp;'
+            '<a class="ajax" href="index.php?route=/server/privileges&amp;initial=%22&amp;'
             . 'server=1&amp;lang=en">"</a>',
             $actual
         );
@@ -2631,7 +2614,7 @@ class PrivilegesTest extends TestCase
                     'Host' => 'local',
                     'Password' => '?',
                     'Grant_priv' => 'N',
-                    'privs' => ['USAGE']
+                    'privs' => ['USAGE'],
                 ],
             ],
         ];

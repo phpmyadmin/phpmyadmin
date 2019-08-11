@@ -106,11 +106,10 @@ class FormDisplayTemplate
         }
 
         $htmlOutput = $this->template->render('list/unordered', [
-            'class' => 'tabs responsivetable',
+            'class' => 'tabs responsivetable row',
             'items' => $items,
         ]);
-        $htmlOutput .= '<br>';
-        $htmlOutput .= '<div class="tabs_contents">';
+        $htmlOutput .= '<div class="tabs_contents row">';
         return $htmlOutput;
     }
 

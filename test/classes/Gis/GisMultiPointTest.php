@@ -68,7 +68,7 @@ class GisMultiPointTest extends GisGeomTestCase
                     1 => [
                         'x' => 1.56,
                         'y' => 4.36,
-                    ]
+                    ],
                 ],
             ],
         ];
@@ -110,7 +110,7 @@ class GisMultiPointTest extends GisGeomTestCase
                     'x' => 6.14,
                     'y' => 0.15,
                 ],
-            ]
+            ],
         ];
 
         $this->assertEquals(
@@ -136,7 +136,7 @@ class GisMultiPointTest extends GisGeomTestCase
                 1 => [
                     'x' => '6.14',
                     'y' => '0.15',
-                ]
+                ],
             ],
         ];
         $temp2 = $temp1;
@@ -148,7 +148,7 @@ class GisMultiPointTest extends GisGeomTestCase
                 null,
                 [
                     'srid' => '124',
-                    0 => $temp1
+                    0 => $temp1,
                 ],
             ],
             [

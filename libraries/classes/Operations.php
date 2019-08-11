@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Charsets\Charset;
+use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\Engines\Innodb;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 
@@ -51,7 +53,9 @@ class Operations
     public function getHtmlForDatabaseComment($db)
     {
         $html_output = '<div>'
-            . '<form method="post" action="db_operations.php" id="formDatabaseComment">'
+            . '<form method="post" action="'
+            . Url::getFromRoute('/database/operations')
+            . '" id="formDatabaseComment">'
             . Url::getHiddenInputs($db)
             . '<fieldset>'
             . '<legend>';
@@ -86,9 +90,9 @@ class Operations
         $html_output = '<div>'
             . '<form id="rename_db_form" '
             . 'class="ajax" '
-            . 'method="post" action="db_operations.php" '
-            . 'onsubmit="return Functions.emptyCheckTheField(this, \'newname\')">';
-        if (! is_null($db_collation)) {
+            . 'method="post" action="' . Url::getFromRoute('/database/operations')
+            . '" onsubmit="return Functions.emptyCheckTheField(this, \'newname\')">';
+        if ($db_collation !== null) {
             $html_output .= '<input type="hidden" name="db_collation" '
                 . 'value="' . $db_collation
                 . '">' . "\n";
@@ -151,7 +155,7 @@ class Operations
         $this_sql_query = 'DROP DATABASE ' . Util::backquote($db);
         $this_url_params = [
             'sql_query' => $this_sql_query,
-            'back' => 'db_operations.php',
+            'back' => Url::getFromRoute('/database/operations'),
             'goto' => 'index.php',
             'reload' => '1',
             'purge' => '1',
@@ -205,10 +209,10 @@ class Operations
         $html_output = '<div>';
         $html_output .= '<form id="copy_db_form" '
             . 'class="ajax" '
-            . 'method="post" action="db_operations.php" '
-            . 'onsubmit="return Functions.emptyCheckTheField(this, \'newname\')">';
+            . 'method="post" action="' . Url::getFromRoute('/database/operations')
+            . '" onsubmit="return Functions.emptyCheckTheField(this, \'newname\')">';
 
-        if (! is_null($db_collation)) {
+        if ($db_collation !== null) {
             $html_output .= '<input type="hidden" name="db_collation" '
             . 'value="' . $db_collation . '">' . "\n";
         }
@@ -297,7 +301,7 @@ class Operations
         $html_output = '<div>'
             . '<form id="change_db_charset_form" ';
         $html_output .= 'class="ajax" ';
-        $html_output .= 'method="post" action="db_operations.php">';
+        $html_output .= 'method="post" action="' . Url::getFromRoute('/database/operations') . '">';
 
         $html_output .= Url::getHiddenInputs($db);
 
@@ -308,16 +312,27 @@ class Operations
         }
         $html_output .= '<label for="select_db_collation">' . __('Collation')
             . '</label>' . "\n"
-            . '</legend>' . "\n"
-            . Charsets::getCollationDropdownBox(
-                $this->dbi,
-                $GLOBALS['cfg']['Server']['DisableIS'],
-                'db_collation',
-                'select_db_collation',
-                ! is_null($db_collation) ? $db_collation : '',
-                false
-            )
-            . '<br>'
+            . '</legend>' . "\n";
+        $html_output .= '<select lang="en" dir="ltr" name="db_collation" id="select_db_collation">' . "\n";
+        $html_output .= '<option value=""></option>' . "\n";
+
+        $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
+        $collations = Charsets::getCollations($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
+        /** @var Charset $charset */
+        foreach ($charsets as $charset) {
+            $html_output .= '<optgroup label="' . $charset->getName()
+                . '" title="' . $charset->getDescription() . '">' . "\n";
+            /** @var Collation $collation */
+            foreach ($collations[$charset->getName()] as $collation) {
+                $html_output .= '<option value="' . $collation->getName()
+                    . '" title="' . $collation->getDescription() . '"'
+                    . ($db_collation == $collation->getName() ? ' selected' : '') . '>'
+                    . $collation->getName() . '</option>' . "\n";
+            }
+            $html_output .= '</optgroup>' . "\n";
+        }
+        $html_output .= '</select>' . "\n";
+        $html_output .= '<br>'
             . '<input type="checkbox" name="change_all_tables_collations"'
             . 'id="checkbox_change_all_tables_collations">'
             . '<label for="checkbox_change_all_tables_collations">'
@@ -1128,16 +1143,27 @@ class Operations
 
         //Table character set
         $html_output .= '<tr><td class="vmiddle">' . __('Collation') . '</td>'
-            . '<td>'
-            . Charsets::getCollationDropdownBox(
-                $this->dbi,
-                $GLOBALS['cfg']['Server']['DisableIS'],
-                'tbl_collation',
-                null,
-                $tbl_collation,
-                false
-            )
-            . '</td>'
+            . '<td>';
+        $html_output .= '<select lang="en" dir="ltr" name="tbl_collation">' . "\n";
+        $html_output .= '<option value=""></option>' . "\n";
+
+        $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
+        $collations = Charsets::getCollations($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
+        /** @var Charset $charset */
+        foreach ($charsets as $charset) {
+            $html_output .= '<optgroup label="' . $charset->getName()
+                . '" title="' . $charset->getDescription() . '">' . "\n";
+            /** @var Collation $collation */
+            foreach ($collations[$charset->getName()] as $collation) {
+                $html_output .= '<option value="' . $collation->getName()
+                    . '" title="' . $collation->getDescription() . '"'
+                    . ($tbl_collation == $collation->getName() ? ' selected' : '') . '>'
+                    . $collation->getName() . '</option>' . "\n";
+            }
+            $html_output .= '</optgroup>' . "\n";
+        }
+        $html_output .= '</select>' . "\n";
+        $html_output .= '</td>'
             . '</tr>';
 
         // Change all Column collations
@@ -1261,25 +1287,25 @@ class Operations
             'ARIA'  => [
                 'FIXED'     => 'FIXED',
                 'DYNAMIC'   => 'DYNAMIC',
-                'PAGE'      => 'PAGE'
+                'PAGE'      => 'PAGE',
             ],
             'MARIA'  => [
                 'FIXED'     => 'FIXED',
                 'DYNAMIC'   => 'DYNAMIC',
-                'PAGE'      => 'PAGE'
+                'PAGE'      => 'PAGE',
             ],
             'MYISAM' => [
                 'FIXED'    => 'FIXED',
-                'DYNAMIC'  => 'DYNAMIC'
+                'DYNAMIC'  => 'DYNAMIC',
             ],
             'PBXT'   => [
                 'FIXED'    => 'FIXED',
-                'DYNAMIC'  => 'DYNAMIC'
+                'DYNAMIC'  => 'DYNAMIC',
             ],
             'INNODB' => [
                 'COMPACT'  => 'COMPACT',
                 'REDUNDANT' => 'REDUNDANT',
-            ]
+            ],
         ];
 
         /** @var Innodb $innodbEnginePlugin */
@@ -1567,7 +1593,7 @@ class Operations
     {
         return '<li>'
             . Util::linkOrButton(
-                'sql.php' . Url::getCommon(array_merge($url_params, $params)),
+                Url::getFromRoute('/sql', array_merge($url_params, $params)),
                 $action_message,
                 ['class' => 'maintain_action ajax']
             )
@@ -1627,7 +1653,7 @@ class Operations
     public function getDeleteDataOrTablelink(array $url_params, $syntax, $link, $htmlId)
     {
         return '<li>' . Util::linkOrButton(
-            'sql.php' . Url::getCommon($url_params),
+            Url::getFromRoute('/sql', $url_params),
             $link,
             [
                 'id' => $htmlId,
@@ -1716,8 +1742,7 @@ class Operations
         );
         $html_output .= '<div class="clearfloat"><br>';
 
-        $html_output .= '<a href="sql.php'
-            . Url::getCommon($this_url_params) . '">'
+        $html_output .= '<a href="' . Url::getFromRoute('/sql', $this_url_params) . '">'
             . __('Remove partitioning') . '</a>';
 
         $html_output .= '</fieldset>'
@@ -1785,9 +1810,7 @@ class Operations
             );
 
             $html_output .= '<li>'
-                . '<a href="sql.php'
-                . Url::getCommon($this_url_params)
-                . '">'
+                . '<a href="' . Url::getFromRoute('/sql', $this_url_params) . '">'
                 . $master . '&nbsp;->&nbsp;' . $arr['foreign_db'] . '.'
                 . $arr['foreign_table'] . '.' . $arr['foreign_field']
                 . '</a></li>' . "\n";

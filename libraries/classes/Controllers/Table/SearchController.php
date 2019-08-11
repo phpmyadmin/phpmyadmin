@@ -14,6 +14,7 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
@@ -202,7 +203,7 @@ class SearchController extends AbstractController
                 $this->response
                 ->getHeader()
                 ->getScripts()
-                ->addFile('tbl_find_replace.js');
+                ->addFile('table/find_replace.js');
 
                 if (isset($_POST['replace'])) {
                     $this->replaceAction();
@@ -219,8 +220,8 @@ class SearchController extends AbstractController
                     [
                         'makegrid.js',
                         'sql.js',
-                        'tbl_select.js',
-                        'tbl_change.js',
+                        'table/select.js',
+                        'table/change.js',
                         'vendor/jquery/jquery.uitablefilter.js',
                         'gis_data_editor.js',
                     ]
@@ -257,8 +258,8 @@ class SearchController extends AbstractController
                         'vendor/jqplot/plugins/jqplot.dateAxisRenderer.js',
                         'vendor/jqplot/plugins/jqplot.highlighter.js',
                         'vendor/jqplot/plugins/jqplot.cursor.js',
-                        'tbl_zoom_plot_jqplot.js',
-                        'tbl_change.js',
+                        'table/zoom_plot_jqplot.js',
+                        'table/change.js',
                     ]
                 );
 
@@ -366,7 +367,7 @@ class SearchController extends AbstractController
                     $row[$_POST['criteriaColumnNames'][0]],
                 $_POST['criteriaColumnNames'][1] =>
                     $row[$_POST['criteriaColumnNames'][1]],
-                'where_clause' => $uniqueCondition[0]
+                'where_clause' => $uniqueCondition[0],
             ];
             $tmpData[$dataLabel] = $dataLabel ? $row[$dataLabel] : '';
             $data[] = $tmpData;
@@ -516,7 +517,10 @@ class SearchController extends AbstractController
     public function displaySelectionFormAction($dataLabel = null)
     {
         global $goto;
-        $this->url_query .= '&amp;goto=tbl_select.php&amp;back=tbl_select.php';
+        $this->url_query .= Url::getCommon([
+            'back' => Url::getFromRoute('/table/search'),
+            'goto' => Url::getFromRoute('/table/search'),
+        ], '&');
         if (! isset($goto)) {
             $goto = Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabTable'],
@@ -853,7 +857,7 @@ class SearchController extends AbstractController
         $subtabs = [];
         $subtabs['search']['icon'] = 'b_search';
         $subtabs['search']['text'] = __('Table search');
-        $subtabs['search']['link'] = 'tbl_select.php';
+        $subtabs['search']['link'] = Url::getFromRoute('/table/search');
         $subtabs['search']['id'] = 'tbl_search_id';
         $subtabs['search']['args']['pos'] = 0;
 
@@ -974,7 +978,7 @@ class SearchController extends AbstractController
             'type' => $type,
             'collation' => $collation,
             'func' => $func,
-            'value' => $value
+            'value' => $value,
         ];
     }
 

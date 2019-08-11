@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Server;
 
 use PhpMyAdmin\Server\Users;
+use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -31,7 +32,7 @@ class UsersTest extends TestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $html = Users::getHtmlForSubMenusOnUsersPage('server_privileges.php');
+        $html = Users::getHtmlForSubMenusOnUsersPage(Url::getFromRoute('/server/privileges'));
 
         //validate 1: topmenu2
         $this->assertStringContainsString(
@@ -39,9 +40,9 @@ class UsersTest extends TestCase
             $html
         );
 
-        //validate 2: tabactive for server_privileges.php
+        //validate 2: tabactive for /server/privileges
         $this->assertStringContainsString(
-            '<a class="tabactive" href="server_privileges.php',
+            '<a class="tabactive" href="' . Url::getFromRoute('/server/privileges'),
             $html
         );
         $this->assertStringContainsString(

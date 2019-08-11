@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use mysqli_result;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Util;
@@ -48,7 +49,7 @@ class SystemDatabase
      *
      * @param string $db Database name looking for
      *
-     * @return \mysqli_result Result of executed SQL query
+     * @return mysqli_result Result of executed SQL query
      */
     public function getExistingTransformationData($db)
     {

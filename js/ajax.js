@@ -76,6 +76,7 @@ var AJAX = {
         var eventName = 'onload_' + AJAX.hash(file);
         $(document).on(eventName, func);
         if (this.debug) {
+            // eslint-disable-next-line no-console
             console.log(
                 // no need to translate
                 'Registered event ' + eventName + ' for file ' + file
@@ -97,6 +98,7 @@ var AJAX = {
         var eventName = 'teardown_' + AJAX.hash(file);
         $(document).on(eventName, func);
         if (this.debug) {
+            // eslint-disable-next-line no-console
             console.log(
                 // no need to translate
                 'Registered event ' + eventName + ' for file ' + file
@@ -116,6 +118,7 @@ var AJAX = {
         var eventName = 'onload_' + AJAX.hash(file);
         $(document).trigger(eventName);
         if (this.debug) {
+            // eslint-disable-next-line no-console
             console.log(
                 // no need to translate
                 'Fired event ' + eventName + ' for file ' + file
@@ -134,6 +137,7 @@ var AJAX = {
         var eventName = 'teardown_' + AJAX.hash(file);
         $(document).triggerHandler(eventName);
         if (this.debug) {
+            // eslint-disable-next-line no-console
             console.log(
                 // no need to translate
                 'Fired event ' + eventName + ' for file ' + file
@@ -310,6 +314,7 @@ var AJAX = {
         }
 
         if (AJAX.debug) {
+            // eslint-disable-next-line no-console
             console.log('Loading: ' + url); // no need to translate
         }
 
@@ -399,7 +404,7 @@ var AJAX = {
             if (data.sendErrorAlways === '1' &&
                 data.stopErrorReportLoop !== '1'
             ) {
-                $('#pma_report_errors_form').submit();
+                $('#pma_report_errors_form').trigger('submit');
                 Functions.ajaxShowMessage(Messages.phpErrorsBeingSubmitted, false);
                 $('html, body').animate({ scrollTop:$(document).height() }, 'slow');
             } else if (data.promptPhpErrors) {
@@ -538,9 +543,9 @@ var AJAX = {
                     var source = data.selflink.split('?')[0];
                     // Check for faulty links
                     var $selflinkReplace = {
-                        'import.php': 'tbl_sql.php',
-                        'tbl_chart.php': 'sql.php',
-                        'tbl_gis_visualization.php': 'sql.php'
+                        'import.php': 'index.php?route=/table/sql',
+                        'tbl_chart.php': 'index.php?route=/sql',
+                        'tbl_gis_visualization.php': 'index.php?route=/sql'
                     };
                     if ($selflinkReplace[source]) {
                         var replacement = $selflinkReplace[source];
@@ -594,7 +599,7 @@ var AJAX = {
                     if (data.sendErrorAlways === '1' &&
                         data.stopErrorReportLoop !== '1'
                     ) {
-                        $('#pma_report_errors_form').submit();
+                        $('#pma_report_errors_form').trigger('submit');
                         Functions.ajaxShowMessage(Messages.phpErrorsBeingSubmitted, false);
                         $('html, body').animate({ scrollTop:$(document).height() }, 'slow');
                     } else if (data.promptPhpErrors) {
@@ -743,7 +748,7 @@ var AJAX = {
             /* We need to wait for last signal (with null) or last script load */
             AJAX.active = (this.scriptsToBeLoaded.length > 0) || ! this.scriptsCompleted;
             /* Run callback on last script */
-            if (! AJAX.active && $.isFunction(callback)) {
+            if (! AJAX.active && typeof callback === 'function') {
                 callback();
             }
         },
@@ -851,7 +856,7 @@ AJAX.registerOnload('functions.js', function () {
      * Note: reset does not bubble in all browser so attach to
      * form directly.
      */
-    $('form.lock-page').on('reset', function (event) {
+    $('form.lock-page').on('reset', function () {
         AJAX.resetLock();
     });
 });
@@ -931,8 +936,9 @@ $(document).on('submit', 'form', AJAX.requestHandler);
  * Gracefully handle fatal server errors
  * (e.g: 500 - Internal server error)
  */
-$(document).ajaxError(function (event, request, settings) {
+$(document).ajaxError(function (event, request) {
     if (AJAX.debug) {
+        // eslint-disable-next-line no-console
         console.log('AJAX error: status=' + request.status + ', text=' + request.statusText);
     }
     // Don't handle aborted requests

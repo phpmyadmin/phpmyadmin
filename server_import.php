@@ -15,7 +15,7 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-global $db, $table;
+global $db, $max_upload_size, $table;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
@@ -35,7 +35,7 @@ $import = new Import();
 
 $response = Response::getInstance();
 $response->addHTML(
-    $import->get(
+    $import::get(
         'server',
         $db,
         $table,
