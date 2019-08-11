@@ -46,13 +46,13 @@ class LanguageTest extends PmaTestCase
      */
     public function testAvailable()
     {
-        $GLOBALS['cfg']['FilterLanguages'] = 'cs|en$';
+        $GLOBALS['PMA_Config']->set('FilterLanguages', 'cs|en$');
 
         $langs = $this->manager->availableLocales();
 
         $this->assertCount(2, $langs);
         $this->assertContains('cs', $langs);
-        $GLOBALS['cfg']['FilterLanguages'] = '';
+        $GLOBALS['PMA_Config']->set('FilterLanguages', '');
     }
 
     /**
@@ -62,7 +62,7 @@ class LanguageTest extends PmaTestCase
      */
     public function testAllAvailable()
     {
-        $GLOBALS['cfg']['FilterLanguages'] = '';
+        $GLOBALS['PMA_Config']->set('FilterLanguages', '');
 
         $langs = $this->manager->availableLocales();
 
