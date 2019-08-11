@@ -35,7 +35,7 @@ class UsersTest extends TestCase
 
         //validate 1: topmenu2
         $this->assertStringContainsString(
-            '<ul id="topmenu2">',
+            '<ul id="topmenu2 nav">',
             $html
         );
 

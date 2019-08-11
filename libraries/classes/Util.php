@@ -1741,7 +1741,7 @@ class Util
     ) {
         $class = '';
         if ($resizable) {
-            $class = ' class="resizable-menu"';
+            $class = ' class="resizable-menu nav"';
         }
 
         $tab_navigation = '<div id="' . htmlentities($menu_id)
