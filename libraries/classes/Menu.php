@@ -605,8 +605,10 @@ class Menu
             $tabs['rights']['icon'] = 's_rights';
             $tabs['rights']['link'] = Url::getFromRoute('/server/privileges');
             $tabs['rights']['text'] = __('User accounts');
-            $tabs['rights']['active'] = basename($GLOBALS['PMA_PHP_SELF']) === 'server_user_groups.php' ||
-                (isset($_REQUEST['route']) && in_array($_REQUEST['route'], ['/server/privileges']));
+            $tabs['rights']['active'] = isset($_REQUEST['route']) && in_array($_REQUEST['route'], [
+                '/server/privileges',
+                '/server/user_groups',
+            ]);
             $tabs['rights']['args']['viewing_mode'] = 'server';
         }
 

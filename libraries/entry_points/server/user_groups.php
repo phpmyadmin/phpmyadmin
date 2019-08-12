@@ -12,14 +12,13 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\UserGroups;
 use PhpMyAdmin\Server\Users;
+use PhpMyAdmin\Url;
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
 global $containerBuilder;
-
-require_once ROOT_PATH . 'libraries/common.inc.php';
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);
@@ -50,7 +49,7 @@ if (! $dbi->isSuperuser()) {
 }
 
 $response->addHTML('<div class="container-fluid">');
-$response->addHTML(Users::getHtmlForSubMenusOnUsersPage('server_user_groups.php'));
+$response->addHTML(Users::getHtmlForSubMenusOnUsersPage(Url::getFromRoute('/server/user_groups')));
 
 /**
  * Delete user group
