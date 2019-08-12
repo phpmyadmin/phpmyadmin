@@ -7,7 +7,7 @@
       </a>
     </li>
     <li>
-      <a href="server_status_processes.php{{ get_common() }}"{{ active == 'processes' ? ' class="tabactive"' }}>
+      <a href="{{ url('/server/status/processes') }}"{{ active == 'processes' ? ' class="tabactive"' }}>
         {% trans 'Processes' %}
       </a>
     </li>
