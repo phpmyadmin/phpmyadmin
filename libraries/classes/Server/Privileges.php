@@ -5130,6 +5130,7 @@ class Privileges
      */
     public static function getHashedPassword($password)
     {
+        $password = $GLOBALS['dbi']->escapeString($password);
         $result = $GLOBALS['dbi']->fetchSingleRow(
             "SELECT PASSWORD('" . $password . "') AS `password`;"
         );
