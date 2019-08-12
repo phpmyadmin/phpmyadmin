@@ -17,7 +17,7 @@
       </a>
     </li>
     <li>
-      <a href="server_status_variables.php{{ get_common() }}"{{ active == 'variables' ? ' class="tabactive"' }}>
+      <a href="{{ url('/server/status/variables') }}"{{ active == 'variables' ? ' class="tabactive"' }}>
         {% trans 'All status variables' %}
       </a>
     </li>

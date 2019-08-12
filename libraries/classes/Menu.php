@@ -592,15 +592,14 @@ class Menu
         $tabs['status']['icon'] = 's_status';
         $tabs['status']['link'] = Url::getFromRoute('/server/status');
         $tabs['status']['text'] = __('Status');
-        $tabs['status']['active'] = in_array(basename($GLOBALS['PMA_PHP_SELF']), [
-            'server_status_variables.php',
-        ]) || (isset($_REQUEST['route']) && in_array($_REQUEST['route'], [
+        $tabs['status']['active'] = isset($_REQUEST['route']) && in_array($_REQUEST['route'], [
             '/server/status',
             '/server/status/advisor',
             '/server/status/monitor',
             '/server/status/processes',
             '/server/status/queries',
-        ]));
+            '/server/status/variables',
+        ]);
 
         if ($is_superuser || $isCreateOrGrantUser) {
             $tabs['rights']['icon'] = 's_rights';
