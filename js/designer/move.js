@@ -242,35 +242,14 @@ DesignerMove.main = function () {
     document.getElementById('layer_menu').style.top = -1000 + 'px'; // fast scroll
     DesignerMove.osnTabPos();
     DesignerMove.canvasPos();
-    var key = $('.designer_tab')[0].id;
-    if((localStorage.getItem('id_tbody_' + key) !== null) && (localStorage.getItem('id_hide_tbody_' + key) !== null)) {
-        document.getElementById('id_tbody_' + key).innerHTML = localStorage.getItem('id_tbody_' + key);
-        document.getElementById('id_hide_tbody_' + key).innerHTML = localStorage.getItem('id_hide_tbody_' + key);
-//    pta nahi yeh set kyu nahi ho rha... values sahi pass on ho rahi hai...
-        console.log('GET1 key = ' + 'id_tbody_' + key + '------ with value = ' + document.getElementById('id_tbody_' + key).innerHTML);
-        console.log('GET1 key = ' + 'id_hide_tbody_' + key + '------ with value = ' + document.getElementById('id_hide_tbody_' + key).innerHTML);
-    }
-    console.log('GET2 key = ' + 'id_tbody_' + key + '------ with value = ' + localStorage.getItem('id_tbody_' + key));
-    console.log('GET2 key = ' + 'id_hide_tbody_' + key + '------ with value = ' + localStorage.getItem('id_hide_tbody_' + key));
-//    var length = $('.designer_tab').length;
-//    document.getElementById('id_tbody_COLLEGE.BELONGS').innerHTML = localStorage.getItem('id_tbody_COLLEGE.BELONGS');
-//    document.getElementById('id_tbody_COLLEGE.BELONGS').innerHTML = localStorage.getItem('id_tbody_COLLEGE.BELONGS');
-//    console.log("designer length at start === " + length);
-/*    for (var i = 0; i < length; i++) {
+    var length = $('.designer_tab').length;
+    for(var i=0; i<length; i++) {
         var key = $('.designer_tab')[i].id;
-//        console.log("get localStorage for id === " + 'id_tbody_' + key);
-        document.getElementById('id_tbody_' + key).innerHTML = localStorage.getItem('id_tbody_' + key);
-        document.getElementById('id_hide_tbody_' + key).innerHTML = localStorage.getItem('id_hide_tbody_' + key);
-        console.log('GET key = ' + 'id_tbody_' + key + '------ with value = ' + localStorage.getItem('id_tbody_' + key));
-        console.log('GET key = ' + 'id_hide_tbody_' + key + '------ with value = ' + localStorage.getItem('id_hide_tbody_' + key));
-        if(localStorage.getItem('yeah') === 'yooo') {
-            console.log('yoooooooooo');
-        }
-        else {
-            console.log('nooooooo');
+        if((localStorage.getItem('id_tbody_' + key) !== null) && (localStorage.getItem('id_hide_tbody_' + key) !== null)) {
+            document.getElementById('id_tbody_' + key).innerHTML = localStorage.getItem('id_tbody_' + key);
+            document.getElementById('id_hide_tbody_' + key).innerHTML = localStorage.getItem('id_hide_tbody_' + key);
         }
     }
-*///    alert("tempo === " + localStorage.getItem('tempo'));
     DesignerMove.smallTabRefresh();
     DesignerMove.reload();
     DesignerMove.setDefaultValuesFromSavedState();
@@ -2082,18 +2061,8 @@ AJAX.registerOnload('designer/move.js', function () {
         var t = $(this).attr('table_name');
         var id      = document.getElementById('id_tbody_' + t);
         var idThis = document.getElementById('id_hide_tbody_' + t);
-//        localStorage.setItem('tempo', $('.designer_tab').length);
         localStorage.setItem('id_tbody_' + t, id.innerHTML);
         localStorage.setItem('id_hide_tbody_' + t, idThis.innerHTML);
-//        localStorage.setItem('yeah', 'yooo');
-        console.log('SET key = ' + 'id_tbody_' + t + '...... with value = ' + id.innerHTML);
-        console.log('SET key = ' + 'id_hide_tbody_' + t + '...... with value = ' + idThis.innerHTML);
-//        if((localStorage.getItem('id_hide_tbody_' + t) === idThis.innerHTML) && (localStorage.getItem('id_tbody_' + t) === id.innerHTML)){
-//            alert("yipeee");
-//        }
-//        console.log("set localStorage for id === " + 'id_tbody_' + t);
-//        alert(localStorage.getItem('id_tbody_' + t));
-//        alert(localStorage.getItem('id_hide_tbody_' + t));
     });
     $('.designer_tab').on('click', '.small_tab_pref_1', function () {
         DesignerMove.startTabUpd($(this).attr('table_name_small'));
