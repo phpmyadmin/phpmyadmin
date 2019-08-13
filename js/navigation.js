@@ -1128,7 +1128,7 @@ var ResizeHandler = function () {
         var windowWidth = $(window).width();
         $('#pma_navigation').width(pos);
         $('body').css('margin-' + this.left, pos + 'px');
-        $('#floating_menubar, #pma_console')
+        $('#pma_console')
             .css('margin-' + this.left, (pos + resizer_width) + 'px');
         $resizer.css(this.left, pos + 'px');
         if (pos === 0) {
