@@ -44,7 +44,6 @@ class Core
         'tbl_relation.php',
         'tbl_replace.php',
         'tbl_row_action.php',
-        'tbl_zoom_select.php',
         'transformation_overview.php',
         'transformation_wrapper.php',
         'user_password.php',

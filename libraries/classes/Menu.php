@@ -360,10 +360,10 @@ class Menu
         $tabs['search']['text'] = __('Search');
         $tabs['search']['link'] = Url::getFromRoute('/table/search');
         $tabs['search']['active'] = in_array(basename($GLOBALS['PMA_PHP_SELF']), [
-            'tbl_zoom_select.php',
             'tbl_find_replace.php',
         ]) || (isset($_REQUEST['route']) && in_array($_REQUEST['route'], [
             '/table/search',
+            '/table/zoom_select',
         ]));
 
         if (! $db_is_system_schema && (! $tbl_is_view || $updatable_view)) {
