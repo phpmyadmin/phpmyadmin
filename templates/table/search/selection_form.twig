@@ -168,7 +168,7 @@
     </fieldset>
 {% elseif search_type == 'replace' %}
     {% include 'table/search/form_tag.twig' with {
-        'script_name': 'tbl_find_replace.php',
+        'script_name': url('/table/find_replace'),
         'form_id': 'find_replace_form',
         'db': db,
         'table': table,

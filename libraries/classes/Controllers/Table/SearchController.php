@@ -869,9 +869,10 @@ class SearchController extends AbstractController
         $subtabs['zoom']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/table/zoom_select';
 
         $subtabs['replace']['icon'] = 'b_find_replace';
-        $subtabs['replace']['link'] = 'tbl_find_replace.php';
+        $subtabs['replace']['link'] = Url::getFromRoute('/table/find_replace');
         $subtabs['replace']['text'] = __('Find and replace');
         $subtabs['replace']['id'] = 'find_replace_id';
+        $subtabs['replace']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/table/find_replace';
 
         return $subtabs;
     }
