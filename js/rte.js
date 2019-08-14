@@ -922,7 +922,7 @@ $(function () {
      */
     $(document).on('click', 'a.ajax.add_anchor, a.ajax.edit_anchor', function (event) {
         event.preventDefault();
-        var type = $(this).attr('href').substr(0, $(this).attr('href').indexOf('?'));
+        var type = $(this).attr('href').substr(0, $(this).attr('href').indexOf('&'));
         if (type.indexOf('routine') !== -1) {
             type = 'routine';
         } else if (type.indexOf('trigger') !== -1) {
