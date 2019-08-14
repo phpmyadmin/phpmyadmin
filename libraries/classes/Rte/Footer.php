@@ -52,7 +52,16 @@ class Footer
      */
     private function getLinks($docu, $priv, $name)
     {
-        global $db, $table, $url_query;
+        global $db, $table;
+
+        $route = '';
+        if (strtolower($name) === 'event') {
+            $route = '/database/events';
+        } elseif (strtolower($name) === 'trigger') {
+            $route = '/database/triggers';
+        } elseif (strtolower($name) === 'routine') {
+            $route = '/database/routines';
+        }
 
         $icon = mb_strtolower($name) . '_add';
         $retval  = "";
@@ -62,9 +71,12 @@ class Footer
         $retval .= "        <div class='wrap'>\n";
         if (Util::currentUserHasPrivilege($priv, $db, $table)) {
             $retval .= '            <a class="ajax add_anchor" ';
-            $retval .= "href='db_" . mb_strtolower($name) . "s.php";
-            $retval .= "$url_query&amp;add_item=1' ";
-            $retval .= "onclick='$.datepicker.initialized = false;'>";
+            $retval .= 'href="' . Url::getFromRoute($route, [
+                'db' => $db,
+                'table' => $table,
+                'add_item' => 1,
+            ]);
+            $retval .= '" onclick="$.datepicker.initialized = false;">';
             $icon = 'b_' . $icon;
             $retval .= Util::getIcon($icon);
             $retval .= $this->words->get('add') . "</a>\n";
