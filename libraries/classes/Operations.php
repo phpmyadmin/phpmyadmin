@@ -838,7 +838,7 @@ class Operations
     {
         $html_output = '<div>';
         $html_output .= '<form method="post" id="alterTableOrderby" '
-            . 'action="tbl_operations.php">';
+            . 'action="' . Url::getFromRoute('/table/operations') . '">';
         $html_output .= Url::getHiddenInputs(
             $GLOBALS['db'],
             $GLOBALS['table']
@@ -879,8 +879,8 @@ class Operations
     public function getHtmlForMoveTable()
     {
         $html_output = '<div>';
-        $html_output .= '<form method="post" action="tbl_operations.php"'
-            . ' id="moveTableForm" class="ajax"'
+        $html_output .= '<form method="post" action="' . Url::getFromRoute('/table/operations')
+            . '" id="moveTableForm" class="ajax"'
             . ' onsubmit="return Functions.emptyCheckTheField(this, \'new_name\')">'
             . Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
 
@@ -970,8 +970,8 @@ class Operations
         $checksum
     ) {
         $html_output = '<div>';
-        $html_output .= '<form method="post" action="tbl_operations.php"';
-        $html_output .= ' id="tableOptionsForm" class="ajax">';
+        $html_output .= '<form method="post" action="' . Url::getFromRoute('/table/operations');
+        $html_output .= '" id="tableOptionsForm" class="ajax">';
         $html_output .= Url::getHiddenInputs(
             $GLOBALS['db'],
             $GLOBALS['table']
@@ -1339,8 +1339,8 @@ class Operations
     public function getHtmlForCopytable()
     {
         $html_output = '<div>';
-        $html_output .= '<form method="post" action="tbl_operations.php" '
-            . 'name="copyTable" '
+        $html_output .= '<form method="post" action="' . Url::getFromRoute('/table/operations')
+            . '" name="copyTable" '
             . 'id="copyTable" '
             . ' class="ajax" '
             . 'onsubmit="return Functions.emptyCheckTheField(this, \'new_name\')">'
@@ -1700,7 +1700,7 @@ class Operations
 
         $html_output = '<div>'
             . '<form id="partitionsForm" class="ajax" '
-            . 'method="post" action="tbl_operations.php" >'
+            . 'method="post" action="' . Url::getFromRoute('/table/operations') . '">'
             . Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
             . '<fieldset>'
             . '<legend>'

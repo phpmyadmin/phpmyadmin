@@ -19,13 +19,11 @@ use PhpMyAdmin\Table;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
 global $containerBuilder, $url_query;
-
-require_once ROOT_PATH . 'libraries/common.inc.php';
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);
@@ -60,8 +58,8 @@ $scripts->addFile('table/operations.js');
  * Runs common work
  */
 require ROOT_PATH . 'libraries/tbl_common.inc.php';
-$url_query .= '&amp;goto=tbl_operations.php&amp;back=tbl_operations.php';
-$url_params['goto'] = $url_params['back'] = 'tbl_operations.php';
+$url_params['goto'] = $url_params['back'] = Url::getFromRoute('/table/operations');
+$url_query .= Url::getCommon($url_params, '&');
 
 /**
  * Gets relation settings
@@ -342,9 +340,7 @@ if (isset($result) && empty($message_to_show)) {
     unset($_message);
 }
 
-$url_params['goto']
-    = $url_params['back']
-        = 'tbl_operations.php';
+$url_params['goto'] = $url_params['back'] = Url::getFromRoute('/table/operations');
 
 /**
  * Get columns names

@@ -13,7 +13,7 @@ AJAX.registerTeardown('table/operations.js', function () {
 });
 
 /**
- * jQuery coding for 'Table operations'.  Used on tbl_operations.php
+ * jQuery coding for 'Table operations'. Used on /table/operations
  * Attach Ajax Event handlers for Table operations
  */
 AJAX.registerOnload('table/operations.js', function () {

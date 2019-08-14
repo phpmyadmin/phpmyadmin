@@ -401,8 +401,9 @@ class Menu
          */
         if (! $tbl_is_view && ! $db_is_system_schema) {
             $tabs['operation']['icon'] = 'b_tblops';
-            $tabs['operation']['link'] = 'tbl_operations.php';
+            $tabs['operation']['link'] = Url::getFromRoute('/table/operations');
             $tabs['operation']['text'] = __('Operations');
+            $tabs['operation']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/table/operations';
         }
         /**
          * Views support a limited number of operations
