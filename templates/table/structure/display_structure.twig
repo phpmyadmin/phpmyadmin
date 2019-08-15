@@ -434,7 +434,7 @@
             {% for one_column_name in columns_list %}
                 <option value="{{ one_column_name }}"
                     {{- loop.revindex0 == 0 ? ' selected="selected"' }}>
-                    {{ 'after %s'|trans|format(one_column_name|e) }}
+                    {{ 'after %s'|trans|format(one_column_name) }}
                 </option>
             {% endfor %}
         </select>
