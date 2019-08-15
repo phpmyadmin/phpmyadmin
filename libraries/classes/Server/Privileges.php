@@ -1779,7 +1779,7 @@ class Privileges
             $row = $this->dbi->fetchSingleRow(
                 'SELECT @@default_authentication_plugin'
             );
-            $authentication_plugin = $row['@@default_authentication_plugin'];
+            $authentication_plugin = is_array($row) ? $row['@@default_authentication_plugin'] : null;
         }
 
         return $authentication_plugin;
@@ -5095,6 +5095,7 @@ class Privileges
      */
     public function getHashedPassword($password)
     {
+        $password = $this->dbi->escapeString($password);
         $result = $this->dbi->fetchSingleRow(
             "SELECT PASSWORD('" . $password . "') AS `password`;"
         );
