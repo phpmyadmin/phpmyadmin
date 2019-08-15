@@ -19,7 +19,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $cfg, $is_upload, $containerBuilder, $db, $table, $text_dir;
+global $cfg, $is_upload, $containerBuilder, $db, $table, $text_dir, $disp_message;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);
@@ -89,7 +89,7 @@ $scripts->addFile('gis_data_editor.js');
 /**
  * Displays the query submitted and its result
  *
- * $disp_message come from tbl_replace.php
+ * $disp_message come from /table/replace
  */
 if (! empty($disp_message)) {
     $response->addHTML(Util::getMessage($disp_message, null));

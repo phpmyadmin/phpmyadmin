@@ -25,13 +25,11 @@ use PhpMyAdmin\Table;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
-global $containerBuilder, $db, $table, $url_params;
-
-require_once ROOT_PATH . 'libraries/common.inc.php';
+global $containerBuilder, $db, $table, $url_params, $message;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);
@@ -373,7 +371,7 @@ if ($is_insert && count($value_sets) > 0) {
     // Note: logic passes here for inline edit
     $message = Message::success(__('No change'));
     // Avoid infinite recursion
-    if ($goto_include == 'tbl_replace.php') {
+    if ($goto_include == 'libraries/entry_points/table/replace.php') {
         $goto_include = 'libraries/entry_points/table/change.php';
     }
     $active_page = $goto_include;

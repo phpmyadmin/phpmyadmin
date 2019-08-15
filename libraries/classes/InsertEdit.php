@@ -2995,7 +2995,7 @@ class InsertEdit
             'sql_query' => $_POST['sql_query'],
         ];
 
-        if (0 === strpos($goto, "tbl_")) {
+        if (0 === strpos($goto, 'tbl_') || 0 === strpos($goto, 'index.php?route=/table')) {
             $url_params['table'] = $table;
         }
 
@@ -3080,7 +3080,7 @@ class InsertEdit
         if ($has_blob_field && $is_upload) {
             $html_output .= 'disableAjax';
         }
-        $html_output .= '" method="post" action="tbl_replace.php" name="insertForm" ';
+        $html_output .= '" method="post" action="' . Url::getFromRoute('/table/replace') . '" name="insertForm" ';
         if ($is_upload) {
             $html_output .= ' enctype="multipart/form-data"';
         }

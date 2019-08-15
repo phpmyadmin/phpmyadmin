@@ -1324,7 +1324,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
             $.ajax({
                 type: 'POST',
-                url: 'tbl_replace.php',
+                url: 'index.php?route=/table/replace',
                 data: postParams,
                 success:
                     function (data) {

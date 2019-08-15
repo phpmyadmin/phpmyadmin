@@ -14,6 +14,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
+use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use ReflectionProperty;
@@ -2041,8 +2042,8 @@ class InsertEditTest extends TestCase
         );
 
         $this->assertStringContainsString(
-            '<form id="continueForm" method="post" action="tbl_replace.php" '
-            . 'name="continueForm">',
+            '<form id="continueForm" method="post" action="' . Url::getFromRoute('/table/replace')
+            . '" name="continueForm">',
             $result
         );
 

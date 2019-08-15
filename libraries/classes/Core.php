@@ -42,7 +42,6 @@ class Core
         'tbl_indexes.php',
         'tbl_export.php',
         'tbl_relation.php',
-        'tbl_replace.php',
         'tbl_row_action.php',
         'transformation_overview.php',
         'transformation_wrapper.php',
