@@ -55,6 +55,8 @@ phpMyAdmin - ChangeLog
 - issue #15404 Remove array/string curly braces access
 - issue #15427 Fixed "FilterLanguages" option does not work (configuration)
 - issue #15127 Fix remove the white square in floating menubar when reloading the designer
+- issue #15202 Fixed creating user with single quote in password results in no password user
+- issue #14950 Fixed left database overview "add column" triggers error
 
 4.9.0.1 (2019-06-04)
 - issue #14478 phpMyAdmin no longer streams the export data
