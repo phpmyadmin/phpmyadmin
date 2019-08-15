@@ -371,6 +371,12 @@ class TableStructureController extends TableController
             $this->db, $this->table, null, true
         );
 
+        foreach ($fields as $key => $row) {
+            if ('text' === substr($row['Type'], -4)) {
+                $fields[$key]['Default'] = stripcslashes(substr($row['Default'], 1, -1));
+            }
+        }
+
         //display table structure
         $this->response->addHTML(
             $this->displayStructure(
