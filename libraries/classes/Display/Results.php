@@ -1183,6 +1183,8 @@ class Results
         $number_of_columns = $this->__get('fields_cnt');
 
         for ($j = 0; $j < $number_of_columns; $j++) {
+            // PHP 7.4 fix for accessing array offset on bool
+            $col_visib_current = is_array($col_visib) ? $col_visib[$j] : null;
 
             // assign $i with the appropriate column order
             $i = $col_order ? $col_order[$j] : $j;
@@ -1207,7 +1209,7 @@ class Results
                         $sort_expression_nodirection, $i, $unsorted_sql_query,
                         $session_max_rows, $comments,
                         $sort_direction, $col_visib,
-                        $col_visib[$j]
+                        $col_visib_current
                     );
 
                 $html .= $sorted_header_html;
@@ -1221,7 +1223,7 @@ class Results
                 // Results can't be sorted
                 $html
                     .= $this->_getDraggableClassForNonSortableColumns(
-                        $col_visib, $col_visib[$j], $condition_field,
+                        $col_visib, $col_visib_current, $condition_field,
                         $fields_meta[$i], $comments
                     );
 
