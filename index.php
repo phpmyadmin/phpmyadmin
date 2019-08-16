@@ -166,6 +166,9 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
             $routes->addRoute(['GET', 'POST'], '/recent_favorite', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/table/recent_favorite.php';
             });
+            $routes->addRoute(['GET', 'POST'], '/relation', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/table/relation.php';
+            });
             $routes->addRoute(['GET', 'POST'], '/replace', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/table/replace.php';
             });
