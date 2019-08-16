@@ -31,6 +31,9 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
         $routes->addRoute(['GET', 'POST'], '/browse_foreigners', function () {
             require_once ROOT_PATH . 'libraries/entry_points/browse_foreigners.php';
         });
+        $routes->addRoute('GET', '/changelog', function () {
+            require_once ROOT_PATH . 'libraries/entry_points/changelog.php';
+        });
         $routes->addGroup('/database', function (RouteCollector $routes) {
             $routes->addRoute(['GET', 'POST'], '/central_columns', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/database/central_columns.php';

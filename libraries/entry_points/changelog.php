@@ -10,16 +10,11 @@ declare(strict_types=1);
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
 global $containerBuilder;
-
-/**
- * Gets core libraries and defines some variables
- */
-require ROOT_PATH . 'libraries/common.inc.php';
 
 /** @var Template $template */
 $template = $containerBuilder->get('template');
