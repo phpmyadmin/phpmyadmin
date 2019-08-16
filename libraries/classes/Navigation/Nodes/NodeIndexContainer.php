@@ -49,12 +49,16 @@ class NodeIndexContainer extends Node
         $new->isNew = true;
         $new->icon = Util::getImage('b_index_add', $newLabel);
         $new->links = [
-            'text' => 'tbl_indexes.php?server=' . $GLOBALS['server']
-                . '&amp;create_index=1&amp;added_fields=2'
-                . '&amp;db=%3$s&amp;table=%2$s',
-            'icon' => 'tbl_indexes.php?server=' . $GLOBALS['server']
-                . '&amp;create_index=1&amp;added_fields=2'
-                . '&amp;db=%3$s&amp;table=%2$s',
+            'text' => Url::getFromRoute('/table/indexes', [
+                'server' => $GLOBALS['server'],
+                'create_index' => 1,
+                'added_fields' => 2,
+            ]) . '&amp;db=%3$s&amp;table=%2$s',
+            'icon' => Url::getFromRoute('/table/indexes', [
+                'server' => $GLOBALS['server'],
+                'create_index' => 1,
+                'added_fields' => 2,
+            ]) . '&amp;db=%3$s&amp;table=%2$s',
         ];
         $new->classes = 'new_index italics';
         $this->addChild($new);

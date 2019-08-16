@@ -646,7 +646,7 @@ class Index
             $GLOBALS['db']
         );
         $html_output .= '<fieldset class="tblFooters print_ignore" style="text-align: '
-            . 'left;"><form action="tbl_indexes.php" method="post">';
+            . 'left;"><form action="' . Url::getFromRoute('/table/indexes') . '" method="post">';
         $html_output .= Url::getHiddenInputs(
             $GLOBALS['db'],
             $GLOBALS['table']
@@ -738,7 +738,7 @@ class Index
                 $r .= '" ' . $row_span . '>'
                    . '    <a class="';
                 $r .= 'ajax';
-                $r .= '" href="tbl_indexes.php" data-post="' . Url::getCommon($this_params, '')
+                $r .= '" href="' . Url::getFromRoute('/table/indexes') . '" data-post="' . Url::getCommon($this_params, '')
                    . '">' . Util::getIcon('b_edit', __('Edit')) . '</a>'
                    . '</td>' . "\n";
                 $this_params = $GLOBALS['url_params'];

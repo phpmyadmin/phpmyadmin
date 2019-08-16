@@ -11,13 +11,11 @@ use PhpMyAdmin\Controllers\Table\IndexesController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
 global $containerBuilder;
-
-require_once ROOT_PATH . 'libraries/common.inc.php';
 
 /** @var DatabaseInterface $dbi */
 $dbi = $containerBuilder->get('dbi');

@@ -37,7 +37,6 @@ class Core
         'server_export.php',
         'server_import.php',
         'tbl_import.php',
-        'tbl_indexes.php',
         'tbl_export.php',
         'tbl_relation.php',
         'tbl_row_action.php',
