@@ -38,7 +38,6 @@ class Core
         'server_import.php',
         'tbl_import.php',
         'tbl_export.php',
-        'tbl_row_action.php',
         'transformation_overview.php',
         'transformation_wrapper.php',
         'user_password.php',

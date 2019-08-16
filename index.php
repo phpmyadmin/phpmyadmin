@@ -172,6 +172,9 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
             $routes->addRoute(['GET', 'POST'], '/replace', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/table/replace.php';
             });
+            $routes->addRoute(['GET', 'POST'], '/row_action', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/table/row_action.php';
+            });
             $routes->addRoute(['GET', 'POST'], '/search', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/table/select.php';
             });

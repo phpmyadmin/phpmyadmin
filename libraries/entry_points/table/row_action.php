@@ -11,13 +11,11 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Url;
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
 global $containerBuilder, $db, $goto, $pmaThemeImage, $sql_query, $table;
-
-require_once ROOT_PATH . 'libraries/common.inc.php';
 
 if (isset($_POST['submit_mult'])) {
     $submit_mult = $_POST['submit_mult'];
@@ -120,9 +118,8 @@ if (! empty($submit_mult)) {
 
         case 'row_delete':
         default:
-            $action = 'tbl_row_action.php';
-            $err_url = 'tbl_row_action.php'
-            . Url::getCommon($GLOBALS['url_params']);
+            $action = Url::getFromRoute('/table/row_action');
+            $err_url = Url::getFromRoute('/table/row_action', $GLOBALS['url_params']);
             if (! isset($_POST['mult_btn'])) {
                 $original_sql_query = $sql_query;
                 if (! empty($url_query)) {
