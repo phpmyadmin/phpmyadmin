@@ -5129,8 +5129,8 @@ class Results
         if (count($url_params) > 0
             && (! empty($tmpdb) && ! empty($meta->orgtable))
         ) {
-            $result = '<a href="tbl_get_field.php'
-                . Url::getCommon($url_params)
+            $result = '<a href="'
+                . Url::getFromRoute('/table/get_field', $url_params)
                 . '" class="disableAjax">'
                 . $result . '</a>';
         }
