@@ -2,7 +2,7 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Display form for changing/adding table fields/columns.
- * Included by /table/addfield and tbl_create.php
+ * Included by /table/addfield and /table/create
  *
  * @package PhpMyAdmin
  */
@@ -69,7 +69,7 @@ $form_params = [
     'db' => $db,
 ];
 
-if ($action == 'tbl_create.php') {
+if ($action == Url::getFromRoute('/table/create')) {
     $form_params['reload'] = 1;
 } else {
     if ($action == Url::getFromRoute('/table/addfield')) {
@@ -102,7 +102,7 @@ if (isset($selected) && is_array($selected)) {
     }
 }
 
-$is_backup = ($action != 'tbl_create.php' && $action != Url::getFromRoute('/table/addfield'));
+$is_backup = ($action != Url::getFromRoute('/table/create') && $action != Url::getFromRoute('/table/addfield'));
 
 $cfgRelation = $relation->getRelationsParam();
 
