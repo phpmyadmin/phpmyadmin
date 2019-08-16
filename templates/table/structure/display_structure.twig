@@ -416,7 +416,7 @@
     {% endif %}
 </div>
 {% if not tbl_is_view and not db_is_system_schema %}
-    <form method="post" action="tbl_addfield.php" id="addColumns" name="addColumns">
+    <form method="post" action="{{ url('/table/addfield') }}" id="addColumns" name="addColumns">
         {{ get_hidden_inputs(db, table) }}
         {% if show_icons('ActionLinksMode') %}
             {{ get_image('b_insrow', 'Add column'|trans) }}&nbsp;

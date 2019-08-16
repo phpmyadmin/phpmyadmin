@@ -49,12 +49,16 @@ class NodeColumnContainer extends Node
         $new->isNew = true;
         $new->icon = Util::getImage('b_column_add', $newLabel);
         $new->links = [
-            'text' => 'tbl_addfield.php?server=' . $GLOBALS['server']
-                . '&amp;db=%3$s&amp;table=%2$s'
-                . '&amp;field_where=last&after_field=',
-            'icon' => 'tbl_addfield.php?server=' . $GLOBALS['server']
-                . '&amp;db=%3$s&amp;table=%2$s'
-                . '&amp;field_where=last&after_field=',
+            'text' => Url::getFromRoute('/table/addfield', [
+                'server' => $GLOBALS['server'],
+                'field_where' => 'last',
+                'after_field' => '',
+            ]) . '&amp;db=%3$s&amp;table=%2$s',
+            'icon' => Url::getFromRoute('/table/addfield', [
+                'server' => $GLOBALS['server'],
+                'field_where' => 'last',
+                'after_field' => '',
+            ]) . '&amp;db=%3$s&amp;table=%2$s',
         ];
         $new->classes = 'new_column italics';
         $this->addChild($new);

@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 /**
- * Set of functions for tbl_create.php and tbl_addfield.php
+ * Set of functions for tbl_create.php and /table/addfield
  *
  * @package PhpMyAdmin
  */

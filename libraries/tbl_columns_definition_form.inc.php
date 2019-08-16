@@ -2,7 +2,7 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Display form for changing/adding table fields/columns.
- * Included by tbl_addfield.php and tbl_create.php
+ * Included by /table/addfield and tbl_create.php
  *
  * @package PhpMyAdmin
  */
@@ -19,6 +19,7 @@ use PhpMyAdmin\Table;
 use PhpMyAdmin\TablePartitionDefinition;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 if (! defined('PHPMYADMIN')) {
@@ -71,7 +72,7 @@ $form_params = [
 if ($action == 'tbl_create.php') {
     $form_params['reload'] = 1;
 } else {
-    if ($action == 'tbl_addfield.php') {
+    if ($action == Url::getFromRoute('/table/addfield')) {
         $form_params = array_merge(
             $form_params,
             [
@@ -101,7 +102,7 @@ if (isset($selected) && is_array($selected)) {
     }
 }
 
-$is_backup = ($action != 'tbl_create.php' && $action != 'tbl_addfield.php');
+$is_backup = ($action != 'tbl_create.php' && $action != Url::getFromRoute('/table/addfield'));
 
 $cfgRelation = $relation->getRelationsParam();
 

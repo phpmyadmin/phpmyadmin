@@ -36,7 +36,6 @@ class Core
         'pdf_schema.php',
         'server_export.php',
         'server_import.php',
-        'tbl_addfield.php',
         'tbl_create.php',
         'tbl_import.php',
         'tbl_indexes.php',

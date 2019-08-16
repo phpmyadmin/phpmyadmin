@@ -136,6 +136,9 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
             require_once ROOT_PATH . 'libraries/entry_points/sql.php';
         });
         $routes->addGroup('/table', function (RouteCollector $routes) {
+            $routes->addRoute(['GET', 'POST'], '/addfield', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/table/addfield.php';
+            });
             $routes->addRoute(['GET', 'POST'], '/change', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/table/change.php';
             });
