@@ -4985,8 +4985,7 @@ class Results
             if ($geometry_found) {
                 $results_operations_html
                     .= Util::linkOrButton(
-                        'tbl_gis_visualization.php'
-                        . Url::getCommon($_url_params),
+                        Url::getFromRoute('/table/gis_visualization', $_url_params),
                         Util::getIcon(
                             'b_globe',
                             __('Visualize GIS data'),

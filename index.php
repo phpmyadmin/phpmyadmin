@@ -154,6 +154,9 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
             $routes->addRoute(['GET', 'POST'], '/get_field', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/table/get_field.php';
             });
+            $routes->addRoute(['GET', 'POST'], '/gis_visualization', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/table/gis_visualization.php';
+            });
             $routes->addRoute(['GET', 'POST'], '/operations', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/table/operations.php';
             });
