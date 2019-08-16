@@ -194,6 +194,9 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
                 require_once ROOT_PATH . 'libraries/entry_points/table/zoom_select.php';
             });
         });
+        $routes->addRoute('GET', '/themes', function () {
+            require_once ROOT_PATH . 'themes.php';
+        });
     });
     $routeInfo = $dispatcher->dispatch(
         $_SERVER['REQUEST_METHOD'],
