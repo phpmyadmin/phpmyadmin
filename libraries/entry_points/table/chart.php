@@ -10,13 +10,11 @@ declare(strict_types=1);
 use PhpMyAdmin\Controllers\Table\ChartController;
 use Symfony\Component\DependencyInjection\Definition;
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
 global $containerBuilder;
-
-require_once ROOT_PATH . 'libraries/common.inc.php';
 
 /* Define dependencies for the concerned controller */
 $dependency_definitions = [

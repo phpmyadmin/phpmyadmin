@@ -544,7 +544,7 @@ var AJAX = {
                     // Check for faulty links
                     var $selflinkReplace = {
                         'import.php': 'index.php?route=/table/sql',
-                        'tbl_chart.php': 'index.php?route=/sql',
+                        'index.php?route=/table/chart': 'index.php?route=/sql',
                         'tbl_gis_visualization.php': 'index.php?route=/sql'
                     };
                     if ($selflinkReplace[source]) {

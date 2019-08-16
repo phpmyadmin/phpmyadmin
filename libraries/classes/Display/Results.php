@@ -4963,7 +4963,7 @@ class Results
 
             // prepare chart
             $results_operations_html .= Util::linkOrButton(
-                'tbl_chart.php' . Url::getCommon($_url_params),
+                Url::getFromRoute('/table/chart', $_url_params),
                 Util::getIcon(
                     'b_chart',
                     __('Display chart'),
