@@ -40,7 +40,6 @@ class Core
         'tbl_export.php',
         'transformation_overview.php',
         'transformation_wrapper.php',
-        'user_password.php',
     ];
 
     /**

@@ -31,7 +31,6 @@ class CoreTest extends PmaTestCase
         'pdf_schema.php',
         'transformation_overview.php',
         'transformation_wrapper.php',
-        'user_password.php',
     ];
 
     /**

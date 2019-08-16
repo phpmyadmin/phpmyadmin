@@ -195,7 +195,10 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
             });
         });
         $routes->addRoute('GET', '/themes', function () {
-            require_once ROOT_PATH . 'themes.php';
+            require_once ROOT_PATH . 'libraries/entry_points/themes.php';
+        });
+        $routes->addRoute(['GET', 'POST'], '/user_password', function () {
+            require_once ROOT_PATH . 'libraries/entry_points/user_password.php';
         });
     });
     $routeInfo = $dispatcher->dispatch(

@@ -1819,7 +1819,7 @@ class Privileges
      */
     public function updatePassword($err_url, $username, $hostname)
     {
-        // similar logic in user_password.php
+        // similar logic in /user_password
         $message = null;
 
         if (isset($_POST['pma_pw'], $_POST['pma_pw2']) && empty($_POST['nopass'])) {
