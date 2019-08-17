@@ -13,15 +13,14 @@ use PhpMyAdmin\Display\Export as DisplayExport;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
-global $containerBuilder, $db, $table, $url_query;
-
-require_once ROOT_PATH . 'libraries/common.inc.php';
+global $containerBuilder, $db, $table, $url_query, $url_params;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);
@@ -39,10 +38,15 @@ $scripts->addFile('export.js');
 $export = $containerBuilder->get('export');
 
 // $sub_part is used in Util::getDbInfo() to see if we are coming from
-// db_export.php, in which case we don't obey $cfg['MaxTableList']
+// /database/export, in which case we don't obey $cfg['MaxTableList']
 $sub_part  = '_export';
+
 require_once ROOT_PATH . 'libraries/db_common.inc.php';
-$url_query .= '&amp;goto=db_export.php';
+
+$url_params = [
+    'goto' => Url::getFromRoute('/database/export'),
+];
+$url_query .= Url::getCommon($url_params, '&');
 
 list(
     $tables,

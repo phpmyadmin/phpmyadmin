@@ -26,7 +26,6 @@ class Core
      * @static array $goto_whitelist
      */
     public static $goto_whitelist = [
-        'db_export.php',
         'db_importdocsql.php',
         'db_import.php',
         'export.php',

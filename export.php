@@ -294,7 +294,7 @@ $tables = [];
 if ($export_type == 'server') {
     $err_url = 'server_export.php' . Url::getCommon();
 } elseif ($export_type == 'database' && strlen($db) > 0) {
-    $err_url = 'db_export.php' . Url::getCommon(['db' => $db]);
+    $err_url = Url::getFromRoute('/database/export', ['db' => $db]);
     // Check if we have something to export
     if (isset($table_select)) {
         $tables = $table_select;
@@ -415,8 +415,8 @@ if ($save_on_server) {
                 $message = PhpMyAdmin\Message::error(
                     __('No tables found in database.')
                 );
-                $active_page = 'db_export.php';
-                include ROOT_PATH . 'db_export.php';
+                $active_page = Url::getFromRoute('/database/export');
+                include ROOT_PATH . 'libraries/entry_points/database/export.php';
                 exit;
             }
         }

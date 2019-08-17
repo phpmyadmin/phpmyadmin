@@ -488,7 +488,8 @@ class Menu
 
         $tabs['export']['text'] = __('Export');
         $tabs['export']['icon'] = 'b_export';
-        $tabs['export']['link'] = 'db_export.php';
+        $tabs['export']['link'] = Url::getFromRoute('/database/export');
+        $tabs['export']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/database/export';
         if ($num_tables == 0) {
             $tabs['export']['warning'] = __('Database seems to be empty!');
         }

@@ -23,7 +23,6 @@ use stdClass;
 class CoreTest extends PmaTestCase
 {
     protected $goto_whitelist = [
-        'db_export.php',
         'export.php',
         'import.php',
         'index.php',

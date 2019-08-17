@@ -94,7 +94,7 @@ if (! empty($submit_mult)
                 break;
             case 'export':
                 unset($submit_mult);
-                include ROOT_PATH . 'db_export.php';
+                include ROOT_PATH . 'libraries/entry_points/database/export.php';
                 exit;
             case 'copy_tbl':
                 $views = $GLOBALS['dbi']->getVirtualTables($db);
