@@ -728,14 +728,13 @@ Export.checkTimeOut = function (timeLimit) {
     }
     // margin of one second to avoid race condition to set/access session variable
     limit = limit + 1;
-    var href = 'export.php';
     var params = {
         'ajax_request' : true,
         'check_time_out' : true
     };
     clearTimeout(timeOut);
     timeOut = setTimeout(function () {
-        $.get(href, params, function (data) {
+        $.get('index.php?route=/export', params, function (data) {
             if (data.message === 'timeout') {
                 Functions.ajaxShowMessage(
                     '<div class="error">' +

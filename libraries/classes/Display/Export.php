@@ -19,6 +19,7 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use Throwable;
 use Twig_Error_Loader;
@@ -74,7 +75,7 @@ class Export
     public function getHtmlForSelectOptions($tmpSelect = '')
     {
         // Check if the selected databases are defined in $_POST
-        // (from clicking Back button on export.php)
+        // (from clicking Back button on /export page)
         if (isset($_POST['db_select'])) {
             $_POST['db_select'] = urldecode($_POST['db_select']);
             $_POST['db_select'] = explode(",", $_POST['db_select']);
@@ -716,8 +717,8 @@ class Export
             ]);
         }
 
-        $html .= '<form method="post" action="export.php" '
-            . ' name="dump" class="disableAjax">';
+        $html .= '<form method="post" action="' . Url::getFromRoute('/export')
+            . '" name="dump" class="disableAjax">';
 
         //output Hidden Inputs
         $singleTableStr = isset($GLOBALS['single_table']) ? $GLOBALS['single_table']

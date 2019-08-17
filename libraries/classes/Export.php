@@ -531,7 +531,7 @@ class Export
         $back_button .= '&amp;repopulate=1">' . __('Back') . '</a> ]</p>';
         $html .= '<br>';
         $html .= $back_button;
-        $refreshButton = '<form id="export_refresh_form" method="POST" action="export.php" class="disableAjax">';
+        $refreshButton = '<form id="export_refresh_form" method="POST" action="' . Url::getFromRoute('/export') . '" class="disableAjax">';
         $refreshButton .= '[ <a class="disableAjax" onclick="$(this).parent().submit()">' . __('Refresh') . '</a> ]';
         foreach ($_POST as $name => $value) {
             if (is_array($value)) {

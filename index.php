@@ -86,6 +86,9 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
                 require_once ROOT_PATH . 'libraries/entry_points/database/triggers.php';
             });
         });
+        $routes->addRoute(['GET', 'POST'], '/export', function () {
+            require_once ROOT_PATH . 'libraries/entry_points/export.php';
+        });
         $routes->addGroup('/server', function (RouteCollector $routes) {
             $routes->addRoute(['GET', 'POST'], '/binlog', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/server/binlog.php';
@@ -256,7 +259,6 @@ unset($drops, $each_drop);
  */
 $target_blacklist =  [
     'import.php',
-    'export.php',
 ];
 
 // If we have a valid target, let's load that script instead
