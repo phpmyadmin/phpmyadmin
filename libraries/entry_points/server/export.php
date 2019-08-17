@@ -11,13 +11,12 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Display\Export;
 use PhpMyAdmin\Response;
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
-global $db, $table;
+global $db, $table, $sql_query, $num_tables, $unlim_num_rows;
 
-require_once ROOT_PATH . 'libraries/common.inc.php';
 require_once ROOT_PATH . 'libraries/server_common.inc.php';
 
 PageSettings::showGroup('Export');

@@ -292,7 +292,7 @@ if (isset($_POST['output_format']) && $_POST['output_format'] == 'sendit' && ! $
 $tables = [];
 // Generate error url and check for needed variables
 if ($export_type == 'server') {
-    $err_url = 'server_export.php' . Url::getCommon();
+    $err_url = Url::getFromRoute('/server/export');
 } elseif ($export_type == 'database' && strlen($db) > 0) {
     $err_url = Url::getFromRoute('/database/export', ['db' => $db]);
     // Check if we have something to export

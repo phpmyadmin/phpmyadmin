@@ -33,7 +33,6 @@ class Core
         'index.php',
         'pdf_pages.php',
         'pdf_schema.php',
-        'server_export.php',
         'server_import.php',
         'tbl_import.php',
         'tbl_export.php',
