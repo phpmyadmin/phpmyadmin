@@ -12,14 +12,14 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\Export;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Url;
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
-global $containerBuilder, $db, $url_query, $table;
-
-require_once ROOT_PATH . 'libraries/common.inc.php';
+global $containerBuilder, $db, $url_query, $url_params, $table;
+global $sql_query, $where_clause, $num_tables, $unlim_num_rows, $multi_values;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);
@@ -51,9 +51,12 @@ if (isset($_POST['templateAction']) && $cfgRelation['exporttemplateswork']) {
  * Gets tables information and displays top links
  */
 require_once ROOT_PATH . 'libraries/tbl_common.inc.php';
-$url_query .= '&amp;goto=tbl_export.php&amp;back=tbl_export.php';
 
-// Dump of a table
+$url_params = [
+    'goto' => Url::getFromRoute('/table/export'),
+    'back' => Url::getFromRoute('/table/export'),
+];
+$url_query .= Url::getCommon($url_params, '&');
 
 $export_page_title = __('View dump (schema) of table');
 

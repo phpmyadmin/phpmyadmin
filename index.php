@@ -157,6 +157,9 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
             $routes->addRoute(['GET', 'POST'], '/create', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/table/create.php';
             });
+            $routes->addRoute(['GET', 'POST'], '/export', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/table/export.php';
+            });
             $routes->addRoute(['GET', 'POST'], '/find_replace', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/table/find_replace.php';
             });

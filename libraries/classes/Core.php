@@ -35,7 +35,6 @@ class Core
         'pdf_schema.php',
         'server_import.php',
         'tbl_import.php',
-        'tbl_export.php',
         'transformation_overview.php',
         'transformation_wrapper.php',
     ];

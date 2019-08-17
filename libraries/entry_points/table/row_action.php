@@ -112,8 +112,8 @@ if (! empty($submit_mult)) {
                     $where_clause[] = $i_where_clause;
                 }
             }
-            $active_page = 'tbl_export.php';
-            include ROOT_PATH . 'tbl_export.php';
+            $active_page = Url::getFromRoute('/table/export');
+            include ROOT_PATH . 'libraries/entry_points/table/export.php';
             break;
 
         case 'row_delete':

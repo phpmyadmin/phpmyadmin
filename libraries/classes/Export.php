@@ -503,7 +503,7 @@ class Export
         } elseif ($export_type == 'database') {
             $back_button .= Url::getFromRoute('/database/export') . '" data-post="' . Url::getCommon(['db' => $db], '');
         } else {
-            $back_button .= 'tbl_export.php" data-post="' . Url::getCommon(
+            $back_button .= Url::getFromRoute('/table/export') . '" data-post="' . Url::getCommon(
                 [
                     'db' => $db,
                     'table' => $table,
@@ -1057,8 +1057,8 @@ class Export
             $active_page = Url::getFromRoute('/database/export');
             include_once ROOT_PATH . 'libraries/entry_points/database/export.php';
         } else {
-            $active_page = 'tbl_export.php';
-            include_once ROOT_PATH . 'tbl_export.php';
+            $active_page = Url::getFromRoute('/table/export');
+            include_once ROOT_PATH . 'libraries/entry_points/table/export.php';
         }
         exit;
     }

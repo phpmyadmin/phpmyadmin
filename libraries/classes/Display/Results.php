@@ -4940,7 +4940,7 @@ class Results
              * for example with a query like
              * SELECT bike_code FROM (SELECT bike_code FROM bikes) tmp
              * As a workaround we set in the table parameter the name of the
-             * first table of this database, so that tbl_export.php and
+             * first table of this database, so that /table/export and
              * the script it calls do not fail
              */
             if (empty($_url_params['table']) && ! empty($_url_params['db'])) {
@@ -4952,7 +4952,7 @@ class Results
             }
 
             $results_operations_html .= Util::linkOrButton(
-                'tbl_export.php' . Url::getCommon($_url_params),
+                Url::getFromRoute('/table/export', $_url_params),
                 Util::getIcon(
                     'b_tblexport',
                     __('Export'),

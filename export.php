@@ -302,12 +302,10 @@ if ($export_type == 'server') {
         $tables = [];
     }
 } elseif ($export_type == 'table' && strlen($db) > 0 && strlen($table) > 0) {
-    $err_url = 'tbl_export.php' . Url::getCommon(
-        [
-            'db' => $db,
-            'table' => $table,
-        ]
-    );
+    $err_url = Url::getFromRoute('/table/export', [
+        'db' => $db,
+        'table' => $table,
+    ]);
 } else {
     Core::fatalError(__('Bad parameters!'));
 }

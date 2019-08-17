@@ -374,9 +374,10 @@ class Menu
         }
 
         $tabs['export']['icon'] = 'b_tblexport';
-        $tabs['export']['link'] = 'tbl_export.php';
+        $tabs['export']['link'] = Url::getFromRoute('/table/export');
         $tabs['export']['args']['single_table'] = 'true';
         $tabs['export']['text'] = __('Export');
+        $tabs['export']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/table/export';
 
         /**
          * Don't display "Import" for views and information_schema
