@@ -84,6 +84,7 @@ class Designer
         $cfgRelation = $this->relation->getRelationsParam();
         return $this->template->render('database/designer/page_save_as', [
             'db' => $db,
+            'number_of_dots' => substr_count($db, '.'),
             'pdfwork' => $cfgRelation['pdfwork'],
             'pages' => $this->getPageIdsAndNames($db),
         ]);

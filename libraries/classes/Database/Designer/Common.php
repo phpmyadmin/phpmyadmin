@@ -508,7 +508,20 @@ class Common
         }
 
         foreach ($_REQUEST['t_h'] as $key => $value) {
-            list($DB, $TAB) = explode(".", $key);
+            $Dots = substr_count($key, '.');
+            $DB_Dots = $_POST['number_of_dots'];
+            $TAB_Dots = $DB - $DB_Dots - 1;
+            $Array = explode(".", $key);
+            $DB = '';
+            $TAB = '';
+            for($x = 0; $x < $DB_Dots; $x++){
+                $DB .= $Array[$x].".";
+            }
+            $DB .= $Array[$DB_Dots];
+            for($x = $DB_Dots+1; $x < $Dots; $x++){
+                $TAB .= $Array[$x].".";
+            }
+            $TAB .= $Array[$Dots];
             if (! $value) {
                 continue;
             }
