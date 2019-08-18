@@ -962,7 +962,7 @@ form.login select {
 }
 
 li.last.database{
-    margin-bottom: 15px
+    margin-bottom: 15px !important;
 }
 /******************************************************************************/
 /* specific elements */
