@@ -284,7 +284,7 @@ if (strlen($table) > 0 && strlen($db) > 0) {
 
 // Create error and goto url
 if ($import_type == 'table') {
-    $goto = 'tbl_import.php';
+    $goto = Url::getFromRoute('/table/import');
 } elseif ($import_type == 'database') {
     $goto = Url::getFromRoute('/database/import');
 } elseif ($import_type == 'server') {

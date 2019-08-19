@@ -384,8 +384,9 @@ class Menu
          */
         if (! $tbl_is_view && ! $db_is_system_schema) {
             $tabs['import']['icon'] = 'b_tblimport';
-            $tabs['import']['link'] = 'tbl_import.php';
+            $tabs['import']['link'] = Url::getFromRoute('/table/import');
             $tabs['import']['text'] = __('Import');
+            $tabs['import']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/table/import';
         }
         if (($is_superuser || $isCreateOrGrantUser)
             && ! $db_is_system_schema
