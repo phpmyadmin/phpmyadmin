@@ -13,13 +13,11 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\Utils\HttpRequest;
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
 global $containerBuilder;
-
-require_once ROOT_PATH . 'libraries/common.inc.php';
 
 if (! isset($_POST['exception_type'])
     || ! in_array($_POST['exception_type'], ['js', 'php'])

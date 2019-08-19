@@ -92,6 +92,9 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
                 require_once ROOT_PATH . 'libraries/entry_points/database/triggers.php';
             });
         });
+        $routes->addRoute(['GET', 'POST'], '/error_report', function () {
+            require_once ROOT_PATH . 'libraries/entry_points/error_report.php';
+        });
         $routes->addRoute(['GET', 'POST'], '/export', function () {
             require_once ROOT_PATH . 'libraries/entry_points/export.php';
         });
