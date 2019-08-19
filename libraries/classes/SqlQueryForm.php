@@ -76,7 +76,7 @@ class SqlQueryForm
         }
 
         // start output
-        $html .= '<form method="post" action="import.php" ' . $enctype;
+        $html .= '<form method="post" action="' . Url::getFromRoute('/import') . '" ' . $enctype;
         $html .= ' class="ajax lock-page"';
         $html .= ' id="sqlqueryform" name="sqlform">' . "\n";
 

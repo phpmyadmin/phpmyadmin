@@ -21,8 +21,8 @@ use PhpMyAdmin\Sql;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
 /* Enable LOAD DATA LOCAL INFILE for LDI plugin */
@@ -31,8 +31,6 @@ if (isset($_POST['format']) && $_POST['format'] == 'ldi') {
 }
 
 global $cfg, $collation_connection, $containerBuilder, $db, $import_type, $pmaThemeImage, $table;
-
-require_once ROOT_PATH . 'libraries/common.inc.php';
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);
@@ -300,12 +298,6 @@ if ($import_type == 'table') {
 }
 $err_url = $goto . Url::getCommon($urlparams);
 $_SESSION['Import_message']['go_back_url'] = $err_url;
-// Avoid setting selflink to 'import.php'
-// problem similar to bug 4276
-if (basename($_SERVER['SCRIPT_NAME']) === 'import.php') {
-    $_SERVER['SCRIPT_NAME'] = $goto;
-}
-
 
 if (strlen($db) > 0) {
     $dbi->selectDb($db);
