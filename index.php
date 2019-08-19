@@ -34,6 +34,9 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
         $routes->addRoute('GET', '/changelog', function () {
             require_once ROOT_PATH . 'libraries/entry_points/changelog.php';
         });
+        $routes->addRoute(['GET', 'POST'], '/check_relations', function () {
+            require_once ROOT_PATH . 'libraries/entry_points/chk_rel.php';
+        });
         $routes->addGroup('/database', function (RouteCollector $routes) {
             $routes->addRoute(['GET', 'POST'], '/central_columns', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/database/central_columns.php';
