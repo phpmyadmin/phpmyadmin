@@ -108,6 +108,9 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
             $routes->addRoute(['GET', 'POST'], '/export', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/server/export.php';
             });
+            $routes->addRoute(['GET', 'POST'], '/import', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/server/import.php';
+            });
             $routes->addRoute('GET', '/plugins', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/server/plugins.php';
             });

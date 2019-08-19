@@ -623,8 +623,9 @@ class Menu
         $tabs['export']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/server/export';
 
         $tabs['import']['icon'] = 'b_import';
-        $tabs['import']['link'] = 'server_import.php';
+        $tabs['import']['link'] = Url::getFromRoute('/server/import');
         $tabs['import']['text'] = __('Import');
+        $tabs['import']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/server/import';
 
         $tabs['settings']['icon']   = 'b_tblops';
         $tabs['settings']['link']   = 'prefs_manage.php';

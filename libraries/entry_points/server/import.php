@@ -11,13 +11,11 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Display\Import;
 use PhpMyAdmin\Response;
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
 global $db, $max_upload_size, $table;
-
-require_once ROOT_PATH . 'libraries/common.inc.php';
 
 PageSettings::showGroup('Import');
 
