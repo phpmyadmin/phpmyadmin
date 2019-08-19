@@ -496,9 +496,10 @@ class Menu
         }
 
         if (! $db_is_system_schema) {
-            $tabs['import']['link'] = 'db_import.php';
+            $tabs['import']['link'] = Url::getFromRoute('/database/import');
             $tabs['import']['text'] = __('Import');
             $tabs['import']['icon'] = 'b_import';
+            $tabs['import']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/database/import';
 
             $tabs['operation']['link'] = Url::getFromRoute('/database/operations');
             $tabs['operation']['text'] = __('Operations');

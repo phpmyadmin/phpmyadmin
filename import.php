@@ -286,7 +286,7 @@ if (strlen($table) > 0 && strlen($db) > 0) {
 if ($import_type == 'table') {
     $goto = 'tbl_import.php';
 } elseif ($import_type == 'database') {
-    $goto = 'db_import.php';
+    $goto = Url::getFromRoute('/database/import');
 } elseif ($import_type == 'server') {
     $goto = 'server_import.php';
 } elseif (empty($goto) || ! preg_match('@^(server|db|tbl)(_[a-z]*)*\.php$@i', $goto)) {

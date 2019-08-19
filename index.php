@@ -50,6 +50,9 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
             $routes->addRoute(['GET', 'POST'], '/export', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/database/export.php';
             });
+            $routes->addRoute(['GET', 'POST'], '/import', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/database/import.php';
+            });
             $routes->addRoute(['GET', 'POST'], '/multi_table_query', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/database/multi_table_query.php';
             });
