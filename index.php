@@ -104,6 +104,9 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
         $routes->addRoute(['GET', 'POST'], '/import', function () {
             require_once ROOT_PATH . 'libraries/entry_points/import.php';
         });
+        $routes->addRoute('GET', '/license', function () {
+            require_once ROOT_PATH . 'libraries/entry_points/license.php';
+        });
         $routes->addGroup('/server', function (RouteCollector $routes) {
             $routes->addRoute(['GET', 'POST'], '/binlog', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/server/binlog.php';

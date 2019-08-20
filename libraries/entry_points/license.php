@@ -12,21 +12,13 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Response;
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
-
-/**
- * Gets core libraries and defines some variables
- */
-require ROOT_PATH . 'libraries/common.inc.php';
 
 $response = Response::getInstance();
 $response->disable();
 
-/**
- *
- */
 header('Content-type: text/plain; charset=utf-8');
 
 $filename = LICENSE_FILE;
