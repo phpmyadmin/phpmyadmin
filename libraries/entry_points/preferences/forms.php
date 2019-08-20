@@ -18,16 +18,11 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\UserPreferencesHeader;
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
 global $containerBuilder;
-
-/**
- * Gets some core libraries and displays a top message if required
- */
-require_once ROOT_PATH . 'libraries/common.inc.php';
 
 /** @var Template $template */
 $template = $containerBuilder->get('template');
@@ -53,8 +48,8 @@ if (isset($_POST['revert'])) {
     // redirect
     $url_params = ['form' => $form_param];
     Core::sendHeaderLocation(
-        './prefs_forms.php'
-        . Url::getCommonRaw($url_params)
+        './index.php?route=/preferences/forms'
+        . Url::getCommonRaw($url_params, '&')
     );
     exit;
 }
@@ -69,7 +64,7 @@ if ($form_display->process(false) && ! $form_display->hasErrors()) {
         $tabHash = isset($_POST['tab_hash']) ? $_POST['tab_hash'] : null;
         $hash = ltrim($tabHash, '#');
         $userPreferences->redirect(
-            'prefs_forms.php',
+            'index.php?route=/preferences/forms',
             ['form' => $form_param],
             $hash
         );
@@ -97,9 +92,13 @@ echo $template->render('preferences/forms/main', [
     'error' => $error ? $error->getDisplay() : '',
     'has_errors' => $form_display->hasErrors(),
     'errors' => $formErrors ?? null,
-    'form' => $form_display->getDisplay(true, true, true, 'prefs_forms.php?form=' . $form_param, [
-        'server' => $GLOBALS['server'],
-    ]),
+    'form' => $form_display->getDisplay(
+        true,
+        true,
+        true,
+        Url::getFromRoute('/preferences/forms', ['form' => $form_param]),
+        ['server' => $GLOBALS['server']]
+    ),
 ]);
 
 if ($response->isAjax()) {

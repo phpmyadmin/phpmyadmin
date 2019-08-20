@@ -200,7 +200,7 @@ var ErrorReport = {
      * @return void
      */
     redirectToSettings: function () {
-        window.location.href = 'prefs_forms.php';
+        window.location.href = 'index.php?route=/preferences/forms';
     },
     /**
      * Returns the report data to send to the server

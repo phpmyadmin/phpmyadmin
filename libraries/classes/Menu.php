@@ -631,14 +631,12 @@ class Menu
         $tabs['settings']['icon']   = 'b_tblops';
         $tabs['settings']['link']   = 'prefs_manage.php';
         $tabs['settings']['text']   = __('Settings');
-        $tabs['settings']['active'] = in_array(
-            basename($GLOBALS['PMA_PHP_SELF']),
-            [
-                'prefs_forms.php',
-                'prefs_manage.php',
-                'prefs_twofactor.php',
-            ]
-        );
+        $tabs['settings']['active'] = in_array(basename($GLOBALS['PMA_PHP_SELF']), [
+            'prefs_manage.php',
+            'prefs_twofactor.php',
+        ]) || (isset($_REQUEST['route']) && in_array($_REQUEST['route'], [
+            '/preferences/forms',
+        ]));
 
         if (! empty($binary_logs)) {
             $tabs['binlog']['icon'] = 's_tbl';
