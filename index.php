@@ -271,6 +271,11 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
         $routes->addRoute(['GET', 'POST'], '/version_check', function () {
             require_once ROOT_PATH . 'libraries/entry_points/version_check.php';
         });
+        $routes->addGroup('/view', function (RouteCollector $routes) {
+            $routes->addRoute(['GET', 'POST'], '/create', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/view/create.php';
+            });
+        });
     });
     $routeInfo = $dispatcher->dispatch(
         $_SERVER['REQUEST_METHOD'],

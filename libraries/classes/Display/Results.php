@@ -4768,8 +4768,8 @@ class Results
     /**
      * Generates HTML to display the Create view in span tag
      *
-     * @param array  $analyzed_sql_results analyzed sql results
-     * @param string $url_query            String with URL Parameters
+     * @param array $analyzed_sql_results analyzed sql results
+     * @param array $params               Array with URL Parameters
      *
      * @return string
      *
@@ -4777,13 +4777,13 @@ class Results
      *
      * @see _getResultsOperations()
      */
-    private function _getLinkForCreateView(array $analyzed_sql_results, $url_query)
+    private function _getLinkForCreateView(array $analyzed_sql_results, array $params): string
     {
         $results_operations_html = '';
         if (empty($analyzed_sql_results['procedure'])) {
             $results_operations_html .= '<span>'
                 . Util::linkOrButton(
-                    'view_create.php' . $url_query,
+                    Url::getFromRoute('/view/create', $params),
                     Util::getIcon(
                         'b_view_add',
                         __('Create view'),
@@ -4892,7 +4892,7 @@ class Results
             'printview' => '1',
             'sql_query' => $this->__get('sql_query'),
         ];
-        $url_query = Url::getCommon($_url_params);
+        $params = $_url_params;
 
         if (! $header_shown) {
             $results_operations_html .= $header;
@@ -4903,7 +4903,7 @@ class Results
         if ($only_view) {
             $results_operations_html .= $this->_getLinkForCreateView(
                 $analyzed_sql_results,
-                $url_query
+                $params
             );
 
             if ($header_shown) {
@@ -5016,7 +5016,7 @@ class Results
 
         $results_operations_html .= $this->_getLinkForCreateView(
             $analyzed_sql_results,
-            $url_query
+            $params
         );
 
         if ($header_shown) {

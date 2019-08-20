@@ -1276,14 +1276,6 @@ class StructureController extends AbstractController
             'DistinctValues' => Util::getIcon('b_browse', __('Distinct values')),
         ];
 
-        $edit_view_url = '';
-        if ($this->_tbl_is_view && ! $this->_db_is_system_schema) {
-            $edit_view_url = Url::getCommon([
-                'db' => $this->db,
-                'table' => $this->table,
-            ]);
-        }
-
         /**
          * Displays Space usage and row statistics
          */
@@ -1371,7 +1363,6 @@ class StructureController extends AbstractController
             'tbl_storage_engine' => $this->_tbl_storage_engine,
             'primary' => $primary_index,
             'columns_with_unique_index' => $columns_with_unique_index,
-            'edit_view_url' => $edit_view_url,
             'columns_list' => $columns_list,
             'table_stats' => isset($tablestats) ? $tablestats : null,
             'fields' => $fields,

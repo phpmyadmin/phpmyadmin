@@ -17,13 +17,12 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
 global $containerBuilder, $text_dir;
 
-require_once ROOT_PATH . 'libraries/common.inc.php';
 require ROOT_PATH . 'libraries/db_common.inc.php';
 
 /** @var Response $response */
@@ -33,7 +32,7 @@ $response = $containerBuilder->get(Response::class);
 $dbi = $containerBuilder->get(DatabaseInterface::class);
 
 $url_params['goto'] = Url::getFromRoute('/table/structure');
-$url_params['back'] = 'view_create.php';
+$url_params['back'] = Url::getFromRoute('/view/create');
 
 /** @var Template $template */
 $template = $containerBuilder->get('template');
