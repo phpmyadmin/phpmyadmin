@@ -1638,7 +1638,7 @@ class Import
         $parser = new Parser($sql_query);
 
         if (empty($parser->statements[0])) {
-            return false;
+            return true;
         }
 
         $statement = $parser->statements[0];

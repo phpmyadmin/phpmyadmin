@@ -557,7 +557,7 @@ class Table
 
         if (! $virtuality || $isVirtualColMysql) {
             if ($null !== false) {
-                if ($null == 'NULL') {
+                if ($null == 'YES') {
                     $query .= ' NULL';
                 } else {
                     $query .= ' NOT NULL';
@@ -596,7 +596,7 @@ class Table
                     case 'NULL':
                         // If user uncheck null checkbox and not change default value null,
                         // default value will be ignored.
-                        if ($null !== false && $null !== 'NULL') {
+                        if ($null !== false && $null !== 'YES') {
                             break;
                         }
                         // else fall-through intended, no break here
