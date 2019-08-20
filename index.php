@@ -98,6 +98,9 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
         $routes->addRoute(['GET', 'POST'], '/export', function () {
             require_once ROOT_PATH . 'libraries/entry_points/export.php';
         });
+        $routes->addRoute(['GET', 'POST'], '/gis_data_editor', function () {
+            require_once ROOT_PATH . 'libraries/entry_points/gis_data_editor.php';
+        });
         $routes->addRoute(['GET', 'POST'], '/import', function () {
             require_once ROOT_PATH . 'libraries/entry_points/import.php';
         });
