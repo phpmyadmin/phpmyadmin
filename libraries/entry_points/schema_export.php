@@ -11,13 +11,11 @@ use PhpMyAdmin\Export;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Util;
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
 global $containerBuilder;
-
-require_once ROOT_PATH . 'libraries/common.inc.php';
 
 /**
  * get all variables needed for exporting relational schema

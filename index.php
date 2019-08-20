@@ -133,6 +133,9 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
                 require_once ROOT_PATH . 'libraries/entry_points/preferences/twofactor.php';
             });
         });
+        $routes->addRoute(['GET', 'POST'], '/schema_export', function () {
+            require_once ROOT_PATH . 'libraries/entry_points/schema_export.php';
+        });
         $routes->addGroup('/server', function (RouteCollector $routes) {
             $routes->addRoute(['GET', 'POST'], '/binlog', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/server/binlog.php';
