@@ -19,16 +19,11 @@ use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\UserPreferencesHeader;
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
 global $containerBuilder;
-
-/**
- * Gets some core libraries and displays a top message if required
- */
-require_once ROOT_PATH . 'libraries/common.inc.php';
 
 /** @var Template $template */
 $template = $containerBuilder->get('template');
@@ -165,7 +160,7 @@ if (isset($_POST['submit_export'], $_POST['export_type']) && $_POST['export_type
                     $params[$k] = mb_substr($q, $pos + 1);
                 }
             } else {
-                $return_url = 'prefs_manage.php';
+                $return_url = 'index.php?route=/preferences/manage';
             }
             // reload config
             $GLOBALS['PMA_Config']->loadUserPreferences();
@@ -181,7 +176,7 @@ if (isset($_POST['submit_export'], $_POST['export_type']) && $_POST['export_type
         $params = [];
         $GLOBALS['PMA_Config']->removeCookie('pma_collaction_connection');
         $GLOBALS['PMA_Config']->removeCookie('pma_lang');
-        $userPreferences->redirect('prefs_manage.php', $params);
+        $userPreferences->redirect('index.php?route=/preferences/manage', $params);
         exit;
     } else {
         $error = $result;

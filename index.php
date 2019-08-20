@@ -126,6 +126,9 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
             $routes->addRoute(['GET', 'POST'], '/forms', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/preferences/forms.php';
             });
+            $routes->addRoute(['GET', 'POST'], '/manage', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/preferences/manage.php';
+            });
         });
         $routes->addGroup('/server', function (RouteCollector $routes) {
             $routes->addRoute(['GET', 'POST'], '/binlog', function () {

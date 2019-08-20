@@ -12,6 +12,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
 
 /**
@@ -37,6 +38,7 @@ class UserPreferencesTest extends PmaTestCase
         include ROOT_PATH . 'libraries/config.default.php';
         $GLOBALS['server'] = 0;
         $GLOBALS['PMA_PHP_SELF'] = '/phpmyadmin/';
+        $cfg['Server']['DisableIS'] = false;
 
         $this->userPreferences = new UserPreferences();
     }
@@ -405,7 +407,7 @@ class UserPreferencesTest extends PmaTestCase
         $result = $this->userPreferences->autoloadGetHeader();
 
         $this->assertStringContainsString(
-            '<form action="prefs_manage.php" method="post" class="disableAjax">',
+            '<form action="' . Url::getFromRoute('/preferences/manage') . '" method="post" class="disableAjax">',
             $result
         );
 

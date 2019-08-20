@@ -55,7 +55,7 @@ class UserPreferencesHeader
         // build user preferences menu
         $content = Util::getHtmlTab(
             [
-                'link' => 'prefs_manage.php',
+                'link' => 'index.php?route=/preferences/manage',
                 'text' => __('Manage your settings'),
             ]
         ) . "\n";

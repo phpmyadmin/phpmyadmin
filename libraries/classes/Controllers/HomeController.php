@@ -144,7 +144,7 @@ class HomeController extends AbstractController
                     'id' => 'li_user_preferences',
                     'class' => 'no_bullets',
                     'url' => [
-                        'href' => 'prefs_manage.php' . Url::getCommon(),
+                        'href' => Url::getFromRoute('/preferences/manage'),
                         'target' => null,
                         'id' => null,
                         'class' => null,

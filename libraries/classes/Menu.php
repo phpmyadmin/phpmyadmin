@@ -628,14 +628,14 @@ class Menu
         $tabs['import']['text'] = __('Import');
         $tabs['import']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/server/import';
 
-        $tabs['settings']['icon']   = 'b_tblops';
-        $tabs['settings']['link']   = 'prefs_manage.php';
-        $tabs['settings']['text']   = __('Settings');
+        $tabs['settings']['icon'] = 'b_tblops';
+        $tabs['settings']['link'] = Url::getFromRoute('/preferences/manage');
+        $tabs['settings']['text'] = __('Settings');
         $tabs['settings']['active'] = in_array(basename($GLOBALS['PMA_PHP_SELF']), [
-            'prefs_manage.php',
             'prefs_twofactor.php',
         ]) || (isset($_REQUEST['route']) && in_array($_REQUEST['route'], [
             '/preferences/forms',
+            '/preferences/manage',
         ]));
 
         if (! empty($binary_logs)) {
