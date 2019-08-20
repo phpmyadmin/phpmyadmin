@@ -268,6 +268,9 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
         $routes->addRoute(['GET', 'POST'], '/user_password', function () {
             require_once ROOT_PATH . 'libraries/entry_points/user_password.php';
         });
+        $routes->addRoute(['GET', 'POST'], '/version_check', function () {
+            require_once ROOT_PATH . 'libraries/entry_points/version_check.php';
+        });
     });
     $routeInfo = $dispatcher->dispatch(
         $_SERVER['REQUEST_METHOD'],

@@ -4126,7 +4126,7 @@ AJAX.registerOnload('functions.js', function () {
     if ($('li.jsversioncheck').length > 0) {
         $.ajax({
             dataType: 'json',
-            url: 'version_check.php',
+            url: 'index.php?route=/version_check',
             method: 'POST',
             data: {
                 'server': CommonParams.get('server')
