@@ -28,7 +28,7 @@
           </a>
 
           {% if server != 0 %}
-            <a class="logout disableAjax" href="logout.php{{ get_common() }}" title="{{ auth_type == 'config' ? 'Empty session data'|trans : 'Log out'|trans }}">
+            <a class="logout disableAjax" href="{{ url('/logout') }}" title="{{ auth_type == 'config' ? 'Empty session data'|trans : 'Log out'|trans }}">
               {{- get_image('s_loggoff', auth_type == 'config' ? 'Empty session data'|trans : 'Log out'|trans) -}}
             </a>
           {% endif %}
