@@ -2078,7 +2078,8 @@ class InsertEdit
         } elseif ($trueType == 'binary' || $trueType == 'varbinary') {
             $special_chars = bin2hex($column['Default']);
         } elseif ('text' === substr($trueType, -4)) {
-            $special_chars = stripcslashes(substr($column['Default'], 1, -1));
+            $textDefault = substr($column['Default'], 1, -1);
+            $special_chars = stripcslashes($textDefault !== false ? $textDefault : $column['Default']);
         } else {
             $special_chars = htmlspecialchars($column['Default']);
         }
