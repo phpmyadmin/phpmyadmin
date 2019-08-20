@@ -293,6 +293,7 @@ class Designer
     public function getHtmlTableList(array $tab_pos, $display_page)
     {
         return Template::get('database/designer/table_list')->render([
+            'db' => $GLOBALS['db'],
             'tab_pos' => $tab_pos,
             'display_page' => $display_page,
             'theme' => $GLOBALS['PMA_Theme'],

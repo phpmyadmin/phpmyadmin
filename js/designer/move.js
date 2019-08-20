@@ -1284,7 +1284,8 @@ function Start_table_new () {
     PMA_commonActions.refreshMain('tbl_create.php');
 }
 
-function Start_tab_upd (table) {
+function Start_tab_upd (db, table) {
+    PMA_commonParams.set('db', db);
     PMA_commonParams.set('table', table);
     PMA_commonActions.refreshMain('tbl_structure.php');
 }
@@ -1923,7 +1924,7 @@ function enableTableEvents(index, element) {
         Small_tab($(this).attr('table_name'), 1);
     });
     $(element).on('click', '.small_tab_pref_1', function () {
-        Start_tab_upd($(this).attr('table_name_small'));
+        Start_tab_upd($(this).attr('db'), $(this).attr('table_name_small'));
     });
     $(element).on('click', '.select_all_store_col', function () {
         var params = ($(this).attr('store_column_param')).split(',');
@@ -2092,7 +2093,7 @@ AJAX.registerOnload('designer/move.js', function () {
         return false;
     });
     $('.scroll_tab_struct').click(function () {
-        Start_tab_upd($(this).attr('table_name'));
+        Start_tab_upd($(this).attr('db'), $(this).attr('table_name'));
     });
     $('.scroll_tab_checkbox').click(function () {
         VisibleTab(this,$(this).val());
