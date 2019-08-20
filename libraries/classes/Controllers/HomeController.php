@@ -213,7 +213,7 @@ class HomeController extends AbstractController
                 'id' => 'li_phpinfo',
                 'class' => null,
                 'url' => [
-                    'href' => 'phpinfo.php' . Url::getCommon(),
+                    'href' => Url::getFromRoute('/phpinfo'),
                     'target' => '_blank',
                     'id' => null,
                     'class' => null,
