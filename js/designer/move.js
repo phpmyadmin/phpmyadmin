@@ -549,6 +549,48 @@ function Toggle_fullscreen () {
     saveValueInConfig('full_screen', value_sent);
 }
 
+function addTableToTablesList(index, table_dom) {
+    var db = $(table_dom).find('.small_tab_pref').attr('db');
+    var table = $(table_dom).find('.small_tab_pref').attr('table_name_small');
+    var db_encoded = encodeURI(db);
+    var table_encoded = encodeURI(table);
+    var $new_table_line = $('<tr>' +
+        '    <td title="' + PMA_messages.strStructure + '"' +
+        '        width="1px"' +
+        '        class="L_butt2_1">' +
+        '        <img alt=""' +
+        '            db="' + db + '"' +
+        '            table_name="' + table + '"' +
+        '            class="scroll_tab_struct"' +
+        '            src="' + pmaThemeImage + 'designer/exec.png"/>' +
+        '    </td>' +
+        '    <td width="1px">' +
+        '        <input class="scroll_tab_checkbox"' +
+        '            title="' + PMA_messages.strHide + '"' +
+        '            id="check_vis_' + encodeURI(db) + '.' + table_encoded + '"' +
+        '            style="margin:0;"' +
+        '            type="checkbox"' +
+        '            value="' + db_encoded + '.' + table_encoded + '"' +
+        '            checked="checked"' +
+        '            />' +
+        '    </td>' +
+        '    <td class="designer_Tabs"' +
+        '        designer_url_table_name="' + db_encoded + '.' + table_encoded + '">' + db + '.' + table + '</td>' +
+        '</tr>');
+    $('#id_scroll_tab table').first().append($new_table_line);
+    $($new_table_line).find('.scroll_tab_struct').click(function () {
+        Start_tab_upd(db, table);
+    });
+    $($new_table_line).on('click', '.designer_Tabs2,.designer_Tabs', function () {
+        Select_tab($(this).attr('designer_url_table_name'));
+    });
+    $($new_table_line).find('.scroll_tab_checkbox').click(function () {
+        VisibleTab(this,$(this).val());
+    });
+    var $tables_counter = $('#tables_counter');
+    $tables_counter.text(parseInt($tables_counter.text(), 10) + 1);
+}
+
 function Add_Other_db_tables () {
     var button_options = {};
     button_options[PMA_messages.strGo] = function () {
@@ -565,6 +607,7 @@ function Add_Other_db_tables () {
             $new_table_dom.find('a').first().remove();
             $('#container-form').append($new_table_dom);
             enableTableEvents(null, $new_table_dom);
+            addTableToTablesList(null, $new_table_dom);
         });
         $(this).dialog('close');
     };
@@ -2092,17 +2135,9 @@ AJAX.registerOnload('designer/move.js', function () {
         No_have_constr(this);
         return false;
     });
-    $('.scroll_tab_struct').click(function () {
-        Start_tab_upd($(this).attr('db'), $(this).attr('table_name'));
-    });
-    $('.scroll_tab_checkbox').click(function () {
-        VisibleTab(this,$(this).val());
-    });
-    $('#id_scroll_tab').find('tr').on('click', '.designer_Tabs2,.designer_Tabs', function () {
-        Select_tab($(this).attr('designer_url_table_name'));
-    });
 
     $('.designer_tab').each(enableTableEvents);
+    $('.designer_tab').each(addTableToTablesList);
 
     $('.tab_zag_noquery').mouseover(function () {
         Table_onover($(this).attr('table_name'),0, $(this).attr('query_set'));

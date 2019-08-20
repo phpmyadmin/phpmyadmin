@@ -285,22 +285,13 @@ class Designer
     /**
      * Return HTML for the table list
      *
-     * @param array $tab_pos      table positions
-     * @param int   $display_page page number of the selected page
-     *
      * @return string html
      */
-    public function getHtmlTableList(array $tab_pos, $display_page)
+    public function getHtmlTableList()
     {
         return Template::get('database/designer/table_list')->render([
-            'db' => $GLOBALS['db'],
-            'tab_pos' => $tab_pos,
-            'display_page' => $display_page,
             'theme' => $GLOBALS['PMA_Theme'],
             'table_names' => $GLOBALS['designer']['TABLE_NAME'],
-            'table_names_url' => $GLOBALS['designer_url']['TABLE_NAME'],
-            'table_names_small_url' => $GLOBALS['designer_url']['TABLE_NAME_SMALL'],
-            'table_names_out' => $GLOBALS['designer_out']['TABLE_NAME'],
         ]);
     }
 

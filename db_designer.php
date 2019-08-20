@@ -188,7 +188,7 @@ $response->addHTML(
 );
 
 $response->addHTML($databaseDesigner->getHtmlCanvas());
-$response->addHTML($databaseDesigner->getHtmlTableList($tab_pos, $display_page));
+$response->addHTML($databaseDesigner->getHtmlTableList());
 
 $response->addHTML(
     $databaseDesigner->getDatabaseTables(
