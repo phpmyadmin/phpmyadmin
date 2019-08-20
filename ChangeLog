@@ -57,6 +57,10 @@ phpMyAdmin - ChangeLog
 - issue #15127 Fix remove the white square in floating menubar when reloading the designer
 - issue #15202 Fixed creating user with single quote in password results in no password user
 - issue #14950 Fixed left database overview "add column" triggers error
+- issue #15363 Fix remove unexpected quotes on text fields (structure and insert)
+- issue        Fix NULL wrongly checked on field change
+- issue #15388 Fix allow to rollback an empty statement
+- issue #14291 Fixed incorrect linkage from one table's value to another table
 
 4.9.0.1 (2019-06-04)
 - issue #14478 phpMyAdmin no longer streams the export data
