@@ -564,18 +564,7 @@ function Add_Other_db_tables () {
             $new_table_dom = $(data.message);
             $new_table_dom.find('a').first().remove();
             $('#container-form').append($new_table_dom);
-            $('.designer_tab').on('click','.tab_field_2,.tab_field_3,.tab_field', function () {
-                var params = ($(this).attr('click_field_param')).split(',');
-                Click_field(params[3], params[0], params[1], params[2]);
-            });
-            $('.designer_tab').on('click', '.select_all_store_col', function () {
-                var params = ($(this).attr('store_column_param')).split(',');
-                store_column(params[0], params[1], params[2]);
-            });
-            $('.designer_tab').on('click', '.small_tab_pref_click_opt', function () {
-                var params = ($(this).attr('Click_option_param')).split(',');
-                Click_option(params[0], params[1], params[2]);
-            });
+            enableTableEvents(null, $new_table_dom);
         });
         $(this).dialog('close');
     };
@@ -1913,6 +1902,44 @@ function add_object () {
     $('#ab').accordion('refresh');
 }
 
+function enablePageContentEvents() {
+    $('#page_content').off('mousedown', MouseDown);
+    $('#page_content').off('mouseup', MouseUp);
+    $('#page_content').off('mousemove', MouseMove);
+    $('#page_content').on('mousedown', MouseDown);
+    $('#page_content').on('mouseup', MouseUp);
+    $('#page_content').on('mousemove', MouseMove);
+}
+
+/**
+ * This function enables the events on table items.
+ * It helps to enable them on page loading and when a table is added on the fly.
+ */
+function enableTableEvents(index, element) {
+    $(element).on('click', '.select_all_1', function () {
+        Select_all($(this).attr('designer_url_table_name'), $(this).attr('designer_out_owner'));
+    });
+    $(element).on('click', '.small_tab,.small_tab2', function () {
+        Small_tab($(this).attr('table_name'), 1);
+    });
+    $(element).on('click', '.small_tab_pref_1', function () {
+        Start_tab_upd($(this).attr('table_name_small'));
+    });
+    $(element).on('click', '.select_all_store_col', function () {
+        var params = ($(this).attr('store_column_param')).split(',');
+        store_column(params[0], params[1], params[2]);
+    });
+    $(element).on('click', '.small_tab_pref_click_opt', function () {
+        var params = ($(this).attr('Click_option_param')).split(',');
+        Click_option(params[0], params[1], params[2]);
+    });
+    $(element).on('click', '.tab_field_2,.tab_field_3,.tab_field', function () {
+        var params = ($(this).attr('click_field_param')).split(',');
+        Click_field(params[3], params[0], params[1], params[2]);
+    });
+    enablePageContentEvents();
+}
+
 AJAX.registerTeardown('designer/move.js', function () {
     $('#side_menu').off('mouseenter mouseleave');
     $('#key_Show_left_menu').off('click');
@@ -2073,15 +2100,9 @@ AJAX.registerOnload('designer/move.js', function () {
     $('#id_scroll_tab').find('tr').on('click', '.designer_Tabs2,.designer_Tabs', function () {
         Select_tab($(this).attr('designer_url_table_name'));
     });
-    $('.designer_tab').on('click', '.select_all_1', function () {
-        Select_all($(this).attr('designer_url_table_name'), $(this).attr('designer_out_owner'));
-    });
-    $('.designer_tab').on('click', '.small_tab,.small_tab2', function () {
-        Small_tab($(this).attr('table_name'), 1);
-    });
-    $('.designer_tab').on('click', '.small_tab_pref_1', function () {
-        Start_tab_upd($(this).attr('table_name_small'));
-    });
+
+    $('.designer_tab').each(enableTableEvents);
+
     $('.tab_zag_noquery').mouseover(function () {
         Table_onover($(this).attr('table_name'),0, $(this).attr('query_set'));
     });
@@ -2094,18 +2115,7 @@ AJAX.registerOnload('designer/move.js', function () {
     $('.tab_zag_query').mouseout(function () {
         Table_onover($(this).attr('table_name'),1, 1);
     });
-    $('.designer_tab').on('click','.tab_field_2,.tab_field_3,.tab_field', function () {
-        var params = ($(this).attr('click_field_param')).split(',');
-        Click_field(params[3], params[0], params[1], params[2]);
-    });
-    $('.designer_tab').on('click', '.select_all_store_col', function () {
-        var params = ($(this).attr('store_column_param')).split(',');
-        store_column(params[0], params[1], params[2]);
-    });
-    $('.designer_tab').on('click', '.small_tab_pref_click_opt', function () {
-        var params = ($(this).attr('Click_option_param')).split(',');
-        Click_option(params[0], params[1], params[2]);
-    });
+
     $('input#del_button').click(function () {
         Upd_relation();
     });
@@ -2125,13 +2135,5 @@ AJAX.registerOnload('designer/move.js', function () {
     $('input#cancel_new_rel_panel').click(function () {
         document.getElementById('layer_new_relation').style.display = 'none';
     });
-    $('#page_content').on('mousedown', function(e) {
-        MouseDown(e);
-    });
-    $('#page_content').on('mouseup', function(e) {
-        MouseUp(e);
-    });
-    $('#page_content').on('mousemove', function(e) {
-        MouseMove(e);
-    });
+    enablePageContentEvents();
 });

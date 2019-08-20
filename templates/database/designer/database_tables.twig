@@ -30,9 +30,7 @@
                 <td class="small_tab"
                     title="{% trans 'Show/hide columns' %}"
                     id="id_hide_tbody_{{ t_n_url|url_encode }}"
-                    table_name="{{ t_n_url|url_encode }}">
-                    {{ tab_pos[t_n] is not defined or tab_pos[t_n]['V'] is not empty ? 'v' : '&gt;' }}
-                </td>
+                    table_name="{{ t_n_url|url_encode }}">{{ tab_pos[t_n] is not defined or tab_pos[t_n]['V'] is not empty ? 'v' : '&gt;' }}</td>
                 <td class="small_tab_pref small_tab_pref_1"
                     table_name_small="{{ table_names_small_url[i] }}">
                     <img src="{{ theme.getImgPath('designer/exec_small.png') }}"
