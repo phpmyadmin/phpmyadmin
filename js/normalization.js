@@ -10,7 +10,7 @@
 /* global centralColumnList:writable */ // js/functions.js
 
 /**
- * AJAX scripts for normalization.php
+ * AJAX scripts for normalization
  *
  */
 
@@ -20,7 +20,7 @@ var dataParsed = null;
 
 function appendHtmlColumnsList () {
     $.post(
-        'normalization.php',
+        'index.php?route=/normalization',
         {
             'ajax_request': true,
             'db': CommonParams.get('db'),
@@ -42,7 +42,7 @@ function goTo3NFStep1 (newTables) {
         tables = [CommonParams.get('table')];
     }
     $.post(
-        'normalization.php',
+        'index.php?route=/normalization',
         {
             'ajax_request': true,
             'db': CommonParams.get('db'),
@@ -78,7 +78,7 @@ function goTo3NFStep1 (newTables) {
 
 function goTo2NFStep1 () {
     $.post(
-        'normalization.php',
+        'index.php?route=/normalization',
         {
             'ajax_request': true,
             'db': CommonParams.get('db'),
@@ -128,7 +128,7 @@ function goToFinish1NF () {
 // eslint-disable-next-line no-unused-vars
 function goToStep4 () {
     $.post(
-        'normalization.php',
+        'index.php?route=/normalization',
         {
             'ajax_request': true,
             'db': CommonParams.get('db'),
@@ -151,7 +151,7 @@ function goToStep4 () {
 
 function goToStep3 () {
     $.post(
-        'normalization.php',
+        'index.php?route=/normalization',
         {
             'ajax_request': true,
             'db': CommonParams.get('db'),
@@ -175,7 +175,7 @@ function goToStep3 () {
 
 function goToStep2 (extra) {
     $.post(
-        'normalization.php',
+        'index.php?route=/normalization',
         {
             'ajax_request': true,
             'db': CommonParams.get('db'),
@@ -223,7 +223,7 @@ function goTo2NFFinish (pd) {
         'createNewTables2NF':1 };
     $.ajax({
         type: 'POST',
-        url: 'normalization.php',
+        url: 'index.php?route=/normalization',
         data: datastring,
         async:false,
         success: function (data) {
@@ -268,7 +268,7 @@ function goTo3NFFinish (newTables) {
         'createNewTables3NF':1 };
     $.ajax({
         type: 'POST',
-        url: 'normalization.php',
+        url: 'index.php?route=/normalization',
         data: datastring,
         async:false,
         success: function (data) {
@@ -319,7 +319,7 @@ function goTo2NFStep2 (pd, primaryKey) {
             'getNewTables2NF':1 };
         $.ajax({
             type: 'POST',
-            url: 'normalization.php',
+            url: 'index.php?route=/normalization',
             data: datastring,
             async:false,
             success: function (data) {
@@ -368,7 +368,7 @@ function goTo3NFStep2 (pd, tablesTds) {
             'getNewTables3NF':1 };
         $.ajax({
             type: 'POST',
-            url: 'normalization.php',
+            url: 'index.php?route=/normalization',
             data: datastring,
             async:false,
             success: function (data) {
@@ -464,7 +464,7 @@ function moveRepeatingGroup (repeatingCols) {
     };
     $.ajax({
         type: 'POST',
-        url: 'normalization.php',
+        url: 'index.php?route=/normalization',
         data: datastring,
         async:false,
         success: function (data) {
@@ -510,7 +510,7 @@ AJAX.registerOnload('normalization.js', function () {
         }
         var numField = $('#numField').val();
         $.post(
-            'normalization.php',
+            'index.php?route=/normalization',
             {
                 'ajax_request': true,
                 'db': CommonParams.get('db'),
@@ -583,7 +583,7 @@ AJAX.registerOnload('normalization.js', function () {
 
     $('#extra').on('click', '#addNewPrimary', function () {
         $.post(
-            'normalization.php',
+            'index.php?route=/normalization',
             {
                 'ajax_request': true,
                 'db': CommonParams.get('db'),
@@ -729,7 +729,7 @@ AJAX.registerOnload('normalization.js', function () {
         $('#newCols').insertAfter('#mainContent h4');
         $('#newCols').html('<div class="center">' + Messages.strLoading + '<br>' + Messages.strWaitForPd + '</div>');
         $.post(
-            'normalization.php',
+            'index.php?route=/normalization',
             {
                 'ajax_request': true,
                 'db': CommonParams.get('db'),

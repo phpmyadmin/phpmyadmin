@@ -904,8 +904,8 @@ class Normalization
      */
     public function getHtmlForNormalizeTable()
     {
-        $htmlOutput = '<form method="post" action="normalization.php" '
-            . 'name="normalize" '
+        $htmlOutput = '<form method="post" action="' . Url::getFromRoute('/normalization')
+            . '" name="normalize" '
             . 'id="normalizeTable" '
             . '>'
             . Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])

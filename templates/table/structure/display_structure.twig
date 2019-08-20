@@ -403,7 +403,7 @@
         <a href="#" id="move_columns_anchor">
             {{ get_icon('b_move', 'Move columns'|trans, true) }}
         </a>
-        <a href="normalization.php{{ url_query|raw }}">
+        <a href="{{ url('/normalization', url_params) }}">
             {{ get_icon('normalize', 'Normalize'|trans, true) }}
         </a>
     {% endif %}

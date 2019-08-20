@@ -16,6 +16,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Types;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
@@ -536,8 +537,8 @@ class NormalizationTest extends TestCase
     {
         $result = $this->normalization->getHtmlForNormalizeTable();
         $this->assertStringContainsString(
-            '<form method="post" action="normalization.php"'
-            . ' name="normalize" id="normalizeTable"',
+            '<form method="post" action="' . Url::getFromRoute('/normalization')
+            . '" name="normalize" id="normalizeTable"',
             $result
         );
         $this->assertStringContainsString(
