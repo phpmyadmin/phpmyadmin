@@ -13,16 +13,11 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\UserPreferencesHeader;
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
 global $containerBuilder;
-
-/**
- * Gets some core libraries and displays a top message if required
- */
-require_once ROOT_PATH . 'libraries/common.inc.php';
 
 /** @var Template $template */
 $template = $containerBuilder->get('template');

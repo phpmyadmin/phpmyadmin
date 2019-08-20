@@ -62,7 +62,7 @@ class UserPreferencesHeader
         /* Second authentication factor */
         $content .= Util::getHtmlTab(
             [
-                'link' => 'prefs_twofactor.php',
+                'link' => 'index.php?route=/preferences/twofactor',
                 'text' => __('Two-factor authentication'),
             ]
         ) . "\n";

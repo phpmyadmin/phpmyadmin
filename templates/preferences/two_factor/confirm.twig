@@ -1,7 +1,7 @@
 <div class="group">
 <h2>{% trans "Confirm disabling two-factor authentication" %}</h2>
 <div class="group-cnt">
-<form method="POST" action="prefs_twofactor.php">
+<form method="post" action="{{ url('/preferences/twofactor') }}">
 {{ "By disabling two factor authentication you will be again able to login using password only."|trans|notice }}
 {{ get_hidden_inputs() }}
 {{ form|raw }}
