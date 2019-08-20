@@ -29,7 +29,6 @@ class Core
         'index.php',
         'pdf_pages.php',
         'pdf_schema.php',
-        'transformation_overview.php',
         'transformation_wrapper.php',
     ];
 
