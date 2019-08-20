@@ -561,7 +561,7 @@ function Add_Other_db_tables () {
             'table' : table,
             'server': PMA_commonParams.get('server')
         }, function (data) {
-            $new_table_dom = $(data.message);
+            var $new_table_dom = $(data.message);
             $new_table_dom.find('a').first().remove();
             $('#container-form').append($new_table_dom);
             enableTableEvents(null, $new_table_dom);
