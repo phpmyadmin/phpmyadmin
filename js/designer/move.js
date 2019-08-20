@@ -1341,20 +1341,20 @@ function Small_tab_all (id_this) {
     var value_sent = '';
 
     if (icon.alt === 'v') {
-        for (key in j_tabs) {
-            if (document.getElementById('id_hide_tbody_' + key).innerHTML === 'v') {
-                Small_tab(key, 0);
+        $('.designer_tab .small_tab,.small_tab2').each(function(index, element) {
+            if ($(element).text() === 'v') {
+                Small_tab($(element).attr('table_name'), 0);
             }
-        }
+        });
         icon.alt = '>';
         icon.src = icon.dataset.right;
         value_sent = 'v';
     } else {
-        for (key in j_tabs) {
-            if (document.getElementById('id_hide_tbody_' + key).innerHTML !== 'v') {
-                Small_tab(key, 0);
+        $('.designer_tab .small_tab,.small_tab2').each(function(index, element) {
+            if ($(element).text() !== 'v') {
+                Small_tab($(element).attr('table_name'), 0);
             }
-        }
+        });
         icon.alt = 'v';
         icon.src = icon.dataset.down;
         value_sent = '>';
@@ -1367,9 +1367,9 @@ function Small_tab_all (id_this) {
 
 // invert max/min all tables
 function Small_tab_invert () {
-    for (var key in j_tabs) {
-        Small_tab(key, 0);
-    }
+    $('.designer_tab .small_tab,.small_tab2').each(function(index, element) {
+        Small_tab($(element).attr('table_name'), 0);
+    });
     Re_load();
 }
 
