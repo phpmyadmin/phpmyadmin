@@ -680,7 +680,7 @@ class NodeDatabase extends Node
                     'dbName' => $this->realName,
                 ];
                 $ret = '<span class="dbItemControls">'
-                    . '<a href="navigation.php" data-post="'
+                    . '<a href="' . Url::getFromRoute('/navigation') . '" data-post="'
                     . Url::getCommon($params, '') . '"'
                     . ' class="showUnhide ajax">'
                     . Util::getImage(

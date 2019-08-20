@@ -1076,7 +1076,7 @@ Navigation.treePagination = function ($this) {
         url = $this.attr('href');
         params = 'ajax_request=true';
     } else { // tagName === 'SELECT'
-        url = 'navigation.php';
+        url = 'index.php?route=/navigation';
         params = $this.closest('form').serialize() + CommonParams.get('arg_separator') + 'ajax_request=true';
     }
     var searchClause = Navigation.FastFilter.getSearchClause();

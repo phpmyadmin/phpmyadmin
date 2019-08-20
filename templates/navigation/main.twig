@@ -4,7 +4,7 @@
     <div id="pma_navigation_collapser"></div>
     <div id="pma_navigation_content">
       <div id="pma_navigation_header">
-        <a class="hide navigation_url" href="navigation.php{{ get_common({'ajax_request': true}) }}"></a>
+        <a class="hide navigation_url" href="{{ url('/navigation', {'ajax_request': true}) }}"></a>
 
         {% if logo.is_displayed %}
           <div id="pmalogo">
