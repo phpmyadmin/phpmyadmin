@@ -275,6 +275,9 @@ if (isset($_GET['route']) || isset($_POST['route'])) {
             $routes->addRoute(['GET', 'POST'], '/create', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/view/create.php';
             });
+            $routes->addRoute(['GET', 'POST'], '/operations', function () {
+                require_once ROOT_PATH . 'libraries/entry_points/view/operations.php';
+            });
         });
     });
     $routeInfo = $dispatcher->dispatch(

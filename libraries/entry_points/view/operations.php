@@ -17,13 +17,11 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
-global $containerBuilder, $sql_query, $url_query;
-
-require_once ROOT_PATH . 'libraries/common.inc.php';
+global $containerBuilder, $sql_query, $url_query, $url_params;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);
@@ -44,8 +42,9 @@ $template = $containerBuilder->get('template');
  * Runs common work
  */
 require ROOT_PATH . 'libraries/tbl_common.inc.php';
-$url_query .= '&amp;goto=view_operations.php&amp;back=view_operations.php';
-$url_params['goto'] = $url_params['back'] = 'view_operations.php';
+
+$url_params['goto'] = $url_params['back'] = Url::getFromRoute('/view/operations');
+$url_query .= Url::getCommon($url_params, '&');
 
 /** @var Relation $relation */
 $relation = $containerBuilder->get('relation');
@@ -100,9 +99,6 @@ if (isset($result)) {
     );
 }
 unset($_message, $_type);
-
-$url_params['goto'] = 'view_operations.php';
-$url_params['back'] = 'view_operations.php';
 
 $drop_view_url_params = array_merge(
     $url_params,
