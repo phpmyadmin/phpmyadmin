@@ -751,6 +751,9 @@ $js_messages['strStrong'] = __('Strong');
 $js_messages['strU2FTimeout'] = __('Timed out waiting for security key activation.');
 $js_messages['strU2FError'] = __('Failed security key activation (%s).');
 
+/* Designer */
+$js_messages['strTableAlreadyExists'] = __('Table %s already exists!');
+
 echo "var PMA_messages = new Array();\n";
 foreach ($js_messages as $name => $js_message) {
     Sanitize::printJsValue("PMA_messages['" . $name . "']", $js_message);
