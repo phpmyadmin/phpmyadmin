@@ -662,10 +662,10 @@ function Get_url_pos (forceString) {
         var poststr = '';
         var argsep = PMA_commonParams.get('arg_separator');
         for (var key in j_tabs) {
-            poststr += argsep + 't_x[' + key + ']=' + parseInt(document.getElementById(key).style.left, 10);
-            poststr += argsep + 't_y[' + key + ']=' + parseInt(document.getElementById(key).style.top, 10);
-            poststr += argsep + 't_v[' + key + ']=' + (document.getElementById('id_tbody_' + key).style.display === 'none' ? 0 : 1);
-            poststr += argsep + 't_h[' + key + ']=' + (document.getElementById('check_vis_' + key).checked ? 1 : 0);
+            poststr += argsep + 't_x[' + decodeURIComponent(key) + ']=' + parseInt(document.getElementById(key).style.left, 10);
+            poststr += argsep + 't_y[' + decodeURIComponent(key) + ']=' + parseInt(document.getElementById(key).style.top, 10);
+            poststr += argsep + 't_v[' + decodeURIComponent(key) + ']=' + (document.getElementById('id_tbody_' + key).style.display === 'none' ? 0 : 1);
+            poststr += argsep + 't_h[' + decodeURIComponent(key) + ']=' + (document.getElementById('check_vis_' + key).checked ? 1 : 0);
         }
         return poststr;
     } else {
