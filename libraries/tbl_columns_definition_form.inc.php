@@ -323,7 +323,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
                 $columnMeta['DefaultValue'] = $columnMeta['Default'];
 
                 if ('text' === substr($columnMeta['Type'], -4)) {
-                    $columnMeta['Default'] = stripcslashes(substr($columnMeta['Default'], 1, -1));
+                    $columnMeta['Default'] = stripcslashes((string) substr($columnMeta['Default'], 1, -1));
                 }
 
                 break;
