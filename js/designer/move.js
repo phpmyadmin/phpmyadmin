@@ -552,8 +552,8 @@ function Toggle_fullscreen () {
 function addTableToTablesList(index, table_dom) {
     var db = $(table_dom).find('.small_tab_pref').attr('db');
     var table = $(table_dom).find('.small_tab_pref').attr('table_name_small');
-    var db_encoded = encodeURI(db);
-    var table_encoded = encodeURI(table);
+    var db_encoded = encodeURIComponent(db);
+    var table_encoded = encodeURIComponent(table);
     var $new_table_line = $('<tr>' +
         '    <td title="' + PMA_messages.strStructure + '"' +
         '        width="1px"' +
