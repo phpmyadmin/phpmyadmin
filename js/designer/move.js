@@ -1337,7 +1337,6 @@ function Start_tab_upd (db, table) {
 // max/min all tables
 function Small_tab_all (id_this) {
     var icon = id_this.children[0];
-    var key;
     var value_sent = '';
 
     if (icon.alt === 'v') {
