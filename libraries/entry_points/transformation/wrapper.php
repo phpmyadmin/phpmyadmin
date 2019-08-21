@@ -13,15 +13,13 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Transformations;
 
-if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
 global $cn, $containerBuilder, $db, $table, $transform_key;
 
 define('IS_TRANSFORMATION_WRAPPER', true);
-
-require_once ROOT_PATH . 'libraries/common.inc.php';
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);

@@ -2932,6 +2932,7 @@ class Results
             }
 
             $transform_options['wrapper_link'] = Url::getCommon($_url_params);
+            $transform_options['wrapper_params'] = $_url_params;
 
             $display_params = $this->__get('display_params');
 

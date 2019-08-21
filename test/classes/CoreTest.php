@@ -24,9 +24,6 @@ class CoreTest extends PmaTestCase
 {
     protected $goto_whitelist = [
         'index.php',
-        'pdf_pages.php',
-        'pdf_schema.php',
-        'transformation_wrapper.php',
     ];
 
     /**

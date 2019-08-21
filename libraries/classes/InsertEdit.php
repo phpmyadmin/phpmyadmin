@@ -2541,6 +2541,7 @@ class InsertEdit
                 : ''
             );
             $transform_options['wrapper_link'] = Url::getCommon($_url_params);
+            $transform_options['wrapper_params'] = $_url_params;
             $class_name = $this->transformations->getClassName($include_file);
             if (class_exists($class_name)) {
                 /** @var TransformationsPlugin $transformation_plugin */
@@ -3334,8 +3335,8 @@ class InsertEdit
                         'transform_key' => $column['Field'],
                         'where_clause'  => $where_clause,
                     ];
-                    $transformation_options['wrapper_link']
-                        = Url::getCommon($_url_params);
+                    $transformation_options['wrapper_link'] = Url::getCommon($_url_params);
+                    $transformation_options['wrapper_params'] = $_url_params;
                     $current_value = '';
                     if (isset($current_row[$column['Field']])) {
                         $current_value = $current_row[$column['Field']];
