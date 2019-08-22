@@ -390,16 +390,6 @@ class ErrorHandler
     }
 
     /**
-     * displays errors not displayed
-     *
-     * @return void
-     */
-    public function dispErrors(): void
-    {
-        echo $this->getDispErrors();
-    }
-
-    /**
      * look in session for saved errors
      *
      * @return void
