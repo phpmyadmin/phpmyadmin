@@ -1,7 +1,7 @@
 {% extends 'table/page_with_secondary_tabs.twig' %}
 
 {% block content %}
-<form method="post" action="tbl_relation.php">
+<form method="post" action="{{ url('/table/relation') }}">
     {{ get_hidden_inputs(db, table) }}
     {# InnoDB #}
     {% if is_foreign_key_supported(tbl_storage_engine) %}

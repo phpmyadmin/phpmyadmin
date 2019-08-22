@@ -35,12 +35,8 @@ class UserPreferencesHeaderTest extends PmaTestCase
      */
     protected function setUp(): void
     {
-        /*
-        global $cfg;
-        include ROOT_PATH . 'libraries/config.default.php';
-        */
         $GLOBALS['server'] = 0;
-        $GLOBALS['PMA_PHP_SELF'] = '/prefs_forms.php';
+        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
     }
 
     /**
@@ -59,6 +55,7 @@ class UserPreferencesHeaderTest extends PmaTestCase
             ->getMock();
 
         $GLOBALS['dbi'] = $dbi;
+        $_GET['route'] = '/preferences/forms';
         $_GET['form'] = 'Features';
 
         $template = new Template();
@@ -69,7 +66,7 @@ class UserPreferencesHeaderTest extends PmaTestCase
             $content
         );
         $this->assertStringContainsString(
-            '<a href="prefs_forms.php?form=Features&amp;server=0&amp;lang=en" class="tabactive">',
+            '<a href="index.php?route=/preferences/forms&amp;form=Features&amp;server=0&amp;lang=en" class="tabactive">',
             $content
         );
         $this->assertStringContainsString(

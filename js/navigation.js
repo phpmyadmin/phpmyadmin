@@ -1076,7 +1076,7 @@ Navigation.treePagination = function ($this) {
         url = $this.attr('href');
         params = 'ajax_request=true';
     } else { // tagName === 'SELECT'
-        url = 'navigation.php';
+        url = 'index.php?route=/navigation';
         params = $this.closest('form').serialize() + CommonParams.get('arg_separator') + 'ajax_request=true';
     }
     var searchClause = Navigation.FastFilter.getSearchClause();
@@ -1164,7 +1164,7 @@ Navigation.ResizeHandler = function () {
         var windowWidth = $(window).width();
         $('#pma_navigation').width(pos);
         $('body').css('margin-' + this.left, pos + 'px');
-        $('#floating_menubar, #pma_console')
+        $('#pma_console')
             .css('margin-' + this.left, (pos + resizerWidth) + 'px');
         $resizer.css(this.left, pos + 'px');
         if (pos === 0) {

@@ -28,8 +28,7 @@ var processList = {
     init: function () {
         processList.setRefreshLabel();
         if (processList.refreshUrl === null) {
-            processList.refreshUrl = 'server_status_processes.php' +
-                CommonParams.get('common_query');
+            processList.refreshUrl = 'index.php?route=/server/status/processes';
         }
         if (processList.refreshInterval === null) {
             processList.refreshInterval = $('#id_refreshRate').val();

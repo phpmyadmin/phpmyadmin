@@ -1,4 +1,4 @@
-<form id="gis_data_editor_form" action="gis_data_editor.php" method="post">
+<form id="gis_data_editor_form" action="{{ url('/gis_data_editor') }}" method="post">
     <input type="hidden" id="pmaThemeImage" value="{{ pma_theme_image }}">
     <div id="gis_data_editor">
         <h3>{{ 'Value for the column "%s"'|trans|format(field) }}</h3>

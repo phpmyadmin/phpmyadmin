@@ -11,7 +11,7 @@ function captureURL (url) {
     var newUrl = '' + url;
     var URL = {};
     // Exclude the url part till HTTP
-    newUrl = newUrl.substr(newUrl.search('sql.php'), newUrl.length);
+    newUrl = newUrl.substr(newUrl.search('index.php?route=/sql'), newUrl.length);
     // The url part between ORDER BY and &session_max_rows needs to be replaced.
     URL.head = newUrl.substr(0, newUrl.indexOf('ORDER+BY') + 9);
     URL.tail = newUrl.substr(newUrl.indexOf('&session_max_rows'), newUrl.length);
@@ -67,7 +67,7 @@ AJAX.registerOnload('keyhandler.js', function () {
                 AJAX.source = $(this);
                 Functions.ajaxShowMessage();
                 params += argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
-                $.post('sql.php', params, AJAX.responseHandler);
+                $.post('index.php?route=/sql', params, AJAX.responseHandler);
             }
         } else if (event.shiftKey) {
             event.preventDefault();
@@ -75,7 +75,7 @@ AJAX.registerOnload('keyhandler.js', function () {
             Functions.ajaxShowMessage();
             params = url.substring(url.indexOf('?') + 1);
             params += argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
-            $.post('sql.php', params, AJAX.responseHandler);
+            $.post('index.php?route=/sql', params, AJAX.responseHandler);
         }
     });
 });

@@ -323,14 +323,14 @@ class StructureController extends AbstractController
         if (isset($_POST['add_key'])
             || isset($_POST['partition_maintenance'])
         ) {
-            //todo: set some variables for sql.php include, to be eliminated
-            //after refactoring sql.php
+            //todo: set some variables for /sql include, to be eliminated
+            //after refactoring /sql
             $db = $this->db;
             $table = $this->table;
             $sql_query = $GLOBALS['sql_query'];
             $cfg = $GLOBALS['cfg'];
             $pmaThemeImage = $GLOBALS['pmaThemeImage'];
-            include ROOT_PATH . 'sql.php';
+            include ROOT_PATH . 'libraries/entry_points/sql.php';
             $GLOBALS['reload'] = true;
         }
 
@@ -835,7 +835,7 @@ class StructureController extends AbstractController
      */
     protected function displayTableBrowseForSelectedColumns($goto, $pmaThemeImage)
     {
-        $GLOBALS['active_page'] = 'sql.php';
+        $GLOBALS['active_page'] = Url::getFromRoute('/sql');
         $fields = [];
         foreach ($_POST['selected_fld'] as $sval) {
             $fields[] = Util::backquote($sval);
@@ -914,7 +914,7 @@ class StructureController extends AbstractController
                 $_POST['field_length'][$i],
                 $_POST['field_attribute'][$i],
                 Util::getValueByKey($_POST, "field_collation.${i}", ''),
-                Util::getValueByKey($_POST, "field_null.${i}", 'NOT NULL'),
+                Util::getValueByKey($_POST, "field_null.${i}", 'NO'),
                 $_POST['field_default_type'][$i],
                 $_POST['field_default_value'][$i],
                 Util::getValueByKey($_POST, "field_extra.${i}", false),
@@ -1060,7 +1060,7 @@ class StructureController extends AbstractController
                             $_POST['field_length_orig'][$i],
                             $_POST['field_attribute_orig'][$i],
                             Util::getValueByKey($_POST, "field_collation_orig.${i}", ''),
-                            Util::getValueByKey($_POST, "field_null_orig.${i}", 'NOT NULL'),
+                            Util::getValueByKey($_POST, "field_null_orig.${i}", 'NO'),
                             $_POST['field_default_type_orig'][$i],
                             $_POST['field_default_value_orig'][$i],
                             Util::getValueByKey($_POST, "field_extra_orig.${i}", false),
@@ -1276,14 +1276,6 @@ class StructureController extends AbstractController
             'DistinctValues' => Util::getIcon('b_browse', __('Distinct values')),
         ];
 
-        $edit_view_url = '';
-        if ($this->_tbl_is_view && ! $this->_db_is_system_schema) {
-            $edit_view_url = Url::getCommon([
-                'db' => $this->db,
-                'table' => $this->table,
-            ]);
-        }
-
         /**
          * Displays Space usage and row statistics
          */
@@ -1371,7 +1363,6 @@ class StructureController extends AbstractController
             'tbl_storage_engine' => $this->_tbl_storage_engine,
             'primary' => $primary_index,
             'columns_with_unique_index' => $columns_with_unique_index,
-            'edit_view_url' => $edit_view_url,
             'columns_list' => $columns_list,
             'table_stats' => isset($tablestats) ? $tablestats : null,
             'fields' => $fields,

@@ -53,18 +53,11 @@ class Application extends TwoFactorPlugin
     }
 
     /**
-     * Get any property of this class
-     *
-     * @param string $property name of the property
-     *
-     * @return mixed|void if property exist, value of the relevant property
+     * @return Google2FA
      */
-    public function __get($property)
+    public function getGoogle2fa(): Google2FA
     {
-        switch ($property) {
-            case 'google2fa':
-                return $this->_google2fa;
-        }
+        return $this->_google2fa;
     }
 
     /**

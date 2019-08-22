@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-07-25 16:54-0300\n"
+"POT-Creation-Date: 2019-07-30 05:50-0300\n"
 "PO-Revision-Date: 2019-04-29 11:45+0000\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -58,7 +58,7 @@ msgstr "Tabellen"
 #: libraries/classes/Config/Forms/User/ExportForm.php:106
 #: libraries/classes/Config/Forms/User/ExportForm.php:134
 #: libraries/classes/Import.php:1282 libraries/classes/Menu.php:349
-#: libraries/classes/Menu.php:459
+#: libraries/classes/Menu.php:457
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:51
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:57
 #: libraries/classes/Navigation/Nodes/NodeTable.php:297
@@ -229,13 +229,13 @@ msgstr "Voortgang van de import kon niet worden ingelezen."
 msgid "Back"
 msgstr "Terug"
 
-#: index.php:85
+#: index.php:91
 #, fuzzy, php-format
 #| msgid "Source database `%s` was not found!"
 msgid "Error 404! The page %s was not found."
 msgstr "Brondatabase `%s` is niet gevonden!"
 
-#: index.php:90
+#: index.php:96
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
@@ -503,12 +503,12 @@ msgstr "De hostnaam is leeg!"
 msgid "The user name is empty!"
 msgstr "De gebruikersnaam is leeg!"
 
-#: js/messages.php:151 libraries/classes/Server/Privileges.php:2011
+#: js/messages.php:151 libraries/classes/Server/Privileges.php:1829
 #: libraries/classes/UserPassword.php:83
 msgid "The password is empty!"
 msgstr "Het wachtwoord is leeg!"
 
-#: js/messages.php:152 libraries/classes/Server/Privileges.php:2009
+#: js/messages.php:152 libraries/classes/Server/Privileges.php:1827
 #: libraries/classes/UserPassword.php:87
 msgid "The passwords aren't the same!"
 msgstr "De wachtwoorden zijn niet gelijk!"
@@ -710,7 +710,7 @@ msgstr "Aanvragen"
 msgid "Traffic"
 msgstr "Verkeer"
 
-#: js/messages.php:219 libraries/classes/Menu.php:619
+#: js/messages.php:219 libraries/classes/Menu.php:617
 #: libraries/classes/Util.php:4187
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
@@ -932,7 +932,7 @@ msgstr "Verklaar resultaat"
 
 #: js/messages.php:296
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:134
-#: libraries/classes/Menu.php:589 libraries/classes/Rte/Events.php:465
+#: libraries/classes/Menu.php:587 libraries/classes/Rte/Events.php:465
 #: libraries/classes/Rte/RteList.php:145 libraries/classes/Util.php:4183
 #: libraries/config.values.php:159 templates/database/tracking/tables.twig:17
 #: templates/table/tracking/main.twig:31
@@ -1049,8 +1049,8 @@ msgstr ""
 "configuratie is mislukt. Standaard configuratie wordt gebruikt in de plaats…"
 
 #: js/messages.php:334 libraries/classes/Config/Forms/User/ImportForm.php:71
-#: libraries/classes/Menu.php:386 libraries/classes/Menu.php:497
-#: libraries/classes/Menu.php:615 libraries/classes/Util.php:4186
+#: libraries/classes/Menu.php:384 libraries/classes/Menu.php:495
+#: libraries/classes/Menu.php:613 libraries/classes/Util.php:4186
 #: libraries/classes/Util.php:4201 libraries/classes/Util.php:4218
 #: templates/preferences/manage/main.twig:10
 #: templates/display/import/import.twig:38
@@ -1138,8 +1138,7 @@ msgstr "Parameters niet gevonden!"
 #: libraries/classes/Rte/Routines.php:1733
 #: libraries/classes/Rte/Triggers.php:461
 #: libraries/classes/Server/Privileges.php:771
-#: libraries/classes/Server/Privileges.php:2351
-#: libraries/classes/Server/Privileges.php:3286
+#: libraries/classes/Server/Privileges.php:3063
 #: libraries/classes/Server/UserGroups.php:313
 #: libraries/classes/SqlQueryForm.php:378
 #: libraries/classes/SqlQueryForm.php:442 libraries/classes/Tracking.php:339
@@ -1158,6 +1157,7 @@ msgstr "Parameters niet gevonden!"
 #: templates/gis_data_editor_form.twig:209
 #: templates/start_and_number_of_rows_panel.twig:14
 #: templates/display/export/options_format.twig:18
+#: templates/server/privileges/add_user.twig:36
 #: templates/server/replication/master_configuration.twig:30
 #: templates/server/replication/master_add_slave_user.twig:81
 #: templates/table/structure/display_structure.twig:441
@@ -1281,11 +1281,11 @@ msgstr "Karakterset aanpassen"
 #: libraries/classes/Plugins/Export/ExportOdt.php:803
 #: libraries/classes/Plugins/Export/ExportTexytext.php:616
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:772
-#: libraries/classes/Server/Privileges.php:2887
-#: libraries/classes/Server/Privileges.php:3134
-#: libraries/classes/Server/Privileges.php:3154
-#: libraries/classes/Server/Privileges.php:3819
-#: libraries/classes/Server/Privileges.php:3848
+#: libraries/classes/Server/Privileges.php:2664
+#: libraries/classes/Server/Privileges.php:2911
+#: libraries/classes/Server/Privileges.php:2931
+#: libraries/classes/Server/Privileges.php:3596
+#: libraries/classes/Server/Privileges.php:3625
 #: templates/server/privileges/privileges_summary.twig:37
 #: templates/server/privileges/privileges_summary.twig:40
 #: templates/server/privileges/privileges_summary.twig:42
@@ -1340,13 +1340,13 @@ msgstr ""
 
 #: js/messages.php:411 libraries/classes/Config/Forms/User/ExportForm.php:158
 #: libraries/classes/Display/Results.php:4713
-#: libraries/classes/Display/Results.php:4959 libraries/classes/Menu.php:378
-#: libraries/classes/Menu.php:488 libraries/classes/Menu.php:611
+#: libraries/classes/Display/Results.php:4959 libraries/classes/Menu.php:376
+#: libraries/classes/Menu.php:486 libraries/classes/Menu.php:609
 #: libraries/classes/Rte/RteList.php:193
-#: libraries/classes/Server/Privileges.php:2540
-#: libraries/classes/Server/Privileges.php:2626
-#: libraries/classes/Server/Privileges.php:2994
-#: libraries/classes/Server/Privileges.php:3729 libraries/classes/Util.php:3441
+#: libraries/classes/Server/Privileges.php:2317
+#: libraries/classes/Server/Privileges.php:2403
+#: libraries/classes/Server/Privileges.php:2771
+#: libraries/classes/Server/Privileges.php:3506 libraries/classes/Util.php:3441
 #: libraries/classes/Util.php:3442 libraries/classes/Util.php:4185
 #: libraries/classes/Util.php:4200 libraries/classes/Util.php:4217
 #: templates/preferences/manage/main.twig:61
@@ -1436,9 +1436,10 @@ msgid "%d is not valid row number."
 msgstr "%d is geen geldig rijnummer."
 
 #: js/messages.php:433
-#: libraries/classes/Controllers/Table/SearchController.php:380
-#: libraries/classes/Controllers/Table/SearchController.php:932
-#: tbl_change.php:165 templates/sql/relational_column_dropdown.twig:3
+#: libraries/classes/Controllers/Table/SearchController.php:381
+#: libraries/classes/Controllers/Table/SearchController.php:936
+#: libraries/entry_points/table/change.php:163
+#: templates/sql/relational_column_dropdown.twig:3
 msgid "Browse foreign values"
 msgstr "Bekijk vreemde waarden"
 
@@ -1695,7 +1696,7 @@ msgid "Data point content"
 msgstr "Inhoud gegevenspunt"
 
 #: js/messages.php:528 js/messages.php:696 js/messages.php:713
-#: libraries/classes/ErrorHandler.php:383 libraries/classes/InsertEdit.php:3030
+#: libraries/classes/ErrorHandler.php:383 libraries/classes/InsertEdit.php:3031
 #: templates/table/index_form.twig:145 templates/table/index_form.twig:181
 msgid "Ignore"
 msgstr "Negeren"
@@ -1777,11 +1778,11 @@ msgstr "Een binnenring toevoegen"
 #: libraries/classes/Plugins/Export/ExportOdt.php:804
 #: libraries/classes/Plugins/Export/ExportTexytext.php:616
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:773
-#: libraries/classes/Server/Privileges.php:2887
-#: libraries/classes/Server/Privileges.php:3131
-#: libraries/classes/Server/Privileges.php:3152
-#: libraries/classes/Server/Privileges.php:3816
-#: libraries/classes/Server/Privileges.php:3848
+#: libraries/classes/Server/Privileges.php:2664
+#: libraries/classes/Server/Privileges.php:2908
+#: libraries/classes/Server/Privileges.php:2929
+#: libraries/classes/Server/Privileges.php:3593
+#: libraries/classes/Server/Privileges.php:3625
 #: libraries/mult_submits.inc.php:92 libraries/mult_submits.inc.php:229
 #: templates/server/privileges/privileges_summary.twig:37
 #: templates/server/privileges/privileges_summary.twig:40
@@ -2615,7 +2616,7 @@ msgstr "Vul a.u.b. een geldige datum of tijd in"
 msgid "Please enter a valid HEX input"
 msgstr "Vul a.u.b.een geldige waarde in HEX in"
 
-#: js/messages.php:991 libraries/classes/Core.php:286
+#: js/messages.php:991 libraries/classes/Core.php:284
 #: libraries/classes/Import.php:112 libraries/classes/InsertEdit.php:1541
 #: libraries/classes/Message.php:196 libraries/classes/Util.php:586
 #: view_operations.php:86
@@ -2792,7 +2793,7 @@ msgstr "Naam"
 #: libraries/classes/Rte/Routines.php:961
 #: libraries/classes/Rte/Routines.php:1646
 #: libraries/classes/Rte/RteList.php:119 libraries/classes/Rte/RteList.php:147
-#: libraries/classes/Server/Privileges.php:2707
+#: libraries/classes/Server/Privileges.php:2484
 #: templates/database/central_columns/main.twig:21
 #: templates/database/central_columns/main.twig:240
 #: templates/database/structure/table_header.twig:30
@@ -3956,8 +3957,8 @@ msgid "LaTeX"
 msgstr "LaTeX"
 
 #: libraries/classes/Config/Descriptions.php:306
-#: libraries/classes/Config/Descriptions.php:372 libraries/classes/Menu.php:581
-#: libraries/classes/Server/Privileges.php:4730 libraries/classes/Util.php:4181
+#: libraries/classes/Config/Descriptions.php:372 libraries/classes/Menu.php:579
+#: libraries/classes/Server/Privileges.php:4507 libraries/classes/Util.php:4181
 #: libraries/config.values.php:157 templates/server/databases/index.twig:8
 #: templates/navigation/tree/database_select.twig:11
 msgid "Databases"
@@ -4093,7 +4094,7 @@ msgstr ""
 "van phpMyAdmin."
 
 #: libraries/classes/Config/Descriptions.php:354 libraries/classes/Menu.php:355
-#: libraries/classes/Menu.php:464 libraries/classes/Menu.php:585
+#: libraries/classes/Menu.php:462 libraries/classes/Menu.php:583
 #: libraries/classes/Navigation/Nodes/NodeTable.php:306
 #: libraries/classes/Util.php:3150 libraries/classes/Util.php:4182
 #: libraries/classes/Util.php:4197 libraries/classes/Util.php:4214
@@ -5643,10 +5644,10 @@ msgstr "Titel van het browserscherm wanneer een database geselecteerd is."
 #: libraries/classes/Plugins/Export/ExportOdt.php:204
 #: libraries/classes/Plugins/Export/ExportTexytext.php:141
 #: libraries/classes/Server/Privileges.php:1261
-#: libraries/classes/Server/Privileges.php:3308
-#: libraries/classes/Server/Privileges.php:3503
-#: libraries/classes/Server/Privileges.php:3505
-#: libraries/classes/Server/Privileges.php:4730
+#: libraries/classes/Server/Privileges.php:3085
+#: libraries/classes/Server/Privileges.php:3280
+#: libraries/classes/Server/Privileges.php:3282
+#: libraries/classes/Server/Privileges.php:4507
 #: templates/server/databases/index.twig:109
 #: templates/console/bookmark_content.twig:7
 #: templates/table/relation/common_form.twig:35
@@ -5682,10 +5683,10 @@ msgstr "Titel van het browserscherm wanneer een tabel geselecteerd is."
 #: libraries/classes/Rte/RteList.php:131 libraries/classes/Rte/Triggers.php:396
 #: libraries/classes/Server/Privileges.php:1074
 #: libraries/classes/Server/Privileges.php:1264
-#: libraries/classes/Server/Privileges.php:3326
-#: libraries/classes/Server/Privileges.php:3509
-#: libraries/classes/Server/Privileges.php:3511
-#: libraries/classes/Server/Privileges.php:4741
+#: libraries/classes/Server/Privileges.php:3103
+#: libraries/classes/Server/Privileges.php:3286
+#: libraries/classes/Server/Privileges.php:3288
+#: libraries/classes/Server/Privileges.php:4518
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
 #: templates/database/tracking/tables.twig:120
@@ -5960,7 +5961,7 @@ msgstr "maximum %s"
 
 #: libraries/classes/Config/FormDisplayTemplate.php:201
 #: libraries/classes/Display/Export.php:361
-#: libraries/classes/Engines/Pbxt.php:169 libraries/classes/Sanitize.php:183
+#: libraries/classes/Engines/Pbxt.php:169 libraries/classes/Sanitize.php:181
 #: libraries/classes/Util.php:320 libraries/classes/Util.php:424
 #: templates/home/index.twig:171 templates/navigation/main.twig:40
 #: templates/navigation/main.twig:41 templates/server/variables/index.twig:17
@@ -6481,7 +6482,7 @@ msgid "ID"
 msgstr "ID"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:114
-#: libraries/classes/Server/Privileges.php:4639
+#: libraries/classes/Server/Privileges.php:4416
 #: libraries/classes/Server/UserGroups.php:51
 msgid "User"
 msgstr "Gebruiker"
@@ -7331,7 +7332,7 @@ msgid "Display column was successfully updated."
 msgstr "De weergavekolom is succesvol bijgewerkt."
 
 #: libraries/classes/Controllers/Table/RelationController.php:281
-#: libraries/classes/Controllers/Table/SearchController.php:630
+#: libraries/classes/Controllers/Table/SearchController.php:634
 #: libraries/classes/Display/Results.php:4211 libraries/classes/Message.php:177
 #: libraries/classes/Rte/Routines.php:1486
 #: libraries/classes/SqlQueryForm.php:92 tbl_row_action.php:145
@@ -7343,15 +7344,15 @@ msgstr "Uw SQL-query is succesvol uitgevoerd."
 msgid "Internal relationships were successfully updated."
 msgstr "Interne relaties zijn succesvol bijgewerkt."
 
-#: libraries/classes/Controllers/Table/SearchController.php:855
+#: libraries/classes/Controllers/Table/SearchController.php:859
 msgid "Table search"
 msgstr "Tabel zoeken"
 
-#: libraries/classes/Controllers/Table/SearchController.php:862
+#: libraries/classes/Controllers/Table/SearchController.php:866
 msgid "Zoom search"
 msgstr "Zoeken door in te zoomen"
 
-#: libraries/classes/Controllers/Table/SearchController.php:867
+#: libraries/classes/Controllers/Table/SearchController.php:871
 #: templates/table/search/selection_form.twig:180
 msgid "Find and replace"
 msgstr "Zoek en vervang"
@@ -7455,17 +7456,17 @@ msgstr "Volledige tekst"
 msgid "Distinct values"
 msgstr "Verschillende waarden"
 
-#: libraries/classes/Core.php:349
+#: libraries/classes/Core.php:347
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "De extensie %s ontbreekt. Controleer uw PHP-configuratie."
 
-#: libraries/classes/Core.php:851 libraries/mult_submits.inc.php:353
+#: libraries/classes/Core.php:849 libraries/mult_submits.inc.php:353
 #: tbl_operations.php:291 tbl_replace.php:374 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Geen verandering"
 
-#: libraries/classes/Core.php:1226
+#: libraries/classes/Core.php:1224
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -7475,7 +7476,7 @@ msgstr ""
 "optie is incompatibel met phpMyAdmin en kan ervoor zorgen dat sommige "
 "gegevens corrupt raken!"
 
-#: libraries/classes/Core.php:1240
+#: libraries/classes/Core.php:1238
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
@@ -7483,11 +7484,11 @@ msgstr ""
 "De ini_get en/of ini_set functies zijn uitgeschakeld in php.ini. phpMyAdmin "
 "heeft deze functies nodig!"
 
-#: libraries/classes/Core.php:1255
+#: libraries/classes/Core.php:1253
 msgid "GLOBALS overwrite attempt"
 msgstr "poging om GLOBALS te overschrijven"
 
-#: libraries/classes/Core.php:1262
+#: libraries/classes/Core.php:1260
 msgid "possible exploit"
 msgstr "mogelijk misbruik"
 
@@ -7718,13 +7719,12 @@ msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "SSL-verbinding afgedwongen door de server en  automatisch geactiveerd."
 
 #: libraries/classes/Display/ChangePassword.php:86
-#: libraries/classes/Server/Privileges.php:1807
 msgid "No Password"
 msgstr "Geen wachtwoord"
 
 #: libraries/classes/Display/ChangePassword.php:94
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:224
-#: libraries/classes/Server/Privileges.php:1794
+#: templates/server/privileges/login_information_fields.twig:43
 #: templates/server/replication/master_add_slave_user.twig:49
 #: templates/server/replication/change_master.twig:18
 msgid "Password:"
@@ -7735,7 +7735,7 @@ msgid "Enter:"
 msgstr "Ingave:"
 
 #: libraries/classes/Display/ChangePassword.php:105
-#: libraries/classes/Server/Privileges.php:1826
+#: templates/server/privileges/login_information_fields.twig:60
 #: templates/server/replication/master_add_slave_user.twig:62
 msgid "Re-type:"
 msgstr "Tik opnieuw in:"
@@ -7746,7 +7746,6 @@ msgid "Password Hashing:"
 msgstr "Wachtwoord-hashing:"
 
 #: libraries/classes/Display/ChangePassword.php:151
-#: libraries/classes/Server/Privileges.php:1874
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
 "connection that encrypts the password using RSA</i>'; while connecting to "
@@ -8528,8 +8527,8 @@ msgstr "Geen index gedefinieerd!"
 
 #: libraries/classes/Index.php:714 libraries/classes/Rte/RteList.php:118
 #: libraries/classes/Rte/RteList.php:133 libraries/classes/Rte/RteList.php:146
-#: libraries/classes/Server/Privileges.php:2710
-#: libraries/classes/Server/Privileges.php:3711
+#: libraries/classes/Server/Privileges.php:2487
+#: libraries/classes/Server/Privileges.php:3488
 #: libraries/classes/Server/UserGroups.php:95
 #: templates/server/privileges/privileges_summary.twig:22
 #: templates/database/central_columns/main.twig:234
@@ -8764,7 +8763,7 @@ msgstr "“%s”"
 msgid "Browse"
 msgstr "Verkennen"
 
-#: libraries/classes/Menu.php:358 libraries/classes/Menu.php:467
+#: libraries/classes/Menu.php:358 libraries/classes/Menu.php:465
 #: libraries/classes/Navigation/Nodes/NodeTable.php:300
 #: libraries/classes/Util.php:3151 libraries/classes/Util.php:3430
 #: libraries/classes/Util.php:3431 libraries/classes/Util.php:4198
@@ -8774,7 +8773,7 @@ msgstr "Verkennen"
 msgid "Search"
 msgstr "Zoeken"
 
-#: libraries/classes/Menu.php:372
+#: libraries/classes/Menu.php:370
 #: libraries/classes/Navigation/Nodes/NodeTable.php:303
 #: libraries/classes/SqlQueryForm.php:294
 #: libraries/classes/SqlQueryForm.php:297 libraries/classes/Util.php:3152
@@ -8784,29 +8783,29 @@ msgstr "Zoeken"
 msgid "Insert"
 msgstr "Invoegen"
 
-#: libraries/classes/Menu.php:396 libraries/classes/Menu.php:509
-#: libraries/classes/Server/Privileges.php:2708
-#: libraries/classes/Server/Privileges.php:4613 libraries/classes/Util.php:4203
+#: libraries/classes/Menu.php:394 libraries/classes/Menu.php:507
+#: libraries/classes/Server/Privileges.php:2485
+#: libraries/classes/Server/Privileges.php:4390 libraries/classes/Util.php:4203
 #: libraries/classes/Util.php:4219 libraries/config.values.php:163
 #: templates/server/privileges/privileges_summary.twig:15
 #: templates/server/sub_page_header.twig:2
 msgid "Privileges"
 msgstr "Rechten"
 
-#: libraries/classes/Menu.php:405 libraries/classes/Menu.php:413
-#: libraries/classes/Menu.php:501 libraries/classes/Util.php:3154
+#: libraries/classes/Menu.php:403 libraries/classes/Menu.php:411
+#: libraries/classes/Menu.php:499 libraries/classes/Util.php:3154
 #: libraries/classes/Util.php:4202 libraries/classes/Util.php:4220
 #: libraries/config.values.php:173 templates/table/operations/view.twig:7
 msgid "Operations"
 msgstr "Handelingen"
 
-#: libraries/classes/Menu.php:418 libraries/classes/Menu.php:531
+#: libraries/classes/Menu.php:416 libraries/classes/Menu.php:529
 #: libraries/classes/Relation.php:296 libraries/classes/Util.php:4207
 #: libraries/classes/Util.php:4221
 msgid "Tracking"
 msgstr "Traceren"
 
-#: libraries/classes/Menu.php:431 libraries/classes/Menu.php:525
+#: libraries/classes/Menu.php:429 libraries/classes/Menu.php:523
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:27
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:583
 #: libraries/classes/Plugins/Export/ExportOdt.php:724
@@ -8819,21 +8818,21 @@ msgstr "Traceren"
 msgid "Triggers"
 msgstr "Triggers"
 
-#: libraries/classes/Menu.php:471 libraries/classes/Menu.php:485
-#: libraries/classes/Menu.php:492
+#: libraries/classes/Menu.php:469 libraries/classes/Menu.php:483
+#: libraries/classes/Menu.php:490
 msgid "Database seems to be empty!"
 msgstr "Database lijkt leeg te zijn!"
 
-#: libraries/classes/Menu.php:474 libraries/classes/Util.php:4199
+#: libraries/classes/Menu.php:472 libraries/classes/Util.php:4199
 msgid "Query"
 msgstr "Query opbouwen"
 
-#: libraries/classes/Menu.php:514 libraries/classes/Rte/Words.php:51
+#: libraries/classes/Menu.php:512 libraries/classes/Rte/Words.php:51
 #: libraries/classes/Util.php:4204
 msgid "Routines"
 msgstr "Routines"
 
-#: libraries/classes/Menu.php:519
+#: libraries/classes/Menu.php:517
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:27
 #: libraries/classes/Plugins/Export/ExportSql.php:986
 #: libraries/classes/Plugins/Export/ExportXml.php:111
@@ -8841,25 +8840,25 @@ msgstr "Routines"
 msgid "Events"
 msgstr "Gebeurtenissen"
 
-#: libraries/classes/Menu.php:538 libraries/classes/Util.php:4208
+#: libraries/classes/Menu.php:536 libraries/classes/Util.php:4208
 msgid "Designer"
 msgstr "Ontwerper"
 
-#: libraries/classes/Menu.php:547 libraries/classes/Util.php:4209
+#: libraries/classes/Menu.php:545 libraries/classes/Util.php:4209
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "Centrale kolommen"
 
-#: libraries/classes/Menu.php:603
+#: libraries/classes/Menu.php:601
 msgid "User accounts"
 msgstr "Gebruikersaccounts"
 
-#: libraries/classes/Menu.php:632 libraries/classes/Server/Status/Data.php:123
+#: libraries/classes/Menu.php:630 libraries/classes/Server/Status/Data.php:123
 #: libraries/classes/Util.php:4188 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "Binaire log"
 
-#: libraries/classes/Menu.php:638 libraries/classes/Server/Status/Data.php:128
+#: libraries/classes/Menu.php:636 libraries/classes/Server/Status/Data.php:128
 #: libraries/classes/Util.php:4189
 #: templates/database/structure/table_header.twig:10
 #: templates/server/replication/index.twig:5
@@ -8867,22 +8866,22 @@ msgstr "Binaire log"
 msgid "Replication"
 msgstr "Replicatie"
 
-#: libraries/classes/Menu.php:643 libraries/classes/Server/Status/Data.php:196
+#: libraries/classes/Menu.php:641 libraries/classes/Server/Status/Data.php:196
 #: libraries/classes/SqlQueryForm.php:434 libraries/classes/Util.php:4190
 #: libraries/config.values.php:161 templates/server/engines/show.twig:18
 #: templates/server/engines/show.twig:21
 msgid "Variables"
 msgstr "Variabelen"
 
-#: libraries/classes/Menu.php:647 libraries/classes/Util.php:4191
+#: libraries/classes/Menu.php:645 libraries/classes/Util.php:4191
 msgid "Charsets"
 msgstr "Karaktersets"
 
-#: libraries/classes/Menu.php:651 libraries/classes/Util.php:4193
+#: libraries/classes/Menu.php:649 libraries/classes/Util.php:4193
 msgid "Engines"
 msgstr "Engines"
 
-#: libraries/classes/Menu.php:655 libraries/classes/Util.php:4192
+#: libraries/classes/Menu.php:653 libraries/classes/Util.php:4192
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr "Plug-ins"
@@ -11854,9 +11853,9 @@ msgstr ""
 "hebben."
 
 #: libraries/classes/Server/Privileges.php:977
-#: libraries/classes/Server/Privileges.php:3515
-#: libraries/classes/Server/Privileges.php:3517
-#: libraries/classes/Server/Privileges.php:4753
+#: libraries/classes/Server/Privileges.php:3292
+#: libraries/classes/Server/Privileges.php:3294
+#: libraries/classes/Server/Privileges.php:4530
 #: templates/server/privileges/edit_routine_privileges.twig:11
 msgid "Routine"
 msgstr "Routine"
@@ -11879,14 +11878,14 @@ msgstr "Staat het toe deze routine uit te voeren."
 
 #: libraries/classes/Server/Privileges.php:1074
 #: libraries/classes/Server/Privileges.php:1263
-#: libraries/classes/Server/Privileges.php:3510
+#: libraries/classes/Server/Privileges.php:3287
 #: templates/server/privileges/privileges_summary.twig:18
 msgid "Table-specific privileges"
 msgstr "Tabel-specifieke rechten"
 
 #: libraries/classes/Server/Privileges.php:1077
 #: libraries/classes/Server/Privileges.php:1273
-#: libraries/classes/Server/Privileges.php:3703
+#: libraries/classes/Server/Privileges.php:3480
 #: templates/server/privileges/edit_routine_privileges.twig:16
 msgid "Note: MySQL privilege names are expressed in English."
 msgstr ""
@@ -11897,7 +11896,7 @@ msgid "Administration"
 msgstr "Administratie"
 
 #: libraries/classes/Server/Privileges.php:1257
-#: libraries/classes/Server/Privileges.php:3701
+#: libraries/classes/Server/Privileges.php:3478
 msgid "Global privileges"
 msgstr "Globale rechten"
 
@@ -11906,7 +11905,7 @@ msgid "Global"
 msgstr "Globaal"
 
 #: libraries/classes/Server/Privileges.php:1260
-#: libraries/classes/Server/Privileges.php:3504
+#: libraries/classes/Server/Privileges.php:3281
 msgid "Database-specific privileges"
 msgstr "Database-specifieke rechten"
 
@@ -11955,225 +11954,108 @@ msgstr "MySQL authenticatie"
 msgid "SHA256 password authentication"
 msgstr "SHA256 wachtwoord authenticatie"
 
-#: libraries/classes/Server/Privileges.php:1637
-#: libraries/classes/Server/Privileges.php:3265
-msgid "Login Information"
-msgstr "Aanmeldingsinformatie"
+#: libraries/classes/Server/Privileges.php:1970
+#, php-format
+msgid "The password for %s was changed successfully."
+msgstr "Het wachtwoord voor %s is succesvol veranderd."
 
-#: libraries/classes/Server/Privileges.php:1640
-#: templates/server/replication/master_add_slave_user.twig:16
-#: templates/server/replication/change_master.twig:14
-msgid "User name:"
-msgstr "Gebruikersnaam:"
+#: libraries/classes/Server/Privileges.php:2018
+#, php-format
+msgid "You have revoked the privileges for %s."
+msgstr "U heeft de rechten ingetrokken voor %s."
 
-#: libraries/classes/Server/Privileges.php:1645
-#: libraries/classes/Server/Privileges.php:1666
-#: libraries/classes/Server/Privileges.php:2705
-#: libraries/classes/Server/Privileges.php:3698
+#: libraries/classes/Server/Privileges.php:2291
+#: libraries/classes/Server/Privileges.php:2367
+#, php-format
+msgid "Users having access to \"%s\""
+msgstr "Gebruikers die toegang hebben tot \"%s\""
+
+#: libraries/classes/Server/Privileges.php:2333
+msgid "User has been added."
+msgstr "Gebruiker is toegevoegd."
+
+#: libraries/classes/Server/Privileges.php:2482
+#: libraries/classes/Server/Privileges.php:3475
+#: templates/server/privileges/login_information_fields.twig:6
+#: templates/server/privileges/login_information_fields.twig:11
 #: templates/server/replication/master_add_slave_user.twig:19
 #: templates/server/replication/master_add_slave_user.twig:24
 #: templates/server/replication/change_master.twig:15
 msgid "User name"
 msgstr "Gebruikersnaam"
 
-#: libraries/classes/Server/Privileges.php:1651
-#: templates/server/replication/master_add_slave_user.twig:20
-msgid "Any user"
-msgstr "Elke gebruiker"
-
-#: libraries/classes/Server/Privileges.php:1659
-#: libraries/classes/Server/Privileges.php:1810
-#: templates/server/privileges/privileges_summary.twig:75
-#: templates/server/privileges/privileges_summary.twig:90
-msgid "Use text field"
-msgstr "Tekstveld gebruiken"
-
-#: libraries/classes/Server/Privileges.php:1684
-msgid ""
-"An account already exists with the same username but possibly a different "
-"hostname."
-msgstr ""
-"Er bestaat al een account met dezelfde gebruikersnaam maar mogelijk met een "
-"andere hostnaam."
-
-#: libraries/classes/Server/Privileges.php:1693
-msgid "Host name:"
-msgstr "Servernaam:"
-
-#: libraries/classes/Server/Privileges.php:1698
-#: libraries/classes/Server/Privileges.php:1778
-#: libraries/classes/Server/Privileges.php:2706
-#: libraries/classes/Server/Privileges.php:3699
+#: libraries/classes/Server/Privileges.php:2483
+#: libraries/classes/Server/Privileges.php:3476
+#: templates/server/privileges/login_information_fields.twig:25
+#: templates/server/privileges/login_information_fields.twig:37
 msgid "Host name"
 msgstr "Servernaam"
 
-#: libraries/classes/Server/Privileges.php:1738
-#: templates/server/replication/master_add_slave_user.twig:34
-msgid "Any host"
-msgstr "Elke host"
-
-#: libraries/classes/Server/Privileges.php:1745
-#: templates/server/replication/master_add_slave_user.twig:35
-msgid "Local"
-msgstr "lokaal"
-
-#: libraries/classes/Server/Privileges.php:1753
-msgid "This Host"
-msgstr "Deze host"
-
-#: libraries/classes/Server/Privileges.php:1762
-msgid "Use Host Table"
-msgstr "Gebruik hosttabel"
-
-#: libraries/classes/Server/Privileges.php:1770
-#: templates/server/replication/master_add_slave_user.twig:21
-#: templates/server/replication/master_add_slave_user.twig:40
-#: templates/server/replication/master_add_slave_user.twig:54
-msgid "Use text field:"
-msgstr "Tekstveld gebruiken:"
-
-#: libraries/classes/Server/Privileges.php:1786
-#: templates/server/replication/master_add_slave_user.twig:44
-msgid ""
-"When Host table is used, this field is ignored and values stored in Host "
-"table are used instead."
-msgstr ""
-"Indien er gebruik wordt gemaakt van de hosttabel is dit veld niet van "
-"toepassing."
-
-#: libraries/classes/Server/Privileges.php:1798
-#: libraries/classes/Server/Privileges.php:1815
-#: libraries/classes/Server/Privileges.php:3700
-#: templates/server/replication/master_add_slave_user.twig:52
-#: templates/server/replication/master_add_slave_user.twig:57
-#: templates/server/replication/change_master.twig:19
-msgid "Password"
-msgstr "Wachtwoord"
-
-#: libraries/classes/Server/Privileges.php:1800
-msgid "Do not change the password"
-msgstr "Wijzig het wachtwoord niet"
-
-#: libraries/classes/Server/Privileges.php:1830
-#: templates/server/replication/master_add_slave_user.twig:65
-msgid "Re-type"
-msgstr "Type opnieuw"
-
-#: libraries/classes/Server/Privileges.php:1850
-msgid "Authentication Plugin"
-msgstr "Authenticatie Plugin"
-
-#: libraries/classes/Server/Privileges.php:1859
-msgid "Password Hashing Method"
-msgstr "Wachtwoord hashing methode"
-
-#: libraries/classes/Server/Privileges.php:2152
-#, php-format
-msgid "The password for %s was changed successfully."
-msgstr "Het wachtwoord voor %s is succesvol veranderd."
-
-#: libraries/classes/Server/Privileges.php:2200
-#, php-format
-msgid "You have revoked the privileges for %s."
-msgstr "U heeft de rechten ingetrokken voor %s."
-
-#: libraries/classes/Server/Privileges.php:2303
-#: templates/server/privileges/add_user_fieldset.twig:9
-msgid "Add user account"
-msgstr "Gebruikersaccount toevoegen"
-
-#: libraries/classes/Server/Privileges.php:2312
-msgid "Database for user account"
-msgstr "Database voor gebruikersaccount"
-
-#: libraries/classes/Server/Privileges.php:2316
-msgid "Create database with same name and grant all privileges."
-msgstr "Een database aanmaken met dezelfde naam en alle rechten hierop geven."
-
-#: libraries/classes/Server/Privileges.php:2324
-msgid "Grant all privileges on wildcard name (username\\_%)."
-msgstr "Alle rechten geven op de wildcardnaam (gebruikersnaam\\_%)."
-
-#: libraries/classes/Server/Privileges.php:2334
-#, php-format
-msgid "Grant all privileges on database %s."
-msgstr "Alle rechten geven op database %s."
-
-#: libraries/classes/Server/Privileges.php:2514
-#: libraries/classes/Server/Privileges.php:2590
-#, php-format
-msgid "Users having access to \"%s\""
-msgstr "Gebruikers die toegang hebben tot \"%s\""
-
-#: libraries/classes/Server/Privileges.php:2556
-msgid "User has been added."
-msgstr "Gebruiker is toegevoegd."
-
-#: libraries/classes/Server/Privileges.php:2709
-#: libraries/classes/Server/Privileges.php:3709
+#: libraries/classes/Server/Privileges.php:2486
+#: libraries/classes/Server/Privileges.php:3486
 #: templates/server/privileges/privileges_summary.twig:16
 msgid "Grant"
 msgstr "Toekennen"
 
-#: libraries/classes/Server/Privileges.php:2724
+#: libraries/classes/Server/Privileges.php:2501
 msgid "Not enough privilege to view users."
 msgstr "Niet genoeg rechten om gebruikers in te zien."
 
 # Enkelvoud.
-#: libraries/classes/Server/Privileges.php:2743
-#: libraries/classes/Server/Privileges.php:4136
+#: libraries/classes/Server/Privileges.php:2520
+#: libraries/classes/Server/Privileges.php:3913
 msgid "No user found."
 msgstr "Geen gebruiker gevonden."
 
-#: libraries/classes/Server/Privileges.php:2774
-#: libraries/classes/Server/Privileges.php:3124
-#: libraries/classes/Server/Privileges.php:3791
+#: libraries/classes/Server/Privileges.php:2551
+#: libraries/classes/Server/Privileges.php:2901
+#: libraries/classes/Server/Privileges.php:3568
 msgid "Any"
 msgstr "Elke"
 
-#: libraries/classes/Server/Privileges.php:2829
+#: libraries/classes/Server/Privileges.php:2606
 msgid "global"
 msgstr "globaal"
 
-#: libraries/classes/Server/Privileges.php:2832
+#: libraries/classes/Server/Privileges.php:2609
 msgid "database-specific"
 msgstr "database-specifiek"
 
-#: libraries/classes/Server/Privileges.php:2834
+#: libraries/classes/Server/Privileges.php:2611
 msgid "wildcard"
 msgstr "jokerteken"
 
-#: libraries/classes/Server/Privileges.php:2840
+#: libraries/classes/Server/Privileges.php:2617
 msgid "table-specific"
 msgstr "tabel-specifiek"
 
-#: libraries/classes/Server/Privileges.php:2988
+#: libraries/classes/Server/Privileges.php:2765
 msgid "Edit privileges"
 msgstr "Rechten bewerken"
 
-#: libraries/classes/Server/Privileges.php:2991
+#: libraries/classes/Server/Privileges.php:2768
 msgid "Revoke"
 msgstr "Ongedaan maken"
 
-#: libraries/classes/Server/Privileges.php:3014
+#: libraries/classes/Server/Privileges.php:2791
 msgid "Edit user group"
 msgstr "Gebruikersgroep bewerken"
 
-#: libraries/classes/Server/Privileges.php:3237
+#: libraries/classes/Server/Privileges.php:3014
 msgid "… keep the old one."
 msgstr "… de oude behouden."
 
-#: libraries/classes/Server/Privileges.php:3238
+#: libraries/classes/Server/Privileges.php:3015
 msgid "… delete the old one from the user tables."
 msgstr "… de oude verwijderen van de gebruikerstabellen."
 
-#: libraries/classes/Server/Privileges.php:3240
+#: libraries/classes/Server/Privileges.php:3017
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
 "… alle actieve rechten van de oude intrekken en deze daarna verwijderen."
 
-#: libraries/classes/Server/Privileges.php:3244
+#: libraries/classes/Server/Privileges.php:3021
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
@@ -12181,76 +12063,90 @@ msgstr ""
 "… de oude verwijderen van de gebruikerstabellen en de rechten nadien "
 "vernieuwen."
 
-#: libraries/classes/Server/Privileges.php:3266
+#: libraries/classes/Server/Privileges.php:3042
+#: templates/server/privileges/login_information_fields.twig:2
+msgid "Login Information"
+msgstr "Aanmeldingsinformatie"
+
+#: libraries/classes/Server/Privileges.php:3043
 msgid "Change login information / Copy user account"
 msgstr "Aanmeldingsinformatie wijzigen / Gebruikersaccount kopiëren"
 
-#: libraries/classes/Server/Privileges.php:3272
+#: libraries/classes/Server/Privileges.php:3049
 msgid "Create a new user account with the same privileges and …"
 msgstr "Een nieuwe gebruikersaccount aanmaken met dezelfde rechten en …"
 
-#: libraries/classes/Server/Privileges.php:3516
+#: libraries/classes/Server/Privileges.php:3293
 #: templates/server/privileges/edit_routine_privileges.twig:12
 msgid "Routine-specific privileges"
 msgstr "Routine-specifieke rechten"
 
-#: libraries/classes/Server/Privileges.php:3707
+#: libraries/classes/Server/Privileges.php:3477
+#: templates/server/privileges/login_information_fields.twig:45
+#: templates/server/privileges/login_information_fields.twig:53
+#: templates/server/replication/master_add_slave_user.twig:52
+#: templates/server/replication/master_add_slave_user.twig:57
+#: templates/server/replication/change_master.twig:19
+msgid "Password"
+msgstr "Wachtwoord"
+
+#: libraries/classes/Server/Privileges.php:3484
 #: libraries/classes/Server/UserGroups.php:91
 #: templates/server/privileges/choose_user_group.twig:4
 #: templates/server/privileges/choose_user_group.twig:5
 msgid "User group"
 msgstr "Gebruikersgroep"
 
-#: libraries/classes/Server/Privileges.php:3830
-#: libraries/classes/Server/Privileges.php:4995
+#: libraries/classes/Server/Privileges.php:3607
+#: libraries/classes/Server/Privileges.php:4772
 msgid "The selected user was not found in the privilege table."
 msgstr "De geselecteerde gebruiker is niet aangetroffen in de rechtentabel."
 
-#: libraries/classes/Server/Privileges.php:4006
+#: libraries/classes/Server/Privileges.php:3783
 msgid "No users selected for deleting!"
 msgstr "Geen gebruikers geselecteerd om te verwijderen!"
 
-#: libraries/classes/Server/Privileges.php:4009
+#: libraries/classes/Server/Privileges.php:3786
 msgid "Reloading the privileges"
 msgstr "De rechten worden opnieuw geladen"
 
-#: libraries/classes/Server/Privileges.php:4028
+#: libraries/classes/Server/Privileges.php:3805
 msgid "The selected users have been deleted successfully."
 msgstr "De geselecteerde gebruikers zijn met succes verwijderd."
 
-#: libraries/classes/Server/Privileges.php:4106
+#: libraries/classes/Server/Privileges.php:3883
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "U heeft de rechten aangepast voor %s."
 
-#: libraries/classes/Server/Privileges.php:4216
+#: libraries/classes/Server/Privileges.php:3993
 #, php-format
 msgid "Deleting %s"
 msgstr "Verwijderen van %s"
 
-#: libraries/classes/Server/Privileges.php:4246
+#: libraries/classes/Server/Privileges.php:4023
 msgid "The privileges were reloaded successfully."
 msgstr "De rechten zijn succesvol opnieuw geladen."
 
-#: libraries/classes/Server/Privileges.php:4344
+#: libraries/classes/Server/Privileges.php:4121
 #, php-format
 msgid "The user %s already exists!"
 msgstr "De gebruiker %s bestaat al!"
 
-#: libraries/classes/Server/Privileges.php:4630
+#: libraries/classes/Server/Privileges.php:4407
 #, php-format
 msgid "Privileges for %s"
 msgstr "Rechten voor %s"
 
-#: libraries/classes/Server/Privileges.php:4712
+#: libraries/classes/Server/Privileges.php:4489
 msgid "Edit privileges:"
 msgstr "Rechten bewerken:"
 
-#: libraries/classes/Server/Privileges.php:4713
+#: libraries/classes/Server/Privileges.php:4490
 msgid "User account"
 msgstr "Gebruikersaccount"
 
-#: libraries/classes/Server/Privileges.php:4776
+#: libraries/classes/Server/Privileges.php:4553
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
@@ -12258,12 +12154,12 @@ msgstr ""
 "Opmerking: U probeert de rechten te wijzigen van de gebruikersnaam waarmee u "
 "op dit moment ingelogd bent."
 
-#: libraries/classes/Server/Privileges.php:4796
+#: libraries/classes/Server/Privileges.php:4573
 #: libraries/classes/Server/Users.php:32
 msgid "User accounts overview"
 msgstr "Gebruikersaccount overzicht"
 
-#: libraries/classes/Server/Privileges.php:4871
+#: libraries/classes/Server/Privileges.php:4648
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -12274,7 +12170,7 @@ msgstr ""
 "maken als het server deel van hun account een verbinding toestaat vanaf elke "
 "server (%)."
 
-#: libraries/classes/Server/Privileges.php:4916
+#: libraries/classes/Server/Privileges.php:4693
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -12288,7 +12184,7 @@ msgstr ""
 "dit het geval zijn dan moet men %s de rechtentabel vernieuwen %s voordat men "
 "verder gaat."
 
-#: libraries/classes/Server/Privileges.php:4932
+#: libraries/classes/Server/Privileges.php:4709
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12302,7 +12198,7 @@ msgstr ""
 "aangebracht. Mocht dit het geval zijn dan moet de gebruikersrechten opnieuw "
 "geladen worden, maar op dit moment heeft u niet het RELOAD gebruikersrecht."
 
-#: libraries/classes/Server/Privileges.php:5243
+#: libraries/classes/Server/Privileges.php:5020
 msgid "You have added a new user."
 msgstr "U heeft een nieuwe gebruiker toegevoegd."
 
@@ -13483,6 +13379,13 @@ msgstr ""
 "Gebruikersnaam en servernaam zijn ongewijzigd. Als u alleen het wachtwoord "
 "wil wijzigen, gebruik de 'Wijzig wachtwoord' tab."
 
+#: libraries/entry_points/table/change.php:168
+#: templates/database/multi_table_query/form.twig:48
+#: templates/database/tracking/tables.twig:19
+#: templates/table/tracking/main.twig:33
+msgid "Show"
+msgstr "Toon"
+
 #: libraries/entry_points/table/tracking.php:44
 #, php-format
 msgid "Tracking of %s is activated."
@@ -13551,12 +13454,6 @@ msgstr "Verkeerde gegevens"
 #, php-format
 msgid "Wrong data or no validation for %s"
 msgstr "Verkeerde gegevens of geen validatie voor %s"
-
-#: tbl_change.php:170 templates/database/multi_table_query/form.twig:48
-#: templates/database/tracking/tables.twig:19
-#: templates/table/tracking/main.twig:33
-msgid "Show"
-msgstr "Toon"
 
 #: tbl_create.php:62 tbl_get_field.php:46
 #, php-format
@@ -13650,6 +13547,14 @@ msgstr ""
 #: templates/server/privileges/privileges_summary.twig:71
 msgid "Add privileges on the following table:"
 msgstr "Rechten toevoegen op de volgende tabel:"
+
+#: templates/server/privileges/privileges_summary.twig:75
+#: templates/server/privileges/privileges_summary.twig:90
+#: templates/server/privileges/login_information_fields.twig:8
+#: templates/server/privileges/login_information_fields.twig:33
+#: templates/server/privileges/login_information_fields.twig:50
+msgid "Use text field"
+msgstr "Tekstveld gebruiken"
 
 #: templates/server/privileges/privileges_summary.twig:86
 msgid "Add privileges on the following routine:"
@@ -14929,6 +14834,106 @@ msgstr "Is een vreemde sleutel."
 msgid "Pick from Central Columns"
 msgstr "Kies uit centrale kolommen"
 
+#: templates/server/privileges/login_information_fields.twig:4
+#: templates/server/replication/master_add_slave_user.twig:16
+#: templates/server/replication/change_master.twig:14
+msgid "User name:"
+msgstr "Gebruikersnaam:"
+
+#: templates/server/privileges/login_information_fields.twig:7
+#: templates/server/replication/master_add_slave_user.twig:20
+msgid "Any user"
+msgstr "Elke gebruiker"
+
+#: templates/server/privileges/login_information_fields.twig:16
+msgid ""
+"An account already exists with the same username but possibly a different "
+"hostname."
+msgstr ""
+"Er bestaat al een account met dezelfde gebruikersnaam maar mogelijk met een "
+"andere hostnaam."
+
+#: templates/server/privileges/login_information_fields.twig:22
+msgid "Host name:"
+msgstr "Servernaam:"
+
+#: templates/server/privileges/login_information_fields.twig:27
+#: templates/server/replication/master_add_slave_user.twig:34
+msgid "Any host"
+msgstr "Elke host"
+
+#: templates/server/privileges/login_information_fields.twig:28
+#: templates/server/replication/master_add_slave_user.twig:35
+msgid "Local"
+msgstr "lokaal"
+
+#: templates/server/privileges/login_information_fields.twig:30
+#: templates/server/replication/master_add_slave_user.twig:37
+msgid "This host"
+msgstr "Deze host"
+
+#: templates/server/privileges/login_information_fields.twig:32
+#: templates/server/replication/master_add_slave_user.twig:39
+msgid "Use host table"
+msgstr "Gebruik hosttabel"
+
+#: templates/server/privileges/login_information_fields.twig:39
+#: templates/server/replication/master_add_slave_user.twig:44
+msgid ""
+"When Host table is used, this field is ignored and values stored in Host "
+"table are used instead."
+msgstr ""
+"Indien er gebruik wordt gemaakt van de hosttabel is dit veld niet van "
+"toepassing."
+
+#: templates/server/privileges/login_information_fields.twig:47
+msgid "Do not change the password"
+msgstr "Wijzig het wachtwoord niet"
+
+#: templates/server/privileges/login_information_fields.twig:49
+#: templates/server/replication/master_add_slave_user.twig:53
+msgid "No password"
+msgstr "Geen wachtwoord"
+
+#: templates/server/privileges/login_information_fields.twig:54
+#, fuzzy
+#| msgid "Data length"
+msgctxt "Password strength"
+msgid "Strength:"
+msgstr "Lengte van de data"
+
+#: templates/server/privileges/login_information_fields.twig:62
+#: templates/server/replication/master_add_slave_user.twig:65
+msgid "Re-type"
+msgstr "Type opnieuw"
+
+#: templates/server/privileges/login_information_fields.twig:68
+#, fuzzy
+#| msgid "Authentication Plugin"
+msgid "Authentication plugin"
+msgstr "Authenticatie Plugin"
+
+#: templates/server/privileges/login_information_fields.twig:70
+#, fuzzy
+#| msgid "Password Hashing Method"
+msgid "Password hashing method"
+msgstr "Wachtwoord hashing methode"
+
+#: templates/server/privileges/login_information_fields.twig:79
+#, fuzzy
+#| msgid ""
+#| "This method requires using an '<i>SSL connection</i>' or an "
+#| "'<i>unencrypted connection that encrypts the password using RSA</i>'; "
+#| "while connecting to the server."
+msgid ""
+"This method requires using an '<em>SSL connection</em>' or an "
+"'<em>unencrypted connection that encrypts the password using RSA</em>'; "
+"while connecting to the server."
+msgstr ""
+"Deze methode vereist een '<i>SSL verbinding</i>' of een <i>niet-SSL "
+"verbinding die het wachtwoord versleuteld met RSA</i>'; wanneer verbinding "
+"wordt gemaakt met de server."
+
 #: templates/display/export/template_options.twig:1
 msgid "Select a template"
 msgstr "Selecteer een template"
@@ -15144,6 +15149,28 @@ msgstr "Template:"
 msgid "Update"
 msgstr "Bijwerken"
 
+#: templates/server/privileges/add_user.twig:3
+#: templates/server/privileges/add_user_fieldset.twig:9
+msgid "Add user account"
+msgstr "Gebruikersaccount toevoegen"
+
+#: templates/server/privileges/add_user.twig:12
+msgid "Database for user account"
+msgstr "Database voor gebruikersaccount"
+
+#: templates/server/privileges/add_user.twig:15
+msgid "Create database with same name and grant all privileges."
+msgstr "Een database aanmaken met dezelfde naam en alle rechten hierop geven."
+
+#: templates/server/privileges/add_user.twig:19
+msgid "Grant all privileges on wildcard name (username\\_%)."
+msgstr "Alle rechten geven op de wildcardnaam (gebruikersnaam\\_%)."
+
+#: templates/server/privileges/add_user.twig:24
+#, php-format
+msgid "Grant all privileges on database %s."
+msgstr "Alle rechten geven op database %s."
+
 #: templates/setup/servers/index.twig:6
 msgid "Edit server"
 msgstr "Server wijzigen"
@@ -15323,17 +15350,11 @@ msgstr "Tracking is ingeschakeld."
 msgid "Tracking is not active."
 msgstr "Tracking is niet actief."
 
-#: templates/server/replication/master_add_slave_user.twig:37
-msgid "This host"
-msgstr "Deze host"
-
-#: templates/server/replication/master_add_slave_user.twig:39
-msgid "Use host table"
-msgstr "Gebruik hosttabel"
-
-#: templates/server/replication/master_add_slave_user.twig:53
-msgid "No password"
-msgstr "Geen wachtwoord"
+#: templates/server/replication/master_add_slave_user.twig:21
+#: templates/server/replication/master_add_slave_user.twig:40
+#: templates/server/replication/master_add_slave_user.twig:54
+msgid "Use text field:"
+msgstr "Tekstveld gebruiken:"
 
 #: templates/server/replication/master_add_slave_user.twig:70
 msgid "Generate password:"
@@ -18007,6 +18028,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert is ingesteld op 0"
+
+#~ msgid "This Host"
+#~ msgstr "Deze host"
+
+#~ msgid "Use Host Table"
+#~ msgstr "Gebruik hosttabel"
 
 #, fuzzy
 #~| msgid "Description"

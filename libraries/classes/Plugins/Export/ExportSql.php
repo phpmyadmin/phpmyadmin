@@ -1061,9 +1061,9 @@ class ExportSql extends ExportPlugin
     /**
      * Exports metadata from Configuration Storage
      *
-     * @param string $db            database being exported
-     * @param string $table         table being exported
-     * @param array  $metadataTypes types of metadata to export
+     * @param string      $db            database being exported
+     * @param string|null $table         table being exported
+     * @param array       $metadataTypes types of metadata to export
      *
      * @return bool Whether it succeeded
      */
@@ -2009,7 +2009,7 @@ class ExportSql extends ExportPlugin
      * @param bool   $comments    whether to include the pmadb-style column
      *                            comments as comments in the structure; this is
      *                            deprecated but the parameter is left here
-     *                            because export.php calls exportStructure()
+     *                            because /export calls exportStructure()
      *                            also for other export types which use this
      *                            parameter
      * @param bool   $mime        whether to include mime comments

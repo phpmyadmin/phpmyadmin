@@ -122,141 +122,53 @@ class AuthenticationCookie extends AuthenticationPlugin
         ) {
             $default_user   = $this->user;
             $default_server = $GLOBALS['pma_auth_server'];
-            $autocomplete   = '';
+            $hasAutocomplete = true;
         } else {
             $default_user   = '';
             $default_server = '';
-            // skip the IE autocomplete feature.
-            $autocomplete   = ' autocomplete="off"';
+            $hasAutocomplete = false;
         }
 
         // wrap the login form in a div which overlays the whole page.
         if ($session_expired) {
-            echo $this->template->render('login/header', [
+            $loginHeader = $this->template->render('login/header', [
                 'theme' => $GLOBALS['PMA_Theme'],
                 'add_class' => ' modal_form',
                 'session_expired' => 1,
             ]);
         } else {
-            echo $this->template->render('login/header', [
+            $loginHeader = $this->template->render('login/header', [
                 'theme' => $GLOBALS['PMA_Theme'],
                 'add_class' => '',
                 'session_expired' => 0,
             ]);
         }
 
-        if ($GLOBALS['cfg']['DBG']['demo']) {
-            echo '<fieldset>';
-            echo '<legend>' , __('phpMyAdmin Demo Server') , '</legend>';
-            printf(
-                __(
-                    'You are using the demo server. You can do anything here, but '
-                    . 'please do not change root, debian-sys-maint and pma users. '
-                    . 'More information is available at %s.'
-                ),
-                '<a href="url.php?url=https://demo.phpmyadmin.net/" target="_blank" rel="noopener noreferrer">demo.phpmyadmin.net</a>'
-            );
-            echo '</fieldset>';
-        }
-
+        $errorMessages = '';
         // Show error message
         if (! empty($conn_error)) {
-            Message::rawError((string) $conn_error)->display();
+            $errorMessages = Message::rawError((string) $conn_error)->getDisplay();
         } elseif (isset($_GET['session_expired'])
             && intval($_GET['session_expired']) == 1
         ) {
-            Message::rawError(
+            $errorMessages = Message::rawError(
                 __('Your session has expired. Please log in again.')
-            )->display();
+            )->getDisplay();
         }
 
-        // Displays the languages form
         $language_manager = LanguageManager::getInstance();
-        if (empty($GLOBALS['cfg']['Lang']) && $language_manager->hasChoice()) {
-            echo "<div class='hide js-show'>";
-            // use fieldset, don't show doc link
-            echo $language_manager->getSelectorDisplay(new Template(), true, false);
-            echo '</div>';
+        $languageSelector = '';
+        $hasLanguages = empty($GLOBALS['cfg']['Lang']) && $language_manager->hasChoice();
+        if ($hasLanguages) {
+            $languageSelector = $language_manager->getSelectorDisplay(new Template(), true, false);
         }
-        echo '
-    <!-- Login form -->
-    <form method="post" id="login_form" action="index.php" name="login_form"' , $autocomplete ,
-            ' class="' . ($session_expired ? "" : "disableAjax hide ") . 'login js-show form-horizontal">
-        <fieldset>
-        <legend class="col-form-label">';
-        echo '<input type="hidden" name="set_session" value="', htmlspecialchars(session_id()), '">';
 
-        // Add a hidden element session_timedout which is used to check if the user requested login after session expiration
-        if ($session_expired) {
-            echo '<input type="hidden" name="session_timedout" value="1">';
+        $serversOptions = '';
+        $hasServers = count($GLOBALS['cfg']['Servers']) > 1;
+        if ($hasServers) {
+            $serversOptions = Select::render(false, false);
         }
-        echo __('Log in');
-        echo Util::showDocu('index');
-        echo '</legend>';
-        if ($GLOBALS['cfg']['AllowArbitraryServer']) {
-            echo '
-            <div class="item form-group">
-                <label for="input_servername" title="';
-            echo __(
-                'You can enter hostname/IP address and port separated by space.'
-            );
-            echo '">';
-            echo __('Server:');
-            echo '</label>
-                <input type="text" name="pma_servername" id="input_servername"';
-            echo ' value="';
-            echo htmlspecialchars($default_server);
-            echo '" size="24" class="textfield" title="';
-            echo __(
-                'You can enter hostname/IP address and port separated by space.'
-            ); echo '">
-            </div>';
-        }
-            echo '<div class="item form-row">
-                <label for="input_username" class="col-3 d-flex align-items-center">' , __('Username:') , '</label>
-                <div class="col-8">
-                <input type="text" name="pma_username" id="input_username" '
-                , 'value="' , htmlspecialchars($default_user) , '" size="24"'
-                , ' class="textfield form-control">
-                </div>
-            </div>
-            <div class="item form-row">
-                <label for="input_password" class="col-3 d-flex align-items-center">' , __('Password:') , '</label>
-                <div class="col-8">
-                <input type="password" name="pma_password" id="input_password"'
-                , ' value="" size="24" class="textfield form-control">
-                </div>
-            </div>';
-        if (count($GLOBALS['cfg']['Servers']) > 1) {
-            echo '<div class="item">
-                <label for="select_server">' . __('Server Choice:') . '</label>
-                <select name="server" id="select_server"';
-            if ($GLOBALS['cfg']['AllowArbitraryServer']) {
-                echo ' onchange="document.forms[\'login_form\'].'
-                    , 'elements[\'pma_servername\'].value = \'\'" ';
-            }
-            echo '>';
-            echo Select::render(false, false);
-            echo '</select></div>';
-        } else {
-            echo '    <input type="hidden" name="server" value="'
-                , $GLOBALS['server'] , '">';
-        } // end if (server choice)
 
-        echo '</fieldset><fieldset class="tblFooters">';
-
-        // binds input field with invisible reCaptcha if enabled
-        if (empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
-            && empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
-        ) {
-            echo '<input class="btn btn-primary" value="' , __('Go') , '" type="submit" id="input_go">';
-        } else {
-            echo '<script src="https://www.google.com/recaptcha/api.js?hl='
-            , $GLOBALS['lang'] , '" async defer></script>';
-            echo '<input class="btn btn-primary g-recaptcha" data-sitekey="'
-            , htmlspecialchars($GLOBALS['cfg']['CaptchaLoginPublicKey']),'"'
-                . ' data-callback="Functions.recaptchaCallback" value="' , __('Go') , '" type="submit" id="input_go">';
-        }
         $_form_params = [];
         if (! empty($GLOBALS['target'])) {
             $_form_params['target'] = $GLOBALS['target'];
@@ -267,28 +179,44 @@ class AuthenticationCookie extends AuthenticationPlugin
         if (strlen($GLOBALS['table'])) {
             $_form_params['table'] = $GLOBALS['table'];
         }
-        // do not generate a "server" hidden field as we want the "server"
-        // drop-down to have priority
-        echo Url::getHiddenInputs($_form_params, '', 0, 'server');
-        echo '</fieldset>
-    </form>';
 
+        $errors = '';
         if ($GLOBALS['error_handler']->hasDisplayErrors()) {
-            echo '<div id="pma_errors">';
-            $GLOBALS['error_handler']->dispErrors();
-            echo '</div>
-            </div>
-        </div>';
+            $errors = $GLOBALS['error_handler']->getDispErrors();
         }
 
         // close the wrapping div tag, if the request is after session timeout
         if ($session_expired) {
-            echo $this->template->render('login/footer', ['session_expired' => 1]);
+            $loginFooter = $this->template->render('login/footer', ['session_expired' => 1]);
         } else {
-            echo $this->template->render('login/footer', ['session_expired' => 0]);
+            $loginFooter = $this->template->render('login/footer', ['session_expired' => 0]);
         }
 
-        echo Config::renderFooter();
+        $configFooter = Config::renderFooter();
+
+        echo $this->template->render('login/form', [
+            'login_header' => $loginHeader,
+            'is_demo' => $GLOBALS['cfg']['DBG']['demo'],
+            'error_messages' => $errorMessages,
+            'has_languages' => $hasLanguages,
+            'language_selector' => $languageSelector,
+            'is_session_expired' => $session_expired,
+            'has_autocomplete' => $hasAutocomplete,
+            'session_id' => session_id(),
+            'is_arbitrary_server_allowed' => $GLOBALS['cfg']['AllowArbitraryServer'],
+            'default_server' => $default_server,
+            'default_user' => $default_user,
+            'has_servers' => $hasServers,
+            'server_options' => $serversOptions,
+            'server' => $GLOBALS['server'],
+            'lang' => $GLOBALS['lang'],
+            'has_captcha' => ! empty($GLOBALS['cfg']['CaptchaLoginPrivateKey']) && ! empty($GLOBALS['cfg']['CaptchaLoginPublicKey']),
+            'captcha_key' => $GLOBALS['cfg']['CaptchaLoginPublicKey'],
+            'form_params' => $_form_params,
+            'errors' => $errors,
+            'login_footer' => $loginFooter,
+            'config_footer' => $configFooter,
+        ]);
 
         if (! defined('TESTSUITE')) {
             exit;

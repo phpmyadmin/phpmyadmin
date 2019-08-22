@@ -712,13 +712,14 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         var loadLogVars = function (getvars) {
             var vars = {
                 'ajax_request': true,
-                'logging_vars': true
+                'logging_vars': true,
+                'server': CommonParams.get('server')
             };
             if (getvars) {
                 $.extend(vars, getvars);
             }
 
-            $.post('server_status_monitor.php' + CommonParams.get('common_query'), vars,
+            $.post('index.php?route=/server/status/monitor', vars,
                 function (data) {
                     var logVars;
                     if (typeof data !== 'undefined' && data.success === true) {
@@ -1385,7 +1386,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
     /* Called in regular intervals, this function updates the values of each chart in the grid */
     function refreshChartGrid () {
         /* Send to server */
-        runtime.refreshRequest = $.post('server_status_monitor.php' + CommonParams.get('common_query'), {
+        runtime.refreshRequest = $.post('index.php?route=/server/status/monitor', {
             'ajax_request': true,
             'chart_data': 1,
             'type': 'chartgrid',
@@ -1624,7 +1625,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         });
 
         logRequest = $.post(
-            'server_status_monitor.php' + CommonParams.get('common_query'),
+            'index.php?route=/server/status/monitor',
             {
                 'ajax_request': true,
                 'log_data': 1,
@@ -1632,7 +1633,8 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 'time_start': Math.round(opts.start / 1000),
                 'time_end': Math.round(opts.end / 1000),
                 'removeVariables': opts.removeVariables,
-                'limitTypes': opts.limitTypes
+                'limitTypes': opts.limitTypes,
+                'server': CommonParams.get('server')
             },
             function (data) {
                 var logData;
@@ -2025,7 +2027,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             Messages.strAnalyzing + ' <img class="ajaxIcon" src="' +
             pmaThemeImage + 'ajax_clock_small.gif" alt="">');
 
-        $.post('server_status_monitor.php' + CommonParams.get('common_query'), {
+        $.post('index.php?route=/server/status/monitor', {
             'ajax_request': true,
             'query_analyzer': true,
             'query': codeMirrorEditor ? codeMirrorEditor.getValue() : $('#sqlquery').val(),

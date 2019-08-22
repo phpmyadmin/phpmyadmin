@@ -5,7 +5,7 @@
         <th scope="col">{% trans 'Processes' %}</th>
         {% for column in columns %}
           <th scope="col">
-            <a href="server_status_processes.php" data-post="{{ get_common(column.params) }}" class="sortlink">
+            <a href="{{ url('/server/status/processes') }}" data-post="{{ get_common(column.params) }}" class="sortlink">
               {{ column.name }}
               {% if column.is_sorted %}
                 <img class="icon ic_s_desc soimg" alt="
@@ -15,7 +15,7 @@
               {% endif %}
             </a>
             {% if column.has_full_query %}
-              <a href="server_status_processes.php" data-post="{{ get_common(refresh_params, '') }}">
+              <a href="{{ url('/server/status/processes') }}" data-post="{{ get_common(refresh_params, '') }}">
                 {% if column.is_full %}
                   {{ get_image(
                     's_partialtext',
@@ -40,7 +40,7 @@
       {% for row in rows %}
         <tr>
           <td>
-            <a class="ajax kill_process" href="server_status_processes.php" data-post="{{ get_common({'kill': row.id}, '') }}">
+            <a class="ajax kill_process" href="{{ url('/server/status/processes') }}" data-post="{{ get_common({'kill': row.id}, '') }}">
               {% trans 'Kill' %}
             </a>
           </td>

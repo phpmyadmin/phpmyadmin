@@ -302,9 +302,12 @@ class ExportRelationSchema
         echo '<p>' , "\n";
         echo '    ' , $error_message , "\n";
         echo '</p>' , "\n";
-        echo '<a href="db_designer.php'
-            , Url::getCommon(['db' => $GLOBALS['db']])
-            , '&page=' . htmlspecialchars($pageNumber) , '">' , __('Back') , '</a>';
+        echo '<a href="';
+        echo Url::getFromRoute('/database/designer', [
+            'db' => $GLOBALS['db'],
+            'page' => $pageNumber,
+        ]);
+        echo '">' . __('Back') . '</a>';
         echo "\n";
         exit;
     }

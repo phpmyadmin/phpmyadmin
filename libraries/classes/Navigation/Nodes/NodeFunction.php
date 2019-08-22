@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
@@ -31,12 +32,16 @@ class NodeFunction extends NodeDatabaseChild
         parent::__construct($name, $type, $isGroup);
         $this->icon = Util::getImage('b_routines', __('Function'));
         $this->links = [
-            'text' => 'db_routines.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;item_name=%1$s&amp;item_type=FUNCTION'
-                . '&amp;edit_item=1',
-            'icon' => 'db_routines.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;item_name=%1$s&amp;item_type=FUNCTION'
-                . '&amp;execute_dialog=1',
+            'text' => Url::getFromRoute('/database/routines', [
+                'server' => $GLOBALS['server'],
+                'item_type' => 'FUNCTION',
+                'edit_item' => 1,
+            ]) . '&amp;db=%2$s&amp;item_name=%1$s',
+            'icon' => Url::getFromRoute('/database/routines', [
+                'server' => $GLOBALS['server'],
+                'item_type' => 'FUNCTION',
+                'execute_dialog' => 1,
+            ]) . '&amp;db=%2$s&amp;item_name=%1$s',
         ];
         $this->classes = 'function';
     }

@@ -50,10 +50,12 @@ class NodeTableContainer extends NodeDatabaseChildContainer
         $new->isNew = true;
         $new->icon = Util::getImage('b_table_add', $newLabel);
         $new->links = [
-            'text' => 'tbl_create.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s',
-            'icon' => 'tbl_create.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s',
+            'text' => Url::getFromRoute('/table/create', [
+                'server' => $GLOBALS['server'],
+            ]) . '&amp;db=%2$s',
+            'icon' => Url::getFromRoute('/table/create', [
+                'server' => $GLOBALS['server'],
+            ]) . '&amp;db=%2$s',
         ];
         $new->classes = 'new_table italics';
         $this->addChild($new);

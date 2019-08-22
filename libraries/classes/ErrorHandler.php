@@ -63,31 +63,29 @@ class ErrorHandler
      */
     public function __destruct()
     {
-        if (isset($_SESSION)) {
-            if (! isset($_SESSION['errors'])) {
-                $_SESSION['errors'] = [];
-            }
+        if (! isset($_SESSION['errors'])) {
+            $_SESSION['errors'] = [];
+        }
 
-            // remember only not displayed errors
-            foreach ($this->errors as $key => $error) {
-                /**
-                 * We don't want to store all errors here as it would
-                 * explode user session.
-                 */
-                if (count($_SESSION['errors']) >= 10) {
-                    $error = new Error(
-                        0,
-                        __('Too many error messages, some are not displayed.'),
-                        __FILE__,
-                        __LINE__
-                    );
-                    $_SESSION['errors'][$error->getHash()] = $error;
-                    break;
-                } elseif (($error instanceof Error)
-                    && ! $error->isDisplayed()
-                ) {
-                    $_SESSION['errors'][$key] = $error;
-                }
+        // remember only not displayed errors
+        foreach ($this->errors as $key => $error) {
+            /**
+             * We don't want to store all errors here as it would
+             * explode user session.
+             */
+            if (count($_SESSION['errors']) >= 10) {
+                $error = new Error(
+                    0,
+                    __('Too many error messages, some are not displayed.'),
+                    __FILE__,
+                    __LINE__
+                );
+                $_SESSION['errors'][$error->getHash()] = $error;
+                break;
+            } elseif (($error instanceof Error)
+                && ! $error->isDisplayed()
+            ) {
+                $_SESSION['errors'][$key] = $error;
             }
         }
     }
@@ -356,8 +354,8 @@ class ErrorHandler
             &&  $this->countErrors() !=  $this->countUserErrors()
         ) {
             // add report button.
-            $retval .= '<form method="post" action="error_report.php"'
-                    . ' id="pma_report_errors_form"';
+            $retval .= '<form method="post" action="' . Url::getFromRoute('/error_report')
+                    . '" id="pma_report_errors_form"';
             if ($GLOBALS['cfg']['SendErrorReports'] == 'always') {
                 // in case of 'always', generate 'invisible' form.
                 $retval .= ' class="hide"';
@@ -389,16 +387,6 @@ class ErrorHandler
             $retval .= '</form>';
         }
         return $retval;
-    }
-
-    /**
-     * displays errors not displayed
-     *
-     * @return void
-     */
-    public function dispErrors(): void
-    {
-        echo $this->getDispErrors();
     }
 
     /**

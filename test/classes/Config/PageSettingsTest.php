@@ -64,7 +64,7 @@ class PageSettingsTest extends PmaTestCase
             '<div id="page_settings_modal">'
             . '<div class="page_settings">'
             . '<form method="post" '
-            . 'action="phpunit?db=db&amp;table=&amp;server=1&amp;target=&amp;lang=en" '
+            . 'action="phpunit?db=db&amp;server=1&amp;lang=en" '
             . 'class="config-form disableAjax">',
             $html
         );

@@ -174,7 +174,7 @@ class ExportMediawiki extends ExportPlugin
      * @param bool   $do_comments whether to include the pmadb-style column
      *                            comments as comments in the structure; this is
      *                            deprecated but the parameter is left here
-     *                            because export.php calls exportStructure()
+     *                            because /export calls exportStructure()
      *                            also for other export types which use this
      *                            parameter
      * @param bool   $do_mime     whether to include mime comments

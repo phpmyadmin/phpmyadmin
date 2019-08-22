@@ -95,6 +95,11 @@ class ImportMediawiki extends ImportPlugin
         // Initialize the name of the current table
         $cur_table_name = "";
 
+        $cur_temp_table_headers = [];
+        $cur_temp_table = [];
+
+        $in_table_header = false;
+
         while (! $finished && ! $error && ! $timeout_passed) {
             $data = $this->import->getNextChunk();
 

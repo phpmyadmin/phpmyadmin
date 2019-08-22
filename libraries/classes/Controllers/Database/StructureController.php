@@ -318,7 +318,7 @@ class StructureController extends AbstractController
         $err_url = Url::getFromRoute('/database/structure', ['db' => $this->db]);
 
         // see bug #2794840; in this case, code path is:
-        // /database/structure -> libraries/mult_submits.inc.php -> sql.php
+        // /database/structure -> libraries/mult_submits.inc.php -> /sql
         // -> /database/structure and if we got an error on the multi submit,
         // we must display it here and not call again mult_submits.inc.php
         if (! isset($_POST['error']) || false === $_POST['error']) {

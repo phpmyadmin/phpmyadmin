@@ -1536,7 +1536,7 @@ class Relation
             }
         } while (false);
 
-        if ($get_total) {
+        if ($get_total && isset($foreign_db, $foreign_table)) {
             $the_total = $this->dbi->getTable($foreign_db, $foreign_table)
                 ->countRecords(true);
         }
@@ -2135,7 +2135,7 @@ class Relation
             );
         }
         $message->addParamHtml(
-            '<a href="./chk_rel.php" data-post="' . Url::getCommon($params, '') . '">'
+            '<a href="' . Url::getFromRoute('/check_relations') . '" data-post="' . Url::getCommon($params, '') . '">'
         );
         $message->addParamHtml('</a>');
 

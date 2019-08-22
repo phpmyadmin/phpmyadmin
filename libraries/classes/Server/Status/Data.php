@@ -150,7 +150,7 @@ class Data
             'params' => Url::getCommon(['flush' => 'TABLES'], ''),
         ];
         $links['table'][__('Show open tables')] = [
-            'url' => 'sql.php',
+            'url' => Url::getFromRoute('/sql'),
             'params' => Url::getCommon([
                 'sql_query' => 'SHOW OPEN TABLES',
                 'goto' => $this->selfUrl,
@@ -159,7 +159,7 @@ class Data
 
         if ($GLOBALS['replication_info']['master']['status']) {
             $links['repl'][__('Show slave hosts')] = [
-                'url' => 'sql.php',
+                'url' => Url::getFromRoute('/sql'),
                 'params' => Url::getCommon([
                     'sql_query' => 'SHOW SLAVE HOSTS',
                     'goto' => $this->selfUrl,

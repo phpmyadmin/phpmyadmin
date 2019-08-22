@@ -14,6 +14,7 @@ use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
 
@@ -142,7 +143,7 @@ class BinlogControllerTest extends TestCase
             $actual
         );
 
-        $urlNavigation = 'server_binlog.php" data-post="pos=3&amp;'
+        $urlNavigation = Url::getFromRoute('/server/binlog') . '" data-post="pos=3&amp;'
             . 'is_full_query=1&amp;server=1&amp';
         $this->assertStringContainsString(
             $urlNavigation,
