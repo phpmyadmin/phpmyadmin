@@ -25,7 +25,7 @@ var ErrorReport = {
             exception.name = ErrorReport.extractExceptionName(exception);
         }
         ErrorReport.lastException = exception;
-        $.post('error_report.php', {
+        $.post('index.php?route=/error_report', {
             'ajax_request': true,
             'server': CommonParams.get('server'),
             'get_settings': true,
@@ -43,7 +43,7 @@ var ErrorReport = {
                     'send_error_report': true,
                     'automatic': true
                 });
-                $.post('error_report.php', postData, function (data) {
+                $.post('index.php?route=/error_report', postData, function (data) {
                     if (data.success === false) {
                         // in the case of an error, show the error message returned.
                         Functions.ajaxShowMessage(data.error, false);
@@ -80,7 +80,7 @@ var ErrorReport = {
                 'description': $('#report_description').val(),
                 'always_send': $('#always_send_checkbox')[0].checked
             });
-            $.post('error_report.php', postData, function (data) {
+            $.post('index.php?route=/error_report', postData, function (data) {
                 $dialog.dialog('close');
                 if (data.success === false) {
                     // in the case of an error, show the error message returned.
@@ -95,7 +95,7 @@ var ErrorReport = {
             $(this).dialog('close');
         };
 
-        $.post('error_report.php', reportData, function (data) {
+        $.post('index.php?route=/error_report', reportData, function (data) {
             if (data.success === false) {
                 // in the case of an error, show the error message returned.
                 Functions.ajaxShowMessage(data.error, false);
@@ -200,7 +200,7 @@ var ErrorReport = {
      * @return void
      */
     redirectToSettings: function () {
-        window.location.href = 'prefs_forms.php';
+        window.location.href = 'index.php?route=/preferences/forms';
     },
     /**
      * Returns the report data to send to the server

@@ -1533,16 +1533,12 @@ class PrivilegesTest extends TestCase
             $html
         );
 
-        $template = new Template();
-        $item = $template->render('checkbox', [
-            'html_field_name' => 'createdb-2',
-            'label' => __('Grant all privileges on wildcard name (username\\_%).'),
-            'checked' => false,
-            'onclick' => false,
-            'html_field_id' => 'createdb-2',
-        ]);
         $this->assertStringContainsString(
-            $item,
+            __('Grant all privileges on wildcard name (username\\_%).'),
+            $html
+        );
+        $this->assertStringContainsString(
+            '<input type="checkbox" name="createdb-2" id="createdb-2">',
             $html
         );
 

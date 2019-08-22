@@ -153,7 +153,7 @@ class VariablesControllerTest extends TestCase
             $html
         );
         $this->assertStringContainsString(
-            'server_status_variables.php',
+            'index.php?route=/server/status/variables',
             $html
         );
 

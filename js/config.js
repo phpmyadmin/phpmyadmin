@@ -808,7 +808,7 @@ function savePrefsToLocalStorage (form) {
     var submit = $form.find('input[type=submit]');
     submit.prop('disabled', true);
     $.ajax({
-        url: 'prefs_manage.php',
+        url: 'index.php?route=/preferences/manage',
         cache: false,
         type: 'POST',
         data: {

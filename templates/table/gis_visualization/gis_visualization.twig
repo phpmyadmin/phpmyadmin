@@ -2,7 +2,7 @@
     <fieldset>
         <legend>{% trans 'Display GIS Visualization' %}</legend>
         <div id="gis_div" style="position:relative;">
-            <form method="post" action="tbl_gis_visualization.php">
+            <form method="post" action="{{ url('/table/gis_visualization') }}">
                 {{ get_hidden_inputs(url_params) }}
                 <label for="labelColumn">
                     {% trans "Label column" %}

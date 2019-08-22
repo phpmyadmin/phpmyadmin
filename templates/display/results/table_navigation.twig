@@ -9,7 +9,7 @@
     {% endif %}
     {% if has_show_all %}
       <td>
-        <form action="sql.php" method="post">
+        <form action="{{ url('/sql') }}" method="post">
           {{ get_hidden_fields(hidden_fields|merge({
             'session_max_rows': session_max_rows,
             'pos': '0'
@@ -38,7 +38,7 @@
       {# of $cfg['MaxExactCountViews']; in this case, avoid passing #}
       {# the 5th parameter to Functions.checkFormElementInRange() #}
       {# (this means we can't validate the upper limit) #}
-      <form action="sql.php" method="post" onsubmit="return (Functions.checkFormElementInRange(this, 'session_max_rows', '
+      <form action="{{ url('/sql') }}" method="post" onsubmit="return (Functions.checkFormElementInRange(this, 'session_max_rows', '
         {{- '%d is not valid row number.'|trans|replace({'\'': '\\\''}) -}}
         ', 1) && Functions.checkFormElementInRange(this, 'pos', '
         {{- '%d is not valid row number.'|trans|replace({'\'': '\\\''}) -}}

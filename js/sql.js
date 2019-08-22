@@ -463,7 +463,7 @@ AJAX.registerOnload('sql.js', function () {
         // the Go button related to query submission was clicked,
         // instead of the one related to Bookmarks, so empty the
         // id_bookmark selector to avoid misinterpretation in
-        // import.php about what needs to be done
+        // /import about what needs to be done
         $form.find('select[name=id_bookmark]').val('');
         // let normal event propagation happen
         if (isStorageSupported('localStorage')) {
@@ -629,12 +629,12 @@ AJAX.registerOnload('sql.js', function () {
                     var url;
                     if (data.db) {
                         if (data.table) {
-                            url = 'table_sql.php';
+                            url = 'index.php?route=/table/sql';
                         } else {
-                            url = 'db_sql.php';
+                            url = 'index.php?route=/database/sql';
                         }
                     } else {
-                        url = 'server_sql.php';
+                        url = 'index.php?route=/server/sql';
                     }
                     CommonActions.refreshMain(url, function () {
                         $('#sqlqueryresultsouter')

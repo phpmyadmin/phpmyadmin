@@ -838,7 +838,7 @@ class Operations
     {
         $html_output = '<div>';
         $html_output .= '<form method="post" id="alterTableOrderby" '
-            . 'action="tbl_operations.php">';
+            . 'action="' . Url::getFromRoute('/table/operations') . '">';
         $html_output .= Url::getHiddenInputs(
             $GLOBALS['db'],
             $GLOBALS['table']
@@ -879,8 +879,8 @@ class Operations
     public function getHtmlForMoveTable()
     {
         $html_output = '<div>';
-        $html_output .= '<form method="post" action="tbl_operations.php"'
-            . ' id="moveTableForm" class="ajax"'
+        $html_output .= '<form method="post" action="' . Url::getFromRoute('/table/operations')
+            . '" id="moveTableForm" class="ajax"'
             . ' onsubmit="return Functions.emptyCheckTheField(this, \'new_name\')">'
             . Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
 
@@ -970,8 +970,8 @@ class Operations
         $checksum
     ) {
         $html_output = '<div>';
-        $html_output .= '<form method="post" action="tbl_operations.php"';
-        $html_output .= ' id="tableOptionsForm" class="ajax">';
+        $html_output .= '<form method="post" action="' . Url::getFromRoute('/table/operations');
+        $html_output .= '" id="tableOptionsForm" class="ajax">';
         $html_output .= Url::getHiddenInputs(
             $GLOBALS['db'],
             $GLOBALS['table']
@@ -1339,8 +1339,8 @@ class Operations
     public function getHtmlForCopytable()
     {
         $html_output = '<div>';
-        $html_output .= '<form method="post" action="tbl_operations.php" '
-            . 'name="copyTable" '
+        $html_output .= '<form method="post" action="' . Url::getFromRoute('/table/operations')
+            . '" name="copyTable" '
             . 'id="copyTable" '
             . ' class="ajax" '
             . 'onsubmit="return Functions.emptyCheckTheField(this, \'new_name\')">'
@@ -1593,7 +1593,7 @@ class Operations
     {
         return '<li>'
             . Util::linkOrButton(
-                'sql.php' . Url::getCommon(array_merge($url_params, $params)),
+                Url::getFromRoute('/sql', array_merge($url_params, $params)),
                 $action_message,
                 ['class' => 'maintain_action ajax']
             )
@@ -1653,7 +1653,7 @@ class Operations
     public function getDeleteDataOrTablelink(array $url_params, $syntax, $link, $htmlId)
     {
         return '<li>' . Util::linkOrButton(
-            'sql.php' . Url::getCommon($url_params),
+            Url::getFromRoute('/sql', $url_params),
             $link,
             [
                 'id' => $htmlId,
@@ -1700,7 +1700,7 @@ class Operations
 
         $html_output = '<div>'
             . '<form id="partitionsForm" class="ajax" '
-            . 'method="post" action="tbl_operations.php" >'
+            . 'method="post" action="' . Url::getFromRoute('/table/operations') . '">'
             . Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
             . '<fieldset>'
             . '<legend>'
@@ -1742,8 +1742,7 @@ class Operations
         );
         $html_output .= '<div class="clearfloat"><br>';
 
-        $html_output .= '<a href="sql.php'
-            . Url::getCommon($this_url_params) . '">'
+        $html_output .= '<a href="' . Url::getFromRoute('/sql', $this_url_params) . '">'
             . __('Remove partitioning') . '</a>';
 
         $html_output .= '</fieldset>'
@@ -1811,9 +1810,7 @@ class Operations
             );
 
             $html_output .= '<li>'
-                . '<a href="sql.php'
-                . Url::getCommon($this_url_params)
-                . '">'
+                . '<a href="' . Url::getFromRoute('/sql', $this_url_params) . '">'
                 . $master . '&nbsp;->&nbsp;' . $arr['foreign_db'] . '.'
                 . $arr['foreign_table'] . '.' . $arr['foreign_field']
                 . '</a></li>' . "\n";

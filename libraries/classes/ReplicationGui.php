@@ -457,8 +457,8 @@ class ReplicationGui
                     );
                 } else {
                     Core::sendHeaderLocation(
-                        './server_replication.php'
-                        . Url::getCommonRaw($GLOBALS['url_params'])
+                        './index.php?route=/server/replication'
+                        . Url::getCommonRaw($GLOBALS['url_params'], '&')
                     );
                 }
             }

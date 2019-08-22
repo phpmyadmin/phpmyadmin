@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
@@ -31,10 +32,12 @@ class NodeIndex extends Node
         parent::__construct($name, $type, $isGroup);
         $this->icon = Util::getImage('b_index', __('Index'));
         $this->links = [
-            'text' => 'tbl_indexes.php?server=' . $GLOBALS['server']
-                . '&amp;db=%3$s&amp;table=%2$s&amp;index=%1$s',
-            'icon' => 'tbl_indexes.php?server=' . $GLOBALS['server']
-                . '&amp;db=%3$s&amp;table=%2$s&amp;index=%1$s',
+            'text' => Url::getFromRoute('/table/indexes', [
+                'server' => $GLOBALS['server'],
+            ]) . '&amp;db=%3$s&amp;table=%2$s&amp;index=%1$s',
+            'icon' => Url::getFromRoute('/table/indexes', [
+                'server' => $GLOBALS['server'],
+            ]) . '&amp;db=%3$s&amp;table=%2$s&amp;index=%1$s',
         ];
         $this->classes = 'index';
     }

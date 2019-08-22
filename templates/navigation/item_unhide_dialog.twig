@@ -1,4 +1,4 @@
-<form class="ajax" action="navigation.php" method="post">
+<form class="ajax" action="{{ url('/navigation') }}" method="post">
   <fieldset>
     {{ get_hidden_inputs(database, table) }}
 
@@ -11,7 +11,7 @@
             <tr>
               <td>{{ item }}</td>
               <td class="right">
-                <a class="unhideNavItem ajax" href="navigation.php" data-post="{{ get_common({
+                <a class="unhideNavItem ajax" href="{{ url('/navigation') }}" data-post="{{ get_common({
                   'unhideNavItem': true,
                   'itemType': type,
                   'itemName': item,

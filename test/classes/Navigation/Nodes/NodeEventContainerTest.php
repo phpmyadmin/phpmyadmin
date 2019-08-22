@@ -12,6 +12,7 @@ namespace PhpMyAdmin\Tests\Navigation\Nodes;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Theme;
+use PhpMyAdmin\Url;
 
 /**
  * Tests for PhpMyAdmin\Navigation\Nodes\NodeEventContainer class
@@ -43,7 +44,7 @@ class NodeEventContainerTest extends PmaTestCase
             $parent->links
         );
         $this->assertStringContainsString(
-            'db_events.php',
+            Url::getFromRoute('/database/events'),
             $parent->links['text']
         );
         $this->assertEquals('events', $parent->realName);

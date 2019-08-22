@@ -624,15 +624,12 @@ class Util
                 if (strlen($table) > 0) {
                     $_url_params['db'] = $db;
                     $_url_params['table'] = $table;
-                    $doedit_goto = '<a href="tbl_sql.php'
-                        . Url::getCommon($_url_params) . '">';
+                    $doedit_goto = '<a href="' . Url::getFromRoute('/table/sql', $_url_params) . '">';
                 } elseif (strlen($db) > 0) {
                     $_url_params['db'] = $db;
-                    $doedit_goto = '<a href="db_sql.php'
-                        . Url::getCommon($_url_params) . '">';
+                    $doedit_goto = '<a href="' . Url::getFromRoute('/database/sql', $_url_params) . '">';
                 } else {
-                    $doedit_goto = '<a href="server_sql.php'
-                        . Url::getCommon($_url_params) . '">';
+                    $doedit_goto = '<a href="' . Url::getFromRoute('/server/sql', $_url_params) . '">';
                 }
 
                 $error_msg .= $doedit_goto
@@ -1068,12 +1065,12 @@ class Util
                 $url_params['db'] = $GLOBALS['db'];
                 if (strlen($GLOBALS['table']) > 0) {
                     $url_params['table'] = $GLOBALS['table'];
-                    $edit_link = 'tbl_sql.php';
+                    $edit_link = Url::getFromRoute('/table/sql');
                 } else {
-                    $edit_link = 'db_sql.php';
+                    $edit_link = Url::getFromRoute('/database/sql');
                 }
             } else {
-                $edit_link = 'server_sql.php';
+                $edit_link = Url::getFromRoute('/server/sql');
             }
 
             // Want to have the query explained
@@ -1087,7 +1084,7 @@ class Util
                     $explain_params['sql_query'] = 'EXPLAIN ' . $sql_query;
                     $explain_link = ' [&nbsp;'
                         . self::linkOrButton(
-                            'import.php' . Url::getCommon($explain_params),
+                            Url::getFromRoute('/import', $explain_params),
                             __('Explain SQL')
                         ) . '&nbsp;]';
                 } elseif (preg_match(
@@ -1098,7 +1095,7 @@ class Util
                         = mb_substr($sql_query, 8);
                     $explain_link = ' [&nbsp;'
                         . self::linkOrButton(
-                            'import.php' . Url::getCommon($explain_params),
+                            Url::getFromRoute('/import', $explain_params),
                             __('Skip Explain SQL')
                         ) . ']';
                     $url = 'https://mariadb.org/explain_analyzer/analyze/'
@@ -1136,14 +1133,14 @@ class Util
                 if (! empty($GLOBALS['show_as_php'])) {
                     $php_link = ' [&nbsp;'
                         . self::linkOrButton(
-                            'import.php' . Url::getCommon($url_params),
+                            Url::getFromRoute('/import', $url_params),
                             __('Without PHP code')
                         )
                         . '&nbsp;]';
 
                     $php_link .= ' [&nbsp;'
                         . self::linkOrButton(
-                            'import.php' . Url::getCommon($url_params),
+                            Url::getFromRoute('/import', $url_params),
                             __('Submit query')
                         )
                         . '&nbsp;]';
@@ -1152,7 +1149,7 @@ class Util
                     $php_params['show_as_php'] = 1;
                     $php_link = ' [&nbsp;'
                         . self::linkOrButton(
-                            'import.php' . Url::getCommon($php_params),
+                            Url::getFromRoute('/import', $php_params),
                             __('Create PHP code')
                         )
                         . '&nbsp;]';
@@ -1166,7 +1163,7 @@ class Util
                 && ! isset($GLOBALS['show_as_php']) // 'Submit query' does the same
                 && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $sql_query)
             ) {
-                $refresh_link = 'import.php' . Url::getCommon($url_params);
+                $refresh_link = Url::getFromRoute('/import', $url_params);
                 $refresh_link = ' [&nbsp;'
                     . self::linkOrButton($refresh_link, __('Refresh')) . ']';
             } else {
@@ -1178,7 +1175,7 @@ class Util
             $retval .= '</div>';
 
             $retval .= '<div class="tools print_ignore">';
-            $retval .= '<form action="sql.php" method="post">';
+            $retval .= '<form action="' . Url::getFromRoute('/sql') . '" method="post">';
             $retval .= Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
             $retval .= '<input type="hidden" name="sql_query" value="'
                 . htmlspecialchars($sql_query) . '">';
@@ -2417,16 +2414,16 @@ class Util
 
                 $_url_params[$name] = 0;
                 $list_navigator_html .= '<a' . $class . $title1 . ' href="' . $script
-                    . Url::getCommon($_url_params) . '">' . $caption1
+                    . Url::getCommon($_url_params, '&') . '">' . $caption1
                     . '</a>';
 
                 $_url_params[$name] = $pos - $max_count;
                 $list_navigator_html .= ' <a' . $class . $title2
-                    . ' href="' . $script . Url::getCommon($_url_params) . '">'
+                    . ' href="' . $script . Url::getCommon($_url_params, '&') . '">'
                     . $caption2 . '</a>';
             }
 
-            $list_navigator_html .= '<form action="' . basename($script)
+            $list_navigator_html .= '<form action="' . $script
                 . '" method="post">';
 
             $list_navigator_html .= Url::getHiddenInputs($_url_params);
@@ -2454,7 +2451,7 @@ class Util
 
                 $_url_params[$name] = $pos + $max_count;
                 $list_navigator_html .= '<a' . $class . $title3 . ' href="' . $script
-                    . Url::getCommon($_url_params) . '" >' . $caption3
+                    . Url::getCommon($_url_params, '&') . '" >' . $caption3
                     . '</a>';
 
                 $_url_params[$name] = floor($count / $max_count) * $max_count;
@@ -2463,7 +2460,7 @@ class Util
                 }
 
                 $list_navigator_html .= ' <a' . $class . $title4
-                    . ' href="' . $script . Url::getCommon($_url_params) . '" >'
+                    . ' href="' . $script . Url::getCommon($_url_params, '&') . '" >'
                     . $caption4 . '</a>';
             }
             $list_navigator_html .= '</div>' . "\n";
@@ -3191,7 +3188,7 @@ class Util
                 case 'structure':
                     return Url::getFromRoute('/database/structure');
                 case 'sql':
-                    return 'db_sql.php';
+                    return Url::getFromRoute('/database/sql');
                 case 'search':
                     return Url::getFromRoute('/database/search');
                 case 'operations':
@@ -3205,13 +3202,13 @@ class Util
                 case 'structure':
                     return Url::getFromRoute('/table/structure');
                 case 'sql':
-                    return 'tbl_sql.php';
+                    return Url::getFromRoute('/table/sql');
                 case 'search':
                     return Url::getFromRoute('/table/search');
                 case 'insert':
                     return Url::getFromRoute('/table/change');
                 case 'browse':
-                    return 'sql.php';
+                    return Url::getFromRoute('/sql');
             }
         }
 
@@ -3284,7 +3281,7 @@ class Util
                 $escape_method = $escape[0];
             }
             foreach ($replace as $key => $val) {
-                if (is_array($escape)) {
+                if (isset($escape_class, $escape_method)) {
                     $replace[$key] = $escape_class->$escape_method($val);
                 } else {
                     $replace[$key] = ($escape == 'backquote')

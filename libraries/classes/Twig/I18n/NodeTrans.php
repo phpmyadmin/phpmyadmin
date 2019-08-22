@@ -74,6 +74,7 @@ class NodeTrans extends TransNode
 
         list($msg, $vars) = $this->compileString($this->getNode('body'));
 
+        $msg1 = null;
         if ($this->hasNode('plural')) {
             list($msg1, $vars1) = $this->compileString($this->getNode('plural'));
 

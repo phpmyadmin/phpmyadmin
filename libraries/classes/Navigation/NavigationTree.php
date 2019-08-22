@@ -1152,6 +1152,8 @@ class NavigationTree
 
             $divClass = '';
 
+            $iconLinks = [];
+            $icons = [];
             if (isset($node->links['icon']) && ! empty($node->links['icon'])) {
                 $iconLinks = $node->links['icon'];
                 $icons = $node->icon;
@@ -1281,7 +1283,7 @@ class NavigationTree
             $this->tree->getPresence('databases', ''),
             $this->pos,
             ['server' => $GLOBALS['server']],
-            'navigation.php',
+            Url::getFromRoute('/navigation'),
             'frame_navigation',
             $GLOBALS['cfg']['FirstLevelNavigationItems'],
             'pos',
@@ -1487,7 +1489,7 @@ class NavigationTree
                 $this->tree->getPresence('databases', $this->searchClause),
                 $this->pos,
                 ['server' => $GLOBALS['server']],
-                'navigation.php',
+                Url::getFromRoute('/navigation'),
                 'frame_navigation',
                 $GLOBALS['cfg']['FirstLevelNavigationItems'],
                 'pos',
@@ -1521,7 +1523,7 @@ class NavigationTree
                     $num,
                     $pos,
                     $urlParams,
-                    'navigation.php',
+                    Url::getFromRoute('/navigation'),
                     'frame_navigation',
                     $GLOBALS['cfg']['MaxNavigationItems'],
                     'pos' . $level . '_value'

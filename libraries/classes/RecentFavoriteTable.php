@@ -188,12 +188,10 @@ class RecentFavoriteTable
             if ($this->_tableType == 'recent') {
                 foreach ($this->_tables as $table) {
                     $html .= '<li class="warp_link">';
-                    $recent_params = [
-                        'db'    => $table['db'],
+                    $recent_url = Url::getFromRoute('/table/recent_favorite', [
+                        'db' => $table['db'],
                         'table' => $table['table'],
-                    ];
-                    $recent_url = 'tbl_recent_favorite.php'
-                        . Url::getCommon($recent_params);
+                    ]);
                     $html .= '<a href="' . $recent_url . '">`'
                           . htmlspecialchars($table['db']) . '`.`'
                           . htmlspecialchars($table['table']) . '`</a>';
@@ -218,12 +216,10 @@ class RecentFavoriteTable
                         . Util::getIcon('b_favorite')
                         . '</a>';
 
-                    $fav_params = [
-                        'db'    => $table['db'],
+                    $table_url = Url::getFromRoute('/table/recent_favorite', [
+                        'db' => $table['db'],
                         'table' => $table['table'],
-                    ];
-                    $table_url = 'tbl_recent_favorite.php'
-                        . Url::getCommon($fav_params);
+                    ]);
                     $html .= '<a href="' . $table_url . '">`'
                         . htmlspecialchars($table['db']) . '`.`'
                         . htmlspecialchars($table['table']) . '`</a>';

@@ -2,7 +2,7 @@
     <h3>{% trans 'Export templates:' %}</h3>
 
     <div class="floatleft">
-        <form method="post" action="tbl_export.php" id="newTemplateForm" class="ajax">
+        <form method="post" action="{{ url('/table/export') }}" id="newTemplateForm" class="ajax">
             <h4>{% trans 'New template:' %}</h4>
             <div class="form-row">
                 <div class="col-8">
@@ -18,7 +18,7 @@
     </div>
 
     <div class="floatleft" style="margin-left: 50px;">
-        <form method="post" action="tbl_export.php" id="existingTemplatesForm" class="ajax">
+        <form method="post" action="{{ url('/table/export') }}" id="existingTemplatesForm" class="ajax">
             <h4>{% trans 'Existing templates:' %}</h4>
             <label for="template">{% trans 'Template:' %}</label>
             <select name="template" id="template" required>

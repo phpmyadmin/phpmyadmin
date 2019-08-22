@@ -7,17 +7,17 @@
 </div>
 
 {% if is_super_user %}
-<div class="row">  
+<div class="row">
   <div id="replication" class="container-fluid">
     {{ error_messages|raw }}
 
     {% if is_master %}
       {{ master_replication_html|raw }}
     {% elseif master_configure is null and clear_screen is null %}
-    <div class="row">  
+    <div class="row">
       <fieldset class="form-group">
         <legend class="form-control">{% trans 'Master replication' %}</legend>
-        {% filter format('<a href="server_replication.php" data-post="' ~ get_common(url_params|merge({'mr_configure': true}), '') ~ '">', '</a>')|raw %}
+        {% filter format('<a href="' ~ url('/server/replication') ~ '" data-post="' ~ get_common(url_params|merge({'mr_configure': true}), '') ~ '">', '</a>')|raw %}
           {% trans %}
             This server is not configured as master in a replication process. Would you like to %sconfigure%s it?
           {% endtrans %}

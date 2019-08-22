@@ -13,6 +13,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 
 /**
  * Class to handle database Multi-table querying
@@ -119,7 +120,7 @@ class MultiTableQuery
         ) = ParseAnalyze::sqlQuery($sqlQuery, $db);
 
         extract($analyzedSqlResults);
-        $goto = 'db_multi_table_query.php';
+        $goto = Url::getFromRoute('/database/multi_table_query');
         $sql = new Sql();
         $sql->executeQueryAndSendQueryResponse(
             null, // analyzed_sql_results

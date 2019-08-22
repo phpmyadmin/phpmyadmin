@@ -168,17 +168,13 @@ class AuthenticationCookieTest extends PmaTestCase
 
         $mockErrorHandler = $this->getMockBuilder('PhpMyAdmin\ErrorHandler')
             ->disableOriginalConstructor()
-            ->setMethods(['hasDisplayErrors', 'dispErrors'])
+            ->setMethods(['hasDisplayErrors'])
             ->getMock();
 
         $mockErrorHandler->expects($this->once())
             ->method('hasDisplayErrors')
             ->with()
             ->will($this->returnValue(true));
-
-        $mockErrorHandler->expects($this->once())
-            ->method('dispErrors')
-            ->with();
 
         $GLOBALS['error_handler'] = $mockErrorHandler;
     }
@@ -191,8 +187,6 @@ class AuthenticationCookieTest extends PmaTestCase
      */
     public function testAuthError()
     {
-        $this->getAuthErrorMockResponse();
-
         $_REQUEST['old_usr'] = '';
         $GLOBALS['cfg']['LoginCookieRecall'] = true;
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
@@ -207,6 +201,8 @@ class AuthenticationCookieTest extends PmaTestCase
         $GLOBALS['target'] = 'testTarget';
         $GLOBALS['db'] = 'testDb';
         $GLOBALS['table'] = 'testTable';
+        $GLOBALS['cfg']['Servers'] = [1, 2];
+        $GLOBALS['error_handler'] = new ErrorHandler();
 
         ob_start();
         $this->object->showLoginForm();
@@ -225,7 +221,7 @@ class AuthenticationCookieTest extends PmaTestCase
         );
 
         $this->assertStringContainsString(
-            '<form method="post" id="login_form" action="index.php" name="login_form" ' .
+            '<form method="post" id="login_form" action="index.php?route=/" name="login_form" ' .
             'class="disableAjax hide login js-show form-horizontal">',
             $result
         );
@@ -251,7 +247,7 @@ class AuthenticationCookieTest extends PmaTestCase
         $this->assertStringContainsString(
             '<select name="server" id="select_server" ' .
             'onchange="document.forms[\'login_form\'].' .
-            'elements[\'pma_servername\'].value = \'\'" >',
+            'elements[\'pma_servername\'].value = \'\'">',
             $result
         );
 
@@ -328,8 +324,8 @@ class AuthenticationCookieTest extends PmaTestCase
         }
 
         $this->assertStringContainsString(
-            '<form method="post" id="login_form" action="index.php" name="login_form" ' .
-            'autocomplete="off" class="disableAjax hide login js-show form-horizontal">',
+            '<form method="post" id="login_form" action="index.php?route=/" name="login_form"' .
+            ' class="disableAjax hide login js-show form-horizontal" autocomplete="off">',
             $result
         );
 

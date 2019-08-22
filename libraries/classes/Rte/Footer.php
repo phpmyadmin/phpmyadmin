@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Rte;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
@@ -51,7 +52,16 @@ class Footer
      */
     private function getLinks($docu, $priv, $name)
     {
-        global $db, $table, $url_query;
+        global $db, $table;
+
+        $route = '';
+        if (strtolower($name) === 'event') {
+            $route = '/database/events';
+        } elseif (strtolower($name) === 'trigger') {
+            $route = '/database/triggers';
+        } elseif (strtolower($name) === 'routine') {
+            $route = '/database/routines';
+        }
 
         $icon = mb_strtolower($name) . '_add';
         $retval  = "";
@@ -61,9 +71,12 @@ class Footer
         $retval .= "        <div class='wrap'>\n";
         if (Util::currentUserHasPrivilege($priv, $db, $table)) {
             $retval .= '            <a class="ajax add_anchor" ';
-            $retval .= "href='db_" . mb_strtolower($name) . "s.php";
-            $retval .= "$url_query&amp;add_item=1' ";
-            $retval .= "onclick='$.datepicker.initialized = false;'>";
+            $retval .= 'href="' . Url::getFromRoute($route, [
+                'db' => $db,
+                'table' => $table,
+                'add_item' => 1,
+            ]);
+            $retval .= '" onclick="$.datepicker.initialized = false;">';
             $icon = 'b_' . $icon;
             $retval .= Util::getIcon($icon);
             $retval .= $this->words->get('add') . "</a>\n";
@@ -107,7 +120,7 @@ class Footer
      */
     public function events()
     {
-        global $db, $url_query;
+        global $db, $table, $url_query;
 
         /**
          * For events, we show the usual 'Add event' form and also
@@ -144,7 +157,11 @@ class Footer
         $retval .= "        <div class='wrap'>\n";
         // show the toggle button
         $retval .= Util::toggleButton(
-            "sql.php$url_query&amp;goto=db_events.php" . urlencode("?db=$db"),
+            Url::getFromRoute('/sql', [
+                'db' => $db,
+                'table' => $table,
+                'goto' => Url::getFromRoute('/database/events', ['db' => $db]),
+            ]),
             'sql_query',
             $options,
             'Functions.slidingMessage(data.sql_query);'

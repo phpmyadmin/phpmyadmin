@@ -10,7 +10,7 @@
  */
 
 /**
- * Ajax event handlers here for db_qbe.php
+ * Ajax event handlers here for /database/qbe
  *
  * Actions Ajaxified here:
  * Select saved search

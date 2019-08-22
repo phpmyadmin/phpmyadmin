@@ -1,6 +1,6 @@
 <!-- VIEW operations -->
 <div>
-    <form method="post" action="view_operations.php">
+    <form method="post" action="{{ url('/view/operations') }}">
         {{ get_hidden_inputs(db, table) }}
         <input type="hidden" name="reload" value="1">
         <fieldset>

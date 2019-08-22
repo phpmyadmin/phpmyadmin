@@ -258,7 +258,7 @@ class UserPreferences
             $hash = '#' . urlencode($hash);
         }
         Core::sendHeaderLocation('./' . $file_name
-            . Url::getCommonRaw($url_params) . $hash);
+            . Url::getCommonRaw($url_params, strpos($file_name, '?') === false ? '?' : '&') . $hash);
     }
 
     /**

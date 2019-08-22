@@ -153,10 +153,13 @@ class FooterTest extends PmaTestCase
 
         $GLOBALS['cfg']['TabsMode'] = 'text';
         $GLOBALS['cfg']['ServerDefault'] = 1;
+        $GLOBALS['db'] = 'db';
+        $GLOBALS['table'] = 'table';
+        $_REQUEST['target'] = 'target';
 
         $this->assertEquals(
-            '<div id="selflink" class="print_ignore"><a href="index.php?db=&amp;'
-            . 'table=&amp;server=1&amp;target=&amp;lang=en'
+            '<div id="selflink" class="print_ignore"><a href="index.php?db=db&amp;'
+            . 'table=table&amp;server=1&amp;target=target&amp;lang=en'
             . '" title="Open new phpMyAdmin window" '
             . 'target="_blank" rel="noopener noreferrer">Open new phpMyAdmin window</a></div>',
             $this->_callPrivateFunction(
@@ -180,12 +183,37 @@ class FooterTest extends PmaTestCase
         $GLOBALS['cfg']['ServerDefault'] = 1;
 
         $this->assertEquals(
-            '<div id="selflink" class="print_ignore"><a href="index.php?db=&amp;'
-            . 'table=&amp;server=1&amp;target=&amp;lang=en'
-            . '" title="Open new phpMyAdmin window" '
+            '<div id="selflink" class="print_ignore"><a href="'
+            . 'index.php?server=1&amp;lang=en" title="Open new phpMyAdmin window" '
             . 'target="_blank" rel="noopener noreferrer"><img src="themes/dot.gif" title="Open new '
             . 'phpMyAdmin window" alt="Open new phpMyAdmin window" '
             . 'class="icon ic_window-new"></a></div>',
+            $this->_callPrivateFunction(
+                '_getSelfLink',
+                [
+                    $this->object->getSelfUrl(),
+                ]
+            )
+        );
+    }
+
+    /**
+     * Test for _getSelfLink
+     *
+     * @return void
+     */
+    public function testGetSelfLinkWithRoute()
+    {
+        $_GET['route'] = '/test';
+
+        $GLOBALS['cfg']['TabsMode'] = 'text';
+        $GLOBALS['cfg']['ServerDefault'] = 1;
+
+        $this->assertEquals(
+            '<div id="selflink" class="print_ignore"><a href="index.php?route=%2Ftest'
+            . '&amp;server=1&amp;lang=en'
+            . '" title="Open new phpMyAdmin window" '
+            . 'target="_blank" rel="noopener noreferrer">Open new phpMyAdmin window</a></div>',
             $this->_callPrivateFunction(
                 '_getSelfLink',
                 [

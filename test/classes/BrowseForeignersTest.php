@@ -220,7 +220,11 @@ class BrowseForeignersTest extends TestCase
         $this->assertStringContainsString(
             '<form class="ajax" '
             . 'id="browse_foreign_form" name="browse_foreign_from" '
-            . 'action="browse_foreigners.php" method="post">',
+            . 'action="index.php?route=/browse_foreigners',
+            $result
+        );
+        $this->assertStringContainsString(
+            '" method="post">',
             $result
         );
 

@@ -9,9 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Theme;
-use PhpMyAdmin\Url;
-
 /**
  * phpMyAdmin theme manager
  *
@@ -343,9 +340,8 @@ class ThemeManager
             $select_box .= Url::getHiddenInputs();
         }
 
-        $theme_preview_path = './themes.php';
         $theme_preview_href = '<a href="'
-            . $theme_preview_path . '" target="themes" class="themeselect">';
+            . Url::getFromRoute('/themes') . '" target="themes" class="themeselect">';
         $select_box .=  $theme_preview_href . __('Theme:') . '</a>' . "\n";
 
         $select_box .=  '<select name="set_theme" lang="en" dir="ltr"'

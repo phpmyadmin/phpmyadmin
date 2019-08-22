@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\SqlQueryForm;
+use PhpMyAdmin\Url;
 
 /**
  * Database SQL executor
@@ -35,8 +36,8 @@ class SqlController extends AbstractController
          * After a syntax error, we return to this script
          * with the typed query in the textarea.
          */
-        $goto = 'db_sql.php';
-        $back = 'db_sql.php';
+        $goto = Url::getFromRoute('/database/sql');
+        $back = $goto;
 
         return $sqlQueryForm->getHtml(
             true,

@@ -172,7 +172,7 @@ class ProcessesControllerTest extends TestCase
             $html
         );
         $this->assertStringContainsString(
-            'server_status_processes.php',
+            'index.php?route=/server/status/processes',
             $html
         );
 
@@ -249,7 +249,11 @@ class ProcessesControllerTest extends TestCase
             'sort_order' => 'DESC',
         ]);
 
-        $killProcess = 'href="server_status_processes.php" data-post="'
+        $this->assertStringContainsString(
+            'index.php?route=/server/status/processes',
+            $html
+        );
+        $killProcess = 'data-post="'
             . Url::getCommon(['kill' => $process['Id']], '') . '"';
         $this->assertStringContainsString(
             $killProcess,

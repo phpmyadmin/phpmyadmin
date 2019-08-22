@@ -107,7 +107,7 @@ class HomeController extends AbstractController
                         'id' => 'li_change_password',
                         'class' => 'no_bullets',
                         'url' => [
-                            'href' => 'user_password.php' . Url::getCommon(),
+                            'href' => Url::getFromRoute('/user_password'),
                             'target' => null,
                             'id' => 'change_password_anchor',
                             'class' => 'ajax',
@@ -144,7 +144,7 @@ class HomeController extends AbstractController
                     'id' => 'li_user_preferences',
                     'class' => 'no_bullets',
                     'url' => [
-                        'href' => 'prefs_manage.php' . Url::getCommon(),
+                        'href' => Url::getFromRoute('/preferences/manage'),
                         'target' => null,
                         'id' => null,
                         'class' => null,
@@ -213,7 +213,7 @@ class HomeController extends AbstractController
                 'id' => 'li_phpinfo',
                 'class' => null,
                 'url' => [
-                    'href' => 'phpinfo.php' . Url::getCommon(),
+                    'href' => Url::getFromRoute('/phpinfo'),
                     'target' => '_blank',
                     'id' => null,
                     'class' => null,
@@ -241,7 +241,7 @@ class HomeController extends AbstractController
                         );
                 }
                 $messageInstance = Message::notice($messageText);
-                $messageInstance->addParamHtml('<a href="./chk_rel.php" data-post="' . Url::getCommon() . '">');
+                $messageInstance->addParamHtml('<a href="' . Url::getFromRoute('/check_relations') . '" data-post="' . Url::getCommon() . '">');
                 $messageInstance->addParamHtml('</a>');
                 /* Show error if user has configured something, notice elsewhere */
                 if (! empty($cfg['Servers'][$server]['pmadb'])) {

@@ -3259,6 +3259,7 @@ $cfg['DefaultTransformations']['Inline'] = [
     100,
 ];
 $cfg['DefaultTransformations']['Inline']['wrapper_link'] = null;
+$cfg['DefaultTransformations']['Inline']['wrapper_params'] = [];
 
 /**
  * Default transformations for TextImageLink

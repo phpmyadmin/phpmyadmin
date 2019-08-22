@@ -52,7 +52,7 @@ class NodeTableTest extends PmaTestCase
             $parent->links
         );
         $this->assertStringContainsString(
-            'sql.php',
+            'index.php?route=/sql',
             $parent->links['text']
         );
         $this->assertStringContainsString('table', $parent->classes);

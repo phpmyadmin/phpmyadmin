@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Contains functions used by browse_foreigners.php
+ * Contains functions used by /browse_foreigners
  *
  * @package PhpMyAdmin
  */
@@ -183,9 +183,9 @@ class BrowseForeigners
         ]);
 
         $output = '<form class="ajax" '
-            . 'id="browse_foreign_form" name="browse_foreign_from" '
-            . 'action="browse_foreigners.php" method="post">'
-            . '<fieldset>'
+            . 'id="browse_foreign_form" name="browse_foreign_from" action="'
+            . Url::getFromRoute('/browse_foreigners')
+            . '" method="post"><fieldset>'
             . Url::getHiddenInputs($db, $table)
             . '<input type="hidden" name="field" value="' . htmlspecialchars($field)
             . '">'

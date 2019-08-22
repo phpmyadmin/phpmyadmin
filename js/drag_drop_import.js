@@ -72,7 +72,6 @@ var DragDropImport = {
      * @return void
      */
     sendFileToServer: function (formData, hash) {
-        var uploadURL = './import.php'; // Upload URL
         var jqXHR = $.ajax({
             xhr: function () {
                 var xhrobj = $.ajaxSettings.xhr();
@@ -90,7 +89,7 @@ var DragDropImport = {
                 }
                 return xhrobj;
             },
-            url: uploadURL,
+            url: 'index.php?route=/import',
             type: 'POST',
             contentType:false,
             processData: false,

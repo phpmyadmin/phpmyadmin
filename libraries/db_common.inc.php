@@ -21,19 +21,18 @@ if (! defined('PHPMYADMIN')) {
 
 Util::checkParameters(['db']);
 
-global $cfg;
-global $db;
+global $cfg, $db, $is_show_stats, $db_is_system_schema, $err_url, $message, $dbi, $url_query, $errno, $is_db;
 
 $response = Response::getInstance();
 $is_show_stats = $cfg['ShowStats'];
 
-$db_is_system_schema = $GLOBALS['dbi']->isSystemSchema($db);
+$db_is_system_schema = $dbi->isSystemSchema($db);
 if ($db_is_system_schema) {
     $is_show_stats = false;
 }
 
-$relation = new Relation($GLOBALS['dbi']);
-$operations = new Operations($GLOBALS['dbi'], $relation);
+$relation = new Relation($dbi);
+$operations = new Operations($dbi, $relation);
 
 /**
  * Defines the urls to return to in case of error in a sql statement
@@ -41,7 +40,7 @@ $operations = new Operations($GLOBALS['dbi'], $relation);
 $err_url_0 = 'index.php' . Url::getCommon();
 
 $err_url = Util::getScriptNameForOption(
-    $GLOBALS['cfg']['DefaultTabDatabase'],
+    $cfg['DefaultTabDatabase'],
     'database'
 );
 $err_url .= Url::getCommon(['db' => $db], strpos($err_url, '?') === false ? '?' : '&');
@@ -52,13 +51,13 @@ $err_url .= Url::getCommon(['db' => $db], strpos($err_url, '?') === false ? '?' 
  */
 if (! isset($is_db) || ! $is_db) {
     if (strlen($db) > 0) {
-        $is_db = $GLOBALS['dbi']->selectDb($db);
+        $is_db = $dbi->selectDb($db);
         // This "Command out of sync" 2014 error may happen, for example
         // after calling a MySQL procedure; at this point we can't select
         // the db but it's not necessarily wrong
-        if ($GLOBALS['dbi']->getError() && $GLOBALS['errno'] == 2014) {
+        if ($dbi->getError() && $errno == 2014) {
             $is_db = true;
-            unset($GLOBALS['errno']);
+            unset($errno);
         }
     } else {
         $is_db = false;
@@ -92,7 +91,7 @@ if (isset($_POST['submitcollation'], $_POST['db_collation']) && ! empty($_POST['
     $sql_query        = 'ALTER DATABASE '
         . Util::backquote($db)
         . ' DEFAULT' . Util::getCharsetQueryPart($_POST['db_collation']);
-    $result           = $GLOBALS['dbi']->query($sql_query);
+    $result           = $dbi->query($sql_query);
     $message          = Message::success();
 
     /**
@@ -103,7 +102,7 @@ if (isset($_POST['submitcollation'], $_POST['db_collation']) && ! empty($_POST['
     ) {
         list($tables, , , , , , , ,) = Util::getDbInfo($db, null);
         foreach ($tables as $tableName => $data) {
-            if ($GLOBALS['dbi']->getTable($db, $tableName)->isView()) {
+            if ($dbi->getTable($db, $tableName)->isView()) {
                 // Skip views, we can not change the collation of a view.
                 // issue #15283
                 continue;
@@ -114,7 +113,7 @@ if (isset($_POST['submitcollation'], $_POST['db_collation']) && ! empty($_POST['
             . Util::backquote($tableName)
             . ' DEFAULT '
             . Util::getCharsetQueryPart($_POST['db_collation']);
-            $GLOBALS['dbi']->query($sql_query);
+            $dbi->query($sql_query);
 
             /**
              * Changes columns charset if requested by the user

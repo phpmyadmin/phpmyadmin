@@ -302,10 +302,10 @@ class NodeTable extends NodeDatabaseChild
             case Url::getFromRoute('/table/change'):
                 $this->icon[] = Util::getImage('b_insrow', __('Insert'));
                 break;
-            case 'tbl_sql.php':
+            case Url::getFromRoute('/table/sql'):
                 $this->icon[] = Util::getImage('b_sql', __('SQL'));
                 break;
-            case 'sql.php':
+            case Url::getFromRoute('/sql'):
                 $this->icon[] = Util::getImage('b_browse', __('Browse'));
                 break;
         }

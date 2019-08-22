@@ -428,7 +428,7 @@ class ExportOdt extends ExportPlugin
      * @param bool   $do_comments   whether to include the pmadb-style column
      *                              comments as comments in the structure;
      *                              this is deprecated but the parameter is
-     *                              left here because export.php calls
+     *                              left here because /export calls
      *                              PMA_exportStructure() also for other
      * @param bool   $do_mime       whether to include mime comments
      * @param bool   $show_dates    whether to include creation/update/check dates
@@ -669,7 +669,7 @@ class ExportOdt extends ExportPlugin
      * @param bool   $do_comments whether to include the pmadb-style column
      *                            comments as comments in the structure;
      *                            this is deprecated but the parameter is
-     *                            left here because export.php calls
+     *                            left here because /export calls
      *                            PMA_exportStructure() also for other
      * @param bool   $do_mime     whether to include mime comments
      * @param bool   $dates       whether to include creation/update/check dates
