@@ -38,6 +38,7 @@ if (isset($_POST['dialog'])) {
         $req_key = array_search($required, $GLOBALS['designer']['TABLE_NAME']);
 
         $GLOBALS['designer']['TABLE_NAME'] = array($GLOBALS['designer']['TABLE_NAME'][$req_key]);
+        $GLOBALS['designer_url']['TABLE_NAME'] = array($GLOBALS['designer_url']['TABLE_NAME'][$req_key]);
         $GLOBALS['designer_url']['TABLE_NAME_SMALL'] = array($GLOBALS['designer_url']['TABLE_NAME_SMALL'][$req_key]);
         $GLOBALS['designer']['TABLE_NAME_SMALL'] = array($GLOBALS['designer']['TABLE_NAME_SMALL'][$req_key]);
         $GLOBALS['designer_out']['TABLE_NAME_SMALL'] = array($GLOBALS['designer_out']['TABLE_NAME_SMALL'][$req_key]);
@@ -187,7 +188,7 @@ $response->addHTML(
 );
 
 $response->addHTML($databaseDesigner->getHtmlCanvas());
-$response->addHTML($databaseDesigner->getHtmlTableList($tab_pos, $display_page));
+$response->addHTML($databaseDesigner->getHtmlTableList());
 
 $response->addHTML(
     $databaseDesigner->getDatabaseTables(
