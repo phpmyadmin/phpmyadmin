@@ -130,11 +130,15 @@ abstract class TableStats
      */
     protected function loadCoordinates()
     {
-        foreach ($_REQUEST['t_h'] as $key => $value) {
-            if ($this->db . '.' . $this->tableName == $key) {
-                $this->x = (double) $_REQUEST['t_x'][$key];
-                $this->y = (double) $_REQUEST['t_y'][$key];
-                break;
+        if (isset($_POST['t_h'])) {
+            foreach ($_POST['t_h'] as $key => $value) {
+                $db = rawurldecode($_POST['t_db'][$key]);
+                $tbl = rawurldecode($_POST['t_tbl'][$key]);
+                if ($this->db . '.' . $this->tableName === $db . '.' . $tbl) {
+                    $this->x = (double) $_POST['t_x'][$key];
+                    $this->y = (double) $_POST['t_y'][$key];
+                    break;
+                }
             }
         }
     }

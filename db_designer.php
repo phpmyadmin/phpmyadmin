@@ -19,33 +19,25 @@ $designerCommon = new Common();
 if (isset($_POST['dialog'])) {
 
     if ($_POST['dialog'] == 'edit') {
-        $html = $databaseDesigner->getHtmlForEditOrDeletePages($GLOBALS['db'], 'editPage');
+        $html = $databaseDesigner->getHtmlForEditOrDeletePages($_POST['db'], 'editPage');
     } elseif ($_POST['dialog'] == 'delete') {
-        $html = $databaseDesigner->getHtmlForEditOrDeletePages($GLOBALS['db'], 'deletePage');
+        $html = $databaseDesigner->getHtmlForEditOrDeletePages($_POST['db'], 'deletePage');
     } elseif ($_POST['dialog'] == 'save_as') {
-        $html = $databaseDesigner->getHtmlForPageSaveAs($GLOBALS['db']);
+        $html = $databaseDesigner->getHtmlForPageSaveAs($_POST['db']);
     } elseif ($_POST['dialog'] == 'export') {
         $html = $databaseDesigner->getHtmlForSchemaExport(
-            $GLOBALS['db'], $_POST['selected_page']
+            $_POST['db'], $_POST['selected_page']
         );
     } elseif ($_POST['dialog'] == 'add_table') {
-        $script_display_field = $designerCommon->getTablesInfo();
-        $required = $GLOBALS['db'] . '.' . $GLOBALS['table'];
-        $tab_column = $designerCommon->getColumnsInfo();
-        $tables_all_keys = $designerCommon->getAllKeys();
-        $tables_pk_or_unique_keys = $designerCommon->getPkOrUniqueKeys();
-
-        $req_key = array_search($required, $GLOBALS['designer']['TABLE_NAME']);
-
-        $GLOBALS['designer']['TABLE_NAME'] = array($GLOBALS['designer']['TABLE_NAME'][$req_key]);
-        $GLOBALS['designer_url']['TABLE_NAME'] = array($GLOBALS['designer_url']['TABLE_NAME'][$req_key]);
-        $GLOBALS['designer_url']['TABLE_NAME_SMALL'] = array($GLOBALS['designer_url']['TABLE_NAME_SMALL'][$req_key]);
-        $GLOBALS['designer']['TABLE_NAME_SMALL'] = array($GLOBALS['designer']['TABLE_NAME_SMALL'][$req_key]);
-        $GLOBALS['designer_out']['TABLE_NAME_SMALL'] = array($GLOBALS['designer_out']['TABLE_NAME_SMALL'][$req_key]);
-        $GLOBALS['designer']['TABLE_TYPE'] = array($GLOBALS['designer_url']['TABLE_TYPE'][$req_key]);
-        $GLOBALS['designer_out']['OWNER'] = array($GLOBALS['designer_out']['OWNER'][$req_key]);
+        // Pass the db and table to the getTablesInfo so we only have the table we asked for
+        $script_display_field = $designerCommon->getTablesInfo($_POST['db'], $_POST['table']);
+        $tab_column = $designerCommon->getColumnsInfo($script_display_field);
+        $tables_all_keys = $designerCommon->getAllKeys($script_display_field);
+        $tables_pk_or_unique_keys = $designerCommon->getPkOrUniqueKeys($script_display_field);
 
         $html = $databaseDesigner->getDatabaseTables(
+            $_POST['db'],
+            $script_display_field,
             array(), -1, $tab_column,
             $tables_all_keys, $tables_pk_or_unique_keys
         );
@@ -66,7 +58,7 @@ if (isset($_POST['operation'])) {
         if ($_POST['save_page'] == 'same') {
             $page = $_POST['selected_page'];
         } else { // new
-            $page = $designerCommon->createNewPage($_POST['selected_value'], $GLOBALS['db']);
+            $page = $designerCommon->createNewPage($_POST['selected_value'], $_POST['db']);
             $response->addJSON('id', $page);
         }
         $success = $designerCommon->saveTablePositions($page);
@@ -110,11 +102,6 @@ if (isset($_POST['operation'])) {
 require 'libraries/db_common.inc.php';
 
 $script_display_field = $designerCommon->getTablesInfo();
-$tab_column = $designerCommon->getColumnsInfo();
-$script_tables = $designerCommon->getScriptTabs();
-$tables_pk_or_unique_keys = $designerCommon->getPkOrUniqueKeys();
-$tables_all_keys = $designerCommon->getAllKeys();
-$classes_side_menu = $databaseDesigner->returnClassNamesFromMenuButtons();
 
 $display_page = -1;
 $selected_page = null;
@@ -132,7 +119,30 @@ if ($display_page != -1) {
     $selected_page = $designerCommon->getPageName($display_page);
 }
 $tab_pos = $designerCommon->getTablePositions($display_page);
-$script_contr = $designerCommon->getScriptContr();
+
+$fullTableNames = [];
+
+foreach($script_display_field as $designerTable) {
+    $fullTableNames[] = $designerTable->getDbTableString();
+}
+
+foreach($tab_pos as $position) {
+    if (! in_array($position['dbName'] . '.' . $position['tableName'], $fullTableNames)) {
+        foreach($designerCommon->getTablesInfo($position['dbName'], $position['tableName']) as $designerTable) {
+            $script_display_field[] = $designerTable;
+        }
+    }
+}
+
+
+$tab_column = $designerCommon->getColumnsInfo($script_display_field);
+$script_tables = $designerCommon->getScriptTabs($script_display_field);
+$tables_pk_or_unique_keys = $designerCommon->getPkOrUniqueKeys($script_display_field);
+$tables_all_keys = $designerCommon->getAllKeys($script_display_field);
+$classes_side_menu = $databaseDesigner->returnClassNamesFromMenuButtons();
+
+
+$script_contr = $designerCommon->getScriptContr($script_display_field);
 
 $params = array('lang' => $GLOBALS['lang']);
 if (isset($_GET['db'])) {
@@ -192,6 +202,8 @@ $response->addHTML($databaseDesigner->getHtmlTableList());
 
 $response->addHTML(
     $databaseDesigner->getDatabaseTables(
+        $_GET['db'],
+        $script_display_field,
         $tab_pos, $display_page, $tab_column,
         $tables_all_keys, $tables_pk_or_unique_keys
     )

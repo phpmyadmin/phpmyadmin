@@ -1095,7 +1095,7 @@ class Export
             Core::fatalError(__('Bad type!'));
         }
 
-        $GLOBALS['dbi']->selectDb($GLOBALS['db']);
-        $export_plugin->exportSchema($GLOBALS['db']);
+        $GLOBALS['dbi']->selectDb($_POST['db']);
+        $export_plugin->exportSchema($_POST['db']);
     }
 }

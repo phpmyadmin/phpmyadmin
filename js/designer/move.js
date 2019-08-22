@@ -549,25 +549,25 @@ function Toggle_fullscreen () {
     saveValueInConfig('full_screen', value_sent);
 }
 
-function addTableToTablesList(index, table_dom) {
+function addTableToTablesList (index, table_dom) {
     var db = $(table_dom).find('.small_tab_pref').attr('db');
-    var table = $(table_dom).find('.small_tab_pref').attr('table_name_small');
-    var db_encoded = encodeURIComponent(db);
-    var table_encoded = encodeURIComponent(table);
+    var table = $(table_dom).find('.small_tab_pref').attr('table_name');
+    var db_encoded = $(table_dom).find('.small_tab_pref').attr('db_url');
+    var table_encoded = $(table_dom).find('.small_tab_pref').attr('table_name_url');
     var $new_table_line = $('<tr>' +
         '    <td title="' + PMA_messages.strStructure + '"' +
         '        width="1px"' +
         '        class="L_butt2_1">' +
         '        <img alt=""' +
-        '            db="' + db + '"' +
-        '            table_name="' + table + '"' +
+        '            db="' + db_encoded + '"' +
+        '            table_name="' + table_encoded + '"' +
         '            class="scroll_tab_struct"' +
         '            src="' + pmaThemeImage + 'designer/exec.png"/>' +
         '    </td>' +
         '    <td width="1px">' +
         '        <input class="scroll_tab_checkbox"' +
         '            title="' + PMA_messages.strHide + '"' +
-        '            id="check_vis_' + encodeURI(db) + '.' + table_encoded + '"' +
+        '            id="check_vis_' + db_encoded + '.' + table_encoded + '"' +
         '            style="margin:0;"' +
         '            type="checkbox"' +
         '            value="' + db_encoded + '.' + table_encoded + '"' +
@@ -597,7 +597,7 @@ function Add_Other_db_tables () {
         var db = $('#add_table_from').val();
         var table = $('#add_table').val();
 
-        //Check if table already imported or not.
+        // Check if table already imported or not.
         var $table = $('[id="' + encodeURIComponent(db) + '.' + encodeURIComponent(table) + '"]');
         if ($table.length !== 0) {
             PMA_ajaxShowMessage(
@@ -615,11 +615,14 @@ function Add_Other_db_tables () {
             'table' : table,
             'server': PMA_commonParams.get('server')
         }, function (data) {
-            var $new_table_dom = $(data.message);
-            $new_table_dom.find('a').first().remove();
-            $('#container-form').append($new_table_dom);
-            enableTableEvents(null, $new_table_dom);
-            addTableToTablesList(null, $new_table_dom);
+            var $newTableDom = $(data.message);
+            $newTableDom.find('a').first().remove();
+            $('#container-form').append($newTableDom);
+            enableTableEvents(null, $newTableDom);
+            addTableToTablesList(null, $newTableDom);
+            var dbEncoded = $($newTableDom).find('.small_tab_pref').attr('db_url');
+            var tableEncoded = $($newTableDom).find('.small_tab_pref').attr('table_name_url');
+            j_tabs[dbEncoded + '.' + tableEncoded] = 1;
         });
         $(this).dialog('close');
     };
@@ -628,10 +631,10 @@ function Add_Other_db_tables () {
     };
 
     var $select_db = $('<select id="add_table_from"></select>');
-    $select_db.append('<option value="">None</option>');
+    $select_db.append('<option value="">' + PMA_messages.strNone + '</option>');
 
     var $select_table = $('<select id="add_table"></select>');
-    $select_table.append('<option value="">None</option>');
+    $select_table.append('<option value="">' + PMA_messages.strNone + '</option>');
 
     $.post('sql.php', {
         'ajax_request' : true,
@@ -670,7 +673,11 @@ function Add_Other_db_tables () {
                 'server': PMA_commonParams.get('server')
             }, function (data) {
                 $select_table.html('');
-                $(data.message).find('table.table_results.data.ajax').find('td.data').each(function () {
+                var rows = $(data.message).find('table.table_results.data.ajax').find('td.data');
+                if (rows.length === 0) {
+                    $select_table.append('<option value="">' + PMA_messages.strNone + '</option>');
+                }
+                rows.each(function () {
                     var val = $(this)[0].innerHTML;
                     $select_table.append('<option value="' + val + '">' + val + '</option>');
                 });
@@ -705,11 +712,15 @@ function Get_url_pos (forceString) {
     if (designer_tables_enabled || forceString) {
         var poststr = '';
         var argsep = PMA_commonParams.get('arg_separator');
+        var i = 1;
         for (var key in j_tabs) {
-            poststr += argsep + 't_x[' + decodeURIComponent(key) + ']=' + parseInt(document.getElementById(key).style.left, 10);
-            poststr += argsep + 't_y[' + decodeURIComponent(key) + ']=' + parseInt(document.getElementById(key).style.top, 10);
-            poststr += argsep + 't_v[' + decodeURIComponent(key) + ']=' + (document.getElementById('id_tbody_' + key).style.display === 'none' ? 0 : 1);
-            poststr += argsep + 't_h[' + decodeURIComponent(key) + ']=' + (document.getElementById('check_vis_' + key).checked ? 1 : 0);
+            poststr += argsep + 't_x[' + i + ']=' + parseInt(document.getElementById(key).style.left, 10);
+            poststr += argsep + 't_y[' + i + ']=' + parseInt(document.getElementById(key).style.top, 10);
+            poststr += argsep + 't_v[' + i + ']=' + (document.getElementById('id_tbody_' + key).style.display === 'none' ? 0 : 1);
+            poststr += argsep + 't_h[' + i + ']=' + (document.getElementById('check_vis_' + key).checked ? 1 : 0);
+            poststr += argsep + 't_db[' + i + ']=' + $(document.getElementById(key)).attr('db_url');
+            poststr += argsep + 't_tbl[' + i + ']=' + $(document.getElementById(key)).attr('table_name_url');
+            i++;
         }
         return poststr;
     } else {
@@ -718,7 +729,10 @@ function Get_url_pos (forceString) {
             if (document.getElementById('check_vis_' + key).checked) {
                 var x = parseInt(document.getElementById(key).style.left, 10);
                 var y = parseInt(document.getElementById(key).style.top, 10);
-                var tbCoords = new TableCoordinate(db, key.split('.')[1], -1, x, y);
+                var tbCoords = new TableCoordinate(
+                    $(document.getElementById(key)).attr('db_url'),
+                    $(document.getElementById(key)).attr('table_name_url'),
+                    -1, x, y);
                 coords.push(tbCoords);
             }
         }
@@ -729,8 +743,8 @@ function Get_url_pos (forceString) {
 function Save2 (callback) {
     if (designer_tables_enabled) {
         var argsep = PMA_commonParams.get('arg_separator');
-        var poststr = argsep + 'operation=savePage' + argsep + 'save_page=same' + argsep + 'ajax_request=true';
-        poststr += argsep + 'server=' + server + argsep + 'db=' + db + argsep + 'selected_page=' + selected_page;
+        var poststr = 'operation=savePage' + argsep + 'save_page=same' + argsep + 'ajax_request=true';
+        poststr += argsep + 'server=' + server + argsep + 'db=' + encodeURIComponent(db) + argsep + 'selected_page=' + selected_page;
         poststr += Get_url_pos();
 
         var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
@@ -1176,7 +1190,7 @@ function Load_page (page) {
         if (page !== null) {
             param_page = argsep + 'page=' + page;
         }
-        $('<a href="db_designer.php?server=' + server + argsep + 'db=' + encodeURI(db) + param_page + '"></a>')
+        $('<a href="db_designer.php?server=' + server + argsep + 'db=' + encodeURIComponent(db) + param_page + '"></a>')
             .appendTo($('#page_content'))
             .click();
     } else {
