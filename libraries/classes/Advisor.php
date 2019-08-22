@@ -230,6 +230,10 @@ class Advisor
         $this->variables['system_memory']
             = isset($memory['MemTotal']) ? $memory['MemTotal'] : 0;
 
+        // Add IS_MYSQL to globals
+        $isMariaDB = false !== strpos($this->getVariables()['version'], 'MariaDB');
+        $this->globals['IS_MYSQL'] = !$isMariaDB;
+
         // Step 2: Read and parse the list of rules
         $this->setParseResult(static::parseRulesFile());
         // Step 3: Feed the variables to the rules and let them fire. Sets
