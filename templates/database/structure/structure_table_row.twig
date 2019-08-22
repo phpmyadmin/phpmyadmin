@@ -62,10 +62,10 @@
         </td>
         {% if table_is_view %}
             <td class="center print_ignore">
-                <a href="view_create.php{{- get_common({
-                                'db': db,
-                                'table': current_table['TABLE_NAME']
-                            }) }}">{{ titles['Edit']|raw }}</a>
+                <a href="{{ url('/view/create', {
+                    'db': db,
+                    'table': current_table['TABLE_NAME']
+                }) }}">{{ titles['Edit']|raw }}</a>
             </td>
         {% else %}
           <td class="center print_ignore">

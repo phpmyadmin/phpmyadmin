@@ -27,7 +27,7 @@ CodeMirror.sqlLint = function (text, updateLinting, options, cm) {
 
     $.ajax({
         method: 'POST',
-        url: 'lint.php',
+        url: 'index.php?route=/lint',
         dataType: 'json',
         data: {
             'sql_query': text,

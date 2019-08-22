@@ -354,8 +354,8 @@ class ErrorHandler
             &&  $this->countErrors() !=  $this->countUserErrors()
         ) {
             // add report button.
-            $retval .= '<form method="post" action="error_report.php"'
-                    . ' id="pma_report_errors_form"';
+            $retval .= '<form method="post" action="' . Url::getFromRoute('/error_report')
+                    . '" id="pma_report_errors_form"';
             if ($GLOBALS['cfg']['SendErrorReports'] == 'always') {
                 // in case of 'always', generate 'invisible' form.
                 $retval .= ' class="hide"';
@@ -387,16 +387,6 @@ class ErrorHandler
             $retval .= '</form>';
         }
         return $retval;
-    }
-
-    /**
-     * displays errors not displayed
-     *
-     * @return void
-     */
-    public function dispErrors(): void
-    {
-        echo $this->getDispErrors();
     }
 
     /**

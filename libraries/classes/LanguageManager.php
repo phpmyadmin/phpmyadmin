@@ -731,7 +731,6 @@ class LanguageManager
     public function availableLocales()
     {
         if (! $this->_available_locales) {
-
             if (! isset($GLOBALS['PMA_Config']) || empty($GLOBALS['PMA_Config']->get('FilterLanguages'))) {
                 $this->_available_locales = $this->listLocaleDir();
             } else {

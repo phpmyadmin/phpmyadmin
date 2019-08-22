@@ -55,14 +55,14 @@ class UserPreferencesHeader
         // build user preferences menu
         $content = Util::getHtmlTab(
             [
-                'link' => 'prefs_manage.php',
+                'link' => 'index.php?route=/preferences/manage',
                 'text' => __('Manage your settings'),
             ]
         ) . "\n";
         /* Second authentication factor */
         $content .= Util::getHtmlTab(
             [
-                'link' => 'prefs_twofactor.php',
+                'link' => 'index.php?route=/preferences/twofactor',
                 'text' => __('Two-factor authentication'),
             ]
         ) . "\n";
@@ -94,15 +94,15 @@ class UserPreferencesHeader
             'Import' => 'b_import',
             'Export' => 'b_export',
         ];
-        $script_name = basename($GLOBALS['PMA_PHP_SELF']);
+        $route = $_GET['route'] ?? $_POST['route'] ?? '';
         $content = null;
         foreach (UserFormList::getAll() as $formset) {
             $formset_class = UserFormList::get($formset);
             $tab = [
-                'link' => 'prefs_forms.php',
+                'link' => 'index.php?route=/preferences/forms',
                 'text' => $formset_class::getName(),
                 'icon' => $tabs_icons[$formset],
-                'active' => 'prefs_forms.php' === $script_name && $formset === $form_param,
+                'active' => $route === '/preferences/forms' && $formset === $form_param,
             ];
             $content .= Util::getHtmlTab($tab, ['form' => $formset]) . "\n";
         }

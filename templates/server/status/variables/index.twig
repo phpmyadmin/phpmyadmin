@@ -6,7 +6,7 @@
 <div class="row">
   <fieldset id="tableFilter">
     <legend>{% trans 'Filters' %}</legend>
-    <form action="server_status_variables.php" method="post">
+    <form action="{{ url('/server/status/variables') }}" method="post">
       {{ get_hidden_inputs() }}
 
       <input class="btn btn-secondary" type="submit" value="{% trans 'Refresh' %}">

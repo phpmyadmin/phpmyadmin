@@ -53,6 +53,6 @@ $err_url .= Url::getCommon($url_params, strpos($err_url, '?') === false ? '?' : 
  * Ensures the database and the table exist (else move to the "parent" script)
  * Skip test if we are exporting as we can't tell whether a table name is an alias (which would fail the test).
  */
-if (basename($_SERVER['PHP_SELF']) != 'tbl_export.php') {
+if (($_GET['route'] ?? $_POST['route'] ?? '') === '/table/export') {
     require_once ROOT_PATH . 'libraries/db_table_exists.inc.php';
 }

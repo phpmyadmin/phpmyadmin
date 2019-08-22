@@ -50,10 +50,12 @@ class NodeViewContainer extends NodeDatabaseChildContainer
         $new->isNew = true;
         $new->icon = Util::getImage('b_view_add', $newLabel);
         $new->links = [
-            'text' => 'view_create.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s',
-            'icon' => 'view_create.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s',
+            'text' => Url::getFromRoute('/view/create', [
+                'server' => $GLOBALS['server'],
+            ]) . '&amp;db=%2$s',
+            'icon' => Url::getFromRoute('/view/create', [
+                'server' => $GLOBALS['server'],
+            ]) . '&amp;db=%2$s',
         ];
         $new->classes = 'new_view italics';
         $this->addChild($new);

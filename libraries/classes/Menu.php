@@ -348,8 +348,10 @@ class Menu
         $tabs['structure']['icon'] = 'b_props';
         $tabs['structure']['link'] = Url::getFromRoute('/table/structure');
         $tabs['structure']['text'] = __('Structure');
-        $tabs['structure']['active'] = basename($GLOBALS['PMA_PHP_SELF']) === 'tbl_relation.php' ||
-            (isset($_REQUEST['route']) && in_array($_REQUEST['route'], ['/table/structure']));
+        $tabs['structure']['active'] = isset($_REQUEST['route']) && in_array($_REQUEST['route'], [
+            '/table/relation',
+            '/table/structure',
+        ]);
 
         $tabs['sql']['icon'] = 'b_sql';
         $tabs['sql']['link'] = Url::getFromRoute('/table/sql');
@@ -359,12 +361,11 @@ class Menu
         $tabs['search']['icon'] = 'b_search';
         $tabs['search']['text'] = __('Search');
         $tabs['search']['link'] = Url::getFromRoute('/table/search');
-        $tabs['search']['active'] = in_array(basename($GLOBALS['PMA_PHP_SELF']), [
-            'tbl_zoom_select.php',
-            'tbl_find_replace.php',
-        ]) || (isset($_REQUEST['route']) && in_array($_REQUEST['route'], [
+        $tabs['search']['active'] = isset($_REQUEST['route']) && in_array($_REQUEST['route'], [
+            '/table/find_replace',
             '/table/search',
-        ]));
+            '/table/zoom_select',
+        ]);
 
         if (! $db_is_system_schema && (! $tbl_is_view || $updatable_view)) {
             $tabs['insert']['icon'] = 'b_insrow';
@@ -373,17 +374,19 @@ class Menu
         }
 
         $tabs['export']['icon'] = 'b_tblexport';
-        $tabs['export']['link'] = 'tbl_export.php';
+        $tabs['export']['link'] = Url::getFromRoute('/table/export');
         $tabs['export']['args']['single_table'] = 'true';
         $tabs['export']['text'] = __('Export');
+        $tabs['export']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/table/export';
 
         /**
          * Don't display "Import" for views and information_schema
          */
         if (! $tbl_is_view && ! $db_is_system_schema) {
             $tabs['import']['icon'] = 'b_tblimport';
-            $tabs['import']['link'] = 'tbl_import.php';
+            $tabs['import']['link'] = Url::getFromRoute('/table/import');
             $tabs['import']['text'] = __('Import');
+            $tabs['import']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/table/import';
         }
         if (($is_superuser || $isCreateOrGrantUser)
             && ! $db_is_system_schema
@@ -401,16 +404,18 @@ class Menu
          */
         if (! $tbl_is_view && ! $db_is_system_schema) {
             $tabs['operation']['icon'] = 'b_tblops';
-            $tabs['operation']['link'] = 'tbl_operations.php';
+            $tabs['operation']['link'] = Url::getFromRoute('/table/operations');
             $tabs['operation']['text'] = __('Operations');
+            $tabs['operation']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/table/operations';
         }
         /**
          * Views support a limited number of operations
          */
         if ($tbl_is_view && ! $db_is_system_schema) {
             $tabs['operation']['icon'] = 'b_tblops';
-            $tabs['operation']['link'] = 'view_operations.php';
+            $tabs['operation']['link'] = Url::getFromRoute('/view/operations');
             $tabs['operation']['text'] = __('Operations');
+            $tabs['operation']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/view/operations';
         }
 
         if (Tracker::isActive() && ! $db_is_system_schema) {
@@ -486,15 +491,17 @@ class Menu
 
         $tabs['export']['text'] = __('Export');
         $tabs['export']['icon'] = 'b_export';
-        $tabs['export']['link'] = 'db_export.php';
+        $tabs['export']['link'] = Url::getFromRoute('/database/export');
+        $tabs['export']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/database/export';
         if ($num_tables == 0) {
             $tabs['export']['warning'] = __('Database seems to be empty!');
         }
 
         if (! $db_is_system_schema) {
-            $tabs['import']['link'] = 'db_import.php';
+            $tabs['import']['link'] = Url::getFromRoute('/database/import');
             $tabs['import']['text'] = __('Import');
             $tabs['import']['icon'] = 'b_import';
+            $tabs['import']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/database/import';
 
             $tabs['operation']['link'] = Url::getFromRoute('/database/operations');
             $tabs['operation']['text'] = __('Operations');
@@ -592,44 +599,44 @@ class Menu
         $tabs['status']['icon'] = 's_status';
         $tabs['status']['link'] = Url::getFromRoute('/server/status');
         $tabs['status']['text'] = __('Status');
-        $tabs['status']['active'] = in_array(basename($GLOBALS['PMA_PHP_SELF']), [
-            'server_status_variables.php',
-            'server_status_processes.php',
-        ]) || (isset($_REQUEST['route']) && in_array($_REQUEST['route'], [
+        $tabs['status']['active'] = isset($_REQUEST['route']) && in_array($_REQUEST['route'], [
             '/server/status',
             '/server/status/advisor',
             '/server/status/monitor',
+            '/server/status/processes',
             '/server/status/queries',
-        ]));
+            '/server/status/variables',
+        ]);
 
         if ($is_superuser || $isCreateOrGrantUser) {
             $tabs['rights']['icon'] = 's_rights';
             $tabs['rights']['link'] = Url::getFromRoute('/server/privileges');
             $tabs['rights']['text'] = __('User accounts');
-            $tabs['rights']['active'] = basename($GLOBALS['PMA_PHP_SELF']) === 'server_user_groups.php' ||
-                (isset($_REQUEST['route']) && in_array($_REQUEST['route'], ['/server/privileges']));
+            $tabs['rights']['active'] = isset($_REQUEST['route']) && in_array($_REQUEST['route'], [
+                '/server/privileges',
+                '/server/user_groups',
+            ]);
             $tabs['rights']['args']['viewing_mode'] = 'server';
         }
 
         $tabs['export']['icon'] = 'b_export';
-        $tabs['export']['link'] = 'server_export.php';
+        $tabs['export']['link'] = Url::getFromRoute('/server/export');
         $tabs['export']['text'] = __('Export');
+        $tabs['export']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/server/export';
 
         $tabs['import']['icon'] = 'b_import';
-        $tabs['import']['link'] = 'server_import.php';
+        $tabs['import']['link'] = Url::getFromRoute('/server/import');
         $tabs['import']['text'] = __('Import');
+        $tabs['import']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/server/import';
 
-        $tabs['settings']['icon']   = 'b_tblops';
-        $tabs['settings']['link']   = 'prefs_manage.php';
-        $tabs['settings']['text']   = __('Settings');
-        $tabs['settings']['active'] = in_array(
-            basename($GLOBALS['PMA_PHP_SELF']),
-            [
-                'prefs_forms.php',
-                'prefs_manage.php',
-                'prefs_twofactor.php',
-            ]
-        );
+        $tabs['settings']['icon'] = 'b_tblops';
+        $tabs['settings']['link'] = Url::getFromRoute('/preferences/manage');
+        $tabs['settings']['text'] = __('Settings');
+        $tabs['settings']['active'] = isset($_REQUEST['route']) && in_array($_REQUEST['route'], [
+            '/preferences/forms',
+            '/preferences/manage',
+            '/preferences/twofactor',
+        ]);
 
         if (! empty($binary_logs)) {
             $tabs['binlog']['icon'] = 's_tbl';

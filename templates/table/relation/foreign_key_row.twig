@@ -10,8 +10,8 @@
             %}
             {% set this_params = url_params %}
             {% set this_params = {
-                'goto': 'tbl_relation.php',
-                'back': 'tbl_relation.php',
+                'goto': url('/table/relation'),
+                'back': url('/table/relation'),
                 'sql_query': drop_fk_query,
                 'message_to_show': 'Foreign key constraint %s has been dropped'|trans|format(
                     one_key['constraint']

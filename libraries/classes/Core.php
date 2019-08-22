@@ -26,30 +26,7 @@ class Core
      * @static array $goto_whitelist
      */
     public static $goto_whitelist = [
-        'db_export.php',
-        'db_importdocsql.php',
-        'db_import.php',
-        'export.php',
-        'import.php',
         'index.php',
-        'pdf_pages.php',
-        'pdf_schema.php',
-        'server_export.php',
-        'server_import.php',
-        'server_status_variables.php',
-        'tbl_addfield.php',
-        'tbl_create.php',
-        'tbl_import.php',
-        'tbl_indexes.php',
-        'tbl_export.php',
-        'tbl_operations.php',
-        'tbl_relation.php',
-        'tbl_replace.php',
-        'tbl_row_action.php',
-        'tbl_zoom_select.php',
-        'transformation_overview.php',
-        'transformation_wrapper.php',
-        'user_password.php',
     ];
 
     /**

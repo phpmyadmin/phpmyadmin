@@ -23,7 +23,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $cfg, $containerBuilder, $db, $display_query, $pmaThemeImage, $sql_query, $table;
+global $cfg, $containerBuilder, $db, $display_query, $pmaThemeImage, $sql_query, $table, $message;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);

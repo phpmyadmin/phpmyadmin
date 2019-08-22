@@ -1271,7 +1271,7 @@ class Import
             ];
             $tbl_url = Url::getFromRoute('/sql', $params);
             $tbl_struct_url = Url::getFromRoute('/table/structure', $params);
-            $tbl_ops_url = 'tbl_operations.php' . Url::getCommon($params);
+            $tbl_ops_url = Url::getFromRoute('/table/operations', $params);
 
             unset($params);
 
@@ -1638,7 +1638,7 @@ class Import
         $parser = new Parser($sql_query);
 
         if (empty($parser->statements[0])) {
-            return false;
+            return true;
         }
 
         $statement = $parser->statements[0];

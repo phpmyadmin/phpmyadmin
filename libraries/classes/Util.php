@@ -1084,7 +1084,7 @@ class Util
                     $explain_params['sql_query'] = 'EXPLAIN ' . $sql_query;
                     $explain_link = ' [&nbsp;'
                         . self::linkOrButton(
-                            'import.php' . Url::getCommon($explain_params),
+                            Url::getFromRoute('/import', $explain_params),
                             __('Explain SQL')
                         ) . '&nbsp;]';
                 } elseif (preg_match(
@@ -1095,7 +1095,7 @@ class Util
                         = mb_substr($sql_query, 8);
                     $explain_link = ' [&nbsp;'
                         . self::linkOrButton(
-                            'import.php' . Url::getCommon($explain_params),
+                            Url::getFromRoute('/import', $explain_params),
                             __('Skip Explain SQL')
                         ) . ']';
                     $url = 'https://mariadb.org/explain_analyzer/analyze/'
@@ -1133,14 +1133,14 @@ class Util
                 if (! empty($GLOBALS['show_as_php'])) {
                     $php_link = ' [&nbsp;'
                         . self::linkOrButton(
-                            'import.php' . Url::getCommon($url_params),
+                            Url::getFromRoute('/import', $url_params),
                             __('Without PHP code')
                         )
                         . '&nbsp;]';
 
                     $php_link .= ' [&nbsp;'
                         . self::linkOrButton(
-                            'import.php' . Url::getCommon($url_params),
+                            Url::getFromRoute('/import', $url_params),
                             __('Submit query')
                         )
                         . '&nbsp;]';
@@ -1149,7 +1149,7 @@ class Util
                     $php_params['show_as_php'] = 1;
                     $php_link = ' [&nbsp;'
                         . self::linkOrButton(
-                            'import.php' . Url::getCommon($php_params),
+                            Url::getFromRoute('/import', $php_params),
                             __('Create PHP code')
                         )
                         . '&nbsp;]';
@@ -1163,7 +1163,7 @@ class Util
                 && ! isset($GLOBALS['show_as_php']) // 'Submit query' does the same
                 && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $sql_query)
             ) {
-                $refresh_link = 'import.php' . Url::getCommon($url_params);
+                $refresh_link = Url::getFromRoute('/import', $url_params);
                 $refresh_link = ' [&nbsp;'
                     . self::linkOrButton($refresh_link, __('Refresh')) . ']';
             } else {
@@ -2414,16 +2414,16 @@ class Util
 
                 $_url_params[$name] = 0;
                 $list_navigator_html .= '<a' . $class . $title1 . ' href="' . $script
-                    . Url::getCommon($_url_params) . '">' . $caption1
+                    . Url::getCommon($_url_params, '&') . '">' . $caption1
                     . '</a>';
 
                 $_url_params[$name] = $pos - $max_count;
                 $list_navigator_html .= ' <a' . $class . $title2
-                    . ' href="' . $script . Url::getCommon($_url_params) . '">'
+                    . ' href="' . $script . Url::getCommon($_url_params, '&') . '">'
                     . $caption2 . '</a>';
             }
 
-            $list_navigator_html .= '<form action="' . basename($script)
+            $list_navigator_html .= '<form action="' . $script
                 . '" method="post">';
 
             $list_navigator_html .= Url::getHiddenInputs($_url_params);
@@ -2451,7 +2451,7 @@ class Util
 
                 $_url_params[$name] = $pos + $max_count;
                 $list_navigator_html .= '<a' . $class . $title3 . ' href="' . $script
-                    . Url::getCommon($_url_params) . '" >' . $caption3
+                    . Url::getCommon($_url_params, '&') . '" >' . $caption3
                     . '</a>';
 
                 $_url_params[$name] = floor($count / $max_count) * $max_count;
@@ -2460,7 +2460,7 @@ class Util
                 }
 
                 $list_navigator_html .= ' <a' . $class . $title4
-                    . ' href="' . $script . Url::getCommon($_url_params) . '" >'
+                    . ' href="' . $script . Url::getCommon($_url_params, '&') . '" >'
                     . $caption4 . '</a>';
             }
             $list_navigator_html .= '</div>' . "\n";

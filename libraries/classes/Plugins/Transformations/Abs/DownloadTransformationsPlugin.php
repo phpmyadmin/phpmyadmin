@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\TransformationsPlugin;
+use PhpMyAdmin\Url;
 use stdClass;
 
 /**
@@ -68,16 +69,19 @@ abstract class DownloadTransformationsPlugin extends TransformationsPlugin
             }
         }
 
-        return sprintf(
-            '<a href="transformation_wrapper.php%s&amp;ct=application'
-            . '/octet-stream&amp;cn=%s" title="%s" class="disableAjax">%s</a>',
-            $options['wrapper_link'],
-            htmlspecialchars(urlencode($cn)),
-            htmlspecialchars($cn),
-            htmlspecialchars($cn)
+        $link = '<a href="' . Url::getFromRoute(
+            '/transformation/wrapper',
+            array_merge($options['wrapper_params'], [
+                'ct' => 'application/octet-stream',
+                'cn' => $cn,
+            ])
         );
-    }
+        $link .= '" title="' . htmlspecialchars($cn);
+        $link .= '" class="disableAjax">' . htmlspecialchars($cn);
+        $link .= '</a>';
 
+        return $link;
+    }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 

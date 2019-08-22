@@ -374,9 +374,8 @@
 {# Work on the table #}
 <div id="structure-action-links">
     {% if tbl_is_view and not db_is_system_schema %}
-        {% set edit_view_url = 'view_create.php' ~ edit_view_url %}
         {{ link_or_button(
-            edit_view_url,
+            url('/view/create', {'db': db, 'table': table}),
             get_icon('b_edit', 'Edit view'|trans, true)
         ) }}
     {% endif %}
@@ -403,7 +402,7 @@
         <a href="#" id="move_columns_anchor">
             {{ get_icon('b_move', 'Move columns'|trans, true) }}
         </a>
-        <a href="normalization.php{{ url_query|raw }}">
+        <a href="{{ url('/normalization', url_params) }}">
             {{ get_icon('normalize', 'Normalize'|trans, true) }}
         </a>
     {% endif %}
@@ -416,7 +415,7 @@
     {% endif %}
 </div>
 {% if not tbl_is_view and not db_is_system_schema %}
-    <form method="post" action="tbl_addfield.php" id="addColumns" name="addColumns">
+    <form method="post" action="{{ url('/table/addfield') }}" id="addColumns" name="addColumns">
         {{ get_hidden_inputs(db, table) }}
         {% if show_icons('ActionLinksMode') %}
             {{ get_image('b_insrow', 'Add column'|trans) }}&nbsp;
@@ -434,7 +433,7 @@
             {% for one_column_name in columns_list %}
                 <option value="{{ one_column_name }}"
                     {{- loop.revindex0 == 0 ? ' selected="selected"' }}>
-                    {{ 'after %s'|trans|format(one_column_name|e) }}
+                    {{ 'after %s'|trans|format(one_column_name) }}
                 </option>
             {% endfor %}
         </select>

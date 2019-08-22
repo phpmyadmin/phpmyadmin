@@ -200,16 +200,14 @@ class GisVisualizationController extends AbstractController
          * Displays the page
          */
         $this->url_params['sql_query'] = $this->sql_query;
-        $downloadUrl = 'tbl_gis_visualization.php' . Url::getCommon(
-            array_merge(
-                $this->url_params,
-                [
-                    'saveToFile' => true,
-                    'session_max_rows' => $rows,
-                    'pos' => $pos,
-                ]
-            )
-        );
+        $downloadUrl = Url::getFromRoute('/table/gis_visualization', array_merge(
+            $this->url_params,
+            [
+                'saveToFile' => true,
+                'session_max_rows' => $rows,
+                'pos' => $pos,
+            ]
+        ));
         $html = $this->template->render('table/gis_visualization/gis_visualization', [
             'url_params' => $this->url_params,
             'download_url' => $downloadUrl,

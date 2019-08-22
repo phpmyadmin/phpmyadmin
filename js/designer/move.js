@@ -1275,7 +1275,7 @@ DesignerMove.newRelation = function () {
 // -------------------------- create tables -------------------------------------
 DesignerMove.startTableNew = function () {
     CommonParams.set('table', '');
-    CommonActions.refreshMain('tbl_create.php');
+    CommonActions.refreshMain('index.php?route=/table/create');
 };
 
 DesignerMove.startTabUpd = function (table) {

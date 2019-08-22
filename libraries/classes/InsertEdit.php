@@ -2118,6 +2118,8 @@ class InsertEdit
             $special_chars = Util::addMicroseconds($column['Default']);
         } elseif ($trueType == 'binary' || $trueType == 'varbinary') {
             $special_chars = bin2hex($column['Default']);
+        } elseif ('text' === substr($trueType, -4)) {
+            $special_chars = stripcslashes((string) substr($column['Default'], 1, -1));
         } else {
             $special_chars = htmlspecialchars($column['Default']);
         }
@@ -2539,6 +2541,7 @@ class InsertEdit
                 : ''
             );
             $transform_options['wrapper_link'] = Url::getCommon($_url_params);
+            $transform_options['wrapper_params'] = $_url_params;
             $class_name = $this->transformations->getClassName($include_file);
             if (class_exists($class_name)) {
                 /** @var TransformationsPlugin $transformation_plugin */
@@ -2995,7 +2998,7 @@ class InsertEdit
             'sql_query' => $_POST['sql_query'],
         ];
 
-        if (0 === strpos($goto, "tbl_")) {
+        if (0 === strpos($goto, 'tbl_') || 0 === strpos($goto, 'index.php?route=/table')) {
             $url_params['table'] = $table;
         }
 
@@ -3080,7 +3083,7 @@ class InsertEdit
         if ($has_blob_field && $is_upload) {
             $html_output .= 'disableAjax';
         }
-        $html_output .= '" method="post" action="tbl_replace.php" name="insertForm" ';
+        $html_output .= '" method="post" action="' . Url::getFromRoute('/table/replace') . '" name="insertForm" ';
         if ($is_upload) {
             $html_output .= ' enctype="multipart/form-data"';
         }
@@ -3332,8 +3335,8 @@ class InsertEdit
                         'transform_key' => $column['Field'],
                         'where_clause'  => $where_clause,
                     ];
-                    $transformation_options['wrapper_link']
-                        = Url::getCommon($_url_params);
+                    $transformation_options['wrapper_link'] = Url::getCommon($_url_params);
+                    $transformation_options['wrapper_params'] = $_url_params;
                     $current_value = '';
                     if (isset($current_row[$column['Field']])) {
                         $current_value = $current_row[$column['Field']];

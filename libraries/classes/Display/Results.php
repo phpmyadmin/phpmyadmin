@@ -1077,6 +1077,9 @@ class Results
         $number_of_columns = $this->__get('fields_cnt');
 
         for ($j = 0; $j < $number_of_columns; $j++) {
+            // PHP 7.4 fix for accessing array offset on bool
+            $col_visib_current = is_array($col_visib) ? $col_visib[$j] : null;
+
             // assign $i with the appropriate column order
             $i = $col_order ? $col_order[$j] : $j;
 
@@ -1104,7 +1107,7 @@ class Results
                         $comments,
                         $sort_direction,
                         $col_visib,
-                        $col_visib[$j]
+                        $col_visib_current
                     );
 
                 $html .= $sorted_header_html;
@@ -1119,7 +1122,7 @@ class Results
                 $html
                     .= $this->_getDraggableClassForNonSortableColumns(
                         $col_visib,
-                        $col_visib[$j],
+                        $col_visib_current,
                         $condition_field,
                         $fields_meta[$i],
                         $comments
@@ -2929,6 +2932,7 @@ class Results
             }
 
             $transform_options['wrapper_link'] = Url::getCommon($_url_params);
+            $transform_options['wrapper_params'] = $_url_params;
 
             $display_params = $this->__get('display_params');
 
@@ -3574,6 +3578,7 @@ class Results
                 $meta,
                 $map,
                 $column,
+                $column,
                 $transformation_plugin,
                 $default_function,
                 $nowrap,
@@ -3668,7 +3673,7 @@ class Results
             $wktval = Util::asWKT($column);
             list(
                 $is_field_truncated,
-                $wktval,
+                $displayedColumn,
                 // skip 3rd param
             ) = $this->_getPartialText($wktval);
 
@@ -3679,6 +3684,7 @@ class Results
                 $meta,
                 $map,
                 $wktval,
+                $displayedColumn,
                 $transformation_plugin,
                 $default_function,
                 '',
@@ -3698,7 +3704,7 @@ class Results
             $wkbval = substr(bin2hex($column), 8);
             list(
                 $is_field_truncated,
-                $wkbval,
+                $displayedColumn,
                 // skip 3rd param
             ) = $this->_getPartialText($wkbval);
 
@@ -3709,6 +3715,7 @@ class Results
                 $meta,
                 $map,
                 $wkbval,
+                $displayedColumn,
                 $transformation_plugin,
                 $default_function,
                 '',
@@ -3821,21 +3828,22 @@ class Results
 
         // Cut all fields to $GLOBALS['cfg']['LimitChars']
         // (unless it's a link-type transformation or binary)
+        $displayedColumn = $column;
         if (! (gettype($transformation_plugin) === "object"
             && strpos($transformation_plugin->getName(), 'Link') !== false)
             && false === stripos($field_flags, self::BINARY_FIELD)
         ) {
             list(
                 $is_field_truncated,
-                $column,
+                $displayedColumn,
                 $original_length
             ) = $this->_getPartialText($column);
         }
 
         $formatted = false;
         if (isset($meta->_type) && $meta->_type === MYSQLI_TYPE_BIT) {
-            $column = Util::printableBitValue(
-                (int) $column,
+            $displayedColumn = Util::printableBitValue(
+                (int) $displayedColumn,
                 (int) $meta->length
             );
 
@@ -3851,9 +3859,9 @@ class Results
             if ($meta->type === self::STRING_FIELD) {
                 $binary_or_blob = self::BINARY_FIELD;
             }
-            $column = $this->_handleNonPrintableContents(
+            $displayedColumn = $this->_handleNonPrintableContents(
                 $binary_or_blob,
-                $column,
+                $displayedColumn,
                 $transformation_plugin,
                 $transform_options,
                 $default_function,
@@ -3883,7 +3891,7 @@ class Results
             $cell = $this->_buildValueDisplay(
                 $class,
                 $condition_field,
-                $column
+                $displayedColumn
             );
             return $cell;
         }
@@ -3911,6 +3919,7 @@ class Results
             $meta,
             $map,
             $column,
+            $displayedColumn,
             $transformation_plugin,
             $default_function,
             $nowrap,
@@ -4760,8 +4769,8 @@ class Results
     /**
      * Generates HTML to display the Create view in span tag
      *
-     * @param array  $analyzed_sql_results analyzed sql results
-     * @param string $url_query            String with URL Parameters
+     * @param array $analyzed_sql_results analyzed sql results
+     * @param array $params               Array with URL Parameters
      *
      * @return string
      *
@@ -4769,13 +4778,13 @@ class Results
      *
      * @see _getResultsOperations()
      */
-    private function _getLinkForCreateView(array $analyzed_sql_results, $url_query)
+    private function _getLinkForCreateView(array $analyzed_sql_results, array $params): string
     {
         $results_operations_html = '';
         if (empty($analyzed_sql_results['procedure'])) {
             $results_operations_html .= '<span>'
                 . Util::linkOrButton(
-                    'view_create.php' . $url_query,
+                    Url::getFromRoute('/view/create', $params),
                     Util::getIcon(
                         'b_view_add',
                         __('Create view'),
@@ -4884,7 +4893,7 @@ class Results
             'printview' => '1',
             'sql_query' => $this->__get('sql_query'),
         ];
-        $url_query = Url::getCommon($_url_params);
+        $params = $_url_params;
 
         if (! $header_shown) {
             $results_operations_html .= $header;
@@ -4895,7 +4904,7 @@ class Results
         if ($only_view) {
             $results_operations_html .= $this->_getLinkForCreateView(
                 $analyzed_sql_results,
-                $url_query
+                $params
             );
 
             if ($header_shown) {
@@ -4937,7 +4946,7 @@ class Results
              * for example with a query like
              * SELECT bike_code FROM (SELECT bike_code FROM bikes) tmp
              * As a workaround we set in the table parameter the name of the
-             * first table of this database, so that tbl_export.php and
+             * first table of this database, so that /table/export and
              * the script it calls do not fail
              */
             if (empty($_url_params['table']) && ! empty($_url_params['db'])) {
@@ -4949,7 +4958,7 @@ class Results
             }
 
             $results_operations_html .= Util::linkOrButton(
-                'tbl_export.php' . Url::getCommon($_url_params),
+                Url::getFromRoute('/table/export', $_url_params),
                 Util::getIcon(
                     'b_tblexport',
                     __('Export'),
@@ -4960,7 +4969,7 @@ class Results
 
             // prepare chart
             $results_operations_html .= Util::linkOrButton(
-                'tbl_chart.php' . Url::getCommon($_url_params),
+                Url::getFromRoute('/table/chart', $_url_params),
                 Util::getIcon(
                     'b_chart',
                     __('Display chart'),
@@ -4982,8 +4991,7 @@ class Results
             if ($geometry_found) {
                 $results_operations_html
                     .= Util::linkOrButton(
-                        'tbl_gis_visualization.php'
-                        . Url::getCommon($_url_params),
+                        Url::getFromRoute('/table/gis_visualization', $_url_params),
                         Util::getIcon(
                             'b_globe',
                             __('Visualize GIS data'),
@@ -5009,7 +5017,7 @@ class Results
 
         $results_operations_html .= $this->_getLinkForCreateView(
             $analyzed_sql_results,
-            $url_query
+            $params
         );
 
         if ($header_shown) {
@@ -5126,8 +5134,8 @@ class Results
         if (count($url_params) > 0
             && (! empty($tmpdb) && ! empty($meta->orgtable))
         ) {
-            $result = '<a href="tbl_get_field.php'
-                . Url::getCommon($url_params)
+            $result = '<a href="'
+                . Url::getFromRoute('/table/get_field', $url_params)
                 . '" class="disableAjax">'
                 . $result . '</a>';
         }
@@ -5188,6 +5196,7 @@ class Results
      *                                                     field
      * @param array                 $map                   the list of relations
      * @param string                $data                  data
+     * @param string                $displayedData         data that will be displayed (maybe be chunked)
      * @param TransformationsPlugin $transformation_plugin transformation plugin.
      *                                                     Can also be the default function:
      *                                                     Core::mimeDefaultFunction
@@ -5214,6 +5223,7 @@ class Results
         $meta,
         array $map,
         $data,
+        $displayedData,
         $transformation_plugin,
         $default_function,
         $nowrap,
@@ -5309,7 +5319,7 @@ class Results
                 if ($transformation_plugin != $default_function) {
                     // always apply a transformation on the real data,
                     // not on the display field
-                    $message = $transformation_plugin->applyTransformation(
+                    $displayedData = $transformation_plugin->applyTransformation(
                         $data,
                         $transform_options,
                         $meta
@@ -5320,10 +5330,10 @@ class Results
                     ) {
                         // user chose "relational display field" in the
                         // display options, so show display field in the cell
-                        $message = $default_function($dispval);
+                        $displayedData = $default_function($dispval);
                     } else {
                         // otherwise display data in the cell
-                        $message = $default_function($data);
+                        $displayedData = $default_function($displayedData);
                     }
                 }
 
@@ -5333,7 +5343,7 @@ class Results
                 }
                 $result .= Util::linkOrButton(
                     Url::getFromRoute('/sql', $_url_params),
-                    $message,
+                    $displayedData,
                     $tag_params
                 );
             }

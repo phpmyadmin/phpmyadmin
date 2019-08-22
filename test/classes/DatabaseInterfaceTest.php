@@ -434,7 +434,7 @@ class DatabaseInterfaceTest extends PmaTestCase
             [
                 1698,
                 'msg',
-                'logout.php',
+                'index.php?route=/logout',
             ],
             [
                 1005,

@@ -312,7 +312,7 @@ if (! $is_information_schema) {
                 '%sFind out why%s.'
             )
         );
-        $message->addParamHtml('<a href="./chk_rel.php" data-post="' . $url_query . '">');
+        $message->addParamHtml('<a href="' . Url::getFromRoute('/check_relations') . '" data-post="' . $url_query . '">');
         $message->addParamHtml('</a>');
         /* Show error if user has configured something, notice elsewhere */
         if (! empty($cfg['Servers'][$server]['pmadb'])) {
