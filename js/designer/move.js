@@ -554,6 +554,18 @@ function Add_Other_db_tables () {
     button_options[PMA_messages.strGo] = function () {
         var db = $('#add_table_from').val();
         var table = $('#add_table').val();
+
+        //Check if table already imported or not.
+        var $table = $('[id="' + encodeURIComponent(db) + '.' + encodeURIComponent(table) + '"]');
+        if ($table.length !== 0) {
+            PMA_ajaxShowMessage(
+                PMA_sprintf(PMA_messages.strTableAlreadyExists, db + '.' + table),
+                undefined,
+                'error'
+            );
+            return;
+        }
+
         $.post('db_designer.php', {
             'ajax_request' : true,
             'dialog' : 'add_table',
