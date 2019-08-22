@@ -4652,7 +4652,6 @@ $(function () {
     if ($('#floating_menubar').length && $('#PMA_disable_floating_menubar').length === 0) {
         var left = $('html').attr('dir') === 'ltr' ? 'left' : 'right';
         $('#floating_menubar')
-            .css('margin-' + left, $('#pma_navigation').width() + $('#pma_navigation_resizer').width())
             .css(left, 0)
             .css({
                 'position': 'fixed',
