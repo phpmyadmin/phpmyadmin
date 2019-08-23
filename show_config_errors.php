@@ -32,6 +32,8 @@ if (isset($_SERVER['HTTP_USER_AGENT'])
 }
 header('Content-Type: text/html; charset=utf-8');
 
+define('PHPMYADMIN', true);
+
 require ROOT_PATH . 'libraries/vendor_config.php';
 
 error_reporting(E_ALL);
