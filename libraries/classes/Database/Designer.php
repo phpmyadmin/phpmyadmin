@@ -61,14 +61,12 @@ class Designer
      *
      * @return string html content
      */
-    public function getHtmlForEditOrDeletePages($db, $operation, $AddedDBs, $AddedTables)
+    public function getHtmlForEditOrDeletePages($db, $operation)
     {
         $cfgRelation = $this->relation->getRelationsParam();
         return $this->template->render('database/designer/edit_delete_pages', [
             'db' => $db,
             'operation' => $operation,
-            'AddedDBs' => $AddedDBs,
-            'AddedTables' => $AddedTables,
             'pdfwork' => $cfgRelation['pdfwork'],
             'pages' => $this->getPageIdsAndNames($db),
         ]);
@@ -81,13 +79,11 @@ class Designer
      *
      * @return string html content
      */
-    public function getHtmlForPageSaveAs($db, $AddedDBs, $AddedTables)
+    public function getHtmlForPageSaveAs($db)
     {
         $cfgRelation = $this->relation->getRelationsParam();
         return $this->template->render('database/designer/page_save_as', [
             'db' => $db,
-            'AddedDBs' => $AddedDBs,
-            'AddedTables' => $AddedTables,
             'pdfwork' => $cfgRelation['pdfwork'],
             'pages' => $this->getPageIdsAndNames($db),
         ]);

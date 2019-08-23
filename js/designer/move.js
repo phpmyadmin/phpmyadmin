@@ -654,7 +654,7 @@ DesignerMove.getUrlPos = function (forceString) {
             poststr += argsep + 't_x[' + key + ']=' + parseInt(document.getElementById(key).style.left, 10);
             poststr += argsep + 't_y[' + key + ']=' + parseInt(document.getElementById(key).style.top, 10);
             poststr += argsep + 't_v[' + key + ']=' + (document.getElementById('id_tbody_' + key).style.display === 'none' ? 0 : 1);
-            poststr += argsep + 't_h[' + key + ']=' + (document.getElementById('check_vis_' + key).checked ? 1 : 0);
+            poststr += argsep + 't_h[' + key + ']=' + 1;
         }
         for (key in jTabs) {
             poststr += argsep + 't_x[' + key + ']=' + parseInt(document.getElementById(key).style.left, 10);
@@ -822,8 +822,6 @@ DesignerMove.editPages = function () {
             'ajax_request': true,
             'server': server,
             'db': db,
-            'AddedDBs': AddedDBs,
-            'AddedTables': AddedTables,
             'dialog': 'edit'
         }, function (data) {
             if (data.success === false) {

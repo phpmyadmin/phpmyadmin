@@ -38,9 +38,9 @@ $designerCommon = $containerBuilder->get('designer_common');
 
 if (isset($_POST['dialog'])) {
     if ($_POST['dialog'] == 'edit') {
-        $html = $databaseDesigner->getHtmlForEditOrDeletePages($db, 'editPage', $_POST['AddedDBs'], $_POST['AddedTables']);
+        $html = $databaseDesigner->getHtmlForEditOrDeletePages($db, 'editPage');
     } elseif ($_POST['dialog'] == 'delete') {
-        $html = $databaseDesigner->getHtmlForEditOrDeletePages($db, 'deletePage', '', '');
+        $html = $databaseDesigner->getHtmlForEditOrDeletePages($db, 'deletePage');
     } elseif ($_POST['dialog'] == 'save_as') {
         $html = $databaseDesigner->getHtmlForPageSaveAs($db,$_POST['AddedDBs'], $_POST['AddedTables']);
     } elseif ($_POST['dialog'] == 'export') {
