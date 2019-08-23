@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-07-12 00:18-0300\n"
+"POT-Creation-Date: 2019-08-23 12:35+0200\n"
 "PO-Revision-Date: 2019-04-27 17:19+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Malay <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -53,7 +53,8 @@ msgstr "Tiada jadual dijumpai pada pangkalan data."
 msgid "Tables"
 msgstr "Jadual-jadual"
 
-#: db_export.php:83 libraries/classes/Config/Forms/User/ExportForm.php:59
+#: db_export.php:83 js/messages.php:768
+#: libraries/classes/Config/Forms/User/ExportForm.php:59
 #: libraries/classes/Config/Forms/User/ExportForm.php:106
 #: libraries/classes/Config/Forms/User/ExportForm.php:134
 #: libraries/classes/Import.php:1288 libraries/classes/Menu.php:348
@@ -68,7 +69,6 @@ msgstr "Jadual-jadual"
 #: libraries/config.values.php:76 libraries/config.values.php:167
 #: libraries/config.values.php:177
 #: templates/table/tracking/structure_snapshot_columns.twig:1
-#: templates/database/designer/main.twig:226
 #: templates/columns_definitions/table_fields_definitions.twig:4
 #: templates/database/central_columns/edit_table_header.twig:2
 msgid "Structure"
@@ -272,7 +272,7 @@ msgstr ""
 
 #: import_status.php:120 js/messages.php:470 js/messages.php:636
 #: libraries/classes/Export.php:531
-#: libraries/classes/Plugins/Schema/ExportRelationSchema.php:307
+#: libraries/classes/Plugins/Schema/ExportRelationSchema.php:306
 #: libraries/classes/UserPassword.php:283 libraries/classes/Util.php:723
 msgid "Back"
 msgstr "Undur"
@@ -805,7 +805,7 @@ msgstr ""
 msgid "Please add at least one variable to the series!"
 msgstr ""
 
-#: js/messages.php:224 libraries/classes/Display/Results.php:1364
+#: js/messages.php:224 libraries/classes/Display/Results.php:1367
 #: libraries/classes/Plugins/Export/ExportSql.php:2241
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:105
 #: libraries/config.values.php:113
@@ -814,7 +814,7 @@ msgstr ""
 #: templates/server/status/monitor/index.twig:204
 #: templates/server/status/processes/list.twig:54
 #: templates/display/export/options_output_compression.twig:7
-#: templates/database/designer/main.twig:629
+#: templates/database/designer/main.twig:593
 #: templates/columns_definitions/transformation.twig:4
 #: templates/table/search/rows_zoom.twig:20
 msgid "None"
@@ -1020,7 +1020,7 @@ msgstr "Terangkan Kod SQL"
 msgid "Status"
 msgstr "Status"
 
-#: js/messages.php:297 js/messages.php:915
+#: js/messages.php:297 js/messages.php:920
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:130
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:491
 #: libraries/classes/Plugins/Export/ExportOdt.php:616
@@ -1275,13 +1275,13 @@ msgstr "Parameter tidak sesuai!"
 msgid "Go"
 msgstr "Pergi"
 
-#: js/messages.php:363 templates/database/designer/main.twig:380
-#: templates/database/designer/main.twig:431
-#: templates/database/designer/main.twig:705
-#: templates/database/designer/main.twig:771
-#: templates/database/designer/main.twig:910
-#: templates/database/designer/main.twig:995
-#: templates/database/designer/main.twig:1101
+#: js/messages.php:363 templates/database/designer/main.twig:344
+#: templates/database/designer/main.twig:395
+#: templates/database/designer/main.twig:669
+#: templates/database/designer/main.twig:735
+#: templates/database/designer/main.twig:874
+#: templates/database/designer/main.twig:959
+#: templates/database/designer/main.twig:1065
 #: templates/server/variables/index.twig:12
 msgid "Cancel"
 msgstr ""
@@ -1362,12 +1362,12 @@ msgstr "Di dalam kolum:"
 msgid "Adding primary key"
 msgstr "Tambah medan baru"
 
-#: js/messages.php:385 templates/database/designer/main.twig:378
-#: templates/database/designer/main.twig:703
-#: templates/database/designer/main.twig:767
-#: templates/database/designer/main.twig:906
-#: templates/database/designer/main.twig:991
-#: templates/database/designer/main.twig:1099
+#: js/messages.php:385 templates/database/designer/main.twig:342
+#: templates/database/designer/main.twig:667
+#: templates/database/designer/main.twig:731
+#: templates/database/designer/main.twig:870
+#: templates/database/designer/main.twig:955
+#: templates/database/designer/main.twig:1063
 #: templates/console/display.twig:129
 msgid "OK"
 msgstr "OK"
@@ -1463,8 +1463,8 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 
 #: js/messages.php:411 libraries/classes/Config/Forms/User/ExportForm.php:158
-#: libraries/classes/Display/Results.php:4713
-#: libraries/classes/Display/Results.php:4959 libraries/classes/Menu.php:382
+#: libraries/classes/Display/Results.php:4721
+#: libraries/classes/Display/Results.php:4967 libraries/classes/Menu.php:382
 #: libraries/classes/Menu.php:490 libraries/classes/Menu.php:619
 #: libraries/classes/Rte/RteList.php:193
 #: libraries/classes/Server/Privileges.php:2544
@@ -1524,8 +1524,8 @@ msgstr "kueri-SQL"
 
 #: js/messages.php:430 libraries/classes/CentralColumns.php:941
 #: libraries/classes/Config/Descriptions.php:828
-#: libraries/classes/Display/Results.php:3253
-#: libraries/classes/Display/Results.php:4688 libraries/classes/Index.php:742
+#: libraries/classes/Display/Results.php:3256
+#: libraries/classes/Display/Results.php:4696 libraries/classes/Index.php:742
 #: libraries/classes/Server/UserGroups.php:136 libraries/classes/Util.php:647
 #: libraries/classes/Util.php:1135 libraries/classes/Util.php:3456
 #: libraries/classes/Util.php:3457
@@ -1539,8 +1539,8 @@ msgid "Edit"
 msgstr "Ubah"
 
 #: js/messages.php:431 libraries/classes/CentralColumns.php:948
-#: libraries/classes/Display/Results.php:3330
-#: libraries/classes/Display/Results.php:4677
+#: libraries/classes/Display/Results.php:3333
+#: libraries/classes/Display/Results.php:4685
 #: libraries/classes/Server/UserGroups.php:148
 #: libraries/classes/SqlQueryForm.php:438 libraries/classes/Tracking.php:298
 #: templates/database/search/results.twig:43
@@ -1549,7 +1549,7 @@ msgstr "Ubah"
 #: templates/setup/home/index.twig:61
 #: templates/display/export/template_loading.twig:22
 #: templates/console/bookmark_content.twig:7
-#: templates/database/designer/main.twig:429
+#: templates/database/designer/main.twig:393
 msgid "Delete"
 msgstr "Padam"
 
@@ -1660,7 +1660,7 @@ msgid "Second step of normalization (2NF)"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:462 js/messages.php:784
+#: js/messages.php:462 js/messages.php:789
 #: libraries/classes/Normalization.php:369
 #, fuzzy
 #| msgid "None"
@@ -1831,13 +1831,13 @@ msgid "Data point content"
 msgstr "Kandungan"
 
 #: js/messages.php:528 js/messages.php:696 js/messages.php:713
-#: libraries/classes/ErrorHandler.php:383 libraries/classes/InsertEdit.php:3032
+#: libraries/classes/ErrorHandler.php:383 libraries/classes/InsertEdit.php:3035
 #: templates/table/index_form.twig:145 templates/table/index_form.twig:181
 msgid "Ignore"
 msgstr "Abai"
 
-#: js/messages.php:529 libraries/classes/Display/Results.php:3257
-#: libraries/classes/Display/Results.php:4696 libraries/classes/Util.php:306
+#: js/messages.php:529 libraries/classes/Display/Results.php:3260
+#: libraries/classes/Display/Results.php:4704 libraries/classes/Util.php:306
 msgid "Copy"
 msgstr ""
 
@@ -2174,7 +2174,7 @@ msgstr ""
 msgid "Select database first"
 msgstr "Pilih Jadual"
 
-#: js/messages.php:635 libraries/classes/Display/Results.php:4851
+#: js/messages.php:635 libraries/classes/Display/Results.php:4859
 #: templates/database/structure/index.twig:12
 #: templates/table/structure/display_structure.twig:381
 #: templates/database/data_dictionary/index.twig:64
@@ -2281,7 +2281,7 @@ msgstr ""
 msgid "up to date"
 msgstr "Tiada pangkalan data"
 
-#: js/messages.php:686 libraries/classes/Display/Results.php:4785
+#: js/messages.php:686 libraries/classes/Display/Results.php:4793
 #: templates/view_create.twig:11
 #, fuzzy
 msgid "Create view"
@@ -2458,14 +2458,27 @@ msgstr ""
 msgid "Failed security key activation (%s)."
 msgstr ""
 
-#: js/messages.php:788
+#: js/messages.php:766
+#, fuzzy, php-format
+#| msgid "The \"%s\" table doesn't exist!"
+msgctxt ""
+"The table already exists in the designer and can not be added once more."
+msgid "Table %s already exists!"
+msgstr "Jadual \"%s\" tidak wujud!"
+
+#: js/messages.php:767 libraries/classes/InsertEdit.php:308
+#: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:56
+msgid "Hide"
+msgstr ""
+
+#: js/messages.php:793
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Terdahulu"
 
-#: js/messages.php:793
+#: js/messages.php:798
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
@@ -2473,96 +2486,96 @@ msgid "Next"
 msgstr "Berikut"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:796
+#: js/messages.php:801
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Jumlah"
 
-#: js/messages.php:800
+#: js/messages.php:805
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Binari"
 
-#: js/messages.php:801
+#: js/messages.php:806
 msgid "February"
 msgstr ""
 
-#: js/messages.php:802
+#: js/messages.php:807
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "Mac"
 
-#: js/messages.php:803
+#: js/messages.php:808
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "Apr"
 
-#: js/messages.php:804
+#: js/messages.php:809
 msgid "May"
 msgstr "Mei"
 
-#: js/messages.php:805
+#: js/messages.php:810
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Jun"
 
-#: js/messages.php:806
+#: js/messages.php:811
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Jul"
 
-#: js/messages.php:807
+#: js/messages.php:812
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Ogos"
 
-#: js/messages.php:808
+#: js/messages.php:813
 msgid "September"
 msgstr ""
 
-#: js/messages.php:809
+#: js/messages.php:814
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Okt"
 
-#: js/messages.php:810
+#: js/messages.php:815
 msgid "November"
 msgstr ""
 
-#: js/messages.php:811
+#: js/messages.php:816
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:818 libraries/classes/Util.php:1547
+#: js/messages.php:823 libraries/classes/Util.php:1547
 msgid "Jan"
 msgstr "Jan"
 
 #. l10n: Short month name
-#: js/messages.php:820 libraries/classes/Util.php:1549
+#: js/messages.php:825 libraries/classes/Util.php:1549
 msgid "Feb"
 msgstr "Feb"
 
 #. l10n: Short month name
-#: js/messages.php:822 libraries/classes/Util.php:1551
+#: js/messages.php:827 libraries/classes/Util.php:1551
 msgid "Mar"
 msgstr "Mac"
 
 #. l10n: Short month name
-#: js/messages.php:824 libraries/classes/Util.php:1553
+#: js/messages.php:829 libraries/classes/Util.php:1553
 msgid "Apr"
 msgstr "Apr"
 
 #. l10n: Short month name
-#: js/messages.php:826 libraries/classes/Util.php:1555
+#: js/messages.php:831 libraries/classes/Util.php:1555
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -2570,78 +2583,78 @@ msgid "May"
 msgstr "Mei"
 
 #. l10n: Short month name
-#: js/messages.php:828 libraries/classes/Util.php:1557
+#: js/messages.php:833 libraries/classes/Util.php:1557
 msgid "Jun"
 msgstr "Jun"
 
 #. l10n: Short month name
-#: js/messages.php:830 libraries/classes/Util.php:1559
+#: js/messages.php:835 libraries/classes/Util.php:1559
 msgid "Jul"
 msgstr "Jul"
 
 #. l10n: Short month name
-#: js/messages.php:832 libraries/classes/Util.php:1561
+#: js/messages.php:837 libraries/classes/Util.php:1561
 msgid "Aug"
 msgstr "Ogos"
 
 #. l10n: Short month name
-#: js/messages.php:834 libraries/classes/Util.php:1563
+#: js/messages.php:839 libraries/classes/Util.php:1563
 msgid "Sep"
 msgstr "Sept"
 
 #. l10n: Short month name
-#: js/messages.php:836 libraries/classes/Util.php:1565
+#: js/messages.php:841 libraries/classes/Util.php:1565
 msgid "Oct"
 msgstr "Okt"
 
 #. l10n: Short month name
-#: js/messages.php:838 libraries/classes/Util.php:1567
+#: js/messages.php:843 libraries/classes/Util.php:1567
 msgid "Nov"
 msgstr "Nov"
 
 #. l10n: Short month name
-#: js/messages.php:840 libraries/classes/Util.php:1569
+#: js/messages.php:845 libraries/classes/Util.php:1569
 msgid "Dec"
 msgstr "Dis"
 
-#: js/messages.php:846
+#: js/messages.php:851
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Aha"
 
-#: js/messages.php:847
+#: js/messages.php:852
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Isn"
 
-#: js/messages.php:848
+#: js/messages.php:853
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Sel"
 
-#: js/messages.php:849
+#: js/messages.php:854
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:850
+#: js/messages.php:855
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:851
+#: js/messages.php:856
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Jum"
 
-#: js/messages.php:852
+#: js/messages.php:857
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:859
+#: js/messages.php:864
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -2649,199 +2662,199 @@ msgid "Sun"
 msgstr "Aha"
 
 #. l10n: Short week day name
-#: js/messages.php:861 libraries/classes/Util.php:1575
+#: js/messages.php:866 libraries/classes/Util.php:1575
 msgid "Mon"
 msgstr "Isn"
 
 #. l10n: Short week day name
-#: js/messages.php:863 libraries/classes/Util.php:1577
+#: js/messages.php:868 libraries/classes/Util.php:1577
 msgid "Tue"
 msgstr "Sel"
 
 #. l10n: Short week day name
-#: js/messages.php:865 libraries/classes/Util.php:1579
+#: js/messages.php:870 libraries/classes/Util.php:1579
 msgid "Wed"
 msgstr "Rab"
 
 #. l10n: Short week day name
-#: js/messages.php:867 libraries/classes/Util.php:1581
+#: js/messages.php:872 libraries/classes/Util.php:1581
 msgid "Thu"
 msgstr "Kha"
 
 #. l10n: Short week day name
-#: js/messages.php:869 libraries/classes/Util.php:1583
+#: js/messages.php:874 libraries/classes/Util.php:1583
 msgid "Fri"
 msgstr "Jum"
 
 #. l10n: Short week day name
-#: js/messages.php:871 libraries/classes/Util.php:1585
+#: js/messages.php:876 libraries/classes/Util.php:1585
 msgid "Sat"
 msgstr "Sab"
 
 #. l10n: Minimal week day name
-#: js/messages.php:878
+#: js/messages.php:883
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Aha"
 
 #. l10n: Minimal week day name
-#: js/messages.php:880
+#: js/messages.php:885
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Isn"
 
 #. l10n: Minimal week day name
-#: js/messages.php:882
+#: js/messages.php:887
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Sel"
 
 #. l10n: Minimal week day name
-#: js/messages.php:884
+#: js/messages.php:889
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Rab"
 
 #. l10n: Minimal week day name
-#: js/messages.php:886
+#: js/messages.php:891
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Kha"
 
 #. l10n: Minimal week day name
-#: js/messages.php:888
+#: js/messages.php:893
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Jum"
 
 #. l10n: Minimal week day name
-#: js/messages.php:890
+#: js/messages.php:895
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Sab"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:894
+#: js/messages.php:899
 msgid "Wk"
 msgstr ""
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:901
+#: js/messages.php:906
 msgid "calendar-month-year"
 msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:904
+#: js/messages.php:909
 #, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "Tiada"
 
-#: js/messages.php:916
+#: js/messages.php:921
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:917
+#: js/messages.php:922
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "sedang digunakan"
 
-#: js/messages.php:918
+#: js/messages.php:923
 #, fuzzy
 #| msgid "Records"
 msgid "Second"
 msgstr "Rekod"
 
-#: js/messages.php:929
+#: js/messages.php:934
 msgid "This field is required"
 msgstr ""
 
-#: js/messages.php:930
+#: js/messages.php:935
 #, fuzzy
 #| msgid "Add new field"
 msgid "Please fix this field"
 msgstr "Tambah medan baru"
 
-#: js/messages.php:931
+#: js/messages.php:936
 msgid "Please enter a valid email address"
 msgstr ""
 
-#: js/messages.php:932
+#: js/messages.php:937
 msgid "Please enter a valid URL"
 msgstr ""
 
-#: js/messages.php:933
+#: js/messages.php:938
 #, fuzzy
 #| msgid "Please select a database"
 msgid "Please enter a valid date"
 msgstr "Sila pilih pangkalan data"
 
-#: js/messages.php:936
+#: js/messages.php:941
 msgid "Please enter a valid date ( ISO )"
 msgstr ""
 
-#: js/messages.php:938
+#: js/messages.php:943
 msgid "Please enter a valid number"
 msgstr ""
 
-#: js/messages.php:941
+#: js/messages.php:946
 msgid "Please enter a valid credit card number"
 msgstr ""
 
-#: js/messages.php:943
+#: js/messages.php:948
 msgid "Please enter only digits"
 msgstr ""
 
-#: js/messages.php:946
+#: js/messages.php:951
 msgid "Please enter the same value again"
 msgstr ""
 
-#: js/messages.php:950
+#: js/messages.php:955
 msgid "Please enter no more than {0} characters"
 msgstr ""
 
-#: js/messages.php:955
+#: js/messages.php:960
 msgid "Please enter at least {0} characters"
 msgstr ""
 
-#: js/messages.php:960
+#: js/messages.php:965
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr ""
 
-#: js/messages.php:965
+#: js/messages.php:970
 msgid "Please enter a value between {0} and {1}"
 msgstr ""
 
-#: js/messages.php:970
+#: js/messages.php:975
 msgid "Please enter a value less than or equal to {0}"
 msgstr ""
 
-#: js/messages.php:975
+#: js/messages.php:980
 msgid "Please enter a value greater than or equal to {0}"
 msgstr ""
 
-#: js/messages.php:981
+#: js/messages.php:986
 #, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please enter a valid date or time"
 msgstr "Sila Pilih Laman untuk diubah"
 
-#: js/messages.php:986
+#: js/messages.php:991
 msgid "Please enter a valid HEX input"
 msgstr ""
 
-#: js/messages.php:991 libraries/classes/Core.php:295
+#: js/messages.php:996 libraries/classes/Core.php:295
 #: libraries/classes/Import.php:118 libraries/classes/InsertEdit.php:1541
 #: libraries/classes/Message.php:196 libraries/classes/Util.php:594
 #: view_operations.php:85
@@ -6423,7 +6436,7 @@ msgid "Table %s has been emptied."
 msgstr "Jadual %s telah dikosongkan."
 
 #: libraries/classes/Controllers/Database/StructureController.php:727
-#: libraries/classes/Display/Results.php:4538
+#: libraries/classes/Display/Results.php:4546
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -7308,7 +7321,7 @@ msgstr "Bebenang %s telah berjaya dimatikan."
 
 #: libraries/classes/Controllers/Table/RelationController.php:282
 #: libraries/classes/Controllers/Table/SearchController.php:630
-#: libraries/classes/Display/Results.php:4211 libraries/classes/Message.php:177
+#: libraries/classes/Display/Results.php:4219 libraries/classes/Message.php:177
 #: libraries/classes/Rte/Routines.php:1485
 #: libraries/classes/SqlQueryForm.php:97 tbl_row_action.php:145
 #: view_operations.php:82
@@ -7476,64 +7489,64 @@ msgstr ""
 msgid "possible exploit"
 msgstr ""
 
-#: libraries/classes/Database/Designer.php:142
+#: libraries/classes/Database/Designer.php:143
 msgid "Could not load schema plugins, please check your installation!"
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:595
+#: libraries/classes/Database/Designer/Common.php:575
 msgid "Error: relationship already exists."
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:644
+#: libraries/classes/Database/Designer/Common.php:624
 #, fuzzy
 #| msgid "Modifications have been saved"
 msgid "FOREIGN KEY relationship has been added."
 msgstr "Pengubahsuaian telah disimpan"
 
-#: libraries/classes/Database/Designer/Common.php:651
+#: libraries/classes/Database/Designer/Common.php:631
 #, fuzzy
 #| msgid "File could not be read"
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Fail tidak boleh dibaca"
 
-#: libraries/classes/Database/Designer/Common.php:658
+#: libraries/classes/Database/Designer/Common.php:638
 msgid "Error: Missing index on column(s)."
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:666
+#: libraries/classes/Database/Designer/Common.php:646
 msgid "Error: Relational features are disabled!"
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:691
+#: libraries/classes/Database/Designer/Common.php:671
 #, fuzzy
 msgid "Internal relationship has been added."
 msgstr "Ciri-ciri hubungan am"
 
-#: libraries/classes/Database/Designer/Common.php:698
+#: libraries/classes/Database/Designer/Common.php:678
 #, fuzzy
 #| msgid "File could not be read"
 msgid "Error: Internal relationship could not be added!"
 msgstr "Fail tidak boleh dibaca"
 
-#: libraries/classes/Database/Designer/Common.php:738
+#: libraries/classes/Database/Designer/Common.php:718
 #, fuzzy
 #| msgid "Modifications have been saved"
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "Pengubahsuaian telah disimpan"
 
-#: libraries/classes/Database/Designer/Common.php:745
+#: libraries/classes/Database/Designer/Common.php:725
 #, fuzzy
 #| msgid "File could not be read"
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "Fail tidak boleh dibaca"
 
-#: libraries/classes/Database/Designer/Common.php:772
+#: libraries/classes/Database/Designer/Common.php:752
 #, fuzzy
 #| msgid "File could not be read"
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Fail tidak boleh dibaca"
 
-#: libraries/classes/Database/Designer/Common.php:778
+#: libraries/classes/Database/Designer/Common.php:758
 #, fuzzy
 msgid "Internal relationship has been removed."
 msgstr "Ciri-ciri hubungan am"
@@ -7867,22 +7880,22 @@ msgctxt "Last page"
 msgid "End"
 msgstr "Tamat"
 
-#: libraries/classes/Display/Results.php:1600
+#: libraries/classes/Display/Results.php:1603
 #: templates/display/results/options_block.twig:18
 #, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Sebahagian Teks"
 
-#: libraries/classes/Display/Results.php:1604
+#: libraries/classes/Display/Results.php:1607
 #: templates/display/results/options_block.twig:18
 #, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
 msgstr "Teks Penuh"
 
-#: libraries/classes/Display/Results.php:1997
-#: libraries/classes/Display/Results.php:2023
+#: libraries/classes/Display/Results.php:2000
+#: libraries/classes/Display/Results.php:2026
 #: libraries/classes/Operations.php:860 libraries/classes/Util.php:4910
 #: libraries/classes/Util.php:4933 libraries/config.values.php:115
 #: templates/table/search/selection_form.twig:154
@@ -7895,8 +7908,8 @@ msgstr "Teks Penuh"
 msgid "Descending"
 msgstr "Menurun"
 
-#: libraries/classes/Display/Results.php:2005
-#: libraries/classes/Display/Results.php:2015
+#: libraries/classes/Display/Results.php:2008
+#: libraries/classes/Display/Results.php:2018
 #: libraries/classes/Operations.php:857 libraries/classes/Util.php:4902
 #: libraries/classes/Util.php:4925 libraries/config.values.php:114
 #: templates/table/search/selection_form.twig:154
@@ -7909,65 +7922,65 @@ msgstr "Menurun"
 msgid "Ascending"
 msgstr "Menaik"
 
-#: libraries/classes/Display/Results.php:3306
-#: libraries/classes/Display/Results.php:3321
+#: libraries/classes/Display/Results.php:3309
+#: libraries/classes/Display/Results.php:3324
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Baris telah dipadam"
 
-#: libraries/classes/Display/Results.php:3353
-#: libraries/classes/Display/Results.php:4677
+#: libraries/classes/Display/Results.php:3356
+#: libraries/classes/Display/Results.php:4685
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Bunuh"
 
-#: libraries/classes/Display/Results.php:4137
+#: libraries/classes/Display/Results.php:4145
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
 
-#: libraries/classes/Display/Results.php:4550
+#: libraries/classes/Display/Results.php:4558
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "Papar baris"
 
-#: libraries/classes/Display/Results.php:4564
+#: libraries/classes/Display/Results.php:4572
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:4569
+#: libraries/classes/Display/Results.php:4577
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%d total"
 msgstr "jumlah"
 
-#: libraries/classes/Display/Results.php:4581 libraries/classes/Sql.php:1350
+#: libraries/classes/Display/Results.php:4589 libraries/classes/Sql.php:1350
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr ""
 
-#: libraries/classes/Display/Results.php:4831
+#: libraries/classes/Display/Results.php:4839
 msgid "Copy to clipboard"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:4883
+#: libraries/classes/Display/Results.php:4891
 msgid "Query results operations"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:4970
+#: libraries/classes/Display/Results.php:4978
 #: templates/table/chart/tbl_chart.twig:10
 #, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
 msgstr "Papar Skema PDF"
 
-#: libraries/classes/Display/Results.php:4993
+#: libraries/classes/Display/Results.php:5001
 msgid "Visualize GIS data"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:5175
+#: libraries/classes/Display/Results.php:5183
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -8592,12 +8605,6 @@ msgid ""
 "removed."
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:308
-#: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:56
-#: templates/database/designer/main.twig:236
-msgid "Hide"
-msgstr ""
-
 #: libraries/classes/InsertEdit.php:324
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:32
 #: libraries/classes/Rte/Routines.php:1647
@@ -8684,21 +8691,21 @@ msgstr ""
 #: libraries/classes/Rte/Routines.php:1649
 #: templates/server/status/variables/index.twig:71
 #: templates/table/search/fields_table.twig:11
-#: templates/database/designer/main.twig:525
-#: templates/database/designer/main.twig:690
-#: templates/database/designer/main.twig:892
-#: templates/database/designer/main.twig:1085
+#: templates/database/designer/main.twig:489
+#: templates/database/designer/main.twig:654
+#: templates/database/designer/main.twig:856
+#: templates/database/designer/main.twig:1049
 #: templates/server/replication/status_table.twig:17
 #: templates/server/variables/index.twig:29
 #: templates/table/search/zoom_result_form.twig:36
 msgid "Value"
 msgstr "Nilai"
 
-#: libraries/classes/InsertEdit.php:2344 libraries/classes/Sql.php:1341
+#: libraries/classes/InsertEdit.php:2347 libraries/classes/Sql.php:1341
 msgid "Showing SQL query"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:2369 libraries/classes/Sql.php:1319
+#: libraries/classes/InsertEdit.php:2372 libraries/classes/Sql.php:1319
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -10540,7 +10547,7 @@ msgstr "Jadual \"%s\" tidak wujud!"
 msgid "Schema of the %s database - Page %s"
 msgstr "Skema bagi pangkalan data \"%s\" database - Laman %s"
 
-#: libraries/classes/Plugins/Schema/ExportRelationSchema.php:298
+#: libraries/classes/Plugins/Schema/ExportRelationSchema.php:297
 msgid "SCHEMA ERROR: "
 msgstr ""
 
@@ -13819,12 +13826,12 @@ msgstr ""
 msgid "Secret/key:"
 msgstr ""
 
-#: templates/database/designer/database_tables.twig:31
+#: templates/database/designer/database_tables.twig:34
 #, fuzzy
 msgid "Show/hide columns"
 msgstr "Tambah medan baru"
 
-#: templates/database/designer/database_tables.twig:39
+#: templates/database/designer/database_tables.twig:43
 #, fuzzy
 #| msgid "Databases"
 msgid "See table structure"
@@ -15333,12 +15340,12 @@ msgid "Save on server in the directory <strong>%s</strong>"
 msgstr "direktori muatnaik pelayan-web"
 
 #: templates/table/search/fields_table.twig:10
-#: templates/database/designer/main.twig:557
-#: templates/database/designer/main.twig:621
-#: templates/database/designer/main.twig:822
-#: templates/database/designer/main.twig:853
-#: templates/database/designer/main.twig:961
-#: templates/database/designer/main.twig:1046
+#: templates/database/designer/main.twig:521
+#: templates/database/designer/main.twig:585
+#: templates/database/designer/main.twig:786
+#: templates/database/designer/main.twig:817
+#: templates/database/designer/main.twig:925
+#: templates/database/designer/main.twig:1010
 #, fuzzy
 msgid "Operator"
 msgstr "Operasi"
@@ -15955,7 +15962,7 @@ msgstr "Sila pilih pangkalan data"
 
 #: templates/database/designer/main.twig:93
 #: templates/database/designer/main.twig:96
-#: templates/database/designer/main.twig:312
+#: templates/database/designer/main.twig:276
 #, fuzzy
 msgid "Create relationship"
 msgstr "Versi Pelayan"
@@ -16037,63 +16044,63 @@ msgstr "Papar semua"
 msgid "Hide/Show tables with no relationship"
 msgstr "Cadangkan struktur jadual"
 
-#: templates/database/designer/main.twig:257
+#: templates/database/designer/main.twig:227
 #, fuzzy
 #| msgid "Number of rows per page"
 msgid "Number of tables:"
 msgstr "Bilangan baris per halaman"
 
-#: templates/database/designer/main.twig:422
+#: templates/database/designer/main.twig:386
 #, fuzzy
 #| msgid "Delete"
 msgid "Delete relationship"
 msgstr "Padam"
 
-#: templates/database/designer/main.twig:486
-#: templates/database/designer/main.twig:651
+#: templates/database/designer/main.twig:450
+#: templates/database/designer/main.twig:615
 #, fuzzy
 msgid "Relationship operator"
 msgstr "Paparan Hubungan"
 
-#: templates/database/designer/main.twig:515
-#: templates/database/designer/main.twig:680
-#: templates/database/designer/main.twig:882
-#: templates/database/designer/main.twig:1075
+#: templates/database/designer/main.twig:479
+#: templates/database/designer/main.twig:644
+#: templates/database/designer/main.twig:846
+#: templates/database/designer/main.twig:1039
 #, fuzzy
 #| msgid "Export"
 msgid "Except"
 msgstr "Eksport"
 
-#: templates/database/designer/main.twig:527
-#: templates/database/designer/main.twig:692
-#: templates/database/designer/main.twig:894
-#: templates/database/designer/main.twig:1087
+#: templates/database/designer/main.twig:491
+#: templates/database/designer/main.twig:656
+#: templates/database/designer/main.twig:858
+#: templates/database/designer/main.twig:1051
 #, fuzzy
 #| msgid "in query"
 msgid "subquery"
 msgstr "pada kueri"
 
-#: templates/database/designer/main.twig:536
-#: templates/database/designer/main.twig:748
+#: templates/database/designer/main.twig:500
+#: templates/database/designer/main.twig:712
 #, fuzzy
 msgid "Rename to"
 msgstr "Tukarnama jadual ke"
 
-#: templates/database/designer/main.twig:542
-#: templates/database/designer/main.twig:756
+#: templates/database/designer/main.twig:506
+#: templates/database/designer/main.twig:720
 #, fuzzy
 #| msgid "User name"
 msgid "New name"
 msgstr "Kata Pengenalan"
 
-#: templates/database/designer/main.twig:551
-#: templates/database/designer/main.twig:953
+#: templates/database/designer/main.twig:515
+#: templates/database/designer/main.twig:917
 #, fuzzy
 #| msgid "Create"
 msgid "Aggregate"
 msgstr "Cipta"
 
-#: templates/database/designer/main.twig:1128
+#: templates/database/designer/main.twig:1092
 #, fuzzy
 msgid "Active options"
 msgstr "Aksi"

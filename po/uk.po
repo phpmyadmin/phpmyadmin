@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-07-12 00:18-0300\n"
+"POT-Creation-Date: 2019-08-23 12:35+0200\n"
 "PO-Revision-Date: 2019-02-07 12:02+0000\n"
 "Last-Translator: Oleh Ilnytskyi <rav.angell@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -54,7 +54,8 @@ msgstr "В базі даних не виявлено таблиць."
 msgid "Tables"
 msgstr "Таблиці"
 
-#: db_export.php:83 libraries/classes/Config/Forms/User/ExportForm.php:59
+#: db_export.php:83 js/messages.php:768
+#: libraries/classes/Config/Forms/User/ExportForm.php:59
 #: libraries/classes/Config/Forms/User/ExportForm.php:106
 #: libraries/classes/Config/Forms/User/ExportForm.php:134
 #: libraries/classes/Import.php:1288 libraries/classes/Menu.php:348
@@ -69,7 +70,6 @@ msgstr "Таблиці"
 #: libraries/config.values.php:76 libraries/config.values.php:167
 #: libraries/config.values.php:177
 #: templates/table/tracking/structure_snapshot_columns.twig:1
-#: templates/database/designer/main.twig:226
 #: templates/columns_definitions/table_fields_definitions.twig:4
 #: templates/database/central_columns/edit_table_header.twig:2
 msgid "Structure"
@@ -277,7 +277,7 @@ msgstr "Не вдалося завантажити, щоб розпочати і
 
 #: import_status.php:120 js/messages.php:470 js/messages.php:636
 #: libraries/classes/Export.php:531
-#: libraries/classes/Plugins/Schema/ExportRelationSchema.php:307
+#: libraries/classes/Plugins/Schema/ExportRelationSchema.php:306
 #: libraries/classes/UserPassword.php:283 libraries/classes/Util.php:723
 msgid "Back"
 msgstr "Назад"
@@ -763,7 +763,7 @@ msgstr "Додати графік до сітки"
 msgid "Please add at least one variable to the series!"
 msgstr "Будь ласка, додайте хоча б одну змінну в серії!"
 
-#: js/messages.php:224 libraries/classes/Display/Results.php:1364
+#: js/messages.php:224 libraries/classes/Display/Results.php:1367
 #: libraries/classes/Plugins/Export/ExportSql.php:2241
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:105
 #: libraries/config.values.php:113
@@ -772,7 +772,7 @@ msgstr "Будь ласка, додайте хоча б одну змінну в
 #: templates/server/status/monitor/index.twig:204
 #: templates/server/status/processes/list.twig:54
 #: templates/display/export/options_output_compression.twig:7
-#: templates/database/designer/main.twig:629
+#: templates/database/designer/main.twig:593
 #: templates/columns_definitions/transformation.twig:4
 #: templates/table/search/rows_zoom.twig:20
 msgid "None"
@@ -976,7 +976,7 @@ msgstr "Аналіз результатів"
 msgid "Status"
 msgstr "Статус"
 
-#: js/messages.php:297 js/messages.php:915
+#: js/messages.php:297 js/messages.php:920
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:130
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:491
 #: libraries/classes/Plugins/Export/ExportOdt.php:616
@@ -1204,13 +1204,13 @@ msgstr "Параметри не знайдені!"
 msgid "Go"
 msgstr "Виконати"
 
-#: js/messages.php:363 templates/database/designer/main.twig:380
-#: templates/database/designer/main.twig:431
-#: templates/database/designer/main.twig:705
-#: templates/database/designer/main.twig:771
-#: templates/database/designer/main.twig:910
-#: templates/database/designer/main.twig:995
-#: templates/database/designer/main.twig:1101
+#: js/messages.php:363 templates/database/designer/main.twig:344
+#: templates/database/designer/main.twig:395
+#: templates/database/designer/main.twig:669
+#: templates/database/designer/main.twig:735
+#: templates/database/designer/main.twig:874
+#: templates/database/designer/main.twig:959
+#: templates/database/designer/main.twig:1065
 #: templates/server/variables/index.twig:12
 msgid "Cancel"
 msgstr "Скасувати"
@@ -1280,12 +1280,12 @@ msgstr "Видалення стовпця"
 msgid "Adding primary key"
 msgstr "Додати первинний ключ"
 
-#: js/messages.php:385 templates/database/designer/main.twig:378
-#: templates/database/designer/main.twig:703
-#: templates/database/designer/main.twig:767
-#: templates/database/designer/main.twig:906
-#: templates/database/designer/main.twig:991
-#: templates/database/designer/main.twig:1099
+#: js/messages.php:385 templates/database/designer/main.twig:342
+#: templates/database/designer/main.twig:667
+#: templates/database/designer/main.twig:731
+#: templates/database/designer/main.twig:870
+#: templates/database/designer/main.twig:955
+#: templates/database/designer/main.twig:1063
 #: templates/console/display.twig:129
 msgid "OK"
 msgstr "OK"
@@ -1371,8 +1371,8 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Визначення збереженої функції має містити оператор RETURN!"
 
 #: js/messages.php:411 libraries/classes/Config/Forms/User/ExportForm.php:158
-#: libraries/classes/Display/Results.php:4713
-#: libraries/classes/Display/Results.php:4959 libraries/classes/Menu.php:382
+#: libraries/classes/Display/Results.php:4721
+#: libraries/classes/Display/Results.php:4967 libraries/classes/Menu.php:382
 #: libraries/classes/Menu.php:490 libraries/classes/Menu.php:619
 #: libraries/classes/Rte/RteList.php:193
 #: libraries/classes/Server/Privileges.php:2544
@@ -1430,8 +1430,8 @@ msgstr "Показати вікно запиту"
 
 #: js/messages.php:430 libraries/classes/CentralColumns.php:941
 #: libraries/classes/Config/Descriptions.php:828
-#: libraries/classes/Display/Results.php:3253
-#: libraries/classes/Display/Results.php:4688 libraries/classes/Index.php:742
+#: libraries/classes/Display/Results.php:3256
+#: libraries/classes/Display/Results.php:4696 libraries/classes/Index.php:742
 #: libraries/classes/Server/UserGroups.php:136 libraries/classes/Util.php:647
 #: libraries/classes/Util.php:1135 libraries/classes/Util.php:3456
 #: libraries/classes/Util.php:3457
@@ -1445,8 +1445,8 @@ msgid "Edit"
 msgstr "Редагувати"
 
 #: js/messages.php:431 libraries/classes/CentralColumns.php:948
-#: libraries/classes/Display/Results.php:3330
-#: libraries/classes/Display/Results.php:4677
+#: libraries/classes/Display/Results.php:3333
+#: libraries/classes/Display/Results.php:4685
 #: libraries/classes/Server/UserGroups.php:148
 #: libraries/classes/SqlQueryForm.php:438 libraries/classes/Tracking.php:298
 #: templates/database/search/results.twig:43
@@ -1455,7 +1455,7 @@ msgstr "Редагувати"
 #: templates/setup/home/index.twig:61
 #: templates/display/export/template_loading.twig:22
 #: templates/console/bookmark_content.twig:7
-#: templates/database/designer/main.twig:429
+#: templates/database/designer/main.twig:393
 msgid "Delete"
 msgstr "Видалити"
 
@@ -1561,7 +1561,7 @@ msgid "Second step of normalization (2NF)"
 msgstr "Другий етап нормалізації (2NF)"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:462 js/messages.php:784
+#: js/messages.php:462 js/messages.php:789
 #: libraries/classes/Normalization.php:369
 msgid "Done"
 msgstr "Готово"
@@ -1722,13 +1722,13 @@ msgid "Data point content"
 msgstr "Вміст точки даних"
 
 #: js/messages.php:528 js/messages.php:696 js/messages.php:713
-#: libraries/classes/ErrorHandler.php:383 libraries/classes/InsertEdit.php:3032
+#: libraries/classes/ErrorHandler.php:383 libraries/classes/InsertEdit.php:3035
 #: templates/table/index_form.twig:145 templates/table/index_form.twig:181
 msgid "Ignore"
 msgstr "Ігнорувати"
 
-#: js/messages.php:529 libraries/classes/Display/Results.php:3257
-#: libraries/classes/Display/Results.php:4696 libraries/classes/Util.php:306
+#: js/messages.php:529 libraries/classes/Display/Results.php:3260
+#: libraries/classes/Display/Results.php:4704 libraries/classes/Util.php:306
 msgid "Copy"
 msgstr "Копіювати"
 
@@ -2054,7 +2054,7 @@ msgstr "Скинути файли сюди"
 msgid "Select database first"
 msgstr "Спочатку оберіть базу даних"
 
-#: js/messages.php:635 libraries/classes/Display/Results.php:4851
+#: js/messages.php:635 libraries/classes/Display/Results.php:4859
 #: templates/database/structure/index.twig:12
 #: templates/table/structure/display_structure.twig:381
 #: templates/database/data_dictionary/index.twig:64
@@ -2151,7 +2151,7 @@ msgstr ", остання стабільна версія:"
 msgid "up to date"
 msgstr "оновлено"
 
-#: js/messages.php:686 libraries/classes/Display/Results.php:4785
+#: js/messages.php:686 libraries/classes/Display/Results.php:4793
 #: templates/view_create.twig:11
 msgid "Create view"
 msgstr "Створити подання"
@@ -2316,331 +2316,344 @@ msgstr "Час очікування активації ключа безпеки
 msgid "Failed security key activation (%s)."
 msgstr "Не вдалося активізувати ключ безпеки (%s)."
 
-#: js/messages.php:788
+#: js/messages.php:766
+#, fuzzy, php-format
+#| msgid "Table %s already exists!"
+msgctxt ""
+"The table already exists in the designer and can not be added once more."
+msgid "Table %s already exists!"
+msgstr "Таблиця %s вже існує!"
+
+#: js/messages.php:767 libraries/classes/InsertEdit.php:308
+#: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:56
+msgid "Hide"
+msgstr "Приховати"
+
+#: js/messages.php:793
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Попередня"
 
-#: js/messages.php:793
+#: js/messages.php:798
 msgctxt "Next month"
 msgid "Next"
 msgstr "Наступна"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:796
+#: js/messages.php:801
 msgid "Today"
 msgstr "Сьогодні"
 
-#: js/messages.php:800
+#: js/messages.php:805
 msgid "January"
 msgstr "Січень"
 
-#: js/messages.php:801
+#: js/messages.php:806
 msgid "February"
 msgstr "Лютий"
 
-#: js/messages.php:802
+#: js/messages.php:807
 msgid "March"
 msgstr "Березень"
 
-#: js/messages.php:803
+#: js/messages.php:808
 msgid "April"
 msgstr "Квітень"
 
-#: js/messages.php:804
+#: js/messages.php:809
 msgid "May"
 msgstr "Травень"
 
-#: js/messages.php:805
+#: js/messages.php:810
 msgid "June"
 msgstr "Червень"
 
-#: js/messages.php:806
+#: js/messages.php:811
 msgid "July"
 msgstr "Липень"
 
-#: js/messages.php:807
+#: js/messages.php:812
 msgid "August"
 msgstr "Серпень"
 
-#: js/messages.php:808
+#: js/messages.php:813
 msgid "September"
 msgstr "Вересень"
 
-#: js/messages.php:809
+#: js/messages.php:814
 msgid "October"
 msgstr "Жовтень"
 
-#: js/messages.php:810
+#: js/messages.php:815
 msgid "November"
 msgstr "Листопад"
 
-#: js/messages.php:811
+#: js/messages.php:816
 msgid "December"
 msgstr "Грудень"
 
 #. l10n: Short month name
-#: js/messages.php:818 libraries/classes/Util.php:1547
+#: js/messages.php:823 libraries/classes/Util.php:1547
 msgid "Jan"
 msgstr "Січ"
 
 #. l10n: Short month name
-#: js/messages.php:820 libraries/classes/Util.php:1549
+#: js/messages.php:825 libraries/classes/Util.php:1549
 msgid "Feb"
 msgstr "Лют"
 
 #. l10n: Short month name
-#: js/messages.php:822 libraries/classes/Util.php:1551
+#: js/messages.php:827 libraries/classes/Util.php:1551
 msgid "Mar"
 msgstr "Бер"
 
 #. l10n: Short month name
-#: js/messages.php:824 libraries/classes/Util.php:1553
+#: js/messages.php:829 libraries/classes/Util.php:1553
 msgid "Apr"
 msgstr "Квт"
 
 #. l10n: Short month name
-#: js/messages.php:826 libraries/classes/Util.php:1555
+#: js/messages.php:831 libraries/classes/Util.php:1555
 msgctxt "Short month name"
 msgid "May"
 msgstr "Трв"
 
 #. l10n: Short month name
-#: js/messages.php:828 libraries/classes/Util.php:1557
+#: js/messages.php:833 libraries/classes/Util.php:1557
 msgid "Jun"
 msgstr "Чрв"
 
 #. l10n: Short month name
-#: js/messages.php:830 libraries/classes/Util.php:1559
+#: js/messages.php:835 libraries/classes/Util.php:1559
 msgid "Jul"
 msgstr "Лип"
 
 #. l10n: Short month name
-#: js/messages.php:832 libraries/classes/Util.php:1561
+#: js/messages.php:837 libraries/classes/Util.php:1561
 msgid "Aug"
 msgstr "Сер"
 
 #. l10n: Short month name
-#: js/messages.php:834 libraries/classes/Util.php:1563
+#: js/messages.php:839 libraries/classes/Util.php:1563
 msgid "Sep"
 msgstr "Вер"
 
 #. l10n: Short month name
-#: js/messages.php:836 libraries/classes/Util.php:1565
+#: js/messages.php:841 libraries/classes/Util.php:1565
 msgid "Oct"
 msgstr "Жов"
 
 #. l10n: Short month name
-#: js/messages.php:838 libraries/classes/Util.php:1567
+#: js/messages.php:843 libraries/classes/Util.php:1567
 msgid "Nov"
 msgstr "Лис"
 
 #. l10n: Short month name
-#: js/messages.php:840 libraries/classes/Util.php:1569
+#: js/messages.php:845 libraries/classes/Util.php:1569
 msgid "Dec"
 msgstr "Гру"
 
-#: js/messages.php:846
+#: js/messages.php:851
 msgid "Sunday"
 msgstr "Неділя"
 
-#: js/messages.php:847
+#: js/messages.php:852
 msgid "Monday"
 msgstr "Понеділок"
 
-#: js/messages.php:848
+#: js/messages.php:853
 msgid "Tuesday"
 msgstr "Вівторок"
 
-#: js/messages.php:849
+#: js/messages.php:854
 msgid "Wednesday"
 msgstr "Середа"
 
-#: js/messages.php:850
+#: js/messages.php:855
 msgid "Thursday"
 msgstr "Четвер"
 
-#: js/messages.php:851
+#: js/messages.php:856
 msgid "Friday"
 msgstr "П'ятниця"
 
-#: js/messages.php:852
+#: js/messages.php:857
 msgid "Saturday"
 msgstr "Субота"
 
 #. l10n: Short week day name
-#: js/messages.php:859
+#: js/messages.php:864
 msgid "Sun"
 msgstr "Нед"
 
 #. l10n: Short week day name
-#: js/messages.php:861 libraries/classes/Util.php:1575
+#: js/messages.php:866 libraries/classes/Util.php:1575
 msgid "Mon"
 msgstr "Пон"
 
 #. l10n: Short week day name
-#: js/messages.php:863 libraries/classes/Util.php:1577
+#: js/messages.php:868 libraries/classes/Util.php:1577
 msgid "Tue"
 msgstr "Вт"
 
 #. l10n: Short week day name
-#: js/messages.php:865 libraries/classes/Util.php:1579
+#: js/messages.php:870 libraries/classes/Util.php:1579
 msgid "Wed"
 msgstr "Сер"
 
 #. l10n: Short week day name
-#: js/messages.php:867 libraries/classes/Util.php:1581
+#: js/messages.php:872 libraries/classes/Util.php:1581
 msgid "Thu"
 msgstr "Чт"
 
 #. l10n: Short week day name
-#: js/messages.php:869 libraries/classes/Util.php:1583
+#: js/messages.php:874 libraries/classes/Util.php:1583
 msgid "Fri"
 msgstr "Пт"
 
 #. l10n: Short week day name
-#: js/messages.php:871 libraries/classes/Util.php:1585
+#: js/messages.php:876 libraries/classes/Util.php:1585
 msgid "Sat"
 msgstr "Сб"
 
 #. l10n: Minimal week day name
-#: js/messages.php:878
+#: js/messages.php:883
 msgid "Su"
 msgstr "Нд"
 
 #. l10n: Minimal week day name
-#: js/messages.php:880
+#: js/messages.php:885
 msgid "Mo"
 msgstr "Пн"
 
 #. l10n: Minimal week day name
-#: js/messages.php:882
+#: js/messages.php:887
 msgid "Tu"
 msgstr "Вт"
 
 #. l10n: Minimal week day name
-#: js/messages.php:884
+#: js/messages.php:889
 msgid "We"
 msgstr "Ср"
 
 #. l10n: Minimal week day name
-#: js/messages.php:886
+#: js/messages.php:891
 msgid "Th"
 msgstr "Чт"
 
 #. l10n: Minimal week day name
-#: js/messages.php:888
+#: js/messages.php:893
 msgid "Fr"
 msgstr "Пт"
 
 #. l10n: Minimal week day name
-#: js/messages.php:890
+#: js/messages.php:895
 msgid "Sa"
 msgstr "Сб"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:894
+#: js/messages.php:899
 msgid "Wk"
 msgstr "Тж"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:901
+#: js/messages.php:906
 msgid "calendar-month-year"
 msgstr "календар-місяць-рік"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:904
+#: js/messages.php:909
 msgctxt "Year suffix"
 msgid "none"
 msgstr "none"
 
-#: js/messages.php:916
+#: js/messages.php:921
 msgid "Hour"
 msgstr "Година"
 
-#: js/messages.php:917
+#: js/messages.php:922
 msgid "Minute"
 msgstr "Хвилина"
 
-#: js/messages.php:918
+#: js/messages.php:923
 msgid "Second"
 msgstr "Секунда"
 
-#: js/messages.php:929
+#: js/messages.php:934
 msgid "This field is required"
 msgstr "Це поле є обов'язковим"
 
-#: js/messages.php:930
+#: js/messages.php:935
 msgid "Please fix this field"
 msgstr "Будь ласка, виправте це поле"
 
-#: js/messages.php:931
+#: js/messages.php:936
 msgid "Please enter a valid email address"
 msgstr "Будь ласка, введіть дійсну адресу електронної пошти"
 
-#: js/messages.php:932
+#: js/messages.php:937
 msgid "Please enter a valid URL"
 msgstr "Введіть дійсний URL"
 
-#: js/messages.php:933
+#: js/messages.php:938
 msgid "Please enter a valid date"
 msgstr "Будь ласка, введіть дійсну дату"
 
-#: js/messages.php:936
+#: js/messages.php:941
 msgid "Please enter a valid date ( ISO )"
 msgstr "Будь ласка, введіть правильну дату (ISO)"
 
-#: js/messages.php:938
+#: js/messages.php:943
 msgid "Please enter a valid number"
 msgstr "Будь ласка, введіть дійсний номер"
 
-#: js/messages.php:941
+#: js/messages.php:946
 msgid "Please enter a valid credit card number"
 msgstr "Будь ласка, введіть дійсний номер кредитної картки"
 
-#: js/messages.php:943
+#: js/messages.php:948
 msgid "Please enter only digits"
 msgstr "Будь ласка, введіть лише цифри"
 
-#: js/messages.php:946
+#: js/messages.php:951
 msgid "Please enter the same value again"
 msgstr "Будь ласка, введіть те ж значення знову"
 
-#: js/messages.php:950
+#: js/messages.php:955
 msgid "Please enter no more than {0} characters"
 msgstr "Будь ласка, введіть не більше {0} символів"
 
-#: js/messages.php:955
+#: js/messages.php:960
 msgid "Please enter at least {0} characters"
 msgstr "Будь ласка, введіть принаймні {0} символів"
 
-#: js/messages.php:960
+#: js/messages.php:965
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr "Будь ласка, введіть значення довжиною від {0} до {1} символів"
 
-#: js/messages.php:965
+#: js/messages.php:970
 msgid "Please enter a value between {0} and {1}"
 msgstr "Будь ласка, введіть значення між {0} і {1}"
 
-#: js/messages.php:970
+#: js/messages.php:975
 msgid "Please enter a value less than or equal to {0}"
 msgstr "Будь ласка, введіть значення менше або дорівнює {0}"
 
-#: js/messages.php:975
+#: js/messages.php:980
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "Будь ласка, введіть значення більше або дорівнює {0}"
 
-#: js/messages.php:981
+#: js/messages.php:986
 msgid "Please enter a valid date or time"
 msgstr "Будь ласка, введіть дійсну дату або час"
 
-#: js/messages.php:986
+#: js/messages.php:991
 msgid "Please enter a valid HEX input"
 msgstr "Будь ласка, введіть правильний вхід HEX"
 
-#: js/messages.php:991 libraries/classes/Core.php:295
+#: js/messages.php:996 libraries/classes/Core.php:295
 #: libraries/classes/Import.php:118 libraries/classes/InsertEdit.php:1541
 #: libraries/classes/Message.php:196 libraries/classes/Util.php:594
 #: view_operations.php:85
@@ -6283,7 +6296,7 @@ msgid "Table %s has been emptied."
 msgstr "Таблиця %s очищено."
 
 #: libraries/classes/Controllers/Database/StructureController.php:727
-#: libraries/classes/Display/Results.php:4538
+#: libraries/classes/Display/Results.php:4546
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -7314,7 +7327,7 @@ msgstr "Відображення стовпця успішно оновлено.
 
 #: libraries/classes/Controllers/Table/RelationController.php:282
 #: libraries/classes/Controllers/Table/SearchController.php:630
-#: libraries/classes/Display/Results.php:4211 libraries/classes/Message.php:177
+#: libraries/classes/Display/Results.php:4219 libraries/classes/Message.php:177
 #: libraries/classes/Rte/Routines.php:1485
 #: libraries/classes/SqlQueryForm.php:97 tbl_row_action.php:145
 #: view_operations.php:82
@@ -7474,52 +7487,52 @@ msgstr "спроба перезапису GLOBALS"
 msgid "possible exploit"
 msgstr "можливе використання"
 
-#: libraries/classes/Database/Designer.php:142
+#: libraries/classes/Database/Designer.php:143
 msgid "Could not load schema plugins, please check your installation!"
 msgstr ""
 "Не вдалося завантажити плагіни схеми, будь ласка, перевірте вашу установку!"
 
-#: libraries/classes/Database/Designer/Common.php:595
+#: libraries/classes/Database/Designer/Common.php:575
 msgid "Error: relationship already exists."
 msgstr "Помилка: зв'язок вже існує."
 
-#: libraries/classes/Database/Designer/Common.php:644
+#: libraries/classes/Database/Designer/Common.php:624
 msgid "FOREIGN KEY relationship has been added."
 msgstr "FOREIGN KEY зв'язок додано."
 
-#: libraries/classes/Database/Designer/Common.php:651
+#: libraries/classes/Database/Designer/Common.php:631
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Помилка: зв'язок не вдалося додати!"
 
-#: libraries/classes/Database/Designer/Common.php:658
+#: libraries/classes/Database/Designer/Common.php:638
 msgid "Error: Missing index on column(s)."
 msgstr "Помилка: Відсутній індекс стовпця (ів)."
 
-#: libraries/classes/Database/Designer/Common.php:666
+#: libraries/classes/Database/Designer/Common.php:646
 msgid "Error: Relational features are disabled!"
 msgstr "Помилка: реляційні функції вимкнені!"
 
-#: libraries/classes/Database/Designer/Common.php:691
+#: libraries/classes/Database/Designer/Common.php:671
 msgid "Internal relationship has been added."
 msgstr "Внутрішні зв'язки були додані."
 
-#: libraries/classes/Database/Designer/Common.php:698
+#: libraries/classes/Database/Designer/Common.php:678
 msgid "Error: Internal relationship could not be added!"
 msgstr "Помилка: Зв'язки не вдалося додати!"
 
-#: libraries/classes/Database/Designer/Common.php:738
+#: libraries/classes/Database/Designer/Common.php:718
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "FOREIGN KEY зв'язок доданий."
 
-#: libraries/classes/Database/Designer/Common.php:745
+#: libraries/classes/Database/Designer/Common.php:725
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "Помилка: FOREIGN KEY зв'язок не може бути видалений!"
 
-#: libraries/classes/Database/Designer/Common.php:772
+#: libraries/classes/Database/Designer/Common.php:752
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Помилка: Не вдалося видалити всі внутрішні зв'язки!"
 
-#: libraries/classes/Database/Designer/Common.php:778
+#: libraries/classes/Database/Designer/Common.php:758
 msgid "Internal relationship has been removed."
 msgstr "Внутрішні зв'язки будуть видалені."
 
@@ -7824,18 +7837,18 @@ msgctxt "Last page"
 msgid "End"
 msgstr "Кінець"
 
-#: libraries/classes/Display/Results.php:1600
+#: libraries/classes/Display/Results.php:1603
 #: templates/display/results/options_block.twig:18
 msgid "Partial texts"
 msgstr "Часткові тексти"
 
-#: libraries/classes/Display/Results.php:1604
+#: libraries/classes/Display/Results.php:1607
 #: templates/display/results/options_block.twig:18
 msgid "Full texts"
 msgstr "Повні тексти"
 
-#: libraries/classes/Display/Results.php:1997
-#: libraries/classes/Display/Results.php:2023
+#: libraries/classes/Display/Results.php:2000
+#: libraries/classes/Display/Results.php:2026
 #: libraries/classes/Operations.php:860 libraries/classes/Util.php:4910
 #: libraries/classes/Util.php:4933 libraries/config.values.php:115
 #: templates/table/search/selection_form.twig:154
@@ -7848,8 +7861,8 @@ msgstr "Повні тексти"
 msgid "Descending"
 msgstr "За спаданням"
 
-#: libraries/classes/Display/Results.php:2005
-#: libraries/classes/Display/Results.php:2015
+#: libraries/classes/Display/Results.php:2008
+#: libraries/classes/Display/Results.php:2018
 #: libraries/classes/Operations.php:857 libraries/classes/Util.php:4902
 #: libraries/classes/Util.php:4925 libraries/config.values.php:114
 #: templates/table/search/selection_form.twig:154
@@ -7862,59 +7875,59 @@ msgstr "За спаданням"
 msgid "Ascending"
 msgstr "За зростанням"
 
-#: libraries/classes/Display/Results.php:3306
-#: libraries/classes/Display/Results.php:3321
+#: libraries/classes/Display/Results.php:3309
+#: libraries/classes/Display/Results.php:3324
 msgid "The row has been deleted."
 msgstr "Рядок видалено."
 
-#: libraries/classes/Display/Results.php:3353
-#: libraries/classes/Display/Results.php:4677
+#: libraries/classes/Display/Results.php:3356
+#: libraries/classes/Display/Results.php:4685
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Анулювати"
 
-#: libraries/classes/Display/Results.php:4137
+#: libraries/classes/Display/Results.php:4145
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Може бути приблизним. Дивіться [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:4550
+#: libraries/classes/Display/Results.php:4558
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Показано рядки %1s - %2s"
 
-#: libraries/classes/Display/Results.php:4564
+#: libraries/classes/Display/Results.php:4572
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d всього, %2$d в запиті"
 
-#: libraries/classes/Display/Results.php:4569
+#: libraries/classes/Display/Results.php:4577
 #, php-format
 msgid "%d total"
 msgstr "всього %d"
 
-#: libraries/classes/Display/Results.php:4581 libraries/classes/Sql.php:1350
+#: libraries/classes/Display/Results.php:4589 libraries/classes/Sql.php:1350
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Запит виконувався %01.4f секунди."
 
-#: libraries/classes/Display/Results.php:4831
+#: libraries/classes/Display/Results.php:4839
 msgid "Copy to clipboard"
 msgstr "Скопіювати до буфера обміну"
 
-#: libraries/classes/Display/Results.php:4883
+#: libraries/classes/Display/Results.php:4891
 msgid "Query results operations"
 msgstr "Операції з результатами запиту"
 
-#: libraries/classes/Display/Results.php:4970
+#: libraries/classes/Display/Results.php:4978
 #: templates/table/chart/tbl_chart.twig:10
 msgid "Display chart"
 msgstr "Відобразити діаграму"
 
-#: libraries/classes/Display/Results.php:4993
+#: libraries/classes/Display/Results.php:5001
 msgid "Visualize GIS data"
 msgstr "Візуалізація даних GIS"
 
-#: libraries/classes/Display/Results.php:5175
+#: libraries/classes/Display/Results.php:5183
 msgid "Link not found!"
 msgstr "Посилання не знайдено!"
 
@@ -8582,12 +8595,6 @@ msgid ""
 msgstr ""
 "Схоже, що індекси %1$s та %2$s ідентичні, тому один із них можна видалити."
 
-#: libraries/classes/InsertEdit.php:308
-#: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:56
-#: templates/database/designer/main.twig:236
-msgid "Hide"
-msgstr "Приховати"
-
 #: libraries/classes/InsertEdit.php:324
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:32
 #: libraries/classes/Rte/Routines.php:1647
@@ -8669,21 +8676,21 @@ msgstr ""
 #: libraries/classes/Rte/Routines.php:1649
 #: templates/server/status/variables/index.twig:71
 #: templates/table/search/fields_table.twig:11
-#: templates/database/designer/main.twig:525
-#: templates/database/designer/main.twig:690
-#: templates/database/designer/main.twig:892
-#: templates/database/designer/main.twig:1085
+#: templates/database/designer/main.twig:489
+#: templates/database/designer/main.twig:654
+#: templates/database/designer/main.twig:856
+#: templates/database/designer/main.twig:1049
 #: templates/server/replication/status_table.twig:17
 #: templates/server/variables/index.twig:29
 #: templates/table/search/zoom_result_form.twig:36
 msgid "Value"
 msgstr "Значення"
 
-#: libraries/classes/InsertEdit.php:2344 libraries/classes/Sql.php:1341
+#: libraries/classes/InsertEdit.php:2347 libraries/classes/Sql.php:1341
 msgid "Showing SQL query"
 msgstr "Показ SQL-запиту"
 
-#: libraries/classes/InsertEdit.php:2369 libraries/classes/Sql.php:1319
+#: libraries/classes/InsertEdit.php:2372 libraries/classes/Sql.php:1319
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Ідентифікатор вставленого рядка: %1$d"
@@ -10471,7 +10478,7 @@ msgstr "Таблиця %s не існує!"
 msgid "Schema of the %s database - Page %s"
 msgstr "Схема бази даних %s - Сторінка %s"
 
-#: libraries/classes/Plugins/Schema/ExportRelationSchema.php:298
+#: libraries/classes/Plugins/Schema/ExportRelationSchema.php:297
 msgid "SCHEMA ERROR: "
 msgstr "SCHEMA ERROR: "
 
@@ -13712,11 +13719,11 @@ msgstr ""
 msgid "Secret/key:"
 msgstr "Секрет/ключ:"
 
-#: templates/database/designer/database_tables.twig:31
+#: templates/database/designer/database_tables.twig:34
 msgid "Show/hide columns"
 msgstr "Показати/приховати стовпці"
 
-#: templates/database/designer/database_tables.twig:39
+#: templates/database/designer/database_tables.twig:43
 msgid "See table structure"
 msgstr "Дивитися структуру таблиці"
 
@@ -15113,12 +15120,12 @@ msgid "Save on server in the directory <strong>%s</strong>"
 msgstr "Зберегти на сервері в каталозі <strong>%s</strong>"
 
 #: templates/table/search/fields_table.twig:10
-#: templates/database/designer/main.twig:557
-#: templates/database/designer/main.twig:621
-#: templates/database/designer/main.twig:822
-#: templates/database/designer/main.twig:853
-#: templates/database/designer/main.twig:961
-#: templates/database/designer/main.twig:1046
+#: templates/database/designer/main.twig:521
+#: templates/database/designer/main.twig:585
+#: templates/database/designer/main.twig:786
+#: templates/database/designer/main.twig:817
+#: templates/database/designer/main.twig:925
+#: templates/database/designer/main.twig:1010
 msgid "Operator"
 msgstr "Оператор"
 
@@ -15673,7 +15680,7 @@ msgstr "Видалити сторінки"
 
 #: templates/database/designer/main.twig:93
 #: templates/database/designer/main.twig:96
-#: templates/database/designer/main.twig:312
+#: templates/database/designer/main.twig:276
 msgid "Create relationship"
 msgstr "Створити зв'язок"
 
@@ -15745,49 +15752,49 @@ msgstr "Сховати/Показати все"
 msgid "Hide/Show tables with no relationship"
 msgstr "Сховати/Показати таблиці, які не мають зв'язків"
 
-#: templates/database/designer/main.twig:257
+#: templates/database/designer/main.twig:227
 msgid "Number of tables:"
 msgstr "Число таблиць:"
 
-#: templates/database/designer/main.twig:422
+#: templates/database/designer/main.twig:386
 msgid "Delete relationship"
 msgstr "Видалити зв'язок"
 
-#: templates/database/designer/main.twig:486
-#: templates/database/designer/main.twig:651
+#: templates/database/designer/main.twig:450
+#: templates/database/designer/main.twig:615
 msgid "Relationship operator"
 msgstr "Оператор звязків"
 
-#: templates/database/designer/main.twig:515
-#: templates/database/designer/main.twig:680
-#: templates/database/designer/main.twig:882
-#: templates/database/designer/main.twig:1075
+#: templates/database/designer/main.twig:479
+#: templates/database/designer/main.twig:644
+#: templates/database/designer/main.twig:846
+#: templates/database/designer/main.twig:1039
 msgid "Except"
 msgstr "За винятком"
 
-#: templates/database/designer/main.twig:527
-#: templates/database/designer/main.twig:692
-#: templates/database/designer/main.twig:894
-#: templates/database/designer/main.twig:1087
+#: templates/database/designer/main.twig:491
+#: templates/database/designer/main.twig:656
+#: templates/database/designer/main.twig:858
+#: templates/database/designer/main.twig:1051
 msgid "subquery"
 msgstr "підзапит"
 
-#: templates/database/designer/main.twig:536
-#: templates/database/designer/main.twig:748
+#: templates/database/designer/main.twig:500
+#: templates/database/designer/main.twig:712
 msgid "Rename to"
 msgstr "Перейменувати у"
 
-#: templates/database/designer/main.twig:542
-#: templates/database/designer/main.twig:756
+#: templates/database/designer/main.twig:506
+#: templates/database/designer/main.twig:720
 msgid "New name"
 msgstr "Нове ім'я"
 
-#: templates/database/designer/main.twig:551
-#: templates/database/designer/main.twig:953
+#: templates/database/designer/main.twig:515
+#: templates/database/designer/main.twig:917
 msgid "Aggregate"
 msgstr "Загальний"
 
-#: templates/database/designer/main.twig:1128
+#: templates/database/designer/main.twig:1092
 msgid "Active options"
 msgstr "Активовані опції"
 
