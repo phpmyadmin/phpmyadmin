@@ -18,6 +18,7 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 use Throwable;
+use function array_merge_recursive;
 
 /**
  * Advisor class
@@ -230,12 +231,15 @@ class Advisor
         $this->variables['system_memory']
             = isset($memory['MemTotal']) ? $memory['MemTotal'] : 0;
 
-        // Add IS_MYSQL to globals
-        $isMariaDB = false !== strpos($this->getVariables()['version'], 'MariaDB');
-        $this->globals['IS_MYSQL'] = !$isMariaDB;
+        $ruleFiles = $this->defineRulesFiles();
 
         // Step 2: Read and parse the list of rules
-        $this->setParseResult(static::parseRulesFile());
+        $parsedResults = [];
+        foreach ($ruleFiles as $ruleFile) {
+            $parsedResults[] = $this->parseRulesFile($ruleFile);
+        }
+        $this->setParseResult(array_merge_recursive(...$parsedResults));
+
         // Step 3: Feed the variables to the rules and let them fire. Sets
         // $runResult
         $this->runRules();
@@ -454,6 +458,22 @@ class Advisor
     }
 
     /**
+     * Defines the rules files to use
+     *
+     * @return array
+     */
+    protected function defineRulesFiles(): array
+    {
+        $isMariaDB = false !== strpos($this->getVariables()['version'], 'MariaDB');
+        $ruleFiles = ['libraries/advisory_rules_generic.txt'];
+        // If MariaDB (= not MySQL) OR MYSQL < 8.0.3, add another rules file.
+        if ($isMariaDB || $this->globals['PMA_MYSQL_INT_VERSION'] < 80003) {
+            $ruleFiles[] = 'libraries/advisory_rules_mysql_before80003.txt';
+        }
+        return $ruleFiles;
+    }
+
+    /**
      * Callback for wrapping links with Core::linkURL
      *
      * @param array $matches List of matched elements form preg_replace_callback
@@ -504,16 +524,16 @@ class Advisor
      * Reads the rule file into an array, throwing errors messages on syntax
      * errors.
      *
+     * @param string $filename Name of file to parse
+     *
      * @return array with parsed data
      */
-    public static function parseRulesFile(): array
+    public static function parseRulesFile(string $filename): array
     {
-        $filename = 'libraries/advisory_rules.txt';
         $file = file($filename, FILE_IGNORE_NEW_LINES);
 
         $errors = [];
         $rules = [];
-        $lines = [];
 
         if ($file === false) {
             $errors[] = sprintf(
@@ -522,7 +542,6 @@ class Advisor
             );
             return [
                 'rules' => $rules,
-                'lines' => $lines,
                 'errors' => $errors,
             ];
         }
@@ -563,10 +582,8 @@ class Advisor
                     $ruleLine = 1;
                     $ruleNo++;
                     $rules[$ruleNo] = ['name' => $match[1]];
-                    $lines[$ruleNo] = ['name' => $i + 1];
                     if (isset($match[3])) {
                         $rules[$ruleNo]['precondition'] = $match[3];
-                        $lines[$ruleNo]['precondition'] = $i + 1;
                     }
                 } else {
                     $errors[] = sprintf(
@@ -602,7 +619,6 @@ class Advisor
                 $rules[$ruleNo][$ruleSyntax[$ruleLine]] = rtrim(
                     mb_substr($line, 1)
                 );
-                $lines[$ruleNo][$ruleSyntax[$ruleLine]] = $i + 1;
                 ++$ruleLine;
             }
 
@@ -614,7 +630,6 @@ class Advisor
 
         return [
             'rules' => $rules,
-            'lines' => $lines,
             'errors' => $errors,
         ];
     }
