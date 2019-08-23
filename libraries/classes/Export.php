@@ -1219,7 +1219,7 @@ class Export
             Core::fatalError(__('Bad type!'));
         }
 
-        $this->dbi->selectDb($GLOBALS['db']);
-        $export_plugin->exportSchema($GLOBALS['db']);
+        $this->dbi->selectDb($_POST['db']);
+        $export_plugin->exportSchema($_POST['db']);
     }
 }
