@@ -1164,8 +1164,7 @@ DesignerMove.loadPage = function (page) {
         if (page !== null) {
             paramPage = argsep + 'page=' + page;
         }
-        $('<a href="index.php?route=/database/designer&server=' + server + argsep + 'db=' + encodeURI(db) + paramPage + '"></a>')
-        $('<a href="db_designer.php?server=' + server + argsep + 'db=' + encodeURIComponent(db) + paramPage + '"></a>')
+        $('<a href="index.php?route=/database/designer&server=' + server + argsep + 'db=' + encodeURIComponent(db) + paramPage + '"></a>')
             .appendTo($('#page_content'))
             .trigger('click');
     } else {
