@@ -1800,7 +1800,7 @@ class Sql
         array $analyzed_sql_results,
         $db,
         $table,
-        ?string $message,
+        $message,
         ?array $sql_data,
         $displayResultsObject,
         $pmaThemeImage,

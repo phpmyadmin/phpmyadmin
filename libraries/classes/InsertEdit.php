@@ -2259,7 +2259,11 @@ class InsertEdit
             if (! preg_match('@^[a-z_]+\.php$@', $GLOBALS['goto'])) {
                 // this should NOT happen
                 //$GLOBALS['goto'] = false;
-                $goto_include = false;
+                if ($GLOBALS['goto'] === 'index.php?route=/sql') {
+                    $goto_include = 'libraries/entry_points/sql.php';
+                } else {
+                    $goto_include = false;
+                }
             } else {
                 $goto_include = $GLOBALS['goto'];
             }
