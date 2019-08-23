@@ -27,6 +27,9 @@ use function array_merge_recursive;
  */
 class Advisor
 {
+    public const GENERIC_RULES_FILE = 'libraries/advisory_rules_generic.txt';
+    public const BEFORE_MYSQL80003_RULES_FILE = 'libraries/advisory_rules_mysql_before80003.txt';
+
     protected $dbi;
     protected $variables;
     protected $globals;
@@ -465,10 +468,10 @@ class Advisor
     protected function defineRulesFiles(): array
     {
         $isMariaDB = false !== strpos($this->getVariables()['version'], 'MariaDB');
-        $ruleFiles = ['libraries/advisory_rules_generic.txt'];
+        $ruleFiles = [self::GENERIC_RULES_FILE];
         // If MariaDB (= not MySQL) OR MYSQL < 8.0.3, add another rules file.
         if ($isMariaDB || $this->globals['PMA_MYSQL_INT_VERSION'] < 80003) {
-            $ruleFiles[] = 'libraries/advisory_rules_mysql_before80003.txt';
+            $ruleFiles[] = self::BEFORE_MYSQL80003_RULES_FILE;
         }
         return $ruleFiles;
     }
