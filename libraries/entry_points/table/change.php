@@ -20,6 +20,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 global $cfg, $is_upload, $containerBuilder, $db, $table, $text_dir, $disp_message;
+global $err_url, $where_clause, $unsaved_values;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);

@@ -30,6 +30,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 global $containerBuilder, $db, $table, $url_params, $message;
+global $err_url, $mime_map, $unsaved_values, $where_clause, $active_page, $disp_query, $disp_message;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);
