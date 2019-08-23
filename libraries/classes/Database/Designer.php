@@ -242,13 +242,13 @@ class Designer
     /**
      * Get HTML to display tables on designer page
      *
-     * @param string $db                       The database name from the request
-     * @param DeseignerTable[]  $designerTables           The designer tables
-     * @param array  $tab_pos                  tables positions
-     * @param int    $display_page             page number of the selected page
-     * @param array  $tab_column               table column info
-     * @param array  $tables_all_keys          all indices
-     * @param array  $tables_pk_or_unique_keys unique or primary indices
+     * @param string          $db                       The database name from the request
+     * @param DesignerTable[] $designerTables           The designer tables
+     * @param array           $tab_pos                  tables positions
+     * @param int             $display_page             page number of the selected page
+     * @param array           $tab_column               table column info
+     * @param array           $tables_all_keys          all indices
+     * @param array           $tables_pk_or_unique_keys unique or primary indices
      *
      * @return string html
      */
