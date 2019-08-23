@@ -13,6 +13,7 @@ namespace PhpMyAdmin\Plugins\Schema;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function rawurldecode;
 
 /**
  * This class is inherited by all schema classes
@@ -248,13 +249,11 @@ class ExportRelationSchema
     protected function getTablesFromRequest()
     {
         $tables = [];
-        $dbLength = mb_strlen($this->db);
-        foreach ($_REQUEST['t_h'] as $key => $value) {
-            if ($value) {
-                $tables[] = mb_substr($key, $dbLength + 1);
+        if (isset($_POST['t_tbl'])) {
+            foreach ($_POST['t_tbl'] as $table) {
+                $tables[] = rawurldecode($table);
             }
         }
-
         return $tables;
     }
 
@@ -305,6 +304,7 @@ class ExportRelationSchema
         echo '<a href="';
         echo Url::getFromRoute('/database/designer', [
             'db' => $GLOBALS['db'],
+            'server' => $GLOBALS['server'],
             'page' => $pageNumber,
         ]);
         echo '">' . __('Back') . '</a>';

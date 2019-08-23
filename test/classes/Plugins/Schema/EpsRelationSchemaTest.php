@@ -42,6 +42,8 @@ class EpsRelationSchemaTest extends PmaTestCase
         $_REQUEST['t_h'] = ['information_schema.files' => 1];
         $_REQUEST['t_x'] = ['information_schema.files' => 0];
         $_REQUEST['t_y'] = ['information_schema.files' => 0];
+        $_POST['t_db'] = ['information_schema'];
+        $_POST['t_tbl'] = ['files'];
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'information_schema';

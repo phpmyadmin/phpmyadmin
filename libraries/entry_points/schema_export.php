@@ -25,7 +25,7 @@ global $containerBuilder;
 $relation = $containerBuilder->get('relation');
 $cfgRelation = $relation->getRelationsParam();
 
-if (! isset($_REQUEST['export_type'])) {
+if (! isset($_POST['export_type'])) {
     Util::checkParameters(['export_type']);
 }
 
@@ -35,4 +35,4 @@ if (! isset($_REQUEST['export_type'])) {
  */
 /** @var Export $export */
 $export = $containerBuilder->get('export');
-$export->processExportSchema($_REQUEST['export_type']);
+$export->processExportSchema($_POST['export_type']);
