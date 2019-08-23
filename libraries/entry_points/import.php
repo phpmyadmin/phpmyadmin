@@ -30,7 +30,8 @@ if (isset($_POST['format']) && $_POST['format'] == 'ldi') {
     define('PMA_ENABLE_LDI', 1);
 }
 
-global $cfg, $collation_connection, $containerBuilder, $db, $import_type, $pmaThemeImage, $table;
+global $cfg, $collation_connection, $containerBuilder, $db, $import_type, $pmaThemeImage, $table, $goto, $display_query;
+global $format, $local_import_file, $ajax_reload, $import_text, $sql_query, $message, $err_url, $url_params;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);
@@ -270,14 +271,14 @@ PhpMyAdmin\Util::checkParameters(['import_type', 'format']);
 $format = Core::securePath($format);
 
 if (strlen($table) > 0 && strlen($db) > 0) {
-    $urlparams = [
+    $url_params = [
         'db' => $db,
         'table' => $table,
     ];
 } elseif (strlen($db) > 0) {
-    $urlparams = ['db' => $db];
+    $url_params = ['db' => $db];
 } else {
-    $urlparams = [];
+    $url_params = [];
 }
 
 // Create error and goto url
@@ -296,7 +297,7 @@ if ($import_type == 'table') {
         $goto = Url::getFromRoute('/server/sql');
     }
 }
-$err_url = $goto . Url::getCommon($urlparams);
+$err_url = $goto . Url::getCommon($url_params);
 $_SESSION['Import_message']['go_back_url'] = $err_url;
 
 if (strlen($db) > 0) {
@@ -623,13 +624,13 @@ if (! empty($id_bookmark) && $_POST['action_bookmark'] == 2) {
 
 // Did we hit timeout? Tell it user.
 if ($timeout_passed) {
-    $urlparams['timeout_passed'] = '1';
-    $urlparams['offset'] = $GLOBALS['offset'];
+    $url_params['timeout_passed'] = '1';
+    $url_params['offset'] = $GLOBALS['offset'];
     if (isset($local_import_file)) {
-        $urlparams['local_import_file'] = $local_import_file;
+        $url_params['local_import_file'] = $local_import_file;
     }
 
-    $importUrl = $err_url = $goto . Url::getCommon($urlparams);
+    $importUrl = $err_url = $goto . Url::getCommon($url_params);
 
     $message = PhpMyAdmin\Message::error(
         __(
