@@ -70,7 +70,7 @@ class AdvisorTest extends PmaTestCase
     public function testParse()
     {
         $advisor = new Advisor($GLOBALS['dbi'], new ExpressionLanguage());
-        $parseResult = $advisor->parseRulesFile();
+        $parseResult = $advisor->parseRulesFile(Advisor::GENERIC_RULES_FILE);
         $this->assertEquals($parseResult['errors'], array());
     }
 
@@ -127,7 +127,7 @@ class AdvisorTest extends PmaTestCase
     public function testAddRule($rule, $expected, $error)
     {
         $advisor = new Advisor($GLOBALS['dbi'], new ExpressionLanguage());
-        $parseResult = $advisor->parseRulesFile();
+        $parseResult = $advisor->parseRulesFile(Advisor::GENERIC_RULES_FILE);
         $this->assertEquals($parseResult['errors'], array());
         $advisor->setVariable('value', 0);
         $advisor->addRule('fired', $rule);
