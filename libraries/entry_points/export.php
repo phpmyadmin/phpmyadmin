@@ -26,7 +26,9 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $containerBuilder, $db, $export_type, $filename_template, $sql_query;
+global $containerBuilder, $db, $export_type, $filename_template, $sql_query, $err_url, $message;
+global $compression, $crlf, $asfile, $buffer_needed, $save_on_server, $file_handle;
+global $output_charset_conversion, $output_kanji_conversion;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);
