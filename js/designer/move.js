@@ -74,6 +74,8 @@ var fromArray = [];
 var downer;
 var menuMoved = false;
 var gridSize = 10;
+var AddedDBs = '';
+var AddedTables = '';
 
 // ------------------------------------------------------------------------------
 
@@ -536,6 +538,14 @@ DesignerMove.addOtherDbTables = function () {
             'table' : table,
             'server': CommonParams.get('server')
         }, function (data) {
+            if(AddedDBs == '' && AddedTables == ''){
+                AddedDBs = db;
+                AddedTables = table;
+            }
+            else{
+                AddedDBs = AddedDBs.concat(','+db);
+                AddedTables = AddedTables.concat(','+table);
+            }
             var $newTableDom = $(data.message);
             $newTableDom.find('a').first().remove();
             $('#container-form').append($newTableDom);
@@ -635,6 +645,17 @@ DesignerMove.getUrlPos = function (forceString) {
     if (designerTablesEnabled || forceString) {
         var poststr = '';
         var argsep = CommonParams.get('arg_separator');
+        var count = (AddedDBs.match(/,/g) || []).length + 1;
+        var DB = AddedDBs.split(",");
+        var Tables = AddedTables.split(",");
+
+        for(var i = 0; i<count; i++ ){
+            key = DB[i] + '.' + Tables[i];
+            poststr += argsep + 't_x[' + key + ']=' + parseInt(document.getElementById(key).style.left, 10);
+            poststr += argsep + 't_y[' + key + ']=' + parseInt(document.getElementById(key).style.top, 10);
+            poststr += argsep + 't_v[' + key + ']=' + (document.getElementById('id_tbody_' + key).style.display === 'none' ? 0 : 1);
+            poststr += argsep + 't_h[' + key + ']=' + (document.getElementById('check_vis_' + key).checked ? 1 : 0);
+        }
         for (key in jTabs) {
             poststr += argsep + 't_x[' + key + ']=' + parseInt(document.getElementById(key).style.left, 10);
             poststr += argsep + 't_y[' + key + ']=' + parseInt(document.getElementById(key).style.top, 10);
@@ -645,6 +666,17 @@ DesignerMove.getUrlPos = function (forceString) {
     } else {
         var coords = [];
         for (key in jTabs) {
+            if (document.getElementById('check_vis_' + key).checked) {
+                var x = parseInt(document.getElementById(key).style.left, 10);
+                var y = parseInt(document.getElementById(key).style.top, 10);
+                var tbCoords = new DesignerObjects.TableCoordinate(db, key.split('.')[1], -1, x, y);
+                coords.push(tbCoords);
+            }
+        }
+        var count = (AddedDBs.match(/,/g) || []).length + 1;
+        // key = AddedDBs[i] + '.' + AddedTables[i];
+        for(var i = 0; i<count; i++ ){
+            key = AddedDBs[i] + '.' + AddedTables[i];
             if (document.getElementById('check_vis_' + key).checked) {
                 var x = parseInt(document.getElementById(key).style.left, 10);
                 var y = parseInt(document.getElementById(key).style.top, 10);
@@ -790,6 +822,8 @@ DesignerMove.editPages = function () {
             'ajax_request': true,
             'server': server,
             'db': db,
+            'AddedDBs': AddedDBs,
+            'AddedTables': AddedTables,
             'dialog': 'edit'
         }, function (data) {
             if (data.success === false) {
@@ -975,6 +1009,8 @@ DesignerMove.saveAs = function () {
         'ajax_request': true,
         'server': server,
         'db': db,
+        'AddedDBs': AddedDBs,
+        'AddedTables': AddedTables,
         'dialog': 'save_as'
     }, function (data) {
         if (data.success === false) {

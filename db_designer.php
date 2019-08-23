@@ -38,11 +38,11 @@ $designerCommon = $containerBuilder->get('designer_common');
 
 if (isset($_POST['dialog'])) {
     if ($_POST['dialog'] == 'edit') {
-        $html = $databaseDesigner->getHtmlForEditOrDeletePages($db, 'editPage');
+        $html = $databaseDesigner->getHtmlForEditOrDeletePages($db, 'editPage', $_POST['AddedDBs'], $_POST['AddedTables']);
     } elseif ($_POST['dialog'] == 'delete') {
-        $html = $databaseDesigner->getHtmlForEditOrDeletePages($db, 'deletePage');
+        $html = $databaseDesigner->getHtmlForEditOrDeletePages($db, 'deletePage', '', '');
     } elseif ($_POST['dialog'] == 'save_as') {
-        $html = $databaseDesigner->getHtmlForPageSaveAs($db);
+        $html = $databaseDesigner->getHtmlForPageSaveAs($db,$_POST['AddedDBs'], $_POST['AddedTables']);
     } elseif ($_POST['dialog'] == 'export') {
         $html = $databaseDesigner->getHtmlForSchemaExport(
             $db,
@@ -58,6 +58,7 @@ if (isset($_POST['dialog'])) {
         $req_key = array_search($required, $GLOBALS['designer']['TABLE_NAME']);
 
         $GLOBALS['designer']['TABLE_NAME'] = [$GLOBALS['designer']['TABLE_NAME'][$req_key]];
+        $GLOBALS['designer_url']['TABLE_NAME'] = [$GLOBALS['designer_url']['TABLE_NAME'][$req_key]];
         $GLOBALS['designer_url']['TABLE_NAME_SMALL'] = [$GLOBALS['designer_url']['TABLE_NAME_SMALL'][$req_key]];
         $GLOBALS['designer']['TABLE_NAME_SMALL'] = [$GLOBALS['designer']['TABLE_NAME_SMALL'][$req_key]];
         $GLOBALS['designer_out']['TABLE_NAME_SMALL'] = [$GLOBALS['designer_out']['TABLE_NAME_SMALL'][$req_key]];

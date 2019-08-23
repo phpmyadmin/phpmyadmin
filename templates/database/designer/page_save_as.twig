@@ -1,5 +1,7 @@
 <form action="db_designer.php" method="post" name="save_as_pages" id="save_as_pages" class="ajax">
     {{ get_hidden_inputs(db) }}
+    <input type="hidden" name="DBname" value="{{AddedDBs}}">
+    <input type="hidden" name="TABname" value="{{AddedTables}}">
     <fieldset id="page_save_as_options">
         <table>
             <tbody>
