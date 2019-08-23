@@ -68,6 +68,7 @@ class Common
 
         foreach ($tables as $one_table) {
             $DF = $this->relation->getDisplayField($db, $one_table['TABLE_NAME']);
+            $DF = is_string($DF) ? $DF : '';
             $DF = ($DF !== '') ? $DF : null;
             $designerTables[] = new DesignerTable(
                 $db,

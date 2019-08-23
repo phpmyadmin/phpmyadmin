@@ -1971,7 +1971,7 @@ DesignerMove.enableTableEvents = function (index, element) {
         DesignerMove.smallTab($(this).attr('table_name'), 1);
     });
     $(element).on('click', '.small_tab_pref_1', function () {
-        DesignerMove.startTabUpd($(this).attr('db'), $(this).attr('table_name_small'));
+        DesignerMove.startTabUpd($(this).attr('db_url'), $(this).attr('table_name_url'));
     });
     $(element).on('click', '.select_all_store_col', function () {
         var params = ($(this).attr('store_column_param')).split(',');
