@@ -32,6 +32,10 @@ if (isset($_POST['format']) && $_POST['format'] == 'ldi') {
 
 global $cfg, $collation_connection, $containerBuilder, $db, $import_type, $pmaThemeImage, $table, $goto, $display_query;
 global $format, $local_import_file, $ajax_reload, $import_text, $sql_query, $message, $err_url, $url_params;
+global $import_handle, $memory_limit, $read_limit, $finished, $offset, $charset_conversion, $charset_of_file;
+global $timestamp, $maximum_time, $timeout_passed, $import_file, $go_sql, $reload, $sql_file, $error, $max_sql_len, $msg;
+global $file_to_unlink, $sql_query_disabled, $executed_queries, $run_query, $reset_charset, $bookmark_created;
+global $result, $import_file_name, $sql_data, $import_notice, $read_multiply, $my_die, $active_page;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);
