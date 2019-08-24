@@ -16,7 +16,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $containerBuilder;
+global $containerBuilder, $url_query;
 
 /** @var string $url_query Overwritten in tbl_common.inc.php */
 $url_query = null;

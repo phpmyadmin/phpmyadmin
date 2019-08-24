@@ -23,7 +23,12 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $containerBuilder, $url_query;
+global $containerBuilder, $url_query, $url_params, $reread_info, $showtable, $tbl_is_view, $tbl_storage_engine;
+global $show_comment, $tbl_collation, $table_info_num_rows, $row_format, $auto_increment, $create_options;
+global $table_alters, $warning_messages, $lowerCaseNames, $db, $table, $reload, $result;
+global $new_tbl_storage_engine, $sql_query, $message_to_show, $columns, $hideOrderTable, $indexes;
+global $notNull, $comment, $db_is_system_schema, $truncate_table_url_params, $drop_table_url_params;
+global $this_sql_query;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);

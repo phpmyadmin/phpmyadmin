@@ -19,8 +19,12 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $cfg, $is_upload, $containerBuilder, $db, $table, $text_dir, $disp_message;
-global $err_url, $where_clause, $unsaved_values;
+global $cfg, $is_upload, $containerBuilder, $db, $table, $text_dir, $disp_message, $url_params;
+global $err_url, $where_clause, $unsaved_values, $insert_mode, $where_clause_array, $where_clauses;
+global $result, $rows, $found_unique_key, $after_insert, $goto, $comments_map, $table_columns;
+global $chg_evt_handler, $timestamp_seen, $columns_cnt, $tabindex, $tabindex_for_function;
+global $tabindex_for_null, $tabindex_for_value, $o_rows, $biggest_max_file_size, $has_blob_field;
+global $titles, $plugin_scripts, $jsvkey, $vkey, $current_result, $repopulate, $checked;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);

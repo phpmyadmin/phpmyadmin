@@ -17,7 +17,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 global $containerBuilder, $db_is_system_schema, $tbl_is_view, $tbl_storage_engine;
-global $table_info_num_rows, $tbl_collation, $showtable;
+global $table_info_num_rows, $tbl_collation, $showtable, $reread_info;
 
 /** @var DatabaseInterface $dbi */
 $dbi = $containerBuilder->get('dbi');

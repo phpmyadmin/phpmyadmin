@@ -21,6 +21,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 global $containerBuilder, $err_url, $message, $action, $active_page, $num_fields, $sql_query;
+global $abort, $num_fields, $regenerate, $result;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);

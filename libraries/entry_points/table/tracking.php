@@ -17,7 +17,9 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $containerBuilder, $pmaThemeImage, $text_dir, $url_query;
+global $containerBuilder, $pmaThemeImage, $text_dir, $url_query, $url_params, $msg;
+global $data, $entries, $filter_ts_from, $filter_ts_to, $filter_users, $selection_schema;
+global $selection_data, $selection_both, $sql_result;
 
 //Get some js files needed for Ajax requests
 $response = Response::getInstance();

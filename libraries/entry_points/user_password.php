@@ -18,7 +18,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $cfg, $containerBuilder, $hostname, $username;
+global $cfg, $containerBuilder, $hostname, $username, $password, $change_password_message, $msg;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);

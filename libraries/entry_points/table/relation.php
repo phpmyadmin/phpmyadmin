@@ -26,7 +26,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $containerBuilder;
+global $containerBuilder, $options_array, $db, $table, $tbl_storage_engine, $upd_query;
 
 /* Define dependencies for the concerned controller */
 $db = $containerBuilder->getParameter('db');
