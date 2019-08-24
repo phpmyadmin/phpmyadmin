@@ -28,7 +28,12 @@ if (! defined('PHPMYADMIN')) {
 
 global $containerBuilder, $db, $export_type, $filename_template, $sql_query, $err_url, $message;
 global $compression, $crlf, $asfile, $buffer_needed, $save_on_server, $file_handle;
-global $output_charset_conversion, $output_kanji_conversion;
+global $output_charset_conversion, $output_kanji_conversion, $table, $what, $export_plugin, $single_table;
+global $compression_methods, $onserver, $back_button, $refreshButton, $save_filename, $filename, $separate_files;
+global $quick_export, $cfg, $tables, $table_select, $aliases, $dump_buffer, $dump_buffer_len, $dump_buffer_objects;
+global $time_start, $charset, $onfly_compression, $memory_limit, $remember_template, $mime_type, $num_tables;
+global $active_page, $do_relation, $do_comments, $do_mime, $do_dates, $whatStrucOrData, $db_select;
+global $table_structure, $table_data, $lock_tables, $allrows, $limit_to, $limit_from;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);
@@ -189,8 +194,6 @@ foreach ($post_params as $one_post_param) {
         $GLOBALS[$one_post_param] = $_POST[$one_post_param];
     }
 }
-
-$table = $GLOBALS['table'];
 
 PhpMyAdmin\Util::checkParameters(['what', 'export_type']);
 
