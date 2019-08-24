@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-08-23 14:20+0200\n"
-"PO-Revision-Date: 2019-07-30 00:41+0000\n"
+"PO-Revision-Date: 2019-08-25 09:23+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/et/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.8-dev\n"
+"X-Generator: Weblate 3.9-dev\n"
 
 #: import_status.php:111
 msgid "Could not load the progress of the import."
@@ -2066,12 +2066,11 @@ msgid "Failed security key activation (%s)."
 msgstr "Turvavõtme aktiveerimine nurjus (%s)."
 
 #: js/messages.php:766
-#, fuzzy, php-format
-#| msgid "Table %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
-msgstr "%s tabel on juba olemas!"
+msgstr "Tabel %s on juba olemas!"
 
 #: js/messages.php:767 libraries/classes/InsertEdit.php:308
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:56
@@ -14624,11 +14623,9 @@ msgid "No password"
 msgstr "Ilma paroolita"
 
 #: templates/server/privileges/login_information_fields.twig:54
-#, fuzzy
-#| msgid "Data length"
 msgctxt "Password strength"
 msgid "Strength:"
-msgstr "Andmete pikkus"
+msgstr "Tugevus:"
 
 #: templates/server/privileges/login_information_fields.twig:62
 #: templates/server/replication/master_add_slave_user.twig:65
@@ -14636,30 +14633,21 @@ msgid "Re-type"
 msgstr "Tipi uuesti"
 
 #: templates/server/privileges/login_information_fields.twig:68
-#, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication plugin"
 msgstr "Autentimise pistik"
 
 #: templates/server/privileges/login_information_fields.twig:70
-#, fuzzy
-#| msgid "Password Hashing Method"
 msgid "Password hashing method"
 msgstr "Parooli räsimise algoritm"
 
 #: templates/server/privileges/login_information_fields.twig:79
-#, fuzzy
-#| msgid ""
-#| "This method requires using an '<i>SSL connection</i>' or an "
-#| "'<i>unencrypted connection that encrypts the password using RSA</i>'; "
-#| "while connecting to the server."
 msgid ""
 "This method requires using an '<em>SSL connection</em>' or an "
 "'<em>unencrypted connection that encrypts the password using RSA</em>'; "
 "while connecting to the server."
 msgstr ""
-"See meetod nõuab, et servieriga luuakse kas '<i>SSL ühendus</i>' või "
-"'<i>turvamata ühendus, mis krüpteerib salasõna RSA algorimiga</i>'."
+"See meetod nõuab, et servieriga luuakse kas '<em>SSL ühendus</em>' või '<em>"
+"turvamata ühendus, mis krüpteerib salasõna RSA algorimiga</em>'."
 
 #: templates/display/export/template_options.twig:1
 msgid "Select a template"
@@ -15023,8 +15011,6 @@ msgid "Username:"
 msgstr "Kasutajanimi:"
 
 #: templates/login/form.twig:65
-#, fuzzy
-#| msgid "Server Choice:"
 msgid "Server choice:"
 msgstr "Serveri valik:"
 
