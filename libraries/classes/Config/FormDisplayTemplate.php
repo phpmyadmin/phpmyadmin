@@ -353,8 +353,12 @@ class FormDisplayTemplate
                 $htmlOutput .= '</select>';
                 break;
             case 'list':
+                $val = $value;
+                if (isset($val['wrapper_params'])) {
+                    unset($val['wrapper_params']);
+                }
                 $htmlOutput .= '<textarea cols="35" rows="5" ' . $nameId . $fieldClass
-                . '>' . htmlspecialchars(implode("\n", $value)) . '</textarea>';
+                . '>' . htmlspecialchars(implode("\n", $val)) . '</textarea>';
                 break;
         }
         if ($isSetupScript

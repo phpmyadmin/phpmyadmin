@@ -494,7 +494,11 @@ class FormDisplay
                 $jsLine .= '[\'' . Sanitize::escapeJsString($valueDefaultJs) . '\']';
                 break;
             case 'list':
-                $jsLine .= '\'' . Sanitize::escapeJsString(implode("\n", $valueDefault))
+                $val = $valueDefault;
+                if (isset($val['wrapper_params'])) {
+                    unset($val['wrapper_params']);
+                }
+                $jsLine .= '\'' . Sanitize::escapeJsString(implode("\n", $val))
                 . '\'';
                 break;
         }
