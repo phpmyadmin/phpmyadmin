@@ -18,7 +18,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $containerBuilder;
+global $containerBuilder, $gis_data, $gis_types, $start, $geom_type, $gis_obj, $srid, $wkt, $wkt_with_zero;
+global $result, $visualizationSettings, $data, $visualization, $open_layers, $geom_count;
 
 /** @var Template $template */
 $template = $containerBuilder->get('template');

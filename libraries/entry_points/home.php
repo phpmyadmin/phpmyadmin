@@ -16,7 +16,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $containerBuilder, $server;
+global $containerBuilder, $server, $show_query, $db, $table;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);
@@ -67,8 +67,8 @@ if (isset($_POST['set_theme'])) {
     $response->addHTML($controller->gitRevision());
 } else {
     // Handles some variables that may have been sent by the calling script
-    $GLOBALS['db'] = '';
-    $GLOBALS['table'] = '';
+    $db = '';
+    $table = '';
     $show_query = '1';
 
     if ($server > 0) {
