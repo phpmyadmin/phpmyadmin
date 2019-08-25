@@ -30,7 +30,10 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $cfg, $containerBuilder, $db, $server, $url_query;
+global $cfg, $containerBuilder, $db, $server, $url_query, $sql_query, $move, $message, $tables_full;
+global $export_sql_plugin, $views, $sqlConstratints, $local_query, $reload, $url_params, $tables;
+global $total_num_tables, $sub_part, $is_show_stats, $db_is_system_schema, $tooltip_truename;
+global $db_collation, $tooltip_aliasname, $pos, $is_information_schema, $single_table, $num_tables;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);

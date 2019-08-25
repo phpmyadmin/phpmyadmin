@@ -17,7 +17,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $containerBuilder;
+global $containerBuilder, $message, $pos, $num_cols;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);

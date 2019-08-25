@@ -20,7 +20,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $containerBuilder, $db, $err_url, $url_query;
+global $containerBuilder, $db, $err_url, $url_query, $url_params, $tables, $num_tables, $total_num_tables, $sub_part;
+global $is_show_stats, $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);

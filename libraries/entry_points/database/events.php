@@ -17,7 +17,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $_PMA_RTE, $containerBuilder;
+global $_PMA_RTE, $containerBuilder, $table, $db, $tables, $num_tables, $total_num_tables, $sub_part;
+global $is_show_stats, $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos, $url_query;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);

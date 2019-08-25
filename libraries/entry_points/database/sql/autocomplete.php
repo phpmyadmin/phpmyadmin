@@ -14,7 +14,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $containerBuilder;
+global $containerBuilder, $db, $sql_autocomplete;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);

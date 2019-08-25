@@ -20,7 +20,9 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $containerBuilder, $db, $table, $url_query, $url_params;
+global $containerBuilder, $db, $table, $url_query, $url_params, $sub_part, $url_params, $sql_query;
+global $tables, $num_tables, $total_num_tables, $is_show_stats, $db_is_system_schema, $tooltip_truename;
+global $tooltip_aliasname, $pos, $export_page_title, $multi_values, $force_val, $table_select, $unlim_num_rows;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);
@@ -43,9 +45,7 @@ $sub_part  = '_export';
 
 require_once ROOT_PATH . 'libraries/db_common.inc.php';
 
-$url_params = [
-    'goto' => Url::getFromRoute('/database/export'),
-];
+$url_params['goto'] = Url::getFromRoute('/database/export');
 $url_query .= Url::getCommon($url_params, '&');
 
 list(

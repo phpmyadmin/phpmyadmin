@@ -20,7 +20,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $containerBuilder, $db, $pmaThemeImage, $text_dir, $url_query;
+global $containerBuilder, $db, $pmaThemeImage, $text_dir, $url_query, $url_params, $tables, $num_tables, $pos, $data;
+global $total_num_tables, $sub_part, $is_show_stats, $db_is_system_schema, $tooltip_truename, $tooltip_aliasname;
 
 //Get some js files needed for Ajax requests
 $response = Response::getInstance();

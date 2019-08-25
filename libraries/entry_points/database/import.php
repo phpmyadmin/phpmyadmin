@@ -15,7 +15,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $db, $max_upload_size, $table, $sub_part;
+global $db, $max_upload_size, $table, $tables, $num_tables, $total_num_tables, $is_show_stats;
+global $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos, $sub_part;
 
 PageSettings::showGroup('Import');
 
