@@ -23,7 +23,20 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $containerBuilder, $db, $err_url, $message, $pmaThemeImage, $text_dir, $url_query;
+global $containerBuilder, $db, $err_url, $message, $pmaThemeImage, $text_dir, $url_query, $post_patterns;
+global $username, $hostname, $dbname, $tablename, $routinename, $db_and_table, $dbname_is_wildcard;
+global $queries, $password, $ret_message, $ret_queries, $queries_for_display, $sql_query, $_add_user_error;
+global $itemType, $tables, $num_tables, $total_num_tables, $sub_part, $is_show_stats, $db_is_system_schema;
+global $tooltip_truename, $tooltip_aliasname, $pos, $title, $export, $grants, $one_grant, $url_dbname;
+global $strPrivDescAllPrivileges, $strPrivDescAlter, $strPrivDescAlterRoutine, $strPrivDescCreateDb,
+       $strPrivDescCreateRoutine, $strPrivDescCreateTbl, $strPrivDescCreateTmpTable, $strPrivDescCreateUser,
+       $strPrivDescCreateView, $strPrivDescDelete, $strPrivDescDeleteHistoricalRows, $strPrivDescDropDb,
+       $strPrivDescDropTbl, $strPrivDescEvent, $strPrivDescExecute, $strPrivDescFile,
+       $strPrivDescGrantTbl, $strPrivDescIndex, $strPrivDescInsert, $strPrivDescLockTables,
+       $strPrivDescMaxConnections, $strPrivDescMaxQuestions, $strPrivDescMaxUpdates, $strPrivDescMaxUserConnections,
+       $strPrivDescProcess, $strPrivDescReferences, $strPrivDescReload, $strPrivDescReplClient,
+       $strPrivDescReplSlave, $strPrivDescSelect, $strPrivDescShowDb, $strPrivDescShowView,
+       $strPrivDescShutdown, $strPrivDescSuper, $strPrivDescTrigger, $strPrivDescUpdate, $strPrivDescUsage;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);

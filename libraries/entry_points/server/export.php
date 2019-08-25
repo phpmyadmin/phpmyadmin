@@ -15,7 +15,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $db, $table, $sql_query, $num_tables, $unlim_num_rows;
+global $db, $table, $sql_query, $num_tables, $unlim_num_rows, $tmp_select, $select_item, $multi_values;
 
 require_once ROOT_PATH . 'libraries/server_common.inc.php';
 

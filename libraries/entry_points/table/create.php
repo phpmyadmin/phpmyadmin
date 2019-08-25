@@ -20,7 +20,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $containerBuilder, $num_fields, $action, $sql_query, $result;
+global $containerBuilder, $num_fields, $action, $sql_query, $result, $db, $table;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);

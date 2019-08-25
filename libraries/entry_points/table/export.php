@@ -18,8 +18,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $containerBuilder, $db, $url_query, $url_params, $table;
-global $sql_query, $where_clause, $num_tables, $unlim_num_rows, $multi_values;
+global $containerBuilder, $db, $url_query, $url_params, $table, $export_page_title, $replaces;
+global $sql_query, $where_clause, $num_tables, $unlim_num_rows, $multi_values, $aliases;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);
