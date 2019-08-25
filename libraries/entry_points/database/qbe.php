@@ -22,7 +22,9 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $containerBuilder, $db, $pmaThemeImage, $url_query;
+global $containerBuilder, $db, $pmaThemeImage, $url_query, $savedSearchList, $savedSearch, $currentSearchId;
+global $message_to_display, $sql_query, $goto, $sub_part, $tables, $num_tables, $total_num_tables;
+global $is_show_stats, $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos, $url_params;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);
