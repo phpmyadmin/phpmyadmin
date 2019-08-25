@@ -30,7 +30,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 global $containerBuilder, $db, $table, $url_params, $message;
-global $err_url, $mime_map, $unsaved_values, $where_clause, $active_page, $disp_query, $disp_message;
+global $err_url, $mime_map, $unsaved_values, $active_page, $disp_query, $disp_message;
 global $goto_include, $loop_array, $using_key, $is_insert, $is_insertignore, $query;
 global $value_sets, $func_no_param, $func_optional_param, $gis_from_text_functions, $gis_from_wkb_functions;
 global $query_fields, $insert_errors, $row_skipped, $query_values;
