@@ -263,9 +263,10 @@ abstract class TestBase extends TestCase
          * @see https://github.com/phpmyadmin/phpmyadmin/pull/14595#issuecomment-418541475
          * Reports the name of the test to browserstack
          */
+        $className = substr(static::class, strlen('PhpMyAdmin\Tests\Selenium\\'));
         $capabilities->setCapability(
             'name',
-            static::class . '__' . $this->getName()
+            $className . ': ' . $this->getName()
         );
 
         if ($buildLocal) {
