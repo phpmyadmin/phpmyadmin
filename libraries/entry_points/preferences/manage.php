@@ -23,7 +23,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $containerBuilder;
+global $containerBuilder, $cf, $error, $filename, $import_handle, $json;
+global $new_config, $config, $return_url, $form_display, $all_ok, $params, $query;
 
 /** @var Template $template */
 $template = $containerBuilder->get('template');

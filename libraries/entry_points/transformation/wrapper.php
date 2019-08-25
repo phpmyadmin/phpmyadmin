@@ -17,7 +17,9 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $cn, $containerBuilder, $db, $table, $transform_key;
+global $cn, $containerBuilder, $db, $table, $transform_key, $request_params, $size_params, $where_clause, $row;
+global $default_ct, $mime_map, $mime_options, $ct, $mime_type, $srcImage, $srcWidth, $srcHeight;
+global $ratioWidth, $ratioHeight, $destWidth, $destHeight, $destImage;
 
 define('IS_TRANSFORMATION_WRAPPER', true);
 

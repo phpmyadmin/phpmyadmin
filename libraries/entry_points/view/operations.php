@@ -21,7 +21,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $containerBuilder, $sql_query, $url_query, $url_params;
+global $containerBuilder, $sql_query, $url_query, $url_params, $reload, $result, $warning_messages;
+global $drop_view_url_params, $db, $table;
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);

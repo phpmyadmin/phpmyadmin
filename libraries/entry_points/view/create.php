@@ -21,7 +21,9 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $containerBuilder, $text_dir;
+global $containerBuilder, $text_dir, $url_params, $view_algorithm_options, $view_with_options, $view_security_options;
+global $message, $sep, $sql_query, $arr, $view_columns, $column_map, $systemDb, $pma_transformation_data;
+global $new_transformations_sql, $view, $item, $parts;
 
 require ROOT_PATH . 'libraries/db_common.inc.php';
 

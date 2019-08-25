@@ -22,7 +22,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $containerBuilder;
+global $containerBuilder, $cf, $form_param, $form_class, $form_display, $url_params, $error, $tabHash, $hash;
 
 /** @var Template $template */
 $template = $containerBuilder->get('template');
