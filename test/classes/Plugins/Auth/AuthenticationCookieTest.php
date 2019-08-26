@@ -198,7 +198,6 @@ class AuthenticationCookieTest extends PmaTestCase
         $GLOBALS['cfg']['AllowArbitraryServer'] = true;
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
-        $GLOBALS['target'] = 'testTarget';
         $GLOBALS['db'] = 'testDb';
         $GLOBALS['table'] = 'testTable';
         $GLOBALS['cfg']['Servers'] = [1, 2];
@@ -248,11 +247,6 @@ class AuthenticationCookieTest extends PmaTestCase
             '<select name="server" id="select_server" ' .
             'onchange="document.forms[\'login_form\'].' .
             'elements[\'pma_servername\'].value = \'\'">',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '<input type="hidden" name="target" value="testTarget">',
             $result
         );
 

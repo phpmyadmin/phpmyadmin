@@ -26,16 +26,6 @@ use phpseclib\Crypt\Random;
 use ReCaptcha;
 
 /**
- * Remember where to redirect the user
- * in case of an expired session.
- */
-if (! empty($_REQUEST['target'])) {
-    $GLOBALS['target'] = $_REQUEST['target'];
-} elseif (Core::getenv('SCRIPT_NAME')) {
-    $GLOBALS['target'] = basename(Core::getenv('SCRIPT_NAME'));
-}
-
-/**
  * Handles the cookie authentication method
  *
  * @package PhpMyAdmin-Authentication
@@ -84,7 +74,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function showLoginForm()
     {
-        global $conn_error;
+        global $conn_error, $route;
 
         $response = Response::getInstance();
 
@@ -170,8 +160,8 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         $_form_params = [];
-        if (! empty($GLOBALS['target'])) {
-            $_form_params['target'] = $GLOBALS['target'];
+        if (isset($route)) {
+            $_form_params['route'] = $route;
         }
         if (strlen($GLOBALS['db'])) {
             $_form_params['db'] = $GLOBALS['db'];
@@ -450,9 +440,10 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function rememberCredentials()
     {
+        global $route;
+
         // Name and password cookies need to be refreshed each time
         // Duration = one month for username
-
         $this->storeUsernameCookie($this->user);
 
         // Duration = as configured
@@ -461,22 +452,17 @@ class AuthenticationCookie extends AuthenticationPlugin
         if (! isset($_POST['change_pw'])) {
             $this->storePasswordCookie($this->password);
         }
-        // URL where to go:
-        $redirect_url = './index.php';
 
         // any parameters to pass?
         $url_params = [];
+        if (isset($route)) {
+            $url_params['route'] = $route;
+        }
         if (strlen($GLOBALS['db']) > 0) {
             $url_params['db'] = $GLOBALS['db'];
         }
         if (strlen($GLOBALS['table']) > 0) {
             $url_params['table'] = $GLOBALS['table'];
-        }
-        // any target to pass?
-        if (! empty($GLOBALS['target'])
-            && $GLOBALS['target'] != 'index.php'
-        ) {
-            $url_params['target'] = $GLOBALS['target'];
         }
 
         // user logged in successfully after session expiration
@@ -514,7 +500,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 ->disable();
 
             Core::sendHeaderLocation(
-                $redirect_url . Url::getCommonRaw($url_params),
+                './index.php' . Url::getCommonRaw($url_params),
                 true
             );
             if (! defined('TESTSUITE')) {

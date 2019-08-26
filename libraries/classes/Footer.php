@@ -155,20 +155,19 @@ class Footer
      */
     public function getSelfUrl(): string
     {
+        global $route, $db, $table, $server;
+
         $params = [];
-        if (isset($_GET['route']) || isset($_POST['route'])) {
-            $params['route'] = $_GET['route'] ?? $_POST['route'];
+        if (isset($route)) {
+            $params['route'] = $route;
         }
-        if (isset($GLOBALS['db']) && strlen($GLOBALS['db']) > 0) {
-            $params['db'] = $GLOBALS['db'];
+        if (isset($db) && strlen($db) > 0) {
+            $params['db'] = $db;
         }
-        if (isset($GLOBALS['table']) && strlen($GLOBALS['table']) > 0) {
-            $params['table'] = $GLOBALS['table'];
+        if (isset($table) && strlen($table) > 0) {
+            $params['table'] = $table;
         }
-        $params['server'] = $GLOBALS['server'];
-        if (isset($_REQUEST['target']) && strlen($_REQUEST['target']) > 0) {
-            $params['target'] = $_REQUEST['target'];
-        }
+        $params['server'] = $server;
 
         // needed for server privileges tabs
         if (isset($_GET['viewing_mode'])

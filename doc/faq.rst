@@ -493,6 +493,11 @@ forget to change directory name inside of it):
 
 .. seealso:: :ref:`faq4_8`
 
+.. versionchanged:: 5.1.0
+
+    Support for using the ``target`` parameter was removed in phpMyAdmin 5.1.0.
+    Use the ``route`` parameter instead.
+
 .. _faq1_35:
 
 1.35 Can I use HTTP authentication with Apache CGI?

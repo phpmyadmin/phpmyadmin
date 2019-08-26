@@ -150,16 +150,14 @@ class FooterTest extends PmaTestCase
      */
     public function testGetSelfLink()
     {
-
         $GLOBALS['cfg']['TabsMode'] = 'text';
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
-        $_REQUEST['target'] = 'target';
 
         $this->assertEquals(
             '<div id="selflink" class="print_ignore"><a href="index.php?db=db&amp;'
-            . 'table=table&amp;server=1&amp;target=target&amp;lang=en'
+            . 'table=table&amp;server=1&amp;lang=en'
             . '" title="Open new phpMyAdmin window" '
             . 'target="_blank" rel="noopener noreferrer">Open new phpMyAdmin window</a></div>',
             $this->_callPrivateFunction(
@@ -204,8 +202,7 @@ class FooterTest extends PmaTestCase
      */
     public function testGetSelfLinkWithRoute()
     {
-        $_GET['route'] = '/test';
-
+        $GLOBALS['route'] = '/test';
         $GLOBALS['cfg']['TabsMode'] = 'text';
         $GLOBALS['cfg']['ServerDefault'] = 1;
 
