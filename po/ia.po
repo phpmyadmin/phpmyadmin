@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-08-23 12:26+0200\n"
-"PO-Revision-Date: 2019-07-30 00:41+0000\n"
+"PO-Revision-Date: 2019-08-27 21:23+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-9/ia/>\n"
+"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
+"4-9/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.8-dev\n"
+"X-Generator: Weblate 3.9-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -2759,12 +2759,11 @@ msgid "Failed security key activation (%s)."
 msgstr "Le activation de clave de securitate  (%s) falleva."
 
 #: js/messages.php:755
-#, fuzzy, php-format
-#| msgid "Primary key already exists."
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
-msgstr "Clave primari ja existe."
+msgstr "Tabela %s ja existe!"
 
 #: js/messages.php:756 libraries/classes/InsertEdit.php:290
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:54
@@ -3922,6 +3921,9 @@ msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
 msgstr ""
+"Valores per le lista de optiones per le transformationes predefinite. Istes "
+"esseran superscribite si le transformationes es completate in le pagina de "
+"structura."
 
 #: libraries/classes/Config/Descriptions.php:199
 msgid "Default transformations for Substring"
@@ -11815,7 +11817,7 @@ msgstr "Max.Connexiones concurrente"
 
 #: libraries/classes/Server/Status.php:261
 msgid "Failed attempts"
-msgstr ""
+msgstr "Tentativas fallite"
 
 #: libraries/classes/Server/Status/Advisor.php:29
 msgid "Instructions"
@@ -12124,7 +12126,7 @@ msgstr "Commando"
 
 #: libraries/classes/Server/Status/Processes.php:93
 msgid "Progress"
-msgstr ""
+msgstr "Progresso"
 
 #: libraries/classes/Server/Status/Processes.php:235
 #: libraries/classes/Server/Status/Variables.php:47 templates/filter.twig:2
@@ -13940,13 +13942,15 @@ msgstr ""
 #: server_status_processes.php:33
 #, php-format
 msgid "Thread %s was successfully killed."
-msgstr ""
+msgstr "Le thread %s  ha essite terminate con successo."
 
 #: server_status_processes.php:39
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr ""
+"phpMyAdmin es incapace a terminar le thread %s. Illo probabilemente ja ha "
+"essite terminate."
 
 #: server_status_queries.php:43
 msgid "Not enough privilege to view query statistics."
