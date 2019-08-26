@@ -19,17 +19,30 @@ if (! defined('ROOT_PATH')) {
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-if (isset($_GET['route']) || isset($_POST['route'])) {
+$route = $_GET['route'] ?? $_POST['route'] ?? null;
+
+/**
+ * See FAQ 1.34.
+ * @see https://docs.phpmyadmin.net/en/latest/faq.html#faq1-34
+ */
+if ($route === null && isset($_GET['db']) && mb_strlen($_GET['db']) !== 0) {
+    $route = '/database/structure';
+    if (isset($_GET['table']) && mb_strlen($_GET['table']) !== 0) {
+        $route = '/sql';
+    }
+}
+
+if ($route !== null) {
     $routes = require ROOT_PATH . 'libraries/routes.php';
     $dispatcher = simpleDispatcher($routes);
     $routeInfo = $dispatcher->dispatch(
         $_SERVER['REQUEST_METHOD'],
-        rawurldecode($_GET['route'] ?? $_POST['route'])
+        rawurldecode($route)
     );
     if ($routeInfo[0] === Dispatcher::NOT_FOUND) {
         Message::error(sprintf(
             __('Error 404! The page %s was not found.'),
-            '<code>' . ($_GET['route'] ?? $_POST['route']) . '</code>'
+            '<code>' . ($route) . '</code>'
         ))->display();
         exit;
     } elseif ($routeInfo[0] === Dispatcher::METHOD_NOT_ALLOWED) {
