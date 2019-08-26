@@ -156,7 +156,7 @@ class Operations
         $this_url_params = [
             'sql_query' => $this_sql_query,
             'back' => Url::getFromRoute('/database/operations'),
-            'goto' => 'index.php',
+            'goto' => Url::getFromRoute('/'),
             'reload' => '1',
             'purge' => '1',
             'message_to_show' => sprintf(

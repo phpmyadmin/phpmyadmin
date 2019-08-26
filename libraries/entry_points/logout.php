@@ -17,7 +17,7 @@ if (! defined('PHPMYADMIN')) {
 global $auth_plugin, $token_mismatch;
 
 if ($_SERVER['REQUEST_METHOD'] != 'POST' || $token_mismatch) {
-    Core::sendHeaderLocation('./index.php');
+    Core::sendHeaderLocation('./index.php?route=/');
 } else {
     /** @var AuthenticationPlugin $auth_plugin */
     $auth_plugin->logOut();

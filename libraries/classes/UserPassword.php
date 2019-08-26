@@ -278,7 +278,7 @@ class UserPassword
             $sql_query,
             'success'
         );
-        echo '<a href="index.php' , Url::getCommon()
+        echo '<a href="' , Url::getFromRoute('/')
             , ' target="_parent">' , "\n"
             , '<strong>' , __('Back') , '</strong></a>';
         exit;

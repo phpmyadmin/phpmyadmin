@@ -48,8 +48,8 @@ if (empty($is_db)) {
                     $url_params['show_as_php'] = $show_as_php;
                 }
                 Core::sendHeaderLocation(
-                    './index.php'
-                    . Url::getCommonRaw($url_params)
+                    './index.php?route=/'
+                    . Url::getCommonRaw($url_params, '&')
                 );
             }
             exit;

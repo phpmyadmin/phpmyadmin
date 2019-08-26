@@ -500,7 +500,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 ->disable();
 
             Core::sendHeaderLocation(
-                './index.php' . Url::getCommonRaw($url_params),
+                './index.php?route=/' . Url::getCommonRaw($url_params, '&'),
                 true
             );
             if (! defined('TESTSUITE')) {

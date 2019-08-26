@@ -208,6 +208,6 @@ class AuthenticationHttp extends AuthenticationPlugin
      */
     public function getLoginFormURL()
     {
-        return './index.php?old_usr=' . $this->user;
+        return './index.php?route=/&old_usr=' . $this->user;
     }
 }

@@ -36,13 +36,13 @@ if (isset($_POST['set_theme'])) {
         'set_theme' => $_POST['set_theme'],
     ]);
 
-    header('Location: index.php' . Url::getCommonRaw());
+    header('Location: index.php?route=/' . Url::getCommonRaw([], '&'));
 } elseif (isset($_POST['collation_connection'])) {
     $controller->setCollationConnection([
         'collation_connection' => $_POST['collation_connection'],
     ]);
 
-    header('Location: index.php' . Url::getCommonRaw());
+    header('Location: index.php?route=/' . Url::getCommonRaw([], '&'));
 } elseif ($response->isAjax() && ! empty($_REQUEST['recent_table'])) {
     $response->addJSON($controller->reloadRecentTablesList());
 } elseif ($GLOBALS['PMA_Config']->isGitRevision()

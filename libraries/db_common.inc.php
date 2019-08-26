@@ -37,7 +37,7 @@ $operations = new Operations($dbi, $relation);
 /**
  * Defines the urls to return to in case of error in a sql statement
  */
-$err_url_0 = 'index.php' . Url::getCommon();
+$err_url_0 = Url::getFromRoute('/');
 
 $err_url = Util::getScriptNameForOption(
     $cfg['DefaultTabDatabase'],
@@ -67,7 +67,7 @@ if (! isset($is_db) || ! $is_db) {
     if (isset($message)) {
         $params['message'] = $message;
     }
-    $uri = './index.php' . Url::getCommonRaw($params);
+    $uri = './index.php?route=/' . Url::getCommonRaw($params, '&');
     if (strlen($db) === 0 || ! $is_db) {
         $response = Response::getInstance();
         if ($response->isAjax()) {

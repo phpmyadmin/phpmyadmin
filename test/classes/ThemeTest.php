@@ -251,7 +251,7 @@ class ThemeTest extends PmaTestCase
             $this->object->getPrintPreview()
         );
         $this->assertStringContainsString(
-            'name="" href="index.php?set_theme=&amp;server=99&amp;lang=en">',
+            'name="" href="index.php?route=/&amp;set_theme=&amp;server=99&amp;lang=en">',
             $this->object->getPrintPreview()
         );
         $this->assertStringContainsString(

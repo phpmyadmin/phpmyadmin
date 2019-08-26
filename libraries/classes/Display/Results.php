@@ -3335,7 +3335,7 @@ class Results
                 'db'        => $this->__get('db'),
                 'table'     => $this->__get('table'),
                 'sql_query' => $url_sql_query,
-                'goto'      => 'index.php',
+                'goto'      => Url::getFromRoute('/'),
             ];
 
             $lnk_goto = Url::getFromRoute('/sql', $_url_params);

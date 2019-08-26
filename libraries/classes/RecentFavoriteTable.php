@@ -365,13 +365,12 @@ class RecentFavoriteTable
      */
     public static function getHtmlUpdateRecentTables()
     {
-        $params  = [
+        $retval = '<a class="hide" id="update_recent_tables" href="';
+        $retval .= Url::getFromRoute('/', [
             'ajax_request' => true,
             'recent_table' => true,
-        ];
-        $url     = 'index.php' . Url::getCommon($params);
-        $retval  = '<a class="hide" id="update_recent_tables"';
-        $retval .= ' href="' . $url . '"></a>';
+        ]);
+        $retval .= '"></a>';
         return $retval;
     }
 

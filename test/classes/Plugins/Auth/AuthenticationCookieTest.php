@@ -377,7 +377,7 @@ class AuthenticationCookieTest extends PmaTestCase
 
         $_COOKIE['pmaAuth-2'] = '';
 
-        $this->mockResponse('Location: /phpmyadmin/index.php?server=2&lang=en');
+        $this->mockResponse('Location: /phpmyadmin/index.php?route=/&server=2&lang=en');
 
         $this->object->logOut();
     }
@@ -411,7 +411,7 @@ class AuthenticationCookieTest extends PmaTestCase
      */
     public function testLogoutDelete()
     {
-        $this->mockResponse('Location: /phpmyadmin/index.php');
+        $this->mockResponse('Location: /phpmyadmin/index.php?route=/');
 
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
@@ -436,7 +436,7 @@ class AuthenticationCookieTest extends PmaTestCase
      */
     public function testLogout()
     {
-        $this->mockResponse('Location: /phpmyadmin/index.php');
+        $this->mockResponse('Location: /phpmyadmin/index.php?route=/');
 
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';

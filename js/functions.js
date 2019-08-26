@@ -613,7 +613,7 @@ Functions.displayGitRevision = function () {
     $('#is_git_revision').remove();
     $('#li_pma_version_git').remove();
     $.get(
-        'index.php',
+        'index.php?route=/',
         {
             'server': CommonParams.get('server'),
             'git_revision': true,
@@ -972,7 +972,7 @@ AJAX.registerOnload('functions.js', function () {
         idleSecondsCounter++;
     }
     function UpdateIdleTime () {
-        var href = 'index.php';
+        var href = 'index.php?route=/';
         var guid = 'default';
         if (isStorageSupported('sessionStorage')) {
             guid = window.sessionStorage.guid;
@@ -2404,8 +2404,8 @@ Functions.checkReservedWordColumns = function ($form) {
     var isConfirmed = true;
     $.ajax({
         type: 'POST',
-        url: 'index.php',
-        data: $form.serialize() + CommonParams.get('arg_separator') + 'reserved_word_check=1' + CommonParams.get('arg_separator') + 'route=/table/structure',
+        url: 'index.php?route=/table/structure',
+        data: $form.serialize() + CommonParams.get('arg_separator') + 'reserved_word_check=1',
         success: function (data) {
             if (typeof data.success !== 'undefined' && data.success === true) {
                 isConfirmed = confirm(data.message);

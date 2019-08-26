@@ -1,4 +1,4 @@
-    <form method="get" action="index.php" class="disableAjax">
+    <form method="get" action="{{ url('/') }}" class="disableAjax">
     {{ get_hidden_inputs(_form_params) }}
 
     {% if use_fieldset %}

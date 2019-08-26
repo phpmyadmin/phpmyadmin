@@ -159,7 +159,7 @@ abstract class AuthenticationPlugin
             /* Redirect to other autenticated server */
             $_SESSION['partial_logout'] = true;
             Core::sendHeaderLocation(
-                './index.php' . Url::getCommonRaw(['server' => $server])
+                './index.php?route=/' . Url::getCommonRaw(['server' => $server], '&')
             );
         }
     }
@@ -171,7 +171,7 @@ abstract class AuthenticationPlugin
      */
     public function getLoginFormURL()
     {
-        return './index.php';
+        return './index.php?route=/';
     }
 
     /**
