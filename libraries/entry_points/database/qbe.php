@@ -23,7 +23,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 global $containerBuilder, $db, $pmaThemeImage, $url_query, $savedSearchList, $savedSearch, $currentSearchId;
-global $message_to_display, $sql_query, $goto, $sub_part, $tables, $num_tables, $total_num_tables;
+global $message_to_display, $sql_query, $goto, $sub_part, $tables, $num_tables, $total_num_tables, $route;
 global $is_show_stats, $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos, $url_params;
 
 /** @var Response $response */
@@ -158,10 +158,12 @@ $secondaryTabs = [
     'multi' => [
         'link' => Url::getFromRoute('/database/multi_table_query'),
         'text' => __('Multi-table query'),
+        'active' => $route === '/database/multi_table_query',
     ],
     'qbe' => [
         'link' => Url::getFromRoute('/database/qbe'),
         'text' => __('Query by example'),
+        'active' => $route === '/database/qbe',
     ],
 ];
 $response->addHTML(

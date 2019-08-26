@@ -108,6 +108,8 @@ class RelationController extends AbstractController
      */
     public function indexAction()
     {
+        global $route;
+
         // Send table of column names to populate corresponding dropdowns depending
         // on the current selection
         if (isset($_POST['getDropdownValues'])
@@ -211,6 +213,7 @@ class RelationController extends AbstractController
                 'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
                 'foreignKeySupported' => $foreignKeySupported,
                 'displayIndexesHtml' => $foreignKeySupported ? Index::getHtmlForDisplayIndexes() : null,
+                'route' => $route,
             ])
         );
     }

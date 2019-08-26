@@ -4,13 +4,15 @@
             'icon': 'b_props',
             'link': url('/table/structure'),
             'text': 'Table structure'|trans,
-            'id': 'table_strucuture_id'
+            'id': 'table_strucuture_id',
+            'active': route == '/table/structure'
         }, url_params) }}
         {{ get_html_tab({
             'icon': 'b_relations',
             'link': url('/table/relation'),
             'text': 'Relation view'|trans,
-            'id': 'table_relation_id'
+            'id': 'table_relation_id',
+            'active': route == '/table/relation'
         }, url_params) }}
     </ul>
     <div class="clearfloat"></div>

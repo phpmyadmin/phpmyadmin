@@ -1242,6 +1242,8 @@ class StructureController extends AbstractController
         array $fields,
         array $columns_with_index
     ) {
+        global $route;
+
         // prepare comments
         $comments_map = [];
         $mime_map = [];
@@ -1388,6 +1390,7 @@ class StructureController extends AbstractController
             'attributes' => $attributes,
             'displayed_fields' => $displayed_fields,
             'row_comments' => $row_comments,
+            'route' => $route,
         ]);
     }
 

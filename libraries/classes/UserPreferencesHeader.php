@@ -52,11 +52,14 @@ class UserPreferencesHeader
      */
     protected static function displayTabs(Template $template): string
     {
+        global $route;
+
         // build user preferences menu
         $content = Util::getHtmlTab(
             [
                 'link' => 'index.php?route=/preferences/manage',
                 'text' => __('Manage your settings'),
+                'active' => $route === '/preferences/manage',
             ]
         ) . "\n";
         /* Second authentication factor */
@@ -64,6 +67,7 @@ class UserPreferencesHeader
             [
                 'link' => 'index.php?route=/preferences/twofactor',
                 'text' => __('Two-factor authentication'),
+                'active' => $route === '/preferences/twofactor',
             ]
         ) . "\n";
 
