@@ -100,7 +100,7 @@
         "phpcbf": "phpcbf",
         "phpcs": "phpcs",
         "phpstan": "phpstan analyse",
-        "phpunit": "phpunit",
+        "phpunit": "phpunit --color=always",
         "test": [
             "@phpcs",
             "@phpstan",
