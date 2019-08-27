@@ -27,6 +27,7 @@ phpMyAdmin - ChangeLog
 - issue #14945 Fix designer page save fails if dB name contains period
 - issue        Display an error when trying to import in designer a table that's already imported
 - issue        Fix many bugs when adding new tables to designer
+- issue        Update CodeMirror to v5.48.4
 
 4.9.0.1 (2019-06-04)
 - issue #14478 phpMyAdmin no longer streams the export data
