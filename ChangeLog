@@ -66,6 +66,15 @@ phpMyAdmin - ChangeLog
 - issue        Fix NULL wrongly checked on field change
 - issue #15388 Fix allow to rollback an empty statement
 - issue #14291 Fixed incorrect linkage from one table's value to another table
+- issue #15446 Fix tables added from other databases are not collapsing in the designer section
+- issue #14945 Fix designer page save fails if dB name contains period
+- issue        Display an error when trying to import in designer a table that's already imported
+- issue        Fix many bugs when adding new tables to designer
+- issue        Update CodeMirror to v5.48.4
+- issue        Update jQuery Migrate to v3.1.0
+- issue        Update jQuery Validation to v1.19.1
+- issue        Update jQuery to v3.4.1
+- issue        Update js-cookie to v2.2.1
 
 4.9.0.1 (2019-06-04)
 - issue #14478 phpMyAdmin no longer streams the export data
