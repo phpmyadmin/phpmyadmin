@@ -463,9 +463,10 @@ isexe@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
 
-jquery-migrate@3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/jquery-migrate/-/jquery-migrate-3.0.1.tgz#141de3abfe6d301baaa4130b0ec7b9a839845e72"
+jquery-migrate@3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/jquery-migrate/-/jquery-migrate-3.1.0.tgz#8158de74cca39fb7fc2635db570151ae7ce3ddea"
+  integrity sha512-u/MtE1ST2pCr3rCyouJG2xMiw/k3OzLNeRKprjKTeHUezCGr0DyEgeXFdqFLmQfxfR5EsVu+mGo/sCcYdiYcIQ==
 
 jquery-mousewheel@3.1.13:
   version "3.1.13"

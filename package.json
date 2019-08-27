@@ -8,7 +8,7 @@
   "dependencies": {
     "codemirror": "5.48.4",
     "jquery": "3.3.1",
-    "jquery-migrate": "3.0.1",
+    "jquery-migrate": "3.1.0",
     "jquery-mousewheel": "3.1.13",
     "jquery-ui": "1.12.1",
     "jquery-ui-timepicker-addon": "1.6.3",
