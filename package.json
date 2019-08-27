@@ -20,6 +20,6 @@
     "zxcvbn": "4.4.2"
   },
   "devDependencies": {
-    "eslint": "^4.9.0"
+    "eslint": "^6.2.2"
   }
 }
