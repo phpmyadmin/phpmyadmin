@@ -1,9 +1,9 @@
 /*!
- * jQuery Validation Plugin v1.17.0
+ * jQuery Validation Plugin v1.19.1
  *
  * https://jqueryvalidation.org/
  *
- * Copyright (c) 2017 Jörn Zaefferer
+ * Copyright (c) 2019 Jörn Zaefferer
  * Released under the MIT license
  */
 (function( factory ) {
@@ -42,6 +42,38 @@
 	}, $.validator.format( "Please enter between {0} and {1} words." ) );
 
 }() );
+
+/**
+ * This is used in the United States to process payments, deposits,
+ * or transfers using the Automated Clearing House (ACH) or Fedwire
+ * systems. A very common use case would be to validate a form for
+ * an ACH bill payment.
+ */
+$.validator.addMethod( "abaRoutingNumber", function( value ) {
+	var checksum = 0;
+	var tokens = value.split( "" );
+	var length = tokens.length;
+
+	// Length Check
+	if ( length !== 9 ) {
+		return false;
+	}
+
+	// Calc the checksum
+	// https://en.wikipedia.org/wiki/ABA_routing_transit_number
+	for ( var i = 0; i < length; i += 3 ) {
+		checksum +=	parseInt( tokens[ i ], 10 )     * 3 +
+					parseInt( tokens[ i + 1 ], 10 ) * 7 +
+					parseInt( tokens[ i + 2 ], 10 );
+	}
+
+	// If not zero and divisible by 10 then valid
+	if ( checksum !== 0 && checksum % 10 === 0 ) {
+		return true;
+	}
+
+	return false;
+}, "Please enter a valid routing number." );
 
 // Accept a value from a file input based on a required mimetype
 $.validator.addMethod( "accept", function( value, element, param ) {
@@ -257,10 +289,140 @@ $.validator.addMethod( "cifES", function( value, element ) {
 }, "Please specify a valid CIF number." );
 
 /*
+ * Brazillian CNH number (Carteira Nacional de Habilitacao) is the License Driver number.
+ * CNH numbers have 11 digits in total: 9 numbers followed by 2 check numbers that are being used for validation.
+ */
+$.validator.addMethod( "cnhBR", function( value ) {
+
+  // Removing special characters from value
+  value = value.replace( /([~!@#$%^&*()_+=`{}\[\]\-|\\:;'<>,.\/? ])+/g, "" );
+
+  // Checking value to have 11 digits only
+  if ( value.length !== 11 ) {
+    return false;
+  }
+
+  var sum = 0, dsc = 0, firstChar,
+		firstCN, secondCN, i, j, v;
+
+  firstChar = value.charAt( 0 );
+
+  if ( new Array( 12 ).join( firstChar ) === value ) {
+    return false;
+  }
+
+  // Step 1 - using first Check Number:
+  for ( i = 0, j = 9, v = 0; i < 9; ++i, --j ) {
+    sum += +( value.charAt( i ) * j );
+  }
+
+  firstCN = sum % 11;
+  if ( firstCN >= 10 ) {
+    firstCN = 0;
+    dsc = 2;
+  }
+
+  sum = 0;
+  for ( i = 0, j = 1, v = 0; i < 9; ++i, ++j ) {
+    sum += +( value.charAt( i ) * j );
+  }
+
+  secondCN = sum % 11;
+  if ( secondCN >= 10 ) {
+    secondCN = 0;
+  } else {
+    secondCN = secondCN - dsc;
+  }
+
+  return ( String( firstCN ).concat( secondCN ) === value.substr( -2 ) );
+
+}, "Please specify a valid CNH number" );
+
+/*
+ * Brazillian value number (Cadastrado de Pessoas Juridica).
+ * value numbers have 14 digits in total: 12 numbers followed by 2 check numbers that are being used for validation.
+ */
+$.validator.addMethod( "cnpjBR", function( value, element ) {
+	"use strict";
+
+	if ( this.optional( element ) ) {
+		return true;
+	}
+
+	// Removing no number
+	value = value.replace( /[^\d]+/g, "" );
+
+	// Checking value to have 14 digits only
+	if ( value.length !== 14 ) {
+		return false;
+	}
+
+	// Elimina values invalidos conhecidos
+	if ( value === "00000000000000" ||
+		value === "11111111111111" ||
+		value === "22222222222222" ||
+		value === "33333333333333" ||
+		value === "44444444444444" ||
+		value === "55555555555555" ||
+		value === "66666666666666" ||
+		value === "77777777777777" ||
+		value === "88888888888888" ||
+		value === "99999999999999" ) {
+		return false;
+	}
+
+	// Valida DVs
+	var tamanho = ( value.length - 2 );
+	var numeros = value.substring( 0, tamanho );
+	var digitos = value.substring( tamanho );
+	var soma = 0;
+	var pos = tamanho - 7;
+
+	for ( var i = tamanho; i >= 1; i-- ) {
+		soma += numeros.charAt( tamanho - i ) * pos--;
+		if ( pos < 2 ) {
+			pos = 9;
+		}
+	}
+
+	var resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+
+	if ( resultado !== parseInt( digitos.charAt( 0 ), 10 ) ) {
+		return false;
+	}
+
+	tamanho = tamanho + 1;
+	numeros = value.substring( 0, tamanho );
+	soma = 0;
+	pos = tamanho - 7;
+
+	for ( var il = tamanho; il >= 1; il-- ) {
+		soma += numeros.charAt( tamanho - il ) * pos--;
+		if ( pos < 2 ) {
+			pos = 9;
+		}
+	}
+
+	resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+
+	if ( resultado !== parseInt( digitos.charAt( 1 ), 10 ) ) {
+		return false;
+	}
+
+	return true;
+
+}, "Please specify a CNPJ value number" );
+
+/*
  * Brazillian CPF number (Cadastrado de Pessoas Físicas) is the equivalent of a Brazilian tax registration number.
  * CPF numbers have 11 digits in total: 9 numbers followed by 2 check numbers that are being used for validation.
  */
-$.validator.addMethod( "cpfBR", function( value ) {
+$.validator.addMethod( "cpfBR", function( value, element ) {
+	"use strict";
+
+	if ( this.optional( element ) ) {
+		return true;
+	}
 
 	// Removing special characters from value
 	value = value.replace( /([~!@#$%^&*()_+=`{}\[\]\-|\\:;'<>,.\/? ])+/g, "" );
@@ -337,7 +499,7 @@ $.validator.addMethod( "creditcard", function( value, element ) {
 	value = value.replace( /\D/g, "" );
 
 	// Basing min and max length on
-	// https://developer.ean.com/general_info/Valid_Credit_Card_Types
+	// https://dev.ean.com/general-info/valid-card-types/
 	if ( value.length < 13 || value.length > 19 ) {
 		return false;
 	}
@@ -359,7 +521,7 @@ $.validator.addMethod( "creditcard", function( value, element ) {
 }, "Please enter a valid credit card number." );
 
 /* NOTICE: Modified version of Castle.Components.Validator.CreditCardValidator
- * Redistributed under the the Apache License 2.0 at http://www.apache.org/licenses/LICENSE-2.0
+ * Redistributed under the Apache License 2.0 at http://www.apache.org/licenses/LICENSE-2.0
  * Valid Types: mastercard, visa, amex, dinersclub, enroute, discover, jcb, unknown, all (overrides all other settings)
  */
 $.validator.addMethod( "creditcardtypes", function( value, element, param ) {
@@ -398,7 +560,7 @@ $.validator.addMethod( "creditcardtypes", function( value, element, param ) {
 	if ( param.all ) {
 		validTypes = 0x0001 | 0x0002 | 0x0004 | 0x0008 | 0x0010 | 0x0020 | 0x0040 | 0x0080;
 	}
-	if ( validTypes & 0x0001 && /^(5[12345])/.test( value ) ) { // Mastercard
+	if ( validTypes & 0x0001 && ( /^(5[12345])/.test( value ) || /^(2[234567])/.test( value ) ) ) { // Mastercard
 		return value.length === 16;
 	}
 	if ( validTypes & 0x0002 && /^(4)/.test( value ) ) { // Visa
@@ -530,6 +692,30 @@ $.validator.addMethod( "extension", function( value, element, param ) {
 $.validator.addMethod( "giroaccountNL", function( value, element ) {
 	return this.optional( element ) || /^[0-9]{1,7}$/.test( value );
 }, "Please specify a valid giro account number" );
+
+$.validator.addMethod( "greaterThan", function( value, element, param ) {
+    var target = $( param );
+
+    if ( this.settings.onfocusout && target.not( ".validate-greaterThan-blur" ).length ) {
+        target.addClass( "validate-greaterThan-blur" ).on( "blur.validate-greaterThan", function() {
+            $( element ).valid();
+        } );
+    }
+
+    return value > target.val();
+}, "Please enter a greater value." );
+
+$.validator.addMethod( "greaterThanEqual", function( value, element, param ) {
+    var target = $( param );
+
+    if ( this.settings.onfocusout && target.not( ".validate-greaterThanEqual-blur" ).length ) {
+        target.addClass( "validate-greaterThanEqual-blur" ).on( "blur.validate-greaterThanEqual", function() {
+            $( element ).valid();
+        } );
+    }
+
+    return value >= target.val();
+}, "Please enter a greater value." );
 
 /**
  * IBAN is the international bank account number.
@@ -680,6 +866,30 @@ $.validator.addMethod( "ipv6", function( value, element ) {
 	return this.optional( element ) || /^((([0-9A-Fa-f]{1,4}:){7}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){6}:[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){5}:([0-9A-Fa-f]{1,4}:)?[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){4}:([0-9A-Fa-f]{1,4}:){0,2}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){3}:([0-9A-Fa-f]{1,4}:){0,3}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){2}:([0-9A-Fa-f]{1,4}:){0,4}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){6}((\b((25[0-5])|(1\d{2})|(2[0-4]\d)|(\d{1,2}))\b)\.){3}(\b((25[0-5])|(1\d{2})|(2[0-4]\d)|(\d{1,2}))\b))|(([0-9A-Fa-f]{1,4}:){0,5}:((\b((25[0-5])|(1\d{2})|(2[0-4]\d)|(\d{1,2}))\b)\.){3}(\b((25[0-5])|(1\d{2})|(2[0-4]\d)|(\d{1,2}))\b))|(::([0-9A-Fa-f]{1,4}:){0,5}((\b((25[0-5])|(1\d{2})|(2[0-4]\d)|(\d{1,2}))\b)\.){3}(\b((25[0-5])|(1\d{2})|(2[0-4]\d)|(\d{1,2}))\b))|([0-9A-Fa-f]{1,4}::([0-9A-Fa-f]{1,4}:){0,5}[0-9A-Fa-f]{1,4})|(::([0-9A-Fa-f]{1,4}:){0,6}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){1,7}:))$/i.test( value );
 }, "Please enter a valid IP v6 address." );
 
+$.validator.addMethod( "lessThan", function( value, element, param ) {
+    var target = $( param );
+
+    if ( this.settings.onfocusout && target.not( ".validate-lessThan-blur" ).length ) {
+        target.addClass( "validate-lessThan-blur" ).on( "blur.validate-lessThan", function() {
+            $( element ).valid();
+        } );
+    }
+
+    return value < target.val();
+}, "Please enter a lesser value." );
+
+$.validator.addMethod( "lessThanEqual", function( value, element, param ) {
+    var target = $( param );
+
+    if ( this.settings.onfocusout && target.not( ".validate-lessThanEqual-blur" ).length ) {
+        target.addClass( "validate-lessThanEqual-blur" ).on( "blur.validate-lessThanEqual", function() {
+            $( element ).valid();
+        } );
+    }
+
+    return value <= target.val();
+}, "Please enter a lesser value." );
+
 $.validator.addMethod( "lettersonly", function( value, element ) {
 	return this.optional( element ) || /^[a-z]+$/i.test( value );
 }, "Letters only please" );
@@ -688,8 +898,70 @@ $.validator.addMethod( "letterswithbasicpunc", function( value, element ) {
 	return this.optional( element ) || /^[a-z\-.,()'"\s]+$/i.test( value );
 }, "Letters or punctuation only please" );
 
+// Limit the number of files in a FileList.
+$.validator.addMethod( "maxfiles", function( value, element, param ) {
+	if ( this.optional( element ) ) {
+		return true;
+	}
+
+	if ( $( element ).attr( "type" ) === "file" ) {
+		if ( element.files && element.files.length > param ) {
+			return false;
+		}
+	}
+
+	return true;
+}, $.validator.format( "Please select no more than {0} files." ) );
+
+// Limit the size of each individual file in a FileList.
+$.validator.addMethod( "maxsize", function( value, element, param ) {
+	if ( this.optional( element ) ) {
+		return true;
+	}
+
+	if ( $( element ).attr( "type" ) === "file" ) {
+		if ( element.files && element.files.length ) {
+			for ( var i = 0; i < element.files.length; i++ ) {
+				if ( element.files[ i ].size > param ) {
+					return false;
+				}
+			}
+		}
+	}
+
+	return true;
+}, $.validator.format( "File size must not exceed {0} bytes each." ) );
+
+// Limit the size of all files in a FileList.
+$.validator.addMethod( "maxsizetotal", function( value, element, param ) {
+	if ( this.optional( element ) ) {
+		return true;
+	}
+
+	if ( $( element ).attr( "type" ) === "file" ) {
+		if ( element.files && element.files.length ) {
+			var totalSize = 0;
+
+			for ( var i = 0; i < element.files.length; i++ ) {
+				totalSize += element.files[ i ].size;
+				if ( totalSize > param ) {
+					return false;
+				}
+			}
+		}
+	}
+
+	return true;
+}, $.validator.format( "Total size of all files must not exceed {0} bytes." ) );
+
+
 $.validator.addMethod( "mobileNL", function( value, element ) {
 	return this.optional( element ) || /^((\+|00(\s|\s?\-\s?)?)31(\s|\s?\-\s?)?(\(0\)[\-\s]?)?|0)6((\s|\s?\-\s?)?[0-9]){8}$/.test( value );
+}, "Please specify a valid mobile number" );
+
+$.validator.addMethod( "mobileRU", function( phone_number, element ) {
+	var ruPhone_number = phone_number.replace( /\(|\)|\s+|-/g, "" );
+	return this.optional( element ) || ruPhone_number.length > 9 && /^((\+7|7|8)+([0-9]){10})$/.test( ruPhone_number );
 }, "Please specify a valid mobile number" );
 
 /* For UK phone functions, do the following server side processing:
@@ -804,6 +1076,64 @@ $.validator.addMethod( "nipPL", function( value ) {
 	return ( intControlNr === parseInt( value[ 9 ], 10 ) );
 }, "Please specify a valid NIP number." );
 
+/**
+ * Created for project jquery-validation.
+ * @Description Brazillian PIS or NIS number (Número de Identificação Social Pis ou Pasep) is the equivalent of a
+ * Brazilian tax registration number NIS of PIS numbers have 11 digits in total: 10 numbers followed by 1 check numbers
+ * that are being used for validation.
+ * @copyright (c) 21/08/2018 13:14, Cleiton da Silva Mendonça
+ * @author Cleiton da Silva Mendonça <cleiton.mendonca@gmail.com>
+ * @link http://gitlab.com/csmendonca Gitlab of Cleiton da Silva Mendonça
+ * @link http://github.com/csmendonca Github of Cleiton da Silva Mendonça
+ */
+$.validator.addMethod( "nisBR", function( value ) {
+	var number;
+	var cn;
+	var sum = 0;
+	var dv;
+	var count;
+	var multiplier;
+
+	// Removing special characters from value
+	value = value.replace( /([~!@#$%^&*()_+=`{}\[\]\-|\\:;'<>,.\/? ])+/g, "" );
+
+	// Checking value to have 11 digits only
+	if ( value.length !== 11 ) {
+		return false;
+	}
+
+	//Get check number of value
+	cn = parseInt( value.substring( 10, 11 ), 10 );
+
+	//Get number with 10 digits of the value
+	number = parseInt( value.substring( 0, 10 ), 10 );
+
+	for ( count = 2; count < 12; count++ ) {
+		multiplier = count;
+		if ( count === 10 ) {
+			multiplier = 2;
+		}
+		if ( count === 11 ) {
+			multiplier = 3;
+		}
+		sum += ( ( number % 10 ) * multiplier );
+		number = parseInt( number / 10, 10 );
+	}
+	dv = ( sum % 11 );
+
+	if ( dv > 1 ) {
+		dv = ( 11 - dv );
+	} else {
+		dv = 0;
+	}
+
+	if ( cn === dv ) {
+		return true;
+	} else {
+		return false;
+	}
+}, "Please specify a valid NIS/PIS number" );
+
 $.validator.addMethod( "notEqualTo", function( value, element, param ) {
 	return this.optional( element ) || !$.validator.methods.equalTo.call( this, value, element, param );
 }, "Please enter a different value, values must not be the same." );
@@ -841,6 +1171,30 @@ $.validator.addMethod( "pattern", function( value, element, param ) {
 $.validator.addMethod( "phoneNL", function( value, element ) {
 	return this.optional( element ) || /^((\+|00(\s|\s?\-\s?)?)31(\s|\s?\-\s?)?(\(0\)[\-\s]?)?|0)[1-9]((\s|\s?\-\s?)?[0-9]){8}$/.test( value );
 }, "Please specify a valid phone number." );
+
+/**
+ * Polish telephone numbers have 9 digits.
+ *
+ * Mobile phone numbers starts with following digits:
+ * 45, 50, 51, 53, 57, 60, 66, 69, 72, 73, 78, 79, 88.
+ *
+ * Fixed-line numbers starts with area codes:
+ * 12, 13, 14, 15, 16, 17, 18, 22, 23, 24, 25, 29, 32, 33,
+ * 34, 41, 42, 43, 44, 46, 48, 52, 54, 55, 56, 58, 59, 61,
+ * 62, 63, 65, 67, 68, 71, 74, 75, 76, 77, 81, 82, 83, 84,
+ * 85, 86, 87, 89, 91, 94, 95.
+ *
+ * Ministry of National Defence numbers and VoIP numbers starts with 26 and 39.
+ *
+ * Excludes intelligent networks (premium rate, shared cost, free phone numbers).
+ *
+ * Poland National Numbering Plan http://www.itu.int/oth/T02020000A8/en
+ */
+$.validator.addMethod( "phonePL", function( phone_number, element ) {
+	phone_number = phone_number.replace( /\s+/g, "" );
+	var regexp = /^(?:(?:(?:\+|00)?48)|(?:\(\+?48\)))?(?:1[2-8]|2[2-69]|3[2-49]|4[1-68]|5[0-9]|6[0-35-9]|[7-8][1-9]|9[145])\d{7}$/;
+	return this.optional( element ) || regexp.test( phone_number );
+}, "Please specify a valid phone number" );
 
 /* For UK phone functions, do the following server side processing:
  * Compare original input with this RegEx pattern:
@@ -891,7 +1245,7 @@ $.validator.addMethod( "phoneUK", function( phone_number, element ) {
 $.validator.addMethod( "phoneUS", function( phone_number, element ) {
 	phone_number = phone_number.replace( /\s+/g, "" );
 	return this.optional( element ) || phone_number.length > 9 &&
-		phone_number.match( /^(\+?1-?)?(\([2-9]([02-9]\d|1[02-9])\)|[2-9]([02-9]\d|1[02-9]))-?[2-9]([02-9]\d|1[02-9])-?\d{4}$/ );
+		phone_number.match( /^(\+?1-?)?(\([2-9]([02-9]\d|1[02-9])\)|[2-9]([02-9]\d|1[02-9]))-?[2-9]\d{2}-?\d{4}$/ );
 }, "Please specify a valid phone number" );
 
 /*
