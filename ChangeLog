@@ -30,6 +30,7 @@ phpMyAdmin - ChangeLog
 - issue        Update CodeMirror to v5.48.4
 - issue        Update jQuery Migrate to v3.1.0
 - issue        Update jQuery Validation to v1.19.1
+- issue        Update jQuery to v3.4.1
 
 4.9.0.1 (2019-06-04)
 - issue #14478 phpMyAdmin no longer streams the export data
