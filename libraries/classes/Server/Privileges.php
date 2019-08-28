@@ -878,12 +878,8 @@ class Privileges
             )
         );
 
-        $html_output = Template::get('privileges/resource_limits')
+        return Template::get('privileges/resource_limits')
             ->render(array('limits' => $limits));
-
-        $html_output .= '</fieldset>' . "\n";
-
-        return $html_output;
     }
 
     /**
