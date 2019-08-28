@@ -925,13 +925,9 @@ class Privileges
             ],
         ];
 
-        $html_output = $this->template->render('server/privileges/resource_limits', [
+        return $this->template->render('server/privileges/resource_limits', [
             'limits' => $limits,
         ]);
-
-        $html_output .= '</fieldset>' . "\n";
-
-        return $html_output;
     }
 
     /**

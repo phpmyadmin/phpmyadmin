@@ -70,6 +70,7 @@ phpMyAdmin - ChangeLog
 - issue        Update jQuery Validation to v1.19.1
 - issue        Update jQuery to v3.4.1
 - issue        Update js-cookie to v2.2.1
+- issue        Remove fieldset closing tag when setting global privileges
 
 4.9.0.1 (2019-06-04)
 - issue #14478 phpMyAdmin no longer streams the export data
