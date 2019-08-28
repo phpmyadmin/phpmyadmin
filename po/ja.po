@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-08-23 14:20+0200\n"
-"PO-Revision-Date: 2019-07-30 00:41+0000\n"
+"PO-Revision-Date: 2019-08-30 00:23+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.8-dev\n"
+"X-Generator: Weblate 3.9-dev\n"
 
 #: import_status.php:111
 msgid "Could not load the progress of the import."
@@ -2052,12 +2052,11 @@ msgid "Failed security key activation (%s)."
 msgstr "セキュリティキー「%s」の有効化が失敗しました。"
 
 #: js/messages.php:766
-#, fuzzy, php-format
-#| msgid "Table %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
-msgstr "テーブル %s は既に存在します!"
+msgstr "テーブル「 %s 」は既に存在しています!"
 
 #: js/messages.php:767 libraries/classes/InsertEdit.php:308
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:56
@@ -14561,11 +14560,9 @@ msgid "No password"
 msgstr "パスワード無し"
 
 #: templates/server/privileges/login_information_fields.twig:54
-#, fuzzy
-#| msgid "Data length"
 msgctxt "Password strength"
 msgid "Strength:"
-msgstr "データの長さ"
+msgstr "強度："
 
 #: templates/server/privileges/login_information_fields.twig:62
 #: templates/server/replication/master_add_slave_user.twig:65
@@ -14573,30 +14570,19 @@ msgid "Re-type"
 msgstr "もう一度入力してください"
 
 #: templates/server/privileges/login_information_fields.twig:68
-#, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication plugin"
 msgstr "認証プラグイン"
 
 #: templates/server/privileges/login_information_fields.twig:70
-#, fuzzy
-#| msgid "Password Hashing Method"
 msgid "Password hashing method"
 msgstr "パスワードハッシュ方式"
 
 #: templates/server/privileges/login_information_fields.twig:79
-#, fuzzy
-#| msgid ""
-#| "This method requires using an '<i>SSL connection</i>' or an "
-#| "'<i>unencrypted connection that encrypts the password using RSA</i>'; "
-#| "while connecting to the server."
 msgid ""
 "This method requires using an '<em>SSL connection</em>' or an "
 "'<em>unencrypted connection that encrypts the password using RSA</em>'; "
 "while connecting to the server."
-msgstr ""
-"このメソッドは、<i> SSL接続</i>'、または<i>非暗号化接続の場合、RSA パスワード"
-"を利用する</i>必要があります。"
+msgstr "このメソッドは、<em> SSL接続</em>'、または<em>非暗号化接続の場合、RSA パスワードを利用する</em>必要があります。"
 
 #: templates/display/export/template_options.twig:1
 msgid "Select a template"
@@ -14964,8 +14950,6 @@ msgid "Username:"
 msgstr "ユーザ名:"
 
 #: templates/login/form.twig:65
-#, fuzzy
-#| msgid "Server Choice:"
 msgid "Server choice:"
 msgstr "サーバの選択:"
 
