@@ -301,138 +301,6 @@ class PrivilegesTest extends TestCase
     }
 
     /**
-     * Test for getHtmlForRequires
-     *
-     * @return void
-     */
-    public function testGetHtmlForRequires()
-    {
-        /* Assertion 1 */
-        $row = [
-            'ssl_type'   => '',
-            'ssh_cipher' => '',
-        ];
-
-        $html = $this->serverPrivileges->getHtmlForRequires(
-            $row
-        );
-        // <legend>SSL</legend>
-        $this->assertStringContainsString(
-            '<legend>SSL</legend>',
-            $html
-        );
-        $this->assertStringContainsString(
-            'value="NONE" checked="checked"',
-            $html
-        );
-        $this->assertStringContainsString(
-            'value="ANY"',
-            $html
-        );
-        $this->assertStringContainsString(
-            'value="X509"',
-            $html
-        );
-        $this->assertStringContainsString(
-            'value="SPECIFIED"',
-            $html
-        );
-
-        /* Assertion 2 */
-        $row = [
-            'ssl_type'   => 'ANY',
-            'ssh_cipher' => '',
-        ];
-
-        $html = $this->serverPrivileges->getHtmlForRequires(
-            $row
-        );
-        // <legend>SSL</legend>
-        $this->assertStringContainsString(
-            '<legend>SSL</legend>',
-            $html
-        );
-        $this->assertStringContainsString(
-            'value="NONE"',
-            $html
-        );
-        $this->assertStringContainsString(
-            'value="ANY" checked="checked"',
-            $html
-        );
-        $this->assertStringContainsString(
-            'value="X509"',
-            $html
-        );
-        $this->assertStringContainsString(
-            'value="SPECIFIED"',
-            $html
-        );
-
-        /* Assertion 3 */
-        $row = [
-            'ssl_type'   => 'X509',
-            'ssh_cipher' => '',
-        ];
-
-        $html = $this->serverPrivileges->getHtmlForRequires(
-            $row
-        );
-        // <legend>SSL</legend>
-        $this->assertStringContainsString(
-            '<legend>SSL</legend>',
-            $html
-        );
-        $this->assertStringContainsString(
-            'value="NONE"',
-            $html
-        );
-        $this->assertStringContainsString(
-            'value="ANY"',
-            $html
-        );
-        $this->assertStringContainsString(
-            'value="X509" checked="checked"',
-            $html
-        );
-        $this->assertStringContainsString(
-            'value="SPECIFIED"',
-            $html
-        );
-
-        /* Assertion 4 */
-        $row = [
-            'ssl_type'   => 'SPECIFIED',
-            'ssh_cipher' => '',
-        ];
-
-        $html = $this->serverPrivileges->getHtmlForRequires(
-            $row
-        );
-        // <legend>SSL</legend>
-        $this->assertStringContainsString(
-            '<legend>SSL</legend>',
-            $html
-        );
-        $this->assertStringContainsString(
-            'value="NONE"',
-            $html
-        );
-        $this->assertStringContainsString(
-            'value="ANY"',
-            $html
-        );
-        $this->assertStringContainsString(
-            'value="X509"',
-            $html
-        );
-        $this->assertStringContainsString(
-            'value="SPECIFIED" checked="checked"',
-            $html
-        );
-    }
-
-    /**
      * Test for getHtmlForUserGroupDialog
      *
      * @return void
@@ -543,59 +411,6 @@ class PrivilegesTest extends TestCase
         //__('User group')
         $this->assertStringContainsString(
             __('User group'),
-            $html
-        );
-    }
-
-    /**
-     * Test for getHtmlForResourceLimits
-     *
-     * @return void
-     */
-    public function testGetHtmlForResourceLimits()
-    {
-        $row = [
-            'max_questions' => 'max_questions',
-            'max_updates' => 'max_updates',
-            'max_connections' => 'max_connections',
-            'max_user_connections' => 'max_user_connections',
-        ];
-
-        $html = $this->serverPrivileges->getHtmlForResourceLimits($row);
-        $this->assertStringContainsString(
-            '<legend>' . __('Resource limits') . '</legend>',
-            $html
-        );
-        $this->assertStringContainsString(
-            __('Note: Setting these options to 0 (zero) removes the limit.'),
-            $html
-        );
-        $this->assertStringContainsString(
-            'MAX QUERIES PER HOUR',
-            $html
-        );
-        $this->assertStringContainsString(
-            $row['max_connections'],
-            $html
-        );
-        $this->assertStringContainsString(
-            $row['max_updates'],
-            $html
-        );
-        $this->assertStringContainsString(
-            $row['max_connections'],
-            $html
-        );
-        $this->assertStringContainsString(
-            $row['max_user_connections'],
-            $html
-        );
-        $this->assertStringContainsString(
-            __('Limits the number of new connections the user may open per hour.'),
-            $html
-        );
-        $this->assertStringContainsString(
-            __('Limits the number of simultaneous connections the user may have.'),
             $html
         );
     }
@@ -1031,8 +846,11 @@ class PrivilegesTest extends TestCase
 
         //validate 3: getHtmlForGlobalOrDbSpecificPrivs
         $this->assertStringContainsString(
-            '<fieldset id="fieldset_user_global_rights"><legend '
-            . 'data-submenu-label="' . __('Global') . '">',
+            '<fieldset id="fieldset_user_global_rights">',
+            $html
+        );
+        $this->assertStringContainsString(
+            '<legend data-submenu-label="' . __('Global') . '">',
             $html
         );
         $this->assertStringContainsString(
@@ -1092,6 +910,43 @@ class PrivilegesTest extends TestCase
         );
         $this->assertStringContainsString(
             __('Note: Setting these options to 0 (zero) removes the limit.'),
+            $html
+        );
+        $this->assertStringContainsString(
+            'MAX QUERIES PER HOUR',
+            $html
+        );
+        $this->assertStringContainsString(
+            'id="text_max_updates" value="max_updates"',
+            $html
+        );
+        $this->assertStringContainsString(
+            __('Limits the number of new connections the user may open per hour.'),
+            $html
+        );
+        $this->assertStringContainsString(
+            __('Limits the number of simultaneous connections the user may have.'),
+            $html
+        );
+
+        $this->assertStringContainsString(
+            '<legend>SSL</legend>',
+            $html
+        );
+        $this->assertStringContainsString(
+            'value="NONE"',
+            $html
+        );
+        $this->assertStringContainsString(
+            'value="ANY"',
+            $html
+        );
+        $this->assertStringContainsString(
+            'value="X509"',
+            $html
+        );
+        $this->assertStringContainsString(
+            'value="SPECIFIED"',
             $html
         );
 

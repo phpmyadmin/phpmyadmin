@@ -729,7 +729,6 @@ class Privileges
             // global or db-specific
             $html_output .= $this->getHtmlForGlobalOrDbSpecificPrivs($db, $table, $row);
         }
-        $html_output .= '</fieldset>' . "\n";
         if ($submit) {
             $html_output .= '<fieldset id="fieldset_user_privtable_footer" '
                 . 'class="tblFooters">' . "\n"
@@ -741,163 +740,127 @@ class Privileges
     } // end of the 'PMA_displayPrivTable()' function
 
     /**
-     * Get HTML for "Require"
+     * Get require options
      *
      * @param array $row privilege array
      *
-     * @return string html snippet
+     * @return array
      */
-    public function getHtmlForRequires(array $row)
+    private function getRequireOptions(array $row): array
     {
-        $specified = (isset($row['ssl_type']) && $row['ssl_type'] == 'SPECIFIED');
-        $require_options = [
+        $specified = isset($row['ssl_type']) && $row['ssl_type'] === 'SPECIFIED';
+        return [
             [
-                'name'        => 'ssl_type',
-                'value'       => 'NONE',
-                'description' => __(
-                    'Does not require SSL-encrypted connections.'
-                ),
-                'label'       => 'REQUIRE NONE',
-                'checked'     => isset($row['ssl_type'])
-                    && ($row['ssl_type'] == 'NONE'
-                        || $row['ssl_type'] == '')
-                    ? 'checked="checked"'
-                    : '',
-                'disabled'    => false,
-                'radio'       => true,
+                'name' => 'ssl_type',
+                'value' => 'NONE',
+                'description' => __('Does not require SSL-encrypted connections.'),
+                'label' => 'REQUIRE NONE',
+                'is_checked' => isset($row['ssl_type']) && ($row['ssl_type'] === 'NONE' || $row['ssl_type'] === ''),
+                'is_disabled' => false,
+                'is_radio' => true,
             ],
             [
-                'name'        => 'ssl_type',
-                'value'       => 'ANY',
-                'description' => __(
-                    'Requires SSL-encrypted connections.'
-                ),
-                'label'       => 'REQUIRE SSL',
-                'checked'     => isset($row['ssl_type']) && ($row['ssl_type'] == 'ANY')
-                    ? 'checked="checked"'
-                    : '',
-                'disabled'    => false,
-                'radio'       => true,
+                'name' => 'ssl_type',
+                'value' => 'ANY',
+                'description' => __('Requires SSL-encrypted connections.'),
+                'label' => 'REQUIRE SSL',
+                'is_checked' => isset($row['ssl_type']) && $row['ssl_type'] === 'ANY',
+                'is_disabled' => false,
+                'is_radio' => true,
             ],
             [
-                'name'        => 'ssl_type',
-                'value'       => 'X509',
-                'description' => __(
-                    'Requires a valid X509 certificate.'
-                ),
-                'label'       => 'REQUIRE X509',
-                'checked'     => isset($row['ssl_type']) && ($row['ssl_type'] == 'X509')
-                    ? 'checked="checked"'
-                    : '',
-                'disabled'    => false,
-                'radio'       => true,
+                'name' => 'ssl_type',
+                'value' => 'X509',
+                'description' => __('Requires a valid X509 certificate.'),
+                'label' => 'REQUIRE X509',
+                'is_checked' => isset($row['ssl_type']) && $row['ssl_type'] === 'X509',
+                'is_disabled' => false,
+                'is_radio' => true,
             ],
             [
-                'name'        => 'ssl_type',
-                'value'       => 'SPECIFIED',
+                'name' => 'ssl_type',
+                'value' => 'SPECIFIED',
                 'description' => '',
-                'label'       => 'SPECIFIED',
-                'checked'     => $specified ? 'checked="checked"' : '',
-                'disabled'    => false,
-                'radio'       => true,
+                'label' => 'SPECIFIED',
+                'is_checked' => $specified,
+                'is_disabled' => false,
+                'is_radio' => true,
             ],
             [
-                'name'        => 'ssl_cipher',
-                'value'       => isset($row['ssl_cipher'])
-                    ? htmlspecialchars($row['ssl_cipher']) : '',
-                'description' => __(
-                    'Requires that a specific cipher method be used for a connection.'
-                ),
-                'label'       => 'REQUIRE CIPHER',
-                'checked'     => '',
-                'disabled'    => ! $specified,
-                'radio'       => false,
+                'name' => 'ssl_cipher',
+                'value' => $row['ssl_cipher'] ?? '',
+                'description' => __('Requires that a specific cipher method be used for a connection.'),
+                'label' => 'REQUIRE CIPHER',
+                'is_checked' => false,
+                'is_disabled' => ! $specified,
+                'is_radio' => false,
             ],
             [
-                'name'        => 'x509_issuer',
-                'value'       => isset($row['x509_issuer'])
-                    ? htmlspecialchars($row['x509_issuer']) : '',
-                'description' => __(
-                    'Requires that a valid X509 certificate issued by this CA be presented.'
-                ),
-                'label'       => 'REQUIRE ISSUER',
-                'checked'     => '',
-                'disabled'    => ! $specified,
-                'radio'       => false,
+                'name' => 'x509_issuer',
+                'value' => $row['x509_issuer'] ?? '',
+                'description' => __('Requires that a valid X509 certificate issued by this CA be presented.'),
+                'label' => 'REQUIRE ISSUER',
+                'is_checked' => false,
+                'is_disabled' => ! $specified,
+                'is_radio' => false,
             ],
             [
-                'name'        => 'x509_subject',
-                'value'       => isset($row['x509_subject'])
-                    ? htmlspecialchars($row['x509_subject']) : '',
-                'description' => __(
-                    'Requires that a valid X509 certificate with this subject be presented.'
-                ),
-                'label'       => 'REQUIRE SUBJECT',
-                'checked'     => '',
-                'disabled'    => ! $specified,
-                'radio'       => false,
+                'name' => 'x509_subject',
+                'value' => $row['x509_subject'] ?? '',
+                'description' => __('Requires that a valid X509 certificate with this subject be presented.'),
+                'label' => 'REQUIRE SUBJECT',
+                'is_checked' => false,
+                'is_disabled' => ! $specified,
+                'is_radio' => false,
             ],
         ];
-
-        return $this->template->render('server/privileges/require_options', [
-            'require_options' => $require_options,
-        ]);
     }
 
     /**
-     * Get HTML for "Resource limits"
+     * Get resource limits
      *
      * @param array $row first row from result or boolean false
      *
-     * @return string html snippet
+     * @return array
      */
-    public function getHtmlForResourceLimits(array $row)
+    private function getResourceLimits(array $row): array
     {
-        $limits = [
+        return [
             [
-                'input_name'  => 'max_questions',
-                'name_main'   => 'MAX QUERIES PER HOUR',
-                'value'       => isset($row['max_questions']) ? $row['max_questions'] : '0',
+                'input_name' => 'max_questions',
+                'name_main' => 'MAX QUERIES PER HOUR',
+                'value' => $row['max_questions'] ?? '0',
                 'description' => __(
                     'Limits the number of queries the user may send to the server per hour.'
                 ),
             ],
             [
-                'input_name'  => 'max_updates',
-                'name_main'   => 'MAX UPDATES PER HOUR',
-                'value'       => isset($row['max_updates']) ? $row['max_updates'] : '0',
+                'input_name' => 'max_updates',
+                'name_main' => 'MAX UPDATES PER HOUR',
+                'value' => $row['max_updates'] ?? '0',
                 'description' => __(
                     'Limits the number of commands that change any table '
                     . 'or database the user may execute per hour.'
                 ),
             ],
             [
-                'input_name'  => 'max_connections',
-                'name_main'   => 'MAX CONNECTIONS PER HOUR',
-                'value'       => isset($row['max_connections']) ? $row['max_connections'] : '0',
+                'input_name' => 'max_connections',
+                'name_main' => 'MAX CONNECTIONS PER HOUR',
+                'value' => $row['max_connections'] ?? '0',
                 'description' => __(
                     'Limits the number of new connections the user may open per hour.'
                 ),
             ],
             [
-                'input_name'  => 'max_user_connections',
-                'name_main'   => 'MAX USER_CONNECTIONS',
-                'value'       => isset($row['max_user_connections']) ?
-                    $row['max_user_connections'] : '0',
+                'input_name' => 'max_user_connections',
+                'name_main' => 'MAX USER_CONNECTIONS',
+                'value' => $row['max_user_connections'] ?? '0',
                 'description' => __(
                     'Limits the number of simultaneous connections '
                     . 'the user may have.'
                 ),
             ],
         ];
-
-        $html_output = $this->template->render('server/privileges/resource_limits', [
-            'limits' => $limits,
-        ]);
-
-        $html_output .= '</fieldset>' . "\n";
-
-        return $html_output;
     }
 
     /**
@@ -1097,7 +1060,7 @@ class Privileges
      */
     public function getHtmlForGlobalOrDbSpecificPrivs($db, $table, array $row)
     {
-        $privTable_names = [
+        $privTableNames = [
             0 => __('Data'),
             1 => __('Structure'),
             2 => __('Administration'),
@@ -1107,49 +1070,43 @@ class Privileges
         $privTable[1] = $this->getStructurePrivilegeTable($table, $row);
         $privTable[2] = $this->getAdministrationPrivilegeTable($db);
 
-        $html_output = '<input type="hidden" name="grant_count" value="'
-            . (count($privTable[0])
-                + count($privTable[1])
-                + count($privTable[2])
-                - (isset($row['Grant_priv']) ? 1 : 0)
-            )
-            . '">';
+        $grantCount = count($privTable[0]) + count($privTable[1]) + count($privTable[2]) - (
+            isset($row['Grant_priv']) ? 1 : 0);
+
         if ($db == '*') {
             $legend     = __('Global privileges');
-            $menu_label = __('Global');
+            $menuLabel = __('Global');
         } elseif ($table == '*') {
             $legend     = __('Database-specific privileges');
-            $menu_label = __('Database');
+            $menuLabel = __('Database');
         } else {
             $legend     = __('Table-specific privileges');
-            $menu_label = __('Table');
+            $menuLabel = __('Table');
         }
-        $html_output .= '<fieldset id="fieldset_user_global_rights">'
-            . '<legend data-submenu-label="' . $menu_label . '">' . $legend
-            . '<input type="checkbox" id="addUsersForm_checkall" '
-            . 'class="checkall_box" title="' . __('Check all') . '"> '
-            . '<label for="addUsersForm_checkall">' . __('Check all') . '</label> '
-            . '</legend>'
-            . '<p><small><i>'
-            . __('Note: MySQL privilege names are expressed in English.')
-            . '</i></small></p>';
 
         // Output the Global privilege tables with checkboxes
-        $html_output .= $this->getHtmlForGlobalPrivTableWithCheckboxes(
+        $globalPrivTable = $this->getHtmlForGlobalPrivTableWithCheckboxes(
             $privTable,
-            $privTable_names,
+            $privTableNames,
             $row
         );
 
-        // The "Resource limits" box is not displayed for db-specific privs
-        if ($db == '*') {
-            $html_output .= $this->getHtmlForResourceLimits($row);
-            $html_output .= $this->getHtmlForRequires($row);
+        $resourceLimits = [];
+        $requireOptions = [];
+        if ($db === '*') {
+            $resourceLimits = $this->getResourceLimits($row);
+            $requireOptions = $this->getRequireOptions($row);
         }
-        // for Safari 2.0.2
-        $html_output .= '<div class="clearfloat"></div>';
 
-        return $html_output;
+        return $this->template->render('server/privileges/global_db_specific_privileges', [
+            'grant_count' => $grantCount,
+            'menu_label' => $menuLabel,
+            'legend' => $legend,
+            'global_priv_table' => $globalPrivTable,
+            'is_global' => $db === '*',
+            'resource_limits' => $resourceLimits,
+            'require_options' => $requireOptions,
+        ]);
     }
 
     /**

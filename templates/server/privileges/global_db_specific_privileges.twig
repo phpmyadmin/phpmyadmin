@@ -1,0 +1,64 @@
+<input type="hidden" name="grant_count" value="{{ grant_count }}">
+<fieldset id="fieldset_user_global_rights">
+  <legend data-submenu-label="{{ menu_label }}">
+    {{ legend }}
+    <input type="checkbox" id="addUsersForm_checkall" class="checkall_box" title="{% trans 'Check all' %}">
+    <label for="addUsersForm_checkall">{% trans 'Check all' %}</label>
+  </legend>
+  <p>
+    <small><em>{% trans 'Note: MySQL privilege names are expressed in English.' %}</em></small>
+  </p>
+
+  {{ global_priv_table|raw }}
+
+  {% if is_global %}
+    <fieldset>
+      <legend>{% trans 'Resource limits' %}</legend>
+      <p>
+        <small><em>{% trans 'Note: Setting these options to 0 (zero) removes the limit.' %}</em></small>
+      </p>
+      {% for limit in resource_limits %}
+        <div class="item">
+          <label for="text_{{ limit.input_name }}">
+            <code><dfn title="{{ limit.description }}">{{ limit.name_main }}</dfn></code>
+          </label>
+          <input type="number" name="{{ limit.input_name }}" id="text_{{ limit.input_name }}" value="
+            {{- limit.value }}" title="{{ limit.description }}">
+        </div>
+      {% endfor %}
+    </fieldset>
+
+    <fieldset>
+      <legend>SSL</legend>
+      <div id="require_ssl_div">
+        {% for option in require_options %}
+          {% if option.name == 'ssl_cipher' %}
+            <div id="specified_div" style="padding-left:20px;">
+          {% endif %}
+
+          <div class="item">
+            {% if option.is_radio %}
+              <input type="radio" name="ssl_type" id="{{ option.name }}_{{ option.value }}" title="
+                {{- option.description }}" value="{{ option.value }}"{{ option.is_checked ? ' checked' }}>
+              <label for="{{ option.name }}_{{ option.value }}">
+                <code>{{ option.label }}</code>
+              </label>
+            {% else %}
+              <label for="text_{{ option.name }}">
+                <code>{{ option.label }}</code>
+              </label>
+              <input type="text" name="{{ option.name }}" id="text_{{ option.name }}" value="
+                {{- option.value }}" size="80" title="{{ option.description }}"{{ option.is_disabled ? ' disabled' }}>
+            {% endif %}
+          </div>
+
+          {% if option.name == 'ssl_cipher' %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </fieldset>
+  {% endif %}
+
+  <div class="clearfloat"></div>
+</fieldset>

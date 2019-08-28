@@ -95,7 +95,8 @@
   <div class="item">
     {% for privilege in privileges %}
       <div class="item">
-        <input type="checkbox" name="{{ privilege.grant }}" id="checkbox_{{ privilege.grant }}" value="Y" title="{{ privilege.description }}"{{ privilege.is_checked ? ' checked' }}>
+        <input type="checkbox" name="{{ privilege.grant }}" id="checkbox_{{ privilege.grant }}" value="Y" title="
+          {{- privilege.description }}"{{ privilege.is_checked ? ' checked' }}>
         <label for="checkbox_{{ privilege.grant }}">
           <code><dfn title="{{ privilege.description }}">{{ privilege.name }}</dfn></code>
         </label>
@@ -104,3 +105,4 @@
   </div>
 
   <div class="clearfloat"></div>
+</fieldset>
