@@ -505,40 +505,6 @@ class Privileges
     }
 
     /**
-     * Displays on which column(s) a table-specific privilege is granted
-     *
-     * @param array  $columns          columns array
-     * @param array  $row              first row from result or boolean false
-     * @param string $name_for_select  privilege types - Select_priv, Insert_priv
-     *                                 Update_priv, References_priv
-     * @param string $priv_for_header  privilege for header
-     * @param string $name             privilege name: insert, select, update, references
-     * @param string $name_for_dfn     name for dfn
-     * @param string $name_for_current name for current
-     *
-     * @return string html snippet
-     */
-    public function getHtmlForColumnPrivileges(
-        array $columns,
-        array $row,
-        $name_for_select,
-        $priv_for_header,
-        $name,
-        $name_for_dfn,
-        $name_for_current
-    ) {
-        return $this->template->render('server/privileges/column_privileges', [
-            'columns' => $columns,
-            'row' => $row,
-            'name_for_select' => $name_for_select,
-            'priv_for_header' => $priv_for_header,
-            'name' => $name,
-            'name_for_dfn' => $name_for_dfn,
-            'name_for_current' => $name_for_current,
-        ]);
-    }
-
-    /**
      * Get sql query for display privileges table
      *
      * @param string $db       the database
@@ -1064,165 +1030,60 @@ class Privileges
             }
         }
         $this->dbi->freeResult($res);
-        unset($res, $row1, $current);
 
-        $html_output = '<input type="hidden" name="grant_count" '
-            . 'value="' . count($row) . '">' . "\n"
-            . '<input type="hidden" name="column_count" '
-            . 'value="' . count($columns) . '">' . "\n"
-            . '<fieldset id="fieldset_user_priv">' . "\n"
-            . '<legend data-submenu-label="' . __('Table') . '">' . __('Table-specific privileges')
-            . '</legend>'
-            . '<p><small><i>'
-            . __('Note: MySQL privilege names are expressed in English.')
-            . '</i></small></p>';
+        $notAttachedPrivileges = $this->getNotAttachedPrivilegesToTableSpecificColumn($row);
 
-        // privs that are attached to a specific column
-        $html_output .= $this->getHtmlForAttachedPrivilegesToTableSpecificColumn(
-            $columns,
-            $row
-        );
-
-        // privs that are not attached to a specific column
-        $html_output .= '<div class="item">' . "\n"
-            . $this->getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row)
-            . '</div>' . "\n";
-
-        // for Safari 2.0.2
-        $html_output .= '<div class="clearfloat"></div>' . "\n";
-
-        return $html_output;
+        return $this->template->render('server/privileges/table_specific_privileges', [
+            'row' => $row,
+            'columns' => $columns,
+            'privileges' => $notAttachedPrivileges,
+        ]);
     }
 
     /**
-     * Get HTML snippet for privileges that are attached to a specific column
-     *
-     * @param array $columns columns array
-     * @param array $row     first row from result or boolean false
-     *
-     * @return string
-     */
-    public function getHtmlForAttachedPrivilegesToTableSpecificColumn(array $columns, array $row)
-    {
-        $html_output = $this->getHtmlForColumnPrivileges(
-            $columns,
-            $row,
-            'Select_priv',
-            'SELECT',
-            'select',
-            __('Allows reading data.'),
-            'Select'
-        );
-
-        $html_output .= $this->getHtmlForColumnPrivileges(
-            $columns,
-            $row,
-            'Insert_priv',
-            'INSERT',
-            'insert',
-            __('Allows inserting and replacing data.'),
-            'Insert'
-        );
-
-        $html_output .= $this->getHtmlForColumnPrivileges(
-            $columns,
-            $row,
-            'Update_priv',
-            'UPDATE',
-            'update',
-            __('Allows changing data.'),
-            'Update'
-        );
-
-        $html_output .= $this->getHtmlForColumnPrivileges(
-            $columns,
-            $row,
-            'References_priv',
-            'REFERENCES',
-            'references',
-            __('Has no effect in this MySQL version.'),
-            'References'
-        );
-        return $html_output;
-    }
-
-    /**
-     * Get HTML for privileges that are not attached to a specific column
+     * Get privileges that are not attached to a specific column
      *
      * @param array $row first row from result or boolean false
      *
-     * @return string
+     * @return array
      */
-    public function getHtmlForNotAttachedPrivilegesToTableSpecificColumn(array $row)
+    private function getNotAttachedPrivilegesToTableSpecificColumn(array $row): array
     {
-        $html_output = '';
-
-        foreach ($row as $current_grant => $current_grant_value) {
-            $grant_type = substr($current_grant, 0, -5);
-            if (in_array($grant_type, ['Select', 'Insert', 'Update', 'References'])
-            ) {
+        $privileges = [];
+        foreach ($row as $grant => $value) {
+            $type = substr($grant, 0, -5);
+            if (in_array($type, ['Select', 'Insert', 'Update', 'References'])) {
                 continue;
             }
-            // make a substitution to match the messages variables;
-            // also we must substitute the grant we get, because we can't generate
-            // a form variable containing blanks (those would get changed to
-            // an underscore when receiving the POST)
-            if ($current_grant == 'Create View_priv') {
-                $tmp_current_grant = 'CreateView_priv';
-                $current_grant = 'Create_view_priv';
-            } elseif ($current_grant == 'Show view_priv') {
-                $tmp_current_grant = 'ShowView_priv';
-                $current_grant = 'Show_view_priv';
-            } elseif ($current_grant == 'Delete versioning rows_priv') {
-                $tmp_current_grant = 'DeleteHistoricalRows_priv';
-                $current_grant = 'Delete_history_priv';
+
+            /**
+             * Make a substitution to match the messages variables;
+             * also we must substitute the grant we get, because we can't generate
+             * a form variable containing blanks (those would get changed to
+             * an underscore when receiving the POST).
+             */
+            if ($grant === 'Create View_priv') {
+                $grantName = 'CreateView_priv';
+                $grant = 'Create_view_priv';
+            } elseif ($grant === 'Show view_priv') {
+                $grantName = 'ShowView_priv';
+                $grant = 'Show_view_priv';
+            } elseif ($grant === 'Delete versioning rows_priv') {
+                $grantName = 'DeleteHistoricalRows_priv';
+                $grant = 'Delete_history_priv';
             } else {
-                $tmp_current_grant = $current_grant;
+                $grantName = $grant;
             }
+            $descriptionName = 'strPrivDesc' . mb_substr($grantName, 0, -5);
 
-            $html_output .= '<div class="item">' . "\n"
-               . '<input type="checkbox"'
-               . ' name="' . $current_grant . '" id="checkbox_' . $current_grant
-               . '" value="Y" '
-               . ($current_grant_value == 'Y' ? 'checked="checked" ' : '')
-               . 'title="';
-
-            $privGlobalName = 'strPrivDesc'
-                . mb_substr(
-                    $tmp_current_grant,
-                    0,
-                    mb_strlen($tmp_current_grant) - 5
-                );
-            $html_output .= (isset($GLOBALS[$privGlobalName])
-                    ? $GLOBALS[$privGlobalName]
-                    : $GLOBALS[$privGlobalName . 'Tbl']
-                )
-                . '">' . "\n";
-
-            $privGlobalName1 = 'strPrivDesc'
-                . mb_substr(
-                    $tmp_current_grant,
-                    0,
-                    - 5
-                );
-            $html_output .= '<label for="checkbox_' . $current_grant
-                . '"><code><dfn title="'
-                . (isset($GLOBALS[$privGlobalName1])
-                    ? $GLOBALS[$privGlobalName1]
-                    : $GLOBALS[$privGlobalName1 . 'Tbl']
-                )
-                . '">'
-                . mb_strtoupper(
-                    mb_substr(
-                        $current_grant,
-                        0,
-                        -5
-                    )
-                )
-                . '</dfn></code></label>' . "\n"
-                . '</div>' . "\n";
-        } // end foreach ()
-        return $html_output;
+            $privileges[] = [
+                'grant' => $grant,
+                'is_checked' => $value === 'Y',
+                'name' => mb_strtoupper(mb_substr($grant, 0, -5)),
+                'description' => $GLOBALS[$descriptionName] ?? $GLOBALS[$descriptionName . 'Tbl'] ?? '',
+            ];
+        }
+        return $privileges;
     }
 
     /**

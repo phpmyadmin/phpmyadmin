@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Server;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
@@ -40,50 +41,17 @@ class PrivilegesTest extends TestCase
      */
     protected function setUp(): void
     {
-        //Constants
-        if (! defined("PMA_USR_BROWSER_AGENT")) {
-            define("PMA_USR_BROWSER_AGENT", "other");
-        }
-
-        //$_REQUEST
-        $_REQUEST['log'] = "index1";
-        $_REQUEST['pos'] = 3;
-        $_GET['initial'] = null;
-
-        //$GLOBALS
-        $GLOBALS['lang'] = 'en';
-        $GLOBALS['cfg']['MaxRows'] = 10;
-        $GLOBALS['cfg']['SendErrorReports'] = "never";
-        $GLOBALS['cfg']['ServerDefault'] = "server";
-        $GLOBALS['cfg']['RememberSorting'] = true;
-        $GLOBALS['cfg']['SQP'] = [];
-        $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
-        $GLOBALS['cfg']['ShowSQL'] = true;
-        $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
-        $GLOBALS['cfg']['LimitChars'] = 100;
-        $GLOBALS['cfg']['AllowThirdPartyFraming'] = false;
-        $GLOBALS['cfg']['ActionLinksMode'] = "both";
-        $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
-        $GLOBALS['cfg']['DefaultTabTable'] = "structure";
-        $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = "structure";
-        $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'] = "";
-        $GLOBALS['cfg']['Confirm'] = "Confirm";
-        $GLOBALS['cfg']['ShowHint'] = true;
-        $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'] = true;
-        $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
-        $GLOBALS['cfg']['enable_drag_drop_import'] = true;
-
+        $GLOBALS['PMA_Config'] = new Config();
+        $GLOBALS['PMA_Config']->enableBc();
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfgRelation'] = [];
         $GLOBALS['cfgRelation']['menuswork'] = false;
         $GLOBALS['table'] = "table";
-        $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['hostname'] = "hostname";
         $GLOBALS['username'] = "username";
-        $GLOBALS['text_dir'] = "text_dir";
-        $GLOBALS['is_reload_priv'] = true;
 
         $relation = new Relation($GLOBALS['dbi']);
         $this->serverPrivileges = new Privileges(
@@ -329,66 +297,6 @@ class PrivilegesTest extends TestCase
                 __('Allows inserting and replacing data.'),
             ],
             $ret[1]
-        );
-    }
-
-    /**
-     * Test for getHtmlForColumnPrivileges
-     *
-     * @return void
-     */
-    public function testGetHtmlForColumnPrivileges()
-    {
-        $columns = [
-            'row1' => 'name1',
-        ];
-        $row = [
-            'name_for_select' => 'Y',
-        ];
-        $name_for_select = 'name_for_select';
-        $priv_for_header = 'priv_for_header';
-        $name = 'name';
-        $name_for_dfn = 'name_for_dfn';
-        $name_for_current = 'name_for_current';
-
-        $html = $this->serverPrivileges->getHtmlForColumnPrivileges(
-            $columns,
-            $row,
-            $name_for_select,
-            $priv_for_header,
-            $name,
-            $name_for_dfn,
-            $name_for_current
-        );
-        //$name
-        $this->assertStringContainsString(
-            $name,
-            $html
-        );
-        //$name_for_dfn
-        $this->assertStringContainsString(
-            $name_for_dfn,
-            $html
-        );
-        //$priv_for_header
-        $this->assertStringContainsString(
-            $priv_for_header,
-            $html
-        );
-        //$name_for_select
-        $this->assertStringContainsString(
-            $name_for_select,
-            $html
-        );
-        //$columns and $row
-        $this->assertStringContainsString(
-            htmlspecialchars('row1'),
-            $html
-        );
-        //$columns and $row
-        $this->assertStringContainsString(
-            _pgettext('None privileges', 'None'),
-            $html
         );
     }
 
@@ -1320,13 +1228,16 @@ class PrivilegesTest extends TestCase
             $row
         );
 
-        //validate 1: getHtmlForAttachedPrivilegesToTableSpecificColumn
-        $item = $this->serverPrivileges->getHtmlForAttachedPrivilegesToTableSpecificColumn(
-            $columns,
-            $row
+        $this->assertStringContainsString(
+            'checkbox_Update_priv_none',
+            $html
         );
         $this->assertStringContainsString(
-            $item,
+            '<dfn title="Allows changing data.">UPDATE</dfn>',
+            $html
+        );
+        $this->assertStringContainsString(
+            'checkbox_Insert_priv_none',
             $html
         );
         $this->assertStringContainsString(
@@ -1346,12 +1257,12 @@ class PrivilegesTest extends TestCase
             $html
         );
 
-        //validate 2: getHtmlForNotAttachedPrivilegesToTableSpecificColumn
-        $item = $this->serverPrivileges->getHtmlForNotAttachedPrivilegesToTableSpecificColumn(
-            $row
+        $this->assertStringContainsString(
+            'title="strPrivDescShowViewTbl" checked>',
+            $html
         );
         $this->assertStringContainsString(
-            $item,
+            '<dfn title="strPrivDescCreate_viewTbl">CREATE_VIEW</dfn>',
             $html
         );
         $this->assertStringContainsString(
@@ -1360,6 +1271,10 @@ class PrivilegesTest extends TestCase
         );
         $this->assertStringContainsString(
             'ShowView_priv',
+            $html
+        );
+        $this->assertStringContainsString(
+            _pgettext('None privileges', 'None'),
             $html
         );
     }
@@ -2563,13 +2478,13 @@ class PrivilegesTest extends TestCase
         $this->assertStringContainsString('<td>A</td>', $actual);
         $this->assertStringContainsString('<td>Z</td>', $actual);
         $this->assertStringContainsString(
-            '<a class="ajax" href="index.php?route=/server/privileges&amp;initial=-&amp;'
-            . 'server=1&amp;lang=en">-</a>',
+            '<a class="ajax" href="index.php?route=/server/privileges&amp;initial=-'
+            . '&amp;lang=en">-</a>',
             $actual
         );
         $this->assertStringContainsString(
-            '<a class="ajax" href="index.php?route=/server/privileges&amp;initial=%22&amp;'
-            . 'server=1&amp;lang=en">"</a>',
+            '<a class="ajax" href="index.php?route=/server/privileges&amp;initial=%22'
+            . '&amp;lang=en">"</a>',
             $actual
         );
         $this->assertStringContainsString('Show all', $actual);
