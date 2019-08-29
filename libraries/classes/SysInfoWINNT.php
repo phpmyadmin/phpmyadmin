@@ -11,6 +11,7 @@ namespace PhpMyAdmin;
 
 use COM;
 use PhpMyAdmin\SysInfoBase;
+use function is_string;
 
 /**
  * Windows NT based SysInfo class
@@ -85,7 +86,11 @@ class SysInfoWINNT extends SysInfoBase
                 $name = $propItem->Name;
                 if (empty($strValue) || in_array($name, $strValue)) {
                     $value = $objItem->$name;
-                    $arrInstance[$name] = trim($value);
+                    if (is_string($value)) {
+                        $arrInstance[$name] = trim($value);
+                    } else {
+                        $arrInstance[$name] = $value;
+                    }
                 }
             }
             $arrData[] = $arrInstance;
