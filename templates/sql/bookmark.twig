@@ -1,4 +1,4 @@
-<form action="sql.php" method="post" class="bookmarkQueryForm print_ignore"
+<form action="{{ url('/sql') }}" method="post" class="bookmarkQueryForm print_ignore"
     onsubmit="return ! Functions.emptyCheckTheField(this, 'bkm_fields[bkm_label]');">
     {{ get_hidden_inputs() }}
     <input type="hidden" name="db" value="{{ db }}">

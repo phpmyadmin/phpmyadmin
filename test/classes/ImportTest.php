@@ -552,7 +552,7 @@ class ImportTest extends TestCase
             'db'        => 'PMA',
             'sql_query' => $simulated_query,
         ];
-        $matched_rows_url  = 'sql.php' . Url::getCommon($_url_params);
+        $matched_rows_url = Url::getFromRoute('/sql', $_url_params);
 
         $this->assertEquals(
             [

@@ -10,8 +10,8 @@ namespace PhpMyAdmin\Tests\Plugins\Transformations;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Plugins\Transformations\Input\Image_JPEG_Upload;
-use PhpMyAdmin\Plugins\Transformations\Input\Text_Plain_RegexValidation;
 use PhpMyAdmin\Plugins\Transformations\Input\Text_Plain_FileUpload;
+use PhpMyAdmin\Plugins\Transformations\Input\Text_Plain_RegexValidation;
 use PhpMyAdmin\Plugins\Transformations\Output\Application_Octetstream_Download;
 use PhpMyAdmin\Plugins\Transformations\Output\Application_Octetstream_Hex;
 use PhpMyAdmin\Plugins\Transformations\Output\Image_JPEG_Inline;
@@ -132,7 +132,7 @@ class TransformationPluginsTest extends PmaTestCase
                 '<input type="hidden" name="fields_prev2ndtest" '
                 . 'value="736f6d657468696e67"><input type="hidden" '
                 . 'name="fields2ndtest" value="736f6d657468696e67">'
-                . '<img src="transformation_wrapper.php?table=a" width="100" '
+                . '<img src="index.php?route=/transformation/wrapper&amp;key=value&amp;lang=en" width="100" '
                 . 'height="100" alt="Image preview here"><br><input type="file" '
                 . 'name="fields_upload2ndtest" accept="image/*" '
                 . 'class="image-upload">',
@@ -142,6 +142,7 @@ class TransformationPluginsTest extends PmaTestCase
                     '2ndtest',
                     [
                         'wrapper_link' => '?table=a',
+                        'wrapper_params' => ['key' => 'value'],
                     ],
                     'something',
                     'ltr',
@@ -785,10 +786,11 @@ class TransformationPluginsTest extends PmaTestCase
                     [
                         0 => "filename",
                         'wrapper_link' => 'PMA_wrapper_link',
+                        'wrapper_params' => ['key' => 'value'],
                     ],
                 ],
-                '<a href="transformation_wrapper.phpPMA_wrapper_link'
-                . '&amp;ct=application/octet-stream&amp;cn=filename" '
+                '<a href="index.php?route=/transformation/wrapper&amp;key=value'
+                . '&amp;ct=application%2Foctet-stream&amp;cn=filename&amp;lang=en" '
                 . 'title="filename" class="disableAjax">filename</a>',
             ],
             [
@@ -799,10 +801,11 @@ class TransformationPluginsTest extends PmaTestCase
                         0 => "",
                         1 => 'cloumn',
                         'wrapper_link' => 'PMA_wrapper_link',
+                        'wrapper_params' => ['key' => 'value'],
                     ],
                 ],
-                '<a href="transformation_wrapper.phpPMA_wrapper_link&amp;'
-                . 'ct=application/octet-stream&amp;cn=binary_file.dat" '
+                '<a href="index.php?route=/transformation/wrapper&amp;key=value'
+                . '&amp;ct=application%2Foctet-stream&amp;cn=binary_file.dat&amp;lang=en" '
                 . 'title="binary_file.dat" class="disableAjax">binary_file.dat</a>',
             ],
             [
@@ -837,10 +840,11 @@ class TransformationPluginsTest extends PmaTestCase
                         0 => "./image/",
                         1 => "200",
                         "wrapper_link" => "PMA_wrapper_link",
+                        'wrapper_params' => ['key' => 'value'],
                     ],
                 ],
                 '<a class="disableAjax" target="_blank" rel="noopener noreferrer"'
-                . ' href="transformation_wrapper.phpPMA_wrapper_link"'
+                . ' href="index.php?route=/transformation/wrapper&amp;key=value&amp;lang=en"'
                 . ' alt="[PMA_IMAGE_LINK]">[BLOB]</a>',
             ],
             [
@@ -1056,12 +1060,13 @@ class TransformationPluginsTest extends PmaTestCase
                         0 => "./image/",
                         1 => "200",
                         "wrapper_link" => "PMA_wrapper_link",
+                        'wrapper_params' => ['key' => 'value'],
                     ],
                 ],
-                '<a href="transformation_wrapper.phpPMA_wrapper_link" '
-                . 'rel="noopener noreferrer" target="_blank"><img src="transformation_wrapper.php'
-                . 'PMA_wrapper_link&amp;resize=jpeg&amp;newWidth=0&amp;'
-                . 'newHeight=200" alt="[PMA_JPEG_Inline]" border="0"></a>',
+                '<a href="index.php?route=/transformation/wrapper&amp;key=value&amp;lang=en" '
+                . 'rel="noopener noreferrer" target="_blank"><img src="index.php?route=/transformation/wrapper'
+                . '&amp;key=value&amp;resize=jpeg&amp;newWidth=0&amp;'
+                . 'newHeight=200&amp;lang=en" alt="[PMA_JPEG_Inline]" border="0"></a>',
             ];
             $result[] = [
                 new Image_PNG_Inline(),
@@ -1071,12 +1076,12 @@ class TransformationPluginsTest extends PmaTestCase
                         0 => "./image/",
                         1 => "200",
                         "wrapper_link" => "PMA_wrapper_link",
+                        'wrapper_params' => ['key' => 'value'],
                     ],
                 ],
-                '<a href="transformation_wrapper.phpPMA_wrapper_link"'
-                . ' rel="noopener noreferrer" target="_blank"><img src="transformation_wrapper.php'
-                . 'PMA_wrapper_link&amp;'
-                . 'resize=jpeg&amp;newWidth=0&amp;newHeight=200" '
+                '<a href="index.php?route=/transformation/wrapper&amp;key=value&amp;lang=en"'
+                . ' rel="noopener noreferrer" target="_blank"><img src="index.php?route=/transformation/wrapper'
+                . '&amp;key=value&amp;resize=jpeg&amp;newWidth=0&amp;newHeight=200&amp;lang=en" '
                 . 'alt="[PMA_PNG_Inline]" border="0"></a>',
             ];
         }

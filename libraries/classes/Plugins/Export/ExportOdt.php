@@ -14,12 +14,12 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\OpenDocument;
 use PhpMyAdmin\Plugins\ExportPlugin;
-use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
+use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 
@@ -113,7 +113,7 @@ class ExportOdt extends ExportPlugin
             if (! empty($GLOBALS['cfgRelation']['mimework'])) {
                 $leaf = new BoolPropertyItem(
                     "mime",
-                    __('Display MIME types')
+                    __('Display media types')
                 );
                 $structureOptions->addProperty($leaf);
             }
@@ -309,7 +309,7 @@ class ExportOdt extends ExportPlugin
                     // export GIS types as hex
                     $row[$j] = '0x' . bin2hex($row[$j]);
                 }
-                if (! isset($row[$j]) || is_null($row[$j])) {
+                if (! isset($row[$j]) || $row[$j] === null) {
                     $GLOBALS['odt_buffer']
                         .= '<table:table-cell office:value-type="string">'
                         . '<text:p>'
@@ -414,7 +414,7 @@ class ExportOdt extends ExportPlugin
 
         $GLOBALS['odt_buffer'] .= '</table:table>';
 
-        return true;
+        return '';
     }
 
     /**
@@ -428,7 +428,7 @@ class ExportOdt extends ExportPlugin
      * @param bool   $do_comments   whether to include the pmadb-style column
      *                              comments as comments in the structure;
      *                              this is deprecated but the parameter is
-     *                              left here because export.php calls
+     *                              left here because /export calls
      *                              PMA_exportStructure() also for other
      * @param bool   $do_mime       whether to include mime comments
      * @param bool   $show_dates    whether to include creation/update/check dates
@@ -512,7 +512,7 @@ class ExportOdt extends ExportPlugin
         }
         if ($do_mime && $cfgRelation['mimework']) {
             $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-                . '<text:p>' . __('MIME type') . '</text:p>'
+                . '<text:p>' . __('Media type') . '</text:p>'
                 . '</table:table-cell>';
             $mime_map = $this->transformations->getMime($db, $table, true);
         }
@@ -669,7 +669,7 @@ class ExportOdt extends ExportPlugin
      * @param bool   $do_comments whether to include the pmadb-style column
      *                            comments as comments in the structure;
      *                            this is deprecated but the parameter is
-     *                            left here because export.php calls
+     *                            left here because /export calls
      *                            PMA_exportStructure() also for other
      * @param bool   $do_mime     whether to include mime comments
      * @param bool   $dates       whether to include creation/update/check dates

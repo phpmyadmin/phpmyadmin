@@ -1,0 +1,145 @@
+<input type="hidden" name="grant_count" value="{{ grant_count }}">
+<fieldset id="fieldset_user_global_rights">
+  <legend data-submenu-label="{{ menu_label }}">
+    {{ legend }}
+    <input type="checkbox" id="addUsersForm_checkall" class="checkall_box" title="{% trans 'Check all' %}">
+    <label for="addUsersForm_checkall">{% trans 'Check all' %}</label>
+  </legend>
+  <p>
+    <small><em>{% trans 'Note: MySQL privilege names are expressed in English.' %}</em></small>
+  </p>
+
+  {{ global_priv_table|raw }}
+
+  {% if is_global %}
+    <fieldset>
+      <legend>{% trans 'Resource limits' %}</legend>
+      <p>
+        <small><em>{% trans 'Note: Setting these options to 0 (zero) removes the limit.' %}</em></small>
+      </p>
+
+      <div class="item">
+        <label for="text_max_questions">
+          <code>
+            <dfn title="{% trans 'Limits the number of queries the user may send to the server per hour.' %}">
+              MAX QUERIES PER HOUR
+            </dfn>
+          </code>
+        </label>
+        <input type="number" name="max_questions" id="text_max_questions" value="
+          {{- row.max_questions ?? '0' }}" title="
+          {%- trans 'Limits the number of queries the user may send to the server per hour.' %}">
+      </div>
+
+      <div class="item">
+        <label for="text_max_updates">
+          <code>
+            <dfn title="{% trans 'Limits the number of commands that change any table or database the user may execute per hour.' %}">
+              MAX UPDATES PER HOUR
+            </dfn>
+          </code>
+        </label>
+        <input type="number" name="max_updates" id="text_max_updates" value="
+          {{- row.max_updates ?? '0' }}" title="
+          {%- trans 'Limits the number of commands that change any table or database the user may execute per hour.' %}">
+      </div>
+
+      <div class="item">
+        <label for="text_max_connections">
+          <code>
+            <dfn title="{% trans 'Limits the number of new connections the user may open per hour.' %}">
+              MAX CONNECTIONS PER HOUR
+            </dfn>
+          </code>
+        </label>
+        <input type="number" name="max_connections" id="text_max_connections" value="
+          {{- row.max_connections ?? '0' }}" title="
+          {%- trans 'Limits the number of new connections the user may open per hour.' %}">
+      </div>
+
+      <div class="item">
+        <label for="text_max_user_connections">
+          <code>
+            <dfn title="{% trans 'Limits the number of simultaneous connections the user may have.' %}">
+              MAX USER_CONNECTIONS
+            </dfn>
+          </code>
+        </label>
+        <input type="number" name="max_user_connections" id="text_max_user_connections" value="
+          {{- row.max_user_connections ?? '0' }}" title="
+          {%- trans 'Limits the number of simultaneous connections the user may have.' %}">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>SSL</legend>
+      <div id="require_ssl_div">
+        <div class="item">
+          <input type="radio" name="ssl_type" id="ssl_type_NONE" title="
+            {%- trans 'Does not require SSL-encrypted connections.' %}" value="NONE"
+            {{- row.ssl_type == 'NONE' or row.ssl_type == '' ? ' checked' }}>
+          <label for="ssl_type_NONE">
+            <code>REQUIRE NONE</code>
+          </label>
+        </div>
+
+        <div class="item">
+          <input type="radio" name="ssl_type" id="ssl_type_ANY" title="
+            {%- trans 'Requires SSL-encrypted connections.' %}" value="ANY"
+            {{- row.ssl_type == 'ANY' ? ' checked' }}>
+          <label for="ssl_type_ANY">
+            <code>REQUIRE SSL</code>
+          </label>
+        </div>
+
+        <div class="item">
+          <input type="radio" name="ssl_type" id="ssl_type_X509" title="
+            {%- trans 'Requires a valid X509 certificate.' %}" value="X509"
+            {{- row.ssl_type == 'X509' ? ' checked' }}>
+          <label for="ssl_type_X509">
+            <code>REQUIRE X509</code>
+          </label>
+        </div>
+
+        <div class="item">
+          <input type="radio" name="ssl_type" id="ssl_type_SPECIFIED" value="SPECIFIED"
+            {{- row.ssl_type == 'SPECIFIED' ? ' checked' }}>
+          <label for="ssl_type_SPECIFIED">
+            <code>SPECIFIED</code>
+          </label>
+        </div>
+
+        <div id="specified_div" style="padding-left:20px;">
+          <div class="item">
+            <label for="text_ssl_cipher">
+              <code>REQUIRE CIPHER</code>
+            </label>
+            <input type="text" name="ssl_cipher" id="text_ssl_cipher" value="{{ row.ssl_cipher }}" size="80" title="
+              {%- trans 'Requires that a specific cipher method be used for a connection.' %}"
+              {{- row.ssl_type != 'SPECIFIED' ? ' disabled' }}>
+          </div>
+
+          <div class="item">
+            <label for="text_x509_issuer">
+              <code>REQUIRE ISSUER</code>
+            </label>
+            <input type="text" name="x509_issuer" id="text_x509_issuer" value="{{ row.x509_issuer }}" size="80" title="
+              {%- trans 'Requires that a valid X509 certificate issued by this CA be presented.' %}"
+              {{- row.ssl_type != 'SPECIFIED' ? ' disabled' }}>
+          </div>
+
+          <div class="item">
+            <label for="text_x509_subject">
+              <code>REQUIRE SUBJECT</code>
+            </label>
+            <input type="text" name="x509_subject" id="text_x509_subject" value="{{ row.x509_subject }}" size="80" title="
+              {%- trans 'Requires that a valid X509 certificate with this subject be presented.' %}"
+              {{- row.ssl_type != 'SPECIFIED' ? ' disabled' }}>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  {% endif %}
+
+  <div class="clearfloat"></div>
+</fieldset>

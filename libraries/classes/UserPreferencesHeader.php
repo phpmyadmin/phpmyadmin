@@ -10,6 +10,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Config\Forms\User\UserFormList;
+use Throwable;
+use Twig_Error_Loader;
+use Twig_Error_Runtime;
+use Twig_Error_Syntax;
 
 /**
  * Functions for displaying user preferences header
@@ -25,10 +29,10 @@ class UserPreferencesHeader
      * @param Relation $relation Relation object
      *
      * @return string
-     * @throws \Throwable
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
+     * @throws Throwable
+     * @throws Twig_Error_Loader
+     * @throws Twig_Error_Runtime
+     * @throws Twig_Error_Syntax
      */
     public static function getContent(Template $template, Relation $relation): string
     {
@@ -41,38 +45,43 @@ class UserPreferencesHeader
      * @param Template $template Template object used to render data
      *
      * @return string
-     * @throws \Throwable
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
+     * @throws Throwable
+     * @throws Twig_Error_Loader
+     * @throws Twig_Error_Runtime
+     * @throws Twig_Error_Syntax
      */
     protected static function displayTabs(Template $template): string
     {
+        global $route;
+
         // build user preferences menu
         $content = Util::getHtmlTab(
             [
-                'link' => 'prefs_manage.php',
+                'link' => 'index.php?route=/preferences/manage',
                 'text' => __('Manage your settings'),
+                'active' => $route === '/preferences/manage',
             ]
         ) . "\n";
         /* Second authentication factor */
         $content .= Util::getHtmlTab(
             [
-                'link' => 'prefs_twofactor.php',
+                'link' => 'index.php?route=/preferences/twofactor',
                 'text' => __('Two-factor authentication'),
+                'active' => $route === '/preferences/twofactor',
             ]
         ) . "\n";
 
         $content .= self::displayTabsWithIcon();
 
-        return $template->render(
+        return '<div class=container-fluid><div class=row>' .
+        $template->render(
             'list/unordered',
             [
                 'id' => 'topmenu2',
                 'class' => 'user_prefs_tabs',
                 'content' => $content,
             ]
-        ) . '<div class="clearfloat"></div>';
+        ) . '<div class="clearfloat"></div></div>';
     }
 
     /**
@@ -89,15 +98,15 @@ class UserPreferencesHeader
             'Import' => 'b_import',
             'Export' => 'b_export',
         ];
-        $script_name = basename($GLOBALS['PMA_PHP_SELF']);
+        $route = $_GET['route'] ?? $_POST['route'] ?? '';
         $content = null;
         foreach (UserFormList::getAll() as $formset) {
             $formset_class = UserFormList::get($formset);
             $tab = [
-                'link' => 'prefs_forms.php',
+                'link' => 'index.php?route=/preferences/forms',
                 'text' => $formset_class::getName(),
                 'icon' => $tabs_icons[$formset],
-                'active' => 'prefs_forms.php' === $script_name && $formset === $form_param,
+                'active' => $route === '/preferences/forms' && $formset === $form_param,
             ];
             $content .= Util::getHtmlTab($tab, ['form' => $formset]) . "\n";
         }
@@ -132,7 +141,7 @@ class UserPreferencesHeader
                 'Your preferences will be saved for current session only. Storing them '
                 . 'permanently requires %sphpMyAdmin configuration storage%s.'
             );
-            $msg = Sanitize::sanitize(
+            $msg = Sanitize::sanitizeMessage(
                 sprintf($msg, '[doc@linked-tables]', '[/doc]')
             );
             return Message::notice($msg)

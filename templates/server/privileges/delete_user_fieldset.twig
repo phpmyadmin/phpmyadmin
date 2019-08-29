@@ -1,3 +1,5 @@
+<div class="row">
+<div class="col-12">
 <fieldset id="fieldset_delete_user">
     <legend>
         {{ get_icon('b_usrdrop') }}{% trans 'Remove selected user accounts' %}
@@ -11,7 +13,10 @@
         {% trans 'Drop the databases that have the same names as the users.' %}
     </label>
 </fieldset>
+</div>
+</div>
 
 <fieldset id="fieldset_delete_user_footer" class="tblFooters">
     <input id="buttonGo" class="btn btn-primary ajax" type="submit" name="delete" value="{% trans 'Go' %}">
 </fieldset>
+

@@ -16,9 +16,9 @@ use PhpMyAdmin\Logging;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
-use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Session;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Url;
 
 /**
@@ -159,7 +159,7 @@ abstract class AuthenticationPlugin
             /* Redirect to other autenticated server */
             $_SESSION['partial_logout'] = true;
             Core::sendHeaderLocation(
-                './index.php' . Url::getCommonRaw(['server' => $server])
+                './index.php?route=/' . Url::getCommonRaw(['server' => $server], '&')
             );
         }
     }
@@ -171,7 +171,7 @@ abstract class AuthenticationPlugin
      */
     public function getLoginFormURL()
     {
-        return './index.php';
+        return './index.php?route=/';
     }
 
     /**
@@ -282,9 +282,7 @@ abstract class AuthenticationPlugin
 
         // Check IP-based Allow/Deny rules as soon as possible to reject the
         // user based on mod_access in Apache
-        if (isset($cfg['Server']['AllowDeny'])
-            && isset($cfg['Server']['AllowDeny']['order'])
-        ) {
+        if (isset($cfg['Server']['AllowDeny']['order'])) {
             $allowDeny_forbidden         = false; // default
             if ($cfg['Server']['AllowDeny']['order'] == 'allow,deny') {
                 $allowDeny_forbidden     = true;
@@ -346,7 +344,7 @@ abstract class AuthenticationPlugin
         $response = Response::getInstance();
         if ($response->loginPage()) {
             if (defined('TESTSUITE')) {
-                return true;
+                return;
             } else {
                 exit;
             }
@@ -357,7 +355,7 @@ abstract class AuthenticationPlugin
         )->display();
         echo $this->template->render('login/twofactor', [
             'form' => $twofactor->render(),
-            'show_submit' => $twofactor->showSubmit,
+            'show_submit' => $twofactor->showSubmit(),
         ]);
         echo $this->template->render('login/footer');
         echo Config::renderFooter();

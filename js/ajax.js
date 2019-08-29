@@ -404,7 +404,7 @@ var AJAX = {
             if (data.sendErrorAlways === '1' &&
                 data.stopErrorReportLoop !== '1'
             ) {
-                $('#pma_report_errors_form').submit();
+                $('#pma_report_errors_form').trigger('submit');
                 Functions.ajaxShowMessage(Messages.phpErrorsBeingSubmitted, false);
                 $('html, body').animate({ scrollTop:$(document).height() }, 'slow');
             } else if (data.promptPhpErrors) {
@@ -543,9 +543,9 @@ var AJAX = {
                     var source = data.selflink.split('?')[0];
                     // Check for faulty links
                     var $selflinkReplace = {
-                        'import.php': 'tbl_sql.php',
-                        'tbl_chart.php': 'sql.php',
-                        'tbl_gis_visualization.php': 'sql.php'
+                        'index.php?route=/import': 'index.php?route=/table/sql',
+                        'index.php?route=/table/chart': 'index.php?route=/sql',
+                        'index.php?route=/table/gis_visualization': 'index.php?route=/sql'
                     };
                     if ($selflinkReplace[source]) {
                         var replacement = $selflinkReplace[source];
@@ -599,7 +599,7 @@ var AJAX = {
                     if (data.sendErrorAlways === '1' &&
                         data.stopErrorReportLoop !== '1'
                     ) {
-                        $('#pma_report_errors_form').submit();
+                        $('#pma_report_errors_form').trigger('submit');
                         Functions.ajaxShowMessage(Messages.phpErrorsBeingSubmitted, false);
                         $('html, body').animate({ scrollTop:$(document).height() }, 'slow');
                     } else if (data.promptPhpErrors) {

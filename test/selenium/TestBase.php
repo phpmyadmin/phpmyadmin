@@ -10,26 +10,23 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
+use Exception;
+use Facebook\WebDriver\Chrome\ChromeOptions;
+use Facebook\WebDriver\Exception\InvalidSelectorException;
+use Facebook\WebDriver\Exception\NoSuchElementException;
+use Facebook\WebDriver\Exception\WebDriverException;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Facebook\WebDriver\Remote\RemoteWebElement;
-use Facebook\WebDriver\Chrome\ChromeOptions;
-use Facebook\WebDriver\Firefox\FirefoxDriver;
-use Facebook\WebDriver\Firefox\FirefoxProfile;
-use PHPUnit\Framework\TestCase;
-use PHPUnit\Framework\SkippedTestError;
-use PHPUnit\Framework\IncompleteTestError;
-use Facebook\WebDriver\WebDriverWindow;
-use Facebook\WebDriver\WebDriverSelect;
 use Facebook\WebDriver\WebDriverBy;
 use Facebook\WebDriver\WebDriverElement;
-use Facebook\WebDriver\WebDriverPlatform;
 use Facebook\WebDriver\WebDriverExpectedCondition;
-use Facebook\WebDriver\Remote\WebDriverCapabilityType;
-use Facebook\WebDriver\Exception\NoSuchElementException;
-use Facebook\WebDriver\Exception\InvalidSelectorException;
-use Facebook\WebDriver\Exception\WebDriverException;
-use \Date;
+use Facebook\WebDriver\WebDriverSelect;
+use InvalidArgumentException;
+use mysqli;
+use mysqli_result;
+use PHPUnit\Framework\TestCase;
+use Throwable;
 
 /**
  * Base class for Selenium tests.
@@ -49,7 +46,7 @@ abstract class TestBase extends TestCase
      * mysqli object
      *
      * @access private
-     * @var \mysqli
+     * @var mysqli
      */
     protected $_mysqli;
 
@@ -73,7 +70,7 @@ abstract class TestBase extends TestCase
      *
      * @return void
      *
-     * @throws \Exception
+     * @throws Exception
      */
     protected function setUp(): void
     {
@@ -89,7 +86,7 @@ abstract class TestBase extends TestCase
             return;
         }
 
-        $this->_mysqli = new \mysqli(
+        $this->_mysqli = new mysqli(
             $GLOBALS['TESTSUITE_SERVER'],
             $GLOBALS['TESTSUITE_USER'],
             $GLOBALS['TESTSUITE_PASSWORD'],
@@ -266,9 +263,10 @@ abstract class TestBase extends TestCase
          * @see https://github.com/phpmyadmin/phpmyadmin/pull/14595#issuecomment-418541475
          * Reports the name of the test to browserstack
          */
+        $className = substr(static::class, strlen('PhpMyAdmin\Tests\Selenium\\'));
         $capabilities->setCapability(
             'name',
-            get_class($this) . '__' . $this->getName()
+            $className . ': ' . $this->getName()
         );
 
         if ($buildLocal) {
@@ -415,7 +413,7 @@ abstract class TestBase extends TestCase
      */
     protected function skipIfNotPMADB()
     {
-        $this->navigateTo('chk_rel.php');
+        $this->navigateTo('index.php?route=/check_relations');
         $pageContent = $this->waitForElement('id', 'page_content');
         if (preg_match(
             '/Configuration of pmadb… not OK/i',
@@ -595,9 +593,9 @@ abstract class TestBase extends TestCase
      *
      * @param string $query SQL Query to be webDriver->executeScriptd
      *
-     * @return void|boolean|\mysqli_result
+     * @return void|boolean|mysqli_result
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function dbQuery($query)
     {
@@ -707,7 +705,7 @@ abstract class TestBase extends TestCase
         } catch (NoSuchElementException $e) {
             // Element not present
             return false;
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             // Element not present
             return false;
         } catch (InvalidSelectorException $e) {
@@ -1034,11 +1032,11 @@ abstract class TestBase extends TestCase
     /**
      * Mark unsuccessful tests as 'Failures' on Browerstack
      *
-     * @param \Throwable $t Throwable
+     * @param Throwable $t Throwable
      *
      * @return void
      */
-    public function onNotSuccessfulTest(\Throwable $t): void
+    public function onNotSuccessfulTest(Throwable $t): void
     {
         $SESSION_REST_URL = 'https://api.browserstack.com/automate/sessions/';
         // If this is being run on Browerstack,
@@ -1080,27 +1078,31 @@ abstract class TestBase extends TestCase
 
         if ($this->hasBrowserstackConfig()) {
             $ch = curl_init();
-            curl_setopt(
-                $ch,
-                CURLOPT_URL,
-                $SESSION_REST_URL . $this->sessionId . ".json"
-            );
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt(
-                $ch,
-                CURLOPT_USERPWD,
-                $GLOBALS['TESTSUITE_BROWSERSTACK_USER']
+            if ($ch !== false) {
+                curl_setopt(
+                    $ch,
+                    CURLOPT_URL,
+                    $SESSION_REST_URL . $this->sessionId . ".json"
+                );
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt(
+                    $ch,
+                    CURLOPT_USERPWD,
+                    $GLOBALS['TESTSUITE_BROWSERSTACK_USER']
                     . ":" . $GLOBALS['TESTSUITE_BROWSERSTACK_KEY']
-            );
-            $result = curl_exec($ch);
-            $proj = json_decode($result);
-            if (isset($proj->automation_session)) {
-                echo 'Test failed, get more information here: ' . $proj->automation_session->public_url . PHP_EOL;
+                );
+                $result = curl_exec($ch);
+                $proj = json_decode($result);
+                if (isset($proj->automation_session)) {
+                    echo 'Test failed, get more information here: ' . $proj->automation_session->public_url . PHP_EOL;
+                }
+                if (curl_errno($ch)) {
+                    echo 'Error: ' . curl_error($ch) . PHP_EOL;
+                }
+                curl_close($ch);
+            } else {
+                echo 'Error: curl_init' . PHP_EOL;
             }
-            if (curl_errno($ch)) {
-                echo 'Error: ' . curl_error($ch) . PHP_EOL;
-            }
-            curl_close($ch);
         }
 
         // Call parent's onNotSuccessful to handle everything else

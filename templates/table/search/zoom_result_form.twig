@@ -1,7 +1,7 @@
-<form method="post" action="tbl_zoom_select.php" name="displayResultForm" id="zoom_display_form" class="ajax">
+<form method="post" action="{{ url('/table/zoom_select') }}" name="displayResultForm" id="zoom_display_form" class="ajax">
     {{ get_hidden_inputs(db, table) }}
     <input type="hidden" name="goto" value="{{ goto }}">
-    <input type="hidden" name="back" value="tbl_zoom_select.php">
+    <input type="hidden" name="back" value="{{ url('/table/zoom_select') }}">
 
     <fieldset id="displaySection">
         <legend>{% trans 'Browse/Edit the points' %}</legend>
@@ -81,5 +81,6 @@
                 </tbody>
             </table>
         </div>
-    <input type="hidden" id="queryID" name="sql_query">
+        <input type="hidden" id="queryID" name="sql_query">
+    </fieldset>
 </form>

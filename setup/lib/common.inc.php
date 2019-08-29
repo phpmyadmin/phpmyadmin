@@ -8,6 +8,7 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Config\ConfigFile;
+use PhpMyAdmin\DatabaseInterface;
 
 /**
  * Do not include full common.
@@ -45,6 +46,8 @@ $GLOBALS['ConfigFile']->setPersistKeys(
         'Servers/1/password',
     ]
 );
+
+$GLOBALS['dbi'] = DatabaseInterface::load();
 
 // allows for redirection even after sending some data
 ob_start();

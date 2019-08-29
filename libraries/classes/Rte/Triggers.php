@@ -122,7 +122,7 @@ class Triggers
      */
     public function handleEditor()
     {
-        global $errors, $db, $table;
+        global $db, $errors, $message, $table;
 
         if (! empty($_POST['editor_process_add'])
             || ! empty($_POST['editor_process_edit'])
@@ -259,6 +259,9 @@ class Triggers
             && (! empty($_REQUEST['add_item'])
             || ! empty($_REQUEST['edit_item']))) // FIXME: this must be simpler than that
         ) {
+            $mode = null;
+            $item = null;
+            $title = null;
             // Get the data for the form (if any)
             if (! empty($_REQUEST['add_item'])) {
                 $title = $this->words->get('add');
@@ -380,7 +383,7 @@ class Triggers
         // Create the output
         $retval  = "";
         $retval .= "<!-- START " . $modeToUpper . " TRIGGER FORM -->\n\n";
-        $retval .= "<form class='rte_form' action='db_triggers.php' method='post'>\n";
+        $retval .= '<form class="rte_form" action="' . Url::getFromRoute('/database/triggers') . '" method="post">' . "\n";
         $retval .= "<input name='{$mode}_item' type='hidden' value='1'>\n";
         $retval .= $original_data;
         $retval .= Url::getHiddenInputs($db, $table) . "\n";

@@ -13,6 +13,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 
 /**
  * Class to handle database Multi-table querying
@@ -88,6 +89,8 @@ class MultiTableQuery
      */
     public function getFormHtml()
     {
+        global $route;
+
         $tables = [];
         foreach ($this->tables as $table) {
             $tables[$table]['hash'] = md5($table);
@@ -99,6 +102,7 @@ class MultiTableQuery
             'db' => $this->db,
             'tables' => $tables,
             'default_no_of_columns' => $this->defaultNoOfColumns,
+            'route' => $route,
         ]);
     }
 
@@ -119,7 +123,7 @@ class MultiTableQuery
         ) = ParseAnalyze::sqlQuery($sqlQuery, $db);
 
         extract($analyzedSqlResults);
-        $goto = 'db_multi_table_query.php';
+        $goto = Url::getFromRoute('/database/multi_table_query');
         $sql = new Sql();
         $sql->executeQueryAndSendQueryResponse(
             null, // analyzed_sql_results

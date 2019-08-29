@@ -46,11 +46,11 @@
         "ext-pcre": "*",
         "ext-xml": "*",
         "google/recaptcha": "^1.1",
+        "nikic/fast-route": "^1.3",
         "phpmyadmin/motranslator": "^4.0",
         "phpmyadmin/shapefile": "^2.0",
         "phpmyadmin/sql-parser": "^5.0",
         "phpseclib/phpseclib": "^2.0",
-        "psr/container": "^1.0",
         "symfony/config": "^4.2.8",
         "symfony/dependency-injection": "^4.2.8",
         "symfony/expression-language": "^4.2",
@@ -81,26 +81,26 @@
         "samyoul/u2f-php-server": "For FIDO U2F authentication"
     },
     "require-dev": {
-        "phpunit/phpunit": "^7.5 || ^8.0",
         "codacy/coverage": "^1.3.0",
-        "squizlabs/php_codesniffer": "^3.0",
-        "tecnickcom/tcpdf": "^6.2",
-        "pragmarx/google2fa-qrcode": "^1.0.1",
-        "samyoul/u2f-php-server": "^1.1",
+        "facebook/webdriver": "^1.7.1",
         "phpmyadmin/coding-standard": "^1.0",
         "phpstan/phpstan": "^0.11.5",
-        "facebook/webdriver": "^1.6"
+        "phpunit/phpunit": "^7.5 || ^8.0",
+        "pragmarx/google2fa-qrcode": "^1.0.1",
+        "samyoul/u2f-php-server": "^1.1",
+        "squizlabs/php_codesniffer": "^3.0",
+        "tecnickcom/tcpdf": "^6.2"
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "5.0.x-dev"
+            "dev-master": "5.1.x-dev"
         }
     },
     "scripts": {
         "phpcbf": "phpcbf",
         "phpcs": "phpcs",
         "phpstan": "phpstan analyse",
-        "phpunit": "phpunit",
+        "phpunit": "phpunit --color=always",
         "test": [
             "@phpcs",
             "@phpstan",

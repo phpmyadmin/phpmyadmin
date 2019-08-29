@@ -9,13 +9,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracking;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
-use PhpMyAdmin\DatabaseInterface;
 
 /**
  * Tests for PhpMyAdmin\Tracking
@@ -159,8 +159,6 @@ class TrackingTest extends TestCase
     }
 
     /**
-     * Tests for getHtmlForDataDefinitionAndManipulationStatements() method.
-     *
      * @return void
      * @test
      */
@@ -168,7 +166,6 @@ class TrackingTest extends TestCase
     {
         $last_version = 3;
         $url_params = [];
-        $url_query = "select * from PMA";
         $pmaThemeImage = "themePath/img";
         $text_dir = "ltr";
 
@@ -184,7 +181,7 @@ class TrackingTest extends TestCase
             'db_name' => 'PMA_db',
             'table_name' => 'PMA_table',
             'date_created' => 'date_created',
-            'date_updated' => 'date_updated'
+            'date_updated' => 'date_updated',
         ];
         // return fetchArray for selectable entries
         for ($i = 2; $i < 6; $i++) {
@@ -215,7 +212,6 @@ class TrackingTest extends TestCase
         $this->tracking = new Tracking(new SqlQueryForm(), new Template(), new Relation($dbi));
 
         $html = $this->tracking->getHtmlForMainPage(
-            $url_query,
             $url_params,
             $pmaThemeImage,
             $text_dir,
@@ -247,11 +243,6 @@ class TrackingTest extends TestCase
          */
         $this->assertStringContainsString(
             '<div id="div_create_version">',
-            $html
-        );
-
-        $this->assertStringContainsString(
-            $url_query,
             $html
         );
 
@@ -295,7 +286,6 @@ class TrackingTest extends TestCase
             ->will($this->returnValue($fetchArray));
         $GLOBALS['dbi'] = $dbi;
         $html = $this->tracking->getHtmlForMainPage(
-            $url_query,
             $url_params,
             $pmaThemeImage,
             $text_dir,
@@ -359,7 +349,7 @@ class TrackingTest extends TestCase
                 "Null" => 'YES',
                 'Extra' => 'Extra1',
                 'Key' => 'PRI',
-                'Comment' => 'Comment1'
+                'Comment' => 'Comment1',
             ],
             [
                 'Field' => 'Field2',
@@ -368,7 +358,7 @@ class TrackingTest extends TestCase
                 "Null" => 'No',
                 'Extra' => 'Extra2',
                 'Key' => 'Key2',
-                'Comment' => 'Comment2'
+                'Comment' => 'Comment2',
             ],
         ];
 
@@ -471,11 +461,10 @@ class TrackingTest extends TestCase
         $_POST['date_to'] = "date_to";
         $_POST['users'] = "users";
         $_POST['logtype'] = 'logtype';
-        $url_query = "select * from PMA";
         $data = [
             'tracking' => 'tracking',
             'ddlog' => ['ddlog'],
-            'dmlog' => ['dmlog']
+            'dmlog' => ['dmlog'],
         ];
         $url_params = [];
         $selection_schema = [];
@@ -486,7 +475,6 @@ class TrackingTest extends TestCase
         $filter_users = [];
 
         $html = $this->tracking->getHtmlForTrackingReport(
-            $url_query,
             $data,
             $url_params,
             $selection_schema,
@@ -499,11 +487,6 @@ class TrackingTest extends TestCase
 
         $this->assertStringContainsString(
             __('Tracking report'),
-            $html
-        );
-
-        $this->assertStringContainsString(
-            $url_query,
             $html
         );
 
@@ -581,7 +564,7 @@ class TrackingTest extends TestCase
                     'username' => 'username',
                 ],
             ],
-            'ddlog' => ['ddlog']
+            'ddlog' => ['ddlog'],
         ];
         $url_params = [];
         $ddlog_count = 10;
@@ -645,7 +628,7 @@ class TrackingTest extends TestCase
                     'username' => 'username',
                 ],
             ],
-            'dmlog' => ['dmlog']
+            'dmlog' => ['dmlog'],
         ];
         $filter_users = ["*"];
         $filter_ts_to = 9999999999;

@@ -19,6 +19,8 @@ use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statements\AlterStatement;
+use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Statements\DropStatement;
 use PhpMyAdmin\SqlParser\Utils\Table as TableUtils;
 use PhpMyAdmin\Util;
@@ -314,7 +316,7 @@ class Table
         // we have to get the table's details
         if ($this->_dbi->getCachedTableContent([$db, $table]) == null
             || $force_read
-            || count($this->_dbi->getCachedTableContent([$db, $table])) == 1
+            || count($this->_dbi->getCachedTableContent([$db, $table])) === 1
         ) {
             $this->_dbi->getTablesFull($db, $table);
         }
@@ -501,10 +503,7 @@ class Table
     ) {
         /** @var DatabaseInterface $dbi */
         $dbi = $GLOBALS['dbi'];
-        $is_timestamp = mb_strpos(
-            mb_strtoupper($type),
-            'TIMESTAMP'
-        ) !== false;
+        $is_timestamp = mb_stripos($type, 'TIMESTAMP') !== false;
 
         $query = Util::backquote($name) . ' ' . $type;
 
@@ -558,7 +557,7 @@ class Table
 
         if (! $virtuality || $isVirtualColMysql) {
             if ($null !== false) {
-                if ($null == 'NULL') {
+                if ($null == 'YES') {
                     $query .= ' NULL';
                 } else {
                     $query .= ' NOT NULL';
@@ -597,7 +596,7 @@ class Table
                     case 'NULL':
                         // If user uncheck null checkbox and not change default value null,
                         // default value will be ignored.
-                        if ($null !== false && $null !== 'NULL') {
+                        if ($null !== false && $null !== 'YES') {
                             break;
                         }
                         // else fall-through intended, no break here
@@ -1139,7 +1138,7 @@ class Table
 
                 /**
                  * The CREATE statement of this structure.
-                 * @var \PhpMyAdmin\SqlParser\Statements\CreateStatement $statement
+                 * @var CreateStatement $statement
                  */
                 $statement = $parser->statements[0];
 
@@ -1165,7 +1164,7 @@ class Table
 
                 /**
                  * The ALTER statement that generates the constraints.
-                 * @var \PhpMyAdmin\SqlParser\Statements\AlterStatement $statement
+                 * @var AlterStatement $statement
                  */
                 $statement = $parser->statements[0];
 
@@ -1203,7 +1202,7 @@ class Table
                 $GLOBALS['sql_indexes'] = '';
                 /**
                  * The ALTER statement that generates the indexes.
-                 * @var \PhpMyAdmin\SqlParser\Statements\AlterStatement $statement
+                 * @var AlterStatement $statement
                  */
                 foreach ($parser->statements as $statement) {
                     // Changing the altered table to the destination.
@@ -1243,7 +1242,7 @@ class Table
 
                     /**
                      * The ALTER statement that alters the AUTO_INCREMENT value.
-                     * @var \PhpMyAdmin\SqlParser\Statements\AlterStatement $statement
+                     * @var AlterStatement $statement
                      */
                     $statement = $parser->statements[0];
 
@@ -1352,7 +1351,7 @@ class Table
                     . ($GLOBALS['cfgRelation']['mimework']
                         ? ', mimetype, transformation, transformation_options'
                         : '')
-                    . ') ' . ' VALUES(' . '\'' . $dbi->escapeString($target_db)
+                    . ') VALUES(\'' . $dbi->escapeString($target_db)
                     . '\',\'' . $dbi->escapeString($target_table) . '\',\''
                     . $dbi->escapeString($comments_copy_row['column_name'])
                     . '\',\''
@@ -1362,10 +1361,10 @@ class Table
                         ? ',\'' . $dbi->escapeString(
                             $comments_copy_row['mimetype']
                         )
-                        . '\',' . '\'' . $dbi->escapeString(
+                        . '\',\'' . $dbi->escapeString(
                             $comments_copy_row['transformation']
                         )
-                        . '\',' . '\'' . $dbi->escapeString(
+                        . '\',\'' . $dbi->escapeString(
                             $comments_copy_row['transformation_options']
                         )
                         . '\''
@@ -1796,7 +1795,10 @@ class Table
                     $value = Util::backquote($value);
                 }
 
-                if (strpos($column['Extra'], 'GENERATED') === false && strpos($column['Extra'], 'VIRTUAL') === false) {
+                if ((
+                    strpos($column['Extra'], 'GENERATED') === false
+                    && strpos($column['Extra'], 'VIRTUAL') === false
+                    ) || $column['Extra'] === 'DEFAULT_GENERATED') {
                     $ret[] = $value;
                 }
             }
@@ -2432,8 +2434,7 @@ class Table
                 }
 
                 if (empty($one_field) && empty($foreign_field[$key])) {
-                    unset($master_field[$key]);
-                    unset($foreign_field[$key]);
+                    unset($master_field[$key], $foreign_field[$key]);
                 }
             }
 
@@ -2679,7 +2680,7 @@ class Table
 
         $parser = new Parser($createTable);
         /**
-         * @var \PhpMyAdmin\SqlParser\Statements\CreateStatement $stmt
+         * @var CreateStatement $stmt
         */
         $stmt = $parser->statements[0];
         $fields = TableUtils::getFields($stmt);

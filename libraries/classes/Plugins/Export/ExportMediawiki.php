@@ -13,12 +13,12 @@ namespace PhpMyAdmin\Plugins\Export;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\ExportPlugin;
-use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
+use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Util;
 
 /**
@@ -174,7 +174,7 @@ class ExportMediawiki extends ExportPlugin
      * @param bool   $do_comments whether to include the pmadb-style column
      *                            comments as comments in the structure; this is
      *                            deprecated but the parameter is left here
-     *                            because export.php calls exportStructure()
+     *                            because /export calls exportStructure()
      *                            also for other export types which use this
      *                            parameter
      * @param bool   $do_mime     whether to include mime comments
@@ -316,7 +316,7 @@ class ExportMediawiki extends ExportPlugin
             $column_names = $GLOBALS['dbi']->getColumnNames($db, $table);
 
             // Add column names as table headers
-            if (! is_null($column_names)) {
+            if ($column_names !== null) {
                 // Use '|-' for separating rows
                 $output .= "|-" . $this->_exportCRLF();
 

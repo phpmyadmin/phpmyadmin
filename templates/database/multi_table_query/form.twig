@@ -4,12 +4,14 @@
     },
     'sub_tabs': [
         {
-            'link': 'db_multi_table_query.php',
-            'text': 'Multi-table query'|trans
+            'link': url('/database/multi_table_query'),
+            'text': 'Multi-table query'|trans,
+            'active': route == '/database/multi_table_query'
         },
         {
-            'link': 'db_qbe.php',
-            'text': 'Query by example'|trans
+            'link': url('/database/qbe'),
+            'text': 'Query by example'|trans,
+            'active': route == '/database/qbe'
         }
     ]
 } only %}

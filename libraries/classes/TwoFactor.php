@@ -9,11 +9,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\UserPreferences;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Plugins\TwoFactor\Application;
 use PhpMyAdmin\Plugins\TwoFactor\Invalid;
+use PhpMyAdmin\Plugins\TwoFactor\Key;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
-use Samyoul\U2F\U2FServer\U2FServer;
+use PhpMyAdmin\UserPreferences;
 use PragmaRX\Google2FAQRCode\Google2FA;
+use Samyoul\U2F\U2FServer\U2FServer;
 
 /**
  * Two factor authentication wrapper class
@@ -38,7 +41,7 @@ class TwoFactor
     protected $_writable;
 
     /**
-     * @var \PhpMyAdmin\Plugins\TwoFactorPlugin
+     * @var TwoFactorPlugin
      */
     protected $_backend;
 
@@ -61,10 +64,10 @@ class TwoFactor
     {
         $this->userPreferences = new UserPreferences();
         $this->user = $user;
-        $this->_available = $this->getAvailable();
+        $this->_available = $this->getAvailableBackends();
         $this->config = $this->readConfig();
         $this->_writable = ($this->config['type'] == 'db');
-        $this->_backend = $this->getBackend();
+        $this->_backend = $this->getBackendForCurrentUser();
     }
 
     /**
@@ -90,25 +93,36 @@ class TwoFactor
     }
 
     /**
-     * Get any property of this class
-     *
-     * @param string $property name of the property
-     *
-     * @return mixed|void if property exist, value of the relevant property
+     * @return bool
      */
-    public function __get($property)
+    public function isWritable(): bool
     {
-        switch ($property) {
-            case 'backend':
-                return $this->_backend;
-            case 'available':
-                return $this->_available;
-            case 'writable':
-                return $this->_writable;
-            case 'showSubmit':
-                $backend = $this->_backend;
-                return $backend::$showSubmit;
-        }
+        return $this->_writable;
+    }
+
+    /**
+     * @return TwoFactorPlugin
+     */
+    public function getBackend(): TwoFactorPlugin
+    {
+        return $this->_backend;
+    }
+
+    /**
+     * @return array
+     */
+    public function getAvailable(): array
+    {
+        return $this->_available;
+    }
+
+    /**
+     * @return bool
+     */
+    public function showSubmit(): bool
+    {
+        $backend = $this->_backend;
+        return $backend::$showSubmit;
     }
 
     /**
@@ -116,7 +130,7 @@ class TwoFactor
      *
      * @return array
      */
-    public function getAvailable()
+    public function getAvailableBackends()
     {
         $result = [];
         if ($GLOBALS['cfg']['DBG']['simple2fa']) {
@@ -141,19 +155,19 @@ class TwoFactor
         $result = [];
         if (! class_exists(Google2FA::class)) {
             $result[] = [
-                'class' => \PhpMyAdmin\Plugins\TwoFactor\Application::getName(),
+                'class' => Application::getName(),
                 'dep' => 'pragmarx/google2fa-qrcode',
             ];
         }
         if (! class_exists('BaconQrCode\Renderer\Image\Png')) {
             $result[] = [
-                'class' => \PhpMyAdmin\Plugins\TwoFactor\Application::getName(),
+                'class' => Application::getName(),
                 'dep' => 'bacon/bacon-qr-code',
             ];
         }
         if (! class_exists(U2FServer::class)) {
             $result[] = [
-                'class' => \PhpMyAdmin\Plugins\TwoFactor\Key::getName(),
+                'class' => Key::getName(),
                 'dep' => 'samyoul/u2f-php-server',
             ];
         }
@@ -181,9 +195,9 @@ class TwoFactor
     /**
      * Returns backend for current user
      *
-     * @return \PhpMyAdmin\Plugins\TwoFactorPlugin
+     * @return TwoFactorPlugin
      */
-    public function getBackend()
+    public function getBackendForCurrentUser()
     {
         $name = $this->getBackendClass($this->config['backend']);
         return new $name($this);
@@ -230,7 +244,7 @@ class TwoFactor
     /**
      * Saves current configuration.
      *
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function save()
     {
@@ -281,7 +295,7 @@ class TwoFactor
      */
     public function getAllBackends()
     {
-        $all = array_merge([''], $this->available);
+        $all = array_merge([''], $this->_available);
         $backends = [];
         foreach ($all as $name) {
             $cls = $this->getBackendClass($name);

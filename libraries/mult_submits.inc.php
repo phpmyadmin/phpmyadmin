@@ -13,6 +13,7 @@ use PhpMyAdmin\MultSubmits;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 if (! defined('PHPMYADMIN')) {
@@ -93,7 +94,7 @@ if (! empty($submit_mult)
                 break;
             case 'export':
                 unset($submit_mult);
-                include ROOT_PATH . 'db_export.php';
+                include ROOT_PATH . 'libraries/entry_points/database/export.php';
                 exit;
             case 'copy_tbl':
                 $views = $GLOBALS['dbi']->getVirtualTables($db);
@@ -170,7 +171,10 @@ if (! empty($submit_mult) && ! empty($what)) {
 
     if (strlen($table) > 0) {
         include ROOT_PATH . 'libraries/tbl_common.inc.php';
-        $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
+        $url_query .= Url::getCommon([
+            'goto' => Url::getFromRoute('/table/sql'),
+            'back' => Url::getFromRoute('/table/sql'),
+        ], '&');
     } elseif (strlen($db) > 0) {
         include ROOT_PATH . 'libraries/db_common.inc.php';
 
@@ -246,6 +250,7 @@ if (! empty($submit_mult) && ! empty($what)) {
         $GLOBALS['dbi']->freeResult($result);
     }
 
+    $default_fk_check_value = false;
     if ($query_type == 'drop_tbl'
         || $query_type == 'empty_tbl'
         || $query_type == 'row_delete'

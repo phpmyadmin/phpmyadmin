@@ -212,7 +212,7 @@ class SqlQueryFormTest extends TestCase
         );
 
         //validate 5: $goto
-        $goto = empty($GLOBALS['goto']) ? 'tbl_sql.php' : $GLOBALS['goto'];
+        $goto = empty($GLOBALS['goto']) ? Url::getFromRoute('/table/sql') : $GLOBALS['goto'];
         $this->assertStringContainsString(
             htmlspecialchars($goto),
             $html

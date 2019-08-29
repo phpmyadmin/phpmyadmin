@@ -92,7 +92,7 @@ if (isset($_GET["message"]) && $_GET["message"]) {
     header('Content-type: text/html');
 
     // wait 0.3 sec before we check for $_SESSION variable,
-    // which is set inside import.php
+    // which is set inside libraries/entry_points/import.php
     usleep(300000);
 
     $maximumTime = ini_get('max_execution_time');

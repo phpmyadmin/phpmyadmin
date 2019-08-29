@@ -73,7 +73,7 @@ class RelationController extends AbstractController
      * @param string            $tbl_storage_engine Table storage engine
      * @param array|null        $existrel           Relations
      * @param array|null        $existrel_foreign   External relations
-     * @param string            $upd_query          Update query
+     * @param Table             $upd_query          Update query
      * @param Relation          $relation           Relation instance
      */
     public function __construct(
@@ -108,6 +108,8 @@ class RelationController extends AbstractController
      */
     public function indexAction()
     {
+        global $route;
+
         // Send table of column names to populate corresponding dropdowns depending
         // on the current selection
         if (isset($_POST['getDropdownValues'])
@@ -211,6 +213,7 @@ class RelationController extends AbstractController
                 'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
                 'foreignKeySupported' => $foreignKeySupported,
                 'displayIndexesHtml' => $foreignKeySupported ? Index::getHtmlForDisplayIndexes() : null,
+                'route' => $route,
             ])
         );
     }
@@ -252,8 +255,7 @@ class RelationController extends AbstractController
 
         // (for now, one index name only; we keep the definitions if the
         // foreign db is not the same)
-        if (isset($_POST['destination_foreign_db'])
-            && isset($_POST['destination_foreign_table'])
+        if (isset($_POST['destination_foreign_db'], $_POST['destination_foreign_table'])
             && isset($_POST['destination_foreign_column'])) {
             list($html, $preview_sql_data, $display_query, $seen_error)
                 = $this->upd_query->updateForeignKeys(

@@ -17,7 +17,7 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
- * Functions for user_password.php
+ * Functions for user password
  *
  * @package PhpMyAdmin
  */
@@ -94,7 +94,7 @@ class UserPassword
         }
         return [
             'error' => $error,
-            'msg' => $message
+            'msg' => $message,
         ];
     }
 
@@ -209,7 +209,7 @@ class UserPassword
         $hashing_function,
         $orig_auth_plugin
     ) {
-        $err_url = 'user_password.php' . Url::getCommon();
+        $err_url = Url::getFromRoute('/user_password');
 
         $serverType = Util::getServerType();
         $serverVersion = $GLOBALS['dbi']->getVersion();
@@ -278,7 +278,7 @@ class UserPassword
             $sql_query,
             'success'
         );
-        echo '<a href="index.php' , Url::getCommon()
+        echo '<a href="' , Url::getFromRoute('/')
             , ' target="_parent">' , "\n"
             , '<strong>' , __('Back') , '</strong></a>';
         exit;

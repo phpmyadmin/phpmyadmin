@@ -14,6 +14,8 @@ use PhpMyAdmin\Index;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Util;
+use function rawurlencode;
+use PhpMyAdmin\Database\Designer\DesignerTable;
 
 /**
  * Common functions for Designer
@@ -28,7 +30,7 @@ class Common
     private $relation;
 
     /**
-     * @var \PhpMyAdmin\DatabaseInterface
+     * @var DatabaseInterface
      */
     private $dbi;
 
@@ -45,113 +47,85 @@ class Common
     }
 
     /**
-     * Retrieves table info and stores it in $GLOBALS['designer']
+     * Retrieves table info and returns it
      *
-     * @return array with table info
+     * @param string $db    (optional) Filter only a DB ($table is required if you use $db)
+     * @param string $table (optional) Filter only a table ($db is now required)
+     * @return DesignerTable[] with table info
      */
-    public function getTablesInfo()
+    public function getTablesInfo(string $db = null, string $table = null): array
     {
-        $retval = [];
-
-        $GLOBALS['designer']['TABLE_NAME'] = [];// that foreach no error
-        $GLOBALS['designer']['OWNER'] = [];
-        $GLOBALS['designer']['TABLE_NAME_SMALL'] = [];
-        $GLOBALS['designer']['TABLE_TYPE'] = [];
-
-        $GLOBALS['designer_url']['TABLE_NAME'] = [];
-        $GLOBALS['designer_url']['OWNER'] = [];
-        $GLOBALS['designer_url']['TABLE_NAME_SMALL'] = [];
-
-        $GLOBALS['designer_out']['TABLE_NAME'] = [];
-        $GLOBALS['designer_out']['OWNER'] = [];
-        $GLOBALS['designer_out']['TABLE_NAME_SMALL'] = [];
-        $tables = $this->dbi->getTablesFull($GLOBALS['db']);
+        $designerTables = [];
+        $db = ($db === null) ? $GLOBALS['db'] : $db;
         // seems to be needed later
-        $this->dbi->selectDb($GLOBALS['db']);
-        $i = 0;
-        foreach ($tables as $one_table) {
-            $GLOBALS['designer']['TABLE_NAME'][$i]
-                = $GLOBALS['db'] . "." . $one_table['TABLE_NAME'];
-            $GLOBALS['designer']['OWNER'][$i] = $GLOBALS['db'];
-            $GLOBALS['designer']['TABLE_NAME_SMALL'][$i] = htmlspecialchars(
-                $one_table['TABLE_NAME'],
-                ENT_QUOTES
-            );
-
-            $GLOBALS['designer_url']['TABLE_NAME'][$i]
-                = $GLOBALS['db'] . "." . $one_table['TABLE_NAME'];
-            $GLOBALS['designer_url']['OWNER'][$i] = $GLOBALS['db'];
-            $GLOBALS['designer_url']['TABLE_NAME_SMALL'][$i]
-                = $one_table['TABLE_NAME'];
-
-            $GLOBALS['designer_out']['TABLE_NAME'][$i] = htmlspecialchars(
-                $GLOBALS['db'] . "." . $one_table['TABLE_NAME'],
-                ENT_QUOTES
-            );
-            $GLOBALS['designer_out']['OWNER'][$i] = htmlspecialchars(
-                $GLOBALS['db'],
-                ENT_QUOTES
-            );
-            $GLOBALS['designer_out']['TABLE_NAME_SMALL'][$i] = htmlspecialchars(
-                $one_table['TABLE_NAME'],
-                ENT_QUOTES
-            );
-
-            $GLOBALS['designer']['TABLE_TYPE'][$i] = mb_strtoupper(
-                (string) $one_table['ENGINE']
-            );
-
-            $DF = $this->relation->getDisplayField($GLOBALS['db'], $one_table['TABLE_NAME']);
-            if ($DF != '') {
-                $DF = rawurlencode((string) $DF);
-                $retval[rawurlencode($GLOBALS['designer_url']["TABLE_NAME_SMALL"][$i])] = $DF;
-            }
-
-            $i++;
+        $this->dbi->selectDb($db);
+        if ($db === null && $table === null) {
+            $tables = $this->dbi->getTablesFull($db);
+        } else {
+            $tables = $this->dbi->getTablesFull($db, $table);
         }
 
-        return $retval;
+
+        foreach ($tables as $one_table) {
+            $DF = $this->relation->getDisplayField($db, $one_table['TABLE_NAME']);
+            $DF = is_string($DF) ? $DF : '';
+            $DF = ($DF !== '') ? $DF : null;
+            $designerTables[] = new DesignerTable(
+                $db,
+                $one_table['TABLE_NAME'],
+                $one_table['ENGINE'],
+                $DF
+            );
+        }
+
+        return $designerTables;
     }
 
     /**
      * Retrieves table column info
      *
-     * @return array   table column nfo
+     * @param DesignerTable[] $designerTables The designer tables
+     * @return array table column nfo
      */
-    public function getColumnsInfo()
+    public function getColumnsInfo(array $designerTables): array
     {
-        $this->dbi->selectDb($GLOBALS['db']);
-        $tab_column = [];
-        for ($i = 0, $cnt = count($GLOBALS['designer']["TABLE_NAME"]); $i < $cnt; $i++) {
-            $fields_rs = $this->dbi->query(
+        //$this->dbi->selectDb($GLOBALS['db']);
+        $tabColumn = [];
+
+        foreach ($designerTables as $designerTable) {
+            $fieldsRs = $this->dbi->query(
                 $this->dbi->getColumnsSql(
-                    $GLOBALS['db'],
-                    $GLOBALS['designer_url']["TABLE_NAME_SMALL"][$i],
+                    $designerTable->getDatabaseName(),
+                    $designerTable->getTableName(),
                     null,
                     true
                 ),
                 DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_STORE
             );
-            $tbl_name_i = $GLOBALS['designer']['TABLE_NAME'][$i];
             $j = 0;
-            while ($row = $this->dbi->fetchAssoc($fields_rs)) {
-                $tab_column[$tbl_name_i]['COLUMN_ID'][$j]   = $j;
-                $tab_column[$tbl_name_i]['COLUMN_NAME'][$j] = $row['Field'];
-                $tab_column[$tbl_name_i]['TYPE'][$j]        = $row['Type'];
-                $tab_column[$tbl_name_i]['NULLABLE'][$j]    = $row['Null'];
+            while ($row = $this->dbi->fetchAssoc($fieldsRs)) {
+                if (! isset($tabColumn[$designerTable->getDbTableString()])) {
+                    $tabColumn[$designerTable->getDbTableString()] = [];
+                }
+                $tabColumn[$designerTable->getDbTableString()]['COLUMN_ID'][$j]   = $j;
+                $tabColumn[$designerTable->getDbTableString()]['COLUMN_NAME'][$j] = $row['Field'];
+                $tabColumn[$designerTable->getDbTableString()]['TYPE'][$j]        = $row['Type'];
+                $tabColumn[$designerTable->getDbTableString()]['NULLABLE'][$j]    = $row['Null'];
                 $j++;
             }
         }
-        return $tab_column;
+
+        return $tabColumn;
     }
 
     /**
      * Returns JavaScript code for initializing vars
      *
-     * @return array   JavaScript code
+     * @param DesignerTable[] $designerTables The designer tables
+     * @return array JavaScript code
      */
-    public function getScriptContr()
+    public function getScriptContr(array $designerTables): array
     {
         $this->dbi->selectDb($GLOBALS['db']);
         $con = [];
@@ -198,6 +172,11 @@ class Common
             }
         }
 
+        $tableDbNames = [];
+        foreach ($designerTables as $designerTable) {
+            $tableDbNames[] = $designerTable->getDbTableString();
+        }
+
         $ti = 0;
         $retval = [];
         for ($i = 0, $cnt = count($con["C_NAME"]); $i < $cnt; $i++) {
@@ -205,9 +184,7 @@ class Common
             $dtn_i = $con['DTN'][$i];
             $retval[$ti] = [];
             $retval[$ti][$c_name_i] = [];
-            if (in_array(rawurldecode($dtn_i), $GLOBALS['designer_url']["TABLE_NAME"])
-                && in_array(rawurldecode($con['STN'][$i]), $GLOBALS['designer_url']["TABLE_NAME"])
-            ) {
+            if (in_array($dtn_i, $tableDbNames) && in_array($con['STN'][$i], $tableDbNames)) {
                 $retval[$ti][$c_name_i][$dtn_i] = [];
                 $retval[$ti][$c_name_i][$dtn_i][$con['DCN'][$i]] = [
                     0 => $con['STN'][$i],
@@ -222,34 +199,36 @@ class Common
     /**
      * Returns UNIQUE and PRIMARY indices
      *
+     * @param DesignerTable[] $designerTables The designer tables
      * @return array unique or primary indices
      */
-    public function getPkOrUniqueKeys()
+    public function getPkOrUniqueKeys(array $designerTables): array
     {
-        return $this->getAllKeys(true);
+        return $this->getAllKeys($designerTables, true);
     }
 
     /**
      * Returns all indices
      *
-     * @param bool $unique_only whether to include only unique ones
+     * @param DesignerTable[] $designerTables The designer tables
+     * @param bool            $unique_only    whether to include only unique ones
      *
      * @return array indices
      */
-    public function getAllKeys($unique_only = false)
+    public function getAllKeys(array $designerTables, bool $unique_only = false): array
     {
         $keys = [];
 
-        foreach ($GLOBALS['designer']['TABLE_NAME_SMALL'] as $I => $table) {
-            $schema = $GLOBALS['designer']['OWNER'][$I];
+        foreach ($designerTables as $designerTable) {
+            $schema = $designerTable->getDatabaseName();
             // for now, take into account only the first index segment
-            foreach (Index::getFromTable($table, $schema) as $index) {
+            foreach (Index::getFromTable($designerTable->getTableName(), $schema) as $index) {
                 if ($unique_only && ! $index->isUnique()) {
                     continue;
                 }
                 $columns = $index->getColumns();
                 foreach ($columns as $column_name => $dummy) {
-                    $keys[$schema . '.' . $table . '.' . $column_name] = 1;
+                    $keys[$schema . '.' . $designerTable->getTableName() . '.' . $column_name] = 1;
                 }
             }
         }
@@ -257,25 +236,24 @@ class Common
     }
 
     /**
-     * Return script to create j_tab and h_tab arrays
+     * Return j_tab and h_tab arrays
      *
+     * @param DesignerTable[] $designerTables The designer tables
      * @return array
      */
-    public function getScriptTabs()
+    public function getScriptTabs(array $designerTables): array
     {
         $retval = [
             'j_tabs' => [],
             'h_tabs' => [],
         ];
 
-        for ($i = 0, $cnt = count($GLOBALS['designer']['TABLE_NAME']); $i < $cnt; $i++) {
-            $j = 0;
-            if (Util::isForeignKeySupported($GLOBALS['designer']['TABLE_TYPE'][$i])) {
-                $j = 1;
-            }
-            $retval['j_tabs'][\rawurlencode($GLOBALS['designer_url']['TABLE_NAME'][$i])] = $j;
-            $retval['h_tabs'][\rawurlencode($GLOBALS['designer_url']['TABLE_NAME'][$i])] = 1;
+        foreach ($designerTables as $designerTable) {
+            $key = rawurlencode($designerTable->getDbTableString());
+            $retval['j_tabs'][$key] = $designerTable->supportsForeignkeys() ? 1 : 0;
+            $retval['h_tabs'][$key] = 1;
         }
+
         return $retval;
     }
 
@@ -295,6 +273,7 @@ class Common
 
         $query = "
             SELECT CONCAT_WS('.', `db_name`, `table_name`) AS `name`,
+                `db_name` as `dbName`, `table_name` as `tableName`,
                 `x` AS `X`,
                 `y` AS `Y`,
                 1 AS `V`,
@@ -383,9 +362,9 @@ class Common
      *
      * @param string $db database
      *
-     * @return int id of the default pdf page for the database
+     * @return int|null id of the default pdf page for the database
      */
-    public function getDefaultPage($db)
+    public function getDefaultPage($db): ?int
     {
         $cfgRelation = $this->relation->getRelationsParam();
         if (! $cfgRelation['pdfwork']) {
@@ -482,6 +461,10 @@ class Common
      */
     public function saveTablePositions($pg)
     {
+        $pageId = $this->dbi->escapeString($pg);
+
+        $db = $this->dbi->escapeString($_POST['db']);
+
         $cfgRelation = $this->relation->getRelationsParam();
         if (! $cfgRelation['pdfwork']) {
             return false;
@@ -492,10 +475,7 @@ class Common
             . "." . Util::backquote(
                 $GLOBALS['cfgRelation']['table_coords']
             )
-            . " WHERE `db_name` = '" . $this->dbi->escapeString($_REQUEST['db'])
-            . "'"
-            . " AND `pdf_page_number` = '" . $this->dbi->escapeString($pg)
-            . "'";
+            . " WHERE `pdf_page_number` = '" . $pageId . "'";
 
         $res = $this->relation->queryAsControlUser(
             $query,
@@ -507,8 +487,9 @@ class Common
             return (bool) $res;
         }
 
-        foreach ($_REQUEST['t_h'] as $key => $value) {
-            list($DB, $TAB) = explode(".", $key);
+        foreach ($_POST['t_h'] as $key => $value) {
+            $DB = $_POST['t_db'][$key];
+            $TAB = $_POST['t_tbl'][$key];
             if (! $value) {
                 continue;
             }
@@ -520,9 +501,9 @@ class Common
                 . " VALUES ("
                 . "'" . $this->dbi->escapeString($DB) . "', "
                 . "'" . $this->dbi->escapeString($TAB) . "', "
-                . "'" . $this->dbi->escapeString($pg) . "', "
-                . "'" . $this->dbi->escapeString($_REQUEST['t_x'][$key]) . "', "
-                . "'" . $this->dbi->escapeString($_REQUEST['t_y'][$key]) . "')";
+                . "'" . $pageId . "', "
+                . "'" . $this->dbi->escapeString($_POST['t_x'][$key]) . "', "
+                . "'" . $this->dbi->escapeString($_POST['t_y'][$key]) . "')";
 
             $res = $this->relation->queryAsControlUser(
                 $query,
@@ -829,7 +810,7 @@ class Common
                     . Util::backquote($cfgDesigner['db'])
                     . "." . Util::backquote($cfgDesigner['table'])
                     . " (username, settings_data)"
-                    . " VALUES('" . $GLOBALS['dbi']->escapeString($cfgDesigner['user'])
+                    . " VALUES('" . $this->dbi->escapeString($cfgDesigner['user'])
                     . "', '" . json_encode($save_data) . "');";
 
                 $success = $this->relation->queryAsControlUser($query);

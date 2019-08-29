@@ -36,7 +36,7 @@ class UserGroupsTest extends TestCase
             'PMA_VERSION' => PMA_VERSION,
             'db' => 'pmadb',
             'users' => 'users',
-            'usergroups' => 'usergroups'
+            'usergroups' => 'usergroups',
         ];
     }
 
@@ -71,8 +71,7 @@ class UserGroupsTest extends TestCase
             '<table id="userGroupsTable">',
             $html
         );
-        $url_tag = '<a href="server_user_groups.php'
-            . Url::getCommon(['addUserGroup' => 1]);
+        $url_tag = '<a href="' . Url::getFromRoute('/server/user_groups', ['addUserGroup' => 1]);
         $this->assertStringContainsString(
             $url_tag,
             $html
@@ -108,7 +107,7 @@ class UserGroupsTest extends TestCase
                     [
                         'usergroup' => 'usergroup',
                         'tab' => 'server_sql',
-                        'allowed' => 'Y'
+                        'allowed' => 'Y',
                     ]
                 )
             );
@@ -125,7 +124,7 @@ class UserGroupsTest extends TestCase
             '<td>usergroup</td>',
             $html
         );
-        $url_tag = '<a class="" href="server_user_groups.php" data-post="'
+        $url_tag = '<a class="" href="' . Url::getFromRoute('/server/user_groups') . '" data-post="'
             . Url::getCommon(
                 [
                     'viewUsers' => 1,
@@ -137,11 +136,11 @@ class UserGroupsTest extends TestCase
             $url_tag,
             $html
         );
-        $url_tag = '<a class="" href="server_user_groups.php" data-post="'
+        $url_tag = '<a class="" href="' . Url::getFromRoute('/server/user_groups') . '" data-post="'
             . Url::getCommon(
                 [
                     'editUserGroup' => 1,
-                    'userGroup' => htmlspecialchars('usergroup')
+                    'userGroup' => htmlspecialchars('usergroup'),
                 ],
                 ''
             );
@@ -149,11 +148,11 @@ class UserGroupsTest extends TestCase
             $url_tag,
             $html
         );
-        $url_tag = '<a class="deleteUserGroup ajax" href="server_user_groups.php" data-post="'
+        $url_tag = '<a class="deleteUserGroup ajax" href="' . Url::getFromRoute('/server/user_groups') . '" data-post="'
             . Url::getCommon(
                 [
                     'deleteUserGroup' => 1,
-                    'userGroup' => htmlspecialchars('usergroup')
+                    'userGroup' => htmlspecialchars('usergroup'),
                 ],
                 ''
             );
@@ -226,7 +225,7 @@ class UserGroupsTest extends TestCase
                 [
                     'usergroup' => 'ug',
                     'tab' => 'server_sql',
-                    'allowed' => 'Y'
+                    'allowed' => 'Y',
                 ],
                 false
             );

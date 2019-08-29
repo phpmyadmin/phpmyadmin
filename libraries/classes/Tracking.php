@@ -83,34 +83,6 @@ class Tracking
     }
 
     /**
-     * Function to get html for data definition and data manipulation statements
-     *
-     * @param string $urlQuery    url query
-     * @param int    $lastVersion last version
-     * @param string $db          database
-     * @param array  $selected    selected tables
-     * @param string $type        type of the table; table, view or both
-     *
-     * @return string HTML
-     */
-    public function getHtmlForDataDefinitionAndManipulationStatements(
-        $urlQuery,
-        $lastVersion,
-        $db,
-        array $selected,
-        $type = 'both'
-    ) {
-        return $this->template->render('create_tracking_version', [
-            'url_query' => $urlQuery,
-            'last_version' => $lastVersion,
-            'db' => $db,
-            'selected' => $selected,
-            'type' => $type,
-            'default_statements' => $GLOBALS['cfg']['Server']['tracking_default_statements'],
-        ]);
-    }
-
-    /**
      * Function to get html for activate/deactivate tracking
      *
      * @param string $action      activate|deactivate
@@ -157,7 +129,6 @@ class Tracking
     /**
      * Function to get html for main page parts that do not use $_REQUEST
      *
-     * @param string $urlQuery      url query
      * @param array  $urlParams     url parameters
      * @param string $pmaThemeImage path to theme's image folder
      * @param string $textDir       text direction
@@ -166,7 +137,6 @@ class Tracking
      * @return string
      */
     public function getHtmlForMainPage(
-        $urlQuery,
         $urlParams,
         $pmaThemeImage,
         $textDir,
@@ -197,7 +167,6 @@ class Tracking
            ->isView() ? 'view' : 'table';
 
         return $this->template->render('table/tracking/main', [
-            'url_query' => $urlQuery,
             'url_params' => $urlParams,
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
@@ -209,7 +178,7 @@ class Tracking
             'type' => $type,
             'default_statements' => $GLOBALS['cfg']['Server']['tracking_default_statements'],
             'pmaThemeImage' => $pmaThemeImage,
-            'text_dir' => $textDir
+            'text_dir' => $textDir,
         ]);
     }
 
@@ -223,7 +192,7 @@ class Tracking
     public function getTableLastVersionNumber($sql_result)
     {
         $maxversion = $GLOBALS['dbi']->fetchArray($sql_result);
-        return intval($maxversion['version']);
+        return intval(is_array($maxversion) ? $maxversion['version'] : null);
     }
 
     /**
@@ -249,7 +218,6 @@ class Tracking
     /**
      * Function to get html for tracking report and tracking report export
      *
-     * @param string  $url_query        url query
      * @param array   $data             data
      * @param array   $url_params       url params
      * @param boolean $selection_schema selection schema
@@ -262,7 +230,6 @@ class Tracking
      * @return string
      */
     public function getHtmlForTrackingReport(
-        $url_query,
         array $data,
         array $url_params,
         $selection_schema,
@@ -273,7 +240,7 @@ class Tracking
         array $filter_users
     ) {
         $html = '<h3>' . __('Tracking report')
-            . '  [<a href="tbl_tracking.php' . $url_query . '">' . __('Close')
+            . '  [<a href="' . Url::getFromRoute('/table/tracking', $url_params) . '">' . __('Close')
             . '</a>]</h3>';
 
         $html .= '<small>' . __('Tracking statements') . ' '
@@ -301,7 +268,7 @@ class Tracking
         /*
          *  First, list tracked data definition statements
          */
-        if (count($data['ddlog']) == 0 && count($data['dmlog']) == 0) {
+        if (count($data['ddlog']) == 0 && count($data['dmlog']) === 0) {
             $msg = Message::notice(__('No data'));
             $msg->display();
         }
@@ -417,7 +384,7 @@ class Tracking
     ) {
         $ddlog_count = 0;
 
-        $html = '<form method="post" action="tbl_tracking.php">';
+        $html = '<form method="post" action="' . Url::getFromRoute('/table/tracking') . '">';
         $html .= Url::getHiddenInputs($url_params + [
             'report' => 'true',
             'version' => $_POST['version'],
@@ -483,7 +450,7 @@ class Tracking
         $str4,
         $str5
     ) {
-        $html = '<form method="post" action="tbl_tracking.php">';
+        $html = '<form method="post" action="' . Url::getFromRoute('/table/tracking') . '">';
         $html .= Url::getHiddenInputs($url_params + [
             'report' => 'true',
             'version' => $_POST['version'],
@@ -499,7 +466,7 @@ class Tracking
         );
         $html .= '</form>';
 
-        $html .= '<form class="disableAjax" method="post" action="tbl_tracking.php">';
+        $html .= '<form class="disableAjax" method="post" action="' . Url::getFromRoute('/table/tracking') . '">';
         $html .= Url::getHiddenInputs($url_params + [
             'report' => 'true',
             'version' => $_POST['version'],
@@ -518,7 +485,7 @@ class Tracking
             . Sanitize::escapeJsString(
                 __('This option will replace your table and contained data.')
             )
-            . '\')">' . __('SQL execution') . '</option>' . '</select>';
+            . '\')">' . __('SQL execution') . '</option></select>';
 
         $str_export2 = '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">';
 
@@ -672,14 +639,14 @@ class Tracking
     /**
      * Function to get html for schema snapshot
      *
-     * @param string $url_query url query
+     * @param array $params url parameters
      *
      * @return string
      */
-    public function getHtmlForSchemaSnapshot($url_query)
+    public function getHtmlForSchemaSnapshot(array $params): string
     {
         $html = '<h3>' . __('Structure snapshot')
-            . '  [<a href="tbl_tracking.php' . $url_query . '">' . __('Close')
+            . '  [<a href="' . Url::getFromRoute('/table/tracking', $params) . '">' . __('Close')
             . '</a>]</h3>';
         $data = Tracker::getTrackedData(
             $_POST['db'],
@@ -897,7 +864,7 @@ class Tracking
             __('Tracking report for table `%s`'),
             $table
         )
-        . "\n" . "# " . date('Y-m-d H:i:s') . "\n";
+        . "\n" . '# ' . date('Y-m-d H:i:s') . "\n";
         foreach ($entries as $entry) {
             $dump .= $entry['statement'];
         }
@@ -1173,7 +1140,7 @@ class Tracking
      * Get HTML for tracked and untracked tables
      *
      * @param string $db            current database
-     * @param string $urlQuery      url query string
+     * @param array  $urlParams     url parameters
      * @param string $pmaThemeImage path to theme's image folder
      * @param string $textDir       text direction
      *
@@ -1181,7 +1148,7 @@ class Tracking
      */
     public function getHtmlForDbTrackingTables(
         string $db,
-        string $urlQuery,
+        array $urlParams,
         string $pmaThemeImage,
         string $textDir
     ) {
@@ -1220,7 +1187,7 @@ class Tracking
                 $versionData = $GLOBALS['dbi']->fetchArray($tableResult);
                 $versionData['status_button'] = $this->getStatusButton(
                     $versionData,
-                    $urlQuery
+                    $urlParams
                 );
                 $versions[] = $versionData;
             }
@@ -1231,7 +1198,7 @@ class Tracking
             'head_version_exists' => $headVersionExists,
             'untracked_tables_exists' => count($untrackedTables) > 0,
             'versions' => $versions,
-            'url_query' => $urlQuery,
+            'url_params' => $urlParams,
             'text_dir' => $textDir,
             'untracked_tables' => $untrackedTables,
             'pma_theme_image' => $pmaThemeImage,
@@ -1286,12 +1253,12 @@ class Tracking
     /**
      * Get tracking status button
      *
-     * @param array  $versionData data about tracking versions
-     * @param string $urlQuery    url query string
+     * @param array $versionData data about tracking versions
+     * @param array $params      url parameters
      *
      * @return string HTML
      */
-    private function getStatusButton(array $versionData, $urlQuery)
+    private function getStatusButton(array $versionData, array $params): string
     {
         $state = $this->getVersionStatus($versionData);
         $options = [
@@ -1306,9 +1273,11 @@ class Tracking
                 'selected' => $state == 'active',
             ],
         ];
-        $link = 'tbl_tracking.php' . $urlQuery . '&amp;table='
-            . htmlspecialchars($versionData['table_name'])
-            . '&amp;version=' . $versionData['version'];
+        $link = Url::getFromRoute('/table/tracking', array_merge([
+            'db' => $versionData['db_name'],
+            'table' => $versionData['table_name'],
+            'version' => $versionData['version'],
+        ], $params));
 
         return Util::toggleButton(
             $link,

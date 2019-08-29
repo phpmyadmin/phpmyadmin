@@ -19,7 +19,7 @@ header(
     . '  pre-check=0, post-check=0, max-age=0'
 );
 if (isset($_SERVER['HTTP_USER_AGENT'])
-    && stristr($_SERVER['HTTP_USER_AGENT'], 'MSIE')
+    && false !== stripos($_SERVER['HTTP_USER_AGENT'], 'MSIE')
 ) {
     /* FIXME: Why is this special case for IE needed? */
     header('Pragma: public');
@@ -31,6 +31,8 @@ if (isset($_SERVER['HTTP_USER_AGENT'])
     header('Last-Modified: ' . gmdate(DATE_RFC1123));
 }
 header('Content-Type: text/html; charset=utf-8');
+
+define('PHPMYADMIN', true);
 
 require ROOT_PATH . 'libraries/vendor_config.php';
 

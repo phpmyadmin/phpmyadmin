@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Rte;
 
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
@@ -17,6 +18,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Utils\Routine;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -183,6 +185,9 @@ class Routines
                 $operation = 'change';
             }
             // Get the data for the form (if any)
+            $routine = null;
+            $mode = null;
+            $title = null;
             if (! empty($_REQUEST['add_item'])) {
                 $title = $this->words->get('add');
                 $routine = $this->getDataFromRequest();
@@ -249,6 +254,8 @@ class Routines
      */
     public function handleRequestCreateOrEdit(array $errors, $db)
     {
+        global $message;
+
         if (empty($_POST['editor_process_add'])
             && empty($_POST['editor_process_edit'])
         ) {
@@ -306,9 +313,6 @@ class Routines
                             $errors = array_merge($errors, $newErrors);
                         }
                         unset($newErrors);
-                        if (null === $message) {
-                            unset($message);
-                        }
                     }
                 }
             } else {
@@ -565,8 +569,7 @@ class Routines
         $retval['item_param_length']    = [];
         $retval['item_param_opts_num']  = [];
         $retval['item_param_opts_text'] = [];
-        if (isset($_POST['item_param_name'])
-            && isset($_POST['item_param_type'])
+        if (isset($_POST['item_param_name'], $_POST['item_param_type'])
             && isset($_POST['item_param_length'])
             && isset($_POST['item_param_opts_num'])
             && isset($_POST['item_param_opts_text'])
@@ -758,7 +761,7 @@ class Routines
      */
     public function getParameterRow(array $routine = [], $index = null, $class = '')
     {
-        global $param_directions, $param_opts_num, $titles;
+        global $param_directions, $param_opts_num;
 
         if ($index === null) {
             // template row for AJAX request
@@ -783,78 +786,34 @@ class Routines
             return '';
         }
 
-        // Create the output
-        $retval  = "";
-        $retval .= "        <tr>\n";
-        $retval .= "            <td class='dragHandle'>"
-            . "<span class='ui-icon ui-icon-arrowthick-2-n-s'></span>"
-            . "</td>\n";
-        $retval .= "            <td class='routine_direction_cell$class'>\n";
-        $retval .= "                <select name='item_param_dir[$index]'>\n";
-        foreach ($param_directions as $key => $value) {
-            $selected = "";
-            if (! empty($routine['item_param_dir'][$i])
-                && $routine['item_param_dir'][$i] == $value
-            ) {
-                $selected = " selected='selected'";
-            }
-            $retval .= "                    <option$selected>$value</option>\n";
+        $allCharsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
+        $charsets = [];
+        /** @var Charset $charset */
+        foreach ($allCharsets as $charset) {
+            $charsets[] = [
+                'name' => $charset->getName(),
+                'description' => $charset->getDescription(),
+                'is_selected' => $charset->getName() === $routine['item_param_opts_text'][$i],
+            ];
         }
-        $retval .= "                </select>\n";
-        $retval .= "            </td>\n";
-        $retval .= "            <td><input name='item_param_name[$index]' type='text'\n"
-            . " value='{$routine['item_param_name'][$i]}'></td>\n";
-        $retval .= "            <td><select name='item_param_type[$index]'>";
-        $retval .= Util::getSupportedDatatypes(
-            true,
-            $routine['item_param_type'][$i]
-        ) . "\n";
-        $retval .= "            </select></td>\n";
-        $retval .= "            <td>\n";
-        $retval .= "                <input id='item_param_length_$index'\n"
-            . " name='item_param_length[$index]' type='text'\n"
-            . " value='{$routine['item_param_length'][$i]}'>\n";
-        $retval .= "                <div class='enum_hint'>\n";
-        $retval .= "                    <a href='#' class='open_enum_editor'>\n";
-        $retval .= "                        "
-            . Util::getImage('b_edit', '', ['title' => __('ENUM/SET editor')])
-            . "\n";
-        $retval .= "                    </a>\n";
-        $retval .= "                </div>\n";
-        $retval .= "            </td>\n";
-        $retval .= "            <td class='hide no_len'>---</td>\n";
-        $retval .= "            <td class='routine_param_opts_text'>\n";
-        $retval .= Charsets::getCharsetDropdownBox(
-            $this->dbi,
-            $GLOBALS['cfg']['Server']['DisableIS'],
-            "item_param_opts_text[$index]",
-            null,
-            $routine['item_param_opts_text'][$i]
-        );
-        $retval .= "            </td>\n";
-        $retval .= "            <td class='hide no_opts'>---</td>\n";
-        $retval .= "            <td class='routine_param_opts_num'>\n";
-        $retval .= "                <select name='item_param_opts_num[$index]'>\n";
-        $retval .= "                    <option value=''></option>";
-        foreach ($param_opts_num as $key => $value) {
-            $selected = "";
-            if (! empty($routine['item_param_opts_num'][$i])
-                && $routine['item_param_opts_num'][$i] == $value
-            ) {
-                $selected = " selected='selected'";
-            }
-            $retval .= "<option$selected>$value</option>";
-        }
-        $retval .= "\n                </select>\n";
-        $retval .= "            </td>\n";
-        $retval .= "            <td class='routine_param_remove$drop_class'>\n";
-        $retval .= "                <a href='#' class='routine_param_remove_anchor'>\n";
-        $retval .= "                    {$titles['Drop']}\n";
-        $retval .= "                </a>\n";
-        $retval .= "            </td>\n";
-        $retval .= "        </tr>\n";
 
-        return $retval;
+        $template = new Template();
+        return $template->render('rte/routines/parameter_row', [
+            'class' => $class,
+            'index' => $index,
+            'param_directions' => $param_directions,
+            'param_opts_num' => $param_opts_num,
+            'item_param_dir' => $routine['item_param_dir'][$i] ?? '',
+            'item_param_name' => $routine['item_param_name'][$i] ?? '',
+            'item_param_length' => $routine['item_param_length'][$i] ?? '',
+            'item_param_opts_num' => $routine['item_param_opts_num'][$i] ?? '',
+            'supported_datatypes' => Util::getSupportedDatatypes(
+                true,
+                $routine['item_param_type'][$i]
+            ),
+            'charsets' => $charsets,
+            'drop_class' => $drop_class,
+        ]);
     }
 
     /**
@@ -919,12 +878,14 @@ class Routines
             $routine['item_param_opts_text'][] = '';
             $routine['item_num_params']++;
         } elseif ($operation == 'remove') {
-            unset($routine['item_param_dir'][$routine['item_num_params'] - 1]);
-            unset($routine['item_param_name'][$routine['item_num_params'] - 1]);
-            unset($routine['item_param_type'][$routine['item_num_params'] - 1]);
-            unset($routine['item_param_length'][$routine['item_num_params'] - 1]);
-            unset($routine['item_param_opts_num'][$routine['item_num_params'] - 1]);
-            unset($routine['item_param_opts_text'][$routine['item_num_params'] - 1]);
+            unset(
+                $routine['item_param_dir'][$routine['item_num_params'] - 1],
+                $routine['item_param_name'][$routine['item_num_params'] - 1],
+                $routine['item_param_type'][$routine['item_num_params'] - 1],
+                $routine['item_param_length'][$routine['item_num_params'] - 1],
+                $routine['item_param_opts_num'][$routine['item_num_params'] - 1],
+                $routine['item_param_opts_text'][$routine['item_num_params'] - 1]
+            );
             $routine['item_num_params']--;
         }
         $disableRemoveParam = '';
@@ -956,7 +917,7 @@ class Routines
         $retval  = "";
         $retval .= "<!-- START " . mb_strtoupper($mode)
             . " ROUTINE FORM -->\n\n";
-        $retval .= "<form class='rte_form' action='db_routines.php' method='post'>\n";
+        $retval .= '<form class="rte_form" action="' . Url::getFromRoute('/database/routines') . '" method="post">' . "\n";
         $retval .= "<input name='{$mode}_item' type='hidden' value='1'>\n";
         $retval .= $original_routine;
         $retval .= Url::getHiddenInputs($db) . "\n";
@@ -1041,13 +1002,20 @@ class Routines
         $retval .= "<tr class='routine_return_row" . $isfunction_class . "'>";
         $retval .= "    <td>" . __('Return options') . "</td>";
         $retval .= "    <td><div>";
-        $retval .= Charsets::getCharsetDropdownBox(
-            $this->dbi,
-            $GLOBALS['cfg']['Server']['DisableIS'],
-            "item_returnopts_text",
-            null,
-            $routine['item_returnopts_text']
-        );
+        $retval .= '<select lang="en" dir="ltr" name="item_returnopts_text">' . "\n";
+        $retval .= '<option value="">' . __('Charset') . '</option>' . "\n";
+        $retval .= '<option value=""></option>' . "\n";
+
+        $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
+        /** @var Charset $charset */
+        foreach ($charsets as $charset) {
+            $retval .= '<option value="' . $charset->getName()
+                . '" title="' . $charset->getDescription() . '"'
+                . ($routine['item_returnopts_text'] == $charset->getName() ? ' selected' : '') . '>'
+                . $charset->getName() . '</option>' . "\n";
+        }
+
+        $retval .= '</select>' . "\n";
         $retval .= "    </div>";
         $retval .= "    <div><select name='item_returnopts_num'>";
         $retval .= "        <option value=''></option>";
@@ -1468,9 +1436,11 @@ class Routines
             }
 
             // Generate output
+            $output = '';
+            $nbResultsetToDisplay = 0;
             if ($outcome) {
                 // Pass the SQL queries through the "pretty printer"
-                $output  = Util::formatSql(implode($queries, "\n"));
+                $output  = Util::formatSql(implode("\n", $queries));
 
                 // Display results
                 $output .= "<fieldset><legend>";
@@ -1479,8 +1449,6 @@ class Routines
                     Util::backquote(htmlspecialchars($routine['item_name']))
                 );
                 $output .= "</legend>";
-
-                $nbResultsetToDisplay = 0;
 
                 do {
                     $result = $this->dbi->storeResult();
@@ -1657,7 +1625,7 @@ class Routines
         // Create the output
         $retval  = "";
         $retval .= "<!-- START ROUTINE EXECUTE FORM -->\n\n";
-        $retval .= "<form action='db_routines.php' method='post'\n";
+        $retval .= '<form action="' . Url::getFromRoute('/database/routines') . '" method="post"' . "\n";
         $retval .= "       class='rte_form ajax' onsubmit='return false'>\n";
         $retval .= "<input type='hidden' name='item_name'\n";
         $retval .= "       value='{$routine['item_name']}'>\n";

@@ -13,9 +13,10 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Components\Limit;
-use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
@@ -77,9 +78,7 @@ class ChartController extends AbstractController
     public function indexAction()
     {
         $response = Response::getInstance();
-        if ($response->isAjax()
-            && isset($_REQUEST['pos'])
-            && isset($_REQUEST['session_max_rows'])
+        if (isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $response->isAjax()
         ) {
             $this->ajaxAction();
             return;
@@ -127,7 +126,7 @@ class ChartController extends AbstractController
                 $this->cfg['DefaultTabTable'],
                 'table'
             );
-            $url_params['back'] = 'tbl_sql.php';
+            $url_params['back'] = Url::getFromRoute('/table/sql');
             include ROOT_PATH . 'libraries/tbl_common.inc.php';
             $this->dbi->selectDb($GLOBALS['db']);
         } elseif (strlen($this->db) > 0) {
@@ -135,14 +134,14 @@ class ChartController extends AbstractController
                 $this->cfg['DefaultTabDatabase'],
                 'database'
             );
-            $url_params['back'] = 'sql.php';
+            $url_params['back'] = Url::getFromRoute('/sql');
             include ROOT_PATH . 'libraries/db_common.inc.php';
         } else {
             $url_params['goto'] = Util::getScriptNameForOption(
                 $this->cfg['DefaultTabServer'],
                 'server'
             );
-            $url_params['back'] = 'sql.php';
+            $url_params['back'] = Url::getFromRoute('/sql');
             include ROOT_PATH . 'libraries/server_common.inc.php';
         }
 
@@ -249,7 +248,7 @@ class ChartController extends AbstractController
         foreach ($data as $data_row_number => $data_row) {
             $tmp_row = [];
             foreach ($data_row as $data_column => $data_value) {
-                $escaped_value = is_null($data_value) ? null : htmlspecialchars($data_value);
+                $escaped_value = $data_value === null ? null : htmlspecialchars($data_value);
                 $tmp_row[htmlspecialchars($data_column)] = $escaped_value;
             }
             $sanitized_data[] = $tmp_row;

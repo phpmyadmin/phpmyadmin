@@ -85,7 +85,7 @@ Export.createTemplate = function (name) {
     };
 
     Functions.ajaxShowMessage();
-    $.post('tbl_export.php', params, function (response) {
+    $.post('index.php?route=/table/export', params, function (response) {
         if (response.success === true) {
             $('#templateName').val('');
             $('#template').html(response.data);
@@ -118,7 +118,7 @@ Export.loadTemplate = function (id) {
     };
 
     Functions.ajaxShowMessage();
-    $.post('tbl_export.php', params, function (response) {
+    $.post('index.php?route=/table/export', params, function (response) {
         if (response.success === true) {
             var $form = $('form[name="dump"]');
             var options = JSON.parse(response.data);
@@ -169,7 +169,7 @@ Export.updateTemplate = function (id) {
     };
 
     Functions.ajaxShowMessage();
-    $.post('tbl_export.php', params, function (response) {
+    $.post('index.php?route=/table/export', params, function (response) {
         if (response.success === true) {
             Functions.ajaxShowMessage(Messages.strTemplateUpdated);
         } else {
@@ -195,7 +195,7 @@ Export.deleteTemplate = function (id) {
     };
 
     Functions.ajaxShowMessage();
-    $.post('tbl_export.php', params, function (response) {
+    $.post('index.php?route=/table/export', params, function (response) {
         if (response.success === true) {
             $('#template').find('option[value="' + id + '"]').remove();
             Functions.ajaxShowMessage(Messages.strTemplateDeleted);
@@ -728,14 +728,13 @@ Export.checkTimeOut = function (timeLimit) {
     }
     // margin of one second to avoid race condition to set/access session variable
     limit = limit + 1;
-    var href = 'export.php';
     var params = {
         'ajax_request' : true,
         'check_time_out' : true
     };
     clearTimeout(timeOut);
     timeOut = setTimeout(function () {
-        $.get(href, params, function (data) {
+        $.get('index.php?route=/export', params, function (data) {
             if (data.message === 'timeout') {
                 Functions.ajaxShowMessage(
                     '<div class="error">' +
@@ -819,7 +818,7 @@ Export.createAliasModal = function (event) {
                     'server': CommonParams.get('server'),
                     'type': 'list-databases'
                 };
-                $.post('ajax.php', params, function (response) {
+                $.post('index.php?route=/ajax', params, function (response) {
                     if (response.success === true) {
                         $.each(response.databases, function (idx, value) {
                             var option = $('<option></option>');
@@ -936,7 +935,7 @@ AJAX.registerOnload('export.js', function () {
                 'db': $(this).val(),
                 'type': 'list-tables'
             };
-            $.post('ajax.php', params, function (response) {
+            $.post('index.php?route=/ajax', params, function (response) {
                 if (response.success === true) {
                     $.each(response.tables, function (idx, value) {
                         var option = $('<option></option>');
@@ -959,7 +958,7 @@ AJAX.registerOnload('export.js', function () {
             'table': $(this).val(),
             'type': 'list-columns'
         };
-        $.post('ajax.php', params, function (response) {
+        $.post('index.php?route=/ajax', params, function (response) {
             if (response.success === true) {
                 $.each(response.columns, function (idx, value) {
                     var option = $('<option></option>');

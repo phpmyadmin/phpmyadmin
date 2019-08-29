@@ -67,22 +67,24 @@ class FormDisplayTemplate
         if ($action === null) {
             $action = $_SERVER['REQUEST_URI'];
         }
-        if ($method != 'post') {
+        if ($method !== 'post') {
             $method = 'get';
         }
-        $htmlOutput = '<form method="' . $method . '" action="'
-            . htmlspecialchars($action) . '" class="config-form disableAjax">';
-        $htmlOutput .= '<input type="hidden" name="tab_hash" value="">';
-        // we do validation on page refresh when browser remembers field values,
-        // add a field with known value which will be used for checks
+
+        /**
+         * We do validation on page refresh when browser remembers field values,
+         * add a field with known value which will be used for checks.
+         */
         if (! $hasCheckPageRefresh) {
             $hasCheckPageRefresh = true;
-            $htmlOutput .= '<input type="hidden" name="check_page_refresh" '
-                . ' id="check_page_refresh" value="">' . "\n";
         }
-        $htmlOutput .= Url::getHiddenInputs('', '', 0, 'server') . "\n";
-        $htmlOutput .= Url::getHiddenFields((array) $hiddenFields, '', true);
-        return $htmlOutput;
+
+        return $this->template->render('config/form_display/form_top', [
+            'method' => $method,
+            'action' => $action,
+            'has_check_page_refresh' => $hasCheckPageRefresh,
+            'hidden_fields' => (array) $hiddenFields,
+        ]);
     }
 
     /**
@@ -106,11 +108,10 @@ class FormDisplayTemplate
         }
 
         $htmlOutput = $this->template->render('list/unordered', [
-            'class' => 'tabs responsivetable',
+            'class' => 'tabs responsivetable row',
             'items' => $items,
         ]);
-        $htmlOutput .= '<br>';
-        $htmlOutput .= '<div class="tabs_contents">';
+        $htmlOutput .= '<div class="tabs_contents row">';
         return $htmlOutput;
     }
 
@@ -352,8 +353,12 @@ class FormDisplayTemplate
                 $htmlOutput .= '</select>';
                 break;
             case 'list':
+                $val = $value;
+                if (isset($val['wrapper_params'])) {
+                    unset($val['wrapper_params']);
+                }
                 $htmlOutput .= '<textarea cols="35" rows="5" ' . $nameId . $fieldClass
-                . '>' . htmlspecialchars(implode("\n", $value)) . '</textarea>';
+                . '>' . htmlspecialchars(implode("\n", $val)) . '</textarea>';
                 break;
         }
         if ($isSetupScript

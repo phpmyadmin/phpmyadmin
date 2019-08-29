@@ -7,7 +7,7 @@
             id="checkbox_tbl_{{ curr }}">
     </td>
     <th>
-        <a href="sql.php{{ tbl_url_query|raw }}&amp;pos=0" title="{{ browse_table_label_title }}">
+        <a href="{{ url('/sql', table_url_params|merge({'pos': 0})) }}" title="{{ browse_table_label_title }}">
             {{ browse_table_label_truename }}
         </a>
         {{ tracking_icon|raw }}
@@ -40,46 +40,52 @@
     {% endif %}
 
     <td class="center print_ignore">
-        <a href="sql.php{{ tbl_url_query|raw }}&amp;pos=0">
+        <a href="{{ url('/sql', table_url_params|merge({'pos': 0})) }}">
             {{ browse_table_title|raw }}
         </a>
 
     </td>
     <td class="center print_ignore">
-        <a href="tbl_structure.php{{ tbl_url_query|raw }}">
+        <a href="{{ url('/table/structure', table_url_params) }}">
             {{ titles['Structure']|raw }}
         </a>
     </td>
     <td class="center print_ignore">
-        <a href="tbl_select.php{{ tbl_url_query|raw }}">
+        <a href="{{ url('/table/search', table_url_params) }}">
             {{ search_table_title|raw }}
         </a>
     </td>
 
     {% if not db_is_system_schema %}
         <td class="insert_table center print_ignore">
-            <a href="tbl_change.php{{ tbl_url_query|raw }}">{{ titles['Insert']|raw }}</a>
+            <a href="{{ url('/table/change', table_url_params) }}">{{ titles['Insert']|raw }}</a>
         </td>
         {% if table_is_view %}
             <td class="center print_ignore">
-                <a href="view_create.php{{- get_common({
-                                'db': db,
-                                'table': current_table['TABLE_NAME']
-                            }) }}">{{ titles['Edit']|raw }}</a>
+                <a href="{{ url('/view/create', {
+                    'db': db,
+                    'table': current_table['TABLE_NAME']
+                }) }}">{{ titles['Edit']|raw }}</a>
             </td>
         {% else %}
           <td class="center print_ignore">
-                <a class="truncate_table_anchor ajax" href="sql.php" data-post="{{ tbl_url_query|raw }}&amp;sql_query=
-                {{- empty_table_sql_query }}&amp;message_to_show={{ empty_table_message_to_show }}">
+                <a class="truncate_table_anchor ajax" href="{{ url('/sql') }}" data-post="{{ get_common(table_url_params|merge({
+                  'sql_query': empty_table_sql_query,
+                  'message_to_show': empty_table_message_to_show
+                }), '') }}">
                     {{ empty_table_title|raw }}
                 </a>
           </td>
         {% endif %}
         <td class="center print_ignore">
             <a class="ajax drop_table_anchor
-                {{- table_is_view or current_table['ENGINE'] == null ? ' view' }}"
-                href="sql.php" data-post="{{ tbl_url_query|raw }}&amp;reload=1&amp;purge=1&amp;sql_query=
-                {{- drop_query|url_encode }}&amp;message_to_show={{ drop_message|url_encode }}">
+                {{- table_is_view or current_table['ENGINE'] == null ? ' view' }}" href="{{ url('/sql') }}" data-post="
+                {{- get_common(table_url_params|merge({
+                  'reload': 1,
+                  'purge': 1,
+                  'sql_query': drop_query,
+                  'message_to_show': drop_message
+                }), '') }}">
                 {{ titles['Drop']|raw }}
             </a>
         </td>
@@ -95,11 +101,11 @@
         <td class="value tbl_rows"
             data-table="{{ current_table['TABLE_NAME'] }}">
             {% if approx_rows %}
-                <a href="db_structure.php{{ get_common({
+                <a href="{{ url('/database/structure', {
                     'ajax_request': true,
                     'db': db,
                     'table': current_table['TABLE_NAME'],
-                    'real_row_count': 'true'
+                    'real_row_count': true
                 }) }}" class="ajax real_row_count">
                     <bdi>
                         ~{{ row_count }}
@@ -128,7 +134,7 @@
 
         {% if is_show_stats %}
             <td class="value tbl_size">
-                <a href="tbl_structure.php{{ tbl_url_query|raw }}#showusage">
+                <a href="{{ url('/table/structure', table_url_params) }}#showusage">
                     <span>{{ formatted_size }}</span>
                     <span class="unit">{{ unit }}</span>
                 </a>

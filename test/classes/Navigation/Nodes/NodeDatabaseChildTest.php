@@ -12,6 +12,8 @@ namespace PhpMyAdmin\Tests\Navigation\Nodes;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild;
 use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Url;
+use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * Tests for PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild class
@@ -22,7 +24,7 @@ class NodeDatabaseChildTest extends PmaTestCase
 {
     /**
      * Mock of NodeDatabaseChild
-     * @var \PHPUnit\Framework\MockObject\MockObject
+     * @var MockObject
      */
     protected $object;
 
@@ -82,7 +84,7 @@ class NodeDatabaseChildTest extends PmaTestCase
             $html
         );
         $this->assertStringContainsString(
-            '<a href="navigation.php" data-post="'
+            '<a href="' . Url::getFromRoute('/navigation') . '" data-post="'
             . 'hideNavItem=1&amp;itemType=itemType&amp;itemName=child'
             . '&amp;dbName=parent&amp;lang=en" class="hideNavItem ajax">',
             $html

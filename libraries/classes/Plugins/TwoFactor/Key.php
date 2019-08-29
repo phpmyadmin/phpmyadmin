@@ -9,12 +9,17 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\TwoFactor;
 
-use PhpMyAdmin\Response;
-use PhpMyAdmin\TwoFactor;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
-use Samyoul\U2F\U2FServer\U2FServer;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\TwoFactor;
 use Samyoul\U2F\U2FServer\U2FException;
+use Samyoul\U2F\U2FServer\U2FServer;
+use stdClass;
+use Throwable;
+use Twig_Error_Loader;
+use Twig_Error_Runtime;
+use Twig_Error_Syntax;
 
 /**
  * Hardware key based two-factor authentication
@@ -52,7 +57,7 @@ class Key extends TwoFactorPlugin
     {
         $result = [];
         foreach ($this->_twofactor->config['settings']['registrations'] as $index => $data) {
-            $reg = new \stdClass();
+            $reg = new stdClass();
             $reg->keyHandle = $data['keyHandle'];
             $reg->publicKey = $data['publicKey'];
             $reg->certificate = $data['certificate'];
@@ -71,13 +76,13 @@ class Key extends TwoFactorPlugin
     public function check()
     {
         $this->_provided = false;
-        if (! isset($_POST['u2f_authentication_response']) || ! isset($_SESSION['authenticationRequest'])) {
+        if (! isset($_POST['u2f_authentication_response'], $_SESSION['authenticationRequest'])) {
             return false;
         }
         $this->_provided = true;
         try {
             $response = json_decode($_POST['u2f_authentication_response']);
-            if (is_null($response)) {
+            if ($response === null) {
                 return false;
             }
             $authentication = U2FServer::authenticate(
@@ -131,10 +136,10 @@ class Key extends TwoFactorPlugin
      *
      * @return string HTML code
      * @throws U2FException
-     * @throws \Throwable
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
+     * @throws Throwable
+     * @throws Twig_Error_Loader
+     * @throws Twig_Error_Runtime
+     * @throws Twig_Error_Syntax
      */
     public function setup()
     {
@@ -160,13 +165,13 @@ class Key extends TwoFactorPlugin
     public function configure()
     {
         $this->_provided = false;
-        if (! isset($_POST['u2f_registration_response']) || ! isset($_SESSION['registrationRequest'])) {
+        if (! isset($_POST['u2f_registration_response'], $_SESSION['registrationRequest'])) {
             return false;
         }
         $this->_provided = true;
         try {
             $response = json_decode($_POST['u2f_registration_response']);
-            if (is_null($response)) {
+            if ($response === null) {
                 return false;
             }
             $registration = U2FServer::register(

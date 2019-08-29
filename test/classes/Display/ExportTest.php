@@ -9,11 +9,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Display;
 
-use PhpMyAdmin\Core;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Display\Export;
 use PhpMyAdmin\Plugins;
-use PhpMyAdmin\Theme;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
 
@@ -36,25 +34,10 @@ class ExportTest extends TestCase
      */
     protected function setUp(): void
     {
-        //$GLOBALS
-        $GLOBALS['cfg']['MaxRows'] = 10;
-        $GLOBALS['cfg']['ExecTimeLimit'] = 300;
-        $GLOBALS['cfg']['ServerDefault'] = "PMA_server";
-        $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
-        $GLOBALS['cfg']['LimitChars'] = 100;
-        $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
+        $GLOBALS['PMA_Config'] = new Config();
+        $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server']['host'] = "localhost";
         $GLOBALS['cfg']['Server']['user'] = "pma_user";
-        $GLOBALS['cfg']['ShowHint'] = true;
-        $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
-        $GLOBALS['cfg']['ZipDump'] = true;
-        $GLOBALS['cfg']['GZipDump'] = false;
-        $GLOBALS['cfg']['BZipDump'] = false;
-        $GLOBALS['cfg']['Export']['asfile'] = true;
-        $GLOBALS['cfg']['Export']['file_template_server'] = "file_template_server";
-        $GLOBALS['cfg']['AvailableCharsets'] = [];
-        $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
-        $GLOBALS['PMA_recoding_engine'] = "InnerDB";
         $GLOBALS['server'] = 0;
 
         $GLOBALS['table'] = "table";
@@ -181,7 +164,7 @@ class ExportTest extends TestCase
             $html
         );
         $this->assertStringContainsString(
-            '<div class="exportoptions" id="quick_or_custom">',
+            '<div class="exportoptions row" id="quick_or_custom">',
             $html
         );
         $this->assertStringContainsString(

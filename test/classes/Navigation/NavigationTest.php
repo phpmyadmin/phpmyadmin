@@ -13,6 +13,7 @@ use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Url;
 
 /**
  * Tests for PhpMyAdmin\Navigation\Navigation class
@@ -22,7 +23,7 @@ use PhpMyAdmin\Tests\PmaTestCase;
 class NavigationTest extends PmaTestCase
 {
     /**
-     * @var \PhpMyAdmin\Navigation\Navigation
+     * @var Navigation
      */
     protected $object;
 
@@ -126,7 +127,7 @@ class NavigationTest extends PmaTestCase
             $html
         );
         $this->assertStringContainsString(
-            '<a class="unhideNavItem ajax" href="navigation.php" data-post="'
+            '<a class="unhideNavItem ajax" href="' . Url::getFromRoute('/navigation') . '" data-post="'
             . 'unhideNavItem=1&amp;itemType=table&amp;'
             . 'itemName=tableName&amp;dbName=db&amp;lang=en">',
             $html

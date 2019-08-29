@@ -39,18 +39,18 @@ abstract class NodeDatabaseChild extends Node
         $ret = '';
         $cfgRelation = $this->relation->getRelationsParam();
         if ($cfgRelation['navwork']) {
-            $db = $this->realParent()->real_name;
-            $item = $this->real_name;
+            $db = $this->realParent()->realName;
+            $item = $this->realName;
 
             $params = [
                 'hideNavItem' => true,
                 'itemType' => $this->getItemType(),
                 'itemName' => $item,
-                'dbName' => $db
+                'dbName' => $db,
             ];
 
             $ret = '<span class="navItemControls">'
-                . '<a href="navigation.php" data-post="'
+                . '<a href="' . Url::getFromRoute('/navigation') . '" data-post="'
                 . Url::getCommon($params, '') . '"'
                 . ' class="hideNavItem ajax">'
                 . Util::getImage('hide', __('Hide'))

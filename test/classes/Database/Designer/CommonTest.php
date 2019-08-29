@@ -66,6 +66,7 @@ class CommonTest extends TestCase
             ->with(
                 "
             SELECT CONCAT_WS('.', `db_name`, `table_name`) AS `name`,
+                `db_name` as `dbName`, `table_name` as `tableName`,
                 `x` AS `X`,
                 `y` AS `Y`,
                 1 AS `V`,

@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 /**
- * Set of functions for tbl_create.php and tbl_addfield.php
+ * Set of functions for /table/create and /table/addfield
  *
  * @package PhpMyAdmin
  */
@@ -144,7 +144,7 @@ class CreateAddField
         if ($previousField == -1) {
             if ((string) $_POST['field_where'] === 'first') {
                 $sqlSuffix .= ' FIRST';
-            } else {
+            } elseif (! empty($_POST['after_field'])) {
                 $sqlSuffix .= ' AFTER '
                         . Util::backquote($_POST['after_field']);
             }

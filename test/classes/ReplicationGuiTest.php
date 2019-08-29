@@ -72,11 +72,11 @@ class ReplicationGuiTest extends TestCase
         $slave_host = [
             [
                 'Server_id' => 'Server_id1',
-                'Host' => 'Host1'
+                'Host' => 'Host1',
             ],
             [
                 'Server_id' => 'Server_id2',
-                'Host' => 'Host2'
+                'Host' => 'Host2',
             ],
         ];
 
@@ -198,7 +198,7 @@ class ReplicationGuiTest extends TestCase
 
         //validate 4: navigation URL
         $this->assertStringContainsString(
-            '<a href="server_replication.php',
+            '<a href="index.php?route=/server/replication',
             $html
         );
         $this->assertStringContainsString(
@@ -279,7 +279,7 @@ class ReplicationGuiTest extends TestCase
         );
 
         $this->assertStringContainsString(
-            '<form method="post" action="server_replication.php">',
+            '<form method="post" action="index.php?route=/server/replication',
             $html
         );
         $this->assertStringContainsString(

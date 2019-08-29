@@ -1,5 +1,5 @@
 <form method="post"
-      action="tbl_find_replace.php"
+      action="{{ url('/table/find_replace') }}"
       name="previewForm"
       id="previewForm">
     {{ get_hidden_inputs(db, table) }}

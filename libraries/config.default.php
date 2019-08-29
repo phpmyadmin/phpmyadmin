@@ -3148,7 +3148,7 @@ $cfg['ShowGitRevision'] = true;
  */
 $cfg['MysqlMinVersion'] = [
     'internal' => 50500,
-    'human' => '5.5.0'
+    'human' => '5.5.0',
 ];
 
 /**
@@ -3259,6 +3259,7 @@ $cfg['DefaultTransformations']['Inline'] = [
     100,
 ];
 $cfg['DefaultTransformations']['Inline']['wrapper_link'] = null;
+$cfg['DefaultTransformations']['Inline']['wrapper_params'] = [];
 
 /**
  * Default transformations for TextImageLink

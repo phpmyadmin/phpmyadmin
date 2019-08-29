@@ -43,9 +43,9 @@ class NodeProcedureContainerTest extends PmaTestCase
             $parent->links
         );
         $this->assertStringContainsString(
-            'db_routines.php',
+            'index.php?route=/database/routines',
             $parent->links['text']
         );
-        $this->assertEquals('procedures', $parent->real_name);
+        $this->assertEquals('procedures', $parent->realName);
     }
 }

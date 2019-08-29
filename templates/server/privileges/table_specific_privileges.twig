@@ -1,0 +1,108 @@
+<input type="hidden" name="grant_count" value="{{ row|length }}">
+<input type="hidden" name="column_count" value="{{ columns|length }}">
+<fieldset id="fieldset_user_priv">
+  <legend data-submenu-label="{% trans 'Table' %}">
+    {% trans 'Table-specific privileges' %}
+  </legend>
+  <p>
+    <small><em>{% trans 'Note: MySQL privilege names are expressed in English.' %}</em></small>
+  </p>
+
+  <div class="item" id="div_item_select">
+    <label for="select_select_priv">
+      <code><dfn title="{% trans 'Allows reading data.' %}">SELECT</dfn></code>
+    </label>
+
+    <select id="select_select_priv" name="Select_priv[]" size="8" multiple>
+      {% for curr_col, curr_col_privs in columns %}
+        <option value="{{ curr_col }}"{{ row['Select_priv'] == 'Y' or curr_col_privs['Select'] ? ' selected' }}>
+          {{ curr_col }}
+        </option>
+      {% endfor %}
+    </select>
+
+    <em>{% trans 'Or' %}</em>
+    <label for="checkbox_Select_priv_none">
+      <input type="checkbox" name="Select_priv_none" id="checkbox_Select_priv_none" title="
+        {%- trans %}None{% context %}None privileges{% endtrans %}">
+      {% trans %}None{% context %}None privileges{% endtrans %}
+    </label>
+  </div>
+
+  <div class="item" id="div_item_insert">
+    <label for="select_insert_priv">
+      <code><dfn title="{% trans 'Allows inserting and replacing data.' %}">INSERT</dfn></code>
+    </label>
+
+    <select id="select_insert_priv" name="Insert_priv[]" size="8" multiple>
+      {% for curr_col, curr_col_privs in columns %}
+        <option value="{{ curr_col }}"{{ row['Insert_priv'] == 'Y' or curr_col_privs['Insert'] ? ' selected' }}>
+          {{ curr_col }}
+        </option>
+      {% endfor %}
+    </select>
+
+    <em>{% trans 'Or' %}</em>
+    <label for="checkbox_Insert_priv_none">
+      <input type="checkbox" name="Insert_priv_none" id="checkbox_Insert_priv_none" title="
+        {%- trans %}None{% context %}None privileges{% endtrans %}">
+      {% trans %}None{% context %}None privileges{% endtrans %}
+    </label>
+  </div>
+
+  <div class="item" id="div_item_update">
+    <label for="select_update_priv">
+      <code><dfn title="{% trans 'Allows changing data.' %}">UPDATE</dfn></code>
+    </label>
+
+    <select id="select_update_priv" name="Update_priv[]" size="8" multiple>
+      {% for curr_col, curr_col_privs in columns %}
+        <option value="{{ curr_col }}"{{ row['Update_priv'] == 'Y' or curr_col_privs['Update'] ? ' selected' }}>
+          {{ curr_col }}
+        </option>
+      {% endfor %}
+    </select>
+
+    <em>{% trans 'Or' %}</em>
+    <label for="checkbox_Update_priv_none">
+      <input type="checkbox" name="Update_priv_none" id="checkbox_Update_priv_none" title="
+        {%- trans %}None{% context %}None privileges{% endtrans %}">
+      {% trans %}None{% context %}None privileges{% endtrans %}
+    </label>
+  </div>
+
+  <div class="item" id="div_item_references">
+    <label for="select_references_priv">
+      <code><dfn title="{% trans 'Has no effect in this MySQL version.' %}">REFERENCES</dfn></code>
+    </label>
+
+    <select id="select_references_priv" name="References_priv[]" size="8" multiple>
+      {% for curr_col, curr_col_privs in columns %}
+        <option value="{{ curr_col }}"{{ row['References_priv'] == 'Y' or curr_col_privs['References'] ? ' selected' }}>
+          {{ curr_col }}
+        </option>
+      {% endfor %}
+    </select>
+
+    <em>{% trans 'Or' %}</em>
+    <label for="checkbox_References_priv_none">
+      <input type="checkbox" name="References_priv_none" id="checkbox_References_priv_none" title="
+        {%- trans %}None{% context %}None privileges{% endtrans %}">
+      {% trans %}None{% context %}None privileges{% endtrans %}
+    </label>
+  </div>
+
+  <div class="item">
+    {% for privilege in privileges %}
+      <div class="item">
+        <input type="checkbox" name="{{ privilege.grant }}" id="checkbox_{{ privilege.grant }}" value="Y" title="
+          {{- privilege.description }}"{{ privilege.is_checked ? ' checked' }}>
+        <label for="checkbox_{{ privilege.grant }}">
+          <code><dfn title="{{ privilege.description }}">{{ privilege.name }}</dfn></code>
+        </label>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="clearfloat"></div>
+</fieldset>

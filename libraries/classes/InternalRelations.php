@@ -42,7 +42,7 @@ class InternalRelations
                 'foreign_db' => 'information_schema',
                 'foreign_table' => 'COLLATIONS',
                 'foreign_field' => 'COLLATION_NAME',
-            ]
+            ],
         ],
         'COLUMNS' => [
             'TABLE_SCHEMA' => [
@@ -59,7 +59,7 @@ class InternalRelations
                 'foreign_db' => 'information_schema',
                 'foreign_table' => 'COLLATIONS',
                 'foreign_field' => 'COLLATION_NAME',
-            ]
+            ],
         ],
         'COLUMN_PRIVILEGES' => [
             'TABLE_SCHEMA' => [
@@ -88,7 +88,7 @@ class InternalRelations
                 'foreign_db' => 'information_schema',
                 'foreign_table' => 'COLLATIONS',
                 'foreign_field' => 'COLLATION_NAME',
-            ]
+            ],
         ],
         'FILES' => [
             'TABLESPACE_NAME' => [
@@ -110,7 +110,7 @@ class InternalRelations
                 'foreign_db' => 'information_schema',
                 'foreign_table' => 'ENGINES',
                 'foreign_field' => 'ENGINE',
-            ]
+            ],
         ],
         'KEY_COLUMN_USAGE' => [
             'CONSTRAINT_SCHEMA' => [
@@ -144,7 +144,7 @@ class InternalRelations
                 'foreign_db' => 'information_schema',
                 'foreign_table' => 'COLLATIONS',
                 'foreign_field' => 'COLLATION_NAME',
-            ]
+            ],
         ],
         'PARTITIONS' => [
             'TABLE_SCHEMA' => [
@@ -207,7 +207,7 @@ class InternalRelations
                 'foreign_db' => 'information_schema',
                 'foreign_table' => 'COLLATIONS',
                 'foreign_field' => 'COLLATION_NAME',
-            ]
+            ],
         ],
         'SCHEMATA' => [
             'DEFAULT_CHARACTER_SET_NAME' => [
@@ -219,7 +219,7 @@ class InternalRelations
                 'foreign_db' => 'information_schema',
                 'foreign_table' => 'COLLATIONS',
                 'foreign_field' => 'COLLATION_NAME',
-            ]
+            ],
         ],
         'SCHEMA_PRIVILEGES' => [
             'TABLE_SCHEMA' => [
@@ -274,7 +274,7 @@ class InternalRelations
                 'foreign_db' => 'information_schema',
                 'foreign_table' => 'SCHEMATA',
                 'foreign_field' => 'SCHEMA_NAME',
-            ]
+            ],
         ],
         'TABLE_PRIVILEGES' => [
             'TABLE_SCHEMA' => [
@@ -308,7 +308,7 @@ class InternalRelations
                 'foreign_db' => 'information_schema',
                 'foreign_table' => 'COLLATIONS',
                 'foreign_field' => 'COLLATION_NAME',
-            ]
+            ],
         ],
         'VIEWS' => [
             'TABLE_SCHEMA' => [
@@ -326,7 +326,7 @@ class InternalRelations
                 'foreign_table' => 'COLLATIONS',
                 'foreign_field' => 'COLLATION_NAME',
             ],
-        ]
+        ],
     ];
 
     /**

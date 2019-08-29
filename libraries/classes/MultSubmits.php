@@ -74,9 +74,9 @@ class MultSubmits
             'query_type' => $what,
             'reload' => ! empty($reload) ? 1 : 0,
         ];
-        if (mb_strpos(' ' . $action, 'db_') == 1) {
+        if (mb_strpos(' ' . $action, 'db_') === 1 || mb_strpos($action, '?route=/database/') !== false) {
             $urlParams['db'] = $db;
-        } elseif (mb_strpos(' ' . $action, 'tbl_') == 1
+        } elseif (mb_strpos(' ' . $action, 'tbl_') === 1 || mb_strpos($action, '?route=/table/') !== false
             || $what == 'row_delete'
         ) {
             $urlParams['db'] = $db;

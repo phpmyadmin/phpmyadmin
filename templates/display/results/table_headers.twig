@@ -7,9 +7,9 @@
 {{ options_block|raw }}
 
 {% if delete_link == delete_row or delete_link == kill_process %}
-  <form method="post" action="tbl_row_action.php" name="resultsForm" id="resultsForm_{{ unique_id }}" class="ajax">
+  <form method="post" action="{{ url('/table/row_action') }}" name="resultsForm" id="resultsForm_{{ unique_id }}" class="ajax">
     {{ get_hidden_inputs(db, table, 1) }}
-    <input type="hidden" name="goto" value="sql.php">
+    <input type="hidden" name="goto" value="{{ url('/sql') }}">
 {% endif %}
 
 <div class="responsivetable">

@@ -613,7 +613,7 @@ Functions.displayGitRevision = function () {
     $('#is_git_revision').remove();
     $('#li_pma_version_git').remove();
     $.get(
-        'index.php',
+        'index.php?route=/',
         {
             'server': CommonParams.get('server'),
             'git_revision': true,
@@ -629,9 +629,7 @@ Functions.displayGitRevision = function () {
 };
 
 /**
- * for PhpMyAdmin\Display\ChangePassword
- *     libraries/user_password.php
- *
+ * for PhpMyAdmin\Display\ChangePassword and /user_password
  */
 Functions.displayPasswordGenerateButton = function () {
     var generatePwdRow = $('<tr></tr>').addClass('vmiddle');
@@ -974,7 +972,7 @@ AJAX.registerOnload('functions.js', function () {
         idleSecondsCounter++;
     }
     function UpdateIdleTime () {
-        var href = 'index.php';
+        var href = 'index.php?route=/';
         var guid = 'default';
         if (isStorageSupported('sessionStorage')) {
             guid = window.sessionStorage.guid;
@@ -1021,7 +1019,7 @@ AJAX.registerOnload('functions.js', function () {
                         $('.ui-dialog').each(function () {
                             $('#' + $(this).attr('aria-describedby')).dialog('close');
                         });
-                        $('#input_username').focus();
+                        $('#input_username').trigger('focus');
                     } else {
                         CommonParams.set('token', data.new_token);
                         $('input[name=token]').val(data.new_token);
@@ -1208,7 +1206,6 @@ Functions.insertQuery = function (queryType) {
             $('#querymessage').html(Messages.strFormatting +
                 '&nbsp;<img class="ajaxIcon" src="' +
                 pmaThemeImage + 'ajax_clock_small.gif" alt="">');
-            var href = 'db_sql_format.php';
             var params = {
                 'ajax_request': true,
                 'sql': codeMirrorEditor.getValue(),
@@ -1216,7 +1213,7 @@ Functions.insertQuery = function (queryType) {
             };
             $.ajax({
                 type: 'POST',
-                url: href,
+                url: 'index.php?route=/database/sql/format',
                 data: params,
                 success: function (data) {
                     if (data.success) {
@@ -1733,7 +1730,7 @@ Functions.loadForeignKeyCheckbox = function () {
         'server': CommonParams.get('server'),
         'get_default_fk_check_value': true
     };
-    $.get('sql.php', params, function (data) {
+    $.get('index.php?route=/sql', params, function (data) {
         var html = '<input type="hidden" name="fk_checks" value="0">' +
             '<input type="checkbox" name="fk_checks" id="fk_checks"' +
             (data.default_fk_check_value ? ' checked="checked"' : '') + '>' +
@@ -1836,7 +1833,7 @@ AJAX.registerOnload('functions.js', function () {
         var fkCheck = $(this).parent().find('#fk_checks').is(':checked');
 
         var $form = $('a.inline_edit_sql').prev('form');
-        var $fakeForm = $('<form>', { action: 'import.php', method: 'post' })
+        var $fakeForm = $('<form>', { action: 'index.php?route=/import', method: 'post' })
             .append($form.find('input[name=server], input[name=db], input[name=table], input[name=token]').clone())
             .append($('<input>', { type: 'hidden', name: 'show_query', value: 1 }))
             .append($('<input>', { type: 'hidden', name: 'is_js_confirmed', value: 0 }))
@@ -1846,7 +1843,7 @@ AJAX.registerOnload('functions.js', function () {
             return false;
         }
         $('.success').hide();
-        $fakeForm.appendTo($('body')).submit();
+        $fakeForm.appendTo($('body')).trigger('submit');
     });
 
     $(document).on('click', 'input#sql_query_edit_discard', function () {
@@ -1886,7 +1883,6 @@ Functions.codeMirrorAutoCompleteOnInputRead = function (instance) {
 
             sqlAutoCompleteInProgress = true;
 
-            var href = 'db_sql_autocomplete.php';
             var params = {
                 'ajax_request': true,
                 'server': CommonParams.get('server'),
@@ -1905,7 +1901,7 @@ Functions.codeMirrorAutoCompleteOnInputRead = function (instance) {
 
             $.ajax({
                 type: 'POST',
-                url: href,
+                url: 'index.php?route=/database/sql/autocomplete',
                 data: params,
                 success: function (data) {
                     if (data.success) {
@@ -1990,7 +1986,7 @@ Functions.bindCodeMirrorToInlineEditor = function () {
                 .on('keydown', Functions.catchKeypressesFromSqlInlineEdit);
         } else {
             $inlineEditor
-                .focus()
+                .trigger('focus')
                 .on('keydown', Functions.catchKeypressesFromSqlInlineEdit);
         }
     }
@@ -2408,7 +2404,7 @@ Functions.checkReservedWordColumns = function ($form) {
     var isConfirmed = true;
     $.ajax({
         type: 'POST',
-        url: 'tbl_structure.php',
+        url: 'index.php?route=/table/structure',
         data: $form.serialize() + CommonParams.get('arg_separator') + 'reserved_word_check=1',
         success: function (data) {
             if (typeof data.success !== 'undefined' && data.success === true) {
@@ -2455,7 +2451,7 @@ $(function () {
         var $temp = $('<input>');
         $temp.css({ 'position': 'fixed', 'width': '2em', 'border': 0, 'top': 0, 'left': 0, 'padding': 0, 'background': 'transparent' });
         $('body').append($temp);
-        $temp.val(text).select();
+        $temp.val(text).trigger('select');
         try {
             var res = document.execCommand('copy');
             $temp.remove();
@@ -2844,8 +2840,8 @@ AJAX.registerTeardown('functions.js', function () {
 });
 
 /**
- * jQuery coding for 'Create Table'.  Used on db_operations.php,
- * db_structure.php and db_tracking.php (i.e., wherever
+ * jQuery coding for 'Create Table'. Used on /database/operations,
+ * /database/structure and /database/tracking (i.e., wherever
  * PhpMyAdmin\Display\CreateTable is used)
  *
  * Attach Ajax Event handlers for Create Table
@@ -2939,9 +2935,9 @@ AJAX.registerOnload('functions.js', function () {
                         if (! (history && history.pushState)) {
                             params12 += MicroHistory.menus.getRequestParam();
                         }
-                        var tableStructureUrl = 'tbl_structure.php?server=' + data.params.server +
+                        var tableStructureUrl = 'index.php?route=/table/structure' + argsep + 'server=' + data.params.server +
                             argsep + 'db=' + data.params.db + argsep + 'token=' + data.params.token +
-                            argsep + 'goto=db_structure.php' + argsep + 'table=' + data.params.table + '';
+                            argsep + 'goto=' + encodeURIComponent('index.php?route=/database/structure') + argsep + 'table=' + data.params.table + '';
                         $.get(tableStructureUrl, params12, AJAX.responseHandler);
                     } else {
                         Functions.ajaxShowMessage(
@@ -3066,7 +3062,7 @@ Functions.checkPassword = function ($theForm) {
         alert(alertMessage);
         $password.val('');
         $passwordRepeat.val('');
-        $password.focus();
+        $password.trigger('focus');
         return false;
     }
     return true;
@@ -3088,7 +3084,7 @@ AJAX.registerOnload('functions.js', function () {
         } else if (this.value === 'hosttable') {
             hostname.val('').prop('required', false);
         } else if (this.value === 'userdefined') {
-            hostname.focus().select().prop('required', true);
+            hostname.trigger('focus').select().prop('required', true);
         }
     });
 
@@ -3104,7 +3100,7 @@ AJAX.registerOnload('functions.js', function () {
             $('#pma_username').val('').prop('required', false);
             $('#user_exists_warning').css('display', 'none');
         } else if (this.value === 'userdefined') {
-            $('#pma_username').focus().select().prop('required', true);
+            $('#pma_username').trigger('focus').select().prop('required', true);
         }
     });
 
@@ -3121,7 +3117,7 @@ AJAX.registerOnload('functions.js', function () {
             $('#text_pma_pw').prop('required', false).val('');
         } else if (this.value === 'userdefined') {
             $('#text_pma_pw2').prop('required', true);
-            $('#text_pma_pw').prop('required', true).focus().select();
+            $('#text_pma_pw').prop('required', true).trigger('focus').select();
         } else {
             $('#text_pma_pw2').prop('required', false);
             $('#text_pma_pw').prop('required', false);
@@ -3218,7 +3214,7 @@ AJAX.registerOnload('functions.js', function () {
             $('fieldset#fieldset_change_password')
                 .find('legend').remove().end()
                 .find('table.noclick').unwrap().addClass('some-margin')
-                .find('input#text_pma_pw').focus();
+                .find('input#text_pma_pw').trigger('focus');
             $('#fieldset_change_password_footer').hide();
             Functions.ajaxRemoveMessage($msgbox);
             Functions.displayPasswordGenerateButton();
@@ -3500,7 +3496,7 @@ AJAX.registerOnload('functions.js', function () {
             buttons: buttonOptions,
             open: function () {
                 // Focus the "Go" button after opening the dialog
-                $(this).closest('.ui-dialog').find('.ui-dialog-buttonpane button:first').focus();
+                $(this).closest('.ui-dialog').find('.ui-dialog-buttonpane button:first').trigger('focus');
             },
             close: function () {
                 $(this).remove();
@@ -3525,7 +3521,7 @@ AJAX.registerOnload('functions.js', function () {
     });
 
     $(document).on('click', 'a.central_columns_dialog', function () {
-        var href = 'db_central_columns.php';
+        var href = 'index.php?route=/database/central_columns';
         var db = CommonParams.get('db');
         var table = CommonParams.get('table');
         var maxRows = $(this).data('maxrows');
@@ -3646,7 +3642,7 @@ AJAX.registerOnload('functions.js', function () {
                     }
                     return false;
                 });
-                $(this).closest('.ui-dialog').find('.ui-dialog-buttonpane button:first').focus();
+                $(this).closest('.ui-dialog').find('.ui-dialog-buttonpane button:first').trigger('focus');
             },
             close: function () {
                 $('#col_list').off('click', '.pick');
@@ -3738,7 +3734,7 @@ AJAX.registerOnload('functions.js', function () {
             if ($(this).find('option:selected').val() === '') {
                 return true;
             }
-            $(this).closest('tr').find('input').focus();
+            $(this).closest('tr').find('input').trigger('focus');
         };
 
         while (rowsToAdd--) {
@@ -3825,7 +3821,7 @@ Functions.indexEditorDialog = function (url, title, callbackSuccess, callbackFai
         $(this).dialog('close');
     };
     var $msgbox = Functions.ajaxShowMessage();
-    $.post('tbl_indexes.php', url, function (data) {
+    $.post('index.php?route=/table/indexes', url, function (data) {
         if (typeof data !== 'undefined' && data.success === false) {
             // in the case of an error, show the error message returned.
             Functions.ajaxShowMessage(data.error, false);
@@ -3882,14 +3878,14 @@ Functions.showIndexEditDialog = function ($outer) {
         if ($(this).find('option:selected').val() === '') {
             return true;
         }
-        $(this).closest('tr').find('input').focus();
+        $(this).closest('tr').find('input').trigger('focus');
     });
     // Focus the slider, otherwise it looks nearly transparent
     $('a.ui-slider-handle').addClass('ui-state-focus');
     // set focus on index name input, if empty
     var input = $outer.find('input#input_index_name');
     if (! input.val()) {
-        input.focus();
+        input.trigger('focus');
     }
 };
 
@@ -4130,7 +4126,7 @@ AJAX.registerOnload('functions.js', function () {
     if ($('li.jsversioncheck').length > 0) {
         $.ajax({
             dataType: 'json',
-            url: 'version_check.php',
+            url: 'index.php?route=/version_check',
             method: 'POST',
             data: {
                 'server': CommonParams.get('server')
@@ -4342,7 +4338,7 @@ AJAX.registerOnload('functions.js', function () {
             codeMirrorEditor.on('blur', Functions.updateQueryParameters);
         } else {
             // without codemirror
-            $elm.focus().on('blur', Functions.updateQueryParameters);
+            $elm.trigger('focus').on('blur', Functions.updateQueryParameters);
         }
     }
     Functions.highlightSql($('body'));
@@ -4437,7 +4433,7 @@ AJAX.registerOnload('functions.js', function () {
      * Automatic form submission on change.
      */
     $(document).on('change', '.autosubmit', function () {
-        $(this).closest('form').submit();
+        $(this).closest('form').trigger('submit');
     });
 
     /**
@@ -4542,7 +4538,7 @@ AJAX.registerOnload('functions.js', function () {
 
                 // with preventing default, selection by <select> tag
                 // was also prevented in IE
-                $(this).blur();
+                $(this).trigger('blur');
 
                 $(this).closest('.ui-dialog').find('.ui-button:first').trigger('click');
             }
@@ -4568,7 +4564,7 @@ Functions.createViewDialog = function ($this) {
                     codeMirrorEditor.save();
                 }
                 $msg = Functions.ajaxShowMessage();
-                $.post('view_create.php', $('#createViewDialog').find('form').serialize(), function (data) {
+                $.post('index.php?route=/view/create', $('#createViewDialog').find('form').serialize(), function (data) {
                     Functions.ajaxRemoveMessage($msg);
                     if (typeof data !== 'undefined' && data.success === true) {
                         $('#createViewDialog').dialog('close');
@@ -4594,7 +4590,7 @@ Functions.createViewDialog = function ($this) {
             });
             // Attach syntax highlighted editor
             codeMirrorEditor = Functions.getSqlEditor($dialog.find('textarea'));
-            $('input:visible[type=text]', $dialog).first().focus();
+            $('input:visible[type=text]', $dialog).first().trigger('focus');
         } else {
             Functions.ajaxShowMessage(data.error);
         }
@@ -4848,7 +4844,7 @@ Functions.ignorePhpErrors = function (clearPrevErrors) {
     ) {
         clearPrevious = false;
     }
-    // send AJAX request to error_report.php with send_error_report=0, exception_type=php & token.
+    // send AJAX request to /error_report with send_error_report=0, exception_type=php & token.
     // It clears the prev_errors stored in session.
     if (clearPrevious) {
         var $pmaReportErrorsForm = $('#pma_report_errors_form');
@@ -4890,7 +4886,7 @@ Functions.toggleDatepickerIfInvalid = function ($td, $inputField) {
  * Function to submit the login form after validation is done.
  */
 Functions.recaptchaCallback = function () {
-    $('#login_form').submit();
+    $('#login_form').trigger('submit');
 };
 
 /**
@@ -4913,7 +4909,7 @@ AJAX.registerOnload('functions.js', function () {
             if (! $form.find('input[type="submit"]:first') ||
                 ! $form.find('input[type="submit"]:first').trigger('click')
             ) {
-                $form.submit();
+                $form.trigger('submit');
             }
         }
     });
@@ -4932,7 +4928,7 @@ AJAX.registerOnload('functions.js', function () {
     /*
      * Display warning regarding SSL when sha256_password
      * method is selected
-     * Used in user_password.php (Change Password link on index.php)
+     * Used in /user_password (Change Password link on index.php)
      */
     $(document).on('change', 'select#select_authentication_plugin_cp', function () {
         if (this.value === 'sha256_password') {
@@ -5049,7 +5045,7 @@ Functions.configSet = function (key, value) {
     var serialized = JSON.stringify(value);
     localStorage.setItem(key, serialized);
     $.ajax({
-        url: 'ajax.php',
+        url: 'index.php?route=/ajax',
         type: 'POST',
         dataType: 'json',
         data: {
@@ -5099,7 +5095,7 @@ Functions.configGet = function (key, cached) {
         // processing cannot continue until that value is found.
         // Another solution is to provide a callback as a parameter.
         async: false,
-        url: 'ajax.php',
+        url: 'index.php?route=/ajax',
         type: 'POST',
         dataType: 'json',
         data: {

@@ -745,7 +745,7 @@ $js_messages['strConsoleDebugShowArgs'] = __('Show arguments');
 $js_messages['strConsoleDebugHideArgs'] = __('Hide arguments');
 $js_messages['strConsoleDebugTimeTaken'] = __('Time taken:');
 $js_messages['strNoLocalStorage'] = __('There was a problem accessing your browser storage, some features may not work properly for you. It is likely that the browser doesn\'t support storage or the quota limit has been reached. In Firefox, corrupted storage can also cause such a problem, clearing your "Offline Website Data" might help. In Safari, such problem is commonly caused by "Private Mode Browsing".');
-// For modals in db_structure.php
+// For modals in /database/structure
 $js_messages['strCopyTablesTo'] = __('Copy tables to');
 $js_messages['strAddPrefix'] = __('Add table prefix');
 $js_messages['strReplacePrefix'] = __('Replace table with prefix');
@@ -761,6 +761,11 @@ $js_messages['strStrong'] = __('Strong');
 /* U2F errors */
 $js_messages['strU2FTimeout'] = __('Timed out waiting for security key activation.');
 $js_messages['strU2FError'] = __('Failed security key activation (%s).');
+
+/* Designer */
+$js_messages['strTableAlreadyExists'] = _pgettext('The table already exists in the designer and can not be added once more.', 'Table %s already exists!');
+$js_messages['strHide'] = __('Hide');
+$js_messages['strStructure'] = __('Structure');
 
 echo "var Messages = [];\n";
 foreach ($js_messages as $name => $js_message) {

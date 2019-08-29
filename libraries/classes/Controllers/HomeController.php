@@ -10,6 +10,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Charsets\Charset;
+use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
@@ -88,7 +90,7 @@ class HomeController extends AbstractController
             $hasServerSelection = $cfg['ServerDefault'] == 0
                 || (! $cfg['NavigationDisplayServers']
                 && (count($cfg['Servers']) > 1
-                || ($server == 0 && count($cfg['Servers']) == 1)));
+                || ($server == 0 && count($cfg['Servers']) === 1)));
             if ($hasServerSelection) {
                 $serverSelection = Select::render(true, true);
             }
@@ -105,7 +107,7 @@ class HomeController extends AbstractController
                         'id' => 'li_change_password',
                         'class' => 'no_bullets',
                         'url' => [
-                            'href' => 'user_password.php' . Url::getCommon(),
+                            'href' => Url::getFromRoute('/user_password'),
                             'target' => null,
                             'id' => 'change_password_anchor',
                             'class' => 'ajax',
@@ -114,15 +116,26 @@ class HomeController extends AbstractController
                     ]);
                 }
 
-                $serverCollation = Charsets::getCollationDropdownBox(
-                    $this->dbi,
-                    $cfg['Server']['DisableIS'],
-                    'collation_connection',
-                    'select_collation_connection',
-                    $collation_connection,
-                    true,
-                    true
-                );
+                $charsets = Charsets::getCharsets($this->dbi, $cfg['Server']['DisableIS']);
+                $collations = Charsets::getCollations($this->dbi, $cfg['Server']['DisableIS']);
+                $charsetsList = [];
+                /** @var Charset $charset */
+                foreach ($charsets as $charset) {
+                    $collationsList = [];
+                    /** @var Collation $collation */
+                    foreach ($collations[$charset->getName()] as $collation) {
+                        $collationsList[] = [
+                            'name' => $collation->getName(),
+                            'description' => $collation->getDescription(),
+                            'is_selected' => $collation_connection === $collation->getName(),
+                        ];
+                    }
+                    $charsetsList[] = [
+                        'name' => $charset->getName(),
+                        'description' => $charset->getDescription(),
+                        'collations' => $collationsList,
+                    ];
+                }
 
                 $userPreferences = $this->template->render('list/item', [
                     'content' => Util::getImage('b_tblops') . ' ' . __(
@@ -131,7 +144,7 @@ class HomeController extends AbstractController
                     'id' => 'li_user_preferences',
                     'class' => 'no_bullets',
                     'url' => [
-                        'href' => 'prefs_manage.php' . Url::getCommon(),
+                        'href' => Url::getFromRoute('/preferences/manage'),
                         'target' => null,
                         'id' => null,
                         'class' => null,
@@ -143,7 +156,7 @@ class HomeController extends AbstractController
 
         $languageSelector = '';
         if (empty($cfg['Lang']) && $languageManager->hasChoice()) {
-            $languageSelector = $languageManager->getSelectorDisplay();
+            $languageSelector = $languageManager->getSelectorDisplay($this->template);
         }
 
         $themeSelection = '';
@@ -167,12 +180,7 @@ class HomeController extends AbstractController
                 $hostInfo .= ')';
             }
 
-            $unicode = Charsets::$mysql_charset_map['utf-8'];
-            $charsets = Charsets::getMySQLCharsetsDescriptions(
-                $this->dbi,
-                $cfg['Server']['DisableIS']
-            );
-
+            $serverCharset = Charsets::getServerCharset($this->dbi, $cfg['Server']['DisableIS']);
             $databaseServer = [
                 'host' => $hostInfo,
                 'type' => Util::getServerType(),
@@ -180,7 +188,7 @@ class HomeController extends AbstractController
                 'version' => $this->dbi->getVersionString() . ' - ' . $this->dbi->getVersionComment(),
                 'protocol' => $this->dbi->getProtoInfo(),
                 'user' => $this->dbi->fetchValue('SELECT USER();'),
-                'charset' => $charsets[$unicode] . ' (' . $unicode . ')',
+                'charset' => $serverCharset->getDescription() . ' (' . $serverCharset->getName() . ')',
             ];
         }
 
@@ -205,7 +213,7 @@ class HomeController extends AbstractController
                 'id' => 'li_phpinfo',
                 'class' => null,
                 'url' => [
-                    'href' => 'phpinfo.php' . Url::getCommon(),
+                    'href' => Url::getFromRoute('/phpinfo'),
                     'target' => '_blank',
                     'id' => null,
                     'class' => null,
@@ -233,7 +241,7 @@ class HomeController extends AbstractController
                         );
                 }
                 $messageInstance = Message::notice($messageText);
-                $messageInstance->addParamHtml('<a href="./chk_rel.php" data-post="' . Url::getCommon() . '">');
+                $messageInstance->addParamHtml('<a href="' . Url::getFromRoute('/check_relations') . '" data-post="' . Url::getCommon() . '">');
                 $messageInstance->addParamHtml('</a>');
                 /* Show error if user has configured something, notice elsewhere */
                 if (! empty($cfg['Servers'][$server]['pmadb'])) {
@@ -256,7 +264,7 @@ class HomeController extends AbstractController
             'has_server_selection' => $hasServerSelection ?? false,
             'server_selection' => $serverSelection ?? '',
             'change_password' => $changePassword ?? '',
-            'server_collation' => $serverCollation ?? '',
+            'charsets' => $charsetsList ?? [],
             'language_selector' => $languageSelector,
             'theme_selection' => $themeSelection,
             'user_preferences' => $userPreferences ?? '',
@@ -394,9 +402,10 @@ class HomeController extends AbstractController
         /**
          * Warning if using the default MySQL controluser account
          */
-        if ($server != 0
-            && isset($cfg['Server']['controluser']) && $cfg['Server']['controluser'] == 'pma'
-            && isset($cfg['Server']['controlpass']) && $cfg['Server']['controlpass'] == 'pmapass'
+        if (isset($cfg['Server']['controluser'], $cfg['Server']['controlpass'])
+            && $server != 0
+            && $cfg['Server']['controluser'] == 'pma'
+            && $cfg['Server']['controlpass'] == 'pmapass'
         ) {
             trigger_error(
                 __(
@@ -468,7 +477,7 @@ class HomeController extends AbstractController
         }
 
         /* Missing template cache */
-        if (is_null($this->config->getTempDir('twig'))) {
+        if ($this->config->getTempDir('twig') === null) {
             trigger_error(
                 sprintf(
                     __(

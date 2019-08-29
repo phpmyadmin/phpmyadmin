@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
+use PhpMyAdmin\Url;
 use stdClass;
 
 /**
@@ -82,7 +83,7 @@ abstract class ImageUploadTransformationsPlugin extends IOTransformationsPlugin
                 . '" value="' . bin2hex($value) . '">';
             $html .= '<input type="hidden" name="fields' . $column_name_appendix
                 . '" value="' . bin2hex($value) . '">';
-            $src = 'transformation_wrapper.php' . $options['wrapper_link'];
+            $src = Url::getFromRoute('/transformation/wrapper', $options['wrapper_params']);
         }
         $html .= '<img src="' . $src . '" width="'
             . (isset($options[0]) ? intval($options[0]) : '100') . '" height="'

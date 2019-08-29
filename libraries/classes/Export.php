@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Plugins\ExportPlugin;
+use PhpMyAdmin\Plugins\SchemaPlugin;
 
 /**
  * PhpMyAdmin\Export class
@@ -156,7 +157,7 @@ class Export
                 );
             }
             if ($GLOBALS['save_on_server'] && mb_strlen($line) > 0) {
-                if (! is_null($GLOBALS['file_handle'])) {
+                if ($GLOBALS['file_handle'] !== null) {
                     $write_result = @fwrite($GLOBALS['file_handle'], $line);
                 } else {
                     $write_result = false;
@@ -498,11 +499,11 @@ class Export
          */
         $back_button = '<p id="export_back_button">[ <a href="';
         if ($export_type == 'server') {
-            $back_button .= 'server_export.php" data-post="' . Url::getCommon([], '');
+            $back_button .= Url::getFromRoute('/server/export') . '" data-post="' . Url::getCommon([], '');
         } elseif ($export_type == 'database') {
-            $back_button .= 'db_export.php" data-post="' . Url::getCommon(['db' => $db], '');
+            $back_button .= Url::getFromRoute('/database/export') . '" data-post="' . Url::getCommon(['db' => $db], '');
         } else {
-            $back_button .= 'tbl_export.php" data-post="' . Url::getCommon(
+            $back_button .= Url::getFromRoute('/table/export') . '" data-post="' . Url::getCommon(
                 [
                     'db' => $db,
                     'table' => $table,
@@ -530,7 +531,7 @@ class Export
         $back_button .= '&amp;repopulate=1">' . __('Back') . '</a> ]</p>';
         $html .= '<br>';
         $html .= $back_button;
-        $refreshButton = '<form id="export_refresh_form" method="POST" action="export.php" class="disableAjax">';
+        $refreshButton = '<form id="export_refresh_form" method="POST" action="' . Url::getFromRoute('/export') . '" class="disableAjax">';
         $refreshButton .= '[ <a class="disableAjax" onclick="$(this).parent().submit()">' . __('Refresh') . '</a> ]';
         foreach ($_POST as $name => $value) {
             if (is_array($value)) {
@@ -588,7 +589,7 @@ class Export
         string $separate_files
     ): void {
         if (! empty($db_select)) {
-            $tmp_select = implode($db_select, '|');
+            $tmp_select = implode('|', $db_select);
             $tmp_select = '|' . $tmp_select . '|';
         }
         // Walk over databases
@@ -1050,14 +1051,14 @@ class Export
     {
         global $cfg;
         if ($export_type == 'server') {
-            $active_page = 'server_export.php';
-            include_once ROOT_PATH . 'server_export.php';
+            $active_page = Url::getFromRoute('/server/export');
+            include_once ROOT_PATH . 'libraries/entry_points/server/export.php';
         } elseif ($export_type == 'database') {
-            $active_page = 'db_export.php';
-            include_once ROOT_PATH . 'db_export.php';
+            $active_page = Url::getFromRoute('/database/export');
+            include_once ROOT_PATH . 'libraries/entry_points/database/export.php';
         } else {
-            $active_page = 'tbl_export.php';
-            include_once ROOT_PATH . 'tbl_export.php';
+            $active_page = Url::getFromRoute('/table/export');
+            include_once ROOT_PATH . 'libraries/entry_points/table/export.php';
         }
         exit;
     }
@@ -1206,7 +1207,7 @@ class Export
         $export_type = Core::securePath($export_type);
 
         // get the specific plugin
-        /** @var \PhpMyAdmin\Plugins\SchemaPlugin $export_plugin */
+        /** @var SchemaPlugin $export_plugin */
         $export_plugin = Plugins::getPlugin(
             "schema",
             $export_type,
@@ -1214,11 +1215,11 @@ class Export
         );
 
         // Check schema export type
-        if (is_null($export_plugin) || ! is_object($export_plugin)) {
+        if ($export_plugin === null || ! is_object($export_plugin)) {
             Core::fatalError(__('Bad type!'));
         }
 
-        $this->dbi->selectDb($GLOBALS['db']);
-        $export_plugin->exportSchema($GLOBALS['db']);
+        $this->dbi->selectDb($_POST['db']);
+        $export_plugin->exportSchema($_POST['db']);
     }
 }

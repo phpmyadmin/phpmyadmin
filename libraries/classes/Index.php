@@ -646,7 +646,7 @@ class Index
             $GLOBALS['db']
         );
         $html_output .= '<fieldset class="tblFooters print_ignore" style="text-align: '
-            . 'left;"><form action="tbl_indexes.php" method="post">';
+            . 'left;"><form action="' . Url::getFromRoute('/table/indexes') . '" method="post">';
         $html_output .= Url::getHiddenInputs(
             $GLOBALS['db'],
             $GLOBALS['table']
@@ -738,7 +738,7 @@ class Index
                 $r .= '" ' . $row_span . '>'
                    . '    <a class="';
                 $r .= 'ajax';
-                $r .= '" href="tbl_indexes.php" data-post="' . Url::getCommon($this_params, '')
+                $r .= '" href="' . Url::getFromRoute('/table/indexes') . '" data-post="' . Url::getCommon($this_params, '')
                    . '">' . Util::getIcon('b_edit', __('Edit')) . '</a>'
                    . '</td>' . "\n";
                 $this_params = $GLOBALS['url_params'];
@@ -764,7 +764,7 @@ class Index
                 $r .= '<input type="hidden" class="drop_primary_key_index_msg"'
                     . ' value="' . $js_msg . '">';
                 $r .= Util::linkOrButton(
-                    'sql.php' . Url::getCommon($this_params),
+                    Url::getFromRoute('/sql', $this_params),
                     Util::getIcon('b_drop', __('Drop')),
                     ['class' => 'drop_primary_key_index_anchor ajax']
                 );

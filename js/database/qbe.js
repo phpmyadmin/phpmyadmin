@@ -10,7 +10,7 @@
  */
 
 /**
- * Ajax event handlers here for db_qbe.php
+ * Ajax event handlers here for /database/qbe
  *
  * Actions Ajaxified here:
  * Select saved search
@@ -45,7 +45,7 @@ AJAX.registerOnload('database/qbe.js', function () {
      */
     $(document).on('change', '#searchId', function () {
         $('#action').val('load');
-        $('#formQBE').submit();
+        $('#formQBE').trigger('submit');
     });
 
     /**

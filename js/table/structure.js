@@ -13,7 +13,7 @@
 /* global sprintf */ // js/vendor/sprintf.js
 
 /**
- * AJAX scripts for tbl_structure.php
+ * AJAX scripts for /table/structure
  *
  * Actions ajaxified here:
  * Drop Column
@@ -222,7 +222,7 @@ AJAX.registerOnload('table/structure.js', function () {
                     if (data.tableStat) {
                         $('#tablestatistics').html(data.tableStat);
                     }
-                    // refresh the list of indexes (comes from sql.php)
+                    // refresh the list of indexes (comes from /sql)
                     $('.index_info').replaceWith(data.indexes_list);
                     Navigation.reload();
                 } else {

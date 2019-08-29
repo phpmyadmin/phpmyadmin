@@ -10,8 +10,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Theme;
 use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Theme;
 
 /**
  * Test for Message class
@@ -21,7 +21,7 @@ use PhpMyAdmin\Tests\PmaTestCase;
 class MessageTest extends PmaTestCase
 {
     /**
-     * @var    \PhpMyAdmin\Message
+     * @var Message
      * @access protected
      */
     protected $object;

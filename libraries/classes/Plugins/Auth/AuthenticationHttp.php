@@ -11,11 +11,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Auth;
 
-use PhpMyAdmin\Plugins\AuthenticationPlugin;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Plugins\AuthenticationPlugin;
+use PhpMyAdmin\Response;
 
 /**
  * Handles the HTTP authentication methods
@@ -146,13 +146,12 @@ class AuthenticationHttp extends AuthenticationPlugin
             }
         }
         // Sanitize empty password login
-        if (is_null($this->password)) {
+        if ($this->password === null) {
             $this->password = '';
         }
 
         // Avoid showing the password in phpinfo()'s output
-        unset($GLOBALS['PHP_AUTH_PW']);
-        unset($_SERVER['PHP_AUTH_PW']);
+        unset($GLOBALS['PHP_AUTH_PW'], $_SERVER['PHP_AUTH_PW']);
 
         // Decode possibly encoded information (used by IIS/CGI/FastCGI)
         // (do not use explode() because a user might have a colon in his password
@@ -209,6 +208,6 @@ class AuthenticationHttp extends AuthenticationPlugin
      */
     public function getLoginFormURL()
     {
-        return './index.php?old_usr=' . $this->user;
+        return './index.php?route=/&old_usr=' . $this->user;
     }
 }

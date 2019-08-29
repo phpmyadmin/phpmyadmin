@@ -15,6 +15,7 @@ use PhpMyAdmin\Footer;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Plugins\Auth\AuthenticationCookie;
 use PhpMyAdmin\Tests\PmaTestCase;
+use ReflectionException;
 use ReflectionMethod;
 
 require_once ROOT_PATH . 'libraries/config.default.php';
@@ -167,17 +168,13 @@ class AuthenticationCookieTest extends PmaTestCase
 
         $mockErrorHandler = $this->getMockBuilder('PhpMyAdmin\ErrorHandler')
             ->disableOriginalConstructor()
-            ->setMethods(['hasDisplayErrors', 'dispErrors'])
+            ->setMethods(['hasDisplayErrors'])
             ->getMock();
 
         $mockErrorHandler->expects($this->once())
             ->method('hasDisplayErrors')
             ->with()
             ->will($this->returnValue(true));
-
-        $mockErrorHandler->expects($this->once())
-            ->method('dispErrors')
-            ->with();
 
         $GLOBALS['error_handler'] = $mockErrorHandler;
     }
@@ -190,8 +187,6 @@ class AuthenticationCookieTest extends PmaTestCase
      */
     public function testAuthError()
     {
-        $this->getAuthErrorMockResponse();
-
         $_REQUEST['old_usr'] = '';
         $GLOBALS['cfg']['LoginCookieRecall'] = true;
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
@@ -203,9 +198,10 @@ class AuthenticationCookieTest extends PmaTestCase
         $GLOBALS['cfg']['AllowArbitraryServer'] = true;
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
-        $GLOBALS['target'] = 'testTarget';
         $GLOBALS['db'] = 'testDb';
         $GLOBALS['table'] = 'testTable';
+        $GLOBALS['cfg']['Servers'] = [1, 2];
+        $GLOBALS['error_handler'] = new ErrorHandler();
 
         ob_start();
         $this->object->showLoginForm();
@@ -224,8 +220,8 @@ class AuthenticationCookieTest extends PmaTestCase
         );
 
         $this->assertStringContainsString(
-            '<form method="post" id="login_form" action="index.php" name="login_form" ' .
-            'class="disableAjax hide login js-show">',
+            '<form method="post" id="login_form" action="index.php?route=/" name="login_form" ' .
+            'class="disableAjax hide login js-show form-horizontal">',
             $result
         );
 
@@ -237,25 +233,20 @@ class AuthenticationCookieTest extends PmaTestCase
 
         $this->assertStringContainsString(
             '<input type="text" name="pma_username" id="input_username" ' .
-            'value="pmauser" size="24" class="textfield">',
+            'value="pmauser" size="24" class="textfield form-control">',
             $result
         );
 
         $this->assertStringContainsString(
             '<input type="password" name="pma_password" id="input_password" ' .
-            'value="" size="24" class="textfield">',
+            'value="" size="24" class="textfield form-control">',
             $result
         );
 
         $this->assertStringContainsString(
             '<select name="server" id="select_server" ' .
             'onchange="document.forms[\'login_form\'].' .
-            'elements[\'pma_servername\'].value = \'\'" >',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '<input type="hidden" name="target" value="testTarget">',
+            'elements[\'pma_servername\'].value = \'\'">',
             $result
         );
 
@@ -320,15 +311,15 @@ class AuthenticationCookieTest extends PmaTestCase
         $loc = LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo';
         if (is_readable($loc)) {
             $this->assertStringContainsString(
-                '<select name="lang" class="autosubmit" lang="en" dir="ltr" ' .
+                '<select name="lang" class="autosubmit form-control" lang="en" dir="ltr" ' .
                 'id="sel-lang">',
                 $result
             );
         }
 
         $this->assertStringContainsString(
-            '<form method="post" id="login_form" action="index.php" name="login_form" ' .
-            'autocomplete="off" class="disableAjax hide login js-show">',
+            '<form method="post" id="login_form" action="index.php?route=/" name="login_form"' .
+            ' class="disableAjax hide login js-show form-horizontal" autocomplete="off">',
             $result
         );
 
@@ -386,7 +377,7 @@ class AuthenticationCookieTest extends PmaTestCase
 
         $_COOKIE['pmaAuth-2'] = '';
 
-        $this->mockResponse('Location: /phpmyadmin/index.php?server=2&lang=en');
+        $this->mockResponse('Location: /phpmyadmin/index.php?route=/&server=2&lang=en');
 
         $this->object->logOut();
     }
@@ -420,7 +411,7 @@ class AuthenticationCookieTest extends PmaTestCase
      */
     public function testLogoutDelete()
     {
-        $this->mockResponse('Location: /phpmyadmin/index.php');
+        $this->mockResponse('Location: /phpmyadmin/index.php?route=/');
 
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
@@ -445,7 +436,7 @@ class AuthenticationCookieTest extends PmaTestCase
      */
     public function testLogout()
     {
-        $this->mockResponse('Location: /phpmyadmin/index.php');
+        $this->mockResponse('Location: /phpmyadmin/index.php?route=/');
 
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
@@ -678,7 +669,7 @@ class AuthenticationCookieTest extends PmaTestCase
             'port' => 1,
             'socket' => true,
             'ssl' => true,
-            'user' => 'pmaUser2'
+            'user' => 'pmaUser2',
         ];
 
         $GLOBALS['cfg']['Server'] = $arr;
@@ -727,7 +718,7 @@ class AuthenticationCookieTest extends PmaTestCase
             'port' => 1,
             'socket' => true,
             'ssl' => true,
-            'user' => 'pmaUser2'
+            'user' => 'pmaUser2',
         ];
 
         $GLOBALS['cfg']['Server'] = $arr;
@@ -1092,7 +1083,7 @@ class AuthenticationCookieTest extends PmaTestCase
     }
 
     /**
-     * @throws \ReflectionException
+     * @throws ReflectionException
      *
      * @return void
      */
@@ -1108,7 +1099,7 @@ class AuthenticationCookieTest extends PmaTestCase
 
         $payload = [
             'password' => $newPassword,
-            'server' => 'b 2'
+            'server' => 'b 2',
         ];
         $method = new ReflectionMethod(
             'PhpMyAdmin\Plugins\Auth\AuthenticationCookie',

@@ -32,7 +32,7 @@ class FormController extends AbstractController
 
         /** @var BaseForm $formClass */
         $formClass = SetupFormList::get($formset);
-        if (is_null($formClass)) {
+        if ($formClass === null) {
             Core::fatalError(__('Incorrect form specified!'));
         }
 

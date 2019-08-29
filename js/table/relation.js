@@ -1,7 +1,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * for tbl_relation.php
- *
+ * for table relation
  */
 
 var TableRelation = {};
@@ -89,7 +88,7 @@ TableRelation.getDropdownValues = function ($dropdown) {
     }
     $.ajax({
         type: 'POST',
-        url: 'tbl_relation.php',
+        url: 'index.php?route=/table/relation',
         data: params,
         dataType: 'json',
         success: function (data) {

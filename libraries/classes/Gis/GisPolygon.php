@@ -39,8 +39,7 @@ class GisPolygon extends GisGeometry
     public static function singleton()
     {
         if (! isset(self::$_instance)) {
-            $class = __CLASS__;
-            self::$_instance = new $class;
+            self::$_instance = new GisPolygon();
         }
 
         return self::$_instance;
@@ -128,7 +127,7 @@ class GisPolygon extends GisGeometry
         }
 
         // draw polygon
-        imagefilledpolygon($image, $points_arr, sizeof($points_arr) / 2, $color);
+        imagefilledpolygon($image, $points_arr, count($points_arr) / 2, $color);
         // print label if applicable
         if (isset($label) && trim($label) != '') {
             imagestring(

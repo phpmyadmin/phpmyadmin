@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
@@ -27,27 +28,37 @@ class NodeColumnContainer extends Node
         parent::__construct(__('Columns'), Node::CONTAINER);
         $this->icon = Util::getImage('pause', __('Columns'));
         $this->links = [
-            'text' => 'tbl_structure.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;table=%1$s',
-            'icon' => 'tbl_structure.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;table=%1$s',
+            'text' => Url::getFromRoute('/table/structure', [
+                'server' => $GLOBALS['server'],
+                'db' => '%2\$s',
+                'table' => '%1\$s',
+            ]),
+            'icon' => Url::getFromRoute('/table/structure', [
+                'server' => $GLOBALS['server'],
+                'db' => '%2\$s',
+                'table' => '%1\$s',
+            ]),
         ];
-        $this->real_name = 'columns';
+        $this->realName = 'columns';
 
-        $new_label = _pgettext('Create new column', 'New');
+        $newLabel = _pgettext('Create new column', 'New');
         $new = NodeFactory::getInstance(
             'Node',
-            $new_label
+            $newLabel
         );
         $new->isNew = true;
-        $new->icon = Util::getImage('b_column_add', $new_label);
+        $new->icon = Util::getImage('b_column_add', $newLabel);
         $new->links = [
-            'text' => 'tbl_addfield.php?server=' . $GLOBALS['server']
-                . '&amp;db=%3$s&amp;table=%2$s'
-                . '&amp;field_where=last&after_field=',
-            'icon' => 'tbl_addfield.php?server=' . $GLOBALS['server']
-                . '&amp;db=%3$s&amp;table=%2$s'
-                . '&amp;field_where=last&after_field=',
+            'text' => Url::getFromRoute('/table/addfield', [
+                'server' => $GLOBALS['server'],
+                'field_where' => 'last',
+                'after_field' => '',
+            ]) . '&amp;db=%3$s&amp;table=%2$s',
+            'icon' => Url::getFromRoute('/table/addfield', [
+                'server' => $GLOBALS['server'],
+                'field_where' => 'last',
+                'after_field' => '',
+            ]) . '&amp;db=%3$s&amp;table=%2$s',
         ];
         $new->classes = 'new_column italics';
         $this->addChild($new);

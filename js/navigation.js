@@ -220,7 +220,7 @@ Navigation.collapseTreeNode = function ($expandElem) {
             $children.slideUp('fast');
         }
     }
-    $expandElem.blur();
+    $expandElem.trigger('blur');
     $children.promise().done(Navigation.treeStateUpdate);
 };
 
@@ -720,7 +720,7 @@ Navigation.expandTreeNode = function ($expandElem, callback) {
             $children.promise().done(Navigation.treeStateUpdate);
         });
     }
-    $expandElem.blur();
+    $expandElem.trigger('blur');
 };
 
 /**
@@ -1076,7 +1076,7 @@ Navigation.treePagination = function ($this) {
         url = $this.attr('href');
         params = 'ajax_request=true';
     } else { // tagName === 'SELECT'
-        url = 'navigation.php';
+        url = 'index.php?route=/navigation';
         params = $this.closest('form').serialize() + CommonParams.get('arg_separator') + 'ajax_request=true';
     }
     var searchClause = Navigation.FastFilter.getSearchClause();
@@ -1164,7 +1164,7 @@ Navigation.ResizeHandler = function () {
         var windowWidth = $(window).width();
         $('#pma_navigation').width(pos);
         $('body').css('margin-' + this.left, pos + 'px');
-        $('#floating_menubar, #pma_console')
+        $('#pma_console')
             .css('margin-' + this.left, (pos + resizerWidth) + 'px');
         $resizer.css(this.left, pos + 'px');
         if (pos === 0) {
@@ -1448,7 +1448,7 @@ Navigation.FastFilter = {
             if ($(this).val() === this.defaultValue) {
                 $(this).val('');
             } else {
-                $(this).select();
+                $(this).trigger('select');
             }
         },
         blur: function () {
@@ -1647,7 +1647,7 @@ Navigation.FastFilter.Filter.prototype.restore = function (focus) {
         this.$this.html(this.$clone.html()).children().show();
         this.$this.data('fastFilter', this);
         if (focus) {
-            this.$this.find('li.fast_filter input.searchClause').focus();
+            this.$this.find('li.fast_filter input.searchClause').trigger('focus');
         }
     }
     this.searchClause = '';

@@ -82,7 +82,7 @@ class Tracker
 
         $pma_table = self::_getTrackingTable();
 
-        return ! is_null($pma_table);
+        return $pma_table !== null;
     }
 
     /**
@@ -188,7 +188,7 @@ class Tracker
         $tablename,
         $version,
         $tracking_set = '',
-        $is_view = false
+        bool $is_view = false
     ) {
         global $sql_backquotes, $export_type;
 
@@ -241,14 +241,14 @@ class Tracker
         $create_sql  = "";
 
         if ($GLOBALS['cfg']['Server']['tracking_add_drop_table'] == true
-            && $is_view == false
+            && $is_view === false
         ) {
             $create_sql .= self::getLogComment()
                 . 'DROP TABLE IF EXISTS ' . Util::backquote($tablename) . ";\n";
         }
 
         if ($GLOBALS['cfg']['Server']['tracking_add_drop_view'] == true
-            && $is_view == true
+            && $is_view === true
         ) {
             $create_sql .= self::getLogComment()
                 . 'DROP VIEW IF EXISTS ' . Util::backquote($tablename) . ";\n";
@@ -558,9 +558,19 @@ class Tracker
                 . $GLOBALS['dbi']->escapeString($tablename) . "' ";
         }
         $sql_query .= " AND `version` = '" . $GLOBALS['dbi']->escapeString($version)
-            . "' " . " ORDER BY `version` DESC LIMIT 1";
+            . "' ORDER BY `version` DESC LIMIT 1";
 
         $mixed = $GLOBALS['dbi']->fetchAssoc($relation->queryAsControlUser($sql_query));
+
+        // PHP 7.4 fix for accessing array offset on null
+        if (! is_array($mixed)) {
+            $mixed = [
+                'schema_sql' => null,
+                'data_sql' => null,
+                'tracking' => null,
+                'schema_snapshot' => null,
+            ];
+        }
 
         // Parse log
         $log_schema_entries = explode('# log ', (string) $mixed['schema_sql']);

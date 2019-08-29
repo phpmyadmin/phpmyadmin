@@ -129,7 +129,7 @@ class ExportSql extends ExportPlugin
             if (! empty($GLOBALS['cfgRelation']['mimework'])) {
                 $leaf = new BoolPropertyItem(
                     'mime',
-                    __('Display MIME types')
+                    __('Display media types')
                 );
                 $subgroup->addProperty($leaf);
             }
@@ -774,14 +774,12 @@ class ExportSql extends ExportPlugin
             // we are saving as file, therefore we provide charset information
             // so that a utility like the mysql client can interpret
             // the file correctly
-            if (isset($GLOBALS['charset'])
-                && isset(Charsets::$mysql_charset_map[$GLOBALS['charset']])
-            ) {
+            if (isset($GLOBALS['charset'], Charsets::$mysqlCharsetMap[$GLOBALS['charset']])) {
                 // we got a charset from the export dialog
-                $set_names = Charsets::$mysql_charset_map[$GLOBALS['charset']];
+                $set_names = Charsets::$mysqlCharsetMap[$GLOBALS['charset']];
             } else {
                 // by default we use the connection charset
-                $set_names = Charsets::$mysql_charset_map['utf-8'];
+                $set_names = Charsets::$mysqlCharsetMap['utf-8'];
             }
             if ($set_names == 'utf8' && $GLOBALS['dbi']->getVersion() > 50503) {
                 $set_names = 'utf8mb4';
@@ -1063,9 +1061,9 @@ class ExportSql extends ExportPlugin
     /**
      * Exports metadata from Configuration Storage
      *
-     * @param string $db            database being exported
-     * @param string $table         table being exported
-     * @param array  $metadataTypes types of metadata to export
+     * @param string      $db            database being exported
+     * @param string|null $table         table being exported
+     * @param array       $metadataTypes types of metadata to export
      *
      * @return bool Whether it succeeded
      */
@@ -1560,7 +1558,7 @@ class ExportSql extends ExportPlugin
                 );
 
                 // exclude definition of current user
-                if ($GLOBALS['sql_view_current_user']) {
+                if (isset($GLOBALS['sql_view_current_user'])) {
                     $create_query = preg_replace(
                         '/(^|\s)DEFINER=([\S]+)/',
                         '',
@@ -1569,7 +1567,7 @@ class ExportSql extends ExportPlugin
                 }
 
                 // whether to replace existing view or not
-                if ($GLOBALS['sql_or_replace_view']) {
+                if (isset($GLOBALS['sql_or_replace_view'])) {
                     $create_query = preg_replace(
                         '/^CREATE/',
                         'CREATE OR REPLACE',
@@ -1704,7 +1702,7 @@ class ExportSql extends ExportPlugin
                         // Creating the parts that add indexes (must not be
                         // constraints).
                         if ($field->key->type === 'FULLTEXT KEY') {
-                            $indexes_fulltext[] = $field->build($field);
+                            $indexes_fulltext[] = $field::build($field);
                             unset($statement->fields[$key]);
                         } else {
                             if (empty($GLOBALS['sql_if_not_exists'])) {
@@ -1908,7 +1906,7 @@ class ExportSql extends ExportPlugin
             $schema_create .= $this->_possibleCRLF()
                 . $this->_exportComment()
                 . $this->_exportComment(
-                    __('MIME TYPES FOR TABLE') . ' '
+                    __('MEDIA TYPES FOR TABLE') . ' '
                     . Util::backquote($table, $sql_backquotes) . ':'
                 );
             foreach ($mime_map as $mime_field => $mime) {
@@ -2011,7 +2009,7 @@ class ExportSql extends ExportPlugin
      * @param bool   $comments    whether to include the pmadb-style column
      *                            comments as comments in the structure; this is
      *                            deprecated but the parameter is left here
-     *                            because export.php calls exportStructure()
+     *                            because /export calls exportStructure()
      *                            also for other export types which use this
      *                            parameter
      * @param bool   $mime        whether to include mime comments
@@ -2237,7 +2235,7 @@ class ExportSql extends ExportPlugin
         ) {
             $head = $this->_possibleCRLF()
                 . $this->_exportComment()
-                . $this->_exportComment('VIEW ' . ' ' . $formatted_table_name)
+                . $this->_exportComment('VIEW ' . $formatted_table_name)
                 . $this->_exportComment(__('Data:') . ' ' . __('None'))
                 . $this->_exportComment()
                 . $this->_possibleCRLF();
@@ -2323,10 +2321,7 @@ class ExportSql extends ExportPlugin
             }
 
             // insert ignore?
-            if (isset($GLOBALS['sql_type'])
-                && $GLOBALS['sql_type'] == 'INSERT'
-                && isset($GLOBALS['sql_ignore'])
-            ) {
+            if (isset($GLOBALS['sql_type'], $GLOBALS['sql_ignore']) && $GLOBALS['sql_type'] == 'INSERT') {
                 $insert_delayed .= ' IGNORE';
             }
             //truncate table before insert
@@ -2426,7 +2421,7 @@ class ExportSql extends ExportPlugin
             $values = [];
             for ($j = 0; $j < $fields_cnt; $j++) {
                 // NULL
-                if (! isset($row[$j]) || is_null($row[$j])) {
+                if (! isset($row[$j]) || $row[$j] === null) {
                     $values[] = 'NULL';
                 } elseif ($fields_meta[$j]->numeric
                     && $fields_meta[$j]->type != 'timestamp'
@@ -2767,7 +2762,7 @@ class ExportSql extends ExportPlugin
                 $flag = true;
             }
 
-            /** @var \PhpMyAdmin\SqlParser\Components\CreateDefinition $field */
+            /** @var CreateDefinition $field */
             foreach ($statement->fields as $field) {
                 // Column name.
                 if (! empty($field->type)) {

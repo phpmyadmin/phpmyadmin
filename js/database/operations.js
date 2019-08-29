@@ -10,7 +10,7 @@
  */
 
 /**
- * Ajax event handlers here for db_operations.php
+ * Ajax event handlers here for /database/operations
  *
  * Actions Ajaxified here:
  * Rename Database
@@ -153,7 +153,7 @@ AJAX.registerOnload('database/operations.js', function () {
                     Navigation.reload();
                     CommonParams.set('db', '');
                     CommonActions.refreshMain(
-                        'server_databases.php',
+                        'index.php?route=/server/databases',
                         function () {
                             Functions.ajaxShowMessage(data.message);
                         }

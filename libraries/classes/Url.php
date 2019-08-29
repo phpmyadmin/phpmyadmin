@@ -217,7 +217,7 @@ class Url
 
         $query = http_build_query($params, '', $separator);
 
-        if ($divider != '?' || strlen($query) > 0) {
+        if (($divider !== '?' && $divider !== '&') || strlen($query) > 0) {
             return $divider . $query;
         }
 
@@ -250,7 +250,7 @@ class Url
             if (mb_strpos($arg_separator, ';') !== false) {
                 $separator = ';';
             } elseif (strlen($arg_separator) > 0) {
-                $separator = $arg_separator{0};
+                $separator = $arg_separator[0];
             } else {
                 $separator = '&';
             }
@@ -265,5 +265,15 @@ class Url
             default:
                 return $separator;
         }
+    }
+
+    /**
+     * @param string $route                Route to use
+     * @param array  $additionalParameters Additional URL parameters
+     * @return string
+     */
+    public static function getFromRoute(string $route, array $additionalParameters = []): string
+    {
+        return 'index.php?route=' . $route . self::getCommon($additionalParameters, '&');
     }
 }

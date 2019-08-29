@@ -79,6 +79,11 @@ class Footer
     {
         $message = '<a href="/">' . __('phpMyAdmin Demo Server') . '</a>: ';
         if (@file_exists(ROOT_PATH . 'revision-info.php')) {
+            $revision = '';
+            $fullrevision = '';
+            $repobase = '';
+            $repobranchbase = '';
+            $branch = '';
             include ROOT_PATH . 'revision-info.php';
             $message .= sprintf(
                 __('Currently running Git revision %1$s from the %2$s branch.'),
@@ -150,15 +155,20 @@ class Footer
      */
     public function getSelfUrl(): string
     {
-        $db = isset($GLOBALS['db']) && strlen($GLOBALS['db']) ? $GLOBALS['db'] : '';
-        $table = isset($GLOBALS['table']) && strlen($GLOBALS['table']) ? $GLOBALS['table'] : '';
-        $target = isset($_REQUEST['target']) && strlen($_REQUEST['target']) ? $_REQUEST['target'] : '';
-        $params = [
-            'db' => $db,
-            'table' => $table,
-            'server' => $GLOBALS['server'],
-            'target' => $target,
-        ];
+        global $route, $db, $table, $server;
+
+        $params = [];
+        if (isset($route)) {
+            $params['route'] = $route;
+        }
+        if (isset($db) && strlen($db) > 0) {
+            $params['db'] = $db;
+        }
+        if (isset($table) && strlen($table) > 0) {
+            $params['table'] = $table;
+        }
+        $params['server'] = $server;
+
         // needed for server privileges tabs
         if (isset($_GET['viewing_mode'])
             && in_array($_GET['viewing_mode'], ['server', 'db', 'table'])
@@ -166,7 +176,7 @@ class Footer
             $params['viewing_mode'] = $_GET['viewing_mode'];
         }
         /*
-         * @todo    coming from server_privileges.php, here $db is not set,
+         * @todo    coming from /server/privileges, here $db is not set,
          *          add the following condition below when that is fixed
          *          && $_GET['checkprivsdb'] == $db
          */
@@ -175,7 +185,7 @@ class Footer
             $params['checkprivsdb'] = $_GET['checkprivsdb'];
         }
         /*
-         * @todo    coming from server_privileges.php, here $table is not set,
+         * @todo    coming from /server/privileges, here $table is not set,
          *          add the following condition below when that is fixed
          *          && $_REQUEST['checkprivstable'] == $table
          */

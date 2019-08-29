@@ -130,7 +130,7 @@ class ProcessesControllerTest extends TestCase
         );
         // Test tab links
         $this->assertStringContainsString(
-            '<div class="tabLinks">',
+            '<div class="tabLinks row">',
             $html
         );
         $this->assertStringContainsString(
@@ -172,7 +172,7 @@ class ProcessesControllerTest extends TestCase
             $html
         );
         $this->assertStringContainsString(
-            'server_status_processes.php',
+            'index.php?route=/server/status/processes',
             $html
         );
 
@@ -228,7 +228,7 @@ class ProcessesControllerTest extends TestCase
             'Command' => 'Command1',
             'Info' => 'Info1',
             'State' => 'State1',
-            'Time' => 'Time1'
+            'Time' => 'Time1',
         ];
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 12;
         $GLOBALS['dbi']->expects($this->any())->method('fetchAssoc')
@@ -249,7 +249,11 @@ class ProcessesControllerTest extends TestCase
             'sort_order' => 'DESC',
         ]);
 
-        $killProcess = 'href="server_status_processes.php" data-post="'
+        $this->assertStringContainsString(
+            'index.php?route=/server/status/processes',
+            $html
+        );
+        $killProcess = 'data-post="'
             . Url::getCommon(['kill' => $process['Id']], '') . '"';
         $this->assertStringContainsString(
             $killProcess,

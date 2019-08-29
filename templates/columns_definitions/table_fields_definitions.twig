@@ -68,11 +68,10 @@
 
         {% if mimework and browse_mime %}
             <th>
-                {% trans 'MIME type' %}
+                {% trans 'Media type' %}
             </th>
             <th>
-                <a href="transformation_overview.php
-                    {{- get_common() }}#transformation" title="
+                <a href="{{ url('/transformation/overview') }}#transformation" title="
                     {%- trans 'List of available transformations and their options' -%}
                     " target="_blank">
                     {% trans 'Browser display transformation' %}
@@ -83,7 +82,7 @@
                 {{ show_hint('Please enter the values for transformation options using this format: \'a\', 100, b,\'c\'…<br>If you ever need to put a backslash ("\\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'|trans) }}
             </th>
             <th>
-                <a href="transformation_overview.php{{ get_common() }}#input_transformation"
+                <a href="{{ url('/transformation/overview') }}#input_transformation"
                    title="{% trans 'List of available transformations and their options' %}"
                    target="_blank">
                     {% trans 'Input transformation' %}
@@ -114,8 +113,7 @@
                 'attribute_types': attribute_types,
                 'privs_available': privs_available,
                 'max_length': max_length,
-                'dbi': dbi,
-                'disable_is': disable_is
+                'charsets': charsets
             }) only %}
         </tr>
     {% endfor %}

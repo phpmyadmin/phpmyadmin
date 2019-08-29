@@ -16,6 +16,8 @@ use PhpMyAdmin\Plugins\SchemaPlugin;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Database\Designer\DesignerTable;
+use stdClass;
 
 /**
  * Set of functions related to database designer
@@ -240,24 +242,28 @@ class Designer
     /**
      * Get HTML to display tables on designer page
      *
-     * @param array $tab_pos                  tables positions
-     * @param int   $display_page             page number of the selected page
-     * @param array $tab_column               table column info
-     * @param array $tables_all_keys          all indices
-     * @param array $tables_pk_or_unique_keys unique or primary indices
+     * @param string          $db                       The database name from the request
+     * @param DesignerTable[] $designerTables           The designer tables
+     * @param array           $tab_pos                  tables positions
+     * @param int             $display_page             page number of the selected page
+     * @param array           $tab_column               table column info
+     * @param array           $tables_all_keys          all indices
+     * @param array           $tables_pk_or_unique_keys unique or primary indices
      *
      * @return string html
      */
     public function getDatabaseTables(
+        string $db,
+        array $designerTables,
         array $tab_pos,
         $display_page,
         array $tab_column,
         array $tables_all_keys,
         array $tables_pk_or_unique_keys
     ) {
-        $table_names = $GLOBALS['designer']['TABLE_NAME'];
         $columns_type = [];
-        foreach ($table_names as $table_name) {
+        foreach ($designerTables as $designerTable) {
+            $table_name = $designerTable->getDbTableString();
             $limit = count($tab_column[$table_name]['COLUMN_ID']);
             for ($j = 0; $j < $limit; $j++) {
                 $table_column_name = $table_name . '.' . $tab_column[$table_name]['COLUMN_NAME'][$j];
@@ -283,20 +289,14 @@ class Designer
         }
         return $this->template->render('database/designer/database_tables', [
             'db' => $GLOBALS['db'],
-            'get_db' => $_GET['db'],
+            'get_db' => $db,
             'has_query' => isset($_REQUEST['query']),
             'tab_pos' => $tab_pos,
             'display_page' => $display_page,
             'tab_column' => $tab_column,
             'tables_all_keys' => $tables_all_keys,
             'tables_pk_or_unique_keys' => $tables_pk_or_unique_keys,
-            'table_names' => $table_names,
-            'table_names_url' => $GLOBALS['designer_url']['TABLE_NAME'],
-            'table_names_small' => $GLOBALS['designer']['TABLE_NAME_SMALL'],
-            'table_names_small_url' => $GLOBALS['designer_url']['TABLE_NAME_SMALL'],
-            'table_names_small_out' => $GLOBALS['designer_out']['TABLE_NAME_SMALL'],
-            'table_types' => $GLOBALS['designer']['TABLE_TYPE'],
-            'owner_out' => $GLOBALS['designer_out']['OWNER'],
+            'tables' => $designerTables,
             'columns_type' => $columns_type,
             'theme' => $GLOBALS['PMA_Theme'],
         ]);
@@ -306,25 +306,27 @@ class Designer
     /**
      * Returns HTML for Designer page
      *
-     * @param string     $db                   database in use
-     * @param string     $getDb                database in url
-     * @param array      $scriptTables         array on foreign key support for each table
-     * @param array      $scriptContr          initialization data array
-     * @param array      $scriptDisplayField   display fields of each table
-     * @param int        $displayPage          page number of the selected page
-     * @param boolean    $hasQuery             whether this is visual query builder
-     * @param string     $selectedPage         name of the selected page
-     * @param array      $paramsArray          array with class name for various buttons on side menu
-     * @param array|null $tabPos               table positions
-     * @param array      $tabColumn            table column info
-     * @param array      $tablesAllKeys        all indices
-     * @param array      $tablesPkOrUniqueKeys unique or primary indices
+     * @param string          $db                   database in use
+     * @param string          $getDb                database in url
+     * @param DesignerTable[] $designerTables       The designer tables
+     * @param array           $scriptTables         array on foreign key support for each table
+     * @param array           $scriptContr          initialization data array
+     * @param array           $scriptDisplayField   display fields of each table
+     * @param int             $displayPage          page number of the selected page
+     * @param boolean         $hasQuery             whether this is visual query builder
+     * @param string          $selectedPage         name of the selected page
+     * @param array           $paramsArray          array with class name for various buttons on side menu
+     * @param array|null      $tabPos               table positions
+     * @param array           $tabColumn            table column info
+     * @param array           $tablesAllKeys        all indices
+     * @param array           $tablesPkOrUniqueKeys unique or primary indices
      *
      * @return string html
      */
     public function getHtmlForMain(
         string $db,
         string $getDb,
+        array $designerTables,
         array $scriptTables,
         array $scriptContr,
         array $scriptDisplayField,
@@ -338,9 +340,9 @@ class Designer
         array $tablesPkOrUniqueKeys
     ): string {
         $cfgRelation = $this->relation->getRelationsParam();
-        $tableNames = $GLOBALS['designer']['TABLE_NAME'];
         $columnsType = [];
-        foreach ($tableNames as $tableName) {
+        foreach ($designerTables as $designerTable) {
+            $tableName = $designerTable->getDbTableString();
             $limit = count($tabColumn[$tableName]['COLUMN_ID']);
             for ($j = 0; $j < $limit; $j++) {
                 $tableColumnName = $tableName . '.' . $tabColumn[$tableName]['COLUMN_NAME'][$j];
@@ -365,7 +367,7 @@ class Designer
             }
         }
 
-        $designerConfig = new \stdClass();
+        $designerConfig = new stdClass();
         $designerConfig->db = $db;
         $designerConfig->scriptTables = $scriptTables;
         $designerConfig->scriptContr = $scriptContr;
@@ -387,14 +389,7 @@ class Designer
             'tab_column' => $tabColumn,
             'tables_all_keys' => $tablesAllKeys,
             'tables_pk_or_unique_keys' => $tablesPkOrUniqueKeys,
-            'table_names' => $tableNames,
-            'table_names_url' => $GLOBALS['designer_url']['TABLE_NAME'],
-            'table_names_small' => $GLOBALS['designer']['TABLE_NAME_SMALL'],
-            'table_names_small_url' => $GLOBALS['designer_url']['TABLE_NAME_SMALL'],
-            'table_names_small_out' => $GLOBALS['designer_out']['TABLE_NAME_SMALL'],
-            'table_names_out' => $GLOBALS['designer_out']['TABLE_NAME'],
-            'table_types' => $GLOBALS['designer']['TABLE_TYPE'],
-            'owner_out' => $GLOBALS['designer_out']['OWNER'],
+            'designerTables' => $designerTables,
             'columns_type' => $columnsType,
         ]);
     }

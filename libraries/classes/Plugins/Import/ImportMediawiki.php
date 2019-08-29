@@ -95,6 +95,11 @@ class ImportMediawiki extends ImportPlugin
         // Initialize the name of the current table
         $cur_table_name = "";
 
+        $cur_temp_table_headers = [];
+        $cur_temp_table = [];
+
+        $in_table_header = false;
+
         while (! $finished && ! $error && ! $timeout_passed) {
             $data = $this->import->getNextChunk();
 
@@ -561,7 +566,7 @@ class ImportMediawiki extends ImportPlugin
             return $cell;
         }
 
-        if (count($cell_data) == 1) {
+        if (count($cell_data) === 1) {
             return $cell_data[0];
         }
 

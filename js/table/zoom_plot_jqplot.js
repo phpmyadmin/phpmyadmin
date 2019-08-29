@@ -1,7 +1,7 @@
 // TODO: change the axis
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- ** @fileoverview JavaScript functions used on tbl_select.php
+ ** @fileoverview JavaScript functions used on /table/search
  **
  ** @requires    jQuery
  ** @requires    js/functions.js
@@ -136,7 +136,7 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
     // first column choice corresponds to the X axis
     $('#tableid_0').on('change', function () {
         // AJAX request for field type, collation, operators, and value field
-        $.post('tbl_zoom_select.php', {
+        $.post('index.php?route=/table/zoom_select', {
             'ajax_request' : true,
             'change_tbl_info' : true,
             'server' : CommonParams.get('server'),
@@ -160,7 +160,7 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
     // second column choice corresponds to the Y axis
     $('#tableid_1').on('change', function () {
         // AJAX request for field type, collation, operators, and value field
-        $.post('tbl_zoom_select.php', {
+        $.post('index.php?route=/table/zoom_select', {
             'ajax_request' : true,
             'change_tbl_info' : true,
             'server' : CommonParams.get('server'),
@@ -183,7 +183,7 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
 
     $('#tableid_2').on('change', function () {
         // AJAX request for field type, collation, operators, and value field
-        $.post('tbl_zoom_select.php', {
+        $.post('index.php?route=/table/zoom_select', {
             'ajax_request' : true,
             'change_tbl_info' : true,
             'server' : CommonParams.get('server'),
@@ -204,7 +204,7 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
 
     $('#tableid_3').on('change', function () {
         // AJAX request for field type, collation, operators, and value field
-        $.post('tbl_zoom_select.php', {
+        $.post('index.php?route=/table/zoom_select', {
             'ajax_request' : true,
             'change_tbl_info' : true,
             'server' : CommonParams.get('server'),
@@ -375,8 +375,7 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
             sqlQuery = sqlQuery.substring(0, sqlQuery.length - 2);
             sqlQuery += ' WHERE ' + Sql.urlDecode(searchedData[searchedDataKey].where_clause);
 
-            // Post SQL query to sql.php
-            $.post('sql.php', {
+            $.post('index.php?route=/sql', {
                 'server' : CommonParams.get('server'),
                 'db' : CommonParams.get('db'),
                 'ajax_request' : true,
@@ -573,7 +572,7 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
                     'where_clause' : data[3]
                 };
 
-                $.post('tbl_zoom_select.php', postParams, function (data) {
+                $.post('index.php?route=/table/zoom_select', postParams, function (data) {
                     // Row is contained in data.row_info,
                     // now fill the displayResultForm with row values
                     var key;

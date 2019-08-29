@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\SqlQueryForm;
+use PhpMyAdmin\Url;
 
 /**
  * Table SQL executor
@@ -32,15 +33,18 @@ class SqlController extends AbstractController
 
         require ROOT_PATH . 'libraries/tbl_common.inc.php';
 
-        $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
-        $err_url = 'tbl_sql.php' . $err_url;
+        $err_url = Url::getFromRoute('/table/sql') . $err_url;
 
         /**
          * After a syntax error, we return to this script
          * with the typed query in the textarea.
          */
-        $goto = 'tbl_sql.php';
-        $back = 'tbl_sql.php';
+        $goto = Url::getFromRoute('/table/sql');
+        $back = Url::getFromRoute('/table/sql');
+        $url_query .= Url::getCommon([
+            'goto' => $goto,
+            'back' => $back,
+        ], '&');
 
         return $sqlQueryForm->getHtml(
             $params['sql_query'] ?? true,
