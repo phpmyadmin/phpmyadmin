@@ -543,7 +543,7 @@ class StructureController extends AbstractController
             $value = $this->dbi->getColumns(
                 $this->db,
                 $this->table,
-                $selected[$i],
+                $this->dbi->escapeString($selected[$i]),
                 true
             );
             if (count($value) === 0) {
