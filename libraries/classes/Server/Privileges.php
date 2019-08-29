@@ -737,130 +737,6 @@ class Privileges
                 . '</fieldset>' . "\n";
         }
         return $html_output;
-    } // end of the 'PMA_displayPrivTable()' function
-
-    /**
-     * Get require options
-     *
-     * @param array $row privilege array
-     *
-     * @return array
-     */
-    private function getRequireOptions(array $row): array
-    {
-        $specified = isset($row['ssl_type']) && $row['ssl_type'] === 'SPECIFIED';
-        return [
-            [
-                'name' => 'ssl_type',
-                'value' => 'NONE',
-                'description' => __('Does not require SSL-encrypted connections.'),
-                'label' => 'REQUIRE NONE',
-                'is_checked' => isset($row['ssl_type']) && ($row['ssl_type'] === 'NONE' || $row['ssl_type'] === ''),
-                'is_disabled' => false,
-                'is_radio' => true,
-            ],
-            [
-                'name' => 'ssl_type',
-                'value' => 'ANY',
-                'description' => __('Requires SSL-encrypted connections.'),
-                'label' => 'REQUIRE SSL',
-                'is_checked' => isset($row['ssl_type']) && $row['ssl_type'] === 'ANY',
-                'is_disabled' => false,
-                'is_radio' => true,
-            ],
-            [
-                'name' => 'ssl_type',
-                'value' => 'X509',
-                'description' => __('Requires a valid X509 certificate.'),
-                'label' => 'REQUIRE X509',
-                'is_checked' => isset($row['ssl_type']) && $row['ssl_type'] === 'X509',
-                'is_disabled' => false,
-                'is_radio' => true,
-            ],
-            [
-                'name' => 'ssl_type',
-                'value' => 'SPECIFIED',
-                'description' => '',
-                'label' => 'SPECIFIED',
-                'is_checked' => $specified,
-                'is_disabled' => false,
-                'is_radio' => true,
-            ],
-            [
-                'name' => 'ssl_cipher',
-                'value' => $row['ssl_cipher'] ?? '',
-                'description' => __('Requires that a specific cipher method be used for a connection.'),
-                'label' => 'REQUIRE CIPHER',
-                'is_checked' => false,
-                'is_disabled' => ! $specified,
-                'is_radio' => false,
-            ],
-            [
-                'name' => 'x509_issuer',
-                'value' => $row['x509_issuer'] ?? '',
-                'description' => __('Requires that a valid X509 certificate issued by this CA be presented.'),
-                'label' => 'REQUIRE ISSUER',
-                'is_checked' => false,
-                'is_disabled' => ! $specified,
-                'is_radio' => false,
-            ],
-            [
-                'name' => 'x509_subject',
-                'value' => $row['x509_subject'] ?? '',
-                'description' => __('Requires that a valid X509 certificate with this subject be presented.'),
-                'label' => 'REQUIRE SUBJECT',
-                'is_checked' => false,
-                'is_disabled' => ! $specified,
-                'is_radio' => false,
-            ],
-        ];
-    }
-
-    /**
-     * Get resource limits
-     *
-     * @param array $row first row from result or boolean false
-     *
-     * @return array
-     */
-    private function getResourceLimits(array $row): array
-    {
-        return [
-            [
-                'input_name' => 'max_questions',
-                'name_main' => 'MAX QUERIES PER HOUR',
-                'value' => $row['max_questions'] ?? '0',
-                'description' => __(
-                    'Limits the number of queries the user may send to the server per hour.'
-                ),
-            ],
-            [
-                'input_name' => 'max_updates',
-                'name_main' => 'MAX UPDATES PER HOUR',
-                'value' => $row['max_updates'] ?? '0',
-                'description' => __(
-                    'Limits the number of commands that change any table '
-                    . 'or database the user may execute per hour.'
-                ),
-            ],
-            [
-                'input_name' => 'max_connections',
-                'name_main' => 'MAX CONNECTIONS PER HOUR',
-                'value' => $row['max_connections'] ?? '0',
-                'description' => __(
-                    'Limits the number of new connections the user may open per hour.'
-                ),
-            ],
-            [
-                'input_name' => 'max_user_connections',
-                'name_main' => 'MAX USER_CONNECTIONS',
-                'value' => $row['max_user_connections'] ?? '0',
-                'description' => __(
-                    'Limits the number of simultaneous connections '
-                    . 'the user may have.'
-                ),
-            ],
-        ];
     }
 
     /**
@@ -1091,21 +967,13 @@ class Privileges
             $row
         );
 
-        $resourceLimits = [];
-        $requireOptions = [];
-        if ($db === '*') {
-            $resourceLimits = $this->getResourceLimits($row);
-            $requireOptions = $this->getRequireOptions($row);
-        }
-
         return $this->template->render('server/privileges/global_db_specific_privileges', [
             'grant_count' => $grantCount,
             'menu_label' => $menuLabel,
             'legend' => $legend,
             'global_priv_table' => $globalPrivTable,
             'is_global' => $db === '*',
-            'resource_limits' => $resourceLimits,
-            'require_options' => $requireOptions,
+            'row' => $row,
         ]);
     }
 
