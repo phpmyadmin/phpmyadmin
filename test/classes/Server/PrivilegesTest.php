@@ -1056,8 +1056,6 @@ class PrivilegesTest extends TestCase
      */
     public function testGetHtmlForTableSpecificPrivileges()
     {
-        $GLOBALS['strPrivDescCreate_viewTbl'] = "strPrivDescCreate_viewTbl";
-        $GLOBALS['strPrivDescShowViewTbl'] = "strPrivDescShowViewTbl";
         $username = "PMA_username";
         $hostname = "PMA_hostname";
         $db = "PMA_db";
@@ -1070,8 +1068,8 @@ class PrivilegesTest extends TestCase
             'Insert_priv' => 'Y',
             'Update_priv' => 'Y',
             'References_priv' => 'Y',
-            'Create_view_priv' => 'Y',
-            'ShowView_priv' => 'Y',
+            'Create View_priv' => 'Y',
+            'Show view_priv' => 'Y',
         ];
 
         $html = $this->serverPrivileges->getHtmlForTableSpecificPrivileges(
@@ -1113,11 +1111,15 @@ class PrivilegesTest extends TestCase
         );
 
         $this->assertStringContainsString(
-            'title="strPrivDescShowViewTbl" checked>',
+            'title="Allows performing SHOW CREATE VIEW queries." checked>',
             $html
         );
         $this->assertStringContainsString(
-            '<dfn title="strPrivDescCreate_viewTbl">CREATE_VIEW</dfn>',
+            '<dfn title="Allows creating new views.">',
+            $html
+        );
+        $this->assertStringContainsString(
+            'CREATE VIEW',
             $html
         );
         $this->assertStringContainsString(
@@ -1125,7 +1127,7 @@ class PrivilegesTest extends TestCase
             $html
         );
         $this->assertStringContainsString(
-            'ShowView_priv',
+            'Show_view_priv',
             $html
         );
         $this->assertStringContainsString(

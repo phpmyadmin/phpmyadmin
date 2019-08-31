@@ -93,15 +93,129 @@
   </div>
 
   <div class="item">
-    {% for privilege in privileges %}
+    <div class="item">
+      <input type="checkbox" name="Delete_priv" id="checkbox_Delete_priv" value="Y" title="
+        {%- trans 'Allows deleting data.' %}"{{ row['Delete_priv'] == 'Y' ? ' checked' }}>
+      <label for="checkbox_Delete_priv">
+        <code>
+          <dfn title="{% trans 'Allows deleting data.' %}">
+            DELETE
+          </dfn>
+        </code>
+      </label>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" name="Create_priv" id="checkbox_Create_priv" value="Y" title="
+        {%- trans 'Allows creating new tables.' %}"{{ row['Create_priv'] == 'Y' ? ' checked' }}>
+      <label for="checkbox_Create_priv">
+        <code>
+          <dfn title="{% trans 'Allows creating new tables.' %}">
+            CREATE
+          </dfn>
+        </code>
+      </label>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" name="Drop_priv" id="checkbox_Drop_priv" value="Y" title="
+        {%- trans 'Allows dropping tables.' %}"{{ row['Drop_priv'] == 'Y' ? ' checked' }}>
+      <label for="checkbox_Drop_priv">
+        <code>
+          <dfn title="{% trans 'Allows dropping tables.' %}">
+            DROP
+          </dfn>
+        </code>
+      </label>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" name="Grant_priv" id="checkbox_Grant_priv" value="Y" title="
+        {%- trans 'Allows user to give to other users or remove from other users the privileges that user possess yourself.' %}"
+        {{- row['Grant_priv'] == 'Y' ? ' checked' }}>
+      <label for="checkbox_Grant_priv">
+        <code>
+          <dfn title="{% trans 'Allows user to give to other users or remove from other users the privileges that user possess yourself.' %}">
+            GRANT
+          </dfn>
+        </code>
+      </label>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" name="Index_priv" id="checkbox_Index_priv" value="Y" title="
+        {%- trans 'Allows creating and dropping indexes.' %}"{{ row['Index_priv'] == 'Y' ? ' checked' }}>
+      <label for="checkbox_Index_priv">
+        <code>
+          <dfn title="{% trans 'Allows creating and dropping indexes.' %}">
+            INDEX
+          </dfn>
+        </code>
+      </label>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" name="Alter_priv" id="checkbox_Alter_priv" value="Y" title="
+        {%- trans 'Allows altering the structure of existing tables.' %}"{{ row['Alter_priv'] == 'Y' ? ' checked' }}>
+      <label for="checkbox_Alter_priv">
+        <code>
+          <dfn title="{% trans 'Allows altering the structure of existing tables.' %}">
+            ALTER
+          </dfn>
+        </code>
+      </label>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" name="Create_view_priv" id="checkbox_Create_view_priv" value="Y" title="
+        {%- trans 'Allows creating new views.' %}"{{ row['Create View_priv'] == 'Y' ? ' checked' }}>
+      <label for="checkbox_Create_view_priv">
+        <code>
+          <dfn title="{% trans 'Allows creating new views.' %}">
+            CREATE VIEW
+          </dfn>
+        </code>
+      </label>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" name="Show_view_priv" id="checkbox_Show_view_priv" value="Y" title="
+        {%- trans 'Allows performing SHOW CREATE VIEW queries.' %}"{{ row['Show view_priv'] == 'Y' ? ' checked' }}>
+      <label for="checkbox_Show_view_priv">
+        <code>
+          <dfn title="{% trans 'Allows performing SHOW CREATE VIEW queries.' %}">
+            SHOW VIEW
+          </dfn>
+        </code>
+      </label>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" name="Trigger_priv" id="checkbox_Trigger_priv" value="Y" title="
+        {%- trans 'Allows creating and dropping triggers.' %}"{{ row['Trigger_priv'] == 'Y' ? ' checked' }}>
+      <label for="checkbox_Trigger_priv">
+        <code>
+          <dfn title="{% trans 'Allows creating and dropping triggers.' %}">
+            TRIGGER
+          </dfn>
+        </code>
+      </label>
+    </div>
+
+    {% if row['Delete versioning rows_priv'] is defined or row['Delete_history_priv'] is defined %}
       <div class="item">
-        <input type="checkbox" name="{{ privilege.grant }}" id="checkbox_{{ privilege.grant }}" value="Y" title="
-          {{- privilege.description }}"{{ privilege.is_checked ? ' checked' }}>
-        <label for="checkbox_{{ privilege.grant }}">
-          <code><dfn title="{{ privilege.description }}">{{ privilege.name }}</dfn></code>
+        <input type="checkbox" name="Delete_history_priv" id="checkbox_Delete_history_priv" value="Y" title="
+          {%- trans 'Allows deleting historical rows.' %}"
+          {{- row['Delete versioning rows_priv'] == 'Y' or row['Delete_history_priv'] == 'Y' ? ' checked' }}>
+        <label for="checkbox_Delete_history_priv">
+          <code>
+            <dfn title="{% trans 'Allows deleting historical rows.' %}">
+              DELETE HISTORY
+            </dfn>
+          </code>
         </label>
       </div>
-    {% endfor %}
+    {% endif %}
   </div>
 
   <div class="clearfloat"></div>
