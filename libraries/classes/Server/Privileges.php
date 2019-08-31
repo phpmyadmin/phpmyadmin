@@ -644,7 +644,6 @@ class Privileges
         $table = '*',
         $submit = true
     ) {
-        $html_output = '';
         $sql_query = '';
 
         if ($db == '*') {
@@ -715,9 +714,10 @@ class Privileges
             }
             unset($res, $row1);
         }
-        // table-specific privileges
+
+        $tablePrivileges = '';
         if (! empty($columns)) {
-            $html_output .= $this->getHtmlForTableSpecificPrivileges(
+            $tablePrivileges = $this->getHtmlForTableSpecificPrivileges(
                 $username,
                 $hostname,
                 $db,
@@ -725,22 +725,16 @@ class Privileges
                 $columns,
                 $row
             );
-        } else {
-            // global or db-specific
-            $html_output .= $this->template->render('server/privileges/global_db_specific_privileges', [
-                'is_global' => $db === '*',
-                'is_database' => $table === '*',
-                'row' => $row,
-            ]);
         }
-        if ($submit) {
-            $html_output .= '<fieldset id="fieldset_user_privtable_footer" '
-                . 'class="tblFooters">' . "\n"
-                . '<input type="hidden" name="update_privs" value="1">' . "\n"
-                . '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">' . "\n"
-                . '</fieldset>' . "\n";
-        }
-        return $html_output;
+
+        return $this->template->render('server/privileges/privileges_table', [
+            'is_table' => ! empty($columns),
+            'table_privileges' => $tablePrivileges,
+            'is_global' => $db === '*',
+            'is_database' => $table === '*',
+            'row' => $row,
+            'has_submit' => $submit,
+        ]);
     }
 
     /**

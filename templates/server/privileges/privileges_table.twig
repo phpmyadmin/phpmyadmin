@@ -1,3 +1,7 @@
+{% if is_table %}
+  {{ table_privileges|raw }}
+{% else %}
+
 {% set grant_count = 0 %}
 <fieldset id="fieldset_user_global_rights">
   <legend data-submenu-label="
@@ -598,3 +602,12 @@
   <div class="clearfloat"></div>
 </fieldset>
 <input type="hidden" name="grant_count" value="{{ grant_count - (row['Grant_priv'] is defined ? 1 : 0) }}">
+
+{% endif %}
+
+{% if has_submit %}
+  <fieldset id="fieldset_user_privtable_footer" class="tblFooters">
+    <input type="hidden" name="update_privs" value="1">
+    <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
+  </fieldset>
+{% endif %}
