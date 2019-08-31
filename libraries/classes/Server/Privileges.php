@@ -712,27 +712,38 @@ class Privileges
                 }
                 $this->dbi->freeResult($res);
             }
-            unset($res, $row1);
         }
 
-        $tablePrivileges = '';
         if (! empty($columns)) {
-            $tablePrivileges = $this->getHtmlForTableSpecificPrivileges(
-                $username,
-                $hostname,
-                $db,
-                $table,
-                $columns,
-                $row
+            $res = $this->dbi->query(
+                'SELECT `Column_name`, `Column_priv`'
+                . ' FROM `mysql`.`columns_priv`'
+                . ' WHERE `User`'
+                . ' = \'' . $this->dbi->escapeString($username) . "'"
+                . ' AND `Host`'
+                . ' = \'' . $this->dbi->escapeString($hostname) . "'"
+                . ' AND `Db`'
+                . ' = \'' . $this->dbi->escapeString(
+                    Util::unescapeMysqlWildcards($db)
+                ) . "'"
+                . ' AND `Table_name`'
+                . ' = \'' . $this->dbi->escapeString($table) . '\';'
             );
+
+            while ($row1 = $this->dbi->fetchRow($res)) {
+                $row1[1] = explode(',', $row1[1]);
+                foreach ($row1[1] as $current) {
+                    $columns[$row1[0]][$current] = true;
+                }
+            }
+            $this->dbi->freeResult($res);
         }
 
         return $this->template->render('server/privileges/privileges_table', [
-            'is_table' => ! empty($columns),
-            'table_privileges' => $tablePrivileges,
             'is_global' => $db === '*',
             'is_database' => $table === '*',
             'row' => $row,
+            'columns' => $columns ?? [],
             'has_submit' => $submit,
         ]);
     }
@@ -823,55 +834,6 @@ class Privileges
             ],
         ];
         return $routinePrivTable;
-    }
-
-    /**
-     * Get the HTML snippet for table specific privileges
-     *
-     * @param string $username username for database connection
-     * @param string $hostname hostname for database connection
-     * @param string $db       the database
-     * @param string $table    the table
-     * @param array  $columns  columns array
-     * @param array  $row      current privileges row
-     *
-     * @return string
-     */
-    public function getHtmlForTableSpecificPrivileges(
-        $username,
-        $hostname,
-        $db,
-        $table,
-        array $columns,
-        array $row
-    ) {
-        $res = $this->dbi->query(
-            'SELECT `Column_name`, `Column_priv`'
-            . ' FROM `mysql`.`columns_priv`'
-            . ' WHERE `User`'
-            . ' = \'' . $this->dbi->escapeString($username) . "'"
-            . ' AND `Host`'
-            . ' = \'' . $this->dbi->escapeString($hostname) . "'"
-            . ' AND `Db`'
-            . ' = \'' . $this->dbi->escapeString(
-                Util::unescapeMysqlWildcards($db)
-            ) . "'"
-            . ' AND `Table_name`'
-            . ' = \'' . $this->dbi->escapeString($table) . '\';'
-        );
-
-        while ($row1 = $this->dbi->fetchRow($res)) {
-            $row1[1] = explode(',', $row1[1]);
-            foreach ($row1[1] as $current) {
-                $columns[$row1[0]][$current] = true;
-            }
-        }
-        $this->dbi->freeResult($res);
-
-        return $this->template->render('server/privileges/table_specific_privileges', [
-            'row' => $row,
-            'columns' => $columns,
-        ]);
     }
 
     /**

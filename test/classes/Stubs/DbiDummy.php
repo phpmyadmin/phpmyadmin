@@ -1755,6 +1755,80 @@ class DbiDummy implements DbiExtension
                     ],
                 ],
             ],
+            [
+                'query' => 'SELECT `Table_priv` FROM `mysql`.`tables_priv` WHERE `User` = \'PMA_username\' AND `Host` = \'PMA_hostname\' AND `Db` = \'PMA_db\' AND `Table_name` = \'PMA_table\';',
+                'result' => [
+                    [
+                        'Table_priv' => 'Select,Insert,Update,References,Create View,Show view',
+                    ],
+                ],
+            ],
+            [
+                'query' => 'SHOW COLUMNS FROM `mysql`.`tables_priv` LIKE \'Table_priv\';',
+                'result' => [
+                    [
+                        'Type' => 'set(\'Select\',\'Insert\',\'Update\',\'References\',\'Create View\',\'Show view\')',
+                    ],
+                ],
+            ],
+            [
+                'query' => 'SHOW COLUMNS FROM `PMA_db`.`PMA_table`;',
+                'columns' => [
+                    'Field',
+                    'Type',
+                    'Null',
+                    'Key',
+                    'Default',
+                    'Extra',
+                ],
+                'result' => [
+                    [
+                        'id',
+                        'int(11)',
+                        'NO',
+                        'PRI',
+                        null,
+                        'auto_increment',
+                    ],
+                    [
+                        'name',
+                        'varchar(20)',
+                        'NO',
+                        '',
+                        null,
+                        '',
+                    ],
+                    [
+                        'datetimefield',
+                        'datetime',
+                        'NO',
+                        '',
+                        null,
+                        '',
+                    ],
+                ],
+            ],
+            [
+                'query' => 'SELECT `Column_name`, `Column_priv` FROM `mysql`.`columns_priv` WHERE `User` = \'PMA_username\' AND `Host` = \'PMA_hostname\' AND `Db` = \'PMA_db\' AND `Table_name` = \'PMA_table\';',
+                'columns' => [
+                    'Column_name',
+                    'Column_priv',
+                ],
+                'result' => [
+                    [
+                        'id',
+                        'Select',
+                    ],
+                    [
+                        'name',
+                        'Select',
+                    ],
+                    [
+                        'datetimefield',
+                        'Select',
+                    ],
+                ],
+            ],
 
         ];
         /**

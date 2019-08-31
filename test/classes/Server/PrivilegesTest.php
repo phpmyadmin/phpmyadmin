@@ -10,11 +10,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Server;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
@@ -1054,31 +1055,17 @@ class PrivilegesTest extends TestCase
      *
      * @return void
      */
-    public function testGetHtmlForTableSpecificPrivileges()
+    public function testGetHtmlToDisplayPrivilegesTableWithTableSpecific(): void
     {
-        $username = "PMA_username";
-        $hostname = "PMA_hostname";
-        $db = "PMA_db";
-        $table = "PMA_table";
-        $columns = [
-            'row1' => 'name1',
-        ];
-        $row = [
-            'Select_priv' => 'Y',
-            'Insert_priv' => 'Y',
-            'Update_priv' => 'Y',
-            'References_priv' => 'Y',
-            'Create View_priv' => 'Y',
-            'Show view_priv' => 'Y',
-        ];
+        $dbi_old = $GLOBALS['dbi'];
+        $GLOBALS['dbi'] = DatabaseInterface::load(new DbiDummy());
+        $this->serverPrivileges->dbi = $GLOBALS['dbi'];
 
-        $html = $this->serverPrivileges->getHtmlForTableSpecificPrivileges(
-            $username,
-            $hostname,
-            $db,
-            $table,
-            $columns,
-            $row
+        $GLOBALS['username'] = 'PMA_username';
+        $GLOBALS['hostname'] = 'PMA_hostname';
+        $html = $this->serverPrivileges->getHtmlToDisplayPrivilegesTable(
+            'PMA_db',
+            'PMA_table'
         );
 
         $this->assertStringContainsString(
@@ -1134,6 +1121,9 @@ class PrivilegesTest extends TestCase
             _pgettext('None privileges', 'None'),
             $html
         );
+
+        $GLOBALS['dbi'] = $dbi_old;
+        $this->serverPrivileges->dbi = $dbi_old;
     }
 
     /**
