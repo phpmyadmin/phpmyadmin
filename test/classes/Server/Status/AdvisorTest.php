@@ -82,6 +82,7 @@ class AdvisorTest extends TestCase
             "automatic_sp_privileges" => "ON",
             "back_log" => "50",
             "big_tables" => "OFF",
+            'version' => '8.0.2'
         );
 
         $fetchResult = array(
