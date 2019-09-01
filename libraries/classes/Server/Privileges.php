@@ -4051,12 +4051,12 @@ class Privileges
     /**
      * Get HTML snippet for display user properties
      *
-     * @param boolean $dbname_is_wildcard whether database name is wildcard or not
-     * @param string  $url_dbname         url database name that urlencode() string
-     * @param string  $username           username
-     * @param string  $hostname           host name
-     * @param string  $dbname             database name
-     * @param string  $tablename          table name
+     * @param boolean      $dbname_is_wildcard whether database name is wildcard or not
+     * @param string       $url_dbname         url database name that urlencode() string
+     * @param string       $username           username
+     * @param string       $hostname           host name
+     * @param string|array $dbname             database name
+     * @param string       $tablename          table name
      *
      * @return string
      */
@@ -4068,8 +4068,7 @@ class Privileges
         $dbname,
         $tablename
     ) {
-        $html_output  = '<div id="edit_user_dialog">';
-        $html_output .= $this->getHtmlHeaderForUserProperties(
+        $header = $this->getHtmlHeaderForUserProperties(
             $dbname_is_wildcard,
             $url_dbname,
             $dbname,
@@ -4085,11 +4084,9 @@ class Privileges
 
         $user_does_not_exists = (bool) ! $this->dbi->fetchValue($sql);
 
+        $loginInformationFields = '';
         if ($user_does_not_exists) {
-            $html_output .= Message::error(
-                __('The selected user was not found in the privilege table.')
-            )->getDisplay();
-            $html_output .= $this->getHtmlForLoginInformationFields();
+            $loginInformationFields = $this->getHtmlForLoginInformationFields();
         }
 
         $_params = [
@@ -4105,24 +4102,20 @@ class Privileges
             $_params['dbname'] = $dbname;
         }
 
-        $html_output .= '<form class="submenu-item" name="usersForm" '
-            . 'id="addUsersForm" action="' . Url::getFromRoute('/server/privileges') . '" method="post">' . "\n";
-        $html_output .= Url::getHiddenInputs($_params);
-        $html_output .= $this->getHtmlToDisplayPrivilegesTable(
+        $privilegesTable = $this->getHtmlToDisplayPrivilegesTable(
             // If $dbname is an array, pass any one db as all have same privs.
             Core::ifSetOr($dbname, is_array($dbname) ? $dbname[0] : '*', 'length'),
             Core::ifSetOr($tablename, '*', 'length')
         );
 
-        $html_output .= '</form>' . "\n";
-
+        $tableSpecificRights = '';
         if (! is_array($dbname) && strlen($tablename) === 0
             && empty($dbname_is_wildcard)
         ) {
             // no table name was given, display all table specific rights
             // but only if $dbname contains no wildcards
             if (strlen($dbname) === 0) {
-                $html_output .= $this->getHtmlForAllTableSpecificRights(
+                $tableSpecificRights .= $this->getHtmlForAllTableSpecificRights(
                     $username,
                     $hostname,
                     'database'
@@ -4131,13 +4124,13 @@ class Privileges
                 // unescape wildcards in dbname at table level
                 $unescaped_db = Util::unescapeMysqlWildcards($dbname);
 
-                $html_output .= $this->getHtmlForAllTableSpecificRights(
+                $tableSpecificRights .= $this->getHtmlForAllTableSpecificRights(
                     $username,
                     $hostname,
                     'table',
                     $unescaped_db
                 );
-                $html_output .= $this->getHtmlForAllTableSpecificRights(
+                $tableSpecificRights .= $this->getHtmlForAllTableSpecificRights(
                     $username,
                     $hostname,
                     'routine',
@@ -4147,22 +4140,34 @@ class Privileges
         }
 
         // Provide a line with links to the relevant database and table
+        $linkToDatabaseAndTable = '';
         if (! is_array($dbname) && strlen($dbname) > 0 && empty($dbname_is_wildcard)) {
-            $html_output .= $this->getLinkToDbAndTable($url_dbname, $dbname, $tablename);
+            $linkToDatabaseAndTable = $this->getLinkToDbAndTable($url_dbname, $dbname, $tablename);
         }
 
+        $changePassword = '';
+        $changeLoginInformation = '';
         if (! is_array($dbname) && strlen($dbname) === 0 && ! $user_does_not_exists) {
             //change login information
-            $html_output .= ChangePassword::getHtml(
+            $changePassword = ChangePassword::getHtml(
                 'edit_other',
                 $username,
                 $hostname
             );
-            $html_output .= $this->getChangeLoginInformationHtmlForm($username, $hostname);
+            $changeLoginInformation = $this->getChangeLoginInformationHtmlForm($username, $hostname);
         }
-        $html_output .= '</div>';
 
-        return $html_output;
+        return $this->template->render('server/privileges/user_properties', [
+            'header' => $header,
+            'user_does_not_exists' => $user_does_not_exists,
+            'login_information_fields' => $loginInformationFields,
+            'params' => $_params,
+            'privileges_table' => $privilegesTable,
+            'table_specific_rights' => $tableSpecificRights,
+            'link_to_database_and_table' => $linkToDatabaseAndTable,
+            'change_password' => $changePassword,
+            'change_login_information' => $changeLoginInformation,
+        ]);
     }
 
     /**
