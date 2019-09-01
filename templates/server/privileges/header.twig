@@ -1,0 +1,67 @@
+<h2>
+  {{ get_icon('b_usredit') }}
+  {% trans 'Edit privileges:' %}
+  {% trans 'User account' %}
+
+  {% if database is not empty %}
+    <em>
+      <a class="edit_user_anchor" href="{{ url('/server/privileges', {
+        'username': username,
+        'hostname': hostname,
+        'dbname': '',
+        'tablename': ''
+      }) }}">
+        '{{ username }}'@'{{ hostname }}'
+      </a>
+    </em>
+    -
+    {% if is_databases %}
+      {% trans 'Databases' %}
+    {% else %}
+      {% trans 'Database' %}
+    {% endif %}
+
+    {% if entity is not empty and type == 'table' %}
+      <em>
+        <a href="{{ url('/server/privileges', {
+          'username': username,
+          'hostname': hostname,
+          'dbname': dbname,
+          'tablename': ''
+        }) }}">
+          {{ database }}
+        </a>
+      </em>
+      -
+      {% trans 'Table' %}
+      <em>{{ entity }}</em>
+    {% elseif entity is not empty %}
+      <em>
+        <a href="{{ url('/server/privileges', {
+          'username': username,
+          'hostname': hostname,
+          'dbname': dbname,
+          'routinename': ''
+        }) }}">
+          {{ database }}
+        </a>
+      </em>
+      -
+      {% trans 'Routine' %}
+      <em>{{ entity }}</em>
+    {% else %}
+      {% if database is not iterable %}
+        {% set database = [database] %}
+      {% endif %}
+      <em>
+        {{ database|join(', ') }}
+      </em>
+    {% endif %}
+  {% else %}
+    <em>'{{ username }}'@'{{ hostname }}'</em>
+  {% endif %}
+</h2>
+
+{% if current_user == username ~ '@' ~ hostname %}
+  {{ 'Note: You are attempting to edit privileges of the user with which you are currently logged in.'|trans|notice }}
+{% endif %}

@@ -3802,78 +3802,16 @@ class Privileges
         $entity_name,
         $entity_type = 'table'
     ) {
-        $html_output = '<h2>' . "\n"
-           . Util::getIcon('b_usredit')
-           . __('Edit privileges:') . ' '
-           . __('User account');
-
-        if (! empty($dbname)) {
-            $html_output .= ' <i><a class="edit_user_anchor"'
-                . ' href="' . Url::getFromRoute('/server/privileges', [
-                    'username' => $username,
-                    'hostname' => $hostname,
-                    'dbname' => '',
-                    'tablename' => '',
-                ])
-                . '">\'' . htmlspecialchars($username)
-                . '\'@\'' . htmlspecialchars($hostname)
-                . '\'</a></i>' . "\n";
-
-            $html_output .= ' - ';
-            $html_output .= $dbname_is_wildcard
-                || is_array($dbname) && count($dbname) > 1
-                ? __('Databases') : __('Database');
-            if (! empty($entity_name) && $entity_type === 'table') {
-                $html_output .= ' <i><a href="' . Url::getFromRoute('/server/privileges', [
-                    'username' => $username,
-                    'hostname' => $hostname,
-                    'dbname' => $url_dbname,
-                    'tablename' => '',
-                ])
-                    . '">' . htmlspecialchars($dbname)
-                    . '</a></i>';
-
-                $html_output .= ' - ' . __('Table')
-                    . ' <i>' . htmlspecialchars($entity_name) . '</i>';
-            } elseif (! empty($entity_name)) {
-                $html_output .= ' <i><a href="' . Url::getFromRoute('/server/privileges', [
-                    'username' => $username,
-                    'hostname' => $hostname,
-                    'dbname' => $url_dbname,
-                    'routinename' => '',
-                ])
-                    . '">' . htmlspecialchars($dbname)
-                    . '</a></i>';
-
-                $html_output .= ' - ' . __('Routine')
-                    . ' <i>' . htmlspecialchars($entity_name) . '</i>';
-            } else {
-                if (! is_array($dbname)) {
-                    $dbname = [$dbname];
-                }
-                $html_output .= ' <i>'
-                    . htmlspecialchars(implode(', ', $dbname))
-                    . '</i>';
-            }
-        } else {
-            $html_output .= ' <i>\'' . htmlspecialchars($username)
-                . '\'@\'' . htmlspecialchars($hostname)
-                . '\'</i>' . "\n";
-        }
-        $html_output .= '</h2>' . "\n";
-        $cur_user = $this->dbi->getCurrentUser();
-        $user = $username . '@' . $hostname;
-        // Add a short notice for the user
-        // to remind him that he is editing his own privileges
-        if ($user === $cur_user) {
-            $html_output .= Message::notice(
-                __(
-                    'Note: You are attempting to edit privileges of the '
-                    . 'user with which you are currently logged in.'
-                )
-            )->getDisplay();
-        }
-        return $html_output;
+        return $this->template->render('server/privileges/header', [
+            'database' => $dbname,
+            'dbname' => $url_dbname,
+            'username' => $username,
+            'hostname' => $hostname,
+            'is_databases' => $dbname_is_wildcard || is_array($dbname) && count($dbname) > 1,
+            'entity' => $entity_name,
+            'type' => $entity_type,
+            'current_user' => $this->dbi->getCurrentUser(),
+        ]);
     }
 
     /**
