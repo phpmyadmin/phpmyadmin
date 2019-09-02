@@ -33,7 +33,7 @@
   },
   "scripts": {
     "postinstall": "yarn run --silent css-compile --quiet --style=compressed",
-    "css-compile": "sass themes/pmahomme/scss:themes/pmahomme/css themes/original/scss:themes/original/css themes/metro/scss:themes/metro/css",
+    "css-compile": "sass themes/pmahomme/scss:themes/pmahomme/css themes/original/scss:themes/original/css themes/metro/scss:themes/metro/css themes/bootstrap/scss:themes/bootstrap/css",
     "css-lint": "stylelint --syntax scss \"themes/**/scss/*.scss\"",
     "js-lint": "eslint js"
   }

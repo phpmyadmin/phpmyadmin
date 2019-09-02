@@ -301,6 +301,9 @@ if [ -f package.json ] ; then
     yarn install --production
 fi
 
+# Remove Bootstrap theme
+rm -rf themes/bootstrap
+
 # Remove git metadata
 rm .git
 find . -name .gitignore -print0 | xargs -0 -r rm -f
