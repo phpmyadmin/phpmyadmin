@@ -1,4 +1,3 @@
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Create advanced table (resize, reorder, and show/hide columns; and also grid editing).
  * This function is designed mainly for table DOM generated from browsing a table in the database.

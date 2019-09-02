@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * <code>
  * N   N  OOO  !!   DDDD   OOO    N   N  OOO  TTTTT   EEEE DDDD  I TTTTT !!

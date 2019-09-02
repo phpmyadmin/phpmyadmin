@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Database with allowed values for configuration stored in the $cfg array,
  * used by setup script and user preferences to generate forms.

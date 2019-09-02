@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Internal relations for information schema and mysql databases.
  * @package PhpMyAdmin

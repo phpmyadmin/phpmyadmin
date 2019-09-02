@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Loads libraries/common.inc.php and preforms some additional actions
  *

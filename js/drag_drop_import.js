@@ -1,4 +1,3 @@
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 
 /* This script handles PMA Drag Drop Import, loaded only when configuration is enabled.*/
 

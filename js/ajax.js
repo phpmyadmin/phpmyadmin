@@ -1,4 +1,3 @@
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 
 /* global isStorageSupported */ // js/config.js
 /* global ErrorReport */ // js/error_report.js

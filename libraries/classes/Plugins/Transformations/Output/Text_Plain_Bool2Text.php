@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Text Plain Bool2Text Transformations plugin for phpMyAdmin
  *
