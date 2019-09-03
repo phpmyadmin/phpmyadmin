@@ -114,7 +114,7 @@ class SqlQueryFormTest extends TestCase
     {
         //Call the test function
         $query = "select * from PMA";
-        $html = $this->sqlQueryForm->getHtmlForInsert($query);
+        $html = $this->sqlQueryForm->getHtml($query);
 
         //validate 1: query
         $this->assertStringContainsString(

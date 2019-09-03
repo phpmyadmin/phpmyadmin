@@ -79,31 +79,49 @@ class SqlQueryForm
             $goto = empty($GLOBALS['goto']) ? Url::getFromRoute('/table/sql') : $GLOBALS['goto'];
         }
 
-        $insert = '';
         if ($display_tab === 'full' || $display_tab === 'sql') {
-            $insert = $this->getHtmlForInsert(
-                $query,
-                $delimiter
-            );
+            list($legend, $query, $columns_list) = $this->init($query);
         }
 
-        $bookmark = '';
+        $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
+
+        $bookmarks = [];
         if ($display_tab === 'full') {
-            $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
             if ($cfgBookmark) {
-                $bookmark = $this->getHtmlForBookmark();
+                $bookmark_list = Bookmark::getList(
+                    $GLOBALS['dbi'],
+                    $GLOBALS['cfg']['Server']['user'],
+                    $GLOBALS['db']
+                );
+
+                foreach ($bookmark_list as $bookmarkItem) {
+                    $bookmarks[] = [
+                        'id' => $bookmarkItem->getId(),
+                        'variable_count' => $bookmarkItem->getVariableCount(),
+                        'label' => $bookmarkItem->getLabel(),
+                        'is_shared' => empty($bookmarkItem->getUser()),
+                    ];
+                }
             }
         }
 
-        return $this->template->render('sql/query/page', [
+        return $this->template->render('sql/query', [
+            'legend' => $legend ?? '',
+            'textarea_cols' => $GLOBALS['cfg']['TextareaCols'],
+            'textarea_rows' => $GLOBALS['cfg']['TextareaRows'],
+            'textarea_auto_select' => $GLOBALS['cfg']['TextareaAutoSelect'],
+            'columns_list' => $columns_list ?? [],
+            'codemirror_enable' => $GLOBALS['cfg']['CodemirrorEnable'],
+            'has_bookmark' => $cfgBookmark,
+            'delimiter' => $delimiter,
+            'retain_query_box' => $GLOBALS['cfg']['RetainQueryBox'] !== false,
             'is_upload' => $GLOBALS['is_upload'],
             'db' => $db,
             'table' => $table,
             'goto' => $goto,
             'query' => $query,
             'display_tab' => $display_tab,
-            'insert' => $insert,
-            'bookmark' => $bookmark,
+            'bookmarks' => $bookmarks,
             'can_convert_kanji' => Encoding::canConvertKanji(),
         ]);
     }
@@ -179,65 +197,5 @@ class SqlQueryForm
             $query,
             $columns_list,
         ];
-    }
-
-    /**
-     * return HTML for Sql Query Form Insert
-     *
-     * @param string $query     query to display in the textarea
-     * @param string $delimiter default delimiter to use
-     *
-     * @return string
-     */
-    public function getHtmlForInsert(
-        $query = '',
-        $delimiter = ';'
-    ) {
-        list($legend, $query, $columns_list) = $this->init($query);
-        $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
-
-        return $this->template->render('sql/query/insert', [
-            'legend' => $legend,
-            'textarea_cols' => $GLOBALS['cfg']['TextareaCols'],
-            'textarea_rows' => $GLOBALS['cfg']['TextareaRows'],
-            'textarea_auto_select' => $GLOBALS['cfg']['TextareaAutoSelect'],
-            'query' => $query,
-            'columns_list' => $columns_list,
-            'codemirror_enable' => $GLOBALS['cfg']['CodemirrorEnable'],
-            'has_bookmark' => $cfgBookmark,
-            'delimiter' => $delimiter,
-            'retain_query_box' => $GLOBALS['cfg']['RetainQueryBox'] !== false,
-        ]);
-    }
-
-    /**
-     * return HTML for sql Query Form Bookmark
-     *
-     * @return string|null
-     */
-    public function getHtmlForBookmark()
-    {
-        $bookmark_list = Bookmark::getList(
-            $GLOBALS['dbi'],
-            $GLOBALS['cfg']['Server']['user'],
-            $GLOBALS['db']
-        );
-        if (empty($bookmark_list) || count($bookmark_list) < 1) {
-            return null;
-        }
-
-        $bookmarks = [];
-        foreach ($bookmark_list as $bookmark) {
-            $bookmarks[] = [
-                'id' => $bookmark->getId(),
-                'variable_count' => $bookmark->getVariableCount(),
-                'label' => $bookmark->getLabel(),
-                'is_shared' => empty($bookmark->getUser()),
-            ];
-        }
-
-        return $this->template->render('sql/query/bookmark', [
-            'bookmarks' => $bookmarks,
-        ]);
     }
 }
