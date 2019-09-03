@@ -226,51 +226,18 @@ class SqlQueryForm
             return null;
         }
 
-        $html  = '<fieldset id="fieldsetBookmarkOptions">';
-        $html .= '<legend>';
-        $html .= __('Bookmarked SQL query') . '</legend>' . "\n";
-        $html .= '<div class="formelement">';
-        $html .= '<select name="id_bookmark" id="id_bookmark">' . "\n";
-        $html .= '<option value="">&nbsp;</option>' . "\n";
+        $bookmarks = [];
         foreach ($bookmark_list as $bookmark) {
-            $html .= '<option value="' . htmlspecialchars((string) $bookmark->getId()) . '"'
-                . ' data-varcount="' . $bookmark->getVariableCount()
-                . '">'
-                . htmlspecialchars($bookmark->getLabel())
-                . (empty($bookmark->getUser()) ? (' (' . __('shared') . ')') : '')
-                . '</option>' . "\n";
+            $bookmarks[] = [
+                'id' => $bookmark->getId(),
+                'variable_count' => $bookmark->getVariableCount(),
+                'label' => $bookmark->getLabel(),
+                'is_shared' => empty($bookmark->getUser()),
+            ];
         }
-        // &nbsp; is required for correct display with styles/line height
-        $html .= '</select>&nbsp;' . "\n";
-        $html .= '</div>' . "\n";
-        $html .= '<div class="formelement">' . "\n";
-        $html .= '<input type="radio" name="action_bookmark" value="0"'
-            . ' id="radio_bookmark_exe" checked="checked">'
-            . '<label for="radio_bookmark_exe">' . __('Submit')
-            . '</label>' . "\n";
-        $html .= '<input type="radio" name="action_bookmark" value="1"'
-            . ' id="radio_bookmark_view">'
-            . '<label for="radio_bookmark_view">' . __('View only')
-            . '</label>' . "\n";
-        $html .= '<input type="radio" name="action_bookmark" value="2"'
-            . ' id="radio_bookmark_del">'
-            . '<label for="radio_bookmark_del">' . __('Delete')
-            . '</label>' . "\n";
-        $html .= '</div>' . "\n";
-        $html .= '<div class="clearfloat"></div>' . "\n";
-        $html .= '<div class="formelement hide">' . "\n";
-        $html .= __('Variables');
-        $html .= Util::showDocu('faq', 'faqbookmark');
-        $html .= '<div id="bookmark_variables"></div>';
-        $html .= '</div>' . "\n";
-        $html .= '</fieldset>' . "\n";
 
-        $html .= '<fieldset id="fieldsetBookmarkOptionsFooter" class="tblFooters">';
-        $html .= '<input class="btn btn-primary" type="submit" name="SQL" id="button_submit_bookmark" value="'
-            . __('Go') . '">';
-        $html .= '<div class="clearfloat"></div>' . "\n";
-        $html .= '</fieldset>' . "\n";
-
-        return $html;
+        return $this->template->render('sql/query/bookmark', [
+            'bookmarks' => $bookmarks,
+        ]);
     }
 }
