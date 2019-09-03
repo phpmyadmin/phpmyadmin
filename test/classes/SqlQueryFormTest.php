@@ -11,7 +11,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\SqlQueryForm;
-use PhpMyAdmin\Theme;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
@@ -40,7 +40,7 @@ class SqlQueryFormTest extends TestCase
      */
     protected function setUp(): void
     {
-        $this->sqlQueryForm = new SqlQueryForm();
+        $this->sqlQueryForm = new SqlQueryForm(new Template());
 
         //$GLOBALS
         $GLOBALS['max_upload_size'] = 100;

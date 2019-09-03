@@ -73,7 +73,8 @@ class TrackingTest extends TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $this->tracking = new Tracking(new SqlQueryForm(), new Template(), new Relation($dbi));
+        $template = new Template();
+        $this->tracking = new Tracking(new SqlQueryForm($template), $template, new Relation($dbi));
     }
 
     /**
@@ -208,7 +209,8 @@ class TrackingTest extends TestCase
 
         /* Here, we need to overwrite the object written in the setUp function because $dbi object is not the one mocked
         at the beginning. */
-        $this->tracking = new Tracking(new SqlQueryForm(), new Template(), new Relation($dbi));
+        $template = new Template();
+        $this->tracking = new Tracking(new SqlQueryForm($template), $template, new Relation($dbi));
 
         $html = $this->tracking->getHtmlForMainPage(
             $url_params,

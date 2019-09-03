@@ -116,6 +116,8 @@ services:
 
   sql_query_form:
     class: 'PhpMyAdmin\SqlQueryForm'
+    arguments:
+        template: '@template'
 
   status_data:
     class: 'PhpMyAdmin\Server\Status\Data'
