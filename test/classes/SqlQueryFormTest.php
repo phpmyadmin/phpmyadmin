@@ -16,9 +16,6 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
 
-//the following definition should be used globally
-$GLOBALS['server'] = 0;
-
 /**
  * PhpMyAdmin\Tests\SqlQueryFormTest class
  *
@@ -48,6 +45,7 @@ class SqlQueryFormTest extends TestCase
         $GLOBALS['db'] = "PMA_db";
         $GLOBALS['table'] = "PMA_table";
         $GLOBALS['text_dir'] = "text_dir";
+        $GLOBALS['server'] = 0;
 
         $GLOBALS['cfg']['GZipDump'] = false;
         $GLOBALS['cfg']['BZipDump'] = false;
@@ -190,7 +188,7 @@ class SqlQueryFormTest extends TestCase
         );
 
         //validate 2: $enctype
-        $enctype = ' enctype="multipart/form-data"';
+        $enctype = ' enctype="multipart/form-data">';
         $this->assertStringContainsString(
             $enctype,
             $html
@@ -198,7 +196,7 @@ class SqlQueryFormTest extends TestCase
 
         //validate 3: sqlqueryform
         $this->assertStringContainsString(
-            'id="sqlqueryform" name="sqlform">',
+            'id="sqlqueryform" name="sqlform"',
             $html
         );
 

@@ -56,20 +56,12 @@ class SqlQueryForm
         $display_tab = false,
         $delimiter = ';'
     ) {
-        $html = '';
         if (! $display_tab) {
             $display_tab = 'full';
         }
         // query to show
         if (true === $query) {
             $query = $GLOBALS['sql_query'];
-        }
-
-        // set enctype to multipart for file uploads
-        if ($GLOBALS['is_upload']) {
-            $enctype = ' enctype="multipart/form-data"';
-        } else {
-            $enctype = '';
         }
 
         $table = '';
@@ -87,48 +79,33 @@ class SqlQueryForm
             $goto = empty($GLOBALS['goto']) ? Url::getFromRoute('/table/sql') : $GLOBALS['goto'];
         }
 
-        // start output
-        $html .= '<form method="post" action="' . Url::getFromRoute('/import') . '" ' . $enctype;
-        $html .= ' class="ajax lock-page"';
-        $html .= ' id="sqlqueryform" name="sqlform">' . "\n";
-
-        $html .= '<input type="hidden" name="is_js_confirmed" value="0">'
-            . "\n" . Url::getHiddenInputs($db, $table) . "\n"
-            . '<input type="hidden" name="pos" value="0">' . "\n"
-            . '<input type="hidden" name="goto" value="'
-            . htmlspecialchars($goto) . '">' . "\n"
-            . '<input type="hidden" name="message_to_show" value="'
-            . __('Your SQL query has been executed successfully.') . '">'
-            . "\n" . '<input type="hidden" name="prev_sql_query" value="'
-            . htmlspecialchars($query) . '">' . "\n";
-
-        // display querybox
+        $insert = '';
         if ($display_tab === 'full' || $display_tab === 'sql') {
-            $html .= $this->getHtmlForInsert(
+            $insert = $this->getHtmlForInsert(
                 $query,
                 $delimiter
             );
         }
 
-        // Bookmark Support
+        $bookmark = '';
         if ($display_tab === 'full') {
             $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
             if ($cfgBookmark) {
-                $html .= $this->getHtmlForBookmark();
+                $bookmark = $this->getHtmlForBookmark();
             }
         }
 
-        // Japanese encoding setting
-        if (Encoding::canConvertKanji()) {
-            $html .= Encoding::kanjiEncodingForm();
-        }
-
-        $html .= '</form>' . "\n";
-        // print an empty div, which will be later filled with
-        // the sql query results by ajax
-        $html .= '<div id="sqlqueryresultsouter"></div>';
-
-        return $html;
+        return $this->template->render('sql/query/page', [
+            'is_upload' => $GLOBALS['is_upload'],
+            'db' => $db,
+            'table' => $table,
+            'goto' => $goto,
+            'query' => $query,
+            'display_tab' => $display_tab,
+            'insert' => $insert,
+            'bookmark' => $bookmark,
+            'can_convert_kanji' => Encoding::canConvertKanji(),
+        ]);
     }
 
     /**
