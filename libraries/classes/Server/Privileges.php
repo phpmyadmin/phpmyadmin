@@ -3476,7 +3476,7 @@ class Privileges
             'Execute_priv'       => 'N',
             'Grant_priv'         => 'N',
         ];
-        foreach (explode(',', $privs) as $priv) {
+        foreach (explode(',', (string) $privs) as $priv) {
             if ($priv == 'Alter Routine') {
                 $result['Alter_routine_priv'] = 'Y';
             } else {
