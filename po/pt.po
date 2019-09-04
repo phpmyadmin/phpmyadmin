@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-08-23 14:20+0200\n"
-"PO-Revision-Date: 2019-08-25 09:23+0000\n"
+"PO-Revision-Date: 2019-09-05 22:23+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -3637,7 +3637,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:261
 #: libraries/classes/Plugins/Export/ExportSql.php:316
 msgid "Exclude definition of current user"
-msgstr "Excluir definição do usuário atual"
+msgstr "Excluir definição do utilizador atual"
 
 #: libraries/classes/Config/Descriptions.php:262
 #: libraries/classes/Plugins/Export/ExportSql.php:322
@@ -4803,7 +4803,7 @@ msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
-"Um usuário especial do MySQL configurado com permissões limitadas, mais "
+"Um utilizador especial do MySQL configurado com permissões limitadas, mais "
 "informações disponíveis na [doc@linked-tables]documentação[/doc]."
 
 #: libraries/classes/Config/Descriptions.php:627
@@ -6473,7 +6473,7 @@ msgid ""
 "SELECT col1 FROM foo, assuming that col1 is indexed."
 msgstr ""
 "As vezes que a primeira entrada foi lida de um índice. Se for alto, sugere "
-"que o usuário está fazendo muitas varreduras completas do índice; por "
+"que o utilizador está a fazer muitas varreduras completas do índice; por "
 "exemplo, SELECT col1 FROM foo, supondo que col1 é um índice."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:270
@@ -7135,7 +7135,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Setup/HomeController.php:130
 msgid "let the user choose"
-msgstr "deixar o usuário escolher"
+msgstr "deixar o utilizador escolher"
 
 #: libraries/classes/Controllers/Setup/HomeController.php:159
 msgid "- none -"
@@ -8708,7 +8708,7 @@ msgstr "Colunas centrais"
 
 #: libraries/classes/Menu.php:614
 msgid "User accounts"
-msgstr "Contas de usuário"
+msgstr "Contas de utilizador"
 
 #: libraries/classes/Menu.php:644 libraries/classes/Server/Status/Data.php:123
 #: libraries/classes/Util.php:4185 templates/server/binlog/index.twig:3
@@ -10790,7 +10790,7 @@ msgstr "Preferências de UI de tabelas persistentes"
 
 #: libraries/classes/Relation.php:307
 msgid "User preferences"
-msgstr "Preferências do usuário"
+msgstr "Preferências do utilizador"
 
 #: libraries/classes/Relation.php:324
 msgid "Configurable menus"
@@ -10827,7 +10827,7 @@ msgstr "Criar tabelas necessárias através de <code>%screate_tables.sql</code>.
 
 #: libraries/classes/Relation.php:397
 msgid "Create a pma user and give access to these tables."
-msgstr "Criar um usuário pma e dar acesso a essas tabelas."
+msgstr "Criar um utilizador pma e dar acesso a essas tabelas."
 
 #: libraries/classes/Relation.php:400
 msgid ""
@@ -11543,7 +11543,7 @@ msgstr "Necessário para a replicação dos slaves."
 #: libraries/classes/Server/Privileges.php:1505
 #: libraries/entry_points/server/privileges.php:120
 msgid "Allows the user to ask where the slaves / masters are."
-msgstr "Permitir que o usuário pergunte onde os slaves / masters estão."
+msgstr "Permitir que o utilizador pergunte onde os slaves / masters estão."
 
 #: libraries/classes/Server/Privileges.php:445
 #: libraries/classes/Server/Privileges.php:461
@@ -11643,18 +11643,18 @@ msgid ""
 "execute per hour."
 msgstr ""
 "Limita o número de comandos que alteram tabelas ou bancos de dados que o "
-"usuário pode executar por hora."
+"utilizador pode executar por hora."
 
 #: libraries/classes/Server/Privileges.php:913
 #: libraries/entry_points/server/privileges.php:102
 msgid "Limits the number of new connections the user may open per hour."
 msgstr ""
-"Limita a quantidade de novas conexões que o usuário pode abrir por hora."
+"Limita a quantidade de novas conexões que o utilizador pode abrir por hora."
 
 #: libraries/classes/Server/Privileges.php:922
 #: libraries/entry_points/server/privileges.php:112
 msgid "Limits the number of simultaneous connections the user may have."
-msgstr "Limita a quantidade de conexões simultâneas que o usuário pode ter."
+msgstr "Limita a quantidade de conexões simultâneas que o utilizador pode ter."
 
 #: libraries/classes/Server/Privileges.php:977
 #: libraries/classes/Server/Privileges.php:3292
@@ -11669,8 +11669,8 @@ msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
 msgstr ""
-"Permite ao usuário dar privilégios que o usuário possui nesta rotina a "
-"outros usuários ou remover de outros usuários."
+"Permite ao utilizador dar privilégios que o utilizador possui nesta rotina a "
+"outros utilizadores ou remover de outros utilizadores."
 
 #: libraries/classes/Server/Privileges.php:1014
 msgid "Allows altering and dropping this routine."
@@ -11745,8 +11745,8 @@ msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
 msgstr ""
-"Permite que o usuário dê os privilégios que ele mesmo possui a outros "
-"usuários ou remova de outros usuários."
+"Permite que o utilizador dê os privilégios que ele mesmo possui a outros "
+"utilizadores ou remova de outros utilizadores."
 
 #: libraries/classes/Server/Privileges.php:1570
 #: libraries/classes/Server/Privileges.php:1601
@@ -11775,7 +11775,7 @@ msgstr "Utilizadores que tem acesso a \"%s\""
 
 #: libraries/classes/Server/Privileges.php:2333
 msgid "User has been added."
-msgstr "O usuário foi adicionado."
+msgstr "O utilizador foi adicionado."
 
 #: libraries/classes/Server/Privileges.php:2482
 #: libraries/classes/Server/Privileges.php:3475
@@ -11802,12 +11802,12 @@ msgstr "Conceder/Grant"
 
 #: libraries/classes/Server/Privileges.php:2501
 msgid "Not enough privilege to view users."
-msgstr "Privilégio insuficiente para exibir usuário(s)."
+msgstr "Privilégio insuficiente para exibir utilizador(es)."
 
 #: libraries/classes/Server/Privileges.php:2520
 #: libraries/classes/Server/Privileges.php:3913
 msgid "No user found."
-msgstr "Nenhum usuário encontrado."
+msgstr "Nenhum utilizador encontrado."
 
 #: libraries/classes/Server/Privileges.php:2551
 #: libraries/classes/Server/Privileges.php:2901
@@ -11871,11 +11871,11 @@ msgstr "Informação de Login"
 
 #: libraries/classes/Server/Privileges.php:3043
 msgid "Change login information / Copy user account"
-msgstr "Mudar informações de login / Copiar conta de usuário"
+msgstr "Mudar informações de login / Copiar conta de utilizador"
 
 #: libraries/classes/Server/Privileges.php:3049
 msgid "Create a new user account with the same privileges and …"
-msgstr "Criar uma nova conta de usuário com os mesmos privilégios e …"
+msgstr "Criar uma conta de utilizador com os mesmos privilégios e …"
 
 #: libraries/classes/Server/Privileges.php:3293
 #: templates/server/privileges/edit_routine_privileges.twig:12
@@ -11905,7 +11905,7 @@ msgstr "O utilizador selecionado não se encontra na tabela de privilégios."
 
 #: libraries/classes/Server/Privileges.php:3783
 msgid "No users selected for deleting!"
-msgstr "Nenhum usuário selecionado para exclusão!"
+msgstr "Nenhum utilizador selecionado para exclusão!"
 
 #: libraries/classes/Server/Privileges.php:3786
 msgid "Reloading the privileges"
@@ -11945,19 +11945,19 @@ msgstr "Editar privilégios:"
 
 #: libraries/classes/Server/Privileges.php:4490
 msgid "User account"
-msgstr "Conta de usuário"
+msgstr "Conta de utilizador"
 
 #: libraries/classes/Server/Privileges.php:4553
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
-"Nota: você está tentando editar os privilégios do usuário da sessão atual."
+"Nota: está a tentar editar os privilégios do utilizador da sessão atual."
 
 #: libraries/classes/Server/Privileges.php:4573
 #: libraries/classes/Server/Users.php:32
 msgid "User accounts overview"
-msgstr "Visão geral das contas de usuário"
+msgstr "Visão geral das contas de utilizador"
 
 #: libraries/classes/Server/Privileges.php:4648
 msgid ""
@@ -11965,9 +11965,9 @@ msgid ""
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
-"Existe uma conta de usuário que permite que qualquer usuário do localhost se "
-"conecte. Isso impedirá que outros usuários se conectem se a parte do host "
-"dessas contas permitir uma conexão de qualquer host (%)."
+"Existe uma conta de utilizador que permite que qualquer utilizador do "
+"localhost se conecte. Isso impedirá que outros utilizadores se conectem se a "
+"parte do host dessas contas permitir uma conexão de qualquer host (%)."
 
 #: libraries/classes/Server/Privileges.php:4693
 #, php-format
@@ -11977,10 +11977,10 @@ msgid ""
 "server uses, if they have been changed manually. In this case, you should "
 "%sreload the privileges%s before you continue."
 msgstr ""
-"Nota: o phpMyAdmin obtém os privilégios dos usuários diretamente das tabelas "
-"de privilégios do MySQL. O conteúdo dessas tabelas pode divergir dos "
+"Nota: o phpMyAdmin obtém os privilégios dos utilizadores diretamente das "
+"tabelas de privilégios do MySQL. O conteúdo dessas tabelas pode divergir dos "
 "privilégios que o servidor usa, se eles foram modificados manualmente. Neste "
-"caso, você deve %srecarregar os privilégios%s antes de continuar."
+"caso, deve %srecarregar os privilégios%s antes de continuar."
 
 #: libraries/classes/Server/Privileges.php:4709
 msgid ""
@@ -11990,10 +11990,10 @@ msgid ""
 "privileges have to be reloaded but currently, you don't have the RELOAD "
 "privilege."
 msgstr ""
-"Nota: o phpMyAdmin obtém os privilégios dos usuários diretamente das tabelas "
-"de privilégios do MySQL. O conteúdo dessas tabelas pode divergir dos "
+"Nota: o phpMyAdmin obtém os privilégios dos utilizadores diretamente das "
+"tabelas de privilégios do MySQL. O conteúdo dessas tabelas pode divergir dos "
 "privilégios que o servidor usa, se eles foram manualmente modificados. Nesse "
-"caso, os privilégios devem ser recarregados, mas atualmente você não tem o "
+"caso, os privilégios devem ser recarregados, mas atualmente não tem o "
 "privilégio RELOAD."
 
 #: libraries/classes/Server/Privileges.php:5020
@@ -12414,7 +12414,7 @@ msgstr "Nenhum dado"
 #: libraries/classes/Tracking.php:394 libraries/classes/Tracking.php:460
 #, php-format
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
-msgstr "Mostrar %1$s com datas desde %2$s até %3$s pelo usuário %4$s %5$s"
+msgstr "Mostrar %1$s com datas desde %2$s até %3$s pelo utilizador %4$s %5$s"
 
 #: libraries/classes/Tracking.php:481
 msgid "SQL dump (file download)"
@@ -13349,7 +13349,7 @@ msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
 msgstr ""
-"O nome de usuário e o hostname não foram modificados. Se quiser apenas "
+"O nome de utilizador e o hostname não foram modificados. Se quiser apenas "
 "alterar a palavra-passe, utilize a aba \"Alterar palavra-passe\"."
 
 #: libraries/entry_points/table/change.php:170
@@ -14542,7 +14542,7 @@ msgstr ""
 
 #: templates/server/privileges/delete_user_fieldset.twig:5
 msgid "Remove selected user accounts"
-msgstr "Remover as contas de usuário selecionadas"
+msgstr "Remover as contas de utilizador selecionadas"
 
 #: templates/server/privileges/delete_user_fieldset.twig:8
 msgid "Revoke all active privileges from the users and delete them afterwards."
@@ -14720,7 +14720,7 @@ msgstr ""
 #: templates/server/replication/master_replication.twig:43
 #: templates/server/replication/master_add_slave_user.twig:6
 msgid "Add slave replication user"
-msgstr "Adicionar usuário de replicação de slave"
+msgstr "Adicionar utilizador de replicação de slave"
 
 #: templates/server/replication/index.twig:43
 msgid "No privileges"
@@ -14786,7 +14786,7 @@ msgstr "Escolher a partir das Colunas Centrais"
 #: templates/server/replication/master_add_slave_user.twig:16
 #: templates/server/replication/change_master.twig:14
 msgid "User name:"
-msgstr "Nome de usuário:"
+msgstr "Nome de utilizador:"
 
 #: templates/server/privileges/login_information_fields.twig:7
 #: templates/server/replication/master_add_slave_user.twig:20
@@ -14798,7 +14798,7 @@ msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
 msgstr ""
-"Uma conta já existe com o mesmo nome de usuário, mas possivelmente com um "
+"Uma conta já existe com o mesmo nome de utilizador, mas possivelmente com um "
 "nome de servidor diferente."
 
 #: templates/server/privileges/login_information_fields.twig:22
@@ -15085,11 +15085,11 @@ msgstr "Atualizar"
 #: templates/server/privileges/add_user.twig:3
 #: templates/server/privileges/add_user_fieldset.twig:9
 msgid "Add user account"
-msgstr "Adicionar conta de usuário"
+msgstr "Adicionar conta de utilizador"
 
 #: templates/server/privileges/add_user.twig:12
 msgid "Database for user account"
-msgstr "Banco de dados para a conta de usuário"
+msgstr "Banco de dados para a conta de utilizador"
 
 #: templates/server/privileges/add_user.twig:15
 msgid "Create database with same name and grant all privileges."
