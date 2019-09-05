@@ -765,95 +765,16 @@ class Privileges
         $routine,
         $url_dbname
     ) {
-        $header = $this->getHtmlHeaderForUserProperties(
-            false,
-            $url_dbname,
-            $db,
-            $username,
-            $hostname,
-            $routine,
-            'routine'
-        );
-
-        $sql = "SELECT `Proc_priv`"
-            . " FROM `mysql`.`procs_priv`"
-            . " WHERE `User` = '" . $this->dbi->escapeString($username) . "'"
-            . " AND `Host` = '" . $this->dbi->escapeString($hostname) . "'"
-            . " AND `Db` = '"
-            . $this->dbi->escapeString(Util::unescapeMysqlWildcards($db)) . "'"
-            . " AND `Routine_name` LIKE '" . $this->dbi->escapeString($routine) . "';";
-        $res = $this->dbi->fetchValue($sql);
-
-        $privs = $this->parseProcPriv($res);
-
-        $routineArray   = [$this->getTriggerPrivilegeTable()];
-        $privTableNames = [__('Routine')];
-        $privCheckboxes = $this->getHtmlForGlobalPrivTableWithCheckboxes(
-            $routineArray,
-            $privTableNames,
-            $privs
-        );
+        $privileges = $this->getRoutinePrivileges($username, $hostname, $db, $routine);
 
         return $this->template->render('server/privileges/edit_routine_privileges', [
             'username' => $username,
             'hostname' => $hostname,
             'database' => $db,
             'routine' => $routine,
-            'grant_count' => count($privs),
-            'priv_checkboxes' => $privCheckboxes,
-            'header' => $header,
-        ]);
-    }
-
-    /**
-     * Get routine privilege table as an array
-     *
-     * @return array privilege type array
-     */
-    public function getTriggerPrivilegeTable()
-    {
-        $routinePrivTable = [
-            [
-                'Grant',
-                'GRANT',
-                __(
-                    'Allows user to give to other users or remove from other users '
-                    . 'privileges that user possess on this routine.'
-                ),
-            ],
-            [
-                'Alter_routine',
-                'ALTER ROUTINE',
-                __('Allows altering and dropping this routine.'),
-            ],
-            [
-                'Execute',
-                'EXECUTE',
-                __('Allows executing this routine.'),
-            ],
-        ];
-        return $routinePrivTable;
-    }
-
-    /**
-     * Get HTML snippet for global privileges table with check boxes
-     *
-     * @param array $privTable      privileges table array
-     * @param array $privTableNames names of the privilege tables
-     *                              (Data, Structure, Administration)
-     * @param array $row            first row from result or boolean false
-     *
-     * @return string
-     */
-    public function getHtmlForGlobalPrivTableWithCheckboxes(
-        array $privTable,
-        array $privTableNames,
-        array $row
-    ) {
-        return $this->template->render('server/privileges/global_priv_table', [
-            'priv_table' => $privTable,
-            'priv_table_names' => $privTableNames,
-            'row' => $row,
+            'privileges' => $privileges,
+            'dbname' => $url_dbname,
+            'current_user' => $this->dbi->getCurrentUser(),
         ]);
     }
 
@@ -3780,40 +3701,6 @@ class Privileges
     }
 
     /**
-     * Get HTML header for display User's properties
-     *
-     * @param boolean $dbname_is_wildcard whether database name is wildcard or not
-     * @param string  $url_dbname         url database name that urlencode() string
-     * @param string  $dbname             database name
-     * @param string  $username           username
-     * @param string  $hostname           host name
-     * @param string  $entity_name        entity (table or routine) name
-     * @param string  $entity_type        optional, type of entity ('table' or 'routine')
-     *
-     * @return string
-     */
-    public function getHtmlHeaderForUserProperties(
-        $dbname_is_wildcard,
-        $url_dbname,
-        $dbname,
-        $username,
-        $hostname,
-        $entity_name,
-        $entity_type = 'table'
-    ) {
-        return $this->template->render('server/privileges/header', [
-            'database' => $dbname,
-            'dbname' => $url_dbname,
-            'username' => $username,
-            'hostname' => $hostname,
-            'is_databases' => $dbname_is_wildcard || is_array($dbname) && count($dbname) > 1,
-            'entity' => $entity_name,
-            'type' => $entity_type,
-            'current_user' => $this->dbi->getCurrentUser(),
-        ]);
-    }
-
-    /**
      * Get HTML snippet for display user overview page
      *
      * @param string $pmaThemeImage a image source link
@@ -4005,16 +3892,6 @@ class Privileges
         $dbname,
         $tablename
     ) {
-        $header = $this->getHtmlHeaderForUserProperties(
-            $dbname_is_wildcard,
-            $url_dbname,
-            $dbname,
-            $username,
-            $hostname,
-            $tablename,
-            'table'
-        );
-
         $sql = "SELECT '1' FROM `mysql`.`user`"
             . " WHERE `User` = '" . $this->dbi->escapeString($username) . "'"
             . " AND `Host` = '" . $this->dbi->escapeString($hostname) . "';";
@@ -4095,7 +3972,6 @@ class Privileges
         }
 
         return $this->template->render('server/privileges/user_properties', [
-            'header' => $header,
             'user_does_not_exists' => $user_does_not_exists,
             'login_information_fields' => $loginInformationFields,
             'params' => $_params,
@@ -4104,6 +3980,13 @@ class Privileges
             'link_to_database_and_table' => $linkToDatabaseAndTable,
             'change_password' => $changePassword,
             'change_login_information' => $changeLoginInformation,
+            'database' => $dbname,
+            'dbname' => $url_dbname,
+            'username' => $username,
+            'hostname' => $hostname,
+            'is_databases' => $dbname_is_wildcard || is_array($dbname) && count($dbname) > 1,
+            'table' => $tablename,
+            'current_user' => $this->dbi->getCurrentUser(),
         ]);
     }
 
@@ -4662,5 +4545,33 @@ class Privileges
             }
         }
         return '';
+    }
+
+    /**
+     * @param string $username User name
+     * @param string $hostname Host name
+     * @param string $database Database name
+     * @param string $routine  Routine name
+     *
+     * @return array
+     */
+    private function getRoutinePrivileges(
+        string $username,
+        string $hostname,
+        string $database,
+        string $routine
+    ): array {
+        $sql = "SELECT `Proc_priv`"
+            . " FROM `mysql`.`procs_priv`"
+            . " WHERE `User` = '" . $this->dbi->escapeString($username) . "'"
+            . " AND `Host` = '" . $this->dbi->escapeString($hostname) . "'"
+            . " AND `Db` = '"
+            . $this->dbi->escapeString(Util::unescapeMysqlWildcards($database)) . "'"
+            . " AND `Routine_name` LIKE '" . $this->dbi->escapeString($routine) . "';";
+        $privileges = $this->dbi->fetchValue($sql);
+        if ($privileges === false) {
+            $privileges = '';
+        }
+        return $this->parseProcPriv($privileges);
     }
 }

@@ -2134,14 +2134,13 @@ class PrivilegesTest extends TestCase
         $tablename = "tablename";
         $_REQUEST['tablename'] = "tablename";
 
-        $html = $this->serverPrivileges->getHtmlHeaderForUserProperties(
+        $html = $this->serverPrivileges->getHtmlForUserProperties(
             $dbname_is_wildcard,
             $url_dbname,
-            $dbname,
             $username,
             $hostname,
             $tablename,
-            'table'
+            $_REQUEST['tablename']
         );
 
         //title

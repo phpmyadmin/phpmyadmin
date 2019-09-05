@@ -1,5 +1,57 @@
 <div id="edit_user_dialog">
-  {{ header|raw }}
+  <h2>
+    {{ get_icon('b_usredit') }}
+    {% trans 'Edit privileges:' %}
+    {% trans 'User account' %}
+
+    {% if database is not empty %}
+      <em>
+        <a class="edit_user_anchor" href="{{ url('/server/privileges', {
+          'username': username,
+          'hostname': hostname,
+          'dbname': '',
+          'tablename': ''
+        }) }}">
+          '{{ username }}'@'{{ hostname }}'
+        </a>
+      </em>
+      -
+      {% if is_databases %}
+        {% trans 'Databases' %}
+      {% else %}
+        {% trans 'Database' %}
+      {% endif %}
+
+      {% if table is not empty %}
+        <em>
+          <a href="{{ url('/server/privileges', {
+            'username': username,
+            'hostname': hostname,
+            'dbname': dbname,
+            'tablename': ''
+          }) }}">
+            {{ database }}
+          </a>
+        </em>
+        -
+        {% trans 'Table' %}
+        <em>{{ table }}</em>
+      {% else %}
+        {% if database is not iterable %}
+          {% set database = [database] %}
+        {% endif %}
+        <em>
+          {{ database|join(', ') }}
+        </em>
+      {% endif %}
+    {% else %}
+      <em>'{{ username }}'@'{{ hostname }}'</em>
+    {% endif %}
+  </h2>
+
+  {% if current_user == username ~ '@' ~ hostname %}
+    {{ 'Note: You are attempting to edit privileges of the user with which you are currently logged in.'|trans|notice }}
+  {% endif %}
 
   {% if user_does_not_exists %}
     {{ 'The selected user was not found in the privilege table.'|trans|error }}
