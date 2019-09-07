@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-08-23 14:20+0200\n"
-"PO-Revision-Date: 2019-09-05 22:23+0000\n"
+"PO-Revision-Date: 2019-09-08 20:23+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -5903,7 +5903,7 @@ msgstr ""
 "necessária, use o %s login restrito para o servidor MySQL %s ou %s a lista "
 "de proxies confiáveis %s. Entretanto, proteções baseadas no protocolo IP "
 "podem não ser confiáveis se seu endereço IP pertence a um PROVEDOR onde "
-"centenas de usuários, incluindo você, estão conectados."
+"centenas de utilizadores, incluindo você, estão conectados."
 
 #: libraries/classes/Config/ServerConfigChecks.php:101
 msgid ""
@@ -5929,8 +5929,8 @@ msgstr ""
 "Se achar necessário, você pode usar as configurações de proteção adicional - "
 "as configurações %1$shost authentication%2$s e %3$strusted proxies list%4%s. "
 "No entanto, proteções baseadas em IP podem não ser confiáveis se o seu IP "
-"pertence a um servidor ISP onde milhares de usuários, incluindo você, estão "
-"conectados."
+"pertence a um servidor ISP onde milhares de utilizadores, incluindo você, "
+"estão conectados."
 
 #: libraries/classes/Config/ServerConfigChecks.php:212
 #, php-format
@@ -11476,7 +11476,7 @@ msgstr "Permite desligar o servidor."
 #: libraries/classes/Server/Privileges.php:1462
 #: libraries/entry_points/server/privileges.php:114
 msgid "Allows viewing processes of all users."
-msgstr "Permite visualizar processos de todos os usuários."
+msgstr "Permite visualizar processos de todos os utilizadores."
 
 #: libraries/classes/Server/Privileges.php:391
 #: libraries/classes/Server/Privileges.php:1330
@@ -11519,7 +11519,7 @@ msgid ""
 msgstr ""
 "Permite conectar, mesmo que a quantidade máxima de conexões seja alcançado; "
 "necessário para a maioria das operações administrativas, como definir "
-"variáveis globais ou matar processos de outros usuários."
+"variáveis globais ou matar processos de outros utilizadores."
 
 #: libraries/classes/Server/Privileges.php:425
 #: libraries/classes/Server/Privileges.php:1374
@@ -11841,7 +11841,7 @@ msgstr "Anula"
 
 #: libraries/classes/Server/Privileges.php:2791
 msgid "Edit user group"
-msgstr "Editar grupo de usuários"
+msgstr "Editar grupo de utilizadores"
 
 #: libraries/classes/Server/Privileges.php:3014
 msgid "… keep the old one."
@@ -11896,7 +11896,7 @@ msgstr "Palavra-passe"
 #: templates/server/privileges/choose_user_group.twig:4
 #: templates/server/privileges/choose_user_group.twig:5
 msgid "User group"
-msgstr "Grupo de usuários"
+msgstr "Grupo de utilizadores"
 
 #: libraries/classes/Server/Privileges.php:3607
 #: libraries/classes/Server/Privileges.php:4772
@@ -12084,7 +12084,7 @@ msgstr ""
 #: libraries/classes/Server/UserGroups.php:77
 #: libraries/classes/Server/Users.php:40
 msgid "User groups"
-msgstr "Grupos de usuários"
+msgstr "Grupos de utilizadores"
 
 #: libraries/classes/Server/UserGroups.php:92
 msgid "Server level tabs"
@@ -12100,21 +12100,21 @@ msgstr "Abas de nível de tabela"
 
 #: libraries/classes/Server/UserGroups.php:124
 msgid "View users"
-msgstr "Ver usuários"
+msgstr "Ver utilizadores"
 
 #: libraries/classes/Server/UserGroups.php:163
 #: libraries/classes/Server/UserGroups.php:229
 msgid "Add user group"
-msgstr "Adicionar grupo de usuários"
+msgstr "Adicionar grupo de utilizadores"
 
 #: libraries/classes/Server/UserGroups.php:232
 #, php-format
 msgid "Edit user group: '%s'"
-msgstr "Editar grupo de usuários: '%s'"
+msgstr "Editar grupo de utilizadores: '%s'"
 
 #: libraries/classes/Server/UserGroups.php:248
 msgid "User group menu assignments"
-msgstr "Atribuições do menu de grupos de usuários"
+msgstr "Atribuições do menu de grupos de utilizadores"
 
 #: libraries/classes/Server/UserGroups.php:256
 msgid "Group name:"
@@ -15097,7 +15097,7 @@ msgstr "Criar banco de dados com o mesmo nome e conceder todos os privilégios."
 
 #: templates/server/privileges/add_user.twig:19
 msgid "Grant all privileges on wildcard name (username\\_%)."
-msgstr "Conceder todos os privilégios no nome curinga (nome_do_usuário_%)."
+msgstr "Conceder todos os privilégios no nome curinga (username\\_%)."
 
 #: templates/server/privileges/add_user.twig:24
 #, php-format
