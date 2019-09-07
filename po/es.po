@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-08-23 14:20+0200\n"
-"PO-Revision-Date: 2019-06-02 20:11+0000\n"
-"Last-Translator: Alexander Anzorena <linkana2016@gmail.com>\n"
+"PO-Revision-Date: 2019-09-08 20:23+0000\n"
+"Last-Translator: Luis45ccs <luis45ccs@hotmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/es/>\n"
 "Language: es\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7-dev\n"
+"X-Generator: Weblate 3.9-dev\n"
 
 #: import_status.php:111
 msgid "Could not load the progress of the import."
@@ -27,14 +27,13 @@ msgid "Back"
 msgstr "Volver"
 
 #: index.php:31
-#, fuzzy, php-format
-#| msgid "Source database `%s` was not found!"
+#, php-format
 msgid "Error 404! The page %s was not found."
-msgstr "¡No se encontró la base de datos de origen «%s»!"
+msgstr "¡Error 404! No se encontró la página %s"
 
 #: index.php:36
 msgid "Error 405! Request method not allowed."
-msgstr ""
+msgstr "¡Error 405! El método requerido no está permitido."
 
 #: js/messages.php:46
 msgid "Confirm"
@@ -52,7 +51,7 @@ msgstr "¡Está a punto de DESTRUIR una base de datos completa!"
 #: js/messages.php:51
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
-"No puede renombrar la base de datos con el mismo nombre. Cambie el nombre e "
+"No puede renombrar la base de datos al mismo nombre. Cambie el nombre e "
 "inténtelo de nuevo"
 
 #: js/messages.php:53
@@ -89,7 +88,7 @@ msgstr "Borrando los datos de seguimiento"
 
 #: js/messages.php:65
 msgid "Dropping Primary Key/Index"
-msgstr "Borrando Claves Primarias/Índice"
+msgstr "Borrando Claves Primarias/Índices"
 
 #: js/messages.php:66
 msgid "Dropping Foreign key."
@@ -132,15 +131,15 @@ msgstr "¿Realmente desea eliminar esta columna central?"
 
 #: js/messages.php:82
 msgid "Do you really want to delete the selected items?"
-msgstr "¿Desea realmente borrar los items seleccionados?"
+msgstr "¿Desea realmente borrar los artículos seleccionados?"
 
 #: js/messages.php:84
 msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
-"¿Quieres SOLTAR las particiones seleccionadas? ¡También ELIMINARÁ los datos "
-"relacionados a las particiones seleccionadas!"
+"¿Realmente quiere BORRAR las particiones seleccionadas? ¡También ELIMINARÁ "
+"los datos relacionados con las particiones seleccionadas!"
 
 #: js/messages.php:88
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
@@ -163,10 +162,10 @@ msgid ""
 "refer to the tips at "
 msgstr ""
 "Esta operación intentará convertir los datos a la nueva intercalación. En "
-"casos raros, especialmente donde el personaje no existe en la nueva "
+"casos raros, especialmente donde un carácter no existen en la nueva "
 "intercalación, este proceso podría causar que los datos aparecieran "
 "incorrectamente en la nueva intercalación; en este caso le sugerimos que "
-"revertir a la intercalación original y refiere a los consejos en "
+"revertir a la intercalación original y referirse a los consejos en "
 
 #: js/messages.php:99
 msgid "Garbled Data"
