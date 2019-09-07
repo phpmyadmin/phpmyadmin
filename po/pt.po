@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-08-23 12:26+0200\n"
-"PO-Revision-Date: 2019-09-05 22:23+0000\n"
+"PO-Revision-Date: 2019-09-08 20:23+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/pt/>\n"
@@ -6403,7 +6403,7 @@ msgstr ""
 "necessária, use o %s login restrito para o servidor MySQL %s ou %s a lista "
 "de proxies confiáveis %s. Entretanto, proteções baseadas no protocolo IP "
 "podem não ser confiáveis se seu endereço IP pertence a um PROVEDOR onde "
-"centenas de usuários, incluindo você, estão conectados."
+"centenas de utilizadores, incluindo você, estão conectados."
 
 #: libraries/classes/Config/ServerConfigChecks.php:96
 msgid ""
@@ -6429,8 +6429,8 @@ msgstr ""
 "Se achar necessário, você pode usar as configurações de proteção adicional - "
 "as configurações %1$shost authentication%2$s e %3$strusted proxies list%4%s. "
 "No entanto, proteções baseadas em IP podem não ser confiáveis se o seu IP "
-"pertence a um servidor ISP onde milhares de usuários, incluindo você, estão "
-"conectados."
+"pertence a um servidor ISP onde milhares de utilizadores, incluindo você, "
+"estão conectados."
 
 #: libraries/classes/Config/ServerConfigChecks.php:203
 #, php-format
@@ -11326,7 +11326,7 @@ msgstr "Permite desligar o servidor."
 #: libraries/classes/Server/Privileges.php:344
 #: libraries/classes/Server/Privileges.php:1346 server_privileges.php:100
 msgid "Allows viewing processes of all users."
-msgstr "Permite visualizar processos de todos os usuários."
+msgstr "Permite visualizar processos de todos os utilizadores."
 
 #: libraries/classes/Server/Privileges.php:349
 #: libraries/classes/Server/Privileges.php:1234 server_privileges.php:79
@@ -11363,7 +11363,7 @@ msgid ""
 msgstr ""
 "Permite conectar, mesmo que a quantidade máxima de conexões seja alcançado; "
 "necessário para a maioria das operações administrativas, como definir "
-"variáveis globais ou matar processos de outros usuários."
+"variáveis globais ou matar processos de outros utilizadores."
 
 #: libraries/classes/Server/Privileges.php:383
 #: libraries/classes/Server/Privileges.php:1272 server_privileges.php:70
@@ -11634,7 +11634,7 @@ msgstr "Criar banco de dados com o mesmo nome e conceder todos os privilégios."
 
 #: libraries/classes/Server/Privileges.php:2199
 msgid "Grant all privileges on wildcard name (username\\_%)."
-msgstr "Conceder todos os privilégios no nome curinga (nome_do_usuário_%)."
+msgstr "Conceder todos os privilégios no nome curinga (username\\_%)."
 
 #: libraries/classes/Server/Privileges.php:2212
 #, php-format
@@ -11698,7 +11698,7 @@ msgstr "Anula"
 
 #: libraries/classes/Server/Privileges.php:2880
 msgid "Edit user group"
-msgstr "Editar grupo de usuários"
+msgstr "Editar grupo de utilizadores"
 
 #: libraries/classes/Server/Privileges.php:3098
 msgid "… keep the old one."
@@ -11739,7 +11739,7 @@ msgstr "Privilégios específicos de rotina"
 #: templates/privileges/choose_user_group.twig:4
 #: templates/privileges/choose_user_group.twig:5
 msgid "User group"
-msgstr "Grupo de usuários"
+msgstr "Grupo de utilizadores"
 
 #: libraries/classes/Server/Privileges.php:3689
 #: libraries/classes/Server/Privileges.php:4824
@@ -13031,7 +13031,7 @@ msgstr ""
 #: libraries/classes/Server/UserGroups.php:75
 #: libraries/classes/Server/Users.php:38
 msgid "User groups"
-msgstr "Grupos de usuários"
+msgstr "Grupos de utilizadores"
 
 #: libraries/classes/Server/UserGroups.php:90
 msgid "Server level tabs"
@@ -13047,21 +13047,21 @@ msgstr "Abas de nível de tabela"
 
 #: libraries/classes/Server/UserGroups.php:121
 msgid "View users"
-msgstr "Ver usuários"
+msgstr "Ver utilizadores"
 
 #: libraries/classes/Server/UserGroups.php:159
 #: libraries/classes/Server/UserGroups.php:225
 msgid "Add user group"
-msgstr "Adicionar grupo de usuários"
+msgstr "Adicionar grupo de utilizadores"
 
 #: libraries/classes/Server/UserGroups.php:228
 #, php-format
 msgid "Edit user group: '%s'"
-msgstr "Editar grupo de usuários: '%s'"
+msgstr "Editar grupo de utilizadores: '%s'"
 
 #: libraries/classes/Server/UserGroups.php:244
 msgid "User group menu assignments"
-msgstr "Atribuições do menu de grupos de usuários"
+msgstr "Atribuições do menu de grupos de utilizadores"
 
 #: libraries/classes/Server/UserGroups.php:252
 msgid "Group name:"
@@ -14200,7 +14200,7 @@ msgstr "Sem Privilégios"
 
 #: server_privileges.php:152
 msgid "You do not have privileges to manipulate with the users!"
-msgstr "Você não tem privilégios para manipular com os usuários!"
+msgstr "Você não tem privilégios para manipular com os utilizadores!"
 
 #: server_privileges.php:166
 msgid ""
