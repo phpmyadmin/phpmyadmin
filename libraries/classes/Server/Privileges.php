@@ -144,24 +144,6 @@ class Privileges
             . $this->dbi->escapeString(mb_strtolower($initial))
             . "%'";
         return $ret;
-    } // end function
-
-    /**
-     * Formats privilege name for a display
-     *
-     * @param array   $privilege Privilege information
-     * @param boolean $html      Whether to use HTML
-     *
-     * @return string
-     */
-    public function formatPrivilege(array $privilege, $html)
-    {
-        if ($html) {
-            return '<dfn title="' . $privilege[2] . '">'
-                . $privilege[1] . '</dfn>';
-        }
-
-        return $privilege[1];
     }
 
     /**
@@ -238,7 +220,12 @@ class Privileges
                     && count($GLOBALS[$current_grant[0]]) == $_REQUEST['column_count']
                     && empty($GLOBALS[$current_grant[0] . '_none']))))
                 ) {
-                    $privs[] = $this->formatPrivilege($current_grant, $enableHTML);
+                    if ($enableHTML) {
+                        $privs[] = '<dfn title="' . $current_grant[2] . '">'
+                        . $current_grant[1] . '</dfn>';
+                    } else {
+                        $privs[] = $current_grant[1];
+                    }
                 } elseif (! empty($GLOBALS[$current_grant[0]])
                     && is_array($GLOBALS[$current_grant[0]])
                     && empty($GLOBALS[$current_grant[0] . '_none'])
@@ -251,8 +238,14 @@ class Privileges
                         $GLOBALS[$current_grant[0]]
                     );
 
-                    $privs[] = $this->formatPrivilege($current_grant, $enableHTML)
-                        . ' (' . implode(', ', $grant_cols) . ')';
+                    if ($enableHTML) {
+                        $privs[] = '<dfn title="' . $current_grant[2] . '">'
+                            . $current_grant[1] . '</dfn>'
+                            . ' (' . implode(', ', $grant_cols) . ')';
+                    } else {
+                        $privs[] = $current_grant[1]
+                            . ' (' . implode(', ', $grant_cols) . ')';
+                    }
                 } else {
                     $allPrivileges = false;
                 }
