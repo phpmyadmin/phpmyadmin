@@ -2008,33 +2008,6 @@ class PrivilegesTest extends TestCase
         );
 
         $this->assertStringContainsString(
-            $this->serverPrivileges->getFieldsetForAddDeleteUser(),
-            $html
-        );
-    }
-
-    /**
-     * Test for getFieldsetForAddDeleteUser
-     *
-     * @return void
-     */
-    public function testGetFieldsetForAddDeleteUser()
-    {
-        $result = [];
-        $db_rights = [];
-        $pmaThemeImage = "pmaThemeImage";
-        $text_dir = "text_dir";
-        $GLOBALS['cfgRelation']['menuswork'] = true;
-
-        $html = $this->serverPrivileges->getUsersOverview(
-            $result,
-            $db_rights,
-            $pmaThemeImage,
-            $text_dir
-        );
-
-        //Url::getCommon
-        $this->assertStringContainsString(
             Url::getCommon(['adduser' => 1], ''),
             $html
         );

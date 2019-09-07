@@ -2695,59 +2695,18 @@ class Privileges
             $user_group_count = $this->getUserGroupCount();
         }
 
-        $html_output
-            = '<form name="usersForm" id="usersForm" action="' . Url::getFromRoute('/server/privileges')
-            . '" method="post">' . "\n"
-            . Url::getHiddenInputs('', '')
-            . '<div class="responsivetable row">'
-            . '<table id="tableuserrights" class="data">' . "\n"
-            . '<thead>' . "\n"
-            . '<tr><th></th>' . "\n"
-            . '<th>' . __('User name') . '</th>' . "\n"
-            . '<th>' . __('Host name') . '</th>' . "\n"
-            . '<th>' . __('Password') . '</th>' . "\n"
-            . '<th>' . __('Global privileges') . ' '
-            . Util::showHint(
-                __('Note: MySQL privilege names are expressed in English.')
-            )
-            . '</th>' . "\n";
-        if ($GLOBALS['cfgRelation']['menuswork']) {
-            $html_output .= '<th>' . __('User group') . '</th>' . "\n";
-        }
-        $html_output .= '<th>' . __('Grant') . '</th>' . "\n"
-            . '<th colspan="' . ($user_group_count > 0 ? '3' : '2') . '">'
-            . __('Action') . '</th>' . "\n"
-            . '</tr>' . "\n"
-            . '</thead>' . "\n";
+        $userRights = $this->getHtmlTableBodyForUserRights($db_rights);
+        $addUser = $this->getAddUserHtmlFieldset();
 
-        $html_output .= '<tbody>' . "\n";
-        $html_output .= $this->getHtmlTableBodyForUserRights($db_rights);
-        $html_output .= '</tbody>'
-            . '</table></div>' . "\n";
-
-        $html_output .= '<div class="floatleft row">'
-            . $this->template->render('select_all', [
-                'pma_theme_image' => $pmaThemeImage,
-                'text_dir' => $text_dir,
-                'form_name' => 'usersForm',
-            ]) . "\n";
-        $html_output .= Util::getButtonOrImage(
-            'submit_mult',
-            'mult_submit',
-            __('Export'),
-            'b_tblexport',
-            'export'
-        );
-        $html_output .= '<input type="hidden" name="initial" '
-            . 'value="' . (isset($_GET['initial']) ? htmlspecialchars($_GET['initial']) : '') . '">';
-        $html_output .= '</div>'
-            . '<div class="clearfloat"></div>';
-
-        // add/delete user fieldset
-        $html_output .= $this->getFieldsetForAddDeleteUser();
-        $html_output .= '</form>' . "\n";
-
-        return $html_output;
+        return $this->template->render('server/privileges/users_overview', [
+            'menus_work' => $GLOBALS['cfgRelation']['menuswork'],
+            'user_group_count' => $user_group_count,
+            'user_rights' => $userRights,
+            'pma_theme_image' => $pmaThemeImage,
+            'text_dir' => $text_dir,
+            'initial' => $_GET['initial'] ?? '',
+            'add_user' => $addUser,
+        ]);
     }
 
     /**
@@ -2888,20 +2847,6 @@ class Privileges
                 $html_output .= '</tr>';
             }
         }
-        return $html_output;
-    }
-
-    /**
-     * Get HTML fieldset for Add/Delete user
-     *
-     * @return string HTML snippet
-     */
-    public function getFieldsetForAddDeleteUser()
-    {
-        $html_output = $this->getAddUserHtmlFieldset();
-
-        $html_output .= $this->template->render('server/privileges/delete_user_fieldset');
-
         return $html_output;
     }
 
