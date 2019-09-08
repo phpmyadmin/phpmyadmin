@@ -38,7 +38,7 @@ standards, the most widely used include:
 
 * `FreeOTP for iOS, Android and Pebble <https://freeotp.github.io/>`_
 * `Authy for iOS, Android, Chrome, OS X <https://authy.com/>`_
-* `Google Authenticator for iOS <https://itunes.apple.com/us/app/google-authenticator/id388497605>`_
+* `Google Authenticator for iOS <https://apps.apple.com/us/app/google-authenticator/id388497605>`_
 * `Google Authenticator for Android <https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2>`_
 * `LastPass Authenticator for iOS, Android, OS X, Windows <https://lastpass.com/auth/>`_
 
