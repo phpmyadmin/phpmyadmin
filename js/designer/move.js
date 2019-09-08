@@ -1024,7 +1024,6 @@ function Save_as () {
                     if (data.id) {
                         selected_page = data.id;
                     }
-                    $('#page_name').text(name);
                     Load_page(selected_page);
                 }
             }); // end $.post()
@@ -1185,7 +1184,7 @@ function Export_pages () {
     }); // end $.get()
 }// end export pages
 
-function Load_page (page) {// s
+function Load_page (page) {
     if (designer_tables_enabled) {
         var param_page = '';
         var argsep = PMA_commonParams.get('arg_separator');
