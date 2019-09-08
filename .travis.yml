@@ -17,7 +17,6 @@ php:
   - "7.1"
   - "7.0"
   - "5.6"
-  - "5.5"
   - "hhvm-3.12"
   - "hhvm-3.18"
   - "hhvm-3.21"
@@ -89,6 +88,9 @@ matrix:
             - composer
             - mariadb
           update: true
+    - php: "5.5"
+      env: CI_MODE=test
+      dist: trusty
     - php: "7.1"
       env: CI_MODE=test DBASE=true
       install:
