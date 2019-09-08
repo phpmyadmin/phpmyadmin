@@ -623,6 +623,7 @@ function Add_Other_db_tables () {
             var dbEncoded = $($newTableDom).find('.small_tab_pref').attr('db_url');
             var tableEncoded = $($newTableDom).find('.small_tab_pref').attr('table_name_url');
             j_tabs[dbEncoded + '.' + tableEncoded] = 1;
+            MarkUnsaved();
         });
         $(this).dialog('close');
     };
@@ -1024,6 +1025,7 @@ function Save_as () {
                         selected_page = data.id;
                     }
                     $('#page_name').text(name);
+                    Load_page(selected_page);
                 }
             }); // end $.post()
         } else {
@@ -1183,7 +1185,7 @@ function Export_pages () {
     }); // end $.get()
 }// end export pages
 
-function Load_page (page) {
+function Load_page (page) {// s
     if (designer_tables_enabled) {
         var param_page = '';
         var argsep = PMA_commonParams.get('arg_separator');
