@@ -157,7 +157,7 @@ class Designer
         $designerConfig->scriptContr = $script_contr;
         $designerConfig->server = $GLOBALS['server'];
         $designerConfig->scriptDisplayField = $script_display_field;
-        $designerConfig->displayPage = $display_page;
+        $designerConfig->displayPage = (int) $display_page;
         $designerConfig->tablesEnabled = $cfgRelation['pdfwork'];
         return Template::get('database/designer/js_fields')->render([
             'designer_config' => json_encode($designerConfig)

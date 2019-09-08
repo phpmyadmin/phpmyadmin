@@ -2120,7 +2120,7 @@ AJAX.registerOnload('designer/move.js', function () {
         return false;
     });
     $('#reloadPage').click(function () {
-        $('#designer_tab').click();
+        Load_page(selected_page);
     });
     $('#angular_direct_button').click(function () {
         Angular_direct();
