@@ -373,14 +373,14 @@ class Designer
         $designerConfig->scriptContr = $scriptContr;
         $designerConfig->server = $GLOBALS['server'];
         $designerConfig->scriptDisplayField = $scriptDisplayField;
-        $designerConfig->displayPage = $displayPage;
+        $designerConfig->displayPage = (int) $displayPage;
         $designerConfig->tablesEnabled = $cfgRelation['pdfwork'];
 
         return $this->template->render('database/designer/main', [
             'db' => $db,
             'get_db' => $getDb,
             'designer_config' => json_encode($designerConfig),
-            'display_page' => $displayPage,
+            'display_page' => (int) $displayPage,
             'has_query' => $hasQuery,
             'selected_page' => $selectedPage,
             'params_array' => $paramsArray,

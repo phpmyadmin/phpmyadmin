@@ -519,6 +519,9 @@ DesignerMove.toggleFullscreen = function () {
         valueSent = 'on';
         $content.fullScreen(true);
     } else {
+        $img.attr('src', $img.data('enter'))
+            .attr('title', $span.data('enter'));
+        $span.text($span.data('enter'));
         $content.fullScreen(false);
         valueSent = 'off';
     }
@@ -599,6 +602,7 @@ DesignerMove.addOtherDbTables = function () {
             var dbEncoded = $($newTableDom).find('.small_tab_pref').attr('db_url');
             var tableEncoded = $($newTableDom).find('.small_tab_pref').attr('table_name_url');
             jTabs[dbEncoded + '.' + tableEncoded] = 1;
+            DesignerMove.markUnsaved();
         });
         $(this).dialog('close');
     };
@@ -788,7 +792,7 @@ DesignerMove.submitSaveDialogAndClose = function (callback) {
 };
 
 DesignerMove.save3 = function (callback) {
-    if (parseInt(selectedPage) !== -1) {
+    if (selectedPage !== -1) {
         DesignerMove.save2(callback);
     } else {
         var buttonOptions = {};
@@ -997,7 +1001,7 @@ DesignerMove.saveAs = function () {
                     if (data.id) {
                         selectedPage = data.id;
                     }
-                    $('#page_name').text(name);
+                    DesignerMove.loadPage(selectedPage);
                 }
             }); // end $.post()
         } else {
@@ -1009,7 +1013,7 @@ DesignerMove.saveAs = function () {
                     if (page.pgNr) {
                         selectedPage = page.pgNr;
                     }
-                    $('#page_name').text(page.pageDescr);
+                    DesignerMove.loadPage(selectedPage);
                 });
             } else if (choice === 'new') {
                 DesignerPage.saveToNewPage(db, name, DesignerMove.getUrlPos(), function (page) {
@@ -1018,7 +1022,7 @@ DesignerMove.saveAs = function () {
                     if (page.pgNr) {
                         selectedPage = page.pgNr;
                     }
-                    $('#page_name').text(page.pageDescr);
+                    DesignerMove.loadPage(selectedPage);
                 });
             }
         }
@@ -1060,7 +1064,7 @@ DesignerMove.saveAs = function () {
                     }
                 });
             // select current page by default
-            if (selectedPage !== '-1') {
+            if (selectedPage !== -1) {
                 $('select[name="selected_page"]').val(selectedPage);
             }
         }
@@ -1068,7 +1072,7 @@ DesignerMove.saveAs = function () {
 };
 
 DesignerMove.promptToSaveCurrentPage = function (callback) {
-    if (change === 1 || selectedPage === '-1') {
+    if (change === 1 || selectedPage === -1) {
         var buttonOptions = {};
         buttonOptions[Messages.strYes] = function () {
             $(this).dialog('close');
@@ -2098,7 +2102,7 @@ AJAX.registerOnload('designer/move.js', function () {
         return false;
     });
     $('#reloadPage').on('click', function () {
-        $('#designer_tab').trigger('click');
+        DesignerMove.loadPage(selectedPage);
     });
     $('#angular_direct_button').on('click', function () {
         DesignerMove.angularDirect();
