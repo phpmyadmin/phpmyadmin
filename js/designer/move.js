@@ -543,6 +543,9 @@ function Toggle_fullscreen () {
         value_sent = 'on';
         $content.fullScreen(true);
     } else {
+        $img.attr('src', $img.data('enter'))
+            .attr('title', $span.data('enter'));
+        $span.text($span.data('enter'));
         $content.fullScreen(false);
         value_sent = 'off';
     }
