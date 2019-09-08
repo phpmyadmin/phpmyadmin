@@ -2594,7 +2594,7 @@ $cfg['RecodingEngine'] = 'auto';
 /**
  * Specify some parameters for iconv used in character set conversion. See iconv
  * documentation for details:
- * https://www.gnu.org/software/libiconv/documentation/libiconv/iconv_open.3.html
+ * https://www.gnu.org/savannah-checkouts/gnu/libiconv/documentation/libiconv-1.15/iconv_open.3.html
  *
  * @global string $cfg['IconvExtraParams']
  */
