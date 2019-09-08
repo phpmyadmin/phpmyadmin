@@ -815,7 +815,7 @@ function submitSaveDialogAndClose (callback) {
 }
 
 function Save3 (callback) {
-    if (parseInt(selected_page) !== -1) {
+    if (selected_page !== -1) {
         Save2(callback);
     } else {
         var button_options = {};
@@ -1087,7 +1087,7 @@ function Save_as () {
                     }
                 });
             // select current page by default
-            if (selected_page !== '-1') {
+            if (selected_page !== -1) {
                 $('select[name="selected_page"]').val(selected_page);
             }
         }
@@ -1095,7 +1095,7 @@ function Save_as () {
 }
 
 function Prompt_to_save_current_page (callback) {
-    if (_change === 1 || selected_page === '-1') {
+    if (_change === 1 || selected_page === -1) {
         var button_options = {};
         button_options[PMA_messages.strYes] = function () {
             $(this).dialog('close');
