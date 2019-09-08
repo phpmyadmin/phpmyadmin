@@ -3,7 +3,7 @@
 # - run lint for every PHP version
 # - run Selenium for single PHP version
 
-dist: trusty
+dist: xenial
 
 language: php
 
@@ -119,5 +119,4 @@ addons:
   apt:
     packages:
     - git
-    - mysql-server-5.6
     - nginx
