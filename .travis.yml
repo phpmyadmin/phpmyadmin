@@ -24,8 +24,6 @@ php:
   - "hhvm-3.24"
   - "hhvm-3.27"
 
-sudo: required
-
 env:
   matrix:
     - CI_MODE=test
@@ -68,19 +66,21 @@ matrix:
     - php: "7.1"
       env: CI_MODE=selenium
     - php: "7.0"
+      node_js: 10
       env: CI_MODE=release
     - php: "7.1"
       env: CI_MODE=docs
     - php: "7.1"
       env: CI_MODE=apidocs
     - os: osx
-      name: "PHP 7.2"
+      name: "PHP 7.3"
       language: node_js
       node_js: 10
       env: CI_MODE=test
       before_install:
         - brew link --force gettext
-        - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /usr/local/etc/php/7.2/php.ini
+        - echo "memory_limit=-1" > /usr/local/etc/php/7.3/conf.d/50-travis.ini
+        - echo "pcre.jit=0" >> /usr/local/etc/php/7.3/conf.d/50-travis.ini
         - mysql.server start
       addons:
         homebrew:
