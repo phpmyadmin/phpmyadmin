@@ -1878,7 +1878,7 @@ Cookie authentication options
     :default: ``''``
 
     The public key for the reCaptcha service that can be obtained from
-    https://www.google.com/recaptcha/intro/.
+    https://www.google.com/recaptcha/intro/v3.html.
 
     reCaptcha will be then used in :ref:`cookie`.
 
@@ -1888,7 +1888,7 @@ Cookie authentication options
     :default: ``''``
 
     The private key for the reCaptcha service that can be obtain from
-    https://www.google.com/recaptcha/intro/.
+    https://www.google.com/recaptcha/intro/v3.html.
 
     reCaptcha will be then used in :ref:`cookie`.
 
