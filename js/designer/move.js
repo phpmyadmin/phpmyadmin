@@ -1036,7 +1036,7 @@ function Save_as () {
                     if (page.pg_nr) {
                         selected_page = page.pg_nr;
                     }
-                    $('#page_name').text(page.page_descr);
+                    Load_page(selected_page);
                 });
             } else if (choice === 'new') {
                 Save_to_new_page(db, name, Get_url_pos(), function (page) {
@@ -1045,7 +1045,7 @@ function Save_as () {
                     if (page.pg_nr) {
                         selected_page = page.pg_nr;
                     }
-                    $('#page_name').text(page.page_descr);
+                    Load_page(selected_page);
                 });
             }
         }
