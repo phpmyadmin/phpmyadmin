@@ -3551,10 +3551,7 @@ class Privileges
      */
     public function getHtmlForUserOverview($pmaThemeImage, $text_dir)
     {
-        $html_output = '<div class="row"><h2>' . "\n"
-           . Util::getIcon('b_usrlist')
-           . __('User accounts overview') . "\n"
-           . '</h2></div>' . "\n";
+        global $is_createuser;
 
         $password_column = 'Password';
         $server_type = Util::getServerType();
@@ -3589,6 +3586,7 @@ class Privileges
             DatabaseInterface::QUERY_STORE
         );
 
+        $errorMessages = '';
         if (! $res) {
             // the query failed! This may have two reasons:
             // - the user does not have enough privileges
@@ -3605,8 +3603,8 @@ class Privileges
             );
 
             if (! $res) {
-                $html_output .= $this->getHtmlForViewUsersError();
-                $html_output .= $this->getAddUserHtmlFieldset();
+                $errorMessages .= $this->getHtmlForViewUsersError();
+                $errorMessages .= $this->getAddUserHtmlFieldset();
             } else {
                 // This message is hardcoded because I will replace it by
                 // a automatic repair feature soon.
@@ -3615,7 +3613,7 @@ class Privileges
                     . 'Please run the <code>mysql_upgrade</code> command'
                     . ' that should be included in your MySQL server distribution'
                     . ' to solve this problem!';
-                $html_output .= Message::rawError($raw)->getDisplay();
+                $errorMessages .= Message::rawError($raw)->getDisplay();
             }
             $this->dbi->freeResult($res);
         } else {
@@ -3626,7 +3624,7 @@ class Privileges
             foreach ($db_rights as $right) {
                 foreach ($right as $account) {
                     if (empty($account['User']) && $account['Host'] == 'localhost') {
-                        $html_output .= Message::notice(
+                        $emptyUserNotice = Message::notice(
                             __(
                                 'A user account allowing any user from localhost to '
                                 . 'connect is present. This will prevent other users '
@@ -3645,7 +3643,7 @@ class Privileges
              * Also not necessary if there is less than 20 privileges
              */
             if ($this->dbi->numRows($res_all) > 20) {
-                $html_output .= $this->getHtmlForInitials($array_initials);
+                $initials = $this->getHtmlForInitials($array_initials);
             }
 
             /**
@@ -3656,15 +3654,13 @@ class Privileges
                 || isset($_GET['showall'])
                 || $this->dbi->numRows($res) < 50
             ) {
-                $html_output .= $this->getUsersOverview(
+                $usersOverview = $this->getUsersOverview(
                     $res,
                     $db_rights,
                     $pmaThemeImage,
                     $text_dir
                 );
-            } else {
-                $html_output .= $this->getAddUserHtmlFieldset();
-            } // end if (display overview)
+            }
 
             $response = Response::getInstance();
             if (! $response->isAjax()
@@ -3706,11 +3702,18 @@ class Privileges
                         Message::NOTICE
                     );
                 }
-                $html_output .= $flushnote->getDisplay();
+                $flushNotice = $flushnote->getDisplay();
             }
         }
 
-        return $html_output;
+        return $this->template->render('server/privileges/user_overview', [
+            'error_messages' => $errorMessages,
+            'empty_user_notice' => $emptyUserNotice ?? '',
+            'initials' => $initials ?? '',
+            'users_overview' => $usersOverview ?? '',
+            'is_createuser' => $is_createuser,
+            'flush_notice' => $flushNotice ?? '',
+        ]);
     }
 
     /**
