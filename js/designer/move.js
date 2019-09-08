@@ -1023,7 +1023,7 @@ function Save_as () {
                     if (data.id) {
                         selected_page = data.id;
                     }
-                    $('#page_name').text(name);
+                    Load_page(selected_page);
                 }
             }); // end $.post()
         } else {
