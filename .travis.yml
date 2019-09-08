@@ -88,6 +88,7 @@ matrix:
             - php
             - composer
             - mariadb
+          update: true
     - php: "7.1"
       env: CI_MODE=test DBASE=true
       install:
