@@ -35,6 +35,10 @@ phpMyAdmin - ChangeLog
 - issue        Remove fieldset closing tag when setting global privileges
 - issue #15425 Fix backslash in column name resulting an error in editing
 - issue #15380 Fix Status - Advisor error
+- issue #15439 Fix designer page status not updated when added a new table from another database
+- issue #15440 Fix page number is not being updated in the URL after saving a designer's page
+- issue        Fix reloading a designer's page
+- issue        Fix designer full screen mode button and text stuck when exiting full-screen mode
 
 4.9.0.1 (2019-06-04)
 - issue #14478 phpMyAdmin no longer streams the export data
