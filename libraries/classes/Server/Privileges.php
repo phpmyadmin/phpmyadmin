@@ -2685,45 +2685,20 @@ class Privileges
      */
     public function getUsersOverview($result, array $db_rights, $pmaThemeImage, $text_dir)
     {
+        global $is_grantuser, $is_createuser;
+
+        $cfgRelation = $this->relation->getRelationsParam();
+
         while ($row = $this->dbi->fetchAssoc($result)) {
             $row['privs'] = $this->extractPrivInfo($row, true);
             $db_rights[$row['User']][$row['Host']] = $row;
         }
         $this->dbi->freeResult($result);
-        $user_group_count = 0;
-        if ($GLOBALS['cfgRelation']['menuswork']) {
-            $user_group_count = $this->getUserGroupCount();
-        }
 
-        $userRights = $this->getHtmlTableBodyForUserRights($db_rights);
-        $addUser = $this->getAddUserHtmlFieldset();
-
-        return $this->template->render('server/privileges/users_overview', [
-            'menus_work' => $GLOBALS['cfgRelation']['menuswork'],
-            'user_group_count' => $user_group_count,
-            'user_rights' => $userRights,
-            'pma_theme_image' => $pmaThemeImage,
-            'text_dir' => $text_dir,
-            'initial' => $_GET['initial'] ?? '',
-            'add_user' => $addUser,
-        ]);
-    }
-
-    /**
-     * Get table body for 'tableuserrights' table in userform
-     *
-     * @param array $db_rights user's database rights array
-     *
-     * @return string HTML snippet
-     */
-    public function getHtmlTableBodyForUserRights(array $db_rights)
-    {
-        $cfgRelation = $this->relation->getRelationsParam();
         $user_group_count = 0;
         if ($cfgRelation['menuswork']) {
-            $users_table = Util::backquote($cfgRelation['db'])
-                . "." . Util::backquote($cfgRelation['users']);
-            $sql_query = 'SELECT * FROM ' . $users_table;
+            $sql_query = 'SELECT * FROM ' . Util::backquote($cfgRelation['db'])
+                . '.' . Util::backquote($cfgRelation['users']);
             $result = $this->relation->queryAsControlUser($sql_query, false);
             $group_assignment = [];
             if ($result) {
@@ -2736,118 +2711,46 @@ class Privileges
             $user_group_count = $this->getUserGroupCount();
         }
 
-        $index_checkbox = 0;
-        $html_output = '';
+        $hosts = [];
         foreach ($db_rights as $user) {
             ksort($user);
             foreach ($user as $host) {
-                $index_checkbox++;
-                $html_output .= '<tr>'
-                    . "\n";
-                $html_output .= '<td>'
-                    . '<input type="checkbox" class="checkall" name="selected_usr[]" '
-                    . 'id="checkbox_sel_users_'
-                    . $index_checkbox . '" value="'
-                    . htmlspecialchars($host['User'] . '&amp;#27;' . $host['Host'])
-                    . '"'
-                    . '></td>' . "\n";
-
-                $html_output .= '<td><label '
-                    . 'for="checkbox_sel_users_' . $index_checkbox . '">'
-                    . (empty($host['User'])
-                        ? '<span style="color: #FF0000">' . __('Any') . '</span>'
-                        : htmlspecialchars($host['User'])) . '</label></td>' . "\n"
-                    . '<td>' . htmlspecialchars($host['Host']) . '</td>' . "\n";
-
-                $html_output .= '<td>';
-
-                $password_column = 'Password';
-
                 $check_plugin_query = "SELECT * FROM `mysql`.`user` WHERE "
                     . "`User` = '" . $host['User'] . "' AND `Host` = '"
                     . $host['Host'] . "'";
                 $res = $this->dbi->fetchSingleRow($check_plugin_query);
 
+                $hasPassword = false;
                 if ((isset($res['authentication_string'])
                     && ! empty($res['authentication_string']))
                     || (isset($res['Password'])
                     && ! empty($res['Password']))
                 ) {
-                    $host[$password_column] = 'Y';
-                } else {
-                    $host[$password_column] = 'N';
+                    $hasPassword = true;
                 }
 
-                switch ($host[$password_column]) {
-                    case 'Y':
-                        $html_output .= __('Yes');
-                        break;
-                    case 'N':
-                        $html_output .= '<span style="color: #FF0000">' . __('No')
-                        . '</span>';
-                        break;
-                // this happens if this is a definition not coming from mysql.user
-                    default:
-                        $html_output .= '--'; // in future version, replace by "not present"
-                        break;
-                } // end switch
-
-                if (! isset($host['Select_priv'])) {
-                    $html_output .= Util::showHint(
-                        __('The selected user was not found in the privilege table.')
-                    );
-                }
-
-                $html_output .= '</td>' . "\n";
-
-                $html_output .= '<td><code>' . "\n"
-                    . '' . implode(',' . "\n" . '            ', $host['privs']) . "\n"
-                    . '</code></td>' . "\n";
-                if ($cfgRelation['menuswork']) {
-                    $html_output .= '<td class="usrGroup">' . "\n"
-                        . (isset($group_assignment[$host['User']])
-                            ? htmlspecialchars($group_assignment[$host['User']])
-                            : ''
-                        )
-                        . '</td>' . "\n";
-                }
-                $html_output .= '<td>'
-                    . ($host['Grant_priv'] == 'Y' ? __('Yes') : __('No'))
-                    . '</td>' . "\n";
-
-                if ($GLOBALS['is_grantuser']) {
-                    $html_output .= '<td class="center">'
-                        . $this->getUserLink(
-                            'edit',
-                            $host['User'],
-                            $host['Host']
-                        )
-                        . '</td>';
-                }
-                if ($cfgRelation['menuswork'] && $user_group_count > 0) {
-                    if (empty($host['User'])) {
-                        $html_output .= '<td class="center"></td>';
-                    } else {
-                        $html_output .= '<td class="center">'
-                            . $this->getUserGroupEditLink($host['User'])
-                            . '</td>';
-                    }
-                }
-                $html_output .= '<td class="center">'
-                    . $this->getUserLink(
-                        'export',
-                        $host['User'],
-                        $host['Host'],
-                        '',
-                        '',
-                        '',
-                        isset($_GET['initial']) ? $_GET['initial'] : ''
-                    )
-                    . '</td>';
-                $html_output .= '</tr>';
+                $hosts[] = [
+                    'user' => $host['User'],
+                    'host' => $host['Host'],
+                    'has_password' => $hasPassword,
+                    'has_select_priv' => isset($host['Select_priv']),
+                    'privileges' => $host['privs'],
+                    'group' => $group_assignment[$host['User']] ?? '',
+                    'has_grant' => $host['Grant_priv'] == 'Y',
+                ];
             }
         }
-        return $html_output;
+
+        return $this->template->render('server/privileges/users_overview', [
+            'menus_work' => $cfgRelation['menuswork'],
+            'user_group_count' => $user_group_count,
+            'pma_theme_image' => $pmaThemeImage,
+            'text_dir' => $text_dir,
+            'initial' => $_GET['initial'] ?? '',
+            'hosts' => $hosts,
+            'is_grantuser' => $is_grantuser,
+            'is_createuser' => $is_createuser,
+        ]);
     }
 
     /**

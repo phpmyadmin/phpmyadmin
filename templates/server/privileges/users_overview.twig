@@ -21,7 +21,71 @@
       </thead>
 
       <tbody>
-        {{ user_rights|raw }}
+        {% for host in hosts %}
+          <tr>
+            <td>
+              <input type="checkbox" class="checkall" id="checkbox_sel_users_{{ loop.index }}" value="
+                {{- host.user ~ '&amp;#27;' ~ host.host }}" name="selected_usr[]">
+            </td>
+            <td>
+              <label for="checkbox_sel_users_{{ loop.index }}">
+                {% if host.user is empty %}
+                  <span class="text-danger">{% trans 'Any' %}</span>
+                {% else %}
+                  {{ host.user }}
+                {% endif %}
+              </label>
+            </td>
+            <td>{{ host.host }}</td>
+            <td>
+              {% if host.has_password %}
+                {% trans 'Yes' %}
+              {% else %}
+                <span class="text-danger">{% trans 'No' %}</span>
+              {% endif %}
+              {{ not host.has_select_priv ? show_hint('The selected user was not found in the privilege table.'|trans) }}
+            </td>
+            <td>
+              <code>{{ host.privileges|join(', ')|raw }}</code>
+            </td>
+            {% if menus_work %}
+              <td class="usrGroup">{{ host.group }}</td>
+            {% endif %}
+            <td>{{ host.has_grant ? 'Yes'|trans : 'No'|trans }}</td>
+            {% if is_grantuser %}
+              <td class="center">
+                <a class="edit_user_anchor" href="{{ url('/server/privileges', {
+                  'username': host.user,
+                  'hostname': host.host,
+                  'dbname': '',
+                  'tablename': '',
+                  'routinename': '',
+                }) }}">
+                  {{ get_icon('b_usredit', 'Edit privileges'|trans) }}
+                </a>
+              </td>
+            {% endif %}
+            {% if menus_work and user_group_count > 0 %}
+              <td class="center">
+                {% if host.user is not empty %}
+                  <a class="edit_user_group_anchor ajax" href="{{ url('/server/privileges', {'username': host.user}) }}">
+                    {{ get_icon('b_usrlist', 'Edit user group'|trans) }}
+                  </a>
+                {% endif %}
+              </td>
+            {% endif %}
+            <td class="center">
+              <a class="export_user_anchor ajax" href="{{ url('/server/privileges', {
+                'username': host.user,
+                'hostname': host.host,
+                'initial': initial,
+                'export': true,
+              }) }}">
+                {{ get_icon('b_tblexport', 'Export'|trans) }}
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
       </tbody>
     </table>
   </div>
@@ -40,7 +104,18 @@
 
   <div class="clearfloat"></div>
 
-  {{ add_user|raw }}
+  {% if is_createuser %}
+    <div class="row">
+      <div class="col-12">
+        <fieldset id="fieldset_add_user">
+          <legend>{% trans %}New{% context %}Create new user{% endtrans %}</legend>
+          <a id="add_user_anchor" href="{{ url('/server/privileges', {'adduser': true}) }}">
+            {{ get_icon('b_usradd', 'Add user account'|trans) }}
+          </a>
+        </fieldset>
+      </div>
+    </div>
+  {% endif %}
 
   <div class="row">
     <div class="col-12">
