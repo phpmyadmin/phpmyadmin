@@ -4008,15 +4008,15 @@ Functions.toggleButton = function ($obj) {
     var move = $('td.toggleOff', $obj).outerWidth();
     // If the switch is initialized to the
     // OFF state we need to move it now.
-    if ($('div.container', $obj).hasClass('off')) {
+    if ($('div.toggle-container', $obj).hasClass('off')) {
         if (right === 'right') {
-            $('div.container', $obj).animate({ 'left': '-=' + move + 'px' }, 0);
+            $('div.toggle-container', $obj).animate({ 'left': '-=' + move + 'px' }, 0);
         } else {
-            $('div.container', $obj).animate({ 'left': '+=' + move + 'px' }, 0);
+            $('div.toggle-container', $obj).animate({ 'left': '+=' + move + 'px' }, 0);
         }
     }
     // Attach an 'onclick' event to the switch
-    $('div.container', $obj).on('click', function () {
+    $('div.toggle-container', $obj).on('click', function () {
         if ($(this).hasClass('isActive')) {
             return false;
         } else {
@@ -4074,7 +4074,7 @@ Functions.toggleButton = function ($obj) {
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('functions.js', function () {
-    $('div.container').off('click');
+    $('div.toggle-container').off('click');
 });
 /**
  * Initialise all toggle buttons

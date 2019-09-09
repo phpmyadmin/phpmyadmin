@@ -163,7 +163,7 @@ class ExportTest extends TestCase
             $html
         );
         $this->assertStringContainsString(
-            '<div class="exportoptions row" id="quick_or_custom">',
+            '<div class="exportoptions" id="quick_or_custom">',
             $html
         );
         $this->assertStringContainsString(

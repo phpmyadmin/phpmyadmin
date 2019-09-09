@@ -2002,7 +2002,15 @@ label.desc {
   }
 }
 
+kbd {
+  color: $main-color;
+  background-color: transparent;
+  box-shadow: none;
+}
+
 code {
+  color: $main-color;
+
   &.php {
     display: block;
     padding-#{$left}: 1em;
@@ -2834,7 +2842,7 @@ input#auto_increment_opt {
     position: relative;
   }
 
-  .container {
+  .toggle-container {
     position: absolute;
 
     td,

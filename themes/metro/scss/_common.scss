@@ -2163,14 +2163,24 @@ label.desc {
   }
 }
 
-code.php {
-  display: block;
-  padding-#{$left}: 0.3em;
-  margin-top: 0;
-  margin-bottom: 0;
-  max-height: 10em;
-  overflow: auto;
-  direction: ltr;
+kbd {
+  color: $main-color;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+code {
+  color: $main-color;
+
+  &.php {
+    display: block;
+    padding-#{$left}: 0.3em;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-height: 10em;
+    overflow: auto;
+    direction: ltr;
+  }
 }
 
 .sqlOuter code.sql,
@@ -2984,7 +2994,7 @@ input#auto_increment_opt {
     position: relative;
   }
 
-  .container {
+  .toggle-container {
     position: absolute;
 
     td {
