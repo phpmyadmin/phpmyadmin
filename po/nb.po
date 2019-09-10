@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-08-23 14:20+0200\n"
-"PO-Revision-Date: 2019-05-02 18:49+0000\n"
+"PO-Revision-Date: 2019-09-11 23:23+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/nb_NO/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7-dev\n"
+"X-Generator: Weblate 3.9-dev\n"
 
 #: import_status.php:111
 msgid "Could not load the progress of the import."
@@ -6466,7 +6466,7 @@ msgstr "Ugyldig verdi:"
 #: libraries/classes/Config/Validator.php:445
 #, php-format
 msgid "Incorrect IP address: %s"
-msgstr "Ugyldig IP addresse: %s"
+msgstr "Ugyldig IP-adresse: %s"
 
 #: libraries/classes/Console.php:102
 #, php-format
