@@ -6,8 +6,15 @@
 declare(strict_types=1);
 
 use FastRoute\RouteCollector;
+use PhpMyAdmin\Controllers\Server\DatabasesController;
+use PhpMyAdmin\Response;
 
-return function (RouteCollector $routes) {
+global $containerBuilder;
+
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
+
+return function (RouteCollector $routes) use ($containerBuilder, $response) {
     $routes->addRoute(['GET', 'POST'], '[/]', function () {
         require_once ROOT_PATH . 'libraries/entry_points/home.php';
     });
@@ -122,15 +129,37 @@ return function (RouteCollector $routes) {
     $routes->addRoute(['GET', 'POST'], '/schema_export', function () {
         require_once ROOT_PATH . 'libraries/entry_points/schema_export.php';
     });
-    $routes->addGroup('/server', function (RouteCollector $routes) {
+    $routes->addGroup('/server', function (RouteCollector $routes) use ($containerBuilder, $response) {
         $routes->addRoute(['GET', 'POST'], '/binlog', function () {
             require_once ROOT_PATH . 'libraries/entry_points/server/binlog.php';
         });
         $routes->addRoute('GET', '/collations', function () {
             require_once ROOT_PATH . 'libraries/entry_points/server/collations.php';
         });
-        $routes->addRoute(['GET', 'POST'], '/databases', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/server/databases.php';
+        $routes->addGroup('/databases', function (RouteCollector $routes) use ($containerBuilder, $response) {
+            /** @var DatabasesController $controller */
+            $controller = $containerBuilder->get(DatabasesController::class);
+
+            $routes->addRoute(['GET', 'POST'], '', function () use ($response, $controller) {
+                $response->addHTML($controller->index([
+                    'statistics' => $_REQUEST['statistics'] ?? null,
+                    'pos' => $_REQUEST['pos'] ?? null,
+                    'sort_by' => $_REQUEST['sort_by'] ?? null,
+                    'sort_order' => $_REQUEST['sort_order'] ?? null,
+                ]));
+            });
+            $routes->addRoute('POST', '/create', function () use ($response, $controller) {
+                $response->addJSON($controller->create([
+                    'new_db' => $_POST['new_db'] ?? null,
+                    'db_collation' => $_POST['db_collation'] ?? null,
+                ]));
+            });
+            $routes->addRoute('POST', '/destroy', function () use ($response, $controller) {
+                $response->addJSON($controller->destroy([
+                    'drop_selected_dbs' => $_POST['drop_selected_dbs'] ?? null,
+                    'selected_dbs' => $_POST['selected_dbs'] ?? null,
+                ]));
+            });
         });
         $routes->addRoute('GET', '/engines', function () {
             require_once ROOT_PATH . 'libraries/entry_points/server/engines.php';
