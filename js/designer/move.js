@@ -1582,7 +1582,8 @@ DesignerMove.hideTabAll = function (idThis) {
         idThis.src = idThis.dataset.down;
     }
     var E = document.form1;
-    for (var i = 0; i < E.elements.length; i++) {
+    var EelementsLength = E.elements.length;
+    for (var i = 0; i < EelementsLength; i++) {
         if (E.elements[i].type === 'checkbox' && E.elements[i].id.substring(0, 10) === 'check_vis_') {
             if (idThis.alt === 'v') {
                 E.elements[i].checked = true;
@@ -1634,7 +1635,8 @@ DesignerMove.noHaveConstr = function (idThis) {
         idThis.src = idThis.dataset.down;
     }
     var E = document.form1;
-    for (var i = 0; i < E.elements.length; i++) {
+    var EelementsLength = E.elements.length;
+    for (var i = 0; i < EelementsLength; i++) {
         if (E.elements[i].type === 'checkbox' && E.elements[i].id.substring(0, 10) === 'check_vis_') {
             if (!DesignerMove.inArrayK(E.elements[i].value, a)) {
                 if (idThis.alt === 'v') {
@@ -1811,7 +1813,8 @@ DesignerMove.selectAll = function (idThis, owner) {
     var i;
     var k;
     var tab = [];
-    for (i = 0; i < parent.elements.length; i++) {
+    var parentElementsLength = parent.elements.length;
+    for (i = 0; i < parentElementsLength; i++) {
         if (parent.elements[i].type === 'checkbox' && parent.elements[i].id.substring(0, (9 + idThis.length)) === 'select_' + idThis + '._') {
             if (document.getElementById('select_all_' + idThis).checked === true) {
                 parent.elements[i].checked = true;
