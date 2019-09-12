@@ -1501,60 +1501,19 @@ class Privileges
      *
      * @return string
      */
-    public function getHtmlForSpecificDbPrivileges($db)
+    public function getHtmlForSpecificDbPrivileges(string $db): string
     {
-        $html_output = '';
+        global $cfg, $pmaThemeImage, $text_dir, $is_createuser;
 
+        $scriptName = Util::getScriptNameForOption(
+            $cfg['DefaultTabDatabase'],
+            'database'
+        );
+
+        $tableBody = '';
         if ($this->dbi->isSuperuser()) {
-            // check the privileges for a particular database.
-            $html_output  = '<form id="usersForm" action="' . Url::getFromRoute('/server/privileges') . '">';
-            $html_output .= Url::getHiddenInputs($db);
-            $html_output .= '<div class="width100">';
-            $html_output .= '<fieldset>';
-            $scriptName = Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabDatabase'],
-                'database'
-            );
-            $html_output .= '<legend>' . "\n"
-                . Util::getIcon('b_usrcheck')
-                . '    '
-                . sprintf(
-                    __('Users having access to "%s"'),
-                    '<a href="' . $scriptName
-                    . Url::getCommon(['db' => $db], strpos($scriptName, '?') === false ? '?' : '&') . '">'
-                    . htmlspecialchars($db)
-                    . '</a>'
-                )
-                . "\n"
-                . '</legend>' . "\n";
-
-            $html_output .= '<div class="responsivetable jsresponsive">';
-            $html_output .= '<table id="dbspecificuserrights" class="data">';
-            $html_output .= $this->getHtmlForPrivsTableHead();
             $privMap = $this->getPrivMap($db);
-            $html_output .= $this->getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
-            $html_output .= '</table>';
-            $html_output .= '</div>';
-
-            $html_output .= '<div class="floatleft">';
-            $html_output .= $this->template->render('select_all', [
-                'pma_theme_image' => $GLOBALS['pmaThemeImage'],
-                'text_dir' => $GLOBALS['text_dir'],
-                'form_name' => "usersForm",
-            ]);
-            $html_output .= Util::getButtonOrImage(
-                'submit_mult',
-                'mult_submit',
-                __('Export'),
-                'b_tblexport',
-                'export'
-            );
-
-            $html_output .= '</fieldset>';
-            $html_output .= '</div>';
-            $html_output .= '</form>';
-        } else {
-            $html_output .= $this->getHtmlForViewUsersError();
+            $tableBody = $this->getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
         }
 
         $response = Response::getInstance();
@@ -1563,13 +1522,18 @@ class Privileges
         ) {
             $message = Message::success(__('User has been added.'));
             $response->addJSON('message', $message);
-            $response->addJSON('user_form', $html_output);
             exit;
-        } else {
-            // Offer to create a new user for the current database
-            $html_output .= $this->getAddUserHtmlFieldset($db);
         }
-        return $html_output;
+
+        return $this->template->render('server/privileges/database', [
+            'is_superuser' => $this->dbi->isSuperuser(),
+            'db' => $db,
+            'database_url' => $scriptName,
+            'pma_theme_image' => $pmaThemeImage,
+            'text_dir' => $text_dir,
+            'table_body' => $tableBody,
+            'is_createuser' => $is_createuser,
+        ]);
     }
 
     /**

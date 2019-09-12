@@ -1,0 +1,59 @@
+{% if is_superuser %}
+  <form id="usersForm" action="{{ url('/server/privileges') }}">
+    {{ get_hidden_inputs(db) }}
+
+    <div class="width100">
+      <fieldset>
+        <legend>
+          {{ get_icon('b_usrcheck') }}
+          {{ 'Users having access to "%s"'|trans|format('<a href="' ~ database_url ~ get_common({'db': db}, '&') ~ '">' ~ db ~ '</a>')|raw }}
+        </legend>
+
+        <div class="responsivetable jsresponsive">
+          <table id="dbspecificuserrights" class="data">
+            <thead>
+              <tr>
+                <th></th>
+                <th>{% trans 'User name' %}</th>
+                <th>{% trans 'Host name' %}</th>
+                <th>{% trans 'Type' %}</th>
+                <th>{% trans 'Privileges' %}</th>
+                <th>{% trans 'Grant' %}</th>
+                <th colspan="2">{% trans 'Action' %}</th>
+              </tr>
+            </thead>
+
+            {{ table_body|raw }}
+          </table>
+        </div>
+
+        <div class="floatleft">
+          <img class="selectallarrow" src="{{ pma_theme_image }}arrow_{{ text_dir }}.png" alt="
+            {%- trans 'With selected:' %}" width="38" height="22">
+          <input type="checkbox" id="usersForm_checkall" class="checkall_box" title="{% trans 'Check all' %}">
+          <label for="usersForm_checkall">{% trans 'Check all' %}</label>
+          <em class="with-selected">{% trans 'With selected:' %}</em>
+          {{ get_button_or_image('submit_mult', 'mult_submit', 'Export'|trans, 'b_tblexport', 'export') }}
+        </div>
+      </fieldset>
+    </div>
+  </form>
+{% else %}
+  {{ 'Not enough privilege to view users.'|trans|error }}
+{% endif %}
+
+{% if is_createuser %}
+  <div class="row">
+    <div class="col-12">
+      <fieldset id="fieldset_add_user">
+        <legend>{% trans %}New{% context %}Create new user{% endtrans %}</legend>
+        <a id="add_user_anchor" href="{{ url('/server/privileges', {
+          'adduser': true,
+          'dbname': db
+        }) }}" rel="{{ get_common({'checkprivsdb': db}) }}">
+          {{ get_icon('b_usradd', 'Add user account'|trans) }}
+        </a>
+      </fieldset>
+    </div>
+  </div>
+{% endif %}
