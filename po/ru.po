@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-08-23 12:26+0200\n"
-"PO-Revision-Date: 2019-07-25 20:07+0000\n"
-"Last-Translator: Stanislav <smur@starr.ru>\n"
+"PO-Revision-Date: 2019-09-18 09:24+0000\n"
+"Last-Translator: WWWesten <wwwesten@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.8-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -582,7 +582,7 @@ msgstr ""
 
 #: import.php:547 libraries/classes/Display/Import.php:56
 msgid "Could not load import plugins, please check your installation!"
-msgstr "Не удалось загрузить модули импорта. Пожалуйста, проверьте установку!"
+msgstr "Не удалось загрузить плагины импорта. Пожалуйста, проверьте установку!"
 
 #: import.php:587 libraries/classes/Sql.php:827 libraries/classes/Sql.php:1619
 #, php-format
@@ -1165,9 +1165,8 @@ msgstr "Другое"
 #. l10n: Thousands separator
 #: js/messages.php:161 libraries/classes/Util.php:1353
 #: libraries/classes/Util.php:1384
-#, fuzzy
 msgid ","
-msgstr "."
+msgstr " "
 
 #. l10n: Decimal separator
 #: js/messages.php:163 libraries/classes/Util.php:1351
@@ -2723,8 +2722,7 @@ msgid "Failed security key activation (%s)."
 msgstr "Ошибка активации ключа безопасности (%s)."
 
 #: js/messages.php:755
-#, fuzzy, php-format
-#| msgid "Table %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
@@ -3537,30 +3535,27 @@ msgstr "Вьетнамский"
 #: libraries/classes/Charsets.php:663
 msgctxt "Collation variant"
 msgid "case-insensitive"
-msgstr "регистронезависимый"
+msgstr "регистро-независимый"
 
 #: libraries/classes/Charsets.php:666
 msgctxt "Collation variant"
 msgid "case-sensitive"
-msgstr "регистрозависымый"
+msgstr "регистро-зависимый"
 
 #: libraries/classes/Charsets.php:669
 msgctxt "Collation variant"
 msgid "accent-insensitive"
-msgstr "акцент нечувствительный"
+msgstr "акценто-независимый"
 
 #: libraries/classes/Charsets.php:672
 msgctxt "Collation variant"
 msgid "accent-sensitive"
-msgstr "акцент чувствительный"
+msgstr "акценто-зависимый"
 
 #: libraries/classes/Charsets.php:675
-#, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "accent-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "акцент чувствительный"
+msgstr "кана-зависимый"
 
 #: libraries/classes/Charsets.php:679
 msgctxt "Collation variant"
@@ -3570,12 +3565,12 @@ msgstr "многоуровневый"
 #: libraries/classes/Charsets.php:682
 msgctxt "Collation variant"
 msgid "binary"
-msgstr "Двоичный"
+msgstr "двоичный"
 
 #: libraries/classes/Charsets.php:685
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "без выравнивания"
 
 #: libraries/classes/Config.php:1122
 #, php-format
@@ -7203,7 +7198,7 @@ msgstr "Переименовать экспортируемые базы дан�
 #: libraries/classes/Display/Export.php:684
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
-"Отсутствуют модули экспорта. Проверьте содержимое установленной копии "
+"Отсутствуют плагины экспорта. Проверьте содержимое установленной копии "
 "phpMyAdmin!"
 
 #: libraries/classes/Display/GitRevision.php:66
@@ -8268,7 +8263,7 @@ msgstr "Типы таблиц"
 #: libraries/classes/Menu.php:657 libraries/classes/Util.php:4000
 #: templates/server/sub_page_header.twig:2
 msgid "Plugins"
-msgstr "Расширения"
+msgstr "Плагины"
 
 #: libraries/classes/Message.php:247
 #, php-format
@@ -9778,7 +9773,7 @@ msgstr "Несоответствие количества столбцов в CS
 
 #: libraries/classes/Plugins/Import/ImportLdi.php:113
 msgid "This plugin does not support compressed imports!"
-msgstr "Этот модуль не поддерживает импорт сжатых данных!"
+msgstr "Этот плагин не поддерживает импорт сжатых данных!"
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:53
 msgid "MediaWiki Table"
@@ -15706,7 +15701,7 @@ msgstr "Вы можете изучить данные в отчёте об ош�
 
 #: templates/server/plugins/section.twig:9
 msgid "Plugin"
-msgstr "Расширение"
+msgstr "Плагин"
 
 #: templates/server/plugins/section.twig:12
 msgid "Author"
