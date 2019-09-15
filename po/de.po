@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-08-23 14:20+0200\n"
-"PO-Revision-Date: 2019-08-09 18:22+0000\n"
+"PO-Revision-Date: 2019-09-18 18:27+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "de/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.8-dev\n"
+"X-Generator: Weblate 3.9-dev\n"
 
 #: import_status.php:111
 msgid "Could not load the progress of the import."
@@ -2109,8 +2109,7 @@ msgid "Failed security key activation (%s)."
 msgstr "Aktivierung des Sicherheitsschlüssels fehlgeschlagen (%s)."
 
 #: js/messages.php:766
-#, fuzzy, php-format
-#| msgid "Table %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
@@ -15374,10 +15373,8 @@ msgid "Username:"
 msgstr "Benutzername:"
 
 #: templates/login/form.twig:65
-#, fuzzy
-#| msgid "Server Choice:"
 msgid "Server choice:"
-msgstr "Server auswählen:"
+msgstr "Serverauswahl:"
 
 #: templates/login/form.twig:7 templates/home/index.twig:20
 #, php-format
