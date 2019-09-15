@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-08-23 14:20+0200\n"
-"PO-Revision-Date: 2019-06-24 14:00+0000\n"
+"PO-Revision-Date: 2019-09-18 18:27+0000\n"
 "Last-Translator: WWWesten <wwwesten@gmail.com>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "kk/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7.1-dev\n"
+"X-Generator: Weblate 3.9-dev\n"
 
 #: import_status.php:111
 msgid "Could not load the progress of the import."
@@ -2080,8 +2080,7 @@ msgid "Failed security key activation (%s)."
 msgstr "Qaýipsizdik kiltin belsendirý sátsiz aıaqtaldy (%s)."
 
 #: js/messages.php:766
-#, fuzzy, php-format
-#| msgid "Table %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
@@ -2980,12 +2979,9 @@ msgid "accent-sensitive"
 msgstr "ekpin eskeriledi"
 
 #: libraries/classes/Charsets/Collation.php:524
-#, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "accent-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "ekpin eskeriledi"
+msgstr "kana eskeriledi"
 
 #: libraries/classes/Charsets/Collation.php:528
 msgctxt "Collation variant"
