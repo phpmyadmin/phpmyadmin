@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-08-23 12:26+0200\n"
-"PO-Revision-Date: 2019-02-02 06:48+0000\n"
-"Last-Translator: popcorner <memoword@163.com>\n"
+"PO-Revision-Date: 2019-09-18 09:24+0000\n"
+"Last-Translator: Huang Zhiyi <hzy980512@126.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-8/zh_Hans/>\n"
+"phpmyadmin/4-9/zh_Hans/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.5-dev\n"
+"X-Generator: Weblate 3.9-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -527,14 +527,10 @@ msgid "Output"
 msgstr "输出"
 
 #: gis_data_editor.php:423
-#, fuzzy
-#| msgid ""
-#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-#| "below into the \"Value\" field."
 msgid ""
 "Choose \"ST_GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
-msgstr "从“函数”列中选择“GeomFromText”并粘贴下列内容到“值”中。"
+msgstr "从“函数”列中选择“ST_GeomFromText”并粘贴下列内容到“值”中。"
 
 #: import.php:73
 msgid "Succeeded"
@@ -1072,10 +1068,8 @@ msgid "Y values"
 msgstr "纵轴值"
 
 #: js/messages.php:142
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "请重输一遍"
+msgstr "请先输入 SQL 查询语句。"
 
 #: js/messages.php:145
 msgid "The host name is empty!"
@@ -2627,8 +2621,7 @@ msgid "Failed security key activation (%s)."
 msgstr "安全密钥激活失败（%s）。"
 
 #: js/messages.php:755
-#, fuzzy, php-format
-#| msgid "Table %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
@@ -3451,12 +3444,9 @@ msgid "accent-sensitive"
 msgstr "区分重音"
 
 #: libraries/classes/Charsets.php:675
-#, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "accent-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "区分重音"
+msgstr "区分假名"
 
 #: libraries/classes/Charsets.php:679
 msgctxt "Collation variant"
@@ -3471,7 +3461,7 @@ msgstr "二进制"
 #: libraries/classes/Charsets.php:685
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "无填充"
 
 #: libraries/classes/Config.php:1122
 #, php-format
@@ -13322,7 +13312,7 @@ msgstr "以上均不"
 
 #: libraries/db_common.inc.php:151 tbl_operations.php:224
 msgid "No collation provided."
-msgstr ""
+msgstr "未提供排序规则。"
 
 #: libraries/mult_submits.inc.php:337
 msgid "Success!"
@@ -13416,10 +13406,8 @@ msgstr ""
 "你可以通过修改 config.inc.php 文件进行更多设置，如通过使用%s安装脚本%s。"
 
 #: prefs_manage.php:309
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as JSON file"
-msgstr "保存为文件"
+msgstr "保存为 JSON 文件"
 
 #: prefs_manage.php:314
 msgid "Save as PHP file"
@@ -13454,10 +13442,8 @@ msgid "View dump (schema) of databases"
 msgstr "查看数据库的转存(大纲)"
 
 #: server_privileges.php:74
-#, fuzzy
-#| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
-msgstr "允许删除数据。"
+msgstr "允许删除历史行。"
 
 #: server_privileges.php:145 server_replication.php:38
 #: server_user_groups.php:31 templates/server/databases/create.twig:46
