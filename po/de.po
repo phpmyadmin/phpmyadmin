@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-08-23 14:20+0200\n"
 "PO-Revision-Date: 2019-09-18 18:27+0000\n"
-"Last-Translator: ssantos <ssantos@web.de>\n"
+"Last-Translator: tinect <s.koenig@tinect.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "de/>\n"
 "Language: de\n"
@@ -8329,7 +8329,7 @@ msgstr "phpMyAdmin Demo Server"
 #: libraries/classes/Footer.php:89
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr "Momentan wit Git-Revision %1$s aus dem %2$s-Zweig ausgeführt."
+msgstr "Momentan wird Git-Revision %1$s aus dem %2$s-Zweig ausgeführt."
 
 #: libraries/classes/Footer.php:96
 msgid "Git information missing!"
@@ -14976,11 +14976,9 @@ msgid "No password"
 msgstr "Kein Passwort"
 
 #: templates/server/privileges/login_information_fields.twig:54
-#, fuzzy
-#| msgid "Data length"
 msgctxt "Password strength"
 msgid "Strength:"
-msgstr "Datenlänge"
+msgstr "Stärke:"
 
 #: templates/server/privileges/login_information_fields.twig:62
 #: templates/server/replication/master_add_slave_user.twig:65
