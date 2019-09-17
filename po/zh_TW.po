@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-08-23 14:20+0200\n"
-"PO-Revision-Date: 2019-06-18 19:00+0000\n"
+"PO-Revision-Date: 2019-09-18 18:27+0000\n"
 "Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hant/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.7\n"
+"X-Generator: Weblate 3.9-dev\n"
 
 #: import_status.php:111
 msgid "Could not load the progress of the import."
@@ -27,10 +27,9 @@ msgid "Back"
 msgstr "返回"
 
 #: index.php:31
-#, fuzzy, php-format
-#| msgid "Source database `%s` was not found!"
+#, php-format
 msgid "Error 404! The page %s was not found."
-msgstr "找不到來源資料庫「%s」！"
+msgstr "錯誤 404！找不到 %s 頁面。"
 
 #: index.php:36
 msgid "Error 405! Request method not allowed."
@@ -2003,8 +2002,7 @@ msgid "Failed security key activation (%s)."
 msgstr "未能啟用安全金鑰 (%s)。"
 
 #: js/messages.php:766
-#, fuzzy, php-format
-#| msgid "Table %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
@@ -2900,12 +2898,9 @@ msgid "accent-sensitive"
 msgstr "區分口音"
 
 #: libraries/classes/Charsets/Collation.php:524
-#, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "accent-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "區分口音"
+msgstr "區分假名"
 
 #: libraries/classes/Charsets/Collation.php:528
 msgctxt "Collation variant"
@@ -3424,10 +3419,8 @@ msgstr "標籤鍵值"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:547
 #: templates/database/data_dictionary/index.twig:25
 #: templates/columns_definitions/table_fields_definitions.twig:71
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media type"
-msgstr "MIME 類型"
+msgstr "媒體類型"
 
 #: libraries/classes/Config/Descriptions.php:219
 #: libraries/classes/Config/Descriptions.php:231
@@ -4600,14 +4593,10 @@ msgid "Bookmark table"
 msgstr "書籤表"
 
 #: libraries/classes/Config/Descriptions.php:616
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: "
-#| "[kbd]pma__column_info[/kbd]."
 msgid ""
 "Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
-msgstr "無欄位備註／MIME類型時留空白；建議使用 [kbd]pma__column_info[/kbd]。"
+msgstr "無欄位備註／媒體類型時留空白；建議使用 [kbd]pma__column_info[/kbd]。"
 
 #: libraries/classes/Config/Descriptions.php:619
 msgid "Column information table"
@@ -8392,10 +8381,8 @@ msgstr ""
 "能。"
 
 #: libraries/classes/Navigation/NavigationTree.php:795
-#, fuzzy
-#| msgid "Groups:"
 msgid "Groups"
-msgstr "群組："
+msgstr "群組"
 
 #: libraries/classes/Navigation/NavigationTree.php:961
 #, php-format
@@ -9336,10 +9323,8 @@ msgstr "顯示備註"
 #: libraries/classes/Plugins/Export/ExportLatex.php:156
 #: libraries/classes/Plugins/Export/ExportOdt.php:116
 #: libraries/classes/Plugins/Export/ExportSql.php:132
-#, fuzzy
-#| msgid "Display MIME types"
 msgid "Display media types"
-msgstr "顯示 MIME 類型"
+msgstr "顯示媒體類型"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
 msgid "Put columns names in the first row:"
@@ -9622,10 +9607,8 @@ msgid "AUTO_INCREMENT for table"
 msgstr "使用資料表自動遞增(AUTO_INCREMENT)"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1909
-#, fuzzy
-#| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
-msgstr "資料表 MIME 類型表"
+msgstr "資料表媒體類型表"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1932
 msgid "RELATIONSHIPS FOR TABLE"
@@ -14137,11 +14120,9 @@ msgid "No password"
 msgstr "無密碼"
 
 #: templates/server/privileges/login_information_fields.twig:54
-#, fuzzy
-#| msgid "Data length"
 msgctxt "Password strength"
 msgid "Strength:"
-msgstr "資料長度"
+msgstr "強度："
 
 #: templates/server/privileges/login_information_fields.twig:62
 #: templates/server/replication/master_add_slave_user.twig:65
@@ -14149,30 +14130,19 @@ msgid "Re-type"
 msgstr "重新輸入"
 
 #: templates/server/privileges/login_information_fields.twig:68
-#, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication plugin"
 msgstr "認證外掛程式"
 
 #: templates/server/privileges/login_information_fields.twig:70
-#, fuzzy
-#| msgid "Password Hashing Method"
 msgid "Password hashing method"
 msgstr "密碼雜湊方式"
 
 #: templates/server/privileges/login_information_fields.twig:79
-#, fuzzy
-#| msgid ""
-#| "This method requires using an '<i>SSL connection</i>' or an "
-#| "'<i>unencrypted connection that encrypts the password using RSA</i>'; "
-#| "while connecting to the server."
 msgid ""
 "This method requires using an '<em>SSL connection</em>' or an "
 "'<em>unencrypted connection that encrypts the password using RSA</em>'; "
 "while connecting to the server."
-msgstr ""
-"連線至伺服器時，此方式需要使用「<i>SSL 連線</i>」或「<i>使用 RSA 加密密碼的未"
-"加密連線</i>」。"
+msgstr "連線至伺服器時，此方式需要使用「<em>SSL 連線</em>」或「<em>使用 RSA 加密密碼的未加密連線</em>」。"
 
 #: templates/display/export/template_options.twig:1
 msgid "Select a template"
@@ -14220,10 +14190,8 @@ msgid "Check for latest version"
 msgstr "查看有否更新版本"
 
 #: templates/transformation_overview.twig:1
-#, fuzzy
-#| msgid "Available MIME types"
 msgid "Available media types"
-msgstr "可用的 MIME 類型"
+msgstr "可用的媒體類型"
 
 #: templates/transformation_overview.twig:13
 msgid "Available browser display transformations"
@@ -14236,8 +14204,6 @@ msgstr "瀏覽器顯示轉換"
 
 #: templates/transformation_overview.twig:19
 #: templates/transformation_overview.twig:38
-#, fuzzy
-#| msgid "Description"
 msgctxt "for media type transformation"
 msgid "Description"
 msgstr "說明"
@@ -14537,8 +14503,6 @@ msgid "Username:"
 msgstr "使用者名稱："
 
 #: templates/login/form.twig:65
-#, fuzzy
-#| msgid "Server Choice:"
 msgid "Server choice:"
 msgstr "選擇伺服器："
 
@@ -14660,10 +14624,8 @@ msgid "Requery"
 msgstr "重新查詢"
 
 #: templates/table/structure/display_structure.twig:70
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media type:"
-msgstr "MIME 類型"
+msgstr "媒體類型："
 
 #: templates/table/structure/display_structure.twig:114
 #, php-format
@@ -15028,26 +14990,20 @@ msgid "Author"
 msgstr "作者"
 
 #: templates/server/plugins/index.twig:41
-#, fuzzy
-#| msgid "active"
 msgid "inactive"
-msgstr "啓用"
+msgstr "停用"
 
 #: templates/server/plugins/index.twig:43
 msgid "disabled"
 msgstr "已關閉"
 
 #: templates/server/plugins/index.twig:45
-#, fuzzy
-#| msgid "Deleting"
 msgid "deleting"
 msgstr "刪除"
 
 #: templates/server/plugins/index.twig:47
-#, fuzzy
-#| msgid "Delete"
 msgid "deleted"
-msgstr "刪除"
+msgstr "已刪除"
 
 #: templates/database/structure/show_create.twig:2
 msgid "Showing create queries"
