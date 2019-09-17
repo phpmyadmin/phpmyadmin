@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-08-23 12:26+0200\n"
-"PO-Revision-Date: 2019-03-30 09:55+0000\n"
+"PO-Revision-Date: 2019-09-18 09:24+0000\n"
 "Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-8/zh_Hant/>\n"
+"phpmyadmin/4-9/zh_Hant/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.7\n"
+"X-Generator: Weblate 3.9-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -527,14 +527,10 @@ msgid "Output"
 msgstr "輸出"
 
 #: gis_data_editor.php:423
-#, fuzzy
-#| msgid ""
-#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-#| "below into the \"Value\" field."
 msgid ""
 "Choose \"ST_GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
-msgstr "於「函式」欄位選擇「GeomFromText」，並將以下字串貼到「值」欄位。"
+msgstr "於「函式」欄位選擇「ST_GeomFromText」，並將以下字串貼到「值」欄位。"
 
 #: import.php:73
 msgid "Succeeded"
@@ -2623,8 +2619,7 @@ msgid "Failed security key activation (%s)."
 msgstr "未能啟用安全金鑰 (%s)。"
 
 #: js/messages.php:755
-#, fuzzy, php-format
-#| msgid "Table %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
@@ -3449,12 +3444,9 @@ msgid "accent-sensitive"
 msgstr "區分口音"
 
 #: libraries/classes/Charsets.php:675
-#, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "accent-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "區分口音"
+msgstr "區分假名"
 
 #: libraries/classes/Charsets.php:679
 msgctxt "Collation variant"
