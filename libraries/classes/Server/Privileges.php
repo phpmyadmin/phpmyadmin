@@ -1544,35 +1544,17 @@ class Privileges
      *
      * @return string
      */
-    public function getHtmlForSpecificTablePrivileges($db, $table)
+    public function getHtmlForSpecificTablePrivileges(string $db, string $table): string
     {
-        $html_output = '';
-        if ($this->dbi->isSuperuser()) {
-            // check the privileges for a particular table.
-            $html_output  = '<form id="usersForm" action="' . Url::getFromRoute('/server/privileges') . '">';
-            $html_output .= Url::getHiddenInputs($db, $table);
-            $html_output .= '<fieldset>';
-            $scriptName = Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabTable'],
-                'table'
-            );
-            $html_output .= '<legend>'
-                . Util::getIcon('b_usrcheck')
-                . sprintf(
-                    __('Users having access to "%s"'),
-                    '<a href="' . $scriptName
-                    . Url::getCommon([
-                        'db' => $db,
-                        'table' => $table,
-                    ], strpos($scriptName, '?') === false ? '?' : '&') . '">'
-                    . htmlspecialchars($db) . '.' . htmlspecialchars($table)
-                    . '</a>'
-                )
-                . '</legend>';
+        global $cfg, $pmaThemeImage, $text_dir, $is_createuser;
 
-            $html_output .= '<div class="responsivetable jsresponsive">';
-            $html_output .= '<table id="tablespecificuserrights" class="data">';
-            $html_output .= $this->getHtmlForPrivsTableHead();
+        $scriptName = Util::getScriptNameForOption(
+            $cfg['DefaultTabTable'],
+            'table'
+        );
+
+        $tableBody = '';
+        if ($this->dbi->isSuperuser()) {
             $privMap = $this->getPrivMap($db);
             $sql_query = "SELECT `User`, `Host`, `Db`,"
                 . " 't' AS `Type`, `Table_name`, `Table_priv`"
@@ -1583,31 +1565,20 @@ class Privileges
                 . " ORDER BY `User` ASC, `Host` ASC, `Db` ASC, `Table_priv` ASC;";
             $res = $this->dbi->query($sql_query);
             $this->mergePrivMapFromResult($privMap, $res);
-            $html_output .= $this->getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
-            $html_output .= '</table></div>';
 
-            $html_output .= '<div class="floatleft">';
-            $html_output .= $this->template->render('select_all', [
-                'pma_theme_image' => $GLOBALS['pmaThemeImage'],
-                'text_dir' => $GLOBALS['text_dir'],
-                'form_name' => "usersForm",
-            ]);
-            $html_output .= Util::getButtonOrImage(
-                'submit_mult',
-                'mult_submit',
-                __('Export'),
-                'b_tblexport',
-                'export'
-            );
-
-            $html_output .= '</fieldset>';
-            $html_output .= '</form>';
-        } else {
-            $html_output .= $this->getHtmlForViewUsersError();
+            $tableBody = $this->getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
         }
-        // Offer to create a new user for the current database
-        $html_output .= $this->getAddUserHtmlFieldset($db, $table);
-        return $html_output;
+
+        return $this->template->render('server/privileges/table', [
+            'db' => $db,
+            'table' => $table,
+            'is_superuser' => $this->dbi->isSuperuser(),
+            'table_url' => $scriptName,
+            'pma_theme_image' => $pmaThemeImage,
+            'text_dir' => $text_dir,
+            'table_body' => $tableBody,
+            'is_createuser' => $is_createuser,
+        ]);
     }
 
     /**
@@ -1662,26 +1633,6 @@ class Privileges
             }
             $privMap[$user][$host][] = $row;
         }
-    }
-
-    /**
-     * Get HTML snippet for privileges table head
-     *
-     * @return string
-     */
-    public function getHtmlForPrivsTableHead()
-    {
-        return '<thead>'
-            . '<tr>'
-            . '<th></th>'
-            . '<th>' . __('User name') . '</th>'
-            . '<th>' . __('Host name') . '</th>'
-            . '<th>' . __('Type') . '</th>'
-            . '<th>' . __('Privileges') . '</th>'
-            . '<th>' . __('Grant') . '</th>'
-            . '<th colspan="2">' . __('Action') . '</th>'
-            . '</tr>'
-            . '</thead>';
     }
 
     /**
