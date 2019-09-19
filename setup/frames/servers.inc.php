@@ -27,7 +27,7 @@ if ($mode == 'edit' && $server_exists) {
     $page_title = __('Edit server')
         . ' ' . $id
         . ' <small>(' . htmlspecialchars($cf->getServerDSN($id)) . ')</small>';
-} elseif ($mode == 'remove' && $server_exists) {
+} elseif ($mode == 'remove' && $server_exists && $_SERVER['REQUEST_METHOD'] == 'POST') {
     $cf->removeServer($id);
     header('Location: index.php' . Url::getCommonRaw());
     exit;

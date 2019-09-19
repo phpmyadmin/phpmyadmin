@@ -156,8 +156,9 @@ if ($cf->getServerCount() > 0) {
         echo '<a href="' , Url::getCommon(array('page' => 'servers', 'mode' => 'edit', 'id' => $id)), '">'
             , __('Edit') , '</a>';
         echo ' | ';
-        echo '<a href="' , Url::getCommon(array('page' => 'servers', 'mode' => 'remove', 'id' => $id)), '">'
-            , __('Delete') , '</a>';
+        echo '<a class="delete-server" href="' . Url::getCommon(array('page' => 'servers', 'mode' => 'remove', 'id' => $id));
+        echo '" data-post="' . Url::getCommon(array('token' => $_SESSION[' PMA_token ']), '') . '">';
+        echo __('Delete') . '</a>';
         echo '</small>';
         echo '</td>';
         echo '</tr>';
