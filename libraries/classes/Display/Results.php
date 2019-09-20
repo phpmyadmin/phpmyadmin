@@ -3834,7 +3834,7 @@ class Results
         ) {
             list(
                 $is_field_truncated,
-                $displayedColumn,
+                $column,
                 $original_length
             ) = $this->_getPartialText($column);
         }
