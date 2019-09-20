@@ -38,6 +38,8 @@ phpMyAdmin - ChangeLog
 - issue #15440 Fix page number is not being updated in the URL after saving a designer's page
 - issue        Fix reloading a designer's page
 - issue        Fix designer full screen mode button and text stuck when exiting full-screen mode
+- issue        Reduced possibility of causing heavy server traffic between the database and web servers
+- issue        Fix a situation where a server could be deleted while an administator is using the setup script
 
 4.9.0.1 (2019-06-04)
 - issue #14478 phpMyAdmin no longer streams the export data
