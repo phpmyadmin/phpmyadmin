@@ -88,7 +88,7 @@
         "pragmarx/google2fa-qrcode": "^1.0.1",
         "samyoul/u2f-php-server": "^1.1",
         "squizlabs/php_codesniffer": "^3.0",
-        "tecnickcom/tcpdf": "^6.2"
+        "tecnickcom/tcpdf": "^6.3"
     },
     "extra": {
         "branch-alias": {
