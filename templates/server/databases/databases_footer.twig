@@ -63,19 +63,13 @@
 {# Enable statistics #}
 {% if dbstats is empty %}
     {{ Message_notice('Note: Enabling the database statistics here might cause heavy traffic between the web server and the MySQL server.'|trans) }}
-
-    {% set content %}
-        <strong>{% trans 'Enable statistics' %}</strong>
-    {% endset %}
-    {% set items = [{
-        'content': content,
-        'class': 'li_switch_dbstats',
-        'url': {
-            'href': 'server_databases.php' ~ Url_getCommon({'dbstats': '1'}),
-            'title': 'Enable statistics'|trans
-        }
-    }] %}
-    {% include 'list/unordered.twig' with {'items': items} only %}
+    <ul>
+        <li class="li_switch_dbstats">
+            <a href="server_databases.php" data-post="{{ Url_getCommon({'dbstats': '1'}, '') }}" title="{% trans 'Enable statistics' %}">
+                <strong>{% trans 'Enable statistics' %}</strong>
+            </a>
+        </li>
+    </ul>
 {% endif %}
 </form>
 </div>

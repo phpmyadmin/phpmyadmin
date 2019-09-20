@@ -86,7 +86,7 @@ class ServerDatabasesController extends Controller
         $scripts->addFile('server_databases.js');
 
         $this->_setSortDetails();
-        $this->_dbstats = empty($_REQUEST['dbstats']) ? false : true;
+        $this->_dbstats = ! empty($_POST['dbstats']);
         $this->_pos     = empty($_REQUEST['pos']) ? 0 : (int) $_REQUEST['pos'];
 
         /**
