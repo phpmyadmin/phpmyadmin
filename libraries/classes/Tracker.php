@@ -549,6 +549,16 @@ class Tracker
 
         $mixed = $GLOBALS['dbi']->fetchAssoc($relation->queryAsControlUser($sql_query));
 
+        // PHP 7.4 fix for accessing array offset on null
+        if (!is_array($mixed)) {
+            $mixed = array(
+                'schema_sql' => null,
+                'data_sql' => null,
+                'tracking' => null,
+                'schema_snapshot' => null,
+            );
+        }
+
         // Parse log
         $log_schema_entries = explode('# log ',  $mixed['schema_sql']);
         $log_data_entries   = explode('# log ',  $mixed['data_sql']);

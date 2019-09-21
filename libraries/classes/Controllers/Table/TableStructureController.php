@@ -371,6 +371,12 @@ class TableStructureController extends TableController
             $this->db, $this->table, null, true
         );
 
+        foreach ($fields as $key => $row) {
+            if ('text' === substr($row['Type'], -4)) {
+                $fields[$key]['Default'] = stripcslashes(substr($row['Default'], 1, -1));
+            }
+        }
+
         //display table structure
         $this->response->addHTML(
             $this->displayStructure(
@@ -518,7 +524,7 @@ class TableStructureController extends TableController
         $fields_meta = array();
         for ($i = 0; $i < $selected_cnt; $i++) {
             $value = $this->dbi->getColumns(
-                $this->db, $this->table, $selected[$i], true
+                $this->db, $this->table, $this->dbi->escapeString($selected[$i]), true
             );
             if (count($value) == 0) {
                 $message = Message::error(
@@ -883,7 +889,7 @@ class TableStructureController extends TableController
                 $_POST['field_length'][$i],
                 $_POST['field_attribute'][$i],
                 Util::getValueByKey($_POST, "field_collation.${i}", ''),
-                Util::getValueByKey($_POST, "field_null.${i}", 'NOT NULL'),
+                Util::getValueByKey($_POST, "field_null.${i}", 'NO'),
                 $_POST['field_default_type'][$i],
                 $_POST['field_default_value'][$i],
                 Util::getValueByKey($_POST, "field_extra.${i}", false),
@@ -1030,7 +1036,7 @@ class TableStructureController extends TableController
                             $_POST['field_length_orig'][$i],
                             $_POST['field_attribute_orig'][$i],
                             Util::getValueByKey($_POST, "field_collation_orig.${i}", ''),
-                            Util::getValueByKey($_POST, "field_null_orig.${i}", 'NOT NULL'),
+                            Util::getValueByKey($_POST, "field_null_orig.${i}", 'NO'),
                             $_POST['field_default_type_orig'][$i],
                             $_POST['field_default_value_orig'][$i],
                             Util::getValueByKey($_POST, "field_extra_orig.${i}", false),

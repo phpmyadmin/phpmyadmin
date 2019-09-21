@@ -63,7 +63,7 @@ class HttpRequest
      * @param int   $httpStatus       HTTP response status code
      * @param bool  $returnOnlyStatus If set to true, the method would only return response status
      *
-     * @return mixed
+     * @return string|null|bool
      */
     private function response(
         $response,
@@ -92,7 +92,7 @@ class HttpRequest
      * @param string $header           Header to be set for the HTTP request
      * @param int    $ssl              SSL mode to use
      *
-     * @return mixed
+     * @return string|null|bool
      */
     private function curl(
         $url,
@@ -192,7 +192,7 @@ class HttpRequest
      * @param mixed  $content          Content to be sent with HTTP request
      * @param string $header           Header to be set for the HTTP request
      *
-     * @return mixed
+     * @return string|null|bool
      */
     private function fopen(
         $url,
@@ -239,7 +239,7 @@ class HttpRequest
      * @param mixed  $content          Content to be sent with HTTP request
      * @param string $header           Header to be set for the HTTP request
      *
-     * @return mixed
+     * @return string|null|bool
      */
     public function create(
         $url,

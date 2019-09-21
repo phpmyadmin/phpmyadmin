@@ -878,12 +878,8 @@ class Privileges
             )
         );
 
-        $html_output = Template::get('privileges/resource_limits')
+        return Template::get('privileges/resource_limits')
             ->render(array('limits' => $limits));
-
-        $html_output .= '</fieldset>' . "\n";
-
-        return $html_output;
     }
 
     /**
@@ -1838,7 +1834,7 @@ class Privileges
             $row = $GLOBALS['dbi']->fetchSingleRow(
                 'SELECT @@default_authentication_plugin'
             );
-            $authentication_plugin = $row['@@default_authentication_plugin'];
+            $authentication_plugin = is_array($row) ? $row['@@default_authentication_plugin'] : null;
         }
 
         return $authentication_plugin;
@@ -3872,7 +3868,7 @@ class Privileges
             }
             $drop_user_error = '';
             foreach ($queries as $sql_query) {
-                if ($sql_query{0} != '#') {
+                if ($sql_query[0] != '#') {
                     if (! $GLOBALS['dbi']->tryQuery($sql_query)) {
                         $drop_user_error .= $GLOBALS['dbi']->getError() . "\n";
                     }
@@ -4119,7 +4115,7 @@ class Privileges
     {
         $tmp_count = 0;
         foreach ($queries as $sql_query) {
-            if ($sql_query{0} != '#') {
+            if ($sql_query[0] != '#') {
                 $GLOBALS['dbi']->query($sql_query);
             }
             // when there is a query containing a hidden password, take it
@@ -5130,6 +5126,7 @@ class Privileges
      */
     public static function getHashedPassword($password)
     {
+        $password = $GLOBALS['dbi']->escapeString($password);
         $result = $GLOBALS['dbi']->fetchSingleRow(
             "SELECT PASSWORD('" . $password . "') AS `password`;"
         );

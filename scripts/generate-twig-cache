@@ -51,23 +51,26 @@ $twig->addExtension(new UtilExtension());
 
 $replacements = [];
 
+$twigCache = $twig->getCache(false);
+
 // iterate over all templates
-foreach (new RecursiveIteratorIterator(
-    new RecursiveDirectoryIterator($tplDir),
-    RecursiveIteratorIterator::LEAVES_ONLY
+foreach (new \RecursiveIteratorIterator(
+    new \RecursiveDirectoryIterator($tplDir),
+    \RecursiveIteratorIterator::LEAVES_ONLY
 ) as $file) {
     // Skip test files
-    if (strpos($file, '/test/') !== false) {
+    if (strpos($file->getPathname(), '/test/') !== false) {
         continue;
     }
     // force compilation
-    if ($file->isFile() && $file->getExtension() == 'twig') {
-        $name = str_replace($tplDir.'/', '', $file);
+    if ($file->isFile() && $file->getExtension() === 'twig') {
+        $name = str_replace($tplDir . '/', '', $file->getPathname());
         $template = $twig->loadTemplate($name);
 
         // Generate line map
+        $cacheFilename = $twigCache->generateKey($name, $twig->getTemplateClass($name));
         $template_file = 'templates/' . $name;
-        $cache_file = str_replace($tmpDir, 'twig-templates', $twig->getCacheFilename($name));
+        $cache_file = str_replace($tmpDir, 'twig-templates', $cacheFilename);
         $replacements[$cache_file] = array($template_file, $template->getDebugInfo());
     }
 }

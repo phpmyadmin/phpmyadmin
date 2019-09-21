@@ -1,12 +1,14 @@
 /*!
- * jQuery Migrate - v3.0.1 - 2017-09-26
- * Copyright jQuery Foundation and other contributors
+ * jQuery Migrate - v3.1.0 - 2019-06-08
+ * Copyright OpenJS Foundation and other contributors
  */
 ;( function( factory ) {
 	if ( typeof define === "function" && define.amd ) {
 
 		// AMD. Register as an anonymous module.
-		define( [ "jquery" ], window, factory );
+		define( [ "jquery" ], function ( jQuery ) {
+			return factory( jQuery, window );
+		} );
 	} else if ( typeof module === "object" && module.exports ) {
 
 		// Node/CommonJS
@@ -21,13 +23,34 @@
 "use strict";
 
 
-jQuery.migrateVersion = "3.0.1";
+jQuery.migrateVersion = "3.1.0";
+
+/* exported jQueryVersionSince, compareVersions */
+
+// Returns 0 if v1 == v2, -1 if v1 < v2, 1 if v1 > v2
+function compareVersions( v1, v2 ) {
+	var rVersionParts = /^(\d+)\.(\d+)\.(\d+)/,
+		v1p = rVersionParts.exec( v1 ) || [ ],
+		v2p = rVersionParts.exec( v2 ) || [ ];
+
+	for ( var i = 1; i <= 3; i++ ) {
+		if ( +v1p[ i ] > +v2p[ i ] ) {
+			return 1;
+		}
+		if ( +v1p[ i ] < +v2p[ i ] ) {
+			return -1;
+		}
+	}
+	return 0;
+}
+
+function jQueryVersionSince( version ) {
+	return compareVersions( jQuery.fn.jquery, version ) >= 0;
+}
 
 /* exported migrateWarn, migrateWarnFunc, migrateWarnProp */
 
 ( function() {
-
-	var rbadVersions = /^[12]\./;
 
 	// Support: IE9 only
 	// IE9 only creates console object when dev tools are first opened
@@ -37,7 +60,7 @@ jQuery.migrateVersion = "3.0.1";
 	}
 
 	// Need jQuery 3.0.0+ and no older Migrate loaded
-	if ( !jQuery || rbadVersions.test( jQuery.fn.jquery ) ) {
+	if ( !jQuery || !jQueryVersionSince( "3.0.0" ) ) {
 		window.console.log( "JQMIGRATE: jQuery 3.0.0+ REQUIRED" );
 	}
 	if ( jQuery.migrateWarnings ) {
@@ -200,6 +223,15 @@ jQuery.isNumeric = function( val ) {
 	return oldValue;
 };
 
+if ( jQueryVersionSince( "3.3.0" ) ) {
+	migrateWarnFunc( jQuery, "isWindow",
+		function( obj ) {
+			return obj != null && obj === obj.window;
+		},
+		"jQuery.isWindow() is deprecated"
+	);
+}
+
 migrateWarnFunc( jQuery, "holdReady", jQuery.holdReady,
 	"jQuery.holdReady is deprecated" );
 
@@ -211,6 +243,12 @@ migrateWarnProp( jQuery.expr, "filters", jQuery.expr.pseudos,
 	"jQuery.expr.filters is deprecated; use jQuery.expr.pseudos" );
 migrateWarnProp( jQuery.expr, ":", jQuery.expr.pseudos,
 	"jQuery.expr[':'] is deprecated; use jQuery.expr.pseudos" );
+
+// Prior to jQuery 3.2 there were internal refs so we don't warn there
+if ( jQueryVersionSince( "3.2.0" ) ) {
+	migrateWarnFunc( jQuery, "nodeName", jQuery.nodeName,
+	"jQuery.nodeName is deprecated" );
+}
 
 
 var oldAjax = jQuery.ajax;
@@ -239,7 +277,7 @@ var oldRemoveAttr = jQuery.fn.removeAttr,
 jQuery.fn.removeAttr = function( name ) {
 	var self = this;
 
-	jQuery.each( name.match( rmatchNonSpace ), function( i, attr ) {
+	jQuery.each( name.match( rmatchNonSpace ), function( _i, attr ) {
 		if ( jQuery.expr.match.bool.test( attr ) ) {
 			migrateWarn( "jQuery.fn.removeAttr no longer sets boolean properties: " + attr );
 			self.prop( attr, false );
@@ -380,13 +418,27 @@ jQuery.Tween.prototype.run = function( ) {
 	oldTweenRun.apply( this, arguments );
 };
 
-jQuery.fx.interval = jQuery.fx.interval || 13;
+var intervalValue = jQuery.fx.interval || 13,
+	intervalMsg = "jQuery.fx.interval is deprecated";
 
 // Support: IE9, Android <=4.4
 // Avoid false positives on browsers that lack rAF
+// Don't warn if document is hidden, jQuery uses setTimeout (#292)
 if ( window.requestAnimationFrame ) {
-	migrateWarnProp( jQuery.fx, "interval", jQuery.fx.interval,
-		"jQuery.fx.interval is deprecated" );
+	Object.defineProperty( jQuery.fx, "interval", {
+		configurable: true,
+		enumerable: true,
+		get: function() {
+			if ( !window.document.hidden ) {
+				migrateWarn( intervalMsg );
+			}
+			return intervalValue;
+		},
+		set: function( newValue ) {
+			migrateWarn( intervalMsg );
+			intervalValue = newValue;
+		}
+	} );
 }
 
 var oldLoad = jQuery.fn.load,
@@ -469,7 +521,7 @@ jQuery.each( [ "load", "unload", "error" ], function( _, name ) {
 jQuery.each( ( "blur focus focusin focusout resize scroll click dblclick " +
 	"mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave " +
 	"change select submit keydown keypress keyup contextmenu" ).split( " " ),
-	function( i, name ) {
+	function( _i, name ) {
 
 	// Handle event binding
 	jQuery.fn[ name ] = function( data, fn ) {

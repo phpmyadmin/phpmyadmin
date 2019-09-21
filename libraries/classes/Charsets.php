@@ -382,10 +382,17 @@ class Charsets
                     case 'koi8r':
                         $name = _pgettext('Collation', 'Russian');
                         break;
-                    // Simplified Chinese charsets
+                    // Chinese charsets
                     case 'gb2312':
                     case 'gbk':
                         $name = _pgettext('Collation', 'Simplified Chinese');
+                        break;
+                    case 'big5':
+                        $name = _pgettext('Collation', 'Traditional Chinese');
+                        break;
+                    case 'gb18030':
+                        $name = _pgettext('Collation', 'Chinese');
+                        $unicode = true;
                         break;
                     // Japanese charsets
                     case 'sjis':
@@ -403,9 +410,6 @@ class Charsets
                     case 'armscii8':
                     case 'armscii':
                         $name = _pgettext('Collation', 'Armenian');
-                        break;
-                    case 'big5':
-                        $name = _pgettext('Collation', 'Traditional Chinese');
                         break;
                     case 'cp1251':
                         $name = _pgettext('Collation', 'Cyrillic');
@@ -461,6 +465,7 @@ class Charsets
                         break;
                     case 'chinese':
                     case 'cn':
+                    case 'zh':
                         if ($unicode) {
                             $name = _pgettext('Collation', 'Chinese');
                         }
@@ -545,12 +550,15 @@ class Charsets
                     case 'ro':
                         $name = _pgettext('Collation', 'Romanian');
                         break;
+                    case 'ru':
+                        $name = _pgettext('Collation', 'Russian');
+                        break;
                     case 'si':
                     case 'sinhala':
                         $name = _pgettext('Collation', 'Sinhalese');
                         break;
                     case 'slovak':
-                    case 'sl':
+                    case 'sk':
                         $name = _pgettext('Collation', 'Slovak');
                         break;
                     case 'slovenian':
@@ -568,6 +576,7 @@ class Charsets
                         $name = _pgettext('Collation', 'Spanish (traditional)');
                         break;
                     case 'swedish':
+                    case 'sv':
                         $name = _pgettext('Collation', 'Swedish');
                         break;
                     case 'thai':
@@ -662,12 +671,18 @@ class Charsets
                     case 'as':
                         $suffixes[] = _pgettext('Collation variant', 'accent-sensitive');
                         break;
+                    case 'ks':
+                        $suffixes[] = _pgettext('Collation variant', 'kana-sensitive');
+                        break;
                     case 'w2':
                     case 'l2':
                         $suffixes[] = _pgettext('Collation variant', 'multi-level');
                         break;
                     case 'bin':
                         $suffixes[] = _pgettext('Collation variant', 'binary');
+                        break;
+                    case 'nopad':
+                        $suffixes[] = _pgettext('Collation variant', 'no-pad');
                         break;
                 }
             }

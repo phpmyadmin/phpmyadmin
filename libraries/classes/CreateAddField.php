@@ -147,7 +147,7 @@ class CreateAddField
         if ($previousField == -1) {
             if ((string) $_POST['field_where'] === 'first') {
                 $sqlSuffix .= ' FIRST';
-            } else {
+            } else if (! empty($_POST['after_field'])) {
                 $sqlSuffix .= ' AFTER '
                         . Util::backquote($_POST['after_field']);
             }

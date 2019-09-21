@@ -451,7 +451,7 @@ class TableTest extends PmaTestCase
         $length = '12';
         $attribute = 'PMA_attribute';
         $collation = 'PMA_collation';
-        $null = 'NULL';
+        $null = 'YES';
         $default_type = 'USER_DEFINED';
         $default_value = 12;
         $extra = 'AUTO_INCREMENT';
@@ -724,7 +724,7 @@ class TableTest extends PmaTestCase
         $length = '2';
         $attribute = 'new_name';
         $collation = 'charset1';
-        $null = 'NULL';
+        $null = 'YES';
         $default_type = 'USER_DEFINED';
         $default_value = 'VARCHAR';
         $extra = 'AUTO_INCREMENT';

@@ -259,7 +259,7 @@ class Tracking
     public static function getTableLastVersionNumber($sql_result)
     {
         $maxversion = $GLOBALS['dbi']->fetchArray($sql_result);
-        return intval($maxversion['version']);
+        return intval(is_array($maxversion) ? $maxversion['version'] : null);
     }
 
     /**

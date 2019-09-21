@@ -245,14 +245,12 @@ class ExportRelationSchema
      */
     protected function getTablesFromRequest()
     {
-        $tables = array();
-        $dbLength = mb_strlen($this->db);
-        foreach ($_REQUEST['t_h'] as $key => $value) {
-            if ($value) {
-                $tables[] = mb_substr($key, $dbLength + 1);
+        $tables = [];
+        if (isset($_POST['t_tbl'])) {
+            foreach($_POST['t_tbl'] as $table) {
+                $tables[] = rawurldecode($table);
             }
         }
-
         return $tables;
     }
 
@@ -301,7 +299,7 @@ class ExportRelationSchema
         echo '    ' , $error_message , "\n";
         echo '</p>' , "\n";
         echo '<a href="db_designer.php'
-            , Url::getCommon(array('db' => $GLOBALS['db']))
+            , Url::getCommon(array('db' => $GLOBALS['db'], 'server' => $GLOBALS['server']))
             , '&page=' . htmlspecialchars($pageNumber) , '">' , __('Back') , '</a>';
         echo "\n";
         exit;

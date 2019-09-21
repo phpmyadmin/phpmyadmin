@@ -28,7 +28,8 @@ class Session
      */
     private static function generateToken()
     {
-        $_SESSION[' PMA_token '] = Util::generateRandom(16);
+        $_SESSION[' PMA_token '] = Util::generateRandom(16, true);
+        $_SESSION[' HMAC_secret '] = Util::generateRandom(16);
 
         /**
          * Check if token is properly generated (the generation can fail, for example

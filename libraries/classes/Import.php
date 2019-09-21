@@ -810,7 +810,7 @@ class Import
             return self::DECIMAL;
         }
 
-        if (abs($cell) > 2147483647) {
+        if (abs((int) $cell) > 2147483647) {
             return self::BIGINT;
         }
 
@@ -1617,7 +1617,7 @@ class Import
         $parser = new Parser($sql_query);
 
         if (empty($parser->statements[0])) {
-            return false;
+            return true;
         }
 
         $statement = $parser->statements[0];

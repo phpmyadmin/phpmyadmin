@@ -22,7 +22,7 @@ require_once 'libraries/common.inc.php';
 $relation = new Relation();
 $cfgRelation = $relation->getRelationsParam();
 
-if (! isset($_REQUEST['export_type'])) {
+if (! isset($_POST['export_type'])) {
     Util::checkParameters(array('export_type'));
 }
 
@@ -30,4 +30,4 @@ if (! isset($_REQUEST['export_type'])) {
  * Include the appropriate Schema Class depending on $export_type
  * default is PDF
  */
-Export::processExportSchema($_REQUEST['export_type']);
+Export::processExportSchema($_POST['export_type']);

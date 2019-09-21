@@ -43,6 +43,8 @@ class PdfRelationSchemaTest extends PmaTestCase
         $_REQUEST['t_h'] = array('information_schema.files' => 1);
         $_REQUEST['t_x'] = array('information_schema.files' => 0);
         $_REQUEST['t_y'] = array('information_schema.files' => 0);
+        $_POST['t_db'] = array('information_schema');
+        $_POST['t_tbl'] = array('files');
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'information_schema';

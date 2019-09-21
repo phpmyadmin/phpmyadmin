@@ -263,6 +263,12 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
             break;
         default:
             $columnMeta['DefaultType'] = 'USER_DEFINED';
+
+            if ('text' === substr($columnMeta['Type'], -4)) {
+                $textDefault = substr($columnMeta['Default'], 1, -1);
+                $columnMeta['Default'] = stripcslashes($textDefault !== false ? $textDefault : $columnMeta['Default']);
+            }
+
             $columnMeta['DefaultValue'] = $columnMeta['Default'];
             break;
         }

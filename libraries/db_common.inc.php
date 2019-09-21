@@ -139,6 +139,18 @@ if (isset($_POST['submitcollation'])
         $response->addJSON('message', $message);
         exit;
     }
+} elseif (isset($_POST['submitcollation'])
+    && isset($_POST['db_collation'])
+    && empty($_POST['db_collation'])
+) {
+    $response = Response::getInstance();
+    if ($response->isAjax()) {
+        $response->setRequestStatus(false);
+        $response->addJSON(
+            'message',
+            Message::error(__('No collation provided.'))
+        );
+    }
 }
 
 /**

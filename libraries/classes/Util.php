@@ -1760,7 +1760,8 @@ class Util
         $tag_params_strings = array();
         if (($url_length > $GLOBALS['cfg']['LinkLengthLimit'])
             || ! $in_suhosin_limits
-            || strpos($url, 'sql_query=') !== false
+            // Has as sql_query without a signature
+            || ( strpos($url, 'sql_query=') !== false && strpos($url, 'sql_signature=') === false)
             || strpos($url, 'view[as]=') !== false
         ) {
             $parts = explode('?', $url, 2);
@@ -4583,10 +4584,11 @@ class Util
      * Generates random string consisting of ASCII chars
      *
      * @param integer $length Length of string
+     * @param bool    $asHex  (optional) Send the result as hex
      *
      * @return string
      */
-    public static function generateRandom($length)
+    public static function generateRandom($length, $asHex = false)
     {
         $result = '';
         if (class_exists('phpseclib\\Crypt\\Random')) {
@@ -4603,7 +4605,7 @@ class Util
                 $result .= chr($byte);
             }
         }
-        return $result;
+        return $asHex ? bin2hex($result) : $result;
     }
 
     /**

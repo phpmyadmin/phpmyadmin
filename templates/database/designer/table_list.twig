@@ -18,41 +18,11 @@
         </a>
     </div>
     <div id="id_scroll_tab" class="scroll_tab">
-        <table width="100%" style="padding-left: 3px;">
-            {% for i in 0..table_names|length - 1 %}
-                <tr>
-                    <td title="{% trans 'Structure' %}"
-                        width="1px"
-                        class="L_butt2_1">
-                        <img alt=""
-                            table_name="{{ table_names_small_url[i] }}"
-                            class="scroll_tab_struct"
-                            src="{{ theme.getImgPath('designer/exec.png') }}"/>
-                    </td>
-                    <td width="1px">
-                        <input class="scroll_tab_checkbox"
-                            title="{% trans 'Hide' %}"
-                            id="check_vis_{{ table_names_url[i]|url_encode }}"
-                            style="margin:0;"
-                            type="checkbox"
-                            value="{{ table_names_url[i]|url_encode }}"
-                            {% if (tab_pos[table_names[i]] is defined
-                                and tab_pos[table_names[i]]['H'])
-                                or display_page == -1 -%}
-                                checked="checked"
-                            {%- endif %} />
-                    </td>
-                    <td class="designer_Tabs"
-                        designer_url_table_name="{{ table_names_url[i]|url_encode }}">
-                        {{ table_names_out[i]|raw }}
-                    </td>
-                </tr>
-            {% endfor %}
-        </table>
+        <table width="100%" style="padding-left: 3px;"></table>
     </div>
     {# end id_scroll_tab #}
     <div class="center">
-        {% trans 'Number of tables:' %} {{ table_names|length }}
+        {% trans 'Number of tables:' %} <span id="tables_counter">0</span>
     </div>
     <div id="layer_menu_sizer">
         <div class="floatleft">

@@ -1,7 +1,45 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.9.1 (not yet released)
+4.9.1 (2019-09-20)
+- issue #15313 Added support for Twig 2
+- issue #15315 Fix cannot edit or export column with default CURRENT_TIMESTAMP in MySQL >= 8.0.13
+- issue        Fix a TypeError in Import class with PHP 8
+- issue #14270 Fix Middle-click on foreign key link broken
+- issue #14363 Fix broken relational links in tables
+- issue #14987 Fix weird error for empty collation
+- issue #15334 Fix export of GIS visualisation not working (PNG, PDF, SVG)
+- issue #14918 Use hex for the phpMyAdmin session token
+- issue        Added GB18030 Chinese collations description
+- issue        Added Russian, Swedish, Slovak and Chinese UCA 9.0.0 collations description
+- issue        Added description for the _ks (kana-sensitive) collation suffix
+- issue        Added description for the _nopad (NO PAD) collation suffix
+- issue #15404 Remove array/string curly braces access
+- issue #15427 Fixed "FilterLanguages" option does not work (configuration)
+- issue #15202 Fixed creating user with single quote in password results in no password user
+- issue #14950 Fixed left database overview "add column" triggers error
+- issue #15363 Fix remove unexpected quotes on text fields (structure and insert)
+- issue        Fix NULL wrongly checked on field change
+- issue #15388 Fix allow to rollback an empty statement
+- issue #14291 Fixed incorrect linkage from one table's value to another table
+- issue #15446 Fix tables added from other databases are not collapsing in the designer section
+- issue #14945 Fix designer page save fails if dB name contains period
+- issue        Display an error when trying to import in designer a table that's already imported
+- issue        Fix many bugs when adding new tables to designer
+- issue        Update CodeMirror to v5.48.4
+- issue        Update jQuery Migrate to v3.1.0
+- issue        Update jQuery Validation to v1.19.1
+- issue        Update jQuery to v3.4.1
+- issue        Update js-cookie to v2.2.1
+- issue        Remove fieldset closing tag when setting global privileges
+- issue #15425 Fix backslash in column name resulting an error in editing
+- issue #15380 Fix Status - Advisor error
+- issue #15439 Fix designer page status not updated when added a new table from another database
+- issue #15440 Fix page number is not being updated in the URL after saving a designer's page
+- issue        Fix reloading a designer's page
+- issue        Fix designer full screen mode button and text stuck when exiting full-screen mode
+- issue        Reduced possibility of causing heavy server traffic between the database and web servers
+- issue        Fix a situation where a server could be deleted while an administator is using the setup script
 
 4.9.0.1 (2019-06-04)
 - issue #14478 phpMyAdmin no longer streams the export data

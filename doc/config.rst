@@ -1861,7 +1861,7 @@ Cookie authentication options
     :default: ``''``
 
     The public key for the reCaptcha service that can be obtained from
-    https://www.google.com/recaptcha/intro/.
+    https://www.google.com/recaptcha/intro/v3.html.
 
     reCaptcha will be then used in :ref:`cookie`.
 
@@ -1871,7 +1871,7 @@ Cookie authentication options
     :default: ``''``
 
     The private key for the reCaptcha service that can be obtain from
-    https://www.google.com/recaptcha/intro/.
+    https://www.google.com/recaptcha/intro/v3.html.
 
     reCaptcha will be then used in :ref:`cookie`.
 
@@ -3031,9 +3031,9 @@ the files.
     :type: string
     :default: ``''``
 
-    The name of the directory where dumps can be saved.
+    The name of the webserver directory where exported files can be saved.
 
-    If you want different directory for each user, %u will be replaced with
+    If you want a different directory for each user, %u will be replaced with the
     username.
 
     Please note that the directory must exist and has to be writable for

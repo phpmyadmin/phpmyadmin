@@ -3,7 +3,7 @@
 # - run lint for every PHP version
 # - run Selenium for single PHP version
 
-dist: trusty
+dist: xenial
 
 language: php
 
@@ -17,14 +17,11 @@ php:
   - "7.1"
   - "7.0"
   - "5.6"
-  - "5.5"
   - "hhvm-3.12"
   - "hhvm-3.18"
   - "hhvm-3.21"
   - "hhvm-3.24"
   - "hhvm-3.27"
-
-sudo: required
 
 env:
   matrix:
@@ -68,19 +65,21 @@ matrix:
     - php: "7.1"
       env: CI_MODE=selenium
     - php: "7.0"
+      node_js: 10
       env: CI_MODE=release
     - php: "7.1"
       env: CI_MODE=docs
     - php: "7.1"
       env: CI_MODE=apidocs
     - os: osx
-      name: "PHP 7.2"
+      name: "PHP 7.3"
       language: node_js
       node_js: 10
       env: CI_MODE=test
       before_install:
         - brew link --force gettext
-        - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /usr/local/etc/php/7.2/php.ini
+        - echo "memory_limit=-1" > /usr/local/etc/php/7.3/conf.d/50-travis.ini
+        - echo "pcre.jit=0" >> /usr/local/etc/php/7.3/conf.d/50-travis.ini
         - mysql.server start
       addons:
         homebrew:
@@ -88,6 +87,10 @@ matrix:
             - php
             - composer
             - mariadb
+          update: true
+    - php: "5.5"
+      env: CI_MODE=test
+      dist: trusty
     - php: "7.1"
       env: CI_MODE=test DBASE=true
       install:
@@ -118,5 +121,4 @@ addons:
   apt:
     packages:
     - git
-    - mysql-server-5.6
     - nginx
