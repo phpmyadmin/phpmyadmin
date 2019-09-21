@@ -140,6 +140,7 @@ class HomeController extends AbstractController
                     'auth_type' => $this->config->getValue("Servers/$id/auth_type"),
                     'dsn' => $this->config->getServerDSN($id),
                     'params' => [
+                        'token' => $_SESSION[' PMA_token '],
                         'edit' => [
                             'page' => 'servers',
                             'mode' => 'edit',

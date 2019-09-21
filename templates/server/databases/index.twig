@@ -312,22 +312,17 @@
       {# Enable statistics #}
       {% if not has_statistics %}
         <div class="row">
-        {{ 'Note: Enabling the database statistics here might cause heavy traffic between the web server and the MySQL server.'|trans|notice }}
+          {{ 'Note: Enabling the database statistics here might cause heavy traffic between the web server and the MySQL server.'|trans|notice }}
         </div>
 
         <div class="row">
-        {% set content %}
-          <strong>{% trans 'Enable statistics' %}</strong>
-        {% endset %}
-        {% set items = [{
-          'content': content,
-          'class': 'li_switch_dbstats',
-          'url': {
-            'href': url('/server/databases', {'statistics': '1'}),
-            'title': 'Enable statistics'|trans
-          }
-        }] %}
-        {% include 'list/unordered.twig' with {'items': items} only %}
+          <ul>
+            <li class="li_switch_dbstats">
+              <a href="{{ url('/server/databases') }}" data-post="{{ get_common({'statistics': '1'}, '') }}" title="{% trans 'Enable statistics' %}">
+                <strong>{% trans 'Enable statistics' %}</strong>
+              </a>
+            </li>
+          </ul>
         </div>
       {% endif %}
     </form>

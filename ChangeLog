@@ -45,7 +45,9 @@ phpMyAdmin - ChangeLog
 - issue #15350 Change MIME type references to Media (MIME) type
 - issue        Fixed url.php crashing because it's not loading the DatabaseInterface service
 
-4.9.1 (not yet released)
+4.9.2 (not yet released)
+
+4.9.1 (2019-09-20)
 - issue #15313 Added support for Twig 2
 - issue #15315 Fix cannot edit or export column with default CURRENT_TIMESTAMP in MySQL >= 8.0.13
 - issue        Fix a TypeError in Import class with PHP 8
@@ -82,6 +84,8 @@ phpMyAdmin - ChangeLog
 - issue #15440 Fix page number is not being updated in the URL after saving a designer's page
 - issue        Fix reloading a designer's page
 - issue        Fix designer full screen mode button and text stuck when exiting full-screen mode
+- issue        Reduced possibility of causing heavy server traffic between the database and web servers
+- issue        Fix a situation where a server could be deleted while an administator is using the setup script
 
 4.9.0.1 (2019-06-04)
 - issue #14478 phpMyAdmin no longer streams the export data
