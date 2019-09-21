@@ -3102,10 +3102,10 @@ class Util
             $wktsql
         );
         $wktarr     = $GLOBALS['dbi']->fetchRow($wktresult, 0);
-        $wktval     = $wktarr[0];
+        $wktval     = $wktarr[0] ?? null;
 
         if ($includeSRID) {
-            $srid = $wktarr[1];
+            $srid = $wktarr[1] ?? null;
             $wktval = "'" . $wktval . "'," . $srid;
         }
         @$GLOBALS['dbi']->freeResult($wktresult);

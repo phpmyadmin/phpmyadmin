@@ -317,7 +317,7 @@ class BrowseForeigners
     {
         $gotopage = '';
         isset($_POST['pos']) ? $pos = $_POST['pos'] : $pos = 0;
-        if (! is_array($foreignData['disp_row'])) {
+        if ($foreignData === null || ! is_array($foreignData['disp_row'])) {
             return $gotopage;
         }
 
