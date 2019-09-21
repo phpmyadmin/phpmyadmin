@@ -49,7 +49,7 @@ if ($page === 'form') {
     ]);
 } elseif ($page === 'servers') {
     $controller = new ServersController($GLOBALS['ConfigFile'], new Template());
-    if (isset($_GET['mode']) && $_GET['mode'] === 'remove') {
+    if (isset($_GET['mode']) && $_GET['mode'] === 'remove' && $_SERVER['REQUEST_METHOD'] == 'POST') {
         $controller->destroy([
             'id' => $_GET['id'] ?? null,
         ]);
