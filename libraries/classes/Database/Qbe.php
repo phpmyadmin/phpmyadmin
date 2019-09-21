@@ -850,11 +850,11 @@ class Qbe
             $html_output .= '<strong>' . __('Or:') . '</strong>';
             $html_output .= '<input type="radio"'
                 . ' name="criteriaAndOrColumn[' . $column_number . ']"'
-                . ' value="or"' . $selected['or'] . ' />';
+                . ' value="or"' . (isset($selected['or']) ? $selected['or'] : '') . ' />';
             $html_output .= '&nbsp;&nbsp;<strong>' . __('And:') . '</strong>';
             $html_output .= '<input type="radio"'
                 . ' name="criteriaAndOrColumn[' . $column_number . ']"'
-                . ' value="and"' . $selected['and'] . ' />';
+                . ' value="and"' . (isset($selected['and']) ? $selected['and'] : '') . ' />';
         }
         $html_output .= '<br />' . __('Ins');
         $html_output .= '<input type="checkbox"'
