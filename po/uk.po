@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-08-23 14:20+0200\n"
-"PO-Revision-Date: 2019-02-07 12:02+0000\n"
-"Last-Translator: Oleh Ilnytskyi <rav.angell@gmail.com>\n"
+"PO-Revision-Date: 2019-09-23 11:27+0000\n"
+"Last-Translator: Володимир Бриняк <bardvv@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.5-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9-dev\n"
 
 #: import_status.php:111
 msgid "Could not load the progress of the import."
@@ -28,14 +28,13 @@ msgid "Back"
 msgstr "Назад"
 
 #: index.php:31
-#, fuzzy, php-format
-#| msgid "Source database `%s` was not found!"
+#, php-format
 msgid "Error 404! The page %s was not found."
-msgstr "Вихідна база даних '%s' не знайдена!"
+msgstr "Помилка 404! Сторінку %s не знайдено."
 
 #: index.php:36
 msgid "Error 405! Request method not allowed."
-msgstr ""
+msgstr "Помилка 405! Метод запиту не дозволений."
 
 #: js/messages.php:46
 msgid "Confirm"
@@ -285,10 +284,8 @@ msgid "Y values"
 msgstr "Значення Y"
 
 #: js/messages.php:146
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "Будь ласка, введіть те ж значення знову"
+msgstr "Будь ласка, спочатку введіть запит SQL."
 
 #: js/messages.php:149
 msgid "The host name is empty!"
@@ -2077,8 +2074,7 @@ msgid "Failed security key activation (%s)."
 msgstr "Не вдалося активізувати ключ безпеки (%s)."
 
 #: js/messages.php:766
-#, fuzzy, php-format
-#| msgid "Table %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
@@ -2978,12 +2974,9 @@ msgid "accent-sensitive"
 msgstr "чутливий до акценту"
 
 #: libraries/classes/Charsets/Collation.php:524
-#, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "accent-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "чутливий до акценту"
+msgstr "кана-залежний"
 
 #: libraries/classes/Charsets/Collation.php:528
 msgctxt "Collation variant"
@@ -3527,10 +3520,8 @@ msgstr "Ключ підпису"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:547
 #: templates/database/data_dictionary/index.twig:25
 #: templates/columns_definitions/table_fields_definitions.twig:71
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media type"
-msgstr "Тип MIME"
+msgstr "Медіотип"
 
 #: libraries/classes/Config/Descriptions.php:219
 #: libraries/classes/Config/Descriptions.php:231
@@ -11509,10 +11500,8 @@ msgstr "Дозволяє виконувати SHOW CREATE VIEW запити."
 #: libraries/classes/Server/Privileges.php:477
 #: libraries/classes/Server/Privileges.php:482
 #: libraries/entry_points/server/privileges.php:88
-#, fuzzy
-#| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
-msgstr "Дозволяє видалення даних."
+msgstr "Дозволяє видаляти рядки історії."
 
 #: libraries/classes/Server/Privileges.php:487
 #: libraries/classes/Server/Privileges.php:1384
@@ -13050,7 +13039,7 @@ msgstr "жоден з попередніх"
 #: libraries/db_common.inc.php:146
 #: libraries/entry_points/table/operations.php:241
 msgid "No collation provided."
-msgstr ""
+msgstr "Зіставлення не надано."
 
 #: libraries/entry_points/changelog.php:45
 #: libraries/entry_points/license.php:32
@@ -13858,10 +13847,8 @@ msgstr ""
 "наприклад використовуючи %sSetup script%s."
 
 #: templates/preferences/manage/main.twig:72
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as JSON file"
-msgstr "Зберегти як файл"
+msgstr "Зберегти як файл JSON"
 
 #: templates/preferences/manage/main.twig:76
 msgid "Save as PHP file"
