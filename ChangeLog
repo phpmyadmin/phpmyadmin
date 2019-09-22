@@ -46,6 +46,8 @@ phpMyAdmin - ChangeLog
 - issue        Fixed url.php crashing because it's not loading the DatabaseInterface service
 
 4.9.2 (not yet released)
+- issue #15304 Fix ssl_use php error
+- issue #14804 Fix undefined index: ssl_* variables
 
 4.9.1 (2019-09-20)
 - issue #15313 Added support for Twig 2
