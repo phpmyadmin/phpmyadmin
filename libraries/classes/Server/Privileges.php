@@ -1432,66 +1432,27 @@ class Privileges
      */
     public function getHtmlTableBodyForSpecificDbRoutinePrivs($db, $index_checkbox)
     {
+        global $is_grantuser;
+
         $sql_query = 'SELECT * FROM `mysql`.`procs_priv` WHERE Db = \'' . $this->dbi->escapeString($db) . '\';';
         $res = $this->dbi->query($sql_query);
-        $html_output = '';
+
+        $routines = [];
         while ($row = $this->dbi->fetchAssoc($res)) {
-            $html_output .= '<tr>';
-
-            $html_output .= '<td';
-            $value = htmlspecialchars($row['User'] . '&amp;#27;' . $row['Host']);
-            $html_output .= '>';
-            $html_output .= '<input type="checkbox" class="checkall" '
-                . 'name="selected_usr[]" '
-                . 'id="checkbox_sel_users_' . ($index_checkbox++) . '" '
-                . 'value="' . $value . '"></td>';
-
-            $html_output .= '<td>' . htmlspecialchars($row['User'])
-                . '</td>'
-                . '<td>' . htmlspecialchars($row['Host'])
-                . '</td>'
-                . '<td>routine'
-                . '</td>'
-                . '<td><code>' . htmlspecialchars($row['Routine_name']) . '</code>'
-                . '</td>'
-                . '<td>Yes'
-                . '</td>';
-            $current_user = $row['User'];
-            $current_host = $row['Host'];
-            $routine = $row['Routine_name'];
-            $html_output .= '<td>';
-            $specific_db = '';
-            $specific_table = '';
-            if ($GLOBALS['is_grantuser']) {
-                $specific_db = isset($row['Db']) && $row['Db'] != '*'
-                    ? $row['Db'] : '';
-                $specific_table = isset($row['Table_name'])
-                    && $row['Table_name'] != '*'
-                    ? $row['Table_name'] : '';
-                $html_output .= $this->getUserLink(
-                    'edit',
-                    $current_user,
-                    $current_host,
-                    $specific_db,
-                    $specific_table,
-                    $routine
-                );
-            }
-            $html_output .= '</td>';
-            $html_output .= '<td>';
-            $html_output .= $this->getUserLink(
-                'export',
-                $current_user,
-                $current_host,
-                $specific_db,
-                $specific_table,
-                $routine
-            );
-            $html_output .= '</td>';
-
-            $html_output .= '</tr>';
+            $routines[] = [
+                'user' => $row['User'],
+                'host' => $row['Host'],
+                'name' => $row['Routine_name'],
+                'database' => isset($row['Db']) && $row['Db'] != '*' ? $row['Db'] : '',
+                'table' => isset($row['Table_name']) && $row['Table_name'] != '*' ? $row['Table_name'] : '',
+            ];
         }
-        return $html_output;
+
+        return $this->template->render('server/privileges/routine', [
+            'routines' => $routines,
+            'is_grantuser' => $is_grantuser,
+            'index' => $index_checkbox,
+        ]);
     }
 
     /**

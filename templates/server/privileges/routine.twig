@@ -1,0 +1,37 @@
+{% for routine in routines %}
+  <tr>
+    <td>
+      <input type="checkbox" class="checkall" name="selected_usr[]" id="checkbox_sel_users_{{ index }}" value="
+        {{- routine.user ~ '&amp;#27;' ~ routine.host }}">
+    </td>
+    <td>{{ routine.user }}</td>
+    <td>{{ routine.host }}</td>
+    <td>{% trans 'routine' %}</td>
+    <td><code>{{ routine.name }}</code></td>
+    <td>{% trans 'Yes' %}</td>
+    <td>
+      {% if is_grantuser %}
+        <a class="edit_user_anchor" href="{{ url('/server/privileges', {
+          'username': routine.user,
+          'hostname': routine.host,
+          'dbname': routine.database,
+          'tablename': routine.table,
+          'routinename': routine.name,
+        }) }}">
+          {{ get_icon('b_usredit', 'Edit privileges'|trans) }}
+        </a>
+      {% endif %}
+    </td>
+    <td>
+      <a class="export_user_anchor ajax" href="{{ url('/server/privileges', {
+        'username': routine.user,
+        'hostname': routine.host,
+        'export': true,
+        'initial': '',
+      }) }}">
+        {{ get_icon('b_tblexport', 'Export'|trans) }}
+      </a>
+    </td>
+  </tr>
+  {% set index = index + 1 %}
+{% endfor %}
