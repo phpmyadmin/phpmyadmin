@@ -106,11 +106,11 @@ class DbiMysqli implements DbiExtension
             ) {
                 mysqli_ssl_set(
                     $link,
-                    $server['ssl_key'],
-                    $server['ssl_cert'],
-                    $server['ssl_ca'],
-                    $server['ssl_ca_path'],
-                    $server['ssl_ciphers']
+                    is_null($server['ssl_key']) ? '' : $server['ssl_key'],
+                    is_null($server['ssl_cert']) ? '' : $server['ssl_cert'],
+                    is_null($server['ssl_ca']) ? '' : $server['ssl_ca'],
+                    is_null($server['ssl_ca_path']) ? '' : $server['ssl_ca_path'],
+                    is_null($server['ssl_ciphers']) ? '' : $server['ssl_ciphers']
                 );
             }
             /*
