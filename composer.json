@@ -64,6 +64,7 @@
     "conflict": {
         "phpseclib/phpseclib": "2.0.8",
         "tecnickcom/tcpdf": "<6.2",
+        "pragmarx/google2fa": ">=6.1",
         "pragmarx/google2fa-qrcode": "<1.0.1",
         "samyoul/u2f-php-server": "<1.1"
     },
