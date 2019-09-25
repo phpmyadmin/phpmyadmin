@@ -1365,97 +1365,6 @@ class Privileges
     }
 
     /**
-     * Get the list of privileges and list of compared privileges as strings
-     * and return a array that contains both strings
-     *
-     * @return array $list_of_privileges, $list_of_compared_privileges
-     */
-    public function getListOfPrivilegesAndComparedPrivileges()
-    {
-        $list_of_privileges
-            = '`User`, '
-            . '`Host`, '
-            . '`Select_priv`, '
-            . '`Insert_priv`, '
-            . '`Update_priv`, '
-            . '`Delete_priv`, '
-            . '`Create_priv`, '
-            . '`Drop_priv`, '
-            . '`Grant_priv`, '
-            . '`Index_priv`, '
-            . '`Alter_priv`, '
-            . '`References_priv`, '
-            . '`Create_tmp_table_priv`, '
-            . '`Lock_tables_priv`, '
-            . '`Create_view_priv`, '
-            . '`Show_view_priv`, '
-            . '`Create_routine_priv`, '
-            . '`Alter_routine_priv`, '
-            . '`Execute_priv`';
-
-        $listOfComparedPrivs
-            = '`Select_priv` = \'N\''
-            . ' AND `Insert_priv` = \'N\''
-            . ' AND `Update_priv` = \'N\''
-            . ' AND `Delete_priv` = \'N\''
-            . ' AND `Create_priv` = \'N\''
-            . ' AND `Drop_priv` = \'N\''
-            . ' AND `Grant_priv` = \'N\''
-            . ' AND `References_priv` = \'N\''
-            . ' AND `Create_tmp_table_priv` = \'N\''
-            . ' AND `Lock_tables_priv` = \'N\''
-            . ' AND `Create_view_priv` = \'N\''
-            . ' AND `Show_view_priv` = \'N\''
-            . ' AND `Create_routine_priv` = \'N\''
-            . ' AND `Alter_routine_priv` = \'N\''
-            . ' AND `Execute_priv` = \'N\'';
-
-        $list_of_privileges .=
-            ', `Event_priv`, '
-            . '`Trigger_priv`';
-        $listOfComparedPrivs .=
-            ' AND `Event_priv` = \'N\''
-            . ' AND `Trigger_priv` = \'N\'';
-        return [
-            $list_of_privileges,
-            $listOfComparedPrivs,
-        ];
-    }
-
-    /**
-     * Get the HTML for routine based privileges
-     *
-     * @param string $db             database name
-     * @param string $index_checkbox starting index for rows to be added
-     *
-     * @return string
-     */
-    public function getHtmlTableBodyForSpecificDbRoutinePrivs($db, $index_checkbox)
-    {
-        global $is_grantuser;
-
-        $sql_query = 'SELECT * FROM `mysql`.`procs_priv` WHERE Db = \'' . $this->dbi->escapeString($db) . '\';';
-        $res = $this->dbi->query($sql_query);
-
-        $routines = [];
-        while ($row = $this->dbi->fetchAssoc($res)) {
-            $routines[] = [
-                'user' => $row['User'],
-                'host' => $row['Host'],
-                'name' => $row['Routine_name'],
-                'database' => isset($row['Db']) && $row['Db'] != '*' ? $row['Db'] : '',
-                'table' => isset($row['Table_name']) && $row['Table_name'] != '*' ? $row['Table_name'] : '',
-            ];
-        }
-
-        return $this->template->render('server/privileges/routine', [
-            'routines' => $routines,
-            'is_grantuser' => $is_grantuser,
-            'index' => $index_checkbox,
-        ]);
-    }
-
-    /**
      * Get the HTML for user form and check the privileges for a particular database.
      *
      * @param string $db database name
@@ -1473,8 +1382,17 @@ class Privileges
 
         $tableBody = '';
         if ($this->dbi->isSuperuser()) {
-            $privMap = $this->getPrivMap($db);
-            $tableBody = $this->getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
+            $privileges = $this->getDatabasePrivileges($db);
+
+            $routinePrivileges = $this->getRoutinesPrivileges($db);
+            foreach ($routinePrivileges as $user => $hosts) {
+                foreach ($hosts as $host => $privs) {
+                    $privileges[$user] = $privileges[$user] ?? [];
+                    $privileges[$user][$host] = array_merge($privileges[$user][$host] ?? [], $privs);
+                }
+            }
+
+            $tableBody = $this->getHtmlTableBodyForSpecificDbOrTablePrivs($privileges, $db);
         }
 
         $response = Response::getInstance();
@@ -1516,18 +1434,25 @@ class Privileges
 
         $tableBody = '';
         if ($this->dbi->isSuperuser()) {
-            $privMap = $this->getPrivMap($db);
-            $sql_query = "SELECT `User`, `Host`, `Db`,"
-                . " 't' AS `Type`, `Table_name`, `Table_priv`"
-                . " FROM `mysql`.`tables_priv`"
-                . " WHERE '" . $this->dbi->escapeString($db) . "' LIKE `Db`"
-                . "     AND '" . $this->dbi->escapeString($table) . "' LIKE `Table_name`"
-                . "     AND NOT (`Table_priv` = '' AND Column_priv = '')"
-                . " ORDER BY `User` ASC, `Host` ASC, `Db` ASC, `Table_priv` ASC;";
-            $res = $this->dbi->query($sql_query);
-            $this->mergePrivMapFromResult($privMap, $res);
+            $privileges = $this->getDatabasePrivileges($db);
 
-            $tableBody = $this->getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
+            $tablePrivileges = $this->getTablePrivileges($db, $table);
+            foreach ($tablePrivileges as $user => $hosts) {
+                foreach ($hosts as $host => $privs) {
+                    $privileges[$user] = $privileges[$user] ?? [];
+                    $privileges[$user][$host] = array_merge($privileges[$user][$host] ?? [], $privs);
+                }
+            }
+
+            $routinePrivileges = $this->getRoutinesPrivileges($db);
+            foreach ($routinePrivileges as $user => $hosts) {
+                foreach ($hosts as $host => $privs) {
+                    $privileges[$user] = $privileges[$user] ?? [];
+                    $privileges[$user][$host] = array_merge($privileges[$user][$host] ?? [], $privs);
+                }
+            }
+
+            $tableBody = $this->getHtmlTableBodyForSpecificDbOrTablePrivs($privileges, $db);
         }
 
         return $this->template->render('server/privileges/table', [
@@ -1543,57 +1468,133 @@ class Privileges
     }
 
     /**
-     * gets privilege map
+     * @param string $db database name
      *
-     * @param string $db the database
-     *
-     * @return array the privilege map
+     * @return array
      */
-    public function getPrivMap($db)
+    private function getDatabasePrivileges(string $db): array
     {
-        list($listOfPrivs, $listOfComparedPrivs)
-            = $this->getListOfPrivilegesAndComparedPrivileges();
-        $sql_query
-            = "("
-            . " SELECT " . $listOfPrivs . ", '*' AS `Db`, 'g' AS `Type`"
-            . " FROM `mysql`.`user`"
-            . " WHERE NOT (" . $listOfComparedPrivs . ")"
-            . ")"
-            . " UNION "
-            . "("
-            . " SELECT " . $listOfPrivs . ", `Db`, 'd' AS `Type`"
-            . " FROM `mysql`.`db`"
-            . " WHERE '" . $this->dbi->escapeString($db) . "' LIKE `Db`"
-            . "     AND NOT (" . $listOfComparedPrivs . ")"
-            . ")"
-            . " ORDER BY `User` ASC, `Host` ASC, `Db` ASC;";
-        $res = $this->dbi->query($sql_query);
-        $privMap = [];
-        $this->mergePrivMapFromResult($privMap, $res);
-        return $privMap;
+        $listOfPrivileges = '`Select_priv`,
+            `Insert_priv`,
+            `Update_priv`,
+            `Delete_priv`,
+            `Create_priv`,
+            `Drop_priv`,
+            `Grant_priv`,
+            `Index_priv`,
+            `Alter_priv`,
+            `References_priv`,
+            `Create_tmp_table_priv`,
+            `Lock_tables_priv`,
+            `Create_view_priv`,
+            `Show_view_priv`,
+            `Create_routine_priv`,
+            `Alter_routine_priv`,
+            `Execute_priv`,
+            `Event_priv`,
+            `Trigger_priv`,';
+
+        $listOfComparedPrivileges = '`Select_priv` = \'N\' AND
+            `Insert_priv` = \'N\' AND
+            `Update_priv` = \'N\' AND
+            `Delete_priv` = \'N\' AND
+            `Create_priv` = \'N\' AND
+            `Drop_priv` = \'N\' AND
+            `Grant_priv` = \'N\' AND
+            `References_priv` = \'N\' AND
+            `Create_tmp_table_priv` = \'N\' AND
+            `Lock_tables_priv` = \'N\' AND
+            `Create_view_priv` = \'N\' AND
+            `Show_view_priv` = \'N\' AND
+            `Create_routine_priv` = \'N\' AND
+            `Alter_routine_priv` = \'N\' AND
+            `Execute_priv` = \'N\' AND
+            `Event_priv` = \'N\' AND
+            `Trigger_priv` = \'N\'';
+
+        $query = '
+            (
+                SELECT `User`, `Host`, ' . $listOfPrivileges . ' \'*\' AS `Db`, \'g\' AS `Type`
+                FROM `mysql`.`user`
+                WHERE NOT (' . $listOfComparedPrivileges . ')
+            )
+            UNION
+            (
+                SELECT `User`, `Host`, ' . $listOfPrivileges . ' `Db`, \'d\' AS `Type`
+                FROM `mysql`.`db`
+                WHERE \'' . $this->dbi->escapeString($db) . '\' LIKE `Db` AND NOT (' . $listOfComparedPrivileges . ')
+            )
+            ORDER BY `User` ASC, `Host` ASC, `Db` ASC;
+        ';
+        $result = $this->dbi->query($query);
+        if ($result === false) {
+            return [];
+        }
+
+        $privileges = [];
+        while ($row = $this->dbi->fetchAssoc($result)) {
+            $privileges[$row['User']] = $privileges[$row['User']] ?? [];
+            $privileges[$row['User']][$row['Host']] = $privileges[$row['User']][$row['Host']] ?? [];
+            $privileges[$row['User']][$row['Host']][] = $row;
+        }
+        return $privileges;
     }
 
     /**
-     * merge privilege map and rows from resultset
+     * @param string $db    database name
+     * @param string $table table name
      *
-     * @param array  $privMap the privilege map reference
-     * @param object $result  the resultset of query
-     *
-     * @return void
+     * @return array
      */
-    public function mergePrivMapFromResult(array &$privMap, $result)
+    private function getTablePrivileges(string $db, string $table): array
     {
-        while ($row = $this->dbi->fetchAssoc($result)) {
-            $user = $row['User'];
-            $host = $row['Host'];
-            if (! isset($privMap[$user])) {
-                $privMap[$user] = [];
-            }
-            if (! isset($privMap[$user][$host])) {
-                $privMap[$user][$host] = [];
-            }
-            $privMap[$user][$host][] = $row;
+        $query = '
+            SELECT `User`, `Host`, `Db`, \'t\' AS `Type`, `Table_name`, `Table_priv`
+            FROM `mysql`.`tables_priv`
+            WHERE
+                \'' . $this->dbi->escapeString($db) . '\' LIKE `Db` AND
+                \'' . $this->dbi->escapeString($table) . '\' LIKE `Table_name` AND
+                NOT (`Table_priv` = \'\' AND Column_priv = \'\')
+            ORDER BY `User` ASC, `Host` ASC, `Db` ASC, `Table_priv` ASC;
+        ';
+        $result = $this->dbi->query($query);
+        if ($result === false) {
+            return [];
         }
+
+        $privileges = [];
+        while ($row = $this->dbi->fetchAssoc($result)) {
+            $privileges[$row['User']] = $privileges[$row['User']] ?? [];
+            $privileges[$row['User']][$row['Host']] = $privileges[$row['User']][$row['Host']] ?? [];
+            $privileges[$row['User']][$row['Host']][] = $row;
+        }
+        return $privileges;
+    }
+
+    /**
+     * @param string $db database name
+     *
+     * @return array
+     */
+    private function getRoutinesPrivileges(string $db): array
+    {
+        $query = '
+            SELECT *, \'r\' AS `Type`, \'Y\' AS `Grant_priv`
+            FROM `mysql`.`procs_priv`
+            WHERE Db = \'' . $this->dbi->escapeString($db) . '\';
+        ';
+        $result = $this->dbi->query($query);
+        if ($result === false) {
+            return [];
+        }
+
+        $privileges = [];
+        while ($row = $this->dbi->fetchAssoc($result)) {
+            $privileges[$row['User']] = $privileges[$row['User']] ?? [];
+            $privileges[$row['User']][$row['Host']] = $privileges[$row['User']][$row['Host']] ?? [];
+            $privileges[$row['User']][$row['Host']][] = $row;
+        }
+        return $privileges;
     }
 
     /**
@@ -1678,9 +1679,6 @@ class Privileges
                 );
             }
         }
-
-        //For fetching routine based privileges
-        $html_output .= $this->getHtmlTableBodyForSpecificDbRoutinePrivs($db, $index_checkbox);
         $html_output .= '</tbody>';
 
         return $html_output;
@@ -1722,12 +1720,20 @@ class Privileges
                 }
             } elseif ($current['Type'] == 't') {
                 $html_output .= __('table-specific');
+            } elseif ($current['Type'] == 'r') {
+                $html_output .= __('routine');
             }
             $html_output .= '</td>';
 
             // privileges
             $html_output .= '<td>';
-            if (isset($current['Table_name'])) {
+            if (isset($current['Routine_name'])) {
+                $html_output .= '<code>';
+                $html_output .= htmlspecialchars($current['Routine_name']);
+                $html_output .= ' (';
+                $html_output .= strtoupper(htmlspecialchars($current['Proc_priv']));
+                $html_output .= ')</code>';
+            } elseif (isset($current['Table_name'])) {
                 $privList = explode(',', $current['Table_priv']);
                 $privs = [];
                 $grantsArr = $this->getTableGrantsArray();
@@ -1778,13 +1784,15 @@ class Privileges
             $specific_table = isset($current['Table_name'])
                 && $current['Table_name'] != '*'
                 ? $current['Table_name'] : '';
+            $specificRoutine = $current['Routine_name'] ?? '';
             if ($GLOBALS['is_grantuser']) {
                 $html_output .= $this->getUserLink(
                     'edit',
                     $current_user,
                     $current_host,
                     $specific_db,
-                    $specific_table
+                    $specific_table,
+                    $specificRoutine
                 );
             }
             $html_output .= '</td>';
@@ -1794,7 +1802,8 @@ class Privileges
                     $current_user,
                     $current_host,
                     $specific_db,
-                    $specific_table
+                    $specific_table,
+                    $specificRoutine
                 )
                 . '</td>';
 

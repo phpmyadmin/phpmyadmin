@@ -1216,32 +1216,6 @@ class PrivilegesTest extends TestCase
     }
 
     /**
-     * Test for getListOfPrivilegesAndComparedPrivileges
-     *
-     * @return void
-     */
-    public function testGetListOfPrivilegesAndComparedPrivileges()
-    {
-        list($list_of_privileges, $list_of_compared_privileges)
-            = $this->serverPrivileges->getListOfPrivilegesAndComparedPrivileges();
-        $expect = "`User`, `Host`, `Select_priv`, `Insert_priv`";
-        $this->assertStringContainsString(
-            $expect,
-            $list_of_privileges
-        );
-        $expect = "`Select_priv` = 'N' AND `Insert_priv` = 'N'";
-        $this->assertStringContainsString(
-            $expect,
-            $list_of_compared_privileges
-        );
-        $expect = "`Create_routine_priv` = 'N' AND `Alter_routine_priv` = 'N'";
-        $this->assertStringContainsString(
-            $expect,
-            $list_of_compared_privileges
-        );
-    }
-
-    /**
      * Test for getHtmlForAddUser
      *
      * @return void
