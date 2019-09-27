@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-08-23 14:20+0200\n"
-"PO-Revision-Date: 2019-09-08 20:23+0000\n"
-"Last-Translator: ssantos <ssantos@web.de>\n"
+"PO-Revision-Date: 2019-09-27 16:25+0000\n"
+"Last-Translator: Manuela Silva <mmsrs@sky.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
 "Language: pt\n"
@@ -42,7 +42,7 @@ msgstr "Confirmar"
 #: js/messages.php:47
 #, php-format
 msgid "Do you really want to execute \"%s\"?"
-msgstr "Você realmente deseja executar \"%s\"?"
+msgstr "Realmente deseja executar \"%s\"?"
 
 #: js/messages.php:49 libraries/classes/MultSubmits.php:517
 msgid "You are about to DESTROY a complete database!"
@@ -51,44 +51,44 @@ msgstr "Estará prestes a DESTRUIR uma base de dados completa!"
 #: js/messages.php:51
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
-"Não é possível renomear o banco de dados com o mesmo nome. Troque o nome e "
+"Não é possível renomear a base de dados com o mesmo nome. Altere o nome e "
 "tente novamente"
 
 #: js/messages.php:53
 msgid "You are about to DESTROY a complete table!"
-msgstr "Está prestes a DESTRUIR uma base de dados completa!"
+msgstr "Está prestes a 'DESTRUIR' uma tabela completa!"
 
 #: js/messages.php:55
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "Está prestes a TRUNCAR uma base de dados completa!"
+msgstr "Está prestes a 'TRUNCAR' uma tabela completa!"
 
 #: js/messages.php:56
 msgid "Delete tracking data for this table?"
-msgstr "Apagar dados de tracking para esta tabela?"
+msgstr "Eliminar os dados de rastreamento para esta tabela?"
 
 #: js/messages.php:58
 msgid "Delete tracking data for these tables?"
-msgstr "Apagar dados de tracking para estas tabelas?"
+msgstr "Eliminar os dados de rastreamento para estas tabelas?"
 
 #: js/messages.php:60
 msgid "Delete tracking data for this version?"
-msgstr "Apagar dados de tracking para esta versão?"
+msgstr "Eliminar os dados de rastreamento para esta versão?"
 
 #: js/messages.php:62
 msgid "Delete tracking data for these versions?"
-msgstr "Apagar dados de tracking para estas versões?"
+msgstr "Eliminar os dados de rastreamento para estas versões?"
 
 #: js/messages.php:63
 msgid "Delete entry from tracking report?"
-msgstr "Apagar entrada do relatório de rastreamento?"
+msgstr "Eliminar a entrada do relatório de rastreamento?"
 
 #: js/messages.php:64
 msgid "Deleting tracking data"
-msgstr "Apagando dados de tracking"
+msgstr "A eliminar os dados de rastreamento"
 
 #: js/messages.php:65
 msgid "Dropping Primary Key/Index"
-msgstr "Apagando Chave Primária/Indice"
+msgstr "Eliminando Chave Primária/Índice"
 
 #: js/messages.php:66
 msgid "Dropping Foreign key."
@@ -96,7 +96,7 @@ msgstr "Eliminando Chave estrangeira."
 
 #: js/messages.php:68
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "Esta operação poderá demorar. Deseja prosseguir?"
+msgstr "Esta operação poderá demorar algum tempo. Deseja prosseguir?"
 
 #: js/messages.php:70
 #, php-format
@@ -111,16 +111,15 @@ msgstr "Deseja realmente eliminar a pesquisa \"%s\"?"
 #: js/messages.php:74
 msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr ""
-"Editou alguns dados e estes não foram guardados. Tem certeza que quer sair "
-"desta página antes de guardar as alterações?"
+"Tem alterações não guardadas; tem a certeza que deseja sair desta página?"
 
 #: js/messages.php:76
 msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
-"Você está a tentar reduzir a quantidade de linhas, mas já inseriu dados "
-"nessas linhas que serão perdidas. Deseja continuar?"
+"Está a tentar reduzir o número de linhas, mas já inseriu dados nessas linhas "
+"que serão perdidos. Deseja continuar?"
 
 #: js/messages.php:78
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -2376,11 +2375,11 @@ msgstr "Por favor, corrija este campo"
 
 #: js/messages.php:936
 msgid "Please enter a valid email address"
-msgstr "Por favor, digite um e-mail válido"
+msgstr "Por favor, digite um endereço de e-mail válido"
 
 #: js/messages.php:937
 msgid "Please enter a valid URL"
-msgstr "Por favor, digite uma URL válida"
+msgstr "Por favor, digite um URL válido"
 
 #: js/messages.php:938
 msgid "Please enter a valid date"
@@ -2400,7 +2399,7 @@ msgstr "Por favor, digite um número de cartão de crédito válido"
 
 #: js/messages.php:948
 msgid "Please enter only digits"
-msgstr "Por favor, utilize somente dígitos"
+msgstr "Por favor, digite apenas dígitos"
 
 #: js/messages.php:951
 msgid "Please enter the same value again"
@@ -2408,7 +2407,7 @@ msgstr "Por favor, digite o mesmo valor novamente"
 
 #: js/messages.php:955
 msgid "Please enter no more than {0} characters"
-msgstr "Por favor, digite no máximo {0} caracteres"
+msgstr "Por favor, digite no máximo {0} carateres"
 
 #: js/messages.php:960
 msgid "Please enter at least {0} characters"
