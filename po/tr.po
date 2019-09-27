@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-08-23 12:26+0200\n"
-"PO-Revision-Date: 2019-08-25 09:23+0000\n"
+"PO-Revision-Date: 2019-09-28 18:55+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "tr/>\n"
@@ -9097,7 +9097,7 @@ msgstr "Bağlanamıyor: geçersiz ayarlar."
 #: templates/login/header.twig:5
 #, php-format
 msgid "Welcome to %s"
-msgstr "%s'e Hoş Geldiniz"
+msgstr "%s’e Hoş Geldiniz"
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:105
 #, php-format
@@ -10605,7 +10605,7 @@ msgstr "Kullanıcı adı:"
 #: libraries/classes/Server/Privileges.php:2579
 #: libraries/classes/Server/Privileges.php:3557
 msgid "User name"
-msgstr "Kullanıcı Adı"
+msgstr "Kullanıcı adı"
 
 #: libraries/classes/ReplicationGui.php:437
 #: libraries/classes/ReplicationGui.php:858
@@ -10772,7 +10772,7 @@ msgstr "Asıl sunucu, %s olarak başarılı olarak değiştirildi."
 #: libraries/classes/Rte/Triggers.php:138
 #, php-format
 msgid "The following query has failed: \"%s\""
-msgstr "Aşağıdaki sorgu başarısız oldu: \"%s\""
+msgstr "Şurada belirtilen sorgu başarısız oldu: \"%s\""
 
 #: libraries/classes/Rte/Events.php:126 libraries/classes/Rte/Events.php:135
 #: libraries/classes/Rte/Events.php:166 libraries/classes/Rte/General.php:48
@@ -11623,7 +11623,7 @@ msgstr "genel"
 
 #: libraries/classes/Server/Privileges.php:2702
 msgid "database-specific"
-msgstr "Veritabanına özgü"
+msgstr "veritabanına özgü"
 
 #: libraries/classes/Server/Privileges.php:2704
 msgid "wildcard"
@@ -14569,7 +14569,7 @@ msgstr "Son denetleme"
 
 #: templates/privileges/add_privileges_database.twig:1
 msgid "Add privileges on the following database(s):"
-msgstr "Aşağıdaki veritaban(lar)ına yetkileri ekle:"
+msgstr "Şurada belirtilen veritaban(lar)ına yetkileri ekle:"
 
 #: templates/privileges/add_privileges_database.twig:14
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
