@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-08-23 14:20+0200\n"
-"PO-Revision-Date: 2019-08-25 09:23+0000\n"
+"PO-Revision-Date: 2019-09-28 18:55+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -9491,7 +9491,7 @@ msgstr "Erişim engellendi!"
 #: templates/login/header.twig:10
 #, php-format
 msgid "Welcome to %s"
-msgstr "%s'e Hoş Geldiniz"
+msgstr "%s’e Hoş Geldiniz"
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:107
 #, php-format
@@ -10884,7 +10884,7 @@ msgstr "Asıl sunucu, %s olarak başarılı olarak değiştirildi."
 #: libraries/classes/Rte/Triggers.php:185
 #, php-format
 msgid "The following query has failed: \"%s\""
-msgstr "Aşağıdaki sorgu başarısız oldu: \"%s\""
+msgstr "Şurada belirtilen sorgu başarısız oldu: \"%s\""
 
 #: libraries/classes/Rte/Events.php:177 libraries/classes/Rte/Events.php:186
 #: libraries/classes/Rte/Events.php:217 libraries/classes/Rte/General.php:63
@@ -11713,7 +11713,7 @@ msgstr "Kullanıcı eklendi."
 #: templates/server/replication/master_add_slave_user.twig:24
 #: templates/server/replication/change_master.twig:15
 msgid "User name"
-msgstr "Kullanıcı Adı"
+msgstr "Kullanıcı adı"
 
 #: libraries/classes/Server/Privileges.php:2483
 #: libraries/classes/Server/Privileges.php:3476
@@ -11749,7 +11749,7 @@ msgstr "genel"
 
 #: libraries/classes/Server/Privileges.php:2609
 msgid "database-specific"
-msgstr "Veritabanına özgü"
+msgstr "veritabanına özgü"
 
 #: libraries/classes/Server/Privileges.php:2611
 msgid "wildcard"
@@ -13411,7 +13411,7 @@ msgstr "Sütuna özgü yetkiler"
 
 #: templates/server/privileges/privileges_summary.twig:54
 msgid "Add privileges on the following database(s):"
-msgstr "Aşağıdaki veritaban(lar)ına yetkileri ekle:"
+msgstr "Şurada belirtilen veritaban(lar)ına yetkileri ekle:"
 
 #: templates/server/privileges/privileges_summary.twig:67
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
