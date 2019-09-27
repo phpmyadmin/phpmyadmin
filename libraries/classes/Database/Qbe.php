@@ -1809,7 +1809,7 @@ class Qbe
             );
         $html_output .= '</legend>';
         $text_dir = 'ltr';
-        $html_output .= '<textarea cols="80" name="sql_query" id="textSqlquery"'
+        $html_output .= '<textarea style="width: 98%;" cols="80" name="sql_query" id="textSqlquery"'
             . ' rows="' . (count($this->_criteriaTables) > 30 ? '15' : '7') . '"'
             . ' dir="' . $text_dir . '">';
 
