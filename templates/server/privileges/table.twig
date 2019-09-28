@@ -25,13 +25,95 @@
             </tr>
           </thead>
 
-          {{ table_body|raw }}
+          <tbody>
+            {% for privilege in privileges %}
+              {% set privileges_amount = privilege.privileges|length %}
+              <tr>
+                <td{% if privileges_amount > 1 %} rowspan="{{ privileges_amount }}"{% endif %}>
+                  <input type="checkbox" class="checkall" name="selected_usr[]" id="checkbox_sel_users_{{ loop.index0 }}" value="
+                    {{- privilege.user ~ '&amp;#27;' ~ privilege.host }}">
+                </td>
+                <td{% if privileges_amount > 1 %} rowspan="{{ privileges_amount }}"{% endif %}>
+                  {% if privilege.user is empty %}
+                    <span class="text-danger">{% trans 'Any' %}</span>
+                  {% else %}
+                    {{ privilege.user }}
+                  {% endif %}
+                </td>
+                <td{% if privileges_amount > 1 %} rowspan="{{ privileges_amount }}"{% endif %}>
+                  {{ privilege.host }}
+                </td>
+                {% for priv in privilege.privileges %}
+                  <td>
+                    {% if priv.type == 'g' %}
+                      {% trans 'global' %}
+                    {% elseif priv.type == 'd' %}
+                      {% if priv.database == db|replace({'_': '\\_', '%': '\\%'}) %}
+                        {% trans 'database-specific' %}
+                      {% else %}
+                        {% trans 'wildcard' %}: <code>{{ priv.database }}</code>
+                      {% endif %}
+                    {% elseif priv.type == 't' %}
+                      {% trans 'table-specific' %}
+                    {% elseif priv.type == 'r' %}
+                      {% trans 'routine' %}
+                    {% endif %}
+                  </td>
+                  <td>
+                    <code>
+                      {% if priv.type == 'r' %}
+                        {{ priv.routine }}
+                        ({{ priv.privileges|join(', ')|upper }})
+                      {% else %}
+                        {{ priv.privileges|join(', ')|raw }}
+                      {% endif %}
+                    </code>
+                  </td>
+                  <td>
+                    {{ priv.has_grant ? 'Yes'|trans : 'No'|trans }}
+                  </td>
+                  <td>
+                    {% if is_grantuser %}
+                      <a class="edit_user_anchor" href="{{ url('/server/privileges', {
+                        'username': privilege.user,
+                        'hostname': privilege.host,
+                        'dbname': priv.database != '*' ? priv.database,
+                        'tablename': priv.table is defined and priv.table != '*' ? priv.table,
+                        'routinename': priv.routine ?? ''
+                      }) }}">
+                        {{ get_icon('b_usredit', 'Edit privileges'|trans) }}
+                      </a>
+                    {% endif %}
+                  </td>
+                  <td class="center">
+                    <a class="export_user_anchor ajax" href="{{ url('/server/privileges', {
+                      'username': privilege.user,
+                      'hostname': privilege.host,
+                      'export': true,
+                      'initial': ''
+                    }) }}">
+                      {{ get_icon('b_tblexport', 'Export'|trans) }}
+                    </a>
+                  </td>
+                </tr>
+                  {% if privileges_amount > 1 %}
+                    <tr class="noclick">
+                  {% endif %}
+                {% endfor %}
+            {% else %}
+              <tr>
+                <td colspan="7">
+                  {% trans 'No user found.' %}
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
         </table>
       </div>
 
       <div class="floatleft">
         <img class="selectallarrow" src="{{ pma_theme_image }}arrow_{{ text_dir }}.png" alt="
-            {%- trans 'With selected:' %}" width="38" height="22">
+          {%- trans 'With selected:' %}" width="38" height="22">
         <input type="checkbox" id="usersForm_checkall" class="checkall_box" title="{% trans 'Check all' %}">
         <label for="usersForm_checkall">{% trans 'Check all' %}</label>
         <em class="with-selected">{% trans 'With selected:' %}</em>

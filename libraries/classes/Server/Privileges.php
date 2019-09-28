@@ -1425,34 +1425,91 @@ class Privileges
      */
     public function getHtmlForSpecificTablePrivileges(string $db, string $table): string
     {
-        global $cfg, $pmaThemeImage, $text_dir, $is_createuser;
+        global $cfg, $pmaThemeImage, $text_dir, $is_createuser, $is_grantuser;
 
         $scriptName = Util::getScriptNameForOption(
             $cfg['DefaultTabTable'],
             'table'
         );
 
-        $tableBody = '';
+        $privileges = [];
         if ($this->dbi->isSuperuser()) {
-            $privileges = $this->getDatabasePrivileges($db);
+            $databasePrivileges = $this->getDatabasePrivileges($db);
 
             $tablePrivileges = $this->getTablePrivileges($db, $table);
             foreach ($tablePrivileges as $user => $hosts) {
-                foreach ($hosts as $host => $privs) {
-                    $privileges[$user] = $privileges[$user] ?? [];
-                    $privileges[$user][$host] = array_merge($privileges[$user][$host] ?? [], $privs);
+                foreach ($hosts as $host => $specificPrivileges) {
+                    $databasePrivileges[$user] = $databasePrivileges[$user] ?? [];
+                    $databasePrivileges[$user][$host] = array_merge(
+                        $databasePrivileges[$user][$host] ?? [],
+                        $specificPrivileges
+                    );
                 }
             }
 
             $routinePrivileges = $this->getRoutinesPrivileges($db);
             foreach ($routinePrivileges as $user => $hosts) {
-                foreach ($hosts as $host => $privs) {
-                    $privileges[$user] = $privileges[$user] ?? [];
-                    $privileges[$user][$host] = array_merge($privileges[$user][$host] ?? [], $privs);
+                foreach ($hosts as $host => $specificPrivileges) {
+                    $databasePrivileges[$user] = $databasePrivileges[$user] ?? [];
+                    $databasePrivileges[$user][$host] = array_merge(
+                        $databasePrivileges[$user][$host] ?? [],
+                        $specificPrivileges
+                    );
                 }
             }
 
-            $tableBody = $this->getHtmlTableBodyForSpecificDbOrTablePrivs($privileges, $db);
+            foreach ($databasePrivileges as $user => $hosts) {
+                foreach ($hosts as $host => $specificPrivileges) {
+                    $privileges[$user . '@' . $host] = [
+                        'user' => $user,
+                        'host' => $host,
+                        'privileges' => [],
+                    ];
+                    foreach ($specificPrivileges as $specificPrivilege) {
+                        $privilege = [
+                            'type' => $specificPrivilege['Type'],
+                            'database' => $specificPrivilege['Db'],
+                        ];
+                        if ($specificPrivilege['Type'] === 'r') {
+                            $privilege['routine'] = $specificPrivilege['Routine_name'];
+                            $privilege['has_grant'] = strpos(
+                                $specificPrivilege['Proc_priv'],
+                                'Grant'
+                            ) !== false;
+                            $privilege['privileges'] = explode(',', $specificPrivilege['Proc_priv']);
+                        } elseif ($specificPrivilege['Type'] === 't') {
+                            $privilege['table'] = $specificPrivilege['Table_name'];
+                            $privilege['has_grant'] = strpos(
+                                $specificPrivilege['Table_priv'],
+                                'Grant'
+                            ) !== false;
+                            $tablePrivs = explode(',', $specificPrivilege['Table_priv']);
+                            $specificPrivileges = [];
+                            $grantsArr = $this->getTableGrantsArray();
+                            foreach ($grantsArr as $grant) {
+                                $specificPrivileges[$grant[0]] = 'N';
+                                foreach ($tablePrivs as $priv) {
+                                    if ($grant[0] == $priv) {
+                                        $specificPrivileges[$grant[0]] = 'Y';
+                                    }
+                                }
+                            }
+                            $privilege['privileges'] = $this->extractPrivInfo(
+                                $specificPrivileges,
+                                true,
+                                true
+                            );
+                        } else {
+                            $privilege['has_grant'] = $specificPrivilege['Grant_priv'] === 'Y';
+                            $privilege['privileges'] = $this->extractPrivInfo(
+                                $specificPrivilege,
+                                true
+                            );
+                        }
+                        $privileges[$user . '@' . $host]['privileges'][$specificPrivilege['Type']] = $privilege;
+                    }
+                }
+            }
         }
 
         return $this->template->render('server/privileges/table', [
@@ -1462,8 +1519,9 @@ class Privileges
             'table_url' => $scriptName,
             'pma_theme_image' => $pmaThemeImage,
             'text_dir' => $text_dir,
-            'table_body' => $tableBody,
             'is_createuser' => $is_createuser,
+            'is_grantuser' => $is_grantuser,
+            'privileges' => $privileges,
         ]);
     }
 
