@@ -1407,47 +1407,12 @@ class Privileges
     }
 
     /**
-     * Get the HTML for user form and check the privileges for a particular table.
-     *
-     * @param string $db    database name
-     * @param string $table table name
-     *
-     * @return string
-     */
-    public function getHtmlForSpecificTablePrivileges(string $db, string $table): string
-    {
-        global $cfg, $pmaThemeImage, $text_dir, $is_createuser, $is_grantuser;
-
-        $scriptName = Util::getScriptNameForOption(
-            $cfg['DefaultTabTable'],
-            'table'
-        );
-
-        $privileges = [];
-        if ($this->dbi->isSuperuser()) {
-            $privileges = $this->getAllPrivileges($db, $table);
-        }
-
-        return $this->template->render('server/privileges/table', [
-            'db' => $db,
-            'table' => $table,
-            'is_superuser' => $this->dbi->isSuperuser(),
-            'table_url' => $scriptName,
-            'pma_theme_image' => $pmaThemeImage,
-            'text_dir' => $text_dir,
-            'is_createuser' => $is_createuser,
-            'is_grantuser' => $is_grantuser,
-            'privileges' => $privileges,
-        ]);
-    }
-
-    /**
      * @param string $db    database name
      * @param string $table table name
      *
      * @return array
      */
-    private function getAllPrivileges(string $db, string $table = ''): array
+    public function getAllPrivileges(string $db, string $table = ''): array
     {
         $privileges = [];
         $databasePrivileges = $this->getGlobalAndDatabasePrivileges($db);

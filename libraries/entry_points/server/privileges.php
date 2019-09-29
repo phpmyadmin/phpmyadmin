@@ -7,6 +7,7 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\Controllers\Table\PrivilegesController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
@@ -22,7 +23,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $containerBuilder, $db, $err_url, $message, $pmaThemeImage, $text_dir, $url_query, $post_patterns;
+global $containerBuilder, $db, $table, $err_url, $message, $pmaThemeImage, $text_dir, $url_query, $post_patterns;
 global $username, $hostname, $dbname, $tablename, $routinename, $db_and_table, $dbname_is_wildcard;
 global $queries, $password, $ret_message, $ret_queries, $queries_for_display, $sql_query, $_add_user_error;
 global $itemType, $tables, $num_tables, $total_num_tables, $sub_part, $is_show_stats, $db_is_system_schema;
@@ -62,6 +63,15 @@ $scripts->addFile('vendor/zxcvbn.js');
 $template = $containerBuilder->get('template');
 $relationCleanup = new RelationCleanup($dbi, $relation);
 $serverPrivileges = new Privileges($template, $dbi, $relation, $relationCleanup);
+
+$tableController = new PrivilegesController(
+    $response,
+    $dbi,
+    $template,
+    $db,
+    $table,
+    $serverPrivileges
+);
 
 if ((isset($_GET['viewing_mode'])
     && $_GET['viewing_mode'] == 'server')
@@ -440,13 +450,10 @@ if (isset($_GET['adduser'])) {
     );
 } elseif (isset($_GET['checkprivsdb'])) {
     if (isset($_GET['checkprivstable'])) {
-        // check the privileges for a particular table.
-        $response->addHTML(
-            $serverPrivileges->getHtmlForSpecificTablePrivileges(
-                $_GET['checkprivsdb'],
-                $_GET['checkprivstable']
-            )
-        );
+        $response->addHTML($tableController->index([
+            'checkprivsdb' => $_GET['checkprivsdb'],
+            'checkprivstable' => $_GET['checkprivstable'],
+        ]));
     } else {
         // check the privileges for a particular database.
         $response->addHTML(

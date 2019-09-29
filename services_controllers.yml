@@ -237,6 +237,16 @@ services:
       table: '%table%'
       index: '%index%'
 
+  PhpMyAdmin\Controllers\Table\PrivilegesController:
+    class: 'PhpMyAdmin\Controllers\Table\PrivilegesController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      db: '%db%'
+      table: '%table%'
+      privileges: '@server_privileges'
+
   PhpMyAdmin\Controllers\Table\RelationController:
     class: 'PhpMyAdmin\Controllers\Table\RelationController'
     arguments:
