@@ -1382,49 +1382,7 @@ class Privileges
 
         $privileges = [];
         if ($this->dbi->isSuperuser()) {
-            $databasePrivileges = $this->getDatabasePrivileges($db);
-
-            $routinePrivileges = $this->getRoutinesPrivileges($db);
-            foreach ($routinePrivileges as $user => $hosts) {
-                foreach ($hosts as $host => $privs) {
-                    $databasePrivileges[$user] = $databasePrivileges[$user] ?? [];
-                    $databasePrivileges[$user][$host] = array_merge(
-                        $databasePrivileges[$user][$host] ?? [],
-                        $privs
-                    );
-                }
-            }
-
-            foreach ($databasePrivileges as $user => $hosts) {
-                foreach ($hosts as $host => $specificPrivileges) {
-                    $privileges[$user . '@' . $host] = [
-                        'user' => $user,
-                        'host' => $host,
-                        'privileges' => [],
-                    ];
-                    foreach ($specificPrivileges as $specificPrivilege) {
-                        $privilege = [
-                            'type' => $specificPrivilege['Type'],
-                            'database' => $specificPrivilege['Db'],
-                        ];
-                        if ($specificPrivilege['Type'] === 'r') {
-                            $privilege['routine'] = $specificPrivilege['Routine_name'];
-                            $privilege['has_grant'] = strpos(
-                                    $specificPrivilege['Proc_priv'],
-                                    'Grant'
-                                ) !== false;
-                            $privilege['privileges'] = explode(',', $specificPrivilege['Proc_priv']);
-                        } else {
-                            $privilege['has_grant'] = $specificPrivilege['Grant_priv'] === 'Y';
-                            $privilege['privileges'] = $this->extractPrivInfo(
-                                $specificPrivilege,
-                                true
-                            );
-                        }
-                        $privileges[$user . '@' . $host]['privileges'][$specificPrivilege['Type']] = $privilege;
-                    }
-                }
-            }
+            $privileges = $this->getAllPrivileges($db);
         }
 
         $response = Response::getInstance();
@@ -1467,82 +1425,7 @@ class Privileges
 
         $privileges = [];
         if ($this->dbi->isSuperuser()) {
-            $databasePrivileges = $this->getDatabasePrivileges($db);
-
-            $tablePrivileges = $this->getTablePrivileges($db, $table);
-            foreach ($tablePrivileges as $user => $hosts) {
-                foreach ($hosts as $host => $specificPrivileges) {
-                    $databasePrivileges[$user] = $databasePrivileges[$user] ?? [];
-                    $databasePrivileges[$user][$host] = array_merge(
-                        $databasePrivileges[$user][$host] ?? [],
-                        $specificPrivileges
-                    );
-                }
-            }
-
-            $routinePrivileges = $this->getRoutinesPrivileges($db);
-            foreach ($routinePrivileges as $user => $hosts) {
-                foreach ($hosts as $host => $specificPrivileges) {
-                    $databasePrivileges[$user] = $databasePrivileges[$user] ?? [];
-                    $databasePrivileges[$user][$host] = array_merge(
-                        $databasePrivileges[$user][$host] ?? [],
-                        $specificPrivileges
-                    );
-                }
-            }
-
-            foreach ($databasePrivileges as $user => $hosts) {
-                foreach ($hosts as $host => $specificPrivileges) {
-                    $privileges[$user . '@' . $host] = [
-                        'user' => $user,
-                        'host' => $host,
-                        'privileges' => [],
-                    ];
-                    foreach ($specificPrivileges as $specificPrivilege) {
-                        $privilege = [
-                            'type' => $specificPrivilege['Type'],
-                            'database' => $specificPrivilege['Db'],
-                        ];
-                        if ($specificPrivilege['Type'] === 'r') {
-                            $privilege['routine'] = $specificPrivilege['Routine_name'];
-                            $privilege['has_grant'] = strpos(
-                                $specificPrivilege['Proc_priv'],
-                                'Grant'
-                            ) !== false;
-                            $privilege['privileges'] = explode(',', $specificPrivilege['Proc_priv']);
-                        } elseif ($specificPrivilege['Type'] === 't') {
-                            $privilege['table'] = $specificPrivilege['Table_name'];
-                            $privilege['has_grant'] = strpos(
-                                $specificPrivilege['Table_priv'],
-                                'Grant'
-                            ) !== false;
-                            $tablePrivs = explode(',', $specificPrivilege['Table_priv']);
-                            $specificPrivileges = [];
-                            $grantsArr = $this->getTableGrantsArray();
-                            foreach ($grantsArr as $grant) {
-                                $specificPrivileges[$grant[0]] = 'N';
-                                foreach ($tablePrivs as $priv) {
-                                    if ($grant[0] == $priv) {
-                                        $specificPrivileges[$grant[0]] = 'Y';
-                                    }
-                                }
-                            }
-                            $privilege['privileges'] = $this->extractPrivInfo(
-                                $specificPrivileges,
-                                true,
-                                true
-                            );
-                        } else {
-                            $privilege['has_grant'] = $specificPrivilege['Grant_priv'] === 'Y';
-                            $privilege['privileges'] = $this->extractPrivInfo(
-                                $specificPrivilege,
-                                true
-                            );
-                        }
-                        $privileges[$user . '@' . $host]['privileges'][$specificPrivilege['Type']] = $privilege;
-                    }
-                }
-            }
+            $privileges = $this->getAllPrivileges($db, $table);
         }
 
         return $this->template->render('server/privileges/table', [
@@ -1559,11 +1442,80 @@ class Privileges
     }
 
     /**
+     * @param string $db    database name
+     * @param string $table table name
+     *
+     * @return array
+     */
+    private function getAllPrivileges(string $db, string $table = ''): array
+    {
+        $privileges = [];
+        $databasePrivileges = $this->getGlobalAndDatabasePrivileges($db);
+        $tablePrivileges = [];
+        if ($table !== '') {
+            $tablePrivileges = $this->getTablePrivileges($db, $table);
+        }
+        $routinePrivileges = $this->getRoutinesPrivileges($db);
+        $allPrivileges = array_merge($databasePrivileges, $tablePrivileges, $routinePrivileges);
+
+        foreach ($allPrivileges as $priv) {
+            $privilege = [
+                'type' => $priv['Type'],
+                'database' => $priv['Db'],
+            ];
+            if ($priv['Type'] === 'r') {
+                $privilege['routine'] = $priv['Routine_name'];
+                $privilege['has_grant'] = strpos(
+                    $priv['Proc_priv'],
+                    'Grant'
+                ) !== false;
+                $privilege['privileges'] = explode(',', $priv['Proc_priv']);
+            } elseif ($priv['Type'] === 't') {
+                $privilege['table'] = $priv['Table_name'];
+                $privilege['has_grant'] = strpos(
+                    $priv['Table_priv'],
+                    'Grant'
+                ) !== false;
+                $tablePrivs = explode(',', $priv['Table_priv']);
+                $specificPrivileges = [];
+                $grantsArr = $this->getTableGrantsArray();
+                foreach ($grantsArr as $grant) {
+                    $specificPrivileges[$grant[0]] = 'N';
+                    foreach ($tablePrivs as $tablePriv) {
+                        if ($grant[0] == $tablePriv) {
+                            $specificPrivileges[$grant[0]] = 'Y';
+                        }
+                    }
+                }
+                $privilege['privileges'] = $this->extractPrivInfo(
+                    $specificPrivileges,
+                    true,
+                    true
+                );
+            } else {
+                $privilege['has_grant'] = $priv['Grant_priv'] === 'Y';
+                $privilege['privileges'] = $this->extractPrivInfo(
+                    $priv,
+                    true
+                );
+            }
+
+            $userHost = $priv['User'] . '@' . $priv['Host'];
+            $privileges[$userHost] = $privileges[$userHost] ?? [];
+            $privileges[$userHost]['user'] = $priv['User'];
+            $privileges[$userHost]['host'] = $priv['Host'];
+            $privileges[$userHost]['privileges'] = $privileges[$userHost]['privileges'] ?? [];
+            $privileges[$userHost]['privileges'][] = $privilege;
+        }
+        return $privileges;
+    }
+
+    /**
      * @param string $db database name
      *
      * @return array
      */
-    private function getDatabasePrivileges(string $db): array
+    private function getGlobalAndDatabasePrivileges(string $db): array
     {
         $listOfPrivileges = '`Select_priv`,
             `Insert_priv`,
@@ -1624,9 +1576,7 @@ class Privileges
 
         $privileges = [];
         while ($row = $this->dbi->fetchAssoc($result)) {
-            $privileges[$row['User']] = $privileges[$row['User']] ?? [];
-            $privileges[$row['User']][$row['Host']] = $privileges[$row['User']][$row['Host']] ?? [];
-            $privileges[$row['User']][$row['Host']][] = $row;
+            $privileges[] = $row;
         }
         return $privileges;
     }
@@ -1655,9 +1605,7 @@ class Privileges
 
         $privileges = [];
         while ($row = $this->dbi->fetchAssoc($result)) {
-            $privileges[$row['User']] = $privileges[$row['User']] ?? [];
-            $privileges[$row['User']][$row['Host']] = $privileges[$row['User']][$row['Host']] ?? [];
-            $privileges[$row['User']][$row['Host']][] = $row;
+            $privileges[] = $row;
         }
         return $privileges;
     }
@@ -1670,7 +1618,7 @@ class Privileges
     private function getRoutinesPrivileges(string $db): array
     {
         $query = '
-            SELECT *, \'r\' AS `Type`, \'Y\' AS `Grant_priv`
+            SELECT *, \'r\' AS `Type`
             FROM `mysql`.`procs_priv`
             WHERE Db = \'' . $this->dbi->escapeString($db) . '\';
         ';
@@ -1681,9 +1629,7 @@ class Privileges
 
         $privileges = [];
         while ($row = $this->dbi->fetchAssoc($result)) {
-            $privileges[$row['User']] = $privileges[$row['User']] ?? [];
-            $privileges[$row['User']][$row['Host']] = $privileges[$row['User']][$row['Host']] ?? [];
-            $privileges[$row['User']][$row['Host']][] = $row;
+            $privileges[] = $row;
         }
         return $privileges;
     }
