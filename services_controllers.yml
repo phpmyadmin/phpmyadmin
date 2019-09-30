@@ -51,6 +51,15 @@ services:
       template: '@template'
       db: '%db%'
 
+  PhpMyAdmin\Controllers\Database\PrivilegesController:
+    class: 'PhpMyAdmin\Controllers\Database\PrivilegesController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      db: '%db%'
+      privileges: '@server_privileges'
+
   PhpMyAdmin\Controllers\Database\RoutinesController:
     class: 'PhpMyAdmin\Controllers\Database\RoutinesController'
     arguments:

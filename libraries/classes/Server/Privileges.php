@@ -1365,48 +1365,6 @@ class Privileges
     }
 
     /**
-     * Get the HTML for user form and check the privileges for a particular database.
-     *
-     * @param string $db database name
-     *
-     * @return string
-     */
-    public function getHtmlForSpecificDbPrivileges(string $db): string
-    {
-        global $cfg, $pmaThemeImage, $text_dir, $is_createuser, $is_grantuser;
-
-        $scriptName = Util::getScriptNameForOption(
-            $cfg['DefaultTabDatabase'],
-            'database'
-        );
-
-        $privileges = [];
-        if ($this->dbi->isSuperuser()) {
-            $privileges = $this->getAllPrivileges($db);
-        }
-
-        $response = Response::getInstance();
-        if ($response->isAjax() === true
-            && empty($_REQUEST['ajax_page_request'])
-        ) {
-            $message = Message::success(__('User has been added.'));
-            $response->addJSON('message', $message);
-            exit;
-        }
-
-        return $this->template->render('server/privileges/database', [
-            'is_superuser' => $this->dbi->isSuperuser(),
-            'db' => $db,
-            'database_url' => $scriptName,
-            'pma_theme_image' => $pmaThemeImage,
-            'text_dir' => $text_dir,
-            'is_createuser' => $is_createuser,
-            'is_grantuser' => $is_grantuser,
-            'privileges' => $privileges,
-        ]);
-    }
-
-    /**
      * @param string $db    database name
      * @param string $table table name
      *

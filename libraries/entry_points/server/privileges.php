@@ -7,7 +7,8 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\CheckUserPrivileges;
-use PhpMyAdmin\Controllers\Table\PrivilegesController;
+use PhpMyAdmin\Controllers\Database\PrivilegesController as DatabaseController;
+use PhpMyAdmin\Controllers\Table\PrivilegesController as TableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
@@ -64,7 +65,15 @@ $template = $containerBuilder->get('template');
 $relationCleanup = new RelationCleanup($dbi, $relation);
 $serverPrivileges = new Privileges($template, $dbi, $relation, $relationCleanup);
 
-$tableController = new PrivilegesController(
+$databaseController = new DatabaseController(
+    $response,
+    $dbi,
+    $template,
+    $db,
+    $serverPrivileges
+);
+
+$tableController = new TableController(
     $response,
     $dbi,
     $template,
@@ -454,11 +463,14 @@ if (isset($_GET['adduser'])) {
             'checkprivsdb' => $_GET['checkprivsdb'],
             'checkprivstable' => $_GET['checkprivstable'],
         ]));
+    } elseif ($response->isAjax() === true && empty($_REQUEST['ajax_page_request'])) {
+        $message = Message::success(__('User has been added.'));
+        $response->addJSON('message', $message);
+        exit;
     } else {
-        // check the privileges for a particular database.
-        $response->addHTML(
-            $serverPrivileges->getHtmlForSpecificDbPrivileges($_GET['checkprivsdb'])
-        );
+        $response->addHTML($databaseController->index([
+            'checkprivsdb' => $_GET['checkprivsdb'],
+        ]));
     }
 } else {
     if (isset($dbname) && ! is_array($dbname)) {
