@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-08-23 12:26+0200\n"
-"PO-Revision-Date: 2018-02-05 21:41+0000\n"
-"Last-Translator: Zoran Dori <zorandori4444@gmail.com>\n"
-"Language-Team: Serbian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sr/>\n"
+"PO-Revision-Date: 2019-10-02 17:56+0000\n"
+"Last-Translator: Ненад Генералски <generalski@mail.ru>\n"
+"Language-Team: Serbian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
+"sr/>\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.19-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -31,7 +31,7 @@ msgstr ""
 
 #: db_central_columns.php:129
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "Централна листа колона за актуелну базу података је празна."
 
 #: db_central_columns.php:158
 msgid "Click to sort."
@@ -312,6 +312,8 @@ msgstr "Име базе није задато!"
 #: db_operations.php:69
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
+"Није могуће копирати базу података под истим именом. Промените име  и "
+"покушајте поново."
 
 #: db_operations.php:156
 #, fuzzy, php-format
@@ -377,6 +379,7 @@ msgstr "Репликација"
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
+"Верзија  %1$s је направљена за изабране табеле, њихово праћење је активно."
 
 #: db_tracking.php:95
 #, fuzzy
@@ -394,24 +397,26 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"Откривена је грешка и аутоматски је направљен извештај у складу са вашим "
+"подешавњима."
 
 #: error_report.php:77
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "Хвала Вам на подношењу извештаја."
 
 #: error_report.php:81
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
-msgstr ""
+msgstr "Откривена је грешка и направљен је извештај који није могуће послати."
 
 #: error_report.php:86
 msgid "If you experience any problems please submit a bug report manually."
-msgstr ""
+msgstr "Ако имате проблема, молимо Вас да ручно поднесите извештај о грешкама."
 
 #: error_report.php:90
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "Можда желите да освежите страницу."
 
 #: export.php:290
 msgid "Bad parameters!"
@@ -425,17 +430,17 @@ msgstr "Вредност за колону %s"
 #: gis_data_editor.php:151
 #: templates/table/gis_visualization/gis_visualization.twig:38
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr "Искористи OpenStreetMaps као основни слој"
+msgstr "Користи OpenStreetMaps као основни слој"
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:173
 msgid "SRID:"
-msgstr ""
+msgstr "SRID:"
 
 #: gis_data_editor.php:199
 #, php-format
 msgid "Geometry %d:"
-msgstr ""
+msgstr "Геометрија %d:"
 
 #: gis_data_editor.php:221
 msgid "Point:"
