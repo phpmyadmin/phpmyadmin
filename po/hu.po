@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-08-23 12:26+0200\n"
-"PO-Revision-Date: 2018-02-10 23:35+0000\n"
-"Last-Translator: Marczis István <marczisi@yahoo.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hu/>\n"
+"PO-Revision-Date: 2019-10-02 17:55+0000\n"
+"Last-Translator: kemist80 <kemist1980@gmail.com>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
+"hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.19-dev\n"
+"X-Generator: Weblate 3.9-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -336,16 +336,12 @@ msgid "You have to choose at least one column to display!"
 msgstr "Legalább egy megjeleníteni kívánt oszlopot ki kell választani!"
 
 #: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Lekérdezés szimulálása"
+msgstr "Többtáblás lekérdezés"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "Lekérdezés sikertelen"
+msgstr "Példalekérdezés"
 
 #: db_qbe.php:168
 #, php-format
@@ -539,16 +535,12 @@ msgid "Output"
 msgstr "Kimenet"
 
 #: gis_data_editor.php:423
-#, fuzzy
-#| msgid ""
-#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-#| "below into the \"Value\" field."
 msgid ""
 "Choose \"ST_GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Válassza a „GeomFromText”-et a „Függvény” oszlopból és illessze be az alábbi "
-"karakterláncot az „Érték” mezőbe."
+"Válassza a „ST_GeomFromText”-et a „Függvény” oszlopból és illessze be az "
+"alábbi karakterláncot az „Érték” mezőbe."
 
 #: import.php:73
 msgid "Succeeded"
