@@ -34,7 +34,7 @@ msgstr "A(z) „%s” forrás adatbázis nem található!"
 
 #: index.php:36
 msgid "Error 405! Request method not allowed."
-msgstr ""
+msgstr "A kért erőforrásra nem alkalmazható a használt metódus!"
 
 #: js/messages.php:46
 msgid "Confirm"
@@ -9689,7 +9689,7 @@ msgstr "Lejárt a munkamenet. Lépjen be újra."
 #, fuzzy
 #| msgid "Could not connect to the database server!"
 msgid "Failed to connect to the reCAPTCHA service!"
-msgstr "Nem sikerült kapcsolódni az adatbázis-kiszolgálóhoz!"
+msgstr "Nem sikerült kapcsolódni a reCAPTCHA szolgáltatáshoz!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:294
 msgid "Entered captcha is wrong, try again!"
@@ -9697,7 +9697,7 @@ msgstr "A megadott captcha helytelen, próbálja újra!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:299
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
-msgstr ""
+msgstr "Hiányzó reCAPTCHA ellenőrzés, talán a hirdetésblokkoló letiltotta?"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:324
 msgid "You are not allowed to log in to this MySQL server!"
