@@ -782,8 +782,12 @@ class NavigationTree
                     $this->largeGroupWarning = true;
                 }
 
+                /*echo "<pre>";
+                var_dump($key);
+                echo "</pre>";*/
+
                 $groups[$key] = new Node(
-                    htmlspecialchars($key),
+                    htmlspecialchars( (string) $key),
                     Node::CONTAINER,
                     true
                 );
