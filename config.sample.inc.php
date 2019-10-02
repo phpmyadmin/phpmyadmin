@@ -149,6 +149,13 @@ $cfg['SaveDir'] = '';
 //$cfg['SendErrorReports'] = 'always';
 
 /**
+ * Variable for select theme
+ *
+ * Default available options
+ * ('original' / 'metro' / 'pmahomme')
+ */
+//$cfg['ThemeDefault'] = 'original'
+/**
  * You can find more configuration options in the documentation
  * in the doc/ folder or at <https://docs.phpmyadmin.net/>.
  */
