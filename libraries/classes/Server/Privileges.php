@@ -1372,7 +1372,6 @@ class Privileges
      */
     public function getAllPrivileges(string $db, string $table = ''): array
     {
-        $privileges = [];
         $databasePrivileges = $this->getGlobalAndDatabasePrivileges($db);
         $tablePrivileges = [];
         if ($table !== '') {
@@ -1381,56 +1380,57 @@ class Privileges
         $routinePrivileges = $this->getRoutinesPrivileges($db);
         $allPrivileges = array_merge($databasePrivileges, $tablePrivileges, $routinePrivileges);
 
-        foreach ($allPrivileges as $priv) {
-            $privilege = [
-                'type' => $priv['Type'],
-                'database' => $priv['Db'],
-            ];
-            if ($priv['Type'] === 'r') {
-                $privilege['routine'] = $priv['Routine_name'];
-                $privilege['has_grant'] = strpos(
-                    $priv['Proc_priv'],
-                    'Grant'
-                ) !== false;
-                $privilege['privileges'] = explode(',', $priv['Proc_priv']);
-            } elseif ($priv['Type'] === 't') {
-                $privilege['table'] = $priv['Table_name'];
-                $privilege['has_grant'] = strpos(
-                    $priv['Table_priv'],
-                    'Grant'
-                ) !== false;
-                $tablePrivs = explode(',', $priv['Table_priv']);
-                $specificPrivileges = [];
-                $grantsArr = $this->getTableGrantsArray();
-                foreach ($grantsArr as $grant) {
-                    $specificPrivileges[$grant[0]] = 'N';
-                    foreach ($tablePrivs as $tablePriv) {
-                        if ($grant[0] == $tablePriv) {
-                            $specificPrivileges[$grant[0]] = 'Y';
-                        }
-                    }
-                }
-                $privilege['privileges'] = $this->extractPrivInfo(
-                    $specificPrivileges,
-                    true,
-                    true
-                );
-            } else {
-                $privilege['has_grant'] = $priv['Grant_priv'] === 'Y';
-                $privilege['privileges'] = $this->extractPrivInfo(
-                    $priv,
-                    true
-                );
-            }
-
-            $userHost = $priv['User'] . '@' . $priv['Host'];
+        $privileges = [];
+        foreach ($allPrivileges as $privilege) {
+            $userHost = $privilege['User'] . '@' . $privilege['Host'];
             $privileges[$userHost] = $privileges[$userHost] ?? [];
-            $privileges[$userHost]['user'] = $priv['User'];
-            $privileges[$userHost]['host'] = $priv['Host'];
+            $privileges[$userHost]['user'] = $privilege['User'];
+            $privileges[$userHost]['host'] = $privilege['Host'];
             $privileges[$userHost]['privileges'] = $privileges[$userHost]['privileges'] ?? [];
-            $privileges[$userHost]['privileges'][] = $privilege;
+            $privileges[$userHost]['privileges'][] = $this->getSpecificPrivilege($privilege);
         }
         return $privileges;
+    }
+
+    /**
+     * @param array $row Array with user privileges
+     *
+     * @return array
+     */
+    private function getSpecificPrivilege(array $row): array
+    {
+        $privilege = [
+            'type' => $row['Type'],
+            'database' => $row['Db'],
+        ];
+        if ($row['Type'] === 'r') {
+            $privilege['routine'] = $row['Routine_name'];
+            $privilege['has_grant'] = strpos($row['Proc_priv'], 'Grant') !== false;
+            $privilege['privileges'] = explode(',', $row['Proc_priv']);
+        } elseif ($row['Type'] === 't') {
+            $privilege['table'] = $row['Table_name'];
+            $privilege['has_grant'] = strpos($row['Table_priv'], 'Grant') !== false;
+            $tablePrivs = explode(',', $row['Table_priv']);
+            $specificPrivileges = [];
+            $grantsArr = $this->getTableGrantsArray();
+            foreach ($grantsArr as $grant) {
+                $specificPrivileges[$grant[0]] = 'N';
+                foreach ($tablePrivs as $tablePriv) {
+                    if ($grant[0] == $tablePriv) {
+                        $specificPrivileges[$grant[0]] = 'Y';
+                    }
+                }
+            }
+            $privilege['privileges'] = $this->extractPrivInfo(
+                $specificPrivileges,
+                true,
+                true
+            );
+        } else {
+            $privilege['has_grant'] = $row['Grant_priv'] === 'Y';
+            $privilege['privileges'] = $this->extractPrivInfo($row, true);
+        }
+        return $privilege;
     }
 
     /**
