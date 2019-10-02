@@ -149,7 +149,7 @@ $cfg['SaveDir'] = '';
 //$cfg['SendErrorReports'] = 'always';
 
 /**
- * Variable for select theme
+ * Variable for select themes
  *
  * Default available options
  * ('original' / 'metro' / 'pmahomme')
