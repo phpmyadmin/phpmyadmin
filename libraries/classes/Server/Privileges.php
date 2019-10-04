@@ -1648,22 +1648,6 @@ class Privileges
     }
 
     /**
-     * Returns user group edit link
-     *
-     * @param string $username User name
-     *
-     * @return string HTML code with link
-     */
-    public function getUserGroupEditLink($username)
-    {
-         return '<a class="edit_user_group_anchor ajax"'
-            . ' href="' . Url::getFromRoute('/server/privileges', ['username' => $username])
-            . '">'
-            . Util::getIcon('b_usrlist', __('Edit user group'))
-            . '</a>';
-    }
-
-    /**
      * Returns number of defined user groups
      *
      * @return integer
@@ -1737,6 +1721,8 @@ class Privileges
         $hostname,
         $username
     ) {
+        global $is_grantuser;
+
         if (isset($GLOBALS['dbname'])) {
             //if (preg_match('/\\\\(?:_|%)/i', $dbname)) {
             if (preg_match('/(?<!\\\\)(?:_|%)/', $GLOBALS['dbname'])) {
@@ -1757,79 +1743,21 @@ class Privileges
         }
 
         if (isset($_POST['change_copy'])) {
-            /**
-             * generate html on the fly for the new user that was just created.
-             */
-            $new_user_string = '<tr>' . "\n"
-                . '<td> <input type="checkbox" name="selected_usr[]" '
-                . 'id="checkbox_sel_users_"'
-                . 'value="'
-                . htmlspecialchars($username)
-                . '&amp;#27;' . htmlspecialchars($hostname) . '">'
-                . '</td>' . "\n"
-                . '<td><label for="checkbox_sel_users_">'
-                . (empty($_POST['username'])
-                        ? '<span style="color: #FF0000">' . __('Any') . '</span>'
-                        : htmlspecialchars($username) ) . '</label></td>' . "\n"
-                . '<td>' . htmlspecialchars($hostname) . '</td>' . "\n";
-
-            $new_user_string .= '<td>';
-
-            if (! empty($password) || isset($_POST['pma_pw'])) {
-                $new_user_string .= __('Yes');
-            } else {
-                $new_user_string .= '<span style="color: #FF0000">'
-                    . __('No')
-                . '</span>';
-            }
-
-            $new_user_string .= '</td>' . "\n";
-            $new_user_string .= '<td>'
-                . '<code>' . implode(', ', $this->extractPrivInfo(null, true)) . '</code>'
-                . '</td>'; //Fill in privileges here
-
-            // if $cfg['Servers'][$i]['users'] and $cfg['Servers'][$i]['usergroups'] are
-            // enabled
             $cfgRelation = $this->relation->getRelationsParam();
-            if (! empty($cfgRelation['users']) && ! empty($cfgRelation['usergroups'])) {
-                $new_user_string .= '<td class="usrGroup"></td>';
-            }
-
-            $new_user_string .= '<td>';
-            if (isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y') {
-                $new_user_string .= __('Yes');
-            } else {
-                $new_user_string .= __('No');
-            }
-            $new_user_string .= '</td>';
-
-            if ($GLOBALS['is_grantuser']) {
-                $new_user_string .= '<td>'
-                    . $this->getUserLink('edit', $username, $hostname)
-                    . '</td>' . "\n";
-            }
-
-            if ($cfgRelation['menuswork'] && $user_group_count > 0) {
-                $new_user_string .= '<td>'
-                    . $this->getUserGroupEditLink($username)
-                    . '</td>' . "\n";
-            }
-
-            $new_user_string .= '<td>'
-                . $this->getUserLink(
-                    'export',
-                    $username,
-                    $hostname,
-                    '',
-                    '',
-                    '',
-                    isset($_GET['initial']) ? $_GET['initial'] : ''
-                )
-                . '</td>' . "\n";
-
-            $new_user_string .= '</tr>';
-
-            $extra_data['new_user_string'] = $new_user_string;
+            $user = [
+                'name' => $username,
+                'host' => $hostname,
+                'has_password' => ! empty($password) || isset($_POST['pma_pw']),
+                'privileges' => implode(', ', $this->extractPrivInfo(null, true)),
+                'has_group' => ! empty($cfgRelation['users']) && ! empty($cfgRelation['usergroups']),
+                'has_group_edit' => $cfgRelation['menuswork'] && $user_group_count > 0,
+                'has_grant' => isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y',
+            ];
+            $extra_data['new_user_string'] = $this->template->render('server/privileges/new_user_ajax', [
+                'user' => $user,
+                'is_grantuser' => $is_grantuser,
+                'initial' => $_GET['initial'] ?? '',
+            ]);
 
             /**
              * Generate the string for this alphabet's initial, to update the user
