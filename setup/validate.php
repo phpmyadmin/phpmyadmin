@@ -22,6 +22,9 @@ $validators = [];
 
 Core::headerJSON();
 
+//
+// Check is the Code are valid
+//
 $ids = Core::isValid($_POST['id'], 'scalar') ? $_POST['id'] : null;
 $vids = explode(',', $ids);
 $vals = Core::isValid($_POST['values'], 'scalar') ? $_POST['values'] : null;
@@ -30,6 +33,10 @@ if (! ($values instanceof stdClass)) {
     Core::fatalError(__('Wrong data'));
 }
 $values = (array) $values;
+
+//
+// Running validation for the configuration
+//
 $result = Validator::validate($GLOBALS['ConfigFile'], $vids, $values, true);
 if ($result === false) {
     $result = sprintf(

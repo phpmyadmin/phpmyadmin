@@ -15,6 +15,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
+// Defining the root path
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
 }
@@ -23,6 +24,7 @@ global $cfg;
 
 require ROOT_PATH . 'setup/lib/common.inc.php';
 
+// Check if the file of configuration file is exist.
 if (@file_exists(CONFIG_FILE) && ! $cfg['DBG']['demo']) {
     Core::fatalError(__('Configuration already exists, setup is disabled!'));
 }
