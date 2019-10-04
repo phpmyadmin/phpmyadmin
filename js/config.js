@@ -636,23 +636,18 @@ AJAX.registerOnload('config.js', function () {
     setupConfigTabs();
     adjustPrefsNotification();
 
-    // tab links handling, check each 200ms
+    // tab links handling
     // (works with history in FF, further browser support here would be an overkill)
-    var prevHash;
-    var tabCheckFnc = function () {
-        if (location.hash !== prevHash) {
-            prevHash = location.hash;
-            if (prevHash.match(/^#tab_[a-zA-Z0-9_]+$/)) {
-                // session ID is sometimes appended here
-                var hash = prevHash.substr(5).split('&')[0];
-                if ($('#' + hash).length) {
-                    setTab(hash);
-                }
+    window.onhashchange = function () {
+        if (location.hash.match(/^#tab_[a-zA-Z0-9_]+$/)) {
+            // session ID is sometimes appended here
+            var hash = location.hash.substr(5).split('&')[0];
+            if ($('#' + hash).length) {
+                setTab(hash);
             }
         }
     };
-    tabCheckFnc();
-    setInterval(tabCheckFnc, 200);
+    window.onhashchange();
 });
 
 //
