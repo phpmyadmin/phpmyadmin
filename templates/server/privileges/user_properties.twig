@@ -66,7 +66,31 @@
 
   {{ table_specific_rights|raw }}
 
-  {{ link_to_database_and_table|raw }}
+  {% if database is not iterable and database|length > 0 and not is_wildcard %}
+    [
+    {% trans 'Database' %}
+    <a href="{{ database_url|raw }}{{ get_common({
+      'db': database|replace({'\\_': '_', '\\%': '%'}),
+      'reload': true
+    }, '&') }}">
+      {{ database|replace({'\\_': '_', '\\%': '%'}) }}:
+      {{ database_url_title }}
+    </a>
+    ]
+    {% if table|length > 0 %}
+      [
+      {% trans 'Table' %}
+      <a href="{{ table_url|raw }}{{ get_common({
+        'db': database|replace({'\\_': '_', '\\%': '%'}),
+        'table': table,
+        'reload': true
+      }, '&') }}">
+        {{ table }}:
+        {{ table_url_title }}
+      </a>
+      ]
+    {% endif %}
+  {% endif %}
 
   {{ change_password|raw }}
 

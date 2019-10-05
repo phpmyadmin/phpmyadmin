@@ -1800,55 +1800,6 @@ class Privileges
     }
 
     /**
-     * Provide a line with links to the relevant database and table
-     *
-     * @param string $url_dbname url database name that urlencode() string
-     * @param string $dbname     database name
-     * @param string $tablename  table name
-     *
-     * @return string HTML snippet
-     */
-    public function getLinkToDbAndTable($url_dbname, $dbname, $tablename)
-    {
-        $scriptName = Util::getScriptNameForOption(
-            $GLOBALS['cfg']['DefaultTabDatabase'],
-            'database'
-        );
-        $html_output = '[ ' . __('Database')
-            . ' <a href="' . $scriptName
-            . Url::getCommon([
-                'db' => $url_dbname,
-                'reload' => 1,
-            ], strpos($scriptName, '?') === false ? '?' : '&')
-            . '">'
-            . htmlspecialchars(Util::unescapeMysqlWildcards($dbname)) . ': '
-            . Util::getTitleForTarget(
-                $GLOBALS['cfg']['DefaultTabDatabase']
-            )
-            . "</a> ]\n";
-
-        if (strlen($tablename) > 0) {
-            $scriptName = Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabTable'],
-                'table'
-            );
-            $html_output .= ' [ ' . __('Table') . ' <a href="'
-                . $scriptName
-                . Url::getCommon([
-                    'db' => $url_dbname,
-                    'table' => $tablename,
-                    'reload' => 1,
-                ], strpos($scriptName, '?') === false ? '?' : '&')
-                . '">' . htmlspecialchars($tablename) . ': '
-                . Util::getTitleForTarget(
-                    $GLOBALS['cfg']['DefaultTabTable']
-                )
-                . "</a> ]\n";
-        }
-        return $html_output;
-    }
-
-    /**
      * no db name given, so we want all privs for the given user
      * db name was given, so we want all user specific rights for this db
      * So this function returns user rights as an array
@@ -2842,7 +2793,6 @@ class Privileges
         $dbname = null;
         $tablename = null;
         $routinename = null;
-        $dbname_is_wildcard = null;
 
         if (isset($_REQUEST['username'])) {
             $username = $_REQUEST['username'];
@@ -2933,14 +2883,10 @@ class Privileges
         }
 
         // check if given $dbname is a wildcard or not
-        if (isset($dbname)) {
-            //if (preg_match('/\\\\(?:_|%)/i', $dbname)) {
-            if (! is_array($dbname) && preg_match('/(?<!\\\\)(?:_|%)/', $dbname)) {
-                $dbname_is_wildcard = true;
-            } else {
-                $dbname_is_wildcard = false;
-            }
-        }
+        $databaseNameIsWildcard = ! is_array($dbname ?? '') && preg_match(
+            '/(?<!\\\\)(?:_|%)/',
+            $dbname ?? ''
+        );
 
         return [
             $username,
@@ -2949,7 +2895,7 @@ class Privileges
             isset($tablename) ? $tablename : null,
             isset($routinename) ? $routinename : null,
             $db_and_table,
-            $dbname_is_wildcard,
+            $databaseNameIsWildcard,
         ];
     }
 
@@ -3237,6 +3183,8 @@ class Privileges
         $dbname,
         $tablename
     ) {
+        global $cfg;
+
         $sql = "SELECT '1' FROM `mysql`.`user`"
             . " WHERE `User` = '" . $this->dbi->escapeString($username) . "'"
             . " AND `Host` = '" . $this->dbi->escapeString($hostname) . "';";
@@ -3298,11 +3246,20 @@ class Privileges
             }
         }
 
-        // Provide a line with links to the relevant database and table
-        $linkToDatabaseAndTable = '';
-        if (! is_array($dbname) && strlen($dbname) > 0 && empty($dbname_is_wildcard)) {
-            $linkToDatabaseAndTable = $this->getLinkToDbAndTable($url_dbname, $dbname, $tablename);
-        }
+        $databaseUrl = Util::getScriptNameForOption(
+            $cfg['DefaultTabDatabase'],
+            'database'
+        );
+        $databaseUrlTitle = Util::getTitleForTarget(
+            $cfg['DefaultTabDatabase']
+        );
+        $tableUrl = Util::getScriptNameForOption(
+            $cfg['DefaultTabTable'],
+            'table'
+        );
+        $tableUrlTitle = Util::getTitleForTarget(
+            $cfg['DefaultTabTable']
+        );
 
         $changePassword = '';
         $userGroup = '';
@@ -3324,17 +3281,21 @@ class Privileges
             'params' => $_params,
             'privileges_table' => $privilegesTable,
             'table_specific_rights' => $tableSpecificRights,
-            'link_to_database_and_table' => $linkToDatabaseAndTable,
             'change_password' => $changePassword,
             'database' => $dbname,
             'dbname' => $url_dbname,
             'username' => $username,
             'hostname' => $hostname,
             'is_databases' => $dbname_is_wildcard || is_array($dbname) && count($dbname) > 1,
+            'is_wildcard' => $dbname_is_wildcard,
             'table' => $tablename,
             'current_user' => $this->dbi->getCurrentUser(),
             'user_group' => $userGroup,
             'change_login_info_fields' => $changeLoginInfoFields,
+            'database_url' => $databaseUrl,
+            'database_url_title' => $databaseUrlTitle,
+            'table_url' => $tableUrl,
+            'table_url_title' => $tableUrlTitle,
         ]);
     }
 

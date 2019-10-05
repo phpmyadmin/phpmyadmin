@@ -1487,78 +1487,6 @@ class PrivilegesTest extends TestCase
     }
 
     /**
-     * Test for getLinkToDbAndTable
-     *
-     * @return void
-     */
-    public function testGetLinkToDbAndTable()
-    {
-        $url_dbname = "url_dbname";
-        $dbname = "dbname";
-        $tablename = "tablename";
-
-        $html = $this->serverPrivileges->getLinkToDbAndTable($url_dbname, $dbname, $tablename);
-
-        //$dbname
-        $this->assertStringContainsString(
-            __('Database'),
-            $html
-        );
-        $this->assertStringContainsString(
-            Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabDatabase'],
-                'database'
-            ),
-            $html
-        );
-        $item = Url::getCommon([
-            'db' => $url_dbname,
-            'reload' => 1,
-        ], '');
-        $this->assertStringContainsString(
-            $item,
-            $html
-        );
-        $this->assertStringContainsString(
-            htmlspecialchars($dbname),
-            $html
-        );
-
-        //$tablename
-        $this->assertStringContainsString(
-            __('Table'),
-            $html
-        );
-        $this->assertStringContainsString(
-            Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabTable'],
-                'table'
-            ),
-            $html
-        );
-        $item = Url::getCommon([
-            'db' => $url_dbname,
-            'table' => $tablename,
-            'reload' => 1,
-        ], '');
-        $this->assertStringContainsString(
-            $item,
-            $html
-        );
-        $this->assertStringContainsString(
-            htmlspecialchars($tablename),
-            $html
-        );
-        $item = Util::getTitleForTarget(
-            $GLOBALS['cfg']['DefaultTabTable']
-        );
-        $this->assertStringContainsString(
-            $item,
-            $html
-        );
-    }
-
-    /**
      * Test for getUsersOverview
      *
      * @return void
@@ -1864,6 +1792,63 @@ class PrivilegesTest extends TestCase
         //Create a new user with the same privileges
         $this->assertStringContainsString(
             'Create a new user account with the same privileges',
+            $actual
+        );
+
+        $this->assertStringContainsString(
+            __('Database'),
+            $actual
+        );
+        $this->assertStringContainsString(
+            Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabDatabase'],
+                'database'
+            ),
+            $actual
+        );
+        $item = Url::getCommon([
+            'db' => 'db',
+            'reload' => 1,
+        ], '');
+        $this->assertStringContainsString(
+            $item,
+            $actual
+        );
+        $this->assertStringContainsString(
+            'db',
+            $actual
+        );
+
+        //$tablename
+        $this->assertStringContainsString(
+            __('Table'),
+            $actual
+        );
+        $this->assertStringContainsString(
+            Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabTable'],
+                'table'
+            ),
+            $actual
+        );
+        $item = Url::getCommon([
+            'db' => 'db',
+            'table' => 'table',
+            'reload' => 1,
+        ], '');
+        $this->assertStringContainsString(
+            $item,
+            $actual
+        );
+        $this->assertStringContainsString(
+            'table',
+            $actual
+        );
+        $item = Util::getTitleForTarget(
+            $GLOBALS['cfg']['DefaultTabTable']
+        );
+        $this->assertStringContainsString(
+            $item,
             $actual
         );
     }

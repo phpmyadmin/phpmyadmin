@@ -501,7 +501,7 @@ if (isset($_GET['adduser'])) {
                 $hostname ?? '',
                 $dbname,
                 $routinename,
-                (isset($url_dbname) ? $url_dbname : '')
+                $url_dbname ?? ''
             )
         );
     } else {
@@ -513,12 +513,12 @@ if (isset($_GET['adduser'])) {
 
         $response->addHTML(
             $serverPrivileges->getHtmlForUserProperties(
-                (isset($dbname_is_wildcard) ? $dbname_is_wildcard : ''),
-                (isset($url_dbname) ? $url_dbname : ''),
+                $dbname_is_wildcard,
+                $url_dbname ?? '',
                 $username,
                 $hostname ?? '',
-                (isset($dbname) ? $dbname : ''),
-                (isset($tablename) ? $tablename : '')
+                $dbname ?? '',
+                $tablename ?? ''
             )
         );
     }
