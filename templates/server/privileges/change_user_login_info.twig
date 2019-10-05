@@ -1,0 +1,29 @@
+<form action="{{ url('/server/privileges') }}" onsubmit="return checkAddUser(this);" method="post" class="copyUserForm submenu-item">
+  {{ get_hidden_inputs() }}
+  <input type="hidden" name="old_username" value="{{ username }}">
+  <input type="hidden" name="old_hostname" value="{{ hostname }}">
+  {% if user_group is not empty %}
+    <input type="hidden" name="old_usergroup" value="{{ user_group }}">
+  {% endif %}
+
+  <fieldset id="fieldset_change_copy_user">
+    <legend data-submenu-label="{% trans 'Login Information' %}">
+      {% trans 'Change login information / Copy user account' %}
+    </legend>
+
+    {{ login_information_fields|raw }}
+
+    <fieldset id="fieldset_mode">
+      <legend>
+        {% trans 'Create a new user account with the same privileges and …' %}
+      </legend>
+
+      {{ radio_fields|raw }}
+    </fieldset>
+  </fieldset>
+
+  <fieldset id="fieldset_change_copy_user_footer" class="tblFooters">
+    <input type="hidden" name="change_copy" value="1">
+    <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
+  </fieldset>
+</form>

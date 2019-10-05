@@ -1821,49 +1821,22 @@ class Privileges
                 . 'and reload the privileges afterwards.'
             ),
         ];
-
-        $html_output = '<form action="' . Url::getFromRoute('/server/privileges')
-            . '" onsubmit="return checkAddUser(this);" '
-            . 'method="post" class="copyUserForm submenu-item">' . "\n"
-            . Url::getHiddenInputs('', '')
-            . '<input type="hidden" name="old_username" '
-            . 'value="' . htmlspecialchars($username) . '">' . "\n"
-            . '<input type="hidden" name="old_hostname" '
-            . 'value="' . htmlspecialchars($hostname) . '">' . "\n";
-
-        $usergroup = $this->getUserGroupForUser($username);
-        if ($usergroup !== null) {
-            $html_output .= '<input type="hidden" name="old_usergroup" '
-            . 'value="' . htmlspecialchars($usergroup) . '">' . "\n";
-        }
-
-        $html_output .= '<fieldset id="fieldset_change_copy_user">' . "\n"
-            . '<legend data-submenu-label="' . __('Login Information') . '">' . "\n"
-            . __('Change login information / Copy user account')
-            . '</legend>' . "\n"
-            . $this->getHtmlForLoginInformationFields('change', $username, $hostname);
-
-        $html_output .= '<fieldset id="fieldset_mode">' . "\n"
-            . ' <legend>'
-            . __('Create a new user account with the same privileges and …')
-            . '</legend>' . "\n";
-        $html_output .= Util::getRadioFields(
+        $userGroup = $this->getUserGroupForUser($username);
+        $loginInformationFields = $this->getHtmlForLoginInformationFields('change', $username, $hostname);
+        $radioFields = Util::getRadioFields(
             'mode',
             $choices,
             '4',
             true
         );
-        $html_output .= '</fieldset>' . "\n"
-           . '</fieldset>' . "\n";
 
-        $html_output .= '<fieldset id="fieldset_change_copy_user_footer" '
-            . 'class="tblFooters">' . "\n"
-            . '<input type="hidden" name="change_copy" value="1">' . "\n"
-            . '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">' . "\n"
-            . '</fieldset>' . "\n"
-            . '</form>' . "\n";
-
-        return $html_output;
+        return $this->template->render('server/privileges/change_user_login_info', [
+            'username' => $username,
+            'hostname' => $hostname,
+            'user_group' => $userGroup,
+            'login_information_fields' => $loginInformationFields,
+            'radio_fields' => $radioFields,
+        ]);
     }
 
     /**
