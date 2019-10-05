@@ -18,7 +18,33 @@
         {% trans 'Create a new user account with the same privileges and …' %}
       </legend>
 
-      {{ radio_fields|raw }}
+      <div class="form-group form-check">
+        <input class="form-check-input" type="radio" name="mode" id="mode_4" value="4" checked>
+        <label class="form-check-label" for="mode_4">
+          {% trans '… keep the old one.' %}
+        </label>
+      </div>
+
+      <div class="form-group form-check">
+        <input class="form-check-input" type="radio" name="mode" id="mode_1" value="1">
+        <label class="form-check-label" for="mode_1">
+          {% trans '… delete the old one from the user tables.' %}
+        </label>
+      </div>
+
+      <div class="form-group form-check">
+        <input class="form-check-input" type="radio" name="mode" id="mode_2" value="2">
+        <label class="form-check-label" for="mode_2">
+          {% trans '… revoke all active privileges from the old one and delete it afterwards.' %}
+        </label>
+      </div>
+
+      <div class="form-group form-check">
+        <input class="form-check-input" type="radio" name="mode" id="mode_3" value="3">
+        <label class="form-check-label" for="mode_3">
+          {% trans '… delete the old one from the user tables and reload the privileges afterwards.' %}
+        </label>
+      </div>
     </fieldset>
   </fieldset>
 

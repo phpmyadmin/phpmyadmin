@@ -1809,33 +1809,14 @@ class Privileges
      */
     public function getChangeLoginInformationHtmlForm($username, $hostname)
     {
-        $choices = [
-            '4' => __('… keep the old one.'),
-            '1' => __('… delete the old one from the user tables.'),
-            '2' => __(
-                '… revoke all active privileges from '
-                . 'the old one and delete it afterwards.'
-            ),
-            '3' => __(
-                '… delete the old one from the user tables '
-                . 'and reload the privileges afterwards.'
-            ),
-        ];
         $userGroup = $this->getUserGroupForUser($username);
         $loginInformationFields = $this->getHtmlForLoginInformationFields('change', $username, $hostname);
-        $radioFields = Util::getRadioFields(
-            'mode',
-            $choices,
-            '4',
-            true
-        );
 
         return $this->template->render('server/privileges/change_user_login_info', [
             'username' => $username,
             'hostname' => $hostname,
             'user_group' => $userGroup,
             'login_information_fields' => $loginInformationFields,
-            'radio_fields' => $radioFields,
         ]);
     }
 
