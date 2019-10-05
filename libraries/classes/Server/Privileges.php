@@ -1800,27 +1800,6 @@ class Privileges
     }
 
     /**
-     * Get the HTML snippet for change user login information
-     *
-     * @param string $username username
-     * @param string $hostname host name
-     *
-     * @return string HTML snippet
-     */
-    public function getChangeLoginInformationHtmlForm($username, $hostname)
-    {
-        $userGroup = $this->getUserGroupForUser($username);
-        $loginInformationFields = $this->getHtmlForLoginInformationFields('change', $username, $hostname);
-
-        return $this->template->render('server/privileges/change_user_login_info', [
-            'username' => $username,
-            'hostname' => $hostname,
-            'user_group' => $userGroup,
-            'login_information_fields' => $loginInformationFields,
-        ]);
-    }
-
-    /**
      * Provide a line with links to the relevant database and table
      *
      * @param string $url_dbname url database name that urlencode() string
@@ -3326,7 +3305,8 @@ class Privileges
         }
 
         $changePassword = '';
-        $changeLoginInformation = '';
+        $userGroup = '';
+        $changeLoginInfoFields = '';
         if (! is_array($dbname) && strlen($dbname) === 0 && ! $user_does_not_exists) {
             //change login information
             $changePassword = ChangePassword::getHtml(
@@ -3334,7 +3314,8 @@ class Privileges
                 $username,
                 $hostname
             );
-            $changeLoginInformation = $this->getChangeLoginInformationHtmlForm($username, $hostname);
+            $userGroup = $this->getUserGroupForUser($username);
+            $changeLoginInfoFields = $this->getHtmlForLoginInformationFields('change', $username, $hostname);
         }
 
         return $this->template->render('server/privileges/user_properties', [
@@ -3345,7 +3326,6 @@ class Privileges
             'table_specific_rights' => $tableSpecificRights,
             'link_to_database_and_table' => $linkToDatabaseAndTable,
             'change_password' => $changePassword,
-            'change_login_information' => $changeLoginInformation,
             'database' => $dbname,
             'dbname' => $url_dbname,
             'username' => $username,
@@ -3353,6 +3333,8 @@ class Privileges
             'is_databases' => $dbname_is_wildcard || is_array($dbname) && count($dbname) > 1,
             'table' => $tablename,
             'current_user' => $this->dbi->getCurrentUser(),
+            'user_group' => $userGroup,
+            'change_login_info_fields' => $changeLoginInfoFields,
         ]);
     }
 

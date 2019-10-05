@@ -1451,84 +1451,6 @@ class PrivilegesTest extends TestCase
     }
 
     /**
-     * Test for getChangeLoginInformationHtmlForm
-     *
-     * @return void
-     */
-    public function testGetChangeLoginInformationHtmlForm()
-    {
-        $username = "pma_username";
-        $hostname = "pma_hostname";
-        $GLOBALS['cfgRelation']['menuswork'] = true;
-
-        $dbi_old = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-        $fields_info = [
-            [
-                'COLUMN_NAME' => 'Host',
-                'CHARACTER_MAXIMUM_LENGTH' => 80,
-            ],
-            [
-                'COLUMN_NAME' => 'User',
-                'CHARACTER_MAXIMUM_LENGTH' => 40,
-            ],
-        ];
-        $dbi->expects($this->any())->method('fetchResult')
-            ->will($this->returnValue($fields_info));
-
-        $expected_userGroup = "pma_usergroup";
-
-        $dbi->expects($this->any())->method('fetchValue')
-            ->will($this->returnValue($expected_userGroup));
-        $dbi->expects($this->any())
-            ->method('escapeString')
-            ->will($this->returnArgument(0));
-
-        $GLOBALS['dbi'] = $dbi;
-        $this->serverPrivileges->dbi = $dbi;
-
-        $html = $this->serverPrivileges->getChangeLoginInformationHtmlForm($username, $hostname);
-
-        //Url::getHiddenInputs
-        $this->assertStringContainsString(
-            Url::getHiddenInputs('', ''),
-            $html
-        );
-
-        //$username & $hostname
-        $this->assertStringContainsString(
-            htmlspecialchars($username),
-            $html
-        );
-        $this->assertStringContainsString(
-            htmlspecialchars($hostname),
-            $html
-        );
-
-        $this->assertStringContainsString(
-            $this->serverPrivileges->getHtmlForLoginInformationFields('change', $username, $hostname),
-            $html
-        );
-
-        $this->assertStringContainsString(
-            '<input type="hidden" name="old_usergroup" value="'
-                . $expected_userGroup . '">',
-            $html
-        );
-
-        //Create a new user with the same privileges
-        $this->assertStringContainsString(
-            "Create a new user account with the same privileges",
-            $html
-        );
-
-        $GLOBALS['dbi'] = $dbi_old;
-        $this->serverPrivileges->dbi = $dbi_old;
-    }
-
-    /**
      * Test for getUserGroupForUser
      *
      * @return void
@@ -1923,6 +1845,27 @@ class PrivilegesTest extends TestCase
         $this->assertStringContainsString('Allows deleting data.', $actual);
         $this->assertStringContainsString('CREATE', $actual);
         $this->assertStringContainsString('Allows creating new tables.', $actual);
+
+        $this->assertStringContainsString(
+            Url::getHiddenInputs(),
+            $actual
+        );
+
+        //$username & $hostname
+        $this->assertStringContainsString(
+            'user',
+            $actual
+        );
+        $this->assertStringContainsString(
+            'host',
+            $actual
+        );
+
+        //Create a new user with the same privileges
+        $this->assertStringContainsString(
+            'Create a new user account with the same privileges',
+            $actual
+        );
     }
 
     /**
