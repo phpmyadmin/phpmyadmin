@@ -453,6 +453,16 @@ class DbiDummy implements DbiExtension
     }
 
     /**
+     * @param mixed  $link  link
+     * @param string $query query
+     * @return object|false
+     */
+    public function prepare($link, string $query)
+    {
+        return false;
+    }
+
+    /**
      * Return query data for ID
      *
      * @param object $result result set identifier

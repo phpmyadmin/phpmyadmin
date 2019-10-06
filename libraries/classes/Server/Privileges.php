@@ -1516,12 +1516,21 @@ class Privileges
             SELECT `User`, `Host`, `Db`, \'t\' AS `Type`, `Table_name`, `Table_priv`
             FROM `mysql`.`tables_priv`
             WHERE
-                \'' . $this->dbi->escapeString($db) . '\' LIKE `Db` AND
-                \'' . $this->dbi->escapeString($table) . '\' LIKE `Table_name` AND
+                ? LIKE `Db` AND
+                ? LIKE `Table_name` AND
                 NOT (`Table_priv` = \'\' AND Column_priv = \'\')
             ORDER BY `User` ASC, `Host` ASC, `Db` ASC, `Table_priv` ASC;
         ';
-        $result = $this->dbi->query($query);
+        $statement = $this->dbi->prepare($query);
+        if ($statement === false
+            || ! $statement->bind_param('ss', $db, $table)
+            || ! $statement->execute()
+        ) {
+            return [];
+        }
+
+        $result = $statement->get_result();
+        $statement->close();
         if ($result === false) {
             return [];
         }
