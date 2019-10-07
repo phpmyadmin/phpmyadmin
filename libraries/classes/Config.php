@@ -951,7 +951,7 @@ class Config
         $tmanager = ThemeManager::getInstance();
         if ($tmanager->getThemeCookie() || isset($_REQUEST['set_theme'])) {
             if ((! isset($config_data['ThemeDefault'])
-                && $tmanager->theme->getId() != 'original')
+                && $tmanager->theme->getId() != 'pmahomme')
                 || isset($config_data['ThemeDefault'])
                 && $config_data['ThemeDefault'] != $tmanager->theme->getId()
             ) {
@@ -960,7 +960,7 @@ class Config
                     null,
                     'ThemeDefault',
                     $tmanager->theme->getId(),
-                    'original'
+                    'pmahomme'
                 );
             }
         } else {

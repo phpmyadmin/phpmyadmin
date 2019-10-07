@@ -103,7 +103,7 @@ class ThemeTest extends PmaTestCase
      */
     public function testLoadInfo()
     {
-        $this->object->setPath(ROOT_PATH . 'themes/original');
+        $this->object->setPath(ROOT_PATH . 'themes/pmahomme');
         $infofile = $this->object->getPath() . '/theme.json';
         $this->assertTrue($this->object->loadInfo());
 
@@ -112,10 +112,10 @@ class ThemeTest extends PmaTestCase
             $this->object->mtime_info
         );
 
-        $this->object->setPath(ROOT_PATH . 'themes/original');
+        $this->object->setPath(ROOT_PATH . 'themes/pmahomme');
         $this->object->mtime_info = filemtime($infofile);
         $this->assertTrue($this->object->loadInfo());
-        $this->assertEquals('Original', $this->object->getName());
+        $this->assertEquals('pmahomme', $this->object->getName());
     }
 
     /**
@@ -125,7 +125,7 @@ class ThemeTest extends PmaTestCase
      */
     public function testLoad()
     {
-        $newTheme = Theme::load(ROOT_PATH . 'themes/original');
+        $newTheme = Theme::load(ROOT_PATH . 'themes/pmahomme');
         $this->assertNotNull($newTheme);
     }
 
@@ -157,7 +157,7 @@ class ThemeTest extends PmaTestCase
      */
     public function testCheckImgPath()
     {
-        $this->object->setPath(ROOT_PATH . 'themes/original');
+        $this->object->setPath(ROOT_PATH . 'themes/pmahomme');
         $this->assertTrue($this->object->checkImgPath());
     }
 
@@ -169,9 +169,9 @@ class ThemeTest extends PmaTestCase
     public function testGetSetPath()
     {
         $this->assertEmpty($this->object->getPath());
-        $this->object->setPath(ROOT_PATH . 'themes/original');
+        $this->object->setPath(ROOT_PATH . 'themes/pmahomme');
 
-        $this->assertEquals(ROOT_PATH . 'themes/original', $this->object->getPath());
+        $this->assertEquals(ROOT_PATH . 'themes/pmahomme', $this->object->getPath());
     }
 
     /**

@@ -2889,7 +2889,7 @@ $cfg['ThemeManager'] = true;
 
 /**
  * set up default theme, you can set up here an valid
- * path to themes or 'original' for the original pma-theme
+ * path to themes or 'pmahomme' for the pmahomme phpMyAdmin theme
  *
  * @global string $cfg['ThemeDefault']
  */

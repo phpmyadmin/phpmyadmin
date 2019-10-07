@@ -101,9 +101,9 @@ class ThemeManagerTest extends PmaTestCase
         $tm = new ThemeManager();
         $preview = $tm->getPrintPreviews();
         $this->assertStringContainsString('<div class="theme_preview"', $preview);
-        $this->assertStringContainsString('Original', $preview);
-        $this->assertStringContainsString('set_theme=original', $preview);
         $this->assertStringContainsString('pmahomme', $preview);
         $this->assertStringContainsString('set_theme=pmahomme', $preview);
+        $this->assertStringContainsString('Metro', $preview);
+        $this->assertStringContainsString('set_theme=metro', $preview);
     }
 }
