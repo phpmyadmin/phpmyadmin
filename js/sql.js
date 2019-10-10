@@ -924,7 +924,7 @@ Sql.browseForeignDialog = function ($thisA) {
                 });
             }
             // updates values in dialog
-            $.post($(this).attr('action') + '?ajax_request=1', postParams, function (data) {
+            $.post($(this).attr('action') + '&ajax_request=1', postParams, function (data) {
                 var $obj = $('<div>').html(data.message);
                 $(formId).html($obj.find(formId).html());
                 $(tableId).html($obj.find(tableId).html());
