@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Dbi;
 
 use mysqli;
 use mysqli_result;
+use mysqli_stmt;
 use PhpMyAdmin\DatabaseInterface;
 use stdClass;
 use function mysqli_init;
@@ -605,5 +606,18 @@ class DbiMysqli implements DbiExtension
     public function escapeString($mysqli, $string)
     {
         return $mysqli->real_escape_string($string);
+    }
+
+    /**
+     * Prepare an SQL statement for execution.
+     *
+     * @param mysqli $mysqli database link
+     * @param string $query  The query, as a string.
+     *
+     * @return mysqli_stmt|false A statement object or false.
+     */
+    public function prepare($mysqli, string $query)
+    {
+        return $mysqli->prepare($query);
     }
 }

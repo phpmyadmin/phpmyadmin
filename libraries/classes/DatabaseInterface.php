@@ -3156,4 +3156,17 @@ class DatabaseInterface
         $dbi = new self(new DbiMysqli());
         return $dbi;
     }
+
+    /**
+     * Prepare an SQL statement for execution.
+     *
+     * @param string $query The query, as a string.
+     * @param int    $link  Link type.
+     *
+     * @return object|false A statement object or false.
+     */
+    public function prepare(string $query, $link = DatabaseInterface::CONNECT_USER)
+    {
+        return $this->_extension->prepare($this->_links[$link], $query);
+    }
 }

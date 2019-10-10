@@ -245,4 +245,14 @@ interface DbiExtension
      * @return string a MySQL escaped string
      */
     public function escapeString($link, $str);
+
+    /**
+     * Prepare an SQL statement for execution.
+     *
+     * @param mixed  $link  database link
+     * @param string $query The query, as a string.
+     *
+     * @return object|false A statement object or false.
+     */
+    public function prepare($link, string $query);
 }
