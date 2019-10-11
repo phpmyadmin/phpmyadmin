@@ -516,13 +516,14 @@ class Advisor
 
         $errors = array();
         $rules = array();
+        $lines = array();
 
         if ($file === false) {
             $errors[] = sprintf(
                 __('Error in reading file: The file \'%s\' does not exist or is not readable!'),
                 $filename
             );
-            return array('rules' => $rules, 'errors' => $errors);
+            return array('rules' => $rules, 'lines' => $lines, 'errors' => $errors);
         }
 
         $ruleSyntax = array(
@@ -556,8 +557,10 @@ class Advisor
                     $ruleLine = 1;
                     $ruleNo++;
                     $rules[$ruleNo] = array('name' => $match[1]);
+                    $lines[$ruleNo] = array('name' => $i + 1);
                     if (isset($match[3])) {
                         $rules[$ruleNo]['precondition'] = $match[3];
+                        $lines[$ruleNo]['precondition'] = $i + 1;
                     }
                 } else {
                     $errors[] = sprintf(
@@ -595,6 +598,7 @@ class Advisor
                 $rules[$ruleNo][$ruleSyntax[$ruleLine]] = chop(
                     mb_substr($line, 1)
                 );
+                $lines[$ruleNo][$ruleSyntax[$ruleLine]] = $i + 1;
                 ++$ruleLine;
             }
 
@@ -604,7 +608,7 @@ class Advisor
             }
         }
 
-        return array('rules' => $rules, 'errors' => $errors);
+        return array('rules' => $rules, 'lines' => $lines, 'errors' => $errors);
     }
 
     /**
