@@ -537,6 +537,7 @@ class Advisor
 
         $errors = [];
         $rules = [];
+        $lines = [];
 
         if ($file === false) {
             $errors[] = sprintf(
@@ -545,6 +546,7 @@ class Advisor
             );
             return [
                 'rules' => $rules,
+                'lines' => $lines,
                 'errors' => $errors,
             ];
         }
@@ -585,8 +587,10 @@ class Advisor
                     $ruleLine = 1;
                     $ruleNo++;
                     $rules[$ruleNo] = ['name' => $match[1]];
+                    $lines[$ruleNo] = ['name' => $i + 1];
                     if (isset($match[3])) {
                         $rules[$ruleNo]['precondition'] = $match[3];
+                        $lines[$ruleNo]['precondition'] = $i + 1;
                     }
                 } else {
                     $errors[] = sprintf(
@@ -622,6 +626,7 @@ class Advisor
                 $rules[$ruleNo][$ruleSyntax[$ruleLine]] = rtrim(
                     mb_substr($line, 1)
                 );
+                $lines[$ruleNo][$ruleSyntax[$ruleLine]] = $i + 1;
                 ++$ruleLine;
             }
 
@@ -633,6 +638,7 @@ class Advisor
 
         return [
             'rules' => $rules,
+            'lines' => $lines,
             'errors' => $errors,
         ];
     }
