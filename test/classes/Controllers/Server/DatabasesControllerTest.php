@@ -60,7 +60,7 @@ class DatabasesControllerTest extends TestCase
             new Template()
         );
 
-        $actual = $controller->indexAction([
+        $actual = $controller->index([
             'statistics' => null,
             'pos' => null,
             'sort_by' => null,
@@ -86,7 +86,7 @@ class DatabasesControllerTest extends TestCase
         $cfg['ShowCreateDb'] = true;
         $is_create_db_priv = true;
 
-        $actual = $controller->indexAction([
+        $actual = $controller->index([
             'statistics' => '1',
             'pos' => null,
             'sort_by' => 'SCHEMA_TABLES',
@@ -117,13 +117,16 @@ class DatabasesControllerTest extends TestCase
         $dbi->method('getError')
             ->willReturn('CreateDatabaseError');
 
+        $response = Response::getInstance();
+        $response->setAjax(true);
+
         $controller = new DatabasesController(
-            Response::getInstance(),
+            $response,
             $dbi,
             new Template()
         );
 
-        $actual = $controller->createDatabaseAction([
+        $actual = $controller->create([
             'new_db' => 'pma_test',
             'db_collation' => null,
         ]);
@@ -136,7 +139,7 @@ class DatabasesControllerTest extends TestCase
         $dbi->method('tryQuery')
             ->willReturn(true);
 
-        $actual = $controller->createDatabaseAction([
+        $actual = $controller->create([
             'new_db' => 'pma_test',
             'db_collation' => 'utf8_general_ci',
         ]);
@@ -155,17 +158,24 @@ class DatabasesControllerTest extends TestCase
      */
     public function testDropDatabasesAction()
     {
+        global $cfg;
+
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
+        $response = Response::getInstance();
+        $response->setAjax(true);
+
+        $cfg['AllowUserDropDatabase'] = true;
+
         $controller = new DatabasesController(
-            Response::getInstance(),
+            $response,
             $dbi,
             new Template()
         );
 
-        $actual = $controller->dropDatabasesAction([
+        $actual = $controller->destroy([
             'drop_selected_dbs' => true,
             'selected_dbs' => null,
         ]);

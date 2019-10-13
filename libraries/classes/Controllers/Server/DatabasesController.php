@@ -11,9 +11,12 @@ namespace PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
+use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -55,16 +58,33 @@ class DatabasesController extends AbstractController
     private $position;
 
     /**
+     * @param Response          $response Response object
+     * @param DatabaseInterface $dbi      DatabaseInterface object
+     * @param Template          $template Template that should be used (if provided, default one otherwise)
+     */
+    public function __construct($response, $dbi, Template $template)
+    {
+        parent::__construct($response, $dbi, $template);
+
+        $checkUserPrivileges = new CheckUserPrivileges($dbi);
+        $checkUserPrivileges->getPrivileges();
+    }
+
+    /**
      * Index action
      *
      * @param array $params Request parameters
      *
      * @return string HTML
      */
-    public function indexAction(array $params): string
+    public function index(array $params): string
     {
         global $cfg, $server, $dblist, $is_create_db_priv;
         global $replication_info, $db_to_create, $pmaThemeImage, $text_dir;
+
+        $header = $this->response->getHeader();
+        $scripts = $header->getScripts();
+        $scripts->addFile('server/databases.js');
 
         include_once ROOT_PATH . 'libraries/replication.inc.php';
         include_once ROOT_PATH . 'libraries/server_common.inc.php';
@@ -152,9 +172,13 @@ class DatabasesController extends AbstractController
      *
      * @return array JSON
      */
-    public function createDatabaseAction(array $params): array
+    public function create(array $params): array
     {
         global $cfg, $db;
+
+        if (! isset($params['new_db']) || mb_strlen($params['new_db']) === 0 || ! $this->response->isAjax()) {
+            return ['message' => Message::error()];
+        }
 
         // lower_case_table_names=1 `DB` becomes `db`
         if ($this->dbi->getLowerCaseNames() === '1') {
@@ -227,11 +251,16 @@ class DatabasesController extends AbstractController
      *
      * @return array JSON
      */
-    public function dropDatabasesAction(array $params): array
+    public function destroy(array $params): array
     {
-        global $submit_mult, $mult_btn, $selected, $err_url;
+        global $submit_mult, $mult_btn, $selected, $err_url, $cfg;
 
-        if (! isset($params['selected_dbs'])) {
+        if (! isset($params['drop_selected_dbs'])
+            || ! $this->response->isAjax()
+            || (! $this->dbi->isSuperuser() && ! $cfg['AllowUserDropDatabase'])
+        ) {
+            $message = Message::error();
+        } elseif (! isset($params['selected_dbs'])) {
             $message = Message::error(__('No databases selected.'));
         } else {
             // for mult_submits.inc.php

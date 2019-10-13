@@ -15,7 +15,7 @@
   <ul>
     <li id="li_create_database" class="no_bullets">
       {% if has_create_database_privileges %}
-        <form method="post" action="{{ url('/server/databases') }}" id="create_database_form" class="ajax">
+        <form method="post" action="{{ url('/server/databases/create') }}" id="create_database_form" class="ajax">
           <p>
             <strong>
               <label for="text_create_db">
