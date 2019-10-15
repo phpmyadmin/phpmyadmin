@@ -2562,7 +2562,7 @@ msgstr "me"
 #. l10n: Minimal week day name
 #: js/messages.php:891
 msgid "Th"
-msgstr "me"
+msgstr "je"
 
 #. l10n: Minimal week day name
 #: js/messages.php:893
