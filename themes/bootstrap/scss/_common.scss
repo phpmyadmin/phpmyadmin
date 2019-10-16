@@ -1,18 +1,3 @@
-/**
- * Common styles for the pmahomme theme
- */
-
-/* general tags */
-html {
-  font-size: 82%;
-}
-
-input,
-select,
-textarea {
-  font-size: 1em;
-}
-
 body {
   font-family: $font-family;
   padding: 0;
@@ -47,11 +32,6 @@ tt,
 pre,
 code {
   font-family: $font-family-fixed;
-}
-
-h1 {
-  font-size: 140%;
-  font-weight: bold;
 }
 
 h2 {
