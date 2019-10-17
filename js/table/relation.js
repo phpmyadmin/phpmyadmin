@@ -74,10 +74,12 @@ TableRelation.getDropdownValues = function ($dropdown) {
     }
     var $msgbox = Functions.ajaxShowMessage();
     var $form = $dropdown.parents('form');
+    var $db = $form.find('input[name="db"]').val();
+    var $table = $form.find('input[name="table"]').val();
     var argsep = CommonParams.get('arg_separator');
     var params = 'getDropdownValues=true' + argsep + 'ajax_request=true' +
-        argsep + 'db=' + $form.find('input[name="db"]').val() +
-        argsep + 'table=' + $form.find('input[name="table"]').val() +
+        argsep + 'db=' + encodeURIComponent($db) +
+        argsep + 'table=' + encodeURIComponent($table) +
         argsep + 'foreign=' + (foreign !== '') +
         argsep + 'foreignDb=' + encodeURIComponent(foreignDb) +
         (foreignTable !== null ?
