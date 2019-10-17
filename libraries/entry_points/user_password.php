@@ -1,6 +1,6 @@
 <?php
 /**
- * displays and handles the form where the user can change his password
+ * displays and handles the form where the user can change their password
  * linked from index.php
  *
  * @package PhpMyAdmin

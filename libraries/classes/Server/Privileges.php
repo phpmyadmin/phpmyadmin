@@ -2406,7 +2406,7 @@ class Privileges
         }
         if (! $this->dbi->tryQuery($sql_query0)) {
             // This might fail when the executing user does not have
-            // ALL PRIVILEGES himself.
+            // ALL PRIVILEGES themselves.
             // See https://github.com/phpmyadmin/phpmyadmin/issues/9673
             $sql_query0 = '';
         }

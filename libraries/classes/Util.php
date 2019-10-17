@@ -3939,7 +3939,7 @@ class Util
 
     /**
      * Checks if the current user has a specific privilege and returns true if the
-     * user indeed has that privilege or false if (s)he doesn't. This function must
+     * user indeed has that privilege or false if they don't. This function must
      * only be used for features that are available since MySQL 5, because it
      * relies on the INFORMATION_SCHEMA database to be present.
      *

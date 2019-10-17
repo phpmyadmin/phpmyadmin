@@ -471,7 +471,7 @@ if (! empty($local_import_file) && ! empty($cfg['UploadDir'])) {
 
     /*
      * Do not allow symlinks to avoid security issues
-     * (user can create symlink to file he can not access,
+     * (user can create symlink to file they can not access,
      * but phpMyAdmin can).
      */
     if (@is_link($import_file)) {

@@ -153,7 +153,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         unset($GLOBALS['PHP_AUTH_PW'], $_SERVER['PHP_AUTH_PW']);
 
         // Decode possibly encoded information (used by IIS/CGI/FastCGI)
-        // (do not use explode() because a user might have a colon in his password
+        // (do not use explode() because a user might have a colon in their password
         if (strcmp(substr($this->user, 0, 6), 'Basic ') == 0) {
             $usr_pass = base64_decode(substr($this->user, 6));
             if (! empty($usr_pass)) {
