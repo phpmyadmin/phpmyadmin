@@ -6,6 +6,7 @@ phpMyAdmin - ChangeLog
 - issue #14804 Fix undefined index: ssl_* variables
 - issue #14245 Fix mysql 8.0.3 and above fails on advisor
 - issue #15499 Fix unparenthesized php deprecation
+- issue #15482 Fix URL encoding plus sign (+) in the table or DB name when configuring foreign keys
 
 4.9.1 (2019-09-20)
 - issue #15313 Added support for Twig 2
