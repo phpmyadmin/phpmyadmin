@@ -27,7 +27,15 @@ AJAX.registerTeardown('database/qbe.js', function () {
 });
 
 AJAX.registerOnload('database/qbe.js', function () {
-    Functions.getSqlEditor($('#textSqlquery'), {}, 'both');
+    Functions.getSqlEditor($('#textSqlquery'), {}, 'none');
+
+    $('#tblQbe').width($('#tblQbe').parent().width());
+    $('#tblQbeFooters').width($('#tblQbeFooters').parent().width());
+    $('#tblQbe').resize(function () {
+        var newWidthTblQbe = $('#textSqlquery').next().width();
+        $('#tblQbe').width(newWidthTblQbe);
+        $('#tblQbeFooters').width(newWidthTblQbe);
+    });
 
     /**
      * Ajax handler to check the corresponding 'show' checkbox when column is selected
