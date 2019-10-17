@@ -8,6 +8,7 @@ phpMyAdmin - ChangeLog
 - issue #15499 Fix unparenthesized php deprecation
 - issue #15482 Fix URL encoding plus sign (+) in the table or DB name when configuring foreign keys
 - issue #14898 Fixed bottom table in list in left panel blocked by horizontal scroll bar
+- issue #15161 Fix text area overflows its parent element on "Query" page
 
 4.9.1 (2019-09-20)
 - issue #15313 Added support for Twig 2
