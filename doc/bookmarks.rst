@@ -15,8 +15,7 @@ Any query that is executed by you can be marked as a bookmark on the page
 where the results are displayed. You will find a button labeled
 :guilabel:`Bookmark this query` just at the end of the page. As soon as you have
 stored a bookmark, the query fired is linked to the database.
-You can now access a bookmark dropdown on each page, the query box
-appears on for that database.
+You can now access a bookmark dropdown on each page, the query box appears on for that database.
 
 Variables inside bookmarks
 --------------------------
