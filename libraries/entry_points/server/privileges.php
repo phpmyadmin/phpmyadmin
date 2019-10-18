@@ -175,7 +175,7 @@ list(
 ) = $serverPrivileges->getDataForDBInfo();
 
 /**
- * Checks if the user is allowed to do what he tries to...
+ * Checks if the user is allowed to do what they try to...
  */
 if (! $dbi->isSuperuser() && ! $GLOBALS['is_grantuser']
     && ! $GLOBALS['is_createuser']

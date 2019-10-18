@@ -2160,7 +2160,7 @@ Functions.updateCode = function ($base, htmlValue, rawValue) {
  *
  * 4) var $msg = Functions.ajaxShowMessage('Some error', false);
  * This will show a message that will not disappear automatically, but it
- * can be dismissed by the user after he has finished reading it.
+ * can be dismissed by the user after they have finished reading it.
  *
  * @param string  message     string containing the message to be shown.
  *                              optional, defaults to 'Loading...'
@@ -2254,7 +2254,7 @@ Functions.ajaxShowMessage = function (message, timeout, type) {
     if (dismissable) {
         $retval.addClass('dismissable').css('cursor', 'pointer');
         /**
-         * Add a tooltip to the notification to let the user know that (s)he
+         * Add a tooltip to the notification to let the user know that they
          * can dismiss the ajax notification by clicking on it.
          */
         Functions.tooltip(
@@ -3423,7 +3423,7 @@ AJAX.registerOnload('functions.js', function () {
         }
         var fields = '';
         // If there are no values, maybe the user is about to make a
-        // new list so we add a few for him/her to get started with.
+        // new list so we add a few for them to get started with.
         if (values.length === 0) {
             values.push('', '', '', '');
         }

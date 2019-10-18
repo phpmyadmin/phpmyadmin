@@ -1044,7 +1044,7 @@ Server connection settings
 
     Since release 4.1.0 you can create different user groups with menu items
     attached to them. Users can be assigned to these groups and the logged in
-    user would only see menu items configured to the usergroup he is assigned to.
+    user would only see menu items configured to the usergroup they are assigned to.
     To do this it needs two tables "usergroups" (storing allowed menu items for each
     user group) and "users" (storing users and their assignments to user groups).
 

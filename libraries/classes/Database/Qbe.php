@@ -1372,7 +1372,7 @@ class Qbe
 
         // Now let's find out which of the tables has an index
         // (When the control user is the same as the normal user
-        // because he is using one of his databases as pmadb,
+        // because they are using one of their databases as pmadb,
         // the last db selected is not always the one where we need to work)
         $candidate_columns = $this->_getLeftJoinColumnCandidates(
             $search_tables,

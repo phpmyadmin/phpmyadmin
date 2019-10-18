@@ -132,7 +132,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
     // Whenever the monitor object (runtime.charts) or the settings object
     // (monitorSettings) changes in a way incompatible to the previous version,
     // increase this number. It will reset the users monitor and settings object
-    // in his localStorage to the default configuration
+    // in their localStorage to the default configuration
     var monitorProtocolVersion = '1.0';
 
     // Runtime parameter of the monitor, is being fully set in initGrid()
@@ -500,9 +500,9 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             if (type === 'preset') {
                 newChart = presetCharts[$('#addChartDialog').find('select[name="presetCharts"]').prop('value')];
             } else {
-                // If user builds his own chart, it's being set/updated
-                // each time he adds a series
-                // So here we only warn if he didn't add a series yet
+                // If user builds their own chart, it's being set/updated
+                // each time they add a series
+                // So here we only warn if they didn't add a series yet
                 if (! newChart || ! newChart.nodes || newChart.nodes.length === 0) {
                     alert(Messages.strAddOneSeriesWarning);
                     return;

@@ -229,7 +229,7 @@ class Search
         $automatic_wildcard   = (($this->criteriaSearchType < 4) ? '%' : '');
         // For "as regular expression" (search option 5), LIKE won't be used
         // Usage example: If user is searching for a literal $ in a regexp search,
-        // he should enter \$ as the value.
+        // they should enter \$ as the value.
         $criteriaSearchStringEscaped = $this->dbi->escapeString(
             $this->criteriaSearchString
         );

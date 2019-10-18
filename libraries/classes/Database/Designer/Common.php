@@ -152,7 +152,7 @@ class Common
             }
             $row = $this->relation->getForeigners($GLOBALS['db'], $val[0], '', 'foreign');
 
-            // We do not have access to the foreign keys if he user has partial access to the columns
+            // We do not have access to the foreign keys if the user has partial access to the columns
             if ($row !== false && isset($row['foreign_keys_data'])) {
                 foreach ($row['foreign_keys_data'] as $one_key) {
                     foreach ($one_key['index_list'] as $index => $one_field) {

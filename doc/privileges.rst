@@ -60,7 +60,7 @@ will see in the phpMyAdmin navigation.
 
 .. warning::
 
-    This feature only limits what a user sees, he is still able to use all the
+    This feature only limits what a user sees, they are still able to use all the
     functions. So this can not be considered as a security limitation. Should
     you want to limit what users can do, use MySQL privileges to achieve that.
 
