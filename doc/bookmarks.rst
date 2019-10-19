@@ -11,7 +11,7 @@ Bookmarks
 Storing bookmarks
 -----------------
 
-Any query that is executed by you can be marked as a bookmark on the page
+Any query that is executed can be marked as a bookmark on the page
 where the results are displayed. You will find a button labeled
 :guilabel:`Bookmark this query` just at the end of the page. As soon as you have
 stored a bookmark, the query fired is linked to the database.
@@ -22,10 +22,10 @@ Variables inside bookmarks
 
 Inside a query, you can also add placeholders for variables.
 This is done by inserting into the query SQL comments between ``/*`` and
-``*/``. The special strings ``[VARIABLE{variable-number}]`` is used inside the comments.
+``*/``. The special string ``[VARIABLE{variable-number}]`` is used inside the comments.
 Be aware that the whole query minus the SQL comments must be
 valid by itself, otherwise you won't be able to store it as a bookmark.
-Also note that the text 'VARIABLE' is Case-sensitive.
+Also note that the text 'VARIABLE' is case-sensitive.
 
 When you execute the bookmark, everything typed into the *Variables*
 input boxes on the query box page will replace the strings ``/*[VARIABLE{variable-number}]*/`` in
