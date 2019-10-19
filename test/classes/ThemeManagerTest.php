@@ -23,7 +23,7 @@ class ThemeManagerTest extends PmaTestCase
      *
      * @return void
      */
-    public function setup()
+    public function setUp()
     {
         $GLOBALS['cfg']['ThemePerServer'] = false;
         $GLOBALS['cfg']['ThemeDefault'] = 'pmahomme';

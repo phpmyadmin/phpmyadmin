@@ -24,7 +24,7 @@ class PMA_DBI_Test extends TestCase
      *
      * @return void
      */
-    function setup()
+    function setUp()
     {
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['IconvExtraParams'] = '';

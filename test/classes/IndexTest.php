@@ -24,7 +24,7 @@ class IndexTest extends PmaTestCase
      *
      * @return void
      */
-    public function setup()
+    public function setUp()
     {
         $this->_params['Schema'] = "PMA_Schema";
         $this->_params['Table'] = "PMA_Table";

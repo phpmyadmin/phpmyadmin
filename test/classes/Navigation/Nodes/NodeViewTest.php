@@ -23,7 +23,7 @@ class NodeViewTest extends PmaTestCase
      *
      * @return void
      */
-    public function setup()
+    public function setUp()
     {
         $GLOBALS['server'] = 0;
     }

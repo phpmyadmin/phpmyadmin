@@ -24,7 +24,7 @@ class LanguageTest extends PmaTestCase
      *
      * @return void
      */
-    public function setup()
+    public function setUp()
     {
         $loc = LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo';
         if (! is_readable($loc)) {

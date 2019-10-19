@@ -29,7 +29,7 @@ class DataTest extends PmaTestCase
      *
      * @return void
      */
-    function setup()
+    function setUp()
     {
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['cfg']['Server']['host'] = "::1";

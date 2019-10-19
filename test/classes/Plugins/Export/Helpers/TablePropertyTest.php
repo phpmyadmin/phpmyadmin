@@ -24,7 +24,7 @@ class TablePropertyTest extends PmaTestCase
      *
      * @return void
      */
-    function setup()
+    function setUp()
     {
         $GLOBALS['server'] = 0;
         $row = array(' name ', 'int ', true, ' PRI', '0', 'mysql');
