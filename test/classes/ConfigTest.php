@@ -12,7 +12,6 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Theme;
 use PHPUnit\Framework\Assert;
-use PHPUnit\Framework\Exception;
 
 /**
  * Tests behaviour of PhpMyAdmin\Config class
@@ -1338,18 +1337,25 @@ class ConfigTest extends PmaTestCase
      */
     public function testCheckServers($settings, $expected, $error = false)
     {
-        if ($error) {
-            $this->expectException(Exception::class);
+        try {
+            $this->object->settings['Servers'] = $settings;
+            $this->object->checkServers();
+            if (is_null($expected)) {
+                $expected = $this->object->default_server;
+            } else {
+                $expected = array_merge($this->object->default_server, $expected);
+            }
+            $this->assertEquals($expected, $this->object->settings['Servers'][1]);
+            if ($error) {
+                $this->assertTrue(false);
+            }
+        } catch (\Exception $e) {
+            if ($error) {
+                $this->assertTrue(true);
+            } else {
+                throw $e;
+            }
         }
-
-        $this->object->settings['Servers'] = $settings;
-        $this->object->checkServers();
-        if (is_null($expected)) {
-            $expected = $this->object->default_server;
-        } else {
-            $expected = array_merge($this->object->default_server, $expected);
-        }
-        $this->assertEquals($expected, $this->object->settings['Servers'][1]);
     }
 
     /**

@@ -90,8 +90,12 @@ class TemplateTest extends PmaTestCase
      */
     public function testRenderTemplateNotFound()
     {
-        $this->expectException(LoaderError::class);
-        Template::get('template not found')->render();
+        try {
+            Template::get('template not found')->render();
+            $this->assertTrue(false);
+        } catch (LoaderError $e) {
+            $this->assertTrue(true);
+        }
     }
 
     /**

@@ -65,8 +65,12 @@ class ContainerTest extends PmaTestCase
      */
     public function testGetThrowsNotFoundException()
     {
-        $this->expectException(NotFoundExceptionInterface::class);
-        $this->container->get('name');
+        try {
+            $this->container->get('name');
+            $this->assertTrue(false);
+        } catch (NotFoundExceptionInterface $e) {
+            $this->assertTrue(true);
+        }
     }
 
     /**

@@ -10,8 +10,6 @@ namespace PhpMyAdmin\Tests\Navigation;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Navigation\Nodes\Node;
 use PhpMyAdmin\Tests\PmaTestCase;
-use PhpMyAdmin\Theme;
-use PHPUnit\Framework\Exception;
 
 /**
  * Tests for NodeFactory class
@@ -85,8 +83,12 @@ class NodeFactoryTest extends PmaTestCase
      */
     public function testFileError()
     {
-        $this->expectException(Exception::class);
-        NodeFactory::getInstance('NodeDoesNotExist');
+        try {
+            NodeFactory::getInstance('NodeDoesNotExist');
+            $this->assertTrue(false);
+        } catch (\Exception $e) {
+            $this->assertTrue(true);
+        }
     }
 
     /**
@@ -96,7 +98,11 @@ class NodeFactoryTest extends PmaTestCase
      */
     public function testClassNameError()
     {
-        $this->expectException(Exception::class);
-        NodeFactory::getInstance('Invalid');
+        try {
+            NodeFactory::getInstance('Invalid');
+            $this->assertTrue(false);
+        } catch (\Exception $e) {
+            $this->assertTrue(true);
+        }
     }
 }
