@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-10-11 12:55-0300\n"
-"PO-Revision-Date: 2017-06-30 17:23+0000\n"
-"Last-Translator: Aron Bergman <bathingrad@gmail.com>\n"
+"PO-Revision-Date: 2019-10-21 10:52+0000\n"
+"Last-Translator: Rickard Eriksson <riceri@gmail.com>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sv/>\n"
 "Language: sv\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.15\n"
+"X-Generator: Weblate 3.9.1-dev\n"
 
 #: import_status.php:110
 msgid "Could not load the progress of the import."
@@ -118,6 +118,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
+"Du försöker minska antalet rader, men du har redan matat in data i dessa "
+"rader som kommer försvinna. Vill du fortsätta?"
 
 #: js/messages.php:77
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -282,10 +284,8 @@ msgid "Y values"
 msgstr "Y-värden"
 
 #: js/messages.php:145
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "Skriv in samma värde igen"
+msgstr "Skriv in SQL-frågan först."
 
 #: js/messages.php:148
 msgid "The host name is empty!"
@@ -858,10 +858,8 @@ msgid "Please select the file you want to import."
 msgstr "Välj den fil du vill importera."
 
 #: js/messages.php:338
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
-msgstr "Vänligen ange ett giltigt sidnamn"
+msgstr "Vänligen ange ett giltigt tabellnamn"
 
 #: js/messages.php:340
 #, fuzzy
@@ -1027,10 +1025,8 @@ msgid "No databases selected."
 msgstr "Inga databaser markerade."
 
 #: js/messages.php:381
-#, fuzzy
-#| msgid "No column selected."
 msgid "No accounts selected."
-msgstr "Ingen kolumn vald."
+msgstr "Inga konton valda."
 
 #: js/messages.php:382
 msgid "Dropping column"
@@ -14089,11 +14085,11 @@ msgstr "Ny"
 #: templates/server/privileges/user_overview.twig:22
 #: templates/table/privileges/index.twig:138
 msgid "Add user account"
-msgstr "Lägg till användar"
+msgstr "Lägg till användare"
 
 #: templates/login/twofactor.twig:5
 msgid "Verify"
-msgstr ""
+msgstr "Verifiera"
 
 #: templates/table/chart/tbl_chart.twig:15
 msgctxt "Chart type"
