@@ -4,6 +4,7 @@
     {% set db = designerTable.getDatabaseName() %}
     {% set db_url = db|escape('url') %}
     {% set t_n = designerTable.getDbTableString() %}
+    {% set table_name = designerTable.getTableName()|escape('html') %}
     <input name="t_x[{{ t_n_url }}]" type="hidden" id="t_x_{{ t_n_url }}_" />
     <input name="t_y[{{ t_n_url }}]" type="hidden" id="t_y_{{ t_n_url }}_" />
     <input name="t_v[{{ t_n_url }}]" type="hidden" id="t_v_{{ t_n_url }}_" />
@@ -63,6 +64,7 @@
             {{- tab_pos[t_n] is defined and tab_pos[t_n]['V'] is empty ? ' style="display: none"' }}>
             {% set display_field = designerTable.getDisplayField() %}
             {% for j in 0..tab_column[t_n]['COLUMN_ID']|length - 1 %}
+                {% set col_name = tab_column[t_n]['COLUMN_NAME'][j] %}
                 {% set tmp_column = t_n ~ '.' ~ tab_column[t_n]['COLUMN_NAME'][j] %}
                 {% set click_field_param = [
                     designerTable.getTableName()|escape('url'),
@@ -86,10 +88,11 @@
                                 type="checkbox"
                                 id="select_{{ t_n_url }}._{{ tab_column[t_n]['COLUMN_NAME'][j]|url_encode }}"
                                 style="margin: 0;"
-                                title="select_{{ tab_column[t_n]['COLUMN_NAME'][j]|url_encode }}"
-                                store_column_param="{{ t_n_url }},
-                                    {{- owner_out[i] }},
-                                    {{- tab_column[t_n]['COLUMN_NAME'][j]|url_encode }}">
+                                title="{{ 'Select "%s"'|trans|format(col_name) }}"
+                                id_check_all="select_all_{{ i }}"
+                                db_name="{{ db }}"
+                                table_name="{{ table_name }}"
+                                col_name="{{ col_name }}">
                         </td>
                     {% endif %}
                     <td width="10px" colspan="3" id="{{ t_n_url }}.

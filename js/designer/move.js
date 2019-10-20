@@ -1905,21 +1905,22 @@ function Table_onover (id_this, val, buil) {
  * In case column is checked it add else it deletes
  *
  */
-function store_column (id_this, owner, col) {
+function store_column (tableName, colName, checkboxId) {
     var i;
     var k;
-    if (document.getElementById('select_' + owner + '.' + id_this + '._' + col).checked === true) {
-        select_field.push('`' + id_this + '`.`' + col + '`');
-        from_array.push(id_this);
+    var selectKeyField = '`' + tableName + '`.`' + colName + '`';
+    if (document.getElementById(checkboxId).checked === true) {
+        select_field.push(selectKeyField);
+        from_array.push(tableName);
     } else {
         for (i = 0; i < select_field.length; i++) {
-            if (select_field[i] === ('`' + id_this + '`.`' + col + '`')) {
+            if (select_field[i] === selectKeyField) {
                 select_field.splice(i, 1);
                 break;
             }
         }
         for (k = 0; k < from_array.length; k++) {
-            if (from_array[k] === id_this) {
+            if (from_array[k] === tableName) {
                 from_array.splice(k, 1);
                 break;
             }
@@ -2017,8 +2018,7 @@ function enableTableEvents(index, element) {
         Start_tab_upd($(this).attr('db_url'), $(this).attr('table_name_url'));
     });
     $(element).on('click', '.select_all_store_col', function () {
-        var params = ($(this).attr('store_column_param')).split(',');
-        store_column(params[0], params[1], params[2]);
+        store_column($(this).attr('table_name'), $(this).attr('col_name'), $(this).attr('id'));
     });
     $(element).on('click', '.small_tab_pref_click_opt', function () {
         var params = ($(this).attr('Click_option_param')).split(',');
