@@ -1716,7 +1716,10 @@ class Operations
                 . ' IS NOT NULL';
             $this_url_params = array_merge(
                 $url_params,
-                array('sql_query' => $join_query)
+                [
+                   'sql_query' => $join_query,
+                   'sql_signature' => Core::signSqlQuery($join_query),
+                ]
             );
 
             $html_output .= '<li>'
