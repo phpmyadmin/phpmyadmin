@@ -1,6 +1,8 @@
 {% for designerTable in tables %}
     {% set i = loop.index0 %}
     {% set t_n_url = designerTable.getDbTableString()|escape('url') %}
+    {% set db = designerTable.getDatabaseName() %}
+    {% set db_url = db|escape('url') %}
     {% set t_n = designerTable.getDbTableString() %}
     <input name="t_x[{{ t_n_url }}]" type="hidden" id="t_x_{{ t_n_url }}_" />
     <input name="t_y[{{ t_n_url }}]" type="hidden" id="t_y_{{ t_n_url }}_" />
@@ -63,7 +65,7 @@
             {% for j in 0..tab_column[t_n]['COLUMN_ID']|length - 1 %}
                 {% set tmp_column = t_n ~ '.' ~ tab_column[t_n]['COLUMN_NAME'][j] %}
                 {% set click_field_param = [
-                    t_n,
+                    db_url,
                     tab_column[t_n]['COLUMN_NAME'][j]|url_encode
                 ] %}
                 {% if not designerTable.supportsForeignkeys() %}
