@@ -373,6 +373,8 @@ final class JavaScriptMessagesController
             'enum_newColumnVals' => __('Values for a new column'),
             'enum_hint' => __('Enter each value in a separate field.'),
             'enum_addValue' => __('Add %d value(s)'),
+            /* l10n: The enum value is an empty string */
+            'enum_emptyString' => __('Empty string'),
 
             /* For import.js */
             'strImportCSV' => __(

@@ -3484,15 +3484,25 @@ AJAX.registerOnload('functions.js', function () {
         var fields = '';
         // If there are no values, maybe the user is about to make a
         // new list so we add a few for them to get started with.
+        var isEditing = true;
         if (values.length === 0) {
             values.push('', '', '', '');
+            isEditing = false;
         }
         // Add the parsed values to the editor
         var dropIcon = Functions.getImage('b_drop');
+        var checkedString;
         for (i = 0; i < values.length; i++) {
+            checkedString = '';
+            if (values[i] === '' && isEditing) {
+                checkedString = ' checked';
+            }
             fields += '<tr><td>' +
-                   '<input type=\'text\' value=\'' + values[i] + '\'>' +
-                   '</td><td class=\'drop\'>' +
+                   '<div class="input_container">' +
+                   '<label><input type="checkbox"' + checkedString + '>' + Messages.enum_emptyString + '</label>' +
+                   '<input type="text" value="' + values[i] + '">' +
+                   '</div>' +
+                   '</td><td class="drop">' +
                    dropIcon +
                    '</td></tr>';
         }
@@ -3527,9 +3537,12 @@ AJAX.registerOnload('functions.js', function () {
             // When the submit button is clicked,
             // put the data back into the original form
             var valueArray = [];
-            $(this).find('.values input').each(function (index, elm) {
-                var val = elm.value.replace(/\\/g, '\\\\').replace(/'/g, '\'\'');
-                valueArray.push('\'' + val + '\'');
+            $(this).find('.input_container').each(function (index, elm) {
+                var childs = $(elm).children('input');
+                var val = childs[1].value.replace(/\\/g, '\\\\').replace(/'/g, '\'\'');
+                if (val !== '' || childs[0].checked) {
+                    valueArray.push('\'' + val + '\'');
+                }
             });
             // get the Length/Values text field where this value belongs
             var valuesId = $(this).find('input[type=\'hidden\']').val();
@@ -3722,9 +3735,12 @@ AJAX.registerOnload('functions.js', function () {
         while (numNewRows--) {
             $enumEditorDialog.find('.values')
                 .append(
-                    '<tr class=\'hide\'><td>' +
-                    '<input type=\'text\'>' +
-                    '</td><td class=\'drop\'>' +
+                    '<tr class="hide"><td>' +
+                    '<div class="input_container">' +
+                    '<input type="checkbox">' + Messages.enum_emptyString +
+                    '<input type="text">' +
+                    '</div>' +
+                    '</td><td class="drop">' +
                     Functions.getImage('b_drop') +
                     '</td></tr>'
                 )
