@@ -243,6 +243,8 @@ class OperationsTest extends TestCase
      */
     public function testGetHtmlForReferentialIntegrityCheck()
     {
+        $GLOBALS['cfg']['blowfish_secret'] = '';
+        $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
 
         $this->assertRegExp(
             '/.*Check referential integrity.*href="sql.php(.|[\n])*/m',
