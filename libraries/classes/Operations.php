@@ -1806,8 +1806,8 @@ class Operations
             $this_url_params = array_merge(
                 $url_params,
                 [
-                   'sql_query' => $join_query,
-                   'sql_signature' => Core::signSqlQuery($join_query),
+                    'sql_query' => $join_query,
+                    'sql_signature' => Core::signSqlQuery($join_query),
                 ]
             );
 
