@@ -700,15 +700,11 @@ class Operations
 
             foreach ($old_privs_db as $old_priv) {
                 $newDb_db_privs_query = 'INSERT INTO ' . Util::backquote('db')
-                    . ' VALUES("' . $old_priv[0] . '", "' . $newname . '", "'
-                    . $old_priv[2] . '", "' . $old_priv[3] . '", "' . $old_priv[4]
-                    . '", "' . $old_priv[5] . '", "' . $old_priv[6] . '", "'
-                    . $old_priv[7] . '", "' . $old_priv[8] . '", "' . $old_priv[9]
-                    . '", "' . $old_priv[10] . '", "' . $old_priv[11] . '", "'
-                    . $old_priv[12] . '", "' . $old_priv[13] . '", "' . $old_priv[14]
-                    . '", "' . $old_priv[15] . '", "' . $old_priv[16] . '", "'
-                    . $old_priv[17] . '", "' . $old_priv[18] . '", "' . $old_priv[19]
-                    . '", "' . $old_priv[20] . '", "' . $old_priv[21] . '");';
+                    . ' VALUES("' . $old_priv[0] . '", "' . $newname . '"';
+                for ($i = 2; $i < count($old_priv); $i++) {
+                    $newDb_db_privs_query .= ', "' . $old_priv[$i] . '"';
+                }
+                    $newDb_db_privs_query .= ')';
 
                 $this->dbi->query($newDb_db_privs_query);
             }
