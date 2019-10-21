@@ -6,10 +6,15 @@
 declare(strict_types=1);
 
 use FastRoute\RouteCollector;
+use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\Controllers\Server\DatabasesController;
 use PhpMyAdmin\Response;
 
 global $containerBuilder;
+
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /** @var Response $response */
 $response = $containerBuilder->get(Response::class);
@@ -130,8 +135,15 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         require_once ROOT_PATH . 'libraries/entry_points/schema_export.php';
     });
     $routes->addGroup('/server', function (RouteCollector $routes) use ($containerBuilder, $response) {
-        $routes->addRoute(['GET', 'POST'], '/binlog', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/server/binlog.php';
+        $routes->addRoute(['GET', 'POST'], '/binlog', function () use ($containerBuilder, $response) {
+            /** @var BinlogController $controller */
+            $controller = $containerBuilder->get(BinlogController::class);
+
+            $response->addHTML($controller->index([
+                'log' => $_POST['log'] ?? null,
+                'pos' => $_POST['pos'] ?? null,
+                'is_full_query' => $_POST['is_full_query'] ?? null,
+            ]));
         });
         $routes->addRoute('GET', '/collations', function () {
             require_once ROOT_PATH . 'libraries/entry_points/server/collations.php';

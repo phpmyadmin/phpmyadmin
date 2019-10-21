@@ -108,7 +108,7 @@ class BinlogControllerTest extends TestCase
             $dbi,
             new Template()
         );
-        $actual = $controller->indexAction([
+        $actual = $controller->index([
             'log' => 'index1',
             'pos' => '3',
             'is_full_query' => null,

@@ -53,7 +53,7 @@ class BinlogController extends AbstractController
      *
      * @return string
      */
-    public function indexAction(array $params): string
+    public function index(array $params): string
     {
         global $cfg, $pmaThemeImage;
 
