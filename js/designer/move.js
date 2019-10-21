@@ -623,7 +623,7 @@ DesignerMove.addOtherDbTables = function () {
     }, function (data) {
         $(data.message).find('table.table_results.data.ajax').find('td.data').each(function () {
             var val = $(this)[0].innerText;
-            $select_db.append($('<option></option>').val(val).text(val));
+            $selectDb.append($('<option></option>').val(val).text(val));
         });
     });
 
@@ -659,7 +659,7 @@ DesignerMove.addOtherDbTables = function () {
                 }
                 rows.each(function () {
                     var val = $(this)[0].innerText;
-                    $select_table.append($('<option></option>').val(val).text(val));
+                    $selectTable.append($('<option></option>').val(val).text(val));
                 });
             });
         }
