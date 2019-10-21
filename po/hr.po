@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-10-11 12:55-0300\n"
-"PO-Revision-Date: 2019-05-24 14:03+0000\n"
+"PO-Revision-Date: 2019-10-23 22:13+0000\n"
 "Last-Translator: Marino <mrabach@gmail.com>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/hr/>\n"
@@ -12,13 +12,13 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.7-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1-dev\n"
 
 #: import_status.php:110
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "Nije moguće učitati tijek uvoza."
 
 #: import_status.php:119 js/messages.php:469 js/messages.php:635
 #: libraries/classes/Export.php:530
@@ -140,8 +140,6 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:87
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "Jeste li sigurni da želite TRUNCATE adabrane particije?"
 
@@ -150,10 +148,8 @@ msgid "Do you really want to remove partitioning?"
 msgstr "Jeste li sigurni da želite ukloniti particioniranje?"
 
 #: js/messages.php:90
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Želite li zaista  "
+msgstr "Želite li zaista  pokrenuti naredbu RESET SLAVE?"
 
 #: js/messages.php:92
 msgid ""
@@ -6130,10 +6126,8 @@ msgid "Order by"
 msgstr "Ostalo"
 
 #: libraries/classes/Config/Descriptions.php:926
-#, fuzzy
-#| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "MySQL uspoređivanje veza"
+msgstr "Način upoređivanja kod povezivanja na poslužitelj"
 
 #: libraries/classes/Config/FormDisplay.php:101
 #: libraries/classes/Config/Validator.php:528
@@ -6525,13 +6519,13 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"Odjavili ste se s jednog poslužitelja. Da biste se u potpunosti odjavili iz "
+"phpMyAdmin-a, potrebna  je odjava sa svih poslužitelja."
 
 #: libraries/classes/Controllers/HomeController.php:141
 #: templates/preferences/manage/main.twig:51
-#, fuzzy
-#| msgid "General relation features"
 msgid "More settings"
-msgstr "Opće osobine relacija"
+msgstr "Više postavki"
 
 #: libraries/classes/Controllers/HomeController.php:211
 msgid "Show PHP information"
@@ -6546,8 +6540,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"Dodatne osobine za rad s relacijski tablicama su isključene. Kako biste "
-"saznali razloge, pritisnite %sovdje%s."
+"PhpMyAdmin konfiguracija za pohranu nije potpuno konfigurirana, neke "
+"proširene mogućnosti su deaktivirane. %sPotraži razlog zašto%s. "
 
 #: libraries/classes/Controllers/HomeController.php:238
 msgid ""
@@ -7624,7 +7618,7 @@ msgstr "Ispusti"
 #: templates/table/tracking/structure_snapshot_columns.twig:25
 #: templates/table/structure/display_structure.twig:302
 msgid "Primary"
-msgstr "Primarni"
+msgstr "Primarno"
 
 #: libraries/classes/Controllers/Table/StructureController.php:1268
 #: libraries/classes/Controllers/Table/StructureController.php:1273
@@ -8708,7 +8702,7 @@ msgstr ""
 #: templates/home/index.twig:17
 #, fuzzy
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin dokumentacija"
+msgstr "phpMyAdmin Demo Poslužitelj"
 
 #: libraries/classes/Footer.php:88
 #, php-format
@@ -10418,10 +10412,8 @@ msgstr "Vrijeme generiranja"
 #: libraries/classes/Plugins/Export/ExportSql.php:727
 #: libraries/classes/Plugins/Export/ExportXml.php:250
 #: templates/home/index.twig:110
-#, fuzzy
-#| msgid "Server version"
 msgid "Server version:"
-msgstr "Verzija poslužitelja"
+msgstr "Verzija poslužitelja:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:228
 #: libraries/classes/Plugins/Export/ExportSql.php:729
@@ -14252,6 +14244,9 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"Koristite demo server. Ovdje možete raditi bilo što, ali molim vas da ne "
+"mijenjajte root, debian-sys-maint i pma korisnike. Više informacija je "
+"dostupno na %s."
 
 #: templates/server/privileges/privileges_table.twig:10
 #: templates/server/privileges/privileges_table.twig:248
@@ -17239,91 +17234,68 @@ msgid "Server connection collation:"
 msgstr "MySQL uspoređivanje veza"
 
 #: templates/home/index.twig:73
-#, fuzzy
-#| msgid "General relation features"
 msgid "Appearance settings"
-msgstr "Opće osobine relacija"
+msgstr "Postavke izgleda"
 
 #: templates/home/index.twig:95
-#, fuzzy
-#| msgid "Database for user"
 msgid "Database server"
-msgstr "Baza podataka za korisnika"
+msgstr "Poslužitelj baze podataka"
 
 #: templates/home/index.twig:102
-#, fuzzy
 msgid "Server type:"
-msgstr "ID poslužitelja"
+msgstr "Vrsta poslužitelja:"
 
 #: templates/home/index.twig:106
-#, fuzzy
-#| msgid "% aborted connections"
 msgid "Server connection:"
-msgstr "najv. uzastopnih veza"
+msgstr "Povezivanje poslužitelja:"
 
 #: templates/home/index.twig:114
-#, fuzzy
-#| msgid "Protocol version"
 msgid "Protocol version:"
-msgstr "Verzija protokola"
+msgstr "Verzija protokola:"
 
 #: templates/home/index.twig:118
-#, fuzzy
-#| msgid "User"
 msgid "User:"
-msgstr "Korisnik"
+msgstr "Korisnik:"
 
 #: templates/home/index.twig:122
-#, fuzzy
 msgid "Server charset:"
-msgstr "Odabir poslužitelja"
+msgstr ""
 
 #: templates/home/index.twig:133
 msgid "Web server"
 msgstr "Web poslužitelj"
 
 #: templates/home/index.twig:140
-#, fuzzy
 msgid "Database client version:"
-msgstr "MySQL verzija klijenta"
+msgstr "Verzija klijenta baze podataka:"
 
 #: templates/home/index.twig:144
-#, fuzzy
-#| msgid "PHP extension"
 msgid "PHP extension:"
-msgstr "PHP ekstenzija"
+msgstr "PHP ekstenzija:"
 
 #: templates/home/index.twig:151
-#, fuzzy
-#| msgid "PHP Version"
 msgid "PHP version:"
-msgstr "PHP verzija"
+msgstr "PHP  verzija:"
 
 #: templates/home/index.twig:166
-#, fuzzy
-#| msgid "Version information"
 msgid "Version information:"
-msgstr "Podaci o verziji"
+msgstr "Podaci o verziji:"
 
 #: templates/home/index.twig:176
 msgid "Official Homepage"
 msgstr "Službena stranica programa phpMyAdmin"
 
 #: templates/home/index.twig:181
-#, fuzzy
-#| msgid "Attributes"
 msgid "Contribute"
-msgstr "Atributi"
+msgstr "Doprinijeti"
 
 #: templates/home/index.twig:186
 msgid "Get support"
 msgstr ""
 
 #: templates/home/index.twig:191
-#, fuzzy
-#| msgid "No change"
 msgid "List of changes"
-msgstr "Bez izmjena"
+msgstr "Popis promjena"
 
 #: templates/table/browse_foreigners/column_element.twig:4
 msgid "Use this value"
@@ -17785,27 +17757,23 @@ msgstr "Linija teksta %d:"
 
 #: templates/gis_data_editor_form.twig:114
 #: templates/gis_data_editor_form.twig:169
-#, fuzzy
-#| msgid "Outer Ring"
 msgid "Outer ring:"
-msgstr "Vanjski Prsten"
+msgstr "Vanjski prsten"
 
 #: templates/gis_data_editor_form.twig:116
 #: templates/gis_data_editor_form.twig:171
-#, fuzzy, php-format
-#| msgid "Inner Ring"
+#, php-format
 msgid "Inner ring %d:"
-msgstr "Unutarnji Prsten"
+msgstr "Unutarnji prsten %d:"
 
 #: templates/gis_data_editor_form.twig:143
 msgid "Add a linestring"
 msgstr "Dodaj novu liniju niza znakova"
 
 #: templates/gis_data_editor_form.twig:156
-#, fuzzy, php-format
-#| msgid "Polygon"
+#, php-format
 msgid "Polygon %d:"
-msgstr "Poligon"
+msgstr "Poligon %d:"
 
 #: templates/gis_data_editor_form.twig:198
 msgid "Add a polygon"
