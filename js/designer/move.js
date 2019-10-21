@@ -646,8 +646,8 @@ function Add_Other_db_tables () {
         'server': PMA_commonParams.get('server')
     }, function (data) {
         $(data.message).find('table.table_results.data.ajax').find('td.data').each(function () {
-            var val = $(this)[0].innerHTML;
-            $select_db.append('<option value="' + val + '">' + val + '</option>');
+            var val = $(this)[0].innerText;
+            $select_db.append($('<option></option>').val(val).text(val));
         });
     });
 
@@ -682,8 +682,8 @@ function Add_Other_db_tables () {
                     $select_table.append('<option value="">' + PMA_messages.strNone + '</option>');
                 }
                 rows.each(function () {
-                    var val = $(this)[0].innerHTML;
-                    $select_table.append('<option value="' + val + '">' + val + '</option>');
+                    var val = $(this)[0].innerText;
+                    $select_table.append($('<option></option>').val(val).text(val));
                 });
             });
         }
