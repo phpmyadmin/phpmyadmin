@@ -708,8 +708,8 @@ function Save (url) {
         document.getElementById('t_v_' + key + '_').value = document.getElementById('id_tbody_' + key).style.display === 'none' ? 0 : 1;
         document.getElementById('t_h_' + key + '_').value = document.getElementById('check_vis_' + key).checked ? 1 : 0;
     }
-    document.form1.action = url;
-    $(document.form1).submit();
+    document.getElementById('container-form').action = url;
+    $('#container-form').submit();
 }
 
 function Get_url_pos (forceString) {
@@ -1618,7 +1618,7 @@ function Hide_tab_all (id_this) {
         id_this.alt = 'v';
         id_this.src = id_this.dataset.down;
     }
-    var E = document.form1;
+    var E = document.getElementById('container-form');
     for (var i = 0; i < E.elements.length; i++) {
         if (E.elements[i].type === 'checkbox' && E.elements[i].id.substring(0, 10) === 'check_vis_') {
             if (id_this.alt === 'v') {
@@ -1670,7 +1670,7 @@ function No_have_constr (id_this) {
         id_this.alt = 'v';
         id_this.src = id_this.dataset.down;
     }
-    var E = document.form1;
+    var E = document.getElementById('container-form');
     for (var i = 0; i < E.elements.length; i++) {
         if (E.elements[i].type === 'checkbox' && E.elements[i].id.substring(0, 10) === 'check_vis_') {
             if (!in_array_k(E.elements[i].value, a)) {
@@ -1822,15 +1822,18 @@ function getColorByTarget (target) {
     return color;
 }
 
-function Click_option (id_this, column_name, table_name) {
-    var left = Glob_X - (document.getElementById(id_this).offsetWidth >> 1);
-    document.getElementById(id_this).style.left = left + 'px';
-    // var top = Glob_Y - document.getElementById(id_this).offsetHeight - 10;
-    document.getElementById(id_this).style.top  = (screen.height / 4) + 'px';
-    document.getElementById(id_this).style.display = 'block';
-    document.getElementById('option_col_name').innerHTML = '<strong>' + PMA_sprintf(PMA_messages.strAddOption, decodeURI(column_name)) + '</strong>';
-    col_name = column_name;
-    tab_name = table_name;
+function Click_option (dbName, tableName, columnName, tableDbNameUrl, optionColNameString) {
+    var designerOptions = document.getElementById('designer_optionse');
+    var left = Glob_X - (designerOptions.offsetWidth >> 1);
+    designerOptions.style.left = left + 'px';
+    // var top = Glob_Y - designerOptions.offsetHeight - 10;
+    designerOptions.style.top  = (screen.height / 4) + 'px';
+    designerOptions.style.display = 'block';
+    document.getElementById('ok_add_object_db_and_table_name_url').value = tableDbNameUrl;
+    document.getElementById('ok_add_object_db_name').value = dbName;
+    document.getElementById('ok_add_object_table_name').value = tableName;
+    document.getElementById('ok_add_object_col_name').value = columnName;
+    document.getElementById('option_col_name').innerHTML = optionColNameString;
 }
 
 function Close_option () {
@@ -1931,7 +1934,7 @@ function store_column (tableName, colName, checkboxId) {
  *
 **/
 
-function add_object () {
+function add_object (dbName, tableName, colName, dbTableNameUrl) {
     var p;
     var where_obj;
     var rel = document.getElementById('rel_opt');
@@ -1944,22 +1947,22 @@ function add_object () {
         }
         p = document.getElementById('Query');
         where_obj = new where(rel.value, p.value);// make where object
-        history_array.push(new history_obj(col_name, where_obj, tab_name, h_tabs[downer + '.' + tab_name], 'Where'));
+        history_array.push(new history_obj(colName, where_obj, tableName, h_tabs[dbTableNameUrl], 'Where'));
         sum = sum + 1;
     }
     if (document.getElementById('new_name').value !== '') {
         var rename_obj = new rename(document.getElementById('new_name').value);// make Rename object
-        history_array.push(new history_obj(col_name, rename_obj, tab_name, h_tabs[downer + '.' + tab_name], 'Rename'));
+        history_array.push(new history_obj(colName, rename_obj, tableName, h_tabs[dbTableNameUrl], 'Rename'));
         sum = sum + 1;
     }
     if (document.getElementById('operator').value !== '---') {
         var aggregate_obj = new aggregate(document.getElementById('operator').value);
-        history_array.push(new history_obj(col_name, aggregate_obj, tab_name, h_tabs[downer + '.' + tab_name], 'Aggregate'));
+        history_array.push(new history_obj(colName, aggregate_obj, tableName, h_tabs[dbTableNameUrl], 'Aggregate'));
         sum = sum + 1;
         // make aggregate operator
     }
     if (document.getElementById('groupby').checked === true) {
-        history_array.push(new history_obj(col_name, 'GroupBy', tab_name, h_tabs[downer + '.' + tab_name], 'GroupBy'));
+        history_array.push(new history_obj(colName, 'GroupBy', tableName, h_tabs[dbTableNameUrl], 'GroupBy'));
         sum = sum + 1;
         // make groupby
     }
@@ -1972,13 +1975,13 @@ function add_object () {
             document.getElementById('having').value,
             document.getElementById('h_operator').value
         );// make where object
-        history_array.push(new history_obj(col_name, where_obj, tab_name, h_tabs[downer + '.' + tab_name], 'Having'));
+        history_array.push(new history_obj(col_name, where_obj, tableName, h_tabs[dbTableNameUrl], 'Having'));
         sum = sum + 1;
         // make having
     }
     if (document.getElementById('orderby').value !== '---') {
         var oderby_obj = new orderby(document.getElementById('orderby').value);
-        history_array.push(new history_obj(col_name, oderby_obj, tab_name, h_tabs[downer + '.' + tab_name], 'OrderBy'));
+        history_array.push(new history_obj(col_name, oderby_obj, tableName, h_tabs[dbTableNameUrl], 'OrderBy'));
         sum = sum + 1;
         // make orderby
     }
@@ -2017,8 +2020,13 @@ function enableTableEvents(index, element) {
         store_column($(this).attr('table_name'), $(this).attr('col_name'), $(this).attr('id'));
     });
     $(element).on('click', '.small_tab_pref_click_opt', function () {
-        var params = ($(this).attr('Click_option_param')).split(',');
-        Click_option(params[0], params[1], params[2]);
+        Click_option(
+            $(this).attr('db_name'),
+            $(this).attr('table_name'),
+            $(this).attr('col_name'),
+            $(this).attr('db_table_name_url'),
+            $(this).attr('option_col_name_modal')
+        );
     });
     $(element).on('click', '.tab_field_2,.tab_field_3,.tab_field', function () {
         var params = ($(this).attr('click_field_param')).split(',');
@@ -2204,7 +2212,12 @@ AJAX.registerOnload('designer/move.js', function () {
         Re_load();
     });
     $('input#ok_add_object').click(function () {
-        add_object();
+        add_object(
+            $('#ok_add_object_db_name').val(),
+            $('#ok_add_object_table_name').val(),
+            $('#ok_add_object_col_name').val(),
+            $('#ok_add_object_db_and_table_name_url').val()
+        );
     });
     $('input#cancel_close_option').click(function () {
         Close_option();

@@ -200,7 +200,7 @@ $response->addHTML(
 
 $response->addHTML('<div id="canvas_outer">');
 $response->addHTML(
-    '<form action="" id="container-form" method="post" name="form1">'
+    '<form action="" id="container-form" method="post">'
 );
 
 $response->addHTML($databaseDesigner->getHtmlCanvas());

@@ -578,8 +578,8 @@ $js_messages['strExportRelationalSchema'] = __('Export relational schema');
 $js_messages['strModificationSaved'] = __('Modifications have been saved');
 
 /* Visual query builder (js/designer/move.js) */
-$js_messages['strAddOption'] = __('Add an option for column "%s".');
 $js_messages['strObjectsCreated'] = __('%d object(s) created.');
+$js_messages['strColumnName'] = __('Column name');
 $js_messages['strSubmit'] = __('Submit');
 
 /* For makegrid.js (column reordering, show/hide column, grid editing) */

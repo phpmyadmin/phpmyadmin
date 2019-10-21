@@ -122,10 +122,12 @@
                     </td>
                     {% if has_query %}
                         <td class="small_tab_pref small_tab_pref_click_opt"
-                            click_option_param="designer_optionse,
-                                {{- tab_column[t_n]['COLUMN_NAME'][j]|url_encode }},
-                                {{- t_n }}">
-                            <img src="{{ theme.getImgPath('designer/exec_small.png') }}" title="options" />
+                            option_col_name_modal="<strong>{{ 'Add an option for column "%s".'|trans|format(col_name) }}</strong>"
+                            db_name="{{ db }}"
+                            table_name="{{ table_name }}"
+                            col_name="{{ col_name }}"
+                            db_table_name_url="{{ t_n_url }}">
+                            <img src="{{ theme.getImgPath('designer/exec_small.png') }}" title="{% trans 'Options'  %}" />
                         </td>
                     {% endif %}
                 </tr>
