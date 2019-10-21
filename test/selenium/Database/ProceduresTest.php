@@ -85,7 +85,7 @@ class ProceduresTest extends TestBase
     private function _procedureSQL()
     {
         $this->dbQuery(
-            "CREATE PROCEDURE `test_procedure`(IN `inp` VARCHAR(10), OUT `outp` INT)"
+            "CREATE PROCEDURE `test_procedure`(IN `inp` VARCHAR(20), OUT `outp` INT)"
             . " NOT DETERMINISTIC READS SQL DATA SQL SECURITY DEFINER SELECT char_"
             . "length(inp) + count(*) FROM test_table INTO outp"
         );
@@ -114,7 +114,7 @@ class ProceduresTest extends TestBase
             $this->byName("item_param_type[0]"),
             'VARCHAR'
         );
-        $this->byName("item_param_length[0]")->sendKeys("10");
+        $this->byName("item_param_length[0]")->sendKeys("20");
 
         $this->byCssSelector("input[value='Add parameter']")->click();
 
@@ -146,7 +146,7 @@ class ProceduresTest extends TestBase
         );
 
         $this->assertEquals(1, $result->num_rows);
-        $this->_executeProcedure("test_procedure", 10);
+        $this->_executeProcedure("test_procedure", 14);
     }
 
     /**
@@ -170,7 +170,7 @@ class ProceduresTest extends TestBase
         $this->byPartialLinkText("Edit")->click();
         $this->waitForElement('className', "rte_form");
         $this->byName("item_param_length[0]")->clear();
-        $this->byName("item_param_length[0]")->sendKeys("12");
+        $this->byName("item_param_length[0]")->sendKeys("30");
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
@@ -180,7 +180,7 @@ class ProceduresTest extends TestBase
             . "'Routine `test_procedure` has been modified')]"
         );
 
-        $this->_executeProcedure("test_procedure", 12);
+        $this->_executeProcedure("test_procedure", 14);
     }
 
     /**
