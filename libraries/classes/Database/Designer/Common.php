@@ -65,7 +65,6 @@ class Common
             $tables = $this->dbi->getTablesFull($db, $table);
         }
 
-
         foreach ($tables as $one_table) {
             $DF = $this->relation->getDisplayField($db, $one_table['TABLE_NAME']);
             $DF = is_string($DF) ? $DF : '';
