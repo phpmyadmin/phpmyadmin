@@ -2410,7 +2410,11 @@ class DatabaseInterface
     {
         if (count($this->_current_user) === 0) {
             $user = $this->getCurrentUser();
-            $this->_current_user = explode("@", $user);
+            if ($user === '@') {// Request did not succeed, please do not cache
+                return ['', ''];
+            } else {
+                $this->_current_user = explode("@", $user);
+            }
         }
         return $this->_current_user;
     }
