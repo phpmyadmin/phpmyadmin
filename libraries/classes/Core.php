@@ -1306,7 +1306,7 @@ class Core
     /**
      * Check that the sql query has a valid hmac signature
      *
-     * @param string $sqlQuery The sql query
+     * @param string $sqlQuery  The sql query
      * @param string $signature The Signature to check
      * @return bool
      */

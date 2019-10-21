@@ -3482,8 +3482,8 @@ class Util
     /**
      * Generates GIS data based on the string passed.
      *
-     * @param string $gis_string GIS string
-     * @param int $mysqlVersion The mysql version as int
+     * @param string $gis_string   GIS string
+     * @param int    $mysqlVersion The mysql version as int
      *
      * @return string GIS data enclosed in 'ST_GeomFromText' or 'GeomFromText' function
      */

@@ -1084,7 +1084,6 @@ class ConfigTest extends PmaTestCase
             $this->object->get('PMA_VERSION_GIT_COMMITHASH')
         );
 
-
         file_put_contents('.git/HEAD','ref: refs/remotes/origin/master');
         $this->object->checkGitRevision();
         $this->assertEmpty(
@@ -1148,7 +1147,6 @@ class ConfigTest extends PmaTestCase
             $this->object->get('PMA_VERSION_GIT_COMMITHASH')
         );
 
-
         file_put_contents('.git/HEAD','ref: refs/remotes/origin/master');
         mkdir('.git/refs/remotes/origin', 0777, true);
         file_put_contents('.git/refs/remotes/origin/master','c1f2ff2eb0c3fda741f859913fd589379f4e4a8f');
@@ -1203,7 +1201,6 @@ class ConfigTest extends PmaTestCase
         $this->assertEmpty(
             $this->object->get('PMA_VERSION_GIT_COMMITHASH')
         );
-
 
         file_put_contents('.git/HEAD','ref: refs/remotes/origin/master');
         $this->object->checkGitRevision();

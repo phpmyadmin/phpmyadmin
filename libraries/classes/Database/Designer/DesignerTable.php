@@ -24,9 +24,9 @@ class DesignerTable
     /**
      * Create a new DesignerTable
      *
-     * @param string $databaseName The database name
-     * @param string $tableName The table name
-     * @param string $tableEngine The table engine
+     * @param string      $databaseName The database name
+     * @param string      $tableName    The table name
+     * @param string      $tableEngine  The table engine
      * @param string|null $displayField The display field if available
      */
     public function __construct(

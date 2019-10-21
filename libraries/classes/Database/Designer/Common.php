@@ -53,7 +53,6 @@ class Common
             $tables = $GLOBALS['dbi']->getTablesFull($db, $table);
         }
 
-
         foreach ($tables as $one_table) {
             $DF = $this->relation->getDisplayField($db, $one_table['TABLE_NAME']);
             $DF = is_string($DF) ? $DF : '';
@@ -199,7 +198,7 @@ class Common
      * Returns all indices
      *
      * @param DesignerTable[] $designerTables The designer tables
-     * @param bool $unique_only whether to include only unique ones
+     * @param bool            $unique_only    whether to include only unique ones
      *
      * @return array indices
      */
