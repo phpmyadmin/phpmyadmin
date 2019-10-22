@@ -7942,7 +7942,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Innodb.php:174
 msgid "pages"
-msgstr ""
+msgstr "หน้า"
 
 #: libraries/classes/Engines/Innodb.php:188
 msgid "Free pages"
@@ -7963,7 +7963,8 @@ msgstr "ล้างตาราง %s เรียบร้อยแล้ว"
 
 #: libraries/classes/Engines/Innodb.php:224
 msgid "Busy pages"
-msgstr ""
+msgstr "หน้าไม่ว่าง
+"
 
 #: libraries/classes/Engines/Innodb.php:236
 msgid "Latched pages"
@@ -7974,7 +7975,7 @@ msgid "Buffer Pool Activity"
 msgstr ""
 
 #: libraries/classes/Engines/Innodb.php:254
-msgid "Read requests"
+msgid "Write requests"
 msgstr ""
 
 #: libraries/classes/Engines/Innodb.php:263
@@ -7983,11 +7984,11 @@ msgstr ""
 
 #: libraries/classes/Engines/Innodb.php:272
 msgid "Read misses"
-msgstr ""
+msgstr "อ่านผิดพลาด"
 
 #: libraries/classes/Engines/Innodb.php:281
 msgid "Write waits"
-msgstr ""
+msgstr "รอการเขียน"
 
 #: libraries/classes/Engines/Innodb.php:290
 msgid "Read misses in %"
@@ -7999,7 +8000,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Myisam.php:29
 msgid "Data pointer size"
-msgstr ""
+msgstr "ขนาดตัวชี้ข้อมูล"
 
 #: libraries/classes/Engines/Myisam.php:31
 msgid ""
@@ -8009,7 +8010,8 @@ msgstr ""
 
 #: libraries/classes/Engines/Myisam.php:37
 msgid "Automatic recovery mode"
-msgstr ""
+msgstr "โหมดการกู้คืนอัตโนมัติ
+"
 
 #: libraries/classes/Engines/Myisam.php:39
 msgid ""
@@ -8019,7 +8021,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Myisam.php:44
 msgid "Maximum size for temporary sort files"
-msgstr ""
+msgstr "ขนาดสูงสุดสำหรับไฟล์จัดเรียงชั่วคราว"
 
 #: libraries/classes/Engines/Myisam.php:46
 msgid ""
@@ -8041,7 +8043,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Myisam.php:62
 msgid "Repair threads"
-msgstr ""
+msgstr "ซ่อมแซมเธรด"
 
 #: libraries/classes/Engines/Myisam.php:64
 msgid ""
@@ -8082,7 +8084,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:50
 msgid "Log cache size"
-msgstr ""
+msgstr "ขนาดไฟล์บันทึกของ cache"
 
 #: libraries/classes/Engines/Pbxt.php:52
 msgid ""
