@@ -4275,3 +4275,34 @@ body {
 #filter_query_text {
   vertical-align: baseline;
 }
+
+/* templates/database/multi_table_query */
+
+.multi_table_query_form {
+  .query-form__div--hide,
+  .query-form__tr--hide {
+    display: none;
+  }
+
+  .query-form__fieldset--inline,
+  .query-form__select--inline {
+    display: inline;
+  }
+
+  .query-form__tr--bg-none {
+    background: none;
+  }
+
+  .query-form__input--wide {
+    width: 91%;
+  }
+
+  .query-form__remove-column {
+    float: right;
+    color: red;
+  }
+
+  .query-form__multi-sql-query {
+    float: left;
+  }
+}
