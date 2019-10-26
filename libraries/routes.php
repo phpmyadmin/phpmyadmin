@@ -10,6 +10,7 @@ use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\Controllers\Server\CollationsController;
 use PhpMyAdmin\Controllers\Server\DatabasesController;
 use PhpMyAdmin\Controllers\Server\EnginesController;
+use PhpMyAdmin\Controllers\Server\PluginsController;
 use PhpMyAdmin\Response;
 
 global $containerBuilder;
@@ -191,8 +192,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $routes->addRoute(['GET', 'POST'], '/import', function () {
             require_once ROOT_PATH . 'libraries/entry_points/server/import.php';
         });
-        $routes->addRoute('GET', '/plugins', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/server/plugins.php';
+        $routes->addRoute('GET', '/plugins', function () use ($containerBuilder, $response) {
+            /** @var PluginsController $controller */
+            $controller = $containerBuilder->get(PluginsController::class);
+            $response->addHTML($controller->index());
         });
         $routes->addRoute(['GET', 'POST'], '/privileges', function () {
             require_once ROOT_PATH . 'libraries/entry_points/server/privileges.php';
