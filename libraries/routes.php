@@ -12,6 +12,7 @@ use PhpMyAdmin\Controllers\Server\DatabasesController;
 use PhpMyAdmin\Controllers\Server\EnginesController;
 use PhpMyAdmin\Controllers\Server\PluginsController;
 use PhpMyAdmin\Controllers\Server\SqlController;
+use PhpMyAdmin\Controllers\Server\Status\AdvisorController;
 use PhpMyAdmin\Controllers\Server\Status\StatusController;
 use PhpMyAdmin\Response;
 
@@ -216,8 +217,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
                 $controller = $containerBuilder->get(StatusController::class);
                 $response->addHTML($controller->index());
             });
-            $routes->addRoute('GET', '/advisor', function () {
-                require_once ROOT_PATH . 'libraries/entry_points/server/status/advisor.php';
+            $routes->addRoute('GET', '/advisor', function () use ($containerBuilder, $response) {
+                /** @var AdvisorController $controller */
+                $controller = $containerBuilder->get(AdvisorController::class);
+                $response->addHTML($controller->index());
             });
             $routes->addRoute(['GET', 'POST'], '/monitor', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/server/status/monitor.php';

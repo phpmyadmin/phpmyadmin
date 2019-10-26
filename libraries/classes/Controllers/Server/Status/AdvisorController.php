@@ -47,6 +47,9 @@ class AdvisorController extends AbstractController
      */
     public function index(): string
     {
+        $scripts = $this->response->getHeader()->getScripts();
+        $scripts->addFile('server/status/advisor.js');
+
         $data = '';
         if ($this->data->dataLoaded) {
             $data = json_encode($this->advisor->run());
