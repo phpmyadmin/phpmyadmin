@@ -50,7 +50,7 @@ class CollationsControllerTest extends TestCase
             new Template()
         );
 
-        $actual = $controller->indexAction();
+        $actual = $controller->index();
 
         $this->assertStringContainsString(
             '<div id="div_mysql_charset_collations" class="row">',

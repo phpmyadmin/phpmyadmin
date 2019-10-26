@@ -68,7 +68,7 @@ class CollationsController extends AbstractController
      *
      * @return string HTML
      */
-    public function indexAction(): string
+    public function index(): string
     {
         include_once ROOT_PATH . 'libraries/server_common.inc.php';
 

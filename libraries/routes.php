@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 use FastRoute\RouteCollector;
 use PhpMyAdmin\Controllers\Server\BinlogController;
+use PhpMyAdmin\Controllers\Server\CollationsController;
 use PhpMyAdmin\Controllers\Server\DatabasesController;
 use PhpMyAdmin\Response;
 
@@ -138,20 +139,20 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $routes->addRoute(['GET', 'POST'], '/binlog', function () use ($containerBuilder, $response) {
             /** @var BinlogController $controller */
             $controller = $containerBuilder->get(BinlogController::class);
-
             $response->addHTML($controller->index([
                 'log' => $_POST['log'] ?? null,
                 'pos' => $_POST['pos'] ?? null,
                 'is_full_query' => $_POST['is_full_query'] ?? null,
             ]));
         });
-        $routes->addRoute('GET', '/collations', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/server/collations.php';
+        $routes->addRoute('GET', '/collations', function () use ($containerBuilder, $response) {
+            /** @var CollationsController $controller */
+            $controller = $containerBuilder->get(CollationsController::class);
+            $response->addHTML($controller->index());
         });
         $routes->addGroup('/databases', function (RouteCollector $routes) use ($containerBuilder, $response) {
             /** @var DatabasesController $controller */
             $controller = $containerBuilder->get(DatabasesController::class);
-
             $routes->addRoute(['GET', 'POST'], '', function () use ($response, $controller) {
                 $response->addHTML($controller->index([
                     'statistics' => $_REQUEST['statistics'] ?? null,
