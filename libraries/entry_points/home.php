@@ -10,7 +10,6 @@ use PhpMyAdmin\Controllers\HomeController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 
 if (! defined('PHPMYADMIN')) {
     exit;
