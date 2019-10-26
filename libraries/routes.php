@@ -13,6 +13,7 @@ use PhpMyAdmin\Controllers\Server\EnginesController;
 use PhpMyAdmin\Controllers\Server\PluginsController;
 use PhpMyAdmin\Controllers\Server\SqlController;
 use PhpMyAdmin\Controllers\Server\Status\AdvisorController;
+use PhpMyAdmin\Controllers\Server\Status\MonitorController;
 use PhpMyAdmin\Controllers\Server\Status\StatusController;
 use PhpMyAdmin\Response;
 
@@ -222,8 +223,43 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
                 $controller = $containerBuilder->get(AdvisorController::class);
                 $response->addHTML($controller->index());
             });
-            $routes->addRoute(['GET', 'POST'], '/monitor', function () {
-                require_once ROOT_PATH . 'libraries/entry_points/server/status/monitor.php';
+            $routes->addGroup('/monitor', function (RouteCollector $routes) use ($containerBuilder, $response) {
+                /** @var MonitorController $controller */
+                $controller = $containerBuilder->get(MonitorController::class);
+                $routes->addRoute('GET', '', function () use ($response, $controller) {
+                    $response->addHTML($controller->index());
+                });
+                $routes->addRoute('POST', '/chart', function () use ($response, $controller) {
+                    $response->addJSON($controller->chartingData([
+                        'requiredData' => $_POST['requiredData'] ?? null,
+                    ]));
+                });
+                $routes->addRoute('POST', '/slow-log', function () use ($response, $controller) {
+                    $response->addJSON($controller->logDataTypeSlow([
+                        'time_start' => $_POST['time_start'] ?? null,
+                        'time_end' => $_POST['time_end'] ?? null,
+                    ]));
+                });
+                $routes->addRoute('POST', '/general-log', function () use ($response, $controller) {
+                    $response->addJSON($controller->logDataTypeGeneral([
+                        'time_start' => $_POST['time_start'] ?? null,
+                        'time_end' => $_POST['time_end'] ?? null,
+                        'limitTypes' => $_POST['limitTypes'] ?? null,
+                        'removeVariables' => $_POST['removeVariables'] ?? null,
+                    ]));
+                });
+                $routes->addRoute('POST', '/log-vars', function () use ($response, $controller) {
+                    $response->addJSON($controller->loggingVars([
+                        'varName' => $_POST['varName'] ?? null,
+                        'varValue' => $_POST['varValue'] ?? null,
+                    ]));
+                });
+                $routes->addRoute('POST', '/query', function () use ($response, $controller) {
+                    $response->addJSON($controller->queryAnalyzer([
+                        'database' => $_POST['database'] ?? null,
+                        'query' => $_POST['query'] ?? null,
+                    ]));
+                });
             });
             $routes->addRoute(['GET', 'POST'], '/processes', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/server/status/processes.php';

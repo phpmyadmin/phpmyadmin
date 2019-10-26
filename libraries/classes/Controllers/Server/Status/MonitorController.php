@@ -39,6 +39,8 @@ class MonitorController extends AbstractController
     {
         parent::__construct($response, $dbi, $template, $data);
         $this->monitor = $monitor;
+
+        require_once ROOT_PATH . 'libraries/server_common.inc.php';
     }
 
     /**
@@ -46,6 +48,22 @@ class MonitorController extends AbstractController
      */
     public function index(): string
     {
+        $header = $this->response->getHeader();
+        $scripts = $header->getScripts();
+        $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
+        $scripts->addFile('vendor/jquery/jquery.sortableTable.js');
+        $scripts->addFile('vendor/jqplot/jquery.jqplot.js');
+        $scripts->addFile('vendor/jqplot/plugins/jqplot.pieRenderer.js');
+        $scripts->addFile('vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js');
+        $scripts->addFile('vendor/jqplot/plugins/jqplot.canvasTextRenderer.js');
+        $scripts->addFile('vendor/jqplot/plugins/jqplot.canvasAxisLabelRenderer.js');
+        $scripts->addFile('vendor/jqplot/plugins/jqplot.dateAxisRenderer.js');
+        $scripts->addFile('vendor/jqplot/plugins/jqplot.highlighter.js');
+        $scripts->addFile('vendor/jqplot/plugins/jqplot.cursor.js');
+        $scripts->addFile('jqplot/plugins/jqplot.byteFormatter.js');
+        $scripts->addFile('server/status/monitor.js');
+        $scripts->addFile('server/status/sorter.js');
+
         $form = [
             'server_time' => microtime(true) * 1000,
             'server_os' => SysInfo::getOs(),
@@ -73,6 +91,10 @@ class MonitorController extends AbstractController
      */
     public function chartingData(array $params): array
     {
+        if (! $this->response->isAjax()) {
+            return [];
+        }
+
         $json = [];
         $json['message'] = $this->monitor->getJsonForChartingData(
             $params['requiredData'] ?? ''
@@ -87,6 +109,10 @@ class MonitorController extends AbstractController
      */
     public function logDataTypeSlow(array $params): array
     {
+        if (! $this->response->isAjax()) {
+            return [];
+        }
+
         $json = [];
         $json['message'] = $this->monitor->getJsonForLogDataTypeSlow(
             (int) $params['time_start'],
@@ -102,6 +128,10 @@ class MonitorController extends AbstractController
      */
     public function logDataTypeGeneral(array $params): array
     {
+        if (! $this->response->isAjax()) {
+            return [];
+        }
+
         $json = [];
         $json['message'] = $this->monitor->getJsonForLogDataTypeGeneral(
             (int) $params['time_start'],
@@ -119,6 +149,10 @@ class MonitorController extends AbstractController
      */
     public function loggingVars(array $params): array
     {
+        if (! $this->response->isAjax()) {
+            return [];
+        }
+
         $json = [];
         $json['message'] = $this->monitor->getJsonForLoggingVars(
             $params['varName'],
@@ -134,6 +168,10 @@ class MonitorController extends AbstractController
      */
     public function queryAnalyzer(array $params): array
     {
+        if (! $this->response->isAjax()) {
+            return [];
+        }
+
         $json = [];
         $json['message'] = $this->monitor->getJsonForQueryAnalyzer(
             $params['database'] ?? '',
