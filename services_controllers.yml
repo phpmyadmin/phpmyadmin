@@ -195,6 +195,7 @@ services:
       dbi: '@dbi'
       template: '@template'
       data: '@status_data'
+      replicationGui: '@replication_gui'
 
   PhpMyAdmin\Controllers\Server\Status\VariablesController:
     class: 'PhpMyAdmin\Controllers\Server\Status\VariablesController'

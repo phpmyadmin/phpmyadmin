@@ -313,6 +313,12 @@ class Data
      */
     public function __construct()
     {
+        global $replication_info;
+
+        if (! isset($replication_info)) {
+            require_once ROOT_PATH . 'libraries/replication.inc.php';
+        }
+
         $this->selfUrl = basename($GLOBALS['PMA_PHP_SELF']);
 
         // get status from server

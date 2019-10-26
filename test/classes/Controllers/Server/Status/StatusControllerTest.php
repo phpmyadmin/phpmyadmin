@@ -143,14 +143,16 @@ class StatusControllerTest extends TestCase
         $data->status['Aborted_connects'] = $abortedConnections;
         $data->status['Connections'] = $connections;
 
+        $template = new Template();
         $controller = new StatusController(
             Response::getInstance(),
             $GLOBALS['dbi'],
-            new Template(),
-            $data
+            $template,
+            $data,
+            new ReplicationGui(new Replication(), $template)
         );
 
-        $html = $controller->index(new ReplicationGui(new Replication(), new Template()));
+        $html = $controller->index();
 
         $traffic = $bytesReceived + $bytesSent;
         $trafficHtml = 'Network traffic since startup: ' . $traffic . ' B';
