@@ -152,6 +152,7 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
+      sqlQueryForm: '@sql_query_form'
 
   PhpMyAdmin\Controllers\Server\Status\AdvisorController:
     class: 'PhpMyAdmin\Controllers\Server\Status\AdvisorController'

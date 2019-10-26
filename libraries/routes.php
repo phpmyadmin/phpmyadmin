@@ -11,6 +11,7 @@ use PhpMyAdmin\Controllers\Server\CollationsController;
 use PhpMyAdmin\Controllers\Server\DatabasesController;
 use PhpMyAdmin\Controllers\Server\EnginesController;
 use PhpMyAdmin\Controllers\Server\PluginsController;
+use PhpMyAdmin\Controllers\Server\SqlController;
 use PhpMyAdmin\Response;
 
 global $containerBuilder;
@@ -203,8 +204,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $routes->addRoute(['GET', 'POST'], '/replication', function () {
             require_once ROOT_PATH . 'libraries/entry_points/server/replication.php';
         });
-        $routes->addRoute(['GET', 'POST'], '/sql', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/server/sql.php';
+        $routes->addRoute(['GET', 'POST'], '/sql', function () use ($containerBuilder, $response) {
+            /** @var SqlController $controller */
+            $controller = $containerBuilder->get(SqlController::class);
+            $response->addHTML($controller->index());
         });
         $routes->addGroup('/status', function (RouteCollector $routes) {
             $routes->addRoute('GET', '', function () {
