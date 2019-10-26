@@ -3,25 +3,26 @@ imports:
     - javascript
     - php
 filter:
-    excluded_paths: [js/vendor/*]
+    excluded_paths:
+        - build/
+        - js/vendor/
+        - node_modules/
+        - tmp/
+        - vendor/
 checks:
     javascript: true
     php: true
 build:
     nodes:
-        test:
+        analysis:
             environment:
                 php: 7.1
+                node: 10
             dependencies:
                 before:
                     - composer install
                     - composer require tecnickcom/tcpdf pragmarx/google2fa-qrcode samyoul/u2f-php-server
-                    - ./vendor/bin/phpcs --config-set installed_paths `pwd`/vendor/phpmyadmin/coding-standard
             tests:
                 override:
                     - php-scrutinizer-run
-                    -
-                        command: './vendor/bin/phpcs  --standard=PMAStandard ./ --report=checkstyle --report-file=cs-data --ignore=*/vendor/*,*/build/*'
-                        analysis:
-                            file: 'cs-data'                 # The reporter filename
-                            format: 'php-cs-checkstyle'     # The supported format by Scrutinizer
+                    - phpcs-run

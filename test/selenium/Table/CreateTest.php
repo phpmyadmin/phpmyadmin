@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Selenium TestCase for table related tests
  *
@@ -24,7 +23,7 @@ class CreateTest extends TestBase
     /**
      * @return void
      */
-    public function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->maximize();
@@ -81,7 +80,7 @@ class CreateTest extends TestBase
             "field_0_6" => "UNSIGNED",
             "field_1_2" => "VARCHAR",
             "field_1_5" => "utf8_general_ci",
-            "field_1_4" => "As defined:"
+            "field_1_4" => "As defined:",
         ];
 
         foreach ($column_dropdown_details as $selector => $value) {
@@ -131,7 +130,7 @@ class CreateTest extends TestBase
         $this->waitForElement('id', 'table_strucuture_id');
 
         // make assertions for first row
-        $this->assertContains(
+        $this->assertStringContainsString(
             "test_id",
             $this->byCssSelector('label[for=checkbox_row_1]')->getText()
         );
@@ -174,7 +173,7 @@ class CreateTest extends TestBase
         );
 
         // make assertions for second row
-        $this->assertContains(
+        $this->assertStringContainsString(
             "test_column",
             $this->byCssSelector('label[for=checkbox_row_2]')->getText()
         );

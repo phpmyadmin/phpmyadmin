@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Abstract class for the schema export plugins
  *
@@ -9,8 +8,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins;
 
-use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
+use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
 
 /**
@@ -61,7 +60,7 @@ abstract class SchemaPlugin
     /**
      * Adds export options common to all plugins.
      *
-     * @param \PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup $propertyGroup property group
+     * @param OptionsPropertyMainGroup $propertyGroup property group
      *
      * @return void
      */

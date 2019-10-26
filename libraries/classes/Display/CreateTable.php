@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Displays form for creating a table (if user has privileges for that)
  *
@@ -28,9 +27,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Display;
 
+use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Template;
-
-require_once './libraries/check_user_privileges.inc.php';
 
 /**
  * PhpMyAdmin\Display\CreateTable class
@@ -48,6 +46,9 @@ class CreateTable
      */
     public static function getHtml($db)
     {
+        $checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
+        $checkUserPrivileges->getPrivileges();
+
         $template = new Template();
         return $template->render('database/create_table', ['db' => $db]);
     }

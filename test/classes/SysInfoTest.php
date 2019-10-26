@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for sysinfo library
  *
@@ -29,7 +28,7 @@ class SysInfoTest extends TestCase
      *
      * @dataProvider sysInfoOsProvider
      */
-    public function testGetSysInfoOs($os, $expected)
+    public function testGetSysInfoOs($os, $expected): void
     {
         $this->assertEquals(
             $expected,
@@ -45,10 +44,22 @@ class SysInfoTest extends TestCase
     public function sysInfoOsProvider()
     {
         return [
-            ['FreeBSD', 'Linux'],
-            ['Linux', 'Linux'],
-            ['Winnt', 'Winnt'],
-            ['SunOS', 'SunOS'],
+            [
+                'FreeBSD',
+                'Linux',
+            ],
+            [
+                'Linux',
+                'Linux',
+            ],
+            [
+                'Winnt',
+                'Winnt',
+            ],
+            [
+                'SunOS',
+                'SunOS',
+            ],
         ];
     }
 

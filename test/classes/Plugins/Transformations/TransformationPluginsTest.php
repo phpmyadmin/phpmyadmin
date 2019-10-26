@@ -10,8 +10,8 @@ namespace PhpMyAdmin\Tests\Plugins\Transformations;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Plugins\Transformations\Input\Image_JPEG_Upload;
-use PhpMyAdmin\Plugins\Transformations\Input\Text_Plain_RegexValidation;
 use PhpMyAdmin\Plugins\Transformations\Input\Text_Plain_FileUpload;
+use PhpMyAdmin\Plugins\Transformations\Input\Text_Plain_RegexValidation;
 use PhpMyAdmin\Plugins\Transformations\Output\Application_Octetstream_Download;
 use PhpMyAdmin\Plugins\Transformations\Output\Application_Octetstream_Hex;
 use PhpMyAdmin\Plugins\Transformations\Output\Image_JPEG_Inline;
@@ -43,12 +43,15 @@ class TransformationPluginsTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         // For Application Octetstream Download plugin
         global $row, $fields_meta;
         $fields_meta = [];
-        $row = ["pma" => "aaa", "pca" => "bbb"];
+        $row = [
+            "pma" => "aaa",
+            "pca" => "bbb",
+        ];
 
         // For Image_*_Inline plugin
         $GLOBALS['PMA_Config'] = new Config();
@@ -65,7 +68,7 @@ class TransformationPluginsTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
     }
 
@@ -81,36 +84,36 @@ class TransformationPluginsTest extends PmaTestCase
             [
                 new Image_JPEG_Upload(),
                 'getName',
-                'Image upload'
+                'Image upload',
             ],
             [
                 new Image_JPEG_Upload(),
                 'getInfo',
                 'Image upload functionality which also displays a thumbnail.'
                 . ' The options are the width and height of the thumbnail'
-                . ' in pixels. Defaults to 100 X 100.'
+                . ' in pixels. Defaults to 100 X 100.',
             ],
             [
                 new Image_JPEG_Upload(),
                 'getMIMEType',
-                'Image'
+                'Image',
             ],
             [
                 new Image_JPEG_Upload(),
                 'getMIMESubtype',
-                'JPEG'
+                'JPEG',
             ],
             [
                 new Image_JPEG_Upload(),
                 'getScripts',
-                ['transformations/image_upload.js']
+                ['transformations/image_upload.js'],
             ],
             [
                 new Image_JPEG_Upload(),
                 'getInputHtml',
                 '<img src="" width="150" height="100" '
-                . 'alt="Image preview here"/><br/><input type="file" '
-                . 'name="fields_uploadtest" accept="image/*" class="image-upload"/>',
+                . 'alt="Image preview here"><br><input type="file" '
+                . 'name="fields_uploadtest" accept="image/*" class="image-upload">',
                 [
                     [],
                     0,
@@ -120,64 +123,65 @@ class TransformationPluginsTest extends PmaTestCase
                     'ltr',
                     0,
                     0,
-                    0
-                ]
+                    0,
+                ],
             ],
             [
                 new Image_JPEG_Upload(),
                 'getInputHtml',
                 '<input type="hidden" name="fields_prev2ndtest" '
-                . 'value="736f6d657468696e67"/><input type="hidden" '
-                . 'name="fields2ndtest" value="736f6d657468696e67"/>'
-                . '<img src="transformation_wrapper.php?table=a" width="100" '
-                . 'height="100" alt="Image preview here"/><br/><input type="file" '
+                . 'value="736f6d657468696e67"><input type="hidden" '
+                . 'name="fields2ndtest" value="736f6d657468696e67">'
+                . '<img src="index.php?route=/transformation/wrapper&amp;key=value&amp;lang=en" width="100" '
+                . 'height="100" alt="Image preview here"><br><input type="file" '
                 . 'name="fields_upload2ndtest" accept="image/*" '
-                . 'class="image-upload"/>',
+                . 'class="image-upload">',
                 [
                     [],
                     0,
                     '2ndtest',
                     [
-                        'wrapper_link' => '?table=a'
+                        'wrapper_link' => '?table=a',
+                        'wrapper_params' => ['key' => 'value'],
                     ],
                     'something',
                     'ltr',
                     0,
                     0,
-                    0
-                ]
+                    0,
+                ],
             ],
             // Test data for TextPlainFileupload plugin
             [
                 new Text_Plain_FileUpload(),
                 'getName',
-                'Text file upload'
+                'Text file upload',
             ],
             [
                 new Text_Plain_FileUpload(),
                 'getInfo',
                 'File upload functionality for TEXT columns. '
-                . 'It does not have a textarea for input.'
+                . 'It does not have a textarea for input.',
             ],
             [
                 new Text_Plain_FileUpload(),
                 'getMIMEType',
-                'Text'
+                'Text',
             ],
             [
                 new Text_Plain_FileUpload(),
                 'getMIMESubtype',
-                'Plain'
+                'Plain',
             ],
             [
                 new Text_Plain_FileUpload(),
                 'getScripts',
-                []
+                [],
             ],
             [
                 new Text_Plain_FileUpload(),
                 'getInputHtml',
-                '<input type="file" name="fields_uploadtest"/>',
+                '<input type="file" name="fields_uploadtest">',
                 [
                     [],
                     0,
@@ -187,16 +191,16 @@ class TransformationPluginsTest extends PmaTestCase
                     'ltr',
                     0,
                     0,
-                    0
-                ]
+                    0,
+                ],
             ],
             [
                 new Text_Plain_FileUpload(),
                 'getInputHtml',
                 '<input type="hidden" name="fields_prev2ndtest" '
-                . 'value="something"/><input type="hidden" name="fields2ndtest" '
-                . 'value="something"/><input type="file" '
-                . 'name="fields_upload2ndtest"/>',
+                . 'value="something"><input type="hidden" name="fields2ndtest" '
+                . 'value="something"><input type="file" '
+                . 'name="fields_upload2ndtest">',
                 [
                     [],
                     0,
@@ -206,45 +210,53 @@ class TransformationPluginsTest extends PmaTestCase
                     'ltr',
                     0,
                     0,
-                    0
-                ]
+                    0,
+                ],
             ],
             // Test data for Text_Plain_Regexvalidation plugin
             [
                 new Text_Plain_RegexValidation(),
                 'getName',
-                'Regex Validation'
+                'Regex Validation',
             ],
             [
                 new Text_Plain_RegexValidation(),
                 'getInfo',
                 'Validates the string using regular expression '
                 . 'and performs insert only if string matches it. '
-                . 'The first option is the Regular Expression.'
+                . 'The first option is the Regular Expression.',
             ],
             [
                 new Text_Plain_RegexValidation(),
                 'getMIMEType',
-                'Text'
+                'Text',
             ],
             [
                 new Text_Plain_RegexValidation(),
                 'getMIMESubtype',
-                'Plain'
+                'Plain',
             ],
             [
                 new Text_Plain_RegexValidation(),
                 'getInputHtml',
                 '',
                 [
-                    [], 0, '', [], '', 'ltr', 0, 0, 0
-                ]
+                    [],
+                    0,
+                    '',
+                    [],
+                    '',
+                    'ltr',
+                    0,
+                    0,
+                    0,
+                ],
             ],
             // Test data for PhpMyAdmin\Plugins\Transformations\Output\Application_Octetstream_Download plugin
             [
                 new Application_Octetstream_Download(),
                 'getName',
-                'Download'
+                'Download',
             ],
             [
                 new Application_Octetstream_Download(),
@@ -253,116 +265,116 @@ class TransformationPluginsTest extends PmaTestCase
                 . ' use the first option to specify the filename, or use the second'
                 . ' option as the name of a column which contains the filename. If'
                 . ' you use the second option, you need to set the first option to'
-                . ' the empty string.'
+                . ' the empty string.',
             ],
             [
                 new Application_Octetstream_Download(),
                 'getMIMEType',
-                'Application'
+                'Application',
             ],
             [
                 new Application_Octetstream_Download(),
                 'getMIMESubtype',
-                'OctetStream'
+                'OctetStream',
             ],
             // Test data for PhpMyAdmin\Plugins\Transformations\Output\Application_Octetstream_Hex plugin
             [
                 new Application_Octetstream_Hex(),
                 'getName',
-                'Hex'
+                'Hex',
             ],
             [
                 new Application_Octetstream_Hex(),
                 'getInfo',
                 'Displays hexadecimal representation of data. Optional first'
                 . ' parameter specifies how often space will be added (defaults'
-                . ' to 2 nibbles).'
+                . ' to 2 nibbles).',
             ],
             [
                 new Application_Octetstream_Hex(),
                 'getMIMEType',
-                'Application'
+                'Application',
             ],
             [
                 new Application_Octetstream_Hex(),
                 'getMIMESubtype',
-                'OctetStream'
+                'OctetStream',
             ],
             // Test data for PhpMyAdmin\Plugins\Transformations\Output\Image_JPEG_Inline plugin
             [
                 new Image_JPEG_Inline(),
                 'getName',
-                'Inline'
+                'Inline',
             ],
             [
                 new Image_JPEG_Inline(),
                 'getInfo',
                 'Displays a clickable thumbnail. The options are the maximum width'
-                . ' and height in pixels. The original aspect ratio is preserved.'
+                . ' and height in pixels. The original aspect ratio is preserved.',
             ],
             [
                 new Image_JPEG_Inline(),
                 'getMIMEType',
-                'Image'
+                'Image',
             ],
             [
                 new Image_JPEG_Inline(),
                 'getMIMESubtype',
-                'JPEG'
+                'JPEG',
             ],
             // Test data for PhpMyAdmin\Plugins\Transformations\Output\Image_JPEG_Link plugin
             [
                 new Image_JPEG_Link(),
                 'getName',
-                'ImageLink'
+                'ImageLink',
             ],
             [
                 new Image_JPEG_Link(),
                 'getInfo',
-                'Displays a link to download this image.'
+                'Displays a link to download this image.',
             ],
             [
                 new Image_JPEG_Link(),
                 'getMIMEType',
-                'Image'
+                'Image',
             ],
             [
                 new Image_JPEG_Link(),
                 'getMIMESubtype',
-                'JPEG'
+                'JPEG',
             ],
             [
                 new Image_JPEG_Link(),
                 'applyTransformationNoWrap',
-                null
+                null,
             ],
             // Test data for PhpMyAdmin\Plugins\Transformations\Output\Image_PNG_Inline plugin
             [
                 new Image_PNG_Inline(),
                 'getName',
-                'Inline'
+                'Inline',
             ],
             [
                 new Image_PNG_Inline(),
                 'getInfo',
                 'Displays a clickable thumbnail. The options are the maximum width'
-                . ' and height in pixels. The original aspect ratio is preserved.'
+                . ' and height in pixels. The original aspect ratio is preserved.',
             ],
             [
                 new Image_PNG_Inline(),
                 'getMIMEType',
-                'Image'
+                'Image',
             ],
             [
                 new Image_PNG_Inline(),
                 'getMIMESubtype',
-                'PNG'
+                'PNG',
             ],
             // Test data for PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Dateformat plugin
             [
                 new Text_Plain_Dateformat(),
                 'getName',
-                'Date Format'
+                'Date Format',
             ],
             [
                 new Text_Plain_Dateformat(),
@@ -375,23 +387,23 @@ class TransformationPluginsTest extends PmaTestCase
                 . ' UTC one (use "local" or "utc" strings) for that. According to'
                 . ' that, date format has different value - for "local" see the'
                 . ' documentation for PHP\'s strftime() function and for "utc" it'
-                . ' is done using gmdate() function.'
+                . ' is done using gmdate() function.',
             ],
             [
                 new Text_Plain_Dateformat(),
                 'getMIMEType',
-                'Text'
+                'Text',
             ],
             [
                 new Text_Plain_Dateformat(),
                 'getMIMESubtype',
-                'Plain'
+                'Plain',
             ],
             // Test data for PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_External plugin
             [
                 new Text_Plain_External(),
                 'getName',
-                'External'
+                'External',
             ],
             [
                 new Text_Plain_External(),
@@ -408,25 +420,17 @@ class TransformationPluginsTest extends PmaTestCase
                 . ' The third option, if set to 1, will convert the output using'
                 . ' htmlspecialchars() (Default 1). The fourth option, if set to 1,'
                 . ' will prevent wrapping and ensure that the output appears all on'
-                . ' one line (Default 1).'
+                . ' one line (Default 1).',
             ],
             [
                 new Text_Plain_External(),
                 'getMIMEType',
-                'Text'
+                'Text',
             ],
             [
                 new Text_Plain_External(),
                 'getMIMESubtype',
-                'Plain'
-            ],
-            [
-                new Text_Plain_External(),
-                'applyTransformationNoWrap',
-                true,
-                [
-                    ["/dev/null -i -wrap -q", "/dev/null -i -wrap -q"]
-                ]
+                'Plain',
             ],
             [
                 new Text_Plain_External(),
@@ -436,9 +440,8 @@ class TransformationPluginsTest extends PmaTestCase
                     [
                         "/dev/null -i -wrap -q",
                         "/dev/null -i -wrap -q",
-                        "/dev/null -i -wrap -q", 1
-                    ]
-                ]
+                    ],
+                ],
             ],
             [
                 new Text_Plain_External(),
@@ -448,9 +451,23 @@ class TransformationPluginsTest extends PmaTestCase
                     [
                         "/dev/null -i -wrap -q",
                         "/dev/null -i -wrap -q",
-                        "/dev/null -i -wrap -q", "1"
-                    ]
-                ]
+                        "/dev/null -i -wrap -q",
+                        1,
+                    ],
+                ],
+            ],
+            [
+                new Text_Plain_External(),
+                'applyTransformationNoWrap',
+                true,
+                [
+                    [
+                        "/dev/null -i -wrap -q",
+                        "/dev/null -i -wrap -q",
+                        "/dev/null -i -wrap -q",
+                        "1",
+                    ],
+                ],
             ],
             [
                 new Text_Plain_External(),
@@ -461,38 +478,38 @@ class TransformationPluginsTest extends PmaTestCase
                         "/dev/null -i -wrap -q",
                         "/dev/null -i -wrap -q",
                         "/dev/null -i -wrap -q",
-                        2
-                    ]
-                ]
+                        2,
+                    ],
+                ],
             ],
             // Test data for PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Formatted plugin
             [
                 new Text_Plain_Formatted(),
                 'getName',
-                'Formatted'
+                'Formatted',
             ],
             [
                 new Text_Plain_Formatted(),
                 'getInfo',
                 'Displays the contents of the column as-is, without running it'
                 . ' through htmlspecialchars(). That is, the column is assumed'
-                . ' to contain valid HTML.'
+                . ' to contain valid HTML.',
             ],
             [
                 new Text_Plain_Formatted(),
                 'getMIMEType',
-                'Text'
+                'Text',
             ],
             [
                 new Text_Plain_Formatted(),
                 'getMIMESubtype',
-                'Plain'
+                'Plain',
             ],
             // Test data for PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Imagelink plugin
             [
                 new Text_Plain_Imagelink(),
                 'getName',
-                'Image Link'
+                'Image Link',
             ],
             [
                 new Text_Plain_Imagelink(),
@@ -501,112 +518,112 @@ class TransformationPluginsTest extends PmaTestCase
                 . 'the column contains the filename. The first option'
                 . ' is a URL prefix like "https://www.example.com/". '
                 . 'The second and third options'
-                . ' are the width and the height in pixels.'
+                . ' are the width and the height in pixels.',
             ],
             [
                 new Text_Plain_Imagelink(),
                 'getMIMEType',
-                'Text'
+                'Text',
             ],
             [
                 new Text_Plain_Imagelink(),
                 'getMIMESubtype',
-                'Plain'
+                'Plain',
             ],
             // Test data for PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Sql plugin
             [
                 new Text_Plain_Sql(),
                 'getName',
-                'SQL'
+                'SQL',
             ],
             [
                 new Text_Plain_Sql(),
                 'getInfo',
-                'Formats text as SQL query with syntax highlighting.'
+                'Formats text as SQL query with syntax highlighting.',
             ],
             [
                 new Text_Plain_Sql(),
                 'getMIMEType',
-                'Text'
+                'Text',
             ],
             [
                 new Text_Plain_Sql(),
                 'getMIMESubtype',
-                'Plain'
+                'Plain',
             ],
             // Test data for PhpMyAdmin\Plugins\Transformations\Text_Plain_Link plugin
             [
                 new Text_Plain_Link(),
                 'getName',
-                'TextLink'
+                'TextLink',
             ],
             [
                 new Text_Plain_Link(),
                 'getInfo',
                 'Displays a link; the column contains the filename. The first option'
                 . ' is a URL prefix like "https://www.example.com/".'
-                . ' The second option is a title for the link.'
+                . ' The second option is a title for the link.',
             ],
             [
                 new Text_Plain_Link(),
                 'getMIMEType',
-                'Text'
+                'Text',
             ],
             [
                 new Text_Plain_Link(),
                 'getMIMESubtype',
-                'Plain'
+                'Plain',
             ],
             // Test data for PhpMyAdmin\Plugins\Transformations\Text_Plain_Longtoipv4 plugin
             [
                 new Text_Plain_Longtoipv4(),
                 'getName',
-                'Long To IPv4'
+                'Long To IPv4',
             ],
             [
                 new Text_Plain_Longtoipv4(),
                 'getInfo',
                 'Converts an (IPv4) Internet network address stored as a BIGINT'
-                . ' into a string in Internet standard dotted format.'
+                . ' into a string in Internet standard dotted format.',
             ],
             [
                 new Text_Plain_Longtoipv4(),
                 'getMIMEType',
-                'Text'
+                'Text',
             ],
             [
                 new Text_Plain_Longtoipv4(),
                 'getMIMESubtype',
-                'Plain'
+                'Plain',
             ],
             // Test data for Text_Plain_PreApPend plugin
             [
                 new Text_Plain_PreApPend(),
                 'getName',
-                'PreApPend'
+                'PreApPend',
             ],
             [
                 new Text_Plain_PreApPend(),
                 'getInfo',
                 'Prepends and/or Appends text to a string. First option is text'
                 . ' to be prepended, second is appended (enclosed in single'
-                . ' quotes, default empty string).'
+                . ' quotes, default empty string).',
             ],
             [
                 new Text_Plain_PreApPend(),
                 'getMIMEType',
-                'Text'
+                'Text',
             ],
             [
                 new Text_Plain_PreApPend(),
                 'getMIMESubtype',
-                'Plain'
+                'Plain',
             ],
             // Test data for PhpMyAdmin\Plugins\Transformations\Text_Plain_Substring plugin
             [
                 new Text_Plain_Substring(),
                 'getName',
-                'Substring'
+                'Substring',
             ],
             [
                 new Text_Plain_Substring(),
@@ -616,44 +633,76 @@ class TransformationPluginsTest extends PmaTestCase
                 . '(Default 0). The second option is the number of characters '
                 . 'to return (Default: until end of string). The third option is '
                 . 'the string to append and/or prepend when truncation occurs '
-                . '(Default: "…").'
+                . '(Default: "…").',
             ],
             [
                 new Text_Plain_Substring(),
                 'getMIMEType',
-                'Text'
+                'Text',
             ],
             [
                 new Text_Plain_Substring(),
                 'getMIMESubtype',
-                'Plain'
+                'Plain',
             ],
             [
                 new Text_Plain_Substring(),
                 'getOptions',
-                ['foo', 'bar', 'baz'],
+                [
+                    'foo',
+                    'bar',
+                    'baz',
+                ],
                 [
                     [],
-                    ['foo', 'bar', 'baz']
-                ]
+                    [
+                        'foo',
+                        'bar',
+                        'baz',
+                    ],
+                ],
             ],
             [
                 new Text_Plain_Substring(),
                 'getOptions',
-                ['foo', 'bar', 'baz'],
                 [
-                    ['foo', 'bar', 'baz'],
-                    ['foo', 'bar', 'baz']
-                ]
+                    'foo',
+                    'bar',
+                    'baz',
+                ],
+                [
+                    [
+                        'foo',
+                        'bar',
+                        'baz',
+                    ],
+                    [
+                        'foo',
+                        'bar',
+                        'baz',
+                    ],
+                ],
             ],
             [
                 new Text_Plain_Substring(),
                 'getOptions',
-                ['foo', 'bar', 'baz'],
                 [
-                    ['foo', 'bar', 'baz'],
-                    [1, 2, 3]
-                ]
+                    'foo',
+                    'bar',
+                    'baz',
+                ],
+                [
+                    [
+                        'foo',
+                        'bar',
+                        'baz',
+                    ],
+                    [
+                        1,
+                        2,
+                        3,
+                    ],
+                ],
             ],
         ];
     }
@@ -672,7 +721,7 @@ class TransformationPluginsTest extends PmaTestCase
      * @dataProvider multiDataProvider
      * @group medium
      */
-    public function testGetMulti($object, $method, $expected, $args = [])
+    public function testGetMulti($object, $method, $expected, $args = []): void
     {
         if (method_exists($object, $method)) {
             $reflectionMethod = new ReflectionMethod($object, $method);
@@ -695,91 +744,108 @@ class TransformationPluginsTest extends PmaTestCase
                 new Image_JPEG_Upload(),
                 [
                     'test',
-                    [150, 100]
+                    [
+                        150,
+                        100,
+                    ],
                 ],
-                'test'
+                'test',
             ],
             [
                 new Text_Plain_FileUpload(),
                 [
                     'test',
-                    []
+                    [],
                 ],
-                'test'
+                'test',
             ],
             [
                 new Text_Plain_RegexValidation(),
                 [
                     'phpMyAdmin',
-                    ['/php/i']
+                    ['/php/i'],
                 ],
                 'phpMyAdmin',
                 true,
-                ''
+                '',
             ],
             [
                 new Text_Plain_RegexValidation(),
                 [
                     'qwerty',
-                    ['/^a/']
+                    ['/^a/'],
                 ],
                 'qwerty',
                 false,
-                'Validation failed for the input string qwerty.'
+                'Validation failed for the input string qwerty.',
             ],
             [
                 new Application_Octetstream_Download(),
                 [
                     'PMA_BUFFER',
-                    ["filename", 'wrapper_link' => 'PMA_wrapper_link']
+                    [
+                        0 => "filename",
+                        'wrapper_link' => 'PMA_wrapper_link',
+                        'wrapper_params' => ['key' => 'value'],
+                    ],
                 ],
-                '<a href="transformation_wrapper.phpPMA_wrapper_link'
-                . '&amp;ct=application/octet-stream&amp;cn=filename" '
-                . 'title="filename" class="disableAjax">filename</a>'
+                '<a href="index.php?route=/transformation/wrapper&amp;key=value'
+                . '&amp;ct=application%2Foctet-stream&amp;cn=filename&amp;lang=en" '
+                . 'title="filename" class="disableAjax">filename</a>',
             ],
             [
                 new Application_Octetstream_Download(),
                 [
                     'PMA_BUFFER',
-                    ["", 'cloumn', 'wrapper_link' => 'PMA_wrapper_link']
+                    [
+                        0 => "",
+                        1 => 'cloumn',
+                        'wrapper_link' => 'PMA_wrapper_link',
+                        'wrapper_params' => ['key' => 'value'],
+                    ],
                 ],
-                '<a href="transformation_wrapper.phpPMA_wrapper_link&amp;'
-                . 'ct=application/octet-stream&amp;cn=binary_file.dat" '
-                . 'title="binary_file.dat" class="disableAjax">binary_file.dat</a>'
+                '<a href="index.php?route=/transformation/wrapper&amp;key=value'
+                . '&amp;ct=application%2Foctet-stream&amp;cn=binary_file.dat&amp;lang=en" '
+                . 'title="binary_file.dat" class="disableAjax">binary_file.dat</a>',
             ],
             [
                 new Application_Octetstream_Hex(),
                 [
                     '11111001',
-                    [3]
+                    [3],
                 ],
-                '313 131 313 130 303 1 '
+                '313 131 313 130 303 1 ',
             ],
             [
                 new Application_Octetstream_Hex(),
                 [
                     '11111001',
-                    [0]
+                    [0],
                 ],
-                '3131313131303031'
+                '3131313131303031',
             ],
             [
                 new Application_Octetstream_Hex(),
                 [
                     '11111001',
-                    []
+                    [],
                 ],
-                '31 31 31 31 31 30 30 31 '
+                '31 31 31 31 31 30 30 31 ',
             ],
             [
                 new Image_JPEG_Link(),
                 [
                     'PMA_IMAGE_LINK',
-                    ["./image/", "200", "wrapper_link" => "PMA_wrapper_link"]
+                    [
+                        0 => "./image/",
+                        1 => "200",
+                        "wrapper_link" => "PMA_wrapper_link",
+                        'wrapper_params' => ['key' => 'value'],
+                    ],
                 ],
                 '<a class="disableAjax" target="_blank" rel="noopener noreferrer"'
-                . ' href="transformation_wrapper.phpPMA_wrapper_link"'
-                . ' alt="[PMA_IMAGE_LINK]">[BLOB]</a>'
+                . ' href="index.php?route=/transformation/wrapper&amp;key=value&amp;lang=en"'
+                . ' alt="[PMA_IMAGE_LINK]">[BLOB]</a>',
             ],
             [
                 new Text_Plain_Dateformat(),
@@ -787,11 +853,11 @@ class TransformationPluginsTest extends PmaTestCase
                     12345,
                     [0],
                     (object) [
-                        'type' => 'int'
-                    ]
+                        'type' => 'int',
+                    ],
                 ],
                 '<dfn onclick="alert(\'12345\');" title="12345">'
-                . 'Jan 01, 1970 at 03:25 AM</dfn>'
+                . 'Jan 01, 1970 at 03:25 AM</dfn>',
             ],
             [
                 new Text_Plain_Dateformat(),
@@ -799,11 +865,11 @@ class TransformationPluginsTest extends PmaTestCase
                     12345678,
                     [0],
                     (object) [
-                        'type' => 'string'
-                    ]
+                        'type' => 'string',
+                    ],
                 ],
                 '<dfn onclick="alert(\'12345678\');" title="12345678">'
-                . 'May 23, 1970 at 09:21 PM</dfn>'
+                . 'May 23, 1970 at 09:21 PM</dfn>',
             ],
             [
                 new Text_Plain_Dateformat(),
@@ -811,11 +877,11 @@ class TransformationPluginsTest extends PmaTestCase
                     123456789,
                     [0],
                     (object) [
-                        'type' => null
-                    ]
+                        'type' => null,
+                    ],
                 ],
                 '<dfn onclick="alert(\'123456789\');" title="123456789">'
-                . 'Nov 29, 1973 at 09:33 PM</dfn>'
+                . 'Nov 29, 1973 at 09:33 PM</dfn>',
             ],
             [
                 new Text_Plain_Dateformat(),
@@ -823,71 +889,92 @@ class TransformationPluginsTest extends PmaTestCase
                     '20100201',
                     [0],
                     (object) [
-                        'type' => null
-                    ]
+                        'type' => null,
+                    ],
                 ],
                 '<dfn onclick="alert(\'20100201\');" title="20100201">'
-                . 'Feb 01, 2010 at 12:00 AM</dfn>'
+                . 'Feb 01, 2010 at 12:00 AM</dfn>',
             ],
             [
                 new Text_Plain_External(),
                 [
                     'PMA_BUFFER',
-                    ["/dev/null -i -wrap -q", "/dev/null -i -wrap -q"]
+                    [
+                        "/dev/null -i -wrap -q",
+                        "/dev/null -i -wrap -q",
+                    ],
                 ],
-                'PMA_BUFFER'
+                'PMA_BUFFER',
             ],
             [
                 new Text_Plain_Formatted(),
                 [
                     "<a ref='https://www.example.com/'>PMA_BUFFER</a>",
-                    ["option1", "option2"]
+                    [
+                        "option1",
+                        "option2",
+                    ],
                 ],
-                "<iframe srcdoc=\"<a ref='https://www.example.com/'>PMA_BUFFER</a>\" sandbox=\"\"></iframe>"
+                "<iframe srcdoc=\"<a ref='https://www.example.com/'>PMA_BUFFER</a>\" sandbox=\"\"></iframe>",
             ],
             [
                 new Text_Plain_Formatted(),
                 [
                     "<a ref=\"https://www.example.com/\">PMA_BUFFER</a>",
-                    ["option1", "option2"]
+                    [
+                        "option1",
+                        "option2",
+                    ],
                 ],
-                "<iframe srcdoc=\"<a ref='https://www.example.com/'>PMA_BUFFER</a>\" sandbox=\"\"></iframe>"
+                "<iframe srcdoc=\"<a ref='https://www.example.com/'>PMA_BUFFER</a>\" sandbox=\"\"></iframe>",
             ],
             [
                 new Text_Plain_Imagelink(),
                 [
                     'PMA_IMAGE',
-                    ["http://image/", "200"]
+                    [
+                        "http://image/",
+                        "200",
+                    ],
                 ],
                 '<a href="http://image/PMA_IMAGE" rel="noopener noreferrer" target="_blank">'
                 . '<img src="http://image/PMA_IMAGE" border="0" width="200" '
-                . 'height="50" />PMA_IMAGE</a>'
+                . 'height="50">PMA_IMAGE</a>',
             ],
             [
                 new Text_Plain_Imagelink(),
                 [
                     'PMA_IMAGE',
-                    ["./image/", "200"]
+                    [
+                        "./image/",
+                        "200",
+                    ],
                 ],
-                './image/PMA_IMAGE'
+                './image/PMA_IMAGE',
             ],
             [
                 new Text_Plain_Sql(),
                 [
                     'select *',
-                    ["option1", "option2"]
+                    [
+                        "option1",
+                        "option2",
+                    ],
                 ],
                 '<code class="sql"><pre>' . "\n"
                 . 'select *' . "\n"
-                . '</pre></code>'
+                . '</pre></code>',
             ],
             [
                 new Text_Plain_Link(),
                 [
                     'PMA_TXT_LINK',
-                    ["./php/", "text_name"]
+                    [
+                        "./php/",
+                        "text_name",
+                    ],
                 ],
-                './php/PMA_TXT_LINK'
+                './php/PMA_TXT_LINK',
             ],
             [
                 new Text_Plain_Link(),
@@ -895,7 +982,7 @@ class TransformationPluginsTest extends PmaTestCase
                     'PMA_TXT_LINK',
                     [],
                 ],
-                'PMA_TXT_LINK'
+                'PMA_TXT_LINK',
             ],
             [
                 new Text_Plain_Link(),
@@ -904,47 +991,63 @@ class TransformationPluginsTest extends PmaTestCase
                     [],
                 ],
                 '<a href="https://example.com/PMA_TXT_LINK" title=""'
-                . ' target="_blank" rel="noopener noreferrer">https://example.com/PMA_TXT_LINK</a>'
+                . ' target="_blank" rel="noopener noreferrer">https://example.com/PMA_TXT_LINK</a>',
             ],
             [
                 new Text_Plain_Link(),
                 [
                     'PMA_TXT_LINK',
-                    ["./php/", "text_name"]
+                    [
+                        "./php/",
+                        "text_name",
+                    ],
                 ],
-                './php/PMA_TXT_LINK'
+                './php/PMA_TXT_LINK',
             ],
             [
                 new Text_Plain_Longtoipv4(),
                 [
                     42949672,
-                    ["option1", "option2"]
+                    [
+                        "option1",
+                        "option2",
+                    ],
                 ],
-                '2.143.92.40'
+                '2.143.92.40',
             ],
             [
                 new Text_Plain_Longtoipv4(),
                 [
                     4294967295,
-                    ["option1", "option2"]
+                    [
+                        "option1",
+                        "option2",
+                    ],
                 ],
-                '255.255.255.255'
+                '255.255.255.255',
             ],
             [
                 new Text_Plain_PreApPend(),
                 [
                     'My',
-                    ['php', 'Admin']
+                    [
+                        'php',
+                        'Admin',
+                    ],
                 ],
-                'phpMyAdmin'
+                'phpMyAdmin',
             ],
             [
                 new Text_Plain_Substring(),
                 [
                     'PMA_BUFFER',
-                    [1, 3, 'suffix']
+                    [
+                        1,
+                        3,
+                        'suffix',
+                    ],
                 ],
-                'suffixMA_suffix'
+                'suffixMA_suffix',
             ],
         ];
 
@@ -953,24 +1056,33 @@ class TransformationPluginsTest extends PmaTestCase
                 new Image_JPEG_Inline(),
                 [
                     'PMA_JPEG_Inline',
-                    ["./image/", "200", "wrapper_link" => "PMA_wrapper_link"]
+                    [
+                        0 => "./image/",
+                        1 => "200",
+                        "wrapper_link" => "PMA_wrapper_link",
+                        'wrapper_params' => ['key' => 'value'],
+                    ],
                 ],
-                '<a href="transformation_wrapper.phpPMA_wrapper_link" '
-                . 'rel="noopener noreferrer" target="_blank"><img src="transformation_wrapper.php'
-                . 'PMA_wrapper_link&amp;resize=jpeg&amp;newWidth=0&amp;'
-                . 'newHeight=200" alt="[PMA_JPEG_Inline]" border="0" /></a>'
+                '<a href="index.php?route=/transformation/wrapper&amp;key=value&amp;lang=en" '
+                . 'rel="noopener noreferrer" target="_blank"><img src="index.php?route=/transformation/wrapper'
+                . '&amp;key=value&amp;resize=jpeg&amp;newWidth=0&amp;'
+                . 'newHeight=200&amp;lang=en" alt="[PMA_JPEG_Inline]" border="0"></a>',
             ];
             $result[] = [
                 new Image_PNG_Inline(),
                 [
                     'PMA_PNG_Inline',
-                    ["./image/", "200", "wrapper_link" => "PMA_wrapper_link"]
+                    [
+                        0 => "./image/",
+                        1 => "200",
+                        "wrapper_link" => "PMA_wrapper_link",
+                        'wrapper_params' => ['key' => 'value'],
+                    ],
                 ],
-                '<a href="transformation_wrapper.phpPMA_wrapper_link"'
-                . ' rel="noopener noreferrer" target="_blank"><img src="transformation_wrapper.php'
-                . 'PMA_wrapper_link&amp;'
-                . 'resize=jpeg&amp;newWidth=0&amp;newHeight=200" '
-                . 'alt="[PMA_PNG_Inline]" border="0" /></a>'
+                '<a href="index.php?route=/transformation/wrapper&amp;key=value&amp;lang=en"'
+                . ' rel="noopener noreferrer" target="_blank"><img src="index.php?route=/transformation/wrapper'
+                . '&amp;key=value&amp;resize=jpeg&amp;newWidth=0&amp;newHeight=200&amp;lang=en" '
+                . 'alt="[PMA_PNG_Inline]" border="0"></a>',
             ];
         }
         return $result;

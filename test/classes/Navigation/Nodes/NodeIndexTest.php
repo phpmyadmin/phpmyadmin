@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for PhpMyAdmin\Navigation\Nodes\NodeIndex class
  *
@@ -25,7 +24,7 @@ class NodeIndexTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
     }
@@ -42,8 +41,8 @@ class NodeIndexTest extends PmaTestCase
             'text',
             $parent->links
         );
-        $this->assertContains(
-            'tbl_indexes.php',
+        $this->assertStringContainsString(
+            'index.php?route=/table/indexes',
             $parent->links['text']
         );
     }

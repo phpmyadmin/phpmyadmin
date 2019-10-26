@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * PDF schema handling
  *
@@ -24,7 +23,7 @@ if (! class_exists('TCPDF')) {
 /**
  * block attempts to directly run this script
  */
-if (getcwd() == dirname(__FILE__)) {
+if (getcwd() == __DIR__) {
     die('Attack stopped');
 }
 
@@ -58,7 +57,7 @@ class Pdf extends PdfLib
     private $_db;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 
@@ -156,8 +155,8 @@ class Pdf extends PdfLib
         $fill = 0,
         $link = ''
     ) {
-        $h = $h / $this->scale;
-        $w = $w / $this->scale;
+        $h /= $this->scale;
+        $w /= $this->scale;
         $this->Cell($w, $h, $txt, $border, $ln, $align, $fill, $link);
     }
 
@@ -226,7 +225,7 @@ class Pdf extends PdfLib
     public function setFontSizeScale($size)
     {
         // Set font size in points
-        $size = $size / $this->scale;
+        $size /= $this->scale;
         $this->SetFontSize($size);
     }
 
@@ -241,7 +240,7 @@ class Pdf extends PdfLib
      */
     public function setLineWidthScale($width)
     {
-        $width = $width / $this->scale;
+        $width /= $this->scale;
         $this->SetLineWidth($width);
     }
 

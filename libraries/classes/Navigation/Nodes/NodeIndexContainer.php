@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Functionality for the navigation tree
  *
@@ -10,6 +9,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
@@ -27,27 +27,37 @@ class NodeIndexContainer extends Node
         parent::__construct(__('Indexes'), Node::CONTAINER);
         $this->icon = Util::getImage('b_index', __('Indexes'));
         $this->links = [
-            'text' => 'tbl_structure.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;table=%1$s',
-            'icon' => 'tbl_structure.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;table=%1$s',
+            'text' => Url::getFromRoute('/table/structure', [
+                'server' => $GLOBALS['server'],
+                'db' => '%2\$s',
+                'table' => '%1\$s',
+            ]),
+            'icon' => Url::getFromRoute('/table/structure', [
+                'server' => $GLOBALS['server'],
+                'db' => '%2\$s',
+                'table' => '%1\$s',
+            ]),
         ];
-        $this->real_name = 'indexes';
+        $this->realName = 'indexes';
 
-        $new_label = _pgettext('Create new index', 'New');
+        $newLabel = _pgettext('Create new index', 'New');
         $new = NodeFactory::getInstance(
             'Node',
-            $new_label
+            $newLabel
         );
         $new->isNew = true;
-        $new->icon = Util::getImage('b_index_add', $new_label);
+        $new->icon = Util::getImage('b_index_add', $newLabel);
         $new->links = [
-            'text' => 'tbl_indexes.php?server=' . $GLOBALS['server']
-                . '&amp;create_index=1&amp;added_fields=2'
-                . '&amp;db=%3$s&amp;table=%2$s',
-            'icon' => 'tbl_indexes.php?server=' . $GLOBALS['server']
-                . '&amp;create_index=1&amp;added_fields=2'
-                . '&amp;db=%3$s&amp;table=%2$s',
+            'text' => Url::getFromRoute('/table/indexes', [
+                'server' => $GLOBALS['server'],
+                'create_index' => 1,
+                'added_fields' => 2,
+            ]) . '&amp;db=%3$s&amp;table=%2$s',
+            'icon' => Url::getFromRoute('/table/indexes', [
+                'server' => $GLOBALS['server'],
+                'create_index' => 1,
+                'added_fields' => 2,
+            ]) . '&amp;db=%3$s&amp;table=%2$s',
         ];
         $new->classes = 'new_index italics';
         $this->addChild($new);

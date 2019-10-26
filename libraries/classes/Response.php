@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Manages the rendering of pages in PMA
  *
@@ -194,9 +193,9 @@ class Response
      *
      * @return void
      */
-    public function setAjax($isAjax)
+    public function setAjax(bool $isAjax): void
     {
-        $this->_isAjax = (bool) $isAjax;
+        $this->_isAjax = $isAjax;
         $this->_header->setAjax($this->_isAjax);
         $this->_footer->setAjax($this->_isAjax);
     }
@@ -222,9 +221,9 @@ class Response
      *
      * @return void
      */
-    public function setRequestStatus($state)
+    public function setRequestStatus(bool $state): void
     {
-        $this->_isSuccess = ($state == true);
+        $this->_isSuccess = ($state === true);
     }
 
     /**
@@ -233,7 +232,7 @@ class Response
      *
      * @return bool
      */
-    public function isAjax()
+    public function isAjax(): bool
     {
         return $this->_isAjax;
     }
@@ -384,18 +383,18 @@ class Response
         }
 
         if ($this->_isSuccess) {
-            $this->addJSON('_title', $this->getHeader()->getTitleTag());
+            $this->addJSON('title', '<title>' . $this->getHeader()->getPageTitle() . '</title>');
 
             if (isset($GLOBALS['dbi'])) {
                 $menuHash = $this->getHeader()->getMenu()->getHash();
-                $this->addJSON('_menuHash', $menuHash);
+                $this->addJSON('menuHash', $menuHash);
                 $hashes = [];
                 if (isset($_REQUEST['menuHashes'])) {
                     $hashes = explode('-', $_REQUEST['menuHashes']);
                 }
                 if (! in_array($menuHash, $hashes)) {
                     $this->addJSON(
-                        '_menu',
+                        'menu',
                         $this->getHeader()
                             ->getMenu()
                             ->getDisplay()
@@ -403,23 +402,23 @@ class Response
                 }
             }
 
-            $this->addJSON('_scripts', $this->getHeader()->getScripts()->getFiles());
-            $this->addJSON('_selflink', $this->getFooter()->getSelfUrl());
-            $this->addJSON('_displayMessage', $this->getHeader()->getMessage());
+            $this->addJSON('scripts', $this->getHeader()->getScripts()->getFiles());
+            $this->addJSON('selflink', $this->getFooter()->getSelfUrl());
+            $this->addJSON('displayMessage', $this->getHeader()->getMessage());
 
             $debug = $this->_footer->getDebugMessage();
             if (empty($_REQUEST['no_debug'])
                 && strlen($debug) > 0
             ) {
-                $this->addJSON('_debug', $debug);
+                $this->addJSON('debug', $debug);
             }
 
             $errors = $this->_footer->getErrorMessages();
             if (strlen($errors) > 0) {
-                $this->addJSON('_errors', $errors);
+                $this->addJSON('errors', $errors);
             }
             $promptPhpErrors = $GLOBALS['error_handler']->hasErrorsForPrompt();
-            $this->addJSON('_promptPhpErrors', $promptPhpErrors);
+            $this->addJSON('promptPhpErrors', $promptPhpErrors);
 
             if (empty($GLOBALS['error_message'])) {
                 // set current db, table and sql query in the querywindow
@@ -432,20 +431,20 @@ class Response
                     $query = $GLOBALS['sql_query'];
                 }
                 $this->addJSON(
-                    '_reloadQuerywindow',
+                    'reloadQuerywindow',
                     [
                         'db' => Core::ifSetOr($GLOBALS['db'], ''),
                         'table' => Core::ifSetOr($GLOBALS['table'], ''),
-                        'sql_query' => $query
+                        'sql_query' => $query,
                     ]
                 );
                 if (! empty($GLOBALS['focus_querywindow'])) {
                     $this->addJSON('_focusQuerywindow', $query);
                 }
                 if (! empty($GLOBALS['reload'])) {
-                    $this->addJSON('_reloadNavigation', 1);
+                    $this->addJSON('reloadNavigation', 1);
                 }
-                $this->addJSON('_params', $this->getHeader()->getJsParams());
+                $this->addJSON('params', $this->getHeader()->getJsParams());
             }
         }
 
@@ -567,12 +566,12 @@ class Response
         } else {
             $header .= 'Web server is down';
         }
-        if (php_sapi_name() !== 'cgi-fcgi') {
+        if (PHP_SAPI !== 'cgi-fcgi') {
             $this->header($header);
         }
     }
 
-   /**
+    /**
      * Generate header for 303
      *
      * @param string $location will set location to redirect.
@@ -583,7 +582,7 @@ class Response
     {
         $this->setHttpResponseCode(303);
         $this->header('Location: ' . $location);
-        if (!defined('TESTSUITE')) {
+        if (! defined('TESTSUITE')) {
             exit;
         }
     }

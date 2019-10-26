@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Abstract class for the image upload input transformations plugins
  *
@@ -11,6 +10,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
+use PhpMyAdmin\Url;
+use stdClass;
 
 /**
  * Provides common methods for all of the image upload transformations plugins.
@@ -36,13 +37,13 @@ abstract class ImageUploadTransformationsPlugin extends IOTransformationsPlugin
     /**
      * Does the actual work of each specific transformations plugin.
      *
-     * @param string $buffer  text to be transformed
-     * @param array  $options transformation options
-     * @param string $meta    meta information
+     * @param string        $buffer  text to be transformed
+     * @param array         $options transformation options
+     * @param stdClass|null $meta    meta information
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = [], $meta = '')
+    public function applyTransformation($buffer, array $options = [], ?stdClass $meta = null)
     {
         return $buffer;
     }
@@ -76,19 +77,19 @@ abstract class ImageUploadTransformationsPlugin extends IOTransformationsPlugin
     ) {
         $html = '';
         $src = '';
-        if (!empty($value)) {
+        if (! empty($value)) {
             $html = '<input type="hidden" name="fields_prev' . $column_name_appendix
-                . '" value="' . bin2hex($value) . '"/>';
+                . '" value="' . bin2hex($value) . '">';
             $html .= '<input type="hidden" name="fields' . $column_name_appendix
-                . '" value="' . bin2hex($value) . '"/>';
-            $src = 'transformation_wrapper.php' . $options['wrapper_link'];
+                . '" value="' . bin2hex($value) . '">';
+            $src = Url::getFromRoute('/transformation/wrapper', $options['wrapper_params']);
         }
         $html .= '<img src="' . $src . '" width="'
             . (isset($options[0]) ? intval($options[0]) : '100') . '" height="'
             . (isset($options[1]) ? intval($options[1]) : '100') . '" alt="'
-            . __('Image preview here') . '"/>';
-        $html .= '<br/><input type="file" name="fields_upload'
-            . $column_name_appendix . '" accept="image/*" class="image-upload"/>';
+            . __('Image preview here') . '">';
+        $html .= '<br><input type="file" name="fields_upload'
+            . $column_name_appendix . '" accept="image/*" class="image-upload">';
 
         return $html;
     }

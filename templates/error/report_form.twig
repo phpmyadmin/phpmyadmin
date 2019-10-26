@@ -1,4 +1,4 @@
-<form action="error_report.php" method="post" name="report_frm" id="report_frm"
+<form action="{{ url('/error_report') }}" method="post" name="report_frm" id="report_frm"
       class="ajax">
     <fieldset style="padding-top:0">
 
@@ -20,7 +20,7 @@
                 </p></label></div>
         <pre class="report-data">{{ report_data|raw }}</pre>
 
-        <input type="checkbox" name="always_send" id="always_send_checkbox" />
+        <input type="checkbox" name="always_send" id="always_send_checkbox">
         <label for="always_send_checkbox">
             {% trans "Automatically send report next time" %}
         </label>

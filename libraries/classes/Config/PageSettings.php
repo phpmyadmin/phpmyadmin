@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Page-related settings
  *
@@ -65,7 +64,7 @@ class PageSettings
         $this->userPreferences = new UserPreferences();
 
         $formClass = PageFormList::get($formGroupName);
-        if (is_null($formClass)) {
+        if ($formClass === null) {
             return;
         }
 
@@ -73,7 +72,7 @@ class PageSettings
             return;
         }
 
-        if (!empty($elemId)) {
+        if (! empty($elemId)) {
             $this->_elemId = $elemId;
         }
         $this->_groupName = $formGroupName;
@@ -98,24 +97,24 @@ class PageSettings
     /**
      * Process response to form
      *
-     * @param FormDisplay  &$formDisplay Form
-     * @param ConfigFile   &$cf          Configuration file
-     * @param Message|null &$error       Error message
+     * @param FormDisplay  $formDisplay Form
+     * @param ConfigFile   $cf          Configuration file
+     * @param Message|null $error       Error message
      *
      * @return void
      */
     private function _processPageSettings(&$formDisplay, &$cf, &$error)
     {
-        if ($formDisplay->process(false) && !$formDisplay->hasErrors()) {
+        if ($formDisplay->process(false) && ! $formDisplay->hasErrors()) {
             // save settings
             $result = $this->userPreferences->save($cf->getConfigArray());
             if ($result === true) {
                 // reload page
                 $response = Response::getInstance();
                 Core::sendHeaderLocation(
-                    $response->getFooter()->getSelfUrl('unencoded')
+                    $response->getFooter()->getSelfUrl()
                 );
-                exit();
+                exit;
             } else {
                 $error = $result;
             }
@@ -125,8 +124,8 @@ class PageSettings
     /**
      * Store errors in _errorHTML
      *
-     * @param FormDisplay  &$formDisplay Form
-     * @param Message|null &$error       Error message
+     * @param FormDisplay  $formDisplay Form
+     * @param Message|null $error       Error message
      *
      * @return void
      */
@@ -152,8 +151,8 @@ class PageSettings
     /**
      * Display page-related settings
      *
-     * @param FormDisplay &$formDisplay Form
-     * @param Message     &$error       Error message
+     * @param FormDisplay $formDisplay Form
+     * @param Message     $error       Error message
      *
      * @return string
      */
@@ -173,7 +172,7 @@ class PageSettings
             false,
             $response->getFooter()->getSelfUrl(),
             [
-                'submit_save' => $this->_groupName
+                'submit_save' => $this->_groupName,
             ]
         );
         $retval .= '</div>';

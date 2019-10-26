@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportLatex class
  *
@@ -30,7 +29,7 @@ class ExportLatexTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
@@ -52,7 +51,7 @@ class ExportLatexTest extends PmaTestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -181,7 +180,7 @@ class ExportLatexTest extends PmaTestCase
             [
                 'structure' => __('structure'),
                 'data' => __('data'),
-                'structure_and_data' => __('structure and data')
+                'structure_and_data' => __('structure and data'),
             ],
             $property->getValues()
         );
@@ -324,7 +323,7 @@ class ExportLatexTest extends PmaTestCase
         );
 
         $this->assertEquals(
-            'Display MIME types',
+            'Display media types',
             $property->getText()
         );
 
@@ -485,7 +484,7 @@ class ExportLatexTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "\n% Host: localhost:80",
             $result
         );
@@ -653,7 +652,7 @@ class ExportLatexTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '{datalabel} \\\\\\\\ \hlinefoo',
             $result
         );
@@ -673,12 +672,12 @@ class ExportLatexTest extends PmaTestCase
         $keys = [
             [
                 'Non_unique' => 0,
-                'Column_name' => 'name1'
+                'Column_name' => 'name1',
             ],
             [
                 'Non_unique' => 1,
-                'Column_name' => 'name2'
-            ]
+                'Column_name' => 'name2',
+            ],
         ];
 
         // case 1
@@ -700,8 +699,8 @@ class ExportLatexTest extends PmaTestCase
                     'name1' => [
                         'values' => 'test-',
                         'transformation' => 'testfoo',
-                        'mimetype' => 'testmimetype_'
-                    ]
+                        'mimetype' => 'testmimetype_',
+                    ],
                 ]
             );
 
@@ -710,15 +709,15 @@ class ExportLatexTest extends PmaTestCase
                 'Null' => 'Yes',
                 'Field' => 'name1',
                 'Key' => 'PRI',
-                'Type' => 'set(abc)enum123'
+                'Type' => 'set(abc)enum123',
             ],
             [
                 'Null' => 'NO',
                 'Field' => 'fields',
                 'Key' => 'COMP',
                 'Type' => '',
-                'Default' => 'def'
-            ]
+                'Default' => 'def',
+            ],
         ];
         $dbi->expects($this->once())
             ->method('getColumns')
@@ -738,7 +737,7 @@ class ExportLatexTest extends PmaTestCase
             ->will(
                 $this->returnValue(
                     [
-                        'comment' => ['name1' => 'testComment']
+                        'comment' => ['name1' => 'testComment'],
                     ]
                 )
             );
@@ -757,7 +756,7 @@ class ExportLatexTest extends PmaTestCase
             'mimework' => true,
             'db' => 'database',
             'relation' => 'rel',
-            'column_info' => 'col'
+            'column_info' => 'col',
         ];
 
         ob_start();
@@ -788,7 +787,7 @@ class ExportLatexTest extends PmaTestCase
             ' \\multicolumn{1}{|c|}{\\textbf{Comments}} & \\multicolumn{1}' .
             '{|c|}{\\textbf{MIME}} \\\\ \\hline \\hline' . "\n" .
             '\\endfirsthead' . "\n" . ' \\hline \\multicolumn{1}{|c|}' .
-            '{\\textbf{Column}} & \\multicolumn{1}' . '{|c|}{\\textbf{Type}}' .
+            '{\\textbf{Column}} & \\multicolumn{1}{|c|}{\\textbf{Type}}' .
             ' & \\multicolumn{1}{|c|}{\\textbf{Null}} & \\multicolumn' .
             '{1}{|c|}{\\textbf{Default}} & \\multicolumn{1}{|c|}{\\textbf' .
             '{Comments}} & \\multicolumn{1}{|c|}{\\textbf{MIME}} \\\\ ' .
@@ -812,16 +811,16 @@ class ExportLatexTest extends PmaTestCase
                 [
                     'name1' => [
                         'foreign_table' => 'ftable',
-                        'foreign_field' => 'ffield'
+                        'foreign_field' => 'ffield',
                     ],
-                    'foreign_keys_data' => []
+                    'foreign_keys_data' => [],
                 ],
                 [
                     'field' => [
                         'values' => 'test-',
                         'transformation' => 'testfoo',
-                        'mimetype' => 'test<'
-                    ]
+                        'mimetype' => 'test<',
+                    ],
                 ]
             );
 
@@ -848,7 +847,7 @@ class ExportLatexTest extends PmaTestCase
             ->will(
                 $this->returnValue(
                     [
-                        'comment' => ['field' => 'testComment']
+                        'comment' => ['field' => 'testComment'],
                     ]
                 )
             );
@@ -864,7 +863,7 @@ class ExportLatexTest extends PmaTestCase
             'mimework' => true,
             'db' => 'database',
             'relation' => 'rel',
-            'column_info' => 'col'
+            'column_info' => 'col',
         ];
 
         ob_start();
@@ -883,7 +882,7 @@ class ExportLatexTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '\\textbf{\\textit{name1}} & set(abc) & Yes & NULL & ' .
             'ftable (ffield) &  &  \\\\ \\hline',
             $result
@@ -918,7 +917,7 @@ class ExportLatexTest extends PmaTestCase
             ->will(
                 $this->returnValue(
                     [
-                        'comment' => ['field' => 'testComment']
+                        'comment' => ['field' => 'testComment'],
                     ]
                 )
             );
@@ -940,7 +939,7 @@ class ExportLatexTest extends PmaTestCase
             'mimework' => false,
             'db' => 'database',
             'relation' => 'rel',
-            'column_info' => 'col'
+            'column_info' => 'col',
         ];
 
         ob_start();
@@ -956,12 +955,12 @@ class ExportLatexTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '\\caption{latexstructure} \\label{latexlabel}',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'caption{latexcontinued}',
             $result
         );

@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Code for displaying server selection
  *
@@ -13,7 +12,7 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
- * PhpMyAdmin\Server\Select class
+ * Displays the MySQL servers choice form
  *
  * @package PhpMyAdmin
  */
@@ -58,7 +57,7 @@ class Select
             $retval .= '<select name="server" id="select_server" class="autosubmit">';
             $retval .= '<option value="">(' . __('Servers') . ') ...</option>' . "\n";
         } elseif ($list) {
-            $retval .= __('Current server:') . '<br />';
+            $retval .= __('Current server:') . '<br>';
             $retval .= '<ul id="list_server">';
         }
 
@@ -67,16 +66,16 @@ class Select
                 continue;
             }
 
-            if (!empty($GLOBALS['server']) && (int) $GLOBALS['server'] === (int) $key) {
+            if (! empty($GLOBALS['server']) && (int) $GLOBALS['server'] === (int) $key) {
                 $selected = 1;
             } else {
                 $selected = 0;
             }
-            if (!empty($server['verbose'])) {
+            if (! empty($server['verbose'])) {
                 $label = $server['verbose'];
             } else {
                 $label = $server['host'];
-                if (!empty($server['port'])) {
+                if (! empty($server['port'])) {
                     $label .= ':' . $server['port'];
                 }
             }
@@ -88,7 +87,7 @@ class Select
                     $label .= ' - ' . implode(', ', $server['only_db']);
                 }
             }
-            if (!empty($server['user']) && $server['auth_type'] == 'config') {
+            if (! empty($server['user']) && $server['auth_type'] == 'config') {
                 $label .= '  (' . $server['user'] . ')';
             }
 
@@ -97,12 +96,13 @@ class Select
                 if ($selected) {
                     $retval .= '<strong>' . htmlspecialchars($label) . '</strong>';
                 } else {
+                    $scriptName = Util::getScriptNameForOption(
+                        $GLOBALS['cfg']['DefaultTabServer'],
+                        'server'
+                    );
                     $retval .= '<a class="disableAjax item" href="'
-                        . Util::getScriptNameForOption(
-                            $GLOBALS['cfg']['DefaultTabServer'],
-                            'server'
-                        )
-                        . Url::getCommon(['server' => $key])
+                        . $scriptName
+                        . Url::getCommon(['server' => $key], strpos($scriptName, '?') === false ? '?' : '&')
                         . '" >' . htmlspecialchars($label) . '</a>';
                 }
                 $retval .= '</li>';

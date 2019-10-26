@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * HTTP Authentication plugin for phpMyAdmin.
  * NOTE: Requires PHP loaded as a Apache module.
@@ -11,11 +10,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Auth;
 
-use PhpMyAdmin\Plugins\AuthenticationPlugin;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Plugins\AuthenticationPlugin;
+use PhpMyAdmin\Response;
 
 /**
  * Handles the HTTP authentication methods
@@ -24,14 +23,6 @@ use PhpMyAdmin\Core;
  */
 class AuthenticationHttp extends AuthenticationPlugin
 {
-    /**
-     * AuthenticationHttp constructor.
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
     /**
      * Displays authentication form and redirect as necessary
      *
@@ -100,7 +91,7 @@ class AuthenticationHttp extends AuthenticationPlugin
 
         $response->addHTML(Config::renderFooter());
 
-        if (!defined('TESTSUITE')) {
+        if (! defined('TESTSUITE')) {
             exit;
         } else {
             return false;
@@ -154,19 +145,18 @@ class AuthenticationHttp extends AuthenticationPlugin
             }
         }
         // Sanitize empty password login
-        if (is_null($this->password)) {
+        if ($this->password === null) {
             $this->password = '';
         }
 
         // Avoid showing the password in phpinfo()'s output
-        unset($GLOBALS['PHP_AUTH_PW']);
-        unset($_SERVER['PHP_AUTH_PW']);
+        unset($GLOBALS['PHP_AUTH_PW'], $_SERVER['PHP_AUTH_PW']);
 
         // Decode possibly encoded information (used by IIS/CGI/FastCGI)
-        // (do not use explode() because a user might have a colon in his password
+        // (do not use explode() because a user might have a colon in their password
         if (strcmp(substr($this->user, 0, 6), 'Basic ') == 0) {
             $usr_pass = base64_decode(substr($this->user, 6));
-            if (!empty($usr_pass)) {
+            if (! empty($usr_pass)) {
                 $colon = strpos($usr_pass, ':');
                 if ($colon) {
                     $this->user = substr($usr_pass, 0, $colon);
@@ -189,7 +179,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         }
 
         // Returns whether we get authentication settings or not
-        return !empty($this->user);
+        return ! empty($this->user);
     }
 
     /**
@@ -217,6 +207,6 @@ class AuthenticationHttp extends AuthenticationPlugin
      */
     public function getLoginFormURL()
     {
-        return './index.php?old_usr=' . $this->user;
+        return './index.php?route=/&old_usr=' . $this->user;
     }
 }

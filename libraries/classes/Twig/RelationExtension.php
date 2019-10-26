@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * hold PhpMyAdmin\Twig\RelationExtension class
  *
@@ -31,25 +30,40 @@ class RelationExtension extends AbstractExtension
         return [
             new TwigFunction(
                 'foreign_dropdown',
-                [$relation, 'foreignDropdown'],
+                [
+                    $relation,
+                    'foreignDropdown',
+                ],
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'get_display_field',
-                [$relation, 'getDisplayField'],
+                [
+                    $relation,
+                    'getDisplayField',
+                ],
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'get_foreign_data',
-                [$relation, 'getForeignData']
+                [
+                    $relation,
+                    'getForeignData',
+                ]
             ),
             new TwigFunction(
                 'get_tables',
-                [$relation, 'getTables']
+                [
+                    $relation,
+                    'getTables',
+                ]
             ),
             new TwigFunction(
                 'search_column_in_foreigners',
-                [$relation, 'searchColumnInForeigners']
+                [
+                    $relation,
+                    'searchColumnInForeigners',
+                ]
             ),
         ];
     }

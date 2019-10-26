@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Contains abstract class to hold table preferences/statistics
  *
@@ -14,6 +13,7 @@ use PhpMyAdmin\Font;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Util;
+use function rawurldecode;
 
 /**
  * Table preferences/statistics
@@ -42,7 +42,7 @@ abstract class TableStats
     protected $offline;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     protected $relation;
 
@@ -54,15 +54,15 @@ abstract class TableStats
     /**
      * Constructor
      *
-     * @param object  $diagram        schema diagram
-     * @param string  $db             current db name
-     * @param integer $pageNumber     current page number (from the
-     *                                $cfg['Servers'][$i]['table_coords'] table)
-     * @param string  $tableName      table name
-     * @param boolean $showKeys       whether to display keys or not
-     * @param boolean $tableDimension whether to display table position or not
-     * @param boolean $offline        whether the coordinates are sent
-     *                                from the browser
+     * @param Pdf\Pdf|Svg\Svg|Eps\Eps|Dia\Dia|Pdf\Pdf $diagram        schema diagram
+     * @param string                                  $db             current db name
+     * @param integer                                 $pageNumber     current page number (from the
+     *                                                                $cfg['Servers'][$i]['table_coords'] table)
+     * @param string                                  $tableName      table name
+     * @param boolean                                 $showKeys       whether to display keys or not
+     * @param boolean                                 $tableDimension whether to display table position or not
+     * @param boolean                                 $offline        whether the coordinates are sent
+     *                                                                from the browser
      */
     public function __construct(
         $diagram,
@@ -146,11 +146,15 @@ abstract class TableStats
      */
     protected function loadCoordinates()
     {
-        foreach ($_REQUEST['t_h'] as $key => $value) {
-            if ($this->db . '.' . $this->tableName == $key) {
-                $this->x = (double) $_REQUEST['t_x'][$key];
-                $this->y = (double) $_REQUEST['t_y'][$key];
-                break;
+        if (isset($_POST['t_h'])) {
+            foreach ($_POST['t_h'] as $key => $value) {
+                $db = rawurldecode($_POST['t_db'][$key]);
+                $tbl = rawurldecode($_POST['t_tbl'][$key]);
+                if ($this->db . '.' . $this->tableName === $db . '.' . $tbl) {
+                    $this->x = (double) $_POST['t_x'][$key];
+                    $this->y = (double) $_POST['t_y'][$key];
+                    break;
+                }
             }
         }
     }

@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Selenium TestCase for user related tests
  *
@@ -40,7 +39,7 @@ class CreateRemoveUserTest extends TestBase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->skipIfNotSuperUser();
@@ -98,7 +97,7 @@ class CreateRemoveUserTest extends TestBase
         $this->waitForElement('id', "adduser_submit")->click();
 
         $success = $this->waitForElement('cssSelector', "div.success");
-        $this->assertContains('You have added a new user', $success->getText());
+        $this->assertStringContainsString('You have added a new user', $success->getText());
 
         // Removing the newly added user
         $this->waitForElement('partialLinkText', "User accounts")->click();
@@ -117,7 +116,7 @@ class CreateRemoveUserTest extends TestBase
         $this->acceptAlert();
 
         $success = $this->waitForElement('cssSelector', "div.success");
-        $this->assertContains(
+        $this->assertStringContainsString(
             'The selected users have been deleted',
             $success->getText()
         );

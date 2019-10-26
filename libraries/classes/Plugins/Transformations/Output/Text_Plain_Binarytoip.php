@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Handles the binary to IPv4/IPv6 transformation for text plain
  *
@@ -11,6 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Transformations\Output;
 
 use PhpMyAdmin\Plugins\TransformationsPlugin;
+use stdClass;
 
 /**
  * Handles the binary to IPv4/IPv6 transformation for text plain
@@ -37,15 +37,15 @@ class Text_Plain_Binarytoip extends TransformationsPlugin
     /**
      * Does the actual work of each specific transformations plugin.
      *
-     * @param string $buffer  text to be transformed. a binary string containing
-     *                        an IP address, as returned from MySQL's INET6_ATON
-     *                        function
-     * @param array  $options transformation options
-     * @param string $meta    meta information
+     * @param string        $buffer  text to be transformed. a binary string containing
+     *                               an IP address, as returned from MySQL's INET6_ATON
+     *                               function
+     * @param array         $options transformation options
+     * @param stdClass|null $meta    meta information
      *
      * @return string IP address
      */
-    public function applyTransformation($buffer, array $options = [], $meta = '')
+    public function applyTransformation($buffer, array $options = [], ?stdClass $meta = null)
     {
         $length = strlen($buffer);
         if ($length == 4 || $length == 16) {

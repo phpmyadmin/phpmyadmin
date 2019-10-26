@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * hold PhpMyAdmin\SystemDatabase class
  *
@@ -9,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use mysqli_result;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Util;
@@ -26,7 +26,7 @@ class SystemDatabase
     protected $dbi;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 
@@ -48,7 +48,7 @@ class SystemDatabase
      *
      * @param string $db Database name looking for
      *
-     * @return \mysqli_result Result of executed SQL query
+     * @return mysqli_result Result of executed SQL query
      */
     public function getExistingTransformationData($db)
     {
@@ -74,7 +74,7 @@ class SystemDatabase
      * @param string $view_name               Name of the VIEW
      * @param string $db                      Database name of the VIEW
      *
-     * @return string $new_transformations_sql SQL query for new transformations
+     * @return string SQL query for new transformations
      */
     public function getNewTransformationDataSql(
         $pma_transformation_data,

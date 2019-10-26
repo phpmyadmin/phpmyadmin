@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * The top-level class of the object-oriented properties system.
  *
@@ -39,7 +38,7 @@ abstract class PropertyItem
      * the addProperty() or removeProperty() methods, which are not available
      * for simple PhpMyAdmin\Properties\Options\OptionsPropertyOneItem subclasses.
      *
-     * @return string
+     * @return null
      */
     public function getGroup()
     {

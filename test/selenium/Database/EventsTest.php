@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Selenium TestCase for table related tests
  *
@@ -26,7 +25,7 @@ class EventsTest extends TestBase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->dbQuery(
@@ -56,7 +55,7 @@ class EventsTest extends TestBase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         if (isset($this->_mysqli)) {
             $this->dbQuery("SET GLOBAL event_scheduler=\"OFF\"");
@@ -103,7 +102,8 @@ class EventsTest extends TestBase
 
         $this->byName("item_name")->sendKeys("test_event");
         $this->selectByLabel(
-            $this->byName("item_interval_field"), 'MINUTE_SECOND'
+            $this->byName("item_interval_field"),
+            'MINUTE_SECOND'
         );
 
         $this->byName("item_starts")->click()->clear()->sendKeys(date('Y-m-d', strtotime('-1 day')) . ' 00:00:00');
@@ -177,7 +177,7 @@ class EventsTest extends TestBase
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
-        $ele = $this->waitForElement(
+        $this->waitForElement(
             'xpath',
             "//div[@class='success' and contains(., "
             . "'Event `test_event` has been modified')]"

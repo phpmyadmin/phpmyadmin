@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Provides upload functionalities for the import plugins
  *
@@ -45,7 +44,7 @@ class UploadNoplugin implements UploadInterface
         if (trim($id) == "") {
             return null;
         }
-        if (!array_key_exists($id, $_SESSION[$SESSION_KEY])) {
+        if (! array_key_exists($id, $_SESSION[$SESSION_KEY])) {
             $_SESSION[$SESSION_KEY][$id] = [
                 'id'       => $id,
                 'finished' => false,
@@ -55,8 +54,6 @@ class UploadNoplugin implements UploadInterface
                 'plugin'   => UploadNoplugin::getIdKey(),
             ];
         }
-        $ret = $_SESSION[$SESSION_KEY][$id];
-
-        return $ret;
+        return $_SESSION[$SESSION_KEY][$id];
     }
 }

@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Contains PhpMyAdmin\Plugins\Schema\Svg\RelationStatsSvg class
  *
@@ -28,7 +27,7 @@ class RelationStatsSvg extends RelationStats
     /**
      * The "PhpMyAdmin\Plugins\Schema\Svg\RelationStatsSvg" constructor
      *
-     * @param object $diagram       The SVG diagram
+     * @param Svg    $diagram       The SVG diagram
      * @param string $master_table  The master table name
      * @param string $master_field  The relation field in the master table
      * @param string $foreign_table The foreign table name

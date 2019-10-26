@@ -1,4 +1,4 @@
-<form id="gis_data_editor_form" action="gis_data_editor.php" method="post">
+<form id="gis_data_editor_form" action="{{ url('/gis_data_editor') }}" method="post">
     <input type="hidden" id="pmaThemeImage" value="{{ pma_theme_image }}">
     <div id="gis_data_editor">
         <h3>{{ 'Value for the column "%s"'|trans|format(field) }}</h3>
@@ -6,7 +6,7 @@
         <input type="hidden" name="field" value="{{ field }}">
         {# The input field to which the final result should be added and corresponding null checkbox #}
         {% if input_name is not null %}
-            <input type="hidden" name="input_name" value="{{ input_name }}" />
+            <input type="hidden" name="input_name" value="{{ input_name }}">
         {% endif %}
         {{ get_hidden_inputs() }}
 
@@ -15,7 +15,7 @@
             {{ visualization|raw }}
         </div>
 
-        <div id="openlayersmap"{{ srid == 0 ? ' class="hide"' }}></div>
+        <div id="openlayersmap" style="width: {{width}}px; height: {{height}}px;"{{ srid == 0 ? ' class="hide"' }}></div>
 
         <div class="choice floatright">
             <input type="checkbox" id="choice" value="useBaseLayer"{{ srid != 0 ? ' checked="checked"' }}>
@@ -48,9 +48,9 @@
 
             {% for a in 0..geom_count - 1 if gis_data[a] is not null %}
                 {% if geom_type == 'GEOMETRYCOLLECTION' %}
-                    <br/><br/>
+                    <br><br>
                     {{ 'Geometry %d:'|trans|format(a + 1) }}
-                    <br/>
+                    <br>
                     {% if gis_data[a]['gis_type'] is not null %}
                         {% set type = gis_data[a]['gis_type'] %}
                     {% else %}
@@ -68,7 +68,7 @@
                 {% endif %}
 
                 {% if type == 'POINT' %}
-                    <br/>
+                    <br>
                     {% trans 'Point:' %}
                     <label for="x">{% trans 'X' %}</label>
                     <input name="gis_data[{{ a }}][POINT][x]" type="text" value="{{ gis_data[a]['POINT']['x'] }}">
@@ -88,14 +88,14 @@
                     <input type="hidden" value="{{ no_of_points }}" name="gis_data[{{ a }}][{{ type }}][no_of_points]">
 
                     {% for i in 0..no_of_points - 1 %}
-                        <br/>
+                        <br>
                         {{ 'Point %d:'|trans|format(i + 1) }}
                         <label for="x">{% trans 'X' %}</label>
                         <input type="text" name="gis_data[{{ a }}][{{ type }}][{{ i }}][x]" value="{{ gis_data[a][type][i]['x'] }}">
                         <label for="y">{% trans 'Y' %}</label>
                         <input type="text" name="gis_data[{{ a }}][{{ type }}][{{ i }}][y]" value="{{ gis_data[a][type][i]['y'] }}">
                     {% endfor %}
-                    <input type="submit" name="gis_data[{{ a }}][{{ type }}][add_point]" class="add addPoint" value="{% trans 'Add a point' %}">
+                    <input type="submit" name="gis_data[{{ a }}][{{ type }}][add_point]" class="btn btn-secondary add addPoint" value="{% trans 'Add a point' %}">
                 {% elseif type == 'MULTILINESTRING' or type == 'POLYGON' %}
                     {% set no_of_lines = gis_data[a][type]['no_of_lines'] ?? 1 %}
                     {% if no_of_lines < 1 %}
@@ -107,7 +107,7 @@
                     <input type="hidden" value="{{ no_of_lines }}" name="gis_data[{{ a }}][{{ type }}][no_of_lines]">
 
                     {% for i in 0..no_of_lines - 1 %}
-                        <br/>
+                        <br>
                         {% if type == 'MULTILINESTRING' %}
                             {{ 'Linestring %d:'|trans|format(i + 1) }}
                         {% elseif i == 0 %}
@@ -129,17 +129,17 @@
                         <input type="hidden" value="{{ no_of_points }}" name="gis_data[{{ a }}][{{ type }}][{{ i }}][no_of_points]">
 
                         {% for j in 0..no_of_points - 1 %}
-                            <br/>
+                            <br>
                             {{ 'Point %d:'|trans|format(j + 1) }}
                             <label for="x">{% trans 'X' %}</label>
                             <input type="text" name="gis_data[{{ a }}][{{ type }}][{{ i }}][{{ j }}][x]" value="{{ gis_data[a][type][i][j]['x'] }}">
                             <label for="y">{% trans 'Y' %}</label>
                             <input type="text" name="gis_data[{{ a }}][{{ type }}][{{ i }}][{{ j }}][y]" value="{{ gis_data[a][type][i][j]['y'] }}">
                         {% endfor %}
-                        <input type="submit" name="gis_data[{{ a }}][{{ type }}][{{ i }}][add_point]" class="add addPoint" value="{% trans 'Add a point' %}">
+                        <input type="submit" name="gis_data[{{ a }}][{{ type }}][{{ i }}][add_point]" class="btn btn-secondary add addPoint" value="{% trans 'Add a point' %}">
                     {% endfor %}
-                    <br/>
-                    <input type="submit" name="gis_data[{{ a }}][{{ type }}][add_line]" class="add addLine" value="
+                    <br>
+                    <input type="submit" name="gis_data[{{ a }}][{{ type }}][add_line]" class="btn btn-secondary add addLine" value="
                         {{- type == 'MULTILINESTRING' ? 'Add a linestring'|trans : 'Add an inner ring'|trans }}">
                 {% elseif type == 'MULTIPOLYGON' %}
                     {% set no_of_polygons = gis_data[a][type]['no_of_polygons'] ?? 1 %}
@@ -152,7 +152,7 @@
                     <input type="hidden" name="gis_data[{{ a }}][{{ type }}][no_of_polygons]" value="{{ no_of_polygons }}">
 
                     {% for k in 0..no_of_polygons - 1 %}
-                        <br/>
+                        <br>
                         {{ 'Polygon %d:'|trans|format(k + 1) }}
                         {% set no_of_lines = gis_data[a][type][k]['no_of_lines'] ?? 1 %}
                         {% if no_of_lines < 1 %}
@@ -164,7 +164,7 @@
                         <input type="hidden" name="gis_data[{{ a }}][{{ type }}][{{ k }}][no_of_lines]" value="{{ no_of_lines }}">
 
                         {% for i in 0..no_of_lines - 1 %}
-                            <br/><br/>
+                            <br><br>
                             {% if i == 0 %}
                                 {% trans 'Outer ring:' %}
                             {% else %}
@@ -181,32 +181,32 @@
                             <input type="hidden" name="gis_data[{{ a }}][{{ type }}][{{ k }}][{{ i }}][no_of_points]" value="{{ no_of_points }}">
 
                             {% for j in 0..no_of_points - 1 %}
-                                <br/>
+                                <br>
                                 {{ 'Point %d:'|trans|format(j + 1) }}
                                 <label for="x">{% trans 'X' %}</label>
                                 <input type="text" name="gis_data[{{ a }}][{{ type }}][{{ k }}][{{ i }}][{{ j }}][x]" value="{{ gis_data[a][type][k][i][j]['x'] }}">
                                 <label for="y">{% trans 'Y' %}</label>
                                 <input type="text" name="gis_data[{{ a }}][{{ type }}][{{ k }}][{{ i }}][{{ j }}][y]" value="{{ gis_data[a][type][k][i][j]['y'] }}">
                             {% endfor %}
-                            <input type="submit" name="gis_data[{{ a }}][{{ type }}][{{ k }}][{{ i }}][add_point]" class="add addPoint" value="{% trans 'Add a point' %}">
+                            <input type="submit" name="gis_data[{{ a }}][{{ type }}][{{ k }}][{{ i }}][add_point]" class="btn btn-secondary add addPoint" value="{% trans 'Add a point' %}">
                         {% endfor %}
-                        <br/>
-                        <input type="submit" name="gis_data[{{ a }}][{{ type }}][{{ k }}][add_line]" class="add addLine" value="{% trans 'Add an inner ring' %}">
-                        <br/>
+                        <br>
+                        <input type="submit" name="gis_data[{{ a }}][{{ type }}][{{ k }}][add_line]" class="btn btn-secondary add addLine" value="{% trans 'Add an inner ring' %}">
+                        <br>
                     {% endfor %}
-                    <br/>
-                    <input type="submit" name="gis_data[{{ a }}][{{ type }}][add_polygon]" class="add addPolygon" value="{% trans 'Add a polygon' %}">
+                    <br>
+                    <input type="submit" name="gis_data[{{ a }}][{{ type }}][add_polygon]" class="btn btn-secondary add addPolygon" value="{% trans 'Add a polygon' %}">
                 {% endif %}
             {% endfor %}
             {% if geom_type == 'GEOMETRYCOLLECTION' %}
-                <br/><br/>
-                <input type="submit" name="gis_data[GEOMETRYCOLLECTION][add_geom]" class="add addGeom" value="{% trans 'Add geometry' %}">
+                <br><br>
+                <input type="submit" name="gis_data[GEOMETRYCOLLECTION][add_geom]" class="btn btn-secondary add addGeom" value="{% trans 'Add geometry' %}">
             {% endif %}
         </div>
         {# End of data section #}
 
-        <br/>
-        <input type="submit" name="gis_data[save]" value="{% trans 'Go' %}">
+        <br>
+        <input class="btn btn-primary" type="submit" name="gis_data[save]" value="{% trans 'Go' %}">
 
         <div id="gis_data_output">
             <h3>{% trans 'Output' %}</h3>

@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportYaml class
  *
@@ -30,7 +29,7 @@ class ExportYamlTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
@@ -47,7 +46,7 @@ class ExportYamlTest extends PmaTestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -136,7 +135,7 @@ class ExportYamlTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "%YAML 1.1\n---\n",
             $result
         );
@@ -235,7 +234,11 @@ class ExportYamlTest extends PmaTestCase
             ->with(true)
             ->will(
                 $this->returnValue(
-                    [null, '123', "\"c\\a\nb\r"]
+                    [
+                        null,
+                        '123',
+                        "\"c\\a\nb\r",
+                    ]
                 )
             );
 

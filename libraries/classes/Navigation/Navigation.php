@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * This class is responsible for instantiating
  * the various components of the navigation panel
@@ -11,9 +10,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation;
 
 use PhpMyAdmin\Config\PageSettings;
-use PhpMyAdmin\Message;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\Server\Select;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -25,16 +27,37 @@ use PhpMyAdmin\Util;
 class Navigation
 {
     /**
-     * @var Relation $relation
+     * @var Template
      */
-    public $relation;
+    private $template;
 
     /**
-     * Constructor
+     * @var Relation
      */
-    public function __construct()
+    private $relation;
+
+    /**
+     * @var DatabaseInterface
+     */
+    private $dbi;
+
+    /**
+     * @var NavigationTree
+     */
+    private $tree;
+
+    /**
+     * Navigation constructor.
+     * @param Template          $template Template instance
+     * @param Relation          $relation Relation instance
+     * @param DatabaseInterface $dbi      DatabaseInterface instance
+     */
+    public function __construct($template, $relation, $dbi)
     {
-        $this->relation = new Relation($GLOBALS['dbi']);
+        $this->template = $template;
+        $this->relation = $relation;
+        $this->dbi = $dbi;
+        $this->tree = new NavigationTree($this->template, $this->dbi);
     }
 
     /**
@@ -42,54 +65,76 @@ class Navigation
      *
      * @return string The navigation tree
      */
-    public function getDisplay()
+    public function getDisplay(): string
     {
-        /* Init */
-        $retval = '';
+        global $cfg;
+
+        $logo = [
+            'is_displayed' => $cfg['NavigationDisplayLogo'],
+            'has_link' => false,
+            'link' => '#',
+            'attributes' => ' target="_blank" rel="noopener noreferrer"',
+            'source' => '',
+        ];
+
         $response = Response::getInstance();
         if (! $response->isAjax()) {
-            $header = new NavigationHeader();
-            $retval = $header->getDisplay();
+            $logo['source'] = $this->getLogoSource();
+            $logo['has_link'] = (string) $cfg['NavigationLogoLink'] !== '';
+            $logo['link'] = trim((string) $cfg['NavigationLogoLink']);
+            if (! Sanitize::checkLink($logo['link'], true)) {
+                $logo['link'] = 'index.php';
+            }
+            if ($cfg['NavigationLogoLinkWindow'] === 'main') {
+                if (empty(parse_url($logo['link'], PHP_URL_HOST))) {
+                    $hasStartChar = strpos($logo['link'], '?');
+                    $logo['link'] .= Url::getCommon(
+                        [],
+                        is_bool($hasStartChar) ? '?' : Url::getArgSeparator()
+                    );
+                }
+                $logo['attributes'] = '';
+            }
+
+            if ($cfg['NavigationDisplayServers'] && count($cfg['Servers']) > 1) {
+                $serverSelect = Select::render(true, true);
+            }
+
+            if (! defined('PMA_DISABLE_NAVI_SETTINGS')) {
+                $navigationSettings = PageSettings::getNaviSettings();
+            }
         }
-        $tree = new NavigationTree();
         if (! $response->isAjax()
-            || ! empty($_REQUEST['full'])
-            || ! empty($_REQUEST['reload'])
+            || ! empty($_POST['full'])
+            || ! empty($_POST['reload'])
         ) {
-            if ($GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {
+            if ($cfg['ShowDatabasesNavigationAsTree']) {
                 // provide database tree in navigation
-                $navRender = $tree->renderState();
+                $navRender = $this->tree->renderState();
             } else {
                 // provide legacy pre-4.0 navigation
-                $navRender = $tree->renderDbSelect();
+                $navRender = $this->tree->renderDbSelect();
             }
         } else {
-            $navRender = $tree->renderPath();
-        }
-        if (! $navRender) {
-            $retval .= Message::error(
-                __('An error has occurred while loading the navigation display')
-            )->getDisplay();
-        } else {
-            $retval .= $navRender;
+            $navRender = $this->tree->renderPath();
         }
 
-        if (! $response->isAjax()) {
-            // closes the tags that were opened by the navigation header
-            $retval .= '</div>'; // pma_navigation_tree
-            $retval .= '<div id="pma_navi_settings_container">';
-            if (!defined('PMA_DISABLE_NAVI_SETTINGS')) {
-                $retval .= PageSettings::getNaviSettings();
-            }
-            $retval .= '</div>'; //pma_navi_settings_container
-            $retval .= '</div>'; // pma_navigation_content
-            if ($GLOBALS['cfg']['enable_drag_drop_import'] === true) { //load drag drop handler only if configuration setting is set to true
-                $retval .= $this->_getDropHandler();
-            }
-            $retval .= '</div>'; // pma_navigation
-        }
-
-        return $retval;
+        return $this->template->render('navigation/main', [
+            'is_ajax' => $response->isAjax(),
+            'logo' => $logo,
+            'is_synced' => $cfg['NavigationLinkWithMainPanel'],
+            'is_highlighted' => $cfg['NavigationTreePointerEnable'],
+            'is_autoexpanded' => $cfg['NavigationTreeAutoexpandSingleDb'],
+            'server' => $GLOBALS['server'],
+            'auth_type' => $cfg['Server']['auth_type'],
+            'is_servers_displayed' => $cfg['NavigationDisplayServers'],
+            'servers' => $cfg['Servers'],
+            'server_select' => $serverSelect ?? '',
+            'navigation_tree' => $navRender,
+            'is_navigation_settings_enabled' => ! defined('PMA_DISABLE_NAVI_SETTINGS'),
+            'navigation_settings' => $navigationSettings ?? '',
+            'is_drag_drop_import_enabled' => $cfg['enable_drag_drop_import'] === true,
+        ]);
     }
 
     /**
@@ -113,34 +158,13 @@ class Navigation
         $sqlQuery = "INSERT INTO " . $navTable
             . "(`username`, `item_name`, `item_type`, `db_name`, `table_name`)"
             . " VALUES ("
-            . "'" . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']) . "',"
-            . "'" . $GLOBALS['dbi']->escapeString($itemName) . "',"
-            . "'" . $GLOBALS['dbi']->escapeString($itemType) . "',"
-            . "'" . $GLOBALS['dbi']->escapeString($dbName) . "',"
-            . "'" . (! empty($tableName) ? $GLOBALS['dbi']->escapeString($tableName) : "" )
+            . "'" . $this->dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "',"
+            . "'" . $this->dbi->escapeString($itemName) . "',"
+            . "'" . $this->dbi->escapeString($itemType) . "',"
+            . "'" . $this->dbi->escapeString($dbName) . "',"
+            . "'" . (! empty($tableName) ? $this->dbi->escapeString($tableName) : "" )
             . "')";
         $this->relation->queryAsControlUser($sqlQuery, false);
-    }
-
-    /**
-     * Inserts Drag and Drop Import handler
-     *
-     * @return string html code for drop handler
-     */
-    private function _getDropHandler()
-    {
-        $retval = '';
-        $retval .= '<div class="pma_drop_handler">'
-            . __('Drop files here')
-            . '</div>';
-        $retval .= '<div class="pma_sql_import_status">';
-        $retval .= '<h2>SQL upload ( ';
-        $retval .= '<span class="pma_import_count">0</span> ';
-        $retval .= ') <span class="close">x</span>';
-        $retval .= '<span class="minimize">-</span></h2>';
-        $retval .= '<div></div>';
-        $retval .= '</div>';
-        return $retval;
     }
 
     /**
@@ -165,12 +189,12 @@ class Navigation
         $sqlQuery = "DELETE FROM " . $navTable
             . " WHERE"
             . " `username`='"
-            . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']) . "'"
-            . " AND `item_name`='" . $GLOBALS['dbi']->escapeString($itemName) . "'"
-            . " AND `item_type`='" . $GLOBALS['dbi']->escapeString($itemType) . "'"
-            . " AND `db_name`='" . $GLOBALS['dbi']->escapeString($dbName) . "'"
+            . $this->dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "'"
+            . " AND `item_name`='" . $this->dbi->escapeString($itemName) . "'"
+            . " AND `item_type`='" . $this->dbi->escapeString($itemType) . "'"
+            . " AND `db_name`='" . $this->dbi->escapeString($dbName) . "'"
             . (! empty($tableName)
-                ? " AND `table_name`='" . $GLOBALS['dbi']->escapeString($tableName) . "'"
+                ? " AND `table_name`='" . $this->dbi->escapeString($tableName) . "'"
                 : ""
             );
         $this->relation->queryAsControlUser($sqlQuery, false);
@@ -179,39 +203,15 @@ class Navigation
     /**
      * Returns HTML for the dialog to show hidden navigation items.
      *
-     * @param string $dbName    database name
-     * @param string $itemType  type of the items to include
-     * @param string $tableName table name
+     * @param string $database database name
+     * @param string $itemType type of the items to include
+     * @param string $table    table name
      *
      * @return string HTML for the dialog to show hidden navigation items
      */
-    public function getItemUnhideDialog($dbName, $itemType = null, $tableName = null)
+    public function getItemUnhideDialog($database, $itemType = null, $table = null)
     {
-        $html  = '<form method="post" action="navigation.php" class="ajax">';
-        $html .= '<fieldset>';
-        $html .= Url::getHiddenInputs($dbName, $tableName);
-
-        $navTable = Util::backquote($GLOBALS['cfgRelation']['db'])
-            . "." . Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
-        $sqlQuery = "SELECT `item_name`, `item_type` FROM " . $navTable
-            . " WHERE `username`='"
-            . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']) . "'"
-            . " AND `db_name`='" . $GLOBALS['dbi']->escapeString($dbName) . "'"
-            . " AND `table_name`='"
-            . (! empty($tableName) ? $GLOBALS['dbi']->escapeString($tableName) : '') . "'";
-        $result = $this->relation->queryAsControlUser($sqlQuery, false);
-
-        $hidden = [];
-        if ($result) {
-            while ($row = $GLOBALS['dbi']->fetchArray($result)) {
-                $type = $row['item_type'];
-                if (! isset($hidden[$type])) {
-                    $hidden[$type] = [];
-                }
-                $hidden[$type][] = $row['item_name'];
-            }
-        }
-        $GLOBALS['dbi']->freeResult($result);
+        $hidden = $this->getHiddenItems($database, $table);
 
         $typeMap = [
             'group' => __('Groups:'),
@@ -221,39 +221,59 @@ class Navigation
             'table' => __('Tables:'),
             'view' => __('Views:'),
         ];
-        if (empty($tableName)) {
-            $first = true;
-            foreach ($typeMap as $t => $lable) {
-                if ((empty($itemType) || $itemType == $t)
-                    && isset($hidden[$t])
-                ) {
-                    $html .= (! $first ? '<br/>' : '')
-                        . '<strong>' . $lable . '</strong>';
-                    $html .= '<table width="100%"><tbody>';
-                    foreach ($hidden[$t] as $hiddenItem) {
-                        $params = [
-                            'unhideNavItem' => true,
-                            'itemType' => $t,
-                            'itemName' => $hiddenItem,
-                            'dbName' => $dbName
-                        ];
 
-                        $html .= '<tr>';
-                        $html .= '<td>' . htmlspecialchars($hiddenItem) . '</td>';
-                        $html .= '<td style="width:80px"><a href="navigation.php'
-                            . Url::getCommon($params) . '"'
-                            . ' class="unhideNavItem ajax">'
-                            . Util::getIcon('show', __('Unhide'))
-                            . '</a></td>';
-                    }
-                    $html .= '</tbody></table>';
-                    $first = false;
+        return $this->template->render('navigation/item_unhide_dialog', [
+            'database' => $database,
+            'table' => $table,
+            'hidden' => $hidden,
+            'types' => $typeMap,
+            'item_type' => $itemType,
+        ]);
+    }
+
+    /**
+     * @param string      $database Database name
+     * @param string|null $table    Table name
+     * @return array
+     */
+    private function getHiddenItems(string $database, ?string $table): array
+    {
+        $navTable = Util::backquote($GLOBALS['cfgRelation']['db'])
+            . "." . Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
+        $sqlQuery = "SELECT `item_name`, `item_type` FROM " . $navTable
+            . " WHERE `username`='"
+            . $this->dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "'"
+            . " AND `db_name`='" . $this->dbi->escapeString($database) . "'"
+            . " AND `table_name`='"
+            . (! empty($table) ? $this->dbi->escapeString($table) : '') . "'";
+        $result = $this->relation->queryAsControlUser($sqlQuery, false);
+
+        $hidden = [];
+        if ($result) {
+            while ($row = $this->dbi->fetchArray($result)) {
+                $type = $row['item_type'];
+                if (! isset($hidden[$type])) {
+                    $hidden[$type] = [];
                 }
+                $hidden[$type][] = $row['item_name'];
             }
         }
+        $this->dbi->freeResult($result);
+        return $hidden;
+    }
 
-        $html .= '</fieldset>';
-        $html .= '</form>';
-        return $html;
+    /**
+     * @return string Logo source
+     */
+    private function getLogoSource(): string
+    {
+        global $pmaThemeImage;
+
+        if (isset($pmaThemeImage) && @file_exists($pmaThemeImage . 'logo_left.png')) {
+            return $pmaThemeImage . 'logo_left.png';
+        } elseif (isset($pmaThemeImage) && @file_exists($pmaThemeImage . 'pma_logo2.png')) {
+            return $pmaThemeImage . 'pma_logo2.png';
+        }
+        return '';
     }
 }

@@ -1,6 +1,41 @@
 <?xml version="1.0"?>
-<ruleset name="phpMyAdmin Coding Standard">
-    <rule ref="./vendor/phpmyadmin/coding-standard/PMAStandard/ruleset.xml"/>
+<ruleset
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    name="phpMyAdmin"
+    xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd"
+>
+    <rule ref="vendor/phpmyadmin/coding-standard/PhpMyAdmin/ruleset.xml"/>
+
+    <rule ref="Generic.Files.LineLength.TooLong">
+        <severity>4</severity>
+    </rule>
+    <rule ref="Generic.Metrics.NestingLevel.TooHigh">
+        <severity>4</severity>
+    </rule>
+    <rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
+        <severity>4</severity>
+    </rule>
+    <rule ref="PSR2.Classes.PropertyDeclaration.Underscore">
+        <severity>4</severity>
+    </rule>
+    <rule ref="PSR2.Methods.MethodDeclaration.Underscore">
+        <severity>4</severity>
+    </rule>
+    <rule ref="Squiz.NamingConventions.ValidVariableName">
+        <severity>4</severity>
+    </rule>
+    <rule ref="PSR2.Methods.FunctionCallSignature.Indent">
+        <severity>0</severity>
+    </rule>
+
+    <rule ref="Squiz.Arrays.ArrayDeclaration">
+        <exclude name="Squiz.Arrays.ArrayDeclaration.DoubleArrowNotAligned"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.KeyNotAligned"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.CloseBraceNotAligned"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.ValueNotAligned"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.SingleLineNotAllowed"/>
+    </rule>
 
     <arg value="sp"/>
     <arg name="colors"/>

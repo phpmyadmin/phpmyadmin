@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for PhpMyAdmin\Relation
  *
@@ -33,7 +32,7 @@ class RelationTest extends TestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
@@ -110,11 +109,11 @@ class RelationTest extends TestCase
 
         $retval = $this->relation->getRelationsParamDiagnostic($relationsPara);
         //check $cfg['Servers'][$i]['pmadb']
-        $this->assertContains(
+        $this->assertStringContainsString(
             "\$cfg['Servers'][\$i]['pmadb']",
             $retval
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<strong>OK</strong>',
             $retval
         );
@@ -122,20 +121,20 @@ class RelationTest extends TestCase
         //$cfg['Servers'][$i]['relation']
         $result = "\$cfg['Servers'][\$i]['pmadb']  ... </th><td class=\"right\">"
             . "<span class=\"success\"><strong>OK</strong></span>";
-        $this->assertContains(
+        $this->assertStringContainsString(
             $result,
             $retval
         );
         // $cfg['Servers'][$i]['relation']
         $result = "\$cfg['Servers'][\$i]['relation']  ... </th><td class=\"right\">"
             . "<span class=\"caution\"><strong>not OK</strong></span>";
-        $this->assertContains(
+        $this->assertStringContainsString(
             $result,
             $retval
         );
         // General relation features
         $result = 'General relation features: <span class="caution">Disabled</span>';
-        $this->assertContains(
+        $this->assertStringContainsString(
             $result,
             $retval
         );
@@ -143,13 +142,13 @@ class RelationTest extends TestCase
         $result = "\$cfg['Servers'][\$i]['table_info']  ... </th>"
             . "<td class=\"right\">"
             . "<span class=\"caution\"><strong>not OK</strong></span>";
-        $this->assertContains(
+        $this->assertStringContainsString(
             $result,
             $retval
         );
         // Display Features:
         $result = 'Display Features: <span class="caution">Disabled</span>';
-        $this->assertContains(
+        $this->assertStringContainsString(
             $result,
             $retval
         );
@@ -158,17 +157,17 @@ class RelationTest extends TestCase
         $retval = $this->relation->getRelationsParamDiagnostic($relationsPara);
 
         $result = __('General relation features');
-        $this->assertContains(
+        $this->assertStringContainsString(
             $result,
             $retval
         );
         $result = 'Configuration of pmadb… ';
-        $this->assertContains(
+        $this->assertStringContainsString(
             $result,
             $retval
         );
         $result = "<strong>not OK</strong>";
-        $this->assertContains(
+        $this->assertStringContainsString(
             $result,
             $retval
         );
@@ -218,16 +217,16 @@ class RelationTest extends TestCase
             ->getMock();
 
         $getColumnsResult = [
-                [
-                        'Field' => 'field1',
-                        'Type' => 'int(11)',
-                        'Comment' => 'Comment1'
-                ],
-                [
-                        'Field' => 'field2',
-                        'Type' => 'text',
-                        'Comment' => 'Comment1'
-                ]
+            [
+                'Field' => 'field1',
+                'Type' => 'int(11)',
+                'Comment' => 'Comment1',
+            ],
+            [
+                'Field' => 'field2',
+                'Type' => 'text',
+                'Comment' => 'Comment1',
+            ],
         ];
         $dbi->expects($this->any())->method('getColumns')
             ->will($this->returnValue($getColumnsResult));
@@ -246,7 +245,7 @@ class RelationTest extends TestCase
         $this->assertEquals(
             [
                 'field1' => 'Comment1',
-                'field2' => 'Comment1'
+                'field2' => 'Comment1',
             ],
             $this->relation->getComments($db, $table)
         );
@@ -301,22 +300,28 @@ class RelationTest extends TestCase
     {
         $foreigners = [
             'value' => [
-                  'master_field' => 'value',
-                  'foreign_db' => 'GSoC14',
-                  'foreign_table' => 'test',
-                  'foreign_field' => 'value'
+                'master_field' => 'value',
+                'foreign_db' => 'GSoC14',
+                'foreign_table' => 'test',
+                'foreign_field' => 'value',
             ],
             'foreign_keys_data' => [
                 0 => [
                     'constraint' => 'ad',
-                    'index_list' => ['id', 'value'],
+                    'index_list' => [
+                        'id',
+                        'value',
+                    ],
                     'ref_db_name' => 'GSoC14',
                     'ref_table_name' => 'table_1',
-                    'ref_index_list' => ['id', 'value'],
+                    'ref_index_list' => [
+                        'id',
+                        'value',
+                    ],
                     'on_delete' => 'CASCADE',
-                    'on_update' => 'CASCADE'
-                ]
-            ]
+                    'on_update' => 'CASCADE',
+                ],
+            ],
         ];
 
         $foreigner = $this->relation->searchColumnInForeigners($foreigners, 'id');

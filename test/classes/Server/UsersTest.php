@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for PhpMyAdmin\Server\Users
  *
@@ -10,6 +9,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Server;
 
 use PhpMyAdmin\Server\Users;
+use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -31,30 +31,30 @@ class UsersTest extends TestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $html = Users::getHtmlForSubMenusOnUsersPage('server_privileges.php');
+        $html = Users::getHtmlForSubMenusOnUsersPage(Url::getFromRoute('/server/privileges'));
 
         //validate 1: topmenu2
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<ul id="topmenu2">',
             $html
         );
 
-        //validate 2: tabactive for server_privileges.php
-        $this->assertContains(
-            '<a class="tabactive" href="server_privileges.php',
+        //validate 2: tabactive for /server/privileges
+        $this->assertStringContainsString(
+            '<a class="tabactive" href="' . Url::getFromRoute('/server/privileges'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('User accounts overview'),
             $html
         );
 
-        //validate 3: not-active for server_user_groups.php
-        $this->assertContains(
-            '<a href="server_user_groups.php',
+        //validate 3: not-active for /server/user_groups
+        $this->assertStringContainsString(
+            '<a href="index.php?route=/server/user_groups',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('User groups'),
             $html
         );

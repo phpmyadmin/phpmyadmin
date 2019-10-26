@@ -355,7 +355,7 @@ PHP scripts. Of course you have to restart Apache.
 
 This is a permission problem. Right-click on the phpmyadmin folder and
 choose properties. Under the tab Security, click on "Add" and select
-the user "IUSR\_machine" from the list. Now set his permissions and it
+the user "IUSR\_machine" from the list. Now set their permissions and it
 should work.
 
 .. _faq1_27:
@@ -492,6 +492,11 @@ forget to change directory name inside of it):
     RewriteRule ^([a-zA-Z0-9_]+)$ index.php?db=$1 [R]
 
 .. seealso:: :ref:`faq4_8`
+
+.. versionchanged:: 5.1.0
+
+    Support for using the ``target`` parameter was removed in phpMyAdmin 5.1.0.
+    Use the ``route`` parameter instead.
 
 .. _faq1_35:
 
@@ -1128,7 +1133,7 @@ Starting with 2.2.5, in the user management page, you can enter a
 wildcard database name for a user (for example "joe%"), and put the
 privileges you want. For example, adding ``SELECT, INSERT, UPDATE,
 DELETE, CREATE, DROP, INDEX, ALTER`` would let a user create/manage
-his/her database(s).
+their database(s).
 
 .. _faq4_6:
 
@@ -1173,22 +1178,20 @@ name is defined in the config file.
 4.8 Which parameters can I use in the URL that starts phpMyAdmin?
 -----------------------------------------------------------------
 
-When accessing phpMyAdmin, you can use the ``db``, ``pma_username``,
-``pma_password`` and ``server`` :term:`URL` parameters. The "server" parameter  can contain
+When starting phpMyAdmin, you can use the ``db``
+and ``server`` parameters. This last one can contain
 either the numeric host index (from ``$i`` of the configuration file)
-or one of the host names present in the configuration file. Using
-``pma_username`` and ``pma_password`` has been tested with the
-'cookie' ``auth_type``.
+or one of the host names present in the configuration file.
 
-For example, a direct login URL can be constructed as
-``https://example.com/phpmyadmin/?pma_username=user&pma_password=password``.
+For example, to jump directly to a particular database, a URL can be constructed as
+``https://example.com/phpmyadmin/?db=sakila``.
 
 .. seealso:: :ref:`faq1_34`
 
-.. warning::
+.. versionchanged:: 4.9.0
 
-    Passing a password and username in URL is potentially insecure and should not be used in
-    production environments.
+    Support for using the ``pma_username`` and ``pma_password`` parameters was removed
+    in phpMyAdmin 4.9.0 (see `PMASA-2019-4 <https://www.phpmyadmin.net/security/PMASA-2019-4/>`_).
 
 .. _faqbrowsers:
 
@@ -1483,7 +1486,7 @@ create the example tables:
     country_code char(1) NOT NULL default '',
     description varchar(10) NOT NULL default '',
     PRIMARY KEY (country_code)
-    ) TYPE=MyISAM;
+    ) ENGINE=MyISAM;
 
     INSERT INTO REL_countries VALUES ('C', 'Canada');
 
@@ -1493,16 +1496,16 @@ create the example tables:
     town_code varchar(5) default '0',
     country_code char(1) NOT NULL default '',
     PRIMARY KEY (id)
-    ) TYPE=MyISAM;
+    ) ENGINE=MyISAM;
 
-    INSERT INTO REL_persons VALUES (11, 'Marc', 'S', '');
+    INSERT INTO REL_persons VALUES (11, 'Marc', 'S', 'C');
     INSERT INTO REL_persons VALUES (15, 'Paul', 'S', 'C');
 
     CREATE TABLE REL_towns (
     town_code varchar(5) NOT NULL default '0',
     description varchar(30) NOT NULL default '',
     PRIMARY KEY (town_code)
-    ) TYPE=MyISAM;
+    ) ENGINE=MyISAM;
 
     INSERT INTO REL_towns VALUES ('S', 'Sherbrooke');
     INSERT INTO REL_towns VALUES ('M', 'Montréal');
@@ -1625,7 +1628,7 @@ It means "average".
   any) will be included in backup.
 * "Enclose table and column names with backquotes" ensures that column
   and table names formed with special characters are protected.
-* "Add into comments" includes column comments, relations, and MIME
+* "Add into comments" includes column comments, relations, and media
   types set in the pmadb in the dump as :term:`SQL` comments
   (*/\* xxx \*/*).
 
@@ -1691,7 +1694,7 @@ user-input situation. Instead you have to initialize mimetypes using
 functions or empty mimetype definitions.
 
 Plus, you have a whole overview of available mimetypes. Who knows all those
-mimetypes by heart so he/she can enter it at will?
+mimetypes by heart so they can enter it at will?
 
 .. _faqbookmark:
 
@@ -2213,7 +2216,7 @@ authentication to the Apache environment and it can be used in Apache
 logs. Currently there are two variables available:
 
 ``userID``
-    User name of currently active user (he does not have to be logged in).
+    User name of currently active user (they do not have to be logged in).
 ``userStatus``
     Status of currently active user, one of ``ok`` (user is logged in),
     ``mysql-denied`` (MySQL denied user login), ``allow-denied`` (user denied

@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Functions for displaying user preferences pages
  *
@@ -9,13 +8,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Charsets;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Charsets\Charset;
+use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 
 /**
  * PhpMyAdmin\CentralColumns class
@@ -273,18 +268,18 @@ class CentralColumns
         $attribute = "";
         if (isset($def['Type'])) {
             $extracted_columnspec = Util::extractColumnSpec($def['Type']);
-            $attribute = trim($extracted_columnspec[ 'attribute']);
+            $attribute = trim($extracted_columnspec['attribute']);
             $type = $extracted_columnspec['type'];
             $length = $extracted_columnspec['spec_in_brackets'];
         }
         if (isset($def['Attribute'])) {
             $attribute = $def['Attribute'];
-        };
+        }
         $collation = isset($def['Collation']) ? $def['Collation'] : "";
-        $isNull = ($def['Null'] == "NO") ? '0' : '1';
+        $isNull = $def['Null'] == "NO" ? '0' : '1';
         $extra = isset($def['Extra']) ? $def['Extra'] : "";
         $default = isset($def['Default']) ? $def['Default'] : "";
-        $insQuery = 'INSERT INTO '
+        return 'INSERT INTO '
             . Util::backquote($central_list_table) . ' '
             . 'VALUES ( \'' . $this->dbi->escapeString($db) . '\' ,'
             . '\'' . $this->dbi->escapeString($column) . '\',\''
@@ -294,7 +289,6 @@ class CentralColumns
             . '\'' . $this->dbi->escapeString($isNull) . '\','
             . '\'' . implode(',', [$extra, $attribute])
             . '\',\'' . $this->dbi->escapeString($default) . '\');';
-        return $insQuery;
     }
 
     /**
@@ -308,7 +302,7 @@ class CentralColumns
      * @param string $table        if $isTable is false, then table name to
      *                             which columns belong
      *
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function syncUniqueColumns(
         array $field_select,
@@ -319,7 +313,7 @@ class CentralColumns
         if (empty($cfgCentralColumns)) {
             return $this->configErrorMessage();
         }
-        $db = $_REQUEST['db'];
+        $db = $_POST['db'];
         $pmadb = $cfgCentralColumns['db'];
         $central_list_table = $cfgCentralColumns['table'];
         $this->dbi->selectDb($db);
@@ -344,7 +338,7 @@ class CentralColumns
             $has_list = $this->findExistingColNames($db, trim($cols, ','));
             foreach ($field_select as $table) {
                 foreach ($fields[$table] as $field => $def) {
-                    if (!in_array($field, $has_list)) {
+                    if (! in_array($field, $has_list)) {
                         $has_list[] = $field;
                         $insQuery[] = $this->getInsertQuery(
                             $field,
@@ -359,14 +353,14 @@ class CentralColumns
             }
         } else {
             if ($table === null) {
-                $table = $_REQUEST['table'];
+                $table = $_POST['table'];
             }
             foreach ($field_select as $column) {
                 $cols .= "'" . $this->dbi->escapeString($column) . "',";
             }
             $has_list = $this->findExistingColNames($db, trim($cols, ','));
             foreach ($field_select as $column) {
-                if (!in_array($column, $has_list)) {
+                if (! in_array($column, $has_list)) {
                     $has_list[] = $column;
                     $field = (array) $this->dbi->getColumns(
                         $db,
@@ -405,7 +399,7 @@ class CentralColumns
         $this->dbi->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
         if (! empty($insQuery)) {
             foreach ($insQuery as $query) {
-                if (!$this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
+                if (! $this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
                     $message = Message::error(__('Could not add columns!'));
                     $message->addMessage(
                         Message::rawError(
@@ -424,13 +418,15 @@ class CentralColumns
      * central columns list otherwise $field_select is columns list and it removes
      * given columns if present in central list
      *
-     * @param array $field_select if $isTable selected list of tables otherwise
-     *                            selected list of columns to remove from central list
-     * @param bool  $isTable      if passed array is of tables or columns
+     * @param string $database     Database name
+     * @param array  $field_select if $isTable selected list of tables otherwise
+     *                             selected list of columns to remove from central list
+     * @param bool   $isTable      if passed array is of tables or columns
      *
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function deleteColumnsFromList(
+        string $database,
         array $field_select,
         bool $isTable = true
     ) {
@@ -438,10 +434,9 @@ class CentralColumns
         if (empty($cfgCentralColumns)) {
             return $this->configErrorMessage();
         }
-        $db = $_REQUEST['db'];
         $pmadb = $cfgCentralColumns['db'];
         $central_list_table = $cfgCentralColumns['table'];
-        $this->dbi->selectDb($db);
+        $this->dbi->selectDb($database);
         $message = true;
         $colNotExist = [];
         $fields = [];
@@ -449,7 +444,7 @@ class CentralColumns
             $cols = '';
             foreach ($field_select as $table) {
                 $fields[$table] = (array) $this->dbi->getColumnNames(
-                    $db,
+                    $database,
                     $table
                 );
                 foreach ($fields[$table] as $col_select) {
@@ -457,10 +452,10 @@ class CentralColumns
                 }
             }
             $cols = trim($cols, ',');
-            $has_list = $this->findExistingColNames($db, $cols);
+            $has_list = $this->findExistingColNames($database, $cols);
             foreach ($field_select as $table) {
                 foreach ($fields[$table] as $column) {
-                    if (!in_array($column, $has_list)) {
+                    if (! in_array($column, $has_list)) {
                         $colNotExist[] = "'" . $column . "'";
                     }
                 }
@@ -471,14 +466,14 @@ class CentralColumns
                 $cols .= '\'' . $this->dbi->escapeString($col_select) . '\',';
             }
             $cols = trim($cols, ',');
-            $has_list = $this->findExistingColNames($db, $cols);
+            $has_list = $this->findExistingColNames($database, $cols);
             foreach ($field_select as $column) {
-                if (!in_array($column, $has_list)) {
+                if (! in_array($column, $has_list)) {
                     $colNotExist[] = "'" . $column . "'";
                 }
             }
         }
-        if (!empty($colNotExist)) {
+        if (! empty($colNotExist)) {
             $colNotExist = implode(",", array_unique($colNotExist));
             $message = Message::notice(
                 sprintf(
@@ -493,11 +488,11 @@ class CentralColumns
         $this->dbi->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
 
         $query = 'DELETE FROM ' . Util::backquote($central_list_table) . ' '
-            . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\' AND col_name IN (' . $cols . ');';
+            . 'WHERE db_name = \'' . $this->dbi->escapeString($database) . '\' AND col_name IN (' . $cols . ');';
 
-        if (!$this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
+        if (! $this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
             $message = Message::error(__('Could not remove columns!'));
-            $message->addHtml('<br />' . htmlspecialchars($cols) . '<br />');
+            $message->addHtml('<br>' . htmlspecialchars($cols) . '<br>');
             $message->addMessage(
                 Message::rawError(
                     $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL)
@@ -514,7 +509,7 @@ class CentralColumns
      * @param string $db              current database
      * @param array  $selected_tables list of selected tables.
      *
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function makeConsistentWithList(
         string $db,
@@ -564,7 +559,7 @@ class CentralColumns
                 }
             }
             $query = trim($query, " ,") . ";";
-            if (!$this->dbi->tryQuery($query)) {
+            if (! $this->dbi->tryQuery($query)) {
                 if ($message === true) {
                     $message = Message::error(
                         $this->dbi->getError()
@@ -572,7 +567,7 @@ class CentralColumns
                 } else {
                     $message->addText(
                         $this->dbi->getError(),
-                        '<br />'
+                        '<br>'
                     );
                 }
             }
@@ -607,12 +602,12 @@ class CentralColumns
         );
         $cols = '';
         foreach ($fields as $col_select) {
-            $cols .= '\'' . $this->dbi->escapeString((string)$col_select) . '\',';
+            $cols .= '\'' . $this->dbi->escapeString((string) $col_select) . '\',';
         }
         $cols = trim($cols, ',');
         $has_list = $this->findExistingColNames($db, $cols, $allFields);
         if (! empty($has_list)) {
-            return (array)$has_list;
+            return (array) $has_list;
         }
 
         return [];
@@ -632,7 +627,7 @@ class CentralColumns
      * @param string $col_extra     new column extra property
      * @param string $col_default   new column default value
      *
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function updateOneColumn(
         string $db,
@@ -678,7 +673,7 @@ class CentralColumns
                 . 'AND col_name = \'' . $this->dbi->escapeString($orig_col_name)
                 . '\'';
         }
-        if (!$this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
+        if (! $this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
             return Message::error(
                 $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL)
             );
@@ -687,47 +682,40 @@ class CentralColumns
     }
 
     /**
-     * Update Multiple column in central columns list if a chnage is requested
+     * Update Multiple column in central columns list if a change is requested
      *
-     * @return true|\PhpMyAdmin\Message
+     * @param array $params Request parameters
+     * @return true|Message
      */
-    public function updateMultipleColumn()
+    public function updateMultipleColumn(array $params)
     {
-        $db = $_POST['db'];
-        $col_name = $_POST['field_name'];
-        $orig_col_name = $_POST['orig_col_name'];
-        $col_default = $_POST['field_default_type'];
-        $col_length = $_POST['field_length'];
-        $col_attribute = $_POST['field_attribute'];
-        $col_type = $_POST['field_type'];
-        $collation = $_POST['field_collation'];
-        $col_isNull = [];
-        $col_extra = [];
-        $num_central_fields = count($orig_col_name);
-        for ($i = 0; $i < $num_central_fields; $i++) {
-            $col_isNull[$i] = isset($_POST['field_null'][$i]) ? 1 : 0;
-            $col_extra[$i] = isset($_POST['col_extra'][$i])
-                ? $_POST['col_extra'][$i] : '';
+        $columnDefault = $params['field_default_type'];
+        $columnIsNull = [];
+        $columnExtra = [];
+        $numberCentralFields = count($params['orig_col_name']);
+        for ($i = 0; $i < $numberCentralFields; $i++) {
+            $columnIsNull[$i] = isset($params['field_null'][$i]) ? 1 : 0;
+            $columnExtra[$i] = $params['col_extra'][$i] ?? '';
 
-            if ($col_default[$i] == 'NONE') {
-                $col_default[$i] = "";
-            } elseif ($col_default[$i] == 'USER_DEFINED') {
-                $col_default[$i] = $_POST['field_default_value'][$i];
+            if ($columnDefault[$i] === 'NONE') {
+                $columnDefault[$i] = '';
+            } elseif ($columnDefault[$i] === 'USER_DEFINED') {
+                $columnDefault[$i] = $params['field_default_value'][$i];
             }
 
             $message = $this->updateOneColumn(
-                $db,
-                $orig_col_name[$i],
-                $col_name[$i],
-                $col_type[$i],
-                $col_attribute[$i],
-                $col_length[$i],
-                $col_isNull[$i],
-                $collation[$i],
-                $col_extra[$i],
-                $col_default[$i]
+                $params['db'],
+                $params['orig_col_name'][$i],
+                $params['field_name'][$i],
+                $params['field_type'][$i],
+                $params['field_attribute'][$i],
+                $params['field_length'][$i],
+                $columnIsNull[$i],
+                $params['field_collation'][$i],
+                $columnExtra[$i],
+                $columnDefault[$i]
             );
-            if (!is_bool($message)) {
+            if (! is_bool($message)) {
                 return $message;
             }
         }
@@ -769,10 +757,10 @@ class CentralColumns
                 'ci' => 0,
                 'ci_offset' => 0,
                 'column_meta' => [
-                    'Field' => $row['col_name']
+                    'Field' => $row['col_name'],
                 ],
                 'cfg_relation' => [
-                    'centralcolumnswork' => false
+                    'centralcolumnswork' => false,
                 ],
                 'max_rows' => $this->maxRows,
             ])
@@ -798,19 +786,17 @@ class CentralColumns
             ])
             . '</td>';
         $meta = [];
-        if (!isset($row['col_default']) || $row['col_default'] == '') {
+        if (! isset($row['col_default']) || $row['col_default'] == '') {
             $meta['DefaultType'] = 'NONE';
+        } elseif ($row['col_default'] == 'CURRENT_TIMESTAMP'
+            || $row['col_default'] == 'current_timestamp()'
+        ) {
+            $meta['DefaultType'] = 'CURRENT_TIMESTAMP';
+        } elseif ($row['col_default'] == 'NULL') {
+            $meta['DefaultType'] = $row['col_default'];
         } else {
-            if ($row['col_default'] == 'CURRENT_TIMESTAMP'
-                || $row['col_default'] == 'current_timestamp()'
-            ) {
-                $meta['DefaultType'] = 'CURRENT_TIMESTAMP';
-            } elseif ($row['col_default'] == 'NULL') {
-                $meta['DefaultType'] = $row['col_default'];
-            } else {
-                $meta['DefaultType'] = 'USER_DEFINED';
-                $meta['DefaultValue'] = $row['col_default'];
-            }
+            $meta['DefaultType'] = 'USER_DEFINED';
+            $meta['DefaultValue'] = $row['col_default'];
         }
         $tableHtml .=
             '<td class="nowrap" name="col_default">'
@@ -823,17 +809,28 @@ class CentralColumns
                 'char_editing' => $this->charEditing,
             ])
             . '</td>';
-        $tableHtml .=
-            '<td name="collation" class="nowrap">'
-            . Charsets::getCollationDropdownBox(
-                $this->dbi,
-                $this->disableIs,
-                'field_collation[' . $row_num . ']',
-                'field_' . $row_num . '_4',
-                $row['col_collation'],
-                false
-            )
-            . '</td>';
+        $tableHtml .= '<td name="collation" class="nowrap">';
+        $tableHtml .= '<select lang="en" dir="ltr" name="field_collation[' . $row_num . ']"';
+        $tableHtml .= ' id="field_' . $row_num . '_4">' . "\n";
+        $tableHtml .= '<option value=""></option>' . "\n";
+
+        $charsets = Charsets::getCharsets($this->dbi, $this->disableIs);
+        $collations = Charsets::getCollations($this->dbi, $this->disableIs);
+        /** @var Charset $charset */
+        foreach ($charsets as $charset) {
+            $tableHtml .= '<optgroup label="' . $charset->getName()
+                . '" title="' . $charset->getDescription() . '">' . "\n";
+            /** @var Collation $collation */
+            foreach ($collations[$charset->getName()] as $collation) {
+                $tableHtml .= '<option value="' . $collation->getName()
+                    . '" title="' . $collation->getDescription() . '"'
+                    . ($row['col_collation'] == $collation->getName() ? ' selected' : '') . '>'
+                    . $collation->getName() . '</option>' . "\n";
+            }
+            $tableHtml .= '</optgroup>' . "\n";
+        }
+        $tableHtml .= '</select>' . "\n";
+        $tableHtml .= '</td>';
         $tableHtml .=
             '<td class="nowrap" name="col_attribute">'
             . $this->template->render('columns_definitions/column_attribute', [
@@ -880,14 +877,14 @@ class CentralColumns
      * @param string $db    selected database
      * @param string $table current table name
      *
-     * @return string encoded list of columns present in central list for the given
-     *                database
+     * @return array encoded list of columns present in central list for the given
+     *               database
      */
-    public function getListRaw(string $db, string $table): string
+    public function getListRaw(string $db, string $table): array
     {
         $cfgCentralColumns = $this->getParams();
         if (empty($cfgCentralColumns)) {
-            return json_encode([]);
+            return [];
         }
         $centralTable = $cfgCentralColumns['table'];
         if (empty($table) || $table == '') {
@@ -912,14 +909,14 @@ class CentralColumns
             $query .= ';';
         }
         $this->dbi->selectDb($cfgCentralColumns['db'], DatabaseInterface::CONNECT_CONTROL);
-        $columns_list = (array)$this->dbi->fetchResult(
+        $columns_list = (array) $this->dbi->fetchResult(
             $query,
             null,
             null,
             DatabaseInterface::CONNECT_CONTROL
         );
         $this->handleColumnExtra($columns_list);
-        return json_encode($columns_list);
+        return $columns_list;
     }
 
     /**
@@ -928,7 +925,7 @@ class CentralColumns
      * @param string $pmaThemeImage pma theme image url
      * @param string $text_dir      url for text directory
      *
-     * @return string $html_output
+     * @return string
      */
     public function getTableFooter(string $pmaThemeImage, string $text_dir): string
     {
@@ -962,18 +959,17 @@ class CentralColumns
      */
     private function getEditTableFooter(): string
     {
-        $html_output = '<fieldset class="tblFooters">'
-            . '<input type="submit" '
-            . 'name="save_multi_central_column_edit" value="' . __('Save') . '" />'
+        return '<fieldset class="tblFooters">'
+            . '<input class="btn btn-primary" type="submit" '
+            . 'name="save_multi_central_column_edit" value="' . __('Save') . '">'
             . '</fieldset>';
-        return $html_output;
     }
 
     /**
      * Column `col_extra` is used to store both extra and attributes for a column.
      * This method separates them.
      *
-     * @param array &$columns_list columns list
+     * @param array $columns_list columns list
      *
      * @return void
      */
@@ -1014,8 +1010,14 @@ class CentralColumns
     {
         $html = '<form id="multi_edit_central_columns">';
         $header_cells = [
-            __('Name'), __('Type'), __('Length/Values'), __('Default'),
-            __('Collation'), __('Attributes'), __('Null'), __('A_I')
+            __('Name'),
+            __('Type'),
+            __('Length/Values'),
+            __('Default'),
+            __('Collation'),
+            __('Attributes'),
+            __('Null'),
+            __('A_I'),
         ];
         $html .= $this->getEditTableHeader($header_cells);
         $selected_fld_safe = [];
@@ -1048,14 +1050,14 @@ class CentralColumns
      * @param int    $from starting offset of first result
      * @param int    $num  maximum number of results to return
      *
-     * @return array list of $num columns present in central columns list
+     * @return int count of $num columns present in central columns list
      * starting at offset $from for the given database
      */
     public function getColumnsCount(string $db, int $from = 0, int $num = 25): int
     {
         $cfgCentralColumns = $this->getParams();
         if (empty($cfgCentralColumns)) {
-            return [];
+            return 0;
         }
         $pmadb = $cfgCentralColumns['db'];
         $this->dbi->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
@@ -1063,7 +1065,7 @@ class CentralColumns
         //get current values of $db from central column list
         $query = 'SELECT COUNT(db_name) FROM ' . Util::backquote($central_list_table) . ' '
             . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\'' .
-            ($num == 0 ? '' : 'LIMIT ' . $from . ', ' . $num) . ';';
+            ($num === 0 ? '' : 'LIMIT ' . $from . ', ' . $num) . ';';
         $result = (array) $this->dbi->fetchResult(
             $query,
             null,
@@ -1092,11 +1094,12 @@ class CentralColumns
         $existing_cols = $this->getFromTable($db, $selected_tbl);
         $this->dbi->selectDb($db);
         $columns = (array) $this->dbi->getColumnNames(
-            $db, $selected_tbl
+            $db,
+            $selected_tbl
         );
         $selectColHtml = "";
         foreach ($columns as $column) {
-            if (!in_array($column, $existing_cols)) {
+            if (! in_array($column, $existing_cols)) {
                 $selectColHtml .= '<option value="' . htmlspecialchars($column) . '">'
                     . htmlspecialchars($column)
                     . '</option>';
@@ -1129,12 +1132,12 @@ class CentralColumns
 
         $tn_pageNow = ($pos / $this->maxRows) + 1;
         $tn_nbTotalPage = ceil($total_rows / $this->maxRows);
-        $tn_page_selector = ($tn_nbTotalPage > 1) ? (Util::pageselector(
+        $tn_page_selector = $tn_nbTotalPage > 1 ? Util::pageselector(
             'pos',
             $this->maxRows,
             $tn_pageNow,
             $tn_nbTotalPage
-        )) : '';
+        ) : '';
         $this->dbi->selectDb($db);
         $tables = $this->dbi->getTables($db);
         $rows_list = $this->getColumnsList($db, $pos, $max_rows);
@@ -1144,7 +1147,7 @@ class CentralColumns
         $row_num = 0;
         foreach ($rows_list as $row) {
             $rows_meta[$row_num] = [];
-            if (!isset($row['col_default']) || $row['col_default'] == '') {
+            if (! isset($row['col_default']) || $row['col_default'] == '') {
                 $rows_meta[$row_num]['DefaultType'] = 'NONE';
             } else {
                 if ($row['col_default'] == 'CURRENT_TIMESTAMP'
@@ -1158,13 +1161,32 @@ class CentralColumns
                     $rows_meta[$row_num]['DefaultValue'] = $row['col_default'];
                 }
             }
-            $types_upper[$row_num] = mb_strtoupper((string)$row['col_type']);
+            $types_upper[$row_num] = mb_strtoupper((string) $row['col_type']);
             $row_num++;
+        }
+
+        $charsets = Charsets::getCharsets($this->dbi, $this->disableIs);
+        $collations = Charsets::getCollations($this->dbi, $this->disableIs);
+        $charsetsList = [];
+        /** @var Charset $charset */
+        foreach ($charsets as $charset) {
+            $collationsList = [];
+            /** @var Collation $collation */
+            foreach ($collations[$charset->getName()] as $collation) {
+                $collationsList[] = [
+                    'name' => $collation->getName(),
+                    'description' => $collation->getDescription(),
+                ];
+            }
+            $charsetsList[] = [
+                'name' => $charset->getName(),
+                'description' => $charset->getDescription(),
+                'collations' => $collationsList,
+            ];
         }
 
         return $this->template->render('database/central_columns/main', [
             "db" => $db,
-            "dbi" => $this->dbi,
             "total_rows" => $total_rows,
             "max_rows" => $max_rows,
             "pos" => $pos,
@@ -1176,9 +1198,9 @@ class CentralColumns
             "rows_list" => $rows_list,
             "rows_meta" => $rows_meta,
             "types_upper" => $types_upper,
-            "disableIs" => $this->disableIs,
             "pmaThemeImage" => $pmaThemeImage,
             "text_dir" => $text_dir,
+            'charsets' => $charsetsList,
         ]);
     }
 }

@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Selenium TestCase for table related tests
  *
@@ -27,7 +26,7 @@ class BrowseTest extends TestBase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->dbQuery(
@@ -185,7 +184,7 @@ class BrowseTest extends TestBase
 
         $this->waitAjax();
         $success = $this->waitForElement('className', "success");
-        $this->assertContains("1 row affected", $success->getText());
+        $this->assertStringContainsString("1 row affected", $success->getText());
 
         $this->assertEquals(
             "foobar",
@@ -232,7 +231,7 @@ class BrowseTest extends TestBase
             'cssSelector',
             "span.ajax_notification div.success"
         );
-        $this->assertContains("1 row affected", $success->getText());
+        $this->assertStringContainsString("1 row affected", $success->getText());
 
         $this->assertEquals(
             "abcde",
@@ -267,18 +266,16 @@ class BrowseTest extends TestBase
         );
 
         $this->byId("field_2_3")->clear();
-        $this->byId("field_3_3")->clear();
-
-        // shorter date to prevent error,
-        // automatically gets appended with 00:00:00
-        $this->keys("2012-01-2");
         $this->byId("field_2_3")->sendKeys("ABCDEFG");
+
+        $this->byId("field_3_3")->clear();
+        $this->byId("field_3_3")->sendKeys("2012-01-02");
 
         $this->waitForElement('id', "buttonYes")->click();
 
         $this->waitAjax();
         $success = $this->waitForElement('className', "success");
-        $this->assertContains("1 row inserted", $success->getText());
+        $this->assertStringContainsString("1 row inserted", $success->getText());
 
         $this->assertEquals(
             "ABCDEFG",
@@ -318,7 +315,7 @@ class BrowseTest extends TestBase
 
         $this->waitAjax();
         $success = $this->waitForElement('className', "success");
-        $this->assertContains("Showing rows", $success->getText());
+        $this->assertStringContainsString("Showing rows", $success->getText());
 
         $this->assertEquals(
             "1",
@@ -350,7 +347,7 @@ class BrowseTest extends TestBase
 
         $this->waitAjax();
         $success = $this->waitForElement('className', "success");
-        $this->assertContains("Showing rows", $success->getText());
+        $this->assertStringContainsString("Showing rows", $success->getText());
 
         $this->assertFalse(
             $this->isElementPresent(

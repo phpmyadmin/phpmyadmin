@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Library for extracting information about the partitions
  *
@@ -212,7 +211,7 @@ class Partition extends SubPartition
      * @param string $db    database name
      * @param string $table table name
      *
-     * @return string partition method
+     * @return string|null partition method
      */
     public static function getPartitionMethod($db, $table)
     {
@@ -251,6 +250,8 @@ class Partition extends SubPartition
                 )) {
                     $have_partitioning = true;
                 }
+            } elseif ($GLOBALS['dbi']->getVersion() >= 80000) {
+                $have_partitioning = true;
             } else {
                 // see https://dev.mysql.com/doc/refman/5.6/en/partitioning.html
                 $plugins = $GLOBALS['dbi']->fetchResult("SHOW PLUGINS");

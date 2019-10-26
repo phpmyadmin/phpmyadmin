@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Super class of CSV import plugins for phpMyAdmin
  *
@@ -10,12 +9,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
 
-use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
-use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
+use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
-use PhpMyAdmin\Plugins\ImportPlugin;
+use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
+use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 
 /**
  * Super class of the import plugins for the CSV format
@@ -26,18 +25,10 @@ use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 abstract class AbstractImportCsv extends ImportPlugin
 {
     /**
-     * AbstractImportCsv constructor.
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-    /**
      * Sets the import plugin properties.
      * Called in the constructor.
      *
-     * @return \PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup object of the plugin
+     * @return OptionsPropertyMainGroup|void object of the plugin
      */
     protected function setProperties()
     {

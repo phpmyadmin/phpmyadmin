@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Holds the PhpMyAdmin\FileListing class
  *
@@ -26,7 +25,7 @@ class FileListing
      */
     public function getDirContent(string $dir, string $expression = '')
     {
-        if (!@file_exists($dir) || !($handle = @opendir($dir))) {
+        if (! @file_exists($dir) || ! ($handle = @opendir($dir))) {
             return false;
         }
 
@@ -54,7 +53,7 @@ class FileListing
      * @param string $extensions regular expression to match files
      * @param string $active     currently active choice
      *
-     * @return array|bool sorted file list on success, false on failure
+     * @return string|false Html <option> field, false if not files in dir
      */
     public function getFileSelectOptions(
         string $dir,
@@ -91,13 +90,13 @@ class FileListing
             $compressions = 'gz';
         }
         if ($cfg['BZipDump'] && function_exists('bzopen')) {
-            if (!empty($compressions)) {
+            if (! empty($compressions)) {
                 $compressions .= '|';
             }
             $compressions .= 'bz2';
         }
         if ($cfg['ZipDump'] && function_exists('gzinflate')) {
-            if (!empty($compressions)) {
+            if (! empty($compressions)) {
                 $compressions .= '|';
             }
             $compressions .= 'zip';

@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Single signon for phpMyAdmin using OpenID
  *
@@ -31,8 +30,8 @@ $AUTH_MAP = [
     'https://launchpad.net/~username' => [
         'user' => 'root',
         'password' => '',
-        ],
-    ];
+    ],
+];
 
 /**
  * Simple function to show HTML page with given content.
@@ -49,14 +48,14 @@ function Show_page($contents)
     <!DOCTYPE HTML>
     <html lang="en" dir="ltr">
     <head>
-    <link rel="icon" href="../favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
-    <meta charset="utf-8" />
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <meta charset="utf-8">
     <title>phpMyAdmin OpenID signon example</title>
     </head>
     <body>
     <?php
-    if (isset($_SESSION) && isset($_SESSION['PMA_single_signon_error_message'])) {
+    if (isset($_SESSION['PMA_single_signon_error_message'])) {
         echo '<p class="error">' , $_SESSION['PMA_single_signon_message'] , '</p>';
         unset($_SESSION['PMA_single_signon_message']);
     }
@@ -106,11 +105,11 @@ if ($returnTo[strlen($returnTo) - 1] != '/') {
 $returnTo .= 'openid.php';
 
 /* Display form */
-if (!count($_GET) && !count($_POST) || isset($_GET['phpMyAdmin'])) {
+if (! count($_GET) && ! count($_POST) || isset($_GET['phpMyAdmin'])) {
     /* Show simple form */
     $content = '<form action="openid.php" method="post">
-OpenID: <input type="text" name="identifier" /><br />
-<input type="submit" name="start" />
+OpenID: <input type="text" name="identifier"><br>
+<input type="submit" name="start">
 </form>
 </body>
 </html>';
@@ -148,7 +147,7 @@ if (isset($_POST['start'])) {
     exit;
 } else {
     /* Grab query string */
-    if (!count($_POST)) {
+    if (! count($_POST)) {
         list(, $queryString) = explode('?', $_SERVER['REQUEST_URI']);
     } else {
         // I hate php sometimes
@@ -164,7 +163,7 @@ if (isset($_POST['start'])) {
 
     $id = $message->get('openid.claimed_id');
 
-    if (!empty($id) && isset($AUTH_MAP[$id])) {
+    if (! empty($id) && isset($AUTH_MAP[$id])) {
         $_SESSION['PMA_single_signon_user'] = $AUTH_MAP[$id]['user'];
         $_SESSION['PMA_single_signon_password'] = $AUTH_MAP[$id]['password'];
         session_write_close();

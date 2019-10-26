@@ -134,10 +134,12 @@ if [ $do_ci -eq 0 -a -$do_daily -eq 0 ] ; then
 
 Please ensure you have incremented rc count or version in the repository :
      - in $CONFIG_LIB Config::__constructor() the line
-          " \$this->set( 'PMA_VERSION', '$version' ); "
+          " \$this->set('PMA_VERSION', '$version'); "
      - in doc/conf.py the line
           " version = '$version' "
      - in README
+     - in package.json the line
+          " "version": "$version", "
      - set release date in ChangeLog
 
 Continue (y/n)?
@@ -182,6 +184,10 @@ if [ $do_ci -eq 0 -a -$do_daily -eq 0 ] ; then
         echo "There seems to be wrong version in README"
         exit 2
     fi
+    if ! grep -q "\"version\": \"$version\"," package.json ; then
+        echo "There seems to be wrong version in package.json"
+        exit 2
+    fi
 fi
 
 # Cleanup release dir
@@ -222,7 +228,10 @@ rm -f .travis.yml .coveralls.yml .scrutinizer.yml .jshintrc .weblate codecov.yml
 rm -f README.rst
 
 if [ ! -d libraries/tcpdf ] ; then
-    PHP_REQ=`sed -n '/"php"/ s/.*"\(\^\|>=\)\([0-9]\.[0-9]\).*/\2/p' composer.json`
+    case "$branch" in
+      QA_4*) PHP_REQ=$(sed -n '/"php"/ s/.*">=\([0-9]\.[0-9]\).*/\1/p' composer.json) ;;
+      *) PHP_REQ=$(sed -n '/"php"/ s/.*"\^\([0-9]\.[0-9]\.[0-9]\).*/\1/p' composer.json) ;;
+    esac
 
     if [ -z "$PHP_REQ" ] ; then
         echo "Failed to figure out required PHP version from composer.json"
@@ -235,7 +244,20 @@ if [ ! -d libraries/tcpdf ] ; then
     echo "* Running composer"
     composer config platform.php "$PHP_REQ"
     composer update --no-dev
-    composer require --update-no-dev tecnickcom/tcpdf pragmarx/google2fa-qrcode samyoul/u2f-php-server
+
+    # Parse the required versions from composer.json
+    PACKAGES_VERSIONS=''
+    case "$branch" in
+      QA_4*) PACKAGE_LIST="tecnickcom/tcpdf pragmarx/google2fa bacon/bacon-qr-code samyoul/u2f-php-server" ;;
+      *) PACKAGE_LIST="tecnickcom/tcpdf pragmarx/google2fa-qrcode samyoul/u2f-php-server" ;;
+    esac
+
+    for PACKAGES in $PACKAGE_LIST
+    do
+        PACKAGES_VERSIONS="$PACKAGES_VERSIONS $PACKAGES:`awk "/require-dev/ {printline = 1; print; next } printline" composer.json | grep "$PACKAGES" | awk -F [\\"] '{print $4}'`"
+    done
+    composer require --update-no-dev $PACKAGES_VERSIONS
+
     mv composer.json.backup composer.json
     echo "* Cleanup of composer packages"
     rm -rf \
@@ -279,6 +301,9 @@ if [ -f package.json ] ; then
     yarn install --production
 fi
 
+# Remove Bootstrap theme
+rm -rf themes/bootstrap
+
 # Remove git metadata
 rm .git
 find . -name .gitignore -print0 | xargs -0 -r rm -f
@@ -300,6 +325,8 @@ if [ $do_test -eq 1 ] ; then
     if [ $test_ret -ne 0 ] ; then
         exit $test_ret
     fi
+    # Remove PHPUnit cache file
+    rm -f .phpunit.result.cache
     # Remove libs installed for testing
     rm -rf build
     composer update --no-dev
@@ -324,6 +351,7 @@ for kit in $KITS ; do
         # Testsuite
         rm -rf test/
         rm phpunit.xml.* build.xml
+        rm -f .editorconfig .eslintignore .eslintrc.json .stylelintrc.json phpstan.neon.dist phpcs.xml.dist
         # Gettext po files
         rm -rf po/
         # Documentation source code
@@ -480,6 +508,6 @@ Todo now:
 
 10. in case of a new major release ('y' in x.y.0), update the pmaweb/settings.py in website repository to include the new major releases
 
-11. update the Dockerfile in the docker repository to reflect the new version and create a new annotated tag (such as with git tag -s -a 4.7.9-1 -m "Version 4.7.9-1")
+11. update the Dockerfile in the docker repository to reflect the new version and create a new annotated tag (such as with git tag -s -a 4.7.9-1 -m "Version 4.7.9-1"). Remember to push the tag with git push origin --tags
 
 END

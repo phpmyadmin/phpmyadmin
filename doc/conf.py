@@ -51,7 +51,7 @@ copyright = u'2012 - 2018, The phpMyAdmin devel team'
 # built documents.
 #
 # The short X.Y version.
-version = '5.0.0-dev'
+version = '5.1.0-dev'
 # The full version, including alpha/beta/rc tags.
 release = version
 
@@ -313,4 +313,6 @@ linkcheck_ignore = [
     r'https://pecl.php.net/.*',
     # 403 Client Error: Forbidden
     r'https://authy.com/.*',
+    # 500 Server Error: Internal Server Error
+    r'http://www.scriptalicious.com/.*',
 ]

@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Second authentication factor handling
  *
@@ -10,8 +9,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\TwoFactor;
 
 use BaconQrCode\Renderer\Image\SvgImageBackEnd;
-use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
+use PhpMyAdmin\TwoFactor;
+use PragmaRX\Google2FA\Exceptions\IncompatibleWithGoogleAuthenticatorException;
+use PragmaRX\Google2FA\Exceptions\InvalidCharactersException;
+use PragmaRX\Google2FA\Exceptions\SecretKeyTooShortException;
 use PragmaRX\Google2FAQRCode\Google2FA;
 
 /**
@@ -44,35 +46,31 @@ class Application extends TwoFactorPlugin
             $this->_google2fa = new Google2FA(new SvgImageBackEnd());
         }
         $this->_google2fa->setWindow(8);
-        if (!isset($this->_twofactor->config['settings']['secret'])) {
+        if (! isset($this->_twofactor->config['settings']['secret'])) {
             $this->_twofactor->config['settings']['secret'] = '';
         }
     }
 
     /**
-     * Get any property of this class
-     *
-     * @param string $property name of the property
-     *
-     * @return mixed|void if property exist, value of the relevant property
+     * @return Google2FA
      */
-    public function __get($property)
+    public function getGoogle2fa(): Google2FA
     {
-        switch ($property) {
-            case 'google2fa':
-                return $this->_google2fa;
-        }
+        return $this->_google2fa;
     }
 
     /**
      * Checks authentication, returns true on success
      *
      * @return boolean
+     * @throws IncompatibleWithGoogleAuthenticatorException
+     * @throws InvalidCharactersException
+     * @throws SecretKeyTooShortException
      */
     public function check()
     {
         $this->_provided = false;
-        if (!isset($_POST['2fa_code'])) {
+        if (! isset($_POST['2fa_code'])) {
             return false;
         }
         $this->_provided = true;
@@ -116,6 +114,9 @@ class Application extends TwoFactorPlugin
      * Performs backend configuration
      *
      * @return boolean
+     * @throws IncompatibleWithGoogleAuthenticatorException
+     * @throws InvalidCharactersException
+     * @throws SecretKeyTooShortException
      */
     public function configure()
     {

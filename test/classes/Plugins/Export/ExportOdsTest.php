@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportOds class
  *
@@ -31,7 +30,7 @@ class ExportOdsTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
@@ -47,7 +46,7 @@ class ExportOdsTest extends PmaTestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -203,22 +202,22 @@ class ExportOdsTest extends PmaTestCase
             $this->object->exportFooter()
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'header',
             $GLOBALS['ods_buffer']
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '</office:spreadsheet>',
             $GLOBALS['ods_buffer']
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '</office:body>',
             $GLOBALS['ods_buffer']
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '</office:document-content>',
             $GLOBALS['ods_buffer']
         );
@@ -273,9 +272,11 @@ class ExportOdsTest extends PmaTestCase
 
         $flags = [];
         $a = new stdClass();
+        $a->type = '';
         $flags[] = $a;
 
         $a = new stdClass();
+        $a->type = '';
         $a->blob = true;
         $flags[] = $a;
 
@@ -346,8 +347,14 @@ class ExportOdsTest extends PmaTestCase
             ->will(
                 $this->returnValue(
                     [
-                        null, '01-01-2000', '01-01-2000', '01-01-2000 10:00:00',
-                        "01-01-2014 10:02:00", "t>s", "a&b", "<"
+                        null,
+                        '01-01-2000',
+                        '01-01-2000',
+                        '01-01-2000 10:00:00',
+                        "01-01-2014 10:02:00",
+                        "t>s",
+                        "a&b",
+                        "<",
                     ]
                 )
             );
@@ -401,6 +408,20 @@ class ExportOdsTest extends PmaTestCase
             ->getMock();
 
         $flags = [];
+        $a = new stdClass();
+        $a->blob = false;
+        $a->numeric = false;
+        $a->type = 'string';
+        $a->name = 'fna\"me';
+        $a->length = 20;
+        $flags[] = $a;
+        $b = new stdClass();
+        $b->blob = false;
+        $b->numeric = false;
+        $b->type = 'string';
+        $b->name = 'fnam/<e2';
+        $b->length = 20;
+        $flags[] = $b;
 
         $dbi->expects($this->once())
             ->method('getFieldsMeta')

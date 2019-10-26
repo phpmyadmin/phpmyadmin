@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Handles the IPv4/IPv6 to binary transformation for text plain
  *
@@ -11,6 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Transformations\Input;
 
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
+use stdClass;
 
 /**
  * Handles the IPv4/IPv6 to binary transformation for text plain
@@ -36,15 +36,15 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
     /**
      * Does the actual work of each specific transformations plugin.
      *
-     * @param string $buffer  text to be transformed. a binary string containing
-     *                        an IP address, as returned from MySQL's INET6_ATON
-     *                        function
-     * @param array  $options transformation options
-     * @param string $meta    meta information
+     * @param string        $buffer  text to be transformed. a binary string containing
+     *                               an IP address, as returned from MySQL's INET6_ATON
+     *                               function
+     * @param array         $options transformation options
+     * @param stdClass|null $meta    meta information
      *
      * @return string IP address
      */
-    public function applyTransformation($buffer, array $options = [], $meta = '')
+    public function applyTransformation($buffer, array $options = [], ?stdClass $meta = null)
     {
         $val = @inet_pton($buffer);
         if ($val !== false) {
@@ -83,7 +83,7 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
     ) {
         $html = '';
         $val = '';
-        if (!empty($value)) {
+        if (! empty($value)) {
             $length = strlen($value);
             if ($length == 4 || $length == 16) {
                 $ip = @inet_ntop(pack('A' . $length, $value));
@@ -92,7 +92,7 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
                 }
             }
             $html = '<input type="hidden" name="fields_prev' . $column_name_appendix
-                . '" value="' . htmlspecialchars($val) . '"/>';
+                . '" value="' . htmlspecialchars($val) . '">';
         }
         $class = 'transform_IPToBin';
         $html .= '<input type="text" name="fields' . $column_name_appendix . '"'
@@ -100,8 +100,8 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
             . ' size="40"'
             . ' dir="' . $text_dir . '"'
             . ' class="' . $class . '"'
-            . ' id="field_' . ($idindex) . '_3"'
-            . ' tabindex="' . ($tabindex + $tabindex_for_value) . '" />';
+            . ' id="field_' . $idindex . '_3"'
+            . ' tabindex="' . ($tabindex + $tabindex_for_value) . '">';
 
         return $html;
     }

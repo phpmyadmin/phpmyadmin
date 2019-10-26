@@ -27,7 +27,7 @@
     class="textfield"
     title="{{ title }}"
     size="10"
-    value="{{ column_meta['Field'] is defined ? column_meta['Field'] }}" />
+    value="{{ column_meta['Field'] is defined ? column_meta['Field'] }}">
 
 {% if cfg_relation['centralcolumnswork']
     and not (column_meta['column_status'] is defined

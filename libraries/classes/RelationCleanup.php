@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Set of functions used for cleaning up phpMyAdmin tables
  *
@@ -36,7 +35,7 @@ class RelationCleanup
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param Relation          $relation Relation object
      */
-    public function __construct(DatabaseInterface $dbi, Relation $relation)
+    public function __construct($dbi, Relation $relation)
     {
         $this->dbi = $dbi;
         $this->relation = $relation;

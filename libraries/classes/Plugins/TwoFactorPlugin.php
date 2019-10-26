@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Two authentication factor handling
  *
@@ -9,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
@@ -76,7 +76,7 @@ class TwoFactorPlugin
     public function getError()
     {
         if ($this->_provided) {
-            if (!empty($this->_message)) {
+            if (! empty($this->_message)) {
                 return Message::rawError(
                     sprintf(__('Two-factor authentication failed: %s'), $this->_message)
                 )->getDisplay();
@@ -135,7 +135,7 @@ class TwoFactorPlugin
      */
     public static function getName()
     {
-        return __('No Two-Factor');
+        return __('No Two-Factor Authentication');
     }
 
     /**
@@ -159,12 +159,12 @@ class TwoFactorPlugin
      */
     public function getAppId($return_url)
     {
-        /** @var \PhpMyAdmin\Config $PMA_Config */
+        /** @var Config $PMA_Config */
         global $PMA_Config;
 
         $url = $PMA_Config->get('PmaAbsoluteUri');
         $parsed = [];
-        if (!empty($url)) {
+        if (! empty($url)) {
             $parsed = parse_url($url);
         }
         if (empty($parsed['scheme'])) {
@@ -174,7 +174,7 @@ class TwoFactorPlugin
             $parsed['host'] = Core::getenv('HTTP_HOST');
         }
         if ($return_url) {
-            return $parsed['scheme'] . '://' . $parsed['host'] . (!empty($parsed['port']) ? ':' . $parsed['port'] : '');
+            return $parsed['scheme'] . '://' . $parsed['host'] . (! empty($parsed['port']) ? ':' . $parsed['port'] : '');
         } else {
             return $parsed['host'];
         }

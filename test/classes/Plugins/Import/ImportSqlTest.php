@@ -12,12 +12,6 @@ use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportSql;
 use PhpMyAdmin\Tests\PmaTestCase;
 
-/*
- * we must set $GLOBALS['server'] here
- * since 'check_user_privileges.inc.php' will use it globally
- */
-$GLOBALS['server'] = 0;
-
 /**
  * Tests for PhpMyAdmin\Plugins\Import\ImportSql class
  *
@@ -37,8 +31,10 @@ class ImportSqlTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
+        $GLOBALS['server'] = 0;
+
         $this->object = new ImportSql();
 
         //setting
@@ -63,7 +59,7 @@ class ImportSqlTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -91,15 +87,15 @@ class ImportSqlTest extends PmaTestCase
         $this->object->doImport();
 
         //asset that all sql are executed
-        $this->assertContains(
+        $this->assertStringContainsString(
             'SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO"',
             $sql_query
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'CREATE TABLE IF NOT EXISTS `pma_bookmark`',
             $sql_query
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'INSERT INTO `pma_bookmark` (`id`, `dbase`, `user`, `label`, `query`) '
             . 'VALUES',
             $sql_query

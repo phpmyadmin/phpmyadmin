@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Single signon for phpMyAdmin
  *
@@ -47,9 +46,9 @@ if (isset($_POST['user'])) {
     <!DOCTYPE HTML>
     <html lang="en" dir="ltr">
     <head>
-    <link rel="icon" href="../favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
-    <meta charset="utf-8" />
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <meta charset="utf-8">
     <title>phpMyAdmin single signon example</title>
     </head>
     <body>
@@ -61,13 +60,13 @@ if (isset($_POST['user'])) {
     }
     ?>
     <form action="signon.php" method="post">
-    Username: <input type="text" name="user" /><br />
-    Password: <input type="password" name="password" /><br />
+    Username: <input type="text" name="user"><br>
+    Password: <input type="password" name="password"><br>
     Host: (will use the one from config.inc.php by default)
-    <input type="text" name="host" /><br />
+    <input type="text" name="host"><br>
     Port: (will use the one from config.inc.php by default)
-    <input type="text" name="port" /><br />
-    <input type="submit" />
+    <input type="text" name="port"><br>
+    <input type="submit">
     </form>
     </body>
     </html>

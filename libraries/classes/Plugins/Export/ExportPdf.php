@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Produce a PDF report (export) from a query
  *
@@ -11,13 +10,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\Export;
-use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\Export\Helpers\Pdf;
-use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
+use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
+use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 
 /**
  * Skip the plugin if TCPDF is not available.
@@ -69,7 +68,7 @@ class ExportPdf extends ExportPlugin
      */
     protected function initSpecificVariables()
     {
-        if (!empty($_POST['pdf_report_title'])) {
+        if (! empty($_POST['pdf_report_title'])) {
             $this->_setPdfReportTitle($_POST['pdf_report_title']);
         }
         $this->_setPdf(new Pdf('L', 'pt', 'A3'));
@@ -140,7 +139,10 @@ class ExportPdf extends ExportPlugin
         $pdf = $this->_getPdf();
         $pdf->Open();
 
-        $attr = ['titleFontSize' => 18, 'titleText' => $pdf_report_title];
+        $attr = [
+            'titleFontSize' => 18,
+            'titleText' => $pdf_report_title,
+        ];
         $pdf->setAttributes($attr);
         $pdf->setTopMargin(30);
 
@@ -229,9 +231,9 @@ class ExportPdf extends ExportPlugin
             'dbAlias'      => $db_alias,
             'tableAlias'   => $table_alias,
             'aliases'      => $aliases,
+            'purpose'      => __('Dumping data'),
         ];
         $pdf->setAttributes($attr);
-        $pdf->purpose = __('Dumping data');
         $pdf->mysqlReport($sql_query);
 
         return true;
@@ -251,7 +253,7 @@ class ExportPdf extends ExportPlugin
      * @param bool   $do_comments whether to include the pmadb-style column
      *                            comments as comments in the structure;
      *                            this is deprecated but the parameter is
-     *                            left here because export.php calls
+     *                            left here because /export calls
      *                            PMA_exportStructure() also for other
      *                            export types which use this parameter
      * @param bool   $do_mime     whether to include mime comments

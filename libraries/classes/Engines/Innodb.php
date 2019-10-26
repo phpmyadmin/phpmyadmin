@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * The InnoDB storage engine
  *
@@ -174,7 +173,7 @@ class Innodb extends StorageEngine
             )
             . '&nbsp;' . __('pages')
             . ' / '
-            . join(
+            . implode(
                 '&nbsp;',
                 Util::formatByteDown(
                     $status['Innodb_buffer_pool_pages_total']

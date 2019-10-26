@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * holds the database index class
  *
@@ -8,12 +7,6 @@
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
-
-use PhpMyAdmin\IndexColumn;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Sanitize;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 
 /**
  * Index manipulation class
@@ -360,20 +353,18 @@ class Index
         }
         if (isset($params['Index_choice'])) {
             $this->_choice = $params['Index_choice'];
+        } elseif ('PRIMARY' == $this->_name) {
+            $this->_choice = 'PRIMARY';
+        } elseif ('FULLTEXT' == $this->_type) {
+            $this->_choice = 'FULLTEXT';
+            $this->_type = '';
+        } elseif ('SPATIAL' == $this->_type) {
+            $this->_choice = 'SPATIAL';
+            $this->_type = '';
+        } elseif ('0' == $this->_non_unique) {
+            $this->_choice = 'UNIQUE';
         } else {
-            if ('PRIMARY' == $this->_name) {
-                $this->_choice = 'PRIMARY';
-            } elseif ('FULLTEXT' == $this->_type) {
-                $this->_choice = 'FULLTEXT';
-                $this->_type = '';
-            } elseif ('SPATIAL' == $this->_type) {
-                $this->_choice = 'SPATIAL';
-                $this->_type = '';
-            } elseif ('0' == $this->_non_unique) {
-                $this->_choice = 'UNIQUE';
-            } else {
-                $this->_choice = 'INDEX';
-            }
+            $this->_choice = 'INDEX';
         }
         if (isset($params['Key_block_size'])) {
             $this->_key_block_size = $params['Key_block_size'];
@@ -416,7 +407,7 @@ class Index
     /**
      * Return the key block size
      *
-     * @return number
+     * @return int
      */
     public function getKeyBlockSize()
     {
@@ -494,7 +485,7 @@ class Index
     {
         return [
             'BTREE',
-            'HASH'
+            'HASH',
         ];
     }
 
@@ -520,7 +511,7 @@ class Index
                 continue;
             }
             $html_options .= '<option value="' . $each_index_choice . '"'
-                 . (($this->_choice == $each_index_choice)
+                 . ($this->_choice == $each_index_choice
                  ? ' selected="selected"'
                  : '')
                  . '>' . $each_index_choice . '</option>' . "\n";
@@ -644,7 +635,7 @@ class Index
     /**
      * Get HTML for display indexes
      *
-     * @return string $html_output
+     * @return string
      */
     public static function getHtmlForDisplayIndexes()
     {
@@ -654,7 +645,7 @@ class Index
             $GLOBALS['db']
         );
         $html_output .= '<fieldset class="tblFooters print_ignore" style="text-align: '
-            . 'left;"><form action="tbl_indexes.php" method="post">';
+            . 'left;"><form action="' . Url::getFromRoute('/table/indexes') . '" method="post">';
         $html_output .= Url::getHiddenInputs(
             $GLOBALS['db'],
             $GLOBALS['table']
@@ -662,11 +653,11 @@ class Index
         $html_output .= sprintf(
             __('Create an index on &nbsp;%s&nbsp;columns'),
             '<input type="number" name="added_fields" value="1" '
-            . 'min="1" required="required" />'
+            . 'min="1" required="required">'
         );
-        $html_output .= '<input type="hidden" name="create_index" value="1" />'
-            . '<input class="add_index ajax"'
-            . ' type="submit" value="' . __('Go') . '" />';
+        $html_output .= '<input type="hidden" name="create_index" value="1">'
+            . '<input class="btn btn-primary add_index ajax"'
+            . ' type="submit" value="' . __('Go') . '">';
 
         $html_output .= '</form>'
             . '</fieldset>'
@@ -746,7 +737,7 @@ class Index
                 $r .= '" ' . $row_span . '>'
                    . '    <a class="';
                 $r .= 'ajax';
-                $r .= '" href="tbl_indexes.php' . Url::getCommon($this_params)
+                $r .= '" href="' . Url::getFromRoute('/table/indexes') . '" data-post="' . Url::getCommon($this_params, '')
                    . '">' . Util::getIcon('b_edit', __('Edit')) . '</a>'
                    . '</td>' . "\n";
                 $this_params = $GLOBALS['url_params'];
@@ -756,7 +747,7 @@ class Index
                         . ' DROP PRIMARY KEY;';
                     $this_params['message_to_show']
                         = __('The primary key has been dropped.');
-                    $js_msg = Sanitize::jsFormat($this_params['sql_query']);
+                    $js_msg = Sanitize::jsFormat($this_params['sql_query'], false);
                 } else {
                     $this_params['sql_query'] = 'ALTER TABLE '
                         . Util::backquote($table) . ' DROP INDEX '
@@ -765,14 +756,14 @@ class Index
                         __('Index %s has been dropped.'),
                         htmlspecialchars($index->getName())
                     );
-                    $js_msg = Sanitize::jsFormat($this_params['sql_query']);
+                    $js_msg = Sanitize::jsFormat($this_params['sql_query'], false);
                 }
 
                 $r .= '<td ' . $row_span . ' class="print_ignore">';
                 $r .= '<input type="hidden" class="drop_primary_key_index_msg"'
-                    . ' value="' . $js_msg . '" />';
+                    . ' value="' . $js_msg . '">';
                 $r .= Util::linkOrButton(
-                    'sql.php' . Url::getCommon($this_params),
+                    Url::getFromRoute('/sql', $this_params),
                     Util::getIcon('b_drop', __('Drop')),
                     ['class' => 'drop_primary_key_index_anchor ajax']
                 );

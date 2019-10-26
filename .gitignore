@@ -42,6 +42,7 @@ phpcs.xml
 # PHPUnit
 phpunit.xml
 /test/bootstrap.php
+.phpunit.result.cache
 # Jenkins
 /build/
 # Netbeans ide stuff
@@ -55,3 +56,4 @@ composer.lock
 /vendor/
 # NPM
 /node_modules/
+phpstan.neon

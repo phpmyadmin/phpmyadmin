@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Contains PhpMyAdmin\Plugins\Schema\Eps\TableStatsEps class
  *
@@ -34,17 +33,17 @@ class TableStatsEps extends TableStats
     /**
      * The "PhpMyAdmin\Plugins\Schema\Eps\TableStatsEps" constructor
      *
-     * @param object  $diagram          The EPS diagram
-     * @param string  $db               The database name
-     * @param string  $tableName        The table name
-     * @param string  $font             The font  name
-     * @param integer $fontSize         The font size
-     * @param integer $pageNumber       Page number
-     * @param integer &$same_wide_width The max width among tables
-     * @param boolean $showKeys         Whether to display keys or not
-     * @param boolean $tableDimension   Whether to display table position or not
-     * @param boolean $offline          Whether the coordinates are sent
-     *                                  from the browser
+     * @param object  $diagram         The EPS diagram
+     * @param string  $db              The database name
+     * @param string  $tableName       The table name
+     * @param string  $font            The font  name
+     * @param integer $fontSize        The font size
+     * @param integer $pageNumber      Page number
+     * @param integer $same_wide_width The max width among tables
+     * @param boolean $showKeys        Whether to display keys or not
+     * @param boolean $tableDimension  Whether to display table position or not
+     * @param boolean $offline         Whether the coordinates are sent
+     *                                 from the browser
      *
      * @see PMA_EPS, Table_Stats_Eps::Table_Stats_setWidth,
      *      PhpMyAdmin\Plugins\Schema\Eps\TableStatsEps::Table_Stats_setHeight
@@ -156,7 +155,6 @@ class TableStatsEps extends TableStats
      */
     public function tableDraw($showColor)
     {
-        //echo $this->tableName.'<br />';
         $this->diagram->rect(
             $this->x,
             $this->y + 12,

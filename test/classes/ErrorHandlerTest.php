@@ -31,7 +31,7 @@ class ErrorHandlerTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = new ErrorHandler();
     }
@@ -43,7 +43,7 @@ class ErrorHandlerTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -87,7 +87,7 @@ class ErrorHandlerTest extends PmaTestCase
                 12,
                 'User notice',
                 'User notice',
-            ]
+            ],
         ];
     }
 
@@ -125,7 +125,7 @@ class ErrorHandlerTest extends PmaTestCase
         if ($output_hide == '') {
             $this->assertEquals('', $output);
         } else {
-            $this->assertContains($output_hide, $output);
+            $this->assertStringContainsString($output_hide, $output);
         }
     }
 
@@ -155,7 +155,7 @@ class ErrorHandlerTest extends PmaTestCase
     ) {
         $this->object->handleError($errno, $errstr, $errfile, $errline);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             $output_show,
             $this->object->getDispErrors()
         );

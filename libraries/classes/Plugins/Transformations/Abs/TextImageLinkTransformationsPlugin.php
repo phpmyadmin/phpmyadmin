@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Abstract class for the image link transformations plugins
  *
@@ -12,6 +11,7 @@ namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Sanitize;
+use stdClass;
 
 /**
  * Provides common methods for all of the image link transformations plugins.
@@ -37,13 +37,13 @@ abstract class TextImageLinkTransformationsPlugin extends TransformationsPlugin
     /**
      * Does the actual work of each specific transformations plugin.
      *
-     * @param string $buffer  text to be transformed
-     * @param array  $options transformation options
-     * @param string $meta    meta information
+     * @param string        $buffer  text to be transformed
+     * @param array         $options transformation options
+     * @param stdClass|null $meta    meta information
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = [], $meta = '')
+    public function applyTransformation($buffer, array $options = [], ?stdClass $meta = null)
     {
         $cfg = $GLOBALS['cfg'];
         $options = $this->getOptions($options, $cfg['DefaultTransformations']['TextImageLink']);
@@ -55,7 +55,7 @@ abstract class TextImageLinkTransformationsPlugin extends TransformationsPlugin
         return '<a href="' . htmlspecialchars($url)
             . '" rel="noopener noreferrer" target="_blank"><img src="' . htmlspecialchars($url)
             . '" border="0" width="' . intval($options[1])
-            . '" height="' . intval($options[2]) . '" />'
+            . '" height="' . intval($options[2]) . '">'
             . htmlspecialchars($buffer) . '</a>';
     }
 

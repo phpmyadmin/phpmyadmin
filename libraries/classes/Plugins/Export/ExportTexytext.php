@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Export to Texy! text.
  *
@@ -13,12 +12,12 @@ namespace PhpMyAdmin\Plugins\Export;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\ExportPlugin;
-use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
+use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
@@ -194,7 +193,7 @@ class ExportTexytext extends ExportPlugin
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
 
-        if (!$this->export->outputHandler(
+        if (! $this->export->outputHandler(
             '== ' . __('Dumping data for table') . ' ' . $table_alias . "\n\n"
         )
         ) {
@@ -214,14 +213,14 @@ class ExportTexytext extends ExportPlugin
             $text_output = "|------\n";
             for ($i = 0; $i < $fields_cnt; $i++) {
                 $col_as = $GLOBALS['dbi']->fieldName($result, $i);
-                if (!empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
+                if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                     $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
                 }
                 $text_output .= '|'
                     . htmlspecialchars(stripslashes($col_as));
             } // end for
             $text_output .= "\n|------\n";
-            if (!$this->export->outputHandler($text_output)) {
+            if (! $this->export->outputHandler($text_output)) {
                 return false;
             }
         } // end if
@@ -230,7 +229,7 @@ class ExportTexytext extends ExportPlugin
         while ($row = $GLOBALS['dbi']->fetchRow($result)) {
             $text_output = '';
             for ($j = 0; $j < $fields_cnt; $j++) {
-                if (!isset($row[$j]) || is_null($row[$j])) {
+                if (! isset($row[$j]) || $row[$j] === null) {
                     $value = $GLOBALS[$what . '_null'];
                 } elseif ($row[$j] == '0' || $row[$j] != '') {
                     $value = $row[$j];
@@ -245,7 +244,7 @@ class ExportTexytext extends ExportPlugin
                     );
             } // end for
             $text_output .= "\n";
-            if (!$this->export->outputHandler($text_output)) {
+            if (! $this->export->outputHandler($text_output)) {
                 return false;
             }
         } // end while
@@ -297,8 +296,8 @@ class ExportTexytext extends ExportPlugin
 
         $columns = $GLOBALS['dbi']->getColumns($db, $view);
         foreach ($columns as $column) {
-            $col_as = $column['Field'];
-            if (!empty($aliases[$db]['tables'][$view]['columns'][$col_as])) {
+            $col_as = $column['Field'] ?? null;
+            if (! empty($aliases[$db]['tables'][$view]['columns'][$col_as])) {
                 $col_as = $aliases[$db]['tables'][$view]['columns'][$col_as];
             }
             $text_output .= $this->formatOneColumnDefinition(
@@ -323,7 +322,7 @@ class ExportTexytext extends ExportPlugin
      * @param bool   $do_comments   whether to include the pmadb-style column
      *                              comments as comments in the structure;
      *                              this is deprecated but the parameter is
-     *                              left here because export.php calls
+     *                              left here because /export calls
      *                              $this->exportStructure() also for other
      *                              export types which use this parameter
      * @param bool   $do_mime       whether to include mime comments
@@ -370,7 +369,7 @@ class ExportTexytext extends ExportPlugin
 
         // Check if we can use Relations
         list($res_rel, $have_rel) = $this->relation->getRelationsAndStatus(
-            $do_relation && !empty($cfgRelation['relation']),
+            $do_relation && ! empty($cfgRelation['relation']),
             $db,
             $table
         );
@@ -392,7 +391,7 @@ class ExportTexytext extends ExportPlugin
             $comments = $this->relation->getComments($db, $table);
         }
         if ($do_mime && $cfgRelation['mimework']) {
-            $text_output .= '|' . htmlspecialchars('MIME');
+            $text_output .= '|' . __('Media type');
             $mime_map = $this->transformations->getMime($db, $table, true);
         }
         $text_output .= "\n|------\n";
@@ -400,7 +399,7 @@ class ExportTexytext extends ExportPlugin
         $columns = $GLOBALS['dbi']->getColumns($db, $table);
         foreach ($columns as $column) {
             $col_as = $column['Field'];
-            if (!empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
+            if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                 $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
             }
             $text_output .= $this->formatOneColumnDefinition(
@@ -489,7 +488,7 @@ class ExportTexytext extends ExportPlugin
      * @param bool   $do_comments whether to include the pmadb-style column
      *                            comments as comments in the structure;
      *                            this is deprecated but the parameter is
-     *                            left here because export.php calls
+     *                            left here because /export calls
      *                            $this->exportStructure() also for other
      *                            export types which use this parameter
      * @param bool   $do_mime     whether to include mime comments
@@ -592,7 +591,7 @@ class ExportTexytext extends ExportPlugin
             $type = '&nbsp;';
         }
 
-        if (!isset($column['Default'])) {
+        if (! isset($column['Default'])) {
             if ($column['Null'] != 'NO') {
                 $column['Default'] = 'NULL';
             }
@@ -602,11 +601,11 @@ class ExportTexytext extends ExportPlugin
         $fmt_post = '';
         if (in_array($column['Field'], $unique_keys)) {
             $fmt_pre = '**' . $fmt_pre;
-            $fmt_post = $fmt_post . '**';
+            $fmt_post .= '**';
         }
         if ($column['Key'] == 'PRI') {
             $fmt_pre = '//' . $fmt_pre;
-            $fmt_post = $fmt_post . '//';
+            $fmt_post .= '//';
         }
         $definition = '|'
             . $fmt_pre . htmlspecialchars($col_alias) . $fmt_post;

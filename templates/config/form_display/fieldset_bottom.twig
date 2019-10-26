@@ -5,8 +5,8 @@
 {% if show_buttons %}
     <tr>
         <td colspan="{{ colspan }}" class="lastrow">
-            <input type="submit" name="submit_save" value="{% trans 'Apply' %}" class="green" />
-            <input type="button" name="submit_reset" value="{% trans 'Reset' %}" />
+            <input class="btn btn-primary green" type="submit" name="submit_save" value="{% trans 'Apply' %}">
+            <input class="btn btn-secondary" type="button" name="submit_reset" value="{% trans 'Reset' %}">
         </td>
     </tr>
 {% endif %}

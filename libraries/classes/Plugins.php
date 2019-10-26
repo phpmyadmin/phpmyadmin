@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Generic plugin interface.
  *
@@ -10,10 +9,19 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup;
+use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\DocPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\MessageOnlyPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\NumberPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Options\OptionsPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
 use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
+use PhpMyAdmin\Util;
 
 /**
  * PhpMyAdmin\Plugins class
@@ -72,7 +80,7 @@ class Plugins
         $GLOBALS['plugin_param'] = $plugin_param;
         /* Scan for plugins */
         $plugin_list = [];
-        if (!($handle = @opendir($plugins_dir))) {
+        if (! ($handle = @opendir($plugins_dir))) {
             return $plugin_list;
         }
 
@@ -166,20 +174,17 @@ class Plugins
             return htmlspecialchars($_GET[$opt]);
         }
 
-        if (isset($GLOBALS['timeout_passed'])
-            && $GLOBALS['timeout_passed']
-            && isset($_REQUEST[$opt])
-        ) {
+        if (isset($GLOBALS['timeout_passed'], $_REQUEST[$opt]) && $GLOBALS['timeout_passed']) {
             return htmlspecialchars($_REQUEST[$opt]);
         }
 
-        if (!isset($GLOBALS['cfg'][$section][$opt])) {
+        if (! isset($GLOBALS['cfg'][$section][$opt])) {
             return '';
         }
 
         $matches = [];
         /* Possibly replace localised texts */
-        if (!preg_match_all(
+        if (! preg_match_all(
             '/(str[A-Z][A-Za-z0-9]*)/',
             (string) $GLOBALS['cfg'][$section][$opt],
             $matches
@@ -258,7 +263,7 @@ class Plugins
             } else {
                 $hidden .= 'false';
             }
-            $hidden .= '" />' . "\n";
+            $hidden .= '">' . "\n";
         }
         $ret .= '</select>' . "\n" . $hidden;
 
@@ -268,10 +273,10 @@ class Plugins
     /**
      * Returns single option in a list element
      *
-     * @param string                                    $section        name of config section in $GLOBALS['cfg'][$section] for plugin
-     * @param string                                    $plugin_name    unique plugin name
-     * @param array|\PhpMyAdmin\Properties\PropertyItem &$propertyGroup options property main group instance
-     * @param boolean                                   $is_subgroup    if this group is a subgroup
+     * @param string              $section       name of config section in $GLOBALS['cfg'][$section] for plugin
+     * @param string              $plugin_name   unique plugin name
+     * @param OptionsPropertyItem $propertyGroup options property main group instance
+     * @param boolean             $is_subgroup   if this group is a subgroup
      *
      * @return string  table row with option
      */
@@ -283,6 +288,7 @@ class Plugins
     ) {
         $ret = "\n";
 
+        $properties = null;
         if (! $is_subgroup) {
             // for subgroup headers
             if (mb_strpos(get_class($propertyGroup), "PropertyItem")) {
@@ -321,7 +327,7 @@ class Plugins
                     // each subgroup can have a header, which may also be a form element
                     /** @var OptionsPropertyItem $subgroup_header */
                     $subgroup_header = $propertyItem->getSubgroupHeader();
-                    if (! is_null($subgroup_header)) {
+                    if ($subgroup_header !== null) {
                         $ret .= self::getOneOption(
                             $section,
                             $plugin_name,
@@ -330,7 +336,7 @@ class Plugins
                     }
 
                     $ret .= '<li class="subgroup"><ul';
-                    if (! is_null($subgroup_header)) {
+                    if ($subgroup_header !== null) {
                         $ret .= ' id="ul_' . $subgroup_header->getName() . '">';
                     } else {
                         $ret .= '>';
@@ -367,18 +373,18 @@ class Plugins
         if (method_exists($propertyGroup, "getDoc")) {
             $doc = $propertyGroup->getDoc();
             if ($doc != null) {
-                if (count($doc) == 3) {
-                    $ret .= \PhpMyAdmin\Util::showMySQLDocu(
+                if (count($doc) === 3) {
+                    $ret .= Util::showMySQLDocu(
                         $doc[1],
                         false,
                         null,
                         null,
                         $doc[2]
                     );
-                } elseif (count($doc) == 1) {
-                    $ret .= \PhpMyAdmin\Util::showDocu('faq', $doc[0]);
+                } elseif (count($doc) === 1) {
+                    $ret .= Util::showDocu('faq', $doc[0]);
                 } else {
-                    $ret .= \PhpMyAdmin\Util::showMySQLDocu(
+                    $ret .= Util::showMySQLDocu(
                         $doc[1]
                     );
                 }
@@ -417,7 +423,7 @@ class Plugins
         $ret = null;
         $property_class = get_class($propertyItem);
         switch ($property_class) {
-            case 'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem':
+            case BoolPropertyItem::class:
                 $ret .= '<li>' . "\n";
                 $ret .= '<input type="checkbox" name="' . $plugin_name . '_'
                 . $propertyItem->getName() . '"'
@@ -439,59 +445,69 @@ class Plugins
                         . '\').checked)) '
                         . 'return false; else return true;"';
                 }
-                $ret .= ' />';
+                $ret .= '>';
                 $ret .= '<label for="checkbox_' . $plugin_name . '_'
                 . $propertyItem->getName() . '">'
                 . self::getString($propertyItem->getText()) . '</label>';
                 break;
-            case 'PhpMyAdmin\Properties\Options\Items\DocPropertyItem':
-                echo 'PhpMyAdmin\Properties\Options\Items\DocPropertyItem';
+            case DocPropertyItem::class:
+                echo DocPropertyItem::class;
                 break;
-            case 'PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem':
+            case HiddenPropertyItem::class:
                 $ret .= '<li><input type="hidden" name="' . $plugin_name . '_'
                 . $propertyItem->getName() . '"'
                 . ' value="' . self::getDefault(
                     $section,
                     $plugin_name . '_' . $propertyItem->getName()
                 )
-                    . '"' . ' /></li>';
+                    . '"></li>';
                 break;
-            case 'PhpMyAdmin\Properties\Options\Items\MessageOnlyPropertyItem':
+            case MessageOnlyPropertyItem::class:
                 $ret .= '<li>' . "\n";
                 $ret .= '<p>' . self::getString($propertyItem->getText()) . '</p>';
                 break;
-            case 'PhpMyAdmin\Properties\Options\Items\RadioPropertyItem':
+            case RadioPropertyItem::class:
+                /**
+                 * @var RadioPropertyItem $pitem
+                 */
+                $pitem = $propertyItem;
+
                 $default = self::getDefault(
                     $section,
-                    $plugin_name . '_' . $propertyItem->getName()
+                    $plugin_name . '_' . $pitem->getName()
                 );
-                foreach ($propertyItem->getValues() as $key => $val) {
+
+                foreach ($pitem->getValues() as $key => $val) {
                     $ret .= '<li><input type="radio" name="' . $plugin_name
-                        . '_' . $propertyItem->getName() . '" value="' . $key
+                        . '_' . $pitem->getName() . '" value="' . $key
                         . '" id="radio_' . $plugin_name . '_'
-                        . $propertyItem->getName() . '_' . $key . '"';
+                        . $pitem->getName() . '_' . $key . '"';
                     if ($key == $default) {
                         $ret .= ' checked="checked"';
                     }
-                    $ret .= ' />' . '<label for="radio_' . $plugin_name . '_'
-                    . $propertyItem->getName() . '_' . $key . '">'
+                    $ret .= '><label for="radio_' . $plugin_name . '_'
+                    . $pitem->getName() . '_' . $key . '">'
                     . self::getString($val) . '</label></li>';
                 }
                 break;
-            case 'PhpMyAdmin\Properties\Options\Items\SelectPropertyItem':
+            case SelectPropertyItem::class:
+                /**
+                 * @var SelectPropertyItem $pitem
+                 */
+                $pitem = $propertyItem;
                 $ret .= '<li>' . "\n";
                 $ret .= '<label for="select_' . $plugin_name . '_'
-                . $propertyItem->getName() . '" class="desc">'
-                . self::getString($propertyItem->getText()) . '</label>';
+                . $pitem->getName() . '" class="desc">'
+                . self::getString($pitem->getText()) . '</label>';
                 $ret .= '<select name="' . $plugin_name . '_'
-                . $propertyItem->getName() . '"'
+                . $pitem->getName() . '"'
                 . ' id="select_' . $plugin_name . '_'
-                . $propertyItem->getName() . '">';
+                . $pitem->getName() . '">';
                 $default = self::getDefault(
                     $section,
-                    $plugin_name . '_' . $propertyItem->getName()
+                    $plugin_name . '_' . $pitem->getName()
                 );
-                foreach ($propertyItem->getValues() as $key => $val) {
+                foreach ($pitem->getValues() as $key => $val) {
                     $ret .= '<option value="' . $key . '"';
                     if ($key == $default) {
                         $ret .= ' selected="selected"';
@@ -501,28 +517,32 @@ class Plugins
 
                 $ret .= '</select>';
                 break;
-            case 'PhpMyAdmin\Properties\Options\Items\TextPropertyItem':
+            case TextPropertyItem::class:
+                /**
+                 * @var TextPropertyItem $pitem
+                 */
+                $pitem = $propertyItem;
                 $ret .= '<li>' . "\n";
                 $ret .= '<label for="text_' . $plugin_name . '_'
-                . $propertyItem->getName() . '" class="desc">'
-                . self::getString($propertyItem->getText()) . '</label>';
+                . $pitem->getName() . '" class="desc">'
+                . self::getString($pitem->getText()) . '</label>';
                 $ret .= '<input type="text" name="' . $plugin_name . '_'
-                . $propertyItem->getName() . '"'
+                . $pitem->getName() . '"'
                 . ' value="' . self::getDefault(
                     $section,
-                    $plugin_name . '_' . $propertyItem->getName()
+                    $plugin_name . '_' . $pitem->getName()
                 ) . '"'
                     . ' id="text_' . $plugin_name . '_'
-                    . $propertyItem->getName() . '"'
-                    . ($propertyItem->getSize() != null
-                    ? ' size="' . $propertyItem->getSize() . '"'
+                    . $pitem->getName() . '"'
+                    . ($pitem->getSize() != null
+                    ? ' size="' . $pitem->getSize() . '"'
                     : '')
-                    . ($propertyItem->getLen() != null
-                    ? ' maxlength="' . $propertyItem->getLen() . '"'
+                    . ($pitem->getLen() != null
+                    ? ' maxlength="' . $pitem->getLen() . '"'
                     : '')
-                    . ' />';
+                    . '>';
                 break;
-            case 'PhpMyAdmin\Properties\Options\Items\NumberPropertyItem':
+            case NumberPropertyItem::class:
                 $ret .= '<li>' . "\n";
                 $ret .= '<label for="number_' . $plugin_name . '_'
                     . $propertyItem->getName() . '" class="desc">'
@@ -536,7 +556,7 @@ class Plugins
                     . ' id="number_' . $plugin_name . '_'
                     . $propertyItem->getName() . '"'
                     . ' min="0"'
-                    . ' />';
+                    . '>';
                 break;
             default:
                 break;
@@ -580,12 +600,12 @@ class Plugins
             $ret .= '<h3>' . self::getString($text) . '</h3>';
 
             $no_options = true;
-            if (! is_null($options) && count($options) > 0) {
+            if ($options !== null && count($options) > 0) {
                 foreach ($options->getProperties() as $propertyMainGroup) {
                     // check for hidden properties
                     $no_options = true;
                     foreach ($propertyMainGroup->getProperties() as $propertyItem) {
-                        if (strcmp('PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem', get_class($propertyItem))) {
+                        if (strcmp(HiddenPropertyItem::class, get_class($propertyItem))) {
                             $no_options = false;
                             break;
                         }

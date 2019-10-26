@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Base class for phpMyAdmin tests
  *
@@ -10,6 +9,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Response;
+use PHPUnit\Framework\MockObject\MockBuilder;
 use PHPUnit\Framework\TestCase;
 use ReflectionProperty;
 
@@ -21,11 +21,12 @@ use ReflectionProperty;
 class PmaTestCase extends TestCase
 {
     /**
-     * @var Response
+     * @var Response|null
      */
     protected $restoreInstance = null;
+
     /**
-     * @var Response
+     * @var ReflectionProperty|null
      */
     protected $attrInstance = null;
 
@@ -34,18 +35,18 @@ class PmaTestCase extends TestCase
      *
      * @return void
      */
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
-        require 'libraries/config.default.php';
+        require ROOT_PATH . 'libraries/config.default.php';
         $GLOBALS['cfg'] = $cfg;
     }
 
     /**
      * Creates mock of Response object for header testing
      *
-     * @param mixed[] ... $param parameter for header method
+     * @param mixed[] ...$param parameter for header method
      *
-     * @return \PHPUnit\Framework\MockObject\MockBuilder
+     * @return MockBuilder
      */
     public function mockResponse(...$param)
     {
@@ -54,9 +55,16 @@ class PmaTestCase extends TestCase
         $mockResponse = $this->getMockBuilder('PhpMyAdmin\Response')
             ->disableOriginalConstructor()
             ->setMethods([
-                'header', 'headersSent', 'disable', 'isAjax',
-                'setRequestStatus', 'addJSON', 'addHTML',
-                'getFooter', 'getHeader','httpResponseCode',
+                'header',
+                'headersSent',
+                'disable',
+                'isAjax',
+                'setRequestStatus',
+                'addJSON',
+                'addHTML',
+                'getFooter',
+                'getHeader',
+                'httpResponseCode',
             ])
             ->getMock();
 
@@ -67,13 +75,13 @@ class PmaTestCase extends TestCase
 
         if (count($param) > 0) {
             if (is_array($param[0])) {
-                if (is_array($param[0][0]) && count($param) == 1) {
+                if (is_array($param[0][0]) && count($param) === 1) {
                     $param = $param[0];
                     if (is_int(end($param))) {
                         $http_response_code_param = end($param);
                         $param = array_slice($param, 0, -1);
 
-                        $header_method = $mockResponse->expects($this->once())
+                        $mockResponse->expects($this->once())
                         ->method('httpResponseCode')->with($http_response_code_param);
                     }
                 }
@@ -97,13 +105,13 @@ class PmaTestCase extends TestCase
     }
 
     /**
-     *Tear down function for mockResponse method
+     * Tear down function for mockResponse method
      *
-     *@return void
+     * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
-        if (! is_null($this->attrInstance) && ! is_null($this->restoreInstance)) {
+        if ($this->attrInstance !== null && $this->restoreInstance !== null) {
             $this->attrInstance->setValue($this->restoreInstance);
             $this->restoreInstance = null;
             $this->attrInstance = null;

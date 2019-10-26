@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for PhpMyAdmin\IpAllowDeny
  *
@@ -32,7 +31,7 @@ class IpAllowDenyTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['cfg']['Server']['user'] = "pma_username";
         $GLOBALS['cfg']['Server']['AllowDeny']['rules'][]
@@ -64,18 +63,18 @@ class IpAllowDenyTest extends TestCase
      *
      * @dataProvider proxyIPs
      */
-    public function testGetIp($remote, $header, $expected, $proxyip = null)
+    public function testGetIp($remote, $header, $expected, $proxyip = null): void
     {
         unset($_SERVER['REMOTE_ADDR']);
         unset($_SERVER['TEST_FORWARDED_HEADER']);
         $GLOBALS['cfg']['TrustedProxies'] = [];
 
-        if (!is_null($remote)) {
+        if ($remote !== null) {
             $_SERVER['REMOTE_ADDR'] = $remote;
         }
 
-        if (!is_null($header)) {
-            if (is_null($proxyip)) {
+        if ($header !== null) {
+            if ($proxyip === null) {
                 $proxyip = $remote;
             }
             $GLOBALS['cfg']['TrustedProxies'][$proxyip] = 'TEST_FORWARDED_HEADER';
@@ -101,17 +100,42 @@ class IpAllowDenyTest extends TestCase
     {
         return [
             // Nothing set
-            [null, null, false],
+            [
+                null,
+                null,
+                false,
+            ],
             // Remote IP set
-            ['101.0.0.25', null, '101.0.0.25'],
+            [
+                '101.0.0.25',
+                null,
+                '101.0.0.25',
+            ],
             // Proxy
-            ['101.0.0.25', '192.168.10.10', '192.168.10.10'],
+            [
+                '101.0.0.25',
+                '192.168.10.10',
+                '192.168.10.10',
+            ],
             // Several proxies
-            ['101.0.0.25', '192.168.10.1, 192.168.100.100', '192.168.10.1'],
+            [
+                '101.0.0.25',
+                '192.168.10.1, 192.168.100.100',
+                '192.168.10.1',
+            ],
             // Invalid proxy
-            ['101.0.0.25', 'invalid', false],
+            [
+                '101.0.0.25',
+                'invalid',
+                false,
+            ],
             // Direct IP with proxy enabled
-            ['101.0.0.25', '192.168.10.10', '101.0.0.25', '10.10.10.10'],
+            [
+                '101.0.0.25',
+                '192.168.10.10',
+                '101.0.0.25',
+                '10.10.10.10',
+            ],
         ];
     }
 

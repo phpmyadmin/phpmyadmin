@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Handles Database Search
  *
@@ -97,10 +96,11 @@ class Search
     /**
      * Public Constructor
      *
-     * @param DatabaseInterface $dbi DatabaseInterface object
-     * @param string            $db  Database name
+     * @param DatabaseInterface $dbi      DatabaseInterface object
+     * @param string            $db       Database name
+     * @param Template          $template Template object
      */
-    public function __construct(DatabaseInterface $dbi, $db)
+    public function __construct(DatabaseInterface $dbi, $db, Template $template)
     {
         $this->db = $db;
         $this->dbi = $dbi;
@@ -111,7 +111,7 @@ class Search
             '4' => __('the exact phrase as whole field'),
             '5' => __('as regular expression'),
         ];
-        $this->template = new Template();
+        $this->template = $template;
         // Sets criteria parameters
         $this->setSearchParams();
     }
@@ -125,49 +125,49 @@ class Search
     {
         $this->tablesNamesOnly = $this->dbi->getTables($this->db);
 
-        if (empty($_REQUEST['criteriaSearchType'])
-            || ! is_string($_REQUEST['criteriaSearchType'])
+        if (empty($_POST['criteriaSearchType'])
+            || ! is_string($_POST['criteriaSearchType'])
             || ! array_key_exists(
-                $_REQUEST['criteriaSearchType'],
+                $_POST['criteriaSearchType'],
                 $this->searchTypes
             )
         ) {
             $this->criteriaSearchType = 1;
-            unset($_REQUEST['submit_search']);
+            unset($_POST['submit_search']);
         } else {
-            $this->criteriaSearchType = (int) $_REQUEST['criteriaSearchType'];
+            $this->criteriaSearchType = (int) $_POST['criteriaSearchType'];
             $this->searchTypeDescription
-                = $this->searchTypes[$_REQUEST['criteriaSearchType']];
+                = $this->searchTypes[$_POST['criteriaSearchType']];
         }
 
-        if (empty($_REQUEST['criteriaSearchString'])
-            || ! is_string($_REQUEST['criteriaSearchString'])
+        if (empty($_POST['criteriaSearchString'])
+            || ! is_string($_POST['criteriaSearchString'])
         ) {
             $this->criteriaSearchString = '';
-            unset($_REQUEST['submit_search']);
+            unset($_POST['submit_search']);
         } else {
-            $this->criteriaSearchString = $_REQUEST['criteriaSearchString'];
+            $this->criteriaSearchString = $_POST['criteriaSearchString'];
         }
 
         $this->criteriaTables = [];
-        if (empty($_REQUEST['criteriaTables'])
-            || ! is_array($_REQUEST['criteriaTables'])
+        if (empty($_POST['criteriaTables'])
+            || ! is_array($_POST['criteriaTables'])
         ) {
-            unset($_REQUEST['submit_search']);
+            unset($_POST['submit_search']);
         } else {
             $this->criteriaTables = array_intersect(
-                $_REQUEST['criteriaTables'],
+                $_POST['criteriaTables'],
                 $this->tablesNamesOnly
             );
         }
 
-        if (empty($_REQUEST['criteriaColumnName'])
-            || ! is_string($_REQUEST['criteriaColumnName'])
+        if (empty($_POST['criteriaColumnName'])
+            || ! is_string($_POST['criteriaColumnName'])
         ) {
             unset($this->criteriaColumnName);
         } else {
             $this->criteriaColumnName = $this->dbi->escapeString(
-                $_REQUEST['criteriaColumnName']
+                $_POST['criteriaColumnName']
             );
         }
     }
@@ -229,7 +229,7 @@ class Search
         $automatic_wildcard   = (($this->criteriaSearchType < 4) ? '%' : '');
         // For "as regular expression" (search option 5), LIKE won't be used
         // Usage example: If user is searching for a literal $ in a regexp search,
-        // he should enter \$ as the value.
+        // they should enter \$ as the value.
         $criteriaSearchStringEscaped = $this->dbi->escapeString(
             $this->criteriaSearchString
         );
@@ -330,7 +330,7 @@ class Search
                 ),
             '3' => $this->searchTypes[3],
             '4' => $this->searchTypes[4],
-            '5' => $this->searchTypes[5] . ' ' . Util::showMySQLDocu('Regexp')
+            '5' => $this->searchTypes[5] . ' ' . Util::showMySQLDocu('Regexp'),
         ];
         return $this->template->render('database/search/main', [
             'db' => $this->db,

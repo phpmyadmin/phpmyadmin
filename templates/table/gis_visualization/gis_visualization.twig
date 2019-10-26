@@ -2,7 +2,7 @@
     <fieldset>
         <legend>{% trans 'Display GIS Visualization' %}</legend>
         <div id="gis_div" style="position:relative;">
-            <form method="post" action="tbl_gis_visualization.php">
+            <form method="post" action="{{ url('/table/gis_visualization') }}">
                 {{ get_hidden_inputs(url_params) }}
                 <label for="labelColumn">
                     {% trans "Label column" %}
@@ -33,7 +33,7 @@
                                    id="choice" value="useBaseLayer"
                                    {% if visualization_settings['choice'] is defined %}
                                         checked="checked"
-                                   {% endif %}/>
+                                   {% endif %}>
                             <label for="choice" id="labelChoice">
                                 {% trans "Use OpenStreetMaps as Base Layer" %}
                             </label>
@@ -49,13 +49,13 @@
                     </span>
                     <ul>
                         <li class="warp_link">
-                            <a href="{{ download_url }}&fileFormat=png" class="disableAjax">PNG</a>
+                            <a href="{{ download_url|raw }}&fileFormat=png" class="disableAjax">PNG</a>
                         </li>
                         <li class="warp_link">
-                            <a href="{{ download_url }}&fileFormat=pdf" class="disableAjax">PDF</a>
+                            <a href="{{ download_url|raw }}&fileFormat=pdf" class="disableAjax">PDF</a>
                         </li>
                         <li class="warp_link">
-                            <a href="{{ download_url }}&fileFormat=svg" class="disableAjax">SVG</a>
+                            <a href="{{ download_url|raw }}&fileFormat=svg" class="disableAjax">SVG</a>
                         </li>
                     </ul>
                 </div>
@@ -69,7 +69,7 @@
             {{ visualization|raw }}
         </div>
         <div id="openlayersmap"></div>
-        <input type="hidden" id="pmaThemeImage" value="{{ pma_theme_image }}" />
+        <input type="hidden" id="pmaThemeImage" value="{{ pma_theme_image }}">
         <script language="javascript" type="text/javascript">
             function drawOpenLayers()
             {

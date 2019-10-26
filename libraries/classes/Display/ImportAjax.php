@@ -1,10 +1,9 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
-* Handles plugins that show the upload progress
-*
-* @package PhpMyAdmin
-*/
+ * Handles plugins that show the upload progress
+ *
+ * @package PhpMyAdmin
+ */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Display;
@@ -12,10 +11,10 @@ namespace PhpMyAdmin\Display;
 use PhpMyAdmin\Core;
 
 /**
-* PhpMyAdmin\Display\ImportAjax class
-*
-* @package PhpMyAdmin
-*/
+ * PhpMyAdmin\Display\ImportAjax class
+ *
+ * @package PhpMyAdmin
+ */
 class ImportAjax
 {
     /**
@@ -48,7 +47,7 @@ class ImportAjax
             //"session",
             "progress",
             "apc",
-            "noplugin"
+            "noplugin",
         ];
 
         // select available plugin
@@ -63,15 +62,19 @@ class ImportAjax
                 break;
             }
         }
-        return [$SESSION_KEY, $upload_id, $plugins];
+        return [
+            $SESSION_KEY,
+            $upload_id,
+            $plugins,
+        ];
     }
 
     /**
-      * Checks if APC bar extension is available and configured correctly.
-      *
-      * @return boolean true if APC extension is available and if rfc1867 is enabled,
-      *                      false if it is not
-      */
+     * Checks if APC bar extension is available and configured correctly.
+     *
+     * @return boolean true if APC extension is available and if rfc1867 is enabled,
+     *                      false if it is not
+     */
     public static function apcCheck()
     {
         if (! extension_loaded('apc')
@@ -97,35 +100,35 @@ class ImportAjax
     }
 
     /**
-      * Checks if PHP 5.4 session upload-progress feature is available.
-      *
-      * @return boolean true if PHP 5.4 session upload-progress is available,
-      *                 false if it is not
-      */
+     * Checks if PHP 5.4 session upload-progress feature is available.
+     *
+     * @return boolean true if PHP 5.4 session upload-progress is available,
+     *                 false if it is not
+     */
     public static function sessionCheck()
     {
         return ini_get('session.upload_progress.enabled');
     }
 
     /**
-      * Default plugin for handling import.
-      * If no other plugin is available, noplugin is used.
-      *
-      * @return boolean true
-      */
+     * Default plugin for handling import.
+     * If no other plugin is available, noplugin is used.
+     *
+     * @return boolean true
+     */
     public static function nopluginCheck()
     {
         return true;
     }
 
     /**
-      * The function outputs json encoded status of uploaded.
-      * It uses PMA_getUploadStatus, which is defined in plugin's file.
-      *
-      * @param string $id ID of transfer, usually $upload_id
-      *
-      * @return void
-      */
+     * The function outputs json encoded status of uploaded.
+     * It uses PMA_getUploadStatus, which is defined in plugin's file.
+     *
+     * @param string $id ID of transfer, usually $upload_id
+     *
+     * @return void
+     */
     public static function status($id)
     {
         Core::headerJSON();

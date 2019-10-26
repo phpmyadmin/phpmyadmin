@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for PhpMyAdmin\Export
  *
@@ -32,9 +31,9 @@ class ExportTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
-        $this->export = new Export();
+        $this->export = new Export($GLOBALS['dbi']);
     }
 
     /**
@@ -52,18 +51,18 @@ class ExportTest extends TestCase
                         'alias' => 'foobar',
                         'columns' => [
                             'bar' => 'foo',
-                            'baz' => 'barbaz'
-                        ]
+                            'baz' => 'barbaz',
+                        ],
                     ],
                     'bar' => [
                         'alias' => 'foobaz',
                         'columns' => [
                             'a' => 'a_alias',
-                            'b' => 'b'
-                        ]
-                    ]
-                ]
-            ]
+                            'b' => 'b',
+                        ],
+                    ],
+                ],
+            ],
         ];
         $aliases2 = [
             'test_db' => [
@@ -71,16 +70,16 @@ class ExportTest extends TestCase
                 'tables' => [
                     'foo' => [
                         'columns' => [
-                            'bar' => 'foobar'
-                        ]
+                            'bar' => 'foobar',
+                        ],
                     ],
                     'baz' => [
                         'columns' => [
-                            'a' => 'x'
-                        ]
-                    ]
-                ]
-            ]
+                            'a' => 'x',
+                        ],
+                    ],
+                ],
+            ],
         ];
         $expected = [
             'test_db' => [
@@ -90,23 +89,23 @@ class ExportTest extends TestCase
                         'alias' => 'foobar',
                         'columns' => [
                             'bar' => 'foobar',
-                            'baz' => 'barbaz'
-                        ]
+                            'baz' => 'barbaz',
+                        ],
                     ],
                     'bar' => [
                         'alias' => 'foobaz',
                         'columns' => [
                             'a' => 'a_alias',
-                            'b' => 'b'
-                        ]
+                            'b' => 'b',
+                        ],
                     ],
                     'baz' => [
                         'columns' => [
-                            'a' => 'x'
-                        ]
-                    ]
-                ]
-            ]
+                            'a' => 'x',
+                        ],
+                    ],
+                ],
+            ],
         ];
         $actual = $this->export->mergeAliases($aliases1, $aliases2);
         $this->assertEquals($expected, $actual);

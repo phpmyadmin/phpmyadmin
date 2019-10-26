@@ -1,4 +1,4 @@
-<form action="tbl_indexes.php"
+<form action="{{ url('/table/indexes') }}"
     method="post"
     name="index_frm"
     id="index_frm"
@@ -24,7 +24,7 @@
                     size="25"
                     maxlength="64"
                     value="{{ index.getName() }}"
-                    onfocus="this.select()" />
+                    onfocus="this.select()">
             </div>
 
             <div>
@@ -58,7 +58,7 @@
                     name="index[Key_block_size]"
                     id="input_key_block_size"
                     size="30"
-                    value="{{ index.getKeyBlockSize() }}" />
+                    value="{{ index.getKeyBlockSize() }}">
             </div>
 
             <div>
@@ -87,7 +87,7 @@
                     name="index[Parser]"
                     id="input_parse"
                     size="30"
-                    value="{{ index.getParser() }}" />
+                    value="{{ index.getParser() }}">
             </div>
 
             <div>
@@ -104,7 +104,7 @@
                     id="input_index_comment"
                     size="30"
                     maxlength="1024"
-                    value="{{ index.getComment() }}" />
+                    value="{{ index.getComment() }}">
             </div>
         </div>
         <!-- end of indexoptions div -->
@@ -166,7 +166,7 @@
                                 onfocus="this.select()"
                                 name="index[columns][sub_parts][]"
                                 value="{{ index.getChoice() != 'SPATIAL' ?
-                                    column.getSubPart() }}" />
+                                    column.getSubPart() }}">
                         </td>
                     </tr>
                 {% endfor %}
@@ -199,7 +199,7 @@
                                     size="5"
                                     onfocus="this.select()"
                                     name="index[columns][sub_parts][]"
-                                    value="" />
+                                    value="">
                             </td>
                         </tr>
                     {% endfor %}
@@ -210,14 +210,14 @@
 
             <div class="slider"></div>
             <div class="add_fields hide">
-                <input type="submit"
+                <input class="btn btn-secondary" type="submit"
                     id="add_fields"
-                    value="{{ 'Add %s column(s) to index'|trans|format(1) }}" />
+                    value="{{ 'Add %s column(s) to index'|trans|format(1) }}">
             </div>
         </div>
     </fieldset>
     <fieldset class="tblFooters">
-        <button type="submit" id="preview_index_frm">{% trans 'Preview SQL' %}</button>
-        <input type="submit" id="save_index_frm" value="{% trans 'Go' %}" />
+        <button class="btn btn-secondary" type="submit" id="preview_index_frm">{% trans 'Preview SQL' %}</button>
+        <input class="btn btn-primary" type="submit" id="save_index_frm" value="{% trans 'Go' %}">
     </fieldset>
 </form>

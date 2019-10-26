@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * holds the ListDatabase class
  *
@@ -11,8 +10,6 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\ListAbstract;
 use PhpMyAdmin\Util;
-
-require_once './libraries/check_user_privileges.inc.php';
 
 /**
  * handles database lists
@@ -34,6 +31,10 @@ class ListDatabase extends ListAbstract
     public function __construct()
     {
         parent::__construct();
+
+        $checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
+        $checkUserPrivileges->getPrivileges();
+
         $this->build();
     }
 
@@ -132,7 +133,7 @@ class ListDatabase extends ListAbstract
             && strlen($GLOBALS['cfg']['Server']['only_db']) > 0
         ) {
             $GLOBALS['cfg']['Server']['only_db'] = [
-                $GLOBALS['cfg']['Server']['only_db']
+                $GLOBALS['cfg']['Server']['only_db'],
             ];
         }
 

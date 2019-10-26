@@ -28,7 +28,7 @@ then
    exit 1
 fi
 
-if [ $1 = '-v' ]
+if [ "$1" = '-v' ]
 then
     newVersion=$2
 else
@@ -37,7 +37,7 @@ else
 fi
 
 # If we're in the scripts directory, we need to do all our work up a directory level
-if [ "$(basename `pwd`)" = 'scripts' ]
+if [ "$(basename "$(pwd)")" = 'scripts' ]
 then
     dir='../'
 else

@@ -4,5 +4,5 @@
     "description": "Original phpMyAdmin theme",
     "author": "phpMyAdmin developers",
     "url": "https://www.phpmyadmin.net/",
-    "supports": ["5.0"]
+    "supports": ["5.0", "5.1"]
 }

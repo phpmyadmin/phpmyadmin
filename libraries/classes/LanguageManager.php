@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Hold the PhpMyAdmin\LanguageManager class
  *
@@ -425,6 +424,13 @@ class LanguageManager
             'ms|malay',
             'ms_MY',
         ],
+        'my' => [
+            'my',
+            'Burmese',
+            'မြန်မာ',
+            'my|burmese',
+            '',
+        ],
         'ne' => [
             'ne',
             'Nepali',
@@ -438,6 +444,13 @@ class LanguageManager
             'Norsk',
             'nb|norwegian',
             'nb_NO',
+        ],
+        'nn' => [
+            'nn',
+            'Norwegian Nynorsk',
+            'Nynorsk',
+            'nn|nynorsk',
+            'nn_NO',
         ],
         'nl' => [
             'nl',
@@ -511,7 +524,7 @@ class LanguageManager
         ],
         'sq' => [
             'sq',
-            'Slbanian',
+            'Albanian',
             'Shqip',
             'sq|albanian',
             'sq_AL',
@@ -658,19 +671,6 @@ class LanguageManager
     private static $instance;
 
     /**
-     * @var Template
-     */
-    public $template;
-
-    /**
-     * LanguageManager constructor.
-     */
-    public function __construct()
-    {
-        $this->template = new Template();
-    }
-
-    /**
      * Returns LanguageManager singleton
      *
      * @return LanguageManager
@@ -693,7 +693,7 @@ class LanguageManager
         $result = ['en'];
 
         /* Check for existing directory */
-        if (!is_dir(LOCALE_PATH)) {
+        if (! is_dir(LOCALE_PATH)) {
             return $result;
         }
 
@@ -730,11 +730,11 @@ class LanguageManager
     public function availableLocales()
     {
         if (! $this->_available_locales) {
-            if (empty($GLOBALS['cfg']['FilterLanguages'])) {
+            if (! isset($GLOBALS['PMA_Config']) || empty($GLOBALS['PMA_Config']->get('FilterLanguages'))) {
                 $this->_available_locales = $this->listLocaleDir();
             } else {
                 $this->_available_locales = preg_grep(
-                    '@' . $GLOBALS['cfg']['FilterLanguages'] . '@',
+                    '@' . $GLOBALS['PMA_Config']->get('FilterLanguages') . '@',
                     $this->listLocaleDir()
                 );
             }
@@ -755,7 +755,7 @@ class LanguageManager
     /**
      * Returns (cached) list of all available languages
      *
-     * @return array of Language objects
+     * @return Language[] array of Language objects
      */
     public function availableLanguages()
     {
@@ -764,8 +764,8 @@ class LanguageManager
 
             foreach ($this->availableLocales() as $lang) {
                 $lang = strtolower($lang);
-                if (isset($this::$_language_data[$lang])) {
-                    $data = $this::$_language_data[$lang];
+                if (isset(static::$_language_data[$lang])) {
+                    $data = static::$_language_data[$lang];
                     $this->_available_languages[$lang] = new Language(
                         $data[0],
                         $data[1],
@@ -791,7 +791,7 @@ class LanguageManager
      * Returns (cached) list of all available languages sorted
      * by name
      *
-     * @return array of Language objects
+     * @return Language[] array of Language objects
      */
     public function sortedLanguages()
     {
@@ -807,7 +807,7 @@ class LanguageManager
      *
      * @param string $code Language code
      *
-     * @return object|false Language object or false on failure
+     * @return Language|false Language object or false on failure
      */
     public function getLanguage($code)
     {
@@ -822,7 +822,7 @@ class LanguageManager
     /**
      * Return currently active Language object
      *
-     * @return object Language object
+     * @return Language Language object
      */
     public function getCurrentLanguage()
     {
@@ -931,14 +931,15 @@ class LanguageManager
     /**
      * Returns HTML code for the language selector
      *
-     * @param boolean $use_fieldset whether to use fieldset for selection
-     * @param boolean $show_doc     whether to show documentation links
+     * @param Template $template     Template instance
+     * @param boolean  $use_fieldset whether to use fieldset for selection
+     * @param boolean  $show_doc     whether to show documentation links
      *
      * @return string
      *
      * @access  public
      */
-    public function getSelectorDisplay($use_fieldset = false, $show_doc = true)
+    public function getSelectorDisplay(Template $template, $use_fieldset = false, $show_doc = true)
     {
         $_form_params = [
             'db' => $GLOBALS['db'],
@@ -956,7 +957,7 @@ class LanguageManager
 
         $available_languages = $this->sortedLanguages();
 
-        return $this->template->render('select_lang', [
+        return $template->render('select_lang', [
             'language_title' => $language_title,
             'use_fieldset' => $use_fieldset,
             'available_languages' => $available_languages,

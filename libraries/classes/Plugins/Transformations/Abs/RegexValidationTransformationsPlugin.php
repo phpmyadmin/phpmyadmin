@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Abstract class for the regex validation input transformations plugins
  *
@@ -11,6 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
+use stdClass;
 
 /**
  * Provides common methods for all of the regex validation
@@ -38,17 +38,17 @@ abstract class RegexValidationTransformationsPlugin extends IOTransformationsPlu
     /**
      * Does the actual work of each specific transformations plugin.
      *
-     * @param string $buffer  text to be transformed
-     * @param array  $options transformation options
-     * @param string $meta    meta information
+     * @param string        $buffer  text to be transformed
+     * @param array         $options transformation options
+     * @param stdClass|null $meta    meta information
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = [], $meta = '')
+    public function applyTransformation($buffer, array $options = [], ?stdClass $meta = null)
     {
         // reset properties of object
         $this->reset();
-        if (!empty($options[0]) && !preg_match($options[0], $buffer)) {
+        if (! empty($options[0]) && ! preg_match($options[0], $buffer)) {
             $this->success = false;
             $this->error = sprintf(
                 __('Validation failed for the input string %s.'),

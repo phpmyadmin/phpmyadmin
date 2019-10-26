@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Handles actions related to GIS POLYGON objects
  *
@@ -38,9 +37,8 @@ class GisPolygon extends GisGeometry
      */
     public static function singleton()
     {
-        if (!isset(self::$_instance)) {
-            $class = __CLASS__;
-            self::$_instance = new $class;
+        if (! isset(self::$_instance)) {
+            self::$_instance = new GisPolygon();
         }
 
         return self::$_instance;
@@ -128,7 +126,7 @@ class GisPolygon extends GisGeometry
         }
 
         // draw polygon
-        imagefilledpolygon($image, $points_arr, sizeof($points_arr) / 2, $color);
+        imagefilledpolygon($image, $points_arr, count($points_arr) / 2, $color);
         // print label if applicable
         if (isset($label) && trim($label) != '') {
             imagestring(
@@ -162,7 +160,11 @@ class GisPolygon extends GisGeometry
         $red = hexdec(mb_substr($fill_color, 1, 2));
         $green = hexdec(mb_substr($fill_color, 3, 2));
         $blue = hexdec(mb_substr($fill_color, 4, 2));
-        $color = [$red, $green, $blue];
+        $color = [
+            $red,
+            $green,
+            $blue,
+        ];
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = mb_substr(
@@ -217,7 +219,7 @@ class GisPolygon extends GisGeometry
     {
         $polygon_options = [
             'name'         => $label,
-            'id'           => $label . rand(),
+            'id'           => $label . mt_rand(),
             'class'        => 'polygon vector',
             'stroke'       => 'black',
             'stroke-width' => 0.5,
@@ -502,7 +504,7 @@ class GisPolygon extends GisGeometry
      *
      * @param array $ring array of points forming the ring
      *
-     * @return array|void a point on the surface of the ring
+     * @return array|bool a point on the surface of the ring
      * @access public
      * @static
      */
@@ -523,7 +525,7 @@ class GisPolygon extends GisGeometry
             }
         }
 
-        if (!isset($x0)) {
+        if (! isset($x0)) {
             return false;
         }
 
@@ -533,7 +535,7 @@ class GisPolygon extends GisGeometry
 
         // Always keep $epsilon < 1 to go with the reduction logic down here
         $epsilon = 0.1;
-        $denominator = sqrt(pow(($y1 - $y0), 2) + pow(($x0 - $x1), 2));
+        $denominator = sqrt(pow($y1 - $y0, 2) + pow($x0 - $x1, 2));
         $pointA = [];
         $pointB = [];
 

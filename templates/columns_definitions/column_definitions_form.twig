@@ -1,5 +1,5 @@
 <form method="post" action="{{ action }}" class="
-    {{- action == 'tbl_create.php' ? 'create_table' : 'append_fields' -}}
+    {{- action == url('/table/create') ? 'create_table' : 'append_fields' -}}
     _form ajax lock-page">
     {{ get_hidden_inputs(form_params) }}
     {# happens when an index has been set on a column #}
@@ -16,7 +16,7 @@
     <input type="hidden" name="spatial_indexes" value="
         {{- spatial_indexes is not empty ? spatial_indexes : '[]' }}">
 
-    {% if action == 'tbl_create.php' %}
+    {% if action == url('/table/create') %}
         <div id="table_name_col_no_outer">
             <table id="table_name_col_no" class="tdblock">
                 <tr class="vmiddle floatleft">
@@ -26,7 +26,7 @@
                         size="40"
                         maxlength="64"
                         value="{{ table is defined ? table }}"
-                        class="textfield" autofocus required />
+                        class="textfield" autofocus required>
                     </td>
                     <td>
                         {% trans 'Add' %}
@@ -36,11 +36,11 @@
                             size="2"
                             value="1"
                             min="1"
-                            onfocus="this.select()" />
+                            onfocus="this.select()">
                         {% trans 'column(s)' %}
-                        <input type="button"
+                        <input class="btn btn-secondary" type="button"
                             name="submit_num_fields"
-                            value="{% trans 'Go' %}" />
+                            value="{% trans 'Go' %}">
                     </td>
                 </tr>
             </table>
@@ -61,11 +61,10 @@
             'attribute_types': attribute_types,
             'privs_available': privs_available,
             'max_length': max_length,
-            'dbi': dbi,
-            'disable_is': disable_is
+            'charsets': charsets
         } only %}
     {% endif %}
-    {% if action == 'tbl_create.php' %}
+    {% if action == url('/table/create') %}
         <div class="responsivetable">
         <table>
             <tr class="vtop">
@@ -90,18 +89,23 @@
                         size="40"
                         maxlength="60"
                         value="{{ comment is defined ? comment }}"
-                        class="textfield" />
+                        class="textfield">
                 </td>
                 <td width="25">&nbsp;</td>
                 <td>
-                    {{ get_collation_dropdown_box(
-                        dbi,
-                        disable_is,
-                        'tbl_collation',
-                        null,
-                        tbl_collation,
-                        false
-                    ) }}
+                  <select lang="en" dir="ltr" name="tbl_collation">
+                    <option value=""></option>
+                    {% for charset in charsets %}
+                      <optgroup label="{{ charset.name }}" title="{{ charset.description }}">
+                        {% for collation in charset.collations %}
+                          <option value="{{ collation.name }}" title="{{ collation.description }}"
+                            {{- collation.name == tbl_collation ? ' selected' }}>
+                            {{- collation.name -}}
+                          </option>
+                        {% endfor %}
+                      </optgroup>
+                    {% endfor %}
+                  </select>
                 </td>
                 <td width="25">&nbsp;</td>
                 <td>
@@ -119,7 +123,7 @@
                         value="{{ connection is defined ? connection }}"
                         placeholder="scheme://user_name[:password]@host_name[:port_num]/db_name/tbl_name"
                         class="textfield"
-                        required="required" />
+                        required="required">
                 </td>
             </tr>
             {% if have_partitioning %}
@@ -141,12 +145,11 @@
         </div>
     {% endif %}
     <fieldset class="tblFooters">
-        <input type="button"
-            class="preview_sql"
-            value="{% trans 'Preview SQL' %}" />
-        <input type="submit"
+        <input class="btn btn-secondary preview_sql" type="button"
+            value="{% trans 'Preview SQL' %}">
+        <input class="btn btn-primary" type="submit"
             name="do_save_data"
-            value="{% trans 'Save' %}" />
+            value="{% trans 'Save' %}">
     </fieldset>
     <div id="properties_message"></div>
 </form>

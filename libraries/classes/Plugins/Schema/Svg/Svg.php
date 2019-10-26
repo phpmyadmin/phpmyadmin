@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Classes to create relation schema in SVG format.
  *
@@ -146,11 +145,11 @@ class Svg extends XMLWriter
     {
         $this->startElement('svg');
 
-        if (!is_int($width)) {
+        if (! is_int($width)) {
             $width = intval($width);
         }
 
-        if (!is_int($height)) {
+        if (! is_int($height)) {
             $height = intval($height);
         }
 

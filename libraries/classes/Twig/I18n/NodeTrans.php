@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * hold PhpMyAdmin\Twig\I18n\NodeTrans class
  *
@@ -11,8 +10,8 @@ namespace PhpMyAdmin\Twig\I18n;
 
 use Twig\Compiler;
 use Twig\Extensions\Node\TransNode;
-use Twig\Node\Node;
 use Twig\Node\Expression\AbstractExpression;
+use Twig\Node\Node;
 
 /**
  * Class NodeTrans
@@ -74,6 +73,7 @@ class NodeTrans extends TransNode
 
         list($msg, $vars) = $this->compileString($this->getNode('body'));
 
+        $msg1 = null;
         if ($this->hasNode('plural')) {
             list($msg1, $vars1) = $this->compileString($this->getNode('plural'));
 

@@ -10,13 +10,15 @@ namespace PhpMyAdmin\Tests\Database;
 
 use PhpMyAdmin\Database\Qbe;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionClass;
 
 /**
  * Tests for PhpMyAdmin\Database\Qbe class
  *
- *  @package PhpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 class QbeTest extends PmaTestCase
 {
@@ -32,9 +34,9 @@ class QbeTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
-        $this->object = new Qbe($GLOBALS['dbi'], 'pma_test');
+        $this->object = new Qbe(new Relation($GLOBALS['dbi']), new Template(), $GLOBALS['dbi'], 'pma_test');
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'pma_test';
         //mock DBI
@@ -69,7 +71,7 @@ class QbeTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         parent::tearDown();
         unset($this->object);
@@ -98,25 +100,28 @@ class QbeTest extends PmaTestCase
      */
     public function testGetSortSelectCell()
     {
-        $this->assertContains(
+        $this->assertStringContainsString(
             'style="width:12ex" name="criteriaSort[1]"',
             $this->_callProtectedFunction(
                 '_getSortSelectCell',
                 [1]
             )
         );
-        $this->assertNotContains(
+        $this->assertStringNotContainsString(
             'selected="selected"',
             $this->_callProtectedFunction(
                 '_getSortSelectCell',
                 [1]
             )
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'value="ASC" selected="selected">',
             $this->_callProtectedFunction(
                 '_getSortSelectCell',
-                [1, 'ASC']
+                [
+                    1,
+                    'ASC',
+                ]
             )
         );
     }
@@ -128,28 +133,28 @@ class QbeTest extends PmaTestCase
      */
     public function testGetSortRow()
     {
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<th>Sort:</th>',
             $this->_callProtectedFunction(
                 '_getSortRow',
                 []
             )
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'name="criteriaSort[0]"',
             $this->_callProtectedFunction(
                 '_getSortRow',
                 []
             )
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'name="criteriaSort[1]"',
             $this->_callProtectedFunction(
                 '_getSortRow',
                 []
             )
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'name="criteriaSort[2]"',
             $this->_callProtectedFunction(
                 '_getSortRow',
@@ -167,9 +172,9 @@ class QbeTest extends PmaTestCase
     {
         $this->assertEquals(
             '<tr class="noclick"><th>Show:</th><td class="center"><input type'
-            . '="checkbox" name="criteriaShow[0]" /></td><td class="center">'
-            . '<input type="checkbox" name="criteriaShow[1]" /></td><td '
-            . 'class="center"><input type="checkbox" name="criteriaShow[2]" />'
+            . '="checkbox" name="criteriaShow[0]"></td><td class="center">'
+            . '<input type="checkbox" name="criteriaShow[1]"></td><td '
+            . 'class="center"><input type="checkbox" name="criteriaShow[2]">'
             . '</td></tr>',
             $this->_callProtectedFunction(
                 '_getShowRow',
@@ -187,15 +192,15 @@ class QbeTest extends PmaTestCase
     {
         $this->assertEquals(
             '<tr class="noclick"><th>Criteria:</th><td class="center">'
-            . '<input type="hidden" name="prev_criteria[0]" value="" />'
+            . '<input type="hidden" name="prev_criteria[0]" value="">'
             . '<input type="text" name="criteria[0]" value="" class="textfield" '
-            . 'style="width: 12ex" size="20" /></td><td class="center">'
-            . '<input type="hidden" name="prev_criteria[1]" value="" />'
+            . 'style="width: 12ex" size="20"></td><td class="center">'
+            . '<input type="hidden" name="prev_criteria[1]" value="">'
             . '<input type="text" name="criteria[1]" value="" class="textfield" '
-            . 'style="width: 12ex" size="20" /></td><td class="center">'
-            . '<input type="hidden" name="prev_criteria[2]" value="" />'
+            . 'style="width: 12ex" size="20"></td><td class="center">'
+            . '<input type="hidden" name="prev_criteria[2]" value="">'
             . '<input type="text" name="criteria[2]" value="" class="textfield" '
-            . 'style="width: 12ex" size="20" /></td></tr>',
+            . 'style="width: 12ex" size="20"></td></tr>',
             $this->_callProtectedFunction(
                 '_getCriteriaInputboxRow',
                 []
@@ -210,21 +215,21 @@ class QbeTest extends PmaTestCase
      */
     public function testGetFootersOptions()
     {
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Add/Delete criteria rows',
             $this->_callProtectedFunction(
                 '_getFootersOptions',
                 ['row']
             )
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'name="criteriaRowAdd"',
             $this->_callProtectedFunction(
                 '_getFootersOptions',
                 ['row']
             )
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<option value="0" selected="selected">0</option>',
             $this->_callProtectedFunction(
                 '_getFootersOptions',
@@ -240,22 +245,22 @@ class QbeTest extends PmaTestCase
      */
     public function testGetTableFooters()
     {
-        $this->assertContains(
+        $this->assertStringContainsString(
             'name="criteriaRowAdd"',
             $this->_callProtectedFunction(
                 '_getTableFooters',
                 []
             )
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'name="criteriaColumnAdd"',
             $this->_callProtectedFunction(
                 '_getTableFooters',
                 []
             )
         );
-        $this->assertContains(
-            '<input type="submit" name="modify" value="Update Query" />',
+        $this->assertStringContainsString(
+            '<input class="btn btn-secondary" type="submit" name="modify" value="Update Query">',
             $this->_callProtectedFunction(
                 '_getTableFooters',
                 []
@@ -272,11 +277,11 @@ class QbeTest extends PmaTestCase
     {
         $this->assertEquals(
             '<td class="center"><strong>Or:</strong><input type="radio" '
-            . 'name="criteriaAndOrColumn[1]" value="or" />&nbsp;&nbsp;<strong>And:'
+            . 'name="criteriaAndOrColumn[1]" value="or">&nbsp;&nbsp;<strong>And:'
             . '</strong><input type="radio" name="criteriaAndOrColumn[1]" value='
-            . '"and" /><br />Ins<input type="checkbox" name="criteriaColumnInsert'
-            . '[1]" />&nbsp;&nbsp;Del<input type="checkbox" '
-            . 'name="criteriaColumnDelete[1]" /></td>',
+            . '"and"><br>Ins<input type="checkbox" name="criteriaColumnInsert'
+            . '[1]">&nbsp;&nbsp;Del<input type="checkbox" '
+            . 'name="criteriaColumnDelete[1]"></td>',
             $this->_callProtectedFunction(
                 '_getAndOrColCell',
                 [1]
@@ -294,18 +299,18 @@ class QbeTest extends PmaTestCase
         $this->assertEquals(
             '<tr class="noclick"><th>Modify:</th><td class="center"><strong>'
             . 'Or:</strong><input type="radio" name="criteriaAndOrColumn[0]" value'
-            . '="or" />&nbsp;&nbsp;<strong>And:</strong><input type="radio" name='
-            . '"criteriaAndOrColumn[0]" value="and" checked="checked" /><br />Ins'
-            . '<input type="checkbox" name="criteriaColumnInsert[0]" />&nbsp;&nbsp;'
-            . 'Del<input type="checkbox" name="criteriaColumnDelete[0]" /></td><td '
+            . '="or">&nbsp;&nbsp;<strong>And:</strong><input type="radio" name='
+            . '"criteriaAndOrColumn[0]" value="and" checked="checked"><br>Ins'
+            . '<input type="checkbox" name="criteriaColumnInsert[0]">&nbsp;&nbsp;'
+            . 'Del<input type="checkbox" name="criteriaColumnDelete[0]"></td><td '
             . 'class="center"><strong>Or:</strong><input type="radio" name="'
-            . 'criteriaAndOrColumn[1]" value="or" />&nbsp;&nbsp;<strong>And:'
+            . 'criteriaAndOrColumn[1]" value="or">&nbsp;&nbsp;<strong>And:'
             . '</strong><input type="radio" name="criteriaAndOrColumn[1]" value='
-            . '"and" checked="checked" /><br />Ins<input type="checkbox" name='
-            . '"criteriaColumnInsert[1]" />&nbsp;&nbsp;Del<input type="checkbox" '
-            . 'name="criteriaColumnDelete[1]" /></td><td class="center"><br />Ins'
-            . '<input type="checkbox" name="criteriaColumnInsert[2]" />&nbsp;&nbsp;'
-            . 'Del<input type="checkbox" name="criteriaColumnDelete[2]" /></td>'
+            . '"and" checked="checked"><br>Ins<input type="checkbox" name='
+            . '"criteriaColumnInsert[1]">&nbsp;&nbsp;Del<input type="checkbox" '
+            . 'name="criteriaColumnDelete[1]"></td><td class="center"><br>Ins'
+            . '<input type="checkbox" name="criteriaColumnInsert[2]">&nbsp;&nbsp;'
+            . 'Del<input type="checkbox" name="criteriaColumnDelete[2]"></td>'
             . '</tr>',
             $this->_callProtectedFunction(
                 '_getModifyColumnsRow',
@@ -324,16 +329,22 @@ class QbeTest extends PmaTestCase
         $this->assertEquals(
             '<td class="value nowrap"><!-- Row controls --><table class="nospac'
             . 'ing nopadding"><tr><td class="value nowrap"><small>Ins:</small>'
-            . '<input type="checkbox" name="criteriaRowInsert[3]" /></td><td '
+            . '<input type="checkbox" name="criteriaRowInsert[3]"></td><td '
             . 'class="value"><strong>And:</strong></td><td><input type="radio" '
-            . 'name="criteriaAndOrRow[3]" value="and" /></td></tr><tr><td class="'
+            . 'name="criteriaAndOrRow[3]" value="and"></td></tr><tr><td class="'
             . 'value nowrap"><small>Del:</small><input type="checkbox" '
-            . 'name="criteriaRowDelete[3]" /></td><td class="value"><strong>'
+            . 'name="criteriaRowDelete[3]"></td><td class="value"><strong>'
             . 'Or:</strong></td><td><input type="radio" name="criteriaAndOrRow[3]" '
-            . 'value="or" checked="checked" /></td></tr></table></td>',
+            . 'value="or" checked="checked"></td></tr></table></td>',
             $this->_callProtectedFunction(
                 '_getInsDelAndOrCell',
-                [3, ['and' => '', 'or' => ' checked="checked"']]
+                [
+                    3,
+                    [
+                        'and' => '',
+                        'or' => ' checked="checked"',
+                    ],
+                ]
             )
         );
     }
@@ -347,11 +358,11 @@ class QbeTest extends PmaTestCase
     {
         $this->assertEquals(
             '<td class="center"><input type="text" name="Or2[0]" value="" class='
-            . '"textfield" style="width: 12ex" size="20" /></td><td class="center">'
+            . '"textfield" style="width: 12ex" size="20"></td><td class="center">'
             . '<input type="text" name="Or2[1]" value="" class="textfield" '
-            . 'style="width: 12ex" size="20" /></td><td class="center"><input '
+            . 'style="width: 12ex" size="20"></td><td class="center"><input '
             . 'type="text" name="Or2[2]" value="" class="textfield" style="width: '
-            . '12ex" size="20" /></td>',
+            . '12ex" size="20"></td>',
             $this->_callProtectedFunction(
                 '_getInputboxRow',
                 [2]
@@ -370,21 +381,24 @@ class QbeTest extends PmaTestCase
             '<tr class="noclick"><td class="value nowrap"><!-- Row controls'
             . ' --><table class="nospacing nopadding"><tr><td class="value '
             . 'nowrap"><small>Ins:</small><input type="checkbox" name="'
-            . 'criteriaRowInsert[0]" /></td><td class="value"><strong>And:'
+            . 'criteriaRowInsert[0]"></td><td class="value"><strong>And:'
             . '</strong></td><td><input type="radio" name="criteriaAndOrRow[0]" '
-            . 'value="and" /></td></tr><tr><td class="value nowrap"><small>Del:'
-            . '</small><input type="checkbox" name="criteriaRowDelete[0]" /></td>'
+            . 'value="and"></td></tr><tr><td class="value nowrap"><small>Del:'
+            . '</small><input type="checkbox" name="criteriaRowDelete[0]"></td>'
             . '<td class="value"><strong>Or:</strong></td><td><input type='
-            . '"radio" name="criteriaAndOrRow[0]" value="or" checked="checked" />'
+            . '"radio" name="criteriaAndOrRow[0]" value="or" checked="checked">'
             . '</td></tr></table></td><td class="center"><input type="text" '
             . 'name="Or0[0]" value="" class="textfield" style="width: 12ex" '
-            . 'size="20" /></td><td class="center"><input type="text" name="Or0[1]" '
-            . 'value="" class="textfield" style="width: 12ex" size="20" /></td><td '
+            . 'size="20"></td><td class="center"><input type="text" name="Or0[1]" '
+            . 'value="" class="textfield" style="width: 12ex" size="20"></td><td '
             . 'class="center"><input type="text" name="Or0[2]" value="" class='
-            . '"textfield" style="width: 12ex" size="20" /></td></tr>',
+            . '"textfield" style="width: 12ex" size="20"></td></tr>',
             $this->_callProtectedFunction(
                 '_getInsDelAndOrCriteriaRows',
-                [2,3]
+                [
+                    2,
+                    3,
+                ]
             )
         );
     }
@@ -447,14 +461,21 @@ class QbeTest extends PmaTestCase
         $this->assertEquals(
             [
                 'unique' => [],
-                'index' => []
+                'index' => [],
             ],
             $this->_callProtectedFunction(
                 '_getIndexes',
                 [
-                    ['`table1`','table2'],
-                    ['column1', 'column2', 'column3'],
-                    ['column2']
+                    [
+                        '`table1`',
+                        'table2',
+                    ],
+                    [
+                        'column1',
+                        'column2',
+                        'column3',
+                    ],
+                    ['column2'],
                 ]
             )
         );
@@ -469,14 +490,21 @@ class QbeTest extends PmaTestCase
     {
         $this->assertEquals(
             [
-                0 => 'column2'
+                0 => 'column2',
             ],
             $this->_callProtectedFunction(
                 '_getLeftJoinColumnCandidates',
                 [
-                    ['`table1`','table2'],
-                    ['column1', 'column2', 'column3'],
-                    ['column2']
+                    [
+                        '`table1`',
+                        'table2',
+                    ],
+                    [
+                        'column1',
+                        'column2',
+                        'column3',
+                    ],
+                    ['column2'],
                 ]
             )
         );
@@ -494,10 +522,17 @@ class QbeTest extends PmaTestCase
             $this->_callProtectedFunction(
                 '_getMasterTable',
                 [
-                    ['table1','table2'],
-                    ['column1', 'column2', 'column3'],
+                    [
+                        'table1',
+                        'table2',
+                    ],
+                    [
+                        'column1',
+                        'column2',
+                        'column3',
+                    ],
                     ['column2'],
-                    ['qbe_test']
+                    ['qbe_test'],
                 ]
             )
         );
@@ -514,12 +549,12 @@ class QbeTest extends PmaTestCase
             'table1.id',
             'table1.value',
             'table1.name',
-            'table1.deleted'
+            'table1.deleted',
         ];
         $this->assertEquals(
             [
                 'where_clause_tables' => [],
-                'where_clause_columns' => []
+                'where_clause_columns' => [],
             ],
             $this->_callProtectedFunction(
                 '_getWhereClauseTablesAndColumns',
@@ -539,7 +574,7 @@ class QbeTest extends PmaTestCase
             'table1.id',
             'table1.value',
             'table1.name',
-            'table1.deleted'
+            'table1.deleted',
         ];
         $this->assertEquals(
             '`table1`',
@@ -561,7 +596,7 @@ class QbeTest extends PmaTestCase
             'table1.id',
             'table1.value',
             'table1.name',
-            'table1.deleted'
+            'table1.deleted',
         ];
         $this->assertEquals(
             'FROM `table1`

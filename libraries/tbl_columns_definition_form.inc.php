@@ -1,23 +1,27 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Display form for changing/adding table fields/columns.
- * Included by tbl_addfield.php and tbl_create.php
+ * Included by /table/addfield and /table/create
  *
  * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
-use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Charsets\Charset;
+use PhpMyAdmin\Charsets\Collation;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Partition;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
+use PhpMyAdmin\TablePartitionDefinition;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
-if (!defined('PHPMYADMIN')) {
+if (! defined('PHPMYADMIN')) {
     exit;
 }
 
@@ -25,12 +29,19 @@ if (!defined('PHPMYADMIN')) {
  * Check parameters
  */
 Util::checkParameters(
-    ['server', 'db', 'table', 'action', 'num_fields']
+    [
+        'server',
+        'db',
+        'table',
+        'action',
+        'num_fields',
+    ]
 );
 
-global $db, $table;
+global $containerBuilder, $db, $table;
 
-$relation = new Relation($GLOBALS['dbi']);
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
 $transformations = new Transformations();
 $template = new Template();
 
@@ -38,13 +49,13 @@ $template = new Template();
  * Initialize to avoid code execution path warnings
  */
 
-if (!isset($num_fields)) {
+if (! isset($num_fields)) {
     $num_fields = 0;
 }
-if (!isset($mime_map)) {
+if (! isset($mime_map)) {
     $mime_map = null;
 }
-if (!isset($columnMeta)) {
+if (! isset($columnMeta)) {
     $columnMeta = [];
 }
 
@@ -54,34 +65,33 @@ $content_cells = [];
 
 /** @var string $db */
 $form_params = [
-    'db' => $db
+    'db' => $db,
 ];
 
-if ($action == 'tbl_create.php') {
+if ($action == Url::getFromRoute('/table/create')) {
     $form_params['reload'] = 1;
 } else {
-    if ($action == 'tbl_addfield.php') {
+    if ($action == Url::getFromRoute('/table/addfield')) {
         $form_params = array_merge(
             $form_params,
             [
-            'field_where' => Util::getValueByKey($_REQUEST, 'field_where')]
+                'field_where' => Util::getValueByKey($_POST, 'field_where'),
+            ]
         );
-        if (isset($_REQUEST['field_where'])) {
-            $form_params['after_field'] = $_REQUEST['after_field'];
+        if (isset($_POST['field_where'])) {
+            $form_params['after_field'] = $_POST['after_field'];
         }
     }
     $form_params['table'] = $table;
 }
 
-if (isset($num_fields)) {
-    $form_params['orig_num_fields'] = $num_fields;
-}
+$form_params['orig_num_fields'] = $num_fields;
 
 $form_params = array_merge(
     $form_params,
     [
-        'orig_field_where' => Util::getValueByKey($_REQUEST, 'field_where'),
-        'orig_after_field' => Util::getValueByKey($_REQUEST, 'after_field'),
+        'orig_field_where' => Util::getValueByKey($_POST, 'field_where'),
+        'orig_after_field' => Util::getValueByKey($_POST, 'after_field'),
     ]
 );
 
@@ -91,7 +101,7 @@ if (isset($selected) && is_array($selected)) {
     }
 }
 
-$is_backup = ($action != 'tbl_create.php' && $action != 'tbl_addfield.php');
+$is_backup = ($action != Url::getFromRoute('/table/create') && $action != Url::getFromRoute('/table/addfield'));
 
 $cfgRelation = $relation->getRelationsParam();
 
@@ -99,8 +109,8 @@ $comments_map = $relation->getComments($db, $table);
 
 $move_columns = [];
 if (isset($fields_meta)) {
-    /** @var PhpMyAdmin\DatabaseInterface $dbi */
-    $dbi = Container::getDefaultContainer()->get('dbi');
+    /** @var DatabaseInterface $dbi */
+    $dbi = $containerBuilder->get('dbi');
     $move_columns = $dbi->getTable($db, $table)->getColumnsMeta();
 }
 
@@ -111,13 +121,18 @@ if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
 }
 
 // this will be used on templates/columns_definitions/transformation.twig
-$mime_type = 'input_transformation';
-if (isset($available_mime[$mime_type]) and is_iterable($available_mime[$mime_type])) {
-    foreach ($available_mime[$mime_type] as $mimekey => $transform) {
-        $available_mime[$mime_type . '_file_quoted'][$mimekey] = preg_quote(
-            $available_mime[$mime_type . '_file'][$mimekey],
-            '@'
-        );
+$mime_types = [
+    'input_transformation',
+    'transformation',
+];
+foreach ($mime_types as $mime_type) {
+    if (isset($available_mime[$mime_type]) and is_iterable($available_mime[$mime_type])) {
+        foreach ($available_mime[$mime_type] as $mimekey => $transform) {
+            $available_mime[$mime_type . '_file_quoted'][$mimekey] = preg_quote(
+                $available_mime[$mime_type . '_file'][$mimekey],
+                '@'
+            );
+        }
     }
 }
 
@@ -129,8 +144,8 @@ if (isset($field_fulltext) && is_array($field_fulltext)) {
         $submit_fulltext[$fulltext_indexkey] = $fulltext_indexkey;
     }
 }
-if (isset($_REQUEST['submit_num_fields'])
-    || isset($_REQUEST['submit_partition_change'])
+if (isset($_POST['submit_num_fields'])
+    || isset($_POST['submit_partition_change'])
 ) {
     //if adding new fields, set regenerate to keep the original values
     $regenerate = 1;
@@ -151,52 +166,52 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     $submit_attribute = null;
     $extracted_columnspec = [];
 
-    if (!empty($regenerate)) {
+    if (! empty($regenerate)) {
         $columnMeta = array_merge(
             $columnMeta,
             [
                 'Field'        => Util::getValueByKey(
-                    $_REQUEST,
+                    $_POST,
                     "field_name.${columnNumber}",
                     null
                 ),
                 'Type'         => Util::getValueByKey(
-                    $_REQUEST,
+                    $_POST,
                     "field_type.${columnNumber}",
                     null
                 ),
                 'Collation'    => Util::getValueByKey(
-                    $_REQUEST,
+                    $_POST,
                     "field_collation.${columnNumber}",
                     ''
                 ),
                 'Null'         => Util::getValueByKey(
-                    $_REQUEST,
+                    $_POST,
                     "field_null.${columnNumber}",
                     ''
                 ),
                 'DefaultType'  => Util::getValueByKey(
-                    $_REQUEST,
+                    $_POST,
                     "field_default_type.${columnNumber}",
                     'NONE'
                 ),
                 'DefaultValue' => Util::getValueByKey(
-                    $_REQUEST,
+                    $_POST,
                     "field_default_value.${columnNumber}",
                     ''
                 ),
                 'Extra'        => Util::getValueByKey(
-                    $_REQUEST,
+                    $_POST,
                     "field_extra.${columnNumber}",
                     null
                 ),
                 'Virtuality'   => Util::getValueByKey(
-                    $_REQUEST,
+                    $_POST,
                     "field_virtuality.${columnNumber}",
                     ''
                 ),
                 'Expression'   => Util::getValueByKey(
-                    $_REQUEST,
+                    $_POST,
                     "field_expression.${columnNumber}",
                     ''
                 ),
@@ -206,17 +221,17 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         $columnMeta['Key'] = '';
         $parts = explode(
             '_',
-            Util::getValueByKey($_REQUEST, "field_key.${columnNumber}", ''),
+            Util::getValueByKey($_POST, "field_key.${columnNumber}", ''),
             2
         );
-        if (count($parts) == 2 && $parts[1] == $columnNumber) {
+        if (count($parts) === 2 && $parts[1] == $columnNumber) {
             $columnMeta['Key'] = Util::getValueByKey(
                 [
                     'primary' => 'PRI',
                     'index' => 'MUL',
                     'unique' => 'UNI',
                     'fulltext' => 'FULLTEXT',
-                    'spatial' => 'SPATIAL'
+                    'spatial' => 'SPATIAL',
                 ],
                 $parts[0],
                 ''
@@ -242,27 +257,27 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
                 break;
         }
 
-        $length = Util::getValueByKey($_REQUEST, "field_length.${columnNumber}", $length);
+        $length = Util::getValueByKey($_POST, "field_length.${columnNumber}", $length);
         $submit_attribute = Util::getValueByKey(
-            $_REQUEST,
+            $_POST,
             "field_attribute.${columnNumber}",
             false
         );
         $comments_map[$columnMeta['Field']] = Util::getValueByKey(
-            $_REQUEST,
+            $_POST,
             "field_comments.${columnNumber}"
         );
 
         $mime_map[$columnMeta['Field']] = array_merge(
             $mime_map[$columnMeta['Field']],
             [
-                'mimetype' => Util::getValueByKey($_REQUEST, "field_mimetype.${$columnNumber}"),
+                'mimetype' => Util::getValueByKey($_POST, "field_mimetype.${$columnNumber}"),
                 'transformation' => Util::getValueByKey(
-                    $_REQUEST,
+                    $_POST,
                     "field_transformation.${$columnNumber}"
                 ),
                 'transformation_options' => Util::getValueByKey(
-                    $_REQUEST,
+                    $_POST,
                     "field_transformation_options.${$columnNumber}"
                 ),
             ]
@@ -270,7 +285,10 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     } elseif (isset($fields_meta[$columnNumber])) {
         $columnMeta = $fields_meta[$columnNumber];
         $virtual = [
-            'VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED'
+            'VIRTUAL',
+            'PERSISTENT',
+            'VIRTUAL GENERATED',
+            'STORED GENERATED',
         ];
         if (in_array($columnMeta['Extra'], $virtual)) {
             $tableObj = new Table($GLOBALS['table'], $GLOBALS['db']);
@@ -281,7 +299,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         }
         switch ($columnMeta['Default']) {
             case null:
-                if (is_null($columnMeta['Default'])) { // null
+                if ($columnMeta['Default'] === null) {
                     if ($columnMeta['Null'] == 'YES') {
                         $columnMeta['DefaultType'] = 'NULL';
                         $columnMeta['DefaultValue'] = '';
@@ -302,6 +320,12 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
             default:
                 $columnMeta['DefaultType'] = 'USER_DEFINED';
                 $columnMeta['DefaultValue'] = $columnMeta['Default'];
+
+                if ('text' === substr($columnMeta['Type'], -4)) {
+                    $textDefault = substr($columnMeta['Default'], 1, -1);
+                    $columnMeta['Default'] = stripcslashes($textDefault !== false ? $textDefault : $columnMeta['Default']);
+                }
+
                 break;
         }
     }
@@ -325,10 +349,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
 
     // Variable tell if current column is bound in a foreign key constraint or not.
     // MySQL version from 5.6.6 allow renaming columns with foreign keys
-    if (isset($columnMeta['Field'])
-        && isset($form_params['table'])
-        && $GLOBALS['dbi']->getVersion() < 50606
-    ) {
+    if (isset($columnMeta['Field'], $form_params['table']) && $GLOBALS['dbi']->getVersion() < 50606) {
         $columnMeta['column_status'] = $relation->checkChildForeignReferences(
             $form_params['db'],
             $form_params['table'],
@@ -355,7 +376,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
             $form_params['field_orig[' . $columnNumber . ']']
                 = $columnMeta['Field'];
             if (isset($columnMeta['column_status'])
-                && !$columnMeta['column_status']['isEditable']
+                && ! $columnMeta['column_status']['isEditable']
             ) {
                 $form_params['field_name[' . $columnNumber . ']']
                     = $columnMeta['Field'];
@@ -369,7 +390,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
             // keep in uppercase because the new type will be in uppercase
             $form_params['field_type_orig[' . $columnNumber . ']'] = mb_strtoupper($type);
             if (isset($columnMeta['column_status'])
-                && !$columnMeta['column_status']['isEditable']
+                && ! $columnMeta['column_status']['isEditable']
             ) {
                 $form_params['field_type[' . $columnNumber . ']'] = mb_strtoupper($type);
             }
@@ -459,11 +480,32 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         'move_columns' => $move_columns,
         'cfg_relation' => $cfgRelation,
         'available_mime' => $available_mime,
-        'mime_map' => isset($mime_map) ? $mime_map : []
+        'mime_map' => isset($mime_map) ? $mime_map : [],
     ];
 } // end for
 
-include 'libraries/tbl_partition_definition.inc.php';
+$partitionDetails = TablePartitionDefinition::getDetails();
+
+$charsets = Charsets::getCharsets($GLOBALS['dbi'], $GLOBALS['cfg']['Server']['DisableIS']);
+$collations = Charsets::getCollations($GLOBALS['dbi'], $GLOBALS['cfg']['Server']['DisableIS']);
+$charsetsList = [];
+/** @var Charset $charset */
+foreach ($charsets as $charset) {
+    $collationsList = [];
+    /** @var Collation $collation */
+    foreach ($collations[$charset->getName()] as $collation) {
+        $collationsList[] = [
+            'name' => $collation->getName(),
+            'description' => $collation->getDescription(),
+        ];
+    }
+    $charsetsList[] = [
+        'name' => $charset->getName(),
+        'description' => $charset->getDescription(),
+        'collations' => $collationsList,
+    ];
+}
+
 $html = $template->render('columns_definitions/column_definitions_form', [
     'is_backup' => $is_backup,
     'fields_meta' => isset($fields_meta) ? $fields_meta : null,
@@ -472,25 +514,26 @@ $html = $template->render('columns_definitions/column_definitions_form', [
     'form_params' => $form_params,
     'content_cells' => $content_cells,
     'partition_details' => $partitionDetails,
-    'primary_indexes' => isset($_REQUEST['primary_indexes']) ? $_REQUEST['primary_indexes'] : null,
-    'unique_indexes' => isset($_REQUEST['unique_indexes']) ? $_REQUEST['unique_indexes'] : null,
-    'indexes' => isset($_REQUEST['indexes']) ? $_REQUEST['indexes'] : null,
-    'fulltext_indexes' => isset($_REQUEST['fulltext_indexes']) ? $_REQUEST['fulltext_indexes'] : null,
-    'spatial_indexes' => isset($_REQUEST['spatial_indexes']) ? $_REQUEST['spatial_indexes'] : null,
-    'table' => isset($_REQUEST['table']) ? $_REQUEST['table'] : null,
-    'comment' => isset($_REQUEST['comment']) ? $_REQUEST['comment'] : null,
-    'tbl_collation' => isset($_REQUEST['tbl_collation']) ? $_REQUEST['tbl_collation'] : null,
-    'tbl_storage_engine' => isset($_REQUEST['tbl_storage_engine']) ? $_REQUEST['tbl_storage_engine'] : null,
-    'connection' => isset($_REQUEST['connection']) ? $_REQUEST['connection'] : null,
-    'change_column' => isset($_REQUEST['change_column']) ? $_REQUEST['change_column'] : null,
+    'primary_indexes' => isset($_POST['primary_indexes']) ? $_POST['primary_indexes'] : null,
+    'unique_indexes' => isset($_POST['unique_indexes']) ? $_POST['unique_indexes'] : null,
+    'indexes' => isset($_POST['indexes']) ? $_POST['indexes'] : null,
+    'fulltext_indexes' => isset($_POST['fulltext_indexes']) ? $_POST['fulltext_indexes'] : null,
+    'spatial_indexes' => isset($_POST['spatial_indexes']) ? $_POST['spatial_indexes'] : null,
+    'table' => isset($_POST['table']) ? $_POST['table'] : null,
+    'comment' => isset($_POST['comment']) ? $_POST['comment'] : null,
+    'tbl_collation' => isset($_POST['tbl_collation']) ? $_POST['tbl_collation'] : null,
+    'charsets' => $charsetsList,
+    'tbl_storage_engine' => isset($_POST['tbl_storage_engine']) ? $_POST['tbl_storage_engine'] : null,
+    'connection' => isset($_POST['connection']) ? $_POST['connection'] : null,
+    'change_column' => isset($_POST['change_column']) ? $_POST['change_column'] : null,
     'is_virtual_columns_supported' => Util::isVirtualColumnsSupported(),
     'browse_mime' => isset($GLOBALS['cfg']['BrowseMIME']) ? $GLOBALS['cfg']['BrowseMIME'] : null,
     'server_type' => Util::getServerType(),
     'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
     'char_editing' => isset($GLOBALS['cfg']['CharEditing']) ? $GLOBALS['cfg']['CharEditing'] : null,
     'attribute_types' => $GLOBALS['dbi']->types->getAttributes(),
-    'privs_available' => (isset($GLOBALS['col_priv']) ? $GLOBALS['col_priv'] : false
-        && isset($GLOBALS['is_reload_priv']) ? $GLOBALS['is_reload_priv'] : false
+    'privs_available' => ((isset($GLOBALS['col_priv']) ? $GLOBALS['col_priv'] : false)
+        && (isset($GLOBALS['is_reload_priv']) ? $GLOBALS['is_reload_priv'] : false)
     ),
     'max_length' => $GLOBALS['dbi']->getVersion() >= 50503 ? 1024 : 255,
     'have_partitioning' => Partition::havePartitioning(),
@@ -504,7 +547,7 @@ $response = Response::getInstance();
 $response->getHeader()->getScripts()->addFiles(
     [
         'vendor/jquery/jquery.uitablefilter.js',
-        'indexes.js'
+        'indexes.js',
     ]
 );
 $response->addHTML($html);

@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Bootstrap file for phpstan
  *
@@ -9,13 +8,19 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\MoTranslator\Loader;
+
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
+}
 
 define('PHPMYADMIN', true);
 define('TESTSUITE', true);
 
-require_once 'libraries/config.default.php';
-require_once 'libraries/vendor_config.php';
+include_once ROOT_PATH . 'examples/signon-script.php';
+require_once ROOT_PATH . 'libraries/config.default.php';
+require_once ROOT_PATH . 'libraries/vendor_config.php';
 require_once AUTOLOAD_FILE;
 $GLOBALS['cfg'] = $cfg;
 $GLOBALS['server'] = 0;
@@ -34,4 +39,7 @@ $GLOBALS['PMA_Config']->enableBc();// Defines constants, phpstan:level=1
 
 Loader::loadFunctions();
 
-DatabaseInterface::load();
+$GLOBALS['dbi'] = DatabaseInterface::load(new DbiDummy());
+
+// for PhpMyAdmin\Plugins\Import\ImportLdi
+$GLOBALS['plugin_param'] = 'table';

@@ -1044,7 +1044,7 @@ Server connection settings
 
     Since release 4.1.0 you can create different user groups with menu items
     attached to them. Users can be assigned to these groups and the logged in
-    user would only see menu items configured to the usergroup he is assigned to.
+    user would only see menu items configured to the usergroup they are assigned to.
     To do this it needs two tables "usergroups" (storing allowed menu items for each
     user group) and "users" (storing users and their assignments to user groups).
 
@@ -1382,6 +1382,26 @@ Server connection settings
     But the following does not work:
 
     * ``xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xx[yyy-zzz]`` (partial :term:`IPv6` address range)
+
+    Examples:
+
+    .. code-block:: none
+
+        $cfg['Servers'][$i]['AllowDeny']['order'] = 'allow,deny';
+        $cfg['Servers'][$i]['AllowDeny']['rules'] = array('allow bob from all');
+        // Allow only 'bob' to connect from any host
+
+        $cfg['Servers'][$i]['AllowDeny']['order'] = 'allow,deny';
+        $cfg['Servers'][$i]['AllowDeny']['rules'] = array('allow mary from 192.168.100.[50-100]');
+        // Allow only 'mary' to connect from host 192.168.100.50 through 192.168.100.100
+
+        $cfg['Servers'][$i]['AllowDeny']['order'] = 'allow,deny';
+        $cfg['Servers'][$i]['AllowDeny']['rules'] = array('allow % from 192.168.[5-6].10');
+        // Allow any user to connect from host 192.168.5.10 or 192.168.6.10
+
+        $cfg['Servers'][$i]['AllowDeny']['order'] = 'allow,deny';
+        $cfg['Servers'][$i]['AllowDeny']['rules'] = array('allow root from 192.168.5.50','allow % from 192.168.6.10');
+        // Allow any user to connect from 192.168.6.10, and additionally allow root to connect from 192.168.5.50
 
 .. config:option:: $cfg['Servers'][$i]['DisableIS']
 
@@ -1858,7 +1878,7 @@ Cookie authentication options
     :default: ``''``
 
     The public key for the reCaptcha service that can be obtained from
-    https://www.google.com/recaptcha/intro/.
+    https://www.google.com/recaptcha/intro/v3.html.
 
     reCaptcha will be then used in :ref:`cookie`.
 
@@ -1868,7 +1888,7 @@ Cookie authentication options
     :default: ``''``
 
     The private key for the reCaptcha service that can be obtain from
-    https://www.google.com/recaptcha/intro/.
+    https://www.google.com/recaptcha/intro/v3.html.
 
     reCaptcha will be then used in :ref:`cookie`.
 
@@ -1986,7 +2006,8 @@ Navigation panel setup
 
     Enter :term:`URL` where logo in the navigation panel will point to.
     For use especially with self made theme which changes this.
-    For external URLs, you should include URL scheme as well.
+    For relative/internal URLs, you need to have leading `` ./ `` or trailing characters `` ? `` such as ``'./sql.php?'``.
+    For external URLs, you should include URL protocol schemes (``http`` or ``https``) with absolute URLs.
 
 .. config:option:: $cfg['NavigationLogoLinkWindow']
 
@@ -2688,7 +2709,7 @@ Web server settings
     want to use rules for IP addresses behind proxy.
 
     The following example specifies that phpMyAdmin should trust a
-    HTTP\_X\_FORWARDED\_FOR (``X -Forwarded-For``) header coming from the proxy
+    HTTP\_X\_FORWARDED\_FOR (``X-Forwarded-For``) header coming from the proxy
     1.2.3.4:
 
     .. code-block:: php
@@ -3027,9 +3048,9 @@ the files.
     :type: string
     :default: ``''``
 
-    The name of the directory where dumps can be saved.
+    The name of the webserver directory where exported files can be saved.
 
-    If you want different directory for each user, %u will be replaced with
+    If you want a different directory for each user, %u will be replaced with the
     username.
 
     Please note that the directory must exist and has to be writable for
@@ -3484,7 +3505,6 @@ This example uses :file:`examples/signon.php` to demonstrate usage of :ref:`auth
     $cfg['Servers'][$i]['auth_type']     = 'signon';
     $cfg['Servers'][$i]['SignonSession'] = 'SignonSession';
     $cfg['Servers'][$i]['SignonURL']     = 'examples/signon.php';
-    ?>`
 
 Example for IP address limited autologin
 ++++++++++++++++++++++++++++++++++++++++
@@ -3540,7 +3560,6 @@ following example shows two of them:
     $cfg['ServerDefault'] = 0; // to choose the server on startup
 
     // further general options ...
-    ?>
 
 .. _example-google-ssl:
 

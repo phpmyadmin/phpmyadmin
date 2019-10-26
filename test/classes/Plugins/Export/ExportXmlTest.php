@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportXml class
  *
@@ -31,7 +30,7 @@ class ExportXmlTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
@@ -51,7 +50,7 @@ class ExportXmlTest extends PmaTestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -226,7 +225,10 @@ class ExportXmlTest extends PmaTestCase
                 'DEFAULT_CHARACTER_SET_NAME' => 'utf-8',
 
             ],
-            'table' => [null, '"tbl"']
+            'table' => [
+                null,
+                '"tbl"',
+            ],
         ];
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -248,8 +250,8 @@ class ExportXmlTest extends PmaTestCase
                     [
                         [
                             'create' => 'crt',
-                            'name' => 'trname'
-                        ]
+                            'name' => 'trname',
+                        ],
                     ]
                 )
             );
@@ -258,10 +260,10 @@ class ExportXmlTest extends PmaTestCase
             ->method('getProceduresOrFunctions')
             ->willReturnOnConsecutiveCalls(
                 [
-                    'fn'
+                    'fn',
                 ],
                 [
-                    'pr'
+                    'pr',
                 ]
             );
 
@@ -289,13 +291,13 @@ class ExportXmlTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '&lt;pma_xml_export version=&quot;1.0&quot; xmlns:pma=&quot;' .
             'https://www.phpmyadmin.net/some_doc_url/&quot;&gt;',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '&lt;pma:structure_schemas&gt;' . "\n" .
             '        &lt;pma:database name=&quot;d&amp;lt;&amp;quot;b&quot; collat' .
             'ion=&quot;utf8_general_ci&quot; charset=&quot;utf-8&quot;&gt;' . "\n" .
@@ -334,14 +336,20 @@ class ExportXmlTest extends PmaTestCase
                 'DEFAULT_COLLATION_NAME' => 'utf8_general_ci',
                 'DEFAULT_CHARACTER_SET_NAME' => 'utf-8',
 
-            ]
+            ],
         ];
         $result_2 = [
-            't1' => [null, '"tbl"']
+            't1' => [
+                null,
+                '"tbl"',
+            ],
         ];
 
         $result_3 = [
-            't2' => [null, '"tbl"']
+            't2' => [
+                null,
+                '"tbl"',
+            ],
         ];
 
         $dbi->expects($this->exactly(5))
@@ -360,7 +368,10 @@ class ExportXmlTest extends PmaTestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $GLOBALS['tables'] = ['t1', 't2'];
+        $GLOBALS['tables'] = [
+            't1',
+            't2',
+        ];
 
         ob_start();
         $this->assertTrue(
@@ -369,7 +380,7 @@ class ExportXmlTest extends PmaTestCase
         $result = ob_get_clean();
 
         //echo $result; die;
-        $this->assertContains(
+        $this->assertStringContainsString(
             '&lt;pma:structure_schemas&gt;' . "\n" .
             '        &lt;pma:database name=&quot;d&amp;lt;&amp;quot;b&quot; collat' .
             'ion=&quot;utf8_general_ci&quot; charset=&quot;utf-8&quot;&gt;' . "\n" .
@@ -409,7 +420,7 @@ class ExportXmlTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '&lt;database name=&quot;&amp;amp;db&quot;&gt;',
             $result
         );
@@ -436,7 +447,7 @@ class ExportXmlTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '&lt;/database&gt;',
             $result
         );
@@ -531,33 +542,33 @@ class ExportXmlTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "<!-- Table ta&lt;ble -->",
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "<table name=\"ta&lt;ble\">",
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "<column name=\"fName1\">NULL</column>",
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "<column name=\"fNa&quot;me2\">&lt;a&gt;" .
             "</column>",
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "<column name=\"fName3\">NULL</column>",
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "</table>",
             $result
         );

@@ -40,7 +40,7 @@ class FooterTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $_SERVER['SCRIPT_NAME'] = 'index.php';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
@@ -68,7 +68,7 @@ class FooterTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -133,7 +133,7 @@ class FooterTest extends PmaTestCase
         $this->_callPrivateFunction(
             '_removeRecursion',
             [
-                &$object
+                &$object,
             ]
         );
 
@@ -150,19 +150,20 @@ class FooterTest extends PmaTestCase
      */
     public function testGetSelfLink()
     {
-
         $GLOBALS['cfg']['TabsMode'] = 'text';
         $GLOBALS['cfg']['ServerDefault'] = 1;
+        $GLOBALS['db'] = 'db';
+        $GLOBALS['table'] = 'table';
 
         $this->assertEquals(
-            '<div id="selflink" class="print_ignore"><a href="index.php?db=&amp;'
-            . 'table=&amp;server=1&amp;target=&amp;lang=en'
+            '<div id="selflink" class="print_ignore"><a href="index.php?db=db&amp;'
+            . 'table=table&amp;server=1&amp;lang=en'
             . '" title="Open new phpMyAdmin window" '
             . 'target="_blank" rel="noopener noreferrer">Open new phpMyAdmin window</a></div>',
             $this->_callPrivateFunction(
                 '_getSelfLink',
                 [
-                    $this->object->getSelfUrl()
+                    $this->object->getSelfUrl(),
                 ]
             )
         );
@@ -180,16 +181,40 @@ class FooterTest extends PmaTestCase
         $GLOBALS['cfg']['ServerDefault'] = 1;
 
         $this->assertEquals(
-            '<div id="selflink" class="print_ignore"><a href="index.php?db=&amp;'
-            . 'table=&amp;server=1&amp;target=&amp;lang=en'
-            . '" title="Open new phpMyAdmin window" '
+            '<div id="selflink" class="print_ignore"><a href="'
+            . 'index.php?server=1&amp;lang=en" title="Open new phpMyAdmin window" '
             . 'target="_blank" rel="noopener noreferrer"><img src="themes/dot.gif" title="Open new '
             . 'phpMyAdmin window" alt="Open new phpMyAdmin window" '
-            . 'class="icon ic_window-new" /></a></div>',
+            . 'class="icon ic_window-new"></a></div>',
             $this->_callPrivateFunction(
                 '_getSelfLink',
                 [
-                    $this->object->getSelfUrl()
+                    $this->object->getSelfUrl(),
+                ]
+            )
+        );
+    }
+
+    /**
+     * Test for _getSelfLink
+     *
+     * @return void
+     */
+    public function testGetSelfLinkWithRoute()
+    {
+        $GLOBALS['route'] = '/test';
+        $GLOBALS['cfg']['TabsMode'] = 'text';
+        $GLOBALS['cfg']['ServerDefault'] = 1;
+
+        $this->assertEquals(
+            '<div id="selflink" class="print_ignore"><a href="index.php?route=%2Ftest'
+            . '&amp;server=1&amp;lang=en'
+            . '" title="Open new phpMyAdmin window" '
+            . 'target="_blank" rel="noopener noreferrer">Open new phpMyAdmin window</a></div>',
+            $this->_callPrivateFunction(
+                '_getSelfLink',
+                [
+                    $this->object->getSelfUrl(),
                 ]
             )
         );
@@ -233,7 +258,7 @@ class FooterTest extends PmaTestCase
     public function testGetScripts()
     {
         $footer = new Footer();
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<script data-cfasync="false" type="text/javascript">',
             $footer->getScripts()->getDisplay()
         );
@@ -248,7 +273,7 @@ class FooterTest extends PmaTestCase
     public function testDisplay()
     {
         $footer = new Footer();
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Open new phpMyAdmin window',
             $footer->getDisplay()
         );
@@ -264,7 +289,7 @@ class FooterTest extends PmaTestCase
         $footer = new Footer();
         $footer->setMinimal();
         $this->assertEquals(
-            '</div></body></html>',
+            "  </div>\n  </body>\n</html>\n",
             $footer->getDisplay()
         );
     }

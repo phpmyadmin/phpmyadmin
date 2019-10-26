@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Base class for all GIS data type classes
  *
@@ -155,18 +154,18 @@ abstract class GisGeometry
             // Extract coordinates of the point
             $cordinates = explode(" ", $point);
 
-            $x = (float)$cordinates[0];
-            if (!isset($min_max['maxX']) || $x > $min_max['maxX']) {
+            $x = (float) $cordinates[0];
+            if (! isset($min_max['maxX']) || $x > $min_max['maxX']) {
                 $min_max['maxX'] = $x;
             }
-            if (!isset($min_max['minX']) || $x < $min_max['minX']) {
+            if (! isset($min_max['minX']) || $x < $min_max['minX']) {
                 $min_max['minX'] = $x;
             }
-            $y = (float)$cordinates[1];
-            if (!isset($min_max['maxY']) || $y > $min_max['maxY']) {
+            $y = (float) $cordinates[1];
+            if (! isset($min_max['maxY']) || $y > $min_max['maxY']) {
                 $min_max['maxY'] = $y;
             }
-            if (!isset($min_max['minY']) || $y < $min_max['minY']) {
+            if (! isset($min_max['minY']) || $y < $min_max['minY']) {
                 $min_max['minY'] = $y;
             }
         }
@@ -199,7 +198,10 @@ abstract class GisGeometry
             $wkt = $value;
         }
 
-        return ['srid' => $srid, 'wkt' => $wkt];
+        return [
+            'srid' => $srid,
+            'wkt' => $wkt,
+        ];
     }
 
     /**
@@ -220,13 +222,11 @@ abstract class GisGeometry
         $points = explode(",", $point_set);
 
         foreach ($points as $point) {
+            $point = str_replace(['(', ')'], '', $point);
             // Extract coordinates of the point
             $cordinates = explode(" ", $point);
 
-            if (isset($cordinates[0]) && trim($cordinates[0]) != ''
-                && isset($cordinates[1])
-                && trim($cordinates[1]) != ''
-            ) {
+            if (isset($cordinates[0], $cordinates[1]) && trim($cordinates[0]) != '' && trim($cordinates[1]) != '') {
                 if ($scale_data != null) {
                     $x = ($cordinates[0] - $scale_data['x']) * $scale_data['scale'];
                     $y = $scale_data['height']
@@ -240,8 +240,11 @@ abstract class GisGeometry
                 $y = 0;
             }
 
-            if (!$linear) {
-                $points_arr[] = [$x, $y];
+            if (! $linear) {
+                $points_arr[] = [
+                    $x,
+                    $y,
+                ];
             } else {
                 $points_arr[] = $x;
                 $points_arr[] = $y;

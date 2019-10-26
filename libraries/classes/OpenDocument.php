@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Simple interface for creating OASIS OpenDocument files.
  *
@@ -162,7 +161,7 @@ EOT;
             . ' manifest:full-path="meta.xml"/>'
             . '<manifest:file-entry manifest:media-type="text/xml"'
             . ' manifest:full-path="styles.xml"/>'
-            . '</manifest:manifest>'
+            . '</manifest:manifest>',
         ];
 
         $name = [
@@ -170,7 +169,7 @@ EOT;
             'content.xml',
             'meta.xml',
             'styles.xml',
-            'META-INF/manifest.xml'
+            'META-INF/manifest.xml',
         ];
 
         $zipExtension = new ZipExtension();

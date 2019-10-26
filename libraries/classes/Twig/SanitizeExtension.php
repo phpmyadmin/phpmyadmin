@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * hold PhpMyAdmin\Twig\SanitizeExtension class
  *
@@ -11,6 +10,7 @@ namespace PhpMyAdmin\Twig;
 
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
+use Twig\TwigFunction;
 
 /**
  * Class SanitizeExtension
@@ -39,7 +39,23 @@ class SanitizeExtension extends AbstractExtension
             ),
             new TwigFilter(
                 'sanitize',
-                'PhpMyAdmin\Sanitize::sanitize',
+                'PhpMyAdmin\Sanitize::sanitizeMessage',
+                ['is_safe' => ['html']]
+            ),
+        ];
+    }
+
+    /**
+     * Returns a list of functions to add to the existing list.
+     *
+     * @return TwigFunction[]
+     */
+    public function getFunctions()
+    {
+        return [
+            new TwigFunction(
+                'get_js_value',
+                'PhpMyAdmin\Sanitize::getJsValue',
                 ['is_safe' => ['html']]
             ),
         ];

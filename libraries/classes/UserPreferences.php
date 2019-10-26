@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Holds the PhpMyAdmin\UserPreferences class
  *
@@ -26,7 +25,7 @@ use PhpMyAdmin\Util;
 class UserPreferences
 {
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 
@@ -59,7 +58,7 @@ class UserPreferences
         $cf->setCfgUpdateReadMapping(
             [
                 'Server/hide_db' => 'Servers/1/hide_db',
-                'Server/only_db' => 'Servers/1/only_db'
+                'Server/only_db' => 'Servers/1/only_db',
             ]
         );
         $cf->updateWithGlobalConfig($GLOBALS['cfg']);
@@ -83,12 +82,14 @@ class UserPreferences
             if (! isset($_SESSION['userconfig'])) {
                 $_SESSION['userconfig'] = [
                     'db' => [],
-                    'ts' => time()];
+                    'ts' => time(),
+                ];
             }
             return [
                 'config_data' => $_SESSION['userconfig']['db'],
                 'mtime' => $_SESSION['userconfig']['ts'],
-                'type' => 'session'];
+                'type' => 'session',
+            ];
         }
         // load configuration from pmadb
         $query_table = Util::backquote($cfgRelation['db']) . '.'
@@ -103,7 +104,8 @@ class UserPreferences
         return [
             'config_data' => $row ? json_decode($row['config_data'], true) : [],
             'mtime' => $row ? $row['ts'] : time(),
-            'type' => 'db'];
+            'type' => 'db',
+        ];
     }
 
     /**
@@ -111,7 +113,7 @@ class UserPreferences
      *
      * @param array $config_array configuration array
      *
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function save(array $config_array)
     {
@@ -124,7 +126,8 @@ class UserPreferences
             // no pmadb table, use session storage
             $_SESSION['userconfig'] = [
                 'db' => $config_array,
-                'ts' => time()];
+                'ts' => time(),
+            ];
             if (isset($_SESSION['cache'][$cache_key]['userprefs'])) {
                 unset($_SESSION['cache'][$cache_key]['userprefs']);
             }
@@ -164,13 +167,13 @@ class UserPreferences
         if (isset($_SESSION['cache'][$cache_key]['userprefs'])) {
             unset($_SESSION['cache'][$cache_key]['userprefs']);
         }
-        if (!$GLOBALS['dbi']->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
+        if (! $GLOBALS['dbi']->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
             $message = Message::error(__('Could not save configuration'));
             $message->addMessage(
                 Message::rawError(
                     $GLOBALS['dbi']->getError(DatabaseInterface::CONNECT_CONTROL)
                 ),
-                '<br /><br />'
+                '<br><br>'
             );
             return $message;
         }
@@ -214,7 +217,7 @@ class UserPreferences
      * @param mixed  $value         value
      * @param mixed  $default_value default value
      *
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function persistOption($path, $value, $default_value)
     {
@@ -254,7 +257,7 @@ class UserPreferences
             $hash = '#' . urlencode($hash);
         }
         Core::sendHeaderLocation('./' . $file_name
-            . Url::getCommonRaw($url_params) . $hash);
+            . Url::getCommonRaw($url_params, strpos($file_name, '?') === false ? '?' : '&') . $hash);
     }
 
     /**
@@ -275,7 +278,7 @@ class UserPreferences
         $script_name = basename(basename($GLOBALS['PMA_PHP_SELF']));
         $return_url = $script_name . '?' . http_build_query($_GET, '', '&');
 
-        return $this->template->render('prefs_autoload', [
+        return $this->template->render('preferences/autoload', [
             'hidden_inputs' => Url::getHiddenInputs(),
             'return_url' => $return_url,
         ]);

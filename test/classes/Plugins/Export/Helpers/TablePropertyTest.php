@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for PhpMyAdmin\Plugins\Export\Helpers\TableProperty class
  *
@@ -26,10 +25,17 @@ class TablePropertyTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
-        $row = [' name ', 'int ', true, ' PRI', '0', 'mysql'];
+        $row = [
+            ' name ',
+            'int ',
+            true,
+            ' PRI',
+            '0',
+            'mysql',
+        ];
         $this->object = new TableProperty($row);
     }
 
@@ -38,7 +44,7 @@ class TablePropertyTest extends PmaTestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -47,7 +53,7 @@ class TablePropertyTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::__construct
      *
      * @return void
-    */
+     */
     public function testConstructor()
     {
         $this->assertEquals(
@@ -85,7 +91,7 @@ class TablePropertyTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::getPureType
      *
      * @return void
-    */
+     */
     public function testGetPureType()
     {
         $this->object->type = "int(10)";
@@ -112,7 +118,7 @@ class TablePropertyTest extends PmaTestCase
      * @return void
      * @dataProvider isNotNullProvider
      */
-    public function testIsNotNull($nullable, $expected)
+    public function testIsNotNull($nullable, $expected): void
     {
         $this->object->nullable = $nullable;
 
@@ -130,9 +136,18 @@ class TablePropertyTest extends PmaTestCase
     public function isNotNullProvider()
     {
         return [
-            ["NO", "true"],
-            ["", "false"],
-            ["no", "false"]
+            [
+                "NO",
+                "true",
+            ],
+            [
+                "",
+                "false",
+            ],
+            [
+                "no",
+                "false",
+            ],
         ];
     }
 
@@ -145,7 +160,7 @@ class TablePropertyTest extends PmaTestCase
      * @return void
      * @dataProvider isUniqueProvider
      */
-    public function testIsUnique($key, $expected)
+    public function testIsUnique($key, $expected): void
     {
         $this->object->key = $key;
 
@@ -163,11 +178,26 @@ class TablePropertyTest extends PmaTestCase
     public function isUniqueProvider()
     {
         return [
-            ["PRI", "true"],
-            ["UNI", "true"],
-            ["", "false"],
-            ["pri", "false"],
-            ["uni", "false"],
+            [
+                "PRI",
+                "true",
+            ],
+            [
+                "UNI",
+                "true",
+            ],
+            [
+                "",
+                "false",
+            ],
+            [
+                "pri",
+                "false",
+            ],
+            [
+                "uni",
+                "false",
+            ],
         ];
     }
 
@@ -180,7 +210,7 @@ class TablePropertyTest extends PmaTestCase
      * @return void
      * @dataProvider getDotNetPrimitiveTypeProvider
      */
-    public function testGetDotNetPrimitiveType($type, $expected)
+    public function testGetDotNetPrimitiveType($type, $expected): void
     {
         $this->object->type = $type;
 
@@ -198,17 +228,50 @@ class TablePropertyTest extends PmaTestCase
     public function getDotNetPrimitiveTypeProvider()
     {
         return [
-            ["int", "int"],
-            ["long", "long"],
-            ["char", "string"],
-            ["varchar", "string"],
-            ["text", "string"],
-            ["longtext", "string"],
-            ["tinyint", "bool"],
-            ["datetime", "DateTime"],
-            ["", "unknown"],
-            ["dummy", "unknown"],
-            ["INT", "unknown"]
+            [
+                "int",
+                "int",
+            ],
+            [
+                "long",
+                "long",
+            ],
+            [
+                "char",
+                "string",
+            ],
+            [
+                "varchar",
+                "string",
+            ],
+            [
+                "text",
+                "string",
+            ],
+            [
+                "longtext",
+                "string",
+            ],
+            [
+                "tinyint",
+                "bool",
+            ],
+            [
+                "datetime",
+                "DateTime",
+            ],
+            [
+                "",
+                "unknown",
+            ],
+            [
+                "dummy",
+                "unknown",
+            ],
+            [
+                "INT",
+                "unknown",
+            ],
         ];
     }
 
@@ -221,7 +284,7 @@ class TablePropertyTest extends PmaTestCase
      * @return void
      * @dataProvider getDotNetObjectTypeProvider
      */
-    public function testGetDotNetObjectType($type, $expected)
+    public function testGetDotNetObjectType($type, $expected): void
     {
         $this->object->type = $type;
 
@@ -239,17 +302,50 @@ class TablePropertyTest extends PmaTestCase
     public function getDotNetObjectTypeProvider()
     {
         return [
-            ["int", "Int32"],
-            ["long", "Long"],
-            ["char", "String"],
-            ["varchar", "String"],
-            ["text", "String"],
-            ["longtext", "String"],
-            ["tinyint", "Boolean"],
-            ["datetime", "DateTime"],
-            ["", "Unknown"],
-            ["dummy", "Unknown"],
-            ["INT", "Unknown"]
+            [
+                "int",
+                "Int32",
+            ],
+            [
+                "long",
+                "Long",
+            ],
+            [
+                "char",
+                "String",
+            ],
+            [
+                "varchar",
+                "String",
+            ],
+            [
+                "text",
+                "String",
+            ],
+            [
+                "longtext",
+                "String",
+            ],
+            [
+                "tinyint",
+                "Boolean",
+            ],
+            [
+                "datetime",
+                "DateTime",
+            ],
+            [
+                "",
+                "Unknown",
+            ],
+            [
+                "dummy",
+                "Unknown",
+            ],
+            [
+                "INT",
+                "Unknown",
+            ],
         ];
     }
 
@@ -300,7 +396,7 @@ class TablePropertyTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::formatCs
      *
      * @return void
-    */
+     */
     public function testFormatCs()
     {
         $this->object->name = 'Name#name#123';
@@ -315,7 +411,7 @@ class TablePropertyTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::formatXml
      *
      * @return void
-    */
+     */
     public function testFormatXml()
     {
         $this->object->name = '"a\'';
@@ -330,7 +426,7 @@ class TablePropertyTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::format
      *
      * @return void
-    */
+     */
     public function testFormat()
     {
         $this->assertEquals(

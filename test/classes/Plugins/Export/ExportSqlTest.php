@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportSql class
  *
@@ -33,7 +32,7 @@ class ExportSqlTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
@@ -53,7 +52,7 @@ class ExportSqlTest extends PmaTestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -203,7 +202,7 @@ class ExportSqlTest extends PmaTestCase
         $this->assertEquals(
             [
                 'v1' => 'v1',
-                'v2' => 'v2'
+                'v2' => 'v2',
             ],
             $property->getValues()
         );
@@ -536,27 +535,27 @@ class ExportSqlTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'h1C',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'h2C',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "SET FOREIGN_KEY_CHECKS=0;\n",
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "40101 SET",
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "SET FOREIGN_KEY_CHECKS=0;\n" .
             "SET SQL_MODE = \"NO_AUTO_VALUE_ON_ZERO\";\n" .
             "SET AUTOCOMMIT = 0;\n" .
@@ -600,18 +599,18 @@ class ExportSqlTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "DROP DATABASE IF EXISTS `db`;\n",
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'CREATE DATABASE IF NOT EXISTS `db` DEFAULT CHARACTER ' .
             'SET utf8 COLLATE utf8_general_ci;',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'USE `db`;',
             $result
         );
@@ -640,17 +639,17 @@ class ExportSqlTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "DROP DATABASE IF EXISTS db;\n",
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'CREATE DATABASE IF NOT EXISTS db DEFAULT CHARACTER SET testcollation;',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'USE db;',
             $result
         );
@@ -674,7 +673,7 @@ class ExportSqlTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "&quot;testDB&quot;",
             $result
         );
@@ -689,7 +688,7 @@ class ExportSqlTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "testDB",
             $result
         );
@@ -724,8 +723,20 @@ class ExportSqlTest extends PmaTestCase
             ->will(
                 $this->returnValueMap(
                     [
-                        ['db', 'EVENT', 'f1', DatabaseInterface::CONNECT_USER, 'f1event'],
-                        ['db', 'EVENT', 'f2', DatabaseInterface::CONNECT_USER, 'f2event']
+                        [
+                            'db',
+                            'EVENT',
+                            'f1',
+                            DatabaseInterface::CONNECT_USER,
+                            'f1event',
+                        ],
+                        [
+                            'db',
+                            'EVENT',
+                            'f2',
+                            DatabaseInterface::CONNECT_USER,
+                            'f2event',
+                        ],
                     ]
                 )
             );
@@ -740,22 +751,22 @@ class ExportSqlTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "DELIMITER $$\n",
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "DELIMITER ;\n",
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "f1event$$\n",
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "f2event$$\n",
             $result
         );
@@ -822,12 +833,12 @@ class ExportSqlTest extends PmaTestCase
 
         $result = $this->object->getTableDefStandIn('db', 'view', "");
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "DROP VIEW IF EXISTS `view`;",
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "CREATE TABLE IF NOT EXISTS `view` (`cname` int);",
             $result
         );
@@ -861,8 +872,8 @@ class ExportSqlTest extends PmaTestCase
                             'Null' => 'NO',
                             'Default' => 'a',
                             'Comment' => 'cmt',
-                            'Field' => 'fname'
-                        ]
+                            'Field' => 'fname',
+                        ],
                     ]
                 )
             );
@@ -906,8 +917,8 @@ class ExportSqlTest extends PmaTestCase
                             'Collation' => 'utf-8',
                             'Null' => 'YES',
                             'Comment' => 'cmt',
-                            'Field' => 'fname'
-                        ]
+                            'Field' => 'fname',
+                        ],
                     ]
                 )
             );
@@ -985,13 +996,15 @@ class ExportSqlTest extends PmaTestCase
             ->with('res')
             ->will($this->returnValue($tmpres));
 
-        $dbi->expects($this->exactly(2))
+        $dbi->expects($this->exactly(3))
             ->method('tryQuery')
             ->withConsecutive(
                 ["SHOW TABLE STATUS FROM `db` WHERE Name = 'table'"],
+                ['USE `db`'],
                 ['SHOW CREATE TABLE `db`.`table`']
             )
             ->willReturnOnConsecutiveCalls(
+                'res',
                 'res',
                 'res'
             );
@@ -1013,7 +1026,7 @@ class ExportSqlTest extends PmaTestCase
             "CONSTRAINT `fk_payment_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE,\n" .
             "CONSTRAINT `fk_payment_rental` FOREIGN KEY (`rental_id`) REFERENCES `rental` (`rental_id`) ON DELETE SET NULL ON UPDATE CASCADE,\n" .
             "CONSTRAINT `fk_payment_staff` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`staff_id`) ON UPDATE CASCADE\n" .
-            ") ENGINE=InnoDB AUTO_INCREMENT=16050 DEFAULT CHARSET=utf8\n"
+            ") ENGINE=InnoDB AUTO_INCREMENT=16050 DEFAULT CHARSET=utf8\n",
         ];
 
         $dbi->expects($this->exactly(1))
@@ -1021,7 +1034,10 @@ class ExportSqlTest extends PmaTestCase
             ->will(
                 $this->returnValueMap(
                     [
-                        ['res', $row]
+                        [
+                            'res',
+                            $row,
+                        ],
                     ]
                 )
             );
@@ -1044,67 +1060,67 @@ class ExportSqlTest extends PmaTestCase
             false
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '-- Creation: Jan 01, 2000 at 10:00 AM',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '-- Last update: Jan 02, 2000 at 12:00 PM',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '-- Last check: Jan 02, 2000 at 01:00 PM',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'DROP TABLE IF EXISTS `table`;',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "CREATE TABLE `table`",
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '-- Constraints for dumped tables',
             $GLOBALS['sql_constraints']
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '-- Constraints for table "table"',
             $GLOBALS['sql_constraints']
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'ALTER TABLE "table"',
             $GLOBALS['sql_constraints']
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'ADD CONSTRAINT',
             $GLOBALS['sql_constraints']
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'ALTER TABLE "table"',
             $GLOBALS['sql_constraints_query']
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'ADD CONSTRAINT',
             $GLOBALS['sql_constraints_query']
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'ALTER TABLE "table"',
             $GLOBALS['sql_drop_foreign_keys']
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'DROP FOREIGN KEY',
             $GLOBALS['sql_drop_foreign_keys']
         );
@@ -1165,13 +1181,15 @@ class ExportSqlTest extends PmaTestCase
             ->with('res')
             ->will($this->returnValue($tmpres));
 
-        $dbi->expects($this->exactly(2))
+        $dbi->expects($this->exactly(3))
             ->method('tryQuery')
             ->withConsecutive(
                 ["SHOW TABLE STATUS FROM `db` WHERE Name = 'table'"],
+                ['USE `db`'],
                 ['SHOW CREATE TABLE `db`.`table`']
             )
             ->willReturnOnConsecutiveCalls(
+                'res',
                 'res',
                 'res'
             );
@@ -1200,7 +1218,7 @@ class ExportSqlTest extends PmaTestCase
             false
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '-- Error reading structure for table db.table: error occurred',
             $result
         );
@@ -1220,7 +1238,7 @@ class ExportSqlTest extends PmaTestCase
             'mimework' => true,
             'db' => 'database',
             'relation' => 'rel',
-            'column_info' => 'col'
+            'column_info' => 'col',
         ];
         $GLOBALS['sql_include_comments'] = true;
         $GLOBALS['crlf'] = "\n";
@@ -1238,15 +1256,15 @@ class ExportSqlTest extends PmaTestCase
                 [
                     'foo' => [
                         'foreign_table' => 'ftable',
-                        'foreign_field' => 'ffield'
-                    ]
+                        'foreign_field' => 'ffield',
+                    ],
                 ],
                 [
                     'fieldname' => [
                         'values' => 'test-',
                         'transformation' => 'testfoo',
-                        'mimetype' => 'test<'
-                    ]
+                        'mimetype' => 'test<',
+                    ],
                 ]
             );
 
@@ -1264,14 +1282,14 @@ class ExportSqlTest extends PmaTestCase
             true
         );
 
-        $this->assertContains(
-            "-- MIME TYPES FOR TABLE :\n" .
+        $this->assertStringContainsString(
+            "-- MEDIA TYPES FOR TABLE :\n" .
             "--   fieldname\n" .
             "--       Test<",
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "-- RELATIONSHIPS FOR TABLE :\n" .
             "--   foo\n" .
             "--       ftable -> ffield",
@@ -1300,7 +1318,10 @@ class ExportSqlTest extends PmaTestCase
             ->will(
                 $this->returnValue(
                     [
-                        ['create' => 'bar', 'drop' => 'foo']
+                        [
+                            'create' => 'bar',
+                            'drop' => 'foo',
+                        ],
                     ]
                 )
             );
@@ -1350,12 +1371,12 @@ class ExportSqlTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '-- Table structure for table &quot;t&amp;bl&quot;',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'dumpText1',
             $result
         );
@@ -1380,12 +1401,12 @@ class ExportSqlTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "-- Triggers t&amp;bl\n",
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "foo;\nDELIMITER $$\nbarDELIMITER ;\n",
             $result
         );
@@ -1409,12 +1430,12 @@ class ExportSqlTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "-- Structure for view t&amp;bl\n",
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "DROP TABLE IF EXISTS `t&amp;bl`;\n" .
             "dumpText3",
             $result
@@ -1450,12 +1471,12 @@ class ExportSqlTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "CREATE TABLE`t&amp;bl`(\n\n);",
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "DROP TABLE IF EXISTS `t&amp;bl`;\n",
             $result
         );
@@ -1475,7 +1496,7 @@ class ExportSqlTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "dumpText4",
             $result
         );
@@ -1560,7 +1581,13 @@ class ExportSqlTest extends PmaTestCase
         $dbi->expects($this->exactly(2))
             ->method('fetchRow')
             ->willReturnOnConsecutiveCalls(
-                [null, 'test', '10', '6', "\x00\x0a\x0d\x1a"],
+                [
+                    null,
+                    'test',
+                    '10',
+                    '6',
+                    "\x00\x0a\x0d\x1a",
+                ],
                 null
             );
         $dbi->expects($this->any())->method('escapeString')
@@ -1603,29 +1630,29 @@ class ExportSqlTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'TRUNCATE TABLE &quot;table&quot;;',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'SET IDENTITY_INSERT &quot;table&quot; ON ;',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'INSERT DELAYED IGNORE INTO &quot;table&quot; (&quot;name&quot;, ' .
             '&quot;name&quot;, &quot;name&quot;, &quot;name&quot;, ' .
             '&quot;name&quot;) VALUES',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '(NULL, test, 0x3130, 0x36, 0x000a0d1a);',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "SET IDENTITY_INSERT &quot;table&quot; OFF;",
             $result
         );
@@ -1693,7 +1720,10 @@ class ExportSqlTest extends PmaTestCase
         $dbi->expects($this->exactly(2))
             ->method('fetchRow')
             ->willReturnOnConsecutiveCalls(
-                [null, null],
+                [
+                    null,
+                    null,
+                ],
                 null
             );
 
@@ -1735,7 +1765,7 @@ class ExportSqlTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'UPDATE IGNORE &quot;table&quot; SET &quot;name&quot; = NULL,' .
             '&quot;name&quot; = NULL WHERE CONCAT(`tbl`.`pma`) IS NULL;',
             $result
@@ -1746,7 +1776,7 @@ class ExportSqlTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportData
      *
      * @return void
-    */
+     */
     public function testExportDataWithIsView()
     {
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
@@ -1784,12 +1814,12 @@ class ExportSqlTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
-            "-- VIEW  `tbl`\n",
+        $this->assertStringContainsString(
+            "-- VIEW `tbl`\n",
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "-- Data: None\n",
             $result
         );
@@ -1802,7 +1832,7 @@ class ExportSqlTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportData
      *
      * @return void
-    */
+     */
     public function testExportDataWithError()
     {
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
@@ -1841,7 +1871,7 @@ class ExportSqlTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '-- Error reading data for table db.table: err',
             $result
         );
@@ -1910,7 +1940,7 @@ class ExportSqlTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::initAlias
      *
      * @return void
-    */
+     */
     public function testInitAlias()
     {
         $aliases = [
@@ -1918,13 +1948,13 @@ class ExportSqlTest extends PmaTestCase
                 'alias' => 'aliastest',
                 'tables' => [
                     'foo' => [
-                        'alias' => 'qwerty'
+                        'alias' => 'qwerty',
                     ],
                     'bar' => [
-                        'alias' => 'f'
-                    ]
-                ]
-            ]
+                        'alias' => 'f',
+                    ],
+                ],
+            ],
         ];
         $db = 'a';
         $table = null;
@@ -1952,7 +1982,7 @@ class ExportSqlTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::getAlias
      *
      * @return void
-    */
+     */
     public function testGetAlias()
     {
         $aliases = [
@@ -1963,17 +1993,17 @@ class ExportSqlTest extends PmaTestCase
                         'alias' => 'qwerty',
                         'columns' => [
                             'baz' => 'p',
-                            'pqr' => 'pphymdain'
-                        ]
+                            'pqr' => 'pphymdain',
+                        ],
                     ],
                     'bar' => [
                         'alias' => 'f',
                         'columns' => [
-                            'xy' => 'n'
-                        ]
-                    ]
-                ]
-            ]
+                            'xy' => 'n',
+                        ],
+                    ],
+                ],
+            ],
         ];
 
         $this->assertEquals(
@@ -2001,7 +2031,7 @@ class ExportSqlTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::replaceWithAlias
      *
      * @return void
-    */
+     */
     public function testReplaceWithAlias()
     {
         $aliases = [
@@ -2012,17 +2042,17 @@ class ExportSqlTest extends PmaTestCase
                         'alias' => 'bartest',
                         'columns' => [
                             'baz' => 'p',
-                            'pqr' => 'pphymdain'
-                        ]
+                            'pqr' => 'pphymdain',
+                        ],
                     ],
                     'bar' => [
                         'alias' => 'f',
                         'columns' => [
-                            'xy' => 'n'
-                        ]
-                    ]
-                ]
-            ]
+                            'xy' => 'n',
+                        ],
+                    ],
+                ],
+            ],
         ];
 
         $db = 'a';

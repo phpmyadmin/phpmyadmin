@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Database;
 
 use PhpMyAdmin\Database\Search;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Theme;
 use ReflectionClass;
@@ -32,7 +33,7 @@ class SearchTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'pma';
@@ -55,7 +56,7 @@ class SearchTest extends PmaTestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
-        $this->object = new Search($dbi, 'pma_test');
+        $this->object = new Search($dbi, 'pma_test', new Template());
     }
 
     /**
@@ -65,7 +66,7 @@ class SearchTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -96,12 +97,12 @@ class SearchTest extends PmaTestCase
      *
      * @dataProvider searchTypes
      */
-    public function testGetWhereClause($type, $expected)
+    public function testGetWhereClause($type, $expected): void
     {
-        $_REQUEST['criteriaSearchType'] = $type;
-        $_REQUEST['criteriaSearchString'] = 'search string';
+        $_POST['criteriaSearchType'] = $type;
+        $_POST['criteriaSearchString'] = 'search string';
 
-        $this->object = new Search($GLOBALS['dbi'], 'pma_test');
+        $this->object = new Search($GLOBALS['dbi'], 'pma_test', new Template());
         $this->assertEquals(
             $expected,
             $this->callProtectedFunction(
@@ -121,23 +122,23 @@ class SearchTest extends PmaTestCase
         return [
             [
                 '1',
-                " WHERE (CONVERT(`column1` USING utf8) LIKE '%search%' OR CONVERT(`column2` USING utf8) LIKE '%search%')  OR  (CONVERT(`column1` USING utf8) LIKE '%string%' OR CONVERT(`column2` USING utf8) LIKE '%string%')"
+                " WHERE (CONVERT(`column1` USING utf8) LIKE '%search%' OR CONVERT(`column2` USING utf8) LIKE '%search%')  OR  (CONVERT(`column1` USING utf8) LIKE '%string%' OR CONVERT(`column2` USING utf8) LIKE '%string%')",
             ],
             [
                 '2',
-                " WHERE (CONVERT(`column1` USING utf8) LIKE '%search%' OR CONVERT(`column2` USING utf8) LIKE '%search%')  AND  (CONVERT(`column1` USING utf8) LIKE '%string%' OR CONVERT(`column2` USING utf8) LIKE '%string%')"
+                " WHERE (CONVERT(`column1` USING utf8) LIKE '%search%' OR CONVERT(`column2` USING utf8) LIKE '%search%')  AND  (CONVERT(`column1` USING utf8) LIKE '%string%' OR CONVERT(`column2` USING utf8) LIKE '%string%')",
             ],
             [
                 '3',
-                " WHERE (CONVERT(`column1` USING utf8) LIKE '%search string%' OR CONVERT(`column2` USING utf8) LIKE '%search string%')"
+                " WHERE (CONVERT(`column1` USING utf8) LIKE '%search string%' OR CONVERT(`column2` USING utf8) LIKE '%search string%')",
             ],
             [
                 '4',
-                " WHERE (CONVERT(`column1` USING utf8) LIKE 'search string' OR CONVERT(`column2` USING utf8) LIKE 'search string')"
+                " WHERE (CONVERT(`column1` USING utf8) LIKE 'search string' OR CONVERT(`column2` USING utf8) LIKE 'search string')",
             ],
             [
                 '5',
-                " WHERE (CONVERT(`column1` USING utf8) REGEXP 'search string' OR CONVERT(`column2` USING utf8) REGEXP 'search string')"
+                " WHERE (CONVERT(`column1` USING utf8) REGEXP 'search string' OR CONVERT(`column2` USING utf8) REGEXP 'search string')",
             ],
         ];
     }
@@ -154,8 +155,8 @@ class SearchTest extends PmaTestCase
                 'select_columns' => 'SELECT *  FROM `pma`.`table1` WHERE FALSE',
                 'select_count' => 'SELECT COUNT(*) AS `count` FROM `pma`.`table1` ' .
                     'WHERE FALSE',
-                'delete' => 'DELETE FROM `pma`.`table1` WHERE FALSE'
-             ],
+                'delete' => 'DELETE FROM `pma`.`table1` WHERE FALSE',
+            ],
             $this->callProtectedFunction(
                 'getSearchSqls',
                 ['table1']
@@ -170,7 +171,7 @@ class SearchTest extends PmaTestCase
      */
     public function testGetSearchResults()
     {
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Search results for "<em></em>" :',
             $this->object->getSearchResults()
         );
@@ -186,28 +187,28 @@ class SearchTest extends PmaTestCase
         $main = $this->object->getMainHtml();
 
         // test selection form
-        $this->assertContains('<form', $main);
-        $this->assertContains('<a id="togglesearchformlink">', $main);
-        $this->assertContains('criteriaSearchType', $main);
+        $this->assertStringContainsString('<form', $main);
+        $this->assertStringContainsString('<a id="togglesearchformlink">', $main);
+        $this->assertStringContainsString('criteriaSearchType', $main);
 
         // test result divs
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div id="table-info"',
             $main
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<a id="table-link"',
             $main
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div id="browse-results"',
             $main
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div id="sqlqueryform"',
             $main
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<a id="togglequerybox"',
             $main
         );

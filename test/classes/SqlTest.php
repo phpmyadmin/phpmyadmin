@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for PhpMyAdmin\Sql
  *
@@ -31,7 +30,7 @@ class SqlTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
@@ -47,6 +46,7 @@ class SqlTest extends TestCase
         $GLOBALS['cfg']['LimitChars'] = 50;
         $GLOBALS['cfg']['Confirm'] = true;
         $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
+        $GLOBALS['cfg']['enable_drag_drop_import'] = true;
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
 
         $this->sql = new Sql();
@@ -99,31 +99,31 @@ class SqlTest extends TestCase
 
         $this->assertTrue(
             $this->callProtectedMethod('isRememberSortingOrder', [
-                $this->sql->parseAndAnalyze('SELECT * FROM tbl')
+                $this->sql->parseAndAnalyze('SELECT * FROM tbl'),
             ])
         );
 
         $this->assertFalse(
             $this->callProtectedMethod('isRememberSortingOrder', [
-                $this->sql->parseAndAnalyze('SELECT col FROM tbl')
+                $this->sql->parseAndAnalyze('SELECT col FROM tbl'),
             ])
         );
 
         $this->assertFalse(
             $this->callProtectedMethod('isRememberSortingOrder', [
-                $this->sql->parseAndAnalyze('SELECT 1')
+                $this->sql->parseAndAnalyze('SELECT 1'),
             ])
         );
 
         $this->assertFalse(
             $this->callProtectedMethod('isRememberSortingOrder', [
-                $this->sql->parseAndAnalyze('SELECT col1, col2 FROM tbl')
+                $this->sql->parseAndAnalyze('SELECT col1, col2 FROM tbl'),
             ])
         );
 
         $this->assertFalse(
             $this->callProtectedMethod('isRememberSortingOrder', [
-                $this->sql->parseAndAnalyze('SELECT COUNT(*) from tbl')
+                $this->sql->parseAndAnalyze('SELECT COUNT(*) from tbl'),
             ])
         );
     }
@@ -140,13 +140,13 @@ class SqlTest extends TestCase
 
         $this->assertTrue(
             $this->callProtectedMethod('isAppendLimitClause', [
-                $this->sql->parseAndAnalyze('SELECT * FROM tbl')
+                $this->sql->parseAndAnalyze('SELECT * FROM tbl'),
             ])
         );
 
         $this->assertFalse(
             $this->callProtectedMethod('isAppendLimitClause', [
-                $this->sql->parseAndAnalyze('SELECT * from tbl LIMIT 0, 10')
+                $this->sql->parseAndAnalyze('SELECT * from tbl LIMIT 0, 10'),
             ])
         );
     }
@@ -192,19 +192,19 @@ class SqlTest extends TestCase
     {
         $this->assertTrue(
             $this->callProtectedMethod('isDeleteTransformationInfo', [
-                $this->sql->parseAndAnalyze('ALTER TABLE tbl DROP COLUMN col')
+                $this->sql->parseAndAnalyze('ALTER TABLE tbl DROP COLUMN col'),
             ])
         );
 
         $this->assertTrue(
             $this->callProtectedMethod('isDeleteTransformationInfo', [
-                $this->sql->parseAndAnalyze('DROP TABLE tbl')
+                $this->sql->parseAndAnalyze('DROP TABLE tbl'),
             ])
         );
 
         $this->assertFalse(
             $this->callProtectedMethod('isDeleteTransformationInfo', [
-                $this->sql->parseAndAnalyze('SELECT * from tbl')
+                $this->sql->parseAndAnalyze('SELECT * from tbl'),
             ])
         );
     }
@@ -258,18 +258,30 @@ class SqlTest extends TestCase
         $col3 = new stdClass();
         $col3->table = 'table3';
 
-        $fields_meta = [$col1, $col2, $col3];
+        $fields_meta = [
+            $col1,
+            $col2,
+            $col3,
+        ];
         $this->assertFalse(
             $this->callProtectedMethod('resultSetHasJustOneTable', [$fields_meta])
         );
 
         // should not matter on where the odd column occurs
-        $fields_meta = [$col2, $col3, $col1];
+        $fields_meta = [
+            $col2,
+            $col3,
+            $col1,
+        ];
         $this->assertFalse(
             $this->callProtectedMethod('resultSetHasJustOneTable', [$fields_meta])
         );
 
-        $fields_meta = [$col3, $col1, $col2];
+        $fields_meta = [
+            $col3,
+            $col1,
+            $col2,
+        ];
         $this->assertFalse(
             $this->callProtectedMethod('resultSetHasJustOneTable', [$fields_meta])
         );
@@ -288,7 +300,11 @@ class SqlTest extends TestCase
         $col2->table = 'table1';
         $col3 = new stdClass();
         $col3->table = 'table1';
-        $fields_meta = [$col1, $col2, $col3];
+        $fields_meta = [
+            $col1,
+            $col2,
+            $col3,
+        ];
 
         $this->assertTrue(
             $this->callProtectedMethod('resultSetHasJustOneTable', [$fields_meta])
@@ -310,18 +326,30 @@ class SqlTest extends TestCase
         $col3 = new stdClass();
         $col3->table = 'table1';
 
-        $fields_meta = [$col1, $col2, $col3];
+        $fields_meta = [
+            $col1,
+            $col2,
+            $col3,
+        ];
         $this->assertTrue(
             $this->callProtectedMethod('resultSetHasJustOneTable', [$fields_meta])
         );
 
         // should not matter on where the function column occurs
-        $fields_meta = [$col2, $col3, $col1];
+        $fields_meta = [
+            $col2,
+            $col3,
+            $col1,
+        ];
         $this->assertTrue(
             $this->callProtectedMethod('resultSetHasJustOneTable', [$fields_meta])
         );
 
-        $fields_meta = [$col3, $col1, $col2];
+        $fields_meta = [
+            $col3,
+            $col1,
+            $col2,
+        ];
         $this->assertTrue(
             $this->callProtectedMethod('resultSetHasJustOneTable', [$fields_meta])
         );
@@ -341,7 +369,11 @@ class SqlTest extends TestCase
         $col2->table = '';
         $col3 = new stdClass();
         $col3->table = '';
-        $fields_meta = [$col1, $col2, $col3];
+        $fields_meta = [
+            $col1,
+            $col2,
+            $col3,
+        ];
 
         $this->assertFalse(
             $this->callProtectedMethod('resultSetHasJustOneTable', [$fields_meta])

@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for PhpMyAdmin\Core class
  *
@@ -23,22 +22,7 @@ use stdClass;
 class CoreTest extends PmaTestCase
 {
     protected $goto_whitelist = [
-        'db_datadict.php',
-        'db_sql.php',
-        'db_export.php',
-        'db_search.php',
-        'export.php',
-        'import.php',
         'index.php',
-        'pdf_pages.php',
-        'pdf_schema.php',
-        'server_binlog.php',
-        'server_variables.php',
-        'sql.php',
-        'tbl_select.php',
-        'transformation_overview.php',
-        'transformation_wrapper.php',
-        'user_password.php',
     ];
 
     /**
@@ -46,7 +30,7 @@ class CoreTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = '';
@@ -64,11 +48,26 @@ class CoreTest extends PmaTestCase
         $arr = [
             "int" => 1,
             "str" => "str_val",
-            "arr" => ['val1', 'val2', 'val3'],
+            "arr" => [
+                'val1',
+                'val2',
+                'val3',
+            ],
             "sarr" => [
-                'arr1' => [1, 2, 3],
-                [3, ['a', 'b', 'c'], 4]
-            ]
+                'arr1' => [
+                    1,
+                    2,
+                    3,
+                ],
+                [
+                    3,
+                    [
+                        'a',
+                        'b',
+                        'c',
+                    ], 4,
+                ],
+            ],
         ];
 
         $this->assertEquals(
@@ -152,11 +151,26 @@ class CoreTest extends PmaTestCase
         $arr = [
             "int" => 1,
             "str" => "str_val",
-            "arr" => ['val1', 'val2', 'val3'],
+            "arr" => [
+                'val1',
+                'val2',
+                'val3',
+            ],
             "sarr" => [
-                'arr1' => [1, 2, 3],
-                [3, ['a', 'b', 'c'], 4]
-            ]
+                'arr1' => [
+                    1,
+                    2,
+                    3,
+                ],
+                [
+                    3,
+                    [
+                        'a',
+                        'b',
+                        'c',
+                    ], 4,
+                ],
+            ],
         ];
 
         Core::arrayWrite('int', $arr, 5);
@@ -206,11 +220,26 @@ class CoreTest extends PmaTestCase
         $arr = [
             "int" => 1,
             "str" => "str_val",
-            "arr" => ['val1', 'val2', 'val3'],
+            "arr" => [
+                'val1',
+                'val2',
+                'val3',
+            ],
             "sarr" => [
-                'arr1' => [1, 2, 3],
-                [3, ['a', 'b', 'c'], 4]
-            ]
+                'arr1' => [
+                    1,
+                    2,
+                    3,
+                ],
+                [
+                    3,
+                    [
+                        'a',
+                        'b',
+                        'c',
+                    ], 4,
+                ],
+            ],
         ];
 
         Core::arrayRemove('int', $arr);
@@ -270,7 +299,7 @@ class CoreTest extends PmaTestCase
      *
      * @dataProvider providerTestGotoNowhere
      */
-    public function testGotoNowhere($page, $whiteList, $include, $expected)
+    public function testGotoNowhere($page, $whiteList, $include, $expected): void
     {
         $this->assertSame($expected, Core::checkPageValidity($page, $whiteList, $include));
     }
@@ -283,18 +312,54 @@ class CoreTest extends PmaTestCase
     public function providerTestGotoNowhere()
     {
         return [
-            [null, [], false, false],
-            [null, [], true, false],
-            ['export.php', [], false, true],
-            ['export.php', [], true, true],
-            ['export.php', $this->goto_whitelist, false, true],
-            ['export.php', $this->goto_whitelist, true, true],
-            ['shell.php', $this->goto_whitelist, false, false],
-            ['shell.php', $this->goto_whitelist, true, false],
-            ['index.php?sql.php&test=true', $this->goto_whitelist, false, true],
-            ['index.php?sql.php&test=true', $this->goto_whitelist, true, false],
-            ['index.php%3Fsql.php%26test%3Dtrue', $this->goto_whitelist, false, true],
-            ['index.php%3Fsql.php%26test%3Dtrue', $this->goto_whitelist, true, false],
+            [
+                null,
+                [],
+                false,
+                false,
+            ],
+            [
+                null,
+                [],
+                true,
+                false,
+            ],
+            [
+                'shell.php',
+                $this->goto_whitelist,
+                false,
+                false,
+            ],
+            [
+                'shell.php',
+                $this->goto_whitelist,
+                true,
+                false,
+            ],
+            [
+                'index.php?sql.php&test=true',
+                $this->goto_whitelist,
+                false,
+                true,
+            ],
+            [
+                'index.php?sql.php&test=true',
+                $this->goto_whitelist,
+                true,
+                false,
+            ],
+            [
+                'index.php%3Fsql.php%26test%3Dtrue',
+                $this->goto_whitelist,
+                false,
+                true,
+            ],
+            [
+                'index.php%3Fsql.php%26test%3Dtrue',
+                $this->goto_whitelist,
+                true,
+                false,
+            ],
         ];
     }
 
@@ -310,7 +375,7 @@ class CoreTest extends PmaTestCase
      *
      * @dataProvider providerTestPathInfo
      */
-    public function testPathInfo($php_self, $request, $path_info, $expected)
+    public function testPathInfo($php_self, $request, $path_info, $expected): void
     {
         $_SERVER['PHP_SELF'] = $php_self;
         $_SERVER['REQUEST_URI'] = $request;
@@ -334,49 +399,49 @@ class CoreTest extends PmaTestCase
                 '/phpmyadmin/index.php/; cookieinj=value/',
                 '/phpmyadmin/index.php/;%20cookieinj=value///',
                 '/; cookieinj=value/',
-                '/phpmyadmin/index.php'
+                '/phpmyadmin/index.php',
             ],
             [
                 '',
                 '/phpmyadmin/index.php/;%20cookieinj=value///',
                 '/; cookieinj=value/',
-                '/phpmyadmin/index.php'
+                '/phpmyadmin/index.php',
             ],
             [
                 '',
                 '//example.com/../phpmyadmin/index.php',
                 '',
-                '/phpmyadmin/index.php'
+                '/phpmyadmin/index.php',
             ],
             [
                 '',
                 '//example.com/../../.././phpmyadmin/index.php',
                 '',
-                '/phpmyadmin/index.php'
+                '/phpmyadmin/index.php',
             ],
             [
                 '',
                 '/page.php/malicouspathinfo?malicouspathinfo',
                 'malicouspathinfo',
-                '/page.php'
+                '/page.php',
             ],
             [
                 '/phpmyadmin/./index.php',
                 '/phpmyadmin/./index.php',
                 '',
-                '/phpmyadmin/index.php'
+                '/phpmyadmin/index.php',
             ],
             [
                 '/phpmyadmin/index.php',
                 '/phpmyadmin/index.php',
                 '',
-                '/phpmyadmin/index.php'
+                '/phpmyadmin/index.php',
             ],
             [
                 '',
                 '/phpmyadmin/index.php',
                 '',
-                '/phpmyadmin/index.php'
+                '/phpmyadmin/index.php',
             ],
         ];
     }
@@ -400,7 +465,10 @@ class CoreTest extends PmaTestCase
     public function testFatalErrorMessageWithArgs()
     {
         $message = "Fatal error #%d in file %s.";
-        $params = [1, 'error_file.php'];
+        $params = [
+            1,
+            'error_file.php',
+        ];
 
         $this->expectOutputRegex("/Fatal error #1 in file error_file.php./");
         Core::fatalError($message, $params);
@@ -422,7 +490,7 @@ class CoreTest extends PmaTestCase
      *
      * @dataProvider providerTestGetRealSize
      */
-    public function testGetRealSize($size, $expected)
+    public function testGetRealSize($size, $expected): void
     {
         $this->assertEquals($expected, Core::getRealSize($size));
     }
@@ -435,12 +503,30 @@ class CoreTest extends PmaTestCase
     public function providerTestGetRealSize()
     {
         return [
-            ['0', 0],
-            ['1kb', 1024],
-            ['1024k', 1024 * 1024],
-            ['8m', 8 * 1024 * 1024],
-            ['12gb', 12 * 1024 * 1024 * 1024],
-            ['1024', 1024],
+            [
+                '0',
+                0,
+            ],
+            [
+                '1kb',
+                1024,
+            ],
+            [
+                '1024k',
+                1024 * 1024,
+            ],
+            [
+                '8m',
+                8 * 1024 * 1024,
+            ],
+            [
+                '12gb',
+                12 * 1024 * 1024 * 1024,
+            ],
+            [
+                '1024',
+                1024,
+            ],
         ];
     }
 
@@ -469,7 +555,7 @@ class CoreTest extends PmaTestCase
      *
      * @dataProvider providerTestLinkURL
      */
-    public function testLinkURL($link, $url)
+    public function testLinkURL($link, $url): void
     {
         $this->assertEquals(Core::linkURL($link), $url);
     }
@@ -482,12 +568,22 @@ class CoreTest extends PmaTestCase
     public function providerTestLinkURL()
     {
         return [
-            ['https://wiki.phpmyadmin.net',
-             './url.php?url=https%3A%2F%2Fwiki.phpmyadmin.net'],
-            ['https://wiki.phpmyadmin.net',
-             './url.php?url=https%3A%2F%2Fwiki.phpmyadmin.net'],
-            ['wiki.phpmyadmin.net', 'wiki.phpmyadmin.net'],
-            ['index.php?db=phpmyadmin', 'index.php?db=phpmyadmin']
+            [
+                'https://wiki.phpmyadmin.net',
+                './url.php?url=https%3A%2F%2Fwiki.phpmyadmin.net',
+            ],
+            [
+                'https://wiki.phpmyadmin.net',
+                './url.php?url=https%3A%2F%2Fwiki.phpmyadmin.net',
+            ],
+            [
+                'wiki.phpmyadmin.net',
+                'wiki.phpmyadmin.net',
+            ],
+            [
+                'index.php?db=phpmyadmin',
+                'index.php?db=phpmyadmin',
+            ],
         ];
     }
 
@@ -560,10 +656,10 @@ class CoreTest extends PmaTestCase
         $testUri_js = Sanitize::escapeJsString($testUri);
 
         $header = "<html>\n<head>\n    <title>- - -</title>
-    <meta http-equiv=\"expires\" content=\"0\" />"
-            . "\n    <meta http-equiv=\"Pragma\" content=\"no-cache\" />"
-            . "\n    <meta http-equiv=\"Cache-Control\" content=\"no-cache\" />"
-            . "\n    <meta http-equiv=\"Refresh\" content=\"0;url=" . $testUri_html . "\" />"
+    <meta http-equiv=\"expires\" content=\"0\">"
+            . "\n    <meta http-equiv=\"Pragma\" content=\"no-cache\">"
+            . "\n    <meta http-equiv=\"Cache-Control\" content=\"no-cache\">"
+            . "\n    <meta http-equiv=\"Refresh\" content=\"0;url=" . $testUri_html . "\">"
             . "\n    <script type=\"text/javascript\">\n        //<![CDATA[
         setTimeout(function() { window.location = decodeURI('" . $testUri_js . "'); }, 2000);
         //]]>\n    </script>\n</head>
@@ -640,7 +736,7 @@ class CoreTest extends PmaTestCase
      *
      * @dataProvider provideTestIsAllowedDomain
      */
-    public function testIsAllowedDomain($url, $expected)
+    public function testIsAllowedDomain($url, $expected): void
     {
         $_SERVER['SERVER_NAME'] = 'server.local';
         $this->assertEquals(
@@ -657,14 +753,38 @@ class CoreTest extends PmaTestCase
     public function provideTestIsAllowedDomain()
     {
         return [
-            ['https://www.phpmyadmin.net/', true],
-            ['http://duckduckgo.com\\@github.com', false],
-            ['https://github.com/', true],
-            ['https://github.com:123/', false],
-            ['https://user:pass@github.com:123/', false],
-            ['https://user:pass@github.com/', false],
-            ['https://server.local/', true],
-            ['./relative/', false],
+            [
+                'https://www.phpmyadmin.net/',
+                true,
+            ],
+            [
+                'http://duckduckgo.com\\@github.com',
+                false,
+            ],
+            [
+                'https://github.com/',
+                true,
+            ],
+            [
+                'https://github.com:123/',
+                false,
+            ],
+            [
+                'https://user:pass@github.com:123/',
+                false,
+            ],
+            [
+                'https://user:pass@github.com/',
+                false,
+            ],
+            [
+                'https://server.local/',
+                true,
+            ],
+            [
+                './relative/',
+                false,
+            ],
         ];
     }
 
@@ -679,7 +799,7 @@ class CoreTest extends PmaTestCase
      *
      * @dataProvider providerTestNoVarType
      */
-    public function testNoVarType($var, $type, $compare)
+    public function testNoVarType($var, $type, $compare): void
     {
         $this->assertTrue(Core::isValid($var, $type, $compare));
     }
@@ -692,18 +812,70 @@ class CoreTest extends PmaTestCase
     public static function providerTestNoVarType()
     {
         return [
-            [0, false, 0],
-            [0, false, 1],
-            [1, false, null],
-            [1.1, false, null],
-            ['', false, null],
-            [' ', false, null],
-            ['0', false, null],
-            ['string', false, null],
-            [[], false, null],
-            [[1, 2, 3], false, null],
-            [true, false, null],
-            [false, false, null]];
+            [
+                0,
+                false,
+                0,
+            ],
+            [
+                0,
+                false,
+                1,
+            ],
+            [
+                1,
+                false,
+                null,
+            ],
+            [
+                1.1,
+                false,
+                null,
+            ],
+            [
+                '',
+                false,
+                null,
+            ],
+            [
+                ' ',
+                false,
+                null,
+            ],
+            [
+                '0',
+                false,
+                null,
+            ],
+            [
+                'string',
+                false,
+                null,
+            ],
+            [
+                [],
+                false,
+                null,
+            ],
+            [
+                [
+                    1,
+                    2,
+                    3,
+                ], false,
+                null,
+            ],
+            [
+                true,
+                false,
+                null,
+            ],
+            [
+                false,
+                false,
+                null,
+            ],
+        ];
     }
 
     /**
@@ -782,7 +954,7 @@ class CoreTest extends PmaTestCase
      */
     public function testNotSetArray()
     {
-        /** @var $array undefined array */
+        $array = [];
         $this->assertFalse(Core::isValid($array['x']));
     }
 
@@ -911,7 +1083,7 @@ class CoreTest extends PmaTestCase
     public function testValueInArray()
     {
         $var = 'a';
-        $this->assertTrue(Core::isValid($var, ['a', 'b',]));
+        $this->assertTrue(Core::isValid($var, ['a', 'b']));
     }
 
     /**
@@ -922,7 +1094,7 @@ class CoreTest extends PmaTestCase
     public function testValueNotInArray()
     {
         $var = 'c';
-        $this->assertFalse(Core::isValid($var, ['a', 'b',]));
+        $this->assertFalse(Core::isValid($var, ['a', 'b']));
     }
 
     /**
@@ -956,7 +1128,7 @@ class CoreTest extends PmaTestCase
      *
      * @dataProvider provideTestSimilarType
      */
-    public function testSimilarType($var, $compare)
+    public function testSimilarType($var, $compare): void
     {
         $this->assertTrue(Core::isValid($var, 'similar', $compare));
         $this->assertTrue(Core::isValid($var, 'equal', $compare));
@@ -972,12 +1144,47 @@ class CoreTest extends PmaTestCase
     public function provideTestSimilarType()
     {
         return [
-            [1, 1],
-            [1.5, 1.5],
-            [true, true],
-            ['string', "string"],
-            [[1, 2, 3.4], [1, 2, 3.4]],
-            [[1, '2', '3.4', 5, 'text'], ['1', '2', 3.4,'5']]
+            [
+                1,
+                1,
+            ],
+            [
+                1.5,
+                1.5,
+            ],
+            [
+                true,
+                true,
+            ],
+            [
+                'string',
+                "string",
+            ],
+            [
+                [
+                    1,
+                    2,
+                    3.4,
+                ], [
+                    1,
+                    2,
+                    3.4,
+                ],
+            ],
+            [
+                [
+                    1,
+                    '2',
+                    '3.4',
+                    5,
+                    'text',
+                ], [
+                    '1',
+                    '2',
+                    3.4,
+                    '5',
+                ],
+            ],
         ];
     }
 
@@ -1002,7 +1209,7 @@ class CoreTest extends PmaTestCase
      *
      * @dataProvider provideTestSafeUnserialize
      */
-    public function testSafeUnserialize($data, $expected)
+    public function testSafeUnserialize($data, $expected): void
     {
         $this->assertEquals(
             $expected,
@@ -1018,16 +1225,50 @@ class CoreTest extends PmaTestCase
     public function provideTestSafeUnserialize()
     {
         return [
-            ['s:6:"foobar";', 'foobar'],
-            ['foobar', null],
-            ['b:0;', false],
-            ['O:1:"a":1:{s:5:"value";s:3:"100";}', null],
-            ['O:8:"stdClass":1:{s:5:"field";O:8:"stdClass":0:{}}', null],
-            ['a:2:{i:0;s:90:"1234567890;a345678901234567890123456789012345678901234567890123456789012345678901234567890";i:1;O:8:"stdClass":0:{}}', null],
-            [serialize([1, 2, 3]), [1, 2, 3]],
-            [serialize('string""'), 'string""'],
-            [serialize(['foo' => 'bar']), ['foo' => 'bar']],
-            [serialize(['1', new stdClass(), '2']), null],
+            [
+                's:6:"foobar";',
+                'foobar',
+            ],
+            [
+                'foobar',
+                null,
+            ],
+            [
+                'b:0;',
+                false,
+            ],
+            [
+                'O:1:"a":1:{s:5:"value";s:3:"100";}',
+                null,
+            ],
+            [
+                'O:8:"stdClass":1:{s:5:"field";O:8:"stdClass":0:{}}',
+                null,
+            ],
+            [
+                'a:2:{i:0;s:90:"1234567890;a345678901234567890123456789012345678901234567890123456789012345678901234567890";i:1;O:8:"stdClass":0:{}}',
+                null,
+            ],
+            [
+                serialize([1, 2, 3]),
+                [
+                    1,
+                    2,
+                    3,
+                ],
+            ],
+            [
+                serialize('string""'),
+                'string""',
+            ],
+            [
+                serialize(['foo' => 'bar']),
+                ['foo' => 'bar'],
+            ],
+            [
+                serialize(['1', new stdClass(), '2']),
+                null,
+            ],
         ];
     }
 
@@ -1041,7 +1282,7 @@ class CoreTest extends PmaTestCase
      *
      * @dataProvider provideTestSanitizeMySQLHost
      */
-    public function testSanitizeMySQLHost($host, $expected)
+    public function testSanitizeMySQLHost($host, $expected): void
     {
         $this->assertEquals(
             $expected,
@@ -1057,10 +1298,22 @@ class CoreTest extends PmaTestCase
     public function provideTestSanitizeMySQLHost()
     {
         return [
-            ['p:foo.bar', 'foo.bar'],
-            ['p:p:foo.bar', 'foo.bar'],
-            ['bar.baz', 'bar.baz'],
-            ['P:example.com', 'example.com'],
+            [
+                'p:foo.bar',
+                'foo.bar',
+            ],
+            [
+                'p:p:foo.bar',
+                'foo.bar',
+            ],
+            [
+                'bar.baz',
+                'bar.baz',
+            ],
+            [
+                'P:example.com',
+                'example.com',
+            ],
         ];
     }
 
@@ -1123,5 +1376,110 @@ class CoreTest extends PmaTestCase
         ob_end_clean();
 
         $this->assertGreaterThan(0, mb_strpos($printed, $warn));
+    }
+
+    /**
+     * Test for Core::signSqlQuery
+     *
+     * @return void
+     */
+    public function testSignSqlQuery()
+    {
+        $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
+        $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
+        $signature = Core::signSqlQuery($sqlQuery);
+        $hmac = '33371e8680a640dc05944a2a24e6e630d3e9e3dba24464135f2fb954c3a4ffe2';
+        $this->assertSame($hmac, $signature, 'The signature must match the computed one');
+    }
+
+    /**
+     * Test for Core::checkSqlQuerySignature
+     *
+     * @return void
+     */
+    public function testCheckSqlQuerySignature()
+    {
+        $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
+        $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
+        $hmac = '33371e8680a640dc05944a2a24e6e630d3e9e3dba24464135f2fb954c3a4ffe2';
+        $this->assertTrue(Core::checkSqlQuerySignature($sqlQuery, $hmac));
+    }
+
+    /**
+     * Test for Core::checkSqlQuerySignature
+     *
+     * @return void
+     */
+    public function testCheckSqlQuerySignatureFails()
+    {
+        $_SESSION[' HMAC_secret '] = hash('sha1', '132654987gguieunofz');
+        $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
+        $hmac = '33371e8680a640dc05944a2a24e6e630d3e9e3dba24464135f2fb954c3a4ffe2';
+        $this->assertFalse(Core::checkSqlQuerySignature($sqlQuery, $hmac));
+    }
+
+    /**
+     * Test for Core::checkSqlQuerySignature
+     *
+     * @return void
+     */
+    public function testCheckSqlQuerySignatureFailsBadHash()
+    {
+        $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
+        $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
+        $hmac = '3333333380a640dc05944a2a24e6e630d3e9e3dba24464135f2fb954c3eeeeee';
+        $this->assertFalse(Core::checkSqlQuerySignature($sqlQuery, $hmac));
+    }
+
+    /**
+     * Test for Core::checkSqlQuerySignature
+     *
+     * @return void
+     */
+    public function testCheckSqlQuerySignatureFailsNoSession()
+    {
+        $_SESSION[' HMAC_secret '] = 'empty';
+        $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
+        $hmac = '3333333380a640dc05944a2a24e6e630d3e9e3dba24464135f2fb954c3eeeeee';
+        $this->assertFalse(Core::checkSqlQuerySignature($sqlQuery, $hmac));
+    }
+
+    /**
+     * Test for Core::checkSqlQuerySignature
+     *
+     * @return void
+     */
+    public function testCheckSqlQuerySignatureFailsFromAnotherSession()
+    {
+        $_SESSION[' HMAC_secret '] = hash('sha1', 'firstSession');
+        $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
+        $hmac = Core::signSqlQuery($sqlQuery);
+        $this->assertTrue(Core::checkSqlQuerySignature($sqlQuery, $hmac));
+        $_SESSION[' HMAC_secret '] = hash('sha1', 'secondSession');
+        // Try to use the token (hmac) from the previous session
+        $this->assertFalse(Core::checkSqlQuerySignature($sqlQuery, $hmac));
+    }
+
+    /**
+     * Test for Core::checkSqlQuerySignature
+     *
+     * @return void
+     */
+    public function testCheckSqlQuerySignatureFailsBlowfishSecretChanged()
+    {
+        $GLOBALS['cfg']['blowfish_secret'] = '';
+        $_SESSION[' HMAC_secret '] = hash('sha1', 'firstSession');
+        $sqlQuery = 'SELECT * FROM `test`.`db` WHERE 1;';
+        $hmac = Core::signSqlQuery($sqlQuery);
+        $this->assertTrue(Core::checkSqlQuerySignature($sqlQuery, $hmac));
+        $GLOBALS['cfg']['blowfish_secret'] = '32154987zd';
+        // Try to use the previous HMAC signature
+        $this->assertFalse(Core::checkSqlQuerySignature($sqlQuery, $hmac));
+
+        $GLOBALS['cfg']['blowfish_secret'] = '32154987zd';
+        // Generate the HMAC signature to check that it works
+        $hmac = Core::signSqlQuery($sqlQuery);
+        // Must work now, (good secret and blowfish_secret)
+        $this->assertTrue(Core::checkSqlQuerySignature($sqlQuery, $hmac));
     }
 }

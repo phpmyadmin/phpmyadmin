@@ -1,6 +1,6 @@
 {% if search_type == 'zoom' %}
     {% include 'table/search/form_tag.twig' with {
-        'script_name': 'tbl_zoom_select.php',
+        'script_name': url('/table/zoom_select'),
         'form_id': 'zoom_search_form',
         'db': db,
         'table': table,
@@ -60,7 +60,7 @@
                             name="maxPlotLimit"
                             id="maxRowPlotLimit"
                             required="required"
-                            value="{{ max_plot_limit }}" />
+                            value="{{ max_plot_limit }}">
                     </td>
                 </tr>
             </table>
@@ -68,7 +68,7 @@
     </fieldset>
 {% elseif search_type == 'normal' %}
     {% include 'table/search/form_tag.twig' with {
-        'script_name': 'tbl_select.php',
+        'script_name': url('/table/search'),
         'form_id': 'tbl_search_form',
         'db': db,
         'table': table,
@@ -115,7 +115,7 @@
                     </option>
                 {% endfor %}
             </select>
-            <input type="checkbox" name="distinct" value="DISTINCT" id="oDistinct" />
+            <input type="checkbox" name="distinct" value="DISTINCT" id="oDistinct">
             <label for="oDistinct">DISTINCT</label>
         </fieldset>
 
@@ -126,7 +126,7 @@
                 {% trans 'Add search conditions (body of the "where" clause):' %}
             </legend>
             {{ show_mysql_docu('Functions') }}
-            <input type="text" name="customWhereClause" class="textfield" size="64" />
+            <input type="text" name="customWhereClause" class="textfield" size="64">
         </fieldset>
 
         {# Displays option of changing default number of rows displayed per page #}
@@ -137,7 +137,7 @@
                 required="required"
                 min="1"
                 value="{{ max_rows }}"
-                class="textfield" />
+                class="textfield">
         </fieldset>
 
         {# Displays option for ordering search results by a column value (Asc or Desc) #}
@@ -168,7 +168,7 @@
     </fieldset>
 {% elseif search_type == 'replace' %}
     {% include 'table/search/form_tag.twig' with {
-        'script_name': 'tbl_find_replace.php',
+        'script_name': url('/table/find_replace'),
         'form_id': 'find_replace_form',
         'db': db,
         'table': table,
@@ -179,9 +179,9 @@
             <legend>
                 {% trans 'Find and replace' %}
             </legend>{% trans 'Find:' %}
-            <input type="text" value="" name="find" required />
+            <input type="text" value="" name="find" required>
             {% trans 'Replace with:' %}
-            <input type="text" value="" name="replaceWith" />
+            <input type="text" value="" name="replaceWith">
 
             {% trans 'Column:' %}
             <select name="columnIndex">
@@ -217,10 +217,10 @@
 
 {# Displays selection form's footer elements #}
     <fieldset class="tblFooters">
-        <input type="submit"
+        <input class="btn btn-primary" type="submit"
             name="{{ search_type == 'zoom' ? 'zoom_submit' : 'submit' }}"
             {{ search_type == 'zoom' ? 'id="inputFormSubmitId"' }}
-            value="{% trans 'Go' %}" />
+            value="{% trans 'Go' %}">
     </fieldset>
 </form>
 <div id="sqlqueryresultsouter"></div>

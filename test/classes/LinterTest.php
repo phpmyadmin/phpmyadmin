@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for Linter.php.
  *
@@ -50,19 +49,31 @@ class LinterTest extends PmaTestCase
         //      ( d, 4), ( e, 5), (\n, 6),
         //      (\n, 7).
         $this->assertEquals(
-            [1, 0],
+            [
+                1,
+                0,
+            ],
             Linter::findLineNumberAndColumn([0, 4, 7], 4)
         );
         $this->assertEquals(
-            [1, 1],
+            [
+                1,
+                1,
+            ],
             Linter::findLineNumberAndColumn([0, 4, 7], 5)
         );
         $this->assertEquals(
-            [1, 2],
+            [
+                1,
+                2,
+            ],
             Linter::findLineNumberAndColumn([0, 4, 7], 6)
         );
         $this->assertEquals(
-            [2, 0],
+            [
+                2,
+                0,
+            ],
             Linter::findLineNumberAndColumn([0, 4, 7], 7)
         );
     }
@@ -77,7 +88,7 @@ class LinterTest extends PmaTestCase
      *
      * @return void
      */
-    public function testLint($expected, $query)
+    public function testLint($expected, $query): void
     {
         $this->assertEquals($expected, Linter::lint($query));
     }
@@ -96,7 +107,7 @@ class LinterTest extends PmaTestCase
             ],
             [
                 [],
-                'SELECT * FROM tbl'
+                'SELECT * FROM tbl',
             ],
             [
                 [
@@ -117,9 +128,9 @@ class LinterTest extends PmaTestCase
                         'toLine' => 0,
                         'toColumn' => 24,
                         'severity' => 'error',
-                    ]
+                    ],
                 ],
-                'CREATE TABLE tbl ( id IN'
+                'CREATE TABLE tbl ( id IN',
             ],
             [
                 [
@@ -131,10 +142,10 @@ class LinterTest extends PmaTestCase
                         'toLine' => 0,
                         'toColumn' => 0,
                         'severity' => 'warning',
-                    ]
+                    ],
                 ],
-                str_repeat(";", 10001)
-            ]
+                str_repeat(";", 10001),
+            ],
         ];
     }
 }

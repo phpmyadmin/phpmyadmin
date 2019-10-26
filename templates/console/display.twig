@@ -126,7 +126,7 @@
                             <label>
                                 <input type="checkbox" name="shared">{% trans 'Share this bookmark' %}
                             </label>
-                            <button type="submit" name="submit">{% trans 'OK' %}</button>
+                            <button class="btn btn-primary" type="submit" name="submit">{% trans 'OK' %}</button>
                         </div> <!-- options -->
                         <div class="query_input">
                             <span class="bookmark_add_input"></span>
@@ -183,8 +183,8 @@
                     ['action profiling', 'Profiling'|trans],
                     cfg_bookmark is defined ? ['action bookmark', 'Bookmark'|trans] : null,
                     ['text failed', 'Query failed'|trans],
-                    ['text targetdb', 'Database'|trans],
-                    ['text query_time', 'Queried time'|trans]
+                    {0: 'text targetdb', 1: 'Database'|trans, 'extraSpan': ''},
+                    {0: 'text query_time', 1: 'Queried time'|trans, 'extraSpan': ''}
                 ]
             } only %}
         </div>

@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportExcel class
  *
@@ -29,7 +28,7 @@ class ExportExcelTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $this->object = new ExportExcel();
@@ -40,7 +39,7 @@ class ExportExcelTest extends PmaTestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -179,7 +178,7 @@ class ExportExcelTest extends PmaTestCase
             [
                 'win' => 'Windows',
                 'mac_excel2003' => 'Excel 2003 / Macintosh',
-                'mac_excel2008' => 'Excel 2008 / Macintosh'
+                'mac_excel2008' => 'Excel 2008 / Macintosh',
             ],
             $property->getValues()
         );

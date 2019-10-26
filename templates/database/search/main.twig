@@ -1,5 +1,5 @@
 <a id="db_search"></a>
-<form id="db_search_form" method="post" action="db_search.php" name="db_search" class="ajax lock-page">
+<form id="db_search_form" method="post" action="{{ url('/database/search') }}" name="db_search" class="ajax lock-page">
     {{ get_hidden_inputs(db) }}
     <fieldset>
         <legend>{% trans 'Search in database' %}</legend>
@@ -28,10 +28,10 @@
         <fieldset>
             <legend>{% trans 'Inside tables:' %}</legend>
             <p>
-                <a href="#" onclick="setSelectOptions('db_search', 'criteriaTables[]', true); return false;">
+                <a href="#" onclick="Functions.setSelectOptions('db_search', 'criteriaTables[]', true); return false;">
                     {% trans 'Select all' %}
                 </a> /
-                <a href="#" onclick="setSelectOptions('db_search', 'criteriaTables[]', false); return false;">
+                <a href="#" onclick="Functions.setSelectOptions('db_search', 'criteriaTables[]', false); return false;">
                     {% trans 'Unselect all' %}
                 </a>
             </p>
@@ -60,7 +60,7 @@
         </p>
     </fieldset>
     <fieldset class="tblFooters">
-        <input type="submit" name="submit_search" value="{% trans 'Go' %}" id="buttonGo">
+        <input id="buttonGo" class="btn btn-primary" type="submit" name="submit_search" value="{% trans 'Go' %}">
     </fieldset>
 </form>
 <div id="togglesearchformdiv">
@@ -68,7 +68,7 @@
 </div>
 <div id="searchresults"></div>
 <div id="togglesearchresultsdiv"><a id="togglesearchresultlink"></a></div>
-<br class="clearfloat" />
+<br class="clearfloat">
 {# These two table-image and table-link elements display the table name in browse search results #}
 <div id="table-info">
     <a id="table-link" class="item"></a>

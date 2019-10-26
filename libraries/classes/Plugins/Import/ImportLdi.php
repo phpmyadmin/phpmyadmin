@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * CSV import plugin for phpMyAdmin using LOAD DATA
  *
@@ -18,7 +17,7 @@ use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Util;
 
 // We need relations enabled and we work only on database
-if (!isset($GLOBALS['plugin_param']) || $GLOBALS['plugin_param'] !== 'table') {
+if (! isset($GLOBALS['plugin_param']) || $GLOBALS['plugin_param'] !== 'table') {
     $GLOBALS['skip_import'] = true;
 
     return;
@@ -91,7 +90,7 @@ class ImportLdi extends AbstractImportCsv
     /**
      * Handles the whole import logic
      *
-     * @param array &$sql_data 2-element array with sql data
+     * @param array $sql_data 2-element array with sql data
      *
      * @return void
      */

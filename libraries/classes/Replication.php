@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Replication helpers
  *
@@ -8,9 +7,6 @@
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
-
-use PhpMyAdmin\Core;
-use PhpMyAdmin\DatabaseInterface;
 
 /**
  * PhpMyAdmin\Replication class
@@ -147,7 +143,7 @@ class Replication
      * @param int    $port     mysql remote port
      * @param string $socket   path to unix socket
      *
-     * @return mixed $link mysql link on success
+     * @return mixed mysql link on success
      */
     public function connectToMaster(
         $user,

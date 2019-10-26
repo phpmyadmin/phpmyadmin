@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * holds the database index columns class
  *
@@ -139,7 +138,7 @@ class IndexColumn
     public function getNull($as_text = false)
     {
         if ($as_text) {
-            if (!$this->_null || $this->_null == 'NO') {
+            if (! $this->_null || $this->_null == 'NO') {
                 return __('No');
             }
 

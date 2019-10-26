@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for Error.php
  *
@@ -33,7 +32,7 @@ class ErrorTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = new Error(2, 'Compile Error', 'error.txt', 15);
     }
@@ -45,7 +44,7 @@ class ErrorTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -57,7 +56,14 @@ class ErrorTest extends PmaTestCase
      */
     public function testSetBacktrace()
     {
-        $bt = [['file' => 'bt1','line' => 2, 'function' => 'bar', 'args' => ['foo' => $this]]];
+        $bt = [
+            [
+                'file' => 'bt1',
+                'line' => 2,
+                'function' => 'bar',
+                'args' => ['foo' => $this],
+            ],
+        ];
         $this->object->setBacktrace($bt);
         $bt[0]['args']['foo'] = '<Class:PhpMyAdmin\Tests\ErrorTest>';
         $this->assertEquals($bt, $this->object->getBacktrace());
@@ -84,7 +90,7 @@ class ErrorTest extends PmaTestCase
      *
      * @dataProvider filePathProvider
      */
-    public function testSetFile($file, $expected)
+    public function testSetFile($file, $expected): void
     {
         $this->object->setFile($file);
         $this->assertEquals($expected, $this->object->getFile());
@@ -98,12 +104,18 @@ class ErrorTest extends PmaTestCase
     public function filePathProvider()
     {
         return [
-            ['./ChangeLog', '.' . DIRECTORY_SEPARATOR . 'ChangeLog'],
+            [
+                './ChangeLog',
+                '.' . DIRECTORY_SEPARATOR . 'ChangeLog',
+            ],
             [
                 __FILE__,
-                '.' . DIRECTORY_SEPARATOR . 'test' . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'ErrorTest.php'
+                '.' . DIRECTORY_SEPARATOR . 'test' . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'ErrorTest.php',
             ],
-            ['./NONEXISTING', 'NONEXISTING'],
+            [
+                './NONEXISTING',
+                'NONEXISTING',
+            ],
         ];
     }
 
@@ -127,8 +139,8 @@ class ErrorTest extends PmaTestCase
      */
     public function testGetBacktraceDisplay()
     {
-        $this->assertContains(
-            'PHPUnit\Framework\TestResult->run(<Class:PhpMyAdmin\Tests\ErrorTest>)<br />',
+        $this->assertStringContainsString(
+            'PHPUnit\Framework\TestResult->run(<Class:PhpMyAdmin\Tests\ErrorTest>)<br>',
             $this->object->getBacktraceDisplay()
         );
     }
@@ -140,7 +152,7 @@ class ErrorTest extends PmaTestCase
      */
     public function testGetDisplay()
     {
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div class="error"><strong>Warning</strong>',
             $this->object->getDisplay()
         );
@@ -174,10 +186,30 @@ class ErrorTest extends PmaTestCase
     public function testGetBacktrace()
     {
         $bt = [
-            ['file' => 'bt1','line' => 2, 'function' => 'bar', 'args' => ['foo' => 1]],
-            ['file' => 'bt2','line' => 2, 'function' => 'bar', 'args' => ['foo' => 2]],
-            ['file' => 'bt3','line' => 2, 'function' => 'bar', 'args' => ['foo' => 3]],
-            ['file' => 'bt4','line' => 2, 'function' => 'bar', 'args' => ['foo' => 4]],
+            [
+                'file' => 'bt1',
+                'line' => 2,
+                'function' => 'bar',
+                'args' => ['foo' => 1],
+            ],
+            [
+                'file' => 'bt2',
+                'line' => 2,
+                'function' => 'bar',
+                'args' => ['foo' => 2],
+            ],
+            [
+                'file' => 'bt3',
+                'line' => 2,
+                'function' => 'bar',
+                'args' => ['foo' => 3],
+            ],
+            [
+                'file' => 'bt4',
+                'line' => 2,
+                'function' => 'bar',
+                'args' => ['foo' => 4],
+            ],
         ];
 
         $this->object->setBacktrace($bt);

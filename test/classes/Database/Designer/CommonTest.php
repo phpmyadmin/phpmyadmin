@@ -30,7 +30,7 @@ class CommonTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 1;
         $_SESSION = [
@@ -40,9 +40,9 @@ class CommonTest extends TestCase
                     'db' => 'pmadb',
                     'pdf_pages' => 'pdf_pages',
                     'pdfwork' => true,
-                    'table_coords' => 'table_coords'
-                ]
-            ]
+                    'table_coords' => 'table_coords',
+                ],
+            ],
         ];
     }
 
@@ -66,6 +66,7 @@ class CommonTest extends TestCase
             ->with(
                 "
             SELECT CONCAT_WS('.', `db_name`, `table_name`) AS `name`,
+                `db_name` as `dbName`, `table_name` as `tableName`,
                 `x` AS `X`,
                 `y` AS `Y`,
                 1 AS `V`,
@@ -79,7 +80,7 @@ class CommonTest extends TestCase
             );
         $GLOBALS['dbi'] = $dbi;
 
-        $this->designerCommon = new Common($GLOBALS['dbi']);
+        $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
 
         $this->designerCommon->getTablePositions($pg);
     }
@@ -113,7 +114,7 @@ class CommonTest extends TestCase
             ->will($this->returnValue([$pageName]));
         $GLOBALS['dbi'] = $dbi;
 
-        $this->designerCommon = new Common($GLOBALS['dbi']);
+        $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
 
         $result = $this->designerCommon->getPageName($pg);
 
@@ -143,7 +144,7 @@ class CommonTest extends TestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
-        $this->designerCommon = new Common($GLOBALS['dbi']);
+        $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
 
         $result = $this->designerCommon->deletePage($pg);
         $this->assertEquals(true, $result);
@@ -180,7 +181,7 @@ class CommonTest extends TestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
-        $this->designerCommon = new Common($GLOBALS['dbi']);
+        $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
 
         $result = $this->designerCommon->getDefaultPage($db);
         $this->assertEquals($default_pg, $result);
@@ -215,7 +216,7 @@ class CommonTest extends TestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
-        $this->designerCommon = new Common($GLOBALS['dbi']);
+        $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
 
         $result = $this->designerCommon->getDefaultPage($db);
         $this->assertEquals(-1, $result);
@@ -251,7 +252,7 @@ class CommonTest extends TestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
-        $this->designerCommon = new Common($GLOBALS['dbi']);
+        $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
 
         $result = $this->designerCommon->getLoadingPage($db);
         $this->assertEquals($default_pg, $result);
@@ -281,7 +282,7 @@ class CommonTest extends TestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
-        $this->designerCommon = new Common($GLOBALS['dbi']);
+        $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
 
         $result = $this->designerCommon->getLoadingPage($db);
         $this->assertEquals($first_pg, $result);

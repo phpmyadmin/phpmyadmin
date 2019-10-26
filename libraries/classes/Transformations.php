@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Set of functions used with the relation and pdf feature
  *
@@ -20,6 +19,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Plugins\TransformationsInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Util;
 
@@ -53,7 +53,7 @@ class Transformations
         $result = [];
 
         if (strlen($option_string) === 0
-            || ! $transform_options = preg_split('/,/', $option_string)
+            || ! $transform_options = explode(",", $option_string)
         ) {
             return $result;
         }
@@ -106,7 +106,7 @@ class Transformations
         $sub_dirs = [
             'Input/' => 'input_',
             'Output/' => '',
-            '' => ''
+            '' => '',
         ];
 
         foreach ($sub_dirs as $sd => $prefix) {
@@ -183,16 +183,17 @@ class Transformations
      *
      * @param string $file transformation file
      *
-     * @return String the description of the transformation
+     * @return string the description of the transformation
      */
     public function getDescription($file)
     {
         $include_file = 'libraries/classes/Plugins/Transformations/' . $file;
-        /* @var $class_name PhpMyAdmin\Plugins\TransformationsInterface */
+        /** @var TransformationsInterface $class_name */
         $class_name = $this->getClassName($include_file);
-        // include and instantiate the class
-        include_once $include_file;
-        return $class_name::getInfo();
+        if (class_exists($class_name)) {
+            return $class_name::getInfo();
+        }
+        return '';
     }
 
     /**
@@ -200,16 +201,17 @@ class Transformations
      *
      * @param string $file transformation file
      *
-     * @return String the name of the transformation
+     * @return string the name of the transformation
      */
     public function getName($file)
     {
         $include_file = 'libraries/classes/Plugins/Transformations/' . $file;
-        /* @var $class_name PhpMyAdmin\Plugins\TransformationsInterface */
+        /** @var TransformationsInterface $class_name */
         $class_name = $this->getClassName($include_file);
-        // include and instantiate the class
-        include_once $include_file;
-        return $class_name::getName();
+        if (class_exists($class_name)) {
+            return $class_name::getName();
+        }
+        return '';
     }
 
     /**
@@ -227,8 +229,14 @@ class Transformations
     public function fixUpMime($value)
     {
         $value = str_replace(
-            ["jpeg", "png"],
-            ["JPEG", "PNG"],
+            [
+                "jpeg",
+                "png",
+            ],
+            [
+                "JPEG",
+                "PNG",
+            ],
             $value
         );
         return str_replace(
@@ -250,7 +258,7 @@ class Transformations
      *
      * @access public
      *
-     * @return array [field_name][field_key] = field_value
+     * @return array|bool [field_name][field_key] = field_value
      */
     public function getMime($db, $table, $strict = false, $fullName = false)
     {
@@ -278,7 +286,7 @@ class Transformations
             . Util::backquote($cfgRelation['column_info']) . '
              WHERE `db_name`    = \'' . $GLOBALS['dbi']->escapeString($db) . '\'
                AND `table_name` = \'' . $GLOBALS['dbi']->escapeString($table) . '\'
-               AND ( `mimetype` != \'\'' . (!$strict ? '
+               AND ( `mimetype` != \'\'' . (! $strict ? '
                   OR `transformation` != \'\'
                   OR `transformation_options` != \'\'
                   OR `input_transformation` != \'\'
@@ -292,8 +300,6 @@ class Transformations
 
         foreach ($result as $column => $values) {
             // convert mimetype to new format (f.e. Text_Plain, etc)
-            $delimiter_space = '- ';
-            $delimiter = "_";
             $values['mimetype'] = $this->fixUpMime($values['mimetype']);
 
             // For transformation of form

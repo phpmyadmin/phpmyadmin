@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for methods in PhpMyAdmin\VersionInformation class
  *
@@ -28,7 +27,7 @@ class VersionInformationTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->_releases = [];
 
@@ -84,7 +83,7 @@ class VersionInformationTest extends PmaTestCase
      *
      * @dataProvider dataVersions
      */
-    public function testVersionToInt($version, $numeric)
+    public function testVersionToInt($version, $numeric): void
     {
         $versionInformation = new VersionInformation();
         $this->assertEquals(
@@ -102,25 +101,82 @@ class VersionInformationTest extends PmaTestCase
     public function dataVersions()
     {
         return [
-            ['1.0.0', 1000050],
-            ['2.0.0.2-dev', 2000002],
-            ['3.4.2.1', 3040251],
-            ['3.4.2-dev3', 3040203],
-            ['3.4.2-dev', 3040200],
-            ['3.4.2-pl', 3040260],
-            ['3.4.2-pl3', 3040263],
-            ['4.4.2-rc22', 4040252],
-            ['4.4.2-rc', 4040230],
-            ['4.4.22-beta22', 4042242],
-            ['4.4.22-beta', 4042220],
-            ['4.4.21-alpha22', 4042132],
-            ['4.4.20-alpha', 4042010],
-            ['4.40.20-alpha-dev', 4402010],
-            ['4.4a', 4000050],
-            ['4.4.4-test', 4040400],
-            ['4.1.0', 4010050],
-            ['4.0.1.3', 4000153],
-            ['4.1-dev', 4010000],
+            [
+                '1.0.0',
+                1000050,
+            ],
+            [
+                '2.0.0.2-dev',
+                2000002,
+            ],
+            [
+                '3.4.2.1',
+                3040251,
+            ],
+            [
+                '3.4.2-dev3',
+                3040203,
+            ],
+            [
+                '3.4.2-dev',
+                3040200,
+            ],
+            [
+                '3.4.2-pl',
+                3040260,
+            ],
+            [
+                '3.4.2-pl3',
+                3040263,
+            ],
+            [
+                '4.4.2-rc22',
+                4040252,
+            ],
+            [
+                '4.4.2-rc',
+                4040230,
+            ],
+            [
+                '4.4.22-beta22',
+                4042242,
+            ],
+            [
+                '4.4.22-beta',
+                4042220,
+            ],
+            [
+                '4.4.21-alpha22',
+                4042132,
+            ],
+            [
+                '4.4.20-alpha',
+                4042010,
+            ],
+            [
+                '4.40.20-alpha-dev',
+                4402010,
+            ],
+            [
+                '4.4a',
+                4000050,
+            ],
+            [
+                '4.4.4-test',
+                4040400,
+            ],
+            [
+                '4.1.0',
+                4010050,
+            ],
+            [
+                '4.0.1.3',
+                4000153,
+            ],
+            [
+                '4.1-dev',
+                4010000,
+            ],
         ];
     }
 
@@ -132,7 +188,7 @@ class VersionInformationTest extends PmaTestCase
     public function testGetLatestCompatibleVersionWithSingleServer()
     {
         $GLOBALS['cfg']['Servers'] = [
-            []
+            [],
         ];
 
         $mockVersionInfo = $this->getMockBuilder('PhpMyAdmin\VersionInformation')
@@ -168,7 +224,7 @@ class VersionInformationTest extends PmaTestCase
     {
         $GLOBALS['cfg']['Servers'] = [
             [],
-            []
+            [],
         ];
 
         $mockVersionInfo = $this->getMockBuilder('PhpMyAdmin\VersionInformation')
@@ -199,7 +255,7 @@ class VersionInformationTest extends PmaTestCase
     {
         $GLOBALS['cfg']['Servers'] = [
             [],
-            []
+            [],
         ];
 
         $mockVersionInfo = $this->getMockBuilder('PhpMyAdmin\VersionInformation')

@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for PhpMyAdmin\Properties\Plugins\ExportPluginProperties class
  *
@@ -27,7 +26,7 @@ class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = new ExportPluginProperties();
     }
@@ -37,7 +36,7 @@ class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }

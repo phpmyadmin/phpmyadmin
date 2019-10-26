@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Shared code for server pages
  *
@@ -12,6 +11,8 @@ use PhpMyAdmin\Url;
 if (! defined('PHPMYADMIN')) {
     exit;
 }
+
+global $db, $table, $url_query, $viewing_mode, $err_url, $is_grantuser, $is_createuser, $dbi;
 
 /**
  * Handles some variables that may have been sent by the calling script
@@ -26,20 +27,20 @@ if (empty($viewing_mode)) {
 /**
  * Set parameters for links
  */
-$GLOBALS['url_query'] = Url::getCommon();
+$url_query = Url::getCommon();
 
 /**
  * Defines the urls to return to in case of error in a sql statement
  */
-$err_url = 'index.php' . $GLOBALS['url_query'];
+$err_url = Url::getFromRoute('/');
 
 /**
  * @global boolean Checks for superuser privileges
  */
-$GLOBALS['is_grantuser'] = $GLOBALS['dbi']->isUserType('grant');
-$GLOBALS['is_createuser'] = $GLOBALS['dbi']->isUserType('create');
+$is_grantuser = $dbi->isUserType('grant');
+$is_createuser = $dbi->isUserType('create');
 
 // now, select the mysql db
-if ($GLOBALS['dbi']->isSuperuser()) {
-    $GLOBALS['dbi']->selectDb('mysql');
+if ($dbi->isSuperuser()) {
+    $dbi->selectDb('mysql');
 }

@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for PhpMyAdmin\Properties\Options\OptionsPropertyGroup class
  *
@@ -26,7 +25,7 @@ class OptionsPropertyGroupTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->stub = $this->getMockForAbstractClass('PhpMyAdmin\Properties\Options\OptionsPropertyGroup');
     }
@@ -36,7 +35,7 @@ class OptionsPropertyGroupTest extends TestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         unset($this->stub);
     }
@@ -60,7 +59,12 @@ class OptionsPropertyGroupTest extends TestCase
         $this->stub->addProperty('2');
 
         $this->assertEquals(
-            [1, 2, 3, '2'],
+            [
+                1,
+                2,
+                3,
+                '2',
+            ],
             $properties->getValue($this->stub)
         );
     }
@@ -82,7 +86,7 @@ class OptionsPropertyGroupTest extends TestCase
             [
                 0 => 1,
                 1 => 2,
-                3 => 3
+                3 => 3,
             ],
             $properties->getValue($this->stub)
         );
@@ -113,7 +117,11 @@ class OptionsPropertyGroupTest extends TestCase
         $properties->setValue($this->stub, [1, 2, 3]);
 
         $this->assertEquals(
-            [1, 2, 3],
+            [
+                1,
+                2,
+                3,
+            ],
             $this->stub->getProperties()
         );
     }

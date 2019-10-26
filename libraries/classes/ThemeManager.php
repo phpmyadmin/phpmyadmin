@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * phpMyAdmin theme manager
  *
@@ -8,9 +7,6 @@
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
-
-use PhpMyAdmin\Theme;
-use PhpMyAdmin\Url;
 
 /**
  * phpMyAdmin theme manager
@@ -119,11 +115,11 @@ class ThemeManager
     }
 
     /**
-     * Returns the singleton Response object
+     * Returns the singleton ThemeManager object
      *
-     * @return Response object
+     * @return ThemeManager The instance
      */
-    public static function getInstance()
+    public static function getInstance(): ThemeManager
     {
         if (empty(self::$_instance)) {
             self::$_instance = new ThemeManager();
@@ -211,7 +207,7 @@ class ThemeManager
     /**
      * returns name of theme stored in the cookie
      *
-     * @return string  theme name from cookie
+     * @return string|bool theme name from cookie or false
      * @access public
      */
     public function getThemeCookie()
@@ -291,7 +287,7 @@ class ThemeManager
             // Skip non dirs, . and ..
             if ($PMA_Theme == '.'
                 || $PMA_Theme == '..'
-                || ! @is_dir($this->_themes_path . $PMA_Theme)
+                || ! @is_dir(ROOT_PATH . $this->_themes_path . $PMA_Theme)
             ) {
                 continue;
             }
@@ -339,13 +335,12 @@ class ThemeManager
 
         if ($form) {
             $select_box .= '<form name="setTheme" method="post"';
-            $select_box .= ' action="index.php" class="disableAjax">';
+            $select_box .= ' action="index.php?route=/" class="disableAjax">';
             $select_box .= Url::getHiddenInputs();
         }
 
-        $theme_preview_path = './themes.php';
         $theme_preview_href = '<a href="'
-            . $theme_preview_path . '" target="themes" class="themeselect">';
+            . Url::getFromRoute('/themes') . '" target="themes" class="themeselect">';
         $select_box .=  $theme_preview_href . __('Theme:') . '</a>' . "\n";
 
         $select_box .=  '<select name="set_theme" lang="en" dir="ltr"'
@@ -383,42 +378,6 @@ class ThemeManager
     }
 
     /**
-     * returns Theme object for fall back theme
-     *
-     * @return Theme fall back theme
-     * @access public
-     */
-    public function getFallBackTheme()
-    {
-        if (isset($this->themes[self::FALLBACK_THEME])) {
-            return $this->themes[self::FALLBACK_THEME];
-        }
-
-        return false;
-    }
-
-    /**
-     * prints css data
-     *
-     * @return bool
-     * @access public
-     */
-    public function printCss()
-    {
-        if ($this->theme->loadCss()) {
-            return true;
-        }
-
-        // if loading css for this theme failed, try default theme css
-        $fallback_theme = $this->getFallBackTheme();
-        if ($fallback_theme && $fallback_theme->loadCss()) {
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
      * Theme initialization
      *
      * @return void
@@ -446,12 +405,5 @@ class ThemeManager
          * @global string $GLOBALS['pmaThemeImage']
          */
         $GLOBALS['pmaThemeImage']   = $GLOBALS['PMA_Theme']->getImgPath();
-
-        /**
-         * load layout file if exists
-         */
-        if (@file_exists($GLOBALS['PMA_Theme']->getLayoutFile())) {
-            include $GLOBALS['PMA_Theme']->getLayoutFile();
-        }
     }
 }

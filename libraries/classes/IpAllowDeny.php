@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * This library is used with the server IP allow/deny host authentication
  * feature
@@ -83,7 +82,7 @@ class IpAllowDeny
 
             for ($i = 0; $i < 31; $i++) {
                 if ($i < $regs[5] - 1) {
-                    $maskl = $maskl + pow(2, (30 - $i));
+                    $maskl += pow(2, 30 - $i);
                 } // end if
             } // end for
 
@@ -186,7 +185,7 @@ class IpAllowDeny
             $first_bin = inet_pton($first_ip);
             $first_hex = bin2hex($first_bin);
 
-            $flexbits = 128 - $subnet;
+            $flexbits = 128 - (int) $subnet;
 
             // Build the hexadecimal string of the last address
             $last_hex = $first_hex;
@@ -285,7 +284,7 @@ class IpAllowDeny
         // lookup table for some name shortcuts
         $shortcuts = [
             'all'       => '0.0.0.0/0',
-            'localhost' => '127.0.0.1/8'
+            'localhost' => '127.0.0.1/8',
         ];
 
         // Provide some useful shortcuts if server gives us address:

@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for Charset Conversions
  *
@@ -22,7 +21,7 @@ class EncodingTest extends TestCase
     /**
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         Encoding::initEngine();
     }
@@ -30,7 +29,7 @@ class EncodingTest extends TestCase
     /**
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         Encoding::initEngine();
     }
@@ -179,7 +178,7 @@ class EncodingTest extends TestCase
         $file_str = "教育漢字常用漢字";
         $filename = 'test.kanji';
         $file = fopen($filename, 'w');
-        fputs($file, $file_str);
+        fwrite($file, $file_str);
         fclose($file);
         $GLOBALS['kanji_encoding_list'] = 'ASCII,EUC-JP,SJIS,JIS';
 
@@ -203,24 +202,24 @@ class EncodingTest extends TestCase
     public function testEncodingForm()
     {
         $actual = Encoding::kanjiEncodingForm();
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="radio" name="knjenc"',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'type="radio" name="knjenc"',
             $actual
         );
-        $this->assertContains(
-            '<input type="radio" name="knjenc" value="EUC-JP" id="kj-euc" />',
+        $this->assertStringContainsString(
+            '<input type="radio" name="knjenc" value="EUC-JP" id="kj-euc">',
             $actual
         );
-        $this->assertContains(
-            '<input type="radio" name="knjenc" value="SJIS" id="kj-sjis" />',
+        $this->assertStringContainsString(
+            '<input type="radio" name="knjenc" value="SJIS" id="kj-sjis">',
             $actual
         );
-        $this->assertContains(
-            '<input type="checkbox" name="xkana" value="kana" id="kj-kana" />',
+        $this->assertStringContainsString(
+            '<input type="checkbox" name="xkana" value="kana" id="kj-kana">',
             $actual
         );
     }

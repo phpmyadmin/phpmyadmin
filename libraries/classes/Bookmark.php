@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Handles bookmarking SQL queries
  *
@@ -82,7 +81,7 @@ class Bookmark
      */
     public function getId(): int
     {
-        return (int)$this->_id;
+        return (int) $this->_id;
     }
 
     /**
@@ -172,7 +171,7 @@ class Bookmark
     /**
      * Returns the number of variables in a bookmark
      *
-     * @return number number of variables
+     * @return int number of variables
      */
     public function getVariableCount(): int
     {
@@ -261,9 +260,8 @@ class Bookmark
         array $bkm_fields,
         bool $all_users = false
     ) {
-        if (!(isset($bkm_fields['bkm_sql_query'])
+        if (! (isset($bkm_fields['bkm_sql_query'], $bkm_fields['bkm_label'])
             && strlen($bkm_fields['bkm_sql_query']) > 0
-            && isset($bkm_fields['bkm_label'])
             && strlen($bkm_fields['bkm_label']) > 0)
         ) {
             return false;
@@ -377,7 +375,7 @@ class Bookmark
             $query .= ")";
         }
         $query .= " AND " . Util::backquote($id_field)
-            . " = " . $dbi->escapeString((string) $id) . " LIMIT 1";
+            . " = '" . $dbi->escapeString((string) $id) . "' LIMIT 1";
 
         $result = $dbi->fetchSingleRow($query, 'ASSOC', DatabaseInterface::CONNECT_CONTROL);
         if (! empty($result)) {

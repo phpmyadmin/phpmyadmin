@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for PhpMyAdmin\Navigation\Nodes\NodeEventContainer class
  *
@@ -12,6 +11,7 @@ namespace PhpMyAdmin\Tests\Navigation\Nodes;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Theme;
+use PhpMyAdmin\Url;
 
 /**
  * Tests for PhpMyAdmin\Navigation\Nodes\NodeEventContainer class
@@ -25,7 +25,7 @@ class NodeEventContainerTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
     }
@@ -42,10 +42,10 @@ class NodeEventContainerTest extends PmaTestCase
             'text',
             $parent->links
         );
-        $this->assertContains(
-            'db_events.php',
+        $this->assertStringContainsString(
+            Url::getFromRoute('/database/events'),
             $parent->links['text']
         );
-        $this->assertEquals('events', $parent->real_name);
+        $this->assertEquals('events', $parent->realName);
     }
 }

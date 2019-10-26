@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Form handling code.
  *
@@ -109,7 +108,7 @@ class Form
             trigger_error("$optionPath - select options not defined", E_USER_ERROR);
             return [];
         }
-        if (!is_array($value)) {
+        if (! is_array($value)) {
             trigger_error("$optionPath - not a static value list", E_USER_ERROR);
             return [];
         }
@@ -125,11 +124,11 @@ class Form
         $hasStringKeys = false;
         $keys = [];
         for ($i = 0, $nb = count($value); $i < $nb; $i++) {
-            if (!isset($value[$i])) {
+            if (! isset($value[$i])) {
                 $hasStringKeys = true;
                 break;
             }
-            $keys[] = is_bool($value[$i]) ? (int)$value[$i] : $value[$i];
+            $keys[] = is_bool($value[$i]) ? (int) $value[$i] : $value[$i];
         }
         if (! $hasStringKeys) {
             $value = array_combine($keys, $value);
@@ -159,7 +158,7 @@ class Form
             return;
         }
 
-        if (!is_int($key)) {
+        if (! is_int($key)) {
             $this->default[$prefix . $key] = $value;
             $value = $key;
         }

@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Test for faked database access
  *
@@ -23,7 +22,7 @@ class DbiDummyTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['IconvExtraParams'] = '';
@@ -65,7 +64,7 @@ class DbiDummyTest extends TestCase
      *
      * @dataProvider schemaData
      */
-    public function testSystemSchema($schema, $expected)
+    public function testSystemSchema($schema, $expected): void
     {
         $this->assertEquals($expected, $GLOBALS['dbi']->isSystemSchema($schema));
     }
@@ -78,8 +77,14 @@ class DbiDummyTest extends TestCase
     public function schemaData()
     {
         return [
-            ['information_schema', true],
-            ['pma_test', false],
+            [
+                'information_schema',
+                true,
+            ],
+            [
+                'pma_test',
+                false,
+            ],
         ];
     }
 
@@ -94,7 +99,7 @@ class DbiDummyTest extends TestCase
      *
      * @dataProvider errorData
      */
-    public function testFormatError($number, $message, $expected)
+    public function testFormatError($number, $message, $expected): void
     {
         $GLOBALS['server'] = 1;
         $this->assertEquals(
@@ -111,12 +116,21 @@ class DbiDummyTest extends TestCase
     public function errorData()
     {
         return [
-            [1234, '', '#1234 - '],
-            [1234, 'foobar', '#1234 - foobar'],
             [
-                2002, 'foobar',
+                1234,
+                '',
+                '#1234 - ',
+            ],
+            [
+                1234,
+                'foobar',
+                '#1234 - foobar',
+            ],
+            [
+                2002,
+                'foobar',
                 '#2002 - foobar &mdash; The server is not responding (or the local '
-                . 'server\'s socket is not correctly configured).'
+                . 'server\'s socket is not correctly configured).',
             ],
         ];
     }

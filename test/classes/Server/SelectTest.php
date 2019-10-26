@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for PhpMyAdmin\Server\Select
  *
@@ -28,7 +27,7 @@ class SelectTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         //$_REQUEST
         $_REQUEST['log'] = "index1";
@@ -84,19 +83,19 @@ class SelectTest extends TestCase
         $server = $GLOBALS['cfg']['Servers']['0'];
 
         //server items
-        $this->assertContains(
+        $this->assertStringContainsString(
             $server['host'],
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $server['port'],
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $server['only_db'],
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $server['user'],
             $html
         );
@@ -109,7 +108,7 @@ class SelectTest extends TestCase
         $html = Select::render($not_only_options, $omit_fieldset);
 
         //$GLOBALS['cfg']['DefaultTabServer']
-        $this->assertContains(
+        $this->assertStringContainsString(
             Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabServer'],
                 'server'
@@ -118,30 +117,30 @@ class SelectTest extends TestCase
         );
 
         //labels
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Current server:'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '(' . __('Servers') . ')',
             $html
         );
 
         //server items
         $server = $GLOBALS['cfg']['Servers']['0'];
-        $this->assertContains(
+        $this->assertStringContainsString(
             $server['host'],
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $server['port'],
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $server['only_db'],
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $server['user'],
             $html
         );

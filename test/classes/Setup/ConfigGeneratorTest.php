@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for methods under Config file generator
  *
@@ -13,6 +12,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Setup\ConfigGenerator;
 use PhpMyAdmin\Tests\PmaTestCase;
+use ReflectionClass;
 
 /**
  * Tests for PhpMyAdmin\Setup\ConfigGenerator
@@ -35,16 +35,24 @@ class ConfigGeneratorTest extends PmaTestCase
 
         $GLOBALS['server'] = 0;
         $cf = new ConfigFile();
-        $_SESSION['ConfigFile0'] = ['a', 'b', 'c'];
+        $_SESSION['ConfigFile0'] = [
+            'a',
+            'b',
+            'c',
+        ];
         $_SESSION['ConfigFile0']['Servers'] = [
-            [1, 2, 3]
+            [
+                1,
+                2,
+                3,
+            ],
         ];
 
         $cf->setPersistKeys(["1/", 2]);
 
         $result = ConfigGenerator::getConfigFile($cf);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "<?php\n" .
             "/*\n" .
             " * Generated configuration file\n" .
@@ -53,7 +61,7 @@ class ConfigGeneratorTest extends PmaTestCase
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "/* Servers configuration */\n" .
             '$i = 0;' . "\n\n" .
             "/* Server: localhost [0] */\n" .
@@ -65,7 +73,7 @@ class ConfigGeneratorTest extends PmaTestCase
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '?>',
             $result
         );
@@ -78,7 +86,7 @@ class ConfigGeneratorTest extends PmaTestCase
      */
     public function testGetVarExport()
     {
-        $reflection = new \ReflectionClass('PhpMyAdmin\Setup\ConfigGenerator');
+        $reflection = new ReflectionClass('PhpMyAdmin\Setup\ConfigGenerator');
         $method = $reflection->getMethod('_getVarExport');
         $method->setAccessible(true);
 
@@ -98,7 +106,11 @@ class ConfigGeneratorTest extends PmaTestCase
             $method->invoke(
                 null,
                 'var_name',
-                [1, 2, 3],
+                [
+                    1,
+                    2,
+                    3,
+                ],
                 "\n"
             )
         );
@@ -111,7 +123,7 @@ class ConfigGeneratorTest extends PmaTestCase
                 'var_name',
                 [
                     '1a' => 'foo',
-                    'b' => 'bar'
+                    'b' => 'bar',
                 ],
                 "\n"
             )
@@ -125,7 +137,7 @@ class ConfigGeneratorTest extends PmaTestCase
      */
     public function testIsZeroBasedArray()
     {
-        $reflection = new \ReflectionClass('PhpMyAdmin\Setup\ConfigGenerator');
+        $reflection = new ReflectionClass('PhpMyAdmin\Setup\ConfigGenerator');
         $method = $reflection->getMethod('_isZeroBasedArray');
         $method->setAccessible(true);
 
@@ -134,7 +146,7 @@ class ConfigGeneratorTest extends PmaTestCase
                 null,
                 [
                     'a' => 1,
-                    'b' => 2
+                    'b' => 2,
                 ]
             )
         );
@@ -160,7 +172,11 @@ class ConfigGeneratorTest extends PmaTestCase
         $this->assertTrue(
             $method->invoke(
                 null,
-                [1, 2, 3]
+                [
+                    1,
+                    2,
+                    3,
+                ]
             )
         );
     }
@@ -172,11 +188,16 @@ class ConfigGeneratorTest extends PmaTestCase
      */
     public function testExportZeroBasedArray()
     {
-        $reflection = new \ReflectionClass('PhpMyAdmin\Setup\ConfigGenerator');
+        $reflection = new ReflectionClass('PhpMyAdmin\Setup\ConfigGenerator');
         $method = $reflection->getMethod('_exportZeroBasedArray');
         $method->setAccessible(true);
 
-        $arr = [1, 2, 3, 4];
+        $arr = [
+            1,
+            2,
+            3,
+            4,
+        ];
 
         $result = $method->invoke(null, $arr, "\n");
 
@@ -185,7 +206,14 @@ class ConfigGeneratorTest extends PmaTestCase
             $result
         );
 
-        $arr = [1, 2, 3, 4, 7, 'foo'];
+        $arr = [
+            1,
+            2,
+            3,
+            4,
+            7,
+            'foo',
+        ];
 
         $result = $method->invoke(null, $arr, "\n");
 

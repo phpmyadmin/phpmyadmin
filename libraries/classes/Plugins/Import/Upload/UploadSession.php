@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Provides upload functionalities for the import plugins
  *
@@ -46,7 +45,7 @@ class UploadSession implements UploadInterface
             return null;
         }
 
-        if (!array_key_exists($id, $_SESSION[$SESSION_KEY])) {
+        if (! array_key_exists($id, $_SESSION[$SESSION_KEY])) {
             $_SESSION[$SESSION_KEY][$id] = [
                 'id'       => $id,
                 'finished' => false,
@@ -58,7 +57,7 @@ class UploadSession implements UploadInterface
         }
         $ret = $_SESSION[$SESSION_KEY][$id];
 
-        if (!ImportAjax::sessionCheck() || $ret['finished']) {
+        if (! ImportAjax::sessionCheck() || $ret['finished']) {
             return $ret;
         }
 

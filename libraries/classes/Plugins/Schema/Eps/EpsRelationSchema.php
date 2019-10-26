@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Classes to create relation schema in EPS format.
  *
@@ -37,7 +36,7 @@ class EpsRelationSchema extends ExportRelationSchema
      */
     private $_tables = [];
 
-    /** @var RelationStatsDia[] Relations */
+    /** @var RelationStatsEps[] Relations */
     private $_relations = [];
 
     private $_tablewidth;
@@ -100,7 +99,7 @@ class EpsRelationSchema extends ExportRelationSchema
         $seen_a_relation = false;
         foreach ($alltables as $one_table) {
             $exist_rel = $this->relation->getForeigners($this->db, $one_table, '', 'both');
-            if (!$exist_rel) {
+            if (! $exist_rel) {
                 continue;
             }
 
@@ -127,7 +126,7 @@ class EpsRelationSchema extends ExportRelationSchema
                 }
 
                 foreach ($rel as $one_key) {
-                    if (!in_array($one_key['ref_table_name'], $alltables)) {
+                    if (! in_array($one_key['ref_table_name'], $alltables)) {
                         continue;
                     }
 

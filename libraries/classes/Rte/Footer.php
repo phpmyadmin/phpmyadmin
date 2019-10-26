@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Common functions for generating the footer for Routines, Triggers and Events.
  *
@@ -10,7 +9,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Rte;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Rte\Words;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
@@ -52,7 +51,16 @@ class Footer
      */
     private function getLinks($docu, $priv, $name)
     {
-        global $db, $table, $url_query;
+        global $db, $table;
+
+        $route = '';
+        if (strtolower($name) === 'event') {
+            $route = '/database/events';
+        } elseif (strtolower($name) === 'trigger') {
+            $route = '/database/triggers';
+        } elseif (strtolower($name) === 'routine') {
+            $route = '/database/routines';
+        }
 
         $icon = mb_strtolower($name) . '_add';
         $retval  = "";
@@ -62,9 +70,12 @@ class Footer
         $retval .= "        <div class='wrap'>\n";
         if (Util::currentUserHasPrivilege($priv, $db, $table)) {
             $retval .= '            <a class="ajax add_anchor" ';
-            $retval .= "href='db_" . mb_strtolower($name) . "s.php";
-            $retval .= "$url_query&amp;add_item=1' ";
-            $retval .= "onclick='$.datepicker.initialized = false;'>";
+            $retval .= 'href="' . Url::getFromRoute($route, [
+                'db' => $db,
+                'table' => $table,
+                'add_item' => 1,
+            ]);
+            $retval .= '" onclick="$.datepicker.initialized = false;">';
             $icon = 'b_' . $icon;
             $retval .= Util::getIcon($icon);
             $retval .= $this->words->get('add') . "</a>\n";
@@ -108,7 +119,7 @@ class Footer
      */
     public function events()
     {
-        global $db, $url_query;
+        global $db, $table, $url_query;
 
         /**
          * For events, we show the usual 'Add event' form and also
@@ -122,17 +133,17 @@ class Footer
         );
         $es_state = mb_strtolower($es_state);
         $options = [
-                        0 => [
-                            'label' => __('OFF'),
-                            'value' => "SET GLOBAL event_scheduler=\"OFF\"",
-                            'selected' => ($es_state != 'on')
-                        ],
-                        1 => [
-                            'label' => __('ON'),
-                            'value' => "SET GLOBAL event_scheduler=\"ON\"",
-                            'selected' => ($es_state == 'on')
-                        ]
-                   ];
+            0 => [
+                'label' => __('OFF'),
+                'value' => "SET GLOBAL event_scheduler=\"OFF\"",
+                'selected' => $es_state != 'on',
+            ],
+            1 => [
+                'label' => __('ON'),
+                'value' => "SET GLOBAL event_scheduler=\"ON\"",
+                'selected' => $es_state == 'on',
+            ],
+        ];
         // Generate output
         $retval  = "<!-- FOOTER LINKS START -->\n";
         $retval .= "<div class='doubleFieldset'>\n";
@@ -145,10 +156,14 @@ class Footer
         $retval .= "        <div class='wrap'>\n";
         // show the toggle button
         $retval .= Util::toggleButton(
-            "sql.php$url_query&amp;goto=db_events.php" . urlencode("?db=$db"),
+            Url::getFromRoute('/sql', [
+                'db' => $db,
+                'table' => $table,
+                'goto' => Url::getFromRoute('/database/events', ['db' => $db]),
+            ]),
             'sql_query',
             $options,
-            'PMA_slidingMessage(data.sql_query);'
+            'Functions.slidingMessage(data.sql_query);'
         );
         $retval .= "        </div>\n";
         $retval .= "    </fieldset>\n";

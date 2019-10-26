@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Configuration handling.
  *
@@ -10,9 +9,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use DirectoryIterator;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Error;
 use PhpMyAdmin\LanguageManager;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
@@ -34,7 +35,7 @@ class Config
     /**
      * @var string  default config source
      */
-    public $default_source = './libraries/config.default.php';
+    public $default_source = ROOT_PATH . 'libraries/config.default.php';
 
     /**
      * @var array   default configuration settings
@@ -111,7 +112,7 @@ class Config
      */
     public function checkSystem(): void
     {
-        $this->set('PMA_VERSION', '5.0.0-dev');
+        $this->set('PMA_VERSION', '5.1.0-dev');
         /* Major version */
         $this->set(
             'PMA_MAJOR_VERSION',
@@ -297,7 +298,7 @@ class Config
             return;
         }
 
-        if (!function_exists('imagecreatetruecolor')) {
+        if (! function_exists('imagecreatetruecolor')) {
             $this->set('PMA_IS_GD2', 0);
             return;
         }
@@ -324,8 +325,8 @@ class Config
         // some versions return Microsoft-IIS, some Microsoft/IIS
         // we could use a preg_match() but it's slower
         if (Core::getenv('SERVER_SOFTWARE')
-            && stristr(Core::getenv('SERVER_SOFTWARE'), 'Microsoft')
-            && stristr(Core::getenv('SERVER_SOFTWARE'), 'IIS')
+            && false !== stripos(Core::getenv('SERVER_SOFTWARE'), 'Microsoft')
+            && false !== stripos(Core::getenv('SERVER_SOFTWARE'), 'IIS')
         ) {
             $this->set('PMA_IS_IIS', 1);
         } else {
@@ -344,10 +345,10 @@ class Config
         $this->set('PMA_IS_WINDOWS', 0);
         // If PHP_OS is defined then continue
         if (defined('PHP_OS')) {
-            if (stristr(PHP_OS, 'win') && !stristr(PHP_OS, 'darwin')) {
+            if (false !== stripos(PHP_OS, 'win') && false === stripos(PHP_OS, 'darwin')) {
                 // Is it some version of Windows
                 $this->set('PMA_IS_WINDOWS', 1);
-            } elseif (stristr(PHP_OS, 'OS/2')) {
+            } elseif (false !== stripos(PHP_OS, 'OS/2')) {
                 // Is it OS/2 (No file permissions like Windows)
                 $this->set('PMA_IS_WINDOWS', 1);
             }
@@ -356,23 +357,25 @@ class Config
 
     /**
      * detects if Git revision
-     * @param string &$git_location (optional) verified git directory
+     * @param string $git_location (optional) verified git directory
      * @return boolean
      */
     public function isGitRevision(&$git_location = null): bool
     {
+        // PMA config check
         if (! $this->get('ShowGitRevision')) {
             return false;
         }
 
         // caching
-        if (isset($_SESSION['is_git_revision']) && isset($_SESSION['git_location'])) {
-            if ($_SESSION['is_git_revision']) {
-                $this->set('PMA_VERSION_GIT', 1);
-            }
+        if (isset($_SESSION['is_git_revision'])
+            && array_key_exists('git_location', $_SESSION)
+        ) {
+            // Define location using cached value
             $git_location = $_SESSION['git_location'];
             return $_SESSION['is_git_revision'];
         }
+
         // find out if there is a .git folder
         // or a .git file (--separate-git-dir)
         $git = '.git';
@@ -380,6 +383,7 @@ class Config
             if (@is_file($git . '/config')) {
                 $git_location = $git;
             } else {
+                $_SESSION['git_location'] = null;
                 $_SESSION['is_git_revision'] = false;
                 return false;
             }
@@ -392,21 +396,23 @@ class Config
                 $contents,
                 $gitmatch
             )) {
+                $_SESSION['git_location'] = null;
                 $_SESSION['is_git_revision'] = false;
                 return false;
+            } elseif (@is_dir($gitmatch[1])) {
+                //Detected git external folder location
+                $git_location = $gitmatch[1];
             } else {
-                if (@is_dir($gitmatch[1])) {
-                    //Detected git external folder location
-                    $git_location = $gitmatch[1];
-                } else {
-                    $_SESSION['is_git_revision'] = false;
-                    return false;
-                }
+                $_SESSION['git_location'] = null;
+                $_SESSION['is_git_revision'] = false;
+                return false;
             }
         } else {
+            $_SESSION['git_location'] = null;
             $_SESSION['is_git_revision'] = false;
             return false;
         }
+        // Define session for caching
         $_SESSION['git_location'] = $git_location;
         $_SESSION['is_git_revision'] = true;
         return true;
@@ -422,23 +428,25 @@ class Config
         // find out if there is a .git folder
         $git_folder = '';
         if (! $this->isGitRevision($git_folder)) {
+            $this->set('PMA_VERSION_GIT', 0);
             return;
         }
 
         if (! $ref_head = @file_get_contents($git_folder . '/HEAD')) {
+            $this->set('PMA_VERSION_GIT', 0);
             return;
         }
 
         if ($common_dir_contents = @file_get_contents($git_folder . '/commondir')) {
-            $git_folder = $git_folder . DIRECTORY_SEPARATOR . trim($common_dir_contents);
+            $git_folder .= DIRECTORY_SEPARATOR . trim($common_dir_contents);
         }
 
         $branch = false;
         // are we on any branch?
-        if (strstr($ref_head, '/')) {
+        if (false !== strpos($ref_head, '/')) {
             // remove ref: prefix
             $ref_head = substr(trim($ref_head), 5);
-            if (substr($ref_head, 0, 11) === 'refs/heads/') {
+            if (0 === strpos($ref_head, 'refs/heads/')) {
                 $branch = substr($ref_head, 11);
             } else {
                 $branch = basename($ref_head);
@@ -448,6 +456,7 @@ class Config
             if (@file_exists($ref_file)) {
                 $hash = @file_get_contents($ref_file);
                 if (! $hash) {
+                    $this->set('PMA_VERSION_GIT', 0);
                     return;
                 }
                 $hash = trim($hash);
@@ -455,6 +464,7 @@ class Config
                 // deal with packed refs
                 $packed_refs = @file_get_contents($git_folder . '/packed-refs');
                 if (! $packed_refs) {
+                    $this->set('PMA_VERSION_GIT', 0);
                     return;
                 }
                 // split file to lines
@@ -477,6 +487,7 @@ class Config
                     }
                 }
                 if (! isset($hash)) {
+                    $this->set('PMA_VERSION_GIT', 0);
                     // Could not find ref
                     return;
                 }
@@ -495,6 +506,7 @@ class Config
                 . substr($hash, 0, 2) . '/' . substr($hash, 2);
             if (@file_exists($git_file_name)) {
                 if (! $commit = @file_get_contents($git_file_name)) {
+                    $this->set('PMA_VERSION_GIT', 0);
                     return;
                 }
                 $commit = explode("\0", gzuncompress($commit), 2);
@@ -697,8 +709,16 @@ class Config
         }
 
         if ($commit !== false) {
-            $author = ['name' => '', 'email' => '', 'date' => ''];
-            $committer = ['name' => '', 'email' => '', 'date' => ''];
+            $author = [
+                'name' => '',
+                'email' => '',
+                'date' => '',
+            ];
+            $committer = [
+                'name' => '',
+                'email' => '',
+                'date' => '',
+            ];
 
             do {
                 $dataline = array_shift($commit);
@@ -710,7 +730,8 @@ class Config
                     $user2 = [
                         'name' => trim($user[1]),
                         'email' => trim($user[2]),
-                        'date' => date('Y-m-d H:i:s', (int) $user[3])];
+                        'date' => date('Y-m-d H:i:s', (int) $user[3]),
+                    ];
                     if (isset($user[4])) {
                         $user2['date'] .= $user[4];
                     }
@@ -718,17 +739,20 @@ class Config
                 }
             } while ($dataline != '');
             $message = trim(implode(' ', $commit));
-        } elseif (isset($commit_json) && isset($commit_json->author) && isset($commit_json->committer)) {
+        } elseif (isset($commit_json, $commit_json->author, $commit_json->committer, $commit_json->message)) {
             $author = [
                 'name' => $commit_json->author->name,
                 'email' => $commit_json->author->email,
-                'date' => $commit_json->author->date];
+                'date' => $commit_json->author->date,
+            ];
             $committer = [
                 'name' => $commit_json->committer->name,
                 'email' => $commit_json->committer->email,
-                'date' => $commit_json->committer->date];
+                'date' => $commit_json->committer->date,
+            ];
             $message = trim($commit_json->message);
         } else {
+            $this->set('PMA_VERSION_GIT', 0);
             return;
         }
 
@@ -844,32 +868,6 @@ class Config
 
         $cfg = array_intersect_key($cfg, array_flip($matched_keys));
 
-        /**
-         * Backward compatibility code
-         */
-        if (!empty($cfg['DefaultTabTable'])) {
-            $cfg['DefaultTabTable'] = str_replace(
-                '_properties',
-                '',
-                str_replace(
-                    'tbl_properties.php',
-                    'tbl_sql.php',
-                    $cfg['DefaultTabTable']
-                )
-            );
-        }
-        if (!empty($cfg['DefaultTabDatabase'])) {
-            $cfg['DefaultTabDatabase'] = str_replace(
-                '_details',
-                '',
-                str_replace(
-                    'db_details.php',
-                    'db_sql.php',
-                    $cfg['DefaultTabDatabase']
-                )
-            );
-        }
-
         $this->settings = array_replace_recursive($this->settings, $cfg);
 
         return true;
@@ -903,11 +901,11 @@ class Config
         // will have everything available in session cache
         $server = isset($GLOBALS['server'])
             ? $GLOBALS['server']
-            : (!empty($GLOBALS['cfg']['ServerDefault'])
+            : (! empty($GLOBALS['cfg']['ServerDefault'])
                 ? $GLOBALS['cfg']['ServerDefault']
                 : 0);
         $cache_key = 'server_' . $server;
-        if ($server > 0 && !defined('PMA_MINIMUM_COMMON')) {
+        if ($server > 0 && ! defined('PMA_MINIMUM_COMMON')) {
             $config_mtime = max($this->default_source_mtime, $this->source_mtime);
             // cache user preferences, use database only when needed
             if (! isset($_SESSION['cache'][$cache_key]['userprefs'])
@@ -1014,7 +1012,7 @@ class Config
      * @param mixed       $new_cfg_value new value
      * @param mixed       $default_value default value
      *
-     * @return true|\PhpMyAdmin\Message
+     * @return true|Message
      */
     public function setUserValue(
         ?string $cookie_name,
@@ -1054,7 +1052,7 @@ class Config
      */
     public function getUserValue(string $cookie_name, $cfg_value)
     {
-        $cookie_exists = isset($_COOKIE) && !empty($_COOKIE[$cookie_name]);
+        $cookie_exists = ! empty($_COOKIE[$cookie_name]);
         $prefs_type = $this->get('user_preferences');
         if ($prefs_type == 'db') {
             // permanent user preferences value exists, remove cookie
@@ -1135,7 +1133,7 @@ class Config
         // Check for permissions (on platforms that support it):
         if ($this->get('CheckConfigurationPermissions') && @file_exists($this->getSource())) {
             $perms = @fileperms($this->getSource());
-            if (!($perms === false) && ($perms & 2)) {
+            if (! ($perms === false) && ($perms & 2)) {
                 // This check is normally done after loading configuration
                 $this->checkWebServerOs();
                 if ($this->get('PMA_IS_WINDOWS') == 0) {
@@ -1249,7 +1247,7 @@ class Config
      */
     public function checkUpload(): void
     {
-        if (!ini_get('file_uploads')) {
+        if (! ini_get('file_uploads')) {
             $this->set('enable_upload', false);
             return;
         }
@@ -1308,7 +1306,7 @@ class Config
             $is_https = true;
         } elseif (strtolower(Core::getenv('HTTPS')) == 'on') {
             $is_https = true;
-        } elseif (substr(strtolower(Core::getenv('REQUEST_URI')), 0, 6) == 'https:') {
+        } elseif (strtolower(substr(Core::getenv('REQUEST_URI'), 0, 6)) == 'https:') {
             $is_https = true;
         } elseif (strtolower(Core::getenv('HTTP_HTTPS_FROM_LB')) == 'on') {
             // A10 Networks load balancer
@@ -1335,7 +1333,7 @@ class Config
     {
         static $cookie_path = null;
 
-        if (null !== $cookie_path && !defined('TESTSUITE')) {
+        if (null !== $cookie_path && ! defined('TESTSUITE')) {
             return $cookie_path;
         }
 
@@ -1396,8 +1394,8 @@ class Config
             'PMA_IS_GD2',
             'PMA_USR_OS',
             'PMA_USR_BROWSER_VER',
-            'PMA_USR_BROWSER_AGENT'
-            ];
+            'PMA_USR_BROWSER_AGENT',
+        ];
 
         foreach ($defines as $define) {
             if (! defined($define)) {
@@ -1505,8 +1503,8 @@ class Config
      */
     public static function fatalErrorHandler(): void
     {
-        if (!isset($GLOBALS['pma_config_loading'])
-            || !$GLOBALS['pma_config_loading']
+        if (! isset($GLOBALS['pma_config_loading'])
+            || ! $GLOBALS['pma_config_loading']
         ) {
             return;
         }
@@ -1579,7 +1577,7 @@ class Config
     {
         static $temp_dir = [];
 
-        if (isset($temp_dir[$name]) && !defined('TESTSUITE')) {
+        if (isset($temp_dir[$name]) && ! defined('TESTSUITE')) {
             return $temp_dir[$name];
         }
 
@@ -1668,7 +1666,7 @@ class Config
             $server = $request;
             $this->settings['Server'] = $this->settings['Servers'][$server];
         } else {
-            if (!empty($this->settings['Servers'][$this->settings['ServerDefault']])) {
+            if (! empty($this->settings['Servers'][$this->settings['ServerDefault']])) {
                 $server = $this->settings['ServerDefault'];
                 $this->settings['Server'] = $this->settings['Servers'][$server];
             } else {
@@ -1688,7 +1686,7 @@ class Config
     public function checkServers(): void
     {
         // Do we have some server?
-        if (! isset($this->settings['Servers']) || count($this->settings['Servers']) == 0) {
+        if (! isset($this->settings['Servers']) || count($this->settings['Servers']) === 0) {
             // No server => create one with defaults
             $this->settings['Servers'] = [1 => $this->default_server];
         } else {
@@ -1697,7 +1695,7 @@ class Config
 
             foreach ($this->settings['Servers'] as $server_index => $each_server) {
                 // Detect wrong configuration
-                if (!is_int($server_index) || $server_index < 1) {
+                if (! is_int($server_index) || $server_index < 1) {
                     trigger_error(
                         sprintf(__('Invalid server index: %s'), $server_index),
                         E_USER_ERROR
@@ -1722,6 +1720,6 @@ class Config
     }
 }
 
-if (!defined('TESTSUITE')) {
-    register_shutdown_function(['PhpMyAdmin\Config', 'fatalErrorHandler']);
+if (! defined('TESTSUITE')) {
+    register_shutdown_function([Config::class, 'fatalErrorHandler']);
 }

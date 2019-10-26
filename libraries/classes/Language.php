@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Hold the PhpMyAdmin\Language class
  *
@@ -153,7 +152,7 @@ class Language
     }
 
     /**
-     * Checks whether langauge is RTL
+     * Checks whether language is RTL
      *
      * @return bool
      */
@@ -165,7 +164,7 @@ class Language
     /**
      * Activates given translation
      *
-     * @return bool
+     * @return void
      */
     public function activate()
     {

@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Contains abstract class to hold relation preferences/statistics
  *
@@ -8,6 +7,8 @@
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema;
+
+use PhpMyAdmin\Plugins\Schema\TableStats;
 
 /**
  * Relations preferences/statistics
@@ -97,8 +98,8 @@ abstract class RelationStats
     /**
      * Gets arrows coordinates
      *
-     * @param string $table  The current table name
-     * @param string $column The relation column name
+     * @param TableStats $table  The table
+     * @param string     $column The relation column name
      *
      * @return array Arrows coordinates
      *

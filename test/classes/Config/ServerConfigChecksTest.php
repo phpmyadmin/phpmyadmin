@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for FormDisplay class in config folder
  *
@@ -13,6 +12,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\ServerConfigChecks;
 use PhpMyAdmin\Tests\PmaTestCase;
+use ReflectionException;
 use ReflectionProperty;
 
 /**
@@ -28,11 +28,11 @@ class ServerConfigChecksTest extends PmaTestCase
     private $sessionID;
 
     /**
-     * @throws \ReflectionException
+     * @throws ReflectionException
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['cfg']['AvailableCharsets'] = [];
@@ -64,7 +64,7 @@ class ServerConfigChecksTest extends PmaTestCase
                 'password' => 'password',
                 'AllowRoot' => true,
                 'AllowNoPassword' => true,
-            ]
+            ],
         ];
 
         $_SESSION[$this->sessionID]['AllowArbitraryServer'] = true;
@@ -121,8 +121,8 @@ class ServerConfigChecksTest extends PmaTestCase
                 'host' => 'localhost',
                 'ssl' => true,
                 'auth_type' => 'cookie',
-                'AllowRoot' => false
-            ]
+                'AllowRoot' => false,
+            ],
         ];
 
         $_SESSION[$this->sessionID]['AllowArbitraryServer'] = false;
@@ -158,8 +158,8 @@ class ServerConfigChecksTest extends PmaTestCase
         $_SESSION[$this->sessionID]['Servers'] = [
             '1' => [
                 'host' => 'localhost',
-                'auth_type' => 'cookie'
-            ]
+                'auth_type' => 'cookie',
+            ],
         ];
 
         $configChecker = new ServerConfigChecks($GLOBALS['ConfigFile']);

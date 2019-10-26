@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for PhpMyAdmin\Mime
  *
@@ -28,7 +27,7 @@ class MimeTest extends TestCase
      * @return void
      * @dataProvider providerForTestDetect
      */
-    public function testDetect($test, $output)
+    public function testDetect($test, $output): void
     {
 
         $this->assertEquals(
@@ -47,19 +46,19 @@ class MimeTest extends TestCase
         return [
             [
                 'pma',
-                'application/octet-stream'
+                'application/octet-stream',
             ],
             [
                 'GIF',
-                'image/gif'
+                'image/gif',
             ],
             [
                 "\x89PNG",
-                'image/png'
+                'image/png',
             ],
             [
                 chr(0xff) . chr(0xd8),
-                'image/jpeg'
+                'image/jpeg',
             ],
         ];
     }

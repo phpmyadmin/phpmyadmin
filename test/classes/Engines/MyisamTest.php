@@ -30,7 +30,7 @@ class MyisamTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $this->object = new Myisam('myisam');
@@ -43,7 +43,7 @@ class MyisamTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -87,15 +87,12 @@ class MyisamTest extends PmaTestCase
                     'desc'  => __('The buffer that is allocated when sorting MyISAM indexes during a REPAIR TABLE or when creating indexes with CREATE INDEX or ALTER TABLE.'),
                     'type'  => 1,
                 ],
-                'myisam_stats_method' => [
-                ],
-                'delay_key_write' => [
-                ],
+                'myisam_stats_method' => [],
+                'delay_key_write' => [],
                 'bulk_insert_buffer_size' => [
                     'type'  => 1,
                 ],
-                'skip_external_locking' => [
-                ],
+                'skip_external_locking' => [],
             ]
         );
     }

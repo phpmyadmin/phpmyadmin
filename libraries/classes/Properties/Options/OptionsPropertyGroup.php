@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Superclass for the Property Group classes.
  *
@@ -9,6 +8,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Properties\Options;
 
+use Countable;
+
 /**
  * Parents group property items and provides methods to manage groups of
  * properties.
@@ -16,7 +17,7 @@ namespace PhpMyAdmin\Properties\Options;
  * @todo    modify descriptions if needed, when the options are integrated
  * @package PhpMyAdmin
  */
-abstract class OptionsPropertyGroup extends OptionsPropertyItem implements \Countable
+abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Countable
 {
     /**
      * Holds a group of properties (PhpMyAdmin\Properties\Options\OptionsPropertyItem instances)
@@ -35,12 +36,12 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements \Coun
      */
     public function addProperty($property)
     {
-        if (!$this->getProperties() == null
+        if (! $this->getProperties() == null
             && in_array($property, $this->getProperties(), true)
         ) {
             return;
         }
-        $this->_properties [] = $property;
+        $this->_properties[] = $property;
     }
 
     /**
@@ -65,7 +66,7 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements \Coun
     /**
      * Gets the instance of the class
      *
-     * @return array
+     * @return OptionsPropertyGroup
      */
     public function getGroup()
     {
@@ -89,7 +90,7 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements \Coun
      */
     public function getNrOfProperties()
     {
-        if (is_null($this->_properties)) {
+        if ($this->_properties === null) {
             return 0;
         }
         return count($this->_properties);

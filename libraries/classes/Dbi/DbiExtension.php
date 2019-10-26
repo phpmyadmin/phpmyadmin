@@ -155,16 +155,18 @@ interface DbiExtension
     /**
      * returns a string that represents the client library version
      *
+     * @param resource $link mysql link
+     *
      * @return string MySQL client library version
      */
-    public function getClientInfo();
+    public function getClientInfo($link);
 
     /**
      * returns last error message or false if no errors occurred
      *
      * @param resource $link connection link
      *
-     * @return string|bool $error or false
+     * @return string|bool error or false
      */
     public function getError($link);
 
@@ -210,7 +212,7 @@ interface DbiExtension
      * @param object $result result set identifier
      * @param int    $i      field
      *
-     * @return int length of field
+     * @return int|bool length of field
      */
     public function fieldLen($result, $i);
 
@@ -243,4 +245,14 @@ interface DbiExtension
      * @return string a MySQL escaped string
      */
     public function escapeString($link, $str);
+
+    /**
+     * Prepare an SQL statement for execution.
+     *
+     * @param mixed  $link  database link
+     * @param string $query The query, as a string.
+     *
+     * @return object|false A statement object or false.
+     */
+    public function prepare($link, string $query);
 }

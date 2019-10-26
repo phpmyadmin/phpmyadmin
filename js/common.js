@@ -1,7 +1,6 @@
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 
 $(function () {
-    checkNumberOfFields();
+    Functions.checkNumberOfFields();
 });
 
 /**
@@ -10,7 +9,7 @@ $(function () {
  * The content for this is normally loaded from Header.php or
  * Response.php and executed by ajax.js
  */
-var PMA_commonParams = (function () {
+var CommonParams = (function () {
     /**
      * @var hash params An associative array of key value pairs
      * @access private
@@ -27,21 +26,19 @@ var PMA_commonParams = (function () {
          * @return void
          */
         setAll: function (obj) {
-            var reload = false;
             var updateNavigation = false;
             for (var i in obj) {
                 if (params[i] !== undefined && params[i] !== obj[i]) {
                     if (i === 'db' || i === 'table') {
                         updateNavigation = true;
                     }
-                    reload = true;
                 }
                 params[i] = obj[i];
             }
             if (updateNavigation &&
                     $('#pma_navigation_tree').hasClass('synced')
             ) {
-                PMA_showCurrentNavigation();
+                Navigation.showCurrent();
             }
         },
         /**
@@ -74,26 +71,28 @@ var PMA_commonParams = (function () {
             if (updateNavigation &&
                     $('#pma_navigation_tree').hasClass('synced')
             ) {
-                PMA_showCurrentNavigation();
+                Navigation.showCurrent();
             }
             return this;
         },
         /**
          * Returns the url query string using the saved parameters
          *
+         * @param {string} separator New separator
+         *
          * @return string
          */
-        getUrlQuery: function () {
+        getUrlQuery: function (separator) {
+            var sep = (typeof separator !== 'undefined') ? separator : '?';
             var common = this.get('common_query');
-            var separator = '?';
-            var argsep = PMA_commonParams.get('arg_separator');
+            var argsep = CommonParams.get('arg_separator');
             if (common.length > 0) {
-                separator = argsep;
+                sep = argsep;
             }
-            return PMA_sprintf(
+            return Functions.sprintf(
                 '%s%sserver=%s' + argsep + 'db=%s' + argsep + 'table=%s',
                 this.get('common_query'),
-                separator,
+                sep,
                 encodeURIComponent(this.get('server')),
                 encodeURIComponent(this.get('db')),
                 encodeURIComponent(this.get('table'))
@@ -108,33 +107,34 @@ var PMA_commonParams = (function () {
  * The content for this is normally loaded from Header.php or
  * Response.php and executed by ajax.js
  */
-var PMA_commonActions = {
+// eslint-disable-next-line no-unused-vars
+var CommonActions = {
     /**
      * Saves the database name when it's changed
      * and reloads the query window, if necessary
      *
-     * @param new_db string new_db The name of the new database
+     * @param newDb string new_db The name of the new database
      *
      * @return void
      */
-    setDb: function (new_db) {
-        if (new_db !== PMA_commonParams.get('db')) {
-            PMA_commonParams.setAll({ 'db': new_db, 'table': '' });
+    setDb: function (newDb) {
+        if (newDb !== CommonParams.get('db')) {
+            CommonParams.setAll({ 'db': newDb, 'table': '' });
         }
     },
     /**
      * Opens a database in the main part of the page
      *
-     * @param new_db string The name of the new database
+     * @param newDb string The name of the new database
      *
      * @return void
      */
-    openDb: function (new_db) {
-        PMA_commonParams
-            .set('db', new_db)
+    openDb: function (newDb) {
+        CommonParams
+            .set('db', newDb)
             .set('table', '');
         this.refreshMain(
-            PMA_commonParams.get('opendb_url')
+            CommonParams.get('opendb_url')
         );
     },
     /**
@@ -146,15 +146,20 @@ var PMA_commonActions = {
      * @return void
      */
     refreshMain: function (url, callback) {
-        if (! url) {
-            url = $('#selflink').find('a').attr('href');
-            url = url.substring(0, url.indexOf('?'));
+        var newUrl = url;
+        if (! newUrl) {
+            newUrl = $('#selflink').find('a').attr('href') || window.location.pathname;
+            newUrl = newUrl.substring(0, newUrl.indexOf('?'));
         }
-        url += PMA_commonParams.getUrlQuery();
-        $('<a />', { href: url })
+        if (newUrl.indexOf('?') !== -1) {
+            newUrl += CommonParams.getUrlQuery('&');
+        } else {
+            newUrl += CommonParams.getUrlQuery();
+        }
+        $('<a></a>', { href: newUrl })
             .appendTo('body')
             .trigger('click')
             .remove();
-        AJAX._callback = callback;
+        AJAX.callback = callback;
     }
 };

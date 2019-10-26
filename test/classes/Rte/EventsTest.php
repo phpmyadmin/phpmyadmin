@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for PhpMyAdmin\Rte\Events
  *
@@ -9,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Rte;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Rte\Events;
 use PHPUnit\Framework\TestCase;
@@ -30,23 +30,15 @@ class EventsTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
+        $GLOBALS['PMA_Config'] = new Config();
+        $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
-        $GLOBALS['cfg']['AllowThirdPartyFraming'] = false;
-        $GLOBALS['cfg']['SendErrorReports'] = 'ask';
-        $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
-        $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'] = true;
-        $GLOBALS['cfg']['DefaultTabTable'] = 'browse';
-        $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = 'structure';
-        $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'] = '';
-        $GLOBALS['cfg']['LimitChars'] = 50;
-        $GLOBALS['cfg']['Confirm'] = true;
-        $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
-        $GLOBALS['cfg']['ServerDefault'] = '';
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['tear_down']['server'] = true;
 
         $this->events = new Events($GLOBALS['dbi']);
@@ -57,7 +49,7 @@ class EventsTest extends TestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         if ($GLOBALS['tear_down']['server']) {
             unset($GLOBALS['cfg']['ServerDefault']);
@@ -75,14 +67,12 @@ class EventsTest extends TestCase
      *
      * @dataProvider providerGetDataFromRequest
      */
-    public function testGetDataFromRequestEmpty($in, $out)
+    public function testGetDataFromRequestEmpty($in, $out): void
     {
-        global $_REQUEST;
-
-        unset($_REQUEST);
+        unset($_POST);
         foreach ($in as $key => $value) {
             if ($value !== '') {
-                $_REQUEST[$key] = $value;
+                $_POST[$key] = $value;
             }
         }
         $this->assertEquals($out, $this->events->getDataFromRequest());
@@ -110,7 +100,7 @@ class EventsTest extends TestCase
                     'item_definition'     => '',
                     'item_preserve'       => '',
                     'item_comment'        => '',
-                    'item_definer'        => ''
+                    'item_definer'        => '',
                 ],
                 [
                     'item_name'           => '',
@@ -126,8 +116,8 @@ class EventsTest extends TestCase
                     'item_definition'     => '',
                     'item_preserve'       => '',
                     'item_comment'        => '',
-                    'item_definer'        => ''
-                ]
+                    'item_definer'        => '',
+                ],
             ],
             [
                 [
@@ -143,7 +133,7 @@ class EventsTest extends TestCase
                     'item_definition'     => 'foo',
                     'item_preserve'       => 'foo',
                     'item_comment'        => 'foo',
-                    'item_definer'        => 'foo'
+                    'item_definer'        => 'foo',
                 ],
                 [
                     'item_name'           => 'foo',
@@ -159,8 +149,8 @@ class EventsTest extends TestCase
                     'item_definition'     => 'foo',
                     'item_preserve'       => 'foo',
                     'item_comment'        => 'foo',
-                    'item_definer'        => 'foo'
-                ]
+                    'item_definer'        => 'foo',
+                ],
             ],
         ];
     }
@@ -175,10 +165,10 @@ class EventsTest extends TestCase
      *
      * @dataProvider providerGetEditorFormAdd
      */
-    public function testGetEditorFormAdd($data, $matcher)
+    public function testGetEditorFormAdd($data, $matcher): void
     {
         $this->events->setGlobals();
-        $this->assertContains(
+        $this->assertStringContainsString(
             $matcher,
             $this->events->getEditorForm('add', 'change', $data)
         );
@@ -205,50 +195,50 @@ class EventsTest extends TestCase
             'item_definition'     => '',
             'item_preserve'       => '',
             'item_comment'        => '',
-            'item_definer'        => ''
+            'item_definer'        => '',
         ];
 
         return [
             [
                 $data,
-                "<input name='add_item'"
+                "<input name='add_item'",
             ],
             [
                 $data,
-                "<input type='text' name='item_name'"
+                "<input type='text' name='item_name'",
             ],
             [
                 $data,
-                "<select name='item_status'"
+                "<select name='item_status'",
             ],
             [
                 $data,
-                "<input name='item_type'"
+                "<input name='item_type'",
             ],
             [
                 $data,
-                "<input type='text' name='item_execute_at'"
+                "<input type='text' name='item_execute_at'",
             ],
             [
                 $data,
-                "<input type='text' name='item_ends'"
+                "<input type='text' name='item_ends'",
             ],
             [
                 $data,
-                "<textarea name='item_definition'"
+                "<textarea name='item_definition'",
             ],
             [
                 $data,
-                "<input type='text' name='item_definer'"
+                "<input type='text' name='item_definer'",
             ],
             [
                 $data,
-                "<input type='text' name='item_comment'"
+                "<input type='text' name='item_comment'",
             ],
             [
                 $data,
-                "<input type='submit' name='editor_process_add'"
-            ]
+                "<input type='submit' name='editor_process_add'",
+            ],
         ];
     }
 
@@ -262,10 +252,10 @@ class EventsTest extends TestCase
      *
      * @dataProvider providerGetEditorFormEdit
      */
-    public function testGetEditorFormEdit($data, $matcher)
+    public function testGetEditorFormEdit($data, $matcher): void
     {
         $this->events->setGlobals();
-        $this->assertContains(
+        $this->assertStringContainsString(
             $matcher,
             $this->events->getEditorForm('edit', 'change', $data)
         );
@@ -292,50 +282,50 @@ class EventsTest extends TestCase
             'item_definition'     => 'SET @A=1;',
             'item_preserve'       => '',
             'item_comment'        => '',
-            'item_definer'        => ''
+            'item_definer'        => '',
         ];
 
         return [
             [
                 $data,
-                "<input name='edit_item'"
+                "<input name='edit_item'",
             ],
             [
                 $data,
-                "<input type='text' name='item_name'"
+                "<input type='text' name='item_name'",
             ],
             [
                 $data,
-                "<select name='item_status'"
+                "<select name='item_status'",
             ],
             [
                 $data,
-                "<input name='item_type'"
+                "<input name='item_type'",
             ],
             [
                 $data,
-                "<input type='text' name='item_execute_at'"
+                "<input type='text' name='item_execute_at'",
             ],
             [
                 $data,
-                "<input type='text' name='item_ends'"
+                "<input type='text' name='item_ends'",
             ],
             [
                 $data,
-                "<textarea name='item_definition'"
+                "<textarea name='item_definition'",
             ],
             [
                 $data,
-                "<input type='text' name='item_definer'"
+                "<input type='text' name='item_definer'",
             ],
             [
                 $data,
-                "<input type='text' name='item_comment'"
+                "<input type='text' name='item_comment'",
             ],
             [
                 $data,
-                "<input type='submit' name='editor_process_edit'"
-            ]
+                "<input type='submit' name='editor_process_edit'",
+            ],
         ];
     }
 
@@ -349,11 +339,11 @@ class EventsTest extends TestCase
      *
      * @dataProvider providerGetEditorFormAjax
      */
-    public function testGetEditorFormAjax($data, $matcher)
+    public function testGetEditorFormAjax($data, $matcher): void
     {
         Response::getInstance()->setAjax(true);
         $this->events->setGlobals();
-        $this->assertContains(
+        $this->assertStringContainsString(
             $matcher,
             $this->events->getEditorForm('edit', 'change', $data)
         );
@@ -381,22 +371,22 @@ class EventsTest extends TestCase
             'item_definition'     => '',
             'item_preserve'       => '',
             'item_comment'        => '',
-            'item_definer'        => ''
+            'item_definer'        => '',
         ];
 
         return [
             [
                 $data,
-                "<select name='item_type'"
+                "<select name='item_type'",
             ],
             [
                 $data,
-                "<input type='hidden' name='editor_process_edit'"
+                "<input type='hidden' name='editor_process_edit'",
             ],
             [
                 $data,
-                "<input type='hidden' name='ajax_request'"
-            ]
+                "<input type='hidden' name='ajax_request'",
+            ],
         ];
     }
 
@@ -411,15 +401,15 @@ class EventsTest extends TestCase
      *
      * @dataProvider providerGetQueryFromRequest
      */
-    public function testGetQueryFromRequest($request, $query, $num_err)
+    public function testGetQueryFromRequest($request, $query, $num_err): void
     {
-        global $_REQUEST, $errors;
+        global $errors;
 
         $errors = [];
         $this->events->setGlobals();
 
-        unset($_REQUEST);
-        $_REQUEST = $request;
+        unset($_POST);
+        $_POST = $request;
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -447,11 +437,11 @@ class EventsTest extends TestCase
                     'item_name'       => 's o m e e v e n t\\',
                     'item_type'       => 'ONE TIME',
                     'item_execute_at' => '2050-01-01 00:00:00',
-                    'item_definition' => 'SET @A=0;'
+                    'item_definition' => 'SET @A=0;',
                 ],
                 'CREATE EVENT `s o m e e v e n t\` ON SCHEDULE AT \'2050-01-01 ' .
                 '00:00:00\' ON COMPLETION NOT PRESERVE DO SET @A=0;',
-                0
+                0,
             ],
             [
                 [ // full once-off event
@@ -461,11 +451,11 @@ class EventsTest extends TestCase
                     'item_execute_at' => '2050-01-01 00:00:00',
                     'item_preserve'   => 'ON',
                     'item_status'     => 'ENABLED',
-                    'item_definition' => 'SET @A=0;'
+                    'item_definition' => 'SET @A=0;',
                 ],
                 'CREATE DEFINER=`me`@`home` EVENT `evn` ON SCHEDULE AT ' .
                 '\'2050-01-01 00:00:00\' ON COMPLETION PRESERVE ENABLE DO SET @A=0;',
-                0
+                0,
             ],
             [
                 [ // simple recurring event
@@ -474,11 +464,11 @@ class EventsTest extends TestCase
                     'item_interval_value' => '365',
                     'item_interval_field' => 'DAY',
                     'item_status'         => 'DISABLED',
-                    'item_definition'     => 'SET @A=0;'
+                    'item_definition'     => 'SET @A=0;',
                 ],
                 'CREATE EVENT `rec_````evn` ON SCHEDULE EVERY 365 DAY ON ' .
                 'COMPLETION NOT PRESERVE DISABLE DO SET @A=0;',
-                0
+                0,
             ],
             [
                 [ // full recurring event
@@ -491,19 +481,19 @@ class EventsTest extends TestCase
                     'item_ends'           => '2050-01-01',
                     'item_preserve'       => 'ON',
                     'item_status'         => 'SLAVESIDE_DISABLED',
-                    'item_definition'     => 'SET @A=0;'
+                    'item_definition'     => 'SET @A=0;',
                 ],
                 'CREATE DEFINER=`evil````user><\`@`work\` EVENT `rec_evn2` ON ' .
                 'SCHEDULE EVERY 365 DAY STARTS \'1900-01-01\' ENDS \'2050-01-01\' ' .
                 'ON COMPLETION PRESERVE DISABLE ON SLAVE DO SET @A=0;',
-                0
+                0,
             ],
             // Testing failures
             [
                 [ // empty request
                 ],
                 'CREATE EVENT ON SCHEDULE ON COMPLETION NOT PRESERVE DO ',
-                3
+                3,
             ],
             [
                 [
@@ -511,11 +501,11 @@ class EventsTest extends TestCase
                     'item_definer'    => 'someuser', // invalid definer format
                     'item_type'       => 'ONE TIME',
                     'item_execute_at' => '', // no execution time
-                    'item_definition' => 'SET @A=0;'
+                    'item_definition' => 'SET @A=0;',
                 ],
                 'CREATE EVENT `s o m e e v e n t\` ON SCHEDULE ON COMPLETION NOT ' .
                 'PRESERVE DO SET @A=0;',
-                2
+                2,
             ],
             [
                 [
@@ -524,11 +514,11 @@ class EventsTest extends TestCase
                     'item_interval_value' => '', // no interval value
                     'item_interval_field' => 'DAY',
                     'item_status'         => 'DISABLED',
-                    'item_definition'     => 'SET @A=0;'
+                    'item_definition'     => 'SET @A=0;',
                 ],
                 'CREATE EVENT `rec_````evn` ON SCHEDULE ON COMPLETION NOT ' .
                 'PRESERVE DISABLE DO SET @A=0;',
-                1
+                1,
             ],
             [
                 [ // simple recurring event
@@ -537,11 +527,11 @@ class EventsTest extends TestCase
                     'item_interval_value' => '365',
                     'item_interval_field' => 'CENTURIES', // invalid interval field
                     'item_status'         => 'DISABLED',
-                    'item_definition'     => 'SET @A=0;'
+                    'item_definition'     => 'SET @A=0;',
                 ],
                 'CREATE EVENT `rec_````evn` ON SCHEDULE ON COMPLETION NOT ' .
                 'PRESERVE DISABLE DO SET @A=0;',
-                1
+                1,
             ],
         ];
     }

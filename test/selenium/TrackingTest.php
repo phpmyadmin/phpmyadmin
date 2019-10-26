@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Selenium TestCase for tracking related tests
  *
@@ -24,7 +23,7 @@ class TrackingTest extends TestBase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->dbQuery(
@@ -80,22 +79,22 @@ class TrackingTest extends TestBase
             "//h3[contains(., 'Tracking report')]"
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "DROP TABLE IF EXISTS `test_table`",
             $this->getCellByTableId('ddl_versions', 1, 4)
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "CREATE TABLE `test_table` (",
             $this->getCellByTableId('ddl_versions', 2, 4)
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "UPDATE test_table SET val = val + 1",
             $this->getCellByTableId('dml_versions', 1, 4)
         );
 
-        $this->assertNotContains(
+        $this->assertStringNotContainsString(
             "DELETE FROM test_table WHERE val = 3",
             $this->byId("dml_versions")->getText()
         );
@@ -114,12 +113,12 @@ class TrackingTest extends TestBase
             $this->isElementPresent('id', "dml_versions")
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "DROP TABLE IF EXISTS `test_table`",
             $this->getCellByTableId('ddl_versions', 1, 4)
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "CREATE TABLE `test_table` (",
             $this->getCellByTableId('ddl_versions', 2, 4)
         );
@@ -138,12 +137,12 @@ class TrackingTest extends TestBase
             $this->isElementPresent('id', "ddl_versions")
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "UPDATE test_table SET val = val + 1",
             $this->getCellByTableId('dml_versions', 1, 4)
         );
 
-        $this->assertNotContains(
+        $this->assertStringNotContainsString(
             "DELETE FROM test_table WHERE val = 3",
             $this->byId("dml_versions")->getText()
         );
@@ -207,14 +206,14 @@ class TrackingTest extends TestBase
 
         // Can not use getCellByTableId,
         // since this is under 'th' and not 'td'
-        $this->assertContains(
+        $this->assertStringContainsString(
             'test_table',
             $this->waitForElement(
                 'cssSelector',
                 'table#noversions tbody tr:nth-child(1) th:nth-child(2)'
             )->getText()
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'test_table_2',
             $this->waitForElement(
                 'cssSelector',
@@ -235,22 +234,22 @@ class TrackingTest extends TestBase
         $this->byPartialLinkText("Structure snapshot")->click();
         $this->waitForElement('id', "tablestructure");
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "id",
             $this->getCellByTableId('tablestructure', 1, 2)
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "val",
             $this->getCellByTableId('tablestructure', 2, 2)
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "PRIMARY",
             $this->getCellByTableId('tablestructure_indexes', 1, 1)
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             "id",
             $this->getCellByTableId('tablestructure_indexes', 1, 5)
         );
@@ -271,6 +270,7 @@ class TrackingTest extends TestBase
             ";UPDATE test_table SET val = val + 1; "
             . "DELETE FROM test_table WHERE val = 3"
         );
+        $this->scrollToBottom();
         $this->byCssSelector("input[value='Go']")->click();
         $this->waitAjax();
         $this->waitForElement('className', "success");

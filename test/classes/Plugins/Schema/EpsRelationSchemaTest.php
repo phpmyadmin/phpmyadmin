@@ -31,7 +31,7 @@ class EpsRelationSchemaTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $_REQUEST['page_number'] = 33;
         $_REQUEST['eps_show_color'] = true;
@@ -42,6 +42,8 @@ class EpsRelationSchemaTest extends PmaTestCase
         $_REQUEST['t_h'] = ['information_schema.files' => 1];
         $_REQUEST['t_x'] = ['information_schema.files' => 0];
         $_REQUEST['t_y'] = ['information_schema.files' => 0];
+        $_POST['t_db'] = ['information_schema'];
+        $_POST['t_tbl'] = ['files'];
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'information_schema';
@@ -55,7 +57,7 @@ class EpsRelationSchemaTest extends PmaTestCase
             'db' => "information_schema",
             'table_info' => 'table_info',
             'relwork' => 'relwork',
-            'relation' => 'relation'
+            'relation' => 'relation',
         ];
         $relation = new Relation($GLOBALS['dbi']);
         $relation->getRelationsParam();
@@ -78,12 +80,12 @@ class EpsRelationSchemaTest extends PmaTestCase
 
         $fetchArrayReturn = [
             //table name in information_schema_relations
-            'table_name' => 'CHARACTER_SETS'
+            'table_name' => 'CHARACTER_SETS',
         ];
 
         $fetchArrayReturn2 = [
             //table name in information_schema_relations
-            'table_name' => 'COLLATIONS'
+            'table_name' => 'COLLATIONS',
         ];
 
         $dbi->expects($this->at(2))
@@ -102,8 +104,8 @@ class EpsRelationSchemaTest extends PmaTestCase
                 'Field' => 'field1',
                 'Key' => 'PRIMARY',
                 'Key_name' => "Key_name",
-                'Column_name' => "Column_name"
-            ]
+                'Column_name' => "Column_name",
+            ],
         ];
         $dbi->expects($this->any())->method('getTableIndexes')
             ->will($this->returnValue($getIndexesResult));
@@ -134,7 +136,7 @@ class EpsRelationSchemaTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }

@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for PhpMyAdmin\Navigation\Nodes\NodeTable class
  *
@@ -25,7 +24,7 @@ class NodeTableTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = 'b_browse';
@@ -51,11 +50,11 @@ class NodeTableTest extends PmaTestCase
             'text',
             $parent->links
         );
-        $this->assertContains(
-            'sql.php',
+        $this->assertStringContainsString(
+            'index.php?route=/sql',
             $parent->links['text']
         );
-        $this->assertContains('table', $parent->classes);
+        $this->assertStringContainsString('table', $parent->classes);
     }
 
     /**
@@ -67,11 +66,11 @@ class NodeTableTest extends PmaTestCase
      * @return void
      * @dataProvider providerForTestIcon
      */
-    public function testIcon($target, $imageName)
+    public function testIcon($target, $imageName): void
     {
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = $target;
         $node = NodeFactory::getInstance('NodeTable');
-        $this->assertContains($imageName, $node->icon[0]);
+        $this->assertStringContainsString($imageName, $node->icon[0]);
     }
 
     /**
@@ -82,11 +81,26 @@ class NodeTableTest extends PmaTestCase
     public function providerForTestIcon()
     {
         return [
-            ['structure', 'b_props'],
-            ['search', 'b_search'],
-            ['insert', 'b_insrow'],
-            ['sql', 'b_sql'],
-            ['browse', 'b_browse'],
+            [
+                'structure',
+                'b_props',
+            ],
+            [
+                'search',
+                'b_search',
+            ],
+            [
+                'insert',
+                'b_insrow',
+            ],
+            [
+                'sql',
+                'b_sql',
+            ],
+            [
+                'browse',
+                'b_browse',
+            ],
         ];
     }
 }

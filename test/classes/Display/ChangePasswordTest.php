@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for PhpMyAdmin\Display\ChangePassword
  *
@@ -15,7 +14,7 @@ use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
 
-require_once 'libraries/config.default.php';
+require_once ROOT_PATH . 'libraries/config.default.php';
 
 /**
  * ChangePasswordTest class
@@ -31,7 +30,7 @@ class ChangePasswordTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         //$GLOBALS
         $GLOBALS['PMA_Config'] = new Config();
@@ -46,7 +45,7 @@ class ChangePasswordTest extends TestCase
         $GLOBALS['cfg']['ShowHint'] = true;
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['PMA_PHP_SELF'] = "server_privileges.php";
+        $GLOBALS['PMA_PHP_SELF'] = '';
         $GLOBALS['server'] = 0;
 
         //$_SESSION
@@ -62,46 +61,46 @@ class ChangePasswordTest extends TestCase
     {
         $username = "pma_username";
         $hostname = "pma_hostname";
+        $_REQUEST['route'] = '/server/privileges';
 
         //Call the test function
         $html = ChangePassword::getHtml('change_pw', $username, $hostname);
 
-        //PMA_PHP_SELF
-        $this->assertContains(
-            $GLOBALS['PMA_PHP_SELF'],
+        $this->assertStringContainsString(
+            Url::getFromRoute('/server/privileges'),
             $html
         );
 
         //Url::getHiddenInputs
-        $this->assertContains(
+        $this->assertStringContainsString(
             Url::getHiddenInputs(),
             $html
         );
 
         //$username & $hostname
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars($username),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars($hostname),
             $html
         );
 
         //labels
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Change password'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('No Password'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Password:'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Password:'),
             $html
         );

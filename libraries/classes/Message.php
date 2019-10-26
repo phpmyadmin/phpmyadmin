@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Holds class Message
  *
@@ -144,9 +143,9 @@ class Message
         array $params = [],
         int $sanitize = Message::SANITIZE_NONE
     ) {
-        $this->setString($string, $sanitize & Message::SANITIZE_STRING);
+        $this->setString($string, $sanitize & self::SANITIZE_STRING);
         $this->setNumber($number);
-        $this->setParams($params, $sanitize & Message::SANITIZE_PARAMS);
+        $this->setParams($params, $sanitize & self::SANITIZE_PARAMS);
     }
 
     /**
@@ -177,7 +176,7 @@ class Message
             $string = __('Your SQL query has been executed successfully.');
         }
 
-        return new Message($string, Message::SUCCESS);
+        return new Message($string, self::SUCCESS);
     }
 
     /**
@@ -196,7 +195,7 @@ class Message
             $string = __('Error');
         }
 
-        return new Message($string, Message::ERROR);
+        return new Message($string, self::ERROR);
     }
 
     /**
@@ -214,7 +213,7 @@ class Message
      */
     public static function notice(string $string): self
     {
-        return new Message($string, Message::NOTICE);
+        return new Message($string, self::NOTICE);
     }
 
     /**
@@ -248,7 +247,7 @@ class Message
      */
     public static function getMessageForAffectedRows(int $rows): self
     {
-        $message = Message::success(
+        $message = self::success(
             _ngettext('%1$d row affected.', '%1$d rows affected.', $rows)
         );
         $message->addParam($rows);
@@ -267,7 +266,7 @@ class Message
      */
     public static function getMessageForDeletedRows(int $rows): self
     {
-        $message = Message::success(
+        $message = self::success(
             _ngettext('%1$d row deleted.', '%1$d rows deleted.', $rows)
         );
         $message->addParam($rows);
@@ -286,7 +285,7 @@ class Message
      */
     public static function getMessageForInsertedRows(int $rows): self
     {
-        $message = Message::success(
+        $message = self::success(
             _ngettext('%1$d row inserted.', '%1$d rows inserted.', $rows)
         );
         $message->addParam($rows);
@@ -305,7 +304,7 @@ class Message
      */
     public static function rawError(string $message): self
     {
-        return Message::raw($message, Message::ERROR);
+        return self::raw($message, self::ERROR);
     }
 
     /**
@@ -320,7 +319,7 @@ class Message
      */
     public static function rawNotice(string $message): self
     {
-        return Message::raw($message, Message::NOTICE);
+        return self::raw($message, self::NOTICE);
     }
 
     /**
@@ -335,7 +334,7 @@ class Message
      */
     public static function rawSuccess(string $message): self
     {
-        return Message::raw($message, Message::SUCCESS);
+        return self::raw($message, self::SUCCESS);
     }
 
     /**
@@ -349,10 +348,10 @@ class Message
     public function isSuccess(bool $set = false): bool
     {
         if ($set) {
-            $this->setNumber(Message::SUCCESS);
+            $this->setNumber(self::SUCCESS);
         }
 
-        return $this->getNumber() === Message::SUCCESS;
+        return $this->getNumber() === self::SUCCESS;
     }
 
     /**
@@ -366,10 +365,10 @@ class Message
     public function isNotice(bool $set = false): bool
     {
         if ($set) {
-            $this->setNumber(Message::NOTICE);
+            $this->setNumber(self::NOTICE);
         }
 
-        return $this->getNumber() === Message::NOTICE;
+        return $this->getNumber() === self::NOTICE;
     }
 
     /**
@@ -383,10 +382,10 @@ class Message
     public function isError(bool $set = false): bool
     {
         if ($set) {
-            $this->setNumber(Message::ERROR);
+            $this->setNumber(self::ERROR);
         }
 
-        return $this->getNumber() === Message::ERROR;
+        return $this->getNumber() === self::ERROR;
     }
 
     /**
@@ -412,7 +411,7 @@ class Message
     public function setMessage(string $message, bool $sanitize = false): void
     {
         if ($sanitize) {
-            $message = Message::sanitize($message);
+            $message = self::sanitize($message);
         }
         $this->message = $message;
     }
@@ -428,7 +427,7 @@ class Message
     public function setString(string $string, $sanitize = true): void
     {
         if ($sanitize) {
-            $string = Message::sanitize($string);
+            $string = self::sanitize($string);
         }
         $this->string = $string;
     }
@@ -459,7 +458,7 @@ class Message
      */
     public function addParam($param): void
     {
-        if ($param instanceof Message) {
+        if ($param instanceof self || is_float($param) || is_int($param)) {
             $this->params[] = $param;
         } else {
             $this->params[] = htmlspecialchars((string) $param);
@@ -471,7 +470,7 @@ class Message
      *
      * usage
      * <code>
-     * $message->addParamHtml('<img src="img" />');
+     * $message->addParamHtml('<img src="img">');
      * </code>
      *
      * @param string $param parameter to add
@@ -480,7 +479,7 @@ class Message
      */
     public function addParamHtml(string $param): void
     {
-        $this->params[] = Message::notice($param);
+        $this->params[] = self::notice($param);
     }
 
     /**
@@ -516,14 +515,14 @@ class Message
     /**
      * Real implementation of adding message
      *
-     * @param mixed  $message   to be added
-     * @param string $separator to use between this and previous string/message
+     * @param Message $message   to be added
+     * @param string  $separator to use between this and previous string/message
      *
      * @return void
      */
     private function addMessageToList(self $message, string $separator): void
     {
-        if (!empty($separator)) {
+        if (! empty($separator)) {
             $this->addedMessages[] = $separator;
         }
         $this->addedMessages[] = $message;
@@ -532,8 +531,8 @@ class Message
     /**
      * add another raw message to be concatenated on displaying
      *
-     * @param Message $message   to be added
-     * @param string  $separator to use between this and previous string/message
+     * @param self   $message   to be added
+     * @param string $separator to use between this and previous string/message
      *
      * @return void
      */
@@ -552,7 +551,7 @@ class Message
      */
     public function addText(string $message, string $separator = ' '): void
     {
-        $this->addMessageToList(Message::notice(htmlspecialchars($message)), $separator);
+        $this->addMessageToList(self::notice(htmlspecialchars($message)), $separator);
     }
 
     /**
@@ -565,7 +564,7 @@ class Message
      */
     public function addHtml(string $message, string $separator = ' '): void
     {
-        $this->addMessageToList(Message::rawNotice($message), $separator);
+        $this->addMessageToList(self::rawNotice($message), $separator);
     }
 
     /**
@@ -579,7 +578,7 @@ class Message
     public function setParams($params, $sanitize = false): void
     {
         if ($sanitize) {
-            $params = Message::sanitize($params);
+            $params = self::sanitize($params);
         }
         $this->params = $params;
     }
@@ -617,7 +616,7 @@ class Message
     {
         if (is_array($message)) {
             foreach ($message as $key => $val) {
-                $message[$key] = Message::sanitize($val);
+                $message[$key] = self::sanitize($val);
             }
 
             return $message;
@@ -638,13 +637,13 @@ class Message
      */
     public static function decodeBB(string $message): string
     {
-        return Sanitize::sanitize($message, false, true);
+        return Sanitize::sanitizeMessage($message, false, true);
     }
 
     /**
      * wrapper for sprintf()
      *
-     * @param mixed[] ... $params Params
+     * @param mixed[] ...$params Params
      * @return string formatted
      */
     public static function format(...$params): string
@@ -654,7 +653,7 @@ class Message
             $params = $params[1];
         }
 
-        return call_user_func_array('sprintf', $params);
+        return sprintf(...$params);
     }
 
     /**
@@ -697,11 +696,11 @@ class Message
             $message = $this->getMessageWithIcon($message);
         }
         if (count($this->getParams()) > 0) {
-            $message = Message::format($message, $this->getParams());
+            $message = self::format($message, $this->getParams());
         }
 
         if ($this->useBBCode) {
-            $message = Message::decodeBB($message);
+            $message = self::decodeBB($message);
         }
 
         foreach ($this->getAddedMessages() as $add_message) {
@@ -712,10 +711,10 @@ class Message
     }
 
     /**
-    * Returns only message string without image & other HTML.
-    *
-    * @return string
-    */
+     * Returns only message string without image & other HTML.
+     *
+     * @return string
+     */
     public function getOnlyMessage(): string
     {
         return $this->message;
@@ -749,7 +748,7 @@ class Message
      */
     public function getLevel(): string
     {
-        return Message::$level[$this->getNumber()];
+        return self::$level[$this->getNumber()];
     }
 
     /**
@@ -760,7 +759,6 @@ class Message
     public function display(): void
     {
         echo $this->getDisplay();
-        $this->isDisplayed(true);
     }
 
     /**
@@ -800,14 +798,14 @@ class Message
      */
     public function getMessageWithIcon(string $message): string
     {
-        if ('error' == $this->getLevel()) {
+        if ('error' === $this->getLevel()) {
             $image = 's_error';
-        } elseif ('success' == $this->getLevel()) {
+        } elseif ('success' === $this->getLevel()) {
             $image = 's_success';
         } else {
             $image = 's_notice';
         }
-        $message = Message::notice(Util::getImage($image)) . " " . $message;
+        $message = self::notice(Util::getImage($image)) . " " . $message;
         return $message;
     }
 }

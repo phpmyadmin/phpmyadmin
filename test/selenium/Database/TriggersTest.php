@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Selenium TestCase for table related tests
  *
@@ -26,7 +25,7 @@ class TriggersTest extends TestBase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->dbQuery(
@@ -108,7 +107,7 @@ class TriggersTest extends TestBase
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
-        $ele = $this->waitForElement(
+        $this->waitForElement(
             'xpath',
             "//div[@class='success' and contains(., "
             . "'Trigger `test_trigger` has been created')]"
@@ -161,7 +160,7 @@ class TriggersTest extends TestBase
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
-        $ele = $this->waitForElement(
+        $this->waitForElement(
             'xpath',
             "//div[@class='success' and contains(., "
             . "'Trigger `test_trigger` has been modified')]"

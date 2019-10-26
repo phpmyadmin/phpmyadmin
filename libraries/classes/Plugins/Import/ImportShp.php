@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * ESRI Shape file import plugin for phpMyAdmin
  *
@@ -67,7 +66,7 @@ class ImportShp extends ImportPlugin
     /**
      * Handles the whole import logic
      *
-     * @param array &$sql_data 2-element array with sql data
+     * @param array $sql_data 2-element array with sql data
      *
      * @return void
      */
@@ -102,7 +101,7 @@ class ImportShp extends ImportPlugin
             $temp = $GLOBALS['PMA_Config']->getTempDir('shp');
             // If we can extract the zip archive to 'TempDir'
             // and use the files in it for import
-            if ($compression == 'application/zip' && ! is_null($temp)) {
+            if ($compression == 'application/zip' && $temp !== null) {
                 $dbf_file_name = $this->zipExtension->findFile(
                     $import_file,
                     '/^.*\.dbf$/i'
@@ -133,8 +132,8 @@ class ImportShp extends ImportPlugin
                         }
                     }
                 }
-            } elseif (!empty($local_import_file)
-                && !empty($GLOBALS['cfg']['UploadDir'])
+            } elseif (! empty($local_import_file)
+                && ! empty($GLOBALS['cfg']['UploadDir'])
                 && $compression == 'none'
             ) {
                 // If file is in UploadDir, use .dbf file in the same UploadDir
@@ -200,7 +199,7 @@ class ImportShp extends ImportPlugin
         }
 
         if (isset($gis_type)) {
-            /** @var GisMultiLineString|\PhpMyAdmin\Gis\GisMultiPoint|\PhpMyAdmin\Gis\GisPoint|GisPolygon $gis_obj */
+            /** @var GisMultiLineString|GisMultiPoint|GisPoint|GisPolygon $gis_obj */
             $gis_obj = GisFactory::factory($gis_type);
         } else {
             $gis_obj = null;
@@ -208,7 +207,7 @@ class ImportShp extends ImportPlugin
 
         $num_rows = count($shp->records);
         // If .dbf file is loaded, the number of extra data columns
-        $num_data_cols = isset($shp->DBFHeader) ? count($shp->DBFHeader) : 0;
+        $num_data_cols = $shp->getDBFHeader() !== null ? count($shp->getDBFHeader()) : 0;
 
         $rows = [];
         $col_names = [];
@@ -222,11 +221,11 @@ class ImportShp extends ImportPlugin
                         . $gis_obj->getShape($record->SHPData) . "')";
                 }
 
-                if (isset($shp->DBFHeader)) {
-                    foreach ($shp->DBFHeader as $c) {
+                if ($shp->getDBFHeader() !== null) {
+                    foreach ($shp->getDBFHeader() as $c) {
                         $cell = trim($record->DBFData[$c[0]]);
 
-                        if (!strcmp($cell, '')) {
+                        if (! strcmp($cell, '')) {
                             $cell = 'NULL';
                         }
 
@@ -237,7 +236,7 @@ class ImportShp extends ImportPlugin
             }
         }
 
-        if (count($rows) == 0) {
+        if (count($rows) === 0) {
             $error = true;
             $message = Message::error(
                 __('The imported file does not contain any data!')
@@ -250,7 +249,7 @@ class ImportShp extends ImportPlugin
         // if they are available
         $col_names[] = 'SPATIAL';
         for ($n = 0; $n < $num_data_cols; $n++) {
-            $col_names[] = $shp->DBFHeader[$n][0];
+            $col_names[] = $shp->getDBFHeader()[$n][0];
         }
 
         // Set table name based on the number of tables
@@ -260,7 +259,13 @@ class ImportShp extends ImportPlugin
         } else {
             $table_name = 'TBL_NAME';
         }
-        $tables = [[$table_name, $col_names, $rows]];
+        $tables = [
+            [
+                $table_name,
+                $col_names,
+                $rows,
+            ],
+        ];
 
         // Use data from shape file to chose best-fit MySQL types for each column
         $analyses = [];
@@ -284,8 +289,7 @@ class ImportShp extends ImportPlugin
         $null_param = null;
         $this->import->buildSql($db_name, $tables, $analyses, $null_param, $options, $sql_data);
 
-        unset($tables);
-        unset($analyses);
+        unset($tables, $analyses);
 
         $finished = true;
         $error = false;

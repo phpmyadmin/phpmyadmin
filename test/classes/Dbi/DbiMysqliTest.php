@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for PhpMyAdmin\Dbi\DbiMysqli class
  *
@@ -9,6 +8,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Dbi;
 
+use mysqli;
+use mysqli_result;
 use PhpMyAdmin\Dbi\DbiMysqli;
 use PHPUnit\Framework\TestCase;
 
@@ -31,7 +32,7 @@ class DbiMysqliTest extends TestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = new DbiMysqli();
     }
@@ -44,7 +45,7 @@ class DbiMysqliTest extends TestCase
     public function testSelectDb(): void
     {
         $databaseName = 'test';
-        $mysqli = $this->createMock(\mysqli::class);
+        $mysqli = $this->createMock(mysqli::class);
         $mysqli->expects($this->once())
             ->method('select_db')
             ->with($this->equalTo($databaseName))
@@ -61,7 +62,7 @@ class DbiMysqliTest extends TestCase
     public function testRealMultiQuery(): void
     {
         $query = 'test';
-        $mysqli = $this->createMock(\mysqli::class);
+        $mysqli = $this->createMock(mysqli::class);
         $mysqli->expects($this->once())
             ->method('multi_query')
             ->with($this->equalTo($query))
@@ -78,7 +79,7 @@ class DbiMysqliTest extends TestCase
     public function testFetchArray(): void
     {
         $expected = [];
-        $result = $this->createMock(\mysqli_result::class);
+        $result = $this->createMock(mysqli_result::class);
         $result->expects($this->once())
             ->method('fetch_array')
             ->with($this->equalTo(MYSQLI_BOTH))
@@ -95,7 +96,7 @@ class DbiMysqliTest extends TestCase
     public function testFetchAssoc(): void
     {
         $expected = [];
-        $result = $this->createMock(\mysqli_result::class);
+        $result = $this->createMock(mysqli_result::class);
         $result->expects($this->once())
             ->method('fetch_array')
             ->with($this->equalTo(MYSQLI_ASSOC))
@@ -112,7 +113,7 @@ class DbiMysqliTest extends TestCase
     public function testFetchRow(): void
     {
         $expected = [];
-        $result = $this->createMock(\mysqli_result::class);
+        $result = $this->createMock(mysqli_result::class);
         $result->expects($this->once())
             ->method('fetch_array')
             ->with($this->equalTo(MYSQLI_NUM))
@@ -129,7 +130,7 @@ class DbiMysqliTest extends TestCase
     public function testDataSeek(): void
     {
         $offset = 1;
-        $result = $this->createMock(\mysqli_result::class);
+        $result = $this->createMock(mysqli_result::class);
         $result->expects($this->once())
             ->method('data_seek')
             ->with($this->equalTo($offset))
@@ -145,7 +146,7 @@ class DbiMysqliTest extends TestCase
      */
     public function testFreeResult(): void
     {
-        $result = $this->createMock(\mysqli_result::class);
+        $result = $this->createMock(mysqli_result::class);
         $result->expects($this->once())
             ->method('close');
 
@@ -159,7 +160,7 @@ class DbiMysqliTest extends TestCase
      */
     public function testMoreResults(): void
     {
-        $mysqli = $this->createMock(\mysqli::class);
+        $mysqli = $this->createMock(mysqli::class);
         $mysqli->expects($this->once())
             ->method('more_results')
             ->willReturn(true);
@@ -174,7 +175,7 @@ class DbiMysqliTest extends TestCase
      */
     public function testNextResult(): void
     {
-        $mysqli = $this->createMock(\mysqli::class);
+        $mysqli = $this->createMock(mysqli::class);
         $mysqli->expects($this->once())
             ->method('next_result')
             ->willReturn(true);
@@ -189,7 +190,7 @@ class DbiMysqliTest extends TestCase
      */
     public function testStoreResult(): void
     {
-        $mysqli = $this->createMock(\mysqli::class);
+        $mysqli = $this->createMock(mysqli::class);
         $mysqli->expects($this->once())
             ->method('store_result')
             ->willReturn(true);
@@ -215,7 +216,7 @@ class DbiMysqliTest extends TestCase
     public function testEscapeString(): void
     {
         $string = 'test';
-        $mysqli = $this->createMock(\mysqli::class);
+        $mysqli = $this->createMock(mysqli::class);
         $mysqli->expects($this->once())
             ->method('real_escape_string')
             ->willReturn($string);

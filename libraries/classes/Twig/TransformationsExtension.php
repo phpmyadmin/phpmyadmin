@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * hold PhpMyAdmin\Twig\TransformationsExtension class
  *
@@ -31,11 +30,17 @@ class TransformationsExtension extends AbstractExtension
         return [
             new TwigFunction(
                 'get_description',
-                [$transformations, 'getDescription']
+                [
+                    $transformations,
+                    'getDescription',
+                ]
             ),
             new TwigFunction(
                 'get_name',
-                [$transformations, 'getName']
+                [
+                    $transformations,
+                    'getName',
+                ]
             ),
         ];
     }

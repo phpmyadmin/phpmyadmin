@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Holds the PhpMyAdmin\CreateAddField class
  *
@@ -9,14 +8,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Core;
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Index;
-use PhpMyAdmin\Table;
-use PhpMyAdmin\Util;
-
 /**
- * Set of functions for tbl_create.php and tbl_addfield.php
+ * Set of functions for /table/create and /table/addfield
  *
  * @package PhpMyAdmin
  */
@@ -44,12 +37,12 @@ class CreateAddField
      */
     private function getIndexedColumns(): array
     {
-        $fieldCount = count($_REQUEST['field_name']);
-        $fieldPrimary = json_decode($_REQUEST['primary_indexes'], true);
-        $fieldIndex = json_decode($_REQUEST['indexes'], true);
-        $fieldUnique = json_decode($_REQUEST['unique_indexes'], true);
-        $fieldFullText = json_decode($_REQUEST['fulltext_indexes'], true);
-        $fieldSpatial = json_decode($_REQUEST['spatial_indexes'], true);
+        $fieldCount = count($_POST['field_name']);
+        $fieldPrimary = json_decode($_POST['primary_indexes'], true);
+        $fieldIndex = json_decode($_POST['indexes'], true);
+        $fieldUnique = json_decode($_POST['unique_indexes'], true);
+        $fieldFullText = json_decode($_POST['fulltext_indexes'], true);
+        $fieldSpatial = json_decode($_POST['spatial_indexes'], true);
 
         return [
             $fieldCount,
@@ -69,7 +62,7 @@ class CreateAddField
      * @param boolean $isCreateTable true if requirement is to get the statement
      *                               for table creation
      *
-     * @return array  $definitions An array of initial sql statements
+     * @return array An array of initial sql statements
      *                             according to the request
      */
     private function buildColumnCreationStatement(
@@ -80,35 +73,35 @@ class CreateAddField
         $previousField = -1;
         for ($i = 0; $i < $fieldCount; ++$i) {
             // '0' is also empty for php :-(
-            if (strlen($_REQUEST['field_name'][$i]) === 0) {
+            if (strlen($_POST['field_name'][$i]) === 0) {
                 continue;
             }
 
             $definition = $this->getStatementPrefix($isCreateTable) .
                     Table::generateFieldSpec(
-                        trim($_REQUEST['field_name'][$i]),
-                        $_REQUEST['field_type'][$i],
-                        $_REQUEST['field_length'][$i],
-                        $_REQUEST['field_attribute'][$i],
-                        isset($_REQUEST['field_collation'][$i])
-                        ? $_REQUEST['field_collation'][$i]
+                        trim($_POST['field_name'][$i]),
+                        $_POST['field_type'][$i],
+                        $_POST['field_length'][$i],
+                        $_POST['field_attribute'][$i],
+                        isset($_POST['field_collation'][$i])
+                        ? $_POST['field_collation'][$i]
                         : '',
-                        isset($_REQUEST['field_null'][$i])
-                        ? $_REQUEST['field_null'][$i]
+                        isset($_POST['field_null'][$i])
+                        ? $_POST['field_null'][$i]
                         : 'NOT NULL',
-                        $_REQUEST['field_default_type'][$i],
-                        $_REQUEST['field_default_value'][$i],
-                        isset($_REQUEST['field_extra'][$i])
-                        ? $_REQUEST['field_extra'][$i]
+                        $_POST['field_default_type'][$i],
+                        $_POST['field_default_value'][$i],
+                        isset($_POST['field_extra'][$i])
+                        ? $_POST['field_extra'][$i]
                         : false,
-                        isset($_REQUEST['field_comments'][$i])
-                        ? $_REQUEST['field_comments'][$i]
+                        isset($_POST['field_comments'][$i])
+                        ? $_POST['field_comments'][$i]
                         : '',
-                        isset($_REQUEST['field_virtuality'][$i])
-                        ? $_REQUEST['field_virtuality'][$i]
+                        isset($_POST['field_virtuality'][$i])
+                        ? $_POST['field_virtuality'][$i]
                         : '',
-                        isset($_REQUEST['field_expression'][$i])
-                        ? $_REQUEST['field_expression'][$i]
+                        isset($_POST['field_expression'][$i])
+                        ? $_POST['field_expression'][$i]
                         : ''
                     );
 
@@ -130,7 +123,7 @@ class CreateAddField
      * @param bool $isCreateTable true if requirement is to get the statement
      *                            for table creation
      *
-     * @return string $sqlSuffix suffix
+     * @return string suffix
      */
     private function setColumnCreationStatementSuffix(
         int $previousField,
@@ -142,22 +135,22 @@ class CreateAddField
             return $sqlSuffix;
         }
 
-        if ((string) $_REQUEST['field_where'] === 'last') {
+        if ((string) $_POST['field_where'] === 'last') {
             return $sqlSuffix;
         }
 
         // Only the first field can be added somewhere other than at the end
         if ($previousField == -1) {
-            if ((string) $_REQUEST['field_where'] === 'first') {
+            if ((string) $_POST['field_where'] === 'first') {
                 $sqlSuffix .= ' FIRST';
-            } else {
+            } elseif (! empty($_POST['after_field'])) {
                 $sqlSuffix .= ' AFTER '
-                        . Util::backquote($_REQUEST['after_field']);
+                        . Util::backquote($_POST['after_field']);
             }
         } else {
             $sqlSuffix .= ' AFTER '
                     . Util::backquote(
-                        $_REQUEST['field_name'][$previousField]
+                        $_POST['field_name'][$previousField]
                     );
         }
 
@@ -181,7 +174,7 @@ class CreateAddField
         bool $isCreateTable = true
     ): array {
         $statement = [];
-        if (!count($index)) {
+        if (! count($index)) {
             return $statement;
         }
 
@@ -195,7 +188,7 @@ class CreateAddField
         $indexFields = [];
         foreach ($index['columns'] as $key => $column) {
             $indexFields[$key] = Util::backquote(
-                $_REQUEST['field_name'][$column['col_index']]
+                $_POST['field_name'][$column['col_index']]
             );
             if ($column['size']) {
                 $indexFields[$key] .= '(' . $column['size'] . ')';
@@ -241,7 +234,7 @@ class CreateAddField
      * @param boolean $isCreateTable true if requirement is to get the statement
      *                               for table creation
      *
-     * @return string $sqlPrefix prefix
+     * @return string prefix
      */
     private function getStatementPrefix(bool $isCreateTable = true): string
     {
@@ -261,7 +254,7 @@ class CreateAddField
      * @param array   $indexedColumns the columns for one type of index
      * @param string  $indexKeyword   the index keyword to use in the definition
      *
-     * @return array $index_definitions
+     * @return array
      */
     private function mergeIndexStatements(
         array $definitions,
@@ -348,9 +341,7 @@ class CreateAddField
         if (count($definitions)) {
             $sqlStatement = implode(', ', $definitions);
         }
-        $sqlStatement = preg_replace('@, $@', '', $sqlStatement);
-
-        return $sqlStatement;
+        return preg_replace('@, $@', '', $sqlStatement);
     }
 
     /**
@@ -361,32 +352,30 @@ class CreateAddField
     public function getPartitionsDefinition(): string
     {
         $sqlQuery = "";
-        if (! empty($_REQUEST['partition_by'])
-            && ! empty($_REQUEST['partition_expr'])
-            && ! empty($_REQUEST['partition_count'])
-            && $_REQUEST['partition_count'] > 1
+        if (! empty($_POST['partition_by'])
+            && ! empty($_POST['partition_expr'])
+            && ! empty($_POST['partition_count'])
+            && $_POST['partition_count'] > 1
         ) {
-            $sqlQuery .= " PARTITION BY " . $_REQUEST['partition_by']
-                . " (" . $_REQUEST['partition_expr'] . ")"
-                . " PARTITIONS " . $_REQUEST['partition_count'];
+            $sqlQuery .= " PARTITION BY " . $_POST['partition_by']
+                . " (" . $_POST['partition_expr'] . ")"
+                . " PARTITIONS " . $_POST['partition_count'];
         }
 
-        if (! empty($_REQUEST['subpartition_by'])
-            && ! empty($_REQUEST['subpartition_expr'])
-            && ! empty($_REQUEST['subpartition_count'])
-            && $_REQUEST['subpartition_count'] > 1
+        if (! empty($_POST['subpartition_by'])
+            && ! empty($_POST['subpartition_expr'])
+            && ! empty($_POST['subpartition_count'])
+            && $_POST['subpartition_count'] > 1
         ) {
-            $sqlQuery .= " SUBPARTITION BY " . $_REQUEST['subpartition_by']
-               . " (" . $_REQUEST['subpartition_expr'] . ")"
-               . " SUBPARTITIONS " . $_REQUEST['subpartition_count'];
+            $sqlQuery .= " SUBPARTITION BY " . $_POST['subpartition_by']
+               . " (" . $_POST['subpartition_expr'] . ")"
+               . " SUBPARTITIONS " . $_POST['subpartition_count'];
         }
 
-        if (! empty($_REQUEST['partitions'])) {
-            $i = 0;
+        if (! empty($_POST['partitions'])) {
             $partitions = [];
-            foreach ($_REQUEST['partitions'] as $partition) {
+            foreach ($_POST['partitions'] as $partition) {
                 $partitions[] = $this->getPartitionDefinition($partition);
-                $i++;
             }
             $sqlQuery .= " (" . implode(", ", $partitions) . ")";
         }
@@ -443,14 +432,12 @@ class CreateAddField
         }
 
         if (! empty($partition['subpartitions'])) {
-            $j = 0;
             $subpartitions = [];
             foreach ($partition['subpartitions'] as $subpartition) {
                 $subpartitions[] = $this->getPartitionDefinition(
                     $subpartition,
                     true
                 );
-                $j++;
             }
             $sqlQuery .= " (" . implode(", ", $subpartitions) . ")";
         }
@@ -476,24 +463,24 @@ class CreateAddField
             . Util::backquote(trim($table)) . ' (' . $sqlStatement . ')';
 
         // Adds table type, character set, comments and partition definition
-        if (!empty($_REQUEST['tbl_storage_engine'])
-            && ($_REQUEST['tbl_storage_engine'] != 'Default')
+        if (! empty($_POST['tbl_storage_engine'])
+            && ($_POST['tbl_storage_engine'] != 'Default')
         ) {
-            $sqlQuery .= ' ENGINE = ' . $_REQUEST['tbl_storage_engine'];
+            $sqlQuery .= ' ENGINE = ' . $_POST['tbl_storage_engine'];
         }
-        if (!empty($_REQUEST['tbl_collation'])) {
-            $sqlQuery .= Util::getCharsetQueryPart($_REQUEST['tbl_collation']);
+        if (! empty($_POST['tbl_collation'])) {
+            $sqlQuery .= Util::getCharsetQueryPart($_POST['tbl_collation']);
         }
-        if (! empty($_REQUEST['connection'])
-            && ! empty($_REQUEST['tbl_storage_engine'])
-            && $_REQUEST['tbl_storage_engine'] == 'FEDERATED'
+        if (! empty($_POST['connection'])
+            && ! empty($_POST['tbl_storage_engine'])
+            && $_POST['tbl_storage_engine'] == 'FEDERATED'
         ) {
             $sqlQuery .= " CONNECTION = '"
-                . $this->dbi->escapeString($_REQUEST['connection']) . "'";
+                . $this->dbi->escapeString($_POST['connection']) . "'";
         }
-        if (!empty($_REQUEST['comment'])) {
+        if (! empty($_POST['comment'])) {
             $sqlQuery .= ' COMMENT = \''
-                . $this->dbi->escapeString($_REQUEST['comment']) . '\'';
+                . $this->dbi->escapeString($_POST['comment']) . '\'';
         }
         $sqlQuery .= $this->getPartitionsDefinition();
         $sqlQuery .= ';';
@@ -511,14 +498,14 @@ class CreateAddField
         // Limit to 4096 fields (MySQL maximal value)
         $mysqlLimit = 4096;
 
-        if (isset($_REQUEST['submit_num_fields'])) { // adding new fields
-            $numberOfFields = intval($_REQUEST['orig_num_fields']) + intval($_REQUEST['added_fields']);
-        } elseif (isset($_REQUEST['orig_num_fields'])) { // retaining existing fields
-            $numberOfFields = intval($_REQUEST['orig_num_fields']);
-        } elseif (isset($_REQUEST['num_fields'])
-            && intval($_REQUEST['num_fields']) > 0
+        if (isset($_POST['submit_num_fields'])) { // adding new fields
+            $numberOfFields = intval($_POST['orig_num_fields']) + intval($_POST['added_fields']);
+        } elseif (isset($_POST['orig_num_fields'])) { // retaining existing fields
+            $numberOfFields = intval($_POST['orig_num_fields']);
+        } elseif (isset($_POST['num_fields'])
+            && intval($_POST['num_fields']) > 0
         ) { // new table with specified number of fields
-            $numberOfFields = intval($_REQUEST['num_fields']);
+            $numberOfFields = intval($_POST['num_fields']);
         } else { // new table with unspecified number of fields
             $numberOfFields = 4;
         }
@@ -545,7 +532,7 @@ class CreateAddField
 
         // To allow replication, we first select the db to use and then run queries
         // on this db.
-        if (!($this->dbi->selectDb($db))) {
+        if (! $this->dbi->selectDb($db)) {
             Util::mysqlDie(
                 $this->dbi->getError(),
                 'USE ' . Util::backquote($db),
@@ -556,9 +543,12 @@ class CreateAddField
         $sqlQuery = 'ALTER TABLE ' .
             Util::backquote($table) . ' ' . $sqlStatement . ';';
         // If there is a request for SQL previewing.
-        if (isset($_REQUEST['preview_sql'])) {
+        if (isset($_POST['preview_sql'])) {
             Core::previewSQL($sqlQuery);
         }
-        return [$this->dbi->tryQuery($sqlQuery), $sqlQuery];
+        return [
+            $this->dbi->tryQuery($sqlQuery),
+            $sqlQuery,
+        ];
     }
 }

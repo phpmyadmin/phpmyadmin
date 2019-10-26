@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Replication helpers
  *
@@ -7,49 +6,55 @@
  */
 declare(strict_types=1);
 
+use PhpMyAdmin\Replication;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-use PhpMyAdmin\Replication;
+global $replication_types, $server_slave_replication, $master_variables, $slave_variables;
+global $replication_info, $slave_variables_alerts, $slave_variables_oks, $dbi, $url_params;
 
 $replication = new Replication();
 
 /**
  * get master replication from server
  */
-$server_master_replication = $GLOBALS['dbi']->fetchResult('SHOW MASTER STATUS');
+$server_master_replication = $dbi->fetchResult('SHOW MASTER STATUS');
 
 /**
  * set selected master server
  */
-if (! empty($_REQUEST['master_connection'])) {
+if (! empty($_POST['master_connection'])) {
     /**
      * check for multi-master replication functionality
      */
-    $server_slave_multi_replication = $GLOBALS['dbi']->fetchResult(
+    $server_slave_multi_replication = $dbi->fetchResult(
         'SHOW ALL SLAVES STATUS'
     );
     if ($server_slave_multi_replication) {
-        $GLOBALS['dbi']->query(
+        $dbi->query(
             "SET @@default_master_connection = '"
-            . $GLOBALS['dbi']->escapeString(
-                $_REQUEST['master_connection']
+            . $dbi->escapeString(
+                $_POST['master_connection']
             ) . "'"
         );
-        $GLOBALS['url_params']['master_connection'] = $_REQUEST['master_connection'];
+        $url_params['master_connection'] = $_POST['master_connection'];
     }
 }
 
 /**
  * get slave replication from server
  */
-$server_slave_replication = $GLOBALS['dbi']->fetchResult('SHOW SLAVE STATUS');
+$server_slave_replication = $dbi->fetchResult('SHOW SLAVE STATUS');
 
 /**
  * replication types
  */
-$replication_types = ['master', 'slave'];
+$replication_types = [
+    'master',
+    'slave',
+];
 
 
 /**
@@ -122,15 +127,15 @@ $slave_variables_oks = [
 // set $server_{master/slave}_status and assign values
 
 // replication info is more easily passed to functions
-$GLOBALS['replication_info'] = [];
+$replication_info = [];
 
 foreach ($replication_types as $type) {
     if (count(${"server_{$type}_replication"}) > 0) {
-        $GLOBALS['replication_info'][$type]['status'] = true;
+        $replication_info[$type]['status'] = true;
     } else {
-        $GLOBALS['replication_info'][$type]['status'] = false;
+        $replication_info[$type]['status'] = false;
     }
-    if ($GLOBALS['replication_info'][$type]['status']) {
+    if ($replication_info[$type]['status']) {
         if ($type == "master") {
             $replication->fillInfo(
                 $type,

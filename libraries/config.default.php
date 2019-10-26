@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * <code>
  * N   N  OOO  !!   DDDD   OOO    N   N  OOO  TTTTT   EEEE DDDD  I TTTTT !!
@@ -1300,7 +1299,10 @@ $cfg['InsertRows'] = 2;
  *
  * @global array $cfg['ForeignKeyDropdownOrder']
  */
-$cfg['ForeignKeyDropdownOrder'] = ['content-id', 'id-content'];
+$cfg['ForeignKeyDropdownOrder'] = [
+    'content-id',
+    'id-content',
+];
 
 /**
  * A drop-down list will be used if fewer items are present
@@ -2526,7 +2528,13 @@ $cfg['Schema']['svg_all_tables_same_width'] = false;
  *
  * @global array $cfg['PDFPageSizes']
  */
-$cfg['PDFPageSizes'] = ['A3', 'A4', 'A5', 'letter', 'legal'];
+$cfg['PDFPageSizes'] = [
+    'A3',
+    'A4',
+    'A5',
+    'letter',
+    'legal',
+];
 
 /**
  *
@@ -2586,7 +2594,7 @@ $cfg['RecodingEngine'] = 'auto';
 /**
  * Specify some parameters for iconv used in character set conversion. See iconv
  * documentation for details:
- * https://www.gnu.org/software/libiconv/documentation/libiconv/iconv_open.3.html
+ * https://www.gnu.org/savannah-checkouts/gnu/libiconv/documentation/libiconv-1.15/iconv_open.3.html
  *
  * @global string $cfg['IconvExtraParams']
  */
@@ -2987,7 +2995,7 @@ $cfg['SaveDir'] = '';
 if (defined('TEMP_DIR')) {
     $cfg['TempDir'] = TEMP_DIR;
 } else {
-    $cfg['TempDir'] = './tmp/';
+    $cfg['TempDir'] = ROOT_PATH . 'tmp/';
 }
 
 
@@ -3139,7 +3147,7 @@ $cfg['ShowGitRevision'] = true;
  */
 $cfg['MysqlMinVersion'] = [
     'internal' => 50500,
-    'human' => '5.5.0'
+    'human' => '5.5.0',
 ];
 
 /**
@@ -3184,28 +3192,43 @@ $cfg['DefaultTransformations'] = [];
  *
  * @global array $cfg['DefaultTransformations']['Substring']
  */
-$cfg['DefaultTransformations']['Substring'] = [0, 'all', '…'];
+$cfg['DefaultTransformations']['Substring'] = [
+    0,
+    'all',
+    '…',
+];
 
 /**
  * Default transformations for Bool2Text
  *
  * @global array $cfg['DefaultTransformations']['Bool2Text']
  */
-$cfg['DefaultTransformations']['Bool2Text'] = ['T', 'F'];
+$cfg['DefaultTransformations']['Bool2Text'] = [
+    'T',
+    'F',
+];
 
 /**
  * Default transformations for External
  *
  * @global array $cfg['DefaultTransformations']['External']
  */
-$cfg['DefaultTransformations']['External'] = [0, '-f /dev/null -i -wrap -q', 1, 1];
+$cfg['DefaultTransformations']['External'] = [
+    0,
+    '-f /dev/null -i -wrap -q',
+    1,
+    1,
+];
 
 /**
  * Default transformations for PreApPend
  *
  * @global array $cfg['DefaultTransformations']['PreApPend']
  */
-$cfg['DefaultTransformations']['PreApPend'] = ['', ''];
+$cfg['DefaultTransformations']['PreApPend'] = [
+    '',
+    '',
+];
 
 /**
  * Default transformations for Hex
@@ -3219,26 +3242,42 @@ $cfg['DefaultTransformations']['Hex'] = ['2'];
  *
  * @global array $cfg['DefaultTransformations']['DateFormat']
  */
-$cfg['DefaultTransformations']['DateFormat'] = [0, '', 'local'];
+$cfg['DefaultTransformations']['DateFormat'] = [
+    0,
+    '',
+    'local',
+];
 
 /**
  * Default transformations for Inline
  *
  * @global array $cfg['DefaultTransformations']['Inline']
  */
-$cfg['DefaultTransformations']['Inline'] = ['100', 100];
+$cfg['DefaultTransformations']['Inline'] = [
+    '100',
+    100,
+];
 $cfg['DefaultTransformations']['Inline']['wrapper_link'] = null;
+$cfg['DefaultTransformations']['Inline']['wrapper_params'] = [];
 
 /**
  * Default transformations for TextImageLink
  *
  * @global array $cfg['DefaultTransformations']['TextImageLink']
  */
-$cfg['DefaultTransformations']['TextImageLink'] = [null, 100, 50];
+$cfg['DefaultTransformations']['TextImageLink'] = [
+    null,
+    100,
+    50,
+];
 
 /**
  * Default transformations for TextLink
  *
  * @global array $cfg['DefaultTransformations']['TextLink']
  */
-$cfg['DefaultTransformations']['TextLink'] = [null, null, null];
+$cfg['DefaultTransformations']['TextLink'] = [
+    null,
+    null,
+    null,
+];

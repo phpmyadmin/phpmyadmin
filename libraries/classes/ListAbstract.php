@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * hold the ListAbstract base class
  *
@@ -27,25 +26,6 @@ abstract class ListAbstract extends ArrayObject
     protected $item_empty = '';
 
     /**
-     * ListAbstract constructor
-     *
-     * @param array  $array          The input parameter accepts an array or an
-     *                               Object.
-     * @param int    $flags          Flags to control the behaviour of the
-     *                               ArrayObject object.
-     * @param string $iterator_class Specify the class that will be used for
-     *                               iteration of the ArrayObject object.
-     *                               ArrayIterator is the default class used.
-     */
-    public function __construct(
-        array $array = [],
-        $flags = 0,
-        $iterator_class = "ArrayIterator"
-    ) {
-        parent::__construct($array, $flags, $iterator_class);
-    }
-
-    /**
      * defines what is an empty item (0, '', false or null)
      *
      * @return mixed   an empty item
@@ -59,7 +39,7 @@ abstract class ListAbstract extends ArrayObject
      * checks if the given db names exists in the current list, if there is
      * missing at least one item it returns false otherwise true
      *
-     * @param mixed[] ... $params params
+     * @param mixed[] ...$params params
      * @return bool true if all items exists, otherwise false
      */
     public function exists(...$params)

@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for PhpMyAdmin\ErrorReport
  *
@@ -11,8 +10,11 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Error;
 use PhpMyAdmin\ErrorReport;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Utils\HttpRequest;
 use PHPUnit\Framework\TestCase;
+use ReflectionClass;
 
 /**
  * PhpMyAdmin\Tests\ErrorReportTest class
@@ -52,7 +54,8 @@ class ErrorReportTest extends TestCase
             define('PMA_USR_OS', 'os');
         }
 
-        $this->errorReport = new ErrorReport(new HttpRequest());
+        $template = new Template();
+        $this->errorReport = new ErrorReport(new HttpRequest(), new Relation(null, $template), $template);
         $this->errorReport->setSubmissionUrl('http://localhost');
     }
 
@@ -95,7 +98,7 @@ class ErrorReportTest extends TestCase
                     'type' => $_SESSION['prev_errors'][0]->getType(),
                     'msg' => $_SESSION['prev_errors'][0]->getOnlyMessage(),
                     'stackTrace' => $_SESSION['prev_errors'][0]->getBacktrace(5),
-                    'stackhash' => $_SESSION['prev_errors'][0]->getHash()
+                    'stackhash' => $_SESSION['prev_errors'][0]->getHash(),
                 ],
                 1 => [
                     'lineNum' => $_SESSION['prev_errors'][1]->getLine(),
@@ -103,7 +106,7 @@ class ErrorReportTest extends TestCase
                     'type' => $_SESSION['prev_errors'][1]->getType(),
                     'msg' => $_SESSION['prev_errors'][1]->getOnlyMessage(),
                     'stackTrace' => $_SESSION['prev_errors'][1]->getBacktrace(5),
-                    'stackhash' => $_SESSION['prev_errors'][1]->getHash()
+                    'stackhash' => $_SESSION['prev_errors'][1]->getHash(),
                 ],
             ],
         ];
@@ -135,7 +138,8 @@ class ErrorReportTest extends TestCase
             )
             ->willReturn($return);
 
-        $this->errorReport = new ErrorReport($httpRequest);
+        $template = new Template();
+        $this->errorReport = new ErrorReport($httpRequest, new Relation(null, $template), $template);
         $this->errorReport->setSubmissionUrl($submissionUrl);
 
         $this->assertEquals($return, $this->errorReport->send($report));
@@ -146,14 +150,41 @@ class ErrorReportTest extends TestCase
      */
     public function testGetForm(): void
     {
-        $_REQUEST['exception'] = [];
+        $_POST['exception'] = [];
 
         $form = $this->errorReport->getForm();
-        $this->assertContains('<pre class="report-data">[]</pre>', $form);
+        $this->assertStringContainsString('<pre class="report-data">[]</pre>', $form);
 
-        $_REQUEST['exception'] = ['stack' => [], 'url' => 'http://localhost/index.php'];
-        $_REQUEST['microhistory'] = '';
-        $_REQUEST['description'] = 'description';
+        $context = [
+            'Widget.prototype = {',
+            '  close: function() {',
+            '    if (this.completion.widget != this) return;',
+            '    this.completion.widget = null;',
+            '    this.hints.parentNode.removeChild(this.hints);',
+            '    this.completion.cm.removeKeyMap(this.keyMap);',
+            '',
+            '    var cm = this.completion.cm;',
+            '    if (this.completion.options.closeOnUnfocus) {',
+            '      cm.off("blur", this.onBlur);',
+        ];
+
+        $_POST['exception'] = [
+            'mode' => 'stack',
+            'name' => 'TypeError',
+            'message' => 'Cannot read property \'removeChild\' of null',
+            'stack' => [
+                [
+                    'url' => 'http://pma.7.3.local/js/vendor/codemirror/addon/hint/show-hint.js?v=4.8.6-dev',
+                    'func' => 'Widget.close',
+                    'line' => 307,
+                    'column' => 29,
+                    'context' => $context,
+                ],
+            ],
+            'url' => 'http://pma.7.3.local/index.php?route=/table/sql&db=aaaaa&table=a&server=14',
+        ];
+        $_POST['microhistory'] = '';
+        $_POST['description'] = 'description';
 
         $report = [
             'pma_version' => PMA_VERSION,
@@ -165,15 +196,127 @@ class ErrorReportTest extends TestCase
             'locale' => $_COOKIE['pma_lang'],
             'configuration_storage' => 'disabled',
             'php_version' => phpversion(),
-            'exception_type' => 'js',
-            'exception' => ['stack' => [], 'uri' => 'index.php?'],
             'script_name' => 'index.php',
-            'microhistory' => $_REQUEST['microhistory'],
-            'steps' => $_REQUEST['description'],
+            'exception_type' => 'js',
+            'exception' => [
+                'mode' => 'stack',
+                'name' => 'TypeError',
+                'message' => 'Cannot read property \'removeChild\' of null',
+                'stack' => [
+                    [
+                        'func' => 'Widget.close',
+                        'line' => 307,
+                        'column' => 29,
+                        'context' => $context,
+                        'uri' => 'js/vendor/codemirror/addon/hint/show-hint.js?v=4.8.6-dev',
+                        'scriptname' => 'js/vendor/codemirror/addon/hint/show-hint.js',
+                    ],
+                ],
+                'uri' => 'index.php?route=%2Ftable%2Fsql',
+            ],
+            'microhistory' => $_POST['microhistory'],
+            'steps' => $_POST['description'],
         ];
         $expectedData = json_encode($report, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 
         $form = $this->errorReport->getForm();
-        $this->assertContains('<pre class="report-data">' . $expectedData . '</pre>', $form);
+        $this->assertStringContainsString('<pre class="report-data">' . $expectedData . '</pre>', $form);
+    }
+
+    /**
+     * Call private functions by setting visibility to public.
+     *
+     * @param string $name   method name
+     * @param array  $params parameters for the invocation
+     *
+     * @return mixed the output from the private method.
+     */
+    private function _callPrivateFunction($name, $params)
+    {
+        $class = new ReflectionClass(ErrorReport::class);
+        $method = $class->getMethod($name);
+        $method->setAccessible(true);
+        return $method->invokeArgs($this->errorReport, $params);
+    }
+
+    /**
+     * The urls to be tested for sanitization
+     *
+     * @return array[]
+     */
+    public function urlsToSanitize(): array
+    {
+        return [
+            [
+                '',
+                [
+                    'index.php?',
+                    'index.php',
+                ],
+            ],
+            [
+                'http://localhost/js/vendor/codemirror/addon/hint/show-hint.js?v=4.8.6-dev',
+                [
+                    'js/vendor/codemirror/addon/hint/show-hint.js?v=4.8.6-dev',
+                    'js/vendor/codemirror/addon/hint/show-hint.js',
+                ],
+            ],
+            [
+                'http://pma.7.3.local/tbl_sql.php?db=aaaaa&table=a&server=14',
+                [
+                    'tbl_sql.php?',
+                    'tbl_sql.php',
+                ],
+            ],
+            [
+                'http://pma.7.3.local/tbl_sql.php?db=aaaaa;table=a;server=14',
+                [
+                    'tbl_sql.php?',
+                    'tbl_sql.php',
+                ],
+            ],
+            [
+                'https://pma.7.3.local/tbl_sql.php?db=aaaaa;table=a;server=14',
+                [
+                    'tbl_sql.php?',
+                    'tbl_sql.php',
+                ],
+            ],
+            [
+                'https://pma.7.3.local/fileDotPhp.php?db=aaaaa;table=a;server=14',
+                [
+                    'fileDotPhp.php?',
+                    'fileDotPhp.php',
+                ],
+            ],
+            [
+                'https://pma.7.3.local/secretFolder/fileDotPhp.php?db=aaaaa;table=a;server=14',
+                [
+                    'fileDotPhp.php?',
+                    'fileDotPhp.php',
+                ],
+            ],
+            [
+                'http://7.2.local/@williamdes/theREALphpMyAdminREPO/js/vendor/jquery/jquery-ui.min.js?v=5.0.0-dev',
+                [
+                    'js/vendor/jquery/jquery-ui.min.js?v=5.0.0-dev',
+                    'js/vendor/jquery/jquery-ui.min.js',
+                ],
+            ],
+        ];
+    }
+
+    /**
+     * Test the url sanitization
+     *
+     * @dataProvider urlsToSanitize
+     * @param string $url    The url to test
+     * @param array  $result The result
+     * @return void
+     */
+    public function testSanitizeUrl(string $url, array $result): void
+    {
+        // $this->errorReport->sanitizeUrl
+        $this->assertSame($result, $this->_callPrivateFunction('sanitizeUrl', [$url]));
     }
 }

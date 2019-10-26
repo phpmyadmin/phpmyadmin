@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Common includes for the database level views
  *
@@ -21,30 +20,29 @@ if (! defined('PHPMYADMIN')) {
 
 Util::checkParameters(['db']);
 
-global $cfg;
-global $db;
+global $cfg, $db, $is_show_stats, $db_is_system_schema, $err_url, $message, $dbi, $url_query, $errno, $is_db;
 
 $response = Response::getInstance();
 $is_show_stats = $cfg['ShowStats'];
 
-$db_is_system_schema = $GLOBALS['dbi']->isSystemSchema($db);
+$db_is_system_schema = $dbi->isSystemSchema($db);
 if ($db_is_system_schema) {
     $is_show_stats = false;
 }
 
-$relation = new Relation($GLOBALS['dbi']);
-$operations = new Operations($GLOBALS['dbi'], $relation);
+$relation = new Relation($dbi);
+$operations = new Operations($dbi, $relation);
 
 /**
  * Defines the urls to return to in case of error in a sql statement
  */
-$err_url_0 = 'index.php' . Url::getCommon();
+$err_url_0 = Url::getFromRoute('/');
 
 $err_url = Util::getScriptNameForOption(
-    $GLOBALS['cfg']['DefaultTabDatabase'],
+    $cfg['DefaultTabDatabase'],
     'database'
-)
-    . Url::getCommon(['db' => $db]);
+);
+$err_url .= Url::getCommon(['db' => $db], strpos($err_url, '?') === false ? '?' : '&');
 
 /**
  * Ensures the database exists (else move to the "parent" script) and displays
@@ -52,13 +50,13 @@ $err_url = Util::getScriptNameForOption(
  */
 if (! isset($is_db) || ! $is_db) {
     if (strlen($db) > 0) {
-        $is_db = $GLOBALS['dbi']->selectDb($db);
+        $is_db = $dbi->selectDb($db);
         // This "Command out of sync" 2014 error may happen, for example
         // after calling a MySQL procedure; at this point we can't select
         // the db but it's not necessarily wrong
-        if ($GLOBALS['dbi']->getError() && $GLOBALS['errno'] == 2014) {
+        if ($dbi->getError() && $errno == 2014) {
             $is_db = true;
-            unset($GLOBALS['errno']);
+            unset($errno);
         }
     } else {
         $is_db = false;
@@ -68,7 +66,7 @@ if (! isset($is_db) || ! $is_db) {
     if (isset($message)) {
         $params['message'] = $message;
     }
-    $uri = './index.php' . Url::getCommonRaw($params);
+    $uri = './index.php?route=/' . Url::getCommonRaw($params, '&');
     if (strlen($db) === 0 || ! $is_db) {
         $response = Response::getInstance();
         if ($response->isAjax()) {
@@ -87,40 +85,42 @@ if (! isset($is_db) || ! $is_db) {
 /**
  * Changes database charset if requested by the user
  */
-if (isset($_REQUEST['submitcollation'])
-    && isset($_REQUEST['db_collation'])
-    && ! empty($_REQUEST['db_collation'])
-) {
-    list($db_charset) = explode('_', $_REQUEST['db_collation']);
+if (isset($_POST['submitcollation'], $_POST['db_collation']) && ! empty($_POST['db_collation'])) {
+    list($db_charset) = explode('_', $_POST['db_collation']);
     $sql_query        = 'ALTER DATABASE '
         . Util::backquote($db)
-        . ' DEFAULT' . Util::getCharsetQueryPart($_REQUEST['db_collation']);
-    $result           = $GLOBALS['dbi']->query($sql_query);
+        . ' DEFAULT' . Util::getCharsetQueryPart($_POST['db_collation']);
+    $result           = $dbi->query($sql_query);
     $message          = Message::success();
 
     /**
-    * Changes tables charset if requested by the user
-    */
-    if (isset($_REQUEST['change_all_tables_collations']) &&
-        $_REQUEST['change_all_tables_collations'] == 'on'
+     * Changes tables charset if requested by the user
+     */
+    if (isset($_POST['change_all_tables_collations']) &&
+        $_POST['change_all_tables_collations'] === 'on'
     ) {
         list($tables, , , , , , , ,) = Util::getDbInfo($db, null);
         foreach ($tables as $tableName => $data) {
+            if ($dbi->getTable($db, $tableName)->isView()) {
+                // Skip views, we can not change the collation of a view.
+                // issue #15283
+                continue;
+            }
             $sql_query      = 'ALTER TABLE '
             . Util::backquote($db)
             . '.'
             . Util::backquote($tableName)
-            . 'DEFAULT '
-            . Util::getCharsetQueryPart($_REQUEST['db_collation']);
-            $GLOBALS['dbi']->query($sql_query);
+            . ' DEFAULT '
+            . Util::getCharsetQueryPart($_POST['db_collation']);
+            $dbi->query($sql_query);
 
             /**
-            * Changes columns charset if requested by the user
-            */
-            if (isset($_REQUEST['change_all_tables_columns_collations']) &&
-                $_REQUEST['change_all_tables_columns_collations'] == 'on'
+             * Changes columns charset if requested by the user
+             */
+            if (isset($_POST['change_all_tables_columns_collations']) &&
+                $_POST['change_all_tables_columns_collations'] === 'on'
             ) {
-                $operations->changeAllColumnsCollation($db, $tableName, $_REQUEST['db_collation']);
+                $operations->changeAllColumnsCollation($db, $tableName, $_POST['db_collation']);
             }
         }
     }
@@ -128,13 +128,22 @@ if (isset($_REQUEST['submitcollation'])
 
     /**
      * If we are in an Ajax request, let us stop the execution here. Necessary for
-     * db charset change action on db_operations.php.  If this causes a bug on
+     * db charset change action on /database/operations. If this causes a bug on
      * other pages, we might have to move this to a different location.
      */
     if ($response->isAjax()) {
         $response->setRequestStatus($message->isSuccess());
         $response->addJSON('message', $message);
         exit;
+    }
+} elseif (isset($_POST['submitcollation'], $_POST['db_collation']) && empty($_POST['db_collation'])) {
+    $response = Response::getInstance();
+    if ($response->isAjax()) {
+        $response->setRequestStatus(false);
+        $response->addJSON(
+            'message',
+            Message::error(__('No collation provided.'))
+        );
     }
 }
 

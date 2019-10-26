@@ -11,22 +11,21 @@ Bookmarks
 Storing bookmarks
 -----------------
 
-Any query you have executed can be stored as a bookmark on the page
+Any query that is executed can be marked as a bookmark on the page
 where the results are displayed. You will find a button labeled
 :guilabel:`Bookmark this query` just at the end of the page. As soon as you have
-stored a bookmark, it is related to the database you run the query on.
-You can now access a bookmark dropdown on each page, the query box
-appears on for that database.
+stored a bookmark, that query is linked to the database.
+You can now access a bookmark dropdown on each page where the query box appears on for that database.
 
 Variables inside bookmarks
 --------------------------
 
-You can also have, inside the query, placeholders for variables.
+Inside a query, you can also add placeholders for variables.
 This is done by inserting into the query SQL comments between ``/*`` and
-``*/``. Inside the comments, the special strings ``[VARIABLE{variable-number}]`` is used.
+``*/``. The special string ``[VARIABLE{variable-number}]`` is used inside the comments.
 Be aware that the whole query minus the SQL comments must be
 valid by itself, otherwise you won't be able to store it as a bookmark.
-Note also that the text 'VARIABLE' is case-sensitive.
+Also note that the text 'VARIABLE' is case-sensitive.
 
 When you execute the bookmark, everything typed into the *Variables*
 input boxes on the query box page will replace the strings ``/*[VARIABLE{variable-number}]*/`` in
@@ -48,14 +47,13 @@ which will be expanded to
 
 in your query, where VARIABLE1 is the string you entered in the Variable 1 input box.
 
-A more complex example. Say you have stored
-this query:
+A more complex example, say you have stored this query:
 
 .. code-block:: mysql
 
     SELECT Name, Address FROM addresses WHERE 1 /* AND Name LIKE '%[VARIABLE1]%' */
 
-Say, you now enter "phpMyAdmin" as the variable for the stored query, the full
+If you wish to enter "phpMyAdmin" as the variable for the stored query, the full
 query will be:
 
 .. code-block:: mysql
@@ -67,10 +65,10 @@ inserted there will be later also inserted as spaces in your query and may lead
 to unexpected results especially when using the variable expansion inside of a
 "LIKE ''" expression.
 
-Browsing table using bookmark
------------------------------
+Browsing a table using a bookmark
+---------------------------------
 
-When bookmark is named same as table, it will be used as query when browsing
+When a bookmark has the same name as the table, it will be used as the query when browsing
 this table.
 
 .. seealso::

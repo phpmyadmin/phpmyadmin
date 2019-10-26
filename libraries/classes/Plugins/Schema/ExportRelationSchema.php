@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Contains PhpMyAdmin\Plugins\Schema\ExportRelationSchema class which is
  * inherited by all schema classes.
@@ -13,6 +12,7 @@ namespace PhpMyAdmin\Plugins\Schema;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function rawurldecode;
 
 /**
  * This class is inherited by all schema classes
@@ -35,15 +35,15 @@ class ExportRelationSchema
     protected $offline;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     protected $relation;
 
     /**
      * Constructor.
      *
-     * @param string $db      database name
-     * @param object $diagram schema diagram
+     * @param string                                       $db      database name
+     * @param Pdf\Pdf|Svg\Svg|Eps\Eps|Dia\Dia|Pdf\Pdf|null $diagram schema diagram
      */
     public function __construct($db, $diagram)
     {
@@ -177,7 +177,7 @@ class ExportRelationSchema
      */
     public function setOrientation($value)
     {
-        $this->orientation = ($value == 'P') ? 'P' : 'L';
+        $this->orientation = $value == 'P' ? 'P' : 'L';
     }
 
     /**
@@ -248,13 +248,11 @@ class ExportRelationSchema
     protected function getTablesFromRequest()
     {
         $tables = [];
-        $dbLength = mb_strlen($this->db);
-        foreach ($_REQUEST['t_h'] as $key => $value) {
-            if ($value) {
-                $tables[] = mb_substr($key, $dbLength + 1);
+        if (isset($_POST['t_tbl'])) {
+            foreach ($_POST['t_tbl'] as $table) {
+                $tables[] = rawurldecode($table);
             }
         }
-
         return $tables;
     }
 
@@ -269,7 +267,7 @@ class ExportRelationSchema
     {
         $filename = $this->db . $extension;
         // Get the name of this page to use as filename
-        if ($this->pageNumber != -1 && !$this->offline) {
+        if ($this->pageNumber != -1 && ! $this->offline) {
             $_name_sql = 'SELECT page_descr FROM '
                 . Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
                 . Util::backquote($GLOBALS['cfgRelation']['pdf_pages'])
@@ -296,15 +294,19 @@ class ExportRelationSchema
     public static function dieSchema($pageNumber, $type = '', $error_message = '')
     {
         echo "<p><strong>" , __("SCHEMA ERROR: ") , $type , "</strong></p>" , "\n";
-        if (!empty($error_message)) {
+        if (! empty($error_message)) {
             $error_message = htmlspecialchars($error_message);
         }
         echo '<p>' , "\n";
         echo '    ' , $error_message , "\n";
         echo '</p>' , "\n";
-        echo '<a href="db_designer.php'
-            , Url::getCommon(['db' => $GLOBALS['db']])
-            , '&page=' . htmlspecialchars($pageNumber) , '">' , __('Back') , '</a>';
+        echo '<a href="';
+        echo Url::getFromRoute('/database/designer', [
+            'db' => $GLOBALS['db'],
+            'server' => $GLOBALS['server'],
+            'page' => $pageNumber,
+        ]);
+        echo '">' . __('Back') . '</a>';
         echo "\n";
         exit;
     }

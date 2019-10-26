@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * MIME detection code.
  *
@@ -20,7 +19,7 @@ class Mime
     /**
      * Tries to detect MIME type of content.
      *
-     * @param string &$test First few bytes of content to use for detection
+     * @param string $test First few bytes of content to use for detection
      *
      * @return string
      */

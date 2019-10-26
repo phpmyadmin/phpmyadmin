@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Abstract class for the download transformations plugins
  *
@@ -11,6 +10,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\TransformationsPlugin;
+use PhpMyAdmin\Url;
+use stdClass;
 
 /**
  * Provides common methods for all of the download transformations plugins.
@@ -38,20 +39,20 @@ abstract class DownloadTransformationsPlugin extends TransformationsPlugin
     /**
      * Does the actual work of each specific transformations plugin.
      *
-     * @param string $buffer  text to be transformed
-     * @param array  $options transformation options
-     * @param string $meta    meta information
+     * @param string        $buffer  text to be transformed
+     * @param array         $options transformation options
+     * @param stdClass|null $meta    meta information
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = [], $meta = '')
+    public function applyTransformation($buffer, array $options = [], ?stdClass $meta = null)
     {
         global $row, $fields_meta;
 
-        if (isset($options[0]) && !empty($options[0])) {
+        if (isset($options[0]) && ! empty($options[0])) {
             $cn = $options[0]; // filename
         } else {
-            if (isset($options[1]) && !empty($options[1])) {
+            if (isset($options[1]) && ! empty($options[1])) {
                 foreach ($fields_meta as $key => $val) {
                     if ($val->name == $options[1]) {
                         $pos = $key;
@@ -67,16 +68,19 @@ abstract class DownloadTransformationsPlugin extends TransformationsPlugin
             }
         }
 
-        return sprintf(
-            '<a href="transformation_wrapper.php%s&amp;ct=application'
-            . '/octet-stream&amp;cn=%s" title="%s" class="disableAjax">%s</a>',
-            $options['wrapper_link'],
-            htmlspecialchars(urlencode($cn)),
-            htmlspecialchars($cn),
-            htmlspecialchars($cn)
+        $link = '<a href="' . Url::getFromRoute(
+            '/transformation/wrapper',
+            array_merge($options['wrapper_params'], [
+                'ct' => 'application/octet-stream',
+                'cn' => $cn,
+            ])
         );
-    }
+        $link .= '" title="' . htmlspecialchars($cn);
+        $link .= '" class="disableAjax">' . htmlspecialchars($cn);
+        $link .= '</a>';
 
+        return $link;
+    }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 

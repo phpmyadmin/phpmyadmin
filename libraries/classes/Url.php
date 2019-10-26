@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Static methods for URL/hidden inputs generating
  *
@@ -40,10 +39,6 @@ class Url
     ) {
         if (is_array($db)) {
             $params  =& $db;
-            $_indent = empty($table) ? $indent : $table;
-            $_skip   = empty($indent) ? $skip : $indent;
-            $indent  =& $_indent;
-            $skip    =& $_skip;
         } else {
             $params = [];
             if (strlen((string) $db) > 0) {
@@ -96,11 +91,11 @@ class Url
      * echo Url::getHiddenFields($values);
      *
      * // produces:
-     * <input type="hidden" name="aaa" Value="aaa" />
-     * <input type="hidden" name="bbb[0]" Value="bbb_0" />
-     * <input type="hidden" name="bbb[1]" Value="bbb_1" />
-     * <input type="hidden" name="ccc[a]" Value="ccc_a" />
-     * <input type="hidden" name="ccc[b]" Value="ccc_b" />
+     * <input type="hidden" name="aaa" Value="aaa">
+     * <input type="hidden" name="bbb[0]" Value="bbb_0">
+     * <input type="hidden" name="bbb[1]" Value="bbb_1">
+     * <input type="hidden" name="ccc[a]" Value="ccc_a">
+     * <input type="hidden" name="ccc[b]" Value="ccc_b">
      * </code>
      *
      * @param array  $values   hidden values
@@ -130,7 +125,7 @@ class Url
                 // Url::getHiddenInputs() is sometimes called
                 // from a JS document.write()
                 $fields .= '<input type="hidden" name="' . htmlspecialchars((string) $name)
-                    . '" value="' . htmlspecialchars((string) $value) . '" />';
+                    . '" value="' . htmlspecialchars((string) $value) . '">';
             }
         }
 
@@ -221,7 +216,7 @@ class Url
 
         $query = http_build_query($params, '', $separator);
 
-        if ($divider != '?' || strlen($query) > 0) {
+        if (($divider !== '?' && $divider !== '&') || strlen($query) > 0) {
             return $divider . $query;
         }
 
@@ -254,7 +249,7 @@ class Url
             if (mb_strpos($arg_separator, ';') !== false) {
                 $separator = ';';
             } elseif (strlen($arg_separator) > 0) {
-                $separator = $arg_separator{0};
+                $separator = $arg_separator[0];
             } else {
                 $separator = '&';
             }
@@ -269,5 +264,15 @@ class Url
             default:
                 return $separator;
         }
+    }
+
+    /**
+     * @param string $route                Route to use
+     * @param array  $additionalParameters Additional URL parameters
+     * @return string
+     */
+    public static function getFromRoute(string $route, array $additionalParameters = []): string
+    {
+        return 'index.php?route=' . $route . self::getCommon($additionalParameters, '&');
     }
 }

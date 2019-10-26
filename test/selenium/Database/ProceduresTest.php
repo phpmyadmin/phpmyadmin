@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Selenium TestCase for table related tests
  *
@@ -24,7 +23,7 @@ class ProceduresTest extends TestBase
     /**
      * The sql_mode before tests
      *
-     * @var string
+     * @var int
      */
     private $originalSqlMode = -1;
 
@@ -33,17 +32,18 @@ class ProceduresTest extends TestBase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
-        if($this->originalSqlMode === -1) {
+        if ($this->originalSqlMode === -1) {
             $this->originalSqlMode = $this->dbQuery('SELECT @@GLOBAL.SQL_MODE as globalsqm;')->fetch_all(MYSQLI_ASSOC)[0]["globalsqm"];
             $this->dbQuery(
                 "SET GLOBAL sql_mode = '" .
                 str_replace(
                     'STRICT_TRANS_TABLES',
                     '',
-                    $this->originalSqlMode) . "';"
+                    $this->originalSqlMode
+                ) . "';"
             );
         }
 
@@ -67,7 +67,8 @@ class ProceduresTest extends TestBase
      *
      * @return void
      */
-    public function tearDown(){
+    protected function tearDown(): void
+    {
         $this->dbQuery(
             "SET GLOBAL sql_mode = '" . $this->originalSqlMode . "';"
         );
@@ -83,7 +84,7 @@ class ProceduresTest extends TestBase
     private function _procedureSQL()
     {
         $this->dbQuery(
-            "CREATE PROCEDURE `test_procedure`(IN `inp` VARCHAR(10), OUT `outp` INT)"
+            "CREATE PROCEDURE `test_procedure`(IN `inp` VARCHAR(20), OUT `outp` INT)"
             . " NOT DETERMINISTIC READS SQL DATA SQL SECURITY DEFINER SELECT char_"
             . "length(inp) + count(*) FROM test_table INTO outp"
         );
@@ -112,7 +113,7 @@ class ProceduresTest extends TestBase
             $this->byName("item_param_type[0]"),
             'VARCHAR'
         );
-        $this->byName("item_param_length[0]")->sendKeys("10");
+        $this->byName("item_param_length[0]")->sendKeys("20");
 
         $this->byCssSelector("input[value='Add parameter']")->click();
 
@@ -133,7 +134,7 @@ class ProceduresTest extends TestBase
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
-        $ele = $this->waitForElement(
+        $this->waitForElement(
             'xpath',
             "//div[@class='success' and contains(., "
             . "'Routine `test_procedure` has been created')]"
@@ -144,7 +145,7 @@ class ProceduresTest extends TestBase
         );
 
         $this->assertEquals(1, $result->num_rows);
-        $this->_executeProcedure("test_procedure", 10);
+        $this->_executeProcedure("test_procedure", 14);
     }
 
     /**
@@ -168,17 +169,17 @@ class ProceduresTest extends TestBase
         $this->byPartialLinkText("Edit")->click();
         $this->waitForElement('className', "rte_form");
         $this->byName("item_param_length[0]")->clear();
-        $this->byName("item_param_length[0]")->sendKeys("12");
+        $this->byName("item_param_length[0]")->sendKeys("30");
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
-        $ele = $this->waitForElement(
+        $this->waitForElement(
             'xpath',
             "//div[@class='success' and contains(., "
             . "'Routine `test_procedure` has been modified')]"
         );
 
-        $this->_executeProcedure("test_procedure", 12);
+        $this->_executeProcedure("test_procedure", 14);
     }
 
     /**

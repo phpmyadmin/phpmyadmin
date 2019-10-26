@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * hold PhpMyAdmin\Twig\UtilExtension class
  *
@@ -10,8 +9,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Twig;
 
 use Twig\Extension\AbstractExtension;
-use Twig\TwigFunction;
 use Twig\TwigFilter;
+use Twig\TwigFunction;
 
 /**
  * Class UtilExtension
@@ -57,11 +56,6 @@ class UtilExtension extends AbstractExtension
             new TwigFunction(
                 'get_button_or_image',
                 'PhpMyAdmin\Util::getButtonOrImage',
-                ['is_safe' => ['html']]
-            ),
-            new TwigFunction(
-                'get_class_for_type',
-                'PhpMyAdmin\Util::getClassForType',
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
@@ -123,11 +117,6 @@ class UtilExtension extends AbstractExtension
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
-                'get_script_name_for_option',
-                'PhpMyAdmin\Util::getScriptNameForOption',
-                ['is_safe' => ['html']]
-            ),
-            new TwigFunction(
                 'get_start_and_number_of_rows_panel',
                 'PhpMyAdmin\Util::getStartAndNumberOfRowsPanel',
                 ['is_safe' => ['html']]
@@ -144,6 +133,11 @@ class UtilExtension extends AbstractExtension
             new TwigFunction(
                 'link_or_button',
                 'PhpMyAdmin\Util::linkOrButton',
+                ['is_safe' => ['html']]
+            ),
+            new TwigFunction(
+                'link_to_var_documentation',
+                'PhpMyAdmin\Util::linkToVarDocumentation',
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
@@ -165,8 +159,27 @@ class UtilExtension extends AbstractExtension
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
+                'get_mysql_docu_url',
+                'PhpMyAdmin\Util::getMySQLDocuURL',
+                ['is_safe' => ['html']]
+            ),
+            new TwigFunction(
+                'show_php_docu',
+                'PhpMyAdmin\Util::showPHPDocu',
+                ['is_safe' => ['html']]
+            ),
+            new TwigFunction(
                 'sortable_table_header',
                 'PhpMyAdmin\Util::sortableTableHeader',
+                ['is_safe' => ['html']]
+            ),
+            new TwigFunction(
+                'timespan_format',
+                'PhpMyAdmin\Util::timespanFormat'
+            ),
+            new TwigFunction(
+                'generate_hidden_max_file_size',
+                'PhpMyAdmin\Util::generateHiddenMaxFileSize',
                 ['is_safe' => ['html']]
             ),
         ];

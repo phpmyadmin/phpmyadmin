@@ -10,8 +10,8 @@
             %}
             {% set this_params = url_params %}
             {% set this_params = {
-                'goto': 'tbl_relation.php',
-                'back': 'tbl_relation.php',
+                'goto': url('/table/relation'),
+                'back': url('/table/relation'),
                 'sql_query': drop_fk_query,
                 'message_to_show': 'Foreign key constraint %s has been dropped'|trans|format(
                     one_key['constraint']
@@ -21,8 +21,8 @@
         {% endif %}
         {% if one_key['constraint'] is defined %}
             <input type="hidden" class="drop_foreign_key_msg" value="
-                {{- js_msg }}" />
-            {% set drop_url = 'sql.php' ~ get_common(this_params) %}
+                {{- js_msg }}">
+            {% set drop_url = url('/sql', this_params) %}
             {% set drop_str = get_icon('b_drop', 'Drop'|trans) %}
             {{ link_or_button(drop_url, drop_str, {'class': 'drop_foreign_key_anchor ajax'}) }}
         {% endif %}
@@ -31,7 +31,7 @@
         <span class="formelement clearfloat">
             <input type="text" name="constraint_name[{{ i }}]" value="
                 {{- one_key['constraint'] is defined ? one_key['constraint'] -}}
-                " placeholder="{% trans 'Constraint name' %}" maxlength="64" />
+                " placeholder="{% trans 'Constraint name' %}" maxlength="64">
         </span>
         <div class="floatleft">
             {# For ON DELETE and ON UPDATE, the default action

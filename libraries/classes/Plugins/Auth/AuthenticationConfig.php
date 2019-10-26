@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Config Authentication plugin for phpMyAdmin
  *
@@ -23,14 +22,6 @@ use PhpMyAdmin\Util;
  */
 class AuthenticationConfig extends AuthenticationPlugin
 {
-    /**
-     * AuthenticationConfig constructor.
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
     /**
      * Displays authentication form
      *
@@ -81,7 +72,7 @@ class AuthenticationConfig extends AuthenticationPlugin
     {
         parent::showFailure($failure);
         $conn_error = $GLOBALS['dbi']->getError();
-        if (!$conn_error) {
+        if (! $conn_error) {
             $conn_error = __('Cannot connect: invalid settings.');
         }
 
@@ -93,13 +84,13 @@ class AuthenticationConfig extends AuthenticationPlugin
         $header->setBodyId('loginform');
         $header->setTitle(__('Access denied!'));
         $header->disableMenuAndConsole();
-        echo '<br /><br />
+        echo '<br><br>
     <center>
         <h1>';
         echo sprintf(__('Welcome to %s'), ' phpMyAdmin ');
         echo '</h1>
     </center>
-    <br />
+    <br>
     <table cellpadding="0" cellspacing="3" class= "auth_config_tbl" width="80%">
         <tr>
             <td>';
@@ -119,7 +110,7 @@ class AuthenticationConfig extends AuthenticationPlugin
                     '<a href="setup/">',
                     '</a>'
                 ) , '</p>' , "\n";
-            } elseif (!isset($GLOBALS['errno'])
+            } elseif (! isset($GLOBALS['errno'])
                 || (isset($GLOBALS['errno']) && $GLOBALS['errno'] != 2002)
                 && $GLOBALS['errno'] != 2003
             ) {
@@ -159,7 +150,7 @@ class AuthenticationConfig extends AuthenticationPlugin
                 $GLOBALS['cfg']['DefaultTabServer'],
                 'server'
             )
-            , Url::getCommon() , '" class="button disableAjax">'
+            , '" class="button disableAjax">'
             , __('Retry to connect')
             , '</a>' , "\n";
         echo '</td>
@@ -173,7 +164,7 @@ class AuthenticationConfig extends AuthenticationPlugin
             echo '</tr>' , "\n";
         }
         echo '</table>' , "\n";
-        if (!defined('TESTSUITE')) {
+        if (! defined('TESTSUITE')) {
             exit;
         }
     }

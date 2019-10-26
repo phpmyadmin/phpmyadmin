@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Test for PhpMyAdmin\Gis\GisFactory
  *
@@ -24,12 +23,12 @@ class GisFactoryTest extends TestCase
      * Test factory method
      *
      * @param string $type geometry type
-     * @param object $geom geometry object
+     * @param string $geom geometry object
      *
      * @dataProvider providerForTestFactory
      * @return void
      */
-    public function testFactory($type, $geom)
+    public function testFactory(string $type, string $geom): void
     {
         $this->assertInstanceOf($geom, GisFactory::factory($type));
     }
@@ -37,38 +36,38 @@ class GisFactoryTest extends TestCase
     /**
      * data provider for testFactory
      *
-     * @return array data for testFactory
+     * @return array[] data for testFactory
      */
-    public function providerForTestFactory()
+    public function providerForTestFactory(): array
     {
         return [
             [
                 'MULTIPOLYGON',
-                'PhpMyAdmin\Gis\GisMultiPolygon'
+                'PhpMyAdmin\Gis\GisMultiPolygon',
             ],
             [
                 'POLYGON',
-                'PhpMyAdmin\Gis\GisPolygon'
+                'PhpMyAdmin\Gis\GisPolygon',
             ],
             [
                 'MULTILINESTRING',
-                'PhpMyAdmin\Gis\GisMultiLineString'
+                'PhpMyAdmin\Gis\GisMultiLineString',
             ],
             [
                 'LINESTRING',
-                'PhpMyAdmin\Gis\GisLineString'
+                'PhpMyAdmin\Gis\GisLineString',
             ],
             [
                 'MULTIPOINT',
-                'PhpMyAdmin\Gis\GisMultiPoint'
+                'PhpMyAdmin\Gis\GisMultiPoint',
             ],
             [
                 'POINT',
-                'PhpMyAdmin\Gis\GisPoint'
+                'PhpMyAdmin\Gis\GisPoint',
             ],
             [
                 'GEOMETRYCOLLECTION',
-                'PhpMyAdmin\Gis\GisGeometryCollection'
+                'PhpMyAdmin\Gis\GisGeometryCollection',
             ],
         ];
     }

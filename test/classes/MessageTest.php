@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Test for Message class
  *
@@ -10,8 +9,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Theme;
 use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Theme;
 
 /**
  * Test for Message class
@@ -21,7 +20,7 @@ use PhpMyAdmin\Tests\PmaTestCase;
 class MessageTest extends PmaTestCase
 {
     /**
-     * @var    \PhpMyAdmin\Message
+     * @var Message
      * @access protected
      */
     protected $object;
@@ -33,7 +32,7 @@ class MessageTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = new Message();
     }
@@ -45,7 +44,7 @@ class MessageTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
     }
 
@@ -57,7 +56,7 @@ class MessageTest extends PmaTestCase
     public function testToString()
     {
         $this->object->setMessage('test<&>', true);
-        $this->assertEquals('test&lt;&amp;&gt;', (string)$this->object);
+        $this->assertEquals('test&lt;&amp;&gt;', (string) $this->object);
     }
 
     /**
@@ -215,12 +214,19 @@ class MessageTest extends PmaTestCase
         );
         $this->object->addParam('test');
         $this->assertEquals(
-            [Message::notice('test'), 'test'],
+            [
+                Message::notice('test'),
+                'test',
+            ],
             $this->object->getParams()
         );
         $this->object->addParam('test');
         $this->assertEquals(
-            [Message::notice('test'), 'test', Message::notice('test')],
+            [
+                Message::notice('test'),
+                'test',
+                Message::notice('test'),
+            ],
             $this->object->getParams()
         );
     }
@@ -251,7 +257,10 @@ class MessageTest extends PmaTestCase
     {
         $this->object->addText('test', '*');
         $this->assertEquals(
-            ['*', Message::notice('test')],
+            [
+                '*',
+                Message::notice('test'),
+            ],
             $this->object->getAddedMessages()
         );
         $this->object->addText('test', '');
@@ -259,7 +268,7 @@ class MessageTest extends PmaTestCase
             [
                 '*',
                 Message::notice('test'),
-                Message::notice('test')
+                Message::notice('test'),
             ],
             $this->object->getAddedMessages()
         );
@@ -282,7 +291,7 @@ class MessageTest extends PmaTestCase
             [
                 Message::notice('test&lt;&gt;'),
                 ' ',
-                Message::rawNotice('<b>test</b>')
+                Message::rawNotice('<b>test</b>'),
             ],
             $this->object->getAddedMessages()
         );
@@ -310,7 +319,7 @@ class MessageTest extends PmaTestCase
             [
                 Message::notice('Test1'),
                 Message::error("PMA_Test2"),
-                Message::notice('Test3')
+                Message::notice('Test3'),
             ],
             $this->object->getAddedMessages()
         );
@@ -323,14 +332,18 @@ class MessageTest extends PmaTestCase
      */
     public function testAddMessagesString()
     {
-        $messages = ['test1', 'test<b>', 'test2'];
+        $messages = [
+            'test1',
+            'test<b>',
+            'test2',
+        ];
         $this->object->addMessagesString($messages, '');
 
         $this->assertEquals(
             [
                 Message::notice('test1'),
                 Message::notice('test&lt;b&gt;'),
-                Message::notice('test2')
+                Message::notice('test2'),
             ],
             $this->object->getAddedMessages()
         );
@@ -367,7 +380,10 @@ class MessageTest extends PmaTestCase
             Message::sanitize($this->object)
         );
         $this->assertEquals(
-            ['test&amp;string&lt;&gt;', 'test&amp;string&lt;&gt;'],
+            [
+                'test&amp;string&lt;&gt;',
+                'test&amp;string&lt;&gt;',
+            ],
             Message::sanitize([$this->object, $this->object])
         );
     }
@@ -382,34 +398,34 @@ class MessageTest extends PmaTestCase
         return [
             [
                 '[em]test[/em][em]aa[em/][em]test[/em]',
-                '<em>test</em><em>aa[em/]<em>test</em>'
+                '<em>test</em><em>aa[em/]<em>test</em>',
             ],
             [
                 '[strong]test[/strong][strong]test[/strong]',
-                '<strong>test</strong><strong>test</strong>'
+                '<strong>test</strong><strong>test</strong>',
             ],
             [
                 '[code]test[/code][code]test[/code]',
-                '<code>test</code><code>test</code>'
+                '<code>test</code><code>test</code>',
             ],
             [
                 '[kbd]test[/kbd][br][sup]test[/sup]',
-                '<kbd>test</kbd><br /><sup>test</sup>'
+                '<kbd>test</kbd><br><sup>test</sup>',
             ],
             [
                 '[a@https://example.com/@Documentation]link[/a]',
                 '<a href="./url.php?url=https%3A%2F%2Fexample.com%2F"'
-                . ' target="Documentation">link</a>'
+                . ' target="Documentation">link</a>',
             ],
             [
                 '[a@./non-existing@Documentation]link[/a]',
-                '[a@./non-existing@Documentation]link</a>'
+                '[a@./non-existing@Documentation]link</a>',
             ],
             [
                 '[doc@foo]link[/doc]',
                 '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2F'
                 . 'latest%2Fsetup.html%23foo" '
-                . 'target="documentation">link</a>'
+                . 'target="documentation">link</a>',
             ],
         ];
     }
@@ -424,7 +440,7 @@ class MessageTest extends PmaTestCase
      *
      * @dataProvider decodeBBDataProvider
      */
-    public function testDecodeBB($actual, $expected)
+    public function testDecodeBB($actual, $expected): void
     {
         unset($GLOBALS['server']);
         $this->assertEquals($expected, Message::decodeBB($actual));
@@ -542,7 +558,7 @@ class MessageTest extends PmaTestCase
         $this->object->setMessage('Test Message');
 
         $this->expectOutputString(
-            '<div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> '
+            '<div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> '
             . 'Test Message</div>'
         );
         $this->object->display();
@@ -559,7 +575,7 @@ class MessageTest extends PmaTestCase
     {
         $this->object->setMessage('Test Message');
         $this->assertEquals(
-            '<div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> '
+            '<div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> '
             . 'Test Message</div>',
             $this->object->getDisplay()
         );
@@ -588,18 +604,18 @@ class MessageTest extends PmaTestCase
             [
                 1,
                 '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
-                . 'class="icon ic_s_notice" />  1 row affected.</div>'
+                . 'class="icon ic_s_notice">  1 row affected.</div>',
             ],
             [
                 2,
                 '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
-                . 'class="icon ic_s_notice" />  2 rows affected.</div>'
+                . 'class="icon ic_s_notice">  2 rows affected.</div>',
             ],
             [
                 10000,
                 '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
-                . 'class="icon ic_s_notice" />  10000 rows affected.</div>'
-            ]
+                . 'class="icon ic_s_notice">  10000 rows affected.</div>',
+            ],
         ];
     }
 
@@ -613,11 +629,11 @@ class MessageTest extends PmaTestCase
      *
      * @dataProvider providerAffectedRows
      */
-    public function testAffectedRows($rows, $output)
+    public function testAffectedRows($rows, $output): void
     {
         $this->object = new Message();
         $msg = $this->object->getMessageForAffectedRows($rows);
-        echo $this->object->addMessage($msg);
+        $this->object->addMessage($msg);
         $this->expectOutputString($output);
         $this->object->display();
     }
@@ -633,18 +649,18 @@ class MessageTest extends PmaTestCase
             [
                 1,
                 '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
-                . 'class="icon ic_s_notice" />  1 row inserted.</div>'
+                . 'class="icon ic_s_notice">  1 row inserted.</div>',
             ],
             [
                 2,
                 '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
-                . 'class="icon ic_s_notice" />  2 rows inserted.</div>'
+                . 'class="icon ic_s_notice">  2 rows inserted.</div>',
             ],
             [
                 100000,
                 '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
-                . 'class="icon ic_s_notice" />  100000 rows inserted.</div>'
-            ]
+                . 'class="icon ic_s_notice">  100000 rows inserted.</div>',
+            ],
         ];
     }
 
@@ -658,11 +674,11 @@ class MessageTest extends PmaTestCase
      *
      * @dataProvider providerInsertedRows
      */
-    public function testInsertedRows($rows, $output)
+    public function testInsertedRows($rows, $output): void
     {
         $this->object = new Message();
         $msg = $this->object->getMessageForInsertedRows($rows);
-        echo $this->object->addMessage($msg);
+        $this->object->addMessage($msg);
         $this->expectOutputString($output);
         $this->object->display();
     }
@@ -678,18 +694,18 @@ class MessageTest extends PmaTestCase
             [
                 1,
                 '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
-                . 'class="icon ic_s_notice" />  1 row deleted.</div>'
+                . 'class="icon ic_s_notice">  1 row deleted.</div>',
             ],
             [
                 2,
                 '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
-                . 'class="icon ic_s_notice" />  2 rows deleted.</div>'
+                . 'class="icon ic_s_notice">  2 rows deleted.</div>',
             ],
             [
                 500000,
                 '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
-                . 'class="icon ic_s_notice" />  500000 rows deleted.</div>'
-            ]
+                . 'class="icon ic_s_notice">  500000 rows deleted.</div>',
+            ],
         ];
     }
 
@@ -703,11 +719,11 @@ class MessageTest extends PmaTestCase
      *
      * @dataProvider providerDeletedRows
      */
-    public function testDeletedRows($rows, $output)
+    public function testDeletedRows($rows, $output): void
     {
         $this->object = new Message();
         $msg = $this->object->getMessageForDeletedRows($rows);
-        echo $this->object->addMessage($msg);
+        $this->object->addMessage($msg);
         $this->expectOutputString($output);
         $this->object->display();
     }

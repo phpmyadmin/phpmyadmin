@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Core functions used all over the scripts.
  * This script is distinct from libraries/common.inc.php because this
@@ -11,13 +10,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
-use PhpMyAdmin\Sanitize;
-use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\Di\Migration;
+use PhpMyAdmin\Display\Error as DisplayError;
 
 /**
  * Core class
@@ -31,55 +25,7 @@ class Core
      * @static array $goto_whitelist
      */
     public static $goto_whitelist = [
-        'db_datadict.php',
-        'db_sql.php',
-        'db_events.php',
-        'db_export.php',
-        'db_importdocsql.php',
-        'db_multi_table_query.php',
-        'db_qbe.php',
-        'db_structure.php',
-        'db_import.php',
-        'db_operations.php',
-        'db_search.php',
-        'db_routines.php',
-        'export.php',
-        'import.php',
         'index.php',
-        'pdf_pages.php',
-        'pdf_schema.php',
-        'server_binlog.php',
-        'server_collations.php',
-        'server_databases.php',
-        'server_engines.php',
-        'server_export.php',
-        'server_import.php',
-        'server_privileges.php',
-        'server_sql.php',
-        'server_status.php',
-        'server_status_advisor.php',
-        'server_status_monitor.php',
-        'server_status_queries.php',
-        'server_status_variables.php',
-        'server_variables.php',
-        'sql.php',
-        'tbl_addfield.php',
-        'tbl_change.php',
-        'tbl_create.php',
-        'tbl_import.php',
-        'tbl_indexes.php',
-        'tbl_sql.php',
-        'tbl_export.php',
-        'tbl_operations.php',
-        'tbl_structure.php',
-        'tbl_relation.php',
-        'tbl_replace.php',
-        'tbl_row_action.php',
-        'tbl_select.php',
-        'tbl_zoom_select.php',
-        'transformation_overview.php',
-        'transformation_wrapper.php',
-        'user_password.php',
     ];
 
     /**
@@ -103,11 +49,11 @@ class Core
      * echo Core::ifSetOr($cfg['EnableFoo'], false, 'boolean'); // true
      * </code>
      *
-     * @param mixed &$var    param to check
+     * @param mixed $var     param to check
      * @param mixed $default default value
      * @param mixed $type    var type or array of values to check against $var
      *
-     * @return mixed   $var or $default
+     * @return mixed $var or $default
      *
      * @see self::isValid()
      */
@@ -153,7 +99,7 @@ class Core
      *
      * to avoid this we set this var to null if not isset
      *
-     * @param mixed &$var    variable to check
+     * @param mixed $var     variable to check
      * @param mixed $type    var type or array of valid values to check against $var
      * @param mixed $compare var to compare with $var
      *
@@ -253,9 +199,7 @@ class Core
     public static function securePath(string $path): string
     {
         // change .. to .
-        $path = preg_replace('@\.\.*@', '.', $path);
-
-        return $path;
+        return preg_replace('@\.\.*@', '.', $path);
     } // end function
 
     /**
@@ -284,7 +228,9 @@ class Core
          * Avoid using Response class as config does not have to be loaded yet
          * (this can happen on early fatal error)
          */
-        if (!is_null($GLOBALS['dbi']) && isset($GLOBALS['PMA_Config']) && $GLOBALS['PMA_Config']->get('is_setup') === false && Response::getInstance()->isAjax()) {
+        if (isset($GLOBALS['dbi'], $GLOBALS['PMA_Config']) && $GLOBALS['dbi'] !== null
+            && $GLOBALS['PMA_Config']->get('is_setup') === false
+            && Response::getInstance()->isAjax()) {
             $response = Response::getInstance();
             $response->setRequestStatus(false);
             $response->addJSON('message', Message::error($error_message));
@@ -298,13 +244,12 @@ class Core
                 ]
             );
         } else {
-            $error_message = strtr($error_message, ['<br />' => '[br]']);
+            $error_message = strtr($error_message, ['<br>' => '[br]']);
             $error_header = __('Error');
             $lang = isset($GLOBALS['lang']) ? $GLOBALS['lang'] : 'en';
             $dir = isset($GLOBALS['text_dir']) ? $GLOBALS['text_dir'] : 'ltr';
 
-            // Displays the error message
-            include './libraries/error.inc.php';
+            echo DisplayError::display(new Template(), $lang, $dir, $error_header, $error_message);
         }
         if (! defined('TESTSUITE')) {
             exit;
@@ -324,7 +269,18 @@ class Core
     {
         /* List of PHP documentation translations */
         $php_doc_languages = [
-            'pt_BR', 'zh', 'fr', 'de', 'it', 'ja', 'pl', 'ro', 'ru', 'fa', 'es', 'tr'
+            'pt_BR',
+            'zh',
+            'fr',
+            'de',
+            'it',
+            'ja',
+            'pl',
+            'ro',
+            'ru',
+            'fa',
+            'es',
+            'tr',
         ];
 
         $lang = 'en';
@@ -412,7 +368,7 @@ class Core
      *
      * @param string|int $size size (Default = 0)
      *
-     * @return integer $size
+     * @return integer
      */
     public static function getRealSize($size = 0): int
     {
@@ -442,7 +398,7 @@ class Core
      * Checks given $page against given $whitelist and returns true if valid
      * it optionally ignores query parameters in $page (script.php?ignored)
      *
-     * @param string  &$page     page to check
+     * @param string  $page      page to check
      * @param array   $whitelist whitelist to check page against
      * @param boolean $include   whether the page is going to be included
      *
@@ -633,7 +589,7 @@ class Core
         }
         /* Replace all possibly dangerous chars in filename */
         $filename = Sanitize::sanitizeFilename($filename);
-        if (!empty($filename)) {
+        if (! empty($filename)) {
             header('Content-Description: File Transfer');
             header('Content-Disposition: attachment; filename="' . $filename . '"');
         }
@@ -678,9 +634,9 @@ class Core
     /**
      * Stores value in an array
      *
-     * @param string $path   path in the array
-     * @param array  &$array the array
-     * @param mixed  $value  value to store
+     * @param string $path  path in the array
+     * @param array  $array the array
+     * @param mixed  $value value to store
      *
      * @return void
      */
@@ -701,8 +657,8 @@ class Core
     /**
      * Removes value from an array
      *
-     * @param string $path   path in the array
-     * @param array  &$array the array
+     * @param string $path  path in the array
+     * @param array  $array the array
      *
      * @return void
      */
@@ -732,7 +688,7 @@ class Core
 
         // remove empty nested arrays
         for (; $depth >= 0; $depth--) {
-            if (! isset($path[$depth + 1]) || count($path[$depth + 1]) == 0) {
+            if (! isset($path[$depth + 1]) || count($path[$depth + 1]) === 0) {
                 unset($path[$depth][$keys[$depth]]);
             } else {
                 break;
@@ -749,7 +705,7 @@ class Core
      */
     public static function linkURL(string $url): string
     {
-        if (!preg_match('#^https?://#', $url)) {
+        if (! preg_match('#^https?://#', $url)) {
             return $url;
         }
 
@@ -762,7 +718,7 @@ class Core
         parse_str($arr["query"], $vars);
         $query = http_build_query(["url" => $vars["url"]]);
 
-        if (!is_null($GLOBALS['PMA_Config']) && $GLOBALS['PMA_Config']->get('is_setup')) {
+        if ($GLOBALS['PMA_Config'] !== null && $GLOBALS['PMA_Config']->get('is_setup')) {
             $url = '../url.php?' . $query;
         } else {
             $url = './url.php?' . $query;
@@ -788,7 +744,11 @@ class Core
             return false;
         }
         // We do not want these to be present
-        $blocked = ['user', 'pass', 'port'];
+        $blocked = [
+            'user',
+            'pass',
+            'port',
+        ];
         foreach ($blocked as $part) {
             if (isset($arr[$part]) && strlen((string) $arr[$part]) != 0) {
                 return false;
@@ -805,14 +765,17 @@ class Core
             'demo.phpmyadmin.net',
             'docs.phpmyadmin.net',
             /* mysql.com domains */
-            'dev.mysql.com','bugs.mysql.com',
+            'dev.mysql.com',
+            'bugs.mysql.com',
             /* mariadb domains */
-            'mariadb.org', 'mariadb.com',
+            'mariadb.org',
+            'mariadb.com',
             /* php.net domains */
             'php.net',
             'secure.php.net',
             /* Github domains*/
-            'github.com','www.github.com',
+            'github.com',
+            'www.github.com',
             /* Percona domains */
             'www.percona.com',
             /* Following are doubtful ones. */
@@ -833,9 +796,7 @@ class Core
     {
         $buffer = htmlspecialchars($buffer);
         $buffer = str_replace('  ', ' &nbsp;', $buffer);
-        $buffer = preg_replace("@((\015\012)|(\015)|(\012))@", '<br />' . "\n", $buffer);
-
-        return $buffer;
+        return preg_replace("@((\015\012)|(\015)|(\012))@", '<br>' . "\n", $buffer);
     }
 
     /**
@@ -898,7 +859,7 @@ class Core
         foreach (array_keys($_POST) as $post_key) {
             foreach ($post_patterns as $one_post_pattern) {
                 if (preg_match($one_post_pattern, $post_key)) {
-                    $GLOBALS[$post_key] = $_POST[$post_key];
+                    Migration::getInstance()->setGlobal($post_key, $_POST[$post_key]);
                 }
             }
         }
@@ -913,13 +874,12 @@ class Core
      */
     public static function setGlobalDbOrTable(string $param): void
     {
-        $GLOBALS[$param] = '';
+        $value = '';
         if (self::isValid($_REQUEST[$param])) {
-            // can we strip tags from this?
-            // only \ and / is not allowed in db names for MySQL
-            $GLOBALS[$param] = $_REQUEST[$param];
-            $GLOBALS['url_params'][$param] = $GLOBALS[$param];
+            $value = $_REQUEST[$param];
         }
+        Migration::getInstance()->setGlobal($param, $value);
+        Migration::getInstance()->setGlobal('url_params', [$param => $value] + $GLOBALS['url_params']);
     }
 
     /**
@@ -960,7 +920,7 @@ class Core
 
             if ($part !== '..') {
                 // cool, we found a new part
-                array_push($path, $part);
+                $path[] = $part;
             } elseif (count($path) > 0) {
                 // going back up? sure
                 array_pop($path);
@@ -969,7 +929,7 @@ class Core
             // as there is nothing sane to do
         }
 
-        $PMA_PHP_SELF = htmlspecialchars('/' . join('/', $path));
+        $PMA_PHP_SELF = htmlspecialchars('/' . implode('/', $path));
     }
 
     /**
@@ -1032,7 +992,7 @@ class Core
         $direct_ip = $_SERVER['REMOTE_ADDR'];
 
         /* Do we trust this IP as a proxy? If yes we will use it's header. */
-        if (!isset($GLOBALS['cfg']['TrustedProxies'][$direct_ip])) {
+        if (! isset($GLOBALS['cfg']['TrustedProxies'][$direct_ip])) {
             /* Return true IP */
             return $direct_ip;
         }
@@ -1222,7 +1182,7 @@ class Core
          * We specifically use empty here as we are looking for anything else than
          * empty value or 0.
          */
-        if (extension_loaded('mbstring') && !empty(ini_get('mbstring.func_overload'))) {
+        if (extension_loaded('mbstring') && ! empty(ini_get('mbstring.func_overload'))) {
             self::fatalError(
                 __(
                     'You have enabled mbstring.func_overload in your PHP '
@@ -1247,46 +1207,6 @@ class Core
     }
 
     /**
-     * prints list item for main page
-     *
-     * @param string $name            displayed text
-     * @param string $listId          id, used for css styles
-     * @param string $url             make item as link with $url as target
-     * @param string $mysql_help_page display a link to MySQL's manual
-     * @param string $target          special target for $url
-     * @param string $a_id            id for the anchor,
-     *                                used for jQuery to hook in functions
-     * @param string $class           class for the li element
-     * @param string $a_class         class for the anchor element
-     *
-     * @return void
-     */
-    public static function printListItem(
-        string $name,
-        ?string $listId = null,
-        ?string $url = null,
-        ?string $mysql_help_page = null,
-        ?string $target = null,
-        ?string $a_id = null,
-        ?string $class = null,
-        ?string $a_class = null
-    ): void {
-        $template = new Template();
-        echo $template->render('list/item', [
-            'content' => $name,
-            'id' => $listId,
-            'class' => $class,
-            'url' => [
-                'href' => $url,
-                'target' => $target,
-                'id' => $a_id,
-                'class' => $a_class,
-            ],
-            'mysql_help_page' => $mysql_help_page,
-        ]);
-    }
-
-    /**
      * Checks request and fails with fatal error if something problematic is found
      *
      * @return void
@@ -1303,5 +1223,33 @@ class Core
         if (count($_REQUEST) > 1000) {
             self::fatalError(__('possible exploit'));
         }
+    }
+
+    /**
+     * Sign the sql query using hmac using the session token
+     *
+     * @param string $sqlQuery The sql query
+     * @return string
+     */
+    public static function signSqlQuery($sqlQuery)
+    {
+        /** @var array $cfg */
+        global $cfg;
+        return hash_hmac('sha256', $sqlQuery, $_SESSION[' HMAC_secret '] . $cfg['blowfish_secret']);
+    }
+
+    /**
+     * Check that the sql query has a valid hmac signature
+     *
+     * @param string $sqlQuery  The sql query
+     * @param string $signature The Signature to check
+     * @return bool
+     */
+    public static function checkSqlQuerySignature($sqlQuery, $signature)
+    {
+        /** @var array $cfg */
+        global $cfg;
+        $hmac = hash_hmac('sha256', $sqlQuery, $_SESSION[' HMAC_secret '] . $cfg['blowfish_secret']);
+        return hash_equals($hmac, $signature);
     }
 }

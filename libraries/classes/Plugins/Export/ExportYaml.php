@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Set of functions used to build YAML dumps of tables
  *
@@ -13,10 +12,10 @@ namespace PhpMyAdmin\Plugins\Export;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\ExportPlugin;
-use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
+use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 
 /**
  * Handles the export for the YAML format
@@ -167,7 +166,7 @@ class ExportYaml extends ExportPlugin
         $columns = [];
         for ($i = 0; $i < $columns_cnt; $i++) {
             $col_as = $GLOBALS['dbi']->fieldName($result, $i);
-            if (!empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
+            if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                 $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
             }
             $columns[$i] = stripslashes($col_as);
@@ -187,11 +186,11 @@ class ExportYaml extends ExportPlugin
             }
 
             for ($i = 0; $i < $columns_cnt; $i++) {
-                if (!isset($record[$i])) {
+                if (! isset($record[$i])) {
                     continue;
                 }
 
-                if (is_null($record[$i])) {
+                if ($record[$i] === null) {
                     $buffer .= '  ' . $columns[$i] . ': null' . $crlf;
                     continue;
                 }
@@ -202,14 +201,24 @@ class ExportYaml extends ExportPlugin
                 }
 
                 $record[$i] = str_replace(
-                    ['\\', '"', "\n", "\r"],
-                    ['\\\\', '\"', '\n', '\r'],
+                    [
+                        '\\',
+                        '"',
+                        "\n",
+                        "\r",
+                    ],
+                    [
+                        '\\\\',
+                        '\"',
+                        '\n',
+                        '\r',
+                    ],
                     $record[$i]
                 );
                 $buffer .= '  ' . $columns[$i] . ': "' . $record[$i] . '"' . $crlf;
             }
 
-            if (!$this->export->outputHandler($buffer)) {
+            if (! $this->export->outputHandler($buffer)) {
                 return false;
             }
         }

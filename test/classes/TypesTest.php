@@ -29,7 +29,7 @@ class TypesTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = new Types($GLOBALS['dbi']);
     }
@@ -161,7 +161,7 @@ class TypesTest extends PmaTestCase
      *
      * @dataProvider providerForGetTypeOperators
      */
-    public function testGetTypeOperators($type, $null, $output)
+    public function testGetTypeOperators($type, $null, $output): void
     {
         $this->assertEquals(
             $output,
@@ -183,7 +183,7 @@ class TypesTest extends PmaTestCase
                 [
                     '=',
                     '!=',
-                ]
+                ],
             ],
             [
                 'CHAR',
@@ -212,9 +212,9 @@ class TypesTest extends PmaTestCase
                     [
                         '=',
                         '!=',
-                    ]
+                    ],
                 ],
-            ]
+            ],
         ];
     }
 
@@ -255,8 +255,8 @@ class TypesTest extends PmaTestCase
                 false,
                 '=',
                 '<option value="=" selected="selected">=</option>'
-                . '<option value="!=">!=</option>'
-            ]
+                . '<option value="!=">!=</option>',
+            ],
         ];
     }
 
@@ -269,7 +269,7 @@ class TypesTest extends PmaTestCase
      *
      * @dataProvider providerForTestGetTypeDescription
      */
-    public function testGetTypeDescription($type)
+    public function testGetTypeDescription($type): void
     {
         $this->assertNotEquals(
             '',
@@ -350,7 +350,7 @@ class TypesTest extends PmaTestCase
      *
      * @dataProvider providerFortTestGetFunctionsClass
      */
-    public function testGetFunctionsClass($class, $output)
+    public function testGetFunctionsClass($class, $output): void
     {
         $this->assertEquals(
             $output,
@@ -403,7 +403,7 @@ class TypesTest extends PmaTestCase
                     'USER',
                     'UUID',
                     'VERSION',
-                ]
+                ],
             ],
             [
                 'DATE',
@@ -423,30 +423,30 @@ class TypesTest extends PmaTestCase
                     'UTC_TIME',
                     'UTC_TIMESTAMP',
                     'YEAR',
-                ]
+                ],
             ],
             [
                 'SPATIAL',
                 [
-                    'GeomFromText',
-                    'GeomFromWKB',
+                    'ST_GeomFromText',
+                    'ST_GeomFromWKB',
 
-                    'GeomCollFromText',
-                    'LineFromText',
-                    'MLineFromText',
-                    'PointFromText',
-                    'MPointFromText',
-                    'PolyFromText',
-                    'MPolyFromText',
+                    'ST_GeomCollFromText',
+                    'ST_LineFromText',
+                    'ST_MLineFromText',
+                    'ST_PointFromText',
+                    'ST_MPointFromText',
+                    'ST_PolyFromText',
+                    'ST_MPolyFromText',
 
-                    'GeomCollFromWKB',
-                    'LineFromWKB',
-                    'MLineFromWKB',
-                    'PointFromWKB',
-                    'MPointFromWKB',
-                    'PolyFromWKB',
-                    'MPolyFromWKB',
-                ]
+                    'ST_GeomCollFromWKB',
+                    'ST_LineFromWKB',
+                    'ST_MLineFromWKB',
+                    'ST_PointFromWKB',
+                    'ST_MPointFromWKB',
+                    'ST_PolyFromWKB',
+                    'ST_MPolyFromWKB',
+                ],
             ],
             [
                 'NUMBER',
@@ -502,13 +502,13 @@ class TypesTest extends PmaTestCase
                     '48' => 'WEEK',
                     '49' => 'WEEKDAY',
                     '50' => 'WEEKOFYEAR',
-                    '51' => 'YEARWEEK'
-                ]
+                    '51' => 'YEARWEEK',
+                ],
             ],
             [
                 'UNKNOWN',
-                []
-            ]
+                [],
+            ],
         ];
     }
 
@@ -711,7 +711,7 @@ class TypesTest extends PmaTestCase
                     'TINYINT',
                     'SMALLINT',
                     'MEDIUMINT',
-                'INT',
+                    'INT',
                     'BIGINT',
                     '-',
                     'DECIMAL',
@@ -732,10 +732,10 @@ class TypesTest extends PmaTestCase
                 ],
                 'String' =>  [
                     'CHAR',
-                'VARCHAR',
+                    'VARCHAR',
                     '-',
                     'TINYTEXT',
-                'TEXT',
+                    'TEXT',
                     'MEDIUMTEXT',
                     'LONGTEXT',
                     '-',
@@ -761,8 +761,8 @@ class TypesTest extends PmaTestCase
                     'GEOMETRYCOLLECTION',
                 ],
                 'JSON' => [
-                    'JSON'
-                ]
+                    'JSON',
+                ],
             ],
             $this->object->getColumns()
         );
@@ -778,7 +778,7 @@ class TypesTest extends PmaTestCase
      *
      * @dataProvider providerFortTestGetTypeClass
      */
-    public function testGetTypeClass($type, $output)
+    public function testGetTypeClass($type, $output): void
     {
         $this->assertEquals(
             $output,
@@ -796,24 +796,24 @@ class TypesTest extends PmaTestCase
         return [
             [
                 'SERIAL',
-                'NUMBER'
+                'NUMBER',
             ],
             [
                 'YEAR',
-                'DATE'
+                'DATE',
             ],
             [
                 'GEOMETRYCOLLECTION',
-                'SPATIAL'
+                'SPATIAL',
             ],
             [
                 'SET',
-                'CHAR'
+                'CHAR',
             ],
             [
                 'UNKNOWN',
-                ''
-            ]
+                '',
+            ],
         ];
     }
 }

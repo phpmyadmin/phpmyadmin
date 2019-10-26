@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Test for PhpMyAdmin\Template class
  *
@@ -30,7 +29,7 @@ class TemplateTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->template = new Template();
     }
@@ -44,14 +43,14 @@ class TemplateTest extends PmaTestCase
      *
      * @dataProvider providerTestSet
      */
-    public function testSet($data)
+    public function testSet($data): void
     {
         $result = $this->template->render($data, [
             'variable1' => 'value1',
             'variable2' => 'value2',
         ]);
-        $this->assertContains('value1', $result);
-        $this->assertContains('value2', $result);
+        $this->assertStringContainsString('value1', $result);
+        $this->assertStringContainsString('value2', $result);
     }
 
     /**
@@ -77,7 +76,7 @@ class TemplateTest extends PmaTestCase
      *
      * @dataProvider providerTestDynamicRender
      */
-    public function testDynamicRender($templateFile, $key, $value)
+    public function testDynamicRender($templateFile, $key, $value): void
     {
         $this->assertEquals(
             $value,
@@ -93,7 +92,11 @@ class TemplateTest extends PmaTestCase
     public function providerTestDynamicRender()
     {
         return [
-            ['test/echo', 'variable', 'value'],
+            [
+                'test/echo',
+                'variable',
+                'value',
+            ],
         ];
     }
 
@@ -118,7 +121,7 @@ class TemplateTest extends PmaTestCase
      *
      * @dataProvider providerTestRender
      */
-    public function testRender($templateFile, $expectedResult)
+    public function testRender($templateFile, $expectedResult): void
     {
         $this->assertEquals(
             $expectedResult,
@@ -134,7 +137,10 @@ class TemplateTest extends PmaTestCase
     public function providerTestRender()
     {
         return [
-            ['test/static', 'static content'],
+            [
+                'test/static',
+                'static content',
+            ],
         ];
     }
 
@@ -149,7 +155,7 @@ class TemplateTest extends PmaTestCase
      *
      * @dataProvider providerTestRenderGettext
      */
-    public function testRenderGettext($templateFile, $renderParams, $expectedResult)
+    public function testRenderGettext($templateFile, $renderParams, $expectedResult): void
     {
         $this->assertEquals(
             $expectedResult,
@@ -165,13 +171,41 @@ class TemplateTest extends PmaTestCase
     public function providerTestRenderGettext()
     {
         return [
-            ['test/gettext/gettext', [], 'Text'],
-            ['test/gettext/pgettext', [], 'Text'],
-            ['test/gettext/notes', [], 'Text'],
-            ['test/gettext/plural', ['table_count' => 1], 'One table'],
-            ['test/gettext/plural', ['table_count' => 2], '2 tables'],
-            ['test/gettext/plural_notes', ['table_count' => 1], 'One table'],
-            ['test/gettext/plural_notes', ['table_count' => 2], '2 tables'],
+            [
+                'test/gettext/gettext',
+                [],
+                'Text',
+            ],
+            [
+                'test/gettext/pgettext',
+                [],
+                'Text',
+            ],
+            [
+                'test/gettext/notes',
+                [],
+                'Text',
+            ],
+            [
+                'test/gettext/plural',
+                ['table_count' => 1],
+                'One table',
+            ],
+            [
+                'test/gettext/plural',
+                ['table_count' => 2],
+                '2 tables',
+            ],
+            [
+                'test/gettext/plural_notes',
+                ['table_count' => 1],
+                'One table',
+            ],
+            [
+                'test/gettext/plural_notes',
+                ['table_count' => 2],
+                '2 tables',
+            ],
         ];
     }
 }

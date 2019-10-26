@@ -28,7 +28,7 @@ class FontTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->font = new Font();
     }
@@ -264,7 +264,12 @@ class FontTest extends PmaTestCase
                 "a",
                 "arial",
                 10,
-                [["chars" => "a", "modifier" => 0.61]]
+                [
+                    [
+                        "chars" => "a",
+                        "modifier" => 0.61,
+                    ],
+                ]
             )
         );
 
@@ -275,7 +280,12 @@ class FontTest extends PmaTestCase
                 "a",
                 "arial",
                 10,
-                [["chars" => ["a"], "modifier" => 0.61]]
+                [
+                    [
+                        "chars" => ["a"],
+                        "modifier" => 0.61,
+                    ],
+                ]
             )
         );
     }

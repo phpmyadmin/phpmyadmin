@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * PDF schema handling
  *
@@ -26,7 +25,7 @@ if (! class_exists('TCPDF')) {
 /**
  * block attempts to directly run this script
  */
-if (getcwd() == dirname(__FILE__)) {
+if (getcwd() == __DIR__) {
     die('Attack stopped');
 }
 
@@ -136,7 +135,7 @@ class PdfRelationSchema extends ExportRelationSchema
             $this->diagram->setCMargin(0);
         }
 
-        $this->diagram->Addpage();
+        $this->diagram->AddPage();
 
         if ($this->_withDoc) {
             $this->diagram->SetLink($this->diagram->PMA_links['RT']['-'], -1);
@@ -200,7 +199,7 @@ class PdfRelationSchema extends ExportRelationSchema
         $seen_a_relation = false;
         foreach ($alltables as $one_table) {
             $exist_rel = $this->relation->getForeigners($this->db, $one_table, '', 'both');
-            if (!$exist_rel) {
+            if (! $exist_rel) {
                 continue;
             }
 
@@ -223,7 +222,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 }
 
                 foreach ($rel as $one_key) {
-                    if (!in_array($one_key['ref_table_name'], $alltables)) {
+                    if (! in_array($one_key['ref_table_name'], $alltables)) {
                         continue;
                     }
 
@@ -490,7 +489,7 @@ class PdfRelationSchema extends ExportRelationSchema
     public function dataDictionaryDoc(array $alltables)
     {
          // TOC
-        $this->diagram->addpage($this->orientation);
+        $this->diagram->AddPage($this->orientation);
         $this->diagram->Cell(0, 9, __('Table of contents'), 1, 0, 'C');
         $this->diagram->Ln(15);
         $i = 1;
@@ -561,7 +560,7 @@ class PdfRelationSchema extends ExportRelationSchema
         foreach ($alltables as $table) {
             $z++;
             $this->diagram->SetAutoPageBreak(true, 15);
-            $this->diagram->addpage($this->orientation);
+            $this->diagram->AddPage($this->orientation);
             $this->diagram->Bookmark($table);
             $this->diagram->setAlias(
                 '{' . sprintf("%02d", $z) . '}',
@@ -585,7 +584,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 $this->diagram->PMA_links['RT'][$table]['-']
             );
             $this->diagram->SetFont($this->_ff, '', 8);
-            $this->diagram->ln();
+            $this->diagram->Ln();
 
             $cfgRelation = $this->relation->getRelationsParam();
             $comments = $this->relation->getComments($this->db, $table);
@@ -702,7 +701,17 @@ class PdfRelationSchema extends ExportRelationSchema
                 $this->diagram->Cell($comments_width, 8, __('Comments'), 1, 0, 'C');
                 $this->diagram->Cell(45, 8, 'MIME', 1, 1, 'C');
                 $this->diagram->setWidths(
-                    [25, 20, 20, 10, 20, 25, 45, $comments_width, 45]
+                    [
+                        25,
+                        20,
+                        20,
+                        10,
+                        20,
+                        25,
+                        45,
+                        $comments_width,
+                        45,
+                    ]
                 );
             } else {
                 $this->diagram->Cell(20, 8, __('Column'), 1, 0, 'C');
@@ -758,26 +767,25 @@ class PdfRelationSchema extends ExportRelationSchema
                     $field_name,
                     $type,
                     $attribute,
-                    (($row['Null'] == '' || $row['Null'] == 'NO')
+                    ($row['Null'] == '' || $row['Null'] == 'NO')
                         ? __('No')
-                        : __('Yes')),
-                    (isset($row['Default']) ? $row['Default'] : ''),
+                        : __('Yes'),
+                    isset($row['Default']) ? $row['Default'] : '',
                     $row['Extra'],
                     $linksTo,
-                    (isset($comments[$field_name])
+                    isset($comments[$field_name])
                         ? $comments[$field_name]
-                        : ''),
-                    (isset($mime_map) && isset($mime_map[$field_name])
+                        : '',
+                    isset($mime_map, $mime_map[$field_name])
                         ? str_replace('_', '/', $mime_map[$field_name]['mimetype'])
-                        : '')
+                        : '',
                 ];
                 $links = [];
                 $links[0] = $this->diagram->PMA_links['RT'][$table][$field_name];
                 if ($foreigner
                     && isset($this->diagram->PMA_links['doc'][$foreigner['foreign_table']][$foreigner['foreign_field']])
                 ) {
-                    $links[6] = $this->diagram->PMA_links['doc']
-                        [$foreigner['foreign_table']][$foreigner['foreign_field']];
+                    $links[6] = $this->diagram->PMA_links['doc'][$foreigner['foreign_table']][$foreigner['foreign_field']];
                 } else {
                     unset($links[6]);
                 }

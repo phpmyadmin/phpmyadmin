@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportPdf class
  *
@@ -30,7 +29,7 @@ class ExportPdfTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
@@ -46,7 +45,7 @@ class ExportPdfTest extends PmaTestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -170,7 +169,7 @@ class ExportPdfTest extends PmaTestCase
             [
                 'structure' => __('structure'),
                 'data' => __('data'),
-                'structure_and_data' => __('structure and data')
+                'structure_and_data' => __('structure and data'),
             ],
             $property->getValues()
         );
@@ -279,9 +278,12 @@ class ExportPdfTest extends PmaTestCase
             ->method('setAttributes')
             ->with(
                 [
-                    'currentDb' => 'db', 'currentTable' => 'table',
-                    'dbAlias' => 'db', 'tableAlias' => 'table',
-                    'aliases' => []
+                    'currentDb' => 'db',
+                    'currentTable' => 'table',
+                    'dbAlias' => 'db',
+                    'tableAlias' => 'table',
+                    'aliases' => [],
+                    'purpose' => __('Dumping data'),
                 ]
             );
 

@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for libraries/SystemDatabase.php
  *
@@ -32,7 +31,7 @@ class SystemDatabaseTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         /**
          * SET these to avoid undefine d index error
@@ -111,8 +110,8 @@ class SystemDatabaseTest extends PmaTestCase
         $column_map = [
             [
                 "table_name" => "table_name",
-                "refering_column" => "column_name"
-            ]
+                "refering_column" => "column_name",
+            ],
         ];
         $view_name = "view_name";
 

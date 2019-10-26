@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Abstract class for the import plugins
  *
@@ -43,9 +42,11 @@ abstract class ImportPlugin
     /**
      * Handles the whole import logic
      *
+     * @param array $sql_data 2-element array with sql data
+     *
      * @return void
      */
-    abstract public function doImport();
+    abstract public function doImport(array &$sql_data = []);
 
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
@@ -53,7 +54,7 @@ abstract class ImportPlugin
     /**
      * Gets the import specific format plugin properties
      *
-     * @return \PhpMyAdmin\Properties\Plugins\ImportPluginProperties
+     * @return ImportPluginProperties
      */
     public function getProperties()
     {
@@ -86,6 +87,9 @@ abstract class ImportPlugin
             $options = null;
         }
 
-        return [$db_name, $options];
+        return [
+            $db_name,
+            $options,
+        ];
     }
 }

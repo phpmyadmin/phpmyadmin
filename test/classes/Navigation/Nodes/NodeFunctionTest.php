@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for PhpMyAdmin\Navigation\Nodes\NodeFunction class
  *
@@ -25,7 +24,7 @@ class NodeFunctionTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
     }
@@ -42,8 +41,8 @@ class NodeFunctionTest extends PmaTestCase
             'text',
             $parent->links
         );
-        $this->assertContains(
-            'db_routines.php',
+        $this->assertStringContainsString(
+            'index.php?route=/database/routines',
             $parent->links['text']
         );
     }

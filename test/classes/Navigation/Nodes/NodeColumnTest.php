@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for PhpMyAdmin\Navigation\Nodes\NodeColumn class
  *
@@ -25,7 +24,7 @@ class NodeColumnTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
     }
@@ -37,13 +36,19 @@ class NodeColumnTest extends PmaTestCase
      */
     public function testConstructor()
     {
-        $parent = NodeFactory::getInstance('NodeColumn');
+        $parent = NodeFactory::getInstance(
+            'NodeColumn',
+            [
+                'name' => 'name',
+                'key' => 'key',
+            ]
+        );
         $this->assertArrayHasKey(
             'text',
             $parent->links
         );
-        $this->assertContains(
-            'tbl_structure.php',
+        $this->assertStringContainsString(
+            'index.php?route=/table/structure',
             $parent->links['text']
         );
     }

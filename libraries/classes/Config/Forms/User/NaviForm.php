@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * User preferences form
  *
@@ -45,7 +44,7 @@ class NaviForm extends BaseForm
                 'NavigationTreeShowFunctions',
                 'NavigationTreeShowProcedures',
                 'NavigationTreeShowEvents',
-                'NavigationTreeAutoexpandSingleDb'
+                'NavigationTreeAutoexpandSingleDb',
             ],
             'Navi_servers' => [
                 'NavigationDisplayServers',
@@ -53,7 +52,7 @@ class NaviForm extends BaseForm
             ],
             'Navi_databases' => [
                 'NavigationTreeDisplayDbFilterMinimum',
-                'NavigationTreeDbSeparator'
+                'NavigationTreeDbSeparator',
             ],
             'Navi_tables' => [
                 'NavigationTreeDefaultTabTable',

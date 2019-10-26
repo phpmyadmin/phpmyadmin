@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for Node class
  *
@@ -27,7 +26,7 @@ class NodeTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -48,7 +47,7 @@ class NodeTest extends PmaTestCase
             $child
         );
         $this->assertEquals(
-            $parent->getChild($child->real_name, true),
+            $parent->getChild($child->realName, true),
             $child
         );
     }
@@ -100,7 +99,7 @@ class NodeTest extends PmaTestCase
     public function testNodeHasChildren()
     {
         $parent = NodeFactory::getInstance();
-        $empty_container = NodeFactory::getInstance(
+        $emptyContainer = NodeFactory::getInstance(
             'Node',
             'empty',
             Node::CONTAINER
@@ -116,7 +115,7 @@ class NodeTest extends PmaTestCase
             false
         );
         // test with an empty container
-        $parent->addChild($empty_container);
+        $parent->addChild($emptyContainer);
         $this->assertEquals(
             $parent->hasChildren(true),
             true
@@ -188,7 +187,10 @@ class NodeTest extends PmaTestCase
         $this->assertEquals($child->parents(), [$parent]); // exclude self
         $this->assertEquals(
             $child->parents(true),
-            [$child, $parent]
+            [
+                $child,
+                $parent,
+            ]
         ); // include self
     }
 
@@ -290,7 +292,7 @@ class NodeTest extends PmaTestCase
     {
         $method = new ReflectionMethod(
             'PhpMyAdmin\Navigation\Nodes\Node',
-            '_getWhereClause'
+            'getWhereClause'
         );
         $method->setAccessible(true);
 
@@ -328,7 +330,10 @@ class NodeTest extends PmaTestCase
         unset($GLOBALS['cfg']['Server']['only_db']);
 
         // When only_db directive is present and it's an array of dbs
-        $GLOBALS['cfg']['Server']['only_db'] = ['onlyDbOne', 'onlyDbTwo'];
+        $GLOBALS['cfg']['Server']['only_db'] = [
+            'onlyDbOne',
+            'onlyDbTwo',
+        ];
         $this->assertEquals(
             "WHERE TRUE AND ( `SCHEMA_NAME` LIKE 'onlyDbOne' "
             . "OR `SCHEMA_NAME` LIKE 'onlyDbTwo' ) ",
@@ -455,10 +460,10 @@ class NodeTest extends PmaTestCase
             ->method('fetchArray')
             ->willReturnOnConsecutiveCalls(
                 [
-                    '0' => 'db'
+                    '0' => 'db',
                 ],
                 [
-                    '0' => 'aa_db'
+                    '0' => 'aa_db',
                 ],
                 false
             );

@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Import progress bar backend
  *
@@ -9,6 +8,10 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Display\ImportAjax;
+
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
 
 /* PHP 5.4 stores upload progress data only in the default session.
  * After calling session_name(), we won't find the progress data anymore.
@@ -52,7 +55,7 @@ if (ini_get('session.upload_progress.enabled')) {
 
 define('PMA_MINIMUM_COMMON', 1);
 
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 list(
     $SESSION_KEY,
     $upload_id,
@@ -88,7 +91,7 @@ if (isset($_GET["message"]) && $_GET["message"]) {
     header('Content-type: text/html');
 
     // wait 0.3 sec before we check for $_SESSION variable,
-    // which is set inside import.php
+    // which is set inside libraries/entry_points/import.php
     usleep(300000);
 
     $maximumTime = ini_get('max_execution_time');

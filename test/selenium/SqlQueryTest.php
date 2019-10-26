@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Selenium TestCase for typing and executing SQL query tests
  *
@@ -24,7 +23,7 @@ class SqlQueryTest extends TestBase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -131,6 +130,7 @@ class SqlQueryTest extends TestBase
         $this->waitAjax();
 
         $this->typeInTextArea('SELECT * FROM `test_table` WHERE `val` NOT IN (2, 3);');
+        $this->scrollToBottom();
         $this->byId('button_submit_query')->click();
         $this->waitAjax();
 

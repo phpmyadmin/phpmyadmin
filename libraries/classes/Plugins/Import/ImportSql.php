@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * SQL import plugin for phpMyAdmin
  *
@@ -10,13 +9,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Import;
 use PhpMyAdmin\Plugins\ImportPlugin;
-use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
+use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\SqlParser\Utils\BufferedQuery;
 
 /**
@@ -103,7 +103,7 @@ class ImportSql extends ImportPlugin
     /**
      * Handles the whole import logic
      *
-     * @param array &$sql_data 2-element array with sql data
+     * @param array $sql_data 2-element array with sql data
      *
      * @return void
      */
@@ -126,7 +126,7 @@ class ImportSql extends ImportPlugin
          */
         $GLOBALS['finished'] = false;
 
-        while ((!$error) && (!$timeout_passed)) {
+        while ((! $error) && (! $timeout_passed)) {
             // Getting the first statement, the remaining data and the last
             // delimiter.
             $statement = $bq->extract();
@@ -160,9 +160,9 @@ class ImportSql extends ImportPlugin
         }
 
         // Extracting remaining statements.
-        while ((!$error) && (!$timeout_passed) && (!empty($bq->query))) {
+        while (! $error && ! $timeout_passed && ! empty($bq->query)) {
             $statement = $bq->extract(true);
-            if (!empty($statement)) {
+            if (! empty($statement)) {
                 $this->import->runQuery($statement, $statement, $sql_data);
             }
         }
@@ -174,8 +174,8 @@ class ImportSql extends ImportPlugin
     /**
      * Handle compatibility options
      *
-     * @param \PhpMyAdmin\DatabaseInterface $dbi     Database interface
-     * @param array                         $request Request array
+     * @param DatabaseInterface $dbi     Database interface
+     * @param array             $request Request array
      *
      * @return void
      */

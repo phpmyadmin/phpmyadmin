@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Hold PhpMyAdmin\SysInfoWINNT class
  *
@@ -11,6 +10,7 @@ namespace PhpMyAdmin;
 
 use COM;
 use PhpMyAdmin\SysInfoBase;
+use function is_string;
 
 /**
  * Windows NT based SysInfo class
@@ -27,7 +27,7 @@ class SysInfoWINNT extends SysInfoBase
      */
     public function __construct()
     {
-        if (!class_exists('COM')) {
+        if (! class_exists('COM')) {
             $this->_wmi = null;
         } else {
             // initialize the wmi object
@@ -43,13 +43,11 @@ class SysInfoWINNT extends SysInfoBase
      */
     public function loadavg()
     {
-        $loadavg = "";
         $sum = 0;
         $buffer = $this->_getWMI('Win32_Processor', ['LoadPercentage']);
 
         foreach ($buffer as $load) {
             $value = $load['LoadPercentage'];
-            $loadavg .= $value . ' ';
             $sum += $value;
         }
 
@@ -59,11 +57,11 @@ class SysInfoWINNT extends SysInfoBase
     /**
      * Checks whether class is supported in this environment
      *
-     * @return true on success
+     * @return bool true on success
      */
     public function supported()
     {
-        return !is_null($this->_wmi);
+        return $this->_wmi !== null;
     }
 
     /**
@@ -87,7 +85,11 @@ class SysInfoWINNT extends SysInfoBase
                 $name = $propItem->Name;
                 if (empty($strValue) || in_array($name, $strValue)) {
                     $value = $objItem->$name;
-                    $arrInstance[$name] = trim($value);
+                    if (is_string($value)) {
+                        $arrInstance[$name] = trim($value);
+                    } else {
+                        $arrInstance[$name] = $value;
+                    }
                 }
             }
             $arrData[] = $arrInstance;
@@ -105,7 +107,10 @@ class SysInfoWINNT extends SysInfoBase
     {
         $buffer = $this->_getWMI(
             "Win32_OperatingSystem",
-            ['TotalVisibleMemorySize', 'FreePhysicalMemory']
+            [
+                'TotalVisibleMemorySize',
+                'FreePhysicalMemory',
+            ]
         );
         $mem = [];
         $mem['MemTotal'] = $buffer[0]['TotalVisibleMemorySize'];

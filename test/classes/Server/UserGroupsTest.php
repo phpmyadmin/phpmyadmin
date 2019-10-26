@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for PhpMyAdmin\Server\UserGroups
  *
@@ -26,7 +25,7 @@ class UserGroupsTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
@@ -36,7 +35,7 @@ class UserGroupsTest extends TestCase
             'PMA_VERSION' => PMA_VERSION,
             'db' => 'pmadb',
             'users' => 'users',
-            'usergroups' => 'usergroups'
+            'usergroups' => 'usergroups',
         ];
     }
 
@@ -67,13 +66,12 @@ class UserGroupsTest extends TestCase
         $GLOBALS['dbi'] = $dbi;
 
         $html = UserGroups::getHtmlForUserGroupsTable();
-        $this->assertNotContains(
+        $this->assertStringNotContainsString(
             '<table id="userGroupsTable">',
             $html
         );
-        $url_tag = '<a href="server_user_groups.php'
-            . Url::getCommon(['addUserGroup' => 1]);
-        $this->assertContains(
+        $url_tag = '<a href="' . Url::getFromRoute('/server/user_groups', ['addUserGroup' => 1]);
+        $this->assertStringContainsString(
             $url_tag,
             $html
         );
@@ -108,7 +106,7 @@ class UserGroupsTest extends TestCase
                     [
                         'usergroup' => 'usergroup',
                         'tab' => 'server_sql',
-                        'allowed' => 'Y'
+                        'allowed' => 'Y',
                     ]
                 )
             );
@@ -121,39 +119,43 @@ class UserGroupsTest extends TestCase
         $GLOBALS['dbi'] = $dbi;
 
         $html = UserGroups::getHtmlForUserGroupsTable();
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<td>usergroup</td>',
             $html
         );
-        $url_tag = '<a class="" href="server_user_groups.php'
+        $url_tag = '<a class="" href="' . Url::getFromRoute('/server/user_groups') . '" data-post="'
             . Url::getCommon(
                 [
-                    'viewUsers' => 1, 'userGroup' => htmlspecialchars('usergroup')
-                ]
+                    'viewUsers' => 1,
+                    'userGroup' => htmlspecialchars('usergroup'),
+                ],
+                ''
             );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $url_tag,
             $html
         );
-        $url_tag = '<a class="" href="server_user_groups.php'
+        $url_tag = '<a class="" href="' . Url::getFromRoute('/server/user_groups') . '" data-post="'
             . Url::getCommon(
                 [
                     'editUserGroup' => 1,
-                    'userGroup' => htmlspecialchars('usergroup')
-                ]
+                    'userGroup' => htmlspecialchars('usergroup'),
+                ],
+                ''
             );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $url_tag,
             $html
         );
-        $url_tag = '<a class="deleteUserGroup ajax" href="server_user_groups.php'
+        $url_tag = '<a class="deleteUserGroup ajax" href="' . Url::getFromRoute('/server/user_groups') . '" data-post="'
             . Url::getCommon(
                 [
                     'deleteUserGroup' => 1,
-                    'userGroup' => htmlspecialchars('usergroup')
-                ]
+                    'userGroup' => htmlspecialchars('usergroup'),
+                ],
+                ''
             );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $url_tag,
             $html
         );
@@ -198,11 +200,11 @@ class UserGroupsTest extends TestCase
     {
         // adding a user group
         $html = UserGroups::getHtmlToEditUserGroup();
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="addUserGroupSubmit" value="1"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="text" name="userGroup"',
             $html
         );
@@ -222,7 +224,7 @@ class UserGroupsTest extends TestCase
                 [
                     'usergroup' => 'ug',
                     'tab' => 'server_sql',
-                    'allowed' => 'Y'
+                    'allowed' => 'Y',
                 ],
                 false
             );
@@ -236,26 +238,26 @@ class UserGroupsTest extends TestCase
 
         // editing a user group
         $html = UserGroups::getHtmlToEditUserGroup('ug');
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="userGroup" value="ug"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="editUserGroupSubmit" value="1"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="editUserGroupSubmit" value="1"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="checkbox" class="checkall" checked="checked"'
-            . ' name="server_sql" value="Y" />',
+            . ' name="server_sql" value="Y">',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="checkbox" class="checkall"'
-            . ' name="server_databases" value="Y" />',
+            . ' name="server_databases" value="Y">',
             $html
         );
     }

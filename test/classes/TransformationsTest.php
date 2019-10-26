@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for transformation wrappers
  *
@@ -30,7 +29,7 @@ class TransformationsTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
@@ -63,7 +62,7 @@ class TransformationsTest extends TestCase
      *
      * @dataProvider getOptionsData
      */
-    public function testGetOptions($input, $expected)
+    public function testGetOptions($input, $expected): void
     {
         $this->assertEquals(
             $expected,
@@ -79,11 +78,39 @@ class TransformationsTest extends TestCase
     public function getOptionsData()
     {
         return [
-            ["option1 , option2 ", ['option1 ', ' option2 ']],
-            ["'option1' ,' option2' ", ['option1', ' option2']],
-            ["'2,3' ,' ,, option ,,' ", ['2,3', ' ,, option ,,']],
-            ["'',,", ['', '', '']],
-            ['', []],
+            [
+                "option1 , option2 ",
+                [
+                    'option1 ',
+                    ' option2 ',
+                ],
+            ],
+            [
+                "'option1' ,' option2' ",
+                [
+                    'option1',
+                    ' option2',
+                ],
+            ],
+            [
+                "'2,3' ,' ,, option ,,' ",
+                [
+                    '2,3',
+                    ' ,, option ,,',
+                ],
+            ],
+            [
+                "'',,",
+                [
+                    '',
+                    '',
+                    '',
+                ],
+            ],
+            [
+                '',
+                [],
+            ],
         ];
     }
 
@@ -101,7 +128,7 @@ class TransformationsTest extends TestCase
                     'Image/JPEG' => 'Image/JPEG',
                     'Image/PNG' => 'Image/PNG',
                     'Text/Plain' => 'Text/Plain',
-                    'Text/Octetstream' => 'Text/Octetstream'
+                    'Text/Octetstream' => 'Text/Octetstream',
                 ],
                 'transformation' =>  [
                     0 => 'Application/Octetstream: Download',
@@ -123,7 +150,7 @@ class TransformationsTest extends TestCase
                     16 => 'Text/Plain: Longtoipv4',
                     17 => 'Text/Plain: PreApPend',
                     18 => 'Text/Plain: Substring',
-                    ],
+                ],
                 'transformation_file' =>  [
                     0 => 'Output/Application_Octetstream_Download.php',
                     1 => 'Output/Application_Octetstream_Hex.php',
@@ -171,7 +198,7 @@ class TransformationsTest extends TestCase
                     'Text_Plain_PreApPend.php',
                     'Text_Plain_Substring.php',
                 ],
-             ],
+            ],
             $this->transformations->getAvailableMimeTypes()
         );
     }
@@ -268,7 +295,7 @@ class TransformationsTest extends TestCase
      *
      * @dataProvider fixupData
      */
-    public function testFixup($value, $expected)
+    public function testFixup($value, $expected): void
     {
         $this->assertEquals(
             $expected,
@@ -284,23 +311,101 @@ class TransformationsTest extends TestCase
         return [
             [
                 'text_plain_bool2text.php',
-                'Text_Plain_Bool2Text.php'
+                'Text_Plain_Bool2Text.php',
             ],
             [
                 'application_octetstream_download.php',
-                'Application_Octetstream_Download.php'
+                'Application_Octetstream_Download.php',
             ],
             [
                 'text_plain_json.php',
-                'Text_Plain_Json.php'
+                'Text_Plain_Json.php',
             ],
             [
                 'image_jpeg_link.php',
-                'Image_JPEG_Link.php'
+                'Image_JPEG_Link.php',
             ],
             [
                 'text_plain_dateformat.php',
-                'Text_Plain_Dateformat.php'
+                'Text_Plain_Dateformat.php',
+            ],
+        ];
+    }
+
+    /**
+     * Test for getDescription
+     *
+     * @param string $file                transformation file
+     * @param string $expectedDescription expected description
+     *
+     * @return void
+     *
+     * @dataProvider providerGetDescription
+     */
+    public function testGetDescription($file, $expectedDescription): void
+    {
+        $this->assertEquals(
+            $expectedDescription,
+            $this->transformations->getDescription($file)
+        );
+    }
+
+    /**
+     * @return array
+     */
+    public function providerGetDescription()
+    {
+        return [
+            [
+                '../../../../test',
+                '',
+            ],
+            [
+                'Input/Text_Plain_SqlEditor',
+                'Syntax highlighted CodeMirror editor for SQL.',
+            ],
+            [
+                'Output/Text_Plain_Sql',
+                'Formats text as SQL query with syntax highlighting.',
+            ],
+        ];
+    }
+
+    /**
+     * Test for getName
+     *
+     * @param string $file         transformation file
+     * @param string $expectedName expected name
+     *
+     * @return void
+     *
+     * @dataProvider providerGetName
+     */
+    public function testGetName($file, $expectedName): void
+    {
+        $this->assertEquals(
+            $expectedName,
+            $this->transformations->getName($file)
+        );
+    }
+
+    /**
+     * @return array
+     */
+    public function providerGetName()
+    {
+        return [
+            [
+                '../../../../test',
+                '',
+            ],
+            [
+                'Input/Text_Plain_SqlEditor',
+                'SQL',
+            ],
+            [
+                'Output/Text_Plain_Sql',
+                'SQL',
             ],
         ];
     }

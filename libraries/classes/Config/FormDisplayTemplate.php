@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Form templates
  *
@@ -67,22 +66,24 @@ class FormDisplayTemplate
         if ($action === null) {
             $action = $_SERVER['REQUEST_URI'];
         }
-        if ($method != 'post') {
+        if ($method !== 'post') {
             $method = 'get';
         }
-        $htmlOutput = '<form method="' . $method . '" action="'
-            . htmlspecialchars($action) . '" class="config-form disableAjax">';
-        $htmlOutput .= '<input type="hidden" name="tab_hash" value="" />';
-        // we do validation on page refresh when browser remembers field values,
-        // add a field with known value which will be used for checks
+
+        /**
+         * We do validation on page refresh when browser remembers field values,
+         * add a field with known value which will be used for checks.
+         */
         if (! $hasCheckPageRefresh) {
             $hasCheckPageRefresh = true;
-            $htmlOutput .= '<input type="hidden" name="check_page_refresh" '
-                . ' id="check_page_refresh" value="" />' . "\n";
         }
-        $htmlOutput .= Url::getHiddenInputs('', '', 0, 'server') . "\n";
-        $htmlOutput .= Url::getHiddenFields((array)$hiddenFields, '', true);
-        return $htmlOutput;
+
+        return $this->template->render('config/form_display/form_top', [
+            'method' => $method,
+            'action' => $action,
+            'has_check_page_refresh' => $hasCheckPageRefresh,
+            'hidden_fields' => (array) $hiddenFields,
+        ]);
     }
 
     /**
@@ -106,11 +107,10 @@ class FormDisplayTemplate
         }
 
         $htmlOutput = $this->template->render('list/unordered', [
-            'class' => 'tabs responsivetable',
+            'class' => 'tabs responsivetable row',
             'items' => $items,
         ]);
-        $htmlOutput .= '<br />';
-        $htmlOutput .= '<div class="tabs_contents">';
+        $htmlOutput .= '<div class="tabs_contents row">';
         return $htmlOutput;
     }
 
@@ -193,10 +193,22 @@ class FormDisplayTemplate
             // The first element contains the filename and the second
             // element is used for the "alt" and "title" attributes.
             $iconInit = [
-                'edit'   => ['b_edit', ''],
-                'help'   => ['b_help', __('Documentation')],
-                'reload' => ['s_reload', ''],
-                'tblops' => ['b_tblops', '']
+                'edit'   => [
+                    'b_edit',
+                    '',
+                ],
+                'help'   => [
+                    'b_help',
+                    __('Documentation'),
+                ],
+                'reload' => [
+                    's_reload',
+                    '',
+                ],
+                'tblops' => [
+                    'b_tblops',
+                    '',
+                ],
             ];
             if ($isSetupScript) {
                 // When called from the setup script, we don't have access to the
@@ -208,7 +220,7 @@ class FormDisplayTemplate
                         $title = ' title="' . $v[1] . '"';
                     }
                     $icons[$k] = sprintf(
-                        '<img alt="%s" src="%s"%s />',
+                        '<img alt="%s" src="%s"%s>',
                         $v[1],
                         "../themes/pmahomme/img/{$v[0]}.png",
                         $title
@@ -224,7 +236,7 @@ class FormDisplayTemplate
                 }
             }
         }
-        $hasErrors = isset($opts['errors']) && !empty($opts['errors']);
+        $hasErrors = isset($opts['errors']) && ! empty($opts['errors']);
         $optionIsDisabled = ! $isSetupScript && isset($opts['userprefs_allow'])
             && ! $opts['userprefs_allow'];
         $nameId = 'name="' . htmlspecialchars($path) . '" id="'
@@ -250,7 +262,7 @@ class FormDisplayTemplate
 
         $htmlOutput = '<tr' . $trClass . '>';
         $htmlOutput .= '<th>';
-        $htmlOutput .= '<label for="' . htmlspecialchars($path) . '">' . $name
+        $htmlOutput .= '<label for="' . htmlspecialchars($path) . '">' . htmlspecialchars_decode($name)
             . '</label>';
 
         if (! empty($opts['doc'])) {
@@ -269,7 +281,7 @@ class FormDisplayTemplate
             $htmlOutput .= '">' . __('Disabled') . "</span>";
         }
 
-        if (!empty($description)) {
+        if (! empty($description)) {
             $htmlOutput .= '<small>' . $description . '</small>';
         }
 
@@ -279,11 +291,11 @@ class FormDisplayTemplate
         switch ($type) {
             case 'text':
                 $htmlOutput .= '<input type="text" class="all85" ' . $nameId . $fieldClass
-                . ' value="' . htmlspecialchars($value) . '" />';
+                . ' value="' . htmlspecialchars($value) . '">';
                 break;
             case 'password':
                 $htmlOutput .= '<input type="password" class="all85" ' . $nameId . $fieldClass
-                . ' value="' . htmlspecialchars($value) . '" />';
+                . ' value="' . htmlspecialchars($value) . '">';
                 break;
             case 'short_text':
                 // As seen in the reporting server (#15042) we sometimes receive
@@ -292,20 +304,20 @@ class FormDisplayTemplate
                 if (! is_array($value)) {
                     $htmlOutput .= '<input type="text" size="25" ' . $nameId
                     . $fieldClass . ' value="' . htmlspecialchars($value)
-                    . '" />';
+                    . '">';
                 }
                 break;
             case 'number_text':
                 $htmlOutput .= '<input type="number" ' . $nameId . $fieldClass
-                . ' value="' . htmlspecialchars((string) $value) . '" />';
+                . ' value="' . htmlspecialchars((string) $value) . '">';
                 break;
             case 'checkbox':
                 $htmlOutput .= '<span' . $fieldClass . '><input type="checkbox" ' . $nameId
-                  . ($value ? ' checked="checked"' : '') . ' /></span>';
+                  . ($value ? ' checked="checked"' : '') . '></span>';
                 break;
             case 'select':
                 $htmlOutput .= '<select class="all85" ' . $nameId . $fieldClass . '>';
-                $escape = !(isset($opts['values_escaped']) && $opts['values_escaped']);
+                $escape = ! (isset($opts['values_escaped']) && $opts['values_escaped']);
                 $valuesDisabled = isset($opts['values_disabled'])
                 ? array_flip($opts['values_disabled']) : [];
                 foreach ($opts['values'] as $optValueKey => $optValue) {
@@ -340,17 +352,13 @@ class FormDisplayTemplate
                 $htmlOutput .= '</select>';
                 break;
             case 'list':
+                $val = $value;
+                if (isset($val['wrapper_params'])) {
+                    unset($val['wrapper_params']);
+                }
                 $htmlOutput .= '<textarea cols="35" rows="5" ' . $nameId . $fieldClass
-                . '>' . htmlspecialchars(implode("\n", $value)) . '</textarea>';
+                . '>' . htmlspecialchars(implode("\n", $val)) . '</textarea>';
                 break;
-        }
-        if (isset($opts['comment']) && $opts['comment']) {
-            $class = 'field-comment-mark';
-            if (isset($opts['comment_warning']) && $opts['comment_warning']) {
-                $class .= ' field-comment-warning';
-            }
-            $htmlOutput .= '<span class="' . $class . '" title="'
-                . htmlspecialchars($opts['comment']) . '">i</span>';
         }
         if ($isSetupScript
             && isset($opts['userprefs_comment'])
@@ -386,8 +394,8 @@ class FormDisplayTemplate
                 . '-userprefs-allow" ';
             if ($opts['userprefs_allow']) {
                 $htmlOutput .= 'checked="checked"';
-            };
-            $htmlOutput .= '/>';
+            }
+            $htmlOutput .= '>';
             $htmlOutput .= '</td>';
         } elseif ($isSetupScript) {
             $htmlOutput .= '<td>&nbsp;</td>';
@@ -468,22 +476,21 @@ class FormDisplayTemplate
      *
      * @param string       $fieldId    ID of field to validate
      * @param string|array $validators validators callback
-     * @param array        &$jsArray   will be updated with javascript code
+     * @param array        $jsArray    will be updated with javascript code
      *
      * @return void
      */
     public function addJsValidate($fieldId, $validators, array &$jsArray): void
     {
-        foreach ((array)$validators as $validator) {
-            $validator = (array)$validator;
+        foreach ((array) $validators as $validator) {
+            $validator = (array) $validator;
             $vName = array_shift($validator);
-            $vName = "PMA_" . $vName;
             $vArgs = [];
             foreach ($validator as $arg) {
                 $vArgs[] = Sanitize::escapeJsString($arg);
             }
             $vArgs = $vArgs ? ", ['" . implode("', '", $vArgs) . "']" : '';
-            $jsArray[] = "validateField('$fieldId', '$vName', true$vArgs)";
+            $jsArray[] = "registerFieldValidator('$fieldId', '$vName', true$vArgs)";
         }
     }
 

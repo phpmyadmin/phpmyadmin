@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Test for PhpMyAdmin\Gis\GisMultiPolygon
  *
@@ -33,7 +32,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = GisMultiPolygon::singleton();
     }
@@ -45,7 +44,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -64,31 +63,70 @@ class GisMultiPolygonTest extends GisGeomTestCase
                     'no_of_lines' => 2,
                     0 => [
                         'no_of_points' => 5,
-                        0 => ['x' => 35, 'y' => 10],
-                        1 => ['x' => 10, 'y' => 20],
-                        2 => ['x' => 15, 'y' => 40],
-                        3 => ['x' => 45, 'y' => 45],
-                        4 => ['x' => 35, 'y' => 10],
+                        0 => [
+                            'x' => 35,
+                            'y' => 10,
+                        ],
+                        1 => [
+                            'x' => 10,
+                            'y' => 20,
+                        ],
+                        2 => [
+                            'x' => 15,
+                            'y' => 40,
+                        ],
+                        3 => [
+                            'x' => 45,
+                            'y' => 45,
+                        ],
+                        4 => [
+                            'x' => 35,
+                            'y' => 10,
+                        ],
                     ],
                     1 => [
                         'no_of_points' => 4,
-                        0 => ['x' => 20, 'y' => 30],
-                        1 => ['x' => 35, 'y' => 32],
-                        2 => ['x' => 30, 'y' => 20],
-                        3 => ['x' => 20, 'y' => 30],
-                    ]
+                        0 => [
+                            'x' => 20,
+                            'y' => 30,
+                        ],
+                        1 => [
+                            'x' => 35,
+                            'y' => 32,
+                        ],
+                        2 => [
+                            'x' => 30,
+                            'y' => 20,
+                        ],
+                        3 => [
+                            'x' => 20,
+                            'y' => 30,
+                        ],
+                    ],
                 ],
                 1 => [
                     'no_of_lines' => 1,
                     0 => [
                         'no_of_points' => 4,
-                        0 => ['x' => 123, 'y' => 0],
-                        1 => ['x' => 23, 'y' => 30],
-                        2 => ['x' => 17, 'y' => 63],
-                        3 => ['x' => 123, 'y' => 0],
-                    ]
-                ]
-            ]
+                        0 => [
+                            'x' => 123,
+                            'y' => 0,
+                        ],
+                        1 => [
+                            'x' => 23,
+                            'y' => 30,
+                        ],
+                        2 => [
+                            'x' => 17,
+                            'y' => 63,
+                        ],
+                        3 => [
+                            'x' => 123,
+                            'y' => 0,
+                        ],
+                    ],
+                ],
+            ],
         ];
     }
 
@@ -100,7 +138,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
     public function providerForTestGenerateWkt()
     {
         $temp = [
-            0 => $this->_getData()
+            0 => $this->_getData(),
         ];
 
         $temp1 = $temp;
@@ -118,7 +156,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
                 0,
                 null,
                 'MULTIPOLYGON(((35 10,10 20,15 40,45 45,35 10)'
-                    . ',(20 30,35 32,30 20,20 30)),((123 0,23 30,17 63,123 0)))'
+                    . ',(20 30,35 32,30 20,20 30)),((123 0,23 30,17 63,123 0)))',
             ],
             // at lease one polygon should be there
             [
@@ -126,7 +164,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
                 0,
                 null,
                 'MULTIPOLYGON(((35 10,10 20,15 40,45 45,35 10)'
-                    . ',(20 30,35 32,30 20,20 30)))'
+                    . ',(20 30,35 32,30 20,20 30)))',
             ],
             // a polygon should have at least one ring
             [
@@ -134,7 +172,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
                 0,
                 null,
                 'MULTIPOLYGON(((35 10,10 20,15 40,45 45,35 10)'
-                    . ',(20 30,35 32,30 20,20 30)),((123 0,23 30,17 63,123 0)))'
+                    . ',(20 30,35 32,30 20,20 30)),((123 0,23 30,17 63,123 0)))',
             ],
             // a ring should have at least four points
             [
@@ -142,7 +180,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
                 0,
                 '0',
                 'MULTIPOLYGON(((35 10,10 20,15 40,45 45,35 10)'
-                    . ',(20 30,35 32,30 20,20 30)),((123 0,23 30,17 63,123 0)))'
+                    . ',(20 30,35 32,30 20,20 30)),((123 0,23 30,17 63,123 0)))',
             ],
         ];
     }
@@ -166,17 +204,17 @@ class GisMultiPolygonTest extends GisGeomTestCase
                 null,
                 [
                     'srid' => '124',
-                    0 => $temp
-                ]
+                    0 => $temp,
+                ],
             ],
             [
                 'MULTIPOLYGON(((35 10,10 20,15 40,45 45,35 10)'
                     . ',(20 30,35 32,30 20,20 30)),((123 0,23 30,17 63,123 0)))',
                 2,
                 [
-                    2 => $temp1
-                ]
-            ]
+                    2 => $temp1,
+                ],
+            ],
         ];
     }
 
@@ -189,7 +227,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
      * @dataProvider providerForTestGetShape
      * @return void
      */
-    public function testGetShape($row_data, $shape)
+    public function testGetShape($row_data, $shape): void
     {
         $this->assertEquals($this->object->getShape($row_data), $shape);
     }
@@ -207,34 +245,73 @@ class GisMultiPolygonTest extends GisGeomTestCase
                     'parts' => [
                         0 => [
                             'points' => [
-                                0 => ['x' => 10, 'y' => 10],
-                                1 => ['x' => 10, 'y' => 40],
-                                2 => ['x' => 50, 'y' => 40],
-                                3 => ['x' => 50, 'y' => 10],
-                                4 => ['x' => 10, 'y' => 10],
+                                0 => [
+                                    'x' => 10,
+                                    'y' => 10,
+                                ],
+                                1 => [
+                                    'x' => 10,
+                                    'y' => 40,
+                                ],
+                                2 => [
+                                    'x' => 50,
+                                    'y' => 40,
+                                ],
+                                3 => [
+                                    'x' => 50,
+                                    'y' => 10,
+                                ],
+                                4 => [
+                                    'x' => 10,
+                                    'y' => 10,
+                                ],
                             ],
                         ],
                         1 => [
                             'points' => [
-                                0 => ['x' => 60, 'y' => 40],
-                                1 => ['x' => 75, 'y' => 65],
-                                2 => ['x' => 90, 'y' => 40],
-                                3 => ['x' => 60, 'y' => 40],
+                                0 => [
+                                    'x' => 60,
+                                    'y' => 40,
+                                ],
+                                1 => [
+                                    'x' => 75,
+                                    'y' => 65,
+                                ],
+                                2 => [
+                                    'x' => 90,
+                                    'y' => 40,
+                                ],
+                                3 => [
+                                    'x' => 60,
+                                    'y' => 40,
+                                ],
                             ],
                         ],
                         2 => [
                             'points' => [
-                                0 => ['x' => 20, 'y' => 20],
-                                1 => ['x' => 40, 'y' => 20],
-                                2 => ['x' => 25, 'y' => 30],
-                                3 => ['x' => 20, 'y' => 20],
+                                0 => [
+                                    'x' => 20,
+                                    'y' => 20,
+                                ],
+                                1 => [
+                                    'x' => 40,
+                                    'y' => 20,
+                                ],
+                                2 => [
+                                    'x' => 25,
+                                    'y' => 30,
+                                ],
+                                3 => [
+                                    'x' => 20,
+                                    'y' => 20,
+                                ],
                             ],
                         ],
                     ],
                 ],
                 'MULTIPOLYGON(((10 10,10 40,50 40,50 10,10 10),(20 20,40 20,25 30'
-                    . ',20 20)),((60 40,75 65,90 40,60 40)))'
-            ]
+                    . ',20 20)),((60 40,75 65,90 40,60 40)))',
+            ],
         ];
     }
 
@@ -253,8 +330,8 @@ class GisMultiPolygonTest extends GisGeomTestCase
                     'minX' => 16,
                     'maxX' => 147,
                     'minY' => 0,
-                    'maxY' => 83
-                ]
+                    'maxY' => 83,
+                ],
             ],
             [
                 'MULTIPOLYGON(((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20'
@@ -263,9 +340,9 @@ class GisMultiPolygonTest extends GisGeomTestCase
                     'minX' => 10,
                     'maxX' => 105,
                     'minY' => 0,
-                    'maxY' => 73
-                ]
-            ]
+                    'maxY' => 73,
+                ],
+            ],
         ];
     }
 
@@ -273,11 +350,11 @@ class GisMultiPolygonTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsPng() method
      *
-     * @param string $spatial    GIS MULTIPOLYGON object
-     * @param string $label      label for the GIS MULTIPOLYGON object
-     * @param string $fill_color color for the GIS MULTIPOLYGON object
-     * @param array  $scale_data array containing data related to scaling
-     * @param object $image      image object
+     * @param string   $spatial    GIS MULTIPOLYGON object
+     * @param string   $label      label for the GIS MULTIPOLYGON object
+     * @param string   $fill_color color for the GIS MULTIPOLYGON object
+     * @param array    $scale_data array containing data related to scaling
+     * @param resource $image      image object
      *
      * @return void
      * @dataProvider providerForPrepareRowAsPng
@@ -319,10 +396,10 @@ class GisMultiPolygonTest extends GisGeomTestCase
                     'x' => 12,
                     'y' => 69,
                     'scale' => 2,
-                    'height' => 150
+                    'height' => 150,
                 ],
                 imagecreatetruecolor(120, 150),
-            ]
+            ],
 
         ];
     }
@@ -334,7 +411,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
      * @param string $label      label for the GIS MULTIPOLYGON object
      * @param string $fill_color color for the GIS MULTIPOLYGON object
      * @param array  $scale_data array containing data related to scaling
-     * @param object $pdf        TCPDF instance
+     * @param TCPDF  $pdf        TCPDF instance
      *
      * @return void
      * @dataProvider providerForPrepareRowAsPdf
@@ -373,10 +450,10 @@ class GisMultiPolygonTest extends GisGeomTestCase
                     'x' => 12,
                     'y' => 69,
                     'scale' => 2,
-                    'height' => 150
+                    'height' => 150,
                 ],
                 new TCPDF(),
-            ]
+            ],
         ];
     }
 
@@ -425,7 +502,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
                     'x' => 12,
                     'y' => 69,
                     'scale' => 2,
-                    'height' => 150
+                    'height' => 150,
                 ],
                 '/^(<path d=" M 248, 208 L 270, 122 L 8, 138 Z " name="svg" class="'
                 . 'multipolygon vector" stroke="black" stroke-width="0.5" fill="'
@@ -433,8 +510,8 @@ class GisMultiPolygonTest extends GisGeomTestCase
                 . '("\/><path d=" M 186, 288 L 88, 248 L 132, 142 Z " name="svg" '
                 . 'class="multipolygon vector" stroke="black" stroke-width="0.5" '
                 . 'fill="#B02EE0" fill-rule="evenodd" fill-opacity="0.8" id="svg)'
-                . '(\d+)("\/>)$/'
-            ]
+                . '(\d+)("\/>)$/',
+            ],
         ];
     }
 
@@ -516,8 +593,8 @@ class GisMultiPolygonTest extends GisGeomTestCase
                 . '()), (new OpenLayers.Geometry.Point(105,0)).transform(new Open'
                 . 'Layers.Projection("EPSG:4326"), map.getProjectionObject()))))))'
                 . '), null, {"strokeColor":"#000000","strokeWidth":0.5,"fillColor":'
-                . '"#B02EE0","fillOpacity":0.8,"label":"Ol","fontSize":10}));'
-            ]
+                . '"#B02EE0","fillOpacity":0.8,"label":"Ol","fontSize":10}));',
+            ],
         ];
     }
 }

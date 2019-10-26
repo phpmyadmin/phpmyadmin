@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Session handling
  *
@@ -30,7 +29,8 @@ class Session
      */
     private static function generateToken()
     {
-        $_SESSION[' PMA_token '] = Util::generateRandom(16);
+        $_SESSION[' PMA_token '] = Util::generateRandom(16, true);
+        $_SESSION[' HMAC_secret '] = Util::generateRandom(16);
 
         /**
          * Check if token is properly generated (the generation can fail, for example
@@ -100,26 +100,26 @@ class Session
             . 'webserver log file and configure your PHP '
             . 'installation properly. Also ensure that cookies are enabled '
             . 'in your browser.'
-            . '<br /><br />'
-            . implode('<br /><br />', $messages)
+            . '<br><br>'
+            . implode('<br><br>', $messages)
         );
     }
 
     /**
      * Set up session
      *
-     * @param PhpMyAdmin\Config       $config       Configuration handler
-     * @param PhpMyAdmin\ErrorHandler $errorHandler Error handler
+     * @param Config       $config       Configuration handler
+     * @param ErrorHandler $errorHandler Error handler
      * @return void
      */
     public static function setUp(Config $config, ErrorHandler $errorHandler)
     {
         // verify if PHP supports session, die if it does not
-        if (!function_exists('session_name')) {
+        if (! function_exists('session_name')) {
             Core::warnMissingExtension('session', true);
         } elseif (! empty(ini_get('session.auto_start'))
             && session_name() != 'phpMyAdmin'
-            && !empty(session_id())) {
+            && ! empty(session_id())) {
             // Do not delete the existing non empty session, it might be used by
             // other applications; instead just close it.
             if (empty($_SESSION)) {
@@ -148,7 +148,7 @@ class Session
 
         // optionally set session_save_path
         $path = $config->get('SessionSavePath');
-        if (!empty($path)) {
+        if (! empty($path)) {
             session_save_path($path);
             // We can not do this unconditionally as this would break
             // any more complex setup (eg. cluster), see
@@ -167,13 +167,6 @@ class Session
 
         // delete session/cookies when browser is closed
         ini_set('session.cookie_lifetime', '0');
-
-        // warn but don't work with bug
-        ini_set('session.bug_compat_42', 'false');
-        ini_set('session.bug_compat_warn', 'true');
-
-        // use more secure session ids
-        ini_set('session.hash_function', '1');
 
         // some pages (e.g. stylesheet) may be cached on clients, but not in shared
         // proxy servers

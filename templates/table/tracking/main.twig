@@ -1,5 +1,5 @@
 {% if selectable_tables_num_rows > 0 %}
-    <form method="post" action="tbl_tracking.php{{ url_query|raw }}">
+    <form method="post" action="{{ url('/table/tracking', url_params) }}">
         {{ get_hidden_inputs(db, table) }}
         <select name="table" class="autosubmit">
             {% for entry in selectable_tables_entries %}
@@ -17,9 +17,9 @@
         <input type="hidden" name="show_versions_submit" value="1">
     </form>
 {% endif %}
-<br/>
+<br>
 {% if last_version > 0 %}
-    <form method="post" action="tbl_tracking.php" name="versionsForm" id="versionsForm" class="ajax">
+    <form method="post" action="{{ url('/table/tracking') }}" name="versionsForm" id="versionsForm" class="ajax">
         {{ get_hidden_inputs(db, table) }}
         <table id="versions" class="data">
             <thead>
@@ -39,7 +39,7 @@
                         <td class="center">
                             <input type="checkbox" name="selected_versions[]"
                                 class="checkall" id="selected_versions_{{- version['version']|escape }}"
-                                value="{{- version['version']|escape }}"/>
+                                value="{{- version['version']|escape }}">
                         </td>
                         <td class="floatright">
                             <label for="selected_versions_{{- version['version']|escape }}">
@@ -56,23 +56,27 @@
                             <td>{% trans 'not active' %}</td>
                         {% endif %}
                         <td>
-                            <a class="delete_version_anchor ajax" href="tbl_tracking.php{{- url_query|raw -}}&version=
-                                {{- version['version']|escape -}}&submit_delete_version=true">
+                            <a class="delete_version_anchor ajax" href="{{ url('/table/tracking') }}" data-post="
+                                {{- get_common(url_params|merge({
+                                    'version': version['version'],
+                                    'submit_delete_version': true
+                                }), '') }}">
                                 {{ get_icon('b_drop', 'Delete version'|trans) }}
                             </a>
                         </td>
                         <td>
-                            <a href="tbl_tracking.php
-                                {{- get_common(
-                                    url_params|merge({'report': 'true', 'version': version['version']})
-                                ) -}}">
+                            <a href="{{ url('/table/tracking') }}" data-post="
+                                {{- get_common(url_params|merge({
+                                    'version': version['version'],
+                                    'report': 'true'
+                                }), '') }}">
                                 {{ get_icon('b_report', 'Tracking report'|trans) }}
                             </a>
-                            &nbsp;&nbsp;
-                            <a href="tbl_tracking.php
-                                {{- get_common(
-                                    url_params|merge({'snapshot': 'true', 'version': version['version']})
-                                ) -}}">
+                            <a href="{{ url('/table/tracking') }}" data-post="
+                                {{- get_common(url_params|merge({
+                                    'version': version['version'],
+                                    'snapshot': 'true'
+                                }), '') }}">
                                 {{ get_icon('b_props', 'Structure snapshot'|trans) }}
                             </a>
                         </td>
@@ -95,7 +99,7 @@
     </form>
     {% set last_version_element = versions|first %}
     <div>
-        <form method="post" action="tbl_tracking.php{{ url_query|raw }}">
+        <form method="post" action="{{ url('/table/tracking', url_params) }}">
             {{ get_hidden_inputs(db, table) }}
             <fieldset>
                 <legend>
@@ -111,15 +115,16 @@
 
                     {{ legend|format(db ~ '.' ~ table) }}
                 </legend>
-                <input type="hidden" name="version" value="{{ last_version }}" />
-                <input type="hidden" name="toggle_activation" value="{{ value }}" />
-                <input type="submit" value="{{ button }}" />
+                <input type="hidden" name="version" value="{{ last_version }}">
+                <input type="hidden" name="toggle_activation" value="{{ value }}">
+                <input class="btn btn-secondary" type="submit" value="{{ button }}">
             </fieldset>
         </form>
     </div>
 {% endif %}
 {% include 'create_tracking_version.twig' with {
-    'url_query': url_query,
+    'route': '/table/tracking',
+    'url_params': url_params,
     'last_version': last_version,
     'db': db,
     'selected': [table],

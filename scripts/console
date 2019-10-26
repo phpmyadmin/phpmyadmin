@@ -1,0 +1,19 @@
+#!/usr/bin/env php
+<?php
+
+use PhpMyAdmin\Command\AdvisoryRulesCommand;
+use Symfony\Component\Console\Application;
+
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
+}
+
+define('PHPMYADMIN', true);
+require_once ROOT_PATH . 'libraries/vendor_config.php';
+require_once AUTOLOAD_FILE;
+
+$application = new Application('phpMyAdmin Console Tool');
+
+$application->add(new AdvisoryRulesCommand());
+
+$application->run();

@@ -31,7 +31,7 @@ class PdfRelationSchemaTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $_REQUEST['page_number'] = 33;
         $_REQUEST['pdf_show_grid'] = true;
@@ -45,6 +45,8 @@ class PdfRelationSchemaTest extends PmaTestCase
         $_REQUEST['t_h'] = ['information_schema.files' => 1];
         $_REQUEST['t_x'] = ['information_schema.files' => 0];
         $_REQUEST['t_y'] = ['information_schema.files' => 0];
+        $_POST['t_db'] = ['information_schema'];
+        $_POST['t_tbl'] = ['files'];
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'information_schema';
@@ -67,7 +69,7 @@ class PdfRelationSchemaTest extends PmaTestCase
             'mimework' => 'mimework',
             'commwork' => 'commwork',
             'column_info' => 'column_info',
-            'pdf_pages' => 'pdf_pages'
+            'pdf_pages' => 'pdf_pages',
         ];
         $relation = new Relation($GLOBALS['dbi']);
         $relation->getRelationsParam();
@@ -90,12 +92,12 @@ class PdfRelationSchemaTest extends PmaTestCase
 
         $fetchArrayReturn = [
             //table name in information_schema_relations
-            'table_name' => 'CHARACTER_SETS'
+            'table_name' => 'CHARACTER_SETS',
         ];
 
         $fetchArrayReturn2 = [
             //table name in information_schema_relations
-            'table_name' => 'COLLATIONS'
+            'table_name' => 'COLLATIONS',
         ];
 
         $dbi->expects($this->at(2))
@@ -110,7 +112,7 @@ class PdfRelationSchemaTest extends PmaTestCase
 
         $fetchRowReturn = [
             'table_name',
-            'table_name'
+            'table_name',
         ];
 
         //let fetchRow have more results
@@ -126,7 +128,7 @@ class PdfRelationSchemaTest extends PmaTestCase
                 "Type" => "char(60)",
                 "Null" => "NO",
                 'Extra' => "Extra",
-            ]
+            ],
         ];
         $dbi->expects($this->any())->method('getColumns')
             ->will($this->returnValue($fields_info));
@@ -140,8 +142,8 @@ class PdfRelationSchemaTest extends PmaTestCase
                 'Field' => 'field1',
                 'Key' => 'PRIMARY',
                 'Key_name' => "Key_name",
-                'Column_name' => "Column_name"
-            ]
+                'Column_name' => "Column_name",
+            ],
         ];
         $dbi->expects($this->any())->method('getTableIndexes')
             ->will($this->returnValue($getIndexesResult));
@@ -161,8 +163,14 @@ class PdfRelationSchemaTest extends PmaTestCase
             ->will($this->returnValue($fetchValue));
 
         $fetchResult = [
-            'column1' => ['mimetype' => 'value1', 'transformation' => 'pdf'],
-            'column2' => ['mimetype' => 'value2', 'transformation' => 'xml'],
+            'column1' => [
+                'mimetype' => 'value1',
+                'transformation' => 'pdf',
+            ],
+            'column2' => [
+                'mimetype' => 'value2',
+                'transformation' => 'xml',
+            ],
         ];
 
         $dbi->expects($this->any())->method('fetchResult')
@@ -180,7 +188,7 @@ class PdfRelationSchemaTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }

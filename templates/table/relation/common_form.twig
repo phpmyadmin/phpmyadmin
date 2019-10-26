@@ -1,7 +1,7 @@
 {% extends 'table/page_with_secondary_tabs.twig' %}
 
 {% block content %}
-<form method="post" action="tbl_relation.php">
+<form method="post" action="{{ url('/table/relation') }}">
     {{ get_hidden_inputs(db, table) }}
     {# InnoDB #}
     {% if is_foreign_key_supported(tbl_storage_engine) %}
@@ -90,7 +90,8 @@
                     <th colspan="6">
                         <a class="formelement clearfloat add_foreign_key" href="">
                             {% trans '+ Add constraint' %}
-                    </td>
+                        </a>
+                    </th>
                 </tr>
             </table>
             </div>
@@ -159,7 +160,7 @@
                             <td class="vmiddle">
                                 <strong>{{ myfield }}</strong>
                                 <input type="hidden" name="fields_name[{{ myfield_md5 }}]"
-                                    value="{{ myfield }}"/>
+                                    value="{{ myfield }}">
                             </td>
 
                             <td>
@@ -212,8 +213,8 @@
     {% endif %}
 
     <fieldset class="tblFooters">
-        <input type="button" class="preview_sql" value="{% trans 'Preview SQL' %}" />
-        <input type="submit" value="{% trans 'Save' %}" />
+        <input class="btn btn-secondary preview_sql" type="button" value="{% trans 'Preview SQL' %}">
+        <input class="btn btn-primary" type="submit" value="{% trans 'Save' %}">
     </fieldset>
 </form>
 {% if foreignKeySupported %}

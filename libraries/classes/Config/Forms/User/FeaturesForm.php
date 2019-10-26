@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * User preferences form
  *
@@ -49,19 +48,19 @@ class FeaturesForm extends BaseForm
                 'CharTextareaRows',
                 'TextareaCols',
                 'TextareaRows',
-                'LongtextDoubleTextarea'
+                'LongtextDoubleTextarea',
             ],
             'Page_titles' => [
                 'TitleDefault',
                 'TitleTable',
                 'TitleDatabase',
-                'TitleServer'
+                'TitleServer',
             ],
             'Warnings' => [
                 'PmaNoRelation_DisableWarning',
                 'SuhosinDisableWarning',
                 'LoginCookieValidityDisableWarning',
-                'ReservedWordDisableWarning'
+                'ReservedWordDisableWarning',
             ],
             'Console' => [
                 'Console/Mode',
@@ -79,7 +78,7 @@ class FeaturesForm extends BaseForm
         // skip Developer form if no setting is available
         if ($GLOBALS['cfg']['UserprefsDeveloperTab']) {
             $result['Developer'] = [
-                'DBG/sql'
+                'DBG/sql',
             ];
         }
         return $result;

@@ -1,4 +1,4 @@
-<form id="create_table_form_minimal" method="post" action="tbl_create.php" class="lock-page">
+<form id="create_table_form_minimal" method="post" action="{{ url('/table/create') }}" class="lock-page">
     <fieldset>
         <legend>
         {% if show_icons('ActionLinksMode') -%}
@@ -9,15 +9,15 @@
         {{ get_hidden_inputs(db) }}
         <div class="formelement">
             {% trans "Name" %}:
-            <input type="text" name="table" maxlength="64" size="30" required="required" />
+            <input type="text" name="table" maxlength="64" size="30" required="required">
         </div>
         <div class="formelement">
             {% trans "Number of columns" %}:
-            <input type="number" min="1" name="num_fields" value="4" required="required" />
+            <input type="number" min="1" name="num_fields" value="4" required="required">
         </div>
         <div class="clearfloat"></div>
     </fieldset>
     <fieldset class="tblFooters">
-        <input type="submit" value="{% trans "Go" %}" />
+        <input class="btn btn-primary" type="submit" value="{% trans "Go" %}">
     </fieldset>
 </form>

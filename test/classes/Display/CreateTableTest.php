@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for PhpMyAdmin\Display\CreateTable
  *
@@ -29,7 +28,7 @@ class CreateTableTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         //$GLOBALS
         $GLOBALS['server'] = 0;
@@ -44,7 +43,7 @@ class CreateTableTest extends TestCase
         $GLOBALS['cfg']['Server']['user'] = "pma_user";
         $GLOBALS['cfg']['ShowHint'] = true;
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
-        $GLOBALS['PMA_PHP_SELF'] = "server_privileges.php";
+        $GLOBALS['PMA_PHP_SELF'] = Url::getFromRoute('/server/privileges');
 
         //$_SESSION
         $_SESSION['relation'][$GLOBALS['server']] = "relation";
@@ -63,34 +62,34 @@ class CreateTableTest extends TestCase
         $html = CreateTable::getHtml($db);
 
         //getImage
-        $this->assertContains(
+        $this->assertStringContainsString(
             Util::getImage('b_table_add'),
             $html
         );
 
         //__('Create table')
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Create table'),
             $html
         );
 
         //Url::getHiddenInputs
-        $this->assertContains(
+        $this->assertStringContainsString(
             Url::getHiddenInputs($db),
             $html
         );
         //label
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Name'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Number of columns'),
             $html
         );
 
         //button
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Go'),
             $html
         );

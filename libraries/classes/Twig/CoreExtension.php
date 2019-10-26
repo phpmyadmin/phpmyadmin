@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * hold PhpMyAdmin\Twig\CoreExtension class
  *
@@ -31,6 +30,10 @@ class CoreExtension extends AbstractExtension
                 'mime_default_function',
                 'PhpMyAdmin\Core::mimeDefaultFunction',
                 ['is_safe' => ['html']]
+            ),
+            new TwigFilter(
+                'link',
+                'PhpMyAdmin\Core::linkURL'
             ),
         ];
     }

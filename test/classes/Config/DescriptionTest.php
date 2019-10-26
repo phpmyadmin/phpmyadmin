@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for FormDisplay class in config folder
  *
@@ -25,7 +24,7 @@ class DescriptionTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
     }
@@ -39,7 +38,7 @@ class DescriptionTest extends PmaTestCase
      *
      * @dataProvider getValues
      */
-    public function testGet($item, $type, $expected)
+    public function testGet($item, $type, $expected): void
     {
         $this->assertEquals($expected, Descriptions::get($item, $type));
     }
@@ -99,7 +98,7 @@ class DescriptionTest extends PmaTestCase
         ];
 
         $cfg = [];
-        include './libraries/config.default.php';
+        include ROOT_PATH . 'libraries/config.default.php';
         foreach ($cfg as $key => $value) {
             $this->assertGet($key);
             if ($key == 'Servers') {

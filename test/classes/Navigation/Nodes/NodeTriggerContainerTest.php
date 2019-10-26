@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for PhpMyAdmin\Navigation\Nodes\NodeTrigger class
  *
@@ -25,7 +24,7 @@ class NodeTriggerContainerTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
     }
@@ -43,10 +42,10 @@ class NodeTriggerContainerTest extends PmaTestCase
             'text',
             $parent->links
         );
-        $this->assertContains(
-            'db_triggers.php',
+        $this->assertStringContainsString(
+            'index.php?route=/database/triggers',
             $parent->links['text']
         );
-        $this->assertEquals('triggers', $parent->real_name);
+        $this->assertEquals('triggers', $parent->realName);
     }
 }

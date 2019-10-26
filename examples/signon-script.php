@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Single signon for phpMyAdmin
  *
@@ -24,12 +23,16 @@ declare(strict_types=1);
 function get_login_credentials($user)
 {
     /* Optionally we can use passed username */
-    if (!empty($user)) {
-        return [$user, 'password'];
+    if (! empty($user)) {
+        return [
+            $user,
+            'password',
+        ];
     }
 
     /* Here we would retrieve the credentials */
-    $credentials = ['root', ''];
-
-    return $credentials;
+    return [
+        'root',
+        '',
+    ];
 }

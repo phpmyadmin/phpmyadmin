@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for NodeFactory class
  *
@@ -26,7 +25,7 @@ class NodeFactoryTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
     }
@@ -41,7 +40,7 @@ class NodeFactoryTest extends PmaTestCase
         $node = NodeFactory::getInstance();
         $this->assertEquals('default', $node->name);
         $this->assertEquals(Node::OBJECT, $node->type);
-        $this->assertEquals(false, $node->is_group);
+        $this->assertEquals(false, $node->isGroup);
     }
 
     /**
@@ -58,7 +57,7 @@ class NodeFactoryTest extends PmaTestCase
         );
         $this->assertEquals('default', $node->name);
         $this->assertEquals(Node::CONTAINER, $node->type);
-        $this->assertEquals(false, $node->is_group);
+        $this->assertEquals(false, $node->isGroup);
     }
 
     /**
@@ -76,7 +75,7 @@ class NodeFactoryTest extends PmaTestCase
         );
         $this->assertEquals('default', $node->name);
         $this->assertEquals(Node::CONTAINER, $node->type);
-        $this->assertEquals(true, $node->is_group);
+        $this->assertEquals(true, $node->isGroup);
     }
 
     /**

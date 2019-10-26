@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Superclass for the single Property Item classes.
  *
@@ -52,7 +51,7 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
     /**
      * Gets the force parameter
      *
-     * @return string
+     * @return bool
      */
     public function getForce()
     {
@@ -74,7 +73,7 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
     /**
      * Gets the values
      *
-     * @return string
+     * @return array
      */
     public function getValues()
     {
@@ -96,7 +95,7 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
     /**
      * Gets MySQL documentation pointer
      *
-     * @return array
+     * @return string
      */
     public function getDoc()
     {

@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Holds the PhpMyAdmin\UserPassword class
  *
@@ -17,14 +16,14 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
- * Functions for user_password.php
+ * Functions for user password
  *
  * @package PhpMyAdmin
  */
 class UserPassword
 {
     /**
-     * @var Privileges $serverPrivileges
+     * @var Privileges
      */
     private $serverPrivileges;
 
@@ -78,21 +77,24 @@ class UserPassword
         $error = false;
         $message = Message::success(__('The profile has been updated.'));
 
-        if (($_REQUEST['nopass'] != '1')) {
-            if (strlen($_REQUEST['pma_pw']) === 0 || strlen($_REQUEST['pma_pw2']) === 0) {
+        if ($_POST['nopass'] != '1') {
+            if (strlen($_POST['pma_pw']) === 0 || strlen($_POST['pma_pw2']) === 0) {
                 $message = Message::error(__('The password is empty!'));
                 $error = true;
-            } elseif ($_REQUEST['pma_pw'] !== $_REQUEST['pma_pw2']) {
+            } elseif ($_POST['pma_pw'] !== $_POST['pma_pw2']) {
                 $message = Message::error(
                     __('The passwords aren\'t the same!')
                 );
                 $error = true;
-            } elseif (strlen($_REQUEST['pma_pw']) > 256) {
+            } elseif (strlen($_POST['pma_pw']) > 256) {
                 $message = Message::error(__('Password is too long!'));
                 $error = true;
             }
         }
-        return ['error' => $error, 'msg' => $message];
+        return [
+            'error' => $error,
+            'msg' => $message,
+        ];
     }
 
     /**
@@ -115,10 +117,10 @@ class UserPassword
         $serverType = Util::getServerType();
         $serverVersion = $GLOBALS['dbi']->getVersion();
 
-        if (isset($_REQUEST['authentication_plugin'])
-            && ! empty($_REQUEST['authentication_plugin'])
+        if (isset($_POST['authentication_plugin'])
+            && ! empty($_POST['authentication_plugin'])
         ) {
-            $orig_auth_plugin = $_REQUEST['authentication_plugin'];
+            $orig_auth_plugin = $_POST['authentication_plugin'];
         } else {
             $orig_auth_plugin = $this->serverPrivileges->getCurrentAuthenticationPlugin(
                 'change',
@@ -170,12 +172,12 @@ class UserPassword
     /**
      * Generate the hashing function
      *
-     * @return string  $hashing_function
+     * @return string
      */
     private function changePassHashingFunction()
     {
         if (Core::isValid(
-            $_REQUEST['authentication_plugin'],
+            $_POST['authentication_plugin'],
             'identical',
             'mysql_old_password'
         )) {
@@ -206,7 +208,7 @@ class UserPassword
         $hashing_function,
         $orig_auth_plugin
     ) {
-        $err_url = 'user_password.php' . Url::getCommon();
+        $err_url = Url::getFromRoute('/user_password');
 
         $serverType = Util::getServerType();
         $serverVersion = $GLOBALS['dbi']->getVersion();
@@ -275,7 +277,7 @@ class UserPassword
             $sql_query,
             'success'
         );
-        echo '<a href="index.php' , Url::getCommon()
+        echo '<a href="' , Url::getFromRoute('/')
             , ' target="_parent">' , "\n"
             , '<strong>' , __('Back') , '</strong></a>';
         exit;

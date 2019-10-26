@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for PhpMyAdmin\RelationCleanup
  *
@@ -11,6 +10,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -23,7 +23,7 @@ use PHPUnit\Framework\TestCase;
 class RelationCleanupTest extends TestCase
 {
     /**
-     * @var Relation|\PHPUnit\Framework\MockObject\MockObject
+     * @var Relation|MockObject
      */
     private $relation;
 
@@ -37,7 +37,7 @@ class RelationCleanupTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 1;
         $_SESSION['relation'] = [];

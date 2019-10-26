@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Selenium TestCase for creating and deleting databases
  *
@@ -24,7 +23,7 @@ class CreateDropDatabaseTest extends TestBase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         /* TODO: For now this tests needs superuser for deleting database */

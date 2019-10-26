@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Set of methods used to build dumps of tables as JSON
  *
@@ -13,11 +12,11 @@ namespace PhpMyAdmin\Plugins\Export;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\ExportPlugin;
-use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
+use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 
 /**
  * Handles the export for the JSON format
@@ -157,7 +156,7 @@ class ExportJson extends ExportPlugin
 
         $meta = [
             'type' => 'database',
-            'name' => $db_alias
+            'name' => $db_alias,
         ];
 
         return $this->export->outputHandler(
@@ -216,7 +215,7 @@ class ExportJson extends ExportPlugin
         $this->initAlias($aliases, $db_alias, $table_alias);
 
         if (! $this->first) {
-            if (!$this->export->outputHandler(',')) {
+            if (! $this->export->outputHandler(',')) {
                 return false;
             }
         } else {
@@ -228,12 +227,12 @@ class ExportJson extends ExportPlugin
                 'type' => 'table',
                 'name' => $table_alias,
                 'database' => $db_alias,
-                'data' => "@@DATA@@"
+                'data' => "@@DATA@@",
             ]
         );
         list($header, $footer) = explode('"@@DATA@@"', $buffer);
 
-        if (!$this->export->outputHandler($header . $crlf . '[' . $crlf)) {
+        if (! $this->export->outputHandler($header . $crlf . '[' . $crlf)) {
             return false;
         }
 
@@ -243,11 +242,12 @@ class ExportJson extends ExportPlugin
             DatabaseInterface::QUERY_UNBUFFERED
         );
         $columns_cnt = $GLOBALS['dbi']->numFields($result);
+        $fieldsMeta = $GLOBALS['dbi']->getFieldsMeta($result);
 
         $columns = [];
         for ($i = 0; $i < $columns_cnt; $i++) {
             $col_as = $GLOBALS['dbi']->fieldName($result, $i);
-            if (!empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
+            if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                 $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
             }
             $columns[$i] = stripslashes($col_as);
@@ -259,7 +259,7 @@ class ExportJson extends ExportPlugin
 
             // Output table name as comment if this is the first record of the table
             if ($record_cnt > 1) {
-                if (!$this->export->outputHandler(',' . $crlf)) {
+                if (! $this->export->outputHandler(',' . $crlf)) {
                     return false;
                 }
             }
@@ -267,15 +267,23 @@ class ExportJson extends ExportPlugin
             $data = [];
 
             for ($i = 0; $i < $columns_cnt; $i++) {
+                if ($fieldsMeta[$i]->type === 'geometry') {
+                    // export GIS types as hex
+                    $record[$i] = '0x' . bin2hex($record[$i]);
+                }
                 $data[$columns[$i]] = $record[$i];
             }
 
-            if (!$this->export->outputHandler($this->encode($data))) {
+            $encodedData = $this->encode($data);
+            if (! $encodedData) {
+                return false;
+            }
+            if (! $this->export->outputHandler($encodedData)) {
                 return false;
             }
         }
 
-        if (!$this->export->outputHandler($crlf . ']' . $crlf . $footer . $crlf)) {
+        if (! $this->export->outputHandler($crlf . ']' . $crlf . $footer . $crlf)) {
             return false;
         }
 

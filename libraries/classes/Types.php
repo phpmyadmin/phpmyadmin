@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * SQL data types definition
  *
@@ -9,6 +8,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\DatabaseInterface;
+
 /**
  * Class holding type definitions for MySQL and MariaDB.
  *
@@ -17,14 +18,14 @@ namespace PhpMyAdmin;
 class Types
 {
     /**
-     * @var \PhpMyAdmin\DatabaseInterface Database interface
+     * @var DatabaseInterface Database interface
      */
     private $_dbi;
 
     /**
      * Constructor
      *
-     * @param \PhpMyAdmin\DatabaseInterface $dbi Database interface instance
+     * @param DatabaseInterface $dbi Database interface instance
      */
     public function __construct($dbi)
     {
@@ -406,7 +407,7 @@ class Types
      */
     public function getTypeClass($type)
     {
-        $type = mb_strtoupper((string)$type);
+        $type = mb_strtoupper((string) $type);
         switch ($type) {
             case 'TINYINT':
             case 'SMALLINT':
@@ -478,40 +479,40 @@ class Types
         switch ($class) {
             case 'CHAR':
                 $ret = [
-                'AES_DECRYPT',
-                'AES_ENCRYPT',
-                'BIN',
-                'CHAR',
-                'COMPRESS',
-                'CURRENT_USER',
-                'DATABASE',
-                'DAYNAME',
-                'DES_DECRYPT',
-                'DES_ENCRYPT',
-                'ENCRYPT',
-                'HEX',
-                'INET6_NTOA',
-                'INET_NTOA',
-                'LOAD_FILE',
-                'LOWER',
-                'LTRIM',
-                'MD5',
-                'MONTHNAME',
-                'OLD_PASSWORD',
-                'PASSWORD',
-                'QUOTE',
-                'REVERSE',
-                'RTRIM',
-                'SHA1',
-                'SOUNDEX',
-                'SPACE',
-                'TRIM',
-                'UNCOMPRESS',
-                'UNHEX',
-                'UPPER',
-                'USER',
-                'UUID',
-                'VERSION',
+                    'AES_DECRYPT',
+                    'AES_ENCRYPT',
+                    'BIN',
+                    'CHAR',
+                    'COMPRESS',
+                    'CURRENT_USER',
+                    'DATABASE',
+                    'DAYNAME',
+                    'DES_DECRYPT',
+                    'DES_ENCRYPT',
+                    'ENCRYPT',
+                    'HEX',
+                    'INET6_NTOA',
+                    'INET_NTOA',
+                    'LOAD_FILE',
+                    'LOWER',
+                    'LTRIM',
+                    'MD5',
+                    'MONTHNAME',
+                    'OLD_PASSWORD',
+                    'PASSWORD',
+                    'QUOTE',
+                    'REVERSE',
+                    'RTRIM',
+                    'SHA1',
+                    'SOUNDEX',
+                    'SPACE',
+                    'TRIM',
+                    'UNCOMPRESS',
+                    'UNHEX',
+                    'UPPER',
+                    'USER',
+                    'UUID',
+                    'VERSION',
                 ];
 
                 if (($isMariaDB && $serverVersion < 100012)
@@ -523,77 +524,77 @@ class Types
 
             case 'DATE':
                 return [
-                'CURRENT_DATE',
-                'CURRENT_TIME',
-                'DATE',
-                'FROM_DAYS',
-                'FROM_UNIXTIME',
-                'LAST_DAY',
-                'NOW',
-                'SEC_TO_TIME',
-                'SYSDATE',
-                'TIME',
-                'TIMESTAMP',
-                'UTC_DATE',
-                'UTC_TIME',
-                'UTC_TIMESTAMP',
-                'YEAR',
+                    'CURRENT_DATE',
+                    'CURRENT_TIME',
+                    'DATE',
+                    'FROM_DAYS',
+                    'FROM_UNIXTIME',
+                    'LAST_DAY',
+                    'NOW',
+                    'SEC_TO_TIME',
+                    'SYSDATE',
+                    'TIME',
+                    'TIMESTAMP',
+                    'UTC_DATE',
+                    'UTC_TIME',
+                    'UTC_TIMESTAMP',
+                    'YEAR',
                 ];
 
             case 'NUMBER':
                 $ret = [
-                'ABS',
-                'ACOS',
-                'ASCII',
-                'ASIN',
-                'ATAN',
-                'BIT_LENGTH',
-                'BIT_COUNT',
-                'CEILING',
-                'CHAR_LENGTH',
-                'CONNECTION_ID',
-                'COS',
-                'COT',
-                'CRC32',
-                'DAYOFMONTH',
-                'DAYOFWEEK',
-                'DAYOFYEAR',
-                'DEGREES',
-                'EXP',
-                'FLOOR',
-                'HOUR',
-                'INET6_ATON',
-                'INET_ATON',
-                'LENGTH',
-                'LN',
-                'LOG',
-                'LOG2',
-                'LOG10',
-                'MICROSECOND',
-                'MINUTE',
-                'MONTH',
-                'OCT',
-                'ORD',
-                'PI',
-                'QUARTER',
-                'RADIANS',
-                'RAND',
-                'ROUND',
-                'SECOND',
-                'SIGN',
-                'SIN',
-                'SQRT',
-                'TAN',
-                'TO_DAYS',
-                'TO_SECONDS',
-                'TIME_TO_SEC',
-                'UNCOMPRESSED_LENGTH',
-                'UNIX_TIMESTAMP',
-                'UUID_SHORT',
-                'WEEK',
-                'WEEKDAY',
-                'WEEKOFYEAR',
-                'YEARWEEK',
+                    'ABS',
+                    'ACOS',
+                    'ASCII',
+                    'ASIN',
+                    'ATAN',
+                    'BIT_LENGTH',
+                    'BIT_COUNT',
+                    'CEILING',
+                    'CHAR_LENGTH',
+                    'CONNECTION_ID',
+                    'COS',
+                    'COT',
+                    'CRC32',
+                    'DAYOFMONTH',
+                    'DAYOFWEEK',
+                    'DAYOFYEAR',
+                    'DEGREES',
+                    'EXP',
+                    'FLOOR',
+                    'HOUR',
+                    'INET6_ATON',
+                    'INET_ATON',
+                    'LENGTH',
+                    'LN',
+                    'LOG',
+                    'LOG2',
+                    'LOG10',
+                    'MICROSECOND',
+                    'MINUTE',
+                    'MONTH',
+                    'OCT',
+                    'ORD',
+                    'PI',
+                    'QUARTER',
+                    'RADIANS',
+                    'RAND',
+                    'ROUND',
+                    'SECOND',
+                    'SIGN',
+                    'SIN',
+                    'SQRT',
+                    'TAN',
+                    'TO_DAYS',
+                    'TO_SECONDS',
+                    'TIME_TO_SEC',
+                    'UNCOMPRESSED_LENGTH',
+                    'UNIX_TIMESTAMP',
+                    'UUID_SHORT',
+                    'WEEK',
+                    'WEEKDAY',
+                    'WEEKOFYEAR',
+                    'YEARWEEK',
                 ];
                 if (($isMariaDB && $serverVersion < 100012)
                 || $serverVersion < 50603
@@ -603,26 +604,49 @@ class Types
                 return $ret;
 
             case 'SPATIAL':
-                return [
-                'GeomFromText',
-                'GeomFromWKB',
+                if ($serverVersion >= 50600) {
+                    return [
+                        'ST_GeomFromText',
+                        'ST_GeomFromWKB',
 
-                'GeomCollFromText',
-                'LineFromText',
-                'MLineFromText',
-                'PointFromText',
-                'MPointFromText',
-                'PolyFromText',
-                'MPolyFromText',
+                        'ST_GeomCollFromText',
+                        'ST_LineFromText',
+                        'ST_MLineFromText',
+                        'ST_PointFromText',
+                        'ST_MPointFromText',
+                        'ST_PolyFromText',
+                        'ST_MPolyFromText',
 
-                'GeomCollFromWKB',
-                'LineFromWKB',
-                'MLineFromWKB',
-                'PointFromWKB',
-                'MPointFromWKB',
-                'PolyFromWKB',
-                'MPolyFromWKB',
-                ];
+                        'ST_GeomCollFromWKB',
+                        'ST_LineFromWKB',
+                        'ST_MLineFromWKB',
+                        'ST_PointFromWKB',
+                        'ST_MPointFromWKB',
+                        'ST_PolyFromWKB',
+                        'ST_MPolyFromWKB',
+                    ];
+                } else {
+                    return [
+                        'GeomFromText',
+                        'GeomFromWKB',
+
+                        'GeomCollFromText',
+                        'LineFromText',
+                        'MLineFromText',
+                        'PointFromText',
+                        'MPointFromText',
+                        'PolyFromText',
+                        'MPolyFromText',
+
+                        'GeomCollFromWKB',
+                        'LineFromWKB',
+                        'MLineFromWKB',
+                        'PointFromWKB',
+                        'MPointFromWKB',
+                        'PolyFromWKB',
+                        'MPolyFromWKB',
+                    ];
+                }
         }
         return [];
     }
@@ -758,9 +782,9 @@ class Types
         ];
 
         if (($isMariaDB && $serverVersion > 100207)
-            || (!$isMariaDB && $serverVersion >= 50708)) {
+            || (! $isMariaDB && $serverVersion >= 50708)) {
             $ret['JSON'] = [
-              'JSON',
+                'JSON',
             ];
         }
 
@@ -774,7 +798,13 @@ class Types
      */
     public function getIntegerTypes()
     {
-        return ['tinyint', 'smallint', 'mediumint', 'int', 'bigint'];
+        return [
+            'tinyint',
+            'smallint',
+            'mediumint',
+            'int',
+            'bigint',
+        ];
     }
 
     /**
@@ -789,23 +819,56 @@ class Types
     {
         static $min_max_data = [
             'unsigned' => [
-                'tinyint'   => ['0', '255'],
-                'smallint'  => ['0', '65535'],
-                'mediumint' => ['0', '16777215'],
-                'int'       => ['0', '4294967295'],
-                'bigint'    => ['0', '18446744073709551615']
+                'tinyint'   => [
+                    '0',
+                    '255',
+                ],
+                'smallint'  => [
+                    '0',
+                    '65535',
+                ],
+                'mediumint' => [
+                    '0',
+                    '16777215',
+                ],
+                'int'       => [
+                    '0',
+                    '4294967295',
+                ],
+                'bigint'    => [
+                    '0',
+                    '18446744073709551615',
+                ],
             ],
             'signed' => [
-                'tinyint'   => ['-128', '127'],
-                'smallint'  => ['-32768', '32767'],
-                'mediumint' => ['-8388608', '8388607'],
-                'int'       => ['-2147483648', '2147483647'],
-                'bigint'    => ['-9223372036854775808', '9223372036854775807']
-            ]
+                'tinyint'   => [
+                    '-128',
+                    '127',
+                ],
+                'smallint'  => [
+                    '-32768',
+                    '32767',
+                ],
+                'mediumint' => [
+                    '-8388608',
+                    '8388607',
+                ],
+                'int'       => [
+                    '-2147483648',
+                    '2147483647',
+                ],
+                'bigint'    => [
+                    '-9223372036854775808',
+                    '9223372036854775807',
+                ],
+            ],
         ];
         $relevantArray = $signed
             ? $min_max_data['signed']
             : $min_max_data['unsigned'];
-        return isset($relevantArray[$type]) ? $relevantArray[$type] : ['', ''];
+        return isset($relevantArray[$type]) ? $relevantArray[$type] : [
+            '',
+            '',
+        ];
     }
 }

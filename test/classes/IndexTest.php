@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Test for Index class
  *
@@ -26,7 +25,7 @@ class IndexTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->_params['Schema'] = "PMA_Schema";
         $this->_params['Table'] = "PMA_Table";
@@ -38,18 +37,27 @@ class IndexTest extends PmaTestCase
         $this->_params['Packed'] = "PMA_Packed";
 
         //test add columns
-        $column1 = ["Column_name" => "column1","Seq_in_index" => "index1",
-                         "Collation" => "Collation1","Cardinality" => "Cardinality1",
-                         "Null" => "null1"
-                        ];
-        $column2 = ["Column_name" => "column2","Seq_in_index" => "index2",
-                         "Collation" => "Collation2","Cardinality" => "Cardinality2",
-                         "Null" => "null2"
-                        ];
-        $column3 = ["Column_name" => "column3","Seq_in_index" => "index3",
-                         "Collation" => "Collation3","Cardinality" => "Cardinality3",
-                         "Null" => "null3"
-                        ];
+        $column1 = [
+            "Column_name" => "column1",
+            "Seq_in_index" => "index1",
+            "Collation" => "Collation1",
+            "Cardinality" => "Cardinality1",
+            "Null" => "null1",
+        ];
+        $column2 = [
+            "Column_name" => "column2",
+            "Seq_in_index" => "index2",
+            "Collation" => "Collation2",
+            "Cardinality" => "Cardinality2",
+            "Null" => "null2",
+        ];
+        $column3 = [
+            "Column_name" => "column3",
+            "Seq_in_index" => "index3",
+            "Collation" => "Collation3",
+            "Cardinality" => "Cardinality3",
+            "Null" => "null3",
+        ];
         $this->_params['columns'][] = $column1;
         $this->_params['columns'][] = $column2;
         $this->_params['columns'][] = $column3;
@@ -83,11 +91,11 @@ class IndexTest extends PmaTestCase
             'PMA_Non_unique',
             $index->getNonUnique()
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'PMA_Comment',
             $index->getComments()
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'PMA_Index_comment',
             $index->getComments()
         );

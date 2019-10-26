@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Library for extracting information about the sub-partitions
  *
@@ -113,7 +112,7 @@ class SubPartition
     /**
      * Return the ordinal of the partition
      *
-     * @return number the ordinal
+     * @return int the ordinal
      */
     public function getOrdinal()
     {

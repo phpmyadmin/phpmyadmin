@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Database with allowed values for configuration stored in the $cfg array,
  * used by setup script and user preferences to generate forms.
@@ -8,7 +7,7 @@
  */
 declare(strict_types=1);
 
-if (!defined('PHPMYADMIN')) {
+if (! defined('PHPMYADMIN')) {
     exit;
 }
 
@@ -23,17 +22,40 @@ return [
     'Servers' => [
         1 => [
             'port' => 'integer',
-            'auth_type' => ['config', 'http', 'signon', 'cookie'],
+            'auth_type' => [
+                'config',
+                'http',
+                'signon',
+                'cookie',
+            ],
             'AllowDeny' => [
-                'order' => ['', 'deny,allow', 'allow,deny', 'explicit'],
+                'order' => [
+                    '',
+                    'deny,allow',
+                    'allow,deny',
+                    'explicit',
+                ],
             ],
             'only_db' => 'array',
         ],
     ],
-    'RecodingEngine' => ['auto', 'iconv', 'recode', 'mb', 'none'],
-    'OBGzip' => ['auto', true, false],
+    'RecodingEngine' => [
+        'auto',
+        'iconv',
+        'recode',
+        'mb',
+        'none',
+    ],
+    'OBGzip' => [
+        'auto',
+        true,
+        false,
+    ],
     'MemoryLimit' => 'short_string',
-    'NavigationLogoLinkWindow' => ['main', 'new'],
+    'NavigationLogoLinkWindow' => [
+        'main',
+        'new',
+    ],
     'NavigationTreeDefaultTabTable' => [
         // fields list
         'structure' => __('Structure'),
@@ -68,8 +90,18 @@ return [
         'text' => __('Text'),
         'both' => __('Both'),
     ],
-    'MaxRows' => [25, 50, 100, 250, 500],
-    'Order' => ['ASC', 'DESC', 'SMART'],
+    'MaxRows' => [
+        25,
+        50,
+        100,
+        250,
+        500,
+    ],
+    'Order' => [
+        'ASC',
+        'DESC',
+        'SMART',
+    ],
     'RowActionLinks' => [
         'none' => __('Nowhere'),
         'left' => __('Left'),
@@ -81,8 +113,16 @@ return [
         'ASC' => __('Ascending'),
         'DESC' => __('Descending'),
     ],
-    'ProtectBinary' => [false, 'blob', 'noblob', 'all'],
-    'CharEditing' => ['input', 'textarea'],
+    'ProtectBinary' => [
+        false,
+        'blob',
+        'noblob',
+        'all',
+    ],
+    'CharEditing' => [
+        'input',
+        'textarea',
+    ],
     'TabsMode' => [
         'icons' => __('Icons'),
         'text' => __('Text'),
@@ -175,8 +215,14 @@ return [
             $GLOBALS['cfg']['AvailableCharsets']
         ),
         'sql_compatibility' => [
-            'NONE', 'ANSI', 'DB2', 'MAXDB', 'MYSQL323',
-            'MYSQL40', 'MSSQL', 'ORACLE',
+            'NONE',
+            'ANSI',
+            'DB2',
+            'MAXDB',
+            'MYSQL323',
+            'MYSQL40',
+            'MSSQL',
+            'ORACLE',
             // removed; in MySQL 5.0.33, this produces exports that
             // can't be read by POSTGRESQL (see our bug #1596328)
             //'POSTGRESQL',
@@ -188,7 +234,11 @@ return [
         'ldi_terminated' => 'short_string',
         'ldi_enclosed' => 'short_string',
         'ldi_escaped' => 'short_string',
-        'ldi_local_option' => ['auto', true, false],
+        'ldi_local_option' => [
+            'auto',
+            true,
+            false,
+        ],
     ],
 
     'Export' => [
@@ -205,24 +255,47 @@ return [
             ),
         ],
         'format' => [
-            'codegen', 'csv', 'excel', 'htmlexcel', 'htmlword', 'latex', 'ods',
-            'odt', 'pdf', 'sql', 'texytext', 'xml', 'yaml',
+            'codegen',
+            'csv',
+            'excel',
+            'htmlexcel',
+            'htmlword',
+            'latex',
+            'ods',
+            'odt',
+            'pdf',
+            'sql',
+            'texytext',
+            'xml',
+            'yaml',
         ],
-        'compression' => ['none', 'zip', 'gzip'],
+        'compression' => [
+            'none',
+            'zip',
+            'gzip',
+        ],
         'charset' => array_merge(
             [''],
             $GLOBALS['cfg']['AvailableCharsets']
         ),
         'sql_compatibility' => [
-            'NONE', 'ANSI', 'DB2', 'MAXDB', 'MYSQL323',
-            'MYSQL40', 'MSSQL', 'ORACLE',
+            'NONE',
+            'ANSI',
+            'DB2',
+            'MAXDB',
+            'MYSQL323',
+            'MYSQL40',
+            'MSSQL',
+            'ORACLE',
             // removed; in MySQL 5.0.33, this produces exports that
             // can't be read by POSTGRESQL (see our bug #1596328)
             //'POSTGRESQL',
             'TRADITIONAL',
         ],
         'codegen_format' => [
-            '#', 'NHibernate C# DO', 'NHibernate XML',
+            '#',
+            'NHibernate C# DO',
+            'NHibernate XML',
         ],
         'csv_separator' => 'short_string',
         'csv_terminated' => 'short_string',
@@ -240,7 +313,11 @@ return [
             'data' => __('data'),
             'structure_and_data' => __('structure and data'),
         ],
-        'sql_type' => ['INSERT', 'UPDATE', 'REPLACE'],
+        'sql_type' => [
+            'INSERT',
+            'UPDATE',
+            'REPLACE',
+        ],
         'sql_insert_syntax' => [
             'complete' => __('complete inserts'),
             'extended' => __('extended inserts'),
@@ -269,10 +346,20 @@ return [
     ],
 
     'Console' => [
-        'Mode' => ['info', 'show', 'collapse'],
-        'Height' => 'integer',
-        'OrderBy' => ['exec', 'time', 'count'],
-        'Order' => ['asc', 'desc'],
+        'Mode' => [
+            'info',
+            'show',
+            'collapse',
+        ],
+        'OrderBy' => [
+            'exec',
+            'time',
+            'count',
+        ],
+        'Order' => [
+            'asc',
+            'desc',
+        ],
     ],
 
     /**
@@ -287,18 +374,49 @@ return [
      * Use only full paths and form ids
      */
     '_validators' => [
+        'Console/Height' => 'validateNonNegativeNumber',
         'CharTextareaCols' => 'validatePositiveNumber',
         'CharTextareaRows' => 'validatePositiveNumber',
         'ExecTimeLimit' => 'validateNonNegativeNumber',
         'Export/sql_max_query_size' => 'validatePositiveNumber',
         'FirstLevelNavigationItems' => 'validatePositiveNumber',
         'ForeignKeyMaxLimit' => 'validatePositiveNumber',
-        'Import/csv_enclosed' => [['validateByRegex', '/^.?$/']],
-        'Import/csv_escaped' => [['validateByRegex', '/^.$/']],
-        'Import/csv_terminated' => [['validateByRegex', '/^.$/']],
-        'Import/ldi_enclosed' => [['validateByRegex', '/^.?$/']],
-        'Import/ldi_escaped' => [['validateByRegex', '/^.$/']],
-        'Import/ldi_terminated' => [['validateByRegex', '/^.$/']],
+        'Import/csv_enclosed' => [
+            [
+                'validateByRegex',
+                '/^.?$/',
+            ],
+        ],
+        'Import/csv_escaped' => [
+            [
+                'validateByRegex',
+                '/^.$/',
+            ],
+        ],
+        'Import/csv_terminated' => [
+            [
+                'validateByRegex',
+                '/^.$/',
+            ],
+        ],
+        'Import/ldi_enclosed' => [
+            [
+                'validateByRegex',
+                '/^.?$/',
+            ],
+        ],
+        'Import/ldi_escaped' => [
+            [
+                'validateByRegex',
+                '/^.$/',
+            ],
+        ],
+        'Import/ldi_terminated' => [
+            [
+                'validateByRegex',
+                '/^.$/',
+            ],
+        ],
         'Import/skip_queries' => 'validateNonNegativeNumber',
         'InsertRows' => 'validatePositiveNumber',
         'NumRecentTables' => 'validateNonNegativeNumber',
@@ -310,8 +428,16 @@ return [
         'MaxNavigationItems' => 'validatePositiveNumber',
         'MaxCharactersInDisplayedSQL' => 'validatePositiveNumber',
         'MaxRows' => 'validatePositiveNumber',
+        'MaxSizeForInputField' => 'validatePositiveNumber',
+        'MinSizeForInputField' => 'validateNonNegativeNumber',
         'MaxTableList' => 'validatePositiveNumber',
-        'MemoryLimit' => [['validateByRegex', '/^(-1|(\d+(?:[kmg])?))$/i']],
+        'MemoryLimit' => [
+            [
+                'validateByRegex',
+                '/^(-1|(\d+(?:[kmg])?))$/i',
+            ],
+        ],
+        'NavigationTreeDisplayItemFilterMinimum' => 'validatePositiveNumber',
         'NavigationTreeTableLevel' => 'validatePositiveNumber',
         'NavigationWidth' => 'validateNonNegativeNumber',
         'QueryHistoryMax' => 'validatePositiveNumber',
@@ -330,13 +456,22 @@ return [
      */
     '_userValidators' => [
         'MaxDbList' => [
-            ['validateUpperBound', 'value:MaxDbList'],
+            [
+                'validateUpperBound',
+                'value:MaxDbList',
+            ],
         ],
         'MaxTableList' => [
-            ['validateUpperBound', 'value:MaxTableList'],
+            [
+                'validateUpperBound',
+                'value:MaxTableList',
+            ],
         ],
         'QueryHistoryMax' => [
-            ['validateUpperBound', 'value:QueryHistoryMax'],
+            [
+                'validateUpperBound',
+                'value:QueryHistoryMax',
+            ],
         ],
     ],
 ];

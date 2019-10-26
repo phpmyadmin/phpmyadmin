@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Library for extracting information about the available storage engines
  *
@@ -101,7 +100,7 @@ class StorageEngine
      * @static
      * @staticvar array $storage_engines storage engines
      * @access public
-     * @return string[] array of storage engines
+     * @return array[] array of storage engines
      */
     public static function getStorageEngines()
     {
@@ -192,7 +191,7 @@ class StorageEngine
      */
     public static function getEngine($engine)
     {
-        switch (strtolower($engine)) {
+        switch (mb_strtolower($engine)) {
             case 'bdb':
                 return new Bdb($engine);
             case 'berkeleydb':
@@ -303,7 +302,7 @@ class StorageEngine
      *
      * @param integer $value Value to format
      *
-     * @return string the formatted value and its unit
+     * @return array the formatted value and its unit
      */
     public function resolveTypeSize($value)
     {
@@ -335,7 +334,7 @@ class StorageEngine
                 $mysql_vars[$row['Variable_name']]
                     = $variables[$row['Variable_name']];
             } elseif (! $like
-                && mb_strpos(mb_strtolower($row['Variable_name']), mb_strtolower($this->engine)) !== 0
+                && mb_stripos($row['Variable_name'], $this->engine) !== 0
             ) {
                 continue;
             }

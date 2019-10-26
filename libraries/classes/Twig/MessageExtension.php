@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * hold PhpMyAdmin\Twig\MessageExtension class
  *
@@ -39,6 +38,13 @@ class MessageExtension extends AbstractExtension
                 'error',
                 function ($string) {
                     return Message::error($string)->getDisplay();
+                },
+                ['is_safe' => ['html']]
+            ),
+            new TwigFilter(
+                'raw_success',
+                function ($string) {
+                    return Message::rawSuccess($string)->getDisplay();
                 },
                 ['is_safe' => ['html']]
             ),

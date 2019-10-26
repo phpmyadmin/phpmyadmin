@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for PhpMyAdmin\Navigation\Nodes\NodeEvent class
  *
@@ -12,6 +11,7 @@ namespace PhpMyAdmin\Tests\Navigation\Nodes;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Theme;
+use PhpMyAdmin\Url;
 
 /**
  * Tests for PhpMyAdmin\Navigation\Nodes\NodeEvent class
@@ -25,7 +25,7 @@ class NodeEventTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
     }
@@ -42,8 +42,8 @@ class NodeEventTest extends PmaTestCase
             'text',
             $parent->links
         );
-        $this->assertContains(
-            'db_events.php',
+        $this->assertStringContainsString(
+            'index.php?route=/database/events',
             $parent->links['text']
         );
     }
