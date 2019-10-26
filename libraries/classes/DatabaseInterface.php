@@ -2267,10 +2267,7 @@ class DatabaseInterface
                  */
                 $error .= ' - ' . $error_message .
                     ' (<a href="' .
-                    Url::getFromRoute('/server/engines', [
-                        'engine' => 'InnoDB',
-                        'page' => 'Status',
-                    ]) .
+                    Url::getFromRoute('/server/engines/InnoDB/Status') .
                     '">' . __('Details…') . '</a>)';
             }
         } else {

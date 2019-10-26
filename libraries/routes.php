@@ -9,6 +9,7 @@ use FastRoute\RouteCollector;
 use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\Controllers\Server\CollationsController;
 use PhpMyAdmin\Controllers\Server\DatabasesController;
+use PhpMyAdmin\Controllers\Server\EnginesController;
 use PhpMyAdmin\Response;
 
 global $containerBuilder;
@@ -174,8 +175,15 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
                 ]));
             });
         });
-        $routes->addRoute('GET', '/engines', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/server/engines.php';
+        $routes->addGroup('/engines', function (RouteCollector $routes) use ($containerBuilder, $response) {
+            /** @var EnginesController $controller */
+            $controller = $containerBuilder->get(EnginesController::class);
+            $routes->addRoute('GET', '', function () use ($response, $controller) {
+                $response->addHTML($controller->index());
+            });
+            $routes->addRoute('GET', '/{engine}[/{page}]', function (array $vars) use ($response, $controller) {
+                $response->addHTML($controller->show($vars));
+            });
         });
         $routes->addRoute(['GET', 'POST'], '/export', function () {
             require_once ROOT_PATH . 'libraries/entry_points/server/export.php';

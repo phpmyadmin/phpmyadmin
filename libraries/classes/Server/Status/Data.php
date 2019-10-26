@@ -193,14 +193,11 @@ class Data
         $links['Slow_queries']['doc'] = 'slow_query_log';
 
         $links['innodb'][__('Variables')] = [
-            'url' => Url::getFromRoute('/server/engines', ['engine' => 'InnoDB']),
+            'url' => Url::getFromRoute('/server/engines/InnoDB'),
             'params' => '',
         ];
         $links['innodb'][__('InnoDB Status')] = [
-            'url' => Url::getFromRoute('/server/engines', [
-                'engine' => 'InnoDB',
-                'page' => 'Status',
-            ]),
+            'url' => Url::getFromRoute('/server/engines/InnoDB/Status'),
             'params' => '',
         ];
         $links['innodb']['doc'] = 'innodb';
