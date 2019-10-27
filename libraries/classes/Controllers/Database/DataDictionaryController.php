@@ -50,10 +50,17 @@ class DataDictionaryController extends AbstractController
     }
 
     /**
-     * @return string HTML
+     * @param array $params Request parameters
+     *
+     * @return string
      */
-    public function index(): string
+    public function index(array $params): string
     {
+        $this->db = $params['database'];
+
+        $header = $this->response->getHeader();
+        $header->enablePrintView();
+
         $cfgRelation = $this->relation->getRelationsParam();
 
         $comment = $this->relation->getDbComment($this->db);

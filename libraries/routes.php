@@ -6,6 +6,7 @@
 declare(strict_types=1);
 
 use FastRoute\RouteCollector;
+use PhpMyAdmin\Controllers\Database\DataDictionaryController;
 use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\Controllers\Server\CollationsController;
 use PhpMyAdmin\Controllers\Server\DatabasesController;
@@ -47,12 +48,14 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
     $routes->addRoute(['GET', 'POST'], '/check_relations', function () {
         require_once ROOT_PATH . 'libraries/entry_points/chk_rel.php';
     });
-    $routes->addGroup('/database', function (RouteCollector $routes) {
+    $routes->addGroup('/database', function (RouteCollector $routes) use ($containerBuilder, $response) {
         $routes->addRoute(['GET', 'POST'], '/central_columns', function () {
             require_once ROOT_PATH . 'libraries/entry_points/database/central_columns.php';
         });
-        $routes->get('/data_dictionary', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/database/datadict.php';
+        $routes->get('/data-dictionary/{database}', function (array $vars) use ($containerBuilder, $response) {
+            /** @var DataDictionaryController $controller */
+            $controller = $containerBuilder->get(DataDictionaryController::class);
+            $response->addHTML($controller->index($vars));
         });
         $routes->addRoute(['GET', 'POST'], '/designer', function () {
             require_once ROOT_PATH . 'libraries/entry_points/database/designer.php';
