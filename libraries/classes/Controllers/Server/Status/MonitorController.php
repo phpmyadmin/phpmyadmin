@@ -39,8 +39,6 @@ class MonitorController extends AbstractController
     {
         parent::__construct($response, $dbi, $template, $data);
         $this->monitor = $monitor;
-
-        require_once ROOT_PATH . 'libraries/server_common.inc.php';
     }
 
     /**
@@ -48,6 +46,8 @@ class MonitorController extends AbstractController
      */
     public function index(): string
     {
+        require_once ROOT_PATH . 'libraries/server_common.inc.php';
+
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();
         $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
@@ -91,6 +91,8 @@ class MonitorController extends AbstractController
      */
     public function chartingData(array $params): array
     {
+        require_once ROOT_PATH . 'libraries/server_common.inc.php';
+
         if (! $this->response->isAjax()) {
             return [];
         }
@@ -109,6 +111,8 @@ class MonitorController extends AbstractController
      */
     public function logDataTypeSlow(array $params): array
     {
+        require_once ROOT_PATH . 'libraries/server_common.inc.php';
+
         if (! $this->response->isAjax()) {
             return [];
         }
@@ -128,6 +132,8 @@ class MonitorController extends AbstractController
      */
     public function logDataTypeGeneral(array $params): array
     {
+        require_once ROOT_PATH . 'libraries/server_common.inc.php';
+
         if (! $this->response->isAjax()) {
             return [];
         }
@@ -149,6 +155,8 @@ class MonitorController extends AbstractController
      */
     public function loggingVars(array $params): array
     {
+        require_once ROOT_PATH . 'libraries/server_common.inc.php';
+
         if (! $this->response->isAjax()) {
             return [];
         }
@@ -168,6 +176,8 @@ class MonitorController extends AbstractController
      */
     public function queryAnalyzer(array $params): array
     {
+        require_once ROOT_PATH . 'libraries/server_common.inc.php';
+
         if (! $this->response->isAjax()) {
             return [];
         }
