@@ -14,6 +14,7 @@ use PhpMyAdmin\Controllers\Server\PluginsController;
 use PhpMyAdmin\Controllers\Server\SqlController;
 use PhpMyAdmin\Controllers\Server\Status\AdvisorController;
 use PhpMyAdmin\Controllers\Server\Status\MonitorController;
+use PhpMyAdmin\Controllers\Server\Status\ProcessesController;
 use PhpMyAdmin\Controllers\Server\Status\StatusController;
 use PhpMyAdmin\Response;
 
@@ -261,8 +262,30 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
                     ]));
                 });
             });
-            $routes->addRoute(['GET', 'POST'], '/processes', function () {
-                require_once ROOT_PATH . 'libraries/entry_points/server/status/processes.php';
+            $routes->addGroup('/processes', function (RouteCollector $routes) use ($containerBuilder, $response) {
+                /** @var ProcessesController $controller */
+                $controller = $containerBuilder->get(ProcessesController::class);
+                $routes->addRoute(['GET', 'POST'], '', function () use ($response, $controller) {
+                    $response->addHTML($controller->index([
+                        'showExecuting' => $_POST['showExecuting'] ?? null,
+                        'full' => $_POST['full'] ?? null,
+                        'column_name' => $_POST['column_name'] ?? null,
+                        'order_by_field' => $_POST['order_by_field'] ?? null,
+                        'sort_order' => $_POST['sort_order'] ?? null,
+                    ]));
+                });
+                $routes->addRoute('POST', '/refresh', function () use ($response, $controller) {
+                    $response->addHTML($controller->refresh([
+                        'showExecuting' => $_POST['showExecuting'] ?? null,
+                        'full' => $_POST['full'] ?? null,
+                        'column_name' => $_POST['column_name'] ?? null,
+                        'order_by_field' => $_POST['order_by_field'] ?? null,
+                        'sort_order' => $_POST['sort_order'] ?? null,
+                    ]));
+                });
+                $routes->addRoute('POST', '/kill/{id:\d+}', function (array $vars) use ($response, $controller) {
+                    $response->addJSON($controller->kill($vars));
+                });
             });
             $routes->addRoute('GET', '/queries', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/server/status/queries.php';

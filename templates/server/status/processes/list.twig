@@ -40,7 +40,7 @@
       {% for row in rows %}
         <tr>
           <td>
-            <a class="ajax kill_process" href="{{ url('/server/status/processes') }}" data-post="{{ get_common({'kill': row.id}, '') }}">
+            <a class="ajax kill_process" href="{{ url('/server/status/processes/kill/' ~ row.id) }}" data-post="{{ get_common({'kill': row.id}, '') }}">
               {% trans 'Kill' %}
             </a>
           </td>

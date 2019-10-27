@@ -23,6 +23,12 @@ class ProcessesController extends AbstractController
      */
     public function index(array $params): string
     {
+        require_once ROOT_PATH . 'libraries/server_common.inc.php';
+
+        $header = $this->response->getHeader();
+        $scripts = $header->getScripts();
+        $scripts->addFile('server/status/processes.js');
+
         $isChecked = false;
         if (! empty($params['showExecuting'])) {
             $isChecked = true;
@@ -53,6 +59,10 @@ class ProcessesController extends AbstractController
      */
     public function refresh(array $params): string
     {
+        if (! $this->response->isAjax()) {
+            return '';
+        }
+
         return $this->getList($params);
     }
 
@@ -62,7 +72,11 @@ class ProcessesController extends AbstractController
      */
     public function kill(array $params): array
     {
-        $kill = (int) $params['kill'];
+        if (! $this->response->isAjax()) {
+            return [];
+        }
+
+        $kill = (int) $params['id'];
         $query = $this->dbi->getKillQuery($kill);
 
         if ($this->dbi->tryQuery($query)) {
