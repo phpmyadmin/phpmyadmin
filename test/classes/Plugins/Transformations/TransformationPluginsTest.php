@@ -937,9 +937,11 @@ class TransformationPluginsTest extends PmaTestCase
                         "200",
                     ],
                 ],
-                '<a href="http://image/PMA_IMAGE" rel="noopener noreferrer" target="_blank">'
-                . '<img src="http://image/PMA_IMAGE" border="0" width="200" '
-                . 'height="50">PMA_IMAGE</a>',
+                '<a href="http://image/PMA_IMAGE" rel="noopener noreferrer" target="_blank">
+    <img src="http://image/PMA_IMAGE" border="0" width="200" height="50">
+    PMA_IMAGE
+</a>
+',
             ],
             [
                 new Text_Plain_Imagelink(),
