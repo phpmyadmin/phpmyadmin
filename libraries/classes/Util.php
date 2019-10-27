@@ -4436,14 +4436,14 @@ class Util
         } elseif (isset($_SESSION['tmpval']['pos'])) {
             $pos = $_SESSION['tmpval']['pos'];
         } else {
-            $number_of_line = intval($_REQUEST['unlim_num_rows']);
+            $number_of_line = (int) $_REQUEST['unlim_num_rows'];
             $pos = ((ceil($number_of_line / $rows) - 1) * $rows);
             $_SESSION['tmpval']['pos'] = $pos;
         }
 
         return $template->render('start_and_number_of_rows_panel', [
             'pos' => $pos,
-            'unlim_num_rows' => intval($_REQUEST['unlim_num_rows']),
+            'unlim_num_rows' => (int) $_REQUEST['unlim_num_rows'],
             'rows' => $rows,
             'sql_query' => $sql_query,
         ]);
