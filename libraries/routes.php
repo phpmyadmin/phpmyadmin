@@ -17,7 +17,8 @@ use PhpMyAdmin\Controllers\Server\Status\MonitorController;
 use PhpMyAdmin\Controllers\Server\Status\ProcessesController;
 use PhpMyAdmin\Controllers\Server\Status\QueriesController;
 use PhpMyAdmin\Controllers\Server\Status\StatusController;
-use PhpMyAdmin\Controllers\Server\Status\VariablesController;
+use PhpMyAdmin\Controllers\Server\Status\VariablesController as StatusVariables;
+use PhpMyAdmin\Controllers\Server\VariablesController;
 use PhpMyAdmin\Response;
 
 global $containerBuilder;
@@ -295,8 +296,8 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
                 $response->addHTML($controller->index());
             });
             $routes->addRoute(['GET', 'POST'], '/variables', function () use ($containerBuilder, $response) {
-                /** @var VariablesController $controller */
-                $controller = $containerBuilder->get(VariablesController::class);
+                /** @var StatusVariables $controller */
+                $controller = $containerBuilder->get(StatusVariables::class);
                 $response->addHTML($controller->index([
                     'flush' => $_POST['flush'] ?? null,
                     'filterAlert' => $_POST['filterAlert'] ?? null,
@@ -309,8 +310,23 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $routes->addRoute(['GET', 'POST'], '/user_groups', function () {
             require_once ROOT_PATH . 'libraries/entry_points/server/user_groups.php';
         });
-        $routes->addRoute(['GET', 'POST'], '/variables', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/server/variables.php';
+        $routes->addGroup('/variables', function (RouteCollector $routes) use ($containerBuilder, $response) {
+            /** @var VariablesController $controller */
+            $controller = $containerBuilder->get(VariablesController::class);
+            $routes->addRoute('GET', '', function () use ($response, $controller) {
+                $response->addHTML($controller->index([
+                    'filter' => $_GET['filter'] ?? null,
+                ]));
+            });
+            $routes->addRoute('GET', '/get/{name}', function (array $vars) use ($response, $controller) {
+                $response->addJSON($controller->getValue($vars));
+            });
+            $routes->addRoute('POST', '/set/{name}', function (array $vars) use ($response, $controller) {
+                $response->addJSON($controller->setValue([
+                    'varName' => $vars['name'],
+                    'varValue' => $_POST['varValue'] ?? null,
+                ]));
+            });
         });
     });
     $routes->addRoute(['GET', 'POST'], '/sql', function () {

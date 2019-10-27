@@ -98,10 +98,6 @@ class VariablesControllerTest extends TestCase
         $html = $controller->index([]);
 
         $this->assertStringContainsString(
-            'index.php?route=/server/variables',
-            $html
-        );
-        $this->assertStringContainsString(
             Util::getIcon('b_save', __('Save')),
             $html
         );
