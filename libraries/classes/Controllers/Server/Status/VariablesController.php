@@ -22,6 +22,14 @@ class VariablesController extends AbstractController
      */
     public function index(array $params): string
     {
+        require_once ROOT_PATH . 'libraries/server_common.inc.php';
+
+        $header = $this->response->getHeader();
+        $scripts = $header->getScripts();
+        $scripts->addFile('server/status/variables.js');
+        $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
+        $scripts->addFile('server/status/sorter.js');
+
         if (isset($params['flush'])) {
             $this->flush($params['flush']);
         }

@@ -17,6 +17,7 @@ use PhpMyAdmin\Controllers\Server\Status\MonitorController;
 use PhpMyAdmin\Controllers\Server\Status\ProcessesController;
 use PhpMyAdmin\Controllers\Server\Status\QueriesController;
 use PhpMyAdmin\Controllers\Server\Status\StatusController;
+use PhpMyAdmin\Controllers\Server\Status\VariablesController;
 use PhpMyAdmin\Response;
 
 global $containerBuilder;
@@ -293,8 +294,16 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
                 $controller = $containerBuilder->get(QueriesController::class);
                 $response->addHTML($controller->index());
             });
-            $routes->addRoute(['GET', 'POST'], '/variables', function () {
-                require_once ROOT_PATH . 'libraries/entry_points/server/status/variables.php';
+            $routes->addRoute(['GET', 'POST'], '/variables', function () use ($containerBuilder, $response) {
+                /** @var VariablesController $controller */
+                $controller = $containerBuilder->get(VariablesController::class);
+                $response->addHTML($controller->index([
+                    'flush' => $_POST['flush'] ?? null,
+                    'filterAlert' => $_POST['filterAlert'] ?? null,
+                    'filterText' => $_POST['filterText'] ?? null,
+                    'filterCategory' => $_POST['filterCategory'] ?? null,
+                    'dontFormat' => $_POST['dontFormat'] ?? null,
+                ]));
             });
         });
         $routes->addRoute(['GET', 'POST'], '/user_groups', function () {
