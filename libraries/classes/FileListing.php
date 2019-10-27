@@ -64,15 +64,13 @@ class FileListing
         if ($list === false) {
             return false;
         }
-        $result = '';
-        foreach ($list as $val) {
-            $result .= '<option value="' . htmlspecialchars($val) . '"';
-            if ($val == $active) {
-                $result .= ' selected="selected"';
-            }
-            $result .= '>' . htmlspecialchars($val) . '</option>' . "\n";
-        }
-        return $result;
+
+        $template = new Template();
+
+        return $template->render('file_select_options', [
+            'filesList' => $list,
+            'active' => $active
+        ]);
     }
 
     /**
