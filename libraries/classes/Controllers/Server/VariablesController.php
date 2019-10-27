@@ -151,7 +151,7 @@ class VariablesController extends AbstractController
                     'gb' => 3,
                     'gib' => 3,
                 ];
-                $value = floatval($matches[1]) * pow(
+                $value = (float) $matches[1] * pow(
                     1024,
                     $exp[mb_strtolower($matches[3])]
                 );
@@ -215,12 +215,12 @@ class VariablesController extends AbstractController
                 $type = KBSearch::getVariableType($name);
                 if ($type === 'byte') {
                     $isHtmlFormatted = true;
-                    $formattedValue = '<abbr title="'
-                        . htmlspecialchars(Util::formatNumber($value, 0)) . '">'
-                        . htmlspecialchars(
+                    $formattedValue = trim($this->template->render('server/variables/format_variable',[
+                        'valueTitle' => htmlspecialchars(Util::formatNumber($value, 0)),
+                        'value' => htmlspecialchars(
                             implode(' ', Util::formatByteDown($value, 3, 3))
-                        )
-                        . '</abbr>';
+                        ),
+                    ]));
                 } else {
                     throw new KBException("Not a type=byte or regex not matching");
                 }
