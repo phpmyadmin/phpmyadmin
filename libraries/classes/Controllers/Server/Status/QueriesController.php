@@ -19,6 +19,19 @@ class QueriesController extends AbstractController
      */
     public function index(): string
     {
+        require_once ROOT_PATH . 'libraries/server_common.inc.php';
+
+        $header = $this->response->getHeader();
+        $scripts = $header->getScripts();
+        $scripts->addFile('chart.js');
+        $scripts->addFile('vendor/jqplot/jquery.jqplot.js');
+        $scripts->addFile('vendor/jqplot/plugins/jqplot.pieRenderer.js');
+        $scripts->addFile('vendor/jqplot/plugins/jqplot.highlighter.js');
+        $scripts->addFile('vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js');
+        $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
+        $scripts->addFile('server/status/sorter.js');
+        $scripts->addFile('server/status/queries.js');
+
         if ($this->data->dataLoaded) {
             $hourFactor = 3600 / $this->data->status['Uptime'];
             $usedQueries = $this->data->used_queries;

@@ -15,6 +15,7 @@ use PhpMyAdmin\Controllers\Server\SqlController;
 use PhpMyAdmin\Controllers\Server\Status\AdvisorController;
 use PhpMyAdmin\Controllers\Server\Status\MonitorController;
 use PhpMyAdmin\Controllers\Server\Status\ProcessesController;
+use PhpMyAdmin\Controllers\Server\Status\QueriesController;
 use PhpMyAdmin\Controllers\Server\Status\StatusController;
 use PhpMyAdmin\Response;
 
@@ -287,8 +288,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
                     $response->addJSON($controller->kill($vars));
                 });
             });
-            $routes->addRoute('GET', '/queries', function () {
-                require_once ROOT_PATH . 'libraries/entry_points/server/status/queries.php';
+            $routes->addRoute('GET', '/queries', function () use ($containerBuilder, $response) {
+                /** @var QueriesController $controller */
+                $controller = $containerBuilder->get(QueriesController::class);
+                $response->addHTML($controller->index());
             });
             $routes->addRoute(['GET', 'POST'], '/variables', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/server/status/variables.php';
