@@ -145,6 +145,7 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
+      replicationGui: '@replication_gui'
 
   PhpMyAdmin\Controllers\Server\SqlController:
     class: 'PhpMyAdmin\Controllers\Server\SqlController'

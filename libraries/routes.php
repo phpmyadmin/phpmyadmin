@@ -11,6 +11,7 @@ use PhpMyAdmin\Controllers\Server\CollationsController;
 use PhpMyAdmin\Controllers\Server\DatabasesController;
 use PhpMyAdmin\Controllers\Server\EnginesController;
 use PhpMyAdmin\Controllers\Server\PluginsController;
+use PhpMyAdmin\Controllers\Server\ReplicationController;
 use PhpMyAdmin\Controllers\Server\SqlController;
 use PhpMyAdmin\Controllers\Server\Status\AdvisorController;
 use PhpMyAdmin\Controllers\Server\Status\MonitorController;
@@ -208,8 +209,15 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $routes->addRoute(['GET', 'POST'], '/privileges', function () {
             require_once ROOT_PATH . 'libraries/entry_points/server/privileges.php';
         });
-        $routes->addRoute(['GET', 'POST'], '/replication', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/server/replication.php';
+        $routes->addRoute(['GET', 'POST'], '/replication', function () use ($containerBuilder, $response) {
+            /** @var ReplicationController $controller */
+            $controller = $containerBuilder->get(ReplicationController::class);
+            $response->addHTML($controller->index([
+                'url_params' => $_POST['url_params'] ?? null,
+                'mr_configure' => $_POST['mr_configure'] ?? null,
+                'sl_configure' => $_POST['sl_configure'] ?? null,
+                'repl_clear_scr' => $_POST['repl_clear_scr'] ?? null,
+            ]));
         });
         $routes->addRoute(['GET', 'POST'], '/sql', function () use ($containerBuilder, $response) {
             /** @var SqlController $controller */
