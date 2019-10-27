@@ -483,7 +483,7 @@ Functions.suggestPassword = function (passwordForm) {
     // restrict the password to just letters and numbers to avoid problems:
     // "editors and viewers regard the password as multiple words and
     // things like double click no longer work"
-    var pwchars = 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWYXZ';
+    var pwchars = 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWYXZ@!_.*/()[]-';
     var passwordlength = 16;    // do we want that to be dynamic?  no, keep it simple :)
     var passwd = passwordForm.generated_pw;
     var randomWords = new Int32Array(passwordlength);
