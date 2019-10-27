@@ -37,10 +37,13 @@ class FileListingTest extends TestCase
 
         $fixturesDir = ROOT_PATH . 'test/classes/_data/file_listing';
 
-        $this->assertSame([
-            1 => 'one.txt',
-            0 => 'two.md',
-        ], $this->fileListing->getDirContent($fixturesDir));
+        $this->assertSame(
+            array_values([
+                'one.txt',
+                'two.md',
+            ]),
+            array_values($this->fileListing->getDirContent($fixturesDir))
+        );
     }
 
     /**
