@@ -905,7 +905,7 @@ function Edit_pages () {
                         }
                     });
             }
-        }); // end $.get()
+        }); // end $.post()
     });
 }
 
@@ -989,7 +989,7 @@ function Delete_pages () {
                     }
                 });
         }
-    }); // end $.get()
+    }); // end $.post()
 }
 
 // ------------------------------ SAVE AS PAGES ---------------------------------------
@@ -1095,7 +1095,7 @@ function Save_as () {
                 $('select[name="selected_page"]').val(selected_page);
             }
         }
-    }); // end $.get()
+    }); // end $.post()
 }
 
 function Prompt_to_save_current_page (callback) {
@@ -1185,7 +1185,7 @@ function Export_pages () {
                     }
                 });
         }
-    }); // end $.get()
+    }); // end $.post()
 }// end export pages
 
 function Load_page (page) {
