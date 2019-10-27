@@ -1179,6 +1179,8 @@ class SearchController extends AbstractController
                 || mb_strpos(' ' . $func_type, 'LIKE')
             ) {
                 $quot = '\'';
+            }else if(preg_match('@int@i',$types) && $func_type == '='){
+                $quot = '\'';
             } else {
                 $quot = '';
             }
