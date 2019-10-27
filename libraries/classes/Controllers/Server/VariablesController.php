@@ -215,12 +215,17 @@ class VariablesController extends AbstractController
                 $type = KBSearch::getVariableType($name);
                 if ($type === 'byte') {
                     $isHtmlFormatted = true;
-                    $formattedValue = trim($this->template->render('server/variables/format_variable',[
-                        'valueTitle' => htmlspecialchars(Util::formatNumber($value, 0)),
-                        'value' => htmlspecialchars(
-                            implode(' ', Util::formatByteDown($value, 3, 3))
-                        ),
-                    ]));
+                    $formattedValue = trim(
+                        $this->template->render(
+                            'server/variables/format_variable',
+                            [
+                                'valueTitle' => htmlspecialchars(Util::formatNumber($value, 0)),
+                                'value' => htmlspecialchars(
+                                    implode(' ', Util::formatByteDown($value, 3, 3))
+                                ),
+                            ]
+                        )
+                    );
                 } else {
                     throw new KBException("Not a type=byte or regex not matching");
                 }

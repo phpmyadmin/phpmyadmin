@@ -440,7 +440,11 @@ class StructureControllerTest extends PmaTestCase
         $this->assertArrayHasKey('list', $json);
     }
 
-    private function getFavoriteTablesMock() {
+    /**
+     * @return \PHPUnit\Framework\MockObject\MockObject|RecentFavoriteTable
+     */
+    private function getFavoriteTablesMock()
+    {
         $favoriteInstance = $this->getMockBuilder(RecentFavoriteTable::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -448,11 +452,12 @@ class StructureControllerTest extends PmaTestCase
             ->willReturn([]);
         $favoriteInstance->expects($this->at(2))
             ->method('getTables')
-            ->willReturn([[
-                'db' => 'db',
-                'table' => 'table',
-            ],
-        ]);
+            ->willReturn([
+                [
+                    'db' => 'db',
+                    'table' => 'table',
+                ],
+            ]);
 
         return $favoriteInstance;
     }
@@ -504,6 +509,10 @@ class StructureControllerTest extends PmaTestCase
         );
     }
 
+    /**
+     * @throws \ReflectionException
+     * @return void
+     */
     public function testDisplayTableList()
     {
         $class = new ReflectionClass(StructureController::class);
@@ -546,7 +555,7 @@ class StructureControllerTest extends PmaTestCase
                 'Data_length' => 5000,
                 'Index_length' => 100,
                 'Data_free' => 10000,
-            ]
+            ],
         ]);
         $result = $method->invoke($controller);
 
