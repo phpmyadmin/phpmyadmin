@@ -34,6 +34,16 @@ class FileListingTest extends TestCase
     public function testGetDirContent(): void
     {
         $this->assertFalse($this->fileListing->getDirContent('nonexistent directory'));
+
+        $fixturesDir = ROOT_PATH . 'test/classes/_data/file_listing';
+
+        $this->assertSame(
+            array_values([
+                'one.txt',
+                'two.md',
+            ]),
+            array_values($this->fileListing->getDirContent($fixturesDir))
+        );
     }
 
     /**
@@ -41,7 +51,51 @@ class FileListingTest extends TestCase
      */
     public function testGetFileSelectOptions(): void
     {
+        $fixturesDir = ROOT_PATH . 'test/classes/_data/file_listing';
+
         $this->assertFalse($this->fileListing->getFileSelectOptions('nonexistent directory'));
+
+        $expectedHtmlWithoutActive = <<<HTML
+  <option value="one.txt">
+    one.txt
+  </option>
+  <option value="two.md">
+    two.md
+  </option>
+
+HTML;
+
+        $this->assertSame(
+            $expectedHtmlWithoutActive,
+            $this->fileListing->getFileSelectOptions($fixturesDir)
+        );
+
+        $expectedHtmlWithActive = <<<HTML
+  <option value="one.txt">
+    one.txt
+  </option>
+  <option value="two.md" selected="selected">
+    two.md
+  </option>
+
+HTML;
+
+        $this->assertSame(
+            $expectedHtmlWithActive,
+            $this->fileListing->getFileSelectOptions($fixturesDir, '', 'two.md')
+        );
+
+        $expectedFilteredHtml = <<<HTML
+  <option value="one.txt">
+    one.txt
+  </option>
+
+HTML;
+
+        $this->assertSame(
+            $expectedFilteredHtml,
+            $this->fileListing->getFileSelectOptions($fixturesDir, '/.*\.txt/')
+        );
     }
 
     /**
