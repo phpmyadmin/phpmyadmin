@@ -219,10 +219,8 @@ class VariablesController extends AbstractController
                         $this->template->render(
                             'server/variables/format_variable',
                             [
-                                'valueTitle' => htmlspecialchars(Util::formatNumber($value, 0)),
-                                'value' => htmlspecialchars(
-                                    implode(' ', Util::formatByteDown($value, 3, 3))
-                                ),
+                                'valueTitle' => Util::formatNumber($value, 0),
+                                'value' => implode(' ', Util::formatByteDown($value, 3, 3)),
                             ]
                         )
                     );
