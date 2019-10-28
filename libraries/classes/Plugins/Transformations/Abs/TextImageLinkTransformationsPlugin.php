@@ -57,10 +57,10 @@ abstract class TextImageLinkTransformationsPlugin extends TransformationsPlugin
         $template = new Template();
 
         return $template->render('plugins/text_image_link_transformations', [
-            'url' => htmlspecialchars($url),
+            'url' => $url,
             'width' => (int) $options[1],
             'height' => (int) $options[2],
-            'buffer' => htmlspecialchars($buffer),
+            'buffer' => $buffer,
         ]);
     }
 
