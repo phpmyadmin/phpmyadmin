@@ -505,12 +505,8 @@ if (Partition::havePartitioning()) {
 unset($partition_names);
 
 // Referential integrity check
-// The Referential integrity check was intended for the non-InnoDB
-// tables for which the relations are defined in pmadb
-// so I assume that if the current table is InnoDB, I don't display
-// this choice (InnoDB maintains integrity by itself)
 
-if ($cfgRelation['relwork'] && ! $pma_table->isEngine("INNODB")) {
+if ($cfgRelation['relwork']) {
     $dbi->selectDb($db);
     $foreign = $relation->getForeigners($db, $table, '', 'internal');
 
