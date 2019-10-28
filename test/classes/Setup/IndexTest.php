@@ -22,7 +22,7 @@ class IndexTest extends TestCase
      *
      * @return void
      */
-    public function setup()
+    public function setUp()
     {
         $GLOBALS['cfg']['ProxyUrl'] = '';
     }

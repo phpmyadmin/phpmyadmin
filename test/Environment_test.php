@@ -16,6 +16,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * Environment tests
  *
+ * @group environment
  * @package PhpMyAdmin-test
  */
 class Environment_Test extends TestCase

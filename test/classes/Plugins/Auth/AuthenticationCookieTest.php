@@ -34,7 +34,7 @@ class AuthenticationCookieTest extends PmaTestCase
      *
      * @return void
      */
-    function setup()
+    function setUp()
     {
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();

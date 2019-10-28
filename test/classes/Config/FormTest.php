@@ -31,7 +31,7 @@ class FormTest extends PmaTestCase
      *
      * @return void
      */
-    function setup()
+    function setUp()
     {
         $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
         $GLOBALS['PMA_Config'] = new Config();
