@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-10-11 12:51-0300\n"
+"POT-Creation-Date: 2019-10-29 00:43+0100\n"
 "PO-Revision-Date: 2017-11-16 16:14+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Welsh <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -71,8 +71,8 @@ msgstr "Tablau"
 #: libraries/classes/Util.php:4230 libraries/config.values.php:62
 #: libraries/config.values.php:76 libraries/config.values.php:167
 #: libraries/config.values.php:177
-#: templates/database/central_columns/edit_table_header.twig:2
 #: templates/columns_definitions/table_fields_definitions.twig:4
+#: templates/database/central_columns/edit_table_header.twig:2
 #: templates/table/tracking/structure_snapshot_columns.twig:1
 msgid "Structure"
 msgstr "Strwythur"
@@ -87,9 +87,10 @@ msgstr "Strwythur"
 msgid "Data"
 msgstr "Data"
 
-#: db_export.php:87 templates/server/replication/database_multibox.twig:7
-#: templates/display/export/select_options.twig:4
+#: db_export.php:87 templates/display/export/select_options.twig:4
 #: templates/database/search/main.twig:32
+#: templates/server/replication/database_multibox.twig:7
+#: templates/database/designer/database_tables.twig:30
 #, fuzzy
 #| msgid "Select All"
 msgid "Select all"
@@ -569,9 +570,9 @@ msgid "Please select column(s) for the index."
 msgstr "Ychwanegwch %s colofn"
 
 #: js/messages.php:134 libraries/classes/InsertEdit.php:1931
-#: templates/table/index_form.twig:220
-#: templates/columns_definitions/column_definitions_form.twig:149
 #: templates/table/relation/common_form.twig:216
+#: templates/columns_definitions/column_definitions_form.twig:149
+#: templates/table/index_form.twig:220
 msgid "Preview SQL"
 msgstr ""
 
@@ -863,14 +864,14 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportSql.php:2241
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:105
 #: libraries/config.values.php:113
-#: templates/table/search/selection_form.twig:35
-#: templates/table/search/rows_zoom.twig:20
 #: templates/server/status/monitor/index.twig:204
-#: templates/server/status/processes/list.twig:54
-#: templates/database/designer/main.twig:593
-#: templates/server/privileges/privileges_summary.twig:30
 #: templates/display/export/options_output_compression.twig:7
+#: templates/server/privileges/privileges_summary.twig:30
+#: templates/database/designer/main.twig:593
+#: templates/server/status/processes/list.twig:54
 #: templates/columns_definitions/transformation.twig:4
+#: templates/table/search/rows_zoom.twig:20
+#: templates/table/search/selection_form.twig:35
 msgid "None"
 msgstr "Dim"
 
@@ -1080,8 +1081,8 @@ msgstr "Esbonio SQL"
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:134
 #: libraries/classes/Menu.php:590 libraries/classes/Rte/Events.php:465
 #: libraries/classes/Rte/RteList.php:145 libraries/classes/Util.php:4200
-#: libraries/config.values.php:159 templates/table/tracking/main.twig:31
-#: templates/database/tracking/tables.twig:17
+#: libraries/config.values.php:159 templates/database/tracking/tables.twig:17
+#: templates/table/tracking/main.twig:31
 msgid "Status"
 msgstr "Statws"
 
@@ -1213,9 +1214,9 @@ msgstr ""
 #: libraries/classes/Menu.php:390 libraries/classes/Menu.php:499
 #: libraries/classes/Menu.php:623 libraries/classes/Util.php:4203
 #: libraries/classes/Util.php:4218 libraries/classes/Util.php:4235
-#: templates/display/import/import.twig:38
 #: templates/server/status/monitor/index.twig:78
 #: templates/preferences/manage/main.twig:8
+#: templates/display/import/import.twig:38
 msgid "Import"
 msgstr "Mewnforio"
 
@@ -1306,9 +1307,9 @@ msgstr "Rheolweithiau"
 #: libraries/classes/Normalization.php:248
 #: libraries/classes/Normalization.php:935 libraries/classes/Operations.php:70
 #: libraries/classes/Operations.php:136 libraries/classes/Operations.php:281
-#: libraries/classes/Operations.php:348 libraries/classes/Operations.php:864
-#: libraries/classes/Operations.php:934 libraries/classes/Operations.php:994
-#: libraries/classes/Operations.php:1427 libraries/classes/Operations.php:1750
+#: libraries/classes/Operations.php:348 libraries/classes/Operations.php:860
+#: libraries/classes/Operations.php:930 libraries/classes/Operations.php:990
+#: libraries/classes/Operations.php:1423 libraries/classes/Operations.php:1746
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:249
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:255
 #: libraries/classes/Rte/Events.php:580 libraries/classes/Rte/Routines.php:1107
@@ -1321,39 +1322,40 @@ msgstr "Rheolweithiau"
 #: libraries/classes/SqlQueryForm.php:387
 #: libraries/classes/SqlQueryForm.php:451 libraries/classes/Tracking.php:372
 #: libraries/classes/Tracking.php:523 server_privileges.php:342
-#: templates/display/import/import.twig:192 templates/header_location.twig:18
-#: templates/database/create_table.twig:21
+#: templates/display/results/options_block.twig:118
+#: templates/server/privileges/delete_user_fieldset.twig:16
+#: templates/database/search/main.twig:63 templates/server/binlog/index.twig:34
+#: templates/gis_data_editor_form.twig:209
+#: templates/table/operations/view.twig:21
+#: templates/server/privileges/edit_routine_privileges.twig:23
+#: templates/columns_definitions/column_definitions_form.twig:43
+#: templates/table/index_form.twig:221
+#: templates/server/privileges/privileges_summary.twig:102
+#: templates/table/structure/display_structure.twig:439
+#: templates/server/replication/change_master.twig:33
+#: templates/view_create.twig:116
+#: templates/start_and_number_of_rows_panel.twig:14
 #: templates/display/export/options_format.twig:18
 #: templates/server/replication/master_add_slave_user.twig:81
-#: templates/table/search/selection_form.twig:223
-#: templates/server/binlog/index.twig:34
-#: templates/server/replication/change_master.twig:33
-#: templates/table/index_form.twig:221 templates/table/operations/view.twig:21
-#: templates/server/privileges/delete_user_fieldset.twig:16
-#: templates/view_create.twig:116 templates/preferences/manage/main.twig:41
-#: templates/preferences/manage/main.twig:97
-#: templates/start_and_number_of_rows_panel.twig:14
-#: templates/server/privileges/edit_routine_privileges.twig:23
-#: templates/server/privileges/privileges_summary.twig:102
-#: templates/server/replication/master_configuration.twig:30
-#: templates/columns_definitions/column_definitions_form.twig:43
-#: templates/database/search/main.twig:63
-#: templates/gis_data_editor_form.twig:209
 #: templates/server/replication/slave_configuration.twig:15
 #: templates/server/replication/slave_configuration.twig:87
-#: templates/display/results/options_block.twig:118
-#: templates/table/structure/display_structure.twig:439
+#: templates/table/search/selection_form.twig:223
+#: templates/database/create_table.twig:21
+#: templates/preferences/manage/main.twig:41
+#: templates/preferences/manage/main.twig:97
+#: templates/server/replication/master_configuration.twig:30
+#: templates/display/import/import.twig:192 templates/header_location.twig:18
 msgid "Go"
 msgstr "Ewch"
 
-#: js/messages.php:363 templates/server/variables/index.twig:12
-#: templates/database/designer/main.twig:344
+#: js/messages.php:363 templates/database/designer/main.twig:344
 #: templates/database/designer/main.twig:395
 #: templates/database/designer/main.twig:669
 #: templates/database/designer/main.twig:735
 #: templates/database/designer/main.twig:874
 #: templates/database/designer/main.twig:959
 #: templates/database/designer/main.twig:1065
+#: templates/server/variables/index.twig:12
 msgid "Cancel"
 msgstr "Diddymu"
 
@@ -1481,17 +1483,17 @@ msgstr "Set nodau"
 #: libraries/classes/Server/Privileges.php:3156
 #: libraries/classes/Server/Privileges.php:3824
 #: libraries/classes/Server/Privileges.php:3853
-#: templates/database/central_columns/main.twig:370
-#: templates/table/tracking/structure_snapshot_columns.twig:33
-#: templates/table/tracking/structure_snapshot_indexes.twig:23
-#: templates/table/tracking/structure_snapshot_indexes.twig:24
-#: templates/preferences/manage/error.twig:19
 #: templates/database/data_dictionary/index.twig:39
 #: templates/server/privileges/privileges_summary.twig:37
 #: templates/server/privileges/privileges_summary.twig:40
 #: templates/server/privileges/privileges_summary.twig:42
-#: templates/preferences/autoload.twig:12
 #: templates/table/structure/display_structure.twig:80
+#: templates/table/tracking/structure_snapshot_indexes.twig:23
+#: templates/table/tracking/structure_snapshot_indexes.twig:24
+#: templates/preferences/autoload.twig:12
+#: templates/database/central_columns/main.twig:370
+#: templates/preferences/manage/error.twig:19
+#: templates/table/tracking/structure_snapshot_columns.twig:33
 msgid "No"
 msgstr "Na"
 
@@ -1557,9 +1559,9 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:3734 libraries/classes/Util.php:3458
 #: libraries/classes/Util.php:3459 libraries/classes/Util.php:4202
 #: libraries/classes/Util.php:4217 libraries/classes/Util.php:4234
-#: templates/display/export/option_header.twig:3
-#: templates/database/structure/check_all_tables.twig:12
 #: templates/server/status/monitor/index.twig:81
+#: templates/database/structure/check_all_tables.twig:12
+#: templates/display/export/option_header.twig:3
 #: templates/preferences/manage/main.twig:59
 msgid "Export"
 msgstr "Allforio"
@@ -1617,11 +1619,10 @@ msgstr "Dangos ymholiad mewnosod"
 #: libraries/classes/Util.php:1135 libraries/classes/Util.php:3456
 #: libraries/classes/Util.php:3457 templates/console/bookmark_content.twig:7
 #: templates/console/display.twig:31 templates/console/display.twig:175
-#: templates/server/variables/index.twig:38
+#: templates/setup/home/index.twig:57 templates/server/variables/index.twig:38
 #: templates/server/variables/index.twig:41
 #: templates/database/central_columns/main.twig:281
 #: templates/database/central_columns/main.twig:402
-#: templates/setup/home/index.twig:57
 msgid "Edit"
 msgstr "Golygu"
 
@@ -1630,12 +1631,12 @@ msgstr "Golygu"
 #: libraries/classes/Display/Results.php:4685
 #: libraries/classes/Server/UserGroups.php:148
 #: libraries/classes/SqlQueryForm.php:438 libraries/classes/Tracking.php:298
-#: templates/console/bookmark_content.twig:7
+#: templates/database/search/results.twig:43
+#: templates/console/bookmark_content.twig:7 templates/setup/home/index.twig:62
+#: templates/database/designer/main.twig:393
+#: templates/display/export/template_loading.twig:22
 #: templates/database/central_columns/main.twig:284
 #: templates/database/central_columns/main.twig:409
-#: templates/database/search/results.twig:43 templates/setup/home/index.twig:62
-#: templates/display/export/template_loading.twig:22
-#: templates/database/designer/main.twig:393
 msgid "Delete"
 msgstr "Dileu"
 
@@ -1824,11 +1825,11 @@ msgstr "Dim cronfeydd data wedi'u dewis."
 
 #: js/messages.php:491 libraries/classes/CentralColumns.php:965
 #: libraries/classes/InsertEdit.php:1845
-#: templates/server/variables/index.twig:9
-#: templates/table/gis_visualization/gis_visualization.twig:48
 #: templates/table/structure/partition_definition_form.twig:12
-#: templates/columns_definitions/column_definitions_form.twig:152
 #: templates/table/relation/common_form.twig:217
+#: templates/columns_definitions/column_definitions_form.twig:152
+#: templates/table/gis_visualization/gis_visualization.twig:48
+#: templates/server/variables/index.twig:9
 msgid "Save"
 msgstr "Cadw"
 
@@ -2019,17 +2020,17 @@ msgstr "Ychwanegwch weinydd newydd"
 #: libraries/classes/Server/Privileges.php:3821
 #: libraries/classes/Server/Privileges.php:3853
 #: libraries/mult_submits.inc.php:92 libraries/mult_submits.inc.php:229
-#: templates/database/central_columns/main.twig:370
-#: templates/table/tracking/structure_snapshot_columns.twig:33
-#: templates/table/tracking/structure_snapshot_indexes.twig:23
-#: templates/table/tracking/structure_snapshot_indexes.twig:24
-#: templates/preferences/manage/error.twig:18
 #: templates/database/data_dictionary/index.twig:39
 #: templates/server/privileges/privileges_summary.twig:37
 #: templates/server/privileges/privileges_summary.twig:40
 #: templates/server/privileges/privileges_summary.twig:42
-#: templates/preferences/autoload.twig:11
 #: templates/table/structure/display_structure.twig:80
+#: templates/table/tracking/structure_snapshot_indexes.twig:23
+#: templates/table/tracking/structure_snapshot_indexes.twig:24
+#: templates/preferences/autoload.twig:11
+#: templates/database/central_columns/main.twig:370
+#: templates/preferences/manage/error.twig:18
+#: templates/table/tracking/structure_snapshot_columns.twig:33
 msgid "Yes"
 msgstr "Ie"
 
@@ -2213,9 +2214,9 @@ msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr ""
 
 #: js/messages.php:612 libraries/classes/BrowseForeigners.php:355
-#: templates/server/privileges/initials_row.twig:20
 #: templates/display/results/table_navigation.twig:19
 #: templates/table/browse_foreigners/show_all.twig:4
+#: templates/server/privileges/initials_row.twig:20
 msgid "Show all"
 msgstr "Dangos pob"
 
@@ -2275,9 +2276,9 @@ msgid "Select database first"
 msgstr "Dewis Tablau"
 
 #: js/messages.php:635 libraries/classes/Display/Results.php:4859
-#: templates/database/structure/index.twig:12
 #: templates/database/data_dictionary/index.twig:64
 #: templates/table/structure/display_structure.twig:381
+#: templates/database/structure/index.twig:12
 msgid "Print"
 msgstr "Argraffu"
 
@@ -3006,9 +3007,9 @@ msgid "per minute"
 msgstr ""
 
 #: libraries/classes/Advisor.php:663
+#: templates/server/status/queries/index.twig:34
 #: templates/server/status/status/index.twig:17
 #: templates/server/status/status/index.twig:37
-#: templates/server/status/queries/index.twig:34
 msgid "per hour"
 msgstr ""
 
@@ -3030,9 +3031,9 @@ msgstr "Enw allweddol"
 
 #: libraries/classes/BrowseForeigners.php:227
 #: libraries/classes/BrowseForeigners.php:229
+#: templates/server/engines/index.twig:10
 #: templates/server/status/variables/index.twig:72
 #: templates/server/collations/index.twig:11
-#: templates/server/engines/index.twig:10
 #: templates/server/plugins/index.twig:23
 msgid "Description"
 msgstr "Disgrifiad"
@@ -3091,11 +3092,12 @@ msgstr ""
 #: libraries/classes/Rte/Routines.php:1644
 #: libraries/classes/Rte/RteList.php:117 libraries/classes/Rte/RteList.php:129
 #: libraries/classes/Rte/RteList.php:144
+#: templates/columns_definitions/table_fields_definitions.twig:9
+#: templates/setup/home/index.twig:43
+#: templates/table/structure/display_structure.twig:21
+#: templates/database/create_table.twig:11
 #: templates/database/central_columns/main.twig:17
 #: templates/database/central_columns/main.twig:236
-#: templates/columns_definitions/table_fields_definitions.twig:9
-#: templates/database/create_table.twig:11 templates/setup/home/index.twig:43
-#: templates/table/structure/display_structure.twig:21
 msgid "Name"
 msgstr "Enw"
 
@@ -3116,15 +3118,15 @@ msgstr "Enw"
 #: libraries/classes/Rte/Routines.php:1645
 #: libraries/classes/Rte/RteList.php:119 libraries/classes/Rte/RteList.php:147
 #: libraries/classes/Server/Privileges.php:2708
+#: templates/database/structure/table_header.twig:30
+#: templates/database/data_dictionary/index.twig:17
+#: templates/columns_definitions/table_fields_definitions.twig:12
+#: templates/table/search/fields_table.twig:8
+#: templates/table/structure/display_structure.twig:22
+#: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/database/central_columns/main.twig:21
 #: templates/database/central_columns/main.twig:240
-#: templates/columns_definitions/table_fields_definitions.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/search/fields_table.twig:8
-#: templates/database/data_dictionary/index.twig:17
-#: templates/database/structure/table_header.twig:30
-#: templates/table/structure/display_structure.twig:22
 msgid "Type"
 msgstr "Math"
 
@@ -3145,32 +3147,31 @@ msgstr ""
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:534
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:689
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:722
+#: templates/database/data_dictionary/index.twig:19
+#: templates/columns_definitions/table_fields_definitions.twig:20
+#: templates/database/structure/body_for_table_summary.twig:54
+#: templates/table/structure/display_structure.twig:26
+#: templates/server/replication/slave_configuration.twig:8
 #: templates/database/central_columns/main.twig:29
 #: templates/database/central_columns/main.twig:248
-#: templates/columns_definitions/table_fields_definitions.twig:20
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/database/structure/body_for_table_summary.twig:54
-#: templates/database/data_dictionary/index.twig:19
-#: templates/server/replication/slave_configuration.twig:8
-#: templates/table/structure/display_structure.twig:26
 msgid "Default"
 msgstr "Diofyn"
 
 #: libraries/classes/CentralColumns.php:1018 libraries/classes/Index.php:722
-#: libraries/classes/Operations.php:311 libraries/classes/Operations.php:1143
-#: templates/database/central_columns/main.twig:33
-#: templates/database/central_columns/main.twig:252
-#: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/home/index.twig:50
-#: templates/table/tracking/structure_snapshot_columns.twig:8
-#: templates/table/tracking/structure_snapshot_indexes.twig:11
-#: templates/table/search/fields_table.twig:9
-#: templates/server/collations/index.twig:10
+#: libraries/classes/Operations.php:311 libraries/classes/Operations.php:1139
+#: templates/database/structure/table_header.twig:31
 #: templates/server/databases/index.twig:37
 #: templates/server/databases/index.twig:120
-#: templates/table/structure/display_table_stats.twig:102
-#: templates/database/structure/table_header.twig:31
+#: templates/columns_definitions/table_fields_definitions.twig:24
+#: templates/table/search/fields_table.twig:9
 #: templates/table/structure/display_structure.twig:23
+#: templates/table/tracking/structure_snapshot_indexes.twig:11
+#: templates/server/collations/index.twig:10
+#: templates/table/structure/display_table_stats.twig:102
+#: templates/home/index.twig:50 templates/database/central_columns/main.twig:33
+#: templates/database/central_columns/main.twig:252
+#: templates/table/tracking/structure_snapshot_columns.twig:8
 msgid "Collation"
 msgstr "Coladiad"
 
@@ -3194,14 +3195,14 @@ msgstr ""
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:532
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:688
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:721
+#: templates/database/data_dictionary/index.twig:18
+#: templates/columns_definitions/table_fields_definitions.twig:30
+#: templates/table/search/zoom_result_form.twig:35
+#: templates/table/structure/display_structure.twig:25
+#: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/database/central_columns/main.twig:41
 #: templates/database/central_columns/main.twig:260
-#: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/search/zoom_result_form.twig:35
-#: templates/database/data_dictionary/index.twig:18
-#: templates/table/structure/display_structure.twig:25
 msgid "Null"
 msgstr "Nyl"
 
@@ -4125,8 +4126,8 @@ msgstr "Cynnwys pennawd y tabl"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:550
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:702
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:725
-#: templates/columns_definitions/table_fields_definitions.twig:54
 #: templates/database/data_dictionary/index.twig:23
+#: templates/columns_definitions/table_fields_definitions.twig:54
 #: templates/table/structure/display_structure.twig:28
 msgid "Comments"
 msgstr "Sylwadau"
@@ -4155,8 +4156,8 @@ msgstr "Allwedd y label"
 #: libraries/classes/Plugins/Export/ExportOdt.php:515
 #: libraries/classes/Plugins/Export/ExportTexytext.php:395
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:557
-#: templates/columns_definitions/table_fields_definitions.twig:71
 #: templates/database/data_dictionary/index.twig:25
+#: templates/columns_definitions/table_fields_definitions.twig:71
 #, fuzzy
 #| msgid "MIME type"
 msgid "Media (MIME) type"
@@ -4199,8 +4200,8 @@ msgid "Remember file name template"
 msgstr "Cofio templed enw ffeil"
 
 #: libraries/classes/Config/Descriptions.php:239
-#: libraries/classes/Operations.php:249 libraries/classes/Operations.php:912
-#: libraries/classes/Operations.php:1387
+#: libraries/classes/Operations.php:249 libraries/classes/Operations.php:908
+#: libraries/classes/Operations.php:1383
 msgid "Add AUTO_INCREMENT value"
 msgstr "Ychwanegwch werth AUTO_INCREMENT"
 
@@ -4244,7 +4245,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:254
 #: libraries/classes/Config/Descriptions.php:255
 #: libraries/classes/Config/Descriptions.php:268
-#: libraries/classes/Operations.php:244 libraries/classes/Operations.php:1383
+#: libraries/classes/Operations.php:244 libraries/classes/Operations.php:1379
 #, php-format
 msgid "Add %s"
 msgstr "Ychwanegwch %s"
@@ -6012,8 +6013,8 @@ msgstr "Esbonio SQL"
 
 #: libraries/classes/Config/Descriptions.php:830
 #: libraries/classes/Export.php:535 libraries/classes/Util.php:1179
-#: templates/console/display.twig:99
 #: templates/server/status/variables/index.twig:11
+#: templates/console/display.twig:99
 #: templates/server/status/processes/index.twig:9
 msgid "Refresh"
 msgstr "Adfywio"
@@ -6083,11 +6084,12 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:3508
 #: libraries/classes/Server/Privileges.php:3510
 #: libraries/classes/Server/Privileges.php:4743
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
-#: templates/console/display.twig:184 templates/server/databases/index.twig:103
-#: templates/table/relation/foreign_key_row.twig:96
 #: templates/table/relation/common_form.twig:35
 #: templates/table/relation/common_form.twig:168
+#: templates/console/bookmark_content.twig:7
+#: templates/server/databases/index.twig:103 templates/console/display.twig:40
+#: templates/console/display.twig:184
+#: templates/table/relation/foreign_key_row.twig:96
 msgid "Database"
 msgstr "Cronfa ddata"
 
@@ -6123,10 +6125,10 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:3514
 #: libraries/classes/Server/Privileges.php:3516
 #: libraries/classes/Server/Privileges.php:4757
-#: templates/table/relation/foreign_key_row.twig:106
 #: templates/database/structure/table_header.twig:8
 #: templates/table/relation/common_form.twig:36
 #: templates/table/relation/common_form.twig:175
+#: templates/table/relation/foreign_key_row.twig:106
 #: templates/database/tracking/tables.twig:13
 #: templates/database/tracking/tables.twig:120
 msgid "Table"
@@ -6402,8 +6404,8 @@ msgstr ""
 #: libraries/classes/Display/Export.php:361
 #: libraries/classes/Engines/Pbxt.php:169 libraries/classes/Sanitize.php:193
 #: libraries/classes/Util.php:328 libraries/classes/Util.php:432
-#: templates/server/variables/index.twig:14 templates/home/index.twig:170
 #: templates/navigation/main.twig:40 templates/navigation/main.twig:41
+#: templates/server/variables/index.twig:14 templates/home/index.twig:170
 msgid "Documentation"
 msgstr "Dogfennaeth"
 
@@ -6832,10 +6834,10 @@ msgstr[1] "Cafodd cronfa ddata %s ei gollwng."
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:398
 #: libraries/classes/Import.php:128
-#: templates/table/structure/display_partitions.twig:28
-#: templates/table/structure/display_table_stats.twig:113
 #: templates/database/structure/table_header.twig:26
+#: templates/table/structure/display_partitions.twig:28
 #: templates/table/structure/display_structure.twig:234
+#: templates/table/structure/display_table_stats.twig:113
 msgid "Rows"
 msgstr "Rhesi"
 
@@ -6856,8 +6858,8 @@ msgid "Total"
 msgstr "Cyfanswm"
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:418
-#: templates/table/structure/display_table_stats.twig:32
 #: templates/database/structure/table_header.twig:38
+#: templates/table/structure/display_table_stats.twig:32
 msgid "Overhead"
 msgstr "Gorbenion"
 
@@ -7678,25 +7680,24 @@ msgstr "Newid"
 
 #: libraries/classes/Controllers/Table/StructureController.php:1264
 #: libraries/classes/Controllers/Table/StructureController.php:1265
-#: libraries/classes/Index.php:768 libraries/classes/Operations.php:1694
+#: libraries/classes/Index.php:768 libraries/classes/Operations.php:1690
 #: libraries/classes/Rte/RteList.php:200 libraries/classes/Util.php:3452
-#: libraries/classes/Util.php:3453
+#: libraries/classes/Util.php:3453 templates/server/databases/index.twig:300
 #: templates/database/structure/check_all_tables.twig:16
-#: templates/rte/routines/parameter_row.twig:51
-#: templates/server/databases/index.twig:300
 #: templates/table/relation/foreign_key_row.twig:26
 #: templates/table/structure/display_structure.twig:291
 #: templates/table/structure/display_structure.twig:473
+#: templates/rte/routines/parameter_row.twig:51
 msgid "Drop"
 msgstr "Gollwng"
 
 #: libraries/classes/Controllers/Table/StructureController.php:1266
 #: libraries/classes/Controllers/Table/StructureController.php:1271
 #: libraries/classes/Controllers/Table/StructureController.php:1335
-#: templates/table/tracking/structure_snapshot_columns.twig:25
-#: templates/columns_definitions/column_indexes.twig:4
 #: templates/database/data_dictionary/index.twig:33
 #: templates/table/structure/display_structure.twig:300
+#: templates/columns_definitions/column_indexes.twig:4
+#: templates/table/tracking/structure_snapshot_columns.twig:25
 msgid "Primary"
 msgstr "Cynradd"
 
@@ -7705,19 +7706,19 @@ msgstr "Cynradd"
 #: libraries/classes/Controllers/Table/StructureController.php:1340
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:32
 #: templates/columns_definitions/table_fields_definitions.twig:46
-#: templates/table/tracking/structure_snapshot_columns.twig:27
-#: templates/columns_definitions/column_indexes.twig:12
-#: templates/table/structure/display_table_stats.twig:24
 #: templates/table/structure/display_structure.twig:314
+#: templates/table/structure/display_table_stats.twig:24
+#: templates/columns_definitions/column_indexes.twig:12
+#: templates/table/tracking/structure_snapshot_columns.twig:27
 msgid "Index"
 msgstr "Indecs"
 
 #: libraries/classes/Controllers/Table/StructureController.php:1268
 #: libraries/classes/Controllers/Table/StructureController.php:1273
 #: libraries/classes/Index.php:718
+#: templates/table/structure/display_structure.twig:307
 #: templates/table/tracking/structure_snapshot_indexes.twig:7
 #: templates/columns_definitions/column_indexes.twig:8
-#: templates/table/structure/display_structure.twig:307
 msgid "Unique"
 msgstr "Unigryw"
 
@@ -7729,9 +7730,9 @@ msgstr ""
 
 #: libraries/classes/Controllers/Table/StructureController.php:1270
 #: libraries/classes/Controllers/Table/StructureController.php:1275
-#: templates/columns_definitions/column_indexes.twig:16
 #: templates/table/structure/display_structure.twig:321
 #: templates/table/structure/display_structure.twig:333
+#: templates/columns_definitions/column_indexes.twig:16
 msgid "Fulltext"
 msgstr "Testunllawn"
 
@@ -7778,65 +7779,65 @@ msgstr ""
 msgid "Could not load schema plugins, please check your installation!"
 msgstr "Nid oedd modd llwytho ategynnau mewnforio, gwiriwch eich arsefydliad!"
 
-#: libraries/classes/Database/Designer/Common.php:575
+#: libraries/classes/Database/Designer/Common.php:574
 #, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
 msgstr "Gwall: perthynas yn bodoli yn barod."
 
-#: libraries/classes/Database/Designer/Common.php:624
+#: libraries/classes/Database/Designer/Common.php:623
 #, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been added."
 msgstr "Perthynas FOREIGN KEY wedi'i ychwanegu"
 
-#: libraries/classes/Database/Designer/Common.php:631
+#: libraries/classes/Database/Designer/Common.php:630
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Gwall: Perthynas heb ei ychwanegu."
 
-#: libraries/classes/Database/Designer/Common.php:638
+#: libraries/classes/Database/Designer/Common.php:637
 msgid "Error: Missing index on column(s)."
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:646
+#: libraries/classes/Database/Designer/Common.php:645
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relational features are disabled!"
 msgstr "Gwall: Perthynas heb ei ychwanegu."
 
-#: libraries/classes/Database/Designer/Common.php:671
+#: libraries/classes/Database/Designer/Common.php:670
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationship has been added."
 msgstr "Perthynas mewnol wedi'i ychwanegu"
 
-#: libraries/classes/Database/Designer/Common.php:678
+#: libraries/classes/Database/Designer/Common.php:677
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be added!"
 msgstr "Gwall: Perthynas heb ei ychwanegu."
 
-#: libraries/classes/Database/Designer/Common.php:718
+#: libraries/classes/Database/Designer/Common.php:717
 #, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "Perthynas FOREIGN KEY wedi'i ychwanegu"
 
-#: libraries/classes/Database/Designer/Common.php:725
+#: libraries/classes/Database/Designer/Common.php:724
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "Gwall: Perthynas heb ei ychwanegu."
 
-#: libraries/classes/Database/Designer/Common.php:752
+#: libraries/classes/Database/Designer/Common.php:751
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Gwall: Perthynas heb ei ychwanegu."
 
-#: libraries/classes/Database/Designer/Common.php:758
+#: libraries/classes/Database/Designer/Common.php:757
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationship has been removed."
@@ -8028,17 +8029,17 @@ msgstr ""
 msgid "Details…"
 msgstr "Manylion…"
 
-#: libraries/classes/DatabaseInterface.php:2607
+#: libraries/classes/DatabaseInterface.php:2614
 #, fuzzy
 #| msgid "Routines"
 msgid "Missing connection parameters!"
 msgstr "Rheolweithiau"
 
-#: libraries/classes/DatabaseInterface.php:2636
+#: libraries/classes/DatabaseInterface.php:2643
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:3154
+#: libraries/classes/DatabaseInterface.php:3161
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""
@@ -8055,8 +8056,8 @@ msgstr "Dim Cyfrinair"
 #: libraries/classes/Display/ChangePassword.php:89
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:223
 #: libraries/classes/Server/Privileges.php:1790
-#: templates/server/replication/master_add_slave_user.twig:49
 #: templates/server/replication/change_master.twig:18
+#: templates/server/replication/master_add_slave_user.twig:49
 msgid "Password:"
 msgstr "Cyfrinair:"
 
@@ -8195,29 +8196,29 @@ msgstr "Testunau Llawn"
 
 #: libraries/classes/Display/Results.php:2000
 #: libraries/classes/Display/Results.php:2026
-#: libraries/classes/Operations.php:860 libraries/classes/Util.php:4910
+#: libraries/classes/Operations.php:856 libraries/classes/Util.php:4910
 #: libraries/classes/Util.php:4933 libraries/config.values.php:115
-#: templates/database/qbe/sort_select_cell.twig:7
 #: templates/database/multi_table_query/form.twig:67
-#: templates/table/search/selection_form.twig:154
+#: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:108
 #: templates/server/databases/index.twig:125
 #: templates/server/databases/index.twig:144
 #: templates/server/status/processes/list.twig:12
+#: templates/table/search/selection_form.twig:154
 msgid "Descending"
 msgstr "Disgynnol"
 
 #: libraries/classes/Display/Results.php:2008
 #: libraries/classes/Display/Results.php:2018
-#: libraries/classes/Operations.php:857 libraries/classes/Util.php:4902
+#: libraries/classes/Operations.php:853 libraries/classes/Util.php:4902
 #: libraries/classes/Util.php:4925 libraries/config.values.php:114
-#: templates/database/qbe/sort_select_cell.twig:5
 #: templates/database/multi_table_query/form.twig:66
-#: templates/table/search/selection_form.twig:154
+#: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:106
 #: templates/server/databases/index.twig:123
 #: templates/server/databases/index.twig:142
 #: templates/server/status/processes/list.twig:14
+#: templates/table/search/selection_form.twig:154
 msgid "Ascending"
 msgstr "Esgynnol"
 
@@ -8764,11 +8765,11 @@ msgstr ""
 #: libraries/classes/Plugins/Import/ImportShp.php:62
 #: libraries/classes/Plugins/Import/ImportSql.php:51
 #: libraries/classes/Plugins/Import/ImportXml.php:51
-#: libraries/classes/Rte/Routines.php:962 templates/console/display.twig:7
-#: templates/console/display.twig:140
-#: templates/table/search/selection_form.twig:97
-#: templates/table/structure/display_table_stats.twig:91
+#: libraries/classes/Rte/Routines.php:962
 #: templates/display/results/options_block.twig:10
+#: templates/console/display.twig:7 templates/console/display.twig:140
+#: templates/table/structure/display_table_stats.twig:91
+#: templates/table/search/selection_form.twig:97
 msgid "Options"
 msgstr "Opsiynau"
 
@@ -8825,17 +8826,17 @@ msgstr "Dim indecs wedi'i ddiffinio!"
 #: libraries/classes/Server/Privileges.php:2711
 #: libraries/classes/Server/Privileges.php:3716
 #: libraries/classes/Server/UserGroups.php:95
-#: templates/server/variables/index.twig:27
+#: templates/database/structure/table_header.twig:22
 #: templates/table/structure/display_partitions.twig:33
-#: templates/database/central_columns/main.twig:234
 #: templates/server/databases/index.twig:160
 #: templates/server/privileges/privileges_summary.twig:22
-#: templates/table/tracking/report_table.twig:8
-#: templates/table/tracking/main.twig:32
-#: templates/database/structure/table_header.twig:22
+#: templates/table/structure/display_structure.twig:34
 #: templates/database/tracking/tables.twig:18
 #: templates/database/tracking/tables.twig:121
-#: templates/table/structure/display_structure.twig:34
+#: templates/table/tracking/report_table.twig:8
+#: templates/server/variables/index.twig:27
+#: templates/database/central_columns/main.twig:234
+#: templates/table/tracking/main.twig:32
 msgid "Action"
 msgstr "Gweithred"
 
@@ -8856,20 +8857,20 @@ msgstr "Paciwyd"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:528
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:685
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:718
-#: templates/table/tracking/structure_snapshot_columns.twig:6
-#: templates/table/tracking/structure_snapshot_indexes.twig:9
-#: templates/table/search/fields_table.twig:7
-#: templates/columns_definitions/column_name.twig:16
-#: templates/table/index_form.twig:119
-#: templates/table/relation/foreign_key_row.twig:118
-#: templates/table/relation/foreign_key_row.twig:128
-#: templates/table/search/zoom_result_form.twig:34
-#: templates/database/data_dictionary/index.twig:16
 #: templates/table/relation/common_form.twig:17
 #: templates/table/relation/common_form.twig:22
 #: templates/table/relation/common_form.twig:37
 #: templates/table/relation/common_form.twig:117
 #: templates/table/relation/common_form.twig:182
+#: templates/database/data_dictionary/index.twig:16
+#: templates/columns_definitions/column_name.twig:16
+#: templates/table/relation/foreign_key_row.twig:118
+#: templates/table/relation/foreign_key_row.twig:128
+#: templates/table/index_form.twig:119
+#: templates/table/search/fields_table.twig:7
+#: templates/table/search/zoom_result_form.twig:34
+#: templates/table/tracking/structure_snapshot_indexes.twig:9
+#: templates/table/tracking/structure_snapshot_columns.twig:6
 msgid "Column"
 msgstr "Colofn"
 
@@ -8880,11 +8881,11 @@ msgstr ""
 
 #: libraries/classes/Index.php:724 libraries/classes/Rte/Events.php:567
 #: libraries/classes/Rte/Routines.php:1094
+#: templates/database/structure/table_header.twig:46
 #: templates/table/structure/display_partitions.twig:31
-#: templates/table/tracking/structure_snapshot_columns.twig:12
 #: templates/table/tracking/structure_snapshot_indexes.twig:13
 #: templates/columns_definitions/partitions.twig:85
-#: templates/database/structure/table_header.twig:46
+#: templates/table/tracking/structure_snapshot_columns.twig:12
 msgid "Comment"
 msgstr "Sylw"
 
@@ -8932,8 +8933,8 @@ msgstr ""
 "lanwlythwyd."
 
 #: libraries/classes/InsertEdit.php:1545
-#: templates/table/search/selection_form.twig:125
 #: templates/server/privileges/column_privileges.twig:17
+#: templates/table/search/selection_form.twig:125
 msgid "Or"
 msgstr ""
 
@@ -8994,15 +8995,15 @@ msgstr ""
 
 #: libraries/classes/InsertEdit.php:1963
 #: libraries/classes/Rte/Routines.php:1649
-#: templates/server/variables/index.twig:29
+#: templates/server/replication/status_table.twig:17
 #: templates/server/status/variables/index.twig:71
 #: templates/table/search/fields_table.twig:11
+#: templates/table/search/zoom_result_form.twig:36
 #: templates/database/designer/main.twig:489
 #: templates/database/designer/main.twig:654
 #: templates/database/designer/main.twig:856
 #: templates/database/designer/main.twig:1049
-#: templates/table/search/zoom_result_form.twig:36
-#: templates/server/replication/status_table.twig:17
+#: templates/server/variables/index.twig:29
 msgid "Value"
 msgstr "Gwerth"
 
@@ -9085,8 +9086,8 @@ msgstr "Mewnosod"
 #: libraries/classes/Server/Privileges.php:2709
 #: libraries/classes/Server/Privileges.php:4623 libraries/classes/Util.php:4220
 #: libraries/classes/Util.php:4236 libraries/config.values.php:163
-#: templates/server/sub_page_header.twig:2
 #: templates/server/privileges/privileges_summary.twig:15
+#: templates/server/sub_page_header.twig:2
 msgid "Privileges"
 msgstr "Breintiau"
 
@@ -9162,9 +9163,10 @@ msgid "Binary log"
 msgstr "Log deuaidd"
 
 #: libraries/classes/Menu.php:646 libraries/classes/Server/Status/Data.php:128
-#: libraries/classes/Util.php:4206 templates/server/replication/index.twig:3
-#: templates/database/structure/body_for_table_summary.twig:11
+#: libraries/classes/Util.php:4206
 #: templates/database/structure/table_header.twig:10
+#: templates/database/structure/body_for_table_summary.twig:11
+#: templates/server/replication/index.twig:3
 msgid "Replication"
 msgstr "Dyblygiad"
 
@@ -9216,17 +9218,17 @@ msgstr[2] ""
 msgstr[3] ""
 
 #: libraries/classes/MultSubmits.php:418 libraries/classes/Operations.php:200
-#: libraries/classes/Operations.php:1367 libraries/classes/Tracking.php:357
+#: libraries/classes/Operations.php:1363 libraries/classes/Tracking.php:357
 msgid "Structure only"
 msgstr "Strwythur yn unig"
 
 #: libraries/classes/MultSubmits.php:420 libraries/classes/Operations.php:201
-#: libraries/classes/Operations.php:1368 libraries/classes/Tracking.php:363
+#: libraries/classes/Operations.php:1364 libraries/classes/Tracking.php:363
 msgid "Structure and data"
 msgstr "Strwythur a data"
 
 #: libraries/classes/MultSubmits.php:422 libraries/classes/Operations.php:202
-#: libraries/classes/Operations.php:1369 libraries/classes/Tracking.php:360
+#: libraries/classes/Operations.php:1365 libraries/classes/Tracking.php:360
 msgid "Data only"
 msgstr "Data yn unig"
 
@@ -9237,13 +9239,13 @@ msgid "Add AUTO INCREMENT value"
 msgstr "Ychwanegwch werth AUTO_INCREMENT"
 
 #: libraries/classes/MultSubmits.php:428 libraries/classes/Operations.php:253
-#: libraries/classes/Operations.php:1395
+#: libraries/classes/Operations.php:1391
 msgid "Add constraints"
 msgstr "Ychwanegwch cyfyngiadau"
 
 #: libraries/classes/MultSubmits.php:430 libraries/classes/Operations.php:130
-#: libraries/classes/Operations.php:271 libraries/classes/Operations.php:930
-#: libraries/classes/Operations.php:1032 libraries/classes/Operations.php:1414
+#: libraries/classes/Operations.php:271 libraries/classes/Operations.php:926
+#: libraries/classes/Operations.php:1028 libraries/classes/Operations.php:1410
 #: libraries/classes/Rte/Routines.php:1047
 #: templates/columns_definitions/table_fields_definitions.twig:36
 #, fuzzy
@@ -9764,8 +9766,8 @@ msgid "Rename database to"
 msgstr "Ailenwch y gronfa ddata i"
 
 #: libraries/classes/Operations.php:123 libraries/classes/Operations.php:265
-#: libraries/classes/Operations.php:924 libraries/classes/Operations.php:1026
-#: libraries/classes/Operations.php:1408
+#: libraries/classes/Operations.php:920 libraries/classes/Operations.php:1022
+#: libraries/classes/Operations.php:1404
 #: templates/columns_definitions/column_adjust_privileges.twig:15
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
@@ -9809,195 +9811,195 @@ msgstr "Cynnwys pennawd y tabl"
 msgid "Change all tables columns collations"
 msgstr ""
 
-#: libraries/classes/Operations.php:845
+#: libraries/classes/Operations.php:841
 msgid "Alter table order by"
 msgstr ""
 
-#: libraries/classes/Operations.php:853
+#: libraries/classes/Operations.php:849
 msgid "(singly)"
 msgstr ""
 
-#: libraries/classes/Operations.php:889
+#: libraries/classes/Operations.php:885
 msgid "Move table to (database<b>.</b>table)"
 msgstr ""
 
-#: libraries/classes/Operations.php:1009
+#: libraries/classes/Operations.php:1005
 msgid "Rename table to"
 msgstr "Ailenwi tabl i"
 
-#: libraries/classes/Operations.php:1049
+#: libraries/classes/Operations.php:1045
 msgid "Table comments"
 msgstr "Sylwadau tabl"
 
-#: libraries/classes/Operations.php:1123
+#: libraries/classes/Operations.php:1119
 msgid "Table options"
 msgstr ""
 
-#: libraries/classes/Operations.php:1130 templates/server/engines/index.twig:9
+#: libraries/classes/Operations.php:1126 templates/server/engines/index.twig:9
 msgid "Storage Engine"
 msgstr "Peiriant Storio"
 
-#: libraries/classes/Operations.php:1172
+#: libraries/classes/Operations.php:1168
 msgid "Change all column collations"
 msgstr ""
 
-#: libraries/classes/Operations.php:1350
+#: libraries/classes/Operations.php:1346
 msgid "Copy table to (database<b>.</b>table)"
 msgstr ""
 
-#: libraries/classes/Operations.php:1423
+#: libraries/classes/Operations.php:1419
 msgid "Switch to copied table"
 msgstr ""
 
-#: libraries/classes/Operations.php:1447
+#: libraries/classes/Operations.php:1443
 #: templates/database/structure/check_all_tables.twig:18
 msgid "Table maintenance"
 msgstr ""
 
-#: libraries/classes/Operations.php:1480
+#: libraries/classes/Operations.php:1476
 #: templates/database/structure/check_all_tables.twig:19
 msgid "Analyze table"
 msgstr "Dadansoddi tabl"
 
-#: libraries/classes/Operations.php:1495
+#: libraries/classes/Operations.php:1491
 #: templates/database/structure/check_all_tables.twig:20
 msgid "Check table"
 msgstr "Gwirio tabl"
 
-#: libraries/classes/Operations.php:1509
+#: libraries/classes/Operations.php:1505
 #: templates/database/structure/check_all_tables.twig:21
 #, fuzzy
 #| msgid "Check table"
 msgid "Checksum table"
 msgstr "Gwirio tabl"
 
-#: libraries/classes/Operations.php:1523
+#: libraries/classes/Operations.php:1519
 msgid "Defragment table"
 msgstr ""
 
-#: libraries/classes/Operations.php:1535
+#: libraries/classes/Operations.php:1531
 #, php-format
 msgid "Table %s has been flushed."
 msgstr ""
 
-#: libraries/classes/Operations.php:1541
+#: libraries/classes/Operations.php:1537
 msgid "Flush the table (FLUSH)"
 msgstr ""
 
-#: libraries/classes/Operations.php:1555
+#: libraries/classes/Operations.php:1551
 #: templates/database/structure/check_all_tables.twig:22
 #: templates/table/structure/display_table_stats.twig:62
 msgid "Optimize table"
 msgstr "Optimeiddio tabl"
 
-#: libraries/classes/Operations.php:1570
+#: libraries/classes/Operations.php:1566
 #: templates/database/structure/check_all_tables.twig:23
 msgid "Repair table"
 msgstr "Trwsio tabl"
 
-#: libraries/classes/Operations.php:1616
-#: templates/database/structure/check_all_tables.twig:14
+#: libraries/classes/Operations.php:1612
 #: templates/table/operations/view.twig:28
+#: templates/database/structure/check_all_tables.twig:14
 #, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete data or table"
 msgstr "Dilëwch data tracio ar gyfer y tabl hwn"
 
-#: libraries/classes/Operations.php:1624
+#: libraries/classes/Operations.php:1620
 msgid "Empty the table (TRUNCATE)"
 msgstr ""
 
-#: libraries/classes/Operations.php:1632
+#: libraries/classes/Operations.php:1628
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Delete the table (DROP)"
 msgstr "Copïwch y gronfa ddata i"
 
-#: libraries/classes/Operations.php:1676
+#: libraries/classes/Operations.php:1672
 #: templates/table/structure/display_structure.twig:464
 msgid "Analyze"
 msgstr "Dadansoddi"
 
-#: libraries/classes/Operations.php:1677
+#: libraries/classes/Operations.php:1673
 #: templates/table/structure/display_structure.twig:464
 msgid "Check"
 msgstr "Gwirio"
 
-#: libraries/classes/Operations.php:1678
+#: libraries/classes/Operations.php:1674
 #: templates/table/structure/display_structure.twig:464
 msgid "Optimize"
 msgstr "Optimeiddio"
 
-#: libraries/classes/Operations.php:1679
+#: libraries/classes/Operations.php:1675
 #: templates/table/structure/display_structure.twig:464
 msgid "Rebuild"
 msgstr "Ailadeiladu"
 
-#: libraries/classes/Operations.php:1680
+#: libraries/classes/Operations.php:1676
 #: templates/table/structure/display_structure.twig:464
 msgid "Repair"
 msgstr "Trwsio"
 
-#: libraries/classes/Operations.php:1681
+#: libraries/classes/Operations.php:1677
 #: templates/table/structure/display_structure.twig:464
 msgid "Truncate"
 msgstr ""
 
-#: libraries/classes/Operations.php:1696
+#: libraries/classes/Operations.php:1692
 #, fuzzy
 #| msgid "Close"
 msgid "Coalesce"
 msgstr "Cau"
 
-#: libraries/classes/Operations.php:1705
+#: libraries/classes/Operations.php:1701
 msgid "Partition maintenance"
 msgstr "Cynhaliaeth ymraniadau"
 
-#: libraries/classes/Operations.php:1722
+#: libraries/classes/Operations.php:1718
 #, php-format
 msgid "Partition %s"
 msgstr "Ymraniad %s"
 
-#: libraries/classes/Operations.php:1745
+#: libraries/classes/Operations.php:1741
 #: templates/table/structure/display_partitions.twig:137
 msgid "Remove partitioning"
 msgstr "Tynnu'r ymraniadu"
 
-#: libraries/classes/Operations.php:1771
+#: libraries/classes/Operations.php:1767
 msgid "Check referential integrity:"
 msgstr ""
 
-#: libraries/classes/Operations.php:2170
+#: libraries/classes/Operations.php:2169
 msgid "Can't move table to same one!"
 msgstr ""
 
-#: libraries/classes/Operations.php:2172
+#: libraries/classes/Operations.php:2171
 msgid "Can't copy table to same one!"
 msgstr ""
 
-#: libraries/classes/Operations.php:2207
+#: libraries/classes/Operations.php:2206
 #, fuzzy, php-format
 #| msgid "View %s has been dropped."
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Cafodd golwg %s ei ollwng"
 
-#: libraries/classes/Operations.php:2214
+#: libraries/classes/Operations.php:2213
 #, fuzzy, php-format
 #| msgid "View %s has been dropped."
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Cafodd golwg %s ei ollwng"
 
-#: libraries/classes/Operations.php:2222
+#: libraries/classes/Operations.php:2221
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr ""
 
-#: libraries/classes/Operations.php:2226
+#: libraries/classes/Operations.php:2225
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr ""
 
-#: libraries/classes/Operations.php:2250
+#: libraries/classes/Operations.php:2249
 msgid "The table name is empty!"
 msgstr ""
 
@@ -10136,8 +10138,8 @@ msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:104
-#: templates/display/import/import.twig:169
 #: templates/display/export/format_dropdown.twig:2
+#: templates/display/import/import.twig:169
 #, fuzzy
 #| msgid "Format"
 msgid "Format:"
@@ -10382,8 +10384,8 @@ msgstr "Rhoi enwau colofnau yn y rhes gyntaf"
 #: libraries/classes/Plugins/Export/ExportLatex.php:221
 #: libraries/classes/Plugins/Export/ExportSql.php:718
 #: libraries/classes/Plugins/Export/ExportXml.php:244
-#: templates/server/replication/master_add_slave_user.twig:29
 #: templates/server/replication/change_master.twig:22
+#: templates/server/replication/master_add_slave_user.twig:29
 #, fuzzy
 #| msgid "Host"
 msgid "Host:"
@@ -10919,16 +10921,16 @@ msgid "Table of contents"
 msgstr "Tabl cynnwys"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:638
-#: templates/table/structure/display_table_stats.twig:6
 #: templates/database/data_dictionary/index.twig:11
 #: templates/columns_definitions/column_definitions_form.twig:71
+#: templates/table/structure/display_table_stats.twig:6
 msgid "Table comments:"
 msgstr "Sylwadau tabl:"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:690
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:723
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/display_structure.twig:30
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Ychwanegol"
 
@@ -11717,8 +11719,8 @@ msgid "Return options"
 msgstr "Gweithredoedd"
 
 #: libraries/classes/Rte/Routines.php:1003
-#: templates/rte/routines/parameter_row.twig:31
 #: templates/database/structure/table_header.twig:42
+#: templates/rte/routines/parameter_row.twig:31
 msgid "Charset"
 msgstr "Set nodau"
 
@@ -12314,8 +12316,8 @@ msgid "Login Information"
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:1636
-#: templates/server/replication/master_add_slave_user.twig:16
 #: templates/server/replication/change_master.twig:14
+#: templates/server/replication/master_add_slave_user.twig:16
 #, fuzzy
 #| msgid "Username:"
 msgid "User name:"
@@ -12325,9 +12327,9 @@ msgstr "Enw defnyddiwr:"
 #: libraries/classes/Server/Privileges.php:1662
 #: libraries/classes/Server/Privileges.php:2706
 #: libraries/classes/Server/Privileges.php:3703
+#: templates/server/replication/change_master.twig:15
 #: templates/server/replication/master_add_slave_user.twig:19
 #: templates/server/replication/master_add_slave_user.twig:24
-#: templates/server/replication/change_master.twig:15
 msgid "User name"
 msgstr ""
 
@@ -12401,9 +12403,9 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:1794
 #: libraries/classes/Server/Privileges.php:1811
 #: libraries/classes/Server/Privileges.php:3705
+#: templates/server/replication/change_master.twig:19
 #: templates/server/replication/master_add_slave_user.twig:52
 #: templates/server/replication/master_add_slave_user.twig:57
-#: templates/server/replication/change_master.twig:19
 msgid "Password"
 msgstr "Cyfrinair"
 
@@ -13080,8 +13082,9 @@ msgstr "Heb ddarganfod llwybr thema ar gyfer thema %s!"
 msgid "Theme:"
 msgstr ""
 
-#: libraries/classes/Tracking.php:275 templates/table/tracking/main.twig:73
+#: libraries/classes/Tracking.php:275
 #: templates/database/tracking/tables.twig:78
+#: templates/table/tracking/main.twig:73
 msgid "Tracking report"
 msgstr "Adroddiad tracio"
 
@@ -13135,8 +13138,9 @@ msgstr "Datganiad trin data"
 msgid "Data definition statement"
 msgstr "Datganiad diffiniad data"
 
-#: libraries/classes/Tracking.php:681 templates/table/tracking/main.twig:80
+#: libraries/classes/Tracking.php:681
 #: templates/database/tracking/tables.twig:89
+#: templates/table/tracking/main.twig:80
 msgid "Structure snapshot"
 msgstr "Ciplun strwythur"
 
@@ -13525,8 +13529,8 @@ msgstr "Heb God PHP"
 msgid "Submit query"
 msgstr "Cyflwyno Ymholiad"
 
-#: libraries/classes/Util.php:1200 templates/console/display.twig:31
-#: templates/console/display.twig:175 templates/sql/profiling_chart.twig:2
+#: libraries/classes/Util.php:1200 templates/sql/profiling_chart.twig:2
+#: templates/console/display.twig:31 templates/console/display.twig:175
 msgid "Profiling"
 msgstr "Proffilio"
 
@@ -13864,8 +13868,8 @@ msgid "Wrong data or no validation for %s"
 msgstr ""
 
 #: tbl_change.php:170 templates/database/multi_table_query/form.twig:48
-#: templates/table/tracking/main.twig:33
 #: templates/database/tracking/tables.twig:19
+#: templates/table/tracking/main.twig:33
 msgid "Show"
 msgstr "Dangos"
 
@@ -13924,1556 +13928,49 @@ msgstr ""
 msgid "Theme"
 msgstr ""
 
-#: templates/login/header.twig:11 templates/header.twig:43
-#, fuzzy
-#| msgid "Cookies must be enabled past this point."
-msgid "Javascript must be enabled past this point!"
-msgstr "Mae'n rhaid bod cwcis wedi'u galluogi heibio'r pwynt hwn."
-
-#: templates/login/header.twig:15
-msgid ""
-"There is a mismatch between HTTPS indicated on the server and client. This "
-"can lead to a non working phpMyAdmin or a security risk. Please fix your "
-"server configuration to indicate HTTPS properly."
-msgstr ""
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Collapse"
-msgstr ""
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Expand"
-msgstr ""
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:175
-#, fuzzy
-#| msgid "in query"
-msgid "Requery"
-msgstr "mewn ymholiad"
-
-#: templates/setup/config/index.twig:4 templates/setup/home/index.twig:93
-msgid "Configuration file"
-msgstr ""
-
-#: templates/setup/config/index.twig:22 templates/setup/home/index.twig:105
-msgid "Download"
-msgstr ""
-
-#: templates/columns_definitions/column_virtuality.twig:30
-#: templates/table/structure/display_partitions.twig:26
-#, fuzzy
-#| msgid "Compression"
-msgid "Expression"
-msgstr "Cywasgiad"
-
-#: templates/database/designer/schema_export.twig:4
-msgid "Select Export Relational Type"
-msgstr ""
-
-#: templates/console/display.twig:7
-#, fuzzy
-#| msgid "Skip Validate SQL"
-msgid "History"
-msgstr "Sgipio Dilysu SQL"
-
-#: templates/console/display.twig:11 templates/console/display.twig:99
-#, fuzzy
-#| msgid "Delete relation"
-msgid "Bookmarks"
-msgstr "Dilëwch berthynas"
-
-#: templates/console/display.twig:20
-#, fuzzy
-#| msgid "Execute bookmarked query"
-msgid "Press Ctrl+Enter to execute query"
-msgstr "Gweithredu ymholiad a glustnodwyd"
-
-#: templates/console/display.twig:23
-#, fuzzy
-#| msgid "Execute bookmarked query"
-msgid "Press Enter to execute query"
-msgstr "Gweithredu ymholiad a glustnodwyd"
-
-#: templates/console/display.twig:31 templates/console/display.twig:175
-#, fuzzy
-#| msgid "Explain SQL"
-msgid "Explain"
-msgstr "Esbonio SQL"
-
-#: templates/console/display.twig:40 templates/console/display.twig:184
-#, fuzzy
-#| msgid "Delete relation"
-msgid "Bookmark"
-msgstr "Dilëwch berthynas"
-
-#: templates/console/display.twig:40 templates/console/display.twig:184
-#, fuzzy
-#| msgid "Query"
-msgid "Query failed"
-msgstr "Ymholiad"
-
-#: templates/console/display.twig:42 templates/console/display.twig:184
-#, fuzzy
-#| msgid "SQL execution"
-msgid "Queried time"
-msgstr "Gweithrediad SQL"
-
-#: templates/console/display.twig:47
-msgid "During current session"
-msgstr ""
-
-#: templates/console/display.twig:64
-#, fuzzy
-#| msgid "Ascending"
-msgid "ascending"
-msgstr "Esgynnol"
-
-#: templates/console/display.twig:64
-#, fuzzy
-#| msgid "Descending"
-msgid "descending"
-msgstr "Disgynnol"
-
-#: templates/console/display.twig:64
-msgid "Order:"
-msgstr ""
-
-#: templates/console/display.twig:64 templates/console/display.twig:84
-#: templates/table/search/replace_preview.twig:17
-#, fuzzy
-#| msgid "Column"
-msgid "Count"
-msgstr "Colofn"
-
-#: templates/console/display.twig:64
-#, fuzzy
-#| msgid "Execute bookmarked query"
-msgid "Execution order"
-msgstr "Gweithredu ymholiad a glustnodwyd"
-
-#: templates/console/display.twig:64 templates/console/display.twig:84
-msgid "Time taken"
-msgstr ""
-
-#: templates/console/display.twig:64
-msgid "Order by:"
-msgstr ""
-
-#: templates/console/display.twig:64
-#, fuzzy
-#| msgid "in query"
-msgid "Ungroup queries"
-msgstr "mewn ymholiad"
-
-#: templates/console/display.twig:84
-#, fuzzy
-#| msgid "Show color"
-msgid "Show trace"
-msgstr "Dangos lliw"
-
-#: templates/console/display.twig:84
-#, fuzzy
-#| msgid "Indexes"
-msgid "Hide trace"
-msgstr "Indecsau"
-
-#: templates/console/display.twig:99
-#: templates/database/central_columns/main.twig:212
-#: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
-#: templates/export/alias_add.twig:46
-#: templates/columns_definitions/column_definitions_form.twig:32
-#, fuzzy
-#| msgid "And"
-msgid "Add"
-msgstr "And"
-
-#: templates/console/display.twig:112
-#, fuzzy
-#| msgid "Delete relation"
-msgid "Add bookmark"
-msgstr "Dilëwch berthynas"
-
-#: templates/console/display.twig:121
-#, fuzzy
-#| msgid "Label key"
-msgid "Label"
-msgstr "Allwedd y label"
-
-#: templates/console/display.twig:124
-msgid "Target database"
-msgstr "Cronfa ddata targed"
-
-#: templates/console/display.twig:127
-#, fuzzy
-#| msgid "Delete relation"
-msgid "Share this bookmark"
-msgstr "Dilëwch berthynas"
-
-#: templates/console/display.twig:140
-#, fuzzy
-#| msgid "Restore default value"
-msgid "Set default"
-msgstr "Adfer gwerth diofyn"
-
-#: templates/console/display.twig:162
-msgid ""
-"Execute queries on Enter and insert new line with Shift + Enter. To make "
-"this permanent, view settings."
-msgstr ""
-
-#: templates/create_tracking_version.twig:11
-#, fuzzy, php-format
-#| msgid "Create version %s of %s.%s"
-msgid "Create version %1$s of %2$s"
-msgstr "Crëwch fersiwn %s o %s.%s"
-
-#: templates/create_tracking_version.twig:16
-#, fuzzy, php-format
-#| msgid "Create version"
-msgid "Create version %1$s"
-msgstr "Crëwch fersiwn"
-
-#: templates/create_tracking_version.twig:20
-msgid "Track these data definition statements:"
-msgstr "Traciwch y datganiadau diffiniad data hyn:"
-
-#: templates/create_tracking_version.twig:59
-msgid "Track these data manipulation statements:"
-msgstr "Traciwch y datganiadau trin data hyn:"
-
-#: templates/create_tracking_version.twig:76
-msgid "Create version"
-msgstr "Crëwch fersiwn"
-
 #: templates/table/browse_foreigners/column_element.twig:4
 msgid "Use this value"
 msgstr "Defnyddiwch y gwerth hwn"
 
-#: templates/server/variables/index.twig:3
-msgid "Server variables and settings"
+#: templates/sql/profiling_chart.twig:4
+#, fuzzy
+#| msgid "Data file grow size"
+msgid "Detailed profile"
+msgstr "Maint tyfu'r ffeil ddata"
+
+#: templates/sql/profiling_chart.twig:13 templates/sql/profiling_chart.twig:35
+#, fuzzy
+#| msgid "Sat"
+msgid "State"
+msgstr "Sad"
+
+#: templates/sql/profiling_chart.twig:30
+msgid "Summary by state"
 msgstr ""
 
-#: templates/server/variables/index.twig:28
-#: templates/server/status/variables/index.twig:70
-#: templates/server/replication/status_table.twig:16
-msgid "Variable"
-msgstr "Newidyn"
-
-#: templates/server/variables/index.twig:40
-msgid "This is a read-only variable and can not be edited"
-msgstr ""
-
-#: templates/server/variables/index.twig:66
-msgid "Session value"
-msgstr ""
-
-#: templates/server/variables/index.twig:75
-#, php-format
-msgid "Not enough privilege to view server variables and settings. %s"
-msgstr ""
-
-#: templates/display/export/options_output_separate_files.twig:7
+#: templates/sql/profiling_chart.twig:40
 #, fuzzy
-#| msgid "Create table on database %s"
-msgid "Export databases as separate files"
-msgstr "Creu tabl mewn cronfa ddata %s"
+#| msgid "Total"
+msgid "Total Time"
+msgstr "Cyfanswm"
 
-#: templates/display/export/options_output_separate_files.twig:9
-#, fuzzy
-#| msgid "horizontal (rotated headers)"
-msgid "Export tables as separate files"
-msgstr "llorweddol (penawdau wedi cylchdroi)"
-
-#: templates/server/replication/database_multibox.twig:8
-#: templates/display/export/select_options.twig:8
-#: templates/database/search/main.twig:35
-#, fuzzy
-#| msgid "Unselect All"
-msgid "Unselect all"
-msgstr "Dad-ddewis Pob"
-
-#: templates/display/import/import.twig:40
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
-msgid "Importing into the current server"
-msgstr "Methu â mewngofnodi i'r gweinydd MySQL"
-
-#: templates/display/import/import.twig:42
-#, fuzzy, php-format
-#| msgid "Jump to database"
-msgid "Importing into the database \"%s\""
-msgstr "Neidiwch i'r gronfa ddata"
-
-#: templates/display/import/import.twig:44
-#, fuzzy, php-format
-#| msgid "Jump to database"
-msgid "Importing into the table \"%s\""
-msgstr "Neidiwch i'r gronfa ddata"
-
-#: templates/display/import/import.twig:50
-#, fuzzy
-#| msgid "File to import"
-msgid "File to import:"
-msgstr "Ffeil i'w mewnforio"
-
-#: templates/display/import/import.twig:56
-#, php-format
-msgid "File may be compressed (%s) or uncompressed."
-msgstr ""
-
-#: templates/display/import/import.twig:58
-msgid ""
-"A compressed file's name must end in <strong>.[format].[compression]</"
-"strong>. Example: <strong>.sql.zip</strong>"
-msgstr ""
-
-#: templates/display/import/import.twig:69
-#: templates/display/import/import.twig:84
-msgid "You may also drag and drop a file on any page."
-msgstr ""
-
-#: templates/display/import/import.twig:86
-msgid "File uploads are not allowed on this server."
-msgstr "Dyw lanlwytho ffeiliau ddim yn cael ei ganiatáu ar y gweinydd hwn."
-
-#: templates/display/import/import.twig:97
-#: templates/display/export/options_output_charset.twig:3
-msgid "Character set of the file:"
-msgstr "Set nodau'r ffeil:"
-
-#: templates/display/import/import.twig:125
-#, fuzzy
-#| msgid "Partial import"
-msgid "Partial import:"
-msgstr "Mewnforiad rhannol"
-
-#: templates/display/import/import.twig:130
-#, php-format
-msgid ""
-"Previous import timed out, after resubmitting will continue from position %d."
-msgstr ""
-
-#: templates/display/import/import.twig:138
-msgid ""
-"Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <em>(This might be a good way to import large "
-"files, however it can break transactions.)</em>"
-msgstr ""
-
-#: templates/display/import/import.twig:145
-#, fuzzy
-#| msgid "Number of queries to skip from start"
-msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr "Nifer yr ymholiadau i'w neidio o'r dechrau"
-
-#: templates/display/import/import.twig:162
-#, fuzzy
-#| msgid "Options"
-msgid "Other options:"
-msgstr "Opsiynau"
-
-#: templates/display/import/import.twig:175
-#: templates/display/export/options_format.twig:2
-msgid "Format-specific options:"
-msgstr ""
-
-#: templates/display/import/import.twig:177
-#: templates/display/export/options_format.twig:4
-msgid ""
-"Scroll down to fill in the options for the selected format and ignore the "
-"options for other formats."
-msgstr ""
-
-#: templates/display/import/import.twig:186
-#: templates/display/export/options_format.twig:12
-msgid "Encoding Conversion:"
-msgstr ""
-
-#: templates/header.twig:54
-msgid "Click on the bar to scroll to top of page"
-msgstr ""
-
-#: templates/preferences/two_factor/confirm.twig:2
-#, fuzzy
-#| msgid "Authenticating…"
-msgid "Confirm disabling two-factor authentication"
-msgstr "Yn dilysu…"
-
-#: templates/preferences/two_factor/confirm.twig:5
-msgid ""
-"By disabling two factor authentication you will be again able to login using "
-"password only."
-msgstr ""
-
-#: templates/preferences/two_factor/confirm.twig:9
-#: templates/preferences/two_factor/main.twig:38
-#, fuzzy
-#| msgid "Authenticating…"
-msgid "Disable two-factor authentication"
-msgstr "Yn dilysu…"
-
-#: templates/table/structure/display_partitions.twig:4
-#: templates/table/structure/display_structure.twig:477
-#, fuzzy
-#| msgid "Partition %s"
-msgid "Partitions"
-msgstr "Ymraniad %s"
-
-#: templates/table/structure/display_partitions.twig:8
-#, fuzzy
-#| msgid "No index defined!"
-msgid "No partitioning defined!"
-msgstr "Dim indecs wedi'i ddiffinio!"
-
-#: templates/table/structure/display_partitions.twig:11
-#, fuzzy
-#| msgid "Partition %s"
-msgid "Partitioned by:"
-msgstr "Ymraniad %s"
-
-#: templates/table/structure/display_partitions.twig:16
-msgid "Sub partitioned by:"
-msgstr ""
-
-#: templates/table/structure/display_partitions.twig:24
-#: templates/columns_definitions/partitions.twig:76
-#, fuzzy
-#| msgid "Partition %s"
-msgid "Partition"
-msgstr "Ymraniad %s"
-
-#: templates/table/structure/display_partitions.twig:29
-#, fuzzy
-#| msgid "Data files"
-msgid "Data length"
-msgstr "Ffeiliau data"
-
-#: templates/table/structure/display_partitions.twig:30
-#, fuzzy
-#| msgid "Indexes"
-msgid "Index length"
-msgstr "Indecsau"
-
-#: templates/table/structure/display_partitions.twig:135
-#, fuzzy
-#| msgid "Partition %s"
-msgid "Partition table"
-msgstr "Ymraniad %s"
-
-#: templates/table/structure/display_partitions.twig:141
-#: templates/table/structure/partition_definition_form.twig:6
-#, fuzzy
-#| msgid "Remove partitioning"
-msgid "Edit partitioning"
-msgstr "Tynnu'r ymraniadu"
-
-#: templates/preferences/forms/main.twig:4
-msgid "Cannot save settings, submitted form contains errors!"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:15
-#, fuzzy
-#| msgid "Mar"
-msgctxt "Chart type"
-msgid "Bar"
-msgstr "Maw"
-
-#: templates/table/chart/tbl_chart.twig:19
-#, fuzzy
-#| msgid "Column"
-msgctxt "Chart type"
-msgid "Column"
-msgstr "Colofn"
-
-#: templates/table/chart/tbl_chart.twig:23
-msgctxt "Chart type"
-msgid "Line"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:27
-#, fuzzy
-#| msgid "Inline"
-msgctxt "Chart type"
-msgid "Spline"
-msgstr "Mewnol"
-
-#: templates/table/chart/tbl_chart.twig:31
-msgctxt "Chart type"
-msgid "Area"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:35
-#, fuzzy
-#| msgid "PiB"
-msgctxt "Chart type"
-msgid "Pie"
-msgstr "PiB"
-
-#: templates/table/chart/tbl_chart.twig:39
+#: templates/sql/profiling_chart.twig:44
 #, fuzzy
 #| msgid "Time"
-msgctxt "Chart type"
-msgid "Timeline"
+msgid "% Time"
 msgstr "Amser"
 
-#: templates/table/chart/tbl_chart.twig:43
-msgctxt "Chart type"
-msgid "Scatter"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:48
-#, fuzzy
-#| msgid "Packed"
-msgid "Stacked"
-msgstr "Paciwyd"
-
-#: templates/table/chart/tbl_chart.twig:51
-#, fuzzy
-#| msgid "Report title"
-msgid "Chart title:"
-msgstr "Teitl yr adroddiad"
-
-#: templates/table/chart/tbl_chart.twig:56
-msgid "X-Axis:"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:71
-msgid "Series:"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:100
-msgid "X-Axis label:"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:102
-#, fuzzy
-#| msgid "Value"
-msgid "X Values"
-msgstr "Gwerth"
-
-#: templates/table/chart/tbl_chart.twig:105
-msgid "Y-Axis label:"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:107
-#, fuzzy
-#| msgid "Value"
-msgid "Y Values"
-msgstr "Gwerth"
-
-#: templates/table/chart/tbl_chart.twig:113
-msgid "Series names are in a column"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:116
-#, fuzzy
-#| msgid "Inside column:"
-msgid "Series column:"
-msgstr "Tu fewn colofn:"
-
-#: templates/table/chart/tbl_chart.twig:130
-#, fuzzy
-#| msgid "Number of columns"
-msgid "Value Column:"
-msgstr "Nifer y colofnau"
-
-#: templates/table/chart/tbl_chart.twig:151
-#, fuzzy
-#| msgid "Save as file"
-msgid "Save chart as image"
-msgstr "Cadw fel ffeil"
-
-#: templates/server/engines/show.twig:3 templates/server/engines/index.twig:3
-#, fuzzy
-#| msgid "Storage Engines"
-msgid "Storage engines"
-msgstr "Peiriannau Storio"
-
-#: templates/server/engines/show.twig:47
-#, fuzzy
-#| msgid "Storage Engines"
-msgid "Unknown storage engine."
-msgstr "Peiriannau Storio"
-
-#: templates/server/status/variables/index.twig:7 templates/filter.twig:2
-#: templates/server/status/processes/index.twig:6
-#, fuzzy
-msgid "Filters"
-msgstr "Hidlydd"
-
-#: templates/server/status/variables/index.twig:14 templates/filter.twig:4
-msgid "Containing the word:"
-msgstr ""
-
-#: templates/server/status/variables/index.twig:21
-#, fuzzy
-#| msgid "Show only listed databases"
-msgid "Show only alert values"
-msgstr "Dangoswch gronfeydd data a restrir yn unig"
-
-#: templates/server/status/variables/index.twig:27
-msgid "Filter by category…"
-msgstr ""
-
-#: templates/server/status/variables/index.twig:37
-#, fuzzy
-#| msgid "Show only listed databases"
-msgid "Show unformatted values"
-msgstr "Dangoswch gronfeydd data a restrir yn unig"
-
-#: templates/server/status/variables/index.twig:45
-#, fuzzy
-#| msgid "Relations"
-msgid "Related links:"
-msgstr "Perthnasau"
-
-#: templates/server/status/variables/index.twig:134
-msgid "Not enough privilege to view status variables."
-msgstr ""
-
-#: templates/display/export/options_rows.twig:2
-#, fuzzy
-#| msgid "Rows"
-msgid "Rows:"
-msgstr "Rhesi"
-
-#: templates/display/export/options_rows.twig:7
-#, fuzzy
-#| msgid "Dump all rows"
-msgid "Dump some row(s)"
-msgstr "Dadlwytho pob rhes"
-
-#: templates/display/export/options_rows.twig:10
-#: templates/display/results/table_navigation.twig:53
-#: templates/start_and_number_of_rows_panel.twig:10
-#, fuzzy
-#| msgid "Number of columns"
-msgid "Number of rows:"
-msgstr "Nifer y colofnau"
-
-#: templates/display/export/options_rows.twig:23
-msgid "Row to begin at:"
-msgstr ""
-
-#: templates/display/export/options_rows.twig:32
-msgid "Dump all rows"
-msgstr "Dadlwytho pob rhes"
-
-#: templates/database/central_columns/main.twig:4
-#, fuzzy
-#| msgid "Add %s column(s)"
-msgid "Add new column"
-msgstr "Ychwanegwch %s colofn"
-
-#: templates/database/central_columns/main.twig:25
-#: templates/database/central_columns/main.twig:244
-msgid "Length/Value"
-msgstr ""
-
-#: templates/database/central_columns/main.twig:37
-#: templates/database/central_columns/main.twig:256
-msgid "Attribute"
-msgstr ""
-
-#: templates/database/central_columns/main.twig:145
-msgid "The central list of columns for the current database is empty"
-msgstr ""
-
-#: templates/database/central_columns/main.twig:182
-#: templates/display/results/table_navigation.twig:73
-#, fuzzy
-msgid "Filter rows"
-msgstr "Hidlydd"
-
-#: templates/database/central_columns/main.twig:183
-#: templates/display/results/table_navigation.twig:75
-#, fuzzy
-#| msgid "Search in database"
-msgid "Search this table"
-msgstr "Chwilio yn y gronfa ddata"
-
-#: templates/database/central_columns/main.twig:194
-#: templates/table/structure/display_structure.twig:420
-msgid "Add column"
-msgstr ""
-
-#: templates/database/central_columns/main.twig:203
-#, fuzzy
-#| msgid "Select Tables"
-msgid "Select a table"
-msgstr "Dewis Tablau"
-
-#: templates/database/central_columns/main.twig:210
-#, fuzzy
-#| msgid "Add/Delete columns"
-msgid "Select a column."
-msgstr "Ychwanegu/Dileu colofnau"
-
-#: templates/database/central_columns/main.twig:229
-msgid "Click to sort."
-msgstr "Clicia i drefnu."
-
-#: templates/columns_definitions/table_fields_definitions.twig:17
-msgid ""
-"If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'…<br>If you ever need to put a backslash (\"\") or a "
-"single quote (\"'\") amongst those values, precede it with a backslash (for "
-"example '\\\\xyz' or 'a\\'b')."
-msgstr ""
-
-#: templates/columns_definitions/table_fields_definitions.twig:21
-msgid ""
-"For default values, please enter just a single value, without backslash "
-"escaping or quotes, using this format: a"
-msgstr ""
-
-#: templates/columns_definitions/table_fields_definitions.twig:59
-msgid "Virtuality"
-msgstr ""
-
-#: templates/columns_definitions/table_fields_definitions.twig:65
-#, fuzzy
-#| msgid "Add/Delete columns"
-msgid "Move column"
-msgstr "Ychwanegu/Dileu colofnau"
-
-#: templates/columns_definitions/table_fields_definitions.twig:76
-#: templates/columns_definitions/table_fields_definitions.twig:87
-msgid "List of available transformations and their options"
-msgstr ""
-
-#: templates/columns_definitions/table_fields_definitions.twig:78
-#: templates/transformation_overview.twig:18
-#, fuzzy
-#| msgid "Browser transformation"
-msgid "Browser display transformation"
-msgstr "Trawsffurfiad porwr"
-
-#: templates/columns_definitions/table_fields_definitions.twig:82
-#, fuzzy
-#| msgid "Browser transformation"
-msgid "Browser display transformation options"
-msgstr "Trawsffurfiad porwr"
-
-#: templates/columns_definitions/table_fields_definitions.twig:83
-#: templates/columns_definitions/table_fields_definitions.twig:94
-msgid ""
-"Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'…<br>If you ever need to put a backslash (\"\\\") or a single "
-"quote (\"'\") amongst those values, precede it with a backslash (for example "
-"'\\\\xyz' or 'a\\'b')."
-msgstr ""
-
-#: templates/columns_definitions/table_fields_definitions.twig:89
-#: templates/transformation_overview.twig:37
-#, fuzzy
-#| msgid "Browser transformation"
-msgid "Input transformation"
-msgstr "Trawsffurfiad porwr"
-
-#: templates/columns_definitions/table_fields_definitions.twig:93
-#, fuzzy
-#| msgid "Databases statistics"
-msgid "Input transformation options"
-msgstr "Ystadegau cronfeydd data"
-
-#: templates/table/gis_visualization/gis_visualization.twig:3
-msgid "Display GIS Visualization"
-msgstr ""
-
-#: templates/table/gis_visualization/gis_visualization.twig:8
-#, fuzzy
-#| msgid "Add/Delete columns"
-msgid "Label column"
-msgstr "Ychwanegu/Dileu colofnau"
-
-#: templates/table/gis_visualization/gis_visualization.twig:11
-#, fuzzy
-#| msgid "- none -"
-msgid "-- None --"
-msgstr "-dim-"
-
-#: templates/table/gis_visualization/gis_visualization.twig:19
-#, fuzzy
-#| msgid "Log file count"
-msgid "Spatial column"
-msgstr "Cyfrif ffeiliau log"
-
-#: templates/table/gis_visualization/gis_visualization.twig:38
-#: templates/gis_data_editor_form.twig:22
-msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
-
-#: templates/database/multi_table_query/form.twig:16
-#, fuzzy
-#| msgid "Query"
-msgid "Query window"
-msgstr "Ymholiad"
-
-#: templates/database/multi_table_query/form.twig:37
-#: templates/database/multi_table_query/form.twig:125
-#, fuzzy
-#| msgid "Select Tables"
-msgid "select table"
-msgstr "Dewis Tablau"
-
-#: templates/database/multi_table_query/form.twig:44
-#: templates/database/multi_table_query/form.twig:133
-#, fuzzy
-#| msgid "Add/Delete columns"
-msgid "select column"
-msgstr "Ychwanegu/Dileu colofnau"
-
-#: templates/database/multi_table_query/form.twig:50
-#, fuzzy
-#| msgid "Tables"
-msgid "Table alias"
-msgstr "Tablau"
-
-#: templates/database/multi_table_query/form.twig:51
-#, fuzzy
-#| msgid "Columns"
-msgid "Column alias"
-msgstr "Colofnau"
-
-#: templates/database/multi_table_query/form.twig:54
-msgid "Use this column in criteria"
-msgstr ""
-
-#: templates/database/multi_table_query/form.twig:57
-#, fuzzy
-#| msgid "Criteria"
-msgid "criteria"
-msgstr "Meini prawf"
-
-#: templates/database/multi_table_query/form.twig:71
-#, fuzzy
-#| msgid "Add %s"
-msgid "Add as"
-msgstr "Ychwanegwch %s"
-
-#: templates/database/multi_table_query/form.twig:116
-#, fuzzy
-#| msgid "Add/Delete columns"
-msgid "Another column"
-msgstr "Ychwanegu/Dileu colofnau"
-
-#: templates/database/multi_table_query/form.twig:144
-msgid "Enter criteria as free text"
-msgstr ""
-
-#: templates/database/multi_table_query/form.twig:152
-#, fuzzy
-#| msgid "Remove database"
-msgid "Remove this column"
-msgstr "Tynnwch y gronfa ddata"
-
-#: templates/database/multi_table_query/form.twig:162
-#: templates/table/relation/foreign_key_row.twig:86
-#, fuzzy
-#| msgid "Add %s column(s)"
-msgid "+ Add column"
-msgstr "Ychwanegwch %s colofn"
-
-#: templates/database/multi_table_query/form.twig:179
-#, fuzzy
-#| msgid "Update Query"
-msgid "Update query"
-msgstr "Ymholiad Diweddaru"
-
-#: templates/display/export/options_output_save_dir.twig:5
-#: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-#| msgid "Save on server in %s directory"
-msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Cadw ar weinydd mewn cyfeiriadur %s"
-
-#: templates/database/create_table.twig:7
-#: templates/database/designer/main.twig:86
-#: templates/database/designer/main.twig:89
-msgid "Create table"
-msgstr "Crëwch dabl"
-
-#: templates/database/create_table.twig:15
-msgid "Number of columns"
-msgstr "Nifer y colofnau"
-
-#: templates/database/structure/favorite_anchor.twig:4
-#, fuzzy
-#| msgid "Add a new server"
-msgid "Add to Favorites"
-msgstr "Ychwanegwch weinydd newydd"
-
-#: templates/database/designer/page_save_as.twig:17
-#, fuzzy
-#| msgid "Import files"
-msgid "Save to selected page"
-msgstr "Mewnforiwch ffeiliau"
-
-#: templates/database/designer/page_save_as.twig:17
-#, fuzzy
-#| msgid "Create a page"
-msgid "Create a page and save to it"
-msgstr "Crëwch dudalen"
-
-#: templates/database/designer/page_save_as.twig:30
-#, fuzzy
-#| msgid "Page name"
-msgid "New page name"
-msgstr "Enw'r dudalen"
-
-#: templates/display/export/option_header.twig:5
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
-msgid "Exporting databases from the current server"
-msgstr "Methu â mewngofnodi i'r gweinydd MySQL"
-
-#: templates/display/export/option_header.twig:7
-#, fuzzy, php-format
-#| msgid "Create table on database %s"
-msgid "Exporting tables from \"%s\" database"
-msgstr "Creu tabl mewn cronfa ddata %s"
-
-#: templates/display/export/option_header.twig:9
-#, fuzzy, php-format
-#| msgid "Create table on database %s"
-msgid "Exporting rows from \"%s\" table"
-msgstr "Creu tabl mewn cronfa ddata %s"
-
-#: templates/database/qbe/footer_options.twig:3
-msgid "Add/Delete criteria rows"
-msgstr "Ychwanegu/Dileu rhesi meini prawf"
-
-#: templates/database/qbe/footer_options.twig:5
-msgid "Add/Delete columns"
-msgstr "Ychwanegu/Dileu colofnau"
-
-#: templates/home/index.twig:28
-#, fuzzy
-#| msgid "General relation features"
-msgid "General settings"
-msgstr "Nodweddion perthynas cyffredinol"
-
-#: templates/home/index.twig:45
-#, fuzzy
-#| msgid "MySQL connection collation"
-msgid "Server connection collation:"
-msgstr "Coladiad cysylltiad MySQL"
-
-#: templates/home/index.twig:72
-#, fuzzy
-#| msgid "General relation features"
-msgid "Appearance settings"
-msgstr "Nodweddion perthynas cyffredinol"
-
-#: templates/home/index.twig:94
-#, fuzzy
-#| msgid "Databases"
-msgid "Database server"
-msgstr "Cronfeydd Data"
-
-#: templates/home/index.twig:101
-#, fuzzy
-#| msgid "Server"
-msgid "Server type:"
-msgstr "Gweinydd"
-
-#: templates/home/index.twig:105
-#, fuzzy
-#| msgid "Format of imported file"
-msgid "Server connection:"
-msgstr "Fformat y ffeil a mewnforiwyd"
-
-#: templates/home/index.twig:113
-#, fuzzy
-#| msgid "Protocol version"
-msgid "Protocol version:"
-msgstr "Fersiwn protocol"
-
-#: templates/home/index.twig:117
-#, fuzzy
-#| msgid "User"
-msgid "User:"
-msgstr "Defnyddiwr"
-
-#: templates/home/index.twig:121
-#, fuzzy
-#| msgid "Server socket"
-msgid "Server charset:"
-msgstr "Soced gweinydd"
-
-#: templates/home/index.twig:132
-msgid "Web server"
-msgstr "Gweinydd gwe"
-
-#: templates/home/index.twig:139
-#, fuzzy
-#| msgid "MySQL client version"
-msgid "Database client version:"
-msgstr "Fersiwn cleient MySQL"
-
-#: templates/home/index.twig:143
-#, fuzzy
-#| msgid "PHP extension"
-msgid "PHP extension:"
-msgstr "Estyniad PHP"
-
-#: templates/home/index.twig:150
-#, fuzzy
-#| msgid "PHP Version"
-msgid "PHP version:"
-msgstr "Fersiwn PHP"
-
-#: templates/home/index.twig:165
-#, fuzzy
-#| msgid "Version information"
-msgid "Version information:"
-msgstr "Gwybodaeth y fersiwn"
-
-#: templates/home/index.twig:175
-msgid "Official Homepage"
-msgstr "Hafan Swyddogol"
-
-#: templates/home/index.twig:180
-msgid "Contribute"
-msgstr ""
-
-#: templates/home/index.twig:185
-msgid "Get support"
-msgstr ""
-
-#: templates/home/index.twig:190
-#, fuzzy
-#| msgid "No change"
-msgid "List of changes"
-msgstr "Dim newid"
-
-#: templates/home/index.twig:195 templates/server/plugins/index.twig:26
-msgid "License"
-msgstr ""
-
-#: templates/toggle_button.twig:3
-#, fuzzy
-#| msgid "Click to select"
-msgid "Click to toggle"
-msgstr "Pwyso i ddewis"
-
-#: templates/server/replication/master_add_slave_user.twig:6
-#: templates/server/replication/master_replication.twig:43
-msgid "Add slave replication user"
-msgstr ""
-
-#: templates/server/replication/master_add_slave_user.twig:37
-#, fuzzy
-#| msgid "This Host"
-msgid "This host"
-msgstr "Y Gwesteiwr Hwn"
-
-#: templates/server/replication/master_add_slave_user.twig:39
-#, fuzzy
-#| msgid "Use Host Table"
-msgid "Use host table"
-msgstr "Defnyddiwch Dabl Gwesteiwyr"
-
-#: templates/server/replication/master_add_slave_user.twig:53
-#, fuzzy
-#| msgid "No Password"
-msgid "No password"
-msgstr "Dim Cyfrinair"
-
-#: templates/server/replication/master_add_slave_user.twig:70
-#, fuzzy
-#| msgid "Generate Password"
-msgid "Generate password:"
-msgstr "Generadu Cyfrinair"
-
-#: templates/database/search/results.twig:12
-#, fuzzy, php-format
-#| msgid "%s match(es) inside table <i>%s</i>"
-msgid "%1$s match in <strong>%2$s</strong>"
-msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%s ergyd mewn tabl <i>%s</i>"
-msgstr[1] "%s ergyd mewn tabl <i>%s</i>"
-
-#: templates/database/search/results.twig:56
-#, fuzzy
-msgid "<strong>Total:</strong> <em>%count%</em> match"
-msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Cyfanswm:</b> <i>%s</i> cydwedd"
-msgstr[1] "<b>Cyfanswm:</b> <i>%s</i> cydwedd"
-msgstr[2] ""
-msgstr[3] ""
-
-#: templates/table/search/replace_preview.twig:13
-msgid "Find and replace - preview"
-msgstr ""
-
-#: templates/table/search/replace_preview.twig:18
-#, fuzzy
-#| msgid "Original position"
-msgid "Original string"
-msgstr "Safle gwreiddiol"
-
-#: templates/table/search/replace_preview.twig:19
-#, fuzzy
-#| msgid "Relations"
-msgid "Replaced string"
-msgstr "Perthnasau"
-
-#: templates/table/search/replace_preview.twig:37
-#, fuzzy
-#| msgid "Replication"
-msgid "Replace"
-msgstr "Dyblygiad"
-
-#: templates/table/tracking/structure_snapshot_columns.twig:5
-#: templates/table/tracking/report_table.twig:4
-msgctxt "Number"
-msgid "#"
-msgstr ""
-
-#: templates/table/tracking/structure_snapshot_columns.twig:47
-#: templates/table/structure/display_structure.twig:91
-msgctxt "None for default"
-msgid "None"
-msgstr ""
-
-#: templates/database/structure/check_all_tables.twig:6
-msgid "Check tables having overhead"
-msgstr "Gwiriwch dablau â gorbenion"
-
-#: templates/database/structure/check_all_tables.twig:10
-#, fuzzy
-#| msgid "Count tables"
-msgid "Copy table"
-msgstr "Cyfrifwch y tablau"
-
-#: templates/database/structure/check_all_tables.twig:11
-#, fuzzy
-#| msgid "Show color"
-msgid "Show create"
-msgstr "Dangos lliw"
-
-#: templates/database/structure/check_all_tables.twig:25
-msgid "Prefix"
-msgstr ""
-
-#: templates/database/structure/check_all_tables.twig:26
-msgid "Add prefix to table"
-msgstr ""
-
-#: templates/database/structure/check_all_tables.twig:27
-#, fuzzy
-#| msgid "Rename table to"
-msgid "Replace table prefix"
-msgstr "Ailenwi tabl i"
-
-#: templates/database/structure/check_all_tables.twig:33
-#, fuzzy
-#| msgid "Add %s column(s)"
-msgid "Add columns to central list"
-msgstr "Ychwanegwch %s colofn"
-
-#: templates/database/structure/check_all_tables.twig:34
-msgid "Remove columns from central list"
-msgstr ""
-
-#: templates/database/structure/check_all_tables.twig:35
-#, fuzzy
-#| msgid "Add %s column(s)"
-msgid "Make consistent with central list"
-msgstr "Ychwanegwch %s colofn"
-
-#: templates/server/status/status/index.twig:6
-#, php-format
-msgid "Network traffic since startup: %s"
-msgstr ""
-
-#: templates/server/status/status/index.twig:7
-#, php-format
-msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr ""
-
-#: templates/server/status/status/index.twig:14
-msgid ""
-"On a busy server, the byte counters may overrun, so those statistics as "
-"reported by the MySQL server may be incorrect."
-msgstr ""
-
-#: templates/server/status/status/index.twig:57
-msgid ""
-"This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
-"b> process."
-msgstr ""
-
-#: templates/server/status/status/index.twig:59
-msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
-msgstr ""
-
-#: templates/server/status/status/index.twig:61
-msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
-msgstr ""
-
-#: templates/server/status/status/index.twig:68
-msgid "Replication status"
-msgstr ""
-
-#: templates/server/status/status/index.twig:75
-msgid "Not enough privilege to view server status."
-msgstr ""
-
-#: templates/table/search/selection_form.twig:12
-msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr ""
-
-#: templates/table/search/selection_form.twig:29
-msgid "Use this column to label each point"
-msgstr ""
-
-#: templates/table/search/selection_form.twig:55
-msgid "Maximum rows to plot"
-msgstr ""
-
-#: templates/table/search/selection_form.twig:80
-msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr ""
-
-#: templates/table/search/selection_form.twig:106
-msgid "Select columns (at least one):"
-msgstr ""
-
-#: templates/table/search/selection_form.twig:126
-msgid "Add search conditions (body of the \"where\" clause):"
-msgstr ""
-
-#: templates/table/search/selection_form.twig:134
-msgid "Number of rows per page"
-msgstr ""
-
-#: templates/table/search/selection_form.twig:145
-msgid "Display order:"
-msgstr ""
-
-#: templates/table/search/selection_form.twig:181
-#: templates/database/search/main.twig:15
-msgid "Find:"
-msgstr "Darganfod:"
-
-#: templates/table/search/selection_form.twig:183
-#, fuzzy
-#| msgid "Replace NULL by"
-msgid "Replace with:"
-msgstr "Amnewid NULL gan"
-
-#: templates/table/search/selection_form.twig:199
-#, fuzzy
-#| msgid "as regular expression"
-msgid "Use regular expression"
-msgstr "fel mynegiad arferol (regular expression)"
-
-#: templates/navigation/item_unhide_dialog.twig:19
-msgid "Unhide"
-msgstr ""
-
-#: templates/display/results/table_navigation.twig:26
-msgid "Save edited data"
-msgstr ""
-
-#: templates/display/results/table_navigation.twig:32
-#, fuzzy
-#| msgid "Add/Delete columns"
-msgid "Restore column order"
-msgstr "Ychwanegu/Dileu colofnau"
-
-#: templates/display/results/table_navigation.twig:67
-msgid "All"
-msgstr "Pob"
-
-#: templates/display/export/selection.twig:3
-#, fuzzy
-#| msgid "Databases"
-msgid "Databases:"
-msgstr "Cronfeydd Data"
-
-#: templates/table/search/fields_table.twig:10
-#: templates/database/designer/main.twig:521
-#: templates/database/designer/main.twig:585
-#: templates/database/designer/main.twig:786
-#: templates/database/designer/main.twig:817
-#: templates/database/designer/main.twig:925
-#: templates/database/designer/main.twig:1010
-msgid "Operator"
-msgstr ""
-
-#: templates/setup/home/index.twig:20 templates/setup/base.twig:27
-msgid "Overview"
-msgstr "Gorolwg"
-
-#: templates/setup/home/index.twig:23
-#, fuzzy
-#| msgid "Show grid"
-msgid "Show hidden messages"
-msgstr "Dangos grid"
-
-#: templates/setup/home/index.twig:73
-msgid "There are no configured servers"
-msgstr "Nid oes unrhyw gweinyddion a ffurfweddwyd"
-
-#: templates/setup/home/index.twig:82
-msgid "New server"
-msgstr "Gweinydd newydd"
-
-#: templates/setup/home/index.twig:104
-msgid "Display"
-msgstr "Dangos"
-
-#: templates/setup/home/index.twig:116
-msgid "phpMyAdmin homepage"
-msgstr "hafan phpMyAdmin"
-
-#: templates/setup/home/index.twig:117
-msgid "Donate"
-msgstr "Rhodd"
-
-#: templates/setup/home/index.twig:118
-msgid "Check for latest version"
-msgstr "Gwiriwch y fersiwn diweddaraf"
-
-#: templates/preferences/two_factor/main.twig:3
-#, fuzzy
-#| msgid "Authenticating…"
-msgid "Two-factor authentication status"
-msgstr "Yn dilysu…"
-
-#: templates/preferences/two_factor/main.twig:9
-msgid ""
-"Two-factor authentication is not available, please install optional "
-"dependencies to enable authentication backends."
-msgstr ""
-
-#: templates/preferences/two_factor/main.twig:10
-msgid "Following composer packages are missing:"
-msgstr ""
-
-#: templates/preferences/two_factor/main.twig:18
-msgid "Two-factor authentication is available and configured for this account."
-msgstr ""
-
-#: templates/preferences/two_factor/main.twig:20
-msgid ""
-"Two-factor authentication is available, but not configured for this account."
-msgstr ""
-
-#: templates/preferences/two_factor/main.twig:24
-msgid ""
-"Two-factor authentication is not available, enable phpMyAdmin configuration "
-"storage to use it."
-msgstr ""
-
-#: templates/preferences/two_factor/main.twig:33
-msgid "You have enabled two factor authentication."
-msgstr ""
-
-#: templates/preferences/two_factor/main.twig:44
-#: templates/preferences/two_factor/main.twig:56
-#: templates/preferences/two_factor/configure.twig:2
-#, fuzzy
-#| msgid "Authenticating…"
-msgid "Configure two-factor authentication"
-msgstr "Yn dilysu…"
-
-#: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
-msgid "Bookmark this SQL query"
-msgstr "Clustnodwch yr ymholiad SQL hwn"
-
-#: templates/sql/bookmark.twig:15
-#, fuzzy
-#| msgid "Label key"
-msgid "Label:"
-msgstr "Allwedd y label"
-
-#: templates/login/twofactor/key_configure.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm registration on the device."
-msgstr ""
-
-#: templates/login/twofactor/key.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm login on the device."
-msgstr ""
-
-#: templates/display/export/template_loading.twig:2
-#, fuzzy
-#| msgid "Export"
-msgid "Export templates:"
-msgstr "Allforio"
-
-#: templates/display/export/template_loading.twig:6
-#, fuzzy
-#| msgid "File name template"
-msgid "New template:"
-msgstr "Templed enw ffeil"
-
-#: templates/display/export/template_loading.twig:8
-#, fuzzy
-#| msgid "Page name"
-msgid "Template name"
-msgstr "Enw'r dudalen"
-
-#: templates/display/export/template_loading.twig:10
-#: templates/server/databases/index.twig:51
-msgid "Create"
-msgstr "Creu"
-
-#: templates/display/export/template_loading.twig:16
+#: templates/sql/profiling_chart.twig:48
 #, fuzzy
-#| msgid "File name template"
-msgid "Existing templates:"
-msgstr "Templed enw ffeil"
+#| msgid "Close"
+msgid "Calls"
+msgstr "Cau"
 
-#: templates/display/export/template_loading.twig:17
+#: templates/sql/profiling_chart.twig:52
 #, fuzzy
-#| msgid "%s table"
-#| msgid_plural "%s tables"
-msgid "Template:"
-msgstr "%s tabl"
-
-#: templates/display/export/template_loading.twig:21
-#, fuzzy
-#| msgid "Updated"
-msgid "Update"
-msgstr "Diweddarwyd"
-
-#: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create User"
-msgid "Create %s"
-msgstr "Crëwch fersiwn"
-
-#: templates/server/binlog/index.twig:10
-msgid "Select binary log to view"
-msgstr ""
-
-#: templates/server/binlog/index.twig:59 templates/server/binlog/index.twig:60
-#: templates/server/status/processes/list.twig:20
-#, fuzzy
-#| msgid "Show SQL queries"
-msgid "Truncate shown queries"
-msgstr "Dangos ymholiadau SQL"
-
-#: templates/server/binlog/index.twig:63 templates/server/binlog/index.twig:64
-#: templates/server/status/processes/list.twig:26
-#, fuzzy
-#| msgid "Show SQL queries"
-msgid "Show full queries"
-msgstr "Dangos ymholiadau SQL"
-
-#: templates/server/binlog/index.twig:84
-msgid "Log name"
-msgstr "Enw'r log"
-
-#: templates/server/binlog/index.twig:85
-msgid "Position"
-msgstr "Safle"
-
-#: templates/server/binlog/index.twig:87
-#: templates/server/replication/master_replication.twig:23
-msgid "Server ID"
-msgstr "ID y Gweinydd"
-
-#: templates/server/binlog/index.twig:88
-msgid "Original position"
-msgstr "Safle gwreiddiol"
-
-#: templates/server/binlog/index.twig:89
-#: templates/table/structure/display_table_stats.twig:3
-msgid "Information"
-msgstr "Gwybodaeth"
-
-#: templates/table/search/rows_zoom.twig:12
-#, fuzzy
-#| msgid "in query"
-msgid "Additional search criteria"
-msgstr "mewn ymholiad"
-
-#: templates/server/replication/change_master.twig:5
-msgid "Slave configuration"
-msgstr ""
-
-#: templates/server/replication/change_master.twig:6
-#: templates/server/replication/slave_configuration.twig:96
-msgid "Change or reconfigure master server"
-msgstr ""
-
-#: templates/server/replication/change_master.twig:9
-msgid ""
-"Make sure you have a unique server-id in your configuration file (my.cnf). "
-"If not, please add the following line into [mysqld] section:"
-msgstr ""
-
-#: templates/server/replication/change_master.twig:26
-#, fuzzy
-#| msgid "Portrait"
-msgid "Port:"
-msgstr "Portread"
-
-#: templates/export/alias_add.twig:4
-msgid "Define new aliases"
-msgstr ""
-
-#: templates/export/alias_add.twig:9
-#, fuzzy
-#| msgid "Select Tables"
-msgid "Select database:"
-msgstr "Dewis Tablau"
-
-#: templates/export/alias_add.twig:15
-#, fuzzy
-#| msgid "database name"
-msgid "New database name"
-msgstr "enw cronfa ddata"
-
-#: templates/export/alias_add.twig:23
-#, fuzzy
-#| msgid "Select Tables"
-msgid "Select table:"
-msgstr "Dewis Tablau"
-
-#: templates/export/alias_add.twig:29
-#, fuzzy
-#| msgid "Page name"
-msgid "New table name"
-msgstr "Enw'r dudalen"
-
-#: templates/export/alias_add.twig:37
-#, fuzzy
-#| msgid "Add/Delete columns"
-msgid "Select column:"
-msgstr "Ychwanegu/Dileu colofnau"
-
-#: templates/export/alias_add.twig:43
-#, fuzzy
-#| msgid "Columns"
-msgid "New column name"
-msgstr "Colofnau"
-
-#: templates/login/twofactor/application.twig:2
-#: templates/login/twofactor/application_configure.twig:16
-#, fuzzy
-#| msgid "Authenticating…"
-msgid "Authentication code:"
-msgstr "Yn dilysu…"
-
-#: templates/login/twofactor/application.twig:4
-msgid ""
-"Open the two-factor authentication app on your device to view your "
-"authentication code and verify your identity."
-msgstr ""
+#| msgid "Time"
+msgid "ø Time"
+msgstr "Amser"
 
 #: templates/server/status/monitor/index.twig:8
 msgid "Start Monitor"
@@ -15692,213 +14189,203 @@ msgstr ""
 msgid "Query analyzer"
 msgstr "Ymholiad"
 
-#: templates/server/privileges/resource_limits.twig:2
-msgid "Resource limits"
+#: templates/display/export/options_output_compression.twig:4
+#, fuzzy
+#| msgid "Compression"
+msgid "Compression:"
+msgstr "Cywasgiad"
+
+#: templates/display/export/options_output_compression.twig:11
+#, fuzzy
+#| msgid "\"zipped\""
+msgid "zipped"
+msgstr "\"zip-iwyd\""
+
+#: templates/display/export/options_output_compression.twig:17
+#, fuzzy
+#| msgid "\"gzipped\""
+msgid "gzipped"
+msgstr "\"gzip-iwyd\""
+
+#: templates/server/privileges/column_privileges.twig:21
+#: templates/server/privileges/column_privileges.twig:22
+msgctxt "None privileges"
+msgid "None"
+msgstr "Dim"
+
+#: templates/login/twofactor/key_configure.twig:3
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm registration on the device."
 msgstr ""
 
-#: templates/server/privileges/resource_limits.twig:5
-msgid "Note: Setting these options to 0 (zero) removes the limit."
+#: templates/database/multi_table_query/form.twig:16
+#, fuzzy
+#| msgid "Query"
+msgid "Query window"
+msgstr "Ymholiad"
+
+#: templates/database/multi_table_query/form.twig:37
+#: templates/database/multi_table_query/form.twig:125
+#, fuzzy
+#| msgid "Select Tables"
+msgid "select table"
+msgstr "Dewis Tablau"
+
+#: templates/database/multi_table_query/form.twig:44
+#: templates/database/multi_table_query/form.twig:133
+#, fuzzy
+#| msgid "Add/Delete columns"
+msgid "select column"
+msgstr "Ychwanegu/Dileu colofnau"
+
+#: templates/database/multi_table_query/form.twig:50
+#, fuzzy
+#| msgid "Tables"
+msgid "Table alias"
+msgstr "Tablau"
+
+#: templates/database/multi_table_query/form.twig:51
+#, fuzzy
+#| msgid "Columns"
+msgid "Column alias"
+msgstr "Colofnau"
+
+#: templates/database/multi_table_query/form.twig:54
+msgid "Use this column in criteria"
 msgstr ""
 
-#: templates/sql/profiling_chart.twig:4
+#: templates/database/multi_table_query/form.twig:57
 #, fuzzy
-#| msgid "Data file grow size"
-msgid "Detailed profile"
-msgstr "Maint tyfu'r ffeil ddata"
+#| msgid "Criteria"
+msgid "criteria"
+msgstr "Meini prawf"
 
-#: templates/sql/profiling_chart.twig:13 templates/sql/profiling_chart.twig:35
+#: templates/database/multi_table_query/form.twig:71
 #, fuzzy
-#| msgid "Sat"
-msgid "State"
-msgstr "Sad"
+#| msgid "Add %s"
+msgid "Add as"
+msgstr "Ychwanegwch %s"
 
-#: templates/sql/profiling_chart.twig:30
-msgid "Summary by state"
+#: templates/database/multi_table_query/form.twig:116
+#, fuzzy
+#| msgid "Add/Delete columns"
+msgid "Another column"
+msgstr "Ychwanegu/Dileu colofnau"
+
+#: templates/database/multi_table_query/form.twig:144
+msgid "Enter criteria as free text"
 msgstr ""
 
-#: templates/sql/profiling_chart.twig:40
-#, fuzzy
-#| msgid "Total"
-msgid "Total Time"
-msgstr "Cyfanswm"
-
-#: templates/sql/profiling_chart.twig:44
-#, fuzzy
-#| msgid "Time"
-msgid "% Time"
-msgstr "Amser"
-
-#: templates/sql/profiling_chart.twig:48
-#, fuzzy
-#| msgid "Close"
-msgid "Calls"
-msgstr "Cau"
-
-#: templates/sql/profiling_chart.twig:52
-#, fuzzy
-#| msgid "Time"
-msgid "ø Time"
-msgstr "Amser"
-
-#: templates/columns_definitions/column_name.twig:4
-#, php-format
-msgid "Referenced by %s."
-msgstr ""
-
-#: templates/columns_definitions/column_name.twig:12
-#, fuzzy
-#| msgid "Select Foreign Key"
-msgid "Is a foreign key."
-msgstr "Dewis Allwedd Estron"
-
-#: templates/columns_definitions/column_name.twig:39
+#: templates/database/multi_table_query/form.twig:152
 #, fuzzy
 #| msgid "Remove database"
-msgid "Pick from Central Columns"
+msgid "Remove this column"
 msgstr "Tynnwch y gronfa ddata"
 
-#: templates/preferences/two_factor/configure.twig:8
+#: templates/database/multi_table_query/form.twig:162
+#: templates/table/relation/foreign_key_row.twig:86
 #, fuzzy
-#| msgid "Authenticating…"
-msgid "Enable two-factor authentication"
-msgstr "Yn dilysu…"
+#| msgid "Add %s column(s)"
+msgid "+ Add column"
+msgstr "Ychwanegwch %s colofn"
 
-#: templates/setup/servers/index.twig:6
-msgid "Edit server"
-msgstr "Golygu gweinydd"
-
-#: templates/setup/servers/index.twig:11
-msgid "Add a new server"
-msgstr "Ychwanegwch weinydd newydd"
-
-#: templates/table/page_with_secondary_tabs.twig:9
+#: templates/database/multi_table_query/form.twig:179
 #, fuzzy
-#| msgid "Relational key"
-msgid "Relation view"
+#| msgid "Update Query"
+msgid "Update query"
+msgstr "Ymholiad Diweddaru"
+
+#: templates/table/structure/partition_definition_form.twig:6
+#: templates/table/structure/display_partitions.twig:141
+#, fuzzy
+#| msgid "Remove partitioning"
+msgid "Edit partitioning"
+msgstr "Tynnu'r ymraniadu"
+
+#: templates/server/replication/status_table.twig:6
+msgid "Master status"
+msgstr "Statws y meistr"
+
+#: templates/server/replication/status_table.twig:8
+msgid "Slave status"
+msgstr "Statws y caeth"
+
+#: templates/server/replication/status_table.twig:16
+#: templates/server/status/variables/index.twig:70
+#: templates/server/variables/index.twig:28
+msgid "Variable"
+msgstr "Newidyn"
+
+#: templates/database/search/results.twig:12
+#, fuzzy, php-format
+#| msgid "%s match(es) inside table <i>%s</i>"
+msgid "%1$s match in <strong>%2$s</strong>"
+msgid_plural "%1$s matches in <strong>%2$s</strong>"
+msgstr[0] "%s ergyd mewn tabl <i>%s</i>"
+msgstr[1] "%s ergyd mewn tabl <i>%s</i>"
+
+#: templates/database/search/results.twig:56
+#, fuzzy
+msgid "<strong>Total:</strong> <em>%count%</em> match"
+msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+msgstr[0] "<b>Cyfanswm:</b> <i>%s</i> cydwedd"
+msgstr[1] "<b>Cyfanswm:</b> <i>%s</i> cydwedd"
+msgstr[2] ""
+msgstr[3] ""
+
+#: templates/display/results/options_block.twig:34
+msgid "Relational key"
 msgstr "Allwedd perthynol"
 
-#: templates/table/insert/continue_insertion_form.twig:18
-#, php-format
-msgid "Continue insertion with %s rows"
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:3
-msgid ""
-"Please scan following QR code into the two-factor authentication app on your "
-"device and enter authentication code it generates."
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:13
-msgid "Secret/key:"
-msgstr ""
-
-#: templates/server/status/processes/index.twig:13
+#: templates/display/results/options_block.twig:34
 #, fuzzy
-#| msgid "Show only listed databases"
-msgid "Show only active"
-msgstr "Dangoswch gronfeydd data a restrir yn unig"
+#| msgid "Display columns table"
+msgid "Display column for relationships"
+msgstr "Dangos tabl colofnau"
 
-#: templates/server/status/processes/index.twig:21
-msgid ""
-"Note: Enabling the auto refresh here might cause heavy traffic between the "
-"web server and the MySQL server."
-msgstr ""
+#: templates/display/results/options_block.twig:50
+msgid "Show binary contents"
+msgstr "Dangos cynnwys deuaidd"
 
-#: templates/login/twofactor/invalid.twig:2
-msgid ""
-"The configured two factor authentication is not available, please install "
-"missing dependencies."
-msgstr ""
+#: templates/display/results/options_block.twig:57
+msgid "Show BLOB contents"
+msgstr "Dangos cynnwys BLOB"
 
-#: templates/table/index_form.twig:15
-msgid "Index name:"
-msgstr ""
-
-#: templates/table/index_form.twig:16
-msgid ""
-"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr ""
-
-#: templates/table/index_form.twig:34
-#, fuzzy
-#| msgid "Index cache size"
-msgid "Index choice:"
-msgstr "Maint yr ystorfa indecs"
-
-#: templates/table/index_form.twig:42
-#, fuzzy
-#| msgid "Actions"
-msgid "Advanced Options"
-msgstr "Gweithredoedd"
-
-#: templates/table/index_form.twig:52
-msgid "Key block size:"
-msgstr ""
-
-#: templates/table/index_form.twig:69
-msgid "Index type:"
-msgstr ""
-
-#: templates/table/index_form.twig:81
-#, fuzzy
-#| msgid "User"
-msgid "Parser:"
-msgstr "Defnyddiwr"
-
-#: templates/table/index_form.twig:97
-#, fuzzy
-#| msgid "Comment"
-msgid "Comment:"
-msgstr "Sylw"
-
-#: templates/table/index_form.twig:122
-#: templates/database/structure/table_header.twig:36
-msgid "Size"
-msgstr "Maint"
-
-#: templates/table/index_form.twig:140 templates/table/index_form.twig:177
-msgid "Drag to reorder"
-msgstr ""
-
-#: templates/export/alias_item.twig:8
-msgid "Remove"
-msgstr ""
-
-#: templates/table/operations/view.twig:11
-msgid "Rename view to"
-msgstr "Ailenwch golwg i"
-
-#: templates/transformation_overview.twig:1
-#, fuzzy
-#| msgid "Available MIME types"
-msgid "Available media (MIME) types"
-msgstr "Mathau MIME ar gael"
-
-#: templates/transformation_overview.twig:13
+#: templates/display/results/options_block.twig:71
 #, fuzzy
 #| msgid "Browser transformation"
-msgid "Available browser display transformations"
+msgid "Hide browser transformation"
 msgstr "Trawsffurfiad porwr"
 
-#: templates/transformation_overview.twig:19
-#: templates/transformation_overview.twig:38
-#, fuzzy
-#| msgid "Description"
-msgctxt "for media (MIME) type transformation"
-msgid "Description"
-msgstr "Disgrifiad"
+#: templates/display/results/options_block.twig:83
+#: templates/display/results/options_block.twig:100
+msgid "Well Known Text"
+msgstr ""
 
-#: templates/transformation_overview.twig:32
-#, fuzzy
-#| msgid "Browser transformation"
-msgid "Available input transformations"
-msgstr "Trawsffurfiad porwr"
+#: templates/display/results/options_block.twig:83
+#: templates/display/results/options_block.twig:100
+msgid "Well Known Binary"
+msgstr ""
 
-#: templates/server/collations/index.twig:3
+#: templates/preferences/two_factor/confirm.twig:2
 #, fuzzy
-#| msgid "Character Sets and Collations"
-msgid "Character sets and collations"
-msgstr "Setiau nod a Choladiadau"
+#| msgid "Authenticating…"
+msgid "Confirm disabling two-factor authentication"
+msgstr "Yn dilysu…"
+
+#: templates/preferences/two_factor/confirm.twig:5
+msgid ""
+"By disabling two factor authentication you will be again able to login using "
+"password only."
+msgstr ""
+
+#: templates/preferences/two_factor/confirm.twig:9
+#: templates/preferences/two_factor/main.twig:38
+#, fuzzy
+#| msgid "Authenticating…"
+msgid "Disable two-factor authentication"
+msgstr "Yn dilysu…"
 
 #: templates/server/privileges/delete_user_fieldset.twig:3
 #, fuzzy
@@ -15915,6 +14402,227 @@ msgstr ""
 #: templates/server/privileges/delete_user_fieldset.twig:11
 msgid "Drop the databases that have the same names as the users."
 msgstr ""
+
+#: templates/display/export/select_options.twig:8
+#: templates/database/search/main.twig:35
+#: templates/server/replication/database_multibox.twig:8
+#, fuzzy
+#| msgid "Unselect All"
+msgid "Unselect all"
+msgstr "Dad-ddewis Pob"
+
+#: templates/display/export/options_output_format.twig:3
+#, fuzzy
+#| msgid "File name template"
+msgid "File name template:"
+msgstr "Templed enw ffeil"
+
+#: templates/display/export/options_output_format.twig:11
+msgid "use this for future exports"
+msgstr ""
+
+#: templates/display/import/javascript.twig:12
+msgid ""
+"The file being uploaded is probably larger than the maximum allowed size or "
+"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
+"browsers."
+msgstr ""
+
+#: templates/display/import/javascript.twig:13
+#, php-format
+msgid "%s of %s"
+msgstr ""
+
+#: templates/display/import/javascript.twig:14
+#, php-format
+msgid "%s/sec."
+msgstr ""
+
+#: templates/display/import/javascript.twig:15
+msgid "About %MIN min. %SEC sec. remaining."
+msgstr ""
+
+#: templates/display/import/javascript.twig:16
+msgid "About %SEC sec. remaining."
+msgstr ""
+
+#: templates/display/import/javascript.twig:17
+msgid "The file is being processed, please be patient."
+msgstr "Mae'r ffeil yn cael ei phrosesu. Byddwch yn amyneddgar."
+
+#: templates/display/import/javascript.twig:30
+#, fuzzy
+#| msgid "Format of imported file"
+msgid "Uploading your import file…"
+msgstr "Fformat y ffeil a mewnforiwyd"
+
+#: templates/display/import/javascript.twig:155
+msgid ""
+"Please be patient, the file is being uploaded. Details about the upload are "
+"not available."
+msgstr ""
+"Byddwch yn amyneddgar, mae'r ffeil yn cael ei lanlwytho. Does dim manylion "
+"parthed y lanlwythiad ar gael."
+
+#: templates/preferences/forms/main.twig:4
+msgid "Cannot save settings, submitted form contains errors!"
+msgstr ""
+
+#: templates/database/structure/table_header.twig:27
+msgid ""
+"May be approximate. Click on the number to get the exact count. See "
+"[doc@faq3-11]FAQ 3.11[/doc]."
+msgstr ""
+
+#: templates/database/structure/table_header.twig:36
+#: templates/table/index_form.twig:122
+msgid "Size"
+msgstr "Maint"
+
+#: templates/database/structure/table_header.twig:51
+#: templates/table/structure/display_table_stats.twig:148
+msgid "Creation"
+msgstr "Cread"
+
+#: templates/database/structure/table_header.twig:56
+#: templates/table/structure/display_table_stats.twig:155
+msgid "Last update"
+msgstr "Diweddariad diwethaf"
+
+#: templates/database/structure/table_header.twig:61
+#: templates/table/structure/display_table_stats.twig:162
+msgid "Last check"
+msgstr "Gwiriad diwethaf"
+
+#: templates/server/engines/index.twig:3 templates/server/engines/show.twig:3
+#, fuzzy
+#| msgid "Storage Engines"
+msgid "Storage engines"
+msgstr "Peiriannau Storio"
+
+#: templates/header.twig:43 templates/login/header.twig:11
+#, fuzzy
+#| msgid "Cookies must be enabled past this point."
+msgid "Javascript must be enabled past this point!"
+msgstr "Mae'n rhaid bod cwcis wedi'u galluogi heibio'r pwynt hwn."
+
+#: templates/header.twig:54
+msgid "Click on the bar to scroll to top of page"
+msgstr ""
+
+#: templates/database/search/main.twig:5
+msgid "Search in database"
+msgstr "Chwilio yn y gronfa ddata"
+
+#: templates/database/search/main.twig:8
+#, fuzzy
+#| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
+msgid "Words or values to search for (wildcard: \"%\"):"
+msgstr "Geiriau neu werthoedd i'w chwilio amdanyn nhw (nod-chwiliwr: \"%\"):"
+
+#: templates/database/search/main.twig:15
+#: templates/table/search/selection_form.twig:181
+msgid "Find:"
+msgstr "Darganfod:"
+
+#: templates/database/search/main.twig:29
+#, fuzzy
+#| msgid "Inside table(s):"
+msgid "Inside tables:"
+msgstr "Tu fewn tabl(au):"
+
+#: templates/database/search/main.twig:56
+msgid "Inside column:"
+msgstr "Tu fewn colofn:"
+
+#: templates/login/twofactor/invalid.twig:2
+msgid ""
+"The configured two factor authentication is not available, please install "
+"missing dependencies."
+msgstr ""
+
+#: templates/table/relation/common_form.twig:9
+#, fuzzy
+#| msgid "Add constraints"
+msgid "Foreign key constraints"
+msgstr "Ychwanegwch cyfyngiadau"
+
+#: templates/table/relation/common_form.twig:13
+#, fuzzy
+#| msgid "Action"
+msgid "Actions"
+msgstr "Gweithred"
+
+#: templates/table/relation/common_form.twig:14
+#, fuzzy
+#| msgid "Routines"
+msgid "Constraint properties"
+msgstr "Rheolweithiau"
+
+#: templates/table/relation/common_form.twig:18
+msgid ""
+"Creating a foreign key over a non-indexed column would automatically create "
+"an index on it. Alternatively, you can define an index below, before "
+"creating the foreign key."
+msgstr ""
+
+#: templates/table/relation/common_form.twig:23
+msgid ""
+"Only columns with index will be displayed. You can define an index below."
+msgstr ""
+
+#: templates/table/relation/common_form.twig:27
+msgid "Foreign key constraint"
+msgstr ""
+
+#: templates/table/relation/common_form.twig:92
+#, fuzzy
+#| msgid "Add constraints"
+msgid "+ Add constraint"
+msgstr "Ychwanegwch cyfyngiadau"
+
+#: templates/table/relation/common_form.twig:103
+#: templates/table/relation/common_form.twig:112
+#, fuzzy
+#| msgid "Internal relations"
+msgid "Internal relationships"
+msgstr "Perthnasau mewnol"
+
+#: templates/table/relation/common_form.twig:118
+msgid "Internal relation"
+msgstr ""
+
+#: templates/table/relation/common_form.twig:120
+msgid ""
+"An internal relation is not necessary when a corresponding FOREIGN KEY "
+"relation exists."
+msgstr ""
+
+#: templates/table/relation/common_form.twig:200
+#, fuzzy
+#| msgid "Choose column to display"
+msgid "Choose column to display:"
+msgstr "Dewis colofn i'w dangos"
+
+#: templates/display/export/method.twig:3
+#, fuzzy
+#| msgid "Export type"
+msgid "Export method:"
+msgstr "Math allbwn"
+
+#: templates/display/export/method.twig:9
+msgid "Quick - display only the minimal options"
+msgstr ""
+
+#: templates/display/export/method.twig:17
+msgid "Custom - display all possible options"
+msgstr ""
+
+#: templates/database/data_dictionary/index.twig:3
+#, fuzzy
+#| msgid "Database comment"
+msgid "Database comment:"
+msgstr "Sylw cronfa ddata"
 
 #: templates/server/status/advisor/index.twig:7
 #, fuzzy
@@ -15953,111 +14661,228 @@ msgstr ""
 msgid "Not enough privilege to view the advisor."
 msgstr ""
 
-#: templates/server/replication/index.twig:14
-#: templates/server/databases/index.twig:153
-#: templates/server/replication/master_replication.twig:3
-msgid "Master replication"
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:84 templates/console/display.twig:175
+msgid "Collapse"
 msgstr ""
 
-#: templates/server/replication/index.twig:35
-#, fuzzy
-#| msgid "No Privileges"
-msgid "No privileges"
-msgstr "Dim Breintiau"
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:84 templates/console/display.twig:175
+msgid "Expand"
+msgstr ""
 
-#: templates/server/replication/index.twig:16
-#, php-format
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:175
+#, fuzzy
+#| msgid "in query"
+msgid "Requery"
+msgstr "mewn ymholiad"
+
+#: templates/server/binlog/index.twig:10
+msgid "Select binary log to view"
+msgstr ""
+
+#: templates/server/binlog/index.twig:59 templates/server/binlog/index.twig:60
+#: templates/server/status/processes/list.twig:20
+#, fuzzy
+#| msgid "Show SQL queries"
+msgid "Truncate shown queries"
+msgstr "Dangos ymholiadau SQL"
+
+#: templates/server/binlog/index.twig:63 templates/server/binlog/index.twig:64
+#: templates/server/status/processes/list.twig:26
+#, fuzzy
+#| msgid "Show SQL queries"
+msgid "Show full queries"
+msgstr "Dangos ymholiadau SQL"
+
+#: templates/server/binlog/index.twig:84
+msgid "Log name"
+msgstr "Enw'r log"
+
+#: templates/server/binlog/index.twig:85
+msgid "Position"
+msgstr "Safle"
+
+#: templates/server/binlog/index.twig:87
+#: templates/server/replication/master_replication.twig:23
+msgid "Server ID"
+msgstr "ID y Gweinydd"
+
+#: templates/server/binlog/index.twig:88
+msgid "Original position"
+msgstr "Safle gwreiddiol"
+
+#: templates/server/binlog/index.twig:89
+#: templates/table/structure/display_table_stats.twig:3
+msgid "Information"
+msgstr "Gwybodaeth"
+
+#: templates/display/export/options_output_save_dir.twig:5
+#: templates/display/export/options_quick_export.twig:8
+#, fuzzy, php-format
+#| msgid "Save on server in %s directory"
+msgid "Save on server in the directory <strong>%s</strong>"
+msgstr "Cadw ar weinydd mewn cyfeiriadur %s"
+
+#: templates/login/twofactor/application.twig:2
+#: templates/login/twofactor/application_configure.twig:16
+#, fuzzy
+#| msgid "Authenticating…"
+msgid "Authentication code:"
+msgstr "Yn dilysu…"
+
+#: templates/login/twofactor/application.twig:4
 msgid ""
-"This server is not configured as master in a replication process. Would you "
-"like to %sconfigure%s it?"
+"Open the two-factor authentication app on your device to view your "
+"authentication code and verify your identity."
 msgstr ""
 
-#: templates/server/privileges/column_privileges.twig:21
-#: templates/server/privileges/column_privileges.twig:22
-msgctxt "None privileges"
-msgid "None"
-msgstr "Dim"
-
-#: templates/view_create.twig:13
-#: templates/table/structure/display_structure.twig:377
+#: templates/display/export/template_options.twig:1
 #, fuzzy
-#| msgid "Print view"
-msgid "Edit view"
-msgstr "Argraffu golwg"
+#| msgid "Select Tables"
+msgid "Select a template"
+msgstr "Dewis Tablau"
 
-#: templates/view_create.twig:65
-msgid "VIEW name"
-msgstr "Enw VIEW"
-
-#: templates/view_create.twig:79
-msgid "Column names"
+#: templates/display/results/table_navigation.twig:26
+msgid "Save edited data"
 msgstr ""
 
-#: templates/preferences/manage/main.twig:3
-#: templates/preferences/manage/main.twig:28
-msgid "Saved on: @DATE@"
-msgstr ""
-
-#: templates/preferences/manage/main.twig:15
+#: templates/display/results/table_navigation.twig:32
 #, fuzzy
-#| msgid "Import files"
-msgid "Import from file"
-msgstr "Mewnforiwch ffeiliau"
+#| msgid "Add/Delete columns"
+msgid "Restore column order"
+msgstr "Ychwanegu/Dileu colofnau"
 
-#: templates/preferences/manage/main.twig:22
-msgid "Import from browser's storage"
-msgstr ""
+#: templates/display/results/table_navigation.twig:53
+#: templates/display/export/options_rows.twig:10
+#: templates/start_and_number_of_rows_panel.twig:10
+#, fuzzy
+#| msgid "Number of columns"
+msgid "Number of rows:"
+msgstr "Nifer y colofnau"
 
-#: templates/preferences/manage/main.twig:25
-msgid "Settings will be imported from your browser's local storage."
-msgstr ""
+#: templates/display/results/table_navigation.twig:67
+msgid "All"
+msgstr "Pob"
 
-#: templates/preferences/manage/main.twig:31
-msgid "You have no saved settings!"
-msgstr ""
+#: templates/display/results/table_navigation.twig:73
+#: templates/database/central_columns/main.twig:182
+#, fuzzy
+msgid "Filter rows"
+msgstr "Hidlydd"
 
-#: templates/preferences/manage/main.twig:35
-#: templates/preferences/manage/main.twig:93
-msgid "This feature is not supported by your web browser"
-msgstr ""
+#: templates/display/results/table_navigation.twig:75
+#: templates/database/central_columns/main.twig:183
+#, fuzzy
+#| msgid "Search in database"
+msgid "Search this table"
+msgstr "Chwilio yn y gronfa ddata"
 
-#: templates/preferences/manage/main.twig:39
-msgid "Merge with current configuration"
-msgstr ""
+#: templates/database/structure/favorite_anchor.twig:4
+#, fuzzy
+#| msgid "Add a new server"
+msgid "Add to Favorites"
+msgstr "Ychwanegwch weinydd newydd"
 
-#: templates/preferences/manage/main.twig:51
-#, php-format
+#: templates/login/twofactor/application_configure.twig:3
 msgid ""
-"You can set more settings by modifying config.inc.php, eg. by using %sSetup "
-"script%s."
+"Please scan following QR code into the two-factor authentication app on your "
+"device and enter authentication code it generates."
 msgstr ""
 
-#: templates/preferences/manage/main.twig:70
+#: templates/login/twofactor/application_configure.twig:13
+msgid "Secret/key:"
+msgstr ""
+
+#: templates/filter.twig:2 templates/server/status/variables/index.twig:7
+#: templates/server/status/processes/index.twig:6
 #, fuzzy
-#| msgid "Save as file"
-msgid "Save as JSON file"
-msgstr "Cadw fel ffeil"
+msgid "Filters"
+msgstr "Hidlydd"
 
-#: templates/preferences/manage/main.twig:74
+#: templates/filter.twig:4 templates/server/status/variables/index.twig:14
+msgid "Containing the word:"
+msgstr ""
+
+#: templates/table/structure/display_partitions.twig:4
+#: templates/table/structure/display_structure.twig:477
 #, fuzzy
-#| msgid "Save as file"
-msgid "Save as PHP file"
-msgstr "Cadw fel ffeil"
+#| msgid "Partition %s"
+msgid "Partitions"
+msgstr "Ymraniad %s"
 
-#: templates/preferences/manage/main.twig:79
-msgid "Save to browser's storage"
+#: templates/table/structure/display_partitions.twig:8
+#, fuzzy
+#| msgid "No index defined!"
+msgid "No partitioning defined!"
+msgstr "Dim indecs wedi'i ddiffinio!"
+
+#: templates/table/structure/display_partitions.twig:11
+#, fuzzy
+#| msgid "Partition %s"
+msgid "Partitioned by:"
+msgstr "Ymraniad %s"
+
+#: templates/table/structure/display_partitions.twig:16
+msgid "Sub partitioned by:"
 msgstr ""
 
-#: templates/preferences/manage/main.twig:85
-msgid "Settings will be saved in your browser's local storage."
+#: templates/table/structure/display_partitions.twig:24
+#: templates/columns_definitions/partitions.twig:76
+#, fuzzy
+#| msgid "Partition %s"
+msgid "Partition"
+msgstr "Ymraniad %s"
+
+#: templates/table/structure/display_partitions.twig:26
+#: templates/columns_definitions/column_virtuality.twig:30
+#, fuzzy
+#| msgid "Compression"
+msgid "Expression"
+msgstr "Cywasgiad"
+
+#: templates/table/structure/display_partitions.twig:29
+#, fuzzy
+#| msgid "Data files"
+msgid "Data length"
+msgstr "Ffeiliau data"
+
+#: templates/table/structure/display_partitions.twig:30
+#, fuzzy
+#| msgid "Indexes"
+msgid "Index length"
+msgstr "Indecsau"
+
+#: templates/table/structure/display_partitions.twig:135
+#, fuzzy
+#| msgid "Partition %s"
+msgid "Partition table"
+msgstr "Ymraniad %s"
+
+#: templates/columns_definitions/column_name.twig:4
+#, php-format
+msgid "Referenced by %s."
 msgstr ""
 
-#: templates/preferences/manage/main.twig:88
-msgid "Existing settings will be overwritten!"
+#: templates/columns_definitions/column_name.twig:12
+#, fuzzy
+#| msgid "Select Foreign Key"
+msgid "Is a foreign key."
+msgstr "Dewis Allwedd Estron"
+
+#: templates/columns_definitions/column_name.twig:39
+#, fuzzy
+#| msgid "Remove database"
+msgid "Pick from Central Columns"
+msgstr "Tynnwch y gronfa ddata"
+
+#: templates/setup/config/index.twig:4 templates/setup/home/index.twig:93
+msgid "Configuration file"
 msgstr ""
 
-#: templates/preferences/manage/main.twig:105
-msgid "You can reset all your settings and restore them to default values."
+#: templates/setup/config/index.twig:22 templates/setup/home/index.twig:105
+msgid "Download"
 msgstr ""
 
 #: templates/display/export/options_output.twig:2
@@ -16076,6 +14901,104 @@ msgstr "Cadw fel ffeil"
 msgid "Skip tables larger than %s MiB"
 msgstr ""
 
+#: templates/server/engines/show.twig:47
+#, fuzzy
+#| msgid "Storage Engines"
+msgid "Unknown storage engine."
+msgstr "Peiriannau Storio"
+
+#: templates/setup/servers/index.twig:6
+msgid "Edit server"
+msgstr "Golygu gweinydd"
+
+#: templates/setup/servers/index.twig:11
+msgid "Add a new server"
+msgstr "Ychwanegwch weinydd newydd"
+
+#: templates/login/twofactor.twig:5
+msgid "Verify"
+msgstr ""
+
+#: templates/gis_data_editor_form.twig:4
+#, php-format
+msgid "Value for the column \"%s\""
+msgstr ""
+
+#: templates/gis_data_editor_form.twig:22
+#: templates/table/gis_visualization/gis_visualization.twig:38
+msgid "Use OpenStreetMaps as Base Layer"
+msgstr ""
+
+#: templates/gis_data_editor_form.twig:38
+msgctxt "Spatial Reference System Identifier"
+msgid "SRID:"
+msgstr ""
+
+#: templates/gis_data_editor_form.twig:52
+#, php-format
+msgid "Geometry %d:"
+msgstr ""
+
+#: templates/gis_data_editor_form.twig:72
+msgid "Point:"
+msgstr ""
+
+#: templates/gis_data_editor_form.twig:92
+#: templates/gis_data_editor_form.twig:133
+#: templates/gis_data_editor_form.twig:185
+#, fuzzy, php-format
+#| msgid "Lines terminated by"
+msgid "Point %d:"
+msgstr "Terfynwyd llinellau gan"
+
+#: templates/gis_data_editor_form.twig:112
+#, fuzzy, php-format
+#| msgid "Lines terminated by"
+msgid "Linestring %d:"
+msgstr "Terfynwyd llinellau gan"
+
+#: templates/gis_data_editor_form.twig:114
+#: templates/gis_data_editor_form.twig:169
+msgid "Outer ring:"
+msgstr ""
+
+#: templates/gis_data_editor_form.twig:116
+#: templates/gis_data_editor_form.twig:171
+#, php-format
+msgid "Inner ring %d:"
+msgstr ""
+
+#: templates/gis_data_editor_form.twig:143
+#, fuzzy
+#| msgid "Add constraints"
+msgid "Add a linestring"
+msgstr "Ychwanegwch cyfyngiadau"
+
+#: templates/gis_data_editor_form.twig:156
+#, php-format
+msgid "Polygon %d:"
+msgstr ""
+
+#: templates/gis_data_editor_form.twig:198
+msgid "Add a polygon"
+msgstr ""
+
+#: templates/gis_data_editor_form.twig:203
+#, fuzzy
+#| msgid "Add a new server"
+msgid "Add geometry"
+msgstr "Ychwanegwch weinydd newydd"
+
+#: templates/gis_data_editor_form.twig:212
+msgid "Output"
+msgstr ""
+
+#: templates/gis_data_editor_form.twig:214
+msgid ""
+"Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+"below into the \"Value\" field."
+msgstr ""
+
 #: templates/server/databases/index.twig:4
 msgid "Databases statistics"
 msgstr "Ystadegau cronfeydd data"
@@ -16087,11 +15010,22 @@ msgstr "Ystadegau cronfeydd data"
 msgid "Create database"
 msgstr "Creu cronfa ddata newydd"
 
+#: templates/server/databases/index.twig:51
+#: templates/display/export/template_loading.twig:10
+msgid "Create"
+msgstr "Creu"
+
 #: templates/server/databases/index.twig:68
 #, fuzzy
 #| msgid "Jump to database"
 msgid "No privileges to create databases"
 msgstr "Neidiwch i'r gronfa ddata"
+
+#: templates/server/databases/index.twig:153
+#: templates/server/replication/index.twig:14
+#: templates/server/replication/master_replication.twig:3
+msgid "Master replication"
+msgstr ""
 
 #: templates/server/databases/index.twig:157
 #: templates/server/replication/slave_configuration.twig:2
@@ -16146,29 +15080,967 @@ msgstr "Galluogi Ystadegau"
 msgid "No databases"
 msgstr "Dim cronfeydd data"
 
-#: templates/display/export/method.twig:3
+#: templates/table/operations/view.twig:11
+msgid "Rename view to"
+msgstr "Ailenwch golwg i"
+
+#: templates/server/status/variables/index.twig:21
 #, fuzzy
-#| msgid "Export type"
-msgid "Export method:"
-msgstr "Math allbwn"
+#| msgid "Show only listed databases"
+msgid "Show only alert values"
+msgstr "Dangoswch gronfeydd data a restrir yn unig"
 
-#: templates/display/export/method.twig:9
-msgid "Quick - display only the minimal options"
+#: templates/server/status/variables/index.twig:27
+msgid "Filter by category…"
 msgstr ""
 
-#: templates/display/export/method.twig:17
-msgid "Custom - display all possible options"
-msgstr ""
-
-#: templates/login/twofactor.twig:5
-msgid "Verify"
-msgstr ""
-
-#: templates/start_and_number_of_rows_panel.twig:3
+#: templates/server/status/variables/index.twig:37
 #, fuzzy
-#| msgid "Showing rows"
-msgid "Start row:"
-msgstr "Yn dangos rhesi"
+#| msgid "Show only listed databases"
+msgid "Show unformatted values"
+msgstr "Dangoswch gronfeydd data a restrir yn unig"
+
+#: templates/server/status/variables/index.twig:45
+#, fuzzy
+#| msgid "Relations"
+msgid "Related links:"
+msgstr "Perthnasau"
+
+#: templates/server/status/variables/index.twig:134
+msgid "Not enough privilege to view status variables."
+msgstr ""
+
+#: templates/display/results/sort_by_key.twig:3
+#, fuzzy
+#| msgid "Sort by key"
+msgid "Sort by key:"
+msgstr "Trefnu gan allwedd"
+
+#: templates/server/privileges/add_user_fieldset.twig:2
+msgctxt "Create new user"
+msgid "New"
+msgstr ""
+
+#: templates/export/alias_add.twig:4
+msgid "Define new aliases"
+msgstr ""
+
+#: templates/export/alias_add.twig:9
+#, fuzzy
+#| msgid "Select Tables"
+msgid "Select database:"
+msgstr "Dewis Tablau"
+
+#: templates/export/alias_add.twig:15
+#, fuzzy
+#| msgid "database name"
+msgid "New database name"
+msgstr "enw cronfa ddata"
+
+#: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
+#: templates/export/alias_add.twig:46
+#: templates/columns_definitions/column_definitions_form.twig:32
+#: templates/console/display.twig:99
+#: templates/database/central_columns/main.twig:212
+#, fuzzy
+#| msgid "And"
+msgid "Add"
+msgstr "And"
+
+#: templates/export/alias_add.twig:23
+#, fuzzy
+#| msgid "Select Tables"
+msgid "Select table:"
+msgstr "Dewis Tablau"
+
+#: templates/export/alias_add.twig:29
+#, fuzzy
+#| msgid "Page name"
+msgid "New table name"
+msgstr "Enw'r dudalen"
+
+#: templates/export/alias_add.twig:37
+#, fuzzy
+#| msgid "Add/Delete columns"
+msgid "Select column:"
+msgstr "Ychwanegu/Dileu colofnau"
+
+#: templates/export/alias_add.twig:43
+#, fuzzy
+#| msgid "Columns"
+msgid "New column name"
+msgstr "Colofnau"
+
+#: templates/server/privileges/resource_limits.twig:2
+msgid "Resource limits"
+msgstr ""
+
+#: templates/server/privileges/resource_limits.twig:5
+msgid "Note: Setting these options to 0 (zero) removes the limit."
+msgstr ""
+
+#: templates/encoding/kanji_encoding_form.twig:6
+msgctxt "None encoding conversion"
+msgid "None"
+msgstr ""
+
+#: templates/encoding/kanji_encoding_form.twig:17
+msgid "Convert to Kana"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:15
+#, fuzzy
+#| msgid "Mar"
+msgctxt "Chart type"
+msgid "Bar"
+msgstr "Maw"
+
+#: templates/table/chart/tbl_chart.twig:19
+#, fuzzy
+#| msgid "Column"
+msgctxt "Chart type"
+msgid "Column"
+msgstr "Colofn"
+
+#: templates/table/chart/tbl_chart.twig:23
+msgctxt "Chart type"
+msgid "Line"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:27
+#, fuzzy
+#| msgid "Inline"
+msgctxt "Chart type"
+msgid "Spline"
+msgstr "Mewnol"
+
+#: templates/table/chart/tbl_chart.twig:31
+msgctxt "Chart type"
+msgid "Area"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:35
+#, fuzzy
+#| msgid "PiB"
+msgctxt "Chart type"
+msgid "Pie"
+msgstr "PiB"
+
+#: templates/table/chart/tbl_chart.twig:39
+#, fuzzy
+#| msgid "Time"
+msgctxt "Chart type"
+msgid "Timeline"
+msgstr "Amser"
+
+#: templates/table/chart/tbl_chart.twig:43
+msgctxt "Chart type"
+msgid "Scatter"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:48
+#, fuzzy
+#| msgid "Packed"
+msgid "Stacked"
+msgstr "Paciwyd"
+
+#: templates/table/chart/tbl_chart.twig:51
+#, fuzzy
+#| msgid "Report title"
+msgid "Chart title:"
+msgstr "Teitl yr adroddiad"
+
+#: templates/table/chart/tbl_chart.twig:56
+msgid "X-Axis:"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:71
+msgid "Series:"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:100
+msgid "X-Axis label:"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:102
+#, fuzzy
+#| msgid "Value"
+msgid "X Values"
+msgstr "Gwerth"
+
+#: templates/table/chart/tbl_chart.twig:105
+msgid "Y-Axis label:"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:107
+#, fuzzy
+#| msgid "Value"
+msgid "Y Values"
+msgstr "Gwerth"
+
+#: templates/table/chart/tbl_chart.twig:113
+msgid "Series names are in a column"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:116
+#, fuzzy
+#| msgid "Inside column:"
+msgid "Series column:"
+msgstr "Tu fewn colofn:"
+
+#: templates/table/chart/tbl_chart.twig:130
+#, fuzzy
+#| msgid "Number of columns"
+msgid "Value Column:"
+msgstr "Nifer y colofnau"
+
+#: templates/table/chart/tbl_chart.twig:151
+#, fuzzy
+#| msgid "Save as file"
+msgid "Save chart as image"
+msgstr "Cadw fel ffeil"
+
+#: templates/navigation/item_unhide_dialog.twig:19
+msgid "Unhide"
+msgstr ""
+
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr ""
+
+#: templates/columns_definitions/column_definitions_form.twig:40
+#, fuzzy
+#| msgid "Columns"
+msgid "column(s)"
+msgstr "Colofnau"
+
+#: templates/columns_definitions/column_definitions_form.twig:73
+#, fuzzy
+#| msgid "Collation"
+msgid "Collation:"
+msgstr "Coladiad"
+
+#: templates/columns_definitions/column_definitions_form.twig:76
+#, fuzzy
+#| msgid "Storage Engine"
+msgid "Storage Engine:"
+msgstr "Peiriant Storio"
+
+#: templates/columns_definitions/column_definitions_form.twig:81
+#, fuzzy
+#| msgid "Creation"
+msgid "Connection:"
+msgstr "Cread"
+
+#: templates/columns_definitions/column_definitions_form.twig:132
+#, fuzzy
+#| msgid "PARTITION definition"
+msgid "PARTITION definition:"
+msgstr "Diffiniad PARTITION"
+
+#: templates/columns_definitions/table_fields_definitions.twig:17
+msgid ""
+"If column type is \"enum\" or \"set\", please enter the values using this "
+"format: 'a','b','c'…<br>If you ever need to put a backslash (\"\") or a "
+"single quote (\"'\") amongst those values, precede it with a backslash (for "
+"example '\\\\xyz' or 'a\\'b')."
+msgstr ""
+
+#: templates/columns_definitions/table_fields_definitions.twig:21
+msgid ""
+"For default values, please enter just a single value, without backslash "
+"escaping or quotes, using this format: a"
+msgstr ""
+
+#: templates/columns_definitions/table_fields_definitions.twig:59
+msgid "Virtuality"
+msgstr ""
+
+#: templates/columns_definitions/table_fields_definitions.twig:65
+#, fuzzy
+#| msgid "Add/Delete columns"
+msgid "Move column"
+msgstr "Ychwanegu/Dileu colofnau"
+
+#: templates/columns_definitions/table_fields_definitions.twig:76
+#: templates/columns_definitions/table_fields_definitions.twig:87
+msgid "List of available transformations and their options"
+msgstr ""
+
+#: templates/columns_definitions/table_fields_definitions.twig:78
+#: templates/transformation_overview.twig:18
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Browser display transformation"
+msgstr "Trawsffurfiad porwr"
+
+#: templates/columns_definitions/table_fields_definitions.twig:82
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Browser display transformation options"
+msgstr "Trawsffurfiad porwr"
+
+#: templates/columns_definitions/table_fields_definitions.twig:83
+#: templates/columns_definitions/table_fields_definitions.twig:94
+msgid ""
+"Please enter the values for transformation options using this format: 'a', "
+"100, b,'c'…<br>If you ever need to put a backslash (\"\\\") or a single "
+"quote (\"'\") amongst those values, precede it with a backslash (for example "
+"'\\\\xyz' or 'a\\'b')."
+msgstr ""
+
+#: templates/columns_definitions/table_fields_definitions.twig:89
+#: templates/transformation_overview.twig:37
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Input transformation"
+msgstr "Trawsffurfiad porwr"
+
+#: templates/columns_definitions/table_fields_definitions.twig:93
+#, fuzzy
+#| msgid "Databases statistics"
+msgid "Input transformation options"
+msgstr "Ystadegau cronfeydd data"
+
+#: templates/display/export/options_output_separate_files.twig:7
+#, fuzzy
+#| msgid "Create table on database %s"
+msgid "Export databases as separate files"
+msgstr "Creu tabl mewn cronfa ddata %s"
+
+#: templates/display/export/options_output_separate_files.twig:9
+#, fuzzy
+#| msgid "horizontal (rotated headers)"
+msgid "Export tables as separate files"
+msgstr "llorweddol (penawdau wedi cylchdroi)"
+
+#: templates/console/display.twig:7
+#, fuzzy
+#| msgid "Skip Validate SQL"
+msgid "History"
+msgstr "Sgipio Dilysu SQL"
+
+#: templates/console/display.twig:11 templates/console/display.twig:99
+#, fuzzy
+#| msgid "Delete relation"
+msgid "Bookmarks"
+msgstr "Dilëwch berthynas"
+
+#: templates/console/display.twig:20
+#, fuzzy
+#| msgid "Execute bookmarked query"
+msgid "Press Ctrl+Enter to execute query"
+msgstr "Gweithredu ymholiad a glustnodwyd"
+
+#: templates/console/display.twig:23
+#, fuzzy
+#| msgid "Execute bookmarked query"
+msgid "Press Enter to execute query"
+msgstr "Gweithredu ymholiad a glustnodwyd"
+
+#: templates/console/display.twig:31 templates/console/display.twig:175
+#, fuzzy
+#| msgid "Explain SQL"
+msgid "Explain"
+msgstr "Esbonio SQL"
+
+#: templates/console/display.twig:40 templates/console/display.twig:184
+#, fuzzy
+#| msgid "Delete relation"
+msgid "Bookmark"
+msgstr "Dilëwch berthynas"
+
+#: templates/console/display.twig:40 templates/console/display.twig:184
+#, fuzzy
+#| msgid "Query"
+msgid "Query failed"
+msgstr "Ymholiad"
+
+#: templates/console/display.twig:42 templates/console/display.twig:184
+#, fuzzy
+#| msgid "SQL execution"
+msgid "Queried time"
+msgstr "Gweithrediad SQL"
+
+#: templates/console/display.twig:47
+msgid "During current session"
+msgstr ""
+
+#: templates/console/display.twig:64
+#, fuzzy
+#| msgid "Ascending"
+msgid "ascending"
+msgstr "Esgynnol"
+
+#: templates/console/display.twig:64
+#, fuzzy
+#| msgid "Descending"
+msgid "descending"
+msgstr "Disgynnol"
+
+#: templates/console/display.twig:64
+msgid "Order:"
+msgstr ""
+
+#: templates/console/display.twig:64 templates/console/display.twig:84
+#: templates/table/search/replace_preview.twig:17
+#, fuzzy
+#| msgid "Column"
+msgid "Count"
+msgstr "Colofn"
+
+#: templates/console/display.twig:64
+#, fuzzy
+#| msgid "Execute bookmarked query"
+msgid "Execution order"
+msgstr "Gweithredu ymholiad a glustnodwyd"
+
+#: templates/console/display.twig:64 templates/console/display.twig:84
+msgid "Time taken"
+msgstr ""
+
+#: templates/console/display.twig:64
+msgid "Order by:"
+msgstr ""
+
+#: templates/console/display.twig:64
+#, fuzzy
+#| msgid "in query"
+msgid "Ungroup queries"
+msgstr "mewn ymholiad"
+
+#: templates/console/display.twig:84
+#, fuzzy
+#| msgid "Show color"
+msgid "Show trace"
+msgstr "Dangos lliw"
+
+#: templates/console/display.twig:84
+#, fuzzy
+#| msgid "Indexes"
+msgid "Hide trace"
+msgstr "Indecsau"
+
+#: templates/console/display.twig:112
+#, fuzzy
+#| msgid "Delete relation"
+msgid "Add bookmark"
+msgstr "Dilëwch berthynas"
+
+#: templates/console/display.twig:121
+#, fuzzy
+#| msgid "Label key"
+msgid "Label"
+msgstr "Allwedd y label"
+
+#: templates/console/display.twig:124
+msgid "Target database"
+msgstr "Cronfa ddata targed"
+
+#: templates/console/display.twig:127
+#, fuzzy
+#| msgid "Delete relation"
+msgid "Share this bookmark"
+msgstr "Dilëwch berthynas"
+
+#: templates/console/display.twig:140
+#, fuzzy
+#| msgid "Restore default value"
+msgid "Set default"
+msgstr "Adfer gwerth diofyn"
+
+#: templates/console/display.twig:162
+msgid ""
+"Execute queries on Enter and insert new line with Shift + Enter. To make "
+"this permanent, view settings."
+msgstr ""
+
+#: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
+msgid "Bookmark this SQL query"
+msgstr "Clustnodwch yr ymholiad SQL hwn"
+
+#: templates/sql/bookmark.twig:15
+#, fuzzy
+#| msgid "Label key"
+msgid "Label:"
+msgstr "Allwedd y label"
+
+#: templates/database/structure/structure_table_row.twig:221
+msgid "in use"
+msgstr "ar ddefnydd"
+
+#: templates/database/structure/check_all_tables.twig:6
+msgid "Check tables having overhead"
+msgstr "Gwiriwch dablau â gorbenion"
+
+#: templates/database/structure/check_all_tables.twig:10
+#, fuzzy
+#| msgid "Count tables"
+msgid "Copy table"
+msgstr "Cyfrifwch y tablau"
+
+#: templates/database/structure/check_all_tables.twig:11
+#, fuzzy
+#| msgid "Show color"
+msgid "Show create"
+msgstr "Dangos lliw"
+
+#: templates/database/structure/check_all_tables.twig:25
+msgid "Prefix"
+msgstr ""
+
+#: templates/database/structure/check_all_tables.twig:26
+msgid "Add prefix to table"
+msgstr ""
+
+#: templates/database/structure/check_all_tables.twig:27
+#, fuzzy
+#| msgid "Rename table to"
+msgid "Replace table prefix"
+msgstr "Ailenwi tabl i"
+
+#: templates/database/structure/check_all_tables.twig:33
+#, fuzzy
+#| msgid "Add %s column(s)"
+msgid "Add columns to central list"
+msgstr "Ychwanegwch %s colofn"
+
+#: templates/database/structure/check_all_tables.twig:34
+msgid "Remove columns from central list"
+msgstr ""
+
+#: templates/database/structure/check_all_tables.twig:35
+#, fuzzy
+#| msgid "Add %s column(s)"
+msgid "Make consistent with central list"
+msgstr "Ychwanegwch %s colofn"
+
+#: templates/database/structure/body_for_table_summary.twig:6
+#, fuzzy, php-format
+msgid "%s table"
+msgid_plural "%s tables"
+msgstr[0] "%s tabl"
+msgstr[1] "%s tabl"
+msgstr[2] ""
+msgstr[3] ""
+
+#: templates/database/structure/body_for_table_summary.twig:17
+msgid "Sum"
+msgstr "Swm"
+
+#: templates/preferences/two_factor/configure.twig:2
+#: templates/preferences/two_factor/main.twig:44
+#: templates/preferences/two_factor/main.twig:56
+#, fuzzy
+#| msgid "Authenticating…"
+msgid "Configure two-factor authentication"
+msgstr "Yn dilysu…"
+
+#: templates/preferences/two_factor/configure.twig:8
+#, fuzzy
+#| msgid "Authenticating…"
+msgid "Enable two-factor authentication"
+msgstr "Yn dilysu…"
+
+#: templates/database/designer/edit_delete_pages.twig:6
+#, fuzzy
+#| msgid "Page name"
+msgid "Page to open"
+msgstr "Enw'r dudalen"
+
+#: templates/database/designer/edit_delete_pages.twig:6
+#, fuzzy
+#| msgid "Relation deleted"
+msgid "Page to delete"
+msgstr "Perthynas wedi'i ddileu"
+
+#: templates/database/qbe/footer_options.twig:3
+msgid "Add/Delete criteria rows"
+msgstr "Ychwanegu/Dileu rhesi meini prawf"
+
+#: templates/database/qbe/footer_options.twig:5
+msgid "Add/Delete columns"
+msgstr "Ychwanegu/Dileu colofnau"
+
+#: templates/setup/home/index.twig:20 templates/setup/base.twig:27
+msgid "Overview"
+msgstr "Gorolwg"
+
+#: templates/setup/home/index.twig:23
+#, fuzzy
+#| msgid "Show grid"
+msgid "Show hidden messages"
+msgstr "Dangos grid"
+
+#: templates/setup/home/index.twig:73
+msgid "There are no configured servers"
+msgstr "Nid oes unrhyw gweinyddion a ffurfweddwyd"
+
+#: templates/setup/home/index.twig:82
+msgid "New server"
+msgstr "Gweinydd newydd"
+
+#: templates/setup/home/index.twig:104
+msgid "Display"
+msgstr "Dangos"
+
+#: templates/setup/home/index.twig:116
+msgid "phpMyAdmin homepage"
+msgstr "hafan phpMyAdmin"
+
+#: templates/setup/home/index.twig:117
+msgid "Donate"
+msgstr "Rhodd"
+
+#: templates/setup/home/index.twig:118
+msgid "Check for latest version"
+msgstr "Gwiriwch y fersiwn diweddaraf"
+
+#: templates/table/relation/foreign_key_row.twig:15
+#, fuzzy, php-format
+#| msgid "Add constraints"
+msgid "Foreign key constraint %s has been dropped"
+msgstr "Ychwanegwch cyfyngiadau"
+
+#: templates/table/relation/foreign_key_row.twig:34
+#, fuzzy
+#| msgid "Routines"
+msgid "Constraint name"
+msgstr "Rheolweithiau"
+
+#: templates/table/index_form.twig:15
+msgid "Index name:"
+msgstr ""
+
+#: templates/table/index_form.twig:16
+msgid ""
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
+msgstr ""
+
+#: templates/table/index_form.twig:34
+#, fuzzy
+#| msgid "Index cache size"
+msgid "Index choice:"
+msgstr "Maint yr ystorfa indecs"
+
+#: templates/table/index_form.twig:42
+#, fuzzy
+#| msgid "Actions"
+msgid "Advanced Options"
+msgstr "Gweithredoedd"
+
+#: templates/table/index_form.twig:52
+msgid "Key block size:"
+msgstr ""
+
+#: templates/table/index_form.twig:69
+msgid "Index type:"
+msgstr ""
+
+#: templates/table/index_form.twig:81
+#, fuzzy
+#| msgid "User"
+msgid "Parser:"
+msgstr "Defnyddiwr"
+
+#: templates/table/index_form.twig:97
+#, fuzzy
+#| msgid "Comment"
+msgid "Comment:"
+msgstr "Sylw"
+
+#: templates/table/index_form.twig:140 templates/table/index_form.twig:177
+msgid "Drag to reorder"
+msgstr ""
+
+#: templates/columns_definitions/move_column.twig:7
+msgid "first"
+msgstr ""
+
+#: templates/columns_definitions/move_column.twig:12
+#: templates/table/structure/display_structure.twig:435
+#, php-format
+msgid "after %s"
+msgstr ""
+
+#: templates/display/export/options_rows.twig:2
+#, fuzzy
+#| msgid "Rows"
+msgid "Rows:"
+msgstr "Rhesi"
+
+#: templates/display/export/options_rows.twig:7
+#, fuzzy
+#| msgid "Dump all rows"
+msgid "Dump some row(s)"
+msgstr "Dadlwytho pob rhes"
+
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
+msgstr ""
+
+#: templates/display/export/options_rows.twig:32
+msgid "Dump all rows"
+msgstr "Dadlwytho pob rhes"
+
+#: templates/login/header.twig:15
+msgid ""
+"There is a mismatch between HTTPS indicated on the server and client. This "
+"can lead to a non working phpMyAdmin or a security risk. Please fix your "
+"server configuration to indicate HTTPS properly."
+msgstr ""
+
+#: templates/theme_preview.twig:11
+msgid "No preview available."
+msgstr "Dim rhagolwg ar gael."
+
+#: templates/theme_preview.twig:13
+#, fuzzy
+#| msgid "take it"
+msgid "Take it"
+msgstr "cymerwch e"
+
+#: templates/server/status/processes/index.twig:13
+#, fuzzy
+#| msgid "Show only listed databases"
+msgid "Show only active"
+msgstr "Dangoswch gronfeydd data a restrir yn unig"
+
+#: templates/server/status/processes/index.twig:21
+msgid ""
+"Note: Enabling the auto refresh here might cause heavy traffic between the "
+"web server and the MySQL server."
+msgstr ""
+
+#: templates/table/search/fields_table.twig:10
+#: templates/database/designer/main.twig:521
+#: templates/database/designer/main.twig:585
+#: templates/database/designer/main.twig:786
+#: templates/database/designer/main.twig:817
+#: templates/database/designer/main.twig:925
+#: templates/database/designer/main.twig:1010
+msgid "Operator"
+msgstr ""
+
+#: templates/table/insert/continue_insertion_form.twig:18
+#, php-format
+msgid "Continue insertion with %s rows"
+msgstr ""
+
+#: templates/table/search/zoom_result_form.twig:7
+msgid "Browse/Edit the points"
+msgstr ""
+
+#: templates/table/search/zoom_result_form.twig:15
+#, fuzzy
+#| msgid "PHP extension to use"
+msgid "How to use"
+msgstr "Estyniad PHP i'w ddefnyddio"
+
+#: templates/table/search/zoom_result_form.twig:23
+#, fuzzy
+#| msgid "Reset"
+msgid "Reset zoom"
+msgstr "Ailosod"
+
+#: templates/server/privileges/privileges_summary.twig:20
+msgid "Column-specific privileges"
+msgstr ""
+
+#: templates/server/privileges/privileges_summary.twig:54
+msgid "Add privileges on the following database(s):"
+msgstr ""
+
+#: templates/server/privileges/privileges_summary.twig:67
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
+msgstr ""
+
+#: templates/server/privileges/privileges_summary.twig:71
+msgid "Add privileges on the following table:"
+msgstr ""
+
+#: templates/server/privileges/privileges_summary.twig:86
+#, fuzzy
+#| msgid "Create table on database %s"
+msgid "Add privileges on the following routine:"
+msgstr "Creu tabl mewn cronfa ddata %s"
+
+#: templates/transformation_overview.twig:1
+#, fuzzy
+#| msgid "Available MIME types"
+msgid "Available media (MIME) types"
+msgstr "Mathau MIME ar gael"
+
+#: templates/transformation_overview.twig:13
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Available browser display transformations"
+msgstr "Trawsffurfiad porwr"
+
+#: templates/transformation_overview.twig:19
+#: templates/transformation_overview.twig:38
+#, fuzzy
+#| msgid "Description"
+msgctxt "for media (MIME) type transformation"
+msgid "Description"
+msgstr "Disgrifiad"
+
+#: templates/transformation_overview.twig:32
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Available input transformations"
+msgstr "Trawsffurfiad porwr"
+
+#: templates/login/twofactor/key.twig:3
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm login on the device."
+msgstr ""
+
+#: templates/table/structure/display_structure.twig:70
+#, fuzzy
+#| msgid "MIME type"
+msgid "Media (MIME) type:"
+msgstr "Math MIME"
+
+#: templates/table/structure/display_structure.twig:91
+#: templates/table/tracking/structure_snapshot_columns.twig:47
+msgctxt "None for default"
+msgid "None"
+msgstr ""
+
+#: templates/table/structure/display_structure.twig:112
+#, php-format
+msgid "Column %s has been dropped."
+msgstr ""
+
+#: templates/table/structure/display_structure.twig:135
+#, php-format
+msgid "A primary key has been added on %s."
+msgstr ""
+
+#: templates/table/structure/display_structure.twig:153
+#: templates/table/structure/display_structure.twig:171
+#: templates/table/structure/display_structure.twig:200
+#: templates/table/structure/display_structure.twig:223
+#, php-format
+msgid "An index has been added on %s."
+msgstr ""
+
+#: templates/table/structure/display_structure.twig:247
+#: templates/table/structure/display_structure.twig:350
+#, fuzzy
+#| msgid "Remove database"
+msgid "Remove from central columns"
+msgstr "Tynnwch y gronfa ddata"
+
+#: templates/table/structure/display_structure.twig:251
+#: templates/table/structure/display_structure.twig:343
+#, fuzzy
+#| msgid "Add %s column(s)"
+msgid "Add to central columns"
+msgstr "Ychwanegwch %s colofn"
+
+#: templates/table/structure/display_structure.twig:363
+#: templates/table/structure/display_structure.twig:402
+#, fuzzy
+#| msgid "Add %s column(s)"
+msgid "Move columns"
+msgstr "Ychwanegwch %s colofn"
+
+#: templates/table/structure/display_structure.twig:364
+msgid "Move the columns by dragging them up and down."
+msgstr ""
+
+#: templates/table/structure/display_structure.twig:377
+#: templates/view_create.twig:13
+#, fuzzy
+#| msgid "Print view"
+msgid "Edit view"
+msgstr "Argraffu golwg"
+
+#: templates/table/structure/display_structure.twig:388
+msgid "Propose table structure"
+msgstr ""
+
+#: templates/table/structure/display_structure.twig:398
+#: templates/database/tracking/tables.twig:139
+#: templates/database/tracking/tables.twig:151
+msgid "Track table"
+msgstr "Tracio tabl"
+
+#: templates/table/structure/display_structure.twig:405
+msgid "Normalize"
+msgstr ""
+
+#: templates/table/structure/display_structure.twig:411
+#, fuzzy
+#| msgid "Track table"
+msgid "Track view"
+msgstr "Tracio tabl"
+
+#: templates/table/structure/display_structure.twig:420
+#: templates/database/central_columns/main.twig:194
+msgid "Add column"
+msgstr ""
+
+#: templates/table/structure/display_structure.twig:425
+#, php-format
+msgid "Add %s column(s)"
+msgstr "Ychwanegwch %s colofn"
+
+#: templates/table/structure/display_structure.twig:430
+#, fuzzy
+#| msgid "Show dimension of tables"
+msgid "at beginning of table"
+msgstr "Dangos dimensiynau'r tabl"
+
+#: templates/server/replication/index.twig:35
+#, fuzzy
+#| msgid "No Privileges"
+msgid "No privileges"
+msgstr "Dim Breintiau"
+
+#: templates/server/replication/index.twig:16
+#, php-format
+msgid ""
+"This server is not configured as master in a replication process. Would you "
+"like to %sconfigure%s it?"
+msgstr ""
+
+#. l10n: Questions is the name of a MySQL Status variable
+#: templates/server/status/queries/index.twig:7
+msgid "Questions since startup:"
+msgstr ""
+
+#: templates/server/status/queries/index.twig:17
+msgid "per hour:"
+msgstr ""
+
+#: templates/server/status/queries/index.twig:18
+#, fuzzy
+#| msgid "Minute"
+msgid "per minute:"
+msgstr "Munud"
+
+#: templates/server/status/queries/index.twig:20
+#, fuzzy
+#| msgid "Second"
+msgid "per second:"
+msgstr "Eiliad"
+
+#: templates/server/status/queries/index.twig:32
+msgid "Statements"
+msgstr ""
+
+#. l10n: # = Amount of queries
+#: templates/server/status/queries/index.twig:33
+msgid "#"
+msgstr ""
+
+#: templates/server/status/queries/index.twig:53
+msgid "Not enough privilege to view query statistics."
+msgstr ""
 
 #: templates/database/designer/main.twig:21
 #: templates/database/designer/main.twig:27
@@ -16200,6 +16072,12 @@ msgstr "Enw'r dudalen"
 #| msgid "Select Tables"
 msgid "Delete pages"
 msgstr "Dewis Tablau"
+
+#: templates/database/designer/main.twig:86
+#: templates/database/designer/main.twig:89
+#: templates/database/create_table.twig:7
+msgid "Create table"
+msgstr "Crëwch dabl"
 
 #: templates/database/designer/main.twig:93
 #: templates/database/designer/main.twig:96
@@ -16351,34 +16229,125 @@ msgstr "Creu"
 msgid "Active options"
 msgstr "Gweithredoedd"
 
-#: templates/columns_definitions/column_default.twig:3
-msgctxt "for default"
-msgid "None"
-msgstr "Dim"
-
-#: templates/columns_definitions/column_default.twig:5
-msgid "As defined:"
-msgstr "Fel a ddiffiniwyd:"
-
-#: templates/setup/error.twig:2
-msgid "Warning"
-msgstr "Rhybudd"
-
-#: templates/setup/error.twig:3
-msgid "Submitted form contains errors"
+#: templates/server/replication/change_master.twig:5
+msgid "Slave configuration"
 msgstr ""
 
-#: templates/setup/error.twig:6
-msgid "Try to revert erroneous fields to their default values"
+#: templates/server/replication/change_master.twig:6
+#: templates/server/replication/slave_configuration.twig:96
+msgid "Change or reconfigure master server"
 msgstr ""
 
-#: templates/setup/error.twig:14
-msgid "Ignore errors"
+#: templates/server/replication/change_master.twig:9
+msgid ""
+"Make sure you have a unique server-id in your configuration file (my.cnf). "
+"If not, please add the following line into [mysqld] section:"
 msgstr ""
 
-#: templates/setup/error.twig:18
-msgid "Show form"
-msgstr "Dangos ffurflen"
+#: templates/server/replication/change_master.twig:26
+#, fuzzy
+#| msgid "Portrait"
+msgid "Port:"
+msgstr "Portread"
+
+#: templates/preferences/autoload.twig:7
+msgid ""
+"Your browser has phpMyAdmin configuration for this domain. Would you like to "
+"import it for current session?"
+msgstr ""
+
+#: templates/preferences/autoload.twig:13
+#, fuzzy
+#| msgid "Delete tracking data for this table"
+msgid "Delete settings"
+msgstr "Dilëwch data tracio ar gyfer y tabl hwn"
+
+#: templates/display/export/options_output_charset.twig:3
+#: templates/display/import/import.twig:97
+msgid "Character set of the file:"
+msgstr "Set nodau'r ffeil:"
+
+#: templates/database/tracking/tables.twig:4
+msgid "Tracked tables"
+msgstr "Tablau a draciwyd"
+
+#: templates/database/tracking/tables.twig:14
+msgid "Last version"
+msgstr "Fersiwn diweddaraf"
+
+#: templates/database/tracking/tables.twig:15
+#: templates/table/tracking/main.twig:29
+msgid "Created"
+msgstr "Crëwyd"
+
+#: templates/database/tracking/tables.twig:16
+#: templates/table/tracking/main.twig:30
+msgid "Updated"
+msgstr "Diweddarwyd"
+
+#: templates/database/tracking/tables.twig:56
+#: templates/database/tracking/tables.twig:101
+#, fuzzy
+#| msgid "Delete tracking data for this table"
+msgid "Delete tracking"
+msgstr "Dilëwch data tracio ar gyfer y tabl hwn"
+
+#: templates/database/tracking/tables.twig:67
+msgid "Versions"
+msgstr "Fersiynau"
+
+#: templates/database/tracking/tables.twig:112
+msgid "Untracked tables"
+msgstr "Tablau heb dracio"
+
+#: templates/server/collations/index.twig:3
+#, fuzzy
+#| msgid "Character Sets and Collations"
+msgid "Character sets and collations"
+msgstr "Setiau nod a Choladiadau"
+
+#: templates/database/structure/show_create.twig:2
+#, fuzzy
+#| msgid "Show SQL queries"
+msgid "Showing create queries"
+msgstr "Dangos ymholiadau SQL"
+
+#: templates/display/export/template_loading.twig:2
+#, fuzzy
+#| msgid "Export"
+msgid "Export templates:"
+msgstr "Allforio"
+
+#: templates/display/export/template_loading.twig:6
+#, fuzzy
+#| msgid "File name template"
+msgid "New template:"
+msgstr "Templed enw ffeil"
+
+#: templates/display/export/template_loading.twig:8
+#, fuzzy
+#| msgid "Page name"
+msgid "Template name"
+msgstr "Enw'r dudalen"
+
+#: templates/display/export/template_loading.twig:16
+#, fuzzy
+#| msgid "File name template"
+msgid "Existing templates:"
+msgstr "Templed enw ffeil"
+
+#: templates/display/export/template_loading.twig:17
+#, fuzzy
+#| msgid "%s table"
+#| msgid_plural "%s tables"
+msgid "Template:"
+msgstr "%s tabl"
+
+#: templates/display/export/template_loading.twig:21
+#, fuzzy
+#| msgid "Updated"
+msgid "Update"
+msgstr "Diweddarwyd"
 
 #: templates/server/plugins/index.twig:22
 msgid "Plugin"
@@ -16390,6 +16359,10 @@ msgstr "Fersiwn"
 
 #: templates/server/plugins/index.twig:25
 msgid "Author"
+msgstr ""
+
+#: templates/server/plugins/index.twig:26 templates/home/index.twig:195
+msgid "License"
 msgstr ""
 
 #: templates/server/plugins/index.twig:37
@@ -16416,64 +16389,43 @@ msgstr "Dileu"
 msgid "deleted"
 msgstr "Dileu"
 
-#: templates/table/relation/foreign_key_row.twig:15
+#: templates/setup/error.twig:2
+msgid "Warning"
+msgstr "Rhybudd"
+
+#: templates/setup/error.twig:3
+msgid "Submitted form contains errors"
+msgstr ""
+
+#: templates/setup/error.twig:6
+msgid "Try to revert erroneous fields to their default values"
+msgstr ""
+
+#: templates/setup/error.twig:14
+msgid "Ignore errors"
+msgstr ""
+
+#: templates/setup/error.twig:18
+msgid "Show form"
+msgstr "Dangos ffurflen"
+
+#: templates/display/export/option_header.twig:5
+#, fuzzy
+#| msgid "Cannot log in to the MySQL server"
+msgid "Exporting databases from the current server"
+msgstr "Methu â mewngofnodi i'r gweinydd MySQL"
+
+#: templates/display/export/option_header.twig:7
 #, fuzzy, php-format
-#| msgid "Add constraints"
-msgid "Foreign key constraint %s has been dropped"
-msgstr "Ychwanegwch cyfyngiadau"
+#| msgid "Create table on database %s"
+msgid "Exporting tables from \"%s\" database"
+msgstr "Creu tabl mewn cronfa ddata %s"
 
-#: templates/table/relation/foreign_key_row.twig:34
-#, fuzzy
-#| msgid "Routines"
-msgid "Constraint name"
-msgstr "Rheolweithiau"
-
-#: templates/preferences/manage/error.twig:1
-msgid "Configuration contains incorrect data for some fields."
-msgstr ""
-
-#: templates/preferences/manage/error.twig:16
-msgid "Do you want to import remaining settings?"
-msgstr ""
-
-#: templates/columns_definitions/column_length.twig:9
-msgid "Edit ENUM/SET values"
-msgstr ""
-
-#: templates/encoding/kanji_encoding_form.twig:6
-msgctxt "None encoding conversion"
-msgid "None"
-msgstr ""
-
-#: templates/encoding/kanji_encoding_form.twig:17
-msgid "Convert to Kana"
-msgstr ""
-
-#: templates/table/search/zoom_result_form.twig:7
-msgid "Browse/Edit the points"
-msgstr ""
-
-#: templates/table/search/zoom_result_form.twig:15
-#, fuzzy
-#| msgid "PHP extension to use"
-msgid "How to use"
-msgstr "Estyniad PHP i'w ddefnyddio"
-
-#: templates/table/search/zoom_result_form.twig:23
-#, fuzzy
-#| msgid "Reset"
-msgid "Reset zoom"
-msgstr "Ailosod"
-
-#: templates/columns_definitions/move_column.twig:7
-msgid "first"
-msgstr ""
-
-#: templates/columns_definitions/move_column.twig:12
-#: templates/table/structure/display_structure.twig:435
-#, php-format
-msgid "after %s"
-msgstr ""
+#: templates/display/export/option_header.twig:9
+#, fuzzy, php-format
+#| msgid "Create table on database %s"
+msgid "Exporting rows from \"%s\" table"
+msgstr "Creu tabl mewn cronfa ddata %s"
 
 #: templates/database/structure/tracking_icon.twig:3
 msgid "Tracking is active."
@@ -16483,81 +16435,43 @@ msgstr "Mae tracio'n weithredol."
 msgid "Tracking is not active."
 msgstr "Nid yw tracio'n weithredol."
 
-#: templates/database/designer/edit_delete_pages.twig:6
+#: templates/database/designer/page_save_as.twig:17
+#, fuzzy
+#| msgid "Import files"
+msgid "Save to selected page"
+msgstr "Mewnforiwch ffeiliau"
+
+#: templates/database/designer/page_save_as.twig:17
+#, fuzzy
+#| msgid "Create a page"
+msgid "Create a page and save to it"
+msgstr "Crëwch dudalen"
+
+#: templates/database/designer/page_save_as.twig:30
 #, fuzzy
 #| msgid "Page name"
-msgid "Page to open"
+msgid "New page name"
 msgstr "Enw'r dudalen"
 
-#: templates/database/designer/edit_delete_pages.twig:6
-#, fuzzy
-#| msgid "Relation deleted"
-msgid "Page to delete"
-msgstr "Perthynas wedi'i ddileu"
-
-#: templates/login/twofactor/key-https-warning.twig:3
-msgid ""
-"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
-"most likely refuse to authenticate you."
+#: templates/table/tracking/report_table.twig:4
+#: templates/table/tracking/structure_snapshot_columns.twig:5
+msgctxt "Number"
+msgid "#"
 msgstr ""
 
-#: templates/navigation/main.twig:26 templates/navigation/main.twig:27
-msgid "Home"
-msgstr ""
+#: templates/table/tracking/report_table.twig:5
+msgid "Date"
+msgstr "Dyddiad"
 
-#: templates/navigation/main.twig:31 templates/navigation/main.twig:32
-#, fuzzy
-#| msgid "Dumping data for table"
-msgid "Empty session data"
-msgstr "Dadlwytho data ar gyfer y tabl"
+#: templates/table/tracking/report_table.twig:6
+msgid "Username"
+msgstr "Enw defnyddiwr"
 
-#: templates/navigation/main.twig:31 templates/navigation/main.twig:32
-msgid "Log out"
-msgstr ""
-
-#: templates/navigation/main.twig:36 templates/navigation/main.twig:37
-msgid "phpMyAdmin documentation"
-msgstr "Dogfennaeth phpMyAdmin"
-
-#: templates/navigation/main.twig:44 templates/navigation/main.twig:45
-#, fuzzy
-#| msgid "Navigation frame"
-msgid "Navigation panel settings"
-msgstr "Ffrâm llywio"
-
-#: templates/navigation/main.twig:48 templates/navigation/main.twig:49
-#, fuzzy
-#| msgid "Navigation frame"
-msgid "Reload navigation panel"
-msgstr "Ffrâm llywio"
-
-#: templates/navigation/main.twig:68
-msgid "An error has occurred while loading the navigation display"
-msgstr ""
-
-#: templates/navigation/main.twig:89
-#, fuzzy
-#| msgid "SQL dump"
-msgid "SQL upload"
-msgstr "Dadlwythiad SQL"
-
-#: templates/server/status/base.twig:15
-#, fuzzy
-#| msgid "Show statistics"
-msgid "Query statistics"
-msgstr "Dangos ystadegau"
-
-#: templates/server/status/base.twig:20
-msgid "All status variables"
-msgstr ""
-
-#: templates/server/status/base.twig:25
-msgid "Monitor"
-msgstr ""
-
-#: templates/server/status/base.twig:30
-msgid "Advisor"
-msgstr ""
+#: templates/database/structure/show_create_row.twig:7
+#, fuzzy, php-format
+#| msgid "Create User"
+msgid "Create %s"
+msgstr "Crëwch fersiwn"
 
 #: templates/table/structure/display_table_stats.twig:14
 msgid "Space usage"
@@ -16597,252 +16511,202 @@ msgstr ""
 msgid "Next autoindex"
 msgstr ""
 
-#: templates/table/structure/display_table_stats.twig:148
-#: templates/database/structure/table_header.twig:51
-msgid "Creation"
-msgstr "Cread"
-
-#: templates/table/structure/display_table_stats.twig:155
-#: templates/database/structure/table_header.twig:56
-msgid "Last update"
-msgstr "Diweddariad diwethaf"
-
-#: templates/table/structure/display_table_stats.twig:162
-#: templates/database/structure/table_header.twig:61
-msgid "Last check"
-msgstr "Gwiriad diwethaf"
-
-#: templates/database/structure/body_for_table_summary.twig:6
-#, fuzzy, php-format
-msgid "%s table"
-msgid_plural "%s tables"
-msgstr[0] "%s tabl"
-msgstr[1] "%s tabl"
-msgstr[2] ""
-msgstr[3] ""
-
-#: templates/database/structure/body_for_table_summary.twig:17
-msgid "Sum"
-msgstr "Swm"
-
-#: templates/database/data_dictionary/index.twig:3
-#, fuzzy
-#| msgid "Database comment"
-msgid "Database comment:"
-msgstr "Sylw cronfa ddata"
-
-#: templates/server/privileges/privileges_summary.twig:20
-msgid "Column-specific privileges"
+#: templates/table/gis_visualization/gis_visualization.twig:3
+msgid "Display GIS Visualization"
 msgstr ""
 
-#: templates/server/privileges/privileges_summary.twig:54
-msgid "Add privileges on the following database(s):"
+#: templates/table/gis_visualization/gis_visualization.twig:8
+#, fuzzy
+#| msgid "Add/Delete columns"
+msgid "Label column"
+msgstr "Ychwanegu/Dileu colofnau"
+
+#: templates/table/gis_visualization/gis_visualization.twig:11
+#, fuzzy
+#| msgid "- none -"
+msgid "-- None --"
+msgstr "-dim-"
+
+#: templates/table/gis_visualization/gis_visualization.twig:19
+#, fuzzy
+#| msgid "Log file count"
+msgid "Spatial column"
+msgstr "Cyfrif ffeiliau log"
+
+#: templates/server/status/status/index.twig:6
+#, php-format
+msgid "Network traffic since startup: %s"
 msgstr ""
 
-#: templates/server/privileges/privileges_summary.twig:67
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
+#: templates/server/status/status/index.twig:7
+#, php-format
+msgid "This MySQL server has been running for %1$s. It started up on %2$s."
 msgstr ""
 
-#: templates/server/privileges/privileges_summary.twig:71
-msgid "Add privileges on the following table:"
-msgstr ""
-
-#: templates/server/privileges/privileges_summary.twig:86
-#, fuzzy
-#| msgid "Create table on database %s"
-msgid "Add privileges on the following routine:"
-msgstr "Creu tabl mewn cronfa ddata %s"
-
-#: templates/display/export/options_output_compression.twig:4
-#, fuzzy
-#| msgid "Compression"
-msgid "Compression:"
-msgstr "Cywasgiad"
-
-#: templates/display/export/options_output_compression.twig:11
-#, fuzzy
-#| msgid "\"zipped\""
-msgid "zipped"
-msgstr "\"zip-iwyd\""
-
-#: templates/display/export/options_output_compression.twig:17
-#, fuzzy
-#| msgid "\"gzipped\""
-msgid "gzipped"
-msgstr "\"gzip-iwyd\""
-
-#: templates/table/tracking/report_table.twig:5
-msgid "Date"
-msgstr "Dyddiad"
-
-#: templates/table/tracking/report_table.twig:6
-msgid "Username"
-msgstr "Enw defnyddiwr"
-
-#: templates/server/replication/status_table.twig:6
-msgid "Master status"
-msgstr "Statws y meistr"
-
-#: templates/server/replication/status_table.twig:8
-msgid "Slave status"
-msgstr "Statws y caeth"
-
-#: templates/error/report_form.twig:6
+#: templates/server/status/status/index.twig:14
 msgid ""
-"This report automatically includes data about the error and information "
-"about relevant configuration settings. It will be sent to the phpMyAdmin "
-"team for debugging the error."
+"On a busy server, the byte counters may overrun, so those statistics as "
+"reported by the MySQL server may be incorrect."
 msgstr ""
 
-#: templates/error/report_form.twig:12
+#: templates/server/status/status/index.twig:57
 msgid ""
-"Can you tell us the steps leading to this error? It decisively helps in "
-"debugging:"
+"This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
+"b> process."
 msgstr ""
 
-#: templates/error/report_form.twig:19
-msgid "You may examine the data in the error report:"
+#: templates/server/status/status/index.twig:59
+msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
 
-#: templates/server/replication/master_configuration.twig:2
-msgid "Master configuration"
+#: templates/server/status/status/index.twig:61
+msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
 
-#: templates/server/replication/master_configuration.twig:4
+#: templates/server/status/status/index.twig:68
+msgid "Replication status"
+msgstr ""
+
+#: templates/server/status/status/index.twig:75
+msgid "Not enough privilege to view server status."
+msgstr ""
+
+#: templates/database/designer/schema_export.twig:4
+msgid "Select Export Relational Type"
+msgstr ""
+
+#: templates/display/export/selection.twig:3
+#, fuzzy
+#| msgid "Databases"
+msgid "Databases:"
+msgstr "Cronfeydd Data"
+
+#: templates/view_create.twig:65
+msgid "VIEW name"
+msgstr "Enw VIEW"
+
+#: templates/view_create.twig:79
+msgid "Column names"
+msgstr ""
+
+#: templates/start_and_number_of_rows_panel.twig:3
+#, fuzzy
+#| msgid "Showing rows"
+msgid "Start row:"
+msgstr "Yn dangos rhesi"
+
+#: templates/display/export/options_format.twig:2
+#: templates/display/import/import.twig:175
+msgid "Format-specific options:"
+msgstr ""
+
+#: templates/display/export/options_format.twig:4
+#: templates/display/import/import.twig:177
 msgid ""
-"This server is not configured as a master server in a replication process. "
-"You can choose from either replicating all databases and ignoring some of "
-"them (useful if you want to replicate a majority of the databases) or you "
-"can choose to ignore all databases by default and allow only certain "
-"databases to be replicated. Please select the mode:"
+"Scroll down to fill in the options for the selected format and ignore the "
+"options for other formats."
 msgstr ""
 
-#: templates/server/replication/master_configuration.twig:9
-msgid "Replicate all databases; Ignore:"
+#: templates/display/export/options_format.twig:12
+#: templates/display/import/import.twig:186
+msgid "Encoding Conversion:"
 msgstr ""
 
-#: templates/server/replication/master_configuration.twig:10
-msgid "Ignore all databases; Replicate:"
+#: templates/table/search/replace_preview.twig:13
+msgid "Find and replace - preview"
 msgstr ""
 
-#: templates/server/replication/master_configuration.twig:12
-msgid "Please select databases:"
+#: templates/table/search/replace_preview.twig:18
+#, fuzzy
+#| msgid "Original position"
+msgid "Original string"
+msgstr "Safle gwreiddiol"
+
+#: templates/table/search/replace_preview.twig:19
+#, fuzzy
+#| msgid "Relations"
+msgid "Replaced string"
+msgstr "Perthnasau"
+
+#: templates/table/search/replace_preview.twig:37
+#, fuzzy
+#| msgid "Replication"
+msgid "Replace"
+msgstr "Dyblygiad"
+
+#: templates/display/export/options_output_radio.twig:5
+#, fuzzy
+#| msgid "Save as file"
+msgid "View output as text"
+msgstr "Cadw fel ffeil"
+
+#: templates/server/replication/master_add_slave_user.twig:6
+#: templates/server/replication/master_replication.twig:43
+msgid "Add slave replication user"
 msgstr ""
 
-#: templates/server/replication/master_configuration.twig:15
+#: templates/server/replication/master_add_slave_user.twig:37
+#, fuzzy
+#| msgid "This Host"
+msgid "This host"
+msgstr "Y Gwesteiwr Hwn"
+
+#: templates/server/replication/master_add_slave_user.twig:39
+#, fuzzy
+#| msgid "Use Host Table"
+msgid "Use host table"
+msgstr "Defnyddiwch Dabl Gwesteiwyr"
+
+#: templates/server/replication/master_add_slave_user.twig:53
+#, fuzzy
+#| msgid "No Password"
+msgid "No password"
+msgstr "Dim Cyfrinair"
+
+#: templates/server/replication/master_add_slave_user.twig:70
+#, fuzzy
+#| msgid "Generate Password"
+msgid "Generate password:"
+msgstr "Generadu Cyfrinair"
+
+#: templates/columns_definitions/column_length.twig:9
+msgid "Edit ENUM/SET values"
+msgstr ""
+
+#: templates/preferences/two_factor/main.twig:3
+#, fuzzy
+#| msgid "Authenticating…"
+msgid "Two-factor authentication status"
+msgstr "Yn dilysu…"
+
+#: templates/preferences/two_factor/main.twig:9
 msgid ""
-"Now, add the following lines at the end of [mysqld] section in your my.cnf "
-"and please restart the MySQL server afterwards."
+"Two-factor authentication is not available, please install optional "
+"dependencies to enable authentication backends."
 msgstr ""
 
-#: templates/server/replication/master_configuration.twig:21
+#: templates/preferences/two_factor/main.twig:10
+msgid "Following composer packages are missing:"
+msgstr ""
+
+#: templates/preferences/two_factor/main.twig:18
+msgid "Two-factor authentication is available and configured for this account."
+msgstr ""
+
+#: templates/preferences/two_factor/main.twig:20
 msgid ""
-"Once you restarted MySQL server, please click on Go button. Afterwards, you "
-"should see a message informing you, that this server <strong>is</strong> "
-"configured as master."
+"Two-factor authentication is available, but not configured for this account."
 msgstr ""
 
-#: templates/preferences/autoload.twig:7
+#: templates/preferences/two_factor/main.twig:24
 msgid ""
-"Your browser has phpMyAdmin configuration for this domain. Would you like to "
-"import it for current session?"
+"Two-factor authentication is not available, enable phpMyAdmin configuration "
+"storage to use it."
 msgstr ""
 
-#: templates/preferences/autoload.twig:13
-#, fuzzy
-#| msgid "Delete tracking data for this table"
-msgid "Delete settings"
-msgstr "Dilëwch data tracio ar gyfer y tabl hwn"
-
-#: templates/server/replication/master_replication.twig:4
-msgid "This server is configured as master in a replication process."
+#: templates/preferences/two_factor/main.twig:33
+msgid "You have enabled two factor authentication."
 msgstr ""
-
-#: templates/server/replication/master_replication.twig:15
-msgid "Show connected slaves"
-msgstr ""
-
-#: templates/server/replication/master_replication.twig:37
-msgid ""
-"Only slaves started with the --report-host=host_name option are visible in "
-"this list."
-msgstr ""
-
-#: templates/columns_definitions/column_definitions_form.twig:23
-msgid "Table name"
-msgstr ""
-
-#: templates/columns_definitions/column_definitions_form.twig:40
-#, fuzzy
-#| msgid "Columns"
-msgid "column(s)"
-msgstr "Colofnau"
-
-#: templates/columns_definitions/column_definitions_form.twig:73
-#, fuzzy
-#| msgid "Collation"
-msgid "Collation:"
-msgstr "Coladiad"
-
-#: templates/columns_definitions/column_definitions_form.twig:76
-#, fuzzy
-#| msgid "Storage Engine"
-msgid "Storage Engine:"
-msgstr "Peiriant Storio"
-
-#: templates/columns_definitions/column_definitions_form.twig:81
-#, fuzzy
-#| msgid "Creation"
-msgid "Connection:"
-msgstr "Cread"
-
-#: templates/columns_definitions/column_definitions_form.twig:132
-#, fuzzy
-#| msgid "PARTITION definition"
-msgid "PARTITION definition:"
-msgstr "Diffiniad PARTITION"
-
-#: templates/database/designer/page_selector.twig:2
-#, fuzzy
-#| msgid "Select Tables"
-msgid "Select page"
-msgstr "Dewis Tablau"
-
-#: templates/display/results/sort_by_key.twig:3
-#, fuzzy
-#| msgid "Sort by key"
-msgid "Sort by key:"
-msgstr "Trefnu gan allwedd"
-
-#: templates/database/structure/show_create.twig:2
-#, fuzzy
-#| msgid "Show SQL queries"
-msgid "Showing create queries"
-msgstr "Dangos ymholiadau SQL"
-
-#: templates/themes.twig:4
-msgid "Get more themes!"
-msgstr "Cael gafael ar mwy o themâu!"
-
-#: templates/database/search/main.twig:5
-msgid "Search in database"
-msgstr "Chwilio yn y gronfa ddata"
-
-#: templates/database/search/main.twig:8
-#, fuzzy
-#| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
-msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Geiriau neu werthoedd i'w chwilio amdanyn nhw (nod-chwiliwr: \"%\"):"
-
-#: templates/database/search/main.twig:29
-#, fuzzy
-#| msgid "Inside table(s):"
-msgid "Inside tables:"
-msgstr "Tu fewn tabl(au):"
-
-#: templates/database/search/main.twig:56
-msgid "Inside column:"
-msgstr "Tu fewn colofn:"
 
 #: templates/columns_definitions/partitions.twig:17
 #, fuzzy
@@ -16929,183 +16793,86 @@ msgstr "Chwilio"
 msgid "Node group"
 msgstr "Defnyddiwr"
 
-#: templates/table/tracking/main.twig:29
-#: templates/database/tracking/tables.twig:15
-msgid "Created"
-msgstr "Crëwyd"
-
-#: templates/table/tracking/main.twig:30
-#: templates/database/tracking/tables.twig:16
-msgid "Updated"
-msgstr "Diweddarwyd"
-
-#: templates/table/tracking/main.twig:64 templates/table/tracking/main.twig:92
-#, fuzzy
-#| msgid "Create version"
-msgid "Delete version"
-msgstr "Crëwch fersiwn"
-
-#: templates/table/tracking/main.twig:107
-#, fuzzy, php-format
-#| msgid "Activate tracking for %s.%s"
-msgid "Activate tracking for %s"
-msgstr "Gweithredwch dracio am  %s.%s"
-
-#: templates/table/tracking/main.twig:109
-msgid "Activate now"
-msgstr "Gweithredwch nawr"
-
-#: templates/table/tracking/main.twig:111
-#, fuzzy, php-format
-#| msgid "Deactivate tracking for %s.%s"
-msgid "Deactivate tracking for %s"
-msgstr "Dadweithredwch dracio am  %s.%s"
-
-#: templates/table/tracking/main.twig:113
-msgid "Deactivate now"
-msgstr "Dadweithredwch nawr"
-
-#: templates/database/designer/database_tables.twig:34
+#: templates/database/designer/database_tables.twig:36
 #, fuzzy
 #| msgid "Add %s column(s)"
 msgid "Show/hide columns"
 msgstr "Ychwanegwch %s colofn"
 
-#: templates/database/designer/database_tables.twig:43
+#: templates/database/designer/database_tables.twig:45
 #, fuzzy
 #| msgid "Databases"
 msgid "See table structure"
 msgstr "Cronfeydd Data"
 
-#: templates/display/export/options_output_radio.twig:5
+#: templates/toggle_button.twig:3
 #, fuzzy
-#| msgid "Save as file"
-msgid "View output as text"
-msgstr "Cadw fel ffeil"
+#| msgid "Click to select"
+msgid "Click to toggle"
+msgstr "Pwyso i ddewis"
 
-#: templates/server/privileges/add_user_fieldset.twig:2
-msgctxt "Create new user"
-msgid "New"
+#: templates/navigation/main.twig:26 templates/navigation/main.twig:27
+msgid "Home"
 msgstr ""
 
-#: templates/display/export/options_output_format.twig:3
+#: templates/navigation/main.twig:31 templates/navigation/main.twig:32
 #, fuzzy
-#| msgid "File name template"
-msgid "File name template:"
-msgstr "Templed enw ffeil"
+#| msgid "Dumping data for table"
+msgid "Empty session data"
+msgstr "Dadlwytho data ar gyfer y tabl"
 
-#: templates/display/export/options_output_format.twig:11
-msgid "use this for future exports"
+#: templates/navigation/main.twig:31 templates/navigation/main.twig:32
+msgid "Log out"
 msgstr ""
 
-#. l10n: Questions is the name of a MySQL Status variable
-#: templates/server/status/queries/index.twig:7
-msgid "Questions since startup:"
-msgstr ""
+#: templates/navigation/main.twig:36 templates/navigation/main.twig:37
+msgid "phpMyAdmin documentation"
+msgstr "Dogfennaeth phpMyAdmin"
 
-#: templates/server/status/queries/index.twig:17
-msgid "per hour:"
-msgstr ""
-
-#: templates/server/status/queries/index.twig:18
+#: templates/navigation/main.twig:44 templates/navigation/main.twig:45
 #, fuzzy
-#| msgid "Minute"
-msgid "per minute:"
-msgstr "Munud"
+#| msgid "Navigation frame"
+msgid "Navigation panel settings"
+msgstr "Ffrâm llywio"
 
-#: templates/server/status/queries/index.twig:20
+#: templates/navigation/main.twig:48 templates/navigation/main.twig:49
 #, fuzzy
-#| msgid "Second"
-msgid "per second:"
-msgstr "Eiliad"
+#| msgid "Navigation frame"
+msgid "Reload navigation panel"
+msgstr "Ffrâm llywio"
 
-#: templates/server/status/queries/index.twig:32
-msgid "Statements"
+#: templates/navigation/main.twig:68
+msgid "An error has occurred while loading the navigation display"
 msgstr ""
 
-#. l10n: # = Amount of queries
-#: templates/server/status/queries/index.twig:33
-msgid "#"
+#: templates/navigation/main.twig:89
+#, fuzzy
+#| msgid "SQL dump"
+msgid "SQL upload"
+msgstr "Dadlwythiad SQL"
+
+#: templates/server/variables/index.twig:3
+msgid "Server variables and settings"
 msgstr ""
 
-#: templates/server/status/queries/index.twig:53
-msgid "Not enough privilege to view query statistics."
+#: templates/server/variables/index.twig:40
+msgid "This is a read-only variable and can not be edited"
 msgstr ""
 
-#: templates/gis_data_editor_form.twig:4
+#: templates/server/variables/index.twig:66
+msgid "Session value"
+msgstr ""
+
+#: templates/server/variables/index.twig:75
 #, php-format
-msgid "Value for the column \"%s\""
+msgid "Not enough privilege to view server variables and settings. %s"
 msgstr ""
 
-#: templates/gis_data_editor_form.twig:38
-msgctxt "Spatial Reference System Identifier"
-msgid "SRID:"
-msgstr ""
-
-#: templates/gis_data_editor_form.twig:52
-#, php-format
-msgid "Geometry %d:"
-msgstr ""
-
-#: templates/gis_data_editor_form.twig:72
-msgid "Point:"
-msgstr ""
-
-#: templates/gis_data_editor_form.twig:92
-#: templates/gis_data_editor_form.twig:133
-#: templates/gis_data_editor_form.twig:185
-#, fuzzy, php-format
-#| msgid "Lines terminated by"
-msgid "Point %d:"
-msgstr "Terfynwyd llinellau gan"
-
-#: templates/gis_data_editor_form.twig:112
-#, fuzzy, php-format
-#| msgid "Lines terminated by"
-msgid "Linestring %d:"
-msgstr "Terfynwyd llinellau gan"
-
-#: templates/gis_data_editor_form.twig:114
-#: templates/gis_data_editor_form.twig:169
-msgid "Outer ring:"
-msgstr ""
-
-#: templates/gis_data_editor_form.twig:116
-#: templates/gis_data_editor_form.twig:171
-#, php-format
-msgid "Inner ring %d:"
-msgstr ""
-
-#: templates/gis_data_editor_form.twig:143
+#: templates/table/search/rows_zoom.twig:12
 #, fuzzy
-#| msgid "Add constraints"
-msgid "Add a linestring"
-msgstr "Ychwanegwch cyfyngiadau"
-
-#: templates/gis_data_editor_form.twig:156
-#, php-format
-msgid "Polygon %d:"
-msgstr ""
-
-#: templates/gis_data_editor_form.twig:198
-msgid "Add a polygon"
-msgstr ""
-
-#: templates/gis_data_editor_form.twig:203
-#, fuzzy
-#| msgid "Add a new server"
-msgid "Add geometry"
-msgstr "Ychwanegwch weinydd newydd"
-
-#: templates/gis_data_editor_form.twig:212
-msgid "Output"
-msgstr ""
-
-#: templates/gis_data_editor_form.twig:214
-msgid ""
-"Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field."
-msgstr ""
+#| msgid "in query"
+msgid "Additional search criteria"
+msgstr "mewn ymholiad"
 
 #: templates/server/replication/slave_configuration.twig:4
 #, fuzzy
@@ -17182,274 +16949,511 @@ msgid ""
 "like to %sconfigure%s it?"
 msgstr ""
 
-#: templates/database/structure/structure_table_row.twig:221
-msgid "in use"
-msgstr "ar ddefnydd"
-
-#: templates/display/results/options_block.twig:34
-msgid "Relational key"
-msgstr "Allwedd perthynol"
-
-#: templates/display/results/options_block.twig:34
-#, fuzzy
-#| msgid "Display columns table"
-msgid "Display column for relationships"
-msgstr "Dangos tabl colofnau"
-
-#: templates/display/results/options_block.twig:50
-msgid "Show binary contents"
-msgstr "Dangos cynnwys deuaidd"
-
-#: templates/display/results/options_block.twig:57
-msgid "Show BLOB contents"
-msgstr "Dangos cynnwys BLOB"
-
-#: templates/display/results/options_block.twig:71
-#, fuzzy
-#| msgid "Browser transformation"
-msgid "Hide browser transformation"
-msgstr "Trawsffurfiad porwr"
-
-#: templates/display/results/options_block.twig:83
-#: templates/display/results/options_block.twig:100
-msgid "Well Known Text"
-msgstr ""
-
-#: templates/display/results/options_block.twig:83
-#: templates/display/results/options_block.twig:100
-msgid "Well Known Binary"
-msgstr ""
-
-#: templates/database/structure/table_header.twig:27
-msgid ""
-"May be approximate. Click on the number to get the exact count. See "
-"[doc@faq3-11]FAQ 3.11[/doc]."
-msgstr ""
-
-#: templates/table/relation/common_form.twig:9
-#, fuzzy
-#| msgid "Add constraints"
-msgid "Foreign key constraints"
-msgstr "Ychwanegwch cyfyngiadau"
-
-#: templates/table/relation/common_form.twig:13
-#, fuzzy
-#| msgid "Action"
-msgid "Actions"
-msgstr "Gweithred"
-
-#: templates/table/relation/common_form.twig:14
-#, fuzzy
-#| msgid "Routines"
-msgid "Constraint properties"
-msgstr "Rheolweithiau"
-
-#: templates/table/relation/common_form.twig:18
-msgid ""
-"Creating a foreign key over a non-indexed column would automatically create "
-"an index on it. Alternatively, you can define an index below, before "
-"creating the foreign key."
-msgstr ""
-
-#: templates/table/relation/common_form.twig:23
-msgid ""
-"Only columns with index will be displayed. You can define an index below."
-msgstr ""
-
-#: templates/table/relation/common_form.twig:27
-msgid "Foreign key constraint"
-msgstr ""
-
-#: templates/table/relation/common_form.twig:92
-#, fuzzy
-#| msgid "Add constraints"
-msgid "+ Add constraint"
-msgstr "Ychwanegwch cyfyngiadau"
-
-#: templates/table/relation/common_form.twig:103
-#: templates/table/relation/common_form.twig:112
-#, fuzzy
-#| msgid "Internal relations"
-msgid "Internal relationships"
-msgstr "Perthnasau mewnol"
-
-#: templates/table/relation/common_form.twig:118
-msgid "Internal relation"
-msgstr ""
-
-#: templates/table/relation/common_form.twig:120
-msgid ""
-"An internal relation is not necessary when a corresponding FOREIGN KEY "
-"relation exists."
-msgstr ""
-
-#: templates/table/relation/common_form.twig:200
-#, fuzzy
-#| msgid "Choose column to display"
-msgid "Choose column to display:"
-msgstr "Dewis colofn i'w dangos"
-
-#: templates/database/tracking/tables.twig:4
-msgid "Tracked tables"
-msgstr "Tablau a draciwyd"
-
-#: templates/database/tracking/tables.twig:14
-msgid "Last version"
-msgstr "Fersiwn diweddaraf"
-
-#: templates/database/tracking/tables.twig:56
-#: templates/database/tracking/tables.twig:101
-#, fuzzy
-#| msgid "Delete tracking data for this table"
-msgid "Delete tracking"
-msgstr "Dilëwch data tracio ar gyfer y tabl hwn"
-
-#: templates/database/tracking/tables.twig:67
-msgid "Versions"
-msgstr "Fersiynau"
-
-#: templates/database/tracking/tables.twig:112
-msgid "Untracked tables"
-msgstr "Tablau heb dracio"
-
-#: templates/database/tracking/tables.twig:139
-#: templates/database/tracking/tables.twig:151
-#: templates/table/structure/display_structure.twig:398
-msgid "Track table"
-msgstr "Tracio tabl"
-
-#: templates/display/import/javascript.twig:12
-msgid ""
-"The file being uploaded is probably larger than the maximum allowed size or "
-"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
-"browsers."
-msgstr ""
-
-#: templates/display/import/javascript.twig:13
-#, php-format
-msgid "%s of %s"
-msgstr ""
-
-#: templates/display/import/javascript.twig:14
-#, php-format
-msgid "%s/sec."
-msgstr ""
-
-#: templates/display/import/javascript.twig:15
-msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
-
-#: templates/display/import/javascript.twig:16
-msgid "About %SEC sec. remaining."
-msgstr ""
-
-#: templates/display/import/javascript.twig:17
-msgid "The file is being processed, please be patient."
-msgstr "Mae'r ffeil yn cael ei phrosesu. Byddwch yn amyneddgar."
-
-#: templates/display/import/javascript.twig:30
-#, fuzzy
-#| msgid "Format of imported file"
-msgid "Uploading your import file…"
-msgstr "Fformat y ffeil a mewnforiwyd"
-
-#: templates/display/import/javascript.twig:155
-msgid ""
-"Please be patient, the file is being uploaded. Details about the upload are "
-"not available."
-msgstr ""
-"Byddwch yn amyneddgar, mae'r ffeil yn cael ei lanlwytho. Does dim manylion "
-"parthed y lanlwythiad ar gael."
-
-#: templates/table/structure/display_structure.twig:70
-#, fuzzy
-#| msgid "MIME type"
-msgid "Media (MIME) type:"
-msgstr "Math MIME"
-
-#: templates/table/structure/display_structure.twig:112
-#, php-format
-msgid "Column %s has been dropped."
-msgstr ""
-
-#: templates/table/structure/display_structure.twig:135
-#, php-format
-msgid "A primary key has been added on %s."
-msgstr ""
-
-#: templates/table/structure/display_structure.twig:153
-#: templates/table/structure/display_structure.twig:171
-#: templates/table/structure/display_structure.twig:200
-#: templates/table/structure/display_structure.twig:223
-#, php-format
-msgid "An index has been added on %s."
-msgstr ""
-
-#: templates/table/structure/display_structure.twig:247
-#: templates/table/structure/display_structure.twig:350
-#, fuzzy
-#| msgid "Remove database"
-msgid "Remove from central columns"
-msgstr "Tynnwch y gronfa ddata"
-
-#: templates/table/structure/display_structure.twig:251
-#: templates/table/structure/display_structure.twig:343
-#, fuzzy
-#| msgid "Add %s column(s)"
-msgid "Add to central columns"
-msgstr "Ychwanegwch %s colofn"
-
-#: templates/table/structure/display_structure.twig:363
-#: templates/table/structure/display_structure.twig:402
-#, fuzzy
-#| msgid "Add %s column(s)"
-msgid "Move columns"
-msgstr "Ychwanegwch %s colofn"
-
-#: templates/table/structure/display_structure.twig:364
-msgid "Move the columns by dragging them up and down."
-msgstr ""
-
-#: templates/table/structure/display_structure.twig:388
-msgid "Propose table structure"
-msgstr ""
-
-#: templates/table/structure/display_structure.twig:405
-msgid "Normalize"
-msgstr ""
-
-#: templates/table/structure/display_structure.twig:411
-#, fuzzy
-#| msgid "Track table"
-msgid "Track view"
-msgstr "Tracio tabl"
-
-#: templates/table/structure/display_structure.twig:425
-#, php-format
-msgid "Add %s column(s)"
-msgstr "Ychwanegwch %s colofn"
-
-#: templates/table/structure/display_structure.twig:430
-#, fuzzy
-#| msgid "Show dimension of tables"
-msgid "at beginning of table"
-msgstr "Dangos dimensiynau'r tabl"
-
-#: templates/display/export/template_options.twig:1
+#: templates/database/designer/page_selector.twig:2
 #, fuzzy
 #| msgid "Select Tables"
-msgid "Select a template"
+msgid "Select page"
 msgstr "Dewis Tablau"
 
-#: templates/theme_preview.twig:11
-msgid "No preview available."
-msgstr "Dim rhagolwg ar gael."
+#: templates/themes.twig:4
+msgid "Get more themes!"
+msgstr "Cael gafael ar mwy o themâu!"
 
-#: templates/theme_preview.twig:13
+#: templates/home/index.twig:28
 #, fuzzy
-#| msgid "take it"
-msgid "Take it"
-msgstr "cymerwch e"
+#| msgid "General relation features"
+msgid "General settings"
+msgstr "Nodweddion perthynas cyffredinol"
+
+#: templates/home/index.twig:45
+#, fuzzy
+#| msgid "MySQL connection collation"
+msgid "Server connection collation:"
+msgstr "Coladiad cysylltiad MySQL"
+
+#: templates/home/index.twig:72
+#, fuzzy
+#| msgid "General relation features"
+msgid "Appearance settings"
+msgstr "Nodweddion perthynas cyffredinol"
+
+#: templates/home/index.twig:94
+#, fuzzy
+#| msgid "Databases"
+msgid "Database server"
+msgstr "Cronfeydd Data"
+
+#: templates/home/index.twig:101
+#, fuzzy
+#| msgid "Server"
+msgid "Server type:"
+msgstr "Gweinydd"
+
+#: templates/home/index.twig:105
+#, fuzzy
+#| msgid "Format of imported file"
+msgid "Server connection:"
+msgstr "Fformat y ffeil a mewnforiwyd"
+
+#: templates/home/index.twig:113
+#, fuzzy
+#| msgid "Protocol version"
+msgid "Protocol version:"
+msgstr "Fersiwn protocol"
+
+#: templates/home/index.twig:117
+#, fuzzy
+#| msgid "User"
+msgid "User:"
+msgstr "Defnyddiwr"
+
+#: templates/home/index.twig:121
+#, fuzzy
+#| msgid "Server socket"
+msgid "Server charset:"
+msgstr "Soced gweinydd"
+
+#: templates/home/index.twig:132
+msgid "Web server"
+msgstr "Gweinydd gwe"
+
+#: templates/home/index.twig:139
+#, fuzzy
+#| msgid "MySQL client version"
+msgid "Database client version:"
+msgstr "Fersiwn cleient MySQL"
+
+#: templates/home/index.twig:143
+#, fuzzy
+#| msgid "PHP extension"
+msgid "PHP extension:"
+msgstr "Estyniad PHP"
+
+#: templates/home/index.twig:150
+#, fuzzy
+#| msgid "PHP Version"
+msgid "PHP version:"
+msgstr "Fersiwn PHP"
+
+#: templates/home/index.twig:165
+#, fuzzy
+#| msgid "Version information"
+msgid "Version information:"
+msgstr "Gwybodaeth y fersiwn"
+
+#: templates/home/index.twig:175
+msgid "Official Homepage"
+msgstr "Hafan Swyddogol"
+
+#: templates/home/index.twig:180
+msgid "Contribute"
+msgstr ""
+
+#: templates/home/index.twig:185
+msgid "Get support"
+msgstr ""
+
+#: templates/home/index.twig:190
+#, fuzzy
+#| msgid "No change"
+msgid "List of changes"
+msgstr "Dim newid"
+
+#: templates/table/search/selection_form.twig:12
+msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
+msgstr ""
+
+#: templates/table/search/selection_form.twig:29
+msgid "Use this column to label each point"
+msgstr ""
+
+#: templates/table/search/selection_form.twig:55
+msgid "Maximum rows to plot"
+msgstr ""
+
+#: templates/table/search/selection_form.twig:80
+msgid "Do a \"query by example\" (wildcard: \"%\")"
+msgstr ""
+
+#: templates/table/search/selection_form.twig:106
+msgid "Select columns (at least one):"
+msgstr ""
+
+#: templates/table/search/selection_form.twig:126
+msgid "Add search conditions (body of the \"where\" clause):"
+msgstr ""
+
+#: templates/table/search/selection_form.twig:134
+msgid "Number of rows per page"
+msgstr ""
+
+#: templates/table/search/selection_form.twig:145
+msgid "Display order:"
+msgstr ""
+
+#: templates/table/search/selection_form.twig:183
+#, fuzzy
+#| msgid "Replace NULL by"
+msgid "Replace with:"
+msgstr "Amnewid NULL gan"
+
+#: templates/table/search/selection_form.twig:199
+#, fuzzy
+#| msgid "as regular expression"
+msgid "Use regular expression"
+msgstr "fel mynegiad arferol (regular expression)"
+
+#: templates/table/page_with_secondary_tabs.twig:9
+#, fuzzy
+#| msgid "Relational key"
+msgid "Relation view"
+msgstr "Allwedd perthynol"
+
+#: templates/error/report_form.twig:6
+msgid ""
+"This report automatically includes data about the error and information "
+"about relevant configuration settings. It will be sent to the phpMyAdmin "
+"team for debugging the error."
+msgstr ""
+
+#: templates/error/report_form.twig:12
+msgid ""
+"Can you tell us the steps leading to this error? It decisively helps in "
+"debugging:"
+msgstr ""
+
+#: templates/error/report_form.twig:19
+msgid "You may examine the data in the error report:"
+msgstr ""
+
+#: templates/database/create_table.twig:15
+msgid "Number of columns"
+msgstr "Nifer y colofnau"
+
+#: templates/server/status/base.twig:15
+#, fuzzy
+#| msgid "Show statistics"
+msgid "Query statistics"
+msgstr "Dangos ystadegau"
+
+#: templates/server/status/base.twig:20
+msgid "All status variables"
+msgstr ""
+
+#: templates/server/status/base.twig:25
+msgid "Monitor"
+msgstr ""
+
+#: templates/server/status/base.twig:30
+msgid "Advisor"
+msgstr ""
+
+#: templates/database/central_columns/main.twig:4
+#, fuzzy
+#| msgid "Add %s column(s)"
+msgid "Add new column"
+msgstr "Ychwanegwch %s colofn"
+
+#: templates/database/central_columns/main.twig:25
+#: templates/database/central_columns/main.twig:244
+msgid "Length/Value"
+msgstr ""
+
+#: templates/database/central_columns/main.twig:37
+#: templates/database/central_columns/main.twig:256
+msgid "Attribute"
+msgstr ""
+
+#: templates/database/central_columns/main.twig:145
+msgid "The central list of columns for the current database is empty"
+msgstr ""
+
+#: templates/database/central_columns/main.twig:203
+#, fuzzy
+#| msgid "Select Tables"
+msgid "Select a table"
+msgstr "Dewis Tablau"
+
+#: templates/database/central_columns/main.twig:210
+#, fuzzy
+#| msgid "Add/Delete columns"
+msgid "Select a column."
+msgstr "Ychwanegu/Dileu colofnau"
+
+#: templates/database/central_columns/main.twig:229
+msgid "Click to sort."
+msgstr "Clicia i drefnu."
+
+#: templates/export/alias_item.twig:8
+msgid "Remove"
+msgstr ""
+
+#: templates/preferences/manage/main.twig:3
+#: templates/preferences/manage/main.twig:28
+msgid "Saved on: @DATE@"
+msgstr ""
+
+#: templates/preferences/manage/main.twig:15
+#, fuzzy
+#| msgid "Import files"
+msgid "Import from file"
+msgstr "Mewnforiwch ffeiliau"
+
+#: templates/preferences/manage/main.twig:22
+msgid "Import from browser's storage"
+msgstr ""
+
+#: templates/preferences/manage/main.twig:25
+msgid "Settings will be imported from your browser's local storage."
+msgstr ""
+
+#: templates/preferences/manage/main.twig:31
+msgid "You have no saved settings!"
+msgstr ""
+
+#: templates/preferences/manage/main.twig:35
+#: templates/preferences/manage/main.twig:93
+msgid "This feature is not supported by your web browser"
+msgstr ""
+
+#: templates/preferences/manage/main.twig:39
+msgid "Merge with current configuration"
+msgstr ""
+
+#: templates/preferences/manage/main.twig:51
+#, php-format
+msgid ""
+"You can set more settings by modifying config.inc.php, eg. by using %sSetup "
+"script%s."
+msgstr ""
+
+#: templates/preferences/manage/main.twig:70
+#, fuzzy
+#| msgid "Save as file"
+msgid "Save as JSON file"
+msgstr "Cadw fel ffeil"
+
+#: templates/preferences/manage/main.twig:74
+#, fuzzy
+#| msgid "Save as file"
+msgid "Save as PHP file"
+msgstr "Cadw fel ffeil"
+
+#: templates/preferences/manage/main.twig:79
+msgid "Save to browser's storage"
+msgstr ""
+
+#: templates/preferences/manage/main.twig:85
+msgid "Settings will be saved in your browser's local storage."
+msgstr ""
+
+#: templates/preferences/manage/main.twig:88
+msgid "Existing settings will be overwritten!"
+msgstr ""
+
+#: templates/preferences/manage/main.twig:105
+msgid "You can reset all your settings and restore them to default values."
+msgstr ""
+
+#: templates/server/replication/master_configuration.twig:2
+msgid "Master configuration"
+msgstr ""
+
+#: templates/server/replication/master_configuration.twig:4
+msgid ""
+"This server is not configured as a master server in a replication process. "
+"You can choose from either replicating all databases and ignoring some of "
+"them (useful if you want to replicate a majority of the databases) or you "
+"can choose to ignore all databases by default and allow only certain "
+"databases to be replicated. Please select the mode:"
+msgstr ""
+
+#: templates/server/replication/master_configuration.twig:9
+msgid "Replicate all databases; Ignore:"
+msgstr ""
+
+#: templates/server/replication/master_configuration.twig:10
+msgid "Ignore all databases; Replicate:"
+msgstr ""
+
+#: templates/server/replication/master_configuration.twig:12
+msgid "Please select databases:"
+msgstr ""
+
+#: templates/server/replication/master_configuration.twig:15
+msgid ""
+"Now, add the following lines at the end of [mysqld] section in your my.cnf "
+"and please restart the MySQL server afterwards."
+msgstr ""
+
+#: templates/server/replication/master_configuration.twig:21
+msgid ""
+"Once you restarted MySQL server, please click on Go button. Afterwards, you "
+"should see a message informing you, that this server <strong>is</strong> "
+"configured as master."
+msgstr ""
+
+#: templates/display/import/import.twig:40
+#, fuzzy
+#| msgid "Cannot log in to the MySQL server"
+msgid "Importing into the current server"
+msgstr "Methu â mewngofnodi i'r gweinydd MySQL"
+
+#: templates/display/import/import.twig:42
+#, fuzzy, php-format
+#| msgid "Jump to database"
+msgid "Importing into the database \"%s\""
+msgstr "Neidiwch i'r gronfa ddata"
+
+#: templates/display/import/import.twig:44
+#, fuzzy, php-format
+#| msgid "Jump to database"
+msgid "Importing into the table \"%s\""
+msgstr "Neidiwch i'r gronfa ddata"
+
+#: templates/display/import/import.twig:50
+#, fuzzy
+#| msgid "File to import"
+msgid "File to import:"
+msgstr "Ffeil i'w mewnforio"
+
+#: templates/display/import/import.twig:56
+#, php-format
+msgid "File may be compressed (%s) or uncompressed."
+msgstr ""
+
+#: templates/display/import/import.twig:58
+msgid ""
+"A compressed file's name must end in <strong>.[format].[compression]</"
+"strong>. Example: <strong>.sql.zip</strong>"
+msgstr ""
+
+#: templates/display/import/import.twig:69
+#: templates/display/import/import.twig:84
+msgid "You may also drag and drop a file on any page."
+msgstr ""
+
+#: templates/display/import/import.twig:86
+msgid "File uploads are not allowed on this server."
+msgstr "Dyw lanlwytho ffeiliau ddim yn cael ei ganiatáu ar y gweinydd hwn."
+
+#: templates/display/import/import.twig:125
+#, fuzzy
+#| msgid "Partial import"
+msgid "Partial import:"
+msgstr "Mewnforiad rhannol"
+
+#: templates/display/import/import.twig:130
+#, php-format
+msgid ""
+"Previous import timed out, after resubmitting will continue from position %d."
+msgstr ""
+
+#: templates/display/import/import.twig:138
+msgid ""
+"Allow the interruption of an import in case the script detects it is close "
+"to the PHP timeout limit. <em>(This might be a good way to import large "
+"files, however it can break transactions.)</em>"
+msgstr ""
+
+#: templates/display/import/import.twig:145
+#, fuzzy
+#| msgid "Number of queries to skip from start"
+msgid "Skip this number of queries (for SQL) starting from the first one:"
+msgstr "Nifer yr ymholiadau i'w neidio o'r dechrau"
+
+#: templates/display/import/import.twig:162
+#, fuzzy
+#| msgid "Options"
+msgid "Other options:"
+msgstr "Opsiynau"
+
+#: templates/preferences/manage/error.twig:1
+msgid "Configuration contains incorrect data for some fields."
+msgstr ""
+
+#: templates/preferences/manage/error.twig:16
+msgid "Do you want to import remaining settings?"
+msgstr ""
+
+#: templates/server/replication/master_replication.twig:4
+msgid "This server is configured as master in a replication process."
+msgstr ""
+
+#: templates/server/replication/master_replication.twig:15
+msgid "Show connected slaves"
+msgstr ""
+
+#: templates/server/replication/master_replication.twig:37
+msgid ""
+"Only slaves started with the --report-host=host_name option are visible in "
+"this list."
+msgstr ""
+
+#: templates/table/tracking/main.twig:64 templates/table/tracking/main.twig:92
+#, fuzzy
+#| msgid "Create version"
+msgid "Delete version"
+msgstr "Crëwch fersiwn"
+
+#: templates/table/tracking/main.twig:107
+#, fuzzy, php-format
+#| msgid "Activate tracking for %s.%s"
+msgid "Activate tracking for %s"
+msgstr "Gweithredwch dracio am  %s.%s"
+
+#: templates/table/tracking/main.twig:109
+msgid "Activate now"
+msgstr "Gweithredwch nawr"
+
+#: templates/table/tracking/main.twig:111
+#, fuzzy, php-format
+#| msgid "Deactivate tracking for %s.%s"
+msgid "Deactivate tracking for %s"
+msgstr "Dadweithredwch dracio am  %s.%s"
+
+#: templates/table/tracking/main.twig:113
+msgid "Deactivate now"
+msgstr "Dadweithredwch nawr"
+
+#: templates/columns_definitions/column_default.twig:3
+msgctxt "for default"
+msgid "None"
+msgstr "Dim"
+
+#: templates/columns_definitions/column_default.twig:5
+msgid "As defined:"
+msgstr "Fel a ddiffiniwyd:"
+
+#: templates/create_tracking_version.twig:11
+#, fuzzy, php-format
+#| msgid "Create version %s of %s.%s"
+msgid "Create version %1$s of %2$s"
+msgstr "Crëwch fersiwn %s o %s.%s"
+
+#: templates/create_tracking_version.twig:16
+#, fuzzy, php-format
+#| msgid "Create version"
+msgid "Create version %1$s"
+msgstr "Crëwch fersiwn"
+
+#: templates/create_tracking_version.twig:20
+msgid "Track these data definition statements:"
+msgstr "Traciwch y datganiadau diffiniad data hyn:"
+
+#: templates/create_tracking_version.twig:59
+msgid "Track these data manipulation statements:"
+msgstr "Traciwch y datganiadau trin data hyn:"
+
+#: templates/create_tracking_version.twig:76
+msgid "Create version"
+msgstr "Crëwch fersiwn"
+
+#: templates/login/twofactor/key-https-warning.twig:3
+msgid ""
+"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
+"most likely refuse to authenticate you."
+msgstr ""
 
 #: url.php:50
 #, fuzzy
