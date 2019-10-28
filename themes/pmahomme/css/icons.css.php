@@ -55,7 +55,6 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
 .ic_b_import { background-image: url('<?= $theme->getImgPath('b_import.png'); ?>'); }
 .ic_b_index { background-image: url('<?= $theme->getImgPath('b_index.png'); ?>'); }
 .ic_b_index_add { background-image: url('<?= $theme->getImgPath('b_index_add.png'); ?>'); }
-.ic_b_info { background-image: url('<?= $theme->getImgPath('b_info.png'); ?>'); width: 11px; height: 11px; }
 .ic_b_inline_edit { background-image: url('<?= $theme->getImgPath('b_inline_edit.png'); ?>'); }
 .ic_b_insrow { background-image: url('<?= $theme->getImgPath('b_insrow.png'); ?>'); }
 .ic_b_lastpage { background-image: url('<?= $theme->getImgPath('b_lastpage.png'); ?>'); }
