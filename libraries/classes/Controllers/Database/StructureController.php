@@ -409,7 +409,7 @@ class StructureController extends AbstractController
                 $overhead = '-';
                 if ($formatted_overhead != '') {
                     $overhead = $this->template->render('database/structure/overhead', [
-                        'url' => Url::getFromRoute('/table/structure', $tableUrlParams) . '#showusage',
+                        'table_url_params' => $tableUrlParams,
                         'formatted_overhead' => $formatted_overhead,
                         'overhead_unit' => $overhead_unit,
                     ]);
