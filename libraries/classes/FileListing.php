@@ -65,14 +65,10 @@ class FileListing
             return false;
         }
 
-        $sanitizedList = array_map(function (string $entry) {
-            return htmlspecialchars($entry);
-        }, $list);
-
         $template = new Template();
 
         return $template->render('file_select_options', [
-            'filesList' => $sanitizedList,
+            'filesList' => $list,
             'active' => $active
         ]);
     }
