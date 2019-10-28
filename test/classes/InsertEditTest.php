@@ -3455,7 +3455,7 @@ class InsertEditTest extends TestCase
     public function testVerifyWhetherValueCanBeTruncatedAndAppendExtraData()
     {
         $extra_data = ['isNeedToRecheck' => true];
-        $meta = new stdClass();
+
         $_POST['where_clause'][0] = 1;
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
@@ -3503,6 +3503,7 @@ class InsertEditTest extends TestCase
 
         $meta = new stdClass();
         $meta->type = 'timestamp';
+        $meta->flags = '';
         $dbi->expects($this->at(9))
             ->method('getFieldsMeta')
             ->will($this->returnValue([$meta]));

@@ -53,6 +53,9 @@ phpMyAdmin - ChangeLog
 - issue #14433 Fix "You do not have privileges to manipulate with the users!" on root superadmin
 - issue #15391 Fix GIS polygon of a geometry field is not drawn on "GIS visualization"
 - issue #15311 Fix adjust privileges on copy database fails with MariaDB
+- issue #15477 Fix display referential integrity check for InnoDB
+- issue #15236 Support phpunit 8 in our test suite to help packaging phpMyAdmin on Debian
+- issue #15522 Fix missing image error fills logs, removed ic_b_info icon from icon list
 
 4.9.1 (2019-09-20)
 - issue #15313 Added support for Twig 2

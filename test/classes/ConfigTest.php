@@ -949,6 +949,7 @@ class ConfigTest extends PmaTestCase
     /**
      * Test for isGitRevision
      *
+     * @group git-revision
      * @return void
      */
     public function testIsGitRevisionLocalGitDir()
@@ -1009,6 +1010,7 @@ class ConfigTest extends PmaTestCase
     /**
      * Test for isGitRevision
      *
+     * @group git-revision
      * @return void
      */
     public function testIsGitRevisionExternalGitDir()
@@ -1070,6 +1072,7 @@ class ConfigTest extends PmaTestCase
     /**
      * Test for checkGitRevision packs folder
      *
+     * @group git-revision
      * @return void
      */
     public function testCheckGitRevisionPacksFolder()
@@ -1134,6 +1137,7 @@ class ConfigTest extends PmaTestCase
     /**
      * Test for checkGitRevision packs folder
      *
+     * @group git-revision
      * @return void
      */
     public function testCheckGitRevisionRefFile()
@@ -1189,6 +1193,7 @@ class ConfigTest extends PmaTestCase
     /**
      * Test for checkGitRevision with packs as file
      *
+     * @group git-revision
      * @return void
      */
     public function testCheckGitRevisionPacksFile()
