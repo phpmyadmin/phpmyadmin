@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-10-29 00:34+0100\n"
-"PO-Revision-Date: 2019-07-19 16:06+0000\n"
+"PO-Revision-Date: 2019-10-31 08:04+0000\n"
 "Last-Translator: Kongfa Warorot <gongpha@hotmail.com>\n"
-"Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-9/th/"
-">\n"
+"Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-9/th/>"
+"\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.8-dev\n"
+"X-Generator: Weblate 3.10-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -349,7 +349,7 @@ msgstr "สลับไปยัง %svisual builder%s"
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:78
 #: libraries/classes/Plugins/AuthenticationPlugin.php:171
 msgid "Access denied!"
-msgstr "ไม่อนุญาตให้ใช้งาน"
+msgstr "การเข้าถึงถูกปฏิเสธ!"
 
 #: db_tracking.php:55 db_tracking.php:80
 msgid "Tracking data deleted successfully."
@@ -367,7 +367,7 @@ msgstr "ไม่มีตารางที่ถูกเลือก"
 
 #: db_tracking.php:153
 msgid "Database Log"
-msgstr "Log ของฐานข้อมูล"
+msgstr "ประวัติการเข้าใช้ของฐานข้อมูล"
 
 #: error_report.php:73
 msgid ""
@@ -377,7 +377,7 @@ msgstr "ตรวจพบข้อผิดพลาด และรายง�
 
 #: error_report.php:77
 msgid "Thank you for submitting this report."
-msgstr "ขอบคุณสำหรับการรายงานครั้งนี้"
+msgstr "ขอบคุณสำหรับการส่งรายงานนี้"
 
 #: error_report.php:81
 msgid ""
@@ -641,10 +641,8 @@ msgstr ""
 "sys-maint และ pma ข้อมูลเพิ่มเติมสามารถดูได้ที่ %s"
 
 #: index.php:216
-#, fuzzy
-#| msgid "General Settings"
 msgid "General settings"
-msgstr "ตั้งค่าทั่วไป"
+msgstr "การตั้งค่าทั่วไป"
 
 #: index.php:245 js/messages.php:652
 #: libraries/classes/Display/ChangePassword.php:58
@@ -930,7 +928,7 @@ msgstr "คุณแน่ใจหรือว่าต้องการยก
 
 #: js/messages.php:76
 msgid "Do you really want to delete this central column?"
-msgstr "คุณแน่ใจหรือว่าต้องการลบสดมภ์ส่วนกลางนี้?"
+msgstr "คุณแน่ใจหรือว่าต้องการลบคอลัมน์ส่วนกลางนี้?"
 
 #: js/messages.php:78
 msgid "Do you really want to delete the selected items?"
@@ -970,7 +968,6 @@ msgstr ""
 "เราแนะนำให้คุณแปลงกลับไปเป็นชุดอักขระเดิมแล้วดำเนินการตามเคล็ดลับที่ "
 
 #: js/messages.php:95
-#, fuzzy
 msgid "Garbled Data"
 msgstr "ข้อมูลที่ไม่สามารถอ่านได้"
 
@@ -988,15 +985,16 @@ msgid ""
 "</b>"
 msgstr ""
 "ในการดำเนินการนี้, MySQL จะพยายามเชื่อมค่าของข้อมูลในแต่ละชุดอักขระ "
-"หากชุดอักขระไม่เข้ากันอาจทำให้เกิดการสูญเสียข้อมูล และข้อมูลในส่วนที่สูญเสียไปนี้อาจ<b>ไม่</"
-"b>สามารถกู้คืนได้จากการเปลี่ยนชุดอักขระสดมภ์กลับคืน <b>หากต้องการแปลงข้อมูลที่มีอยู่เดิม, "
-"แนะนำให้ใช้คุณลักษณะการแก้ไขสดมภ์ (ลิงก์ \"เปลี่ยน\") ที่อยู่ในหน้าโครงสร้างตาราง </b>"
+"หากชุดอักขระไม่เข้ากันอาจทำให้เกิดการสูญเสียข้อมูล และข้อมูลในส่วนที่สูญเสียไ"
+"ปนี้อาจ<b>ไม่</b>สามารถกู้คืนได้จากการเปลี่ยนชุดอักขระคอลัมน์กลับคืน "
+"<b>หากต้องการแปลงข้อมูลที่มีอยู่เดิม, แนะนำให้ใช้คุณลักษณะการแก้ไขคอลัมน์ "
+"(ลิงก์ \"เปลี่ยน\") ที่อยู่ในหน้าโครงสร้างตาราง </b>"
 
 #: js/messages.php:108
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
-msgstr "คุณแน่ใจหรือว่าต้องการเปลี่ยนชุดอักขระสดมภ์ทั้งหมดและแปลงตัวข้อมูล?"
+msgstr "คุณแน่ใจหรือว่าต้องการเปลี่ยนชุดอักขระคอลัมน์ทั้งหมดและแปลงข้อมูล?"
 
 #: js/messages.php:112
 msgid "Save & close"
@@ -1424,8 +1422,6 @@ msgid "Current settings"
 msgstr "ค่าที่ถูกตั้งปัจจุบัน"
 
 #: js/messages.php:257
-#, fuzzy
-#| msgid "Import files"
 msgid "Chart title"
 msgstr "ชื่อแผนภูมิ"
 
@@ -1793,10 +1789,8 @@ msgid "Changing charset"
 msgstr "กำลังเปลี่ยนชุดตัวอักษร"
 
 #: js/messages.php:387 templates/fk_checkbox.twig:4
-#, fuzzy
-#| msgid "Foreign key check:"
 msgid "Enable foreign key checks"
-msgstr "ตรวจสอบคีย์ต่างประเทศ:"
+msgstr "เปิดการตรวจสอบคีย์นอก"
 
 #: js/messages.php:390
 msgid "Failed to get real row count."
@@ -1851,7 +1845,7 @@ msgstr "ส่งออก"
 
 #: js/messages.php:405
 msgid "No routine is exportable. Required privileges may be lacking."
-msgstr ""
+msgstr "ไม่มีรูทีนที่สามารถส่งออกได้ อาจมีการขาดสิทธิที่จำเป็น"
 
 #: js/messages.php:408 libraries/classes/Rte/Routines.php:760
 msgid "ENUM/SET editor"
@@ -1928,11 +1922,11 @@ msgstr "﻿%d ไม่ใช่หมายเลขแถวที่ถูก
 #: libraries/classes/Controllers/Table/TableSearchController.php:861
 #: libraries/classes/Sql.php:232 tbl_change.php:142
 msgid "Browse foreign values"
-msgstr ""
+msgstr "เปิดหาค่านอก"
 
 #: js/messages.php:426
 msgid "No auto-saved query"
-msgstr ""
+msgstr "ไม่มีคำสั่งที่บันทึกอัตโนมัติ"
 
 #: js/messages.php:427
 #, php-format
@@ -1973,6 +1967,8 @@ msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
+"การกระทำนี้อาจเปลี่ยนแปลงข้อกำหนดคอลัมน์บางส่วน<br/"
+">คุณแน่ใจว่าต้องการดำเนินการต่อหรือไม่?"
 
 #: js/messages.php:443
 msgid "Continue"
@@ -1991,9 +1987,9 @@ msgid "Taking you to next step…"
 msgstr "กำลังพาคุณไปยังขั้นตอนต่อไป …"
 
 #: js/messages.php:450
-#, fuzzy, php-format
+#, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr "ขั้นตอนแรกของการฟื้นฟูจะเสร็จสมบูรณ์สำหรับตาราง '%s '"
+msgstr "ขั้นตอนแรกของการฟื้นฟูเสร็จสมบูรณ์สำหรับตาราง '%s '"
 
 #: js/messages.php:451 libraries/classes/Normalization.php:510
 #: libraries/classes/Normalization.php:557
@@ -2004,7 +2000,7 @@ msgstr "ขั้นตอนสุดท้าย"
 
 #: js/messages.php:452
 msgid "Second step of normalization (2NF)"
-msgstr ""
+msgstr "ขั้นตอนที่สองของการนอร์มัลไลเซชัน (2NF)"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:453 js/messages.php:782
@@ -2014,74 +2010,72 @@ msgstr "จบ"
 
 #: js/messages.php:454
 msgid "Confirm partial dependencies"
-msgstr ""
+msgstr "ยืนยันอ้างอิงบางส่วน"
 
 #: js/messages.php:455
 msgid "Selected partial dependencies are as follows:"
-msgstr ""
+msgstr "เลือกอ้างอิงบางส่วนตามกำหนดแล้ว:"
 
 #: js/messages.php:457
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
+"หมายเหตุ: a b -> d f หมายถึงค่าของคอลัมน์ a และ b "
+"ที่รวมกันสามารถกำหนดค่าของคอลัมน์ d และคอลัมน์ f"
 
 #: js/messages.php:460
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "ไม่มีฐานข้อมูลที่ถูกเลือก"
+msgstr "ไม่มีการอ้างอิงบางส่วนที่ถูกเลือก!"
 
 #: js/messages.php:463
 msgid "Show me the possible partial dependencies based on data in the table"
-msgstr ""
+msgstr "แสดงอ้างอิงบางส่วนตามข้อมูลที่อยู่ในตาราง"
 
 #: js/messages.php:464
 msgid "Hide partial dependencies list"
-msgstr ""
+msgstr "ซ่อนรายการอ้างอิงบางส่วน"
 
 #: js/messages.php:466
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
+"รอตรงนี้! มันอาจใช้เวลาไม่กี่วินาที "
+"ขึ้นอยู่กับขนาดข้อมูลและจำนวนคอลัมน์ของตาราง"
 
 #: js/messages.php:469
 msgid "Step"
-msgstr ""
+msgstr "ขั้นตอน"
 
 #: js/messages.php:471
 msgid "The following actions will be performed:"
-msgstr ""
+msgstr "การดำเนินการต่อไปนี้จะถูกดำเนินการ:"
 
 #: js/messages.php:472
 #, php-format
 msgid "DROP columns %s from the table %s"
-msgstr ""
+msgstr "ทิ้งคอลัมน์ %s จากตาราง %s"
 
 #: js/messages.php:473
-#, fuzzy
-#| msgid "Add privileges on the following table"
 msgid "Create the following table"
-msgstr "เพิ่มสิทธิของตารางต่อไปนี้"
+msgstr "สร้างตารางต่อไปนี้"
 
 #: js/messages.php:476
 msgid "Third step of normalization (3NF)"
-msgstr ""
+msgstr "ขั้นตอนที่สามของการนอร์มัลไลเซชัน (3NF)"
 
 #: js/messages.php:477
 msgid "Confirm transitive dependencies"
-msgstr ""
+msgstr "การยืนยันการพึ่งพาในช่วงการเปลี่ยนผ่าน"
 
 #: js/messages.php:478
 msgid "Selected dependencies are as follows:"
-msgstr ""
+msgstr "เลือกอ้างอิงตามนี้:"
 
 #: js/messages.php:479
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No dependencies selected!"
-msgstr "ไม่มีฐานข้อมูลที่ถูกเลือก"
+msgstr "ไม่มีการอ้างอิงที่ถูกเลือก!"
 
 #: js/messages.php:482 libraries/classes/CentralColumns.php:1254
 #: libraries/classes/InsertEdit.php:1806
@@ -2102,46 +2096,32 @@ msgid "Show search criteria"
 msgstr "แสดงหลักการค้นหา"
 
 #: js/messages.php:487
-#, fuzzy
-#| msgid "Search"
 msgid "Range search"
-msgstr "ค้นหา"
+msgstr "ระยะการค้นหา"
 
 #: js/messages.php:488
-#, fuzzy
-#| msgid "Column names"
 msgid "Column maximum:"
-msgstr "ชื่อคอลัมน์"
+msgstr "คอลัมน์สูงสุด:"
 
 #: js/messages.php:489
-#, fuzzy
-#| msgid "Column names"
 msgid "Column minimum:"
-msgstr "ชื่อคอลัมน์"
+msgstr "คอลัมน์ต่ำสุด:"
 
 #: js/messages.php:490
-#, fuzzy
-#| msgid "Maximum tables"
 msgid "Minimum value:"
-msgstr "ตารางสูงสุด"
+msgstr "ค่าต่ำสุด:"
 
 #: js/messages.php:491
-#, fuzzy
-#| msgid "Maximum tables"
 msgid "Maximum value:"
-msgstr "ตารางสูงสุด"
+msgstr "ค่าสูงสุด:"
 
 #: js/messages.php:494
-#, fuzzy
-#| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
-msgstr "ซ่อนหลักในการค้นหา"
+msgstr "ซ่อนการค้นหาและแทนที่เกณฑ์"
 
 #: js/messages.php:495
-#, fuzzy
-#| msgid "Show search criteria"
 msgid "Show find and replace criteria"
-msgstr "แสดงหลักการค้นหา"
+msgstr "แสดงเกณฑ์การค้นหาและแทนที่"
 
 #: js/messages.php:499
 msgid "Each point represents a data row."
@@ -2156,27 +2136,24 @@ msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "เมื่อต้องการย่อ/ขยาย ให้เลือกส่วนของจุดโดยใช้เมาส์"
 
 #: js/messages.php:505
-#, fuzzy
-#| msgid "Click reset zoom link to come back to original state."
 msgid "Click reset zoom button to come back to original state."
-msgstr "คลิก ล้างค่า เพื่อกลับไปขนาดเริ่มต้น"
+msgstr "คลิก ตั้งการซูมใหม่ เพื่อกลับไปขนาดเริ่มต้น"
 
 #: js/messages.php:507
 msgid "Click a data point to view and possibly edit the data row."
 msgstr "คลิก จุดข้อมูล เพื่อดูหรือแก้ไขแถวข้อมูล"
 
 #: js/messages.php:509
-#, fuzzy
 msgid "The plot can be resized by dragging it along the bottom right corner."
-msgstr "﻿จุดสามารถปรับขนาดได้ โดยการลากไปมุมขวาด้านล่าง"
+msgstr "﻿จุดสามารถปรับขนาดได้โดยการลากที่มุมขวาด้านล่าง"
 
 #: js/messages.php:512
 msgid "Select two columns"
-msgstr "เพิ่มสองสดมภ์"
+msgstr "เพิ่มสองคอลัมน์"
 
 #: js/messages.php:514
 msgid "Select two different columns"
-msgstr "เลือกสองสดมภ์ใดๆ"
+msgstr "เลือกสองคอลัมน์ที่แตกต่างกัน"
 
 #: js/messages.php:516
 msgid "Data point content"
@@ -2210,42 +2187,44 @@ msgid "Geometry"
 msgstr "เรขาคณิต"
 
 #: js/messages.php:528
-#, fuzzy
-#| msgid "Inner Ring"
 msgid "Inner ring"
-msgstr "ด้านใน"
+msgstr "วงแหวนด้านใน"
 
 #: js/messages.php:529
-#, fuzzy
-#| msgid "Outer Ring"
 msgid "Outer ring"
-msgstr "ด้านนอก"
+msgstr "วงแหวนด้านนอก"
 
 #: js/messages.php:533
 msgid "Do you want to copy encryption key?"
-msgstr ""
+msgstr "คุณต้องการคัดลอกคีย์การเข้ารหัสหรือไม่?"
 
 #: js/messages.php:534
 msgid "Encryption key"
-msgstr ""
+msgstr "คีย์การเข้ารหัส"
 
 #: js/messages.php:538
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
+"MySQL ยอมรับค่าเพิ่มเติมที่ไม่สามารถเลือกได้ด้วยแถบเลื่อน คีย์ในค่าเหล่านั้"
+"นโดยตรง หากต้องการ"
 
 #: js/messages.php:544
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
+"MySQL ยอมรับค่าเพิ่มเติมที่ไม่สามารถเลือกได้ด้วยตัวเลือกวันที่ "
+"คีย์ในค่าเหล่านั้นโดยตรง หากต้องการ"
 
 #: js/messages.php:550
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
+"เพื่อระบุว่าคุณได้ทำการเปลี่ยนแปลงในหน้านี้  "
+"คุณจะได้รับการแจ้งให้ยืนยันก่อนที่จะละทิ้งการเปลี่ยนแปลง"
 
 #: js/messages.php:555
 msgid "Select referenced key"
@@ -2256,10 +2235,8 @@ msgid "Select Foreign Key"
 msgstr "เลือกคีย์นอก"
 
 #: js/messages.php:558
-#, fuzzy
-#| msgid "Please select the primary key or a unique key"
 msgid "Please select the primary key or a unique key!"
-msgstr "กรุณาเลือกคีย์หลักหรือคียเดี่ยว"
+msgstr "กรุณาเลือกคีย์หลักหรือคีย์เอกลักษณ์!"
 
 #: js/messages.php:559 templates/database/designer/side_menu.twig:92
 #: templates/database/designer/side_menu.twig:95
@@ -2274,105 +2251,81 @@ msgstr "คุณยังไม่ได้บันทึกเลย์เอ
 
 #: js/messages.php:564
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "ค่า/คำสั่งย่อย ว่างเปล่า"
 
 #: js/messages.php:565 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
-msgstr "ไม่พบตารางใดๆ ในฐานข้อมูล"
+msgstr "เพิ่มตารางจากฐานข้อมูลอื่น ๆ"
 
 #: js/messages.php:566
-#, fuzzy
-#| msgid "Page number:"
 msgid "Page name"
-msgstr "หมายเลขหน้า:"
+msgstr "ชื่อหน้า"
 
 #: js/messages.php:567 templates/database/designer/side_menu.twig:57
 #: templates/database/designer/side_menu.twig:60
-#, fuzzy
-#| msgid "Select All"
 msgid "Save page"
-msgstr "เลือกทั้งหมด"
+msgstr "บันทึกหน้า"
 
 #: js/messages.php:568 templates/database/designer/side_menu.twig:64
 #: templates/database/designer/side_menu.twig:67
-#, fuzzy
-#| msgid "Select All"
 msgid "Save page as"
-msgstr "เลือกทั้งหมด"
+msgstr "บันทึกหน้าเป็น"
 
 #: js/messages.php:569 templates/database/designer/side_menu.twig:50
 #: templates/database/designer/side_menu.twig:53
-#, fuzzy
-#| msgid "Open"
 msgid "Open page"
-msgstr "เปิด"
+msgstr "เปิดหน้า"
 
 #: js/messages.php:570
-#, fuzzy
-#| msgid "Select All"
 msgid "Delete page"
-msgstr "เลือกทั้งหมด"
+msgstr "ลบหน้า"
 
 #: js/messages.php:571 templates/database/designer/side_menu.twig:4
-#, fuzzy
-#| msgid "Unit"
 msgid "Untitled"
-msgstr "หน่วย"
+msgstr "ไม่ระบุชื่อ"
 
 #: js/messages.php:572
-#, fuzzy
-#| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
-msgstr "เลือกหน้าที่ต้องการแก้ไข"
+msgstr "เลือกหน้าที่ต้องการจะดำเนินต่อ"
 
 #: js/messages.php:573
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a valid page name"
-msgstr "﻿%d ไม่ใช่หมายเลขแถวที่ถูกต้อง"
+msgstr "กรุณากรอกเลขหน้าที่ถูกต้อง"
 
 #: js/messages.php:575
 msgid "Do you want to save the changes to the current page?"
-msgstr ""
+msgstr "คุณต้องการบันทึกการเปลี่ยนแปลงในหน้าปัจจุบันหรือไม่?"
 
 #: js/messages.php:576
 msgid "Successfully deleted the page"
-msgstr ""
+msgstr "ลบหน้าสำเร็จ"
 
 #: js/messages.php:577
-#, fuzzy
-#| msgid "Edit or export relational schema"
 msgid "Export relational schema"
-msgstr "แก้ไข หรือส่งออก รีเลชันแนล สกีมา"
+msgstr "ส่งออกสคีเชิงสัมพันธ์"
 
 #: js/messages.php:578
 msgid "Modifications have been saved"
 msgstr "บันทึกการแก้ไขเรียบร้อยแล้ว"
 
 #: js/messages.php:581
-#, fuzzy, php-format
-#| msgid "Add an option for column "
+#, php-format
 msgid "Add an option for column \"%s\"."
-msgstr "เพิ่มตัวเลือกสำหรับคอลัมน์ "
+msgstr "เพิ่มตัวเลือกสำหรับคอลัมน์  \"%s\""
 
 #: js/messages.php:582
-#, fuzzy, php-format
-#| msgid "%d object(s) created"
+#, php-format
 msgid "%d object(s) created."
-msgstr "สร้างวัตถุจำนวน %d เรียบร้อยแล้ว"
+msgstr "วัตถุจำนวน %d วัตถุถูกสร้างเรียบร้อยแล้ว"
 
 #: js/messages.php:583 libraries/classes/SqlQueryForm.php:419
 msgid "Submit"
 msgstr "ส่ง"
 
 #: js/messages.php:586
-#, fuzzy
-#| msgid "Press escape to cancel editing"
 msgid "Press escape to cancel editing."
-msgstr "กด escape เพื่อยกเลิกการแก้ไข"
+msgstr "กด ESC เพื่อยกเลิกการแก้ไข"
 
 #: js/messages.php:588
 msgid ""
@@ -2381,14 +2334,12 @@ msgid ""
 msgstr "คุณได้ทำการแก้ไขข้อมูลบางอย่าง แต่ยังไม่ได้บันทึก คุณแน่ใจว่าจะออกจากหน้านี้โดยยังไม่บันทึก?"
 
 #: js/messages.php:591
-#, fuzzy
-#| msgid "Drag to reorder"
 msgid "Drag to reorder."
 msgstr "ลากเพื่อเปลี่ยนลำดับ"
 
 #: js/messages.php:592
 msgid "Click to sort results by this column."
-msgstr ""
+msgstr "คลิกเพื่อเรียงตามคอลัมน์"
 
 #: js/messages.php:594
 msgid ""
@@ -2396,24 +2347,21 @@ msgid ""
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
+"Shift + คลิก เพื่อเพิ่มคอลัมน์นี้ในประโยค ORDER BY หรือเพื่อสลับ ASC / DESC <"
+"br/> - Ctrl + คลิกหรือ Alt + คลิก (Mac: Shift + Option + คลิก) เพื่อลบคอลัมน์"
+"จากประโยค ORDER BY"
 
 #: js/messages.php:598
-#, fuzzy
-#| msgid "Click to mark/unmark"
 msgid "Click to mark/unmark."
-msgstr "กดเพื่อมาร์ก หรือยกเลิกการมาร์ก"
+msgstr "คลิกเพื่อทำเครื่องหมาย/ยกเลิกทำเครื่องหมาย"
 
 #: js/messages.php:599
-#, fuzzy
-#| msgid "Double-click to copy column name"
 msgid "Double-click to copy column name."
-msgstr "ดับเบิลคลิกเพื่อคัดลอกชื่อคอลัมน์"
+msgstr "คลิกสองครั้งเพื่อคัดลอกชื่อคอลัมน์"
 
 #: js/messages.php:601
-#, fuzzy
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
-msgstr "กดเพื่อเลือก <br />เพื่อดูสดมภ์"
+msgstr "คลิกที่ลูกศรชี้ลง<br />เพื่อสลับการมองเห็นคอลัมน์"
 
 #: js/messages.php:603 libraries/classes/BrowseForeigners.php:340
 #: templates/privileges/initials_row.twig:20
@@ -2427,27 +2375,26 @@ msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
-"ตารางนี้ไม่มีสดมภ์ไหนที่เก็บค่าที่แตกต่างกันเสมอ การแก้ไขหรือเพิ่มผ่านตารางจะไม่สามารถบันทึกได้"
+"ตารางนี้ไม่มีคอลัมน์เอกลักษณ์ การแก้ไขผ่านตาราง กล่องเครื่องหมาย แก้ไข คั"
+"ดลอก และลบจะไม่ได้ผลหลังจากบันทึก"
 
 #: js/messages.php:609
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
-msgstr ""
+msgstr "โปรดกรอกเลขฐานสิบหกที่ถูกต้อง ตัวอักษรที่ถูกต้องจะมี 0-9 และ A-F"
 
 #: js/messages.php:611
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
+"คุณต้องการเห็นแถวทั้งหมดหรือไม่? สำหรับตารางที่มีขนาดใหญ่ "
+"อาจทำให้เบราว์เซอร์ขัดข้อง"
 
 #: js/messages.php:614
-#, fuzzy
-#| msgid "Original position"
 msgid "Original length"
-msgstr "ตำแหน่งเริ่มแรก"
+msgstr "ความยาวดั้งเดิม"
 
 #: js/messages.php:617
-#, fuzzy
-#| msgid "Cancel"
 msgid "cancel"
 msgstr "ยกเลิก"
 
@@ -2457,22 +2404,19 @@ msgstr "ยกเลิก"
 
 #: js/messages.php:620
 msgid "Success"
-msgstr ""
+msgstr "สำเร็จ"
 
 #: js/messages.php:621
-#, fuzzy
 msgid "Import status"
-msgstr "นำเข้าไฟล์"
+msgstr "นำเข้าสถิติ"
 
 #: js/messages.php:622 libraries/classes/Navigation/Navigation.php:127
 msgid "Drop files here"
-msgstr ""
+msgstr "วางไฟล์ที่นี่"
 
 #: js/messages.php:623
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select database first"
-msgstr "เลือกตาราง"
+msgstr "เลือกฐานข้อมูลก่อน"
 
 #: js/messages.php:626 libraries/classes/Display/Results.php:4888
 #: libraries/classes/Util.php:3886
@@ -2482,35 +2426,24 @@ msgid "Print"
 msgstr "พิมพ์"
 
 #: js/messages.php:633
-#, fuzzy
-#| msgid ""
-#| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by double-clicking directly on them."
-msgstr "คุณสามารถแก้ไขสดมภ์<br />โดยเลือกไปที่ข้อมูลนั้นๆ"
+msgstr "คุณสามารถแก้ไขค่า<br />โดยการคลิกสองครั้งที่ข้อมูล"
 
 #: js/messages.php:638
-#, fuzzy
-#| msgid ""
-#| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by clicking directly on them."
-msgstr "คุณสามารถแก้ไขสดมภ์<br />โดยเลือกไปที่ข้อมูลนั้นๆ"
+msgstr "คุณสามารถแก้ไขค่า<br />โดยการคลิกที่ข้อมูลโดยตรง"
 
 #: js/messages.php:644
-#, fuzzy
-#| msgid "Go to link"
 msgid "Go to link:"
-msgstr "ไปที่หน้า"
+msgstr "ไปที่หน้า:"
 
 #: js/messages.php:645
-#, fuzzy
-#| msgid "Copy column name"
 msgid "Copy column name."
 msgstr "คัดลอกชื่อคอลัมน์"
 
 #: js/messages.php:647
-#, fuzzy
 msgid "Right-click the column name to copy it to your clipboard."
-msgstr "คลิกขวาที่ชื่อคอลัมน์เพื่อคัดลอกข้อมูล"
+msgstr "คลิกขวาที่ชื่อคอลัมน์เพื่อคัดลอก"
 
 #: js/messages.php:650
 msgid "Generate password"
@@ -2526,35 +2459,25 @@ msgid "More"
 msgstr "เพิ่มเติม"
 
 #: js/messages.php:658
-#, fuzzy
-#| msgid "Show Panel"
 msgid "Show panel"
 msgstr "แสดงแผง"
 
 #: js/messages.php:659
-#, fuzzy
-#| msgid "Hide Panel"
 msgid "Hide panel"
 msgstr "ซ่อนแผง"
 
 #: js/messages.php:660
-#, fuzzy
-#| msgid "Reload navigation frame"
 msgid "Show hidden navigation tree items."
-msgstr "โหลดกรอบนำทางใหม่"
+msgstr "แสดงรายการต้นไม้นำทางที่ถูกซ่อน"
 
 #: js/messages.php:661 libraries/classes/Config/Descriptions.php:778
 #: libraries/classes/Navigation/NavigationTree.php:1433
-#, fuzzy
-#| msgid "Use text field"
 msgid "Link with main panel"
-msgstr "ใช้ช่องใส่ข้อความ (text field)"
+msgstr "เชื่อมกับแผงหลัก"
 
 #: js/messages.php:662 libraries/classes/Navigation/NavigationTree.php:1436
-#, fuzzy
-#| msgid "Use text field"
 msgid "Unlink from main panel"
-msgstr "ใช้ช่องใส่ข้อความ (text field)"
+msgstr "เลิกเชื่อมกับแผงหลัก"
 
 #: js/messages.php:666
 msgid "The requested page was not found in the history, it may have expired."
@@ -2582,33 +2505,26 @@ msgid "Create view"
 msgstr "สร้างมุมมอง"
 
 #: js/messages.php:680
-#, fuzzy
-#| msgid "Server port"
 msgid "Send error report"
-msgstr "พอร์ตของเซิร์ฟเวอร์"
+msgstr "ส่งรายงานการผิดพลาด"
 
 #: js/messages.php:681
-#, fuzzy
-#| msgid "Server port"
 msgid "Submit error report"
-msgstr "พอร์ตของเซิร์ฟเวอร์"
+msgstr "เสนอรายงานการผิดพลาด"
 
 #: js/messages.php:683
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
-msgstr ""
+msgstr "เกิดข้อผิดพลาด JavaScript ที่ร้ายแรงต้องการส่งรายงานข้อผิดพลาดหรือไม่?"
 
 #: js/messages.php:685
-#, fuzzy
-#| msgid "Change settings"
 msgid "Change report settings"
-msgstr "เปลี่ยนการตั้งค่า"
+msgstr "เปลี่ยนการตั้งค่ารายงาน"
 
 #: js/messages.php:686
-#, fuzzy
 msgid "Show report details"
-msgstr "แสดงตาราง"
+msgstr "แสดงรายละเอียดรายงาน"
 
 #: js/messages.php:689
 msgid ""
@@ -2629,13 +2545,11 @@ msgstr ""
 
 #: js/messages.php:701
 msgid "Please look at the bottom of this window."
-msgstr ""
+msgstr "กรุณาดูที่ด้านล่างของหน้าต่าง"
 
 #: js/messages.php:707 libraries/classes/ErrorHandler.php:376
-#, fuzzy
-#| msgid "Ignore"
 msgid "Ignore All"
-msgstr "ข้าม"
+msgstr "ไม่สนใจทั้งหมด"
 
 #: js/messages.php:715
 msgid ""
@@ -2643,46 +2557,39 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:725
-#, fuzzy
-#| msgid "Show this query here again"
 msgid "Execute this query again?"
-msgstr "แสดงคำค้นนี้อีกที"
+msgstr "เรียกใช้คำสั่งนี้อีกครั้งหรือไม่?"
 
 #: js/messages.php:727
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
-msgstr "คุณแน่ใจที่ต้องการจะ  \"%s\"?"
+msgstr "คุณแน่ใจว่าต้องการจะลบบุ๊กมาร์กนี้?"
 
 #: js/messages.php:729
 msgid "Some error occurred while getting SQL debug info."
 msgstr ""
+"มีข้อผิดพลาดบางส่วนเกิดขึ้นในขณะที่กำลังได้รับข้อมูลการแก้ไขข้อผิดพลาด SQL"
 
 #: js/messages.php:731
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
-msgstr ""
+msgstr "%s คำสั่งถูกเรียกใช้ %s ครั้งภายใน %s วินาที"
 
 #: js/messages.php:732
 #, php-format
 msgid "%s argument(s) passed"
-msgstr ""
+msgstr "ตัวแปรเข้า %s ตัวถูกตรวจผ่าน"
 
 #: js/messages.php:733
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show arguments"
-msgstr "หมายเหตุของตาราง"
+msgstr "แสดงตัวแปรเข้า"
 
 #: js/messages.php:734
-#, fuzzy
-#| msgid "Hide search results"
 msgid "Hide arguments"
-msgstr "ซ่อนผลคำสั่ง SQL"
+msgstr "ซ่อนตัวแปรเข้า"
 
 #: js/messages.php:735
 msgid "Time taken:"
-msgstr ""
+msgstr "ใช้เวลา:"
 
 #: js/messages.php:736
 msgid ""
@@ -2694,22 +2601,16 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:738
-#, fuzzy
-#| msgid "Copy database to"
 msgid "Copy tables to"
-msgstr "คัดลอกฐานข้อมูลเป็น"
+msgstr "คัดลอกตารางไปยัง"
 
 #: js/messages.php:739
-#, fuzzy
-#| msgid "Add new field"
 msgid "Add table prefix"
-msgstr "เพิ่มฟิลด์ใหม่"
+msgstr "เพิ่มคำนำหน้าตาราง"
 
 #: js/messages.php:740
-#, fuzzy
-#| msgid "Replace table prefix"
 msgid "Replace table with prefix"
-msgstr "แทนที่คำนำไปยังตาราง"
+msgstr "แทนที่ตารางด้วยคำนำหน้า"
 
 #: js/messages.php:741 templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
@@ -2717,44 +2618,44 @@ msgstr "คัดลอกคำนำไปยังตาราง"
 
 #: js/messages.php:744
 msgid "Extremely weak"
-msgstr ""
+msgstr "อ่อนแออย่างมาก"
 
 #: js/messages.php:745
 msgid "Very weak"
-msgstr ""
+msgstr "อ่อนแอมาก"
 
 #: js/messages.php:746
 msgid "Weak"
-msgstr ""
+msgstr "อ่อนแอ"
 
 #: js/messages.php:747
 msgid "Good"
-msgstr ""
+msgstr "ดี"
 
 #: js/messages.php:748
 msgid "Strong"
-msgstr ""
+msgstr "แข็งแรง"
 
 #: js/messages.php:751
 msgid "Timed out waiting for security key activation."
-msgstr ""
+msgstr "หมดเวลาการรอการใช้งานคีย์ความปลอดภัย"
 
 #: js/messages.php:752
 #, php-format
 msgid "Failed security key activation (%s)."
-msgstr ""
+msgstr "การใช้งานคีย์ความปลอดภัยล้มเหลว (%s)"
 
 #: js/messages.php:755
-#, fuzzy, php-format
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
-msgstr "มีผู้ใช้ %s อยู่แล้ว!"
+msgstr "มีตาราง %s อยู่แล้ว!"
 
 #: js/messages.php:756 libraries/classes/InsertEdit.php:290
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:54
 msgid "Hide"
-msgstr ""
+msgstr "ซ่อน"
 
 #: js/messages.php:786
 msgctxt "Previous month"
@@ -3010,105 +2911,75 @@ msgstr "วินาที"
 
 #: js/messages.php:927
 msgid "This field is required"
-msgstr ""
+msgstr "ช่องนี้จำเป็น"
 
 #: js/messages.php:928
-#, fuzzy
-#| msgid "Use text field"
 msgid "Please fix this field"
-msgstr "ใช้ช่องใส่ข้อความ (text field)"
+msgstr "กรุณาซ่อมแซมช่องนี้"
 
 #: js/messages.php:929
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a valid email address"
-msgstr "﻿%d ไม่ใช่หมายเลขแถวที่ถูกต้อง"
+msgstr "กรุณากรอกอีเมลที่ถูกต้อง"
 
 #: js/messages.php:930
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a valid URL"
-msgstr "﻿%d ไม่ใช่หมายเลขแถวที่ถูกต้อง"
+msgstr "กรุณากรอก URL ที่ถูกต้อง"
 
 #: js/messages.php:931
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a valid date"
-msgstr "﻿%d ไม่ใช่หมายเลขแถวที่ถูกต้อง"
+msgstr "กรุณากรอกวันที่ที่ถูกต้อง"
 
 #: js/messages.php:934
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a valid date ( ISO )"
-msgstr "﻿%d ไม่ใช่หมายเลขแถวที่ถูกต้อง"
+msgstr "กรุณากรอกวันที่ที่ถูกต้อง ( ISO )"
 
 #: js/messages.php:936
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a valid number"
-msgstr "﻿%d ไม่ใช่หมายเลขแถวที่ถูกต้อง"
+msgstr "กรุณากรอกเลขที่ถูกต้อง"
 
 #: js/messages.php:939
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a valid credit card number"
-msgstr "﻿%d ไม่ใช่หมายเลขแถวที่ถูกต้อง"
+msgstr "กรุณากรอกหมายเลขบัตรเครดิตที่ถูกต้อง"
 
 #: js/messages.php:941
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter only digits"
-msgstr "﻿%d ไม่ใช่หมายเลขแถวที่ถูกต้อง"
+msgstr "กรุณากรอกตัวเลขเท่านั้น"
 
 #: js/messages.php:944
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter the same value again"
-msgstr "﻿%d ไม่ใช่หมายเลขแถวที่ถูกต้อง"
+msgstr "กรุณากรอกค่าเดิมอีกครั้ง"
 
 #: js/messages.php:948
 msgid "Please enter no more than {0} characters"
-msgstr ""
+msgstr "กรุณากรอกไม่เกิน {0} ตัว"
 
 #: js/messages.php:953
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter at least {0} characters"
-msgstr "﻿%d ไม่ใช่หมายเลขแถวที่ถูกต้อง"
+msgstr "กรุณากรอกอย่างน้อย {0} ตัว"
 
 #: js/messages.php:958
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr ""
+msgstr "กรุณากรอกค่าที่มีความยาวระหว่าง {0} ถึง {1} ตัว"
 
 #: js/messages.php:963
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a value between {0} and {1}"
-msgstr "﻿%d ไม่ใช่หมายเลขแถวที่ถูกต้อง"
+msgstr "กรุณากรอกค่าระหว่าง {0} กับ {1}"
 
 #: js/messages.php:968
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a value less than or equal to {0}"
-msgstr "﻿%d ไม่ใช่หมายเลขแถวที่ถูกต้อง"
+msgstr "กรุณากรอกค่าที่น้อยกว่าหรือเท่ากับ {0}"
 
 #: js/messages.php:973
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a value greater than or equal to {0}"
-msgstr "﻿%d ไม่ใช่หมายเลขแถวที่ถูกต้อง"
+msgstr "กรุณากรอกค่าที่มากกว่าหรือเท่ากับ {0}"
 
 #: js/messages.php:979
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a valid date or time"
-msgstr "﻿%d ไม่ใช่หมายเลขแถวที่ถูกต้อง"
+msgstr "กรุณากรอกวันที่และเวลาที่ถูกต้อง"
 
 #: js/messages.php:984
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a valid HEX input"
-msgstr "﻿%d ไม่ใช่หมายเลขแถวที่ถูกต้อง"
+msgstr "กรุณากรอกเลขฐานสิบหกที่ถูกต้อง"
 
 #: js/messages.php:989 libraries/classes/Core.php:297
 #: libraries/classes/Import.php:112 libraries/classes/InsertEdit.php:1497
@@ -3118,10 +2989,9 @@ msgid "Error"
 msgstr "ผิดพลาด"
 
 #: libraries/classes/Advisor.php:259
-#, fuzzy, php-format
-#| msgid "Error while creating PDF:"
+#, php-format
 msgid "Error when evaluating: %s"
-msgstr "เกิดข้อผิดพลาดขณะสร้าง PDF:"
+msgstr "เกิกข้อผิดพลาดในขณะที่คำนวณ: %s"
 
 #: libraries/classes/Advisor.php:290
 #, php-format
@@ -3131,24 +3001,22 @@ msgstr ""
 #: libraries/classes/Advisor.php:307
 #, php-format
 msgid "Failed calculating value for rule '%s'."
-msgstr ""
+msgstr "คำนวณค่าสำหรับกฎ '%s' ล้มเหลว"
 
 #: libraries/classes/Advisor.php:326
 #, php-format
 msgid "Failed running test for rule '%s'."
-msgstr ""
+msgstr "การทดสอบกฎ '%s' ล้มเหลว"
 
 #: libraries/classes/Advisor.php:406
-#, fuzzy, php-format
-#| msgid ""
-#| "Failed formatting string for rule '%s'. PHP threw following error: %s"
+#, php-format
 msgid "Failed formatting string for rule '%s'."
-msgstr "ไม่สามารถที่จะจัดอักษรตามกฎ '%s'. PHP มีปัญหาที่: %s"
+msgstr "ไม่สามารถที่จะจัดรูปแบบข้อความตามกฎ '%s'"
 
 #: libraries/classes/Advisor.php:523
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
-msgstr ""
+msgstr "ข้อผิดพลาดในการอ่านไฟล์: ไม่พบไฟล์ '%s' หรือไฟล์ไม่สามารถอ่านได้!"
 
 #: libraries/classes/Advisor.php:548
 #, php-format
@@ -3159,17 +3027,17 @@ msgstr ""
 #: libraries/classes/Advisor.php:567
 #, php-format
 msgid "Invalid rule declaration on line %s."
-msgstr ""
+msgstr "การประกาศกฎไม่ถูกต้องในบรรทัดที่ %s"
 
 #: libraries/classes/Advisor.php:575
 #, php-format
 msgid "Unexpected characters on line %s."
-msgstr ""
+msgstr "ตัวอักษรที่ไม่คาดหวังบนบรรทัดที่ %s"
 
 #: libraries/classes/Advisor.php:590
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
-msgstr ""
+msgstr "ตัวอักษรที่ไม่คาดหวังบนบรรทัดที่ %1$s คาดหวังแท็บ แต่พบ \"%2$s\""
 
 #: libraries/classes/Advisor.php:625
 msgid "per second"
@@ -3190,10 +3058,8 @@ msgid "per day"
 msgstr "ต่อวัน"
 
 #: libraries/classes/BrowseForeigners.php:193
-#, fuzzy
-#| msgid "Search"
 msgid "Search:"
-msgstr "ค้นหา"
+msgstr "ค้นหา:"
 
 #: libraries/classes/BrowseForeigners.php:216
 #: libraries/classes/BrowseForeigners.php:220 libraries/classes/Index.php:719
@@ -3227,13 +3093,11 @@ msgstr ""
 #: libraries/classes/CentralColumns.php:362
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr ""
+msgstr "ไม่สามารถเพิ่ม %1$s เนื่องจากมีอยู่ในรายการส่วนกลางแล้ว!"
 
 #: libraries/classes/CentralColumns.php:377
-#, fuzzy
-#| msgid "Add columns"
 msgid "Could not add columns!"
-msgstr "เพิ่มฟิลด์ใหม่"
+msgstr "คอลัมน์ไม่ได้ถูกเพิ่ม!"
 
 #: libraries/classes/CentralColumns.php:454
 #, php-format
@@ -3242,18 +3106,16 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/CentralColumns.php:466
-#, fuzzy
-#| msgid "Could not save recent table"
 msgid "Could not remove columns!"
-msgstr "ไม่สามารถบันทึกตารางล่าสุด"
+msgstr "คอลัมน์ไม่ได้ถูกลบ!"
 
 #: libraries/classes/CentralColumns.php:626
 msgid "YES"
-msgstr ""
+msgstr "ใช่"
 
 #: libraries/classes/CentralColumns.php:626
 msgid "NO"
-msgstr ""
+msgstr "ไม่"
 
 #: libraries/classes/CentralColumns.php:734 libraries/classes/Index.php:717
 #: libraries/classes/Rte/RteList.php:89 libraries/classes/Rte/RteList.php:104
@@ -3314,32 +3176,26 @@ msgid "Collation"
 msgstr "การตรวจทาน"
 
 #: libraries/classes/CentralColumns.php:753
-#, fuzzy
-#| msgid "Attributes"
 msgid "Attribute"
 msgstr "แอตทริบิวต์"
 
 #: libraries/classes/CentralColumns.php:757
 #: libraries/classes/CentralColumns.php:1429
 msgid "A_I"
-msgstr ""
+msgstr "A_I"
 
 #: libraries/classes/CentralColumns.php:793
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select a table"
 msgstr "เลือกตาราง"
 
 #: libraries/classes/CentralColumns.php:845
 #: templates/table/structure/add_column.twig:4
-#, fuzzy
 msgid "Add column"
-msgstr "เพิ่มฟิลด์ใหม่"
+msgstr "เพิ่มคอลัมน์"
 
 #: libraries/classes/CentralColumns.php:1304
-#, fuzzy
 msgid "Add new column"
-msgstr "เพิ่มฟิลด์ใหม่"
+msgstr "เพิ่มคอลัมน์ใหม่"
 
 #: libraries/classes/CentralColumns.php:1429
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:631
@@ -3355,240 +3211,175 @@ msgid "Charset"
 msgstr "ชุดตัวอักษร"
 
 #: libraries/classes/Charsets.php:335
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknown"
 msgstr "ไม่ระบุ"
 
 #: libraries/classes/Charsets.php:349
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
 msgstr "ข้อมูลไบนารี"
 
 #: libraries/classes/Charsets.php:361 libraries/classes/Charsets.php:600
-#, fuzzy
-#| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "ยูนิโค้ด"
 
 #: libraries/classes/Charsets.php:371 libraries/classes/Charsets.php:547
-#, fuzzy
-#| msgid "West European"
 msgctxt "Collation"
 msgid "West European"
 msgstr "ยุโรปตะวันตก"
 
 #: libraries/classes/Charsets.php:378
-#, fuzzy
-#| msgid "Central European"
 msgctxt "Collation"
 msgid "Central European"
 msgstr "ยุโรปกลาง"
 
 #: libraries/classes/Charsets.php:383 libraries/classes/Charsets.php:554
-#, fuzzy
-#| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "รัสเซีย"
 
 #: libraries/classes/Charsets.php:388
-#, fuzzy
-#| msgid "Simplified Chinese"
 msgctxt "Collation"
 msgid "Simplified Chinese"
-msgstr "จีน (แผ่นดินใหญ่)"
+msgstr "จีน (ตัวย่อ)"
 
 #: libraries/classes/Charsets.php:391
-#, fuzzy
-#| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
-msgstr "จีน (ไต้หวัน)"
+msgstr "จีน (ตัวเต็ม)"
 
 #: libraries/classes/Charsets.php:394 libraries/classes/Charsets.php:470
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "จีน"
 
 #: libraries/classes/Charsets.php:402 libraries/classes/Charsets.php:518
-#, fuzzy
-#| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "ญี่ปุ่น"
 
 #: libraries/classes/Charsets.php:407
-#, fuzzy
-#| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "บอลติก"
 
 #: libraries/classes/Charsets.php:412
-#, fuzzy
-#| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "อาร์เมเนีย"
 
 #: libraries/classes/Charsets.php:415
-#, fuzzy
-#| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "ซิริลิค"
 
 #: libraries/classes/Charsets.php:418
-#, fuzzy
-#| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "อารบิค"
 
 #: libraries/classes/Charsets.php:421 libraries/classes/Charsets.php:533
-#, fuzzy
-#| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "เกาหลี"
 
 #: libraries/classes/Charsets.php:424
-#, fuzzy
-#| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "ฮิบรู"
 
 #: libraries/classes/Charsets.php:427
-#, fuzzy
-#| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "จอร์เจีย"
 
 #: libraries/classes/Charsets.php:430
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "กรีก"
 
 #: libraries/classes/Charsets.php:433
-#, fuzzy
-#| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "เช็ค-สโลวัก"
 
 #: libraries/classes/Charsets.php:436 libraries/classes/Charsets.php:592
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "ยูเครน"
 
 #: libraries/classes/Charsets.php:439 libraries/classes/Charsets.php:588
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "ตุรกี"
 
 #: libraries/classes/Charsets.php:442 libraries/classes/Charsets.php:580
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "สวีเดน"
 
 #: libraries/classes/Charsets.php:445 libraries/classes/Charsets.php:584
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "ไทย"
 
 #: libraries/classes/Charsets.php:448
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "ไม่ระบุ"
 
 #: libraries/classes/Charsets.php:464
-#, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "บัลเกเรีย"
 
 #: libraries/classes/Charsets.php:475
-#, fuzzy
-#| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "โครเอเชีย"
 
 #: libraries/classes/Charsets.php:479
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "เช็ค"
 
 #: libraries/classes/Charsets.php:483
-#, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "เดนมาร์ก"
 
 #: libraries/classes/Charsets.php:487
-#, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "อังกฤษ"
 
 #: libraries/classes/Charsets.php:491
-#, fuzzy
 msgctxt "Collation"
 msgid "Esperanto"
-msgstr "กระบวนการ"
+msgstr "เอสเปรันโต"
 
 #: libraries/classes/Charsets.php:495
-#, fuzzy
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "เอสโตเนีย"
 
 #: libraries/classes/Charsets.php:498 libraries/classes/Charsets.php:619
-#, fuzzy
-#| msgid "Data Dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
-msgstr "พจนานุกรมข้อมูล"
+msgstr "เยอรมัน (เรียงตามพจนานุกรม)"
 
 #: libraries/classes/Charsets.php:501 libraries/classes/Charsets.php:616
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "เยอรมัน (เรียงตามหนังสือหมายเลขโทรศัพท์)"
 
 #: libraries/classes/Charsets.php:510
-#, fuzzy
-#| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "ฮังการี"
 
 #: libraries/classes/Charsets.php:514
-#, fuzzy
-#| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "ไอซ์แลนด์"
@@ -3596,18 +3387,14 @@ msgstr "ไอซ์แลนด์"
 #: libraries/classes/Charsets.php:521
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "ละตินเก่า"
 
 #: libraries/classes/Charsets.php:525
-#, fuzzy
-#| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "ลัตเวีย"
 
 #: libraries/classes/Charsets.php:529
-#, fuzzy
-#| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "ลิธัวเนีย"
@@ -3615,24 +3402,19 @@ msgstr "ลิธัวเนีย"
 #: libraries/classes/Charsets.php:537
 msgctxt "Collation"
 msgid "Burmese"
-msgstr ""
+msgstr "พม่า"
 
 #: libraries/classes/Charsets.php:540
-#, fuzzy
 msgctxt "Collation"
 msgid "Persian"
-msgstr "จอร์เจีย"
+msgstr "เปอร์เซีย"
 
 #: libraries/classes/Charsets.php:544
-#, fuzzy
-#| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "โปแลนด์"
 
 #: libraries/classes/Charsets.php:551
-#, fuzzy
-#| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "โรมาเนีย"
@@ -3640,68 +3422,52 @@ msgstr "โรมาเนีย"
 #: libraries/classes/Charsets.php:558
 msgctxt "Collation"
 msgid "Sinhalese"
-msgstr ""
+msgstr "สิงหล"
 
 #: libraries/classes/Charsets.php:562
-#, fuzzy
-#| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "สโลวัก"
 
 #: libraries/classes/Charsets.php:566
-#, fuzzy
-#| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "สโลเวเนีย"
 
 #: libraries/classes/Charsets.php:569 libraries/classes/Charsets.php:630
-#, fuzzy
-#| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr "สเปน"
+msgstr "สเปน (ใหม่)"
 
 #: libraries/classes/Charsets.php:576 libraries/classes/Charsets.php:627
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "สเปน (ดั้งเดิม)"
 
 #: libraries/classes/Charsets.php:596
-#, fuzzy
-#| msgid "User name"
 msgctxt "Collation"
 msgid "Vietnamese"
-msgstr "ชื่อผู้ใช้"
+msgstr "เวียดนาม"
 
 #: libraries/classes/Charsets.php:663
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
-msgstr "ไม่สนใจตัวเล็กตัวใหญ่"
+msgstr "ไม่สนใจพิมพ์เล็ก-ใหญ่"
 
 #: libraries/classes/Charsets.php:666
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
-msgstr "สนใจตัวเล็กตัวใหญ่"
+msgstr "สนใจพิมพ์เล็ก-ใหญ่"
 
 #: libraries/classes/Charsets.php:669
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
-msgstr "ไม่สนใจตัวเล็กตัวใหญ่"
+msgstr "ไม่สนใจสำเนียง"
 
 #: libraries/classes/Charsets.php:672
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
-msgstr "สนใจตัวเล็กตัวใหญ่"
+msgstr "สนใจสำเนียง"
 
 #: libraries/classes/Charsets.php:675
 #, fuzzy
@@ -3711,15 +3477,11 @@ msgid "kana-sensitive"
 msgstr "สนใจตัวเล็กตัวใหญ่"
 
 #: libraries/classes/Charsets.php:679
-#, fuzzy
-#| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
-msgstr "หลายภาษา"
+msgstr "หลายระดับ"
 
 #: libraries/classes/Charsets.php:682
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "ข้อมูลไบนารี"
@@ -3736,24 +3498,24 @@ msgstr "ไฟล์ตั้งค่า %s ไม่สามารถอ่�
 
 #: libraries/classes/Config.php:1152
 msgid "Wrong permissions on configuration file, should not be world writable!"
-msgstr "สิทธิสำหรับไฟล์ตั้งค่าไม่ถูกต้อง ที่ถูกต้องจะต้องแก้ไขได้เฉพาะ root"
+msgstr "สิทธิ์สำหรับไฟล์ตั้งค่าไม่ถูกต้อง ไม่ควรให้เขียนได้ทั้งหมด!"
 
 #: libraries/classes/Config.php:1172
 #, php-format
 msgid "Could not load default configuration from: %1$s"
-msgstr ""
+msgstr "ไม่สามารถโหลดการตั้งค่าเริ่มต้นจาก: %1$s"
 
 #: libraries/classes/Config.php:1179
-#, fuzzy
-#| msgid "Failed to read configuration file"
 msgid "Failed to read configuration file!"
-msgstr "ไม่สามารถอ่านแฟ้มการตั้งค่าได้"
+msgstr "ไม่สามารถอ่านไฟล์การตั้งค่าได้!"
 
 #: libraries/classes/Config.php:1182
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
+"ซึ่งมักจะหมายความว่ามีข้อผิดพลาดทางไวยากรณ์อยู่โปรดตรวจสอบข้อผิดพลาดที่แสดงด้"
+"านล่าง"
 
 #: libraries/classes/Config.php:1498
 #: libraries/classes/Config/Descriptions.php:1486
@@ -3766,15 +3528,16 @@ msgid "Invalid server index: %s"
 msgstr "ลำดับเซิฟเวอร์ไม่ถูกต้อง: %s"
 
 #: libraries/classes/Config.php:1832
-#, fuzzy, php-format
-#| msgid "Server"
+#, php-format
 msgid "Server %d"
-msgstr "เซิร์ฟเวอร์"
+msgstr "เซิร์ฟเวอร์ %d"
 
 #: libraries/classes/Config/Descriptions.php:62
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
+"หากถูกเปิดใช้งาน ผู้ใช้จะสามารถเข้าเซิร์ฟเวอร์ MySQL "
+"ในฟอร์มเข้าสู่ระบบเพื่อคุกกี้รับรองความถูกต่อง"
 
 #: libraries/classes/Config/Descriptions.php:64
 msgid "Allow login to any MySQL server"
@@ -3786,12 +3549,13 @@ msgid ""
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
+"การจำกัดเซิร์ฟเวอร์ MySQL "
+"ที่ผู้ใช้สามารถป้อนเมื่อเปิดใช้งานการเข้าสู่ระบบเซิร์ฟเวอร์ MySQL "
+"โดยการจับคู่ IP หรือชื่อโฮสต์ของเซิร์ฟเวอร์ MySQL เพื่อการแสดงออกปกติ"
 
 #: libraries/classes/Config/Descriptions.php:72
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
-msgstr "ไม่สามารถล็อกอินเข้าเซิร์ฟเวอร์ MySQL ได้"
+msgstr "จำกัดการเข้าสู่ระบบเซิร์ฟเวอร์ MySQL"
 
 #: libraries/classes/Config/Descriptions.php:75
 msgid ""
@@ -3799,24 +3563,28 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting (XSS) attacks."
 msgstr ""
+"การเปิดใช้งานสิ่งนี้จะช่วยให้หน้าเว็บที่อยู่ในโดเมนอื่นสามารถเรียก "
+"phpMyAdmin ภายในเฟรมและเป็น [strong]ช่องโหว่ด้านความปลอดภัย[/strong] "
+"ที่อนุญาตการโจมตี cross-frame scripting (XSS)"
 
 #: libraries/classes/Config/Descriptions.php:80
 msgid "Allow third party framing"
-msgstr ""
+msgstr "อนุญาตการทำเฟรมของบุคคลที่สาม"
 
 #: libraries/classes/Config/Descriptions.php:82
 msgid "Show \"Drop database\" link to normal users"
-msgstr ""
+msgstr "แสดงลิงก์ \"ทิ้งฐานข้อมูล\" ไปยังผู้ใช้ปกติ"
 
 #: libraries/classes/Config/Descriptions.php:85
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
 msgstr ""
+"ข้อความรหัสผ่านลับใช้สำหรับเข้ารหัสคุกกี้ในการตรวจสอบสิทธิ์ [kbd]คุกกี้[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:89
 msgid "Blowfish secret"
-msgstr "ความลับปลาปักเป้า"
+msgstr "ความลับ Blowfish"
 
 #: libraries/classes/Config/Descriptions.php:91
 msgid "Highlight selected rows."
@@ -3828,25 +3596,19 @@ msgstr "เครื่องหมายแถว"
 
 #: libraries/classes/Config/Descriptions.php:95
 msgid "Highlight row pointed by the mouse cursor."
-msgstr ""
+msgstr "ไฮไลท์แถวที่ถูกชี้โดยเคอร์เซอร์"
 
 #: libraries/classes/Config/Descriptions.php:97
 msgid "Highlight pointer"
 msgstr "ไฮไลท์ตัวชี้"
 
 #: libraries/classes/Config/Descriptions.php:100
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
-#| "import and export operations"
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
-"เปิดใช้งาน [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] "
-"การบีบอัดสำหรับการดำเนินการนำเข้าและส่งออก"
+msgstr "เปิดใช้งานการบีบอัด bzip2 สำหรับการดำเนินการนำเข้า"
 
 #: libraries/classes/Config/Descriptions.php:104
 msgid "Bzip2"
-msgstr ""
+msgstr "Bzip2"
 
 #: libraries/classes/Config/Descriptions.php:107
 msgid ""
@@ -3854,6 +3616,9 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns."
 msgstr ""
+"กำหนดประเภทของการควบคุมการแก้ไขที่ควรใช้สำหรับคอลัมน์ CHAR และ VARCHAR [kbd]"
+"input [/kbd] - อนุญาตการจำกัดความยาวของข้อความ [kbd] textarea [/kbd] - "
+"อนุญาตการขึ้นบรรทัดใหม่ในคอลัมน์"
 
 #: libraries/classes/Config/Descriptions.php:112
 msgid "CHAR columns editing"
@@ -3864,6 +3629,8 @@ msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
+"ใช้โปรแกรมแก้ไขที่ใช้งานง่ายสำหรับแก้ไขคิวรี่ SQL (CodeMirror) "
+"ด้วยการเน้นไวยากรณ์และหมายเลขบรรทัด"
 
 #: libraries/classes/Config/Descriptions.php:120
 msgid "Enable CodeMirror"
@@ -3876,38 +3643,34 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:127
-#, fuzzy
-#| msgid "Enable %s"
 msgid "Enable linter"
-msgstr "เปิดใช้ %s"
+msgstr "เปิดใช้ Linter"
 
 #: libraries/classes/Config/Descriptions.php:130
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
 msgstr ""
+"กำหนดขนาดต่ำสุดสำหรับฟิลด์อินพุตที่สร้างขึ้นสำหรับคอลัมน์ CHAR และ VARCHAR"
 
 #: libraries/classes/Config/Descriptions.php:134
-#, fuzzy
-#| msgid "Use text field"
 msgid "Minimum size for input field"
-msgstr "ใช้ช่องใส่ข้อความ (text field)"
+msgstr "ขนาดต่ำสุดสำหรับช่องอินพุต"
 
 #: libraries/classes/Config/Descriptions.php:137
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
 msgstr ""
+"กำหนดขนาดสูงสุดสำหรับฟิลด์อินพุตที่สร้างขึ้นสำหรับคอลัมน์ CHAR และ VARCHAR"
 
 #: libraries/classes/Config/Descriptions.php:141
-#, fuzzy
-#| msgid "Use text field"
 msgid "Maximum size for input field"
-msgstr "ใช้ช่องใส่ข้อความ (text field)"
+msgstr "ขนาดสูงสุดสำหรับช่องอินพุต"
 
 #: libraries/classes/Config/Descriptions.php:143
 msgid "Number of columns for CHAR/VARCHAR textareas."
-msgstr ""
+msgstr "จำนวนของคอลัมน์สำหรับพื่นที่ข้อความ CHAR / VARCHAR"
 
 #: libraries/classes/Config/Descriptions.php:145
 msgid "CHAR textarea columns"
@@ -3915,7 +3678,7 @@ msgstr "คอลัมน์พื้นที่ข้อความ CHAR"
 
 #: libraries/classes/Config/Descriptions.php:147
 msgid "Number of rows for CHAR/VARCHAR textareas."
-msgstr ""
+msgstr "จำนวนแถวของพื้นที่ข้อความ CHAR / VARCHAR"
 
 #: libraries/classes/Config/Descriptions.php:149
 msgid "CHAR textarea rows"
@@ -3930,20 +3693,24 @@ msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
 msgstr ""
+"บีบอัดการส่งออก gzip ได้ทันทีโดยไม่ต้องใช้หน่วยความจำมาก หากคุณพบปัญหากับไฟล์"
+" gzip ที่สร้างขึ้นให้ปิดใช้งานคุณสมบัตินี้"
 
 #: libraries/classes/Config/Descriptions.php:158
 msgid "Compress on the fly"
-msgstr ""
+msgstr "บีบอัดต่อเนื่อง"
 
 #: libraries/classes/Config/Descriptions.php:161
 msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
 msgstr ""
+"ไม่ว่าจะเป็นคำเตือน (\"คุณแน่ใจจริง ๆ ... \") "
+"ควรจะปรากฏขึ้นเมื่อคุณกำลังจะสูญเสียข้อมูล"
 
 #: libraries/classes/Config/Descriptions.php:165
 msgid "Confirm DROP queries"
-msgstr "ยืนยันแบบสอบถาม DROP"
+msgstr "ยืนยันคิวรี่ DROP"
 
 #: libraries/classes/Config/Descriptions.php:167
 msgid ""
@@ -4339,7 +4106,7 @@ msgstr "แทรกหลายระเบียนในคราวเดี
 #: libraries/classes/Config/Descriptions.php:364
 #: libraries/classes/Plugins/Export/ExportSql.php:155
 msgid "Disable foreign key checks"
-msgstr ""
+msgstr "ปิดการตรวจสอบคีย์นอก"
 
 #: libraries/classes/Config/Descriptions.php:366
 #: libraries/classes/Plugins/Export/ExportSql.php:169
@@ -4426,20 +4193,16 @@ msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:432
-#, fuzzy
-#| msgid "Foreign key check:"
 msgid "Foreign key checks"
-msgstr "ตรวจสอบคีย์ต่างประเทศ:"
+msgstr "ตรวจสอบคีย์นอก"
 
 #: libraries/classes/Config/Descriptions.php:434
 msgid "Browse mode"
 msgstr "โหมดเรียกดู"
 
 #: libraries/classes/Config/Descriptions.php:436
-#, fuzzy
-#| msgid "Browse mode"
 msgid "Customize browse mode."
-msgstr "โหมดเรียกดู"
+msgstr "ปรับแต่งโหมดเรียกดู"
 
 #: libraries/classes/Config/Descriptions.php:440
 #: libraries/classes/Config/Descriptions.php:444
@@ -4447,16 +4210,14 @@ msgstr "โหมดเรียกดู"
 #: libraries/classes/Config/Descriptions.php:498
 #: libraries/classes/Config/Descriptions.php:502
 #: libraries/classes/Config/Descriptions.php:559
-#, fuzzy
-#| msgid "Customize export options"
 msgid "Customize default options."
-msgstr "ตัวเลือกการส่งออกที่กำหนดเอง"
+msgstr "ปรับแต่งตัวเลือกเริ่มต้น"
 
 #: libraries/classes/Config/Descriptions.php:442
 #: libraries/classes/Config/Forms/User/ExportForm.php:75
 #: libraries/classes/Config/Forms/User/ImportForm.php:29
 msgid "CSV"
-msgstr "ข้อมูล CSV (คั่นด้วยเครื่องหมายลูกน้ำ \",\")"
+msgstr "CSV"
 
 #: libraries/classes/Config/Descriptions.php:446
 msgid "Developer"
@@ -4464,27 +4225,23 @@ msgstr "ผู้พัฒนา"
 
 #: libraries/classes/Config/Descriptions.php:448
 msgid "Settings for phpMyAdmin developers."
-msgstr ""
+msgstr "การตั้งค่าสำหรับผู้พัฒนา phpMyAdmin"
 
 #: libraries/classes/Config/Descriptions.php:450
 msgid "Edit mode"
 msgstr "โหมดแก้ไข"
 
 #: libraries/classes/Config/Descriptions.php:452
-#, fuzzy
-#| msgid "Customize import defaults"
 msgid "Customize edit mode."
-msgstr "นำเข้าค่าเริ่มต้นที่กำหนดเอง"
+msgstr "ปรับแต่งโหมดแก้ไข"
 
 #: libraries/classes/Config/Descriptions.php:454
 msgid "Export defaults"
 msgstr "ส่งออกค่าเริ่มต้น"
 
 #: libraries/classes/Config/Descriptions.php:456
-#, fuzzy
-#| msgid "Customize export options"
 msgid "Customize default export options."
-msgstr "ตัวเลือกการส่งออกที่กำหนดเอง"
+msgstr "ปรับแต่งตัวเลือกการส่งออกเริ่มต้น"
 
 #: libraries/classes/Config/Descriptions.php:458
 msgid "General"
@@ -4492,18 +4249,15 @@ msgstr "ทั่วไป"
 
 #: libraries/classes/Config/Descriptions.php:460
 msgid "Set some commonly used options."
-msgstr ""
+msgstr "ตั้งตัวเลือกบางตัวที่ใช้บ่อย"
 
 #: libraries/classes/Config/Descriptions.php:462
-#, fuzzy
 msgid "Import defaults"
-msgstr "นำเข้าไฟล์"
+msgstr "นำเข้าค่าเริ่มต้น"
 
 #: libraries/classes/Config/Descriptions.php:464
-#, fuzzy
-#| msgid "Customize export options"
 msgid "Customize default common import options."
-msgstr "ตัวเลือกการส่งออกที่กำหนดเอง"
+msgstr "ปรับแต่งตัวเลือกเริ่มต้นการนำเข้าทั่วไป"
 
 #: libraries/classes/Config/Descriptions.php:466
 msgid "Import / export"
@@ -4511,7 +4265,7 @@ msgstr "นำเข้า / ส่งออก"
 
 #: libraries/classes/Config/Descriptions.php:468
 msgid "Set import and export directories and compression options."
-msgstr ""
+msgstr "ตั้งตัวเลือกตำแหน่งและบีบอัดการนำเช้าและส่งออก"
 
 #: libraries/classes/Config/Descriptions.php:470
 msgid "LaTeX"
@@ -4526,9 +4280,8 @@ msgid "Databases"
 msgstr "ฐานข้อมูล"
 
 #: libraries/classes/Config/Descriptions.php:476
-#, fuzzy
 msgid "Databases display options."
-msgstr "สถิติฐานข้อมูล"
+msgstr "ตัวเลือกการแสดงฐานข้อมูล"
 
 #: libraries/classes/Config/Descriptions.php:478
 #: libraries/classes/Config/Forms/User/NaviForm.php:59
@@ -7080,8 +6833,8 @@ msgid ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
-"คุณได้เปิดใช้งาน mbstring.func_overload ในการกำหนดค่าของ PHP ตัวเลือกนี้ไม่เข้ากันกับ "
-"phpMyAdmin และอาจทำให้ข้อมูลบางอย่างจะเสียหายได้"
+"คุณได้เปิดใช้งาน mbstring.func_overload ในการกำหนดค่าของ PHP "
+"ตัวเลือกนี้ไม่เข้ากันกับ phpMyAdmin และอาจทำให้ข้อมูลบางอย่างจะเสียหายได้!"
 
 #: libraries/classes/Core.php:1231
 #, fuzzy
@@ -7171,10 +6924,8 @@ msgstr "รีเลชันภายใน"
 
 #: libraries/classes/Database/Qbe.php:456
 #: templates/table/search/search_and_replace.twig:6
-#, fuzzy
-#| msgid "Column"
 msgid "Column:"
-msgstr "สดมภ์"
+msgstr "คอลัมน์:"
 
 #: libraries/classes/Database/Qbe.php:502
 msgid "Alias:"
@@ -8826,10 +8577,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Normalization.php:206 normalization.php:19
-#, fuzzy
-#| msgid "Select two columns"
 msgid "Select one…"
-msgstr "เพิ่มสองสดมภ์"
+msgstr "เลือกอย่างใดอย่างหนึ่ง…"
 
 #: libraries/classes/Normalization.php:207 normalization.php:20
 #, fuzzy
@@ -9307,11 +9056,11 @@ msgstr "ตรวจสอบความสมบูรณ์ของการ
 
 #: libraries/classes/Operations.php:2067
 msgid "Can't move table to same one!"
-msgstr "ย้ายตารางไปที่เดิมไม่ได้"
+msgstr "ไม่สามารถย้ายตารางไปยังที่เดิมได้!"
 
 #: libraries/classes/Operations.php:2069
 msgid "Can't copy table to same one!"
-msgstr "คัดลอกตารางไปที่เดิมไม่ได้"
+msgstr "ไม่สามารถคัดลอกตารางไปยังที่เดิมได้!"
 
 #: libraries/classes/Operations.php:2093
 #, fuzzy, php-format
@@ -10023,10 +9772,8 @@ msgid "Purpose:"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:541
-#, fuzzy
-#| msgid "MIME type"
 msgid "MIME"
-msgstr "MIME-type"
+msgstr "MIME"
 
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:51
 msgid ""
@@ -13358,7 +13105,7 @@ msgstr "ป้ายชื่อ"
 
 #: libraries/classes/Sql.php:615 libraries/classes/SqlQueryForm.php:316
 msgid "Let every user access this bookmark"
-msgstr ""
+msgstr "อนุญาตให้ผู้ใช้ทุกคนเข้าถึงบุ๊กมาร์กนี้"
 
 #: libraries/classes/Sql.php:831
 #, fuzzy
@@ -13387,15 +13134,13 @@ msgstr ""
 "ตารางนี้ไม่มีสดมภ์ไหนที่เก็บค่าที่แตกต่างกันเสมอ การแก้ไขหรือเพิ่มผ่านตารางจะไม่สามารถบันทึกได้"
 
 #: libraries/classes/Sql.php:1815
-#, fuzzy, php-format
-#| msgid ""
-#| "This table does not contain a unique column. Features related to the grid "
-#| "edit, checkbox, Edit, Copy and Delete links may not work after saving."
+#, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
 "and Delete features may result in undesired behavior. %s"
 msgstr ""
-"ตารางนี้ไม่มีสดมภ์ไหนที่เก็บค่าที่แตกต่างกันเสมอ การแก้ไขหรือเพิ่มผ่านตารางจะไม่สามารถบันทึกได้"
+"สิ่งที่ถูกเลือกไม่มีคอลัมน์เอกลักษณ์ การแก้ไขผ่านตาราง แก้ไข คัดลอก "
+"และลบอาจจะเกิดผลลัพธ์ที่ไม่คาดคิด %s"
 
 #: libraries/classes/Sql.php:1857
 #, php-format
@@ -13426,13 +13171,11 @@ msgstr "ล้าง"
 
 #: libraries/classes/SqlQueryForm.php:254
 msgid "Get auto-saved query"
-msgstr ""
+msgstr "รับคำสั่งที่บันทึกอัตโนมัติ"
 
 #: libraries/classes/SqlQueryForm.php:260
-#, fuzzy
-#| msgid "Bad parameters!"
 msgid "Bind parameters"
-msgstr "พารามิเตอร์ไม่ถูกต้อง!"
+msgstr "โยงพารามิเตอร์"
 
 #: libraries/classes/SqlQueryForm.php:308
 #, fuzzy
@@ -13442,7 +13185,7 @@ msgstr "จดคำค้นนี้ไว้"
 
 #: libraries/classes/SqlQueryForm.php:322
 msgid "Replace existing bookmark of same name"
-msgstr ""
+msgstr "แทนที่บุ๊คมาร์คที่มีชื่อเดียวกัน"
 
 #: libraries/classes/SqlQueryForm.php:336
 msgid "Delimiter"
@@ -13557,7 +13300,7 @@ msgstr ""
 
 #: libraries/classes/Table.php:2086
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "ชื่อของไพรมารีคีย์ จะต้องเป็น PRIMARY เท่านั้น"
+msgstr "ชื่อขอคีย์หลักจะต้องเป็น \"PRIMARY\" เท่านั้น!"
 
 #: libraries/classes/Table.php:2097
 msgid "Can't rename index to PRIMARY!"
@@ -13581,17 +13324,17 @@ msgstr "ข้อผิดพลาดขณะเคลื่อนย้าย
 #: libraries/classes/Theme.php:186
 #, php-format
 msgid "No valid image path for theme %s found!"
-msgstr "﻿ไม่มีเส้นทางรูปภาพที่ถูกต้องสำหรับชุดรูปแบบ %s ที่พบ"
+msgstr "ไม่พบเส้นทางรูปภาพของธีม %s !"
 
 #: libraries/classes/ThemeManager.php:94
 #, php-format
 msgid "Default theme %s not found!"
-msgstr "ไม่พบรูปแบบเริ่มต้น %s"
+msgstr "ไม่พบธีมเริ่มต้น %s !"
 
 #: libraries/classes/ThemeManager.php:174
 #, php-format
 msgid "Theme %s not found!"
-msgstr "ไม่พบชุดรูปแบบ %s"
+msgstr "ไม่พบธีม %s !"
 
 #: libraries/classes/ThemeManager.php:255
 #, fuzzy, php-format
@@ -15612,7 +15355,7 @@ msgstr "เพิ่ม/ลบ แถว"
 
 #: templates/database/qbe/footer_options.twig:5
 msgid "Add/Delete columns"
-msgstr "เพิ่ม/ลบ สดมภ์"
+msgstr "เพิ่ม/ลบคอลัมน์"
 
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:84 templates/console/display.twig:175
@@ -15795,10 +15538,8 @@ msgstr "อื่นๆ"
 
 #: templates/console/display.twig:64 templates/console/display.twig:84
 #: templates/table/search/replace_preview.twig:17
-#, fuzzy
-#| msgid "Column"
 msgid "Count"
-msgstr "สดมภ์"
+msgstr "จำนวน"
 
 #: templates/console/display.twig:64
 #, fuzzy
@@ -16203,10 +15944,8 @@ msgstr "เลือกตาราง"
 
 #: templates/database/multi_table_query/form.twig:40
 #: templates/database/multi_table_query/form.twig:129
-#, fuzzy
-#| msgid "Select two columns"
 msgid "select column"
-msgstr "เพิ่มสองสดมภ์"
+msgstr "เลือกคอลัมน์"
 
 #: templates/database/multi_table_query/form.twig:46
 #, fuzzy
@@ -16298,11 +16037,9 @@ msgid "Bar"
 msgstr "มี.ค."
 
 #: templates/table/chart/tbl_chart.twig:19
-#, fuzzy
-#| msgid "Column"
 msgctxt "Chart type"
 msgid "Column"
-msgstr "สดมภ์"
+msgstr "คอลัมน์"
 
 #: templates/table/chart/tbl_chart.twig:23
 msgctxt "Chart type"
@@ -16642,10 +16379,8 @@ msgid "New table name"
 msgstr "ไม่มีตาราง"
 
 #: templates/export/alias_add.twig:37
-#, fuzzy
-#| msgid "Select two columns"
 msgid "Select column:"
-msgstr "เพิ่มสองสดมภ์"
+msgstr "เลือกคอลัมน์:"
 
 #: templates/export/alias_add.twig:43
 #, fuzzy
@@ -16711,10 +16446,8 @@ msgid "Next autoindex"
 msgstr ""
 
 #: templates/database/central_columns/add_column.twig:13
-#, fuzzy
-#| msgid "Select two columns"
 msgid "Select a column."
-msgstr "เพิ่มสองสดมภ์"
+msgstr "เลือกคอลัมน์"
 
 #: templates/server/databases/index.twig:24
 msgid "No databases"
