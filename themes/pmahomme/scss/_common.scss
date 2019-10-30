@@ -865,6 +865,15 @@ div#modalOverlay {
   z-index: 900;
 }
 
+div#userPermissionModal {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  z-index: 1000;
+}
+
 form.login {
   input {
     &[type=text],
