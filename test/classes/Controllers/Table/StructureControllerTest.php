@@ -140,7 +140,7 @@ class StructureControllerTest extends PmaTestCase
                 )
             );
 
-        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Table\StructureController');
+        $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('getKeyForTablePrimary');
         $method->setAccessible(true);
 
@@ -176,7 +176,7 @@ class StructureControllerTest extends PmaTestCase
      */
     public function testAdjustColumnPrivileges()
     {
-        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Table\StructureController');
+        $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('adjustColumnPrivileges');
         $method->setAccessible(true);
 
@@ -211,7 +211,7 @@ class StructureControllerTest extends PmaTestCase
      */
     public function testGetMultipleFieldCommandType()
     {
-        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Table\StructureController');
+        $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('getMultipleFieldCommandType');
         $method->setAccessible(true);
 
@@ -283,7 +283,7 @@ class StructureControllerTest extends PmaTestCase
             ->method('query')
             ->will($this->returnValue(true));
 
-        $class = new ReflectionClass('PhpMyAdmin\Controllers\Table\StructureController');
+        $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('getDataForSubmitMult');
         $method->setAccessible(true);
 

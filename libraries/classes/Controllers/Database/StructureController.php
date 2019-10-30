@@ -35,22 +35,27 @@ class StructureController extends AbstractController
      * @var int Number of tables
      */
     protected $numTables;
+
     /**
      * @var int Current position in the list
      */
     protected $position;
+
     /**
      * @var bool DB is information_schema
      */
     protected $dbIsSystemSchema;
+
     /**
      * @var int Number of tables
      */
     protected $totalNumTables;
+
     /**
      * @var array Tables in the database
      */
     protected $tables;
+
     /**
      * @var bool whether stats show or not
      */
@@ -393,20 +398,21 @@ class StructureController extends AbstractController
                     $current_table['Collation']
                 );
                 if ($tableCollation !== null) {
-                    $collationDefinition = '<dfn title="'
-                        . $tableCollation->getDescription() . '">'
-                        . $tableCollation->getName() . '</dfn>';
+                    $collationDefinition = $this->template->render('database/structure/collation_definition', [
+                        'valueTitle' => $tableCollation->getDescription(),
+                        'value' => $tableCollation->getName(),
+                    ]);
                 }
             }
 
             if ($this->isShowStats) {
                 $overhead = '-';
                 if ($formatted_overhead != '') {
-                    $overhead = '<a href="' . Url::getFromRoute('/table/structure', $tableUrlParams)
-                        . '#showusage">'
-                        . '<span>' . $formatted_overhead . '</span>&nbsp;'
-                        . '<span class="unit">' . $overhead_unit . '</span>'
-                        . '</a>' . "\n";
+                    $overhead = $this->template->render('database/structure/overhead', [
+                        'table_url_params' => $tableUrlParams,
+                        'formatted_overhead' => $formatted_overhead,
+                        'overhead_unit' => $overhead_unit,
+                    ]);
                     $overhead_check = true;
                     $input_class[] = 'tbl-overhead';
                 }
@@ -644,13 +650,13 @@ class StructureController extends AbstractController
                 'show_last_check' => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
             ],
             'check_all_tables' => [
-                'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+                'pma_theme_image' => $GLOBALS['pmaThemeImage'] ?? null,
                 'text_dir' => $GLOBALS['text_dir'],
                 'overhead_check' => $overhead_check,
                 'db_is_system_schema' => $this->dbIsSystemSchema,
                 'hidden_fields' => $hidden_fields,
                 'disable_multi_table' => $GLOBALS['cfg']['DisableMultiTableMaintenance'],
-                'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork'],
+                'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork'] ?? null,
             ],
         ]);
 
@@ -761,8 +767,8 @@ class StructureController extends AbstractController
                 $GLOBALS['replication_info']['slave']['Do_DB']
             );
 
-            $do = strlen($searchDoDBInTruename) > 0
-                || strlen($searchDoDBInDB) > 0
+            $do = ($searchDoDBInTruename && strlen($searchDoDBInTruename) > 0)
+                || ($searchDoDBInDB && strlen($searchDoDBInDB) > 0)
                 || ($nbServSlaveDoDb == 0 && $nbServSlaveIgnoreDb == 0)
                 || $this->hasTable(
                     $GLOBALS['replication_info']['slave']['Wild_Do_Table'],
@@ -777,8 +783,8 @@ class StructureController extends AbstractController
                 $table,
                 $GLOBALS['replication_info']['slave']['Ignore_Table']
             );
-            $ignored = strlen($searchTable) > 0
-                || strlen($searchDb) > 0
+            $ignored = ($searchTable && strlen($searchTable) > 0)
+                || ($searchDb && strlen($searchDb) > 0)
                 || $this->hasTable(
                     $GLOBALS['replication_info']['slave']['Wild_Ignore_Table'],
                     $table
@@ -839,7 +845,8 @@ class StructureController extends AbstractController
     {
         // ensure $_SESSION['tmpval']['favoriteTables'] is initialized
         RecentFavoriteTable::getInstance('favorite');
-        foreach ($_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']] as $value) {
+        $favoriteTables = $_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']] ?? [];
+        foreach ($favoriteTables as $value) {
             if ($value['db'] == $this->db && $value['table'] == $currentTable) {
                 return true;
             }
