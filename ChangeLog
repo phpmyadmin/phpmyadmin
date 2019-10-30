@@ -56,6 +56,7 @@ phpMyAdmin - ChangeLog
 - issue #15477 Fix display referential integrity check for InnoDB
 - issue #15236 Support phpunit 8 in our test suite to help packaging phpMyAdmin on Debian
 - issue #15522 Fix missing image error fills logs, removed ic_b_info icon from icon list
+- issue #15537 Fixed some issues with the sort by key selectors
 
 4.9.1 (2019-09-20)
 - issue #15313 Added support for Twig 2
