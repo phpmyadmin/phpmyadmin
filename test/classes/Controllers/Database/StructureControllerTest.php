@@ -408,18 +408,7 @@ class StructureControllerTest extends PmaTestCase
      */
     public function testSynchronizeFavoriteTables()
     {
-        $favoriteInstance = $this->getMockBuilder(RecentFavoriteTable::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $favoriteInstance->expects($this->at(1))->method('getTables')
-            ->will($this->returnValue([]));
-        $favoriteInstance->expects($this->at(2))
-            ->method('getTables')
-            ->will($this->returnValue([[
-                'db' => 'db',
-                'table' => 'table',
-            ],
-            ]));
+        $favoriteInstance = $this->getFavoriteTablesMock();
 
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('synchronizeFavoriteTables');
@@ -449,6 +438,28 @@ class StructureControllerTest extends PmaTestCase
 
         $this->assertEquals(json_encode($favoriteTable), $json['favoriteTables']??'');
         $this->assertArrayHasKey('list', $json);
+    }
+
+    /**
+     * @return \PHPUnit\Framework\MockObject\MockObject|RecentFavoriteTable
+     */
+    private function getFavoriteTablesMock()
+    {
+        $favoriteInstance = $this->getMockBuilder(RecentFavoriteTable::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $favoriteInstance->expects($this->at(1))->method('getTables')
+            ->willReturn([]);
+        $favoriteInstance->expects($this->at(2))
+            ->method('getTables')
+            ->willReturn([
+                [
+                    'db' => 'db',
+                    'table' => 'table',
+                ],
+            ]);
+
+        return $favoriteInstance;
     }
 
     /**
@@ -496,5 +507,60 @@ class StructureControllerTest extends PmaTestCase
             json_encode($expectedResult),
             $json['real_row_count_all']
         );
+    }
+
+    /**
+     * @throws \ReflectionException
+     * @return void
+     */
+    public function testDisplayTableList()
+    {
+        $class = new ReflectionClass(StructureController::class);
+        $method = $class->getMethod('displayTableList');
+        $method->setAccessible(true);
+
+        $controller = new StructureController(
+            $this->response,
+            $GLOBALS['dbi'],
+            $this->template,
+            $GLOBALS['db'],
+            $this->relation,
+            $this->replication
+        );
+        // Showing statistics
+        $class = new ReflectionClass(StructureController::class);
+        $showStatsProperty = $class->getProperty('isShowStats');
+        $showStatsProperty->setAccessible(true);
+        $showStatsProperty->setValue($controller, true);
+
+        $tablesProperty = $class->getProperty('tables');
+        $tablesProperty->setAccessible(true);
+
+        //no tables
+        $_REQUEST['db'] = 'my_unique_test_db';
+        $tablesProperty->setValue($controller, []);
+        $result = $method->invoke($controller);
+        $this->assertStringContainsString($_REQUEST['db'], $result);
+        $this->assertStringNotContainsString('id="overhead"', $result);
+
+        //with table
+        $_REQUEST['db'] = 'my_unique_test_db';
+        $tablesProperty->setValue($controller, [
+            [
+                'TABLE_NAME' => 'my_unique_test_db',
+                'ENGINE' => 'Maria',
+                'TABLE_TYPE' => 'BASE TABLE',
+                'TABLE_ROWS' => 0,
+                'TABLE_COMMENT' => 'test',
+                'Data_length' => 5000,
+                'Index_length' => 100,
+                'Data_free' => 10000,
+            ],
+        ]);
+        $result = $method->invoke($controller);
+
+        $this->assertStringContainsString($_REQUEST['db'], $result);
+        $this->assertStringContainsString('id="overhead"', $result);
+        $this->assertStringContainsString('9.8', $result);
     }
 }
