@@ -122,6 +122,19 @@ Sql.autoSaveWithSort = function (query) {
 };
 
 /**
+ * Clear saved SQL query with sort in local storage or cookie
+ *
+ * @return void
+ */
+Sql.clearAutoSavedSort = function () {
+    if (isStorageSupported('localStorage')) {
+        window.localStorage.removeItem('auto_saved_sql_sort');
+    } else {
+        Cookies.set('auto_saved_sql_sort', '');
+    }
+};
+
+/**
  * Get the field name for the current field.  Required to construct the query
  * for grid editing
  *
@@ -226,20 +239,20 @@ AJAX.registerOnload('sql.js', function () {
             $('#sqlquery').on('input propertychange', function () {
                 Sql.autoSave($('#sqlquery').val());
             });
+            var useLocalStorageValue = isStorageSupported('localStorage') && typeof window.localStorage.auto_saved_sql_sort !== 'undefined';
             // Save sql query with sort
             if ($('#RememberSorting') !== undefined && $('#RememberSorting').is(':checked')) {
                 $('select[name="sql_query"]').on('change', function () {
-                    Sql.autoSaveWithSort($('select[name="sql_query"]').val());
+                    Sql.autoSaveWithSort($(this).val());
+                });
+                $('.sortlink').on('click', function () {
+                    Sql.clearAutoSavedSort();
                 });
             } else {
-                if (isStorageSupported('localStorage') && window.localStorage.autoSavedSqlSort !== undefined) {
-                    window.localStorage.removeItem('autoSavedSqlSort');
-                } else {
-                    Cookies.set('autoSavedSqlSort', '');
-                }
+                Sql.clearAutoSavedSort();
             }
             // If sql query with sort for current table is stored, change sort by key select value
-            var sortStoredQuery = (isStorageSupported('localStorage') && typeof window.localStorage.autoSavedSqlSort !== 'undefined') ? window.localStorage.autoSavedSqlSort : Cookies.get('autoSavedSqlSort');
+            var sortStoredQuery = useLocalStorageValue ? window.localStorage.auto_saved_sql_sort : Cookies.get('auto_saved_sql_sort');
             if (typeof sortStoredQuery !== 'undefined' && sortStoredQuery !== $('select[name="sql_query"]').val() && $('select[name="sql_query"] option[value="' + sortStoredQuery + '"]').length !== 0) {
                 $('select[name="sql_query"]').val(sortStoredQuery).trigger('change');
             }
