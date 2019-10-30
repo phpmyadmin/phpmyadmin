@@ -548,8 +548,8 @@ class FormDisplayTemplateTest extends TestCase
         $this->assertEquals(
             [
                 'registerFieldValidator(\'testID\', \'\\\';\', true, '
-                    . '[\'\\\\r\\\\n\\\\\\\''
-                    . '<scrIpt></\\\' + \\\'script>\'])',
+                . '[\'\\\\r\\\\n\\\\\\\''
+                . '<scrIpt></\\\' + \\\'script>\'])',
                 'registerFieldValidator(\'testID\', \'\', true)',
             ],
             $js
@@ -570,19 +570,22 @@ class FormDisplayTemplateTest extends TestCase
 
         $result = $this->formDisplayTemplate->displayJavascript(['var i = 1', 'i++']);
 
-        $this->assertEquals(
-            '<script type="text/javascript">' . "\n"
-            . 'if (typeof configInlineParams === "undefined"'
-            . ' || !Array.isArray(configInlineParams)) '
-            . 'configInlineParams = [];' . "\n"
-            . 'configInlineParams.push(function() {' . "\n"
-            . 'var i = 1;' . "\n"
-            . 'i++;' . "\n"
-            . '});' . "\n"
-            . 'if (typeof configScriptLoaded !== "undefined"'
-            . ' && configInlineParams) loadInlineConfig();'
-            . "\n" . '</script>' . "\n",
-            $result
-        );
+        $jsTemplate = <<<HTML
+<script type="text/javascript">
+    if (typeof configInlineParams === 'undefined' || !Array.isArray(configInlineParams)) {
+        configInlineParams = [];
+    }
+    configInlineParams.push(function () {
+        var i = 1;
+i++;
+    });
+    if (typeof configScriptLoaded !== 'undefined' && configInlineParams) {
+        loadInlineConfig();
+    }
+</script>
+
+HTML;
+
+        $this->assertEquals($jsTemplate, $result);
     }
 }

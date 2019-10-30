@@ -1,7 +1,11 @@
 <script type="text/javascript">
-if (typeof configInlineParams === "undefined" || !Array.isArray(configInlineParams)) configInlineParams = [];
-configInlineParams.push(function() {
-{{ js_array|join(';\n')|raw }};
-});
-if (typeof configScriptLoaded !== "undefined" && configInlineParams) loadInlineConfig();
+    if (typeof configInlineParams === 'undefined' || !Array.isArray(configInlineParams)) {
+        configInlineParams = [];
+    }
+    configInlineParams.push(function () {
+        {{ js_array|join(';\n')|raw }};
+    });
+    if (typeof configScriptLoaded !== 'undefined' && configInlineParams) {
+        loadInlineConfig();
+    }
 </script>
