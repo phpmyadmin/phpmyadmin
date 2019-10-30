@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\Template;
 use stdClass;
 
 /**
@@ -52,11 +53,15 @@ abstract class TextImageLinkTransformationsPlugin extends TransformationsPlugin
         if (! Sanitize::checkLink($url, true, true)) {
             return htmlspecialchars($url);
         }
-        return '<a href="' . htmlspecialchars($url)
-            . '" rel="noopener noreferrer" target="_blank"><img src="' . htmlspecialchars($url)
-            . '" border="0" width="' . intval($options[1])
-            . '" height="' . intval($options[2]) . '">'
-            . htmlspecialchars($buffer) . '</a>';
+
+        $template = new Template();
+
+        return $template->render('plugins/text_image_link_transformations', [
+            'url' => $url,
+            'width' => (int) $options[1],
+            'height' => (int) $options[2],
+            'buffer' => $buffer,
+        ]);
     }
 
 
