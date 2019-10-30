@@ -39,6 +39,7 @@ phpMyAdmin - ChangeLog
 - issue #15266 Add an external dependency injection system
 - issue #15350 Change MIME type references to Media (MIME) type
 - issue        Fixed url.php crashing because it's not loading the DatabaseInterface service
+- issue #15540 Fixed uncaught TypeError: htmlspecialchars() in NavigationTree
 
 4.9.2 (not yet released)
 - issue #15304 Fix ssl_use php error
