@@ -529,13 +529,15 @@ class Header
         /**
          * Sends http headers
          */
+        $recaptchaNonce=base64_encode(openssl_random_pseudo_bytes(16));
         $GLOBALS['now'] = gmdate('D, d M Y H:i:s') . ' GMT';
         if (! empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
             && ! empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
         ) {
             $captcha_url
                 = ' https://apis.google.com https://www.google.com/recaptcha/'
-                . ' https://www.gstatic.com/recaptcha/ https://ssl.gstatic.com/ ';
+                . ' https://www.gstatic.com/recaptcha/ https://ssl.gstatic.com/ ';            /*$captcha_url
+                = 'https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/';*/
         } else {
             $captcha_url = '';
         }
@@ -554,38 +556,44 @@ class Header
         );
         header(
             "Content-Security-Policy: default-src 'self' "
-            . $captcha_url
             . $GLOBALS['cfg']['CSPAllow'] . ';'
             . "script-src 'self' 'unsafe-inline' 'unsafe-eval' "
             . $captcha_url
             . $GLOBALS['cfg']['CSPAllow'] . ';'
-            . "style-src 'self' 'unsafe-inline' "
-            . $captcha_url
+            . "style-src 'self' "
+            //. "'nonce-GoogleRecaptcha' "
+            . "'unsafe-inline' "
             . $GLOBALS['cfg']['CSPAllow']
             . ";"
             . "img-src 'self' data: "
             . $GLOBALS['cfg']['CSPAllow']
             . $map_tile_urls
-            . $captcha_url
             . ";"
             . "object-src 'none';"
+            . "child-src "
+            . $captcha_url
+            . ";"
+            . "form-action 'self' "
+            . ";"
         );
         header(
             "X-Content-Security-Policy: default-src 'self' "
-            . $captcha_url
             . $GLOBALS['cfg']['CSPAllow'] . ';'
             . "options inline-script eval-script;"
             . "referrer no-referrer;"
             . "img-src 'self' data: "
             . $GLOBALS['cfg']['CSPAllow']
             . $map_tile_urls
-            . $captcha_url
             . ";"
             . "object-src 'none';"
+            . "child-src "
+            . $captcha_url
+            . ";"
+            . "form-action 'self' "
+            . ";"
         );
         header(
             "X-WebKit-CSP: default-src 'self' "
-            . $captcha_url
             . $GLOBALS['cfg']['CSPAllow'] . ';'
             . "script-src 'self' "
             . $captcha_url
@@ -593,14 +601,17 @@ class Header
             . " 'unsafe-inline' 'unsafe-eval';"
             . "referrer no-referrer;"
             . "style-src 'self' 'unsafe-inline' "
-            . $captcha_url
             . ';'
             . "img-src 'self' data: "
             . $GLOBALS['cfg']['CSPAllow']
             . $map_tile_urls
-            . $captcha_url
             . ";"
             . "object-src 'none';"
+            . "child-src "
+            . $captcha_url
+            . ";"
+            . "form-action 'self' "
+            . ";"
         );
         // Re-enable possible disabled XSS filters
         // see https://www.owasp.org/index.php/List_of_useful_HTTP_headers
