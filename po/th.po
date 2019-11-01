@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-10-29 00:45+0100\n"
-"PO-Revision-Date: 2019-10-31 07:04+0000\n"
+"PO-Revision-Date: 2019-11-02 03:04+0000\n"
 "Last-Translator: Kongfa Warorot <gongpha@hotmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "th/>\n"
@@ -1579,7 +1579,7 @@ msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
-"เพื่อระบุว่าคุณได้ทำการเปลี่ยนแปลงในหน้านี้  "
+"เพื่อระบุว่าคุณได้ทำการเปลี่ยนแปลงในหน้านี้ "
 "คุณจะได้รับการแจ้งให้ยืนยันก่อนที่จะละทิ้งการเปลี่ยนแปลง"
 
 #: js/messages.php:563
@@ -1668,7 +1668,7 @@ msgstr "บันทึกการแก้ไขเรียบร้อยแ
 #: js/messages.php:589
 #, php-format
 msgid "Add an option for column \"%s\"."
-msgstr "เพิ่มตัวเลือกสำหรับคอลัมน์  \"%s\""
+msgstr "เพิ่มตัวเลือกสำหรับคอลัมน์ \"%s\""
 
 #: js/messages.php:590
 #, php-format
@@ -1899,6 +1899,8 @@ msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
+"การส่งออกของคุณไม่ประสบความสำเร็จ เนื่องจากการจำกัดของเวลาในการเรียกใช้คำสั่"
+"งใน PHP!"
 
 #: js/messages.php:701
 #, php-format
@@ -1906,10 +1908,13 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
+"คำเตือน: ฟอร์มในหน้านี้มีช่องฟิลด์มากกว่า %d ช่อง "
+"ในการส่งข้อมูลบางส่วนของฟิลด์อาจถูกละเว้นเนื่องจากการกำหนดค่า max_input_vars "
+"ของ PHP"
 
 #: js/messages.php:707 js/messages.php:720
 msgid "Some errors have been detected on the server!"
-msgstr ""
+msgstr "มีข้อผิดพลาดบางอย่างถูกตรวจจับบนเซิร์ฟเวอร์ของคุณ!"
 
 #: js/messages.php:709
 msgid "Please look at the bottom of this window."
@@ -1922,7 +1927,7 @@ msgstr "ไม่สนใจทั้งหมด"
 #: js/messages.php:723
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
-msgstr ""
+msgstr "ตามการตั้งค่าของคุณ พวกมันกำลังถูกส่งในขณะนี้กรุณาอดทนรอ"
 
 #: js/messages.php:731
 msgid "Successfully copied!"
@@ -1977,6 +1982,12 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"มีปัญหาในการเข้าถึงที่เก็บเบราว์เซอร์ของคุณ "
+"คุณลักษณะบางอย่างอาจไม่ทำงานอย่างถูกต้องสำหรับคุณ "
+"มีแนวโน้มว่าเบราว์เซอร์ไม่สนับสนุนการจัดเก็บข้อมูลหรือถึงขีดจำกัดโควต้า ใน "
+"Firefox การจัดเก็บข้อมูลที่เสียหายอาจทำให้เกิดปัญหาเช่นการล้างข้อมูล \""
+"ข้อมูลเว็บไซต์แบบออฟไลน์\" ของคุณอาจช่วยได้ ใน Safari ปัญหาดังกล่าวมักเกิ"
+"ดจาก \"การเรียกดูโหมดส่วนตัว\""
 
 #: js/messages.php:748
 msgid "Copy tables to"
@@ -2394,7 +2405,7 @@ msgstr "เกิกข้อผิดพลาดในขณะที่คำ
 #: libraries/classes/Advisor.php:299
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr ""
+msgstr "การประเมินเงื่อนไขกฎ '%s' ล้มเหลว"
 
 #: libraries/classes/Advisor.php:316
 #, php-format
@@ -2420,7 +2431,7 @@ msgstr "ข้อผิดพลาดในการอ่านไฟล์: �
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
-msgstr ""
+msgstr "การประกาศกฎไม่ถูกต้องบนบรรทัด %1$s คาดหวังบรรทัด %2$s ของกฎก่อนหน้านี้"
 
 #: libraries/classes/Advisor.php:596
 #, php-format
@@ -2488,6 +2499,7 @@ msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
 msgstr ""
+"การจัดเก็บการกำหนดค่าไม่พร้อมใช้งานสำหรับรายการส่วนกลางของคุณลักษณะของคอลัมน์"
 
 #: libraries/classes/CentralColumns.php:387
 #, php-format
@@ -2502,7 +2514,7 @@ msgstr "คอลัมน์ไม่ได้ถูกเพิ่ม!"
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
-msgstr ""
+msgstr "ไม่สามารถลบคอลัมน์ %1$s ตามที่ไม่มีอยู่ในรายการคอลัมน์ส่วนกลาง!"
 
 #: libraries/classes/CentralColumns.php:494
 msgid "Could not remove columns!"
@@ -2920,11 +2932,9 @@ msgid "accent-sensitive"
 msgstr "สนใจสำเนียง"
 
 #: libraries/classes/Charsets/Collation.php:524
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "สนใจตัวเล็กตัวใหญ่"
+msgstr "สนใจการเรียงลำดับตามตัวอักษรคาตาคานะ"
 
 #: libraries/classes/Charsets/Collation.php:528
 msgctxt "Collation variant"
@@ -2939,7 +2949,7 @@ msgstr "ข้อมูลไบนารี"
 #: libraries/classes/Charsets/Collation.php:534
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "ไม่ต้องเลื่อนช่องว่าง"
 
 #: libraries/classes/Config.php:1113
 #, php-format
@@ -3086,6 +3096,7 @@ msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
 msgstr ""
+"พบข้อผิดพลาดในคิวรีก่อนที่จะดำเนินการ จำเป็นต้องให้ CodeMirror เปิดใช้งาน"
 
 #: libraries/classes/Config/Descriptions.php:113
 msgid "Enable linter"
@@ -3160,7 +3171,7 @@ msgstr "ยืนยันคิวรี่ DROP"
 #: libraries/classes/Config/Descriptions.php:139
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
-msgstr ""
+msgstr "บันทึกคิวรี SQL และเวลาในการดำเนินการที่จะแสดงในคอนโซล"
 
 #: libraries/classes/Config/Descriptions.php:140
 #: templates/console/display.twig:11 templates/console/display.twig:64
@@ -3168,17 +3179,17 @@ msgid "Debug SQL"
 msgstr "แก้จุดบกพร่อง SQL"
 
 #: libraries/classes/Config/Descriptions.php:141
+#, fuzzy
 msgid "Tab that is displayed when entering a database."
-msgstr ""
+msgstr "แท็บที่จะแสดงเมื่อป้อนฐานข้อมูล"
 
 #: libraries/classes/Config/Descriptions.php:142
-#, fuzzy
 msgid "Default database tab"
-msgstr "เปลี่ยนชื่อฐานข้อมูลเป็น"
+msgstr "แท็บฐานข้อมูลเริ่มต้น"
 
 #: libraries/classes/Config/Descriptions.php:143
 msgid "Tab that is displayed when entering a server."
-msgstr ""
+msgstr "แท็บที่จะแสดงเมื่อเข้าสู่เซิร์ฟเวอร์"
 
 #: libraries/classes/Config/Descriptions.php:144
 msgid "Default server tab"
@@ -3186,50 +3197,39 @@ msgstr "แท็บเซิร์ฟเวอร์เริ่มต้น"
 
 #: libraries/classes/Config/Descriptions.php:145
 msgid "Tab that is displayed when entering a table."
-msgstr ""
+msgstr "แท็บที่จะแสดงเมื่อเข้าสู่ตาราง"
 
 #: libraries/classes/Config/Descriptions.php:146
 msgid "Default table tab"
 msgstr "แท็บตารางเริ่มต้น"
 
 #: libraries/classes/Config/Descriptions.php:147
-#, fuzzy
-#| msgid "Enclose table and field names with backquotes"
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "ใส่ 'backqoute' ให้กับชื่อตารางและฟิลด์"
+msgstr "การทำให้สมบูรณ์โดยอัตโนมัติของชื่อตารางและคอลัมน์ในคิวรี SQL"
 
 #: libraries/classes/Config/Descriptions.php:148
-#, fuzzy
-#| msgid "Enclose table and field names with backquotes"
 msgid "Enable autocomplete for table and column names"
-msgstr "ใส่ 'backqoute' ให้กับชื่อตารางและฟิลด์"
+msgstr "เปิดใช้งานการทำให้สมบูรณ์โดยอัตโนมัติของชื่อตารางและคอลัมน์"
 
 #: libraries/classes/Config/Descriptions.php:149
-#, fuzzy
-#| msgid "Propose table structure"
 msgid "Whether the table structure actions should be hidden."
-msgstr "เสนอโครงสร้างตาราง"
+msgstr "ควรซ่อนการดำเนินการโครงสร้างตาราง"
 
 #: libraries/classes/Config/Descriptions.php:150
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show column comments"
-msgstr "หมายเหตุของตาราง"
+msgstr "แสดงหมายเหตุคอลัมน์"
 
 #: libraries/classes/Config/Descriptions.php:151
 msgid "Whether column comments should be shown in table structure view"
-msgstr ""
+msgstr "ควรแสดงความคิดเห็นคอลัมน์ในมุมมองโครงสร้างตาราง"
 
 #: libraries/classes/Config/Descriptions.php:152
-#, fuzzy
-#| msgid "Propose table structure"
 msgid "Hide table structure actions"
-msgstr "เสนอโครงสร้างตาราง"
+msgstr "ซ่อนการดำเนินการโครงสร้างตาราง"
 
 #: libraries/classes/Config/Descriptions.php:153
-#, fuzzy
 msgid "Default transformations for Hex"
-msgstr "การแปลงที่เรียกใช้ได้"
+msgstr "การแปลงค่าเริ่มต้นสำหรับเลขฐานสิบหก"
 
 #: libraries/classes/Config/Descriptions.php:154
 #: libraries/classes/Config/Descriptions.php:156
@@ -3244,6 +3244,8 @@ msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
 msgstr ""
+"ค่าสำหรับรายการตัวเลือกสำหรับการแปลงค่าเริ่มต้น สิ่งเหล่านี้จะถูกเขียนทับ "
+"หากมีการแปลงถูกเติมที่หน้าโครงสร้างตาราง"
 
 #: libraries/classes/Config/Descriptions.php:155
 #, fuzzy
@@ -7702,11 +7704,11 @@ msgstr ""
 
 #: libraries/classes/Engines/Innodb.php:174
 msgid "pages"
-msgstr ""
+msgstr "หน้า"
 
 #: libraries/classes/Engines/Innodb.php:188
 msgid "Free pages"
-msgstr ""
+msgstr "หน้าฟรี"
 
 #: libraries/classes/Engines/Innodb.php:197
 msgid "Dirty pages"
@@ -7723,7 +7725,7 @@ msgstr "ล้างตาราง %s เรียบร้อยแล้ว"
 
 #: libraries/classes/Engines/Innodb.php:224
 msgid "Busy pages"
-msgstr ""
+msgstr "หน้าไม่ว่าง"
 
 #: libraries/classes/Engines/Innodb.php:236
 msgid "Latched pages"
@@ -7743,23 +7745,23 @@ msgstr ""
 
 #: libraries/classes/Engines/Innodb.php:272
 msgid "Read misses"
-msgstr ""
+msgstr "อ่านพลาด"
 
 #: libraries/classes/Engines/Innodb.php:281
 msgid "Write waits"
-msgstr ""
+msgstr "การเขียนที่อยู่ในระหว่างการรอ"
 
 #: libraries/classes/Engines/Innodb.php:290
 msgid "Read misses in %"
-msgstr ""
+msgstr "อ่านพลาดใน %"
 
 #: libraries/classes/Engines/Innodb.php:305
 msgid "Write waits in %"
-msgstr ""
+msgstr "การเขียนที่อยู่ในระหว่างการรอใน %"
 
 #: libraries/classes/Engines/Myisam.php:29
 msgid "Data pointer size"
-msgstr ""
+msgstr "ขนาดตัวชี้ข้อมูล"
 
 #: libraries/classes/Engines/Myisam.php:31
 msgid ""
@@ -7769,7 +7771,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Myisam.php:37
 msgid "Automatic recovery mode"
-msgstr ""
+msgstr "โหมดการกู้คืนอัตโนมัติ"
 
 #: libraries/classes/Engines/Myisam.php:39
 msgid ""
@@ -7779,7 +7781,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Myisam.php:44
 msgid "Maximum size for temporary sort files"
-msgstr ""
+msgstr "ขนาดสูงสุดสำหรับไฟล์ที่ถูกจัดเรียงชั่วคราว"
 
 #: libraries/classes/Engines/Myisam.php:46
 msgid ""
@@ -7801,7 +7803,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Myisam.php:62
 msgid "Repair threads"
-msgstr ""
+msgstr "ซ่อมแซมเธรด"
 
 #: libraries/classes/Engines/Myisam.php:64
 msgid ""
@@ -7842,7 +7844,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:50
 msgid "Log cache size"
-msgstr ""
+msgstr "ขนาดการบันทึกประวัติการแคช"
 
 #: libraries/classes/Engines/Pbxt.php:52
 msgid ""
