@@ -238,7 +238,7 @@ class Advisor
         // Step 2: Read and parse the list of rules
         $parsedResults = [];
         foreach ($ruleFiles as $ruleFile) {
-            $parsedResults[] = $this->parseRulesFile($ruleFile);
+            $parsedResults[] = static::parseRulesFile($ruleFile);
         }
         $this->setParseResult(array_merge_recursive(...$parsedResults));
 
