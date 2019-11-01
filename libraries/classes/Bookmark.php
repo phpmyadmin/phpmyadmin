@@ -8,10 +8,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Util;
-
 /**
  * Handles bookmarking SQL queries
  *
@@ -277,6 +273,27 @@ class Bookmark
     }
 
     /**
+     * @param DatabaseInterface $dbi  DatabaseInterface object
+     * @param string            $user Current user
+     * @param array             $row  Resource used to build the bookmark
+     *
+     * @return Bookmark
+     */
+    protected static function createFromRow(
+        DatabaseInterface $dbi,
+        string $user,
+        $row
+    ): Bookmark {
+        $bookmark = new Bookmark($dbi, $user);
+        $bookmark->_id = $row['id'];
+        $bookmark->_database = $row['dbase'];
+        $bookmark->_user = $row['user'];
+        $bookmark->_label = $row['label'];
+        $bookmark->_query = $row['query'];
+        return $bookmark;
+    }
+
+    /**
      * Gets the list of bookmarks defined for the current database
      *
      * @param DatabaseInterface $dbi  DatabaseInterface object
@@ -317,13 +334,7 @@ class Bookmark
         if (! empty($result)) {
             $bookmarks = [];
             foreach ($result as $row) {
-                $bookmark = new Bookmark($dbi, $user);
-                $bookmark->_id = $row['id'];
-                $bookmark->_database = $row['dbase'];
-                $bookmark->_user = $row['user'];
-                $bookmark->_label = $row['label'];
-                $bookmark->_query = $row['query'];
-                $bookmarks[] = $bookmark;
+                $bookmarks[] = self::createFromRow($dbi, $user, $row);
             }
 
             return $bookmarks;
@@ -379,13 +390,7 @@ class Bookmark
 
         $result = $dbi->fetchSingleRow($query, 'ASSOC', DatabaseInterface::CONNECT_CONTROL);
         if (! empty($result)) {
-            $bookmark = new Bookmark($dbi, $user);
-            $bookmark->_id = $result['id'];
-            $bookmark->_database = $result['dbase'];
-            $bookmark->_user = $result['user'];
-            $bookmark->_label = $result['label'];
-            $bookmark->_query = $result['query'];
-            return $bookmark;
+            return self::createFromRow($dbi, $user, $result);
         }
 
         return null;
