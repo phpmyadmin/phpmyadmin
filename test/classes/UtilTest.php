@@ -2308,25 +2308,29 @@ class UtilTest extends PmaTestCase
     /**
      * backquoteCompat test with different param $compatibility (NONE, MSSQL)
      *
-     * @param string $a String
-     * @param string $b Expected output
+     * @param string $entry               String
+     * @param string $expectedNoneOutput  Expected none output
+     * @param string $expectedMssqlOutput Expected MSSQL output
      *
      * @return void
      *
      * @covers \PhpMyAdmin\Util::backquoteCompat
      * @dataProvider providerBackquoteCompat
      */
-    public function testBackquoteCompat($a, $b): void
+    public function testBackquoteCompat($entry, $expectedNoneOutput, $expectedMssqlOutput): void
     {
         // Test bypass quoting (used by dump functions)
-        $this->assertEquals($a, Util::backquoteCompat($a, 'NONE', false));
+        $this->assertEquals($entry, Util::backquoteCompat($entry, 'NONE', false));
 
         // Run tests in MSSQL compatibility mode
         // Test bypass quoting (used by dump functions)
-        $this->assertEquals($a, Util::backquoteCompat($a, 'MSSQL', false));
+        $this->assertEquals($entry, Util::backquoteCompat($entry, 'MSSQL', false));
 
         // Test backquote
-        $this->assertEquals($b, Util::backquoteCompat($a, 'MSSQL'));
+        $this->assertEquals($expectedNoneOutput, Util::backquoteCompat($entry, 'NONE'));
+
+        // Test backquote
+        $this->assertEquals($expectedMssqlOutput, Util::backquoteCompat($entry, 'MSSQL'));
     }
 
     /**
@@ -2339,20 +2343,29 @@ class UtilTest extends PmaTestCase
         return [
             [
                 '0',
+                '`0`',
                 '"0"',
             ],
             [
                 'test',
+                '`test`',
                 '"test"',
             ],
             [
                 'te`st',
+                '`te``st`',
                 '"te`st"',
             ],
             [
                 [
                     'test',
                     'te`st',
+                    '',
+                    '*',
+                ],
+                [
+                    '`test`',
+                    '`te``st`',
                     '',
                     '*',
                 ],
