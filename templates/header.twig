@@ -52,7 +52,12 @@
         {{ get_image('s_cog', 'Page-related settings'|trans) }}
       </span>
       <a id="goto_pagetop" href="#">{{ get_image('s_top', 'Click on the bar to scroll to top of page'|trans) }}</a>
+      {% if server != 0 %}
+        <a class="logout disableAjax" style="padding-right:7px;" href="{{ url('/logout') }}" title="{{ auth_type == 'config' ? 'Empty session data'|trans : 'Log out'|trans }}">
+          {{- get_image('s_loggoff', auth_type == 'config' ? 'Empty session data'|trans : 'Log out'|trans) -}}
+        </a>
     </span>
+    {% endif %}
   {% endif %}
 
   {{ console|raw }}
