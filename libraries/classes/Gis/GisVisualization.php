@@ -391,8 +391,7 @@ class GisVisualization
         ob_start();
         imagepng($img, null, 9, PNG_ALL_FILTERS);
         imagedestroy($img);
-        $output = ob_get_contents();
-        ob_end_clean();
+        $output = ob_get_clean();
 
         // base64 encode
         $encoded = base64_encode($output);

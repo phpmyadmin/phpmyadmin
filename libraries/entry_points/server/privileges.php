@@ -414,8 +414,7 @@ if (isset($_GET['viewing_mode']) && $_GET['viewing_mode'] == 'db') {
         $pos
     ) = PhpMyAdmin\Util::getDbInfo($db, $sub_part === null ? '' : $sub_part);
 
-    $content = ob_get_contents();
-    ob_end_clean();
+    $content = ob_get_clean();
     $response->addHTML($content . "\n");
 } elseif (! empty($GLOBALS['message'])) {
     $response->addHTML(PhpMyAdmin\Util::getMessage($GLOBALS['message']));

@@ -33,8 +33,7 @@ if (@is_readable($filename)) {
     if (substr($filename, -3) == '.gz') {
         ob_start();
         readgzfile($filename);
-        $changelog = ob_get_contents();
-        ob_end_clean();
+        $changelog = ob_get_clean();
     } else {
         $changelog = file_get_contents($filename);
     }
