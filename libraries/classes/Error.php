@@ -425,7 +425,7 @@ class Error extends Message
         if (in_array($function, $include_functions)) {
             $retval .= self::relPath($arg);
         } elseif (in_array($function, $connect_functions)
-            && gettype($arg) === 'string'
+            && is_string($arg)
         ) {
             $retval .= gettype($arg) . ' ********';
         } elseif (is_scalar($arg)) {

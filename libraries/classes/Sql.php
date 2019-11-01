@@ -643,7 +643,7 @@ class Sql
             $property_value,
             $_POST['table_create_time']
         );
-        if (gettype($retval) != 'boolean') {
+        if (! is_bool($retval)) {
             $response = Response::getInstance();
             $response->setRequestStatus(false);
             $response->addJSON('message', $retval->getString());
