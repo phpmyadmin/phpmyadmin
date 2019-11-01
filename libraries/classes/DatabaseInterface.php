@@ -327,7 +327,7 @@ class DatabaseInterface
             $this->_dbgQuery($query, $link, $result, $time);
             if ($GLOBALS['cfg']['DBG']['sqllog']) {
                 $warningsCount = '';
-                if ($options & DatabaseInterface::QUERY_STORE == DatabaseInterface::QUERY_STORE) {
+                if (($options & DatabaseInterface::QUERY_STORE) == DatabaseInterface::QUERY_STORE) {
                     if (isset($this->_links[$link]->warning_count)) {
                         $warningsCount = $this->_links[$link]->warning_count;
                     }
