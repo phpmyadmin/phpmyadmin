@@ -872,26 +872,7 @@ class Util
      */
     public static function backquote($a_name, $do_it = true)
     {
-        if (is_array($a_name)) {
-            foreach ($a_name as &$data) {
-                $data = self::backquote($data, $do_it);
-            }
-            return $a_name;
-        }
-
-        if (! $do_it) {
-            if (! (Context::isKeyword($a_name) & Token::FLAG_KEYWORD_RESERVED)
-            ) {
-                return $a_name;
-            }
-        }
-
-        // '0' is also empty for php :-(
-        if (strlen((string) $a_name) > 0 && $a_name !== '*') {
-            return '`' . str_replace('`', '``', $a_name) . '`';
-        }
-
-        return $a_name;
+        return static::backquoteCompat($a_name, 'NONE', $do_it);
     } // end of the 'backquote()' function
 
     /**
@@ -928,7 +909,7 @@ class Util
         }
 
         if (! $do_it) {
-            if (! Context::isKeyword($a_name)) {
+            if (! (Context::isKeyword($a_name) & Token::FLAG_KEYWORD_RESERVED)) {
                 return $a_name;
             }
         }
@@ -937,15 +918,17 @@ class Util
         switch ($compatibility) {
             case 'MSSQL':
                 $quote = '"';
+                $escapeChar = '\\';
                 break;
             default:
-                $quote = "`";
+                $quote = '`';
+                $escapeChar = '`';
                 break;
         }
 
         // '0' is also empty for php :-(
         if (strlen((string) $a_name) > 0 && $a_name !== '*') {
-            return $quote . $a_name . $quote;
+            return $quote . str_replace($quote, $escapeChar . $quote, $a_name) . $quote;
         }
 
         return $a_name;
