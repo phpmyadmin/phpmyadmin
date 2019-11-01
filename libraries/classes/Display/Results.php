@@ -3796,7 +3796,7 @@ class Results
         $is_analyse = $this->__get('is_analyse');
         $field_flags = $GLOBALS['dbi']->fieldFlags($dt_result, $col_index);
 
-        $bIsText = gettype($transformation_plugin) === 'object'
+        $bIsText = is_object($transformation_plugin)
             && strpos($transformation_plugin->getMIMEType(), 'Text')
             === false;
 
@@ -3828,7 +3828,7 @@ class Results
         // Cut all fields to $GLOBALS['cfg']['LimitChars']
         // (unless it's a link-type transformation or binary)
         $displayedColumn = $column;
-        if (! (gettype($transformation_plugin) === "object"
+        if (! (is_object($transformation_plugin)
             && strpos($transformation_plugin->getName(), 'Link') !== false)
             && false === stripos($field_flags, self::BINARY_FIELD)
         ) {
@@ -5076,7 +5076,7 @@ class Results
         $result .= ']';
 
         // if we want to use a text transformation on a BLOB column
-        if (gettype($transformation_plugin) === "object") {
+        if (is_object($transformation_plugin)) {
             $posMimeOctetstream = strpos(
                 $transformation_plugin->getMIMESubtype(),
                 'Octetstream'
