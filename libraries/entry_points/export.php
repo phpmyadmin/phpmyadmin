@@ -9,6 +9,7 @@ declare(strict_types=1);
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Encoding;
+use PhpMyAdmin\Exceptions\ExportException;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportPlugin;
@@ -433,16 +434,14 @@ if ($save_on_server) {
 /** @var Relation $relation */
 $relation = $containerBuilder->get('relation');
 
-// Fake loop just to allow skip of remain of this code by break, I'd really
-// need exceptions here :-)
-do {
+try {
     // Re - initialize
     $dump_buffer = '';
     $dump_buffer_len = 0;
 
     // Add possibly some comments to export
     if (! $export_plugin->exportHeader()) {
-        break;
+        throw new ExportException('Failure during header export.');
     }
 
     // Will we need relation & co. setup?
@@ -591,10 +590,11 @@ do {
         }
     }
     if (! $export_plugin->exportFooter()) {
-        break;
+        throw new ExportException('Failure during footer export.');
     }
-} while (false);
-// End of fake loop
+} catch (ExportException $e) {
+    null; // Avoid phpcs error...
+}
 
 if ($save_on_server && ! empty($message)) {
     $export->showPage($db, $table, $export_type);
