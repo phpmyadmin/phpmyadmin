@@ -136,6 +136,7 @@ abstract class ExportPlugin
      */
     public function exportRoutines($db, array $aliases = [])
     {
+        return true;
     }
 
     /**
@@ -147,6 +148,7 @@ abstract class ExportPlugin
      */
     public function exportEvents($db)
     {
+        return true;
     }
 
     /**
@@ -184,6 +186,7 @@ abstract class ExportPlugin
         $dates = false,
         array $aliases = []
     ) {
+        return true;
     }
 
     /**
@@ -200,6 +203,7 @@ abstract class ExportPlugin
         $tables,
         array $metadataTypes
     ) {
+        return true;
     }
 
     /**
