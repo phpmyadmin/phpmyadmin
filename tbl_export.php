@@ -53,33 +53,6 @@ if (! empty($sql_query)) {
     if ((!empty($parser->statements[0]))
         && ($parser->statements[0] instanceof PhpMyAdmin\SqlParser\Statements\SelectStatement)
     ) {
-
-        // Finding aliases and removing them, but we keep track of them to be
-        // able to replace them in select expression too.
-        $aliases = array();
-        foreach ($parser->statements[0]->from as $from) {
-            if ((!empty($from->table)) && (!empty($from->alias))) {
-                $aliases[$from->alias] = $from->table;
-                // We remove the alias of the table because they are going to
-                // be replaced anyway.
-                $from->alias = null;
-                $from->expr = null; // Force rebuild.
-            }
-        }
-
-        // Rebuilding the SELECT and FROM clauses.
-        if (count($parser->statements[0]->from) > 0
-            && count($parser->statements[0]->union) === 0
-        ) {
-            $replaces = array(
-                array(
-                    'FROM', 'FROM ' . PhpMyAdmin\SqlParser\Components\ExpressionArray::build(
-                        $parser->statements[0]->from
-                    ),
-                ),
-            );
-        }
-
         // Checking if the WHERE clause has to be replaced.
         if ((!empty($where_clause)) && (is_array($where_clause))) {
             $replaces[] = array(
