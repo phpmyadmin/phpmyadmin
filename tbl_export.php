@@ -96,28 +96,6 @@ if (! empty($sql_query)) {
             $parser->list,
             $replaces
         );
-
-        // Removing the aliases by finding the alias followed by a dot.
-        $tokens = PhpMyAdmin\SqlParser\Lexer::getTokens($sql_query);
-        foreach ($aliases as $alias => $table) {
-            $tokens = PhpMyAdmin\SqlParser\Utils\Tokens::replaceTokens(
-                $tokens,
-                array(
-                    array(
-                        'value_str' => $alias,
-                    ),
-                    array(
-                        'type' => PhpMyAdmin\SqlParser\Token::TYPE_OPERATOR,
-                        'value_str' => '.',
-                    )
-                ),
-                array(
-                    new PhpMyAdmin\SqlParser\Token($table),
-                    new PhpMyAdmin\SqlParser\Token('.',PhpMyAdmin\SqlParser\Token::TYPE_OPERATOR)
-                )
-            );
-        }
-        $sql_query = PhpMyAdmin\SqlParser\TokensList::build($tokens);
     }
 
     echo PhpMyAdmin\Util::getMessage(PhpMyAdmin\Message::success());
