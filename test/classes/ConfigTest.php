@@ -876,6 +876,7 @@ class ConfigTest extends PmaTestCase
      */
     public function testSetCookie()
     {
+        $this->object->set('is_https', false);
         $this->assertFalse(
             $this->object->setCookie(
                 'TEST_DEF_COOKIE',

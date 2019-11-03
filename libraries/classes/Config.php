@@ -974,7 +974,7 @@ class Config
         }
 
         // save language
-        if (isset($_COOKIE['pma_lang']) || isset($_POST['lang'])) {
+        if ($this->issetCookie('pma_lang') || isset($_POST['lang'])) {
             if ((! isset($config_data['lang'])
                 && $GLOBALS['lang'] != 'en')
                 || isset($config_data['lang'])
@@ -1052,7 +1052,7 @@ class Config
      */
     public function getUserValue(string $cookie_name, $cfg_value)
     {
-        $cookie_exists = ! empty($_COOKIE[$cookie_name]);
+        $cookie_exists = ! empty($this->getCookie($cookie_name));
         $prefs_type = $this->get('user_preferences');
         if ($prefs_type == 'db') {
             // permanent user preferences value exists, remove cookie
@@ -1060,7 +1060,7 @@ class Config
                 $this->removeCookie($cookie_name);
             }
         } elseif ($cookie_exists) {
-            return $_COOKIE[$cookie_name];
+            return $this->getCookie($cookie_name);
         }
         // return value from $cfg array
         return $cfg_value;
@@ -1407,20 +1407,22 @@ class Config
     /**
      * removes cookie
      *
-     * @param string $cookie name of cookie to remove
+     * @param string $cookieName name of cookie to remove
      *
      * @return boolean result of setcookie()
      */
-    public function removeCookie(string $cookie): bool
+    public function removeCookie(string $cookieName): bool
     {
+        $httpCookieName = $this->getCookieName($cookieName);
+
+        if ($this->issetCookie($cookieName)) {
+            unset($_COOKIE[$httpCookieName]);
+        }
         if (defined('TESTSUITE')) {
-            if (isset($_COOKIE[$cookie])) {
-                unset($_COOKIE[$cookie]);
-            }
             return true;
         }
         return setcookie(
-            $cookie,
+            $httpCookieName,
             '',
             time() - 3600,
             $this->getRootPath(),
@@ -1451,19 +1453,21 @@ class Config
         if (strlen($value) > 0 && null !== $default && $value === $default
         ) {
             // default value is used
-            if (isset($_COOKIE[$cookie])) {
+            if ($this->issetCookie($cookie)) {
                 // remove cookie
                 return $this->removeCookie($cookie);
             }
             return false;
         }
 
-        if (strlen($value) === 0 && isset($_COOKIE[$cookie])) {
+        if (strlen($value) === 0 && $this->issetCookie($cookie)) {
             // remove cookie, value is empty
             return $this->removeCookie($cookie);
         }
 
-        if (! isset($_COOKIE[$cookie]) || $_COOKIE[$cookie] !== $value) {
+        $httpCookieName = $this->getCookieName($cookie);
+
+        if (! $this->issetCookie($cookie) ||  $this->getCookie($cookie) !== $value) {
             // set cookie with new value
             /* Calculate cookie validity */
             if ($validity === null) {
@@ -1476,11 +1480,11 @@ class Config
                 $validity = time() + $validity;
             }
             if (defined('TESTSUITE')) {
-                $_COOKIE[$cookie] = $value;
+                $_COOKIE[$httpCookieName] = $value;
                 return true;
             }
             return setcookie(
-                $cookie,
+                $httpCookieName,
                 $value,
                 $validity,
                 $this->getRootPath(),
@@ -1494,6 +1498,40 @@ class Config
         return true;
     }
 
+    /**
+     * get cookie
+     *
+     * @param string $cookieName The name of the cookie to get
+     *
+     * @return mixed result of getCookie()
+     */
+    public function getCookie(string $cookieName)
+    {
+        return @$_COOKIE[$this->getCookieName($cookieName)];
+    }
+
+    /**
+     * Get the real cookie name
+     *
+     * @param string $cookieName The name of the cookie
+     * @return string
+     */
+    public function getCookieName(string $cookieName): string
+    {
+        return $cookieName . ( ($this->isHttps()) ? '_https' : '' );
+    }
+
+    /**
+     * isset cookie
+     *
+     * @param string $cookieName The name of the cookie to check
+     *
+     * @return bool result of issetCookie()
+     */
+    public function issetCookie(string $cookieName): bool
+    {
+        return isset($_COOKIE[$this->getCookieName($cookieName)]);
+    }
 
     /**
      * Error handler to catch fatal errors when loading configuration

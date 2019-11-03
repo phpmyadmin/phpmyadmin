@@ -166,6 +166,7 @@ class LanguageTest extends PmaTestCase
     public function testSelect($lang, $post, $get, $cookie, $accept, $agent, $default, $expect): void
     {
         $GLOBALS['PMA_Config']->set('Lang', $lang);
+        $GLOBALS['PMA_Config']->set('is_https', false);
         $_POST['lang'] = $post;
         $_GET['lang'] = $get;
         $_COOKIE['pma_lang'] = $cookie;
