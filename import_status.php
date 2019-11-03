@@ -44,6 +44,7 @@ if (ini_get('session.upload_progress.enabled')) {
     define('SESSIONUPLOAD', serialize($sessionupload));
     session_write_close();
 
+    // The cookie name is not good anymore since PR #15273
     session_name('phpMyAdmin');
     session_id($_COOKIE['phpMyAdmin']);
 }
