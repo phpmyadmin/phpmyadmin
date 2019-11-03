@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Tests\Plugins\Transformations;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Plugins\Transformations\Input\Image_JPEG_Upload;
 use PhpMyAdmin\Plugins\Transformations\Input\Text_Plain_FileUpload;
+use PhpMyAdmin\Plugins\Transformations\Input\Text_Plain_Iptolong;
 use PhpMyAdmin\Plugins\Transformations\Input\Text_Plain_RegexValidation;
 use PhpMyAdmin\Plugins\Transformations\Output\Application_Octetstream_Download;
 use PhpMyAdmin\Plugins\Transformations\Output\Application_Octetstream_Hex;
@@ -1065,6 +1066,26 @@ class TransformationPluginsTest extends PmaTestCase
                 new Text_Plain_Longtoipv4(),
                 ['<my ip>'],
                 '&lt;my ip&gt;',
+            ],
+            [
+                new Text_Plain_Iptolong(),
+                ['10.11.12.13'],
+                168496141,
+            ],
+            [
+                new Text_Plain_Iptolong(),
+                ['10.11.12.913'],
+                '10.11.12.913',
+            ],
+            [
+                new Text_Plain_Iptolong(),
+                ['my ip'],
+                'my ip',
+            ],
+            [
+                new Text_Plain_Iptolong(),
+                ['<my ip>'],
+                '<my ip>',
             ],
         ];
 

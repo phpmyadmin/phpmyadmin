@@ -1,6 +1,9 @@
 <?php
 /**
- * Handles the IPv4/IPv6 to binary transformation for text plain
+ * Handles the IPv4/IPv6 to long transformation for text plain
+ *
+ * @package    PhpMyAdmin-Transformations
+ * @subpackage IPToLong
  */
 declare(strict_types=1);
 
@@ -9,16 +12,15 @@ namespace PhpMyAdmin\Plugins\Transformations\Input;
 use PhpMyAdmin\Utils\FormatConverter;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use stdClass;
-use function htmlspecialchars;
-use function inet_ntop;
-use function pack;
-use function strlen;
 
 /**
- * Handles the IPv4/IPv6 to binary transformation for text plain
+ * Handles the IPv4/IPv6 to long transformation for text plain
+ *
+ * @package    PhpMyAdmin-Transformations
+ * @subpackage IPToLong
  */
 // @codingStandardsIgnoreLine
-class Text_Plain_Iptobinary extends IOTransformationsPlugin
+class Text_Plain_Iptolong extends IOTransformationsPlugin
 {
     /**
      * Gets the transformation description of the plugin
@@ -28,24 +30,24 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
     public static function getInfo()
     {
         return __(
-            'Converts an Internet network address in (IPv4/IPv6) format to binary'
+            'Converts an Internet network address in (IPv4/IPv6) format to long.'
         );
     }
 
     /**
      * Does the actual work of each specific transformations plugin.
      *
-     * @param string        $buffer  text to be transformed. a binary string containing
-     *                               an IP address, as returned from MySQL's INET6_ATON
-     *                               function
-     * @param array         $options transformation options
-     * @param stdClass|null $meta    meta information
+     * @param string   $buffer  text to be transformed. a binary string containing
+     *                          an IP address, as returned from MySQL's INET6_ATON
+     *                          function
+     * @param array    $options transformation options
+     * @param stdClass $meta    meta information
      *
      * @return string IP address
      */
     public function applyTransformation($buffer, array $options = [], ?stdClass $meta = null)
     {
-        return FormatConverter::ipToBinary($buffer);
+        return (string) FormatConverter::ipToLong($buffer);
     }
 
     /**
@@ -76,26 +78,21 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
         $idindex
     ) {
         $html = '';
-        $val = '';
-        if (! empty($value)) {
-            $length = strlen($value);
-            if ($length == 4 || $length == 16) {
-                $ip = @inet_ntop(pack('A' . $length, $value));
-                if ($ip !== false) {
-                    $val = $ip;
-                }
-            }
+        if (! empty($value) && $value !== ($val = FormatConverter::longToIp($value))) {
+            $val = htmlspecialchars($val);
             $html = '<input type="hidden" name="fields_prev' . $column_name_appendix
-                . '" value="' . htmlspecialchars($val) . '">';
+                . '" value="' . $val . '"/>';
+        } else {
+            $val = '';
         }
-        $class = 'transform_IPToBin';
+        $class = 'transform_IPToLong';
         $html .= '<input type="text" name="fields' . $column_name_appendix . '"'
-            . ' value="' . htmlspecialchars($val) . '"'
+            . ' value="' . $val . '"'
             . ' size="40"'
             . ' dir="' . $text_dir . '"'
             . ' class="' . $class . '"'
-            . ' id="field_' . $idindex . '_3"'
-            . ' tabindex="' . ($tabindex + $tabindex_for_value) . '">';
+            . ' id="field_' . ($idindex) . '_3"'
+            . ' tabindex="' . ($tabindex + $tabindex_for_value) . '" />';
 
         return $html;
     }
@@ -109,7 +106,7 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
      */
     public static function getName()
     {
-        return 'IPv4/IPv6 To Binary';
+        return 'IPv4/IPv6 To Long';
     }
 
     /**
