@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-10-29 00:34+0100\n"
-"PO-Revision-Date: 2019-08-27 21:23+0000\n"
+"PO-Revision-Date: 2019-11-07 02:04+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-9/ia/>\n"
+"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
+"4-9/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9-dev\n"
+"X-Generator: Weblate 3.10-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -591,7 +591,7 @@ msgid ""
 msgstr ""
 "Il non ha recipite datos de importar. O il non ha indicate alcun nomine de "
 "file, o il ha superate le grandor maxime permittite per tu configuration de "
-"PHP pro incargar un file. Tu vide  [doc@faq1-16]FAQ 1.16[/doc]."
+"PHP pro incargar un file. Tu vide[doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:547 libraries/classes/Display/Import.php:56
 msgid "Could not load import plugins, please check your installation!"
@@ -816,7 +816,7 @@ msgid ""
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
 "Immagazinage del cookie de authenticar se es inferior al validitate de "
-"cookie configurate in  phpMyAdmin, pro iste ration, tu\n"
+"cookie configurate in phpMyAdmin, pro iste ration, tu\n"
 "accesso expirara plus tosto que lo que es configurate in phpMyAdmin."
 
 #: index.php:577
@@ -850,14 +850,14 @@ msgid ""
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
 "Le configuration de phpMyAdmin non es completemente configurate, alcun "
-"characteristicas additional ha essite deactivate.  %sDiscoperi perque%s. "
+"characteristicas additional ha essite deactivate. %sDiscoperi perque%s. "
 
 #: index.php:623
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
-"O alternativemente  va a le scheda de 'Operationes' de ulle base de datos "
-"pro configurar lo illac."
+"O alternativemente va a le scheda de 'Operationes' de ulle base de datos pro "
+"configurar lo illac."
 
 #: index.php:648
 #, php-format
@@ -982,7 +982,7 @@ msgid ""
 "the data related to the selected partition(s)!"
 msgstr ""
 "Vermente tu vole abandonar, i.e. executar un DROP sur, le partition(es) "
-"seligite? Isto anque DELERA le datos  referite al partition(es) seligite!"
+"seligite? Isto anque DELERA le datos referite al partition(es) seligite!"
 
 #: js/messages.php:84
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
@@ -1027,7 +1027,7 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
-"Per medio de iste operation  MySQL essaya mappar le valor de datos inter "
+"Per medio de iste operation MySQL essaya mappar le valor de datos inter "
 "collationes. Si le insimul de character es incompatibile, on pote haber "
 "perdita de datos e iste perdita poterea <b>NON</b> esser recuperabile per "
 "medio de un simple restauration del collation del campo(s).<b>Pro converter "
@@ -1661,7 +1661,7 @@ msgid ""
 msgstr ""
 "Quando on require nove datos per graphicos le servitor retornava un responsa "
 "invalide. Isto poterea esser perque tu session expirava. Si on recarga le "
-"pagina e reinserta  tu datos de accesso, il poterea esser te utile."
+"pagina e reinserta tu datos de accesso, il poterea esser te utile."
 
 #: js/messages.php:320
 msgid "Reload page"
@@ -2094,8 +2094,8 @@ msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
-"Nota:  a, b -> d,f implica que valore de columnas a e b combinate insimul "
-"pte determinar valores de columna d e columna f."
+"Nota:a, b -> d,f implica que valore de columnas a e b combinate insimul pote "
+"determinar valores de columna de columna f."
 
 #: js/messages.php:460
 msgid "No partial dependencies selected!"
@@ -2642,7 +2642,7 @@ msgid ""
 msgstr ""
 "Aviso: un forma sur iste pagina ha plus que %d campos. Quando on submitte, "
 "alcun del campos poterea esser ignorate, debite al configuration de "
-"max_input_vars  de PHP."
+"max_input_vars de PHP."
 
 #: js/messages.php:699 js/messages.php:712
 msgid "Some errors have been detected on the server!"
@@ -2680,7 +2680,7 @@ msgstr ""
 #: js/messages.php:731
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
-msgstr "%s  queries executate %s vices in %s secundas."
+msgstr "%s queries executate %s vices in %s secundas."
 
 #: js/messages.php:732
 #, php-format
@@ -2753,19 +2753,21 @@ msgstr "Forte"
 
 #: js/messages.php:751
 msgid "Timed out waiting for security key activation."
-msgstr "Tempore expirava quando on attendeva per le clave de activation."
+msgstr ""
+"Le tempore expirava durante que on attendeva le activation del clave de "
+"securitate."
 
 #: js/messages.php:752
 #, php-format
 msgid "Failed security key activation (%s)."
-msgstr "Le activation de clave de securitate  (%s) falleva."
+msgstr "Le activation de clave de securitate (%s) falleva."
 
 #: js/messages.php:755
 #, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
-msgstr "Tabela %s ja existe!"
+msgstr "Tabella %s ja existe!"
 
 #: js/messages.php:756 libraries/classes/InsertEdit.php:290
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:54
@@ -3034,7 +3036,7 @@ msgstr "Pro favor corrige iste campo"
 
 #: js/messages.php:929
 msgid "Please enter a valid email address"
-msgstr "Pro favor inserta un  valide adresse de e-posta"
+msgstr "Pro favor inserta un valide adresse de e-posta"
 
 #: js/messages.php:930
 msgid "Please enter a valid URL"
@@ -3042,11 +3044,11 @@ msgstr "Pro favor inserta un valide URL"
 
 #: js/messages.php:931
 msgid "Please enter a valid date"
-msgstr "Pro favor inserta un  valide data"
+msgstr "Pro favor inserta un valide data"
 
 #: js/messages.php:934
 msgid "Please enter a valid date ( ISO )"
-msgstr "Pro favor inserta un data valide  (ISO)"
+msgstr "Pro favor inserta un data valide (ISO)"
 
 #: js/messages.php:936
 msgid "Please enter a valid number"
@@ -3070,15 +3072,15 @@ msgstr "Pro favor inserta plus que {0} characteres"
 
 #: js/messages.php:953
 msgid "Please enter at least {0} characters"
-msgstr "Pro favor inserta al minus  {0}  characteres"
+msgstr "Pro favor inserta al minus {0} characteres"
 
 #: js/messages.php:958
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr "Pro favor inserta un valor de longor de characteres inter  {0} e {1}"
+msgstr "Pro favor inserta un valor de longor de characteres inter {0} e {1}"
 
 #: js/messages.php:963
 msgid "Please enter a value between {0} and {1}"
-msgstr "Pro favor inserta un valor inter  {0} e {1}"
+msgstr "Pro favor inserta un valor inter {0} e {1}"
 
 #: js/messages.php:968
 msgid "Please enter a value less than or equal to {0}"
@@ -3377,7 +3379,7 @@ msgstr "Chinese Traditional"
 #: libraries/classes/Charsets.php:394 libraries/classes/Charsets.php:470
 msgctxt "Collation"
 msgid "Chinese"
-msgstr "Cinese"
+msgstr "Chinese"
 
 #: libraries/classes/Charsets.php:402 libraries/classes/Charsets.php:518
 msgctxt "Collation"
@@ -3597,7 +3599,7 @@ msgstr "sensibile al accento"
 #: libraries/classes/Charsets.php:675
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "sensibile al kana"
+msgstr "sensibile a kana"
 
 #: libraries/classes/Charsets.php:679
 msgctxt "Collation variant"
@@ -3612,7 +3614,7 @@ msgstr "binari"
 #: libraries/classes/Charsets.php:685
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr "necun pad"
+msgstr "necun-pad"
 
 #: libraries/classes/Config.php:1122
 #, php-format
@@ -3628,7 +3630,7 @@ msgstr ""
 #: libraries/classes/Config.php:1172
 #, php-format
 msgid "Could not load default configuration from: %1$s"
-msgstr "Il non pote incargar configuration predefinite ex:  %1$s"
+msgstr "Il non pote incargar configuration predefinite ex: %1$s"
 
 #: libraries/classes/Config.php:1179
 msgid "Failed to read configuration file!"
@@ -3680,7 +3682,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:72
 msgid "Restrict login to MySQL server"
-msgstr "Limita le accesso de authentication a  servitor MySQL"
+msgstr "Limita le accesso de authentication a servitor MySQL"
 
 #: libraries/classes/Config/Descriptions.php:75
 msgid ""
@@ -3848,13 +3850,13 @@ msgstr "Confirma queries de DROP"
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
 msgstr ""
-"queries de registro de SQL e lor tempore de execution,  que on debe esser "
+"queries de registro de SQL e lor tempore de execution, que on debe esser "
 "monstrate in le console"
 
 #: libraries/classes/Config/Descriptions.php:169
 #: templates/console/display.twig:11 templates/console/display.twig:64
 msgid "Debug SQL"
-msgstr "Debug  SQL"
+msgstr "Debug SQL"
 
 #: libraries/classes/Config/Descriptions.php:171
 msgid "Tab that is displayed when entering a database."
@@ -3905,7 +3907,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:193
 msgid "Hide table structure actions"
-msgstr "Cela actiones de  structura de tabella"
+msgstr "Cela actiones de structura de tabella"
 
 #: libraries/classes/Config/Descriptions.php:195
 msgid "Default transformations for Hex"
@@ -3985,7 +3987,7 @@ msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)."
 msgstr ""
-"Fixa le numero de secundas pro le qual un script es permittite executar  "
+"Fixa le numero de secundas pro le qual un script es permittite executar "
 "([kbd]0[/kbd] pro nulle limite)."
 
 #: libraries/classes/Config/Descriptions.php:248
@@ -4260,7 +4262,7 @@ msgid ""
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
 "Ordina elementos in le menu a rolar del claves externe, [kbd]content[/kbd] "
-"es le datos de referentia,[kbd]id[/kbd]  es le valor del clave."
+"es le datos de referentia,[kbd]id[/kbd] es le valor del clave."
 
 #: libraries/classes/Config/Descriptions.php:424
 msgid "Foreign key dropdown order"
@@ -4481,7 +4483,7 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation."
 msgstr ""
-"Configura phpMyAdmin  immagazinage de configuration pro ganiar accesso a "
+"Configura phpMyAdmin immagazinage de configuration pro ganiar accesso a "
 "characteristicas additional, tu vide [doc@linked-tables]phpMyAdmin "
 "configuration storage[/doc] in documentation."
 
@@ -4843,9 +4845,9 @@ msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, \"Previous\" and \"Next\" links will be shown."
 msgstr ""
-"Numero de rangos  monstrate quando on naviga inter un insimul de exito. Si "
-"le insimul de exito contine plure rangos, ligamine de \"Previe\" e \"proxime"
-"\" essera monstrate."
+"Numero de rangos monstrate quando on naviga inter un insimul de exito. Si le "
+"insimul de exito contine plure rangos, ligamine de \"Previe\" e \"proxime\" "
+"essera monstrate."
 
 #: libraries/classes/Config/Descriptions.php:753
 msgid "Maximum number of rows to display"
@@ -4865,7 +4867,7 @@ msgid ""
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
 "Fixa le numero de bytes pro le qual un script es permittite allocar, pro "
-"exemplo [kbd]32M[/kbd] ([kbd]-1[/kbd]  pro nulle limite) e [kbd]0[/kbd] pro "
+"exemplo [kbd]32M[/kbd] ([kbd]-1[/kbd] pro nulle limite) e [kbd]0[/kbd] pro "
 "nulle modification."
 
 #: libraries/classes/Config/Descriptions.php:766
@@ -4917,8 +4919,8 @@ msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])."
 msgstr ""
-"Aperi le pagina de ligamine in le fenestra principal ([kbd]main[/kbd])  o in "
-"un nove  ([kbd]new[/kbd])."
+"Aperi le pagina de ligamine in le fenestra principal ([kbd]main[/kbd]) o in "
+"un nove ([kbd]new[/kbd])."
 
 #: libraries/classes/Config/Descriptions.php:793
 msgid "Logo link target"
@@ -5020,7 +5022,7 @@ msgstr "Si monstrar tabellas sub base de datos in le arbore de navigation"
 
 #: libraries/classes/Config/Descriptions.php:841
 msgid "Show views in tree"
-msgstr "Monstra vistas  in le arbore"
+msgstr "Monstra vistas in le arbore"
 
 #: libraries/classes/Config/Descriptions.php:843
 msgid "Whether to show views under database in the navigation tree"
@@ -5087,7 +5089,7 @@ msgstr "Monstra ligamines de rango de omne modo"
 #: libraries/classes/Config/Descriptions.php:873
 #: libraries/classes/Config/Descriptions.php:875
 msgid "Disable shortcut keys"
-msgstr "Dishabilita  claves de via breve"
+msgstr "Dishabilita claves de via breve"
 
 #: libraries/classes/Config/Descriptions.php:877
 msgid "Use natural order for sorting table and database names."
@@ -5297,8 +5299,8 @@ msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
-"Fixa  le effective fuso horari; possibilemente differente de lo que on ha "
-"sur tu servitor de base de datos"
+"Fixa le effective fuso horari; possibilemente differente de lo que on ha sur "
+"tu servitor de base de datos"
 
 #: libraries/classes/Config/Descriptions.php:988
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
@@ -5459,7 +5461,7 @@ msgid ""
 "Leave blank for no QBE saved searches support, suggested: "
 "[kbd]pma__savedsearches[/kbd]."
 msgstr ""
-"Lassa vacue pro nulle supporto de cercas QBE salveguardate, proponite:  "
+"Lassa vacue pro nulle supporto de cercas QBE salveguardate, proponite: "
 "[kbd]pma__savedsearches[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1076
@@ -5471,8 +5473,8 @@ msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
 msgstr ""
-"Lassa vacue pro nulle supporto de patrono de exportation, proponite:  "
-"[kbd]pma__exporttemplates[/kbd]."
+"Lassa vacue pro nulle supporto de patrono de exportation, proponite: "
+"[kbd]pma__export_templates[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1083
 msgid "Central columns table"
@@ -5483,7 +5485,7 @@ msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
 msgstr ""
-"Lassa vacue pro necun supporto central de columnas, proponite:  "
+"Lassa vacue pro necun supporto central de columnas, proponite: "
 "[kbd]pma__central_columns[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1091
@@ -5492,9 +5494,9 @@ msgid ""
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
 "[kbd]'my_db'[/kbd]."
 msgstr ""
-"Tu pote usar characteres jolly de  MySQL  (% and _), pone un symbolo de "
-"escape ante los si tu vole usar lor instantia litteral,i.e. usa [kbd]'my"
-"\\_db'[/kbd] e non [kbd]'my_db'[/kbd]."
+"Tu pote usar characteres jolly de MySQL (% and _), pone un symbolo de escape "
+"ante los si tu vole usar lor instantia litteral,i.e. usa [kbd]'my\\_db'[/kbd]"
+" e non [kbd]'my_db'[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1096
 msgid "Show only listed databases"
@@ -5513,7 +5515,7 @@ msgstr "Contrasigno pro config auth"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"Lassa vacue pro nulle supporto de sche,a PDF, proponite:  "
+"Lassa vacue pro nulle supporto de scheda PDF, proponite: "
 "[kbd]pma__pdf_pages[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1104
@@ -5528,7 +5530,7 @@ msgid ""
 msgstr ""
 "Base de datos usate pro relationes, marcatores de libro, e characteristicas "
 "de PDF. Vide [doc@linked-tables] 1pmadb[/doc] 2 pro le information complete. "
-"Lassa vacue pro nulle supporto. Suggerite:  [kbd] 3phpmyadmin[/kbd] 4."
+"Lassa vacue pro nulle supporto. Suggerite: [kbd] 3phpmyadmin[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1112
 #: templates/server/databases/create.twig:21
@@ -5551,7 +5553,7 @@ msgid ""
 "suggested: [kbd]pma__recent[/kbd]."
 msgstr ""
 "Lassa vacue pro necun \"persistente\" recentemente usava tabellas trans "
-"sessiones, proponite:  [kbd]pma__recent[/kbd]."
+"sessiones, proponite: [kbd]pma__recent[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1123
 msgid "Recently used table"
@@ -5574,8 +5576,8 @@ msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"Lassa vacue pro nulle supporto  [doc@relations@] 1relation-links[/doc] 2 , "
-"suggerite: [kbd] 3pma__relation[/kbd] 4."
+"Lassa vacue pro nulle supporto [doc@relations@] relation-links[/doc] , "
+"suggerite: [kbd]pma__relation[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1138
 msgid "Relation table"
@@ -5619,7 +5621,7 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"Lassa vacue pro necun supporto de schema PDF, proponite:  "
+"Lassa vacue pro necun supporto de schema PDF, proponite: "
 "[kbd]pma__table_coords[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1159
@@ -5644,7 +5646,7 @@ msgid ""
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
 msgstr ""
 "Lassa vacue pro necun preferentias de UI de tabellas \"persistente\" trans "
-"sessiones, proponite:   [kbd]pma__table_uiprefs[/kbd]."
+"sessiones, proponite: [kbd]pma__table_uiprefs[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1173
 msgid "UI preferences table"
@@ -5680,7 +5682,7 @@ msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
-"Si on adde un declaration  DROP VIEW IF EXISTS sur le prime rango del "
+"Si on adde un declaration DROP VIEW IF EXISTS sur le prime rango del "
 "registro quando on crea un vista."
 
 #: libraries/classes/Config/Descriptions.php:1194
@@ -5702,7 +5704,7 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
 msgstr ""
-"Lassa vacue pro necun supporto de traciar query SQL, proponite:   "
+"Lassa vacue pro necun supporto de traciar query SQL, proponite: "
 "[kbd]pma__tracking[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1205
@@ -5727,7 +5729,7 @@ msgid ""
 "[kbd]pma__userconfig[/kbd]."
 msgstr ""
 "Lassa vacue pro necun preferentias de usator per immagazinage in le base de "
-"datos, proponite:   [kbd]pma__userconfig[/kbd]."
+"datos, proponite: [kbd]pma__userconfig[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1219
 msgid "User preferences storage table"
@@ -5769,7 +5771,7 @@ msgid ""
 "suggested: [kbd]pma__navigationhiding[/kbd]."
 msgstr ""
 "Lassa vacue pro dishabilitar characteristica de celar e monstrar elementos "
-"de navigation, proponite:   [kbd]pma__navigationhiding[/kbd]."
+"de navigation, proponite: [kbd]pma__navigationhiding[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1242
 msgid "Hidden navigation items table"
@@ -5807,7 +5809,7 @@ msgid ""
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly."
 msgstr ""
-"Pro favor tu nota que habilitar isto non ha alcun effecto con  le modo de "
+"Pro favor tu nota que habilitar isto non ha alcun effecto con le modo de "
 "authentication [kbd]config[/kbd] proque le contrasigno es codificate "
 "fortemente in le file de configuration; isto non limita le habilitate de "
 "executar directemente le mesme commando."
@@ -5980,8 +5982,8 @@ msgid ""
 "Disable the default warning that is displayed on the main page if Suhosin is "
 "detected."
 msgstr ""
-"Dishabilita le  aviso predefinite que es monstrate sur le pagina principal "
-"si on releva Suhosin."
+"Dishabilita le aviso predefinite que es monstrate sur le pagina principal si "
+"on releva Suhosin."
 
 #: libraries/classes/Config/Descriptions.php:1342
 msgid "Suhosin warning"
@@ -6097,8 +6099,8 @@ msgid ""
 "HTTP_X_FORWARDED_FOR[/kbd]."
 msgstr ""
 "Inserta proxies como [kbd]IP: trusted HTTP header[/kbd]. Le exemplo sequente "
-"specifica que phpMyAdmin deberea fider se a  un capite HTTP_X_FORWARDED_FOR "
-"(X-Forwarded-For) veniente ex le proxy 1.2.3.4:[br][kbd]1.2.3.4: "
+"specifica que phpMyAdmin deberea fider se a un capite HTTP_X_FORWARDED_FOR (X"
+"-Forwarded-For) veniente ex le proxy 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1389
@@ -6441,7 +6443,7 @@ msgstr ""
 "accesso de fortia brutal a qualcunque servitor MySQL. Si tu crede que illo "
 "es necessari, usa %slimita accesso de login a servitor MySQL%s o%sle lista "
 "de proxy digne de fide%s. Totevia, le protection basate sur IPcon le lista "
-"de proxi digne de fide  poterea non esser digne de confidentia si tu IP "
+"de proxi digne de fide poterea non esser digne de confidentia si tu IP "
 "pertine a un ISP ubi miles de usatores, e te mesme, es connectite."
 
 #: libraries/classes/Config/ServerConfigChecks.php:96
@@ -6480,11 +6482,11 @@ msgid ""
 "phpMyAdmin panel. Set %1$sauthentication type%2$s to [kbd]cookie[/kbd] or "
 "[kbd]http[/kbd]."
 msgstr ""
-"Tu fixava le typo de authentication  [kbd]config[/kbd]   e includeva le "
-"nomine de usator e contrasigno pro le auto-login (accesso automatic de "
+"Tu fixava le typo de authentication [kbd]config[/kbd] e includeva le nomine "
+"de usator e contrasigno pro le auto-login (accesso automatic de "
 "authentication), isto non es desirabile pro hospite de uso ab vivo (live). "
-"Ulle qui sape o conjectura  tu URL de phpMyAdmin pote acceder directemente a "
-"tu pannello de phpMyAdmin. Fixa %1$stypo de authentication%2$s  a "
+"Ulle qui sape o conjectura tu URL de phpMyAdmin pote acceder directemente a "
+"tu pannello de phpMyAdmin. Fixa %1$stypo de authentication%2$s a "
 "[kbd]cookie[/kbd] o [kbd]http[/kbd]."
 
 #: libraries/classes/Config/ServerConfigChecks.php:230
@@ -6868,7 +6870,7 @@ msgstr "La columnas ha essite movite successosemente."
 #: libraries/classes/Controllers/Table/TableStructureController.php:531
 #, php-format
 msgid "Failed to get description of column %s!"
-msgstr "Il falleva obtener description de  columna  %s!"
+msgstr "Il falleva obtener description de columna %s!"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:767
 #: libraries/classes/Controllers/Table/TableStructureController.php:1063
@@ -7259,7 +7261,7 @@ msgid ""
 "connection that encrypts the password using RSA</i>'; while connecting to "
 "the server."
 msgstr ""
-"Iste methodo require un  '<i>connexion SSL</i>' o un '<i> connexion non "
+"Iste methodo require un '<i>connexion SSL</i>' o un '<i> connexion non "
 "cryptate que crypta le contrasigno per RSA</i>'; durante que on connecte al "
 "servitor."
 
@@ -7604,7 +7606,7 @@ msgid ""
 "myisam-recover server startup option."
 msgstr ""
 "Le modo de recuperation automatic de tabellas myISAM rumpite, assi como il "
-"es fixate per le option de initio del servitor  --myisam-recover."
+"es fixate per le option de initio del servitor --myisam-recover."
 
 #: libraries/classes/Engines/Myisam.php:43
 msgid "Maximum size for temporary sort files"
@@ -7761,7 +7763,7 @@ msgid ""
 "The percentage of garbage in a data log file before it is compacted. This is "
 "a value between 1 and 99. The default is 50."
 msgstr ""
-"Le percentage  de corbe (immunditias) in un file de registro de datos ante "
+"Le percentage de corbe (immunditias) in un file de registro de datos ante "
 "que esser compactate. Isto es un valor inter 1 e 99. Le valor predefinite es "
 "50."
 
@@ -7870,8 +7872,8 @@ msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
-"Le file incargate excedeva le parametro MAX_FILE_SIZE  que esseva "
-"specificate in le formulario HTML."
+"Le file incargate excedeva le parametro MAX_FILE_SIZE que esseva specificate "
+"in le formulario HTML."
 
 #: libraries/classes/File.php:308
 msgid "The uploaded file was only partially uploaded."
@@ -8502,7 +8504,7 @@ msgid ""
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
 "Il ha grande gruppos de elementos in le pannello de navigation que pote "
-"influentiar le prestationes. Considera dishabilitar  le gruppamento de "
+"influentiar le prestationes. Considera dishabilitar le gruppamento de "
 "elementos in le pannello de navigation."
 
 #: libraries/classes/Navigation/NavigationTree.php:951
@@ -8664,7 +8666,7 @@ msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
 msgstr ""
-"Selige un  columna que pote esser dividite in plus que un (si on selige "
+"Selige un columna que pote esser dividite in plus que un (si on selige "
 "'necun tal columna', on movera al proxime passo)."
 
 #: libraries/classes/Normalization.php:206 normalization.php:19
@@ -8737,7 +8739,7 @@ msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
-"Selectiona le columnas que es redundante e pulsa super  remove. Si on ha "
+"Selectiona le columnas que es redundante e pulsa super remove. Si on ha "
 "necun columna redundante, pulsa super 'Nulle columna redundante'"
 
 #: libraries/classes/Normalization.php:300
@@ -8761,7 +8763,7 @@ msgid ""
 "should be created."
 msgstr ""
 "Tu ha un gruppo de duo o plus columnas que es connectite strictemente e que "
-"omnes es repetente le mesme attributo? Per exemplo un tabella que mantene  "
+"omnes es repetente le mesme attributo? Per exemplo un tabella que mantene "
 "datos super libros poterea haber columnas tal como libro_id,autor2,autor2, "
 "autor3 et cetera que forma un gruppo de repetition. In iste caso un nove "
 "tabella (libro_id,autor) deberea esser create."
@@ -8816,8 +8818,8 @@ msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
-"Pro favor responde al demanda(s)  sequente con attention pro obtener un "
-"normalisation  correcte."
+"Pro favor responde al demanda(s) sequente con attention pro obtener un "
+"normalisation correcte."
 
 #: libraries/classes/Normalization.php:413
 msgid "+ Show me the possible partial dependencies based on data in the table"
@@ -8847,7 +8849,7 @@ msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
-"Necun dependentia partial es possibile  proque le clave primari  ( %1$s ) ha "
+"Necun dependentia partial es possibile proque le clave primari ( %1$s ) ha "
 "solmente un columna."
 
 #: libraries/classes/Normalization.php:468
@@ -8856,8 +8858,8 @@ msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
-"Pro poner le tabella original  '%1$s'  in le Secunde forma normal on "
-"necessita crear le tabellas sequente:"
+"Pro poner le tabella original '%1$s' in le Secunde forma normal on necessita "
+"crear le tabellas sequente:"
 
 #: libraries/classes/Normalization.php:505
 #, php-format
@@ -8876,7 +8878,7 @@ msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
-"Pro poner le tabella original  '%1$s' in le Tertie forma normal on necessita "
+"Pro poner le tabella original '%1$s' in le Tertie forma normal on necessita "
 "crear le tabellas sequente:"
 
 #: libraries/classes/Normalization.php:639
@@ -8886,7 +8888,7 @@ msgstr "Le tertie passo pro normalisar es complete."
 #: libraries/classes/Normalization.php:746
 #, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
-msgstr "Le gruppo repetente seligite ha essite movite al tabella  '%s'"
+msgstr "Le gruppo repetente seligite ha essite movite al tabella '%s'"
 
 #: libraries/classes/Normalization.php:793
 msgid "Step 3."
@@ -9213,7 +9215,7 @@ msgid ""
 "%1$ssetup script%2$s to create one."
 msgstr ""
 "Tu probabilemente non creava un file de configuration. Tu poterea voler usar "
-"le  %1$ssetup script%2$s pro crear un."
+"le %1$ssetup script%2$s pro crear un."
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:125
 msgid ""
@@ -9435,7 +9437,7 @@ msgstr "Structura stand-in per le vista"
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
 msgstr ""
 "Exito JSON pretty-printed, i.e. de bon formato JSON (Il usa un forma pro "
-"facile lectura per  humanos)"
+"facile lectura per humanos)"
 
 #: libraries/classes/Plugins/Export/ExportJson.php:95
 msgid "Output unicode characters unescaped"
@@ -9472,7 +9474,7 @@ msgstr "Subtitulo de tabella (continuate):"
 #: libraries/classes/Plugins/Export/ExportLatex.php:133
 #: libraries/classes/Plugins/Export/ExportLatex.php:185
 msgid "Label key:"
-msgstr "Clave de  etiquetta:"
+msgstr "Clave de etiquetta:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:140
 #: libraries/classes/Plugins/Export/ExportOdt.php:101
@@ -9560,7 +9562,7 @@ msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr ""
-"Monstra  commentos <i>(include como le timbro horari de exportation, version "
+"Monstra commentos <i>(include como le timbro horari de exportation, version "
 "de PHP, e version de servitor)</i>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:111
@@ -9826,8 +9828,8 @@ msgstr "MIME"
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
-"Actualisa datos quando  il ha trovate claves duplicate quando on importa "
-"(adde ON DUPLICATE KEY UPDATE)"
+"Actualisa datos quando il ha trovate claves duplicate quando on importa ("
+"adde ON DUPLICATE KEY UPDATE)"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:63
 #: libraries/classes/Plugins/Import/ImportOds.php:64
@@ -9872,7 +9874,7 @@ msgstr ""
 #: libraries/classes/Plugins/Import/ImportCsv.php:663
 #, php-format
 msgid "Invalid format of CSV input on line %d."
-msgstr "Formato invalide de ingresso  CSV al rango %d."
+msgstr "Formato invalide de ingresso CSV al rango %d."
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:533
 #, php-format
@@ -9927,8 +9929,8 @@ msgstr ""
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
-"Extension spatial de MySQL Spatial Extension non supporta le typo ESRI  \"%s"
-"\"."
+"Extension spatial de MySQL Spatial Extension non supporta le typo ESRI \"%s\""
+"."
 
 #: libraries/classes/Plugins/Import/ImportShp.php:238
 msgid "The imported file does not contain any data!"
@@ -9936,7 +9938,7 @@ msgstr "Le file importate non contine alcun dato!"
 
 #: libraries/classes/Plugins/Import/ImportSql.php:68
 msgid "SQL compatibility mode:"
-msgstr "Modo de compatibilitate  SQL:"
+msgstr "Modo de compatibilitate SQL:"
 
 #: libraries/classes/Plugins/Import/ImportSql.php:80
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
@@ -9958,7 +9960,7 @@ msgstr "Le tabella %s non existe!"
 #: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php:69
 #, php-format
 msgid "Schema of the %s database - Page %s"
-msgstr "Schema del base de datos %s  - Pagina %s"
+msgstr "Schema del base de datos %s - Pagina %s"
 
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:294
 msgid "SCHEMA ERROR: "
@@ -10195,7 +10197,7 @@ msgstr "Editor CodeMirror per SQL con evidentia de syntaxe."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_XmlEditor.php:30
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
-msgstr "Editor CodeMirror per  XML (e HTML) con evidentia de syntaxe."
+msgstr "Editor CodeMirror per XML (e HTML) con evidentia de syntaxe."
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Binarytoip.php:30
 msgid ""
@@ -11135,8 +11137,7 @@ msgstr ""
 #: libraries/classes/Rte/Words.php:47
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr ""
-"Il non ha trovate alcun routine con nomine %1$s  in base de datos %2$s."
+msgstr "Il non ha trovate alcun routine con nomine %1$s in base de datos %2$s."
 
 #: libraries/classes/Rte/Words.php:48
 msgid "There are no routines to display."
@@ -11188,7 +11189,7 @@ msgstr ""
 #: libraries/classes/Rte/Words.php:75
 #, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "il non ha trovate alcun evento con nomine %1$s  in base de datos %2$s."
+msgstr "il non ha trovate alcun evento con nomine %1$s in base de datos %2$s."
 
 #: libraries/classes/Rte/Words.php:76
 msgid "There are no events to display."
@@ -13369,7 +13370,7 @@ msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
 msgstr ""
-"Un columna de TEXT con un longor maxime de 255 (2^8 - 1) characteres,  "
+"Un columna de TEXT con un longor maxime de 255 (2^8 - 1) characteres, "
 "immagazinate con un prefixo de 1 byte indicante le valores in bytes"
 
 #: libraries/classes/Types.php:309
@@ -13377,7 +13378,7 @@ msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
 msgstr ""
-"Un columna de TEXT con un longor maxime de 65,535 (2^16 - 1)  characteres,  "
+"Un columna de TEXT con un longor maxime de 65,535 (2^16 - 1) characteres, "
 "immagazinate con un prefixo de 2 bytes indicante le valores in bytes"
 
 #: libraries/classes/Types.php:315
@@ -13385,8 +13386,8 @@ msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
-"Un columna de TEXT con un longor maxime de 16,777,215 (2^24 - 1)  "
-"characteres,  immagazinate con un prefixo de 3 bytes indicante le valores in "
+"Un columna de TEXT con un longor maxime de 16,777,215 (2^24 - 1) "
+"characteres, immagazinate con un prefixo de 3 bytes indicante le valores in "
 "bytes"
 
 #: libraries/classes/Types.php:321
@@ -13395,8 +13396,8 @@ msgid ""
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
-"Un columna de TEXT con un longor maxime de 4,294,967,295 or 4GiB (2^32 - 1)  "
-"characteres,  immagazinate con un prefixo de 4 bytes indicante le valores in "
+"Un columna de TEXT con un longor maxime de 4,294,967,295 or 4GiB (2^32 - 1) "
+"characteres, immagazinate con un prefixo de 4 bytes indicante le valores in "
 "bytes"
 
 #: libraries/classes/Types.php:327
@@ -13452,7 +13453,7 @@ msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr ""
-"Un enumeration,seligite ex le lista usque calores de 65,535  o le valor "
+"Un enumeration,seligite ex le lista usque calores de 65,535 o le valor "
 "special de error \""
 
 #: libraries/classes/Types.php:363
@@ -13496,8 +13497,8 @@ msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
 msgstr ""
-"Immagazina e habilita accesso efficiente al datos in documentos de JSON  "
-"(JavaScript Object Notation)"
+"Immagazina e habilita accesso efficiente al datos in documentos de JSON ("
+"JavaScript Object Notation)"
 
 #: libraries/classes/Types.php:718
 msgctxt "numeric types"
@@ -13610,7 +13611,7 @@ msgstr "Selige ex le directorio de incargamento de servitor web <b>%s</b>:"
 
 #: libraries/classes/Util.php:3324
 msgid "There are no files to upload!"
-msgstr "Il non ha alcun file  de incargar!"
+msgstr "Il non ha alcun file de incargar!"
 
 #: libraries/classes/Util.php:3349 libraries/classes/Util.php:3350
 #: templates/database/structure/check_all_tables.twig:15
@@ -13824,7 +13825,7 @@ msgstr ""
 
 #: prefs_manage.php:52
 msgid "phpMyAdmin configuration snippet"
-msgstr "Pecietta  de configuration de phpMyAdmin"
+msgstr "Pecietta de configuration de phpMyAdmin"
 
 #: prefs_manage.php:53
 msgid "Paste it to your config.inc.php"
@@ -13903,7 +13904,7 @@ msgstr ""
 
 #: prefs_twofactor.php:29
 msgid "Two-factor authentication has been removed."
-msgstr "Authentication de duo factores  ha essite removite."
+msgstr "Authentication de duo factores ha essite removite."
 
 #: prefs_twofactor.php:39
 msgid "Two-factor authentication has been configured."
@@ -13943,7 +13944,7 @@ msgstr ""
 #: server_status_processes.php:33
 #, php-format
 msgid "Thread %s was successfully killed."
-msgstr "Le thread %s  ha essite terminate con successo."
+msgstr "Le thread %s ha essite terminate con successo."
 
 #: server_status_processes.php:39
 #, php-format
@@ -14162,7 +14163,7 @@ msgstr ""
 
 #: tbl_tracking.php:103
 msgid "Tracking versions deleted successfully."
-msgstr "Le versiones traciante  ha essite delite con successo."
+msgstr "Le versiones traciante ha essite delite con successo."
 
 #: tbl_tracking.php:108
 msgid "No versions selected."
@@ -14879,7 +14880,7 @@ msgstr "Motor"
 
 #: templates/columns_definitions/partitions.twig:86
 msgid "Data directory"
-msgstr "Directorio  de datos"
+msgstr "Directorio de datos"
 
 #: templates/columns_definitions/partitions.twig:87
 msgid "Index directory"
@@ -15687,7 +15688,7 @@ msgstr ""
 
 #: templates/display/import/import.twig:144
 msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr "Salta iste numero de queries (pro SQL)  initiante ab le prime:"
+msgstr "Salta iste numero de queries (pro SQL) initiante ab le prime:"
 
 #: templates/display/import/import.twig:161
 msgid "Other options:"
