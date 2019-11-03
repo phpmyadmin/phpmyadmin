@@ -70,7 +70,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         $.ajax({
             type: 'GET',
             async: false,
-            url: 'index.php?route=/database/multi_table_query',
+            url: 'index.php?route=/database/multi_table_query/tables',
             data: {
                 'server': sessionStorage.server,
                 'db': $('#db_name').val(),
@@ -132,7 +132,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         };
         $.ajax({
             type: 'POST',
-            url: 'index.php?route=/database/multi_table_query',
+            url: 'index.php?route=/database/multi_table_query/query',
             data: data,
             success: function (data) {
                 var $resultsDom = $(data.message);

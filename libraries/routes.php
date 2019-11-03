@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 use FastRoute\RouteCollector;
 use PhpMyAdmin\Controllers\Database\DataDictionaryController;
+use PhpMyAdmin\Controllers\Database\MultiTableQueryController;
 use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\Controllers\Server\CollationsController;
 use PhpMyAdmin\Controllers\Server\DatabasesController;
@@ -69,8 +70,24 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $routes->addRoute(['GET', 'POST'], '/import', function () {
             require_once ROOT_PATH . 'libraries/entry_points/database/import.php';
         });
-        $routes->addRoute(['GET', 'POST'], '/multi_table_query', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/database/multi_table_query.php';
+        $routes->addGroup('/multi_table_query', function (RouteCollector $routes) use ($containerBuilder, $response) {
+            /** @var MultiTableQueryController $controller */
+            $controller = $containerBuilder->get(MultiTableQueryController::class);
+            $routes->get('', function () use ($response, $controller) {
+                $response->addHTML($controller->index());
+            });
+            $routes->get('/tables', function () use ($response, $controller) {
+                $response->addJSON($controller->table([
+                    'tables' => $_GET['tables'],
+                    'db' => $_GET['db'] ?? null,
+                ]));
+            });
+            $routes->post('/query', function () use ($controller) {
+                $controller->displayResults([
+                    'sql_query' => $_POST['sql_query'],
+                    'db' => $_POST['db'] ?? $_GET['db'] ?? null,
+                ]);
+            });
         });
         $routes->addRoute(['GET', 'POST'], '/operations', function () {
             require_once ROOT_PATH . 'libraries/entry_points/database/operations.php';
