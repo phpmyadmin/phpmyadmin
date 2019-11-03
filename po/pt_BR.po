@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-10-29 00:43+0100\n"
-"PO-Revision-Date: 2019-06-29 18:49+0000\n"
+"PO-Revision-Date: 2019-11-03 17:13+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"phpmyadmin/5-0/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.10-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -249,7 +249,7 @@ msgstr "Marcador %s criado."
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "Importação finalizada com sucesso, %d consultas executadas."
+msgstr[0] "Importação finalizada com sucesso, %d consulta executada."
 msgstr[1] "Importação finalizada com sucesso, %d consultas executadas."
 
 #: import.php:646
@@ -2336,8 +2336,7 @@ msgid "Failed security key activation (%s)."
 msgstr "Falha na ativação da chave de segurança (%s)."
 
 #: js/messages.php:766
-#, fuzzy, php-format
-#| msgid "Table %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
@@ -3222,12 +3221,9 @@ msgid "accent-sensitive"
 msgstr "Diferencia letras acentuadas"
 
 #: libraries/classes/Charsets/Collation.php:524
-#, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "accent-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "Diferencia letras acentuadas"
+msgstr "Diferencia kanas"
 
 #: libraries/classes/Charsets/Collation.php:528
 msgctxt "Collation variant"
@@ -3242,7 +3238,7 @@ msgstr "binário"
 #: libraries/classes/Charsets/Collation.php:534
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "Diferencia espaços"
 
 #: libraries/classes/Config.php:1144
 #, php-format
@@ -3774,10 +3770,8 @@ msgstr "Rótulo da chave"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:557
 #: templates/database/data_dictionary/index.twig:25
 #: templates/columns_definitions/table_fields_definitions.twig:71
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media (MIME) type"
-msgstr "Tipo MIME"
+msgstr "Tipo de mídia (MIME)"
 
 #: libraries/classes/Config/Descriptions.php:219
 #: libraries/classes/Config/Descriptions.php:231
@@ -3932,7 +3926,8 @@ msgstr "Limite de chave estrangeira"
 #: libraries/classes/Config/Descriptions.php:284
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
-"O valor padrão para foreign key restringe o  checkbox para algumas consultas."
+"O valor padrão para chave estrangeira marca a caixa de seleção para algumas "
+"consultas."
 
 #: libraries/classes/Config/Descriptions.php:285
 msgid "Foreign key checks"
@@ -5001,16 +4996,12 @@ msgid "Bookmark table"
 msgstr "Tabela de favoritos"
 
 #: libraries/classes/Config/Descriptions.php:616
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: "
-#| "[kbd]pma__column_info[/kbd]."
 msgid ""
 "Leave blank for no column comments/media (MIME) types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Deixe em branco quando não houver comentários/tipos mime, sugestão: "
-"[kbd]pma_column_info[/kbd]."
+"Deixe em branco quando não houver comentários/tipos de mídia (MIME), "
+"sugestão: [kbd]pma__column_info[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:619
 msgid "Column information table"
@@ -5257,7 +5248,7 @@ msgstr "Tabela de relacionamentos"
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
-"Veja os [doc@authentication-modes]tipos de autenticação[/doc]  para um "
+"Veja os [doc@authentication-modes]tipos de autenticação[/doc] para um "
 "exemplo."
 
 #: libraries/classes/Config/Descriptions.php:712
@@ -8561,8 +8552,8 @@ msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
 msgstr ""
-"Apenas operações SQL de INSERT, UPDATE, DELETE e REPLACE contendo tabela(s) "
-"de motor transacional  podem ser repetidas."
+"Apenas as consultas SQL INSERT, UPDATE, DELETE e REPLACE contendo tabelas de "
+"motor transacional podem ser revertidas."
 
 #: libraries/classes/Index.php:655
 #, php-format
@@ -9375,7 +9366,7 @@ msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
-"Nenhuma dependência parcial possível quando a chave primária  ( %1$s ) tem "
+"Nenhuma dependência parcial possível quando a chave primária ( %1$s ) tem "
 "apenas uma coluna."
 
 #: libraries/classes/Normalization.php:494
@@ -10054,10 +10045,8 @@ msgstr "Exibir comentários"
 #: libraries/classes/Plugins/Export/ExportLatex.php:156
 #: libraries/classes/Plugins/Export/ExportOdt.php:116
 #: libraries/classes/Plugins/Export/ExportSql.php:132
-#, fuzzy
-#| msgid "Display MIME types"
 msgid "Display media (MIME) types"
-msgstr "Exibir os tipos MIME"
+msgstr "Exibir os tipos de mídia (MIME)"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
 msgid "Put columns names in the first row:"
@@ -10350,10 +10339,8 @@ msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT de tabela"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1911
-#, fuzzy
-#| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA (MIME) TYPES FOR TABLE"
-msgstr "TIPOS MIME PARA TABELAS"
+msgstr "TIPOS DE MÍDIA (MIME) PARA TABELAS"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1934
 msgid "RELATIONSHIPS FOR TABLE"
@@ -12848,9 +12835,9 @@ msgid ""
 "-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Um número de ponto flutuante de dupla precisão (longo), os valores "
-"permitidos são: de -1,7976931348623157E+308 a  -2,2250738585072014E-308, 0 e "
-"de 2,2250738585072014E-308 até 1,7976931348623157E+308"
+"Um número de ponto flutuante de dupla precisão, os valores permitidos são "
+"-1.7976931348623157E+308 a -2.2250738585072014E-308, 0 e 2.2250738585072014E-"
+"308 a 1.7976931348623157E+308"
 
 #: libraries/classes/Types.php:252
 msgid ""
@@ -15198,10 +15185,8 @@ msgid "Add privileges on the following routine:"
 msgstr "Adicionar privilégios à seguinte rotina:"
 
 #: templates/transformation_overview.twig:1
-#, fuzzy
-#| msgid "Available MIME types"
 msgid "Available media (MIME) types"
-msgstr "Tipos de MIME disponíveis"
+msgstr "Tipos de mídia (MIME) disponíveis"
 
 #: templates/transformation_overview.twig:13
 msgid "Available browser display transformations"
@@ -15209,8 +15194,6 @@ msgstr "Transformações de exibição do navegador disponíveis"
 
 #: templates/transformation_overview.twig:19
 #: templates/transformation_overview.twig:38
-#, fuzzy
-#| msgid "Description"
 msgctxt "for media (MIME) type transformation"
 msgid "Description"
 msgstr "Descrição"
@@ -15228,10 +15211,8 @@ msgstr ""
 "Então confirme o login no aparelho."
 
 #: templates/table/structure/display_structure.twig:70
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media (MIME) type:"
-msgstr "Tipo MIME"
+msgstr "Tipo de mídia (MIME):"
 
 #: templates/table/structure/display_structure.twig:91
 #: templates/table/tracking/structure_snapshot_columns.twig:47
@@ -15626,26 +15607,20 @@ msgid "License"
 msgstr "Licença"
 
 #: templates/server/plugins/index.twig:37
-#, fuzzy
-#| msgid "active"
 msgid "inactive"
-msgstr "ativo"
+msgstr "inativo"
 
 #: templates/server/plugins/index.twig:39
 msgid "disabled"
 msgstr "desabilitado"
 
 #: templates/server/plugins/index.twig:41
-#, fuzzy
-#| msgid "Deleting"
 msgid "deleting"
-msgstr "Apagando"
+msgstr "removendo"
 
 #: templates/server/plugins/index.twig:43
-#, fuzzy
-#| msgid "Delete"
 msgid "deleted"
-msgstr "Remover"
+msgstr "removido"
 
 #: templates/setup/error.twig:2
 msgid "Warning"
