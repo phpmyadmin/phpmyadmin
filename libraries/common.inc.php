@@ -157,7 +157,8 @@ if (isset($_REQUEST['goto']) && Core::checkPageValidity($_REQUEST['goto'])) {
     $diMigration->setGlobal('goto', $_REQUEST['goto']);
     $diMigration->setGlobal('url_params', ['goto' => $_REQUEST['goto']]);
 } else {
-    unset($_REQUEST['goto'], $_GET['goto'], $_POST['goto'], $_COOKIE['goto']);
+    $GLOBALS['PMA_Config']->removeCookie('goto');
+    unset($_REQUEST['goto'], $_GET['goto'], $_POST['goto']);
 }
 
 /**
@@ -167,7 +168,8 @@ if (isset($_REQUEST['goto']) && Core::checkPageValidity($_REQUEST['goto'])) {
 if (isset($_REQUEST['back']) && Core::checkPageValidity($_REQUEST['back'])) {
     $diMigration->setGlobal('back', $_REQUEST['back']);
 } else {
-    unset($_REQUEST['back'], $_GET['back'], $_POST['back'], $_COOKIE['back']);
+    $GLOBALS['PMA_Config']->removeCookie('back');
+    unset($_REQUEST['back'], $_GET['back'], $_POST['back']);
 }
 
 /**

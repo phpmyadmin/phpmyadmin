@@ -42,6 +42,7 @@ phpMyAdmin - ChangeLog
 - issue #15540 Fixed uncaught TypeError: htmlspecialchars() in NavigationTree
 
 4.9.2 (not yet released)
+- issue #14184 Change the cookie name from phpMyAdmin to phpMyAdmin_https for HTTPS
 - issue #15304 Fix ssl_use php error
 - issue #14804 Fix undefined index: ssl_* variables
 - issue #14245 Fix mysql 8.0.3 and above fails on advisor

@@ -376,6 +376,7 @@ class AuthenticationCookieTest extends PmaTestCase
      */
     public function testAuthHeaderPartial()
     {
+        $GLOBALS['PMA_Config']->set('is_https', false);
         $GLOBALS['cfg']['LoginCookieDeleteAll'] = false;
         $GLOBALS['cfg']['Servers'] = [
             1,
@@ -427,6 +428,7 @@ class AuthenticationCookieTest extends PmaTestCase
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $GLOBALS['cfg']['LoginCookieDeleteAll'] = true;
         $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', '');
+        $GLOBALS['PMA_Config']->set('is_https', false);
         $GLOBALS['cfg']['Servers'] = [1];
 
         $_COOKIE['pmaAuth-0'] = 'test';
@@ -452,6 +454,7 @@ class AuthenticationCookieTest extends PmaTestCase
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $GLOBALS['cfg']['LoginCookieDeleteAll'] = false;
         $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', '');
+        $GLOBALS['PMA_Config']->set('is_https', false);
         $GLOBALS['cfg']['Servers'] = [1];
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server'] = ['auth_type' => 'cookie'];
@@ -564,6 +567,7 @@ class AuthenticationCookieTest extends PmaTestCase
         $_SESSION['last_access_time'] = '';
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
+        $GLOBALS['PMA_Config']->set('is_https', false);
 
         // mock for blowfish function
         $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationCookie')
@@ -604,6 +608,7 @@ class AuthenticationCookieTest extends PmaTestCase
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $_SESSION['browser_access_time']['default'] = time() - 1000;
         $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
+        $GLOBALS['PMA_Config']->set('is_https', false);
 
         // mock for blowfish function
         $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationCookie')
@@ -648,6 +653,8 @@ class AuthenticationCookieTest extends PmaTestCase
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $GLOBALS['cfg']['LoginCookieValidity'] = 0;
         $_SESSION['browser_access_time']['default'] = -1;
+        $GLOBALS['PMA_Config']->set('is_https', false);
+
         // mock for blowfish function
         $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationCookie')
             ->disableOriginalConstructor()
@@ -691,6 +698,7 @@ class AuthenticationCookieTest extends PmaTestCase
         $GLOBALS['server'] = 2;
         $GLOBALS['cfg']['LoginCookieStore'] = true;
         $GLOBALS['from_cookie'] = true;
+        $GLOBALS['PMA_Config']->set('is_https', false);
 
         $this->object->storeCredentials();
 
@@ -1100,6 +1108,7 @@ class AuthenticationCookieTest extends PmaTestCase
     public function testPasswordChange()
     {
         $newPassword = 'PMAPASSWD2';
+        $GLOBALS['PMA_Config']->set('is_https', false);
         $GLOBALS['cfg']['AllowArbitraryServer'] = true;
         $GLOBALS['pma_auth_server'] = 'b 2';
         $_SESSION['encryption_key'] = '';
