@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-10-29 00:43+0100\n"
-"PO-Revision-Date: 2019-06-24 14:00+0000\n"
+"PO-Revision-Date: 2019-11-03 17:13+0000\n"
 "Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/5-0/fr/"
+">\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.7.1-dev\n"
+"X-Generator: Weblate 3.10-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -2341,8 +2341,7 @@ msgid "Failed security key activation (%s)."
 msgstr "Activation de la clé de sécurité échouée (%s)."
 
 #: js/messages.php:766
-#, fuzzy, php-format
-#| msgid "Table %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
@@ -3227,9 +3226,6 @@ msgid "accent-sensitive"
 msgstr "sensible aux signes diacritiques"
 
 #: libraries/classes/Charsets/Collation.php:524
-#, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "accent-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
 msgstr "sensible aux signes diacritiques"
@@ -3785,10 +3781,8 @@ msgstr "Clé de libellé"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:557
 #: templates/database/data_dictionary/index.twig:25
 #: templates/columns_definitions/table_fields_definitions.twig:71
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media (MIME) type"
-msgstr "Type MIME"
+msgstr "Type média (MIME)"
 
 #: libraries/classes/Config/Descriptions.php:219
 #: libraries/classes/Config/Descriptions.php:231
@@ -5014,16 +5008,12 @@ msgid "Bookmark table"
 msgstr "Mettre la table en signet"
 
 #: libraries/classes/Config/Descriptions.php:616
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: "
-#| "[kbd]pma__column_info[/kbd]."
 msgid ""
 "Leave blank for no column comments/media (MIME) types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Laisser vider pour désactiver les commentaires sur les colonnes et les types "
-"MIME; suggestion : [kbd]pma__column_info[/kbd]."
+"Laisser vider pour désactiver les types de commentaires ou média (MIME) ; "
+"suggestion : [kbd]pma__column_info[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:619
 msgid "Column information table"
@@ -10106,10 +10096,8 @@ msgstr "Afficher les commentaires"
 #: libraries/classes/Plugins/Export/ExportLatex.php:156
 #: libraries/classes/Plugins/Export/ExportOdt.php:116
 #: libraries/classes/Plugins/Export/ExportSql.php:132
-#, fuzzy
-#| msgid "Display MIME types"
 msgid "Display media (MIME) types"
-msgstr "Afficher les types MIME"
+msgstr "Afficher les types média (MIME)"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
 msgid "Put columns names in the first row:"
@@ -10405,10 +10393,8 @@ msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT pour la table"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1911
-#, fuzzy
-#| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA (MIME) TYPES FOR TABLE"
-msgstr "TYPES MIME POUR LA TABLE"
+msgstr "TYPES MÉDIA (MIME) POUR LA TABLE"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1934
 msgid "RELATIONSHIPS FOR TABLE"
@@ -15302,10 +15288,8 @@ msgid "Add privileges on the following routine:"
 msgstr "Ajouter des privilèges sur cette procédure stockée :"
 
 #: templates/transformation_overview.twig:1
-#, fuzzy
-#| msgid "Available MIME types"
 msgid "Available media (MIME) types"
-msgstr "Types MIME disponibles"
+msgstr "Types média (MIME) disponibles"
 
 #: templates/transformation_overview.twig:13
 msgid "Available browser display transformations"
@@ -15313,8 +15297,6 @@ msgstr "Transformations d'affichage disponibles"
 
 #: templates/transformation_overview.twig:19
 #: templates/transformation_overview.twig:38
-#, fuzzy
-#| msgid "Description"
 msgctxt "for media (MIME) type transformation"
 msgid "Description"
 msgstr "Description"
@@ -15332,10 +15314,8 @@ msgstr ""
 "puis de confirmer l'identification sur l'appareil."
 
 #: templates/table/structure/display_structure.twig:70
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media (MIME) type:"
-msgstr "Type MIME"
+msgstr "Type média (MIME) :"
 
 #: templates/table/structure/display_structure.twig:91
 #: templates/table/tracking/structure_snapshot_columns.twig:47
@@ -15730,26 +15710,20 @@ msgid "License"
 msgstr "Licence"
 
 #: templates/server/plugins/index.twig:37
-#, fuzzy
-#| msgid "active"
 msgid "inactive"
-msgstr "actif"
+msgstr "inactif"
 
 #: templates/server/plugins/index.twig:39
 msgid "disabled"
 msgstr "désactivé"
 
 #: templates/server/plugins/index.twig:41
-#, fuzzy
-#| msgid "Deleting"
 msgid "deleting"
-msgstr "Suppression en cours"
+msgstr "suppression en cours"
 
 #: templates/server/plugins/index.twig:43
-#, fuzzy
-#| msgid "Delete"
 msgid "deleted"
-msgstr "Supprimer"
+msgstr "supprimé"
 
 #: templates/setup/error.twig:2
 msgid "Warning"
