@@ -1,6 +1,6 @@
 <?php
 /**
- * Holds the PhpMyAdmin\Controllers\Database\StructureController
+ * Database structure manipulation
  *
  * @package PhpMyAdmin\Controllers
  */
@@ -120,16 +120,23 @@ class StructureController extends AbstractController
     /**
      * Index action
      *
-     * @param array $params Request parameters
+     * @param array $parameters Request parameters
      * @return string HTML
      */
-    public function index(array $params): string
+    public function index(array $parameters): string
     {
         global $cfg;
 
+        require_once ROOT_PATH . 'libraries/db_common.inc.php';
+
+        $this->response->getHeader()->getScripts()->addFiles([
+            'database/structure.js',
+            'table/change.js',
+        ]);
+
         // Drops/deletes/etc. multiple tables if required
-        if ((! empty($params['submit_mult']) && isset($params['selected_tbl']))
-            || isset($params['mult_btn'])
+        if ((! empty($parameters['submit_mult']) && isset($parameters['selected_tbl']))
+            || isset($parameters['mult_btn'])
         ) {
             $this->multiSubmitAction();
         }
@@ -158,11 +165,11 @@ class StructureController extends AbstractController
                 'pos' => $this->position,
                 'db' => $this->db,
             ];
-            if (isset($params['sort'])) {
-                $urlParams['sort'] = $params['sort'];
+            if (isset($parameters['sort'])) {
+                $urlParams['sort'] = $parameters['sort'];
             }
-            if (isset($params['sort_order'])) {
-                $urlParams['sort_order'] = $params['sort_order'];
+            if (isset($parameters['sort_order'])) {
+                $urlParams['sort_order'] = $parameters['sort_order'];
             }
             $listNavigator = Util::getListNavigator(
                 $this->totalNumTables,
@@ -194,16 +201,22 @@ class StructureController extends AbstractController
     /**
      * Add or remove favorite tables
      *
-     * @param array $params Request parameters
-     * @return array|null JSON
+     * @param array $parameters Request parameters
+     * @return array
      */
-    public function addRemoveFavoriteTablesAction(array $params): ?array
+    public function addRemoveFavoriteTablesAction(array $parameters): ?array
     {
         global $cfg;
 
+        require_once ROOT_PATH . 'libraries/db_common.inc.php';
+
+        if (! $this->response->isAjax()) {
+            return [];
+        }
+
         $favoriteInstance = RecentFavoriteTable::getInstance('favorite');
-        if (isset($params['favoriteTables'])) {
-            $favoriteTables = json_decode($params['favoriteTables'], true);
+        if (isset($parameters['favoriteTables'])) {
+            $favoriteTables = json_decode($parameters['favoriteTables'], true);
         } else {
             $favoriteTables = [];
         }
@@ -211,25 +224,25 @@ class StructureController extends AbstractController
         $user = sha1($cfg['Server']['user']);
 
         // Request for Synchronization of favorite tables.
-        if (isset($params['sync_favorite_tables'])) {
+        if (isset($parameters['sync_favorite_tables'])) {
             $cfgRelation = $this->relation->getRelationsParam();
             if ($cfgRelation['favoritework']) {
                 return $this->synchronizeFavoriteTables($favoriteInstance, $user, $favoriteTables);
             }
-            return null;
+            return [];
         }
         $changes = true;
         $titles = Util::buildActionTitles();
-        $favoriteTable = $params['favorite_table'];
+        $favoriteTable = $parameters['favorite_table'] ?? '';
         $alreadyFavorite = $this->checkFavoriteTable($favoriteTable);
 
-        if (isset($params['remove_favorite'])) {
+        if (isset($parameters['remove_favorite'])) {
             if ($alreadyFavorite) {
                 // If already in favorite list, remove it.
                 $favoriteInstance->remove($this->db, $favoriteTable);
                 $alreadyFavorite = false; // for favorite_anchor template
             }
-        } elseif (isset($params['add_favorite'])) {
+        } elseif (isset($parameters['add_favorite'])) {
             if (! $alreadyFavorite) {
                 $numTables = count($favoriteInstance->getTables());
                 if ($numTables == $cfg['NumFavoriteTables']) {
@@ -277,16 +290,22 @@ class StructureController extends AbstractController
     /**
      * Handles request for real row count on database level view page.
      *
-     * @param array $params Request parameters
+     * @param array $parameters Request parameters
      * @return array JSON
      */
-    public function handleRealRowCountRequestAction(array $params): array
+    public function handleRealRowCountRequestAction(array $parameters): array
     {
+        require_once ROOT_PATH . 'libraries/db_common.inc.php';
+
+        if (! $this->response->isAjax()) {
+            return [];
+        }
+
         // If there is a request to update all table's row count.
-        if (! isset($params['real_row_count_all'])) {
+        if (! isset($parameters['real_row_count_all'])) {
             // Get the real row count for the table.
             $realRowCount = $this->dbi
-                ->getTable($this->db, (string) $params['table'])
+                ->getTable($this->db, (string) $parameters['table'])
                 ->getRealRowCountTable();
             // Format the number.
             $realRowCount = Util::formatNumber($realRowCount, 0);

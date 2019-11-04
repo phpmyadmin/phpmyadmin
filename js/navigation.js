@@ -607,20 +607,21 @@ $(function () {
         var $self = $(this);
         var anchorId = $self.attr('id');
         if ($self.data('favtargetn') !== null) {
-            if ($('a[data-favtargets="' + $self.data('favtargetn') + '"]').length > 0) {
-                $('a[data-favtargets="' + $self.data('favtargetn') + '"]').trigger('click');
+            var $dataFavTargets = $('a[data-favtargets="' + $self.data('favtargetn') + '"]');
+            if ($dataFavTargets.length > 0) {
+                $dataFavTargets.trigger('click');
                 return;
             }
         }
 
+        var hasLocalStorage = isStorageSupported('localStorage') &&
+            typeof window.localStorage.favoriteTables !== 'undefined';
         $.ajax({
             url: $self.attr('href'),
             cache: false,
             type: 'POST',
             data: {
-                'favoriteTables': (isStorageSupported('localStorage') && typeof window.localStorage.favoriteTables !== 'undefined')
-                    ? window.localStorage.favoriteTables
-                    : '',
+                'favoriteTables': hasLocalStorage ? window.localStorage.favoriteTables : '',
                 'server': CommonParams.get('server'),
             },
             success: function (data) {

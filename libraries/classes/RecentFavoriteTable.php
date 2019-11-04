@@ -201,7 +201,7 @@ class RecentFavoriteTable
                     $html .= '<li class="warp_link">';
 
                     $html .= '<a class="ajax favorite_table_anchor" ';
-                    $fav_rm_url = Url::getFromRoute('/database/structure', [
+                    $fav_rm_url = Url::getFromRoute('/database/structure/favorite-table', [
                         'db' => $table['db'],
                         'ajax_request' => true,
                         'favorite_table' => $table['table'],
@@ -346,7 +346,7 @@ class RecentFavoriteTable
         $cfgRelation = $this->relation->getRelationsParam();
         // Not to show this once list is synchronized.
         if ($cfgRelation['favoritework'] && ! isset($_SESSION['tmpval']['favorites_synced'][$server_id])) {
-            $url = Url::getFromRoute('/database/structure', [
+            $url = Url::getFromRoute('/database/structure/favorite-table', [
                 'ajax_request' => true,
                 'favorite_table' => true,
                 'sync_favorite_tables' => true,

@@ -62,6 +62,8 @@ class StructureControllerTest extends PmaTestCase
         $GLOBALS['table'] = "table";
         $GLOBALS['db'] = 'db';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
+        $GLOBALS['replication_info']['master']['status'] = false;
+        $GLOBALS['replication_info']['slave']['status'] = false;
 
         if (! defined('PMA_USR_BROWSER_AGENT')) {
             define('PMA_USR_BROWSER_AGENT', 'Other');
@@ -470,6 +472,11 @@ class StructureControllerTest extends PmaTestCase
      */
     public function testHandleRealRowCountRequestAction()
     {
+        global $is_db;
+
+        $is_db = true;
+
+        $this->response->setAjax(true);
         $controller = new StructureController(
             $this->response,
             $GLOBALS['dbi'],

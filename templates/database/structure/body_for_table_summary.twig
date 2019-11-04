@@ -22,13 +22,12 @@
         {% set row_sum_url = {
             'ajax_request': true,
             'db': db,
-            'real_row_count': 'true',
             'real_row_count_all': 'true'
         } %}
     {% endif %}
     {% if approx_rows %}
         {% set cell_text -%}
-            <a href="{{ url('/database/structure', row_sum_url) }}" class="ajax row_count_sum">~
+            <a href="{{ url('/database/structure/real-row-count', row_sum_url) }}" class="ajax row_count_sum">~
                 {{- row_count_sum -}}
             </a>
         {%- endset %}

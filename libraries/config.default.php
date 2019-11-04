@@ -988,7 +988,7 @@ $cfg['NavigationTreeDisplayDbFilterMinimum'] = 30;
  * target of the navigation panel quick access icon
  *
  * Possible values:
- * 'structure.php' = fields list
+ * 'structure' = fields list
  * 'sql' = SQL form
  * 'search' = search page
  * 'insert' = insert row page

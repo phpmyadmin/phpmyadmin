@@ -8,6 +8,7 @@ declare(strict_types=1);
 use FastRoute\RouteCollector;
 use PhpMyAdmin\Controllers\Database\DataDictionaryController;
 use PhpMyAdmin\Controllers\Database\MultiTableQueryController;
+use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\Controllers\Server\CollationsController;
 use PhpMyAdmin\Controllers\Server\DatabasesController;
@@ -112,8 +113,33 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
                 require_once ROOT_PATH . 'libraries/entry_points/database/sql/format.php';
             });
         });
-        $routes->addRoute(['GET', 'POST'], '/structure', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/database/structure.php';
+        $routes->addGroup('/structure', function (RouteCollector $routes) use ($containerBuilder, $response) {
+            /** @var StructureController $controller */
+            $controller = $containerBuilder->get(StructureController::class);
+            $routes->addRoute(['GET', 'POST'], '', function () use ($response, $controller) {
+                $response->addHTML($controller->index([
+                    'submit_mult' => $_POST['submit_mult'] ?? null,
+                    'selected_tbl' => $_POST['selected_tbl'] ?? null,
+                    'mult_btn' => $_POST['mult_btn'] ?? null,
+                    'sort' => $_REQUEST['sort'] ?? null,
+                    'sort_order' => $_REQUEST['sort_order'] ?? null,
+                ]));
+            });
+            $routes->addRoute(['GET', 'POST'], '/favorite-table', function () use ($response, $controller) {
+                $response->addJSON($controller->addRemoveFavoriteTablesAction([
+                    'favorite_table' => $_REQUEST['favorite_table'] ?? null,
+                    'favoriteTables' => $_REQUEST['favoriteTables'] ?? null,
+                    'sync_favorite_tables' => $_REQUEST['sync_favorite_tables'] ?? null,
+                    'add_favorite' => $_REQUEST['add_favorite'] ?? null,
+                    'remove_favorite' => $_REQUEST['remove_favorite'] ?? null,
+                ]));
+            });
+            $routes->addRoute(['GET', 'POST'], '/real-row-count', function () use ($response, $controller) {
+                $response->addJSON($controller->handleRealRowCountRequestAction([
+                    'real_row_count_all' => $_REQUEST['real_row_count_all'] ?? null,
+                    'table' => $_REQUEST['table'] ?? null,
+                ]));
+            });
         });
         $routes->addRoute(['GET', 'POST'], '/tracking', function () {
             require_once ROOT_PATH . 'libraries/entry_points/database/tracking.php';

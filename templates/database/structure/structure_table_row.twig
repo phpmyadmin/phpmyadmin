@@ -101,11 +101,10 @@
         <td class="value tbl_rows"
             data-table="{{ current_table['TABLE_NAME'] }}">
             {% if approx_rows %}
-                <a href="{{ url('/database/structure', {
+                <a href="{{ url('/database/structure/real-row-count', {
                     'ajax_request': true,
                     'db': db,
-                    'table': current_table['TABLE_NAME'],
-                    'real_row_count': true
+                    'table': current_table['TABLE_NAME']
                 }) }}" class="ajax real_row_count">
                     <bdi>
                         ~{{ row_count }}
