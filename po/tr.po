@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-10-29 00:34+0100\n"
-"PO-Revision-Date: 2019-09-28 18:55+0000\n"
+"PO-Revision-Date: 2019-11-07 02:04+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9-dev\n"
+"X-Generator: Weblate 3.10-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -8414,8 +8414,8 @@ msgstr ""
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] "%s sonuç bulundu"
-msgstr[1] "%s sonuç bulundu"
+msgstr[0] "%s sonucu bulundu"
+msgstr[1] "%s sonuçları bulundu"
 
 #: libraries/classes/Navigation/NavigationTree.php:1368
 #: libraries/classes/Navigation/NavigationTree.php:1400
@@ -14711,8 +14711,8 @@ msgstr "Dosyanın karakter grubu:"
 #, php-format
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "<strong>%2$s</strong> tablosu içerisinde %1$s eşleşme"
-msgstr[1] "<strong>%2$s</strong> tablosu içerisinde %1$s eşleşme"
+msgstr[0] "<strong>%2$s</strong> tablosu içerisinde %1$s eşleşmesi"
+msgstr[1] "<strong>%2$s</strong> tablosu içerisinde %1$s eşleşmeleri"
 
 #: templates/database/search/results.twig:56
 msgid "<strong>Total:</strong> <em>%count%</em> match"
@@ -16313,8 +16313,8 @@ msgstr "Veritabanı oluştur"
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s tablo"
-msgstr[1] "%s tablo"
+msgstr[0] "%s tablosu"
+msgstr[1] "%s tabloları"
 
 #: templates/database/structure/body_for_table_summary.twig:17
 msgid "Sum"
