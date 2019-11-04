@@ -1577,8 +1577,7 @@ class Config
             $retval .= '<div id="' . $id . '">';
             ob_start();
             include $filename;
-            $retval .= ob_get_contents();
-            ob_end_clean();
+            $retval .= ob_get_clean();
             $retval .= '</div>';
         }
         return $retval;
