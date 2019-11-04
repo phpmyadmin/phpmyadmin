@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-10-29 00:43+0100\n"
-"PO-Revision-Date: 2019-06-24 14:00+0000\n"
+"PO-Revision-Date: 2019-11-07 02:04+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
+"tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7.1-dev\n"
+"X-Generator: Weblate 3.10-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -148,8 +148,7 @@ msgstr "İzlenen veri başarılı olarak silindi."
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr ""
-"Seçilen tablolar için sürüm %1$s oluşturuldu, bunlar için izleme aktif."
+msgstr "Seçilen tablolar için sürüm %1$s oluşturuldu, bunlar için izleme etkin."
 
 #: db_tracking.php:95
 msgid "No tables selected."
@@ -2314,8 +2313,7 @@ msgid "Failed security key activation (%s)."
 msgstr "Güvenlik anahtarı etkinleştirme başarısız (%s)."
 
 #: js/messages.php:766
-#, fuzzy, php-format
-#| msgid "Table %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
@@ -3195,12 +3193,9 @@ msgid "accent-sensitive"
 msgstr "vurgu duyarlı"
 
 #: libraries/classes/Charsets/Collation.php:524
-#, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "accent-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "vurgu duyarlı"
+msgstr "kana türüne duyarlı"
 
 #: libraries/classes/Charsets/Collation.php:528
 msgctxt "Collation variant"
@@ -3215,7 +3210,7 @@ msgstr "ikili değer"
 #: libraries/classes/Charsets/Collation.php:534
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "doldurma yok"
 
 #: libraries/classes/Config.php:1144
 #, php-format
@@ -3744,10 +3739,8 @@ msgstr "Etiket anahtarı"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:557
 #: templates/database/data_dictionary/index.twig:25
 #: templates/columns_definitions/table_fields_definitions.twig:71
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media (MIME) type"
-msgstr "MIME türü"
+msgstr "Ortam (MIME) türü"
 
 #: libraries/classes/Config/Descriptions.php:219
 #: libraries/classes/Config/Descriptions.php:231
@@ -4965,15 +4958,11 @@ msgid "Bookmark table"
 msgstr "Yer imi tablosu"
 
 #: libraries/classes/Config/Descriptions.php:616
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: "
-#| "[kbd]pma__column_info[/kbd]."
 msgid ""
 "Leave blank for no column comments/media (MIME) types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Sütun açıklamaları/mime türleri istenmiyorsa boş bırakın, önerilen: "
+"Sütun açıklamaları/ortam (MIME) türleri istenmiyorsa boş bırakın, önerilen: "
 "[kbd]pma__column_info[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:619
@@ -8985,8 +8974,8 @@ msgstr "Gruplar"
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] "%s sonuç bulundu"
-msgstr[1] "%s sonuç bulundu"
+msgstr[0] "%s sonucu bulundu"
+msgstr[1] "%s sonuçları bulundu"
 
 #: libraries/classes/Navigation/NavigationTree.php:1389
 #: libraries/classes/Navigation/NavigationTree.php:1421
@@ -9672,7 +9661,7 @@ msgstr "Bağlanamıyor: geçersiz ayarlar."
 #: templates/login/header.twig:8
 #, php-format
 msgid "Welcome to %s"
-msgstr "%s'e Hoş Geldiniz"
+msgstr "%s’e Hoş Geldiniz"
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:107
 #, php-format
@@ -9991,10 +9980,8 @@ msgstr "Açıklamaları göster"
 #: libraries/classes/Plugins/Export/ExportLatex.php:156
 #: libraries/classes/Plugins/Export/ExportOdt.php:116
 #: libraries/classes/Plugins/Export/ExportSql.php:132
-#, fuzzy
-#| msgid "Display MIME types"
 msgid "Display media (MIME) types"
-msgstr "MIME türlerini göster"
+msgstr "Ortam (MIME) türlerini göster"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
 msgid "Put columns names in the first row:"
@@ -10288,10 +10275,8 @@ msgid "AUTO_INCREMENT for table"
 msgstr "Tablo için AUTO_INCREMENT değeri"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1911
-#, fuzzy
-#| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA (MIME) TYPES FOR TABLE"
-msgstr "TABLO MIME TÜRLERİ"
+msgstr "TABLO ORTAM (MIME) TÜRLERİ"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1934
 msgid "RELATIONSHIPS FOR TABLE"
@@ -11105,7 +11090,7 @@ msgstr "Asıl sunucu, %s olarak başarılı olarak değiştirildi."
 #: libraries/classes/Rte/Triggers.php:185
 #, php-format
 msgid "The following query has failed: \"%s\""
-msgstr "Aşağıdaki sorgu başarısız oldu: \"%s\""
+msgstr "Şurada belirtilen sorgu başarısız oldu: \"%s\""
 
 #: libraries/classes/Rte/Events.php:177 libraries/classes/Rte/Events.php:186
 #: libraries/classes/Rte/Events.php:217 libraries/classes/Rte/General.php:63
@@ -12078,7 +12063,7 @@ msgstr "… eski olanı kullanıcı tablolarından sil."
 #: libraries/classes/Server/Privileges.php:3243
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
-msgstr "… eski olandan bütün aktif yetkileri geri al ve sonra da sil."
+msgstr "… eski olandan bütün etkin yetkileri geri al ve sonra da sil."
 
 #: libraries/classes/Server/Privileges.php:3247
 msgid ""
@@ -12708,17 +12693,17 @@ msgstr "Sürüm %1$s / %2$s oluşturuldu."
 #: libraries/classes/Tracking.php:1056
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
-msgstr "Sürüm %1$s oluşturuldu, %2$s için izleme aktif."
+msgstr "Sürüm %1$s oluşturuldu, %2$s için izleme etkin."
 
 #: libraries/classes/Tracking.php:1166 libraries/classes/Tracking.php:1304
 #: templates/table/tracking/main.twig:10 templates/table/tracking/main.twig:53
 msgid "active"
-msgstr "aktif"
+msgstr "etkin"
 
 #: libraries/classes/Tracking.php:1169 libraries/classes/Tracking.php:1299
 #: templates/table/tracking/main.twig:12 templates/table/tracking/main.twig:56
 msgid "not active"
-msgstr "aktif değil"
+msgstr "etkin değil"
 
 #: libraries/classes/Types.php:207
 msgid ""
@@ -13783,8 +13768,8 @@ msgstr "Değişken"
 #, php-format
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "<strong>%2$s</strong> tablosu içerisinde %1$s eşleşme"
-msgstr[1] "<strong>%2$s</strong> tablosu içerisinde %1$s eşleşme"
+msgstr[0] "<strong>%2$s</strong> tablosu içerisinde %1$s eşleşmesi"
+msgstr[1] "<strong>%2$s</strong> tablosu içerisinde %1$s eşleşmeleri"
 
 #: templates/database/search/results.twig:56
 msgid "<strong>Total:</strong> <em>%count%</em> match"
@@ -13845,7 +13830,7 @@ msgstr "Seçilen kullanıcı hesaplarını kaldır"
 
 #: templates/server/privileges/delete_user_fieldset.twig:6
 msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr "Kullanıcılardan tüm aktif yetkileri geri alır ve sonra da siler."
+msgstr "Kullanıcılardan tüm etkin yetkileri geri alır ve sonra da siler."
 
 #: templates/server/privileges/delete_user_fieldset.twig:7
 #: templates/server/privileges/delete_user_fieldset.twig:10
@@ -14899,8 +14884,8 @@ msgstr "Merkezi liste ile uyumlu yap"
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s tablo"
-msgstr[1] "%s tablo"
+msgstr[0] "%s tablosu"
+msgstr[1] "%s tabloları"
 
 #: templates/database/structure/body_for_table_summary.twig:17
 msgid "Sum"
@@ -15058,7 +15043,7 @@ msgstr "Al"
 
 #: templates/server/status/processes/index.twig:13
 msgid "Show only active"
-msgstr "Sadece aktif olanı göster"
+msgstr "Sadece etkin olanı göster"
 
 #: templates/server/status/processes/index.twig:21
 msgid ""
@@ -15101,7 +15086,7 @@ msgstr "Sütuna özgü yetkiler"
 
 #: templates/server/privileges/privileges_summary.twig:54
 msgid "Add privileges on the following database(s):"
-msgstr "Aşağıdaki veritaban(lar)ına yetkileri ekle:"
+msgstr "Şurada belirtilen veritaban(lar)ına yetkileri ekle:"
 
 #: templates/server/privileges/privileges_summary.twig:67
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
@@ -15116,10 +15101,8 @@ msgid "Add privileges on the following routine:"
 msgstr "Aşağıdaki yordama yetkileri ekle:"
 
 #: templates/transformation_overview.twig:1
-#, fuzzy
-#| msgid "Available MIME types"
 msgid "Available media (MIME) types"
-msgstr "Mevcut MIME türleri"
+msgstr "Mevcut ortam (MIME) türleri"
 
 #: templates/transformation_overview.twig:13
 msgid "Available browser display transformations"
@@ -15127,8 +15110,6 @@ msgstr "Mevcut tarayıcı görüntüleme dönüşümleri"
 
 #: templates/transformation_overview.twig:19
 #: templates/transformation_overview.twig:38
-#, fuzzy
-#| msgid "Description"
 msgctxt "for media (MIME) type transformation"
 msgid "Description"
 msgstr "Açıklama"
@@ -15146,10 +15127,8 @@ msgstr ""
 "Ondan sonra aygıta oturum açmayı onaylayın."
 
 #: templates/table/structure/display_structure.twig:70
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media (MIME) type:"
-msgstr "MIME türü"
+msgstr "Ortam (MIME) türü:"
 
 #: templates/table/structure/display_structure.twig:91
 #: templates/table/tracking/structure_snapshot_columns.twig:47
@@ -15423,7 +15402,7 @@ msgstr "Topla"
 
 #: templates/database/designer/main.twig:1092
 msgid "Active options"
-msgstr "Aktif seçenekler"
+msgstr "Etkin seçenekler"
 
 #: templates/server/replication/change_master.twig:5
 msgid "Slave configuration"
@@ -15543,26 +15522,20 @@ msgid "License"
 msgstr "Lisans"
 
 #: templates/server/plugins/index.twig:37
-#, fuzzy
-#| msgid "active"
 msgid "inactive"
-msgstr "aktif"
+msgstr "etkin değil"
 
 #: templates/server/plugins/index.twig:39
 msgid "disabled"
 msgstr "etkisizleştirildi"
 
 #: templates/server/plugins/index.twig:41
-#, fuzzy
-#| msgid "Deleting"
 msgid "deleting"
-msgstr "Siliniyor"
+msgstr "siliniyor"
 
 #: templates/server/plugins/index.twig:43
-#, fuzzy
-#| msgid "Delete"
 msgid "deleted"
-msgstr "Sil"
+msgstr "silindi"
 
 #: templates/setup/error.twig:2
 msgid "Warning"
@@ -15600,11 +15573,11 @@ msgstr "\"%s\" tablosunda satırlar dışa aktarılıyor"
 
 #: templates/database/structure/tracking_icon.twig:3
 msgid "Tracking is active."
-msgstr "İzleme aktif."
+msgstr "İzleme etkin."
 
 #: templates/database/structure/tracking_icon.twig:5
 msgid "Tracking is not active."
-msgstr "İzleme aktif değil."
+msgstr "İzleme etkin değil."
 
 #: templates/database/designer/page_save_as.twig:17
 msgid "Save to selected page"
