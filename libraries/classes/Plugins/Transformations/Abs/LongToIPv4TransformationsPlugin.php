@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\TransformationsPlugin;
+use PhpMyAdmin\Util;
 use stdClass;
 
 /**
@@ -44,13 +45,12 @@ abstract class LongToIPv4TransformationsPlugin extends TransformationsPlugin
      */
     public function applyTransformation($buffer, array $options = [], ?stdClass $meta = null)
     {
-        if ($buffer < 0 || $buffer > 4294967295) {
+        if (! Util::isInteger($buffer) || $buffer < 0 || $buffer > 4294967295) {
             return htmlspecialchars($buffer);
         }
 
-        return long2ip($buffer);
+        return long2ip((int) $buffer);
     }
-
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 

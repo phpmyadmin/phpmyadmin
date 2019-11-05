@@ -113,6 +113,7 @@ class LanguageTest extends PmaTestCase
      */
     public function testMySQLLocale()
     {
+        $GLOBALS['PMA_Config']->set('FilterLanguages', '');
         $czech = $this->manager->getLanguage('cs');
         $this->assertNotFalse($czech);
         $this->assertEquals('cs_CZ', $czech->getMySQLLocale());
@@ -140,6 +141,7 @@ class LanguageTest extends PmaTestCase
      */
     public function testGet()
     {
+        $GLOBALS['PMA_Config']->set('FilterLanguages', '');
         $lang = $this->manager->getLanguage('cs');
         $this->assertNotEquals(false, $lang);
         $this->assertEquals('Czech', $lang->getEnglishName());
@@ -166,6 +168,7 @@ class LanguageTest extends PmaTestCase
      */
     public function testSelect($lang, $post, $get, $cookie, $accept, $agent, $default, $expect): void
     {
+        $GLOBALS['PMA_Config']->set('FilterLanguages', '');
         $GLOBALS['PMA_Config']->set('Lang', $lang);
         $GLOBALS['PMA_Config']->set('is_https', false);
         $_POST['lang'] = $post;
@@ -301,6 +304,7 @@ class LanguageTest extends PmaTestCase
      */
     public function testGettext($locale): void
     {
+        $GLOBALS['PMA_Config']->set('FilterLanguages', '');
         /* We should be able to set the language */
         $this->manager->getLanguage($locale)->activate();
 

@@ -4960,4 +4960,16 @@ class Util
 
         return self::linkOrButton($url, $title . $orderImg, $orderLinkParams);
     }
+
+    /**
+     * Check that input is an int or an int in a string
+     *
+     * @param mixed $input
+     *
+     * @return bool
+     */
+    public static function isInteger($input): bool
+    {
+        return ctype_digit((string) $input);
+    }
 }

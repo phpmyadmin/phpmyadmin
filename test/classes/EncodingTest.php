@@ -93,16 +93,31 @@ class EncodingTest extends TestCase
             $this->markTestSkipped('iconv extension missing');
         }
 
-        $GLOBALS['cfg']['IconvExtraParams'] = '//TRANSLIT';
-        Encoding::setEngine(Encoding::ENGINE_ICONV);
-        $this->assertEquals(
-            "This is the Euro symbol 'EUR'.",
-            Encoding::convertString(
-                'UTF-8',
-                'ISO-8859-1',
-                "This is the Euro symbol '€'."
-            )
-        );
+        if (PHP_INT_SIZE === 8) {
+            $GLOBALS['cfg']['IconvExtraParams'] = '//TRANSLIT';
+            Encoding::setEngine(Encoding::ENGINE_ICONV);
+            $this->assertEquals(
+                "This is the Euro symbol 'EUR'.",
+                Encoding::convertString(
+                    'UTF-8',
+                    'ISO-8859-1',
+                    "This is the Euro symbol '€'."
+                )
+            );
+        } elseif (PHP_INT_SIZE === 4) {
+            // NOTE: this does not work on 32bit systems and requires "//IGNORE"
+            // NOTE: or it will throw "iconv(): Detected an illegal character in input string"
+            $GLOBALS['cfg']['IconvExtraParams'] = '//TRANSLIT//IGNORE';
+            Encoding::setEngine(Encoding::ENGINE_ICONV);
+            $this->assertEquals(
+                "This is the Euro symbol ''.",
+                Encoding::convertString(
+                    'UTF-8',
+                    'ISO-8859-1',
+                    "This is the Euro symbol '€'."
+                )
+            );
+        }
     }
 
     /**

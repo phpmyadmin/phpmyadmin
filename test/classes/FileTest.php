@@ -66,6 +66,8 @@ class FileTest extends PmaTestCase
      *
      * @return void
      * @dataProvider compressedFiles
+     * @requires extension bz2 1
+     * @requires extension zip 1
      */
     public function testReadCompressed($file): void
     {

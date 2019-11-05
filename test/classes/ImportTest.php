@@ -411,7 +411,7 @@ class ImportTest extends TestCase
      */
     public function provDetectType()
     {
-        return [
+        $data = [
             [
                 Import::NONE,
                 null,
@@ -458,16 +458,6 @@ class ImportTest extends TestCase
                 '10.2',
             ],
             [
-                Import::BIGINT,
-                Import::BIGINT,
-                '2147483648',
-            ],
-            [
-                Import::BIGINT,
-                Import::INT,
-                '2147483648',
-            ],
-            [
                 Import::VARCHAR,
                 Import::VARCHAR,
                 'test',
@@ -478,6 +468,34 @@ class ImportTest extends TestCase
                 'test',
             ],
         ];
+
+        if (PHP_INT_MAX > 2147483647) {
+            $data[] = [
+                Import::BIGINT,
+                Import::BIGINT,
+                '2147483648',
+            ];
+            $data[] = [
+                Import::BIGINT,
+                Import::INT,
+                '2147483648',
+            ];
+        } else {
+            // To be fixed ?
+            // Can not detect a BIGINT since the value is over PHP_INT_MAX
+            $data[] = [
+                Import::VARCHAR,
+                Import::BIGINT,
+                '2147483648',
+            ];
+            $data[] = [
+                Import::VARCHAR,
+                Import::INT,
+                '2147483648',
+            ];
+        }
+
+        return $data;
     }
 
     /**
