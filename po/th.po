@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-10-29 00:45+0100\n"
-"PO-Revision-Date: 2019-11-02 03:04+0000\n"
+"PO-Revision-Date: 2019-11-07 02:04+0000\n"
 "Last-Translator: Kongfa Warorot <gongpha@hotmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "th/>\n"
@@ -271,7 +271,7 @@ msgstr "ค่าแกน Y"
 
 #: js/messages.php:145
 msgid "Please enter the SQL query first."
-msgstr "กรุณากรอกการเรียกใช้ SQL ก่อน"
+msgstr "กรุณากรอกคิวรี่ SQL ก่อน"
 
 #: js/messages.php:148
 msgid "The host name is empty!"
@@ -641,7 +641,7 @@ msgstr "จากประวัติทั่วไป"
 
 #: js/messages.php:269
 msgid "The database name is not known for this query in the server's logs."
-msgstr "ชื่อฐานข้อมูลไม่ถูกรู้จักสำหรับการเรียกใช้นี้ในบันทึกเซิร์ฟเวอร์"
+msgstr "ชื่อฐานข้อมูลที่ไม่รู้จักสำหรับคิวรี่นี้ในบันทึกประวัติเซิร์ฟเวอร์"
 
 #: js/messages.php:271
 msgid "Analysing logs"
@@ -841,7 +841,7 @@ msgstr "ไม่มีไฟล์ที่ใช้งานได้บนเ
 
 #: js/messages.php:343
 msgid "Analyse query"
-msgstr "วิเคราะห์การเรียกใช้"
+msgstr "วิเคราะห์คิวรี"
 
 #: js/messages.php:347
 msgid "Advisor system"
@@ -1210,7 +1210,7 @@ msgstr "ไม่มีการเรียกใช้อัตโนมัต
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
-msgstr "คุณมีการเรียกใช้ก่อนหน้านี้ คลิก รับการเรียกใช้อัตโนมัติ เพื่อโหลดการเรียกใช้"
+msgstr "คุณมีคิวรีก่อนหน้านี้ คลิก รับคิวรีอัตโนมัติ เพื่อโหลดการคิวรี"
 
 #: js/messages.php:435
 #, php-format
@@ -1607,7 +1607,7 @@ msgstr "คุณยังไม่ได้บันทึกเลย์เอ
 
 #: js/messages.php:572
 msgid "value/subQuery is empty"
-msgstr "ค่า/คำสั่งย่อย ว่างเปล่า"
+msgstr "ค่า/คิวรีย่อย ว่างเปล่า"
 
 #: js/messages.php:573 templates/database/designer/main.twig:42
 #: templates/database/designer/main.twig:45
@@ -1639,7 +1639,7 @@ msgstr "ลบหน้า"
 
 #: js/messages.php:579 templates/database/designer/main.twig:12
 msgid "Untitled"
-msgstr "ไม่ระบุชื่อ"
+msgstr "ไม่มีชื่อ"
 
 #: js/messages.php:580
 msgid "Please select a page to continue"
@@ -8816,7 +8816,7 @@ msgstr ""
 #: libraries/classes/Normalization.php:215
 #: libraries/classes/Normalization.php:918
 msgid "First step of normalization (1NF)"
-msgstr ""
+msgstr "ขั้นตอนแรกของการนอร์มัลไลเซชัน (1NF)"
 
 #: libraries/classes/Normalization.php:218
 #: libraries/classes/Normalization.php:269
@@ -9084,11 +9084,11 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:919
 msgid "Second step of normalization (1NF+2NF)"
-msgstr ""
+msgstr "ขั้นตอนที่สองของการนอร์มัลไลเซชัน (1NF+2NF)"
 
 #: libraries/classes/Normalization.php:920
 msgid "Third step of normalization (1NF+2NF+3NF)"
-msgstr ""
+msgstr "ขั้นตอนที่สามของการนอร์มัลไลเซชัน (1NF+2NF+3NF)"
 
 #: libraries/classes/Normalization.php:931
 msgid ""
@@ -12908,12 +12908,12 @@ msgstr "จำเป็นต้องเลือกแสดงอย่าง
 #: libraries/entry_points/database/qbe.php:159
 #: templates/database/multi_table_query/form.twig:3
 msgid "Multi-table query"
-msgstr "เรียกใช้หลายตาราง"
+msgstr "คิวรี่หลายตาราง"
 
 #: libraries/entry_points/database/qbe.php:164
 #: templates/database/multi_table_query/form.twig:9
 msgid "Query by example"
-msgstr "เรียกใช้โดยตัวอย่าง"
+msgstr "คิวรี่ด้วยตัวอย่าง"
 
 #: libraries/entry_points/database/qbe.php:182
 #, php-format
@@ -12947,7 +12947,7 @@ msgstr "ตรวจพบข้อผิดพลาด และรายง�
 
 #: libraries/entry_points/error_report.php:82
 msgid "Thank you for submitting this report."
-msgstr "ขอบคุณสำหรับการส่งรายงานนี้"
+msgstr "ขอบคุณสำหรับการรายงานครั้งนี้"
 
 #: libraries/entry_points/error_report.php:86
 msgid ""
@@ -13013,7 +13013,8 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"หมดเวลาการนำเข้าแล้ว หากคุณต้องการดำเนินการต่อให้เรียบร้อย กรุณา%sนำเข้าไฟล์เดิม%sอีกรอบ"
+"หมดเวลาการเรียกใช้สคริปต์แล้ว หากคุณต้องการนำเข้าให้เรียบร้อย กรุณา "
+"%sนำเข้าไฟล์เดิม%s อีกรอบ และการนำเข้าจะดำเนินต่อไป"
 
 #: libraries/entry_points/import.php:650
 msgid ""
@@ -16509,21 +16510,16 @@ msgid "Rename view to"
 msgstr "เปลี่ยนชื่อตารางเป็น"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "field type is \"enum\" or \"set\", please enter the values using this "
-#| "mat: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") a "
-#| "single quote (\"'\") amongst those values, precede it with a kslash (for "
-#| "example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br>If you ever need to put a backslash (\"\") or a "
 "single quote (\"'\") amongst those values, precede it with a backslash (for "
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"ถ้าชนิดของฟิลด์เป็น \"enum\" หรือ \"set\" โปรดใส่ค่าตามรูปแบบ: 'a','b','c'…<br /"
-">ถ้าต้องการใส่เครื่องหมาย backslash (\"\\\") หรือ อัญประกาศเดี่ยว (\"'\") "
-"เข้าไปในค่าเหล่านั้น ให้ใส่เครื่องหมาย แบ๊กแสลช นำหน้า (ตัวอย่าง: '\\\\xyz' or 'a\\'b')"
+"ถ้าชนิดของคอลัมน์เป็น \"enum\" หรือ \"set\" โปรดกรอกค่าตามรูปแบบ: "
+"'a','b','c'…<br>ถ้าต้องการใส่เครื่องหมายทับกลับด้าน (\"\\\") หรือ "
+"อัญประกาศเดี่ยว (\"'\") เข้าไปในค่าเหล่านั้น "
+"ให้ใส่เครื่องหมายทับกลับด้านนำหน้า (ตัวอย่าง: '\\\\xyz' or 'a\\'b')"
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
