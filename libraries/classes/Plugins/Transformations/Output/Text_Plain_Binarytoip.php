@@ -9,7 +9,6 @@
 namespace PhpMyAdmin\Plugins\Transformations\Output;
 
 use PhpMyAdmin\Plugins\TransformationsPlugin;
-use function hex2bin;
 
 /**
  * Handles the binary to IPv4/IPv6 transformation for text plain
