@@ -1051,6 +1051,26 @@ class TransformationPluginsTest extends PmaTestCase
                 ],
                 'suffixMA_suffix',
             ],
+            [
+                new Text_Plain_Longtoipv4(),
+                [168496141],
+                '10.11.12.13',
+            ],
+            [
+                new Text_Plain_Longtoipv4(),
+                ['168496141'],
+                '10.11.12.13',
+            ],
+            [
+                new Text_Plain_Longtoipv4(),
+                ['my ip'],
+                'my ip',
+            ],
+            [
+                new Text_Plain_Longtoipv4(),
+                ['<my ip>'],
+                '&lt;my ip&gt;',
+            ],
         ];
 
         if (function_exists('imagecreatetruecolor')) {
