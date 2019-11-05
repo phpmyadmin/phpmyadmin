@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-10-29 00:34+0100\n"
-"PO-Revision-Date: 2019-11-02 04:04+0000\n"
+"PO-Revision-Date: 2019-11-07 02:04+0000\n"
 "Last-Translator: Kongfa Warorot <gongpha@hotmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-9/th/>"
 "\n"
@@ -333,11 +333,11 @@ msgstr "จำเป็นต้องเลือกแสดงอย่าง
 
 #: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
 msgid "Multi-table query"
-msgstr "เรียกใช้หลายตาราง"
+msgstr "คิวรี่หลายตาราง"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
 msgid "Query by example"
-msgstr "เรียกใช้โดยตัวอย่าง"
+msgstr "คิวรี่ด้วยตัวอย่าง"
 
 #: db_qbe.php:168
 #, php-format
@@ -377,7 +377,7 @@ msgstr "ตรวจพบข้อผิดพลาด และรายง�
 
 #: error_report.php:77
 msgid "Thank you for submitting this report."
-msgstr "ขอบคุณสำหรับการส่งรายงานนี้"
+msgstr "ขอบคุณสำหรับการรายงานครั้งนี้"
 
 #: error_report.php:81
 msgid ""
@@ -592,7 +592,8 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"หมดเวลาการนำเข้าแล้ว หากคุณต้องการดำเนินการต่อให้เรียบร้อย กรุณา%sนำเข้าไฟล์เดิม%sอีกรอบ"
+"หมดเวลาการเรียกใช้สคริปต์แล้ว หากคุณต้องการนำเข้าให้เรียบร้อย กรุณา "
+"%sนำเข้าไฟล์เดิม%s อีกรอบ และการนำเข้าจะดำเนินต่อไป"
 
 #: import.php:638
 msgid ""
@@ -1081,7 +1082,7 @@ msgstr "ค่าแกน Y"
 
 #: js/messages.php:142
 msgid "Please enter the SQL query first."
-msgstr "กรุณากรอกการเรียกใช้ SQL ก่อน"
+msgstr "กรุณากรอกคิวรี่ SQL ก่อน"
 
 #: js/messages.php:145
 msgid "The host name is empty!"
@@ -1449,7 +1450,7 @@ msgstr "จากประวัติทั่วไป"
 
 #: js/messages.php:266
 msgid "The database name is not known for this query in the server's logs."
-msgstr "ชื่อฐานข้อมูลไม่ถูกรู้จักสำหรับการเรียกใช้นี้ในบันทึกเซิร์ฟเวอร์"
+msgstr "ชื่อฐานข้อมูลที่ไม่รู้จักสำหรับคิวรี่นี้ในบันทึกประวัติเซิร์ฟเวอร์"
 
 #: js/messages.php:268
 msgid "Analysing logs"
@@ -1642,7 +1643,7 @@ msgstr "ไม่มีไฟล์ที่ใช้งานได้บนเ
 
 #: js/messages.php:336
 msgid "Analyse query"
-msgstr "วิเคราะห์การเรียกใช้"
+msgstr "วิเคราะห์คิวรี"
 
 #: js/messages.php:340
 msgid "Advisor system"
@@ -2251,7 +2252,7 @@ msgstr "คุณยังไม่ได้บันทึกเลย์เอ
 
 #: js/messages.php:564
 msgid "value/subQuery is empty"
-msgstr "ค่า/คำสั่งย่อย ว่างเปล่า"
+msgstr "ค่า/คิวรีย่อย ว่างเปล่า"
 
 #: js/messages.php:565 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
@@ -2283,7 +2284,7 @@ msgstr "ลบหน้า"
 
 #: js/messages.php:571 templates/database/designer/side_menu.twig:4
 msgid "Untitled"
-msgstr "ไม่ระบุชื่อ"
+msgstr "ไม่มีชื่อ"
 
 #: js/messages.php:572
 msgid "Please select a page to continue"
@@ -8553,7 +8554,7 @@ msgstr ""
 #: libraries/classes/Normalization.php:184
 #: libraries/classes/Normalization.php:883
 msgid "First step of normalization (1NF)"
-msgstr ""
+msgstr "ขั้นตอนแรกของการนอร์มัลไลเซชัน (1NF)"
 
 #: libraries/classes/Normalization.php:187
 #: libraries/classes/Normalization.php:238
@@ -8819,11 +8820,11 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:884
 msgid "Second step of normalization (1NF+2NF)"
-msgstr ""
+msgstr "ขั้นตอนที่สองของการนอร์มัลไลเซชัน (1NF+2NF)"
 
 #: libraries/classes/Normalization.php:885
 msgid "Third step of normalization (1NF+2NF+3NF)"
-msgstr ""
+msgstr "ขั้นตอนที่สามของการนอร์มัลไลเซชัน (1NF+2NF+3NF)"
 
 #: libraries/classes/Normalization.php:895
 msgid ""
