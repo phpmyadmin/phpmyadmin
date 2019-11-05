@@ -20,6 +20,8 @@ phpMyAdmin - ChangeLog
 - issue #15522 Fix missing image error fills logs, removed ic_b_info icon from icon list
 - issue #15537 Fixed some issues with the sort by key selectors
 - issue #15546 Fix operators precedence in DatabaseInterface class
+- issue #14906 Test test suite on 32-bit systems
+- issue        Fix Long2IP transformation issue with PHP 7.1
 
 4.9.1 (2019-09-20)
 - issue #15313 Added support for Twig 2
