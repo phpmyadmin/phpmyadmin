@@ -5,6 +5,10 @@ services:
       dbi: '@dbi'
       expression_language: '@expression_language'
 
+  browse_foreigners:
+    class: 'PhpMyAdmin\BrowseForeigners'
+    arguments: ['@template']
+
   config:
     class: 'PhpMyAdmin\Config'
     arguments: [!php/const CONFIG_FILE]

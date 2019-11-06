@@ -29,7 +29,12 @@ class BrowseForeignersTest extends TestCase
      */
     protected function setUp(): void
     {
-        $this->browseForeigners = new BrowseForeigners(50, 25, 100, false, '', new Template());
+        $GLOBALS['cfg']['LimitChars'] = 50;
+        $GLOBALS['cfg']['MaxRows'] = 25;
+        $GLOBALS['cfg']['RepeatCells'] = 100;
+        $GLOBALS['cfg']['ShowAll'] = false;
+        $GLOBALS['pmaThemeImage'] = '';
+        $this->browseForeigners = new BrowseForeigners(new Template());
     }
 
     /**
@@ -75,14 +80,8 @@ class BrowseForeignersTest extends TestCase
             $this->browseForeigners->getForeignLimit(null)
         );
 
-        $browseForeigners = new BrowseForeigners(
-            50,
-            50,
-            100,
-            false,
-            '',
-            new Template()
-        );
+        $GLOBALS['cfg']['MaxRows'] = 50;
+        $browseForeigners = new BrowseForeigners(new Template());
 
         $this->assertEquals(
             'LIMIT 10, 50 ',
@@ -176,7 +175,8 @@ class BrowseForeignersTest extends TestCase
             )
         );
 
-        $browseForeigners = new BrowseForeigners(5, 25, 100, false, '', new Template());
+        $GLOBALS['cfg']['LimitChars'] = 5;
+        $browseForeigners = new BrowseForeigners(new Template());
 
         $this->assertEquals(
             [
@@ -219,7 +219,7 @@ class BrowseForeignersTest extends TestCase
         $this->assertStringContainsString(
             '<form class="ajax" '
             . 'id="browse_foreign_form" name="browse_foreign_from" '
-            . 'action="index.php?route=/browse_foreigners',
+            . 'action="index.php?route=/browse-foreigners',
             $result
         );
         $this->assertStringContainsString(

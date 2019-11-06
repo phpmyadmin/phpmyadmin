@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 use FastRoute\RouteCollector;
 use PhpMyAdmin\Controllers\AjaxController;
+use PhpMyAdmin\Controllers\BrowseForeignersController;
 use PhpMyAdmin\Controllers\Database\DataDictionaryController;
 use PhpMyAdmin\Controllers\Database\MultiTableQueryController;
 use PhpMyAdmin\Controllers\Database\StructureController;
@@ -80,8 +81,18 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             ]));
         });
     });
-    $routes->addRoute(['GET', 'POST'], '/browse_foreigners', function () {
-        require_once ROOT_PATH . 'libraries/entry_points/browse_foreigners.php';
+    $routes->addRoute(['GET', 'POST'], '/browse-foreigners', function () use ($containerBuilder, $response) {
+        /** @var BrowseForeignersController $controller */
+        $controller = $containerBuilder->get(BrowseForeignersController::class);
+        $response->addHTML($controller->index([
+            'db' => $_POST['db'] ?? null,
+            'table' => $_POST['table'] ?? null,
+            'field' => $_POST['field'] ?? null,
+            'fieldkey' => $_POST['fieldkey'] ?? null,
+            'data' => $_POST['data'] ?? null,
+            'foreign_showAll' => $_POST['foreign_showAll'] ?? null,
+            'foreign_filter' => $_POST['foreign_filter'] ?? null,
+        ]));
     });
     $routes->get('/changelog', function () {
         require_once ROOT_PATH . 'libraries/entry_points/changelog.php';

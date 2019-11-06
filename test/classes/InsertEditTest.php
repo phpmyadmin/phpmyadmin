@@ -1028,7 +1028,7 @@ class InsertEditTest extends TestCase
             $result
         );
         $this->assertStringContainsString(
-            '<a class="ajax browse_foreign" href="index.php?route=/browse_foreigners',
+            '<a class="ajax browse_foreign" href="index.php?route=/browse-foreigners',
             $result
         );
 

@@ -883,7 +883,7 @@ class InsertEdit
             . 'value="' . htmlspecialchars($data) . '">';
 
         $html_output .= '<a class="ajax browse_foreign" href="'
-            . Url::getFromRoute('/browse_foreigners')
+            . Url::getFromRoute('/browse-foreigners')
             . '" data-post="'
             . Url::getCommon(
                 [

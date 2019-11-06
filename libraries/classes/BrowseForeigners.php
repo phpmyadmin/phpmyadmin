@@ -1,6 +1,6 @@
 <?php
 /**
- * Contains functions used by /browse_foreigners
+ * Contains functions used by browse foreigners
  *
  * @package PhpMyAdmin
  */
@@ -15,10 +15,15 @@ namespace PhpMyAdmin;
  */
 class BrowseForeigners
 {
+    /** @var int */
     private $limitChars;
+    /** @var int */
     private $maxRows;
+    /** @var int */
     private $repeatCells;
+    /** @var bool */
     private $showAll;
+    /** @var string */
     private $themeImage;
 
     /**
@@ -27,29 +32,19 @@ class BrowseForeigners
     public $template;
 
     /**
-     * Constructor
-     *
-     * @param int      $limitChars  Maximum number of characters to show
-     * @param int      $maxRows     Number of rows to display
-     * @param int      $repeatCells Repeat the headers every X cells, or 0 to deactivate
-     * @param boolean  $showAll     Shows the 'Show all' button or not
-     * @param string   $themeImage  Theme image path
-     * @param Template $template    Template object
+     * @param Template $template Template object
      */
-    public function __construct(
-        int $limitChars,
-        int $maxRows,
-        int $repeatCells,
-        bool $showAll,
-        string $themeImage,
-        Template $template
-    ) {
-        $this->limitChars = $limitChars;
-        $this->maxRows = $maxRows;
-        $this->repeatCells = $repeatCells;
-        $this->showAll = $showAll;
-        $this->themeImage = $themeImage;
+    public function __construct(Template $template)
+    {
+        global $cfg, $pmaThemeImage;
+
         $this->template = $template;
+
+        $this->limitChars = $cfg['LimitChars'];
+        $this->maxRows = $cfg['MaxRows'];
+        $this->repeatCells = $cfg['RepeatCells'];
+        $this->showAll = $cfg['ShowAll'];
+        $this->themeImage = $pmaThemeImage;
     }
 
     /**
@@ -183,7 +178,7 @@ class BrowseForeigners
 
         $output = '<form class="ajax" '
             . 'id="browse_foreign_form" name="browse_foreign_from" action="'
-            . Url::getFromRoute('/browse_foreigners')
+            . Url::getFromRoute('/browse-foreigners')
             . '" method="post"><fieldset>'
             . Url::getHiddenInputs($db, $table)
             . '<input type="hidden" name="field" value="' . htmlspecialchars($field)

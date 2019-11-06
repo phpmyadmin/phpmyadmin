@@ -53,6 +53,15 @@ class BrowseForeignersController extends AbstractController
      */
     public function index(array $params): string
     {
+        if (! isset($params['db'], $params['table'], $params['field'])) {
+            return '';
+        }
+
+        $this->response->getFooter()->setMinimal();
+        $header = $this->response->getHeader();
+        $header->disableMenuAndConsole();
+        $header->setBodyId('body_browse_foreigners');
+
         $foreigners = $this->relation->getForeigners(
             $params['db'],
             $params['table']
