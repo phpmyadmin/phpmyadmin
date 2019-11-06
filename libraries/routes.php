@@ -8,6 +8,7 @@ declare(strict_types=1);
 use FastRoute\RouteCollector;
 use PhpMyAdmin\Controllers\AjaxController;
 use PhpMyAdmin\Controllers\BrowseForeignersController;
+use PhpMyAdmin\Controllers\ChangeLogController;
 use PhpMyAdmin\Controllers\Database\DataDictionaryController;
 use PhpMyAdmin\Controllers\Database\MultiTableQueryController;
 use PhpMyAdmin\Controllers\Database\StructureController;
@@ -94,8 +95,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             'foreign_filter' => $_POST['foreign_filter'] ?? null,
         ]));
     });
-    $routes->get('/changelog', function () {
-        require_once ROOT_PATH . 'libraries/entry_points/changelog.php';
+    $routes->get('/changelog', function () use ($containerBuilder) {
+        /** @var ChangeLogController $controller */
+        $controller = $containerBuilder->get(ChangeLogController::class);
+        $controller->index();
     });
     $routes->addRoute(['GET', 'POST'], '/check_relations', function () {
         require_once ROOT_PATH . 'libraries/entry_points/chk_rel.php';

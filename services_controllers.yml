@@ -16,6 +16,13 @@ services:
       browseForeigners: '@browse_foreigners'
       relations: '@relation'
 
+  PhpMyAdmin\Controllers\ChangeLogController:
+    class: 'PhpMyAdmin\Controllers\ChangeLogController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+
   PhpMyAdmin\Controllers\Database\CentralColumnsController:
     class: 'PhpMyAdmin\Controllers\Database\CentralColumnsController'
     arguments:
