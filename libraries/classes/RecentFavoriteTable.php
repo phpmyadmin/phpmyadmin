@@ -365,7 +365,7 @@ class RecentFavoriteTable
     public static function getHtmlUpdateRecentTables()
     {
         $retval = '<a class="hide" id="update_recent_tables" href="';
-        $retval .= Url::getFromRoute('/', [
+        $retval .= Url::getFromRoute('/recent-table', [
             'ajax_request' => true,
             'recent_table' => true,
         ]);

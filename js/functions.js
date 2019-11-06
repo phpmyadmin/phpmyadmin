@@ -612,10 +612,9 @@ Functions.displayGitRevision = function () {
     $('#is_git_revision').remove();
     $('#li_pma_version_git').remove();
     $.get(
-        'index.php?route=/',
+        'index.php?route=/git-revision',
         {
             'server': CommonParams.get('server'),
-            'git_revision': true,
             'ajax_request': true,
             'no_debug': true
         },

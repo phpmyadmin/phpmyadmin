@@ -39,7 +39,7 @@
                   {{ change_password is not empty ? change_password|raw }}
 
                   <li id="li_select_mysql_collation" class="no_bullets">
-                    <form class="disableAjax" method="post" action="{{ url('/') }}">
+                    <form class="disableAjax" method="post" action="{{ url('/collation-connection') }}">
                       {{ get_hidden_inputs(null, null, 4, 'collation_connection') }}
                       <label for="select_collation_connection">
                         {{ get_image('s_asci') }}

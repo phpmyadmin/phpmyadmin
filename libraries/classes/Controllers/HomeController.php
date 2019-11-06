@@ -61,11 +61,25 @@ class HomeController extends AbstractController
 
 
     /**
+     * @param array $params Request parameters
+     *
      * @return string HTML
      */
-    public function index(): string
+    public function index(array $params): string
     {
-        global $cfg, $server, $collation_connection, $message;
+        global $cfg, $server, $collation_connection, $message, $show_query, $db, $table;
+
+        if ($this->response->isAjax() && ! empty($params['access_time'])) {
+            return '';
+        }
+
+        $db = '';
+        $table = '';
+        $show_query = '1';
+
+        if ($server > 0) {
+            include ROOT_PATH . 'libraries/server_common.inc.php';
+        }
 
         $languageManager = LanguageManager::getInstance();
 
@@ -289,6 +303,8 @@ class HomeController extends AbstractController
         $preferences = $userPreferences->load();
         $preferences['config_data']['ThemeDefault'] = $params['set_theme'];
         $userPreferences->save($preferences['config_data']);
+
+        $this->response->header('Location: index.php?route=/' . Url::getCommonRaw([], '&'));
     }
 
     /**
@@ -303,6 +319,8 @@ class HomeController extends AbstractController
             $params['collation_connection'],
             'utf8mb4_unicode_ci'
         );
+
+        $this->response->header('Location: index.php?route=/' . Url::getCommonRaw([], '&'));
     }
 
     /**
@@ -310,6 +328,9 @@ class HomeController extends AbstractController
      */
     public function reloadRecentTablesList(): array
     {
+        if (! $this->response->isAjax()) {
+            return [];
+        }
         return [
             'list' => RecentFavoriteTable::getInstance('recent')->getHtmlList(),
         ];
@@ -320,6 +341,13 @@ class HomeController extends AbstractController
      */
     public function gitRevision(): string
     {
+        global $PMA_Config;
+
+        /** @var Config $PMA_Config */
+        if (! $this->response->isAjax() || ! $PMA_Config->isGitRevision()) {
+            return '';
+        }
+
         return (new GitRevision(
             $this->response,
             $this->config,

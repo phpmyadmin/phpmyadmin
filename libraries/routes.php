@@ -9,6 +9,7 @@ use FastRoute\RouteCollector;
 use PhpMyAdmin\Controllers\Database\DataDictionaryController;
 use PhpMyAdmin\Controllers\Database\MultiTableQueryController;
 use PhpMyAdmin\Controllers\Database\StructureController;
+use PhpMyAdmin\Controllers\HomeController;
 use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\Controllers\Server\CollationsController;
 use PhpMyAdmin\Controllers\Server\DatabasesController;
@@ -35,8 +36,24 @@ if (! defined('PHPMYADMIN')) {
 $response = $containerBuilder->get(Response::class);
 
 return function (RouteCollector $routes) use ($containerBuilder, $response) {
-    $routes->addRoute(['GET', 'POST'], '[/]', function () {
-        require_once ROOT_PATH . 'libraries/entry_points/home.php';
+    $routes->addGroup('', function (RouteCollector $routes) use ($containerBuilder, $response) {
+        /** @var HomeController $controller */
+        $controller = $containerBuilder->get(HomeController::class);
+        $routes->addRoute(['GET', 'POST'], '[/]', function () use ($response, $controller) {
+            $response->addHTML($controller->index(['access_time' => $_REQUEST['access_time'] ?? null]));
+        });
+        $routes->post('/set-theme', function () use ($controller) {
+            $controller->setTheme(['set_theme' => $_POST['set_theme']]);
+        });
+        $routes->post('/collation-connection', function () use ($controller) {
+            $controller->setCollationConnection(['collation_connection' => $_POST['collation_connection']]);
+        });
+        $routes->addRoute(['GET', 'POST'], '/recent-table', function () use ($response, $controller) {
+            $response->addJSON($controller->reloadRecentTablesList());
+        });
+        $routes->addRoute(['GET', 'POST'], '/git-revision', function () use ($response, $controller) {
+            $response->addHTML($controller->gitRevision());
+        });
     });
     $routes->addRoute(['GET', 'POST'], '/ajax', function () {
         require_once ROOT_PATH . 'libraries/entry_points/ajax.php';
