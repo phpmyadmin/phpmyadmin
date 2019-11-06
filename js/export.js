@@ -814,10 +814,9 @@ Export.createAliasModal = function (event) {
             } else {
                 var params = {
                     'ajax_request': true,
-                    'server': CommonParams.get('server'),
-                    'type': 'list-databases'
+                    'server': CommonParams.get('server')
                 };
-                $.post('index.php?route=/ajax', params, function (response) {
+                $.post('index.php?route=/ajax/list-databases', params, function (response) {
                     if (response.success === true) {
                         $.each(response.databases, function (idx, value) {
                             var option = $('<option></option>');
@@ -928,13 +927,14 @@ AJAX.registerOnload('export.js', function () {
             option.attr('value', table);
             $('#table_alias_select').append(option).val(table).trigger('change');
         } else {
+            var database = $(this).val();
             var params = {
                 'ajax_request': true,
                 'server': CommonParams.get('server'),
-                'db': $(this).val(),
-                'type': 'list-tables'
+                'db': database,
             };
-            $.post('index.php?route=/ajax', params, function (response) {
+            var url = 'index.php?route=/ajax/list-tables/' + encodeURIComponent(database);
+            $.post(url, params, function (response) {
                 if (response.success === true) {
                     $.each(response.tables, function (idx, value) {
                         var option = $('<option></option>');
@@ -950,14 +950,16 @@ AJAX.registerOnload('export.js', function () {
     });
     $('#table_alias_select').on('change', function () {
         Export.aliasToggleRow($(this));
+        var database = $('#db_alias_select').val();
+        var table = $(this).val();
         var params = {
             'ajax_request': true,
             'server': CommonParams.get('server'),
-            'db': $('#db_alias_select').val(),
-            'table': $(this).val(),
-            'type': 'list-columns'
+            'db': database,
+            'table': table,
         };
-        $.post('index.php?route=/ajax', params, function (response) {
+        var url = 'index.php?route=/ajax/list-columns/' + encodeURIComponent(database) + '/' + encodeURIComponent(table);
+        $.post(url, params, function (response) {
             if (response.success === true) {
                 $.each(response.columns, function (idx, value) {
                     var option = $('<option></option>');

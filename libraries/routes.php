@@ -6,6 +6,7 @@
 declare(strict_types=1);
 
 use FastRoute\RouteCollector;
+use PhpMyAdmin\Controllers\AjaxController;
 use PhpMyAdmin\Controllers\Database\DataDictionaryController;
 use PhpMyAdmin\Controllers\Database\MultiTableQueryController;
 use PhpMyAdmin\Controllers\Database\StructureController;
@@ -55,8 +56,29 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             $response->addHTML($controller->gitRevision());
         });
     });
-    $routes->addRoute(['GET', 'POST'], '/ajax', function () {
-        require_once ROOT_PATH . 'libraries/entry_points/ajax.php';
+    $routes->addGroup('/ajax', function (RouteCollector $routes) use ($containerBuilder, $response) {
+        /** @var AjaxController $controller */
+        $controller = $containerBuilder->get(AjaxController::class);
+        $routes->post('/list-databases', function () use ($response, $controller) {
+            $response->addJSON($controller->databases());
+        });
+        $routes->post('/list-tables/{database}', function (array $vars) use ($response, $controller) {
+            $response->addJSON($controller->tables($vars));
+        });
+        $routes->post('/list-columns/{database}/{table}', function (array $vars) use ($response, $controller) {
+            $response->addJSON($controller->columns($vars));
+        });
+        $routes->post('/config-get', function () use ($response, $controller) {
+            $response->addJSON($controller->getConfig([
+                'key' => $_POST['key'] ?? null,
+            ]));
+        });
+        $routes->post('/config-set', function () use ($response, $controller) {
+            $response->addJSON($controller->setConfig([
+                'key' => $_POST['key'] ?? null,
+                'value' => $_POST['value'] ?? null,
+            ]));
+        });
     });
     $routes->addRoute(['GET', 'POST'], '/browse_foreigners', function () {
         require_once ROOT_PATH . 'libraries/entry_points/browse_foreigners.php';

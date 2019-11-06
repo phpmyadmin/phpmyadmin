@@ -1,6 +1,6 @@
 <?php
 /**
- * Holds the PhpMyAdmin\Controllers\AjaxController
+ * Generic AJAX endpoint for getting information about database
  *
  * @package PhpMyAdmin\Controllers
  */
@@ -15,7 +15,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 
 /**
- * Class AjaxController
+ * Generic AJAX endpoint for getting information about database
  * @package PhpMyAdmin\Controllers
  */
 class AjaxController extends AbstractController
@@ -55,7 +55,7 @@ class AjaxController extends AbstractController
      */
     public function tables(array $params): array
     {
-        return ['tables' => $this->dbi->getTables($params['db'])];
+        return ['tables' => $this->dbi->getTables($params['database'])];
     }
 
     /**
@@ -66,7 +66,7 @@ class AjaxController extends AbstractController
     {
         return [
             'columns' => $this->dbi->getColumnNames(
-                $params['db'],
+                $params['database'],
                 $params['table']
             ),
         ];
@@ -78,19 +78,35 @@ class AjaxController extends AbstractController
      */
     public function getConfig(array $params): array
     {
+        if (! isset($params['key'])) {
+            $this->response->setRequestStatus(false);
+            return ['message' => Message::error()];
+        }
+
         return ['value' => $this->config->get($params['key'])];
     }
 
     /**
      * @param array $params Request parameters
-     * @return true|Message
+     * @return array
      */
-    public function setConfig(array $params)
+    public function setConfig(array $params): array
     {
-        return $this->config->setUserValue(
+        if (! isset($params['key'], $params['value'])) {
+            $this->response->setRequestStatus(false);
+            return ['message' => Message::error()];
+        }
+
+        $result = $this->config->setUserValue(
             null,
             $params['key'],
             json_decode($params['value'])
         );
+        $json = [];
+        if ($result !== true) {
+            $this->response->setRequestStatus(false);
+            $json['message'] = $result;
+        }
+        return $json;
     }
 }
