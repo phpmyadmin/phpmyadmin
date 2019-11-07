@@ -118,6 +118,13 @@ services:
       errorReport: '@error_report'
       errorHandler: '@error_handler'
 
+  PhpMyAdmin\Controllers\GisDataEditorController:
+    class: 'PhpMyAdmin\Controllers\GisDataEditorController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+
   PhpMyAdmin\Controllers\HomeController:
     class: 'PhpMyAdmin\Controllers\HomeController'
     arguments:
