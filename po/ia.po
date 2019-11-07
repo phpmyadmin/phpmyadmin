@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-10-29 00:43+0100\n"
-"PO-Revision-Date: 2019-11-07 02:04+0000\n"
+"PO-Revision-Date: 2019-11-08 14:26+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-0/ia/>\n"
@@ -6618,7 +6618,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:208
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr ""
+msgstr "Le numero de tentativas fallite pro connecter a le servitor MySQL."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:211
 msgid ""
@@ -6646,7 +6646,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:230
 msgid "How many temporary files mysqld has created."
-msgstr ""
+msgstr "Le numero de files temporanee create per mysqld."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:233
 msgid ""
@@ -6668,19 +6668,19 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:246
 msgid "The number of INSERT DELAYED rows written."
-msgstr ""
+msgstr "Le numero de rangos INSERT DELAYED scribite."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:249
 msgid "The number of executed FLUSH statements."
-msgstr ""
+msgstr "Le numero do commandos FLUSH executate."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:252
 msgid "The number of internal COMMIT statements."
-msgstr ""
+msgstr "Le numero de commandos interne COMMIT executate."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:255
 msgid "The number of times a row was deleted from a table."
-msgstr ""
+msgstr "Le numero de vices que un rango ha essite delite ex un tabella."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:258
 msgid ""
@@ -6733,7 +6733,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:298
 msgid "The number of internal ROLLBACK statements."
-msgstr ""
+msgstr "Le numero de commandos interne de ROLLBACK."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:301
 msgid "The number of requests to update a row in a table."
