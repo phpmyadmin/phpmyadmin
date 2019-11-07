@@ -3249,6 +3249,13 @@ $cfg['DefaultTransformations']['DateFormat'] = [
 ];
 
 /**
+ * Set default for FirstDayOfCalendar
+ *
+ * @global integer $cfg['FirstDayOfCalendar']
+ */
+$cfg['FirstDayOfCalendar'] = 0;
+
+/**
  * Default transformations for Inline
  *
  * @global array $cfg['DefaultTransformations']['Inline']

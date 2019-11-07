@@ -32,6 +32,7 @@ class FeaturesForm extends BaseForm
                 'SendErrorReports',
                 'ConsoleEnterExecutes',
                 'DisableShortcutKeys',
+                'FirstDayOfCalendar',
             ],
             'Databases' => [
                 'Servers/1/only_db', // saves to Server/only_db

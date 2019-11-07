@@ -282,6 +282,7 @@ class Descriptions
             'ForeignKeyMaxLimit_name' => __('Foreign key limit'),
             'DefaultForeignKeyChecks_desc' => __('Default value for foreign key checks checkbox for some queries.'),
             'DefaultForeignKeyChecks_name' => __('Foreign key checks'),
+            'FirstDayOfCalendar_name' => __('First day of calendar'),
             'Form_Browse_name' => __('Browse mode'),
             'Form_Browse_desc' => __('Customize browse mode.'),
             'Form_CodeGen_name' => 'CodeGen',
