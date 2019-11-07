@@ -13,6 +13,7 @@ use PhpMyAdmin\Controllers\CheckRelationsController;
 use PhpMyAdmin\Controllers\Database\DataDictionaryController;
 use PhpMyAdmin\Controllers\Database\MultiTableQueryController;
 use PhpMyAdmin\Controllers\Database\StructureController;
+use PhpMyAdmin\Controllers\ErrorReportController;
 use PhpMyAdmin\Controllers\HomeController;
 use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\Controllers\Server\CollationsController;
@@ -208,8 +209,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             require_once ROOT_PATH . 'libraries/entry_points/database/triggers.php';
         });
     });
-    $routes->addRoute(['GET', 'POST'], '/error_report', function () {
-        require_once ROOT_PATH . 'libraries/entry_points/error_report.php';
+    $routes->addRoute(['GET', 'POST'], '/error-report', function () use ($containerBuilder) {
+        /** @var ErrorReportController $controller */
+        $controller = $containerBuilder->get(ErrorReportController::class);
+        $controller->index();
     });
     $routes->addRoute(['GET', 'POST'], '/export', function () {
         require_once ROOT_PATH . 'libraries/entry_points/export.php';

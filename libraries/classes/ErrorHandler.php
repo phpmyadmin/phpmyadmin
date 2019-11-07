@@ -353,7 +353,7 @@ class ErrorHandler
             &&  $this->countErrors() !=  $this->countUserErrors()
         ) {
             // add report button.
-            $retval .= '<form method="post" action="' . Url::getFromRoute('/error_report')
+            $retval .= '<form method="post" action="' . Url::getFromRoute('/error-report')
                     . '" id="pma_report_errors_form"';
             if ($GLOBALS['cfg']['SendErrorReports'] == 'always') {
                 // in case of 'always', generate 'invisible' form.

@@ -4842,7 +4842,7 @@ Functions.ignorePhpErrors = function (clearPrevErrors) {
     ) {
         clearPrevious = false;
     }
-    // send AJAX request to /error_report with send_error_report=0, exception_type=php & token.
+    // send AJAX request to /error-report with send_error_report=0, exception_type=php & token.
     // It clears the prev_errors stored in session.
     if (clearPrevious) {
         var $pmaReportErrorsForm = $('#pma_report_errors_form');
