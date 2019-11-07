@@ -23,6 +23,14 @@ services:
       dbi: '@dbi'
       template: '@template'
 
+  PhpMyAdmin\Controllers\CheckRelationsController:
+    class: 'PhpMyAdmin\Controllers\CheckRelationsController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      relation: '@relation'
+
   PhpMyAdmin\Controllers\Database\CentralColumnsController:
     class: 'PhpMyAdmin\Controllers\Database\CentralColumnsController'
     arguments:

@@ -39,7 +39,7 @@ abstract class AbstractController
      *
      * @param Response          $response Response object
      * @param DatabaseInterface $dbi      DatabaseInterface object
-     * @param Template          $template Template that should be used (if provided, default one otherwise)
+     * @param Template          $template Template that should be used
      */
     public function __construct($response, $dbi, Template $template)
     {
