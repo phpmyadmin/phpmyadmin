@@ -109,6 +109,15 @@ services:
       template: '@template'
       db: '%db%'
 
+  PhpMyAdmin\Controllers\ErrorReportController:
+    class: 'PhpMyAdmin\Controllers\ErrorReportController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      errorReport: '@error_report'
+      errorHandler: '@error_handler'
+
   PhpMyAdmin\Controllers\HomeController:
     class: 'PhpMyAdmin\Controllers\HomeController'
     arguments:
