@@ -1,3 +1,5 @@
+/* global firstDayOfCalendar */ // js/messages.php
+
 /**
  * Create advanced table (resize, reorder, and show/hide columns; and also grid editing).
  * This function is designed mainly for table DOM generated from browsing a table in the database.

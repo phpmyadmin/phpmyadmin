@@ -37,6 +37,7 @@ class FilesTest extends TestCase
             'GridEditing' => 'click',
             'OBGzip' => false,
             'ServerDefault' => 1,
+            'FirstDayOfCalendar' => 0,
         ];
         $GLOBALS['cfg'] = $cfg;
         /** @var OutputBuffering $buffer */
