@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-11-07 18:19-0300\n"
-"PO-Revision-Date: 2019-11-07 02:04+0000\n"
+"PO-Revision-Date: 2019-11-08 14:26+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ia/>\n"
@@ -3732,7 +3732,7 @@ msgstr "Verificationes de clave externe"
 
 #: libraries/classes/Config/Descriptions.php:285
 msgid "First day of calendar"
-msgstr ""
+msgstr "Prime die de calendario"
 
 #: libraries/classes/Config/Descriptions.php:286
 msgid "Browse mode"
@@ -6465,7 +6465,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:215
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr ""
+msgstr "Le numero de tentativas fallite pro connecter a le servitor MySQL."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:218
 msgid ""
@@ -6493,7 +6493,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:237
 msgid "How many temporary files mysqld has created."
-msgstr ""
+msgstr "Le numero de files temporanee create per mysqld."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:240
 msgid ""
@@ -6515,19 +6515,19 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:253
 msgid "The number of INSERT DELAYED rows written."
-msgstr ""
+msgstr "Le numero de rangos INSERT DELAYED scribite."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:256
 msgid "The number of executed FLUSH statements."
-msgstr ""
+msgstr "Le numero do commandos FLUSH executate."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:259
 msgid "The number of internal COMMIT statements."
-msgstr ""
+msgstr "Le numero de commandos interne COMMIT executate."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:262
 msgid "The number of times a row was deleted from a table."
-msgstr ""
+msgstr "Le numero de vices que un rango ha essite delite ex un tabella."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:265
 msgid ""
@@ -6580,7 +6580,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:305
 msgid "The number of internal ROLLBACK statements."
-msgstr ""
+msgstr "Le numero de commandos interne de ROLLBACK."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:308
 msgid "The number of requests to update a row in a table."
