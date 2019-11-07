@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-10-29 00:45+0100\n"
+"POT-Creation-Date: 2019-11-07 18:19-0300\n"
 "PO-Revision-Date: 2018-12-18 22:09+0000\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -356,14 +356,14 @@ msgid "Other"
 msgstr "අනෙකුත්"
 
 #. l10n: Thousands separator
-#: js/messages.php:164 libraries/classes/Util.php:1396
-#: libraries/classes/Util.php:1427
+#: js/messages.php:164 libraries/classes/Util.php:1379
+#: libraries/classes/Util.php:1410
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:166 libraries/classes/Util.php:1394
-#: libraries/classes/Util.php:1425
+#: js/messages.php:166 libraries/classes/Util.php:1377
+#: libraries/classes/Util.php:1408
 msgid "."
 msgstr "."
 
@@ -477,39 +477,39 @@ msgid "Processes"
 msgstr "ක්‍රියාවලි"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:206 libraries/classes/Util.php:1304
+#: js/messages.php:206 libraries/classes/Util.php:1287
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:207 libraries/classes/Util.php:1306
+#: js/messages.php:207 libraries/classes/Util.php:1289
 #: templates/server/status/monitor/index.twig:179
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:208 libraries/classes/Util.php:1308
+#: js/messages.php:208 libraries/classes/Util.php:1291
 #: templates/server/status/monitor/index.twig:180
 msgid "MiB"
 msgstr "MiB"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:209 libraries/classes/Util.php:1310
+#: js/messages.php:209 libraries/classes/Util.php:1293
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:210 libraries/classes/Util.php:1312
+#: js/messages.php:210 libraries/classes/Util.php:1295
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:211 libraries/classes/Util.php:1314
+#: js/messages.php:211 libraries/classes/Util.php:1297
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:212 libraries/classes/Util.php:1316
+#: js/messages.php:212 libraries/classes/Util.php:1299
 msgid "EiB"
 msgstr "EiB"
 
@@ -528,7 +528,7 @@ msgid "Traffic"
 msgstr "දත්ත හුවමාරුව"
 
 #: js/messages.php:218 libraries/classes/Menu.php:642
-#: libraries/classes/Util.php:4183
+#: libraries/classes/Util.php:4166
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "සිටුවම්"
@@ -743,13 +743,13 @@ msgstr "ප්‍රතිදානය පහදන්න"
 #: js/messages.php:295
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:147
 #: libraries/classes/Menu.php:609 libraries/classes/Rte/Events.php:467
-#: libraries/classes/Rte/RteList.php:144 libraries/classes/Util.php:4179
+#: libraries/classes/Rte/RteList.php:144 libraries/classes/Util.php:4162
 #: libraries/config.values.php:158 templates/table/tracking/main.twig:31
 #: templates/database/tracking/tables.twig:17
 msgid "Status"
 msgstr "තත්වය"
 
-#: js/messages.php:296 js/messages.php:919
+#: js/messages.php:296 js/messages.php:926
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:143
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:490
 #: libraries/classes/Plugins/Export/ExportOdt.php:615
@@ -862,8 +862,8 @@ msgstr ""
 
 #: js/messages.php:333 libraries/classes/Config/Forms/User/ImportForm.php:70
 #: libraries/classes/Menu.php:390 libraries/classes/Menu.php:505
-#: libraries/classes/Menu.php:637 libraries/classes/Util.php:4182
-#: libraries/classes/Util.php:4197 libraries/classes/Util.php:4214
+#: libraries/classes/Menu.php:637 libraries/classes/Util.php:4165
+#: libraries/classes/Util.php:4180 libraries/classes/Util.php:4197
 #: templates/server/status/monitor/index.twig:78
 #: templates/preferences/manage/main.twig:10
 #: templates/display/import/import.twig:38
@@ -942,7 +942,7 @@ msgstr ""
 msgid "No parameters found!"
 msgstr "වැරදි පරාමිතියන්!"
 
-#: js/messages.php:361 libraries/classes/BrowseForeigners.php:208
+#: js/messages.php:361 libraries/classes/BrowseForeigners.php:203
 #: libraries/classes/Display/ChangePassword.php:181
 #: libraries/classes/Index.php:660 libraries/classes/InsertEdit.php:1936
 #: libraries/classes/InsertEdit.php:1970
@@ -1181,9 +1181,9 @@ msgstr "සුරැකි ශ්‍රිතයක නිර්වචනයෙ�
 #: libraries/classes/Display/Results.php:4963 libraries/classes/Menu.php:381
 #: libraries/classes/Menu.php:495 libraries/classes/Menu.php:632
 #: libraries/classes/Rte/RteList.php:192
-#: libraries/classes/Server/Privileges.php:1651 libraries/classes/Util.php:3437
-#: libraries/classes/Util.php:3438 libraries/classes/Util.php:4181
-#: libraries/classes/Util.php:4196 libraries/classes/Util.php:4213
+#: libraries/classes/Server/Privileges.php:1651 libraries/classes/Util.php:3420
+#: libraries/classes/Util.php:3421 libraries/classes/Util.php:4164
+#: libraries/classes/Util.php:4179 libraries/classes/Util.php:4196
 #: templates/table/privileges/index.twig:95
 #: templates/table/privileges/index.twig:120
 #: templates/display/export/option_header.twig:3
@@ -1238,12 +1238,12 @@ msgid "Show query box"
 msgstr "විමසුම් කවුළුව පෙන්වන්න"
 
 #: js/messages.php:429 libraries/classes/CentralColumns.php:940
-#: libraries/classes/Config/Descriptions.php:827
+#: libraries/classes/Config/Descriptions.php:828
 #: libraries/classes/Display/Results.php:3254
 #: libraries/classes/Display/Results.php:4692 libraries/classes/Index.php:741
 #: libraries/classes/Server/UserGroups.php:135 libraries/classes/Util.php:635
-#: libraries/classes/Util.php:1123 libraries/classes/Util.php:3435
-#: libraries/classes/Util.php:3436
+#: libraries/classes/Util.php:1106 libraries/classes/Util.php:3418
+#: libraries/classes/Util.php:3419
 #: templates/database/central_columns/main.twig:281
 #: templates/database/central_columns/main.twig:402
 #: templates/console/bookmark_content.twig:7 templates/setup/home/index.twig:57
@@ -1377,7 +1377,7 @@ msgid "Second step of normalization (2NF)"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:461 js/messages.php:788
+#: js/messages.php:461 js/messages.php:795
 #: libraries/classes/Normalization.php:368
 msgid "Done"
 msgstr "තෝරන්න"
@@ -1852,7 +1852,7 @@ msgstr "තීර නාමය පිටපත් කිරීම සඳහා �
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr "තීර පෙන්වීමට/සැඟවීමට<br />ඊතලය ක්ලික් කරන්න."
 
-#: js/messages.php:611 libraries/classes/BrowseForeigners.php:354
+#: js/messages.php:611 libraries/classes/BrowseForeigners.php:349
 #: templates/table/browse_foreigners/show_all.twig:4
 #: templates/display/results/table_navigation.twig:19
 #: templates/server/privileges/initials_row.twig:18
@@ -1961,7 +1961,7 @@ msgstr "මුරපදය උත්පාදනය කරන්න"
 msgid "Generate"
 msgstr "උත්පාදනය කරන්න"
 
-#: js/messages.php:660 libraries/classes/Controllers/HomeController.php:104
+#: js/messages.php:660 libraries/classes/Controllers/HomeController.php:118
 #: libraries/classes/Display/ChangePassword.php:75
 #: libraries/classes/Display/ChangePassword.php:78
 #: libraries/classes/UserPassword.php:274
@@ -1990,7 +1990,7 @@ msgstr "පැනලය සඟවන්න"
 msgid "Show hidden navigation tree items."
 msgstr "යාත්‍රණ පැනලයේ ලාංඡනය පෙන්වන්න"
 
-#: js/messages.php:669 libraries/classes/Config/Descriptions.php:485
+#: js/messages.php:669 libraries/classes/Config/Descriptions.php:486
 #: libraries/classes/Navigation/NavigationTree.php:1455
 #, fuzzy
 #| msgid "Customize main panel"
@@ -2226,8 +2226,8 @@ msgstr "සඟවන්න"
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:50
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:56
 #: libraries/classes/Navigation/Nodes/NodeTable.php:296
-#: libraries/classes/Util.php:3145 libraries/classes/Util.php:3430
-#: libraries/classes/Util.php:4192 libraries/classes/Util.php:4209
+#: libraries/classes/Util.php:3128 libraries/classes/Util.php:3413
+#: libraries/classes/Util.php:4175 libraries/classes/Util.php:4192
 #: libraries/config.values.php:61 libraries/config.values.php:75
 #: libraries/config.values.php:166 libraries/config.values.php:176
 #: libraries/entry_points/database/export.php:86
@@ -2238,361 +2238,361 @@ msgstr "සඟවන්න"
 msgid "Structure"
 msgstr "සැකිල්ල"
 
-#: js/messages.php:792
+#: js/messages.php:799
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "පෙර"
 
-#: js/messages.php:797
+#: js/messages.php:804
 msgctxt "Next month"
 msgid "Next"
 msgstr "මීලඟ"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:800
+#: js/messages.php:807
 msgid "Today"
 msgstr "අද දින"
 
-#: js/messages.php:804
+#: js/messages.php:811
 msgid "January"
 msgstr "ජනවාරි"
 
-#: js/messages.php:805
+#: js/messages.php:812
 msgid "February"
 msgstr "පෙබරවාරි"
 
-#: js/messages.php:806
+#: js/messages.php:813
 msgid "March"
 msgstr "මාර්තු"
 
-#: js/messages.php:807
+#: js/messages.php:814
 msgid "April"
 msgstr "අ‍ප්‍රේල්"
 
-#: js/messages.php:808
+#: js/messages.php:815
 msgid "May"
 msgstr "මැයි"
 
-#: js/messages.php:809
+#: js/messages.php:816
 msgid "June"
 msgstr "ජුනි"
 
-#: js/messages.php:810
+#: js/messages.php:817
 msgid "July"
 msgstr "ජූලි"
 
-#: js/messages.php:811
+#: js/messages.php:818
 msgid "August"
 msgstr "අගෝස්තු"
 
-#: js/messages.php:812
+#: js/messages.php:819
 msgid "September"
 msgstr "සැප්තැම්බර්"
 
-#: js/messages.php:813
+#: js/messages.php:820
 msgid "October"
 msgstr "ඔක්තෝම්බර්"
 
-#: js/messages.php:814
+#: js/messages.php:821
 msgid "November"
 msgstr "නොවැම්බර්"
 
-#: js/messages.php:815
+#: js/messages.php:822
 msgid "December"
 msgstr "දෙසැම්බර්"
 
 #. l10n: Short month name
-#: js/messages.php:822 libraries/classes/Util.php:1535
+#: js/messages.php:829 libraries/classes/Util.php:1518
 msgid "Jan"
 msgstr "ජනවාරි"
 
 #. l10n: Short month name
-#: js/messages.php:824 libraries/classes/Util.php:1537
+#: js/messages.php:831 libraries/classes/Util.php:1520
 msgid "Feb"
 msgstr "පෙබරවාරි"
 
 #. l10n: Short month name
-#: js/messages.php:826 libraries/classes/Util.php:1539
+#: js/messages.php:833 libraries/classes/Util.php:1522
 msgid "Mar"
 msgstr "මාර්තු"
 
 #. l10n: Short month name
-#: js/messages.php:828 libraries/classes/Util.php:1541
+#: js/messages.php:835 libraries/classes/Util.php:1524
 msgid "Apr"
 msgstr "අ‍ප්‍රේල්"
 
 #. l10n: Short month name
-#: js/messages.php:830 libraries/classes/Util.php:1543
+#: js/messages.php:837 libraries/classes/Util.php:1526
 msgctxt "Short month name"
 msgid "May"
 msgstr "මැයි"
 
 #. l10n: Short month name
-#: js/messages.php:832 libraries/classes/Util.php:1545
+#: js/messages.php:839 libraries/classes/Util.php:1528
 msgid "Jun"
 msgstr "ජුනි"
 
 #. l10n: Short month name
-#: js/messages.php:834 libraries/classes/Util.php:1547
+#: js/messages.php:841 libraries/classes/Util.php:1530
 msgid "Jul"
 msgstr "ජූලි"
 
 #. l10n: Short month name
-#: js/messages.php:836 libraries/classes/Util.php:1549
+#: js/messages.php:843 libraries/classes/Util.php:1532
 msgid "Aug"
 msgstr "අගෝස්තු"
 
 #. l10n: Short month name
-#: js/messages.php:838 libraries/classes/Util.php:1551
+#: js/messages.php:845 libraries/classes/Util.php:1534
 msgid "Sep"
 msgstr "සැප්තැම්බර්"
 
 #. l10n: Short month name
-#: js/messages.php:840 libraries/classes/Util.php:1553
+#: js/messages.php:847 libraries/classes/Util.php:1536
 msgid "Oct"
 msgstr "ඔක්තෝම්බර්"
 
 #. l10n: Short month name
-#: js/messages.php:842 libraries/classes/Util.php:1555
+#: js/messages.php:849 libraries/classes/Util.php:1538
 msgid "Nov"
 msgstr "නොවැම්බර්"
 
 #. l10n: Short month name
-#: js/messages.php:844 libraries/classes/Util.php:1557
+#: js/messages.php:851 libraries/classes/Util.php:1540
 msgid "Dec"
 msgstr "දෙසැම්බර්"
 
-#: js/messages.php:850
+#: js/messages.php:857 libraries/config.values.php:198
 msgid "Sunday"
 msgstr "ඉරිදා"
 
-#: js/messages.php:851
+#: js/messages.php:858 libraries/config.values.php:192
 msgid "Monday"
 msgstr "සඳුදා"
 
-#: js/messages.php:852
+#: js/messages.php:859 libraries/config.values.php:193
 msgid "Tuesday"
 msgstr "අඟහරු‍වදා"
 
-#: js/messages.php:853
+#: js/messages.php:860 libraries/config.values.php:194
 msgid "Wednesday"
 msgstr "බදාදා"
 
-#: js/messages.php:854
+#: js/messages.php:861 libraries/config.values.php:195
 msgid "Thursday"
 msgstr "බ්‍රහස්පතින්දා"
 
-#: js/messages.php:855
+#: js/messages.php:862 libraries/config.values.php:196
 msgid "Friday"
 msgstr "සිකුරාදා"
 
-#: js/messages.php:856
+#: js/messages.php:863 libraries/config.values.php:197
 msgid "Saturday"
 msgstr "සෙනසුරාදා"
 
 #. l10n: Short week day name
-#: js/messages.php:863
+#: js/messages.php:870
 msgid "Sun"
 msgstr "ඉරිදා"
 
 #. l10n: Short week day name
-#: js/messages.php:865 libraries/classes/Util.php:1563
+#: js/messages.php:872 libraries/classes/Util.php:1546
 msgid "Mon"
 msgstr "සඳුදා"
 
 #. l10n: Short week day name
-#: js/messages.php:867 libraries/classes/Util.php:1565
+#: js/messages.php:874 libraries/classes/Util.php:1548
 msgid "Tue"
 msgstr "අඟහ"
 
 #. l10n: Short week day name
-#: js/messages.php:869 libraries/classes/Util.php:1567
+#: js/messages.php:876 libraries/classes/Util.php:1550
 msgid "Wed"
 msgstr "බදාදා"
 
 #. l10n: Short week day name
-#: js/messages.php:871 libraries/classes/Util.php:1569
+#: js/messages.php:878 libraries/classes/Util.php:1552
 msgid "Thu"
 msgstr "බ්‍රහස්"
 
 #. l10n: Short week day name
-#: js/messages.php:873 libraries/classes/Util.php:1571
+#: js/messages.php:880 libraries/classes/Util.php:1554
 msgid "Fri"
 msgstr "සිකුරා"
 
 #. l10n: Short week day name
-#: js/messages.php:875 libraries/classes/Util.php:1573
+#: js/messages.php:882 libraries/classes/Util.php:1556
 msgid "Sat"
 msgstr "සෙනසු"
 
 #. l10n: Minimal week day name
-#: js/messages.php:882
+#: js/messages.php:889
 msgid "Su"
 msgstr "ඉරි"
 
 #. l10n: Minimal week day name
-#: js/messages.php:884
+#: js/messages.php:891
 msgid "Mo"
 msgstr "සඳු"
 
 #. l10n: Minimal week day name
-#: js/messages.php:886
+#: js/messages.php:893
 msgid "Tu"
 msgstr "අඟ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:888
+#: js/messages.php:895
 msgid "We"
 msgstr "බදා"
 
 #. l10n: Minimal week day name
-#: js/messages.php:890
+#: js/messages.php:897
 msgid "Th"
 msgstr "බ්‍රහ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:892
+#: js/messages.php:899
 msgid "Fr"
 msgstr "සිකු"
 
 #. l10n: Minimal week day name
-#: js/messages.php:894
+#: js/messages.php:901
 msgid "Sa"
 msgstr "සෙන"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:898
+#: js/messages.php:905
 msgid "Wk"
 msgstr "සති"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:905
+#: js/messages.php:912
 msgid "calendar-month-year"
 msgstr "දින දර්ශන-මාස-වසර"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:908
+#: js/messages.php:915
 msgctxt "Year suffix"
 msgid "none"
 msgstr "කිසිවක් නැත"
 
-#: js/messages.php:920
+#: js/messages.php:927
 msgid "Hour"
 msgstr "පැය"
 
-#: js/messages.php:921
+#: js/messages.php:928
 msgid "Minute"
 msgstr "මිනිත්තු"
 
-#: js/messages.php:922
+#: js/messages.php:929
 msgid "Second"
 msgstr "තත්පර"
 
-#: js/messages.php:933
+#: js/messages.php:940
 msgid "This field is required"
 msgstr ""
 
-#: js/messages.php:934
+#: js/messages.php:941
 #, fuzzy
 #| msgid "Use text field"
 msgid "Please fix this field"
 msgstr "පෙළ ක්ෂේත්‍ර භාවිතා කරන්න"
 
-#: js/messages.php:935
+#: js/messages.php:942
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid email address"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: js/messages.php:936
+#: js/messages.php:943
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid URL"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: js/messages.php:937
+#: js/messages.php:944
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid date"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: js/messages.php:940
+#: js/messages.php:947
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid date ( ISO )"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: js/messages.php:942
+#: js/messages.php:949
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid number"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: js/messages.php:945
+#: js/messages.php:952
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid credit card number"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: js/messages.php:947
+#: js/messages.php:954
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter only digits"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: js/messages.php:950
+#: js/messages.php:957
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter the same value again"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: js/messages.php:954
+#: js/messages.php:961
 msgid "Please enter no more than {0} characters"
 msgstr ""
 
-#: js/messages.php:959
+#: js/messages.php:966
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter at least {0} characters"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: js/messages.php:964
+#: js/messages.php:971
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr ""
 
-#: js/messages.php:969
+#: js/messages.php:976
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a value between {0} and {1}"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: js/messages.php:974
+#: js/messages.php:981
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a value less than or equal to {0}"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: js/messages.php:979
+#: js/messages.php:986
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: js/messages.php:985
+#: js/messages.php:992
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid date or time"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: js/messages.php:990
+#: js/messages.php:997
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid HEX input"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: js/messages.php:995 libraries/classes/Core.php:248
+#: js/messages.php:1002 libraries/classes/Core.php:248
 #: libraries/classes/Import.php:111 libraries/classes/InsertEdit.php:1542
 #: libraries/classes/Message.php:195 libraries/classes/Util.php:585
 #: libraries/entry_points/view/operations.php:85
@@ -2670,18 +2670,18 @@ msgstr "පැයකට"
 msgid "per day"
 msgstr "දිනකට"
 
-#: libraries/classes/BrowseForeigners.php:202
+#: libraries/classes/BrowseForeigners.php:197
 msgid "Search:"
 msgstr "සෙවීම:"
 
-#: libraries/classes/BrowseForeigners.php:225
-#: libraries/classes/BrowseForeigners.php:229 libraries/classes/Index.php:715
+#: libraries/classes/BrowseForeigners.php:220
+#: libraries/classes/BrowseForeigners.php:224 libraries/classes/Index.php:715
 #: templates/table/tracking/structure_snapshot_indexes.twig:5
 msgid "Keyname"
 msgstr "යතුරු නම"
 
-#: libraries/classes/BrowseForeigners.php:226
-#: libraries/classes/BrowseForeigners.php:228
+#: libraries/classes/BrowseForeigners.php:221
+#: libraries/classes/BrowseForeigners.php:223
 #: templates/server/engines/index.twig:14
 #: templates/server/plugins/index.twig:27
 #: templates/server/status/variables/index.twig:74
@@ -2689,11 +2689,11 @@ msgstr "යතුරු නම"
 msgid "Description"
 msgstr "විස්තරය"
 
-#: libraries/classes/BrowseForeigners.php:338
+#: libraries/classes/BrowseForeigners.php:333
 #: libraries/classes/Language.php:198 libraries/classes/Pdf.php:89
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:504
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:541
-#: libraries/classes/Util.php:2396
+#: libraries/classes/Util.php:2379
 msgid "Page number:"
 msgstr "පිටු අංකය:"
 
@@ -2804,7 +2804,7 @@ msgstr "දිග/අගයන්"
 #: templates/database/data_dictionary/index.twig:19
 #: templates/server/replication/slave_configuration.twig:9
 #: templates/table/tracking/structure_snapshot_columns.twig:10
-#: templates/database/structure/body_for_table_summary.twig:53
+#: templates/database/structure/body_for_table_summary.twig:52
 #: templates/columns_definitions/table_fields_definitions.twig:20
 msgid "Default"
 msgstr "පෙරනිමි"
@@ -3281,12 +3281,12 @@ msgid ""
 "shown below."
 msgstr "මෙහි සාමාන්‍ය අරුත වාක්‍ය වින්‍යාස දෝෂයකි, කරුණාකර පහත දැක්වෙන දෝෂ පරීක්ෂා කර බලන්න."
 
-#: libraries/classes/Config.php:1700
+#: libraries/classes/Config.php:1737
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "අවලංගු සේවාදායක සුචිය: %s"
 
-#: libraries/classes/Config.php:1713
+#: libraries/classes/Config.php:1750
 #, php-format
 msgid "Server %d"
 msgstr "%d වන සේවාදායකය"
@@ -3649,7 +3649,7 @@ msgid "Save as file"
 msgstr "ගොනුවක් ලෙස තෝරන්න"
 
 #: libraries/classes/Config/Descriptions.php:189
-#: libraries/classes/Config/Descriptions.php:398
+#: libraries/classes/Config/Descriptions.php:399
 msgid "Character set of the file"
 msgstr "ගොනුවේ අක්ෂර කට්ටලය"
 
@@ -3681,15 +3681,15 @@ msgid "Put columns names in the first row"
 msgstr "තීර නම් පළමු පේළියේ යොදන්න"
 
 #: libraries/classes/Config/Descriptions.php:193
-#: libraries/classes/Config/Descriptions.php:400
-#: libraries/classes/Config/Descriptions.php:411
+#: libraries/classes/Config/Descriptions.php:401
+#: libraries/classes/Config/Descriptions.php:412
 #: libraries/classes/Plugins/Import/ImportCsv.php:178
 msgid "Columns enclosed with"
 msgstr "තීර ඇවුරුම් සළකුණ"
 
 #: libraries/classes/Config/Descriptions.php:194
-#: libraries/classes/Config/Descriptions.php:401
-#: libraries/classes/Config/Descriptions.php:412
+#: libraries/classes/Config/Descriptions.php:402
+#: libraries/classes/Config/Descriptions.php:413
 #: libraries/classes/Plugins/Import/ImportCsv.php:189
 msgid "Columns escaped with"
 msgstr "තීර මගහැරීමේ සළකුණ"
@@ -3710,14 +3710,14 @@ msgid "Remove CRLF characters within columns"
 msgstr "තීර තුල ඇති CRLF අනුලකුණු ඉවත් කරන්න"
 
 #: libraries/classes/Config/Descriptions.php:197
-#: libraries/classes/Config/Descriptions.php:405
-#: libraries/classes/Config/Descriptions.php:417
+#: libraries/classes/Config/Descriptions.php:406
+#: libraries/classes/Config/Descriptions.php:418
 #: libraries/classes/Plugins/Import/ImportCsv.php:163
 msgid "Columns terminated with"
 msgstr "තීර වෙන් කිරීමේ සළකුණ"
 
 #: libraries/classes/Config/Descriptions.php:198
-#: libraries/classes/Config/Descriptions.php:399
+#: libraries/classes/Config/Descriptions.php:400
 #: libraries/classes/Plugins/Import/ImportCsv.php:198
 msgid "Lines terminated with"
 msgstr "පේළි අවසන් කිරීමේ සළකුණ"
@@ -3849,7 +3849,7 @@ msgid "Enclose table and column names with backquotes"
 msgstr "වගු සහ තීර නම් පසු-උදෘත මගින් අවුරන්න"
 
 #: libraries/classes/Config/Descriptions.php:240
-#: libraries/classes/Config/Descriptions.php:424
+#: libraries/classes/Config/Descriptions.php:425
 msgid "SQL compatibility mode"
 msgstr "SQL ගැලපුම් ප්‍රකාරය"
 
@@ -3972,124 +3972,128 @@ msgid "Foreign key checks"
 msgstr "අන්‍ය මූල පරීක්ෂාව:"
 
 #: libraries/classes/Config/Descriptions.php:285
+msgid "First day of calendar"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:286
 msgid "Browse mode"
 msgstr "පිරික්සුම් ප්‍රකාරය"
 
-#: libraries/classes/Config/Descriptions.php:286
+#: libraries/classes/Config/Descriptions.php:287
 msgid "Customize browse mode."
 msgstr "පිරික්සුම් ප්‍රකාරය රිසි සේ සකසන්න."
 
-#: libraries/classes/Config/Descriptions.php:288
-#: libraries/classes/Config/Descriptions.php:290
-#: libraries/classes/Config/Descriptions.php:304
-#: libraries/classes/Config/Descriptions.php:317
-#: libraries/classes/Config/Descriptions.php:319
-#: libraries/classes/Config/Descriptions.php:356
+#: libraries/classes/Config/Descriptions.php:289
+#: libraries/classes/Config/Descriptions.php:291
+#: libraries/classes/Config/Descriptions.php:305
+#: libraries/classes/Config/Descriptions.php:318
+#: libraries/classes/Config/Descriptions.php:320
+#: libraries/classes/Config/Descriptions.php:357
 msgid "Customize default options."
 msgstr "පෙරනිමි විකල්ප රිසි සේ සකසන්න."
 
-#: libraries/classes/Config/Descriptions.php:289
+#: libraries/classes/Config/Descriptions.php:290
 #: libraries/classes/Config/Forms/User/ExportForm.php:87
 #: libraries/classes/Config/Forms/User/ImportForm.php:38
 msgid "CSV"
 msgstr "CSV"
 
-#: libraries/classes/Config/Descriptions.php:291
+#: libraries/classes/Config/Descriptions.php:292
 msgid "Developer"
 msgstr "මෘදුකාංග සංවර්ධනය කරන්නා"
 
-#: libraries/classes/Config/Descriptions.php:292
+#: libraries/classes/Config/Descriptions.php:293
 msgid "Settings for phpMyAdmin developers."
 msgstr "phpMyAdmin හි මෘදුකාංග සංවර්ධනය කරන්නන් සඳහා සිටුවම්."
 
-#: libraries/classes/Config/Descriptions.php:293
+#: libraries/classes/Config/Descriptions.php:294
 msgid "Edit mode"
 msgstr "සංස්කරණ ප්‍රකාරය"
 
-#: libraries/classes/Config/Descriptions.php:294
+#: libraries/classes/Config/Descriptions.php:295
 msgid "Customize edit mode."
 msgstr "සංස්කරණ ප්‍රකාරය රිසි සේ සකසන්න."
 
-#: libraries/classes/Config/Descriptions.php:295
+#: libraries/classes/Config/Descriptions.php:296
 msgid "Export defaults"
 msgstr "අපනයන පෙරනිමි"
 
-#: libraries/classes/Config/Descriptions.php:296
+#: libraries/classes/Config/Descriptions.php:297
 msgid "Customize default export options."
 msgstr "පෙරනිමි අපනයන විකල්ප රිසි සේ සකසන්න."
 
-#: libraries/classes/Config/Descriptions.php:297
+#: libraries/classes/Config/Descriptions.php:298
 msgid "General"
 msgstr "සාමාන්‍ය"
 
-#: libraries/classes/Config/Descriptions.php:298
+#: libraries/classes/Config/Descriptions.php:299
 msgid "Set some commonly used options."
 msgstr "නිතර භාවිතා වන විකල්ප සඳහා අගයන් සිටුවන්න."
 
-#: libraries/classes/Config/Descriptions.php:299
+#: libraries/classes/Config/Descriptions.php:300
 msgid "Import defaults"
 msgstr "ආනයන පෙරනිමි"
 
-#: libraries/classes/Config/Descriptions.php:300
+#: libraries/classes/Config/Descriptions.php:301
 msgid "Customize default common import options."
 msgstr "පොදු ආනයන විකල්ප සඳහා පෙරනිමි අගයන් සකසන්න."
 
-#: libraries/classes/Config/Descriptions.php:301
+#: libraries/classes/Config/Descriptions.php:302
 msgid "Import / export"
 msgstr "ආනයන / අපනයන"
 
-#: libraries/classes/Config/Descriptions.php:302
+#: libraries/classes/Config/Descriptions.php:303
 msgid "Set import and export directories and compression options."
 msgstr "ආනයන, අපනයන ඩිරෙක්ටරි සහ හැකිලුම් සඳහා විකල්ප තෝරාගන්න."
 
-#: libraries/classes/Config/Descriptions.php:303
+#: libraries/classes/Config/Descriptions.php:304
 msgid "LaTeX"
 msgstr "LaTeX"
 
-#: libraries/classes/Config/Descriptions.php:305
-#: libraries/classes/Config/Descriptions.php:371 libraries/classes/Menu.php:599
-#: libraries/classes/Util.php:4177 libraries/config.values.php:156
+#: libraries/classes/Config/Descriptions.php:306
+#: libraries/classes/Config/Descriptions.php:372 libraries/classes/Menu.php:599
+#: libraries/classes/Util.php:4160 libraries/config.values.php:156
 #: templates/server/privileges/user_properties.twig:20
 #: templates/server/databases/index.twig:8
 #: templates/navigation/tree/database_select.twig:11
 msgid "Databases"
 msgstr "දත්තගබඩා"
 
-#: libraries/classes/Config/Descriptions.php:306
+#: libraries/classes/Config/Descriptions.php:307
 msgid "Databases display options."
 msgstr "දත්තගබඩා පෙන්වුම් විකල්ප."
 
-#: libraries/classes/Config/Descriptions.php:307
+#: libraries/classes/Config/Descriptions.php:308
 #: libraries/classes/Config/Forms/User/NaviForm.php:71
 msgid "Navigation panel"
 msgstr "යාත්‍රණ පැනලය"
 
-#: libraries/classes/Config/Descriptions.php:308
+#: libraries/classes/Config/Descriptions.php:309
 msgid "Customize appearance of the navigation panel."
 msgstr "යාත්‍රණ පැනලයේ පෙනුම රිසි සේ සකසන්න."
 
-#: libraries/classes/Config/Descriptions.php:309
+#: libraries/classes/Config/Descriptions.php:310
 #, fuzzy
 #| msgid "Navigation panel"
 msgid "Navigation tree"
 msgstr "යාත්‍රණ පැනලය"
 
-#: libraries/classes/Config/Descriptions.php:310
+#: libraries/classes/Config/Descriptions.php:311
 #, fuzzy
 #| msgid "Customize navigation panel"
 msgid "Customize the navigation tree."
 msgstr "යාත්‍රණ පැනලය රිසි සේ සකසන්න"
 
-#: libraries/classes/Config/Descriptions.php:311
+#: libraries/classes/Config/Descriptions.php:312
 #: libraries/classes/Server/Select.php:58 templates/setup/home/index.twig:34
 msgid "Servers"
 msgstr "සේවාදායකයන්"
 
-#: libraries/classes/Config/Descriptions.php:312
+#: libraries/classes/Config/Descriptions.php:313
 msgid "Servers display options."
 msgstr "සේවාදායක පෙන්වුම් විකල්ප."
 
-#: libraries/classes/Config/Descriptions.php:313
+#: libraries/classes/Config/Descriptions.php:314
 #: libraries/classes/Controllers/Server/DatabasesController.php:432
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:27
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:28
@@ -4100,32 +4104,32 @@ msgstr "සේවාදායක පෙන්වුම් විකල්ප."
 msgid "Tables"
 msgstr "වගු"
 
-#: libraries/classes/Config/Descriptions.php:314
+#: libraries/classes/Config/Descriptions.php:315
 msgid "Tables display options."
 msgstr "ගොනු පෙන්වුම් විකල්ප."
 
-#: libraries/classes/Config/Descriptions.php:315
+#: libraries/classes/Config/Descriptions.php:316
 #: libraries/classes/Config/Forms/User/MainForm.php:95
 msgid "Main panel"
 msgstr "ප්‍රධාන පැනලය"
 
-#: libraries/classes/Config/Descriptions.php:316
+#: libraries/classes/Config/Descriptions.php:317
 msgid "Microsoft Office"
 msgstr "මයික්‍රොසොෆ්ට් ඔෆිස්"
 
-#: libraries/classes/Config/Descriptions.php:320
+#: libraries/classes/Config/Descriptions.php:321
 msgid "Other core settings"
 msgstr "අනෙකුත් ප්‍රධාන සිටුවම්"
 
-#: libraries/classes/Config/Descriptions.php:321
+#: libraries/classes/Config/Descriptions.php:322
 msgid "Settings that didn't fit anywhere else."
 msgstr "වෙනත් කිසිඳු තැනකට නොගැලපුණු සිටුවම්."
 
-#: libraries/classes/Config/Descriptions.php:322
+#: libraries/classes/Config/Descriptions.php:323
 msgid "Page titles"
 msgstr "පිටු නාම"
 
-#: libraries/classes/Config/Descriptions.php:324
+#: libraries/classes/Config/Descriptions.php:325
 #, fuzzy
 #| msgid ""
 #| "Specify browser's title bar text. Refer to "
@@ -4138,11 +4142,11 @@ msgstr ""
 "බව්සරයේ මාතෘකා පටියේ දැක්වෙන පෙළ සඳහන් කරයි. මේ සඳහා යොදාගත හැකි විශේෂ අගයන් ගෙනදෙන "
 "වචන දැනගැනීමට [doc@cfg_TitleTable]ලියකියවිලි[/doc] බලන්න."
 
-#: libraries/classes/Config/Descriptions.php:328
+#: libraries/classes/Config/Descriptions.php:329
 msgid "Security"
 msgstr "ආරක්ෂාව"
 
-#: libraries/classes/Config/Descriptions.php:330
+#: libraries/classes/Config/Descriptions.php:331
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
@@ -4150,38 +4154,38 @@ msgstr ""
 "phpMyAdmin අතුරුමුහුණතක් පමණක් බව හා MySQL හි විශේෂාංග මෙයට සීමා නොවන බව කරුණාවෙන් "
 "සලකන්න."
 
-#: libraries/classes/Config/Descriptions.php:333
+#: libraries/classes/Config/Descriptions.php:334
 msgid "Basic settings"
 msgstr "මූලික සිටුවම්"
 
-#: libraries/classes/Config/Descriptions.php:334
+#: libraries/classes/Config/Descriptions.php:335
 msgid "Authentication"
 msgstr "සත්‍යාපනය"
 
 # සිටුවම් = settings. Source: Glossary of Information Technology Terms - ICTA
-#: libraries/classes/Config/Descriptions.php:335
+#: libraries/classes/Config/Descriptions.php:336
 msgid "Authentication settings."
 msgstr "සත්‍යාපන සිටුවම්."
 
-#: libraries/classes/Config/Descriptions.php:336
+#: libraries/classes/Config/Descriptions.php:337
 msgid "Server configuration"
 msgstr "සේවාදායකයේ වින්‍යාස"
 
-#: libraries/classes/Config/Descriptions.php:338
+#: libraries/classes/Config/Descriptions.php:339
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:341
+#: libraries/classes/Config/Descriptions.php:342
 msgid "Enter server connection parameters."
 msgstr "සේවාදායකයට සම්බන්ධ වීමේ පරාමිතියන් ඇතුල් කරන්න."
 
-#: libraries/classes/Config/Descriptions.php:342
+#: libraries/classes/Config/Descriptions.php:343
 msgid "Configuration storage"
 msgstr "වින්‍යාස ගබඩාව"
 
-#: libraries/classes/Config/Descriptions.php:344
+#: libraries/classes/Config/Descriptions.php:345
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
@@ -4190,119 +4194,119 @@ msgstr ""
 "අමතර විශේෂාංග භාවිතා කිරීම සඳහා phpMyAdmin වින්‍යාස ගබඩාව සකසන්න. ලියකියවිලි වල "
 "[doc@linked-tables]phpMyAdmin වින්‍යාස ගබඩාව[/doc] බලන්න."
 
-#: libraries/classes/Config/Descriptions.php:348
+#: libraries/classes/Config/Descriptions.php:349
 msgid "Changes tracking"
 msgstr "වෙනස්කම් පිළිබඳ අවධානය"
 
-#: libraries/classes/Config/Descriptions.php:350
+#: libraries/classes/Config/Descriptions.php:351
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
 "දත්තගබඩා වල සිදු කරන වෙනස්කම් පිලිබඳ දත්ත තබා ගනියි. phpMyAdmin වින්‍යාස ගබඩාව අවශ්‍ය වේ."
 
-#: libraries/classes/Config/Descriptions.php:353 libraries/classes/Menu.php:359
+#: libraries/classes/Config/Descriptions.php:354 libraries/classes/Menu.php:359
 #: libraries/classes/Menu.php:475 libraries/classes/Menu.php:604
 #: libraries/classes/Navigation/Nodes/NodeTable.php:305
-#: libraries/classes/Util.php:3146 libraries/classes/Util.php:4178
-#: libraries/classes/Util.php:4193 libraries/classes/Util.php:4210
+#: libraries/classes/Util.php:3129 libraries/classes/Util.php:4161
+#: libraries/classes/Util.php:4176 libraries/classes/Util.php:4193
 #: libraries/config.values.php:63 libraries/config.values.php:77
 #: libraries/config.values.php:168 libraries/config.values.php:178
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/classes/Config/Descriptions.php:354
+#: libraries/classes/Config/Descriptions.php:355
 msgid "SQL Query box"
 msgstr "SQL විමසුම් කවුළුව"
 
-#: libraries/classes/Config/Descriptions.php:355
+#: libraries/classes/Config/Descriptions.php:356
 msgid "Customize links shown in SQL Query boxes."
 msgstr "SQL විමසුම් කවුළුවේ ඇති සබැඳුම් රිසි සේ සකසන්න."
 
-#: libraries/classes/Config/Descriptions.php:357
+#: libraries/classes/Config/Descriptions.php:358
 #: libraries/classes/Config/Forms/User/SqlForm.php:51
 msgid "SQL queries"
 msgstr "SQL විමසුම"
 
-#: libraries/classes/Config/Descriptions.php:358
+#: libraries/classes/Config/Descriptions.php:359
 msgid "SQL queries settings."
 msgstr "SQL විමසුම් සිටුවම්."
 
-#: libraries/classes/Config/Descriptions.php:359
+#: libraries/classes/Config/Descriptions.php:360
 msgid "Startup"
 msgstr "ඇරඹුම්"
 
-#: libraries/classes/Config/Descriptions.php:360
+#: libraries/classes/Config/Descriptions.php:361
 msgid "Customize startup page."
 msgstr "ඇරඹුම් පිටුව රිසි සේ සකසන්න."
 
-#: libraries/classes/Config/Descriptions.php:361
+#: libraries/classes/Config/Descriptions.php:362
 msgid "Database structure"
 msgstr "දත්තගබඩා සැකිල්ල"
 
-#: libraries/classes/Config/Descriptions.php:362
+#: libraries/classes/Config/Descriptions.php:363
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr "දත්තගබඩා සැකිල්ලේ (වගු ලයිස්තුවේ) පෙන්විය යුතු විස්තර තෝරන්න."
 
-#: libraries/classes/Config/Descriptions.php:363
+#: libraries/classes/Config/Descriptions.php:364
 #: libraries/classes/Plugins/Export/ExportPdf.php:286
 #: templates/table/page_with_secondary_tabs.twig:3
 msgid "Table structure"
 msgstr "වගු සැකිල්ල"
 
-#: libraries/classes/Config/Descriptions.php:364
+#: libraries/classes/Config/Descriptions.php:365
 msgid "Settings for the table structure (list of columns)."
 msgstr "වගු සැකිල්ලට අදාල සිටුවම් (තීර ලැයිස්තුව)."
 
-#: libraries/classes/Config/Descriptions.php:365
+#: libraries/classes/Config/Descriptions.php:366
 msgid "Tabs"
 msgstr "ටැබ්"
 
-#: libraries/classes/Config/Descriptions.php:366
+#: libraries/classes/Config/Descriptions.php:367
 msgid "Choose how you want tabs to work."
 msgstr "ටැබ් ක්‍රියා කල යුතු ආකාරය තෝරන්න."
 
-#: libraries/classes/Config/Descriptions.php:367
+#: libraries/classes/Config/Descriptions.php:368
 msgid "Display relational schema"
 msgstr "ක්‍රමානුරූපය පෙන්වන්න"
 
-#: libraries/classes/Config/Descriptions.php:369
+#: libraries/classes/Config/Descriptions.php:370
 #: libraries/classes/Plugins/Schema/SchemaDia.php:73
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:81
 msgid "Paper size"
 msgstr "පිටුවේ ප්‍රමාණය"
 
-#: libraries/classes/Config/Descriptions.php:372
+#: libraries/classes/Config/Descriptions.php:373
 msgid "Text fields"
 msgstr "පෙළ ක්ෂේත්‍රයන්"
 
-#: libraries/classes/Config/Descriptions.php:373
+#: libraries/classes/Config/Descriptions.php:374
 msgid "Customize text input fields."
 msgstr "පෙළ ආදාන ක්ෂේත්‍රයන් රිසි සේ සකසන්න."
 
-#: libraries/classes/Config/Descriptions.php:374
+#: libraries/classes/Config/Descriptions.php:375
 msgid "Texy! text"
 msgstr "Texy! පෙළ"
 
-#: libraries/classes/Config/Descriptions.php:375
+#: libraries/classes/Config/Descriptions.php:376
 msgid "Customize default options"
 msgstr "පෙරනිමි විකල්ප රිසි සේ සකසන්න"
 
-#: libraries/classes/Config/Descriptions.php:376
+#: libraries/classes/Config/Descriptions.php:377
 msgid "Warnings"
 msgstr "අනතුරු ඇඟවීම්"
 
-#: libraries/classes/Config/Descriptions.php:377
+#: libraries/classes/Config/Descriptions.php:378
 msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "phpMyAdmin හි සමහර අනතුරු ඇඟවීම් අක්‍රීය කරන්න."
 
-#: libraries/classes/Config/Descriptions.php:378
+#: libraries/classes/Config/Descriptions.php:379
 #: templates/console/display.twig:4
 msgid "Console"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:380
+#: libraries/classes/Config/Descriptions.php:381
 #, fuzzy
 #| msgid ""
 #| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
@@ -4312,27 +4316,27 @@ msgstr ""
 "ආනයන හා අපනයන සඳහා [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] හැකිළුම සක්‍රීය "
 "කරන්න."
 
-#: libraries/classes/Config/Descriptions.php:383
+#: libraries/classes/Config/Descriptions.php:384
 msgid "GZip"
 msgstr "GZip"
 
-#: libraries/classes/Config/Descriptions.php:384
+#: libraries/classes/Config/Descriptions.php:385
 msgid "Extra parameters for iconv"
 msgstr "iconv සඳහා අමතර පරාමිතියන්"
 
-#: libraries/classes/Config/Descriptions.php:386
+#: libraries/classes/Config/Descriptions.php:387
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
 msgstr ""
-"සක්‍රීය කළහොත් විමසුම් වැඩි ගණනක් එකවර ක්‍රියාත්මක කිරීමේදී එක විමසුමක් අසමත් වුවද ඉතිරි විමසුම් "
-"ක්‍රියාත්මක කරවයි."
+"සක්‍රීය කළහොත් විමසුම් වැඩි ගණනක් එකවර ක්‍රියාත්මක කිරීමේදී එක විමසුමක් අසමත් වුවද ඉතිරි විමසුම් ක්‍"
+"රියාත්මක කරවයි."
 
-#: libraries/classes/Config/Descriptions.php:389
+#: libraries/classes/Config/Descriptions.php:390
 msgid "Ignore multiple statement errors"
 msgstr "විමසුම් වැඩි ගණනකදී දෝෂ නොසලකන්න"
 
-#: libraries/classes/Config/Descriptions.php:391
+#: libraries/classes/Config/Descriptions.php:392
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be a good way to import large files, however it can break "
@@ -4341,36 +4345,36 @@ msgstr ""
 "කාල සීමාව අවසානයට ආසන්න බව දැණුනු විට අනයනනයට බාධා කිරීම සිදුකරන්න. විශාල ගොනු ආනයනයට "
 "මෙය හොඳ ක්‍රමයක් වන නමුත් මෙමඟින් transactions බිඳීම සිදුවිය හැක."
 
-#: libraries/classes/Config/Descriptions.php:395
+#: libraries/classes/Config/Descriptions.php:396
 msgid "Enable drag and drop import"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:396
+#: libraries/classes/Config/Descriptions.php:397
 msgid "Uncheck the checkbox to disable drag and drop import"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:397
+#: libraries/classes/Config/Descriptions.php:398
 msgid "Partial import: allow interrupt"
 msgstr "අර්ධ ආනයනය: අතුරු බිඳිය හැක"
 
-#: libraries/classes/Config/Descriptions.php:402
-#: libraries/classes/Config/Descriptions.php:413
+#: libraries/classes/Config/Descriptions.php:403
+#: libraries/classes/Config/Descriptions.php:414
 #: libraries/classes/Plugins/Import/ImportCsv.php:124
 #: libraries/classes/Plugins/Import/ImportLdi.php:79
 msgid "Do not abort on INSERT error"
 msgstr "ඇතුළු කිරීමේ දෝෂ මත අත් නොහරින්න"
 
-#: libraries/classes/Config/Descriptions.php:403
-#: libraries/classes/Config/Descriptions.php:415
+#: libraries/classes/Config/Descriptions.php:404
+#: libraries/classes/Config/Descriptions.php:416
 msgid "Add ON DUPLICATE KEY UPDATE"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:404
-#: libraries/classes/Config/Descriptions.php:416
+#: libraries/classes/Config/Descriptions.php:405
+#: libraries/classes/Config/Descriptions.php:417
 msgid "Update data when duplicate keys found on import"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:407
+#: libraries/classes/Config/Descriptions.php:408
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
@@ -4378,83 +4382,83 @@ msgstr ""
 "පෙරනිමි ආකෘතිය; මෙම ලැයිස්තුව ඔබ සිටිනා ස්ථානය (දත්තගබඩා, වගු) මත තීරණය වේ. SQL පමණක් සෑම "
 "විටම ඇත."
 
-#: libraries/classes/Config/Descriptions.php:410
+#: libraries/classes/Config/Descriptions.php:411
 msgid "Format of imported file"
 msgstr "ආනයනය කරන ලද ගොනුවේ ආකෘතිය"
 
-#: libraries/classes/Config/Descriptions.php:414
+#: libraries/classes/Config/Descriptions.php:415
 #: libraries/classes/Plugins/Import/ImportLdi.php:85
 msgid "Use LOCAL keyword"
 msgstr "LOCAL මූල පදය භාවිතා කරන්න"
 
-#: libraries/classes/Config/Descriptions.php:418
+#: libraries/classes/Config/Descriptions.php:419
 msgid "Column names in first row"
 msgstr "පළමු පේළියේ තීරු නම්"
 
-#: libraries/classes/Config/Descriptions.php:419
+#: libraries/classes/Config/Descriptions.php:420
 #: libraries/classes/Plugins/Import/ImportOds.php:74
 msgid "Do not import empty rows"
 msgstr "හිස් පේළි ආනයනය නොකරන්න"
 
-#: libraries/classes/Config/Descriptions.php:420
+#: libraries/classes/Config/Descriptions.php:421
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr "ව්‍යවහාර මුදල් අගයන් ආනයනය කරන්න (උදා. $5.00, 5.00 ලෙස)"
 
-#: libraries/classes/Config/Descriptions.php:421
+#: libraries/classes/Config/Descriptions.php:422
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "ප්‍රතිශත පූර්ණ සංඛ්‍යා ලෙස ආනයනය කරන්න (උදා. 12.00%, 12 ලෙස)"
 
-#: libraries/classes/Config/Descriptions.php:422
+#: libraries/classes/Config/Descriptions.php:423
 msgid "Number of queries to skip from start."
 msgstr "ආරම්භයේ සිට ඇත හැරිය යුතු විමසුම් ගණන."
 
-#: libraries/classes/Config/Descriptions.php:423
+#: libraries/classes/Config/Descriptions.php:424
 msgid "Partial import: skip queries"
 msgstr "අර්ධ ආනයනය: විමසුම් නොසලකා හරිමින්"
 
-#: libraries/classes/Config/Descriptions.php:425
+#: libraries/classes/Config/Descriptions.php:426
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "ශුන්‍ය අගයන් සඳහා AUTO_INCREMENT භාවිතා නොකරන්න"
 
-#: libraries/classes/Config/Descriptions.php:426
+#: libraries/classes/Config/Descriptions.php:427
 #, fuzzy
 #| msgid "Read misses"
 msgid "Read as multibytes"
 msgstr "කියවීම් අතෑරුම්"
 
-#: libraries/classes/Config/Descriptions.php:427
+#: libraries/classes/Config/Descriptions.php:428
 msgid "Initial state for sliders"
 msgstr "හැකිලුමේ ආරම්භක ආකාරය"
 
-#: libraries/classes/Config/Descriptions.php:428
+#: libraries/classes/Config/Descriptions.php:429
 msgid "How many rows can be inserted at one time."
 msgstr "වරකට ඇතුල් කල හැකි පේළි ගණන."
 
-#: libraries/classes/Config/Descriptions.php:429
+#: libraries/classes/Config/Descriptions.php:430
 msgid "Number of inserted rows"
 msgstr "ඇතුල් කල පේළි ගණන"
 
-#: libraries/classes/Config/Descriptions.php:430
+#: libraries/classes/Config/Descriptions.php:431
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
 msgstr "වගු පිරික්සීමේදී සංඛ්‍යාමය නොවන තීරුවක පෙන්විය යුතු උපරිම අනුලකුණු ගණන."
 
-#: libraries/classes/Config/Descriptions.php:431
+#: libraries/classes/Config/Descriptions.php:432
 msgid "Limit column characters"
 msgstr "තීරුවක අනුලකුණු සීමා කරන්න"
 
-#: libraries/classes/Config/Descriptions.php:433
+#: libraries/classes/Config/Descriptions.php:434
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
 "forget to log out from other servers when connected to multiple servers."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:437
+#: libraries/classes/Config/Descriptions.php:438
 msgid "Delete all cookies on logout"
 msgstr "පිටවීමේදී කුකී සියල්ල ඉවත් කරන්න"
 
-#: libraries/classes/Config/Descriptions.php:439
+#: libraries/classes/Config/Descriptions.php:440
 #, fuzzy
 #| msgid ""
 #| "Define whether the previous login should be recalled or not in cookie "
@@ -4464,11 +4468,11 @@ msgid ""
 "kbd] authentication mode."
 msgstr "කුකී සත්‍යාපන ප්‍රකාරයේදී අවසන් ඇතුළු වීමම භාවිතා කල යුතුදැයි සඳහන් කරයි."
 
-#: libraries/classes/Config/Descriptions.php:442
+#: libraries/classes/Config/Descriptions.php:443
 msgid "Recall user name"
 msgstr "භාවිත නාමය සිහියට නගන්න"
 
-#: libraries/classes/Config/Descriptions.php:444
+#: libraries/classes/Config/Descriptions.php:445
 msgid ""
 "Defines how long (in seconds) a login cookie should be stored in browser. "
 "The default of 0 means that it will be kept for the existing session only, "
@@ -4479,49 +4483,49 @@ msgstr ""
 "වන 0 න් අදහස් වනුයේ එය වත්මන් සැසිය සඳහ පමණක් තබාගෙන බ්‍රව්සරය වැසීමෙන් පසු ඉවත් කල යුතුය "
 "යන්නය. විශ්වාසදායි නොවන පරිසරයන් සඳහා මෙම පෙරනිමි අගය නිර්දේශිතය."
 
-#: libraries/classes/Config/Descriptions.php:449
+#: libraries/classes/Config/Descriptions.php:450
 msgid "Login cookie store"
 msgstr "ඇතුල් වීමේ කුකිය රඳවාගන්න"
 
-#: libraries/classes/Config/Descriptions.php:450
+#: libraries/classes/Config/Descriptions.php:451
 msgid "Define how long (in seconds) a login cookie is valid."
 msgstr "ඇතුල් වීමේ කුකියේ වලංගු කාලය (තත්පර වලින්) සඳහන් කරන්න."
 
-#: libraries/classes/Config/Descriptions.php:451
+#: libraries/classes/Config/Descriptions.php:452
 msgid "Login cookie validity"
 msgstr "ඇතුල් වීමේ කුකියේ වලංගුතාවය"
 
-#: libraries/classes/Config/Descriptions.php:452
+#: libraries/classes/Config/Descriptions.php:453
 msgid "Double size of textarea for LONGTEXT columns."
 msgstr "LONGTEXT තීර සඳහා දෙගුණයක් විශාල පෙළපෙදෙසක්."
 
-#: libraries/classes/Config/Descriptions.php:453
+#: libraries/classes/Config/Descriptions.php:454
 msgid "Bigger textarea for LONGTEXT"
 msgstr "LONGTEXT සඳහා විශාල පෙළ පෙදෙසක්"
 
-#: libraries/classes/Config/Descriptions.php:454
+#: libraries/classes/Config/Descriptions.php:455
 msgid "Maximum number of characters used when a SQL query is displayed."
 msgstr "SQL විමසුම පෙන්වීමේදී භාවිතා කල යුතු උපරිම අනුලකුණු ගණන."
 
-#: libraries/classes/Config/Descriptions.php:455
+#: libraries/classes/Config/Descriptions.php:456
 msgid "Maximum displayed SQL length"
 msgstr "දර්ෂිත SQL සඳහා උපරිම දිග"
 
-#: libraries/classes/Config/Descriptions.php:456
-#: libraries/classes/Config/Descriptions.php:472
-#: libraries/classes/Config/Descriptions.php:577
+#: libraries/classes/Config/Descriptions.php:457
+#: libraries/classes/Config/Descriptions.php:473
+#: libraries/classes/Config/Descriptions.php:578
 msgid "Users cannot set a higher value"
 msgstr "භාවිතා කරන්නන්ට වැඩි අගයක් සිටුවිය නොහැක"
 
-#: libraries/classes/Config/Descriptions.php:457
+#: libraries/classes/Config/Descriptions.php:458
 msgid "Maximum number of databases displayed in database list."
 msgstr "දත්තගබඩා ලයිස්තුවේ උපරිම ලෙස පෙන්විය යුතු දත්තගබඩා ගණන."
 
-#: libraries/classes/Config/Descriptions.php:458
+#: libraries/classes/Config/Descriptions.php:459
 msgid "Maximum databases"
 msgstr "උපරිම දත්තගබඩා"
 
-#: libraries/classes/Config/Descriptions.php:460
+#: libraries/classes/Config/Descriptions.php:461
 #, fuzzy
 #| msgid ""
 #| "The number of items that can be displayed on each page of the navigation "
@@ -4531,23 +4535,23 @@ msgid ""
 "the navigation tree."
 msgstr "යාත්‍රණ ගසෙහි එක පිටුවක පෙන්විය හැකි අයිතම ගණන."
 
-#: libraries/classes/Config/Descriptions.php:463
+#: libraries/classes/Config/Descriptions.php:464
 #, fuzzy
 #| msgid "Maximum items in branch"
 msgid "Maximum items on first level"
 msgstr "අත්තක උපරිම අයිතම ගණන"
 
-#: libraries/classes/Config/Descriptions.php:464
+#: libraries/classes/Config/Descriptions.php:465
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
 msgstr "යාත්‍රණ ගසෙහි එක පිටුවක පෙන්විය හැකි අයිතම ගණන."
 
-#: libraries/classes/Config/Descriptions.php:465
+#: libraries/classes/Config/Descriptions.php:466
 msgid "Maximum items in branch"
 msgstr "අත්තක උපරිම අයිතම ගණන"
 
-#: libraries/classes/Config/Descriptions.php:467
+#: libraries/classes/Config/Descriptions.php:468
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, \"Previous\" and \"Next\" links will be shown."
@@ -4555,19 +4559,19 @@ msgstr ""
 "ප්‍රථිඵල පිරික්සීමේදී එකවර පෙන්විය යුතු පේළි ගණන. ප්‍රතිඵලයේ ඊට වඩා පේළි ඇත්නම් \"පෙර\" සහ \"මීළඟ"
 "\" සබැඳි පෙන්වයි."
 
-#: libraries/classes/Config/Descriptions.php:471
+#: libraries/classes/Config/Descriptions.php:472
 msgid "Maximum number of rows to display"
 msgstr "පෙන්විය යුතු උපරිම පේළි ගණන"
 
-#: libraries/classes/Config/Descriptions.php:473
+#: libraries/classes/Config/Descriptions.php:474
 msgid "Maximum number of tables displayed in table list."
 msgstr "වගු ලයිස්තුවේ උපරිම ලෙස පෙන්විය යුතු වගු ගණන."
 
-#: libraries/classes/Config/Descriptions.php:474
+#: libraries/classes/Config/Descriptions.php:475
 msgid "Maximum tables"
 msgstr "උපරිම වගු"
 
-#: libraries/classes/Config/Descriptions.php:476
+#: libraries/classes/Config/Descriptions.php:477
 #, fuzzy
 #| msgid ""
 #| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
@@ -4579,53 +4583,53 @@ msgstr ""
 "විධානවලියකට වෙන් කිරීමට අවසර ඇති බයිට ගණන, උදා. [kbd]32M[/kbd] (අසීමිත බයිට ගණනක් සඳහා "
 "[kbd]0[/kbd])."
 
-#: libraries/classes/Config/Descriptions.php:479
+#: libraries/classes/Config/Descriptions.php:480
 msgid "Memory limit"
 msgstr "මතක සීමාව"
 
-#: libraries/classes/Config/Descriptions.php:480
+#: libraries/classes/Config/Descriptions.php:481
 msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:481
+#: libraries/classes/Config/Descriptions.php:482
 #, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Show databases navigation as tree"
 msgstr "යාත්‍රණ පැනලයේ ලාංඡනය පෙන්වන්න"
 
-#: libraries/classes/Config/Descriptions.php:482
+#: libraries/classes/Config/Descriptions.php:483
 #, fuzzy
 #| msgid "Navigation panel"
 msgid "Navigation panel width"
 msgstr "යාත්‍රණ පැනලය"
 
-#: libraries/classes/Config/Descriptions.php:483
+#: libraries/classes/Config/Descriptions.php:484
 #, fuzzy
 #| msgid "Show logo in navigation panel."
 msgid "Set to 0 to collapse navigation panel."
 msgstr "යාත්‍රණ පැනලයේ ලාංඡනය පෙන්වන්න."
 
-#: libraries/classes/Config/Descriptions.php:484
+#: libraries/classes/Config/Descriptions.php:485
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:486
+#: libraries/classes/Config/Descriptions.php:487
 msgid "Show logo in navigation panel."
 msgstr "යාත්‍රණ පැනලයේ ලාංඡනය පෙන්වන්න."
 
-#: libraries/classes/Config/Descriptions.php:487
+#: libraries/classes/Config/Descriptions.php:488
 msgid "Display logo"
 msgstr "ලාංඡනය පෙන්වන්න"
 
-#: libraries/classes/Config/Descriptions.php:488
+#: libraries/classes/Config/Descriptions.php:489
 msgid "URL where logo in the navigation panel will point to."
 msgstr "යාත්‍රණ පැනලයේ දැක්වෙන ලාංඡනය සබැඳිය යුතු URL."
 
-#: libraries/classes/Config/Descriptions.php:489
+#: libraries/classes/Config/Descriptions.php:490
 msgid "Logo link URL"
 msgstr "ලාංඡනය හා සබැඳි URL"
 
-#: libraries/classes/Config/Descriptions.php:491
+#: libraries/classes/Config/Descriptions.php:492
 msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])."
@@ -4633,43 +4637,43 @@ msgstr ""
 "සබැඳි පිටුව ප්‍රධාන කවුළුව ([kbd]main[/kbd]) තුල හෝ නව කවුළුවක් ([kbd]new[/kbd]) තුල "
 "විවෘත කරන්න."
 
-#: libraries/classes/Config/Descriptions.php:494
+#: libraries/classes/Config/Descriptions.php:495
 msgid "Logo link target"
 msgstr "ලාංඡනයේ සබැඳුම"
 
-#: libraries/classes/Config/Descriptions.php:495
+#: libraries/classes/Config/Descriptions.php:496
 msgid "Display server choice at the top of the navigation panel."
 msgstr "සේවාදායක තේරීම යාත්‍රණ පැනලයේ ඉහල පෙන්වන්න."
 
-#: libraries/classes/Config/Descriptions.php:496
+#: libraries/classes/Config/Descriptions.php:497
 msgid "Display servers selection"
 msgstr "සේවාදායක තේරීම පෙන්වන්න"
 
-#: libraries/classes/Config/Descriptions.php:497
+#: libraries/classes/Config/Descriptions.php:498
 msgid "Target for quick access icon"
 msgstr "ක්ෂණික ප්‍රවේශය අයිකනය සඳහා ඉලක්කය"
 
-#: libraries/classes/Config/Descriptions.php:498
+#: libraries/classes/Config/Descriptions.php:499
 #, fuzzy
 #| msgid "Target for quick access icon"
 msgid "Target for second quick access icon"
 msgstr "ක්ෂණික ප්‍රවේශය අයිකනය සඳහා ඉලක්කය"
 
-#: libraries/classes/Config/Descriptions.php:500
+#: libraries/classes/Config/Descriptions.php:501
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
 msgstr "පෙරහන් කවුළුව පෙන්වීමට අවම වශයෙන් තිබිය යුතු අයිතම (වගු, දසුන්, නෛත්‍යක සහ සිද්ධි) ගණන."
 
-#: libraries/classes/Config/Descriptions.php:503
+#: libraries/classes/Config/Descriptions.php:504
 msgid "Minimum number of items to display the filter box"
 msgstr "වගු පෙරහන් කවුළුව පෙන්වීමට අවම වශයෙන් තිබිය යුතු අයිතම ගණන"
 
-#: libraries/classes/Config/Descriptions.php:504
+#: libraries/classes/Config/Descriptions.php:505
 msgid "Minimum number of databases to display the database filter box"
 msgstr "දත්තගබඩා පෙරහන් කවුළුව පෙන්වීමට අවම වශයෙන් තිබිය යුතු දත්තගබඩා ගණන"
 
-#: libraries/classes/Config/Descriptions.php:506
+#: libraries/classes/Config/Descriptions.php:507
 #, fuzzy
 #| msgid ""
 #| "Group items in the navigation tree (determined by the separator defined "
@@ -4679,188 +4683,188 @@ msgid ""
 "the Databases and Tables tabs above)."
 msgstr "යාත්‍රණ ගසෙහි අයිතම සමූහගත කරන්න (පහත සඳහන් වෙන්කරණය මත තීරණය වේ)."
 
-#: libraries/classes/Config/Descriptions.php:509
+#: libraries/classes/Config/Descriptions.php:510
 msgid "Group items in the tree"
 msgstr "ගසෙහි අයිතම සමූහගත කරන්න"
 
-#: libraries/classes/Config/Descriptions.php:510
+#: libraries/classes/Config/Descriptions.php:511
 msgid "String that separates databases into different tree levels."
 msgstr "දත්තගබඩා ලැයිස්තුව ගසක ආකාරයෙන් පෙන්වීමේදී එක් එක් මට්ටම් වෙන කරන සලකුණ."
 
-#: libraries/classes/Config/Descriptions.php:511
+#: libraries/classes/Config/Descriptions.php:512
 msgid "Database tree separator"
 msgstr "දත්තගබඩා ගසෙහි වෙන්කරණය"
 
-#: libraries/classes/Config/Descriptions.php:512
+#: libraries/classes/Config/Descriptions.php:513
 msgid "String that separates tables into different tree levels."
 msgstr "වගු ලැයිස්තුව ගසක ආකාරයෙන් පෙන්වීමේදී එක් එක් මට්ටම් වෙන කරන සලකුණ."
 
-#: libraries/classes/Config/Descriptions.php:513
+#: libraries/classes/Config/Descriptions.php:514
 msgid "Table tree separator"
 msgstr "වගු ගසෙහි වෙන්කරණය"
 
-#: libraries/classes/Config/Descriptions.php:514
+#: libraries/classes/Config/Descriptions.php:515
 msgid "Maximum table tree depth"
 msgstr "වගු ගසෙහි උපරිම මට්ටම් ගණන"
 
-#: libraries/classes/Config/Descriptions.php:515
+#: libraries/classes/Config/Descriptions.php:516
 msgid "Highlight server under the mouse cursor."
 msgstr "කර්සරයෙන් දැක්වෙන සේවාදායකය ඉස්මතු කරන්න."
 
-#: libraries/classes/Config/Descriptions.php:516
+#: libraries/classes/Config/Descriptions.php:517
 msgid "Enable highlighting"
 msgstr "ඉස්මතු කිරීම සක්‍රීය කරන්න"
 
-#: libraries/classes/Config/Descriptions.php:517
+#: libraries/classes/Config/Descriptions.php:518
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:518
+#: libraries/classes/Config/Descriptions.php:519
 #, fuzzy
 #| msgid "Iconic navigation bar"
 msgid "Enable navigation tree expansion"
 msgstr "අයිකන සහිත යාත්‍රණ පටිය"
 
-#: libraries/classes/Config/Descriptions.php:519
+#: libraries/classes/Config/Descriptions.php:520
 #, fuzzy
 #| msgid "Showing tables:"
 msgid "Show tables in tree"
 msgstr "වගු පෙන්වමින්:"
 
-#: libraries/classes/Config/Descriptions.php:520
+#: libraries/classes/Config/Descriptions.php:521
 #, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Whether to show tables under database in the navigation tree"
 msgstr "යාත්‍රණ පැනලයේ ලාංඡනය පෙන්වන්න"
 
-#: libraries/classes/Config/Descriptions.php:521
+#: libraries/classes/Config/Descriptions.php:522
 #, fuzzy
 #| msgid "Show versions"
 msgid "Show views in tree"
 msgstr "අනුවාද පෙන්වන්න"
 
-#: libraries/classes/Config/Descriptions.php:522
+#: libraries/classes/Config/Descriptions.php:523
 #, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Whether to show views under database in the navigation tree"
 msgstr "යාත්‍රණ පැනලයේ ලාංඡනය පෙන්වන්න"
 
-#: libraries/classes/Config/Descriptions.php:523
+#: libraries/classes/Config/Descriptions.php:524
 #, fuzzy
 #| msgid "Show function fields"
 msgid "Show functions in tree"
 msgstr "ශ්‍රිතය තීරුව පෙන්වන්න"
 
-#: libraries/classes/Config/Descriptions.php:524
+#: libraries/classes/Config/Descriptions.php:525
 msgid "Whether to show functions under database in the navigation tree"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:525
+#: libraries/classes/Config/Descriptions.php:526
 #, fuzzy
 #| msgid "Show processes"
 msgid "Show procedures in tree"
 msgstr "ක්‍රියාවලිය පෙන්වන්න"
 
-#: libraries/classes/Config/Descriptions.php:526
+#: libraries/classes/Config/Descriptions.php:527
 msgid "Whether to show procedures under database in the navigation tree"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:527
+#: libraries/classes/Config/Descriptions.php:528
 #, fuzzy
 #| msgid "Show versions"
 msgid "Show events in tree"
 msgstr "අනුවාද පෙන්වන්න"
 
-#: libraries/classes/Config/Descriptions.php:528
+#: libraries/classes/Config/Descriptions.php:529
 #, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Whether to show events under database in the navigation tree"
 msgstr "යාත්‍රණ පැනලයේ ලාංඡනය පෙන්වන්න"
 
-#: libraries/classes/Config/Descriptions.php:529
+#: libraries/classes/Config/Descriptions.php:530
 #, fuzzy
 #| msgid "Copying Database"
 msgid "Expand single database"
 msgstr "දත්තගබඩාව පිටපත් කෙරෙමින්"
 
-#: libraries/classes/Config/Descriptions.php:530
+#: libraries/classes/Config/Descriptions.php:531
 #, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Whether to expand single database in the navigation tree automatically."
 msgstr "යාත්‍රණ පැනලයේ ලාංඡනය පෙන්වන්න"
 
-#: libraries/classes/Config/Descriptions.php:531
+#: libraries/classes/Config/Descriptions.php:532
 msgid "Maximum number of recently used tables; set 0 to disable."
 msgstr "මෑතදී භාවිතා කල වගු ලයිස්තුවේ පෙන්විය යුතු වගු ගණන; අක්‍රීය කිරීමට 0 යොදන්න."
 
-#: libraries/classes/Config/Descriptions.php:532
+#: libraries/classes/Config/Descriptions.php:533
 #, fuzzy
 #| msgid "Maximum number of recently used tables; set 0 to disable."
 msgid "Maximum number of favorite tables; set 0 to disable."
 msgstr "මෑතදී භාවිතා කල වගු ලයිස්තුවේ පෙන්විය යුතු වගු ගණන; අක්‍රීය කිරීමට 0 යොදන්න."
 
-#: libraries/classes/Config/Descriptions.php:533
+#: libraries/classes/Config/Descriptions.php:534
 msgid "Recently used tables"
 msgstr "මෑතදී භාවිතා කල වගු"
 
-#: libraries/classes/Config/Descriptions.php:534
+#: libraries/classes/Config/Descriptions.php:535
 #: libraries/classes/RecentFavoriteTable.php:251
 msgid "Favorite tables"
 msgstr "ප්‍රියතම වගු"
 
-#: libraries/classes/Config/Descriptions.php:535
+#: libraries/classes/Config/Descriptions.php:536
 msgid "These are Edit, Copy and Delete links."
 msgstr "මේවා සංස්කරණය කරන්න, පිටපත් කරන්න සහ ඉවත් කරන්න යන සබැඳිය."
 
-#: libraries/classes/Config/Descriptions.php:536
+#: libraries/classes/Config/Descriptions.php:537
 msgid "Where to show the table row links"
 msgstr "වගුවේ පේළි වලට අදාල සබැඳි පෙන්විය යුත්තේ කොහේද යන වග"
 
-#: libraries/classes/Config/Descriptions.php:537
+#: libraries/classes/Config/Descriptions.php:538
 msgid "Whether to show row links even in the absence of a unique key."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:538
+#: libraries/classes/Config/Descriptions.php:539
 msgid "Show row links anyway"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:539
 #: libraries/classes/Config/Descriptions.php:540
+#: libraries/classes/Config/Descriptions.php:541
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Disable shortcut keys"
 msgstr "අන්‍ය මූල පරීක්ෂා අක්‍රිය කරන්න"
 
-#: libraries/classes/Config/Descriptions.php:541
+#: libraries/classes/Config/Descriptions.php:542
 msgid "Use natural order for sorting table and database names."
 msgstr "වගු හා දත්තගබඩා වල නම් අනුපිළිවෙලට සැකසීම සඳහා ස්වභාවික අනුපිළිවෙල භාවිතා කරන්න."
 
-#: libraries/classes/Config/Descriptions.php:542
+#: libraries/classes/Config/Descriptions.php:543
 msgid "Natural order"
 msgstr "ස්වභාවික අනුපිළිවල"
 
-#: libraries/classes/Config/Descriptions.php:543
-#: libraries/classes/Config/Descriptions.php:565
-#: libraries/classes/Config/Descriptions.php:567
+#: libraries/classes/Config/Descriptions.php:544
+#: libraries/classes/Config/Descriptions.php:566
+#: libraries/classes/Config/Descriptions.php:568
 msgid "Use only icons, only text or both."
 msgstr "භාවිතා කල යුත්තේ අයිකන පමණක්, පෙළ පමණක්, හෝ මේ දෙකම."
 
-#: libraries/classes/Config/Descriptions.php:544
+#: libraries/classes/Config/Descriptions.php:545
 #, fuzzy
 #| msgid "Iconic navigation bar"
 msgid "Table navigation bar"
 msgstr "අයිකන සහිත යාත්‍රණ පටිය"
 
-#: libraries/classes/Config/Descriptions.php:545
+#: libraries/classes/Config/Descriptions.php:546
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
 msgstr "HTTP හුවමාරුවල වේගය වැඩි කිරීම සඳහා GZip ප්‍රතිදාන ගොඩගැසීම භාවිතා කරන්න."
 
-#: libraries/classes/Config/Descriptions.php:546
+#: libraries/classes/Config/Descriptions.php:547
 msgid "GZip output buffering"
 msgstr "GZip ප්‍රතිදාන ගොඩගැසීම"
 
-#: libraries/classes/Config/Descriptions.php:548
+#: libraries/classes/Config/Descriptions.php:549
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
@@ -4868,19 +4872,19 @@ msgstr ""
 "[kbd]SMART[/kbd] - එනම් TIME, DATE, DATETIME සහ TIMESTAMP තීර සඳහා අවරෝහණ "
 "පිළිවෙලත්, අනෙකුත් තීර සඳහා ආරෝහණ පිළිවෙලත්."
 
-#: libraries/classes/Config/Descriptions.php:551
+#: libraries/classes/Config/Descriptions.php:552
 msgid "Default sorting order"
 msgstr "පෙරනිමි අනුපිළිවෙල"
 
-#: libraries/classes/Config/Descriptions.php:552
+#: libraries/classes/Config/Descriptions.php:553
 msgid "Use persistent connections to MySQL databases."
 msgstr "MySQL දත්තගබඩා වෙත කල්පවතිනා සබඳතා භාවිතා කරන්න."
 
-#: libraries/classes/Config/Descriptions.php:553
+#: libraries/classes/Config/Descriptions.php:554
 msgid "Persistent connections"
 msgstr "කල්පවතිනා සබඳතා"
 
-#: libraries/classes/Config/Descriptions.php:555
+#: libraries/classes/Config/Descriptions.php:556
 msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
@@ -4889,11 +4893,11 @@ msgstr ""
 "phpMyAdmin වින්‍යාස ගබඩාවට අවශ්‍ය එක් වගුවක් හෝ සොයාගත නොහැකි අවස්ථාවකදී දත්තගබඩා සැකිල්ල "
 "පිටුවේ පෙන්වන පෙරනිමි අනතුරු ඇඟවීම අක්‍රීය කරන්න."
 
-#: libraries/classes/Config/Descriptions.php:559
+#: libraries/classes/Config/Descriptions.php:560
 msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "phpMyAdmin වින්‍යාස ගබඩාවේ අඩු වගු"
 
-#: libraries/classes/Config/Descriptions.php:561
+#: libraries/classes/Config/Descriptions.php:562
 #, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the database details "
@@ -4906,80 +4910,80 @@ msgstr ""
 "phpMyAdmin වින්‍යාස ගබඩාවට අවශ්‍ය එක් වගුවක් හෝ සොයාගත නොහැකි අවස්ථාවකදී දත්තගබඩා සැකිල්ල "
 "පිටුවේ පෙන්වන පෙරනිමි අනතුරු ඇඟවීම අක්‍රීය කරන්න"
 
-#: libraries/classes/Config/Descriptions.php:564
+#: libraries/classes/Config/Descriptions.php:565
 msgid "MySQL reserved word warning"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:566
+#: libraries/classes/Config/Descriptions.php:567
 #, fuzzy
 #| msgid "Allow to display all the rows"
 msgid "How to display the menu tabs"
 msgstr "සියලුම පේළි දර්ශනය කිරීමට ඉඩ ලබාදෙයි"
 
-#: libraries/classes/Config/Descriptions.php:568
+#: libraries/classes/Config/Descriptions.php:569
 msgid "How to display various action links"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:569
+#: libraries/classes/Config/Descriptions.php:570
 #, fuzzy
 #| msgid "Disallow BLOB and BINARY columns from editing"
 msgid "Disallow BLOB and BINARY columns from editing."
 msgstr "BLOB සහ BINARY තීරු සංස්කරණය වලකන්න"
 
-#: libraries/classes/Config/Descriptions.php:570
+#: libraries/classes/Config/Descriptions.php:571
 msgid "Protect binary columns"
 msgstr "ද්වීමය තීරු ආරක්ෂා කරන්න"
 
-#: libraries/classes/Config/Descriptions.php:572
+#: libraries/classes/Config/Descriptions.php:573
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:576
+#: libraries/classes/Config/Descriptions.php:577
 msgid "Permanent query history"
 msgstr "ස්ථායී විමසුම් ඉතිහාසය"
 
-#: libraries/classes/Config/Descriptions.php:578
+#: libraries/classes/Config/Descriptions.php:579
 #, fuzzy
 #| msgid "How many queries are kept in history"
 msgid "How many queries are kept in history."
 msgstr "කොපමණ විමසුම් ප්‍රමාණයක් ඉතිහාසයේ රඳවා ගත යුතුද යන්න"
 
-#: libraries/classes/Config/Descriptions.php:579
+#: libraries/classes/Config/Descriptions.php:580
 msgid "Query history length"
 msgstr "විමසුම් ඉතිහාසයේ ප්‍රමාණය"
 
-#: libraries/classes/Config/Descriptions.php:580
+#: libraries/classes/Config/Descriptions.php:581
 #, fuzzy
 #| msgid "Select which functions will be used for character set conversion"
 msgid "Select which functions will be used for character set conversion."
 msgstr "අක්ෂර කට්ටල පරිවර්තනය සඳහා කුමන ශ්‍රිතය භාවිතා විය යුතුදැයි තෝරන්න"
 
-#: libraries/classes/Config/Descriptions.php:581
+#: libraries/classes/Config/Descriptions.php:582
 msgid "Recoding engine"
 msgstr "පටිගත කිරීමේ යන්ත්‍රය"
 
-#: libraries/classes/Config/Descriptions.php:582
+#: libraries/classes/Config/Descriptions.php:583
 #, fuzzy
 #| msgid "When browsing tables, the sorting of each table is remembered"
 msgid "When browsing tables, the sorting of each table is remembered."
 msgstr "වගු පිරික්සීමේදී එක් එක් වගුවේ අනුපිලිවෙල සැකසූ ආකාරය මතක තබා ගැනේ"
 
-#: libraries/classes/Config/Descriptions.php:583
+#: libraries/classes/Config/Descriptions.php:584
 msgid "Remember table's sorting"
 msgstr "වගුව සැකසූ අනුපිළිවෙල මතක තබාගන්න"
 
-#: libraries/classes/Config/Descriptions.php:584
+#: libraries/classes/Config/Descriptions.php:585
 msgid "Default sort order for tables with a primary key."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:585
+#: libraries/classes/Config/Descriptions.php:586
 msgid "Primary key default sort order"
 msgstr "ප්‍රාථමික යතුරු පෙරනිමි සුබෙදුම් අනුපිළිවෙල"
 
-#: libraries/classes/Config/Descriptions.php:586
+#: libraries/classes/Config/Descriptions.php:587
 #, fuzzy
 #| msgid ""
 #| "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
@@ -4987,100 +4991,100 @@ msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
 msgstr "පේළි x සංඛ්‍යාවකට වරක් ශීර්ෂ පුනරාවර්තනය කරන්න. අක්‍රීය කිරීමට [kbd]0[/kbd] යොදන්න"
 
-#: libraries/classes/Config/Descriptions.php:587
+#: libraries/classes/Config/Descriptions.php:588
 msgid "Repeat headers"
 msgstr "ශීර්ෂක පුනරාවර්තනය"
 
-#: libraries/classes/Config/Descriptions.php:588
+#: libraries/classes/Config/Descriptions.php:589
 msgid "Grid editing: trigger action"
 msgstr "ජාලය තුල සංස්කරණය: සංස්කරණය ඇරඹිය යුත්තේ"
 
-#: libraries/classes/Config/Descriptions.php:589
+#: libraries/classes/Config/Descriptions.php:590
 #, fuzzy
 #| msgid "Relational display column"
 msgid "Relational display"
 msgstr "සබැඳි දර්ශන තීරය"
 
-#: libraries/classes/Config/Descriptions.php:590
+#: libraries/classes/Config/Descriptions.php:591
 #, fuzzy
 #| msgid "Servers display options."
 msgid "For display Options"
 msgstr "සේවාදායක පෙන්වුම් විකල්ප."
 
-#: libraries/classes/Config/Descriptions.php:591
+#: libraries/classes/Config/Descriptions.php:592
 msgid "Grid editing: save all edited cells at once"
 msgstr "ජාලය තුල සංස්කරණය: සංස්කරණය කල කොටු සියල්ල එකවර සුරකින්න"
 
-#: libraries/classes/Config/Descriptions.php:592
+#: libraries/classes/Config/Descriptions.php:593
 #, fuzzy
 #| msgid "Directory where exports can be saved on server"
 msgid "Directory where exports can be saved on server."
 msgstr "සේවාදායකය මත අපනයන සුරැකිය හැකි ඩිරෙක්ටරිය"
 
-#: libraries/classes/Config/Descriptions.php:593
+#: libraries/classes/Config/Descriptions.php:594
 msgid "Save directory"
 msgstr "සුරැකුම් ඩිරෙක්ටරිය"
 
-#: libraries/classes/Config/Descriptions.php:594
+#: libraries/classes/Config/Descriptions.php:595
 #, fuzzy
 #| msgid "Leave blank if not used"
 msgid "Leave blank if not used."
 msgstr "භාවිතා නොකෙරේ නම් හිස්ව තබන්න"
 
-#: libraries/classes/Config/Descriptions.php:595
+#: libraries/classes/Config/Descriptions.php:596
 msgid "Host authorization order"
 msgstr "දායකයන් සඳහා අවසර ලබා දීමේ අනුපිළිවෙල"
 
-#: libraries/classes/Config/Descriptions.php:596
+#: libraries/classes/Config/Descriptions.php:597
 #, fuzzy
 #| msgid "Leave blank for defaults"
 msgid "Leave blank for defaults."
 msgstr "පෙරනිමි අගයන් සඳහා හිස්ව තබන්න"
 
-#: libraries/classes/Config/Descriptions.php:597
+#: libraries/classes/Config/Descriptions.php:598
 msgid "Host authorization rules"
 msgstr "දායක සඳහා අවසර දීමේ රීති"
 
-#: libraries/classes/Config/Descriptions.php:598
+#: libraries/classes/Config/Descriptions.php:599
 msgid "Allow logins without a password"
 msgstr "මුරපදයක් රහිතව ඇතුල් වීමට ඉඩ ලබා දෙන්න"
 
-#: libraries/classes/Config/Descriptions.php:599
+#: libraries/classes/Config/Descriptions.php:600
 msgid "Allow root login"
 msgstr "root ලෙස ඇතුල් වීමට ඉඩ දෙන්න"
 
-#: libraries/classes/Config/Descriptions.php:600
+#: libraries/classes/Config/Descriptions.php:601
 #, fuzzy
 #| msgid "Session value"
 msgid "Session timezone"
 msgstr "සැසි අගය"
 
-#: libraries/classes/Config/Descriptions.php:602
+#: libraries/classes/Config/Descriptions.php:603
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:605
+#: libraries/classes/Config/Descriptions.php:606
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:606
+#: libraries/classes/Config/Descriptions.php:607
 msgid "HTTP Realm"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:607
+#: libraries/classes/Config/Descriptions.php:608
 #, fuzzy
 #| msgid "Authentication method to use"
 msgid "Authentication method to use."
 msgstr "භාවිතා කල යුතු සත්‍යාපන ක්‍රමය"
 
-#: libraries/classes/Config/Descriptions.php:608
+#: libraries/classes/Config/Descriptions.php:609
 #: templates/setup/home/index.twig:44
 msgid "Authentication type"
 msgstr "සත්‍යාපන වර්ගය"
 
-#: libraries/classes/Config/Descriptions.php:610
+#: libraries/classes/Config/Descriptions.php:611
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
@@ -5092,11 +5096,11 @@ msgstr ""
 "[a@https://wiki.phpmyadmin.net/pma/bookmark]පොත්සලකුණු[/a] විශේෂාංගය අනවශ්‍ය නම් "
 "හිස්ව තබන්න. යෝජිත: [kbd]pma__bookmark[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:613
+#: libraries/classes/Config/Descriptions.php:614
 msgid "Bookmark table"
 msgstr "පොත්සලකුණු ගොනුව"
 
-#: libraries/classes/Config/Descriptions.php:615
+#: libraries/classes/Config/Descriptions.php:616
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no column comments/mime types, suggested: "
@@ -5108,25 +5112,25 @@ msgstr ""
 "තීර විස්තර/mime වර්ග විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න. යෝජිත: [kbd]pma__column_info[/"
 "kbd]"
 
-#: libraries/classes/Config/Descriptions.php:618
+#: libraries/classes/Config/Descriptions.php:619
 msgid "Column information table"
 msgstr "තීර විස්තර ගොනුව"
 
-#: libraries/classes/Config/Descriptions.php:619
+#: libraries/classes/Config/Descriptions.php:620
 #, fuzzy
 #| msgid "Compress connection to MySQL server"
 msgid "Compress connection to MySQL server."
 msgstr "MySQL සේවාදායකය වෙත සම්බන්දතාව හකුළුවන්න"
 
-#: libraries/classes/Config/Descriptions.php:620
+#: libraries/classes/Config/Descriptions.php:621
 msgid "Compress connection"
 msgstr "සම්බන්ධතාව හකුළුවන්න"
 
-#: libraries/classes/Config/Descriptions.php:621
+#: libraries/classes/Config/Descriptions.php:622
 msgid "Control user password"
 msgstr "පරිපාලක භාවිතා කරන්නාගේ මුරපදය"
 
-#: libraries/classes/Config/Descriptions.php:623
+#: libraries/classes/Config/Descriptions.php:624
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
@@ -5139,11 +5143,11 @@ msgstr ""
 "සීමිත අවසර සහිතව වින්‍යාස කරන ලද විශේෂ MySQL භාවිතා කරන්නෙක්, වැඩි විස්තර සඳහා [a@https://"
 "wiki.phpmyadmin.net/pma/controluser]විකිය[/a] බලන්න"
 
-#: libraries/classes/Config/Descriptions.php:626
+#: libraries/classes/Config/Descriptions.php:627
 msgid "Control user"
 msgstr "පරිපාලක භාවිතා කරන්නා"
 
-#: libraries/classes/Config/Descriptions.php:628
+#: libraries/classes/Config/Descriptions.php:629
 #, fuzzy
 #| msgid ""
 #| "An alternate host to hold the configuration storage; leave blank to use "
@@ -5155,11 +5159,11 @@ msgstr ""
 "වින්‍යාස ගබඩාව තබා ගැනීම සඳහා විකල්ප දායකයෙක්; දැනට අර්ථ දක්වා ඇති දායකයා භාවිතා කිරීමට "
 "හිස්ව තබන්න"
 
-#: libraries/classes/Config/Descriptions.php:631
+#: libraries/classes/Config/Descriptions.php:632
 msgid "Control host"
 msgstr "පාලක දායකයා"
 
-#: libraries/classes/Config/Descriptions.php:633
+#: libraries/classes/Config/Descriptions.php:634
 #, fuzzy
 #| msgid ""
 #| "An alternate host to hold the configuration storage; leave blank to use "
@@ -5172,32 +5176,32 @@ msgstr ""
 "වින්‍යාස ගබඩාව තබා ගැනීම සඳහා විකල්ප දායකයෙක්; දැනට අර්ථ දක්වා ඇති දායකයා භාවිතා කිරීමට "
 "හිස්ව තබන්න"
 
-#: libraries/classes/Config/Descriptions.php:637
+#: libraries/classes/Config/Descriptions.php:638
 msgid "Control port"
 msgstr "පාලක පෝර්ටය"
 
-#: libraries/classes/Config/Descriptions.php:638
+#: libraries/classes/Config/Descriptions.php:639
 #, fuzzy
 #| msgid "Hide databases matching regular expression (PCRE)"
 msgid "Hide databases matching regular expression (PCRE)."
 msgstr "Regular expression (PCRE) හා ගැළපෙන දත්තගබඩා සඟවන්න"
 
-#: libraries/classes/Config/Descriptions.php:640
+#: libraries/classes/Config/Descriptions.php:641
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:643
+#: libraries/classes/Config/Descriptions.php:644
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "INFORMATION_SCHEMA භාවිතය අක්‍රීය කරන්න"
 
-#: libraries/classes/Config/Descriptions.php:644
+#: libraries/classes/Config/Descriptions.php:645
 msgid "Hide databases"
 msgstr "දත්තගබඩා සඟවන්න"
 
-#: libraries/classes/Config/Descriptions.php:646
+#: libraries/classes/Config/Descriptions.php:647
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: "
@@ -5209,41 +5213,41 @@ msgstr ""
 "SQL විමසුම් ඉතිහාසය රඳවා ගැනීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: "
 "[kbd]pma__history[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:649
+#: libraries/classes/Config/Descriptions.php:650
 msgid "SQL query history table"
 msgstr "SQL විමසුම් ඉතිහාස වගුව"
 
-#: libraries/classes/Config/Descriptions.php:650
+#: libraries/classes/Config/Descriptions.php:651
 #, fuzzy
 #| msgid "Hostname where MySQL server is running"
 msgid "Hostname where MySQL server is running."
 msgstr "MySQL සේවාදායකය ක්‍රියාත්මක දායකයේ දායක නාමය"
 
-#: libraries/classes/Config/Descriptions.php:651
+#: libraries/classes/Config/Descriptions.php:652
 msgid "Server hostname"
 msgstr "සේවාදායකයේ දායක නාමය"
 
-#: libraries/classes/Config/Descriptions.php:652
+#: libraries/classes/Config/Descriptions.php:653
 msgid "Logout URL"
 msgstr "පිටවිය යුතු URLය"
 
-#: libraries/classes/Config/Descriptions.php:654
+#: libraries/classes/Config/Descriptions.php:655
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:657
+#: libraries/classes/Config/Descriptions.php:658
 msgid "Maximal number of table preferences to store"
 msgstr "ගබඩා කල යුතු උපරිම වගු අභිරුචි ගණන"
 
-#: libraries/classes/Config/Descriptions.php:658
+#: libraries/classes/Config/Descriptions.php:659
 #, fuzzy
 #| msgid "See slave status table"
 msgid "QBE saved searches table"
 msgstr "අනුගාමි සේවාදායකයේ තත්ත්ව වගුව බලන්න"
 
-#: libraries/classes/Config/Descriptions.php:660
+#: libraries/classes/Config/Descriptions.php:661
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
@@ -5255,11 +5259,11 @@ msgstr ""
 "ක්‍රමානුරූපය PDF ලෙස අපනයනය කිරීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: "
 "[kbd]pma__pdf_pages[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:663
+#: libraries/classes/Config/Descriptions.php:664
 msgid "Export templates table"
 msgstr "අපනයන ආකෘති වගුව"
 
-#: libraries/classes/Config/Descriptions.php:665
+#: libraries/classes/Config/Descriptions.php:666
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
@@ -5271,13 +5275,13 @@ msgstr ""
 "ක්‍රමානුරූපය PDF ලෙස අපනයනය කිරීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: "
 "[kbd]pma__pdf_pages[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:668
+#: libraries/classes/Config/Descriptions.php:669
 #, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns table"
 msgstr "පෙළ පෙදෙසේ පළල"
 
-#: libraries/classes/Config/Descriptions.php:670
+#: libraries/classes/Config/Descriptions.php:671
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
@@ -5289,29 +5293,29 @@ msgstr ""
 "ක්‍රමානුරූපය PDF ලෙස අපනයනය කිරීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: "
 "[kbd]pma__table_coords[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:674
+#: libraries/classes/Config/Descriptions.php:675
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
 "[kbd]'my_db'[/kbd]."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:678
+#: libraries/classes/Config/Descriptions.php:679
 msgid "Show only listed databases"
 msgstr "සඳහන් දත්තගබඩා පමණක් පෙන්වන්න"
 
-#: libraries/classes/Config/Descriptions.php:679
-#: libraries/classes/Config/Descriptions.php:778
+#: libraries/classes/Config/Descriptions.php:680
+#: libraries/classes/Config/Descriptions.php:779
 #, fuzzy
 #| msgid "Leave empty if not using config auth"
 msgid "Leave empty if not using config auth."
 msgstr "config සත්‍යාපනය භාවිතා නොකරයි නම් හිස්ව තබන්න"
 
-#: libraries/classes/Config/Descriptions.php:680
+#: libraries/classes/Config/Descriptions.php:681
 msgid "Password for config auth"
 msgstr "config සත්‍යාපනය සඳහා මුරපදය"
 
-#: libraries/classes/Config/Descriptions.php:681
+#: libraries/classes/Config/Descriptions.php:682
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
@@ -5322,11 +5326,11 @@ msgstr ""
 "ක්‍රමානුරූපය PDF ලෙස අපනයනය කිරීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: "
 "[kbd]pma__pdf_pages[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:682
+#: libraries/classes/Config/Descriptions.php:683
 msgid "PDF schema: pages table"
 msgstr "PDF ක්‍රමනුරූපයේ පිටු පිලිබඳ විස්තර අඩංගු වගුව"
 
-#: libraries/classes/Config/Descriptions.php:684
+#: libraries/classes/Config/Descriptions.php:685
 #, fuzzy
 #| msgid ""
 #| "Database used for relations, bookmarks, and PDF features. See [a@https://"
@@ -5341,22 +5345,22 @@ msgstr ""
 "සඳහා [a@https://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] බලන්න. විශේෂාංග අනවශ්‍ය "
 "නම් හිස්ව තබන්න, යෝජිත: [kbd]phpmyadmin[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:688
+#: libraries/classes/Config/Descriptions.php:689
 #: templates/server/databases/index.twig:37
 msgid "Database name"
 msgstr "දත්තගබඩාවේ නම"
 
-#: libraries/classes/Config/Descriptions.php:689
+#: libraries/classes/Config/Descriptions.php:690
 #, fuzzy
 #| msgid "Port on which MySQL server is listening, leave empty for default"
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr "MySQL සේවාදායකය සවන් දෙන පෝර්ටය, පෙරනිමි අගය සඳහා හිස්ව තබන්න"
 
-#: libraries/classes/Config/Descriptions.php:690
+#: libraries/classes/Config/Descriptions.php:691
 msgid "Server port"
 msgstr "සර්වරයේ පොර්ට්"
 
-#: libraries/classes/Config/Descriptions.php:692
+#: libraries/classes/Config/Descriptions.php:693
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
@@ -5368,11 +5372,11 @@ msgstr ""
 "සැසි අතර \"කල් පවත්නා\" ලෙස මෑතදී භාවිතා කල වගු මතක තබාගැනීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව "
 "තබන්න, යෝජිත: [kbd]pma__recent[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:695
+#: libraries/classes/Config/Descriptions.php:696
 msgid "Recently used table"
 msgstr "මෑතදී භාවිතා වූ වගුව"
 
-#: libraries/classes/Config/Descriptions.php:697
+#: libraries/classes/Config/Descriptions.php:698
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
@@ -5384,13 +5388,13 @@ msgstr ""
 "සැසි අතර \"කල් පවත්නා\" ලෙස මෑතදී භාවිතා කල වගු මතක තබාගැනීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව "
 "තබන්න, යෝජිත: [kbd]pma__recent[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:700
+#: libraries/classes/Config/Descriptions.php:701
 #, fuzzy
 #| msgid "Variables"
 msgid "Favorites table"
 msgstr "විචල්‍යනයන්"
 
-#: libraries/classes/Config/Descriptions.php:702
+#: libraries/classes/Config/Descriptions.php:703
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
@@ -5402,11 +5406,11 @@ msgstr ""
 "[a@https://wiki.phpmyadmin.net/pma/relation]වගු අතර සම්බන්ධතා දැක්වෙන සබැඳි[/a] "
 "විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: [kbd]pma__relation[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:706
+#: libraries/classes/Config/Descriptions.php:707
 msgid "Relation table"
 msgstr "සබැඳුම් දත්ත ඇතුලත් වගුව"
 
-#: libraries/classes/Config/Descriptions.php:708
+#: libraries/classes/Config/Descriptions.php:709
 #, fuzzy
 #| msgid ""
 #| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
@@ -5414,38 +5418,38 @@ msgstr "සබැඳුම් දත්ත ඇතුලත් වගුව"
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
-"උදාහරණයක් ලෙස [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]සත්‍යාපන "
-"ක්‍රම[/a] බලන්න"
+"උදාහරණයක් ලෙස [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]සත්‍යාපන ක්‍"
+"රම[/a] බලන්න"
 
-#: libraries/classes/Config/Descriptions.php:711
+#: libraries/classes/Config/Descriptions.php:712
 msgid "Signon session name"
 msgstr "Signon සැසි නාමය"
 
-#: libraries/classes/Config/Descriptions.php:712
+#: libraries/classes/Config/Descriptions.php:713
 msgid "Signon URL"
 msgstr "Signon URLය"
 
-#: libraries/classes/Config/Descriptions.php:713
+#: libraries/classes/Config/Descriptions.php:714
 #, fuzzy
 #| msgid "Socket on which MySQL server is listening, leave empty for default"
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr "MySQL සේවාදායකය සවන් දෙන සොකටය, පෙරනිමි අගය සඳහා හිස්ව තබන්න"
 
-#: libraries/classes/Config/Descriptions.php:714
+#: libraries/classes/Config/Descriptions.php:715
 msgid "Server socket"
 msgstr "සර්වරයේ සොකට්"
 
-#: libraries/classes/Config/Descriptions.php:715
+#: libraries/classes/Config/Descriptions.php:716
 #, fuzzy
 #| msgid "Enable SSL for connection to MySQL server"
 msgid "Enable SSL for connection to MySQL server."
 msgstr "MySQL සේවාදායකය වෙත සබඳතාවය සඳහා SSL සක්‍රීය කරන්න"
 
-#: libraries/classes/Config/Descriptions.php:716
+#: libraries/classes/Config/Descriptions.php:717
 msgid "Use SSL"
 msgstr "SSL භාවිතා කරන්න"
 
-#: libraries/classes/Config/Descriptions.php:717
+#: libraries/classes/Config/Descriptions.php:718
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
@@ -5457,13 +5461,13 @@ msgstr ""
 "ක්‍රමානුරූපය PDF ලෙස අපනයනය කිරීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: "
 "[kbd]pma__table_coords[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:718
+#: libraries/classes/Config/Descriptions.php:719
 #, fuzzy
 #| msgid "PDF schema: table coordinates"
 msgid "Designer and PDF schema: table coordinates"
 msgstr "PDF ක්‍රමානුරූපය: වගු ඛණ්ඩාංක"
 
-#: libraries/classes/Config/Descriptions.php:720
+#: libraries/classes/Config/Descriptions.php:721
 #, fuzzy
 #| msgid ""
 #| "Table to describe the display columns, leave blank for no support; "
@@ -5475,11 +5479,11 @@ msgstr ""
 "දර්ෂිත තීර පිලිබඳ දත්ත අඩංගු වගුව. විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න; යෝජිත: "
 "[kbd]pma__table_info[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:723
+#: libraries/classes/Config/Descriptions.php:724
 msgid "Display columns table"
 msgstr "පෙන්විය යුතු තීර පිළිබඳ දත්ත ඇතුලත් වගුව"
 
-#: libraries/classes/Config/Descriptions.php:725
+#: libraries/classes/Config/Descriptions.php:726
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
@@ -5491,11 +5495,11 @@ msgstr ""
 "සැසි අතර \"කල් පවත්නා\" ලෙස වගු අතුරු මුහුණත සම්බන්ධ අභිරුචි තබාගැනීමේ විශේෂාංගය අනවශ්‍ය නම් "
 "හිස්ව තබන්න, යෝජිත: [kbd]pma__table_uiprefs[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:728
+#: libraries/classes/Config/Descriptions.php:729
 msgid "UI preferences table"
 msgstr "UI අභිරුචි පිළිබඳ දත්ත ඇතුලත් වගුව"
 
-#: libraries/classes/Config/Descriptions.php:730
+#: libraries/classes/Config/Descriptions.php:731
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
@@ -5503,42 +5507,42 @@ msgstr ""
 "දත්තගබඩාවක් සෑදීමේදී ලොගයේ පළමු පේළිය ලෙස DROP DATABASE IF EXISTS ප්‍රකාශයක් එක් "
 "කරන්නේද යන වග."
 
-#: libraries/classes/Config/Descriptions.php:733
+#: libraries/classes/Config/Descriptions.php:734
 msgid "Add DROP DATABASE"
 msgstr "DROP DATABASE එක් කරන්න"
 
-#: libraries/classes/Config/Descriptions.php:735
+#: libraries/classes/Config/Descriptions.php:736
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
 "වගුවක් සෑදීමේදී ලොගයේ පළමු පේළිය ලෙස DROP TABLE IF EXISTS ප්‍රකාශයක් එක් කරන්නේද යන වග."
 
-#: libraries/classes/Config/Descriptions.php:738
+#: libraries/classes/Config/Descriptions.php:739
 #: libraries/classes/MultSubmits.php:423
 msgid "Add DROP TABLE"
 msgstr "DROP TABLE එක් කරන්න"
 
-#: libraries/classes/Config/Descriptions.php:740
+#: libraries/classes/Config/Descriptions.php:741
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
 "දසුනක් සෑදීමේදී ලොගයේ පළමු පේළිය ලෙස DROP VIEW IF EXISTS ප්‍රකාශයක් එක් කරන්නේද යන වග."
 
-#: libraries/classes/Config/Descriptions.php:743
+#: libraries/classes/Config/Descriptions.php:744
 msgid "Add DROP VIEW"
 msgstr "DROP VIEW එක් කරන්න"
 
-#: libraries/classes/Config/Descriptions.php:744
+#: libraries/classes/Config/Descriptions.php:745
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr "නව අනුවාදයක් සඳහා ස්වයංක්‍රීය-සැදුම විසින් භාවිතා කලයුතු ප්‍රකාශන ලැයිස්තුව සඳහන් කරයි."
 
-#: libraries/classes/Config/Descriptions.php:745
+#: libraries/classes/Config/Descriptions.php:746
 msgid "Statements to track"
 msgstr "අවධානය සක්‍රීය කල යුතු ප්‍රකාශ"
 
-#: libraries/classes/Config/Descriptions.php:747
+#: libraries/classes/Config/Descriptions.php:748
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query tracking support, suggested: "
@@ -5549,21 +5553,21 @@ msgid ""
 msgstr ""
 "SQL විමසුම් අවධානය විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: [kbd]pma__tracking[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:750
+#: libraries/classes/Config/Descriptions.php:751
 msgid "SQL query tracking table"
 msgstr "SQL විමසුම් අවධානයට අදාළ වගුව"
 
-#: libraries/classes/Config/Descriptions.php:752
+#: libraries/classes/Config/Descriptions.php:753
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr "අවධාන ක්‍රියාවලිය විසින් වගු සහ දසුන් සඳහා ස්වයන්ක්‍රීයව අනුවාද සාදන්නේ ද යන වග."
 
-#: libraries/classes/Config/Descriptions.php:755
+#: libraries/classes/Config/Descriptions.php:756
 msgid "Automatically create versions"
 msgstr "ස්වයංක්‍රියව අනුවාද සාදන්න"
 
-#: libraries/classes/Config/Descriptions.php:757
+#: libraries/classes/Config/Descriptions.php:758
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
@@ -5575,37 +5579,37 @@ msgstr ""
 "භාවිතා කරන්නාගේ අභිරුචි දත්තගබඩාවේ ගබඩා කිරීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න; යෝජිත: "
 "[kbd]pma__userconfig[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:760
+#: libraries/classes/Config/Descriptions.php:761
 msgid "User preferences storage table"
 msgstr "භාවිතා කරන්නාගේ අභිරුචි වගුව"
 
-#: libraries/classes/Config/Descriptions.php:762
+#: libraries/classes/Config/Descriptions.php:763
 msgid ""
 "Both this table and the user groups table are required to enable the "
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:766
+#: libraries/classes/Config/Descriptions.php:767
 #, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
 msgstr "වගු භාවිතා කරන්න"
 
-#: libraries/classes/Config/Descriptions.php:768
+#: libraries/classes/Config/Descriptions.php:769
 msgid ""
 "Both this table and the users table are required to enable the configurable "
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:772
+#: libraries/classes/Config/Descriptions.php:773
 #, fuzzy
 #| msgid "Use Host Table"
 msgid "User groups table"
 msgstr "දායක වගුව භාවිතා කරන්න"
 
-#: libraries/classes/Config/Descriptions.php:774
+#: libraries/classes/Config/Descriptions.php:775
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
@@ -5617,76 +5621,76 @@ msgstr ""
 "භාවිතා කරන්නාගේ අභිරුචි දත්තගබඩාවේ ගබඩා කිරීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න; යෝජිත: "
 "[kbd]pma__userconfig[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:777
+#: libraries/classes/Config/Descriptions.php:778
 msgid "Hidden navigation items table"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:779
+#: libraries/classes/Config/Descriptions.php:780
 msgid "User for config auth"
 msgstr "config සත්‍යාපනය සඳහා භාවිතා කරන්නා"
 
-#: libraries/classes/Config/Descriptions.php:781
+#: libraries/classes/Config/Descriptions.php:782
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
 msgstr "සේවාදායකය සඳහා පරිශ්‍රීලක මිත්‍ර විස්තරයක්. එය වෙනුවට දායක නාමය පෙන්වීමට හිස්ව තබන්න."
 
-#: libraries/classes/Config/Descriptions.php:784
+#: libraries/classes/Config/Descriptions.php:785
 msgid "Verbose name of this server"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:785
+#: libraries/classes/Config/Descriptions.php:786
 #, fuzzy
 #| msgid "Whether a user should be displayed a \"show all (rows)\" button"
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
 msgstr "\"සියලුම පේළි පෙන්වන්න\" සබැඳිය භාවිතා කරන්නාට පෙන්වන්නේද යන වග"
 
-#: libraries/classes/Config/Descriptions.php:786
+#: libraries/classes/Config/Descriptions.php:787
 msgid "Allow to display all the rows"
 msgstr "සියලුම පේළි දර්ශනය කිරීමට ඉඩ ලබාදෙයි"
 
-#: libraries/classes/Config/Descriptions.php:788
+#: libraries/classes/Config/Descriptions.php:789
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:792
+#: libraries/classes/Config/Descriptions.php:793
 msgid "Show password change form"
 msgstr "මුරපදය වෙනස් කිරීමේ පෝරමය පෙන්වන්න"
 
-#: libraries/classes/Config/Descriptions.php:793
+#: libraries/classes/Config/Descriptions.php:794
 msgid "Show create database form"
 msgstr "දත්තගබඩාවක් සෑදීමේ පෝරමය පෙන්වන්න"
 
-#: libraries/classes/Config/Descriptions.php:794
+#: libraries/classes/Config/Descriptions.php:795
 #, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Creation timestamp for all tables"
 msgid "Show or hide a column displaying the comments for all tables."
 msgstr "සියලුම වගු සඳහා වගුව සෑදූ වේලාව දැක්වෙන තීරුව පෙන්වන්න හෝ සඟවන්න"
 
-#: libraries/classes/Config/Descriptions.php:795
+#: libraries/classes/Config/Descriptions.php:796
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show table comments"
 msgstr "වගු විස්තර"
 
-#: libraries/classes/Config/Descriptions.php:796
+#: libraries/classes/Config/Descriptions.php:797
 #, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Creation timestamp for all tables"
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr "සියලුම වගු සඳහා වගුව සෑදූ වේලාව දැක්වෙන තීරුව පෙන්වන්න හෝ සඟවන්න"
 
-#: libraries/classes/Config/Descriptions.php:797
+#: libraries/classes/Config/Descriptions.php:798
 #, fuzzy
 #| msgid "Show Creation timestamp"
 msgid "Show creation timestamp"
 msgstr "සෑදූ වේලාව පෙන්වන්න"
 
-#: libraries/classes/Config/Descriptions.php:798
+#: libraries/classes/Config/Descriptions.php:799
 #, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Last update timestamp for all tables"
@@ -5694,13 +5698,13 @@ msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr "සියලුම වගු සඳහා අවසන් වරට වගුව යාවත්කාලීන කල වේලාව දැක්වෙන තීරුව පෙන්වන්න හෝ සඟවන්න"
 
-#: libraries/classes/Config/Descriptions.php:799
+#: libraries/classes/Config/Descriptions.php:800
 #, fuzzy
 #| msgid "Show Last update timestamp"
 msgid "Show last update timestamp"
 msgstr "අවසන් වරට යාවත්කාලීන කල වේලාව පෙන්වන්න"
 
-#: libraries/classes/Config/Descriptions.php:800
+#: libraries/classes/Config/Descriptions.php:801
 #, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Last check timestamp for all tables"
@@ -5708,26 +5712,26 @@ msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr "සියලුම වගු සඳහා අවසන් වරට වගුව පරීක්ෂා කල වේලාව දැක්වෙන තීරුව පෙන්වන්න හෝ සඟවන්න"
 
-#: libraries/classes/Config/Descriptions.php:801
+#: libraries/classes/Config/Descriptions.php:802
 #, fuzzy
 #| msgid "Show Last check timestamp"
 msgid "Show last check timestamp"
 msgstr "අවසන් වරට පරීක්ෂා කල වේලාව පෙන්වන්න"
 
-#: libraries/classes/Config/Descriptions.php:802
+#: libraries/classes/Config/Descriptions.php:803
 #, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Creation timestamp for all tables"
 msgid "Show or hide a column displaying the charset for all tables."
 msgstr "සියලුම වගු සඳහා වගුව සෑදූ වේලාව දැක්වෙන තීරුව පෙන්වන්න හෝ සඟවන්න"
 
-#: libraries/classes/Config/Descriptions.php:803
+#: libraries/classes/Config/Descriptions.php:804
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show table charset"
 msgstr "වගු විස්තර"
 
-#: libraries/classes/Config/Descriptions.php:805
+#: libraries/classes/Config/Descriptions.php:806
 #, fuzzy
 #| msgid ""
 #| "Defines whether or not type fields should be initially displayed in edit/"
@@ -5738,31 +5742,31 @@ msgid ""
 msgstr ""
 "සංස්කරණ/ඇතුළුකිරීම් ප්‍රකාරයේදී තීර වර්ගය දක්වන ක්ෂේත්‍රය ආරම්භයේදී පෙන්විය යුතුද නැතිද යන වග"
 
-#: libraries/classes/Config/Descriptions.php:808
+#: libraries/classes/Config/Descriptions.php:809
 msgid "Show field types"
 msgstr "ක්ෂේත්‍රයේ වර්ගය පෙන්වන්න"
 
-#: libraries/classes/Config/Descriptions.php:809
+#: libraries/classes/Config/Descriptions.php:810
 #, fuzzy
 #| msgid "Display the function fields in edit/insert mode"
 msgid "Display the function fields in edit/insert mode."
 msgstr "සංස්කරණ/ඇතුළුකිරීම් ප්‍රකාරයේදී ශ්‍රිතය ක්ෂේත්‍රයන් පෙන්වයි"
 
-#: libraries/classes/Config/Descriptions.php:810
+#: libraries/classes/Config/Descriptions.php:811
 msgid "Show function fields"
 msgstr "ශ්‍රිතය තීරුව පෙන්වන්න"
 
-#: libraries/classes/Config/Descriptions.php:811
+#: libraries/classes/Config/Descriptions.php:812
 #, fuzzy
 #| msgid "Whether to show hint or not"
 msgid "Whether to show hint or not."
 msgstr "ඉඟිය පෙන්විය යුතුද නැත්ද යන වග"
 
-#: libraries/classes/Config/Descriptions.php:812
+#: libraries/classes/Config/Descriptions.php:813
 msgid "Show hint"
 msgstr "ඉඟිය පෙන්වන්න"
 
-#: libraries/classes/Config/Descriptions.php:814
+#: libraries/classes/Config/Descriptions.php:815
 #, fuzzy
 #| msgid ""
 #| "Shows link to [a@https://secure.php.net/manual/function.phpinfo."
@@ -5774,15 +5778,15 @@ msgstr ""
 "[a@https://secure.php.net/manual/function.phpinfo.php]phpinfo()[/a] ප්‍රතිදානය "
 "වෙත සබැඳුම පෙන්වන්න"
 
-#: libraries/classes/Config/Descriptions.php:817
+#: libraries/classes/Config/Descriptions.php:818
 msgid "Show phpinfo() link"
 msgstr "phpinfo() සබැඳුම පෙන්වන්න"
 
-#: libraries/classes/Config/Descriptions.php:818
+#: libraries/classes/Config/Descriptions.php:819
 msgid "Show detailed MySQL server information"
 msgstr "MySQL සේවාදායකය පිලිබඳ විස්තරාත්මක තොරතුරු පෙන්වන්න"
 
-#: libraries/classes/Config/Descriptions.php:819
+#: libraries/classes/Config/Descriptions.php:820
 #, fuzzy
 #| msgid ""
 #| "Defines whether SQL queries generated by phpMyAdmin should be displayed"
@@ -5790,11 +5794,11 @@ msgid ""
 "Defines whether SQL queries generated by phpMyAdmin should be displayed."
 msgstr "phpMyAdmin විසින් සාදන ලද විමසුම් පෙන්විය යුතුදැයි සඳහන් කරයි"
 
-#: libraries/classes/Config/Descriptions.php:820
+#: libraries/classes/Config/Descriptions.php:821
 msgid "Show SQL queries"
 msgstr "SQL විමසුම් පෙන්වන්න"
 
-#: libraries/classes/Config/Descriptions.php:821
+#: libraries/classes/Config/Descriptions.php:822
 #, fuzzy
 #| msgid ""
 #| "Defines whether the query box should stay on-screen after its submission"
@@ -5802,22 +5806,22 @@ msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr "විමසුම ක්‍රියාත්මක කිරීමෙන් පසුව විමසුම් කවුළුව තිරය මත රඳවා ගත යුතුදැයි සඳහන් කරයි"
 
-#: libraries/classes/Config/Descriptions.php:822 templates/sql/query.twig:112
+#: libraries/classes/Config/Descriptions.php:823 templates/sql/query.twig:112
 msgid "Retain query box"
 msgstr "විමසුම් කවුළුව රඳවාගන්න"
 
-#: libraries/classes/Config/Descriptions.php:823
+#: libraries/classes/Config/Descriptions.php:824
 #, fuzzy
 #| msgid "Allow to display database and table statistics (eg. space usage)"
 msgid "Allow to display database and table statistics (eg. space usage)."
 msgstr ""
 "දත්තගබඩා හා වගු වලට අදාල සංඛ්‍යාලේඛන (උදා. භාවිතා වන ඉඩ ප්‍රමාණය) පෙන්වීමට ඉඩ සලසයි"
 
-#: libraries/classes/Config/Descriptions.php:824
+#: libraries/classes/Config/Descriptions.php:825
 msgid "Show statistics"
 msgstr "සංඛ්‍ය ලේඛන පෙන්වන්න"
 
-#: libraries/classes/Config/Descriptions.php:825
+#: libraries/classes/Config/Descriptions.php:826
 #, fuzzy
 #| msgid ""
 #| "Mark used tables and make it possible to show databases with locked tables"
@@ -5825,31 +5829,31 @@ msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr "භාවිතා කරන ලද වගු සලකුණු කර අගුලු ළෑ වගු සහිත දත්තගබඩා පෙන්වීමට ඉඩ සලසන්න"
 
-#: libraries/classes/Config/Descriptions.php:826
+#: libraries/classes/Config/Descriptions.php:827
 msgid "Skip locked tables"
 msgstr "අගුලු ළෑ දත්තගබඩා මඟහරින්න"
 
-#: libraries/classes/Config/Descriptions.php:828
-#: libraries/classes/Util.php:1087
+#: libraries/classes/Config/Descriptions.php:829
+#: libraries/classes/Util.php:1070
 msgid "Explain SQL"
 msgstr "SQL ය පහදන්න"
 
-#: libraries/classes/Config/Descriptions.php:829
-#: libraries/classes/Export.php:534 libraries/classes/Util.php:1167
+#: libraries/classes/Config/Descriptions.php:830
+#: libraries/classes/Export.php:534 libraries/classes/Util.php:1150
 #: templates/console/display.twig:99
 #: templates/server/status/processes/index.twig:10
 #: templates/server/status/variables/index.twig:12
 msgid "Refresh"
 msgstr "අලුත් කරන්න"
 
-#: libraries/classes/Config/Descriptions.php:830
-#: libraries/classes/Util.php:1152
+#: libraries/classes/Config/Descriptions.php:831
+#: libraries/classes/Util.php:1135
 #, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
 msgstr "PHP කේත සාදන්න"
 
-#: libraries/classes/Config/Descriptions.php:832
+#: libraries/classes/Config/Descriptions.php:833
 #, fuzzy
 #| msgid "A warning is displayed on the main page if Suhosin is detected"
 msgid ""
@@ -5857,11 +5861,11 @@ msgid ""
 "detected."
 msgstr "Suhosin ඇති බව හඳුනාගතහොත් ප්‍රධාන පිටුවේ අනතුරු ඇඟවීමක් පෙන්වයි"
 
-#: libraries/classes/Config/Descriptions.php:835
+#: libraries/classes/Config/Descriptions.php:836
 msgid "Suhosin warning"
 msgstr "Suhosin අනතුරු ඇඟවීම"
 
-#: libraries/classes/Config/Descriptions.php:837
+#: libraries/classes/Config/Descriptions.php:838
 #, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the database details "
@@ -5875,11 +5879,11 @@ msgstr ""
 "phpMyAdmin වින්‍යාස ගබඩාවට අවශ්‍ය එක් වගුවක් හෝ සොයාගත නොහැකි අවස්ථාවකදී දත්තගබඩා සැකිල්ල "
 "පිටුවේ පෙන්වන පෙරනිමි අනතුරු ඇඟවීම අක්‍රීය කරන්න"
 
-#: libraries/classes/Config/Descriptions.php:841
+#: libraries/classes/Config/Descriptions.php:842
 msgid "Login cookie validity warning"
 msgstr "ඇතුල් වීමේ කුකියේ වලංගුතාවය"
 
-#: libraries/classes/Config/Descriptions.php:843
+#: libraries/classes/Config/Descriptions.php:844
 #, fuzzy
 #| msgid ""
 #| "Textarea size (columns) in edit mode, this value will be emphasized for "
@@ -5891,11 +5895,11 @@ msgstr ""
 "සංස්කරණ ප්‍රකාරයේදී පෙළ පෙදෙසේ පළල (තීරු ගණනින්). මෙම අගය වැඩි කිරීමෙන් SQL විමසුම් පෙළ "
 "පෙදෙසේද (*2) විමසුම් කවුළුවේද (*1.25) පළල ලබා ගැනේ"
 
-#: libraries/classes/Config/Descriptions.php:846
+#: libraries/classes/Config/Descriptions.php:847
 msgid "Textarea columns"
 msgstr "පෙළ පෙදෙසේ පළල"
 
-#: libraries/classes/Config/Descriptions.php:848
+#: libraries/classes/Config/Descriptions.php:849
 #, fuzzy
 #| msgid ""
 #| "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
@@ -5907,17 +5911,17 @@ msgstr ""
 "සංස්කරණ ප්‍රකාරයේදී පෙළ පෙදෙසේ උස (පේලි ගණනින්). මෙම අගය වැඩි කිරීමෙන් SQL විමසුම් පෙළ "
 "පෙදෙසේද (*2) විමසුම් කවුළුවේද (*1.25) උස ලබා ගැනේ"
 
-#: libraries/classes/Config/Descriptions.php:851
+#: libraries/classes/Config/Descriptions.php:852
 msgid "Textarea rows"
 msgstr "පෙළ පෙදෙසේ උස"
 
-#: libraries/classes/Config/Descriptions.php:852
+#: libraries/classes/Config/Descriptions.php:853
 #, fuzzy
 #| msgid "Title of browser window when a database is selected"
 msgid "Title of browser window when a database is selected."
 msgstr "දත්තගබඩාවක් තෝරා ඇති විට බ්‍රව්සර කවුළුවේ මාතෘකාව"
 
-#: libraries/classes/Config/Descriptions.php:853
+#: libraries/classes/Config/Descriptions.php:854
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:135
 #: libraries/classes/Menu.php:229 libraries/classes/MultSubmits.php:410
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:156
@@ -5938,34 +5942,34 @@ msgstr "දත්තගබඩාවක් තෝරා ඇති විට බ�
 msgid "Database"
 msgstr "දත්තගබඩාව"
 
-#: libraries/classes/Config/Descriptions.php:854
+#: libraries/classes/Config/Descriptions.php:855
 #, fuzzy
 #| msgid "Title of browser window when nothing is selected"
 msgid "Title of browser window when nothing is selected."
 msgstr "කිසිවක් තෝරා නැති විට බ්‍රව්සර කවුළුවේ මාතෘකාව"
 
-#: libraries/classes/Config/Descriptions.php:855
+#: libraries/classes/Config/Descriptions.php:856
 msgid "Default title"
 msgstr "පෙරනිමි නාමය"
 
-#: libraries/classes/Config/Descriptions.php:856
+#: libraries/classes/Config/Descriptions.php:857
 #, fuzzy
 #| msgid "Title of browser window when a server is selected"
 msgid "Title of browser window when a server is selected."
 msgstr "සේවාදායකයක් තෝරා ඇති විට බ්‍රව්සර කවුළුවේ මාතෘකාව"
 
-#: libraries/classes/Config/Descriptions.php:857 libraries/classes/Menu.php:208
+#: libraries/classes/Config/Descriptions.php:858 libraries/classes/Menu.php:208
 #: templates/server/status/base.twig:6
 msgid "Server"
 msgstr "සේවාදායකය"
 
-#: libraries/classes/Config/Descriptions.php:858
+#: libraries/classes/Config/Descriptions.php:859
 #, fuzzy
 #| msgid "Title of browser window when a table is selected"
 msgid "Title of browser window when a table is selected."
 msgstr "වගුවක් තෝරා ඇති විට බ්‍රව්සර කවුළුවේ මාතෘකාව"
 
-#: libraries/classes/Config/Descriptions.php:859 libraries/classes/Menu.php:268
+#: libraries/classes/Config/Descriptions.php:860 libraries/classes/Menu.php:268
 #: libraries/classes/Plugins/Export/ExportXml.php:507
 #: libraries/classes/Rte/RteList.php:130 libraries/classes/Rte/Triggers.php:398
 #: libraries/classes/Server/Privileges.php:1978
@@ -5983,7 +5987,7 @@ msgstr "වගුවක් තෝරා ඇති විට බ්‍රව්�
 msgid "Table"
 msgstr "වගුව"
 
-#: libraries/classes/Config/Descriptions.php:861
+#: libraries/classes/Config/Descriptions.php:862
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -5991,54 +5995,54 @@ msgid ""
 "HTTP_X_FORWARDED_FOR[/kbd]."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:866
+#: libraries/classes/Config/Descriptions.php:867
 msgid "List of trusted proxies for IP allow/deny"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:867
+#: libraries/classes/Config/Descriptions.php:868
 #, fuzzy
 #| msgid "Directory on server where you can upload files for import"
 msgid "Directory on server where you can upload files for import."
 msgstr "ආනයනය සඳහා ගොනු උඩුගත කල හැකි සේවාදායකයේ ඩිරෙක්ටරිය"
 
-#: libraries/classes/Config/Descriptions.php:868
+#: libraries/classes/Config/Descriptions.php:869
 msgid "Upload directory"
 msgstr "උඩුගත කිරීමේ ඩිරෙක්ටරිය"
 
-#: libraries/classes/Config/Descriptions.php:869
+#: libraries/classes/Config/Descriptions.php:870
 #, fuzzy
 #| msgid "Allow for searching inside the entire database"
 msgid "Allow for searching inside the entire database."
 msgstr "සම්පූර්ණ දත්තගබඩාව තුලම සෙවීම සඳහා ඉඩ ලබා දෙන්න"
 
-#: libraries/classes/Config/Descriptions.php:870
+#: libraries/classes/Config/Descriptions.php:871
 msgid "Use database search"
 msgstr "දත්තගබඩා සෙවීම භාවිතා කරන්න"
 
-#: libraries/classes/Config/Descriptions.php:872
+#: libraries/classes/Config/Descriptions.php:873
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:875
+#: libraries/classes/Config/Descriptions.php:876
 msgid "Enable the Developer tab in settings"
 msgstr "සිටුවම් හි ක්‍රමලේඛනය කරන්නන් සදහා වූ ටැබය සක්‍රීය කරන්න"
 
-#: libraries/classes/Config/Descriptions.php:876
+#: libraries/classes/Config/Descriptions.php:877
 #, fuzzy
 #| msgid "Enables check for latest version on main phpMyAdmin page"
 msgid "Enables check for latest version on main phpMyAdmin page."
 msgstr "phpMyAdmin ප්‍රධාන පිටුවේ නවතම අනුවාදය සඳහා පරීක්ෂාව සක්‍රීය කරන්න"
 
-#: libraries/classes/Config/Descriptions.php:877
+#: libraries/classes/Config/Descriptions.php:878
 #: libraries/classes/Setup/Index.php:128 libraries/classes/Setup/Index.php:151
 #: libraries/classes/Setup/Index.php:164 libraries/classes/Setup/Index.php:176
 #: libraries/classes/Setup/Index.php:184 libraries/classes/Setup/Index.php:191
 msgid "Version check"
 msgstr "අනුවාද පරීක්ෂාව"
 
-#: libraries/classes/Config/Descriptions.php:879
+#: libraries/classes/Config/Descriptions.php:880
 msgid ""
 "The url of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin or when submitting error reports. You need this "
@@ -6046,34 +6050,34 @@ msgid ""
 "the internet. The format is: \"hostname:portnumber\"."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:884
+#: libraries/classes/Config/Descriptions.php:885
 msgid "Proxy url"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:886
+#: libraries/classes/Config/Descriptions.php:887
 msgid ""
 "The username for authenticating with the proxy. By default, no "
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:891
+#: libraries/classes/Config/Descriptions.php:892
 #, fuzzy
 #| msgid "Username"
 msgid "Proxy username"
 msgstr "භාවිත නාමය"
 
-#: libraries/classes/Config/Descriptions.php:892
+#: libraries/classes/Config/Descriptions.php:893
 msgid "The password for authenticating with the proxy."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:893
+#: libraries/classes/Config/Descriptions.php:894
 #, fuzzy
 #| msgid "Password"
 msgid "Proxy password"
 msgstr "මුරපදය"
 
-#: libraries/classes/Config/Descriptions.php:895
+#: libraries/classes/Config/Descriptions.php:896
 #, fuzzy
 #| msgid ""
 #| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
@@ -6083,119 +6087,119 @@ msgstr ""
 "ආනයන හා අපනයන සඳහා [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] හැකිළුම සක්‍රීය "
 "කරන්න."
 
-#: libraries/classes/Config/Descriptions.php:896
+#: libraries/classes/Config/Descriptions.php:897
 msgid "ZIP"
 msgstr "ZIP"
 
-#: libraries/classes/Config/Descriptions.php:897
+#: libraries/classes/Config/Descriptions.php:898
 msgid "Enter your public key for your domain reCaptcha service."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:898
+#: libraries/classes/Config/Descriptions.php:899
 msgid "Public key for reCaptcha"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:899
+#: libraries/classes/Config/Descriptions.php:900
 msgid "Enter your private key for your domain reCaptcha service."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:900
+#: libraries/classes/Config/Descriptions.php:901
 msgid "Private key for reCaptcha"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:902
+#: libraries/classes/Config/Descriptions.php:903
 msgid "Choose the default action when sending error reports."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:903
+#: libraries/classes/Config/Descriptions.php:904
 #, fuzzy
 #| msgid "Server port"
 msgid "Send error reports"
 msgstr "සර්වරයේ පොර්ට්"
 
-#: libraries/classes/Config/Descriptions.php:906
+#: libraries/classes/Config/Descriptions.php:907
 msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:909
+#: libraries/classes/Config/Descriptions.php:910
 #, fuzzy
 #| msgid "Executed queries"
 msgid "Enter executes queries in console"
 msgstr "ක්‍රියාත්මක කරන ලද විමසුම්"
 
-#: libraries/classes/Config/Descriptions.php:912
+#: libraries/classes/Config/Descriptions.php:913
 msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:915
+#: libraries/classes/Config/Descriptions.php:916
 #, fuzzy
 #| msgid "Server configuration"
 msgid "Enable Zero Configuration mode"
 msgstr "සේවාදායකයේ වින්‍යාස"
 
-#: libraries/classes/Config/Descriptions.php:916
+#: libraries/classes/Config/Descriptions.php:917
 #: templates/console/display.twig:153
 #, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
 msgstr "SQL විමසුම් ඉතිහාස වගුව"
 
-#: libraries/classes/Config/Descriptions.php:917
+#: libraries/classes/Config/Descriptions.php:918
 #: templates/console/display.twig:149
 msgid "Always expand query messages"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:918
+#: libraries/classes/Config/Descriptions.php:919
 #: templates/console/display.twig:157
 msgid "Show current browsing query"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:919
+#: libraries/classes/Config/Descriptions.php:920
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:920
+#: libraries/classes/Config/Descriptions.php:921
 #: templates/console/display.twig:168
 #, fuzzy
 #| msgid "Switch to copied table"
 msgid "Switch to dark theme"
 msgstr "පිටපත් කල වගුව වෙත මාරු වන්න"
 
-#: libraries/classes/Config/Descriptions.php:921
+#: libraries/classes/Config/Descriptions.php:922
 msgid "Console height"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:922
+#: libraries/classes/Config/Descriptions.php:923
 #, fuzzy
 #| msgid "Browse mode"
 msgid "Console mode"
 msgstr "පිරික්සුම් ප්‍රකාරය"
 
-#: libraries/classes/Config/Descriptions.php:923
+#: libraries/classes/Config/Descriptions.php:924
 #: templates/console/display.twig:64
 #, fuzzy
 #| msgid "SQL queries"
 msgid "Group queries"
 msgstr "SQL විමසුම"
 
-#: libraries/classes/Config/Descriptions.php:924
+#: libraries/classes/Config/Descriptions.php:925
 #: templates/sql/profiling_chart.twig:9
 #, fuzzy
 #| msgid "Other"
 msgid "Order"
 msgstr "අනෙකුත්"
 
-#: libraries/classes/Config/Descriptions.php:925
+#: libraries/classes/Config/Descriptions.php:926
 #, fuzzy
 #| msgid "Other"
 msgid "Order by"
 msgstr "අනෙකුත්"
 
-#: libraries/classes/Config/Descriptions.php:926
+#: libraries/classes/Config/Descriptions.php:927
 msgid "Server connection collation"
 msgstr "සේවාදායක සමඟ සම්බන්ධතාවේ පරිතුලනය"
 
@@ -6337,7 +6341,7 @@ msgstr "OpenDocument පැතුරුම්පත"
 msgid "OpenDocument Text"
 msgstr "OpenDocument පෙළ"
 
-#: libraries/classes/Config/Forms/User/FeaturesForm.php:92
+#: libraries/classes/Config/Forms/User/FeaturesForm.php:93
 msgid "Features"
 msgstr "විශේෂාංග"
 
@@ -6554,30 +6558,38 @@ msgstr "වගුව තුල සෙවීම"
 msgid "SQL Query Console"
 msgstr "SQL විමසුම් කවුළුව"
 
-#: libraries/classes/Controllers/Database/StructureController.php:246
+#: libraries/classes/Controllers/ChangeLogController.php:43
+#: libraries/entry_points/license.php:31
+#, php-format
+msgid ""
+"The %s file is not available on this system, please visit %s for more "
+"information."
+msgstr "%s ගොනුව මෙම පද්ධතියේ නොමැත. වැඩි විස්තර සඳහා %s වෙත යන්න."
+
+#: libraries/classes/Controllers/Database/StructureController.php:264
 msgid "Favorite List is full!"
 msgstr ""
 
-#: libraries/classes/Controllers/Database/StructureController.php:489
+#: libraries/classes/Controllers/Database/StructureController.php:514
 #: libraries/entry_points/table/operations.php:477
 #: libraries/entry_points/view/operations.php:111
 #, php-format
 msgid "View %s has been dropped."
 msgstr "%s දසුන හලන ලදි."
 
-#: libraries/classes/Controllers/Database/StructureController.php:490
+#: libraries/classes/Controllers/Database/StructureController.php:515
 #: libraries/entry_points/table/operations.php:478
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "%s වගුව හලන ලදි."
 
-#: libraries/classes/Controllers/Database/StructureController.php:546
+#: libraries/classes/Controllers/Database/StructureController.php:571
 #: libraries/entry_points/table/operations.php:459
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "%s වගුව හිස් කරන ලදි."
 
-#: libraries/classes/Controllers/Database/StructureController.php:721
+#: libraries/classes/Controllers/Database/StructureController.php:746
 #: libraries/classes/Display/Results.php:4542
 #, php-format
 msgid ""
@@ -6586,41 +6598,66 @@ msgid ""
 msgstr ""
 "මෙම දසුනේ අවම වශයෙන් පේළි මෙතරම් සංඛයාවක් ඇත. කරුණාකර %s ලේඛනය %s අධ්‍යනය කරන්න."
 
-#: libraries/classes/Controllers/Database/StructureController.php:951
+#: libraries/classes/Controllers/Database/StructureController.php:977
 msgid "unknown"
 msgstr "නොදන්නා"
 
-#: libraries/classes/Controllers/HomeController.php:78
+#: libraries/classes/Controllers/ErrorReportController.php:108
+msgid ""
+"An error has been detected and an error report has been automatically "
+"submitted based on your settings."
+msgstr ""
+"දෝෂයක් වාර්තාවී ඇති අතර දෝෂයක් වාර්තාව ස්වයංක්රීයව ඔබගේ සැකසුම් මත පදනම් ඉදිරිපත් කර ඇත."
+
+#: libraries/classes/Controllers/ErrorReportController.php:112
+msgid "Thank you for submitting this report."
+msgstr "මෙම වාර්තාව යොමුකලාට ස්තූතියි."
+
+#: libraries/classes/Controllers/ErrorReportController.php:116
+msgid ""
+"An error has been detected and an error report has been generated but failed "
+"to be sent."
+msgstr "දෝෂයක් වාර්තාවී ඇත හා දෝෂ වාර්තාව ජනනය කර ඇති නමුත් එය යැවීමට අසමත් විය."
+
+#: libraries/classes/Controllers/ErrorReportController.php:121
+msgid "If you experience any problems please submit a bug report manually."
+msgstr "ඔබ යම් දෝෂ වලට මුහුණදී නම් ඔබ විසින්ම දෝෂ වාර්තාවක් ඉදිරිපත් කරන්න."
+
+#: libraries/classes/Controllers/ErrorReportController.php:125
+msgid "You may want to refresh the page."
+msgstr "ඔබ පිටුව ප්‍රතිපුර්ණය කිරීමට ඔබට අවශ්ය විය හැක."
+
+#: libraries/classes/Controllers/HomeController.php:92
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
 
 # සිටුවම් = settings. Source: Glossary of Information Technology Terms - ICTA
-#: libraries/classes/Controllers/HomeController.php:141
+#: libraries/classes/Controllers/HomeController.php:155
 #: templates/preferences/manage/main.twig:51
 msgid "More settings"
 msgstr "තවත් සිටුවම්"
 
-#: libraries/classes/Controllers/HomeController.php:211
+#: libraries/classes/Controllers/HomeController.php:225
 msgid "Show PHP information"
 msgstr "PHP තොරතුරු පෙන්වන්න"
 
-#: libraries/classes/Controllers/HomeController.php:231
+#: libraries/classes/Controllers/HomeController.php:245
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"phpMyAdmin හි configuration storage සම්පූර්ණයෙන් සකසා නැති බැවින් යම් විස්තෘත විශේෂාංග "
-"අක්‍රිය වී ඇත. %sඇයිදැයි සොයා බලන්න%s. "
+"phpMyAdmin හි configuration storage සම්පූර්ණයෙන් සකසා නැති බැවින් යම් විස්තෘත විශේෂාංග අක්‍"
+"රිය වී ඇත. %sඇයිදැයි සොයා බලන්න%s. "
 
-#: libraries/classes/Controllers/HomeController.php:238
+#: libraries/classes/Controllers/HomeController.php:252
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:344
+#: libraries/classes/Controllers/HomeController.php:372
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -6630,13 +6667,13 @@ msgstr ""
 "mbstring දිගුව නොමැති ව phpMyAdmin හට නිවැරදිව පෙළ බෙදීමට නොහැකි අතර මෙය බලාපොරොත්තු "
 "නොවන ප්‍රතිඵල ගෙන දිය හැක."
 
-#: libraries/classes/Controllers/HomeController.php:359
+#: libraries/classes/Controllers/HomeController.php:387
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:374
+#: libraries/classes/Controllers/HomeController.php:402
 msgid ""
 "Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -6648,7 +6685,7 @@ msgstr ""
 "phpMyAdmin හි සිටුවා ඇති කුකී වලංගු කාලය ට වඩා අඩු අගයක් ගනී. මේ හේතුවෙන් ඔබගේ සැසිය "
 "phpMyAdmin හි සිටුවා ඇති කාලයට පෙර කල් ඉකුත් විය හැක."
 
-#: libraries/classes/Controllers/HomeController.php:393
+#: libraries/classes/Controllers/HomeController.php:421
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -6656,22 +6693,22 @@ msgstr ""
 "ඇතුල් වීමේ කුකියේ වලංගු කාලය phpMyAdmin හි සිටුවා ඇති කුකී වලංගු කාලය ට වඩා අඩු අගයක් ගනී. "
 "මේ හේතුවෙන් ඔබගේ සැසිය phpMyAdmin හි සිටුවා ඇති කාලයට පෙර කල් ඉකුත් විය හැක."
 
-#: libraries/classes/Controllers/HomeController.php:411
+#: libraries/classes/Controllers/HomeController.php:439
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:427
+#: libraries/classes/Controllers/HomeController.php:455
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "වින්‍යාස ගොනුවට දැන් රහස්‍ය වාක්‍ය ඛණ්ඩයක් (blowfish_secret) අවශ්‍යය."
 
-#: libraries/classes/Controllers/HomeController.php:434
+#: libraries/classes/Controllers/HomeController.php:462
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:448
+#: libraries/classes/Controllers/HomeController.php:476
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -6683,7 +6720,7 @@ msgstr ""
 "නිර්දේශිතයි. නැතහොත් ඔබගේ සේවාදායකයේ ආරක්ෂාව මෙම වින්‍යස අනවසරයෙන් බාගත කරගන්නන් විසින් "
 "තර්ජනයට ලක්කල  හැකිය."
 
-#: libraries/classes/Controllers/HomeController.php:468
+#: libraries/classes/Controllers/HomeController.php:496
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -6692,7 +6729,7 @@ msgstr ""
 "සේවාදායකය Suhosin සමග ක්‍රියාත්මකයි. මෙමගින් ඇති විය හැකි ගැටළු සම්බන්ධයෙන් %sලියකියවිලි%s "
 "බලන්න."
 
-#: libraries/classes/Controllers/HomeController.php:483
+#: libraries/classes/Controllers/HomeController.php:511
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -7552,8 +7589,8 @@ msgstr "වෙනස් කරන්න"
 #: libraries/classes/Controllers/Table/StructureController.php:1265
 #: libraries/classes/Controllers/Table/StructureController.php:1266
 #: libraries/classes/Index.php:767 libraries/classes/Operations.php:1691
-#: libraries/classes/Rte/RteList.php:199 libraries/classes/Util.php:3431
-#: libraries/classes/Util.php:3432
+#: libraries/classes/Rte/RteList.php:199 libraries/classes/Util.php:3414
+#: libraries/classes/Util.php:3415
 #: templates/table/relation/foreign_key_row.twig:26
 #: templates/table/structure/display_structure.twig:293
 #: templates/table/structure/display_structure.twig:474
@@ -7718,7 +7755,7 @@ msgstr "අභ්‍යන්තර සබඳතා එක් කරන ලද�
 #: libraries/classes/Database/Qbe.php:362
 #: libraries/entry_points/database/export.php:70
 #: libraries/entry_points/database/tracking.php:110
-#: libraries/entry_points/export.php:416 templates/navigation/tree/path.twig:9
+#: libraries/entry_points/export.php:417 templates/navigation/tree/path.twig:9
 #: templates/database/structure/index.twig:19
 msgid "No tables found in database."
 msgstr "දත්තගබඩාවේ වගු කිසිවක් සොයා ගැනීමට නොමැත."
@@ -8014,28 +8051,28 @@ msgstr "%1$s %2$s විසින් රචිත"
 msgid "Could not load import plugins, please check your installation!"
 msgstr "ආනයනය පේනු පූරණය අසමත් විය. ඔබගේ ස්ථාපිතය පරීක්ෂා කරන්න!"
 
-#: libraries/classes/Display/Results.php:945 libraries/classes/Util.php:2408
-#: libraries/classes/Util.php:2411
+#: libraries/classes/Display/Results.php:945 libraries/classes/Util.php:2391
+#: libraries/classes/Util.php:2394
 msgctxt "First page"
 msgid "Begin"
 msgstr "ඇරඹුම"
 
-#: libraries/classes/Display/Results.php:952 libraries/classes/Util.php:2409
-#: libraries/classes/Util.php:2412 templates/server/binlog/index.twig:47
+#: libraries/classes/Display/Results.php:952 libraries/classes/Util.php:2392
+#: libraries/classes/Util.php:2395 templates/server/binlog/index.twig:47
 #: templates/server/binlog/index.twig:52
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "පෙර"
 
-#: libraries/classes/Display/Results.php:980 libraries/classes/Util.php:2441
-#: libraries/classes/Util.php:2448 templates/server/binlog/index.twig:72
+#: libraries/classes/Display/Results.php:980 libraries/classes/Util.php:2424
+#: libraries/classes/Util.php:2431 templates/server/binlog/index.twig:72
 #: templates/server/binlog/index.twig:77
 msgctxt "Next page"
 msgid "Next"
 msgstr "මීලඟ"
 
-#: libraries/classes/Display/Results.php:1010 libraries/classes/Util.php:2442
-#: libraries/classes/Util.php:2449
+#: libraries/classes/Display/Results.php:1010 libraries/classes/Util.php:2425
+#: libraries/classes/Util.php:2432
 msgctxt "Last page"
 msgid "End"
 msgstr "අවසන"
@@ -8052,8 +8089,8 @@ msgstr "පූර්ණ පෙළ"
 
 #: libraries/classes/Display/Results.php:1997
 #: libraries/classes/Display/Results.php:2023
-#: libraries/classes/Operations.php:857 libraries/classes/Util.php:4889
-#: libraries/classes/Util.php:4912 libraries/config.values.php:114
+#: libraries/classes/Operations.php:857 libraries/classes/Util.php:4872
+#: libraries/classes/Util.php:4895 libraries/config.values.php:114
 #: templates/server/status/processes/list.twig:12
 #: templates/server/databases/index.twig:114
 #: templates/server/databases/index.twig:131
@@ -8066,8 +8103,8 @@ msgstr "අවරෝහන"
 
 #: libraries/classes/Display/Results.php:2005
 #: libraries/classes/Display/Results.php:2015
-#: libraries/classes/Operations.php:854 libraries/classes/Util.php:4881
-#: libraries/classes/Util.php:4904 libraries/config.values.php:113
+#: libraries/classes/Operations.php:854 libraries/classes/Util.php:4864
+#: libraries/classes/Util.php:4887 libraries/config.values.php:113
 #: templates/server/status/processes/list.twig:14
 #: templates/server/databases/index.twig:112
 #: templates/server/databases/index.twig:129
@@ -8470,8 +8507,7 @@ msgstr "වෙබ් සේවාදායකයට %s ගොනුව සුර
 msgid "Dump has been saved to file %s."
 msgstr "%s ගොනුවට නික්ෂේප දත්ත සුරකින ලදි."
 
-#: libraries/classes/Export.php:1218 libraries/entry_points/ajax.php:34
-#: libraries/entry_points/ajax.php:72 libraries/entry_points/export.php:216
+#: libraries/classes/Export.php:1218 libraries/entry_points/export.php:217
 msgid "Bad type!"
 msgstr "වැරදි වර්ගය!"
 
@@ -8782,7 +8818,7 @@ msgstr "මෙහි දිග නිසා,<br /> මෙම තීරුව ස
 msgid "Binary - do not edit"
 msgstr "ද්වීමය - සංස්කරණය නොකරන්න"
 
-#: libraries/classes/InsertEdit.php:1543 libraries/classes/Util.php:3398
+#: libraries/classes/InsertEdit.php:1543 libraries/classes/Util.php:3381
 msgid "The directory you set for upload work cannot be reached."
 msgstr "උඩුගත කිරීම් සඳහා සැකසූ ඩිරෙක්ටරිය වෙත පිවිසිය නොහැක."
 
@@ -8889,8 +8925,8 @@ msgstr ""
 #: libraries/entry_points/table/operations.php:93
 #: libraries/entry_points/table/operations.php:275
 #: libraries/entry_points/table/structure.php:36
-#: templates/database/structure/structure_table_row.twig:125
-#: templates/database/structure/structure_table_row.twig:190
+#: templates/database/structure/structure_table_row.twig:124
+#: templates/database/structure/structure_table_row.twig:189
 msgid "View"
 msgstr "දසුන"
 
@@ -8901,8 +8937,8 @@ msgstr ""
 
 #: libraries/classes/Menu.php:344
 #: libraries/classes/Navigation/Nodes/NodeTable.php:308
-#: libraries/classes/Util.php:3149 libraries/classes/Util.php:3424
-#: libraries/classes/Util.php:3425 libraries/classes/Util.php:4208
+#: libraries/classes/Util.php:3132 libraries/classes/Util.php:3407
+#: libraries/classes/Util.php:3408 libraries/classes/Util.php:4191
 #: libraries/config.values.php:69 libraries/config.values.php:83
 #: libraries/config.values.php:184
 #: templates/table/structure/display_structure.twig:277
@@ -8912,9 +8948,9 @@ msgstr "පිරික්සන්න"
 
 #: libraries/classes/Menu.php:363 libraries/classes/Menu.php:479
 #: libraries/classes/Navigation/Nodes/NodeTable.php:299
-#: libraries/classes/Util.php:3147 libraries/classes/Util.php:3426
-#: libraries/classes/Util.php:3427 libraries/classes/Util.php:4194
-#: libraries/classes/Util.php:4211 libraries/config.values.php:65
+#: libraries/classes/Util.php:3130 libraries/classes/Util.php:3409
+#: libraries/classes/Util.php:3410 libraries/classes/Util.php:4177
+#: libraries/classes/Util.php:4194 libraries/config.values.php:65
 #: libraries/config.values.php:79 libraries/config.values.php:170
 #: libraries/config.values.php:180
 msgid "Search"
@@ -8922,8 +8958,8 @@ msgstr "සෙවීම"
 
 #: libraries/classes/Menu.php:374
 #: libraries/classes/Navigation/Nodes/NodeTable.php:302
-#: libraries/classes/Util.php:3148 libraries/classes/Util.php:3428
-#: libraries/classes/Util.php:3429 libraries/classes/Util.php:4212
+#: libraries/classes/Util.php:3131 libraries/classes/Util.php:3411
+#: libraries/classes/Util.php:3412 libraries/classes/Util.php:4195
 #: libraries/config.values.php:67 libraries/config.values.php:81
 #: libraries/config.values.php:182 templates/sql/query.twig:59
 #: templates/sql/query.twig:62
@@ -8931,8 +8967,8 @@ msgid "Insert"
 msgstr "ඇතුල් කරන්න"
 
 #: libraries/classes/Menu.php:401 libraries/classes/Menu.php:519
-#: libraries/classes/Server/Privileges.php:2925 libraries/classes/Util.php:4199
-#: libraries/classes/Util.php:4215 libraries/config.values.php:162
+#: libraries/classes/Server/Privileges.php:2925 libraries/classes/Util.php:4182
+#: libraries/classes/Util.php:4198 libraries/config.values.php:162
 #: templates/server/sub_page_header.twig:2
 #: templates/table/privileges/index.twig:22
 #: templates/server/privileges/privileges_summary.twig:15
@@ -8941,15 +8977,15 @@ msgid "Privileges"
 msgstr "වරප්‍රසාද"
 
 #: libraries/classes/Menu.php:411 libraries/classes/Menu.php:420
-#: libraries/classes/Menu.php:510 libraries/classes/Util.php:3150
-#: libraries/classes/Util.php:4198 libraries/classes/Util.php:4216
+#: libraries/classes/Menu.php:510 libraries/classes/Util.php:3133
+#: libraries/classes/Util.php:4181 libraries/classes/Util.php:4199
 #: libraries/config.values.php:172 templates/table/operations/view.twig:7
 msgid "Operations"
 msgstr "මෙහෙයුම්"
 
 #: libraries/classes/Menu.php:426 libraries/classes/Menu.php:545
-#: libraries/classes/Relation.php:295 libraries/classes/Util.php:4203
-#: libraries/classes/Util.php:4217
+#: libraries/classes/Relation.php:295 libraries/classes/Util.php:4186
+#: libraries/classes/Util.php:4200
 msgid "Tracking"
 msgstr "අවධානය"
 
@@ -8961,8 +8997,8 @@ msgstr "අවධානය"
 #: libraries/classes/Plugins/Export/ExportSql.php:2086
 #: libraries/classes/Plugins/Export/ExportTexytext.php:540
 #: libraries/classes/Plugins/Export/ExportXml.php:130
-#: libraries/classes/Rte/Words.php:64 libraries/classes/Util.php:4202
-#: libraries/classes/Util.php:4218
+#: libraries/classes/Rte/Words.php:64 libraries/classes/Util.php:4185
+#: libraries/classes/Util.php:4201
 msgid "Triggers"
 msgstr "ප්‍රේරක"
 
@@ -8971,12 +9007,12 @@ msgstr "ප්‍රේරක"
 msgid "Database seems to be empty!"
 msgstr "දත්තගබඩාව හිස්ය!"
 
-#: libraries/classes/Menu.php:487 libraries/classes/Util.php:4195
+#: libraries/classes/Menu.php:487 libraries/classes/Util.php:4178
 msgid "Query"
 msgstr "විමසුම"
 
 #: libraries/classes/Menu.php:525 libraries/classes/Rte/Words.php:50
-#: libraries/classes/Util.php:4200
+#: libraries/classes/Util.php:4183
 msgid "Routines"
 msgstr "නෛත්‍යක"
 
@@ -8984,15 +9020,15 @@ msgstr "නෛත්‍යක"
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:27
 #: libraries/classes/Plugins/Export/ExportSql.php:985
 #: libraries/classes/Plugins/Export/ExportXml.php:110
-#: libraries/classes/Rte/Words.php:78 libraries/classes/Util.php:4201
+#: libraries/classes/Rte/Words.php:78 libraries/classes/Util.php:4184
 msgid "Events"
 msgstr "සිද්ධි"
 
-#: libraries/classes/Menu.php:552 libraries/classes/Util.php:4204
+#: libraries/classes/Menu.php:552 libraries/classes/Util.php:4187
 msgid "Designer"
 msgstr "සැලසුම්කරණය"
 
-#: libraries/classes/Menu.php:562 libraries/classes/Util.php:4205
+#: libraries/classes/Menu.php:562 libraries/classes/Util.php:4188
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "මධ්‍යම තීර"
@@ -9002,33 +9038,33 @@ msgid "User accounts"
 msgstr "භාවිත ගිණුම්"
 
 #: libraries/classes/Menu.php:652 libraries/classes/Server/Status/Data.php:122
-#: libraries/classes/Util.php:4184 templates/server/binlog/index.twig:3
+#: libraries/classes/Util.php:4167 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "ද්වීමය ලොගය"
 
 #: libraries/classes/Menu.php:659 libraries/classes/Server/Status/Data.php:127
-#: libraries/classes/Util.php:4185 templates/server/replication/index.twig:5
+#: libraries/classes/Util.php:4168 templates/server/replication/index.twig:5
 #: templates/database/structure/table_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
 msgstr "අනුරූකරණය"
 
 #: libraries/classes/Menu.php:665 libraries/classes/Server/Status/Data.php:195
-#: libraries/classes/Util.php:4186 libraries/config.values.php:160
+#: libraries/classes/Util.php:4169 libraries/config.values.php:160
 #: templates/sql/query.twig:159 templates/server/engines/show.twig:18
 #: templates/server/engines/show.twig:21
 msgid "Variables"
 msgstr "විචල්‍යනයන්"
 
-#: libraries/classes/Menu.php:670 libraries/classes/Util.php:4187
+#: libraries/classes/Menu.php:670 libraries/classes/Util.php:4170
 msgid "Charsets"
 msgstr "අක්ෂර කට්ටලය"
 
-#: libraries/classes/Menu.php:675 libraries/classes/Util.php:4189
+#: libraries/classes/Menu.php:675 libraries/classes/Util.php:4172
 msgid "Engines"
 msgstr "යන්ත්‍රයන්"
 
-#: libraries/classes/Menu.php:680 libraries/classes/Util.php:4188
+#: libraries/classes/Menu.php:680 libraries/classes/Util.php:4171
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr "පේණු"
@@ -9846,7 +9882,7 @@ msgstr "සම්බන්ධ විය නොහැක : වලංගු නො
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:85
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:100
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:77
-#: libraries/classes/Plugins/AuthenticationPlugin.php:191
+#: libraries/classes/Plugins/AuthenticationPlugin.php:194
 #: libraries/entry_points/database/search.php:45
 msgid "Access denied!"
 msgstr "පිවිසුම වලක්වා ඇත!"
@@ -9874,8 +9910,8 @@ msgid ""
 "configuration and make sure that they correspond to the information given by "
 "the administrator of the MySQL server."
 msgstr ""
-"phpMyAdmin MySQL සේවාදායකය වෙත සම්බන්ධ වීමට උත්සාහ කල මුත් සේවාදායකය විසින් සම්බන්ධතාව "
-"ප්‍රතික්ෂේප කරන ලදී. ඔබ ඔබගේ වින්‍යාස ගොනුවේ, දායකය, භාවිත නාමය සහ මුරපදය සඳහා අගයන් "
+"phpMyAdmin MySQL සේවාදායකය වෙත සම්බන්ධ වීමට උත්සාහ කල මුත් සේවාදායකය විසින් සම්බන්ධතාව ප්‍"
+"රතික්ෂේප කරන ලදී. ඔබ ඔබගේ වින්‍යාස ගොනුවේ, දායකය, භාවිත නාමය සහ මුරපදය සඳහා අගයන් "
 "MySQL සේවාදායකයේ පරිපාලකයා විසින් ලබා දුන් දත්ත සමග ගැලපේ දැයි පරීක්ෂා කල යුතුය."
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:154
@@ -9914,22 +9950,22 @@ msgstr "වැරදි භාවිත නාමය/මුරපදය. පි�
 msgid "Can not find signon authentication script:"
 msgstr "signon සත්‍යාපන විධානාවලිය සොයාගත නොහැක:"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:187
+#: libraries/classes/Plugins/AuthenticationPlugin.php:190
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr "මුර පදයක් නොමැතිව ඇතුල් වීම ඔබගේ සිටුවම් මගින් වලකා ඇත. (AllowNoPassword බලන්න)"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:194
+#: libraries/classes/Plugins/AuthenticationPlugin.php:197
 #, php-format
 msgid "No activity within %s seconds; please log in again."
 msgstr "පසුගිය තත්පර %s තුල අක්‍රීයයි; නැවත ඇතුළු වන්න."
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:204
 #: libraries/classes/Plugins/AuthenticationPlugin.php:207
+#: libraries/classes/Plugins/AuthenticationPlugin.php:210
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL සේවාදායකයට ලොග් විය නොහැක"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:353
+#: libraries/classes/Plugins/AuthenticationPlugin.php:356
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
@@ -9985,9 +10021,9 @@ msgstr "එක්සෙල් සංස්කරණය:"
 #: libraries/classes/Plugins/Export/ExportPdf.php:117
 #: libraries/classes/Plugins/Export/ExportSql.php:214
 #: libraries/classes/Plugins/Export/ExportTexytext.php:71
-#: libraries/config.values.php:246 libraries/config.values.php:312
-#: libraries/config.values.php:328 libraries/config.values.php:336
-#: libraries/config.values.php:341
+#: libraries/config.values.php:255 libraries/config.values.php:321
+#: libraries/config.values.php:337 libraries/config.values.php:345
+#: libraries/config.values.php:350
 msgid "structure"
 msgstr "සැකිල්ල"
 
@@ -9998,9 +10034,9 @@ msgstr "සැකිල්ල"
 #: libraries/classes/Plugins/Export/ExportPdf.php:118
 #: libraries/classes/Plugins/Export/ExportSql.php:215
 #: libraries/classes/Plugins/Export/ExportTexytext.php:72
-#: libraries/config.values.php:247 libraries/config.values.php:313
-#: libraries/config.values.php:329 libraries/config.values.php:337
-#: libraries/config.values.php:342
+#: libraries/config.values.php:256 libraries/config.values.php:322
+#: libraries/config.values.php:338 libraries/config.values.php:346
+#: libraries/config.values.php:351
 msgid "data"
 msgstr "දත්ත"
 
@@ -10011,9 +10047,9 @@ msgstr "දත්ත"
 #: libraries/classes/Plugins/Export/ExportPdf.php:119
 #: libraries/classes/Plugins/Export/ExportSql.php:216
 #: libraries/classes/Plugins/Export/ExportTexytext.php:73
-#: libraries/config.values.php:248 libraries/config.values.php:314
-#: libraries/config.values.php:330 libraries/config.values.php:338
-#: libraries/config.values.php:343
+#: libraries/config.values.php:257 libraries/config.values.php:323
+#: libraries/config.values.php:339 libraries/config.values.php:347
+#: libraries/config.values.php:352
 msgid "structure and data"
 msgstr "සැකිල්ල සහ දත්ත"
 
@@ -10787,7 +10823,7 @@ msgstr ""
 
 #. l10n: See https://secure.php.net/manual/en/function.strftime.php
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:65
-#: libraries/classes/Util.php:1578
+#: libraries/classes/Util.php:1561
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%B %d, %Y දින %I:%M %p ට"
 
@@ -10873,7 +10909,7 @@ msgstr ""
 "ක්ලික් කල හැකි පින්තුරයක් පෙන්වයි; විකල්ප පික්සල් වලින් උපරිම පළල සහ උස විය යුතුය. පෙර තිබූ උසට පළල "
 "අනුපාතය සුරැකේ."
 
-#: libraries/classes/Plugins/Transformations/Abs/LongToIPv4TransformationsPlugin.php:30
+#: libraries/classes/Plugins/Transformations/Abs/LongToIPv4TransformationsPlugin.php:31
 msgid ""
 "Converts an (IPv4) Internet network address stored as a BIGINT into a string "
 "in Internet standard dotted format."
@@ -10916,7 +10952,7 @@ msgid ""
 "input."
 msgstr ""
 
-#: libraries/classes/Plugins/Transformations/Abs/TextImageLinkTransformationsPlugin.php:31
+#: libraries/classes/Plugins/Transformations/Abs/TextImageLinkTransformationsPlugin.php:32
 msgid ""
 "Displays an image and a link; the column contains the filename. The first "
 "option is a URL prefix like \"https://www.example.com/\". The second and "
@@ -12438,7 +12474,7 @@ msgid ""
 msgstr "ගබඩා යන්ත්‍රයෙහි තත්වය පිලිබඳ වැඩිදුර තොරතුරු නැත."
 
 #: libraries/classes/StorageEngine.php:386
-#: templates/database/structure/body_for_table_summary.twig:47
+#: templates/database/structure/body_for_table_summary.twig:46
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s මෙම සේවාදායකයේ පෙරනිමි ගබඩා යන්ත්‍රයයි."
@@ -12554,12 +12590,12 @@ msgstr "‍%s පෙරනිමි තේමාව සොයාගැනීම�
 msgid "Theme %s not found!"
 msgstr "%s තේමාව හමු නොවිණි!"
 
-#: libraries/classes/ThemeManager.php:255
+#: libraries/classes/ThemeManager.php:258
 #, php-format
 msgid "Theme path not found for theme %s!"
 msgstr "%s තේමාව සඳහා තේමාව ඇති තැන හමු නොවිණි!"
 
-#: libraries/classes/ThemeManager.php:344
+#: libraries/classes/ThemeManager.php:347
 msgid "Theme:"
 msgstr "තේමාව:"
 
@@ -13015,34 +13051,34 @@ msgstr "ස්ථිතික දත්ත"
 msgid "%d errors were found during analysis."
 msgstr ""
 
-#: libraries/classes/Util.php:1098
+#: libraries/classes/Util.php:1081
 msgid "Skip Explain SQL"
 msgstr "SQL ය පහදා දීමෙන් ඉවත් වන්න"
 
-#: libraries/classes/Util.php:1106
+#: libraries/classes/Util.php:1089
 #, php-format
 msgid "Analyze Explain at %s"
 msgstr ""
 
-#: libraries/classes/Util.php:1136
+#: libraries/classes/Util.php:1119
 #, fuzzy
 #| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "PHP කේත නොමැතිව"
 
-#: libraries/classes/Util.php:1143
+#: libraries/classes/Util.php:1126
 #: templates/database/multi_table_query/form.twig:180
 #, fuzzy
 #| msgid "Submit Query"
 msgid "Submit query"
 msgstr "විමසුම ඉදිරිපත් කරන්න"
 
-#: libraries/classes/Util.php:1188 templates/sql/profiling_chart.twig:2
+#: libraries/classes/Util.php:1171 templates/sql/profiling_chart.twig:2
 #: templates/console/display.twig:31 templates/console/display.twig:175
 msgid "Profiling"
 msgstr ""
 
-#: libraries/classes/Util.php:1206
+#: libraries/classes/Util.php:1189
 #, fuzzy
 #| msgid "Edit index"
 msgctxt "Inline edit query"
@@ -13050,84 +13086,84 @@ msgid "Edit inline"
 msgstr "සුචිය සංස්කරණය කරන්න"
 
 #. l10n: Short week day name
-#: libraries/classes/Util.php:1561
+#: libraries/classes/Util.php:1544
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "ඉරිදා"
 
-#: libraries/classes/Util.php:1599
+#: libraries/classes/Util.php:1582
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr ""
 
-#: libraries/classes/Util.php:1601
+#: libraries/classes/Util.php:1584
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr ""
 
-#: libraries/classes/Util.php:1907
+#: libraries/classes/Util.php:1890
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "දින %s, පැය %s, මිනිත්තු %s සහ තප්පර %s"
 
-#: libraries/classes/Util.php:1942
+#: libraries/classes/Util.php:1925
 msgid "Missing parameter:"
 msgstr "නොමැති පරාමිතිය:"
 
-#: libraries/classes/Util.php:2522
+#: libraries/classes/Util.php:2505
 #, fuzzy, php-format
 #| msgid "Jump to database \"%s\"."
 msgid "Jump to database “%s”."
 msgstr "\"%s\" දත්තගබඩාව වෙත යන්න."
 
-#: libraries/classes/Util.php:2550
+#: libraries/classes/Util.php:2533
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s විශේෂාංගයෙහි හඳුනාගත් දෝෂයක් ඇත, %s බලන්න"
 
-#: libraries/classes/Util.php:3343 templates/preferences/manage/main.twig:19
+#: libraries/classes/Util.php:3326 templates/preferences/manage/main.twig:19
 msgid "Browse your computer:"
 msgstr "පරිගණකය තුළ පිරික්සන්න:"
 
-#: libraries/classes/Util.php:3370
+#: libraries/classes/Util.php:3353
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "වෙබ් සේවාදායකයේ <b>%s</b> උඩුගත කිරීම් ඩිරෙක්ටරියෙන් තෝරන්න:"
 
-#: libraries/classes/Util.php:3409
+#: libraries/classes/Util.php:3392
 msgid "There are no files to upload!"
 msgstr "උඩුගත කිරීම සඳහා ගොනු නොමැත!"
 
-#: libraries/classes/Util.php:3433 libraries/classes/Util.php:3434
+#: libraries/classes/Util.php:3416 libraries/classes/Util.php:3417
 #: templates/database/structure/check_all_tables.twig:15
 msgid "Empty"
 msgstr "හිස් කරන්න"
 
-#: libraries/classes/Util.php:3439 libraries/classes/Util.php:3440
+#: libraries/classes/Util.php:3422 libraries/classes/Util.php:3423
 msgid "Execute"
 msgstr "ක්‍රියාත්මක කරන්න"
 
-#: libraries/classes/Util.php:4067
+#: libraries/classes/Util.php:4050
 msgid "SSL is not being used"
 msgstr ""
 
-#: libraries/classes/Util.php:4072
+#: libraries/classes/Util.php:4055
 msgid "SSL is used with disabled verification"
 msgstr ""
 
-#: libraries/classes/Util.php:4074
+#: libraries/classes/Util.php:4057
 msgid "SSL is used without certification authority"
 msgstr ""
 
-#: libraries/classes/Util.php:4077
+#: libraries/classes/Util.php:4060
 msgid "SSL is used"
 msgstr ""
 
-#: libraries/classes/Util.php:4180
+#: libraries/classes/Util.php:4163
 msgid "Users"
 msgstr "භාවිතා කරන්නන්"
 
-#: libraries/classes/Util.php:4873
+#: libraries/classes/Util.php:4856
 #: templates/database/multi_table_query/form.twig:67
 msgid "Sort"
 msgstr "සුබෙදන්න"
@@ -13140,22 +13176,22 @@ msgstr ""
 msgid "Error in ZIP archive:"
 msgstr "ZIP ආරක්ෂණයේ දෝෂයක් ඇත:"
 
-#: libraries/common.inc.php:202
+#: libraries/common.inc.php:204
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/common.inc.php:356
+#: libraries/common.inc.php:358
 msgid "Invalid authentication method set in configuration:"
 msgstr "වින්‍යසයන්හි වලංගු නැති සත්‍යාපන ක්‍රමයක් සිටුවා ඇත:"
 
-#: libraries/common.inc.php:409
+#: libraries/common.inc.php:411
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "ඔබ %s %s හෝ ඉන්පසු අනුවාදයක් වෙත යාවත්කාලීන කල යුතුය."
 
-#: libraries/common.inc.php:464
+#: libraries/common.inc.php:466
 msgid "Error: Token mismatch"
 msgstr "දෝෂය: ටෝකන නොගැලපීම"
 
@@ -13219,61 +13255,61 @@ msgstr "විවෘත"
 msgid "Closed"
 msgstr "වසන ලද"
 
-#: libraries/config.values.php:192
+#: libraries/config.values.php:201
 msgid "Ask before sending error reports"
 msgstr ""
 
-#: libraries/config.values.php:193
+#: libraries/config.values.php:202
 msgid "Always send error reports"
 msgstr ""
 
-#: libraries/config.values.php:194
+#: libraries/config.values.php:203
 msgid "Never send error reports"
 msgstr ""
 
-#: libraries/config.values.php:197
+#: libraries/config.values.php:206
 #, fuzzy
 #| msgid "Reset to default"
 msgid "Server default"
 msgstr "පෙරනිමි අගයන් පිහිටුවන්න"
 
-#: libraries/config.values.php:198
+#: libraries/config.values.php:207
 #, fuzzy
 #| msgid "Enabled"
 msgid "Enable"
 msgstr "සක්‍රිය කරන ලද"
 
-#: libraries/config.values.php:199
+#: libraries/config.values.php:208
 #, fuzzy
 #| msgid "Disabled"
 msgid "Disable"
 msgstr "අක්‍රිය"
 
-#: libraries/config.values.php:251
+#: libraries/config.values.php:260
 msgid "Quick - display only the minimal options to configure"
 msgstr "කඩිනම් - අවම තෝරා ගැනීම් පමණක් පෙන්වන්න"
 
-#: libraries/config.values.php:252
+#: libraries/config.values.php:261
 msgid "Custom - display all possible options to configure"
 msgstr "අභිමත - සියලුම තෝරා ගැනීම් පෙන්වන්න"
 
-#: libraries/config.values.php:254
+#: libraries/config.values.php:263
 msgid "Custom - like above, but without the quick/custom choice"
 msgstr "අභිමත - ඉහත මෙන්, නමුත් අභිමත/කඩිනම් තෝරාගැනීම් නොමෙතිව"
 
-#: libraries/config.values.php:322
+#: libraries/config.values.php:331
 msgid "complete inserts"
 msgstr "සම්පූර්ණ ඇතුළු කිරීම්"
 
-#: libraries/config.values.php:323
+#: libraries/config.values.php:332
 msgid "extended inserts"
 msgstr "විස්තෘත ඇතුළු කිරීම්"
 
-#: libraries/config.values.php:324
+#: libraries/config.values.php:333
 msgid "both of the above"
 msgstr "ඉහත ද්විත්වයම"
 
-#: libraries/config.values.php:325
+#: libraries/config.values.php:334
 msgid "neither of the above"
 msgstr "ඉහත එක් වර්ගයක්වත් නොව"
 
@@ -13281,14 +13317,6 @@ msgstr "ඉහත එක් වර්ගයක්වත් නොව"
 #: libraries/entry_points/table/operations.php:245
 msgid "No collation provided."
 msgstr ""
-
-#: libraries/entry_points/changelog.php:44
-#: libraries/entry_points/license.php:31
-#, php-format
-msgid ""
-"The %s file is not available on this system, please visit %s for more "
-"information."
-msgstr "%s ගොනුව මෙම පද්ධතියේ නොමැත. වැඩි විස්තර සඳහා %s වෙත යන්න."
 
 #: libraries/entry_points/database/central_columns.php:133
 #, php-format
@@ -13370,32 +13398,7 @@ msgstr "වගුවක් තෝරාගෙන නොමැත."
 msgid "Database Log"
 msgstr "දත්තගබඩා ලොගය"
 
-#: libraries/entry_points/error_report.php:78
-msgid ""
-"An error has been detected and an error report has been automatically "
-"submitted based on your settings."
-msgstr ""
-"දෝෂයක් වාර්තාවී ඇති අතර දෝෂයක් වාර්තාව ස්වයංක්රීයව ඔබගේ සැකසුම් මත පදනම් ඉදිරිපත් කර ඇත."
-
-#: libraries/entry_points/error_report.php:82
-msgid "Thank you for submitting this report."
-msgstr "මෙම වාර්තාව යොමුකලාට ස්තූතියි."
-
-#: libraries/entry_points/error_report.php:86
-msgid ""
-"An error has been detected and an error report has been generated but failed "
-"to be sent."
-msgstr "දෝෂයක් වාර්තාවී ඇත හා දෝෂ වාර්තාව ජනනය කර ඇති නමුත් එය යැවීමට අසමත් විය."
-
-#: libraries/entry_points/error_report.php:91
-msgid "If you experience any problems please submit a bug report manually."
-msgstr "ඔබ යම් දෝෂ වලට මුහුණදී නම් ඔබ විසින්ම දෝෂ වාර්තාවක් ඉදිරිපත් කරන්න."
-
-#: libraries/entry_points/error_report.php:95
-msgid "You may want to refresh the page."
-msgstr "ඔබ පිටුව ප්‍රතිපුර්ණය කිරීමට ඔබට අවශ්ය විය හැක."
-
-#: libraries/entry_points/export.php:312
+#: libraries/entry_points/export.php:313
 msgid "Bad parameters!"
 msgstr "වැරදි පරාමිතියන්!"
 
@@ -13565,7 +13568,7 @@ msgid ""
 "password, 'Change password' tab should be used."
 msgstr ""
 
-#: libraries/entry_points/server/privileges.php:467
+#: libraries/entry_points/server/privileges.php:466
 msgid "User has been added."
 msgstr "භාවිතා කරන්නා එක් කරන ලදි."
 
@@ -14106,14 +14109,14 @@ msgstr ""
 #: templates/server/status/status/index.twig:61
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
-"මෙම MySQL සේවාදායකය <b>අනුරූකරණ</b> ක්‍රියාවලියේදී <b>ප්‍රධාන සේවාදායකය</b> ලෙස "
-"ක්‍රියාකරයි."
+"මෙම MySQL සේවාදායකය <b>අනුරූකරණ</b> ක්‍රියාවලියේදී <b>ප්‍රධාන සේවාදායකය</b> ලෙස ක්‍"
+"රියාකරයි."
 
 #: templates/server/status/status/index.twig:63
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
-"මෙම MySQL සේවාදායකය <b>අනුරූකරණ</b> ක්‍රියාවලියේදී <b>අනුගාමි සේවාදායකය</b> ලෙස "
-"ක්‍රියාකරයි."
+"මෙම MySQL සේවාදායකය <b>අනුරූකරණ</b> ක්‍රියාවලියේදී <b>අනුගාමි සේවාදායකය</b> ලෙස ක්‍"
+"රියාකරයි."
 
 #: templates/server/status/status/index.twig:70
 msgid "Replication status"
@@ -14226,7 +14229,7 @@ msgstr "අනුරූ නොකරන ලද"
 msgid "Replicated"
 msgstr "අනුරූ කරන ලද"
 
-#: templates/database/structure/structure_table_row.twig:227
+#: templates/database/structure/structure_table_row.twig:226
 msgid "in use"
 msgstr "භාවිතා වෙමින් පවතී"
 
@@ -14942,8 +14945,8 @@ msgid ""
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
-"ඔබගේ බ්‍රව්සරය විසින් නියමිත කාලාන්තරයකට වරක් සියලුම ප්‍රස්ථාර යාවත්කාලීන කෙරෙනු ඇත. ඔබට "
-"ප්‍රස්ථාර එකතු කිරීම, 'සිටුවම්' භාවිතා කරමින් යාවත්කාලීන කරන වේගය වෙනස් කිරීම හෝ අදාල ප්‍රස්ථාරය "
+"ඔබගේ බ්‍රව්සරය විසින් නියමිත කාලාන්තරයකට වරක් සියලුම ප්‍රස්ථාර යාවත්කාලීන කෙරෙනු ඇත. ඔබට ප්‍"
+"රස්ථාර එකතු කිරීම, 'සිටුවම්' භාවිතා කරමින් යාවත්කාලීන කරන වේගය වෙනස් කිරීම හෝ අදාල ප්‍රස්ථාරය "
 "මත ඇති අයිකනය භාවිතා කර ඕනෑම ප්‍රස්ථාරයක් ඉවත් කිරීම සිදු කල හැක."
 
 #: templates/server/status/monitor/index.twig:108
@@ -14971,8 +14974,8 @@ msgid ""
 msgstr ""
 "general_log සක්‍රීය කිරීම සේවාදායකය මත භාරය 5-15% අතර ප්‍රමාණයකින් වැඩි කරයි. එමෙන්ම "
 "ලොගගත දත්ත මගින් සංඛ්‍යාලේඛන උත්පාදනය කිරීම අධික භාරයක් ගෙනදෙන කාර්යයක් බව සලකන්න. එම නිසා "
-"මේ සඳහා කුඩා කාල පරාසයක් තෝරා ගැනීමද අධීක්ෂණය තවදුරටත් අවශ්‍ය නොවන විට general_log "
-"අක්‍රීය කිරීම හා ඊට අයත් වගුව හිස් කිරීම ද නිර්දේශිතය."
+"මේ සඳහා කුඩා කාල පරාසයක් තෝරා ගැනීමද අධීක්ෂණය තවදුරටත් අවශ්‍ය නොවන විට general_log අක්‍"
+"රීය කිරීම හා ඊට අයත් වගුව හිස් කිරීම ද නිර්දේශිතය."
 
 #: templates/server/status/monitor/index.twig:127
 msgid "Chart Title"
@@ -17167,8 +17170,8 @@ msgid ""
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as master."
 msgstr ""
-"සේවාදායකය නැවත පණගැන්වීමෙන් අනතුරුව 'යන්න' බොත්තම ඔබන්න. ඉන් අනතුරුව මෙම සේවාදායකය "
-"ප්‍රධාන සේවාදායකය ලෙස සකසා <b>ඇති</b> බවට පණිවිඩයක් දර්ශනය වනු ඇත."
+"සේවාදායකය නැවත පණගැන්වීමෙන් අනතුරුව 'යන්න' බොත්තම ඔබන්න. ඉන් අනතුරුව මෙම සේවාදායකය ප්‍"
+"රධාන සේවාදායකය ලෙස සකසා <b>ඇති</b> බවට පණිවිඩයක් දර්ශනය වනු ඇත."
 
 #: templates/preferences/two_factor/configure.twig:2
 #: templates/preferences/two_factor/main.twig:44
@@ -17503,7 +17506,7 @@ msgstr "අක්ෂර කට්ටල සහ පරිතුලන"
 msgid "Get more themes!"
 msgstr "තවත් තේමාවන් ලබා ගන්න!"
 
-#: url.php:51
+#: url.php:50
 #, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to the target site."
@@ -19108,9 +19111,9 @@ msgstr ""
 #~ "default, is open to intrusion, and you really should fix this security "
 #~ "hole by setting a password for user 'root'."
 #~ msgstr ""
-#~ "ඔබගේ සිටුවම් ගොනුවේ අඩංගු සිටුවම් (භාවිත නාමය root වන හා මුරපදයක් නොමැති), පෙරනිමි, "
-#~ "වරප්‍රසාදැති MySQL ගිණුමට අදාළ වේ. මෙම පෙරනිමි අගයන් භාවිතා කිරීම අනවසර ඇතුල්වීම් වලට "
-#~ "හේතු විය හැකි බැවින් ඔබ 'root' භාවිතා කරන්නා සඳහා වෙනත් මුරපදයක් ලබා දිය යුතුය."
+#~ "ඔබගේ සිටුවම් ගොනුවේ අඩංගු සිටුවම් (භාවිත නාමය root වන හා මුරපදයක් නොමැති), පෙරනිමි, වරප්‍"
+#~ "රසාදැති MySQL ගිණුමට අදාළ වේ. මෙම පෙරනිමි අගයන් භාවිතා කිරීම අනවසර ඇතුල්වීම් වලට හේතු "
+#~ "විය හැකි බැවින් ඔබ 'root' භාවිතා කරන්නා සඳහා වෙනත් මුරපදයක් ලබා දිය යුතුය."
 
 #~ msgid "Create database:"
 #~ msgstr "දත්තගබඩාවක් සාදන්න:"
@@ -19619,8 +19622,8 @@ msgstr ""
 #~ "parent window, or your browser's security settings are configured to "
 #~ "block cross-window updates."
 #~ msgstr ""
-#~ "ඉලක්කගත බ්‍රව්සර කවුලුව යාවත්කාලීන කල නොහැක. ඔබ එහි මව් කවුලුව වසා තිබීම හෝ ඔබගේ "
-#~ "බ්‍රව්සරයේ ආරක්ෂක සැකසුම් අන්තර් කවුළු යාවත්කාලීන කිරීම් අවහිර කරන ලෙස සකසා තිබීම මීට හේතු විය "
+#~ "ඉලක්කගත බ්‍රව්සර කවුලුව යාවත්කාලීන කල නොහැක. ඔබ එහි මව් කවුලුව වසා තිබීම හෝ ඔබගේ බ්‍"
+#~ "රව්සරයේ ආරක්ෂක සැකසුම් අන්තර් කවුළු යාවත්කාලීන කිරීම් අවහිර කරන ලෙස සකසා තිබීම මීට හේතු විය "
 #~ "හැක."
 
 #~ msgid "Show binary contents as HEX by default."
@@ -20166,8 +20169,8 @@ msgstr ""
 #~ "phpMyAdmin functionality will be missing. For example navigation frame "
 #~ "will not refresh automatically."
 #~ msgstr ""
-#~ "ඔබගේ බවුසරයේ Javascript සහය නැත/අක්‍රිය කර ඇත. එබැවින් යම් phpMyAdmin විශේෂාංග "
-#~ "අක්‍රිය වී ඇත. උදාහරණයක් ලෙස යාත්‍රණ රාමුව ස්වයංක්‍රියව යාවත්කාලීන නොවේ."
+#~ "ඔබගේ බවුසරයේ Javascript සහය නැත/අක්‍රිය කර ඇත. එබැවින් යම් phpMyAdmin විශේෂාංග අක්‍"
+#~ "රිය වී ඇත. උදාහරණයක් ලෙස යාත්‍රණ රාමුව ස්වයංක්‍රියව යාවත්කාලීන නොවේ."
 
 #~ msgid "Add a value"
 #~ msgstr "අගයක් එක් කරන්න"
