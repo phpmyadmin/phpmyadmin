@@ -2134,7 +2134,7 @@ class Relation
             );
         }
         $message->addParamHtml(
-            '<a href="' . Url::getFromRoute('/check_relations') . '" data-post="' . Url::getCommon($params, '') . '">'
+            '<a href="' . Url::getFromRoute('/check-relations') . '" data-post="' . Url::getCommon($params, '') . '">'
         );
         $message->addParamHtml('</a>');
 

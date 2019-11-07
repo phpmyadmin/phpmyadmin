@@ -412,7 +412,7 @@ abstract class TestBase extends TestCase
      */
     protected function skipIfNotPMADB()
     {
-        $this->navigateTo('index.php?route=/check_relations');
+        $this->navigateTo('index.php?route=/check-relations');
         $pageContent = $this->waitForElement('id', 'page_content');
         if (preg_match(
             '/Configuration of pmadb… not OK/i',

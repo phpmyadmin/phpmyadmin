@@ -9,6 +9,7 @@ use FastRoute\RouteCollector;
 use PhpMyAdmin\Controllers\AjaxController;
 use PhpMyAdmin\Controllers\BrowseForeignersController;
 use PhpMyAdmin\Controllers\ChangeLogController;
+use PhpMyAdmin\Controllers\CheckRelationsController;
 use PhpMyAdmin\Controllers\Database\DataDictionaryController;
 use PhpMyAdmin\Controllers\Database\MultiTableQueryController;
 use PhpMyAdmin\Controllers\Database\StructureController;
@@ -100,8 +101,14 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $controller = $containerBuilder->get(ChangeLogController::class);
         $controller->index();
     });
-    $routes->addRoute(['GET', 'POST'], '/check_relations', function () {
-        require_once ROOT_PATH . 'libraries/entry_points/chk_rel.php';
+    $routes->addRoute(['GET', 'POST'], '/check-relations', function () use ($containerBuilder, $response) {
+        /** @var CheckRelationsController $controller */
+        $controller = $containerBuilder->get(CheckRelationsController::class);
+        $response->addHTML($controller->index([
+            'create_pmadb' => $_POST['create_pmadb'] ?? null,
+            'fixall_pmadb' => $_POST['fixall_pmadb'] ?? null,
+            'fix_pmadb' => $_POST['fix_pmadb'] ?? null,
+        ]));
     });
     $routes->addGroup('/database', function (RouteCollector $routes) use ($containerBuilder, $response) {
         $routes->addRoute(['GET', 'POST'], '/central_columns', function () {
