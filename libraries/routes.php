@@ -14,6 +14,7 @@ use PhpMyAdmin\Controllers\Database\DataDictionaryController;
 use PhpMyAdmin\Controllers\Database\MultiTableQueryController;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Controllers\ErrorReportController;
+use PhpMyAdmin\Controllers\GisDataEditorController;
 use PhpMyAdmin\Controllers\HomeController;
 use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\Controllers\Server\CollationsController;
@@ -217,8 +218,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
     $routes->addRoute(['GET', 'POST'], '/export', function () {
         require_once ROOT_PATH . 'libraries/entry_points/export.php';
     });
-    $routes->addRoute(['GET', 'POST'], '/gis_data_editor', function () {
-        require_once ROOT_PATH . 'libraries/entry_points/gis_data_editor.php';
+    $routes->addRoute(['GET', 'POST'], '/gis-data-editor', function () use ($containerBuilder, $response) {
+        /** @var GisDataEditorController $controller */
+        $controller = $containerBuilder->get(GisDataEditorController::class);
+        $response->addJSON($controller->index());
     });
     $routes->addRoute(['GET', 'POST'], '/import', function () {
         require_once ROOT_PATH . 'libraries/entry_points/import.php';
