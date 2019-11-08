@@ -16,6 +16,7 @@ use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Controllers\ErrorReportController;
 use PhpMyAdmin\Controllers\GisDataEditorController;
 use PhpMyAdmin\Controllers\HomeController;
+use PhpMyAdmin\Controllers\LicenseController;
 use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\Controllers\Server\CollationsController;
 use PhpMyAdmin\Controllers\Server\DatabasesController;
@@ -226,8 +227,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
     $routes->addRoute(['GET', 'POST'], '/import', function () {
         require_once ROOT_PATH . 'libraries/entry_points/import.php';
     });
-    $routes->get('/license', function () {
-        require_once ROOT_PATH . 'libraries/entry_points/license.php';
+    $routes->get('/license', function () use ($containerBuilder) {
+        /** @var LicenseController $controller */
+        $controller = $containerBuilder->get(LicenseController::class);
+        $controller->index();
     });
     $routes->addRoute(['GET', 'POST'], '/lint', function () {
         require_once ROOT_PATH . 'libraries/entry_points/lint.php';

@@ -134,6 +134,13 @@ services:
       config: '@config'
       themeManager: '@theme_manager'
 
+  PhpMyAdmin\Controllers\LicenseController:
+    class: 'PhpMyAdmin\Controllers\LicenseController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+
   PhpMyAdmin\Controllers\Server\DatabasesController:
     class: 'PhpMyAdmin\Controllers\Server\DatabasesController'
     arguments:
