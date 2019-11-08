@@ -18,6 +18,7 @@ use PhpMyAdmin\Controllers\GisDataEditorController;
 use PhpMyAdmin\Controllers\HomeController;
 use PhpMyAdmin\Controllers\LicenseController;
 use PhpMyAdmin\Controllers\LintController;
+use PhpMyAdmin\Controllers\PhpInfoController;
 use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\Controllers\Server\CollationsController;
 use PhpMyAdmin\Controllers\Server\DatabasesController;
@@ -250,8 +251,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
     $routes->addRoute(['GET', 'POST'], '/normalization', function () {
         require_once ROOT_PATH . 'libraries/entry_points/normalization.php';
     });
-    $routes->get('/phpinfo', function () {
-        require_once ROOT_PATH . 'libraries/entry_points/phpinfo.php';
+    $routes->get('/phpinfo', function () use ($containerBuilder) {
+        /** @var PhpInfoController $controller */
+        $controller = $containerBuilder->get(PhpInfoController::class);
+        $controller->index();
     });
     $routes->addGroup('/preferences', function (RouteCollector $routes) {
         $routes->addRoute(['GET', 'POST'], '/forms', function () {

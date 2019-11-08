@@ -148,6 +148,13 @@ services:
       dbi: '@dbi'
       template: '@template'
 
+  PhpMyAdmin\Controllers\PhpInfoController:
+    class: 'PhpMyAdmin\Controllers\PhpInfoController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+
   PhpMyAdmin\Controllers\Server\DatabasesController:
     class: 'PhpMyAdmin\Controllers\Server\DatabasesController'
     arguments:
