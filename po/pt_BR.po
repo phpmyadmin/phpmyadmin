@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-10-29 00:43+0100\n"
-"PO-Revision-Date: 2019-11-03 17:13+0000\n"
+"PO-Revision-Date: 2019-11-08 14:26+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-0/pt_BR/>\n"
@@ -6079,7 +6079,7 @@ msgstr "Texto OpenDocument"
 
 #: libraries/classes/Config/Forms/User/FeaturesForm.php:93
 msgid "Features"
-msgstr "Funções"
+msgstr "Recursos"
 
 #: libraries/classes/Config/Forms/User/ImportForm.php:47
 msgid "CSV using LOAD DATA"
