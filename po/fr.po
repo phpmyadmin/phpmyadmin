@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-10-29 00:43+0100\n"
-"PO-Revision-Date: 2019-11-03 17:13+0000\n"
+"PO-Revision-Date: 2019-11-08 14:26+0000\n"
 "Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/5-0/fr/"
 ">\n"
@@ -2562,7 +2562,7 @@ msgstr "me"
 #. l10n: Minimal week day name
 #: js/messages.php:891
 msgid "Th"
-msgstr "me"
+msgstr "je"
 
 #. l10n: Minimal week day name
 #: js/messages.php:893
