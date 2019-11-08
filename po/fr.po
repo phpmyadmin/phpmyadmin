@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-11-07 18:19-0300\n"
-"PO-Revision-Date: 2019-11-03 17:13+0000\n"
+"PO-Revision-Date: 2019-11-08 14:26+0000\n"
 "Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
@@ -3728,7 +3728,7 @@ msgstr "Vérification des clés étrangères :"
 
 #: libraries/classes/Config/Descriptions.php:285
 msgid "First day of calendar"
-msgstr ""
+msgstr "Premier jour du calendrier"
 
 #: libraries/classes/Config/Descriptions.php:286
 msgid "Browse mode"
