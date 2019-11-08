@@ -233,8 +233,8 @@ if [ ! -d libraries/tcpdf ] ; then
     cp composer.json composer.json.backup
     echo "* Running composer"
     composer config platform.php "$PHP_REQ"
-    composer update --no-dev
-    composer require --update-no-dev tecnickcom/tcpdf pragmarx/google2fa bacon/bacon-qr-code samyoul/u2f-php-server
+    composer install --no-dev
+    composer require --no-update tecnickcom/tcpdf pragmarx/google2fa bacon/bacon-qr-code samyoul/u2f-php-server
     mv composer.json.backup composer.json
     echo "* Cleanup of composer packages"
     rm -rf \
@@ -266,11 +266,6 @@ if [ ! -d libraries/tcpdf ] ; then
         vendor/google/recaptcha/tests/
     find vendor/phpseclib/phpseclib/phpseclib/Crypt/ -maxdepth 1 -type f -not -name AES.php -not -name Base.php -not -name Random.php -not -name Rijndael.php -print0 | xargs -0 rm
     find vendor/tecnickcom/tcpdf/fonts/ -maxdepth 1 -type f -not -name 'dejavusans.*' -not -name 'dejavusansb.*' -not -name 'helvetica.php' -print0 | xargs -0 rm
-    if [ $do_tag -eq 1 ] ; then
-        echo "* Commiting composer.lock"
-        git add --force composer.lock
-        git commit -s -m "Adding composer lock for $version"
-    fi
 fi
 
 if [ -f package.json ] ; then
@@ -284,7 +279,7 @@ find . -name .gitignore -print0 | xargs -0 -r rm -f
 find . -name .gitattributes -print0 | xargs -0 -r rm -f
 
 if [ $do_test -eq 1 ] ; then
-    composer update
+    composer install
     ./vendor/bin/phpunit --configuration phpunit.xml.nocoverage --exclude-group selenium
     test_ret=$?
     if [ $do_ci -eq 1 ] ; then
@@ -301,7 +296,7 @@ if [ $do_test -eq 1 ] ; then
     fi
     # Remove libs installed for testing
     rm -rf build
-    composer update --no-dev
+    composer install --no-dev
 fi
 
 
@@ -421,15 +416,6 @@ if [ $do_tag -eq 1 ] ; then
     echo "* Tagging release as $tagname"
     git tag -s -a -m "Released $version" $tagname $branch
     echo "   Dont forget to push tags using: git push --tags"
-    echo "* Cleanup of $branch"
-    # Remove composer.lock, but we need to create fresh worktree for that
-    git worktree add --force $workdir $branch
-    cd $workdir
-    git rm --force composer.lock
-    git commit -s -m "Removing composer.lock"
-    cd ../..
-    rm -rf $workdir
-    git worktree prune
 fi
 
 # Mark as stable release
