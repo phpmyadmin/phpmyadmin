@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-11-09 15:36+0100\n"
-"PO-Revision-Date: 2019-11-03 17:13+0000\n"
-"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
+"PO-Revision-Date: 2019-11-10 16:04+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/4-9/fr/"
 ">\n"
 "Language: fr\n"
@@ -1169,7 +1169,7 @@ msgstr "Le modèle a été chargé."
 
 #: js/messages.php:155
 msgid "Template was updated."
-msgstr "Le modèle a été mis à  jour."
+msgstr "Le modèle a été mis à jour."
 
 #: js/messages.php:156
 msgid "Template was deleted."
@@ -2538,7 +2538,7 @@ msgstr ""
 
 #: js/messages.php:650
 msgid "Generate password"
-msgstr "Générer un mot de passe&nbsp;"
+msgstr "Générer un mot de passe"
 
 #: js/messages.php:651 libraries/classes/ReplicationGui.php:886
 msgid "Generate"
@@ -3270,7 +3270,7 @@ msgstr "Action"
 #: templates/database/create_table.twig:11
 #: templates/columns_definitions/table_fields_definitions.twig:9
 msgid "Name"
-msgstr "Nom&nbsp;"
+msgstr "Nom"
 
 #: libraries/classes/CentralColumns.php:746
 #: libraries/classes/CentralColumns.php:1428
@@ -4257,8 +4257,8 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
-"Ordre du tri pour les éléments de clé étrangère; [kbd]content[/kbd] signifie "
-"la donnée référencée, [kbd]id[/kbd] représente la valeur de la clé."
+"Ordre du tri pour les éléments de clé étrangère ; [kbd]content[/kbd] "
+"signifie la donnée référencée, [kbd]id[/kbd] représente la valeur de la clé."
 
 #: libraries/classes/Config/Descriptions.php:424
 msgid "Foreign key dropdown order"
@@ -5786,7 +5786,7 @@ msgstr "Nom à afficher pour ce serveur"
 
 #: libraries/classes/Config/Descriptions.php:1255
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
-msgstr "Si un bouton « Tout afficher »  devrait être affiché."
+msgstr "Si un bouton « Tout afficher » devrait être affiché."
 
 #: libraries/classes/Config/Descriptions.php:1257
 msgid "Allow to display all the rows"
@@ -7325,7 +7325,7 @@ msgstr "Restaurer l'ordre des colonnes"
 #: libraries/classes/Display/Results.php:965
 #: templates/database/central_columns/table_navigation.twig:37
 msgid "Filter rows"
-msgstr "Filtrer les lignes&nbsp;"
+msgstr "Filtrer les lignes"
 
 #: libraries/classes/Display/Results.php:967
 #: templates/database/central_columns/table_navigation.twig:38
@@ -8875,7 +8875,7 @@ msgid ""
 "create the following tables:"
 msgstr ""
 "Afin de transformer la table d'origine « %1$s » en troisième forme normale, "
-"il va falloir créer les tables suivantes  :"
+"il va falloir créer les tables suivantes :"
 
 #: libraries/classes/Normalization.php:639
 msgid "The third step of normalization is complete."
@@ -11124,7 +11124,7 @@ msgstr "Il faut fournir un nom pour la procédure !"
 #: libraries/classes/Rte/Routines.php:1176
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
-msgstr "La direction «  %s » fournie pour le paramètre est invalide."
+msgstr "La direction « %s » fournie pour le paramètre est invalide."
 
 #: libraries/classes/Rte/Routines.php:1198
 #: libraries/classes/Rte/Routines.php:1262
@@ -11671,7 +11671,7 @@ msgstr "Informations pour la connexion"
 #: templates/privileges/add_privileges_table.twig:7
 #: templates/privileges/add_privileges_routine.twig:7
 msgid "Use text field"
-msgstr "Saisir une valeur&nbsp;"
+msgstr "Saisir une valeur"
 
 #: libraries/classes/Server/Privileges.php:1556
 msgid ""
@@ -12315,7 +12315,7 @@ msgstr "Déplacer les graphiques"
 #: libraries/classes/Server/Status/Monitor.php:294
 #: libraries/classes/Server/Status/Processes.php:38
 msgid "Refresh rate"
-msgstr "Fréquence de rafraîchissement&nbsp;"
+msgstr "Fréquence de rafraîchissement"
 
 #: libraries/classes/Server/Status/Monitor.php:303
 msgid "Chart columns"
@@ -13261,7 +13261,7 @@ msgstr "Il y a des problèmes avec les index de la table « %s »"
 #: libraries/classes/SqlQueryForm.php:140
 #, php-format
 msgid "Run SQL query/queries on server “%s”"
-msgstr "Exécuter une ou des requêtes SQL sur le serveur  « %s »"
+msgstr "Exécuter une ou des requêtes SQL sur le serveur « %s »"
 
 #: libraries/classes/SqlQueryForm.php:157
 #, php-format
@@ -15118,7 +15118,7 @@ msgstr "Nouvelle table"
 
 #: templates/database/create_table.twig:15
 msgid "Number of columns"
-msgstr "Nombre de colonnes&nbsp;"
+msgstr "Nombre de colonnes"
 
 #: templates/columns_definitions/column_default.twig:3
 msgctxt "for default"
@@ -15319,11 +15319,11 @@ msgstr "Valeur pour la session"
 
 #: templates/database/qbe/footer_options.twig:3
 msgid "Add/Delete criteria rows"
-msgstr "Ajouter/Supprimer des lignes de critères&nbsp;"
+msgstr "Ajouter/Supprimer des lignes de critères"
 
 #: templates/database/qbe/footer_options.twig:5
 msgid "Add/Delete columns"
-msgstr "Ajouter/Supprimer des colonnes&nbsp;"
+msgstr "Ajouter/Supprimer des colonnes"
 
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:84 templates/console/display.twig:175
@@ -17754,7 +17754,7 @@ msgstr ""
 "immédiate à court terme, il est possible de vider le cache de requêtes (ce "
 "qui peut verrouiller ce cache un long moment). Un ajustement de "
 "{query_cache_min_res_unit} à la baisse peut également aider ; utiliser la "
-"valeur  (query_cache_size - qcache_free_memory) / qcache_queries_in_cache"
+"valeur (query_cache_size - qcache_free_memory) / qcache_queries_in_cache"
 
 #: libraries/advisory_rules_mysql_before80003.txt:36
 #, php-format
