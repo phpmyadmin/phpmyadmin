@@ -31,7 +31,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 Third party licenses
 ++++++++++++++++++++
 
-phpMyAdmin includes several third party libraries which come under their
+phpMyAdmin includes several third-party libraries which come under their
 respective licenses.
 
 jQuery's license, which is where we got the files under js/vendor/jquery/ is

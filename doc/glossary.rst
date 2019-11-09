@@ -13,7 +13,7 @@ From Wikipedia, the free encyclopedia
       .. seealso:: <https://en.wikipedia.org/wiki/.htaccess>
 
     ACL
-      Access Contol List
+      Access Control List
 
     Blowfish
       a keyed, symmetric block cipher, designed in 1993 by Bruce Schneier.
@@ -26,7 +26,7 @@ From Wikipedia, the free encyclopedia
       .. seealso:: <https://en.wikipedia.org/wiki/Web_browser>
 
     bzip2
-      a free software/open source data compression algorithm and program developed by Julian Seward.
+      a free software/open-source data compression algorithm and program developed by Julian Seward.
 
       .. seealso:: <https://en.wikipedia.org/wiki/Bzip2>
 
@@ -48,7 +48,7 @@ From Wikipedia, the free encyclopedia
       .. seealso:: <https://en.wikipedia.org/wiki/Client_(computing)>
 
     column
-      a set of data values of a particular simple type, one for each row of the table.
+      a set of data values of a particularly simple type, one for each row of the table.
 
       .. seealso:: <https://en.wikipedia.org/wiki/Column_(database)>
 
@@ -58,7 +58,7 @@ From Wikipedia, the free encyclopedia
       .. seealso:: <https://en.wikipedia.org/wiki/HTTP_cookie>
 
     CSV
-      Comma- separated values
+      Comma-separated values
 
       .. seealso:: <https://en.wikipedia.org/wiki/Comma-separated_values>
 
@@ -90,7 +90,7 @@ From Wikipedia, the free encyclopedia
       .. seealso:: <https://en.wikipedia.org/wiki/Field_(computer_science)>
 
     foreign key
-      a column or group of columns in a database row that point to a key column
+      a column or group of columns in a database row that points to a key column
       or group of columns forming a key of another database row in some
       (usually different) table.
 
@@ -115,7 +115,7 @@ From Wikipedia, the free encyclopedia
       .. seealso:: <https://en.wikipedia.org/wiki/Host>
 
     hostname
-      the unique name by which a network attached device is known on a network.
+      the unique name by which a network-attached device is known on a network.
 
       .. seealso:: <https://en.wikipedia.org/wiki/Hostname>
 
@@ -159,7 +159,7 @@ From Wikipedia, the free encyclopedia
     IPv6
       IPv6 (Internet Protocol version 6) is the latest revision of the
       Internet Protocol (:term:`IP`), designed to deal with the
-      long-anticipated problem of its precedessor IPv4 running out of addresses.
+      long-anticipated problem of its predecessor IPv4 running out of addresses.
 
       .. seealso:: <https://en.wikipedia.org/wiki/IPv6>
 
@@ -169,7 +169,7 @@ From Wikipedia, the free encyclopedia
       .. seealso:: <https://en.wikipedia.org/wiki/ISAPI>
 
     ISP
-      Internet service provider is a business or organization that offers users
+      An Internet service provider is a business or organization that offers users
       access to the Internet and related services.
 
       .. seealso:: <https://en.wikipedia.org/wiki/ISP>
@@ -194,7 +194,7 @@ From Wikipedia, the free encyclopedia
       .. seealso:: <https://en.wikipedia.org/wiki/LaTeX>
 
     Mac
-       Apple Macintosh is line of personal computers is designed, developed, manufactured, and marketed by Apple Computer.
+       Apple Macintosh is a line of personal computers is designed, developed, manufactured, and marketed by Apple Computer.
 
       .. seealso:: <https://en.wikipedia.org/wiki/Mac>
 
@@ -232,7 +232,7 @@ From Wikipedia, the free encyclopedia
       .. seealso:: <https://en.wikipedia.org/wiki/Apache_HTTP_Server>
 
     mod_proxy_fcgi
-      an Apache module implmenting a Fast CGI interface; PHP can be run as a CGI module, FastCGI, or
+      an Apache module implementing a Fast CGI interface; PHP can be run as a CGI module, FastCGI, or
       directly as an Apache module.
 
     MySQL
@@ -251,7 +251,7 @@ From Wikipedia, the free encyclopedia
       .. seealso:: <https://secure.php.net/manual/en/book.mysql.php>
 
     OpenDocument
-      open standard for office documents.
+      an open standard for office documents.
 
       .. seealso:: <https://en.wikipedia.org/wiki/OpenDocument>
 
@@ -262,8 +262,8 @@ From Wikipedia, the free encyclopedia
 
     PDF
       Portable Document Format is a file format developed by Adobe Systems for
-      representing two dimensional documents in a device independent and
-      resolution independent format.
+      representing two-dimensional documents in a device-independent and
+      resolution-independent format.
 
       .. seealso:: <https://en.wikipedia.org/wiki/Portable_Document_Format>
 
@@ -293,10 +293,10 @@ From Wikipedia, the free encyclopedia
 
     primary key
       A primary key is an index over one or more fields in a table with
-      unique values for each single row in this table. Every table should have
+      unique values for every single row in this table. Every table should have
       a primary key for easier accessing/identifying data in this table.  There
       can only be one primary key per table and it is named always **PRIMARY**.
-      In fact a primary key is just an :term:`unique key` with the name
+      In fact, a primary key is just an :term:`unique key` with the name
       **PRIMARY**.  If no primary key is defined MySQL will use first *unique
       key* as primary key if there is one.
 
@@ -365,7 +365,7 @@ From Wikipedia, the free encyclopedia
     table
       a set of data elements (cells) that is organized, defined and stored as
       horizontal rows and vertical columns where each item can be uniquely
-      identified by a label or key or by it?s position in relation to other
+      identified by a label or key or by it's position in relation to other
       items.
 
       .. seealso:: <https://en.wikipedia.org/wiki/Table_(database)>
@@ -392,7 +392,7 @@ From Wikipedia, the free encyclopedia
       .. seealso:: <https://en.wikipedia.org/wiki/Database_trigger>
 
     unique key
-      An unique key is an index over one or more fields in a table which has a
+      A unique key is an index over one or more fields in a table which has a
       unique value for each row.  The first unique key will be treated as
       :term:`primary key` if there is no *primary key* defined.
 
@@ -409,7 +409,7 @@ From Wikipedia, the free encyclopedia
       .. seealso:: <https://en.wikipedia.org/wiki/Webserver>
 
     XML
-      Extensible Markup Language is a W3C-recommended general- purpose markup
+      Extensible Markup Language is a W3C-recommended general-purpose markup
       language for creating special-purpose markup languages, capable of
       describing many different kinds of data.
 
@@ -421,6 +421,6 @@ From Wikipedia, the free encyclopedia
       .. seealso:: <https://en.wikipedia.org/wiki/ZIP_(file_format)>
 
     zlib
-      an open-source, cross- platform data compression library by Jean-loup Gailly and Mark Adler.
+      an open-source, cross-platform data compression library by Jean-loup Gailly and Mark Adler.
 
       .. seealso:: <https://en.wikipedia.org/wiki/Zlib>
