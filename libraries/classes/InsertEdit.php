@@ -1381,6 +1381,9 @@ class InsertEdit
             || ($GLOBALS['cfg']['ProtectBinary'] === 'noblob' && ! $column['is_blob'])
         ) {
             $html_output .= __('Binary - do not edit');
+
+
+
             if (isset($data)) {
                 $data_size = Util::formatByteDown(
                     mb_strlen(stripslashes($data)),
@@ -1390,6 +1393,12 @@ class InsertEdit
                 $html_output .= ' (' . $data_size[0] . ' ' . $data_size[1] . ')';
                 unset($data_size);
             }
+            
+            // Adding clear blob button
+            $html_output .= '<button type="button" class="btn btn-sm clear_blob" data-info="field_' . $idindex . '_3">'
+                    . Util::getIcon('b_drop')
+                    . '</button>';
+
             $fields_type_val = 'protected';
             $html_output .= '<input type="hidden" name="fields'
                 . $column_name_appendix . '" value="">';
