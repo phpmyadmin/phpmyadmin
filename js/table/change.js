@@ -477,11 +477,11 @@ AJAX.registerOnload('table/change.js', function () {
     /**
      *  Clear blob/binary field.
      */
-     $(document).on('click', '.clear_blob', function() {
+    $(document).on('click', '.clear_blob', function () {
         // Retrieving id of the input file
         var id = this.dataset.info;
         var fileInputField = document.getElementById(id);
-        fileInputField.value = "";
+        fileInputField.value = '';
     });
 });
 
