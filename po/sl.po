@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-11-07 18:19-0300\n"
-"PO-Revision-Date: 2019-11-09 14:51+0000\n"
+"PO-Revision-Date: 2019-11-13 09:05+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -12610,8 +12610,6 @@ msgstr "Uredi v vrstici"
 
 #. l10n: Short week day name for Sunday
 #: libraries/classes/Util.php:1544
-#, fuzzy
-#| msgid "Sun"
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "ned"
