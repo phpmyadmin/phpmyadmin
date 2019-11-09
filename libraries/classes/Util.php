@@ -1540,19 +1540,19 @@ class Util
             __('Dec'),
         ];
         $day_of_week = [
-            /* l10n: Short week day name */
-            _pgettext('Short week day name', 'Sun'),
-            /* l10n: Short week day name */
+            /* l10n: Short week day name for Sunday */
+            _pgettext('Short week day name for Sunday', 'Sun'),
+            /* l10n: Short week day name for Monday */
             __('Mon'),
-            /* l10n: Short week day name */
+            /* l10n: Short week day name for Tuesday */
             __('Tue'),
-            /* l10n: Short week day name */
+            /* l10n: Short week day name for Wednesday */
             __('Wed'),
-            /* l10n: Short week day name */
+            /* l10n: Short week day name for Thursday */
             __('Thu'),
-            /* l10n: Short week day name */
+            /* l10n: Short week day name for Friday */
             __('Fri'),
-            /* l10n: Short week day name */
+            /* l10n: Short week day name for Saturday */
             __('Sat'),
         ];
 
