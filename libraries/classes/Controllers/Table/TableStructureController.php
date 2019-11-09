@@ -422,7 +422,7 @@ class TableStructureController extends TableController
                 unset($data['Extra']);
             }
             $current_timestamp = ($data['Type'] == 'timestamp'
-                    || $data['Type'] == 'datetime')
+                    || $data['Type'] == 'datetime' || $data['DATA_TYPE'] == 'int')
                 && ($data['Default'] == 'CURRENT_TIMESTAMP'
                     || $data['Default'] == 'current_timestamp()');
 
