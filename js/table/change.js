@@ -473,6 +473,16 @@ AJAX.registerOnload('table/change.js', function () {
      * Continue Insertion form
      */
     $(document).on('change', '#insert_rows', addNewContinueInsertionFiels);
+
+    /**
+     *  Clear blob/binary field.    
+     */
+     $(document).on('click', '.clear_blob', function() {
+        // Retrieving id of the input file
+        var id = this.dataset.info;
+        var fileInputField = document.getElementById(id);
+        fileInputField.value = "";
+     });
 });
 
 function addNewContinueInsertionFiels (event) {
