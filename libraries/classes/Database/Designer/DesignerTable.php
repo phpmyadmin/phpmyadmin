@@ -82,7 +82,7 @@ class DesignerTable
     }
 
     /**
-     * Get the db and table speparated with a dot
+     * Get the db and table separated with a dot
      *
      * @return string
      */
