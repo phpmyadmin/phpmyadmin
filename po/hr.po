@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-10-29 00:34+0100\n"
+"POT-Creation-Date: 2019-11-09 15:36+0100\n"
 "PO-Revision-Date: 2019-10-23 21:53+0000\n"
 "Last-Translator: Marino <mrabach@gmail.com>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
@@ -353,7 +353,7 @@ msgstr "Prebaci se na %svizuelna izrada%s"
 #: db_search.php:32 libraries/classes/Plugins/Auth/AuthenticationConfig.php:84
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:99
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:78
-#: libraries/classes/Plugins/AuthenticationPlugin.php:171
+#: libraries/classes/Plugins/AuthenticationPlugin.php:174
 msgid "Access denied!"
 msgstr "Pristup odbijen!"
 
@@ -622,11 +622,11 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" izjave su onemogućene."
 
-#: import_status.php:107
+#: import_status.php:108
 msgid "Could not load the progress of the import."
 msgstr "Nije moguće učitati tijek uvoza."
 
-#: import_status.php:116 js/messages.php:461 js/messages.php:627
+#: import_status.php:117 js/messages.php:461 js/messages.php:627
 #: libraries/classes/Export.php:509
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:303
 #: libraries/classes/UserPassword.php:248 libraries/classes/Util.php:665
@@ -3046,82 +3046,82 @@ msgstr "Pet"
 msgid "Saturday"
 msgstr "Subota"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Sunday
 #: js/messages.php:857
 msgid "Sun"
 msgstr "Ned"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Monday
 #: js/messages.php:859 libraries/classes/Util.php:1508
 msgid "Mon"
 msgstr "Pon"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Tuesday
 #: js/messages.php:861 libraries/classes/Util.php:1510
 msgid "Tue"
 msgstr "Uto"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Wednesday
 #: js/messages.php:863 libraries/classes/Util.php:1512
 msgid "Wed"
 msgstr "Sri"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Thursday
 #: js/messages.php:865 libraries/classes/Util.php:1514
 msgid "Thu"
 msgstr "Čet"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Friday
 #: js/messages.php:867 libraries/classes/Util.php:1516
 msgid "Fri"
 msgstr "Pet"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Saturday
 #: js/messages.php:869 libraries/classes/Util.php:1518
 msgid "Sat"
 msgstr "Sub"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Sunday
 #: js/messages.php:876
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Ned"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Monday
 #: js/messages.php:878
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Pon"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Tuesday
 #: js/messages.php:880
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Uto"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Wednesday
 #: js/messages.php:882
 msgid "We"
 msgstr "Sr"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Thursday
 #: js/messages.php:884
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Čet"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Friday
 #: js/messages.php:886
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Pet"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Saturday
 #: js/messages.php:888
 #, fuzzy
 #| msgid "Sat"
@@ -3834,13 +3834,13 @@ msgstr ""
 msgid "Font size"
 msgstr "Veličina fonta"
 
-#: libraries/classes/Config.php:1819
+#: libraries/classes/Config.php:1854
 #, fuzzy, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
 msgstr "Neispravan indeks poslužitelja: \"%s\""
 
-#: libraries/classes/Config.php:1832
+#: libraries/classes/Config.php:1867
 #, fuzzy, php-format
 #| msgid "Server"
 msgid "Server %d"
@@ -9577,22 +9577,22 @@ msgstr "Pogrešno korisničko ime ili lozinka. Pristup odbijen."
 msgid "Can not find signon authentication script:"
 msgstr ""
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:167
+#: libraries/classes/Plugins/AuthenticationPlugin.php:170
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:174
+#: libraries/classes/Plugins/AuthenticationPlugin.php:177
 #, php-format
 msgid "No activity within %s seconds; please log in again."
 msgstr "Nije bilo nikakvih aktivnosti tijekom %s sekunda. Prijavite se ponovo."
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:184
 #: libraries/classes/Plugins/AuthenticationPlugin.php:187
+#: libraries/classes/Plugins/AuthenticationPlugin.php:190
 msgid "Cannot log in to the MySQL server"
 msgstr "Prijavljivanje na MySQL poslužitelj nije moguće"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:335
+#: libraries/classes/Plugins/AuthenticationPlugin.php:338
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
@@ -10552,7 +10552,7 @@ msgstr ""
 "Prikazuje sličicu s mogućnošću pritiskanja. Opcije su najveća širina i "
 "visina u pikselima. Izvorne proporcije su očuvane."
 
-#: libraries/classes/Plugins/Transformations/Abs/LongToIPv4TransformationsPlugin.php:28
+#: libraries/classes/Plugins/Transformations/Abs/LongToIPv4TransformationsPlugin.php:29
 msgid ""
 "Converts an (IPv4) Internet network address stored as a BIGINT into a string "
 "in Internet standard dotted format."
@@ -13954,12 +13954,12 @@ msgstr "Zadana tema %s nije pronađena!"
 msgid "Theme %s not found!"
 msgstr "Tema %s nije pronađena!"
 
-#: libraries/classes/ThemeManager.php:255
+#: libraries/classes/ThemeManager.php:258
 #, php-format
 msgid "Theme path not found for theme %s!"
 msgstr "Za temu %s nije pronađena putanje tema!"
 
-#: libraries/classes/ThemeManager.php:345
+#: libraries/classes/ThemeManager.php:348
 #, fuzzy
 #| msgid "Theme"
 msgid "Theme:"
@@ -14404,7 +14404,7 @@ msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Prikaz ispisa"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Sunday
 #: libraries/classes/Util.php:1506
 msgctxt "Short week day name"
 msgid "Sun"
@@ -14499,22 +14499,22 @@ msgstr "Datoteke nisu pronađene unutar ZIP arhive!"
 msgid "Error in ZIP archive:"
 msgstr "Pogreška u ZIP arhivi:"
 
-#: libraries/common.inc.php:198
+#: libraries/common.inc.php:200
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/common.inc.php:342
+#: libraries/common.inc.php:344
 msgid "Invalid authentication method set in configuration:"
 msgstr "Neispravan komplet načina provjere vjerodostojnosti u konfiguraciji:"
 
-#: libraries/common.inc.php:395
+#: libraries/common.inc.php:397
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Trebali biste nadograditi na %s %s ili kasniju."
 
-#: libraries/common.inc.php:448
+#: libraries/common.inc.php:450
 msgid "Error: Token mismatch"
 msgstr ""
 

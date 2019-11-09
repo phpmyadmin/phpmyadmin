@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-10-29 00:34+0100\n"
+"POT-Creation-Date: 2019-11-09 15:36+0100\n"
 "PO-Revision-Date: 2019-09-18 09:24+0000\n"
 "Last-Translator: Huang Zhiyi <hzy980512@126.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -347,7 +347,7 @@ msgstr "切换到%s可视化查询生成器%s"
 #: db_search.php:32 libraries/classes/Plugins/Auth/AuthenticationConfig.php:84
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:99
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:78
-#: libraries/classes/Plugins/AuthenticationPlugin.php:171
+#: libraries/classes/Plugins/AuthenticationPlugin.php:174
 msgid "Access denied!"
 msgstr "访问被拒绝！"
 
@@ -604,11 +604,11 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "已禁用“删除数据库”语句。"
 
-#: import_status.php:107
+#: import_status.php:108
 msgid "Could not load the progress of the import."
 msgstr "无法加载导入进度。"
 
-#: import_status.php:116 js/messages.php:461 js/messages.php:627
+#: import_status.php:117 js/messages.php:461 js/messages.php:627
 #: libraries/classes/Export.php:509
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:303
 #: libraries/classes/UserPassword.php:248 libraries/classes/Util.php:665
@@ -2786,72 +2786,72 @@ msgstr "星期五"
 msgid "Saturday"
 msgstr "星期六"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Sunday
 #: js/messages.php:857
 msgid "Sun"
 msgstr "周日"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Monday
 #: js/messages.php:859 libraries/classes/Util.php:1508
 msgid "Mon"
 msgstr "周一"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Tuesday
 #: js/messages.php:861 libraries/classes/Util.php:1510
 msgid "Tue"
 msgstr "周二"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Wednesday
 #: js/messages.php:863 libraries/classes/Util.php:1512
 msgid "Wed"
 msgstr "周三"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Thursday
 #: js/messages.php:865 libraries/classes/Util.php:1514
 msgid "Thu"
 msgstr "周四"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Friday
 #: js/messages.php:867 libraries/classes/Util.php:1516
 msgid "Fri"
 msgstr "周五"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Saturday
 #: js/messages.php:869 libraries/classes/Util.php:1518
 msgid "Sat"
 msgstr "周六"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Sunday
 #: js/messages.php:876
 msgid "Su"
 msgstr "日"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Monday
 #: js/messages.php:878
 msgid "Mo"
 msgstr "一"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Tuesday
 #: js/messages.php:880
 msgid "Tu"
 msgstr "二"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Wednesday
 #: js/messages.php:882
 msgid "We"
 msgstr "三"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Thursday
 #: js/messages.php:884
 msgid "Th"
 msgstr "四"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Friday
 #: js/messages.php:886
 msgid "Fr"
 msgstr "五"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Saturday
 #: js/messages.php:888
 msgid "Sa"
 msgstr "六"
@@ -3495,12 +3495,12 @@ msgstr "这通常意味着文件中有语法错误，请检查下面显示出的
 msgid "Font size"
 msgstr "字号"
 
-#: libraries/classes/Config.php:1819
+#: libraries/classes/Config.php:1854
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "无效的服务器索引：%s"
 
-#: libraries/classes/Config.php:1832
+#: libraries/classes/Config.php:1867
 #, php-format
 msgid "Server %d"
 msgstr "服务器 %d"
@@ -8753,22 +8753,22 @@ msgstr "用户名/密码错误。拒绝访问。"
 msgid "Can not find signon authentication script:"
 msgstr "找不到 signon 认证脚本:"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:167
+#: libraries/classes/Plugins/AuthenticationPlugin.php:170
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr "空密码登录被禁止 (参见 允许空密码)"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:174
+#: libraries/classes/Plugins/AuthenticationPlugin.php:177
 #, php-format
 msgid "No activity within %s seconds; please log in again."
 msgstr "登录超时 (%s 秒未活动)，请重新登录。"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:184
 #: libraries/classes/Plugins/AuthenticationPlugin.php:187
+#: libraries/classes/Plugins/AuthenticationPlugin.php:190
 msgid "Cannot log in to the MySQL server"
 msgstr "无法登录 MySQL 服务器"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:335
+#: libraries/classes/Plugins/AuthenticationPlugin.php:338
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr "您已启用双因素身份验证，请确认您的登录信息。"
 
@@ -9589,7 +9589,7 @@ msgid ""
 "in pixels. The original aspect ratio is preserved."
 msgstr "显示可点击的缩略图。在原比例不变的情况下，可按像素指定最大宽度或高度。"
 
-#: libraries/classes/Plugins/Transformations/Abs/LongToIPv4TransformationsPlugin.php:28
+#: libraries/classes/Plugins/Transformations/Abs/LongToIPv4TransformationsPlugin.php:29
 msgid ""
 "Converts an (IPv4) Internet network address stored as a BIGINT into a string "
 "in Internet standard dotted format."
@@ -12634,12 +12634,12 @@ msgstr "未找到默认主题 %s！"
 msgid "Theme %s not found!"
 msgstr "未找到主题 %s！"
 
-#: libraries/classes/ThemeManager.php:255
+#: libraries/classes/ThemeManager.php:258
 #, php-format
 msgid "Theme path not found for theme %s!"
 msgstr "找不到主题 %s 的路径！"
 
-#: libraries/classes/ThemeManager.php:345
+#: libraries/classes/ThemeManager.php:348
 msgid "Theme:"
 msgstr "主题："
 
@@ -13094,7 +13094,7 @@ msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "编辑内嵌"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Sunday
 #: libraries/classes/Util.php:1506
 msgctxt "Short week day name"
 msgid "Sun"
@@ -13184,22 +13184,22 @@ msgstr "ZIP 包中未找到文件！"
 msgid "Error in ZIP archive:"
 msgstr "ZIP 包中有错误:"
 
-#: libraries/common.inc.php:198
+#: libraries/common.inc.php:200
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr "无法设置会话cookie。也许您使用HTTP而不是HTTPS来访问phpMyAdmin。"
 
-#: libraries/common.inc.php:342
+#: libraries/common.inc.php:344
 msgid "Invalid authentication method set in configuration:"
 msgstr "配置文件中设置的认证方式无效："
 
-#: libraries/common.inc.php:395
+#: libraries/common.inc.php:397
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "您应升级到 %s %s 或更高版本。"
 
-#: libraries/common.inc.php:448
+#: libraries/common.inc.php:450
 msgid "Error: Token mismatch"
 msgstr "错误：令牌不符"
 

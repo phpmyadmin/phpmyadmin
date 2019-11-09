@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-10-29 00:34+0100\n"
+"POT-Creation-Date: 2019-11-09 15:36+0100\n"
 "PO-Revision-Date: 2019-11-08 14:26+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"4-9/ia/>\n"
+"Language-Team: Interlingua <https://hosted.weblate.org/projects/"
+"phpmyadmin/4-9/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -358,7 +358,7 @@ msgstr "Commuta a %svisual builder%s (constructor visual)"
 #: db_search.php:32 libraries/classes/Plugins/Auth/AuthenticationConfig.php:84
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:99
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:78
-#: libraries/classes/Plugins/AuthenticationPlugin.php:171
+#: libraries/classes/Plugins/AuthenticationPlugin.php:174
 msgid "Access denied!"
 msgstr "Accesso negate!"
 
@@ -633,11 +633,11 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Commandos \"DROP DATABASE\" es dishabilitate."
 
-#: import_status.php:107
+#: import_status.php:108
 msgid "Could not load the progress of the import."
 msgstr "Il non pote incargar le progression del importation."
 
-#: import_status.php:116 js/messages.php:461 js/messages.php:627
+#: import_status.php:117 js/messages.php:461 js/messages.php:627
 #: libraries/classes/Export.php:509
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:303
 #: libraries/classes/UserPassword.php:248 libraries/classes/Util.php:665
@@ -2926,72 +2926,72 @@ msgstr "Venerdi"
 msgid "Saturday"
 msgstr "Sabbato"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Sunday
 #: js/messages.php:857
 msgid "Sun"
 msgstr "Dom"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Monday
 #: js/messages.php:859 libraries/classes/Util.php:1508
 msgid "Mon"
 msgstr "Lun"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Tuesday
 #: js/messages.php:861 libraries/classes/Util.php:1510
 msgid "Tue"
 msgstr "Mar"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Wednesday
 #: js/messages.php:863 libraries/classes/Util.php:1512
 msgid "Wed"
 msgstr "Mer"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Thursday
 #: js/messages.php:865 libraries/classes/Util.php:1514
 msgid "Thu"
 msgstr "Jov"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Friday
 #: js/messages.php:867 libraries/classes/Util.php:1516
 msgid "Fri"
 msgstr "Ven"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Saturday
 #: js/messages.php:869 libraries/classes/Util.php:1518
 msgid "Sat"
 msgstr "Sab"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Sunday
 #: js/messages.php:876
 msgid "Su"
 msgstr "Do"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Monday
 #: js/messages.php:878
 msgid "Mo"
 msgstr "Lu"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Tuesday
 #: js/messages.php:880
 msgid "Tu"
 msgstr "Ma"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Wednesday
 #: js/messages.php:882
 msgid "We"
 msgstr "Me"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Thursday
 #: js/messages.php:884
 msgid "Th"
 msgstr "Jo"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Friday
 #: js/messages.php:886
 msgid "Fr"
 msgstr "Ve"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Saturday
 #: js/messages.php:888
 msgid "Sa"
 msgstr "Sa"
@@ -3649,12 +3649,12 @@ msgstr ""
 msgid "Font size"
 msgstr "Grandor de font"
 
-#: libraries/classes/Config.php:1819
+#: libraries/classes/Config.php:1854
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Indice de servitor invalide: %s"
 
-#: libraries/classes/Config.php:1832
+#: libraries/classes/Config.php:1867
 #, php-format
 msgid "Server %d"
 msgstr "Servitor %d"
@@ -5495,8 +5495,8 @@ msgid ""
 "[kbd]'my_db'[/kbd]."
 msgstr ""
 "Tu pote usar characteres jolly de MySQL (% and _), pone un symbolo de escape "
-"ante los si tu vole usar lor instantia litteral,i.e. usa [kbd]'my\\_db'[/kbd]"
-" e non [kbd]'my_db'[/kbd]."
+"ante los si tu vole usar lor instantia litteral,i.e. usa [kbd]'my\\_db'[/"
+"kbd] e non [kbd]'my_db'[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1096
 msgid "Show only listed databases"
@@ -6099,8 +6099,8 @@ msgid ""
 "HTTP_X_FORWARDED_FOR[/kbd]."
 msgstr ""
 "Inserta proxies como [kbd]IP: trusted HTTP header[/kbd]. Le exemplo sequente "
-"specifica que phpMyAdmin deberea fider se a un capite HTTP_X_FORWARDED_FOR (X"
-"-Forwarded-For) veniente ex le proxy 1.2.3.4:[br][kbd]1.2.3.4: "
+"specifica que phpMyAdmin deberea fider se a un capite HTTP_X_FORWARDED_FOR "
+"(X-Forwarded-For) veniente ex le proxy 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1389
@@ -9281,24 +9281,24 @@ msgstr "Nomine de usator/contrasigno errate. Accesso refusate."
 msgid "Can not find signon authentication script:"
 msgstr "Il non pote trovar le script per le authentication de signon:"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:167
+#: libraries/classes/Plugins/AuthenticationPlugin.php:170
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "Authentication sin contrasigno es prohibite per le configuration (vide "
 "AllowNoPassword)"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:174
+#: libraries/classes/Plugins/AuthenticationPlugin.php:177
 #, php-format
 msgid "No activity within %s seconds; please log in again."
 msgstr "Necun activitate intra %s secundas; pro favor authentica te de novo."
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:184
 #: libraries/classes/Plugins/AuthenticationPlugin.php:187
+#: libraries/classes/Plugins/AuthenticationPlugin.php:190
 msgid "Cannot log in to the MySQL server"
 msgstr "On non pote authenticar se in le servitor de MySQL"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:335
+#: libraries/classes/Plugins/AuthenticationPlugin.php:338
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
@@ -9828,8 +9828,8 @@ msgstr "MIME"
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
-"Actualisa datos quando il ha trovate claves duplicate quando on importa ("
-"adde ON DUPLICATE KEY UPDATE)"
+"Actualisa datos quando il ha trovate claves duplicate quando on importa "
+"(adde ON DUPLICATE KEY UPDATE)"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:63
 #: libraries/classes/Plugins/Import/ImportOds.php:64
@@ -9929,8 +9929,8 @@ msgstr ""
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
-"Extension spatial de MySQL Spatial Extension non supporta le typo ESRI \"%s\""
-"."
+"Extension spatial de MySQL Spatial Extension non supporta le typo ESRI \"%s"
+"\"."
 
 #: libraries/classes/Plugins/Import/ImportShp.php:238
 msgid "The imported file does not contain any data!"
@@ -10124,7 +10124,7 @@ msgid ""
 "in pixels. The original aspect ratio is preserved."
 msgstr ""
 
-#: libraries/classes/Plugins/Transformations/Abs/LongToIPv4TransformationsPlugin.php:28
+#: libraries/classes/Plugins/Transformations/Abs/LongToIPv4TransformationsPlugin.php:29
 msgid ""
 "Converts an (IPv4) Internet network address stored as a BIGINT into a string "
 "in Internet standard dotted format."
@@ -13074,12 +13074,12 @@ msgstr "Thema predefinite %s non trovate!"
 msgid "Theme %s not found!"
 msgstr "Thema %s non trovate!"
 
-#: libraries/classes/ThemeManager.php:255
+#: libraries/classes/ThemeManager.php:258
 #, php-format
 msgid "Theme path not found for theme %s!"
 msgstr "Il non trovava le percurso pro le thema %s!"
 
-#: libraries/classes/ThemeManager.php:345
+#: libraries/classes/ThemeManager.php:348
 msgid "Theme:"
 msgstr "Thema:"
 
@@ -13497,8 +13497,8 @@ msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
 msgstr ""
-"Immagazina e habilita accesso efficiente al datos in documentos de JSON ("
-"JavaScript Object Notation)"
+"Immagazina e habilita accesso efficiente al datos in documentos de JSON "
+"(JavaScript Object Notation)"
 
 #: libraries/classes/Types.php:718
 msgctxt "numeric types"
@@ -13564,7 +13564,7 @@ msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Modifica in linea (inline)"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Sunday
 #: libraries/classes/Util.php:1506
 msgctxt "Short week day name"
 msgid "Sun"
@@ -13655,22 +13655,22 @@ msgstr ""
 msgid "Error in ZIP archive:"
 msgstr ""
 
-#: libraries/common.inc.php:198
+#: libraries/common.inc.php:200
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/common.inc.php:342
+#: libraries/common.inc.php:344
 msgid "Invalid authentication method set in configuration:"
 msgstr "Methodo de authentication invalide fixate in le configuration:"
 
-#: libraries/common.inc.php:395
+#: libraries/common.inc.php:397
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Tu deberea actualisar a version %s%s o successive."
 
-#: libraries/common.inc.php:448
+#: libraries/common.inc.php:450
 msgid "Error: Token mismatch"
 msgstr "Error: error de correspondentia in le indicio (token mismatch)"
 
