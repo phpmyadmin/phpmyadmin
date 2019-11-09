@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-10-29 00:43+0100\n"
+"POT-Creation-Date: 2019-11-09 15:43+0100\n"
 "PO-Revision-Date: 2019-06-24 14:00+0000\n"
 "Last-Translator: WWWesten <wwwesten@gmail.com>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -141,7 +141,7 @@ msgstr "%sKórneki qurastyrýshy%s úshin aýystyrý"
 #: db_search.php:46 libraries/classes/Plugins/Auth/AuthenticationConfig.php:86
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:101
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:78
-#: libraries/classes/Plugins/AuthenticationPlugin.php:192
+#: libraries/classes/Plugins/AuthenticationPlugin.php:195
 msgid "Access denied!"
 msgstr "Qatynaýdan bastartyldy!"
 
@@ -275,11 +275,11 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "«DROP DATABASE» nusqaýlary óshirilgen."
 
-#: import_status.php:111
+#: import_status.php:112
 msgid "Could not load the progress of the import."
 msgstr "Importtyń oryndalý barysyn júkteý múmkin bolmady."
 
-#: import_status.php:120 js/messages.php:470 js/messages.php:636
+#: import_status.php:121 js/messages.php:470 js/messages.php:636
 #: libraries/classes/Export.php:531
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:306
 #: libraries/classes/UserPassword.php:283 libraries/classes/Util.php:723
@@ -2483,72 +2483,72 @@ msgstr "Juma"
 msgid "Saturday"
 msgstr "Senbi"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Sunday
 #: js/messages.php:864
 msgid "Sun"
 msgstr "Jek"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Monday
 #: js/messages.php:866 libraries/classes/Util.php:1575
 msgid "Mon"
 msgstr "Dúı"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Tuesday
 #: js/messages.php:868 libraries/classes/Util.php:1577
 msgid "Tue"
 msgstr "Seı"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Wednesday
 #: js/messages.php:870 libraries/classes/Util.php:1579
 msgid "Wed"
 msgstr "Sár"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Thursday
 #: js/messages.php:872 libraries/classes/Util.php:1581
 msgid "Thu"
 msgstr "Beı"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Friday
 #: js/messages.php:874 libraries/classes/Util.php:1583
 msgid "Fri"
 msgstr "Jum"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Saturday
 #: js/messages.php:876 libraries/classes/Util.php:1585
 msgid "Sat"
 msgstr "Sen"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Sunday
 #: js/messages.php:883
 msgid "Su"
 msgstr "Js"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Monday
 #: js/messages.php:885
 msgid "Mo"
 msgstr "Ds"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Tuesday
 #: js/messages.php:887
 msgid "Tu"
 msgstr "Ss"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Wednesday
 #: js/messages.php:889
 msgid "We"
 msgstr "Sr"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Thursday
 #: js/messages.php:891
 msgid "Th"
 msgstr "Bs"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Friday
 #: js/messages.php:893
 msgid "Fr"
 msgstr "Jm"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Saturday
 #: js/messages.php:895
 msgid "Sa"
 msgstr "Sb"
@@ -3248,12 +3248,12 @@ msgstr ""
 "Bul ádette munda sıntaksıstik qate bar ekenin bildiredi, tómende kórsetilgen "
 "qatelerdi tekserińiz."
 
-#: libraries/classes/Config.php:1731
+#: libraries/classes/Config.php:1769
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Jaramsyz server ındeksi: %s"
 
-#: libraries/classes/Config.php:1744
+#: libraries/classes/Config.php:1782
 #, php-format
 msgid "Server %d"
 msgstr "Server %d"
@@ -9733,24 +9733,24 @@ msgstr "Paıdalanýshy aty / paról durys emes. Qatynaýǵa ruqsat joq."
 msgid "Can not find signon authentication script:"
 msgstr "«Signon» túpnusqalyq rastama skrıpti tabylmady:"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:188
+#: libraries/classes/Plugins/AuthenticationPlugin.php:191
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "Parólsiz kirý úshin konfıgýrasıa arqyly tyıym salynǵan (AllowNoPassword "
 "qarańyz)"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:195
+#: libraries/classes/Plugins/AuthenticationPlugin.php:198
 #, php-format
 msgid "No activity within %s seconds; please log in again."
 msgstr "%s sekýnt ishinde áreket bolmaıdy; qaıtadan kirińiz."
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:205
 #: libraries/classes/Plugins/AuthenticationPlugin.php:208
+#: libraries/classes/Plugins/AuthenticationPlugin.php:211
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL-serverge kirý múmkin emes"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:356
+#: libraries/classes/Plugins/AuthenticationPlugin.php:359
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 "Qos-faktorly túpnusqalyq rastamasyn qosqansyz, kirý derekterinizdi rastańyz."
@@ -10660,7 +10660,7 @@ msgstr ""
 "Basylatyn nobaıdy beıneleıdi. Opsıalar pıksel boıynsha eń úlken eni men "
 "bıiktigi bolyp tabylady. Túpnusqaly jaqtar qatynasy saqtaldy."
 
-#: libraries/classes/Plugins/Transformations/Abs/LongToIPv4TransformationsPlugin.php:31
+#: libraries/classes/Plugins/Transformations/Abs/LongToIPv4TransformationsPlugin.php:32
 msgid ""
 "Converts an (IPv4) Internet network address stored as a BIGINT into a string "
 "in Internet standard dotted format."
@@ -12561,12 +12561,12 @@ msgstr "%s ádepki taqyryby tabylmady!"
 msgid "Theme %s not found!"
 msgstr "%s taqyryby tabylmady!"
 
-#: libraries/classes/ThemeManager.php:259
+#: libraries/classes/ThemeManager.php:262
 #, php-format
 msgid "Theme path not found for theme %s!"
 msgstr "%s taqyryby úshin taqyryp joly tabylmady!"
 
-#: libraries/classes/ThemeManager.php:349
+#: libraries/classes/ThemeManager.php:352
 msgid "Theme:"
 msgstr "Taqyryp:"
 
@@ -13065,7 +13065,7 @@ msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Kiristirilgen óńdeý"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Sunday
 #: libraries/classes/Util.php:1573
 msgctxt "Short week day name"
 msgid "Sun"
@@ -13155,7 +13155,7 @@ msgstr "ZIP-muraǵat isinde faıldar tabylmady!"
 msgid "Error in ZIP archive:"
 msgstr "ZIP-muraǵatyndaǵy qate:"
 
-#: libraries/common.inc.php:203
+#: libraries/common.inc.php:205
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -13163,16 +13163,16 @@ msgstr ""
 "Seanstyń cookie-faılyn ornatý sátsiz aıaqtaldy. Múmkin phpMyAdmin-ge qatynaý "
 "úshin HTTPS ornyna HTTP paıdalanǵansyz."
 
-#: libraries/common.inc.php:357
+#: libraries/common.inc.php:359
 msgid "Invalid authentication method set in configuration:"
 msgstr "Konfıgýrasıada ornatylǵan túpnusqalyq rastamasynyń jaramsyz ádisi:"
 
-#: libraries/common.inc.php:410
+#: libraries/common.inc.php:412
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s%s nusqasyna nemese odan keıingige jańartýyńyz qajet."
 
-#: libraries/common.inc.php:465
+#: libraries/common.inc.php:467
 msgid "Error: Token mismatch"
 msgstr "Qate: Token sáıkessizdigi"
 

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-10-29 00:43+0100\n"
+"POT-Creation-Date: 2019-11-09 15:43+0100\n"
 "PO-Revision-Date: 2018-05-19 17:38+0000\n"
 "Last-Translator: Muhammad Rifqi Priyo Susanto "
 "<muhammadrifqipriyosusanto@gmail.com>\n"
@@ -144,7 +144,7 @@ msgstr "Alihkan ke %spembangun visual%s"
 #: db_search.php:46 libraries/classes/Plugins/Auth/AuthenticationConfig.php:86
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:101
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:78
-#: libraries/classes/Plugins/AuthenticationPlugin.php:192
+#: libraries/classes/Plugins/AuthenticationPlugin.php:195
 msgid "Access denied!"
 msgstr "Akses ditolak!"
 
@@ -277,11 +277,11 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Perintah \"DROP DATABASE\" dinonaktifkan."
 
-#: import_status.php:111
+#: import_status.php:112
 msgid "Could not load the progress of the import."
 msgstr "Tidak dapat memuat kemajuan impor."
 
-#: import_status.php:120 js/messages.php:470 js/messages.php:636
+#: import_status.php:121 js/messages.php:470 js/messages.php:636
 #: libraries/classes/Export.php:531
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:306
 #: libraries/classes/UserPassword.php:283 libraries/classes/Util.php:723
@@ -2508,72 +2508,72 @@ msgstr "Jumat"
 msgid "Saturday"
 msgstr "Sabtu"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Sunday
 #: js/messages.php:864
 msgid "Sun"
 msgstr "Min"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Monday
 #: js/messages.php:866 libraries/classes/Util.php:1575
 msgid "Mon"
 msgstr "Sen"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Tuesday
 #: js/messages.php:868 libraries/classes/Util.php:1577
 msgid "Tue"
 msgstr "Sel"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Wednesday
 #: js/messages.php:870 libraries/classes/Util.php:1579
 msgid "Wed"
 msgstr "Rab"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Thursday
 #: js/messages.php:872 libraries/classes/Util.php:1581
 msgid "Thu"
 msgstr "Kam"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Friday
 #: js/messages.php:874 libraries/classes/Util.php:1583
 msgid "Fri"
 msgstr "Jum"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Saturday
 #: js/messages.php:876 libraries/classes/Util.php:1585
 msgid "Sat"
 msgstr "Sab"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Sunday
 #: js/messages.php:883
 msgid "Su"
 msgstr "Min"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Monday
 #: js/messages.php:885
 msgid "Mo"
 msgstr "Sn"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Tuesday
 #: js/messages.php:887
 msgid "Tu"
 msgstr "Sl"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Wednesday
 #: js/messages.php:889
 msgid "We"
 msgstr "Rb"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Thursday
 #: js/messages.php:891
 msgid "Th"
 msgstr "Km"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Friday
 #: js/messages.php:893
 msgid "Fr"
 msgstr "Jm"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Saturday
 #: js/messages.php:895
 msgid "Sa"
 msgstr "Sb"
@@ -3275,12 +3275,12 @@ msgstr ""
 "Hal ini biasanya berarti ada kesalahan sintaks di dalamnya, silahkan cek "
 "kesalahan di bawah ini."
 
-#: libraries/classes/Config.php:1731
+#: libraries/classes/Config.php:1769
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Indeks server tidak sah: %s"
 
-#: libraries/classes/Config.php:1744
+#: libraries/classes/Config.php:1782
 #, php-format
 msgid "Server %d"
 msgstr "Server %d"
@@ -10069,24 +10069,24 @@ msgstr "Nama pengguna/kata sandi salah. Akses ditolak."
 msgid "Can not find signon authentication script:"
 msgstr "Tidak dapat menemukan script otentikasi signon:"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:188
+#: libraries/classes/Plugins/AuthenticationPlugin.php:191
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "Masuk tanpa kata sandi tidak diperbolehkan dalam konfigurasi (lihat "
 "AllowNoPassword)"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:195
+#: libraries/classes/Plugins/AuthenticationPlugin.php:198
 #, php-format
 msgid "No activity within %s seconds; please log in again."
 msgstr "Tidak ada aktivitas selama %s detik atau lebih. Harap masuk kembali."
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:205
 #: libraries/classes/Plugins/AuthenticationPlugin.php:208
+#: libraries/classes/Plugins/AuthenticationPlugin.php:211
 msgid "Cannot log in to the MySQL server"
 msgstr "Gagal masuk ke MySQL server"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:356
+#: libraries/classes/Plugins/AuthenticationPlugin.php:359
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 "Anda mengaktifkan otentikasi 2 langkah, silahkan konfirmasi login anda."
@@ -11041,7 +11041,7 @@ msgstr ""
 "Tampilkan cuplikan yang bisa diklik. pilihan adalah maksimum lebar dan "
 "tinggi dalam piksel. aspek rasio asli dipertahankan."
 
-#: libraries/classes/Plugins/Transformations/Abs/LongToIPv4TransformationsPlugin.php:31
+#: libraries/classes/Plugins/Transformations/Abs/LongToIPv4TransformationsPlugin.php:32
 #, fuzzy
 msgid ""
 "Converts an (IPv4) Internet network address stored as a BIGINT into a string "
@@ -13076,12 +13076,12 @@ msgstr "Tema %s bawaan tidak ditemukan!"
 msgid "Theme %s not found!"
 msgstr "Tema %s tidak ditemukan!"
 
-#: libraries/classes/ThemeManager.php:259
+#: libraries/classes/ThemeManager.php:262
 #, php-format
 msgid "Theme path not found for theme %s!"
 msgstr "\"Path\" untuk tema tidak ditemukan untuk tema %s!"
 
-#: libraries/classes/ThemeManager.php:349
+#: libraries/classes/ThemeManager.php:352
 msgid "Theme:"
 msgstr "Tema:"
 
@@ -13585,7 +13585,7 @@ msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Edit dikotak"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Sunday
 #: libraries/classes/Util.php:1573
 msgctxt "Short week day name"
 msgid "Sun"
@@ -13677,7 +13677,7 @@ msgstr "Tidak ada berkas ditemukan dalam arsip ZIP!"
 msgid "Error in ZIP archive:"
 msgstr "Galat pada arsip ZIP:"
 
-#: libraries/common.inc.php:203
+#: libraries/common.inc.php:205
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -13685,16 +13685,16 @@ msgstr ""
 "Gagal mengatur cookie sesi. Mungkin Anda menggunakan HTTP, bukan HTTPS untuk "
 "mengakses phpMyAdmin."
 
-#: libraries/common.inc.php:357
+#: libraries/common.inc.php:359
 msgid "Invalid authentication method set in configuration:"
 msgstr "Metode autentikasi dalam konfigurasi tidak sah:"
 
-#: libraries/common.inc.php:410
+#: libraries/common.inc.php:412
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Anda harus memperbarui ke %s %s atau lebih baru."
 
-#: libraries/common.inc.php:465
+#: libraries/common.inc.php:467
 msgid "Error: Token mismatch"
 msgstr "Error: Token tidak cocok"
 

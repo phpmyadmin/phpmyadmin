@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-10-29 00:43+0100\n"
+"POT-Creation-Date: 2019-11-09 15:43+0100\n"
 "PO-Revision-Date: 2017-10-03 18:16+0000\n"
 "Last-Translator: urty5656 <urty5656@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -143,7 +143,7 @@ msgstr "%s비주얼 쿼리 빌더%s로 전환"
 #: db_search.php:46 libraries/classes/Plugins/Auth/AuthenticationConfig.php:86
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:101
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:78
-#: libraries/classes/Plugins/AuthenticationPlugin.php:192
+#: libraries/classes/Plugins/AuthenticationPlugin.php:195
 msgid "Access denied!"
 msgstr "접근이 거부되었습니다!"
 
@@ -269,11 +269,11 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" 구문은 허락되지 않습니다."
 
-#: import_status.php:111
+#: import_status.php:112
 msgid "Could not load the progress of the import."
 msgstr "가져오기에 필요한 절차를 로드할 수 없습니다."
 
-#: import_status.php:120 js/messages.php:470 js/messages.php:636
+#: import_status.php:121 js/messages.php:470 js/messages.php:636
 #: libraries/classes/Export.php:531
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:306
 #: libraries/classes/UserPassword.php:283 libraries/classes/Util.php:723
@@ -2466,72 +2466,72 @@ msgstr "금요일"
 msgid "Saturday"
 msgstr "토요일"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Sunday
 #: js/messages.php:864
 msgid "Sun"
 msgstr "일"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Monday
 #: js/messages.php:866 libraries/classes/Util.php:1575
 msgid "Mon"
 msgstr "월"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Tuesday
 #: js/messages.php:868 libraries/classes/Util.php:1577
 msgid "Tue"
 msgstr "화"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Wednesday
 #: js/messages.php:870 libraries/classes/Util.php:1579
 msgid "Wed"
 msgstr "수"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Thursday
 #: js/messages.php:872 libraries/classes/Util.php:1581
 msgid "Thu"
 msgstr "목"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Friday
 #: js/messages.php:874 libraries/classes/Util.php:1583
 msgid "Fri"
 msgstr "금"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Saturday
 #: js/messages.php:876 libraries/classes/Util.php:1585
 msgid "Sat"
 msgstr "토"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Sunday
 #: js/messages.php:883
 msgid "Su"
 msgstr "일"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Monday
 #: js/messages.php:885
 msgid "Mo"
 msgstr "월"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Tuesday
 #: js/messages.php:887
 msgid "Tu"
 msgstr "화"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Wednesday
 #: js/messages.php:889
 msgid "We"
 msgstr "수"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Thursday
 #: js/messages.php:891
 msgid "Th"
 msgstr "목"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Friday
 #: js/messages.php:893
 msgid "Fr"
 msgstr "금"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Saturday
 #: js/messages.php:895
 msgid "Sa"
 msgstr "토"
@@ -3229,12 +3229,12 @@ msgstr ""
 "일반적으로 이것은 문법 오류가 있음을 의미합니다. 다음의 모든 오류를 확인하십"
 "시오."
 
-#: libraries/classes/Config.php:1731
+#: libraries/classes/Config.php:1769
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "잘못된 서버 인덱스: %s"
 
-#: libraries/classes/Config.php:1744
+#: libraries/classes/Config.php:1782
 #, php-format
 msgid "Server %d"
 msgstr "서버 %d"
@@ -9530,25 +9530,25 @@ msgstr "사용자명/암호가 틀렸습니다. 접근이 거부되었습니다.
 msgid "Can not find signon authentication script:"
 msgstr "접근관련 인증 스크립트를 찾을수 없습니다:"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:188
+#: libraries/classes/Plugins/AuthenticationPlugin.php:191
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "암호가 없는 로그인이 설정으로 차단되어 있습니다 (AllowNoLogin 항목을 참조하세"
 "요)"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:195
+#: libraries/classes/Plugins/AuthenticationPlugin.php:198
 #, php-format
 msgid "No activity within %s seconds; please log in again."
 msgstr ""
 "최근 %s초 동안 아무 동작이 없어 로그아웃 되었습니다. 다시 로그인해주세요."
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:205
 #: libraries/classes/Plugins/AuthenticationPlugin.php:208
+#: libraries/classes/Plugins/AuthenticationPlugin.php:211
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL 서버에 로그인할 수 없습니다"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:356
+#: libraries/classes/Plugins/AuthenticationPlugin.php:359
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
@@ -10423,7 +10423,7 @@ msgid ""
 "in pixels. The original aspect ratio is preserved."
 msgstr ""
 
-#: libraries/classes/Plugins/Transformations/Abs/LongToIPv4TransformationsPlugin.php:31
+#: libraries/classes/Plugins/Transformations/Abs/LongToIPv4TransformationsPlugin.php:32
 msgid ""
 "Converts an (IPv4) Internet network address stored as a BIGINT into a string "
 "in Internet standard dotted format."
@@ -12371,12 +12371,12 @@ msgstr "기본 테마 %s (을)를 찾을 수 없음!"
 msgid "Theme %s not found!"
 msgstr "%s 테마를 찾을 수 없음!"
 
-#: libraries/classes/ThemeManager.php:259
+#: libraries/classes/ThemeManager.php:262
 #, php-format
 msgid "Theme path not found for theme %s!"
 msgstr "%s 테마의 경로를 찾을 수 없음!"
 
-#: libraries/classes/ThemeManager.php:349
+#: libraries/classes/ThemeManager.php:352
 msgid "Theme:"
 msgstr "테마:"
 
@@ -12865,7 +12865,7 @@ msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "인라인 편집"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Sunday
 #: libraries/classes/Util.php:1573
 msgctxt "Short week day name"
 msgid "Sun"
@@ -12956,22 +12956,22 @@ msgstr "ZIP 압축 안에서 파일을 발견하지 못했습니다!"
 msgid "Error in ZIP archive:"
 msgstr "ZIP 압축파일 오류:"
 
-#: libraries/common.inc.php:203
+#: libraries/common.inc.php:205
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/common.inc.php:357
+#: libraries/common.inc.php:359
 msgid "Invalid authentication method set in configuration:"
 msgstr "설정 파일에 잘못된 인증 방식 설정되어 있습니다.:"
 
-#: libraries/common.inc.php:410
+#: libraries/common.inc.php:412
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s를 %s 이상으로 업그레이드 하십시오."
 
-#: libraries/common.inc.php:465
+#: libraries/common.inc.php:467
 msgid "Error: Token mismatch"
 msgstr "오류: 토큰 불일치"
 

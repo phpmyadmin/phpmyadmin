@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-10-29 00:43+0100\n"
+"POT-Creation-Date: 2019-11-09 15:43+0100\n"
 "PO-Revision-Date: 2019-04-27 17:19+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -141,7 +141,7 @@ msgstr "Cambiar ao %sconstrutor visual%s"
 #: db_search.php:46 libraries/classes/Plugins/Auth/AuthenticationConfig.php:86
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:101
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:78
-#: libraries/classes/Plugins/AuthenticationPlugin.php:192
+#: libraries/classes/Plugins/AuthenticationPlugin.php:195
 msgid "Access denied!"
 msgstr "Denegouse o acceso!"
 
@@ -273,11 +273,11 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Non se permiten as ordes «DROP DATABASE»."
 
-#: import_status.php:111
+#: import_status.php:112
 msgid "Could not load the progress of the import."
 msgstr "Non foi posíbel cargar o progreso da importación."
 
-#: import_status.php:120 js/messages.php:470 js/messages.php:636
+#: import_status.php:121 js/messages.php:470 js/messages.php:636
 #: libraries/classes/Export.php:531
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:306
 #: libraries/classes/UserPassword.php:283 libraries/classes/Util.php:723
@@ -2514,72 +2514,72 @@ msgstr "Venres"
 msgid "Saturday"
 msgstr "Sábado"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Sunday
 #: js/messages.php:864
 msgid "Sun"
 msgstr "Dom"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Monday
 #: js/messages.php:866 libraries/classes/Util.php:1575
 msgid "Mon"
 msgstr "Lu"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Tuesday
 #: js/messages.php:868 libraries/classes/Util.php:1577
 msgid "Tue"
 msgstr "Ma"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Wednesday
 #: js/messages.php:870 libraries/classes/Util.php:1579
 msgid "Wed"
 msgstr "Mé"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Thursday
 #: js/messages.php:872 libraries/classes/Util.php:1581
 msgid "Thu"
 msgstr "Xo"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Friday
 #: js/messages.php:874 libraries/classes/Util.php:1583
 msgid "Fri"
 msgstr "Ve"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Saturday
 #: js/messages.php:876 libraries/classes/Util.php:1585
 msgid "Sat"
 msgstr "Sá"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Sunday
 #: js/messages.php:883
 msgid "Su"
 msgstr "Do"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Monday
 #: js/messages.php:885
 msgid "Mo"
 msgstr "Lu"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Tuesday
 #: js/messages.php:887
 msgid "Tu"
 msgstr "Ma"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Wednesday
 #: js/messages.php:889
 msgid "We"
 msgstr "Mé"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Thursday
 #: js/messages.php:891
 msgid "Th"
 msgstr "X"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Friday
 #: js/messages.php:893
 msgid "Fr"
 msgstr "Ve"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Saturday
 #: js/messages.php:895
 msgid "Sa"
 msgstr "Sá"
@@ -3380,12 +3380,12 @@ msgstr ""
 "Isto normalmente significa que hai unha erro na sintaxe; comprobe calquera "
 "erro mostrado embaixo."
 
-#: libraries/classes/Config.php:1731
+#: libraries/classes/Config.php:1769
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "O índice de servidor non é válido: %s"
 
-#: libraries/classes/Config.php:1744
+#: libraries/classes/Config.php:1782
 #, php-format
 msgid "Server %d"
 msgstr "Servidor %d"
@@ -10185,25 +10185,25 @@ msgstr "O usuario ou o contrasinal están errados. Denegouse o acceso."
 msgid "Can not find signon authentication script:"
 msgstr "Non foi posíbel atopar o script de autenticación de entrada:"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:188
+#: libraries/classes/Plugins/AuthenticationPlugin.php:191
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "A configuración prohibe rexistrarse sen contrasinal (vexa AllowNoPassword)"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:195
+#: libraries/classes/Plugins/AuthenticationPlugin.php:198
 #, php-format
 msgid "No activity within %s seconds; please log in again."
 msgstr ""
 "Non se rexistrou actividade ningunha desde hai %s segundos ou máis. Terá que "
 "entrar de novo."
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:205
 #: libraries/classes/Plugins/AuthenticationPlugin.php:208
+#: libraries/classes/Plugins/AuthenticationPlugin.php:211
 msgid "Cannot log in to the MySQL server"
 msgstr "Non é posíbel rexistrarse no servidor de MySQL"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:356
+#: libraries/classes/Plugins/AuthenticationPlugin.php:359
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
@@ -11172,7 +11172,7 @@ msgstr ""
 "Mostra unha miniatura cunha ligazón. As opcións son o largo e a altura "
 "máxima en píxeles. Mantéñense as proporcións orixinais."
 
-#: libraries/classes/Plugins/Transformations/Abs/LongToIPv4TransformationsPlugin.php:31
+#: libraries/classes/Plugins/Transformations/Abs/LongToIPv4TransformationsPlugin.php:32
 #, fuzzy
 #| msgid ""
 #| "Converts an (IPv4) Internet network address into a string in Internet "
@@ -13239,12 +13239,12 @@ msgstr "Non se atopou o tema por omisión %s!"
 msgid "Theme %s not found!"
 msgstr "Non se atopou o tema %s!"
 
-#: libraries/classes/ThemeManager.php:259
+#: libraries/classes/ThemeManager.php:262
 #, php-format
 msgid "Theme path not found for theme %s!"
 msgstr "Non se atopou a ruta do tema para o tema %s!"
 
-#: libraries/classes/ThemeManager.php:349
+#: libraries/classes/ThemeManager.php:352
 msgid "Theme:"
 msgstr "Tema:"
 
@@ -13748,7 +13748,7 @@ msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Editar na liña"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Sunday
 #: libraries/classes/Util.php:1573
 msgctxt "Short week day name"
 msgid "Sun"
@@ -13839,23 +13839,23 @@ msgstr "Non se atoparon ficheiros dentro do arquivo ZIP!"
 msgid "Error in ZIP archive:"
 msgstr "Produciuse un erro no ficheiro ZIP:"
 
-#: libraries/common.inc.php:203
+#: libraries/common.inc.php:205
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/common.inc.php:357
+#: libraries/common.inc.php:359
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 "Na configuración indicouse un método de autenticación que non é válido:"
 
-#: libraries/common.inc.php:410
+#: libraries/common.inc.php:412
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Debería actualizar a %s %s ou posterior."
 
-#: libraries/common.inc.php:465
+#: libraries/common.inc.php:467
 msgid "Error: Token mismatch"
 msgstr "Erro: o token non coincide"
 

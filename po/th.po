@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-10-29 00:43+0100\n"
+"POT-Creation-Date: 2019-11-09 15:43+0100\n"
 "PO-Revision-Date: 2019-11-07 02:04+0000\n"
 "Last-Translator: Kongfa Warorot <gongpha@hotmail.com>\n"
-"Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/5-0/th/>"
-"\n"
+"Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/5-0/th/"
+">\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -133,7 +133,7 @@ msgstr "สลับไปยัง %svisual builder%s"
 #: db_search.php:46 libraries/classes/Plugins/Auth/AuthenticationConfig.php:86
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:101
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:78
-#: libraries/classes/Plugins/AuthenticationPlugin.php:192
+#: libraries/classes/Plugins/AuthenticationPlugin.php:195
 msgid "Access denied!"
 msgstr "การเข้าถึงถูกปฏิเสธ!"
 
@@ -145,9 +145,7 @@ msgstr "ลบข้อมูลติดตามเรียบร้อยแ
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr ""
-"เวอร์ชัน %1$s ถูกสร้างขึ้นสำหรับตารางที่เลือก "
-"การติดตามจะเปิดใช้งานกับตารางพวกนั้น"
+msgstr "เวอร์ชัน %1$s ถูกสร้างขึ้นสำหรับตารางที่เลือก การติดตามจะเปิดใช้งานกับตารางพวกนั้น"
 
 #: db_tracking.php:95
 msgid "No tables selected."
@@ -244,8 +242,8 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"หมดเวลาการเรียกใช้สคริปต์แล้ว หากคุณต้องการนำเข้าให้เรียบร้อย กรุณา "
-"%sนำเข้าไฟล์เดิม%s อีกรอบ และการนำเข้าจะดำเนินต่อไป"
+"หมดเวลาการเรียกใช้สคริปต์แล้ว หากคุณต้องการนำเข้าให้เรียบร้อย กรุณา %sนำเข้าไฟล์เดิม%s "
+"อีกรอบ และการนำเข้าจะดำเนินต่อไป"
 
 #: import.php:656
 msgid ""
@@ -259,11 +257,11 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "คำสั่ง \"DROP DATABASE\" ถูกปิดไว้"
 
-#: import_status.php:111
+#: import_status.php:112
 msgid "Could not load the progress of the import."
 msgstr "ไม่สามารถโหลดข้อมูลความคืบหน้าของการนำเข้าได้"
 
-#: import_status.php:120 js/messages.php:470 js/messages.php:636
+#: import_status.php:121 js/messages.php:470 js/messages.php:636
 #: libraries/classes/Export.php:531
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:306
 #: libraries/classes/UserPassword.php:283 libraries/classes/Util.php:723
@@ -416,10 +414,9 @@ msgid ""
 "</b>"
 msgstr ""
 "ในการดำเนินการนี้, MySQL จะพยายามเชื่อมค่าของข้อมูลในแต่ละชุดอักขระ "
-"หากชุดอักขระไม่เข้ากันอาจทำให้เกิดการสูญเสียข้อมูล และข้อมูลในส่วนที่สูญเสียไ"
-"ปนี้อาจ<b>ไม่</b>สามารถกู้คืนได้จากการเปลี่ยนชุดอักขระคอลัมน์กลับคืน "
-"<b>หากต้องการแปลงข้อมูลที่มีอยู่เดิม, แนะนำให้ใช้คุณลักษณะการแก้ไขคอลัมน์ "
-"(ลิงก์ \"เปลี่ยน\") ที่อยู่ในหน้าโครงสร้างตาราง </b>"
+"หากชุดอักขระไม่เข้ากันอาจทำให้เกิดการสูญเสียข้อมูล และข้อมูลในส่วนที่สูญเสียไปนี้อาจ<b>ไม่</"
+"b>สามารถกู้คืนได้จากการเปลี่ยนชุดอักขระคอลัมน์กลับคืน <b>หากต้องการแปลงข้อมูลที่มีอยู่เดิม, "
+"แนะนำให้ใช้คุณลักษณะการแก้ไขคอลัมน์ (ลิงก์ \"เปลี่ยน\") ที่อยู่ในหน้าโครงสร้างตาราง </b>"
 
 #: js/messages.php:112
 msgid ""
@@ -1471,8 +1468,7 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
-"ไม่มีคอลัมน์ในรายการส่วนกลาง "
-"ตรวจสอบให้แน่ใจว่ารายการคอลัมน์ส่วนกลางสำหรับฐานข่อมูล %s "
+"ไม่มีคอลัมน์ในรายการส่วนกลาง ตรวจสอบให้แน่ใจว่ารายการคอลัมน์ส่วนกลางสำหรับฐานข่อมูล %s "
 "มีคอลัมน์ที่ไม่มีอยู่ในตารางปัจจุบัน"
 
 #: js/messages.php:446
@@ -1487,9 +1483,7 @@ msgstr "คุณแน่ใจหรือไม่?"
 msgid ""
 "This action may change some of the columns definition.<br>Are you sure you "
 "want to continue?"
-msgstr ""
-"การกระทำนี้อาจเปลี่ยนกำหนดการของคอลัมน์บางอย่าง<br>คุณแน่ใจหรือไม่ว่าคุณจะไปต"
-"่อ?"
+msgstr "การกระทำนี้อาจเปลี่ยนกำหนดการของคอลัมน์บางอย่าง<br>คุณแน่ใจหรือไม่ว่าคุณจะไปต่อ?"
 
 #: js/messages.php:452
 msgid "Continue"
@@ -1542,8 +1536,8 @@ msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
-"หมายเหตุ: a b -> d f หมายถึงค่าของคอลัมน์ a และ b "
-"ที่รวมกันสามารถกำหนดค่าของคอลัมน์ d และคอลัมน์ f"
+"หมายเหตุ: a b -> d f หมายถึงค่าของคอลัมน์ a และ b ที่รวมกันสามารถกำหนดค่าของคอลัมน์ d "
+"และคอลัมน์ f"
 
 #: js/messages.php:469
 msgid "No partial dependencies selected!"
@@ -1561,9 +1555,7 @@ msgstr "ซ่อนรายการอ้างอิงบางส่วน
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
-msgstr ""
-"รอตรงนี้! มันอาจใช้เวลาไม่กี่วินาที "
-"ขึ้นอยู่กับขนาดข้อมูลและจำนวนคอลัมน์ของตาราง"
+msgstr "รอตรงนี้! มันอาจใช้เวลาไม่กี่วินาที ขึ้นอยู่กับขนาดข้อมูลและจำนวนคอลัมน์ของตาราง"
 
 #: js/messages.php:478
 msgid "Step"
@@ -1794,24 +1786,21 @@ msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
-"MySQL ยอมรับค่าเพิ่มเติมที่ไม่สามารถเลือกได้ด้วยแถบเลื่อน คีย์ในค่าเหล่านั้"
-"นโดยตรง หากต้องการ"
+"MySQL ยอมรับค่าเพิ่มเติมที่ไม่สามารถเลือกได้ด้วยแถบเลื่อน คีย์ในค่าเหล่านั้นโดยตรง หากต้องการ"
 
 #: js/messages.php:553
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
-"MySQL ยอมรับค่าเพิ่มเติมที่ไม่สามารถเลือกได้ด้วยตัวเลือกวันที่ "
-"คีย์ในค่าเหล่านั้นโดยตรง หากต้องการ"
+"MySQL ยอมรับค่าเพิ่มเติมที่ไม่สามารถเลือกได้ด้วยตัวเลือกวันที่ คีย์ในค่าเหล่านั้นโดยตรง หากต้องการ"
 
 #: js/messages.php:559
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
-"เพื่อระบุว่าคุณได้ทำการเปลี่ยนแปลงในหน้านี้ "
-"คุณจะได้รับการแจ้งให้ยืนยันก่อนที่จะละทิ้งการเปลี่ยนแปลง"
+"เพื่อระบุว่าคุณได้ทำการเปลี่ยนแปลงในหน้านี้ คุณจะได้รับการแจ้งให้ยืนยันก่อนที่จะละทิ้งการเปลี่ยนแปลง"
 
 #: js/messages.php:564
 msgid "Select referenced key"
@@ -2476,72 +2465,72 @@ msgstr "วันศุกร์"
 msgid "Saturday"
 msgstr "วันเสาร์"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Sunday
 #: js/messages.php:864
 msgid "Sun"
 msgstr "อ."
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Monday
 #: js/messages.php:866 libraries/classes/Util.php:1575
 msgid "Mon"
 msgstr "จ."
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Tuesday
 #: js/messages.php:868 libraries/classes/Util.php:1577
 msgid "Tue"
 msgstr "อ."
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Wednesday
 #: js/messages.php:870 libraries/classes/Util.php:1579
 msgid "Wed"
 msgstr "พ."
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Thursday
 #: js/messages.php:872 libraries/classes/Util.php:1581
 msgid "Thu"
 msgstr "พฤ."
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Friday
 #: js/messages.php:874 libraries/classes/Util.php:1583
 msgid "Fri"
 msgstr "ศ."
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Saturday
 #: js/messages.php:876 libraries/classes/Util.php:1585
 msgid "Sat"
 msgstr "ส."
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Sunday
 #: js/messages.php:883
 msgid "Su"
 msgstr "อา."
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Monday
 #: js/messages.php:885
 msgid "Mo"
 msgstr "จ."
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Tuesday
 #: js/messages.php:887
 msgid "Tu"
 msgstr "อ."
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Wednesday
 #: js/messages.php:889
 msgid "We"
 msgstr "พ."
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Thursday
 #: js/messages.php:891
 msgid "Th"
 msgstr "พฤ."
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Friday
 #: js/messages.php:893
 msgid "Fr"
 msgstr "ศ."
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Saturday
 #: js/messages.php:895
 msgid "Sa"
 msgstr "ส."
@@ -3367,12 +3356,12 @@ msgid ""
 "shown below."
 msgstr ""
 
-#: libraries/classes/Config.php:1731
+#: libraries/classes/Config.php:1769
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "ลำดับเซิฟเวอร์ไม่ถูกต้อง: %s"
 
-#: libraries/classes/Config.php:1744
+#: libraries/classes/Config.php:1782
 #, fuzzy, php-format
 #| msgid "Server"
 msgid "Server %d"
@@ -9837,22 +9826,22 @@ msgstr "อนุญาตให้เข้าใช้ไม่ได้ ช�
 msgid "Can not find signon authentication script:"
 msgstr "﻿สามารถค้นหา signon สำหรับตรวจสอบสคริปต์:"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:188
+#: libraries/classes/Plugins/AuthenticationPlugin.php:191
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr "﻿ห้ามกำหนดค่า สำหรับการเข้าสู่ระบบโดยไม่มีรหัสผ่าน (ดู AllowNoPassword)"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:195
+#: libraries/classes/Plugins/AuthenticationPlugin.php:198
 #, php-format
 msgid "No activity within %s seconds; please log in again."
 msgstr "﻿ไม่มีกิจกรรมภายใน %s วินาที กรุณาล็อกอินอีกครั้ง"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:205
 #: libraries/classes/Plugins/AuthenticationPlugin.php:208
+#: libraries/classes/Plugins/AuthenticationPlugin.php:211
 msgid "Cannot log in to the MySQL server"
 msgstr "ไม่สามารถล็อกอินเข้าเซิร์ฟเวอร์ MySQL ได้"
 
-#: libraries/classes/Plugins/AuthenticationPlugin.php:356
+#: libraries/classes/Plugins/AuthenticationPlugin.php:359
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
@@ -10790,7 +10779,7 @@ msgstr ""
 "แสดงรูปขนาดเล็กที่กดเข้าไปดูภาพใหญ่ได้; ตัวเลือก: ความกว้าง, ความสูง หน่วยเป็นพิกเซล "
 "(คงสัดส่วนเดิม)"
 
-#: libraries/classes/Plugins/Transformations/Abs/LongToIPv4TransformationsPlugin.php:31
+#: libraries/classes/Plugins/Transformations/Abs/LongToIPv4TransformationsPlugin.php:32
 msgid ""
 "Converts an (IPv4) Internet network address stored as a BIGINT into a string "
 "in Internet standard dotted format."
@@ -12833,12 +12822,12 @@ msgstr "ไม่พบรูปแบบเริ่มต้น %s"
 msgid "Theme %s not found!"
 msgstr "ไม่พบชุดรูปแบบ %s"
 
-#: libraries/classes/ThemeManager.php:259
+#: libraries/classes/ThemeManager.php:262
 #, fuzzy, php-format
 msgid "Theme path not found for theme %s!"
 msgstr "﻿เส้นทางของชุดรูปแบบ %s ไม่พบ"
 
-#: libraries/classes/ThemeManager.php:349
+#: libraries/classes/ThemeManager.php:352
 #, fuzzy
 #| msgid "Theme"
 msgid "Theme:"
@@ -13304,7 +13293,7 @@ msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "เพิ่มฟิลด์ใหม่"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Sunday
 #: libraries/classes/Util.php:1573
 msgctxt "Short week day name"
 msgid "Sun"
@@ -13400,22 +13389,22 @@ msgstr ""
 msgid "Error in ZIP archive:"
 msgstr ""
 
-#: libraries/common.inc.php:203
+#: libraries/common.inc.php:205
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/common.inc.php:357
+#: libraries/common.inc.php:359
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 
-#: libraries/common.inc.php:410
+#: libraries/common.inc.php:412
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr ""
 
-#: libraries/common.inc.php:465
+#: libraries/common.inc.php:467
 msgid "Error: Token mismatch"
 msgstr "เกิดข้อผิดพลาด: โทเค็นไม่ตรงกัน"
 
@@ -15087,10 +15076,9 @@ msgid ""
 "single quote (\"'\") amongst those values, precede it with a backslash (for "
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"ถ้าชนิดของคอลัมน์เป็น \"enum\" หรือ \"set\" โปรดกรอกค่าตามรูปแบบ: "
-"'a','b','c'…<br>ถ้าต้องการใส่เครื่องหมายทับกลับด้าน (\"\\\") หรือ "
-"อัญประกาศเดี่ยว (\"'\") เข้าไปในค่าเหล่านั้น "
-"ให้ใส่เครื่องหมายทับกลับด้านนำหน้า (ตัวอย่าง: '\\\\xyz' or 'a\\'b')"
+"ถ้าชนิดของคอลัมน์เป็น \"enum\" หรือ \"set\" โปรดกรอกค่าตามรูปแบบ: 'a','b','c'…"
+"<br>ถ้าต้องการใส่เครื่องหมายทับกลับด้าน (\"\\\") หรือ อัญประกาศเดี่ยว (\"'\") "
+"เข้าไปในค่าเหล่านั้น ให้ใส่เครื่องหมายทับกลับด้านนำหน้า (ตัวอย่าง: '\\\\xyz' or 'a\\'b')"
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
