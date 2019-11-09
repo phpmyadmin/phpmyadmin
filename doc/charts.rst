@@ -12,12 +12,12 @@ by clicking the "Display chart" link in the "Query results operations" area.
 
 A window layer "Display chart" is shown in which you can customize the chart with the following options.
 
--   Chart type: Allows you choose the type of the chart. Supported types are bar charts, column charts, line charts, spline charts, area charts, pie charts and timeline charts (only the chart types applicable for current series selection are offered).
+-   Chart type: Allows you to choose the type of chart. Supported types are bar charts, column charts, line charts, spline charts, area charts, pie charts and timeline charts (only the chart types applicable for current series selection are offered).
 -   X-axis: Allows to choose the field for the main axis.
 -   Series: Allows to choose series for the chart. You can choose multiple series.
 -   Title: Allows specifying a title for the chart which is displayed above the chart.
 -   X-axis and Y-axis labels: Allows specifying labels for axes.
--   Start row and number of rows: Allows generating charts only for a specified number of rows of the results set.
+-   Start row and a number of rows: Allows generating charts only for a specified number of rows of the results set.
 
 .. image:: images/chart.png
 
