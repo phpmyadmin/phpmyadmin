@@ -942,7 +942,7 @@ class Relation
                     AND table_name  = ''
                     AND column_name = '(db_comment)'";
             $com_rs = $this->queryAsControlUser(
-                $com_qry, true, DatabaseInterface::QUERY_STORE
+                $com_qry, false, DatabaseInterface::QUERY_STORE
             );
 
             if ($com_rs && $GLOBALS['dbi']->numRows($com_rs) > 0) {
@@ -976,7 +976,7 @@ class Relation
                     . "
                 WHERE `column_name` = '(db_comment)'";
             $com_rs = $this->queryAsControlUser(
-                $com_qry, true, DatabaseInterface::QUERY_STORE
+                $com_qry, false, DatabaseInterface::QUERY_STORE
             );
 
             if ($com_rs && $GLOBALS['dbi']->numRows($com_rs) > 0) {
