@@ -30,9 +30,9 @@ Debian and Ubuntu
 
 Debian's package repositories include a phpMyAdmin package, but be aware that
 the configuration file is maintained in ``/etc/phpmyadmin`` and may differ in
-some ways from the official phpMyAdmin documentation. Specifically it does:
+some ways from the official phpMyAdmin documentation. Specifically, it does:
 
-* Configuration of web server (works for Apache and lighttpd).
+* Configuration of a web server (works for Apache and lighttpd).
 * Creating of :ref:`linked-tables` using dbconfig-common.
 * Securing setup script, see :ref:`debian-setup`.
 
@@ -50,7 +50,7 @@ the `openSUSE Build Service <https://software.opensuse.org/package/phpMyAdmin>`_
 Gentoo
 ------
 
-Gentoo ships the phpMyAdmin package, both in a near stock configuration as well
+Gentoo ships the phpMyAdmin package, both in a near-stock configuration as well
 as in a ``webapp-config`` configuration. Use ``emerge dev-db/phpmyadmin`` to
 install.
 
@@ -170,7 +170,7 @@ configuring the link to the database server, either by Docker's link feature
 by linking your database container to ``db`` for phpMyAdmin (by specifying
 ``--link your_db_host:db``) or by environment variables (in this case it's up
 to you to set up networking in Docker to allow the phpMyAdmin container to access
-the database container over network).
+the database container over the network).
 
 .. _docker-vars:
 
@@ -187,13 +187,13 @@ You can configure several phpMyAdmin features using environment variables:
 
 .. envvar:: PMA_HOST
 
-    Host name or IP address of the database server to use.
+    Hostname or IP address of the database server to use.
 
     .. seealso:: :config:option:`$cfg['Servers'][$i]['host']`
 
 .. envvar:: PMA_HOSTS
 
-    Comma-separated host names or IP addresses of the database servers to use.
+    Comma-separated hostnames or IP addresses of the database servers to use.
 
     .. note:: Used only if :envvar:`PMA_HOST` is empty.
 
@@ -240,7 +240,7 @@ By default, :ref:`cookie` is used, but if :envvar:`PMA_USER` and
 .. note::
 
     The credentials you need to log in are stored in the MySQL server, in case
-    of Docker image there are various ways to set it (for example
+    of Docker image, there are various ways to set it (for example
     :samp:`MYSQL_ROOT_PASSWORD` when starting the MySQL container). Please check
     documentation for `MariaDB container <https://hub.docker.com/_/mariadb>`_
     or `MySQL container <https://hub.docker.com/_/mysql>`_.
@@ -259,7 +259,7 @@ configuration can be added as a volume when invoking docker using
 Note that the supplied configuration file is applied after :ref:`docker-vars`,
 but you can override any of the values.
 
-For example to change default behaviour of CSV export you can use following
+For example to change the default behavior of CSV export you can use the following
 configuration file:
 
 .. code-block:: php
@@ -296,11 +296,11 @@ environment variables listed in :ref:`docker-vars`:
 Docker Volumes
 --------------
 
-You can use following volumes to customize image behavior:
+You can use the following volumes to customize image behavior:
 
 :file:`/etc/phpmyadmin/config.user.inc.php`
 
-    Can be used for additional settings, see previous chapter for more details.
+    Can be used for additional settings, see the previous chapter for more details.
 
 :file:`/sessions/`
 
@@ -355,9 +355,9 @@ Running with additional themes:
 Using docker-compose
 --------------------
 
-Alternatively you can also use docker-compose with the docker-compose.yml from
+Alternatively, you can also use docker-compose with the docker-compose.yml from
 <https://github.com/phpmyadmin/docker>.  This will run phpMyAdmin with an
-arbitrary server - allowing you to specify MySQL/MariaDB server on login page.
+arbitrary server - allowing you to specify MySQL/MariaDB server on the login page.
 
 .. code-block:: sh
 
@@ -393,7 +393,7 @@ When you want to expose phpMyAdmin running in a Docker container in a
 subdirectory, you need to rewrite the request path in the server proxying the
 requests.
 
-For example using haproxy it can be done as:
+For example, using haproxy it can be done as:
 
 .. code-block:: text
 
@@ -540,8 +540,8 @@ For a full explanation of possible configuration values, see the
 
 .. _setup_script:
 
-Using Setup script
-------------------
+Using the Setup script
+----------------------
 
 Instead of manually editing :file:`config.inc.php`, you can use phpMyAdmin's
 setup feature. The file can be generated using the setup and you can download it
@@ -554,7 +554,7 @@ to the server.
 
 Now the file is ready to be used. You can choose to review or edit the
 file with your favorite editor, if you prefer to set some advanced
-options which the setup script does not provide.
+options that the setup script does not provide.
 
 #. If you are using the ``auth_type`` "config", it is suggested that you
    protect the phpMyAdmin installation directory because using config
@@ -573,7 +573,7 @@ options which the setup script does not provide.
 Setup script on Debian, Ubuntu and derivatives
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Debian and Ubuntu have changed way how setup is enabled and disabled, in a way
+Debian and Ubuntu have changed the way in which the setup script is enabled and disabled, in a way
 that single command has to be executed for either of these.
 
 To allow editing configuration invoke:
@@ -634,7 +634,7 @@ This way you can be sure that you are using the same code that was released.
 You should also verify the date of the signature to make sure that you
 downloaded the latest version.
 
-Each archive is accompanied with ``.asc`` files which contains the PGP signature
+Each archive is accompanied by ``.asc`` files which contain the PGP signature
 for it. Once you have both of them in the same folder, you can verify the signature:
 
 .. code-block:: console
@@ -644,7 +644,7 @@ for it. Once you have both of them in the same folder, you can verify the signat
     gpg: Can't check signature: public key not found
 
 As you can see gpg complains that it does not know the public key. At this
-point you should do one of the following steps:
+point, you should do one of the following steps:
 
 * Download the keyring from `our download server <https://files.phpmyadmin.net/phpmyadmin.keyring>`_, then import it with:
 
@@ -663,7 +663,7 @@ point you should do one of the following steps:
     gpg: Total number processed: 1
     gpg:               imported: 1  (RSA: 1)
 
-This will improve the situation a bit - at this point you can verify that the
+This will improve the situation a bit - at this point, you can verify that the
 signature from the given key is correct but you still can not trust the name used
 in the key:
 
@@ -681,9 +681,9 @@ The problem here is that anybody could issue the key with this name.  You need t
 ensure that the key is actually owned by the mentioned person.  The GNU Privacy
 Handbook covers this topic in the chapter `Validating other keys on your public
 keyring`_. The most reliable method is to meet the developer in person and
-exchange key fingerprints, however you can also rely on the web of trust. This way
+exchange key fingerprints, however, you can also rely on the web of trust. This way
 you can trust the key transitively though signatures of others, who have met
-the developer in person. For example you can see how `Isaac's key links to
+the developer in person. For example, you can see how `Isaac's key links to
 Linus's key`_.
 
 Once the key is trusted, the warning will not occur:
@@ -720,7 +720,7 @@ phpMyAdmin configuration storage
 .. versionchanged:: 3.4.0
 
    Prior to phpMyAdmin 3.4.0 this was called Linked Tables Infrastructure, but
-   the name was changed due to extended scope of the storage.
+   the name was changed due to the extended scope of the storage.
 
 For a whole set of additional features (:ref:`bookmarks`, comments, :term:`SQL`-history,
 tracking mechanism, :term:`PDF`-generation, :ref:`transformations`, :ref:`relations`
@@ -803,7 +803,7 @@ Upgrading from an older version
     phpMyAdmin, always first remove the old files keeping just the
     configuration.
 
-    This way you will not leave old no longer working code in the directory,
+    This way, you will not leave any old or outdated files in the directory,
     which can have severe security implications or can cause various breakages.
 
 Simply copy :file:`config.inc.php` from your previous installation into
@@ -817,14 +817,14 @@ You should **not** copy :file:`libraries/config.default.php` over
 :file:`config.inc.php` because the default configuration file is version-
 specific.
 
-The complete upgrade can be performed in few simple steps:
+The complete upgrade can be performed in a few simple steps:
 
 1. Download the latest phpMyAdmin version from <https://www.phpmyadmin.net/downloads/>.
 2. Rename existing phpMyAdmin folder (for example to ``phpmyadmin-old``).
-3. Unpack freshly donwloaded phpMyAdmin to desired location (for example ``phpmyadmin``).
-4. Copy :file:`config.inc.php`` from old location (``phpmyadmin-old``) to new one (``phpmyadmin``).
+3. Unpack freshly downloaded phpMyAdmin to the desired location (for example ``phpmyadmin``).
+4. Copy :file:`config.inc.php`` from old location (``phpmyadmin-old``) to the new one (``phpmyadmin``).
 5. Test that everything works properly.
-6. Remove backup of previous version (``phpmyadmin-old``).
+6. Remove backup of a previous version (``phpmyadmin-old``).
 
 If you have upgraded your MySQL server from a version previous to 4.1.2 to
 version 5.x or newer and if you use the phpMyAdmin configuration storage, you
@@ -848,7 +848,7 @@ Using authentication modes
 
 :term:`HTTP` and cookie authentication modes are recommended in a **multi-user
 environment** where you want to give users access to their own database and
-don't want them to play around with others. Nevertheless be aware that MS
+don't want them to play around with others. Nevertheless, be aware that MS
 Internet Explorer seems to be really buggy about cookies, at least till version
 6. Even in a **single-user environment**, you might prefer to use :term:`HTTP`
 or cookie mode so that your user/password pair are not in clear in the
@@ -858,13 +858,13 @@ configuration file.
 modes are more secure: the MySQL login information does not need to be
 set in the phpMyAdmin configuration file (except possibly for the
 :config:option:`$cfg['Servers'][$i]['controluser']`).
-However, keep in mind that the password travels in plain text, unless
+However, keep in mind that the password travels in plain text unless
 you are using the HTTPS protocol. In cookie mode, the password is
 stored, encrypted with the AES algorithm, in a temporary cookie.
 
 Then each of the *true* users should be granted a set of privileges
 on a set of particular databases. Normally you shouldn't give global
-privileges to an ordinary user, unless you understand the impact of those
+privileges to an ordinary user unless you understand the impact of those
 privileges (for example, you are creating a superuser).
 For example, to grant the user *real_user* with all privileges on
 the database *user_base*:
@@ -913,8 +913,8 @@ HTTP authentication mode
 
     There is no way to do proper logout in HTTP authentication, most browsers
     will remember credentials until there is no different successful
-    authentication. Because of this this method has limitation that you can not
-    login with same user after logout.
+    authentication. Because of this, this method has a limitation that you can not
+    login with the same user after logout.
 
 .. index:: pair: Cookie; Authentication mode
 
@@ -941,7 +941,7 @@ Signon authentication mode
 --------------------------
 
 * This mode is a convenient way of using credentials from another
-  application to authenticate to phpMyAdmin to implement single signon
+  application to authenticate to phpMyAdmin to implement a single signon
   solution.
 * The other application has to store login information into session
   data (see :config:option:`$cfg['Servers'][$i]['SignonSession']` and
@@ -958,7 +958,7 @@ The very basic example of saving credentials in a session is available as
 .. literalinclude:: ../examples/signon.php
     :language: php
 
-Alternatively you can also use this way to integrate with OpenID as shown
+Alternatively, you can also use this way to integrate with OpenID as shown
 in :file:`examples/openid.php`:
 
 .. literalinclude:: ../examples/openid.php
@@ -966,7 +966,7 @@ in :file:`examples/openid.php`:
 
 If you intend to pass the credentials using some other means than, you have to
 implement wrapper in PHP to get that data and set it to
-:config:option:`$cfg['Servers'][$i]['SignonScript']`. There is very minimal example
+:config:option:`$cfg['Servers'][$i]['SignonScript']`. There is a very minimal example
 in :file:`examples/signon-script.php`:
 
 .. literalinclude:: ../examples/signon-script.php
@@ -1020,7 +1020,7 @@ are always ways to make your installation more secure:
 * Ensure your PHP setup follows recommendations for production sites, for example
   `display_errors <https://secure.php.net/manual/en/errorfunc.configuration.php#ini.display-errors>`_
   should be disabled.
-* Remove the ``test`` directory from phpMyAdmin, unless you are developing and need test suite.
+* Remove the ``test`` directory from phpMyAdmin, unless you are developing and need a test suite.
 * Remove the ``setup`` directory from phpMyAdmin, you will probably not
   use it after the initial setup.
 * Properly choose an authentication method - :ref:`cookie`
@@ -1035,7 +1035,7 @@ are always ways to make your installation more secure:
   is placed inside your web root, see also :ref:`web-dirs`.
 * It is generally a good idea to protect a public phpMyAdmin installation
   against access by robots as they usually can not do anything good there. You
-  can do this using ``robots.txt`` file in root of your webserver or limit
+  can do this using ``robots.txt`` file in the root of your webserver or limit
   access by web server configuration, see :ref:`faq1_42`.
 * In case you don't want all MySQL users to be able to access
   phpMyAdmin, you can use :config:option:`$cfg['Servers'][$i]['AllowDeny']['rules']` to limit them
@@ -1069,7 +1069,7 @@ are always ways to make your installation more secure:
   is not the same as the Apache error or access log files.
 * In case you're running phpMyAdmin together with other PHP applications, it is
   generally advised to use separate session storage for phpMyAdmin to avoid
-  possible session based attacks against it. You can use
+  possible session-based attacks against it. You can use
   :config:option:`$cfg['SessionSavePath']` to achieve this.
 
 .. _ssl:
