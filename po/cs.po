@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-11-07 18:19-0300\n"
+"POT-Creation-Date: 2019-11-09 15:49+0100\n"
 "PO-Revision-Date: 2018-10-02 16:39+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -2275,72 +2275,72 @@ msgstr "Pátek"
 msgid "Saturday"
 msgstr "Sobota"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Sunday
 #: js/messages.php:870
 msgid "Sun"
 msgstr "Ned"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Monday
 #: js/messages.php:872 libraries/classes/Util.php:1546
 msgid "Mon"
 msgstr "Pon"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Tuesday
 #: js/messages.php:874 libraries/classes/Util.php:1548
 msgid "Tue"
 msgstr "Úte"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Wednesday
 #: js/messages.php:876 libraries/classes/Util.php:1550
 msgid "Wed"
 msgstr "Stř"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Thursday
 #: js/messages.php:878 libraries/classes/Util.php:1552
 msgid "Thu"
 msgstr "Čtv"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Friday
 #: js/messages.php:880 libraries/classes/Util.php:1554
 msgid "Fri"
 msgstr "Pát"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Saturday
 #: js/messages.php:882 libraries/classes/Util.php:1556
 msgid "Sat"
 msgstr "Sob"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Sunday
 #: js/messages.php:889
 msgid "Su"
 msgstr "Ne"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Monday
 #: js/messages.php:891
 msgid "Mo"
 msgstr "Po"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Tuesday
 #: js/messages.php:893
 msgid "Tu"
 msgstr "Út"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Wednesday
 #: js/messages.php:895
 msgid "We"
 msgstr "St"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Thursday
 #: js/messages.php:897
 msgid "Th"
 msgstr "Čt"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Friday
 #: js/messages.php:899
 msgid "Fr"
 msgstr "Pá"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Saturday
 #: js/messages.php:901
 msgid "Sa"
 msgstr "So"
@@ -6202,7 +6202,7 @@ msgid "SQL Query Console"
 msgstr "Konzole pro SQL dotazy"
 
 #: libraries/classes/Controllers/ChangeLogController.php:43
-#: libraries/entry_points/license.php:31
+#: libraries/classes/Controllers/LicenseController.php:32
 #, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
@@ -12807,9 +12807,11 @@ msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Upravit zde v řádku"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Sunday
 #: libraries/classes/Util.php:1544
-msgctxt "Short week day name"
+#, fuzzy
+#| msgid "Sun"
+msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "Ned"
 
@@ -18388,6 +18390,10 @@ msgstr ""
 #: libraries/advisory_rules_mysql_before80003.txt:57
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit je nastaveno na 1 MiB"
+
+#~ msgctxt "Short week day name"
+#~ msgid "Sun"
+#~ msgstr "Ned"
 
 #~ msgid "This Host"
 #~ msgstr "Tento počítač"

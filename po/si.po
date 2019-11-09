@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-11-07 18:19-0300\n"
+"POT-Creation-Date: 2019-11-09 15:49+0100\n"
 "PO-Revision-Date: 2018-12-18 22:09+0000\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -2390,72 +2390,72 @@ msgstr "සිකුරාදා"
 msgid "Saturday"
 msgstr "සෙනසුරාදා"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Sunday
 #: js/messages.php:870
 msgid "Sun"
 msgstr "ඉරිදා"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Monday
 #: js/messages.php:872 libraries/classes/Util.php:1546
 msgid "Mon"
 msgstr "සඳුදා"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Tuesday
 #: js/messages.php:874 libraries/classes/Util.php:1548
 msgid "Tue"
 msgstr "අඟහ"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Wednesday
 #: js/messages.php:876 libraries/classes/Util.php:1550
 msgid "Wed"
 msgstr "බදාදා"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Thursday
 #: js/messages.php:878 libraries/classes/Util.php:1552
 msgid "Thu"
 msgstr "බ්‍රහස්"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Friday
 #: js/messages.php:880 libraries/classes/Util.php:1554
 msgid "Fri"
 msgstr "සිකුරා"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Saturday
 #: js/messages.php:882 libraries/classes/Util.php:1556
 msgid "Sat"
 msgstr "සෙනසු"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Sunday
 #: js/messages.php:889
 msgid "Su"
 msgstr "ඉරි"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Monday
 #: js/messages.php:891
 msgid "Mo"
 msgstr "සඳු"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Tuesday
 #: js/messages.php:893
 msgid "Tu"
 msgstr "අඟ"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Wednesday
 #: js/messages.php:895
 msgid "We"
 msgstr "බදා"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Thursday
 #: js/messages.php:897
 msgid "Th"
 msgstr "බ්‍රහ"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Friday
 #: js/messages.php:899
 msgid "Fr"
 msgstr "සිකු"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Saturday
 #: js/messages.php:901
 msgid "Sa"
 msgstr "සෙන"
@@ -4329,8 +4329,8 @@ msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
 msgstr ""
-"සක්‍රීය කළහොත් විමසුම් වැඩි ගණනක් එකවර ක්‍රියාත්මක කිරීමේදී එක විමසුමක් අසමත් වුවද ඉතිරි විමසුම් ක්‍"
-"රියාත්මක කරවයි."
+"සක්‍රීය කළහොත් විමසුම් වැඩි ගණනක් එකවර ක්‍රියාත්මක කිරීමේදී එක විමසුමක් අසමත් වුවද ඉතිරි විමසුම් "
+"ක්‍රියාත්මක කරවයි."
 
 #: libraries/classes/Config/Descriptions.php:390
 msgid "Ignore multiple statement errors"
@@ -5418,8 +5418,8 @@ msgstr "සබැඳුම් දත්ත ඇතුලත් වගුව"
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
-"උදාහරණයක් ලෙස [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]සත්‍යාපන ක්‍"
-"රම[/a] බලන්න"
+"උදාහරණයක් ලෙස [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]සත්‍යාපන "
+"ක්‍රම[/a] බලන්න"
 
 #: libraries/classes/Config/Descriptions.php:712
 msgid "Signon session name"
@@ -6559,7 +6559,7 @@ msgid "SQL Query Console"
 msgstr "SQL විමසුම් කවුළුව"
 
 #: libraries/classes/Controllers/ChangeLogController.php:43
-#: libraries/entry_points/license.php:31
+#: libraries/classes/Controllers/LicenseController.php:32
 #, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
@@ -6649,8 +6649,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"phpMyAdmin හි configuration storage සම්පූර්ණයෙන් සකසා නැති බැවින් යම් විස්තෘත විශේෂාංග අක්‍"
-"රිය වී ඇත. %sඇයිදැයි සොයා බලන්න%s. "
+"phpMyAdmin හි configuration storage සම්පූර්ණයෙන් සකසා නැති බැවින් යම් විස්තෘත විශේෂාංග "
+"අක්‍රිය වී ඇත. %sඇයිදැයි සොයා බලන්න%s. "
 
 #: libraries/classes/Controllers/HomeController.php:252
 msgid ""
@@ -9910,8 +9910,8 @@ msgid ""
 "configuration and make sure that they correspond to the information given by "
 "the administrator of the MySQL server."
 msgstr ""
-"phpMyAdmin MySQL සේවාදායකය වෙත සම්බන්ධ වීමට උත්සාහ කල මුත් සේවාදායකය විසින් සම්බන්ධතාව ප්‍"
-"රතික්ෂේප කරන ලදී. ඔබ ඔබගේ වින්‍යාස ගොනුවේ, දායකය, භාවිත නාමය සහ මුරපදය සඳහා අගයන් "
+"phpMyAdmin MySQL සේවාදායකය වෙත සම්බන්ධ වීමට උත්සාහ කල මුත් සේවාදායකය විසින් සම්බන්ධතාව "
+"ප්‍රතික්ෂේප කරන ලදී. ඔබ ඔබගේ වින්‍යාස ගොනුවේ, දායකය, භාවිත නාමය සහ මුරපදය සඳහා අගයන් "
 "MySQL සේවාදායකයේ පරිපාලකයා විසින් ලබා දුන් දත්ත සමග ගැලපේ දැයි පරීක්ෂා කල යුතුය."
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:154
@@ -13085,9 +13085,11 @@ msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "සුචිය සංස්කරණය කරන්න"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Sunday
 #: libraries/classes/Util.php:1544
-msgctxt "Short week day name"
+#, fuzzy
+#| msgid "Sun"
+msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "ඉරිදා"
 
@@ -14109,14 +14111,14 @@ msgstr ""
 #: templates/server/status/status/index.twig:61
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
-"මෙම MySQL සේවාදායකය <b>අනුරූකරණ</b> ක්‍රියාවලියේදී <b>ප්‍රධාන සේවාදායකය</b> ලෙස ක්‍"
-"රියාකරයි."
+"මෙම MySQL සේවාදායකය <b>අනුරූකරණ</b> ක්‍රියාවලියේදී <b>ප්‍රධාන සේවාදායකය</b> ලෙස "
+"ක්‍රියාකරයි."
 
 #: templates/server/status/status/index.twig:63
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
-"මෙම MySQL සේවාදායකය <b>අනුරූකරණ</b> ක්‍රියාවලියේදී <b>අනුගාමි සේවාදායකය</b> ලෙස ක්‍"
-"රියාකරයි."
+"මෙම MySQL සේවාදායකය <b>අනුරූකරණ</b> ක්‍රියාවලියේදී <b>අනුගාමි සේවාදායකය</b> ලෙස "
+"ක්‍රියාකරයි."
 
 #: templates/server/status/status/index.twig:70
 msgid "Replication status"
@@ -14945,8 +14947,8 @@ msgid ""
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
-"ඔබගේ බ්‍රව්සරය විසින් නියමිත කාලාන්තරයකට වරක් සියලුම ප්‍රස්ථාර යාවත්කාලීන කෙරෙනු ඇත. ඔබට ප්‍"
-"රස්ථාර එකතු කිරීම, 'සිටුවම්' භාවිතා කරමින් යාවත්කාලීන කරන වේගය වෙනස් කිරීම හෝ අදාල ප්‍රස්ථාරය "
+"ඔබගේ බ්‍රව්සරය විසින් නියමිත කාලාන්තරයකට වරක් සියලුම ප්‍රස්ථාර යාවත්කාලීන කෙරෙනු ඇත. ඔබට "
+"ප්‍රස්ථාර එකතු කිරීම, 'සිටුවම්' භාවිතා කරමින් යාවත්කාලීන කරන වේගය වෙනස් කිරීම හෝ අදාල ප්‍රස්ථාරය "
 "මත ඇති අයිකනය භාවිතා කර ඕනෑම ප්‍රස්ථාරයක් ඉවත් කිරීම සිදු කල හැක."
 
 #: templates/server/status/monitor/index.twig:108
@@ -14974,8 +14976,8 @@ msgid ""
 msgstr ""
 "general_log සක්‍රීය කිරීම සේවාදායකය මත භාරය 5-15% අතර ප්‍රමාණයකින් වැඩි කරයි. එමෙන්ම "
 "ලොගගත දත්ත මගින් සංඛ්‍යාලේඛන උත්පාදනය කිරීම අධික භාරයක් ගෙනදෙන කාර්යයක් බව සලකන්න. එම නිසා "
-"මේ සඳහා කුඩා කාල පරාසයක් තෝරා ගැනීමද අධීක්ෂණය තවදුරටත් අවශ්‍ය නොවන විට general_log අක්‍"
-"රීය කිරීම හා ඊට අයත් වගුව හිස් කිරීම ද නිර්දේශිතය."
+"මේ සඳහා කුඩා කාල පරාසයක් තෝරා ගැනීමද අධීක්ෂණය තවදුරටත් අවශ්‍ය නොවන විට general_log "
+"අක්‍රීය කිරීම හා ඊට අයත් වගුව හිස් කිරීම ද නිර්දේශිතය."
 
 #: templates/server/status/monitor/index.twig:127
 msgid "Chart Title"
@@ -17170,8 +17172,8 @@ msgid ""
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as master."
 msgstr ""
-"සේවාදායකය නැවත පණගැන්වීමෙන් අනතුරුව 'යන්න' බොත්තම ඔබන්න. ඉන් අනතුරුව මෙම සේවාදායකය ප්‍"
-"රධාන සේවාදායකය ලෙස සකසා <b>ඇති</b> බවට පණිවිඩයක් දර්ශනය වනු ඇත."
+"සේවාදායකය නැවත පණගැන්වීමෙන් අනතුරුව 'යන්න' බොත්තම ඔබන්න. ඉන් අනතුරුව මෙම සේවාදායකය "
+"ප්‍රධාන සේවාදායකය ලෙස සකසා <b>ඇති</b> බවට පණිවිඩයක් දර්ශනය වනු ඇත."
 
 #: templates/preferences/two_factor/configure.twig:2
 #: templates/preferences/two_factor/main.twig:44
@@ -18671,6 +18673,10 @@ msgstr ""
 msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
 
+#~ msgctxt "Short week day name"
+#~ msgid "Sun"
+#~ msgstr "ඉරිදා"
+
 #~ msgid "This Host"
 #~ msgstr "මෙම දායකයා"
 
@@ -19111,9 +19117,9 @@ msgstr ""
 #~ "default, is open to intrusion, and you really should fix this security "
 #~ "hole by setting a password for user 'root'."
 #~ msgstr ""
-#~ "ඔබගේ සිටුවම් ගොනුවේ අඩංගු සිටුවම් (භාවිත නාමය root වන හා මුරපදයක් නොමැති), පෙරනිමි, වරප්‍"
-#~ "රසාදැති MySQL ගිණුමට අදාළ වේ. මෙම පෙරනිමි අගයන් භාවිතා කිරීම අනවසර ඇතුල්වීම් වලට හේතු "
-#~ "විය හැකි බැවින් ඔබ 'root' භාවිතා කරන්නා සඳහා වෙනත් මුරපදයක් ලබා දිය යුතුය."
+#~ "ඔබගේ සිටුවම් ගොනුවේ අඩංගු සිටුවම් (භාවිත නාමය root වන හා මුරපදයක් නොමැති), පෙරනිමි, "
+#~ "වරප්‍රසාදැති MySQL ගිණුමට අදාළ වේ. මෙම පෙරනිමි අගයන් භාවිතා කිරීම අනවසර ඇතුල්වීම් වලට "
+#~ "හේතු විය හැකි බැවින් ඔබ 'root' භාවිතා කරන්නා සඳහා වෙනත් මුරපදයක් ලබා දිය යුතුය."
 
 #~ msgid "Create database:"
 #~ msgstr "දත්තගබඩාවක් සාදන්න:"
@@ -19622,8 +19628,8 @@ msgstr ""
 #~ "parent window, or your browser's security settings are configured to "
 #~ "block cross-window updates."
 #~ msgstr ""
-#~ "ඉලක්කගත බ්‍රව්සර කවුලුව යාවත්කාලීන කල නොහැක. ඔබ එහි මව් කවුලුව වසා තිබීම හෝ ඔබගේ බ්‍"
-#~ "රව්සරයේ ආරක්ෂක සැකසුම් අන්තර් කවුළු යාවත්කාලීන කිරීම් අවහිර කරන ලෙස සකසා තිබීම මීට හේතු විය "
+#~ "ඉලක්කගත බ්‍රව්සර කවුලුව යාවත්කාලීන කල නොහැක. ඔබ එහි මව් කවුලුව වසා තිබීම හෝ ඔබගේ "
+#~ "බ්‍රව්සරයේ ආරක්ෂක සැකසුම් අන්තර් කවුළු යාවත්කාලීන කිරීම් අවහිර කරන ලෙස සකසා තිබීම මීට හේතු විය "
 #~ "හැක."
 
 #~ msgid "Show binary contents as HEX by default."
@@ -20169,8 +20175,8 @@ msgstr ""
 #~ "phpMyAdmin functionality will be missing. For example navigation frame "
 #~ "will not refresh automatically."
 #~ msgstr ""
-#~ "ඔබගේ බවුසරයේ Javascript සහය නැත/අක්‍රිය කර ඇත. එබැවින් යම් phpMyAdmin විශේෂාංග අක්‍"
-#~ "රිය වී ඇත. උදාහරණයක් ලෙස යාත්‍රණ රාමුව ස්වයංක්‍රියව යාවත්කාලීන නොවේ."
+#~ "ඔබගේ බවුසරයේ Javascript සහය නැත/අක්‍රිය කර ඇත. එබැවින් යම් phpMyAdmin විශේෂාංග "
+#~ "අක්‍රිය වී ඇත. උදාහරණයක් ලෙස යාත්‍රණ රාමුව ස්වයංක්‍රියව යාවත්කාලීන නොවේ."
 
 #~ msgid "Add a value"
 #~ msgstr "අගයක් එක් කරන්න"

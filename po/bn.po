@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-11-07 18:19-0300\n"
+"POT-Creation-Date: 2019-11-09 15:49+0100\n"
 "PO-Revision-Date: 2019-08-23 11:23+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -2426,72 +2426,72 @@ msgstr "শুক্রবার"
 msgid "Saturday"
 msgstr "শনিবার"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Sunday
 #: js/messages.php:870
 msgid "Sun"
 msgstr "রবি"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Monday
 #: js/messages.php:872 libraries/classes/Util.php:1546
 msgid "Mon"
 msgstr "সোম"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Tuesday
 #: js/messages.php:874 libraries/classes/Util.php:1548
 msgid "Tue"
 msgstr "মঙ্গল"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Wednesday
 #: js/messages.php:876 libraries/classes/Util.php:1550
 msgid "Wed"
 msgstr "বৃধ"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Thursday
 #: js/messages.php:878 libraries/classes/Util.php:1552
 msgid "Thu"
 msgstr "বৃহস্পতি"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Friday
 #: js/messages.php:880 libraries/classes/Util.php:1554
 msgid "Fri"
 msgstr "শুক্র"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Saturday
 #: js/messages.php:882 libraries/classes/Util.php:1556
 msgid "Sat"
 msgstr "শনি"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Sunday
 #: js/messages.php:889
 msgid "Su"
 msgstr "রবি"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Monday
 #: js/messages.php:891
 msgid "Mo"
 msgstr "সোম"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Tuesday
 #: js/messages.php:893
 msgid "Tu"
 msgstr "মঙ্গ"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Wednesday
 #: js/messages.php:895
 msgid "We"
 msgstr "বুধ"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Thursday
 #: js/messages.php:897
 msgid "Th"
 msgstr "বৃহ"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Friday
 #: js/messages.php:899
 msgid "Fr"
 msgstr "শুক্র"
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Saturday
 #: js/messages.php:901
 msgid "Sa"
 msgstr "শনি"
@@ -6550,7 +6550,7 @@ msgid "SQL Query Console"
 msgstr "SQL অনুসন্ধান বক্স"
 
 #: libraries/classes/Controllers/ChangeLogController.php:43
-#: libraries/entry_points/license.php:31
+#: libraries/classes/Controllers/LicenseController.php:32
 #, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
@@ -13223,11 +13223,13 @@ msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "ইনডেক্স সম্পাদনা"
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Sunday
 #: libraries/classes/Util.php:1544
-msgctxt "Short week day name"
+#, fuzzy
+#| msgid "Sun"
+msgctxt "Short week day name for Sunday"
 msgid "Sun"
-msgstr "রবিবার"
+msgstr "রবি"
 
 #: libraries/classes/Util.php:1582
 msgctxt "AM/PM indication in time"
@@ -18940,6 +18942,10 @@ msgstr ""
 #: libraries/advisory_rules_mysql_before80003.txt:57
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit ১ মেবা নিধারণ করা হয়েছে"
+
+#~ msgctxt "Short week day name"
+#~ msgid "Sun"
+#~ msgstr "রবিবার"
 
 #~ msgid "This Host"
 #~ msgstr "এই হোষ্ট"

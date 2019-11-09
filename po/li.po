@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-11-07 18:19-0300\n"
+"POT-Creation-Date: 2019-11-09 15:49+0100\n"
 "PO-Revision-Date: 2015-12-29 15:36+0000\n"
 "Last-Translator: Robin van der Vliet <info@robinvandervliet.nl>\n"
 "Language-Team: Limburgish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -2165,72 +2165,72 @@ msgstr ""
 msgid "Saturday"
 msgstr ""
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Sunday
 #: js/messages.php:870
 msgid "Sun"
 msgstr ""
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Monday
 #: js/messages.php:872 libraries/classes/Util.php:1546
 msgid "Mon"
 msgstr ""
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Tuesday
 #: js/messages.php:874 libraries/classes/Util.php:1548
 msgid "Tue"
 msgstr ""
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Wednesday
 #: js/messages.php:876 libraries/classes/Util.php:1550
 msgid "Wed"
 msgstr ""
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Thursday
 #: js/messages.php:878 libraries/classes/Util.php:1552
 msgid "Thu"
 msgstr ""
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Friday
 #: js/messages.php:880 libraries/classes/Util.php:1554
 msgid "Fri"
 msgstr ""
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Saturday
 #: js/messages.php:882 libraries/classes/Util.php:1556
 msgid "Sat"
 msgstr ""
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Sunday
 #: js/messages.php:889
 msgid "Su"
 msgstr ""
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Monday
 #: js/messages.php:891
 msgid "Mo"
 msgstr ""
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Tuesday
 #: js/messages.php:893
 msgid "Tu"
 msgstr ""
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Wednesday
 #: js/messages.php:895
 msgid "We"
 msgstr ""
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Thursday
 #: js/messages.php:897
 msgid "Th"
 msgstr ""
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Friday
 #: js/messages.php:899
 msgid "Fr"
 msgstr ""
 
-#. l10n: Minimal week day name
+#. l10n: Minimal week day name for Saturday
 #: js/messages.php:901
 msgid "Sa"
 msgstr ""
@@ -5700,7 +5700,7 @@ msgid "SQL Query Console"
 msgstr ""
 
 #: libraries/classes/Controllers/ChangeLogController.php:43
-#: libraries/entry_points/license.php:31
+#: libraries/classes/Controllers/LicenseController.php:32
 #, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
@@ -11713,11 +11713,13 @@ msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr ""
 
-#. l10n: Short week day name
+#. l10n: Short week day name for Sunday
 #: libraries/classes/Util.php:1544
-msgctxt "Short week day name"
+#, fuzzy
+#| msgid "Jun"
+msgctxt "Short week day name for Sunday"
 msgid "Sun"
-msgstr ""
+msgstr "jun"
 
 #: libraries/classes/Util.php:1582
 msgctxt "AM/PM indication in time"
