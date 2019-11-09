@@ -2195,44 +2195,6 @@ div.sqlvalidate,
   direction: ltr;
 }
 
-#main_pane_left {
-  width: 60%;
-  min-width: 260px;
-  float: $left;
-  padding-top: 1em;
-}
-
-#main_pane_right {
-  overflow: hidden;
-  min-width: 160px;
-  padding-top: 1em;
-  padding-#{$left}: 3em;
-}
-
-.group {
-  margin-bottom: 1em;
-  padding-bottom: 1em;
-
-  input[type="submit"] {
-    margin-#{$left}: 0;
-  }
-
-  h2 {
-    color: $navi-background;
-    font-size: 2.8em;
-    font-weight: normal;
-    font-family: $font-family-light;
-    margin-top: 0;
-    margin-bottom: 0.6em;
-  }
-}
-
-.group-cnt {
-  padding: 0 0 0 0.5em;
-  display: inline-block;
-  width: 98%;
-}
-
 textarea#partitiondefinition {
   height: 3em;
 }
@@ -4305,4 +4267,16 @@ body {
   .query-form__multi-sql-query {
     float: left;
   }
+}
+
+// Bootstrap
+
+.card-header {
+  font-size: 2.8em;
+  font-family: $font-family-light;
+  padding: 0;
+}
+
+.card-body ul {
+  padding-#{$left}: 0;
 }

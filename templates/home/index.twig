@@ -10,23 +10,28 @@
   {{ sync_favorite_tables|raw }}
   <div class="container-fluid">
     <div class="row">
-      <div id="main_pane_left" class="col-7 col-xs-12">
+      <div class="col-7 col-xs-12">
         {% if has_server %}
           {% if is_demo %}
-            <div class="group">
-              <h2>{% trans 'phpMyAdmin Demo Server' %}</h2>
-              <p class="cfg_dbg_demo">
+            <div class="card mt-4">
+              <div class="card-header">
+                {% trans 'phpMyAdmin Demo Server' %}
+              </div>
+              <div class="card-body">
                 {% filter format('<a href="url.php?url=https://demo.phpmyadmin.net/" target="_blank" rel="noopener noreferrer">demo.phpmyadmin.net</a>')|raw %}
                   {% trans %}
                     You are using the demo server. You can do anything here, but please do not change root, debian-sys-maint and pma users. More information is available at %s.
                   {% endtrans %}
                 {% endfilter %}
-              </p>
+              </div>
             </div>
           {% endif %}
 
-            <div class="group">
-              <h2>{% trans 'General settings' %}</h2>
+            <div class="card mt-4">
+              <div class="card-header">
+                {% trans 'General settings' %}
+              </div>
+              <div class="card-body">
               <ul>
                 {% if has_server_selection %}
                   <li id="li_select_server" class="no_bullets">
@@ -66,11 +71,15 @@
                 {% endif %}
                 {{ user_preferences is not empty ? user_preferences|raw }}
               </ul>
+              </div>
             </div>
           {% endif %}
 
-            <div class="group">
-              <h2>{% trans 'Appearance settings' %}</h2>
+            <div class="card mt-4">
+              <div class="card-header">
+                {% trans 'Appearance settings' %}
+              </div>
+              <div class="card-body">
               <ul>
                 {% if language_selector is not empty %}
                   <li id="li_select_lang" class="no_bullets">
@@ -86,13 +95,17 @@
                   </li>
                 {% endif %}
               </ul>
+              </div>
             </div>
           </div>
 
-      <div id="main_pane_right" class="col-5 col-xs-12">
+      <div class="col-5 col-xs-12">
         {% if database_server is not empty %}
-          <div class="group">
-            <h2>{% trans 'Database server' %}</h2>
+          <div class="card mt-4">
+            <div class="card-header">
+              {% trans 'Database server' %}
+            </div>
+            <div class="card-body">
             <ul>
               <li id="li_server_info">
                 {% trans 'Server:' %}
@@ -125,12 +138,16 @@
                 </span>
               </li>
             </ul>
+            </div>
           </div>
         {% endif %}
 
         {% if web_server is not empty or php_info is not empty %}
-          <div class="group">
-            <h2>{% trans 'Web server' %}</h2>
+          <div class="card mt-4">
+            <div class="card-header">
+              {% trans 'Web server' %}
+            </div>
+            <div class="card-body">
             <ul>
               {% if web_server is not empty %}
                 <li id="li_web_server_software">
@@ -156,11 +173,15 @@
                 {{ php_info|raw }}
               {% endif %}
             </ul>
+            </div>
           </div>
         {% endif %}
 
-          <div class="group pmagroup">
-            <h2>phpMyAdmin</h2>
+          <div class="card mt-4">
+            <div class="card-header">
+              phpMyAdmin
+            </div>
+            <div class="card-body">
             <ul>
               <li id="li_pma_version"{{ is_version_checked ? ' class="jsversioncheck"' }}>
                 {% trans 'Version information:' %}
@@ -197,6 +218,7 @@
                 </a>
               </li>
             </ul>
+            </div>
           </div>
         </div>
       </div>
