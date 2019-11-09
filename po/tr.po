@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-11-09 15:49+0100\n"
-"PO-Revision-Date: 2019-11-07 02:04+0000\n"
+"POT-Creation-Date: 2019-11-07 18:19-0300\n"
+"PO-Revision-Date: 2019-11-09 14:51+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -3689,7 +3689,7 @@ msgstr "Dış anahtar denetlemeleri"
 
 #: libraries/classes/Config/Descriptions.php:285
 msgid "First day of calendar"
-msgstr ""
+msgstr "Takvimin ilk günü"
 
 #: libraries/classes/Config/Descriptions.php:286
 msgid "Browse mode"
