@@ -430,7 +430,7 @@ class TableStructureController extends TableController
                     || $data['Default'] == 'current_timestamp()');
 
             // @see https://mariadb.com/kb/en/library/information-schema-columns-table/#examples
-            if ($data['Null'] === 'YES' && in_array($$data['Default'], [$defaultNullValue, null])) {
+            if ($data['Null'] === 'YES' && in_array($data['Default'], [$defaultNullValue, null])) {
                 $default_type = 'NULL';
             } elseif ($current_timestamp) {
                 $default_type = 'CURRENT_TIMESTAMP';
