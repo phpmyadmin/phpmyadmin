@@ -51,8 +51,8 @@ tokens.
 
 There are several manufacturers of these tokens, for example:
 
-* `youbico FIDO U2F Security Key <https://www.yubico.com/solutions/fido-u2f/>`_
-* `HyperFIDO <https://www.hypersecu.com/products/hyperfido>`_
+* `youbico FIDO U2F Security Key <https://www.yubico.com/services-with-yubikey/fido-u2f/>`_
+* `HyperFIDO <https://www.hypersecu.com/tmp/products/hyperfido>`_
 * `Trezor Hardware Wallet <https://trezor.io/?offer_id=12&aff_id=1592&source=phpmyadmin>`_ can act as an `U2F token <https://wiki.trezor.io/User_manual:Two-factor_Authentication_with_U2F>`_
 * `List of Two Factor Auth (2FA) Dongles <https://www.dongleauth.info/dongles/>`_
 
