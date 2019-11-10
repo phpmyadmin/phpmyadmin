@@ -430,7 +430,8 @@ class StructureController extends AbstractController
                 && ($data['Default'] == 'CURRENT_TIMESTAMP'
                     || $data['Default'] == 'current_timestamp()');
 
-            if ($data['Null'] === 'YES' && $data['Default'] === null) {
+            // @see https://mariadb.com/kb/en/library/information-schema-columns-table/#examples
+            if ($data['Null'] === 'YES' && in_array($data['Default'], [$defaultNullValue, null])) {
                 $default_type = 'NULL';
             } elseif ($current_timestamp) {
                 $default_type = 'CURRENT_TIMESTAMP';
@@ -448,8 +449,7 @@ class StructureController extends AbstractController
             ];
             $data['Virtuality'] = '';
             $data['Expression'] = '';
-            // @see https://mariadb.com/kb/en/library/information-schema-columns-table/#examples
-            if ($data['Null'] === 'YES' && in_array($$data['Default'], [$defaultNullValue, null])) {
+            if (isset($data['Extra']) && in_array($data['Extra'], $virtual)) {
                 $data['Virtuality'] = str_replace(' GENERATED', '', $data['Extra']);
                 $expressions = $this->table_obj->getColumnGenerationExpression($column);
                 $data['Expression'] = $expressions[$column];
