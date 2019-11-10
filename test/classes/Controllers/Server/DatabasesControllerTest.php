@@ -133,7 +133,7 @@ class DatabasesControllerTest extends TestCase
 
         $this->assertArrayHasKey('message', $actual);
         $this->assertInstanceOf(Message::class, $actual['message']);
-        $this->assertStringContainsString('<div class="error">', $actual['message']->getDisplay());
+        $this->assertStringContainsString('<div class="alert alert-danger" role="alert">', $actual['message']->getDisplay());
         $this->assertStringContainsString('CreateDatabaseError', $actual['message']->getDisplay());
 
         $dbi->method('tryQuery')
@@ -146,7 +146,7 @@ class DatabasesControllerTest extends TestCase
 
         $this->assertArrayHasKey('message', $actual);
         $this->assertInstanceOf(Message::class, $actual['message']);
-        $this->assertStringContainsString('<div class="success">', $actual['message']->getDisplay());
+        $this->assertStringContainsString('<div class="alert alert-success" role="alert">', $actual['message']->getDisplay());
         $this->assertStringContainsString(
             sprintf(__('Database %1$s has been created.'), 'pma_test'),
             $actual['message']->getDisplay()
@@ -182,7 +182,7 @@ class DatabasesControllerTest extends TestCase
 
         $this->assertArrayHasKey('message', $actual);
         $this->assertInstanceOf(Message::class, $actual['message']);
-        $this->assertStringContainsString('<div class="error">', $actual['message']->getDisplay());
+        $this->assertStringContainsString('<div class="alert alert-danger" role="alert">', $actual['message']->getDisplay());
         $this->assertStringContainsString(__('No databases selected.'), $actual['message']->getDisplay());
     }
 }

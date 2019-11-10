@@ -769,8 +769,20 @@ class Message
     public function getDisplay(): string
     {
         $this->isDisplayed(true);
-        return '<div class="' . $this->getLevel() . '">'
-            . $this->getMessage() . '</div>';
+
+        $context = 'primary';
+        $level = $this->getLevel();
+        if ($level === 'error') {
+            $context = 'danger';
+        } elseif ($level === 'success') {
+            $context = 'success';
+        }
+
+        $template = new Template();
+        return $template->render('message', [
+            'context' => $context,
+            'message' => $this->getMessage(),
+        ]);
     }
 
     /**

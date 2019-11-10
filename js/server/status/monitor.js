@@ -2043,7 +2043,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 if (data.error.indexOf('1146') !== -1 || data.error.indexOf('1046') !== -1) {
                     data.error = Messages.strServerLogError;
                 }
-                $('#queryAnalyzerDialog').find('div.placeHolder').html('<div class="error">' + data.error + '</div>');
+                $('#queryAnalyzerDialog').find('div.placeHolder').html('<div class="alert alert-danger" role="alert">' + data.error + '</div>');
                 return;
             }
             var totalTime = 0;

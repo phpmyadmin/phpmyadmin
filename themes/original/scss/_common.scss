@@ -488,87 +488,6 @@ td .icon {
   padding: 0 0.5em;
 }
 
-.success h1,
-.notice h1 {
-  border-bottom: 2px solid;
-  font-weight: bold;
-  text-align: $left;
-  margin: 0 0 0.2em 0;
-}
-
-div {
-  &.error h1 {
-    border-bottom: 2px solid;
-    font-weight: bold;
-    text-align: $left;
-    margin: 0 0 0.2em 0;
-  }
-
-  &.success,
-  &.notice,
-  &.error {
-    margin: 0.3em 0 0 0;
-    border: 2px solid;
-    background-repeat: no-repeat;
-    clear: both;
-
-    @if $direction == rtl {
-      background-position: 99% 50%;
-      padding: 0.1em 40px 0.1em 0.1em;
-    } @else {
-      background-position: 10px 50%;
-      padding: 0.1em 0.1em 0.1em 42px;
-    }
-  }
-
-  &.success img.icon,
-  &.notice img.icon,
-  &.error img.icon {
-    display: block;
-    float: $left;
-    margin-#{$left}: -22px;
-  }
-}
-
-.success {
-  color: #000;
-  background-color: #f0fff0;
-}
-
-h1.success,
-div.success,
-.success h1 {
-  border-color: #0f0;
-}
-
-.notice {
-  color: #000;
-  background-color: #ffd;
-}
-
-h1.notice,
-div.notice,
-.notice h1 {
-  border-color: #ffd700;
-}
-
-.error {
-  background-color: #ffc;
-  color: #f00;
-}
-
-h1.error {
-  border-color: #f00;
-}
-
-div.error {
-  border-color: #f00;
-
-  h1 {
-    border-color: #f00;
-  }
-}
-
 .confirmation {
   background-color: #ffc;
 }
@@ -2797,7 +2716,6 @@ div#page_content div {
     }
   }
 
-  &.notice,
   &.result_query {
     margin-top: 1em;
   }
@@ -3776,4 +3694,51 @@ body {
   font-weight: bold;
   font-size: 120%;
   border: 0;
+}
+
+.alert {
+  text-align: $left;
+
+  @if $direction == rtl {
+    padding: 0.1em 40px 0.1em 0.1em;
+  } @else {
+    padding: 0.1em 0.1em 0.1em 40px;
+  }
+
+  h1 {
+    border-bottom: 2px solid;
+  }
+}
+
+.alert-primary {
+  color: #000;
+  background-color: #ffd;
+  background-image: none;
+  border-color: #ffd700;
+
+  h1 {
+    border-color: #ffd700;
+  }
+}
+
+.alert-success {
+  color: #000;
+  background-color: #f0fff0;
+  background-image: none;
+  border-color: #0f0;
+
+  h1 {
+    border-color: #0f0;
+  }
+}
+
+.alert-danger {
+  color: #f00;
+  background-color: #ffc;
+  background-image: none;
+  border-color: #f00;
+
+  h1 {
+    border-color: #f00;
+  }
 }

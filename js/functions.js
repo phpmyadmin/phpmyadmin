@@ -575,10 +575,10 @@ Functions.currentVersion = function (data) {
                 Functions.escapeHtml(data.version),
                 Functions.escapeHtml(data.date)
             );
-            var htmlClass = 'notice';
+            var htmlClass = 'alert alert-primary';
             if (Math.floor(latest / 10000) === Math.floor(current / 10000)) {
                 /* Security update */
-                htmlClass = 'error';
+                htmlClass = 'alert alert-danger';
             }
             $('#newer_version_notice').remove();
             var mainContainerDiv = document.createElement('div');
@@ -1841,7 +1841,7 @@ AJAX.registerOnload('functions.js', function () {
         if (! Functions.checkSqlQuery($fakeForm[0])) {
             return false;
         }
-        $('.success').hide();
+        $('.alert-success').hide();
         $fakeForm.appendTo($('body')).trigger('submit');
     });
 
@@ -2211,9 +2211,9 @@ Functions.ajaxShowMessage = function (message, timeout, type) {
     }
     // Determine type of message, add styling as required
     if (type === 'error') {
-        msg = '<div class="error">' + msg + '</div>';
+        msg = '<div class="alert alert-danger" role="alert">' + msg + '</div>';
     } else if (type === 'success') {
-        msg = '<div class="success">' + msg + '</div>';
+        msg = '<div class="alert alert-success" role="alert">' + msg + '</div>';
     }
     // Create a parent element for the AJAX messages, if necessary
     if ($('#loading_parent').length === 0) {
@@ -2873,7 +2873,7 @@ AJAX.registerOnload('functions.js', function () {
                 $.post($form.attr('action'), $form.serialize() + CommonParams.get('arg_separator') + 'do_save_data=1', function (data) {
                     if (typeof data !== 'undefined' && data.success === true) {
                         $('#properties_message')
-                            .removeClass('error')
+                            .removeClass('alert-danger')
                             .html('');
                         Functions.ajaxShowMessage(data.message);
                         // Only if the create table dialog (distinct panel) exists
@@ -2940,7 +2940,7 @@ AJAX.registerOnload('functions.js', function () {
                         $.get(tableStructureUrl, params12, AJAX.responseHandler);
                     } else {
                         Functions.ajaxShowMessage(
-                            '<div class="error">' + data.error + '</div>',
+                            '<div class="alert alert-danger" role="alert">' + data.error + '</div>',
                             false
                         );
                     }
@@ -3780,7 +3780,7 @@ Functions.indexEditorDialog = function (url, title, callbackSuccess, callbackFai
             if (typeof data !== 'undefined' && data.success === true) {
                 Functions.ajaxShowMessage(data.message);
                 Functions.highlightSql($('.result_query'));
-                $('.result_query .notice').remove();
+                $('.result_query .alert').remove();
                 /* Reload the field form*/
                 $('#table_index').remove();
                 $('<div id=\'temp_div\'><div>')

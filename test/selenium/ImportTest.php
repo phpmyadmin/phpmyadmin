@@ -124,7 +124,7 @@ class ImportTest extends TestBase
         $this->byId('buttonGo')->click();
         $this->waitUntilElementIsVisible(
             'xpath',
-            "//div[@class='success' and contains(., 'Import has been successfully')]",
+            "//div[@class='alert alert-success' and contains(., 'Import has been successfully')]",
             30
         );
     }

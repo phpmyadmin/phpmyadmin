@@ -397,7 +397,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     if (data.success !== true) {
                         var $tempDiv = $(document.createElement('div'));
                         $tempDiv.html(data.error);
-                        $tempDiv.addClass('error');
+                        $tempDiv.addClass('alert alert-danger');
                         Functions.ajaxShowMessage($tempDiv, false);
                     }
                 });
@@ -1476,7 +1476,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     if ($(g.cEdit).find('.edit_box').val().match(/^(0x)?[a-f0-9]*$/i) !== null) {
                         thisFieldParams[fieldName] = $(g.cEdit).find('.edit_box').val();
                     } else {
-                        var hexError = '<div class="error">' + Messages.strEnterValidHex + '</div>';
+                        var hexError = '<div class="alert alert-danger" role="alert">' + Messages.strEnterValidHex + '</div>';
                         Functions.ajaxShowMessage(hexError, false);
                         thisFieldParams[fieldName] = Functions.getCellValue(g.currentEditCell);
                     }

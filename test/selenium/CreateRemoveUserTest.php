@@ -96,7 +96,7 @@ class CreateRemoveUserTest extends TestBase
         $this->scrollIntoView('adduser_submit');
         $this->waitForElement('id', "adduser_submit")->click();
 
-        $success = $this->waitForElement('cssSelector', "div.success");
+        $success = $this->waitForElement('cssSelector', ".alert-success");
         $this->assertStringContainsString('You have added a new user', $success->getText());
 
         // Removing the newly added user
@@ -115,7 +115,7 @@ class CreateRemoveUserTest extends TestBase
         $this->waitForElement('cssSelector', "button.submitOK")->click();
         $this->acceptAlert();
 
-        $success = $this->waitForElement('cssSelector', "div.success");
+        $success = $this->waitForElement('cssSelector', ".alert-success");
         $this->assertStringContainsString(
             'The selected users have been deleted',
             $success->getText()

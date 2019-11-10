@@ -387,7 +387,7 @@ AJAX.registerOnload('server/privileges.js', function () {
                 Functions.ajaxRemoveMessage($msgbox);
                 // This form is not on screen when first entering Privileges
                 // if there are more than 50 users
-                $('div.notice').remove();
+                $('.alert-primary').remove();
                 $('#usersForm').hide('medium').remove();
                 $('#fieldset_add_user').hide('medium').remove();
                 $('#initials_table')

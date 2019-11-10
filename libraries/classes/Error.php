@@ -448,7 +448,14 @@ class Error extends Message
     public function getDisplay(): string
     {
         $this->isDisplayed(true);
-        $retval = '<div class="' . $this->getLevel() . '">';
+
+        $context = 'primary';
+        $level = $this->getLevel();
+        if ($level === 'error') {
+            $context = 'danger';
+        }
+
+        $retval = '<div class="alert alert-' . $context . '" role="alert">';
         if (! $this->isUserError()) {
             $retval .= '<strong>' . $this->getType() . '</strong>';
             $retval .= ' in ' . $this->getFile() . '#' . $this->getLine();

@@ -350,7 +350,7 @@ Indexes.showAddIndexDialog = function (sourceArray, arrayIndex, targetColumns, c
             );
         } else {
             Functions.ajaxShowMessage(
-                '<div class="error"><img src="themes/dot.gif" title="" alt=""' +
+                '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt=""' +
                 ' class="icon ic_s_error"> ' + Messages.strMissingColumn +
                 ' </div>', false
             );
@@ -436,7 +436,7 @@ Indexes.showAddIndexDialog = function (sourceArray, arrayIndex, targetColumns, c
                     );
                 } else {
                     Functions.ajaxShowMessage(
-                        '<div class="error"><img src="themes/dot.gif" title="" alt=""' +
+                        '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt=""' +
                         ' class="icon ic_s_error"> ' + Messages.strMissingColumn +
                         ' </div>', false
                     );
@@ -487,7 +487,7 @@ Indexes.indexTypeSelectionDialog = function (sourceArray, indexChoice, colIndex)
             if ($('input[name="composite_with"]').length !== 0 && $('input[name="composite_with"]:checked').length === 0
             ) {
                 Functions.ajaxShowMessage(
-                    '<div class="error"><img src="themes/dot.gif" title=""' +
+                    '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title=""' +
                     ' alt="" class="icon ic_s_error"> ' +
                     Messages.strFormEmpty +
                     ' </div>',
@@ -651,7 +651,7 @@ AJAX.registerOnload('indexes.js', function () {
                             $('div.no_indexes_defined').show('medium');
                             $rowsToHide.remove();
                         });
-                        $tableRef.siblings('div.notice').hide('medium');
+                        $tableRef.siblings('.alert-primary').hide('medium');
                     } else {
                         // We are removing some of the rows only
                         $rowsToHide.hide('medium', function () {

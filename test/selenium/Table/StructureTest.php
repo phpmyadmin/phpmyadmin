@@ -72,7 +72,7 @@ class StructureTest extends TestBase
         $this->waitAjax();
         $this->waitForElement(
             'xpath',
-            "//div[@class='success' and contains(., "
+            "//div[@class='alert alert-success' and contains(., "
             . "'Table test_table has been altered successfully')]"
         );
 
@@ -114,7 +114,7 @@ class StructureTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            "//div[@class='success' and contains(., "
+            "//div[@class='alert alert-success' and contains(., "
             . "'Table test_table has been altered successfully')]"
         );
 
@@ -151,7 +151,7 @@ class StructureTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            "//div[@class='success' and contains(., "
+            "//div[@class='alert alert-success' and contains(., "
             . "'Your SQL query has been executed successfully')]"
         );
         $this->waitAjax();

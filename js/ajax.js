@@ -953,7 +953,7 @@ $(document).ajaxError(function (event, request) {
             details += '<div>' + Functions.escapeHtml(Messages.strErrorConnection) + '</div>';
         }
         Functions.ajaxShowMessage(
-            '<div class="error">' +
+            '<div class="alert alert-danger" role="alert">' +
             Messages.strErrorProcessingRequest +
             details +
             '</div>',

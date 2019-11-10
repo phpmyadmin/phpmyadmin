@@ -54,7 +54,7 @@
 </div>
 
   {% if is_master or is_slave %}
-    <p class="notice clearfloat">
+    <p class="alert alert-primary clearfloat" role="alert">
       {% if is_master and is_slave %}
         {% trans 'This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</b> process.' %}
       {% elseif is_master %}

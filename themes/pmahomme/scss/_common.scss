@@ -781,97 +781,6 @@ td .icon {
   padding: 0 0.5em;
 }
 
-.success h1,
-.notice h1 {
-  border-bottom: 2px solid;
-  font-weight: bold;
-  text-align: $left;
-  margin: 0 0 0.2em 0;
-}
-
-div {
-  &.error h1 {
-    border-bottom: 2px solid;
-    font-weight: bold;
-    text-align: $left;
-    margin: 0 0 0.2em 0;
-  }
-
-  &.success,
-  &.notice,
-  &.error {
-    margin: 0.5em 0 0.5em;
-    border: 1px solid;
-    background-repeat: no-repeat;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    -moz-box-shadow: 0 1px 1px #fff inset;
-    -webkit-box-shadow: 0 1px 1px #fff inset;
-    box-shadow: 0 1px 1px #fff inset;
-
-    @if $direction == rtl {
-      background-position: 99% 50%;
-      padding: 10px 35px 10px 10px;
-    } @else {
-      background-position: 10px 50%;
-      padding: 10px 10px 10px 10px;
-    }
-  }
-}
-
-.success a,
-.notice a,
-.error a {
-  text-decoration: underline;
-}
-
-.success {
-  color: #000;
-  background-color: #ebf8a4;
-}
-
-h1.success,
-div.success {
-  border-color: #a2d246;
-}
-
-.success h1 {
-  border-color: #0f0;
-}
-
-.notice {
-  color: #000;
-  background-color: #e8eef1;
-}
-
-h1.notice,
-div.notice {
-  border-color: #3a6c7e;
-}
-
-.notice h1 {
-  border-color: #ffb10a;
-}
-
-.error {
-  border: 1px solid maroon !important;
-  color: #000;
-  background: pink;
-}
-
-h1.error {
-  border-color: #333;
-}
-
-div.error {
-  border-color: #333;
-
-  h1 {
-    border-color: #f00;
-  }
-}
-
 .confirmation {
   color: #000;
   background-color: pink;
@@ -1090,12 +999,6 @@ li.last.database {
 
   a {
     text-shadow: 0 1px 0 #fff;
-  }
-
-  .error {
-    background: #eee;
-    border: 0 !important;
-    color: #aaa;
   }
 }
 
@@ -1733,34 +1636,6 @@ div {
 
 // end server variables
 
-p.notice {
-  margin: 1.5em 0;
-  border: 1px solid #000;
-  background-repeat: no-repeat;
-
-  @if $direction == rtl {
-    background-position: 99% 50%;
-    padding: 25px 10px 10px 10px;
-  } @else {
-    background-position: 10px 50%;
-    padding: 10px 10px 10px 25px;
-  }
-
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  -moz-box-shadow: 0 1px 2px #fff inset;
-  -webkit-box-shadow: 0 1px 2px #fff inset;
-  box-shadow: 0 1px 2px #fff inset;
-  background-color: #555;
-  color: #d4fb6a;
-
-  a {
-    color: #fff;
-    text-decoration: underline;
-  }
-}
-
 // profiling
 
 div#profilingchart {
@@ -2044,8 +1919,7 @@ div.sqlvalidate {
     text-align: $left;
   }
 
-  .success,
-  .error {
+  .alert {
     margin-bottom: 0;
     border-bottom: none !important;
     border-bottom-left-radius: 0;
@@ -3300,7 +3174,6 @@ div#page_content div {
     }
   }
 
-  &.notice,
   &.result_query {
     margin-top: 1em;
   }
@@ -4245,4 +4118,60 @@ body .ui-dialog {
   -moz-box-shadow: 1px 1px 15px #999 inset;
   -webkit-box-shadow: 1px 1px 15px #999 inset;
   box-shadow: 1px 1px 15px #999 inset;
+}
+
+.alert {
+  text-align: $left;
+  -moz-box-shadow: 0 1px 1px #fff inset;
+  -webkit-box-shadow: 0 1px 1px #fff inset;
+  box-shadow: 0 1px 1px #fff inset;
+
+  @if $direction == rtl {
+    background-position: 99% 50%;
+    padding: 10px 35px 10px 10px;
+  } @else {
+    background-position: 10px 50%;
+    padding: 10px 10px 10px 10px;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  h1 {
+    border-bottom: 2px solid;
+  }
+}
+
+.alert-primary {
+  color: #000;
+  background-color: #e8eef1;
+  background-image: none;
+  border-color: #3a6c7e;
+
+  h1 {
+    border-color: #ffb10a;
+  }
+}
+
+.alert-success {
+  color: #000;
+  background-color: #ebf8a4;
+  background-image: none;
+  border-color: #a2d246;
+
+  h1 {
+    border-color: #0f0;
+  }
+}
+
+.alert-danger {
+  color: #000;
+  background-color: pink;
+  background-image: none;
+  border-color: #333;
+
+  h1 {
+    border-color: #f00;
+  }
 }

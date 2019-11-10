@@ -582,7 +582,7 @@ class Util
             $formatted_sql = self::formatSql($sql_query, true);
         }
 
-        $error_msg .= '<div class="error"><h1>' . __('Error') . '</h1>';
+        $error_msg .= '<div class="alert alert-danger" role="alert"><h1>' . __('Error') . '</h1>';
 
         // For security reasons, if the MySQL refuses the connection, the query
         // is hidden so no details are revealed.
@@ -985,7 +985,13 @@ class Util
             }
             $retval .= $message->getDisplay();
         } else {
-            $retval .= '<div class="' . $type . '">';
+            $context = 'primary';
+            if ($type === 'error') {
+                $context = 'danger';
+            } elseif ($type === 'success') {
+                $context = 'success';
+            }
+            $retval .= '<div class="alert alert-' . $context . '" role="alert">';
             $retval .= Sanitize::sanitizeMessage($message);
             if (isset($GLOBALS['special_message'])) {
                 $retval .= Sanitize::sanitizeMessage($GLOBALS['special_message']);

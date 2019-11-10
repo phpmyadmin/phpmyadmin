@@ -158,7 +158,7 @@ AJAX.registerOnload('database/central_columns.js', function () {
             success: function (data) {
                 if (data.message !== '1') {
                     Functions.ajaxShowMessage(
-                        '<div class="error">' +
+                        '<div class="alert alert-danger" role="alert">' +
                         data.message +
                         '</div>',
                         false
@@ -182,7 +182,7 @@ AJAX.registerOnload('database/central_columns.js', function () {
             },
             error: function () {
                 Functions.ajaxShowMessage(
-                    '<div class="error">' +
+                    '<div class="alert alert-danger" role="alert">' +
                         Messages.strErrorProcessingRequest +
                         '</div>',
                     false

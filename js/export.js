@@ -736,7 +736,7 @@ Export.checkTimeOut = function (timeLimit) {
         $.get('index.php?route=/export', params, function (data) {
             if (data.message === 'timeout') {
                 Functions.ajaxShowMessage(
-                    '<div class="error">' +
+                    '<div class="alert alert-danger" role="alert">' +
                     Messages.strTimeOutError +
                     '</div>',
                     false

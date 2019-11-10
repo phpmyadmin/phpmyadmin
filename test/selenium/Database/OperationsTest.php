@@ -135,7 +135,7 @@ class OperationsTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            "//div[@class='success' and contains(., 'Database "
+            "//div[@class='alert alert-success' and contains(., 'Database "
             . $this->database_name
             . " has been copied to $new_db_name')]"
         );
