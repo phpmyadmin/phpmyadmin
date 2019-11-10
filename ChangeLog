@@ -26,6 +26,7 @@ phpMyAdmin - ChangeLog
 - issue #14951 Fix moving columns with INT AND DEFAULT CURRENT_TIMESTAMP doesn't work on MariaDB
 - issue #12241 Fixed table alias is removed when exporting a query
 - issue #15316 Fixed cross join clause is removed on export
+- issue #14809 Fix error "is_uploaded_file() expects parameter 1 to be string" when inserting blobs from files
 
 4.9.1 (2019-09-20)
 - issue #15313 Added support for Twig 2
