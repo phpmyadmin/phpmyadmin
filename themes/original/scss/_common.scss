@@ -765,10 +765,6 @@ form.login label {
   margin: 5px 2px;
 }
 
-.cfg_dbg_demo {
-  margin: 0.5em 1em 0.5em 1em;
-}
-
 .central_columns_navigation {
   padding: 1.5% 0 !important;
 }
@@ -1621,37 +1617,6 @@ div.sqlvalidate {
   border: $main-color solid 1px;
   border-top: 0;
   background: $bg-one;
-}
-
-#main_pane_left {
-  width: 60%;
-  min-width: 260px;
-  float: $left;
-  padding-top: 1em;
-}
-
-#main_pane_right {
-  overflow: hidden;
-  min-width: 160px;
-  padding-top: 1em;
-  padding-#{$left}: 1em;
-}
-
-.group {
-  border-#{$left}: 0.3em solid $th-background;
-  margin-bottom: 1em;
-
-  h2 {
-    background: $th-background;
-    padding: 0.1em 0.3em;
-    margin-top: 0;
-  }
-}
-
-.group-cnt {
-  padding: 0 0 0 0.5em;
-  display: inline-block;
-  width: 98%;
 }
 
 textarea#partitiondefinition {
@@ -3687,16 +3652,6 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
-  #main_pane_left {
-    width: 100%;
-  }
-
-  #main_pane_right {
-    padding-top: 0;
-    padding-#{$left}: 1px;
-    padding-#{$right}: 1px;
-  }
-
   ul {
     &#topmenu,
     &.tabs {
@@ -3805,4 +3760,20 @@ body {
 
 #filter_query_text {
   vertical-align: baseline;
+}
+
+// Bootstrap
+
+.card {
+  border-top: none;
+  border-bottom: none;
+  border-#{$right}: none;
+}
+
+.card-header {
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  font-weight: bold;
+  font-size: 120%;
+  border: 0;
 }

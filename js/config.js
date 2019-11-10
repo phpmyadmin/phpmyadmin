@@ -785,7 +785,7 @@ AJAX.registerOnload('config.js', function () {
     $(document).on('click', 'div.click-hide-message', function () {
         $(this)
             .hide()
-            .parent('.group')
+            .parent('.card-body')
             .css('height', '')
             .next('form')
             .show();
@@ -818,7 +818,7 @@ function savePrefsToLocalStorage (form) {
                 updatePrefsDate();
                 $('div.localStorage-empty').hide();
                 $('div.localStorage-exists').show();
-                var group = $form.parent('.group');
+                var group = $form.parent('.card-body');
                 group.css('height', group.height() + 'px');
                 $form.hide('fast');
                 $form.prev('.click-hide-message').show('fast');

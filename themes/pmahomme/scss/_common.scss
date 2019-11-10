@@ -1040,10 +1040,6 @@ label.col-3.d-flex.align-items-center {
   margin: 5px 2px;
 }
 
-.cfg_dbg_demo {
-  margin: 0.5em 1em 0.5em 1em;
-}
-
 .central_columns_navigation {
   padding: 1.5% 0 !important;
 }
@@ -2061,60 +2057,6 @@ div.sqlvalidate {
 #PMA_slidingMessage code.sql,
 div.sqlvalidate {
   background: $bg-one;
-}
-
-#main_pane_left {
-  width: 60%;
-  min-width: 260px;
-  float: $left;
-  padding-top: 1em;
-}
-
-#main_pane_right {
-  overflow: hidden;
-  min-width: 160px;
-  padding-top: 1em;
-}
-
-.group {
-  border: 1px solid #999;
-  background: #f3f3f3;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
-
-  @if $direction == rtl {
-    -moz-box-shadow: -2px 2px 5px #ccc;
-    -webkit-box-shadow: -2px 2px 5px #ccc;
-    box-shadow: -2px 2px 5px #ccc;
-  } @else {
-    -moz-box-shadow: 2px 2px 5px #ccc;
-    -webkit-box-shadow: 2px 2px 5px #ccc;
-    box-shadow: 2px 2px 5px #ccc;
-  }
-
-  margin-bottom: 1em;
-  padding-bottom: 1em;
-
-  h2 {
-    background-color: #bbb;
-    padding: 0.1em 0.3em;
-    margin-top: 0;
-    color: #fff;
-    font-size: 1.6em;
-    font-weight: normal;
-    text-shadow: 0 1px 0 #777;
-    -moz-box-shadow: 1px 1px 15px #999 inset;
-    -webkit-box-shadow: 1px 1px 15px #999 inset;
-    box-shadow: 1px 1px 15px #999 inset;
-  }
-}
-
-.group-cnt {
-  padding: 0;
-  padding-#{$left}: 0.5em;
-  display: inline-block;
-  width: 98%;
 }
 
 textarea#partitiondefinition {
@@ -4159,29 +4101,7 @@ body .ui-dialog {
   overflow: hidden;
 }
 
-// Bootstrap
-
-.btn-primary {
-  font-weight: $font-weight-bold;
-}
-
-.btn-primary,
-.btn-secondary {
-  border-color: #aaa;
-  text-shadow: 0 1px 0 #fff;
-  background-image: linear-gradient(#f8f8f8, #d8d8d8);
-
-  &:hover {
-    background-image: linear-gradient(#fff, #ddd);
-  }
-}
-
 @media only screen and (max-width: 768px) {
-  // For mobile phones:
-  #main_pane_left {
-    width: 100%;
-  }
-
   ul {
     &#topmenu,
     &.tabs {
@@ -4286,4 +4206,43 @@ body .ui-dialog {
 
 #filter_query_text {
   vertical-align: baseline;
+}
+
+// Bootstrap
+
+.btn-primary {
+  font-weight: $font-weight-bold;
+}
+
+.btn-primary,
+.btn-secondary {
+  border-color: #aaa;
+  text-shadow: 0 1px 0 #fff;
+  background-image: linear-gradient(#f8f8f8, #d8d8d8);
+
+  &:hover {
+    background-image: linear-gradient(#fff, #ddd);
+  }
+}
+
+.card {
+  @if $direction == rtl {
+    -moz-box-shadow: -2px 2px 5px #ccc;
+    -webkit-box-shadow: -2px 2px 5px #ccc;
+    box-shadow: -2px 2px 5px #ccc;
+  } @else {
+    -moz-box-shadow: 2px 2px 5px #ccc;
+    -webkit-box-shadow: 2px 2px 5px #ccc;
+    box-shadow: 2px 2px 5px #ccc;
+  }
+}
+
+.card-header {
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  font-size: 1.6em;
+  text-shadow: 0 1px 0 #777;
+  -moz-box-shadow: 1px 1px 15px #999 inset;
+  -webkit-box-shadow: 1px 1px 15px #999 inset;
+  box-shadow: 1px 1px 15px #999 inset;
 }
