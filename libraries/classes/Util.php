@@ -4964,7 +4964,7 @@ class Util
     /**
      * Check that input is an int or an int in a string
      *
-     * @param mixed $input
+     * @param mixed $input The input
      *
      * @return bool
      */
