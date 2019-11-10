@@ -408,6 +408,9 @@ class StructureController extends AbstractController
         $column_names = array_keys($columns);
         $changes = [];
 
+        // @see https://mariadb.com/kb/en/library/changes-improvements-in-mariadb-102/#information-schema
+        $usesLiteralNull = $this->dbi->isMariaDB() && $this->dbi->getVersion() >= 100200;
+        $defaultNullValue = $usesLiteralNull ? 'NULL' : null;
         // move columns from first to last
         for ($i = 0, $l = count($_POST['move_columns']); $i < $l; $i++) {
             $column = $_POST['move_columns'][$i];
@@ -430,7 +433,8 @@ class StructureController extends AbstractController
                 && ($data['Default'] == 'CURRENT_TIMESTAMP'
                     || $data['Default'] == 'current_timestamp()');
 
-            if ($data['Null'] === 'YES' && $data['Default'] === null) {
+            // @see https://mariadb.com/kb/en/library/information-schema-columns-table/#examples
+            if ($data['Null'] === 'YES' && in_array($data['Default'], [$defaultNullValue, null])) {
                 $default_type = 'NULL';
             } elseif ($current_timestamp) {
                 $default_type = 'CURRENT_TIMESTAMP';
@@ -461,7 +465,7 @@ class StructureController extends AbstractController
                 $extracted_columnspec['spec_in_brackets'],
                 $extracted_columnspec['attribute'],
                 isset($data['Collation']) ? $data['Collation'] : '',
-                $data['Null'] === 'YES' ? 'NULL' : 'NOT NULL',
+                $data['Null'] === 'YES' ? 'YES' : 'NO',
                 $default_type,
                 $current_timestamp ? '' : $data['Default'],
                 isset($data['Extra']) && $data['Extra'] !== '' ? $data['Extra']

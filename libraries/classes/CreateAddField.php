@@ -88,7 +88,7 @@ class CreateAddField
                         : '',
                         isset($_POST['field_null'][$i])
                         ? $_POST['field_null'][$i]
-                        : 'NOT NULL',
+                        : 'NO',
                         $_POST['field_default_type'][$i],
                         $_POST['field_default_value'][$i],
                         isset($_POST['field_extra'][$i])

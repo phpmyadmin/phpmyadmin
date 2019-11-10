@@ -980,7 +980,7 @@ class Relation
                     AND column_name = '(db_comment)'";
             $com_rs = $this->queryAsControlUser(
                 $com_qry,
-                true,
+                false,
                 DatabaseInterface::QUERY_STORE
             );
 
@@ -1016,7 +1016,7 @@ class Relation
                 WHERE `column_name` = '(db_comment)'";
             $com_rs = $this->queryAsControlUser(
                 $com_qry,
-                true,
+                false,
                 DatabaseInterface::QUERY_STORE
             );
 
