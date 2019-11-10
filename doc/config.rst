@@ -2667,8 +2667,8 @@ Languages
     :default: ``'//TRANSLIT'``
 
     Specify some parameters for iconv used in charset conversion. See
-    `iconv documentation <https://www.gnu.org/software/libiconv/documentati
-    on/libiconv/iconv_open.3.html>`_ for details. By default
+    `iconv documentation <https://www.gnu.org/savannah-checkouts/gnu/libiconv/documentati
+    on/libiconv-1.15/iconv_open.3.html>`_ for details. By default
     ``//TRANSLIT`` is used, so that invalid characters will be
     transliterated.
 
