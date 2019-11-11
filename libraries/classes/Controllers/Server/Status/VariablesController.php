@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;
 
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Util;
 
 /**
@@ -79,7 +80,7 @@ class VariablesController extends AbstractController
                 // Fields containing % are calculated,
                 // they can not be described in MySQL documentation
                 if (mb_strpos($name, '%') === false) {
-                    $variables[$name]['doc'] = Util::linkToVarDocumentation(
+                    $variables[$name]['doc'] = Generator::linkToVarDocumentation(
                         $name,
                         $this->dbi->isMariaDB()
                     );

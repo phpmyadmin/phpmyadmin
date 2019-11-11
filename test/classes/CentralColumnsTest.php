@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\CentralColumns;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Types;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -693,14 +694,14 @@ class CentralColumnsTest extends TestCase
         $this->assertStringContainsString(__('Click to sort.'), $result);
         $this->assertStringContainsString(Url::getHiddenInputs($db), $result);
         $this->assertStringContainsString(Url::getHiddenInputs($db), $result);
-        $editSelectedButton = Util::getButtonOrImage(
+        $editSelectedButton = Generator::getButtonOrImage(
             'edit_central_columns',
             'mult_submit change_central_columns',
             __('Edit'),
             'b_edit',
             'edit central columns'
         );
-        $deleteSelectedButton = Util::getButtonOrImage(
+        $deleteSelectedButton = Generator::getButtonOrImage(
             'delete_central_columns',
             'mult_submit',
             __('Delete'),

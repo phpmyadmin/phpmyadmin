@@ -9,6 +9,7 @@ declare(strict_types=1);
 use PhpMyAdmin\Config;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Transformations;
@@ -87,7 +88,7 @@ if (isset($_POST['do_save_data'])) {
 
     $createAddField = new CreateAddField($dbi);
 
-    list($result, $sql_query) = $createAddField->tryColumnCreationQuery($db, $table, $err_url);
+    [$result, $sql_query] = $createAddField->tryColumnCreationQuery($db, $table, $err_url);
 
     if ($result === true) {
         // Update comment table for mime types [MIME]
@@ -120,11 +121,11 @@ if (isset($_POST['do_save_data'])) {
         $message->addParam($table);
         $response->addJSON(
             'message',
-            Util::getMessage($message, $sql_query, 'success')
+            Generator::getMessage($message, $sql_query, 'success')
         );
         exit;
     } else {
-        $error_message_html = Util::mysqlDie(
+        $error_message_html = Generator::mysqlDie(
             '',
             '',
             false,

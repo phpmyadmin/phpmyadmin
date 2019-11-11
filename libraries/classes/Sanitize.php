@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Util;
 
 /**
@@ -124,7 +125,7 @@ class Sanitize
                 $page = 'setup';
             }
         }
-        $link = Util::getDocuLink($page, $anchor);
+        $link = MySQLDocumentation::getDocumentationLink($page, $anchor);
         return '<a href="' . $link . '" target="documentation">';
     }
 

@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Navigation;
 
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\Nodes\Node;
 use PhpMyAdmin\Navigation\Nodes\NodeDatabase;
 use PhpMyAdmin\Navigation\Nodes\NodeTable;
@@ -1443,7 +1444,7 @@ class NavigationTree
         $retval = '<!-- CONTROLS START -->';
         $retval .= '<li id="navigation_controls_outer">';
         $retval .= '<div id="navigation_controls">';
-        $retval .= Util::getNavigationLink(
+        $retval .= Generator::getNavigationLink(
             '#',
             $showText,
             __('Collapse all'),
@@ -1457,7 +1458,7 @@ class NavigationTree
             $syncImage = 's_link';
             $title = __('Unlink from main panel');
         }
-        $retval .= Util::getNavigationLink(
+        $retval .= Generator::getNavigationLink(
             '#',
             $showText,
             $title,

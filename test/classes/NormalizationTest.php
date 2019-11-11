@@ -9,14 +9,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\Forms\Fields\RadioList;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Theme;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Types;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use stdClass;
@@ -550,7 +549,7 @@ class NormalizationTest extends TestCase
             '3nf'  => __('Third step of normalization (1NF+2NF+3NF)'),
         ];
 
-        $htmlTmp = Util::getRadioFields(
+        $htmlTmp = RadioList::generate(
             'normalizeTo',
             $choices,
             '1nf',

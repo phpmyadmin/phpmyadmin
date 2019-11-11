@@ -10,6 +10,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
@@ -45,7 +46,7 @@ $cfg = $config->settings;
 
 /* Check if database name is empty */
 if (strlen($db) === 0) {
-    Util::mysqlDie(
+    Generator::mysqlDie(
         __('The database name is empty!'),
         '',
         false,
@@ -57,7 +58,7 @@ if (strlen($db) === 0) {
  * Selects the database to work with
  */
 if (! $dbi->selectDb($db)) {
-    Util::mysqlDie(
+    Generator::mysqlDie(
         sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($db)),
         '',
         false,
@@ -67,7 +68,7 @@ if (! $dbi->selectDb($db)) {
 
 if ($dbi->getColumns($db, $table)) {
     // table exists already
-    Util::mysqlDie(
+    Generator::mysqlDie(
         sprintf(__('Table %s already exists!'), htmlspecialchars($table)),
         '',
         false,

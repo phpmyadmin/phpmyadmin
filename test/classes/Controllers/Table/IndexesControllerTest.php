@@ -8,6 +8,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\IndexesController;
+use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
@@ -176,7 +178,7 @@ class IndexesControllerTest extends PmaTestCase
             $html
         );
 
-        $doc_html = Util::showHint(
+        $doc_html = Generator::showHint(
             Message::notice(
                 __(
                     '"PRIMARY" <b>must</b> be the name of'
@@ -190,7 +192,7 @@ class IndexesControllerTest extends PmaTestCase
         );
 
         $this->assertStringContainsString(
-            Util::showMySQLDocu('ALTER_TABLE'),
+            MySQLDocumentation::show('ALTER_TABLE'),
             $html
         );
 

@@ -9,6 +9,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
@@ -321,16 +323,16 @@ class Search
     {
         $choices = [
             '1' => $this->searchTypes[1] . ' '
-                . Util::showHint(
+                . Generator::showHint(
                     __('Words are separated by a space character (" ").')
                 ),
             '2' => $this->searchTypes[2] . ' '
-                . Util::showHint(
+                . Generator::showHint(
                     __('Words are separated by a space character (" ").')
                 ),
             '3' => $this->searchTypes[3],
             '4' => $this->searchTypes[4],
-            '5' => $this->searchTypes[5] . ' ' . Util::showMySQLDocu('Regexp'),
+            '5' => $this->searchTypes[5] . ' ' . MySQLDocumentation::show('Regexp'),
         ];
         return $this->template->render('database/search/main', [
             'db' => $this->db,

@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Util;
 use Williamdes\MariaDBMySQLKBS\KBException;
 use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
@@ -54,15 +55,17 @@ class VariablesController extends AbstractController
             foreach ($serverVars as $name => $value) {
                 $hasSessionValue = isset($serverVarsSession[$name])
                     && $serverVarsSession[$name] !== $value;
-                $docLink = Util::linkToVarDocumentation(
+                $docLink = Generator::linkToVarDocumentation(
                     $name,
                     $this->dbi->isMariaDB(),
                     str_replace('_', '&nbsp;', $name)
                 );
 
-                list($formattedValue, $isEscaped) = $this->formatVariable($name, $value);
+                [$formattedValue, $isEscaped] = $this->formatVariable($name, $value);
                 if ($hasSessionValue) {
-                    list($sessionFormattedValue, ) = $this->formatVariable(
+                    [
+                        $sessionFormattedValue,
+                    ] = $this->formatVariable(
                         $name,
                         $serverVarsSession[$name]
                     );
@@ -187,7 +190,7 @@ class VariablesController extends AbstractController
                 . '";',
                 'NUM'
             );
-            list($formattedValue, $isHtmlFormatted) = $this->formatVariable(
+            [$formattedValue, $isHtmlFormatted] = $this->formatVariable(
                 $params['varName'],
                 $varValue[1]
             );

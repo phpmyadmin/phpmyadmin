@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\Forms\Fields\MaxFileSize;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -44,10 +45,16 @@ $insertEdit = $containerBuilder->get('insert_edit');
 /**
  * Determine whether Insert or Edit and set global variables
  */
-list(
-    $insert_mode, $where_clause, $where_clause_array, $where_clauses,
-    $result, $rows, $found_unique_key, $after_insert
-) = $insertEdit->determineInsertOrEdit(
+[
+    $insert_mode,
+    $where_clause,
+    $where_clause_array,
+    $where_clauses,
+    $result,
+    $rows,
+    $found_unique_key,
+    $after_insert,
+] = $insertEdit->determineInsertOrEdit(
     isset($where_clause) ? $where_clause : null,
     $db,
     $table
@@ -96,7 +103,7 @@ $scripts->addFile('gis_data_editor.js');
  * $disp_message come from /table/replace
  */
 if (! empty($disp_message)) {
-    $response->addHTML(Util::getMessage($disp_message, null));
+    $response->addHTML(Generator::getMessage($disp_message, null));
 }
 
 $table_columns = $insertEdit->getTableColumns($db, $table);
@@ -166,7 +173,7 @@ $html_output .= $insertEdit->getHtmlForInsertEditFormHeader($has_blob_field, $is
 
 $html_output .= Url::getHiddenInputs($_form_params);
 
-$titles['Browse'] = Util::getIcon('b_browse', __('Browse foreign values'));
+$titles['Browse'] = Generator::getIcon('b_browse', __('Browse foreign values'));
 
 // user can toggle the display of Function column and column types
 // (currently does not work for multi-edits)
@@ -251,7 +258,7 @@ $html_output .= $insertEdit->getActionsPanel(
 
 if ($biggest_max_file_size > 0) {
     $html_output .= '        '
-        . Util::generateHiddenMaxFileSize(
+        . MaxFileSize::generate(
             $biggest_max_file_size
         ) . "\n";
 }

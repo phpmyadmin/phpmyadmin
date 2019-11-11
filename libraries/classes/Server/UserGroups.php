@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Server;
 
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -120,7 +121,7 @@ class UserGroups
                         ''
                     )
                     . '">'
-                    . Util::getIcon('b_usrlist', __('View users'))
+                    . Generator::getIcon('b_usrlist', __('View users'))
                     . '</a>';
                 $html_output .= '&nbsp;&nbsp;';
                 $html_output .= '<a class="" href="' . Url::getFromRoute('/server/user_groups') . '" data-post="'
@@ -132,7 +133,7 @@ class UserGroups
                         ''
                     )
                     . '">'
-                    . Util::getIcon('b_edit', __('Edit')) . '</a>';
+                    . Generator::getIcon('b_edit', __('Edit')) . '</a>';
                 $html_output .= '&nbsp;&nbsp;';
                 $html_output .= '<a class="deleteUserGroup ajax"'
                     . ' href="' . Url::getFromRoute('/server/user_groups') . '" data-post="'
@@ -144,7 +145,7 @@ class UserGroups
                         ''
                     )
                     . '">'
-                    . Util::getIcon('b_drop', __('Delete')) . '</a>';
+                    . Generator::getIcon('b_drop', __('Delete')) . '</a>';
                 $html_output .= '</td>';
 
                 $html_output .= '</tr>';
@@ -158,7 +159,7 @@ class UserGroups
 
         $html_output .= '<div class="row"><fieldset id="fieldset_add_user_group">';
         $html_output .= '<a href="' . Url::getFromRoute('/server/user_groups', ['addUserGroup' => 1]) . '">'
-            . Util::getIcon('b_usradd')
+            . Generator::getIcon('b_usradd')
             . __('Add user group') . '</a>';
         $html_output .= '</fieldset></div>';
 

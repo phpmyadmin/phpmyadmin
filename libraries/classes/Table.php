@@ -9,6 +9,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
@@ -1889,7 +1891,7 @@ class Table
                             'Failed to cleanup table UI preferences (see ' .
                             '$cfg[\'Servers\'][$i][\'MaxTableUiprefs\'] %s)'
                         ),
-                        Util::showDocu('config', 'cfg_Servers_MaxTableUiprefs')
+                        MySQLDocumentation::showDocumentation('config', 'cfg_Servers_MaxTableUiprefs')
                     )
                 );
                 $message->addMessage(
@@ -2492,7 +2494,7 @@ class Table
 
                     if (! empty($tmp_error_drop)) {
                         $seen_error = true;
-                        $html_output .= Util::mysqlDie(
+                        $html_output .= Generator::mysqlDie(
                             $tmp_error_drop,
                             $drop_query,
                             false,
@@ -2538,7 +2540,7 @@ class Table
                         $message->addParam(implode(', ', $master_field));
                         $html_output .= $message->getDisplay();
                     } else {
-                        $html_output .= Util::mysqlDie(
+                        $html_output .= Generator::mysqlDie(
                             $tmp_error_create,
                             $create_query,
                             false,
@@ -2546,9 +2548,9 @@ class Table
                             false
                         );
                     }
-                    $html_output .= Util::showMySQLDocu(
-                        'InnoDB_foreign_key_constraints'
-                    ) . "\n";
+                    $html_output .= MySQLDocumentation::show(
+                            'InnoDB_foreign_key_constraints'
+                        ) . "\n";
                 }
             } else {
                 $preview_sql_data .= $create_query . "\n";

@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Rte\Routines;
 use PhpMyAdmin\Util;
 

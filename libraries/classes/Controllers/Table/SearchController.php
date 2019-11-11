@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
@@ -375,7 +376,7 @@ class SearchController extends AbstractController
 
         //Displays form for point data and scatter plot
         $titles = [
-            'Browse' => Util::getIcon(
+            'Browse' => Generator::getIcon(
                 'b_browse',
                 __('Browse foreign values')
             ),
@@ -629,7 +630,7 @@ class SearchController extends AbstractController
             $this->_connectionCharSet
         );
         $this->response->addHTML(
-            Util::getMessage(
+            Generator::getMessage(
                 __('Your SQL query has been executed successfully.'),
                 null,
                 'success'
@@ -933,7 +934,7 @@ class SearchController extends AbstractController
         $entered_value = (isset($_POST['criteriaValues'])
             ? $_POST['criteriaValues'] : '');
         $titles = [
-            'Browse' => Util::getIcon(
+            'Browse' => Generator::getIcon(
                 'b_browse',
                 __('Browse foreign values')
             ),

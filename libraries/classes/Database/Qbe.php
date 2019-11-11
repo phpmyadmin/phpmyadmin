@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\SavedSearches;
@@ -363,7 +364,7 @@ class Qbe
             exit;
         }
         // The tables list gets from MySQL
-        while (list($table) = $this->dbi->fetchRow($all_tables)) {
+        while ([$table] = $this->dbi->fetchRow($all_tables)) {
             $columns = $this->dbi->getColumns($this->_db, $table);
 
             if (empty($this->_criteriaTables[$table])
@@ -1310,7 +1311,7 @@ class Qbe
         $unique_columns = $indexes['unique'];
         $index_columns = $indexes['index'];
 
-        list($candidate_columns, $needsort)
+        [$candidate_columns, $needsort]
             = $this->_getLeftJoinColumnCandidatesBest(
                 $search_tables,
                 $where_clause_columns,
@@ -1805,7 +1806,7 @@ class Qbe
         $html_output .= '<legend>'
             . sprintf(
                 __('SQL query on database <b>%s</b>:'),
-                Util::getDbLink($this->_db)
+                Generator::getDbLink($this->_db)
             );
         $html_output .= '</legend>';
         $text_dir = 'ltr';

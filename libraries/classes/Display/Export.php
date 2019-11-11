@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Display;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Encoding;
+use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportPlugin;
@@ -362,7 +363,7 @@ class Export
         );
         $msg->addParamHtml('</a>');
         $msg->addParam($trans);
-        $docUrl = Util::getDocuLink('faq', 'faq6-27');
+        $docUrl = MySQLDocumentation::getDocumentationLink('faq', 'faq6-27');
         $msg->addParamHtml(
             '<a href="' . $docUrl . '" target="documentation">'
         );

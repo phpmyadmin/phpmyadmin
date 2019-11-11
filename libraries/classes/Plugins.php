@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\DocPropertyItem;
@@ -374,7 +375,7 @@ class Plugins
             $doc = $propertyGroup->getDoc();
             if ($doc != null) {
                 if (count($doc) === 3) {
-                    $ret .= Util::showMySQLDocu(
+                    $ret .= MySQLDocumentation::show(
                         $doc[1],
                         false,
                         null,
@@ -382,9 +383,9 @@ class Plugins
                         $doc[2]
                     );
                 } elseif (count($doc) === 1) {
-                    $ret .= Util::showDocu('faq', $doc[0]);
+                    $ret .= MySQLDocumentation::showDocumentation('faq', $doc[0]);
                 } else {
-                    $ret .= Util::showMySQLDocu(
+                    $ret .= MySQLDocumentation::show(
                         $doc[1]
                     );
                 }

@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Rte;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Url;
@@ -213,7 +214,7 @@ class Triggers
                 $message->addHtml('</ul>');
             }
 
-            $output = Util::getMessage($message, $sql_query);
+            $output = Generator::getMessage($message, $sql_query);
             $response = Response::getInstance();
             if ($response->isAjax()) {
                 if ($message->isSuccess()) {

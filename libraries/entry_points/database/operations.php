@@ -15,6 +15,7 @@ declare(strict_types=1);
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\CreateTable;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Plugins;
@@ -216,7 +217,7 @@ if (strlen($db) > 0
         $response->addJSON('newname', $_POST['newname']);
         $response->addJSON(
             'sql_query',
-            Util::getMessage(null, $sql_query)
+            Generator::getMessage(null, $sql_query)
         );
         $response->addJSON('db', $db);
         exit;
@@ -244,7 +245,7 @@ $url_query .= Url::getCommon($url_params, '&');
 // Gets the database structure
 $sub_part = '_structure';
 
-list(
+[
     $tables,
     $num_tables,
     $total_num_tables,
@@ -253,13 +254,13 @@ list(
     $db_is_system_schema,
     $tooltip_truename,
     $tooltip_aliasname,
-    $pos
-) = Util::getDbInfo($db, $sub_part === null ? '' : $sub_part);
+    $pos,
+] = Util::getDbInfo($db, $sub_part === null ? '' : $sub_part);
 
 echo "\n";
 
 if (isset($message)) {
-    echo Util::getMessage($message, $sql_query);
+    echo Generator::getMessage($message, $sql_query);
     unset($message);
 }
 

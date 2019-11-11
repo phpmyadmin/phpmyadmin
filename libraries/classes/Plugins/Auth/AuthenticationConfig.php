@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Auth;
 
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Select;
@@ -132,7 +133,7 @@ class AuthenticationConfig extends AuthenticationPlugin
                     E_USER_WARNING
                 );
             }
-            echo Util::mysqlDie(
+            echo Generator::mysqlDie(
                 $conn_error,
                 '',
                 true,

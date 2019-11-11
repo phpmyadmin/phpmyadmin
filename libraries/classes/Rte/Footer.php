@@ -9,6 +9,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Rte;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -77,14 +79,14 @@ class Footer
             ]);
             $retval .= '" onclick="$.datepicker.initialized = false;">';
             $icon = 'b_' . $icon;
-            $retval .= Util::getIcon($icon);
+            $retval .= Generator::getIcon($icon);
             $retval .= $this->words->get('add') . "</a>\n";
         } else {
             $icon = 'bd_' . $icon;
-            $retval .= Util::getIcon($icon);
+            $retval .= Generator::getIcon($icon);
             $retval .= $this->words->get('add') . "\n";
         }
-        $retval .= "            " . Util::showMySQLDocu($docu) . "\n";
+        $retval .= "            " . MySQLDocumentation::show($docu) . "\n";
         $retval .= "        </div>\n";
         $retval .= "</fieldset>\n";
         $retval .= "<!-- ADD " . $name . " FORM END -->\n\n";
@@ -155,12 +157,15 @@ class Footer
         $retval .= "        </legend>\n";
         $retval .= "        <div class='wrap'>\n";
         // show the toggle button
-        $retval .= Util::toggleButton(
-            Url::getFromRoute('/sql', [
-                'db' => $db,
-                'table' => $table,
-                'goto' => Url::getFromRoute('/database/events', ['db' => $db]),
-            ]),
+        $retval .= Generator::toggleButton(
+            Url::getFromRoute(
+                '/sql',
+                [
+                    'db' => $db,
+                    'table' => $table,
+                    'goto' => Url::getFromRoute('/database/events', ['db' => $db]),
+                ]
+            ),
             'sql_query',
             $options,
             'Functions.slidingMessage(data.sql_query);'

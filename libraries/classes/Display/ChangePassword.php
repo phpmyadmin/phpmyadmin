@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Display;
 
+use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
@@ -151,7 +152,7 @@ class ChangePassword
                             . 'or an \'<i>unencrypted connection that encrypts the '
                             . 'password using RSA</i>\'; while connecting to the server.'
                         )
-                        . Util::showMySQLDocu(
+                        . MySQLDocumentation::show(
                             'sha256-authentication-plugin'
                         )
                     )

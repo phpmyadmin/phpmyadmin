@@ -15,6 +15,7 @@ declare(strict_types=1);
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
@@ -97,7 +98,7 @@ $err_url = $insertEdit->getErrorUrl($url_params);
 /**
  * Prepares the update/insert of a row
  */
-list($loop_array, $using_key, $is_insert, $is_insertignore)
+[$loop_array, $using_key, $is_insert, $is_insertignore]
     = $insertEdit->getParamsForUpdateOrInsert();
 
 $query = [];
@@ -310,7 +311,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
         );
 
         if (! isset($multi_edit_virtual, $multi_edit_virtual[$key])) {
-            list($query_values, $query_fields)
+            [$query_values, $query_fields]
                 = $insertEdit->getQueryValuesForInsertAndUpdateInMultipleEdit(
                     $multi_edit_columns_name,
                     $multi_edit_columns_null,
@@ -393,9 +394,14 @@ if (isset($_POST['preview_sql'])) {
  * Executes the sql query and get the result, then move back to the calling
  * page
  */
-list ($url_params, $total_affected_rows, $last_messages, $warning_messages,
-    $error_messages, $return_to_sql_query)
-        = $insertEdit->executeSqlQuery($url_params, $query);
+[
+    $url_params,
+    $total_affected_rows,
+    $last_messages,
+    $warning_messages,
+    $error_messages,
+    $return_to_sql_query,
+] = $insertEdit->executeSqlQuery($url_params, $query);
 
 if ($is_insert && (count($value_sets) > 0 || $row_skipped)) {
     $message = Message::getMessageForInsertedRows(
@@ -519,7 +525,7 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
     $_table = new Table($_POST['table'], $_POST['db']);
     $extra_data['row_count'] = $_table->countRecords();
 
-    $extra_data['sql_query'] = Util::getMessage(
+    $extra_data['sql_query'] = Generator::getMessage(
         $message,
         $GLOBALS['display_query']
     );

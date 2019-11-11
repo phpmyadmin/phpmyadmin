@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\VariablesController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -98,11 +99,11 @@ class VariablesControllerTest extends TestCase
         $html = $controller->index([]);
 
         $this->assertStringContainsString(
-            Util::getIcon('b_save', __('Save')),
+            Generator::getIcon('b_save', __('Save')),
             $html
         );
         $this->assertStringContainsString(
-            Util::getIcon('b_close', __('Cancel')),
+            Generator::getIcon('b_close', __('Cancel')),
             $html
         );
         $this->assertStringContainsString(
@@ -166,7 +167,7 @@ class VariablesControllerTest extends TestCase
             $nameForValueByte,
             '3',
         ];
-        list($formattedValue, $isHtmlFormatted) = $method->invokeArgs($controller, $args);
+        [$formattedValue, $isHtmlFormatted] = $method->invokeArgs($controller, $args);
         $this->assertEquals(
             '<abbr title="3">3 B</abbr>',
             $formattedValue
@@ -178,7 +179,7 @@ class VariablesControllerTest extends TestCase
             $nameForValueNotByte,
             '3',
         ];
-        list($formattedValue, $isHtmlFormatted) = $method->invokeArgs($controller, $args);
+        [$formattedValue, $isHtmlFormatted] = $method->invokeArgs($controller, $args);
         $this->assertEquals(
             '3',
             $formattedValue
@@ -190,7 +191,7 @@ class VariablesControllerTest extends TestCase
             $nameForValueNotByte,
             'value',
         ];
-        list($formattedValue, $isHtmlFormatted) = $method->invokeArgs($controller, $args);
+        [$formattedValue, $isHtmlFormatted] = $method->invokeArgs($controller, $args);
         $this->assertEquals(
             'value',
             $formattedValue

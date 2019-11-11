@@ -20,6 +20,7 @@ use PhpMyAdmin\Engines\Myisam;
 use PhpMyAdmin\Engines\Ndbcluster;
 use PhpMyAdmin\Engines\Pbxt;
 use PhpMyAdmin\Engines\PerformanceSchema;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Util;
 
 /**
@@ -253,7 +254,7 @@ class StorageEngine
                   . '    <td>' . "\n";
             if (! empty($details['desc'])) {
                 $ret .= '        '
-                    . Util::showHint($details['desc'])
+                    . Generator::showHint($details['desc'])
                     . "\n";
             }
             $ret .= '    </td>' . "\n"

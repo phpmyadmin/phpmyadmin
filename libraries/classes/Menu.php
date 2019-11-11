@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Html\Generator;
+
 /**
  * Class for generating the top menu
  *
@@ -113,7 +115,7 @@ class Menu
                 unset($tabs[$key]);
             }
         }
-        return Util::getHtmlTabs($tabs, $url_params, 'topmenu', true);
+        return Generator::getHtmlTabs($tabs, $url_params, 'topmenu', true);
     }
 
     /**

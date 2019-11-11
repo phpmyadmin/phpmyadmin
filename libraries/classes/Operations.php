@@ -11,6 +11,10 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\Engines\Innodb;
+use PhpMyAdmin\Html\Forms\Fields\DropDown;
+use PhpMyAdmin\Html\Forms\Fields\RadioList;
+use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 
 /**
@@ -128,7 +132,7 @@ class Operations
         }
 
         $html_output .= '<label for="checkbox_adjust_privileges">'
-                . __('Adjust privileges') . Util::showDocu('faq', 'faq6-39')
+                . __('Adjust privileges') . MySQLDocumentation::showDocumentation('faq', 'faq6-39')
                 . '</label><br>';
 
         $html_output .= ''
@@ -227,7 +231,7 @@ class Operations
             . '</legend>'
             . '<input type="text" maxlength="64" name="newname" '
             . 'class="textfield" required="required"><br>'
-            . Util::getRadioFields(
+            . RadioList::generate(
                 'what',
                 $choices,
                 'data',
@@ -269,7 +273,7 @@ class Operations
                 . '" disabled>';
         }
         $html_output .= '<label for="checkbox_privileges">'
-            . __('Adjust privileges') . Util::showDocu('faq', 'faq6-39')
+            . __('Adjust privileges') . MySQLDocumentation::showDocumentation('faq', 'faq6-39')
             . '</label><br>';
 
         $html_output .= '<input type="checkbox" name="switch_to_new" value="true"'
@@ -925,7 +929,7 @@ class Operations
                 . '" disabled>';
         }
         $html_output .= '<label for="checkbox_privileges_tables_move">'
-            . __('Adjust privileges') . Util::showDocu('faq', 'faq6-39')
+            . __('Adjust privileges') . MySQLDocumentation::showDocumentation('faq', 'faq6-39')
             . '</label><br>';
 
         $html_output .= '</fieldset><fieldset class="tblFooters">'
@@ -1028,7 +1032,7 @@ class Operations
         }
         $html_output .= '<label for="checkbox_privileges_table_options">'
             . __('Adjust privileges') . '&nbsp;'
-            . Util::showDocu('faq', 'faq6-39') . '</label>';
+            . MySQLDocumentation::showDocumentation('faq', 'faq6-39') . '</label>';
 
         $html_output .= '</td></tr>';
         return $html_output;
@@ -1126,7 +1130,7 @@ class Operations
 
         //Storage engine
         $html_output .= '<tr><td class="vmiddle">' . __('Storage Engine')
-            . '&nbsp;' . Util::showMySQLDocu('Storage_engines')
+            . '&nbsp;' . MySQLDocumentation::show('Storage_engines')
             . '</td>'
             . '<td>'
             . StorageEngine::getHtmlSelect(
@@ -1228,7 +1232,7 @@ class Operations
             $html_output .= '<tr><td class="vmiddle">'
                 . '<label for="new_row_format">ROW_FORMAT</label></td>'
                 . '<td>';
-            $html_output .= Util::getDropdown(
+            $html_output .= DropDown::generate(
                 'new_row_format',
                 $possible_row_formats[$tbl_storage_engine],
                 $current_row_format,
@@ -1367,7 +1371,7 @@ class Operations
             'dataonly'  => __('Data only'),
         ];
 
-        $html_output .= Util::getRadioFields(
+        $html_output .= RadioList::generate(
             'what',
             $choices,
             'data',
@@ -1409,7 +1413,7 @@ class Operations
                 . '" disabled>';
         }
         $html_output .= '<label for="checkbox_adjust_privileges">'
-            . __('Adjust privileges') . Util::showDocu('faq', 'faq6-39')
+            . __('Adjust privileges') . MySQLDocumentation::showDocumentation('faq', 'faq6-39')
             . '</label><br>';
 
         $pma_switch_to_new = isset($_SESSION['pma_switch_to_new']) && $_SESSION['pma_switch_to_new'];
@@ -1593,7 +1597,7 @@ class Operations
                 $action_message,
                 ['class' => 'maintain_action ajax']
             )
-            . Util::showMySQLDocu($link)
+            . MySQLDocumentation::show($link)
             . '</li>';
     }
 
@@ -1656,7 +1660,7 @@ class Operations
                 'class' => 'ajax',
             ]
         )
-            . Util::showMySQLDocu($syntax)
+            . MySQLDocumentation::show($syntax)
             . '</li>';
     }
 
@@ -1701,7 +1705,7 @@ class Operations
             . '<fieldset>'
             . '<legend>'
             . __('Partition maintenance')
-            . Util::showMySQLDocu('partitioning_maintenance')
+            . MySQLDocumentation::show('partitioning_maintenance')
             . '</legend>';
 
         $html_select = '<select id="partition_name" name="partition_name[]"'
@@ -1720,7 +1724,7 @@ class Operations
         $html_output .= sprintf(__('Partition %s'), $html_select);
 
         $html_output .= '<div class="clearfloat">';
-        $html_output .= Util::getRadioFields(
+        $html_output .= RadioList::generate(
             'partition_operation',
             $choices,
             'ANALYZE',
@@ -2128,7 +2132,7 @@ class Operations
             . Util::backquote($table)
             . ' CONVERT TO';
 
-        list($charset) = explode('_', $tbl_collation);
+        [$charset] = explode('_', $tbl_collation);
 
         $change_all_collations_query .= ' CHARACTER SET ' . $charset
             . ($charset == $tbl_collation ? '' : ' COLLATE ' . $tbl_collation);

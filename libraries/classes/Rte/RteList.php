@@ -9,6 +9,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Rte;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
@@ -101,7 +103,7 @@ class RteList
         $retval .= "    <legend>\n";
         $retval .= "        " . $this->words->get('title') . "\n";
         $retval .= "        "
-            . Util::showMySQLDocu($this->words->get('docu')) . "\n";
+            . MySQLDocumentation::show($this->words->get('docu')) . "\n";
         $retval .= "    </legend>\n";
         $retval .= "    <div class='$class1' id='nothing2display'>\n";
         $retval .= "      " . $this->words->get('nothing') . "\n";
@@ -186,14 +188,14 @@ class RteList
                 'text_dir' => $GLOBALS['text_dir'],
                 'form_name' => 'rteListForm',
             ]);
-            $retval .= Util::getButtonOrImage(
+            $retval .= Generator::getButtonOrImage(
                 'submit_mult',
                 'mult_submit',
                 __('Export'),
                 'b_export',
                 'export'
             );
-            $retval .= Util::getButtonOrImage(
+            $retval .= Generator::getButtonOrImage(
                 'submit_mult',
                 'mult_submit',
                 __('Drop'),

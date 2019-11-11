@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Html\Generator;
+
 /**
  * Set of functions for /table/create and /table/addfield
  *
@@ -285,14 +287,14 @@ class CreateAddField
     private function getColumnCreationStatements(bool $isCreateTable = true): string
     {
         $sqlStatement = "";
-        list(
+        [
             $fieldCount,
             $fieldPrimary,
             $fieldIndex,
             $fieldUnique,
             $fieldFullText,
-            $fieldSpatial
-        ) = $this->getIndexedColumns();
+            $fieldSpatial,
+        ] = $this->getIndexedColumns();
         $definitions = $this->buildColumnCreationStatement(
             $fieldCount,
             $isCreateTable
@@ -533,7 +535,7 @@ class CreateAddField
         // To allow replication, we first select the db to use and then run queries
         // on this db.
         if (! $this->dbi->selectDb($db)) {
-            Util::mysqlDie(
+            Generator::mysqlDie(
                 $this->dbi->getError(),
                 'USE ' . Util::backquote($db),
                 false,

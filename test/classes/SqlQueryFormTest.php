@@ -10,10 +10,10 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Encoding;
+use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -129,9 +129,9 @@ class SqlQueryFormTest extends TestCase
             $html
         );
 
-        //validate 3: showMySQLDocu
+        //validate 3: MySQLDocumentation::show
         $this->assertStringContainsString(
-            Util::showMySQLDocu('SELECT'),
+            MySQLDocumentation::show('SELECT'),
             $html
         );
 

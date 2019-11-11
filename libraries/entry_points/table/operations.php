@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
@@ -252,7 +253,7 @@ if (isset($_POST['submitoptions'])) {
  * Reordering the table has been requested by the user
  */
 if (isset($_POST['submitorderby']) && ! empty($_POST['order_field'])) {
-    list($sql_query, $result) = $operations->getQueryAndResultForReorderingTable();
+    [$sql_query, $result] = $operations->getQueryAndResultForReorderingTable();
 } // end if
 
 /**
@@ -261,7 +262,7 @@ if (isset($_POST['submitorderby']) && ! empty($_POST['order_field'])) {
 if (isset($_POST['submit_partition'])
     && ! empty($_POST['partition_operation'])
 ) {
-    list($sql_query, $result) = $operations->getQueryAndResultForPartition();
+    [$sql_query, $result] = $operations->getQueryAndResultForPartition();
 } // end if
 
 if ($reread_info) {
@@ -303,7 +304,7 @@ if (isset($result) && empty($message_to_show)) {
             if (! empty($sql_query)) {
                 $response->addJSON(
                     'sql_query',
-                    Util::getMessage(null, $sql_query)
+                    Generator::getMessage(null, $sql_query)
                 );
             }
             exit;
@@ -324,7 +325,7 @@ if (isset($result) && empty($message_to_show)) {
             if (! empty($sql_query)) {
                 $response->addJSON(
                     'sql_query',
-                    Util::getMessage(null, $sql_query)
+                    Generator::getMessage(null, $sql_query)
                 );
             }
             exit;
@@ -338,7 +339,7 @@ if (isset($result) && empty($message_to_show)) {
         );
     } else {
         $response->addHTML(
-            Util::getMessage($_message, $sql_query)
+            Generator::getMessage($_message, $sql_query)
         );
     }
     unset($_message);

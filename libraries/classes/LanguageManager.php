@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Language;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -952,7 +953,7 @@ class LanguageManager
         $language_title = __('Language')
             . (__('Language') != 'Language' ? ' - <em>Language</em>' : '');
         if ($show_doc) {
-            $language_title .= Util::showDocu('faq', 'faq7-2');
+            $language_title .= MySQLDocumentation::showDocumentation('faq', 'faq7-2');
         }
 
         $available_languages = $this->sortedLanguages();

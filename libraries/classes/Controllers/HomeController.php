@@ -15,6 +15,7 @@ use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\GitRevision;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\RecentFavoriteTable;
@@ -84,7 +85,7 @@ class HomeController extends AbstractController
         $languageManager = LanguageManager::getInstance();
 
         if (! empty($message)) {
-            $displayMessage = Util::getMessage($message);
+            $displayMessage = Generator::getMessage($message);
             unset($message);
         }
         if (isset($_SESSION['partial_logout'])) {
@@ -197,7 +198,7 @@ class HomeController extends AbstractController
             $databaseServer = [
                 'host' => $hostInfo,
                 'type' => Util::getServerType(),
-                'connection' => Util::getServerSSL(),
+                'connection' => Generator::getServerSSL(),
                 'version' => $this->dbi->getVersionString() . ' - ' . $this->dbi->getVersionComment(),
                 'protocol' => $this->dbi->getProtoInfo(),
                 'user' => $this->dbi->fetchValue('SELECT USER();'),

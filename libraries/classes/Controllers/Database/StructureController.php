@@ -13,6 +13,7 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\CreateTable;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Relation;
@@ -97,17 +98,8 @@ class StructureController extends AbstractController
      */
     private function getDatabaseInfo(string $subPart): void
     {
-        list(
-            $tables,
-            $numTables,
-            $totalNumTables,
-            ,
-            $isShowStats,
-            $dbIsSystemSchema,
-            ,
-            ,
-            $position
-        ) = Util::getDbInfo($this->db, $subPart);
+        [$tables, $numTables, $totalNumTables,, $isShowStats, $dbIsSystemSchema,,, $position]
+            = Util::getDbInfo($this->db, $subPart);
 
         $this->tables = $tables;
         $this->numTables = $numTables;
@@ -395,13 +387,20 @@ class StructureController extends AbstractController
             ];
             // do not list the previous table's size info for a view
 
-            list($current_table, $formatted_size, $unit, $formatted_overhead,
-                $overhead_unit, $overhead_size, $table_is_view, $sum_size)
-                    = $this->getStuffForEngineTypeTable(
-                        $current_table,
-                        $sum_size,
-                        $overhead_size
-                    );
+            [
+                $current_table,
+                $formatted_size,
+                $unit,
+                $formatted_overhead,
+                $overhead_unit,
+                $overhead_size,
+                $table_is_view,
+                $sum_size,
+            ] = $this->getStuffForEngineTypeTable(
+                    $current_table,
+                    $sum_size,
+                    $overhead_size
+                );
 
             $curTable = $this->dbi
                 ->getTable($this->db, $current_table['TABLE_NAME']);
@@ -544,12 +543,12 @@ class StructureController extends AbstractController
                 $structure_table_rows = [];
             }
 
-            list($approx_rows, $show_superscript) = $this->isRowCountApproximated(
+            [$approx_rows, $show_superscript] = $this->isRowCountApproximated(
                 $current_table,
                 $table_is_view
             );
 
-            list($do, $ignored) = $this->getReplicationStatus($truename);
+            [$do, $ignored] = $this->getReplicationStatus($truename);
 
             $structure_table_rows[] = [
                 'table_name_hash' => md5($current_table['TABLE_NAME']),
@@ -739,7 +738,7 @@ class StructureController extends AbstractController
                 && $current_table['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews']
             ) {
                 $approx_rows = true;
-                $show_superscript = Util::showHint(
+                $show_superscript = Generator::showHint(
                     Sanitize::sanitizeMessage(
                         sprintf(
                             __(
@@ -928,9 +927,15 @@ class StructureController extends AbstractController
             case 'ARCHIVE':
             case 'Aria':
             case 'Maria':
-                list($current_table, $formatted_size, $unit, $formatted_overhead,
-                $overhead_unit, $overhead_size, $sum_size)
-                    = $this->getValuesForAriaTable(
+                [
+                    $current_table,
+                    $formatted_size,
+                    $unit,
+                    $formatted_overhead,
+                    $overhead_unit,
+                    $overhead_size,
+                    $sum_size,
+                ] = $this->getValuesForAriaTable(
                         $current_table,
                         $sum_size,
                         $overhead_size,
@@ -946,7 +951,7 @@ class StructureController extends AbstractController
                 // InnoDB table: Row count is not accurate but data and index sizes are.
                 // PBMS table in Drizzle: TABLE_ROWS is taken from table cache,
                 // so it may be unavailable
-                list($current_table, $formatted_size, $unit, $sum_size)
+                [$current_table, $formatted_size, $unit, $sum_size]
                 = $this->getValuesForInnodbTable(
                     $current_table,
                     $sum_size
@@ -1033,7 +1038,7 @@ class StructureController extends AbstractController
             $tblsize = $current_table['Data_length']
                 + $current_table['Index_length'];
             $sum_size += $tblsize;
-            list($formatted_size, $unit) = Util::formatByteDown(
+            [$formatted_size, $unit] = Util::formatByteDown(
                 $tblsize,
                 3,
                 $tblsize > 0 ? 1 : 0
@@ -1041,7 +1046,7 @@ class StructureController extends AbstractController
             if (isset($current_table['Data_free'])
                 && $current_table['Data_free'] > 0
             ) {
-                list($formatted_overhead, $overhead_unit)
+                [$formatted_overhead, $overhead_unit]
                     = Util::formatByteDown(
                         $current_table['Data_free'],
                         3,
@@ -1091,7 +1096,7 @@ class StructureController extends AbstractController
             $tblsize = $current_table['Data_length']
                 + $current_table['Index_length'];
             $sum_size += $tblsize;
-            list($formatted_size, $unit) = Util::formatByteDown(
+            [$formatted_size, $unit] = Util::formatByteDown(
                 $tblsize,
                 3,
                 ($tblsize > 0 ? 1 : 0)

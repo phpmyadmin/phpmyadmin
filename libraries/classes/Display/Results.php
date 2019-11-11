@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Display;
 use PhpMyAdmin\Config\SpecialSchemaLinks;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\Transformations\Output\Text_Octetstream_Sql;
@@ -878,10 +879,10 @@ class Results
         $pageSelector = '';
         $numberTotalPage = 1;
         if (! $isShowingAll) {
-            list(
+            [
                 $pageSelector,
-                $numberTotalPage
-            ) = $this->_getHtmlPageSelector();
+                $numberTotalPage,
+            ] = $this->_getHtmlPageSelector();
         }
 
         // Move to the next page or to the last one
@@ -1068,7 +1069,7 @@ class Results
         // ($GLOBALS['cfg']['ShowBrowseComments']).
         $comments_map = $this->_getTableCommentsArray($analyzed_sql_results);
 
-        list($col_order, $col_visib) = $this->_getColumnParams(
+        [$col_order, $col_visib] = $this->_getColumnParams(
             $analyzed_sql_results
         );
 
@@ -1095,7 +1096,7 @@ class Results
             $display_params = $this->__get('display_params');
 
             if (($displayParts['sort_lnk'] == '1') && ! $is_limited_display) {
-                list($order_link, $sorted_header_html)
+                [$order_link, $sorted_header_html]
                     = $this->_getOrderLinkAndSortedHeaderHtml(
                         $fields_meta[$i],
                         $sort_expression,
@@ -1193,7 +1194,7 @@ class Results
 
         // 1. Set $colspan and generate html with full/partial
         // text button or link
-        list($colspan, $buttonHtml) = $this->_getFieldVisibilityParams(
+        [$colspan, $buttonHtml] = $this->_getFieldVisibilityParams(
             $displayParts,
             $fullOrPartialTextLink
         );
@@ -1518,7 +1519,7 @@ class Results
             return '';
         }
 
-        list($columnOrder, $columnVisibility) = $this->_getColumnParams(
+        [$columnOrder, $columnVisibility] = $this->_getColumnParams(
             $analyzedSqlResults
         );
 
@@ -1687,7 +1688,7 @@ class Results
 
         // Generates the orderby clause part of the query which is part
         // of URL
-        list($single_sort_order, $multi_sort_order, $order_img)
+        [$single_sort_order, $multi_sort_order, $order_img]
             = $this->_getSingleAndMultiSortUrls(
                 $sort_expression,
                 $sort_expression_nodirection,
@@ -1854,7 +1855,7 @@ class Results
                         ) . ' ';
                 }
                 if ($is_in_sort) {
-                    list($single_sort_order, $order_img)
+                    [$single_sort_order, $order_img]
                         = $this->_getSortingUrlParams(
                             $sort_direction,
                             $single_sort_order,
@@ -1866,7 +1867,7 @@ class Results
             }
             if ($current_name == $name_to_use_in_sort && $is_in_sort) {
                 // We need to generate the arrow button and related html
-                list($sort_order, $order_img) = $this->_getSortingUrlParams(
+                [$sort_order, $order_img] = $this->_getSortingUrlParams(
                     $sort_direction,
                     $sort_order,
                     $index
@@ -2468,7 +2469,7 @@ class Results
         }
 
         // prepare to get the column order, if available
-        list($col_order, $col_visib) = $this->_getColumnParams(
+        [$col_order, $col_visib] = $this->_getColumnParams(
             $analyzed_sql_results
         );
 
@@ -2525,7 +2526,7 @@ class Results
                  *       with only one field and it's a BLOB; in this case,
                  *       avoid to display the delete and edit links
                  */
-                list($where_clause, $clause_is_unique, $condition_array)
+                [$where_clause, $clause_is_unique, $condition_array]
                     = Util::getUniqueCondition(
                         $dt_result, // handle
                         $this->__get('fields_cnt'), // fields_cnt
@@ -2542,8 +2543,13 @@ class Results
 
                 // 1.2.1 Modify link(s) - update row case
                 if ($displayParts['edit_lnk'] == self::UPDATE_ROW) {
-                    list($edit_url, $copy_url, $edit_str, $copy_str,
-                        $edit_anchor_class)
+                    [
+                        $edit_url,
+                        $copy_url,
+                        $edit_str,
+                        $copy_str,
+                        $edit_anchor_class,
+                    ]
                             = $this->_getModifiedLinks(
                                 $where_clause,
                                 $clause_is_unique,
@@ -2552,7 +2558,7 @@ class Results
                 } // end if (1.2.1)
 
                 // 1.2.2 Delete/Kill link(s)
-                list($del_url, $del_str, $js_conf)
+                [$del_url, $del_str, $js_conf]
                     = $this->_getDeleteAndKillLinks(
                         $where_clause,
                         $clause_is_unique,
@@ -3349,7 +3355,7 @@ class Results
 
             $del_url = Url::getFromRoute('/sql', $_url_params);
             $js_conf = $kill;
-            $del_str = Util::getIcon(
+            $del_str = Generator::getIcon(
                 'b_drop',
                 __('Kill')
             );
@@ -3395,7 +3401,7 @@ class Results
         ) {
             $linkContent .= '<span class="nowrap">' . $display_text . '</span>';
         } else {
-            $linkContent .= Util::getIcon(
+            $linkContent .= Generator::getIcon(
                 $icon,
                 $display_text
             );
@@ -3670,11 +3676,11 @@ class Results
 
             // Convert to WKT format
             $wktval = Util::asWKT($column);
-            list(
+            [
                 $is_field_truncated,
                 $displayedColumn,
                 // skip 3rd param
-            ) = $this->_getPartialText($wktval);
+            ] = $this->_getPartialText($wktval);
 
             $cell = $this->_getRowData(
                 $class,
@@ -3701,11 +3707,11 @@ class Results
             $where_comparison = ' = ' . $column;
 
             $wkbval = substr(bin2hex($column), 8);
-            list(
+            [
                 $is_field_truncated,
                 $displayedColumn,
                 // skip 3rd param
-            ) = $this->_getPartialText($wkbval);
+            ] = $this->_getPartialText($wkbval);
 
             $cell = $this->_getRowData(
                 $class,
@@ -3832,11 +3838,11 @@ class Results
             && strpos($transformation_plugin->getName(), 'Link') !== false)
             && false === stripos($field_flags, self::BINARY_FIELD)
         ) {
-            list(
+            [
                 $is_field_truncated,
                 $column,
-                $original_length
-            ) = $this->_getPartialText($column);
+                $original_length,
+            ] = $this->_getPartialText($column);
         }
 
         $formatted = false;
@@ -4134,7 +4140,7 @@ class Results
         $sql = new Sql();
         if ($is_innodb && $sql->isJustBrowsing($analyzed_sql_results, true)) {
             $pre_count = '~';
-            $after_count = Util::showHint(
+            $after_count = Generator::showHint(
                 Sanitize::sanitizeMessage(
                     __('May be approximate. See [doc@faq3-11]FAQ 3.11[/doc].')
                 )
@@ -4149,16 +4155,16 @@ class Results
         // 1.1 Gets the information about which functionalities should be
         //     displayed
 
-        list(
+        [
             $displayParts,
-            $total
-        )  = $this->_setDisplayPartsAndTotal($displayParts);
+            $total,
+        ]  = $this->_setDisplayPartsAndTotal($displayParts);
 
         // 1.2 Defines offsets for the next and previous pages
         $pos_next = null;
         $pos_prev = null;
         if ($displayParts['nav_bar'] == '1') {
-            list($pos_next, $pos_prev) = $this->_getOffsets();
+            [$pos_next, $pos_prev] = $this->_getOffsets();
         } // end if
 
         // 1.3 Extract sorting expressions.
@@ -4205,13 +4211,13 @@ class Results
                 $after_count
             );
 
-            $sqlQueryMessage = Util::getMessage(
+            $sqlQueryMessage = Generator::getMessage(
                 $message,
                 $this->__get('sql_query'),
                 'success'
             );
         } elseif ((! isset($printview) || ($printview != '1')) && ! $is_limited_display) {
-            $sqlQueryMessage = Util::getMessage(
+            $sqlQueryMessage = Generator::getMessage(
                 __('Your SQL query has been executed successfully.'),
                 $this->__get('sql_query'),
                 'success'
@@ -4233,7 +4239,7 @@ class Results
         // can the result be sorted?
         if ($displayParts['sort_lnk'] == '1' && $analyzed_sql_results['statement'] !== null) {
             // At this point, $sort_expression is an array
-            list($unsorted_sql_query, $sort_by_key_html)
+            [$unsorted_sql_query, $sort_by_key_html]
                 = $this->_getUnsortedSqlAndSortByKeyDropDown(
                     $analyzed_sql_results,
                     $sort_expression
@@ -4388,7 +4394,7 @@ class Results
             $sort_table = $this->__get('table');
             $sort_column = $sort_expression_nodirection;
         } else {
-            list($sort_table, $sort_column)
+            [$sort_table, $sort_column]
                 = explode('.', $sort_expression_nodirection);
         }
 
@@ -4546,7 +4552,7 @@ class Results
 
             $message->addParam('[doc@cfg_MaxExactCount]');
             $message->addParam('[/doc]');
-            $message_view_warning = Util::showHint($message);
+            $message_view_warning = Generator::showHint($message);
         } else {
             $message_view_warning = false;
         }
@@ -4686,7 +4692,7 @@ class Results
             'form_name' => 'resultsForm_' . $this->__get('unique_id'),
         ]);
 
-        $links_html .= Util::getButtonOrImage(
+        $links_html .= Generator::getButtonOrImage(
             'submit_mult',
             'mult_submit',
             __('Edit'),
@@ -4694,7 +4700,7 @@ class Results
             'edit'
         );
 
-        $links_html .= Util::getButtonOrImage(
+        $links_html .= Generator::getButtonOrImage(
             'submit_mult',
             'mult_submit',
             __('Copy'),
@@ -4702,7 +4708,7 @@ class Results
             'copy'
         );
 
-        $links_html .= Util::getButtonOrImage(
+        $links_html .= Generator::getButtonOrImage(
             'submit_mult',
             'mult_submit',
             $delete_text,
@@ -4711,7 +4717,7 @@ class Results
         );
 
         if ($analyzed_sql_results['querytype'] == 'SELECT') {
-            $links_html .= Util::getButtonOrImage(
+            $links_html .= Generator::getButtonOrImage(
                 'submit_mult',
                 'mult_submit',
                 __('Export'),
@@ -4742,7 +4748,7 @@ class Results
 
         // $clause_is_unique is needed by getTable() to generate the proper param
         // in the multi-edit and multi-delete form
-        list($where_clause, $clause_is_unique, $condition_array)
+        [$where_clause, $clause_is_unique, $condition_array]
             = Util::getUniqueCondition(
                 $dt_result, // handle
                 $this->__get('fields_cnt'), // fields_cnt
@@ -4784,7 +4790,7 @@ class Results
             $results_operations_html .= '<span>'
                 . Util::linkOrButton(
                     Url::getFromRoute('/view/create', $params),
-                    Util::getIcon(
+                    Generator::getIcon(
                         'b_view_add',
                         __('Create view'),
                         true
@@ -4830,7 +4836,7 @@ class Results
     {
         return Util::linkOrButton(
             '#',
-            Util::getIcon(
+            Generator::getIcon(
                 'b_insrow',
                 __('Copy to clipboard'),
                 true
@@ -4850,7 +4856,7 @@ class Results
     {
         return Util::linkOrButton(
             '#',
-            Util::getIcon(
+            Generator::getIcon(
                 'b_print',
                 __('Print'),
                 true
@@ -4958,7 +4964,7 @@ class Results
 
             $results_operations_html .= Util::linkOrButton(
                 Url::getFromRoute('/table/export', $_url_params),
-                Util::getIcon(
+                Generator::getIcon(
                     'b_tblexport',
                     __('Export'),
                     true
@@ -4969,7 +4975,7 @@ class Results
             // prepare chart
             $results_operations_html .= Util::linkOrButton(
                 Url::getFromRoute('/table/chart', $_url_params),
-                Util::getIcon(
+                Generator::getIcon(
                     'b_chart',
                     __('Display chart'),
                     true
@@ -4991,7 +4997,7 @@ class Results
                 $results_operations_html
                     .= Util::linkOrButton(
                         Url::getFromRoute('/table/gis_visualization', $_url_params),
-                        Util::getIcon(
+                        Generator::getIcon(
                             'b_globe',
                             __('Visualize GIS data'),
                             true
@@ -5119,11 +5125,11 @@ class Results
             } else {
                 $result = '0x' . bin2hex($content);
             }
-            list(
+            [
                 $is_truncated,
                 $result,
                 // skip 3rd param
-            ) = $this->_getPartialText($result);
+            ] = $this->_getPartialText($result);
         }
 
         /* Create link to download */
@@ -5173,7 +5179,7 @@ class Results
         );
 
         if ($dispresult && $GLOBALS['dbi']->numRows($dispresult) > 0) {
-            list($dispval) = $GLOBALS['dbi']->fetchRow($dispresult, 0);
+            [$dispval] = $GLOBALS['dbi']->fetchRow($dispresult, 0);
         } else {
             $dispval = __('Link not found!');
         }

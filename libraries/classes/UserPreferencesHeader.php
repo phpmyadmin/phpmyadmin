@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Config\Forms\User\UserFormList;
+use PhpMyAdmin\Html\Generator;
 use Throwable;
 use Twig_Error_Loader;
 use Twig_Error_Runtime;
@@ -54,21 +55,21 @@ class UserPreferencesHeader
         global $route;
 
         // build user preferences menu
-        $content = Util::getHtmlTab(
-            [
-                'link' => 'index.php?route=/preferences/manage',
-                'text' => __('Manage your settings'),
-                'active' => $route === '/preferences/manage',
-            ]
-        ) . "\n";
+        $content = Generator::getHtmlTab(
+                [
+                    'link' => 'index.php?route=/preferences/manage',
+                    'text' => __('Manage your settings'),
+                    'active' => $route === '/preferences/manage',
+                ]
+            ) . "\n";
         /* Second authentication factor */
-        $content .= Util::getHtmlTab(
-            [
-                'link' => 'index.php?route=/preferences/twofactor',
-                'text' => __('Two-factor authentication'),
-                'active' => $route === '/preferences/twofactor',
-            ]
-        ) . "\n";
+        $content .= Generator::getHtmlTab(
+                [
+                    'link' => 'index.php?route=/preferences/twofactor',
+                    'text' => __('Two-factor authentication'),
+                    'active' => $route === '/preferences/twofactor',
+                ]
+            ) . "\n";
 
         $content .= self::displayTabsWithIcon();
 
@@ -107,7 +108,7 @@ class UserPreferencesHeader
                 'icon' => $tabs_icons[$formset],
                 'active' => $route === '/preferences/forms' && $formset === $form_param,
             ];
-            $content .= Util::getHtmlTab($tab, ['form' => $formset]) . "\n";
+            $content .= Generator::getHtmlTab($tab, ['form' => $formset]) . "\n";
         }
         return $content;
     }

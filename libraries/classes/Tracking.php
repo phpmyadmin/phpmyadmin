@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Html\Generator;
+
 /**
  * PhpMyAdmin\Tracking class
  *
@@ -246,7 +248,7 @@ class Tracking
             . htmlspecialchars($data['tracking']) . '</small><br>';
         $html .= '<br>';
 
-        list($str1, $str2, $str3, $str4, $str5) = $this->getHtmlForElementsOfTrackingReport(
+        [$str1, $str2, $str3, $str4, $str5] = $this->getHtmlForElementsOfTrackingReport(
             $selection_schema,
             $selection_data,
             $selection_both
@@ -399,7 +401,7 @@ class Tracking
         );
 
         if ($selection_schema || $selection_both && count($data['ddlog']) > 0) {
-            list($temp, $ddlog_count) = $this->getHtmlForDataDefinitionStatements(
+            [$temp, $ddlog_count] = $this->getHtmlForDataDefinitionStatements(
                 $data,
                 $filter_users,
                 $filter_ts_from,
@@ -517,7 +519,9 @@ class Tracking
         $drop_image_or_text
     ) {
         // no need for the secondth returned parameter
-        list($html,) = $this->getHtmlForDataStatements(
+        [
+            $html,
+        ] = $this->getHtmlForDataStatements(
             $data,
             $filter_users,
             $filter_ts_from,
@@ -553,7 +557,7 @@ class Tracking
         array $url_params,
         $drop_image_or_text
     ) {
-        list($html, $line_number) = $this->getHtmlForDataStatements(
+        [$html, $line_number] = $this->getHtmlForDataStatements(
             $data,
             $filter_users,
             $filter_ts_from,
@@ -662,7 +666,7 @@ class Tracking
             $drop_create_statements .= $data['ddlog'][1]['statement'];
         }
         // Print SQL code
-        $html .= Util::getMessage(
+        $html .= Generator::getMessage(
             sprintf(
                 __('Version %s snapshot (SQL code)'),
                 htmlspecialchars($_POST['version'])
@@ -1172,7 +1176,7 @@ class Tracking
             && $GLOBALS['dbi']->numRows($allTablesResult) > 0;
         if ($headVersionExists) {
             while ($oneResult = $GLOBALS['dbi']->fetchArray($allTablesResult)) {
-                list($tableName, $versionNumber) = $oneResult;
+                [$tableName, $versionNumber] = $oneResult;
                 $tableQuery = ' SELECT * FROM ' .
                      Util::backquote($cfgRelation['db']) . '.' .
                      Util::backquote($cfgRelation['tracking']) .
@@ -1278,7 +1282,7 @@ class Tracking
             'version' => $versionData['version'],
         ], $params));
 
-        return Util::toggleButton(
+        return Generator::toggleButton(
             $link,
             'toggle_activation',
             $options,

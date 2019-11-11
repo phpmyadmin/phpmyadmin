@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Tests\Server;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Server\Privileges;
@@ -133,10 +134,15 @@ class PrivilegesTest extends TestCase
         $_REQUEST['hostname'] = "PMA_hostname";
         $_REQUEST['tablename'] = "PMA_tablename";
         $_REQUEST['dbname'] = "PMA_dbname";
-        list(
-            $username, $hostname, $dbname, $tablename, $routinename,
-            $db_and_table, $dbname_is_wildcard
-        ) = $this->serverPrivileges->getDataForDBInfo();
+        [
+            $username,
+            $hostname,
+            $dbname,
+            $tablename,
+            $routinename,
+            $db_and_table,
+            $dbname_is_wildcard,
+        ] = $this->serverPrivileges->getDataForDBInfo();
         $this->assertEquals(
             "PMA_username",
             $username
@@ -166,8 +172,12 @@ class PrivilegesTest extends TestCase
         $_POST['pred_tablename'] = "PMA_pred__tablename";
         $_POST['pred_dbname'] = ["PMA_pred_dbname"];
         list(
-            ,, $dbname, $tablename, $routinename,
-            $db_and_table, $dbname_is_wildcard
+            ,,
+            $dbname,
+            $tablename,
+            $routinename,
+            $db_and_table,
+            $dbname_is_wildcard,
         ) = $this->serverPrivileges->getDataForDBInfo();
         $this->assertEquals(
             "PMA_pred_dbname",
@@ -507,7 +517,7 @@ class PrivilegesTest extends TestCase
     public function testGetDataForChangeOrCopyUser()
     {
         //$_POST['change_copy'] not set
-        list($queries, $password) = $this->serverPrivileges->getDataForChangeOrCopyUser();
+        [$queries, $password] = $this->serverPrivileges->getDataForChangeOrCopyUser();
         $this->assertEquals(
             null,
             $queries
@@ -521,7 +531,7 @@ class PrivilegesTest extends TestCase
         $_POST['change_copy'] = true;
         $_POST['old_username'] = 'PMA_old_username';
         $_POST['old_hostname'] = 'PMA_old_hostname';
-        list($queries, $password) = $this->serverPrivileges->getDataForChangeOrCopyUser();
+        [$queries, $password] = $this->serverPrivileges->getDataForChangeOrCopyUser();
         $this->assertEquals(
             'pma_password',
             $password
@@ -544,7 +554,7 @@ class PrivilegesTest extends TestCase
         $username = "PMA_username";
         $hostname = "PMA_hostname";
 
-        list($title, $export)
+        [$title, $export]
             = $this->serverPrivileges->getListForExportUserDefinition($username, $hostname);
 
         //validate 1: $export
@@ -593,10 +603,11 @@ class PrivilegesTest extends TestCase
         $_POST['userGroup'] = "username";
         $_POST['authentication_plugin'] = 'mysql_native_password';
 
-        list(
-            $ret_message,,, $sql_query,
-            $_add_user_error
-        ) = $this->serverPrivileges->addUser(
+        [
+            $ret_message,,,
+            $sql_query,
+            $_add_user_error,
+        ] = $this->serverPrivileges->addUser(
             $dbname,
             $username,
             $hostname,
@@ -641,10 +652,11 @@ class PrivilegesTest extends TestCase
         $_POST['userGroup'] = "username";
         $_POST['authentication_plugin'] = 'mysql_native_password';
 
-        list(
-            $ret_message,,, $sql_query,
-            $_add_user_error
-        ) = $this->serverPrivileges->addUser(
+        [
+            $ret_message,,,
+            $sql_query,
+            $_add_user_error,
+        ] = $this->serverPrivileges->addUser(
             $dbname,
             $username,
             $hostname,
@@ -712,7 +724,7 @@ class PrivilegesTest extends TestCase
         $_POST['createdb-3'] = true;
         $_POST['Grant_priv'] = 'Y';
         $_POST['max_questions'] = 1000;
-        list ($message, $sql_query)
+        [$message, $sql_query]
             = $this->serverPrivileges->getMessageAndSqlQueryForPrivilegesRevoke(
                 $dbname,
                 $tablename,
@@ -751,7 +763,7 @@ class PrivilegesTest extends TestCase
         $_POST['createdb-3'] = true;
         $_POST['Grant_priv'] = 'Y';
         $_POST['max_questions'] = 1000;
-        list($sql_query, $message) = $this->serverPrivileges->updatePrivileges(
+        [$sql_query, $message] = $this->serverPrivileges->updatePrivileges(
             $username,
             $hostname,
             $tablename,
@@ -973,20 +985,19 @@ class PrivilegesTest extends TestCase
         $_POST['authentication_plugin'] = 'mysql_native_password';
         $dbname = "PMA_db";
 
-        list(
+        [
             $create_user_real,
             $create_user_show,
             $real_sql_query,
-            $sql_query,
-            ,
-            ,
+            $sql_query,,,
             $alter_real_sql_query,
-            $alter_sql_query
-        ) = $this->serverPrivileges->getSqlQueriesForDisplayAndAddUser(
-            $username,
-            $hostname,
-            $password
-        );
+            $alter_sql_query,
+        ]
+            = $this->serverPrivileges->getSqlQueriesForDisplayAndAddUser(
+                $username,
+                $hostname,
+                $password
+            );
 
         //validate 1: $create_user_real
         $this->assertEquals(
@@ -1025,7 +1036,7 @@ class PrivilegesTest extends TestCase
         );
 
         //Test for addUserAndCreateDatabase
-        list($sql_query, $message) = $this->serverPrivileges->addUserAndCreateDatabase(
+        [$sql_query, $message] = $this->serverPrivileges->addUserAndCreateDatabase(
             false,
             $real_sql_query,
             $sql_query,
@@ -1177,7 +1188,7 @@ class PrivilegesTest extends TestCase
             $html
         );
 
-        $output = Util::showHint(
+        $output = Generator::showHint(
             __(
                 'When Host table is used, this field is ignored '
                 . 'and values stored in Host table are used instead.'
@@ -1429,7 +1440,7 @@ class PrivilegesTest extends TestCase
 
         //sql_query
         $this->assertEquals(
-            Util::getMessage(null, $sql_query),
+            Generator::getMessage(null, $sql_query),
             $extra_data['sql_query']
         );
 
@@ -1532,7 +1543,7 @@ class PrivilegesTest extends TestCase
 
         //Util::showHint
         $this->assertStringContainsString(
-            Util::showHint(
+            Generator::showHint(
                 __('Note: MySQL privilege names are expressed in English.')
             ),
             $html
@@ -1640,7 +1651,7 @@ class PrivilegesTest extends TestCase
             $html
         );
         $this->assertStringContainsString(
-            Util::getIcon('b_usradd'),
+            Generator::getIcon('b_usradd'),
             $html
         );
         $this->assertStringContainsString(

@@ -16,6 +16,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Config;
 
 use PhpMyAdmin\Config\Forms\User\UserFormList;
+use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
 
@@ -785,7 +786,7 @@ class FormDisplay
         if ($test == 'Import' || $test == 'Export') {
             return '';
         }
-        return Util::getDocuLink(
+        return MySQLDocumentation::getDocumentationLink(
             'config',
             'cfg_' . $this->_getOptName($path)
         );

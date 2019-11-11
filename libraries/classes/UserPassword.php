@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Privileges;
@@ -56,7 +57,7 @@ class UserPassword
                 $response->addJSON('message', $change_password_message['msg']);
                 $response->setRequestStatus(false);
             } else {
-                $sql_query = Util::getMessage(
+                $sql_query = Generator::getMessage(
                     $change_password_message['msg'],
                     $sql_query,
                     'success'
@@ -112,7 +113,7 @@ class UserPassword
 
         $hashing_function = $this->changePassHashingFunction();
 
-        list($username, $hostname) = $GLOBALS['dbi']->getCurrentUserAndHost();
+        [$username, $hostname] = $GLOBALS['dbi']->getCurrentUserAndHost();
 
         $serverType = Util::getServerType();
         $serverVersion = $GLOBALS['dbi']->getVersion();
@@ -249,7 +250,7 @@ class UserPassword
                     . $GLOBALS['dbi']->escapeString($password) . '\')');
         }
         if (! @$GLOBALS['dbi']->tryQuery($local_query)) {
-            Util::mysqlDie(
+            Generator::mysqlDie(
                 $GLOBALS['dbi']->getError(),
                 $sql_query,
                 false,
@@ -272,7 +273,7 @@ class UserPassword
     private function changePassDisplayPage($message, $sql_query)
     {
         echo '<h1>' , __('Change password') , '</h1>' , "\n\n";
-        echo Util::getMessage(
+        echo Generator::getMessage(
             $message,
             $sql_query,
             'success'
