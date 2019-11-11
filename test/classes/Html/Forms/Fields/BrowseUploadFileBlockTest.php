@@ -21,7 +21,7 @@ class BrowseUploadFileBlockTest extends PmaTestCase
     /**
      * Test for \PhpMyAdmin\Html\Forms\Fields\BrowseUploadFileBlock::generate
      *
-     * @param int    $size Size
+     * @param string $size Size
      * @param string $unit Unit
      * @param string $res  Result
      *
@@ -30,7 +30,7 @@ class BrowseUploadFileBlockTest extends PmaTestCase
      * @covers \PhpMyAdmin\Html\Forms\Fields\BrowseUploadFileBlock::generate
      * @dataProvider providerGetBrowseUploadFileBlock
      */
-    public function testGetBrowseUploadFileBlock($size, $unit, $res): void
+    public function testGetBrowseUploadFileBlock(string $size, string $unit, string $res): void
     {
         $GLOBALS['is_upload'] = false;
         $this->assertEquals(
@@ -55,37 +55,37 @@ class BrowseUploadFileBlockTest extends PmaTestCase
     {
         return [
             [
-                10,
+                '10',
                 __('B'),
                 '10',
             ],
             [
-                100,
+                '100',
                 __('B'),
                 '100',
             ],
             [
-                1024,
+                '1024',
                 __('B'),
                 '1,024',
             ],
             [
-                102400,
+                '102400',
                 __('KiB'),
                 '100',
             ],
             [
-                10240000,
+                '10240000',
                 __('MiB'),
                 '10',
             ],
             [
-                2147483648,
+                '2147483648',
                 __('MiB'),
                 '2,048',
             ],
             [
-                21474836480,
+                '21474836480',
                 __('GiB'),
                 '20',
             ],
