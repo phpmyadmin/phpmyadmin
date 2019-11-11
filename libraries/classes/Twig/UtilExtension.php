@@ -65,7 +65,7 @@ class UtilExtension extends AbstractExtension
             ),
             new TwigFunction(
                 'get_list_navigator',
-                'PhpMyAdmin\Util::getListNavigator',
+                '\PhpMyAdmin\Html\Generator::getListNavigator',
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
