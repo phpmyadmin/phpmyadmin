@@ -50,7 +50,7 @@ class UtilExtension extends AbstractExtension
             ),
             new TwigFunction(
                 'format_sql',
-                'PhpMyAdmin\Util::formatSql',
+                '\PhpMyAdmin\Html\Generator::formatSql',
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(

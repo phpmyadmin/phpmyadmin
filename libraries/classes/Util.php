@@ -135,8 +135,6 @@ class Util
         return $quoted_string;
     }
 
-    // end of the "formatSql()" function
-
     /**
      * Get a URL link to the official MySQL documentation
      *
