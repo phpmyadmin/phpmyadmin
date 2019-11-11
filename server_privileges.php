@@ -39,7 +39,7 @@ $scripts->addFile('vendor/zxcvbn.js');
 
 if ((isset($_GET['viewing_mode'])
     && $_GET['viewing_mode'] == 'server')
-    && $GLOBALS['cfgRelation']['menuswork']
+    && $cfgRelation['menuswork']
 ) {
     $response->addHTML('<div>');
     $response->addHTML(Users::getHtmlForSubMenusOnUsersPage('server_privileges.php'));
