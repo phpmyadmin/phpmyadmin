@@ -45,9 +45,9 @@ class AdvisoryRulesCommand extends Command
      * @param InputInterface  $input  input
      * @param OutputInterface $output output
      *
-     * @return void
+     * @return int
      */
-    protected function execute(InputInterface $input, OutputInterface $output): void
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $ruleFiles = [];
         $ruleFiles[Advisor::GENERIC_RULES_FILE] = Advisor::parseRulesFile(
@@ -81,6 +81,7 @@ class AdvisoryRulesCommand extends Command
             $output->writeln('"');
             $output->writeln('msgstr ""');
         }
+        return 0;
     }
 
     /**

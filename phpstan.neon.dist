@@ -4,6 +4,7 @@ parameters:
         - %rootDir%/../../../
     bootstrap: %rootDir%/../../../test/bootstrap-phpstan.php
     reportUnmatchedIgnoredErrors: true
+    inferPrivatePropertyTypeFromConstructor: true
     ignoreErrors:
         - '#NodeTrans::__construct\(\) does not call parent constructor#'
         - '#PHPUnit\\Framework\\MockObject#'
