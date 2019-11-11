@@ -188,7 +188,7 @@ class TrackingTest extends TestBase
 
         $ele = $this->waitForElement(
             'cssSelector',
-            'table#versions tbody tr:nth-child(1) td:nth-child(7)'
+            'table#versions tbody tr:nth-child(1) td:nth-child(7) a'
         );
         $this->moveto($ele);
         $this->click();

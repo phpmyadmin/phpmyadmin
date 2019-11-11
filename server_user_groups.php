@@ -27,8 +27,8 @@ $dbi = $containerBuilder->get(DatabaseInterface::class);
 
 /** @var Relation $relation */
 $relation = $containerBuilder->get('relation');
-$relation->getRelationsParam();
-if (! $GLOBALS['cfgRelation']['menuswork']) {
+$cfgRelation = $relation->getRelationsParam();
+if (! $cfgRelation['menuswork']) {
     exit;
 }
 

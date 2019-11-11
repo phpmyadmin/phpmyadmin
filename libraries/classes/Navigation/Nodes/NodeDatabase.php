@@ -414,7 +414,7 @@ class NodeDatabase extends Node
     {
         $db = $this->realName;
         $cfgRelation = $this->relation->getRelationsParam();
-        if (empty($cfgRelation['navigationhiding'])) {
+        if (! $cfgRelation['navwork']) {
             return [];
         }
         $navTable = Util::backquote($cfgRelation['db'])
