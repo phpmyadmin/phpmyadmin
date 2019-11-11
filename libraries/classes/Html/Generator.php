@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Html;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Html\ActionLinksModes\Factory;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
@@ -275,19 +276,8 @@ class Generator
         $image,
         $value = ''
     ): string {
-        if ($value == '') {
-            $value = $text;
-        }
-        if ($GLOBALS['cfg']['ActionLinksMode'] === 'text') {
-            return ' <input class="btn btn-link" type="submit" name="' . $button_name . '"'
-                . ' value="' . htmlspecialchars($value) . '"'
-                . ' title="' . htmlspecialchars($text) . '">' . "\n";
-        }
-        return '<button class="btn btn-link ' . $button_class . '" type="submit"'
-            . ' name="' . $button_name . '" value="' . htmlspecialchars($value)
-            . '" title="' . htmlspecialchars($text) . '">' . "\n"
-            . self::getIcon($image, $text)
-            . '</button>' . "\n";
+        return Factory::build($GLOBALS['cfg']['ActionLinksMode'])
+            ->generate($button_name, $button_class, $text, $image, $value);
     }
 
     /**
