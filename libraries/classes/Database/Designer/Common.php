@@ -461,8 +461,6 @@ class Common
     {
         $pageId = $this->dbi->escapeString($pg);
 
-        $db = $this->dbi->escapeString($_POST['db']);
-
         $cfgRelation = $this->relation->getRelationsParam();
         if (! $cfgRelation['pdfwork']) {
             return false;

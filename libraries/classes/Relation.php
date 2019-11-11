@@ -87,9 +87,9 @@ class Relation
     /**
      * Returns current relation parameters
      *
-     * @return array
+     * @return string[]
      */
-    public function getRelationsParam()
+    public function getRelationsParam(): array
     {
         if (empty($_SESSION['relation'][$GLOBALS['server']])
             || empty($_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'])
@@ -479,9 +479,9 @@ class Relation
      * but added some stuff to check what will work
      *
      * @access  protected
-     * @return array    the relation parameters for the current user
+     * @return string[]    the relation parameters for the current user
      */
-    public function checkRelationsParam()
+    public function checkRelationsParam(): array
     {
         $cfgRelation                   = [];
         $cfgRelation['PMA_VERSION']    = PMA_VERSION;
@@ -751,7 +751,7 @@ class Relation
      * @param string $tableDbName The table or table.db
      * @return boolean The table is accessible
      */
-    public function canAccessStorageTable($tableDbName)
+    public function canAccessStorageTable(string $tableDbName): bool
     {
         $result = $this->queryAsControlUser(
             'SELECT NULL FROM ' . $tableDbName . ' LIMIT 0',

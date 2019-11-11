@@ -701,7 +701,8 @@ class Operations
             foreach ($old_privs_db as $old_priv) {
                 $newDb_db_privs_query = 'INSERT INTO ' . Util::backquote('db')
                     . ' VALUES("' . $old_priv[0] . '", "' . $newname . '"';
-                for ($i = 2; $i < count($old_priv); $i++) {
+                $privCount = count($old_priv);
+                for ($i = 2; $i < $privCount; $i++) {
                     $newDb_db_privs_query .= ', "' . $old_priv[$i] . '"';
                 }
                     $newDb_db_privs_query .= ')';
