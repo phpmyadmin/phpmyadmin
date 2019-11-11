@@ -456,9 +456,9 @@ class Common
         }
 
         $query =  "DELETE FROM "
-            . Util::backquote($GLOBALS['cfgRelation']['db'])
+            . Util::backquote($cfgRelation['db'])
             . "." . Util::backquote(
-                $GLOBALS['cfgRelation']['table_coords']
+                $cfgRelation['table_coords']
             )
             . " WHERE `pdf_page_number` = '" . $pageId . "'";
 
@@ -480,8 +480,8 @@ class Common
             }
 
             $query = "INSERT INTO "
-                . Util::backquote($GLOBALS['cfgRelation']['db']) . "."
-                . Util::backquote($GLOBALS['cfgRelation']['table_coords'])
+                . Util::backquote($cfgRelation['db']) . "."
+                . Util::backquote($cfgRelation['table_coords'])
                 . " (`db_name`, `table_name`, `pdf_page_number`, `x`, `y`)"
                 . " VALUES ("
                 . "'" . $GLOBALS['dbi']->escapeString($DB) . "', "
@@ -733,7 +733,7 @@ class Common
     {
         $cfgRelation = $this->relation->getRelationsParam();
         $success = true;
-        if ($GLOBALS['cfgRelation']['designersettingswork']) {
+        if ($cfgRelation['designersettingswork']) {
 
             $cfgDesigner = array(
                 'user'  => $GLOBALS['cfg']['Server']['user'],
