@@ -65,9 +65,11 @@ class Sql
      */
     public function __construct()
     {
-        $this->relation = new Relation($GLOBALS['dbi']);
-        $this->relationCleanup = new RelationCleanup($GLOBALS['dbi'], $this->relation);
-        $this->operations = new Operations($GLOBALS['dbi'], $this->relation);
+        /** @var DatabaseInterface $dbi */
+        $dbi = $GLOBALS['dbi'];
+        $this->relation = new Relation($dbi);
+        $this->relationCleanup = new RelationCleanup($dbi, $this->relation);
+        $this->operations = new Operations($dbi, $this->relation);
         $this->transformations = new Transformations();
         $this->template = new Template();
     }
@@ -1556,6 +1558,8 @@ class Sql
         array $analyzed_sql_results,
         $is_limited_display = false
     ) {
+        /** @var DatabaseInterface $dbi */
+        $dbi = $GLOBALS['dbi'];
         $printview = isset($_POST['printview']) && $_POST['printview'] == '1' ? '1' : null;
         $table_html = '';
         $browse_dist = ! empty($_POST['is_browse_distinct']);
@@ -1563,12 +1567,12 @@ class Sql
         if ($analyzed_sql_results['is_procedure']) {
             do {
                 if (! isset($result)) {
-                    $result = $GLOBALS['dbi']->storeResult();
+                    $result = $dbi->storeResult();
                 }
-                $num_rows = $GLOBALS['dbi']->numRows($result);
+                $num_rows = $dbi->numRows($result);
 
                 if ($result !== false && $num_rows > 0) {
-                    $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
+                    $fields_meta = $dbi->getFieldsMeta($result);
                     if (! is_array($fields_meta)) {
                         $fields_cnt = 0;
                     } else {
@@ -1615,12 +1619,12 @@ class Sql
                     );
                 }
 
-                $GLOBALS['dbi']->freeResult($result);
-            } while ($GLOBALS['dbi']->moreResults() && $GLOBALS['dbi']->nextResult());
+                $dbi->freeResult($result);
+            } while ($dbi->moreResults() && $dbi->nextResult());
         } else {
             $fields_meta = [];
             if (isset($result) && ! is_bool($result)) {
-                $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
+                $fields_meta = $dbi->getFieldsMeta($result);
             }
             $fields_cnt = count($fields_meta);
             $_SESSION['is_multi_query'] = false;
@@ -1654,7 +1658,7 @@ class Sql
                     $is_limited_display
                 );
             }
-            $GLOBALS['dbi']->freeResult($result);
+            $dbi->freeResult($result);
         }
 
         return $table_html;
