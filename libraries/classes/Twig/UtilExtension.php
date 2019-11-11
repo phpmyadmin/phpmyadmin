@@ -103,7 +103,7 @@ class UtilExtension extends AbstractExtension
             ),
             new TwigFunction(
                 'get_image',
-                'PhpMyAdmin\Util::getImage',
+                '\PhpMyAdmin\Html\Generator::getImage',
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
