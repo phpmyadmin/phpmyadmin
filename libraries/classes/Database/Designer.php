@@ -99,7 +99,12 @@ class Designer
      */
     private function getPageIdsAndNames($db)
     {
+        $result = [];
         $cfgRelation = $this->relation->getRelationsParam();
+        if (! $cfgRelation['pdfwork']) {
+            return $result;
+        }
+
         $page_query = "SELECT `page_nr`, `page_descr` FROM "
             . Util::backquote($cfgRelation['db']) . "."
             . Util::backquote($cfgRelation['pdf_pages'])
@@ -111,7 +116,6 @@ class Designer
             DatabaseInterface::QUERY_STORE
         );
 
-        $result = [];
         while ($curr_page = $this->dbi->fetchAssoc($page_rs)) {
             $result[intval($curr_page['page_nr'])] = $curr_page['page_descr'];
         }
@@ -161,7 +165,7 @@ class Designer
 
         $cfgRelation = $this->relation->getRelationsParam();
 
-        if ($GLOBALS['cfgRelation']['designersettingswork']) {
+        if ($cfgRelation['designersettingswork']) {
             $query = 'SELECT `settings_data` FROM '
                 . Util::backquote($cfgRelation['db']) . '.'
                 . Util::backquote($cfgRelation['designer_settings'])

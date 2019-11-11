@@ -381,6 +381,10 @@ class RecentFavoriteTable
     private function _getPmaTable(): ?string
     {
         $cfgRelation = $this->relation->getRelationsParam();
+        if (! $cfgRelation['recentwork']) {
+            return null;
+        }
+
         if (! empty($cfgRelation['db'])
             && ! empty($cfgRelation[$this->_tableType])
         ) {
