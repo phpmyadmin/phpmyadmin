@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-11-09 15:49+0100\n"
-"PO-Revision-Date: 2019-10-21 10:52+0000\n"
-"Last-Translator: Rickard Eriksson <riceri@gmail.com>\n"
+"PO-Revision-Date: 2019-11-13 09:05+0000\n"
+"Last-Translator: Mattias Münster <mattiasmun@gmail.com>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sv/>\n"
 "Language: sv\n"
@@ -13,21 +13,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1-dev\n"
+"X-Generator: Weblate 3.10-dev\n"
 
 #: import_status.php:51
 msgid "Could not load the progress of the import."
 msgstr "Kunde inte läsa av status på import."
 
 #: index.php:48
-#, fuzzy, php-format
-#| msgid "Source database `%s` was not found!"
+#, php-format
 msgid "Error 404! The page %s was not found."
-msgstr "Källdatabas `%s` hittades inte!"
+msgstr "Fel 404! Sidan %s hittades inte."
 
 #: index.php:55
 msgid "Error 405! Request method not allowed."
-msgstr ""
+msgstr "Fel 405! Förfrågningsmetoden ej tillåten."
 
 #: js/messages.php:45
 msgid "Confirm"
@@ -853,13 +852,11 @@ msgstr "Välj den fil du vill importera."
 
 #: js/messages.php:338
 msgid "Please enter a valid table name."
-msgstr "Vänligen ange ett giltigt tabellnamn"
+msgstr "Vänligen ange ett giltigt tabellnamn."
 
 #: js/messages.php:340
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
-msgstr "Vänligen ange ett giltigt sidnamn"
+msgstr "Vänligen ange ett giltigt databasnamn."
 
 #: js/messages.php:341
 msgid "No files available on server for import!"
@@ -1603,6 +1600,8 @@ msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
+"MySQL accepterar ytterligare värden som inte går att välja med datumväljaren;"
+" tryck in de värdena manuellt om du önskar"
 
 #: js/messages.php:558
 msgid ""
@@ -2945,17 +2944,15 @@ msgstr "Estnisk"
 
 #: libraries/classes/Charsets/Collation.php:347
 #: libraries/classes/Charsets/Collation.php:468
-#, fuzzy
-#| msgid "Data dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
-msgstr "Dataordlista"
+msgstr "Tysk (ordlisteordning)"
 
 #: libraries/classes/Charsets/Collation.php:350
 #: libraries/classes/Charsets/Collation.php:465
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "Tysk (telefonboksordning)"
 
 #: libraries/classes/Charsets/Collation.php:359
 #, fuzzy
@@ -5794,8 +5791,6 @@ msgstr "Expandera alltid frågemeddelanden"
 
 #: libraries/classes/Config/Descriptions.php:919
 #: templates/console/display.twig:157
-#, fuzzy
-#| msgid "Show current browsing query"
 msgid "Show current browsing query"
 msgstr "Visa sökningar under denna session"
 
@@ -9156,8 +9151,7 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:227
 msgid "Show me the central list of columns that are not already in this table"
-msgstr ""
-"Visa mig kolumner i  huvudlistan som inte redan finns i den här tabellen"
+msgstr "Visa mig kolumner i huvudlistan som inte redan finns i den här tabellen"
 
 #: libraries/classes/Normalization.php:230
 msgid ""
@@ -11054,6 +11048,9 @@ msgid ""
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
+"Du har inte nödvändiga behörigheter för att skapa en databas med namnet \""
+"phpmyadmin\". Du kan gå till \"Drift\" fliken i någon databas, och ställa in "
+"phpMyAdmin konfigurationslagring där."
 
 #: libraries/classes/Relation.php:2117
 #, php-format
@@ -11148,7 +11145,7 @@ msgstr "Huvudservern har ändrats till %s."
 #: libraries/classes/Rte/Triggers.php:184
 #, php-format
 msgid "The following query has failed: \"%s\""
-msgstr "Följande fråga har fallerat:  \"%s\""
+msgstr "Följande fråga har fallerat: \"%s\""
 
 #: libraries/classes/Rte/Events.php:176 libraries/classes/Rte/Events.php:185
 #: libraries/classes/Rte/Events.php:216 libraries/classes/Rte/General.php:62
@@ -11957,6 +11954,9 @@ msgid ""
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
+"Ett användarkonto som tillåter alla användare från localhost att ansluta är "
+"tillgängligt. Detta kommer att hindra andra användare från att ansluta om "
+"värddelen av deras konto tillåter anslutning från alla värddatorer (%)."
 
 #: libraries/classes/Server/Privileges.php:3128
 #, fuzzy, php-format
@@ -13121,7 +13121,7 @@ msgstr "Databasens namn är tomt!"
 
 #: libraries/entry_points/database/operations.php:81
 msgid "Cannot copy database to the same name. Change the name and try again."
-msgstr ""
+msgstr "Kan inte kopiera databasen till samma namn. Byt namn och försök igen."
 
 #: libraries/entry_points/database/operations.php:172
 #, php-format
@@ -13191,7 +13191,7 @@ msgstr "Lyckades"
 
 #: libraries/entry_points/import.php:94
 msgid "Incomplete params"
-msgstr "Ofullständig parametrar"
+msgstr "Ofullständiga parametrar"
 
 #: libraries/entry_points/import.php:218
 #, php-format
@@ -13654,12 +13654,12 @@ msgstr "Ett index har lagts till för %s."
 #: templates/table/structure/display_structure.twig:249
 #: templates/table/structure/display_structure.twig:352
 msgid "Remove from central columns"
-msgstr "Radera kolumn(er)"
+msgstr "Ta bort från centrala kolumner"
 
 #: templates/table/structure/display_structure.twig:253
 #: templates/table/structure/display_structure.twig:345
 msgid "Add to central columns"
-msgstr "Lägg till huvudkolumner"
+msgstr "Addera till centrala kolumner"
 
 #: templates/table/structure/display_structure.twig:365
 #: templates/table/structure/display_structure.twig:403
@@ -14031,7 +14031,7 @@ msgstr ""
 
 #: templates/server/status/advisor/index.twig:38
 msgid "Not enough privilege to view the advisor."
-msgstr "Inte tillräckliga privilegier för att visa vägledning."
+msgstr "Inte tillräcklig behörighet för att visa rådgivaren."
 
 #: templates/table/tracking/main.twig:28 templates/server/plugins/index.twig:28
 msgid "Version"
@@ -16305,15 +16305,13 @@ msgstr "Aktiva alternativ"
 
 #: templates/table/index_form.twig:52
 msgid "Key block size:"
-msgstr ""
+msgstr "Nyckelblockstorlek:"
 
 #: templates/table/index_form.twig:69
 msgid "Index type:"
 msgstr "Indextyp:"
 
 #: templates/table/index_form.twig:81
-#, fuzzy
-#| msgid "User:"
 msgid "Parser:"
 msgstr "Parser:"
 
@@ -16629,7 +16627,7 @@ msgstr "Bokmärken"
 
 #: templates/console/display.twig:20
 msgid "Press Ctrl+Enter to execute query"
-msgstr "Tryck på Ctrl   Enter för att exekvera frågan"
+msgstr "Tryck på Ctrl+Enter för att exekvera frågan"
 
 #: templates/console/display.twig:23
 msgid "Press Enter to execute query"
@@ -16932,7 +16930,7 @@ msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
 msgstr ""
-"Anm: Att aktivera återställning av  databas-statistik här kan orsaka tung "
+"Anm: Att aktivera återställning av databas-statistik här kan orsaka tung "
 "trafik mellan webbservern och MySQL-servern."
 
 #: templates/table/search/replace_preview.twig:13
@@ -17273,8 +17271,8 @@ msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
-"Aktivera långsam frågeloggning genom att sätta {log_slow_queries} till \"ON"
-"\". Detta kommer att förbättra vid  felsökning av dålig prestanda frågor."
+"Aktivera långsam frågeloggning genom att sätta {log_slow_queries} till \"ON\""
+". Detta kommer att förbättra vid felsökning av dålig prestanda frågor."
 
 #: libraries/advisory_rules_generic.txt:89
 msgid "log_slow_queries is set to 'OFF'"
