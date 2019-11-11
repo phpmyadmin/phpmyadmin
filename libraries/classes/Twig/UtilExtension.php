@@ -155,7 +155,7 @@ class UtilExtension extends AbstractExtension
             ),
             new TwigFunction(
                 'show_mysql_docu',
-                '\PhpMyAdmin\Html\MySQLDocumentation::showDocumentation',
+                '\PhpMyAdmin\Html\MySQLDocumentation::show',
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
