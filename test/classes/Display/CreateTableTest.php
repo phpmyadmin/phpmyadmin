@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Display;
 
 use PhpMyAdmin\Display\CreateTable;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -63,7 +64,7 @@ class CreateTableTest extends TestCase
 
         //getImage
         $this->assertStringContainsString(
-            Util::getImage('b_table_add'),
+            Generator::getImage('b_table_add'),
             $html
         );
 

@@ -139,7 +139,7 @@ class Console
                 $GLOBALS['cfg']['Server']['user']
             );
 
-            $image = Util::getImage('console', __('SQL Query Console'));
+            $image = Html\Generator::getImage('console', __('SQL Query Console'));
             $_sql_history = $this->relation->getHistory(
                 $GLOBALS['cfg']['Server']['user']
             );

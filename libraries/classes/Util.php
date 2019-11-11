@@ -11,16 +11,10 @@ namespace PhpMyAdmin;
 use Closure;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
-use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\SqlParser\Context;
-use PhpMyAdmin\SqlParser\Lexer;
-use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
-use PhpMyAdmin\SqlParser\Utils\Error as ParserError;
 use phpseclib\Crypt\Random;
 use stdClass;
-use Williamdes\MariaDBMySQLKBS\KBException;
-use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
 
 /**
  * Misc functions used all over the scripts.
@@ -51,55 +45,6 @@ class Util
     public static function showText($value)
     {
         return in_array($GLOBALS['cfg'][$value], ['text', 'both']);
-    }
-
-    /**
-     * Returns an HTML IMG tag for a particular image from a theme
-     *
-     * The image name should match CSS class defined in icons.css.php
-     *
-     * @param string $image      The name of the file to get
-     * @param string $alternate  Used to set 'alt' and 'title' attributes
-     *                           of the image
-     * @param array  $attributes An associative array of other attributes
-     *
-     * @return string an html IMG tag
-     */
-    public static function getImage($image, $alternate = '', array $attributes = [])
-    {
-        $alternate = htmlspecialchars($alternate);
-
-        if (isset($attributes['class'])) {
-            $attributes['class'] = "icon ic_$image " . $attributes['class'];
-        } else {
-            $attributes['class'] = "icon ic_$image";
-        }
-
-        // set all other attributes
-        $attr_str = '';
-        foreach ($attributes as $key => $value) {
-            if (! in_array($key, ['alt', 'title'])) {
-                $attr_str .= " $key=\"$value\"";
-            }
-        }
-
-        // override the alt attribute
-        if (isset($attributes['alt'])) {
-            $alt = $attributes['alt'];
-        } else {
-            $alt = $alternate;
-        }
-
-        // override the title attribute
-        if (isset($attributes['title'])) {
-            $title = $attributes['title'];
-        } else {
-            $title = $alternate;
-        }
-
-        // generate the IMG tag
-        $template = '<img src="themes/dot.gif" title="%s" alt="%s"%s>';
-        return sprintf($template, $title, $alt, $attr_str);
     }
 
     /**
@@ -190,36 +135,7 @@ class Util
         return $quoted_string;
     }
 
-    /**
-     * format sql strings
-     *
-     * @param string  $sqlQuery raw SQL string
-     * @param boolean $truncate truncate the query if it is too long
-     *
-     * @return string the formatted sql
-     *
-     * @global array  $cfg the configuration array
-     *
-     * @access  public
-     * @todo    move into PMA_Sql
-     */
-    public static function formatSql($sqlQuery, $truncate = false)
-    {
-        global $cfg;
-
-        if ($truncate
-            && mb_strlen($sqlQuery) > $cfg['MaxCharactersInDisplayedSQL']
-        ) {
-            $sqlQuery = mb_substr(
-                $sqlQuery,
-                0,
-                $cfg['MaxCharactersInDisplayedSQL']
-            ) . '[...]';
-        }
-        return '<code class="sql"><pre>' . "\n"
-            . htmlspecialchars($sqlQuery) . "\n"
-            . '</pre></code>';
-    } // end of the "formatSql()" function
+    // end of the "formatSql()" function
 
     /**
      * Get a URL link to the official MySQL documentation
@@ -834,99 +750,6 @@ class Util
     } // end of the 'localisedDate()' function
 
     /**
-     * Displays a link, or a link with code to trigger POST request.
-     *
-     * POST is used in following cases:
-     *
-     * - URL is too long
-     * - URL components are over Suhosin limits
-     * - There is SQL query in the parameters
-     *
-     * @param string $url        the URL
-     * @param string $message    the link message
-     * @param mixed  $tag_params string: js confirmation; array: additional tag
-     *                           params (f.e. style="")
-     * @param string $target     target
-     *
-     * @return string  the results to be echoed or saved in an array
-     */
-    public static function linkOrButton(
-        $url,
-        $message,
-        $tag_params = [],
-        $target = ''
-    ) {
-        $url_length = strlen($url);
-
-        if (! is_array($tag_params)) {
-            $tmp = $tag_params;
-            $tag_params = [];
-            if (! empty($tmp)) {
-                $tag_params['onclick'] = 'return Functions.confirmLink(this, \''
-                    . Sanitize::escapeJsString($tmp) . '\')';
-            }
-            unset($tmp);
-        }
-        if (! empty($target)) {
-            $tag_params['target'] = $target;
-            if ($target === '_blank' && strncmp($url, 'url.php?', 8) == 0) {
-                $tag_params['rel'] = 'noopener noreferrer';
-            }
-        }
-
-        // Suhosin: Check that each query parameter is not above maximum
-        $in_suhosin_limits = true;
-        if ($url_length <= $GLOBALS['cfg']['LinkLengthLimit']) {
-            $suhosin_get_MaxValueLength = ini_get('suhosin.get.max_value_length');
-            if ($suhosin_get_MaxValueLength) {
-                $query_parts = self::splitURLQuery($url);
-                foreach ($query_parts as $query_pair) {
-                    if (strpos($query_pair, '=') === false) {
-                        continue;
-                    }
-
-                    [, $eachval] = explode('=', $query_pair);
-                    if (strlen($eachval) > $suhosin_get_MaxValueLength
-                    ) {
-                        $in_suhosin_limits = false;
-                        break;
-                    }
-                }
-            }
-        }
-
-        $tag_params_strings = [];
-        if (($url_length > $GLOBALS['cfg']['LinkLengthLimit'])
-            || ! $in_suhosin_limits
-            // Has as sql_query without a signature
-            || ( strpos($url, 'sql_query=') !== false && strpos($url, 'sql_signature=') === false)
-            || strpos($url, 'view[as]=') !== false
-        ) {
-            $parts = explode('?', $url, 2);
-            /*
-             * The data-post indicates that client should do POST
-             * this is handled in js/ajax.js
-             */
-            $tag_params_strings[] = 'data-post="' . (isset($parts[1]) ? $parts[1] : '') . '"';
-            $url = $parts[0];
-            if (array_key_exists('class', $tag_params)
-                && strpos($tag_params['class'], 'create_view') !== false
-            ) {
-                $url .= '?' . explode('&', $parts[1], 2)[0];
-            }
-        }
-
-        foreach ($tag_params as $par_name => $par_value) {
-            $tag_params_strings[] = $par_name . '="' . htmlspecialchars($par_value) . '"';
-        }
-
-        // no whitespace within an <a> else Safari will make it part of the link
-        return '<a href="' . $url . '" '
-            . implode(' ', $tag_params_strings) . '>'
-            . $message . '</a>';
-    } // end of the 'linkOrButton()' function
-
-    /**
      * Splits a URL string by parameter
      *
      * @param string $url the URL
@@ -1386,127 +1209,6 @@ class Util
     public static function getPageFromPosition($pos, $max_count)
     {
         return (int) floor($pos / $max_count) + 1;
-    }
-
-    /**
-     * Prepare navigation for a list
-     *
-     * @param int      $count       number of elements in the list
-     * @param int      $pos         current position in the list
-     * @param array    $_url_params url parameters
-     * @param string   $script      script name for form target
-     * @param string   $frame       target frame
-     * @param int      $max_count   maximum number of elements to display from
-     *                              the list
-     * @param string   $name        the name for the request parameter
-     * @param string[] $classes     additional classes for the container
-     *
-     * @return string the  html content
-     *
-     * @access  public
-     *
-     * @todo    use $pos from $_url_params
-     */
-    public static function getListNavigator(
-        $count,
-        $pos,
-        array $_url_params,
-        $script,
-        $frame,
-        $max_count,
-        $name = 'pos',
-        $classes = []
-    ) {
-
-        // This is often coming from $cfg['MaxTableList'] and
-        // people sometimes set it to empty string
-        $max_count = intval($max_count);
-        if ($max_count <= 0) {
-            $max_count = 250;
-        }
-
-        $class = $frame == 'frame_navigation' ? ' class="ajax"' : '';
-
-        $list_navigator_html = '';
-
-        if ($max_count < $count) {
-            $classes[] = 'pageselector';
-            $list_navigator_html .= '<div class="' . implode(' ', $classes) . '">';
-
-            if ($frame != 'frame_navigation') {
-                $list_navigator_html .= __('Page number:');
-            }
-
-            // Move to the beginning or to the previous page
-            if ($pos > 0) {
-                $caption1 = '';
-                $caption2 = '';
-                if (self::showIcons('TableNavigationLinksMode')) {
-                    $caption1 .= '&lt;&lt; ';
-                    $caption2 .= '&lt; ';
-                }
-                if (self::showText('TableNavigationLinksMode')) {
-                    $caption1 .= _pgettext('First page', 'Begin');
-                    $caption2 .= _pgettext('Previous page', 'Previous');
-                }
-                $title1 = ' title="' . _pgettext('First page', 'Begin') . '"';
-                $title2 = ' title="' . _pgettext('Previous page', 'Previous') . '"';
-
-                $_url_params[$name] = 0;
-                $list_navigator_html .= '<a' . $class . $title1 . ' href="' . $script
-                    . Url::getCommon($_url_params, '&') . '">' . $caption1
-                    . '</a>';
-
-                $_url_params[$name] = $pos - $max_count;
-                $list_navigator_html .= ' <a' . $class . $title2
-                    . ' href="' . $script . Url::getCommon($_url_params, '&') . '">'
-                    . $caption2 . '</a>';
-            }
-
-            $list_navigator_html .= '<form action="' . $script
-                . '" method="post">';
-
-            $list_navigator_html .= Url::getHiddenInputs($_url_params);
-            $list_navigator_html .= self::pageselector(
-                $name,
-                $max_count,
-                self::getPageFromPosition($pos, $max_count),
-                ceil($count / $max_count)
-            );
-            $list_navigator_html .= '</form>';
-
-            if ($pos + $max_count < $count) {
-                $caption3 = '';
-                $caption4 = '';
-                if (self::showText('TableNavigationLinksMode')) {
-                    $caption3 .= _pgettext('Next page', 'Next');
-                    $caption4 .= _pgettext('Last page', 'End');
-                }
-                if (self::showIcons('TableNavigationLinksMode')) {
-                    $caption3 .= ' &gt;';
-                    $caption4 .= ' &gt;&gt;';
-                }
-                $title3 = ' title="' . _pgettext('Next page', 'Next') . '"';
-                $title4 = ' title="' . _pgettext('Last page', 'End') . '"';
-
-                $_url_params[$name] = $pos + $max_count;
-                $list_navigator_html .= '<a' . $class . $title3 . ' href="' . $script
-                    . Url::getCommon($_url_params, '&') . '" >' . $caption3
-                    . '</a>';
-
-                $_url_params[$name] = floor($count / $max_count) * $max_count;
-                if ($_url_params[$name] == $count) {
-                    $_url_params[$name] = $count - $max_count;
-                }
-
-                $list_navigator_html .= ' <a' . $class . $title4
-                    . ' href="' . $script . Url::getCommon($_url_params, '&') . '" >'
-                    . $caption4 . '</a>';
-            }
-            $list_navigator_html .= '</div>' . "\n";
-        }
-
-        return $list_navigator_html;
     }
 
     /**
@@ -2136,48 +1838,7 @@ class Util
     public static function getSupportedDatatypes($html = false, $selected = '')
     {
         if ($html) {
-            // NOTE: the SELECT tag in not included in this snippet.
-            $retval = '';
-
-            foreach ($GLOBALS['dbi']->types->getColumns() as $key => $value) {
-                if (is_array($value)) {
-                    $retval .= "<optgroup label='" . htmlspecialchars($key) . "'>";
-                    foreach ($value as $subvalue) {
-                        if ($subvalue == $selected) {
-                            $retval .= sprintf(
-                                '<option selected="selected" title="%s">%s</option>',
-                                $GLOBALS['dbi']->types->getTypeDescription($subvalue),
-                                $subvalue
-                            );
-                        } elseif ($subvalue === '-') {
-                            $retval .= '<option disabled="disabled">';
-                            $retval .= $subvalue;
-                            $retval .= '</option>';
-                        } else {
-                            $retval .= sprintf(
-                                '<option title="%s">%s</option>',
-                                $GLOBALS['dbi']->types->getTypeDescription($subvalue),
-                                $subvalue
-                            );
-                        }
-                    }
-                    $retval .= '</optgroup>';
-                } else {
-                    if ($selected == $value) {
-                        $retval .= sprintf(
-                            '<option selected="selected" title="%s">%s</option>',
-                            $GLOBALS['dbi']->types->getTypeDescription($value),
-                            $value
-                        );
-                    } else {
-                        $retval .= sprintf(
-                            '<option title="%s">%s</option>',
-                            $GLOBALS['dbi']->types->getTypeDescription($value),
-                            $value
-                        );
-                    }
-                }
-            }
+            $retval = Generator::getSupportedDatatypes($selected);
         } else {
             $retval = [];
             foreach ($GLOBALS['dbi']->types->getColumns() as $value) {
@@ -3313,22 +2974,22 @@ class Util
             if ($requestedSortOrder == 'ASC') {
                 $futureSortOrder = 'DESC';
                 // current sort order is ASC
-                $orderImg = ' ' . self::getImage(
-                    's_asc',
-                    __('Ascending'),
-                    [
-                        'class' => 'sort_arrow',
-                        'title' => '',
-                    ]
-                );
-                $orderImg .= ' ' . self::getImage(
-                    's_desc',
-                    __('Descending'),
-                    [
-                        'class' => 'sort_arrow hide',
-                        'title' => '',
-                    ]
-                );
+                $orderImg = ' ' . Generator::getImage(
+                        's_asc',
+                        __('Ascending'),
+                        [
+                            'class' => 'sort_arrow',
+                            'title' => '',
+                        ]
+                    );
+                $orderImg .= ' ' . Generator::getImage(
+                        's_desc',
+                        __('Descending'),
+                        [
+                            'class' => 'sort_arrow hide',
+                            'title' => '',
+                        ]
+                    );
                 // but on mouse over, show the reverse order (DESC)
                 $orderLinkParams['onmouseover'] = "$('.sort_arrow').toggle();";
                 // on mouse out, show current sort order (ASC)
@@ -3336,22 +2997,22 @@ class Util
             } else {
                 $futureSortOrder = 'ASC';
                 // current sort order is DESC
-                $orderImg = ' ' . self::getImage(
-                    's_asc',
-                    __('Ascending'),
-                    [
-                        'class' => 'sort_arrow hide',
-                        'title' => '',
-                    ]
-                );
-                $orderImg .= ' ' . self::getImage(
-                    's_desc',
-                    __('Descending'),
-                    [
-                        'class' => 'sort_arrow',
-                        'title' => '',
-                    ]
-                );
+                $orderImg = ' ' . Generator::getImage(
+                        's_asc',
+                        __('Ascending'),
+                        [
+                            'class' => 'sort_arrow hide',
+                            'title' => '',
+                        ]
+                    );
+                $orderImg .= ' ' . Generator::getImage(
+                        's_desc',
+                        __('Descending'),
+                        [
+                            'class' => 'sort_arrow',
+                            'title' => '',
+                        ]
+                    );
                 // but on mouse over, show the reverse order (ASC)
                 $orderLinkParams['onmouseover'] = "$('.sort_arrow').toggle();";
                 // on mouse out, show current sort order (DESC)
@@ -3374,7 +3035,7 @@ class Util
 
         $url = Url::getFromRoute('/database/structure', $urlParams);
 
-        return self::linkOrButton($url, $title . $orderImg, $orderLinkParams);
+        return Generator::linkOrButton($url, $title . $orderImg, $orderLinkParams);
     }
 
     /**

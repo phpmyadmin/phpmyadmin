@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Config;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -229,7 +230,7 @@ class FormDisplayTemplate
             } else {
                 // In this case we just use getImage() because it's available
                 foreach ($iconInit as $k => $v) {
-                    $icons[$k] = Util::getImage(
+                    $icons[$k] = Generator::getImage(
                         $v[0],
                         $v[1]
                     );

@@ -276,35 +276,104 @@ class GeneratorTest extends PmaTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Util::buildActionTitles
+     * Test for Generator::linkOrButton
+     *
+     * @param array  $params params
+     * @param int    $limit  limit
+     * @param string $match  match
+     *
+     * @return void
+     *
+     * @dataProvider linksOrButtons
+     */
+    public function testLinkOrButton(array $params, $limit, $match): void
+    {
+        $restore = $GLOBALS['cfg']['LinkLengthLimit'] ?? 1000;
+        $GLOBALS['cfg']['LinkLengthLimit'] = $limit;
+        try {
+            $result = call_user_func_array(
+                [
+                    Generator::class,
+                    'linkOrButton',
+                ],
+                $params
+            );
+            $this->assertEquals($match, $result);
+        } finally {
+            $GLOBALS['cfg']['LinkLengthLimit'] = $restore;
+        }
+    }
+
+    /**
+     * Data provider for Generator::linkOrButton test
+     *
+     * @return array
+     */
+    public function linksOrButtons(): array
+    {
+        return [
+            [
+                [
+                    'index.php',
+                    'text',
+                ],
+                1000,
+                '<a href="index.php" >text</a>',
+            ],
+            [
+                [
+                    'index.php?some=parameter',
+                    'text',
+                ],
+                20,
+                '<a href="index.php" data-post="some=parameter">text</a>',
+            ],
+            [
+                [
+                    'index.php',
+                    'text',
+                    [],
+                    'target',
+                ],
+                1000,
+                '<a href="index.php" target="target">text</a>',
+            ],
+            [
+                [
+                    'url.php?url=http://phpmyadmin.net/',
+                    'text',
+                    [],
+                    '_blank',
+                ],
+                1000,
+                '<a href="url.php?url=http://phpmyadmin.net/" target="_blank" rel="noopener noreferrer">text</a>',
+            ],
+        ];
+    }
+
+    /**
+     * Test for formatSql
+     *
+     * @covers \PhpMyAdmin\Html\Generator::formatSql
      *
      * @return void
      */
-    public function testBuildActionTitles(): void
+    public function testFormatSql(): void
     {
-        $GLOBALS['cfg'] = ['ActionLinksMode' => 'both'];
+        $this->assertEquals(
+            '<code class="sql"><pre>' . "\n"
+            . 'SELECT 1 &lt; 2' . "\n"
+            . '</pre></code>',
+            Generator::formatSql('SELECT 1 < 2')
+        );
 
-        $titles = [];
-        $titles['Browse']     = Generator::getIcon('b_browse', __('Browse'));
-        $titles['NoBrowse']   = Generator::getIcon('bd_browse', __('Browse'));
-        $titles['Search']     = Generator::getIcon('b_select', __('Search'));
-        $titles['NoSearch']   = Generator::getIcon('bd_select', __('Search'));
-        $titles['Insert']     = Generator::getIcon('b_insrow', __('Insert'));
-        $titles['NoInsert']   = Generator::getIcon('bd_insrow', __('Insert'));
-        $titles['Structure']  = Generator::getIcon('b_props', __('Structure'));
-        $titles['Drop']       = Generator::getIcon('b_drop', __('Drop'));
-        $titles['NoDrop']     = Generator::getIcon('bd_drop', __('Drop'));
-        $titles['Empty']      = Generator::getIcon('b_empty', __('Empty'));
-        $titles['NoEmpty']    = Generator::getIcon('bd_empty', __('Empty'));
-        $titles['Edit']       = Generator::getIcon('b_edit', __('Edit'));
-        $titles['NoEdit']     = Generator::getIcon('bd_edit', __('Edit'));
-        $titles['Export']     = Generator::getIcon('b_export', __('Export'));
-        $titles['NoExport']   = Generator::getIcon('bd_export', __('Export'));
-        $titles['Execute']    = Generator::getIcon('b_nextpage', __('Execute'));
-        $titles['NoExecute']  = Generator::getIcon('bd_nextpage', __('Execute'));
-        $titles['Favorite']   = Generator::getIcon('b_favorite', '');
-        $titles['NoFavorite'] = Generator::getIcon('b_no_favorite', '');
+        $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 6;
 
-        $this->assertEquals($titles, Util::buildActionTitles());
+        $this->assertEquals(
+            '<code class="sql"><pre>' . "\n"
+            . 'SELECT[...]' . "\n"
+            . '</pre></code>',
+            Generator::formatSql('SELECT 1 < 2', true)
+        );
     }
 }

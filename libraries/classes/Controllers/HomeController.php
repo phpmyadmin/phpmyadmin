@@ -115,7 +115,7 @@ class HomeController extends AbstractController
 
                 if (($cfg['Server']['auth_type'] != 'config') && $cfg['ShowChgPassword']) {
                     $changePassword = $this->template->render('list/item', [
-                        'content' => Util::getImage('s_passwd') . ' ' . __(
+                        'content' => Generator::getImage('s_passwd') . ' ' . __(
                             'Change password'
                         ),
                         'id' => 'li_change_password',
@@ -152,7 +152,7 @@ class HomeController extends AbstractController
                 }
 
                 $userPreferences = $this->template->render('list/item', [
-                    'content' => Util::getImage('b_tblops') . ' ' . __(
+                    'content' => Generator::getImage('b_tblops') . ' ' . __(
                         'More settings'
                     ),
                     'id' => 'li_user_preferences',

@@ -192,7 +192,7 @@ class Menu
         $retval .= "<div id='floating_menubar'></div>";
         $retval .= "<div id='serverinfo'>";
         if (Util::showIcons('TabsMode')) {
-            $retval .= Util::getImage(
+            $retval .= Generator::getImage(
                 's_host',
                 '',
                 ['class' => 'item']
@@ -213,7 +213,7 @@ class Menu
         if (strlen($this->_db) > 0) {
             $retval .= $separator;
             if (Util::showIcons('TabsMode')) {
-                $retval .= Util::getImage(
+                $retval .= Generator::getImage(
                     's_db',
                     '',
                     ['class' => 'item']
@@ -249,7 +249,7 @@ class Menu
                 $retval .= $separator;
                 if (Util::showIcons('TabsMode')) {
                     $icon = $tbl_is_view ? 'b_views' : 's_tbl';
-                    $retval .= Util::getImage(
+                    $retval .= Generator::getImage(
                         $icon,
                         '',
                         ['class' => 'item']

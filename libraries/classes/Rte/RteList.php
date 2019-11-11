@@ -353,13 +353,16 @@ class RteList
         }
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
-        $retval .= Util::linkOrButton(
-            Url::getFromRoute('/sql', [
-                'db' => $db,
-                'table' => $table,
-                'sql_query' => $sql_drop,
-                'goto' => Url::getFromRoute('/database/routines', ['db' => $db]),
-            ]),
+        $retval .= Generator::linkOrButton(
+            Url::getFromRoute(
+                '/sql',
+                [
+                    'db' => $db,
+                    'table' => $table,
+                    'sql_query' => $sql_drop,
+                    'goto' => Url::getFromRoute('/database/routines', ['db' => $db]),
+                ]
+            ),
             $titles['Drop'],
             ['class' => 'ajax drop_anchor']
         );
@@ -437,13 +440,16 @@ class RteList
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
         if (Util::currentUserHasPrivilege('TRIGGER', $db)) {
-            $retval .= Util::linkOrButton(
-                Url::getFromRoute('/sql', [
-                    'db' => $db,
-                    'table' => $table,
-                    'sql_query' => $trigger['drop'],
-                    'goto' => Url::getFromRoute('/database/triggers', ['db' => $db]),
-                ]),
+            $retval .= Generator::linkOrButton(
+                Url::getFromRoute(
+                    '/sql',
+                    [
+                        'db' => $db,
+                        'table' => $table,
+                        'sql_query' => $trigger['drop'],
+                        'goto' => Url::getFromRoute('/database/triggers', ['db' => $db]),
+                    ]
+                ),
                 $titles['Drop'],
                 ['class' => 'ajax drop_anchor']
             );
@@ -520,13 +526,16 @@ class RteList
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
         if (Util::currentUserHasPrivilege('EVENT', $db)) {
-            $retval .= Util::linkOrButton(
-                Url::getFromRoute('/sql', [
-                    'db' => $db,
-                    'table' => $table,
-                    'sql_query' => $sql_drop,
-                    'goto' => Url::getFromRoute('/database/events', ['db' => $db]),
-                ]),
+            $retval .= Generator::linkOrButton(
+                Url::getFromRoute(
+                    '/sql',
+                    [
+                        'db' => $db,
+                        'table' => $table,
+                        'sql_query' => $sql_drop,
+                        'goto' => Url::getFromRoute('/database/events', ['db' => $db]),
+                    ]
+                ),
                 $titles['Drop'],
                 ['class' => 'ajax drop_anchor']
             );

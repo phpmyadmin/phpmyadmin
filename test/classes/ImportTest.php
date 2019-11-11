@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Import;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\Url;
@@ -573,7 +574,7 @@ class ImportTest extends TestCase
 
         $this->assertEquals(
             [
-                'sql_query' => Util::formatSql(
+                'sql_query' => Generator::formatSql(
                     $analyzed_sql_results['query']
                 ),
                 'matched_rows' => 2,

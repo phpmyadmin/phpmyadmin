@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -293,19 +294,19 @@ class NodeTable extends NodeDatabaseChild
 
         switch ($page) {
             case Url::getFromRoute('/table/structure'):
-                $this->icon[] = Util::getImage('b_props', __('Structure'));
+                $this->icon[] = Generator::getImage('b_props', __('Structure'));
                 break;
             case Url::getFromRoute('/table/search'):
-                $this->icon[] = Util::getImage('b_search', __('Search'));
+                $this->icon[] = Generator::getImage('b_search', __('Search'));
                 break;
             case Url::getFromRoute('/table/change'):
-                $this->icon[] = Util::getImage('b_insrow', __('Insert'));
+                $this->icon[] = Generator::getImage('b_insrow', __('Insert'));
                 break;
             case Url::getFromRoute('/table/sql'):
-                $this->icon[] = Util::getImage('b_sql', __('SQL'));
+                $this->icon[] = Generator::getImage('b_sql', __('SQL'));
                 break;
             case Url::getFromRoute('/sql'):
-                $this->icon[] = Util::getImage('b_browse', __('Browse'));
+                $this->icon[] = Generator::getImage('b_browse', __('Browse'));
                 break;
         }
     }

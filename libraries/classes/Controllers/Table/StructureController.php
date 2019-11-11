@@ -1332,12 +1332,12 @@ class StructureController extends AbstractController
 
             if ($primary_index && $primary_index->hasColumn($field['Field'])) {
                 $displayed_fields[$rownum]->icon .=
-                Util::getImage('b_primary', __('Primary'));
+                    Generator::getImage('b_primary', __('Primary'));
             }
 
             if (in_array($field['Field'], $columns_with_index)) {
                 $displayed_fields[$rownum]->icon .=
-                Util::getImage('bd_primary', __('Index'));
+                    Generator::getImage('bd_primary', __('Index'));
             }
 
             $collation = Charsets::findCollationByName(

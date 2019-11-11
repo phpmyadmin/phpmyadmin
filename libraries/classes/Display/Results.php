@@ -1610,7 +1610,7 @@ class Results
                      . $tmp_txt . '" title="' . $tmp_txt . '">';
         $tmp_url = Url::getFromRoute('/sql', $url_params_full_text);
 
-        return Util::linkOrButton($tmp_url, $tmp_image);
+        return Generator::linkOrButton($tmp_url, $tmp_image);
     }
 
     /**
@@ -1993,40 +1993,40 @@ class Results
     {
         if (strtoupper(trim($sort_direction[$index])) == self::DESCENDING_SORT_DIR) {
             $sort_order .= ' ASC';
-            $order_img   = ' ' . Util::getImage(
-                's_desc',
-                __('Descending'),
-                [
-                    'class' => "soimg",
-                    'title' => '',
-                ]
-            );
-            $order_img  .= ' ' . Util::getImage(
-                's_asc',
-                __('Ascending'),
-                [
-                    'class' => "soimg hide",
-                    'title' => '',
-                ]
-            );
+            $order_img   = ' ' . Generator::getImage(
+                    's_desc',
+                    __('Descending'),
+                    [
+                        'class' => "soimg",
+                        'title' => '',
+                    ]
+                );
+            $order_img  .= ' ' . Generator::getImage(
+                    's_asc',
+                    __('Ascending'),
+                    [
+                        'class' => "soimg hide",
+                        'title' => '',
+                    ]
+                );
         } else {
             $sort_order .= ' DESC';
-            $order_img   = ' ' . Util::getImage(
-                's_asc',
-                __('Ascending'),
-                [
-                    'class' => "soimg",
-                    'title' => '',
-                ]
-            );
-            $order_img  .=  ' ' . Util::getImage(
-                's_desc',
-                __('Descending'),
-                [
-                    'class' => "soimg hide",
-                    'title' => '',
-                ]
-            );
+            $order_img   = ' ' . Generator::getImage(
+                    's_asc',
+                    __('Ascending'),
+                    [
+                        'class' => "soimg",
+                        'title' => '',
+                    ]
+                );
+            $order_img  .=  ' ' . Generator::getImage(
+                    's_desc',
+                    __('Descending'),
+                    [
+                        'class' => "soimg hide",
+                        'title' => '',
+                    ]
+                );
         }
         return [
             $sort_order,
@@ -2062,7 +2062,7 @@ class Results
         $inner_link_content = $order_link_content . $order_img
             . '<input type="hidden" value="' . $multi_order_url . '">';
 
-        return Util::linkOrButton(
+        return Generator::linkOrButton(
             $order_url,
             $inner_link_content,
             $order_link_params
@@ -3391,7 +3391,7 @@ class Results
             && $GLOBALS['cfg']['RowActionType'] == self::ACTION_LINK_CONTENT_ICONS
         ) {
             $linkContent .= '<span class="nowrap">'
-                . Util::getImage(
+                . Generator::getImage(
                     $icon,
                     $display_text
                 )
@@ -4788,7 +4788,7 @@ class Results
         $results_operations_html = '';
         if (empty($analyzed_sql_results['procedure'])) {
             $results_operations_html .= '<span>'
-                . Util::linkOrButton(
+                . Generator::linkOrButton(
                     Url::getFromRoute('/view/create', $params),
                     Generator::getIcon(
                         'b_view_add',
@@ -4834,7 +4834,7 @@ class Results
      */
     private function _getCopytoclipboardLinks()
     {
-        return Util::linkOrButton(
+        return Generator::linkOrButton(
             '#',
             Generator::getIcon(
                 'b_insrow',
@@ -4854,7 +4854,7 @@ class Results
      */
     private function _getPrintviewLinks()
     {
-        return Util::linkOrButton(
+        return Generator::linkOrButton(
             '#',
             Generator::getIcon(
                 'b_print',
@@ -4962,25 +4962,25 @@ class Results
                 }
             }
 
-            $results_operations_html .= Util::linkOrButton(
-                Url::getFromRoute('/table/export', $_url_params),
-                Generator::getIcon(
-                    'b_tblexport',
-                    __('Export'),
-                    true
+            $results_operations_html .= Generator::linkOrButton(
+                    Url::getFromRoute('/table/export', $_url_params),
+                    Generator::getIcon(
+                        'b_tblexport',
+                        __('Export'),
+                        true
+                    )
                 )
-            )
             . "\n";
 
             // prepare chart
-            $results_operations_html .= Util::linkOrButton(
-                Url::getFromRoute('/table/chart', $_url_params),
-                Generator::getIcon(
-                    'b_chart',
-                    __('Display chart'),
-                    true
+            $results_operations_html .= Generator::linkOrButton(
+                    Url::getFromRoute('/table/chart', $_url_params),
+                    Generator::getIcon(
+                        'b_chart',
+                        __('Display chart'),
+                        true
+                    )
                 )
-            )
             . "\n";
 
             // prepare GIS chart
@@ -4995,7 +4995,7 @@ class Results
 
             if ($geometry_found) {
                 $results_operations_html
-                    .= Util::linkOrButton(
+                    .= Generator::linkOrButton(
                         Url::getFromRoute('/table/gis_visualization', $_url_params),
                         Generator::getIcon(
                             'b_globe',
@@ -5346,7 +5346,7 @@ class Results
                 if (strpos($class, 'grid_edit') !== false) {
                     $tag_params['class'] = 'ajax';
                 }
-                $result .= Util::linkOrButton(
+                $result .= Generator::linkOrButton(
                     Url::getFromRoute('/sql', $_url_params),
                     $displayedData,
                     $tag_params
@@ -5443,7 +5443,7 @@ class Results
         if (! empty($edit_url)) {
             $ret .= '<td class="' . $class . ' center print_ignore">'
                 . '<span class="nowrap">'
-                . Util::linkOrButton($edit_url, $edit_str);
+                . Generator::linkOrButton($edit_url, $edit_str);
             /*
              * Where clause for selecting this row uniquely is provided as
              * a hidden input. Used by jQuery scripts for handling grid editing
@@ -5488,7 +5488,7 @@ class Results
             }
 
             $ret .= 'center print_ignore"><span class="nowrap">'
-               . Util::linkOrButton($copy_url, $copy_str);
+               . Generator::linkOrButton($copy_url, $copy_str);
 
             /*
              * Where clause for selecting this row uniquely is provided as
@@ -5532,7 +5532,7 @@ class Results
         }
         $ajax = Response::getInstance()->isAjax() ? ' ajax' : '';
         $ret .= 'center print_ignore">'
-            . Util::linkOrButton(
+            . Generator::linkOrButton(
                 $del_url,
                 $del_str,
                 ['class' => 'delete_row requireConfirm' . $ajax]

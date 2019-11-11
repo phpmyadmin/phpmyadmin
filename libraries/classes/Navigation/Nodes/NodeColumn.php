@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -31,7 +32,7 @@ class NodeColumn extends Node
         $this->displayName = $this->getDisplayName($item);
 
         parent::__construct($item['name'], $type, $isGroup);
-        $this->icon = Util::getImage($this->getColumnIcon($item['key']), __('Column'));
+        $this->icon = Generator::getImage($this->getColumnIcon($item['key']), __('Column'));
         $this->links = [
             'text' => Url::getFromRoute('/table/structure', [
                 'server' => $GLOBALS['server'],

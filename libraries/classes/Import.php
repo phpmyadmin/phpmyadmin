@@ -1451,7 +1451,7 @@ class Import
         $matched_rows_url  = Url::getFromRoute('/sql', $_url_params);
 
         return [
-            'sql_query' => Util::formatSql($analyzed_sql_results['query']),
+            'sql_query' => Html\Generator::formatSql($analyzed_sql_results['query']),
             'matched_rows' => $matched_rows,
             'matched_rows_url' => $matched_rows_url,
         ];

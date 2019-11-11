@@ -765,7 +765,7 @@ class Index
                 $r .= '<td ' . $row_span . ' class="print_ignore">';
                 $r .= '<input type="hidden" class="drop_primary_key_index_msg"'
                     . ' value="' . $js_msg . '">';
-                $r .= Util::linkOrButton(
+                $r .= Generator::linkOrButton(
                     Url::getFromRoute('/sql', $this_params),
                     Generator::getIcon('b_drop', __('Drop')),
                     ['class' => 'drop_primary_key_index_anchor ajax']

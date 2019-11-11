@@ -257,7 +257,7 @@ class Tracking
         // Prepare delete link content here
         $drop_image_or_text = '';
         if (Util::showIcons('ActionLinksMode')) {
-            $drop_image_or_text .= Util::getImage(
+            $drop_image_or_text .= Generator::getImage(
                 'b_drop',
                 __('Delete tracking data row from report')
             );
@@ -613,7 +613,7 @@ class Tracking
                 && (in_array('*', $filterUsers)
                 || in_array($entry['username'], $filterUsers))
             ) {
-                $entry['formated_statement'] = Util::formatSql($entry['statement'], true);
+                $entry['formated_statement'] = Generator::formatSql($entry['statement'], true);
                 $deleteParam = 'delete_' . $whichLog;
                 $entry['url_params'] = Url::getCommon($urlParams + [
                     'report' => 'true',

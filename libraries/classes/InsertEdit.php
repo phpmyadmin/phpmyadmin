@@ -1746,7 +1746,7 @@ class InsertEdit
     {
         $edit_str = Generator::getIcon('b_edit', __('Edit/Insert'));
         return '<span class="open_gis_editor">'
-            . Util::linkOrButton(
+            . Generator::linkOrButton(
                 '#',
                 $edit_str,
                 [],

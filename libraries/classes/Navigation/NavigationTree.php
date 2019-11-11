@@ -790,7 +790,7 @@ class NavigationTree
                 );
                 $groups[$key]->separator = $node->separator;
                 $groups[$key]->separatorDepth = $node->separatorDepth - 1;
-                $groups[$key]->icon = Util::getImage(
+                $groups[$key]->icon = Generator::getImage(
                     'b_group',
                     __('Groups')
                 );
@@ -1279,7 +1279,7 @@ class NavigationTree
         $this->tree->isGroup = false;
 
         // Provide for pagination in database select
-        $listNavigator = Util::getListNavigator(
+        $listNavigator = Generator::getListNavigator(
             $this->tree->getPresence('databases', ''),
             $this->pos,
             ['server' => $GLOBALS['server']],
@@ -1485,7 +1485,7 @@ class NavigationTree
     {
         $retval = '';
         if ($node === $this->tree) {
-            $retval .= Util::getListNavigator(
+            $retval .= Generator::getListNavigator(
                 $this->tree->getPresence('databases', $this->searchClause),
                 $this->pos,
                 ['server' => $GLOBALS['server']],
@@ -1519,7 +1519,7 @@ class NavigationTree
                         $node->realName,
                         $this->searchClause2
                     );
-                $retval .= Util::getListNavigator(
+                $retval .= Generator::getListNavigator(
                     $num,
                     $pos,
                     $urlParams,

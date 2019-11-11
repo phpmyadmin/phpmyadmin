@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -25,7 +26,7 @@ class NodeTableContainer extends NodeDatabaseChildContainer
     public function __construct()
     {
         parent::__construct(__('Tables'), Node::CONTAINER);
-        $this->icon = Util::getImage('b_browse', __('Tables'));
+        $this->icon = Generator::getImage('b_browse', __('Tables'));
         $this->links = [
             'text' => Url::getFromRoute('/database/structure', [
                 'server' => $GLOBALS['server'],
@@ -47,7 +48,7 @@ class NodeTableContainer extends NodeDatabaseChildContainer
             $newLabel
         );
         $new->isNew = true;
-        $new->icon = Util::getImage('b_table_add', $newLabel);
+        $new->icon = Generator::getImage('b_table_add', $newLabel);
         $new->links = [
             'text' => Url::getFromRoute('/table/create', [
                 'server' => $GLOBALS['server'],

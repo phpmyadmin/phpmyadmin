@@ -63,7 +63,7 @@ class Operations
             . '<fieldset>'
             . '<legend>';
         if (Util::showIcons('ActionLinksMode')) {
-            $html_output .= Util::getImage('b_comment') . '&nbsp;';
+            $html_output .= Generator::getImage('b_comment') . '&nbsp;';
         }
         $html_output .=  __('Database comment');
         $html_output .= '</legend>';
@@ -107,7 +107,7 @@ class Operations
             . '<legend>';
 
         if (Util::showIcons('ActionLinksMode')) {
-            $html_output .= Util::getImage('b_edit') . '&nbsp;';
+            $html_output .= Generator::getImage('b_edit') . '&nbsp;';
         }
         $html_output .= __('Rename database to')
             . '</legend>';
@@ -173,7 +173,7 @@ class Operations
             . '<fieldset class="caution">';
         $html_output .= '<legend>';
         if (Util::showIcons('ActionLinksMode')) {
-            $html_output .= Util::getImage('b_deltbl') . '&nbsp';
+            $html_output .= Generator::getImage('b_deltbl') . '&nbsp';
         }
         $html_output .= __('Remove database')
             . '</legend>';
@@ -225,7 +225,7 @@ class Operations
             . '<legend>';
 
         if (Util::showIcons('ActionLinksMode')) {
-            $html_output .= Util::getImage('b_edit') . '&nbsp';
+            $html_output .= Generator::getImage('b_edit') . '&nbsp';
         }
         $html_output .= __('Copy database to')
             . '</legend>'
@@ -311,7 +311,7 @@ class Operations
         $html_output .= '<fieldset>' . "\n"
            . '    <legend>';
         if (Util::showIcons('ActionLinksMode')) {
-            $html_output .= Util::getImage('s_asci') . '&nbsp';
+            $html_output .= Generator::getImage('s_asci') . '&nbsp';
         }
         $html_output .= '<label for="select_db_collation">' . __('Collation')
             . '</label>' . "\n"
@@ -1592,7 +1592,7 @@ class Operations
     private function getMaintainActionlink($action_message, array $params, array $url_params, $link)
     {
         return '<li>'
-            . Util::linkOrButton(
+            . Generator::linkOrButton(
                 Url::getFromRoute('/sql', array_merge($url_params, $params)),
                 $action_message,
                 ['class' => 'maintain_action ajax']
@@ -1652,14 +1652,14 @@ class Operations
      */
     public function getDeleteDataOrTablelink(array $url_params, $syntax, $link, $htmlId)
     {
-        return '<li>' . Util::linkOrButton(
-            Url::getFromRoute('/sql', $url_params),
-            $link,
-            [
-                'id' => $htmlId,
-                'class' => 'ajax',
-            ]
-        )
+        return '<li>' . Generator::linkOrButton(
+                Url::getFromRoute('/sql', $url_params),
+                $link,
+                [
+                    'id' => $htmlId,
+                    'class' => 'ajax',
+                ]
+            )
             . MySQLDocumentation::show($syntax)
             . '</li>';
     }

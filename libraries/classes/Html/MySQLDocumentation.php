@@ -46,7 +46,7 @@ class MySQLDocumentation
 
         if ($bigIcon) {
             $html = $openLink .
-                Util::getImage('b_sqlhelp', __('Documentation'))
+                Generator::getImage('b_sqlhelp', __('Documentation'))
                 . $closeLink;
         } elseif ($text !== null) {
             $html = $openLink . $text . $closeLink;

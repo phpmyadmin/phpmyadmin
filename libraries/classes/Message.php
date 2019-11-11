@@ -817,7 +817,7 @@ class Message
         } else {
             $image = 's_notice';
         }
-        $message = self::notice(Util::getImage($image)) . " " . $message;
+        $message = self::notice(Html\Generator::getImage($image)) . " " . $message;
         return $message;
     }
 }

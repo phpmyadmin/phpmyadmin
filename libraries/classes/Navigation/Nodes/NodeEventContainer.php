@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -25,7 +26,7 @@ class NodeEventContainer extends NodeDatabaseChildContainer
     public function __construct()
     {
         parent::__construct(__('Events'), Node::CONTAINER);
-        $this->icon = Util::getImage('b_events', '');
+        $this->icon = Generator::getImage('b_events', '');
         $this->links = [
             'text' => Url::getFromRoute('/database/events', [
                 'server' => $GLOBALS['server'],
@@ -41,7 +42,7 @@ class NodeEventContainer extends NodeDatabaseChildContainer
             _pgettext('Create new event', 'New')
         );
         $new->isNew = true;
-        $new->icon = Util::getImage('b_event_add', '');
+        $new->icon = Generator::getImage('b_event_add', '');
         $new->links = [
             'text' => Url::getFromRoute('/database/events', [
                 'server' => $GLOBALS['server'],

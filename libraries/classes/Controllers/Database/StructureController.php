@@ -163,7 +163,7 @@ class StructureController extends AbstractController
             if (isset($parameters['sort_order'])) {
                 $urlParams['sort_order'] = $parameters['sort_order'];
             }
-            $listNavigator = Util::getListNavigator(
+            $listNavigator = Generator::getListNavigator(
                 $this->totalNumTables,
                 $this->position,
                 $urlParams,
