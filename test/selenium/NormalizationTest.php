@@ -35,8 +35,6 @@ class NormalizationTest extends TestBase
             . ")"
         );
 
-        $this->maximize();
-
         $this->login();
         $this->navigateTable('test_table');
         $this->waitForElement(

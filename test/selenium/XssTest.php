@@ -24,7 +24,6 @@ class XssTest extends TestBase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->maximize();
         $this->login();
     }
 

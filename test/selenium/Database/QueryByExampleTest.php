@@ -40,7 +40,6 @@ class QueryByExampleTest extends TestBase
             "INSERT INTO `test_table` (val) VALUES (2), (6), (5), (3), (4), (4), (5);"
         );
 
-        $this->maximize();
         $this->login();
     }
 

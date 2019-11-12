@@ -40,7 +40,6 @@ class OperationsTest extends TestBase
 
         $this->navigateDatabase($this->database_name);
         $this->expandMore();
-        $this->maximize();
         $this->waitForElement('partialLinkText', 'Operations')->click();
         $this->waitForElement(
             'xpath',

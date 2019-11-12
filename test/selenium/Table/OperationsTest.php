@@ -55,7 +55,6 @@ class OperationsTest extends TestBase
             'xpath',
             "//legend[contains(., 'Table maintenance')]"
         );
-        $this->maximize();
     }
 
     /**

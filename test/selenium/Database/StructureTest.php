@@ -52,7 +52,6 @@ class StructureTest extends TestBase
         // Let the Database page load
         $this->waitAjax();
         $this->expandMore();
-        $this->maximize();
     }
 
     /**

@@ -47,7 +47,6 @@ class EventsTest extends TestBase
         // Let the Database page load
         $this->waitAjax();
         $this->expandMore();
-        $this->maximize();
     }
 
     /**

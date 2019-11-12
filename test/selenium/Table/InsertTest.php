@@ -57,7 +57,6 @@ class InsertTest extends TestBase
         }
         $this->waitAjax();
         $this->expandMore();
-        $this->maximize();
 
         $this->byPartialLinkText("Insert")->click();
         $this->waitAjax();

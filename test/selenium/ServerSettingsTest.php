@@ -28,7 +28,6 @@ class ServerSettingsTest extends TestBase
         parent::setUp();
         $this->login();
         $this->expandMore();
-        $this->maximize();
         $this->waitForElement('partialLinkText', "Settings")->click();
         $this->waitAjax();
 

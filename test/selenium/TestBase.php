@@ -124,6 +124,7 @@ abstract class TestBase extends TestCase
         );
 
         $this->navigateTo('');
+        $this->webDriver->manage()->window()->maximize();
     }
 
     /**
@@ -365,17 +366,6 @@ abstract class TestBase extends TestCase
                 }
                 return $capabilities;
         }
-    }
-
-    /**
-     * Maximizes the browser window.
-     *
-     * @return void
-     *
-     */
-    public function maximize(): void
-    {
-        $this->webDriver->manage()->window()->maximize();
     }
 
     /**

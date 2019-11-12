@@ -26,7 +26,6 @@ class CreateTest extends TestBase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->maximize();
 
         $this->login();
         $this->waitForElement('partialLinkText', 'Databases')->click();
