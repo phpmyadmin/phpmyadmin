@@ -211,7 +211,7 @@ class FormDisplayTemplateTest extends TestCase
         );
 
         $this->assertStringContainsString(
-            '<input type="text" class="all85" name="test/path" id="test/path" ' .
+            '<input type="text" class="w-75" name="test/path" id="test/path" ' .
             'class="custom field-error" value="val">',
             $result
         );
@@ -333,7 +333,7 @@ class FormDisplayTemplateTest extends TestCase
             $opts
         );
         $this->assertStringContainsString(
-            '<select class="all85" name="test/path" id="test/path">',
+            '<select class="w-75" name="test/path" id="test/path">',
             $result
         );
 
@@ -374,7 +374,7 @@ class FormDisplayTemplateTest extends TestCase
         );
 
         $this->assertStringContainsString(
-            '<select class="all85" name="test/path" id="test/path">',
+            '<select class="w-75" name="test/path" id="test/path">',
             $result
         );
 

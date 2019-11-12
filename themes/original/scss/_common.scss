@@ -23,18 +23,6 @@ body {
   margin: 0 0.5em;
 }
 
-.desktop50 {
-  width: 50%;
-}
-
-.all100 {
-  width: 100%;
-}
-
-.all85 {
-  width: 85%;
-}
-
 .auth_config_tbl {
   margin: 0 auto;
 }
@@ -220,11 +208,6 @@ table {
 th.left,
 td.left {
   text-align: $left;
-}
-
-th.center,
-td.center {
-  text-align: center;
 }
 
 th.right,
@@ -3600,11 +3583,6 @@ body {
 
   .largescreenonly {
     display: none;
-  }
-
-  .width100,
-  .desktop50 {
-    width: 100%;
   }
 
   .width96 {

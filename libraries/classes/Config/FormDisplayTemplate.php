@@ -290,11 +290,11 @@ class FormDisplayTemplate
 
         switch ($type) {
             case 'text':
-                $htmlOutput .= '<input type="text" class="all85" ' . $nameId . $fieldClass
+                $htmlOutput .= '<input type="text" class="w-75" ' . $nameId . $fieldClass
                 . ' value="' . htmlspecialchars($value) . '">';
                 break;
             case 'password':
-                $htmlOutput .= '<input type="password" class="all85" ' . $nameId . $fieldClass
+                $htmlOutput .= '<input type="password" class="w-75" ' . $nameId . $fieldClass
                 . ' value="' . htmlspecialchars($value) . '">';
                 break;
             case 'short_text':
@@ -316,7 +316,7 @@ class FormDisplayTemplate
                   . ($value ? ' checked="checked"' : '') . '></span>';
                 break;
             case 'select':
-                $htmlOutput .= '<select class="all85" ' . $nameId . $fieldClass . '>';
+                $htmlOutput .= '<select class="w-75" ' . $nameId . $fieldClass . '>';
                 $escape = ! (isset($opts['values_escaped']) && $opts['values_escaped']);
                 $valuesDisabled = isset($opts['values_disabled'])
                 ? array_flip($opts['values_disabled']) : [];

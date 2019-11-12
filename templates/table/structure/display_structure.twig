@@ -48,7 +48,7 @@
             {# Underline commented fields and display a hover-title (CSS only) #}
 
         <tr>
-            <td class="center print_ignore">
+            <td class="text-center print_ignore">
                 <input type="checkbox" class="checkall" name="selected_fld[]" value="{{ row['Field'] }}" id="checkbox_row_{{ rownum }}">
             </td>
             <td class="right">{{ rownum }}</td>
@@ -98,7 +98,7 @@
             {% endif %}
             <td class="nowrap">{{ row['Extra']|upper }}</td>
             {% if not tbl_is_view and not db_is_system_schema %}
-                <td class="edit center print_ignore">
+                <td class="edit text-center print_ignore">
                     <a class="change_column_anchor ajax" href="{{ url('/table/structure', url_params|merge({
                       'field': row['Field']|url_encode,
                       'change_column': 1
@@ -106,7 +106,7 @@
                         {{ titles['Change']|raw }}
                     </a>
                 </td>
-                <td class="drop center print_ignore">
+                <td class="drop text-center print_ignore">
                     <a class="drop_column_anchor ajax" href="{{ url('/sql') }}" data-post="{{ url_query }}&amp;sql_query=
                         {{- ('ALTER TABLE ' ~ backquote(table)
                             ~ ' DROP ' ~ backquote(row['Field']) ~ ';')|url_encode -}}

@@ -218,7 +218,7 @@ class ExportHtmlword extends ExportPlugin
             return false;
         }
         if (! $this->export->outputHandler(
-            '<table class="width100" cellspacing="1">'
+            '<table class="w-100" cellspacing="1">'
         )
         ) {
             return false;
@@ -288,7 +288,7 @@ class ExportHtmlword extends ExportPlugin
      */
     public function getTableDefStandIn($db, $view, $crlf, $aliases = [])
     {
-        $schema_insert = '<table class="width100" cellspacing="1">'
+        $schema_insert = '<table class="w-100" cellspacing="1">'
             . '<tr class="print-category">'
             . '<th class="print">'
             . __('Column')
@@ -383,7 +383,7 @@ class ExportHtmlword extends ExportPlugin
         /**
          * Displays the table structure
          */
-        $schema_insert .= '<table class="width100" cellspacing="1">';
+        $schema_insert .= '<table class="w-100" cellspacing="1">';
 
         $schema_insert .= '<tr class="print-category">';
         $schema_insert .= '<th class="print">'
@@ -484,7 +484,7 @@ class ExportHtmlword extends ExportPlugin
      */
     protected function getTriggers($db, $table)
     {
-        $dump = '<table class="width100" cellspacing="1">';
+        $dump = '<table class="w-100" cellspacing="1">';
         $dump .= '<tr class="print-category">';
         $dump .= '<th class="print">' . __('Name') . '</th>';
         $dump .= '<td class="print"><strong>' . __('Time') . '</strong></td>';

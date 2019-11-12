@@ -2,7 +2,7 @@
   <form id="usersForm" action="{{ url('/server/privileges') }}">
     {{ get_hidden_inputs(db) }}
 
-    <div class="width100">
+    <div class="w-100">
       <fieldset>
         <legend>
           {{ get_icon('b_usrcheck') }}
@@ -81,7 +81,7 @@
                         </a>
                       {% endif %}
                     </td>
-                    <td class="center">
+                    <td class="text-center">
                       <a class="export_user_anchor ajax" href="{{ url('/server/privileges', {
                         'username': privilege.user,
                         'hostname': privilege.host,

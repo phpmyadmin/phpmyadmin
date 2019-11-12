@@ -524,7 +524,7 @@ class Qbe
                 && isset($this->_criteriaColumnInsert[$colInd])
                 && $this->_criteriaColumnInsert[$colInd] == 'on'
             ) {
-                $html_output .= '<td class="center">';
+                $html_output .= '<td class="text-center">';
                 $html_output .= '<input type="text"'
                     . ' name="criteriaAlias[' . $new_column_count . ']">';
                 $html_output .= '</td>';
@@ -545,7 +545,7 @@ class Qbe
                         = $_POST['criteriaAlias'][$colInd];
             }// end if
 
-            $html_output .= '<td class="center">';
+            $html_output .= '<td class="text-center">';
             $html_output .= '<input type="text"'
                 . ' name="criteriaAlias[' . $new_column_count . ']"'
                 . ' value="' . htmlspecialchars($tmp_alias) . '">';
@@ -676,7 +676,7 @@ class Qbe
                 && isset($this->_criteriaColumnInsert[$column_index])
                 && $this->_criteriaColumnInsert[$column_index] == 'on'
             ) {
-                $html_output .= '<td class="center">';
+                $html_output .= '<td class="text-center">';
                 $html_output .= '<input type="checkbox"'
                     . ' name="criteriaShow[' . $new_column_count . ']">';
                 $html_output .= '</td>';
@@ -695,7 +695,7 @@ class Qbe
             } else {
                 $checked_options = '';
             }
-            $html_output .= '<td class="center">';
+            $html_output .= '<td class="text-center">';
             $html_output .= '<input type="checkbox"'
                 . ' name="criteriaShow[' . $new_column_count . ']"'
                 . $checked_options . '>';
@@ -721,7 +721,7 @@ class Qbe
                 && isset($this->_criteriaColumnInsert[$column_index])
                 && $this->_criteriaColumnInsert[$column_index] == 'on'
             ) {
-                $html_output .= '<td class="center">';
+                $html_output .= '<td class="text-center">';
                 $html_output .= '<input type="text"'
                     . ' name="criteria[' . $new_column_count . ']"'
                     . ' class="textfield"'
@@ -749,7 +749,7 @@ class Qbe
                 $this->_formCriterions[$new_column_count]
                     = $this->_prev_criteria[$column_index];
             }
-            $html_output .= '<td class="center">';
+            $html_output .= '<td class="text-center">';
             $html_output .= '<input type="hidden"'
                 . ' name="prev_criteria[' . $new_column_count . ']"'
                 . ' value="'
@@ -807,7 +807,7 @@ class Qbe
      */
     private function _getTablesList()
     {
-        $html_output = '<div class="floatleft width100">';
+        $html_output = '<div class="floatleft w-100">';
         $html_output .= '<fieldset>';
         $html_output .= '<legend>' . __('Use Tables') . '</legend>';
         // Build the options list for each table name
@@ -847,7 +847,7 @@ class Qbe
         $selected = null,
         $last_column = false
     ) {
-        $html_output = '<td class="center">';
+        $html_output = '<td class="text-center">';
         if (! $last_column) {
             $html_output .= '<strong>' . __('Or:') . '</strong>';
             $html_output .= '<input type="radio"'
@@ -987,7 +987,7 @@ class Qbe
                 && $this->_criteriaColumnInsert[$column_index] == 'on'
             ) {
                 $orFieldName = 'Or' . $new_row_index . '[' . $new_column_count . ']';
-                $html_output .= '<td class="center">';
+                $html_output .= '<td class="text-center">';
                 $html_output .= '<input type="text"'
                     . ' name="Or' . $orFieldName . '" class="textfield"'
                     . ' style="width: ' . $this->_realwidth . '" size="20">';
@@ -1006,7 +1006,7 @@ class Qbe
             } else {
                 $tmp_or     = '';
             }
-            $html_output .= '<td class="center">';
+            $html_output .= '<td class="text-center">';
             $html_output .= '<input type="text"'
                 . ' name="Or' . $new_row_index . '[' . $new_column_count . ']"'
                 . ' value="' . htmlspecialchars($tmp_or) . '" class="textfield"'
@@ -1764,7 +1764,7 @@ class Qbe
     {
         $html_output = '<form action="' . Url::getFromRoute('/database/qbe') . '" method="post" id="formQBE" '
             . 'class="lock-page">';
-        $html_output .= '<div class="width100">';
+        $html_output .= '<div class="w-100">';
         $html_output .= '<fieldset>';
 
         if ($GLOBALS['cfgRelation']['savedsearcheswork']) {
@@ -1800,7 +1800,7 @@ class Qbe
         $html_output .= '<form action="' . Url::getFromRoute('/database/qbe') . '" method="post" class="lock-page">';
         $html_output .= Url::getHiddenInputs(['db' => $this->_db]);
         // get SQL query
-        $html_output .= '<div class="floatleft desktop50">';
+        $html_output .= '<div class="floatleft w-50">';
         $html_output .= '<fieldset id="tblQbe">';
         $html_output .= '<legend>'
             . sprintf(

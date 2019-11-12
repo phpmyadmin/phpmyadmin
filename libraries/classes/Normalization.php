@@ -211,7 +211,7 @@ class Normalization
     {
         $step = 1;
         $stepTxt = __('Make all columns atomic');
-        $html = "<h3 class='center'>"
+        $html = "<h3 class='text-center'>"
             . __('First step of normalization (1NF)') . "</h3>";
         $html .= "<div id='mainContent' data-normalizeto='" . $normalizedTo . "'>" .
             "<fieldset>" .

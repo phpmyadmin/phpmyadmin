@@ -522,10 +522,6 @@ select {
   float: $right;
 }
 
-.center {
-  text-align: center;
-}
-
 .displayblock {
   display: block;
 }
@@ -546,11 +542,6 @@ table {
 th.left,
 td.left {
   text-align: $left;
-}
-
-th.center,
-td.center {
-  text-align: center;
 }
 
 th.right,

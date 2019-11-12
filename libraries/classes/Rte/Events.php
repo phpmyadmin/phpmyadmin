@@ -494,11 +494,11 @@ class Events
         } else {
             $retval .= "        <input name='item_type' type='hidden' \n";
             $retval .= "               value='{$item['item_type']}'>\n";
-            $retval .= "        <div class='font_weight_bold center half_width'>\n";
+            $retval .= "        <div class='font_weight_bold text-center w-50'>\n";
             $retval .= "            {$item['item_type']}\n";
             $retval .= "        </div>\n";
             $retval .= "        <input type='submit'\n";
-            $retval .= "               name='item_changetype' class='half_width'\n";
+            $retval .= "               name='item_changetype' class='w-50'\n";
             $retval .= "               value='";
             $retval .= sprintf(__('Change to %s'), $item['item_type_toggle']);
             $retval .= "'>\n";
@@ -516,10 +516,10 @@ class Events
         $retval .= "<tr class='recurring_event_row $isrecurring_class'>\n";
         $retval .= "    <td>" . __('Execute every') . "</td>\n";
         $retval .= "    <td>\n";
-        $retval .= "        <input class='half_width' type='text'\n";
+        $retval .= "        <input class='w-50' type='text'\n";
         $retval .= "               name='item_interval_value'\n";
         $retval .= "               value='{$item['item_interval_value']}'>\n";
-        $retval .= "        <select class='half_width' name='item_interval_field'>";
+        $retval .= "        <select class='w-50' name='item_interval_field'>";
         foreach ($event_interval as $key => $value) {
             $selected = "";
             if (! empty($item['item_interval_field'])

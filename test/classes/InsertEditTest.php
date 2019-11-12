@@ -702,7 +702,7 @@ class InsertEditTest extends TestCase
         $column = [];
         $column['is_blob'] = true;
         $this->assertStringContainsString(
-            '<td class="center">Binary</td>',
+            '<td class="text-center">Binary</td>',
             $this->callProtectedMethod('getFunctionColumn', [
                 $column,
                 false,
@@ -721,7 +721,7 @@ class InsertEditTest extends TestCase
         $GLOBALS['cfg']['ProtectBinary'] = 'all';
         $column['is_binary'] = true;
         $this->assertStringContainsString(
-            '<td class="center">Binary</td>',
+            '<td class="text-center">Binary</td>',
             $this->callProtectedMethod('getFunctionColumn', [
                 $column,
                 true,
@@ -740,7 +740,7 @@ class InsertEditTest extends TestCase
         $GLOBALS['cfg']['ProtectBinary'] = 'noblob';
         $column['is_blob'] = false;
         $this->assertStringContainsString(
-            '<td class="center">Binary</td>',
+            '<td class="text-center">Binary</td>',
             $this->callProtectedMethod('getFunctionColumn', [
                 $column,
                 true,
@@ -759,7 +759,7 @@ class InsertEditTest extends TestCase
         $GLOBALS['cfg']['ProtectBinary'] = false;
         $column['True_Type'] = 'enum';
         $this->assertStringContainsString(
-            '<td class="center">--</td>',
+            '<td class="text-center">--</td>',
             $this->callProtectedMethod('getFunctionColumn', [
                 $column,
                 true,
@@ -777,7 +777,7 @@ class InsertEditTest extends TestCase
 
         $column['True_Type'] = 'set';
         $this->assertStringContainsString(
-            '<td class="center">--</td>',
+            '<td class="text-center">--</td>',
             $this->callProtectedMethod('getFunctionColumn', [
                 $column,
                 true,
@@ -796,7 +796,7 @@ class InsertEditTest extends TestCase
         $column['True_Type'] = '';
         $column['pma_type'] = 'int';
         $this->assertStringContainsString(
-            '<td class="center">--</td>',
+            '<td class="text-center">--</td>',
             $this->callProtectedMethod('getFunctionColumn', [
                 $column,
                 true,

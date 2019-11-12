@@ -171,10 +171,10 @@ class QbeTest extends PmaTestCase
     public function testGetShowRow()
     {
         $this->assertEquals(
-            '<tr class="noclick"><th>Show:</th><td class="center"><input type'
-            . '="checkbox" name="criteriaShow[0]"></td><td class="center">'
+            '<tr class="noclick"><th>Show:</th><td class="text-center"><input type'
+            . '="checkbox" name="criteriaShow[0]"></td><td class="text-center">'
             . '<input type="checkbox" name="criteriaShow[1]"></td><td '
-            . 'class="center"><input type="checkbox" name="criteriaShow[2]">'
+            . 'class="text-center"><input type="checkbox" name="criteriaShow[2]">'
             . '</td></tr>',
             $this->_callProtectedFunction(
                 '_getShowRow',
@@ -191,13 +191,13 @@ class QbeTest extends PmaTestCase
     public function testGetCriteriaInputboxRow()
     {
         $this->assertEquals(
-            '<tr class="noclick"><th>Criteria:</th><td class="center">'
+            '<tr class="noclick"><th>Criteria:</th><td class="text-center">'
             . '<input type="hidden" name="prev_criteria[0]" value="">'
             . '<input type="text" name="criteria[0]" value="" class="textfield" '
-            . 'style="width: 12ex" size="20"></td><td class="center">'
+            . 'style="width: 12ex" size="20"></td><td class="text-center">'
             . '<input type="hidden" name="prev_criteria[1]" value="">'
             . '<input type="text" name="criteria[1]" value="" class="textfield" '
-            . 'style="width: 12ex" size="20"></td><td class="center">'
+            . 'style="width: 12ex" size="20"></td><td class="text-center">'
             . '<input type="hidden" name="prev_criteria[2]" value="">'
             . '<input type="text" name="criteria[2]" value="" class="textfield" '
             . 'style="width: 12ex" size="20"></td></tr>',
@@ -276,7 +276,7 @@ class QbeTest extends PmaTestCase
     public function testGetAndOrColCell()
     {
         $this->assertEquals(
-            '<td class="center"><strong>Or:</strong><input type="radio" '
+            '<td class="text-center"><strong>Or:</strong><input type="radio" '
             . 'name="criteriaAndOrColumn[1]" value="or">&nbsp;&nbsp;<strong>And:'
             . '</strong><input type="radio" name="criteriaAndOrColumn[1]" value='
             . '"and"><br>Ins<input type="checkbox" name="criteriaColumnInsert'
@@ -297,18 +297,18 @@ class QbeTest extends PmaTestCase
     public function testGetModifyColumnsRow()
     {
         $this->assertEquals(
-            '<tr class="noclick"><th>Modify:</th><td class="center"><strong>'
+            '<tr class="noclick"><th>Modify:</th><td class="text-center"><strong>'
             . 'Or:</strong><input type="radio" name="criteriaAndOrColumn[0]" value'
             . '="or">&nbsp;&nbsp;<strong>And:</strong><input type="radio" name='
             . '"criteriaAndOrColumn[0]" value="and" checked="checked"><br>Ins'
             . '<input type="checkbox" name="criteriaColumnInsert[0]">&nbsp;&nbsp;'
             . 'Del<input type="checkbox" name="criteriaColumnDelete[0]"></td><td '
-            . 'class="center"><strong>Or:</strong><input type="radio" name="'
+            . 'class="text-center"><strong>Or:</strong><input type="radio" name="'
             . 'criteriaAndOrColumn[1]" value="or">&nbsp;&nbsp;<strong>And:'
             . '</strong><input type="radio" name="criteriaAndOrColumn[1]" value='
             . '"and" checked="checked"><br>Ins<input type="checkbox" name='
             . '"criteriaColumnInsert[1]">&nbsp;&nbsp;Del<input type="checkbox" '
-            . 'name="criteriaColumnDelete[1]"></td><td class="center"><br>Ins'
+            . 'name="criteriaColumnDelete[1]"></td><td class="text-center"><br>Ins'
             . '<input type="checkbox" name="criteriaColumnInsert[2]">&nbsp;&nbsp;'
             . 'Del<input type="checkbox" name="criteriaColumnDelete[2]"></td>'
             . '</tr>',
@@ -357,10 +357,10 @@ class QbeTest extends PmaTestCase
     public function testGetInputboxRow()
     {
         $this->assertEquals(
-            '<td class="center"><input type="text" name="Or2[0]" value="" class='
-            . '"textfield" style="width: 12ex" size="20"></td><td class="center">'
+            '<td class="text-center"><input type="text" name="Or2[0]" value="" class='
+            . '"textfield" style="width: 12ex" size="20"></td><td class="text-center">'
             . '<input type="text" name="Or2[1]" value="" class="textfield" '
-            . 'style="width: 12ex" size="20"></td><td class="center"><input '
+            . 'style="width: 12ex" size="20"></td><td class="text-center"><input '
             . 'type="text" name="Or2[2]" value="" class="textfield" style="width: '
             . '12ex" size="20"></td>',
             $this->_callProtectedFunction(
@@ -387,11 +387,11 @@ class QbeTest extends PmaTestCase
             . '</small><input type="checkbox" name="criteriaRowDelete[0]"></td>'
             . '<td class="value"><strong>Or:</strong></td><td><input type='
             . '"radio" name="criteriaAndOrRow[0]" value="or" checked="checked">'
-            . '</td></tr></table></td><td class="center"><input type="text" '
+            . '</td></tr></table></td><td class="text-center"><input type="text" '
             . 'name="Or0[0]" value="" class="textfield" style="width: 12ex" '
-            . 'size="20"></td><td class="center"><input type="text" name="Or0[1]" '
+            . 'size="20"></td><td class="text-center"><input type="text" name="Or0[1]" '
             . 'value="" class="textfield" style="width: 12ex" size="20"></td><td '
-            . 'class="center"><input type="text" name="Or0[2]" value="" class='
+            . 'class="text-center"><input type="text" name="Or0[2]" value="" class='
             . '"textfield" style="width: 12ex" size="20"></td></tr>',
             $this->_callProtectedFunction(
                 '_getInsDelAndOrCriteriaRows',

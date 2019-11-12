@@ -499,13 +499,13 @@ class InsertEdit
             || ($GLOBALS['cfg']['ProtectBinary'] === 'noblob'
             && $column['is_binary'])
         ) {
-            $html_output .= '<td class="center">' . __('Binary') . '</td>' . "\n";
+            $html_output .= '<td class="text-center">' . __('Binary') . '</td>' . "\n";
         } elseif ($readOnly
             || mb_strstr($column['True_Type'], 'enum')
             || mb_strstr($column['True_Type'], 'set')
             || in_array($column['pma_type'], $no_support_types)
         ) {
-            $html_output .= '<td class="center">--</td>' . "\n";
+            $html_output .= '<td class="text-center">--</td>' . "\n";
         } else {
             $html_output .= '<td>' . "\n";
 
@@ -1799,7 +1799,7 @@ class InsertEdit
         $found_unique_key
     ) {
         $html_output = '<fieldset id="actions_panel">'
-            . '<table cellpadding="5" cellspacing="0" class="tdblock width100">'
+            . '<table cellpadding="5" cellspacing="0" class="tdblock w-100">'
             . '<tr>'
             . '<td class="nowrap vmiddle">'
             . $this->getSubmitTypeDropDown($where_clause, $tabindex, $tabindex_for_value)
@@ -3052,7 +3052,7 @@ class InsertEdit
     {
         return '<tr class="noclick">'
             . '<td '
-            . 'class="center">'
+            . 'class="text-center">'
             . $column['Field_title']
             . '<input type="hidden" name="fields_name' . $column_name_appendix
             . '" value="' . $column['Field_html'] . '">'
@@ -3068,7 +3068,7 @@ class InsertEdit
      */
     private function getHtmlForInsertEditColumnType(array $column)
     {
-        return '<td class="center' . $column['wrap'] . '">'
+        return '<td class="text-center' . $column['wrap'] . '">'
             . '<span class="column_type" dir="ltr">' . $column['pma_type'] . '</span>'
             . '</td>';
     }
