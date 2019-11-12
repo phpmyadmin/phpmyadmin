@@ -1913,19 +1913,9 @@ div.sqlvalidate {
   direction: ltr;
 }
 
-.result_query {
-  div.sqlOuter {
-    background: $bg-one;
-    text-align: $left;
-  }
-
-  .alert {
-    margin-bottom: 0;
-    border-bottom: none !important;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    padding-bottom: 5px;
-  }
+.result_query div.sqlOuter {
+  background: $bg-one;
+  text-align: $left;
 }
 
 #PMA_slidingMessage code.sql,
@@ -4079,99 +4069,4 @@ body .ui-dialog {
 
 #filter_query_text {
   vertical-align: baseline;
-}
-
-// Bootstrap
-
-.btn-primary {
-  font-weight: $font-weight-bold;
-}
-
-.btn-primary,
-.btn-secondary {
-  border-color: #aaa;
-  text-shadow: 0 1px 0 #fff;
-  background-image: linear-gradient(#f8f8f8, #d8d8d8);
-
-  &:hover {
-    background-image: linear-gradient(#fff, #ddd);
-  }
-}
-
-.card {
-  @if $direction == rtl {
-    -moz-box-shadow: -2px 2px 5px #ccc;
-    -webkit-box-shadow: -2px 2px 5px #ccc;
-    box-shadow: -2px 2px 5px #ccc;
-  } @else {
-    -moz-box-shadow: 2px 2px 5px #ccc;
-    -webkit-box-shadow: 2px 2px 5px #ccc;
-    box-shadow: 2px 2px 5px #ccc;
-  }
-}
-
-.card-header {
-  padding-top: 0.1em;
-  padding-bottom: 0.1em;
-  font-size: 1.6em;
-  text-shadow: 0 1px 0 #777;
-  -moz-box-shadow: 1px 1px 15px #999 inset;
-  -webkit-box-shadow: 1px 1px 15px #999 inset;
-  box-shadow: 1px 1px 15px #999 inset;
-}
-
-.alert {
-  text-align: $left;
-  -moz-box-shadow: 0 1px 1px #fff inset;
-  -webkit-box-shadow: 0 1px 1px #fff inset;
-  box-shadow: 0 1px 1px #fff inset;
-
-  @if $direction == rtl {
-    background-position: 99% 50%;
-    padding: 10px 35px 10px 10px;
-  } @else {
-    background-position: 10px 50%;
-    padding: 10px 10px 10px 10px;
-  }
-
-  a {
-    text-decoration: underline;
-  }
-
-  h1 {
-    border-bottom: 2px solid;
-  }
-}
-
-.alert-primary {
-  color: #000;
-  background-color: #e8eef1;
-  background-image: none;
-  border-color: #3a6c7e;
-
-  h1 {
-    border-color: #ffb10a;
-  }
-}
-
-.alert-success {
-  color: #000;
-  background-color: #ebf8a4;
-  background-image: none;
-  border-color: #a2d246;
-
-  h1 {
-    border-color: #0f0;
-  }
-}
-
-.alert-danger {
-  color: #000;
-  background-color: pink;
-  background-image: none;
-  border-color: #333;
-
-  h1 {
-    border-color: #f00;
-  }
 }
