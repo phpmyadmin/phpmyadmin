@@ -109,7 +109,7 @@ class TriggersTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            "//div[@class='success' and contains(., "
+            "//div[@class='alert alert-success' and contains(., "
             . "'Trigger `test_trigger` has been created')]"
         );
 
@@ -162,7 +162,7 @@ class TriggersTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            "//div[@class='success' and contains(., "
+            "//div[@class='alert alert-success' and contains(., "
             . "'Trigger `test_trigger` has been modified')]"
         );
 

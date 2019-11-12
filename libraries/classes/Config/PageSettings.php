@@ -137,7 +137,7 @@ class PageSettings
         }
         if ($formDisplay->hasErrors()) {
             // form has errors
-            $retval .= '<div class="error config-form">'
+            $retval .= '<div class="alert alert-danger config-form" role="alert">'
                 . '<b>' . __(
                     'Cannot save settings, submitted configuration form contains '
                     . 'errors!'

@@ -1,6 +1,6 @@
 {{ error|raw }}
 {% if has_errors %}
-  <div class="error config-form">
+  <div class="alert alert-danger config-form" role="alert">
     <strong>{% trans 'Cannot save settings, submitted form contains errors!' %}</strong>
     {{ errors|raw }}
   </div>

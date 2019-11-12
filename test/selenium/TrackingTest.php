@@ -200,7 +200,7 @@ class TrackingTest extends TestBase
         $this->waitAjax();
         $this->waitForElement(
             'xpath',
-            "//div[@class='success' and contains(., "
+            "//div[@class='alert alert-success' and contains(., "
             . "'Tracking data deleted successfully.')]"
         );
 
@@ -273,7 +273,7 @@ class TrackingTest extends TestBase
         $this->scrollToBottom();
         $this->byCssSelector("input[value='Go']")->click();
         $this->waitAjax();
-        $this->waitForElement('className', "success");
+        $this->waitForElement('className', "alert-success");
 
         $this->expandMore();
         $this->byPartialLinkText("Tracking")->click();

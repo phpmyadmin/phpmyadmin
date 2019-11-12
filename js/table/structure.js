@@ -90,7 +90,7 @@ AJAX.registerOnload('table/structure.js', function () {
                         .append(data.message)
                         .show();
                     Functions.highlightSql($('#page_content'));
-                    $('.result_query .notice').remove();
+                    $('.result_query .alert-primary').remove();
                     reloadFieldForm();
                     $form.remove();
                     Functions.ajaxRemoveMessage($msg);

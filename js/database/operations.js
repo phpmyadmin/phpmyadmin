@@ -85,7 +85,7 @@ AJAX.registerOnload('database/operations.js', function () {
         Functions.prepareForAjaxRequest($form);
         $.post($form.attr('action'), $form.serialize(), function (data) {
             // use messages that stay on screen
-            $('div.success, div.error').fadeOut();
+            $('.alert-success, .alert-danger').fadeOut();
             if (typeof data !== 'undefined' && data.success === true) {
                 if ($('#checkbox_switch').is(':checked')) {
                     CommonParams.set('db', data.newname);

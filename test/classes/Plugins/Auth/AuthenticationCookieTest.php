@@ -214,7 +214,7 @@ class AuthenticationCookieTest extends PmaTestCase
         );
 
         $this->assertStringContainsString(
-            '<div class="error">',
+            '<div class="alert alert-danger" role="alert">',
             $result
         );
 

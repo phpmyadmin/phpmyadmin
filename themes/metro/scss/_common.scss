@@ -228,12 +228,6 @@ body#loginform {
       clear: none;
     }
   }
-
-  .error {
-    float: $left;
-    width: 48em;
-    margin-top: -280px;
-  }
 }
 
 form.login label {
@@ -909,95 +903,6 @@ td .icon {
   padding: 0;
 }
 
-.success h1,
-.notice h1 {
-  text-align: $left;
-  margin: 0 0 0.2em 0;
-  color: $navi-color;
-}
-
-div {
-  &.error h1 {
-    text-align: $left;
-    margin: 0 0 0.2em 0;
-    color: $navi-color;
-  }
-
-  &.success,
-  &.notice,
-  &.error,
-  &.footnotes {
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    margin: 0 0 1px;
-    border: 1px solid;
-    background-repeat: no-repeat;
-
-    @if $direction == rtl {
-      background-position: 99% 50%;
-      padding: 10px 35px 10px 10px;
-    } @else {
-      background-position: 10px 50%;
-      padding: 10px 10px 10px 10px;
-    }
-  }
-
-  &.success {
-    margin: 0 0 1em 0;
-    border: none;
-  }
-}
-
-.success a,
-.notice a,
-.error a {
-  text-decoration: underline;
-  color: $button-color;
-}
-
-.success {
-  color: $button-color;
-  background-color: $browse-success-color;
-}
-
-h1.success,
-div.success {
-  border-color: $browse-success-color;
-}
-
-.notice,
-.footnotes {
-  color: $button-color;
-  background-color: $blue-header;
-}
-
-h1.notice {
-  border-color: $blue-header;
-}
-
-div {
-  &.notice,
-  &.footnotes {
-    border-color: $blue-header;
-  }
-}
-
-.notice a {
-  color: $button-color;
-}
-
-.error {
-  border: 1px solid $browse-warning-color !important;
-  color: $button-color;
-  background-color: $browse-warning-color;
-}
-
-h1.error,
-div.error {
-  border-color: $main-color;
-}
-
 .confirmation {
   color: $button-color;
   background-color: $browse-warning-color;
@@ -1099,12 +1004,6 @@ td.disabled {
 /* specific elements */
 
 /* topmenu */
-
-#topmenu .error {
-  background: #eee;
-  border: 0 !important;
-  color: #aaa;
-}
 
 ul {
   &#topmenu,
@@ -1807,27 +1706,6 @@ div {
       margin: 0 0.5em;
       line-height: 2em;
     }
-  }
-}
-
-p.notice {
-  margin: 1.5em 0;
-  border: 1px solid #000;
-  background-repeat: no-repeat;
-  background-color: #555;
-  color: #d4fb6a;
-
-  @if $direction == rtl {
-    background-position: 99% 50%;
-    padding: 25px 10px 10px 10px;
-  } @else {
-    background-position: 10px 50%;
-    padding: 10px 10px 10px 25px;
-  }
-
-  a {
-    color: #fff;
-    text-decoration: underline;
   }
 }
 
@@ -3432,7 +3310,6 @@ div#page_content div {
     }
   }
 
-  &.notice,
   &.result_query {
     margin-top: 1em;
   }
@@ -4279,4 +4156,58 @@ body {
 
 .card-body ul {
   padding-#{$left}: 0;
+}
+
+.alert {
+  text-align: $left;
+
+  a {
+    text-decoration: underline;
+  }
+
+  h1 {
+    margin-bottom: 0.2em;
+  }
+}
+
+.alert-primary {
+  color: $button-color;
+  background-color: $blue-header;
+  background-image: none;
+
+  a {
+    color: $button-color;
+  }
+
+  h1 {
+    color: $navi-color;
+  }
+}
+
+.alert-success {
+  color: $button-color;
+  background-color: $browse-success-color;
+  background-image: none;
+
+  a {
+    color: $button-color;
+  }
+
+  h1 {
+    color: $navi-color;
+  }
+}
+
+.alert-danger {
+  color: $button-color;
+  background-color: $browse-warning-color;
+  background-image: none;
+
+  a {
+    color: $button-color;
+  }
+
+  h1 {
+    color: $navi-color;
+  }
 }

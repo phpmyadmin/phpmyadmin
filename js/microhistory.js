@@ -94,7 +94,7 @@ var MicroHistory = {
             ! MicroHistory.menus.get(this.pages[localIndex].menu)
         ) {
             Functions.ajaxShowMessage(
-                '<div class="error">' + Messages.strInvalidPage + '</div>',
+                '<div class="alert alert-danger" role="alert">' + Messages.strInvalidPage + '</div>',
                 false
             );
         } else {

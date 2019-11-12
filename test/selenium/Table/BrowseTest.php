@@ -183,7 +183,7 @@ class BrowseTest extends TestBase
         $this->byId("buttonYes")->click();
 
         $this->waitAjax();
-        $success = $this->waitForElement('className', "success");
+        $success = $this->waitForElement('className', "alert-success");
         $this->assertStringContainsString("1 row affected", $success->getText());
 
         $this->assertEquals(
@@ -229,7 +229,7 @@ class BrowseTest extends TestBase
         $this->waitAjax();
         $success = $this->waitForElement(
             'cssSelector',
-            "span.ajax_notification div.success"
+            "span.ajax_notification .alert-success"
         );
         $this->assertStringContainsString("1 row affected", $success->getText());
 
@@ -274,7 +274,7 @@ class BrowseTest extends TestBase
         $this->waitForElement('id', "buttonYes")->click();
 
         $this->waitAjax();
-        $success = $this->waitForElement('className', "success");
+        $success = $this->waitForElement('className', "alert-success");
         $this->assertStringContainsString("1 row inserted", $success->getText());
 
         $this->assertEquals(
@@ -314,7 +314,7 @@ class BrowseTest extends TestBase
         $elem->click();
 
         $this->waitAjax();
-        $success = $this->waitForElement('className', "success");
+        $success = $this->waitForElement('className', "alert-success");
         $this->assertStringContainsString("Showing rows", $success->getText());
 
         $this->assertEquals(
@@ -346,7 +346,7 @@ class BrowseTest extends TestBase
         $this->byId("buttonYes")->click();
 
         $this->waitAjax();
-        $success = $this->waitForElement('className', "success");
+        $success = $this->waitForElement('className', "alert-success");
         $this->assertStringContainsString("Showing rows", $success->getText());
 
         $this->assertFalse(

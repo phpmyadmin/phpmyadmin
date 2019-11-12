@@ -153,7 +153,7 @@ class ErrorTest extends PmaTestCase
     public function testGetDisplay()
     {
         $this->assertStringContainsString(
-            '<div class="error"><strong>Warning</strong>',
+            '<div class="alert alert-danger" role="alert"><strong>Warning</strong>',
             $this->object->getDisplay()
         );
     }

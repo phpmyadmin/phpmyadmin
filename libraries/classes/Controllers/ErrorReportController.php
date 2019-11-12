@@ -139,9 +139,9 @@ class ErrorReportController extends AbstractController
                         $this->response->addJSON('errSubmitMsg', $msg);
                     }
                 } elseif ($_POST['exception_type'] == 'php') {
-                    $jsCode = 'Functions.ajaxShowMessage("<div class=\"error\">'
+                    $jsCode = 'Functions.ajaxShowMessage(\'<div class="alert alert-danger" role="alert">'
                         . $msg
-                        . '</div>", false);';
+                        . '</div>\', false);';
                     $this->response->getFooter()->getScripts()->addCode($jsCode);
                 }
 

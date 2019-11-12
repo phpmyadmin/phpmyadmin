@@ -79,7 +79,7 @@ class ChangePasswordTest extends TestBase
         }
 
         $this->byXpath("//button[contains(., 'Go')]")->click();
-        $ele = $this->waitForElement('cssSelector', "div.success");
+        $ele = $this->waitForElement('cssSelector', ".alert-success");
         $this->assertEquals(
             "The profile has been updated.",
             trim($ele->getText())

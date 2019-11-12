@@ -136,7 +136,7 @@ class ProceduresTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            "//div[@class='success' and contains(., "
+            "//div[@class='alert alert-success' and contains(., "
             . "'Routine `test_procedure` has been created')]"
         );
 
@@ -175,7 +175,7 @@ class ProceduresTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            "//div[@class='success' and contains(., "
+            "//div[@class='alert alert-success' and contains(., "
             . "'Routine `test_procedure` has been modified')]"
         );
 

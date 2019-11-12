@@ -355,7 +355,7 @@ AJAX.registerOnload('sql.js', function () {
         });
         textArea.value += '\t\t' + window.location.href;
         textArea.value += '\n';
-        $('.success').each(function () {
+        $('.alert-success').each(function () {
             textArea.value += $(this).text() + '\n\n';
         });
 
@@ -469,7 +469,7 @@ AJAX.registerOnload('sql.js', function () {
      * @memberOf    jQuery
      */
     $(document).on('click', '#button_submit_query', function () {
-        $('.success,.error').hide();
+        $('.alert-success,.alert-danger').hide();
         // hide already existing error or success message
         var $form = $(this).closest('form');
         // the Go button related to query submission was clicked,
@@ -568,7 +568,7 @@ AJAX.registerOnload('sql.js', function () {
         }
 
         // remove any div containing a previous error message
-        $('div.error').remove();
+        $('.alert-danger').remove();
 
         var $msgbox = Functions.ajaxShowMessage();
         var $sqlqueryresultsouter = $('#sqlqueryresultsouter');

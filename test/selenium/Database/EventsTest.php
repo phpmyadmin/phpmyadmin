@@ -119,7 +119,7 @@ class EventsTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            "//div[@class='success' and contains(., "
+            "//div[@class='alert alert-success' and contains(., "
             . "'Event `test_event` has been created')]"
         );
         $this->waitForElementNotPresent(
@@ -179,7 +179,7 @@ class EventsTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            "//div[@class='success' and contains(., "
+            "//div[@class='alert alert-success' and contains(., "
             . "'Event `test_event` has been modified')]"
         );
 

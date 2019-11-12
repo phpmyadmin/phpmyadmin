@@ -703,7 +703,7 @@ $js_messages['strTooManyInputs'] = __(
     . "max_input_vars configuration."
 );
 
-$js_messages['phpErrorsFound'] = '<div class="error">'
+$js_messages['phpErrorsFound'] = '<div class="alert alert-danger" role="alert">'
     . __('Some errors have been detected on the server!')
     . '<br>'
     . __('Please look at the bottom of this window.')
@@ -716,7 +716,7 @@ $js_messages['phpErrorsFound'] = '<div class="error">'
     . '" class="btn btn-secondary floatright message_errors_found">'
     . '</div></div>';
 
-$js_messages['phpErrorsBeingSubmitted'] = '<div class="error">'
+$js_messages['phpErrorsBeingSubmitted'] = '<div class="alert alert-danger" role="alert">'
     . __('Some errors have been detected on the server!')
     . '<br>'
     . __(

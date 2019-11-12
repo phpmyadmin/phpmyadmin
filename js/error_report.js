@@ -124,7 +124,7 @@ var ErrorReport = {
 
         var $div = $(
             '<div style="position:fixed;bottom:0;left:0;right:0;margin:0;' +
-            'z-index:1000" class="error" id="error_notification"></div>'
+            'z-index:1000" class="alert alert-danger" role="alert" id="error_notification"></div>'
         ).append(
             Functions.getImage('s_error') + Messages.strErrorOccurred
         );
