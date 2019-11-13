@@ -86,7 +86,6 @@ body {
   padding: 0;
   margin-#{$left}: $navi-width;
   color: $main-color;
-  background: $main-background;
   line-height: 1;
   font-size: 11px;
 }
@@ -117,7 +116,7 @@ body#loginform {
   }
 
   div.container {
-    color: $main-background;
+    color: $body-bg;
     text-align: $left;
     width: 48em;
     margin-#{$left}: auto;
@@ -127,7 +126,7 @@ body#loginform {
       /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
       font-family: 'IcoMoon';
       font-size: 220px;
-      color: $main-background;
+      color: $body-bg;
       content: "a";
       float: $left;
       margin-#{$right}: 20px;
@@ -144,7 +143,7 @@ body#loginform {
   h1 {
     display: inline-block;
     text-align: $left;
-    color: $main-background;
+    color: $body-bg;
     font-size: 2.5em;
     padding-top: 0;
     margin-#{$right}: -50%;
@@ -350,7 +349,7 @@ button.mult_submit {
 
   a {
     border: 1px solid $border-color;
-    background: $main-background;
+    background: $body-bg;
     padding: 4px 8px;
   }
 }
@@ -411,7 +410,7 @@ input {
     padding: 5px;
     margin: 6px;
     font-family: $font-family-base;
-    background-color: $main-background;
+    background-color: $body-bg;
 
     &:focus {
       border: 1px solid $navi-hover-background;
@@ -439,7 +438,7 @@ textarea {
   overflow: visible;
   border: 1px solid $browse-gray-color;
   color: $th-color;
-  background-color: $main-background;
+  background-color: $body-bg;
 }
 
 fieldset {
@@ -451,7 +450,7 @@ fieldset {
   fieldset {
     margin: 20px;
     margin-bottom: 0;
-    background-color: $main-background;
+    background-color: $body-bg;
     border: none;
   }
 }
@@ -498,7 +497,7 @@ select {
   padding: 4px;
   font-family: $font-family-base;
   margin: 5px;
-  background-color: $main-background;
+  background-color: $body-bg;
   max-width: 17em;
 
   &:focus {
@@ -786,12 +785,12 @@ table tr.hover:not(.nopointer) th {
 th.condition {
   border: 1px solid $browse-warning-color;
   background: $browse-warning-color;
-  color: $main-background !important;
+  color: $body-bg !important;
 
   a {
     border: 1px solid $browse-warning-color;
     background: $browse-warning-color;
-    color: $main-background !important;
+    color: $body-bg !important;
   }
 }
 
@@ -2058,7 +2057,7 @@ div.sqlvalidate,
   padding: 1em;
   margin: 1em;
   overflow: auto;
-  background-color: $main-background;
+  background-color: $body-bg;
   border: 1px solid $border-color;
   direction: ltr;
 }

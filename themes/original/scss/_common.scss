@@ -15,7 +15,6 @@ body {
   margin: 0;
   margin-#{$left}: 240px;
   color: $main-color;
-  background: $main-background;
 }
 
 #page_content {
@@ -837,7 +836,7 @@ ul {
 
     a.tab:hover,
     .tabactive {
-      background-color: $main-background;
+      background-color: $body-bg;
     }
   }
 
@@ -852,7 +851,7 @@ ul {
   }
 
   &#topmenu > li.active {
-    border-bottom: 1pt solid $main-background;
+    border-bottom: 1pt solid $body-bg;
   }
 }
 
@@ -2258,7 +2257,7 @@ input#auto_increment_opt {
   position: fixed;
   top: 44px;
   width: 100%;
-  background: $main-background;
+  background: $body-bg;
 }
 
 #table_columns {
