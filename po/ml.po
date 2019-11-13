@@ -24,20 +24,20 @@ msgstr ""
 #: index.php:48
 #, php-format
 msgid "Error 404! The page %s was not found."
-msgstr ""
+msgstr "404 എറർ! പേജ് കണ്ടെത്താനായില്ല.
 
 #: index.php:55
 msgid "Error 405! Request method not allowed."
-msgstr ""
+msgstr "അഭ്യർത്ഥിച്ച രീതി അനുവദിനീയമല്ല "
 
 #: js/messages.php:45
 msgid "Confirm"
-msgstr ""
+msgstr "സ്ഥിരീകരിക്കുക"
 
 #: js/messages.php:46
 #, php-format
 msgid "Do you really want to execute \"%s\"?"
-msgstr ""
+msgstr "താങ്കൾക്ക്  ഇത് എക്സിക്യൂട്ട് ചെയ്യണമെന്ന് ഉറപ്പാണോ ?"
 
 #: js/messages.php:48 libraries/classes/MultSubmits.php:516
 msgid "You are about to DESTROY a complete database!"
@@ -57,19 +57,19 @@ msgstr ""
 
 #: js/messages.php:55
 msgid "Delete tracking data for this table?"
-msgstr ""
+msgstr "ഈ ടേബിളിന്റെ ട്രാക്കിംഗ് ഡാറ്റ ഇല്ലാതാക്കണോ ?"
 
 #: js/messages.php:57
 msgid "Delete tracking data for these tables?"
-msgstr ""
+msgstr "ഈ ടേബിളുകളുടെ  ട്രാക്കിംഗ് ഡാറ്റ ഇല്ലാതാക്കണോ ?"
 
 #: js/messages.php:59
 msgid "Delete tracking data for this version?"
-msgstr ""
+msgstr "ഈ വേർഷൻറെ ട്രാക്കിംഗ് ഡാറ്റ ഇല്ലാതാക്കണോ ?"
 
 #: js/messages.php:61
 msgid "Delete tracking data for these versions?"
-msgstr ""
+msgstr "ഈ വേർഷനുകളുടെ   ട്രാക്കിംഗ് ഇല്ലാതാക്കണോ ?"
 
 #: js/messages.php:62
 msgid "Delete entry from tracking report?"
@@ -85,7 +85,7 @@ msgstr ""
 
 #: js/messages.php:65
 msgid "Dropping Foreign key."
-msgstr ""
+msgstr "ഫോറിൻ കീ ഉപേക്ഷിക്കുന്നു"
 
 #: js/messages.php:67
 msgid "This operation could take a long time. Proceed anyway?"
