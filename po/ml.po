@@ -24,11 +24,11 @@ msgstr ""
 #: index.php:48
 #, php-format
 msgid "Error 404! The page %s was not found."
-msgstr "404 എറർ! പേജ് കണ്ടെത്താനായില്ല.
+msgstr "404 എറർ! പേജ് %s കണ്ടെത്താനായില്ല."
 
 #: index.php:55
 msgid "Error 405! Request method not allowed."
-msgstr "അഭ്യർത്ഥിച്ച രീതി അനുവദിനീയമല്ല "
+msgstr "അഭ്യർത്ഥിച്ച രീതി അനുവദിനീയമല്ല."
 
 #: js/messages.php:45
 msgid "Confirm"
@@ -37,7 +37,7 @@ msgstr "സ്ഥിരീകരിക്കുക"
 #: js/messages.php:46
 #, php-format
 msgid "Do you really want to execute \"%s\"?"
-msgstr "താങ്കൾക്ക്  ഇത് എക്സിക്യൂട്ട് ചെയ്യണമെന്ന് ഉറപ്പാണോ ?"
+msgstr "താങ്കൾക്ക് ഇത് എക്സിക്യൂട്ട് ചെയ്യണമെന്ന് ഉറപ്പാണോ \"%s\"?"
 
 #: js/messages.php:48 libraries/classes/MultSubmits.php:516
 msgid "You are about to DESTROY a complete database!"
@@ -57,19 +57,19 @@ msgstr ""
 
 #: js/messages.php:55
 msgid "Delete tracking data for this table?"
-msgstr "ഈ ടേബിളിന്റെ ട്രാക്കിംഗ് ഡാറ്റ ഇല്ലാതാക്കണോ ?"
+msgstr "ഈ ടേബിളിന്റെ ട്രാക്കിംഗ് ഡാറ്റ ഇല്ലാതാക്കണോ?"
 
 #: js/messages.php:57
 msgid "Delete tracking data for these tables?"
-msgstr "ഈ ടേബിളുകളുടെ  ട്രാക്കിംഗ് ഡാറ്റ ഇല്ലാതാക്കണോ ?"
+msgstr "ഈ ടേബിളുകളുടെ ട്രാക്കിംഗ് ഡാറ്റ ഇല്ലാതാക്കണോ?"
 
 #: js/messages.php:59
 msgid "Delete tracking data for this version?"
-msgstr "ഈ വേർഷൻറെ ട്രാക്കിംഗ് ഡാറ്റ ഇല്ലാതാക്കണോ ?"
+msgstr "ഈ വേർഷൻറെ ട്രാക്കിംഗ് ഡാറ്റ ഇല്ലാതാക്കണോ?"
 
 #: js/messages.php:61
 msgid "Delete tracking data for these versions?"
-msgstr "ഈ വേർഷനുകളുടെ ട്രാക്കിംഗ് ഡാറ്റ ഇല്ലാതാക്കണോ ?"
+msgstr "ഈ വേർഷനുകളുടെ ട്രാക്കിംഗ് ഡാറ്റ ഇല്ലാതാക്കണോ?"
 
 #: js/messages.php:62
 msgid "Delete entry from tracking report?"
@@ -81,7 +81,7 @@ msgstr ""
 
 #: js/messages.php:64
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "പ്രൈമറി കീ /ഇൻഡക്സ് ഉപേക്ഷിക്കുന്നു"
 
 #: js/messages.php:65
 msgid "Dropping Foreign key."
@@ -213,7 +213,7 @@ msgstr ""
 
 #: js/messages.php:125
 msgid "Edit index"
-msgstr ""
+msgstr "ഇൻഡക്സ് തിരുത്തുക "
 
 #: js/messages.php:126 templates/table/index_form.twig:215
 #, php-format
@@ -257,7 +257,7 @@ msgstr "തരംതിരിക്കുക"
 
 #: js/messages.php:138 libraries/classes/Util.php:609
 msgid "SQL query:"
-msgstr ""
+msgstr "എസ് ക്യൂ എൽ  ക്വറി "
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:142
@@ -272,11 +272,11 @@ msgstr ""
 
 #: js/messages.php:148
 msgid "The host name is empty!"
-msgstr ""
+msgstr "ഹോസ്റ്റിന്റെ പേര് ശൂന്യമാണ് "
 
 #: js/messages.php:149
 msgid "The user name is empty!"
-msgstr ""
+msgstr "യൂസറിന്റെ  പേര് ശൂന്യമാണ് "
 
 #: js/messages.php:150 libraries/classes/Server/Privileges.php:1060
 #: libraries/classes/UserPassword.php:82
@@ -488,11 +488,11 @@ msgstr ""
 #: libraries/classes/Util.php:4166
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
-msgstr ""
+msgstr "ക്രമീകരണങ്ങൾ"
 
 #: js/messages.php:219
 msgid "Add chart to grid"
-msgstr ""
+msgstr "ചാർട്ടിനെ ഗ്രിഡിന്റെ കൂടെ ചേർക്കുക"
 
 #: js/messages.php:222
 msgid "Please add at least one variable to the series!"
@@ -1080,11 +1080,11 @@ msgstr ""
 
 #: js/messages.php:400
 msgid "Searching"
-msgstr ""
+msgstr "തിരഞ്ഞകൊണ്ടിരിക്കുന്നു"
 
 #: js/messages.php:401
 msgid "Hide search results"
-msgstr ""
+msgstr "തിരയൽ ഫലങ്ങൾ മറയ്ക്കുക"
 
 #: js/messages.php:402
 msgid "Show search results"
