@@ -69,7 +69,7 @@ msgstr "ഈ വേർഷൻറെ ട്രാക്കിംഗ് ഡാറ്
 
 #: js/messages.php:61
 msgid "Delete tracking data for these versions?"
-msgstr "ഈ വേർഷനുകളുടെ   ട്രാക്കിംഗ് ഇല്ലാതാക്കണോ ?"
+msgstr "ഈ വേർഷനുകളുടെ ട്രാക്കിംഗ് ഡാറ്റ ഇല്ലാതാക്കണോ ?"
 
 #: js/messages.php:62
 msgid "Delete entry from tracking report?"
