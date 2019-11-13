@@ -1,11 +1,6 @@
 // configures general layout for detailed layout configuration please refer to the css files
 
 $navi-width: 250px;
-$font-family: "Open Sans", "Segoe UI", sans-serif;
-$font-family-light: "Open Sans Light", "Segoe UI Light", "Segoe UI", sans-serif;
-$font-family-bold: "Open Sans Bold", sans-serif;
-$font-family-extra-bold: "Open Sans Extrabold", "Segoe Black", sans-serif;
-$font-family-fixed: Consolas, "Lucida Grande", monospace;
 
 // Theme color scheme
 // Values: "teal", "redmond", "blueeyes", "mono", "win"
@@ -151,21 +146,37 @@ $blue-header: #3a7ead;
 }
 
 // Bootstrap
+// ---------
+
+// Typography
+
+$font-family-base: "Open Sans", "Segoe UI", sans-serif;
+$font-family-monospace: Consolas, "Lucida Grande", monospace;
+
+$font-family-light: "Open Sans Light", "Segoe UI Light", "Segoe UI", sans-serif;
+$font-family-bold: "Open Sans Bold", sans-serif;
+$font-family-extra-bold: "Open Sans Extrabold", "Segoe Black", sans-serif;
+
+$font-size-base: 0.8rem;
+
+// Buttons
 
 $enable-transitions: false;
 
 $primary: $browse-pointer-color;
 $secondary: $browse-gray-color;
 
-$font-size-base: 0.8rem;
-
 $btn-border-radius: 0;
 $btn-line-height: 1;
 $btn-padding-x: 0.5rem;
 
+// Card
+
 $card-border-width: 0;
 $card-cap-color: $navi-background;
 $card-cap-bg: $main-background;
+
+// Alert
 
 $alert-margin-bottom: 1em;
 $alert-border-radius: 0;

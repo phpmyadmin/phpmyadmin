@@ -1,5 +1,4 @@
 body {
-  font-family: $font-family;
   padding: 0;
   margin: 0;
   margin-#{$left}: $navi-width;
@@ -19,7 +18,7 @@ textarea,
 tt,
 pre,
 code {
-  font-family: $font-family-fixed;
+  font-family: $font-family-monospace;
 }
 
 h2 {
@@ -671,7 +670,7 @@ table {
 }
 
 .value {
-  font-family: $font-family-fixed;
+  font-family: $font-family-monospace;
 }
 
 .attention {
@@ -2356,7 +2355,7 @@ table#index_columns {
       border: 0 #c83838 solid;
       border-width: 1px 0;
       list-style: none;
-      font-family: $font-family;
+      font-family: $font-family-base;
       font-size: small;
     }
 
@@ -2396,7 +2395,7 @@ table#index_columns {
       small {
         display: block;
         font-weight: normal;
-        font-family: $font-family;
+        font-family: $font-family-base;
         font-size: x-small;
         color: #444;
       }

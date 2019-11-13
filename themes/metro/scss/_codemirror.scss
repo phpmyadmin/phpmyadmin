@@ -4,7 +4,7 @@ $textarea-cols: 40 !default;
 $textarea-rows: 15 !default;
 
 .CodeMirror {
-  font-family: $font-family-fixed !important;
+  font-family: $font-family-monospace !important;
   height: ceil($textarea-rows * 1.2em);
   border: 1px solid #ccc;
   direction: ltr;
@@ -15,7 +15,7 @@ $textarea-rows: 15 !default;
 }
 
 .CodeMirror * {
-  font-family: $font-family-fixed;
+  font-family: $font-family-monospace;
 }
 
 #inline_editor_outer .CodeMirror {

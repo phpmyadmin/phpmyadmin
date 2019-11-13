@@ -83,7 +83,6 @@ textarea {
 }
 
 body {
-  font-family: $font-family;
   padding: 0;
   margin-#{$left}: $navi-width;
   color: $main-color;
@@ -197,7 +196,7 @@ body#loginform {
     background: $navi-background;
     color: $navi-color;
     padding-#{$left}: 0 !important;
-    font-family: $font-family;
+    font-family: $font-family-base;
     min-width: 100%;
 
     &:hover {
@@ -249,7 +248,7 @@ textarea,
 tt,
 pre,
 code {
-  font-family: $font-family-fixed !important;
+  font-family: $font-family-monospace !important;
 }
 
 h1 {
@@ -411,7 +410,7 @@ input {
     color: $th-color;
     padding: 5px;
     margin: 6px;
-    font-family: $font-family;
+    font-family: $font-family-base;
     background-color: $main-background;
 
     &:focus {
@@ -497,7 +496,7 @@ select {
   border: 1px solid $browse-gray-color;
   color: $th-color;
   padding: 4px;
-  font-family: $font-family;
+  font-family: $font-family-base;
   margin: 5px;
   background-color: $main-background;
   max-width: 17em;
@@ -822,7 +821,7 @@ table {
 }
 
 .value {
-  font-family: $font-family-fixed;
+  font-family: $font-family-monospace;
 }
 
 .attention {
@@ -1275,14 +1274,14 @@ div#tablestatistics table {
   overflow: hidden;
   margin: 0;
   margin-#{$left}: -1em;
-  font-family: $font-family;
+  font-family: $font-family-base;
   color: $button-color;
   background: $navi-background;
   height: 15px;
   box-sizing: content-box;
 
   .item {
-    font-family: $font-family;
+    font-family: $font-family-base;
     white-space: nowrap;
     color: $button-color;
 
@@ -1352,7 +1351,7 @@ div#tablestatistics table {
 #textSQLDUMP {
   width: 95%;
   height: 95%;
-  font-family: $font-family-fixed;
+  font-family: $font-family-monospace;
   font-size: 110%;
 }
 
@@ -4061,7 +4060,7 @@ body {
     }
 
     .ui-dialog-buttonpane button {
-      font-family: $font-family;
+      font-family: $font-family-base;
       color: $button-color;
       background-color: $navi-background;
       background-image: none;

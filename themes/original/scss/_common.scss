@@ -11,7 +11,6 @@ textarea {
 }
 
 body {
-  font-family: $font-family;
   padding: 0;
   margin: 0;
   margin-#{$left}: 240px;
@@ -31,7 +30,7 @@ textarea,
 tt,
 pre,
 code {
-  font-family: $font-family-fixed;
+  font-family: $font-family-monospace;
 }
 
 h1 {
@@ -390,7 +389,7 @@ table {
 }
 
 .value {
-  font-family: $font-family-fixed;
+  font-family: $font-family-monospace;
 }
 
 .attention {
@@ -984,7 +983,7 @@ div#tablestatistics table {
 #textSQLDUMP {
   width: 95%;
   height: 95%;
-  font-family: $font-family-fixed;
+  font-family: $font-family-monospace;
   font-size: 110%;
 }
 

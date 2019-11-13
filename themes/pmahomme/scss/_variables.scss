@@ -38,14 +38,6 @@ $browse-marker-color: #000;
 // background of the marker (visually marks row by clicking on it) in browse mode
 $browse-marker-background: #fc9;
 
-// fonts
-
-// the font family as a valid css font family value, if not set the browser default will be
-// used (depending on browser, DTD and system settings)
-$font-family: sans-serif;
-// fixed width font family, used in textarea
-$font-family-fixed: monospace;
-
 // tables
 
 // border
@@ -60,6 +52,14 @@ $bg-one: #e5e5e5;
 $bg-two: #d5d5d5;
 
 // Bootstrap
+// ---------
+
+// Typography
+
+$font-family-base: sans-serif;
+$font-family-monospace: monospace;
+
+// Buttons
 
 $enable-gradients: true;
 $enable-shadows: true;
@@ -71,10 +71,14 @@ $secondary: #ddd;
 $btn-border-radius: 0.85rem;
 $btn-line-height: 1.15;
 
+// Card
+
 $card-border-color: #999;
 $card-bg: #f3f3f3;
 $card-cap-bg: #bbb;
 $card-cap-color: #fff;
+
+// Alert
 
 $alert-margin-bottom: 0.5em;
 $alert-border-radius: 5px;
