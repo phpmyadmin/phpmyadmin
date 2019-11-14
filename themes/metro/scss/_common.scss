@@ -71,11 +71,6 @@
   display: none;
 }
 
-/* general tags */
-html {
-  font-size: 100%;
-}
-
 input,
 select,
 textarea {
@@ -83,10 +78,7 @@ textarea {
 }
 
 body {
-  padding: 0;
-  margin-#{$left}: $navi-width;
-  line-height: 1;
-  font-size: 11px;
+  text-align: $left;
 }
 
 /* Override style formats by html tags */

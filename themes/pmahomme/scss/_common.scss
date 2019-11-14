@@ -1,12 +1,3 @@
-/**
- * Common styles for the pmahomme theme
- */
-
-/* general tags */
-html {
-  font-size: 82%;
-}
-
 input,
 select,
 textarea {
@@ -14,9 +5,7 @@ textarea {
 }
 
 body {
-  padding: 0;
-  margin: 0;
-  margin-#{$left}: $navi-width;
+  text-align: $left;
 }
 
 #page_content {
