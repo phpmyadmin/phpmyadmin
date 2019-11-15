@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-11-09 15:36+0100\n"
-"PO-Revision-Date: 2019-10-23 21:53+0000\n"
+"PO-Revision-Date: 2019-11-16 15:04+0000\n"
 "Last-Translator: Marino <mrabach@gmail.com>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "hr/>\n"
@@ -12,9 +12,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.10-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -39,7 +39,7 @@ msgstr "Kliknite za sortiranje."
 #: db_central_columns.php:177
 #, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr "Prikazivanje redaka  %1$s - %2$s."
+msgstr "Prikazivanje redova  %1$s - %2$s."
 
 #: db_datadict.php:61 libraries/classes/Operations.php:60
 msgid "Database comment"
@@ -331,11 +331,11 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
 "Pohrana konfiguracije za phpMyAdmin je deaktivirana. Kako biste saznali "
-"razloge deaktivacije, kliknite %s ovdje %s."
+"razloge deaktivacije, kliknite %sovdje%s."
 
 #: db_qbe.php:133
 msgid "You have to choose at least one column to display!"
-msgstr "Morate odabrati najmanje jedan stupac za prikazivanje!"
+msgstr "Morate odabrati najmanje jedan stupac za prikaz!"
 
 #: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
 msgid "Multi-table query"
