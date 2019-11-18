@@ -1380,6 +1380,7 @@ class Sql
      * @param DisplayResults $displayResultsObject DisplayResult instance
      * @param array|null     $extra_data           extra data
      * @param string         $pmaThemeImage        uri of the theme image
+     * @param array|null     $profiling_results    profiling results
      * @param object         $result               executed query results
      * @param string         $sql_query            sql query
      * @param string|null    $complete_query       complete sql query
@@ -1395,6 +1396,7 @@ class Sql
         $displayResultsObject,
         ?array $extra_data,
         $pmaThemeImage,
+        ?array $profiling_results,
         $result,
         $sql_query,
         ?string $complete_query
@@ -1465,6 +1467,17 @@ class Sql
                     $analyzed_sql_results,
                     true
                 );
+
+                if (is_array($profiling_results)) {
+                    $header   = $response->getHeader();
+                    $scripts  = $header->getScripts();
+                    $scripts->addFile('sql.js');
+                    $html_output .= $this->getHtmlForProfilingChart(
+                        $url_query,
+                        $db,
+                        $profiling_results
+                    );
+                }
 
                 $html_output .= $displayResultsObject->getCreateViewQueryResultOp(
                     $analyzed_sql_results
@@ -2229,6 +2242,7 @@ class Sql
                 $displayResultsObject,
                 $extra_data,
                 $pmaThemeImage,
+                $profiling_results,
                 isset($result) ? $result : null,
                 $sql_query,
                 isset($complete_query) ? $complete_query : null
