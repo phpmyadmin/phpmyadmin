@@ -1533,11 +1533,16 @@ EOT;
                     $analyzed_sql_results, true
                 );
 
-                $html_output .= $this->getHtmlForProfilingChart(
-                    $url_query,
-                    $db,
-                    isset($profiling_results) ? $profiling_results : []
-                );
+                if (isset($profiling_results)) {
+                    $header   = $response->getHeader();
+                    $scripts  = $header->getScripts();
+                    $scripts->addFile('sql.js');
+                    $html_output .= $this->getHtmlForProfilingChart(
+                        $url_query,
+                        $db,
+                        isset($profiling_results) ? $profiling_results : []
+                    );
+                }
 
                 $html_output .= $displayResultsObject->getCreateViewQueryResultOp(
                     $analyzed_sql_results
