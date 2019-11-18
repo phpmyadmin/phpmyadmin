@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-11-09 15:36+0100\n"
-"PO-Revision-Date: 2019-11-18 22:33+0000\n"
+"PO-Revision-Date: 2019-11-18 22:41+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Malayalam <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ml/>\n"
@@ -318,7 +318,7 @@ msgstr ""
 #: db_operations.php:156
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "%s എന്ന വിവരശേഖരം %s എന്ന പേരിലേക്ക് മാറ്റിയിരിക്കുന്നു"
+msgstr "%1$s എന്ന വിവരശേഖരം %2$s എന്ന പേരിലേക്ക് മാറ്റിയിരിക്കുന്നു"
 
 #: db_operations.php:168
 #, fuzzy, php-format
@@ -350,7 +350,7 @@ msgstr "ഉദാഹരണം ഉപയോഗിച്ച് കോറി നി
 #: db_qbe.php:168
 #, php-format
 msgid "Switch to %svisual builder%s"
-msgstr "ദൃഷ്ടിഗോചരമായ ജാലകത്തിലേക്കു മാറുക"
+msgstr "ദൃഷ്ടിഗോചരമായ %sജാലകത്തിലേക്കു മാറുക%s"
 
 #: db_search.php:32 libraries/classes/Plugins/Auth/AuthenticationConfig.php:84
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:99
