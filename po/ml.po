@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-11-09 15:49+0100\n"
-"PO-Revision-Date: 2019-11-18 22:33+0000\n"
+"PO-Revision-Date: 2019-11-18 22:41+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Malayalam <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ml/>\n"
@@ -12250,10 +12250,9 @@ msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
 
 #: libraries/entry_points/database/operations.php:172
-#, fuzzy, php-format
-#| msgid "Database %s has been renamed to %s."
+#, php-format
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "%s എന്ന വിവരശേഖരം %s എന്ന പേരിലേക്ക് മാറ്റിയിരിക്കുന്നു"
+msgstr "%1$s എന്ന വിവരശേഖരം %2$s എന്ന പേരിലേക്ക് മാറ്റിയിരിക്കുന്നു"
 
 #: libraries/entry_points/database/operations.php:184
 #, fuzzy, php-format
@@ -12289,7 +12288,7 @@ msgstr ""
 #: libraries/entry_points/database/qbe.php:182
 #, php-format
 msgid "Switch to %svisual builder%s"
-msgstr ""
+msgstr "ദൃഷ്ടിഗോചരമായ %sജാലകത്തിലേക്കു മാറുക%s"
 
 #: libraries/entry_points/database/tracking.php:64
 #: libraries/entry_points/database/tracking.php:84
