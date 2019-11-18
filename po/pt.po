@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-11-09 15:49+0100\n"
-"PO-Revision-Date: 2019-09-27 16:25+0000\n"
-"Last-Translator: Manuela Silva <mmsrs@sky.com>\n"
+"PO-Revision-Date: 2019-11-18 22:33+0000\n"
+"Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
 "Language: pt\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9-dev\n"
+"X-Generator: Weblate 3.10-dev\n"
 
 #: import_status.php:51
 msgid "Could not load the progress of the import."
@@ -44,7 +44,7 @@ msgstr "Estará prestes a DESTRUIR uma base de dados completa!"
 #: js/messages.php:50
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
-"Não é possível renomear a base de dados com o mesmo nome. Altere o nome e "
+"Não é possível renomear o banco de dados com o mesmo nome. Troque o nome e "
 "tente novamente"
 
 #: js/messages.php:52
