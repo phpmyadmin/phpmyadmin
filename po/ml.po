@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-11-09 15:49+0100\n"
-"PO-Revision-Date: 2018-07-23 11:06+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2019-11-18 22:33+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Malayalam <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ml/>\n"
 "Language: ml\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.1-dev\n"
+"X-Generator: Weblate 3.10-dev\n"
 
 #: import_status.php:51
 msgid "Could not load the progress of the import."
@@ -12266,6 +12266,8 @@ msgstr "%s എന്ന വിവരശേഖരം %s എന്ന പേരി
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
+"ഈ phpMyAdmin കോൺഫിഗറേഷൻ സംഭരണം നിർജ്ജീവമാക്കി. \n"
+"%sഎന്തുകൊണ്ടെന്ന് കണ്ടെത്തുക%s."
 
 #: libraries/entry_points/database/qbe.php:147
 #, fuzzy
