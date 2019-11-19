@@ -619,13 +619,15 @@ function Add_Other_db_tables () {
         }, function (data) {
             var $newTableDom = $(data.message);
             $newTableDom.find('a').first().remove();
-            $('#container-form').append($newTableDom);
-            enableTableEvents(null, $newTableDom);
-            addTableToTablesList(null, $newTableDom);
             var dbEncoded = $($newTableDom).find('.small_tab_pref').attr('db_url');
             var tableEncoded = $($newTableDom).find('.small_tab_pref').attr('table_name_url');
-            j_tabs[dbEncoded + '.' + tableEncoded] = 1;
-            MarkUnsaved();
+            if (typeof dbEncoded === 'string' && typeof tableEncoded === 'string' ) { // Do not try to add if attr not found !
+                $('#container-form').append($newTableDom);
+                enableTableEvents(null, $newTableDom);
+                addTableToTablesList(null, $newTableDom);
+                j_tabs[dbEncoded + '.' + tableEncoded] = 1;
+                MarkUnsaved();
+            }
         });
         $(this).dialog('close');
     };
