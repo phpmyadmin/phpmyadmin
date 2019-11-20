@@ -63,22 +63,8 @@
   font-style: normal;
 }
 
-*:focus {
-  outline: none;
-}
-
 #li_select_fontsize {
   display: none;
-}
-
-input,
-select,
-textarea {
-  font-size: 1em;
-}
-
-body {
-  text-align: $left;
 }
 
 /* Override style formats by html tags */
@@ -232,12 +218,6 @@ form.login label {
 
 #page_content {
   margin: 20px !important;
-}
-
-textarea,
-pre,
-code {
-  font-family: $font-family-monospace !important;
 }
 
 h1 {
