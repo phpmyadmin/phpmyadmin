@@ -82,6 +82,16 @@ class DesignerTable
     }
 
     /**
+     * Get the displayed field
+     *
+     * @return string
+     */
+    public function getDisplayField()
+    {
+        return $this->displayField;
+    }
+
+    /**
      * Get the db and table separated with a dot
      *
      * @return string

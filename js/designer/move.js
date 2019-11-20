@@ -1281,15 +1281,34 @@ DesignerMove.clickField = function (db, T, f, pk) {
     }
 
     if (onDisplayField) {
+        var fieldNameToSend = decodeURIComponent(f);
+        var newDisplayFieldClass = 'tab_field';
+        var oldTabField = document.getElementById('id_tr_' + T + '.' + displayField[T]);
         // if is display field
-        if (displayField[T] === f) {
+        if (displayField[T] === f) {// The display field is already the one defined, user wants to remove it
+            newDisplayFieldClass = 'tab_field';
             delete displayField[T];
+            if (oldTabField) {// Clear the style
+                // Set display field class on old item
+                oldTabField.className = 'tab_field';
+            }
+            fieldNameToSend = '';
         } else {
-            if (displayField[T]) {
-                document.getElementById('id_tr_' + T + '.' + displayField[T]).className = 'tab_field';
+            newDisplayFieldClass = 'tab_field_3';
+            if (displayField[T]) { // Had a previous one, clear it
+                if (oldTabField) {
+                    // Set display field class on old item
+                    oldTabField.className = 'tab_field';
+                }
                 delete displayField[T];
             }
             displayField[T] = f;
+
+            var tabField = document.getElementById('id_tr_' + T + '.' + displayField[T]);
+            if (tabField) {
+                // Set new display field class
+                tabField.className = newDisplayFieldClass;
+            }
         }
         onDisplayField = 0;
         document.getElementById('designer_hint').innerHTML = '';
@@ -1304,7 +1323,7 @@ DesignerMove.clickField = function (db, T, f, pk) {
                 'server': server,
                 'db': db,
                 'table': T,
-                'field': f
+                'field': fieldNameToSend
             },
             function (data) {
                 if (data.success === false) {
