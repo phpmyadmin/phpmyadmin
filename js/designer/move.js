@@ -72,7 +72,6 @@ var Glob_Y;
 var timeoutID;
 var layer_menu_cur_click = 0;
 var step = 10;
-var old_class;
 var from_array = [];
 var downer;
 var menu_moved = false;
@@ -1301,17 +1300,34 @@ function Click_field (db, T, f, PK) {
     }
 
     if (ON_display_field) {
+        var fieldNameToSend = decodeURIComponent(f);
+        var newDisplayFieldClass = 'tab_field';
+        var oldTabField = document.getElementById('id_tr_' + T + '.' + display_field[T]);
         // if is display field
-        if (display_field[T] === f) {
-            old_class = 'tab_field';
+        if (display_field[T] === f) {// The display field is already the one defined, user wants to remove it
+            newDisplayFieldClass = 'tab_field';
             delete display_field[T];
+            if (oldTabField) {// Clear the style
+                // Set display field class on old item
+                oldTabField.className = 'tab_field';
+            }
+            fieldNameToSend = '';
         } else {
-            old_class = 'tab_field_3';
-            if (display_field[T]) {
-                document.getElementById('id_tr_' + T + '.' + display_field[T]).className = 'tab_field';
+            newDisplayFieldClass = 'tab_field_3';
+            if (display_field[T]) { // Had a previous one, clear it
+                if (oldTabField) {
+                    // Set display field class on old item
+                    oldTabField.className = 'tab_field';
+                }
                 delete display_field[T];
             }
             display_field[T] = f;
+
+            var tabField = document.getElementById('id_tr_' + T + '.' + display_field[T]);
+            if (tabField) {
+                // Set new display field class
+                tabField.className = newDisplayFieldClass;
+            }
         }
         ON_display_field = 0;
         document.getElementById('designer_hint').innerHTML = '';
@@ -1320,7 +1336,7 @@ function Click_field (db, T, f, PK) {
 
         var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
         $.post('db_designer.php',
-            { operation: 'setDisplayField', ajax_request: true, server: server, db: db, table: T, field: f },
+            { operation: 'setDisplayField', ajax_request: true, server: server, db: db, table: T, field: fieldNameToSend },
             function (data) {
                 if (data.success === false) {
                     PMA_ajaxShowMessage(data.error, false);
