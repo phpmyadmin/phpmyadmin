@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-11-09 15:36+0100\n"
+"POT-Creation-Date: 2019-11-20 12:39+0100\n"
 "PO-Revision-Date: 2019-04-28 17:19+0000\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/4-8/nl/"
@@ -47,8 +47,8 @@ msgstr "Databasecommentaar"
 
 #: db_datadict.php:108
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:596
-#: templates/table/structure/display_table_stats.twig:6
 #: templates/columns_definitions/column_definitions_form.twig:72
+#: templates/table/structure/display_table_stats.twig:6
 msgid "Table comments:"
 msgstr "Tabelopmerkingen:"
 
@@ -65,19 +65,19 @@ msgstr "Tabelopmerkingen:"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:512
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:629
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:652
+#: templates/table/tracking/structure_snapshot_columns.twig:6
+#: templates/table/search/table_header.twig:6
 #: templates/table/tracking/structure_snapshot_indexes.twig:9
+#: templates/table/relation/foreign_key_row.twig:122
+#: templates/table/relation/foreign_key_row.twig:132
+#: templates/table/index_form.twig:115
 #: templates/table/relation/common_form.twig:14
 #: templates/table/relation/common_form.twig:19
 #: templates/table/relation/common_form.twig:34
 #: templates/table/relation/common_form.twig:109
-#: templates/table/search/table_header.twig:6
 #: templates/columns_definitions/column_name.twig:16
-#: templates/table/tracking/structure_snapshot_columns.twig:6
-#: templates/table/search/zoom_result_form.twig:34
-#: templates/table/index_form.twig:115
-#: templates/table/relation/foreign_key_row.twig:122
-#: templates/table/relation/foreign_key_row.twig:132
 #: templates/table/relation/internal_relational_row.twig:24
+#: templates/table/search/zoom_result_form.twig:34
 msgid "Column"
 msgstr "Kolom"
 
@@ -99,12 +99,12 @@ msgstr "Kolom"
 #: libraries/classes/Rte/Routines.php:1623 libraries/classes/Rte/RteList.php:90
 #: libraries/classes/Rte/RteList.php:118
 #: libraries/classes/Server/Privileges.php:2577
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/database/structure/table_header.twig:32
-#: templates/table/search/table_header.twig:7
-#: templates/table/structure/table_structure_header.twig:6
 #: templates/table/tracking/structure_snapshot_columns.twig:7
 #: templates/columns_definitions/table_fields_definitions.twig:12
+#: templates/table/search/table_header.twig:7
+#: templates/database/structure/table_header.twig:32
+#: templates/table/tracking/structure_snapshot_indexes.twig:6
+#: templates/table/structure/table_structure_header.twig:6
 msgid "Type"
 msgstr "Type"
 
@@ -121,11 +121,11 @@ msgstr "Type"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:516
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:632
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:655
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/search/zoom_result_form.twig:35
 #: templates/columns_definitions/table_fields_definitions.twig:30
+#: templates/table/tracking/structure_snapshot_indexes.twig:12
+#: templates/table/search/zoom_result_form.twig:35
+#: templates/table/structure/table_structure_header.twig:9
 msgid "Null"
 msgstr "Leeg"
 
@@ -142,10 +142,10 @@ msgstr "Leeg"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:633
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:656
 #: libraries/classes/ReplicationGui.php:165
-#: templates/table/structure/table_structure_header.twig:10
 #: templates/table/tracking/structure_snapshot_columns.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
 #: templates/database/structure/body_for_table_summary.twig:54
+#: templates/table/structure/table_structure_header.twig:10
 msgid "Default"
 msgstr "Standaardwaarde"
 
@@ -169,18 +169,18 @@ msgstr "Verwijst naar"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:534
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:646
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:659
-#: templates/table/structure/table_structure_header.twig:12
 #: templates/columns_definitions/table_fields_definitions.twig:54
+#: templates/table/structure/table_structure_header.twig:12
 msgid "Comments"
 msgstr "Opmerkingen"
 
 #: db_datadict.php:156
-#: libraries/classes/Controllers/Table/TableStructureController.php:1227
-#: libraries/classes/Controllers/Table/TableStructureController.php:1232
-#: templates/table/structure/display_structure.twig:61
-#: templates/columns_definitions/column_indexes.twig:4
+#: libraries/classes/Controllers/Table/TableStructureController.php:1231
+#: libraries/classes/Controllers/Table/TableStructureController.php:1236
 #: templates/table/tracking/structure_snapshot_columns.twig:25
 #: templates/table/structure/check_all_table_column.twig:33
+#: templates/table/structure/display_structure.twig:61
+#: templates/columns_definitions/column_indexes.twig:4
 msgid "Primary"
 msgstr "Primaire sleutel"
 
@@ -199,14 +199,14 @@ msgstr "Primaire sleutel"
 #: libraries/classes/Server/Privileges.php:3010
 #: libraries/classes/Server/Privileges.php:3674
 #: libraries/classes/Server/Privileges.php:3703 prefs_manage.php:145
+#: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
-#: templates/prefs_autoload.twig:12
-#: templates/table/tracking/structure_snapshot_columns.twig:33
-#: templates/table/structure/table_structure_row.twig:25
 #: templates/privileges/privileges_summary_row.twig:4
 #: templates/privileges/privileges_summary_row.twig:7
 #: templates/privileges/privileges_summary_row.twig:9
+#: templates/prefs_autoload.twig:12
+#: templates/table/structure/table_structure_row.twig:25
 msgid "No"
 msgstr "Nee"
 
@@ -214,12 +214,12 @@ msgstr "Nee"
 #: libraries/classes/CentralColumns.php:998
 #: libraries/classes/Config/FormDisplayTemplate.php:281
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:200
-#: libraries/classes/Controllers/Table/TableStructureController.php:795
-#: libraries/classes/Controllers/Table/TableStructureController.php:1453
-#: libraries/classes/Controllers/Table/TableStructureController.php:1462
-#: libraries/classes/Controllers/Table/TableStructureController.php:1467
-#: libraries/classes/Controllers/Table/TableStructureController.php:1472
-#: libraries/classes/Controllers/Table/TableStructureController.php:1477
+#: libraries/classes/Controllers/Table/TableStructureController.php:799
+#: libraries/classes/Controllers/Table/TableStructureController.php:1457
+#: libraries/classes/Controllers/Table/TableStructureController.php:1466
+#: libraries/classes/Controllers/Table/TableStructureController.php:1471
+#: libraries/classes/Controllers/Table/TableStructureController.php:1476
+#: libraries/classes/Controllers/Table/TableStructureController.php:1481
 #: libraries/classes/Index.php:595 libraries/classes/IndexColumn.php:144
 #: libraries/classes/MultSubmits.php:413 libraries/classes/MultSubmits.php:446
 #: libraries/classes/MultSubmits.php:475 libraries/classes/MultSubmits.php:512
@@ -235,14 +235,14 @@ msgstr "Nee"
 #: libraries/classes/Server/Privileges.php:3703
 #: libraries/mult_submits.inc.php:90 libraries/mult_submits.inc.php:219
 #: prefs_manage.php:143
+#: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/table/tracking/structure_snapshot_indexes.twig:23
 #: templates/table/tracking/structure_snapshot_indexes.twig:24
-#: templates/prefs_autoload.twig:11
-#: templates/table/tracking/structure_snapshot_columns.twig:33
-#: templates/table/structure/table_structure_row.twig:25
 #: templates/privileges/privileges_summary_row.twig:4
 #: templates/privileges/privileges_summary_row.twig:7
 #: templates/privileges/privileges_summary_row.twig:9
+#: templates/prefs_autoload.twig:11
+#: templates/table/structure/table_structure_row.twig:25
 msgid "Yes"
 msgstr "Ja"
 
@@ -299,9 +299,9 @@ msgid "Data"
 msgstr "Data"
 
 #: db_export.php:73 libraries/classes/ReplicationGui.php:387
-#: templates/database/designer/database_tables.twig:30
 #: templates/database/search/selection_form.twig:32
 #: templates/display/export/select_options.twig:4
+#: templates/database/designer/database_tables.twig:30
 msgid "Select all"
 msgstr "Alles selecteren"
 
@@ -518,21 +518,20 @@ msgstr "Geometrie toevoegen"
 #: libraries/classes/SqlQueryForm.php:374
 #: libraries/classes/SqlQueryForm.php:440 libraries/classes/Tracking.php:410
 #: libraries/classes/Tracking.php:522 prefs_manage.php:267 prefs_manage.php:351
-#: server_privileges.php:323
-#: templates/columns_definitions/column_definitions_form.twig:43
-#: templates/server/binlog/log_selector.twig:27
-#: templates/display/export/options_format.twig:18
+#: server_privileges.php:323 templates/table/structure/add_column.twig:23
+#: templates/start_and_number_of_rows_panel.twig:14
+#: templates/view_create.twig:116 templates/header_location.twig:18
 #: templates/privileges/privileges_summary.twig:60
 #: templates/display/results/options_block.twig:114
-#: templates/database/create_table.twig:21 templates/view_create.twig:116
-#: templates/privileges/delete_user_fieldset.twig:16
 #: templates/database/search/selection_form.twig:58
-#: templates/table/structure/add_column.twig:23
-#: templates/display/import/import.twig:191 templates/table/index_form.twig:217
-#: templates/privileges/edit_routine_privileges.twig:23
-#: templates/header_location.twig:18
+#: templates/columns_definitions/column_definitions_form.twig:43
+#: templates/display/export/options_format.twig:18
+#: templates/server/binlog/log_selector.twig:27
+#: templates/database/create_table.twig:21 templates/table/index_form.twig:217
 #: templates/table/search/selection_form.twig:99
-#: templates/start_and_number_of_rows_panel.twig:14 view_operations.php:115
+#: templates/display/import/import.twig:191
+#: templates/privileges/delete_user_fieldset.twig:16
+#: templates/privileges/edit_routine_privileges.twig:23 view_operations.php:115
 msgid "Go"
 msgstr "Starten"
 
@@ -597,7 +596,7 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "De importeerplugins konden niet worden geladen, controleer de installatie!"
 
-#: import.php:587 libraries/classes/Sql.php:827 libraries/classes/Sql.php:1619
+#: import.php:587 libraries/classes/Sql.php:827 libraries/classes/Sql.php:1631
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Bladwijzer %s is aangemaakt."
@@ -1100,9 +1099,9 @@ msgid "Please select column(s) for the index."
 msgstr "Gelieve de kolom(men) voor de index te selecteren."
 
 #: js/messages.php:130 libraries/classes/InsertEdit.php:1894
-#: templates/table/relation/common_form.twig:188
 #: templates/columns_definitions/column_definitions_form.twig:146
 #: templates/table/index_form.twig:216
+#: templates/table/relation/common_form.twig:188
 msgid "Preview SQL"
 msgstr "SQL-voorbeeld"
 
@@ -1360,12 +1359,13 @@ msgstr "Voeg tenminste één variabele toe aan de reeks!"
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:103
 #: libraries/classes/Server/Status/Monitor.php:243
 #: libraries/classes/Server/Status/Processes.php:285
-#: libraries/config.values.php:69 templates/table/search/options_zoom.twig:12
-#: templates/table/search/rows_zoom.twig:20
+#: libraries/config.values.php:69
 #: templates/privileges/privileges_summary.twig:30
-#: templates/columns_definitions/transformation.twig:4
 #: templates/database/designer/options_panel.twig:177
+#: templates/table/search/options_zoom.twig:12
+#: templates/table/search/rows_zoom.twig:20
 #: templates/display/export/options_output_compression.twig:7
+#: templates/columns_definitions/transformation.twig:4
 msgid "None"
 msgstr "Geen"
 
@@ -1745,15 +1745,14 @@ msgstr "Aanmaken SQL…"
 msgid "No parameters found!"
 msgstr "Parameters niet gevonden!"
 
-#: js/messages.php:355
-#: templates/database/designer/aggregate_query_panel.twig:64
-#: templates/database/designer/new_relation_panel.twig:90
-#: templates/database/designer/having_query_panel.twig:118
-#: templates/database/designer/delete_relation_panel.twig:30
+#: js/messages.php:355 templates/database/designer/having_query_panel.twig:118
 #: templates/database/designer/options_panel.twig:253
+#: templates/database/designer/rename_to_panel.twig:45
+#: templates/database/designer/aggregate_query_panel.twig:64
+#: templates/database/designer/delete_relation_panel.twig:30
 #: templates/database/designer/where_query_panel.twig:85
 #: templates/server/variables/link_template.twig:5
-#: templates/database/designer/rename_to_panel.twig:45
+#: templates/database/designer/new_relation_panel.twig:90
 msgid "Cancel"
 msgstr "Annuleren"
 
@@ -1822,14 +1821,13 @@ msgstr "Kolom laten vervallen"
 msgid "Adding primary key"
 msgstr "Een primaire sleutel toevoegen"
 
-#: js/messages.php:377
-#: templates/database/designer/aggregate_query_panel.twig:60
-#: templates/database/designer/new_relation_panel.twig:88
-#: templates/database/designer/having_query_panel.twig:114
+#: js/messages.php:377 templates/database/designer/having_query_panel.twig:114
 #: templates/database/designer/options_panel.twig:251
-#: templates/database/designer/where_query_panel.twig:83
-#: templates/console/display.twig:129
 #: templates/database/designer/rename_to_panel.twig:41
+#: templates/database/designer/aggregate_query_panel.twig:60
+#: templates/console/display.twig:129
+#: templates/database/designer/where_query_panel.twig:83
+#: templates/database/designer/new_relation_panel.twig:88
 msgid "OK"
 msgstr "Correct"
 
@@ -1900,8 +1898,8 @@ msgstr ""
 #: libraries/classes/Util.php:3353 libraries/classes/Util.php:3354
 #: libraries/classes/Util.php:3993 libraries/classes/Util.php:4008
 #: libraries/classes/Util.php:4025 prefs_manage.php:294
-#: templates/database/structure/check_all_tables.twig:12
 #: templates/display/export/option_header.twig:3
+#: templates/database/structure/check_all_tables.twig:12
 msgid "Export"
 msgstr "Exporteren"
 
@@ -1968,11 +1966,10 @@ msgstr "Wijzigen"
 #: libraries/classes/Display/Results.php:4681
 #: libraries/classes/Server/UserGroups.php:143
 #: libraries/classes/SqlQueryForm.php:427 libraries/classes/Tracking.php:354
-#: setup/frames/index.inc.php:161
+#: setup/frames/index.inc.php:161 templates/console/bookmark_content.twig:7
+#: templates/database/designer/delete_relation_panel.twig:28
 #: templates/display/export/template_loading.twig:22
 #: templates/database/search/results.twig:43
-#: templates/database/designer/delete_relation_panel.twig:28
-#: templates/console/bookmark_content.twig:7
 msgid "Delete"
 msgstr "Verwijderen"
 
@@ -2147,11 +2144,11 @@ msgstr "Er zijn geen afhankelijkheden geselecteerd!"
 
 #: js/messages.php:482 libraries/classes/CentralColumns.php:1254
 #: libraries/classes/InsertEdit.php:1806
-#: templates/table/relation/common_form.twig:189
 #: templates/columns_definitions/column_definitions_form.twig:149
+#: templates/table/structure/partition_definition_form.twig:12
+#: templates/table/relation/common_form.twig:189
 #: templates/table/gis_visualization/gis_visualization.twig:48
 #: templates/server/variables/link_template.twig:2
-#: templates/table/structure/partition_definition_form.twig:12
 msgid "Save"
 msgstr "Opslaan"
 
@@ -2443,9 +2440,9 @@ msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "Klik op het pijltje<br />om de zichtbaarheid van de kolom te wijzigen."
 
 #: js/messages.php:603 libraries/classes/BrowseForeigners.php:340
-#: templates/privileges/initials_row.twig:20
 #: templates/display/results/show_all_checkbox.twig:11
 #: templates/table/browse_foreigners/show_all.twig:4
+#: templates/privileges/initials_row.twig:20
 msgid "Show all"
 msgstr "Toon alles"
 
@@ -2501,8 +2498,8 @@ msgstr "Selecteer eerst een database"
 
 #: js/messages.php:626 libraries/classes/Display/Results.php:4888
 #: libraries/classes/Util.php:3886
-#: templates/database/structure/print_view_data_dictionary_link.twig:3
 #: templates/table/structure/optional_action_links.twig:1
+#: templates/database/structure/print_view_data_dictionary_link.twig:3
 msgid "Print"
 msgstr "Afdrukken"
 
@@ -3175,9 +3172,9 @@ msgstr "Sleutelnaam"
 #: libraries/classes/BrowseForeigners.php:217
 #: libraries/classes/BrowseForeigners.php:219
 #: libraries/classes/Server/Status/Variables.php:230
-#: templates/server/plugins/section.twig:10
-#: templates/server/collations/charsets.twig:6
 #: templates/server/engines/engines.twig:5
+#: templates/server/collations/charsets.twig:6
+#: templates/server/plugins/section.twig:10
 msgid "Description"
 msgstr "Beschrijving"
 
@@ -3233,15 +3230,15 @@ msgstr "NEE"
 #: libraries/classes/Server/Privileges.php:3566
 #: libraries/classes/Server/UserGroups.php:93
 #: libraries/classes/Tracking.php:163
-#: templates/database/structure/table_header.twig:22
-#: templates/table/structure/table_structure_header.twig:18
-#: templates/server/databases/table_header.twig:37
-#: templates/privileges/privileges_summary.twig:22
-#: templates/table/structure/display_partitions.twig:33
-#: templates/database/tracking/untracked_tables.twig:10
-#: templates/server/variables/variable_table_head.twig:3
-#: templates/database/tracking/tracked_tables.twig:16
 #: templates/table/tracking/report_table.twig:8
+#: templates/database/structure/table_header.twig:22
+#: templates/database/tracking/tracked_tables.twig:16
+#: templates/privileges/privileges_summary.twig:22
+#: templates/database/tracking/untracked_tables.twig:10
+#: templates/server/databases/table_header.twig:37
+#: templates/table/structure/display_partitions.twig:33
+#: templates/server/variables/variable_table_head.twig:3
+#: templates/table/structure/table_structure_header.twig:18
 msgid "Action"
 msgstr "Actie"
 
@@ -3255,9 +3252,9 @@ msgstr "Actie"
 #: libraries/classes/Rte/Routines.php:1622 libraries/classes/Rte/RteList.php:88
 #: libraries/classes/Rte/RteList.php:100 libraries/classes/Rte/RteList.php:115
 #: setup/frames/index.inc.php:141
-#: templates/table/structure/table_structure_header.twig:5
-#: templates/database/create_table.twig:11
 #: templates/columns_definitions/table_fields_definitions.twig:9
+#: templates/database/create_table.twig:11
+#: templates/table/structure/table_structure_header.twig:5
 msgid "Name"
 msgstr "Naam"
 
@@ -3273,14 +3270,14 @@ msgstr "Lengte/Waarden"
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:332
 #: libraries/classes/Index.php:725 libraries/classes/Operations.php:305
 #: libraries/classes/Operations.php:1075
-#: templates/table/tracking/structure_snapshot_indexes.twig:11
-#: templates/database/structure/table_header.twig:33
-#: templates/table/search/table_header.twig:8
-#: templates/table/structure/table_structure_header.twig:7
-#: templates/server/collations/charsets.twig:5
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
+#: templates/table/search/table_header.twig:8
+#: templates/database/structure/table_header.twig:33
+#: templates/table/tracking/structure_snapshot_indexes.twig:11
+#: templates/server/collations/charsets.twig:5
 #: templates/table/structure/row_stats_table.twig:30
+#: templates/table/structure/table_structure_header.twig:7
 msgid "Collation"
 msgstr "Collatie"
 
@@ -3309,8 +3306,8 @@ msgstr "Nieuwe kolom toevoegen"
 #: libraries/classes/CentralColumns.php:1429
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:631
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:654
-#: templates/table/structure/table_structure_header.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:27
+#: templates/table/structure/table_structure_header.twig:8
 msgid "Attributes"
 msgstr "Attributen"
 
@@ -4139,8 +4136,8 @@ msgstr "Opslaan op server"
 
 #: libraries/classes/Config/Descriptions.php:344
 #: libraries/classes/Config/Descriptions.php:350
-#: templates/display/export/options_quick_export.twig:16
 #: templates/display/export/options_output_save_dir.twig:13
+#: templates/display/export/options_quick_export.twig:16
 msgid "Overwrite existing file(s)"
 msgstr "Bestaand(e) bestand(en) overschrijven"
 
@@ -6016,11 +6013,11 @@ msgstr "Titel van het browserscherm wanneer een database geselecteerd is."
 #: libraries/classes/Server/Privileges.php:3355
 #: libraries/classes/Server/Privileges.php:4561
 #: libraries/classes/Server/Status/Processes.php:77
+#: templates/console/bookmark_content.twig:7
+#: templates/table/relation/foreign_key_row.twig:100
+#: templates/console/display.twig:40 templates/console/display.twig:184
 #: templates/table/relation/common_form.twig:32
 #: templates/server/databases/table_header.twig:8
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
-#: templates/console/display.twig:184
-#: templates/table/relation/foreign_key_row.twig:100
 #: templates/table/relation/internal_relational_row.twig:10
 msgid "Database"
 msgstr "Database"
@@ -6056,11 +6053,11 @@ msgstr "Titel van het browserscherm wanneer een tabel geselecteerd is."
 #: libraries/classes/Server/Privileges.php:3359
 #: libraries/classes/Server/Privileges.php:3361
 #: libraries/classes/Server/Privileges.php:4575
-#: templates/table/relation/common_form.twig:33
 #: templates/database/structure/table_header.twig:8
-#: templates/database/tracking/untracked_tables.twig:9
 #: templates/database/tracking/tracked_tables.twig:11
 #: templates/table/relation/foreign_key_row.twig:110
+#: templates/database/tracking/untracked_tables.twig:9
+#: templates/table/relation/common_form.twig:33
 #: templates/table/relation/internal_relational_row.twig:17
 msgid "Table"
 msgstr "Tabel"
@@ -6718,10 +6715,10 @@ msgstr[1] "%1$d databases zijn succesvol verwijderd."
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:343
 #: libraries/classes/Import.php:122
-#: templates/database/structure/table_header.twig:26
 #: templates/table/structure/actions_in_table_structure.twig:114
-#: templates/table/structure/display_partitions.twig:28
+#: templates/database/structure/table_header.twig:26
 #: templates/table/structure/row_stats_table.twig:41
+#: templates/table/structure/display_partitions.twig:28
 msgid "Rows"
 msgstr "Rijen"
 
@@ -6737,14 +6734,14 @@ msgstr "Indexen"
 #: libraries/classes/Engines/Innodb.php:169
 #: libraries/classes/Server/Status.php:203
 #: libraries/classes/Server/Status.php:315
-#: templates/table/structure/display_table_stats.twig:45
 #: templates/server/databases/databases_footer.twig:7
+#: templates/table/structure/display_table_stats.twig:45
 msgid "Total"
 msgstr "Totaal"
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:363
-#: templates/table/structure/display_table_stats.twig:32
 #: templates/database/structure/table_header.twig:40
+#: templates/table/structure/display_table_stats.twig:32
 msgid "Overhead"
 msgstr "Overhead"
 
@@ -6783,8 +6780,8 @@ msgid "No data to display"
 msgstr "Geen gegevens om weer te geven"
 
 #: libraries/classes/Controllers/Table/TableIndexesController.php:157
-#: libraries/classes/Controllers/Table/TableStructureController.php:756
-#: libraries/classes/Controllers/Table/TableStructureController.php:1014
+#: libraries/classes/Controllers/Table/TableStructureController.php:760
+#: libraries/classes/Controllers/Table/TableStructureController.php:1018
 #: tbl_addfield.php:96
 #, php-format
 msgid "Table %1$s has been altered successfully."
@@ -6831,81 +6828,81 @@ msgstr[1] "De namen '%s' zijn gereserveerde MySQL sleutelwoorden."
 msgid "No column selected."
 msgstr "Geen kolom geselecteerd."
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:495
+#: libraries/classes/Controllers/Table/TableStructureController.php:499
 msgid "The columns have been moved successfully."
 msgstr "De geselecteerde kolommen zijn met succes verplaatst."
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:531
+#: libraries/classes/Controllers/Table/TableStructureController.php:535
 #, php-format
 msgid "Failed to get description of column %s!"
 msgstr "Ophalen van omschrijving van kolom %s mislukt!"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:767
-#: libraries/classes/Controllers/Table/TableStructureController.php:1063
+#: libraries/classes/Controllers/Table/TableStructureController.php:771
+#: libraries/classes/Controllers/Table/TableStructureController.php:1067
 #: libraries/classes/Tracking.php:780
 msgid "Query error"
 msgstr "Fout in query"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1008
+#: libraries/classes/Controllers/Table/TableStructureController.php:1012
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "Tabel %1$s is succesvol bijgewerkt. Rechten zijn aangepast."
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1224
+#: libraries/classes/Controllers/Table/TableStructureController.php:1228
 #: templates/table/structure/check_all_table_column.twig:17
 msgid "Change"
 msgstr "Veranderen"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1225
-#: libraries/classes/Controllers/Table/TableStructureController.php:1226
+#: libraries/classes/Controllers/Table/TableStructureController.php:1229
+#: libraries/classes/Controllers/Table/TableStructureController.php:1230
 #: libraries/classes/Index.php:770 libraries/classes/Operations.php:1606
 #: libraries/classes/Rte/RteList.php:172 libraries/classes/Util.php:3347
 #: libraries/classes/Util.php:3348
-#: templates/table/structure/display_structure.twig:191
-#: templates/database/structure/check_all_tables.twig:16
 #: templates/server/databases/databases_footer.twig:55
-#: templates/table/structure/check_all_table_column.twig:24
 #: templates/table/relation/foreign_key_row.twig:30
+#: templates/table/structure/check_all_table_column.twig:24
+#: templates/database/structure/check_all_tables.twig:16
+#: templates/table/structure/display_structure.twig:191
 msgid "Drop"
 msgstr "Verwijderen"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1228
-#: libraries/classes/Controllers/Table/TableStructureController.php:1233
+#: libraries/classes/Controllers/Table/TableStructureController.php:1232
+#: libraries/classes/Controllers/Table/TableStructureController.php:1237
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:30
-#: templates/table/structure/display_structure.twig:66
-#: templates/table/structure/display_table_stats.twig:24
-#: templates/columns_definitions/column_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:27
 #: templates/columns_definitions/table_fields_definitions.twig:46
 #: templates/table/structure/check_all_table_column.twig:47
+#: templates/table/structure/display_structure.twig:66
+#: templates/columns_definitions/column_indexes.twig:12
+#: templates/table/structure/display_table_stats.twig:24
 msgid "Index"
 msgstr "Index"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1229
-#: libraries/classes/Controllers/Table/TableStructureController.php:1234
+#: libraries/classes/Controllers/Table/TableStructureController.php:1233
+#: libraries/classes/Controllers/Table/TableStructureController.php:1238
 #: libraries/classes/Index.php:721
 #: templates/table/tracking/structure_snapshot_indexes.twig:7
-#: templates/columns_definitions/column_indexes.twig:8
 #: templates/table/structure/check_all_table_column.twig:40
+#: templates/columns_definitions/column_indexes.twig:8
 msgid "Unique"
 msgstr "Unieke waarde"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1230
-#: libraries/classes/Controllers/Table/TableStructureController.php:1235
+#: libraries/classes/Controllers/Table/TableStructureController.php:1234
+#: libraries/classes/Controllers/Table/TableStructureController.php:1239
 #: templates/columns_definitions/column_indexes.twig:20
 msgid "Spatial"
 msgstr "Ruimtelijk"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1231
-#: libraries/classes/Controllers/Table/TableStructureController.php:1236
-#: templates/columns_definitions/column_indexes.twig:16
+#: libraries/classes/Controllers/Table/TableStructureController.php:1235
+#: libraries/classes/Controllers/Table/TableStructureController.php:1240
 #: templates/table/structure/check_all_table_column.twig:54
 #: templates/table/structure/check_all_table_column.twig:66
+#: templates/columns_definitions/column_indexes.twig:16
 msgid "Fulltext"
 msgstr "Volledige tekst"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1237
+#: libraries/classes/Controllers/Table/TableStructureController.php:1241
 msgid "Distinct values"
 msgstr "Verschillende waarden"
 
@@ -6945,53 +6942,67 @@ msgstr "poging om GLOBALS te overschrijven"
 msgid "possible exploit"
 msgstr "mogelijk misbruik"
 
-#: libraries/classes/Database/Designer.php:123
+#: libraries/classes/Database/Designer.php:127
 msgid "Could not load schema plugins, please check your installation!"
 msgstr ""
 "De plugins voor schema's konden niet worden geladen, controleer uw "
 "installatie!"
 
-#: libraries/classes/Database/Designer/Common.php:556
+#: libraries/classes/Database/Designer/Common.php:518
+#, fuzzy
+#| msgid ""
+#| "The configuration storage is not ready for the central list of columns "
+#| "feature."
+msgctxt ""
+"phpMyAdmin configuration storage is not configured for \"Display Features\" "
+"on designer when user tries to set a display field."
+msgid ""
+"phpMyAdmin configuration storage is not configured for \"Display Features\"."
+msgstr ""
+"De configuratieopslag is niet klaar voor de centrale lijst van kolommen "
+"functie."
+
+#: libraries/classes/Database/Designer/Common.php:565
 msgid "Error: relationship already exists."
 msgstr "Fout: relatie bestaat reeds."
 
-#: libraries/classes/Database/Designer/Common.php:602
+#: libraries/classes/Database/Designer/Common.php:611
 msgid "FOREIGN KEY relationship has been added."
 msgstr "FOREIGN KEY-relatie is toegevoegd."
 
-#: libraries/classes/Database/Designer/Common.php:608
+#: libraries/classes/Database/Designer/Common.php:617
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Fout: FOREIGN KEY relatie kon niet toegevoegd worden!"
 
-#: libraries/classes/Database/Designer/Common.php:613
+#: libraries/classes/Database/Designer/Common.php:622
 msgid "Error: Missing index on column(s)."
 msgstr "Fout: Ontbrekende index op kolom(men)."
 
-#: libraries/classes/Database/Designer/Common.php:618
+#: libraries/classes/Database/Designer/Common.php:627
 msgid "Error: Relational features are disabled!"
 msgstr "Fout: relatiefuncties zijn uitgeschakeld!"
 
-#: libraries/classes/Database/Designer/Common.php:640
+#: libraries/classes/Database/Designer/Common.php:649
 msgid "Internal relationship has been added."
 msgstr "Interne relatie is toegevoegd."
 
-#: libraries/classes/Database/Designer/Common.php:646
+#: libraries/classes/Database/Designer/Common.php:655
 msgid "Error: Internal relationship could not be added!"
 msgstr "Fout: Interne relatie kon niet toegevoegd worden!"
 
-#: libraries/classes/Database/Designer/Common.php:684
+#: libraries/classes/Database/Designer/Common.php:693
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "FOREIGN KEY relatie is verwijderd."
 
-#: libraries/classes/Database/Designer/Common.php:690
+#: libraries/classes/Database/Designer/Common.php:699
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "Fout: FOREIGN KEY relatie kon niet verwijderd worden!"
 
-#: libraries/classes/Database/Designer/Common.php:717
+#: libraries/classes/Database/Designer/Common.php:726
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Fout: Interne relatie kon niet verwijderd worden!"
 
-#: libraries/classes/Database/Designer/Common.php:721
+#: libraries/classes/Database/Designer/Common.php:730
 msgid "Internal relationship has been removed."
 msgstr "Interne relatie is verwijderd."
 
@@ -7342,10 +7353,11 @@ msgstr "Volledige teksten"
 #: libraries/classes/Operations.php:814
 #: libraries/classes/Server/Status/Processes.php:157
 #: libraries/classes/Util.php:4700 libraries/classes/Util.php:4717
-#: libraries/config.values.php:71 templates/table/search/options.twig:54
+#: libraries/config.values.php:71
+#: templates/database/qbe/sort_select_cell.twig:7
+#: templates/table/search/options.twig:54
 #: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
-#: templates/database/qbe/sort_select_cell.twig:7
 msgid "Descending"
 msgstr "Aflopend"
 
@@ -7354,10 +7366,11 @@ msgstr "Aflopend"
 #: libraries/classes/Operations.php:811
 #: libraries/classes/Server/Status/Processes.php:160
 #: libraries/classes/Util.php:4695 libraries/classes/Util.php:4712
-#: libraries/config.values.php:70 templates/table/search/options.twig:54
+#: libraries/config.values.php:70
+#: templates/database/qbe/sort_select_cell.twig:5
+#: templates/table/search/options.twig:54
 #: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
-#: templates/database/qbe/sort_select_cell.twig:5
 msgid "Ascending"
 msgstr "Oplopend"
 
@@ -7398,9 +7411,9 @@ msgstr "Query duurde %01.4f seconden."
 
 #: libraries/classes/Display/Results.php:4686
 #: libraries/classes/Display/Results.php:4693 libraries/mult_submits.inc.php:57
-#: templates/select_all.twig:2 templates/select_all.twig:6
 #: templates/database/structure/check_all_tables.twig:2
 #: templates/database/structure/check_all_tables.twig:9
+#: templates/select_all.twig:2 templates/select_all.twig:6
 msgid "With selected:"
 msgstr "Met geselecteerde:"
 
@@ -7409,10 +7422,10 @@ msgstr "Met geselecteerde:"
 #: libraries/classes/Server/Privileges.php:1188
 #: libraries/classes/Server/Privileges.php:1189
 #: libraries/classes/Server/UserGroups.php:248
-#: templates/privileges/global_priv_table.twig:5 templates/select_all.twig:4
-#: templates/select_all.twig:5
+#: templates/privileges/global_priv_table.twig:5
 #: templates/database/structure/check_all_tables.twig:3
 #: templates/database/structure/check_all_tables.twig:4
+#: templates/select_all.twig:4 templates/select_all.twig:5
 msgid "Check all"
 msgstr "Selecteer alles"
 
@@ -7824,17 +7837,17 @@ msgstr "De webserver heeft geen rechten om het bestand %s op te slaan."
 msgid "Dump has been saved to file %s."
 msgstr "Het exportbestand is bewaard als %s."
 
-#: libraries/classes/File.php:256
+#: libraries/classes/File.php:260
 msgid "File was not an uploaded file."
 msgstr "Bestand is geen geüpload bestand."
 
-#: libraries/classes/File.php:296
+#: libraries/classes/File.php:300
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
 "Het geüploade bestand is groter dan de optie 'upload_max_filesize' uit uw "
 "php.ini."
 
-#: libraries/classes/File.php:302
+#: libraries/classes/File.php:306
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
@@ -7842,49 +7855,49 @@ msgstr ""
 "Het geüploade bestand overschrijdt de MAX_FILE_SIZE-optie die was opgegeven "
 "in het HTML-formulier."
 
-#: libraries/classes/File.php:308
+#: libraries/classes/File.php:312
 msgid "The uploaded file was only partially uploaded."
 msgstr "Het geüploade bestand was slechts gedeeltelijk ontvangen."
 
-#: libraries/classes/File.php:312
+#: libraries/classes/File.php:316
 msgid "Missing a temporary folder."
 msgstr "De map voor tijdelijke bestanden ontbreekt."
 
-#: libraries/classes/File.php:315
+#: libraries/classes/File.php:319
 msgid "Failed to write file to disk."
 msgstr "Opslaan van het bestand op de harde schijf is mislukt."
 
-#: libraries/classes/File.php:318
+#: libraries/classes/File.php:322
 msgid "File upload stopped by extension."
 msgstr "Upload afgebroken vanwege de extensie."
 
-#: libraries/classes/File.php:321
+#: libraries/classes/File.php:325
 msgid "Unknown error in file upload."
 msgstr "Onbekende fout bij het uploaden."
 
-#: libraries/classes/File.php:457
+#: libraries/classes/File.php:461
 msgid "File is a symbolic link"
 msgstr "Bestand is een symbolische link"
 
-#: libraries/classes/File.php:462 libraries/classes/File.php:554
+#: libraries/classes/File.php:466 libraries/classes/File.php:558
 msgid "File could not be read!"
 msgstr "Bestand kon niet worden gelezen!"
 
-#: libraries/classes/File.php:502
+#: libraries/classes/File.php:506
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
 "Fout bij het verplaatsen van het geüploade bestand, zie [doc@faq1-11]FAQ "
 "1.11[/doc]."
 
-#: libraries/classes/File.php:521
+#: libraries/classes/File.php:525
 msgid "Error while moving uploaded file."
 msgstr "Fout bij het verplaatsen van het geüploade bestand."
 
-#: libraries/classes/File.php:529
+#: libraries/classes/File.php:533
 msgid "Cannot read uploaded file."
 msgstr "Kan het geüploade bestand niet lezen."
 
-#: libraries/classes/File.php:609
+#: libraries/classes/File.php:613
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -7973,8 +7986,8 @@ msgstr "Klik op de \"Structuur\"-link om de structuur aan te passen."
 #: libraries/classes/Plugins/Import/ImportXml.php:49
 #: libraries/classes/Rte/Routines.php:946
 #: templates/display/results/options_block.twig:10
-#: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/table/search/options.twig:1
+#: templates/table/search/options.twig:1 templates/console/display.twig:7
+#: templates/console/display.twig:140
 #: templates/table/structure/row_stats_table.twig:19
 msgid "Options"
 msgstr "Opties"
@@ -8039,11 +8052,11 @@ msgstr "Kardinaliteit"
 
 #: libraries/classes/Index.php:727 libraries/classes/Rte/Events.php:516
 #: libraries/classes/Rte/Routines.php:1071
-#: templates/table/tracking/structure_snapshot_indexes.twig:13
-#: templates/database/structure/table_header.twig:48
-#: templates/table/structure/display_partitions.twig:31
-#: templates/columns_definitions/partitions.twig:85
 #: templates/table/tracking/structure_snapshot_columns.twig:12
+#: templates/columns_definitions/partitions.twig:85
+#: templates/database/structure/table_header.twig:48
+#: templates/table/tracking/structure_snapshot_indexes.twig:13
+#: templates/table/structure/display_partitions.twig:31
 msgid "Comment"
 msgstr "Opmerking"
 
@@ -8146,13 +8159,13 @@ msgstr ""
 #: libraries/classes/ReplicationGui.php:552
 #: libraries/classes/Rte/Routines.php:1627
 #: libraries/classes/Server/Status/Variables.php:229
-#: templates/table/search/table_header.twig:10
 #: templates/database/designer/having_query_panel.twig:100
+#: templates/table/search/table_header.twig:10
 #: templates/database/designer/options_panel.twig:73
 #: templates/database/designer/options_panel.twig:238
 #: templates/database/designer/where_query_panel.twig:69
-#: templates/table/search/zoom_result_form.twig:36
 #: templates/server/variables/variable_table_head.twig:5
+#: templates/table/search/zoom_result_form.twig:36
 msgid "Value"
 msgstr "Waarde"
 
@@ -8205,8 +8218,8 @@ msgstr "“%s”"
 #: libraries/classes/Util.php:3340 libraries/classes/Util.php:3341
 #: libraries/classes/Util.php:4020 libraries/config.values.php:42
 #: libraries/config.values.php:50 libraries/config.values.php:120
-#: templates/database/search/results.twig:34
 #: templates/table/structure/check_all_table_column.twig:8
+#: templates/database/search/results.twig:34
 msgid "Browse"
 msgstr "Verkennen"
 
@@ -8311,8 +8324,8 @@ msgstr "Binaire log"
 #: libraries/classes/Menu.php:640 libraries/classes/Server/Status/Data.php:126
 #: libraries/classes/Util.php:3997
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
 #: templates/database/structure/body_for_table_summary.twig:11
+#: templates/server/sub_page_header.twig:2
 msgid "Replication"
 msgstr "Replicatie"
 
@@ -8436,8 +8449,8 @@ msgstr "Views:"
 
 #: libraries/classes/Navigation/Navigation.php:236
 #: libraries/classes/Tracking.php:164 tbl_change.php:147
-#: templates/database/multi_table_query/form.twig:44
 #: templates/database/tracking/tracked_tables.twig:17
+#: templates/database/multi_table_query/form.twig:44
 msgid "Show"
 msgstr "Toon"
 
@@ -9047,8 +9060,8 @@ msgid "Flush the table (FLUSH)"
 msgstr "De tabel leegmaken (FLUSH)"
 
 #: libraries/classes/Operations.php:1471
-#: templates/table/structure/display_table_stats.twig:61
 #: templates/database/structure/check_all_tables.twig:22
+#: templates/table/structure/display_table_stats.twig:61
 msgid "Optimize table"
 msgstr "Optimaliseer tabel"
 
@@ -9956,8 +9969,8 @@ msgstr "Inhoudsopgave"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/structure/table_structure_header.twig:14
 #: templates/table/tracking/structure_snapshot_columns.twig:11
+#: templates/table/structure/table_structure_header.twig:14
 msgid "Extra"
 msgstr "Extra"
 
@@ -10446,11 +10459,11 @@ msgstr ""
 "Meld opnieuw aan bij phpMyAdmin om het bijgewerkte configuratiebestand te "
 "laden."
 
-#: libraries/classes/Relation.php:1697
+#: libraries/classes/Relation.php:1750
 msgid "no description"
 msgstr "Geen beschrijving aanwezig"
 
-#: libraries/classes/Relation.php:1888
+#: libraries/classes/Relation.php:1941
 msgid ""
 "You do not have necessary privileges to create a database named "
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
@@ -10460,7 +10473,7 @@ msgstr ""
 "aan te maken. Je kunt naar de 'Operations' tab gaan van enige database om "
 "phpMyAdmin configuratie opslag in te stellen."
 
-#: libraries/classes/Relation.php:2003
+#: libraries/classes/Relation.php:2056
 #, php-format
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
@@ -10469,14 +10482,14 @@ msgstr ""
 "%sCreate%s  een database met de naam 'phpmyadmin' en stel daar de phpMyAdmin "
 "configuratie opslag in."
 
-#: libraries/classes/Relation.php:2011
+#: libraries/classes/Relation.php:2064
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr ""
 "%sMaak%s de configuratieopslag van phpMyAdmin aan in de huidige database."
 
-#: libraries/classes/Relation.php:2019
+#: libraries/classes/Relation.php:2072
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr "%sCreate%s ontbrekende phpMyAdmin configuratie opslag tabellen."
@@ -13181,7 +13194,7 @@ msgstr "Bladwijzer \"%s\" wordt gebruikt als standaard browsequery."
 msgid "Showing as PHP code"
 msgstr "Getoond als PHP-code"
 
-#: libraries/classes/Sql.php:1801
+#: libraries/classes/Sql.php:1813
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -13191,7 +13204,7 @@ msgstr ""
 "rasterbewerkingen, checkboxen, Bewerken, Kopiëren en Verwijderen, zijn niet "
 "beschikbaar. %s"
 
-#: libraries/classes/Sql.php:1815
+#: libraries/classes/Sql.php:1827
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -13201,7 +13214,7 @@ msgstr ""
 "rasterbewerkingen, checkboxen, Bewerken, Kopiëren en Verwijderen, kunnen "
 "resulteren in onwenselijke acties. %s"
 
-#: libraries/classes/Sql.php:1857
+#: libraries/classes/Sql.php:1869
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problemen met de indexen van de tabel `%s`"
@@ -14553,612 +14566,15 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Omschrijving"
 
-#: templates/display/export/template_loading.twig:2
-msgid "Export templates:"
-msgstr "Exporteer templates:"
-
-#: templates/display/export/template_loading.twig:6
-msgid "New template:"
-msgstr "Nieuwe template:"
-
-#: templates/display/export/template_loading.twig:8
-msgid "Template name"
-msgstr "Template naam"
-
-#: templates/display/export/template_loading.twig:10
-#: templates/server/databases/create.twig:30
-msgid "Create"
-msgstr "Aanmaken"
-
-#: templates/display/export/template_loading.twig:16
-msgid "Existing templates:"
-msgstr "Bestaande templates:"
-
-#: templates/display/export/template_loading.twig:17
-msgid "Template:"
-msgstr "Template:"
-
-#: templates/display/export/template_loading.twig:21
-msgid "Update"
-msgstr "Bijwerken"
-
-#: templates/login/twofactor.twig:5
-msgid "Verify"
-msgstr "Verifieer"
-
-#: templates/display/import/javascript.twig:12
+#: templates/login/header.twig:12
 msgid ""
-"The file being uploaded is probably larger than the maximum allowed size or "
-"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
-"browsers."
+"There is mismatch between HTTPS indicated on the server and client. This can "
+"lead to non working phpMyAdmin or a security risk. Please fix your server "
+"configuration to indicate HTTPS properly."
 msgstr ""
-"Het geüploade bestand is mogelijk groter dan de limiet toestaat, of u heeft "
-"last van een een bekende bug in op webkit gebaseerde browsers (Safari, "
-"Google Chrome, Arora, enz.)."
-
-#: templates/display/import/javascript.twig:16
-#, php-format
-msgid "%s of %s"
-msgstr "%s van %s"
-
-#: templates/display/import/javascript.twig:17
-#, php-format
-msgid "%s/sec."
-msgstr "%s/sec."
-
-#: templates/display/import/javascript.twig:18
-msgid "About %MIN min. %SEC sec. remaining."
-msgstr "Ongeveer %MIN minuten en %SEC seconden resterend."
-
-#: templates/display/import/javascript.twig:19
-msgid "About %SEC sec. remaining."
-msgstr "Nog ongeveer %SEC seconden resterend."
-
-#: templates/display/import/javascript.twig:20
-msgid "The file is being processed, please be patient."
-msgstr "Het bestand wordt verwerkt, een ogenblik geduld."
-
-#: templates/display/import/javascript.twig:36
-msgid "Uploading your import file…"
-msgstr "Uw te importeren bestand wordt geüpload…"
-
-#: templates/display/import/javascript.twig:161
-msgid ""
-"Please be patient, the file is being uploaded. Details about the upload are "
-"not available."
-msgstr ""
-"Een ogenblik geduld, het bestand wordt geüpload. Details over de voortgang "
-"zijn niet beschikbaar."
-
-#: templates/table/relation/common_form.twig:6
-msgid "Foreign key constraints"
-msgstr "Beperkingen voor vreemde sleutels"
-
-#: templates/table/relation/common_form.twig:10
-msgid "Actions"
-msgstr "Acties"
-
-#: templates/table/relation/common_form.twig:11
-msgid "Constraint properties"
-msgstr "Beperkingseigenschappen"
-
-#: templates/table/relation/common_form.twig:15
-msgid ""
-"Creating a foreign key over a non-indexed column would automatically create "
-"an index on it. Alternatively, you can define an index below, before "
-"creating the foreign key."
-msgstr ""
-"Aanmaken van een externe sleutel voor een niet geïndexeerde kolom zou "
-"automatisch een index aanmaken. Als alternatief kunt u hier beneden een "
-"index definiëren voor dat u een externe sleutel aanmaakt."
-
-#: templates/table/relation/common_form.twig:20
-msgid ""
-"Only columns with index will be displayed. You can define an index below."
-msgstr ""
-"Alleen kolommen met een index zullen worden weergegeven. U kunt hieronder "
-"een index definiëren."
-
-#: templates/table/relation/common_form.twig:24
-msgid "Foreign key constraint"
-msgstr "Vreemde sleutel"
-
-#: templates/table/relation/common_form.twig:89
-msgid "+ Add constraint"
-msgstr "+ Voeg beperking toe"
-
-#: templates/table/relation/common_form.twig:99
-#: templates/table/relation/common_form.twig:104
-msgid "Internal relationships"
-msgstr "Interne relaties"
-
-#: templates/table/relation/common_form.twig:110
-msgid "Internal relation"
-msgstr "Interne relatie"
-
-#: templates/table/relation/common_form.twig:112
-msgid ""
-"An internal relation is not necessary when a corresponding FOREIGN KEY "
-"relation exists."
-msgstr ""
-"Een interne relatie is niet noodzakelijk wanneer er reeds een FOREIGN KEY-"
-"relatie bestaat."
-
-#: templates/table/relation/common_form.twig:172
-msgid "Choose column to display:"
-msgstr "Kies weer te geven kolom:"
-
-#: templates/table/structure/display_structure.twig:138
-#: templates/view_create.twig:13
-msgid "Edit view"
-msgstr "View bewerken"
-
-#: templates/table/structure/display_structure.twig:194
-#: templates/table/structure/display_partitions.twig:4
-msgid "Partitions"
-msgstr "Partities"
-
-#: templates/prefs_autoload.twig:7
-msgid ""
-"Your browser has phpMyAdmin configuration for this domain. Would you like to "
-"import it for current session?"
-msgstr ""
-"Uw browser bevat configuratie van phpMyAdmin voor dit domein. Wilt u dit "
-"gebruiken in de huidige sessie?"
-
-#: templates/prefs_autoload.twig:13
-msgid "Delete settings"
-msgstr "Verwijder instellingen"
-
-#: templates/table/structure/display_table_stats.twig:14
-msgid "Space usage"
-msgstr "Ruimtegebruik"
-
-#: templates/table/structure/display_table_stats.twig:37
-msgid "Effective"
-msgstr "Effectief"
-
-#: templates/database/designer/aggregate_query_panel.twig:22
-#: templates/database/designer/options_panel.twig:99
-msgid "Aggregate"
-msgstr "Samenvoegen"
-
-#: templates/database/designer/aggregate_query_panel.twig:30
-#: templates/table/search/table_header.twig:9
-#: templates/database/designer/having_query_panel.twig:30
-#: templates/database/designer/having_query_panel.twig:61
-#: templates/database/designer/options_panel.twig:105
-#: templates/database/designer/options_panel.twig:169
-#: templates/database/designer/where_query_panel.twig:30
-msgid "Operator"
-msgstr "Operator"
-
-#: templates/columns_definitions/column_definitions_form.twig:23
-msgid "Table name"
-msgstr "Tabelnaam"
-
-#: templates/columns_definitions/column_definitions_form.twig:32
-#: templates/console/display.twig:99 templates/export/alias_add.twig:18
-#: templates/export/alias_add.twig:32 templates/export/alias_add.twig:46
-msgid "Add"
-msgstr "Toevoegen"
-
-#: templates/columns_definitions/column_definitions_form.twig:40
-msgid "column(s)"
-msgstr "Kolom(men)"
-
-#: templates/columns_definitions/column_definitions_form.twig:74
-msgid "Collation:"
-msgstr "Collatie:"
-
-#: templates/columns_definitions/column_definitions_form.twig:77
-msgid "Storage Engine:"
-msgstr "Opslag-engine:"
-
-#: templates/columns_definitions/column_definitions_form.twig:82
-msgid "Connection:"
-msgstr "Verbinding:"
-
-#: templates/columns_definitions/column_definitions_form.twig:128
-msgid "PARTITION definition:"
-msgstr "PARTITION-definitie:"
-
-#: templates/server/binlog/log_selector.twig:5
-msgid "Select binary log to view"
-msgstr "Selecteer de te bekijken binaire log"
-
-#: templates/display/export/options_format.twig:2
-#: templates/display/import/import.twig:174
-msgid "Format-specific options:"
-msgstr "Indelingsspecifieke opties:"
-
-#: templates/display/export/options_format.twig:4
-#: templates/display/import/import.twig:176
-msgid ""
-"Scroll down to fill in the options for the selected format and ignore the "
-"options for other formats."
-msgstr ""
-"Onderaan kunnen de opties van het geselecteerde formaat ingevuld worden, de "
-"opties voor de andere formaten kunnen genegeerd worden."
-
-# Is er een betere vertaling voor 'encoding' ?
-#: templates/display/export/options_format.twig:12
-#: templates/display/import/import.twig:185
-msgid "Encoding Conversion:"
-msgstr "Coderingsconversie:"
-
-#: templates/table/search/options_zoom.twig:6
-msgid "Use this column to label each point"
-msgstr "Gebruik deze kolom om ieder punt een naam te geven"
-
-#: templates/table/search/options_zoom.twig:32
-msgid "Maximum rows to plot"
-msgstr "Maximum aantal af te drukken regels"
-
-#: templates/database/designer/page_save_as.twig:17
-msgid "Save to selected page"
-msgstr "Opslaan naar geselecteerde pagina"
-
-#: templates/database/designer/page_save_as.twig:17
-msgid "Create a page and save to it"
-msgstr "Een pagina aanmaken en ernaar opslaan"
-
-#: templates/database/designer/page_save_as.twig:30
-msgid "New page name"
-msgstr "Nieuwe paginanaam"
-
-#: templates/database/designer/database_tables.twig:36
-msgid "Show/hide columns"
-msgstr "Toon/verberg kolommen"
-
-#: templates/database/designer/database_tables.twig:45
-msgid "See table structure"
-msgstr "Zie tabelstructuur"
-
-#: templates/theme_preview.twig:11
-msgid "No preview available."
-msgstr "Geen preview beschikbaar."
-
-#: templates/theme_preview.twig:13
-msgid "Take it"
-msgstr "Gebruik deze"
-
-#: templates/privileges/resource_limits.twig:2
-msgid "Resource limits"
-msgstr "Middelen beperkingen"
-
-#: templates/privileges/resource_limits.twig:5
-msgid "Note: Setting these options to 0 (zero) removes the limit."
-msgstr ""
-"Opmerking: het instellen van deze opties op 0 (nul) verwijdert de limiet."
-
-#: templates/database/structure/show_create.twig:2
-msgid "Showing create queries"
-msgstr "Aanmaakquery's worden getoond"
-
-#: templates/display/export/options_output_charset.twig:3
-#: templates/display/import/import.twig:97
-msgid "Character set of the file:"
-msgstr "Karakterset van het bestand:"
-
-#: templates/database/search/results.twig:12
-#, php-format
-msgid "%1$s match in <strong>%2$s</strong>"
-msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%1$s overeenkomst in <strong>%2$s</strong>"
-msgstr[1] "%1$s overeenkomsten in <strong>%2$s</strong>"
-
-#: templates/database/search/results.twig:56
-msgid "<strong>Total:</strong> <em>%count%</em> match"
-msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<strong> Totaal:</strong> <em> %count% </em> overeenkomst"
-msgstr[1] "<strong> Totaal:</strong> <em> %count% </em> overeenkomsten"
-
-#: templates/table/search/rows_zoom.twig:12
-msgid "Additional search criteria"
-msgstr "Bijkomende zoekcriteria"
-
-#: templates/display/export/method.twig:3
-msgid "Export method:"
-msgstr "Export methode:"
-
-#: templates/display/export/method.twig:9
-msgid "Quick - display only the minimal options"
-msgstr "Snel - toon enkel de belangrijkste opties"
-
-#: templates/display/export/method.twig:17
-msgid "Custom - display all possible options"
-msgstr "Uitgebreid - toon alle mogelijke opties"
-
-#: templates/display/export/options_quick_export.twig:2
-#: templates/display/export/options_output.twig:2
-msgid "Output:"
-msgstr "Uitvoer:"
-
-#: templates/display/export/options_quick_export.twig:8
-#: templates/display/export/options_output_save_dir.twig:5
-#, php-format
-msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Bewaar op de server in de map <strong>%s</strong>"
-
-#: templates/database/structure/table_header.twig:27
-msgid ""
-"May be approximate. Click on the number to get the exact count. See "
-"[doc@faq3-11]FAQ 3.11[/doc]."
-msgstr ""
-"Bij benadering. Klik op het getal voor de exacte hoeveelheid. Zie "
-"[doc@faq3-11]FAQ 3.11[/doc]."
-
-#: templates/database/structure/table_header.twig:38
-#: templates/table/index_form.twig:118
-msgid "Size"
-msgstr "Grootte"
-
-#: templates/database/structure/table_header.twig:53
-#: templates/table/structure/row_stats_table.twig:76
-msgid "Creation"
-msgstr "Gecreëerd"
-
-#: templates/database/structure/table_header.twig:58
-#: templates/table/structure/row_stats_table.twig:83
-msgid "Last update"
-msgstr "Laatst bijgewerkt"
-
-#: templates/database/structure/table_header.twig:63
-#: templates/table/structure/row_stats_table.twig:90
-msgid "Last check"
-msgstr "Laatst gecontroleerd"
-
-#: templates/server/plugins/section.twig:9
-msgid "Plugin"
-msgstr "Plugin"
-
-#: templates/server/plugins/section.twig:12
-msgid "Author"
-msgstr "Auteur"
-
-#: templates/server/plugins/section.twig:23
-msgid "disabled"
-msgstr "uitgeschakeld"
-
-#: templates/database/designer/query_details.twig:6
-msgid "Active options"
-msgstr "Actieve opties"
-
-#: templates/privileges/privileges_summary.twig:20
-msgid "Column-specific privileges"
-msgstr "Kolom-specifieke rechten"
-
-#: templates/table/structure/actions_in_table_structure.twig:15
-#, php-format
-msgid "A primary key has been added on %s."
-msgstr "Een primaire sleutel is toegevoegd aan %s."
-
-#: templates/table/structure/actions_in_table_structure.twig:33
-#: templates/table/structure/actions_in_table_structure.twig:51
-#: templates/table/structure/actions_in_table_structure.twig:80
-#: templates/table/structure/actions_in_table_structure.twig:103
-#, php-format
-msgid "An index has been added on %s."
-msgstr "Een index is toegevoegd aan %s."
-
-#: templates/table/structure/actions_in_table_structure.twig:127
-#: templates/table/structure/check_all_table_column.twig:83
-msgid "Remove from central columns"
-msgstr "Verwijderen uit centrale kolommen"
-
-#: templates/table/structure/actions_in_table_structure.twig:131
-#: templates/table/structure/check_all_table_column.twig:76
-msgid "Add to central columns"
-msgstr "Toevoegen aan centrale kolommen"
-
-#: templates/server/databases/table_row.twig:13
-#, php-format
-msgid "Jump to database '%s'"
-msgstr "Ga naar database '%s'"
-
-#: templates/server/databases/table_row.twig:61
-#, php-format
-msgid "Check privileges for database \"%s\"."
-msgstr "Controleer rechten op database \"%s\"."
-
-#: templates/server/databases/table_row.twig:62
-msgid "Check privileges"
-msgstr "Controleer rechten"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Server variables and settings"
-msgstr "Servervariabelen en -instellingen"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Storage engines"
-msgstr "Opslag-engines"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Character sets and collations"
-msgstr "Karaktersets en collaties"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Databases statistics"
-msgstr "Databasestatistieken"
-
-#: templates/display/export/selection.twig:3
-msgid "Databases:"
-msgstr "Databases:"
-
-#: templates/login/twofactor/key.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm login on the device."
-msgstr ""
-"Sluit a.u.b. uw FIDO U2F apparaat aan op uw computer USB-poort. Bevestig dan "
-"uw aanmelding op het apparaat."
-
-#: templates/table/secondary_tabs.twig:9
-msgid "Relation view"
-msgstr "Relatieoverzicht"
-
-#: templates/privileges/add_user_fieldset.twig:2
-msgctxt "Create new user"
-msgid "New"
-msgstr "Nieuw"
-
-#: templates/display/results/options_block.twig:30
-msgid "Relational key"
-msgstr "Relationele sleutel"
-
-#: templates/display/results/options_block.twig:30
-msgid "Display column for relationships"
-msgstr "Toon kolom voor relaties"
-
-#: templates/display/results/options_block.twig:46
-msgid "Show binary contents"
-msgstr "Toon binaire inhoud"
-
-#: templates/display/results/options_block.twig:53
-msgid "Show BLOB contents"
-msgstr "Toon BLOB-inhoud"
-
-#: templates/display/results/options_block.twig:67
-msgid "Hide browser transformation"
-msgstr "Browsertransformaties verbergen"
-
-#: templates/display/results/options_block.twig:79
-#: templates/display/results/options_block.twig:96
-msgid "Well Known Text"
-msgstr "Goed bekende tekst"
-
-#: templates/display/results/options_block.twig:79
-#: templates/display/results/options_block.twig:96
-msgid "Well Known Binary"
-msgstr "Goed gekende binaire waarde"
-
-#: templates/database/designer/new_relation_panel.twig:22
-#: templates/database/designer/side_menu.twig:85
-#: templates/database/designer/side_menu.twig:88
-msgid "Create relationship"
-msgstr "Maak relatie aan"
-
-#: templates/table/tracking/activate_deactivate.twig:7
-#, php-format
-msgid "Activate tracking for %s"
-msgstr "Tracking inschakelen van %s"
-
-#: templates/table/tracking/activate_deactivate.twig:9
-msgid "Activate now"
-msgstr "Nu inschakelen"
-
-#: templates/table/tracking/activate_deactivate.twig:11
-#, php-format
-msgid "Deactivate tracking for %s"
-msgstr "Tracking uitschakelen van %s"
-
-#: templates/table/tracking/activate_deactivate.twig:13
-msgid "Deactivate now"
-msgstr "Nu uitschakelen"
-
-#: templates/database/create_table.twig:7
-#: templates/database/designer/side_menu.twig:78
-#: templates/database/designer/side_menu.twig:81
-msgid "Create table"
-msgstr "Tabel aanmaken"
-
-#: templates/database/create_table.twig:15
-msgid "Number of columns"
-msgstr "Aantal kolommen"
-
-# "Geen" of indien telbaar: "Geen enkele".
-#: templates/columns_definitions/column_default.twig:3
-msgctxt "for default"
-msgid "None"
-msgstr "Geen"
-
-#: templates/columns_definitions/column_default.twig:5
-msgid "As defined:"
-msgstr "Zoals aangegeven:"
-
-#: templates/display/export/options_output.twig:26
-msgid "Save output to a file"
-msgstr "Opslaan als bestand"
-
-#: templates/display/export/options_output.twig:51
-#, php-format
-msgid "Skip tables larger than %s MiB"
-msgstr "Sla tabellen over groter dan %s MiB"
-
-#: templates/columns_definitions/column_name.twig:4
-#, php-format
-msgid "Referenced by %s."
-msgstr "Gerefereerd door %s."
-
-#: templates/columns_definitions/column_name.twig:12
-msgid "Is a foreign key."
-msgstr "Is een vreemde sleutel."
-
-#: templates/columns_definitions/column_name.twig:40
-msgid "Pick from Central Columns"
-msgstr "Kies uit centrale kolommen"
-
-#: templates/table/structure/display_partitions.twig:8
-msgid "No partitioning defined!"
-msgstr "Geen partitionering gedefinieerd!"
-
-#: templates/table/structure/display_partitions.twig:11
-msgid "Partitioned by:"
-msgstr "Gepartitioneerd op:"
-
-#: templates/table/structure/display_partitions.twig:16
-msgid "Sub partitioned by:"
-msgstr "Onderverdeling op:"
-
-#: templates/table/structure/display_partitions.twig:24
-#: templates/columns_definitions/partitions.twig:76
-msgid "Partition"
-msgstr "Partitie"
-
-#: templates/table/structure/display_partitions.twig:26
-#: templates/columns_definitions/column_virtuality.twig:29
-msgid "Expression"
-msgstr "Expressie"
-
-#: templates/table/structure/display_partitions.twig:29
-msgid "Data length"
-msgstr "Lengte van de data"
-
-#: templates/table/structure/display_partitions.twig:30
-msgid "Index length"
-msgstr "Lengte van de index"
-
-#: templates/table/structure/display_partitions.twig:135
-msgid "Partition table"
-msgstr "Partitietabel"
-
-#: templates/table/structure/display_partitions.twig:141
-#: templates/table/structure/partition_definition_form.twig:6
-msgid "Edit partitioning"
-msgstr "Partitionering bewerken"
-
-#: templates/toggle_button.twig:3
-msgid "Click to toggle"
-msgstr "Klik om te wisselen"
-
-#: templates/database/designer/having_query_panel.twig:90
-#: templates/database/designer/options_panel.twig:63
-#: templates/database/designer/options_panel.twig:228
-#: templates/database/designer/where_query_panel.twig:59
-msgid "Except"
-msgstr "Behalve"
-
-#: templates/database/designer/having_query_panel.twig:102
-#: templates/database/designer/options_panel.twig:75
-#: templates/database/designer/options_panel.twig:240
-#: templates/database/designer/where_query_panel.twig:71
-msgid "subquery"
-msgstr "subquery"
-
-#: templates/database/designer/delete_relation_panel.twig:21
-msgid "Delete relationship"
-msgstr "Relatie verwijderen"
+"Er is een verschil tussen HTTPS aanduiding op de server en op de cliënt. Dit "
+"kan leiden tot een niet werkende phpAdmin of tot een beveiligingsrisico. "
+"Herstel aub uw serverconfiguratie zodat HTTPS correct wordt aangeduid."
 
 #: templates/display/export/options_output_separate_files.twig:7
 msgid "Export databases as separate files"
@@ -15168,41 +14584,139 @@ msgstr "Exporteer databases as afzonderlijke bestanden"
 msgid "Export tables as separate files"
 msgstr "Exporteer tabellen als afzonderlijke bestanden"
 
-#: templates/table/structure/move_columns_dialog.twig:1
-#: templates/table/structure/optional_action_links.twig:22
-msgid "Move columns"
-msgstr "Kolommen verplaatsen"
+#: templates/table/chart/tbl_chart.twig:15
+msgctxt "Chart type"
+msgid "Bar"
+msgstr "Balk"
 
-#: templates/table/structure/move_columns_dialog.twig:2
-msgid "Move the columns by dragging them up and down."
-msgstr "De kolommen verplaatsen door ze omhoog en omlaag te slepen."
+#: templates/table/chart/tbl_chart.twig:19
+msgctxt "Chart type"
+msgid "Column"
+msgstr "Kolom"
 
-#: templates/view_create.twig:65
-msgid "VIEW name"
-msgstr "VIEW-naam"
+#: templates/table/chart/tbl_chart.twig:23
+msgctxt "Chart type"
+msgid "Line"
+msgstr "Lijn"
 
-#: templates/view_create.twig:79
-msgid "Column names"
-msgstr "Kolomnamen"
+# "Inline" vertaalt naar "rechtstreeks in het document", als het ware binnen
+# iets anders.
+#: templates/table/chart/tbl_chart.twig:27
+msgctxt "Chart type"
+msgid "Spline"
+msgstr "Spline"
 
-#: templates/database/designer/options_panel.twig:34
-#: templates/database/designer/options_panel.twig:199
-msgid "Relationship operator"
-msgstr "Operator voor relatie"
+#: templates/table/chart/tbl_chart.twig:31
+msgctxt "Chart type"
+msgid "Area"
+msgstr "Grafiektype"
 
-#: templates/database/designer/options_panel.twig:84
-#: templates/database/designer/rename_to_panel.twig:22
-msgid "Rename to"
-msgstr "Hernoemen naar"
+#: templates/table/chart/tbl_chart.twig:35
+msgctxt "Chart type"
+msgid "Pie"
+msgstr "Taart"
 
-#: templates/database/designer/options_panel.twig:90
-#: templates/database/designer/rename_to_panel.twig:30
-msgid "New name"
-msgstr "Nieuwe naam"
+#: templates/table/chart/tbl_chart.twig:39
+msgctxt "Chart type"
+msgid "Timeline"
+msgstr "Tijdlijn"
 
-#: templates/database/structure/favorite_anchor.twig:4
-msgid "Add to Favorites"
-msgstr "Voeg toe aan favorieten"
+#: templates/table/chart/tbl_chart.twig:43
+msgctxt "Chart type"
+msgid "Scatter"
+msgstr "Puntenwolk"
+
+#: templates/table/chart/tbl_chart.twig:48
+msgid "Stacked"
+msgstr "Opgestapeld"
+
+#: templates/table/chart/tbl_chart.twig:51
+msgid "Chart title:"
+msgstr "Grafiektitel:"
+
+#: templates/table/chart/tbl_chart.twig:56
+msgid "X-Axis:"
+msgstr "X-as:"
+
+#: templates/table/chart/tbl_chart.twig:71
+msgid "Series:"
+msgstr "Series:"
+
+#: templates/table/chart/tbl_chart.twig:102
+msgid "X-Axis label:"
+msgstr "Label X-as:"
+
+#: templates/table/chart/tbl_chart.twig:104
+msgid "X Values"
+msgstr "X-waarden"
+
+#: templates/table/chart/tbl_chart.twig:107
+msgid "Y-Axis label:"
+msgstr "Label van Y-as:"
+
+#: templates/table/chart/tbl_chart.twig:109
+msgid "Y Values"
+msgstr "Y-waarden"
+
+#: templates/table/chart/tbl_chart.twig:115
+msgid "Series names are in a column"
+msgstr "Namen van de series zitten in een kolom"
+
+#: templates/table/chart/tbl_chart.twig:118
+msgid "Series column:"
+msgstr "Kolom met series:"
+
+#: templates/table/chart/tbl_chart.twig:132
+msgid "Value Column:"
+msgstr "Kolom met waarden:"
+
+#: templates/table/chart/tbl_chart.twig:153
+msgid "Save chart as image"
+msgstr "Sla grafiek op als afbeelding"
+
+#: templates/columns_definitions/move_column.twig:7
+msgid "first"
+msgstr "eerste"
+
+#: templates/columns_definitions/move_column.twig:12
+#: templates/table/structure/add_column.twig:19
+#, php-format
+msgid "after %s"
+msgstr "na %s"
+
+#: templates/database/structure/show_create_row.twig:7
+#, php-format
+msgid "Create %s"
+msgstr "Maak %s aan"
+
+#: templates/database/designer/edit_delete_pages.twig:6
+msgid "Page to open"
+msgstr "Pagina om te openen"
+
+#: templates/database/designer/edit_delete_pages.twig:6
+msgid "Page to delete"
+msgstr "Pagina om te verwijderen"
+
+#: templates/table/insert/continue_insertion_form.twig:18
+#, php-format
+msgid "Continue insertion with %s rows"
+msgstr "Herstart invoegen met %s rijen"
+
+#: templates/toggle_button.twig:3
+msgid "Click to toggle"
+msgstr "Klik om te wisselen"
+
+#: templates/table/tracking/structure_snapshot_columns.twig:5
+#: templates/table/tracking/report_table.twig:4
+msgctxt "Number"
+msgid "#"
+msgstr "#"
+
+#: templates/table/tracking/structure_snapshot_columns.twig:47
+#: templates/table/structure/table_structure_row.twig:34
+msgctxt "None for default"
+msgid "None"
+msgstr "Geen"
 
 #: templates/columns_definitions/partitions.twig:17
 msgid "Partition by:"
@@ -15224,6 +14738,11 @@ msgstr "Onderpartitionering op:"
 #: templates/columns_definitions/partitions.twig:65
 msgid "Subpartitions:"
 msgstr "Onderpartitionering:"
+
+#: templates/columns_definitions/partitions.twig:76
+#: templates/table/structure/display_partitions.twig:24
+msgid "Partition"
+msgstr "Partitie"
 
 #: templates/columns_definitions/partitions.twig:78
 msgid "Values"
@@ -15261,17 +14780,181 @@ msgstr "Tabel ruimte"
 msgid "Node group"
 msgstr "Node groep"
 
-#: templates/server/variables/session_variable_row.twig:3
-msgid "Session value"
-msgstr "Sessievariabelen"
+#: templates/table/structure/add_column.twig:9
+#, php-format
+msgid "Add %s column(s)"
+msgstr "%s kolom(men) toevoegen"
 
-#: templates/database/qbe/footer_options.twig:3
-msgid "Add/Delete criteria rows"
-msgstr "Criterium-rijen toevoegen/verwijderen"
+#: templates/table/structure/add_column.twig:14
+msgid "at beginning of table"
+msgstr "bij begin van de tabel"
 
-#: templates/database/qbe/footer_options.twig:5
-msgid "Add/Delete columns"
-msgstr "Kolommen toevoegen/verwijderen"
+#: templates/database/designer/having_query_panel.twig:30
+#: templates/database/designer/having_query_panel.twig:61
+#: templates/table/search/table_header.twig:9
+#: templates/database/designer/options_panel.twig:105
+#: templates/database/designer/options_panel.twig:169
+#: templates/database/designer/aggregate_query_panel.twig:30
+#: templates/database/designer/where_query_panel.twig:30
+msgid "Operator"
+msgstr "Operator"
+
+#: templates/database/designer/having_query_panel.twig:90
+#: templates/database/designer/options_panel.twig:63
+#: templates/database/designer/options_panel.twig:228
+#: templates/database/designer/where_query_panel.twig:59
+msgid "Except"
+msgstr "Behalve"
+
+#: templates/database/designer/having_query_panel.twig:102
+#: templates/database/designer/options_panel.twig:75
+#: templates/database/designer/options_panel.twig:240
+#: templates/database/designer/where_query_panel.twig:71
+msgid "subquery"
+msgstr "subquery"
+
+#: templates/error/report_form.twig:6
+msgid ""
+"This report automatically includes data about the error and information "
+"about relevant configuration settings. It will be sent to the phpMyAdmin "
+"team for debugging the error."
+msgstr ""
+"Dit rapport automatisch bevat data over deze fout en ook informatie over "
+"relevante configuratie-instellingen. Het zal verzonden worden naar het "
+"phpMyAdmin team om te helpen bij het debuggen van het probleem."
+
+#: templates/error/report_form.twig:12
+msgid ""
+"Can you tell us the steps leading to this error? It decisively helps in "
+"debugging:"
+msgstr ""
+"Kun je ons de genomen stappen vertellen die tot deze fout leiden? Dat helpt "
+"beslist bij het debuggen:"
+
+#: templates/error/report_form.twig:19
+msgid "You may examine the data in the error report:"
+msgstr "U kan de gegevens in het foutmeldingsverslag bekijken:"
+
+#: templates/start_and_number_of_rows_panel.twig:3
+msgid "Start row:"
+msgstr "Startregel:"
+
+#: templates/start_and_number_of_rows_panel.twig:10
+#: templates/display/export/options_rows.twig:10
+#: templates/display/results/additional_fields.twig:6
+msgid "Number of rows:"
+msgstr "Aantal rijen:"
+
+#: templates/table/structure/optional_action_links.twig:8
+msgid "Propose table structure"
+msgstr "Tabelstructuur voorstellen"
+
+#: templates/table/structure/optional_action_links.twig:18
+#: templates/database/tracking/untracked_tables.twig:28
+#: templates/database/tracking/untracked_tables.twig:40
+msgid "Track table"
+msgstr "Tabel tracken"
+
+#: templates/table/structure/optional_action_links.twig:22
+#: templates/table/structure/move_columns_dialog.twig:1
+msgid "Move columns"
+msgstr "Kolommen verplaatsen"
+
+#: templates/table/structure/optional_action_links.twig:25
+msgid "Normalize"
+msgstr "Normaliseer"
+
+#: templates/table/structure/optional_action_links.twig:31
+msgid "Track view"
+msgstr "View volgen"
+
+#: templates/export/alias_item.twig:8
+msgid "Remove"
+msgstr "Verwijder"
+
+#: templates/columns_definitions/table_fields_definitions.twig:17
+msgid ""
+"If column type is \"enum\" or \"set\", please enter the values using this "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
+"single quote (\"'\") amongst those values, precede it with a backslash (for "
+"example '\\\\xyz' or 'a\\'b')."
+msgstr ""
+"Als het veldtype \"enum\" of \"set\" is, voer dan de waardes in volgens dit "
+"formaat: 'a','b','c'…<br />Als u een backslash moet plaatsen (\"\\\") of een "
+"enkel aanhalingsteken (\"'\") bij deze waardes, plaats er dan een backslash "
+"voor (voorbeeld '\\\\xyz' of 'a\\'b')."
+
+#: templates/columns_definitions/table_fields_definitions.twig:21
+msgid ""
+"For default values, please enter just a single value, without backslash "
+"escaping or quotes, using this format: a"
+msgstr ""
+"Voer voor standaard waarden aub een enkele waarde in, zonder backslash of "
+"aanhalingstekens, gebruik makend van dit formaat: a"
+
+#: templates/columns_definitions/table_fields_definitions.twig:59
+msgid "Virtuality"
+msgstr "Virtualiteit"
+
+#: templates/columns_definitions/table_fields_definitions.twig:65
+msgid "Move column"
+msgstr "Kolom verplaatsen"
+
+#: templates/columns_definitions/table_fields_definitions.twig:76
+#: templates/columns_definitions/table_fields_definitions.twig:87
+msgid "List of available transformations and their options"
+msgstr "Lijst met beschikbare transformaties en hun opties"
+
+#: templates/columns_definitions/table_fields_definitions.twig:82
+msgid "Browser display transformation options"
+msgstr "Browserweergavetransformatieopties"
+
+#: templates/columns_definitions/table_fields_definitions.twig:83
+#: templates/columns_definitions/table_fields_definitions.twig:94
+msgid ""
+"Please enter the values for transformation options using this format: 'a', "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
+"quote (\"'\") amongst those values, precede it with a backslash (for example "
+"'\\\\xyz' or 'a\\'b')."
+msgstr ""
+"Vul de waardes voor de transformatieoptie in het volgende formaat in: 'a', "
+"100, b,'c'…<br />Wanneer u een backslash (\"\\\") of een enkele quote "
+"(\"'\") moet invoegen plaats er dan een backslash voor (bijvoorbeeld '\\"
+"\\xyz' of 'a\\'b')."
+
+#: templates/columns_definitions/table_fields_definitions.twig:93
+msgid "Input transformation options"
+msgstr "Invoertransformatieopties"
+
+#: templates/encoding/kanji_encoding_form.twig:6
+msgctxt "None encoding conversion"
+msgid "None"
+msgstr "Geen"
+
+# Wat is 'Kana' ?
+#: templates/encoding/kanji_encoding_form.twig:17
+msgid "Convert to Kana"
+msgstr "Omzetten naar Kana"
+
+#: templates/table/tracking/report_table.twig:5
+msgid "Date"
+msgstr "Datum"
+
+#: templates/table/tracking/report_table.twig:6
+msgid "Username"
+msgstr "Gebruikersnaam"
+
+#: templates/display/export/method.twig:3
+msgid "Export method:"
+msgstr "Export methode:"
+
+#: templates/display/export/method.twig:9
+msgid "Quick - display only the minimal options"
+msgstr "Snel - toon enkel de belangrijkste opties"
+
+#: templates/display/export/method.twig:17
+msgid "Custom - display all possible options"
+msgstr "Uitgebreid - toon alle mogelijke opties"
 
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:84 templates/console/display.twig:175
@@ -15288,61 +14971,90 @@ msgstr "Uitklappen"
 msgid "Requery"
 msgstr "Query opnieuw uitvoeren"
 
-#: templates/login/twofactor/key_configure.twig:3
+#: templates/view_create.twig:13
+#: templates/table/structure/display_structure.twig:138
+msgid "Edit view"
+msgstr "View bewerken"
+
+#: templates/view_create.twig:65
+msgid "VIEW name"
+msgstr "VIEW-naam"
+
+#: templates/view_create.twig:79
+msgid "Column names"
+msgstr "Kolomnamen"
+
+#: templates/display/export/options_output_format.twig:3
+msgid "File name template:"
+msgstr "Bestandsnaamtemplate:"
+
+#: templates/display/export/options_output_format.twig:11
+msgid "use this for future exports"
+msgstr "gebruik dit voor toekomstige exports"
+
+#: templates/table/structure/actions_in_table_structure.twig:15
+#, php-format
+msgid "A primary key has been added on %s."
+msgstr "Een primaire sleutel is toegevoegd aan %s."
+
+#: templates/table/structure/actions_in_table_structure.twig:33
+#: templates/table/structure/actions_in_table_structure.twig:51
+#: templates/table/structure/actions_in_table_structure.twig:80
+#: templates/table/structure/actions_in_table_structure.twig:103
+#, php-format
+msgid "An index has been added on %s."
+msgstr "Een index is toegevoegd aan %s."
+
+#: templates/table/structure/actions_in_table_structure.twig:127
+#: templates/table/structure/check_all_table_column.twig:83
+msgid "Remove from central columns"
+msgstr "Verwijderen uit centrale kolommen"
+
+#: templates/table/structure/actions_in_table_structure.twig:131
+#: templates/table/structure/check_all_table_column.twig:76
+msgid "Add to central columns"
+msgstr "Toevoegen aan centrale kolommen"
+
+#: templates/login/twofactor/application.twig:2
+#: templates/login/twofactor/application_configure.twig:21
+msgid "Authentication code:"
+msgstr "Authenticatie code:"
+
+#: templates/login/twofactor/application.twig:4
 msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm registration on the device."
+"Open the two-factor authentication app on your device to view your "
+"authentication code and verify your identity."
 msgstr ""
-"Sluit a.u.b. uw FIDO U2F apparaat aan op uw computer USB-poort. Bevestig dan "
-"uw registratie op het apparaat."
+"Open de tweeweg authentificatie app op uw apparaat voor uw authentificatie "
+"code en verifieer uw identiteit."
 
-#: templates/database/structure/check_all_tables.twig:6
-msgid "Check tables having overhead"
-msgstr "Selecteer tabellen met overhead"
+#: templates/database/structure/table_header.twig:27
+msgid ""
+"May be approximate. Click on the number to get the exact count. See "
+"[doc@faq3-11]FAQ 3.11[/doc]."
+msgstr ""
+"Bij benadering. Klik op het getal voor de exacte hoeveelheid. Zie "
+"[doc@faq3-11]FAQ 3.11[/doc]."
 
-#: templates/database/structure/check_all_tables.twig:10
-msgid "Copy table"
-msgstr "Tabel kopiëren"
+#: templates/database/structure/table_header.twig:38
+#: templates/table/index_form.twig:118
+msgid "Size"
+msgstr "Grootte"
 
-#: templates/database/structure/check_all_tables.twig:11
-msgid "Show create"
-msgstr "Toon aanmaken"
+#: templates/database/structure/table_header.twig:53
+#: templates/table/structure/row_stats_table.twig:76
+msgid "Creation"
+msgstr "Gecreëerd"
 
-#: templates/database/structure/check_all_tables.twig:25
-msgid "Prefix"
-msgstr "Voorvoegsel"
+#: templates/database/structure/table_header.twig:58
+#: templates/table/structure/row_stats_table.twig:83
+msgid "Last update"
+msgstr "Laatst bijgewerkt"
 
-#: templates/database/structure/check_all_tables.twig:26
-msgid "Add prefix to table"
-msgstr "Voeg voorvoegsel toe aan tabel"
-
-#: templates/database/structure/check_all_tables.twig:27
-msgid "Replace table prefix"
-msgstr "Vervang tabelvoorvoegsel"
-
-#: templates/database/structure/check_all_tables.twig:33
-msgid "Add columns to central list"
-msgstr "Voeg kolommen toe aan centrale lijst"
-
-#: templates/database/structure/check_all_tables.twig:34
-msgid "Remove columns from central list"
-msgstr "Verwijder kolommen uit de centrale lijst"
-
-#: templates/database/structure/check_all_tables.twig:35
-msgid "Make consistent with central list"
-msgstr "Maak in overeenstemming met centrale lijst"
-
-#: templates/table/tracking/structure_snapshot_columns.twig:5
-#: templates/table/tracking/report_table.twig:4
-msgctxt "Number"
-msgid "#"
-msgstr "#"
-
-#: templates/table/tracking/structure_snapshot_columns.twig:47
-#: templates/table/structure/table_structure_row.twig:34
-msgctxt "None for default"
-msgid "None"
-msgstr "Geen"
+#: templates/database/structure/table_header.twig:63
+#: templates/table/structure/row_stats_table.twig:90
+msgid "Last check"
+msgstr "Laatst gecontroleerd"
 
 #: templates/display/export/option_header.twig:5
 msgid "Exporting databases from the current server"
@@ -15358,20 +15070,312 @@ msgstr "Tabellen exporteren uit de database \"%s\""
 msgid "Exporting rows from \"%s\" table"
 msgstr "Rijen exporteren uit de tabel \"%s\""
 
-#: templates/encoding/kanji_encoding_form.twig:6
-msgctxt "None encoding conversion"
-msgid "None"
-msgstr "Geen"
+#: templates/privileges/resource_limits.twig:2
+msgid "Resource limits"
+msgstr "Middelen beperkingen"
 
-# Wat is 'Kana' ?
-#: templates/encoding/kanji_encoding_form.twig:17
-msgid "Convert to Kana"
-msgstr "Omzetten naar Kana"
+#: templates/privileges/resource_limits.twig:5
+msgid "Note: Setting these options to 0 (zero) removes the limit."
+msgstr ""
+"Opmerking: het instellen van deze opties op 0 (nul) verwijdert de limiet."
 
-#: templates/table/structure/table_structure_row.twig:55
+#: templates/display/export/options_output_radio.twig:5
+msgid "View output as text"
+msgstr "Bekijk output als tekst"
+
+#: templates/columns_definitions/column_length.twig:9
+msgid "Edit ENUM/SET values"
+msgstr "Bewerk ENUM/SET waarden"
+
+#: templates/database/tracking/tracked_tables.twig:2
+msgid "Tracked tables"
+msgstr "Tabellen met tracker"
+
+#: templates/database/tracking/tracked_tables.twig:12
+msgid "Last version"
+msgstr "Laatste versie"
+
+#: templates/database/tracking/tracked_tables.twig:54
+#: templates/database/tracking/tracked_tables.twig:99
+msgid "Delete tracking"
+msgstr "Verwijder tracking"
+
+#: templates/database/tracking/tracked_tables.twig:65
+msgid "Versions"
+msgstr "Versies"
+
+#: templates/database/designer/page_selector.twig:2
+msgid "Select page"
+msgstr "Selecteer pagina"
+
+#: templates/theme_preview.twig:11
+msgid "No preview available."
+msgstr "Geen preview beschikbaar."
+
+#: templates/theme_preview.twig:13
+msgid "Take it"
+msgstr "Gebruik deze"
+
+#: templates/server/databases/databases_footer.twig:65
+msgid ""
+"Note: Enabling the database statistics here might cause heavy traffic "
+"between the web server and the MySQL server."
+msgstr ""
+"Let op: het inschakelen van databasestatistieken kan zorgen voor veel "
+"gegevensverkeer tussen de webserver en de MySQL-server."
+
+#: templates/server/databases/databases_footer.twig:68
+#: templates/server/databases/databases_footer.twig:69
+msgid "Enable statistics"
+msgstr "Statistieken inschakelen"
+
+#: templates/privileges/privileges_summary.twig:20
+msgid "Column-specific privileges"
+msgstr "Kolom-specifieke rechten"
+
+#: templates/database/designer/page_save_as.twig:17
+msgid "Save to selected page"
+msgstr "Opslaan naar geselecteerde pagina"
+
+#: templates/database/designer/page_save_as.twig:17
+msgid "Create a page and save to it"
+msgstr "Een pagina aanmaken en ernaar opslaan"
+
+#: templates/database/designer/page_save_as.twig:30
+msgid "New page name"
+msgstr "Nieuwe paginanaam"
+
+#: templates/columns_definitions/column_virtuality.twig:29
+#: templates/table/structure/display_partitions.twig:26
+msgid "Expression"
+msgstr "Expressie"
+
+#: templates/database/designer/schema_export.twig:4
+msgid "Select Export Relational Type"
+msgstr "Selecteer uitvoer relationeel type"
+
+#: templates/table/relation/foreign_key_row.twig:15
 #, php-format
-msgid "Column %s has been dropped."
-msgstr "Kolom %s is verwijderd."
+msgid "Foreign key constraint %s has been dropped"
+msgstr "Beperkingen voor vreemde sleutel %s zijn verwijderd"
+
+#: templates/table/relation/foreign_key_row.twig:38
+msgid "Constraint name"
+msgstr "Naam van de beperking"
+
+#: templates/table/relation/foreign_key_row.twig:90
+#: templates/database/multi_table_query/form.twig:158
+msgid "+ Add column"
+msgstr "+ Kolom toevoegen"
+
+#: templates/database/designer/options_panel.twig:34
+#: templates/database/designer/options_panel.twig:199
+msgid "Relationship operator"
+msgstr "Operator voor relatie"
+
+#: templates/database/designer/options_panel.twig:84
+#: templates/database/designer/rename_to_panel.twig:22
+msgid "Rename to"
+msgstr "Hernoemen naar"
+
+#: templates/database/designer/options_panel.twig:90
+#: templates/database/designer/rename_to_panel.twig:30
+msgid "New name"
+msgstr "Nieuwe naam"
+
+#: templates/database/designer/options_panel.twig:99
+#: templates/database/designer/aggregate_query_panel.twig:22
+msgid "Aggregate"
+msgstr "Samenvoegen"
+
+#: templates/table/structure/move_columns_dialog.twig:2
+msgid "Move the columns by dragging them up and down."
+msgstr "De kolommen verplaatsen door ze omhoog en omlaag te slepen."
+
+#: templates/display/export/options_rows.twig:2
+msgid "Rows:"
+msgstr "Rijen:"
+
+#: templates/display/export/options_rows.twig:7
+msgid "Dump some row(s)"
+msgstr "Exporteer enkele rijen"
+
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
+msgstr "Te beginnen op rij:"
+
+#: templates/display/export/options_rows.twig:32
+msgid "Dump all rows"
+msgstr "Exporteer alle rijen"
+
+#: templates/display/results/options_block.twig:30
+msgid "Relational key"
+msgstr "Relationele sleutel"
+
+#: templates/display/results/options_block.twig:30
+msgid "Display column for relationships"
+msgstr "Toon kolom voor relaties"
+
+#: templates/display/results/options_block.twig:46
+msgid "Show binary contents"
+msgstr "Toon binaire inhoud"
+
+#: templates/display/results/options_block.twig:53
+msgid "Show BLOB contents"
+msgstr "Toon BLOB-inhoud"
+
+#: templates/display/results/options_block.twig:67
+msgid "Hide browser transformation"
+msgstr "Browsertransformaties verbergen"
+
+#: templates/display/results/options_block.twig:79
+#: templates/display/results/options_block.twig:96
+msgid "Well Known Text"
+msgstr "Goed bekende tekst"
+
+#: templates/display/results/options_block.twig:79
+#: templates/display/results/options_block.twig:96
+msgid "Well Known Binary"
+msgstr "Goed gekende binaire waarde"
+
+#: templates/database/qbe/footer_options.twig:3
+msgid "Add/Delete criteria rows"
+msgstr "Criterium-rijen toevoegen/verwijderen"
+
+#: templates/database/qbe/footer_options.twig:5
+msgid "Add/Delete columns"
+msgstr "Kolommen toevoegen/verwijderen"
+
+#: templates/login/twofactor/key-https-warning.twig:3
+msgid ""
+"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
+"most likely refuse to authenticate you."
+msgstr ""
+"U gebruikt geen https om phpMyAdmin te gebruiken, daarom zal het FIDO U2F "
+"apparaat waarschijnlijk weigeren om u te authentificeren."
+
+#: templates/table/search/options_zoom.twig:6
+msgid "Use this column to label each point"
+msgstr "Gebruik deze kolom om ieder punt een naam te geven"
+
+#: templates/table/search/options_zoom.twig:32
+msgid "Maximum rows to plot"
+msgstr "Maximum aantal af te drukken regels"
+
+#: templates/table/tracking/activate_deactivate.twig:7
+#, php-format
+msgid "Activate tracking for %s"
+msgstr "Tracking inschakelen van %s"
+
+#: templates/table/tracking/activate_deactivate.twig:9
+msgid "Activate now"
+msgstr "Nu inschakelen"
+
+#: templates/table/tracking/activate_deactivate.twig:11
+#, php-format
+msgid "Deactivate tracking for %s"
+msgstr "Tracking uitschakelen van %s"
+
+#: templates/table/tracking/activate_deactivate.twig:13
+msgid "Deactivate now"
+msgstr "Nu uitschakelen"
+
+#: templates/login/twofactor/key_configure.twig:3
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm registration on the device."
+msgstr ""
+"Sluit a.u.b. uw FIDO U2F apparaat aan op uw computer USB-poort. Bevestig dan "
+"uw registratie op het apparaat."
+
+#: templates/database/search/selection_form.twig:5
+msgid "Search in database"
+msgstr "Zoeken in de database"
+
+#: templates/database/search/selection_form.twig:8
+msgid "Words or values to search for (wildcard: \"%\"):"
+msgstr "Woorden of waarden waarnaar gezocht moet worden (wildcard: \"%\"):"
+
+#: templates/database/search/selection_form.twig:15
+#: templates/table/search/search_and_replace.twig:1
+msgid "Find:"
+msgstr "Zoek:"
+
+#: templates/database/search/selection_form.twig:29
+msgid "Inside tables:"
+msgstr "In de tabellen:"
+
+#: templates/database/search/selection_form.twig:51
+msgid "Inside column:"
+msgstr "In de kolom:"
+
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr "Tabelnaam"
+
+#: templates/columns_definitions/column_definitions_form.twig:32
+#: templates/console/display.twig:99 templates/export/alias_add.twig:18
+#: templates/export/alias_add.twig:32 templates/export/alias_add.twig:46
+msgid "Add"
+msgstr "Toevoegen"
+
+#: templates/columns_definitions/column_definitions_form.twig:40
+msgid "column(s)"
+msgstr "Kolom(men)"
+
+#: templates/columns_definitions/column_definitions_form.twig:74
+msgid "Collation:"
+msgstr "Collatie:"
+
+#: templates/columns_definitions/column_definitions_form.twig:77
+msgid "Storage Engine:"
+msgstr "Opslag-engine:"
+
+#: templates/columns_definitions/column_definitions_form.twig:82
+msgid "Connection:"
+msgstr "Verbinding:"
+
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
+msgstr "PARTITION-definitie:"
+
+#: templates/table/search/options.twig:6
+msgid "Select columns (at least one):"
+msgstr "Selecteer kolommen (minstens één):"
+
+#: templates/table/search/options.twig:26
+msgid "Add search conditions (body of the \"where\" clause):"
+msgstr "Zoekcondities toevoegen (het \"where\"-gedeelte van de query):"
+
+#: templates/table/search/options.twig:34
+msgid "Number of rows per page"
+msgstr "Aantal rijen per pagina"
+
+#: templates/table/search/options.twig:45
+msgid "Display order:"
+msgstr "Volgorde van weergave:"
+
+#: templates/privileges/add_privileges_table.twig:3
+msgid "Add privileges on the following table:"
+msgstr "Rechten toevoegen op de volgende tabel:"
+
+#: templates/display/export/selection.twig:3
+msgid "Databases:"
+msgstr "Databases:"
+
+#: templates/database/designer/delete_relation_panel.twig:21
+msgid "Delete relationship"
+msgstr "Relatie verwijderen"
+
+#: templates/server/databases/create.twig:8
+#: templates/server/databases/create.twig:36
+msgid "Create database"
+msgstr "Database aanmaken"
+
+#: templates/server/databases/create.twig:30
+#: templates/display/export/template_loading.twig:10
+msgid "Create"
+msgstr "Aanmaken"
 
 #: templates/console/display.twig:7
 msgid "History"
@@ -15478,117 +15482,280 @@ msgstr ""
 "Voer queries uit met de Enter toets en voeg een nieuwe regel toe met Shift + "
 "Enter. Om dit permanent te maken, bekijk het instellingenmenu."
 
+#: templates/table/tracking/create_version.twig:11
+#, php-format
+msgid "Create version %1$s of %2$s"
+msgstr "Versie %1$s van %2$s aanmaken"
+
+#: templates/table/tracking/create_version.twig:16
+#, php-format
+msgid "Create version %1$s"
+msgstr "Versie %1$s aanmaken"
+
+#: templates/table/tracking/create_version.twig:20
+msgid "Track these data definition statements:"
+msgstr "Deze definitie-statements tracken:"
+
+#: templates/table/tracking/create_version.twig:59
+msgid "Track these data manipulation statements:"
+msgstr "Deze manipulatie-statements tracken:"
+
+#: templates/table/tracking/create_version.twig:76
+msgid "Create version"
+msgstr "Versie aanmaken"
+
+#: templates/prefs_twofactor.twig:3
+msgid "Two-factor authentication status"
+msgstr "Tweeweg authentificatie status"
+
+#: templates/prefs_twofactor.twig:9
+msgid ""
+"Two-factor authentication is not available, please install optional "
+"dependencies to enable authentication backends."
+msgstr ""
+"Tweeweg authentificatie is niet beschikbaar, installeer a.u.b. de optionele "
+"afhankelijkheden om authentificatie backends beschikbaar te maken."
+
+#: templates/prefs_twofactor.twig:10
+msgid "Following composer packages are missing:"
+msgstr "De volgende composer onderdelen ontbreken:"
+
+#: templates/prefs_twofactor.twig:18
+msgid "Two-factor authentication is available and configured for this account."
+msgstr ""
+"Tweeweg authentificatie is beschikbaar en geconfigureerd voor dit account."
+
+#: templates/prefs_twofactor.twig:20
+msgid ""
+"Two-factor authentication is available, but not configured for this account."
+msgstr ""
+"Tweeweg authentificatie is beschikbaar, maar niet geconfigureerd voor dit "
+"account."
+
+#: templates/prefs_twofactor.twig:24
+msgid ""
+"Two-factor authentication is not available, enable phpMyAdmin configuration "
+"storage to use it."
+msgstr ""
+"Tweeweg authentificatie is niet beschikbaar, activeer phpMyAdmin "
+"configuratieopslag om het te gebruiken."
+
+#: templates/prefs_twofactor.twig:33
+msgid "You have enabled two factor authentication."
+msgstr "U hebt tweeweg authentificatie geactiveerd."
+
+#: templates/prefs_twofactor.twig:37 templates/prefs_twofactor_confirm.twig:9
+msgid "Disable two-factor authentication"
+msgstr "Deactiveer tweeweg authentificatie"
+
+#: templates/prefs_twofactor.twig:43 templates/prefs_twofactor.twig:54
+#: templates/prefs_twofactor_configure.twig:2
+msgid "Configure two-factor authentication"
+msgstr "Configureer tweeweg authentificatie"
+
+#: templates/display/export/options_format.twig:2
+#: templates/display/import/import.twig:174
+msgid "Format-specific options:"
+msgstr "Indelingsspecifieke opties:"
+
+#: templates/display/export/options_format.twig:4
+#: templates/display/import/import.twig:176
+msgid ""
+"Scroll down to fill in the options for the selected format and ignore the "
+"options for other formats."
+msgstr ""
+"Onderaan kunnen de opties van het geselecteerde formaat ingevuld worden, de "
+"opties voor de andere formaten kunnen genegeerd worden."
+
+# Is er een betere vertaling voor 'encoding' ?
+#: templates/display/export/options_format.twig:12
+#: templates/display/import/import.twig:185
+msgid "Encoding Conversion:"
+msgstr "Coderingsconversie:"
+
+#: templates/database/structure/show_create.twig:2
+msgid "Showing create queries"
+msgstr "Aanmaakquery's worden getoond"
+
+#: templates/table/search/rows_zoom.twig:12
+msgid "Additional search criteria"
+msgstr "Bijkomende zoekcriteria"
+
+#: templates/table/search/replace_preview.twig:13
+msgid "Find and replace - preview"
+msgstr "Zoeken en vervangen - voorbeeld"
+
+#: templates/table/search/replace_preview.twig:18
+msgid "Original string"
+msgstr "Oorspronkelijke tekenreeks"
+
+#: templates/table/search/replace_preview.twig:19
+msgid "Replaced string"
+msgstr "Vervangen tekenreeks"
+
+#: templates/table/search/replace_preview.twig:37
+msgid "Replace"
+msgstr "Vervangen"
+
 #: templates/display/export/template_options.twig:1
 msgid "Select a template"
 msgstr "Selecteer een template"
-
-#: templates/table/gis_visualization/gis_visualization.twig:3
-msgid "Display GIS Visualization"
-msgstr "GIS-visualisatie tonen"
-
-#: templates/table/gis_visualization/gis_visualization.twig:8
-msgid "Label column"
-msgstr "Kolom naam geven"
-
-#: templates/table/gis_visualization/gis_visualization.twig:11
-msgid "-- None --"
-msgstr "-- Geen --"
-
-#: templates/table/gis_visualization/gis_visualization.twig:19
-msgid "Spatial column"
-msgstr "Plaatshoudende kolom"
-
-#: templates/table/search/zoom_result_form.twig:7
-msgid "Browse/Edit the points"
-msgstr "Doorzoek/bewerk de punten"
-
-#: templates/table/search/zoom_result_form.twig:15
-msgid "How to use"
-msgstr "Hoe te gebruiken"
-
-#: templates/table/search/zoom_result_form.twig:23
-msgid "Reset zoom"
-msgstr "Herstel zoom"
-
-#: templates/display/export/options_output_format.twig:3
-msgid "File name template:"
-msgstr "Bestandsnaamtemplate:"
-
-#: templates/display/export/options_output_format.twig:11
-msgid "use this for future exports"
-msgstr "gebruik dit voor toekomstige exports"
 
 #: templates/server/variables/variable_row.twig:6
 msgid "This is a read-only variable and can not be edited"
 msgstr "Dit is een alleen-lezen variabele en kan niet worden gewijzigd"
 
-#: templates/privileges/add_privileges_table.twig:3
-msgid "Add privileges on the following table:"
-msgstr "Rechten toevoegen op de volgende tabel:"
+#: templates/server/binlog/log_selector.twig:5
+msgid "Select binary log to view"
+msgstr "Selecteer de te bekijken binaire log"
 
-#: templates/columns_definitions/table_fields_definitions.twig:17
+#: templates/database/create_table.twig:7
+#: templates/database/designer/side_menu.twig:78
+#: templates/database/designer/side_menu.twig:81
+msgid "Create table"
+msgstr "Tabel aanmaken"
+
+#: templates/database/create_table.twig:15
+msgid "Number of columns"
+msgstr "Aantal kolommen"
+
+#: templates/display/import/javascript.twig:12
 msgid ""
-"If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
-"single quote (\"'\") amongst those values, precede it with a backslash (for "
-"example '\\\\xyz' or 'a\\'b')."
+"The file being uploaded is probably larger than the maximum allowed size or "
+"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
+"browsers."
 msgstr ""
-"Als het veldtype \"enum\" of \"set\" is, voer dan de waardes in volgens dit "
-"formaat: 'a','b','c'…<br />Als u een backslash moet plaatsen (\"\\\") of een "
-"enkel aanhalingsteken (\"'\") bij deze waardes, plaats er dan een backslash "
-"voor (voorbeeld '\\\\xyz' of 'a\\'b')."
+"Het geüploade bestand is mogelijk groter dan de limiet toestaat, of u heeft "
+"last van een een bekende bug in op webkit gebaseerde browsers (Safari, "
+"Google Chrome, Arora, enz.)."
 
-#: templates/columns_definitions/table_fields_definitions.twig:21
+#: templates/display/import/javascript.twig:16
+#, php-format
+msgid "%s of %s"
+msgstr "%s van %s"
+
+#: templates/display/import/javascript.twig:17
+#, php-format
+msgid "%s/sec."
+msgstr "%s/sec."
+
+#: templates/display/import/javascript.twig:18
+msgid "About %MIN min. %SEC sec. remaining."
+msgstr "Ongeveer %MIN minuten en %SEC seconden resterend."
+
+#: templates/display/import/javascript.twig:19
+msgid "About %SEC sec. remaining."
+msgstr "Nog ongeveer %SEC seconden resterend."
+
+#: templates/display/import/javascript.twig:20
+msgid "The file is being processed, please be patient."
+msgstr "Het bestand wordt verwerkt, een ogenblik geduld."
+
+#: templates/display/import/javascript.twig:36
+msgid "Uploading your import file…"
+msgstr "Uw te importeren bestand wordt geüpload…"
+
+#: templates/display/import/javascript.twig:161
 msgid ""
-"For default values, please enter just a single value, without backslash "
-"escaping or quotes, using this format: a"
+"Please be patient, the file is being uploaded. Details about the upload are "
+"not available."
 msgstr ""
-"Voer voor standaard waarden aub een enkele waarde in, zonder backslash of "
-"aanhalingstekens, gebruik makend van dit formaat: a"
-
-#: templates/columns_definitions/table_fields_definitions.twig:59
-msgid "Virtuality"
-msgstr "Virtualiteit"
-
-#: templates/columns_definitions/table_fields_definitions.twig:65
-msgid "Move column"
-msgstr "Kolom verplaatsen"
-
-#: templates/columns_definitions/table_fields_definitions.twig:76
-#: templates/columns_definitions/table_fields_definitions.twig:87
-msgid "List of available transformations and their options"
-msgstr "Lijst met beschikbare transformaties en hun opties"
-
-#: templates/columns_definitions/table_fields_definitions.twig:82
-msgid "Browser display transformation options"
-msgstr "Browserweergavetransformatieopties"
-
-#: templates/columns_definitions/table_fields_definitions.twig:83
-#: templates/columns_definitions/table_fields_definitions.twig:94
-msgid ""
-"Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
-"quote (\"'\") amongst those values, precede it with a backslash (for example "
-"'\\\\xyz' or 'a\\'b')."
-msgstr ""
-"Vul de waardes voor de transformatieoptie in het volgende formaat in: 'a', "
-"100, b,'c'…<br />Wanneer u een backslash (\"\\\") of een enkele quote "
-"(\"'\") moet invoegen plaats er dan een backslash voor (bijvoorbeeld '\\"
-"\\xyz' of 'a\\'b')."
-
-#: templates/columns_definitions/table_fields_definitions.twig:93
-msgid "Input transformation options"
-msgstr "Invoertransformatieopties"
+"Een ogenblik geduld, het bestand wordt geüpload. Details over de voortgang "
+"zijn niet beschikbaar."
 
 #: templates/database/tracking/untracked_tables.twig:1
 msgid "Untracked tables"
 msgstr "Tabellen zonder tracker"
 
-#: templates/database/tracking/untracked_tables.twig:28
-#: templates/database/tracking/untracked_tables.twig:40
-#: templates/table/structure/optional_action_links.twig:18
-msgid "Track table"
-msgstr "Tabel tracken"
+#: templates/database/structure/body_for_table_summary.twig:6
+#, php-format
+msgid "%s table"
+msgid_plural "%s tables"
+msgstr[0] "%s tabel"
+msgstr[1] "%s tabellen"
+
+#: templates/database/structure/body_for_table_summary.twig:17
+msgid "Sum"
+msgstr "Som"
+
+#: templates/table/index_form.twig:15
+msgid "Index name:"
+msgstr "Indexnaam:"
+
+#: templates/table/index_form.twig:16
+msgid ""
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
+msgstr ""
+"\"PRIMARY\" <b>moet</b> de naam van en <b>alleen van</b> een primaire "
+"sleutel zijn!"
+
+#: templates/table/index_form.twig:34
+msgid "Index choice:"
+msgstr "Index keuze:"
+
+#: templates/table/index_form.twig:42
+msgid "Advanced Options"
+msgstr "Geavanceerde Opties"
+
+#: templates/table/index_form.twig:48
+msgid "Key block size:"
+msgstr "Sleutelveldgrootte:"
+
+#: templates/table/index_form.twig:65
+msgid "Index type:"
+msgstr "Indextype:"
+
+#: templates/table/index_form.twig:77
+msgid "Parser:"
+msgstr "Lezer:"
+
+#: templates/table/index_form.twig:93
+msgid "Comment:"
+msgstr "Opmerking:"
+
+#: templates/table/index_form.twig:136 templates/table/index_form.twig:173
+msgid "Drag to reorder"
+msgstr "Sleep om te herschikken"
+
+#: templates/server/plugins/section.twig:9
+msgid "Plugin"
+msgstr "Plugin"
+
+#: templates/server/plugins/section.twig:12
+msgid "Author"
+msgstr "Auteur"
+
+#: templates/server/plugins/section.twig:23
+msgid "disabled"
+msgstr "uitgeschakeld"
+
+#: templates/login/twofactor/key.twig:3
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm login on the device."
+msgstr ""
+"Sluit a.u.b. uw FIDO U2F apparaat aan op uw computer USB-poort. Bevestig dan "
+"uw aanmelding op het apparaat."
+
+#: templates/database/central_columns/add_column.twig:13
+msgid "Select a column."
+msgstr "Selecteer een kolom."
+
+#: templates/display/export/options_output_compression.twig:4
+msgid "Compression:"
+msgstr "Compressie:"
+
+#: templates/display/export/options_output_compression.twig:11
+msgid "zipped"
+msgstr "gezipt"
+
+#: templates/display/export/options_output_compression.twig:17
+msgid "gzipped"
+msgstr "ge-gzipt"
+
+#: templates/database/structure/favorite_anchor.twig:4
+msgid "Add to Favorites"
+msgstr "Voeg toe aan favorieten"
 
 #: templates/database/designer/side_menu.twig:13
 #: templates/database/designer/side_menu.twig:19
@@ -15614,6 +15781,12 @@ msgstr "Nieuwe pagina"
 #: templates/database/designer/side_menu.twig:74
 msgid "Delete pages"
 msgstr "Pagina's verwijderen"
+
+#: templates/database/designer/side_menu.twig:85
+#: templates/database/designer/side_menu.twig:88
+#: templates/database/designer/new_relation_panel.twig:22
+msgid "Create relationship"
+msgstr "Maak relatie aan"
 
 #: templates/database/designer/side_menu.twig:99
 #: templates/database/designer/side_menu.twig:102
@@ -15675,87 +15848,111 @@ msgstr "Menu verplaatsen"
 msgid "Pin text"
 msgstr "Pin tekst"
 
-#: templates/table/search/options.twig:6
-msgid "Select columns (at least one):"
-msgstr "Selecteer kolommen (minstens één):"
+#: templates/server/databases/table_row.twig:13
+#, php-format
+msgid "Jump to database '%s'"
+msgstr "Ga naar database '%s'"
 
-#: templates/table/search/options.twig:26
-msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Zoekcondities toevoegen (het \"where\"-gedeelte van de query):"
+#: templates/server/databases/table_row.twig:61
+#, php-format
+msgid "Check privileges for database \"%s\"."
+msgstr "Controleer rechten op database \"%s\"."
 
-#: templates/table/search/options.twig:34
-msgid "Number of rows per page"
-msgstr "Aantal rijen per pagina"
+#: templates/server/databases/table_row.twig:62
+msgid "Check privileges"
+msgstr "Controleer rechten"
 
-#: templates/table/search/options.twig:45
-msgid "Display order:"
-msgstr "Volgorde van weergave:"
+#: templates/table/structure/row_stats_table.twig:2
+msgid "Row statistics"
+msgstr "Rijstatistieken"
+
+#: templates/table/structure/row_stats_table.twig:8
+msgid "static"
+msgstr "statisch"
+
+#: templates/table/structure/row_stats_table.twig:10
+msgid "dynamic"
+msgstr "dynamisch"
+
+#: templates/table/structure/row_stats_table.twig:21
+msgid "partitioned"
+msgstr "gepartitioneerd"
+
+#: templates/table/structure/row_stats_table.twig:50
+msgid "Row length"
+msgstr "Lengte van de rij"
+
+#: templates/table/structure/row_stats_table.twig:62
+msgid "Row size"
+msgstr "Grootte van de rij"
+
+#: templates/table/structure/row_stats_table.twig:69
+msgid "Next autoindex"
+msgstr "Volgende automatische indexwaarde"
+
+#: templates/database/designer/table_list.twig:4
+msgid "Hide/Show all"
+msgstr "Alles tonen/verbergen"
+
+#: templates/database/designer/table_list.twig:14
+msgid "Hide/Show tables with no relationship"
+msgstr "Verberg/Toon tabellen zonder relaties"
+
+#: templates/database/designer/table_list.twig:25
+msgid "Number of tables:"
+msgstr "Aantal tabellen:"
+
+#: templates/table/search/selection_form.twig:12
+msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
+msgstr ""
+"Voer een \"query als voorbeeld\" (wildcard: \"%\") uit op twee verschillende "
+"kolommen"
+
+#: templates/table/search/selection_form.twig:42
+msgid "Do a \"query by example\" (wildcard: \"%\")"
+msgstr "Voer een query op basis van een vergelijking uit (wildcard: \"%\")"
 
 #: templates/privileges/add_privileges_routine.twig:3
 msgid "Add privileges on the following routine:"
 msgstr "Rechten toevoegen op de volgende routine:"
 
-#: templates/privileges/delete_user_fieldset.twig:3
-msgid "Remove selected user accounts"
-msgstr "De geselecteerde gebruikersaccounts verwijderen"
+#: templates/display/export/template_loading.twig:2
+msgid "Export templates:"
+msgstr "Exporteer templates:"
 
-#: templates/privileges/delete_user_fieldset.twig:6
-msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr ""
-"Trek alle actieve rechten in van alle gebruikers en verwijder deze daarna."
+#: templates/display/export/template_loading.twig:6
+msgid "New template:"
+msgstr "Nieuwe template:"
 
-#: templates/privileges/delete_user_fieldset.twig:7
-#: templates/privileges/delete_user_fieldset.twig:10
-#: templates/privileges/delete_user_fieldset.twig:11
-msgid "Drop the databases that have the same names as the users."
-msgstr "Verwijder de databases die dezelfde naam hebben als de gebruikers."
+#: templates/display/export/template_loading.twig:8
+msgid "Template name"
+msgstr "Template naam"
 
-#: templates/table/tracking/create_version.twig:11
-#, php-format
-msgid "Create version %1$s of %2$s"
-msgstr "Versie %1$s van %2$s aanmaken"
+#: templates/display/export/template_loading.twig:16
+msgid "Existing templates:"
+msgstr "Bestaande templates:"
 
-#: templates/table/tracking/create_version.twig:16
-#, php-format
-msgid "Create version %1$s"
-msgstr "Versie %1$s aanmaken"
+#: templates/display/export/template_loading.twig:17
+msgid "Template:"
+msgstr "Template:"
 
-#: templates/table/tracking/create_version.twig:20
-msgid "Track these data definition statements:"
-msgstr "Deze definitie-statements tracken:"
+#: templates/display/export/template_loading.twig:21
+msgid "Update"
+msgstr "Bijwerken"
 
-#: templates/table/tracking/create_version.twig:59
-msgid "Track these data manipulation statements:"
-msgstr "Deze manipulatie-statements tracken:"
+#: templates/table/structure/partition_definition_form.twig:6
+#: templates/table/structure/display_partitions.twig:141
+msgid "Edit partitioning"
+msgstr "Partitionering bewerken"
 
-#: templates/table/tracking/create_version.twig:76
-msgid "Create version"
-msgstr "Versie aanmaken"
+#: templates/login/twofactor.twig:5
+msgid "Verify"
+msgstr "Verifieer"
 
-#: templates/database/search/selection_form.twig:5
-msgid "Search in database"
-msgstr "Zoeken in de database"
-
-#: templates/database/search/selection_form.twig:8
-msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Woorden of waarden waarnaar gezocht moet worden (wildcard: \"%\"):"
-
-#: templates/database/search/selection_form.twig:15
-#: templates/table/search/search_and_replace.twig:1
-msgid "Find:"
-msgstr "Zoek:"
-
-#: templates/database/search/selection_form.twig:29
-msgid "Inside tables:"
-msgstr "In de tabellen:"
-
-#: templates/database/search/selection_form.twig:51
-msgid "Inside column:"
-msgstr "In de kolom:"
-
-#: templates/export/alias_item.twig:8
-msgid "Remove"
-msgstr "Verwijder"
+#: templates/display/export/options_output_charset.twig:3
+#: templates/display/import/import.twig:97
+msgid "Character set of the file:"
+msgstr "Karakterset van het bestand:"
 
 #: templates/database/multi_table_query/form.twig:16
 msgid "Query window"
@@ -15803,201 +16000,37 @@ msgstr "Geef criteria in als vrije tekst"
 msgid "Remove this column"
 msgstr "Verwijder deze kolom"
 
-#: templates/database/multi_table_query/form.twig:158
-#: templates/table/relation/foreign_key_row.twig:90
-msgid "+ Add column"
-msgstr "+ Kolom toevoegen"
-
 #: templates/database/multi_table_query/form.twig:175
 msgid "Update query"
 msgstr "Werk query bij"
 
-#: templates/table/structure/add_column.twig:9
-#, php-format
-msgid "Add %s column(s)"
-msgstr "%s kolom(men) toevoegen"
-
-#: templates/table/structure/add_column.twig:14
-msgid "at beginning of table"
-msgstr "bij begin van de tabel"
-
-#: templates/table/structure/add_column.twig:19
-#: templates/columns_definitions/move_column.twig:12
-#, php-format
-msgid "after %s"
-msgstr "na %s"
-
-#: templates/display/results/additional_fields.twig:6
-#: templates/display/export/options_rows.twig:10
-#: templates/start_and_number_of_rows_panel.twig:10
-msgid "Number of rows:"
-msgstr "Aantal rijen:"
-
-#: templates/table/chart/tbl_chart.twig:15
-msgctxt "Chart type"
-msgid "Bar"
-msgstr "Balk"
-
-#: templates/table/chart/tbl_chart.twig:19
-msgctxt "Chart type"
-msgid "Column"
-msgstr "Kolom"
-
-#: templates/table/chart/tbl_chart.twig:23
-msgctxt "Chart type"
-msgid "Line"
-msgstr "Lijn"
-
-# "Inline" vertaalt naar "rechtstreeks in het document", als het ware binnen
-# iets anders.
-#: templates/table/chart/tbl_chart.twig:27
-msgctxt "Chart type"
-msgid "Spline"
-msgstr "Spline"
-
-#: templates/table/chart/tbl_chart.twig:31
-msgctxt "Chart type"
-msgid "Area"
-msgstr "Grafiektype"
-
-#: templates/table/chart/tbl_chart.twig:35
-msgctxt "Chart type"
-msgid "Pie"
-msgstr "Taart"
-
-#: templates/table/chart/tbl_chart.twig:39
-msgctxt "Chart type"
-msgid "Timeline"
-msgstr "Tijdlijn"
-
-#: templates/table/chart/tbl_chart.twig:43
-msgctxt "Chart type"
-msgid "Scatter"
-msgstr "Puntenwolk"
-
-#: templates/table/chart/tbl_chart.twig:48
-msgid "Stacked"
-msgstr "Opgestapeld"
-
-#: templates/table/chart/tbl_chart.twig:51
-msgid "Chart title:"
-msgstr "Grafiektitel:"
-
-#: templates/table/chart/tbl_chart.twig:56
-msgid "X-Axis:"
-msgstr "X-as:"
-
-#: templates/table/chart/tbl_chart.twig:71
-msgid "Series:"
-msgstr "Series:"
-
-#: templates/table/chart/tbl_chart.twig:102
-msgid "X-Axis label:"
-msgstr "Label X-as:"
-
-#: templates/table/chart/tbl_chart.twig:104
-msgid "X Values"
-msgstr "X-waarden"
-
-#: templates/table/chart/tbl_chart.twig:107
-msgid "Y-Axis label:"
-msgstr "Label van Y-as:"
-
-#: templates/table/chart/tbl_chart.twig:109
-msgid "Y Values"
-msgstr "Y-waarden"
-
-#: templates/table/chart/tbl_chart.twig:115
-msgid "Series names are in a column"
-msgstr "Namen van de series zitten in een kolom"
-
-#: templates/table/chart/tbl_chart.twig:118
-msgid "Series column:"
-msgstr "Kolom met series:"
-
-#: templates/table/chart/tbl_chart.twig:132
-msgid "Value Column:"
-msgstr "Kolom met waarden:"
-
-#: templates/table/chart/tbl_chart.twig:153
-msgid "Save chart as image"
-msgstr "Sla grafiek op als afbeelding"
-
-#: templates/server/databases/databases_footer.twig:65
+#: templates/prefs_autoload.twig:7
 msgid ""
-"Note: Enabling the database statistics here might cause heavy traffic "
-"between the web server and the MySQL server."
+"Your browser has phpMyAdmin configuration for this domain. Would you like to "
+"import it for current session?"
 msgstr ""
-"Let op: het inschakelen van databasestatistieken kan zorgen voor veel "
-"gegevensverkeer tussen de webserver en de MySQL-server."
+"Uw browser bevat configuratie van phpMyAdmin voor dit domein. Wilt u dit "
+"gebruiken in de huidige sessie?"
 
-#: templates/server/databases/databases_footer.twig:68
-#: templates/server/databases/databases_footer.twig:69
-msgid "Enable statistics"
-msgstr "Statistieken inschakelen"
+#: templates/prefs_autoload.twig:13
+msgid "Delete settings"
+msgstr "Verwijder instellingen"
 
-#: templates/database/tracking/tracked_tables.twig:2
-msgid "Tracked tables"
-msgstr "Tabellen met tracker"
+#: templates/prefs_twofactor_confirm.twig:2
+msgid "Confirm disabling two-factor authentication"
+msgstr "Bevestig deactivatie tweeweg authentificatie"
 
-#: templates/database/tracking/tracked_tables.twig:12
-msgid "Last version"
-msgstr "Laatste versie"
-
-#: templates/database/tracking/tracked_tables.twig:54
-#: templates/database/tracking/tracked_tables.twig:99
-msgid "Delete tracking"
-msgstr "Verwijder tracking"
-
-#: templates/database/tracking/tracked_tables.twig:65
-msgid "Versions"
-msgstr "Versies"
-
-#: templates/database/designer/table_list.twig:4
-msgid "Hide/Show all"
-msgstr "Alles tonen/verbergen"
-
-#: templates/database/designer/table_list.twig:14
-msgid "Hide/Show tables with no relationship"
-msgstr "Verberg/Toon tabellen zonder relaties"
-
-#: templates/database/designer/table_list.twig:25
-msgid "Number of tables:"
-msgstr "Aantal tabellen:"
-
-#: templates/login/twofactor/invalid.twig:2
+#: templates/prefs_twofactor_confirm.twig:5
 msgid ""
-"The configured two factor authentication is not available, please install "
-"missing dependencies."
+"By disabling two factor authentication you will be again able to login using "
+"password only."
 msgstr ""
-"Tweeweg authentificatie is niet beschikbaar, installeer a.u.b. de optionele "
-"afhankelijkheden."
-
-#: templates/database/structure/tracking_icon.twig:3
-msgid "Tracking is active."
-msgstr "Tracking is ingeschakeld."
-
-#: templates/database/structure/tracking_icon.twig:5
-msgid "Tracking is not active."
-msgstr "Tracking is niet actief."
-
-#: templates/table/insert/continue_insertion_form.twig:18
-#, php-format
-msgid "Continue insertion with %s rows"
-msgstr "Herstart invoegen met %s rijen"
-
-#: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:43
-#: templates/prefs_twofactor.twig:54
-msgid "Configure two-factor authentication"
-msgstr "Configureer tweeweg authentificatie"
+"Door tweeweg authentificatie te deactiveren kunt u weer aanmelden met alleen "
+"een wachtwoord."
 
 #: templates/prefs_twofactor_configure.twig:8
 msgid "Enable two-factor authentication"
 msgstr "Activeer tweeweg authentificatie"
-
-#: templates/columns_definitions/column_length.twig:9
-msgid "Edit ENUM/SET values"
-msgstr "Bewerk ENUM/SET waarden"
 
 #: templates/display/import/import.twig:40
 msgid "Importing into the current server"
@@ -16069,52 +16102,146 @@ msgstr "Sla dit aantal query's (voor SQL) over, beginnend bij de eerste :"
 msgid "Other options:"
 msgstr "Andere opties:"
 
-#: templates/database/designer/edit_delete_pages.twig:6
-msgid "Page to open"
-msgstr "Pagina om te openen"
+#: templates/table/relation/common_form.twig:6
+msgid "Foreign key constraints"
+msgstr "Beperkingen voor vreemde sleutels"
 
-#: templates/database/designer/edit_delete_pages.twig:6
-msgid "Page to delete"
-msgstr "Pagina om te verwijderen"
+#: templates/table/relation/common_form.twig:10
+msgid "Actions"
+msgstr "Acties"
 
-#: templates/table/index_form.twig:15
-msgid "Index name:"
-msgstr "Indexnaam:"
+#: templates/table/relation/common_form.twig:11
+msgid "Constraint properties"
+msgstr "Beperkingseigenschappen"
 
-#: templates/table/index_form.twig:16
+#: templates/table/relation/common_form.twig:15
 msgid ""
-"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
+"Creating a foreign key over a non-indexed column would automatically create "
+"an index on it. Alternatively, you can define an index below, before "
+"creating the foreign key."
 msgstr ""
-"\"PRIMARY\" <b>moet</b> de naam van en <b>alleen van</b> een primaire "
-"sleutel zijn!"
+"Aanmaken van een externe sleutel voor een niet geïndexeerde kolom zou "
+"automatisch een index aanmaken. Als alternatief kunt u hier beneden een "
+"index definiëren voor dat u een externe sleutel aanmaakt."
 
-#: templates/table/index_form.twig:34
-msgid "Index choice:"
-msgstr "Index keuze:"
+#: templates/table/relation/common_form.twig:20
+msgid ""
+"Only columns with index will be displayed. You can define an index below."
+msgstr ""
+"Alleen kolommen met een index zullen worden weergegeven. U kunt hieronder "
+"een index definiëren."
 
-#: templates/table/index_form.twig:42
-msgid "Advanced Options"
-msgstr "Geavanceerde Opties"
+#: templates/table/relation/common_form.twig:24
+msgid "Foreign key constraint"
+msgstr "Vreemde sleutel"
 
-#: templates/table/index_form.twig:48
-msgid "Key block size:"
-msgstr "Sleutelveldgrootte:"
+#: templates/table/relation/common_form.twig:89
+msgid "+ Add constraint"
+msgstr "+ Voeg beperking toe"
 
-#: templates/table/index_form.twig:65
-msgid "Index type:"
-msgstr "Indextype:"
+#: templates/table/relation/common_form.twig:99
+#: templates/table/relation/common_form.twig:104
+msgid "Internal relationships"
+msgstr "Interne relaties"
 
-#: templates/table/index_form.twig:77
-msgid "Parser:"
-msgstr "Lezer:"
+#: templates/table/relation/common_form.twig:110
+msgid "Internal relation"
+msgstr "Interne relatie"
 
-#: templates/table/index_form.twig:93
-msgid "Comment:"
-msgstr "Opmerking:"
+#: templates/table/relation/common_form.twig:112
+msgid ""
+"An internal relation is not necessary when a corresponding FOREIGN KEY "
+"relation exists."
+msgstr ""
+"Een interne relatie is niet noodzakelijk wanneer er reeds een FOREIGN KEY-"
+"relatie bestaat."
 
-#: templates/table/index_form.twig:136 templates/table/index_form.twig:173
-msgid "Drag to reorder"
-msgstr "Sleep om te herschikken"
+#: templates/table/relation/common_form.twig:172
+msgid "Choose column to display:"
+msgstr "Kies weer te geven kolom:"
+
+#: templates/display/export/options_output.twig:2
+#: templates/display/export/options_quick_export.twig:2
+msgid "Output:"
+msgstr "Uitvoer:"
+
+#: templates/display/export/options_output.twig:26
+msgid "Save output to a file"
+msgstr "Opslaan als bestand"
+
+#: templates/display/export/options_output.twig:51
+#, php-format
+msgid "Skip tables larger than %s MiB"
+msgstr "Sla tabellen over groter dan %s MiB"
+
+#: templates/table/browse_foreigners/column_element.twig:4
+msgid "Use this value"
+msgstr "Gebruik deze waarde"
+
+#: templates/table/gis_visualization/gis_visualization.twig:3
+msgid "Display GIS Visualization"
+msgstr "GIS-visualisatie tonen"
+
+#: templates/table/gis_visualization/gis_visualization.twig:8
+msgid "Label column"
+msgstr "Kolom naam geven"
+
+#: templates/table/gis_visualization/gis_visualization.twig:11
+msgid "-- None --"
+msgstr "-- Geen --"
+
+#: templates/table/gis_visualization/gis_visualization.twig:19
+msgid "Spatial column"
+msgstr "Plaatshoudende kolom"
+
+# "Geen" of indien telbaar: "Geen enkele".
+#: templates/columns_definitions/column_default.twig:3
+msgctxt "for default"
+msgid "None"
+msgstr "Geen"
+
+#: templates/columns_definitions/column_default.twig:5
+msgid "As defined:"
+msgstr "Zoals aangegeven:"
+
+#: templates/login/twofactor/application_configure.twig:4
+msgid ""
+"Please scan following QR code into the two-factor authentication app on your "
+"device and enter authentication code it generates."
+msgstr ""
+"Scan a.u.b. de volgende QR code in de tweeweg authentificatie app op uw "
+"apparaat en geef de gegenereerde authentificatie code in ."
+
+#: templates/login/twofactor/application_configure.twig:11
+msgid ""
+"Please enter following secret/key into the two-factor authentication app on "
+"your device and enter authentication code it generates."
+msgstr ""
+"Geef a.u.b. volgende geheim/sleutel in op de tweeweg authentificatie app op "
+"uw apparaat en geef de gegenereerde authentificatie code in ."
+
+#: templates/login/twofactor/application_configure.twig:14
+msgid "OTP url:"
+msgstr "OTP link:"
+
+#: templates/login/twofactor/application_configure.twig:18
+msgid "Secret/key:"
+msgstr "Geheim/sleutel:"
+
+#: templates/privileges/delete_user_fieldset.twig:3
+msgid "Remove selected user accounts"
+msgstr "De geselecteerde gebruikersaccounts verwijderen"
+
+#: templates/privileges/delete_user_fieldset.twig:6
+msgid "Revoke all active privileges from the users and delete them afterwards."
+msgstr ""
+"Trek alle actieve rechten in van alle gebruikers en verwijder deze daarna."
+
+#: templates/privileges/delete_user_fieldset.twig:7
+#: templates/privileges/delete_user_fieldset.twig:10
+#: templates/privileges/delete_user_fieldset.twig:11
+msgid "Drop the databases that have the same names as the users."
+msgstr "Verwijder de databases die dezelfde naam hebben als de gebruikers."
 
 #: templates/export/alias_add.twig:4
 msgid "Define new aliases"
@@ -16144,6 +16271,91 @@ msgstr "Selecteer kolom:"
 msgid "New column name"
 msgstr "Nieuwe kolomnaam"
 
+#: templates/table/search/search_and_replace.twig:3
+msgid "Replace with:"
+msgstr "Vervang door:"
+
+#: templates/table/search/search_and_replace.twig:19
+msgid "Use regular expression"
+msgstr "Gebruik een reguliere expressie"
+
+#: templates/database/structure/check_all_tables.twig:6
+msgid "Check tables having overhead"
+msgstr "Selecteer tabellen met overhead"
+
+#: templates/database/structure/check_all_tables.twig:10
+msgid "Copy table"
+msgstr "Tabel kopiëren"
+
+#: templates/database/structure/check_all_tables.twig:11
+msgid "Show create"
+msgstr "Toon aanmaken"
+
+#: templates/database/structure/check_all_tables.twig:25
+msgid "Prefix"
+msgstr "Voorvoegsel"
+
+#: templates/database/structure/check_all_tables.twig:26
+msgid "Add prefix to table"
+msgstr "Voeg voorvoegsel toe aan tabel"
+
+#: templates/database/structure/check_all_tables.twig:27
+msgid "Replace table prefix"
+msgstr "Vervang tabelvoorvoegsel"
+
+#: templates/database/structure/check_all_tables.twig:33
+msgid "Add columns to central list"
+msgstr "Voeg kolommen toe aan centrale lijst"
+
+#: templates/database/structure/check_all_tables.twig:34
+msgid "Remove columns from central list"
+msgstr "Verwijder kolommen uit de centrale lijst"
+
+#: templates/database/structure/check_all_tables.twig:35
+msgid "Make consistent with central list"
+msgstr "Maak in overeenstemming met centrale lijst"
+
+#: templates/columns_definitions/column_name.twig:4
+#, php-format
+msgid "Referenced by %s."
+msgstr "Gerefereerd door %s."
+
+#: templates/columns_definitions/column_name.twig:12
+msgid "Is a foreign key."
+msgstr "Is een vreemde sleutel."
+
+#: templates/columns_definitions/column_name.twig:40
+msgid "Pick from Central Columns"
+msgstr "Kies uit centrale kolommen"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Server variables and settings"
+msgstr "Servervariabelen en -instellingen"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Storage engines"
+msgstr "Opslag-engines"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Character sets and collations"
+msgstr "Karaktersets en collaties"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Databases statistics"
+msgstr "Databasestatistieken"
+
+#: templates/database/designer/query_details.twig:6
+msgid "Active options"
+msgstr "Actieve opties"
+
+#: templates/database/designer/database_tables.twig:36
+msgid "Show/hide columns"
+msgstr "Toon/verberg kolommen"
+
+#: templates/database/designer/database_tables.twig:45
+msgid "See table structure"
+msgstr "Zie tabelstructuur"
+
 #: templates/privileges/add_privileges_database.twig:1
 msgid "Add privileges on the following database(s):"
 msgstr "Rechten toevoegen op de volgende database(s):"
@@ -16154,272 +16366,106 @@ msgstr ""
 "Wildcards _ en % moeten worden voorafgegaan door een \\ om ze letterlijk te "
 "gebruiken."
 
-#: templates/error/report_form.twig:6
+#: templates/database/structure/tracking_icon.twig:3
+msgid "Tracking is active."
+msgstr "Tracking is ingeschakeld."
+
+#: templates/database/structure/tracking_icon.twig:5
+msgid "Tracking is not active."
+msgstr "Tracking is niet actief."
+
+#: templates/table/structure/display_structure.twig:194
+#: templates/table/structure/display_partitions.twig:4
+msgid "Partitions"
+msgstr "Partities"
+
+#: templates/login/twofactor/invalid.twig:2
 msgid ""
-"This report automatically includes data about the error and information "
-"about relevant configuration settings. It will be sent to the phpMyAdmin "
-"team for debugging the error."
+"The configured two factor authentication is not available, please install "
+"missing dependencies."
 msgstr ""
-"Dit rapport automatisch bevat data over deze fout en ook informatie over "
-"relevante configuratie-instellingen. Het zal verzonden worden naar het "
-"phpMyAdmin team om te helpen bij het debuggen van het probleem."
+"Tweeweg authentificatie is niet beschikbaar, installeer a.u.b. de optionele "
+"afhankelijkheden."
 
-#: templates/error/report_form.twig:12
-msgid ""
-"Can you tell us the steps leading to this error? It decisively helps in "
-"debugging:"
-msgstr ""
-"Kun je ons de genomen stappen vertellen die tot deze fout leiden? Dat helpt "
-"beslist bij het debuggen:"
+#: templates/privileges/add_user_fieldset.twig:2
+msgctxt "Create new user"
+msgid "New"
+msgstr "Nieuw"
 
-#: templates/error/report_form.twig:19
-msgid "You may examine the data in the error report:"
-msgstr "U kan de gegevens in het foutmeldingsverslag bekijken:"
+#: templates/table/structure/display_partitions.twig:8
+msgid "No partitioning defined!"
+msgstr "Geen partitionering gedefinieerd!"
 
-#: templates/table/structure/row_stats_table.twig:2
-msgid "Row statistics"
-msgstr "Rijstatistieken"
+#: templates/table/structure/display_partitions.twig:11
+msgid "Partitioned by:"
+msgstr "Gepartitioneerd op:"
 
-#: templates/table/structure/row_stats_table.twig:8
-msgid "static"
-msgstr "statisch"
+#: templates/table/structure/display_partitions.twig:16
+msgid "Sub partitioned by:"
+msgstr "Onderverdeling op:"
 
-#: templates/table/structure/row_stats_table.twig:10
-msgid "dynamic"
-msgstr "dynamisch"
+#: templates/table/structure/display_partitions.twig:29
+msgid "Data length"
+msgstr "Lengte van de data"
 
-#: templates/table/structure/row_stats_table.twig:21
-msgid "partitioned"
-msgstr "gepartitioneerd"
+#: templates/table/structure/display_partitions.twig:30
+msgid "Index length"
+msgstr "Lengte van de index"
 
-#: templates/table/structure/row_stats_table.twig:50
-msgid "Row length"
-msgstr "Lengte van de rij"
-
-#: templates/table/structure/row_stats_table.twig:62
-msgid "Row size"
-msgstr "Grootte van de rij"
-
-#: templates/table/structure/row_stats_table.twig:69
-msgid "Next autoindex"
-msgstr "Volgende automatische indexwaarde"
-
-#: templates/database/central_columns/add_column.twig:13
-msgid "Select a column."
-msgstr "Selecteer een kolom."
+#: templates/table/structure/display_partitions.twig:135
+msgid "Partition table"
+msgstr "Partitietabel"
 
 #: templates/server/databases/index.twig:24
 msgid "No databases"
 msgstr "Geen databases"
 
-#: templates/display/export/options_output_compression.twig:4
-msgid "Compression:"
-msgstr "Compressie:"
+#: templates/server/variables/session_variable_row.twig:3
+msgid "Session value"
+msgstr "Sessievariabelen"
 
-#: templates/display/export/options_output_compression.twig:11
-msgid "zipped"
-msgstr "gezipt"
-
-#: templates/display/export/options_output_compression.twig:17
-msgid "gzipped"
-msgstr "ge-gzipt"
-
-#: templates/table/browse_foreigners/column_element.twig:4
-msgid "Use this value"
-msgstr "Gebruik deze waarde"
-
-#: templates/display/export/options_rows.twig:2
-msgid "Rows:"
-msgstr "Rijen:"
-
-#: templates/display/export/options_rows.twig:7
-msgid "Dump some row(s)"
-msgstr "Exporteer enkele rijen"
-
-#: templates/display/export/options_rows.twig:23
-msgid "Row to begin at:"
-msgstr "Te beginnen op rij:"
-
-#: templates/display/export/options_rows.twig:32
-msgid "Dump all rows"
-msgstr "Exporteer alle rijen"
-
-#: templates/database/designer/schema_export.twig:4
-msgid "Select Export Relational Type"
-msgstr "Selecteer uitvoer relationeel type"
-
-#: templates/table/search/replace_preview.twig:13
-msgid "Find and replace - preview"
-msgstr "Zoeken en vervangen - voorbeeld"
-
-#: templates/table/search/replace_preview.twig:18
-msgid "Original string"
-msgstr "Oorspronkelijke tekenreeks"
-
-#: templates/table/search/replace_preview.twig:19
-msgid "Replaced string"
-msgstr "Vervangen tekenreeks"
-
-#: templates/table/search/replace_preview.twig:37
-msgid "Replace"
-msgstr "Vervangen"
-
-#: templates/login/twofactor/key-https-warning.twig:3
-msgid ""
-"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
-"most likely refuse to authenticate you."
-msgstr ""
-"U gebruikt geen https om phpMyAdmin te gebruiken, daarom zal het FIDO U2F "
-"apparaat waarschijnlijk weigeren om u te authentificeren."
-
-#: templates/table/tracking/report_table.twig:5
-msgid "Date"
-msgstr "Datum"
-
-#: templates/table/tracking/report_table.twig:6
-msgid "Username"
-msgstr "Gebruikersnaam"
-
-#: templates/table/search/search_and_replace.twig:3
-msgid "Replace with:"
-msgstr "Vervang door:"
-
-#: templates/table/search/search_and_replace.twig:19
-msgid "Use regular expression"
-msgstr "Gebruik een reguliere expressie"
-
-#: templates/table/relation/foreign_key_row.twig:15
+#: templates/display/export/options_output_save_dir.twig:5
+#: templates/display/export/options_quick_export.twig:8
 #, php-format
-msgid "Foreign key constraint %s has been dropped"
-msgstr "Beperkingen voor vreemde sleutel %s zijn verwijderd"
+msgid "Save on server in the directory <strong>%s</strong>"
+msgstr "Bewaar op de server in de map <strong>%s</strong>"
 
-#: templates/table/relation/foreign_key_row.twig:38
-msgid "Constraint name"
-msgstr "Naam van de beperking"
-
-#: templates/login/twofactor/application_configure.twig:4
-msgid ""
-"Please scan following QR code into the two-factor authentication app on your "
-"device and enter authentication code it generates."
-msgstr ""
-"Scan a.u.b. de volgende QR code in de tweeweg authentificatie app op uw "
-"apparaat en geef de gegenereerde authentificatie code in ."
-
-#: templates/login/twofactor/application_configure.twig:11
-msgid ""
-"Please enter following secret/key into the two-factor authentication app on "
-"your device and enter authentication code it generates."
-msgstr ""
-"Geef a.u.b. volgende geheim/sleutel in op de tweeweg authentificatie app op "
-"uw apparaat en geef de gegenereerde authentificatie code in ."
-
-#: templates/login/twofactor/application_configure.twig:14
-msgid "OTP url:"
-msgstr "OTP link:"
-
-#: templates/login/twofactor/application_configure.twig:18
-msgid "Secret/key:"
-msgstr "Geheim/sleutel:"
-
-#: templates/login/twofactor/application_configure.twig:21
-#: templates/login/twofactor/application.twig:2
-msgid "Authentication code:"
-msgstr "Authenticatie code:"
-
-#: templates/table/search/selection_form.twig:12
-msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr ""
-"Voer een \"query als voorbeeld\" (wildcard: \"%\") uit op twee verschillende "
-"kolommen"
-
-#: templates/table/search/selection_form.twig:42
-msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "Voer een query op basis van een vergelijking uit (wildcard: \"%\")"
-
-#: templates/prefs_twofactor_confirm.twig:2
-msgid "Confirm disabling two-factor authentication"
-msgstr "Bevestig deactivatie tweeweg authentificatie"
-
-#: templates/prefs_twofactor_confirm.twig:5
-msgid ""
-"By disabling two factor authentication you will be again able to login using "
-"password only."
-msgstr ""
-"Door tweeweg authentificatie te deactiveren kunt u weer aanmelden met alleen "
-"een wachtwoord."
-
-#: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:37
-msgid "Disable two-factor authentication"
-msgstr "Deactiveer tweeweg authentificatie"
-
-#: templates/table/structure/optional_action_links.twig:8
-msgid "Propose table structure"
-msgstr "Tabelstructuur voorstellen"
-
-#: templates/table/structure/optional_action_links.twig:25
-msgid "Normalize"
-msgstr "Normaliseer"
-
-#: templates/table/structure/optional_action_links.twig:31
-msgid "Track view"
-msgstr "View volgen"
-
-#: templates/database/structure/show_create_row.twig:7
+#: templates/database/search/results.twig:12
 #, php-format
-msgid "Create %s"
-msgstr "Maak %s aan"
+msgid "%1$s match in <strong>%2$s</strong>"
+msgid_plural "%1$s matches in <strong>%2$s</strong>"
+msgstr[0] "%1$s overeenkomst in <strong>%2$s</strong>"
+msgstr[1] "%1$s overeenkomsten in <strong>%2$s</strong>"
 
-#: templates/columns_definitions/move_column.twig:7
-msgid "first"
-msgstr "eerste"
+#: templates/database/search/results.twig:56
+msgid "<strong>Total:</strong> <em>%count%</em> match"
+msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+msgstr[0] "<strong> Totaal:</strong> <em> %count% </em> overeenkomst"
+msgstr[1] "<strong> Totaal:</strong> <em> %count% </em> overeenkomsten"
 
-#: templates/login/twofactor/application.twig:4
-msgid ""
-"Open the two-factor authentication app on your device to view your "
-"authentication code and verify your identity."
-msgstr ""
-"Open de tweeweg authentificatie app op uw apparaat voor uw authentificatie "
-"code en verifieer uw identiteit."
+#: templates/table/secondary_tabs.twig:9
+msgid "Relation view"
+msgstr "Relatieoverzicht"
 
-#: templates/prefs_twofactor.twig:3
-msgid "Two-factor authentication status"
-msgstr "Tweeweg authentificatie status"
+#: templates/table/structure/display_table_stats.twig:14
+msgid "Space usage"
+msgstr "Ruimtegebruik"
 
-#: templates/prefs_twofactor.twig:9
-msgid ""
-"Two-factor authentication is not available, please install optional "
-"dependencies to enable authentication backends."
-msgstr ""
-"Tweeweg authentificatie is niet beschikbaar, installeer a.u.b. de optionele "
-"afhankelijkheden om authentificatie backends beschikbaar te maken."
+#: templates/table/structure/display_table_stats.twig:37
+msgid "Effective"
+msgstr "Effectief"
 
-#: templates/prefs_twofactor.twig:10
-msgid "Following composer packages are missing:"
-msgstr "De volgende composer onderdelen ontbreken:"
+#: templates/table/search/zoom_result_form.twig:7
+msgid "Browse/Edit the points"
+msgstr "Doorzoek/bewerk de punten"
 
-#: templates/prefs_twofactor.twig:18
-msgid "Two-factor authentication is available and configured for this account."
-msgstr ""
-"Tweeweg authentificatie is beschikbaar en geconfigureerd voor dit account."
+#: templates/table/search/zoom_result_form.twig:15
+msgid "How to use"
+msgstr "Hoe te gebruiken"
 
-#: templates/prefs_twofactor.twig:20
-msgid ""
-"Two-factor authentication is available, but not configured for this account."
-msgstr ""
-"Tweeweg authentificatie is beschikbaar, maar niet geconfigureerd voor dit "
-"account."
-
-#: templates/prefs_twofactor.twig:24
-msgid ""
-"Two-factor authentication is not available, enable phpMyAdmin configuration "
-"storage to use it."
-msgstr ""
-"Tweeweg authentificatie is niet beschikbaar, activeer phpMyAdmin "
-"configuratieopslag om het te gebruiken."
-
-#: templates/prefs_twofactor.twig:33
-msgid "You have enabled two factor authentication."
-msgstr "U hebt tweeweg authentificatie geactiveerd."
+#: templates/table/search/zoom_result_form.twig:23
+msgid "Reset zoom"
+msgstr "Herstel zoom"
 
 #: templates/database/structure/structure_table_row.twig:222
 msgid "in use"
@@ -16431,43 +16477,10 @@ msgctxt "None privileges"
 msgid "None"
 msgstr "Geen"
 
-#: templates/start_and_number_of_rows_panel.twig:3
-msgid "Start row:"
-msgstr "Startregel:"
-
-#: templates/login/header.twig:12
-msgid ""
-"There is mismatch between HTTPS indicated on the server and client. This can "
-"lead to non working phpMyAdmin or a security risk. Please fix your server "
-"configuration to indicate HTTPS properly."
-msgstr ""
-"Er is een verschil tussen HTTPS aanduiding op de server en op de cliënt. Dit "
-"kan leiden tot een niet werkende phpAdmin of tot een beveiligingsrisico. "
-"Herstel aub uw serverconfiguratie zodat HTTPS correct wordt aangeduid."
-
-#: templates/server/databases/create.twig:8
-#: templates/server/databases/create.twig:36
-msgid "Create database"
-msgstr "Database aanmaken"
-
-#: templates/database/structure/body_for_table_summary.twig:6
+#: templates/table/structure/table_structure_row.twig:55
 #, php-format
-msgid "%s table"
-msgid_plural "%s tables"
-msgstr[0] "%s tabel"
-msgstr[1] "%s tabellen"
-
-#: templates/database/structure/body_for_table_summary.twig:17
-msgid "Sum"
-msgstr "Som"
-
-#: templates/database/designer/page_selector.twig:2
-msgid "Select page"
-msgstr "Selecteer pagina"
-
-#: templates/display/export/options_output_radio.twig:5
-msgid "View output as text"
-msgstr "Bekijk output als tekst"
+msgid "Column %s has been dropped."
+msgstr "Kolom %s is verwijderd."
 
 #: url.php:41
 msgid "Taking you to the target site."
