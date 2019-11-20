@@ -141,10 +141,10 @@ class Designer
     /**
      * Returns HTML for including some variable to be accessed by JavaScript
      *
-     * @param array $script_tables        array on foreign key support for each table
-     * @param array $script_contr         initialization data array
-     * @param array $script_display_field display fields of each table
-     * @param int   $display_page         page number of the selected page
+     * @param array                    $script_tables        array on foreign key support for each table
+     * @param array                    $script_contr         initialization data array
+     * @param Designer\DesignerTable[] $script_display_field displayed tables in designer with their display fields
+     * @param int                      $display_page         page number of the selected page
      *
      * @return string html
      */
@@ -154,13 +154,19 @@ class Designer
         array $script_display_field,
         $display_page
     ) {
+        $displayedFields = [];
+        foreach ($script_display_field as $designerTable) {
+            if ($designerTable->getDisplayField() !== null) {
+                $displayedFields[$designerTable->getTableName()] = $designerTable->getDisplayField();
+            }
+        }
         $cfgRelation = $this->relation->getRelationsParam();
         $designerConfig = new \stdClass();
         $designerConfig->db = $_GET['db'];
         $designerConfig->scriptTables = $script_tables;
         $designerConfig->scriptContr = $script_contr;
         $designerConfig->server = $GLOBALS['server'];
-        $designerConfig->scriptDisplayField = $script_display_field;
+        $designerConfig->scriptDisplayField = $displayedFields;
         $designerConfig->displayPage = (int) $display_page;
         $designerConfig->tablesEnabled = $cfgRelation['pdfwork'];
         return Template::get('database/designer/js_fields')->render([

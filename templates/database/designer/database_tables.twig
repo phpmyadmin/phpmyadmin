@@ -61,11 +61,11 @@
         </thead>
         <tbody id="id_tbody_{{ t_n_url }}"
             {{- tab_pos[t_n] is defined and tab_pos[t_n]['V'] is empty ? ' style="display: none"' }}>
-            {% set display_field = Relation_getDisplayField(get_db, t_n) %}
+            {% set display_field = designerTable.getDisplayField() %}
             {% for j in 0..tab_column[t_n]['COLUMN_ID']|length - 1 %}
                 {% set tmp_column = t_n ~ '.' ~ tab_column[t_n]['COLUMN_NAME'][j] %}
                 {% set click_field_param = [
-                    db_url,
+                    designerTable.getTableName()|escape('url'),
                     tab_column[t_n]['COLUMN_NAME'][j]|url_encode
                 ] %}
                 {% if not designerTable.supportsForeignkeys() %}
@@ -76,7 +76,7 @@
                     {% set click_field_param = click_field_param|merge([tables_all_keys[tmp_column] is defined ? 1 : 0]) %}
                 {% endif %}
                 {% set click_field_param = click_field_param|merge([db]) %}
-                <tr id="id_tr_{{ t_n }}.{{ tab_column[t_n]['COLUMN_NAME'][j] }}" class="tab_field
+                <tr id="id_tr_{{ designerTable.getTableName()|escape('url') }}.{{ tab_column[t_n]['COLUMN_NAME'][j] }}" class="tab_field
                     {{- display_field == tab_column[t_n]['COLUMN_NAME'][j] ? '_3' }}" click_field_param="
                     {{- click_field_param|join(',') }}">
                     {% if has_query %}

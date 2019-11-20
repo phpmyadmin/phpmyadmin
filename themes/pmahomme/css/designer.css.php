@@ -107,7 +107,7 @@ canvas.designer * {
 }
 
 .tab_field_3 {
-    background-color: #FFE6E6; /*#DDEEFF*/
+    background-color: #FFE6E6 !important; /*#DDEEFF*/
     color: #000;
     cursor: default;
 }
