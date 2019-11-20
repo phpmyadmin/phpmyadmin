@@ -73,7 +73,6 @@ var timeoutID;
 var layer_menu_cur_click = 0;
 var step = 10;
 var from_array = [];
-var downer;
 var menu_moved = false;
 var grid_size = 10;
 
@@ -1848,36 +1847,33 @@ function Close_option () {
 
 }
 
-function Select_all (id_this, owner) {
-    var parent = document.form1;
-    downer = owner;
-    var i;
-    var k;
-    var tab = [];
-    for (i = 0; i < parent.elements.length; i++) {
-        if (parent.elements[i].type === 'checkbox' && parent.elements[i].id.substring(0, (9 + id_this.length)) === 'select_' + id_this + '._') {
-            if (document.getElementById('select_all_' + id_this).checked === true) {
-                parent.elements[i].checked = true;
-                parent.elements[i].disabled = true;
-                var temp = '`' + id_this.substring(owner.length + 1) + '`.*';
-            } else {
-                parent.elements[i].checked = false;
-                parent.elements[i].disabled = false;
-            }
+function Select_all (tableName, dbName, idSelectAll) {
+    var parentIsChecked = $('#' + idSelectAll).is(':checked');
+    var checkboxAll = $('#container-form input[id_check_all=\'' + idSelectAll + '\']:checkbox');
+
+    checkboxAll.each(function () {
+        // already checked and then check parent
+        if (parentIsChecked === true && this.checked) {
+            // was checked, removing column from selected fields
+            // trigger unchecked event
+            this.click();
         }
-    }
-    if (document.getElementById('select_all_' + id_this).checked === true) {
-        select_field.push('`' + id_this.substring(owner.length + 1) + '`.*');
-        tab = id_this.split('.');
-        from_array.push(tab[1]);
+        this.checked = parentIsChecked;
+        this.disabled = parentIsChecked;
+    });
+    if (parentIsChecked) {
+        select_field.push('`' + tableName + '`.*');
+        from_array.push(tableName);
     } else {
+        var i;
         for (i = 0; i < select_field.length; i++) {
-            if (select_field[i] === ('`' + id_this.substring(owner.length + 1) + '`.*')) {
+            if (select_field[i] === ('`' + tableName + '`.*')) {
                 select_field.splice(i, 1);
             }
         }
+        var k;
         for (k = 0; k < from_array.length; k++) {
-            if (from_array[k] === id_this) {
+            if (from_array[k] === tableName) {
                 from_array.splice(k, 1);
                 break;
             }
@@ -2009,7 +2005,7 @@ function enablePageContentEvents() {
  */
 function enableTableEvents(index, element) {
     $(element).on('click', '.select_all_1', function () {
-        Select_all($(this).attr('designer_url_table_name'), $(this).attr('designer_out_owner'));
+        Select_all($(this).attr('table_name'), $(this).attr('db_name'), $(this).attr('id'));
     });
     $(element).on('click', '.small_tab,.small_tab2', function () {
         Small_tab($(this).attr('table_name'), 1);
