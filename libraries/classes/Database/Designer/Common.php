@@ -505,19 +505,28 @@ class Common
      * @param string $table table name
      * @param string $field display field name
      *
-     * @return boolean
+     * @return array<bool,string>
      */
     public function saveDisplayField($db, $table, $field)
     {
         $cfgRelation = $this->relation->getRelationsParam();
-        if (!$cfgRelation['displaywork']) {
-            return false;
+        if (! $cfgRelation['displaywork']) {
+            return [
+                false,
+                _pgettext(
+                    'phpMyAdmin configuration storage is not configured for "Display Features" on designer when user tries to set a display field.',
+                    'phpMyAdmin configuration storage is not configured for "Display Features".'
+                ),
+            ];
         }
 
         $upd_query = new Table($table, $db, $GLOBALS['dbi']);
         $upd_query->updateDisplayField($field, $cfgRelation);
 
-        return true;
+        return [
+            true,
+            null,
+        ];
     }
 
     /**
