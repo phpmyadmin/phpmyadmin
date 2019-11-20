@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-11-20 12:45+0100\n"
-"PO-Revision-Date: 2019-11-10 16:04+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2019-11-21 14:33+0000\n"
+"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/5-0/fr/"
 ">\n"
 "Language: fr\n"
@@ -7574,18 +7574,14 @@ msgstr ""
 "l'installation !"
 
 #: libraries/classes/Database/Designer/Common.php:534
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr ""
-"Le stockage de la configuration n'est pas prêt pour la fonctionnalité de "
-"liste centrale des colonnes."
+"Le stockage de la configuration de phpMyAdmin n'est pas configuré pour les \""
+"Caractéristiques d'affichage\"."
 
 #: libraries/classes/Database/Designer/Common.php:583
 msgid "Error: relationship already exists."
@@ -16087,7 +16083,7 @@ msgstr "Version du protocole : "
 
 #: templates/home/index.twig:117
 msgid "User:"
-msgstr "Utilisateur : "
+msgstr "Utilisateur :"
 
 #: templates/home/index.twig:121
 msgid "Server charset:"
