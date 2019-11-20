@@ -78,6 +78,8 @@ phpMyAdmin - ChangeLog
 - issue #15127 Fix white square when refreshing designer or browsing other pages
 - issue #13912 Detect when phpMyAdmin storage tables are not accessible, help users browse corrupt DBs
 - issue #15465 Display profiling when query outputs no rows
+- issue        Fix setting and removing display field on Designer
+- issue        Added a warning when trying to set a display field on Designer and configuration storage is not setup
 
 4.9.1 (2019-09-20)
 - issue #15313 Added support for Twig 2

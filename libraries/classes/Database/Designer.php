@@ -314,7 +314,7 @@ class Designer
      * @param DesignerTable[] $designerTables       The designer tables
      * @param array           $scriptTables         array on foreign key support for each table
      * @param array           $scriptContr          initialization data array
-     * @param array           $scriptDisplayField   display fields of each table
+     * @param DesignerTable[] $scriptDisplayField   displayed tables in designer with their display fields
      * @param int             $displayPage          page number of the selected page
      * @param boolean         $hasQuery             whether this is visual query builder
      * @param string          $selectedPage         name of the selected page
@@ -370,12 +370,19 @@ class Designer
             }
         }
 
+        $displayedFields = [];
+        foreach ($scriptDisplayField as $designerTable) {
+            if ($designerTable->getDisplayField() !== null) {
+                $displayedFields[$designerTable->getTableName()] = $designerTable->getDisplayField();
+            }
+        }
+
         $designerConfig = new stdClass();
         $designerConfig->db = $db;
         $designerConfig->scriptTables = $scriptTables;
         $designerConfig->scriptContr = $scriptContr;
         $designerConfig->server = $GLOBALS['server'];
-        $designerConfig->scriptDisplayField = $scriptDisplayField;
+        $designerConfig->scriptDisplayField = $displayedFields;
         $designerConfig->displayPage = (int) $displayPage;
         $designerConfig->tablesEnabled = $cfgRelation['pdfwork'];
 
