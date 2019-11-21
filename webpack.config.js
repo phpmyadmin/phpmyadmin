@@ -4,6 +4,7 @@ module.exports = {
     mode: 'none',
     entry: {
         'server/databases': './js/src/server/databases.js',
+        'server/plugins': './js/src/server/plugins.js',
     },
     output: {
         filename: '[name].js',

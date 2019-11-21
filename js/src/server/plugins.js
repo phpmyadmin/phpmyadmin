@@ -1,3 +1,6 @@
+import $ from 'jquery';
+import AJAX from 'ajax';
+
 /**
  * Functions used in server plugins pages
  */
