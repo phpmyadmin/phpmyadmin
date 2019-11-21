@@ -14,6 +14,7 @@ use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
@@ -192,7 +193,7 @@ class DatabasesController extends AbstractController
          */
         $sqlQuery = 'CREATE DATABASE ' . Util::backquote($params['new_db']);
         if (! empty($params['db_collation'])) {
-            list($databaseCharset) = explode('_', $params['db_collation']);
+            [$databaseCharset] = explode('_', $params['db_collation']);
             $charsets = Charsets::getCharsets(
                 $this->dbi,
                 $cfg['Server']['DisableIS']
@@ -233,7 +234,7 @@ class DatabasesController extends AbstractController
 
             $json = [
                 'message' => $message,
-                'sql_query' => Util::getMessage(null, $sqlQuery, 'success'),
+                'sql_query' => Generator::getMessage(null, $sqlQuery, 'success'),
                 'url_query' => $scriptName . Url::getCommon(
                     ['db' => $params['new_db']],
                     strpos($scriptName, '?') === false ? '?' : '&'

@@ -11,6 +11,7 @@ use PhpMyAdmin\Controllers\Database\PrivilegesController as DatabaseController;
 use PhpMyAdmin\Controllers\Table\PrivilegesController as TableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
@@ -169,10 +170,15 @@ $_add_user_error = false;
  * Get DB information: username, hostname, dbname,
  * tablename, db_and_table, dbname_is_wildcard
  */
-list(
-    $username, $hostname, $dbname, $tablename, $routinename,
-    $db_and_table, $dbname_is_wildcard
-) = $serverPrivileges->getDataForDBInfo();
+[
+    $username,
+    $hostname,
+    $dbname,
+    $tablename,
+    $routinename,
+    $db_and_table,
+    $dbname_is_wildcard,
+] = $serverPrivileges->getDataForDBInfo();
 
 /**
  * Checks if the user is allowed to do what they try to...
@@ -221,13 +227,13 @@ if (isset($_POST['change_copy']) && $username == $_POST['old_username']
 /**
  * Changes / copies a user, part I
  */
-list($queries, $password) = $serverPrivileges->getDataForChangeOrCopyUser();
+[$queries, $password] = $serverPrivileges->getDataForChangeOrCopyUser();
 
 /**
  * Adds a user
  *   (Changes / copies a user, part II)
  */
-list($ret_message, $ret_queries, $queries_for_display, $sql_query, $_add_user_error)
+[$ret_message, $ret_queries, $queries_for_display, $sql_query, $_add_user_error]
     = $serverPrivileges->addUser(
         isset($dbname) ? $dbname : null,
         isset($username) ? $username : null,
@@ -267,7 +273,7 @@ if (! empty($routinename)) {
 if (! empty($_POST['update_privs'])) {
     if (is_array($dbname)) {
         foreach ($dbname as $key => $db_name) {
-            list($sql_query[$key], $message) = $serverPrivileges->updatePrivileges(
+            [$sql_query[$key], $message] = $serverPrivileges->updatePrivileges(
                 (isset($username) ? $username : ''),
                 (isset($hostname) ? $hostname : ''),
                 (isset($tablename)
@@ -280,7 +286,7 @@ if (! empty($_POST['update_privs'])) {
 
         $sql_query = implode("\n", $sql_query);
     } else {
-        list($sql_query, $message) = $serverPrivileges->updatePrivileges(
+        [$sql_query, $message] = $serverPrivileges->updatePrivileges(
             (isset($username) ? $username : ''),
             (isset($hostname) ? $hostname : ''),
             (isset($tablename)
@@ -306,7 +312,7 @@ if (! empty($_POST['changeUserGroup']) && $cfgRelation['menuswork']
  * Revokes Privileges
  */
 if (isset($_POST['revokeall'])) {
-    list ($message, $sql_query) = $serverPrivileges->getMessageAndSqlQueryForPrivilegesRevoke(
+    [$message, $sql_query] = $serverPrivileges->getMessageAndSqlQueryForPrivilegesRevoke(
         (isset($dbname) ? $dbname : ''),
         (isset($tablename)
             ? $tablename
@@ -337,7 +343,7 @@ if (isset($_POST['delete'])
 ) {
     $queries = $serverPrivileges->getDataForDeleteUsers($queries);
     if (empty($_POST['change_copy'])) {
-        list($sql_query, $message) = $serverPrivileges->deleteUser($queries);
+        [$sql_query, $message] = $serverPrivileges->deleteUser($queries);
     }
 }
 
@@ -402,7 +408,7 @@ if (isset($_GET['viewing_mode']) && $_GET['viewing_mode'] == 'db') {
     $sub_part = '_structure';
     ob_start();
 
-    list(
+    [
         $tables,
         $num_tables,
         $total_num_tables,
@@ -411,13 +417,13 @@ if (isset($_GET['viewing_mode']) && $_GET['viewing_mode'] == 'db') {
         $db_is_system_schema,
         $tooltip_truename,
         $tooltip_aliasname,
-        $pos
-    ) = PhpMyAdmin\Util::getDbInfo($db, $sub_part === null ? '' : $sub_part);
+        $pos,
+    ] = PhpMyAdmin\Util::getDbInfo($db, $sub_part === null ? '' : $sub_part);
 
     $content = ob_get_clean();
     $response->addHTML($content . "\n");
 } elseif (! empty($GLOBALS['message'])) {
-    $response->addHTML(PhpMyAdmin\Util::getMessage($GLOBALS['message']));
+    $response->addHTML(Generator::getMessage($GLOBALS['message']));
     unset($GLOBALS['message']);
 }
 
@@ -435,7 +441,7 @@ $response->addHTML(
 if (isset($_GET['export'])
     || (isset($_POST['submit_mult']) && $_POST['submit_mult'] == 'export')
 ) {
-    list($title, $export) = $serverPrivileges->getListForExportUserDefinition(
+    [$title, $export] = $serverPrivileges->getListForExportUserDefinition(
         isset($username) ? $username : null,
         isset($hostname) ? $hostname : null
     );

@@ -15,6 +15,7 @@ use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\GitRevision;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\RecentFavoriteTable;
@@ -84,7 +85,7 @@ class HomeController extends AbstractController
         $languageManager = LanguageManager::getInstance();
 
         if (! empty($message)) {
-            $displayMessage = Util::getMessage($message);
+            $displayMessage = Generator::getMessage($message);
             unset($message);
         }
         if (isset($_SESSION['partial_logout'])) {
@@ -114,7 +115,7 @@ class HomeController extends AbstractController
 
                 if (($cfg['Server']['auth_type'] != 'config') && $cfg['ShowChgPassword']) {
                     $changePassword = $this->template->render('list/item', [
-                        'content' => Util::getImage('s_passwd') . ' ' . __(
+                        'content' => Generator::getImage('s_passwd') . ' ' . __(
                             'Change password'
                         ),
                         'id' => 'li_change_password',
@@ -151,7 +152,7 @@ class HomeController extends AbstractController
                 }
 
                 $userPreferences = $this->template->render('list/item', [
-                    'content' => Util::getImage('b_tblops') . ' ' . __(
+                    'content' => Generator::getImage('b_tblops') . ' ' . __(
                         'More settings'
                     ),
                     'id' => 'li_user_preferences',
@@ -197,7 +198,7 @@ class HomeController extends AbstractController
             $databaseServer = [
                 'host' => $hostInfo,
                 'type' => Util::getServerType(),
-                'connection' => Util::getServerSSL(),
+                'connection' => Generator::getServerSSL(),
                 'version' => $this->dbi->getVersionString() . ' - ' . $this->dbi->getVersionComment(),
                 'protocol' => $this->dbi->getProtoInfo(),
                 'user' => $this->dbi->fetchValue('SELECT USER();'),

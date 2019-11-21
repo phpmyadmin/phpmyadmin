@@ -245,8 +245,8 @@ class EventsTest extends TestCase
     /**
      * Test for getEditorForm
      *
-     * @param array $data    Data for routine
-     * @param array $matcher Matcher
+     * @param array  $data    Data for routine
+     * @param string $matcher Matcher
      *
      * @return void
      *
@@ -266,7 +266,7 @@ class EventsTest extends TestCase
      *
      * @return array
      */
-    public function providerGetEditorFormEdit()
+    public function providerGetEditorFormEdit(): array
     {
         $data = [
             'item_name'           => 'foo',

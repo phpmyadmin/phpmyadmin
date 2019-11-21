@@ -7,6 +7,7 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Display\CreateTable;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
@@ -46,7 +47,7 @@ $url_query .= Url::getCommon($url_params, '&');
 // Get the database structure
 $sub_part = '_structure';
 
-list(
+[
     $tables,
     $num_tables,
     $total_num_tables,
@@ -55,8 +56,8 @@ list(
     $db_is_system_schema,
     $tooltip_truename,
     $tooltip_aliasname,
-    $pos
-) = Util::getDbInfo($db, $sub_part === null ? '' : $sub_part);
+    $pos,
+] = Util::getDbInfo($db, $sub_part === null ? '' : $sub_part);
 
 if (isset($_POST['delete_tracking'], $_POST['table'])) {
     Tracker::deleteTracking($db, $_POST['table']);
@@ -130,5 +131,5 @@ if (count($data['ddlog']) > 0) {
         $log .= '# ' . $entry['date'] . ' ' . $entry['username'] . "\n"
             . $entry['statement'] . "\n";
     }
-    echo Util::getMessage(__('Database Log'), $log);
+    echo Generator::getMessage(__('Database Log'), $log);
 }

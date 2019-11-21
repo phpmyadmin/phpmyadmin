@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -25,7 +26,7 @@ class NodeColumnContainer extends Node
     public function __construct()
     {
         parent::__construct(__('Columns'), Node::CONTAINER);
-        $this->icon = Util::getImage('pause', __('Columns'));
+        $this->icon = Generator::getImage('pause', __('Columns'));
         $this->links = [
             'text' => Url::getFromRoute('/table/structure', [
                 'server' => $GLOBALS['server'],
@@ -46,7 +47,7 @@ class NodeColumnContainer extends Node
             $newLabel
         );
         $new->isNew = true;
-        $new->icon = Util::getImage('b_column_add', $newLabel);
+        $new->icon = Generator::getImage('b_column_add', $newLabel);
         $new->links = [
             'text' => Url::getFromRoute('/table/addfield', [
                 'server' => $GLOBALS['server'],

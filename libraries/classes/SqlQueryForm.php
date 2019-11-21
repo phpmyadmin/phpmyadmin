@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Html\MySQLDocumentation;
+
 /**
  * PhpMyAdmin\SqlQueryForm class
  *
@@ -80,7 +82,7 @@ class SqlQueryForm
         }
 
         if ($display_tab === 'full' || $display_tab === 'sql') {
-            list($legend, $query, $columns_list) = $this->init($query);
+            [$legend, $query, $columns_list] = $this->init($query);
         }
 
         $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
@@ -190,7 +192,7 @@ class SqlQueryForm
                 );
             }
         }
-        $legend .= ': ' . Util::showMySQLDocu('SELECT');
+        $legend .= ': ' . MySQLDocumentation::show('SELECT');
 
         return [
             $legend,

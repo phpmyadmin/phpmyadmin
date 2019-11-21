@@ -10,6 +10,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 
 /**
@@ -934,14 +935,14 @@ class CentralColumns
             'text_dir' => $text_dir,
             'form_name' => 'tableslistcontainer',
         ]);
-        $html_output .= Util::getButtonOrImage(
+        $html_output .= Generator::getButtonOrImage(
             'edit_central_columns',
             'mult_submit change_central_columns',
             __('Edit'),
             'b_edit',
             'edit central columns'
         );
-        $html_output .= Util::getButtonOrImage(
+        $html_output .= Generator::getButtonOrImage(
             'delete_central_columns',
             'mult_submit',
             __('Delete'),

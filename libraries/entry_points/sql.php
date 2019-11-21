@@ -11,6 +11,7 @@ declare(strict_types=1);
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
@@ -159,11 +160,11 @@ if (empty($sql_query) && strlen($table) > 0 && strlen($db) > 0) {
 /**
  * Parse and analyze the query
  */
-list(
+[
     $analyzed_sql_results,
     $db,
-    $table_from_sql
-) = ParseAnalyze::sqlQuery($sql_query, $db);
+    $table_from_sql,
+] = ParseAnalyze::sqlQuery($sql_query, $db);
 // @todo: possibly refactor
 extract($analyzed_sql_results);
 
@@ -184,7 +185,7 @@ if ($sql->hasNoRightsToDropDatabase(
     $cfg['AllowUserDropDatabase'],
     $dbi->isSuperuser()
 )) {
-    Util::mysqlDie(
+    Generator::mysqlDie(
         __('"DROP DATABASE" statements are disabled.'),
         '',
         false,

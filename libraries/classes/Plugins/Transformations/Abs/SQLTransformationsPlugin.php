@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Util;
 use stdClass;
@@ -43,7 +44,7 @@ abstract class SQLTransformationsPlugin extends TransformationsPlugin
      */
     public function applyTransformation($buffer, array $options = [], ?stdClass $meta = null)
     {
-        return Util::formatSql($buffer);
+        return Generator::formatSql($buffer);
     }
 
 

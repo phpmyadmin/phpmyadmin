@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\Navigation;
 
 /**
@@ -506,7 +507,7 @@ class Header
             if (isset($GLOBALS['buffer_message'])) {
                 $buffer_message = $GLOBALS['buffer_message'];
             }
-            $retval .= Util::getMessage($message);
+            $retval .= Generator::getMessage($message);
             if (isset($buffer_message)) {
                 $GLOBALS['buffer_message'] = $buffer_message;
             }

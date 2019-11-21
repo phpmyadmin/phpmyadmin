@@ -9,6 +9,7 @@ declare(strict_types=1);
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\Export;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Url;
@@ -90,7 +91,7 @@ if (! empty($sql_query)) {
         );
     }
 
-    echo PhpMyAdmin\Util::getMessage(PhpMyAdmin\Message::success());
+    echo Generator::getMessage(PhpMyAdmin\Message::success());
 }
 
 if (! isset($sql_query)) {

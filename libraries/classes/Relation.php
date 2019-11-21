@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Utils\Table as TableUtils;
@@ -131,7 +132,7 @@ class Relation
         if (strlen((string) $cfgRelation['db']) == 0) {
             $retval .= __('Configuration of pmadb…') . ' '
                  . $messages['error']
-                 . Util::showDocu('setup', 'linked-tables')
+                 . MySQLDocumentation::showDocumentation('setup', 'linked-tables')
                  . '<br>' . "\n"
                  . __('General relation features')
                  . ' <font color="green">' . __('Disabled')
@@ -224,7 +225,7 @@ class Relation
                     'Please see the documentation on how to'
                     . ' update your column_info table.'
                 );
-                $retval .= Util::showDocu(
+                $retval .= MySQLDocumentation::showDocumentation(
                     'config',
                     'cfg_Servers_column_info'
                 );
@@ -392,14 +393,14 @@ class Relation
                         . '<code>%screate_tables.sql</code>.'
                     ),
                     htmlspecialchars(SQL_DIR)
-                ) . ' ' . Util::showDocu('setup', 'linked-tables');
+                ) . ' ' . MySQLDocumentation::showDocumentation('setup', 'linked-tables');
                 $items[] = __('Create a pma user and give access to these tables.') . ' '
-                    . Util::showDocu('config', 'cfg_Servers_controluser');
+                    . MySQLDocumentation::showDocumentation('config', 'cfg_Servers_controluser');
                 $items[] = __(
                     'Enable advanced features in configuration file '
                     . '(<code>config.inc.php</code>), for example by '
                     . 'starting from <code>config.sample.inc.php</code>.'
-                ) . ' ' . Util::showDocu('setup', 'quick-install');
+                ) . ' ' . MySQLDocumentation::showDocumentation('setup', 'quick-install');
                 $items[] = __(
                     'Re-login to phpMyAdmin to load the updated configuration file.'
                 );
@@ -466,7 +467,7 @@ class Relation
         } else {
             $retval .= sprintf(
                 $messages['error'],
-                Util::getDocuLink('config', 'cfg_Servers_' . $docAnchor)
+                MySQLDocumentation::getDocumentationLink('config', 'cfg_Servers_' . $docAnchor)
             );
         }
         $retval .= '</td></tr>' . "\n";

@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
@@ -173,7 +174,7 @@ if (isset($_POST['createview']) || isset($_POST['alterview'])) {
     } else {
         $response->addJSON(
             'message',
-            Util::getMessage(
+            Generator::getMessage(
                 Message::success(),
                 $sql_query
             )

@@ -10,6 +10,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
+use PhpMyAdmin\Html\Generator;
 
 /**
  * Set of functions used for normalization
@@ -279,7 +280,7 @@ class Normalization
                 . "(or combination of columns) that uniquely identify all rows."
             );
             $subText = '<a href="#" id="createPrimaryKey">'
-                . Util::getIcon(
+                . Generator::getIcon(
                     'b_index_add',
                     __(
                         'Add a primary key on existing column(s)'
@@ -920,7 +921,7 @@ class Normalization
             '3nf'  => __('Third step of normalization (1NF+2NF+3NF)'),
         ];
 
-        $htmlOutput .= Util::getRadioFields(
+        $htmlOutput .= Html\Forms\Fields\RadioList::generate(
             'normalizeTo',
             $choices,
             '1nf',

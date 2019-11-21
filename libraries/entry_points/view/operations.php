@@ -7,6 +7,7 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Relation;
@@ -92,7 +93,7 @@ if (isset($result)) {
         $_message->isError(true);
         unset($warning_messages);
     }
-    echo Util::getMessage(
+    echo Generator::getMessage(
         $_message,
         $sql_query,
         $_type

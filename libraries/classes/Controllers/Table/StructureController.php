@@ -16,6 +16,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Engines\Innodb;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ParseAnalyze;
@@ -252,16 +253,18 @@ class StructureController extends AbstractController
                     // handle confirmation of deleting multiple columns
                     $action = Url::getFromRoute('/table/structure');
                     $GLOBALS['selected'] = $_POST['selected_fld'];
-                    list(
-                        $what_ret, $query_type_ret, $is_unset_submit_mult,
-                        $mult_btn_ret, $centralColsError
-                        )
-                            = $this->getDataForSubmitMult(
-                                $submit_mult,
-                                $_POST['selected_fld'],
-                                $action,
-                                $containerBuilder
-                            );
+                    [
+                        $what_ret,
+                        $query_type_ret,
+                        $is_unset_submit_mult,
+                        $mult_btn_ret,
+                        $centralColsError,
+                    ] = $this->getDataForSubmitMult(
+                        $submit_mult,
+                        $_POST['selected_fld'],
+                        $action,
+                        $containerBuilder
+                    );
                     //update the existing variables
                     // todo: refactor mult_submits.inc.php such as
                     // below globals are not needed anymore
@@ -289,7 +292,7 @@ class StructureController extends AbstractController
                         $message = Message::success();
                     }
                     $this->response->addHTML(
-                        Util::getMessage($message, $sql_query)
+                        Generator::getMessage($message, $sql_query)
                     );
                 }
             } else {
@@ -777,7 +780,7 @@ class StructureController extends AbstractController
             );
             $message->addParam($this->table);
             $this->response->addHTML(
-                Util::getMessage($message, $sql_query, 'success')
+                Generator::getMessage($message, $sql_query, 'success')
             );
         } else {
             $this->response->setRequestStatus(false);
@@ -852,10 +855,10 @@ class StructureController extends AbstractController
 
         // Parse and analyze the query
         $db = &$this->db;
-        list(
+        [
             $analyzed_sql_results,
             $db,
-        ) = ParseAnalyze::sqlQuery($sql_query, $db);
+        ] = ParseAnalyze::sqlQuery($sql_query, $db);
         // @todo: possibly refactor
         extract($analyzed_sql_results);
 
@@ -965,7 +968,7 @@ class StructureController extends AbstractController
             // To allow replication, we first select the db to use
             // and then run queries on this db.
             if (! $this->dbi->selectDb($this->db)) {
-                Util::mysqlDie(
+                Generator::mysqlDie(
                     $this->dbi->getError(),
                     'USE ' . Util::backquote($this->db) . ';',
                     false,
@@ -1044,7 +1047,7 @@ class StructureController extends AbstractController
                 $message->addParam($this->table);
 
                 $this->response->addHTML(
-                    Util::getMessage($message, $sql_query, 'success')
+                    Generator::getMessage($message, $sql_query, 'success')
                 );
             } else {
                 // An error happened while inserting/updating a table definition
@@ -1265,20 +1268,20 @@ class StructureController extends AbstractController
         $columns_list = [];
 
         $titles = [
-            'Change' => Util::getIcon('b_edit', __('Change')),
-            'Drop' => Util::getIcon('b_drop', __('Drop')),
-            'NoDrop' => Util::getIcon('b_drop', __('Drop')),
-            'Primary' => Util::getIcon('b_primary', __('Primary')),
-            'Index' => Util::getIcon('b_index', __('Index')),
-            'Unique' => Util::getIcon('b_unique', __('Unique')),
-            'Spatial' => Util::getIcon('b_spatial', __('Spatial')),
-            'IdxFulltext' => Util::getIcon('b_ftext', __('Fulltext')),
-            'NoPrimary' => Util::getIcon('bd_primary', __('Primary')),
-            'NoIndex' => Util::getIcon('bd_index', __('Index')),
-            'NoUnique' => Util::getIcon('bd_unique', __('Unique')),
-            'NoSpatial' => Util::getIcon('bd_spatial', __('Spatial')),
-            'NoIdxFulltext' => Util::getIcon('bd_ftext', __('Fulltext')),
-            'DistinctValues' => Util::getIcon('b_browse', __('Distinct values')),
+            'Change' => Generator::getIcon('b_edit', __('Change')),
+            'Drop' => Generator::getIcon('b_drop', __('Drop')),
+            'NoDrop' => Generator::getIcon('b_drop', __('Drop')),
+            'Primary' => Generator::getIcon('b_primary', __('Primary')),
+            'Index' => Generator::getIcon('b_index', __('Index')),
+            'Unique' => Generator::getIcon('b_unique', __('Unique')),
+            'Spatial' => Generator::getIcon('b_spatial', __('Spatial')),
+            'IdxFulltext' => Generator::getIcon('b_ftext', __('Fulltext')),
+            'NoPrimary' => Generator::getIcon('bd_primary', __('Primary')),
+            'NoIndex' => Generator::getIcon('bd_index', __('Index')),
+            'NoUnique' => Generator::getIcon('bd_unique', __('Unique')),
+            'NoSpatial' => Generator::getIcon('bd_spatial', __('Spatial')),
+            'NoIdxFulltext' => Generator::getIcon('bd_ftext', __('Fulltext')),
+            'DistinctValues' => Generator::getIcon('b_browse', __('Distinct values')),
         ];
 
         /**
@@ -1329,12 +1332,12 @@ class StructureController extends AbstractController
 
             if ($primary_index && $primary_index->hasColumn($field['Field'])) {
                 $displayed_fields[$rownum]->icon .=
-                Util::getImage('b_primary', __('Primary'));
+                    Generator::getImage('b_primary', __('Primary'));
             }
 
             if (in_array($field['Field'], $columns_with_index)) {
                 $displayed_fields[$rownum]->icon .=
-                Util::getImage('bd_primary', __('Index'));
+                    Generator::getImage('bd_primary', __('Index'));
             }
 
             $collation = Charsets::findCollationByName(
@@ -1426,25 +1429,25 @@ class StructureController extends AbstractController
         // this is to display for example 261.2 MiB instead of 268k KiB
         $max_digits = 3;
         $decimals = 1;
-        list($data_size, $data_unit) = Util::formatByteDown(
+        [$data_size, $data_unit] = Util::formatByteDown(
             $this->_showtable['Data_length'],
             $max_digits,
             $decimals
         );
         if ($mergetable === false) {
-            list($index_size, $index_unit) = Util::formatByteDown(
+            [$index_size, $index_unit] = Util::formatByteDown(
                 $this->_showtable['Index_length'],
                 $max_digits,
                 $decimals
             );
         }
         if (isset($this->_showtable['Data_free'])) {
-            list($free_size, $free_unit) = Util::formatByteDown(
+            [$free_size, $free_unit] = Util::formatByteDown(
                 $this->_showtable['Data_free'],
                 $max_digits,
                 $decimals
             );
-            list($effect_size, $effect_unit) = Util::formatByteDown(
+            [$effect_size, $effect_unit] = Util::formatByteDown(
                 $this->_showtable['Data_length']
                 + $this->_showtable['Index_length']
                 - $this->_showtable['Data_free'],
@@ -1452,20 +1455,20 @@ class StructureController extends AbstractController
                 $decimals
             );
         } else {
-            list($effect_size, $effect_unit) = Util::formatByteDown(
+            [$effect_size, $effect_unit] = Util::formatByteDown(
                 $this->_showtable['Data_length']
                 + $this->_showtable['Index_length'],
                 $max_digits,
                 $decimals
             );
         }
-        list($tot_size, $tot_unit) = Util::formatByteDown(
+        [$tot_size, $tot_unit] = Util::formatByteDown(
             $this->_showtable['Data_length'] + $this->_showtable['Index_length'],
             $max_digits,
             $decimals
         );
         if ($this->_table_info_num_rows > 0) {
-            list($avg_size, $avg_unit) = Util::formatByteDown(
+            [$avg_size, $avg_unit] = Util::formatByteDown(
                 ($this->_showtable['Data_length']
                 + $this->_showtable['Index_length'])
                 / $this->_showtable['Rows'],

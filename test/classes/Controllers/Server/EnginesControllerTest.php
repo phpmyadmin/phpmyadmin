@@ -11,11 +11,10 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\EnginesController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 use PHPStan\Testing\TestCase;
 
 /**
@@ -120,7 +119,7 @@ class EnginesControllerTest extends TestCase
         );
 
         $this->assertStringContainsString(
-            Util::showMySQLDocu($enginePlugin->getMysqlHelpPage()),
+            MySQLDocumentation::show($enginePlugin->getMysqlHelpPage()),
             $actual
         );
 

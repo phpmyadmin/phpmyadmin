@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Navigation;
 
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\Nodes\Node;
 use PhpMyAdmin\Navigation\Nodes\NodeDatabase;
 use PhpMyAdmin\Navigation\Nodes\NodeTable;
@@ -789,7 +790,7 @@ class NavigationTree
                 );
                 $groups[$key]->separator = $node->separator;
                 $groups[$key]->separatorDepth = $node->separatorDepth - 1;
-                $groups[$key]->icon = Util::getImage(
+                $groups[$key]->icon = Generator::getImage(
                     'b_group',
                     __('Groups')
                 );
@@ -1278,7 +1279,7 @@ class NavigationTree
         $this->tree->isGroup = false;
 
         // Provide for pagination in database select
-        $listNavigator = Util::getListNavigator(
+        $listNavigator = Generator::getListNavigator(
             $this->tree->getPresence('databases', ''),
             $this->pos,
             ['server' => $GLOBALS['server']],
@@ -1443,7 +1444,7 @@ class NavigationTree
         $retval = '<!-- CONTROLS START -->';
         $retval .= '<li id="navigation_controls_outer">';
         $retval .= '<div id="navigation_controls">';
-        $retval .= Util::getNavigationLink(
+        $retval .= Generator::getNavigationLink(
             '#',
             $showText,
             __('Collapse all'),
@@ -1457,7 +1458,7 @@ class NavigationTree
             $syncImage = 's_link';
             $title = __('Unlink from main panel');
         }
-        $retval .= Util::getNavigationLink(
+        $retval .= Generator::getNavigationLink(
             '#',
             $showText,
             $title,
@@ -1484,7 +1485,7 @@ class NavigationTree
     {
         $retval = '';
         if ($node === $this->tree) {
-            $retval .= Util::getListNavigator(
+            $retval .= Generator::getListNavigator(
                 $this->tree->getPresence('databases', $this->searchClause),
                 $this->pos,
                 ['server' => $GLOBALS['server']],
@@ -1518,7 +1519,7 @@ class NavigationTree
                         $node->realName,
                         $this->searchClause2
                     );
-                $retval .= Util::getListNavigator(
+                $retval .= Generator::getListNavigator(
                     $num,
                     $pos,
                     $urlParams,

@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Util;
 
@@ -801,10 +802,10 @@ class Node
         } elseif ($match) {
             $this->visible = true;
 
-            return Util::getImage('b_minus');
+            return Generator::getImage('b_minus');
         }
 
-        return Util::getImage('b_plus', __('Expand/Collapse'));
+        return Generator::getImage('b_plus', __('Expand/Collapse'));
     }
 
     /**

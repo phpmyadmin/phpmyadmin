@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 
 /**
@@ -188,7 +189,7 @@ class InsertEdit
         if (! $rows[$key_id]) {
             unset($rows[$key_id], $where_clause_array[$key_id]);
             Response::getInstance()->addHTML(
-                Util::getMessage(
+                Generator::getMessage(
                     __('MySQL returned an empty result set (i.e. zero rows).'),
                     $local_query
                 )
@@ -200,7 +201,7 @@ class InsertEdit
         } else {// end if (no row returned)
             $meta = $this->dbi->getFieldsMeta($result[$key_id]);
 
-            list($unique_condition, $tmp_clause_is_unique)
+            [$unique_condition, $tmp_clause_is_unique]
                 = Util::getUniqueCondition(
                     $result[$key_id], // handle
                     count($meta), // fields_cnt
@@ -372,7 +373,7 @@ class InsertEdit
             ]
         );
 
-        list($column['pma_type'], $column['wrap'], $column['first_timestamp'])
+        [$column['pma_type'], $column['wrap'], $column['first_timestamp']]
             = $this->getEnumSetAndTimestampColumns($column, $timestamp_seen);
 
         return $column;
@@ -490,7 +491,7 @@ class InsertEdit
         $insert_mode,
         $readOnly,
         array $foreignData
-    ) {
+    ): string {
         $html_output = '';
         if (($GLOBALS['cfg']['ProtectBinary'] === 'blob'
             && $column['is_blob'] && ! $is_upload)
@@ -513,7 +514,7 @@ class InsertEdit
                 . ' ' . $onChangeClause
                 . ' tabindex="' . ($tabindex + $tabindex_for_function) . '"'
                 . ' id="field_' . $idindex . '_1">';
-            $html_output .= Util::getFunctionsForField(
+            $html_output .= Generator::getFunctionsForField(
                 $column,
                 $insert_mode,
                 $foreignData
@@ -867,7 +868,7 @@ class InsertEdit
         array $titles,
         $readOnly
     ) {
-        list($table, $db) = $paramTableDbArray;
+        [$table, $db] = $paramTableDbArray;
         $html_output = '';
         $html_output .= $backup_field . "\n";
 
@@ -1264,7 +1265,7 @@ class InsertEdit
         $data,
         $readOnly
     ) {
-        list($column_set_values, $select_size) = $this->getColumnSetValueAndSelectSize(
+        [$column_set_values, $select_size] = $this->getColumnSetValueAndSelectSize(
             $column,
             $extracted_columnspec
         );
@@ -1436,7 +1437,9 @@ class InsertEdit
                 . ' name="fields_upload' . $vkey . '[' . $column['Field_md5'] . ']"'
                 . ' class="textfield noDragDrop" id="field_' . $idindex . '_3" size="10"'
                 . ' ' . $onChangeClause . '>&nbsp;';
-            list($html_out,) = $this->getMaxUploadSize(
+            [
+                $html_out,
+            ] = $this->getMaxUploadSize(
                 $column,
                 $biggest_max_file_size
             );
@@ -1741,9 +1744,9 @@ class InsertEdit
      */
     private function getHtmlForGisDataTypes()
     {
-        $edit_str = Util::getIcon('b_edit', __('Edit/Insert'));
+        $edit_str = Generator::getIcon('b_edit', __('Edit/Insert'));
         return '<span class="open_gis_editor">'
-            . Util::linkOrButton(
+            . Generator::linkOrButton(
                 '#',
                 $edit_str,
                 [],
@@ -1921,21 +1924,21 @@ class InsertEdit
     private function getSubmitAndResetButtonForActionsPanel($tabindex, $tabindex_for_value)
     {
         return '<td>'
-        . Util::showHint(
-            __(
-                'Use TAB key to move from value to value,'
-                . ' or CTRL+arrows to move anywhere.'
+            . Generator::showHint(
+                __(
+                    'Use TAB key to move from value to value,'
+                    . ' or CTRL+arrows to move anywhere.'
+                )
             )
-        )
-        . '</td>'
-        . '<td colspan="3" class="right vmiddle">'
-        . '<input type="button" class="btn btn-secondary preview_sql" value="' . __('Preview SQL') . '"'
-        . ' tabindex="' . ($tabindex + $tabindex_for_value + 6) . '">'
-        . '<input type="reset" class="btn btn-secondary control_at_footer" value="' . __('Reset') . '"'
-        . ' tabindex="' . ($tabindex + $tabindex_for_value + 7) . '">'
-        . '<input type="submit" class="btn btn-primary control_at_footer" value="' . __('Go') . '"'
-        . ' tabindex="' . ($tabindex + $tabindex_for_value + 8) . '" id="buttonYes">'
-        . '</td>';
+            . '</td>'
+            . '<td colspan="3" class="right vmiddle">'
+            . '<input type="button" class="btn btn-secondary preview_sql" value="' . __('Preview SQL') . '"'
+            . ' tabindex="' . ($tabindex + $tabindex_for_value + 6) . '">'
+            . '<input type="reset" class="btn btn-secondary control_at_footer" value="' . __('Reset') . '"'
+            . ' tabindex="' . ($tabindex + $tabindex_for_value + 7) . '">'
+            . '<input type="submit" class="btn btn-primary control_at_footer" value="' . __('Go') . '"'
+            . ' tabindex="' . ($tabindex + $tabindex_for_value + 8) . '" id="buttonYes">'
+            . '</td>';
     }
 
     /**
@@ -2217,7 +2220,7 @@ class InsertEdit
         $meta = $this->dbi->getFieldsMeta($res);
         // must find a unique condition based on unique key,
         // not a combination of all fields
-        list($unique_condition, $clause_is_unique)
+        [$unique_condition, $clause_is_unique]
             = Util::getUniqueCondition(
                 $res, // handle
                 count($meta), // fields_cnt
@@ -2441,7 +2444,7 @@ class InsertEdit
                 DatabaseInterface::QUERY_STORE
             );
             if ($dispresult && $this->dbi->numRows($dispresult) > 0) {
-                list($dispval) = $this->dbi->fetchRow($dispresult);
+                [$dispval] = $this->dbi->fetchRow($dispresult);
             } else {
                 $dispval = '';
             }
@@ -2928,7 +2931,7 @@ class InsertEdit
             // we are editing
             $insert_mode = false;
             $where_clause_array = $this->getWhereClauseArray($where_clause);
-            list($where_clauses, $result, $rows, $found_unique_key)
+            [$where_clauses, $result, $rows, $found_unique_key]
                 = $this->analyzeWhereClauses(
                     $where_clause_array,
                     $table,
@@ -2938,7 +2941,7 @@ class InsertEdit
             // we are inserting
             $insert_mode = true;
             $where_clause = null;
-            list($result, $rows) = $this->loadFirstRow($table, $db);
+            [$result, $rows] = $this->loadFirstRow($table, $db);
             $where_clauses = null;
             $where_clause_array = [];
             $found_unique_key = false;
@@ -3226,10 +3229,13 @@ class InsertEdit
         $special_chars_encoded = '';
         if (! empty($current_row)) {
             // (we are editing)
-            list(
-                $real_null_value, $special_chars_encoded, $special_chars,
-                $data, $backup_field
-            )
+            [
+                $real_null_value,
+                $special_chars_encoded,
+                $special_chars,
+                $data,
+                $backup_field,
+            ]
                 = $this->getSpecialCharsAndBackupFieldForExistingRow(
                     $current_row,
                     $column,
@@ -3246,9 +3252,13 @@ class InsertEdit
             if (isset($repopulate[$column['Field_md5']])) {
                 $tmp['Default'] = $repopulate[$column['Field_md5']];
             }
-            list($real_null_value, $data, $special_chars, $backup_field,
-                $special_chars_encoded
-            )
+            [
+                $real_null_value,
+                $data,
+                $special_chars,
+                $backup_field,
+                $special_chars_encoded,
+            ]
                 = $this->getSpecialCharsAndBackupFieldForInsertingMode(
                     $tmp,
                     $real_null_value

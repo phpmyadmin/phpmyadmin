@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
@@ -230,7 +231,7 @@ class RelationController extends AbstractController
         )
         ) {
             $this->response->addHTML(
-                Util::getMessage(
+                Generator::getMessage(
                     __('Display column was successfully updated.'),
                     '',
                     'success'
@@ -256,7 +257,7 @@ class RelationController extends AbstractController
         // foreign db is not the same)
         if (isset($_POST['destination_foreign_db'], $_POST['destination_foreign_table'])
             && isset($_POST['destination_foreign_column'])) {
-            list($html, $preview_sql_data, $display_query, $seen_error)
+            [$html, $preview_sql_data, $display_query, $seen_error]
                 = $this->upd_query->updateForeignKeys(
                     $_POST['destination_foreign_db'],
                     $multi_edit_columns_name,
@@ -279,7 +280,7 @@ class RelationController extends AbstractController
         if (! empty($display_query) && ! $seen_error) {
             $GLOBALS['display_query'] = $display_query;
             $this->response->addHTML(
-                Util::getMessage(
+                Generator::getMessage(
                     __('Your SQL query has been executed successfully.'),
                     null,
                     'success'
@@ -309,7 +310,7 @@ class RelationController extends AbstractController
         )
         ) {
             $this->response->addHTML(
-                Util::getMessage(
+                Generator::getMessage(
                     __('Internal relationships were successfully updated.'),
                     '',
                     'success'

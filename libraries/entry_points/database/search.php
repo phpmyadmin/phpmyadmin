@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -41,7 +42,7 @@ require ROOT_PATH . 'libraries/db_common.inc.php';
 
 // If config variable $GLOBALS['cfg']['UseDbSearch'] is on false : exit.
 if (! $GLOBALS['cfg']['UseDbSearch']) {
-    Util::mysqlDie(
+    Generator::mysqlDie(
         __('Access denied!'),
         '',
         false,
@@ -56,7 +57,7 @@ $db_search = new Search($dbi, $db, $template);
 
 // Display top links if we are not in an Ajax request
 if (! $response->isAjax()) {
-    list(
+    [
         $tables,
         $num_tables,
         $total_num_tables,
@@ -65,8 +66,8 @@ if (! $response->isAjax()) {
         $db_is_system_schema,
         $tooltip_truename,
         $tooltip_aliasname,
-        $pos
-    ) = Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+        $pos,
+    ] = Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 }
 
 // Main search form has been submitted, get results

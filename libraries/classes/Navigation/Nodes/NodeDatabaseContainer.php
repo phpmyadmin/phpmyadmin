@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -40,7 +41,7 @@ class NodeDatabaseContainer extends Node
                 _pgettext('Create new database', 'New')
             );
             $new->isNew = true;
-            $new->icon = Util::getImage('b_newdb', '');
+            $new->icon = Generator::getImage('b_newdb', '');
             $new->links = [
                 'text' => Url::getFromRoute('/server/databases', ['server' => $GLOBALS['server']]),
                 'icon' => Url::getFromRoute('/server/databases', ['server' => $GLOBALS['server']]),

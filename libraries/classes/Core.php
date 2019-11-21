@@ -813,10 +813,10 @@ class Core
             $retval .= __('No change');
         } elseif (is_array($query_data)) {
             foreach ($query_data as $query) {
-                $retval .= Util::formatSql($query);
+                $retval .= Html\Generator::formatSql($query);
             }
         } else {
-            $retval .= Util::formatSql($query_data);
+            $retval .= Html\Generator::formatSql($query_data);
         }
         $retval .= '</div>';
         $response = Response::getInstance();

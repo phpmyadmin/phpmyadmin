@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -25,7 +26,7 @@ class NodeTriggerContainer extends Node
     public function __construct()
     {
         parent::__construct(__('Triggers'), Node::CONTAINER);
-        $this->icon = Util::getImage('b_triggers');
+        $this->icon = Generator::getImage('b_triggers');
         $this->links = [
             'text' => Url::getFromRoute('/database/triggers', [
                 'server' => $GLOBALS['server'],
@@ -41,7 +42,7 @@ class NodeTriggerContainer extends Node
             _pgettext('Create new trigger', 'New')
         );
         $new->isNew = true;
-        $new->icon = Util::getImage('b_trigger_add', '');
+        $new->icon = Generator::getImage('b_trigger_add', '');
         $new->links = [
             'text' => Url::getFromRoute('/database/triggers', [
                 'server' => $GLOBALS['server'],

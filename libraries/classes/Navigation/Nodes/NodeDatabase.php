@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -37,7 +38,7 @@ class NodeDatabase extends Node
     public function __construct($name, $type = Node::OBJECT, $isGroup = false)
     {
         parent::__construct($name, $type, $isGroup);
-        $this->icon = Util::getImage(
+        $this->icon = Generator::getImage(
             's_db',
             __('Database operations')
         );
@@ -682,7 +683,7 @@ class NodeDatabase extends Node
                     . '<a href="' . Url::getFromRoute('/navigation') . '" data-post="'
                     . Url::getCommon($params, '') . '"'
                     . ' class="showUnhide ajax">'
-                    . Util::getImage(
+                    . Generator::getImage(
                         'show',
                         __('Show hidden items')
                     )

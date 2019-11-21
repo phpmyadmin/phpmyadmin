@@ -12,6 +12,8 @@ use PhpMyAdmin\Bookmark;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\Results as DisplayResults;
+use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
@@ -87,7 +89,9 @@ class Sql
         if ($db === null && isset($GLOBALS['db']) && strlen($GLOBALS['db'])) {
             $db = $GLOBALS['db'];
         }
-        list($analyzed_sql_results,,) = ParseAnalyze::sqlQuery($sql_query, $db);
+        [
+            $analyzed_sql_results,,
+        ] = ParseAnalyze::sqlQuery($sql_query, $db);
         return $analyzed_sql_results;
     }
 
@@ -291,11 +295,11 @@ class Sql
         if (! empty($profilingResults)) {
             $urlQuery = isset($urlQuery) ? $urlQuery : Url::getCommon(['db' => $database]);
 
-            list(
+            [
                 $detailedTable,
                 $chartJson,
-                $profilingStats
-            ) = $this->analyzeAndGetTableHtmlForProfilingResults($profilingResults);
+                $profilingStats,
+            ] = $this->analyzeAndGetTableHtmlForProfilingResults($profilingResults);
 
             return $this->template->render('sql/profiling_chart', [
                 'url_query' => $urlQuery,
@@ -831,7 +835,7 @@ class Sql
             );
             $GLOBALS['using_bookmark_message']->addParam($table);
             $GLOBALS['using_bookmark_message']->addHtml(
-                Util::showDocu('faq', 'faq6-22')
+                MySQLDocumentation::showDocumentation('faq', 'faq6-22')
             );
             $sql_query = $bookmark->getQuery();
         } else {
@@ -884,7 +888,7 @@ class Sql
             $response->setRequestStatus(false);
             $response->addJSON('message', $message);
         } else {
-            Util::mysqlDie($error, $full_sql_query, '', '');
+            Generator::mysqlDie($error, $full_sql_query, '', '');
         }
         exit;
     }
@@ -1171,10 +1175,10 @@ class Sql
                 $GLOBALS['dbi']->query('SET PROFILING=1;');
             }
 
-            list(
+            [
                 $result,
-                $GLOBALS['querytime']
-            ) = $this->executeQueryAndMeasureTime($full_sql_query);
+                $GLOBALS['querytime'],
+            ] = $this->executeQueryAndMeasureTime($full_sql_query);
 
             // Displays an error message if required and stop parsing the script
             $error = $GLOBALS['dbi']->getError();
@@ -1417,7 +1421,7 @@ class Sql
         }
 
         $html_output = '';
-        $html_message = Util::getMessage(
+        $html_message = Generator::getMessage(
             $message,
             $GLOBALS['sql_query'],
             'success'
@@ -1696,7 +1700,7 @@ class Sql
     ): string {
         $output = '';
         if (isset($displayQuery) && ($showSql === true) && empty($sqlData)) {
-            $output = Util::getMessage(
+            $output = Generator::getMessage(
                 $displayMessage,
                 $displayQuery,
                 'success'
@@ -1727,7 +1731,7 @@ class Sql
                         . ' Grid edit, checkbox, Edit, Copy and Delete features'
                         . ' are not available. %s'
                     ),
-                    Util::showDocu(
+                    MySQLDocumentation::showDocumentation(
                         'config',
                         'cfg_RowActionLinksWithoutUnique'
                     )
@@ -1741,7 +1745,7 @@ class Sql
                         . ' Grid edit, Edit, Copy and Delete features may result in'
                         . ' undesired behavior. %s'
                     ),
-                    Util::showDocu(
+                    MySQLDocumentation::showDocumentation(
                         'config',
                         'cfg_RowActionLinksWithoutUnique'
                     )
@@ -1932,7 +1936,7 @@ class Sql
             $scripts->addFile('sql.js');
             if (isset($message)) {
                 $message = Message::success($message);
-                $tableMaintenanceHtml = Util::getMessage(
+                $tableMaintenanceHtml = Generator::getMessage(
                     $message,
                     $GLOBALS['sql_query'],
                     'success'
@@ -2081,11 +2085,11 @@ class Sql
     ) {
         if ($analyzed_sql_results == null) {
             // Parse and analyze the query
-            list(
+            [
                 $analyzed_sql_results,
                 $db,
-                $table_from_sql
-            ) = ParseAnalyze::sqlQuery($sql_query, $db);
+                $table_from_sql,
+            ] = ParseAnalyze::sqlQuery($sql_query, $db);
             // @todo: possibly refactor
             extract($analyzed_sql_results);
 
@@ -2206,13 +2210,13 @@ class Sql
         $GLOBALS['reload'] = $this->hasCurrentDbChanged($db);
         $GLOBALS['dbi']->selectDb($db);
 
-        list(
+        [
             $result,
             $num_rows,
             $unlim_num_rows,
             $profiling_results,
-            $extra_data
-        ) = $this->executeTheQuery(
+            $extra_data,
+        ] = $this->executeTheQuery(
             $analyzed_sql_results,
             $full_sql_query,
             $is_gotofile,

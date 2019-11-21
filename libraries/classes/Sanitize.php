@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Util;
 
 /**
@@ -124,7 +125,7 @@ class Sanitize
                 $page = 'setup';
             }
         }
-        $link = Util::getDocuLink($page, $anchor);
+        $link = MySQLDocumentation::getDocumentationLink($page, $anchor);
         return '<a href="' . $link . '" target="documentation">';
     }
 
@@ -170,7 +171,7 @@ class Sanitize
             // used in common.inc.php:
             '[conferr]' => '<iframe src="show_config_errors.php"><a href="show_config_errors.php">show_config_errors.php</a></iframe>',
             // used in libraries/Util.php
-            '[dochelpicon]' => Util::getImage('b_help', __('Documentation')),
+            '[dochelpicon]' => Html\Generator::getImage('b_help', __('Documentation')),
         ];
 
         $message = strtr($message, $replace_pairs);

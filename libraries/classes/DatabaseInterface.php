@@ -12,6 +12,8 @@ use mysqli_result;
 use PhpMyAdmin\Database\DatabaseList;
 use PhpMyAdmin\Dbi\DbiExtension;
 use PhpMyAdmin\Dbi\DbiMysqli;
+use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\SqlParser\Context;
 
 /**
@@ -159,7 +161,7 @@ class DatabaseInterface
         bool $cache_affected_rows = true
     ) {
         $res = $this->tryQuery($query, $link, $options, $cache_affected_rows)
-           or Util::mysqlDie($this->getError($link), $query);
+           or Generator::mysqlDie($this->getError($link), $query);
 
         return $res;
     }
@@ -950,7 +952,7 @@ class DatabaseInterface
 
             $mysql_error = $this->getError($link);
             if (! count($databases) && $GLOBALS['errno']) {
-                Util::mysqlDie($mysql_error, $sql);
+                Generator::mysqlDie($mysql_error, $sql);
             }
 
             // display only databases also in official database list
@@ -2337,12 +2339,12 @@ class DatabaseInterface
             if ($type === 'super') {
                 $query = 'SELECT 1 FROM mysql.user LIMIT 1';
             } elseif ($type === 'create') {
-                list($user, $host) = $this->getCurrentUserAndHost();
+                [$user, $host] = $this->getCurrentUserAndHost();
                 $query = "SELECT 1 FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` "
                     . "WHERE `PRIVILEGE_TYPE` = 'CREATE USER' AND "
                     . "'''" . $user . "''@''" . $host . "''' LIKE `GRANTEE` LIMIT 1";
             } elseif ($type === 'grant') {
-                list($user, $host) = $this->getCurrentUserAndHost();
+                [$user, $host] = $this->getCurrentUserAndHost();
                 $query = "SELECT 1 FROM ("
                     . "SELECT `GRANTEE`, `IS_GRANTABLE` FROM "
                     . "`INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION "
@@ -2591,7 +2593,7 @@ class DatabaseInterface
      */
     public function connect(int $mode, ?array $server = null, ?int $target = null)
     {
-        list($user, $password, $server) = $this->getConnectionParams($mode, $server);
+        [$user, $password, $server] = $this->getConnectionParams($mode, $server);
 
         if ($target === null) {
             $target = $mode;
@@ -3144,7 +3146,7 @@ class DatabaseInterface
         }
 
         if (! self::checkDbExtension('mysqli')) {
-            $docUrl = Util::getDocuLink('faq', 'faqmysql');
+            $docUrl = MySQLDocumentation::getDocumentationLink('faq', 'faqmysql');
             $docLink = sprintf(
                 __('See %sour documentation%s for more information.'),
                 '[a@' . $docUrl . '@documentation]',

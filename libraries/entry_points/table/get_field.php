@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Mime;
 use PhpMyAdmin\Response;
 
@@ -41,7 +42,7 @@ PhpMyAdmin\Util::checkParameters(
 
 /* Select database */
 if (! $dbi->selectDb($db)) {
-    PhpMyAdmin\Util::mysqlDie(
+    Generator::mysqlDie(
         sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($db)),
         '',
         false
@@ -50,7 +51,7 @@ if (! $dbi->selectDb($db)) {
 
 /* Check if table exists */
 if (! $dbi->getColumns($db, $table)) {
-    PhpMyAdmin\Util::mysqlDie(__('Invalid table name'));
+    Generator::mysqlDie(__('Invalid table name'));
 }
 
 /* Grab data */
@@ -61,7 +62,7 @@ $result = $dbi->fetchValue($sql);
 
 /* Check return code */
 if ($result === false) {
-    PhpMyAdmin\Util::mysqlDie(
+    Generator::mysqlDie(
         __('MySQL returned an empty result set (i.e. zero rows).'),
         $sql
     );

@@ -11,6 +11,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Import;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Plugins;
@@ -666,11 +667,11 @@ if (isset($message)) {
 //  can choke on it so avoid parsing)
 $sqlLength = mb_strlen($sql_query);
 if ($sqlLength <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
-    list(
+    [
         $analyzed_sql_results,
         $db,
-        $table_from_sql
-    ) = ParseAnalyze::sqlQuery($sql_query, $db);
+        $table_from_sql,
+    ] = ParseAnalyze::sqlQuery($sql_query, $db);
     // @todo: possibly refactor
     extract($analyzed_sql_results);
 
@@ -682,7 +683,7 @@ if ($sqlLength <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
 // There was an error?
 if (isset($my_die)) {
     foreach ($my_die as $key => $die) {
-        PhpMyAdmin\Util::mysqlDie(
+        Generator::mysqlDie(
             $die['error'],
             $die['sql'],
             false,
@@ -704,11 +705,11 @@ if ($go_sql) {
 
     foreach ($sql_queries as $sql_query) {
         // parse sql query
-        list(
+        [
             $analyzed_sql_results,
             $db,
-            $table_from_sql
-        ) = ParseAnalyze::sqlQuery($sql_query, $db);
+            $table_from_sql,
+        ] = ParseAnalyze::sqlQuery($sql_query, $db);
         // @todo: possibly refactor
         extract($analyzed_sql_results);
 
@@ -718,7 +719,7 @@ if ($go_sql) {
             $cfg['AllowUserDropDatabase'],
             $dbi->isSuperuser()
         )) {
-            PhpMyAdmin\Util::mysqlDie(
+            Generator::mysqlDie(
                 __('"DROP DATABASE" statements are disabled.'),
                 '',
                 false,
@@ -787,7 +788,7 @@ if ($go_sql) {
     $response->addJSON('message', PhpMyAdmin\Message::success($msg));
     $response->addJSON(
         'sql_query',
-        PhpMyAdmin\Util::getMessage($msg, $sql_query, 'success')
+        Generator::getMessage($msg, $sql_query, 'success')
     );
 } elseif ($result === false) {
     $response->setRequestStatus(false);

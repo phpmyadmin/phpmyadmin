@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
 
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Import;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
@@ -114,7 +115,7 @@ class ImportCsv extends AbstractImportCsv
             );
             $leaf = new TextPropertyItem(
                 "columns",
-                __('Column names:') . ' ' . Util::showHint($hint)
+                __('Column names:') . ' ' . Generator::showHint($hint)
             );
             $generalOptions->addProperty($leaf);
         }
@@ -203,7 +204,7 @@ class ImportCsv extends AbstractImportCsv
         // If there is an error in the parameters entered,
         // indicate that immediately.
         if ($param_error) {
-            Util::mysqlDie(
+            Generator::mysqlDie(
                 $message->getMessage(),
                 '',
                 false,
@@ -742,7 +743,7 @@ class ImportCsv extends AbstractImportCsv
                 }
                 $newDb = 'CSV_DB ' . (count($result) + 1);
             }
-            list($db_name, $options) = $this->getDbnameAndOptions($db, $newDb);
+            [$db_name, $options] = $this->getDbnameAndOptions($db, $newDb);
 
             /* Non-applicable parameters */
             $create = null;

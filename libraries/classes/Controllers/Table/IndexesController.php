@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
@@ -158,7 +159,7 @@ class IndexesController extends AbstractController
                 $message->addParam($this->table);
                 $this->response->addJSON(
                     'message',
-                    Util::getMessage($message, $sql_query, 'success')
+                    Generator::getMessage($message, $sql_query, 'success')
                 );
                 $this->response->addJSON(
                     'index_table',

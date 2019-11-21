@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -29,7 +30,7 @@ class NodeProcedure extends NodeDatabaseChild
     public function __construct($name, $type = Node::OBJECT, $isGroup = false)
     {
         parent::__construct($name, $type, $isGroup);
-        $this->icon = Util::getImage('b_routines', __('Procedure'));
+        $this->icon = Generator::getImage('b_routines', __('Procedure'));
         $this->links = [
             'text' => Url::getFromRoute('/database/routines', [
                 'server' => $GLOBALS['server'],

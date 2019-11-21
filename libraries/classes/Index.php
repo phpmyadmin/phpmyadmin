@@ -8,6 +8,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Html\MySQLDocumentation;
+
 /**
  * Index manipulation class
  *
@@ -533,7 +536,7 @@ class Index
             $types[$type] = $type;
         }
 
-        return Util::getDropdown(
+        return Html\Forms\Fields\DropDown::generate(
             "index[Index_type]",
             $types,
             $this->_type,
@@ -689,7 +692,7 @@ class Index
         if (! $print_mode) {
             $r  = '<fieldset class="index_info">';
             $r .= '<legend id="index_header">' . __('Indexes');
-            $r .= Util::showMySQLDocu('optimizing-database-structure');
+            $r .= MySQLDocumentation::show('optimizing-database-structure');
 
             $r .= '</legend>';
             $r .= $no_indexes;
@@ -738,7 +741,7 @@ class Index
                    . '    <a class="';
                 $r .= 'ajax';
                 $r .= '" href="' . Url::getFromRoute('/table/indexes') . '" data-post="' . Url::getCommon($this_params, '')
-                   . '">' . Util::getIcon('b_edit', __('Edit')) . '</a>'
+                   . '">' . Generator::getIcon('b_edit', __('Edit')) . '</a>'
                    . '</td>' . "\n";
                 $this_params = $GLOBALS['url_params'];
                 if ($index->getName() == 'PRIMARY') {
@@ -762,9 +765,9 @@ class Index
                 $r .= '<td ' . $row_span . ' class="print_ignore">';
                 $r .= '<input type="hidden" class="drop_primary_key_index_msg"'
                     . ' value="' . $js_msg . '">';
-                $r .= Util::linkOrButton(
+                $r .= Generator::linkOrButton(
                     Url::getFromRoute('/sql', $this_params),
-                    Util::getIcon('b_drop', __('Drop')),
+                    Generator::getIcon('b_drop', __('Drop')),
                     ['class' => 'drop_primary_key_index_anchor ajax']
                 );
                 $r .= '</td>' . "\n";

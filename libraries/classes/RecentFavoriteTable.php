@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Html\Generator;
+
 /**
  * Handles the recently used and favorite tables.
  *
@@ -212,7 +214,7 @@ class RecentFavoriteTable
                         . '" data-favtargetn="'
                         . md5($table['db'] . "." . $table['table'])
                         . '" >'
-                        . Util::getIcon('b_favorite')
+                        . Generator::getIcon('b_favorite')
                         . '</a>';
 
                     $table_url = Url::getFromRoute('/table/recent_favorite', [

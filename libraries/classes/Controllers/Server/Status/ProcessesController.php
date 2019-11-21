@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;
 
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Util;
 
@@ -237,7 +238,7 @@ class ProcessesController extends AbstractController
                 'time' => $process['Time'],
                 'state' => ! empty($process['State']) ? $process['State'] : '---',
                 'progress' => ! empty($process['Progress']) ? $process['Progress'] : '---',
-                'info' => ! empty($process['Info']) ? Util::formatSql(
+                'info' => ! empty($process['Info']) ? Generator::formatSql(
                     $process['Info'],
                     ! $showFullSql
                 ) : '---',

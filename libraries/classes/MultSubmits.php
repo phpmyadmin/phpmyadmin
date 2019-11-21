@@ -10,6 +10,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Html\Forms\Fields\FKCheckbox;
+
 /**
  * Functions for multi submit forms
  *
@@ -523,7 +525,7 @@ class MultSubmits
         // Display option to disable foreign key checks while dropping tables
         if ($what === 'drop_tbl' || $what === 'empty_tbl' || $what === 'row_delete') {
             $html .= '<div id="foreignkeychk">';
-            $html .= Util::getFKCheckbox();
+            $html .= FKCheckbox::generate();
             $html .= '</div>';
         }
         $html .= '<input id="buttonYes" class="btn btn-secondary" type="submit" name="mult_btn" value="'

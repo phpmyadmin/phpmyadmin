@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -52,7 +53,7 @@ abstract class NodeDatabaseChild extends Node
                 . '<a href="' . Url::getFromRoute('/navigation') . '" data-post="'
                 . Url::getCommon($params, '') . '"'
                 . ' class="hideNavItem ajax">'
-                . Util::getImage('hide', __('Hide'))
+                . Generator::getImage('hide', __('Hide'))
                 . '</a></span>';
         }
 

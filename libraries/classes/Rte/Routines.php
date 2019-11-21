@@ -12,6 +12,8 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Parser;
@@ -301,7 +303,7 @@ class Routines
                         . '<br>'
                         . __('MySQL said: ') . $this->dbi->getError();
                     } else {
-                        list($newErrors, $message) = $this->create(
+                        [$newErrors, $message] = $this->create(
                             $routine_query,
                             $create_routine,
                             $privilegesBackup
@@ -350,7 +352,7 @@ class Routines
             $message->addHtml('</ul>');
         }
 
-        $output = Util::getMessage($message, $sql_query);
+        $output = Generator::getMessage($message, $sql_query);
         $response = Response::getInstance();
         if (! $response->isAjax()) {
             return $errors;
@@ -1047,7 +1049,7 @@ class Routines
         ) {
             $retval .= "<tr>";
             $retval .= "    <td>" . __('Adjust privileges');
-            $retval .= Util::showDocu('faq', 'faq6-39');
+            $retval .= MySQLDocumentation::showDocumentation('faq', 'faq6-39');
             $retval .= "</td>";
             if ($GLOBALS['proc_priv']
                 && $GLOBALS['is_reload_priv']
@@ -1439,7 +1441,7 @@ class Routines
             $nbResultsetToDisplay = 0;
             if ($outcome) {
                 // Pass the SQL queries through the "pretty printer"
-                $output  = Util::formatSql(implode("\n", $queries));
+                $output  = Generator::formatSql(implode("\n", $queries));
 
                 // Display results
                 $output .= "<fieldset><legend>";
@@ -1684,7 +1686,7 @@ class Routines
                     ];
                     $retval .= "<select name='funcs["
                         . $routine['item_param_name'][$i] . "]'>";
-                    $retval .= Util::getFunctionsForField($field, false, []);
+                    $retval .= Generator::getFunctionsForField($field, false, []);
                     $retval .= "</select>";
                 }
                 $retval .= "</td>\n";

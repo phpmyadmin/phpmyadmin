@@ -11,6 +11,10 @@ namespace PhpMyAdmin\Server;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\ChangePassword;
+use PhpMyAdmin\Html\Forms;
+use PhpMyAdmin\Html\Forms\Fields\DropDown;
+use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
@@ -802,7 +806,7 @@ class Privileges
             ];
         }
 
-        $html_output = Util::getDropdown(
+        $html_output = DropDown::generate(
             'authentication_plugin',
             $active_auth_plugins,
             $orig_auth_plugin,
@@ -858,7 +862,7 @@ class Privileges
     ) {
         global $pred_username, $pred_hostname, $username, $hostname, $new_username;
 
-        list($usernameLength, $hostnameLength) = $this->getUsernameAndHostnameLength();
+        [$usernameLength, $hostnameLength] = $this->getUsernameAndHostnameLength();
 
         if (isset($username) && strlen($username) === 0) {
             $pred_username = 'any';
@@ -997,7 +1001,7 @@ class Privileges
                 $authentication_plugin = $row['plugin'];
             }
         } elseif ($mode == 'change') {
-            list($username, $hostname) = $this->dbi->getCurrentUserAndHost();
+            [$username, $hostname] = $this->dbi->getCurrentUserAndHost();
 
             $row = $this->dbi->fetchSingleRow(
                 'SELECT `plugin` FROM `mysql`.`user` WHERE '
@@ -1153,7 +1157,7 @@ class Privileges
 
                 // Update the plugin for the user
                 if (! $this->dbi->tryQuery($update_plugin_query)) {
-                    Util::mysqlDie(
+                    Generator::mysqlDie(
                         $this->dbi->getError(),
                         $update_plugin_query,
                         false,
@@ -1187,7 +1191,7 @@ class Privileges
             }
 
             if (! $this->dbi->tryQuery($local_query)) {
-                Util::mysqlDie(
+                Generator::mysqlDie(
                     $this->dbi->getError(),
                     $sql_query,
                     false,
@@ -1642,13 +1646,13 @@ class Privileges
 
         switch ($linktype) {
             case 'edit':
-                $html .= Util::getIcon('b_usredit', __('Edit privileges'));
+                $html .= Generator::getIcon('b_usredit', __('Edit privileges'));
                 break;
             case 'revoke':
-                $html .= Util::getIcon('b_usrdrop', __('Revoke'));
+                $html .= Generator::getIcon('b_usrdrop', __('Revoke'));
                 break;
             case 'export':
-                $html .= Util::getIcon('b_tblexport', __('Export'));
+                $html .= Generator::getIcon('b_tblexport', __('Export'));
                 break;
         }
         $html .= '</a>';
@@ -1748,7 +1752,7 @@ class Privileges
 
         $extra_data = [];
         if (strlen($sql_query) > 0) {
-            $extra_data['sql_query'] = Util::getMessage(null, $sql_query);
+            $extra_data['sql_query'] = Generator::getMessage(null, $sql_query);
         }
 
         if (isset($_POST['change_copy'])) {
@@ -2237,7 +2241,7 @@ class Privileges
             DatabaseInterface::QUERY_STORE
         );
         if ($initials) {
-            while (list($tmp_initial) = $this->dbi->fetchRow($initials)) {
+            while ([$tmp_initial] = $this->dbi->fetchRow($initials)) {
                 $array_initials[$tmp_initial] = true;
             }
         }
@@ -2527,7 +2531,7 @@ class Privileges
         }
 
         foreach ($selected_usr as $each_user) {
-            list($this_user, $this_host) = explode('&amp;#27;', $each_user);
+            [$this_user, $this_host] = explode('&amp;#27;', $each_user);
             $queries[] = '# '
                 . sprintf(
                     __('Deleting %s'),
@@ -2672,7 +2676,7 @@ class Privileges
             ];
         }
 
-        list(
+        [
             $create_user_real,
             $create_user_show,
             $real_sql_query,
@@ -2680,8 +2684,8 @@ class Privileges
             $password_set_real,
             $password_set_show,
             $alter_real_sql_query,
-            $alter_sql_query
-        ) = $this->getSqlQueriesForDisplayAndAddUser(
+            $alter_sql_query,
+        ] = $this->getSqlQueriesForDisplayAndAddUser(
             $username,
             $hostname,
             (isset($password) ? $password : '')
@@ -2705,7 +2709,7 @@ class Privileges
                 $sql_query = $create_user_show . $sql_query;
             }
 
-            list($sql_query, $message) = $this->addUserAndCreateDatabase(
+            [$sql_query, $message] = $this->addUserAndCreateDatabase(
                 $_error,
                 $real_sql_query,
                 $sql_query,
@@ -3087,7 +3091,7 @@ class Privileges
                                 . 'from connecting if the host part of their account '
                                 . 'allows a connection from any (%) host.'
                             )
-                            . Util::showMySQLDocu('problems-connecting')
+                            . MySQLDocumentation::show('problems-connecting')
                         )->getDisplay();
                         break 2;
                     }
@@ -3148,7 +3152,7 @@ class Privileges
                             . 'the privileges have to be reloaded but currently, you '
                             . 'don\'t have the RELOAD privilege.'
                         )
-                        . Util::showMySQLDocu(
+                        . MySQLDocumentation::show(
                             'privileges-provided',
                             false,
                             null,
