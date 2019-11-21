@@ -7,7 +7,14 @@
  * @required    js/functions.js
  */
 
-/* global MicroHistory */ // js/microhistory.js
+import $ from 'jquery';
+import AJAX from 'ajax';
+import CommonActions from 'commonActions';
+import CommonParams from 'commonParams';
+import Functions from 'functions';
+import Messages from 'messages';
+import MicroHistory from 'microHistory';
+import Navigation from 'navigation';
 
 /**
  * Unbind all event handlers before tearing down a page

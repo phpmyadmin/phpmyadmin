@@ -81,7 +81,7 @@ class DatabasesController extends AbstractController
 
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();
-        $scripts->addFile('server/databases.js');
+        $scripts->addFile('dist/server/databases.js');
 
         Common::server();
         ReplicationInfo::load();
