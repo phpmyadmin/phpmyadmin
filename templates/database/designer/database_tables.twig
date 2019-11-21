@@ -50,7 +50,7 @@
                     table_name="{{ t_n_url }}"
                     query_set="{{ has_query ? 1 : 0 }}">
                     <span class="owner">{{ designerTable.getDatabaseName() }}</span>
-                    {{ designerTable.getTableName()|raw }}
+                    {{ designerTable.getTableName() }}
                 </td>
                 {% if has_query %}
                     <td class="tab_zag tab_zag_query"
@@ -122,7 +122,8 @@
                     </td>
                     {% if has_query %}
                         <td class="small_tab_pref small_tab_pref_click_opt"
-                            option_col_name_modal="<strong>{{ 'Add an option for column "%s".'|trans|format(col_name) }}</strong>"
+                            {# Escaped 2 times to be able to use it in innerHtml #}
+                            option_col_name_modal="<strong>{{ 'Add an option for column "%s".'|trans|format(col_name)|escape('html')|escape('html') }}</strong>"
                             db_name="{{ db }}"
                             table_name="{{ table_name }}"
                             col_name="{{ col_name }}"

@@ -576,7 +576,7 @@ function addTableToTablesList (index, table_dom) {
         '            />' +
         '    </td>' +
         '    <td class="designer_Tabs"' +
-        '        designer_url_table_name="' + db_encoded + '.' + table_encoded + '">' + db + '.' + table + '</td>' +
+        '        designer_url_table_name="' + db_encoded + '.' + table_encoded + '">' + $('<div/>').text(db + '.' + table).html() + '</td>' +
         '</tr>');
     $('#id_scroll_tab table').first().append($new_table_line);
     $($new_table_line).find('.scroll_tab_struct').click(function () {
