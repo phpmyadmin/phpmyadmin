@@ -214,11 +214,11 @@
 
                 {% if database.replication.master.status %}
                   {% if database.replication.master.is_replicated %}
-                    <td class="tool center">
+                    <td class="tool text-center">
                       {{ get_icon('s_success', 'Replicated'|trans) }}
                     </td>
                   {% else %}
-                    <td class="tool center">
+                    <td class="tool text-center">
                       {{ get_icon('s_cancel', 'Not replicated'|trans) }}
                     </td>
                   {% endif %}
@@ -226,11 +226,11 @@
 
                 {% if database.replication.slave.status %}
                   {% if database.replication.slave.is_replicated %}
-                    <td class="tool center">
+                    <td class="tool text-center">
                       {{ get_icon('s_success', 'Replicated'|trans) }}
                     </td>
                   {% else %}
-                    <td class="tool center">
+                    <td class="tool text-center">
                       {{ get_icon('s_cancel', 'Not replicated'|trans) }}
                     </td>
                   {% endif %}

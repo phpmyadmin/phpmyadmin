@@ -726,7 +726,7 @@ AJAX.registerOnload('normalization.js', function () {
             return false;
         }
         $('#newCols').insertAfter('#mainContent h4');
-        $('#newCols').html('<div class="center">' + Messages.strLoading + '<br>' + Messages.strWaitForPd + '</div>');
+        $('#newCols').html('<div class="text-center">' + Messages.strLoading + '<br>' + Messages.strWaitForPd + '</div>');
         $.post(
             'index.php?route=/normalization',
             {

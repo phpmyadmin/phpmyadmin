@@ -1,0 +1,17 @@
+// Body
+
+body {
+  text-align: $left;
+}
+
+// Forms
+
+input,
+select,
+textarea {
+  font-size: 1em;
+}
+
+textarea {
+  font-family: $font-family-monospace;
+}

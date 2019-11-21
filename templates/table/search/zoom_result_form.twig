@@ -7,14 +7,12 @@
         <legend>{% trans 'Browse/Edit the points' %}</legend>
 
         {# JSON encode the data(query result) #}
-        <center>
+        <div class="text-center">
             {% if zoom_submit and data is not empty %}
                 <div id="resizer">
-                    <center>
-                        <a id="help_dialog" href="#">
-                            {% trans 'How to use' %}
-                        </a>
-                    </center>
+                    <a class="text-center" id="help_dialog" href="#">
+                        {% trans 'How to use' %}
+                    </a>
                     <div id="querydata" class="hide">
                         {{ data_json }}
                     </div>
@@ -24,7 +22,7 @@
                     </button>
                 </div>
             {% endif %}
-        </center>
+        </div>
 
         {# Displays rows in point edit form #}
         <div id="dataDisplay" class="hide">

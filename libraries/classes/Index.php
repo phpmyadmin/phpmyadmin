@@ -642,7 +642,7 @@ class Index
      */
     public static function getHtmlForDisplayIndexes()
     {
-        $html_output = '<div id="index_div" class="width100 ajax" >';
+        $html_output = '<div id="index_div" class="w-100 ajax" >';
         $html_output .= self::getHtmlForIndexes(
             $GLOBALS['table'],
             $GLOBALS['db']

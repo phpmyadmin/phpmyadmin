@@ -169,7 +169,7 @@ RTE.COMMON = {
                 /**
                  * Display the dialog to the user
                  */
-                data.message = '<textarea cols="40" rows="15" class="all100">' + data.message + '</textarea>';
+                data.message = '<textarea cols="40" rows="15" class="w-100">' + data.message + '</textarea>';
                 var $ajaxDialog = $('<div>' + data.message + '</div>').dialog({
                     width: 500,
                     buttons: buttonOptions,

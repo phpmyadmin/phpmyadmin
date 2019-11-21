@@ -1,37 +1,9 @@
-body {
-  font-family: $font-family;
-  padding: 0;
-  margin: 0;
-  margin-#{$left}: $navi-width;
-  color: $main-color;
-  background: $main-background;
-}
-
 #page_content {
   margin: 0 0.5em;
 }
 
-.desktop50 {
-  width: 50%;
-}
-
-.all100 {
-  width: 100%;
-}
-
-.all85 {
-  width: 85%;
-}
-
 .auth_config_tbl {
   margin: 0 auto;
-}
-
-textarea,
-tt,
-pre,
-code {
-  font-family: $font-family-fixed;
 }
 
 h2 {
@@ -158,8 +130,8 @@ a img {
 }
 
 hr {
-  color: $main-color;
-  background-color: $main-color;
+  color: $body-color;
+  background-color: $body-color;
   border: 0;
   height: 1px;
 }
@@ -453,10 +425,6 @@ select {
   float: $right;
 }
 
-.center {
-  text-align: center;
-}
-
 .displayblock {
   display: block;
 }
@@ -477,11 +445,6 @@ table {
 th.left,
 td.left {
   text-align: $left;
-}
-
-th.center,
-td.center {
-  text-align: center;
 }
 
 th.right,
@@ -692,7 +655,7 @@ table {
 }
 
 .value {
-  font-family: $font-family-fixed;
+  font-family: $font-family-monospace;
 }
 
 .attention {
@@ -1927,7 +1890,7 @@ div {
     width: 202px;
     position: relative;
     margin: 0 auto 1em;
-    color: $main-color;
+    color: $body-color;
 
     div.percentage {
       position: absolute;
@@ -2377,7 +2340,7 @@ table#index_columns {
       border: 0 #c83838 solid;
       border-width: 1px 0;
       list-style: none;
-      font-family: $font-family;
+      font-family: $font-family-base;
       font-size: small;
     }
 
@@ -2417,7 +2380,7 @@ table#index_columns {
       small {
         display: block;
         font-weight: normal;
-        font-family: $font-family;
+        font-family: $font-family-base;
         font-size: x-small;
         color: #444;
       }
@@ -2955,7 +2918,7 @@ input#auto_increment_opt {
   }
 
   .btn-link {
-    color: $main-color;
+    color: $body-color;
 
     &:hover {
       color: #fff;
@@ -3969,11 +3932,6 @@ body .ui-dialog {
 
   .largescreenonly {
     display: none;
-  }
-
-  .width100,
-  .desktop50 {
-    width: 100%;
   }
 
   .width96 {

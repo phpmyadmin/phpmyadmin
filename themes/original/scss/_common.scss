@@ -1,49 +1,9 @@
-// Common styles for the original theme
-
-html {
-  font-size: 82%;
-}
-
-input,
-select,
-textarea {
-  font-size: 1em;
-}
-
-body {
-  font-family: $font-family;
-  padding: 0;
-  margin: 0;
-  margin-#{$left}: 240px;
-  color: $main-color;
-  background: $main-background;
-}
-
 #page_content {
   margin: 0 0.5em;
 }
 
-.desktop50 {
-  width: 50%;
-}
-
-.all100 {
-  width: 100%;
-}
-
-.all85 {
-  width: 85%;
-}
-
 .auth_config_tbl {
   margin: 0 auto;
-}
-
-textarea,
-tt,
-pre,
-code {
-  font-family: $font-family-fixed;
 }
 
 h1 {
@@ -220,11 +180,6 @@ table {
 th.left,
 td.left {
   text-align: $left;
-}
-
-th.center,
-td.center {
-  text-align: center;
 }
 
 th.right,
@@ -407,7 +362,7 @@ table {
 }
 
 .value {
-  font-family: $font-family-fixed;
+  font-family: $font-family-monospace;
 }
 
 .attention {
@@ -855,7 +810,7 @@ ul {
 
     a.tab:hover,
     .tabactive {
-      background-color: $main-background;
+      background-color: $body-bg;
     }
   }
 
@@ -870,7 +825,7 @@ ul {
   }
 
   &#topmenu > li.active {
-    border-bottom: 1pt solid $main-background;
+    border-bottom: 1pt solid $body-bg;
   }
 }
 
@@ -1001,7 +956,7 @@ div#tablestatistics table {
 #textSQLDUMP {
   width: 95%;
   height: 95%;
-  font-family: $font-family-fixed;
+  font-family: $font-family-monospace;
   font-size: 110%;
 }
 
@@ -2276,7 +2231,7 @@ input#auto_increment_opt {
   position: fixed;
   top: 44px;
   width: 100%;
-  background: $main-background;
+  background: $body-bg;
 }
 
 #table_columns {
@@ -3600,11 +3555,6 @@ body {
 
   .largescreenonly {
     display: none;
-  }
-
-  .width100,
-  .desktop50 {
-    width: 100%;
   }
 
   .width96 {

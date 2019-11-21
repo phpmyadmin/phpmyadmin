@@ -1,95 +1,5 @@
-// Common styles for the Metro theme
-
-/* fonts */
-
-@font-face {
-  font-family: 'IcoMoon';
-  src: local('☺');
-  src: url('../fonts/IcoMoon.eot');
-  src:
-    url('../fonts/IcoMoon.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/IcoMoon.svg#IcoMoon') format('svg'),
-    url('../fonts/IcoMoon.woff') format('woff'),
-    url('../fonts/IcoMoon.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Open Sans';
-  src: local('☺'), local('Open Sans'), local('OpenSans');
-  src: url('../fonts/opensans-regular-webfont.eot');
-  src:
-    url('../fonts/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/opensans-regular-webfont.woff') format('woff'),
-    url('../fonts/opensans-regular-webfont.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Open Sans Light';
-  src: local('☺'), local('Open Sans Light'), local('OpenSans-Light');
-  src: url('../fonts/opensans-light-webfont.eot');
-  src:
-    url('../fonts/opensans-light-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/opensans-light-webfont.woff') format('woff'),
-    url('../fonts/opensans-light-webfont.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Open Sans Bold';
-  src: local('☺'), local('Open Sans Bold'), local('OpenSans-Bold');
-  src: url('../fonts/opensans-bold-webfont.eot');
-  src:
-    url('../fonts/opensans-bold-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/opensans-bold-webfont.woff') format('woff'),
-    url('../fonts/opensans-bold-webfont.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Open Sans Extrabold';
-  src: local('☺'), local('Open Sans Extrabold'), local('OpenSans-Extrabold');
-  src: url('../fonts/opensans-extrabold-webfont.eot');
-  src:
-    url('../fonts/opensans-extrabold-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/opensans-extrabold-webfont.woff') format('woff'),
-    url('../fonts/opensans-extrabold-webfont.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-*:focus {
-  outline: none;
-}
-
 #li_select_fontsize {
   display: none;
-}
-
-/* general tags */
-html {
-  font-size: 100%;
-}
-
-input,
-select,
-textarea {
-  font-size: 1em;
-}
-
-body {
-  font-family: $font-family;
-  padding: 0;
-  margin-#{$left}: $navi-width;
-  color: $main-color;
-  background: $main-background;
-  line-height: 1;
-  font-size: 11px;
 }
 
 /* Override style formats by html tags */
@@ -118,7 +28,7 @@ body#loginform {
   }
 
   div.container {
-    color: $main-background;
+    color: $body-bg;
     text-align: $left;
     width: 48em;
     margin-#{$left}: auto;
@@ -128,7 +38,7 @@ body#loginform {
       /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
       font-family: 'IcoMoon';
       font-size: 220px;
-      color: $main-background;
+      color: $body-bg;
       content: "a";
       float: $left;
       margin-#{$right}: 20px;
@@ -145,7 +55,7 @@ body#loginform {
   h1 {
     display: inline-block;
     text-align: $left;
-    color: $main-background;
+    color: $body-bg;
     font-size: 2.5em;
     padding-top: 0;
     margin-#{$right}: -50%;
@@ -197,7 +107,7 @@ body#loginform {
     background: $navi-background;
     color: $navi-color;
     padding-#{$left}: 0 !important;
-    font-family: $font-family;
+    font-family: $font-family-base;
     min-width: 100%;
 
     &:hover {
@@ -243,13 +153,6 @@ form.login label {
 
 #page_content {
   margin: 20px !important;
-}
-
-textarea,
-tt,
-pre,
-code {
-  font-family: $font-family-fixed !important;
 }
 
 h1 {
@@ -351,7 +254,7 @@ button.mult_submit {
 
   a {
     border: 1px solid $border-color;
-    background: $main-background;
+    background: $body-bg;
     padding: 4px 8px;
   }
 }
@@ -411,8 +314,8 @@ input {
     color: $th-color;
     padding: 5px;
     margin: 6px;
-    font-family: $font-family;
-    background-color: $main-background;
+    font-family: $font-family-base;
+    background-color: $body-bg;
 
     &:focus {
       border: 1px solid $navi-hover-background;
@@ -440,7 +343,7 @@ textarea {
   overflow: visible;
   border: 1px solid $browse-gray-color;
   color: $th-color;
-  background-color: $main-background;
+  background-color: $body-bg;
 }
 
 fieldset {
@@ -452,7 +355,7 @@ fieldset {
   fieldset {
     margin: 20px;
     margin-bottom: 0;
-    background-color: $main-background;
+    background-color: $body-bg;
     border: none;
   }
 }
@@ -497,9 +400,9 @@ select {
   border: 1px solid $browse-gray-color;
   color: $th-color;
   padding: 4px;
-  font-family: $font-family;
+  font-family: $font-family-base;
   margin: 5px;
-  background-color: $main-background;
+  background-color: $body-bg;
   max-width: 17em;
 
   &:focus {
@@ -522,10 +425,6 @@ select {
   float: $right;
 }
 
-.center {
-  text-align: center;
-}
-
 .displayblock {
   display: block;
 }
@@ -546,11 +445,6 @@ table {
 th.left,
 td.left {
   text-align: $left;
-}
-
-th.center,
-td.center {
-  text-align: center;
 }
 
 th.right,
@@ -796,12 +690,12 @@ table tr.hover:not(.nopointer) th {
 th.condition {
   border: 1px solid $browse-warning-color;
   background: $browse-warning-color;
-  color: $main-background !important;
+  color: $body-bg !important;
 
   a {
     border: 1px solid $browse-warning-color;
     background: $browse-warning-color;
-    color: $main-background !important;
+    color: $body-bg !important;
   }
 }
 
@@ -831,7 +725,7 @@ table {
 }
 
 .value {
-  font-family: $font-family-fixed;
+  font-family: $font-family-monospace;
 }
 
 .attention {
@@ -1284,14 +1178,14 @@ div#tablestatistics table {
   overflow: hidden;
   margin: 0;
   margin-#{$left}: -1em;
-  font-family: $font-family;
+  font-family: $font-family-base;
   color: $button-color;
   background: $navi-background;
   height: 15px;
   box-sizing: content-box;
 
   .item {
-    font-family: $font-family;
+    font-family: $font-family-base;
     white-space: nowrap;
     color: $button-color;
 
@@ -1361,7 +1255,7 @@ div#tablestatistics table {
 #textSQLDUMP {
   width: 95%;
   height: 95%;
-  font-family: $font-family-fixed;
+  font-family: $font-family-monospace;
   font-size: 110%;
 }
 
@@ -2068,7 +1962,7 @@ div.sqlvalidate,
   padding: 1em;
   margin: 1em;
   overflow: auto;
-  background-color: $main-background;
+  background-color: $body-bg;
   border: 1px solid $border-color;
   direction: ltr;
 }
@@ -4070,7 +3964,7 @@ body {
     }
 
     .ui-dialog-buttonpane button {
-      font-family: $font-family;
+      font-family: $font-family-base;
       color: $button-color;
       background-color: $navi-background;
       background-image: none;

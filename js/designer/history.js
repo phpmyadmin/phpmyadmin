@@ -104,11 +104,11 @@ DesignerHistory.display = function (init, finit) {
             str += '<td style="padding-left: 5px;" class="right">' + Functions.getImage('b_sbrowse', 'column name') + '</td>' +
                 '<td width="175" style="padding-left: 5px">' + historyArray[i].getColumnName() + '<td>';
             if (historyArray[i].getType() === 'GroupBy' || historyArray[i].getType() === 'OrderBy') {
-                str += '<td class="center">' + Functions.getImage('s_info', DesignerHistory.detail(i)) + '</td>' +
+                str += '<td class="text-center">' + Functions.getImage('s_info', DesignerHistory.detail(i)) + '</td>' +
                     '<td title="' + DesignerHistory.detail(i) + '">' + historyArray[i].getType() + '</td>' +
                     '<td onclick=DesignerHistory.historyDelete(' + i + ')>' + Functions.getImage('b_drop', Messages.strDelete) + '</td>';
             } else {
-                str += '<td class="center">' + Functions.getImage('s_info', DesignerHistory.detail(i)) + '</td>' +
+                str += '<td class="text-center">' + Functions.getImage('s_info', DesignerHistory.detail(i)) + '</td>' +
                     '<td title="' + DesignerHistory.detail(i) + '">' + historyArray[i].getType() + '</td>' +
                     '<td onclick=DesignerHistory.historyEdit(' + i + ')>' + Functions.getImage('b_edit', Messages.strEdit) + '</td>' +
                     '<td onclick=DesignerHistory.historyDelete(' + i + ')>' + Functions.getImage('b_drop', Messages.strDelete) + '</td>';

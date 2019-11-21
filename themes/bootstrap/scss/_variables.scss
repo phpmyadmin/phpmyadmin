@@ -19,12 +19,6 @@ $navi-pointer-background: #ddd;
 
 // main frame
 
-// foreground (text) color for the main frame
-$main-color: #444;
-
-// background for the main frame
-$main-background: #fff;
-
 // foreground (text) color of the pointer in browse mode
 $browse-pointer-color: #000;
 
@@ -37,14 +31,6 @@ $browse-marker-color: #000;
 
 // background of the marker (visually marks row by clicking on it) in browse mode
 $browse-marker-background: #fc9;
-
-// fonts
-
-// the font family as a valid css font family value, if not set the browser default will be
-// used (depending on browser, DTD and system settings)
-$font-family: sans-serif;
-// fixed width font family, used in textarea
-$font-family-fixed: monospace;
 
 // tables
 

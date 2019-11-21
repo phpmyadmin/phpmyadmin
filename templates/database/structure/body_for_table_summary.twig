@@ -42,7 +42,7 @@
             {# MySQL >= 5.5.3 #}
             {% set default_engine = dbi.fetchValue('SELECT @@default_storage_engine;') %}
         {% endif %}
-        <th class="center">
+        <th class="text-center">
             <dfn title="{{ '%s is the default storage engine on this MySQL server.'|trans|format(default_engine) }}">
                 {{ default_engine }}
             </dfn>

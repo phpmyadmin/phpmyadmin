@@ -3566,7 +3566,7 @@ AJAX.registerOnload('functions.js', function () {
             fields += Functions.escapeHtml(centralColumnList[db + '_' + table][i].col_extra) + '</span>' +
                 '</div></td>';
             if (pick) {
-                fields += '<td><input class="btn btn-secondary pick all100" type="submit" value="' +
+                fields += '<td><input class="btn btn-secondary pick w-100" type="submit" value="' +
                     Messages.pickColumn + '" onclick="Functions.autoPopulate(\'' + colid + '\',' + i + ')"></td>';
             }
             fields += '</tr>';
@@ -3579,13 +3579,13 @@ AJAX.registerOnload('functions.js', function () {
         }
         var seeMore = '';
         if (listSize > maxRows) {
-            seeMore = '<fieldset class=\'tblFooters center font_weight_bold\'>' +
+            seeMore = '<fieldset class="tblFooters text-center font_weight_bold">' +
                 '<a href=\'#\' id=\'seeMore\'>' + Messages.seeMore + '</a></fieldset>';
         }
         var centralColumnsDialog = '<div class=\'max_height_400\'>' +
             '<fieldset>' +
             searchIn +
-            '<table id=\'col_list\' class=\'values all100\'>' + fields + '</table>' +
+            '<table id=\'col_list\' class=\'values w-100\'>' + fields + '</table>' +
             '</fieldset>' +
             seeMore +
             '</div>';
@@ -3629,7 +3629,7 @@ AJAX.registerOnload('functions.js', function () {
                         fields += centralColumnList[db + '_' + table][i].col_extra + '</span>' +
                             '</div></td>';
                         if (pick) {
-                            fields += '<td><input class="btn btn-secondary pick all100" type="submit" value="' +
+                            fields += '<td><input class="btn btn-secondary pick w-100" type="submit" value="' +
                                 Messages.pickColumn + '" onclick="Functions.autoPopulate(\'' + colid + '\',' + i + ')"></td>';
                         }
                         fields += '</tr>';
@@ -4635,6 +4635,7 @@ $(function () {
 });
 
 var checkboxesSel = 'input.checkall:checkbox:enabled';
+Functions.checkboxesSel = checkboxesSel;
 
 /**
  * Watches checkboxes in a form to set the checkall box accordingly
@@ -5015,7 +5016,7 @@ Functions.getImage = function (image, alternate, attributes) {
     }
     // set css classes
     retval.attr('class', 'icon ic_' + image);
-    // set all other attrubutes
+    // set all other attributes
     for (var i in attr) {
         if (i === 'src') {
             // do not allow to override the 'src' attribute

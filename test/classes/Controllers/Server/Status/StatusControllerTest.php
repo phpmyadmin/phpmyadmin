@@ -175,7 +175,7 @@ class StatusControllerTest extends TestCase
         );
 
         //validate 2: Status::getHtmlForServerStateTraffic
-        $trafficHtml = '<table id="serverstatustraffic" class="width100 data noclick col-12 col-md-5">';
+        $trafficHtml = '<table id="serverstatustraffic" class="w-100 data noclick col-12 col-md-5">';
         $this->assertStringContainsString(
             $trafficHtml,
             $html
@@ -207,7 +207,7 @@ class StatusControllerTest extends TestCase
             $html
         );
         $this->assertStringContainsString(
-            '<table id="serverstatusconnections" class="width100 data noclick col-12 col-md-6">',
+            '<table id="serverstatusconnections" class="w-100 data noclick col-12 col-md-6">',
             $html
         );
         $this->assertStringContainsString(

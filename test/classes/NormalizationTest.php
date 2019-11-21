@@ -171,7 +171,7 @@ class NormalizationTest extends TestCase
         $normalizedTo = '1nf';
         $result = $this->normalization->getHtmlFor1NFStep1($db, $table, $normalizedTo);
         $this->assertStringContainsString(
-            "<h3 class='center'>"
+            "<h3 class='text-center'>"
             . __('First step of normalization (1NF)') . "</h3>",
             $result
         );

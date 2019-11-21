@@ -86,11 +86,11 @@ class AuthenticationConfig extends AuthenticationPlugin
         $header->setTitle(__('Access denied!'));
         $header->disableMenuAndConsole();
         echo '<br><br>
-    <center>
+    <div class="text-center">
         <h1>';
         echo sprintf(__('Welcome to %s'), ' phpMyAdmin ');
         echo '</h1>
-    </center>
+    </div>
     <br>
     <table cellpadding="0" cellspacing="3" class= "auth_config_tbl" width="80%">
         <tr>

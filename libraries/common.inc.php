@@ -61,8 +61,8 @@ if (getcwd() == __DIR__) {
  */
 if (PHP_VERSION_ID < 70103) {
     die(
-        'PHP 7.1.3+ is required. <br> Currently installed version is: '
-        . PHP_VERSION
+        '<p>PHP 7.1.3+ is required.</p>'
+        . '<p>Currently installed version is: ' . PHP_VERSION . '</p>'
     );
 }
 
@@ -81,9 +81,10 @@ require_once ROOT_PATH . 'libraries/vendor_config.php';
  */
 if (! @is_readable(AUTOLOAD_FILE)) {
     die(
-        'File <tt>' . AUTOLOAD_FILE . '</tt> missing or not readable. <br>'
-        . 'Most likely you did not run Composer to '
-        . '<a href="https://docs.phpmyadmin.net/en/latest/setup.html#installing-from-git">install library files</a>.'
+        '<p>File <samp>' . AUTOLOAD_FILE . '</samp> missing or not readable.</p>'
+        . '<p>Most likely you did not run Composer to '
+        . '<a href="https://docs.phpmyadmin.net/en/latest/setup.html#installing-from-git">'
+        . 'install library files</a>.</p>'
     );
 }
 require_once AUTOLOAD_FILE;

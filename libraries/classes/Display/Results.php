@@ -5403,7 +5403,7 @@ class Results
                 $ret .= 'class="' . $class . '"';
             }
 
-            $ret .= ' class="center print_ignore">'
+            $ret .= ' class="text-center print_ignore">'
                 . '<input type="checkbox" id="id_rows_to_delete'
                 . $row_no . $id_suffix
                 . '" name="rows_to_delete[' . $row_no . ']"'
@@ -5441,7 +5441,7 @@ class Results
     ) {
         $ret = '';
         if (! empty($edit_url)) {
-            $ret .= '<td class="' . $class . ' center print_ignore">'
+            $ret .= '<td class="' . $class . ' text-center print_ignore">'
                 . '<span class="nowrap">'
                 . Generator::linkOrButton($edit_url, $edit_str);
             /*
@@ -5487,7 +5487,7 @@ class Results
                 $ret .= $class . ' ';
             }
 
-            $ret .= 'center print_ignore"><span class="nowrap">'
+            $ret .= 'text-center print_ignore"><span class="nowrap">'
                . Generator::linkOrButton($copy_url, $copy_str);
 
             /*
@@ -5531,7 +5531,7 @@ class Results
             $ret .= $class . ' ';
         }
         $ajax = Response::getInstance()->isAjax() ? ' ajax' : '';
-        $ret .= 'center print_ignore">'
+        $ret .= 'text-center print_ignore">'
             . Generator::linkOrButton(
                 $del_url,
                 $del_str,
