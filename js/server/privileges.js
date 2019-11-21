@@ -8,7 +8,6 @@
  *
  */
 
-/* global checkboxesSel */ // js/functions.js
 /* global zxcvbn */ // js/vendor/zxcvbn.js
 
 /**
@@ -214,7 +213,7 @@ AJAX.registerOnload('server/privileges.js', function () {
                             .removeClass('odd').addClass('even');
 
                         // update the checkall checkbox
-                        $(checkboxesSel).trigger('change');
+                        $(Functions.checkboxesSel).trigger('change');
                     });
                 } else {
                     Functions.ajaxShowMessage(data.error, false);
@@ -482,7 +481,7 @@ AJAX.registerOnload('server/privileges.js', function () {
     };
 
     $('input.autofocus').trigger('focus');
-    $(checkboxesSel).trigger('change');
+    $(Functions.checkboxesSel).trigger('change');
     Functions.displayPasswordGenerateButton();
     if ($('#edit_user_dialog').length > 0) {
         addOrUpdateSubmenu();

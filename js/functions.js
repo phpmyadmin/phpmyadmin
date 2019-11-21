@@ -4635,6 +4635,7 @@ $(function () {
 });
 
 var checkboxesSel = 'input.checkall:checkbox:enabled';
+Functions.checkboxesSel = checkboxesSel;
 
 /**
  * Watches checkboxes in a form to set the checkall box accordingly
@@ -5015,7 +5016,7 @@ Functions.getImage = function (image, alternate, attributes) {
     }
     // set css classes
     retval.attr('class', 'icon ic_' + image);
-    // set all other attrubutes
+    // set all other attributes
     for (var i in attr) {
         if (i === 'src') {
             // do not allow to override the 'src' attribute

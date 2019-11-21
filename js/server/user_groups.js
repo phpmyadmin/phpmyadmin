@@ -6,8 +6,6 @@
  * @requires    jQueryUI
  */
 
-/* global checkboxesSel */ // js/functions.js
-
 /**
  * Unbind all event handlers before tearing down a page
  */
@@ -20,7 +18,7 @@ AJAX.registerTeardown('server/user_groups.js', function () {
  */
 AJAX.registerOnload('server/user_groups.js', function () {
     // update the checkall checkbox on Edit user group page
-    $(checkboxesSel).trigger('change');
+    $(Functions.checkboxesSel).trigger('change');
 
     $(document).on('click', 'a.deleteUserGroup.ajax', function (event) {
         event.preventDefault();
