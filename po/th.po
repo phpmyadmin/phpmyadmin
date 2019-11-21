@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-11-20 12:45+0100\n"
-"PO-Revision-Date: 2019-11-07 02:04+0000\n"
+"PO-Revision-Date: 2019-11-21 14:33+0000\n"
 "Last-Translator: Kongfa Warorot <gongpha@hotmail.com>\n"
-"Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/5-0/th/"
-">\n"
+"Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/5-0/th/>"
+"\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1330,7 +1330,7 @@ msgstr "กำลังลบ %s"
 #: js/messages.php:406
 #, php-format
 msgid "Delete the matches for the %s table?"
-msgstr "ลบตรงกับที่ตาราง %s  หรือไม่?"
+msgstr "ลบตรงกับที่ตาราง %s หรือไม่?"
 
 #: js/messages.php:410
 msgid "The definition of a stored function must contain a RETURN statement!"
@@ -1863,56 +1863,46 @@ msgid "Untitled"
 msgstr "ไม่มีชื่อ"
 
 #: js/messages.php:581
-#, fuzzy
-#| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
-msgstr "เลือกหน้าที่ต้องการแก้ไข"
+msgstr "กรุณาเลือกหน้าที่จะดำเนินต่อ"
 
 #: js/messages.php:582
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a valid page name"
-msgstr "﻿%d ไม่ใช่หมายเลขแถวที่ถูกต้อง"
+msgstr "กรุณากรอกชื่อหน้าให้ถูกต้อง"
 
 #: js/messages.php:584
 msgid "Do you want to save the changes to the current page?"
-msgstr ""
+msgstr "คุณต้องการที่จะบันทึกการเปลี่ยนแปลงในหน้าปัจจุบันหรือไม่?"
 
 #: js/messages.php:585
 msgid "Successfully deleted the page"
-msgstr ""
+msgstr "ลบหน้าสำเร็จ"
 
 #: js/messages.php:586
-#, fuzzy
-#| msgid "Edit or export relational schema"
 msgid "Export relational schema"
-msgstr "แก้ไข หรือส่งออก รีเลชันแนล สกีมา"
+msgstr "ส่งออกสคีเชิงสัมพันธ์"
 
 #: js/messages.php:587
 msgid "Modifications have been saved"
 msgstr "บันทึกการแก้ไขเรียบร้อยแล้ว"
 
 #: js/messages.php:590
-#, fuzzy, php-format
-#| msgid "Add an option for column "
+#, php-format
 msgid "Add an option for column \"%s\"."
-msgstr "เพิ่มตัวเลือกสำหรับคอลัมน์ "
+msgstr "เพิ่มตัวเลือกสำหรับคอลัมน์  \"%s\""
 
 #: js/messages.php:591
-#, fuzzy, php-format
-#| msgid "%d object(s) created"
+#, php-format
 msgid "%d object(s) created."
-msgstr "สร้างวัตถุจำนวน %d เรียบร้อยแล้ว"
+msgstr "สร้างวัตถุจำนวน %d วัตถุแล้ว"
 
 #: js/messages.php:592 libraries/classes/SqlQueryForm.php:430
 msgid "Submit"
 msgstr "ส่ง"
 
 #: js/messages.php:595
-#, fuzzy
-#| msgid "Press escape to cancel editing"
 msgid "Press escape to cancel editing."
-msgstr "กด escape เพื่อยกเลิกการแก้ไข"
+msgstr "กด ESC เพื่อยกเลิกการแก้ไข"
 
 #: js/messages.php:597
 msgid ""
@@ -1921,8 +1911,6 @@ msgid ""
 msgstr "คุณได้ทำการแก้ไขข้อมูลบางอย่าง แต่ยังไม่ได้บันทึก คุณแน่ใจว่าจะออกจากหน้านี้โดยยังไม่บันทึก?"
 
 #: js/messages.php:600
-#, fuzzy
-#| msgid "Drag to reorder"
 msgid "Drag to reorder."
 msgstr "ลากเพื่อเปลี่ยนลำดับ"
 
@@ -10729,7 +10717,7 @@ msgstr ""
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:66
 #: libraries/classes/Util.php:1590
 msgid "%B %d, %Y at %I:%M %p"
-msgstr "%d %B %Y  %Rน."
+msgstr "%d %B %Y เมื่อ %I:%M %p"
 
 #: libraries/classes/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php:31
 msgid ""
@@ -15989,7 +15977,7 @@ msgstr "ชื่อดัชนี :"
 #: templates/table/index_form.twig:16
 msgid ""
 "\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr "ชื่อของไพรมารีคีย์<b>จะต้องเป็น</b> \"PRIMARY\" เท่านั้น!"
+msgstr "\"PRIMARY\" <b>จะต้อง</b>เป็นชื่อของคีย์หลัก<b>เท่านั้น</b>!"
 
 #: templates/table/index_form.twig:34
 #, fuzzy
