@@ -6,6 +6,11 @@
  * @requires    jQueryUI
  */
 
+import $ from 'jquery';
+import AJAX from 'ajax';
+import Functions from 'functions';
+import Messages from 'messages';
+
 /**
  * Unbind all event handlers before tearing down a page
  */

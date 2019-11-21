@@ -42,7 +42,7 @@ class UserGroupsController extends AbstractController
 
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();
-        $scripts->addFile('server/user_groups.js');
+        $scripts->addFile('dist/server/user_groups.js');
 
         /**
          * Only allowed to superuser

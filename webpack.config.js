@@ -5,6 +5,7 @@ module.exports = {
     entry: {
         'server/databases': './js/src/server/databases.js',
         'server/plugins': './js/src/server/plugins.js',
+        'server/user_groups': './js/src/server/user_groups.js',
     },
     output: {
         filename: '[name].js',
