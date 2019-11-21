@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-11-20 12:39+0100\n"
-"PO-Revision-Date: 2019-11-07 02:04+0000\n"
+"PO-Revision-Date: 2019-11-21 14:33+0000\n"
 "Last-Translator: Kongfa Warorot <gongpha@hotmail.com>\n"
-"Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-9/th/"
-">\n"
+"Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-9/th/>"
+"\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1817,7 +1817,7 @@ msgstr "กำลังลบ %s"
 #: js/messages.php:398
 #, php-format
 msgid "Delete the matches for the %s table?"
-msgstr "ลบตรงกับที่ตาราง %s  หรือไม่?"
+msgstr "ลบตรงกับที่ตาราง %s หรือไม่?"
 
 #: js/messages.php:402
 msgid "The definition of a stored function must contain a RETURN statement!"
@@ -2278,15 +2278,15 @@ msgstr "ไม่มีชื่อ"
 
 #: js/messages.php:572
 msgid "Please select a page to continue"
-msgstr "เลือกหน้าที่ต้องการจะดำเนินต่อ"
+msgstr "กรุณาเลือกหน้าที่จะดำเนินต่อ"
 
 #: js/messages.php:573
 msgid "Please enter a valid page name"
-msgstr "กรุณากรอกเลขหน้าที่ถูกต้อง"
+msgstr "กรุณากรอกชื่อหน้าให้ถูกต้อง"
 
 #: js/messages.php:575
 msgid "Do you want to save the changes to the current page?"
-msgstr "คุณต้องการบันทึกการเปลี่ยนแปลงในหน้าปัจจุบันหรือไม่?"
+msgstr "คุณต้องการที่จะบันทึกการเปลี่ยนแปลงในหน้าปัจจุบันหรือไม่?"
 
 #: js/messages.php:576
 msgid "Successfully deleted the page"
@@ -2303,12 +2303,12 @@ msgstr "บันทึกการแก้ไขเรียบร้อยแ
 #: js/messages.php:581
 #, php-format
 msgid "Add an option for column \"%s\"."
-msgstr "เพิ่มตัวเลือกสำหรับคอลัมน์ \"%s\""
+msgstr "เพิ่มตัวเลือกสำหรับคอลัมน์  \"%s\""
 
 #: js/messages.php:582
 #, php-format
 msgid "%d object(s) created."
-msgstr "วัตถุจำนวน %d วัตถุถูกสร้างเรียบร้อยแล้ว"
+msgstr "สร้างวัตถุจำนวน %d วัตถุแล้ว"
 
 #: js/messages.php:583 libraries/classes/SqlQueryForm.php:419
 msgid "Submit"
@@ -10017,7 +10017,7 @@ msgstr ""
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:62
 #: libraries/classes/Util.php:1522
 msgid "%B %d, %Y at %I:%M %p"
-msgstr "%d %B %Y  %Rน."
+msgstr "%d %B %Y เมื่อ %I:%M %p"
 
 #: libraries/classes/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php:28
 msgid ""
@@ -15787,7 +15787,7 @@ msgstr "ชื่อดัชนี :"
 #: templates/table/index_form.twig:16
 msgid ""
 "\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr "ชื่อของไพรมารีคีย์<b>จะต้องเป็น</b> \"PRIMARY\" เท่านั้น!"
+msgstr "\"PRIMARY\" <b>จะต้อง</b>เป็นชื่อของคีย์หลัก<b>เท่านั้น</b>!"
 
 #: templates/table/index_form.twig:34
 #, fuzzy
