@@ -80,6 +80,7 @@ phpMyAdmin - ChangeLog
 - issue #15465 Display profiling when query outputs no rows
 - issue        Fix setting and removing display field on Designer
 - issue        Added a warning when trying to set a display field on Designer and configuration storage is not setup
+- issue #15327 Fix shift-click in Export misses a checkbox
 
 4.9.1 (2019-09-20)
 - issue #15313 Added support for Twig 2

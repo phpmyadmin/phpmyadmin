@@ -1077,7 +1077,7 @@ AJAX.registerOnload('functions.js', function () {
             lastClickChecked = checked;
 
             // remember the last clicked row
-            lastClickedRow = lastClickChecked ? $table.find('tr:not(.noclick)').index($tr) : -1;
+            lastClickedRow = lastClickChecked ? $table.find('tbody tr:not(.noclick)').index($tr) : -1;
             lastShiftClickedRow = -1;
         } else {
             // handle the shift click
@@ -1103,7 +1103,7 @@ AJAX.registerOnload('functions.js', function () {
             }
 
             // handle new shift click
-            var currRow = $table.find('tr:not(.noclick)').index($tr);
+            var currRow = $table.find('tbody tr:not(.noclick)').index($tr);
             if (currRow >= lastClickedRow) {
                 start = lastClickedRow;
                 end = currRow;
@@ -1112,7 +1112,7 @@ AJAX.registerOnload('functions.js', function () {
                 end = lastClickedRow;
             }
             $tr.parent().find('tr:not(.noclick)')
-                .slice(start, end)
+                .slice(start, end + 1)
                 .addClass('marked')
                 .find(':checkbox')
                 .prop('checked', true)

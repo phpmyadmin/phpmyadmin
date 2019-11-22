@@ -14,9 +14,6 @@ var change = 0; // variable to track any change in designer layout.
 var showRelationLines = true;
 var alwaysShowText = false;
 
-var colName;
-var tabName;
-
 AJAX.registerTeardown('designer/move.js', function () {
     $(document).off('fullscreenchange');
     $('#selflink').show();
@@ -71,7 +68,6 @@ var globY;
 var timeoutId;
 var layerMenuCurClick = 0;
 var fromArray = [];
-var downer;
 var menuMoved = false;
 var gridSize = 10;
 
@@ -553,7 +549,7 @@ DesignerMove.addTableToTablesList = function (index, tableDom) {
         '            />' +
         '    </td>' +
         '    <td class="designer_Tabs"' +
-        '        designer_url_table_name="' + dbEncoded + '.' + tableEncoded + '">' + db + '.' + table + '</td>' +
+        '        designer_url_table_name="' + dbEncoded + '.' + tableEncoded + '">' + $('<div/>').text(db + '.' + table).html() + '</td>' +
         '</tr>');
     $('#id_scroll_tab table').first().append($newTableLine);
     $($newTableLine).find('.scroll_tab_struct').click(function () {
@@ -595,13 +591,17 @@ DesignerMove.addOtherDbTables = function () {
         }, function (data) {
             var $newTableDom = $(data.message);
             $newTableDom.find('a').first().remove();
-            $('#container-form').append($newTableDom);
-            DesignerMove.enableTableEvents(null, $newTableDom);
-            DesignerMove.addTableToTablesList(null, $newTableDom);
+
             var dbEncoded = $($newTableDom).find('.small_tab_pref').attr('db_url');
             var tableEncoded = $($newTableDom).find('.small_tab_pref').attr('table_name_url');
-            jTabs[dbEncoded + '.' + tableEncoded] = 1;
-            DesignerMove.markUnsaved();
+
+            if (typeof dbEncoded === 'string' && typeof tableEncoded === 'string') { // Do not try to add if attr not found !
+                $('#container-form').append($newTableDom);
+                DesignerMove.enableTableEvents(null, $newTableDom);
+                DesignerMove.addTableToTablesList(null, $newTableDom);
+                jTabs[dbEncoded + '.' + tableEncoded] = 1;
+                DesignerMove.markUnsaved();
+            }
         });
         $(this).dialog('close');
     };
@@ -681,8 +681,8 @@ DesignerMove.save = function (url) {
         document.getElementById('t_v_' + key + '_').value = document.getElementById('id_tbody_' + key).style.display === 'none' ? 0 : 1;
         document.getElementById('t_h_' + key + '_').value = document.getElementById('check_vis_' + key).checked ? 1 : 0;
     }
-    document.form1.action = url;
-    $(document.form1).trigger('submit');
+    document.getElementById('container-form').action = url;
+    $('#container-form').submit();
 };
 
 DesignerMove.getUrlPos = function (forceString) {
@@ -877,7 +877,7 @@ DesignerMove.editPages = function () {
                         }
                     });
             }
-        }); // end $.get()
+        }); // end $.post()
     });
 };
 
@@ -961,7 +961,7 @@ DesignerMove.deletePages = function () {
                     }
                 });
         }
-    }); // end $.get()
+    }); // end $.post()
 };
 
 // ------------------------------ SAVE AS PAGES ---------------------------------------
@@ -1067,7 +1067,7 @@ DesignerMove.saveAs = function () {
                 $('select[name="selected_page"]').val(selectedPage);
             }
         }
-    }); // end $.get()
+    }); // end $.post()
 };
 
 DesignerMove.promptToSaveCurrentPage = function (callback) {
@@ -1157,7 +1157,7 @@ DesignerMove.exportPages = function () {
                     }
                 });
         }
-    }); // end $.get()
+    }); // end $.post()
 };
 
 DesignerMove.loadPage = function (page) {
@@ -1600,7 +1600,7 @@ DesignerMove.hideTabAll = function (idThis) {
         idThis.alt = 'v';
         idThis.src = idThis.dataset.down;
     }
-    var E = document.form1;
+    var E = document.getElementById('container-form');
     var EelementsLength = E.elements.length;
     for (var i = 0; i < EelementsLength; i++) {
         if (E.elements[i].type === 'checkbox' && E.elements[i].id.substring(0, 10) === 'check_vis_') {
@@ -1653,7 +1653,7 @@ DesignerMove.noHaveConstr = function (idThis) {
         idThis.alt = 'v';
         idThis.src = idThis.dataset.down;
     }
-    var E = document.form1;
+    var E = document.getElementById('container-form');
     var EelementsLength = E.elements.length;
     for (var i = 0; i < EelementsLength; i++) {
         if (E.elements[i].type === 'checkbox' && E.elements[i].id.substring(0, 10) === 'check_vis_') {
@@ -1802,15 +1802,18 @@ DesignerMove.getColorByTarget = function (target) {
     return color;
 };
 
-DesignerMove.clickOption = function (idThis, columnName, tableName) {
-    var left = globX - (document.getElementById(idThis).offsetWidth >> 1);
-    document.getElementById(idThis).style.left = left + 'px';
-    // var top = globY - document.getElementById(id_this).offsetHeight - 10;
-    document.getElementById(idThis).style.top  = (screen.height / 4) + 'px';
-    document.getElementById(idThis).style.display = 'block';
-    document.getElementById('option_col_name').innerHTML = '<strong>' + Functions.sprintf(Messages.strAddOption, decodeURI(columnName)) + '</strong>';
-    colName = columnName;
-    tabName = tableName;
+DesignerMove.clickOption = function (dbName, tableName, columnName, tableDbNameUrl, optionColNameString) {
+    var designerOptions = document.getElementById('designer_optionse');
+    var left = globX - (designerOptions.offsetWidth >> 1);
+    designerOptions.style.left = left + 'px';
+    // var top = Glob_Y - designerOptions.offsetHeight - 10;
+    designerOptions.style.top  = (screen.height / 4) + 'px';
+    designerOptions.style.display = 'block';
+    document.getElementById('ok_add_object_db_and_table_name_url').value = tableDbNameUrl;
+    document.getElementById('ok_add_object_db_name').value = dbName;
+    document.getElementById('ok_add_object_table_name').value = tableName;
+    document.getElementById('ok_add_object_col_name').value = columnName;
+    document.getElementById('option_col_name').innerHTML = optionColNameString;
 };
 
 DesignerMove.closeOption = function () {
@@ -1826,36 +1829,33 @@ DesignerMove.closeOption = function () {
     document.getElementById('orderby').value = '---';
 };
 
-DesignerMove.selectAll = function (idThis, owner) {
-    var parent = document.form1;
-    downer = owner;
-    var i;
-    var k;
-    var tab = [];
-    var parentElementsLength = parent.elements.length;
-    for (i = 0; i < parentElementsLength; i++) {
-        if (parent.elements[i].type === 'checkbox' && parent.elements[i].id.substring(0, (9 + idThis.length)) === 'select_' + idThis + '._') {
-            if (document.getElementById('select_all_' + idThis).checked === true) {
-                parent.elements[i].checked = true;
-                parent.elements[i].disabled = true;
-            } else {
-                parent.elements[i].checked = false;
-                parent.elements[i].disabled = false;
-            }
+DesignerMove.selectAll = function (tableName, dbName, idSelectAll) {
+    var parentIsChecked = $('#' + idSelectAll).is(':checked');
+    var checkboxAll = $('#container-form input[id_check_all=\'' + idSelectAll + '\']:checkbox');
+
+    checkboxAll.each(function () {
+        // already checked and then check parent
+        if (parentIsChecked === true && this.checked) {
+            // was checked, removing column from selected fields
+            // trigger unchecked event
+            this.click();
         }
-    }
-    if (document.getElementById('select_all_' + idThis).checked === true) {
-        selectField.push('`' + idThis.substring(owner.length + 1) + '`.*');
-        tab = idThis.split('.');
-        fromArray.push(tab[1]);
+        this.checked = parentIsChecked;
+        this.disabled = parentIsChecked;
+    });
+    if (parentIsChecked) {
+        selectField.push('`' + tableName + '`.*');
+        fromArray.push(tableName);
     } else {
+        var i;
         for (i = 0; i < selectField.length; i++) {
-            if (selectField[i] === ('`' + idThis.substring(owner.length + 1) + '`.*')) {
+            if (selectField[i] === ('`' + tableName + '`.*')) {
                 selectField.splice(i, 1);
             }
         }
+        var k;
         for (k = 0; k < fromArray.length; k++) {
-            if (fromArray[k] === idThis) {
+            if (fromArray[k] === tableName) {
                 fromArray.splice(k, 1);
                 break;
             }
@@ -1883,21 +1883,22 @@ DesignerMove.tableOnOver = function (idThis, val, buil) {
  * This function stores selected column information in selectField[]
  * In case column is checked it add else it deletes
  */
-DesignerMove.storeColumn = function (idThis, owner, col) {
+DesignerMove.storeColumn = function (tableName, colName, checkboxId) {
     var i;
     var k;
-    if (document.getElementById('select_' + owner + '.' + idThis + '._' + col).checked === true) {
-        selectField.push('`' + idThis + '`.`' + col + '`');
-        fromArray.push(idThis);
+    var selectKeyField = '`' + tableName + '`.`' + colName + '`';
+    if (document.getElementById(checkboxId).checked === true) {
+        selectField.push(selectKeyField);
+        fromArray.push(tableName);
     } else {
         for (i = 0; i < selectField.length; i++) {
-            if (selectField[i] === ('`' + idThis + '`.`' + col + '`')) {
+            if (selectField[i] === selectKeyField) {
                 selectField.splice(i, 1);
                 break;
             }
         }
         for (k = 0; k < fromArray.length; k++) {
-            if (fromArray[k] === idThis) {
+            if (fromArray[k] === tableName) {
                 fromArray.splice(k, 1);
                 break;
             }
@@ -1910,7 +1911,7 @@ DesignerMove.storeColumn = function (idThis, owner, col) {
  * first it does a few checks on each object, then makes an object(where,rename,groupby,aggregate,orderby)
  * then a new history object is made and finally all these history objects are added to historyArray[]
  */
-DesignerMove.addObject = function () {
+DesignerMove.addObject = function (dbName, tableName, colName, dbTableNameUrl) {
     var p;
     var whereObj;
     var rel = document.getElementById('rel_opt');
@@ -1923,22 +1924,22 @@ DesignerMove.addObject = function () {
         }
         p = document.getElementById('Query');
         whereObj = new DesignerHistory.Where(rel.value, p.value);// make where object
-        historyArray.push(new DesignerHistory.HistoryObj(colName, whereObj, tabName, hTabs[downer + '.' + tabName], 'Where'));
+        historyArray.push(new DesignerHistory.HistoryObj(colName, whereObj, tableName, hTabs[dbTableNameUrl], 'Where'));
         sum = sum + 1;
     }
     if (document.getElementById('new_name').value !== '') {
         var renameObj = new DesignerHistory.Rename(document.getElementById('new_name').value);// make Rename object
-        historyArray.push(new DesignerHistory.HistoryObj(colName, renameObj, tabName, hTabs[downer + '.' + tabName], 'Rename'));
+        historyArray.push(new DesignerHistory.HistoryObj(colName, renameObj, tableName, hTabs[dbTableNameUrl], 'Rename'));
         sum = sum + 1;
     }
     if (document.getElementById('operator').value !== '---') {
         var aggregateObj = new DesignerHistory.Aggregate(document.getElementById('operator').value);
-        historyArray.push(new DesignerHistory.HistoryObj(colName, aggregateObj, tabName, hTabs[downer + '.' + tabName], 'Aggregate'));
+        historyArray.push(new DesignerHistory.HistoryObj(colName, aggregateObj, tableName, hTabs[dbTableNameUrl], 'Aggregate'));
         sum = sum + 1;
         // make aggregate operator
     }
     if (document.getElementById('groupby').checked === true) {
-        historyArray.push(new DesignerHistory.HistoryObj(colName, 'GroupBy', tabName, hTabs[downer + '.' + tabName], 'GroupBy'));
+        historyArray.push(new DesignerHistory.HistoryObj(colName, 'GroupBy', tableName, hTabs[dbTableNameUrl], 'GroupBy'));
         sum = sum + 1;
         // make groupby
     }
@@ -1951,13 +1952,13 @@ DesignerMove.addObject = function () {
             document.getElementById('having').value,
             document.getElementById('h_operator').value
         );// make where object
-        historyArray.push(new DesignerHistory.HistoryObj(colName, whereObj, tabName, hTabs[downer + '.' + tabName], 'Having'));
+        historyArray.push(new DesignerHistory.HistoryObj(colName, whereObj, tableName, hTabs[dbTableNameUrl], 'Having'));
         sum = sum + 1;
         // make having
     }
     if (document.getElementById('orderby').value !== '---') {
         var orderByObj = new DesignerHistory.OrderBy(document.getElementById('orderby').value);
-        historyArray.push(new DesignerHistory.HistoryObj(colName, orderByObj, tabName, hTabs[downer + '.' + tabName], 'OrderBy'));
+        historyArray.push(new DesignerHistory.HistoryObj(colName, orderByObj, tableName, hTabs[dbTableNameUrl], 'OrderBy'));
         sum = sum + 1;
         // make orderby
     }
@@ -1990,7 +1991,7 @@ DesignerMove.enablePageContentEvents = function () {
  */
 DesignerMove.enableTableEvents = function (index, element) {
     $(element).on('click', '.select_all_1', function () {
-        DesignerMove.selectAll($(this).attr('designer_url_table_name'), $(this).attr('designer_out_owner'));
+        DesignerMove.selectAll($(this).attr('table_name'), $(this).attr('db_name'), $(this).attr('id'));
     });
     $(element).on('click', '.small_tab,.small_tab2', function () {
         DesignerMove.smallTab($(this).attr('table_name'), 1);
@@ -1999,12 +2000,16 @@ DesignerMove.enableTableEvents = function (index, element) {
         DesignerMove.startTabUpd($(this).attr('db_url'), $(this).attr('table_name_url'));
     });
     $(element).on('click', '.select_all_store_col', function () {
-        var params = ($(this).attr('store_column_param')).split(',');
-        DesignerMove.storeColumn(params[0], params[1], params[2]);
+        DesignerMove.storeColumn($(this).attr('table_name'), $(this).attr('col_name'), $(this).attr('id'));
     });
     $(element).on('click', '.small_tab_pref_click_opt', function () {
-        var params = ($(this).attr('Click_option_param')).split(',');
-        DesignerMove.clickOption(params[0], params[1], params[2]);
+        DesignerMove.clickOption(
+            $(this).attr('db_name'),
+            $(this).attr('table_name'),
+            $(this).attr('col_name'),
+            $(this).attr('db_table_name_url'),
+            $(this).attr('option_col_name_modal')
+        );
     });
     $(element).on('click', '.tab_field_2,.tab_field_3,.tab_field', function () {
         var params = ($(this).attr('click_field_param')).split(',');
@@ -2190,7 +2195,12 @@ AJAX.registerOnload('designer/move.js', function () {
         DesignerMove.reload();
     });
     $('input#ok_add_object').on('click', function () {
-        DesignerMove.addObject();
+        DesignerMove.addObject(
+            $('#ok_add_object_db_name').val(),
+            $('#ok_add_object_table_name').val(),
+            $('#ok_add_object_col_name').val(),
+            $('#ok_add_object_db_and_table_name_url').val()
+        );
     });
     $('input#cancel_close_option').on('click', function () {
         DesignerMove.closeOption();

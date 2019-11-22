@@ -663,6 +663,10 @@ var designerConfig = {{ designer_config|raw }};
                         <tbody>
                             <tr>
                                 <td colspan="2" class="text-center nowrap">
+                                    <input type="hidden" id="ok_add_object_db_and_table_name_url" />
+                                    <input type="hidden" id="ok_add_object_db_name" />
+                                    <input type="hidden" id="ok_add_object_table_name" />
+                                    <input type="hidden" id="ok_add_object_col_name" />
                                     <input type="button" id="ok_add_object" class="btn btn-secondary butt"
                                         name="Button" value="{% trans 'OK' %}">
                                     <input type="button" id="cancel_close_option" class="btn btn-secondary butt"
