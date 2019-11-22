@@ -60,7 +60,7 @@ class Common
             $designerTables[] = new DesignerTable(
                                     $db,
                                     $one_table['TABLE_NAME'],
-                                    $one_table['ENGINE'],
+                                    is_string($one_table['ENGINE']) ? $one_table['ENGINE'] : '',
                                     $DF
                                 );
         }
