@@ -714,7 +714,7 @@ msgstr "Version du protocole : "
 
 #: index.php:365
 msgid "User:"
-msgstr "Utilisateur : "
+msgstr "Utilisateur :"
 
 #: index.php:370
 msgid "Server charset:"
@@ -6973,18 +6973,14 @@ msgstr ""
 "l'installation !"
 
 #: libraries/classes/Database/Designer/Common.php:518
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr ""
-"Le stockage de la configuration n'est pas prêt pour la fonctionnalité de "
-"liste centrale des colonnes."
+"Le stockage de la configuration de phpMyAdmin n'est pas configuré pour les \""
+"Caractéristiques d'affichage\"."
 
 #: libraries/classes/Database/Designer/Common.php:565
 msgid "Error: relationship already exists."
