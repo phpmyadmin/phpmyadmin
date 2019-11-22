@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-11-22 01:33+0100\n"
-"PO-Revision-Date: 2019-04-29 11:45+0000\n"
-"Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
+"PO-Revision-Date: 2019-11-26 00:05+0000\n"
+"Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
 "Language: nl\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.10-dev\n"
 
 #: import_status.php:51
 msgid "Could not load the progress of the import."
@@ -74,7 +74,7 @@ msgstr "Verwijder tracking data voor deze versies?"
 
 #: js/messages.php:62
 msgid "Delete entry from tracking report?"
-msgstr "Verwijder gegevensrij uit  tracking rapport?"
+msgstr "Verwijder gegevensrij uit tracking rapport?"
 
 #: js/messages.php:63
 msgid "Deleting tracking data"
@@ -1725,10 +1725,8 @@ msgid "%d object(s) created."
 msgstr "%d object(en) aangemaakt."
 
 #: js/messages.php:590
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
-msgstr "Kolomnamen"
+msgstr "Kolomnaam"
 
 #: js/messages.php:591 templates/sql/query.twig:149
 msgid "Submit"
@@ -2102,8 +2100,7 @@ msgid "Failed security key activation (%s)."
 msgstr "Activatie (%s) beveiligingssleutel gefaald."
 
 #: js/messages.php:765
-#, fuzzy, php-format
-#| msgid "Table %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
@@ -3006,12 +3003,9 @@ msgid "accent-sensitive"
 msgstr "accent gevoelig"
 
 #: libraries/classes/Charsets/Collation.php:524
-#, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "accent-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "accent gevoelig"
+msgstr "kana-gevoelig"
 
 #: libraries/classes/Charsets/Collation.php:528
 msgctxt "Collation variant"
@@ -3026,7 +3020,7 @@ msgstr "binair"
 #: libraries/classes/Charsets/Collation.php:534
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "zonder buffer"
 
 #: libraries/classes/Config.php:1113
 #, php-format
@@ -4788,8 +4782,8 @@ msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Laat dit veld leeg om geen  [doc@bookmarks@] 1bookmark[/doc] 2 support, "
-"suggested: [kbd] 3pma__bookmark[/kbd] 4 te gebruiken"
+"Laat dit veld leeg om geen [doc@bookmarks@]bookmark[/doc] support, suggestie:"
+" [kbd]pma__bookmark[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:614
 msgid "Bookmark table"
@@ -4999,9 +4993,8 @@ msgid ""
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "Database die wordt gebruikt om relaties, bladwijzers en PDF-eigenschappen op "
-"te slaan. Zie  [doc@linked-tables] 1pmadb[/doc] 2  voor meer informatie. "
-"Laat dit veld leeg om dit uit te schakelen. Suggestie: : [kbd] 3phpmyadmin[/"
-"kbd] 4."
+"te slaan. Zie [doc@linked-tables]pmadb[/doc] voor meer informatie. Laat dit "
+"veld leeg om dit uit te schakelen. Suggestie: : [kbd] phpmyadmin[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:689
 #: templates/server/databases/index.twig:37
@@ -5047,8 +5040,8 @@ msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"Laat dit veld leeg om geen [doc@relations@] 1relation-links[/doc] 2 te "
-"ondersteunen, suggestie:  [kbd] 3pma__relation[/kbd] 4."
+"Laat dit veld leeg om geen [doc@relations@] relation-links[/doc] te "
+"ondersteunen, suggestie: [kbd]pma__relation[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:707
 msgid "Relation table"
@@ -5058,8 +5051,7 @@ msgstr "Relatietabel"
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
-"Zie  [doc@authentication-modes] 1authentication types[/doc] 2  voor een "
-"voorbeeld."
+"Zie [doc@authentication-modes]authentication types[/doc] voor een voorbeeld."
 
 #: libraries/classes/Config/Descriptions.php:712
 msgid "Signon session name"
@@ -5917,7 +5909,7 @@ msgstr "Standaard transformaties"
 #: libraries/classes/Config/PageSettings.php:142
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
-"Instellingen kunnen niet  worden opgeslagen, het verstuurde configuratie "
+"Instellingen kunnen niet worden opgeslagen, het verstuurde configuratie "
 "formulier bevat fouten!"
 
 #: libraries/classes/Config/ServerConfigChecks.php:75
@@ -6213,8 +6205,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
-"U bent afgemeld bij één server,  om volledig uit te loggen van phpAdmin, "
-"moet u zich afmelden bij alle servers."
+"U bent afgemeld bij één server, om volledig uit te loggen van phpAdmin, moet "
+"u zich afmelden bij alle servers."
 
 #: libraries/classes/Controllers/HomeController.php:156
 #: templates/preferences/manage/main.twig:56
@@ -7413,18 +7405,14 @@ msgstr ""
 "installatie!"
 
 #: libraries/classes/Database/Designer/Common.php:531
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr ""
-"De configuratieopslag is niet klaar voor de centrale lijst van kolommen "
-"functie."
+"phpMyAdmin configuratieopslag is niet geconfigureerd voor \"Beeldscherm "
+"mogelijkheden\"."
 
 #: libraries/classes/Database/Designer/Common.php:580
 msgid "Error: relationship already exists."
@@ -7653,7 +7641,7 @@ msgstr "Bekijk %sonze documentatie%s voor meer informatie."
 
 #: libraries/classes/Dbi/DbiMysqli.php:149
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr "SSL-verbinding afgedwongen door de server en  automatisch geactiveerd."
+msgstr "SSL-verbinding afgedwongen door de server en automatisch geactiveerd."
 
 #: libraries/classes/Display/ChangePassword.php:86
 msgid "No Password"
@@ -8565,7 +8553,7 @@ msgstr ""
 #: libraries/classes/Index.php:657
 #, php-format
 msgid "Create an index on &nbsp;%s&nbsp;columns"
-msgstr "Een index aanmaken op kolommen&nbsp;%s&nbsp;"
+msgstr "Een index aanmaken op %s kolommen"
 
 #: libraries/classes/Index.php:689
 msgid "No index defined!"
@@ -10831,7 +10819,7 @@ msgid ""
 "in Internet standard (IPv4/IPv6) format."
 msgstr ""
 "Zet een (IPv4-)internetnetwerkadres opgeslagen als binaire tekenreeks om in "
-"een tekenreeks  met het standaard (IPv4/IPv6) formaat."
+"een tekenreeks met het standaard (IPv4/IPv6) formaat."
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Json.php:49
 msgid "Formats text as JSON with syntax highlighting."
@@ -11062,7 +11050,7 @@ msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
 msgstr ""
-"%sCreate%s  een database met de naam 'phpmyadmin' en stel daar de phpMyAdmin "
+"%sCreate%s een database met de naam 'phpmyadmin' en stel daar de phpMyAdmin "
 "configuratie opslag in."
 
 #: libraries/classes/Relation.php:2180
@@ -13014,7 +13002,7 @@ msgstr "geen van bovenstaande opties"
 #: libraries/db_common.inc.php:145
 #: libraries/entry_points/table/operations.php:246
 msgid "No collation provided."
-msgstr ""
+msgstr "Geen collatie beschikbaar gesteld."
 
 #: libraries/entry_points/database/central_columns.php:133
 #, php-format
@@ -13467,10 +13455,9 @@ msgid "See table structure"
 msgstr "Zie tabelstructuur"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Alles selecteren"
+msgstr "Selecteer \"%s\""
 
 #: templates/database/designer/database_tables.twig:109
 #, php-format
@@ -17950,16 +17937,15 @@ msgid ""
 "innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "Doorgaans is het voldoende om {innodb_log_file_size} in te stellen op 25%% "
-"van {innodb_buffer_pool_size}. \n"
-"Een grote {innodb_log_file_size} verlengt de hersteltijd na een database-"
-"crash enorm. Bekijk ook  <a href=\"https://www.percona.com/blog/2006/07/03/"
-"choosing-proper-innodb_log_file_size/\">dit artikel</a>.\n"
-"De server moet uitgeschakeld worden, de InnoDB-logbestanden moeten worden "
-"verwijderd, de nieuwe waarde moet worden ingesteld in my.cnf, de server "
-"herstart en dan moeten de foutenlogboeken bekeken worden om te zien of alles "
-"goed gegaan is. Bekijk ook <a href=\"https://mysqldatabaseadministration."
-"blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html\">deze blog</"
-"a>"
+"van {innodb_buffer_pool_size}. Een grote {innodb_log_file_size} verlengt de "
+"hersteltijd na een database-crash enorm. Bekijk ook <a href=\""
+"https://www.percona.com/blog/2006/07/03/choosing-proper-innodb_log_file_size/"
+"\">dit artikel</a>. De server moet uitgeschakeld worden, de InnoDB-"
+"logbestanden moeten worden verwijderd, de nieuwe waarde moet worden "
+"ingesteld in my.cnf, de server herstart en dan moeten de foutenlogboeken "
+"bekeken worden om te zien of alles goed gegaan is. Bekijk ook <a href=\""
+"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">deze blog</a>"
 
 #: libraries/advisory_rules_generic.txt:380
 #, php-format
@@ -18224,9 +18210,9 @@ msgid ""
 msgstr ""
 "{query_cache_limit} wijzigen (doorgaans door te verhogen) kan de efficiëntie "
 "verhogen. Deze variabele bepaalt de maximumgrootte van een queryresultaat "
-"voor het in de querycache opgenomen mag worden. Als er veel queryresultaten  "
-"groter dan 1 MiB zijn, die een goeie kandidaat zijn om gecached te worden "
-"(veel keer gelezen, weinig geschreven), dan zal het verhogen van "
+"voor het in de querycache opgenomen mag worden. Als er veel queryresultaten "
+"groter dan 1 MiB zijn, die een goeie kandidaat zijn om gecached te worden ("
+"veel keer gelezen, weinig geschreven), dan zal het verhogen van "
 "{query_cache_limit} de efficiëntie verhogen. Maar in het geval dat er veel "
 "queryresultaten groter dan 1 MiB zijn, die geen goede kandidaat zijn om "
 "gecached te worden (vaak gewijzigd door wijziging van tabellen), dan zal het "
