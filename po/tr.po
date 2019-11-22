@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-11-22 01:31+0100\n"
-"PO-Revision-Date: 2019-11-21 14:33+0000\n"
+"PO-Revision-Date: 2019-11-24 09:04+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
 "tr/>\n"
@@ -1947,10 +1947,8 @@ msgid "%d object(s) created."
 msgstr "%d nesne oluşturuldu."
 
 #: js/messages.php:591
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
-msgstr "Sütun adları"
+msgstr "Sütun adı"
 
 #: js/messages.php:592 libraries/classes/SqlQueryForm.php:430
 msgid "Submit"
@@ -14728,10 +14726,9 @@ msgid "See table structure"
 msgstr "Tablo yapısına bak"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Tümünü seç"
+msgstr "\"%s\" seç"
 
 #: templates/database/designer/database_tables.twig:109
 #, php-format
