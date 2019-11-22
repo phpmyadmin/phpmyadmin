@@ -83,7 +83,8 @@ class GitRevision
         }
 
         $branch = $this->config->get('PMA_VERSION_GIT_BRANCH');
-        if ($this->config->get('PMA_VERSION_GIT_ISREMOTEBRANCH')) {
+        $isRemoteBranch = $this->config->get('PMA_VERSION_GIT_ISREMOTEBRANCH');
+        if ($isRemoteBranch) {
             $branch = '<a href="'
                 . Core::linkURL(
                     'https://github.com/phpmyadmin/phpmyadmin/tree/'
