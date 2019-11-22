@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-11-20 12:39+0100\n"
+"POT-Creation-Date: 2019-11-22 01:29+0100\n"
 "PO-Revision-Date: 2015-10-15 11:22+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Tatar <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -306,7 +306,7 @@ msgstr "Eçtälek"
 #: db_export.php:73 libraries/classes/ReplicationGui.php:387
 #: templates/database/search/selection_form.twig:32
 #: templates/display/export/select_options.twig:4
-#: templates/database/designer/database_tables.twig:30
+#: templates/database/designer/database_tables.twig:31
 #, fuzzy
 #| msgid "Select All"
 msgid "Select all"
@@ -1865,7 +1865,7 @@ msgid "No parameters found!"
 msgstr "Biremlekne bolay atap quy"
 
 #: js/messages.php:355 templates/database/designer/having_query_panel.twig:118
-#: templates/database/designer/options_panel.twig:253
+#: templates/database/designer/options_panel.twig:257
 #: templates/database/designer/rename_to_panel.twig:45
 #: templates/database/designer/aggregate_query_panel.twig:64
 #: templates/database/designer/delete_relation_panel.twig:30
@@ -1954,7 +1954,7 @@ msgid "Adding primary key"
 msgstr "%s alan östäw"
 
 #: js/messages.php:377 templates/database/designer/having_query_panel.twig:114
-#: templates/database/designer/options_panel.twig:251
+#: templates/database/designer/options_panel.twig:255
 #: templates/database/designer/rename_to_panel.twig:41
 #: templates/database/designer/aggregate_query_panel.twig:60
 #: templates/console/display.twig:129
@@ -2567,15 +2567,15 @@ msgid "Modifications have been saved"
 msgstr "Üzgärtülär saqlandı"
 
 #: js/messages.php:581
-#, fuzzy, php-format
-#| msgid "Number of fields"
-msgid "Add an option for column \"%s\"."
-msgstr "Alannar sanı"
-
-#: js/messages.php:582
 #, php-format
 msgid "%d object(s) created."
 msgstr ""
+
+#: js/messages.php:582
+#, fuzzy
+#| msgid "Column names"
+msgid "Column name"
+msgstr "Alan iseme"
 
 #: js/messages.php:583 libraries/classes/SqlQueryForm.php:419
 msgid "Submit"
@@ -7697,25 +7697,25 @@ msgstr ""
 msgid "Could not load export plugins, please check your installation!"
 msgstr "Totaşmalar yökläp bulmadı, quyılışın tikşerep alası!"
 
-#: libraries/classes/Display/GitRevision.php:66
+#: libraries/classes/Display/GitRevision.php:68
 #, php-format
 msgid "%1$s from %2$s branch"
 msgstr ""
 
-#: libraries/classes/Display/GitRevision.php:68
+#: libraries/classes/Display/GitRevision.php:73
 msgid "no branch"
 msgstr ""
 
-#: libraries/classes/Display/GitRevision.php:74
+#: libraries/classes/Display/GitRevision.php:79
 msgid "Git revision:"
 msgstr ""
 
-#: libraries/classes/Display/GitRevision.php:77
+#: libraries/classes/Display/GitRevision.php:82
 #, fuzzy, php-format
 msgid "committed on %1$s by %2$s"
 msgstr "Server söreme"
 
-#: libraries/classes/Display/GitRevision.php:87
+#: libraries/classes/Display/GitRevision.php:92
 #, fuzzy, php-format
 msgid "authored on %1$s by %2$s"
 msgstr "Server söreme"
@@ -8398,6 +8398,7 @@ msgstr ""
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/table/structure/row_stats_table.twig:19
+#: templates/database/designer/database_tables.twig:131
 #, fuzzy
 msgid "Options"
 msgstr "Eşkärtü"
@@ -17209,17 +17210,29 @@ msgstr "Biremlek nöfüsläre"
 msgid "Active options"
 msgstr "Tüşämä köyläneşe"
 
-#: templates/database/designer/database_tables.twig:36
+#: templates/database/designer/database_tables.twig:37
 #, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Show/hide columns"
 msgstr "%s alan östäw"
 
-#: templates/database/designer/database_tables.twig:45
+#: templates/database/designer/database_tables.twig:46
 #, fuzzy
 #| msgid "Database for user"
 msgid "See table structure"
 msgstr "Qullanuçı biremlege"
+
+#: templates/database/designer/database_tables.twig:91
+#, fuzzy, php-format
+#| msgid "Select All"
+msgid "Select \"%s\""
+msgstr "Saylap Beter"
+
+#: templates/database/designer/database_tables.twig:126
+#, fuzzy, php-format
+#| msgid "Number of fields"
+msgid "Add an option for column \"%s\"."
+msgstr "Alannar sanı"
 
 #: templates/privileges/add_privileges_database.twig:1
 #, fuzzy

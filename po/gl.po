@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-11-20 12:39+0100\n"
+"POT-Creation-Date: 2019-11-22 01:29+0100\n"
 "PO-Revision-Date: 2019-04-27 16:55+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
@@ -301,7 +301,7 @@ msgstr "Datos"
 #: db_export.php:73 libraries/classes/ReplicationGui.php:387
 #: templates/database/search/selection_form.twig:32
 #: templates/display/export/select_options.twig:4
-#: templates/database/designer/database_tables.twig:30
+#: templates/database/designer/database_tables.twig:31
 msgid "Select all"
 msgstr "Seleccionar todo"
 
@@ -1750,7 +1750,7 @@ msgid "No parameters found!"
 msgstr "Non se atopou ningún parámetro!"
 
 #: js/messages.php:355 templates/database/designer/having_query_panel.twig:118
-#: templates/database/designer/options_panel.twig:253
+#: templates/database/designer/options_panel.twig:257
 #: templates/database/designer/rename_to_panel.twig:45
 #: templates/database/designer/aggregate_query_panel.twig:64
 #: templates/database/designer/delete_relation_panel.twig:30
@@ -1826,7 +1826,7 @@ msgid "Adding primary key"
 msgstr "A engadir unha chave primaria"
 
 #: js/messages.php:377 templates/database/designer/having_query_panel.twig:114
-#: templates/database/designer/options_panel.twig:251
+#: templates/database/designer/options_panel.twig:255
 #: templates/database/designer/rename_to_panel.twig:41
 #: templates/database/designer/aggregate_query_panel.twig:60
 #: templates/console/display.twig:129
@@ -2375,13 +2375,14 @@ msgstr "Gardáronse as modificacións"
 
 #: js/messages.php:581
 #, php-format
-msgid "Add an option for column \"%s\"."
-msgstr "Engadir unha opción para a columna  «%s»."
-
-#: js/messages.php:582
-#, php-format
 msgid "%d object(s) created."
 msgstr "Creáronse %d obxecto(s)."
+
+#: js/messages.php:582
+#, fuzzy
+#| msgid "Column names"
+msgid "Column name"
+msgstr "Nomes das columnas"
 
 #: js/messages.php:583 libraries/classes/SqlQueryForm.php:419
 msgid "Submit"
@@ -7587,25 +7588,25 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 "Non foi posíbel cargar os engadidos de exportación. Comprobe a instalación!"
 
-#: libraries/classes/Display/GitRevision.php:66
+#: libraries/classes/Display/GitRevision.php:68
 #, php-format
 msgid "%1$s from %2$s branch"
 msgstr "%1$s da galla %2$s"
 
-#: libraries/classes/Display/GitRevision.php:68
+#: libraries/classes/Display/GitRevision.php:73
 msgid "no branch"
 msgstr "ningunha galla"
 
-#: libraries/classes/Display/GitRevision.php:74
+#: libraries/classes/Display/GitRevision.php:79
 msgid "Git revision:"
 msgstr "Revisión do git:"
 
-#: libraries/classes/Display/GitRevision.php:77
+#: libraries/classes/Display/GitRevision.php:82
 #, php-format
 msgid "committed on %1$s by %2$s"
 msgstr "remitido o %1$s por %2$s"
 
-#: libraries/classes/Display/GitRevision.php:87
+#: libraries/classes/Display/GitRevision.php:92
 #, php-format
 msgid "authored on %1$s by %2$s"
 msgstr "creado o %1$s por %2$s"
@@ -8303,6 +8304,7 @@ msgstr "Editar a estrutura seguindo a ligazón «Estrutura»"
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/table/structure/row_stats_table.twig:19
+#: templates/database/designer/database_tables.twig:131
 msgid "Options"
 msgstr "Opcións"
 
@@ -17108,17 +17110,28 @@ msgstr "Estatísticas das bases de datos"
 msgid "Active options"
 msgstr "Opcións activas"
 
-#: templates/database/designer/database_tables.twig:36
+#: templates/database/designer/database_tables.twig:37
 #, fuzzy
 #| msgid "Move columns"
 msgid "Show/hide columns"
 msgstr "Mover columna(s)"
 
-#: templates/database/designer/database_tables.twig:45
+#: templates/database/designer/database_tables.twig:46
 #, fuzzy
 #| msgid "Table structure"
 msgid "See table structure"
 msgstr "Estrutura da táboa"
+
+#: templates/database/designer/database_tables.twig:91
+#, fuzzy, php-format
+#| msgid "Select all"
+msgid "Select \"%s\""
+msgstr "Seleccionar todo"
+
+#: templates/database/designer/database_tables.twig:126
+#, php-format
+msgid "Add an option for column \"%s\"."
+msgstr "Engadir unha opción para a columna  «%s»."
 
 #: templates/privileges/add_privileges_database.twig:1
 #, fuzzy

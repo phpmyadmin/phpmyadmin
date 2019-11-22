@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-11-20 12:39+0100\n"
+"POT-Creation-Date: 2019-11-22 01:29+0100\n"
 "PO-Revision-Date: 2019-08-23 10:30+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
@@ -299,7 +299,7 @@ msgstr "তথ্য"
 #: db_export.php:73 libraries/classes/ReplicationGui.php:387
 #: templates/database/search/selection_form.twig:32
 #: templates/display/export/select_options.twig:4
-#: templates/database/designer/database_tables.twig:30
+#: templates/database/designer/database_tables.twig:31
 msgid "Select all"
 msgstr "সবগুলো নির্বাচন"
 
@@ -1796,7 +1796,7 @@ msgid "No parameters found!"
 msgstr "প্যারামিটারগুলো খারপ!"
 
 #: js/messages.php:355 templates/database/designer/having_query_panel.twig:118
-#: templates/database/designer/options_panel.twig:253
+#: templates/database/designer/options_panel.twig:257
 #: templates/database/designer/rename_to_panel.twig:45
 #: templates/database/designer/aggregate_query_panel.twig:64
 #: templates/database/designer/delete_relation_panel.twig:30
@@ -1886,7 +1886,7 @@ msgid "Adding primary key"
 msgstr "প্রাইমারি কী যোগ কর"
 
 #: js/messages.php:377 templates/database/designer/having_query_panel.twig:114
-#: templates/database/designer/options_panel.twig:251
+#: templates/database/designer/options_panel.twig:255
 #: templates/database/designer/rename_to_panel.twig:41
 #: templates/database/designer/aggregate_query_panel.twig:60
 #: templates/console/display.twig:129
@@ -2487,15 +2487,15 @@ msgstr "পরিবর্তন সংরক্ষন করা হয়েছে
 
 #: js/messages.php:581
 #, fuzzy, php-format
-#| msgid "Add an option for column "
-msgid "Add an option for column \"%s\"."
-msgstr "স্তম্ভের জন্য একটি অপশন যোগ কর "
-
-#: js/messages.php:582
-#, fuzzy, php-format
 #| msgid "%d object(s) created"
 msgid "%d object(s) created."
 msgstr "%d অবজেক্ট তৈরী করা হয়েছে"
+
+#: js/messages.php:582
+#, fuzzy
+#| msgid "Column names"
+msgid "Column name"
+msgstr "স্তম্ভের নাম"
 
 #: js/messages.php:583 libraries/classes/SqlQueryForm.php:419
 msgid "Submit"
@@ -7732,25 +7732,25 @@ msgstr ""
 msgid "Could not load export plugins, please check your installation!"
 msgstr "রফতানী সহায়কটি লোড করা যাচ্ছে না, ইনস্টলেশন পরীক্ষা করুন!"
 
-#: libraries/classes/Display/GitRevision.php:66
+#: libraries/classes/Display/GitRevision.php:68
 #, php-format
 msgid "%1$s from %2$s branch"
 msgstr "%1$s থেকে %2$s শাখা"
 
-#: libraries/classes/Display/GitRevision.php:68
+#: libraries/classes/Display/GitRevision.php:73
 msgid "no branch"
 msgstr "কোনা শাখা নাই"
 
-#: libraries/classes/Display/GitRevision.php:74
+#: libraries/classes/Display/GitRevision.php:79
 msgid "Git revision:"
 msgstr ""
 
-#: libraries/classes/Display/GitRevision.php:77
+#: libraries/classes/Display/GitRevision.php:82
 #, php-format
 msgid "committed on %1$s by %2$s"
 msgstr "%2$s দ্বারা %1$s কার্যকর করা হয়েছে"
 
-#: libraries/classes/Display/GitRevision.php:87
+#: libraries/classes/Display/GitRevision.php:92
 #, php-format
 msgid "authored on %1$s by %2$s"
 msgstr "%2$s দ্বারা %1$s প্রণয়ন করেছে"
@@ -8435,6 +8435,7 @@ msgstr "আকৃতি সম্পাদনা কর এই \"Structure\" স
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/table/structure/row_stats_table.twig:19
+#: templates/database/designer/database_tables.twig:131
 msgid "Options"
 msgstr "অপশনস"
 
@@ -17089,17 +17090,29 @@ msgstr "ডাটাবেইজের পরিসংখ্যান"
 msgid "Active options"
 msgstr "কার্যকর অপশনসমূহ"
 
-#: templates/database/designer/database_tables.twig:36
+#: templates/database/designer/database_tables.twig:37
 #, fuzzy
 #| msgid "Move columns"
 msgid "Show/hide columns"
 msgstr "স্বম্ভ সরাও"
 
-#: templates/database/designer/database_tables.twig:45
+#: templates/database/designer/database_tables.twig:46
 #, fuzzy
 #| msgid "Table structure"
 msgid "See table structure"
 msgstr "টেবলের জন্য টেবলের গঠন"
+
+#: templates/database/designer/database_tables.twig:91
+#, fuzzy, php-format
+#| msgid "Select all"
+msgid "Select \"%s\""
+msgstr "সবগুলো নির্বাচন"
+
+#: templates/database/designer/database_tables.twig:126
+#, fuzzy, php-format
+#| msgid "Add an option for column "
+msgid "Add an option for column \"%s\"."
+msgstr "স্তম্ভের জন্য একটি অপশন যোগ কর "
 
 #: templates/privileges/add_privileges_database.twig:1
 #, fuzzy

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-11-20 12:39+0100\n"
+"POT-Creation-Date: 2019-11-22 01:29+0100\n"
 "PO-Revision-Date: 2019-03-22 11:04+0000\n"
 "Last-Translator: blygs <blygs@naver.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/4-8/ko/"
@@ -301,7 +301,7 @@ msgstr "데이터"
 #: db_export.php:73 libraries/classes/ReplicationGui.php:387
 #: templates/database/search/selection_form.twig:32
 #: templates/display/export/select_options.twig:4
-#: templates/database/designer/database_tables.twig:30
+#: templates/database/designer/database_tables.twig:31
 msgid "Select all"
 msgstr "모두 선택"
 
@@ -1713,7 +1713,7 @@ msgid "No parameters found!"
 msgstr "파라미터를 찾을 수 없습니다!"
 
 #: js/messages.php:355 templates/database/designer/having_query_panel.twig:118
-#: templates/database/designer/options_panel.twig:253
+#: templates/database/designer/options_panel.twig:257
 #: templates/database/designer/rename_to_panel.twig:45
 #: templates/database/designer/aggregate_query_panel.twig:64
 #: templates/database/designer/delete_relation_panel.twig:30
@@ -1787,7 +1787,7 @@ msgid "Adding primary key"
 msgstr "기본키 추가 중"
 
 #: js/messages.php:377 templates/database/designer/having_query_panel.twig:114
-#: templates/database/designer/options_panel.twig:251
+#: templates/database/designer/options_panel.twig:255
 #: templates/database/designer/rename_to_panel.twig:41
 #: templates/database/designer/aggregate_query_panel.twig:60
 #: templates/console/display.twig:129
@@ -2335,13 +2335,14 @@ msgstr "수정된 내용이 저장되었습니다"
 
 #: js/messages.php:581
 #, php-format
-msgid "Add an option for column \"%s\"."
-msgstr "컬럼 \"%s\"에 대한옵션 추가 ."
-
-#: js/messages.php:582
-#, php-format
 msgid "%d object(s) created."
 msgstr "%d 개의 개체가 생성되었습니다."
+
+#: js/messages.php:582
+#, fuzzy
+#| msgid "Column names"
+msgid "Column name"
+msgstr "열(칼럼) 이름"
 
 #: js/messages.php:583 libraries/classes/SqlQueryForm.php:419
 msgid "Submit"
@@ -7159,25 +7160,25 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 "내보내기 플러그인을 로드할 수 없습니다. 올바로 설치되었는지 확인해주세요!"
 
-#: libraries/classes/Display/GitRevision.php:66
+#: libraries/classes/Display/GitRevision.php:68
 #, php-format
 msgid "%1$s from %2$s branch"
 msgstr ""
 
-#: libraries/classes/Display/GitRevision.php:68
+#: libraries/classes/Display/GitRevision.php:73
 msgid "no branch"
 msgstr "브랜치 없음"
 
-#: libraries/classes/Display/GitRevision.php:74
+#: libraries/classes/Display/GitRevision.php:79
 msgid "Git revision:"
 msgstr "Git 리비전:"
 
-#: libraries/classes/Display/GitRevision.php:77
+#: libraries/classes/Display/GitRevision.php:82
 #, php-format
 msgid "committed on %1$s by %2$s"
 msgstr "%2$s에 의해 %1$s에 커밋됨"
 
-#: libraries/classes/Display/GitRevision.php:87
+#: libraries/classes/Display/GitRevision.php:92
 #, php-format
 msgid "authored on %1$s by %2$s"
 msgstr "%2$s에 의해 %1$s에 작성됨"
@@ -7841,6 +7842,7 @@ msgstr ""
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/table/structure/row_stats_table.twig:19
+#: templates/database/designer/database_tables.twig:131
 msgid "Options"
 msgstr "옵션"
 
@@ -16078,17 +16080,28 @@ msgstr "데이터베이스 사용량 통계"
 msgid "Active options"
 msgstr "옵션 활성화"
 
-#: templates/database/designer/database_tables.twig:36
+#: templates/database/designer/database_tables.twig:37
 #, fuzzy
 #| msgid "Move columns"
 msgid "Show/hide columns"
 msgstr "컬럼 이동"
 
-#: templates/database/designer/database_tables.twig:45
+#: templates/database/designer/database_tables.twig:46
 #, fuzzy
 #| msgid "Table structure"
 msgid "See table structure"
 msgstr "테이블 구조"
+
+#: templates/database/designer/database_tables.twig:91
+#, fuzzy, php-format
+#| msgid "Select all"
+msgid "Select \"%s\""
+msgstr "모두 선택"
+
+#: templates/database/designer/database_tables.twig:126
+#, php-format
+msgid "Add an option for column \"%s\"."
+msgstr "컬럼 \"%s\"에 대한옵션 추가 ."
 
 #: templates/privileges/add_privileges_database.twig:1
 msgid "Add privileges on the following database(s):"

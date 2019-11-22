@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-11-20 12:39+0100\n"
+"POT-Creation-Date: 2019-11-22 01:29+0100\n"
 "PO-Revision-Date: 2018-02-20 05:38+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Filipino <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -308,7 +308,7 @@ msgstr "Data"
 #: db_export.php:73 libraries/classes/ReplicationGui.php:387
 #: templates/database/search/selection_form.twig:32
 #: templates/display/export/select_options.twig:4
-#: templates/database/designer/database_tables.twig:30
+#: templates/database/designer/database_tables.twig:31
 msgid "Select all"
 msgstr "Piliin ang lahat"
 
@@ -1755,7 +1755,7 @@ msgid "No parameters found!"
 msgstr "Walang nakitang mga parameter!"
 
 #: js/messages.php:355 templates/database/designer/having_query_panel.twig:118
-#: templates/database/designer/options_panel.twig:253
+#: templates/database/designer/options_panel.twig:257
 #: templates/database/designer/rename_to_panel.twig:45
 #: templates/database/designer/aggregate_query_panel.twig:64
 #: templates/database/designer/delete_relation_panel.twig:30
@@ -1831,7 +1831,7 @@ msgid "Adding primary key"
 msgstr "Pagdaragdag ng pangunahing key"
 
 #: js/messages.php:377 templates/database/designer/having_query_panel.twig:114
-#: templates/database/designer/options_panel.twig:251
+#: templates/database/designer/options_panel.twig:255
 #: templates/database/designer/rename_to_panel.twig:41
 #: templates/database/designer/aggregate_query_panel.twig:60
 #: templates/console/display.twig:129
@@ -2396,13 +2396,14 @@ msgstr "Ang mga pagbabago ay nai-save na"
 
 #: js/messages.php:581
 #, php-format
-msgid "Add an option for column \"%s\"."
-msgstr "Magdagdag ng opsyon para sa haligi na \"%s\"."
-
-#: js/messages.php:582
-#, php-format
 msgid "%d object(s) created."
 msgstr "%d (mga) objek na nagawa."
+
+#: js/messages.php:582
+#, fuzzy
+#| msgid "Copy column name."
+msgid "Column name"
+msgstr "Kopyahin ang pangalan ng haligi."
 
 #: js/messages.php:583 libraries/classes/SqlQueryForm.php:419
 msgid "Submit"
@@ -6942,25 +6943,25 @@ msgstr ""
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 
-#: libraries/classes/Display/GitRevision.php:66
+#: libraries/classes/Display/GitRevision.php:68
 #, php-format
 msgid "%1$s from %2$s branch"
 msgstr ""
 
-#: libraries/classes/Display/GitRevision.php:68
+#: libraries/classes/Display/GitRevision.php:73
 msgid "no branch"
 msgstr ""
 
-#: libraries/classes/Display/GitRevision.php:74
+#: libraries/classes/Display/GitRevision.php:79
 msgid "Git revision:"
 msgstr ""
 
-#: libraries/classes/Display/GitRevision.php:77
+#: libraries/classes/Display/GitRevision.php:82
 #, php-format
 msgid "committed on %1$s by %2$s"
 msgstr ""
 
-#: libraries/classes/Display/GitRevision.php:87
+#: libraries/classes/Display/GitRevision.php:92
 #, php-format
 msgid "authored on %1$s by %2$s"
 msgstr ""
@@ -7588,6 +7589,7 @@ msgstr ""
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/table/structure/row_stats_table.twig:19
+#: templates/database/designer/database_tables.twig:131
 msgid "Options"
 msgstr ""
 
@@ -15277,13 +15279,24 @@ msgstr ""
 msgid "Active options"
 msgstr ""
 
-#: templates/database/designer/database_tables.twig:36
+#: templates/database/designer/database_tables.twig:37
 msgid "Show/hide columns"
 msgstr ""
 
-#: templates/database/designer/database_tables.twig:45
+#: templates/database/designer/database_tables.twig:46
 msgid "See table structure"
 msgstr ""
+
+#: templates/database/designer/database_tables.twig:91
+#, fuzzy, php-format
+#| msgid "Select all"
+msgid "Select \"%s\""
+msgstr "Piliin ang lahat"
+
+#: templates/database/designer/database_tables.twig:126
+#, php-format
+msgid "Add an option for column \"%s\"."
+msgstr "Magdagdag ng opsyon para sa haligi na \"%s\"."
 
 #: templates/privileges/add_privileges_database.twig:1
 msgid "Add privileges on the following database(s):"

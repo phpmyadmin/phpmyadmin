@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-11-20 12:39+0100\n"
+"POT-Creation-Date: 2019-11-22 01:29+0100\n"
 "PO-Revision-Date: 2018-05-18 08:42+0000\n"
 "Last-Translator: Xuan Hung <mr.hungdx@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/"
@@ -306,7 +306,7 @@ msgstr "Dữ liệu"
 #: db_export.php:73 libraries/classes/ReplicationGui.php:387
 #: templates/database/search/selection_form.twig:32
 #: templates/display/export/select_options.twig:4
-#: templates/database/designer/database_tables.twig:30
+#: templates/database/designer/database_tables.twig:31
 msgid "Select all"
 msgstr "Chọn tất cả"
 
@@ -1744,7 +1744,7 @@ msgid "No parameters found!"
 msgstr "Tham số không đúng!"
 
 #: js/messages.php:355 templates/database/designer/having_query_panel.twig:118
-#: templates/database/designer/options_panel.twig:253
+#: templates/database/designer/options_panel.twig:257
 #: templates/database/designer/rename_to_panel.twig:45
 #: templates/database/designer/aggregate_query_panel.twig:64
 #: templates/database/designer/delete_relation_panel.twig:30
@@ -1820,7 +1820,7 @@ msgid "Adding primary key"
 msgstr "Thêm khóa chính"
 
 #: js/messages.php:377 templates/database/designer/having_query_panel.twig:114
-#: templates/database/designer/options_panel.twig:251
+#: templates/database/designer/options_panel.twig:255
 #: templates/database/designer/rename_to_panel.twig:41
 #: templates/database/designer/aggregate_query_panel.twig:60
 #: templates/console/display.twig:129
@@ -2371,13 +2371,14 @@ msgstr "Các thay đổi đã được ghi lại"
 
 #: js/messages.php:581
 #, php-format
-msgid "Add an option for column \"%s\"."
-msgstr "Thêm tùy-chọn cho cột \"%s\"."
-
-#: js/messages.php:582
-#, php-format
 msgid "%d object(s) created."
 msgstr "%d đối tượng đã được tạo."
+
+#: js/messages.php:582
+#, fuzzy
+#| msgid "Column names"
+msgid "Column name"
+msgstr "Các tên cột"
 
 #: js/messages.php:583 libraries/classes/SqlQueryForm.php:419
 msgid "Submit"
@@ -7234,25 +7235,25 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 "Không thể tải phần bổ xung xuất, vui lòng kiểm tra bản cài đặt của bạn!"
 
-#: libraries/classes/Display/GitRevision.php:66
+#: libraries/classes/Display/GitRevision.php:68
 #, php-format
 msgid "%1$s from %2$s branch"
 msgstr "%1$s từ %2$s nhánh"
 
-#: libraries/classes/Display/GitRevision.php:68
+#: libraries/classes/Display/GitRevision.php:73
 msgid "no branch"
 msgstr "không nhánh nào"
 
-#: libraries/classes/Display/GitRevision.php:74
+#: libraries/classes/Display/GitRevision.php:79
 msgid "Git revision:"
 msgstr "Phiên bản git:"
 
-#: libraries/classes/Display/GitRevision.php:77
+#: libraries/classes/Display/GitRevision.php:82
 #, php-format
 msgid "committed on %1$s by %2$s"
 msgstr "chuyển giao vào %1$s bởi %2$s"
 
-#: libraries/classes/Display/GitRevision.php:87
+#: libraries/classes/Display/GitRevision.php:92
 #, php-format
 msgid "authored on %1$s by %2$s"
 msgstr "xác thực lúc %1$s bởi %2$s"
@@ -7893,6 +7894,7 @@ msgstr "Sửa cấu trúc bằng cách bấm vào liên kết \"Cấu trúc\"."
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/table/structure/row_stats_table.twig:19
+#: templates/database/designer/database_tables.twig:131
 msgid "Options"
 msgstr "Tùy chọn"
 
@@ -15922,13 +15924,24 @@ msgstr "Thống kê cơ sở dữ liệu"
 msgid "Active options"
 msgstr "Tùy chọn đang kích hoạt"
 
-#: templates/database/designer/database_tables.twig:36
+#: templates/database/designer/database_tables.twig:37
 msgid "Show/hide columns"
 msgstr "Hiện/Ẩn các cột"
 
-#: templates/database/designer/database_tables.twig:45
+#: templates/database/designer/database_tables.twig:46
 msgid "See table structure"
 msgstr "Xem cấu trúc bảng"
+
+#: templates/database/designer/database_tables.twig:91
+#, fuzzy, php-format
+#| msgid "Select all"
+msgid "Select \"%s\""
+msgstr "Chọn tất cả"
+
+#: templates/database/designer/database_tables.twig:126
+#, php-format
+msgid "Add an option for column \"%s\"."
+msgstr "Thêm tùy-chọn cho cột \"%s\"."
 
 #: templates/privileges/add_privileges_database.twig:1
 msgid "Add privileges on the following database(s):"
