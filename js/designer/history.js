@@ -95,15 +95,17 @@ function display (init, finit) {
             } else {
                 str += '<img src="' + pmaThemeImage + 'designer/and_icon.png" onclick="and_or(' + i + ')" title="AND"/></td>';
             }
-            str += '<td style="padding-left: 5px;" class="right">' + PMA_getImage('b_sbrowse', 'column name') + '</td>' +
-                '<td width="175" style="padding-left: 5px">' + history_array[i].get_column_name() + '<td>';
+            str += '<td style="padding-left: 5px;" class="right">' + PMA_getImage('b_sbrowse', PMA_messages.strColumnName) + '</td>' +
+                '<td width="175" style="padding-left: 5px">' + $('<div/>').text(history_array[i].get_column_name()).html() + '<td>';
             if (history_array[i].get_type() === 'GroupBy' || history_array[i].get_type() === 'OrderBy') {
+                var detailDesc = $('<div/>').text(detail(i)).html();
                 str += '<td class="center">' + PMA_getImage('s_info', detail(i)) + '</td>' +
-                    '<td title="' + detail(i) + '">' + history_array[i].get_type() + '</td>' +
+                    '<td title="' + detailDesc + '">' + history_array[i].get_type() + '</td>' +
                     '<td onclick=history_delete(' + i + ')>' + PMA_getImage('b_drop', PMA_messages.strDelete) + '</td>';
             } else {
+                var detailDesc = $('<div/>').text(detail(i)).html();
                 str += '<td class="center">' + PMA_getImage('s_info', detail(i)) + '</td>' +
-                    '<td title="' + detail(i) + '">' + history_array[i].get_type() + '</td>' +
+                    '<td title="' + detailDesc + '">' + history_array[i].get_type() + '</td>' +
                     '<td onclick=history_edit(' + i + ')>' + PMA_getImage('b_edit', PMA_messages.strEdit) + '</td>' +
                     '<td onclick=history_delete(' + i + ')>' + PMA_getImage('b_drop', PMA_messages.strDelete) + '</td>';
             }

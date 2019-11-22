@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
+use Twig\Error\LoaderError;
 
 /**
  * Test for PhpMyAdmin\Template class
@@ -89,8 +90,12 @@ class TemplateTest extends PmaTestCase
      */
     public function testRenderTemplateNotFound()
     {
-        $this->setExpectedException('Twig\Error\LoaderError');
-        Template::get('template not found')->render();
+        try {
+            Template::get('template not found')->render();
+            $this->assertTrue(false);
+        } catch (LoaderError $e) {
+            $this->assertTrue(true);
+        }
     }
 
     /**

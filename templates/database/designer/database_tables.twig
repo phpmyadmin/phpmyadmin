@@ -1,7 +1,10 @@
 {% for designerTable in tables %}
     {% set i = loop.index0 %}
     {% set t_n_url = designerTable.getDbTableString()|escape('url') %}
+    {% set db = designerTable.getDatabaseName() %}
+    {% set db_url = db|escape('url') %}
     {% set t_n = designerTable.getDbTableString() %}
+    {% set table_name = designerTable.getTableName()|escape('html') %}
     <input name="t_x[{{ t_n_url }}]" type="hidden" id="t_x_{{ t_n_url }}_" />
     <input name="t_y[{{ t_n_url }}]" type="hidden" id="t_y_{{ t_n_url }}_" />
     <input name="t_v[{{ t_n_url }}]" type="hidden" id="t_v_{{ t_n_url }}_" />
@@ -24,10 +27,10 @@
                             type="checkbox"
                             style="margin: 0;"
                             value="select_all_{{ t_n_url }}"
-                            id="select_all_{{ t_n_url }}"
-                            title="select all"
-                            designer_url_table_name="{{ t_n_url }}"
-                            designer_out_owner="{{ designerTable.getDatabaseName() }}">
+                            id="select_all_{{ i }}"
+                            title="{% trans 'Select all' %}"
+                            table_name="{{ table_name }}"
+                            db_name="{{ db }}">
                     </td>
                 {% endif %}
                 <td class="small_tab"
@@ -47,7 +50,7 @@
                     table_name="{{ t_n_url }}"
                     query_set="{{ has_query ? 1 : 0 }}">
                     <span class="owner">{{ designerTable.getDatabaseName() }}</span>
-                    {{ designerTable.getTableName()|raw }}
+                    {{ designerTable.getTableName() }}
                 </td>
                 {% if has_query %}
                     <td class="tab_zag tab_zag_query"
@@ -59,11 +62,12 @@
         </thead>
         <tbody id="id_tbody_{{ t_n_url }}"
             {{- tab_pos[t_n] is defined and tab_pos[t_n]['V'] is empty ? ' style="display: none"' }}>
-            {% set display_field = Relation_getDisplayField(get_db, t_n) %}
+            {% set display_field = designerTable.getDisplayField() %}
             {% for j in 0..tab_column[t_n]['COLUMN_ID']|length - 1 %}
+                {% set col_name = tab_column[t_n]['COLUMN_NAME'][j] %}
                 {% set tmp_column = t_n ~ '.' ~ tab_column[t_n]['COLUMN_NAME'][j] %}
                 {% set click_field_param = [
-                    t_n,
+                    designerTable.getTableName()|escape('url'),
                     tab_column[t_n]['COLUMN_NAME'][j]|url_encode
                 ] %}
                 {% if not designerTable.supportsForeignkeys() %}
@@ -74,7 +78,7 @@
                     {% set click_field_param = click_field_param|merge([tables_all_keys[tmp_column] is defined ? 1 : 0]) %}
                 {% endif %}
                 {% set click_field_param = click_field_param|merge([db]) %}
-                <tr id="id_tr_{{ t_n }}.{{ tab_column[t_n]['COLUMN_NAME'][j] }}" class="tab_field
+                <tr id="id_tr_{{ designerTable.getTableName()|escape('url') }}.{{ tab_column[t_n]['COLUMN_NAME'][j] }}" class="tab_field
                     {{- display_field == tab_column[t_n]['COLUMN_NAME'][j] ? '_3' }}" click_field_param="
                     {{- click_field_param|join(',') }}">
                     {% if has_query %}
@@ -84,10 +88,11 @@
                                 type="checkbox"
                                 id="select_{{ t_n_url }}._{{ tab_column[t_n]['COLUMN_NAME'][j]|url_encode }}"
                                 style="margin: 0;"
-                                title="select_{{ tab_column[t_n]['COLUMN_NAME'][j]|url_encode }}"
-                                store_column_param="{{ t_n_url }},
-                                    {{- owner_out[i] }},
-                                    {{- tab_column[t_n]['COLUMN_NAME'][j]|url_encode }}">
+                                title="{{ 'Select "%s"'|trans|format(col_name) }}"
+                                id_check_all="select_all_{{ i }}"
+                                db_name="{{ db }}"
+                                table_name="{{ table_name }}"
+                                col_name="{{ col_name }}">
                         </td>
                     {% endif %}
                     <td width="10px" colspan="3" id="{{ t_n_url }}.
@@ -117,10 +122,13 @@
                     </td>
                     {% if has_query %}
                         <td class="small_tab_pref small_tab_pref_click_opt"
-                            click_option_param="designer_optionse,
-                                {{- tab_column[t_n]['COLUMN_NAME'][j]|url_encode }},
-                                {{- t_n }}">
-                            <img src="{{ theme.getImgPath('designer/exec_small.png') }}" title="options" />
+                            {# Escaped 2 times to be able to use it in innerHtml #}
+                            option_col_name_modal="<strong>{{ 'Add an option for column "%s".'|trans|format(col_name)|escape('html')|escape('html') }}</strong>"
+                            db_name="{{ db }}"
+                            table_name="{{ table_name }}"
+                            col_name="{{ col_name }}"
+                            db_table_name_url="{{ t_n_url }}">
+                            <img src="{{ theme.getImgPath('designer/exec_small.png') }}" title="{% trans 'Options'  %}" />
                         </td>
                     {% endif %}
                 </tr>

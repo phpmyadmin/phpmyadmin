@@ -23,7 +23,7 @@ class MenuTest extends PmaTestCase
      *
      * @return void
      */
-    function setup()
+    function setUp()
     {
         if (!defined('PMA_IS_WINDOWS')) {
             define('PMA_IS_WINDOWS', false);

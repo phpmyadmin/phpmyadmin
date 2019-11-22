@@ -669,6 +669,10 @@ form.login label {
     display: inline-block;
 }
 
+li.last.database{
+    margin-bottom: 20px !important;
+}
+
 /******************************************************************************/
 /* specific elements */
 

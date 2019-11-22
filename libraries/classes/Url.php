@@ -33,6 +33,9 @@ class Url
     public static function getHiddenInputs($db = '', $table = '',
         $indent = 0, $skip = array()
     ) {
+        /** @var Config $PMA_Config */
+        global $PMA_Config;
+
         if (is_array($db)) {
             $params  =& $db;
             $_indent = empty($table) ? $indent : $table;
@@ -54,7 +57,7 @@ class Url
         ) {
             $params['server'] = $GLOBALS['server'];
         }
-        if (empty($_COOKIE['pma_lang']) && ! empty($GLOBALS['lang'])) {
+        if (empty($PMA_Config->getCookie('pma_lang')) && ! empty($GLOBALS['lang'])) {
             $params['lang'] = $GLOBALS['lang'];
         }
 
@@ -198,18 +201,20 @@ class Url
      */
     public static function getCommonRaw($params = array(), $divider = '?')
     {
+        /** @var Config $PMA_Config */
+        global $PMA_Config;
         $separator = Url::getArgSeparator();
 
         // avoid overwriting when creating navi panel links to servers
         if (isset($GLOBALS['server'])
             && $GLOBALS['server'] != $GLOBALS['cfg']['ServerDefault']
             && ! isset($params['server'])
-            && ! $GLOBALS['PMA_Config']->get('is_setup')
+            && ! $PMA_Config->get('is_setup')
         ) {
             $params['server'] = $GLOBALS['server'];
         }
 
-        if (empty($_COOKIE['pma_lang']) && ! empty($GLOBALS['lang'])) {
+        if (empty($PMA_Config->getCookie('pma_lang')) && ! empty($GLOBALS['lang'])) {
             $params['lang'] = $GLOBALS['lang'];
         }
 

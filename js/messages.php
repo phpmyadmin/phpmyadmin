@@ -578,8 +578,8 @@ $js_messages['strExportRelationalSchema'] = __('Export relational schema');
 $js_messages['strModificationSaved'] = __('Modifications have been saved');
 
 /* Visual query builder (js/designer/move.js) */
-$js_messages['strAddOption'] = __('Add an option for column "%s".');
 $js_messages['strObjectsCreated'] = __('%d object(s) created.');
+$js_messages['strColumnName'] = __('Column name');
 $js_messages['strSubmit'] = __('Submit');
 
 /* For makegrid.js (column reordering, show/hide column, grid editing) */
@@ -853,38 +853,38 @@ Sanitize::printJsValue(
 Sanitize::printJsValue(
     "$.datepicker.regional['']['dayNamesShort']",
     array(
-        /* l10n: Short week day name */
+        /* l10n: Short week day name for Sunday */
         __('Sun'),
-        /* l10n: Short week day name */
+        /* l10n: Short week day name for Monday */
         __('Mon'),
-        /* l10n: Short week day name */
+        /* l10n: Short week day name for Tuesday */
         __('Tue'),
-        /* l10n: Short week day name */
+        /* l10n: Short week day name for Wednesday */
         __('Wed'),
-        /* l10n: Short week day name */
+        /* l10n: Short week day name for Thursday */
         __('Thu'),
-        /* l10n: Short week day name */
+        /* l10n: Short week day name for Friday */
         __('Fri'),
-        /* l10n: Short week day name */
+        /* l10n: Short week day name for Saturday */
         __('Sat')
     )
 );
 Sanitize::printJsValue(
     "$.datepicker.regional['']['dayNamesMin']",
     array(
-        /* l10n: Minimal week day name */
+        /* l10n: Minimal week day name for Sunday */
         __('Su'),
-        /* l10n: Minimal week day name */
+        /* l10n: Minimal week day name for Monday */
         __('Mo'),
-        /* l10n: Minimal week day name */
+        /* l10n: Minimal week day name for Tuesday */
         __('Tu'),
-        /* l10n: Minimal week day name */
+        /* l10n: Minimal week day name for Wednesday */
         __('We'),
-        /* l10n: Minimal week day name */
+        /* l10n: Minimal week day name for Thursday */
         __('Th'),
-        /* l10n: Minimal week day name */
+        /* l10n: Minimal week day name for Friday */
         __('Fr'),
-        /* l10n: Minimal week day name */
+        /* l10n: Minimal week day name for Saturday */
         __('Sa')
     )
 );

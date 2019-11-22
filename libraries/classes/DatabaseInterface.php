@@ -327,7 +327,7 @@ class DatabaseInterface
             $this->_dbgQuery($query, $link, $result, $time);
             if ($GLOBALS['cfg']['DBG']['sqllog']) {
                 $warningsCount = '';
-                if ($options & DatabaseInterface::QUERY_STORE == DatabaseInterface::QUERY_STORE) {
+                if (($options & DatabaseInterface::QUERY_STORE) == DatabaseInterface::QUERY_STORE) {
                     if (isset($this->_links[$link]->warning_count)) {
                         $warningsCount = $this->_links[$link]->warning_count;
                     }
@@ -2330,7 +2330,11 @@ class DatabaseInterface
     {
         if (count($this->_current_user) == 0) {
             $user = $this->getCurrentUser();
-            $this->_current_user = explode("@", $user);
+            if ($user === '@') {// Request did not succeed, please do not cache
+                return ['', ''];
+            } else {
+                $this->_current_user = explode("@", $user);
+            }
         }
         return $this->_current_user;
     }

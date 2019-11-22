@@ -1,6 +1,41 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.9.2 (2019-11-21)
+- issue #14184 Change the cookie name from phpMyAdmin to phpMyAdmin_https for HTTPS, fixes many "Failed to set session cookie" errors
+- issue #15304 Fix ssl_use php error
+- issue #14804 Fix undefined index: ssl_* variables
+- issue #14245 Fix mysql 8.0.3 and above fails on advisor
+- issue #15499 Fix unparenthesized php deprecation
+- issue #15482 Fix URL encoding plus sign (+) in the table or DB name when configuring foreign keys
+- issue #14898 Fixed bottom table in list in left panel blocked by horizontal scroll bar
+- issue #15161 Fix text area overflows its parent element on "Query" page
+- issue #15511 Fixed exporting users after a delete will delete all selected users on "Users" page
+- issue #14598 Fixed checking referencial integrity on "Operations" page
+- issue #14433 Fix "You do not have privileges to manipulate with the users!" on root superadmin
+- issue #15391 Fix GIS polygon of a geometry field is not drawn on "GIS visualization"
+- issue #15311 Fix adjust privileges on copy database fails with MariaDB
+- issue #15477 Fix display referential integrity check for InnoDB
+- issue #15236 Support phpunit 8 in our test suite to help packaging phpMyAdmin on Debian
+- issue #15522 Fix missing image error fills logs, removed ic_b_info icon from icon list
+- issue #15537 Fixed some issues with the sort by key selectors
+- issue #15546 Fix operators precedence in DatabaseInterface class
+- issue #14906 Test test suite on 32-bit systems
+- issue        Fix Long2IP transformation issue with PHP 7.1
+- issue #14951 Fix moving columns with DEFAULT NULL doesn't work on MariaDB 10.2+
+- issue #14951 Fix moving columns with INT AND DEFAULT CURRENT_TIMESTAMP doesn't work on MariaDB
+- issue #12241 Fixed table alias is removed when exporting a query
+- issue #15316 Fixed cross join clause is removed on export
+- issue #14809 Fix error "is_uploaded_file() expects parameter 1 to be string" when inserting blobs from files
+- issue #15127 Fix white square when refreshing designer or browsing other pages
+- issue #13912 Detect when phpMyAdmin storage tables are not accessible, help users browse corrupt DBs
+- issue #15465 Display profiling when query outputs no rows
+- issue        Fix setting and removing display field on Designer
+- issue        Added a warning when trying to set a display field on Designer and configuration storage is not setup
+- issue #15327 Fix shift-click in Export misses a checkbox
+- issue        [security] Fix improperly sanitized data when showing the Git branch (thanks to Ali Hubail for this report)
+- issue        [security] Fix security weaknesses in Designer feature,including a flaw where an attacker could trigger an SQL injection attack (PMASA-2019-5)
+
 4.9.1 (2019-09-20)
 - issue #15313 Added support for Twig 2
 - issue #15315 Fix cannot edit or export column with default CURRENT_TIMESTAMP in MySQL >= 8.0.13

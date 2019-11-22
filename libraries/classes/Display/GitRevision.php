@@ -43,27 +43,32 @@ class GitRevision
         );
         $commit_hash = '<strong title="'
             . htmlspecialchars($GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_MESSAGE'))
-            . '">' . $commit_hash . '</strong>';
+            . '">' . htmlspecialchars($commit_hash) . '</strong>';
         if ($GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_ISREMOTECOMMIT')) {
             $commit_hash = '<a href="'
                 . Core::linkURL(
                     'https://github.com/phpmyadmin/phpmyadmin/commit/'
-                    . $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_COMMITHASH')
+                    . htmlspecialchars($GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_COMMITHASH'))
                 )
                 . '" rel="noopener noreferrer" target="_blank">' . $commit_hash . '</a>';
         }
 
         $branch = $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_BRANCH');
-        if ($GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_ISREMOTEBRANCH')) {
+        $isRemoteBranch = $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_ISREMOTEBRANCH');
+        if ($isRemoteBranch) {
             $branch = '<a href="'
                 . Core::linkURL(
                     'https://github.com/phpmyadmin/phpmyadmin/tree/'
                     . $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_BRANCH')
                 )
-                . '" rel="noopener noreferrer" target="_blank">' . $branch . '</a>';
+                . '" rel="noopener noreferrer" target="_blank">' . htmlspecialchars($branch) . '</a>';
         }
         if ($branch !== false) {
-            $branch = sprintf(__('%1$s from %2$s branch'), $commit_hash, $branch);
+            $branch = sprintf(
+                __('%1$s from %2$s branch'),
+                $commit_hash,
+                $isRemoteBranch ? $branch : htmlspecialchars($branch)
+            );
         } else {
             $branch = $commit_hash . ' (' . __('no branch') . ')';
         }

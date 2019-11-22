@@ -11,7 +11,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Theme;
-use PHPUnit_Framework_Assert as Assert;
+use PHPUnit\Framework\Assert;
 
 /**
  * Tests behaviour of PhpMyAdmin\Config class
@@ -863,6 +863,7 @@ class ConfigTest extends PmaTestCase
      */
     public function testSetCookie()
     {
+        $this->object->set('is_https', false);
         $this->assertFalse(
             $this->object->setCookie(
                 'TEST_DEF_COOKIE',
@@ -936,6 +937,7 @@ class ConfigTest extends PmaTestCase
     /**
      * Test for isGitRevision
      *
+     * @group git-revision
      * @return void
      */
     public function testIsGitRevisionLocalGitDir()
@@ -996,6 +998,7 @@ class ConfigTest extends PmaTestCase
     /**
      * Test for isGitRevision
      *
+     * @group git-revision
      * @return void
      */
     public function testIsGitRevisionExternalGitDir()
@@ -1057,6 +1060,7 @@ class ConfigTest extends PmaTestCase
     /**
      * Test for checkGitRevision packs folder
      *
+     * @group git-revision
      * @return void
      */
     public function testCheckGitRevisionPacksFolder()
@@ -1083,7 +1087,6 @@ class ConfigTest extends PmaTestCase
         $this->assertEmpty(
             $this->object->get('PMA_VERSION_GIT_COMMITHASH')
         );
-
 
         file_put_contents('.git/HEAD','ref: refs/remotes/origin/master');
         $this->object->checkGitRevision();
@@ -1121,6 +1124,7 @@ class ConfigTest extends PmaTestCase
     /**
      * Test for checkGitRevision packs folder
      *
+     * @group git-revision
      * @return void
      */
     public function testCheckGitRevisionRefFile()
@@ -1147,7 +1151,6 @@ class ConfigTest extends PmaTestCase
         $this->assertEmpty(
             $this->object->get('PMA_VERSION_GIT_COMMITHASH')
         );
-
 
         file_put_contents('.git/HEAD','ref: refs/remotes/origin/master');
         mkdir('.git/refs/remotes/origin', 0777, true);
@@ -1177,6 +1180,7 @@ class ConfigTest extends PmaTestCase
     /**
      * Test for checkGitRevision with packs as file
      *
+     * @group git-revision
      * @return void
      */
     public function testCheckGitRevisionPacksFile()
@@ -1203,7 +1207,6 @@ class ConfigTest extends PmaTestCase
         $this->assertEmpty(
             $this->object->get('PMA_VERSION_GIT_COMMITHASH')
         );
-
 
         file_put_contents('.git/HEAD','ref: refs/remotes/origin/master');
         $this->object->checkGitRevision();
@@ -1332,18 +1335,25 @@ class ConfigTest extends PmaTestCase
      */
     public function testCheckServers($settings, $expected, $error = false)
     {
-        if ($error) {
-            $this->setExpectedException('PHPUnit_Framework_Error');
+        try {
+            $this->object->settings['Servers'] = $settings;
+            $this->object->checkServers();
+            if (is_null($expected)) {
+                $expected = $this->object->default_server;
+            } else {
+                $expected = array_merge($this->object->default_server, $expected);
+            }
+            $this->assertEquals($expected, $this->object->settings['Servers'][1]);
+            if ($error) {
+                $this->assertTrue(false);
+            }
+        } catch (\Exception $e) {
+            if ($error) {
+                $this->assertTrue(true);
+            } else {
+                throw $e;
+            }
         }
-
-        $this->object->settings['Servers'] = $settings;
-        $this->object->checkServers();
-        if (is_null($expected)) {
-            $expected = $this->object->default_server;
-        } else {
-            $expected = array_merge($this->object->default_server, $expected);
-        }
-        $this->assertEquals($expected, $this->object->settings['Servers'][1]);
     }
 
     /**

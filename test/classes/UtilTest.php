@@ -2128,4 +2128,51 @@ class UtilTest extends PmaTestCase
             ],
         ];
     }
+
+    /**
+     * Test for Util::isInteger
+     *
+     * @param bool  $expected Expected result for a given input
+     * @param mixed $input    Input data to check
+     *
+     * @return void
+     *
+     * @dataProvider providerIsInteger
+     */
+    public function testIsInteger($expected, $input)
+    {
+        $isInteger = Util::isInteger($input);
+        $this->assertEquals($expected, $isInteger);
+    }
+
+    /**
+     * Data provider for Util::isInteger test
+     *
+     * @return array
+     */
+    public function providerIsInteger()
+    {
+        return [
+            [
+                true,
+                1000,
+            ],
+            [
+                true,
+                '1000',
+            ],
+            [
+                false,
+                1000.1,
+            ],
+            [
+                false,
+                '1000.1',
+            ],
+            [
+                false,
+                'input',
+            ],
+        ];
+    }
 }

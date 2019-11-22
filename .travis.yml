@@ -91,6 +91,18 @@ matrix:
     - php: "5.5"
       env: CI_MODE=test
       dist: trusty
+    - php: "7.3"
+      env: CI_MODE=test
+      name: "Run tests using phpunit 8"
+      install:
+       - composer require --no-interaction php>=7.1
+       - composer remove phpunit/phpunit-selenium --dev --no-interaction
+       - composer remove phpunit/phpunit --dev --no-interaction
+       - composer require --dev --no-interaction phpunit/phpunit ^8
+       - rm -rf test/selenium
+       - "find test/ -type f -print0 | xargs -0 sed -i 's/function setUpBeforeClass()/function setUpBeforeClass(): void/g'"
+       - "find test/ -type f -print0 | xargs -0 sed -i 's/function setUp()/function setUp(): void/g'"
+       - "find test/ -type f -print0 | xargs -0 sed -i 's/function tearDown()/function tearDown(): void/g'"
     - php: "7.1"
       env: CI_MODE=test DBASE=true
       install:

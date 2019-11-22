@@ -30,7 +30,7 @@ class ExportSqlTest extends PmaTestCase
      *
      * @return void
      */
-    function setup()
+    function setUp()
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';

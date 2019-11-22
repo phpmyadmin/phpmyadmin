@@ -850,11 +850,11 @@ class Qbe
             $html_output .= '<strong>' . __('Or:') . '</strong>';
             $html_output .= '<input type="radio"'
                 . ' name="criteriaAndOrColumn[' . $column_number . ']"'
-                . ' value="or"' . $selected['or'] . ' />';
+                . ' value="or"' . (isset($selected['or']) ? $selected['or'] : '') . ' />';
             $html_output .= '&nbsp;&nbsp;<strong>' . __('And:') . '</strong>';
             $html_output .= '<input type="radio"'
                 . ' name="criteriaAndOrColumn[' . $column_number . ']"'
-                . ' value="and"' . $selected['and'] . ' />';
+                . ' value="and"' . (isset($selected['and']) ? $selected['and'] : '') . ' />';
         }
         $html_output .= '<br />' . __('Ins');
         $html_output .= '<input type="checkbox"'
@@ -1817,7 +1817,7 @@ class Qbe
         $html_output .= Url::getHiddenInputs(array('db' => $this->_db));
         // get SQL query
         $html_output .= '<div class="floatleft desktop50">';
-        $html_output .= '<fieldset>';
+        $html_output .= '<fieldset id="tblQbe">';
         $html_output .= '<legend>'
             . sprintf(
                 __('SQL query on database <b>%s</b>:'),
@@ -1837,7 +1837,7 @@ class Qbe
         $html_output .= '</textarea>';
         $html_output .= '</fieldset>';
         // displays form's footers
-        $html_output .= '<fieldset class="tblFooters">';
+        $html_output .= '<fieldset class="tblFooters" id="tblQbeFooters">';
         $html_output .= '<input type="hidden" name="submit_sql" value="1" />';
         $html_output .= '<input type="submit" value="' . __('Submit Query') . '" />';
         $html_output .= '</fieldset>';

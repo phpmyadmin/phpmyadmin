@@ -22,7 +22,7 @@ class FileTest extends PmaTestCase
      *
      * @return void
      */
-    public function setup()
+    public function setUp()
     {
         $GLOBALS['charset_conversion'] = false;
     }
@@ -64,6 +64,8 @@ class FileTest extends PmaTestCase
      *
      * @return void
      * @dataProvider compressedFiles
+     * @requires extension bz2 1
+     * @requires extension zip 1
      */
     public function testReadCompressed($file)
     {

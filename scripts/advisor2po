@@ -5,22 +5,24 @@
  * strings for translation.
  */
 
+use PhpMyAdmin\Advisor;
+
 $messages = array();
 $locations = array();
 
 /**
  * Processes single advisor message and stores data in global array.
  */
-function add_message($rules, $idx, $type) {
+function add_message($file, $rules, $idx, $type) {
     global $messages, $locations;
     // Get message text
     if ($type == 'justification') {
-        $msgs = PhpMyAdmin\Advisor::splitJustification($rules['rules'][$idx]);
+        $msgs = Advisor::splitJustification($rules['rules'][$idx]);
         $msg = $msgs[0];
     } else {
         $msg = $rules['rules'][$idx][$type];
     }
-    $line = 'libraries/advisory_rules.txt:' . $rules['lines'][$idx][$type];
+    $line = $file . ':' . $rules['lines'][$idx][$type];
     // Avoid duplicate mesages
     $pos = array_search($msg, $messages);
     if ($pos === false) {
@@ -43,7 +45,7 @@ function print_message($idx) {
         echo '#, php-format';
         echo "\n";
     }
-    echo 'msgid "' . addcslashes(PhpMyAdmin\Advisor::escapePercent($messages[$idx]), '"\\') . '"';
+    echo 'msgid "' . addcslashes(Advisor::escapePercent($messages[$idx]), '"\\') . '"';
     echo "\n";
     echo 'msgstr ""';
     echo "\n";
@@ -53,16 +55,19 @@ define('PHPMYADMIN', 1);
 require_once 'libraries/vendor_config.php';
 require_once AUTOLOAD_FILE;
 
-$rules = PhpMyAdmin\Advisor::parseRulesFile();
+$ruleFiles = [];
+$ruleFiles[Advisor::GENERIC_RULES_FILE] = Advisor::parseRulesFile(Advisor::GENERIC_RULES_FILE);
+$ruleFiles[Advisor::BEFORE_MYSQL80003_RULES_FILE] = Advisor::parseRulesFile(Advisor::BEFORE_MYSQL80003_RULES_FILE);
 
-foreach($rules['rules'] as $idx => $rule) {
-    add_message($rules, $idx, 'name');
-    add_message($rules, $idx, 'issue');
-    add_message($rules, $idx, 'recommendation');
-    add_message($rules, $idx, 'justification');
+foreach ($ruleFiles as $file => $rules) {
+    foreach ($rules['rules'] as $idx => $rule) {
+        add_message($file, $rules, $idx, 'name');
+        add_message($file, $rules, $idx, 'issue');
+        add_message($file, $rules, $idx, 'recommendation');
+        add_message($file, $rules, $idx, 'justification');
+    }
 }
 
 foreach($messages as $idx => $rule) {
     print_message($idx);
 }
-?>

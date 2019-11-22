@@ -1294,7 +1294,7 @@ class Util
             // if the unit is not bytes (as represented in current language)
             // reformat with max length of 5
             // 4th parameter=true means do not reformat if value < 1
-            $return_value = self::formatNumber($value, 5, $comma, true);
+            $return_value = self::formatNumber($value, 5, $comma, true, false);
         } else {
             // do not reformat, just handle the locale
             $return_value = self::formatNumber($value, 0);
@@ -1502,19 +1502,19 @@ class Util
             /* l10n: Short month name */
             __('Dec'));
         $day_of_week = array(
-            /* l10n: Short week day name */
+            /* l10n: Short week day name for Sunday */
             _pgettext('Short week day name', 'Sun'),
-            /* l10n: Short week day name */
+            /* l10n: Short week day name for Monday */
             __('Mon'),
-            /* l10n: Short week day name */
+            /* l10n: Short week day name for Tuesday */
             __('Tue'),
-            /* l10n: Short week day name */
+            /* l10n: Short week day name for Wednesday */
             __('Wed'),
-            /* l10n: Short week day name */
+            /* l10n: Short week day name for Thursday */
             __('Thu'),
-            /* l10n: Short week day name */
+            /* l10n: Short week day name for Friday */
             __('Fri'),
-            /* l10n: Short week day name */
+            /* l10n: Short week day name for Saturday */
             __('Sat'));
 
         if ($format == '') {
@@ -3007,10 +3007,10 @@ class Util
             $wktsql
         );
         $wktarr     = $GLOBALS['dbi']->fetchRow($wktresult, 0);
-        $wktval     = $wktarr[0];
+        $wktval     = isset($wktarr[0]) ? $wktarr[0] : null;
 
         if ($includeSRID) {
-            $srid = $wktarr[1];
+            $srid = isset($wktarr[1]) ? $wktarr[1] : null;
             $wktval = "'" . $wktval . "'," . $srid;
         }
         @$GLOBALS['dbi']->freeResult($wktresult);
@@ -3482,8 +3482,8 @@ class Util
     /**
      * Generates GIS data based on the string passed.
      *
-     * @param string $gis_string GIS string
-     * @param int $mysqlVersion The mysql version as int
+     * @param string $gis_string   GIS string
+     * @param int    $mysqlVersion The mysql version as int
      *
      * @return string GIS data enclosed in 'ST_GeomFromText' or 'GeomFromText' function
      */
@@ -4740,5 +4740,17 @@ class Util
         $url = 'db_structure.php' . Url::getCommon($urlParams);
 
         return self::linkOrButton($url, $title . $orderImg, $orderLinkParams);
+    }
+
+    /**
+     * Check that input is an int or an int in a string
+     *
+     * @param mixed $input
+     *
+     * @return bool
+     */
+    public static function isInteger($input)
+    {
+        return (ctype_digit((string) $input));
     }
 }
