@@ -1138,6 +1138,8 @@ var ResizeHandler = function () {
                 'width': '100%',
                 'z-index': 99
             })
+            .append($('#serverinfo'))
+            .append($('#topmenucontainer'));
         // Allow the DOM to render, then adjust the padding on the body
         setTimeout(function () {
             $('body').css(
