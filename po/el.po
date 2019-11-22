@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-11-20 12:45+0100\n"
+"POT-Creation-Date: 2019-11-22 01:31+0100\n"
 "PO-Revision-Date: 2018-01-25 13:37+0000\n"
 "Last-Translator: Vangelis Skarmoutsos <skarmoutsosv@gmail.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -85,7 +85,7 @@ msgid "Data"
 msgstr "Δεδομένα"
 
 #: db_export.php:87 templates/server/replication/database_multibox.twig:7
-#: templates/database/designer/database_tables.twig:30
+#: templates/database/designer/database_tables.twig:31
 #: templates/display/export/select_options.twig:4
 #: templates/database/search/main.twig:32
 msgid "Select all"
@@ -1230,11 +1230,11 @@ msgstr "Εκτέλεση"
 
 #: js/messages.php:363 templates/database/designer/main.twig:344
 #: templates/database/designer/main.twig:395
-#: templates/database/designer/main.twig:669
-#: templates/database/designer/main.twig:735
-#: templates/database/designer/main.twig:874
-#: templates/database/designer/main.twig:959
-#: templates/database/designer/main.twig:1065
+#: templates/database/designer/main.twig:673
+#: templates/database/designer/main.twig:739
+#: templates/database/designer/main.twig:878
+#: templates/database/designer/main.twig:963
+#: templates/database/designer/main.twig:1069
 #: templates/server/variables/index.twig:12
 msgid "Cancel"
 msgstr "Άκυρο"
@@ -1305,11 +1305,11 @@ msgid "Adding primary key"
 msgstr "Προσθήκη πρωτεύοντος κλειδιού"
 
 #: js/messages.php:385 templates/database/designer/main.twig:342
-#: templates/database/designer/main.twig:667
-#: templates/database/designer/main.twig:731
-#: templates/database/designer/main.twig:870
-#: templates/database/designer/main.twig:955
-#: templates/database/designer/main.twig:1063
+#: templates/database/designer/main.twig:671
+#: templates/database/designer/main.twig:735
+#: templates/database/designer/main.twig:874
+#: templates/database/designer/main.twig:959
+#: templates/database/designer/main.twig:1067
 #: templates/console/display.twig:129
 msgid "OK"
 msgstr "Εντάξει"
@@ -1968,13 +1968,14 @@ msgstr "Οι αλλαγές αποθηκεύτηκαν"
 
 #: js/messages.php:590
 #, php-format
-msgid "Add an option for column \"%s\"."
-msgstr "Προσθήκη επιλογής για τη στήλη «%s»."
-
-#: js/messages.php:591
-#, php-format
 msgid "%d object(s) created."
 msgstr "%d αντικείμενο(α) δημιουργήθηκε(αν)."
+
+#: js/messages.php:591
+#, fuzzy
+#| msgid "Column names"
+msgid "Column name"
+msgstr "Ονόματα στηλών"
 
 #: js/messages.php:592 libraries/classes/SqlQueryForm.php:430
 msgid "Submit"
@@ -7938,25 +7939,25 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 "Αδύνατη η φόρτωση προσθέτων εξαγωγής, για αυτό εξέξτε την εγκατάστασή σας!"
 
-#: libraries/classes/Display/GitRevision.php:96
+#: libraries/classes/Display/GitRevision.php:97
 #, php-format
 msgid "%1$s from %2$s branch"
 msgstr "%1$s από %2$s κλάδο"
 
-#: libraries/classes/Display/GitRevision.php:98
+#: libraries/classes/Display/GitRevision.php:102
 msgid "no branch"
 msgstr "κανένας κλάδος"
 
-#: libraries/classes/Display/GitRevision.php:104
+#: libraries/classes/Display/GitRevision.php:108
 msgid "Git revision:"
 msgstr "Αναθεώρηση git:"
 
-#: libraries/classes/Display/GitRevision.php:107
+#: libraries/classes/Display/GitRevision.php:111
 #, php-format
 msgid "committed on %1$s by %2$s"
 msgstr "έγινε την %1$s από %2$s"
 
-#: libraries/classes/Display/GitRevision.php:117
+#: libraries/classes/Display/GitRevision.php:121
 #, php-format
 msgid "authored on %1$s by %2$s"
 msgstr "δημιουργήθηκε την %1$s από %2$s"
@@ -8616,6 +8617,7 @@ msgstr "Επεξεργαστείτε τη δομή πατώντας τον σύ�
 #: libraries/classes/Rte/Routines.php:962
 #: templates/table/structure/display_table_stats.twig:91
 #: templates/display/results/options_block.twig:10
+#: templates/database/designer/database_tables.twig:114
 #: templates/console/display.twig:7 templates/console/display.twig:140
 #: templates/table/search/selection_form.twig:97
 msgid "Options"
@@ -8838,8 +8840,8 @@ msgstr ""
 #: libraries/classes/Rte/Routines.php:1649
 #: templates/database/designer/main.twig:489
 #: templates/database/designer/main.twig:654
-#: templates/database/designer/main.twig:856
-#: templates/database/designer/main.twig:1049
+#: templates/database/designer/main.twig:860
+#: templates/database/designer/main.twig:1053
 #: templates/table/search/zoom_result_form.twig:36
 #: templates/server/variables/index.twig:29
 #: templates/server/replication/status_table.twig:17
@@ -13878,44 +13880,44 @@ msgstr "Λειτουργός συσχέτισης"
 
 #: templates/database/designer/main.twig:479
 #: templates/database/designer/main.twig:644
-#: templates/database/designer/main.twig:846
-#: templates/database/designer/main.twig:1039
+#: templates/database/designer/main.twig:850
+#: templates/database/designer/main.twig:1043
 msgid "Except"
 msgstr "Εξαίρεση"
 
 #: templates/database/designer/main.twig:491
 #: templates/database/designer/main.twig:656
-#: templates/database/designer/main.twig:858
-#: templates/database/designer/main.twig:1051
+#: templates/database/designer/main.twig:862
+#: templates/database/designer/main.twig:1055
 msgid "subquery"
 msgstr "υποερώτημα"
 
 #: templates/database/designer/main.twig:500
-#: templates/database/designer/main.twig:712
+#: templates/database/designer/main.twig:716
 msgid "Rename to"
 msgstr "Μετονομασία σε"
 
 #: templates/database/designer/main.twig:506
-#: templates/database/designer/main.twig:720
+#: templates/database/designer/main.twig:724
 msgid "New name"
 msgstr "Νέο όνομα"
 
 #: templates/database/designer/main.twig:515
-#: templates/database/designer/main.twig:917
+#: templates/database/designer/main.twig:921
 msgid "Aggregate"
 msgstr "Άθροιση"
 
 #: templates/database/designer/main.twig:521
 #: templates/database/designer/main.twig:585
-#: templates/database/designer/main.twig:786
-#: templates/database/designer/main.twig:817
-#: templates/database/designer/main.twig:925
-#: templates/database/designer/main.twig:1010
+#: templates/database/designer/main.twig:790
+#: templates/database/designer/main.twig:821
+#: templates/database/designer/main.twig:929
+#: templates/database/designer/main.twig:1014
 #: templates/table/search/fields_table.twig:10
 msgid "Operator"
 msgstr "Τελεστής"
 
-#: templates/database/designer/main.twig:1092
+#: templates/database/designer/main.twig:1096
 msgid "Active options"
 msgstr "Ενεργές επιλογές"
 
@@ -14996,13 +14998,24 @@ msgctxt "None for default"
 msgid "None"
 msgstr "Καμία"
 
-#: templates/database/designer/database_tables.twig:36
+#: templates/database/designer/database_tables.twig:37
 msgid "Show/hide columns"
 msgstr "Εμφάνιση/απόκρυψη στηλών"
 
-#: templates/database/designer/database_tables.twig:45
+#: templates/database/designer/database_tables.twig:46
 msgid "See table structure"
 msgstr "Προβολή δομής πίνακα"
+
+#: templates/database/designer/database_tables.twig:91
+#, fuzzy, php-format
+#| msgid "Select all"
+msgid "Select \"%s\""
+msgstr "Επιλογή όλων"
+
+#: templates/database/designer/database_tables.twig:109
+#, php-format
+msgid "Add an option for column \"%s\"."
+msgstr "Προσθήκη επιλογής για τη στήλη «%s»."
 
 #: templates/server/replication/index.twig:14
 #: templates/server/replication/master_replication.twig:3
