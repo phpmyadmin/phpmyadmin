@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-11-22 01:33+0100\n"
-"PO-Revision-Date: 2019-11-13 09:05+0000\n"
+"PO-Revision-Date: 2019-11-26 00:05+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -12,8 +12,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 3.10-dev\n"
 
 #: import_status.php:51
@@ -1709,10 +1709,8 @@ msgid "%d object(s) created."
 msgstr "Ustvarili smo %d objekt(ov)."
 
 #: js/messages.php:590
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
-msgstr "Imena stolpcev"
+msgstr "Ime stolpca"
 
 #: js/messages.php:591 templates/sql/query.twig:149
 msgid "Submit"
@@ -7324,18 +7322,13 @@ msgid "Could not load schema plugins, please check your installation!"
 msgstr "Ne morem naložiti vtičnikov sheme, prosimo, preverite vašo namestitev!"
 
 #: libraries/classes/Database/Designer/Common.php:531
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr ""
-"Shramba konfiguracije ni pripravljena na funkcionalnost osrednjega seznama "
-"stolpcev."
+"Shramba konfiguracije phpMyAdmin ni konfigurirana za \"Lastnosti prikaza\"."
 
 #: libraries/classes/Database/Designer/Common.php:580
 msgid "Error: relationship already exists."
@@ -10817,7 +10810,7 @@ msgstr "Splošne lastnosti relacij"
 
 #: libraries/classes/Relation.php:184
 msgid "Display Features"
-msgstr "Prikaži lastnosti"
+msgstr "Lastnosti prikaza"
 
 #: libraries/classes/Relation.php:201
 msgid "Designer and creation of PDFs"
@@ -13310,10 +13303,9 @@ msgid "See table structure"
 msgstr "Ogled zgradbe tabele"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Izberi vse"
+msgstr "Izberi \"%s\""
 
 #: templates/database/designer/database_tables.twig:109
 #, php-format
