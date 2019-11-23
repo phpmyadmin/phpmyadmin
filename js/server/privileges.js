@@ -15,7 +15,6 @@
  *
  * @return boolean  whether the form is validated or not
  */
-// eslint-disable-next-line no-unused-vars
 function checkAddUser (theForm) {
     if (theForm.elements.pred_hostname.value === 'userdefined' && theForm.elements.hostname.value === '') {
         alert(Messages.strHostEmpty);
@@ -30,7 +29,7 @@ function checkAddUser (theForm) {
     }
 
     return Functions.checkPassword($(theForm));
-} // end of the 'checkAddUser()' function
+}
 
 function checkPasswordStrength (value, meterObject, meterObjectLabel, username) {
     // List of words we don't want to appear in the password
@@ -489,4 +488,12 @@ AJAX.registerOnload('server/privileges.js', function () {
 
     var windowWidth = $(window).width();
     $('.jsresponsive').css('max-width', (windowWidth - 35) + 'px');
+
+    $('#addUsersForm').on('submit', function () {
+        return checkAddUser(this);
+    });
+
+    $('#copyUserForm').on('submit', function () {
+        return checkAddUser(this);
+    });
 });

@@ -94,7 +94,7 @@
 
   {{ change_password|raw }}
 
-  <form action="{{ url('/server/privileges') }}" onsubmit="return checkAddUser(this);" method="post" class="copyUserForm submenu-item">
+  <form action="{{ url('/server/privileges') }}" id="copyUserForm" method="post" class="copyUserForm submenu-item">
     {{ get_hidden_inputs() }}
     <input type="hidden" name="old_username" value="{{ username }}">
     <input type="hidden" name="old_hostname" value="{{ hostname }}">

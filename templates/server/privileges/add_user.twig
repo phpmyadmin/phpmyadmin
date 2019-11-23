@@ -3,7 +3,7 @@
   {% trans 'Add user account' %}
 </h2>
 
-<form name="usersForm" id="addUsersForm" onsubmit="return checkAddUser(this);" action="{{ url('/server/privileges') }}" method="post" autocomplete="off">
+<form name="usersForm" id="addUsersForm" action="{{ url('/server/privileges') }}" method="post" autocomplete="off">
   {{ get_hidden_inputs() }}
 
   {{ login_information_fields_new|raw }}
