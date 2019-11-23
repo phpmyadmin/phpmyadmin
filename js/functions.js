@@ -6,9 +6,9 @@
 /* global Indexes */ // js/indexes.js
 /* global firstDayOfCalendar, maxInputVars, mysqlDocTemplate, pmaThemeImage */ // js/messages.php
 /* global MicroHistory */ // js/microhistory.js
-/* global checkPasswordStrength */ // js/server/privileges.js
 /* global sprintf */ // js/vendor/sprintf.js
 /* global Int32Array */ // ES6
+/* global zxcvbn */ // js/vendor/zxcvbn.js
 
 /**
  * general function, usually for data manipulation pages
@@ -472,6 +472,36 @@ Functions.prepareForAjaxRequest = function ($form) {
     }
 };
 
+Functions.checkPasswordStrength = function (value, meterObject, meterObjectLabel, username) {
+    // List of words we don't want to appear in the password
+    var customDict = [
+        'phpmyadmin',
+        'mariadb',
+        'mysql',
+        'php',
+        'my',
+        'admin',
+    ];
+    if (username !== null) {
+        customDict.push(username);
+    }
+    var zxcvbnObject = zxcvbn(value, customDict);
+    var strength = zxcvbnObject.score;
+    strength = parseInt(strength);
+    meterObject.val(strength);
+    switch (strength) {
+    case 0: meterObjectLabel.html(Messages.strExtrWeak);
+        break;
+    case 1: meterObjectLabel.html(Messages.strVeryWeak);
+        break;
+    case 2: meterObjectLabel.html(Messages.strWeak);
+        break;
+    case 3: meterObjectLabel.html(Messages.strGood);
+        break;
+    case 4: meterObjectLabel.html(Messages.strStrong);
+    }
+};
+
 /**
  * Generate a new password and copy it to the password input areas
  *
@@ -515,7 +545,7 @@ Functions.suggestPassword = function (passwordForm) {
     passwordForm.elements.pma_pw2.value = passwd.value;
     var meterObj = $jQueryPasswordForm.find('meter[name="pw_meter"]').first();
     var meterObjLabel = $jQueryPasswordForm.find('span[name="pw_strength"]').first();
-    checkPasswordStrength(passwd.value, meterObj, meterObjLabel);
+    Functions.checkPasswordStrength(passwd.value, meterObj, meterObjLabel);
     return true;
 };
 
