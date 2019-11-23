@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.9.3 (not yet released)
+
 4.9.2 (2019-11-21)
 - issue #14184 Change the cookie name from phpMyAdmin to phpMyAdmin_https for HTTPS, fixes many "Failed to set session cookie" errors
 - issue #15304 Fix ssl_use php error

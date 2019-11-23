@@ -116,7 +116,7 @@ class Config
      */
     public function checkSystem()
     {
-        $this->set('PMA_VERSION', '4.9.2');
+        $this->set('PMA_VERSION', '4.9.3-dev');
         /* Major version */
         $this->set(
             'PMA_MAJOR_VERSION',
