@@ -118,7 +118,7 @@ class UtilExtension extends AbstractExtension
             ),
             new TwigFunction(
                 'get_start_and_number_of_rows_panel',
-                'PhpMyAdmin\Generator::getStartAndNumberOfRowsPanel',
+                'PhpMyAdmin\Html\Generator::getStartAndNumberOfRowsPanel',
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
@@ -132,12 +132,12 @@ class UtilExtension extends AbstractExtension
             ),
             new TwigFunction(
                 'link_or_button',
-                'PhpMyAdmin\Generator::linkOrButton',
+                'PhpMyAdmin\Html\Generator::linkOrButton',
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'link_to_var_documentation',
-                'PhpMyAdmin\Generator::linkToVarDocumentation',
+                'PhpMyAdmin\Html\Generator::linkToVarDocumentation',
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
