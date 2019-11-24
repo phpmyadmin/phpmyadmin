@@ -4,6 +4,12 @@
  * @package PhpMyAdmin
  */
 
+import $ from 'jquery';
+import AJAX from 'ajax';
+import CommonParams from 'commonParams';
+import Functions from 'functions';
+import Messages from 'messages';
+
 // object to store process list state information
 var processList = {
 
