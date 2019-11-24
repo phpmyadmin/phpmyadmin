@@ -34,7 +34,10 @@ header('Content-Type: text/html; charset=utf-8');
 
 require ROOT_PATH . 'libraries/vendor_config.php';
 
-error_reporting(E_ALL);
+if (function_exists('error_reporting')) {
+    error_reporting(E_ALL);
+}
+
 /**
  * Read config file.
  */

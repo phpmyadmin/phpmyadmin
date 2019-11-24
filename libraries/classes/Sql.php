@@ -643,7 +643,7 @@ class Sql
         $retval = $pmatable->setUiProp(
             $property_to_set,
             $property_value,
-            $_POST['table_create_time']
+            isset($_POST['table_create_time']) ? $_POST['table_create_time'] : null
         );
         if (gettype($retval) != 'boolean') {
             $response = Response::getInstance();

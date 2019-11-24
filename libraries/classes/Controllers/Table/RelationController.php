@@ -264,8 +264,7 @@ class RelationController extends AbstractController
                     $this->options_array,
                     $this->table,
                     is_array($this->existrel_foreign) && array_key_exists('foreign_keys_data', $this->existrel_foreign)
-                    ? $this->existrel_foreign['foreign_keys_data']
-                    : null
+                    ? $this->existrel_foreign['foreign_keys_data'] : [],
                 );
             $this->response->addHTML($html);
         }
