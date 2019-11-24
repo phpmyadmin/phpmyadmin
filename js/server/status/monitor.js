@@ -20,6 +20,49 @@ var serverDbIsLocal;
 var chartSize;
 var monitorSettings;
 
+function serverResponseError () {
+    var btns = {};
+    btns[Messages.strReloadPage] = function () {
+        window.location.reload();
+    };
+    $('#emptyDialog').dialog({ title: Messages.strRefreshFailed });
+    $('#emptyDialog').html(
+        Functions.getImage('s_attention') +
+        Messages.strInvalidResponseExplanation
+    );
+    $('#emptyDialog').dialog({ buttons: btns });
+}
+
+/**
+ * Destroys all monitor related resources
+ */
+function destroyGrid () {
+    if (runtime.charts) {
+        $.each(runtime.charts, function (key, value) {
+            try {
+                value.chart.destroy();
+            } catch (err) {
+                // continue regardless of error
+            }
+        });
+    }
+
+    try {
+        runtime.refreshRequest.abort();
+    } catch (err) {
+        // continue regardless of error
+    }
+    try {
+        clearTimeout(runtime.refreshTimeout);
+    } catch (err) {
+        // continue regardless of error
+    }
+    $('#chartGrid').html('');
+    runtime.charts = null;
+    runtime.chartAI = 0;
+    monitorSettings = null;
+}
+
 AJAX.registerOnload('server/status/monitor.js', function () {
     var $jsDataForm = $('#js_data');
     serverTimeDiff = new Date().getTime() - $jsDataForm.find('input[name=server_time]').val();
@@ -2177,44 +2220,3 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 AJAX.registerOnload('server/status/monitor.js', function () {
     $('a[href="#pauseCharts"]').trigger('click');
 });
-
-function serverResponseError () {
-    var btns = {};
-    btns[Messages.strReloadPage] = function () {
-        window.location.reload();
-    };
-    $('#emptyDialog').dialog({ title: Messages.strRefreshFailed });
-    $('#emptyDialog').html(
-        Functions.getImage('s_attention') +
-        Messages.strInvalidResponseExplanation
-    );
-    $('#emptyDialog').dialog({ buttons: btns });
-}
-
-/* Destroys all monitor related resources */
-function destroyGrid () {
-    if (runtime.charts) {
-        $.each(runtime.charts, function (key, value) {
-            try {
-                value.chart.destroy();
-            } catch (err) {
-                // continue regardless of error
-            }
-        });
-    }
-
-    try {
-        runtime.refreshRequest.abort();
-    } catch (err) {
-        // continue regardless of error
-    }
-    try {
-        clearTimeout(runtime.refreshTimeout);
-    } catch (err) {
-        // continue regardless of error
-    }
-    $('#chartGrid').html('');
-    runtime.charts = null;
-    runtime.chartAI = 0;
-    monitorSettings = null;
-}
