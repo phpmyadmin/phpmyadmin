@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-11-22 01:29+0100\n"
-"PO-Revision-Date: 2019-11-18 22:33+0000\n"
+"PO-Revision-Date: 2019-11-26 00:04+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-9/pt/>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
+"4-9/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -893,11 +893,11 @@ msgstr ""
 
 #: js/messages.php:49
 msgid "You are about to DESTROY a complete table!"
-msgstr "Está prestes a DESTRUIR uma base de dados completa!"
+msgstr "Está prestes a DESTRUIR a tabela completa!"
 
 #: js/messages.php:51
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "Está prestes a TRUNCAR uma base de dados completa!"
+msgstr "Está prestes a TRUNCAR a tabela completa!"
 
 #: js/messages.php:52
 msgid "Delete tracking data for this table?"
@@ -2380,10 +2380,8 @@ msgid "%d object(s) created."
 msgstr "%d objecto(s) criado(s)."
 
 #: js/messages.php:582
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
-msgstr "Nome dos Campos"
+msgstr "Nome da coluna"
 
 #: js/messages.php:583 libraries/classes/SqlQueryForm.php:419
 msgid "Submit"
@@ -6941,18 +6939,14 @@ msgstr ""
 "instalação!"
 
 #: libraries/classes/Database/Designer/Common.php:518
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr ""
-"O armazenamento de configurações não está preparado para a funcionalidade de "
-"lista de colunas central."
+"O armazenamento de configurações do phpMyAdmin não está configurado para \""
+"Recursos de Exibição\"."
 
 #: libraries/classes/Database/Designer/Common.php:565
 msgid "Error: relationship already exists."
@@ -16301,10 +16295,9 @@ msgid "See table structure"
 msgstr "Ver estrutura da tabela"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Seleccionar tudo"
+msgstr "Selecionar \"%s\""
 
 #: templates/database/designer/database_tables.twig:126
 #, php-format
