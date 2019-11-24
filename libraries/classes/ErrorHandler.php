@@ -170,6 +170,10 @@ class ErrorHandler
             ) {
                 return;
             }
+        } else {
+            if (($errno & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE)) == 0) {
+                return;
+            }
         }
 
         $this->addError($errstr, $errno, $errfile, $errline, true);
