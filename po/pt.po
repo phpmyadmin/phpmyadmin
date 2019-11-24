@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-11-22 01:33+0100\n"
-"PO-Revision-Date: 2019-11-18 22:33+0000\n"
+"PO-Revision-Date: 2019-11-26 00:04+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -49,11 +49,11 @@ msgstr ""
 
 #: js/messages.php:52
 msgid "You are about to DESTROY a complete table!"
-msgstr "Está prestes a 'DESTRUIR' uma tabela completa!"
+msgstr "Está prestes a DESTRUIR a tabela completa!"
 
 #: js/messages.php:54
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "Está prestes a 'TRUNCAR' uma tabela completa!"
+msgstr "Está prestes a TRUNCAR a tabela completa!"
 
 #: js/messages.php:55
 msgid "Delete tracking data for this table?"
@@ -1714,10 +1714,8 @@ msgid "%d object(s) created."
 msgstr "%d objecto(s) criado(s)."
 
 #: js/messages.php:590
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
-msgstr "Nome dos Campos"
+msgstr "Nome da coluna"
 
 #: js/messages.php:591 templates/sql/query.twig:149
 msgid "Submit"
@@ -3714,7 +3712,7 @@ msgstr "Verificações de chave estrangeira"
 
 #: libraries/classes/Config/Descriptions.php:285
 msgid "First day of calendar"
-msgstr ""
+msgstr "Primeiro dia do calendário"
 
 #: libraries/classes/Config/Descriptions.php:286
 msgid "Browse mode"
@@ -7405,18 +7403,14 @@ msgstr ""
 "instalação!"
 
 #: libraries/classes/Database/Designer/Common.php:531
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr ""
-"O armazenamento de configurações não está preparado para a funcionalidade de "
-"lista de colunas central."
+"O armazenamento de configurações do phpMyAdmin não está configurado para \""
+"Recursos de Exibição\"."
 
 #: libraries/classes/Database/Designer/Common.php:580
 msgid "Error: relationship already exists."
@@ -12789,11 +12783,9 @@ msgstr "Tamanho máximo: %s%s"
 
 #. l10n: Short week day name for Sunday
 #: libraries/classes/Util.php:696
-#, fuzzy
-#| msgid "Sun"
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
-msgstr "Domingo"
+msgstr "Dom"
 
 #: libraries/classes/Util.php:734
 msgctxt "AM/PM indication in time"
@@ -13425,10 +13417,9 @@ msgid "See table structure"
 msgstr "Ver estrutura da tabela"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Seleccionar tudo"
+msgstr "Selecionar \"%s\""
 
 #: templates/database/designer/database_tables.twig:109
 #, php-format
