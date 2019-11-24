@@ -1165,6 +1165,7 @@ Navigation.ResizeHandler = function () {
         $('#pma_navigation').width(pos);
         $('body').css('margin-' + this.left, pos + 'px');
         // Issue #15127 : Adding fixed positioning to menubar
+        // Issue #15570 : Panels on homescreen go underneath of floating menubar
         $('#floating_menubar')
             .css('margin-' + this.left, $('#pma_navigation').width() + $('#pma_navigation_resizer').width())
             .css(this.left, 0)
@@ -1173,7 +1174,9 @@ Navigation.ResizeHandler = function () {
                 'top': 0,
                 'width': '100%',
                 'z-index': 99
-            });
+            })
+            .append($('#serverinfo'))
+            .append($('#topmenucontainer'));
         // Allow the DOM to render, then adjust the padding on the body
         setTimeout(function () {
             $('body').css(
