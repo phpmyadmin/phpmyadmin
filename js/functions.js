@@ -5147,7 +5147,7 @@ Functions.configGet = function (key, cached) {
 };
 
 /**
- * Return POST data as stored by Util::linkOrButton
+ * Return POST data as stored by Generator::linkOrButton
  */
 Functions.getPostData = function () {
     var dataPost = this.attr('data-post');
