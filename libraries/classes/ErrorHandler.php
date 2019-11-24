@@ -51,7 +51,9 @@ class ErrorHandler
         if (! defined('TESTSUITE')) {
             set_error_handler([$this, 'handleError']);
         }
-        $this->error_reporting = error_reporting();
+        if (function_exists('error_reporting')) {
+            $this->error_reporting = error_reporting();
+        }
     }
 
     /**
@@ -160,16 +162,23 @@ class ErrorHandler
         string $errfile,
         int $errline
     ): void {
-        /**
-         * Check if Error Control Operator (@) was used, but still show
-         * user errors even in this case.
-         */
-        if (error_reporting() == 0 &&
-            $this->error_reporting != 0 &&
-            ($errno & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE)) == 0
-        ) {
-            return;
+        if (function_exists('error_reporting')) {
+            /**
+            * Check if Error Control Operator (@) was used, but still show
+            * user errors even in this case.
+            */
+            if (error_reporting() == 0 &&
+                $this->error_reporting != 0 &&
+                ($errno & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE)) == 0
+            ) {
+                return;
+            }
+        } else {
+            if (($errno & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE)) == 0) {
+                return;
+            }
         }
+
         $this->addError($errstr, $errno, $errfile, $errline, true);
     }
 
