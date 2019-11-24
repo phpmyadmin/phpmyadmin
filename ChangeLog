@@ -3,6 +3,7 @@ phpMyAdmin - ChangeLog
 
 4.9.3 (not yet released)
 - issue #15570 Fix page contents go underneath of floating menubar in some cases
+- issue #15591 Fix php notice 'Undefined index: foreign_keys_data' on relations view when the user has column access
 
 4.9.2 (2019-11-21)
 - issue #14184 Change the cookie name from phpMyAdmin to phpMyAdmin_https for HTTPS, fixes many "Failed to set session cookie" errors
