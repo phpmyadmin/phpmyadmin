@@ -4,6 +4,10 @@
  * @package PhpMyAdmin
  */
 
+import $ from 'jquery';
+import AJAX from 'ajax';
+import Messages from 'messages';
+
 /**
  * Unbind all event handlers before tearing down a page
  */
