@@ -50,7 +50,9 @@ class ErrorHandler
         if (!defined('TESTSUITE')) {
             set_error_handler(array($this, 'handleError'));
         }
-        $this->error_reporting = error_reporting();
+        if (function_exists('error_reporting')) {
+            $this->error_reporting = error_reporting();
+        }
     }
 
     /**
@@ -157,6 +159,10 @@ class ErrorHandler
      */
     public function handleError($errno, $errstr, $errfile, $errline)
     {
+        if (! function_exists('error_reporting')) {
+            return;
+        }
+
         /**
          * Check if Error Control Operator (@) was used, but still show
          * user errors even in this case.
