@@ -159,20 +159,19 @@ class ErrorHandler
      */
     public function handleError($errno, $errstr, $errfile, $errline)
     {
-        if (! function_exists('error_reporting')) {
-            return;
+        if (function_exists('error_reporting')) {
+            /**
+            * Check if Error Control Operator (@) was used, but still show
+            * user errors even in this case.
+            */
+            if (error_reporting() == 0 &&
+                $this->error_reporting != 0 &&
+                ($errno & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE)) == 0
+            ) {
+                return;
+            }
         }
 
-        /**
-         * Check if Error Control Operator (@) was used, but still show
-         * user errors even in this case.
-         */
-        if (error_reporting() == 0 &&
-            $this->error_reporting != 0 &&
-            ($errno & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE)) == 0
-        ) {
-            return;
-        }
         $this->addError($errstr, $errno, $errfile, $errline, true);
     }
 
