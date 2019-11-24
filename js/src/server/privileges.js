@@ -8,6 +8,13 @@
  *
  */
 
+import $ from 'jquery';
+import AJAX from 'ajax';
+import CommonParams from 'commonParams';
+import Functions from 'functions';
+import Messages from 'messages';
+import Navigation from 'navigation';
+
 /**
  * Validates the "add a user" form
  *

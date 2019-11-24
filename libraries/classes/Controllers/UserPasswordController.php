@@ -36,7 +36,7 @@ class UserPasswordController extends AbstractController
 
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();
-        $scripts->addFile('server/privileges.js');
+        $scripts->addFile('dist/server/privileges.js');
         $scripts->addFile('vendor/zxcvbn.js');
 
         /**
