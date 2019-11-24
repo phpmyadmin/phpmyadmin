@@ -195,7 +195,7 @@ class TableRelationController extends TableController
                 'cfg_relation' => $this->cfgRelation,
                 'tbl_storage_engine' => $this->tbl_storage_engine,
                 'existrel' => isset($this->existrel) ? $this->existrel : array(),
-                'existrel_foreign' => isset($this->existrel_foreign)
+                'existrel_foreign' => is_array($this->existrel_foreign) && array_key_exists('foreign_keys_data', $this->existrel_foreign)
                     ? $this->existrel_foreign['foreign_keys_data'] : array(),
                 'options_array' => $this->options_array,
                 'column_array' => $column_array,
@@ -256,7 +256,7 @@ class TableRelationController extends TableController
                     $multi_edit_columns_name, $_POST['destination_foreign_table'],
                     $_POST['destination_foreign_column'], $this->options_array,
                     $this->table,
-                    isset($this->existrel_foreign)
+                    is_array($this->existrel_foreign) && array_key_exists('foreign_keys_data', $this->existrel_foreign)
                     ? $this->existrel_foreign['foreign_keys_data']
                     : null
                 );
