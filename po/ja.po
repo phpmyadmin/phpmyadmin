@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-11-22 01:33+0100\n"
-"PO-Revision-Date: 2019-08-30 00:23+0000\n"
+"PO-Revision-Date: 2019-11-26 00:04+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9-dev\n"
+"X-Generator: Weblate 3.10-dev\n"
 
 #: import_status.php:51
 msgid "Could not load the progress of the import."
@@ -1694,8 +1694,6 @@ msgid "%d object(s) created."
 msgstr "%d 個のオブジェクトを作成しました。"
 
 #: js/messages.php:590
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
 msgstr "カラム名"
 
@@ -2065,7 +2063,7 @@ msgstr "セキュリティキー「%s」の有効化が失敗しました。"
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
-msgstr "テーブル「 %s 」は既に存在しています!"
+msgstr "テーブル %s は既に存在します!"
 
 #: js/messages.php:766 libraries/classes/InsertEdit.php:308
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:56
@@ -3660,7 +3658,7 @@ msgstr "外部キーのチェック"
 
 #: libraries/classes/Config/Descriptions.php:285
 msgid "First day of calendar"
-msgstr ""
+msgstr "カレンダーの最初の日"
 
 #: libraries/classes/Config/Descriptions.php:286
 msgid "Browse mode"
@@ -7219,16 +7217,12 @@ msgstr ""
 "ください！"
 
 #: libraries/classes/Database/Designer/Common.php:531
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
-msgstr "構成ストレージは、カラムの中央リスト機能の準備ができていません。"
+msgstr "phpMyAdmin構成ストレージは「表示機能」に設定されません。"
 
 #: libraries/classes/Database/Designer/Common.php:580
 msgid "Error: relationship already exists."
@@ -8144,7 +8138,7 @@ msgstr "phpMyAdmin デモ サーバー"
 #: libraries/classes/Footer.php:88
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr "Git %2$sブランチの リビジョン%1$s  を実行しています。"
+msgstr "Git %2$sブランチの リビジョン%1$s を実行しています。"
 
 #: libraries/classes/Footer.php:95
 msgid "Git information missing!"
@@ -12526,8 +12520,6 @@ msgstr "最長: %s%s"
 
 #. l10n: Short week day name for Sunday
 #: libraries/classes/Util.php:696
-#, fuzzy
-#| msgid "Sun"
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "日"
@@ -13154,11 +13146,9 @@ msgid "See table structure"
 msgstr "テーブルの構造を参照"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgctxt "Create SELECT … query"
-#| msgid "Select"
+#, php-format
 msgid "Select \"%s\""
-msgstr "全選択"
+msgstr "「%s」を選択"
 
 #: templates/database/designer/database_tables.twig:109
 #, php-format
@@ -17018,7 +17008,7 @@ msgstr "異なるtmp_table_size と max_heap_table_size"
 
 #: libraries/advisory_rules_generic.txt:208
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
-msgstr "{tmp_table_size}  と {max_heap_table_size} が同じ値ではありません。"
+msgstr "{tmp_table_size} と {max_heap_table_size} が同じ値ではありません。"
 
 #: libraries/advisory_rules_generic.txt:209
 msgid ""
@@ -17130,13 +17120,13 @@ msgstr "key_buffer_size は 0 です"
 #: libraries/advisory_rules_generic.txt:235
 #, php-format
 msgid "Max %% MyISAM key buffer ever used"
-msgstr "使われていた MyISAM キーバッファの最大比率"
+msgstr "使われていた %%MyISAM キーバッファの最大比率"
 
 #: libraries/advisory_rules_generic.txt:238
 #: libraries/advisory_rules_generic.txt:246
 #, php-format
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr "MyISAM キーバッファ（インデックスキャッシュ）の使用率が低いです。"
+msgstr "MyISAM キーバッファ%%（インデックスキャッシュ）の使用率が低いです。"
 
 #: libraries/advisory_rules_generic.txt:239
 #: libraries/advisory_rules_generic.txt:247
@@ -17153,9 +17143,7 @@ msgstr ""
 #, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
-msgstr ""
-"使われていた MyISAM キーバッファの最大比率: %s%%。この値は、95%% 以上がいいと"
-"言われています"
+msgstr "使われていた %% MyISAM キーバッファの最大比率: %s%%。この値は、95%% 以上がいいと言われています"
 
 #: libraries/advisory_rules_generic.txt:243
 msgid "Percentage of MyISAM key buffer used"
@@ -17164,9 +17152,7 @@ msgstr "MyISAM キーバッファの使用比率"
 #: libraries/advisory_rules_generic.txt:248
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
-msgstr ""
-"MyISAM キーバッファの使用比率: %s%%。この値は、95%% 以上がいいと言われていま"
-"す"
+msgstr "%% MyISAM キーバッファの使用比率: %s%%。この値は、95%% 以上がいいと言われています"
 
 #: libraries/advisory_rules_generic.txt:250
 msgid "Percentage of index reads from memory"
@@ -17175,7 +17161,7 @@ msgstr "メモリから読み込まれるインデックスの比率"
 #: libraries/advisory_rules_generic.txt:253
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
-msgstr "MyISAM キーバッファを使用するインデックスの比率が低いです。"
+msgstr "MyISAM キーバッファを使用するインデックス%%の比率が低いです。"
 
 #: libraries/advisory_rules_generic.txt:254
 msgid "You may need to increase {key_buffer_size}."
@@ -17207,8 +17193,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.txt:264
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
-msgstr ""
-"テーブルを開く割合：%s  この値は、1 時間当たり 10 未満が良いと言われています"
+msgstr "テーブルを開く割合：%s この値は、1 時間当たり 10 未満が良いと言われています"
 
 #: libraries/advisory_rules_generic.txt:266
 msgid "Percentage of used open files limit"
@@ -17257,7 +17242,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.txt:280
 #, php-format
 msgid "Immediate table locks %%"
-msgstr "速やかに行われたテーブルロックの比率"
+msgstr "速やかに行われたテーブルロック%%の比率"
 
 #: libraries/advisory_rules_generic.txt:283
 #: libraries/advisory_rules_generic.txt:290
@@ -17314,7 +17299,7 @@ msgstr "スレッドキャッシュは 0 に設定されています"
 #: libraries/advisory_rules_generic.txt:301
 #, php-format
 msgid "Thread cache hit rate %%"
-msgstr "スレッドキャッシュのヒット率"
+msgstr "スレッドキャッシュのヒット率%%"
 
 #: libraries/advisory_rules_generic.txt:304
 msgid "Thread cache is not efficient."
@@ -17365,9 +17350,7 @@ msgstr "Slow_launch_time が 2 秒を超えています。"
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch."
-msgstr ""
-"起動が遅いスレッドなくなるように、{slow_launch_time}  を 1 秒か 2 秒に設定し"
-"てください。"
+msgstr "起動が遅いスレッドなくなるように、{slow_launch_time} を 1 秒か 2 秒に設定してください。"
 
 #: libraries/advisory_rules_generic.txt:320
 #, php-format
