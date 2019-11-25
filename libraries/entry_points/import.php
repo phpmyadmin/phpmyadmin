@@ -459,6 +459,29 @@ $read_limit = $memory_limit / 8;
 
 // handle filenames
 if (isset($_FILES['import_file'])) {
+    $fileName = $_FILES['import_file']["name"];
+    $explodeByDot = explode(".",$fileName);
+    $sizeOfExplodedArray= sizeof($explodeByDot);
+    if($sizeOfExplodedArray < 2){
+        $message = PhpMyAdmin\Message::error(
+            __(
+                'Invalid file .'
+            )
+        );
+        $import->stop($message);
+    } else {
+        $extension =$explodeByDot[$sizeOfExplodedArray-1];
+        $validExtension = array('csv','sql','xml','txt','ods','atx','ain','aih','dbf','gz','zip','bz2');
+        if (!in_array($extension,$validExtension)) {
+            $message = PhpMyAdmin\Message::error(
+                __(
+                    ('Invalid file format . Valid file format (\'csv\',\'sql\',\'xml\',\'txt\',\'ods\',\'atx\',\'ain\',\'aih\',\'dbf\',\'gz\',\'zip\',\'bz2\')')
+                )
+            );
+            $import->stop($message);
+        }
+    }
+
     $import_file = $_FILES['import_file']['tmp_name'];
     $import_file_name = $_FILES['import_file']['name'];
 }
@@ -487,7 +510,9 @@ if ($import_file != 'none' && ! $error) {
     /**
      *  Handle file compression
      */
+
     $import_handle = new File($import_file);
+
     $import_handle->checkUploadedFile();
     if ($import_handle->isError()) {
         $import->stop($import_handle->getError());
