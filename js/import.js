@@ -30,6 +30,15 @@ function matchFile (fname) {
     var len = fnameArray.length;
     if (len !== 0) {
         var extension = fnameArray[len - 1];
+        // list of valid extension
+        var validExt = ['csv','sql','xml','txt','ods','atx','ain','aih','dbf','gz','zip','bz2'];
+        if (!validExt.includes(extension)) {
+            // alert error response
+            alert(
+                'Invalid file format . Valid file format (\'csv\',\'sql\',\'xml\',\'txt\',\'ods\',\'atx\',\'ain\',\'aih\',\'dbf\',\'gz\',\'zip\',\'bz2\')\n');
+            // clear the input field to force user to upload again
+            $('#input_import_file').val('');
+        }
         if (extension === 'gz' || extension === 'bz2' || extension === 'zip') {
             len--;
         }
