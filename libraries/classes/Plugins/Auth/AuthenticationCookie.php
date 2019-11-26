@@ -357,7 +357,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         // and $this->password variables from cookies
 
         // check cookies
-        $serverCookie = $GLOBALS['PMA_Config']->getCookie('pmaUser-' . $GLOBALS['server']);
+        $serverCookie = ( $GLOBALS['PMA_Config']->issetCookie('pmaUser-' . $GLOBALS['server']) ? $GLOBALS['PMA_Config']->getCookie('pmaUser-' . $GLOBALS['server']) : '' );
         if (empty($serverCookie)) {
             return false;
         }
