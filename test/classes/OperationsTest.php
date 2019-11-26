@@ -198,7 +198,7 @@ class OperationsTest extends TestCase
             'doclink',
         ]);
         $this->assertStringContainsString(
-            'href="index.php?route=/sql&amp;name=foo&amp;value=bar',
+            'href="http://localhost/index.php?route=/sql&amp;name=foo&amp;value=bar',
             $result
         );
         $this->assertStringContainsString(
@@ -265,7 +265,7 @@ class OperationsTest extends TestCase
             ]
         );
         $this->assertStringContainsString(
-            'action="index.php?route=/table/operations',
+            'action="http://localhost/index.php?route=/table/operations',
             $html
         );
         $this->assertRegExp('/.*ANALYZE.*/', $html);
@@ -300,7 +300,7 @@ class OperationsTest extends TestCase
             $actual
         );
         $this->assertStringContainsString(
-            'href="index.php?route=/sql',
+            'href="http://localhost/index.php?route=/sql',
             $actual
         );
     }

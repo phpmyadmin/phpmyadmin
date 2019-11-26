@@ -27,6 +27,10 @@ class UrlExtension extends AbstractExtension
     {
         return [
             new TwigFunction(
+                'base_url',
+                'PhpMyAdmin\Url::getBaseUrl'
+            ),
+            new TwigFunction(
                 'get_hidden_inputs',
                 'PhpMyAdmin\Url::getHiddenInputs',
                 ['is_safe' => ['html']]

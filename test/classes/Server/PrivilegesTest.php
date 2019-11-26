@@ -1942,12 +1942,12 @@ class PrivilegesTest extends TestCase
         $this->assertStringContainsString('<td>A</td>', $actual);
         $this->assertStringContainsString('<td>Z</td>', $actual);
         $this->assertStringContainsString(
-            '<a class="ajax" href="index.php?route=/server/privileges&amp;initial=-'
+            '<a class="ajax" href="http://localhost/index.php?route=/server/privileges&amp;initial=-'
             . '&amp;lang=en">-</a>',
             $actual
         );
         $this->assertStringContainsString(
-            '<a class="ajax" href="index.php?route=/server/privileges&amp;initial=%22'
+            '<a class="ajax" href="http://localhost/index.php?route=/server/privileges&amp;initial=%22'
             . '&amp;lang=en">"</a>',
             $actual
         );

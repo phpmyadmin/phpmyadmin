@@ -197,7 +197,7 @@ class ReplicationGuiTest extends TestCase
 
         //validate 4: navigation URL
         $this->assertStringContainsString(
-            '<a href="index.php?route=/server/replication',
+            '<a href="http://localhost/index.php?route=/server/replication',
             $html
         );
         $this->assertStringContainsString(
@@ -278,7 +278,7 @@ class ReplicationGuiTest extends TestCase
         );
 
         $this->assertStringContainsString(
-            '<form method="post" action="index.php?route=/server/replication',
+            '<form method="post" action="http://localhost/index.php?route=/server/replication',
             $html
         );
         $this->assertStringContainsString(

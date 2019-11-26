@@ -278,6 +278,32 @@ class Url
      */
     public static function getFromRoute(string $route, array $additionalParameters = []): string
     {
-        return 'index.php?route=' . $route . self::getCommon($additionalParameters, '&');
+        return self::getBaseUrl() . '/index.php?route=' . $route . self::getCommon($additionalParameters, '&');
+    }
+
+    /**
+     * @return string
+     */
+    public static function getBaseUrl(): string
+    {
+        $scheme = 'https';
+        if (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] === 'off') {
+            $scheme = 'http';
+        }
+        $host = $_SERVER['SERVER_NAME'];
+        if (! empty($_SERVER['HTTP_HOST'])) {
+            $host = $_SERVER['HTTP_HOST'];
+            if (strpos($host, ':') !== false) {
+                $pieces = explode(':', $host);
+                $host = $pieces[0];
+            }
+        }
+        $url = $scheme . '://' . $host;
+        $port = (int) ($_SERVER['SERVER_PORT'] ?? 80);
+        if (($scheme === 'https' && $port !== 443) || ($scheme === 'http' && $port !== 80)) {
+            $url .= ':' . $port;
+        }
+        $basePath = rtrim(dirname($_SERVER['SCRIPT_NAME'] ?? ''), '/');
+        return $url . $basePath;
     }
 }

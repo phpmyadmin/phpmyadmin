@@ -70,6 +70,8 @@ if (PHP_SAPI == 'cli') {
 require_once ROOT_PATH . 'libraries/vendor_config.php';
 require_once AUTOLOAD_FILE;
 Loader::loadFunctions();
+$_SERVER['SERVER_NAME'] = 'localhost';
+$_SERVER['SCRIPT_NAME'] = '/index.php';
 $GLOBALS['PMA_Config'] = new Config();
 // Initialize PMA_VERSION variable
 define('PMA_VERSION', $GLOBALS['PMA_Config']->get('PMA_VERSION'));

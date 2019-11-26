@@ -132,7 +132,7 @@ class TransformationPluginsTest extends PmaTestCase
                 '<input type="hidden" name="fields_prev2ndtest" '
                 . 'value="736f6d657468696e67"><input type="hidden" '
                 . 'name="fields2ndtest" value="736f6d657468696e67">'
-                . '<img src="index.php?route=/transformation/wrapper&amp;key=value&amp;lang=en" width="100" '
+                . '<img src="http://localhost/index.php?route=/transformation/wrapper&amp;key=value&amp;lang=en" width="100" '
                 . 'height="100" alt="Image preview here"><br><input type="file" '
                 . 'name="fields_upload2ndtest" accept="image/*" '
                 . 'class="image-upload">',
@@ -789,7 +789,7 @@ class TransformationPluginsTest extends PmaTestCase
                         'wrapper_params' => ['key' => 'value'],
                     ],
                 ],
-                '<a href="index.php?route=/transformation/wrapper&amp;key=value'
+                '<a href="http://localhost/index.php?route=/transformation/wrapper&amp;key=value'
                 . '&amp;ct=application%2Foctet-stream&amp;cn=filename&amp;lang=en" '
                 . 'title="filename" class="disableAjax">filename</a>',
             ],
@@ -804,7 +804,7 @@ class TransformationPluginsTest extends PmaTestCase
                         'wrapper_params' => ['key' => 'value'],
                     ],
                 ],
-                '<a href="index.php?route=/transformation/wrapper&amp;key=value'
+                '<a href="http://localhost/index.php?route=/transformation/wrapper&amp;key=value'
                 . '&amp;ct=application%2Foctet-stream&amp;cn=binary_file.dat&amp;lang=en" '
                 . 'title="binary_file.dat" class="disableAjax">binary_file.dat</a>',
             ],
@@ -844,7 +844,7 @@ class TransformationPluginsTest extends PmaTestCase
                     ],
                 ],
                 '<a class="disableAjax" target="_blank" rel="noopener noreferrer"'
-                . ' href="index.php?route=/transformation/wrapper&amp;key=value&amp;lang=en"'
+                . ' href="http://localhost/index.php?route=/transformation/wrapper&amp;key=value&amp;lang=en"'
                 . ' alt="[PMA_IMAGE_LINK]">[BLOB]</a>',
             ],
             [
@@ -1085,8 +1085,8 @@ class TransformationPluginsTest extends PmaTestCase
                         'wrapper_params' => ['key' => 'value'],
                     ],
                 ],
-                '<a href="index.php?route=/transformation/wrapper&amp;key=value&amp;lang=en" '
-                . 'rel="noopener noreferrer" target="_blank"><img src="index.php?route=/transformation/wrapper'
+                '<a href="http://localhost/index.php?route=/transformation/wrapper&amp;key=value&amp;lang=en" '
+                . 'rel="noopener noreferrer" target="_blank"><img src="http://localhost/index.php?route=/transformation/wrapper'
                 . '&amp;key=value&amp;resize=jpeg&amp;newWidth=0&amp;'
                 . 'newHeight=200&amp;lang=en" alt="[PMA_JPEG_Inline]" border="0"></a>',
             ];
@@ -1101,8 +1101,8 @@ class TransformationPluginsTest extends PmaTestCase
                         'wrapper_params' => ['key' => 'value'],
                     ],
                 ],
-                '<a href="index.php?route=/transformation/wrapper&amp;key=value&amp;lang=en"'
-                . ' rel="noopener noreferrer" target="_blank"><img src="index.php?route=/transformation/wrapper'
+                '<a href="http://localhost/index.php?route=/transformation/wrapper&amp;key=value&amp;lang=en"'
+                . ' rel="noopener noreferrer" target="_blank"><img src="http://localhost/index.php?route=/transformation/wrapper'
                 . '&amp;key=value&amp;resize=jpeg&amp;newWidth=0&amp;newHeight=200&amp;lang=en" '
                 . 'alt="[PMA_PNG_Inline]" border="0"></a>',
             ];

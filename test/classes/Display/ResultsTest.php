@@ -142,7 +142,7 @@ class ResultsTest extends PmaTestCase
         );
 
         $this->assertStringContainsString(
-            '<form action="index.php?route=/sql',
+            '<form action="http://localhost/index.php?route=/sql',
             $actual
         );
         $this->assertStringContainsString(
@@ -1392,7 +1392,7 @@ class ResultsTest extends PmaTestCase
                 $meta,
                 $url_params,
                 null,
-                '<a href="index.php?route=/table/get_field&amp;db=foo&amp;table=bar&amp;server=0'
+                '<a href="http://localhost/index.php?route=/table/get_field&amp;db=foo&amp;table=bar&amp;server=0'
                 . '&amp;lang=en'
                 . '" class="disableAjax">1001</a>',
             ],
@@ -1413,7 +1413,7 @@ class ResultsTest extends PmaTestCase
                 $meta,
                 $url_params,
                 null,
-                '<a href="index.php?route=/table/get_field&amp;db=foo&amp;table=bar&amp;server=0'
+                '<a href="http://localhost/index.php?route=/table/get_field&amp;db=foo&amp;table=bar&amp;server=0'
                 . '&amp;lang=en'
                 . '" class="disableAjax">0x123456</a>',
             ],
@@ -1434,7 +1434,7 @@ class ResultsTest extends PmaTestCase
                 $meta,
                 $url_params,
                 null,
-                '<a href="index.php?route=/table/get_field&amp;db=foo&amp;table=bar&amp;server=0'
+                '<a href="http://localhost/index.php?route=/table/get_field&amp;db=foo&amp;table=bar&amp;server=0'
                 . '&amp;lang=en'
                 . '" class="disableAjax">[BLOB - 4 B]</a>',
             ],
@@ -1585,7 +1585,7 @@ class ResultsTest extends PmaTestCase
                 0,
                 'binary',
                 '<td class="left   hex">' . "\n"
-                . '    <a href="index.php?route=/table/get_field&amp;'
+                . '    <a href="http://localhost/index.php?route=/table/get_field&amp;'
                 . 'db=foo&amp;table=tbl&amp;server=0&amp;lang=en'
                 . '" '
                 . 'class="disableAjax">[BLOB - 4 B]</a>' . "\n"

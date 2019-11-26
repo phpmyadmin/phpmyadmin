@@ -113,4 +113,54 @@ class UrlTest extends TestCase
         $expected = '?server=x' . htmlentities($separator) . 'lang=en' ;
         $this->assertEquals($expected, Url::getCommon());
     }
+
+    /**
+     * @param string      $expected   Expected result.
+     * @param string|null $https      HTTPS value of $_SERVER array.
+     * @param string|null $host       HTTP_HOST value of $_SERVER array.
+     * @param string|null $port       SERVER_PORT value of $_SERVER array.
+     * @param string|null $serverName SERVER_NAME value of $_SERVER array.
+     * @param string|null $scriptName SCRIPT_NAME value of $_SERVER array.
+     *
+     * @return void
+     *
+     * @dataProvider getBaseUrlProvider
+     */
+    public function testGetBaseUrl(
+        string $expected,
+        ?string $https,
+        ?string $host,
+        ?string $port,
+        ?string $serverName,
+        ?string $scriptName
+    ): void {
+        $_SERVER['HTTPS'] = $https;
+        $_SERVER['HTTP_HOST'] = $host;
+        $_SERVER['SERVER_PORT'] = $port;
+        $_SERVER['SERVER_NAME'] = $serverName;
+        $_SERVER['SCRIPT_NAME'] = $scriptName;
+        $url = Url::getBaseUrl();
+        $this->assertEquals($expected, $url);
+    }
+
+    /**
+     * @return array
+     */
+    public function getBaseUrlProvider(): array
+    {
+        return [
+            ['http://localhost', null, 'localhost', null, null, null],
+            ['http://localhost', 'off', 'localhost', '80', null, null],
+            ['http://localhost:123', '', 'localhost', '123', null, null],
+            ['https://localhost', 'on', 'localhost', '443', null, null],
+            ['https://localhost:123', 'on', 'localhost', '123', null, null],
+            ['http://localhost:321', null, 'localhost:123', '321', '0.0.0.0', null],
+            ['http://0.0.0.0', null, null, '80', '0.0.0.0', null],
+            ['http://0.0.0.0:123', null, null, '123', '0.0.0.0', null],
+            ['http://localhost', null, 'localhost', '80', null, '/index.php'],
+            ['http://localhost/phpmyadmin', null, 'localhost', '80', null, '/phpmyadmin/index.php'],
+            ['http://localhost:123', null, 'localhost', '123', null, '/index.php'],
+            ['http://localhost:123/phpmyadmin', null, 'localhost', '123', null, '/phpmyadmin/index.php'],
+        ];
+    }
 }

@@ -64,7 +64,7 @@ class ScriptsTest extends PmaTestCase
         $actual = $this->object->getDisplay();
 
         $this->assertStringContainsString(
-            'src="js/common.js?v=' . PMA_VERSION . '"',
+            'src="http://localhost/js/common.js?v=' . PMA_VERSION . '"',
             $actual
         );
         $this->assertStringContainsString(

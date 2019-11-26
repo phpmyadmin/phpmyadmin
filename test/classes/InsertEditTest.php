@@ -36,34 +36,15 @@ class InsertEditTest extends TestCase
      */
     protected function setUp(): void
     {
+        $GLOBALS['PMA_Config'] = new Config();
+        $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 1;
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
-        $GLOBALS['cfg']['LimitChars'] = 50;
-        $GLOBALS['cfg']['LongtextDoubleTextarea'] = false;
-        $GLOBALS['cfg']['ShowFieldTypesInDataEditView'] = true;
-        $GLOBALS['cfg']['ShowFunctionFields'] = true;
-        $GLOBALS['cfg']['ProtectBinary'] = 'blob';
-        $GLOBALS['cfg']['MaxSizeForInputField'] = 10;
-        $GLOBALS['cfg']['MinSizeForInputField'] = 2;
-        $GLOBALS['cfg']['TextareaRows'] = 5;
-        $GLOBALS['cfg']['TextareaCols'] = 4;
-        $GLOBALS['cfg']['CharTextareaRows'] = 5;
-        $GLOBALS['cfg']['CharTextareaCols'] = 6;
-        $GLOBALS['cfg']['AllowThirdPartyFraming'] = false;
-        $GLOBALS['cfg']['SendErrorReports'] = 'ask';
-        $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
-        $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'] = true;
-        $GLOBALS['cfg']['DefaultTabTable'] = 'browse';
-        $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = 'structure';
-        $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'] = '';
-        $GLOBALS['cfg']['Confirm'] = true;
-        $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
-        $GLOBALS['cfg']['enable_drag_drop_import'] = true;
-        $GLOBALS['PMA_Config'] = new Config();
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
     }
@@ -361,11 +342,11 @@ class InsertEditTest extends TestCase
         $result = $this->insertEdit->showTypeOrFunction('function', $url_params, false);
 
         $this->assertStringContainsString(
-            'index.php?route=/table/change',
+            'http://localhost/index.php?route=/table/change',
             $result
         );
         $this->assertStringContainsString(
-            'ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=1&amp;goto=index.php%3Froute%3D%2Fsql',
+            'ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=1&amp;goto=http%3A%2F%2Flocalhost%2Findex.php%3Froute%3D%2Fsql',
             $result
         );
         $this->assertStringContainsString(
@@ -381,7 +362,7 @@ class InsertEditTest extends TestCase
             $result
         );
         $this->assertStringContainsString(
-            'ShowFunctionFields=0&amp;ShowFieldTypesInDataEditView=1&amp;goto=index.php%3Froute%3D%2Fsql',
+            'ShowFunctionFields=0&amp;ShowFieldTypesInDataEditView=1&amp;goto=http%3A%2F%2Flocalhost%2Findex.php%3Froute%3D%2Fsql',
             $result
         );
         $this->assertStringContainsString(
@@ -397,7 +378,7 @@ class InsertEditTest extends TestCase
             $result
         );
         $this->assertStringContainsString(
-            'ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=1&amp;goto=index.php%3Froute%3D%2Fsql',
+            'ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=1&amp;goto=http%3A%2F%2Flocalhost%2Findex.php%3Froute%3D%2Fsql',
             $result
         );
         $this->assertStringContainsString(
@@ -413,7 +394,7 @@ class InsertEditTest extends TestCase
             $result
         );
         $this->assertStringContainsString(
-            'ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=0&amp;goto=index.php%3Froute%3D%2Fsql',
+            'ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=0&amp;goto=http%3A%2F%2Flocalhost%2Findex.php%3Froute%3D%2Fsql',
             $result
         );
         $this->assertStringContainsString(
@@ -1028,7 +1009,7 @@ class InsertEditTest extends TestCase
             $result
         );
         $this->assertStringContainsString(
-            '<a class="ajax browse_foreign" href="index.php?route=/browse-foreigners',
+            '<a class="ajax browse_foreign" href="http://localhost/index.php?route=/browse-foreigners',
             $result
         );
 
@@ -2634,7 +2615,7 @@ class InsertEditTest extends TestCase
     {
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $this->assertEquals(
-            'index.php?route=/table/change&amp;lang=en',
+            'http://localhost/index.php?route=/table/change&amp;lang=en',
             $this->insertEdit->getErrorUrl([])
         );
 
@@ -2957,7 +2938,7 @@ class InsertEditTest extends TestCase
         $result = $this->insertEdit->getLinkForRelationalDisplayField($map, 'f', "=1", "a>", "b<");
 
         $this->assertEquals(
-            '<a href="index.php?route=/sql&amp;db=information_schema&amp;table=TABLES&amp;pos=0&amp;'
+            '<a href="http://localhost/index.php?route=/sql&amp;db=information_schema&amp;table=TABLES&amp;pos=0&amp;'
             . 'sql_query=SELECT+%2A+FROM+%60information_schema%60.%60TABLES%60+WHERE'
             . '+%60f%60%3D1&amp;lang=en" title="a&gt;">b&lt;</a>',
             $result
@@ -2967,7 +2948,7 @@ class InsertEditTest extends TestCase
         $result = $this->insertEdit->getLinkForRelationalDisplayField($map, 'f', "=1", "a>", "b<");
 
         $this->assertEquals(
-            '<a href="index.php?route=/sql&amp;db=information_schema&amp;table=TABLES&amp;pos=0&amp;'
+            '<a href="http://localhost/index.php?route=/sql&amp;db=information_schema&amp;table=TABLES&amp;pos=0&amp;'
             . 'sql_query=SELECT+%2A+FROM+%60information_schema%60.%60TABLES%60+WHERE'
             . '+%60f%60%3D1&amp;lang=en" title="b&lt;">a&gt;</a>',
             $result
