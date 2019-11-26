@@ -50,6 +50,16 @@ services:
       relation: '@relation'
       transformations: '@transformations'
 
+  PhpMyAdmin\Controllers\Database\DesignerController:
+    class: 'PhpMyAdmin\Controllers\Database\DesignerController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      db: '%db%'
+      databaseDesigner: '@designer'
+      designerCommon: '@designer_common'
+
   PhpMyAdmin\Controllers\Database\EventsController:
     class: 'PhpMyAdmin\Controllers\Database\EventsController'
     arguments:

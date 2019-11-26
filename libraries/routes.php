@@ -11,6 +11,7 @@ use PhpMyAdmin\Controllers\BrowseForeignersController;
 use PhpMyAdmin\Controllers\ChangeLogController;
 use PhpMyAdmin\Controllers\CheckRelationsController;
 use PhpMyAdmin\Controllers\Database\DataDictionaryController;
+use PhpMyAdmin\Controllers\Database\DesignerController;
 use PhpMyAdmin\Controllers\Database\MultiTableQueryController;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Controllers\ErrorReportController;
@@ -124,8 +125,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             $controller = $containerBuilder->get(DataDictionaryController::class);
             $response->addHTML($controller->index($vars));
         });
-        $routes->addRoute(['GET', 'POST'], '/designer', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/database/designer.php';
+        $routes->addRoute(['GET', 'POST'], '/designer', function () use ($containerBuilder) {
+            /** @var DesignerController $controller */
+            $controller = $containerBuilder->get(DesignerController::class);
+            $controller->index();
         });
         $routes->addRoute(['GET', 'POST'], '/events', function () {
             require_once ROOT_PATH . 'libraries/entry_points/database/events.php';
