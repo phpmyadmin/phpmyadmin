@@ -213,50 +213,6 @@ class Generator
     }
 
     /**
-     * returns html-code for a tab navigation
-     *
-     * @param array  $tabs       one element per tab
-     * @param array  $url_params additional URL parameters
-     * @param string $menu_id    HTML id attribute for the menu container
-     * @param bool   $resizable  whether to add a "resizable" class
-     *
-     * @return string  html-code for tab-navigation
-     * @throws Throwable
-     * @throws Twig_Error_Loader
-     * @throws Twig_Error_Runtime
-     * @throws Twig_Error_Syntax
-     */
-    public static function getHtmlTabs(
-        array $tabs,
-        array $url_params,
-        $menu_id,
-        $resizable = false
-    ): string {
-        $class = '';
-        if ($resizable) {
-            $class = ' class="resizable-menu"';
-        }
-
-        $tab_navigation = '<div id="' . htmlentities($menu_id)
-            . 'container" class="menucontainer">'
-            . '<i class="scrollindicator scrollindicator--left"><a href="#" class="tab"></a></i>'
-            . '<div class="navigationbar"><ul id="' . htmlentities($menu_id) . '" ' . $class . '>';
-
-        foreach ($tabs as $tab) {
-            $tab_navigation .= self::getHtmlTab($tab, $url_params);
-        }
-        $tab_navigation .= '';
-
-        $tab_navigation .=
-            '<div class="clearfloat"></div>'
-            . '</ul></div>' . "\n"
-            . '<i class="scrollindicator scrollindicator--right"><a href="#" class="tab"></a></i>'
-            . '</div>' . "\n";
-
-        return $tab_navigation;
-    }
-
-    /**
      * Generate a button or image tag
      *
      * @param string $button_name  name of button element

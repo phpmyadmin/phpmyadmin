@@ -91,7 +91,7 @@ class Menu
      *
      * @return string HTML formatted menubar
      */
-    private function _getMenu()
+    private function _getMenu(): string
     {
         $url_params = [];
 
@@ -115,7 +115,11 @@ class Menu
                 unset($tabs[$key]);
             }
         }
-        return Generator::getHtmlTabs($tabs, $url_params, 'topmenu', true);
+        $template = new Template();
+        return $template->render('top_menu', [
+            'tabs' => $tabs,
+            'url_params' => $url_params,
+        ]);
     }
 
     /**

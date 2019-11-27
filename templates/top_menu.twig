@@ -1,0 +1,12 @@
+<div id="topmenucontainer" class="menucontainer">
+  <i class="scrollindicator scrollindicator--left"><a href="#" class="tab"></a></i>
+  <div class="navigationbar">
+    <ul id="topmenu" class="resizable-menu">
+      {% for tab in tabs %}
+        {{ get_html_tab(tab, url_params) }}
+      {% endfor %}
+      <div class="clearfloat"></div>
+    </ul>
+  </div>
+  <i class="scrollindicator scrollindicator--right"><a href="#" class="tab"></a></i>
+</div>
