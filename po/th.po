@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-11-22 01:29+0100\n"
-"PO-Revision-Date: 2019-11-07 02:04+0000\n"
-"Last-Translator: Kongfa Warorot <gongpha@hotmail.com>\n"
+"PO-Revision-Date: 2019-11-30 11:04+0000\n"
+"Last-Translator: AnawinWz <imonmac@hotmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-9/th/>"
 "\n"
 "Language: th\n"
@@ -309,7 +309,8 @@ msgstr "ชื่อฐานข้อมูลว่างเปล่า!"
 
 #: db_operations.php:69
 msgid "Cannot copy database to the same name. Change the name and try again."
-msgstr "ไม่สามารถคัดลอกฐานข้อมูลเป็นชื่อเดียวกันได้ เปลี่ยนชื่อแล้วลองใหม่อีกครั้ง"
+msgstr ""
+"ไม่สามารถคัดลอกฐานข้อมูลด้วยชื่อเดียวกันได้ เปลี่ยนชื่อแล้วลองใหม่อีกครั้ง"
 
 #: db_operations.php:156
 #, php-format
@@ -319,17 +320,18 @@ msgstr "ฐานข้อมูล %1$s ได้ถูกเปลี่ยน
 #: db_operations.php:168
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
-msgstr "ฐานข้อมูล %1$s ได้ทำสำเนาในชื่อ %2$s แล้ว"
+msgstr "ฐานข้อมูล %1$s ได้ถูกคัดลอกไปยัง %2$s แล้ว"
 
 #: db_operations.php:297
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
-msgstr "การจัดเก็บการตั้งค่าของ phpMyAdmin ได้ถูกระงับเอาไว้ %sรายละเอียดเพิ่มเติม%s"
+msgstr ""
+"การจัดเก็บการตั้งค่าของ phpMyAdmin ถูกปิดใช้งานไว้ %sรายละเอียดเพิ่มเติม%s"
 
 #: db_qbe.php:133
 msgid "You have to choose at least one column to display!"
-msgstr "จำเป็นต้องเลือกแสดงอย่างน้อยหนึ่งคอลัมน์!"
+msgstr "คุณต้องเลือกแสดงผลอย่างน้อยหนึ่งคอลัมน์!"
 
 #: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
 msgid "Multi-table query"
@@ -1191,7 +1193,7 @@ msgstr "เฉลี่ยการทำงาน"
 
 #: js/messages.php:186
 msgid "Total memory"
-msgstr "จำนวนหน่วยความจำรวม"
+msgstr "หน่วยความจำทั้งหมด"
 
 #: js/messages.php:187
 msgid "Cached memory"
@@ -1211,7 +1213,7 @@ msgstr "หน่วยความจำที่ใช้ไป"
 
 #: js/messages.php:192
 msgid "Total swap"
-msgstr "จำนวนการสลับทั้งหมด"
+msgstr "การสลับทั้งหมด"
 
 #: js/messages.php:193
 msgid "Cached swap"
@@ -3708,9 +3710,8 @@ msgid "Debug SQL"
 msgstr "แก้จุดบกพร่อง SQL"
 
 #: libraries/classes/Config/Descriptions.php:171
-#, fuzzy
 msgid "Tab that is displayed when entering a database."
-msgstr "แท็บที่จะแสดงเมื่อป้อนฐานข้อมูล"
+msgstr "แท็บที่จะแสดงเมื่อเข้าสู่หน้าฐานข้อมูล"
 
 #: libraries/classes/Config/Descriptions.php:173
 msgid "Default database tab"
@@ -7326,10 +7327,9 @@ msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "มีข้อผิดพลาดระหว่างการอัพโหลด กรุณาดู [doc@faq1-11]FAQ 1.11[/doc]"
 
 #: libraries/classes/Display/Results.php:4555
-#, fuzzy, php-format
-#| msgid "Showing rows"
+#, php-format
 msgid "Showing rows %1s - %2s"
-msgstr "แสดงแถว"
+msgstr "กำลังแสดงแถวที่ %1s - %2s"
 
 #: libraries/classes/Display/Results.php:4570
 #, php-format
@@ -7343,10 +7343,9 @@ msgid "%d total"
 msgstr "ทั้งหมด"
 
 #: libraries/classes/Display/Results.php:4587 libraries/classes/Sql.php:1435
-#, fuzzy, php-format
-#| msgid "Query took %01.4f sec"
+#, php-format
 msgid "Query took %01.4f seconds."
-msgstr "คำค้นใช้เวลา %01.4f วินาที"
+msgstr "คำสั่งใช้เวลา %01.4f วินาที"
 
 #: libraries/classes/Display/Results.php:4686
 #: libraries/classes/Display/Results.php:4693 libraries/mult_submits.inc.php:57
@@ -10002,6 +10001,8 @@ msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
+"แปลงค่าบูลีนให้เป็นข้อความ (ค่าเริ่มต้นคือ 'T' และ 'F') ตัวเลือกแรกสำหรับค่า "
+"TRUE (จริง), ตัวเลือกที่สองสำหรับค่า FALSE (เท็จ) ค่าที่ไม่ใช่ศูนย์=เป็นจริง"
 
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:30
 msgid ""
@@ -13114,15 +13115,13 @@ msgid "Showing as PHP code"
 msgstr ""
 
 #: libraries/classes/Sql.php:1813
-#, fuzzy, php-format
-#| msgid ""
-#| "This table does not contain a unique column. Features related to the grid "
-#| "edit, checkbox, Edit, Copy and Delete links may not work after saving."
+#, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
-"ตารางนี้ไม่มีสดมภ์ไหนที่เก็บค่าที่แตกต่างกันเสมอ การแก้ไขหรือเพิ่มผ่านตารางจะไม่สามารถบันทึกได้"
+"ข้อมูลที่เลือกมาในขณะนี้ไม่มีคอลัมน์เอกลักษณ์อยู่ การแก้ไขในช่องตาราง, "
+"กล่องทำเครื่องหมายแก้ไข, คัดลอก, ลบอาจไม่พร้อมใช้งาน%s"
 
 #: libraries/classes/Sql.php:1827
 #, php-format
@@ -17966,7 +17965,7 @@ msgstr ""
 
 #: libraries/advisory_rules_mysql_before80003.txt:57
 msgid "query_cache_limit is set to 1 MiB"
-msgstr ""
+msgstr "query_cache_limit ถูกตั้งไว้ที่ 1 MiB"
 
 #~ msgid "Search results for \"<i>%s</i>\" %s:"
 #~ msgstr "ผลการค้นหา \"<i>%s</i>\" %s:"
