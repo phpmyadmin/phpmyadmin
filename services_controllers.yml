@@ -85,6 +85,15 @@ services:
       db: '%db%'
       privileges: '@server_privileges'
 
+  PhpMyAdmin\Controllers\Database\QueryByExampleController:
+    class: 'PhpMyAdmin\Controllers\Database\QueryByExampleController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      db: '%db%'
+      relation: '@relation'
+
   PhpMyAdmin\Controllers\Database\RoutinesController:
     class: 'PhpMyAdmin\Controllers\Database\RoutinesController'
     arguments:

@@ -13,6 +13,7 @@ use PhpMyAdmin\Controllers\CheckRelationsController;
 use PhpMyAdmin\Controllers\Database\DataDictionaryController;
 use PhpMyAdmin\Controllers\Database\DesignerController;
 use PhpMyAdmin\Controllers\Database\MultiTableQueryController;
+use PhpMyAdmin\Controllers\Database\QueryByExampleController;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Controllers\ErrorReportController;
 use PhpMyAdmin\Controllers\GisDataEditorController;
@@ -161,8 +162,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $routes->addRoute(['GET', 'POST'], '/operations', function () {
             require_once ROOT_PATH . 'libraries/entry_points/database/operations.php';
         });
-        $routes->addRoute(['GET', 'POST'], '/qbe', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/database/qbe.php';
+        $routes->addRoute(['GET', 'POST'], '/qbe', function () use ($containerBuilder) {
+            /** @var QueryByExampleController $controller */
+            $controller = $containerBuilder->get(QueryByExampleController::class);
+            $controller->index();
         });
         $routes->addRoute(['GET', 'POST'], '/routines', function () {
             require_once ROOT_PATH . 'libraries/entry_points/database/routines.php';
