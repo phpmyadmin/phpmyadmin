@@ -8,18 +8,20 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-11-22 01:31+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2019-11-30 11:04+0000\n"
+"Last-Translator: Eyob Shiferaw <eeyyoobb@gmail.com>\n"
+"Language-Team: Amharic <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
+"am/>\n"
 "Language: am\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.10-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
-msgstr ""
+msgstr "የማይረባ ዓይነት!"
 
 #: changelog.php:48 license.php:40
 #, possible-php-format
@@ -42,7 +44,7 @@ msgstr ""
 #: templates/navigation/tree/path.twig:9
 #: templates/database/structure/index.twig:19
 msgid "No tables found in database."
-msgstr ""
+msgstr "ዳታቤዝ ውስጥ ምንም ቴብል የለም"
 
 #: db_export.php:82 libraries/classes/Config/Descriptions.php:314
 #: libraries/classes/Controllers/Server/DatabasesController.php:393
@@ -52,7 +54,7 @@ msgstr ""
 #: libraries/classes/Server/Status/Data.php:130
 #: templates/database/structure/show_create.twig:14
 msgid "Tables"
-msgstr ""
+msgstr "ቴብሎች"
 
 #: db_export.php:83 js/messages.php:768
 #: libraries/classes/Config/Forms/User/ExportForm.php:59
@@ -83,7 +85,7 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:1236
 #: templates/table/structure/display_table_stats.twig:17
 msgid "Data"
-msgstr ""
+msgstr "ዳታ"
 
 #: db_export.php:87
 #: templates/server/replication/database_multibox.twig:7
@@ -91,11 +93,11 @@ msgstr ""
 #: templates/display/export/select_options.twig:4
 #: templates/database/search/main.twig:32
 msgid "Select all"
-msgstr ""
+msgstr "ሁሉንም ምረጥ"
 
 #: db_operations.php:69 tbl_create.php:50
 msgid "The database name is empty!"
-msgstr ""
+msgstr "የዳታቤዝ ስም ባዶ ነው!"
 
 #: db_operations.php:80
 msgid "Cannot copy database to the same name. Change the name and try again."
@@ -141,7 +143,7 @@ msgstr ""
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:78
 #: libraries/classes/Plugins/AuthenticationPlugin.php:195
 msgid "Access denied!"
-msgstr ""
+msgstr "የተከለከለ ነው!"
 
 #: db_tracking.php:62 db_tracking.php:82
 msgid "Tracking data deleted successfully."
@@ -155,7 +157,7 @@ msgstr ""
 
 #: db_tracking.php:95
 msgid "No tables selected."
-msgstr ""
+msgstr "ምንም ቴብል አልተመረጠም።"
 
 #: db_tracking.php:128
 msgid "Database Log"
@@ -1286,7 +1288,7 @@ msgstr ""
 #: templates/database/data_dictionary/index.twig:39
 #: templates/preferences/autoload.twig:12
 msgid "No"
-msgstr ""
+msgstr "አይደለም"
 
 #: js/messages.php:395
 #: templates/fk_checkbox.twig:4
@@ -1683,7 +1685,7 @@ msgstr ""
 #: templates/gis_data_editor_form.twig:134
 #: templates/gis_data_editor_form.twig:186
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: js/messages.php:531
 #: templates/gis_data_editor_form.twig:75
@@ -1691,7 +1693,7 @@ msgstr ""
 #: templates/gis_data_editor_form.twig:136
 #: templates/gis_data_editor_form.twig:188
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: js/messages.php:532
 msgid "Point"
@@ -1770,7 +1772,7 @@ msgstr ""
 #: templates/database/data_dictionary/index.twig:39
 #: templates/preferences/autoload.twig:11
 msgid "Yes"
-msgstr ""
+msgstr "አዎ"
 
 #: js/messages.php:542
 msgid "Do you want to copy encryption key?"
@@ -2751,7 +2753,7 @@ msgstr ""
 #: templates/database/data_dictionary/index.twig:17
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
-msgstr ""
+msgstr "ዓይነት"
 
 #: libraries/classes/CentralColumns.php:1016
 #: libraries/classes/Rte/Routines.php:961
@@ -2828,7 +2830,7 @@ msgstr ""
 #: templates/database/data_dictionary/index.twig:18
 #: templates/columns_definitions/table_fields_definitions.twig:30
 msgid "Null"
-msgstr ""
+msgstr "ባዶ"
 
 #: libraries/classes/CentralColumns.php:1021
 #: templates/database/central_columns/main.twig:45
@@ -3595,7 +3597,7 @@ msgstr ""
 #: templates/database/data_dictionary/index.twig:23
 #: templates/columns_definitions/table_fields_definitions.twig:54
 msgid "Comments"
-msgstr ""
+msgstr "ኮሜንት"
 
 #: libraries/classes/Config/Descriptions.php:214
 #: libraries/classes/Config/Descriptions.php:220
@@ -6866,7 +6868,7 @@ msgstr ""
 #: templates/table/structure/display_structure.twig:300
 #: templates/database/data_dictionary/index.twig:33
 msgid "Primary"
-msgstr ""
+msgstr "የመጀመሪያ"
 
 #: libraries/classes/Controllers/Table/StructureController.php:1271
 #: libraries/classes/Controllers/Table/StructureController.php:1276
@@ -7950,7 +7952,7 @@ msgstr ""
 #: templates/table/relation/common_form.twig:182
 #: templates/database/data_dictionary/index.twig:16
 msgid "Column"
-msgstr ""
+msgstr "ኮለመን"
 
 #: libraries/classes/Index.php:721
 #: templates/table/tracking/structure_snapshot_indexes.twig:10
@@ -8756,7 +8758,7 @@ msgstr ""
 
 #: libraries/classes/Operations.php:63
 msgid "Database comment"
-msgstr ""
+msgstr "የዳታቤዝ ኮሜንት"
 
 #: libraries/classes/Operations.php:107
 msgid "Rename database to"
@@ -9211,7 +9213,7 @@ msgstr ""
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:724
 #: templates/database/data_dictionary/index.twig:21
 msgid "Links to"
-msgstr ""
+msgstr "አገናኝ ከ"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:492
 #: libraries/classes/Plugins/Export/ExportOdt.php:619
@@ -9788,7 +9790,7 @@ msgstr ""
 #: templates/columns_definitions/column_definitions_form.twig:71
 #: templates/database/data_dictionary/index.twig:11
 msgid "Table comments:"
-msgstr ""
+msgstr "የቴብል ኮሜንት"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:690
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:723
@@ -12898,7 +12900,7 @@ msgstr ""
 
 #: templates/database/central_columns/main.twig:229
 msgid "Click to sort."
-msgstr ""
+msgstr "ለመደርደር ይጫኑ"
 
 #: templates/server/replication/slave_configuration.twig:2
 #: templates/server/databases/index.twig:157
