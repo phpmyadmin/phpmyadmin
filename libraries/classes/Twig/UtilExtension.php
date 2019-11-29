@@ -154,6 +154,10 @@ class UtilExtension extends AbstractExtension
                 'PhpMyAdmin\Util::showIcons'
             ),
             new TwigFunction(
+                'show_text',
+                'PhpMyAdmin\Util::showText'
+            ),
+            new TwigFunction(
                 'show_mysql_docu',
                 '\PhpMyAdmin\Html\MySQLDocumentation::show',
                 ['is_safe' => ['html']]

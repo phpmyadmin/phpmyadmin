@@ -37,6 +37,9 @@ class Menu
      */
     private $relation;
 
+    /** @var Template */
+    private $template;
+
     /**
      * Creates a new instance of Menu
      *
@@ -48,6 +51,7 @@ class Menu
         $this->_db = $db;
         $this->_table = $table;
         $this->relation = new Relation($GLOBALS['dbi']);
+        $this->template = new Template();
     }
 
     /**
@@ -115,8 +119,7 @@ class Menu
                 unset($tabs[$key]);
             }
         }
-        $template = new Template();
-        return $template->render('top_menu', [
+        return $this->template->render('top_menu', [
             'tabs' => $tabs,
             'url_params' => $url_params,
         ]);
@@ -171,130 +174,52 @@ class Menu
      *
      * @return string HTML formatted breadcrumbs
      */
-    private function _getBreadcrumbs()
+    private function _getBreadcrumbs(): string
     {
-        $retval = '';
-        $tbl_is_view = $GLOBALS['dbi']->getTable($this->_db, (string) $this->_table)
-            ->isView();
-        if (empty($GLOBALS['cfg']['Server']['host'])) {
-            $GLOBALS['cfg']['Server']['host'] = '';
-        }
-        $server_info = ! empty($GLOBALS['cfg']['Server']['verbose'])
-            ? $GLOBALS['cfg']['Server']['verbose']
-            : $GLOBALS['cfg']['Server']['host'];
-        $server_info .= empty($GLOBALS['cfg']['Server']['port'])
-            ? ''
-            : ':' . $GLOBALS['cfg']['Server']['port'];
+        global $cfg, $dbi;
 
-        $separator = "<span class='separator item'>&nbsp;»</span>";
-        $item = '<a href="%1$s%2$s" class="item">';
+        $server = [];
+        $database = [];
+        $table = [];
 
-        if (Util::showText('TabsMode')) {
-            $item .= '%4$s: ';
+        if (empty($cfg['Server']['host'])) {
+            $cfg['Server']['host'] = '';
         }
-        $item .= '%3$s</a>';
-        $retval .= "<div id='floating_menubar'></div>";
-        $retval .= "<div id='serverinfo'>";
-        if (Util::showIcons('TabsMode')) {
-            $retval .= Generator::getImage(
-                's_host',
-                '',
-                ['class' => 'item']
-            );
-        }
-        $scriptName = Util::getScriptNameForOption(
-            $GLOBALS['cfg']['DefaultTabServer'],
+        $server['name'] = ! empty($cfg['Server']['verbose'])
+            ? $cfg['Server']['verbose'] : $cfg['Server']['host'];
+        $server['name'] .= empty($cfg['Server']['port'])
+            ? '' : ':' . $cfg['Server']['port'];
+        $server['url'] = Util::getScriptNameForOption(
+            $cfg['DefaultTabServer'],
             'server'
-        );
-        $retval .= sprintf(
-            $item,
-            $scriptName,
-            Url::getCommon([], strpos($scriptName, '?') === false ? '?' : '&'),
-            htmlspecialchars($server_info),
-            __('Server')
         );
 
         if (strlen($this->_db) > 0) {
-            $retval .= $separator;
-            if (Util::showIcons('TabsMode')) {
-                $retval .= Generator::getImage(
-                    's_db',
-                    '',
-                    ['class' => 'item']
-                );
-            }
-            $scriptName = Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabDatabase'],
+            $database['name'] = $this->_db;
+            $database['url'] = Util::getScriptNameForOption(
+                $cfg['DefaultTabDatabase'],
                 'database'
             );
-            $retval .= sprintf(
-                $item,
-                $scriptName,
-                Url::getCommon(['db' => $this->_db], strpos($scriptName, '?') === false ? '?' : '&'),
-                htmlspecialchars($this->_db),
-                __('Database')
-            );
-            // if the table is being dropped, $_REQUEST['purge'] is set to '1'
-            // so do not display the table name in upper div
-            if (strlen((string) $this->_table) > 0
-                && ! (isset($_REQUEST['purge']) && $_REQUEST['purge'] == '1')
-            ) {
-                $table_class_object = $GLOBALS['dbi']->getTable(
-                    $GLOBALS['db'],
-                    $GLOBALS['table']
-                );
-                if ($table_class_object->isView()) {
-                    $tbl_is_view = true;
-                    $show_comment = null;
-                } else {
-                    $tbl_is_view = false;
-                    $show_comment = $table_class_object->getComment();
-                }
-                $retval .= $separator;
-                if (Util::showIcons('TabsMode')) {
-                    $icon = $tbl_is_view ? 'b_views' : 's_tbl';
-                    $retval .= Generator::getImage(
-                        $icon,
-                        '',
-                        ['class' => 'item']
-                    );
-                }
-                $scriptName = Util::getScriptNameForOption(
-                    $GLOBALS['cfg']['DefaultTabTable'],
+            if (strlen((string) $this->_table) > 0) {
+                $table['name'] = $this->_table;
+                $table['url'] = Util::getScriptNameForOption(
+                    $cfg['DefaultTabTable'],
                     'table'
                 );
-                $retval .= sprintf(
-                    $item,
-                    $scriptName,
-                    Url::getCommon([
-                        'db' => $this->_db,
-                        'table' => $this->_table,
-                    ], strpos($scriptName, '?') === false ? '?' : '&'),
-                    str_replace(' ', '&nbsp;', htmlspecialchars($this->_table)),
-                    $tbl_is_view ? __('View') : __('Table')
-                );
-
-                /**
-                 * Displays table comment
-                 */
-                if (! empty($show_comment)
-                    && ! isset($GLOBALS['avoid_show_comment'])
-                ) {
-                    if (mb_strstr($show_comment, '; InnoDB free')) {
-                        $show_comment = preg_replace(
-                            '@; InnoDB free:.*?$@',
-                            '',
-                            $show_comment
-                        );
-                    }
-                    $retval .= '<span class="table_comment"';
-                    $retval .= ' id="span_table_comment">';
-                    $retval .= sprintf(
-                        __('“%s”'),
-                        htmlspecialchars($show_comment)
+                /** @var Table $tableObj */
+                $tableObj = $dbi->getTable($this->_db, $this->_table);
+                $table['is_view'] = $tableObj->isView();
+                $table['comment'] = '';
+                if (! $table['is_view']) {
+                    $table['comment'] = $tableObj->getComment();
+                }
+                if (mb_strstr($table['comment'], '; InnoDB free')) {
+                    $table['comment'] = preg_replace(
+                        '@; InnoDB free:.*?$@',
+                        '',
+                        $table['comment']
                     );
-                    $retval .= '</span>';
-                } // end if
+                }
             } else {
                 // no table selected, display database comment if present
                 $cfgRelation = $this->relation->getRelationsParam();
@@ -302,25 +227,16 @@ class Menu
                 // Get additional information about tables for tooltip is done
                 // in Util::getDbInfo() only once
                 if ($cfgRelation['commwork']) {
-                    $comment = $this->relation->getDbComment($this->_db);
-                    /**
-                     * Displays table comment
-                     */
-                    if (! empty($comment)) {
-                        $retval .= '<span class="table_comment"'
-                            . ' id="span_table_comment">'
-                            . sprintf(
-                                __('“%s”'),
-                                htmlspecialchars($comment)
-                            )
-                            . '</span>';
-                    } // end if
+                    $database['comment'] = $this->relation->getDbComment($this->_db);
                 }
             }
         }
-        $retval .= '<div class="clearfloat"></div>';
-        $retval .= '</div>';
-        return $retval;
+
+        return $this->template->render('menu/breadcrumbs', [
+            'server' => $server,
+            'database' => $database,
+            'table' => $table,
+        ]);
     }
 
     /**
