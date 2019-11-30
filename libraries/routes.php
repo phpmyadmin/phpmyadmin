@@ -14,6 +14,7 @@ use PhpMyAdmin\Controllers\Database\DataDictionaryController;
 use PhpMyAdmin\Controllers\Database\DesignerController;
 use PhpMyAdmin\Controllers\Database\MultiTableQueryController;
 use PhpMyAdmin\Controllers\Database\QueryByExampleController;
+use PhpMyAdmin\Controllers\Database\SearchController;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Controllers\ErrorReportController;
 use PhpMyAdmin\Controllers\GisDataEditorController;
@@ -170,8 +171,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $routes->addRoute(['GET', 'POST'], '/routines', function () {
             require_once ROOT_PATH . 'libraries/entry_points/database/routines.php';
         });
-        $routes->addRoute(['GET', 'POST'], '/search', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/database/search.php';
+        $routes->addRoute(['GET', 'POST'], '/search', function () use ($containerBuilder) {
+            /** @var SearchController $controller */
+            $controller = $containerBuilder->get(SearchController::class);
+            $controller->index();
         });
         $routes->addGroup('/sql', function (RouteCollector $routes) {
             $routes->addRoute(['GET', 'POST'], '', function () {

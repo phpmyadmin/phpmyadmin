@@ -102,6 +102,14 @@ services:
       template: '@template'
       db: '%db%'
 
+  PhpMyAdmin\Controllers\Database\SearchController:
+    class: 'PhpMyAdmin\Controllers\Database\SearchController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      db: '%db%'
+
   PhpMyAdmin\Controllers\Database\SqlController:
     class: 'PhpMyAdmin\Controllers\Database\SqlController'
     arguments:
