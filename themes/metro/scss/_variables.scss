@@ -181,6 +181,15 @@ $card-border-width: 0;
 $card-cap-color: $navi-background;
 $card-cap-bg: $body-bg;
 
+// Breadcrumbs
+
+$breadcrumb-padding-y: 0.89rem;
+$breadcrumb-margin-bottom: 0;
+$breadcrumb-bg: $navi-background;
+$breadcrumb-divider-color: $button-color;
+$breadcrumb-divider: none;
+$breadcrumb-border-radius: 0;
+
 // Alert
 
 $alert-margin-bottom: 1em;

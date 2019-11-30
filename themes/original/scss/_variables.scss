@@ -71,6 +71,15 @@ $card-border-color: $th-background;
 $card-cap-bg: $th-background;
 $card-bg: none;
 
+// Breadcrumbs
+
+$breadcrumb-padding-y: 0.1rem;
+$breadcrumb-margin-bottom: 0;
+$breadcrumb-bg: white;
+$breadcrumb-divider-color: inherit;
+$breadcrumb-divider: quote("»");
+$breadcrumb-border-radius: 0;
+
 // Alert
 
 $alert-margin-bottom: 0.2em;

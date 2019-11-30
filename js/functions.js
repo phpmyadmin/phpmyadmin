@@ -4641,7 +4641,7 @@ $(function () {
                 'width': '100%',
                 'z-index': 99
             })
-            .append($('#serverinfo'))
+            .append($('#server-breadcrumb'))
             .append($('#topmenucontainer'));
         // Allow the DOM to render, then adjust the padding on the body
         setTimeout(function () {
@@ -4655,10 +4655,10 @@ $(function () {
 });
 
 /**
- * Scrolls the page to the top if clicking the serverinfo bar
+ * Scrolls the page to the top if clicking the server-breadcrumb bar
  */
 $(function () {
-    $(document).on('click', '#serverinfo, #goto_pagetop', function (event) {
+    $(document).on('click', '#server-breadcrumb, #goto_pagetop', function (event) {
         event.preventDefault();
         $('html, body').animate({ scrollTop: 0 }, 'fast');
     });

@@ -36,7 +36,7 @@ class LoginTest extends TestBase
     public function testSuccessfulLogin()
     {
         $this->login();
-        $this->waitForElement('xpath', "//*[@id=\"serverinfo\"]");
+        $this->waitForElement('xpath', "//*[@id=\"server-breadcrumb\"]");
         $this->assertTrue($this->isSuccessLogin());
         $this->logOutIfLoggedIn();
     }

@@ -2,7 +2,6 @@
 @import "../../pmahomme/scss/direction";
 @import "variables";
 @import "../../pmahomme/scss/bootstrap";
-@import "reboot";
 @import "common";
 @import "enum-editor";
 @import "gis";
@@ -13,5 +12,7 @@
 @import "jqplot";
 @import "resizable-menu";
 @import "icons";
+@import "reboot";
 @import "card";
+@import "breadcrumbs";
 @import "alert";
