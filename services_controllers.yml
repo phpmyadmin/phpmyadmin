@@ -400,3 +400,10 @@ services:
       dbi: '@dbi'
       template: '@template'
       transformations: '@transformations'
+
+  PhpMyAdmin\Controllers\VersionCheckController:
+    class: 'PhpMyAdmin\Controllers\VersionCheckController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'

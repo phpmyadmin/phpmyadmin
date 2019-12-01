@@ -36,6 +36,7 @@ use PhpMyAdmin\Controllers\Server\Status\QueriesController;
 use PhpMyAdmin\Controllers\Server\Status\StatusController;
 use PhpMyAdmin\Controllers\Server\Status\VariablesController as StatusVariables;
 use PhpMyAdmin\Controllers\Server\VariablesController;
+use PhpMyAdmin\Controllers\VersionCheckController;
 use PhpMyAdmin\Response;
 
 global $containerBuilder;
@@ -552,8 +553,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
     $routes->addRoute(['GET', 'POST'], '/user_password', function () {
         require_once ROOT_PATH . 'libraries/entry_points/user_password.php';
     });
-    $routes->addRoute(['GET', 'POST'], '/version_check', function () {
-        require_once ROOT_PATH . 'libraries/entry_points/version_check.php';
+    $routes->addRoute(['GET', 'POST'], '/version-check', function () use ($containerBuilder) {
+        /** @var VersionCheckController $controller */
+        $controller = $containerBuilder->get(VersionCheckController::class);
+        $controller->index();
     });
     $routes->addGroup('/view', function (RouteCollector $routes) {
         $routes->addRoute(['GET', 'POST'], '/create', function () {
