@@ -36,12 +36,12 @@ class ChangePasswordTest extends TestCase
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['MaxRows'] = 10;
-        $GLOBALS['cfg']['ServerDefault'] = "PMA_server";
+        $GLOBALS['cfg']['ServerDefault'] = 'PMA_server';
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $GLOBALS['cfg']['LimitChars'] = 100;
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
-        $GLOBALS['cfg']['Server']['host'] = "localhost";
-        $GLOBALS['cfg']['Server']['user'] = "pma_user";
+        $GLOBALS['cfg']['Server']['host'] = 'localhost';
+        $GLOBALS['cfg']['Server']['user'] = 'pma_user';
         $GLOBALS['cfg']['ShowHint'] = true;
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -49,7 +49,7 @@ class ChangePasswordTest extends TestCase
         $GLOBALS['server'] = 0;
 
         //$_SESSION
-        $_SESSION['relation'][$GLOBALS['server']] = "relation";
+        $_SESSION['relation'][$GLOBALS['server']] = 'relation';
     }
 
     /**
@@ -59,8 +59,8 @@ class ChangePasswordTest extends TestCase
      */
     public function testGetHtml()
     {
-        $username = "pma_username";
-        $hostname = "pma_hostname";
+        $username = 'pma_username';
+        $hostname = 'pma_hostname';
         $_REQUEST['route'] = '/server/privileges';
 
         //Call the test function

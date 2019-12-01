@@ -69,7 +69,7 @@ class EpsRelationSchema extends ExportRelationSchema
             )
         );
         $this->diagram->setAuthor('phpMyAdmin ' . PMA_VERSION);
-        $this->diagram->setDate(date("j F Y, g:i a"));
+        $this->diagram->setDate(date('j F Y, g:i a'));
         $this->diagram->setOrientation($this->orientation);
         $this->diagram->setFont('Verdana', '10');
 

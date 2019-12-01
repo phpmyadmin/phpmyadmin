@@ -29,6 +29,6 @@ class OptionsPropertyRootGroup extends OptionsPropertyGroup
      */
     public function getItemType()
     {
-        return "root";
+        return 'root';
     }
 }

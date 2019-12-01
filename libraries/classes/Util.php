@@ -406,7 +406,7 @@ class Util
             // 5.0.37 has profiling but for example, 5.1.20 does not
             // (avoid a trip to the server for MySQL before 5.0.37)
             // and do not set a constant as we might be switching servers
-            if ($GLOBALS['dbi']->fetchValue("SELECT @@have_profiling")
+            if ($GLOBALS['dbi']->fetchValue('SELECT @@have_profiling')
             ) {
                 self::cacheSet('profiling_supported', true);
             } else {
@@ -1421,10 +1421,10 @@ class Util
             // this would be a BINARY or VARBINARY column type;
             // by the way, a BLOB should not show the BINARY attribute
             // because this is not accepted in MySQL syntax.
-            if (false !== strpos($printtype, "binary")
+            if (false !== strpos($printtype, 'binary')
                 && ! preg_match('@binary[\(]@', $printtype)
             ) {
-                $printtype = str_replace("binary", '', $printtype);
+                $printtype = str_replace('binary', '', $printtype);
                 $binary = true;
             } else {
                 $binary = false;
@@ -1463,7 +1463,7 @@ class Util
         $can_contain_collation = false;
         if (! $binary
             && preg_match(
-                "@^(char|varchar|text|tinytext|mediumtext|longtext|set|enum)@",
+                '@^(char|varchar|text|tinytext|mediumtext|longtext|set|enum)@',
                 $type
             )
         ) {
@@ -1512,7 +1512,7 @@ class Util
             return true;
         } elseif ($engine == 'NDBCLUSTER' || $engine == 'NDB') {
             $ndbver = strtolower(
-                $GLOBALS['dbi']->fetchValue("SELECT @@ndb_version_string")
+                $GLOBALS['dbi']->fetchValue('SELECT @@ndb_version_string')
             );
             if (substr($ndbver, 0, 4) == 'ndb-') {
                 $ndbver = substr($ndbver, 4);
@@ -1592,9 +1592,9 @@ class Util
             $spatialAsText = 'ST_ASTEXT';
             $spatialSrid = 'ST_SRID';
         }
-        $wktsql     = "SELECT $spatialAsText(x'" . $hex . "')";
+        $wktsql     = 'SELECT ' . $spatialAsText . "(x'" . $hex . "')";
         if ($includeSRID) {
-            $wktsql .= ", $spatialSrid(x'" . $hex . "')";
+            $wktsql .= ', ' . $spatialSrid . "(x'" . $hex . "')";
         }
 
         $wktresult  = $GLOBALS['dbi']->tryQuery(
@@ -1909,7 +1909,7 @@ class Util
             . 'POLYGON|MULTIPOLYGON|GEOMETRYCOLLECTION)';
         if (preg_match("/^'" . $geom_types . "\(.*\)',[0-9]*$/i", $gis_string)) {
             return $geomFromText . '(' . $gis_string . ')';
-        } elseif (preg_match("/^" . $geom_types . "\(.*\)$/i", $gis_string)) {
+        } elseif (preg_match('/^' . $geom_types . '\(.*\)$/i', $gis_string)) {
             return $geomFromText . "('" . $gis_string . "')";
         }
 
@@ -2191,7 +2191,7 @@ class Util
         $username .= "''";
 
         // Prepare the query
-        $query = "SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`%s` "
+        $query = 'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`%s` '
                . "WHERE GRANTEE='%s' AND PRIVILEGE_TYPE='%s'";
 
         // Check global privileges first.
@@ -2283,7 +2283,7 @@ class Util
      */
     public static function parseEnumSetValues($definition, $escapeHtml = true)
     {
-        $values_string = htmlentities($definition, ENT_COMPAT, "UTF-8");
+        $values_string = htmlentities($definition, ENT_COMPAT, 'UTF-8');
         // There is a JS port of the below parser in functions.js
         // If you are fixing something here,
         // you need to also update the JS port.
@@ -2299,13 +2299,13 @@ class Util
 
             if (! $in_string && $curr == "'") {
                 $in_string = true;
-            } elseif (($in_string && $curr == "\\") && $next == "\\") {
-                $buffer .= "&#92;";
+            } elseif (($in_string && $curr == '\\') && $next == '\\') {
+                $buffer .= '&#92;';
                 $i++;
             } elseif (($in_string && $next == "'")
-                && ($curr == "'" || $curr == "\\")
+                && ($curr == "'" || $curr == '\\')
             ) {
-                $buffer .= "&#39;";
+                $buffer .= '&#39;';
                 $i++;
             } elseif ($in_string && $curr == "'") {
                 $in_string = false;
@@ -2484,11 +2484,11 @@ class Util
     {
         $names = $GLOBALS['dbi']->getLowerCaseNames();
         if ($names === '0') {
-            return "COLLATE utf8_bin";
+            return 'COLLATE utf8_bin';
         } elseif ($names === '2') {
-            return "COLLATE utf8_general_ci";
+            return 'COLLATE utf8_general_ci';
         }
-        return "";
+        return '';
     }
 
     /**
@@ -2756,7 +2756,7 @@ class Util
 
         // is there at least one "in use" table?
         if (count($sot_cache) > 0) {
-            $tblGroupSql = "";
+            $tblGroupSql = '';
             $whereAdded = false;
             if (Core::isValid($_REQUEST['tbl_group'])) {
                 $group = self::escapeMysqlWildcards($_REQUEST['tbl_group']);
@@ -2764,16 +2764,16 @@ class Util
                     $_REQUEST['tbl_group']
                     . $GLOBALS['cfg']['NavigationTreeTableSeparator']
                 );
-                $tblGroupSql .= " WHERE ("
+                $tblGroupSql .= ' WHERE ('
                     . self::backquote('Tables_in_' . $db)
                     . " LIKE '" . $groupWithSeparator . "%'"
-                    . " OR "
+                    . ' OR '
                     . self::backquote('Tables_in_' . $db)
                     . " LIKE '" . $group . "')";
                 $whereAdded = true;
             }
             if (Core::isValid($_REQUEST['tbl_type'], ['table', 'view'])) {
-                $tblGroupSql .= $whereAdded ? " AND" : " WHERE";
+                $tblGroupSql .= $whereAdded ? ' AND' : ' WHERE';
                 if ($_REQUEST['tbl_type'] == 'view') {
                     $tblGroupSql .= " `Table_type` NOT IN ('BASE TABLE', 'SYSTEM VERSIONED')";
                 } else {

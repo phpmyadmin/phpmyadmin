@@ -53,9 +53,9 @@ if (isset($_GET['check_time_out'])) {
     if (isset($_SESSION['pma_export_error'])) {
         $err = $_SESSION['pma_export_error'];
         unset($_SESSION['pma_export_error']);
-        echo "timeout";
+        echo 'timeout';
     } else {
-        echo "success";
+        echo 'success';
     }
     exit;
 }
@@ -203,7 +203,7 @@ $what = Core::securePath($_POST['what']);
 // export class instance, not array of properties, as before
 /** @var ExportPlugin $export_plugin */
 $export_plugin = Plugins::getPlugin(
-    "export",
+    'export',
     $what,
     'libraries/classes/Plugins/Export/',
     [
@@ -491,7 +491,7 @@ try {
             $table_data = $tables;
         }
         if (isset($lock_tables)) {
-            $export->lockTables($db, $tables, "READ");
+            $export->lockTables($db, $tables, 'READ');
             try {
                 $export->exportDatabase(
                     $db,
@@ -546,7 +546,7 @@ try {
         }
         if (isset($lock_tables)) {
             try {
-                $export->lockTables($db, [$table], "READ");
+                $export->lockTables($db, [$table], 'READ');
                 $export->exportTable(
                     $db,
                     $table,

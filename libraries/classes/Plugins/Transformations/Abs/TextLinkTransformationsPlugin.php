@@ -71,6 +71,6 @@ abstract class TextLinkTransformationsPlugin extends TransformationsPlugin
      */
     public static function getName()
     {
-        return "TextLink";
+        return 'TextLink';
     }
 }

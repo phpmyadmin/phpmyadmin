@@ -169,7 +169,7 @@ class ExportPhparrayTest extends PmaTestCase
 
         ob_start();
         $this->assertTrue(
-            $this->object->exportDBHeader("db")
+            $this->object->exportDBHeader('db')
         );
         $result = ob_get_clean();
 

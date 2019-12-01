@@ -46,14 +46,14 @@ class CoreTest extends PmaTestCase
     public function testArrayRead()
     {
         $arr = [
-            "int" => 1,
-            "str" => "str_val",
-            "arr" => [
+            'int' => 1,
+            'str' => 'str_val',
+            'arr' => [
                 'val1',
                 'val2',
                 'val3',
             ],
-            "sarr" => [
+            'sarr' => [
                 'arr1' => [
                     1,
                     2,
@@ -149,14 +149,14 @@ class CoreTest extends PmaTestCase
     public function testArrayWrite()
     {
         $arr = [
-            "int" => 1,
-            "str" => "str_val",
-            "arr" => [
+            'int' => 1,
+            'str' => 'str_val',
+            'arr' => [
                 'val1',
                 'val2',
                 'val3',
             ],
-            "sarr" => [
+            'sarr' => [
                 'arr1' => [
                     1,
                     2,
@@ -218,14 +218,14 @@ class CoreTest extends PmaTestCase
     public function testArrayRemove()
     {
         $arr = [
-            "int" => 1,
-            "str" => "str_val",
-            "arr" => [
+            'int' => 1,
+            'str' => 'str_val',
+            'arr' => [
                 'val1',
                 'val2',
                 'val3',
             ],
-            "sarr" => [
+            'sarr' => [
                 'arr1' => [
                     1,
                     2,
@@ -453,8 +453,8 @@ class CoreTest extends PmaTestCase
      */
     public function testFatalErrorMessage()
     {
-        $this->expectOutputRegex("/FatalError!/");
-        Core::fatalError("FatalError!");
+        $this->expectOutputRegex('/FatalError!/');
+        Core::fatalError('FatalError!');
     }
 
     /**
@@ -464,19 +464,19 @@ class CoreTest extends PmaTestCase
      */
     public function testFatalErrorMessageWithArgs()
     {
-        $message = "Fatal error #%d in file %s.";
+        $message = 'Fatal error #%d in file %s.';
         $params = [
             1,
             'error_file.php',
         ];
 
-        $this->expectOutputRegex("/Fatal error #1 in file error_file.php./");
+        $this->expectOutputRegex('/Fatal error #1 in file error_file.php./');
         Core::fatalError($message, $params);
 
-        $message = "Fatal error in file %s.";
+        $message = 'Fatal error in file %s.';
         $params = 'error_file.php';
 
-        $this->expectOutputRegex("/Fatal error in file error_file.php./");
+        $this->expectOutputRegex('/Fatal error in file error_file.php./');
         Core::fatalError($message, $params);
     }
 
@@ -659,12 +659,12 @@ class CoreTest extends PmaTestCase
     <meta http-equiv=\"expires\" content=\"0\">"
             . "\n    <meta http-equiv=\"Pragma\" content=\"no-cache\">"
             . "\n    <meta http-equiv=\"Cache-Control\" content=\"no-cache\">"
-            . "\n    <meta http-equiv=\"Refresh\" content=\"0;url=" . $testUri_html . "\">"
+            . "\n    <meta http-equiv=\"Refresh\" content=\"0;url=" . $testUri_html . '">'
             . "\n    <script type=\"text/javascript\">\n        //<![CDATA[
         setTimeout(function() { window.location = decodeURI('" . $testUri_js . "'); }, 2000);
         //]]>\n    </script>\n</head>
 <body>\n<script type=\"text/javascript\">\n    //<![CDATA[
-    document.write('<p><a href=\"" . $testUri_html . "\">" . __('Go') . "</a></p>');
+    document.write('<p><a href=\"" . $testUri_html . '">' . __('Go') . "</a></p>');
     //]]>\n</script>\n</body>\n</html>
 ";
 
@@ -1158,7 +1158,7 @@ class CoreTest extends PmaTestCase
             ],
             [
                 'string',
-                "string",
+                'string',
             ],
             [
                 [

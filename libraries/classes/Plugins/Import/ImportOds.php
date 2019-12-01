@@ -54,14 +54,14 @@ class ImportOds extends ImportPlugin
         // $importPluginProperties
         // this will be shown as "Format specific options"
         $importSpecificOptions = new OptionsPropertyRootGroup(
-            "Format Specific Options"
+            'Format Specific Options'
         );
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup("general_opts");
+        $generalOptions = new OptionsPropertyMainGroup('general_opts');
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
-            "col_names",
+            'col_names',
             __(
                 'The first line of the file contains the table column names'
                 . ' <i>(if this is unchecked, the first line will become part'
@@ -70,19 +70,19 @@ class ImportOds extends ImportPlugin
         );
         $generalOptions->addProperty($leaf);
         $leaf = new BoolPropertyItem(
-            "empty_rows",
+            'empty_rows',
             __('Do not import empty rows')
         );
         $generalOptions->addProperty($leaf);
         $leaf = new BoolPropertyItem(
-            "recognize_percentages",
+            'recognize_percentages',
             __(
                 'Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>'
             )
         );
         $generalOptions->addProperty($leaf);
         $leaf = new BoolPropertyItem(
-            "recognize_currency",
+            'recognize_currency',
             __('Import currencies <i>(ex. $5.00 to 5.00)</i>')
         );
         $generalOptions->addProperty($leaf);
@@ -108,7 +108,7 @@ class ImportOds extends ImportPlugin
 
         $i = 0;
         $len = 0;
-        $buffer = "";
+        $buffer = '';
 
         /**
          * Read in the file via Import::getNextChunk so that
@@ -141,7 +141,7 @@ class ImportOds extends ImportPlugin
          * result in increased performance without the need to
          * alter the code in any way. It's basically a freebee.
          */
-        $xml = @simplexml_load_string($buffer, "SimpleXMLElement", LIBXML_COMPACT);
+        $xml = @simplexml_load_string($buffer, 'SimpleXMLElement', LIBXML_COMPACT);
 
         unset($buffer);
 

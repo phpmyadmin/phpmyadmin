@@ -563,25 +563,25 @@ class Header
             . "style-src 'self' 'unsafe-inline' "
             . $captcha_url
             . $GLOBALS['cfg']['CSPAllow']
-            . ";"
+            . ';'
             . "img-src 'self' data: "
             . $GLOBALS['cfg']['CSPAllow']
             . $map_tile_urls
             . $captcha_url
-            . ";"
+            . ';'
             . "object-src 'none';"
         );
         header(
             "X-Content-Security-Policy: default-src 'self' "
             . $captcha_url
             . $GLOBALS['cfg']['CSPAllow'] . ';'
-            . "options inline-script eval-script;"
-            . "referrer no-referrer;"
+            . 'options inline-script eval-script;'
+            . 'referrer no-referrer;'
             . "img-src 'self' data: "
             . $GLOBALS['cfg']['CSPAllow']
             . $map_tile_urls
             . $captcha_url
-            . ";"
+            . ';'
             . "object-src 'none';"
         );
         header(
@@ -592,7 +592,7 @@ class Header
             . $captcha_url
             . $GLOBALS['cfg']['CSPAllow']
             . " 'unsafe-inline' 'unsafe-eval';"
-            . "referrer no-referrer;"
+            . 'referrer no-referrer;'
             . "style-src 'self' 'unsafe-inline' "
             . $captcha_url
             . ';'
@@ -600,7 +600,7 @@ class Header
             . $GLOBALS['cfg']['CSPAllow']
             . $map_tile_urls
             . $captcha_url
-            . ";"
+            . ';'
             . "object-src 'none';"
         );
         // Re-enable possible disabled XSS filters
@@ -698,6 +698,6 @@ class Header
      */
     public static function getVersionParameter(): string
     {
-        return "v=" . urlencode(PMA_VERSION);
+        return 'v=' . urlencode(PMA_VERSION);
     }
 }

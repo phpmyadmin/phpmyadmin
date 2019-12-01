@@ -565,7 +565,7 @@ class Advisor
 
         for ($i = 0; $i < $numLines; $i++) {
             $line = $file[$i];
-            if ($line == "" || $line[0] == '#') {
+            if ($line == '' || $line[0] == '#') {
                 continue;
             }
 
@@ -671,7 +671,7 @@ class Advisor
             $num = '<' . pow(10, -$precision);
         }
 
-        return "$num $per";
+        return $num . ' ' . $per;
     }
 
     /**

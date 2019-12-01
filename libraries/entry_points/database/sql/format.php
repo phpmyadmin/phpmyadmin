@@ -17,4 +17,4 @@ $query = ! empty($_POST['sql']) ? $_POST['sql'] : '';
 $query = PhpMyAdmin\SqlParser\Utils\Formatter::format($query);
 
 $response = Response::getInstance();
-$response->addJSON("sql", $query);
+$response->addJSON('sql', $query);

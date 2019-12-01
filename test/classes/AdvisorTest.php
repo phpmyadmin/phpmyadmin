@@ -111,23 +111,23 @@ class AdvisorTest extends PmaTestCase
         return [
             [
                 10,
-                "10 per second",
+                '10 per second',
             ],
             [
                 0.02,
-                "1.2 per minute",
+                '1.2 per minute',
             ],
             [
                 0.003,
-                "10.8 per hour",
+                '10.8 per hour',
             ],
             [
                 0.00003,
-                "2.59 per day",
+                '2.59 per day',
             ],
             [
                 0.0000000003,
-                "<0.01 per day",
+                '<0.01 per day',
             ],
         ];
     }
@@ -140,10 +140,10 @@ class AdvisorTest extends PmaTestCase
     public function testAdvisorTimespanFormat()
     {
         $result = Advisor::timespanFormat(1200);
-        $this->assertEquals("0 days, 0 hours, 20 minutes and 0 seconds", $result);
+        $this->assertEquals('0 days, 0 hours, 20 minutes and 0 seconds', $result);
 
         $result = Advisor::timespanFormat(100);
-        $this->assertEquals("0 days, 0 hours, 1 minutes and 40 seconds", $result);
+        $this->assertEquals('0 days, 0 hours, 1 minutes and 40 seconds', $result);
     }
 
     /**

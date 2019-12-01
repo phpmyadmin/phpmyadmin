@@ -550,9 +550,9 @@ class ReplicationGui
             $_POST['sr_slave_control_parm'] = null;
         }
         if ($_POST['sr_slave_action'] == 'reset') {
-            $qStop = $this->replication->slaveControl("STOP");
-            $qReset = $GLOBALS['dbi']->tryQuery("RESET SLAVE;");
-            $qStart = $this->replication->slaveControl("START");
+            $qStop = $this->replication->slaveControl('STOP');
+            $qReset = $GLOBALS['dbi']->tryQuery('RESET SLAVE;');
+            $qStart = $this->replication->slaveControl('START');
 
             $result = ($qStop !== false && $qStop !== -1 &&
                 $qReset !== false && $qReset !== -1 &&
@@ -581,11 +581,11 @@ class ReplicationGui
             $count = $_POST['sr_skip_errors_count'] * 1;
         }
 
-        $qStop = $this->replication->slaveControl("STOP");
+        $qStop = $this->replication->slaveControl('STOP');
         $qSkip = $GLOBALS['dbi']->tryQuery(
-            "SET GLOBAL SQL_SLAVE_SKIP_COUNTER = " . $count . ";"
+            'SET GLOBAL SQL_SLAVE_SKIP_COUNTER = ' . $count . ';'
         );
-        $qStart = $this->replication->slaveControl("START");
+        $qStart = $this->replication->slaveControl('START');
 
         $result = ($qStop !== false && $qStop !== -1 &&
             $qSkip !== false && $qSkip !== -1 &&

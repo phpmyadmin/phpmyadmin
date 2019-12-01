@@ -83,7 +83,7 @@ class TableProperty
      */
     public function getPureType()
     {
-        $pos = mb_strpos($this->type, "(");
+        $pos = mb_strpos($this->type, '(');
         if ($pos > 0) {
             return mb_substr($this->type, 0, $pos);
         }
@@ -97,7 +97,7 @@ class TableProperty
      */
     public function isNotNull()
     {
-        return $this->nullable === "NO" ? "true" : "false";
+        return $this->nullable === 'NO' ? 'true' : 'false';
     }
 
     /**
@@ -107,7 +107,7 @@ class TableProperty
      */
     public function isUnique(): string
     {
-        return ($this->key === "PRI" || $this->key === "UNI") ? "true" : "false";
+        return ($this->key === 'PRI' || $this->key === 'UNI') ? 'true' : 'false';
     }
 
     /**
@@ -117,31 +117,31 @@ class TableProperty
      */
     public function getDotNetPrimitiveType()
     {
-        if (mb_strpos($this->type, "int") === 0) {
-            return "int";
+        if (mb_strpos($this->type, 'int') === 0) {
+            return 'int';
         }
-        if (mb_strpos($this->type, "longtext") === 0) {
-            return "string";
+        if (mb_strpos($this->type, 'longtext') === 0) {
+            return 'string';
         }
-        if (mb_strpos($this->type, "long") === 0) {
-            return "long";
+        if (mb_strpos($this->type, 'long') === 0) {
+            return 'long';
         }
-        if (mb_strpos($this->type, "char") === 0) {
-            return "string";
+        if (mb_strpos($this->type, 'char') === 0) {
+            return 'string';
         }
-        if (mb_strpos($this->type, "varchar") === 0) {
-            return "string";
+        if (mb_strpos($this->type, 'varchar') === 0) {
+            return 'string';
         }
-        if (mb_strpos($this->type, "text") === 0) {
-            return "string";
+        if (mb_strpos($this->type, 'text') === 0) {
+            return 'string';
         }
-        if (mb_strpos($this->type, "tinyint") === 0) {
-            return "bool";
+        if (mb_strpos($this->type, 'tinyint') === 0) {
+            return 'bool';
         }
-        if (mb_strpos($this->type, "datetime") === 0) {
-            return "DateTime";
+        if (mb_strpos($this->type, 'datetime') === 0) {
+            return 'DateTime';
         }
-        return "unknown";
+        return 'unknown';
     }
 
     /**
@@ -151,31 +151,31 @@ class TableProperty
      */
     public function getDotNetObjectType()
     {
-        if (mb_strpos($this->type, "int") === 0) {
-            return "Int32";
+        if (mb_strpos($this->type, 'int') === 0) {
+            return 'Int32';
         }
-        if (mb_strpos($this->type, "longtext") === 0) {
-            return "String";
+        if (mb_strpos($this->type, 'longtext') === 0) {
+            return 'String';
         }
-        if (mb_strpos($this->type, "long") === 0) {
-            return "Long";
+        if (mb_strpos($this->type, 'long') === 0) {
+            return 'Long';
         }
-        if (mb_strpos($this->type, "char") === 0) {
-            return "String";
+        if (mb_strpos($this->type, 'char') === 0) {
+            return 'String';
         }
-        if (mb_strpos($this->type, "varchar") === 0) {
-            return "String";
+        if (mb_strpos($this->type, 'varchar') === 0) {
+            return 'String';
         }
-        if (mb_strpos($this->type, "text") === 0) {
-            return "String";
+        if (mb_strpos($this->type, 'text') === 0) {
+            return 'String';
         }
-        if (mb_strpos($this->type, "tinyint") === 0) {
-            return "Boolean";
+        if (mb_strpos($this->type, 'tinyint') === 0) {
+            return 'Boolean';
         }
-        if (mb_strpos($this->type, "datetime") === 0) {
-            return "DateTime";
+        if (mb_strpos($this->type, 'datetime') === 0) {
+            return 'DateTime';
         }
-        return "Unknown";
+        return 'Unknown';
     }
 
     /**
@@ -186,11 +186,11 @@ class TableProperty
     public function getIndexName()
     {
         if (strlen($this->key) > 0) {
-            return "index=\""
+            return 'index="'
                 . htmlspecialchars($this->name, ENT_COMPAT, 'UTF-8')
-                . "\"";
+                . '"';
         }
-        return "";
+        return '';
     }
 
     /**
@@ -200,7 +200,7 @@ class TableProperty
      */
     public function isPK(): bool
     {
-        return $this->key === "PRI";
+        return $this->key === 'PRI';
     }
 
     /**

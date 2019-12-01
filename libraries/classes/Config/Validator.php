@@ -431,7 +431,7 @@ class Validator
             $line = trim($line);
             $matches = [];
             // we catch anything that may (or may not) be an IP
-            if (! preg_match("/^(.+):(?:[ ]?)\\w+$/", $line, $matches)) {
+            if (! preg_match('/^(.+):(?:[ ]?)\\w+$/', $line, $matches)) {
                 $result[$path][] = __('Incorrect value:') . ' '
                     . htmlspecialchars($line);
                 continue;

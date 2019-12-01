@@ -140,10 +140,10 @@ class ImportShpTest extends PmaTestCase
         $this->assertMessages($import_notice);
         $this->assertStringContainsString(
             "(GeomFromText('MULTIPOLYGON((("
-            . "13.737122 51.0542065,"
-            . "13.7373039 51.0541298,"
-            . "13.7372661 51.0540944,"
-            . "13.7370842 51.0541711,"
+            . '13.737122 51.0542065,'
+            . '13.7373039 51.0541298,'
+            . '13.7372661 51.0540944,'
+            . '13.7370842 51.0541711,'
             . "13.737122 51.0542065)))'))",
             $sql_query
         );
@@ -179,7 +179,7 @@ class ImportShpTest extends PmaTestCase
             $sql_query
         );
         $this->assertStringContainsString(
-            "INSERT INTO `SHP_DB`.`TBL_NAME` (`SPATIAL`) VALUES",
+            'INSERT INTO `SHP_DB`.`TBL_NAME` (`SPATIAL`) VALUES',
             $sql_query
         );
         $this->assertStringContainsString(

@@ -32,8 +32,8 @@ class UtilTest extends PmaTestCase
     public function testCreateGISDataOldMysql(): void
     {
         $this->assertEquals(
-            "abc",
-            Util::createGISData("abc", 50500)
+            'abc',
+            Util::createGISData('abc', 50500)
         );
         $this->assertEquals(
             "GeomFromText('POINT()',10)",
@@ -49,8 +49,8 @@ class UtilTest extends PmaTestCase
     public function testCreateGISDataNewMysql(): void
     {
         $this->assertEquals(
-            "abc",
-            Util::createGISData("abc", 50600)
+            'abc',
+            Util::createGISData('abc', 50600)
         );
         $this->assertEquals(
             "ST_GeomFromText('POINT()',10)",
@@ -89,7 +89,7 @@ class UtilTest extends PmaTestCase
     {
         $this->assertStringContainsString(
             '<select class="pageselector ajax" name="pma" >',
-            Util::pageselector("pma", 3)
+            Util::pageselector('pma', 3)
         );
     }
 
@@ -148,16 +148,16 @@ class UtilTest extends PmaTestCase
     {
         return [
             [
-                "a_b_c_d",
-                " CHARSET=a COLLATE a_b_c_d",
+                'a_b_c_d',
+                ' CHARSET=a COLLATE a_b_c_d',
             ],
             [
-                "a_",
-                " CHARSET=a COLLATE a_",
+                'a_',
+                ' CHARSET=a COLLATE a_',
             ],
             [
-                "a",
-                " CHARSET=a",
+                'a',
+                ' CHARSET=a',
             ],
         ];
     }
@@ -294,7 +294,7 @@ class UtilTest extends PmaTestCase
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['AllowThirdPartyFraming'] = false;
 
-        $this->expectOutputRegex("/Missing parameter: field/");
+        $this->expectOutputRegex('/Missing parameter: field/');
 
         Util::checkParameters(
             [
@@ -319,12 +319,12 @@ class UtilTest extends PmaTestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
-        $GLOBALS['db'] = "dbDatabase";
-        $GLOBALS['table'] = "tblTable";
-        $GLOBALS['field'] = "test_field";
-        $GLOBALS['sql_query'] = "SELECT * FROM tblTable;";
+        $GLOBALS['db'] = 'dbDatabase';
+        $GLOBALS['table'] = 'tblTable';
+        $GLOBALS['field'] = 'test_field';
+        $GLOBALS['sql_query'] = 'SELECT * FROM tblTable;';
 
-        $this->expectOutputString("");
+        $this->expectOutputString('');
         Util::checkParameters(
             [
                 'db',
@@ -364,15 +364,15 @@ class UtilTest extends PmaTestCase
         return [
             [
                 "b'",
-                "",
+                '',
             ],
             [
                 "b'01'",
-                "01",
+                '01',
             ],
             [
                 "b'010111010'",
-                "010111010",
+                '010111010',
             ],
         ];
     }
@@ -636,7 +636,7 @@ class UtilTest extends PmaTestCase
                 ],
             ],
             [
-                "INT UNSIGNED zerofill",
+                'INT UNSIGNED zerofill',
                 [
                     'type' => 'int',
                     'print_type' => 'int',
@@ -647,11 +647,11 @@ class UtilTest extends PmaTestCase
                     'enum_set_values' => [],
                     'attribute' => 'UNSIGNED ZEROFILL',
                     'can_contain_collation' => false,
-                    'displayed_type' => "int",
+                    'displayed_type' => 'int',
                 ],
             ],
             [
-                "VARCHAR(255)",
+                'VARCHAR(255)',
                 [
                     'type' => 'varchar',
                     'print_type' => 'varchar(255)',
@@ -662,11 +662,11 @@ class UtilTest extends PmaTestCase
                     'enum_set_values' => [],
                     'attribute' => ' ',
                     'can_contain_collation' => true,
-                    'displayed_type' => "varchar(255)",
+                    'displayed_type' => 'varchar(255)',
                 ],
             ],
             [
-                "VARBINARY(255)",
+                'VARBINARY(255)',
                 [
                     'type' => 'varbinary',
                     'print_type' => 'varbinary(255)',
@@ -677,7 +677,7 @@ class UtilTest extends PmaTestCase
                     'enum_set_values' => [],
                     'attribute' => ' ',
                     'can_contain_collation' => false,
-                    'displayed_type' => "varbinary(255)",
+                    'displayed_type' => 'varbinary(255)',
                 ],
             ],
         ];
@@ -715,15 +715,15 @@ class UtilTest extends PmaTestCase
                 -1,
             ],
             [
-                "10GB",
+                '10GB',
                 10737418240,
             ],
             [
-                "15MB",
+                '15MB',
                 15728640,
             ],
             [
-                "256K",
+                '256K',
                 262144,
             ],
         ];
@@ -1084,7 +1084,7 @@ class UtilTest extends PmaTestCase
     public function testGetFormattedMaximumUploadSize($size, $unit, $res): void
     {
         $this->assertEquals(
-            "(" . __('Max: ') . $res . $unit . ")",
+            '(' . __('Max: ') . $res . $unit . ')',
             Util::getFormattedMaximumUploadSize($size)
         );
     }
@@ -1100,37 +1100,37 @@ class UtilTest extends PmaTestCase
             [
                 10,
                 __('B'),
-                "10",
+                '10',
             ],
             [
                 100,
                 __('B'),
-                "100",
+                '100',
             ],
             [
                 1024,
                 __('B'),
-                "1,024",
+                '1,024',
             ],
             [
                 102400,
                 __('KiB'),
-                "100",
+                '100',
             ],
             [
                 10240000,
                 __('MiB'),
-                "10",
+                '10',
             ],
             [
                 2147483648,
                 __('MiB'),
-                "2,048",
+                '2,048',
             ],
             [
                 21474836480,
                 __('GiB'),
-                "20",
+                '20',
             ],
         ];
     }
@@ -1555,7 +1555,7 @@ class UtilTest extends PmaTestCase
         foreach (Context::$KEYWORDS as $keyword => $type) {
             if ($type & Token::FLAG_KEYWORD_RESERVED) {
                 $this->assertEquals(
-                    "`" . $keyword . "`",
+                    '`' . $keyword . '`',
                     Util::backquote($keyword, false)
                 );
             } else {
@@ -1595,11 +1595,11 @@ class UtilTest extends PmaTestCase
         return [
             [
                 '/var/pma_tmp/%u/',
-                "/var/pma_tmp/root/",
+                '/var/pma_tmp/root/',
             ],
             [
                 '/home/%u/pma',
-                "/home/root/pma/",
+                '/home/root/pma/',
             ],
         ];
     }

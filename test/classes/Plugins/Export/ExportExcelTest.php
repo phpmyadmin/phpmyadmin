@@ -184,7 +184,7 @@ class ExportExcelTest extends PmaTestCase
         );
 
         $this->assertEquals(
-            "Excel edition:",
+            'Excel edition:',
             $property->getText()
         );
 

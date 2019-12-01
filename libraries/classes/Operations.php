@@ -645,8 +645,8 @@ class Operations
             && $GLOBALS['is_reload_priv']
         ) {
             $this->dbi->selectDb('mysql');
-            $newname = str_replace("_", "\_", $newname);
-            $oldDb = str_replace("_", "\_", $oldDb);
+            $newname = str_replace('_', '\_', $newname);
+            $oldDb = str_replace('_', '\_', $oldDb);
 
             // For Db specific privileges
             $query_db_specific = 'UPDATE ' . Util::backquote('db')
@@ -673,7 +673,7 @@ class Operations
             $this->dbi->query($query_proc_specific);
 
             // Finally FLUSH the new privileges
-            $flush_query = "FLUSH PRIVILEGES;";
+            $flush_query = 'FLUSH PRIVILEGES;';
             $this->dbi->query($flush_query);
         }
     }
@@ -693,8 +693,8 @@ class Operations
             && $GLOBALS['is_reload_priv']
         ) {
             $this->dbi->selectDb('mysql');
-            $newname = str_replace("_", "\_", $newname);
-            $oldDb = str_replace("_", "\_", $oldDb);
+            $newname = str_replace('_', '\_', $newname);
+            $oldDb = str_replace('_', '\_', $oldDb);
 
             $query_db_specific_old = 'SELECT * FROM '
                 . Util::backquote('db') . ' WHERE '
@@ -777,7 +777,7 @@ class Operations
             }
 
             // Finally FLUSH the new privileges
-            $flush_query = "FLUSH PRIVILEGES;";
+            $flush_query = 'FLUSH PRIVILEGES;';
             $this->dbi->query($flush_query);
         }
     }
@@ -2047,7 +2047,7 @@ class Operations
             $this->dbi->query($query_col_specific);
 
             // Finally FLUSH the new privileges
-            $flush_query = "FLUSH PRIVILEGES;";
+            $flush_query = 'FLUSH PRIVILEGES;';
             $this->dbi->query($flush_query);
         }
     }
@@ -2110,7 +2110,7 @@ class Operations
             }
 
             // Finally FLUSH the new privileges
-            $flush_query = "FLUSH PRIVILEGES;";
+            $flush_query = 'FLUSH PRIVILEGES;';
             $this->dbi->query($flush_query);
         }
     }

@@ -201,7 +201,7 @@ class CreateAddField
 
         $keyBlockSizes = $index['Key_block_size'];
         if (! empty($keyBlockSizes)) {
-            $sqlQuery .= " KEY_BLOCK_SIZE = "
+            $sqlQuery .= ' KEY_BLOCK_SIZE = '
                  . $this->dbi->escapeString($keyBlockSizes);
         }
 
@@ -216,7 +216,7 @@ class CreateAddField
 
         $parser = $index['Parser'];
         if ($index['Index_choice'] == 'FULLTEXT' && ! empty($parser)) {
-            $sqlQuery .= " WITH PARSER " . $this->dbi->escapeString($parser);
+            $sqlQuery .= ' WITH PARSER ' . $this->dbi->escapeString($parser);
         }
 
         $comment = $index['Index_comment'];
@@ -240,7 +240,7 @@ class CreateAddField
      */
     private function getStatementPrefix(bool $isCreateTable = true): string
     {
-        $sqlPrefix = " ";
+        $sqlPrefix = ' ';
         if (! $isCreateTable) {
             $sqlPrefix = ' ADD ';
         }
@@ -267,7 +267,7 @@ class CreateAddField
         foreach ($indexedColumns as $index) {
             $statements = $this->buildIndexStatements(
                 $index,
-                " " . $indexKeyword . " ",
+                ' ' . $indexKeyword . ' ',
                 $isCreateTable
             );
             $definitions = array_merge($definitions, $statements);
@@ -286,7 +286,7 @@ class CreateAddField
      */
     private function getColumnCreationStatements(bool $isCreateTable = true): string
     {
-        $sqlStatement = "";
+        $sqlStatement = '';
         [
             $fieldCount,
             $fieldPrimary,
@@ -303,7 +303,7 @@ class CreateAddField
         // Builds the PRIMARY KEY statements
         $primaryKeyStatements = $this->buildIndexStatements(
             isset($fieldPrimary[0]) ? $fieldPrimary[0] : [],
-            " PRIMARY KEY ",
+            ' PRIMARY KEY ',
             $isCreateTable
         );
         $definitions = array_merge($definitions, $primaryKeyStatements);
@@ -313,7 +313,7 @@ class CreateAddField
             $definitions,
             $isCreateTable,
             $fieldIndex,
-            "INDEX"
+            'INDEX'
         );
 
         // Builds the UNIQUE statements
@@ -321,7 +321,7 @@ class CreateAddField
             $definitions,
             $isCreateTable,
             $fieldUnique,
-            "UNIQUE"
+            'UNIQUE'
         );
 
         // Builds the FULLTEXT statements
@@ -329,7 +329,7 @@ class CreateAddField
             $definitions,
             $isCreateTable,
             $fieldFullText,
-            "FULLTEXT"
+            'FULLTEXT'
         );
 
         // Builds the SPATIAL statements
@@ -337,7 +337,7 @@ class CreateAddField
             $definitions,
             $isCreateTable,
             $fieldSpatial,
-            "SPATIAL"
+            'SPATIAL'
         );
 
         if (count($definitions)) {
@@ -353,15 +353,15 @@ class CreateAddField
      */
     public function getPartitionsDefinition(): string
     {
-        $sqlQuery = "";
+        $sqlQuery = '';
         if (! empty($_POST['partition_by'])
             && ! empty($_POST['partition_expr'])
             && ! empty($_POST['partition_count'])
             && $_POST['partition_count'] > 1
         ) {
-            $sqlQuery .= " PARTITION BY " . $_POST['partition_by']
-                . " (" . $_POST['partition_expr'] . ")"
-                . " PARTITIONS " . $_POST['partition_count'];
+            $sqlQuery .= ' PARTITION BY ' . $_POST['partition_by']
+                . ' (' . $_POST['partition_expr'] . ')'
+                . ' PARTITIONS ' . $_POST['partition_count'];
         }
 
         if (! empty($_POST['subpartition_by'])
@@ -369,9 +369,9 @@ class CreateAddField
             && ! empty($_POST['subpartition_count'])
             && $_POST['subpartition_count'] > 1
         ) {
-            $sqlQuery .= " SUBPARTITION BY " . $_POST['subpartition_by']
-               . " (" . $_POST['subpartition_expr'] . ")"
-               . " SUBPARTITIONS " . $_POST['subpartition_count'];
+            $sqlQuery .= ' SUBPARTITION BY ' . $_POST['subpartition_by']
+               . ' (' . $_POST['subpartition_expr'] . ')'
+               . ' SUBPARTITIONS ' . $_POST['subpartition_count'];
         }
 
         if (! empty($_POST['partitions'])) {
@@ -379,7 +379,7 @@ class CreateAddField
             foreach ($_POST['partitions'] as $partition) {
                 $partitions[] = $this->getPartitionDefinition($partition);
             }
-            $sqlQuery .= " (" . implode(", ", $partitions) . ")";
+            $sqlQuery .= ' (' . implode(', ', $partitions) . ')';
         }
 
         return $sqlQuery;
@@ -397,19 +397,19 @@ class CreateAddField
         array $partition,
         bool $isSubPartition = false
     ): string {
-        $sqlQuery = " " . ($isSubPartition ? "SUB" : "") . "PARTITION ";
+        $sqlQuery = ' ' . ($isSubPartition ? 'SUB' : '') . 'PARTITION ';
         $sqlQuery .= $partition['name'];
 
         if (! empty($partition['value_type'])) {
-            $sqlQuery .= " VALUES " . $partition['value_type'];
+            $sqlQuery .= ' VALUES ' . $partition['value_type'];
 
             if ($partition['value_type'] != 'LESS THAN MAXVALUE') {
-                $sqlQuery .= " (" . $partition['value'] . ")";
+                $sqlQuery .= ' (' . $partition['value'] . ')';
             }
         }
 
         if (! empty($partition['engine'])) {
-            $sqlQuery .= " ENGINE = " . $partition['engine'];
+            $sqlQuery .= ' ENGINE = ' . $partition['engine'];
         }
         if (! empty($partition['comment'])) {
             $sqlQuery .= " COMMENT = '" . $partition['comment'] . "'";
@@ -421,16 +421,16 @@ class CreateAddField
             $sqlQuery .= " INDEX_DIRECTORY = '" . $partition['index_directory'] . "'";
         }
         if (! empty($partition['max_rows'])) {
-            $sqlQuery .= " MAX_ROWS = " . $partition['max_rows'];
+            $sqlQuery .= ' MAX_ROWS = ' . $partition['max_rows'];
         }
         if (! empty($partition['min_rows'])) {
-            $sqlQuery .= " MIN_ROWS = " . $partition['min_rows'];
+            $sqlQuery .= ' MIN_ROWS = ' . $partition['min_rows'];
         }
         if (! empty($partition['tablespace'])) {
-            $sqlQuery .= " TABLESPACE = " . $partition['tablespace'];
+            $sqlQuery .= ' TABLESPACE = ' . $partition['tablespace'];
         }
         if (! empty($partition['node_group'])) {
-            $sqlQuery .= " NODEGROUP = " . $partition['node_group'];
+            $sqlQuery .= ' NODEGROUP = ' . $partition['node_group'];
         }
 
         if (! empty($partition['subpartitions'])) {
@@ -441,7 +441,7 @@ class CreateAddField
                     true
                 );
             }
-            $sqlQuery .= " (" . implode(", ", $subpartitions) . ")";
+            $sqlQuery .= ' (' . implode(', ', $subpartitions) . ')';
         }
 
         return $sqlQuery;

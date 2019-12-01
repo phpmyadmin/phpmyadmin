@@ -29,6 +29,6 @@ class HiddenPropertyItem extends OptionsPropertyOneItem
      */
     public function getItemType()
     {
-        return "hidden";
+        return 'hidden';
     }
 }

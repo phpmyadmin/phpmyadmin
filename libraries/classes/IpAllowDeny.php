@@ -230,7 +230,7 @@ class IpAllowDeny
      */
     public function allow()
     {
-        return $this->allowDeny("allow");
+        return $this->allowDeny('allow');
     }
 
     /**
@@ -244,7 +244,7 @@ class IpAllowDeny
      */
     public function deny()
     {
-        return $this->allowDeny("deny");
+        return $this->allowDeny('deny');
     }
 
     /**

@@ -29,6 +29,6 @@ class DocPropertyItem extends OptionsPropertyOneItem
      */
     public function getItemType()
     {
-        return "doc";
+        return 'doc';
     }
 }

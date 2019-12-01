@@ -489,8 +489,8 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
             $extra_data = [];
         }
         $transformation_types = [
-            "input_transformation",
-            "transformation",
+            'input_transformation',
+            'transformation',
         ];
         foreach ($mime_map as $transformation) {
             $column_name = $transformation['column_name'];

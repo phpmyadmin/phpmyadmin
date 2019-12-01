@@ -237,7 +237,7 @@ class UserPassword
 
             $hashedPassword = $this->serverPrivileges->getHashedPassword($_POST['pma_pw']);
 
-            $local_query = "UPDATE `mysql`.`user` SET"
+            $local_query = 'UPDATE `mysql`.`user` SET'
                 . " `authentication_string` = '" . $hashedPassword
                 . "', `Password` = '', "
                 . " `plugin` = '" . $orig_auth_plugin . "'"
@@ -259,7 +259,7 @@ class UserPassword
         }
 
         // Flush privileges after successful password change
-        $GLOBALS['dbi']->tryQuery("FLUSH PRIVILEGES;");
+        $GLOBALS['dbi']->tryQuery('FLUSH PRIVILEGES;');
     }
 
     /**

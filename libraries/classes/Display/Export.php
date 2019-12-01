@@ -78,7 +78,7 @@ class Export
         // (from clicking Back button on /export page)
         if (isset($_POST['db_select'])) {
             $_POST['db_select'] = urldecode($_POST['db_select']);
-            $_POST['db_select'] = explode(",", $_POST['db_select']);
+            $_POST['db_select'] = explode(',', $_POST['db_select']);
         }
 
         $databases = [];
@@ -166,13 +166,13 @@ class Export
         // Get the relation settings
         $cfgRelation = $this->relation->getRelationsParam();
 
-        $query = "SELECT `id`, `template_name` FROM "
+        $query = 'SELECT `id`, `template_name` FROM '
            . Util::backquote($cfgRelation['db']) . '.'
            . Util::backquote($cfgRelation['export_templates'])
-           . " WHERE `username` = "
+           . ' WHERE `username` = '
            . "'" . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user'])
             . "' AND `export_type` = '" . $GLOBALS['dbi']->escapeString($exportType) . "'"
-           . " ORDER BY `template_name`;";
+           . ' ORDER BY `template_name`;';
 
         $result = $this->relation->queryAsControlUser($query);
 
@@ -689,7 +689,7 @@ class Export
         /* Scan for plugins */
         /** @var ExportPlugin[] $exportList */
         $exportList = Plugins::getPlugins(
-            "export",
+            'export',
             'libraries/classes/Plugins/Export/',
             [
                 'export_type' => $exportType,
@@ -767,10 +767,10 @@ class Export
 
         switch ($_POST['templateAction']) {
             case 'create':
-                $query = "INSERT INTO " . $templateTable . "("
-                . " `username`, `export_type`,"
-                . " `template_name`, `template_data`"
-                . ") VALUES ("
+                $query = 'INSERT INTO ' . $templateTable . '('
+                . ' `username`, `export_type`,'
+                . ' `template_name`, `template_data`'
+                . ') VALUES ('
                 . "'" . $user . "', "
                 . "'" . $GLOBALS['dbi']->escapeString($_POST['exportType'])
                 . "', '" . $GLOBALS['dbi']->escapeString($_POST['templateName'])
@@ -778,17 +778,17 @@ class Export
                 . "');";
                 break;
             case 'load':
-                $query = "SELECT `template_data` FROM " . $templateTable
-                 . " WHERE `id` = " . $id . " AND `username` = '" . $user . "'";
+                $query = 'SELECT `template_data` FROM ' . $templateTable
+                 . ' WHERE `id` = ' . $id . " AND `username` = '" . $user . "'";
                 break;
             case 'update':
-                $query = "UPDATE " . $templateTable . " SET `template_data` = "
+                $query = 'UPDATE ' . $templateTable . ' SET `template_data` = '
                   . "'" . $GLOBALS['dbi']->escapeString($_POST['templateData']) . "'"
-                  . " WHERE `id` = " . $id . " AND `username` = '" . $user . "'";
+                  . ' WHERE `id` = ' . $id . " AND `username` = '" . $user . "'";
                 break;
             case 'delete':
-                $query = "DELETE FROM " . $templateTable
-                   . " WHERE `id` = " . $id . " AND `username` = '" . $user . "'";
+                $query = 'DELETE FROM ' . $templateTable
+                   . ' WHERE `id` = ' . $id . " AND `username` = '" . $user . "'";
                 break;
             default:
                 $query = '';

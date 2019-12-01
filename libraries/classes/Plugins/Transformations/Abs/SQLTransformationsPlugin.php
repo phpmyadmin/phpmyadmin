@@ -57,6 +57,6 @@ abstract class SQLTransformationsPlugin extends TransformationsPlugin
      */
     public static function getName()
     {
-        return "SQL";
+        return 'SQL';
     }
 }

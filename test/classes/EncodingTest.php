@@ -190,7 +190,7 @@ class EncodingTest extends TestCase
      */
     public function testFileConv()
     {
-        $file_str = "教育漢字常用漢字";
+        $file_str = '教育漢字常用漢字';
         $filename = 'test.kanji';
         $file = fopen($filename, 'w');
         fwrite($file, $file_str);

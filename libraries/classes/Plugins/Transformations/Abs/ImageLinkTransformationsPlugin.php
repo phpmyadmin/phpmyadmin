@@ -62,6 +62,6 @@ abstract class ImageLinkTransformationsPlugin extends TransformationsPlugin
      */
     public static function getName()
     {
-        return "ImageLink";
+        return 'ImageLink';
     }
 }

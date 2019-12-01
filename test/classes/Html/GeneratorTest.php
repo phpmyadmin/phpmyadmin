@@ -132,7 +132,7 @@ class GeneratorTest extends PmaTestCase
 
         $this->assertXmlStringEqualsXmlString(
             '<root>' . Generator::getDivForSliderEffect($id, $message) . '</div></root>',
-            "<root><div id=\"$id\" class=\"pma_auto_slider\"\ntitle=\""
+            '<root><div id="' . $id . "\" class=\"pma_auto_slider\"\ntitle=\""
             . htmlspecialchars($message) . "\" >\n</div></root>"
         );
     }
@@ -156,7 +156,7 @@ class GeneratorTest extends PmaTestCase
 
         $this->assertXmlStringEqualsXmlString(
             '<root>' . Generator::getDivForSliderEffect($id, $message) . '</div></root>',
-            "<root><div id=\"$id\" style=\"display: none; overflow:auto;\" class=\"pma_auto_slider\"\ntitle=\""
+            '<root><div id="' . $id . "\" style=\"display: none; overflow:auto;\" class=\"pma_auto_slider\"\ntitle=\""
             . htmlspecialchars($message) . "\" >\n</div></root>"
         );
     }
@@ -180,7 +180,7 @@ class GeneratorTest extends PmaTestCase
 
         $this->assertXmlStringEqualsXmlString(
             '<root>' . Generator::getDivForSliderEffect($id, $message) . '</div></root>',
-            "<root><div id=\"$id\">\n</div></root>"
+            '<root><div id="' . $id . "\">\n</div></root>"
         );
     }
 

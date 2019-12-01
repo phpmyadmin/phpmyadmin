@@ -45,11 +45,11 @@ class ReplicationGuiTest extends TestCase
     protected function setUp(): void
     {
         //$_POST
-        $_POST['mr_adduser'] = "mr_adduser";
+        $_POST['mr_adduser'] = 'mr_adduser';
 
         //$GLOBALS
         $GLOBALS['cfg']['MaxRows'] = 10;
-        $GLOBALS['cfg']['ServerDefault'] = "server";
+        $GLOBALS['cfg']['ServerDefault'] = 'server';
         $GLOBALS['cfg']['RememberSorting'] = true;
         $GLOBALS['cfg']['SQP'] = [];
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
@@ -59,7 +59,7 @@ class ReplicationGuiTest extends TestCase
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['ShowHint'] = true;
 
-        $GLOBALS['table'] = "table";
+        $GLOBALS['table'] = 'table';
         $GLOBALS['url_params'] = [];
 
         $this->replicationGui = new ReplicationGui(new Replication(), new Template());
@@ -81,7 +81,7 @@ class ReplicationGuiTest extends TestCase
 
         $fetchResult = [
             [
-                "SHOW SLAVE HOSTS",
+                'SHOW SLAVE HOSTS',
                 null,
                 null,
                 DatabaseInterface::CONNECT_USER,
@@ -98,10 +98,10 @@ class ReplicationGuiTest extends TestCase
             ->will($this->returnValueMap($fetchResult));
 
         $fields_info = [
-            "Host" => [
-                "Field" => "host",
-                "Type" => "char(60)",
-                "Null" => "NO",
+            'Host' => [
+                'Field' => 'host',
+                'Type' => 'char(60)',
+                'Null' => 'NO',
             ],
         ];
         $dbi->expects($this->any())->method('getColumns')
@@ -146,16 +146,16 @@ class ReplicationGuiTest extends TestCase
         );
         //$master_variables
         $this->assertStringContainsString(
-            "Binlog_Do_DB",
+            'Binlog_Do_DB',
             $html
         );
         $this->assertStringContainsString(
-            "Binlog_Ignore_DB",
+            'Binlog_Ignore_DB',
             $html
         );
         //$server_master_replication
         $this->assertStringContainsString(
-            "master-bin.000030",
+            'master-bin.000030',
             $html
         );
 

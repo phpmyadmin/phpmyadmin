@@ -29,6 +29,6 @@ class BoolPropertyItem extends OptionsPropertyOneItem
      */
     public function getItemType()
     {
-        return "bool";
+        return 'bool';
     }
 }

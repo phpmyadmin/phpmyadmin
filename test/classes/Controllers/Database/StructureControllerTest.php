@@ -59,7 +59,7 @@ class StructureControllerTest extends PmaTestCase
     {
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['table'] = "table";
+        $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['replication_info']['master']['status'] = false;

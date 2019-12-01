@@ -330,7 +330,7 @@ class Sanitize
         } elseif (is_array($value)) {
             $result .= '[';
             foreach ($value as $val) {
-                $result .= self::formatJsVal($val) . ",";
+                $result .= self::formatJsVal($val) . ',';
             }
             $result .= "];\n";
         } else {

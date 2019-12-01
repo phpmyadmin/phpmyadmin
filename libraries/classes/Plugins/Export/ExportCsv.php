@@ -54,29 +54,29 @@ class ExportCsv extends ExportPlugin
         // $exportPluginProperties
         // this will be shown as "Format specific options"
         $exportSpecificOptions = new OptionsPropertyRootGroup(
-            "Format Specific Options"
+            'Format Specific Options'
         );
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup("general_opts");
+        $generalOptions = new OptionsPropertyMainGroup('general_opts');
         // create leaf items and add them to the group
         $leaf = new TextPropertyItem(
-            "separator",
+            'separator',
             __('Columns separated with:')
         );
         $generalOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
-            "enclosed",
+            'enclosed',
             __('Columns enclosed with:')
         );
         $generalOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
-            "escaped",
+            'escaped',
             __('Columns escaped with:')
         );
         $generalOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
-            "terminated",
+            'terminated',
             __('Lines terminated with:')
         );
         $generalOptions->addProperty($leaf);
@@ -296,7 +296,7 @@ class ExportCsv extends ExportPlugin
                                 "\r",
                                 "\n",
                             ],
-                            "",
+                            '',
                             $row[$j]
                         );
                     }

@@ -38,7 +38,7 @@ class OptionsPropertySubgroup extends OptionsPropertyGroup
      */
     public function getItemType()
     {
-        return "subgroup";
+        return 'subgroup';
     }
 
     /**

@@ -141,7 +141,7 @@ class FormDisplay
         foreach ($this->_forms[$formName]->fields as $path) {
             $workPath = $serverId === null
                 ? $path
-                : str_replace('Servers/1/', "Servers/$serverId/", $path);
+                : str_replace('Servers/1/', 'Servers/' . $serverId . '/', $path);
             $this->_systemPaths[$workPath] = $path;
             $this->_translatedPaths[$workPath] = str_replace('/', '-', $workPath);
         }
@@ -243,8 +243,8 @@ class FormDisplay
             $formErrors = isset($this->_errors[$form->name])
                 ? $this->_errors[$form->name] : null;
             $htmlOutput .= $this->formDisplayTemplate->displayFieldsetTop(
-                Descriptions::get("Form_{$form->name}"),
-                Descriptions::get("Form_{$form->name}", 'desc'),
+                Descriptions::get('Form_' . $form->name),
+                Descriptions::get('Form_' . $form->name, 'desc'),
                 $formErrors,
                 ['id' => $form->name]
             );
@@ -310,7 +310,7 @@ class FormDisplay
         if ($tabbedForm) {
             $tabs = [];
             foreach ($this->_forms as $form) {
-                $tabs[$form->name] = Descriptions::get("Form_$form->name");
+                $tabs[$form->name] = Descriptions::get('Form_' . $form->name);
             }
             $htmlOutput .= $this->formDisplayTemplate->displayTabsTop($tabs);
         }
@@ -349,7 +349,7 @@ class FormDisplay
             $jsLangSent = true;
             $jsLang = [];
             foreach ($this->_jsLangStrings as $strName => $strValue) {
-                $jsLang[] = "'$strName': '" . Sanitize::jsFormat($strValue, false) . '\'';
+                $jsLang[] = "'" . $strName . "': '" . Sanitize::jsFormat($strValue, false) . '\'';
             }
             $js[] = "$.extend(Messages, {\n\t"
                 . implode(",\n\t", $jsLang) . '})';
@@ -452,7 +452,7 @@ class FormDisplay
                 }
                 return $htmlOutput;
             case 'NULL':
-                trigger_error("Field $systemPath has no type", E_USER_WARNING);
+                trigger_error('Field ' . $systemPath . ' has no type', E_USER_WARNING);
                 return null;
         }
 
@@ -707,8 +707,8 @@ class FormDisplay
                 $values[$systemPath] = $_POST[$key];
                 if ($changeIndex !== false) {
                     $workPath = str_replace(
-                        "Servers/$form->index/",
-                        "Servers/$changeIndex/",
+                        'Servers/' . $form->index . '/',
+                        'Servers/' . $changeIndex . '/',
                         $workPath
                     );
                 }
@@ -731,7 +731,7 @@ class FormDisplay
                 foreach ($values[$path] as $value) {
                     $matches = [];
                     $match = preg_match(
-                        "/^(.+):(?:[ ]?)(\\w+)$/",
+                        '/^(.+):(?:[ ]?)(\\w+)$/',
                         $value,
                         $matches
                     );
@@ -741,7 +741,7 @@ class FormDisplay
                         $proxies[$ip] = trim($matches[2]);
                     } else {
                         // save also incorrect values
-                        $proxies["-$i"] = $value;
+                        $proxies['-' . $i] = $value;
                         $i++;
                     }
                 }
@@ -846,7 +846,7 @@ class FormDisplay
             }
             if (! function_exists('recode_string')) {
                 $opts['values']['recode'] .= ' (' . __('unavailable') . ')';
-                $comment .= ($comment ? ", " : '') . sprintf(
+                $comment .= ($comment ? ', ' : '') . sprintf(
                     __('"%s" requires %s extension'),
                     'recode',
                     'recode'

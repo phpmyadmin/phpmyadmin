@@ -35,7 +35,7 @@ class Replication
             = empty($mysqlInfo[$mysqlKey])
                 ? []
                 : explode(
-                    ",",
+                    ',',
                     $mysqlInfo[$mysqlKey]
                 );
 
@@ -52,7 +52,7 @@ class Replication
      */
     public function extractDbOrTable($string, $what = 'db')
     {
-        $list = explode(".", $string);
+        $list = explode('.', $string);
         if ('db' == $what) {
             return $list[0];
         } else {
@@ -77,14 +77,14 @@ class Replication
         $action = mb_strtoupper($action);
         $control = mb_strtoupper($control);
 
-        if ($action != "START" && $action != "STOP") {
+        if ($action != 'START' && $action != 'STOP') {
             return -1;
         }
-        if ($control != "SQL_THREAD" && $control != "IO_THREAD" && $control != null) {
+        if ($control != 'SQL_THREAD' && $control != 'IO_THREAD' && $control != null) {
             return -1;
         }
 
-        return $GLOBALS['dbi']->tryQuery($action . " SLAVE " . $control . ";", $link);
+        return $GLOBALS['dbi']->tryQuery($action . ' SLAVE ' . $control . ';', $link);
     }
 
     /**
@@ -113,7 +113,7 @@ class Replication
         $link = null
     ) {
         if ($stop) {
-            $this->slaveControl("STOP", null, $link);
+            $this->slaveControl('STOP', null, $link);
         }
 
         $out = $GLOBALS['dbi']->tryQuery(
@@ -122,13 +122,13 @@ class Replication
             'MASTER_PORT=' . ($port * 1) . ',' .
             'MASTER_USER=\'' . $user . '\',' .
             'MASTER_PASSWORD=\'' . $password . '\',' .
-            'MASTER_LOG_FILE=\'' . $pos["File"] . '\',' .
-            'MASTER_LOG_POS=' . $pos["Position"] . ';',
+            'MASTER_LOG_FILE=\'' . $pos['File'] . '\',' .
+            'MASTER_LOG_POS=' . $pos['Position'] . ';',
             $link
         );
 
         if ($start) {
-            $this->slaveControl("START", null, $link);
+            $this->slaveControl('START', null, $link);
         }
 
         return $out;
@@ -155,9 +155,9 @@ class Replication
         $server = [];
         $server['user'] = $user;
         $server['password'] = $password;
-        $server["host"] = Core::sanitizeMySQLHost($host);
-        $server["port"] = $port;
-        $server["socket"] = $socket;
+        $server['host'] = Core::sanitizeMySQLHost($host);
+        $server['port'] = $port;
+        $server['socket'] = $socket;
 
         // 5th parameter set to true means that it's an auxiliary connection
         // and we must not go back to login page if it fails
@@ -178,8 +178,8 @@ class Replication
         $output = [];
 
         if (! empty($data)) {
-            $output["File"] = $data[0]["File"];
-            $output["Position"] = $data[0]["Position"];
+            $output['File'] = $data[0]['File'];
+            $output['Position'] = $data[0]['Position'];
         }
         return $output;
     }

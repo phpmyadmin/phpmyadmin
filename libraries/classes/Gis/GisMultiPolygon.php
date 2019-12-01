@@ -64,15 +64,15 @@ class GisMultiPolygon extends GisGeometry
                 mb_strlen($spatial) - 18
             );
         // Separate each polygon
-        $polygons = explode(")),((", $multipolygon);
+        $polygons = explode(')),((', $multipolygon);
 
         foreach ($polygons as $polygon) {
             // If the polygon doesn't have an inner ring, use polygon itself
-            if (mb_strpos($polygon, "),(") === false) {
+            if (mb_strpos($polygon, '),(') === false) {
                 $ring = $polygon;
             } else {
                 // Separate outer ring and use it to determine min-max
-                $parts = explode("),(", $polygon);
+                $parts = explode('),(', $polygon);
                 $ring = $parts[0];
             }
             $min_max = $this->setMinMax($ring, $min_max);
@@ -115,17 +115,17 @@ class GisMultiPolygon extends GisGeometry
                 mb_strlen($spatial) - 18
             );
         // Separate each polygon
-        $polygons = explode(")),((", $multipolygon);
+        $polygons = explode(')),((', $multipolygon);
 
         $first_poly = true;
         $points_arr = [];
         foreach ($polygons as $polygon) {
             // If the polygon doesn't have an inner polygon
-            if (mb_strpos($polygon, "),(") === false) {
+            if (mb_strpos($polygon, '),(') === false) {
                 $points_arr = $this->extractPoints($polygon, $scale_data, true);
             } else {
                 // Separate outer and inner polygons
-                $parts = explode("),(", $polygon);
+                $parts = explode('),(', $polygon);
                 $outer = $parts[0];
                 $inner = array_slice($parts, 1);
 
@@ -196,16 +196,16 @@ class GisMultiPolygon extends GisGeometry
                 mb_strlen($spatial) - 18
             );
         // Separate each polygon
-        $polygons = explode(")),((", $multipolygon);
+        $polygons = explode(')),((', $multipolygon);
 
         $first_poly = true;
         foreach ($polygons as $polygon) {
             // If the polygon doesn't have an inner polygon
-            if (mb_strpos($polygon, "),(") === false) {
+            if (mb_strpos($polygon, '),(') === false) {
                 $points_arr = $this->extractPoints($polygon, $scale_data, true);
             } else {
                 // Separate outer and inner polygons
-                $parts = explode("),(", $polygon);
+                $parts = explode('),(', $polygon);
                 $outer = $parts[0];
                 $inner = array_slice($parts, 1);
 
@@ -273,17 +273,17 @@ class GisMultiPolygon extends GisGeometry
                 mb_strlen($spatial) - 18
             );
         // Separate each polygon
-        $polygons = explode(")),((", $multipolygon);
+        $polygons = explode(')),((', $multipolygon);
 
         foreach ($polygons as $polygon) {
             $row .= '<path d="';
 
             // If the polygon doesn't have an inner polygon
-            if (mb_strpos($polygon, "),(") === false) {
+            if (mb_strpos($polygon, '),(') === false) {
                 $row .= $this->_drawPath($polygon, $scale_data);
             } else {
                 // Separate outer and inner polygons
-                $parts = explode("),(", $polygon);
+                $parts = explode('),(', $polygon);
                 $outer = $parts[0];
                 $inner = array_slice($parts, 1);
 
@@ -340,7 +340,7 @@ class GisMultiPolygon extends GisGeometry
                 mb_strlen($spatial) - 18
             );
         // Separate each polygon
-        $polygons = explode(")),((", $multipolygon);
+        $polygons = explode(')),((', $multipolygon);
 
         $row .= 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
             . 'new OpenLayers.Geometry.MultiPolygon('
@@ -575,7 +575,7 @@ class GisMultiPolygon extends GisGeometry
                 mb_strlen($wkt) - 18
             );
         // Separate each polygon
-        $polygons = explode(")),((", $multipolygon);
+        $polygons = explode(')),((', $multipolygon);
 
         $param_row =& $params[$index]['MULTIPOLYGON'];
         $param_row['no_of_polygons'] = count($polygons);
@@ -583,7 +583,7 @@ class GisMultiPolygon extends GisGeometry
         $k = 0;
         foreach ($polygons as $polygon) {
             // If the polygon doesn't have an inner polygon
-            if (mb_strpos($polygon, "),(") === false) {
+            if (mb_strpos($polygon, '),(') === false) {
                 $param_row[$k]['no_of_lines'] = 1;
                 $points_arr = $this->extractPoints($polygon, null);
                 $no_of_points = count($points_arr);
@@ -594,7 +594,7 @@ class GisMultiPolygon extends GisGeometry
                 }
             } else {
                 // Separate outer and inner polygons
-                $parts = explode("),(", $polygon);
+                $parts = explode('),(', $polygon);
                 $param_row[$k]['no_of_lines'] = count($parts);
                 $j = 0;
                 foreach ($parts as $ring) {

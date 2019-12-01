@@ -75,7 +75,7 @@ class Text_Plain_Xml extends TransformationsPlugin
      */
     public static function getMIMEType()
     {
-        return "Text";
+        return 'Text';
     }
 
     /**
@@ -85,7 +85,7 @@ class Text_Plain_Xml extends TransformationsPlugin
      */
     public static function getMIMESubtype()
     {
-        return "Plain";
+        return 'Plain';
     }
 
     /**
@@ -95,6 +95,6 @@ class Text_Plain_Xml extends TransformationsPlugin
      */
     public static function getName()
     {
-        return "XML";
+        return 'XML';
     }
 }

@@ -65,7 +65,7 @@ class ImportXml extends ImportPlugin
 
         $i = 0;
         $len = 0;
-        $buffer = "";
+        $buffer = '';
 
         /**
          * Read in the file via Import::getNextChunk so that
@@ -98,7 +98,7 @@ class ImportXml extends ImportPlugin
          * result in increased performance without the need to
          * alter the code in any way. It's basically a freebee.
          */
-        $xml = @simplexml_load_string($buffer, "SimpleXMLElement", LIBXML_COMPACT);
+        $xml = @simplexml_load_string($buffer, 'SimpleXMLElement', LIBXML_COMPACT);
 
         unset($buffer);
 
@@ -208,16 +208,16 @@ class ImportXml extends ImportPlugin
                      *          into another database.
                      */
                     $attrs = $val2->attributes();
-                    $create[] = "USE "
+                    $create[] = 'USE '
                         . Util::backquote(
-                            $attrs["name"]
+                            $attrs['name']
                         );
 
                     foreach ($val2 as $val3) {
                         /**
                          * Remove the extra cosmetic spacing
                          */
-                        $val3 = str_replace("                ", "", (string) $val3);
+                        $val3 = str_replace('                ', '', (string) $val3);
                         $create[] = $val3;
                     }
                 }

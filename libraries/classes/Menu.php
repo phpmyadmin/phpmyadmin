@@ -142,15 +142,15 @@ class Menu
         $cfgRelation = $this->relation->getRelationsParam();
         if ($cfgRelation['menuswork']) {
             $groupTable = Util::backquote($cfgRelation['db'])
-                . "."
+                . '.'
                 . Util::backquote($cfgRelation['usergroups']);
             $userTable = Util::backquote($cfgRelation['db'])
-                . "." . Util::backquote($cfgRelation['users']);
+                . '.' . Util::backquote($cfgRelation['users']);
 
-            $sql_query = "SELECT `tab` FROM " . $groupTable
+            $sql_query = 'SELECT `tab` FROM ' . $groupTable
                 . " WHERE `allowed` = 'N'"
                 . " AND `tab` LIKE '" . $level . "%'"
-                . " AND `usergroup` = (SELECT usergroup FROM "
+                . ' AND `usergroup` = (SELECT usergroup FROM '
                 . $userTable . " WHERE `username` = '"
                 . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']) . "')";
 

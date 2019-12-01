@@ -91,6 +91,6 @@ abstract class DownloadTransformationsPlugin extends TransformationsPlugin
      */
     public static function getName()
     {
-        return "Download";
+        return 'Download';
     }
 }

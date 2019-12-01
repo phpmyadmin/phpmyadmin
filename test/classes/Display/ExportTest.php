@@ -35,15 +35,15 @@ class ExportTest extends TestCase
     {
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
-        $GLOBALS['cfg']['Server']['host'] = "localhost";
-        $GLOBALS['cfg']['Server']['user'] = "pma_user";
+        $GLOBALS['cfg']['Server']['host'] = 'localhost';
+        $GLOBALS['cfg']['Server']['user'] = 'pma_user';
         $GLOBALS['server'] = 0;
 
-        $GLOBALS['table'] = "table";
-        $GLOBALS['db'] = "PMA";
+        $GLOBALS['table'] = 'table';
+        $GLOBALS['db'] = 'PMA';
 
         //$_SESSION
-        $_SESSION['relation'][$GLOBALS['server']] = "";
+        $_SESSION['relation'][$GLOBALS['server']] = '';
 
         $pmaconfig = $this->getMockBuilder('PhpMyAdmin\Config')
             ->disableOriginalConstructor()
@@ -65,11 +65,11 @@ class ExportTest extends TestCase
      */
     public function testGetHtmlForHiddenInputs()
     {
-        $export_type = "server";
-        $db = "PMA";
-        $table = "PMA_test";
-        $single_table_str = "PMA_single_str";
-        $sql_query_str = "sql_query_str";
+        $export_type = 'server';
+        $db = 'PMA';
+        $table = 'PMA_test';
+        $single_table_str = 'PMA_single_str';
+        $sql_query_str = 'sql_query_str';
 
         //Call the test function
         $html = $this->export->getHtmlForHiddenInputs(
@@ -105,15 +105,15 @@ class ExportTest extends TestCase
     public function testGetHtmlForOptions()
     {
         global $cfg;
-        $cfg['Export']['method'] = "XML";
-        $cfg['SaveDir'] = "/tmp";
+        $cfg['Export']['method'] = 'XML';
+        $cfg['SaveDir'] = '/tmp';
 
-        $export_type = "server";
-        $db = "PMA";
-        $table = "PMA_test";
-        $multi_values_str = "multi_values_str";
-        $num_tables_str = "10";
-        $unlim_num_rows_str = "unlim_num_rows_str";
+        $export_type = 'server';
+        $db = 'PMA';
+        $table = 'PMA_test';
+        $multi_values_str = 'multi_values_str';
+        $num_tables_str = '10';
+        $unlim_num_rows_str = 'unlim_num_rows_str';
         //$single_table = "single_table";
         $GLOBALS['dbi']->cacheTableContent([$db, $table, 'ENGINE'], 'MERGE');
 
@@ -138,7 +138,7 @@ class ExportTest extends TestCase
 
         /* Scan for plugins */
         $export_list = Plugins::getPlugins(
-            "export",
+            'export',
             'libraries/classes/Plugins/Export/',
             [
                 'export_type' => $export_type,

@@ -32,24 +32,24 @@ class VersionInformationTest extends PmaTestCase
         $this->_releases = [];
 
         $release = new stdClass();
-        $release->date = "2015-09-08";
-        $release->php_versions = ">=5.3,<7.1";
-        $release->version = "4.4.14.1";
-        $release->mysql_versions = ">=5.5";
+        $release->date = '2015-09-08';
+        $release->php_versions = '>=5.3,<7.1';
+        $release->version = '4.4.14.1';
+        $release->mysql_versions = '>=5.5';
         $this->_releases[] = $release;
 
         $release = new stdClass();
-        $release->date = "2015-09-09";
-        $release->php_versions = ">=5.3,<7.0";
-        $release->version = "4.4.13.3";
-        $release->mysql_versions = ">=5.5";
+        $release->date = '2015-09-09';
+        $release->php_versions = '>=5.3,<7.0';
+        $release->version = '4.4.13.3';
+        $release->mysql_versions = '>=5.5';
         $this->_releases[] = $release;
 
         $release = new stdClass();
-        $release->date = "2015-05-13";
-        $release->php_versions = ">=5.2,<5.3";
-        $release->version = "4.0.10.10";
-        $release->mysql_versions = ">=5.0";
+        $release->date = '2015-05-13';
+        $release->php_versions = '>=5.2,<5.3';
+        $release->version = '4.0.10.10';
+        $release->mysql_versions = '>=5.0';
         $this->_releases[] = $release;
     }
 

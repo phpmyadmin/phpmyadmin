@@ -249,7 +249,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             if (! empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
                 && ! empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
             ) {
-                if (! empty($_POST["g-recaptcha-response"])) {
+                if (! empty($_POST['g-recaptcha-response'])) {
                     if (function_exists('curl_init')) {
                         $reCaptcha = new ReCaptcha\ReCaptcha(
                             $GLOBALS['cfg']['CaptchaLoginPrivateKey'],
@@ -269,7 +269,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
                     // verify captcha status.
                     $resp = $reCaptcha->verify(
-                        $_POST["g-recaptcha-response"],
+                        $_POST['g-recaptcha-response'],
                         Core::getIp()
                     );
 

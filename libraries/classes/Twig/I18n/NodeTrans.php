@@ -90,7 +90,7 @@ class NodeTrans extends TransNode
 
             // line breaks are not allowed cause we want a single line comment
             $message = str_replace(["\n", "\r"], ' ', $message);
-            $compiler->write("// l10n: {$message}\n");
+            $compiler->write('// l10n: ' . $message . "\n");
         }
 
         if ($vars) {

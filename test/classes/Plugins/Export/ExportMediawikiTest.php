@@ -300,9 +300,9 @@ class ExportMediawikiTest extends PmaTestCase
                 'db',
                 'table',
                 "\n",
-                "example.com",
-                "create_table",
-                "test"
+                'example.com',
+                'create_table',
+                'test'
             )
         );
         $result = ob_get_clean();
@@ -389,8 +389,8 @@ class ExportMediawikiTest extends PmaTestCase
                 'db',
                 'table',
                 "\n",
-                "example.com",
-                "SELECT"
+                'example.com',
+                'SELECT'
             )
         );
         $result = ob_get_clean();
@@ -400,7 +400,7 @@ class ExportMediawikiTest extends PmaTestCase
             "Table data for `table`\n" .
             "-->\n" .
             "\n" .
-            "{| class=\"wikitable sortable\" style=\"text-align:" .
+            '{| class="wikitable sortable" style="text-align:' .
             "center;\"\n" .
             "|+'''table'''\n" .
             "|-\n" .

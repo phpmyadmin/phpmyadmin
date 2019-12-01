@@ -71,7 +71,7 @@ class TableStatsDia extends TableStats
     {
         ExportRelationSchema::dieSchema(
             $this->pageNumber,
-            "DIA",
+            'DIA',
             sprintf(__('The %s table doesn\'t exist!'), $this->tableName)
         );
     }

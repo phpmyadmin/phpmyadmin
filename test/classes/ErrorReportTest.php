@@ -132,10 +132,10 @@ class ErrorReportTest extends TestCase
             ->method('create')
             ->with(
                 $submissionUrl,
-                "POST",
+                'POST',
                 false,
                 json_encode($report),
-                "Content-Type: application/json"
+                'Content-Type: application/json'
             )
             ->willReturn($return);
 

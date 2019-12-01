@@ -29,7 +29,7 @@ class SysInfoLinux extends SysInfoBase
     {
         $buf = file_get_contents('/proc/stat');
         $nums = preg_split(
-            "/\s+/",
+            '/\s+/',
             mb_substr(
                 $buf,
                 0,

@@ -56,7 +56,7 @@ class GisDataEditorController extends AbstractController
                 $gis_data['gis_type'] = mb_substr(
                     $_POST['value'],
                     $start,
-                    mb_strpos($_POST['value'], "(") - $start
+                    mb_strpos($_POST['value'], '(') - $start
                 );
             }
             if (! isset($gis_data['gis_type'])

@@ -59,7 +59,7 @@ class Text_Plain_SqlEditor extends CodeMirrorEditorTransformationPlugin
      */
     public static function getName()
     {
-        return "SQL";
+        return 'SQL';
     }
 
     /**
@@ -69,7 +69,7 @@ class Text_Plain_SqlEditor extends CodeMirrorEditorTransformationPlugin
      */
     public static function getMIMEType()
     {
-        return "Text";
+        return 'Text';
     }
 
     /**
@@ -79,6 +79,6 @@ class Text_Plain_SqlEditor extends CodeMirrorEditorTransformationPlugin
      */
     public static function getMIMESubtype()
     {
-        return "Plain";
+        return 'Plain';
     }
 }

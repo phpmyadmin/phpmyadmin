@@ -114,12 +114,12 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
         $newstring = '';
         $descriptorspec = [
             0 => [
-                "pipe",
-                "r",
+                'pipe',
+                'r',
             ],
             1 => [
-                "pipe",
-                "w",
+                'pipe',
+                'w',
             ],
         ];
         $process = proc_open($program . ' ' . $options[1], $descriptorspec, $pipes);
@@ -154,6 +154,6 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
      */
     public static function getName()
     {
-        return "External";
+        return 'External';
     }
 }

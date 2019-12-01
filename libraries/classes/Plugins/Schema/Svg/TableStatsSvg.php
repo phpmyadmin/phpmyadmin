@@ -89,7 +89,7 @@ class TableStatsSvg extends TableStats
     {
         ExportRelationSchema::dieSchema(
             $this->pageNumber,
-            "SVG",
+            'SVG',
             sprintf(__('The %s table doesn\'t exist!'), $this->tableName)
         );
     }

@@ -44,7 +44,7 @@ class Text_Plain_Sql extends SQLTransformationsPlugin
      */
     public static function getMIMEType()
     {
-        return "Text";
+        return 'Text';
     }
 
     /**
@@ -54,6 +54,6 @@ class Text_Plain_Sql extends SQLTransformationsPlugin
      */
     public static function getMIMESubtype()
     {
-        return "Plain";
+        return 'Plain';
     }
 }

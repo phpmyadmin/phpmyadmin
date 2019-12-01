@@ -27,7 +27,7 @@ class Text_Octetstream_Sql extends SQLTransformationsPlugin
      */
     public static function getMIMEType()
     {
-        return "Text";
+        return 'Text';
     }
 
     /**
@@ -37,6 +37,6 @@ class Text_Octetstream_Sql extends SQLTransformationsPlugin
      */
     public static function getMIMESubtype()
     {
-        return "Octetstream";
+        return 'Octetstream';
     }
 }

@@ -53,19 +53,19 @@ class IndexesControllerTest extends PmaTestCase
 
         $indexs = [
             [
-                "Schema" => "Schema1",
-                "Key_name" => "Key_name1",
-                "Column_name" => "Column_name1",
+                'Schema' => 'Schema1',
+                'Key_name' => 'Key_name1',
+                'Column_name' => 'Column_name1',
             ],
             [
-                "Schema" => "Schema2",
-                "Key_name" => "Key_name2",
-                "Column_name" => "Column_name2",
+                'Schema' => 'Schema2',
+                'Key_name' => 'Key_name2',
+                'Column_name' => 'Column_name2',
             ],
             [
-                "Schema" => "Schema3",
-                "Key_name" => "Key_name3",
-                "Column_name" => "Column_name3",
+                'Schema' => 'Schema3',
+                'Key_name' => 'Key_name3',
+                'Column_name' => 'Column_name3',
             ],
         ];
 
@@ -140,11 +140,11 @@ class IndexesControllerTest extends PmaTestCase
             ->disableOriginalConstructor()
             ->getMock();
         $table->expects($this->any())->method('getStatusInfo')
-            ->will($this->returnValue(""));
+            ->will($this->returnValue(''));
         $table->expects($this->any())->method('isView')
             ->will($this->returnValue(false));
         $table->expects($this->any())->method('getNameAndTypeOfTheColumns')
-            ->will($this->returnValue(["field_name" => "field_type"]));
+            ->will($this->returnValue(['field_name' => 'field_type']));
 
         $GLOBALS['dbi']->expects($this->any())->method('getTable')
             ->will($this->returnValue($table));
@@ -209,11 +209,11 @@ class IndexesControllerTest extends PmaTestCase
 
         //$field_name & $field_type
         $this->assertStringContainsString(
-            "field_name",
+            'field_name',
             $html
         );
         $this->assertStringContainsString(
-            "field_type",
+            'field_type',
             $html
         );
     }

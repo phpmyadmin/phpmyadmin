@@ -223,7 +223,7 @@ class SanitizeTest extends TestCase
      */
     public function testJsFormat()
     {
-        $this->assertEquals("`foo`", Sanitize::jsFormat('foo'));
+        $this->assertEquals('`foo`', Sanitize::jsFormat('foo'));
     }
 
     /**

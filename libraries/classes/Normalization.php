@@ -87,8 +87,8 @@ class Normalization
             null,
             true
         );
-        $type = "";
-        $selectColHtml = "";
+        $type = '';
+        $selectColHtml = '';
         foreach ($columns as $column => $def) {
             if (isset($def['Type'])) {
                 $extractedColumnSpec = Util::extractColumnSpec($def['Type']);
@@ -213,11 +213,11 @@ class Normalization
         $step = 1;
         $stepTxt = __('Make all columns atomic');
         $html = "<h3 class='text-center'>"
-            . __('First step of normalization (1NF)') . "</h3>";
+            . __('First step of normalization (1NF)') . '</h3>';
         $html .= "<div id='mainContent' data-normalizeto='" . $normalizedTo . "'>" .
-            "<fieldset>" .
-            "<legend>" . __('Step 1.') . $step . " " . $stepTxt . "</legend>" .
-            "<h4>" . __(
+            '<fieldset>' .
+            '<legend>' . __('Step 1.') . $step . ' ' . $stepTxt . '</legend>' .
+            '<h4>' . __(
                 'Do you have any column which can be split into more than'
                 . ' one column? '
                 . 'For example: address can be split into street, city, country and zip.'
@@ -226,30 +226,30 @@ class Normalization
             . "data-pick=false href='#'> "
             . __(
                 'Show me the central list of columns that are not already in this table'
-            ) . " </a>)</h4>"
+            ) . ' </a>)</h4>'
             . "<p class='cm-em'>" . __(
                 'Select a column which can be split into more '
                 . 'than one (on select of \'no such column\', it\'ll move to next step).'
             )
-            . "</p>"
+            . '</p>'
             . "<div id='extra'>"
             . "<select id='selectNonAtomicCol' name='makeAtomic'>"
             . '<option selected="selected" disabled="disabled">'
-            . __('Select one…') . "</option>"
-            . "<option value='no_such_col'>" . __('No such column') . "</option>"
+            . __('Select one…') . '</option>'
+            . "<option value='no_such_col'>" . __('No such column') . '</option>'
             . $this->getHtmlForColumnsList(
                 $db,
                 $table,
                 _pgettext('string types', 'String')
             )
-            . "</select>"
-            . "<span>" . __('split into ')
+            . '</select>'
+            . '<span>' . __('split into ')
             . "</span><input id='numField' type='number' value='2'>"
             . "<input type='submit' id='splitGo' value='" . __('Go') . "'></div>"
             . "<div id='newCols'></div>"
             . "</fieldset><fieldset class='tblFooters'>"
-            . "</fieldset>"
-            . "</div>";
+            . '</fieldset>'
+            . '</div>';
         return $html;
     }
 
@@ -266,18 +266,18 @@ class Normalization
         $step = 2;
         $stepTxt = __('Have a primary key');
         $primary = Index::getPrimary($table, $db);
-        $hasPrimaryKey = "0";
-        $legendText = __('Step 1.') . $step . " " . $stepTxt;
+        $hasPrimaryKey = '0';
+        $legendText = __('Step 1.') . $step . ' ' . $stepTxt;
         $extra = '';
         if ($primary) {
-            $headText = __("Primary key already exists.");
-            $subText = __("Taking you to next step…");
-            $hasPrimaryKey = "1";
+            $headText = __('Primary key already exists.');
+            $subText = __('Taking you to next step…');
+            $hasPrimaryKey = '1';
         } else {
             $headText = __(
-                "There is no primary key; please add one.<br>"
-                . "Hint: A primary key is a column "
-                . "(or combination of columns) that uniquely identify all rows."
+                'There is no primary key; please add one.<br>'
+                . 'Hint: A primary key is a column '
+                . '(or combination of columns) that uniquely identify all rows.'
             );
             $subText = '<a href="#" id="createPrimaryKey">'
                 . Generator::getIcon(
@@ -289,8 +289,8 @@ class Normalization
                 . '</a>';
             $extra = __(
                 "If it's not possible to make existing "
-                . "column combinations as primary key"
-            ) . "<br>"
+                . 'column combinations as primary key'
+            ) . '<br>'
                 . '<a href="#" id="addNewPrimary">'
                 . __('+ Add a new primary key column') . '</a>';
         }
@@ -315,18 +315,18 @@ class Normalization
     {
         $step = 4;
         $stepTxt = __('Remove redundant columns');
-        $legendText = __('Step 1.') . $step . " " . $stepTxt;
+        $legendText = __('Step 1.') . $step . ' ' . $stepTxt;
         $headText = __(
-            "Do you have a group of columns which on combining gives an existing"
-            . " column? For example, if you have first_name, last_name and"
-            . " full_name then combining first_name and last_name gives full_name"
-            . " which is redundant."
+            'Do you have a group of columns which on combining gives an existing'
+            . ' column? For example, if you have first_name, last_name and'
+            . ' full_name then combining first_name and last_name gives full_name'
+            . ' which is redundant.'
         );
         $subText = __(
-            "Check the columns which are redundant and click on remove. "
+            'Check the columns which are redundant and click on remove. '
             . "If no redundant column, click on 'No redundant column'"
         );
-        $extra = $this->getHtmlForColumnsList($db, $table, 'all', "checkbox") . "<br>"
+        $extra = $this->getHtmlForColumnsList($db, $table, 'all', 'checkbox') . '<br>'
             . '<input class="btn btn-secondary" type="submit" id="removeRedundant" value="'
             . __('Remove selected') . '">'
             . '<input class="btn btn-secondary" type="submit" value="' . __('No redundant column')
@@ -351,20 +351,20 @@ class Normalization
     {
         $step = 3;
         $stepTxt = __('Move repeating groups');
-        $legendText = __('Step 1.') . $step . " " . $stepTxt;
+        $legendText = __('Step 1.') . $step . ' ' . $stepTxt;
         $headText = __(
-            "Do you have a group of two or more columns that are closely "
-            . "related and are all repeating the same attribute? For example, "
-            . "a table that holds data on books might have columns such as book_id, "
-            . "author1, author2, author3 and so on which form a "
-            . "repeating group. In this case a new table (book_id, author) should "
-            . "be created."
+            'Do you have a group of two or more columns that are closely '
+            . 'related and are all repeating the same attribute? For example, '
+            . 'a table that holds data on books might have columns such as book_id, '
+            . 'author1, author2, author3 and so on which form a '
+            . 'repeating group. In this case a new table (book_id, author) should '
+            . 'be created.'
         );
         $subText = __(
-            "Check the columns which form a repeating group. "
+            'Check the columns which form a repeating group. '
             . "If no such group, click on 'No repeating group'"
         );
-        $extra = $this->getHtmlForColumnsList($db, $table, 'all', "checkbox") . "<br>"
+        $extra = $this->getHtmlForColumnsList($db, $table, 'all', 'checkbox') . '<br>'
             . '<input class="btn btn-secondary" type="submit" id="moveRepeatingGroup" value="'
             . __('Done') . '">'
             . '<input class="btn btn-secondary" type="submit" value="' . __('No repeating group')
@@ -394,13 +394,13 @@ class Normalization
      */
     public function getHtmlFor2NFstep1($db, $table)
     {
-        $legendText = __('Step 2.') . "1 " . __('Find partial dependencies');
+        $legendText = __('Step 2.') . '1 ' . __('Find partial dependencies');
         $primary = Index::getPrimary($table, $db);
         $primarycols = $primary->getColumns();
         $pk = [];
         $subText = '';
-        $selectPkForm = "";
-        $extra = "";
+        $selectPkForm = '';
+        $extra = '';
         foreach ($primarycols as $col) {
             $pk[] = $col->getName();
             $selectPkForm .= '<input type="checkbox" name="pd" value="'
@@ -450,10 +450,10 @@ class Normalization
                 foreach ($columns as $column) {
                     if (! in_array($column, $pk)) {
                         $cnt++;
-                        $extra .= "<b>" . sprintf(
+                        $extra .= '<b>' . sprintf(
                             __('\'%1$s\' depends on:'),
                             htmlspecialchars($column)
-                        ) . "</b><br>";
+                        ) . '</b><br>';
                         $extra .= '<form id="pk_' . $cnt . '" data-colname="'
                             . htmlspecialchars($column) . '" class="smallIndent">'
                             . $selectPkForm . '</form><br><br>';
@@ -600,7 +600,7 @@ class Normalization
      */
     public function getHtmlForNewTables3NF($dependencies, array $tables, $db)
     {
-        $html = "";
+        $html = '';
         $i = 1;
         $newTables = [];
         foreach ($tables as $table => $arrDependson) {
@@ -639,8 +639,8 @@ class Normalization
                             . (count($dependents) > 0 ? ', ' : '')
                             . htmlspecialchars(implode(', ', $dependents)) . ' )';
                         $newTables[$table][$tableName] = [
-                            "pk" => $key,
-                            "nonpk" => implode(', ', $dependents),
+                            'pk' => $key,
+                            'nonpk' => implode(', ', $dependents),
                         ];
                         $i++;
                         $tableName = 'table' . $i;
@@ -827,8 +827,8 @@ class Normalization
      */
     public function getHtmlFor3NFstep1($db, array $tables)
     {
-        $legendText = __('Step 3.') . "1 " . __('Find transitive dependencies');
-        $extra = "";
+        $legendText = __('Step 3.') . '1 ' . __('Find transitive dependencies');
+        $extra = '';
         $headText = __(
             'Please answer the following question(s) '
             . 'carefully to obtain a correct normalization.'
@@ -845,7 +845,7 @@ class Normalization
         foreach ($tables as $table) {
             $primary = Index::getPrimary($table, $db);
             $primarycols = $primary->getColumns();
-            $selectTdForm = "";
+            $selectTdForm = '';
             $pk = [];
             foreach ($primarycols as $col) {
                 $pk[] = $col->getName();
@@ -868,11 +868,11 @@ class Normalization
             foreach ($columns as $column) {
                 if (! in_array($column, $pk)) {
                     $cnt++;
-                    $extra .= "<b>" . sprintf(
+                    $extra .= '<b>' . sprintf(
                         __('\'%1$s\' depends on:'),
                         htmlspecialchars($column)
                     )
-                        . "</b><br>";
+                        . '</b><br>';
                     $extra .= '<form id="td_' . $cnt . '" data-colname="'
                         . htmlspecialchars($column) . '" data-tablename="'
                         . htmlspecialchars($table) . '" class="smallIndent">'
@@ -881,13 +881,13 @@ class Normalization
                 }
             }
         }
-        if ($extra == "") {
+        if ($extra == '') {
             $headText = __(
-                "No Transitive dependencies possible as the table "
+                'No Transitive dependencies possible as the table '
                 . "doesn't have any non primary key columns"
             );
-            $subText = "";
-            $extra = "<h3>" . __("Table is already in Third normal form!") . "</h3>";
+            $subText = '';
+            $extra = '<h3>' . __('Table is already in Third normal form!') . '</h3>';
         }
         return [
             'legendText' => $legendText,
@@ -931,7 +931,7 @@ class Normalization
             . "<span class='floatleft'>" . __(
                 'Hint: Please follow the procedure carefully in order '
                 . 'to obtain correct normalization'
-            ) . "</span>"
+            ) . '</span>'
             . '<input class="btn btn-primary" type="submit" name="submit_normalize" value="' . __('Go') . '">'
             . '</fieldset>'
             . '</form>'

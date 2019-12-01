@@ -36,7 +36,7 @@ class LoginTest extends TestBase
     public function testSuccessfulLogin()
     {
         $this->login();
-        $this->waitForElement('xpath', "//*[@id=\"server-breadcrumb\"]");
+        $this->waitForElement('xpath', '//*[@id="server-breadcrumb"]');
         $this->assertTrue($this->isSuccessLogin());
         $this->logOutIfLoggedIn();
     }
@@ -50,8 +50,8 @@ class LoginTest extends TestBase
      */
     public function testLoginWithWrongPassword()
     {
-        $this->login("Admin", "Admin");
-        $this->waitForElement('cssSelector', "alert-danger");
+        $this->login('Admin', 'Admin');
+        $this->waitForElement('cssSelector', 'alert-danger');
         $this->assertTrue($this->isUnsuccessLogin());
     }
 }

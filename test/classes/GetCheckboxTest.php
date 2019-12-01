@@ -42,8 +42,8 @@ class GetCheckboxTest extends TestCase
      */
     public function testGetCheckbox()
     {
-        $name = "test_display_html_checkbox";
-        $label = "text_label_for_checkbox";
+        $name = 'test_display_html_checkbox';
+        $label = 'text_label_for_checkbox';
 
         $this->assertSame(
             $this->template->render('checkbox', [
@@ -66,8 +66,8 @@ class GetCheckboxTest extends TestCase
      */
     public function testGetCheckboxChecked()
     {
-        $name = "test_display_html_checkbox";
-        $label = "text_label_for_checkbox";
+        $name = 'test_display_html_checkbox';
+        $label = 'text_label_for_checkbox';
 
         $this->assertSame(
             $this->template->render('checkbox', [
@@ -90,8 +90,8 @@ class GetCheckboxTest extends TestCase
      */
     public function testGetCheckboxOnclick()
     {
-        $name = "test_display_html_checkbox";
-        $label = "text_label_for_checkbox";
+        $name = 'test_display_html_checkbox';
+        $label = 'text_label_for_checkbox';
 
         $this->assertSame(
             $this->template->render('checkbox', [
@@ -114,8 +114,8 @@ class GetCheckboxTest extends TestCase
      */
     public function testGetCheckboxCheckedOnclick()
     {
-        $name = "test_display_html_checkbox";
-        $label = "text_label_for_checkbox";
+        $name = 'test_display_html_checkbox';
+        $label = 'text_label_for_checkbox';
 
         $this->assertSame(
             $this->template->render('checkbox', [

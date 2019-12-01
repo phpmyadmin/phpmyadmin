@@ -52,7 +52,7 @@ class CreateDropDatabaseTest extends TestBase
         $element->clear();
         $element->sendKeys($this->database_name);
 
-        $this->byId("buttonGo")->click();
+        $this->byId('buttonGo')->click();
 
         $element = $this->waitForElement('linkText', 'Database: ' . $this->database_name);
 
@@ -81,8 +81,8 @@ class CreateDropDatabaseTest extends TestBase
             "input[name='selected_dbs[]'][value='" . $this->database_name . "']"
         )->click();
 
-        $this->byCssSelector("button.mult_submit")->click();
-        $this->byCssSelector("button.submitOK")->click();
+        $this->byCssSelector('button.mult_submit')->click();
+        $this->byCssSelector('button.submitOK')->click();
 
         $this->waitForElementNotPresent(
             'cssSelector',
@@ -91,7 +91,7 @@ class CreateDropDatabaseTest extends TestBase
 
         $this->waitForElement(
             'cssSelector',
-            "span.ajax_notification .alert-success"
+            'span.ajax_notification .alert-success'
         );
 
         $result = $this->dbQuery(

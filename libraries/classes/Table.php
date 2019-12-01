@@ -526,7 +526,7 @@ class Table
             $query .= ' ' . $attribute;
 
             if ($is_timestamp
-                && false !== stripos($attribute, "TIMESTAMP")
+                && false !== stripos($attribute, 'TIMESTAMP')
                 && strlen($length) !== 0
                 && $length !== 0
             ) {
@@ -1038,8 +1038,8 @@ class Table
              * @var ExportSql $export_sql_plugin
              */
             $export_sql_plugin = Plugins::getPlugin(
-                "export",
-                "sql",
+                'export',
+                'sql',
                 'libraries/classes/Plugins/Export/',
                 [
                     'export_type' => 'table',
@@ -1086,7 +1086,7 @@ class Table
             // queries.
             // One of the options that alters the behaviour is `ANSI_QUOTES`.
             Context::setMode(
-                $dbi->fetchValue("SELECT @@sql_mode")
+                $dbi->fetchValue('SELECT @@sql_mode')
             );
 
             // -----------------------------------------------------------------
@@ -1816,11 +1816,11 @@ class Table
     protected function getUiPrefsFromDb()
     {
         $cfgRelation = $this->relation->getRelationsParam();
-        $pma_table = Util::backquote($cfgRelation['db']) . "."
+        $pma_table = Util::backquote($cfgRelation['db']) . '.'
             . Util::backquote($cfgRelation['table_uiprefs']);
 
         // Read from phpMyAdmin database
-        $sql_query = " SELECT `prefs` FROM " . $pma_table
+        $sql_query = ' SELECT `prefs` FROM ' . $pma_table
             . " WHERE `username` = '" . $this->_dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "'"
             . " AND `db_name` = '" . $this->_dbi->escapeString($this->_db_name) . "'"
             . " AND `table_name` = '" . $this->_dbi->escapeString($this->_name) . "'";
@@ -1841,13 +1841,13 @@ class Table
     protected function saveUiPrefsToDb()
     {
         $cfgRelation = $this->relation->getRelationsParam();
-        $pma_table = Util::backquote($cfgRelation['db']) . "."
+        $pma_table = Util::backquote($cfgRelation['db']) . '.'
             . Util::backquote($cfgRelation['table_uiprefs']);
 
         $secureDbName = $this->_dbi->escapeString($this->_db_name);
 
         $username = $GLOBALS['cfg']['Server']['user'];
-        $sql_query = " REPLACE INTO " . $pma_table
+        $sql_query = ' REPLACE INTO ' . $pma_table
             . " (username, db_name, table_name, prefs) VALUES ('"
             . $this->_dbi->escapeString($username) . "', '" . $secureDbName
             . "', '" . $this->_dbi->escapeString($this->_name) . "', '"

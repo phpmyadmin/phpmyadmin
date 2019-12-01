@@ -32,7 +32,7 @@ class MultSubmitsTest extends TestCase
     {
         //$GLOBALS
         $GLOBALS['cfg']['MaxRows'] = 10;
-        $GLOBALS['cfg']['ServerDefault'] = "server";
+        $GLOBALS['cfg']['ServerDefault'] = 'server';
         $GLOBALS['cfg']['RememberSorting'] = true;
         $GLOBALS['cfg']['SQP'] = [];
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
@@ -41,14 +41,14 @@ class MultSubmitsTest extends TestCase
         $GLOBALS['cfg']['LimitChars'] = 100;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['server'] = 0;
-        $GLOBALS['cfg']['ActionLinksMode'] = "both";
+        $GLOBALS['cfg']['ActionLinksMode'] = 'both';
 
         //_SESSION
         $_SESSION['relation'][$GLOBALS['server']] = [
             'PMA_VERSION' => PMA_VERSION,
-            'table_coords' => "table_name",
+            'table_coords' => 'table_name',
             'displaywork' => 'displaywork',
-            'db' => "information_schema",
+            'db' => 'information_schema',
             'table_info' => 'table_info',
             'relwork' => 'relwork',
             'commwork' => 'commwork',
@@ -194,14 +194,14 @@ class MultSubmitsTest extends TestCase
         $what = 'row_delete';
         $reload = true;
         $action = 'db_delete_row';
-        $db = "PMA_db";
-        $table = "PMA_table";
+        $db = 'PMA_db';
+        $table = 'PMA_table';
         $selected = [
-            "index1" => "table1",
+            'index1' => 'table1',
         ];
         $views = null;
-        $originalSqlQuery = "original_sql_query";
-        $originalUrlQuery = "original_url_query";
+        $originalSqlQuery = 'original_sql_query';
+        $originalUrlQuery = 'original_url_query';
 
         $urlParams = $this->multSubmits->getUrlParams(
             $what,
@@ -244,16 +244,16 @@ class MultSubmitsTest extends TestCase
     public function testBuildOrExecuteQuery()
     {
         $queryType = 'row_delete';
-        $db = "PMA_db";
-        $table = "PMA_table";
+        $db = 'PMA_db';
+        $table = 'PMA_table';
         $selected = [
-            "table1",
-            "table2",
+            'table1',
+            'table2',
         ];
         $views = null;
         $primary = null;
-        $fromPrefix = "from_prefix";
-        $toPrefix = "to_prefix";
+        $fromPrefix = 'from_prefix';
+        $toPrefix = 'to_prefix';
 
         $_REQUEST['pos'] = 1000;
         $_SESSION['tmpval']['pos'] = 1000;
@@ -325,15 +325,15 @@ class MultSubmitsTest extends TestCase
      */
     public function testGetQueryFromSelected()
     {
-        $what = "drop_tbl";
-        $table = "PMA_table";
+        $what = 'drop_tbl';
+        $table = 'PMA_table';
         $selected = [
-            "table1",
-            "table2",
+            'table1',
+            'table2',
         ];
         $views = [
-            "table1",
-            "table2",
+            'table1',
+            'table2',
         ];
 
         list($fullQuery, $reload, $fullQueryViews)
@@ -346,7 +346,7 @@ class MultSubmitsTest extends TestCase
 
         //validate 1: $fullQuery
         $this->assertStringContainsString(
-            "DROP VIEW `table1`, `table2`",
+            'DROP VIEW `table1`, `table2`',
             $fullQuery
         );
 
@@ -362,7 +362,7 @@ class MultSubmitsTest extends TestCase
             $fullQueryViews
         );
 
-        $what = "drop_db";
+        $what = 'drop_db';
 
         list($fullQuery, $reload, $fullQueryViews)
             = $this->multSubmits->getQueryFromSelected(
@@ -374,7 +374,7 @@ class MultSubmitsTest extends TestCase
 
         //validate 1: $fullQuery
         $this->assertStringContainsString(
-            "DROP DATABASE `table1`;<br>DROP DATABASE `table2`;",
+            'DROP DATABASE `table1`;<br>DROP DATABASE `table2`;',
             $fullQuery
         );
 

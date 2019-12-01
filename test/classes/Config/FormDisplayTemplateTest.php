@@ -121,7 +121,7 @@ class FormDisplayTemplateTest extends TestCase
             'e2',
         ];
 
-        $result = $this->formDisplayTemplate->displayFieldsetTop("TitleTest", "DescTest", $errors, $attributes);
+        $result = $this->formDisplayTemplate->displayFieldsetTop('TitleTest', 'DescTest', $errors, $attributes);
 
         $this->assertStringContainsString(
             '<fieldset class="optbox" name="attrname">',
@@ -165,8 +165,8 @@ class FormDisplayTemplateTest extends TestCase
         $opts['errors'] = ['e1'];
         $opts['userprefs_allow'] = false;
         $opts['setvalue'] = ':group';
-        $opts['doc'] = "https://example.com/";
-        $opts['comment'] = "testComment";
+        $opts['doc'] = 'https://example.com/';
+        $opts['comment'] = 'testComment';
         $opts['comment_warning'] = true;
         $opts['show_restore_default'] = true;
         $result = $this->formDisplayTemplate->displayInput(
@@ -232,7 +232,7 @@ class FormDisplayTemplateTest extends TestCase
         $opts = [];
         $opts['errors'] = [];
         $opts['setvalue'] = 'setVal';
-        $opts['comment'] = "testComment";
+        $opts['comment'] = 'testComment';
         $opts['show_restore_default'] = true;
         $opts['userprefs_comment'] = 'userprefsComment';
         $opts['userprefs_allow'] = true;

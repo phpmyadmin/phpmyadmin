@@ -62,7 +62,7 @@ class ImportCsv extends AbstractImportCsv
 
         if ($GLOBALS['plugin_param'] !== 'table') {
             $leaf = new TextPropertyItem(
-                "new_tbl_name",
+                'new_tbl_name',
                 __(
                     'Name of the new table (optional):'
                 )
@@ -71,7 +71,7 @@ class ImportCsv extends AbstractImportCsv
 
             if ($GLOBALS['plugin_param'] === 'server') {
                 $leaf = new TextPropertyItem(
-                    "new_db_name",
+                    'new_db_name',
                     __(
                         'Name of the new database (optional):'
                     )
@@ -80,7 +80,7 @@ class ImportCsv extends AbstractImportCsv
             }
 
             $leaf = new NumberPropertyItem(
-                "partial_import",
+                'partial_import',
                 __(
                     'Import these many number of rows (optional):'
                 )
@@ -88,7 +88,7 @@ class ImportCsv extends AbstractImportCsv
             $generalOptions->addProperty($leaf);
 
             $leaf = new BoolPropertyItem(
-                "col_names",
+                'col_names',
                 __(
                     'The first line of the file contains the table column names'
                     . ' <i>(if this is unchecked, the first line will become part'
@@ -98,7 +98,7 @@ class ImportCsv extends AbstractImportCsv
             $generalOptions->addProperty($leaf);
         } else {
             $leaf = new NumberPropertyItem(
-                "partial_import",
+                'partial_import',
                 __(
                     'Import these many number of rows (optional):'
                 )
@@ -114,14 +114,14 @@ class ImportCsv extends AbstractImportCsv
                 )
             );
             $leaf = new TextPropertyItem(
-                "columns",
+                'columns',
                 __('Column names:') . ' ' . Generator::showHint($hint)
             );
             $generalOptions->addProperty($leaf);
         }
 
         $leaf = new BoolPropertyItem(
-            "ignore",
+            'ignore',
             __('Do not abort on INSERT error')
         );
         $generalOptions->addProperty($leaf);
@@ -142,9 +142,9 @@ class ImportCsv extends AbstractImportCsv
         // but we use directly from $_POST
         global $error, $timeout_passed, $finished, $message;
 
-        $import_file_name = basename($import_file_name, ".csv");
+        $import_file_name = basename($import_file_name, '.csv');
         $import_file_name = mb_strtolower($import_file_name);
-        $import_file_name = preg_replace("/[^a-zA-Z0-9_]/", "_", $import_file_name);
+        $import_file_name = preg_replace('/[^a-zA-Z0-9_]/', '_', $import_file_name);
 
         $replacements = [
             '\\n' => "\n",
@@ -611,13 +611,13 @@ class ImportCsv extends AbstractImportCsv
                         }
                         $sql .= ')';
                         if (isset($_POST['csv_replace'])) {
-                            $sql .= " ON DUPLICATE KEY UPDATE ";
+                            $sql .= ' ON DUPLICATE KEY UPDATE ';
                             foreach ($fields as $field) {
                                 $fieldName = Util::backquote(
                                     $field['Field']
                                 );
-                                $sql .= $fieldName . " = VALUES(" . $fieldName
-                                    . "), ";
+                                $sql .= $fieldName . ' = VALUES(' . $fieldName
+                                    . '), ';
                             }
                             $sql = rtrim($sql, ', ');
                         }
@@ -690,14 +690,14 @@ class ImportCsv extends AbstractImportCsv
                     $tbl_name = $import_file_name;
                 } else {
                     // check to see if {filename} as table exist
-                    $name_array = preg_grep("/{$import_file_name}/isU", $result);
+                    $name_array = preg_grep('/' . $import_file_name . '/isU', $result);
                     // if no use filename as table name
                     if (count($name_array) === 0) {
                         $tbl_name = $import_file_name;
                     } else {
                         // check if {filename}_ as table exist
-                        $name_array = preg_grep("/{$import_file_name}_/isU", $result);
-                        $tbl_name = $import_file_name . "_" . (count($name_array) + 1);
+                        $name_array = preg_grep('/' . $import_file_name . '_/isU', $result);
+                        $tbl_name = $import_file_name . '_' . (count($name_array) + 1);
                     }
                 }
             } else {

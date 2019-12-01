@@ -144,7 +144,7 @@ class LinterTest extends PmaTestCase
                         'severity' => 'warning',
                     ],
                 ],
-                str_repeat(";", 10001),
+                str_repeat(';', 10001),
             ],
         ];
     }

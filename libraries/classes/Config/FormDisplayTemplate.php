@@ -223,7 +223,7 @@ class FormDisplayTemplate
                     $icons[$k] = sprintf(
                         '<img alt="%s" src="%s"%s>',
                         $v[1],
-                        "../themes/pmahomme/img/{$v[0]}.png",
+                        '../themes/pmahomme/img/' . $v[0] . '.png',
                         $title
                     );
                 }
@@ -279,7 +279,7 @@ class FormDisplayTemplate
             $htmlOutput .= __(
                 'This setting is disabled, it will not be applied to your configuration.'
             );
-            $htmlOutput .= '">' . __('Disabled') . "</span>";
+            $htmlOutput .= '">' . __('Disabled') . '</span>';
         }
 
         if (! empty($description)) {
@@ -371,7 +371,7 @@ class FormDisplayTemplate
         }
         if (isset($opts['setvalue']) && $opts['setvalue']) {
             $htmlOutput .= '<a class="set-value hide" href="#'
-                . htmlspecialchars("$path={$opts['setvalue']}") . '" title="'
+                . htmlspecialchars($path . '=' . $opts['setvalue']) . '" title="'
                 . sprintf(__('Set value: %s'), htmlspecialchars($opts['setvalue']))
                 . '">' . $icons['edit'] . '</a>';
         }
@@ -491,7 +491,7 @@ class FormDisplayTemplate
                 $vArgs[] = Sanitize::escapeJsString($arg);
             }
             $vArgs = $vArgs ? ", ['" . implode("', '", $vArgs) . "']" : '';
-            $jsArray[] = "registerFieldValidator('$fieldId', '$vName', true$vArgs)";
+            $jsArray[] = "registerFieldValidator('" . $fieldId . "', '" . $vName . "', true" . $vArgs . ')';
         }
     }
 

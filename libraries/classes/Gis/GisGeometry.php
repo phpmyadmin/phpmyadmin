@@ -148,11 +148,11 @@ abstract class GisGeometry
     protected function setMinMax($point_set, array $min_max)
     {
         // Separate each point
-        $points = explode(",", $point_set);
+        $points = explode(',', $point_set);
 
         foreach ($points as $point) {
             // Extract coordinates of the point
-            $cordinates = explode(" ", $point);
+            $cordinates = explode(' ', $point);
 
             $x = (float) $cordinates[0];
             if (! isset($min_max['maxX']) || $x > $min_max['maxX']) {
@@ -191,10 +191,10 @@ abstract class GisGeometry
         $wkt = '';
 
         if (preg_match("/^'" . $geom_types . "\(.*\)',[0-9]*$/i", $value)) {
-            $last_comma = mb_strripos($value, ",");
+            $last_comma = mb_strripos($value, ',');
             $srid = trim(mb_substr($value, $last_comma + 1));
             $wkt = trim(mb_substr($value, 1, $last_comma - 2));
-        } elseif (preg_match("/^" . $geom_types . "\(.*\)$/i", $value)) {
+        } elseif (preg_match('/^' . $geom_types . '\(.*\)$/i', $value)) {
             $wkt = $value;
         }
 
@@ -219,12 +219,12 @@ abstract class GisGeometry
         $points_arr = [];
 
         // Separate each point
-        $points = explode(",", $point_set);
+        $points = explode(',', $point_set);
 
         foreach ($points as $point) {
             $point = str_replace(['(', ')'], '', $point);
             // Extract coordinates of the point
-            $cordinates = explode(" ", $point);
+            $cordinates = explode(' ', $point);
 
             if (isset($cordinates[0], $cordinates[1]) && trim($cordinates[0]) != '' && trim($cordinates[1]) != '') {
                 if ($scale_data != null) {
@@ -267,7 +267,7 @@ abstract class GisGeometry
     {
         $ol_array = 'new Array(';
         foreach ($polygons as $polygon) {
-            $rings = explode("),(", $polygon);
+            $rings = explode('),(', $polygon);
             $ol_array .= $this->getPolygonForOpenLayers($rings, $srid) . ', ';
         }
 

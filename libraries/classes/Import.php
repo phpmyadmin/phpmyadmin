@@ -96,7 +96,7 @@ class Import
 
         // USE query changes the database, son need to track
         // while running multiple queries
-        $is_use_query = mb_stripos($sql, "use ") !== false;
+        $is_use_query = mb_stripos($sql, 'use ') !== false;
 
         $msg = '# ';
         if ($result === false) { // execution failed
@@ -451,7 +451,7 @@ class Import
     public function getColumnAlphaName(int $num): string
     {
         $A = 65; // ASCII value for capital "A"
-        $col_name = "";
+        $col_name = '';
 
         if ($num > 26) {
             $div = (int) ($num / 26);
@@ -535,7 +535,7 @@ class Import
         return (int) substr(
             $last_cumulative_size,
             0,
-            strpos($last_cumulative_size, ",")
+            strpos($last_cumulative_size, ',')
         );
     }
 
@@ -552,8 +552,8 @@ class Import
     {
         return (int) substr(
             $last_cumulative_size,
-            strpos($last_cumulative_size, ",") + 1,
-            strlen($last_cumulative_size) - strpos($last_cumulative_size, ",")
+            strpos($last_cumulative_size, ',') + 1,
+            strlen($last_cumulative_size) - strpos($last_cumulative_size, ',')
         );
     }
 
@@ -569,7 +569,7 @@ class Import
     public function getDecimalSize(string $cell): array
     {
         $curr_size = mb_strlen($cell);
-        $decPos = mb_strpos($cell, ".");
+        $decPos = mb_strpos($cell, '.');
         $decPrecision = ($curr_size - 1) - $decPos;
 
         $m = $curr_size - 1;
@@ -578,7 +578,7 @@ class Import
         return [
             $m,
             $d,
-            $m . "," . $d,
+            $m . ',' . $d,
         ];
     }
 
@@ -687,7 +687,7 @@ class Import
                 if ($size[self::M] > $oldM || $size[self::D] > $oldD) {
                     /* Take the largest of both types */
                     return (string) ((($size[self::M] > $oldM) ? $size[self::M] : $oldM)
-                        . "," . (($size[self::D] > $oldD) ? $size[self::D] : $oldD));
+                        . ',' . (($size[self::D] > $oldD) ? $size[self::D] : $oldD));
                 }
 
                 return $last_cumulative_size;
@@ -702,7 +702,7 @@ class Import
                     return $size[self::FULL];
                 }
 
-                return ($last_cumulative_size . "," . $size[self::D]);
+                return ($last_cumulative_size . ',' . $size[self::D]);
             } elseif (! isset($last_cumulative_type) || $last_cumulative_type == self::NONE) {
                 /**
                  * This is the first row to be analyzed
@@ -750,7 +750,7 @@ class Import
                 }
 
                 /* Use $newInt + $oldD as new M */
-                return (($newInt + $oldD) . "," . $oldD);
+                return (($newInt + $oldD) . ',' . $oldD);
             } elseif ($last_cumulative_type == self::BIGINT || $last_cumulative_type == self::INT) {
                 /**
                  * The last cumulative type was BIGINT or INT
@@ -819,8 +819,8 @@ class Import
         }
 
         if ($cell == (string) (float) $cell
-            && mb_strpos($cell, ".") !== false
-            && mb_substr_count($cell, ".") === 1
+            && mb_strpos($cell, '.') !== false
+            && mb_substr_count($cell, '.') === 1
         ) {
             return self::DECIMAL;
         }
@@ -968,13 +968,13 @@ class Import
         if (isset($options['db_collation']) && $options['db_collation'] !== null) {
             $collation = $options['db_collation'];
         } else {
-            $collation = "utf8_general_ci";
+            $collation = 'utf8_general_ci';
         }
 
         if (isset($options['db_charset']) && $options['db_charset'] !== null) {
             $charset = $options['db_charset'];
         } else {
-            $charset = "utf8";
+            $charset = 'utf8';
         }
 
         if (isset($options['create_db'])) {
@@ -987,9 +987,9 @@ class Import
         $sql = [];
 
         if ($create_db) {
-            $sql[] = "CREATE DATABASE IF NOT EXISTS " . Util::backquote($db_name)
-                . " DEFAULT CHARACTER SET " . $charset . " COLLATE " . $collation
-                . ";";
+            $sql[] = 'CREATE DATABASE IF NOT EXISTS ' . Util::backquote($db_name)
+                . ' DEFAULT CHARACTER SET ' . $charset . ' COLLATE ' . $collation
+                . ';';
         }
 
         /**
@@ -1043,11 +1043,11 @@ class Import
 
         if ($analyses != null) {
             $type_array = [
-                self::NONE => "NULL",
-                self::VARCHAR => "varchar",
-                self::INT => "int",
-                self::DECIMAL => "decimal",
-                self::BIGINT => "bigint",
+                self::NONE => 'NULL',
+                self::VARCHAR => 'varchar',
+                self::INT => 'int',
+                self::DECIMAL => 'decimal',
+                self::BIGINT => 'bigint',
                 self::GEOMETRY => 'geometry',
             ];
 
@@ -1060,9 +1060,9 @@ class Import
             $num_tables = count($tables);
             for ($i = 0; $i < $num_tables; ++$i) {
                 $num_cols = count($tables[$i][self::COL_NAMES]);
-                $tempSQLStr = "CREATE TABLE IF NOT EXISTS "
+                $tempSQLStr = 'CREATE TABLE IF NOT EXISTS '
                 . Util::backquote($db_name)
-                . '.' . Util::backquote($tables[$i][self::TBL_NAME]) . " (";
+                . '.' . Util::backquote($tables[$i][self::TBL_NAME]) . ' (';
                 for ($j = 0; $j < $num_cols; ++$j) {
                     $size = $analyses[$i][self::SIZES][$j];
                     if ((int) $size == 0) {
@@ -1071,18 +1071,18 @@ class Import
 
                     $tempSQLStr .= Util::backquote(
                         $tables[$i][self::COL_NAMES][$j]
-                    ) . " "
+                    ) . ' '
                     . $type_array[$analyses[$i][self::TYPES][$j]];
                     if ($analyses[$i][self::TYPES][$j] != self::GEOMETRY) {
-                        $tempSQLStr .= "(" . $size . ")";
+                        $tempSQLStr .= '(' . $size . ')';
                     }
 
                     if ($j != (count($tables[$i][self::COL_NAMES]) - 1)) {
-                        $tempSQLStr .= ", ";
+                        $tempSQLStr .= ', ';
                     }
                 }
-                $tempSQLStr .= ") DEFAULT CHARACTER SET " . $charset
-                    . " COLLATE " . $collation . ";";
+                $tempSQLStr .= ') DEFAULT CHARACTER SET ' . $charset
+                    . ' COLLATE ' . $collation . ';';
 
                 /**
                  * Each SQL statement is executed immediately
@@ -1098,28 +1098,28 @@ class Import
          *
          * Only one insert query is formed for each table
          */
-        $tempSQLStr = "";
+        $tempSQLStr = '';
         $col_count = 0;
         $num_tables = count($tables);
         for ($i = 0; $i < $num_tables; ++$i) {
             $num_cols = count($tables[$i][self::COL_NAMES]);
             $num_rows = count($tables[$i][self::ROWS]);
 
-            $tempSQLStr = "INSERT INTO " . Util::backquote($db_name) . '.'
-                . Util::backquote($tables[$i][self::TBL_NAME]) . " (";
+            $tempSQLStr = 'INSERT INTO ' . Util::backquote($db_name) . '.'
+                . Util::backquote($tables[$i][self::TBL_NAME]) . ' (';
 
             for ($m = 0; $m < $num_cols; ++$m) {
                 $tempSQLStr .= Util::backquote($tables[$i][self::COL_NAMES][$m]);
 
                 if ($m != ($num_cols - 1)) {
-                    $tempSQLStr .= ", ";
+                    $tempSQLStr .= ', ';
                 }
             }
 
-            $tempSQLStr .= ") VALUES ";
+            $tempSQLStr .= ') VALUES ';
 
             for ($j = 0; $j < $num_rows; ++$j) {
-                $tempSQLStr .= "(";
+                $tempSQLStr .= '(';
 
                 for ($k = 0; $k < $num_cols; ++$k) {
                     // If fully formatted SQL, no need to enclose
@@ -1141,15 +1141,15 @@ class Import
                             $is_varchar = false;
                         }
 
-                        $tempSQLStr .= $is_varchar ? "'" : "";
+                        $tempSQLStr .= $is_varchar ? "'" : '';
                         $tempSQLStr .= $GLOBALS['dbi']->escapeString(
                             (string) $tables[$i][self::ROWS][$j][$k]
                         );
-                        $tempSQLStr .= $is_varchar ? "'" : "";
+                        $tempSQLStr .= $is_varchar ? "'" : '';
                     }
 
                     if ($k != ($num_cols - 1)) {
-                        $tempSQLStr .= ", ";
+                        $tempSQLStr .= ', ';
                     }
 
                     if ($col_count == ($num_cols - 1)) {
@@ -1162,7 +1162,7 @@ class Import
                     unset($tables[$i][self::ROWS][$j][$k]);
                 }
 
-                $tempSQLStr .= ")";
+                $tempSQLStr .= ')';
 
                 if ($j != ($num_rows - 1)) {
                     $tempSQLStr .= ",\n ";
@@ -1173,7 +1173,7 @@ class Import
                 unset($tables[$i][self::ROWS][$j]);
             }
 
-            $tempSQLStr .= ";";
+            $tempSQLStr .= ';';
 
             /**
              * Each SQL statement is executed immediately

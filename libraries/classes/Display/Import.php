@@ -50,7 +50,7 @@ class Import
         /* Scan for plugins */
         /** @var ImportPlugin[] $importList */
         $importList = Plugins::getPlugins(
-            "import",
+            'import',
             'libraries/classes/Plugins/Import/',
             $importType
         );
@@ -101,7 +101,7 @@ class Import
 
         return $template->render('display/import/import', [
             'upload_id' => $uploadId,
-            'handler' => $_SESSION[$SESSION_KEY]["handler"],
+            'handler' => $_SESSION[$SESSION_KEY]['handler'],
             'id_key' => $_SESSION[$SESSION_KEY]['handler']::getIdKey(),
             'pma_theme_image' => $GLOBALS['pmaThemeImage'],
             'import_type' => $importType,

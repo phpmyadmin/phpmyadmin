@@ -78,7 +78,7 @@ class RteList
         /**
          * Generate output
          */
-        $retval  = "<!-- LIST OF " . $this->words->get('docu') . " START -->\n";
+        $retval  = '<!-- LIST OF ' . $this->words->get('docu') . " START -->\n";
         $retval .= '<form id="rteListForm" class="ajax" action="';
         switch ($type) {
             case 'routine':
@@ -101,24 +101,24 @@ class RteList
         $retval .= Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
         $retval .= "<fieldset>\n";
         $retval .= "    <legend>\n";
-        $retval .= "        " . $this->words->get('title') . "\n";
-        $retval .= "        "
+        $retval .= '        ' . $this->words->get('title') . "\n";
+        $retval .= '        '
             . MySQLDocumentation::show($this->words->get('docu')) . "\n";
         $retval .= "    </legend>\n";
-        $retval .= "    <div class='$class1' id='nothing2display'>\n";
-        $retval .= "      " . $this->words->get('nothing') . "\n";
+        $retval .= "    <div class='" . $class1 . "' id='nothing2display'>\n";
+        $retval .= '      ' . $this->words->get('nothing') . "\n";
         $retval .= "    </div>\n";
-        $retval .= "    <table class='data$class2'>\n";
+        $retval .= "    <table class='data" . $class2 . "'>\n";
         $retval .= "        <!-- TABLE HEADERS -->\n";
         $retval .= "        <tr>\n";
         // th cells with a colspan need corresponding td cells, according to W3C
         switch ($type) {
             case 'routine':
                 $retval .= "            <th></th>\n";
-                $retval .= "            <th>" . __('Name') . "</th>\n";
+                $retval .= '            <th>' . __('Name') . "</th>\n";
                 $retval .= "            <th colspan='4'>" . __('Action') . "</th>\n";
-                $retval .= "            <th>" . __('Type') . "</th>\n";
-                $retval .= "            <th>" . __('Returns') . "</th>\n";
+                $retval .= '            <th>' . __('Type') . "</th>\n";
+                $retval .= '            <th>' . __('Returns') . "</th>\n";
                 $retval .= "        </tr>\n";
                 $retval .= "        <tr class='hide'>\n"; // see comment above
                 for ($i = 0; $i < 7; $i++) {
@@ -127,13 +127,13 @@ class RteList
                 break;
             case 'trigger':
                 $retval .= "            <th></th>\n";
-                $retval .= "            <th>" . __('Name') . "</th>\n";
+                $retval .= '            <th>' . __('Name') . "</th>\n";
                 if (empty($table)) {
-                    $retval .= "            <th>" . __('Table') . "</th>\n";
+                    $retval .= '            <th>' . __('Table') . "</th>\n";
                 }
                 $retval .= "            <th colspan='3'>" . __('Action') . "</th>\n";
-                $retval .= "            <th>" . __('Time') . "</th>\n";
-                $retval .= "            <th>" . __('Event') . "</th>\n";
+                $retval .= '            <th>' . __('Time') . "</th>\n";
+                $retval .= '            <th>' . __('Event') . "</th>\n";
                 $retval .= "        </tr>\n";
                 $retval .= "        <tr class='hide'>\n"; // see comment above
                 for ($i = 0; $i < (empty($table) ? 7 : 6); $i++) {
@@ -142,10 +142,10 @@ class RteList
                 break;
             case 'event':
                 $retval .= "            <th></th>\n";
-                $retval .= "            <th>" . __('Name') . "</th>\n";
-                $retval .= "            <th>" . __('Status') . "</th>\n";
+                $retval .= '            <th>' . __('Name') . "</th>\n";
+                $retval .= '            <th>' . __('Status') . "</th>\n";
                 $retval .= "            <th colspan='3'>" . __('Action') . "</th>\n";
-                $retval .= "            <th>" . __('Type') . "</th>\n";
+                $retval .= '            <th>' . __('Type') . "</th>\n";
                 $retval .= "        </tr>\n";
                 $retval .= "        <tr class='hide'>\n"; // see comment above
                 for ($i = 0; $i < 6; $i++) {
@@ -207,7 +207,7 @@ class RteList
 
         $retval .= "</fieldset>\n";
         $retval .= "</form>\n";
-        $retval .= "<!-- LIST OF " . $this->words->get('docu') . " END -->\n";
+        $retval .= '<!-- LIST OF ' . $this->words->get('docu') . " END -->\n";
 
         return $retval;
     }
@@ -230,7 +230,7 @@ class RteList
             Util::backquote($routine['name'])
         );
 
-        $retval  = "        <tr class='$rowclass'>\n";
+        $retval  = "        <tr class='" . $rowclass . "'>\n";
         $retval .= "            <td>\n";
         $retval .= '                <input type="checkbox"'
             . ' class="checkall" name="item_name[]"'
@@ -240,7 +240,7 @@ class RteList
         $retval .= "                <span class='drop_sql hide'>"
             . htmlspecialchars($sql_drop) . "</span>\n";
         $retval .= "                <strong>\n";
-        $retval .= "                    "
+        $retval .= '                    '
             . htmlspecialchars($routine['name']) . "\n";
         $retval .= "                </strong>\n";
         $retval .= "            </td>\n";
@@ -248,11 +248,11 @@ class RteList
 
         // this is for our purpose to decide whether to
         // show the edit link or not, so we need the DEFINER for the routine
-        $where = "ROUTINE_SCHEMA " . Util::getCollateForIS() . "="
+        $where = 'ROUTINE_SCHEMA ' . Util::getCollateForIS() . '='
             . "'" . $this->dbi->escapeString($db) . "' "
             . "AND SPECIFIC_NAME='" . $this->dbi->escapeString($routine['name']) . "'"
             . "AND ROUTINE_TYPE='" . $this->dbi->escapeString($routine['type']) . "'";
-        $query = "SELECT `DEFINER` FROM INFORMATION_SCHEMA.ROUTINES WHERE $where;";
+        $query = 'SELECT `DEFINER` FROM INFORMATION_SCHEMA.ROUTINES WHERE ' . $where . ';';
         $routine_definer = $this->dbi->fetchValue($query);
 
         $curr_user = $this->dbi->getCurrentUser();
@@ -272,7 +272,7 @@ class RteList
                     'item_type' => $routine['type'],
                 ]) . '">' . $titles['Edit'] . "</a>\n";
         } else {
-            $retval .= "                {$titles['NoEdit']}\n";
+            $retval .= '                ' . $titles['NoEdit'] . "\n";
         }
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
@@ -330,7 +330,7 @@ class RteList
                     )
                     . '">' . $titles['Execute'] . "</a>\n";
             } else {
-                $retval .= "                {$titles['NoExecute']}\n";
+                $retval .= '                ' . $titles['NoExecute'] . "\n";
             }
         }
 
@@ -349,7 +349,7 @@ class RteList
                     'item_type' => $routine['type'],
                 ]) . '">' . $titles['Export'] . "</a>\n";
         } else {
-            $retval .= "                {$titles['NoExport']}\n";
+            $retval .= '                ' . $titles['NoExport'] . "\n";
         }
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
@@ -368,10 +368,10 @@ class RteList
         );
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
-        $retval .= "                 {$routine['type']}\n";
+        $retval .= '                 ' . $routine['type'] . "\n";
         $retval .= "            </td>\n";
         $retval .= "            <td dir=\"ltr\">\n";
-        $retval .= "                "
+        $retval .= '                '
             . htmlspecialchars($routine['returns']) . "\n";
         $retval .= "            </td>\n";
         $retval .= "        </tr>\n";
@@ -391,7 +391,7 @@ class RteList
     {
         global $db, $table, $titles;
 
-        $retval  = "        <tr class='$rowclass'>\n";
+        $retval  = "        <tr class='" . $rowclass . "'>\n";
         $retval .= "            <td>\n";
         $retval .= '                <input type="checkbox"'
             . ' class="checkall" name="item_name[]"'
@@ -401,7 +401,7 @@ class RteList
         $retval .= "                <span class='drop_sql hide'>"
             . htmlspecialchars($trigger['drop']) . "</span>\n";
         $retval .= "                <strong>\n";
-        $retval .= "                    " . htmlspecialchars($trigger['name']) . "\n";
+        $retval .= '                    ' . htmlspecialchars($trigger['name']) . "\n";
         $retval .= "                </strong>\n";
         $retval .= "            </td>\n";
         if (empty($table)) {
@@ -411,7 +411,7 @@ class RteList
                     'db' => $db,
                     'table' => $trigger['table'],
                 ]) . '">'
-                . htmlspecialchars($trigger['table']) . "</a>";
+                . htmlspecialchars($trigger['table']) . '</a>';
             $retval .= "            </td>\n";
         }
         $retval .= "            <td>\n";
@@ -425,7 +425,7 @@ class RteList
                     'item_name' => $trigger['name'],
                 ]) . '">' . $titles['Edit'] . "</a>\n";
         } else {
-            $retval .= "                {$titles['NoEdit']}\n";
+            $retval .= '                ' . $titles['NoEdit'] . "\n";
         }
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
@@ -454,14 +454,14 @@ class RteList
                 ['class' => 'ajax drop_anchor']
             );
         } else {
-            $retval .= "                {$titles['NoDrop']}\n";
+            $retval .= '                ' . $titles['NoDrop'] . "\n";
         }
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
-        $retval .= "                 {$trigger['action_timing']}\n";
+        $retval .= '                 ' . $trigger['action_timing'] . "\n";
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
-        $retval .= "                 {$trigger['event_manipulation']}\n";
+        $retval .= '                 ' . $trigger['event_manipulation'] . "\n";
         $retval .= "            </td>\n";
         $retval .= "        </tr>\n";
 
@@ -485,7 +485,7 @@ class RteList
             Util::backquote($event['name'])
         );
 
-        $retval  = "        <tr class='$rowclass'>\n";
+        $retval  = "        <tr class='" . $rowclass . "'>\n";
         $retval .= "            <td>\n";
         $retval .= '                <input type="checkbox"'
             . ' class="checkall" name="item_name[]"'
@@ -495,12 +495,12 @@ class RteList
         $retval .= "                <span class='drop_sql hide'>"
             . htmlspecialchars($sql_drop) . "</span>\n";
         $retval .= "                <strong>\n";
-        $retval .= "                    "
+        $retval .= '                    '
             . htmlspecialchars($event['name']) . "\n";
         $retval .= "                </strong>\n";
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
-        $retval .= "                 {$event['status']}\n";
+        $retval .= '                 ' . $event['status'] . "\n";
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
         if (Util::currentUserHasPrivilege('EVENT', $db)) {
@@ -512,7 +512,7 @@ class RteList
                     'item_name' => $event['name'],
                 ]) . '">' . $titles['Edit'] . "</a>\n";
         } else {
-            $retval .= "                {$titles['NoEdit']}\n";
+            $retval .= '                ' . $titles['NoEdit'] . "\n";
         }
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
@@ -540,11 +540,11 @@ class RteList
                 ['class' => 'ajax drop_anchor']
             );
         } else {
-            $retval .= "                {$titles['NoDrop']}\n";
+            $retval .= '                ' . $titles['NoDrop'] . "\n";
         }
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
-        $retval .= "                 {$event['type']}\n";
+        $retval .= '                 ' . $event['type'] . "\n";
         $retval .= "            </td>\n";
         $retval .= "        </tr>\n";
 

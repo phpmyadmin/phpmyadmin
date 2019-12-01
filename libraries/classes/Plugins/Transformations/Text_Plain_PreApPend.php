@@ -28,7 +28,7 @@ class Text_Plain_PreApPend extends PreApPendTransformationsPlugin
      */
     public static function getMIMEType()
     {
-        return "Text";
+        return 'Text';
     }
 
     /**
@@ -38,6 +38,6 @@ class Text_Plain_PreApPend extends PreApPendTransformationsPlugin
      */
     public static function getMIMESubtype()
     {
-        return "Plain";
+        return 'Plain';
     }
 }

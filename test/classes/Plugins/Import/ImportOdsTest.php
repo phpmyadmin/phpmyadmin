@@ -34,7 +34,7 @@ class ImportOdsTest extends PmaTestCase
     protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
-        $GLOBALS['plugin_param'] = "csv";
+        $GLOBALS['plugin_param'] = 'csv';
         $this->object = new ImportOds();
 
         //setting
@@ -131,7 +131,7 @@ class ImportOdsTest extends PmaTestCase
             $sql_query
         );
         $this->assertStringContainsString(
-            "INSERT INTO `ODS_DB`.`pma_bookmark` (`A`, `B`, `C`, `D`) VALUES "
+            'INSERT INTO `ODS_DB`.`pma_bookmark` (`A`, `B`, `C`, `D`) VALUES '
             . "(1, 'dbbase', NULL, 'ddd');",
             $sql_query
         );

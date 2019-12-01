@@ -28,7 +28,7 @@ class ServerSettingsTest extends TestBase
         parent::setUp();
         $this->login();
         $this->expandMore();
-        $this->waitForElement('partialLinkText', "Settings")->click();
+        $this->waitForElement('partialLinkText', 'Settings')->click();
         $this->waitAjax();
 
         $this->waitForElement(
@@ -69,12 +69,12 @@ class ServerSettingsTest extends TestBase
      */
     public function testHideDatabase()
     {
-        $this->byPartialLinkText("Features")->click();
+        $this->byPartialLinkText('Features')->click();
         $this->waitAjax();
 
         $this->waitForElement('xpath', "//a[contains(@href, '#Databases')]")->click();
 
-        $ele = $this->waitForElement('name', "Servers-1-hide_db");
+        $ele = $this->waitForElement('name', 'Servers-1-hide_db');
         $this->moveto($ele);
         $ele->sendKeys($this->database_name);
 
@@ -83,7 +83,7 @@ class ServerSettingsTest extends TestBase
             $this->isElementPresent('partialLinkText', $this->database_name)
         );
 
-        $this->waitForElement('name', "Servers-1-hide_db")->clear();
+        $this->waitForElement('name', 'Servers-1-hide_db')->clear();
         $this->_saveConfig();
         $this->assertTrue(
             $this->isElementPresent('partialLinkText', $this->database_name)
@@ -99,25 +99,25 @@ class ServerSettingsTest extends TestBase
      */
     public function testSettingsTabsAreDisplayed()
     {
-        $this->byPartialLinkText("SQL queries")->click();
+        $this->byPartialLinkText('SQL queries')->click();
         $this->waitAjax();
 
         $this->waitForElement('className', 'tabs');
 
-        $this->byPartialLinkText("SQL Query box")->click();
+        $this->byPartialLinkText('SQL Query box')->click();
         $this->assertTrue(
-            $this->byId("Sql_box")->isDisplayed()
+            $this->byId('Sql_box')->isDisplayed()
         );
         $this->assertFalse(
-            $this->byId("Sql_queries")->isDisplayed()
+            $this->byId('Sql_queries')->isDisplayed()
         );
 
         $this->byCssSelector("a[href='#Sql_queries']")->click();
         $this->assertFalse(
-            $this->byId("Sql_box")->isDisplayed()
+            $this->byId('Sql_box')->isDisplayed()
         );
         $this->assertTrue(
-            $this->byId("Sql_queries")->isDisplayed()
+            $this->byId('Sql_queries')->isDisplayed()
         );
     }
 
@@ -130,20 +130,20 @@ class ServerSettingsTest extends TestBase
      */
     public function testHideLogo()
     {
-        $this->byPartialLinkText("Navigation panel")->click();
+        $this->byPartialLinkText('Navigation panel')->click();
         $this->waitAjax();
 
-        $this->waitForElement('name', "NavigationDisplayLogo")
+        $this->waitForElement('name', 'NavigationDisplayLogo')
             ->click();
         $this->_saveConfig();
         $this->assertFalse(
-            $this->isElementPresent('id', "imgpmalogo")
+            $this->isElementPresent('id', 'imgpmalogo')
         );
 
         $this->byCssSelector("a[href='#NavigationDisplayLogo']")->click();
         $this->_saveConfig();
         $this->assertTrue(
-            $this->isElementPresent('id', "imgpmalogo")
+            $this->isElementPresent('id', 'imgpmalogo')
         );
     }
 }

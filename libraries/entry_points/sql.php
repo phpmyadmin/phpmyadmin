@@ -115,14 +115,14 @@ if (isset($_POST['get_relational_values'])
 
 // Just like above, find possible values for enum fields during grid edit.
 if (isset($_POST['get_enum_values']) && $_POST['get_enum_values'] == true) {
-    $sql->getEnumOrSetValues($db, $table, "enum");
+    $sql->getEnumOrSetValues($db, $table, 'enum');
     // script has exited at this point
 }
 
 
 // Find possible values for set fields during grid edit.
 if (isset($_POST['get_set_values']) && $_POST['get_set_values'] == true) {
-    $sql->getEnumOrSetValues($db, $table, "set");
+    $sql->getEnumOrSetValues($db, $table, 'set');
     // script has exited at this point
 }
 

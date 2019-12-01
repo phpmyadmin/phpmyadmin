@@ -710,8 +710,8 @@ class LanguageManager
             $path = LOCALE_PATH
                 . '/' . $file
                 . '/LC_MESSAGES/phpmyadmin.mo';
-            if ($file != "."
-                && $file != ".."
+            if ($file != '.'
+                && $file != '..'
                 && @file_exists($path)
             ) {
                 $result[] = $file;

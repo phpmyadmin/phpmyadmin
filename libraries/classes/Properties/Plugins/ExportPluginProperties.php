@@ -36,7 +36,7 @@ class ExportPluginProperties extends PluginPropertyItem
      */
     public function getItemType()
     {
-        return "export";
+        return 'export';
     }
 
     /**

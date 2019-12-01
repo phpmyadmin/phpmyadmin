@@ -49,25 +49,25 @@ class MonitorControllerTest extends TestCase
         $GLOBALS['pmaThemeImage'] = '';
 
         $serverStatus = [
-            "Aborted_clients" => "0",
-            "Aborted_connects" => "0",
-            "Com_delete_multi" => "0",
-            "Com_create_function" => "0",
-            "Com_empty_query" => "0",
+            'Aborted_clients' => '0',
+            'Aborted_connects' => '0',
+            'Com_delete_multi' => '0',
+            'Com_create_function' => '0',
+            'Com_empty_query' => '0',
         ];
 
         $serverVariables = [
-            "auto_increment_increment" => "1",
-            "auto_increment_offset" => "1",
-            "automatic_sp_privileges" => "ON",
-            "back_log" => "50",
-            "big_tables" => "OFF",
-            "version" => "8.0.2",
+            'auto_increment_increment' => '1',
+            'auto_increment_offset' => '1',
+            'automatic_sp_privileges' => 'ON',
+            'back_log' => '50',
+            'big_tables' => 'OFF',
+            'version' => '8.0.2',
         ];
 
         $fetchResult = [
             [
-                "SHOW GLOBAL STATUS",
+                'SHOW GLOBAL STATUS',
                 0,
                 1,
                 DatabaseInterface::CONNECT_USER,
@@ -75,7 +75,7 @@ class MonitorControllerTest extends TestCase
                 $serverStatus,
             ],
             [
-                "SHOW GLOBAL VARIABLES",
+                'SHOW GLOBAL VARIABLES',
                 0,
                 1,
                 DatabaseInterface::CONNECT_USER,
@@ -84,7 +84,7 @@ class MonitorControllerTest extends TestCase
             ],
             [
                 "SELECT concat('Com_', variable_name), variable_value "
-                . "FROM data_dictionary.GLOBAL_STATEMENTS",
+                . 'FROM data_dictionary.GLOBAL_STATEMENTS',
                 0,
                 1,
                 DatabaseInterface::CONNECT_USER,

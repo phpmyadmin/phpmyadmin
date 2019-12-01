@@ -351,7 +351,7 @@ class Generator
     {
         $template = new Template();
         // Do the logic first
-        $link = "$action&amp;" . urlencode($select_name) . '=';
+        $link = $action . '&amp;' . urlencode($select_name) . '=';
         $link_on = $link . urlencode($options[1]['value']);
         $link_off = $link . urlencode($options[0]['value']);
 
@@ -1021,7 +1021,7 @@ class Generator
     public static function showDocumentationLink($link, $target = 'documentation', $bbcode = false): string
     {
         if ($bbcode) {
-            return "[a@$link@$target][dochelpicon][/a]";
+            return '[a@' . $link . '@' . $target . '][dochelpicon][/a]';
         }
 
         return '<a href="' . $link . '" target="' . $target . '">'
@@ -1257,16 +1257,16 @@ class Generator
         $alternate = htmlspecialchars($alternate);
 
         if (isset($attributes['class'])) {
-            $attributes['class'] = "icon ic_$image " . $attributes['class'];
+            $attributes['class'] = 'icon ic_' . $image . ' ' . $attributes['class'];
         } else {
-            $attributes['class'] = "icon ic_$image";
+            $attributes['class'] = 'icon ic_' . $image;
         }
 
         // set all other attributes
         $attr_str = '';
         foreach ($attributes as $key => $value) {
             if (! in_array($key, ['alt', 'title'])) {
-                $attr_str .= " $key=\"$value\"";
+                $attr_str .= ' ' . $key . '="' . $value . '"';
             }
         }
 

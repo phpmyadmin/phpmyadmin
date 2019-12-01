@@ -65,10 +65,10 @@ class Footer
         }
 
         $icon = mb_strtolower($name) . '_add';
-        $retval  = "";
-        $retval .= "<!-- ADD " . $name . " FORM START -->\n";
+        $retval  = '';
+        $retval .= '<!-- ADD ' . $name . " FORM START -->\n";
         $retval .= "<fieldset class='left'>\n";
-        $retval .= "<legend>" . _pgettext('Create new procedure', 'New') . "</legend>\n";
+        $retval .= '<legend>' . _pgettext('Create new procedure', 'New') . "</legend>\n";
         $retval .= "        <div class='wrap'>\n";
         if (Util::currentUserHasPrivilege($priv, $db, $table)) {
             $retval .= '            <a class="ajax add_anchor" ';
@@ -86,10 +86,10 @@ class Footer
             $retval .= Generator::getIcon($icon);
             $retval .= $this->words->get('add') . "\n";
         }
-        $retval .= "            " . MySQLDocumentation::show($docu) . "\n";
+        $retval .= '            ' . MySQLDocumentation::show($docu) . "\n";
         $retval .= "        </div>\n";
         $retval .= "</fieldset>\n";
-        $retval .= "<!-- ADD " . $name . " FORM END -->\n\n";
+        $retval .= '<!-- ADD ' . $name . " FORM END -->\n\n";
 
         return $retval;
     }
@@ -137,12 +137,12 @@ class Footer
         $options = [
             0 => [
                 'label' => __('OFF'),
-                'value' => "SET GLOBAL event_scheduler=\"OFF\"",
+                'value' => 'SET GLOBAL event_scheduler="OFF"',
                 'selected' => $es_state != 'on',
             ],
             1 => [
                 'label' => __('ON'),
-                'value' => "SET GLOBAL event_scheduler=\"ON\"",
+                'value' => 'SET GLOBAL event_scheduler="ON"',
                 'selected' => $es_state == 'on',
             ],
         ];
@@ -153,7 +153,7 @@ class Footer
         $retval .= $this->getLinks('CREATE_EVENT', 'EVENT', 'EVENT');
         $retval .= "    <fieldset class='right'>\n";
         $retval .= "        <legend>\n";
-        $retval .= "            " . __('Event scheduler status') . "\n";
+        $retval .= '            ' . __('Event scheduler status') . "\n";
         $retval .= "        </legend>\n";
         $retval .= "        <div class='wrap'>\n";
         // show the toggle button
@@ -173,7 +173,7 @@ class Footer
         $retval .= "        </div>\n";
         $retval .= "    </fieldset>\n";
         $retval .= "    <div class='clearfloat'></div>\n";
-        $retval .= "</div>";
+        $retval .= '</div>';
         $retval .= "<!-- FOOTER LINKS END -->\n";
 
         return $retval;

@@ -95,13 +95,13 @@ class ErrorReportController extends AbstractController
                 } else {
                     $decoded_response = json_decode($server_response, true);
                     $success = ! empty($decoded_response) ?
-                        $decoded_response["success"] : false;
+                        $decoded_response['success'] : false;
                 }
 
                 /* Message to show to the user */
                 if ($success) {
                     if ((isset($_POST['automatic'])
-                            && $_POST['automatic'] === "true")
+                            && $_POST['automatic'] === 'true')
                         || $cfg['SendErrorReports'] == 'always'
                     ) {
                         $msg = __(
@@ -152,10 +152,10 @@ class ErrorReportController extends AbstractController
 
                 /* Persist always send settings */
                 if (isset($_POST['always_send'])
-                    && $_POST['always_send'] === "true"
+                    && $_POST['always_send'] === 'true'
                 ) {
                     $userPreferences = new UserPreferences();
-                    $userPreferences->persistOption("SendErrorReports", "always", "ask");
+                    $userPreferences->persistOption('SendErrorReports', 'always', 'ask');
                 }
             }
         } elseif (! empty($_POST['get_settings'])) {

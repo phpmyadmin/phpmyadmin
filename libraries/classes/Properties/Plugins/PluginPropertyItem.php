@@ -171,6 +171,6 @@ abstract class PluginPropertyItem extends PropertyItem
      */
     public function getPropertyType()
     {
-        return "plugin";
+        return 'plugin';
     }
 }

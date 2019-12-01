@@ -60,15 +60,15 @@ class ExportCodegen extends ExportPlugin
     {
         $this->_setCgFormats(
             [
-                "NHibernate C# DO",
-                "NHibernate XML",
+                'NHibernate C# DO',
+                'NHibernate XML',
             ]
         );
 
         $this->_setCgHandlers(
             [
-                "_handleNHibernateCSBody",
-                "_handleNHibernateXMLBody",
+                '_handleNHibernateCSBody',
+                '_handleNHibernateXMLBody',
             ]
         );
     }
@@ -90,16 +90,16 @@ class ExportCodegen extends ExportPlugin
         // $exportPluginProperties
         // this will be shown as "Format specific options"
         $exportSpecificOptions = new OptionsPropertyRootGroup(
-            "Format Specific Options"
+            'Format Specific Options'
         );
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup("general_opts");
+        $generalOptions = new OptionsPropertyMainGroup('general_opts');
         // create primary items and add them to the group
-        $leaf = new HiddenPropertyItem("structure_or_data");
+        $leaf = new HiddenPropertyItem('structure_or_data');
         $generalOptions->addProperty($leaf);
         $leaf = new SelectPropertyItem(
-            "format",
+            'format',
             __('Format:')
         );
         $leaf->setValues($this->_getCgFormats());
@@ -203,7 +203,7 @@ class ExportCodegen extends ExportPlugin
             );
         }
 
-        return $this->export->outputHandler(sprintf("%s is not supported.", $format));
+        return $this->export->outputHandler(sprintf('%s is not supported.', $format));
     }
 
     /**
@@ -357,7 +357,7 @@ class ExportCodegen extends ExportPlugin
             . 'table="' . ExportCodegen::cgMakeIdentifier($table_alias) . '">';
         $result = $GLOBALS['dbi']->query(
             sprintf(
-                "DESC %s.%s",
+                'DESC %s.%s',
                 Util::backquote($db),
                 Util::backquote($table)
             )

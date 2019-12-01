@@ -49,8 +49,8 @@ class TransformationPluginsTest extends PmaTestCase
         global $row, $fields_meta;
         $fields_meta = [];
         $row = [
-            "pma" => "aaa",
-            "pca" => "bbb",
+            'pma' => 'aaa',
+            'pca' => 'bbb',
         ];
 
         // For Image_*_Inline plugin
@@ -438,8 +438,8 @@ class TransformationPluginsTest extends PmaTestCase
                 true,
                 [
                     [
-                        "/dev/null -i -wrap -q",
-                        "/dev/null -i -wrap -q",
+                        '/dev/null -i -wrap -q',
+                        '/dev/null -i -wrap -q',
                     ],
                 ],
             ],
@@ -449,9 +449,9 @@ class TransformationPluginsTest extends PmaTestCase
                 true,
                 [
                     [
-                        "/dev/null -i -wrap -q",
-                        "/dev/null -i -wrap -q",
-                        "/dev/null -i -wrap -q",
+                        '/dev/null -i -wrap -q',
+                        '/dev/null -i -wrap -q',
+                        '/dev/null -i -wrap -q',
                         1,
                     ],
                 ],
@@ -462,10 +462,10 @@ class TransformationPluginsTest extends PmaTestCase
                 true,
                 [
                     [
-                        "/dev/null -i -wrap -q",
-                        "/dev/null -i -wrap -q",
-                        "/dev/null -i -wrap -q",
-                        "1",
+                        '/dev/null -i -wrap -q',
+                        '/dev/null -i -wrap -q',
+                        '/dev/null -i -wrap -q',
+                        '1',
                     ],
                 ],
             ],
@@ -475,9 +475,9 @@ class TransformationPluginsTest extends PmaTestCase
                 false,
                 [
                     [
-                        "/dev/null -i -wrap -q",
-                        "/dev/null -i -wrap -q",
-                        "/dev/null -i -wrap -q",
+                        '/dev/null -i -wrap -q',
+                        '/dev/null -i -wrap -q',
+                        '/dev/null -i -wrap -q',
                         2,
                     ],
                 ],
@@ -784,7 +784,7 @@ class TransformationPluginsTest extends PmaTestCase
                 [
                     'PMA_BUFFER',
                     [
-                        0 => "filename",
+                        0 => 'filename',
                         'wrapper_link' => 'PMA_wrapper_link',
                         'wrapper_params' => ['key' => 'value'],
                     ],
@@ -798,7 +798,7 @@ class TransformationPluginsTest extends PmaTestCase
                 [
                     'PMA_BUFFER',
                     [
-                        0 => "",
+                        0 => '',
                         1 => 'cloumn',
                         'wrapper_link' => 'PMA_wrapper_link',
                         'wrapper_params' => ['key' => 'value'],
@@ -837,9 +837,9 @@ class TransformationPluginsTest extends PmaTestCase
                 [
                     'PMA_IMAGE_LINK',
                     [
-                        0 => "./image/",
-                        1 => "200",
-                        "wrapper_link" => "PMA_wrapper_link",
+                        0 => './image/',
+                        1 => '200',
+                        'wrapper_link' => 'PMA_wrapper_link',
                         'wrapper_params' => ['key' => 'value'],
                     ],
                 ],
@@ -900,8 +900,8 @@ class TransformationPluginsTest extends PmaTestCase
                 [
                     'PMA_BUFFER',
                     [
-                        "/dev/null -i -wrap -q",
-                        "/dev/null -i -wrap -q",
+                        '/dev/null -i -wrap -q',
+                        '/dev/null -i -wrap -q',
                     ],
                 ],
                 'PMA_BUFFER',
@@ -911,8 +911,8 @@ class TransformationPluginsTest extends PmaTestCase
                 [
                     "<a ref='https://www.example.com/'>PMA_BUFFER</a>",
                     [
-                        "option1",
-                        "option2",
+                        'option1',
+                        'option2',
                     ],
                 ],
                 "<iframe srcdoc=\"<a ref='https://www.example.com/'>PMA_BUFFER</a>\" sandbox=\"\"></iframe>",
@@ -920,10 +920,10 @@ class TransformationPluginsTest extends PmaTestCase
             [
                 new Text_Plain_Formatted(),
                 [
-                    "<a ref=\"https://www.example.com/\">PMA_BUFFER</a>",
+                    '<a ref="https://www.example.com/">PMA_BUFFER</a>',
                     [
-                        "option1",
-                        "option2",
+                        'option1',
+                        'option2',
                     ],
                 ],
                 "<iframe srcdoc=\"<a ref='https://www.example.com/'>PMA_BUFFER</a>\" sandbox=\"\"></iframe>",
@@ -933,8 +933,8 @@ class TransformationPluginsTest extends PmaTestCase
                 [
                     'PMA_IMAGE',
                     [
-                        "http://image/",
-                        "200",
+                        'http://image/',
+                        '200',
                     ],
                 ],
                 '<a href="http://image/PMA_IMAGE" rel="noopener noreferrer" target="_blank">
@@ -948,8 +948,8 @@ class TransformationPluginsTest extends PmaTestCase
                 [
                     'PMA_IMAGE',
                     [
-                        "./image/",
-                        "200",
+                        './image/',
+                        '200',
                     ],
                 ],
                 './image/PMA_IMAGE',
@@ -959,8 +959,8 @@ class TransformationPluginsTest extends PmaTestCase
                 [
                     'select *',
                     [
-                        "option1",
-                        "option2",
+                        'option1',
+                        'option2',
                     ],
                 ],
                 '<code class="sql"><pre>' . "\n"
@@ -972,8 +972,8 @@ class TransformationPluginsTest extends PmaTestCase
                 [
                     'PMA_TXT_LINK',
                     [
-                        "./php/",
-                        "text_name",
+                        './php/',
+                        'text_name',
                     ],
                 ],
                 './php/PMA_TXT_LINK',
@@ -1000,8 +1000,8 @@ class TransformationPluginsTest extends PmaTestCase
                 [
                     'PMA_TXT_LINK',
                     [
-                        "./php/",
-                        "text_name",
+                        './php/',
+                        'text_name',
                     ],
                 ],
                 './php/PMA_TXT_LINK',
@@ -1011,8 +1011,8 @@ class TransformationPluginsTest extends PmaTestCase
                 [
                     42949672,
                     [
-                        "option1",
-                        "option2",
+                        'option1',
+                        'option2',
                     ],
                 ],
                 '2.143.92.40',
@@ -1022,8 +1022,8 @@ class TransformationPluginsTest extends PmaTestCase
                 [
                     4294967295,
                     [
-                        "option1",
-                        "option2",
+                        'option1',
+                        'option2',
                     ],
                 ],
                 '255.255.255.255',
@@ -1079,9 +1079,9 @@ class TransformationPluginsTest extends PmaTestCase
                 [
                     'PMA_JPEG_Inline',
                     [
-                        0 => "./image/",
-                        1 => "200",
-                        "wrapper_link" => "PMA_wrapper_link",
+                        0 => './image/',
+                        1 => '200',
+                        'wrapper_link' => 'PMA_wrapper_link',
                         'wrapper_params' => ['key' => 'value'],
                     ],
                 ],
@@ -1095,9 +1095,9 @@ class TransformationPluginsTest extends PmaTestCase
                 [
                     'PMA_PNG_Inline',
                     [
-                        0 => "./image/",
-                        1 => "200",
-                        "wrapper_link" => "PMA_wrapper_link",
+                        0 => './image/',
+                        1 => '200',
+                        'wrapper_link' => 'PMA_wrapper_link',
                         'wrapper_params' => ['key' => 'value'],
                     ],
                 ],

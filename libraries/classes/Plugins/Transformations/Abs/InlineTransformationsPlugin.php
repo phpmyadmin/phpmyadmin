@@ -73,6 +73,6 @@ abstract class InlineTransformationsPlugin extends TransformationsPlugin
      */
     public static function getName()
     {
-        return "Inline";
+        return 'Inline';
     }
 }

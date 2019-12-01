@@ -32,7 +32,7 @@ date_default_timezone_set('UTC');
 
 // Adding phpMyAdmin sources to include path
 set_include_path(
-    get_include_path() . PATH_SEPARATOR . dirname((string) realpath("../index.php"))
+    get_include_path() . PATH_SEPARATOR . dirname((string) realpath('../index.php'))
 );
 
 // Setting constants for testing

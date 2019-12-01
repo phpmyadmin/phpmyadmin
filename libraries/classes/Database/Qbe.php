@@ -791,8 +791,8 @@ class Qbe
     private function _getTableFooters()
     {
         $html_output = '<fieldset class="tblFooters">';
-        $html_output .= $this->_getFootersOptions("row");
-        $html_output .= $this->_getFootersOptions("column");
+        $html_output .= $this->_getFootersOptions('row');
+        $html_output .= $this->_getFootersOptions('column');
         $html_output .= '<div class="floatleft">';
         $html_output .= '<input class="btn btn-secondary" type="submit" name="modify"'
             . ' value="' . __('Update Query') . '">';
@@ -1099,7 +1099,7 @@ class Qbe
             ) {
                 $select = $this->_formColumns[$column_index];
                 if (! empty($this->_formAliases[$column_index])) {
-                    $select .= " AS "
+                    $select .= ' AS '
                         . Util::backquote($this->_formAliases[$column_index]);
                 }
                 $select_clauses[] = $select;
@@ -1107,7 +1107,7 @@ class Qbe
         } // end for
         if (! empty($select_clauses)) {
             $select_clause = 'SELECT '
-                . htmlspecialchars(implode(", ", $select_clauses)) . "\n";
+                . htmlspecialchars(implode(', ', $select_clauses)) . "\n";
         }
         return $select_clause;
     }
@@ -1236,7 +1236,7 @@ class Qbe
         } // end for
         if (! empty($orderby_clauses)) {
             $orderby_clause = 'ORDER BY '
-                . htmlspecialchars(implode(", ", $orderby_clauses)) . "\n";
+                . htmlspecialchars(implode(', ', $orderby_clauses)) . "\n";
         }
         return $orderby_clause;
     }
@@ -1635,14 +1635,14 @@ class Qbe
         foreach ($finalized as $table => $clause) {
             if ($first) {
                 if (! empty($join)) {
-                    $join .= ", ";
+                    $join .= ', ';
                 }
                 $join .= Util::backquote($table);
                 $first = false;
             } else {
                 $join .= "\n    LEFT JOIN " . Util::backquote(
                     $table
-                ) . " ON " . $clause;
+                ) . ' ON ' . $clause;
             }
         }
 
@@ -1670,20 +1670,20 @@ class Qbe
                     // There may be multiple column relations
                     foreach ($oneKey['index_list'] as $index => $oneField) {
                         $clauses[]
-                            = Util::backquote($oneTable) . "."
-                            . Util::backquote($oneField) . " = "
-                            . Util::backquote($oneKey['ref_table_name']) . "."
+                            = Util::backquote($oneTable) . '.'
+                            . Util::backquote($oneField) . ' = '
+                            . Util::backquote($oneKey['ref_table_name']) . '.'
                             . Util::backquote($oneKey['ref_index_list'][$index]);
                     }
                     // Combine multiple column relations with AND
                     $relations[$oneTable][$oneKey['ref_table_name']]
-                        = implode(" AND ", $clauses);
+                        = implode(' AND ', $clauses);
                 }
             } else { // Internal relations
                 $relations[$oneTable][$foreigner['foreign_table']]
-                    = Util::backquote($oneTable) . "."
-                    . Util::backquote($field) . " = "
-                    . Util::backquote($foreigner['foreign_table']) . "."
+                    = Util::backquote($oneTable) . '.'
+                    . Util::backquote($field) . ' = '
+                    . Util::backquote($foreigner['foreign_table']) . '.'
                     . Util::backquote($foreigner['foreign_field']);
             }
         }

@@ -34,7 +34,7 @@ require ROOT_PATH . 'libraries/tbl_common.inc.php';
 $tracking = $containerBuilder->get('tracking');
 
 if (Tracker::isActive()
-    && Tracker::isTracked($GLOBALS["db"], $GLOBALS["table"])
+    && Tracker::isTracked($GLOBALS['db'], $GLOBALS['table'])
     && ! (isset($_POST['toggle_activation'])
     && $_POST['toggle_activation'] == 'deactivate_now')
     && ! (isset($_POST['report_export'])
@@ -43,7 +43,7 @@ if (Tracker::isActive()
     $msg = Message::notice(
         sprintf(
             __('Tracking of %s is activated.'),
-            htmlspecialchars($GLOBALS["db"] . '.' . $GLOBALS["table"])
+            htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table'])
         )
     );
     $response->addHTML($msg->getDisplay());

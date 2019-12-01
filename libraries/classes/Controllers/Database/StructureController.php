@@ -253,7 +253,7 @@ class StructureController extends AbstractController
         $json['changes'] = $changes;
         if (! $changes) {
             $json['message'] = $this->template->render('components/error_message', [
-                'msg' => __("Favorite List is full!"),
+                'msg' => __('Favorite List is full!'),
             ]);
             return $json;
         }
@@ -270,7 +270,7 @@ class StructureController extends AbstractController
         $json['list'] = $favoriteInstance->getHtmlList();
         $json['anchor'] = $this->template->render('database/structure/favorite_anchor', [
             'table_name_hash' => md5($favoriteTable),
-            'db_table_name_hash' => md5($this->db . "." . $favoriteTable),
+            'db_table_name_hash' => md5($this->db . '.' . $favoriteTable),
             'fav_params' => $favoriteParams,
             'already_favorite' => $alreadyFavorite,
             'titles' => $titles,

@@ -124,7 +124,7 @@ class SearchController extends AbstractController
         // Loads table's information
         $this->_loadTableInfo();
         $this->_connectionCharSet = $this->dbi->fetchValue(
-            "SELECT @@character_set_connection"
+            'SELECT @@character_set_connection'
         );
     }
 
@@ -164,10 +164,10 @@ class SearchController extends AbstractController
                 // strip the "BINARY" attribute, except if we find "BINARY(" because
                 // this would be a BINARY or VARBINARY column type
                 if (! preg_match('@BINARY[\(]@i', $type)) {
-                    $type = str_ireplace("BINARY", '', $type);
+                    $type = str_ireplace('BINARY', '', $type);
                 }
-                $type = str_ireplace("ZEROFILL", '', $type);
-                $type = str_ireplace("UNSIGNED", '', $type);
+                $type = str_ireplace('ZEROFILL', '', $type);
+                $type = str_ireplace('UNSIGNED', '', $type);
                 $type = mb_strtolower($type);
             }
             if (empty($type)) {
@@ -336,7 +336,7 @@ class SearchController extends AbstractController
 
         //Query execution part
         $result = $this->dbi->query(
-            $sql_query . ";",
+            $sql_query . ';',
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
@@ -447,7 +447,7 @@ class SearchController extends AbstractController
         $row_info_query = 'SELECT * FROM `' . $_POST['db'] . '`.`'
             . $_POST['table'] . '` WHERE ' . $_POST['where_clause'];
         $result = $this->dbi->query(
-            $row_info_query . ";",
+            $row_info_query . ';',
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
@@ -665,22 +665,22 @@ class SearchController extends AbstractController
                 $charSet
             );
         } else {
-            $sql_query = "SELECT "
-                . Util::backquote($column) . ","
-                . " REPLACE("
+            $sql_query = 'SELECT '
+                . Util::backquote($column) . ','
+                . ' REPLACE('
                 . Util::backquote($column) . ", '" . $find . "', '"
                 . $replaceWith
                 . "'),"
-                . " COUNT(*)"
-                . " FROM " . Util::backquote($this->db)
-                . "." . Util::backquote($this->table)
-                . " WHERE " . Util::backquote($column)
-                . " LIKE '%" . $find . "%' COLLATE " . $charSet . "_bin"; // here we
+                . ' COUNT(*)'
+                . ' FROM ' . Util::backquote($this->db)
+                . '.' . Util::backquote($this->table)
+                . ' WHERE ' . Util::backquote($column)
+                . " LIKE '%" . $find . "%' COLLATE " . $charSet . '_bin'; // here we
             // change the collation of the 2nd operand to a case sensitive
             // binary collation to make sure that the comparison
             // is case sensitive
-            $sql_query .= " GROUP BY " . Util::backquote($column)
-                . " ORDER BY " . Util::backquote($column) . " ASC";
+            $sql_query .= ' GROUP BY ' . Util::backquote($column)
+                . ' ORDER BY ' . Util::backquote($column) . ' ASC';
 
             $result = $this->dbi->fetchResult($sql_query, 0);
         }
@@ -713,19 +713,19 @@ class SearchController extends AbstractController
         $charSet
     ) {
         $column = $this->_columnNames[$columnIndex];
-        $sql_query = "SELECT "
-            . Util::backquote($column) . ","
-            . " 1," // to add an extra column that will have replaced value
-            . " COUNT(*)"
-            . " FROM " . Util::backquote($this->db)
-            . "." . Util::backquote($this->table)
-            . " WHERE " . Util::backquote($column)
+        $sql_query = 'SELECT '
+            . Util::backquote($column) . ','
+            . ' 1,' // to add an extra column that will have replaced value
+            . ' COUNT(*)'
+            . ' FROM ' . Util::backquote($this->db)
+            . '.' . Util::backquote($this->table)
+            . ' WHERE ' . Util::backquote($column)
             . " RLIKE '" . $this->dbi->escapeString($find) . "' COLLATE "
-            . $charSet . "_bin"; // here we
+            . $charSet . '_bin'; // here we
         // change the collation of the 2nd operand to a case sensitive
         // binary collation to make sure that the comparison is case sensitive
-        $sql_query .= " GROUP BY " . Util::backquote($column)
-            . " ORDER BY " . Util::backquote($column) . " ASC";
+        $sql_query .= ' GROUP BY ' . Util::backquote($column)
+            . ' ORDER BY ' . Util::backquote($column) . ' ASC';
 
         $result = $this->dbi->fetchResult($sql_query, 0);
 
@@ -791,8 +791,8 @@ class SearchController extends AbstractController
                 $replaceWith,
                 $charSet
             );
-            $sql_query = "UPDATE " . Util::backquote($this->table)
-                . " SET " . Util::backquote($column) . " = CASE";
+            $sql_query = 'UPDATE ' . Util::backquote($this->table)
+                . ' SET ' . Util::backquote($column) . ' = CASE';
             if (is_array($toReplace)) {
                 foreach ($toReplace as $row) {
                     $sql_query .= "\n WHEN " . Util::backquote($column)
@@ -800,22 +800,22 @@ class SearchController extends AbstractController
                         . "' THEN '" . $this->dbi->escapeString($row[1]) . "'";
                 }
             }
-            $sql_query .= " END"
-                . " WHERE " . Util::backquote($column)
+            $sql_query .= ' END'
+                . ' WHERE ' . Util::backquote($column)
                 . " RLIKE '" . $this->dbi->escapeString($find) . "' COLLATE "
-                . $charSet . "_bin"; // here we
+                . $charSet . '_bin'; // here we
             // change the collation of the 2nd operand to a case sensitive
             // binary collation to make sure that the comparison
             // is case sensitive
         } else {
-            $sql_query = "UPDATE " . Util::backquote($this->table)
-                . " SET " . Util::backquote($column) . " ="
-                . " REPLACE("
+            $sql_query = 'UPDATE ' . Util::backquote($this->table)
+                . ' SET ' . Util::backquote($column) . ' ='
+                . ' REPLACE('
                 . Util::backquote($column) . ", '" . $find . "', '"
                 . $replaceWith
                 . "')"
-                . " WHERE " . Util::backquote($column)
-                . " LIKE '%" . $find . "%' COLLATE " . $charSet . "_bin"; // here we
+                . ' WHERE ' . Util::backquote($column)
+                . " LIKE '%" . $find . "%' COLLATE " . $charSet . '_bin'; // here we
             // change the collation of the 2nd operand to a case sensitive
             // binary collation to make sure that the comparison
             // is case sensitive
@@ -1101,8 +1101,8 @@ class SearchController extends AbstractController
         $geom_funcs = Util::getGISFunctions($types, true, false);
 
         // If the function takes multiple parameters
-        if (strpos($func_type, "IS NULL") !== false || strpos($func_type, "IS NOT NULL") !== false) {
-            return Util::backquote($names) . " " . $func_type;
+        if (strpos($func_type, 'IS NULL') !== false || strpos($func_type, 'IS NOT NULL') !== false) {
+            return Util::backquote($names) . ' ' . $func_type;
         } elseif ($geom_funcs[$geom_func]['params'] > 1) {
             // create gis data from the criteria input
             $gis_data = Util::createGISData($criteriaValues, $this->dbi->getVersion());
@@ -1125,9 +1125,9 @@ class SearchController extends AbstractController
         ) {
             // create gis data from the criteria input
             $gis_data = Util::createGISData($criteriaValues, $this->dbi->getVersion());
-            $where = $geom_function_applied . " " . $func_type . " " . $gis_data;
+            $where = $geom_function_applied . ' ' . $func_type . ' ' . $gis_data;
         } elseif (strlen($criteriaValues) > 0) {
-            $where = $geom_function_applied . " "
+            $where = $geom_function_applied . ' '
                 . $func_type . " '" . $criteriaValues . "'";
         }
         return $where;
