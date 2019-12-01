@@ -900,41 +900,15 @@ div#tablestatistics table {
   width: 100%;
 }
 
-#serverinfo {
-  background: white;
-  font-weight: bold;
-  padding-bottom: 0.5em;
-  padding-#{$left}: 2.2em;
-  width: 10000px;
-  overflow: hidden;
-  box-sizing: content-box;
-
-  .item {
-    white-space: nowrap;
-  }
-
-  img {
-    margin: 0 0.1em 0 0.2em;
-  }
-}
-
 #page_nav_icons {
   position: fixed;
   top: 0;
   #{$right}: 0;
   z-index: 99;
-  padding: 0.1em 0;
-}
-
-#goto_pagetop,
-#lock_page_icon {
-  padding: 0.3em;
-  background: white;
+  padding: $breadcrumb-padding-y $breadcrumb-padding-x;
 }
 
 #page_settings_icon {
-  padding: 0.3em;
-  background: white;
   cursor: pointer;
   display: none;
 }
@@ -942,15 +916,6 @@ div#tablestatistics table {
 #page_settings_modal,
 #pma_navigation_settings {
   display: none;
-}
-
-#span_table_comment {
-  font-weight: bold;
-  font-style: italic;
-  white-space: nowrap;
-  margin-#{$left}: 10px;
-  color: #d6d6d6;
-  text-shadow: none;
 }
 
 #textSQLDUMP {
@@ -3599,7 +3564,7 @@ body {
     width: 95% !important;
   }
 
-  #serverinfo .item {
+  #server-breadcrumb .item {
     margin: 4px;
   }
 }

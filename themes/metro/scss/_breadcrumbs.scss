@@ -1,0 +1,35 @@
+.breadcrumb {
+  color: $button-color;
+  padding-left: 2rem;
+
+  a {
+    color: inherit;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.breadcrumb-item {
+  + .breadcrumb-item::before,
+  &::before {
+    /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+    font-family: "IcoMoon";
+    font-size: 10px;
+    color: #eee;
+    content: "";
+  }
+
+  + .breadcrumb-comment {
+    padding-left: $breadcrumb-item-padding;
+  }
+
+  .icon {
+    display: none;
+  }
+}
+
+.breadcrumb-comment {
+  font-style: italic;
+}

@@ -865,7 +865,7 @@ AJAX.registerOnload('functions.js', function () {
  */
 $(function () {
     var menuContent = $('<div></div>')
-        .append($('#serverinfo').clone())
+        .append($('#server-breadcrumb').clone())
         .append($('#topmenucontainer').clone())
         .html();
     if (history && history.pushState) {

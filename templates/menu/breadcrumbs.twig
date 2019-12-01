@@ -1,51 +1,44 @@
 <div id="floating_menubar"></div>
-<div id="serverinfo">
-  {% if show_icons('TabsMode') %}
-    {{ get_image('s_host', '', {'class': 'item'}) }}
-  {% endif %}
-  <a href="{{ server.url }}" class="item">
-    {% if show_text('TabsMode') %}
-      {% trans 'Server:' %}
-    {% endif %}
-    {{ server.name }}
-  </a>
-
-  {% if database is not empty %}
-    <span class='separator item'>&nbsp;»</span>
-
-    {% if show_icons('TabsMode') %}
-      {{ get_image('s_db', '', {'class': 'item'}) }}
-    {% endif %}
-    <a href="{{ database.url }}{{ get_common({'db': database.name}, '&') }}" class="item">
-      {% if show_text('TabsMode') %}
-        {% trans 'Database:' %}
-      {% endif %}
-      {{ database.name }}
-    </a>
-
-    {% if table is not empty %}
-      <span class='separator item'>&nbsp;»</span>
-
-      {% if show_icons('TabsMode') %}
-        {{ get_image(table.is_view ? 'b_views' : 's_tbl', '', {'class': 'item'}) }}
-      {% endif %}
-      <a href="{{ table.url }}{{ get_common({'db': database.name, 'table': table.name}, '&') }}" class="item">
-        {% if show_text('TabsMode') %}
-          {% if table.is_view %}
-            {% trans 'View:' %}
-          {% else %}
-            {% trans 'Table:' %}
-          {% endif %}
-        {% endif %}
-        {{ table.name }}
+<nav id="server-breadcrumb" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      {{ show_icons('TabsMode') ? get_image('s_host') }}
+      <a href="{{ server.url }}">
+        {% if show_text('TabsMode') %}{% trans 'Server:' %}{% endif %}
+        {{ server.name }}
       </a>
+    </li>
 
-      {% if table.comment is not empty %}
-        <span class="table_comment" id="span_table_comment">“{{ table.comment }}”</span>
+    {% if database is not empty %}
+      <li class="breadcrumb-item">
+        {{ show_icons('TabsMode') ? get_image('s_db') }}
+        <a href="{{ database.url }}{{ get_common({'db': database.name}, '&') }}">
+          {% if show_text('TabsMode') %}{% trans 'Database:' %}{% endif %}
+          {{ database.name }}
+        </a>
+      </li>
+
+      {% if table is not empty %}
+        <li class="breadcrumb-item">
+          {{ show_icons('TabsMode') ? get_image(table.is_view ? 'b_views' : 's_tbl') }}
+          <a href="{{ table.url }}{{ get_common({'db': database.name, 'table': table.name}, '&') }}">
+            {% if show_text('TabsMode') %}
+              {% if table.is_view %}
+                {% trans 'View:' %}
+              {% else %}
+                {% trans 'Table:' %}
+              {% endif %}
+            {% endif %}
+            {{ table.name }}
+          </a>
+        </li>
+
+        {% if table.comment is not empty %}
+          <span class="breadcrumb-comment">“{{ table.comment }}”</span>
+        {% endif %}
+      {% elseif database.comment is not empty %}
+        <span class="breadcrumb-comment">“{{ database.comment }}”</span>
       {% endif %}
-    {% elseif database.comment is not empty %}
-      <span class="table_comment" id="span_table_comment">“{{ database.comment }}”</span>
     {% endif %}
-  {% endif %}
-  <div class="clearfloat"></div>
-</div>
+  </ol>
+</nav>

@@ -1173,64 +1173,15 @@ div#tablestatistics table {
   width: 100%;
 }
 
-#serverinfo {
-  padding: 12px 30px;
-  overflow: hidden;
-  margin: 0;
-  margin-#{$left}: -1em;
-  font-family: $font-family-base;
-  color: $button-color;
-  background: $navi-background;
-  height: 15px;
-  box-sizing: content-box;
-
-  .item {
-    font-family: $font-family-base;
-    white-space: nowrap;
-    color: $button-color;
-
-    &::before {
-      padding-#{$left}: 5px;
-      padding-#{$right}: 5px;
-      /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
-      font-family: "IcoMoon";
-      font-size: 10px;
-      color: #eee;
-      content: "";
-    }
-  }
-
-  a {
-    &:hover {
-      text-decoration: none;
-    }
-
-    &:first-child {
-      display: none !important;
-    }
-  }
-
-  .separator,
-  .icon {
-    display: none;
-  }
-}
-
 #page_nav_icons {
   position: fixed;
   top: 0;
   #{$right}: 0;
   z-index: 99;
-  padding: 0.25em 0;
-}
-
-#goto_pagetop,
-#lock_page_icon {
-  padding: 0.25em;
+  padding: $breadcrumb-padding-y $breadcrumb-padding-x;
 }
 
 #page_settings_icon {
-  padding: 0.25em;
   cursor: pointer;
   display: none;
 }
@@ -1245,11 +1196,6 @@ div#tablestatistics table {
   font-style: italic;
   white-space: nowrap;
   margin-#{$left}: 10px;
-}
-
-#serverinfo img {
-  margin: 0 0.1em 0;
-  margin-#{$left}: 0.2em;
 }
 
 #textSQLDUMP {

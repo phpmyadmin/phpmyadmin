@@ -1175,7 +1175,7 @@ Navigation.ResizeHandler = function () {
                 'width': '100%',
                 'z-index': 99
             })
-            .append($('#serverinfo'))
+            .append($('#server-breadcrumb'))
             .append($('#topmenucontainer'));
         // Allow the DOM to render, then adjust the padding on the body
         setTimeout(function () {

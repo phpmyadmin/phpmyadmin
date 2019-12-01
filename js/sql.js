@@ -350,7 +350,7 @@ AJAX.registerOnload('sql.js', function () {
 
         textArea.value = '';
 
-        $('#serverinfo a').each(function () {
+        $('#server-breadcrumb a').each(function () {
             textArea.value += $(this).text().split(':')[1].trim() + '/';
         });
         textArea.value += '\t\t' + window.location.href;

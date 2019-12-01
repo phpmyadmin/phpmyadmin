@@ -67,7 +67,7 @@ class OperationsTest extends TestBase
         $this->assertNotNull(
             $this->waitForElement(
                 'xpath',
-                "//span[@id='span_table_comment' and contains(., 'comment_foobar')]"
+                "//span[@class='breadcrumb-comment' and contains(., 'comment_foobar')]"
             )
         );
     }

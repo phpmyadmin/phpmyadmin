@@ -552,7 +552,7 @@ abstract class TestBase extends TestCase
      */
     public function isSuccessLogin()
     {
-        return $this->isElementPresent('xpath', "//*[@id=\"serverinfo\"]");
+        return $this->isElementPresent('xpath', "//*[@id=\"server-breadcrumb\"]");
     }
 
     /**
@@ -600,7 +600,7 @@ abstract class TestBase extends TestCase
     {
         return $this->isElementPresent(
             'xpath',
-            '//*[@id="serverinfo"]/a[1]'
+            '//*[@id="server-breadcrumb"]/a[1]'
         );
     }
 
