@@ -209,7 +209,7 @@ class UserPassword
         $hashing_function,
         $orig_auth_plugin
     ) {
-        $err_url = Url::getFromRoute('/user_password');
+        $err_url = Url::getFromRoute('/user-password');
 
         $serverType = Util::getServerType();
         $serverVersion = $GLOBALS['dbi']->getVersion();

@@ -52,7 +52,7 @@ class ChangePassword
 
         $is_privileges = isset($_REQUEST['route']) && $_REQUEST['route'] === '/server/privileges';
 
-        $action = Url::getFromRoute('/user_password');
+        $action = Url::getFromRoute('/user-password');
         if ($is_privileges) {
             $action = Url::getFromRoute('/server/privileges');
         }

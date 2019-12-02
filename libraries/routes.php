@@ -36,6 +36,7 @@ use PhpMyAdmin\Controllers\Server\Status\QueriesController;
 use PhpMyAdmin\Controllers\Server\Status\StatusController;
 use PhpMyAdmin\Controllers\Server\Status\VariablesController as StatusVariables;
 use PhpMyAdmin\Controllers\Server\VariablesController;
+use PhpMyAdmin\Controllers\UserPasswordController;
 use PhpMyAdmin\Controllers\VersionCheckController;
 use PhpMyAdmin\Response;
 
@@ -550,8 +551,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             require_once ROOT_PATH . 'libraries/entry_points/transformation/wrapper.php';
         });
     });
-    $routes->addRoute(['GET', 'POST'], '/user_password', function () {
-        require_once ROOT_PATH . 'libraries/entry_points/user_password.php';
+    $routes->addRoute(['GET', 'POST'], '/user-password', function () use ($containerBuilder) {
+        /** @var UserPasswordController $controller */
+        $controller = $containerBuilder->get(UserPasswordController::class);
+        $controller->index();
     });
     $routes->addRoute(['GET', 'POST'], '/version-check', function () use ($containerBuilder) {
         /** @var VersionCheckController $controller */

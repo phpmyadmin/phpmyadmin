@@ -121,7 +121,7 @@ class HomeController extends AbstractController
                         'id' => 'li_change_password',
                         'class' => 'no_bullets',
                         'url' => [
-                            'href' => Url::getFromRoute('/user_password'),
+                            'href' => Url::getFromRoute('/user-password'),
                             'target' => null,
                             'id' => 'change_password_anchor',
                             'class' => 'ajax',

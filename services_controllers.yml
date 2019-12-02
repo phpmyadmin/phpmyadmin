@@ -401,6 +401,14 @@ services:
       template: '@template'
       transformations: '@transformations'
 
+  PhpMyAdmin\Controllers\UserPasswordController:
+    class: 'PhpMyAdmin\Controllers\UserPasswordController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      userPassword: '@user_password'
+
   PhpMyAdmin\Controllers\VersionCheckController:
     class: 'PhpMyAdmin\Controllers\VersionCheckController'
     arguments:
