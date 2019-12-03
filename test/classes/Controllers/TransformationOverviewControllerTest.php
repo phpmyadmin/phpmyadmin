@@ -50,7 +50,7 @@ class TransformationOverviewControllerTest extends TestCase
             new Transformations()
         );
 
-        $actual = $controller->indexAction();
+        $actual = $controller->index();
 
         $this->assertStringContainsString(
             __('Available media types'),

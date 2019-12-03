@@ -36,6 +36,7 @@ use PhpMyAdmin\Controllers\Server\Status\QueriesController;
 use PhpMyAdmin\Controllers\Server\Status\StatusController;
 use PhpMyAdmin\Controllers\Server\Status\VariablesController as StatusVariables;
 use PhpMyAdmin\Controllers\Server\VariablesController;
+use PhpMyAdmin\Controllers\TransformationOverviewController;
 use PhpMyAdmin\Controllers\UserPasswordController;
 use PhpMyAdmin\Controllers\VersionCheckController;
 use PhpMyAdmin\Response;
@@ -543,9 +544,11 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
     $routes->get('/themes', function () {
         require_once ROOT_PATH . 'libraries/entry_points/themes.php';
     });
-    $routes->addGroup('/transformation', function (RouteCollector $routes) {
-        $routes->addRoute(['GET', 'POST'], '/overview', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/transformation/overview.php';
+    $routes->addGroup('/transformation', function (RouteCollector $routes) use ($containerBuilder, $response) {
+        $routes->addRoute(['GET', 'POST'], '/overview', function () use ($containerBuilder, $response) {
+            /** @var TransformationOverviewController $controller */
+            $controller = $containerBuilder->get(TransformationOverviewController::class);
+            $response->addHTML($controller->index());
         });
         $routes->addRoute(['GET', 'POST'], '/wrapper', function () {
             require_once ROOT_PATH . 'libraries/entry_points/transformation/wrapper.php';

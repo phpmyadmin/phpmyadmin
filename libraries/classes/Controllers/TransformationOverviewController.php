@@ -43,8 +43,11 @@ class TransformationOverviewController extends AbstractController
     /**
      * @return string HTML
      */
-    public function indexAction(): string
+    public function index(): string
     {
+        $header = $this->response->getHeader();
+        $header->disableMenuAndConsole();
+
         $types = $this->transformations->getAvailableMimeTypes();
 
         $mimeTypes = [];
