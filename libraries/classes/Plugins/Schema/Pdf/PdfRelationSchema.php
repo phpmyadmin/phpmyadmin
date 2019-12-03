@@ -501,7 +501,7 @@ class PdfRelationSchema extends ExportRelationSchema
             $this->diagram->Cell(
                 0,
                 6,
-                __('Page number:') . ' {' . sprintf("%02d", $i) . '}',
+                __('Page number:') . ' {' . sprintf('%02d', $i) . '}',
                 0,
                 0,
                 'R',
@@ -563,7 +563,7 @@ class PdfRelationSchema extends ExportRelationSchema
             $this->diagram->AddPage($this->orientation);
             $this->diagram->Bookmark($table);
             $this->diagram->setAlias(
-                '{' . sprintf("%02d", $z) . '}',
+                '{' . sprintf('%02d', $z) . '}',
                 $this->diagram->PageNo()
             );
             $this->diagram->PMA_links['RT'][$table]['-']

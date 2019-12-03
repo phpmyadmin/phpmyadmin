@@ -1780,7 +1780,7 @@ class Results
         array $sort_direction,
         $fields_meta
     ) {
-        $sort_order = "";
+        $sort_order = '';
         // Check if the current column is in the order by clause
         $is_in_sort = $this->_isInSorted(
             $sort_expression,
@@ -1829,13 +1829,13 @@ class Results
 
             // If this the first column name in the order by clause add
             // order by clause to the  column name
-            $query_head = $is_first_clause ? "\nORDER BY " : "";
+            $query_head = $is_first_clause ? "\nORDER BY " : '';
             // Again a check to see if the given column is a aggregate column
             if (mb_strpos($name_to_use_in_sort, '(') !== false) {
                 $sort_order .=  $query_head . $name_to_use_in_sort . ' ' ;
             } else {
                 if (strlen($sort_tbl_new) > 0) {
-                    $sort_tbl_new .= ".";
+                    $sort_tbl_new .= '.';
                 }
                 $sort_order .=  $query_head . $sort_tbl_new
                   . Util::backquote(
@@ -1845,7 +1845,7 @@ class Results
 
             // For a special case where the code generates two dots between
             // column name and table name.
-            $sort_order = preg_replace("/\.\./", ".", $sort_order);
+            $sort_order = preg_replace('/\.\./', '.', $sort_order);
             // Incase this is the current column save $single_sort_order
             if ($current_name == $name_to_use_in_sort) {
                 if (mb_strpos($current_name, '(') !== false) {
@@ -1874,12 +1874,12 @@ class Results
                     $sort_order,
                     $index
                 );
-                $order_img .= " <small>" . ($index + 1) . "</small>";
+                $order_img .= ' <small>' . ($index + 1) . '</small>';
             } else {
                 $sort_order .= strtoupper($sort_direction[$index]);
             }
             // Separate columns by a comma
-            $sort_order .= ", ";
+            $sort_order .= ', ';
         }
         // remove the comma from the last column name in the newly
         // constructed clause
@@ -1924,7 +1924,7 @@ class Results
         foreach ($sort_expression_nodirection as $index => $clause) {
             if (mb_strpos($clause, '.') !== false) {
                 $fragments = explode('.', $clause);
-                $clause2 = $fragments[0] . "." . str_replace('`', '', $fragments[1]);
+                $clause2 = $fragments[0] . '.' . str_replace('`', '', $fragments[1]);
             } else {
                 $clause2 = $sort_tbl . str_replace('`', '', $clause);
             }
@@ -1999,7 +1999,7 @@ class Results
                     's_desc',
                     __('Descending'),
                     [
-                        'class' => "soimg",
+                        'class' => 'soimg',
                         'title' => '',
                     ]
                 );
@@ -2007,7 +2007,7 @@ class Results
                     's_asc',
                     __('Ascending'),
                     [
-                        'class' => "soimg hide",
+                        'class' => 'soimg hide',
                         'title' => '',
                     ]
                 );
@@ -2017,7 +2017,7 @@ class Results
                     's_asc',
                     __('Ascending'),
                     [
-                        'class' => "soimg",
+                        'class' => 'soimg',
                         'title' => '',
                     ]
                 );
@@ -2025,7 +2025,7 @@ class Results
                     's_desc',
                     __('Descending'),
                     [
-                        'class' => "soimg hide",
+                        'class' => 'soimg hide',
                         'title' => '',
                     ]
                 );
@@ -3267,7 +3267,7 @@ class Results
         );
 
         // Class definitions required for grid editing jQuery scripts
-        $edit_anchor_class = "edit_row_anchor";
+        $edit_anchor_class = 'edit_row_anchor';
         if ($clause_is_unique == 0) {
             $edit_anchor_class .= ' nonunique';
         }
@@ -4957,7 +4957,7 @@ class Results
              * the script it calls do not fail
              */
             if (empty($_url_params['table']) && ! empty($_url_params['db'])) {
-                $_url_params['table'] = $GLOBALS['dbi']->fetchValue("SHOW TABLES");
+                $_url_params['table'] = $GLOBALS['dbi']->fetchValue('SHOW TABLES');
                 /* No result (probably no database selected) */
                 if ($_url_params['table'] === false) {
                     unset($_url_params['table']);
@@ -5095,7 +5095,7 @@ class Results
             ) {
                 // Applying Transformations on hex string of binary data
                 // seems more appropriate
-                $result = pack("H*", bin2hex($content));
+                $result = pack('H*', bin2hex($content));
             }
         }
 

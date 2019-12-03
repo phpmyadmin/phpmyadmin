@@ -305,7 +305,7 @@ class Config
 
         if (function_exists('gd_info')) {
             $gd_nfo = gd_info();
-            if (mb_strstr($gd_nfo["GD Version"], '2.')) {
+            if (mb_strstr($gd_nfo['GD Version'], '2.')) {
                 $this->set('PMA_IS_GD2', 1);
             } else {
                 $this->set('PMA_IS_GD2', 0);
@@ -573,7 +573,7 @@ class Config
                     }
                     // parse fanout table
                     $fanout = unpack(
-                        "N*",
+                        'N*',
                         substr($index_data, 8, 256 * 4)
                     );
 
@@ -1283,7 +1283,7 @@ class Config
     public function checkUploadSize(): void
     {
         if (! $filesize = ini_get('upload_max_filesize')) {
-            $filesize = "5M";
+            $filesize = '5M';
         }
 
         if ($postsize = ini_get('post_max_size')) {

@@ -111,14 +111,14 @@ class Footer
     {
         if ((is_object($object) || is_array($object)) && $object) {
             if ($object instanceof Traversable) {
-                $object = "***ITERATOR***";
+                $object = '***ITERATOR***';
             } elseif (! in_array($object, $stack, true)) {
                 $stack[] = $object;
                 foreach ($object as &$subobject) {
                     self::_removeRecursion($subobject, $stack);
                 }
             } else {
-                $object = "***RECURSION***";
+                $object = '***RECURSION***';
             }
         }
         return $object;

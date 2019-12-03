@@ -134,9 +134,9 @@ class Bookmark
             return false;
         }
 
-        $query = "INSERT INTO " . Util::backquote($cfgBookmark['db'])
-            . "." . Util::backquote($cfgBookmark['table'])
-            . " (id, dbase, user, query, label) VALUES (NULL, "
+        $query = 'INSERT INTO ' . Util::backquote($cfgBookmark['db'])
+            . '.' . Util::backquote($cfgBookmark['table'])
+            . ' (id, dbase, user, query, label) VALUES (NULL, '
             . "'" . $this->dbi->escapeString($this->_database) . "', "
             . "'" . $this->dbi->escapeString($this->_user) . "', "
             . "'" . $this->dbi->escapeString($this->_query) . "', "
@@ -158,9 +158,9 @@ class Bookmark
             return false;
         }
 
-        $query  = "DELETE FROM " . Util::backquote($cfgBookmark['db'])
-            . "." . Util::backquote($cfgBookmark['table'])
-            . " WHERE id = " . $this->_id;
+        $query  = 'DELETE FROM ' . Util::backquote($cfgBookmark['db'])
+            . '.' . Util::backquote($cfgBookmark['table'])
+            . ' WHERE id = ' . $this->_id;
         return $this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL);
     }
 
@@ -172,7 +172,7 @@ class Bookmark
     public function getVariableCount(): int
     {
         $matches = [];
-        preg_match_all("/\[VARIABLE[0-9]*\]/", $this->_query, $matches, PREG_SET_ORDER);
+        preg_match_all('/\[VARIABLE[0-9]*\]/', $this->_query, $matches, PREG_SET_ORDER);
         return count($matches);
     }
 
@@ -314,14 +314,14 @@ class Bookmark
             return [];
         }
 
-        $query = "SELECT * FROM " . Util::backquote($cfgBookmark['db'])
-            . "." . Util::backquote($cfgBookmark['table'])
+        $query = 'SELECT * FROM ' . Util::backquote($cfgBookmark['db'])
+            . '.' . Util::backquote($cfgBookmark['table'])
             . " WHERE ( `user` = ''"
             . " OR `user` = '" . $dbi->escapeString($cfgBookmark['user']) . "' )";
         if ($db !== false) {
             $query .= " AND dbase = '" . $dbi->escapeString($db) . "'";
         }
-        $query .= " ORDER BY label ASC";
+        $query .= ' ORDER BY label ASC';
 
         $result = $dbi->fetchResult(
             $query,
@@ -374,8 +374,8 @@ class Bookmark
             return null;
         }
 
-        $query = "SELECT * FROM " . Util::backquote($cfgBookmark['db'])
-            . "." . Util::backquote($cfgBookmark['table'])
+        $query = 'SELECT * FROM ' . Util::backquote($cfgBookmark['db'])
+            . '.' . Util::backquote($cfgBookmark['table'])
             . " WHERE dbase = '" . $dbi->escapeString($db) . "'";
         if (! $action_bookmark_all) {
             $query .= " AND (user = '"
@@ -383,9 +383,9 @@ class Bookmark
             if (! $exact_user_match) {
                 $query .= " OR user = ''";
             }
-            $query .= ")";
+            $query .= ')';
         }
-        $query .= " AND " . Util::backquote($id_field)
+        $query .= ' AND ' . Util::backquote($id_field)
             . " = '" . $dbi->escapeString((string) $id) . "' LIMIT 1";
 
         $result = $dbi->fetchSingleRow($query, 'ASSOC', DatabaseInterface::CONNECT_CONTROL);

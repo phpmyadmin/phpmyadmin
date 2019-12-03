@@ -62,11 +62,11 @@ class GisPolygon extends GisGeometry
         );
 
         // If the polygon doesn't have an inner ring, use polygon itself
-        if (mb_strpos($polygon, "),(") === false) {
+        if (mb_strpos($polygon, '),(') === false) {
             $ring = $polygon;
         } else {
             // Separate outer ring and use it to determine min-max
-            $parts = explode("),(", $polygon);
+            $parts = explode('),(', $polygon);
             $ring = $parts[0];
         }
 
@@ -107,11 +107,11 @@ class GisPolygon extends GisGeometry
         );
 
         // If the polygon doesn't have an inner polygon
-        if (mb_strpos($polygon, "),(") === false) {
+        if (mb_strpos($polygon, '),(') === false) {
             $points_arr = $this->extractPoints($polygon, $scale_data, true);
         } else {
             // Separate outer and inner polygons
-            $parts = explode("),(", $polygon);
+            $parts = explode('),(', $polygon);
             $outer = $parts[0];
             $inner = array_slice($parts, 1);
 
@@ -174,11 +174,11 @@ class GisPolygon extends GisGeometry
         );
 
         // If the polygon doesn't have an inner polygon
-        if (mb_strpos($polygon, "),(") === false) {
+        if (mb_strpos($polygon, '),(') === false) {
             $points_arr = $this->extractPoints($polygon, $scale_data, true);
         } else {
             // Separate outer and inner polygons
-            $parts = explode("),(", $polygon);
+            $parts = explode('),(', $polygon);
             $outer = $parts[0];
             $inner = array_slice($parts, 1);
 
@@ -239,11 +239,11 @@ class GisPolygon extends GisGeometry
         $row = '<path d="';
 
         // If the polygon doesn't have an inner polygon
-        if (mb_strpos($polygon, "),(") === false) {
+        if (mb_strpos($polygon, '),(') === false) {
             $row .= $this->_drawPath($polygon, $scale_data);
         } else {
             // Separate outer and inner polygons
-            $parts = explode("),(", $polygon);
+            $parts = explode('),(', $polygon);
             $outer = $parts[0];
             $inner = array_slice($parts, 1);
 
@@ -301,7 +301,7 @@ class GisPolygon extends GisGeometry
             );
 
         // Separate outer and inner polygons
-        $parts = explode("),(", $polygon);
+        $parts = explode('),(', $polygon);
         $row .= 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
             . $this->getPolygonForOpenLayers($parts, $srid)
             . ', null, ' . json_encode($style_options) . '));';
@@ -597,7 +597,7 @@ class GisPolygon extends GisGeometry
                 mb_strlen($wkt) - 11
             );
         // Separate each linestring
-        $linerings = explode("),(", $polygon);
+        $linerings = explode('),(', $polygon);
         $params[$index]['POLYGON']['no_of_lines'] = count($linerings);
 
         $j = 0;

@@ -53,7 +53,7 @@ class Transformations
         $result = [];
 
         if (strlen($option_string) === 0
-            || ! $transform_options = explode(",", $option_string)
+            || ! $transform_options = explode(',', $option_string)
         ) {
             return $result;
         }
@@ -138,7 +138,7 @@ class Transformations
                 if (preg_match('|^[^.].*_.*_.*\.php$|', $file)) {
                     // File contains transformation functions.
                     $parts = explode('_', str_replace('.php', '', $file));
-                    $mimetype = $parts[0] . "/" . $parts[1];
+                    $mimetype = $parts[0] . '/' . $parts[1];
                     $stack['mimetype'][$mimetype] = $mimetype;
 
                     $stack[$prefix . 'transformation'][] = $mimetype . ': ' . $parts[2];
@@ -172,7 +172,7 @@ class Transformations
     public function getClassName($filename)
     {
         // get the transformation class name
-        $class_name = explode(".php", $filename);
+        $class_name = explode('.php', $filename);
         $class_name = 'PhpMyAdmin\\' . str_replace('/', '\\', mb_substr($class_name[0], 18));
 
         return $class_name;
@@ -230,12 +230,12 @@ class Transformations
     {
         $value = str_replace(
             [
-                "jpeg",
-                "png",
+                'jpeg',
+                'png',
             ],
             [
-                "JPEG",
-                "PNG",
+                'JPEG',
+                'PNG',
             ],
             $value
         );
@@ -271,11 +271,11 @@ class Transformations
 
         $com_qry = '';
         if ($fullName) {
-            $com_qry .= "SELECT CONCAT("
+            $com_qry .= 'SELECT CONCAT('
                 . "`db_name`, '.', `table_name`, '.', `column_name`"
-                . ") AS column_name, ";
+                . ') AS column_name, ';
         } else {
-            $com_qry  = "SELECT `column_name`, ";
+            $com_qry  = 'SELECT `column_name`, ';
         }
         $com_qry .= '`mimetype`,
                     `transformation`,

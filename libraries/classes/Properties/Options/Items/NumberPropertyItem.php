@@ -29,6 +29,6 @@ class NumberPropertyItem extends OptionsPropertyOneItem
      */
     public function getItemType()
     {
-        return "number";
+        return 'number';
     }
 }

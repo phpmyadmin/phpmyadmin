@@ -159,7 +159,7 @@ class ImportShp extends ImportPlugin
 
         // Load data
         $shp->loadFromFile('');
-        if ($shp->lastError != "") {
+        if ($shp->lastError != '') {
             $error = true;
             $message = Message::error(
                 __('There was an error importing the ESRI shape file: "%s".')

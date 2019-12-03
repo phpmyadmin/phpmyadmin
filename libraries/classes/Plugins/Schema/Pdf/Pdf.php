@@ -259,7 +259,7 @@ class Pdf extends PdfLib
         // This function must be named "Header" to work with the TCPDF library
         if ($this->_withDoc) {
             if ($this->_offline || $this->_pageNumber == -1) {
-                $pg_name = __("PDF export page");
+                $pg_name = __('PDF export page');
             } else {
                 $test_query = 'SELECT * FROM '
                     . Util::backquote($GLOBALS['cfgRelation']['db']) . '.'

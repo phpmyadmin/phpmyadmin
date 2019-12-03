@@ -115,14 +115,14 @@ class Tracking
     {
         $relation = $this->relation;
         $cfgRelation = $relation->getRelationsParam();
-        $sql_query = " SELECT * FROM " .
-            Util::backquote($cfgRelation['db']) . "." .
+        $sql_query = ' SELECT * FROM ' .
+            Util::backquote($cfgRelation['db']) . '.' .
             Util::backquote($cfgRelation['tracking']) .
             " WHERE db_name = '" . $GLOBALS['dbi']->escapeString($GLOBALS['db']) .
             "' " .
             " AND table_name = '" .
             $GLOBALS['dbi']->escapeString($GLOBALS['table']) . "' " .
-            " ORDER BY version DESC ";
+            ' ORDER BY version DESC ';
 
         return $relation->queryAsControlUser($sql_query);
     }
@@ -206,12 +206,12 @@ class Tracking
         $relation = $this->relation;
         $cfgRelation = $relation->getRelationsParam();
 
-        $sql_query = " SELECT DISTINCT db_name, table_name FROM " .
-            Util::backquote($cfgRelation['db']) . "." .
+        $sql_query = ' SELECT DISTINCT db_name, table_name FROM ' .
+            Util::backquote($cfgRelation['db']) . '.' .
             Util::backquote($cfgRelation['tracking']) .
             " WHERE db_name = '" . $GLOBALS['dbi']->escapeString($GLOBALS['db']) .
             "' " .
-            " ORDER BY db_name, table_name";
+            ' ORDER BY db_name, table_name';
 
         return $relation->queryAsControlUser($sql_query);
     }
@@ -490,8 +490,8 @@ class Tracking
 
         $str_export2 = '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">';
 
-        $html .= "<br>" . sprintf(__('Export as %s'), $str_export1)
-            . $str_export2 . "<br>";
+        $html .= '<br>' . sprintf(__('Export as %s'), $str_export1)
+            . $str_export2 . '<br>';
         $html .= '</form>';
         return $html;
     }
@@ -800,13 +800,13 @@ class Tracking
     public function exportAsSqlDump(array $entries)
     {
         $html = '';
-        $new_query = "# "
+        $new_query = '# '
             . __(
                 'You can execute the dump by creating and using a temporary database. '
                 . 'Please ensure that you have the privileges to do so.'
             )
             . "\n"
-            . "# " . __('Comment out these two lines if you do not need them.') . "\n"
+            . '# ' . __('Comment out these two lines if you do not need them.') . "\n"
             . "\n"
             . "CREATE database IF NOT EXISTS pma_temp_db; \n"
             . "USE pma_temp_db; \n"
@@ -863,7 +863,7 @@ class Tracking
 
         // Replace all multiple whitespaces by a single space
         $table = htmlspecialchars(preg_replace('/\s+/', ' ', $_POST['table']));
-        $dump = "# " . sprintf(
+        $dump = '# ' . sprintf(
             __('Tracking report for table `%s`'),
             $table
         )

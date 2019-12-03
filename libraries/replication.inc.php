@@ -130,13 +130,13 @@ $slave_variables_oks = [
 $replication_info = [];
 
 foreach ($replication_types as $type) {
-    if (count(${"server_{$type}_replication"}) > 0) {
+    if (count(${'server_' . $type . '_replication'}) > 0) {
         $replication_info[$type]['status'] = true;
     } else {
         $replication_info[$type]['status'] = false;
     }
     if ($replication_info[$type]['status']) {
-        if ($type == "master") {
+        if ($type == 'master') {
             $replication->fillInfo(
                 $type,
                 'Do_DB',
@@ -150,7 +150,7 @@ foreach ($replication_types as $type) {
                 $server_master_replication[0],
                 'Binlog_Ignore_DB'
             );
-        } elseif ($type == "slave") {
+        } elseif ($type == 'slave') {
             $replication->fillInfo(
                 $type,
                 'Do_DB',

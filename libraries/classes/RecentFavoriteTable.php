@@ -104,7 +104,7 @@ class RecentFavoriteTable
     {
         // Read from phpMyAdmin database, if recent tables is not in session
         $sql_query
-            = " SELECT `tables` FROM " . $this->_getPmaTable() .
+            = ' SELECT `tables` FROM ' . $this->_getPmaTable() .
             " WHERE `username` = '" . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']) . "'";
 
         $return = [];
@@ -127,7 +127,7 @@ class RecentFavoriteTable
     {
         $username = $GLOBALS['cfg']['Server']['user'];
         $sql_query
-            = " REPLACE INTO " . $this->_getPmaTable() . " (`username`, `tables`)" .
+            = ' REPLACE INTO ' . $this->_getPmaTable() . ' (`username`, `tables`)' .
                 " VALUES ('" . $GLOBALS['dbi']->escapeString($username) . "', '"
                 . $GLOBALS['dbi']->escapeString(
                     json_encode($this->_tables)
@@ -210,9 +210,9 @@ class RecentFavoriteTable
                         'remove_favorite' => true,
                     ]);
                     $html .= 'href="' . $fav_rm_url
-                        . '" title="' . __("Remove from Favorites")
+                        . '" title="' . __('Remove from Favorites')
                         . '" data-favtargetn="'
-                        . md5($table['db'] . "." . $table['table'])
+                        . md5($table['db'] . '.' . $table['table'])
                         . '" >'
                         . Generator::getIcon('b_favorite')
                         . '</a>';
@@ -390,7 +390,7 @@ class RecentFavoriteTable
         if (! empty($cfgRelation['db'])
             && ! empty($cfgRelation[$this->_tableType])
         ) {
-            return Util::backquote($cfgRelation['db']) . "."
+            return Util::backquote($cfgRelation['db']) . '.'
                 . Util::backquote($cfgRelation[$this->_tableType]);
         }
         return null;

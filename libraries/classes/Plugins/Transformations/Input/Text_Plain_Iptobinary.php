@@ -115,7 +115,7 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
      */
     public static function getName()
     {
-        return "IPv4/IPv6 To Binary";
+        return 'IPv4/IPv6 To Binary';
     }
 
     /**
@@ -125,7 +125,7 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
      */
     public static function getMIMEType()
     {
-        return "Text";
+        return 'Text';
     }
 
     /**
@@ -135,6 +135,6 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
      */
     public static function getMIMESubtype()
     {
-        return "Plain";
+        return 'Plain';
     }
 }

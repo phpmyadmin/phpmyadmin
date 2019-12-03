@@ -79,14 +79,14 @@ class ExportLatex extends ExportPlugin
         // $exportPluginProperties
         // this will be shown as "Format specific options"
         $exportSpecificOptions = new OptionsPropertyRootGroup(
-            "Format Specific Options"
+            'Format Specific Options'
         );
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup("general_opts");
+        $generalOptions = new OptionsPropertyMainGroup('general_opts');
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
-            "caption",
+            'caption',
             __('Include table caption')
         );
         $generalOptions->addProperty($leaf);
@@ -95,11 +95,11 @@ class ExportLatex extends ExportPlugin
 
         // what to dump (structure/data/both) main group
         $dumpWhat = new OptionsPropertyMainGroup(
-            "dump_what",
+            'dump_what',
             __('Dump table')
         );
         // create primary items and add them to the group
-        $leaf = new RadioPropertyItem("structure_or_data");
+        $leaf = new RadioPropertyItem('structure_or_data');
         $leaf->setValues(
             [
                 'structure'          => __('structure'),
@@ -114,44 +114,44 @@ class ExportLatex extends ExportPlugin
         // structure options main group
         if (! $hide_structure) {
             $structureOptions = new OptionsPropertyMainGroup(
-                "structure",
+                'structure',
                 __('Object creation options')
             );
             $structureOptions->setForce('data');
             // create primary items and add them to the group
             $leaf = new TextPropertyItem(
-                "structure_caption",
+                'structure_caption',
                 __('Table caption:')
             );
             $leaf->setDoc('faq6-27');
             $structureOptions->addProperty($leaf);
             $leaf = new TextPropertyItem(
-                "structure_continued_caption",
+                'structure_continued_caption',
                 __('Table caption (continued):')
             );
             $leaf->setDoc('faq6-27');
             $structureOptions->addProperty($leaf);
             $leaf = new TextPropertyItem(
-                "structure_label",
+                'structure_label',
                 __('Label key:')
             );
             $leaf->setDoc('faq6-27');
             $structureOptions->addProperty($leaf);
             if (! empty($GLOBALS['cfgRelation']['relation'])) {
                 $leaf = new BoolPropertyItem(
-                    "relation",
+                    'relation',
                     __('Display foreign key relationships')
                 );
                 $structureOptions->addProperty($leaf);
             }
             $leaf = new BoolPropertyItem(
-                "comments",
+                'comments',
                 __('Display comments')
             );
             $structureOptions->addProperty($leaf);
             if (! empty($GLOBALS['cfgRelation']['mimework'])) {
                 $leaf = new BoolPropertyItem(
-                    "mime",
+                    'mime',
                     __('Display media types')
                 );
                 $structureOptions->addProperty($leaf);
@@ -162,30 +162,30 @@ class ExportLatex extends ExportPlugin
 
         // data options main group
         $dataOptions = new OptionsPropertyMainGroup(
-            "data",
+            'data',
             __('Data dump options')
         );
         $dataOptions->setForce('structure');
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
-            "columns",
+            'columns',
             __('Put columns names in the first row:')
         );
         $dataOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
-            "data_caption",
+            'data_caption',
             __('Table caption:')
         );
         $leaf->setDoc('faq6-27');
         $dataOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
-            "data_continued_caption",
+            'data_continued_caption',
             __('Table caption (continued):')
         );
         $leaf->setDoc('faq6-27');
         $dataOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
-            "data_label",
+            'data_label',
             __('Label key:')
         );
         $leaf->setDoc('faq6-27');
@@ -425,7 +425,7 @@ class ExportLatex extends ExportPlugin
                 if ($i == ($columns_cnt - 1)) {
                     $buffer .= $column_value;
                 } else {
-                    $buffer .= $column_value . " & ";
+                    $buffer .= $column_value . ' & ';
                 }
             }
             $buffer .= ' \\\\ \\hline ' . $crlf;

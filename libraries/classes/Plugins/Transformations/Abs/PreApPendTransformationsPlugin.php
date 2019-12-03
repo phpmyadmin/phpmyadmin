@@ -62,6 +62,6 @@ abstract class PreApPendTransformationsPlugin extends TransformationsPlugin
      */
     public static function getName()
     {
-        return "PreApPend";
+        return 'PreApPend';
     }
 }

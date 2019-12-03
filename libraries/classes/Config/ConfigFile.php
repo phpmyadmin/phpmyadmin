@@ -414,21 +414,21 @@ class ConfigFile
 
         $path = 'Servers/' . $server;
         $dsn = 'mysqli://';
-        if ($this->getValue("$path/auth_type") == 'config') {
-            $dsn .= $this->getValue("$path/user");
-            if (! empty($this->getValue("$path/password"))) {
+        if ($this->getValue($path . '/auth_type') == 'config') {
+            $dsn .= $this->getValue($path . '/user');
+            if (! empty($this->getValue($path . '/password'))) {
                 $dsn .= ':***';
             }
             $dsn .= '@';
         }
-        if ($this->getValue("$path/host") != 'localhost') {
-            $dsn .= $this->getValue("$path/host");
-            $port = $this->getValue("$path/port");
+        if ($this->getValue($path . '/host') != 'localhost') {
+            $dsn .= $this->getValue($path . '/host');
+            $port = $this->getValue($path . '/port');
             if ($port) {
                 $dsn .= ':' . $port;
             }
         } else {
-            $dsn .= $this->getValue("$path/socket");
+            $dsn .= $this->getValue($path . '/socket');
         }
         return $dsn;
     }
@@ -445,11 +445,11 @@ class ConfigFile
         if (! isset($_SESSION[$this->_id]['Servers'][$id])) {
             return '';
         }
-        $verbose = $this->get("Servers/$id/verbose");
+        $verbose = $this->get('Servers/' . $id . '/verbose');
         if (! empty($verbose)) {
             return $verbose;
         }
-        $host = $this->get("Servers/$id/host");
+        $host = $this->get('Servers/' . $id . '/host');
         return empty($host) ? 'localhost' : $host;
     }
 

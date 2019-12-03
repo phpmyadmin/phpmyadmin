@@ -775,8 +775,8 @@ class Relation
         // From 4.3, new input oriented transformation feature was introduced.
         // Check whether column_info table has input transformation columns
         $new_cols = [
-            "input_transformation",
-            "input_transformation_options",
+            'input_transformation',
+            'input_transformation_options',
         ];
         $query = 'SHOW COLUMNS FROM '
             . Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
@@ -1025,10 +1025,10 @@ class Relation
 
         if ($cfgRelation['commwork']) {
             // pmadb internal db comment
-            $com_qry = "
+            $com_qry = '
                 SELECT `comment`
-                FROM " . Util::backquote($cfgRelation['db'])
-                    . "." . Util::backquote($cfgRelation['column_info'])
+                FROM ' . Util::backquote($cfgRelation['db'])
+                    . '.' . Util::backquote($cfgRelation['column_info'])
                     . "
                 WHERE db_name     = '" . $this->dbi->escapeString($db) . "'
                     AND table_name  = ''
@@ -1063,10 +1063,10 @@ class Relation
 
         if ($cfgRelation['commwork']) {
             // pmadb internal db comment
-            $com_qry = "
+            $com_qry = '
                 SELECT `db_name`, `comment`
-                FROM " . Util::backquote($cfgRelation['db'])
-                    . "." . Util::backquote($cfgRelation['column_info'])
+                FROM ' . Util::backquote($cfgRelation['db'])
+                    . '.' . Util::backquote($cfgRelation['column_info'])
                     . "
                 WHERE `column_name` = '(db_comment)'";
             $com_rs = $this->queryAsControlUser(
@@ -1333,7 +1333,7 @@ class Relation
                 $key = htmlspecialchars($key);
             } else {
                 $key = '0x' . bin2hex($key);
-                if (false !== strpos($data, "0x")) {
+                if (false !== strpos($data, '0x')) {
                     $selected = ($key == trim($data));
                 } else {
                     $selected = ($key == '0x' . $data);
@@ -1789,8 +1789,8 @@ class Relation
             } else {
                 // if the table is moved out of the database we can no loger keep the
                 // record for table coordinate
-                $remove_query = "DELETE FROM "
-                    . Util::backquote($GLOBALS['cfgRelation']['db']) . "."
+                $remove_query = 'DELETE FROM '
+                    . Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
                     . Util::backquote($GLOBALS['cfgRelation']['table_coords'])
                     . " WHERE db_name  = '" . $this->dbi->escapeString($source_db) . "'"
                     . " AND table_name = '" . $this->dbi->escapeString($source_table)
@@ -1824,8 +1824,8 @@ class Relation
             );
 
             // update data for hidden table
-            $query = "UPDATE "
-                . Util::backquote($GLOBALS['cfgRelation']['db']) . "."
+            $query = 'UPDATE '
+                . Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
                 . Util::backquote(
                     $GLOBALS['cfgRelation']['navigationhiding']
                 )
@@ -1882,9 +1882,9 @@ class Relation
     {
         $child_references = [];
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            $rel_query = "SELECT `column_name`, `table_name`,"
-                . " `table_schema`, `referenced_column_name`"
-                . " FROM `information_schema`.`key_column_usage`"
+            $rel_query = 'SELECT `column_name`, `table_name`,'
+                . ' `table_schema`, `referenced_column_name`'
+                . ' FROM `information_schema`.`key_column_usage`'
                 . " WHERE `referenced_table_name` = '"
                 . $this->dbi->escapeString($table) . "'"
                 . " AND `referenced_table_schema` = '"
@@ -2046,7 +2046,7 @@ class Relation
      */
     public function createPmaDatabase()
     {
-        $this->dbi->tryQuery("CREATE DATABASE IF NOT EXISTS `phpmyadmin`");
+        $this->dbi->tryQuery('CREATE DATABASE IF NOT EXISTS `phpmyadmin`');
         if ($error = $this->dbi->getError()) {
             if ($GLOBALS['errno'] == 1044) {
                 $GLOBALS['message'] =    __(

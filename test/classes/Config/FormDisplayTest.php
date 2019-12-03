@@ -82,8 +82,8 @@ class FormDisplayTest extends PmaTestCase
         $attrForms->setAccessible(true);
 
         $array = [
-            "Servers" => [
-                "1" => [
+            'Servers' => [
+                '1' => [
                     'test' => 1,
                     1 => ':group:end',
                 ],
@@ -102,8 +102,8 @@ class FormDisplayTest extends PmaTestCase
 
         $this->assertEquals(
             [
-                "Servers/2/test" => "Servers/1/test",
-                "Servers/2/:group:end:0" => "Servers/1/:group:end:0",
+                'Servers/2/test' => 'Servers/1/test',
+                'Servers/2/:group:end:0' => 'Servers/1/:group:end:0',
             ],
             $attrSystemPaths->getValue($this->object)
         );
@@ -113,8 +113,8 @@ class FormDisplayTest extends PmaTestCase
 
         $this->assertEquals(
             [
-                "Servers/2/test" => "Servers-2-test",
-                "Servers/2/:group:end:0" => "Servers-2-:group:end:0",
+                'Servers/2/test' => 'Servers-2-test',
+                'Servers/2/:group:end:0' => 'Servers-2-:group:end:0',
             ],
             $attrTranslatedPaths->getValue($this->object)
         );
@@ -179,15 +179,15 @@ class FormDisplayTest extends PmaTestCase
         );
 
         $arr = [
-            "Servers/1/test" => ['e1'],
-            "foobar" => [
+            'Servers/1/test' => ['e1'],
+            'foobar' => [
                 'e2',
                 'e3',
             ],
         ];
 
         $sysArr = [
-            "Servers/1/test" => "Servers/1/test2",
+            'Servers/1/test' => 'Servers/1/test2',
         ];
 
         $attrSystemPaths = $reflection->getProperty('_systemPaths');
@@ -225,16 +225,16 @@ class FormDisplayTest extends PmaTestCase
         $this->object->fixErrors();
 
         $arr = [
-            "Servers/1/test" => ['e1'],
-            "Servers/2/test" => [
+            'Servers/1/test' => ['e1'],
+            'Servers/2/test' => [
                 'e2',
                 'e3',
             ],
-            "Servers/3/test" => [],
+            'Servers/3/test' => [],
         ];
 
         $sysArr = [
-            "Servers/1/test" => "Servers/1/host",
+            'Servers/1/test' => 'Servers/1/host',
         ];
 
         $attrSystemPaths = $reflection->getProperty('_systemPaths');
@@ -294,7 +294,7 @@ class FormDisplayTest extends PmaTestCase
             )
         );
         $this->assertEquals(
-            "string",
+            'string',
             gettype($value)
         );
 
@@ -358,19 +358,19 @@ class FormDisplayTest extends PmaTestCase
     public function testGetDocLink()
     {
         $this->assertEquals(
-            "./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2F" .
-            "config.html%23cfg_Servers_3_test_2_",
-            $this->object->getDocLink("Servers/3/test/2/")
+            './url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2F' .
+            'config.html%23cfg_Servers_3_test_2_',
+            $this->object->getDocLink('Servers/3/test/2/')
         );
 
         $this->assertEquals(
             '',
-            $this->object->getDocLink("Import")
+            $this->object->getDocLink('Import')
         );
 
         $this->assertEquals(
             '',
-            $this->object->getDocLink("Export")
+            $this->object->getDocLink('Export')
         );
     }
 
@@ -385,13 +385,13 @@ class FormDisplayTest extends PmaTestCase
         $method->setAccessible(true);
 
         $this->assertEquals(
-            "Servers_",
-            $method->invoke($this->object, "Servers/1/")
+            'Servers_',
+            $method->invoke($this->object, 'Servers/1/')
         );
 
         $this->assertEquals(
-            "Servers_23_",
-            $method->invoke($this->object, "Servers/1/23/")
+            'Servers_23_',
+            $method->invoke($this->object, 'Servers/1/23/')
         );
     }
 
@@ -448,12 +448,12 @@ class FormDisplayTest extends PmaTestCase
 
         $expect['comment'] = '';
         if (! function_exists('iconv')) {
-            $expect['values']['iconv'] .= " (unavailable)";
+            $expect['values']['iconv'] .= ' (unavailable)';
             $expect['comment'] = '"iconv" requires iconv extension';
         }
         if (! function_exists('recode_string')) {
-            $expect['values']['recode'] .= " (unavailable)";
-            $expect['comment'] .= ($expect['comment'] ? ", " : '') .
+            $expect['values']['recode'] .= ' (unavailable)';
+            $expect['comment'] .= ($expect['comment'] ? ', ' : '') .
                 '"recode" requires recode extension';
         }
         $expect['comment_warning'] = 1;
@@ -473,11 +473,11 @@ class FormDisplayTest extends PmaTestCase
         );
 
         $comment = '';
-        if (! function_exists("zip_open")) {
+        if (! function_exists('zip_open')) {
             $comment = 'Compressed import will not work due to missing function ' .
                 'zip_open.';
         }
-        if (! function_exists("gzcompress")) {
+        if (! function_exists('gzcompress')) {
             $comment .= ($comment ? '; ' : '') . 'Compressed export will not work ' .
             'due to missing function gzcompress.';
         }
@@ -500,11 +500,11 @@ class FormDisplayTest extends PmaTestCase
         );
 
         $comment = '';
-        if (! function_exists("gzopen")) {
+        if (! function_exists('gzopen')) {
             $comment = 'Compressed import will not work due to missing function ' .
                 'gzopen.';
         }
-        if (! function_exists("gzencode")) {
+        if (! function_exists('gzencode')) {
             $comment .= ($comment ? '; ' : '') . 'Compressed export will not work ' .
             'due to missing function gzencode.';
         }
@@ -527,11 +527,11 @@ class FormDisplayTest extends PmaTestCase
         );
 
         $comment = '';
-        if (! function_exists("bzopen")) {
+        if (! function_exists('bzopen')) {
             $comment = 'Compressed import will not work due to missing function ' .
                 'bzopen.';
         }
-        if (! function_exists("bzcompress")) {
+        if (! function_exists('bzcompress')) {
             $comment .= ($comment ? '; ' : '') . 'Compressed export will not work ' .
             'due to missing function bzcompress.';
         }
@@ -560,7 +560,7 @@ class FormDisplayTest extends PmaTestCase
         );
 
         $this->assertEquals(
-            "maximum 10",
+            'maximum 10',
             $opts['comment']
         );
 
@@ -573,7 +573,7 @@ class FormDisplayTest extends PmaTestCase
         );
 
         $this->assertEquals(
-            "maximum 10",
+            'maximum 10',
             $opts['comment']
         );
 
@@ -586,7 +586,7 @@ class FormDisplayTest extends PmaTestCase
         );
 
         $this->assertEquals(
-            "maximum 10",
+            'maximum 10',
             $opts['comment']
         );
     }

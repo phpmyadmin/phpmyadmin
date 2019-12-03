@@ -68,16 +68,16 @@ class ExportCodegenTest extends PmaTestCase
 
         $this->assertEquals(
             [
-                "NHibernate C# DO",
-                "NHibernate XML",
+                'NHibernate C# DO',
+                'NHibernate XML',
             ],
             $attrCgFormats->getValue($this->object)
         );
 
         $this->assertEquals(
             [
-                "_handleNHibernateCSBody",
-                "_handleNHibernateXMLBody",
+                '_handleNHibernateCSBody',
+                '_handleNHibernateXMLBody',
             ],
             $attrCgHandlers->getValue($this->object)
         );
@@ -181,8 +181,8 @@ class ExportCodegenTest extends PmaTestCase
 
         $this->assertEquals(
             [
-                "NHibernate C# DO",
-                "NHibernate XML",
+                'NHibernate C# DO',
+                'NHibernate XML',
             ],
             $select->getValues()
         );
@@ -383,7 +383,7 @@ class ExportCodegenTest extends PmaTestCase
             "        #endregion\n" .
             "    }\n" .
             "    #endregion\n" .
-            "}",
+            '}',
             $result
         );
     }

@@ -642,7 +642,7 @@ if (defined('VERSION_CHECK_DEFAULT')) {
  *
  * @global string $cfg['ProxyUrl']
  */
-$cfg['ProxyUrl'] = "";
+$cfg['ProxyUrl'] = '';
 
 /**
  * The username for authenticating with the proxy. By default, no
@@ -652,14 +652,14 @@ $cfg['ProxyUrl'] = "";
  *
  * @global string $cfg['ProxyUser']
  */
-$cfg['ProxyUser'] = "";
+$cfg['ProxyUser'] = '';
 
 /**
  * The password for authenticating with the proxy.
  *
  * @global string $cfg['ProxyPass']
  */
-$cfg['ProxyPass'] = "";
+$cfg['ProxyPass'] = '';
 
 /**
  * maximum number of db's displayed in database list

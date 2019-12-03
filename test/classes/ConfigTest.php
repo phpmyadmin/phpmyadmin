@@ -53,7 +53,7 @@ class ConfigTest extends PmaTestCase
         $GLOBALS['cfg']['ProxyUrl'] = '';
 
         //for testing file permissions
-        $this->permTestObj = new Config(ROOT_PATH . "config.sample.inc.php");
+        $this->permTestObj = new Config(ROOT_PATH . 'config.sample.inc.php');
     }
 
     /**
@@ -96,13 +96,13 @@ class ConfigTest extends PmaTestCase
         $this->object->set('PMA_USR_BROWSER_AGENT', 'IE');
         $this->object->set('PMA_USR_BROWSER_VER', 6);
         $this->object->checkOutputCompression();
-        $this->assertTrue($this->object->get("OBGzip"));
+        $this->assertTrue($this->object->get('OBGzip'));
 
         $this->object->set('OBGzip', 'auto');
         $this->object->set('PMA_USR_BROWSER_AGENT', 'MOZILLA');
         $this->object->set('PMA_USR_BROWSER_VER', 5);
         $this->object->checkOutputCompression();
-        $this->assertTrue($this->object->get("OBGzip"));
+        $this->assertTrue($this->object->get('OBGzip'));
     }
 
     /**
@@ -274,7 +274,7 @@ class ConfigTest extends PmaTestCase
         if (function_exists('gd_info')) {
             $this->object->checkGd2();
             $gd_nfo = gd_info();
-            if (mb_strstr($gd_nfo["GD Version"], '2.')) {
+            if (mb_strstr($gd_nfo['GD Version'], '2.')) {
                 $this->assertEquals(
                     1,
                     $this->object->get('PMA_IS_GD2'),
@@ -339,11 +339,11 @@ class ConfigTest extends PmaTestCase
     {
         return [
             [
-                "Microsoft-IIS 7.0",
+                'Microsoft-IIS 7.0',
                 1,
             ],
             [
-                "Apache/2.2.17",
+                'Apache/2.2.17',
                 0,
             ],
         ];
@@ -452,7 +452,7 @@ class ConfigTest extends PmaTestCase
      */
     public function testGetAndSet()
     {
-        $this->assertNull($this->object->get("unresisting_setting"));
+        $this->assertNull($this->object->get('unresisting_setting'));
 
         $this->object->set('test_setting', 'test_value');
 
@@ -468,14 +468,14 @@ class ConfigTest extends PmaTestCase
     {
         echo $this->object->getSource();
 
-        $this->assertEmpty($this->object->getSource(), "Source is null by default");
+        $this->assertEmpty($this->object->getSource(), 'Source is null by default');
 
-        $this->object->setSource(ROOT_PATH . "config.sample.inc.php");
+        $this->object->setSource(ROOT_PATH . 'config.sample.inc.php');
 
         $this->assertEquals(
-            ROOT_PATH . "config.sample.inc.php",
+            ROOT_PATH . 'config.sample.inc.php',
             $this->object->getSource(),
-            "Cant set new source"
+            'Cant set new source'
         );
     }
 
@@ -812,9 +812,9 @@ class ConfigTest extends PmaTestCase
     public function testSetUserValue()
     {
         $this->object->setUserValue(null, 'lang', 'cs', 'en');
-        $this->object->setUserValue("TEST_COOKIE_USER_VAL", '', 'cfg_val_1');
+        $this->object->setUserValue('TEST_COOKIE_USER_VAL', '', 'cfg_val_1');
         $this->assertEquals(
-            $this->object->getUserValue("TEST_COOKIE_USER_VAL", 'fail'),
+            $this->object->getUserValue('TEST_COOKIE_USER_VAL', 'fail'),
             'cfg_val_1'
         );
     }
@@ -955,7 +955,7 @@ class ConfigTest extends PmaTestCase
     public function testIsGitRevisionLocalGitDir()
     {
         $cwd = getcwd();
-        $test_dir = "gittestdir";
+        $test_dir = 'gittestdir';
 
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
@@ -1016,7 +1016,7 @@ class ConfigTest extends PmaTestCase
     public function testIsGitRevisionExternalGitDir()
     {
         $cwd = getcwd();
-        $test_dir = "gittestdir";
+        $test_dir = 'gittestdir';
 
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
@@ -1078,7 +1078,7 @@ class ConfigTest extends PmaTestCase
     public function testCheckGitRevisionPacksFolder()
     {
         $cwd = getcwd();
-        $test_dir = "gittestdir";
+        $test_dir = 'gittestdir';
 
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
@@ -1123,8 +1123,8 @@ class ConfigTest extends PmaTestCase
             $this->object->get('PMA_VERSION_GIT_BRANCH')
         );
 
-        rmdir(".git/objects/pack");
-        rmdir(".git/objects");
+        rmdir('.git/objects/pack');
+        rmdir('.git/objects');
         unlink('.git/packed-refs');
         unlink('.git/HEAD');
         unlink('.git/config');
@@ -1143,7 +1143,7 @@ class ConfigTest extends PmaTestCase
     public function testCheckGitRevisionRefFile()
     {
         $cwd = getcwd();
-        $test_dir = "gittestdir";
+        $test_dir = 'gittestdir';
 
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
@@ -1180,8 +1180,8 @@ class ConfigTest extends PmaTestCase
         rmdir('.git/refs/remotes/origin');
         rmdir('.git/refs/remotes');
         rmdir('.git/refs');
-        rmdir(".git/objects/pack");
-        rmdir(".git/objects");
+        rmdir('.git/objects/pack');
+        rmdir('.git/objects');
         unlink('.git/HEAD');
         unlink('.git/config');
         rmdir('.git');
@@ -1199,7 +1199,7 @@ class ConfigTest extends PmaTestCase
     public function testCheckGitRevisionPacksFile()
     {
         $cwd = getcwd();
-        $test_dir = "gittestdir";
+        $test_dir = 'gittestdir';
 
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
@@ -1253,9 +1253,9 @@ class ConfigTest extends PmaTestCase
             $this->object->get('PMA_VERSION_GIT_BRANCH')
         );
 
-        unlink(".git/objects/info/packs");
-        rmdir(".git/objects/info");
-        rmdir(".git/objects");
+        unlink('.git/objects/info/packs');
+        rmdir('.git/objects/info');
+        rmdir('.git/objects');
         unlink('.git/packed-refs');
         unlink('.git/HEAD');
         unlink('.git/config');

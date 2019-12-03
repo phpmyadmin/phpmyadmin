@@ -166,7 +166,7 @@ class GisGeometryTest extends TestCase
                 ],
             ],
             [
-                "foo",
+                'foo',
                 [
                     'srid' => '0',
                     'wkt'  => '',

@@ -39,11 +39,11 @@ class XssTest extends TestBase
         if ($this->isSafari()) {
             $this->markTestSkipped('Alerts not supported on Safari browser.');
         }
-        $this->waitForElement('partialLinkText', "SQL")->click();
+        $this->waitForElement('partialLinkText', 'SQL')->click();
         $this->waitAjax();
 
-        $this->waitForElement('id', "queryboxf");
-        $this->byId("button_submit_query")->click();
-        $this->assertEquals("Missing value in the form!", $this->alertText());
+        $this->waitForElement('id', 'queryboxf');
+        $this->byId('button_submit_query')->click();
+        $this->assertEquals('Missing value in the form!', $this->alertText());
     }
 }

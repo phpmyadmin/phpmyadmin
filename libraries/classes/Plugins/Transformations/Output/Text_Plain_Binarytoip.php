@@ -71,7 +71,7 @@ class Text_Plain_Binarytoip extends TransformationsPlugin
      */
     public static function getName()
     {
-        return "Binary To IPv4/IPv6";
+        return 'Binary To IPv4/IPv6';
     }
 
     /**
@@ -81,7 +81,7 @@ class Text_Plain_Binarytoip extends TransformationsPlugin
      */
     public static function getMIMEType()
     {
-        return "Text";
+        return 'Text';
     }
 
     /**
@@ -91,6 +91,6 @@ class Text_Plain_Binarytoip extends TransformationsPlugin
      */
     public static function getMIMESubtype()
     {
-        return "Plain";
+        return 'Plain';
     }
 }

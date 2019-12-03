@@ -715,8 +715,8 @@ class Core
         $url = Url::getCommon($params);
         //strip off token and such sensitive information. Just keep url.
         $arr = parse_url($url);
-        parse_str($arr["query"], $vars);
-        $query = http_build_query(["url" => $vars["url"]]);
+        parse_str($arr['query'], $vars);
+        $query = http_build_query(['url' => $vars['url']]);
 
         if ($GLOBALS['PMA_Config'] !== null && $GLOBALS['PMA_Config']->get('is_setup')) {
             $url = '../url.php?' . $query;
@@ -754,7 +754,7 @@ class Core
                 return false;
             }
         }
-        $domain = $arr["host"];
+        $domain = $arr['host'];
         $domainWhiteList = [
             /* Include current domain */
             $_SERVER['SERVER_NAME'],
@@ -1214,7 +1214,7 @@ class Core
     public static function checkRequest(): void
     {
         if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])) {
-            self::fatalError(__("GLOBALS overwrite attempt"));
+            self::fatalError(__('GLOBALS overwrite attempt'));
         }
 
         /**

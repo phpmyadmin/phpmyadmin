@@ -87,6 +87,6 @@ abstract class SubstringTransformationsPlugin extends TransformationsPlugin
      */
     public static function getName()
     {
-        return "Substring";
+        return 'Substring';
     }
 }

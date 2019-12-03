@@ -304,12 +304,12 @@ class StructureControllerTest extends PmaTestCase
             new CreateAddField($GLOBALS['dbi'])
         );
 
-        $submit_mult = "index";
-        $db = "PMA_db";
-        $table = "PMA_table";
+        $submit_mult = 'index';
+        $db = 'PMA_db';
+        $table = 'PMA_table';
         $selected = [
-            "table1",
-            "table2",
+            'table1',
+            'table2',
         ];
         $action = 'db_delete_row';
         $containerBuilder = new ContainerBuilder();
@@ -355,7 +355,7 @@ class StructureControllerTest extends PmaTestCase
             $centralColsError
         );
 
-        $submit_mult = "unique";
+        $submit_mult = 'unique';
 
         list($what, $query_type, $is_unset_submit_mult, $mult_btn, $centralColsError)
             = $method->invokeArgs(

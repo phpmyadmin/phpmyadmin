@@ -116,6 +116,6 @@ abstract class ImageUploadTransformationsPlugin extends IOTransformationsPlugin
      */
     public static function getName()
     {
-        return "Image upload";
+        return 'Image upload';
     }
 }

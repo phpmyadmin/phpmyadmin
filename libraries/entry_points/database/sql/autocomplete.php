@@ -37,4 +37,4 @@ if ($GLOBALS['cfg']['EnableAutocompleteForTablesAndColumns']) {
     $sql_autocomplete = true;
 }
 
-$response->addJSON("tables", json_encode($sql_autocomplete));
+$response->addJSON('tables', json_encode($sql_autocomplete));

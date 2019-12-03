@@ -36,7 +36,7 @@ class ImportCsvTest extends PmaTestCase
     protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
-        $GLOBALS['plugin_param'] = "csv";
+        $GLOBALS['plugin_param'] = 'csv';
         $this->object = new ImportCsv();
 
         unset($GLOBALS['db']);
@@ -60,7 +60,7 @@ class ImportCsvTest extends PmaTestCase
         $GLOBALS['csv_enclosed'] = '"';
         $GLOBALS['csv_escaped'] = '"';
         $GLOBALS['csv_new_line'] = 'auto';
-        $GLOBALS['import_file_name'] = basename($GLOBALS['import_file'], ".csv");
+        $GLOBALS['import_file_name'] = basename($GLOBALS['import_file'], '.csv');
 
         //$_SESSION
 

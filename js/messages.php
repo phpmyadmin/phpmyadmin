@@ -456,7 +456,7 @@ $js_messages['strPrimaryKeyAdded'] = __('Primary key added.');
 $js_messages['strToNextStep'] = __('Taking you to next step…');
 $js_messages['strFinishMsg']
     = __("The first step of normalization is complete for table '%s'.");
-$js_messages['strEndStep'] = __("End of step");
+$js_messages['strEndStep'] = __('End of step');
 $js_messages['str2NFNormalization'] = __('Second step of normalization (2NF)');
 $js_messages['strDone'] = __('Done');
 $js_messages['strConfirmPd'] = __('Confirm partial dependencies');
@@ -685,22 +685,22 @@ $js_messages['strUpToDate'] = __('up to date');
 $js_messages['strCreateView'] = __('Create view');
 
 /* Error Reporting */
-$js_messages['strSendErrorReport'] = __("Send error report");
-$js_messages['strSubmitErrorReport'] = __("Submit error report");
+$js_messages['strSendErrorReport'] = __('Send error report');
+$js_messages['strSubmitErrorReport'] = __('Submit error report');
 $js_messages['strErrorOccurred'] = __(
-    "A fatal JavaScript error has occurred. Would you like to send an error report?"
+    'A fatal JavaScript error has occurred. Would you like to send an error report?'
 );
-$js_messages['strChangeReportSettings'] = __("Change report settings");
-$js_messages['strShowReportDetails'] = __("Show report details");
-$js_messages['strIgnore'] = __("Ignore");
+$js_messages['strChangeReportSettings'] = __('Change report settings');
+$js_messages['strShowReportDetails'] = __('Show report details');
+$js_messages['strIgnore'] = __('Ignore');
 $js_messages['strTimeOutError'] = __(
-    "Your export is incomplete, due to a low execution time limit at the PHP level!"
+    'Your export is incomplete, due to a low execution time limit at the PHP level!'
 );
 
 $js_messages['strTooManyInputs'] = __(
-    "Warning: a form on this page has more than %d fields. On submission, "
+    'Warning: a form on this page has more than %d fields. On submission, '
     . "some of the fields might be ignored, due to PHP's "
-    . "max_input_vars configuration."
+    . 'max_input_vars configuration.'
 );
 
 $js_messages['phpErrorsFound'] = '<div class="alert alert-danger" role="alert">'
@@ -768,7 +768,7 @@ $js_messages['strStructure'] = __('Structure');
 
 echo "var Messages = [];\n";
 foreach ($js_messages as $name => $js_message) {
-    Sanitize::printJsValue("Messages." . $name . "", $js_message);
+    Sanitize::printJsValue('Messages.' . $name . '', $js_message);
 }
 
 /* Calendar */

@@ -79,7 +79,7 @@ class TransformationsTest extends TestCase
     {
         return [
             [
-                "option1 , option2 ",
+                'option1 , option2 ',
                 [
                     'option1 ',
                     ' option2 ',
@@ -212,8 +212,8 @@ class TransformationsTest extends TestCase
     {
         $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] = PMA_VERSION;
         $_SESSION['relation'][$GLOBALS['server']]['mimework'] = true;
-        $_SESSION['relation'][$GLOBALS['server']]['db'] = "pmadb";
-        $_SESSION['relation'][$GLOBALS['server']]['column_info'] = "column_info";
+        $_SESSION['relation'][$GLOBALS['server']]['db'] = 'pmadb';
+        $_SESSION['relation'][$GLOBALS['server']]['column_info'] = 'column_info';
         $_SESSION['relation'][$GLOBALS['server']]['trackingwork'] = false;
         $this->assertEquals(
             [
@@ -262,8 +262,8 @@ class TransformationsTest extends TestCase
         );
 
         $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] = PMA_VERSION;
-        $_SESSION['relation'][$GLOBALS['server']]['column_info'] = "column_info";
-        $_SESSION['relation'][$GLOBALS['server']]['db'] = "pmadb";
+        $_SESSION['relation'][$GLOBALS['server']]['column_info'] = 'column_info';
+        $_SESSION['relation'][$GLOBALS['server']]['db'] = 'pmadb';
 
         // Case 2 : database delete
         $actual = $this->transformations->clear('db');

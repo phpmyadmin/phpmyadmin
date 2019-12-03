@@ -76,7 +76,7 @@ function Show_page($contents)
 function Die_error($e)
 {
     $contents = "<div class='relyingparty_results'>\n";
-    $contents .= "<pre>" . htmlspecialchars($e->getMessage()) . "</pre>\n";
+    $contents .= '<pre>' . htmlspecialchars($e->getMessage()) . "</pre>\n";
     $contents .= "</div class='relyingparty_results'>";
     Show_page($contents);
     exit;
@@ -143,7 +143,7 @@ if (isset($_POST['start'])) {
 
     $url = $authRequest->getAuthorizeURL();
 
-    header("Location: $url");
+    header('Location: ' . $url);
     exit;
 } else {
     /* Grab query string */

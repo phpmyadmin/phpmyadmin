@@ -30,13 +30,13 @@ class SelectTest extends TestCase
     protected function setUp(): void
     {
         //$_REQUEST
-        $_REQUEST['log'] = "index1";
+        $_REQUEST['log'] = 'index1';
         $_REQUEST['pos'] = 3;
 
         //$GLOBALS
         $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['server'] = 1;
-        $GLOBALS['cfg']['ServerDefault'] = "server";
+        $GLOBALS['cfg']['ServerDefault'] = 'server';
         $GLOBALS['cfg']['RememberSorting'] = true;
         $GLOBALS['cfg']['SQP'] = [];
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
@@ -44,7 +44,7 @@ class SelectTest extends TestCase
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $GLOBALS['cfg']['LimitChars'] = 100;
 
-        $GLOBALS['table'] = "table";
+        $GLOBALS['table'] = 'table';
 
         //$_SESSION
     }
@@ -59,7 +59,7 @@ class SelectTest extends TestCase
         $not_only_options = false;
         $omit_fieldset = false;
 
-        $GLOBALS['cfg']['DefaultTabServer'] = "welcome";
+        $GLOBALS['cfg']['DefaultTabServer'] = 'welcome';
 
         $GLOBALS['cfg']['Servers'] = [
             '0' => [

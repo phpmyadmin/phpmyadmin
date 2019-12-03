@@ -394,7 +394,7 @@ class Sql
     private function getFullValuesForSetColumn($db, $table, $column, $where_clause)
     {
         $result = $GLOBALS['dbi']->fetchSingleRow(
-            "SELECT `$column` FROM `$db`.`$table` WHERE $where_clause"
+            'SELECT `' . $column . '` FROM `' . $db . '`.`' . $table . '` WHERE ' . $where_clause
         );
 
         return $result[$column];
@@ -434,7 +434,7 @@ class Sql
         $converted_curr_value = htmlentities(
             $curr_value,
             ENT_COMPAT,
-            "UTF-8"
+            'UTF-8'
         );
 
         $selected_values = explode(',', $converted_curr_value);
@@ -789,7 +789,7 @@ class Sql
         $column = $_POST['column'];
         $curr_value = $_POST['curr_value'];
         $response = Response::getInstance();
-        if ($columnType == "enum") {
+        if ($columnType == 'enum') {
             $dropdown = $this->getHtmlForEnumColumnDropdown(
                 $db,
                 $table,

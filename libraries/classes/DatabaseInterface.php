@@ -410,16 +410,16 @@ class DatabaseInterface
         $tablesListForQuery = rtrim($tablesListForQuery, ',');
 
         $foreignKeyConstrains = $this->fetchResult(
-            "SELECT"
-                    . " TABLE_NAME,"
-                    . " COLUMN_NAME,"
-                    . " REFERENCED_TABLE_NAME,"
-                    . " REFERENCED_COLUMN_NAME"
-                . " FROM information_schema.key_column_usage"
-                . " WHERE referenced_table_name IS NOT NULL"
+            'SELECT'
+                    . ' TABLE_NAME,'
+                    . ' COLUMN_NAME,'
+                    . ' REFERENCED_TABLE_NAME,'
+                    . ' REFERENCED_COLUMN_NAME'
+                . ' FROM information_schema.key_column_usage'
+                . ' WHERE referenced_table_name IS NOT NULL'
                     . " AND TABLE_SCHEMA = '" . $this->escapeString($database) . "'"
-                    . " AND TABLE_NAME IN (" . $tablesListForQuery . ")"
-                    . " AND REFERENCED_TABLE_NAME IN (" . $tablesListForQuery . ");",
+                    . ' AND TABLE_NAME IN (' . $tablesListForQuery . ')'
+                    . ' AND REFERENCED_TABLE_NAME IN (' . $tablesListForQuery . ');',
             null,
             null,
             $link,
@@ -594,7 +594,7 @@ class DatabaseInterface
             $sql = $this->_getSqlForTablesFull($this_databases, $sql_where_table);
 
             // Sort the tables
-            $sql .= " ORDER BY $sort_by $sort_order";
+            $sql .= ' ORDER BY ' . $sort_by . ' ' . $sort_order;
 
             if ($limit_count) {
                 $sql .= ' LIMIT ' . $limit_count . ' OFFSET ' . $limit_offset;
@@ -675,7 +675,7 @@ class DatabaseInterface
                     }
                     if (! empty($table_type)) {
                         if ($needAnd) {
-                            $sql .= " AND";
+                            $sql .= ' AND';
                         }
                         if ($table_type == 'view') {
                             $sql .= " `Comment` = 'VIEW'";
@@ -1478,7 +1478,7 @@ class DatabaseInterface
             return true;
         }
 
-        return $this->query("SET " . $var . " = " . $value . ';', $link);
+        return $this->query('SET ' . $var . ' = ' . $value . ';', $link);
     }
 
     /**
@@ -1531,7 +1531,7 @@ class DatabaseInterface
         $GLOBALS['collation_connection'] = $default_collation;
         $GLOBALS['charset_connection'] = $default_charset;
         $this->query(
-            "SET NAMES '$default_charset' COLLATE '$default_collation';",
+            sprintf('SET NAMES \'%s\' COLLATE \'%s\';', $default_charset, $default_collation),
             DatabaseInterface::CONNECT_USER,
             self::QUERY_STORE
         );
@@ -2006,27 +2006,27 @@ class DatabaseInterface
     ): array {
         $routines = [];
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            $query = "SELECT"
-                . " `ROUTINE_SCHEMA` AS `Db`,"
-                . " `SPECIFIC_NAME` AS `Name`,"
-                . " `ROUTINE_TYPE` AS `Type`,"
-                . " `DEFINER` AS `Definer`,"
-                . " `LAST_ALTERED` AS `Modified`,"
-                . " `CREATED` AS `Created`,"
-                . " `SECURITY_TYPE` AS `Security_type`,"
-                . " `ROUTINE_COMMENT` AS `Comment`,"
-                . " `CHARACTER_SET_CLIENT` AS `character_set_client`,"
-                . " `COLLATION_CONNECTION` AS `collation_connection`,"
-                . " `DATABASE_COLLATION` AS `Database Collation`,"
-                . " `DTD_IDENTIFIER`"
-                . " FROM `information_schema`.`ROUTINES`"
-                . " WHERE `ROUTINE_SCHEMA` " . Util::getCollateForIS()
+            $query = 'SELECT'
+                . ' `ROUTINE_SCHEMA` AS `Db`,'
+                . ' `SPECIFIC_NAME` AS `Name`,'
+                . ' `ROUTINE_TYPE` AS `Type`,'
+                . ' `DEFINER` AS `Definer`,'
+                . ' `LAST_ALTERED` AS `Modified`,'
+                . ' `CREATED` AS `Created`,'
+                . ' `SECURITY_TYPE` AS `Security_type`,'
+                . ' `ROUTINE_COMMENT` AS `Comment`,'
+                . ' `CHARACTER_SET_CLIENT` AS `character_set_client`,'
+                . ' `COLLATION_CONNECTION` AS `collation_connection`,'
+                . ' `DATABASE_COLLATION` AS `Database Collation`,'
+                . ' `DTD_IDENTIFIER`'
+                . ' FROM `information_schema`.`ROUTINES`'
+                . ' WHERE `ROUTINE_SCHEMA` ' . Util::getCollateForIS()
                 . " = '" . $this->escapeString($db) . "'";
             if (Core::isValid($which, ['FUNCTION', 'PROCEDURE'])) {
                 $query .= " AND `ROUTINE_TYPE` = '" . $which . "'";
             }
             if (! empty($name)) {
-                $query .= " AND `SPECIFIC_NAME`"
+                $query .= ' AND `SPECIFIC_NAME`'
                     . " = '" . $this->escapeString($name) . "'";
             }
             $result = $this->fetchResult($query);
@@ -2035,7 +2035,7 @@ class DatabaseInterface
             }
         } else {
             if ($which == 'FUNCTION' || $which == null) {
-                $query = "SHOW FUNCTION STATUS"
+                $query = 'SHOW FUNCTION STATUS'
                     . " WHERE `Db` = '" . $this->escapeString($db) . "'";
                 if (! empty($name)) {
                     $query .= " AND `Name` = '"
@@ -2047,7 +2047,7 @@ class DatabaseInterface
                 }
             }
             if ($which == 'PROCEDURE' || $which == null) {
-                $query = "SHOW PROCEDURE STATUS"
+                $query = 'SHOW PROCEDURE STATUS'
                     . " WHERE `Db` = '" . $this->escapeString($db) . "'";
                 if (! empty($name)) {
                     $query .= " AND `Name` = '"
@@ -2068,7 +2068,7 @@ class DatabaseInterface
             $one_result['type'] = $routine['Type'];
             $one_result['definer'] = $routine['Definer'];
             $one_result['returns'] = isset($routine['DTD_IDENTIFIER'])
-                ? $routine['DTD_IDENTIFIER'] : "";
+                ? $routine['DTD_IDENTIFIER'] : '';
             $ret[] = $one_result;
         }
 
@@ -2093,31 +2093,31 @@ class DatabaseInterface
     public function getEvents(string $db, string $name = ''): array
     {
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            $query = "SELECT"
-                . " `EVENT_SCHEMA` AS `Db`,"
-                . " `EVENT_NAME` AS `Name`,"
-                . " `DEFINER` AS `Definer`,"
-                . " `TIME_ZONE` AS `Time zone`,"
-                . " `EVENT_TYPE` AS `Type`,"
-                . " `EXECUTE_AT` AS `Execute at`,"
-                . " `INTERVAL_VALUE` AS `Interval value`,"
-                . " `INTERVAL_FIELD` AS `Interval field`,"
-                . " `STARTS` AS `Starts`,"
-                . " `ENDS` AS `Ends`,"
-                . " `STATUS` AS `Status`,"
-                . " `ORIGINATOR` AS `Originator`,"
-                . " `CHARACTER_SET_CLIENT` AS `character_set_client`,"
-                . " `COLLATION_CONNECTION` AS `collation_connection`, "
-                . "`DATABASE_COLLATION` AS `Database Collation`"
-                . " FROM `information_schema`.`EVENTS`"
-                . " WHERE `EVENT_SCHEMA` " . Util::getCollateForIS()
+            $query = 'SELECT'
+                . ' `EVENT_SCHEMA` AS `Db`,'
+                . ' `EVENT_NAME` AS `Name`,'
+                . ' `DEFINER` AS `Definer`,'
+                . ' `TIME_ZONE` AS `Time zone`,'
+                . ' `EVENT_TYPE` AS `Type`,'
+                . ' `EXECUTE_AT` AS `Execute at`,'
+                . ' `INTERVAL_VALUE` AS `Interval value`,'
+                . ' `INTERVAL_FIELD` AS `Interval field`,'
+                . ' `STARTS` AS `Starts`,'
+                . ' `ENDS` AS `Ends`,'
+                . ' `STATUS` AS `Status`,'
+                . ' `ORIGINATOR` AS `Originator`,'
+                . ' `CHARACTER_SET_CLIENT` AS `character_set_client`,'
+                . ' `COLLATION_CONNECTION` AS `collation_connection`, '
+                . '`DATABASE_COLLATION` AS `Database Collation`'
+                . ' FROM `information_schema`.`EVENTS`'
+                . ' WHERE `EVENT_SCHEMA` ' . Util::getCollateForIS()
                 . " = '" . $this->escapeString($db) . "'";
             if (! empty($name)) {
-                $query .= " AND `EVENT_NAME`"
+                $query .= ' AND `EVENT_NAME`'
                     . " = '" . $this->escapeString($name) . "'";
             }
         } else {
-            $query = "SHOW EVENTS FROM " . Util::backquote($db);
+            $query = 'SHOW EVENTS FROM ' . Util::backquote($db);
             if (! empty($name)) {
                 $query .= " AND `Name` = '"
                     . $this->escapeString($name) . "'";
@@ -2166,11 +2166,11 @@ class DatabaseInterface
                 . ' \'' . $this->escapeString($db) . '\'';
 
             if (! empty($table)) {
-                $query .= " AND EVENT_OBJECT_TABLE " . Util::getCollateForIS()
+                $query .= ' AND EVENT_OBJECT_TABLE ' . Util::getCollateForIS()
                     . " = '" . $this->escapeString($table) . "';";
             }
         } else {
-            $query = "SHOW TRIGGERS FROM " . Util::backquote($db);
+            $query = 'SHOW TRIGGERS FROM ' . Util::backquote($db);
             if (! empty($table)) {
                 $query .= " LIKE '" . $this->escapeString($table) . "';";
             }
@@ -2340,20 +2340,20 @@ class DatabaseInterface
                 $query = 'SELECT 1 FROM mysql.user LIMIT 1';
             } elseif ($type === 'create') {
                 [$user, $host] = $this->getCurrentUserAndHost();
-                $query = "SELECT 1 FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` "
+                $query = 'SELECT 1 FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` '
                     . "WHERE `PRIVILEGE_TYPE` = 'CREATE USER' AND "
                     . "'''" . $user . "''@''" . $host . "''' LIKE `GRANTEE` LIMIT 1";
             } elseif ($type === 'grant') {
                 [$user, $host] = $this->getCurrentUserAndHost();
-                $query = "SELECT 1 FROM ("
-                    . "SELECT `GRANTEE`, `IS_GRANTABLE` FROM "
-                    . "`INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION "
-                    . "SELECT `GRANTEE`, `IS_GRANTABLE` FROM "
-                    . "`INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION "
-                    . "SELECT `GRANTEE`, `IS_GRANTABLE` FROM "
-                    . "`INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION "
-                    . "SELECT `GRANTEE`, `IS_GRANTABLE` FROM "
-                    . "`INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t "
+                $query = 'SELECT 1 FROM ('
+                    . 'SELECT `GRANTEE`, `IS_GRANTABLE` FROM '
+                    . '`INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION '
+                    . 'SELECT `GRANTEE`, `IS_GRANTABLE` FROM '
+                    . '`INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION '
+                    . 'SELECT `GRANTEE`, `IS_GRANTABLE` FROM '
+                    . '`INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION '
+                    . 'SELECT `GRANTEE`, `IS_GRANTABLE` FROM '
+                    . '`INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t '
                     . "WHERE `IS_GRANTABLE` = 'YES' AND "
                     . "'''" . $user . "''@''" . $host . "''' LIKE `GRANTEE` LIMIT 1";
             }
@@ -2371,7 +2371,7 @@ class DatabaseInterface
         } else {
             $is = false;
             $grants = $this->fetchResult(
-                "SHOW GRANTS FOR CURRENT_USER();",
+                'SHOW GRANTS FOR CURRENT_USER();',
                 null,
                 null,
                 self::CONNECT_USER,
@@ -2380,14 +2380,14 @@ class DatabaseInterface
             if ($grants) {
                 foreach ($grants as $grant) {
                     if ($type === 'create') {
-                        if (strpos($grant, "ALL PRIVILEGES ON *.*") !== false
-                            || strpos($grant, "CREATE USER") !== false
+                        if (strpos($grant, 'ALL PRIVILEGES ON *.*') !== false
+                            || strpos($grant, 'CREATE USER') !== false
                         ) {
                             $is = true;
                             break;
                         }
                     } elseif ($type === 'grant') {
-                        if (strpos($grant, "WITH GRANT OPTION") !== false) {
+                        if (strpos($grant, 'WITH GRANT OPTION') !== false) {
                             $is = true;
                             break;
                         }
@@ -2415,7 +2415,7 @@ class DatabaseInterface
                     '',
                 ];
             } else {
-                $this->_current_user = explode("@", $user);
+                $this->_current_user = explode('@', $user);
             }
         }
         return $this->_current_user;
@@ -2430,7 +2430,7 @@ class DatabaseInterface
     {
         if ($this->_lower_case_table_names === null) {
             $this->_lower_case_table_names = $this->fetchValue(
-                "SELECT @@lower_case_table_names"
+                'SELECT @@lower_case_table_names'
             );
         }
         return $this->_lower_case_table_names;

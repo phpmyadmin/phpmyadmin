@@ -32,12 +32,12 @@ class Node
      * @var string A non-unique identifier for the node
      *             This may be trimmed when grouping nodes
      */
-    public $name = "";
+    public $name = '';
     /**
      * @var string A non-unique identifier for the node
      *             This will never change after being assigned
      */
-    public $realName = "";
+    public $realName = '';
     /**
      * @var int May be one of CONTAINER or OBJECT
      */
@@ -372,11 +372,11 @@ class Node
             if (isset($GLOBALS['cfg']['Server']['DisableIS'])
                 && ! $GLOBALS['cfg']['Server']['DisableIS']
             ) {
-                $query = "SELECT `SCHEMA_NAME` ";
-                $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
+                $query = 'SELECT `SCHEMA_NAME` ';
+                $query .= 'FROM `INFORMATION_SCHEMA`.`SCHEMATA` ';
                 $query .= $this->getWhereClause('SCHEMA_NAME', $searchClause);
-                $query .= "ORDER BY `SCHEMA_NAME` ";
-                $query .= "LIMIT $pos, $maxItems";
+                $query .= 'ORDER BY `SCHEMA_NAME` ';
+                $query .= 'LIMIT ' . $pos . ', ' . $maxItems;
                 $retval = $GLOBALS['dbi']->fetchResult($query);
 
                 return $retval;
@@ -384,7 +384,7 @@ class Node
 
             if ($GLOBALS['dbs_to_test'] === false) {
                 $retval = [];
-                $query = "SHOW DATABASES ";
+                $query = 'SHOW DATABASES ';
                 $query .= $this->getWhereClause('Database', $searchClause);
                 $handle = $GLOBALS['dbi']->tryQuery($query);
                 if ($handle === false) {
@@ -441,33 +441,33 @@ class Node
         if (isset($GLOBALS['cfg']['Server']['DisableIS'])
             && ! $GLOBALS['cfg']['Server']['DisableIS']
         ) {
-            $query = "SELECT `SCHEMA_NAME` ";
-            $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA`, ";
-            $query .= "(";
-            $query .= "SELECT DB_first_level ";
-            $query .= "FROM ( ";
-            $query .= "SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, ";
+            $query = 'SELECT `SCHEMA_NAME` ';
+            $query .= 'FROM `INFORMATION_SCHEMA`.`SCHEMATA`, ';
+            $query .= '(';
+            $query .= 'SELECT DB_first_level ';
+            $query .= 'FROM ( ';
+            $query .= 'SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, ';
             $query .= "'" . $GLOBALS['dbi']->escapeString($dbSeparator) . "', 1) ";
-            $query .= "DB_first_level ";
-            $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
+            $query .= 'DB_first_level ';
+            $query .= 'FROM INFORMATION_SCHEMA.SCHEMATA ';
             $query .= $this->getWhereClause('SCHEMA_NAME', $searchClause);
-            $query .= ") t ";
-            $query .= "ORDER BY DB_first_level ASC ";
-            $query .= "LIMIT $pos, $maxItems";
-            $query .= ") t2 ";
+            $query .= ') t ';
+            $query .= 'ORDER BY DB_first_level ASC ';
+            $query .= 'LIMIT ' . $pos . ', ' . $maxItems;
+            $query .= ') t2 ';
             $query .= $this->getWhereClause('SCHEMA_NAME', $searchClause);
-            $query .= "AND 1 = LOCATE(CONCAT(DB_first_level, ";
+            $query .= 'AND 1 = LOCATE(CONCAT(DB_first_level, ';
             $query .= "'" . $GLOBALS['dbi']->escapeString($dbSeparator) . "'), ";
-            $query .= "CONCAT(SCHEMA_NAME, ";
+            $query .= 'CONCAT(SCHEMA_NAME, ';
             $query .= "'" . $GLOBALS['dbi']->escapeString($dbSeparator) . "')) ";
-            $query .= "ORDER BY SCHEMA_NAME ASC";
+            $query .= 'ORDER BY SCHEMA_NAME ASC';
             $retval = $GLOBALS['dbi']->fetchResult($query);
 
             return $retval;
         }
 
         if ($GLOBALS['dbs_to_test'] === false) {
-            $query = "SHOW DATABASES ";
+            $query = 'SHOW DATABASES ';
             $query .= $this->getWhereClause('Database', $searchClause);
             $handle = $GLOBALS['dbi']->tryQuery($query);
             $prefixes = [];
@@ -487,9 +487,9 @@ class Node
                 $prefixes = array_slice(array_keys($prefixMap), (int) $pos);
             }
 
-            $query = "SHOW DATABASES ";
+            $query = 'SHOW DATABASES ';
             $query .= $this->getWhereClause('Database', $searchClause);
-            $query .= "AND (";
+            $query .= 'AND (';
             $subClauses = [];
             foreach ($prefixes as $prefix) {
                 $subClauses[] = " LOCATE('"
@@ -497,7 +497,7 @@ class Node
                     . "', "
                     . "CONCAT(`Database`, '" . $dbSeparator . "')) = 1 ";
             }
-            $query .= implode("OR", $subClauses) . ")";
+            $query .= implode('OR', $subClauses) . ')';
             $retval = $GLOBALS['dbi']->fetchResult($query);
 
             return $retval;
@@ -579,8 +579,8 @@ class Node
             if (isset($GLOBALS['cfg']['Server']['DisableIS'])
                 && ! $GLOBALS['cfg']['Server']['DisableIS']
             ) {
-                $query = "SELECT COUNT(*) ";
-                $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
+                $query = 'SELECT COUNT(*) ';
+                $query .= 'FROM INFORMATION_SCHEMA.SCHEMATA ';
                 $query .= $this->getWhereClause('SCHEMA_NAME', $searchClause);
                 $retval = (int) $GLOBALS['dbi']->fetchValue($query);
 
@@ -588,7 +588,7 @@ class Node
             }
 
             if ($GLOBALS['dbs_to_test'] === false) {
-                $query = "SHOW DATABASES ";
+                $query = 'SHOW DATABASES ';
                 $query .= $this->getWhereClause('Database', $searchClause);
                 $retval = $GLOBALS['dbi']->numRows(
                     $GLOBALS['dbi']->tryQuery($query)
@@ -610,14 +610,14 @@ class Node
 
         $dbSeparator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            $query = "SELECT COUNT(*) ";
-            $query .= "FROM ( ";
-            $query .= "SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, ";
-            $query .= "'$dbSeparator', 1) ";
-            $query .= "DB_first_level ";
-            $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
+            $query = 'SELECT COUNT(*) ';
+            $query .= 'FROM ( ';
+            $query .= 'SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, ';
+            $query .= "'" . $dbSeparator . "', 1) ";
+            $query .= 'DB_first_level ';
+            $query .= 'FROM INFORMATION_SCHEMA.SCHEMATA ';
             $query .= $this->getWhereClause('SCHEMA_NAME', $searchClause);
-            $query .= ") t ";
+            $query .= ') t ';
             $retval = (int) $GLOBALS['dbi']->fetchValue($query);
 
             return $retval;
@@ -649,7 +649,7 @@ class Node
         }
 
         $prefixMap = [];
-        $query = "SHOW DATABASES ";
+        $query = 'SHOW DATABASES ';
         $query .= $this->getWhereClause('Database', $searchClause);
         $handle = $GLOBALS['dbi']->tryQuery($query);
         if ($handle !== false) {
@@ -694,7 +694,7 @@ class Node
         $databases = [];
         if (! empty($searchClause)) {
             $databases = [
-                "%" . $GLOBALS['dbi']->escapeString($searchClause) . "%",
+                '%' . $GLOBALS['dbi']->escapeString($searchClause) . '%',
             ];
         } elseif (! empty($GLOBALS['cfg']['Server']['only_db'])) {
             $databases = $GLOBALS['cfg']['Server']['only_db'];
@@ -717,16 +717,16 @@ class Node
      */
     private function getWhereClause($columnName, $searchClause = '')
     {
-        $whereClause = "WHERE TRUE ";
+        $whereClause = 'WHERE TRUE ';
         if (! empty($searchClause)) {
-            $whereClause .= "AND " . Util::backquote($columnName)
+            $whereClause .= 'AND ' . Util::backquote($columnName)
                 . " LIKE '%";
             $whereClause .= $GLOBALS['dbi']->escapeString($searchClause);
             $whereClause .= "%' ";
         }
 
         if (! empty($GLOBALS['cfg']['Server']['hide_db'])) {
-            $whereClause .= "AND " . Util::backquote($columnName)
+            $whereClause .= 'AND ' . Util::backquote($columnName)
                 . " NOT REGEXP '"
                 . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['hide_db'])
                 . "' ";
@@ -738,14 +738,14 @@ class Node
                     $GLOBALS['cfg']['Server']['only_db'],
                 ];
             }
-            $whereClause .= "AND (";
+            $whereClause .= 'AND (';
             $subClauses = [];
             foreach ($GLOBALS['cfg']['Server']['only_db'] as $eachOnlyDb) {
-                $subClauses[] = " " . Util::backquote($columnName)
+                $subClauses[] = ' ' . Util::backquote($columnName)
                     . " LIKE '"
                     . $GLOBALS['dbi']->escapeString($eachOnlyDb) . "' ";
             }
-            $whereClause .= implode("OR", $subClauses) . ") ";
+            $whereClause .= implode('OR', $subClauses) . ') ';
         }
 
         return $whereClause;
@@ -818,15 +818,15 @@ class Node
         $cfgRelation = $this->relation->getRelationsParam();
         if ($cfgRelation['navwork']) {
             $navTable = Util::backquote($cfgRelation['db'])
-                . "." . Util::backquote(
+                . '.' . Util::backquote(
                     $cfgRelation['navigationhiding']
                 );
-            $sqlQuery = "SELECT `db_name`, COUNT(*) AS `count` FROM " . $navTable
+            $sqlQuery = 'SELECT `db_name`, COUNT(*) AS `count` FROM ' . $navTable
                 . " WHERE `username`='"
                 . $GLOBALS['dbi']->escapeString(
                     $GLOBALS['cfg']['Server']['user']
                 ) . "'"
-                . " GROUP BY `db_name`";
+                . ' GROUP BY `db_name`';
             $counts = $GLOBALS['dbi']->fetchResult(
                 $sqlQuery,
                 'db_name',

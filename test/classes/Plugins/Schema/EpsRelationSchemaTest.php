@@ -47,14 +47,14 @@ class EpsRelationSchemaTest extends PmaTestCase
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'information_schema';
-        $GLOBALS['cfg']['Server']['table_coords'] = "table_name";
+        $GLOBALS['cfg']['Server']['table_coords'] = 'table_name';
 
         //_SESSION
         $_SESSION['relation'][$GLOBALS['server']] = [
             'PMA_VERSION' => PMA_VERSION,
-            'table_coords' => "table_name",
+            'table_coords' => 'table_name',
             'displaywork' => 'displaywork',
-            'db' => "information_schema",
+            'db' => 'information_schema',
             'table_info' => 'table_info',
             'relwork' => 'relwork',
             'relation' => 'relation',
@@ -72,11 +72,11 @@ class EpsRelationSchemaTest extends PmaTestCase
 
         $dbi->expects($this->any())
             ->method('query')
-            ->will($this->returnValue("executed_1"));
+            ->will($this->returnValue('executed_1'));
 
         $dbi->expects($this->any())
             ->method('tryQuery')
-            ->will($this->returnValue("executed_1"));
+            ->will($this->returnValue('executed_1'));
 
         $fetchArrayReturn = [
             //table name in information_schema_relations
@@ -103,8 +103,8 @@ class EpsRelationSchemaTest extends PmaTestCase
                 'Table' => 'pma_tbl',
                 'Field' => 'field1',
                 'Key' => 'PRIMARY',
-                'Key_name' => "Key_name",
-                'Column_name' => "Column_name",
+                'Key_name' => 'Key_name',
+                'Column_name' => 'Column_name',
             ],
         ];
         $dbi->expects($this->any())->method('getTableIndexes')

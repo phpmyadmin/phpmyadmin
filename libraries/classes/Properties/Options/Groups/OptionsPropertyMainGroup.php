@@ -29,6 +29,6 @@ class OptionsPropertyMainGroup extends OptionsPropertyGroup
      */
     public function getItemType()
     {
-        return "main";
+        return 'main';
     }
 }

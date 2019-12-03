@@ -65,7 +65,7 @@ class ImportLdiTest extends PmaTestCase
         $GLOBALS['cfg']['Import']['ldi_new_line'] = 'auto';
         $GLOBALS['cfg']['Import']['ldi_columns'] = '';
         $GLOBALS['cfg']['Import']['ldi_local_option'] = false;
-        $GLOBALS['table'] = "phpmyadmintest";
+        $GLOBALS['table'] = 'phpmyadmintest';
 
         //Mock DBI
         $this->dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
@@ -127,7 +127,7 @@ class ImportLdiTest extends PmaTestCase
         $dbi->expects($this->any())->method('numRows')
             ->will($this->returnValue(10));
 
-        $fetchRowResult = ["ON"];
+        $fetchRowResult = ['ON'];
         $dbi->expects($this->any())->method('fetchRow')
             ->will($this->returnValue($fetchRowResult));
 
@@ -177,7 +177,7 @@ class ImportLdiTest extends PmaTestCase
         //asset that all sql are executed
         $this->assertStringContainsString(
             "LOAD DATA INFILE 'test/test_data/db_test_ldi.csv' INTO TABLE "
-            . "`phpmyadmintest`",
+            . '`phpmyadmintest`',
             $sql_query
         );
 
@@ -253,7 +253,7 @@ class ImportLdiTest extends PmaTestCase
         //replace
         $this->assertStringContainsString(
             "LOAD DATA LOCAL INFILE 'test/test_data/db_test_ldi.csv' REPLACE INTO "
-            . "TABLE `phpmyadmintest`",
+            . 'TABLE `phpmyadmintest`',
             $sql_query
         );
 
@@ -271,7 +271,7 @@ class ImportLdiTest extends PmaTestCase
 
         //IGNORE
         $this->assertStringContainsString(
-            "IGNORE 1 LINES",
+            'IGNORE 1 LINES',
             $sql_query
         );
 

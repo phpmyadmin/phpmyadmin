@@ -271,7 +271,7 @@ class ExportJsonTest extends PmaTestCase
         );
 
         $this->assertTrue(
-            $this->object->exportData('db', 'tbl', "\n", "example.com", "SELECT")
+            $this->object->exportData('db', 'tbl', "\n", 'example.com', 'SELECT')
         );
     }
 }

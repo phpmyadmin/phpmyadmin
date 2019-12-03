@@ -27,7 +27,7 @@ class ServersController extends AbstractController
         $pages = $this->getPages();
 
         $id = Core::isValid($params['id'], 'numeric') ? (int) $params['id'] : null;
-        $hasServer = ! empty($id) && $this->config->get("Servers/$id") !== null;
+        $hasServer = ! empty($id) && $this->config->get('Servers/' . $id) !== null;
 
         if (! $hasServer && ($params['mode'] !== 'revert' && $params['mode'] !== 'edit')) {
             $id = 0;
@@ -56,7 +56,7 @@ class ServersController extends AbstractController
     {
         $id = Core::isValid($params['id'], 'numeric') ? (int) $params['id'] : null;
 
-        $hasServer = ! empty($id) && $this->config->get("Servers/$id") !== null;
+        $hasServer = ! empty($id) && $this->config->get('Servers/' . $id) !== null;
 
         if ($hasServer) {
             $this->config->removeServer($id);

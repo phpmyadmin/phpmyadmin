@@ -357,14 +357,14 @@ class DatabasesController extends AbstractController
             foreach ($replicationTypes as $type) {
                 if ($replication_info[$type]['status']) {
                     $key = array_search(
-                        $database["SCHEMA_NAME"],
+                        $database['SCHEMA_NAME'],
                         $replication_info[$type]['Ignore_DB']
                     );
                     if (strlen((string) $key) > 0) {
                         $replication[$type]['is_replicated'] = false;
                     } else {
                         $key = array_search(
-                            $database["SCHEMA_NAME"],
+                            $database['SCHEMA_NAME'],
                             $replication_info[$type]['Do_DB']
                         );
 

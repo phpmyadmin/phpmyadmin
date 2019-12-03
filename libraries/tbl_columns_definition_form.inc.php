@@ -271,14 +271,14 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         $mime_map[$columnMeta['Field']] = array_merge(
             $mime_map[$columnMeta['Field']],
             [
-                'mimetype' => Util::getValueByKey($_POST, "field_mimetype.${$columnNumber}"),
+                'mimetype' => Util::getValueByKey($_POST, "field_mimetype.${columnNumber}"),
                 'transformation' => Util::getValueByKey(
                     $_POST,
-                    "field_transformation.${$columnNumber}"
+                    "field_transformation.${columnNumber}"
                 ),
                 'transformation_options' => Util::getValueByKey(
                     $_POST,
-                    "field_transformation_options.${$columnNumber}"
+                    "field_transformation_options.${columnNumber}"
                 ),
             ]
         );

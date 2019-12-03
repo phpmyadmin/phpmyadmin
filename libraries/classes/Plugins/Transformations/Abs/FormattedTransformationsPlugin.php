@@ -59,6 +59,6 @@ abstract class FormattedTransformationsPlugin extends TransformationsPlugin
      */
     public static function getName()
     {
-        return "Formatted";
+        return 'Formatted';
     }
 }

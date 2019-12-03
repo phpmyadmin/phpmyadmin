@@ -626,8 +626,8 @@ class StructureController extends AbstractController
         $partitionDetails['partition_count'] = '';
 
         if (! empty($stmt->partitionBy)) {
-            $openPos = strpos($stmt->partitionBy, "(");
-            $closePos = strrpos($stmt->partitionBy, ")");
+            $openPos = strpos($stmt->partitionBy, '(');
+            $closePos = strrpos($stmt->partitionBy, ')');
 
             $partitionDetails['partition_by']
                 = trim(substr($stmt->partitionBy, 0, $openPos));
@@ -646,8 +646,8 @@ class StructureController extends AbstractController
         $partitionDetails['subpartition_count'] = '';
 
         if (! empty($stmt->subpartitionBy)) {
-            $openPos = strpos($stmt->subpartitionBy, "(");
-            $closePos = strrpos($stmt->subpartitionBy, ")");
+            $openPos = strpos($stmt->subpartitionBy, '(');
+            $closePos = strrpos($stmt->subpartitionBy, ')');
 
             $partitionDetails['subpartition_by']
                 = trim(substr($stmt->subpartitionBy, 0, $openPos));
@@ -768,7 +768,7 @@ class StructureController extends AbstractController
      */
     protected function updatePartitioning()
     {
-        $sql_query = "ALTER TABLE " . Util::backquote($this->table) . " "
+        $sql_query = 'ALTER TABLE ' . Util::backquote($this->table) . ' '
             . $this->createAddField->getPartitionsDefinition();
 
         // Execute alter query
@@ -1176,7 +1176,7 @@ class StructureController extends AbstractController
 
             if ($changed) {
                 // Finally FLUSH the new privileges
-                $this->dbi->query("FLUSH PRIVILEGES;");
+                $this->dbi->query('FLUSH PRIVILEGES;');
             }
         }
 
@@ -1322,7 +1322,7 @@ class StructureController extends AbstractController
 
             $displayed_fields[$rownum] = new stdClass();
             $displayed_fields[$rownum]->text = $field['Field'];
-            $displayed_fields[$rownum]->icon = "";
+            $displayed_fields[$rownum]->icon = '';
             $row_comments[$rownum] = '';
 
             if (isset($comments_map[$field['Field']])) {

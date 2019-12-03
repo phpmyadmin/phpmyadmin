@@ -128,7 +128,7 @@ if (isset($_POST['createview']) || isset($_POST['alterview'])) {
         $response->addJSON(
             'message',
             Message::error(
-                "<i>" . htmlspecialchars($sql_query) . "</i><br><br>"
+                '<i>' . htmlspecialchars($sql_query) . '</i><br><br>'
                 . $dbi->getError()
             )
         );
@@ -217,7 +217,7 @@ if (isset($_GET['db'], $_GET['table'])) {
         ->showCreate();
 
     // CREATE ALGORITHM=<ALGORITHM> DE...
-    $parts = explode(" ", substr($createView, 17));
+    $parts = explode(' ', substr($createView, 17));
     $item['ALGORITHM'] = $parts[0];
 
     $view['operation'] = 'alter';

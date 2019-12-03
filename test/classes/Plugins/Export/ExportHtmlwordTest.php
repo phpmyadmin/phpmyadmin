@@ -819,9 +819,9 @@ class ExportHtmlwordTest extends PmaTestCase
                 'db',
                 'tbl',
                 "\n",
-                "example.com",
-                "create_table",
-                "test"
+                'example.com',
+                'create_table',
+                'test'
             )
         );
         $result = ob_get_clean();
@@ -837,9 +837,9 @@ class ExportHtmlwordTest extends PmaTestCase
                 'db',
                 'tbl',
                 "\n",
-                "example.com",
-                "triggers",
-                "test"
+                'example.com',
+                'triggers',
+                'test'
             )
         );
         $result = ob_get_clean();
@@ -855,9 +855,9 @@ class ExportHtmlwordTest extends PmaTestCase
                 'db',
                 'tbl',
                 "\n",
-                "example.com",
-                "create_view",
-                "test"
+                'example.com',
+                'create_view',
+                'test'
             )
         );
         $result = ob_get_clean();
@@ -873,9 +873,9 @@ class ExportHtmlwordTest extends PmaTestCase
                 'db',
                 'tbl',
                 "\n",
-                "example.com",
-                "stand_in",
-                "test"
+                'example.com',
+                'stand_in',
+                'test'
             )
         );
         $result = ob_get_clean();

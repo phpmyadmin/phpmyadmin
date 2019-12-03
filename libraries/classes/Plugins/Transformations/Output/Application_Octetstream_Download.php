@@ -27,7 +27,7 @@ class Application_Octetstream_Download extends DownloadTransformationsPlugin
      */
     public static function getMIMEType()
     {
-        return "Application";
+        return 'Application';
     }
 
     /**
@@ -37,6 +37,6 @@ class Application_Octetstream_Download extends DownloadTransformationsPlugin
      */
     public static function getMIMESubtype()
     {
-        return "OctetStream";
+        return 'OctetStream';
     }
 }

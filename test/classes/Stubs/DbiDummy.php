@@ -113,7 +113,7 @@ class DbiDummy implements DbiExtension
 
             return $i + self::OFFSET_GLOBAL;
         }
-        echo "Not supported query: $query\n";
+        echo 'Not supported query: ' . $query . "\n";
 
         return false;
     }
@@ -509,20 +509,20 @@ class DbiDummy implements DbiExtension
                 'result' => [['1']],
             ],
             [
-                'query'  => "SELECT 1 FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`"
+                'query'  => 'SELECT 1 FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
                     . " WHERE `PRIVILEGE_TYPE` = 'CREATE USER'"
                     . " AND '''pma_test''@''localhost''' LIKE `GRANTEE` LIMIT 1",
                 'result' => [['1']],
             ],
             [
-                'query'  => "SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE`"
-                    . " FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES`"
-                    . " UNION SELECT `GRANTEE`, `IS_GRANTABLE`"
-                    . " FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES`"
-                    . " UNION SELECT `GRANTEE`, `IS_GRANTABLE`"
-                    . " FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES`"
-                    . " UNION SELECT `GRANTEE`, `IS_GRANTABLE`"
-                    . " FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t"
+                'query'  => 'SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE`'
+                    . ' FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES`'
+                    . ' UNION SELECT `GRANTEE`, `IS_GRANTABLE`'
+                    . ' FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES`'
+                    . ' UNION SELECT `GRANTEE`, `IS_GRANTABLE`'
+                    . ' FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES`'
+                    . ' UNION SELECT `GRANTEE`, `IS_GRANTABLE`'
+                    . ' FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t'
                     . " WHERE `IS_GRANTABLE` = 'YES'"
                     . " AND '''pma_test''@''localhost''' LIKE `GRANTEE` LIMIT 1",
                 'result' => [['1']],
@@ -1187,13 +1187,13 @@ class DbiDummy implements DbiExtension
                 'result' => [],
             ],
             [
-                'query'  => "SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`."
+                'query'  => 'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.'
                     . "`SCHEMA_PRIVILEGES` WHERE GRANTEE='''pma_test''@''localhost'''"
                     . " AND PRIVILEGE_TYPE='EVENT' AND TABLE_SCHEMA='pma'",
                 'result' => [],
             ],
             [
-                'query'  => "SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`."
+                'query'  => 'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.'
                     . "`SCHEMA_PRIVILEGES` WHERE GRANTEE='''pma_test''@''localhost'''"
                     . " AND PRIVILEGE_TYPE='TRIGGER' AND TABLE_SCHEMA='pma'",
                 'result' => [],
@@ -1214,28 +1214,28 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
-                'query'  => "SHOW TABLES FROM `phpmyadmin`",
+                'query'  => 'SHOW TABLES FROM `phpmyadmin`',
                 'result' => [],
             ],
             [
-                'query'   => "SELECT tracking_active FROM `pmadb`.`tracking`" .
+                'query'   => 'SELECT tracking_active FROM `pmadb`.`tracking`' .
                     " WHERE db_name = 'pma_test_db'" .
                     " AND table_name = 'pma_test_table'" .
-                    " ORDER BY version DESC LIMIT 1",
+                    ' ORDER BY version DESC LIMIT 1',
                 'columns' => ['tracking_active'],
                 'result'  => [
                     [1],
                 ],
             ],
             [
-                'query'  => "SELECT tracking_active FROM `pmadb`.`tracking`" .
+                'query'  => 'SELECT tracking_active FROM `pmadb`.`tracking`' .
                     " WHERE db_name = 'pma_test_db'" .
                     " AND table_name = 'pma_test_table2'" .
-                    " ORDER BY version DESC LIMIT 1",
+                    ' ORDER BY version DESC LIMIT 1',
                 'result' => [],
             ],
             [
-                'query'  => "SHOW SLAVE STATUS",
+                'query'  => 'SHOW SLAVE STATUS',
                 'result' => [
                     [
                         'Slave_IO_State'              => 'running',
@@ -1275,43 +1275,43 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
-                'query'  => "SHOW MASTER STATUS",
+                'query'  => 'SHOW MASTER STATUS',
                 'result' => [
                     [
-                        "File"             => "master-bin.000030",
-                        "Position"         => "107",
-                        "Binlog_Do_DB"     => "Binlog_Do_DB",
-                        "Binlog_Ignore_DB" => "Binlog_Ignore_DB",
+                        'File'             => 'master-bin.000030',
+                        'Position'         => '107',
+                        'Binlog_Do_DB'     => 'Binlog_Do_DB',
+                        'Binlog_Ignore_DB' => 'Binlog_Ignore_DB',
                     ],
                 ],
             ],
             [
-                'query'  => "SHOW GRANTS",
+                'query'  => 'SHOW GRANTS',
                 'result' => [],
             ],
             [
-                'query'  => "SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, "
-                    . "(SELECT DB_first_level FROM ( SELECT DISTINCT "
+                'query'  => 'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, '
+                    . '(SELECT DB_first_level FROM ( SELECT DISTINCT '
                     . "SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level "
-                    . "FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY "
-                    . "DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE("
+                    . 'FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY '
+                    . 'DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE('
                     . "CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) "
-                    . "ORDER BY SCHEMA_NAME ASC",
+                    . 'ORDER BY SCHEMA_NAME ASC',
                 'result' => [
-                    "test",
+                    'test',
                 ],
             ],
             [
-                'query'  => "SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX("
+                'query'  => 'SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX('
                     . "SCHEMA_NAME, '_', 1) DB_first_level "
-                    . "FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t",
+                    . 'FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t',
                 'result' => [
                     [1],
                 ],
             ],
             [
-                'query'  => "SELECT `PARTITION_METHOD` "
-                    . "FROM `information_schema`.`PARTITIONS` "
+                'query'  => 'SELECT `PARTITION_METHOD` '
+                    . 'FROM `information_schema`.`PARTITIONS` '
                     . "WHERE `TABLE_SCHEMA` = 'db' AND `TABLE_NAME` = 'table' LIMIT 1",
                 'result' => [],
             ],
@@ -1351,50 +1351,50 @@ class DbiDummy implements DbiExtension
                 'query'  => "SHOW FULL TABLES FROM `default` WHERE `Table_type`IN('BASE TABLE', 'SYSTEM VERSIONED')",
                 'result' => [
                     [
-                        "test1",
-                        "BASE TABLE",
+                        'test1',
+                        'BASE TABLE',
                     ],
                     [
-                        "test2",
-                        "BASE TABLE",
+                        'test2',
+                        'BASE TABLE',
                     ],
                 ],
             ],
             [
-                'query'  => "SHOW FULL TABLES FROM `default` "
+                'query'  => 'SHOW FULL TABLES FROM `default` '
                     . "WHERE `Table_type`NOT IN('BASE TABLE', 'SYSTEM VERSIONED')",
                 'result' => [],
             ],
             [
                 'query'  => "SHOW FUNCTION STATUS WHERE `Db`='default'",
-                'result' => [["Name" => "testFunction"]],
+                'result' => [['Name' => 'testFunction']],
             ],
             [
                 'query'  => "SHOW PROCEDURE STATUS WHERE `Db`='default'",
                 'result' => [],
             ],
             [
-                'query'  => "SHOW EVENTS FROM `default`",
+                'query'  => 'SHOW EVENTS FROM `default`',
                 'result' => [],
             ],
             [
-                'query'  => "FLUSH PRIVILEGES",
+                'query'  => 'FLUSH PRIVILEGES',
                 'result' => [],
             ],
             [
-                'query'  => "SELECT * FROM `mysql`.`db` LIMIT 1",
+                'query'  => 'SELECT * FROM `mysql`.`db` LIMIT 1',
                 'result' => [],
             ],
             [
-                'query'  => "SELECT * FROM `mysql`.`columns_priv` LIMIT 1",
+                'query'  => 'SELECT * FROM `mysql`.`columns_priv` LIMIT 1',
                 'result' => [],
             ],
             [
-                'query'  => "SELECT * FROM `mysql`.`tables_priv` LIMIT 1",
+                'query'  => 'SELECT * FROM `mysql`.`tables_priv` LIMIT 1',
                 'result' => [],
             ],
             [
-                'query'  => "SELECT * FROM `mysql`.`procs_priv` LIMIT 1",
+                'query'  => 'SELECT * FROM `mysql`.`procs_priv` LIMIT 1',
                 'result' => [],
             ],
             [
@@ -1430,26 +1430,26 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
-                'query'  => "SELECT TABLE_NAME FROM information_schema.VIEWS WHERE "
+                'query'  => 'SELECT TABLE_NAME FROM information_schema.VIEWS WHERE '
                     . "TABLE_SCHEMA = 'db' AND TABLE_NAME = 'table'",
                 'result' => [],
             ],
             [
-                'query'  => "SELECT *, `TABLE_SCHEMA` AS `Db`, "
-                    . "`TABLE_NAME` AS `Name`, `TABLE_TYPE` AS `TABLE_TYPE`, "
-                    . "`ENGINE` AS `Engine`, `ENGINE` AS `Type`, "
-                    . "`VERSION` AS `Version`, `ROW_FORMAT` AS `Row_format`, "
-                    . "`TABLE_ROWS` AS `Rows`, `AVG_ROW_LENGTH` AS `Avg_row_length`, "
-                    . "`DATA_LENGTH` AS `Data_length`, "
-                    . "`MAX_DATA_LENGTH` AS `Max_data_length`, "
-                    . "`INDEX_LENGTH` AS `Index_length`, `DATA_FREE` AS `Data_free`, "
-                    . "`AUTO_INCREMENT` AS `Auto_increment`, "
-                    . "`CREATE_TIME` AS `Create_time`, "
-                    . "`UPDATE_TIME` AS `Update_time`, `CHECK_TIME` AS `Check_time`, "
-                    . "`TABLE_COLLATION` AS `Collation`, `CHECKSUM` AS `Checksum`, "
-                    . "`CREATE_OPTIONS` AS `Create_options`, "
-                    . "`TABLE_COMMENT` AS `Comment` "
-                    . "FROM `information_schema`.`TABLES` t "
+                'query'  => 'SELECT *, `TABLE_SCHEMA` AS `Db`, '
+                    . '`TABLE_NAME` AS `Name`, `TABLE_TYPE` AS `TABLE_TYPE`, '
+                    . '`ENGINE` AS `Engine`, `ENGINE` AS `Type`, '
+                    . '`VERSION` AS `Version`, `ROW_FORMAT` AS `Row_format`, '
+                    . '`TABLE_ROWS` AS `Rows`, `AVG_ROW_LENGTH` AS `Avg_row_length`, '
+                    . '`DATA_LENGTH` AS `Data_length`, '
+                    . '`MAX_DATA_LENGTH` AS `Max_data_length`, '
+                    . '`INDEX_LENGTH` AS `Index_length`, `DATA_FREE` AS `Data_free`, '
+                    . '`AUTO_INCREMENT` AS `Auto_increment`, '
+                    . '`CREATE_TIME` AS `Create_time`, '
+                    . '`UPDATE_TIME` AS `Update_time`, `CHECK_TIME` AS `Check_time`, '
+                    . '`TABLE_COLLATION` AS `Collation`, `CHECKSUM` AS `Checksum`, '
+                    . '`CREATE_OPTIONS` AS `Create_options`, '
+                    . '`TABLE_COMMENT` AS `Comment` '
+                    . 'FROM `information_schema`.`TABLES` t '
                     . "WHERE `TABLE_SCHEMA` IN ('db') "
                     . "AND t.`TABLE_NAME` = 'table' ORDER BY Name ASC",
                 'result' => [],
@@ -1459,16 +1459,16 @@ class DbiDummy implements DbiExtension
                 'result' => [],
             ],
             [
-                'query'  => "SELECT *, `TABLE_SCHEMA` AS `Db`, `TABLE_NAME` AS `Name`,"
-                . " `TABLE_TYPE` AS `TABLE_TYPE`, `ENGINE` AS `Engine`,"
-                . " `ENGINE` AS `Type`, `VERSION` AS `Version`, `ROW_FORMAT` AS `Row_format`,"
-                . " `TABLE_ROWS` AS `Rows`, `AVG_ROW_LENGTH` AS `Avg_row_length`,"
-                . " `DATA_LENGTH` AS `Data_length`, `MAX_DATA_LENGTH` AS `Max_data_length`,"
-                . " `INDEX_LENGTH` AS `Index_length`, `DATA_FREE` AS `Data_free`,"
-                . " `AUTO_INCREMENT` AS `Auto_increment`, `CREATE_TIME` AS `Create_time`,"
-                . " `UPDATE_TIME` AS `Update_time`, `CHECK_TIME` AS `Check_time`,"
-                . " `TABLE_COLLATION` AS `Collation`, `CHECKSUM` AS `Checksum`,"
-                . " `CREATE_OPTIONS` AS `Create_options`, `TABLE_COMMENT` AS `Comment`"
+                'query'  => 'SELECT *, `TABLE_SCHEMA` AS `Db`, `TABLE_NAME` AS `Name`,'
+                . ' `TABLE_TYPE` AS `TABLE_TYPE`, `ENGINE` AS `Engine`,'
+                . ' `ENGINE` AS `Type`, `VERSION` AS `Version`, `ROW_FORMAT` AS `Row_format`,'
+                . ' `TABLE_ROWS` AS `Rows`, `AVG_ROW_LENGTH` AS `Avg_row_length`,'
+                . ' `DATA_LENGTH` AS `Data_length`, `MAX_DATA_LENGTH` AS `Max_data_length`,'
+                . ' `INDEX_LENGTH` AS `Index_length`, `DATA_FREE` AS `Data_free`,'
+                . ' `AUTO_INCREMENT` AS `Auto_increment`, `CREATE_TIME` AS `Create_time`,'
+                . ' `UPDATE_TIME` AS `Update_time`, `CHECK_TIME` AS `Check_time`,'
+                . ' `TABLE_COLLATION` AS `Collation`, `CHECKSUM` AS `Checksum`,'
+                . ' `CREATE_OPTIONS` AS `Create_options`, `TABLE_COMMENT` AS `Comment`'
                 . " FROM `information_schema`.`TABLES` t WHERE `TABLE_SCHEMA` IN ('table1')"
                 . " AND t.`TABLE_NAME` = 'pma_test' ORDER BY Name ASC",
                 'columns' => [
@@ -1617,7 +1617,7 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
-                'query' => "SELECT *, CAST(BIN_NAME AS CHAR CHARACTER SET utf8) AS SCHEMA_NAME FROM (SELECT BINARY s.SCHEMA_NAME AS BIN_NAME, s.DEFAULT_COLLATION_NAME FROM `information_schema`.SCHEMATA s GROUP BY BINARY s.SCHEMA_NAME, s.DEFAULT_COLLATION_NAME ORDER BY BINARY `SCHEMA_NAME` ASC) a",
+                'query' => 'SELECT *, CAST(BIN_NAME AS CHAR CHARACTER SET utf8) AS SCHEMA_NAME FROM (SELECT BINARY s.SCHEMA_NAME AS BIN_NAME, s.DEFAULT_COLLATION_NAME FROM `information_schema`.SCHEMATA s GROUP BY BINARY s.SCHEMA_NAME, s.DEFAULT_COLLATION_NAME ORDER BY BINARY `SCHEMA_NAME` ASC) a',
                 'columns' => [
                     'BIN_NAME',
                     'DEFAULT_COLLATION_NAME',
@@ -1676,58 +1676,58 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
-                'query'  => "SELECT @@have_partitioning;",
+                'query'  => 'SELECT @@have_partitioning;',
                 'result' => [],
             ],
             [
-                'query'  => "SELECT @@lower_case_table_names",
+                'query'  => 'SELECT @@lower_case_table_names',
                 'result' => [],
             ],
             [
-                'query'  => "SELECT `PLUGIN_NAME`, `PLUGIN_DESCRIPTION` "
-                    . "FROM `information_schema`.`PLUGINS` "
+                'query'  => 'SELECT `PLUGIN_NAME`, `PLUGIN_DESCRIPTION` '
+                    . 'FROM `information_schema`.`PLUGINS` '
                     . "WHERE `PLUGIN_TYPE` = 'AUTHENTICATION';",
                 'result' => [],
             ],
             [
-                'query'  => "SHOW TABLES FROM `db`;",
+                'query'  => 'SHOW TABLES FROM `db`;',
                 'result' => [],
             ],
             [
-                'query'  => "SELECT `PRIVILEGE_TYPE` FROM "
-                    . "`INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` "
+                'query'  => 'SELECT `PRIVILEGE_TYPE` FROM '
+                    . '`INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` '
                     . "WHERE GRANTEE='''pma_test''@''localhost''' "
                     . "AND PRIVILEGE_TYPE='EVENT' AND 'db' LIKE `TABLE_SCHEMA`",
                 'result' => [],
             ],
             [
-                'query'  => "SELECT `PRIVILEGE_TYPE` FROM "
-                    . "`INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` "
+                'query'  => 'SELECT `PRIVILEGE_TYPE` FROM '
+                    . '`INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` '
                     . "WHERE GRANTEE='''pma_test''@''localhost''' "
                     . "AND PRIVILEGE_TYPE='TRIGGER' AND 'db' LIKE `TABLE_SCHEMA`",
                 'result' => [],
             ],
             [
-                'query'  => "SELECT (COUNT(DB_first_level) DIV 100) * 100 from "
+                'query'  => 'SELECT (COUNT(DB_first_level) DIV 100) * 100 from '
                     . "( SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) "
-                    . "DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA "
+                    . 'DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA '
                     . "WHERE `SCHEMA_NAME` < 'db' ) t",
                 'result' => [],
             ],
             [
-                'query'  => "SELECT (COUNT(DB_first_level) DIV 100) * 100 from "
+                'query'  => 'SELECT (COUNT(DB_first_level) DIV 100) * 100 from '
                     . "( SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) "
-                    . "DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA "
+                    . 'DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA '
                     . "WHERE `SCHEMA_NAME` < 'pma_test' ) t",
                 'result' => [],
             ],
             [
-                'query'  => "SELECT `SCHEMA_NAME` FROM "
-                    . "`INFORMATION_SCHEMA`.`SCHEMATA`, "
-                    . "(SELECT DB_first_level FROM ( SELECT DISTINCT "
+                'query'  => 'SELECT `SCHEMA_NAME` FROM '
+                    . '`INFORMATION_SCHEMA`.`SCHEMATA`, '
+                    . '(SELECT DB_first_level FROM ( SELECT DISTINCT '
                     . "SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM "
-                    . "INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t "
-                    . "ORDER BY DB_first_level ASC LIMIT , 100) t2 WHERE TRUE AND "
+                    . 'INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t '
+                    . 'ORDER BY DB_first_level ASC LIMIT , 100) t2 WHERE TRUE AND '
                     . "1 = LOCATE(CONCAT(DB_first_level, '_'), "
                     . "CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC",
                 'result' => [],

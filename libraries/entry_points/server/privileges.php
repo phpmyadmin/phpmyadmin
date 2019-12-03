@@ -215,7 +215,7 @@ if (isset($_POST['change_copy']) && $username == $_POST['old_username']
         Message::error(
             __(
                 "Username and hostname didn't change. "
-                . "If you only want to change the password, "
+                . 'If you only want to change the password, '
                 . "'Change password' tab should be used."
             )
         )->getDisplay()
@@ -453,7 +453,7 @@ if (isset($_GET['export'])
         $response->addJSON('title', $title);
         exit;
     } else {
-        $response->addHTML("<h2>$title</h2>$export");
+        $response->addHTML('<h2>' . $title . '</h2>' . $export);
     }
 }
 

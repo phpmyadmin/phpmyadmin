@@ -66,7 +66,7 @@ class OperationsTest extends TestCase
 
         $this->assertRegExp(
             '/.*\/database\/operations(.|[\n])*Database comment.*name="comment"([\n]|.)*/m',
-            $this->operations->getHtmlForDatabaseComment("pma")
+            $this->operations->getHtmlForDatabaseComment('pma')
         );
     }
 
@@ -79,7 +79,7 @@ class OperationsTest extends TestCase
     {
 
         $db_collation = 'db1';
-        $html = $this->operations->getHtmlForRenameDatabase("pma", $db_collation);
+        $html = $this->operations->getHtmlForRenameDatabase('pma', $db_collation);
         $this->assertStringContainsString('index.php?route=/database/operations', $html);
         $this->assertRegExp(
             '/.*db_rename.*Rename database to.*/',
@@ -97,7 +97,7 @@ class OperationsTest extends TestCase
 
         $this->assertRegExp(
             '/.*DROP.DATABASE.*%2Fdatabase%2Foperations.*Drop the database.*/',
-            $this->operations->getHtmlForDropDatabaseLink("pma")
+            $this->operations->getHtmlForDropDatabaseLink('pma')
         );
     }
 
@@ -109,7 +109,7 @@ class OperationsTest extends TestCase
     public function testGetHtmlForCopyDatabase()
     {
         $db_collation = 'db1';
-        $html = $this->operations->getHtmlForCopyDatabase("pma", $db_collation);
+        $html = $this->operations->getHtmlForCopyDatabase('pma', $db_collation);
         $this->assertRegExp('/.*\/database\/operations.*/', $html);
         $this->assertRegExp('/.*db_copy.*/', $html);
         $this->assertRegExp('/.*Copy database to.*/', $html);
@@ -124,7 +124,7 @@ class OperationsTest extends TestCase
     {
 
         $db_collation = 'db1';
-        $result = $this->operations->getHtmlForChangeDatabaseCharset("pma", $db_collation);
+        $result = $this->operations->getHtmlForChangeDatabaseCharset('pma', $db_collation);
         $this->assertRegExp(
             '/.*select_db_collation.*Collation.*/m',
             $result
@@ -144,8 +144,8 @@ class OperationsTest extends TestCase
     {
         $actual = $this->operations->getHtmlForOrderTheTable(
             [
-                ['Field' => "column1"],
-                ['Field' => "column2"],
+                ['Field' => 'column1'],
+                ['Field' => 'column2'],
             ]
         );
         $this->assertStringContainsString(
@@ -222,8 +222,8 @@ class OperationsTest extends TestCase
         $this->assertRegExp(
             '/.*Delete data or table.*Empty the table.*Delete the table.*/m',
             $this->operations->getHtmlForDeleteDataOrTable(
-                ["truncate" => 'foo'],
-                ["drop" => 'bar']
+                ['truncate' => 'foo'],
+                ['drop' => 'bar']
             )
         );
     }
@@ -239,10 +239,10 @@ class OperationsTest extends TestCase
         $this->assertRegExp(
             '/.*TRUNCATE.TABLE.foo.*id_truncate.*Truncate table.*/m',
             $this->operations->getDeleteDataOrTablelink(
-                ["sql" => 'TRUNCATE TABLE foo'],
-                "TRUNCATE_TABLE",
-                "Truncate table",
-                "id_truncate"
+                ['sql' => 'TRUNCATE TABLE foo'],
+                'TRUNCATE_TABLE',
+                'Truncate table',
+                'id_truncate'
             )
         );
     }
@@ -256,12 +256,12 @@ class OperationsTest extends TestCase
     {
         $html = $this->operations->getHtmlForPartitionMaintenance(
             [
-                "partition1",
-                "partion2",
+                'partition1',
+                'partion2',
             ],
             [
-                "param1" => 'foo',
-                "param2" => 'bar',
+                'param1' => 'foo',
+                'param2' => 'bar',
             ]
         );
         $this->assertStringContainsString(
@@ -286,13 +286,13 @@ class OperationsTest extends TestCase
             [
                 [
                     'foreign_db' => 'db1',
-                    'foreign_table' => "foreign1",
-                    'foreign_field' => "foreign2",
+                    'foreign_table' => 'foreign1',
+                    'foreign_field' => 'foreign2',
                 ],
             ],
             [
-                "param1" => 'a',
-                "param2" => 'b',
+                'param1' => 'a',
+                'param2' => 'b',
             ]
         );
         $this->assertStringContainsString(

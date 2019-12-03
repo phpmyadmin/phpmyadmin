@@ -152,6 +152,6 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
      */
     public static function getName()
     {
-        return "Date Format";
+        return 'Date Format';
     }
 }

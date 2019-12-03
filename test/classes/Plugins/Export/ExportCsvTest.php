@@ -267,7 +267,7 @@ class ExportCsvTest extends PmaTestCase
         );
 
         $this->assertEquals(
-            ";",
+            ';',
             $GLOBALS['csv_separator']
         );
 
@@ -302,7 +302,7 @@ class ExportCsvTest extends PmaTestCase
         );
 
         $this->assertEquals(
-            ";",
+            ';',
             $GLOBALS['csv_separator']
         );
 
@@ -335,7 +335,7 @@ class ExportCsvTest extends PmaTestCase
         );
 
         $this->assertEquals(
-            ",",
+            ',',
             $GLOBALS['csv_separator']
         );
 
@@ -607,7 +607,7 @@ class ExportCsvTest extends PmaTestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            "\"foo\"bar;customNull;",
+            '"foo"bar;customNull;',
             $result
         );
 
@@ -661,7 +661,7 @@ class ExportCsvTest extends PmaTestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            "\"foo\"\"bar;\"test\";",
+            '"foo""bar;"test";',
             $result
         );
 
@@ -768,7 +768,7 @@ class ExportCsvTest extends PmaTestCase
         $this->assertEquals(
             "\"foo#\"bar\"\"foo#\"bar;\"test\n" .
             "\"\"test\n" .
-            "\";",
+            '";',
             $result
         );
     }

@@ -123,7 +123,7 @@ class VariablesController extends AbstractController
                     Util::formatByteDown($varValue[1], 3, 3)
                 );
             } else {
-                throw new KBException("Not a type=byte");
+                throw new KBException('Not a type=byte');
             }
         } catch (KBException $e) {
             $json['message'] = $varValue[1];
@@ -167,7 +167,7 @@ class VariablesController extends AbstractController
                     $exp[mb_strtolower($matches[3])]
                 );
             } else {
-                throw new KBException("Not a type=byte or regex not matching");
+                throw new KBException('Not a type=byte or regex not matching');
             }
         } catch (KBException $e) {
             $value = $this->dbi->escapeString($value);
@@ -178,7 +178,7 @@ class VariablesController extends AbstractController
         }
 
         $json = [];
-        if (! preg_match("/[^a-zA-Z0-9_]+/", $params['varName'])
+        if (! preg_match('/[^a-zA-Z0-9_]+/', $params['varName'])
             && $this->dbi->query(
                 'SET GLOBAL ' . $params['varName'] . ' = ' . $value
             )
@@ -236,7 +236,7 @@ class VariablesController extends AbstractController
                         )
                     );
                 } else {
-                    throw new KBException("Not a type=byte or regex not matching");
+                    throw new KBException('Not a type=byte or regex not matching');
                 }
             } catch (KBException $e) {
                 $formattedValue = Util::formatNumber($value, 0);

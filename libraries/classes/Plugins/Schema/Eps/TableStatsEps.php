@@ -89,7 +89,7 @@ class TableStatsEps extends TableStats
     {
         ExportRelationSchema::dieSchema(
             $this->pageNumber,
-            "EPS",
+            'EPS',
             sprintf(__('The %s table doesn\'t exist!'), $this->tableName)
         );
     }

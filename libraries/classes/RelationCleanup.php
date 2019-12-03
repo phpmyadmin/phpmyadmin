@@ -299,90 +299,90 @@ class RelationCleanup
         $cfgRelation = $this->relation->getRelationsParam();
 
         if ($cfgRelation['bookmarkwork']) {
-            $remove_query = "DELETE FROM "
+            $remove_query = 'DELETE FROM '
                 . Util::backquote($cfgRelation['db'])
-                . "." . Util::backquote($cfgRelation['bookmark'])
+                . '.' . Util::backquote($cfgRelation['bookmark'])
                 . " WHERE `user`  = '" . $this->dbi->escapeString($username)
                 . "'";
             $this->relation->queryAsControlUser($remove_query);
         }
 
         if ($cfgRelation['historywork']) {
-            $remove_query = "DELETE FROM "
+            $remove_query = 'DELETE FROM '
                 . Util::backquote($cfgRelation['db'])
-                . "." . Util::backquote($cfgRelation['history'])
+                . '.' . Util::backquote($cfgRelation['history'])
                 . " WHERE `username`  = '" . $this->dbi->escapeString($username)
                 . "'";
             $this->relation->queryAsControlUser($remove_query);
         }
 
         if ($cfgRelation['recentwork']) {
-            $remove_query = "DELETE FROM "
+            $remove_query = 'DELETE FROM '
                 . Util::backquote($cfgRelation['db'])
-                . "." . Util::backquote($cfgRelation['recent'])
+                . '.' . Util::backquote($cfgRelation['recent'])
                 . " WHERE `username`  = '" . $this->dbi->escapeString($username)
                 . "'";
             $this->relation->queryAsControlUser($remove_query);
         }
 
         if ($cfgRelation['favoritework']) {
-            $remove_query = "DELETE FROM "
+            $remove_query = 'DELETE FROM '
                 . Util::backquote($cfgRelation['db'])
-                . "." . Util::backquote($cfgRelation['favorite'])
+                . '.' . Util::backquote($cfgRelation['favorite'])
                 . " WHERE `username`  = '" . $this->dbi->escapeString($username)
                 . "'";
             $this->relation->queryAsControlUser($remove_query);
         }
 
         if ($cfgRelation['uiprefswork']) {
-            $remove_query = "DELETE FROM "
+            $remove_query = 'DELETE FROM '
                 . Util::backquote($cfgRelation['db'])
-                . "." . Util::backquote($cfgRelation['table_uiprefs'])
+                . '.' . Util::backquote($cfgRelation['table_uiprefs'])
                 . " WHERE `username`  = '" . $this->dbi->escapeString($username)
                 . "'";
             $this->relation->queryAsControlUser($remove_query);
         }
 
         if ($cfgRelation['userconfigwork']) {
-            $remove_query = "DELETE FROM "
+            $remove_query = 'DELETE FROM '
                 . Util::backquote($cfgRelation['db'])
-                . "." . Util::backquote($cfgRelation['userconfig'])
+                . '.' . Util::backquote($cfgRelation['userconfig'])
                 . " WHERE `username`  = '" . $this->dbi->escapeString($username)
                 . "'";
             $this->relation->queryAsControlUser($remove_query);
         }
 
         if ($cfgRelation['menuswork']) {
-            $remove_query = "DELETE FROM "
+            $remove_query = 'DELETE FROM '
                 . Util::backquote($cfgRelation['db'])
-                . "." . Util::backquote($cfgRelation['users'])
+                . '.' . Util::backquote($cfgRelation['users'])
                 . " WHERE `username`  = '" . $this->dbi->escapeString($username)
                 . "'";
             $this->relation->queryAsControlUser($remove_query);
         }
 
         if ($cfgRelation['navwork']) {
-            $remove_query = "DELETE FROM "
+            $remove_query = 'DELETE FROM '
                 . Util::backquote($cfgRelation['db'])
-                . "." . Util::backquote($cfgRelation['navigationhiding'])
+                . '.' . Util::backquote($cfgRelation['navigationhiding'])
                 . " WHERE `username`  = '" . $this->dbi->escapeString($username)
                 . "'";
             $this->relation->queryAsControlUser($remove_query);
         }
 
         if ($cfgRelation['savedsearcheswork']) {
-            $remove_query = "DELETE FROM "
+            $remove_query = 'DELETE FROM '
                 . Util::backquote($cfgRelation['db'])
-                . "." . Util::backquote($cfgRelation['savedsearches'])
+                . '.' . Util::backquote($cfgRelation['savedsearches'])
                 . " WHERE `username`  = '" . $this->dbi->escapeString($username)
                 . "'";
             $this->relation->queryAsControlUser($remove_query);
         }
 
         if ($cfgRelation['designersettingswork']) {
-            $remove_query = "DELETE FROM "
+            $remove_query = 'DELETE FROM '
                 . Util::backquote($cfgRelation['db'])
-                . "." . Util::backquote($cfgRelation['designer_settings'])
+                . '.' . Util::backquote($cfgRelation['designer_settings'])
                 . " WHERE `username`  = '" . $this->dbi->escapeString($username)
                 . "'";
             $this->relation->queryAsControlUser($remove_query);

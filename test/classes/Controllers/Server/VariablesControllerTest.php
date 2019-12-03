@@ -123,13 +123,13 @@ class VariablesControllerTest extends TestCase
             $html
         );
 
-        $name = "auto_increment_increment";
+        $name = 'auto_increment_increment';
         $value = htmlspecialchars(str_replace('_', ' ', $name));
         $this->assertStringContainsString(
             $value,
             $html
         );
-        $name = "auto_increment_offset";
+        $name = 'auto_increment_offset';
         $value = htmlspecialchars(str_replace('_', ' ', $name));
         $this->assertStringContainsString(
             $value,

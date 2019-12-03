@@ -300,7 +300,7 @@ class ExportPdfTest extends PmaTestCase
                 'db',
                 'table',
                 "\n",
-                "phpmyadmin.net/err",
+                'phpmyadmin.net/err',
                 'SELECT'
             )
         );
@@ -338,7 +338,7 @@ class ExportPdfTest extends PmaTestCase
     {
         $setter = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportPdf', '_setPdfReportTitle');
         $setter->setAccessible(true);
-        $setter->invoke($this->object, "title");
+        $setter->invoke($this->object, 'title');
 
         $getter = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportPdf', '_getPdfReportTitle');
         $getter->setAccessible(true);

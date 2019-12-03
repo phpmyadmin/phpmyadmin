@@ -189,11 +189,11 @@ class ThemeTest extends PmaTestCase
             'Version 0.0.0.0 by default'
         );
 
-        $this->object->setVersion("1.2.3.4");
+        $this->object->setVersion('1.2.3.4');
         $this->assertEquals('1.2.3.4', $this->object->getVersion());
 
-        $this->assertFalse($this->object->checkVersion("0.0.1.1"));
-        $this->assertTrue($this->object->checkVersion("2.0.1.1"));
+        $this->assertFalse($this->object->checkVersion('0.0.1.1'));
+        $this->assertTrue($this->object->checkVersion('2.0.1.1'));
     }
 
     /**

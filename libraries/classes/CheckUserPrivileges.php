@@ -129,19 +129,19 @@ class CheckUserPrivileges
             // Ex. '... ALL PRIVILEGES on `mysql`.`columns_priv` .. '
             if ($show_grants_dbname == 'mysql') {
                 switch ($show_grants_tblname) {
-                    case "columns_priv":
+                    case 'columns_priv':
                         $GLOBALS['col_priv'] = true;
                         break;
-                    case "db":
+                    case 'db':
                         $GLOBALS['db_priv'] = true;
                         break;
-                    case "procs_priv":
+                    case 'procs_priv':
                         $GLOBALS['proc_priv'] = true;
                         break;
-                    case "tables_priv":
+                    case 'tables_priv':
                         $GLOBALS['table_priv'] = true;
                         break;
-                    case "*":
+                    case '*':
                         $GLOBALS['col_priv'] = true;
                         $GLOBALS['db_priv'] = true;
                         $GLOBALS['proc_priv'] = true;

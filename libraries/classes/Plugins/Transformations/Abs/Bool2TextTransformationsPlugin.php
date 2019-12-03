@@ -63,6 +63,6 @@ abstract class Bool2TextTransformationsPlugin extends TransformationsPlugin
      */
     public static function getName()
     {
-        return "Bool2Text";
+        return 'Bool2Text';
     }
 }

@@ -40,7 +40,7 @@ class Export
     public function shutdown(): void
     {
         $error = error_get_last();
-        if ($error != null && mb_strpos($error['message'], "execution time")) {
+        if ($error != null && mb_strpos($error['message'], 'execution time')) {
             //set session variable to check if there was error while exporting
             $_SESSION['pma_export_error'] = $error['message'];
         }
@@ -314,7 +314,7 @@ class Export
             $extension_start_pos,
             mb_strlen($filename)
         );
-        $required_extension = "." . $export_plugin->getProperties()->getExtension();
+        $required_extension = '.' . $export_plugin->getProperties()->getExtension();
         if (mb_strtolower($user_extension) != $required_extension) {
             $filename  .= $required_extension;
         }
@@ -1125,15 +1125,15 @@ class Export
      *
      * @return mixed result of the query
      */
-    public function lockTables(string $db, array $tables, string $lockType = "WRITE")
+    public function lockTables(string $db, array $tables, string $lockType = 'WRITE')
     {
         $locks = [];
         foreach ($tables as $table) {
-            $locks[] = Util::backquote($db) . "."
-                . Util::backquote($table) . " " . $lockType;
+            $locks[] = Util::backquote($db) . '.'
+                . Util::backquote($table) . ' ' . $lockType;
         }
 
-        $sql = "LOCK TABLES " . implode(", ", $locks);
+        $sql = 'LOCK TABLES ' . implode(', ', $locks);
         return $this->dbi->tryQuery($sql);
     }
 
@@ -1144,7 +1144,7 @@ class Export
      */
     public function unlockTables()
     {
-        return $this->dbi->tryQuery("UNLOCK TABLES");
+        return $this->dbi->tryQuery('UNLOCK TABLES');
     }
 
     /**
@@ -1208,7 +1208,7 @@ class Export
         // get the specific plugin
         /** @var SchemaPlugin $export_plugin */
         $export_plugin = Plugins::getPlugin(
-            "schema",
+            'schema',
             $export_type,
             'libraries/classes/Plugins/Schema/'
         );

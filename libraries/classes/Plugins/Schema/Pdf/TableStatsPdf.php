@@ -91,7 +91,7 @@ class TableStatsPdf extends TableStats
     {
         ExportRelationSchema::dieSchema(
             $this->pageNumber,
-            "PDF",
+            'PDF',
             sprintf(__('The %s table doesn\'t exist!'), $this->tableName)
         );
     }

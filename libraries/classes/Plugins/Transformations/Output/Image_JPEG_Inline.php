@@ -27,7 +27,7 @@ class Image_JPEG_Inline extends InlineTransformationsPlugin
      */
     public static function getMIMEType()
     {
-        return "Image";
+        return 'Image';
     }
 
     /**
@@ -37,6 +37,6 @@ class Image_JPEG_Inline extends InlineTransformationsPlugin
      */
     public static function getMIMESubtype()
     {
-        return "JPEG";
+        return 'JPEG';
     }
 }

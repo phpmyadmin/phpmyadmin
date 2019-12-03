@@ -29,6 +29,6 @@ class RadioPropertyItem extends OptionsPropertyOneItem
      */
     public function getItemType()
     {
-        return "radio";
+        return 'radio';
     }
 }

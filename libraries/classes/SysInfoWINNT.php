@@ -106,7 +106,7 @@ class SysInfoWINNT extends SysInfoBase
     public function memory()
     {
         $buffer = $this->_getWMI(
-            "Win32_OperatingSystem",
+            'Win32_OperatingSystem',
             [
                 'TotalVisibleMemorySize',
                 'FreePhysicalMemory',

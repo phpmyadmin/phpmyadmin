@@ -71,7 +71,7 @@ class ConfigFileTest extends PmaTestCase
         // Check environment state
         $this->assertEquals(
             [],
-            $_SESSION["ConfigFile1"]
+            $_SESSION['ConfigFile1']
         );
 
         // Validate default value used in tests
@@ -399,13 +399,13 @@ class ConfigFileTest extends PmaTestCase
     public function testGetCanonicalPath()
     {
         $this->assertEquals(
-            "Servers/1/abcd",
-            $this->object->getCanonicalPath("Servers/2/abcd")
+            'Servers/1/abcd',
+            $this->object->getCanonicalPath('Servers/2/abcd')
         );
 
         $this->assertEquals(
-            "Servers/foo/bar",
-            $this->object->getCanonicalPath("Servers/foo/bar")
+            'Servers/foo/bar',
+            $this->object->getCanonicalPath('Servers/foo/bar')
         );
     }
 
@@ -518,16 +518,16 @@ class ConfigFileTest extends PmaTestCase
             [
                 'Servers' => [
                     1 => [
-                        "auth_type" => "config",
-                        "user" => "testUser",
-                        "host" => "example.com",
-                        "port" => "21",
+                        'auth_type' => 'config',
+                        'user' => 'testUser',
+                        'host' => 'example.com',
+                        'port' => '21',
                     ],
                 ],
             ]
         );
         $this->assertEquals(
-            "mysqli://testUser@example.com:21",
+            'mysqli://testUser@example.com:21',
             $this->object->getServerDSN(1)
         );
 
@@ -535,18 +535,18 @@ class ConfigFileTest extends PmaTestCase
             [
                 'Servers' => [
                     1 => [
-                        "auth_type" => "config",
-                        "user" => "testUser",
-                        "host" => "localhost",
-                        "port" => "21",
-                        "socket" => "123",
-                        "password" => "",
+                        'auth_type' => 'config',
+                        'user' => 'testUser',
+                        'host' => 'localhost',
+                        'port' => '21',
+                        'socket' => '123',
+                        'password' => '',
                     ],
                 ],
             ]
         );
         $this->assertEquals(
-            "mysqli://testUser@123",
+            'mysqli://testUser@123',
             $this->object->getServerDSN(1)
         );
 
@@ -554,17 +554,17 @@ class ConfigFileTest extends PmaTestCase
             [
                 'Servers' => [
                     1 => [
-                        "auth_type" => "config",
-                        "user" => "testUser",
-                        "host" => "example.com",
-                        "port" => "21",
-                        "password" => "testPass",
+                        'auth_type' => 'config',
+                        'user' => 'testUser',
+                        'host' => 'example.com',
+                        'port' => '21',
+                        'password' => 'testPass',
                     ],
                 ],
             ]
         );
         $this->assertEquals(
-            "mysqli://testUser:***@example.com:21",
+            'mysqli://testUser:***@example.com:21',
             $this->object->getServerDSN(1)
         );
     }

@@ -242,32 +242,32 @@ class HttpRequestTest extends PmaTestCase
     {
         return [
             [
-                "https://www.phpmyadmin.net/test/data",
-                "GET",
+                'https://www.phpmyadmin.net/test/data',
+                'GET',
                 true,
                 true,
             ],
             [
-                "https://www.phpmyadmin.net/test/data",
-                "POST",
+                'https://www.phpmyadmin.net/test/data',
+                'POST',
                 true,
                 null,
             ],
             [
-                "https://nonexisting.phpmyadmin.net/test/data",
-                "GET",
+                'https://nonexisting.phpmyadmin.net/test/data',
+                'GET',
                 true,
                 null,
             ],
             [
-                "https://www.phpmyadmin.net/test/data",
-                "GET",
+                'https://www.phpmyadmin.net/test/data',
+                'GET',
                 false,
-                "TEST DATA",
+                'TEST DATA',
             ],
             [
-                "https://www.phpmyadmin.net/test/nothing",
-                "GET",
+                'https://www.phpmyadmin.net/test/nothing',
+                'GET',
                 true,
                 false,
             ],

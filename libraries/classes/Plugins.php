@@ -53,7 +53,7 @@ class Plugins
             . mb_strtolower(mb_substr($plugin_type, 1))
             . mb_strtoupper($plugin_format[0])
             . mb_strtolower(mb_substr($plugin_format, 1));
-        $file = $class_name . ".php";
+        $file = $class_name . '.php';
         if (is_file($plugins_dir . $file)) {
             //include_once $plugins_dir . $file;
             $fqnClass = 'PhpMyAdmin\\' . str_replace('/', '\\', mb_substr($plugins_dir, 18)) . $class_name;
@@ -292,7 +292,7 @@ class Plugins
         $properties = null;
         if (! $is_subgroup) {
             // for subgroup headers
-            if (mb_strpos(get_class($propertyGroup), "PropertyItem")) {
+            if (mb_strpos(get_class($propertyGroup), 'PropertyItem')) {
                 $properties = [$propertyGroup];
             } else {
                 // for main groups
@@ -323,7 +323,7 @@ class Plugins
             foreach ($properties as $propertyItem) {
                 $property_class = get_class($propertyItem);
                 // if the property is a subgroup, we deal with it recursively
-                if (mb_strpos($property_class, "Subgroup")) {
+                if (mb_strpos($property_class, 'Subgroup')) {
                     // for subgroups
                     // each subgroup can have a header, which may also be a form element
                     /** @var OptionsPropertyItem $subgroup_header */
@@ -371,7 +371,7 @@ class Plugins
             }
         }
 
-        if (method_exists($propertyGroup, "getDoc")) {
+        if (method_exists($propertyGroup, 'getDoc')) {
             $doc = $propertyGroup->getDoc();
             if ($doc != null) {
                 if (count($doc) === 3) {

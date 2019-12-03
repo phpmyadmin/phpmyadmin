@@ -27,7 +27,7 @@ class Text_Plain_Longtoipv4 extends LongToIPv4TransformationsPlugin
      */
     public static function getMIMEType()
     {
-        return "Text";
+        return 'Text';
     }
 
     /**
@@ -37,6 +37,6 @@ class Text_Plain_Longtoipv4 extends LongToIPv4TransformationsPlugin
      */
     public static function getMIMESubtype()
     {
-        return "Plain";
+        return 'Plain';
     }
 }

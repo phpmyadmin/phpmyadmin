@@ -121,12 +121,12 @@ class DatabaseInterfaceTest extends PmaTestCase
             ->will($this->returnValue(true));
 
         $meta1 = new stdClass();
-        $meta1->table = "meta1_table";
-        $meta1->name = "meta1_name";
+        $meta1->table = 'meta1_table';
+        $meta1->name = 'meta1_name';
 
         $meta2 = new stdClass();
-        $meta2->table = "meta2_table";
-        $meta2->name = "meta2_name";
+        $meta2->table = 'meta2_table';
+        $meta2->name = 'meta2_name';
 
         $extension->expects($this->any())
             ->method('getFieldsMeta')
@@ -141,10 +141,10 @@ class DatabaseInterfaceTest extends PmaTestCase
 
         $dbi = new DatabaseInterface($extension);
 
-        $sql_query = "PMA_sql_query";
+        $sql_query = 'PMA_sql_query';
         $view_columns = [
-            "view_columns1",
-            "view_columns2",
+            'view_columns1',
+            'view_columns2',
         ];
 
         $column_map = $dbi->getColumnMapFromSql(
@@ -208,7 +208,7 @@ class DatabaseInterfaceTest extends PmaTestCase
         // test case for system schema
         $this->assertEquals(
             'utf8_general_ci',
-            $this->_dbi->getDbCollation("information_schema")
+            $this->_dbi->getDbCollation('information_schema')
         );
 
         $GLOBALS['cfg']['Server']['DisableIS'] = false;

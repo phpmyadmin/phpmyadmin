@@ -123,15 +123,15 @@ class SearchControllerTest extends PmaTestCase
             $this->template,
             $GLOBALS['db'],
             $GLOBALS['table'],
-            "zoom",
+            'zoom',
             null,
             new Relation($GLOBALS['dbi'], $this->template)
         );
         $columnIndex = 0;
-        $find = "Field";
-        $replaceWith = "Column";
+        $find = 'Field';
+        $replaceWith = 'Column';
         $useRegex = false;
-        $charSet = "UTF-8";
+        $charSet = 'UTF-8';
         $tableSearch->replace(
             $columnIndex,
             $find,
@@ -141,7 +141,7 @@ class SearchControllerTest extends PmaTestCase
         );
 
         $sql_query = $GLOBALS['sql_query'];
-        $result = "UPDATE `PMA_BookMark` SET `Field1` = "
+        $result = 'UPDATE `PMA_BookMark` SET `Field1` = '
             . "REPLACE(`Field1`, 'Field', 'Column') "
             . "WHERE `Field1` LIKE '%Field%' COLLATE UTF-8_bin";
         $this->assertEquals(
@@ -159,9 +159,9 @@ class SearchControllerTest extends PmaTestCase
     {
         $_POST['distinct'] = true;
         $_POST['zoom_submit'] = true;
-        $_POST['table'] = "PMA";
-        $_POST['orderByColumn'] = "name";
-        $_POST['order'] = "asc";
+        $_POST['table'] = 'PMA';
+        $_POST['orderByColumn'] = 'name';
+        $_POST['order'] = 'asc';
         $_POST['customWhereClause'] = "name='pma'";
 
         $class = new ReflectionClass(SearchController::class);
@@ -173,14 +173,14 @@ class SearchControllerTest extends PmaTestCase
             $this->template,
             $GLOBALS['db'],
             $GLOBALS['table'],
-            "zoom",
+            'zoom',
             null,
             new Relation($GLOBALS['dbi'], $this->template)
         );
 
         $sql = $method->invoke($tableSearch);
         $result = "SELECT DISTINCT *  FROM `PMA` WHERE name='pma' "
-            . "ORDER BY `name` asc";
+            . 'ORDER BY `name` asc';
 
         $this->assertEquals(
             $result,
@@ -189,7 +189,7 @@ class SearchControllerTest extends PmaTestCase
 
         unset($_POST['customWhereClause']);
         $sql = $method->invoke($tableSearch);
-        $result = "SELECT DISTINCT *  FROM `PMA` ORDER BY `name` asc";
+        $result = 'SELECT DISTINCT *  FROM `PMA` ORDER BY `name` asc';
         $this->assertEquals(
             $result,
             $sql
@@ -223,29 +223,29 @@ class SearchControllerTest extends PmaTestCase
             'type4',
         ];
         $_POST['criteriaColumnCollations'] = [
-            "char1",
-            "char2",
-            "char3",
-            "char4",
-            "char5",
-            "char6",
-            "char7",
+            'char1',
+            'char2',
+            'char3',
+            'char4',
+            'char5',
+            'char6',
+            'char7',
         ];
         $_POST['criteriaColumnOperators'] = [
-            "!=",
-            ">",
-            "IS NULL",
-            "LIKE %...%",
-            "REGEXP ^...$",
-            "IN (...)",
-            "BETWEEN",
+            '!=',
+            '>',
+            'IS NULL',
+            'LIKE %...%',
+            'REGEXP ^...$',
+            'IN (...)',
+            'BETWEEN',
         ];
 
         $sql = $method->invoke($tableSearch);
         $result = "SELECT DISTINCT *  FROM `PMA` WHERE `name` != 'value1'"
             . " AND `id` > value2 AND `index` IS NULL AND `index2` LIKE '%value4%'"
-            . " AND `index3` REGEXP ^value5$ AND `index4` IN (value6) AND `index5`"
-            . " BETWEEN value7 AND value8 ORDER BY `name` asc";
+            . ' AND `index3` REGEXP ^value5$ AND `index4` IN (value6) AND `index5`'
+            . ' BETWEEN value7 AND value8 ORDER BY `name` asc';
         $this->assertEquals(
             $result,
             $sql

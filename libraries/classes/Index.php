@@ -531,16 +531,16 @@ class Index
      */
     public function generateIndexTypeSelector()
     {
-        $types = ["" => "--"];
+        $types = ['' => '--'];
         foreach (Index::getIndexTypes() as $type) {
             $types[$type] = $type;
         }
 
         return Html\Forms\Fields\DropDown::generate(
-            "index[Index_type]",
+            'index[Index_type]',
             $types,
             $this->_type,
-            "select_index_type"
+            'select_index_type'
         );
     }
 
@@ -685,7 +685,7 @@ class Index
         $indexes = Index::getFromTable($table, $schema);
 
         $no_indexes_class = count($indexes) > 0 ? ' hide' : '';
-        $no_indexes  = "<div class='no_indexes_defined$no_indexes_class'>";
+        $no_indexes  = "<div class='no_indexes_defined" . $no_indexes_class . "'>";
         $no_indexes .= Message::notice(__('No index defined!'))->getDisplay();
         $no_indexes .= '</div>';
 

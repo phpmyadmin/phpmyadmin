@@ -50,19 +50,19 @@ class PdfRelationSchemaTest extends PmaTestCase
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'information_schema';
-        $GLOBALS['cfg']['Server']['pmadb'] = "pmadb";
-        $GLOBALS['cfg']['Server']['user'] = "user";
-        $GLOBALS['cfg']['Server']['table_coords'] = "table_name";
-        $GLOBALS['cfg']['Server']['bookmarktable'] = "bookmarktable";
-        $GLOBALS['cfg']['Server']['relation'] = "relation";
-        $GLOBALS['cfg']['Server']['table_info'] = "table_info";
+        $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
+        $GLOBALS['cfg']['Server']['user'] = 'user';
+        $GLOBALS['cfg']['Server']['table_coords'] = 'table_name';
+        $GLOBALS['cfg']['Server']['bookmarktable'] = 'bookmarktable';
+        $GLOBALS['cfg']['Server']['relation'] = 'relation';
+        $GLOBALS['cfg']['Server']['table_info'] = 'table_info';
 
         //_SESSION
         $_SESSION['relation'][$GLOBALS['server']] = [
             'PMA_VERSION' => PMA_VERSION,
-            'table_coords' => "table_name",
+            'table_coords' => 'table_name',
             'displaywork' => 'displaywork',
-            'db' => "information_schema",
+            'db' => 'information_schema',
             'table_info' => 'table_info',
             'relwork' => false,
             'relation' => 'relation',
@@ -84,11 +84,11 @@ class PdfRelationSchemaTest extends PmaTestCase
 
         $dbi->expects($this->any())
             ->method('query')
-            ->will($this->returnValue("executed_1"));
+            ->will($this->returnValue('executed_1'));
 
         $dbi->expects($this->any())
             ->method('tryQuery')
-            ->will($this->returnValue("executed_1"));
+            ->will($this->returnValue('executed_1'));
 
         $fetchArrayReturn = [
             //table name in information_schema_relations
@@ -123,11 +123,11 @@ class PdfRelationSchemaTest extends PmaTestCase
         }
 
         $fields_info = [
-            "Host" => [
-                "Field" => "host",
-                "Type" => "char(60)",
-                "Null" => "NO",
-                'Extra' => "Extra",
+            'Host' => [
+                'Field' => 'host',
+                'Type' => 'char(60)',
+                'Null' => 'NO',
+                'Extra' => 'Extra',
             ],
         ];
         $dbi->expects($this->any())->method('getColumns')
@@ -141,8 +141,8 @@ class PdfRelationSchemaTest extends PmaTestCase
                 'Table' => 'pma_tbl',
                 'Field' => 'field1',
                 'Key' => 'PRIMARY',
-                'Key_name' => "Key_name",
-                'Column_name' => "Column_name",
+                'Key_name' => 'Key_name',
+                'Column_name' => 'Column_name',
             ],
         ];
         $dbi->expects($this->any())->method('getTableIndexes')

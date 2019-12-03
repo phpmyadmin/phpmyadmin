@@ -536,40 +536,40 @@ class ExportXmlTest extends PmaTestCase
                 'db',
                 'ta<ble',
                 "\n",
-                "example.com",
-                "SELECT"
+                'example.com',
+                'SELECT'
             )
         );
         $result = ob_get_clean();
 
         $this->assertStringContainsString(
-            "<!-- Table ta&lt;ble -->",
+            '<!-- Table ta&lt;ble -->',
             $result
         );
 
         $this->assertStringContainsString(
-            "<table name=\"ta&lt;ble\">",
+            '<table name="ta&lt;ble">',
             $result
         );
 
         $this->assertStringContainsString(
-            "<column name=\"fName1\">NULL</column>",
+            '<column name="fName1">NULL</column>',
             $result
         );
 
         $this->assertStringContainsString(
-            "<column name=\"fNa&quot;me2\">&lt;a&gt;" .
-            "</column>",
+            '<column name="fNa&quot;me2">&lt;a&gt;' .
+            '</column>',
             $result
         );
 
         $this->assertStringContainsString(
-            "<column name=\"fName3\">NULL</column>",
+            '<column name="fName3">NULL</column>',
             $result
         );
 
         $this->assertStringContainsString(
-            "</table>",
+            '</table>',
             $result
         );
     }

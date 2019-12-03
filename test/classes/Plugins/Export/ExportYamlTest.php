@@ -259,8 +259,8 @@ class ExportYamlTest extends PmaTestCase
                 'db',
                 'ta<ble',
                 "\n",
-                "example.com",
-                "SELECT"
+                'example.com',
+                'SELECT'
             )
         );
         $result = ob_get_clean();

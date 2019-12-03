@@ -289,9 +289,9 @@ class Types
                 );
             case 'YEAR':
                 return __(
-                    "A year in four-digit (4, default) or two-digit (2) format, the " .
-                    "allowable values are 70 (1970) to 69 (2069) or 1901 to 2155 and " .
-                    "0000"
+                    'A year in four-digit (4, default) or two-digit (2) format, the ' .
+                    'allowable values are 70 (1970) to 69 (2069) or 1901 to 2155 and ' .
+                    '0000'
                 );
             case 'CHAR':
                 return __(
@@ -364,11 +364,11 @@ class Types
                 );
             case 'ENUM':
                 return __(
-                    "An enumeration, chosen from the list of up to 65,535 values or " .
+                    'An enumeration, chosen from the list of up to 65,535 values or ' .
                     "the special '' error value"
                 );
             case 'SET':
-                return __("A single value chosen from a set of up to 64 members");
+                return __('A single value chosen from a set of up to 64 members');
             case 'GEOMETRY':
                 return __('A type that can store a geometry of any type');
             case 'POINT':

@@ -119,7 +119,7 @@ class StorageEngine
                         );
                     }
                 );
-                foreach (explode(",", $disabled) as $engine) {
+                foreach (explode(',', $disabled) as $engine) {
                     if (isset($storage_engines[$engine])) {
                         $storage_engines[$engine]['Support'] = 'DISABLED';
                     }
@@ -232,7 +232,7 @@ class StorageEngine
      */
     public static function isValid($engine)
     {
-        if ($engine == "PBMS") {
+        if ($engine == 'PBMS') {
             return true;
         }
         $storage_engines = self::getStorageEngines();

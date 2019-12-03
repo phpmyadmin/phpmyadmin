@@ -310,15 +310,15 @@ class MessageTest extends PmaTestCase
     public function testAddMessages()
     {
         $messages = [];
-        $messages[] = new Message("Test1");
-        $messages[] = new Message("PMA_Test2", Message::ERROR);
-        $messages[] = new Message("Test3");
+        $messages[] = new Message('Test1');
+        $messages[] = new Message('PMA_Test2', Message::ERROR);
+        $messages[] = new Message('Test3');
         $this->object->addMessages($messages, '');
 
         $this->assertEquals(
             [
                 Message::notice('Test1'),
-                Message::error("PMA_Test2"),
+                Message::error('PMA_Test2'),
                 Message::notice('Test3'),
             ],
             $this->object->getAddedMessages()

@@ -29,6 +29,6 @@ class MessageOnlyPropertyItem extends OptionsPropertyOneItem
      */
     public function getItemType()
     {
-        return "messageOnly";
+        return 'messageOnly';
     }
 }

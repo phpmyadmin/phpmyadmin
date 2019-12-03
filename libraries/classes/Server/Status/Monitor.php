@@ -467,7 +467,7 @@ class Monitor
                 $escapedValue = "'" . $escapedValue . "'";
             }
 
-            if (! preg_match("/[^a-zA-Z0-9_]+/", $name)) {
+            if (! preg_match('/[^a-zA-Z0-9_]+/', $name)) {
                 $this->dbi->query(
                     'SET GLOBAL ' . $name . ' = ' . $escapedValue
                 );

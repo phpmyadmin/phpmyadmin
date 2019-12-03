@@ -104,8 +104,8 @@ class CommonTest extends TestCase
         $dbi->expects($this->once())
             ->method('fetchResult')
             ->with(
-                "SELECT `page_descr` FROM `pmadb`.`pdf_pages`"
-                . " WHERE `page_nr` = " . $pg,
+                'SELECT `page_descr` FROM `pmadb`.`pdf_pages`'
+                . ' WHERE `page_nr` = ' . $pg,
                 null,
                 null,
                 DatabaseInterface::CONNECT_CONTROL,
@@ -168,7 +168,7 @@ class CommonTest extends TestCase
         $dbi->expects($this->once())
             ->method('fetchResult')
             ->with(
-                "SELECT `page_nr` FROM `pmadb`.`pdf_pages`"
+                'SELECT `page_nr` FROM `pmadb`.`pdf_pages`'
                 . " WHERE `db_name` = '" . $db . "'"
                 . " AND `page_descr` = '" . $db . "'",
                 null,
@@ -203,7 +203,7 @@ class CommonTest extends TestCase
         $dbi->expects($this->once())
             ->method('fetchResult')
             ->with(
-                "SELECT `page_nr` FROM `pmadb`.`pdf_pages`"
+                'SELECT `page_nr` FROM `pmadb`.`pdf_pages`'
                 . " WHERE `db_name` = '" . $db . "'"
                 . " AND `page_descr` = '" . $db . "'",
                 null,
@@ -239,7 +239,7 @@ class CommonTest extends TestCase
         $dbi->expects($this->once())
             ->method('fetchResult')
             ->with(
-                "SELECT `page_nr` FROM `pmadb`.`pdf_pages`"
+                'SELECT `page_nr` FROM `pmadb`.`pdf_pages`'
                 . " WHERE `db_name` = '" . $db . "'"
                 . " AND `page_descr` = '" . $db . "'",
                 null,

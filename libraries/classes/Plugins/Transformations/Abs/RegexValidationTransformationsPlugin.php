@@ -68,6 +68,6 @@ abstract class RegexValidationTransformationsPlugin extends IOTransformationsPlu
      */
     public static function getName()
     {
-        return "Regex Validation";
+        return 'Regex Validation';
     }
 }

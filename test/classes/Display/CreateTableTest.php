@@ -36,18 +36,18 @@ class CreateTableTest extends TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['MaxRows'] = 10;
-        $GLOBALS['cfg']['ServerDefault'] = "PMA_server";
+        $GLOBALS['cfg']['ServerDefault'] = 'PMA_server';
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $GLOBALS['cfg']['LimitChars'] = 100;
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
-        $GLOBALS['cfg']['Server']['host'] = "localhost";
-        $GLOBALS['cfg']['Server']['user'] = "pma_user";
+        $GLOBALS['cfg']['Server']['host'] = 'localhost';
+        $GLOBALS['cfg']['Server']['user'] = 'pma_user';
         $GLOBALS['cfg']['ShowHint'] = true;
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
         $GLOBALS['PMA_PHP_SELF'] = Url::getFromRoute('/server/privileges');
 
         //$_SESSION
-        $_SESSION['relation'][$GLOBALS['server']] = "relation";
+        $_SESSION['relation'][$GLOBALS['server']] = 'relation';
     }
 
     /**
@@ -57,7 +57,7 @@ class CreateTableTest extends TestCase
      */
     public function testPMAGetHtmlForCreateTable()
     {
-        $db = "pma_db";
+        $db = 'pma_db';
 
         //Call the test function
         $html = CreateTable::getHtml($db);

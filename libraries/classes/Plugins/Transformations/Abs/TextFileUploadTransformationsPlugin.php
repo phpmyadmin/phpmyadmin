@@ -97,6 +97,6 @@ abstract class TextFileUploadTransformationsPlugin extends IOTransformationsPlug
      */
     public static function getName()
     {
-        return "Text file upload";
+        return 'Text file upload';
     }
 }

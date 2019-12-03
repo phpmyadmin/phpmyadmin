@@ -28,7 +28,7 @@ class Image_JPEG_Upload extends ImageUploadTransformationsPlugin
      */
     public static function getMIMEType()
     {
-        return "Image";
+        return 'Image';
     }
 
     /**
@@ -38,6 +38,6 @@ class Image_JPEG_Upload extends ImageUploadTransformationsPlugin
      */
     public static function getMIMESubtype()
     {
-        return "JPEG";
+        return 'JPEG';
     }
 }

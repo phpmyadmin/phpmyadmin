@@ -391,7 +391,7 @@ class AuthenticationCookieTest extends PmaTestCase
     {
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = 'testprivkey';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = 'testpubkey';
-        $_POST["g-recaptcha-response"] = '';
+        $_POST['g-recaptcha-response'] = '';
         $_POST['pma_username'] = 'testPMAUser';
 
         $this->assertFalse(

@@ -264,9 +264,9 @@ class CentralColumns
         string $db,
         string $central_list_table
     ): string {
-        $type = "";
+        $type = '';
         $length = 0;
-        $attribute = "";
+        $attribute = '';
         if (isset($def['Type'])) {
             $extracted_columnspec = Util::extractColumnSpec($def['Type']);
             $attribute = trim($extracted_columnspec['attribute']);
@@ -276,10 +276,10 @@ class CentralColumns
         if (isset($def['Attribute'])) {
             $attribute = $def['Attribute'];
         }
-        $collation = isset($def['Collation']) ? $def['Collation'] : "";
-        $isNull = $def['Null'] == "NO" ? '0' : '1';
-        $extra = isset($def['Extra']) ? $def['Extra'] : "";
-        $default = isset($def['Default']) ? $def['Default'] : "";
+        $collation = isset($def['Collation']) ? $def['Collation'] : '';
+        $isNull = $def['Null'] == 'NO' ? '0' : '1';
+        $extra = isset($def['Extra']) ? $def['Extra'] : '';
+        $default = isset($def['Default']) ? $def['Default'] : '';
         return 'INSERT INTO '
             . Util::backquote($central_list_table) . ' '
             . 'VALUES ( \'' . $this->dbi->escapeString($db) . '\' ,'
@@ -319,7 +319,7 @@ class CentralColumns
         $central_list_table = $cfgCentralColumns['table'];
         $this->dbi->selectDb($db);
         $existingCols = [];
-        $cols = "";
+        $cols = '';
         $insQuery = [];
         $fields = [];
         $message = true;
@@ -381,7 +381,7 @@ class CentralColumns
             }
         }
         if (! empty($existingCols)) {
-            $existingCols = implode(",", array_unique($existingCols));
+            $existingCols = implode(',', array_unique($existingCols));
             $message = Message::notice(
                 sprintf(
                     __(
@@ -392,8 +392,8 @@ class CentralColumns
             );
             $message->addMessage(
                 Message::notice(
-                    "Please remove them first "
-                    . "from central list if you want to update above columns"
+                    'Please remove them first '
+                    . 'from central list if you want to update above columns'
                 )
             );
         }
@@ -475,7 +475,7 @@ class CentralColumns
             }
         }
         if (! empty($colNotExist)) {
-            $colNotExist = implode(",", array_unique($colNotExist));
+            $colNotExist = implode(',', array_unique($colNotExist));
             $message = Message::notice(
                 sprintf(
                     __(
@@ -559,7 +559,7 @@ class CentralColumns
                     $query .= ',';
                 }
             }
-            $query = trim($query, " ,") . ";";
+            $query = trim($query, ' ,') . ';';
             if (! $this->dbi->tryQuery($query)) {
                 if ($message === true) {
                     $message = Message::error(
@@ -648,7 +648,7 @@ class CentralColumns
         }
         $centralTable = $cfgCentralColumns['table'];
         $this->dbi->selectDb($cfgCentralColumns['db'], DatabaseInterface::CONNECT_CONTROL);
-        if ($orig_col_name == "") {
+        if ($orig_col_name == '') {
             $def = [];
             $def['Type'] = $col_type;
             if ($col_length) {
@@ -1098,7 +1098,7 @@ class CentralColumns
             $db,
             $selected_tbl
         );
-        $selectColHtml = "";
+        $selectColHtml = '';
         foreach ($columns as $column) {
             if (! in_array($column, $existing_cols)) {
                 $selectColHtml .= '<option value="' . htmlspecialchars($column) . '">'
@@ -1187,20 +1187,20 @@ class CentralColumns
         }
 
         return $this->template->render('database/central_columns/main', [
-            "db" => $db,
-            "total_rows" => $total_rows,
-            "max_rows" => $max_rows,
-            "pos" => $pos,
-            "char_editing" => $this->charEditing,
-            "attribute_types" => $attribute_types,
-            "tn_nbTotalPage" => $tn_nbTotalPage,
-            "tn_page_selector" => $tn_page_selector,
-            "tables" => $tables,
-            "rows_list" => $rows_list,
-            "rows_meta" => $rows_meta,
-            "types_upper" => $types_upper,
-            "pmaThemeImage" => $pmaThemeImage,
-            "text_dir" => $text_dir,
+            'db' => $db,
+            'total_rows' => $total_rows,
+            'max_rows' => $max_rows,
+            'pos' => $pos,
+            'char_editing' => $this->charEditing,
+            'attribute_types' => $attribute_types,
+            'tn_nbTotalPage' => $tn_nbTotalPage,
+            'tn_page_selector' => $tn_page_selector,
+            'tables' => $tables,
+            'rows_list' => $rows_list,
+            'rows_meta' => $rows_meta,
+            'types_upper' => $types_upper,
+            'pmaThemeImage' => $pmaThemeImage,
+            'text_dir' => $text_dir,
             'charsets' => $charsetsList,
         ]);
     }

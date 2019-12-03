@@ -122,7 +122,7 @@ class Scripts
      */
     public function addCode($code)
     {
-        $this->_code .= "$code\n";
+        $this->_code .= $code . "\n";
     }
 
     /**
@@ -136,7 +136,7 @@ class Scripts
         $retval = [];
         foreach ($this->_files as $file) {
             //If filename contains a "?", continue.
-            if (strpos($file['filename'], "?") !== false) {
+            if (strpos($file['filename'], '?') !== false) {
                 continue;
             }
             $retval[] = [

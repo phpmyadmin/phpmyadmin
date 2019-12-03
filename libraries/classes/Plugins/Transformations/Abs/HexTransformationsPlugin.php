@@ -65,6 +65,6 @@ abstract class HexTransformationsPlugin extends TransformationsPlugin
      */
     public static function getName()
     {
-        return "Hex";
+        return 'Hex';
     }
 }

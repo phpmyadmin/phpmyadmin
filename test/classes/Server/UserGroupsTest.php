@@ -47,8 +47,8 @@ class UserGroupsTest extends TestCase
      */
     public function testGetHtmlForUserGroupsTableWithNoUserGroups()
     {
-        $expectedQuery = "SELECT * FROM `pmadb`.`usergroups`"
-            . " ORDER BY `usergroup` ASC";
+        $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups`'
+            . ' ORDER BY `usergroup` ASC';
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -84,8 +84,8 @@ class UserGroupsTest extends TestCase
      */
     public function testGetHtmlForUserGroupsTableWithUserGroups()
     {
-        $expectedQuery = "SELECT * FROM `pmadb`.`usergroups`"
-            . " ORDER BY `usergroup` ASC";
+        $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups`'
+            . ' ORDER BY `usergroup` ASC';
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -168,9 +168,9 @@ class UserGroupsTest extends TestCase
      */
     public function testDeleteUserGroup()
     {
-        $userDelQuery = "DELETE FROM `pmadb`.`users`"
+        $userDelQuery = 'DELETE FROM `pmadb`.`users`'
             . " WHERE `usergroup`='ug'";
-        $userGrpDelQuery = "DELETE FROM `pmadb`.`usergroups`"
+        $userGrpDelQuery = 'DELETE FROM `pmadb`.`usergroups`'
             . " WHERE `usergroup`='ug'";
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
@@ -209,7 +209,7 @@ class UserGroupsTest extends TestCase
             $html
         );
 
-        $expectedQuery = "SELECT * FROM `pmadb`.`usergroups`"
+        $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups`'
             . " WHERE `usergroup`='ug'";
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()

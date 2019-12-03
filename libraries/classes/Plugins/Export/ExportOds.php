@@ -58,23 +58,23 @@ class ExportOds extends ExportPlugin
         // $exportPluginProperties
         // this will be shown as "Format specific options"
         $exportSpecificOptions = new OptionsPropertyRootGroup(
-            "Format Specific Options"
+            'Format Specific Options'
         );
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup("general_opts");
+        $generalOptions = new OptionsPropertyMainGroup('general_opts');
         // create primary items and add them to the group
         $leaf = new TextPropertyItem(
-            "null",
+            'null',
             __('Replace NULL with:')
         );
         $generalOptions->addProperty($leaf);
         $leaf = new BoolPropertyItem(
-            "columns",
+            'columns',
             __('Put columns names in the first row')
         );
         $generalOptions->addProperty($leaf);
-        $leaf = new HiddenPropertyItem("structure_or_data");
+        $leaf = new HiddenPropertyItem('structure_or_data');
         $generalOptions->addProperty($leaf);
         // add the main group to the root group
         $exportSpecificOptions->addProperty($generalOptions);
@@ -282,31 +282,31 @@ class ExportOds extends ExportPlugin
                         .= '<table:table-cell office:value-type="string">'
                         . '<text:p></text:p>'
                         . '</table:table-cell>';
-                } elseif ($fields_meta[$j]->type == "date") {
+                } elseif ($fields_meta[$j]->type == 'date') {
                     $GLOBALS['ods_buffer']
                         .= '<table:table-cell office:value-type="date"'
                         . ' office:date-value="'
-                        . date("Y-m-d", strtotime($row[$j]))
+                        . date('Y-m-d', strtotime($row[$j]))
                         . '" table:style-name="DateCell">'
                         . '<text:p>'
                         . htmlspecialchars($row[$j])
                         . '</text:p>'
                         . '</table:table-cell>';
-                } elseif ($fields_meta[$j]->type == "time") {
+                } elseif ($fields_meta[$j]->type == 'time') {
                     $GLOBALS['ods_buffer']
                         .= '<table:table-cell office:value-type="time"'
                         . ' office:time-value="'
-                        . date("\P\TH\Hi\Ms\S", strtotime($row[$j]))
+                        . date('\P\TH\Hi\Ms\S', strtotime($row[$j]))
                         . '" table:style-name="TimeCell">'
                         . '<text:p>'
                         . htmlspecialchars($row[$j])
                         . '</text:p>'
                         . '</table:table-cell>';
-                } elseif ($fields_meta[$j]->type == "datetime") {
+                } elseif ($fields_meta[$j]->type == 'datetime') {
                     $GLOBALS['ods_buffer']
                         .= '<table:table-cell office:value-type="date"'
                         . ' office:date-value="'
-                        . date("Y-m-d\TH:i:s", strtotime($row[$j]))
+                        . date('Y-m-d\TH:i:s', strtotime($row[$j]))
                         . '" table:style-name="DateTimeCell">'
                         . '<text:p>'
                         . htmlspecialchars($row[$j])

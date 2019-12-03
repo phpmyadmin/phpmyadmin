@@ -49,7 +49,7 @@ if (isset($_POST['splitColumn'])) {
 if (isset($_POST['addNewPrimary'])) {
     $num_fields = 1;
     $columnMeta = [
-        'Field' => $table . "_id",
+        'Field' => $table . '_id',
         'Extra' => 'auto_increment',
     ];
     $html = $normalization->getHtmlForCreateNewColumn(

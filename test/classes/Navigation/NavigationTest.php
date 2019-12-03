@@ -70,8 +70,8 @@ class NavigationTest extends PmaTestCase
      */
     public function testHideNavigationItem()
     {
-        $expectedQuery = "INSERT INTO `pmadb`.`navigationhiding`"
-            . "(`username`, `item_name`, `item_type`, `db_name`, `table_name`)"
+        $expectedQuery = 'INSERT INTO `pmadb`.`navigationhiding`'
+            . '(`username`, `item_name`, `item_type`, `db_name`, `table_name`)'
             . " VALUES ('user','itemName','itemType','db','')";
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -95,7 +95,7 @@ class NavigationTest extends PmaTestCase
      */
     public function testUnhideNavigationItem()
     {
-        $expectedQuery = "DELETE FROM `pmadb`.`navigationhiding`"
+        $expectedQuery = 'DELETE FROM `pmadb`.`navigationhiding`'
             . " WHERE `username`='user' AND `item_name`='itemName'"
             . " AND `item_type`='itemType' AND `db_name`='db'";
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')

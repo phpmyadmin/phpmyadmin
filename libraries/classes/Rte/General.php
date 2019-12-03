@@ -58,7 +58,7 @@ class General
         // this just in case.
         $errors[] = $error . '<br>'
             . __('The backed up query was:')
-            . "\"" . htmlspecialchars($createStatement) . "\"" . '<br>'
+            . '"' . htmlspecialchars($createStatement) . '"' . '<br>'
             . __('MySQL said: ') . $this->dbi->getError();
 
         return $errors;
@@ -93,7 +93,7 @@ class General
                 $response->addJSON('message', $editor);
                 $response->addJSON('title', $title);
             } else {
-                echo "\n\n<h2>$title</h2>\n\n$editor";
+                echo "\n\n<h2>" . $title . "</h2>\n\n" . $editor;
                 unset($_POST);
             }
             exit;

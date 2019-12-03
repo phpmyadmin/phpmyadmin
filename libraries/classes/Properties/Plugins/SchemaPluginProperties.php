@@ -30,7 +30,7 @@ class SchemaPluginProperties extends PluginPropertyItem
      */
     public function getItemType()
     {
-        return "schema";
+        return 'schema';
     }
 
     /**

@@ -25,7 +25,7 @@ list(
 global $containerBuilder;
 
 // $_GET["message"] is used for asking for an import message
-if (isset($_GET["message"]) && $_GET["message"]) {
+if (isset($_GET['message']) && $_GET['message']) {
     // AJAX requests can't be cached!
     Core::noCacheHeader();
 
@@ -62,5 +62,5 @@ if (isset($_GET["message"]) && $_GET["message"]) {
         'go_back_url' => $_SESSION['Import_message']['go_back_url'],
     ]);
 } else {
-    ImportAjax::status($_GET["id"]);
+    ImportAjax::status($_GET['id']);
 }

@@ -2020,7 +2020,7 @@ class InsertEdit
         } elseif ((substr($column['True_Type'], 0, 9) == 'timestamp'
             || $column['True_Type'] == 'datetime'
             || $column['True_Type'] == 'time')
-            && (mb_strpos($current_row[$column['Field']], ".") !== false)
+            && (mb_strpos($current_row[$column['Field']], '.') !== false)
         ) {
             $current_row[$column['Field']] = $as_is
                 ? $current_row[$column['Field']]
@@ -2613,12 +2613,12 @@ class InsertEdit
             && in_array($multi_edit_funcs[$key], $func_optional_param))
         ) {
             if ((isset($multi_edit_salt[$key])
-                && ($multi_edit_funcs[$key] == "AES_ENCRYPT"
-                || $multi_edit_funcs[$key] == "AES_DECRYPT"))
+                && ($multi_edit_funcs[$key] == 'AES_ENCRYPT'
+                || $multi_edit_funcs[$key] == 'AES_DECRYPT'))
                 || (! empty($multi_edit_salt[$key])
-                && ($multi_edit_funcs[$key] == "DES_ENCRYPT"
-                || $multi_edit_funcs[$key] == "DES_DECRYPT"
-                || $multi_edit_funcs[$key] == "ENCRYPT"))
+                && ($multi_edit_funcs[$key] == 'DES_ENCRYPT'
+                || $multi_edit_funcs[$key] == 'DES_DECRYPT'
+                || $multi_edit_funcs[$key] == 'ENCRYPT'))
             ) {
                 return $multi_edit_funcs[$key] . '(' . $current_value . ",'"
                     . $this->dbi->escapeString($multi_edit_salt[$key]) . "')";
@@ -3319,7 +3319,7 @@ class InsertEdit
 
         //add data attributes "no of decimals" and "data type"
         $no_decimals = 0;
-        $type = current(explode("(", $column['pma_type']));
+        $type = current(explode('(', $column['pma_type']));
         if (preg_match('/\(([^()]+)\)/', $column['pma_type'], $match)) {
             $match[0] = trim($match[0], '()');
             $no_decimals = $match[0];

@@ -43,8 +43,8 @@ class ImportTest extends TestBase
         $this->assertGreaterThanOrEqual(2, $result->num_rows);
 
         // clear db
-        $this->dbQuery("DROP DATABASE test_import1");
-        $this->dbQuery("DROP DATABASE test_import2");
+        $this->dbQuery('DROP DATABASE test_import1');
+        $this->dbQuery('DROP DATABASE test_import2');
     }
 
     /**
@@ -56,13 +56,13 @@ class ImportTest extends TestBase
      */
     public function testDbImport()
     {
-        $this->dbQuery("CREATE DATABASE " . $this->database_name);
+        $this->dbQuery('CREATE DATABASE ' . $this->database_name);
         $this->navigateDatabase($this->database_name);
 
-        $this->_doImport("db");
+        $this->_doImport('db');
 
-        $this->dbQuery("USE " . $this->database_name);
-        $result = $this->dbQuery("SHOW TABLES");
+        $this->dbQuery('USE ' . $this->database_name);
+        $result = $this->dbQuery('SHOW TABLES');
         $this->assertEquals(1, $result->num_rows);
     }
 
@@ -76,17 +76,17 @@ class ImportTest extends TestBase
     public function testTableImport()
     {
         // setup the db
-        $this->dbQuery("CREATE DATABASE " . $this->database_name);
-        $this->dbQuery("USE " . $this->database_name);
+        $this->dbQuery('CREATE DATABASE ' . $this->database_name);
+        $this->dbQuery('USE ' . $this->database_name);
         $this->dbQuery(
-            "CREATE TABLE IF NOT EXISTS `test_table` (`val` int(11) NOT NULL)"
+            'CREATE TABLE IF NOT EXISTS `test_table` (`val` int(11) NOT NULL)'
         );
 
         $this->navigateTable('test_table');
 
-        $this->_doImport("table");
+        $this->_doImport('table');
 
-        $result = $this->dbQuery("SELECT * FROM test_table");
+        $result = $this->dbQuery('SELECT * FROM test_table');
         $this->assertEquals(2, $result->num_rows);
     }
 
@@ -99,23 +99,23 @@ class ImportTest extends TestBase
      */
     private function _doImport($type)
     {
-        $this->waitForElement('partialLinkText', "Import")->click();
+        $this->waitForElement('partialLinkText', 'Import')->click();
         $this->waitAjax();
         $this->waitForElement('id', 'input_import_file');
 
         $this->waitForElement('cssSelector', 'label[for=radio_local_import_file]')->click();
 
         $this->selectByValue(
-            $this->byName("local_import_file"),
-            $type . "_import.sql"
+            $this->byName('local_import_file'),
+            $type . '_import.sql'
         );
 
         $this->webDriver->wait(5);
 
         $this->webDriver->executeScript(
-            "window.scrollTo(0," .
+            'window.scrollTo(0,' .
             $this->byId('buttonGo')->getLocation()->getY()
-            . ")"
+            . ')'
         );
         $this->webDriver->wait(5);
         $this->scrollToBottom();

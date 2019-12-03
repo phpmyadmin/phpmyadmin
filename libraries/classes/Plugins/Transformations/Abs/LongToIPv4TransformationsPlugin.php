@@ -60,6 +60,6 @@ abstract class LongToIPv4TransformationsPlugin extends TransformationsPlugin
      */
     public static function getName()
     {
-        return "Long To IPv4";
+        return 'Long To IPv4';
     }
 }

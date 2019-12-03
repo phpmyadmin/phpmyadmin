@@ -27,12 +27,12 @@ class NormalizationTest extends TestBase
     {
         parent::setUp();
         $this->dbQuery(
-            "CREATE TABLE `test_table` ("
-            . " `id` int(11) NOT NULL AUTO_INCREMENT,"
-            . " `val` int(11) NOT NULL,"
-            . " `val2` varchar(64) NOT NULL,"
-            . "PRIMARY KEY(id)"
-            . ")"
+            'CREATE TABLE `test_table` ('
+            . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
+            . ' `val` int(11) NOT NULL,'
+            . ' `val2` varchar(64) NOT NULL,'
+            . 'PRIMARY KEY(id)'
+            . ')'
         );
 
         $this->login();
@@ -44,9 +44,9 @@ class NormalizationTest extends TestBase
 
         $this->waitAjax();
 
-        $this->waitForElement('id', "tablestructure");
+        $this->waitForElement('id', 'tablestructure');
         $this->byPartialLinkText('Normalize')->click();
-        $this->waitForElement('id', "normalizeTable");
+        $this->waitForElement('id', 'normalizeTable');
     }
 
     /**
@@ -62,7 +62,7 @@ class NormalizationTest extends TestBase
             $this->isElementPresent('cssSelector', 'fieldset')
         );
         $this->assertEquals(
-            "First step of normalization (1NF)",
+            'First step of normalization (1NF)',
             $this->byCssSelector('label[for=normalizeTo_1nf]')->getText()
         );
         $this->assertTrue(
@@ -84,7 +84,7 @@ class NormalizationTest extends TestBase
     private function _test1NFSteps()
     {
         $this->assertEquals(
-            "First step of normalization (1NF)",
+            'First step of normalization (1NF)',
             $this->byCssSelector('#page_content h3')->getText()
         );
         $this->assertTrue(
@@ -133,8 +133,8 @@ class NormalizationTest extends TestBase
             'xpath',
             "//legend[contains(., 'Step 1.2 Have a primary key')]"
         );
-        $text = $this->byCssSelector("#mainContent h4")->getText();
-        $this->assertStringContainsString("Primary key already exists.", $text);
+        $text = $this->byCssSelector('#mainContent h4')->getText();
+        $this->assertStringContainsString('Primary key already exists.', $text);
         $this->waitForElement(
             'xpath',
             "//legend[contains(., 'Step 1.3 Move repeating groups')]"
@@ -163,14 +163,14 @@ class NormalizationTest extends TestBase
             )
         );
         $this->byCssSelector('#extra input[value=val][type=checkbox]')->click();
-        $this->byCssSelector("#removeRedundant")->click();
+        $this->byCssSelector('#removeRedundant')->click();
         $this->waitForElement(
             'xpath',
             "//legend[contains(., 'End of step')]"
         );
         $this->assertStringContainsString(
             "The first step of normalization is complete for table 'test_table'.",
-            $this->byCssSelector("#mainContent h4")->getText()
+            $this->byCssSelector('#mainContent h4')->getText()
         );
     }
 }

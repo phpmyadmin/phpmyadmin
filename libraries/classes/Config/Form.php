@@ -105,11 +105,11 @@ class Form
     {
         $value = $this->_configFile->getDbEntry($optionPath);
         if ($value === null) {
-            trigger_error("$optionPath - select options not defined", E_USER_ERROR);
+            trigger_error($optionPath . ' - select options not defined', E_USER_ERROR);
             return [];
         }
         if (! is_array($value)) {
-            trigger_error("$optionPath - not a static value list", E_USER_ERROR);
+            trigger_error($optionPath . ' - not a static value list', E_USER_ERROR);
             return [];
         }
         // convert array('#', 'a', 'b') to array('a', 'b')

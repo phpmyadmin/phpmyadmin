@@ -130,6 +130,6 @@ abstract class OptionsPropertyItem extends PropertyItem
      */
     public function getPropertyType()
     {
-        return "options";
+        return 'options';
     }
 }

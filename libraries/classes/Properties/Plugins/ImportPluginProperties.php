@@ -27,6 +27,6 @@ class ImportPluginProperties extends PluginPropertyItem
      */
     public function getItemType()
     {
-        return "import";
+        return 'import';
     }
 }

@@ -29,6 +29,6 @@ class SelectPropertyItem extends OptionsPropertyOneItem
      */
     public function getItemType()
     {
-        return "select";
+        return 'select';
     }
 }

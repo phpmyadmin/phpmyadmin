@@ -29,6 +29,6 @@ class TextPropertyItem extends OptionsPropertyOneItem
      */
     public function getItemType()
     {
-        return "text";
+        return 'text';
     }
 }

@@ -86,10 +86,10 @@ class SystemDatabase
 
         // Need to store new transformation details for VIEW
         $new_transformations_sql = sprintf(
-            "INSERT INTO %s.%s ("
-            . "`db_name`, `table_name`, `column_name`, "
-            . "`comment`, `mimetype`, `transformation`, "
-            . "`transformation_options`) VALUES",
+            'INSERT INTO %s.%s ('
+            . '`db_name`, `table_name`, `column_name`, '
+            . '`comment`, `mimetype`, `transformation`, '
+            . '`transformation_options`) VALUES',
             Util::backquote($cfgRelation['db']),
             Util::backquote($cfgRelation['column_info'])
         );

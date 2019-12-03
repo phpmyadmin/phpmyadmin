@@ -36,8 +36,8 @@ class UserGroups
 
         $cfgRelation = $relation->getRelationsParam();
         $usersTable = Util::backquote($cfgRelation['db'])
-            . "." . Util::backquote($cfgRelation['users']);
-        $sql_query = "SELECT `username` FROM " . $usersTable
+            . '.' . Util::backquote($cfgRelation['users']);
+        $sql_query = 'SELECT `username` FROM ' . $usersTable
             . " WHERE `usergroup`='" . $GLOBALS['dbi']->escapeString($userGroup)
             . "'";
         $result = $relation->queryAsControlUser($sql_query, false);
@@ -77,8 +77,8 @@ class UserGroups
         $html_output  = '<div class="row"><h2>' . __('User groups') . '</h2></div>';
         $cfgRelation = $relation->getRelationsParam();
         $groupTable = Util::backquote($cfgRelation['db'])
-            . "." . Util::backquote($cfgRelation['usergroups']);
-        $sql_query = "SELECT * FROM " . $groupTable . " ORDER BY `usergroup` ASC";
+            . '.' . Util::backquote($cfgRelation['usergroups']);
+        $sql_query = 'SELECT * FROM ' . $groupTable . ' ORDER BY `usergroup` ASC';
         $result = $relation->queryAsControlUser($sql_query, false);
 
         if ($result && $GLOBALS['dbi']->numRows($result)) {
@@ -201,14 +201,14 @@ class UserGroups
         $relation = new Relation($GLOBALS['dbi']);
         $cfgRelation = $relation->getRelationsParam();
         $userTable = Util::backquote($cfgRelation['db'])
-            . "." . Util::backquote($cfgRelation['users']);
+            . '.' . Util::backquote($cfgRelation['users']);
         $groupTable = Util::backquote($cfgRelation['db'])
-            . "." . Util::backquote($cfgRelation['usergroups']);
-        $sql_query = "DELETE FROM " . $userTable
+            . '.' . Util::backquote($cfgRelation['usergroups']);
+        $sql_query = 'DELETE FROM ' . $userTable
             . " WHERE `usergroup`='" . $GLOBALS['dbi']->escapeString($userGroup)
             . "'";
         $relation->queryAsControlUser($sql_query, true);
-        $sql_query = "DELETE FROM " . $groupTable
+        $sql_query = 'DELETE FROM ' . $groupTable
             . " WHERE `usergroup`='" . $GLOBALS['dbi']->escapeString($userGroup)
             . "'";
         $relation->queryAsControlUser($sql_query, true);
@@ -266,8 +266,8 @@ class UserGroups
         if ($userGroup != null) {
             $cfgRelation = $relation->getRelationsParam();
             $groupTable = Util::backquote($cfgRelation['db'])
-                . "." . Util::backquote($cfgRelation['usergroups']);
-            $sql_query = "SELECT * FROM " . $groupTable
+                . '.' . Util::backquote($cfgRelation['usergroups']);
+            $sql_query = 'SELECT * FROM ' . $groupTable
                 . " WHERE `usergroup`='" . $GLOBALS['dbi']->escapeString($userGroup)
                 . "'";
             $result = $relation->queryAsControlUser($sql_query, false);
@@ -358,32 +358,32 @@ class UserGroups
         $tabs = Util::getMenuTabList();
         $cfgRelation = $relation->getRelationsParam();
         $groupTable = Util::backquote($cfgRelation['db'])
-            . "." . Util::backquote($cfgRelation['usergroups']);
+            . '.' . Util::backquote($cfgRelation['usergroups']);
 
         if (! $new) {
-            $sql_query = "DELETE FROM " . $groupTable
+            $sql_query = 'DELETE FROM ' . $groupTable
                 . " WHERE `usergroup`='" . $GLOBALS['dbi']->escapeString($userGroup)
                 . "';";
             $relation->queryAsControlUser($sql_query, true);
         }
 
-        $sql_query = "INSERT INTO " . $groupTable
-            . "(`usergroup`, `tab`, `allowed`)"
-            . " VALUES ";
+        $sql_query = 'INSERT INTO ' . $groupTable
+            . '(`usergroup`, `tab`, `allowed`)'
+            . ' VALUES ';
         $first = true;
         foreach ($tabs as $tabGroupName => $tabGroup) {
             foreach ($tabGroup as $tab => $tabName) {
                 if (! $first) {
-                    $sql_query .= ", ";
+                    $sql_query .= ', ';
                 }
                 $tabName = $tabGroupName . '_' . $tab;
                 $allowed = isset($_POST[$tabName]) && $_POST[$tabName] == 'Y';
                 $sql_query .= "('" . $GLOBALS['dbi']->escapeString($userGroup) . "', '" . $tabName . "', '"
-                    . ($allowed ? "Y" : "N") . "')";
+                    . ($allowed ? 'Y' : 'N') . "')";
                 $first = false;
             }
         }
-        $sql_query .= ";";
+        $sql_query .= ';';
         $relation->queryAsControlUser($sql_query, true);
     }
 }

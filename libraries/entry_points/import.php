@@ -550,7 +550,7 @@ if (! $error) {
      * @var ImportPlugin $import_plugin
      */
     $import_plugin = Plugins::getPlugin(
-        "import",
+        'import',
         $format,
         'libraries/classes/Plugins/Import/',
         $import_type

@@ -64,7 +64,7 @@ class GisMultiLineString extends GisGeometry
                 mb_strlen($spatial) - 19
             );
         // Separate each linestring
-        $linestirngs = explode("),(", $multilinestirng);
+        $linestirngs = explode('),(', $multilinestirng);
 
         foreach ($linestirngs as $linestring) {
             $min_max = $this->setMinMax($linestring, $min_max);
@@ -107,7 +107,7 @@ class GisMultiLineString extends GisGeometry
                 mb_strlen($spatial) - 19
             );
         // Separate each linestring
-        $linestirngs = explode("),(", $multilinestirng);
+        $linestirngs = explode('),(', $multilinestirng);
 
         $first_line = true;
         foreach ($linestirngs as $linestring) {
@@ -181,7 +181,7 @@ class GisMultiLineString extends GisGeometry
                 mb_strlen($spatial) - 19
             );
         // Separate each linestring
-        $linestirngs = explode("),(", $multilinestirng);
+        $linestirngs = explode('),(', $multilinestirng);
 
         $first_line = true;
         foreach ($linestirngs as $linestring) {
@@ -243,7 +243,7 @@ class GisMultiLineString extends GisGeometry
                 mb_strlen($spatial) - 19
             );
         // Separate each linestring
-        $linestirngs = explode("),(", $multilinestirng);
+        $linestirngs = explode('),(', $multilinestirng);
 
         $row = '';
         foreach ($linestirngs as $linestring) {
@@ -298,7 +298,7 @@ class GisMultiLineString extends GisGeometry
                 mb_strlen($spatial) - 19
             );
         // Separate each linestring
-        $linestirngs = explode("),(", $multilinestirng);
+        $linestirngs = explode('),(', $multilinestirng);
 
         $row .= 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
             . 'new OpenLayers.Geometry.MultiLineString('
@@ -428,7 +428,7 @@ class GisMultiLineString extends GisGeometry
                 mb_strlen($wkt) - 19
             );
         // Separate each linestring
-        $linestirngs = explode("),(", $multilinestirng);
+        $linestirngs = explode('),(', $multilinestirng);
         $params[$index]['MULTILINESTRING']['no_of_lines'] = count($linestirngs);
 
         $j = 0;

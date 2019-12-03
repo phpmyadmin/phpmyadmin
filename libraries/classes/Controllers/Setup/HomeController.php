@@ -137,7 +137,7 @@ class HomeController extends AbstractController
                 $servers[$id] = [
                     'id' => $id,
                     'name' => $this->config->getServerName($id),
-                    'auth_type' => $this->config->getValue("Servers/$id/auth_type"),
+                    'auth_type' => $this->config->getValue('Servers/' . $id . '/auth_type'),
                     'dsn' => $this->config->getServerDSN($id),
                     'params' => [
                         'token' => $_SESSION[' PMA_token '],
@@ -153,7 +153,7 @@ class HomeController extends AbstractController
                         ],
                     ],
                 ];
-                $serverDefaultOptions['values'][(string) $id] = $this->config->getServerName($id) . " [$id]";
+                $serverDefaultOptions['values'][(string) $id] = $this->config->getServerName($id) . ' [' . $id . ']';
             }
         } else {
             $serverDefaultOptions['values']['1'] = __('- none -');

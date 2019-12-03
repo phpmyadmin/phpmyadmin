@@ -105,11 +105,11 @@ class Designer
             return $result;
         }
 
-        $page_query = "SELECT `page_nr`, `page_descr` FROM "
-            . Util::backquote($cfgRelation['db']) . "."
+        $page_query = 'SELECT `page_nr`, `page_descr` FROM '
+            . Util::backquote($cfgRelation['db']) . '.'
             . Util::backquote($cfgRelation['pdf_pages'])
             . " WHERE db_name = '" . $this->dbi->escapeString($db) . "'"
-            . " ORDER BY `page_descr`";
+            . ' ORDER BY `page_descr`';
         $page_rs = $this->relation->queryAsControlUser(
             $page_query,
             false,
@@ -135,7 +135,7 @@ class Designer
         /* Scan for schema plugins */
         /** @var SchemaPlugin[] $export_list */
         $export_list = Plugins::getPlugins(
-            "schema",
+            'schema',
             'libraries/classes/Plugins/Schema/',
             null
         );

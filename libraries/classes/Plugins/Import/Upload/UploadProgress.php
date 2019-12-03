@@ -41,7 +41,7 @@ class UploadProgress implements UploadInterface
     {
         global $SESSION_KEY;
 
-        if (trim($id) == "") {
+        if (trim($id) == '') {
             return null;
         }
 

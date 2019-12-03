@@ -223,10 +223,10 @@ abstract class TestBase extends TestCase
      */
     private function navigateTo(string $url): void
     {
-        if (substr($GLOBALS['TESTSUITE_URL'], -1) === "/") {
+        if (substr($GLOBALS['TESTSUITE_URL'], -1) === '/') {
             $url = $GLOBALS['TESTSUITE_URL'] . $url;
         } else {
-            $url = $GLOBALS['TESTSUITE_URL'] . "/" . $url;
+            $url = $GLOBALS['TESTSUITE_URL'] . '/' . $url;
         }
 
         $this->webDriver->get($url);
@@ -552,7 +552,7 @@ abstract class TestBase extends TestCase
      */
     public function isSuccessLogin()
     {
-        return $this->isElementPresent('xpath', "//*[@id=\"server-breadcrumb\"]");
+        return $this->isElementPresent('xpath', '//*[@id="server-breadcrumb"]');
     }
 
     /**
@@ -562,7 +562,7 @@ abstract class TestBase extends TestCase
      */
     public function isUnsuccessLogin()
     {
-        return $this->isElementPresent('cssSelector', "div.error");
+        return $this->isElementPresent('cssSelector', 'div.error');
     }
 
     /**
@@ -572,7 +572,7 @@ abstract class TestBase extends TestCase
      */
     public function gotoHomepage()
     {
-        $e = $this->byPartialLinkText("Server: ");
+        $e = $this->byPartialLinkText('Server: ');
         $e->click();
         $this->waitAjax();
     }
@@ -612,7 +612,7 @@ abstract class TestBase extends TestCase
     public function logOutIfLoggedIn()
     {
         if ($this->isLoggedIn()) {
-            $this->byCssSelector("img.icon.ic_s_loggoff")->click();
+            $this->byCssSelector('img.icon.ic_s_loggoff')->click();
         }
     }
 
@@ -716,8 +716,12 @@ abstract class TestBase extends TestCase
      */
     public function getCellByTableId($tableID, $row, $column)
     {
-        $sel = "table#{$tableID} tbody tr:nth-child({$row}) "
-            . "td:nth-child({$column})";
+        $sel = sprintf(
+            'table#%s tbody tr:nth-child(%d) td:nth-child(%d)',
+            $tableID,
+            $row,
+            $column
+        );
         $element = $this->byCssSelector(
             $sel
         );
@@ -737,8 +741,12 @@ abstract class TestBase extends TestCase
      */
     public function getCellByTableClass($tableClass, $row, $column)
     {
-        $sel = "table.{$tableClass} tbody tr:nth-child({$row}) "
-            . "td:nth-child({$column})";
+        $sel = sprintf(
+            'table.%s tbody tr:nth-child(%d) td:nth-child(%d)',
+            $tableClass,
+            $row,
+            $column
+        );
         $element = $this->byCssSelector(
             $sel
         );
@@ -820,7 +828,7 @@ abstract class TestBase extends TestCase
     {
         $this->waitForElement('cssSelector', 'div.cm-s-default');
         $this->webDriver->executeScript(
-            "$('.cm-s-default')[$index].CodeMirror.setValue('" . $text . "');"
+            "$('.cm-s-default')[" . $index . "].CodeMirror.setValue('" . $text . "');"
         );
     }
 
@@ -871,7 +879,7 @@ abstract class TestBase extends TestCase
         // go to table page
         $this->waitForElement(
             'xpath',
-            "//th//a[contains(., '$table')]"
+            "//th//a[contains(., '" . $table . "')]"
         )->click();
         $this->waitAjax();
 
@@ -1042,20 +1050,20 @@ abstract class TestBase extends TestCase
             curl_setopt(
                 $ch,
                 CURLOPT_URL,
-                $SESSION_REST_URL . $this->sessionId . ".json"
+                $SESSION_REST_URL . $this->sessionId . '.json'
             );
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
             curl_setopt(
                 $ch,
                 CURLOPT_USERPWD,
                 $GLOBALS['TESTSUITE_BROWSERSTACK_USER']
-                    . ":" . $GLOBALS['TESTSUITE_BROWSERSTACK_KEY']
+                    . ':' . $GLOBALS['TESTSUITE_BROWSERSTACK_KEY']
             );
 
             $headers = [];
-            $headers[] = "Content-Type: application/json";
+            $headers[] = 'Content-Type: application/json';
             curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
             $result = curl_exec($ch);
@@ -1071,14 +1079,14 @@ abstract class TestBase extends TestCase
                 curl_setopt(
                     $ch,
                     CURLOPT_URL,
-                    $SESSION_REST_URL . $this->sessionId . ".json"
+                    $SESSION_REST_URL . $this->sessionId . '.json'
                 );
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
                 curl_setopt(
                     $ch,
                     CURLOPT_USERPWD,
                     $GLOBALS['TESTSUITE_BROWSERSTACK_USER']
-                    . ":" . $GLOBALS['TESTSUITE_BROWSERSTACK_KEY']
+                    . ':' . $GLOBALS['TESTSUITE_BROWSERSTACK_KEY']
                 );
                 $result = curl_exec($ch);
                 $proj = json_decode($result);
