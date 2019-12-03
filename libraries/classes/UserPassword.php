@@ -13,6 +13,7 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Privileges;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -278,9 +279,8 @@ class UserPassword
             $sql_query,
             'success'
         );
-        echo '<a href="' , Url::getFromRoute('/')
-            , ' target="_parent">' , "\n"
-            , '<strong>' , __('Back') , '</strong></a>';
+        $template = new Template();
+        echo $template->render('user_password');
         exit;
     }
 }
