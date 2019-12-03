@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-11-22 01:29+0100\n"
-"PO-Revision-Date: 2018-11-18 16:07+0000\n"
-"Last-Translator: Lukáš Jelínek <devel@aiken.cz>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-8/cs/"
-">\n"
+"PO-Revision-Date: 2019-12-05 12:05+0000\n"
+"Last-Translator: Petr Pešula <p.pesula@gmail.com>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-9/cs/>"
+"\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.3-dev\n"
+"X-Generator: Weblate 3.10-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -339,13 +339,13 @@ msgstr "Musíte zvolit alespoň jedno pole, které si přejete zobrazit!"
 #, fuzzy
 #| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Simulovat dotaz"
+msgstr "Vícetabulkový dotaz"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
 #, fuzzy
 #| msgid "Query failed"
 msgid "Query by example"
-msgstr "Dotaz selhal"
+msgstr "Příklad dotazu"
 
 #: db_qbe.php:168
 #, php-format
@@ -546,7 +546,8 @@ msgid ""
 "Choose \"ST_GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Z funkcí zvolte „GeomFromText“ a vložte níže uvedený text jako hodnotu."
+"Ze sloupce \"funkce\" zvolte \"ST_GeomFromText\" a vložte níže uvedený "
+"řetězec do pole \"hodnota\"."
 
 #: import.php:73
 msgid "Succeeded"
@@ -697,10 +698,8 @@ msgid "Server type:"
 msgstr "Typ serveru:"
 
 #: index.php:351
-#, fuzzy
-#| msgid "Insecure connection"
 msgid "Server connection:"
-msgstr "Nezabezpečené připojení"
+msgstr "Připojení k serveru:"
 
 #: index.php:355 libraries/classes/Plugins/Export/ExportLatex.php:223
 #: libraries/classes/Plugins/Export/ExportSql.php:705
@@ -1113,10 +1112,8 @@ msgid "Y values"
 msgstr "Hodnoty Y"
 
 #: js/messages.php:142
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "Prosím zadejte stejnou hodnotu znovu"
+msgstr "Nejprve zadejte dotaz SQL."
 
 #: js/messages.php:145
 msgid "The host name is empty!"
@@ -1798,10 +1795,8 @@ msgid "No databases selected."
 msgstr "Nebyla vybrána žádná databáze."
 
 #: js/messages.php:374
-#, fuzzy
-#| msgid "No column selected."
 msgid "No accounts selected."
-msgstr "Nebyl vybrán žádný sloupec."
+msgstr "Nebyly vybrány žádné účty."
 
 #: js/messages.php:375
 msgid "Dropping column"
@@ -2302,14 +2297,12 @@ msgstr ""
 
 #: js/messages.php:564
 msgid "value/subQuery is empty"
-msgstr "hodnota/podDotaz jsou prázdné"
+msgstr "hodnota/podDotaz je prázdný"
 
 #: js/messages.php:565 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
-msgstr "V databázi nebyly nalezeny žádné tabulky."
+msgstr "Přidat tabulky z ostatních databází"
 
 #: js/messages.php:566
 msgid "Page name"
@@ -2368,10 +2361,8 @@ msgid "%d object(s) created."
 msgstr "Bylo vytvořeno %d objektů."
 
 #: js/messages.php:582
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
-msgstr "Názvy polí"
+msgstr "Název sloupce"
 
 #: js/messages.php:583 libraries/classes/SqlQueryForm.php:419
 msgid "Submit"
@@ -2654,7 +2645,6 @@ msgid "Time taken:"
 msgstr "Doba běhu:"
 
 #: js/messages.php:736
-#, fuzzy
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -3059,10 +3049,9 @@ msgid "Error"
 msgstr "Chyba"
 
 #: libraries/classes/Advisor.php:259
-#, fuzzy, php-format
-#| msgid "Error while creating PDF:"
+#, php-format
 msgid "Error when evaluating: %s"
-msgstr "Chyba při vytváření PDF:"
+msgstr "Chyba při vytváření: %s"
 
 #: libraries/classes/Advisor.php:290
 #, php-format
@@ -3289,11 +3278,8 @@ msgid "Charset"
 msgstr "Znaková sada"
 
 #: libraries/classes/Charsets.php:335
-#, fuzzy
-#| msgctxt "Collation"
-#| msgid "Unknown"
 msgid "Unknown"
-msgstr "neznámý"
+msgstr "Neznámý"
 
 #: libraries/classes/Charsets.php:349
 #, fuzzy
@@ -3303,8 +3289,6 @@ msgid "Binary"
 msgstr "Binární"
 
 #: libraries/classes/Charsets.php:361 libraries/classes/Charsets.php:600
-#, fuzzy
-#| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicode"
@@ -3320,15 +3304,11 @@ msgid "Central European"
 msgstr "Středoevropský"
 
 #: libraries/classes/Charsets.php:383 libraries/classes/Charsets.php:554
-#, fuzzy
-#| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Ruština"
 
 #: libraries/classes/Charsets.php:388
-#, fuzzy
-#| msgid "Simplified Chinese"
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Zjednodušená čínština"
@@ -3344,18 +3324,14 @@ msgid "Chinese"
 msgstr "Čínština"
 
 #: libraries/classes/Charsets.php:402 libraries/classes/Charsets.php:518
-#, fuzzy
-#| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Japonština"
 
 #: libraries/classes/Charsets.php:407
-#, fuzzy
-#| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
-msgstr "Baltické jazyky"
+msgstr "Baltské jazyky"
 
 #: libraries/classes/Charsets.php:412
 #, fuzzy
@@ -3477,7 +3453,7 @@ msgstr "Datový slovník"
 #: libraries/classes/Charsets.php:501 libraries/classes/Charsets.php:616
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "Němčina (telefonní seznam)"
 
 #: libraries/classes/Charsets.php:510
 #, fuzzy
@@ -3616,9 +3592,10 @@ msgid "binary"
 msgstr "Binární"
 
 #: libraries/classes/Charsets.php:685
+#, fuzzy
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "bez podložky"
 
 #: libraries/classes/Config.php:1122
 #, php-format
@@ -4720,7 +4697,7 @@ msgstr "Nepoužívat AUTO_INCREMENT pro nulové hodnoty"
 #, fuzzy
 #| msgid "Read misses"
 msgid "Read as multibytes"
-msgstr "Číst jako řetězec"
+msgstr "Číst jako multibytes"
 
 #: libraries/classes/Config/Descriptions.php:684
 msgid "Initial state for sliders"
@@ -5046,7 +5023,7 @@ msgstr "Zobrazit ve stromu fuknce"
 
 #: libraries/classes/Config/Descriptions.php:847
 msgid "Whether to show functions under database in the navigation tree"
-msgstr "Zda v navigačním stromu zobrazovat funkce pod databází"
+msgstr "Zda v navigačním stromu zobrazovat funkce pro databázi"
 
 #: libraries/classes/Config/Descriptions.php:849
 msgid "Show procedures in tree"
@@ -5094,12 +5071,14 @@ msgid "Where to show the table row links"
 msgstr "Kde zobrazit odkazy s akcemi při procházení"
 
 #: libraries/classes/Config/Descriptions.php:869
+#, fuzzy
 msgid "Whether to show row links even in the absence of a unique key."
-msgstr ""
+msgstr "Zda se mají zobrazit řádkové odkazy, i když neexistuje jedinečný klíč."
 
 #: libraries/classes/Config/Descriptions.php:871
+#, fuzzy
 msgid "Show row links anyway"
-msgstr ""
+msgstr "Přesto zobrazit odkazy na řádky"
 
 #: libraries/classes/Config/Descriptions.php:873
 #: libraries/classes/Config/Descriptions.php:875
@@ -6650,9 +6629,9 @@ msgstr "Nesprávná IP adresa: %s"
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Zobrazuje se záložka %1$d (soukromá i sdílená)"
+msgstr[1] "Zobrazují se záložky %1$d (soukromé i sdílené)"
+msgstr[2] "Zobrazují se záložky %1$d (soukromé i sdílené)"
 
 #: libraries/classes/Console.php:100
 msgid "No bookmarks"
@@ -7036,8 +7015,9 @@ msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Chyba: Relace cizího klíče nemohla být přidána!"
 
 #: libraries/classes/Database/Designer/Common.php:622
+#, fuzzy
 msgid "Error: Missing index on column(s)."
-msgstr ""
+msgstr "Chyba: Chybí index ve sloupcích."
 
 #: libraries/classes/Database/Designer/Common.php:627
 msgid "Error: Relational features are disabled!"
@@ -7278,10 +7258,12 @@ msgid ""
 "Please disable mysql.allow_local_infile in your PHP configuration or install "
 "the mysqli extension."
 msgstr ""
+"Zakažte, prosím, mysql.allow_local_infile v konfiguraci PHP nebo "
+"nainstalujte doplněk mysqli."
 
 #: libraries/classes/Dbi/DbiMysqli.php:178
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr ""
+msgstr "SSL připojení vyžadováno serverem, automaticky zapnuto."
 
 #: libraries/classes/Display/ChangePassword.php:68
 #: libraries/classes/ReplicationGui.php:863
@@ -8570,7 +8552,7 @@ msgstr[2] "nalezeno %s výsledků"
 #: libraries/classes/Navigation/NavigationTree.php:1368
 #: libraries/classes/Navigation/NavigationTree.php:1400
 msgid "Type to filter these, Enter to search all"
-msgstr ""
+msgstr "Zadáním tohoto filtru, Enter pro vyhledání všeho"
 
 #: libraries/classes/Navigation/NavigationTree.php:1370
 #: libraries/classes/Navigation/NavigationTree.php:1401
@@ -8847,6 +8829,8 @@ msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
+"Žádné dílčí závislosti nejsou možné, protože neexistuje žádný primární "
+"sloupec, protože primární klíč ( %1$s ) se skládá ze všech sloupců v tabulce."
 
 #: libraries/classes/Normalization.php:399
 #: libraries/classes/Normalization.php:444
@@ -8881,6 +8865,9 @@ msgid ""
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
 msgstr ""
+"Pro každý následující sloupec vyberte <b>minimální množinu</b> sloupců mezi "
+"danou sadou, jejíž hodnoty dohromady jsou dostačující k určení hodnoty "
+"sloupce."
 
 #: libraries/classes/Normalization.php:427
 #: libraries/classes/Normalization.php:835
@@ -8894,6 +8881,8 @@ msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
+"Žádné částečné závislosti nelze považovat za primární klíč ( %1$s ), který "
+"obsahuje pouze jeden sloupec."
 
 #: libraries/classes/Normalization.php:468
 #, php-format
@@ -9172,10 +9161,8 @@ msgid "Truncate"
 msgstr "Vyprázdnit"
 
 #: libraries/classes/Operations.php:1608
-#, fuzzy
-#| msgid "Collapse"
 msgid "Coalesce"
-msgstr "Vyhledat první platný záznam"
+msgstr "Splynout"
 
 #: libraries/classes/Operations.php:1617
 msgid "Partition maintenance"
@@ -17368,7 +17355,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.txt:280
 #, php-format
 msgid "Immediate table locks %%"
-msgstr "Procento okamžitého získání zámku tabulky"
+msgstr "Okamžité zámky tabulky %%"
 
 #: libraries/advisory_rules_generic.txt:283
 #: libraries/advisory_rules_generic.txt:290
