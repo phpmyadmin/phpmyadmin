@@ -352,7 +352,7 @@ class SearchControllerTest extends PmaTestCase
         ];
         $result = $method->invoke($ctrl);
         $this->assertEquals(
-            ' WHERE `b` <= 10 AND `a` = 2 AND `c` IS NULL AND `d` IS NOT NULL',
+            " WHERE `b` <= 10 AND `a` = '2' AND `c` IS NULL AND `d` IS NOT NULL",
             $result
         );
     }

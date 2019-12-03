@@ -1176,7 +1176,7 @@ class SearchController extends AbstractController
             // (like INT), for a LIKE we always quote the value. MySQL converts
             // strings to numbers and numbers to strings as necessary
             // during the comparison
-            if (preg_match('@char|binary|blob|text|set|date|time|year@i', $types)
+            if (preg_match('@char|binary|blob|text|set|date|time|year|int@i', $types)
                 || mb_strpos(' ' . $func_type, 'LIKE')
             ) {
                 $quot = '\'';
