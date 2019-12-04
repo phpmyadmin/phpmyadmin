@@ -39,6 +39,7 @@ use PhpMyAdmin\Controllers\Server\VariablesController;
 use PhpMyAdmin\Controllers\TransformationOverviewController;
 use PhpMyAdmin\Controllers\UserPasswordController;
 use PhpMyAdmin\Controllers\VersionCheckController;
+use PhpMyAdmin\Controllers\ViewCreateController;
 use PhpMyAdmin\Response;
 
 global $containerBuilder;
@@ -564,9 +565,11 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $controller = $containerBuilder->get(VersionCheckController::class);
         $controller->index();
     });
-    $routes->addGroup('/view', function (RouteCollector $routes) {
-        $routes->addRoute(['GET', 'POST'], '/create', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/view/create.php';
+    $routes->addGroup('/view', function (RouteCollector $routes) use ($containerBuilder) {
+        $routes->addRoute(['GET', 'POST'], '/create', function () use ($containerBuilder) {
+            /** @var ViewCreateController $controller */
+            $controller = $containerBuilder->get(ViewCreateController::class);
+            $controller->index();
         });
         $routes->addRoute(['GET', 'POST'], '/operations', function () {
             require_once ROOT_PATH . 'libraries/entry_points/view/operations.php';

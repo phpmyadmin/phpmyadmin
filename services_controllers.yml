@@ -415,3 +415,10 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
+
+  PhpMyAdmin\Controllers\ViewCreateController:
+    class: 'PhpMyAdmin\Controllers\ViewCreateController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
