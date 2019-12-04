@@ -236,10 +236,9 @@ class InsertEdit
      */
     public function urlParamsInEditMode(
         array $url_params,
-        array $where_clause_array,
-        $where_clause
+        array $where_clause_array
     ) {
-        if (isset($where_clause)) {
+        if (isset($where_clause_array)) {
             foreach ($where_clause_array as $where_clause) {
                 $url_params['where_clause'] = trim($where_clause);
             }
