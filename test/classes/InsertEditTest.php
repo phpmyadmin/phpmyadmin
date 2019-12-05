@@ -335,7 +335,7 @@ class InsertEditTest extends TestCase
         ];
         $_POST['sql_query'] = 'SELECT 1';
 
-        $result = $this->insertEdit->urlParamsInEditMode([1], $where_clause_array, '');
+        $result = $this->insertEdit->urlParamsInEditMode([1], $where_clause_array);
 
         $this->assertEquals(
             [
