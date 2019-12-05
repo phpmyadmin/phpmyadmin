@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Response;
-use PHPUnit\Framework\MockObject\MockBuilder;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use ReflectionProperty;
 
@@ -37,6 +37,7 @@ class PmaTestCase extends TestCase
      */
     public static function setUpBeforeClass(): void
     {
+        $cfg = [];
         require ROOT_PATH . 'libraries/config.default.php';
         $GLOBALS['cfg'] = $cfg;
     }
@@ -46,13 +47,13 @@ class PmaTestCase extends TestCase
      *
      * @param mixed[] ...$param parameter for header method
      *
-     * @return MockBuilder
+     * @return MockObject
      */
     public function mockResponse(...$param)
     {
         $this->restoreInstance = Response::getInstance();
 
-        $mockResponse = $this->getMockBuilder('PhpMyAdmin\Response')
+        $mockResponse = $this->getMockBuilder(Response::class)
             ->disableOriginalConstructor()
             ->setMethods([
                 'header',

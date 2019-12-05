@@ -68,6 +68,8 @@ $form_params = [
     'db' => $db,
 ];
 
+$action = $action ?? '';
+
 if ($action == Url::getFromRoute('/table/create')) {
     $form_params['reload'] = 1;
 } else {

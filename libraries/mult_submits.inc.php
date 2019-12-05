@@ -52,6 +52,8 @@ global $db, $table,  $clause_is_unique, $from_prefix, $goto,
 $multSubmits = new MultSubmits();
 $template = new Template();
 
+$action = $action ?? '';
+
 /**
  * Prepares the work and runs some other scripts if required
  */

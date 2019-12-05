@@ -18,10 +18,13 @@ if (! defined('ROOT_PATH')) {
 define('PHPMYADMIN', true);
 define('TESTSUITE', true);
 
+$cfg = [];
+
 include_once ROOT_PATH . 'examples/signon-script.php';
 require_once ROOT_PATH . 'libraries/config.default.php';
 require_once ROOT_PATH . 'libraries/vendor_config.php';
 require_once AUTOLOAD_FILE;
+
 $GLOBALS['cfg'] = $cfg;
 $GLOBALS['server'] = 0;
 $GLOBALS['PMA_Config'] = new Config();

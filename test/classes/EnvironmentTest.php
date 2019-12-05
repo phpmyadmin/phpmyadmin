@@ -61,9 +61,13 @@ class EnvironmentTest extends TestCase
         }
 
         // Check id MySQL server is 5 version
+        $serverVersion = '0.0.0';
+        if (isset($pdo)) {
+            $serverVersion = $pdo->getAttribute(constant('PDO::ATTR_SERVER_VERSION'));
+        }
         preg_match(
             '/^(\d+)?\.(\d+)?\.(\*|\d+)/',
-            $pdo->getAttribute(constant('PDO::ATTR_SERVER_VERSION')),
+            $serverVersion,
             $version_parts
         );
         $this->assertEquals(5, $version_parts[1]);

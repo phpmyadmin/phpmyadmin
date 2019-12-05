@@ -349,6 +349,7 @@ class StructureController extends AbstractController
         $db = &$this->db;
         $table = &$this->table;
         $url_params = [];
+        $db_is_system_schema = false;
         include_once ROOT_PATH . 'libraries/tbl_common.inc.php';
         $this->_db_is_system_schema = $db_is_system_schema;
         $this->_url_query = Url::getCommonRaw([

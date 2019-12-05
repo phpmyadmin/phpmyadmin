@@ -832,8 +832,7 @@ class NavigationTree
                                 $keySeparatorLength
                             )
                         );
-
-                        if ($newChild instanceof NodeDatabase
+                        if ($child instanceof NodeDatabase
                             && $child->getHiddenCount() > 0
                         ) {
                             $newChild->setHiddenCount($child->getHiddenCount());
