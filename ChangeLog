@@ -55,6 +55,7 @@ phpMyAdmin - ChangeLog
 - issue #15592 Fix php warning "error_reporting() has been disabled for security reasons"
 - issue #15434 Fix middle click on table sort column name shows a blank page
 - issue        Fix php notice "Undefined index table_create_time" when setting displayed columns on results of a view
+- issue #15571 Fix fatal error when trying to edit row with row checked and button under the table
 
 4.9.2 (2019-11-21)
 - issue #14184 Change the cookie name from phpMyAdmin to phpMyAdmin_https for HTTPS, fixes many "Failed to set session cookie" errors
