@@ -36,6 +36,7 @@ use PhpMyAdmin\Controllers\Server\Status\QueriesController;
 use PhpMyAdmin\Controllers\Server\Status\StatusController;
 use PhpMyAdmin\Controllers\Server\Status\VariablesController as StatusVariables;
 use PhpMyAdmin\Controllers\Server\VariablesController;
+use PhpMyAdmin\Controllers\ThemesController;
 use PhpMyAdmin\Controllers\TransformationOverviewController;
 use PhpMyAdmin\Controllers\UserPasswordController;
 use PhpMyAdmin\Controllers\VersionCheckController;
@@ -542,8 +543,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             require_once ROOT_PATH . 'libraries/entry_points/table/zoom_select.php';
         });
     });
-    $routes->get('/themes', function () {
-        require_once ROOT_PATH . 'libraries/entry_points/themes.php';
+    $routes->get('/themes', function () use ($containerBuilder, $response) {
+        /** @var ThemesController $controller */
+        $controller = $containerBuilder->get(ThemesController::class);
+        $response->addHTML($controller->index());
     });
     $routes->addGroup('/transformation', function (RouteCollector $routes) use ($containerBuilder, $response) {
         $routes->addRoute(['GET', 'POST'], '/overview', function () use ($containerBuilder, $response) {
