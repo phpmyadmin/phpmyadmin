@@ -230,16 +230,14 @@ class InsertEdit
      *
      * @param array  $url_params         containing $db and $table as url parameters
      * @param array  $where_clause_array where clauses array
-     * @param string $where_clause       where clause
      *
      * @return array Add some url parameters to $url_params array and return it
      */
     public function urlParamsInEditMode(
         array $url_params,
-        array $where_clause_array,
-        $where_clause
+        array $where_clause_array
     ) {
-        if (isset($where_clause)) {
+        if (isset($where_clause_array)) {
             foreach ($where_clause_array as $where_clause) {
                 $url_params['where_clause'] = trim($where_clause);
             }
