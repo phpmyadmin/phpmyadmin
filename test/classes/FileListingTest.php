@@ -47,16 +47,39 @@ class FileListingTest extends TestCase
     /**
      * @return void
      */
-    public function testSupportedDecompressions(): void
+    public function testSupportedDecompressionsEmptyList(): void
     {
         $GLOBALS['cfg']['ZipDump'] = false;
         $GLOBALS['cfg']['GZipDump'] = false;
         $GLOBALS['cfg']['BZipDump'] = false;
         $this->assertEmpty($this->fileListing->supportedDecompressions());
+    }
 
+    /**
+     * @return void
+     * @requires extension bz2 1
+     */
+    public function testSupportedDecompressionsFull(): void
+    {
         $GLOBALS['cfg']['ZipDump'] = true;
         $GLOBALS['cfg']['GZipDump'] = true;
         $GLOBALS['cfg']['BZipDump'] = true;
         $this->assertEquals('gz|bz2|zip', $this->fileListing->supportedDecompressions());
+    }
+
+    /**
+     * @return void
+     */
+    public function testSupportedDecompressionsPartial(): void
+    {
+        $GLOBALS['cfg']['ZipDump'] = true;
+        $GLOBALS['cfg']['GZipDump'] = true;
+        $GLOBALS['cfg']['BZipDump'] = true;
+        $extensionString = 'gz';
+        if (extension_loaded('bz2')) {
+            $extensionString .= '|bz2';
+        }
+        $extensionString .= '|zip';
+        $this->assertEquals($extensionString, $this->fileListing->supportedDecompressions());
     }
 }
