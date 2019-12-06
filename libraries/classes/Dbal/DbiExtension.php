@@ -6,7 +6,7 @@
  */
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Dbi;
+namespace PhpMyAdmin\Dbal;
 
 /**
  * Contract for every database extension supported by phpMyAdmin

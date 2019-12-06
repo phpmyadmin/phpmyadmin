@@ -6,11 +6,11 @@
  */
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\Dbi;
+namespace PhpMyAdmin\Tests\Dbal;
 
 use mysqli;
 use mysqli_result;
-use PhpMyAdmin\Dbi\DbiMysqli;
+use PhpMyAdmin\Dbal\DbiMysqli;
 use PHPUnit\Framework\TestCase;
 
 /**

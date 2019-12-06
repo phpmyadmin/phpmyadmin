@@ -6,7 +6,7 @@
  */
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\Dbi;
+namespace PhpMyAdmin\Tests\Dbal;
 
 use PHPUnit\Framework\TestCase;
 

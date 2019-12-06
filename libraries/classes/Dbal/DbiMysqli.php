@@ -7,7 +7,7 @@
  */
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Dbi;
+namespace PhpMyAdmin\Dbal;
 
 use mysqli;
 use mysqli_result;
