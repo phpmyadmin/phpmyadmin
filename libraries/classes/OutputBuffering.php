@@ -18,6 +18,10 @@ class OutputBuffering
     private static $_instance;
     private $_mode;
     private $_content;
+
+    /**
+     * @var bool
+     */
     private $_on;
 
     /**
