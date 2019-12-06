@@ -596,7 +596,7 @@ class ExportOdt extends ExportPlugin
      * @param string $table   table name
      * @param array  $aliases Aliases of db/table/columns
      *
-     * @return bool true
+     * @return string
      */
     protected function getTriggers($db, $table, array $aliases = [])
     {
@@ -651,7 +651,7 @@ class ExportOdt extends ExportPlugin
 
         $GLOBALS['odt_buffer'] .= '</table:table>';
 
-        return true;
+        return $GLOBALS['odt_buffer'];
     }
 
     /**

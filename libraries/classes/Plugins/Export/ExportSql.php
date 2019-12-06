@@ -1054,7 +1054,7 @@ class ExportSql extends ExportPlugin
             $r &= $this->_exportMetadata($db, $tables, $metadataTypes);
         }
 
-        return $r;
+        return (bool) $r;
     }
 
     /**
@@ -2757,7 +2757,7 @@ class ExportSql extends ExportPlugin
             ) {
                 $statement->name->database = $new_database;
                 $statement->name->table = $new_table;
-                $statement->name->expr = null; // Force rebuild.
+                $statement->name->expr = ''; // Force rebuild.
                 $flag = true;
             }
 
@@ -2788,7 +2788,7 @@ class ExportSql extends ExportPlugin
                     if (! empty($aliases[$old_database]['tables'][$ref_table]['alias'])) {
                         $field->references->table->table
                             = $aliases[$old_database]['tables'][$ref_table]['alias'];
-                        $field->references->table->expr = null;
+                        $field->references->table->expr = '';
                         $flag = true;
                     }
                     // Replacing column names.
@@ -2818,7 +2818,7 @@ class ExportSql extends ExportPlugin
             if (! empty($aliases[$old_database]['tables'][$old_table]['alias'])) {
                 $statement->table->table
                     = $aliases[$old_database]['tables'][$old_table]['alias'];
-                $statement->table->expr = null; // Force rebuild.
+                $statement->table->expr = ''; // Force rebuild.
                 $flag = true;
             }
         }

@@ -38,7 +38,7 @@ abstract class PropertyItem
      * the addProperty() or removeProperty() methods, which are not available
      * for simple PhpMyAdmin\Properties\Options\OptionsPropertyOneItem subclasses.
      *
-     * @return null
+     * @return null|object
      */
     public function getGroup()
     {

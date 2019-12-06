@@ -917,33 +917,31 @@ class ExportOdtTest extends PmaTestCase
         $method->setAccessible(true);
         $result = $method->invoke($this->object, 'database', 'ta<ble');
 
-        $this->assertTrue(
+        $this->assertSame($result, $GLOBALS['odt_buffer']);
+
+        $this->assertStringContainsString(
+            '<table:table table:name="ta&lt;ble_triggers">',
             $result
         );
 
         $this->assertStringContainsString(
-            '<table:table table:name="ta&lt;ble_triggers">',
-            $GLOBALS['odt_buffer']
-        );
-
-        $this->assertStringContainsString(
             '<text:p>tna&quot;me</text:p>',
-            $GLOBALS['odt_buffer']
+            $result
         );
 
         $this->assertStringContainsString(
             '<text:p>ac&gt;t</text:p>',
-            $GLOBALS['odt_buffer']
+            $result
         );
 
         $this->assertStringContainsString(
             '<text:p>manip&amp;</text:p>',
-            $GLOBALS['odt_buffer']
+            $result
         );
 
         $this->assertStringContainsString(
             '<text:p>def</text:p>',
-            $GLOBALS['odt_buffer']
+            $result
         );
     }
 
