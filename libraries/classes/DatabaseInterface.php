@@ -10,8 +10,8 @@ namespace PhpMyAdmin;
 
 use mysqli_result;
 use PhpMyAdmin\Database\DatabaseList;
-use PhpMyAdmin\Dbi\DbiExtension;
-use PhpMyAdmin\Dbi\DbiMysqli;
+use PhpMyAdmin\Dbal\DbiExtension;
+use PhpMyAdmin\Dbal\DbiMysqli;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\SqlParser\Context;
