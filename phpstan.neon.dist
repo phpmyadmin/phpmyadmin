@@ -6,8 +6,9 @@ parameters:
     reportUnmatchedIgnoredErrors: true
     inferPrivatePropertyTypeFromConstructor: true
     ignoreErrors:
-        - '#Call to an undefined method PHPUnit\\Framework\\MockObject\\MockObject#'
-        - '#Access to an undefined property PHPUnit\\Framework\\MockObject\\MockObject#'
+        -
+            message: "#^Access to private property PhpMyAdmin\\\\DatabaseInterface&PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\:\\:\\$_table_cache\\.$#"
+            path: %currentWorkingDirectory%/test/classes/TableTest.php
         -
             message: '#PhpMyAdmin\\Twig\\I18n\\NodeTrans::__construct\(\) does not call parent constructor from Twig_Extensions_Node_Trans#'
             path: %currentWorkingDirectory%/libraries/classes/Twig/I18n/NodeTrans.php

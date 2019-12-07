@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
@@ -266,6 +267,7 @@ class UserPreferencesTest extends PmaTestCase
 
         $result = $this->userPreferences->save([1]);
 
+        $this->assertInstanceOf(Message::class, $result);
         $this->assertEquals(
             'Could not save configuration<br><br>err1',
             $result->getMessage()
