@@ -234,8 +234,8 @@ class SearchController extends AbstractController
                 }
 
                 /**
-             * No selection criteria received -> display the selection form
-             */
+                 * No selection criteria received -> display the selection form
+                 */
                 if (! isset($_POST['columnsToDisplay'])
                 && ! isset($_POST['displayAllColumns'])
                 ) {
@@ -264,10 +264,8 @@ class SearchController extends AbstractController
                 );
 
                 /**
-             * Handle AJAX request for data row on point select
-             *
-             * @var boolean Object containing parameters for the POST request
-             */
+                 * Handle AJAX request for data row on point select
+                 */
                 if (isset($_POST['get_data_row'])
                     && $_POST['get_data_row'] == true
                 ) {
@@ -276,11 +274,9 @@ class SearchController extends AbstractController
                     return;
                 }
                 /**
-             * Handle AJAX request for changing field information
-             * (value,collation,operators,field values) in input form
-             *
-             * @var boolean Object containing parameters for the POST request
-             */
+                 * Handle AJAX request for changing field information
+                 * (value,collation,operators,field values) in input form
+                 */
                 if (isset($_POST['change_tbl_info'])
                 && $_POST['change_tbl_info'] == true
                 ) {

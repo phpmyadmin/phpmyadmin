@@ -773,6 +773,7 @@ class Config
      */
     public function loadDefaults(): bool
     {
+        /** @var array<string,mixed> $cfg */
         $cfg = [];
         if (! @file_exists($this->default_source)) {
             $this->error_config_default_file = true;

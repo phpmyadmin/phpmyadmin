@@ -1,0 +1,67 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Instantiated class PhpMyAdmin\\\\Config\\\\Forms\\\\BaseForm is abstract\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Setup/FormController.php
+
+		-
+			message: "#^Function uploadprogress_get_info not found\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Import/Upload/UploadProgress.php
+
+		-
+			message: "#^Instantiated class COM not found\\.$#"
+			count: 1
+			path: libraries/classes/SysInfoWINNT.php
+
+		-
+			message: "#^Call to method ConnectServer\\(\\) on an unknown class COM\\.$#"
+			count: 1
+			path: libraries/classes/SysInfoWINNT.php
+
+		-
+			message: "#^Variable \\$http_response_header in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Utils/HttpRequest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Server\\\\SqlController\\:\\:index\\(\\) invoked with 2 parameters, 0 required\\.$#"
+			count: 1
+			path: libraries/entry_points/database/sql.php
+
+		-
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Controllers\\\\Database\\\\SearchController\\:\\:indexAction\\(\\)\\.$#"
+			count: 1
+			path: libraries/entry_points/table/find_replace.php
+
+		-
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Controllers\\\\Database\\\\SearchController\\:\\:indexAction\\(\\)\\.$#"
+			count: 1
+			path: libraries/entry_points/table/select.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Server\\\\SqlController\\:\\:index\\(\\) invoked with 2 parameters, 0 required\\.$#"
+			count: 1
+			path: libraries/entry_points/table/sql.php
+
+		-
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:indexAction\\(\\)\\.$#"
+			count: 1
+			path: libraries/entry_points/table/structure.php
+
+		-
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Controllers\\\\Database\\\\SearchController\\:\\:indexAction\\(\\)\\.$#"
+			count: 1
+			path: libraries/entry_points/table/zoom_select.php
+
+		-
+			message: "#^Access to private property PhpMyAdmin\\\\DatabaseInterface&PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\:\\:\\$_table_cache\\.$#"
+			count: 1
+			path: test/classes/TableTest.php
+
+		-
+			message: "#^Instantiated class Sami\\\\Sami not found\\.$#"
+			count: 1
+			path: test/sami-config.php
+

@@ -4116,11 +4116,9 @@ class Results
         array $analyzed_sql_results,
         $is_limited_display = false
     ) {
-        /**
-         * The statement this table is built for.
-         * @var SelectStatement
-         */
+        // The statement this table is built for.
         if (isset($analyzed_sql_results['statement'])) {
+            /** @var SelectStatement $statement */
             $statement = $analyzed_sql_results['statement'];
         } else {
             $statement = null;

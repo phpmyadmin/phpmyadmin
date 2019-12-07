@@ -364,5 +364,6 @@ abstract class AuthenticationPlugin
         if (! defined('TESTSUITE')) {
             exit;
         }
+        return;
     }
 }

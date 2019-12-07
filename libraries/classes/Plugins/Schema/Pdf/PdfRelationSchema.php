@@ -786,8 +786,6 @@ class PdfRelationSchema extends ExportRelationSchema
                     && isset($this->diagram->PMA_links['doc'][$foreigner['foreign_table']][$foreigner['foreign_field']])
                 ) {
                     $links[6] = $this->diagram->PMA_links['doc'][$foreigner['foreign_table']][$foreigner['foreign_field']];
-                } else {
-                    unset($links[6]);
                 }
                 $this->diagram->row($diagram_row, $links);
             } // end foreach

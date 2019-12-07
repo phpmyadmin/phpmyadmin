@@ -1,31 +1,14 @@
+includes:
+    - phpstan-baseline.neon
 parameters:
     level: 2
     paths:
-        - %rootDir%/../../../
-    bootstrap: %rootDir%/../../../test/bootstrap-phpstan.php
+        - .
+    bootstrap: test/bootstrap-phpstan.php
     reportUnmatchedIgnoredErrors: true
     inferPrivatePropertyTypeFromConstructor: true
-    ignoreErrors:
-        -
-            message: "#^Access to private property PhpMyAdmin\\\\DatabaseInterface&PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\:\\:\\$_table_cache\\.$#"
-            path: %currentWorkingDirectory%/test/classes/TableTest.php
-        -
-            message: '#PhpMyAdmin\\Twig\\I18n\\NodeTrans::__construct\(\) does not call parent constructor from Twig_Extensions_Node_Trans#'
-            path: %currentWorkingDirectory%/libraries/classes/Twig/I18n/NodeTrans.php
-        -
-            message: '#Variable \$http_response_header in isset\(\) always exists and is not nullable#'
-            path: %currentWorkingDirectory%/libraries/classes/Utils/HttpRequest.php
-        -
-            message: '#Instantiated class Sami\\Sami not found#'
-            path: %currentWorkingDirectory%/test/sami-config.php
-        -
-            message: '#Function uploadprogress_get_info not found#'
-            path: %currentWorkingDirectory%/libraries/classes/Plugins/Import/Upload/UploadProgress.php
-        -
-            message: '#(Instantiated class COM not found|Call to method ConnectServer\(\) on an unknown class COM)#'
-            path: %currentWorkingDirectory%/libraries/classes/SysInfoWINNT.php
     excludes_analyse:
-        - %rootDir%/../../../tmp/*
-        - %rootDir%/../../../vendor/*
-        - %rootDir%/../../../node_modules/*
-        - %rootDir%/../../../examples/openid.php
+        - tmp/*
+        - vendor/*
+        - node_modules/*
+        - examples/openid.php

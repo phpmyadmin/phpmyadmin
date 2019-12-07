@@ -44,7 +44,7 @@ foreach ($request_params as $one_request_param) {
 }
 $response = Response::getInstance();
 
-global $db, $table,  $clause_is_unique, $from_prefix, $goto,
+global $db, $table,  $clause_is_unique, $from_prefix, $goto, $message,
        $mult_btn, $original_sql_query, $query_type, $reload,
        $selected, $selected_fld, $selected_recent_table, $sql_query,
        $submit_mult, $table_type, $to_prefix, $url_query, $pmaThemeImage;

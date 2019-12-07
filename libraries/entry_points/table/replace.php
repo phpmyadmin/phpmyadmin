@@ -434,7 +434,6 @@ unset(
     $warning_messages,
     $total_affected_rows,
     $last_messages,
-    $last_message,
     $row_skipped,
     $insert_errors
 );
@@ -454,11 +453,11 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
     if (isset($_POST['rel_fields_list']) && $_POST['rel_fields_list'] != '') {
         $map = $relation->getForeigners($db, $table, '', 'both');
 
+        /** @var array<int,array> $relation_fields */
         $relation_fields = [];
         parse_str($_POST['rel_fields_list'], $relation_fields);
 
         // loop for each relation cell
-        /** @var array $relation_fields */
         foreach ($relation_fields as $cell_index => $curr_rel_field) {
             foreach ($curr_rel_field as $relation_field => $relation_field_value) {
                 $where_comparison = "='" . $relation_field_value . "'";
