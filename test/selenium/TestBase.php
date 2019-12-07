@@ -302,7 +302,7 @@ abstract class TestBase extends TestCase
                     '--lang=en',
                 ]);
                 $capabilities->setCapability(
-                    ChromeOptions::CAPABILITY,
+                    ChromeOptions::CAPABILITY_W3C,
                     $chromeOptions
                 );
 
