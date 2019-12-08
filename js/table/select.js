@@ -380,7 +380,7 @@ AJAX.registerOnload('table/select.js', function () {
                             '<span class="small_font">' + max + '</span>' +
                             '</fieldset>'
                         ).dialog({
-                            minWidth: 500,
+                            width: 'auto',
                             maxHeight: 400,
                             modal: true,
                             buttons: buttonOptions,
