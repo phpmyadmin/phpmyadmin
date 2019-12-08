@@ -12,6 +12,7 @@ use PhpMyAdmin\Controllers\ChangeLogController;
 use PhpMyAdmin\Controllers\CheckRelationsController;
 use PhpMyAdmin\Controllers\Database\DataDictionaryController;
 use PhpMyAdmin\Controllers\Database\DesignerController;
+use PhpMyAdmin\Controllers\Database\EventsController;
 use PhpMyAdmin\Controllers\Database\MultiTableQueryController;
 use PhpMyAdmin\Controllers\Database\QueryByExampleController;
 use PhpMyAdmin\Controllers\Database\SearchController;
@@ -139,8 +140,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             $controller = $containerBuilder->get(DesignerController::class);
             $controller->index();
         });
-        $routes->addRoute(['GET', 'POST'], '/events', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/database/events.php';
+        $routes->addRoute(['GET', 'POST'], '/events', function () use ($containerBuilder) {
+            /** @var EventsController $controller */
+            $controller = $containerBuilder->get(EventsController::class);
+            $controller->index();
         });
         $routes->addRoute(['GET', 'POST'], '/export', function () {
             require_once ROOT_PATH . 'libraries/entry_points/database/export.php';
