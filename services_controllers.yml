@@ -429,3 +429,11 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
+
+  PhpMyAdmin\Controllers\ViewOperationsController:
+    class: 'PhpMyAdmin\Controllers\ViewOperationsController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      operations: '@operations'

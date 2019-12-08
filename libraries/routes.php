@@ -41,6 +41,7 @@ use PhpMyAdmin\Controllers\TransformationOverviewController;
 use PhpMyAdmin\Controllers\UserPasswordController;
 use PhpMyAdmin\Controllers\VersionCheckController;
 use PhpMyAdmin\Controllers\ViewCreateController;
+use PhpMyAdmin\Controllers\ViewOperationsController;
 use PhpMyAdmin\Response;
 
 global $containerBuilder;
@@ -574,8 +575,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             $controller = $containerBuilder->get(ViewCreateController::class);
             $controller->index();
         });
-        $routes->addRoute(['GET', 'POST'], '/operations', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/view/operations.php';
+        $routes->addRoute(['GET', 'POST'], '/operations', function () use ($containerBuilder) {
+            /** @var ViewOperationsController $controller */
+            $controller = $containerBuilder->get(ViewOperationsController::class);
+            $controller->index();
         });
     });
 };
