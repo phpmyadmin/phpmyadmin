@@ -38,6 +38,7 @@ use PhpMyAdmin\Controllers\Server\Status\VariablesController as StatusVariables;
 use PhpMyAdmin\Controllers\Server\VariablesController;
 use PhpMyAdmin\Controllers\ThemesController;
 use PhpMyAdmin\Controllers\TransformationOverviewController;
+use PhpMyAdmin\Controllers\TransformationWrapperController;
 use PhpMyAdmin\Controllers\UserPasswordController;
 use PhpMyAdmin\Controllers\VersionCheckController;
 use PhpMyAdmin\Controllers\ViewCreateController;
@@ -555,8 +556,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             $controller = $containerBuilder->get(TransformationOverviewController::class);
             $response->addHTML($controller->index());
         });
-        $routes->addRoute(['GET', 'POST'], '/wrapper', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/transformation/wrapper.php';
+        $routes->addRoute(['GET', 'POST'], '/wrapper', function () use ($containerBuilder) {
+            /** @var TransformationWrapperController $controller */
+            $controller = $containerBuilder->get(TransformationWrapperController::class);
+            $controller->index();
         });
     });
     $routes->addRoute(['GET', 'POST'], '/user-password', function () use ($containerBuilder) {
