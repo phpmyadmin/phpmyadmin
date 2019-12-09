@@ -1328,6 +1328,9 @@ class Config
             $is_https = true;
         } elseif (strtolower(Core::getenv('HTTP_X_FORWARDED_PROTO')) == 'https') {
             $is_https = true;
+        } elseif (strtolower(Core::getenv('HTTP_CLOUDFRONT_FORWARDED_PROTO')) === 'https') {
+            // Amazon CloudFront, issue #15621
+            $is_https = true;
         } elseif (Core::getenv('SERVER_PORT') == 443) {
             $is_https = true;
         }
