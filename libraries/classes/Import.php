@@ -983,7 +983,10 @@ class Import
             $create_db = true;
         }
 
-        /* Create SQL code to handle the database */
+        /**
+         * Create SQL code to handle the database
+         * @var array<int,string> $sql
+         */
         $sql = [];
 
         if ($create_db) {

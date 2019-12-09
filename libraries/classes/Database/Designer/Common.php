@@ -518,9 +518,9 @@ class Common
      * @param string $table table name
      * @param string $field display field name
      *
-     * @return array<bool,string>
+     * @return array<int,string|null|bool>
      */
-    public function saveDisplayField($db, $table, $field)
+    public function saveDisplayField($db, $table, $field): array
     {
         $cfgRelation = $this->relation->getRelationsParam();
         if (! $cfgRelation['displaywork']) {
@@ -555,9 +555,9 @@ class Common
      * @param string $DB1       database
      * @param string $DB2       database
      *
-     * @return array array of success/failure and message
+     * @return array<int,string|bool> array of success/failure and message
      */
-    public function addNewRelation($db, $T1, $F1, $T2, $F2, $on_delete, $on_update, $DB1, $DB2)
+    public function addNewRelation($db, $T1, $F1, $T2, $F2, $on_delete, $on_update, $DB1, $DB2): array
     {
         $tables = $this->dbi->getTablesFull($DB1, $T1);
         $type_T1 = mb_strtoupper($tables[$T1]['ENGINE']);

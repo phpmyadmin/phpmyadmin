@@ -6,7 +6,7 @@
  */
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Dbi;
+namespace PhpMyAdmin\Dbal;
 
 /**
  * Contract for every database extension supported by phpMyAdmin
@@ -33,8 +33,8 @@ interface DbiExtension
     /**
      * selects given database
      *
-     * @param string   $dbname database name to select
-     * @param resource $link   connection object
+     * @param string $dbname database name to select
+     * @param object $link   connection object
      *
      * @return boolean
      */
@@ -43,9 +43,9 @@ interface DbiExtension
     /**
      * runs a query and returns the result
      *
-     * @param string   $query   query to execute
-     * @param resource $link    connection object
-     * @param int      $options query options
+     * @param string $query   query to execute
+     * @param object $link    connection object
+     * @param int    $options query options
      *
      * @return mixed result
      */
@@ -54,8 +54,8 @@ interface DbiExtension
     /**
      * Run the multi query and output the results
      *
-     * @param resource $link  connection object
-     * @param string   $query multi query statement to execute
+     * @param object $link  connection object
+     * @param string $query multi query statement to execute
      *
      * @return array|bool
      */
@@ -110,7 +110,7 @@ interface DbiExtension
     /**
      * Check if there are any more query results from a multi query
      *
-     * @param resource $link the connection object
+     * @param object $link the connection object
      *
      * @return bool true or false
      */
@@ -119,7 +119,7 @@ interface DbiExtension
     /**
      * Prepare next result from multi_query
      *
-     * @param resource $link the connection object
+     * @param object $link the connection object
      *
      * @return bool true or false
      */
@@ -128,7 +128,7 @@ interface DbiExtension
     /**
      * Store the result returned from multi query
      *
-     * @param resource $link mysql link
+     * @param object $link mysql link
      *
      * @return mixed false when empty results / result set when not empty
      */
@@ -137,7 +137,7 @@ interface DbiExtension
     /**
      * Returns a string representing the type of connection used
      *
-     * @param resource $link mysql link
+     * @param object $link mysql link
      *
      * @return string type of connection used
      */
@@ -146,16 +146,16 @@ interface DbiExtension
     /**
      * Returns the version of the MySQL protocol used
      *
-     * @param resource $link mysql link
+     * @param object $link mysql link
      *
-     * @return integer version of the MySQL protocol used
+     * @return int|string version of the MySQL protocol used
      */
     public function getProtoInfo($link);
 
     /**
      * returns a string that represents the client library version
      *
-     * @param resource $link mysql link
+     * @param object $link mysql link
      *
      * @return string MySQL client library version
      */
@@ -164,7 +164,7 @@ interface DbiExtension
     /**
      * returns last error message or false if no errors occurred
      *
-     * @param resource $link connection link
+     * @param object $link connection link
      *
      * @return string|bool error or false
      */
@@ -182,7 +182,7 @@ interface DbiExtension
     /**
      * returns the number of rows affected by last query
      *
-     * @param resource $link the connection object
+     * @param object $link the connection object
      *
      * @return int
      */

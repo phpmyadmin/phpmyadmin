@@ -107,7 +107,6 @@ class Console
             } else {
                 $welcomeMessage = __('No bookmarks');
             }
-            unset($count_bookmarks, $private_message, $shared_message);
             return $template->render('console/bookmark_content', [
                 'welcome_message' => $welcomeMessage,
                 'bookmarks' => $bookmarks,

@@ -394,8 +394,9 @@ class ConfigTest extends PmaTestCase
 
         $this->object->default_source = $prevDefaultSource;
 
+        /** @var array<string,mixed> $cfg */
+        $cfg = [];
         include $this->object->default_source;
-
         $loadedConf = $cfg;
         unset($cfg);
 

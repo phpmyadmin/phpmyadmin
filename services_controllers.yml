@@ -161,6 +161,11 @@ services:
       config: '@config'
       themeManager: '@theme_manager'
 
+  PhpMyAdmin\Controllers\ImportStatusController:
+    class: 'PhpMyAdmin\Controllers\ImportStatusController'
+    arguments:
+      template: '@template'
+
   PhpMyAdmin\Controllers\LicenseController:
     class: 'PhpMyAdmin\Controllers\LicenseController'
     arguments:
@@ -393,6 +398,13 @@ services:
       transformations: '@transformations'
       create_add_field: '@create_add_field'
 
+  PhpMyAdmin\Controllers\ThemesController:
+    class: 'PhpMyAdmin\Controllers\ThemesController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+
   PhpMyAdmin\Controllers\TransformationOverviewController:
     class: 'PhpMyAdmin\Controllers\TransformationOverviewController'
     arguments:
@@ -400,6 +412,15 @@ services:
       dbi: '@dbi'
       template: '@template'
       transformations: '@transformations'
+
+  PhpMyAdmin\Controllers\TransformationWrapperController:
+    class: 'PhpMyAdmin\Controllers\TransformationWrapperController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      transformations: '@transformations'
+      relation: '@relation'
 
   PhpMyAdmin\Controllers\UserPasswordController:
     class: 'PhpMyAdmin\Controllers\UserPasswordController'
@@ -415,3 +436,18 @@ services:
       response: '@response'
       dbi: '@dbi'
       template: '@template'
+
+  PhpMyAdmin\Controllers\ViewCreateController:
+    class: 'PhpMyAdmin\Controllers\ViewCreateController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+
+  PhpMyAdmin\Controllers\ViewOperationsController:
+    class: 'PhpMyAdmin\Controllers\ViewOperationsController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      operations: '@operations'

@@ -1035,6 +1035,7 @@ class StructureController extends AbstractController
         }
 
         if ($this->isShowStats) {
+            /** @var int $tblsize */
             $tblsize = $current_table['Data_length']
                 + $current_table['Index_length'];
             $sum_size += $tblsize;
@@ -1093,6 +1094,7 @@ class StructureController extends AbstractController
         }
 
         if ($this->isShowStats) {
+            /** @var int $tblsize */
             $tblsize = $current_table['Data_length']
                 + $current_table['Index_length'];
             $sum_size += $tblsize;

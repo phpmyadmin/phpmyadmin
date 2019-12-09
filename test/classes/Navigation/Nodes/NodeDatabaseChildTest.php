@@ -23,7 +23,7 @@ class NodeDatabaseChildTest extends PmaTestCase
 {
     /**
      * Mock of NodeDatabaseChild
-     * @var MockObject
+     * @var NodeDatabaseChild|MockObject
      */
     protected $object;
 
@@ -43,7 +43,7 @@ class NodeDatabaseChildTest extends PmaTestCase
         $_SESSION['relation'][1]['PMA_VERSION'] = PMA_VERSION;
         $_SESSION['relation'][1]['navwork'] = true;
         $this->object = $this->getMockForAbstractClass(
-            'PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild',
+            NodeDatabaseChild::class,
             ['child']
         );
     }

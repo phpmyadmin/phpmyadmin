@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Stubs;
 
-use PhpMyAdmin\Dbi\DbiExtension;
+use PhpMyAdmin\Dbal\DbiExtension;
 
 /**
  * Fake database driver for testing purposes
@@ -65,8 +65,8 @@ class DbiDummy implements DbiExtension
     /**
      * selects given database
      *
-     * @param string   $dbname name of db to select
-     * @param resource $link   mysql link resource
+     * @param string $dbname name of db to select
+     * @param object $link   mysql link resource
      *
      * @return bool
      */
@@ -80,9 +80,9 @@ class DbiDummy implements DbiExtension
     /**
      * runs a query and returns the result
      *
-     * @param string   $query   query to run
-     * @param resource $link    mysql link resource
-     * @param int      $options query options
+     * @param string $query   query to run
+     * @param object $link    mysql link resource
+     * @param int    $options query options
      *
      * @return mixed
      */
@@ -121,8 +121,8 @@ class DbiDummy implements DbiExtension
     /**
      * Run the multi query and output the results
      *
-     * @param resource $link  connection object
-     * @param string   $query multi query statement to execute
+     * @param object $link  connection object
+     * @param string $query multi query statement to execute
      *
      * @return array|bool
      */
@@ -243,7 +243,7 @@ class DbiDummy implements DbiExtension
     /**
      * Check if there are any more query results from a multi query
      *
-     * @param resource $link the connection object
+     * @param object $link the connection object
      *
      * @return bool false
      */
@@ -255,7 +255,7 @@ class DbiDummy implements DbiExtension
     /**
      * Prepare next result from multi_query
      *
-     * @param resource $link the connection object
+     * @param object $link the connection object
      *
      * @return boolean false
      */
@@ -267,7 +267,7 @@ class DbiDummy implements DbiExtension
     /**
      * Store the result returned from multi query
      *
-     * @param resource $link the connection object
+     * @param object $link the connection object
      *
      * @return mixed false when empty results / result set when not empty
      */
@@ -279,7 +279,7 @@ class DbiDummy implements DbiExtension
     /**
      * Returns a string representing the type of connection used
      *
-     * @param resource $link mysql link
+     * @param object $link mysql link
      *
      * @return string type of connection used
      */
@@ -291,7 +291,7 @@ class DbiDummy implements DbiExtension
     /**
      * Returns the version of the MySQL protocol used
      *
-     * @param resource $link mysql link
+     * @param object $link mysql link
      *
      * @return integer version of the MySQL protocol used
      */
@@ -303,7 +303,7 @@ class DbiDummy implements DbiExtension
     /**
      * returns a string that represents the client library version
      *
-     * @param resource $link connection link
+     * @param object $link connection link
      *
      * @return string MySQL client library version
      */
@@ -315,7 +315,7 @@ class DbiDummy implements DbiExtension
     /**
      * returns last error message or false if no errors occurred
      *
-     * @param resource $link connection link
+     * @param object $link connection link
      *
      * @return string|bool error or false
      */
@@ -345,8 +345,8 @@ class DbiDummy implements DbiExtension
     /**
      * returns the number of rows affected by last query
      *
-     * @param resource $link           the mysql object
-     * @param bool     $get_from_cache whether to retrieve from cache
+     * @param object $link           the mysql object
+     * @param bool   $get_from_cache whether to retrieve from cache
      *
      * @return string|int
      */

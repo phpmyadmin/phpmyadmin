@@ -521,6 +521,7 @@ class GisVisualization
         } elseif ($format == 'ol') {
             return $this->asOl();
         }
+        return '';
     }
 
     /**

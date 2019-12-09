@@ -218,6 +218,7 @@ abstract class ExportPlugin
      */
     public function getTableDefStandIn($db, $view, $crlf, $aliases = [])
     {
+        return '';
     }
 
     /**
@@ -230,6 +231,7 @@ abstract class ExportPlugin
      */
     protected function getTriggers($db, $table)
     {
+        return '';
     }
 
     /**
