@@ -1,15 +1,15 @@
 includes:
     - phpstan-baseline.neon
 parameters:
-    level: 2
+    level: max
     paths:
-        - .
-    bootstrap: test/bootstrap-phpstan.php
+        - %rootDir%/../../../
+    bootstrap: %rootDir%/../../../test/bootstrap-phpstan.php
     reportUnmatchedIgnoredErrors: true
     inferPrivatePropertyTypeFromConstructor: true
     excludes_analyse:
-        - examples/openid.php
-        - node_modules/*
-        - test/sami-config.php
-        - tmp/*
-        - vendor/*
+        - %rootDir%/../../../examples/openid.php
+        - %rootDir%/../../../node_modules/*
+        - %rootDir%/../../../test/sami-config.php
+        - %rootDir%/../../../tmp/*
+        - %rootDir%/../../../vendor/*
