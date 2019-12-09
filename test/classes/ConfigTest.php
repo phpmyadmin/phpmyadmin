@@ -483,20 +483,22 @@ class ConfigTest extends PmaTestCase
     /**
      * test for IsHttp
      *
-     * @param string $scheme   http scheme
-     * @param string $https    https
-     * @param string $uri      request uri
-     * @param string $lb       http https from lb
-     * @param string $front    http front end https
-     * @param string $proto    http x forwarded proto
-     * @param int    $port     server port
-     * @param bool   $expected expected result
+     * @param string $scheme          http scheme
+     * @param string $https           https
+     * @param string $uri             request uri
+     * @param string $lb              http https from lb
+     * @param string $front           http front end https
+     * @param string $proto           http x forwarded proto
+     * @param string $protoCloudFront http cloudfront forwarded proto
+     * @param string $pmaAbsoluteUri  phpMyAdmin absolute URI
+     * @param int    $port            server port
+     * @param bool   $expected        expected result
      *
      * @return void
      *
      * @dataProvider httpsParams
      */
-    public function testIsHttps($scheme, $https, $uri, $lb, $front, $proto, $port, $expected): void
+    public function testIsHttps($scheme, $https, $uri, $lb, $front, $proto, $protoCloudFront, $pmaAbsoluteUri, $port, $expected): void
     {
         $_SERVER['HTTP_SCHEME'] = $scheme;
         $_SERVER['HTTPS'] = $https;
@@ -504,9 +506,11 @@ class ConfigTest extends PmaTestCase
         $_SERVER['HTTP_HTTPS_FROM_LB'] = $lb;
         $_SERVER['HTTP_FRONT_END_HTTPS'] = $front;
         $_SERVER['HTTP_X_FORWARDED_PROTO'] = $proto;
+        $_SERVER['HTTP_CLOUDFRONT_FORWARDED_PROTO'] = $protoCloudFront;
         $_SERVER['SERVER_PORT'] = $port;
 
         $this->object->set('is_https', null);
+        $this->object->set('PmaAbsoluteUri', $pmaAbsoluteUri);
         $this->assertEquals($expected, $this->object->isHttps());
     }
 
@@ -525,6 +529,8 @@ class ConfigTest extends PmaTestCase
                 '',
                 '',
                 'http',
+                '',
+                '',
                 80,
                 false,
             ],
@@ -535,6 +541,8 @@ class ConfigTest extends PmaTestCase
                 '',
                 '',
                 'http',
+                '',
+                '',
                 80,
                 false,
             ],
@@ -545,6 +553,8 @@ class ConfigTest extends PmaTestCase
                 '',
                 '',
                 'http',
+                '',
+                '',
                 443,
                 true,
             ],
@@ -555,6 +565,8 @@ class ConfigTest extends PmaTestCase
                 '',
                 '',
                 'https',
+                '',
+                '',
                 80,
                 true,
             ],
@@ -565,6 +577,8 @@ class ConfigTest extends PmaTestCase
                 '',
                 'on',
                 'http',
+                '',
+                '',
                 80,
                 true,
             ],
@@ -575,6 +589,8 @@ class ConfigTest extends PmaTestCase
                 'on',
                 '',
                 'http',
+                '',
+                '',
                 80,
                 true,
             ],
@@ -585,6 +601,8 @@ class ConfigTest extends PmaTestCase
                 '',
                 '',
                 'http',
+                '',
+                '',
                 80,
                 true,
             ],
@@ -595,6 +613,8 @@ class ConfigTest extends PmaTestCase
                 '',
                 '',
                 'http',
+                '',
+                '',
                 80,
                 true,
             ],
@@ -605,8 +625,82 @@ class ConfigTest extends PmaTestCase
                 '',
                 '',
                 'http',
+                '',
+                '',
                 80,
                 true,
+            ],
+            [
+                'http',
+                '',
+                '',
+                '',
+                '',
+                '',
+                'https',
+                '',
+                80,
+                true,
+            ],
+            [
+                'http',
+                '',
+                '',
+                '',
+                '',
+                'https',
+                'http',
+                '',
+                80,
+                true,
+            ],
+            [
+                'https',
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                80,
+                true,
+            ],
+            [
+                'http',
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                8080,
+                false,
+            ],
+            [
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                'https://127.0.0.1',
+                80,
+                true,
+            ],
+            [
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                'http://127.0.0.1',
+                80,
+                false,
             ],
         ];
     }
