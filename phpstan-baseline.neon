@@ -59,9 +59,3 @@ parameters:
 			message: "#^Access to private property PhpMyAdmin\\\\DatabaseInterface&PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\:\\:\\$_table_cache\\.$#"
 			count: 1
 			path: test/classes/TableTest.php
-
-		-
-			message: "#^Instantiated class Sami\\\\Sami not found\\.$#"
-			count: 1
-			path: test/sami-config.php
-

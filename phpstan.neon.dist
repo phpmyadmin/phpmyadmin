@@ -8,7 +8,8 @@ parameters:
     reportUnmatchedIgnoredErrors: true
     inferPrivatePropertyTypeFromConstructor: true
     excludes_analyse:
+        - examples/openid.php
+        - node_modules/*
+        - test/sami-config.php
         - tmp/*
         - vendor/*
-        - node_modules/*
-        - examples/openid.php
