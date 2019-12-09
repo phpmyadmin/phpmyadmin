@@ -76,6 +76,18 @@ services:
       template: '@template'
       db: '%db%'
 
+  PhpMyAdmin\Controllers\Database\OperationsController:
+    class: 'PhpMyAdmin\Controllers\Database\OperationsController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      db: '%db%'
+      operations: '@operations'
+      checkUserPrivileges: '@check_user_privileges'
+      relation: '@relation'
+      relationCleanup: '@relation_cleanup'
+
   PhpMyAdmin\Controllers\Database\PrivilegesController:
     class: 'PhpMyAdmin\Controllers\Database\PrivilegesController'
     arguments:

@@ -14,6 +14,7 @@ use PhpMyAdmin\Controllers\Database\DataDictionaryController;
 use PhpMyAdmin\Controllers\Database\DesignerController;
 use PhpMyAdmin\Controllers\Database\EventsController;
 use PhpMyAdmin\Controllers\Database\MultiTableQueryController;
+use PhpMyAdmin\Controllers\Database\OperationsController;
 use PhpMyAdmin\Controllers\Database\QueryByExampleController;
 use PhpMyAdmin\Controllers\Database\SearchController;
 use PhpMyAdmin\Controllers\Database\StructureController;
@@ -171,8 +172,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
                 ]);
             });
         });
-        $routes->addRoute(['GET', 'POST'], '/operations', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/database/operations.php';
+        $routes->addRoute(['GET', 'POST'], '/operations', function () use ($containerBuilder) {
+            /** @var OperationsController $controller */
+            $controller = $containerBuilder->get(OperationsController::class);
+            $controller->index();
         });
         $routes->addRoute(['GET', 'POST'], '/qbe', function () use ($containerBuilder) {
             /** @var QueryByExampleController $controller */
