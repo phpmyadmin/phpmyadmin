@@ -20,6 +20,7 @@ use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Controllers\ErrorReportController;
 use PhpMyAdmin\Controllers\GisDataEditorController;
 use PhpMyAdmin\Controllers\HomeController;
+use PhpMyAdmin\Controllers\ImportStatusController;
 use PhpMyAdmin\Controllers\LicenseController;
 use PhpMyAdmin\Controllers\LintController;
 use PhpMyAdmin\Controllers\PhpInfoController;
@@ -247,6 +248,11 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
     });
     $routes->addRoute(['GET', 'POST'], '/import', function () {
         require_once ROOT_PATH . 'libraries/entry_points/import.php';
+    });
+    $routes->addRoute(['GET', 'POST'], '/import-status', function () use ($containerBuilder) {
+        /** @var ImportStatusController $controller */
+        $controller = $containerBuilder->get(ImportStatusController::class);
+        $controller->index();
     });
     $routes->get('/license', function () use ($containerBuilder) {
         /** @var LicenseController $controller */

@@ -161,6 +161,11 @@ services:
       config: '@config'
       themeManager: '@theme_manager'
 
+  PhpMyAdmin\Controllers\ImportStatusController:
+    class: 'PhpMyAdmin\Controllers\ImportStatusController'
+    arguments:
+      template: '@template'
+
   PhpMyAdmin\Controllers\LicenseController:
     class: 'PhpMyAdmin\Controllers\LicenseController'
     arguments:

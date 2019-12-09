@@ -18,8 +18,6 @@ if (! defined('ROOT_PATH')) {
 
 global $containerBuilder, $route;
 
-require_once ROOT_PATH . 'libraries/common.inc.php';
-
 /** @var string $route */
 $route = $_GET['route'] ?? $_POST['route'] ?? '/';
 
@@ -33,6 +31,12 @@ if (($route === '/' || $route === '') && isset($_GET['db']) && mb_strlen($_GET['
         $route = '/sql';
     }
 }
+
+if ($route === '/import-status') {
+    define('PMA_MINIMUM_COMMON', true);
+}
+
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $routes = require ROOT_PATH . 'libraries/routes.php';
 $dispatcher = simpleDispatcher($routes);

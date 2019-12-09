@@ -23,7 +23,7 @@ var DragDropImport = {
      */
     allowedCompressedExtensions: ['gz', 'bz2', 'zip'],
     /**
-     * @var obj array to store message returned by import_status.php
+     * @var obj array to store message returned by /import-status
      */
     importStatus: [],
     /**
