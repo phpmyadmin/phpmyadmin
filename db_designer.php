@@ -64,10 +64,10 @@ if (isset($_POST['operation'])) {
         $success = $designerCommon->saveTablePositions($page);
         $response->setRequestStatus($success);
     } elseif ($_POST['operation'] == 'setDisplayField') {
-        [
+        list(
             $success,
             $message,
-        ] = $designerCommon->saveDisplayField(
+        ) = $designerCommon->saveDisplayField(
             $_POST['db'],
             $_POST['table'],
             $_POST['field']
