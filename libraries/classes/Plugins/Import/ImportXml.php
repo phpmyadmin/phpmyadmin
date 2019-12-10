@@ -237,7 +237,7 @@ class ImportXml extends ImportPlugin
         /**
          * Only attempt to analyze/collect data if there is data present
          */
-        if ($xml && @count($xml->children())) {
+        if ($xml && $xml->children()->count()) {
             $data_present = true;
 
             /**
