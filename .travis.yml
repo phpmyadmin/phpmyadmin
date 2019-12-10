@@ -11,7 +11,8 @@ services:
   - mysql
 
 php:
-  - "7.4snapshot"
+  - "nightly"
+  - "7.4"
   - "7.3"
   - "7.2"
   - "7.1"
@@ -117,7 +118,7 @@ matrix:
         - test/ci-install-test
 
   allow_failures:
-    - php: "7.4snapshot"
+    - php: "nightly"
     - env: CI_MODE=test DBASE=true
 
 cache:
