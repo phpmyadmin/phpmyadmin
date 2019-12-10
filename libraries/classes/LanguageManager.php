@@ -40,6 +40,13 @@ class LanguageManager
             'af|afrikaans',
             '',
         ],
+        'am' => [
+            'am',
+            'Amharic',
+            'አማርኛ',
+            'am|amharic',
+            '',
+        ],
         'ar' => [
             'ar',
             'Arabic',
