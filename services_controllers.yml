@@ -411,6 +411,15 @@ services:
       transformations: '@transformations'
       create_add_field: '@create_add_field'
 
+  PhpMyAdmin\Controllers\Table\TriggersController:
+    class: 'PhpMyAdmin\Controllers\Table\TriggersController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      db: '%db%'
+      table: '%table%'
+
   PhpMyAdmin\Controllers\ThemesController:
     class: 'PhpMyAdmin\Controllers\ThemesController'
     arguments:

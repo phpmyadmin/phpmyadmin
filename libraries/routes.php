@@ -19,6 +19,7 @@ use PhpMyAdmin\Controllers\Database\QueryByExampleController;
 use PhpMyAdmin\Controllers\Database\RoutinesController;
 use PhpMyAdmin\Controllers\Database\SearchController;
 use PhpMyAdmin\Controllers\Database\StructureController;
+use PhpMyAdmin\Controllers\Database\TriggersController;
 use PhpMyAdmin\Controllers\ErrorReportController;
 use PhpMyAdmin\Controllers\GisDataEditorController;
 use PhpMyAdmin\Controllers\HomeController;
@@ -40,6 +41,7 @@ use PhpMyAdmin\Controllers\Server\Status\QueriesController;
 use PhpMyAdmin\Controllers\Server\Status\StatusController;
 use PhpMyAdmin\Controllers\Server\Status\VariablesController as StatusVariables;
 use PhpMyAdmin\Controllers\Server\VariablesController;
+use PhpMyAdmin\Controllers\Table\TriggersController as TableTriggersController;
 use PhpMyAdmin\Controllers\ThemesController;
 use PhpMyAdmin\Controllers\TransformationOverviewController;
 use PhpMyAdmin\Controllers\TransformationWrapperController;
@@ -237,8 +239,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $routes->addRoute(['GET', 'POST'], '/tracking', function () {
             require_once ROOT_PATH . 'libraries/entry_points/database/tracking.php';
         });
-        $routes->addRoute(['GET', 'POST'], '/triggers', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/database/triggers.php';
+        $routes->addRoute(['GET', 'POST'], '/triggers', function () use ($containerBuilder) {
+            /** @var TriggersController $controller */
+            $controller = $containerBuilder->get(TriggersController::class);
+            $controller->index();
         });
     });
     $routes->addRoute(['GET', 'POST'], '/error-report', function () use ($containerBuilder) {
@@ -497,7 +501,7 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
     $routes->addRoute(['GET', 'POST'], '/sql', function () {
         require_once ROOT_PATH . 'libraries/entry_points/sql.php';
     });
-    $routes->addGroup('/table', function (RouteCollector $routes) {
+    $routes->addGroup('/table', function (RouteCollector $routes) use ($containerBuilder) {
         $routes->addRoute(['GET', 'POST'], '/addfield', function () {
             require_once ROOT_PATH . 'libraries/entry_points/table/addfield.php';
         });
@@ -555,8 +559,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $routes->addRoute(['GET', 'POST'], '/tracking', function () {
             require_once ROOT_PATH . 'libraries/entry_points/table/tracking.php';
         });
-        $routes->addRoute(['GET', 'POST'], '/triggers', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/database/triggers.php';
+        $routes->addRoute(['GET', 'POST'], '/triggers', function () use ($containerBuilder) {
+            /** @var TableTriggersController $controller */
+            $controller = $containerBuilder->get(TableTriggersController::class);
+            $controller->index();
         });
         $routes->addRoute(['GET', 'POST'], '/zoom_select', function () {
             require_once ROOT_PATH . 'libraries/entry_points/table/zoom_select.php';
