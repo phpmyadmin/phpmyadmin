@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-11-22 01:33+0100\n"
-"PO-Revision-Date: 2019-09-18 18:27+0000\n"
-"Last-Translator: tinect <s.koenig@tinect.de>\n"
+"PO-Revision-Date: 2019-12-13 11:05+0000\n"
+"Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "de/>\n"
 "Language: de\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9-dev\n"
+"X-Generator: Weblate 3.10-dev\n"
 
 #: import_status.php:51
 msgid "Could not load the progress of the import."
@@ -1734,10 +1734,8 @@ msgid "%d object(s) created."
 msgstr "%d Objekt(e) erstellt."
 
 #: js/messages.php:590
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
-msgstr "Spaltennamen"
+msgstr "Spaltenname"
 
 #: js/messages.php:591 templates/sql/query.twig:149
 msgid "Submit"
@@ -3744,7 +3742,7 @@ msgstr "Fremdschlüsselüberprüfungen"
 
 #: libraries/classes/Config/Descriptions.php:285
 msgid "First day of calendar"
-msgstr ""
+msgstr "Erster Tag des Kalenders"
 
 #: libraries/classes/Config/Descriptions.php:286
 msgid "Browse mode"
@@ -7459,18 +7457,14 @@ msgstr ""
 "phpMyAdmin-Installation!"
 
 #: libraries/classes/Database/Designer/Common.php:531
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr ""
-"Der Konfigurationsspeicher ist nicht bereit für die zentrale Liste der "
-"Spalten-Features."
+"Der phpMyAdmin-Konfigurationsspeicher ist nicht für \"Anzeigefunktionen\" "
+"konfiguriert."
 
 #: libraries/classes/Database/Designer/Common.php:580
 msgid "Error: relationship already exists."
@@ -12905,8 +12899,6 @@ msgstr "Maximal: %s%s"
 
 #. l10n: Short week day name for Sunday
 #: libraries/classes/Util.php:696
-#, fuzzy
-#| msgid "Sun"
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "So"
@@ -13546,10 +13538,9 @@ msgid "See table structure"
 msgstr "Tabellenstruktur ansehen"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Alle auswählen"
+msgstr "\"%s\" auswählen"
 
 #: templates/database/designer/database_tables.twig:109
 #, php-format
