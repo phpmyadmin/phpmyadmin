@@ -16,6 +16,7 @@ use PhpMyAdmin\Controllers\Database\EventsController;
 use PhpMyAdmin\Controllers\Database\MultiTableQueryController;
 use PhpMyAdmin\Controllers\Database\OperationsController;
 use PhpMyAdmin\Controllers\Database\QueryByExampleController;
+use PhpMyAdmin\Controllers\Database\RoutinesController;
 use PhpMyAdmin\Controllers\Database\SearchController;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Controllers\ErrorReportController;
@@ -182,8 +183,12 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             $controller = $containerBuilder->get(QueryByExampleController::class);
             $controller->index();
         });
-        $routes->addRoute(['GET', 'POST'], '/routines', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/database/routines.php';
+        $routes->addRoute(['GET', 'POST'], '/routines', function () use ($containerBuilder) {
+            /** @var RoutinesController $controller */
+            $controller = $containerBuilder->get(RoutinesController::class);
+            $controller->index([
+                'type' => $_REQUEST['type'] ?? null,
+            ]);
         });
         $routes->addRoute(['GET', 'POST'], '/search', function () use ($containerBuilder) {
             /** @var SearchController $controller */

@@ -113,6 +113,7 @@ services:
       dbi: '@dbi'
       template: '@template'
       db: '%db%'
+      checkUserPrivileges: '@check_user_privileges'
 
   PhpMyAdmin\Controllers\Database\SearchController:
     class: 'PhpMyAdmin\Controllers\Database\SearchController'
