@@ -435,11 +435,8 @@ class Core
             0,
             mb_strpos($_page . '?', '?')
         );
-        if (in_array($_page, $whitelist)) {
-            return true;
-        }
 
-        return false;
+        return in_array($_page, $whitelist);
     }
 
     /**

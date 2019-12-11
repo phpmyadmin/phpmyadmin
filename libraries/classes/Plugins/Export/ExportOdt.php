@@ -171,17 +171,11 @@ class ExportOdt extends ExportPlugin
         $GLOBALS['odt_buffer'] .= '</office:text>'
             . '</office:body>'
             . '</office:document-content>';
-        if (! $this->export->outputHandler(
-            OpenDocument::create(
-                'application/vnd.oasis.opendocument.text',
-                $GLOBALS['odt_buffer']
-            )
-        )
-        ) {
-            return false;
-        }
 
-        return true;
+        return $this->export->outputHandler(OpenDocument::create(
+            'application/vnd.oasis.opendocument.text',
+            $GLOBALS['odt_buffer']
+        ));
     }
 
     /**

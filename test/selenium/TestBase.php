@@ -137,10 +137,7 @@ abstract class TestBase extends TestCase
         if (empty($GLOBALS['CI_MODE'])) {
             return false;
         }
-        if ($GLOBALS['CI_MODE'] != 'selenium') {
-            return false;
-        }
-        return true;
+        return $GLOBALS['CI_MODE'] == 'selenium';
     }
 
     /**
@@ -150,13 +147,8 @@ abstract class TestBase extends TestCase
      */
     public function hasBrowserstackConfig(): bool
     {
-        if (empty($GLOBALS['TESTSUITE_BROWSERSTACK_USER'])) {
-            return false;
-        }
-        if (empty($GLOBALS['TESTSUITE_BROWSERSTACK_KEY'])) {
-            return false;
-        }
-        return true;
+        return ! empty($GLOBALS['TESTSUITE_BROWSERSTACK_USER'])
+            && ! empty($GLOBALS['TESTSUITE_BROWSERSTACK_KEY']);
     }
 
     /**
@@ -166,13 +158,8 @@ abstract class TestBase extends TestCase
      */
     public function hasSeleniumConfig(): bool
     {
-        if (empty($GLOBALS['TESTSUITE_SELENIUM_HOST'])) {
-            return false;
-        }
-        if (empty($GLOBALS['TESTSUITE_SELENIUM_PORT'])) {
-            return false;
-        }
-        return true;
+        return ! empty($GLOBALS['TESTSUITE_SELENIUM_HOST'])
+            && ! empty($GLOBALS['TESTSUITE_SELENIUM_PORT']);
     }
 
     /**
@@ -203,16 +190,9 @@ abstract class TestBase extends TestCase
      */
     public function hasTestSuiteDatabaseServer(): bool
     {
-        if (empty($GLOBALS['TESTSUITE_SERVER'])) {
-            return false;
-        }
-        if (empty($GLOBALS['TESTSUITE_USER'])) {
-            return false;
-        }
-        if (empty($GLOBALS['TESTSUITE_DATABASE'])) {
-            return false;
-        }
-        return true;
+        return ! empty($GLOBALS['TESTSUITE_SERVER'])
+            && ! empty($GLOBALS['TESTSUITE_USER'])
+            && ! empty($GLOBALS['TESTSUITE_DATABASE']);
     }
 
     /**
