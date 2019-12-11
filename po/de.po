@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-11-22 01:29+0100\n"
-"PO-Revision-Date: 2019-09-18 09:23+0000\n"
+"PO-Revision-Date: 2019-12-13 11:05+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/4-9/de/"
 ">\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9-dev\n"
+"X-Generator: Weblate 3.10-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -2400,10 +2400,8 @@ msgid "%d object(s) created."
 msgstr "%d Objekt(e) erstellt."
 
 #: js/messages.php:582
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
-msgstr "Spaltennamen"
+msgstr "Spaltenname"
 
 #: js/messages.php:583 libraries/classes/SqlQueryForm.php:419
 msgid "Submit"
@@ -6982,18 +6980,14 @@ msgstr ""
 "phpMyAdmin-Installation!"
 
 #: libraries/classes/Database/Designer/Common.php:518
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr ""
-"Der Konfigurationsspeicher ist nicht bereit für die zentrale Liste der "
-"Spalten-Features."
+"Der phpMyAdmin-Konfigurationsspeicher ist nicht für \"Anzeigefunktionen\" "
+"konfiguriert."
 
 #: libraries/classes/Database/Designer/Common.php:565
 msgid "Error: relationship already exists."
@@ -7946,7 +7940,7 @@ msgstr ""
 #: libraries/classes/Footer.php:85
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr "Momentan wit Git-Revision %1$s aus dem %2$s-Zweig ausgeführt."
+msgstr "Momentan wird Git-Revision %1$s aus dem %2$s-Zweig ausgeführt."
 
 #: libraries/classes/Footer.php:92
 msgid "Git information missing!"
@@ -16444,10 +16438,9 @@ msgid "See table structure"
 msgstr "Tabellenstruktur ansehen"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Alle auswählen"
+msgstr "\"%s\" auswählen"
 
 #: templates/database/designer/database_tables.twig:126
 #, php-format
