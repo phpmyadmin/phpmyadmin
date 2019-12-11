@@ -18,6 +18,7 @@ use PhpMyAdmin\Controllers\Database\OperationsController;
 use PhpMyAdmin\Controllers\Database\QueryByExampleController;
 use PhpMyAdmin\Controllers\Database\RoutinesController;
 use PhpMyAdmin\Controllers\Database\SearchController;
+use PhpMyAdmin\Controllers\Database\SqlAutoCompleteController;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Controllers\Database\TriggersController;
 use PhpMyAdmin\Controllers\ErrorReportController;
@@ -197,12 +198,14 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             $controller = $containerBuilder->get(SearchController::class);
             $controller->index();
         });
-        $routes->addGroup('/sql', function (RouteCollector $routes) {
+        $routes->addGroup('/sql', function (RouteCollector $routes) use ($containerBuilder, $response) {
             $routes->addRoute(['GET', 'POST'], '', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/database/sql.php';
             });
-            $routes->post('/autocomplete', function () {
-                require_once ROOT_PATH . 'libraries/entry_points/database/sql/autocomplete.php';
+            $routes->post('/autocomplete', function () use ($containerBuilder, $response) {
+                /** @var SqlAutoCompleteController $controller */
+                $controller = $containerBuilder->get(SqlAutoCompleteController::class);
+                $response->addJSON($controller->index());
             });
             $routes->post('/format', function () {
                 require_once ROOT_PATH . 'libraries/entry_points/database/sql/format.php';

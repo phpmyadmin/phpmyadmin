@@ -123,6 +123,14 @@ services:
       template: '@template'
       db: '%db%'
 
+  PhpMyAdmin\Controllers\Database\SqlAutoCompleteController:
+    class: 'PhpMyAdmin\Controllers\Database\SqlAutoCompleteController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      db: '%db%'
+
   PhpMyAdmin\Controllers\Database\SqlController:
     class: 'PhpMyAdmin\Controllers\Database\SqlController'
     arguments:
