@@ -176,45 +176,25 @@ foreach ($loop_array as $rownumber => $where_clause) {
 
     // Map multi-edit keys to single-level arrays, dependent on how we got the fields
     $multi_edit_columns
-        = isset($_POST['fields']['multi_edit'][$rownumber])
-        ? $_POST['fields']['multi_edit'][$rownumber]
-        : [];
+        = $_POST['fields']['multi_edit'][$rownumber] ?? [];
     $multi_edit_columns_name
-        = isset($_POST['fields_name']['multi_edit'][$rownumber])
-        ? $_POST['fields_name']['multi_edit'][$rownumber]
-        : [];
+        = $_POST['fields_name']['multi_edit'][$rownumber] ?? [];
     $multi_edit_columns_prev
-        = isset($_POST['fields_prev']['multi_edit'][$rownumber])
-        ? $_POST['fields_prev']['multi_edit'][$rownumber]
-        : null;
+        = $_POST['fields_prev']['multi_edit'][$rownumber] ?? null;
     $multi_edit_funcs
-        = isset($_POST['funcs']['multi_edit'][$rownumber])
-        ? $_POST['funcs']['multi_edit'][$rownumber]
-        : null;
+        = $_POST['funcs']['multi_edit'][$rownumber] ?? null;
     $multi_edit_salt
-        = isset($_POST['salt']['multi_edit'][$rownumber])
-        ? $_POST['salt']['multi_edit'][$rownumber]
-        : null;
+        = $_POST['salt']['multi_edit'][$rownumber] ?? null;
     $multi_edit_columns_type
-        = isset($_POST['fields_type']['multi_edit'][$rownumber])
-        ? $_POST['fields_type']['multi_edit'][$rownumber]
-        : null;
+        = $_POST['fields_type']['multi_edit'][$rownumber] ?? null;
     $multi_edit_columns_null
-        = isset($_POST['fields_null']['multi_edit'][$rownumber])
-        ? $_POST['fields_null']['multi_edit'][$rownumber]
-        : null;
+        = $_POST['fields_null']['multi_edit'][$rownumber] ?? null;
     $multi_edit_columns_null_prev
-        = isset($_POST['fields_null_prev']['multi_edit'][$rownumber])
-        ? $_POST['fields_null_prev']['multi_edit'][$rownumber]
-        : null;
+        = $_POST['fields_null_prev']['multi_edit'][$rownumber] ?? null;
     $multi_edit_auto_increment
-        = isset($_POST['auto_increment']['multi_edit'][$rownumber])
-        ? $_POST['auto_increment']['multi_edit'][$rownumber]
-        : null;
+        = $_POST['auto_increment']['multi_edit'][$rownumber] ?? null;
     $multi_edit_virtual
-        = isset($_POST['virtual']['multi_edit'][$rownumber])
-        ? $_POST['virtual']['multi_edit'][$rownumber]
-        : null;
+        = $_POST['virtual']['multi_edit'][$rownumber] ?? null;
 
     // When a select field is nullified, it's not present in $_POST
     // so initialize it; this way, the foreach($multi_edit_columns) will process it

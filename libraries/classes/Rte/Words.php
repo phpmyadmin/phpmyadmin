@@ -83,6 +83,6 @@ class Words
                 break;
         }
 
-        return isset($words[$index]) ? $words[$index] : '';
+        return $words[$index] ?? '';
     }
 }

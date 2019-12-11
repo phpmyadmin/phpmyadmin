@@ -764,7 +764,7 @@ if ($go_sql) {
             $cfgBookmark['user'],
             $_POST['sql_query'],
             $_POST['bkm_label'],
-            isset($_POST['bkm_replace']) ? $_POST['bkm_replace'] : null
+            $_POST['bkm_replace'] ?? null
         );
     }
 
@@ -780,7 +780,7 @@ if ($go_sql) {
             $cfgBookmark['user'],
             $_POST['sql_query'],
             $_POST['bkm_label'],
-            isset($_POST['bkm_replace']) ? $_POST['bkm_replace'] : null
+            $_POST['bkm_replace'] ?? null
         );
     }
 

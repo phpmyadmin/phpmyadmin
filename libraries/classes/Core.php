@@ -246,8 +246,8 @@ class Core
         } else {
             $error_message = strtr($error_message, ['<br>' => '[br]']);
             $error_header = __('Error');
-            $lang = isset($GLOBALS['lang']) ? $GLOBALS['lang'] : 'en';
-            $dir = isset($GLOBALS['text_dir']) ? $GLOBALS['text_dir'] : 'ltr';
+            $lang = $GLOBALS['lang'] ?? 'en';
+            $dir = $GLOBALS['text_dir'] ?? 'ltr';
 
             echo DisplayError::display(new Template(), $lang, $dir, $error_header, $error_message);
         }

@@ -164,7 +164,7 @@ class Validator
         // restore original paths
         $newResult = [];
         foreach ($result as $k => $v) {
-            $k2 = isset($keyMap[$k]) ? $keyMap[$k] : $k;
+            $k2 = $keyMap[$k] ?? $k;
             if (is_array($v)) {
                 $newResult[$k2] = array_map('htmlspecialchars', $v);
             } else {

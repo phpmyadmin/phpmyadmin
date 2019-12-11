@@ -531,7 +531,7 @@ class Operations
                     $each_table,
                     $_POST['newname'],
                     $each_table,
-                    (isset($this_what) ? $this_what : 'data'),
+                    ($this_what ?? 'data'),
                     $move,
                     'db_copy'
                 )) {

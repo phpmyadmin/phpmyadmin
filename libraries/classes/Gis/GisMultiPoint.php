@@ -291,8 +291,7 @@ class GisMultiPoint extends GisGeometry
      */
     public function generateWkt(array $gis_data, $index, $empty = '')
     {
-        $no_of_points = isset($gis_data[$index]['MULTIPOINT']['no_of_points'])
-            ? $gis_data[$index]['MULTIPOINT']['no_of_points'] : 1;
+        $no_of_points = $gis_data[$index]['MULTIPOINT']['no_of_points'] ?? 1;
         if ($no_of_points < 1) {
             $no_of_points = 1;
         }

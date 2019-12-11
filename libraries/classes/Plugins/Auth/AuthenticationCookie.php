@@ -292,7 +292,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
             // The user just logged in
             $this->user = Core::sanitizeMySQLUser($_POST['pma_username']);
-            $this->password = isset($_POST['pma_password']) ? $_POST['pma_password'] : '';
+            $this->password = $_POST['pma_password'] ?? '';
             if ($GLOBALS['cfg']['AllowArbitraryServer']
                 && isset($_REQUEST['pma_servername'])
             ) {

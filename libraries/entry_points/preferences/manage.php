@@ -81,14 +81,14 @@ if (isset($_POST['submit_export'], $_POST['export_type']) && $_POST['export_type
         }
     } else {
         // read from POST value (json)
-        $json = isset($_POST['json']) ? $_POST['json'] : null;
+        $json = $_POST['json'] ?? null;
     }
 
     // hide header message
     $_SESSION['userprefs_autoload'] = true;
 
     $config = json_decode($json, true);
-    $return_url = isset($_POST['return_url']) ? $_POST['return_url'] : null;
+    $return_url = $_POST['return_url'] ?? null;
     if (! is_array($config)) {
         if (! isset($error)) {
             $error = __('Could not import configuration');
@@ -122,7 +122,7 @@ if (isset($_POST['submit_export'], $_POST['export_type']) && $_POST['export_type
             echo $template->render('preferences/manage/error', [
                 'form_errors' => $form_display->displayErrors(),
                 'json' => $json,
-                'import_merge' => isset($_POST['import_merge']) ? $_POST['import_merge'] : null,
+                'import_merge' => $_POST['import_merge'] ?? null,
                 'return_url' => $return_url,
             ]);
             exit;

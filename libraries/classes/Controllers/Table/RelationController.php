@@ -200,7 +200,7 @@ class RelationController extends AbstractController
                 'table' => $this->table,
                 'cfg_relation' => $this->cfgRelation,
                 'tbl_storage_engine' => $this->tbl_storage_engine,
-                'existrel' => isset($this->existrel) ? $this->existrel : [],
+                'existrel' => $this->existrel ?? [],
                 'existrel_foreign' => is_array($this->existrel_foreign) && array_key_exists('foreign_keys_data', $this->existrel_foreign)
                     ? $this->existrel_foreign['foreign_keys_data'] : [],
                 'options_array' => $this->options_array,
@@ -247,9 +247,7 @@ class RelationController extends AbstractController
      */
     public function updateForForeignKeysAction()
     {
-        $multi_edit_columns_name = isset($_POST['foreign_key_fields_name'])
-            ? $_POST['foreign_key_fields_name']
-            : null;
+        $multi_edit_columns_name = $_POST['foreign_key_fields_name'] ?? null;
         $preview_sql_data = '';
         $seen_error = false;
 
@@ -295,9 +293,7 @@ class RelationController extends AbstractController
      */
     public function updateForInternalRelationAction()
     {
-        $multi_edit_columns_name = isset($_POST['fields_name'])
-            ? $_POST['fields_name']
-            : null;
+        $multi_edit_columns_name = $_POST['fields_name'] ?? null;
 
         if ($this->upd_query->updateInternalRelations(
             $multi_edit_columns_name,
@@ -305,7 +301,7 @@ class RelationController extends AbstractController
             $_POST['destination_table'],
             $_POST['destination_column'],
             $this->cfgRelation,
-            isset($this->existrel) ? $this->existrel : null
+            $this->existrel ?? null
         )
         ) {
             $this->response->addHTML(

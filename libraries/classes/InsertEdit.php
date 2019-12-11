@@ -1773,7 +1773,7 @@ class InsertEdit
             'where_clause_array' => $where_clause_array,
             'err_url' => $err_url,
             'goto' => $GLOBALS['goto'],
-            'sql_query' => isset($_POST['sql_query']) ? $_POST['sql_query'] : null,
+            'sql_query' => $_POST['sql_query'] ?? null,
             'has_where_clause' => isset($_POST['where_clause']),
             'insert_rows_default' => $GLOBALS['cfg']['InsertRows'],
         ]);
@@ -2539,9 +2539,7 @@ class InsertEdit
                 'transform_key' => $column_name,
             ];
             $transform_options = $this->transformations->getOptions(
-                isset($transformation[$type . '_options'])
-                ? $transformation[$type . '_options']
-                : ''
+                $transformation[$type . '_options'] ?? ''
             );
             $transform_options['wrapper_link'] = Url::getCommon($_url_params);
             $transform_options['wrapper_params'] = $_url_params;
@@ -2959,7 +2957,7 @@ class InsertEdit
             $result,
             $rows,
             $found_unique_key,
-            isset($after_insert) ? $after_insert : null,
+            $after_insert ?? null,
         ];
     }
 

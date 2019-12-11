@@ -284,7 +284,7 @@ class OperationsController extends AbstractController
             $tooltip_truename,
             $tooltip_aliasname,
             $pos,
-        ] = Util::getDbInfo($db, $sub_part === null ? '' : $sub_part);
+        ] = Util::getDbInfo($db, $sub_part ?? '');
 
         echo "\n";
 

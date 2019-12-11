@@ -597,9 +597,7 @@ class PdfRelationSchema extends ExportRelationSchema
              */
             $showtable = $GLOBALS['dbi']->getTable($this->db, $table)
                 ->getStatusInfo();
-            $show_comment = isset($showtable['Comment'])
-                ? $showtable['Comment']
-                : '';
+            $show_comment = $showtable['Comment'] ?? '';
             $create_time  = isset($showtable['Create_time'])
                 ? Util::localisedDate(
                     strtotime($showtable['Create_time'])
@@ -770,12 +768,10 @@ class PdfRelationSchema extends ExportRelationSchema
                     ($row['Null'] == '' || $row['Null'] == 'NO')
                         ? __('No')
                         : __('Yes'),
-                    isset($row['Default']) ? $row['Default'] : '',
+                    $row['Default'] ?? '',
                     $row['Extra'],
                     $linksTo,
-                    isset($comments[$field_name])
-                        ? $comments[$field_name]
-                        : '',
+                    $comments[$field_name] ?? '',
                     isset($mime_map, $mime_map[$field_name])
                         ? str_replace('_', '/', $mime_map[$field_name]['mimetype'])
                         : '',

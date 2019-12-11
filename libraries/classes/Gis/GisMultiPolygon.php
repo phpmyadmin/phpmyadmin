@@ -387,23 +387,20 @@ class GisMultiPolygon extends GisGeometry
     {
         $data_row = $gis_data[$index]['MULTIPOLYGON'];
 
-        $no_of_polygons = isset($data_row['no_of_polygons'])
-            ? $data_row['no_of_polygons'] : 1;
+        $no_of_polygons = $data_row['no_of_polygons'] ?? 1;
         if ($no_of_polygons < 1) {
             $no_of_polygons = 1;
         }
 
         $wkt = 'MULTIPOLYGON(';
         for ($k = 0; $k < $no_of_polygons; $k++) {
-            $no_of_lines = isset($data_row[$k]['no_of_lines'])
-                ? $data_row[$k]['no_of_lines'] : 1;
+            $no_of_lines = $data_row[$k]['no_of_lines'] ?? 1;
             if ($no_of_lines < 1) {
                 $no_of_lines = 1;
             }
             $wkt .= '(';
             for ($i = 0; $i < $no_of_lines; $i++) {
-                $no_of_points = isset($data_row[$k][$i]['no_of_points'])
-                    ? $data_row[$k][$i]['no_of_points'] : 4;
+                $no_of_points = $data_row[$k][$i]['no_of_points'] ?? 4;
                 if ($no_of_points < 4) {
                     $no_of_points = 4;
                 }

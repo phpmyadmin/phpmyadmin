@@ -615,7 +615,7 @@ class ExportTexytext extends ExportPlugin
                 ? __('No') : __('Yes'));
         $definition .= '|'
             . htmlspecialchars(
-                isset($column['Default']) ? $column['Default'] : ''
+                $column['Default'] ?? ''
             );
 
         return $definition;

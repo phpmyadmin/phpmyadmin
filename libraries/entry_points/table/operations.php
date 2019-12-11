@@ -114,7 +114,7 @@ if ($pma_table->isEngine('ARIA')) {
     $create_options['transactional'] = (isset($create_options['transactional']) && $create_options['transactional'] == '0')
         ? '0'
         : '1';
-    $create_options['page_checksum'] = isset($create_options['page_checksum']) ? $create_options['page_checksum'] : '';
+    $create_options['page_checksum'] = $create_options['page_checksum'] ?? '';
 }
 
 $pma_table = $dbi->getTable(
@@ -193,21 +193,19 @@ if (isset($_POST['submitoptions'])) {
             $create_options['transactional'] = (isset($create_options['transactional']) && $create_options['transactional'] == '0')
                 ? '0'
                 : '1';
-            $create_options['page_checksum'] = isset($create_options['page_checksum']) ? $create_options['page_checksum'] : '';
+            $create_options['page_checksum'] = $create_options['page_checksum'] ?? '';
         }
     } else {
         $new_tbl_storage_engine = '';
     }
 
-    $row_format = isset($create_options['row_format'])
-        ? $create_options['row_format']
-        : $pma_table->getRowFormat();
+    $row_format = $create_options['row_format'] ?? $pma_table->getRowFormat();
 
     $table_alters = $operations->getTableAltersArray(
         $pma_table,
         $create_options['pack_keys'],
         (empty($create_options['checksum']) ? '0' : '1'),
-        (isset($create_options['page_checksum']) ? $create_options['page_checksum'] : ''),
+        ($create_options['page_checksum'] ?? ''),
         (empty($create_options['delay_key_write']) ? '0' : '1'),
         $row_format,
         $new_tbl_storage_engine,
@@ -424,7 +422,7 @@ $response->addHTML(
         $auto_increment,
         (empty($create_options['delay_key_write']) ? '0' : '1'),
         ((isset($create_options['transactional']) && $create_options['transactional'] == '0') ? '0' : '1'),
-        (isset($create_options['page_checksum']) ? $create_options['page_checksum'] : ''),
+        ($create_options['page_checksum'] ?? ''),
         (empty($create_options['checksum']) ? '0' : '1')
     )
 );

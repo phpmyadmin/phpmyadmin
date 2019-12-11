@@ -343,11 +343,6 @@ parameters:
 			path: libraries/classes/Controllers/Database/OperationsController.php
 
 		-
-			message: "#^Strict comparison using \\=\\=\\= between '_structure' and null will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/OperationsController.php
-
-		-
 			message: "#^Parameter \\#1 \\$analyzed_sql_results of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects array, null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/QueryByExampleController.php
@@ -389,11 +384,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#9 \\$message of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/QueryByExampleController.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between '_qbe' and null will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/QueryByExampleController.php
 
@@ -2579,7 +2569,7 @@ parameters:
 
 		-
 			message: "#^Strict comparison using \\=\\=\\= between string and null will always evaluate to false\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/Server/Privileges.php
 
 		-
@@ -3308,19 +3298,9 @@ parameters:
 			path: libraries/common.inc.php
 
 		-
-			message: "#^Strict comparison using \\=\\=\\= between '_export' and null will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/entry_points/database/export.php
-
-		-
 			message: "#^Strict comparison using \\=\\=\\= between string and null will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/entry_points/database/export.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between '_structure' and null will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/entry_points/database/tracking.php
 
 		-
 			message: "#^Parameter \\#2 \\$dump_buffer of method PhpMyAdmin\\\\Export\\:\\:closeFile\\(\\) expects string, array\\|bool\\|string given\\.$#"
@@ -3399,11 +3379,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#5 \\$is_menuwork of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:addUser\\(\\) expects bool, string given\\.$#"
-			count: 1
-			path: libraries/entry_points/server/privileges.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between '_structure' and null will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/entry_points/server/privileges.php
 

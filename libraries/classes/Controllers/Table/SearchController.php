@@ -544,7 +544,7 @@ class SearchController extends AbstractController
             }
         }
 
-        $criteria_column_names = isset($_POST['criteriaColumnNames']) ? $_POST['criteriaColumnNames'] : null;
+        $criteria_column_names = $_POST['criteriaColumnNames'] ?? null;
         $keys = [];
         for ($i = 0; $i < 4; $i++) {
             if (isset($criteria_column_names[$i])) {
@@ -570,7 +570,7 @@ class SearchController extends AbstractController
                 'keys' => $keys,
                 'criteria_column_names' => $criteria_column_names,
                 'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
-                'criteria_column_types' => isset($_POST['criteriaColumnTypes']) ? $_POST['criteriaColumnTypes'] : null,
+                'criteria_column_types' => $_POST['criteriaColumnTypes'] ?? null,
                 'sql_types' => $this->dbi->types,
                 'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
                 'max_plot_limit' => ! empty($_POST['maxPlotLimit'])
@@ -925,10 +925,8 @@ class SearchController extends AbstractController
      */
     public function getColumnProperties($search_index, $column_index)
     {
-        $selected_operator = (isset($_POST['criteriaColumnOperators'][$search_index])
-            ? $_POST['criteriaColumnOperators'][$search_index] : '');
-        $entered_value = (isset($_POST['criteriaValues'])
-            ? $_POST['criteriaValues'] : '');
+        $selected_operator = ($_POST['criteriaColumnOperators'][$search_index] ?? '');
+        $entered_value = ($_POST['criteriaValues'] ?? '');
         $titles = [
             'Browse' => Generator::getIcon(
                 'b_browse',
@@ -1007,8 +1005,7 @@ class SearchController extends AbstractController
         $fullWhereClause = [];
         foreach ($_POST['criteriaColumnOperators'] as $column_index => $operator) {
             $unaryFlag =  $this->dbi->types->isUnaryOperator($operator);
-            $tmp_geom_func = isset($_POST['geom_func'][$column_index])
-                ? $_POST['geom_func'][$column_index] : null;
+            $tmp_geom_func = $_POST['geom_func'][$column_index] ?? null;
 
             $whereClause = $this->_getWhereClause(
                 $_POST['criteriaValues'][$column_index],
@@ -1221,8 +1218,8 @@ class SearchController extends AbstractController
 
             if ('BETWEEN' == $func_type || 'NOT BETWEEN' == $func_type) {
                 $where = $backquoted_name . ' ' . $func_type . ' '
-                    . (isset($values[0]) ? $values[0] : '')
-                    . ' AND ' . (isset($values[1]) ? $values[1] : '');
+                    . ($values[0] ?? '')
+                    . ' AND ' . ($values[1] ?? '');
             } else { //[NOT] IN
                 if (false !== $emptyKey) {
                     unset($values[$emptyKey]);

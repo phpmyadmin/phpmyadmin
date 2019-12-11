@@ -75,9 +75,7 @@ class StorageEngine
         if (! empty($storage_engines[$engine])) {
             $this->engine  = $engine;
             $this->title   = $storage_engines[$engine]['Engine'];
-            $this->comment = (isset($storage_engines[$engine]['Comment'])
-                ? $storage_engines[$engine]['Comment']
-                : '');
+            $this->comment = ($storage_engines[$engine]['Comment'] ?? '');
             switch ($storage_engines[$engine]['Support']) {
                 case 'DEFAULT':
                     $this->support = PMA_ENGINE_SUPPORT_DEFAULT;

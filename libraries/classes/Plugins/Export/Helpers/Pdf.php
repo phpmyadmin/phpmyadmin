@@ -602,7 +602,7 @@ class Pdf extends PdfLib
             $data[] = $column['Null'] == '' || $column['Null'] == 'NO'
                 ? 'No'
                 : 'Yes';
-            $data[] = isset($column['Default']) ? $column['Default'] : '';
+            $data[] = $column['Default'] ?? '';
 
             $field_name = $column['Field'];
 
@@ -614,9 +614,7 @@ class Pdf extends PdfLib
                     : '';
             }
             if ($do_comments) {
-                $data[] = isset($comments[$field_name])
-                    ? $comments[$field_name]
-                    : '';
+                $data[] = $comments[$field_name] ?? '';
             }
             if ($do_mime) {
                 $data[] = isset($mime_map[$field_name])

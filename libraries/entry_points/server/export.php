@@ -29,7 +29,7 @@ $export_page_title = __('View dump (schema) of databases') . "\n";
 
 $displayExport = new Export();
 
-$select_item = isset($tmp_select) ? $tmp_select : '';
+$select_item = $tmp_select ?? '';
 $multi_values = $displayExport->getHtmlForSelectOptions($select_item);
 
 if (! isset($sql_query)) {

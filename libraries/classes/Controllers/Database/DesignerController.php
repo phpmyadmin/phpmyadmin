@@ -215,7 +215,7 @@ class DesignerController extends AbstractController
             $tooltip_truename,
             $tooltip_aliasname,
             $pos
-            ) = Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+            ) = Util::getDbInfo($db, $sub_part ?? '');
 
         // Embed some data into HTML, later it will be read
         // by designer/init.js and converted to JS variables.

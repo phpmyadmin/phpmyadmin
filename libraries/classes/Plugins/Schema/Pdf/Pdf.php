@@ -385,7 +385,7 @@ class Pdf extends PdfLib
             if ($c == ' ') {
                 $sep = $i;
             }
-            $l += isset($cw[mb_ord($c)]) ? $cw[mb_ord($c)] : 0 ;
+            $l += $cw[mb_ord($c)] ?? 0 ;
             if ($l > $wmax) {
                 if ($sep == -1) {
                     if ($i == $j) {

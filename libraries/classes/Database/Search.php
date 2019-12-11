@@ -341,8 +341,7 @@ class Search
             'criteria_search_type' => $this->criteriaSearchType,
             'criteria_tables' => $this->criteriaTables,
             'tables_names_only' => $this->tablesNamesOnly,
-            'criteria_column_name' => isset($this->criteriaColumnName)
-                ? $this->criteriaColumnName : null,
+            'criteria_column_name' => $this->criteriaColumnName ?? null,
         ]);
     }
 }

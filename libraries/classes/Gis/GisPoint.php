@@ -319,8 +319,8 @@ class GisPoint extends GisGeometry
      */
     public function getShape(array $row_data)
     {
-        return 'POINT(' . (isset($row_data['x']) ? $row_data['x'] : '')
-        . ' ' . (isset($row_data['y']) ? $row_data['y'] : '') . ')';
+        return 'POINT(' . ($row_data['x'] ?? '')
+        . ' ' . ($row_data['y'] ?? '') . ')';
     }
 
     /**

@@ -322,16 +322,14 @@ class GisMultiLineString extends GisGeometry
     {
         $data_row = $gis_data[$index]['MULTILINESTRING'];
 
-        $no_of_lines = isset($data_row['no_of_lines'])
-            ? $data_row['no_of_lines'] : 1;
+        $no_of_lines = $data_row['no_of_lines'] ?? 1;
         if ($no_of_lines < 1) {
             $no_of_lines = 1;
         }
 
         $wkt = 'MULTILINESTRING(';
         for ($i = 0; $i < $no_of_lines; $i++) {
-            $no_of_points = isset($data_row[$i]['no_of_points'])
-                ? $data_row[$i]['no_of_points'] : 2;
+            $no_of_points = $data_row[$i]['no_of_points'] ?? 2;
             if ($no_of_points < 2) {
                 $no_of_points = 2;
             }

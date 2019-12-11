@@ -2068,8 +2068,7 @@ class DatabaseInterface implements DbalInterface
             $one_result['name'] = $routine['Name'];
             $one_result['type'] = $routine['Type'];
             $one_result['definer'] = $routine['Definer'];
-            $one_result['returns'] = isset($routine['DTD_IDENTIFIER'])
-                ? $routine['DTD_IDENTIFIER'] : '';
+            $one_result['returns'] = $routine['DTD_IDENTIFIER'] ?? '';
             $ret[] = $one_result;
         }
 

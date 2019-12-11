@@ -122,7 +122,7 @@ class ExportHtmlword extends ExportPlugin
             <html>
             <head>
                 <meta http-equiv="Content-type" content="text/html;charset='
-            . (isset($charset) ? $charset : 'utf-8') . '" />
+            . ($charset ?? 'utf-8') . '" />
             </head>
             <body>'
         );
@@ -661,7 +661,7 @@ class ExportHtmlword extends ExportPlugin
                 : __('Yes'))
             . '</td>';
         $definition .= '<td class="print">'
-            . htmlspecialchars(isset($column['Default']) ? $column['Default'] : '')
+            . htmlspecialchars($column['Default'] ?? '')
             . '</td>';
 
         return $definition;

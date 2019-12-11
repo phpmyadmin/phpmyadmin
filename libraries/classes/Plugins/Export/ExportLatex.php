@@ -622,7 +622,7 @@ class ExportLatex extends ExportPlugin
             $local_buffer = $col_as . "\000" . $type . "\000"
                 . (($row['Null'] == '' || $row['Null'] == 'NO')
                     ? __('No') : __('Yes'))
-                . "\000" . (isset($row['Default']) ? $row['Default'] : '');
+                . "\000" . ($row['Default'] ?? '');
 
             if ($do_relation && $have_rel) {
                 $local_buffer .= "\000";

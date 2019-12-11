@@ -89,9 +89,7 @@ class Form
             ),
             '/'
         );
-        return isset($this->_fieldsTypes[$key])
-            ? $this->_fieldsTypes[$key]
-            : null;
+        return $this->_fieldsTypes[$key] ?? null;
     }
 
     /**

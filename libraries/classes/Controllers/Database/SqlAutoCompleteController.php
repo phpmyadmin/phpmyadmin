@@ -21,7 +21,7 @@ class SqlAutoCompleteController extends AbstractController
 
         $sql_autocomplete = true;
         if ($cfg['EnableAutocompleteForTablesAndColumns']) {
-            $db = isset($_POST['db']) ? $_POST['db'] : $db;
+            $db = $_POST['db'] ?? $db;
             $sql_autocomplete = [];
             if ($db) {
                 $tableNames = $this->dbi->getTables($db);

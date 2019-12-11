@@ -159,8 +159,7 @@ class Common
                         $con['DTN'][$i]    = rawurlencode($GLOBALS['db'] . '.' . $val[0]);
                         $con['DCN'][$i]    = rawurlencode($one_field);
                         $con['STN'][$i]    = rawurlencode(
-                            (isset($one_key['ref_db_name']) ?
-                                $one_key['ref_db_name'] : $GLOBALS['db'])
+                            ($one_key['ref_db_name'] ?? $GLOBALS['db'])
                             . '.' . $one_key['ref_table_name']
                         );
                         $con['SCN'][$i] = rawurlencode($one_key['ref_index_list'][$index]);

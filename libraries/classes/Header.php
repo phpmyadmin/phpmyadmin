@@ -227,8 +227,7 @@ class Header
     {
         $db = strlen($GLOBALS['db']) ? $GLOBALS['db'] : '';
         $table = strlen($GLOBALS['table']) ? $GLOBALS['table'] : '';
-        $pftext = isset($_SESSION['tmpval']['pftext'])
-            ? $_SESSION['tmpval']['pftext'] : '';
+        $pftext = $_SESSION['tmpval']['pftext'] ?? '';
 
         $params = [
             'common_query' => Url::getCommonRaw(),

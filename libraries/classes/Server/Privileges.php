@@ -586,7 +586,7 @@ class Privileges
      */
     public function setUserGroup($username, $userGroup)
     {
-        $userGroup = $userGroup === null ? '' : $userGroup;
+        $userGroup = $userGroup ?? '';
         $cfgRelation = $this->relation->getRelationsParam();
         if (empty($cfgRelation['db']) || empty($cfgRelation['users']) || empty($cfgRelation['usergroups'])) {
             return;
@@ -1071,9 +1071,7 @@ class Privileges
             $serverType = Util::getServerType();
             $serverVersion = $this->dbi->getVersion();
             $authentication_plugin
-                = (isset($_POST['authentication_plugin'])
-                ? $_POST['authentication_plugin']
-                : $this->getCurrentAuthenticationPlugin(
+                = ($_POST['authentication_plugin'] ?? $this->getCurrentAuthenticationPlugin(
                     'change',
                     $username,
                     $hostname
@@ -2254,7 +2252,7 @@ class Privileges
 
         return $this->template->render('server/privileges/initials_row', [
             'array_initials' => $array_initials,
-            'initial' => isset($_GET['initial']) ? $_GET['initial'] : null,
+            'initial' => $_GET['initial'] ?? null,
         ]);
     }
 
@@ -2688,7 +2686,7 @@ class Privileges
         ] = $this->getSqlQueriesForDisplayAndAddUser(
             $username,
             $hostname,
-            (isset($password) ? $password : '')
+            ($password ?? '')
         );
 
         if (empty($_POST['change_copy'])) {
@@ -2734,7 +2732,7 @@ class Privileges
 
         // Copy the user group while copying a user
         $old_usergroup =
-            isset($_POST['old_usergroup']) ? $_POST['old_usergroup'] : null;
+            $_POST['old_usergroup'] ?? null;
         $this->setUserGroup($_POST['username'], $old_usergroup);
 
         if ($create_user_real === null) {
@@ -2904,9 +2902,9 @@ class Privileges
         return [
             $username,
             $hostname,
-            isset($dbname) ? $dbname : null,
-            isset($tablename) ? $tablename : null,
-            isset($routinename) ? $routinename : null,
+            $dbname ?? null,
+            $tablename ?? null,
+            $routinename ?? null,
             $db_and_table,
             $databaseNameIsWildcard,
         ];

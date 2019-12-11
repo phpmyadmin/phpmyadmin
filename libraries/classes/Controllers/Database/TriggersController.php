@@ -50,7 +50,7 @@ class TriggersController extends AbstractController
                     $tooltip_truename,
                     $tooltip_aliasname,
                     $pos
-                ) = Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+                ) = Util::getDbInfo($db, $sub_part ?? '');
             }
         } else {
             /**

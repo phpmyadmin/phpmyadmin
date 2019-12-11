@@ -548,7 +548,7 @@ class Routines
             'item_definer',
         ];
         foreach ($indices as $index) {
-            $retval[$index] = isset($_POST[$index]) ? $_POST[$index] : '';
+            $retval[$index] = $_POST[$index] ?? '';
         }
 
         $retval['item_type']         = 'PROCEDURE';
@@ -1126,8 +1126,7 @@ class Routines
     {
         global $errors, $param_sqldataaccess, $param_directions, $dbi;
 
-        $_POST['item_type'] = isset($_POST['item_type'])
-            ? $_POST['item_type'] : '';
+        $_POST['item_type'] = $_POST['item_type'] ?? '';
 
         $query = 'CREATE ';
         if (! empty($_POST['item_definer'])) {
@@ -1258,9 +1257,7 @@ class Routines
         }
         $query .= '(' . $params . ') ';
         if ($_POST['item_type'] == 'FUNCTION') {
-            $item_returntype = isset($_POST['item_returntype'])
-                ? $_POST['item_returntype']
-                : null;
+            $item_returntype = $_POST['item_returntype'] ?? null;
 
             if (! empty($item_returntype)
                 && in_array(

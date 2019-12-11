@@ -32,7 +32,7 @@ $userPreferences->pageInit($cf);
 
 // handle form processing
 
-$form_param = isset($_GET['form']) ? $_GET['form'] : null;
+$form_param = $_GET['form'] ?? null;
 $form_class = UserFormList::get($form_param);
 if ($form_class === null) {
     Core::fatalError(__('Incorrect form specified!'));
@@ -60,7 +60,7 @@ if ($form_display->process(false) && ! $form_display->hasErrors()) {
     if ($result === true) {
         // reload config
         $GLOBALS['PMA_Config']->loadUserPreferences();
-        $tabHash = isset($_POST['tab_hash']) ? $_POST['tab_hash'] : null;
+        $tabHash = $_POST['tab_hash'] ?? null;
         $hash = ltrim($tabHash, '#');
         $userPreferences->redirect(
             'index.php?route=/preferences/forms',

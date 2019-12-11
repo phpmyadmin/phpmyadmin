@@ -235,10 +235,10 @@ if (isset($_POST['change_copy']) && $username == $_POST['old_username']
  */
 [$ret_message, $ret_queries, $queries_for_display, $sql_query, $_add_user_error]
     = $serverPrivileges->addUser(
-        isset($dbname) ? $dbname : null,
-        isset($username) ? $username : null,
-        isset($hostname) ? $hostname : null,
-        isset($password) ? $password : null,
+        $dbname ?? null,
+        $username ?? null,
+        $hostname ?? null,
+        $password ?? null,
         $cfgRelation['menuswork']
     );
 //update the old variables
@@ -274,12 +274,10 @@ if (! empty($_POST['update_privs'])) {
     if (is_array($dbname)) {
         foreach ($dbname as $key => $db_name) {
             [$sql_query[$key], $message] = $serverPrivileges->updatePrivileges(
-                (isset($username) ? $username : ''),
-                (isset($hostname) ? $hostname : ''),
-                (isset($tablename)
-                    ? $tablename
-                    : (isset($routinename) ? $routinename : '')),
-                (isset($db_name) ? $db_name : ''),
+                ($username ?? ''),
+                ($hostname ?? ''),
+                ($tablename ?? ($routinename ?? '')),
+                ($db_name ?? ''),
                 $itemType
             );
         }
@@ -287,12 +285,10 @@ if (! empty($_POST['update_privs'])) {
         $sql_query = implode("\n", $sql_query);
     } else {
         [$sql_query, $message] = $serverPrivileges->updatePrivileges(
-            (isset($username) ? $username : ''),
-            (isset($hostname) ? $hostname : ''),
-            (isset($tablename)
-                ? $tablename
-                : (isset($routinename) ? $routinename : '')),
-            (isset($dbname) ? $dbname : ''),
+            ($username ?? ''),
+            ($hostname ?? ''),
+            ($tablename ?? ($routinename ?? '')),
+            ($dbname ?? ''),
             $itemType
         );
     }
@@ -313,10 +309,8 @@ if (! empty($_POST['changeUserGroup']) && $cfgRelation['menuswork']
  */
 if (isset($_POST['revokeall'])) {
     [$message, $sql_query] = $serverPrivileges->getMessageAndSqlQueryForPrivilegesRevoke(
-        (isset($dbname) ? $dbname : ''),
-        (isset($tablename)
-            ? $tablename
-            : (isset($routinename) ? $routinename : '')),
+        ($dbname ?? ''),
+        ($tablename ?? ($routinename ?? '')),
         $username,
         $hostname,
         $itemType
@@ -380,10 +374,10 @@ if ($response->isAjax()
     && ! isset($_GET['edit_user_group_dialog'])
 ) {
     $extra_data = $serverPrivileges->getExtraDataForAjaxBehavior(
-        (isset($password) ? $password : ''),
-        (isset($sql_query) ? $sql_query : ''),
-        (isset($hostname) ? $hostname : ''),
-        (isset($username) ? $username : '')
+        ($password ?? ''),
+        ($sql_query ?? ''),
+        ($hostname ?? ''),
+        ($username ?? '')
     );
 
     if (! empty($message) && $message instanceof Message) {
@@ -418,7 +412,7 @@ if (isset($_GET['viewing_mode']) && $_GET['viewing_mode'] == 'db') {
         $tooltip_truename,
         $tooltip_aliasname,
         $pos,
-    ] = PhpMyAdmin\Util::getDbInfo($db, $sub_part === null ? '' : $sub_part);
+    ] = PhpMyAdmin\Util::getDbInfo($db, $sub_part ?? '');
 
     $content = ob_get_clean();
     $response->addHTML($content . "\n");
@@ -432,7 +426,7 @@ if (isset($_GET['viewing_mode']) && $_GET['viewing_mode'] == 'db') {
  */
 $response->addHTML(
     $serverPrivileges->getHtmlForUserGroupDialog(
-        isset($username) ? $username : null,
+        $username ?? null,
         $cfgRelation['menuswork']
     )
 );
@@ -442,8 +436,8 @@ if (isset($_GET['export'])
     || (isset($_POST['submit_mult']) && $_POST['submit_mult'] == 'export')
 ) {
     [$title, $export] = $serverPrivileges->getListForExportUserDefinition(
-        isset($username) ? $username : null,
-        isset($hostname) ? $hostname : null
+        $username ?? null,
+        $hostname ?? null
     );
 
     unset($username, $hostname, $grants, $one_grant);
@@ -460,7 +454,7 @@ if (isset($_GET['export'])
 if (isset($_GET['adduser'])) {
     // Add user
     $response->addHTML(
-        $serverPrivileges->getHtmlForAddUser((isset($dbname) ? $dbname : ''))
+        $serverPrivileges->getHtmlForAddUser(($dbname ?? ''))
     );
 } elseif (isset($_GET['checkprivsdb'])) {
     if (isset($_GET['checkprivstable'])) {

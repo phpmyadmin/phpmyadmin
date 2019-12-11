@@ -133,7 +133,7 @@ class Plugins
      */
     public static function getString($name)
     {
-        return isset($GLOBALS[$name]) ? $GLOBALS[$name] : $name;
+        return $GLOBALS[$name] ?? $name;
     }
 
     /**

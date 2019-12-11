@@ -85,26 +85,14 @@ class CreateAddField
                         $_POST['field_type'][$i],
                         $_POST['field_length'][$i],
                         $_POST['field_attribute'][$i],
-                        isset($_POST['field_collation'][$i])
-                        ? $_POST['field_collation'][$i]
-                        : '',
-                        isset($_POST['field_null'][$i])
-                        ? $_POST['field_null'][$i]
-                        : 'NO',
+                        $_POST['field_collation'][$i] ?? '',
+                        $_POST['field_null'][$i] ?? 'NO',
                         $_POST['field_default_type'][$i],
                         $_POST['field_default_value'][$i],
-                        isset($_POST['field_extra'][$i])
-                        ? $_POST['field_extra'][$i]
-                        : false,
-                        isset($_POST['field_comments'][$i])
-                        ? $_POST['field_comments'][$i]
-                        : '',
-                        isset($_POST['field_virtuality'][$i])
-                        ? $_POST['field_virtuality'][$i]
-                        : '',
-                        isset($_POST['field_expression'][$i])
-                        ? $_POST['field_expression'][$i]
-                        : ''
+                        $_POST['field_extra'][$i] ?? false,
+                        $_POST['field_comments'][$i] ?? '',
+                        $_POST['field_virtuality'][$i] ?? '',
+                        $_POST['field_expression'][$i] ?? ''
                     );
 
             $definition .= $this->setColumnCreationStatementSuffix(
@@ -302,7 +290,7 @@ class CreateAddField
 
         // Builds the PRIMARY KEY statements
         $primaryKeyStatements = $this->buildIndexStatements(
-            isset($fieldPrimary[0]) ? $fieldPrimary[0] : [],
+            $fieldPrimary[0] ?? [],
             ' PRIMARY KEY ',
             $isCreateTable
         );

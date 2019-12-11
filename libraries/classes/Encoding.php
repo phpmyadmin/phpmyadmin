@@ -198,7 +198,7 @@ class Encoding
                 return iconv(
                     $src_charset,
                     $dest_charset .
-                    (isset($GLOBALS['cfg']['IconvExtraParams']) ? $GLOBALS['cfg']['IconvExtraParams'] : ''),
+                    ($GLOBALS['cfg']['IconvExtraParams'] ?? ''),
                     $what
                 );
             case self::ENGINE_MB:

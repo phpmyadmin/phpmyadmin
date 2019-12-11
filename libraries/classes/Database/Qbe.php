@@ -311,25 +311,13 @@ class Qbe
             'array'
         );
 
-        $this->_prev_criteria = isset($_POST['prev_criteria'])
-            ? $_POST['prev_criteria']
-            : [];
-        $this->_criteria = isset($_POST['criteria'])
-            ? $_POST['criteria']
-            : array_fill(0, $criteriaColumnCount, '');
+        $this->_prev_criteria = $_POST['prev_criteria'] ?? [];
+        $this->_criteria = $_POST['criteria'] ?? array_fill(0, $criteriaColumnCount, '');
 
-        $this->_criteriaRowInsert = isset($_POST['criteriaRowInsert'])
-            ? $_POST['criteriaRowInsert']
-            : array_fill(0, $criteriaColumnCount, '');
-        $this->_criteriaRowDelete = isset($_POST['criteriaRowDelete'])
-            ? $_POST['criteriaRowDelete']
-            : array_fill(0, $criteriaColumnCount, '');
-        $this->_criteriaAndOrRow = isset($_POST['criteriaAndOrRow'])
-            ? $_POST['criteriaAndOrRow']
-            : array_fill(0, $criteriaColumnCount, '');
-        $this->_criteriaAndOrColumn = isset($_POST['criteriaAndOrColumn'])
-            ? $_POST['criteriaAndOrColumn']
-            : array_fill(0, $criteriaColumnCount, '');
+        $this->_criteriaRowInsert = $_POST['criteriaRowInsert'] ?? array_fill(0, $criteriaColumnCount, '');
+        $this->_criteriaRowDelete = $_POST['criteriaRowDelete'] ?? array_fill(0, $criteriaColumnCount, '');
+        $this->_criteriaAndOrRow = $_POST['criteriaAndOrRow'] ?? array_fill(0, $criteriaColumnCount, '');
+        $this->_criteriaAndOrColumn = $_POST['criteriaAndOrColumn'] ?? array_fill(0, $criteriaColumnCount, '');
         // sets minimum width
         $this->_form_column_width = 12;
         $this->_formColumns = [];

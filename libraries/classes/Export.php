@@ -98,7 +98,7 @@ class Export
             $line = Encoding::kanjiStrConv(
                 $line,
                 $GLOBALS['knjenc'],
-                isset($GLOBALS['xkana']) ? $GLOBALS['xkana'] : ''
+                $GLOBALS['xkana'] ?? ''
             );
         }
 
