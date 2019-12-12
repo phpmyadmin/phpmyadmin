@@ -13,7 +13,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
-use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 /**
  * Displays the advisor feature

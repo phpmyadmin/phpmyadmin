@@ -10,7 +10,6 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Error;
 use PhpMyAdmin\Tests\PmaTestCase;
-use PhpMyAdmin\Theme;
 
 /**
  * Error class testing.

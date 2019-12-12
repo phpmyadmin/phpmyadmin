@@ -43,7 +43,7 @@ $response = $containerBuilder->get(Response::class);
 /** @var DatabaseInterface $dbi */
 $dbi = $containerBuilder->get(DatabaseInterface::class);
 
-/** @var import $import */
+/** @var Import $import */
 $import = $containerBuilder->get('import');
 
 if (isset($_POST['show_as_php'])) {

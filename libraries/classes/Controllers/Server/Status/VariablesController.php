@@ -9,7 +9,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server\Status;
 
 use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Util;
 
 /**
  * Class VariablesController

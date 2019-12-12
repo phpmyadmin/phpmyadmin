@@ -10,7 +10,6 @@ namespace PhpMyAdmin\Plugins\TwoFactor;
 
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
 use Samyoul\U2F\U2FServer\U2FException;
 use Samyoul\U2F\U2FServer\U2FServer;

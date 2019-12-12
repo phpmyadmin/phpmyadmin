@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Html;
 
-use PhpMyAdmin\Html\Forms;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Util;

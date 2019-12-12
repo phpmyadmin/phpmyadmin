@@ -4,6 +4,7 @@
  *
  * @package PhpMyAdmin-Designer
  */
+
 namespace PhpMyAdmin\Database\Designer;
 
 use PhpMyAdmin\Util;

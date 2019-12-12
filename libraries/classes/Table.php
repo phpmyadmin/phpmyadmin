@@ -865,8 +865,6 @@ class Table
      *                             from the old entry
      *                             (array('FIELDNAME' => 'NEW FIELDVALUE'))
      *
-     * @global relation variable
-     *
      * @return int|boolean
      */
     public static function duplicateInfo(

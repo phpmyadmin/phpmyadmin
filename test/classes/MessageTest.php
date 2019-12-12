@@ -10,7 +10,6 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Tests\PmaTestCase;
-use PhpMyAdmin\Theme;
 
 /**
  * Test for Message class

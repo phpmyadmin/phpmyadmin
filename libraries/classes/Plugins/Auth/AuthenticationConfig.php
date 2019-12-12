@@ -13,7 +13,6 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Select;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**

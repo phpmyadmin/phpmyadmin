@@ -13,7 +13,6 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
-
 use function imagecopyresampled;
 use function imagecreatefromstring;
 use function imagecreatetruecolor;

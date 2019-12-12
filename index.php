@@ -9,7 +9,6 @@ declare(strict_types=1);
 use FastRoute\Dispatcher;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
-
 use function FastRoute\simpleDispatcher;
 
 if (! defined('ROOT_PATH')) {

@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\Theme;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\TestCase;
 

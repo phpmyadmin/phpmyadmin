@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\MoTranslator\Loader;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Theme;
 
 if (! defined('ROOT_PATH')) {

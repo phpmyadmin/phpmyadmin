@@ -11,7 +11,6 @@ namespace PhpMyAdmin\Tests\Database;
 use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
-use PhpMyAdmin\Theme;
 use ReflectionClass;
 
 /**

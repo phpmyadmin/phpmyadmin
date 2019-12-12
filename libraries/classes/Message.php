@@ -9,7 +9,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Sanitize;
-use PhpMyAdmin\Util;
 
 /**
  * a single message
