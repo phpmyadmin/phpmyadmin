@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-11-22 01:33+0100\n"
-"PO-Revision-Date: 2019-09-18 18:27+0000\n"
-"Last-Translator: Tailing Yuan <yuantailing@gmail.com>\n"
+"PO-Revision-Date: 2019-12-13 11:05+0000\n"
+"Last-Translator: popcorner <memoword@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9-dev\n"
+"X-Generator: Weblate 3.10-dev\n"
 
 #: import_status.php:51
 msgid "Could not load the progress of the import."
@@ -1657,8 +1657,6 @@ msgid "%d object(s) created."
 msgstr "已创建 %d 个对象。"
 
 #: js/messages.php:590
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
 msgstr "字段名"
 
@@ -3584,7 +3582,7 @@ msgstr "外键约束"
 
 #: libraries/classes/Config/Descriptions.php:285
 msgid "First day of calendar"
-msgstr ""
+msgstr "日历的第一天"
 
 #: libraries/classes/Config/Descriptions.php:286
 msgid "Browse mode"
@@ -6960,16 +6958,12 @@ msgid "Could not load schema plugins, please check your installation!"
 msgstr "无法加载schema插件，请检查您的安装！"
 
 #: libraries/classes/Database/Designer/Common.php:531
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
-msgstr "设置存储未准备好列的中心表功能。"
+msgstr "phpMyAdmin配置存储并没有针对“显示功能”进行配置。"
 
 #: libraries/classes/Database/Designer/Common.php:580
 msgid "Error: relationship already exists."
@@ -11140,10 +11134,8 @@ msgstr "允许执行 SHOW CREATE VIEW 查询。"
 #: libraries/entry_points/server/privileges.php:120
 #: templates/server/privileges/privileges_table.twig:210
 #: templates/server/privileges/privileges_table.twig:214
-#, fuzzy
-#| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
-msgstr "允许删除数据。"
+msgstr "允许删除历史行。"
 
 #: libraries/classes/Server/Privileges.php:483
 #: libraries/entry_points/server/privileges.php:114
@@ -12107,8 +12099,6 @@ msgstr "最大限制：%s %s"
 
 #. l10n: Short week day name for Sunday
 #: libraries/classes/Util.php:696
-#, fuzzy
-#| msgid "Sun"
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "周日"
@@ -12288,7 +12278,7 @@ msgstr "以上均不"
 #: libraries/db_common.inc.php:145
 #: libraries/entry_points/table/operations.php:246
 msgid "No collation provided."
-msgstr ""
+msgstr "未提供排序规则"
 
 #: libraries/entry_points/database/central_columns.php:133
 #, php-format
@@ -12714,10 +12704,9 @@ msgid "See table structure"
 msgstr "显示表结构"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "全选"
+msgstr "选择 “%s”"
 
 #: templates/database/designer/database_tables.twig:109
 #, php-format
@@ -14395,10 +14384,8 @@ msgid "Update query"
 msgstr "更新查询"
 
 #: templates/table/structure/display_structure.twig:70
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media type:"
-msgstr "MIME 类型"
+msgstr "媒体类型："
 
 #: templates/table/structure/display_structure.twig:91
 #: templates/table/tracking/structure_snapshot_columns.twig:47
@@ -14481,10 +14468,8 @@ msgid "Verify"
 msgstr "验证"
 
 #: templates/transformation_overview.twig:1
-#, fuzzy
-#| msgid "Available MIME types"
 msgid "Available media types"
-msgstr "可用的 MIME 类型"
+msgstr "可用的媒体类型"
 
 #: templates/transformation_overview.twig:13
 msgid "Available browser display transformations"
@@ -14497,8 +14482,6 @@ msgstr "浏览器显示转换"
 
 #: templates/transformation_overview.twig:19
 #: templates/transformation_overview.twig:38
-#, fuzzy
-#| msgid "Description"
 msgctxt "for media type transformation"
 msgid "Description"
 msgstr "说明"
@@ -15428,37 +15411,24 @@ msgid "Do not change the password"
 msgstr "保持原密码"
 
 #: templates/server/privileges/login_information_fields.twig:54
-#, fuzzy
-#| msgid "Data length"
 msgctxt "Password strength"
 msgid "Strength:"
-msgstr "数据长度"
+msgstr "强度："
 
 #: templates/server/privileges/login_information_fields.twig:68
-#, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication plugin"
 msgstr "认证插件"
 
 #: templates/server/privileges/login_information_fields.twig:70
-#, fuzzy
-#| msgid "Password Hashing Method"
 msgid "Password hashing method"
 msgstr "密码加密方式"
 
 #: templates/server/privileges/login_information_fields.twig:79
-#, fuzzy
-#| msgid ""
-#| "This method requires using an '<i>SSL connection</i>' or an "
-#| "'<i>unencrypted connection that encrypts the password using RSA</i>'; "
-#| "while connecting to the server."
 msgid ""
 "This method requires using an '<em>SSL connection</em>' or an "
 "'<em>unencrypted connection that encrypts the password using RSA</em>'; "
 "while connecting to the server."
-msgstr ""
-"此方法连接服务器时，需要使用<i>SSL连接</i>或<i>未加密但使用RSA加密了密码的连"
-"接</i>。"
+msgstr "此方法连接服务器时，需要使用<em>SSL连接</em>或<em>未加密但使用RSA加密了密码的连接</em>。"
 
 #: templates/themes.twig:4
 msgid "Get more themes!"
@@ -15533,26 +15503,20 @@ msgid "Author"
 msgstr "作者"
 
 #: templates/server/plugins/index.twig:41
-#, fuzzy
-#| msgid "active"
 msgid "inactive"
-msgstr "启用"
+msgstr "未启用"
 
 #: templates/server/plugins/index.twig:43
 msgid "disabled"
 msgstr "已禁用"
 
 #: templates/server/plugins/index.twig:45
-#, fuzzy
-#| msgid "Deleting"
 msgid "deleting"
 msgstr "正在删除"
 
 #: templates/server/plugins/index.twig:47
-#, fuzzy
-#| msgid "Delete"
 msgid "deleted"
-msgstr "删除"
+msgstr "已删除"
 
 #: templates/columns_definitions/column_default.twig:3
 msgctxt "for default"
@@ -15664,8 +15628,6 @@ msgid "Username:"
 msgstr "用户名："
 
 #: templates/login/form.twig:65
-#, fuzzy
-#| msgid "Server Choice:"
 msgid "Server choice:"
 msgstr "选择服务器:"
 
