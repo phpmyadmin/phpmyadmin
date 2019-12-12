@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-11-22 01:29+0100\n"
-"PO-Revision-Date: 2019-09-18 09:24+0000\n"
-"Last-Translator: Huang Zhiyi <hzy980512@126.com>\n"
+"PO-Revision-Date: 2019-12-13 11:05+0000\n"
+"Last-Translator: popcorner <memoword@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-9/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9-dev\n"
+"X-Generator: Weblate 3.10-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -2285,8 +2285,6 @@ msgid "%d object(s) created."
 msgstr "已创建 %d 个对象。"
 
 #: js/messages.php:582
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
 msgstr "字段名"
 
@@ -6578,16 +6576,12 @@ msgid "Could not load schema plugins, please check your installation!"
 msgstr "无法加载schema插件，请检查您的安装！"
 
 #: libraries/classes/Database/Designer/Common.php:518
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
-msgstr "设置存储未准备好列的中心表功能。"
+msgstr "phpMyAdmin配置存储并没有针对“显示功能”进行配置。"
 
 #: libraries/classes/Database/Designer/Common.php:565
 msgid "Error: relationship already exists."
@@ -13326,7 +13320,7 @@ msgstr "以上均不"
 
 #: libraries/db_common.inc.php:151 tbl_operations.php:224
 msgid "No collation provided."
-msgstr "未提供排序规则。"
+msgstr "未提供排序规则"
 
 #: libraries/mult_submits.inc.php:337
 msgid "Success!"
@@ -15489,10 +15483,9 @@ msgid "See table structure"
 msgstr "显示表结构"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "全选"
+msgstr "选择 “%s”"
 
 #: templates/database/designer/database_tables.twig:126
 #, php-format
