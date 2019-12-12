@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-11-22 01:31+0100\n"
-"PO-Revision-Date: 2019-04-27 17:19+0000\n"
-"Last-Translator: Joseph Lee <cn.airsoftware@gmail.com>\n"
+"PO-Revision-Date: 2019-12-13 11:05+0000\n"
+"Last-Translator: popcorner <memoword@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/zh_Hans/>\n"
+"phpmyadmin/5-0/zh_Hans/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.10-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -1877,8 +1877,6 @@ msgid "%d object(s) created."
 msgstr "已创建 %d 个对象。"
 
 #: js/messages.php:591
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
 msgstr "字段名"
 
@@ -2229,8 +2227,7 @@ msgid "Failed security key activation (%s)."
 msgstr "安全密钥激活失败（%s）。"
 
 #: js/messages.php:766
-#, fuzzy, php-format
-#| msgid "Table %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
@@ -3105,12 +3102,9 @@ msgid "accent-sensitive"
 msgstr "区分重音"
 
 #: libraries/classes/Charsets/Collation.php:524
-#, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "accent-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "区分重音"
+msgstr "区分假名"
 
 #: libraries/classes/Charsets/Collation.php:528
 msgctxt "Collation variant"
@@ -3125,7 +3119,7 @@ msgstr "二进制"
 #: libraries/classes/Charsets/Collation.php:534
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "无填充"
 
 #: libraries/classes/Config.php:1144
 #, php-format
@@ -3625,10 +3619,8 @@ msgstr "标签"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:557
 #: templates/database/data_dictionary/index.twig:25
 #: templates/columns_definitions/table_fields_definitions.twig:71
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media (MIME) type"
-msgstr "MIME 类型"
+msgstr "媒体（MIME） 类型"
 
 #: libraries/classes/Config/Descriptions.php:219
 #: libraries/classes/Config/Descriptions.php:231
@@ -4788,14 +4780,10 @@ msgid "Bookmark table"
 msgstr "书签表"
 
 #: libraries/classes/Config/Descriptions.php:616
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: "
-#| "[kbd]pma__column_info[/kbd]."
 msgid ""
 "Leave blank for no column comments/media (MIME) types, suggested: "
 "[kbd]pma__column_info[/kbd]."
-msgstr "留空则不使用列信息和MIME类型。推荐: [kbd]pma__column_info[/kbd]。"
+msgstr "留空则不使用列信息和媒体（MIME）类型。推荐: [kbd]pma__column_info[/kbd]。"
 
 #: libraries/classes/Config/Descriptions.php:619
 msgid "Column information table"
@@ -7103,16 +7091,12 @@ msgid "Could not load schema plugins, please check your installation!"
 msgstr "无法加载schema插件，请检查您的安装！"
 
 #: libraries/classes/Database/Designer/Common.php:534
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
-msgstr "设置存储未准备好列的中心表功能。"
+msgstr "phpMyAdmin配置存储并没有针对“显示功能”进行配置。"
 
 #: libraries/classes/Database/Designer/Common.php:583
 msgid "Error: relationship already exists."
@@ -8536,10 +8520,8 @@ msgid ""
 msgstr "导航面板中存在较大的项目组合，可能影响性能。请考虑禁用项目组合。"
 
 #: libraries/classes/Navigation/NavigationTree.php:795
-#, fuzzy
-#| msgid "Groups:"
 msgid "Groups"
-msgstr "组："
+msgstr "组"
 
 #: libraries/classes/Navigation/NavigationTree.php:961
 #, php-format
@@ -9507,10 +9489,8 @@ msgstr "显示注释"
 #: libraries/classes/Plugins/Export/ExportLatex.php:156
 #: libraries/classes/Plugins/Export/ExportOdt.php:116
 #: libraries/classes/Plugins/Export/ExportSql.php:132
-#, fuzzy
-#| msgid "Display MIME types"
 msgid "Display media (MIME) types"
-msgstr "显示 MIME 类型"
+msgstr "显示媒体（ MIME） 类型"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
 msgid "Put columns names in the first row:"
@@ -9790,10 +9770,8 @@ msgid "AUTO_INCREMENT for table"
 msgstr "使用表AUTO_INCREMENT"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1911
-#, fuzzy
-#| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA (MIME) TYPES FOR TABLE"
-msgstr "MIME 类型表"
+msgstr "媒体（MIME） 类型表"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1934
 msgid "RELATIONSHIPS FOR TABLE"
@@ -12687,7 +12665,7 @@ msgstr "以上均不"
 
 #: libraries/db_common.inc.php:153 tbl_operations.php:243
 msgid "No collation provided."
-msgstr ""
+msgstr "未提供排序规则"
 
 #: libraries/mult_submits.inc.php:59 templates/select_all.twig:2
 #: templates/select_all.twig:6
@@ -12729,10 +12707,8 @@ msgid "View dump (schema) of databases"
 msgstr "查看数据库的转存(大纲)"
 
 #: server_privileges.php:89
-#, fuzzy
-#| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
-msgstr "允许删除数据。"
+msgstr "允许删除历史行。"
 
 #: server_privileges.php:160 server_user_groups.php:44
 msgid "No Privileges"
@@ -13672,10 +13648,8 @@ msgid "Pick from Central Columns"
 msgstr "从中央列中挑选"
 
 #: templates/transformation_overview.twig:1
-#, fuzzy
-#| msgid "Available MIME types"
 msgid "Available media (MIME) types"
-msgstr "可用的 MIME 类型"
+msgstr "可用的媒体（ MIME ）类型"
 
 #: templates/transformation_overview.twig:13
 msgid "Available browser display transformations"
@@ -13688,8 +13662,6 @@ msgstr "浏览器显示转换"
 
 #: templates/transformation_overview.twig:19
 #: templates/transformation_overview.twig:38
-#, fuzzy
-#| msgid "Description"
 msgctxt "for media (MIME) type transformation"
 msgid "Description"
 msgstr "说明"
@@ -14072,10 +14044,9 @@ msgid "See table structure"
 msgstr "显示表结构"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "全选"
+msgstr "选择 “%s”"
 
 #: templates/database/designer/database_tables.twig:109
 #, php-format
@@ -14238,26 +14209,20 @@ msgid "License"
 msgstr "授权"
 
 #: templates/server/plugins/index.twig:37
-#, fuzzy
-#| msgid "active"
 msgid "inactive"
-msgstr "启用"
+msgstr "未启用"
 
 #: templates/server/plugins/index.twig:39
 msgid "disabled"
 msgstr "已禁用"
 
 #: templates/server/plugins/index.twig:41
-#, fuzzy
-#| msgid "Deleting"
 msgid "deleting"
 msgstr "正在删除"
 
 #: templates/server/plugins/index.twig:43
-#, fuzzy
-#| msgid "Delete"
 msgid "deleted"
-msgstr "删除"
+msgstr "已删除"
 
 #: templates/themes.twig:4
 msgid "Get more themes!"
@@ -15123,10 +15088,8 @@ msgid "Save chart as image"
 msgstr "将图表另存为图像"
 
 #: templates/table/structure/display_structure.twig:70
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media (MIME) type:"
-msgstr "MIME 类型"
+msgstr "媒体（MIME） 类型："
 
 #: templates/table/structure/display_structure.twig:112
 #, php-format
