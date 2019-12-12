@@ -1244,7 +1244,7 @@ class Routines
                                 );
                         }
                     }
-                    if ($i != (count($item_param_name) - 1)) {
+                    if ($i != count($item_param_name) - 1) {
                         $params .= ', ';
                     }
                 } else {

@@ -141,7 +141,7 @@ class ImportLdi extends AbstractImportCsv
         if (strlen((string) $ldi_new_line) > 0) {
             if ($ldi_new_line == 'auto') {
                 $ldi_new_line
-                    = (PHP_EOL == "\n")
+                    = PHP_EOL == "\n"
                     ? '\n'
                     : '\r\n';
             }

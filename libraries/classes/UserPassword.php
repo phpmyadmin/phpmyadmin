@@ -132,14 +132,14 @@ class UserPassword
         }
 
         $sql_query = 'SET password = '
-            . (($password == '') ? '\'\'' : $hashing_function . '(\'***\')');
+            . ($password == '' ? '\'\'' : $hashing_function . '(\'***\')');
 
         if ($serverType == 'MySQL'
             && $serverVersion >= 50706
         ) {
             $sql_query = 'ALTER USER \'' . $username . '\'@\'' . $hostname
                 . '\' IDENTIFIED WITH ' . $orig_auth_plugin . ' BY '
-                . (($password == '') ? '\'\'' : '\'***\'');
+                . ($password == '' ? '\'\'' : '\'***\'');
         } elseif (($serverType == 'MySQL'
             && $serverVersion >= 50507)
             || ($serverType == 'MariaDB'
@@ -218,7 +218,7 @@ class UserPassword
         if ($serverType == 'MySQL' && $serverVersion >= 50706) {
             $local_query = 'ALTER USER \'' . $username . '\'@\'' . $hostname . '\''
                 . ' IDENTIFIED with ' . $orig_auth_plugin . ' BY '
-                . (($password == '')
+                . ($password == ''
                 ? '\'\''
                 : '\'' . $GLOBALS['dbi']->escapeString($password) . '\'');
         } elseif ($serverType == 'MariaDB'
@@ -245,7 +245,7 @@ class UserPassword
                 . " WHERE `User` = '" . $username . "' AND Host = '"
                 . $hostname . "';";
         } else {
-            $local_query = 'SET password = ' . (($password == '')
+            $local_query = 'SET password = ' . ($password == ''
                 ? '\'\''
                 : $hashing_function . '(\''
                     . $GLOBALS['dbi']->escapeString($password) . '\')');

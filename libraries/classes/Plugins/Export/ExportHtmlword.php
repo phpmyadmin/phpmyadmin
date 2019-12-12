@@ -653,7 +653,7 @@ class ExportHtmlword extends ExportPlugin
             . htmlspecialchars($col_alias) . $fmt_post . '</td>';
         $definition .= '<td class="print">' . htmlspecialchars($type) . '</td>';
         $definition .= '<td class="print">'
-            . (($column['Null'] == '' || $column['Null'] == 'NO')
+            . ($column['Null'] == '' || $column['Null'] == 'NO'
                 ? __('No')
                 : __('Yes'))
             . '</td>';

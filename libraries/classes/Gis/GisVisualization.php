@@ -341,7 +341,7 @@ class GisVisualization
     {
         $img = $this->_svg();
         $this->_toFile($file_name, 'image/svg+xml', 'svg');
-        echo($img);
+        echo$img;
     }
 
     /**
@@ -606,9 +606,9 @@ class GisVisualization
         // scale the visualization
         $x_ratio = ($min_max['maxX'] - $min_max['minX']) / $plot_width;
         $y_ratio = ($min_max['maxY'] - $min_max['minY']) / $plot_height;
-        $ratio = ($x_ratio > $y_ratio) ? $x_ratio : $y_ratio;
+        $ratio = $x_ratio > $y_ratio ? $x_ratio : $y_ratio;
 
-        $scale = ($ratio != 0) ? (1 / $ratio) : 1;
+        $scale = $ratio != 0 ? 1 / $ratio : 1;
 
         if ($x_ratio < $y_ratio) {
             // center horizontally

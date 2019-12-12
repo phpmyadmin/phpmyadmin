@@ -52,7 +52,7 @@ class GisDataEditorController extends AbstractController
                 $gis_data['gis_type'] = mb_strtoupper($_POST['type']);
             }
             if (isset($_POST['value']) && trim($_POST['value']) != '') {
-                $start = (substr($_POST['value'], 0, 1) == "'") ? 1 : 0;
+                $start = substr($_POST['value'], 0, 1) == "'" ? 1 : 0;
                 $gis_data['gis_type'] = mb_substr(
                     $_POST['value'],
                     $start,
@@ -77,7 +77,7 @@ class GisDataEditorController extends AbstractController
         }
 
         // Generate Well Known Text
-        $srid = (isset($gis_data['srid']) && $gis_data['srid'] != '') ? $gis_data['srid'] : 0;
+        $srid = isset($gis_data['srid']) && $gis_data['srid'] != '' ? $gis_data['srid'] : 0;
         $wkt = $gis_obj->generateWkt($gis_data, 0);
         $wkt_with_zero = $gis_obj->generateWkt($gis_data, 0, '0');
         $result = "'" . $wkt . "'," . $srid;

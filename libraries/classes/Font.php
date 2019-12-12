@@ -194,14 +194,14 @@ class Font
         $count = 0;
 
         foreach ($charLists as $charList) {
-            $count += ((mb_strlen($text)
+            $count += (mb_strlen($text)
                 - mb_strlen(str_replace($charList['chars'], '', $text))
-                ) * $charList['modifier']);
+                ) * $charList['modifier'];
         }
 
         $text  = str_replace(' ', '', $text);//remove the " "'s
         //all other chars
-        $count += (mb_strlen(preg_replace('/[a-z0-9]/i', '', $text)) * 0.3);
+        $count += mb_strlen(preg_replace('/[a-z0-9]/i', '', $text)) * 0.3;
 
         $modifier = 1;
         $font = mb_strtolower($font);

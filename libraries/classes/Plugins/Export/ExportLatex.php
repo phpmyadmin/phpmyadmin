@@ -419,7 +419,7 @@ class ExportLatex extends ExportPlugin
                 }
 
                 // last column ... no need for & character
-                if ($i == ($columns_cnt - 1)) {
+                if ($i == $columns_cnt - 1) {
                     $buffer .= $column_value;
                 } else {
                     $buffer .= $column_value . ' & ';
@@ -617,7 +617,7 @@ class ExportLatex extends ExportPlugin
             }
 
             $local_buffer = $col_as . "\000" . $type . "\000"
-                . (($row['Null'] == '' || $row['Null'] == 'NO')
+                . ($row['Null'] == '' || $row['Null'] == 'NO'
                     ? __('No') : __('Yes'))
                 . "\000" . ($row['Default'] ?? '');
 

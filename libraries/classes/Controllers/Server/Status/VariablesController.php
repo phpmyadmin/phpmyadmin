@@ -178,11 +178,11 @@ class VariablesController extends AbstractController
             // depends on Key_read_requests
             // normally lower then 1:0.01
             'Key_reads' => isset($this->data->status['Key_read_requests'])
-                ? (0.01 * $this->data->status['Key_read_requests']) : 0,
+                ? 0.01 * $this->data->status['Key_read_requests'] : 0,
             // depends on Key_write_requests
             // normally nearly 1:1
             'Key_writes' => isset($this->data->status['Key_write_requests'])
-                ? (0.9 * $this->data->status['Key_write_requests']) : 0,
+                ? 0.9 * $this->data->status['Key_write_requests'] : 0,
 
             'Key_buffer_fraction' => 0.5,
 

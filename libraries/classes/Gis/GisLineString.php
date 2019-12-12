@@ -296,11 +296,11 @@ class GisLineString extends GisGeometry
         }
         $wkt = 'LINESTRING(';
         for ($i = 0; $i < $no_of_points; $i++) {
-            $wkt .= ((isset($gis_data[$index]['LINESTRING'][$i]['x'])
-                    && trim((string) $gis_data[$index]['LINESTRING'][$i]['x']) != '')
+            $wkt .= (isset($gis_data[$index]['LINESTRING'][$i]['x'])
+                    && trim((string) $gis_data[$index]['LINESTRING'][$i]['x']) != ''
                     ? $gis_data[$index]['LINESTRING'][$i]['x'] : $empty)
-                . ' ' . ((isset($gis_data[$index]['LINESTRING'][$i]['y'])
-                    && trim((string) $gis_data[$index]['LINESTRING'][$i]['y']) != '')
+                . ' ' . (isset($gis_data[$index]['LINESTRING'][$i]['y'])
+                    && trim((string) $gis_data[$index]['LINESTRING'][$i]['y']) != ''
                     ? $gis_data[$index]['LINESTRING'][$i]['y'] : $empty) . ',';
         }
 

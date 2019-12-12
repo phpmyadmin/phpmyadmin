@@ -110,7 +110,7 @@ class Pdf extends PdfLib
             $y = $this->y;
         }
         $current_page = $this->page;
-        if ((($y + $h) > $this->PageBreakTrigger)
+        if (($y + $h > $this->PageBreakTrigger)
             && (! $this->InFooter)
             && $this->AcceptPageBreak()
         ) {
@@ -133,7 +133,7 @@ class Pdf extends PdfLib
                     }
                 } else {
                     if ($this_page_olm != $old_page_olm) {
-                        $this->x = $x + ($this_page_olm - $old_page_olm);
+                        $this->x = $x + $this_page_olm - $old_page_olm;
                     } else {
                         $this->x = $x;
                     }
@@ -785,7 +785,7 @@ class Pdf extends PdfLib
                     // enlarge the column (but avoid enlarging it if the
                     // data's width is very big)
                     if ($stringWidth > $val
-                        && $stringWidth < ($this->sColWidth * 3)
+                        && $stringWidth < $this->sColWidth * 3
                     ) {
                         $colFits[$key] = $stringWidth;
                     }

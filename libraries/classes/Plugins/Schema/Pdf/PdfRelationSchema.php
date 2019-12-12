@@ -764,7 +764,7 @@ class PdfRelationSchema extends ExportRelationSchema
                     $field_name,
                     $type,
                     $attribute,
-                    ($row['Null'] == '' || $row['Null'] == 'NO')
+                    $row['Null'] == '' || $row['Null'] == 'NO'
                         ? __('No')
                         : __('Yes'),
                     $row['Default'] ?? '',

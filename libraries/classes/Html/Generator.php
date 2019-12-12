@@ -324,7 +324,7 @@ class Generator
             'div_for_slider_effect',
             [
                 'id' => $id,
-                'initial_sliders_state' => ($overrideDefault != null) ? $overrideDefault
+                'initial_sliders_state' => $overrideDefault != null ? $overrideDefault
                     : $GLOBALS['cfg']['InitialSlidersState'],
                 'message' => $message,
             ]
@@ -658,7 +658,7 @@ class Generator
             $pos = $_SESSION['tmpval']['pos'];
         } else {
             $number_of_line = (int) $_REQUEST['unlim_num_rows'];
-            $pos = ((ceil($number_of_line / $rows) - 1) * $rows);
+            $pos = (ceil($number_of_line / $rows) - 1) * $rows;
             $_SESSION['tmpval']['pos'] = $pos;
         }
 

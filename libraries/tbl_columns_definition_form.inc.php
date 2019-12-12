@@ -534,9 +534,8 @@ $html = $template->render('columns_definitions/column_definitions_form', [
     'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
     'char_editing' => $GLOBALS['cfg']['CharEditing'] ?? null,
     'attribute_types' => $GLOBALS['dbi']->types->getAttributes(),
-    'privs_available' => (($GLOBALS['col_priv'] ?? false)
-        && ($GLOBALS['is_reload_priv'] ?? false)
-    ),
+    'privs_available' => ($GLOBALS['col_priv'] ?? false)
+        && ($GLOBALS['is_reload_priv'] ?? false),
     'max_length' => $GLOBALS['dbi']->getVersion() >= 50503 ? 1024 : 255,
     'have_partitioning' => Partition::havePartitioning(),
     'dbi' => $GLOBALS['dbi'],

@@ -55,7 +55,7 @@ class Common
     public function getTablesInfo(string $db = null, string $table = null): array
     {
         $designerTables = [];
-        $db = ($db === null) ? $GLOBALS['db'] : $db;
+        $db = $db === null ? $GLOBALS['db'] : $db;
         // seems to be needed later
         $this->dbi->selectDb($db);
         if ($db === null && $table === null) {
@@ -67,7 +67,7 @@ class Common
         foreach ($tables as $one_table) {
             $DF = $this->relation->getDisplayField($db, $one_table['TABLE_NAME']);
             $DF = is_string($DF) ? $DF : '';
-            $DF = ($DF !== '') ? $DF : null;
+            $DF = $DF !== '' ? $DF : null;
             $designerTables[] = new DesignerTable(
                 $db,
                 $one_table['TABLE_NAME'],
@@ -313,7 +313,7 @@ class Common
             DatabaseInterface::CONNECT_CONTROL,
             DatabaseInterface::QUERY_STORE
         );
-        return ( is_array($page_name) && isset($page_name[0]) ) ? $page_name[0] : null;
+        return is_array($page_name) && isset($page_name[0]) ? $page_name[0] : null;
     }
 
     /**

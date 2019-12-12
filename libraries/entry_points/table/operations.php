@@ -111,7 +111,7 @@ if ($pma_table->isEngine('ARIA')) {
     // or explicit (option found with a value of 0 or 1)
     // ($create_options['transactional'] may have been set by Table class,
     // from the $create_options)
-    $create_options['transactional'] = (isset($create_options['transactional']) && $create_options['transactional'] == '0')
+    $create_options['transactional'] = isset($create_options['transactional']) && $create_options['transactional'] == '0'
         ? '0'
         : '1';
     $create_options['page_checksum'] = $create_options['page_checksum'] ?? '';
@@ -190,7 +190,7 @@ if (isset($_POST['submitoptions'])) {
         $new_tbl_storage_engine = mb_strtoupper($_POST['new_tbl_storage_engine']);
 
         if ($pma_table->isEngine('ARIA')) {
-            $create_options['transactional'] = (isset($create_options['transactional']) && $create_options['transactional'] == '0')
+            $create_options['transactional'] = isset($create_options['transactional']) && $create_options['transactional'] == '0'
                 ? '0'
                 : '1';
             $create_options['page_checksum'] = $create_options['page_checksum'] ?? '';
@@ -209,7 +209,7 @@ if (isset($_POST['submitoptions'])) {
         (empty($create_options['delay_key_write']) ? '0' : '1'),
         $row_format,
         $new_tbl_storage_engine,
-        ((isset($create_options['transactional']) && $create_options['transactional'] == '0') ? '0' : '1'),
+        (isset($create_options['transactional']) && $create_options['transactional'] == '0' ? '0' : '1'),
         $tbl_collation
     );
 
@@ -421,7 +421,7 @@ $response->addHTML(
         $create_options['pack_keys'],
         $auto_increment,
         (empty($create_options['delay_key_write']) ? '0' : '1'),
-        ((isset($create_options['transactional']) && $create_options['transactional'] == '0') ? '0' : '1'),
+        (isset($create_options['transactional']) && $create_options['transactional'] == '0' ? '0' : '1'),
         ($create_options['page_checksum'] ?? ''),
         (empty($create_options['checksum']) ? '0' : '1')
     )

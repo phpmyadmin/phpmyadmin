@@ -438,7 +438,7 @@ class Sql
         );
 
         $selected_values = explode(',', $converted_curr_value);
-        $select_size = (count($values) > 10) ? 10 : count($values);
+        $select_size = count($values) > 10 ? 10 : count($values);
 
         return $this->template->render('sql/set_column', [
             'size' => $select_size,
@@ -2299,7 +2299,7 @@ class Sql
             $max_rows = $_SESSION['tmpval']['max_rows'];
         }
 
-        return @((ceil($number_of_line / $max_rows) - 1) * $max_rows);
+        return @(ceil($number_of_line / $max_rows) - 1) * $max_rows;
     }
 
     /**

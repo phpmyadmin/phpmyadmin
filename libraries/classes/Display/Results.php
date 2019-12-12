@@ -1009,10 +1009,10 @@ class Results
         $buttons_html .= $this->_getTableNavigationButton(
             '&gt;&gt;',
             _pgettext('Last page', 'End'),
-            @((ceil(
+            @(ceil(
                 $this->__get('unlim_num_rows')
                 / $_SESSION['tmpval']['max_rows']
-            ) - 1) * $maxRows),
+            ) - 1) * $maxRows,
             $html_sql_query,
             false,
             $onsubmit,
@@ -2491,7 +2491,7 @@ class Results
         while ($row = $GLOBALS['dbi']->fetchRow($dt_result)) {
             // add repeating headers
             if (($row_no != 0) && ($_SESSION['tmpval']['repeat_cells'] != 0)
-                && ! ($row_no % $_SESSION['tmpval']['repeat_cells'])
+                && ! $row_no % $_SESSION['tmpval']['repeat_cells']
             ) {
                 $table_body_html .= $this->_getRepeatingHeaders(
                     $display_params

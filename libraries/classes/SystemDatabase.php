@@ -129,6 +129,6 @@ class SystemDatabase
             }
         }
 
-        return ($column_count > 0) ? $new_transformations_sql : '';
+        return $column_count > 0 ? $new_transformations_sql : '';
     }
 }

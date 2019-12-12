@@ -707,7 +707,7 @@ abstract class TestBase extends TestCase
         );
         $text = $element->getText();
 
-        return ($text && is_string($text)) ? trim($text) : '';
+        return $text && is_string($text) ? trim($text) : '';
     }
 
     /**
@@ -732,7 +732,7 @@ abstract class TestBase extends TestCase
         );
         $text = $element->getText();
 
-        return ($text && is_string($text)) ? trim($text) : '';
+        return $text && is_string($text) ? trim($text) : '';
     }
 
     /**

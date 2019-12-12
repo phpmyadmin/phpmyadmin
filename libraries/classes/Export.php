@@ -731,7 +731,7 @@ class Export
 
                         $size = $this->dbi->fetchValue($query);
                         //Converting the size to MB
-                        $size = ($size / 1024) / 1024;
+                        $size = $size / 1024 / 1024;
                         if ($size > $table_size) {
                             continue;
                         }

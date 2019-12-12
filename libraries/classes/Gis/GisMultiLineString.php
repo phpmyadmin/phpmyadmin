@@ -335,11 +335,11 @@ class GisMultiLineString extends GisGeometry
             }
             $wkt .= '(';
             for ($j = 0; $j < $no_of_points; $j++) {
-                $wkt .= ((isset($data_row[$i][$j]['x'])
-                        && trim((string) $data_row[$i][$j]['x']) != '')
+                $wkt .= (isset($data_row[$i][$j]['x'])
+                        && trim((string) $data_row[$i][$j]['x']) != ''
                         ? $data_row[$i][$j]['x'] : $empty)
-                    . ' ' . ((isset($data_row[$i][$j]['y'])
-                        && trim((string) $data_row[$i][$j]['y']) != '')
+                    . ' ' . (isset($data_row[$i][$j]['y'])
+                        && trim((string) $data_row[$i][$j]['y']) != ''
                         ? $data_row[$i][$j]['y'] : $empty) . ',';
             }
             $wkt

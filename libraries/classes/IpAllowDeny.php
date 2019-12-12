@@ -199,7 +199,7 @@ class IpAllowDeny
                 $origval = hexdec($orig);
 
                 // OR it with (2^flexbits)-1, with flexbits limited to 4 at a time
-                $newval = $origval | (pow(2, min(4, $flexbits)) - 1);
+                $newval = $origval | pow(2, min(4, $flexbits)) - 1;
 
                 // Convert it back to a hexadecimal character
                 $new = dechex($newval);

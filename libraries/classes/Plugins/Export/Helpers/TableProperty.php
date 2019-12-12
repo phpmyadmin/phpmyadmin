@@ -107,7 +107,7 @@ class TableProperty
      */
     public function isUnique(): string
     {
-        return ($this->key === 'PRI' || $this->key === 'UNI') ? 'true' : 'false';
+        return $this->key === 'PRI' || $this->key === 'UNI' ? 'true' : 'false';
     }
 
     /**

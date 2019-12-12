@@ -300,12 +300,12 @@ class GisPoint extends GisGeometry
     public function generateWkt(array $gis_data, $index, $empty = '')
     {
         return 'POINT('
-        . ((isset($gis_data[$index]['POINT']['x'])
-            && trim((string) $gis_data[$index]['POINT']['x']) != '')
+        . (isset($gis_data[$index]['POINT']['x'])
+            && trim((string) $gis_data[$index]['POINT']['x']) != ''
             ? $gis_data[$index]['POINT']['x'] : '')
         . ' '
-        . ((isset($gis_data[$index]['POINT']['y'])
-            && trim((string) $gis_data[$index]['POINT']['y']) != '')
+        . (isset($gis_data[$index]['POINT']['y'])
+            && trim((string) $gis_data[$index]['POINT']['y']) != ''
             ? $gis_data[$index]['POINT']['y'] : '') . ')';
     }
 

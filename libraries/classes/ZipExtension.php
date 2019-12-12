@@ -223,7 +223,7 @@ class ZipExtension
                 $timearray['seconds'] = 0;
             }
 
-            $time = (($timearray['year'] - 1980) << 25)
+            $time = $timearray['year'] - 1980 << 25
             | ($timearray['mon'] << 21)
             | ($timearray['mday'] << 16)
             | ($timearray['hours'] << 11)

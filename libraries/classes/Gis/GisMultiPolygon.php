@@ -406,11 +406,11 @@ class GisMultiPolygon extends GisGeometry
                 }
                 $wkt .= '(';
                 for ($j = 0; $j < $no_of_points; $j++) {
-                    $wkt .= ((isset($data_row[$k][$i][$j]['x'])
-                            && trim((string) $data_row[$k][$i][$j]['x']) != '')
+                    $wkt .= (isset($data_row[$k][$i][$j]['x'])
+                            && trim((string) $data_row[$k][$i][$j]['x']) != ''
                             ? $data_row[$k][$i][$j]['x'] : $empty)
-                        . ' ' . ((isset($data_row[$k][$i][$j]['y'])
-                            && trim((string) $data_row[$k][$i][$j]['y']) != '')
+                        . ' ' . (isset($data_row[$k][$i][$j]['y'])
+                            && trim((string) $data_row[$k][$i][$j]['y']) != ''
                             ? $data_row[$k][$i][$j]['y'] : $empty) . ',';
                 }
                 $wkt

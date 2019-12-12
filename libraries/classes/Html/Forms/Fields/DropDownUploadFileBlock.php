@@ -54,7 +54,7 @@ class DropDownUploadFileBlock implements FieldGenerator
         $matcher = '@\.(' . $extensions . ')(\.('
             . $fileListing->supportedDecompressions() . '))?$@';
 
-        $active = (isset($GLOBALS['timeout_passed'], $GLOBALS['local_import_file']) && $GLOBALS['timeout_passed'])
+        $active = isset($GLOBALS['timeout_passed'], $GLOBALS['local_import_file']) && $GLOBALS['timeout_passed']
             ? $GLOBALS['local_import_file']
             : '';
 

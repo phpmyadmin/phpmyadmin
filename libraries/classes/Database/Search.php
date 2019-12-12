@@ -227,8 +227,8 @@ class Search
         $allColumns = $this->dbi->getColumns($GLOBALS['db'], $table);
         $likeClauses = [];
         // Based on search type, decide like/regex & '%'/''
-        $like_or_regex   = (($this->criteriaSearchType == 5) ? 'REGEXP' : 'LIKE');
-        $automatic_wildcard   = (($this->criteriaSearchType < 4) ? '%' : '');
+        $like_or_regex   = ($this->criteriaSearchType == 5 ? 'REGEXP' : 'LIKE');
+        $automatic_wildcard   = ($this->criteriaSearchType < 4 ? '%' : '');
         // For "as regular expression" (search option 5), LIKE won't be used
         // Usage example: If user is searching for a literal $ in a regexp search,
         // they should enter \$ as the value.
@@ -236,9 +236,9 @@ class Search
             $this->criteriaSearchString
         );
         // Extract search words or pattern
-        $search_words = (($this->criteriaSearchType > 2)
+        $search_words = $this->criteriaSearchType > 2
             ? [$criteriaSearchStringEscaped]
-            : explode(' ', $criteriaSearchStringEscaped));
+            : explode(' ', $criteriaSearchStringEscaped);
 
         foreach ($search_words as $search_word) {
             // Eliminates empty values

@@ -239,7 +239,7 @@ class ExportPhparray extends ExportPlugin
             for ($i = 0; $i < $columns_cnt; $i++) {
                 $buffer .= var_export($columns[$i], true)
                     . ' => ' . var_export($record[$i], true)
-                    . (($i + 1 >= $columns_cnt) ? '' : ',');
+                    . ($i + 1 >= $columns_cnt ? '' : ',');
             }
 
             $buffer .= ')';

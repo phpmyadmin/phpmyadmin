@@ -1685,7 +1685,7 @@ class DatabaseInterface implements DbalInterface
 
         // return false if result is empty or false
         // or requested row is larger than rows in result
-        if ($this->numRows($result) < ($row_number + 1)) {
+        if ($this->numRows($result) < $row_number + 1) {
             return $value;
         }
 

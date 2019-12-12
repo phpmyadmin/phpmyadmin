@@ -297,11 +297,11 @@ class GisMultiPoint extends GisGeometry
         }
         $wkt = 'MULTIPOINT(';
         for ($i = 0; $i < $no_of_points; $i++) {
-            $wkt .= ((isset($gis_data[$index]['MULTIPOINT'][$i]['x'])
-                    && trim((string) $gis_data[$index]['MULTIPOINT'][$i]['x']) != '')
+            $wkt .= (isset($gis_data[$index]['MULTIPOINT'][$i]['x'])
+                    && trim((string) $gis_data[$index]['MULTIPOINT'][$i]['x']) != ''
                     ? $gis_data[$index]['MULTIPOINT'][$i]['x'] : '')
-                . ' ' . ((isset($gis_data[$index]['MULTIPOINT'][$i]['y'])
-                    && trim((string) $gis_data[$index]['MULTIPOINT'][$i]['y']) != '')
+                . ' ' . (isset($gis_data[$index]['MULTIPOINT'][$i]['y'])
+                    && trim((string) $gis_data[$index]['MULTIPOINT'][$i]['y']) != ''
                     ? $gis_data[$index]['MULTIPOINT'][$i]['y'] : '') . ',';
         }
 

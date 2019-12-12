@@ -608,7 +608,7 @@ class ExportTexytext extends ExportPlugin
             . $fmt_pre . htmlspecialchars($col_alias) . $fmt_post;
         $definition .= '|' . htmlspecialchars($type);
         $definition .= '|'
-            . (($column['Null'] == '' || $column['Null'] == 'NO')
+            . ($column['Null'] == '' || $column['Null'] == 'NO'
                 ? __('No') : __('Yes'));
         $definition .= '|'
             . htmlspecialchars(

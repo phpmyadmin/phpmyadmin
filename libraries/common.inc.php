@@ -243,7 +243,7 @@ if (isset($_REQUEST['selected_recent_table']) && Core::isValid($_REQUEST['select
 
     $diMigration->setGlobal(
         'db',
-        (array_key_exists('db', $recent_table) && is_string($recent_table['db'])) ? $recent_table['db'] : ''
+        array_key_exists('db', $recent_table) && is_string($recent_table['db']) ? $recent_table['db'] : ''
     );
     $diMigration->setGlobal(
         'url_params',
@@ -252,7 +252,7 @@ if (isset($_REQUEST['selected_recent_table']) && Core::isValid($_REQUEST['select
 
     $diMigration->setGlobal(
         'table',
-        (array_key_exists('table', $recent_table) && is_string($recent_table['table'])) ? $recent_table['table'] : ''
+        array_key_exists('table', $recent_table) && is_string($recent_table['table']) ? $recent_table['table'] : ''
     );
     $diMigration->setGlobal(
         'url_params',

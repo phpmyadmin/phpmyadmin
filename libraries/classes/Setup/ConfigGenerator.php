@@ -26,7 +26,7 @@ class ConfigGenerator
      */
     public static function getConfigFile(ConfigFile $cf)
     {
-        $crlf = (isset($_SESSION['eol']) && $_SESSION['eol'] == 'win')
+        $crlf = isset($_SESSION['eol']) && $_SESSION['eol'] == 'win'
             ? "\r\n"
             : "\n";
         $conf = $cf->getConfig();
