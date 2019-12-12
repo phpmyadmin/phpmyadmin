@@ -110,7 +110,7 @@ class Pdf extends PdfLib
             $y = $this->y;
         }
         $current_page = $this->page;
-        if ((($y + $h) > $this->PageBreakTrigger)
+        if (($y + $h > $this->PageBreakTrigger)
             && (! $this->InFooter)
             && $this->AcceptPageBreak()
         ) {
@@ -133,7 +133,7 @@ class Pdf extends PdfLib
                     }
                 } else {
                     if ($this_page_olm != $old_page_olm) {
-                        $this->x = $x + ($this_page_olm - $old_page_olm);
+                        $this->x = $x + $this_page_olm - $old_page_olm;
                     } else {
                         $this->x = $x;
                     }
@@ -602,7 +602,7 @@ class Pdf extends PdfLib
             $data[] = $column['Null'] == '' || $column['Null'] == 'NO'
                 ? 'No'
                 : 'Yes';
-            $data[] = isset($column['Default']) ? $column['Default'] : '';
+            $data[] = $column['Default'] ?? '';
 
             $field_name = $column['Field'];
 
@@ -614,9 +614,7 @@ class Pdf extends PdfLib
                     : '';
             }
             if ($do_comments) {
-                $data[] = isset($comments[$field_name])
-                    ? $comments[$field_name]
-                    : '';
+                $data[] = $comments[$field_name] ?? '';
             }
             if ($do_mime) {
                 $data[] = isset($mime_map[$field_name])
@@ -787,7 +785,7 @@ class Pdf extends PdfLib
                     // enlarge the column (but avoid enlarging it if the
                     // data's width is very big)
                     if ($stringWidth > $val
-                        && $stringWidth < ($this->sColWidth * 3)
+                        && $stringWidth < $this->sColWidth * 3
                     ) {
                         $colFits[$key] = $stringWidth;
                     }

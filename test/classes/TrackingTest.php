@@ -254,7 +254,7 @@ class TrackingTest extends TestCase
 
         $item = sprintf(
             __('Create version %1$s of %2$s'),
-            ($last_version + 1),
+            $last_version + 1,
             htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table'])
         );
         $this->assertStringContainsString(

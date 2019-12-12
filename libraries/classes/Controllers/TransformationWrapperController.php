@@ -13,7 +13,6 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
-
 use function imagecopyresampled;
 use function imagecreatefromstring;
 use function imagecreatetruecolor;
@@ -130,8 +129,7 @@ class TransformationWrapperController extends AbstractController
         if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
             $mime_map = $this->transformations->getMime($db, $table);
             $mime_options = $this->transformations->getOptions(
-                isset($mime_map[$transform_key]['transformation_options'])
-                    ? $mime_map[$transform_key]['transformation_options'] : ''
+                $mime_map[$transform_key]['transformation_options'] ?? ''
             );
 
             foreach ($mime_options as $key => $option) {
@@ -150,7 +148,7 @@ class TransformationWrapperController extends AbstractController
             $mime_type = (! empty($mime_map[$transform_key]['mimetype'])
                     ? str_replace('_', '/', $mime_map[$transform_key]['mimetype'])
                     : $default_ct)
-                . (isset($mime_options['charset']) ? $mime_options['charset'] : '');
+                . ($mime_options['charset'] ?? '');
         }
 
         Core::downloadHeader($cn, $mime_type);

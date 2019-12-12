@@ -114,8 +114,8 @@ if (! empty($submit_mult)
                     $table,
                     $selected,
                     $views,
-                    isset($original_sql_query) ? $original_sql_query : null,
-                    isset($original_url_query) ? $original_url_query : null
+                    $original_sql_query ?? null,
+                    $original_url_query ?? null
                 );
                 $response->disable();
                 $response->addHTML(
@@ -189,7 +189,7 @@ if (! empty($submit_mult) && ! empty($what)) {
             $tooltip_truename,
             $tooltip_aliasname,
             $pos
-        ) = Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+        ) = Util::getDbInfo($db, $sub_part ?? '');
     } else {
         include_once ROOT_PATH . 'libraries/server_common.inc.php';
     }
@@ -212,8 +212,8 @@ if (! empty($submit_mult) && ! empty($what)) {
         $table,
         $selected,
         $views,
-        isset($original_sql_query) ? $original_sql_query : null,
-        isset($original_url_query) ? $original_url_query : null
+        $original_sql_query ?? null,
+        $original_url_query ?? null
     );
 
 
@@ -268,9 +268,9 @@ if (! empty($submit_mult) && ! empty($what)) {
         $db,
         $table,
         $views,
-        isset($primary) ? $primary : null,
-        isset($from_prefix) ? $from_prefix : null,
-        isset($to_prefix) ? $to_prefix : null
+        $primary ?? null,
+        $from_prefix ?? null,
+        $to_prefix ?? null
     );
     //update the existed variable
     if (isset($reload_ret)) {

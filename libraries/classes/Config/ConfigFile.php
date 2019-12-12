@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 
 /**
@@ -394,9 +393,7 @@ class ConfigFile
      */
     public function getServers()
     {
-        return isset($_SESSION[$this->_id]['Servers'])
-            ? $_SESSION[$this->_id]['Servers']
-            : null;
+        return $_SESSION[$this->_id]['Servers'] ?? null;
     }
 
     /**

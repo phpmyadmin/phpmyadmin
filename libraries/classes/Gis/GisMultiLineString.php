@@ -322,26 +322,24 @@ class GisMultiLineString extends GisGeometry
     {
         $data_row = $gis_data[$index]['MULTILINESTRING'];
 
-        $no_of_lines = isset($data_row['no_of_lines'])
-            ? $data_row['no_of_lines'] : 1;
+        $no_of_lines = $data_row['no_of_lines'] ?? 1;
         if ($no_of_lines < 1) {
             $no_of_lines = 1;
         }
 
         $wkt = 'MULTILINESTRING(';
         for ($i = 0; $i < $no_of_lines; $i++) {
-            $no_of_points = isset($data_row[$i]['no_of_points'])
-                ? $data_row[$i]['no_of_points'] : 2;
+            $no_of_points = $data_row[$i]['no_of_points'] ?? 2;
             if ($no_of_points < 2) {
                 $no_of_points = 2;
             }
             $wkt .= '(';
             for ($j = 0; $j < $no_of_points; $j++) {
-                $wkt .= ((isset($data_row[$i][$j]['x'])
-                        && trim((string) $data_row[$i][$j]['x']) != '')
+                $wkt .= (isset($data_row[$i][$j]['x'])
+                        && trim((string) $data_row[$i][$j]['x']) != ''
                         ? $data_row[$i][$j]['x'] : $empty)
-                    . ' ' . ((isset($data_row[$i][$j]['y'])
-                        && trim((string) $data_row[$i][$j]['y']) != '')
+                    . ' ' . (isset($data_row[$i][$j]['y'])
+                        && trim((string) $data_row[$i][$j]['y']) != ''
                         ? $data_row[$i][$j]['y'] : $empty) . ',';
             }
             $wkt

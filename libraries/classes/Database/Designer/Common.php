@@ -8,13 +8,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Database\Designer;
 
+use PhpMyAdmin\Database\Designer\DesignerTable;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Util;
 use function rawurlencode;
-use PhpMyAdmin\Database\Designer\DesignerTable;
 
 /**
  * Common functions for Designer
@@ -55,7 +55,7 @@ class Common
     public function getTablesInfo(string $db = null, string $table = null): array
     {
         $designerTables = [];
-        $db = ($db === null) ? $GLOBALS['db'] : $db;
+        $db = $db === null ? $GLOBALS['db'] : $db;
         // seems to be needed later
         $this->dbi->selectDb($db);
         if ($db === null && $table === null) {
@@ -67,7 +67,7 @@ class Common
         foreach ($tables as $one_table) {
             $DF = $this->relation->getDisplayField($db, $one_table['TABLE_NAME']);
             $DF = is_string($DF) ? $DF : '';
-            $DF = ($DF !== '') ? $DF : null;
+            $DF = $DF !== '' ? $DF : null;
             $designerTables[] = new DesignerTable(
                 $db,
                 $one_table['TABLE_NAME'],
@@ -159,8 +159,7 @@ class Common
                         $con['DTN'][$i]    = rawurlencode($GLOBALS['db'] . '.' . $val[0]);
                         $con['DCN'][$i]    = rawurlencode($one_field);
                         $con['STN'][$i]    = rawurlencode(
-                            (isset($one_key['ref_db_name']) ?
-                                $one_key['ref_db_name'] : $GLOBALS['db'])
+                            ($one_key['ref_db_name'] ?? $GLOBALS['db'])
                             . '.' . $one_key['ref_table_name']
                         );
                         $con['SCN'][$i] = rawurlencode($one_key['ref_index_list'][$index]);
@@ -314,7 +313,7 @@ class Common
             DatabaseInterface::CONNECT_CONTROL,
             DatabaseInterface::QUERY_STORE
         );
-        return ( is_array($page_name) && isset($page_name[0]) ) ? $page_name[0] : null;
+        return is_array($page_name) && isset($page_name[0]) ? $page_name[0] : null;
     }
 
     /**

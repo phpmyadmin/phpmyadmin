@@ -43,7 +43,7 @@ $response = $containerBuilder->get(Response::class);
 /** @var DatabaseInterface $dbi */
 $dbi = $containerBuilder->get(DatabaseInterface::class);
 
-/** @var import $import */
+/** @var Import $import */
 $import = $containerBuilder->get('import');
 
 if (isset($_POST['show_as_php'])) {
@@ -764,7 +764,7 @@ if ($go_sql) {
             $cfgBookmark['user'],
             $_POST['sql_query'],
             $_POST['bkm_label'],
-            isset($_POST['bkm_replace']) ? $_POST['bkm_replace'] : null
+            $_POST['bkm_replace'] ?? null
         );
     }
 
@@ -780,7 +780,7 @@ if ($go_sql) {
             $cfgBookmark['user'],
             $_POST['sql_query'],
             $_POST['bkm_label'],
-            isset($_POST['bkm_replace']) ? $_POST['bkm_replace'] : null
+            $_POST['bkm_replace'] ?? null
         );
     }
 

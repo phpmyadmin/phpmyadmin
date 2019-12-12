@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\MoTranslator\Loader;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);

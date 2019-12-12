@@ -12,8 +12,6 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Language;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 
 /**
  * Language selection manager
@@ -38,6 +36,13 @@ class LanguageManager
             'Afrikaans',
             '',
             'af|afrikaans',
+            '',
+        ],
+        'am' => [
+            'am',
+            'Amharic',
+            'አማርኛ',
+            'am|amharic',
             '',
         ],
         'ar' => [

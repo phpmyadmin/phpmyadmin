@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Template;
 
@@ -198,7 +197,7 @@ class Encoding
                 return iconv(
                     $src_charset,
                     $dest_charset .
-                    (isset($GLOBALS['cfg']['IconvExtraParams']) ? $GLOBALS['cfg']['IconvExtraParams'] : ''),
+                    ($GLOBALS['cfg']['IconvExtraParams'] ?? ''),
                     $what
                 );
             case self::ENGINE_MB:

@@ -1,12 +1,10 @@
 <?php
 /**
- * Holds the PhpMyAdmin\Controllers\Database\TriggersController
- *
- * @package PhpMyAdmin\Controllers\Database
+ * @package PhpMyAdmin\Controllers\Table
  */
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Controllers\Database;
+namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Rte\Triggers;
 use PhpMyAdmin\Url;
@@ -14,8 +12,7 @@ use PhpMyAdmin\Util;
 
 /**
  * Triggers management.
- *
- * @package PhpMyAdmin\Controllers\Database
+ * @package PhpMyAdmin\Controllers\Table
  */
 class TriggersController extends AbstractController
 {

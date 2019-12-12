@@ -2,14 +2,12 @@
 /**
  * Produce a PDF report (export) from a query
  *
- * @package    PhpMyAdmin-Export
- * @subpackage PDF
+ * @package PhpMyAdmin-Export
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
-use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\Export\Helpers\Pdf;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -29,8 +27,7 @@ if (! class_exists('TCPDF')) {
 /**
  * Handles the export for the PDF class
  *
- * @package    PhpMyAdmin-Export
- * @subpackage PDF
+ * @package PhpMyAdmin-Export
  */
 class ExportPdf extends ExportPlugin
 {

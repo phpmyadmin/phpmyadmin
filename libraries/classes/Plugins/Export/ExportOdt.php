@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Export;
 use PhpMyAdmin\OpenDocument;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -19,7 +18,6 @@ use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
-use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 
 /**
@@ -171,17 +169,11 @@ class ExportOdt extends ExportPlugin
         $GLOBALS['odt_buffer'] .= '</office:text>'
             . '</office:body>'
             . '</office:document-content>';
-        if (! $this->export->outputHandler(
-            OpenDocument::create(
-                'application/vnd.oasis.opendocument.text',
-                $GLOBALS['odt_buffer']
-            )
-        )
-        ) {
-            return false;
-        }
 
-        return true;
+        return $this->export->outputHandler(OpenDocument::create(
+            'application/vnd.oasis.opendocument.text',
+            $GLOBALS['odt_buffer']
+        ));
     }
 
     /**
@@ -798,7 +790,7 @@ class ExportOdt extends ExportPlugin
         }
         $definition .= '<table:table-cell office:value-type="string">'
             . '<text:p>'
-            . (($column['Null'] == '' || $column['Null'] == 'NO')
+            . ($column['Null'] == '' || $column['Null'] == 'NO'
                 ? __('No')
                 : __('Yes'))
             . '</text:p>'

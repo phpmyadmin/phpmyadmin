@@ -10,7 +10,6 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Html\Forms;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\MoTranslator\Loader;
 use PhpMyAdmin\SqlParser\Context;

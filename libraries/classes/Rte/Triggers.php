@@ -303,7 +303,7 @@ class Triggers
             'item_definer',
         ];
         foreach ($indices as $index) {
-            $retval[$index] = isset($_POST[$index]) ? $_POST[$index] : '';
+            $retval[$index] = $_POST[$index] ?? '';
         }
         return $retval;
     }

@@ -9,7 +9,6 @@ declare(strict_types=1);
 use FastRoute\Dispatcher;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
-
 use function FastRoute\simpleDispatcher;
 
 if (! defined('ROOT_PATH')) {
@@ -50,7 +49,7 @@ if ($routeInfo[0] === Dispatcher::NOT_FOUND) {
     $response->setHttpResponseCode(404);
     Message::error(sprintf(
         __('Error 404! The page %s was not found.'),
-        '<code>' . ($route) . '</code>'
+        '<code>' . $route . '</code>'
     ))->display();
 } elseif ($routeInfo[0] === Dispatcher::METHOD_NOT_ALLOWED) {
     /** @var Response $response */

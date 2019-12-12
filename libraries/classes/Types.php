@@ -866,7 +866,7 @@ class Types
         $relevantArray = $signed
             ? $min_max_data['signed']
             : $min_max_data['unsigned'];
-        return isset($relevantArray[$type]) ? $relevantArray[$type] : [
+        return $relevantArray[$type] ?? [
             '',
             '',
         ];

@@ -14,8 +14,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use Williamdes\MariaDBMySQLKBS\Search as KBSearch;

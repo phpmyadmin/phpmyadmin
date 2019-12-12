@@ -300,12 +300,12 @@ class GisPoint extends GisGeometry
     public function generateWkt(array $gis_data, $index, $empty = '')
     {
         return 'POINT('
-        . ((isset($gis_data[$index]['POINT']['x'])
-            && trim((string) $gis_data[$index]['POINT']['x']) != '')
+        . (isset($gis_data[$index]['POINT']['x'])
+            && trim((string) $gis_data[$index]['POINT']['x']) != ''
             ? $gis_data[$index]['POINT']['x'] : '')
         . ' '
-        . ((isset($gis_data[$index]['POINT']['y'])
-            && trim((string) $gis_data[$index]['POINT']['y']) != '')
+        . (isset($gis_data[$index]['POINT']['y'])
+            && trim((string) $gis_data[$index]['POINT']['y']) != ''
             ? $gis_data[$index]['POINT']['y'] : '') . ')';
     }
 
@@ -319,8 +319,8 @@ class GisPoint extends GisGeometry
      */
     public function getShape(array $row_data)
     {
-        return 'POINT(' . (isset($row_data['x']) ? $row_data['x'] : '')
-        . ' ' . (isset($row_data['y']) ? $row_data['y'] : '') . ')';
+        return 'POINT(' . ($row_data['x'] ?? '')
+        . ' ' . ($row_data['y'] ?? '') . ')';
     }
 
     /**

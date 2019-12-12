@@ -444,8 +444,7 @@ class StructureController extends AbstractController
             }
 
             if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
-                $create_time = isset($current_table['Create_time'])
-                    ? $current_table['Create_time'] : '';
+                $create_time = $current_table['Create_time'] ?? '';
                 if ($create_time
                     && (! $create_time_all
                     || $create_time < $create_time_all)
@@ -455,8 +454,7 @@ class StructureController extends AbstractController
             }
 
             if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
-                $update_time = isset($current_table['Update_time'])
-                    ? $current_table['Update_time'] : '';
+                $update_time = $current_table['Update_time'] ?? '';
                 if ($update_time
                     && (! $update_time_all
                     || $update_time < $update_time_all)
@@ -466,8 +464,7 @@ class StructureController extends AbstractController
             }
 
             if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
-                $check_time = isset($current_table['Check_time'])
-                    ? $current_table['Check_time'] : '';
+                $check_time = $current_table['Check_time'] ?? '';
                 if ($check_time
                     && (! $check_time_all
                     || $check_time < $check_time_all)
@@ -591,8 +588,7 @@ class StructureController extends AbstractController
                         ? Util::localisedDate(strtotime($update_time)) : '-',
                 'check_time' => isset($check_time) && $check_time
                         ? Util::localisedDate(strtotime($check_time)) : '-',
-                'charset' => isset($charset)
-                        ? $charset : '',
+                'charset' => $charset ?? '',
                 'is_show_stats' => $this->isShowStats,
                 'ignored' => $ignored,
                 'do' => $do,

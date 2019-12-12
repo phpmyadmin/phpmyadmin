@@ -12,8 +12,8 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Parser;
@@ -548,7 +548,7 @@ class Routines
             'item_definer',
         ];
         foreach ($indices as $index) {
-            $retval[$index] = isset($_POST[$index]) ? $_POST[$index] : '';
+            $retval[$index] = $_POST[$index] ?? '';
         }
 
         $retval['item_type']         = 'PROCEDURE';
@@ -1126,8 +1126,7 @@ class Routines
     {
         global $errors, $param_sqldataaccess, $param_directions, $dbi;
 
-        $_POST['item_type'] = isset($_POST['item_type'])
-            ? $_POST['item_type'] : '';
+        $_POST['item_type'] = $_POST['item_type'] ?? '';
 
         $query = 'CREATE ';
         if (! empty($_POST['item_definer'])) {
@@ -1245,7 +1244,7 @@ class Routines
                                 );
                         }
                     }
-                    if ($i != (count($item_param_name) - 1)) {
+                    if ($i != count($item_param_name) - 1) {
                         $params .= ', ';
                     }
                 } else {
@@ -1258,9 +1257,7 @@ class Routines
         }
         $query .= '(' . $params . ') ';
         if ($_POST['item_type'] == 'FUNCTION') {
-            $item_returntype = isset($_POST['item_returntype'])
-                ? $_POST['item_returntype']
-                : null;
+            $item_returntype = $_POST['item_returntype'] ?? null;
 
             if (! empty($item_returntype)
                 && in_array(

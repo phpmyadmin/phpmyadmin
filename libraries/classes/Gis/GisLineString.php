@@ -290,18 +290,17 @@ class GisLineString extends GisGeometry
      */
     public function generateWkt(array $gis_data, $index, $empty = '')
     {
-        $no_of_points = isset($gis_data[$index]['LINESTRING']['no_of_points'])
-            ? $gis_data[$index]['LINESTRING']['no_of_points'] : 2;
+        $no_of_points = $gis_data[$index]['LINESTRING']['no_of_points'] ?? 2;
         if ($no_of_points < 2) {
             $no_of_points = 2;
         }
         $wkt = 'LINESTRING(';
         for ($i = 0; $i < $no_of_points; $i++) {
-            $wkt .= ((isset($gis_data[$index]['LINESTRING'][$i]['x'])
-                    && trim((string) $gis_data[$index]['LINESTRING'][$i]['x']) != '')
+            $wkt .= (isset($gis_data[$index]['LINESTRING'][$i]['x'])
+                    && trim((string) $gis_data[$index]['LINESTRING'][$i]['x']) != ''
                     ? $gis_data[$index]['LINESTRING'][$i]['x'] : $empty)
-                . ' ' . ((isset($gis_data[$index]['LINESTRING'][$i]['y'])
-                    && trim((string) $gis_data[$index]['LINESTRING'][$i]['y']) != '')
+                . ' ' . (isset($gis_data[$index]['LINESTRING'][$i]['y'])
+                    && trim((string) $gis_data[$index]['LINESTRING'][$i]['y']) != ''
                     ? $gis_data[$index]['LINESTRING'][$i]['y'] : $empty) . ',';
         }
 

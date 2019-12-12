@@ -15,9 +15,7 @@ use PhpMyAdmin\Error;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ThemeManager;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
-use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\HttpRequest;
 
 /**
@@ -912,9 +910,7 @@ class Config
         $userPreferences = new UserPreferences();
         // index.php should load these settings, so that phpmyadmin.css.php
         // will have everything available in session cache
-        $server = isset($GLOBALS['server'])
-            ? $GLOBALS['server']
-            : (! empty($GLOBALS['cfg']['ServerDefault'])
+        $server = $GLOBALS['server'] ?? (! empty($GLOBALS['cfg']['ServerDefault'])
                 ? $GLOBALS['cfg']['ServerDefault']
                 : 0);
         $cache_key = 'server_' . $server;
@@ -1328,6 +1324,9 @@ class Config
             $is_https = true;
         } elseif (strtolower(Core::getenv('HTTP_X_FORWARDED_PROTO')) == 'https') {
             $is_https = true;
+        } elseif (strtolower(Core::getenv('HTTP_CLOUDFRONT_FORWARDED_PROTO')) === 'https') {
+            // Amazon CloudFront, issue #15621
+            $is_https = true;
         } elseif (Core::getenv('SERVER_PORT') == 443) {
             $is_https = true;
         }
@@ -1531,7 +1530,7 @@ class Config
      */
     public function getCookieName(string $cookieName): string
     {
-        return $cookieName . ( ($this->isHttps()) ? '_https' : '' );
+        return $cookieName . ( $this->isHttps() ? '_https' : '' );
     }
 
     /**

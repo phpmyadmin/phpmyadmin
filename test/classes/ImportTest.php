@@ -12,7 +12,6 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Import;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
 
 /**

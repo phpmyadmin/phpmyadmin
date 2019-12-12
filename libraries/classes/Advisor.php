@@ -230,8 +230,7 @@ class Advisor
         // Add total memory to variables as well
         $sysinfo = SysInfo::get();
         $memory  = $sysinfo->memory();
-        $this->variables['system_memory']
-            = isset($memory['MemTotal']) ? $memory['MemTotal'] : 0;
+        $this->variables['system_memory'] = $memory['MemTotal'] ?? 0;
 
         $ruleFiles = $this->defineRulesFiles();
 

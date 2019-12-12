@@ -7,9 +7,9 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Table\GisVisualizationController;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use PhpMyAdmin\Core;
 use Symfony\Component\DependencyInjection\Definition;
 
 if (! defined('PHPMYADMIN')) {

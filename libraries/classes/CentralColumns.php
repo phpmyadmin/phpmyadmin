@@ -276,10 +276,10 @@ class CentralColumns
         if (isset($def['Attribute'])) {
             $attribute = $def['Attribute'];
         }
-        $collation = isset($def['Collation']) ? $def['Collation'] : '';
+        $collation = $def['Collation'] ?? '';
         $isNull = $def['Null'] == 'NO' ? '0' : '1';
-        $extra = isset($def['Extra']) ? $def['Extra'] : '';
-        $default = isset($def['Default']) ? $def['Default'] : '';
+        $extra = $def['Extra'] ?? '';
+        $default = $def['Default'] ?? '';
         return 'INSERT INTO '
             . Util::backquote($central_list_table) . ' '
             . 'VALUES ( \'' . $this->dbi->escapeString($db) . '\' ,'

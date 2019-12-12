@@ -528,9 +528,7 @@ class Tracker
                 . $statement . "',tracking) > 0" ;
         }
         $row = $GLOBALS['dbi']->fetchArray($relation->queryAsControlUser($sql_query));
-        return isset($row[0])
-            ? $row[0]
-            : -1;
+        return $row[0] ?? -1;
     }
 
 
@@ -828,7 +826,7 @@ class Tracker
         $result = self::parseQuery($query);
 
         // Get database name
-        $dbname = trim(isset($GLOBALS['db']) ? $GLOBALS['db'] : '', '`');
+        $dbname = trim($GLOBALS['db'] ?? '', '`');
         // $dbname can be empty, for example when coming from Synchronize
         // and this is a query for the remote server
         if (empty($dbname)) {

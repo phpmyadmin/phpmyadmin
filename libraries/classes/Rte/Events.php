@@ -330,7 +330,7 @@ class Events
             'item_definer',
         ];
         foreach ($indices as $index) {
-            $retval[$index] = isset($_POST[$index]) ? $_POST[$index] : '';
+            $retval[$index] = $_POST[$index] ?? '';
         }
         $retval['item_type']        = 'ONE TIME';
         $retval['item_type_toggle'] = 'RECURRING';

@@ -192,7 +192,7 @@ class ImportOds extends ImportPlugin
                     continue;
                 }
                 /* Iterate over columns */
-                $cellCount = count($row);
+                $cellCount = $row->count();
                 $a = 0;
                 /** @var SimpleXMLElement $cell */
                 foreach ($row as $cell) {
@@ -200,7 +200,7 @@ class ImportOds extends ImportPlugin
                     $text = $cell->children('text', true);
                     $cell_attrs = $cell->attributes('office', true);
 
-                    if (count($text) != 0) {
+                    if ($text->count() != 0) {
                         $attr = $cell->attributes('table', true);
                         $num_repeat = (int) $attr['number-columns-repeated'];
                         $num_iterations = $num_repeat ?: 1;

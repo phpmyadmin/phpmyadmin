@@ -240,8 +240,7 @@ class FormDisplay
 
         foreach ($this->_forms as $form) {
             /** @var Form $form */
-            $formErrors = isset($this->_errors[$form->name])
-                ? $this->_errors[$form->name] : null;
+            $formErrors = $this->_errors[$form->name] ?? null;
             $htmlOutput .= $this->formDisplayTemplate->displayFieldsetTop(
                 Descriptions::get('Form_' . $form->name),
                 Descriptions::get('Form_' . $form->name, 'desc'),

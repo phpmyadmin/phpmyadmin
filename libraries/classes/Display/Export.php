@@ -150,7 +150,7 @@ class Export
             'export_method' => $cfg['Export']['method'],
             'single_table' => $singleTable,
             'sql_query' => $sqlQuery,
-            'template_id' => isset($_POST['template_id']) ? $_POST['template_id'] : '',
+            'template_id' => $_POST['template_id'] ?? '',
         ]);
     }
 
@@ -276,9 +276,9 @@ class Export
         $numberOfRows = $tableObject->countRecords();
 
         return $this->template->render('display/export/options_rows', [
-            'allrows' => isset($_POST['allrows']) ? $_POST['allrows'] : null,
-            'limit_to' => isset($_POST['limit_to']) ? $_POST['limit_to'] : null,
-            'limit_from' => isset($_POST['limit_from']) ? $_POST['limit_from'] : null,
+            'allrows' => $_POST['allrows'] ?? null,
+            'limit_to' => $_POST['limit_to'] ?? null,
+            'limit_from' => $_POST['limit_from'] ?? null,
             'unlim_num_rows' => $unlimNumRows,
             'number_of_rows' => $numberOfRows,
         ]);
@@ -519,7 +519,7 @@ class Export
             'is_checked_asfile' => $isCheckedAsfile,
             'repopulate' => isset($_POST['repopulate']),
             'lock_tables' => isset($_POST['lock_tables']),
-            'save_dir' => isset($cfg['SaveDir']) ? $cfg['SaveDir'] : null,
+            'save_dir' => $cfg['SaveDir'] ?? null,
             'is_encoding_supported' => Encoding::isSupported(),
             'options_output_save_dir' => $optionsOutputSaveDir,
             'options_output_format' => $optionsOutputFormat,
@@ -721,8 +721,7 @@ class Export
             . '" name="dump" class="disableAjax">';
 
         //output Hidden Inputs
-        $singleTableStr = isset($GLOBALS['single_table']) ? $GLOBALS['single_table']
-            : '';
+        $singleTableStr = $GLOBALS['single_table'] ?? '';
         $html .= $this->getHtmlForHiddenInputs(
             $exportType,
             $db,

@@ -171,7 +171,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         $this->user = Core::sanitizeMySQLUser($this->user);
 
         // User logged out -> ensure the new username is not the same
-        $old_usr = isset($_REQUEST['old_usr']) ? $_REQUEST['old_usr'] : '';
+        $old_usr = $_REQUEST['old_usr'] ?? '';
         if (! empty($old_usr)
             && (isset($this->user) && hash_equals($old_usr, $this->user))
         ) {

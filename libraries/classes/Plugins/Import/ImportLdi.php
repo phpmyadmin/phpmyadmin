@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
 
-use PhpMyAdmin\Import;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\Import\AbstractImportCsv;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
@@ -142,7 +141,7 @@ class ImportLdi extends AbstractImportCsv
         if (strlen((string) $ldi_new_line) > 0) {
             if ($ldi_new_line == 'auto') {
                 $ldi_new_line
-                    = (PHP_EOL == "\n")
+                    = PHP_EOL == "\n"
                     ? '\n'
                     : '\r\n';
             }

@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Import;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -126,7 +125,7 @@ class ImportSql extends ImportPlugin
          */
         $GLOBALS['finished'] = false;
 
-        while ((! $error) && (! $timeout_passed)) {
+        while (! $error && (! $timeout_passed)) {
             // Getting the first statement, the remaining data and the last
             // delimiter.
             $statement = $bq->extract();

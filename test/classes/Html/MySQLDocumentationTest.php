@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Html;
 
-use PhpMyAdmin\Html\Forms;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Tests\PmaTestCase;
 

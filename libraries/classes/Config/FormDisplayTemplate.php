@@ -12,8 +12,6 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 
 /**
  * PhpMyAdmin\Config\FormDisplayTemplate class

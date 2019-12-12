@@ -10,7 +10,6 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Scripts;
 use PhpMyAdmin\Tests\PmaTestCase;
-use ReflectionClass;
 use ReflectionProperty;
 
 /**

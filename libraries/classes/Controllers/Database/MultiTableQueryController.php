@@ -9,7 +9,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Database\MultiTableQuery;
-use PhpMyAdmin\Template;
 
 /**
  * Handles database multi-table querying

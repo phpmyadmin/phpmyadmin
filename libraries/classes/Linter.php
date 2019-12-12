@@ -51,7 +51,7 @@ class Linter
         // first byte of the third character. The fourth and the last one
         // (which is actually a new line) aren't going to be processed at
         // all.
-        $len = ($str instanceof UtfString) ?
+        $len = $str instanceof UtfString ?
             $str->length() : strlen($str);
 
         $lines = [0];

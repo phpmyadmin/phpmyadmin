@@ -2,8 +2,7 @@
 /**
  * Interface to the MySQL Improved extension (MySQLi)
  *
- * @package    PhpMyAdmin-DBI
- * @subpackage MySQLi
+ * @package PhpMyAdmin-DBI
  */
 declare(strict_types=1);
 
@@ -19,8 +18,7 @@ use function mysqli_init;
 /**
  * Interface to the MySQL Improved extension (MySQLi)
  *
- * @package    PhpMyAdmin-DBI
- * @subpackage MySQLi
+ * @package PhpMyAdmin-DBI
  */
 class DbiMysqli implements DbiExtension
 {

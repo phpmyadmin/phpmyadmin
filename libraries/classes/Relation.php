@@ -1597,12 +1597,12 @@ class Relation
 
         $foreignData = [];
         $foreignData['foreign_link'] = $foreign_link;
-        $foreignData['the_total'] = isset($the_total) ? $the_total : null;
+        $foreignData['the_total'] = $the_total ?? null;
         $foreignData['foreign_display'] = (
-            isset($foreign_display) ? $foreign_display : null
+            $foreign_display ?? null
         );
-        $foreignData['disp_row'] = isset($disp_row) ? $disp_row : null;
-        $foreignData['foreign_field'] = isset($foreign_field) ? $foreign_field : null;
+        $foreignData['disp_row'] = $disp_row ?? null;
+        $foreignData['foreign_field'] = $foreign_field ?? null;
 
         return $foreignData;
     }
@@ -1992,17 +1992,11 @@ class Relation
             if ($column_index !== false) {
                 $foreigner['foreign_field']
                     = $one_key['ref_index_list'][$column_index];
-                $foreigner['foreign_db'] = isset($one_key['ref_db_name'])
-                    ? $one_key['ref_db_name']
-                    : $GLOBALS['db'];
+                $foreigner['foreign_db'] = $one_key['ref_db_name'] ?? $GLOBALS['db'];
                 $foreigner['foreign_table'] = $one_key['ref_table_name'];
                 $foreigner['constraint'] = $one_key['constraint'];
-                $foreigner['on_update'] = isset($one_key['on_update'])
-                    ? $one_key['on_update']
-                    : 'RESTRICT';
-                $foreigner['on_delete'] = isset($one_key['on_delete'])
-                    ? $one_key['on_delete']
-                    : 'RESTRICT';
+                $foreigner['on_update'] = $one_key['on_update'] ?? 'RESTRICT';
+                $foreigner['on_delete'] = $one_key['on_delete'] ?? 'RESTRICT';
 
                 return $foreigner;
             }

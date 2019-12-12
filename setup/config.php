@@ -28,7 +28,7 @@ $response = Response::getInstance();
 $response->disable();
 
 if (isset($_POST['eol'])) {
-    $_SESSION['eol'] = ($_POST['eol'] == 'unix') ? 'unix' : 'win';
+    $_SESSION['eol'] = $_POST['eol'] == 'unix' ? 'unix' : 'win';
 }
 
 if (Core::ifSetOr($_POST['submit_clear'], '')) {

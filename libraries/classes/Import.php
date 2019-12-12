@@ -67,7 +67,7 @@ class Import
         } elseif ($timeout_passed) {
             return true;
             /* 5 in next row might be too much */
-        } elseif ((time() - $timestamp) > ($maximum_time - 5)) {
+        } elseif (time() - $timestamp > $maximum_time - 5) {
             $timeout_passed = true;
             return true;
         }
@@ -472,10 +472,10 @@ class Import
         if ($num == 0) {
             // use 'Z' if column number is 0,
             // this is necessary because A-Z has no 'zero'
-            $col_name .= mb_chr(($A + 26) - 1);
+            $col_name .= mb_chr($A + 26 - 1);
         } else {
             // convert column number to ASCII character
-            $col_name .= mb_chr(($A + $num) - 1);
+            $col_name .= mb_chr($A + $num - 1);
         }
 
         return $col_name;
@@ -506,7 +506,7 @@ class Import
         $column_number = 0;
         for ($i = 0; $i < $num_chars; ++$i) {
             // read string from back to front
-            $char_pos = ($num_chars - 1) - $i;
+            $char_pos = $num_chars - 1 - $i;
 
             // convert capital character to ASCII value
             // and subtract 64 to get corresponding decimal value
@@ -570,7 +570,7 @@ class Import
     {
         $curr_size = mb_strlen($cell);
         $decPos = mb_strpos($cell, '.');
-        $decPrecision = ($curr_size - 1) - $decPos;
+        $decPrecision = $curr_size - 1 - $decPos;
 
         $m = $curr_size - 1;
         $d = $decPrecision;
@@ -686,8 +686,8 @@ class Import
                 /* New val if M or D is greater than current largest */
                 if ($size[self::M] > $oldM || $size[self::D] > $oldD) {
                     /* Take the largest of both types */
-                    return (string) ((($size[self::M] > $oldM) ? $size[self::M] : $oldM)
-                        . ',' . (($size[self::D] > $oldD) ? $size[self::D] : $oldD));
+                    return (string) (($size[self::M] > $oldM ? $size[self::M] : $oldM)
+                        . ',' . ($size[self::D] > $oldD ? $size[self::D] : $oldD));
                 }
 
                 return $last_cumulative_size;
@@ -1080,7 +1080,7 @@ class Import
                         $tempSQLStr .= '(' . $size . ')';
                     }
 
-                    if ($j != (count($tables[$i][self::COL_NAMES]) - 1)) {
+                    if ($j != count($tables[$i][self::COL_NAMES]) - 1) {
                         $tempSQLStr .= ', ';
                     }
                 }
@@ -1114,7 +1114,7 @@ class Import
             for ($m = 0; $m < $num_cols; ++$m) {
                 $tempSQLStr .= Util::backquote($tables[$i][self::COL_NAMES][$m]);
 
-                if ($m != ($num_cols - 1)) {
+                if ($m != $num_cols - 1) {
                     $tempSQLStr .= ', ';
                 }
             }
@@ -1151,11 +1151,11 @@ class Import
                         $tempSQLStr .= $is_varchar ? "'" : '';
                     }
 
-                    if ($k != ($num_cols - 1)) {
+                    if ($k != $num_cols - 1) {
                         $tempSQLStr .= ', ';
                     }
 
-                    if ($col_count == ($num_cols - 1)) {
+                    if ($col_count == $num_cols - 1) {
                         $col_count = 0;
                     } else {
                         $col_count++;
@@ -1167,7 +1167,7 @@ class Import
 
                 $tempSQLStr .= ')';
 
-                if ($j != ($num_rows - 1)) {
+                if ($j != $num_rows - 1) {
                     $tempSQLStr .= ",\n ";
                 }
 

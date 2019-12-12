@@ -468,7 +468,7 @@ class StructureController extends AbstractController
                 mb_strtoupper($extracted_columnspec['type']),
                 $extracted_columnspec['spec_in_brackets'],
                 $extracted_columnspec['attribute'],
-                isset($data['Collation']) ? $data['Collation'] : '',
+                $data['Collation'] ?? '',
                 $data['Null'] === 'YES' ? 'YES' : 'NO',
                 $default_type,
                 $current_timestamp ? '' : $data['Default'],
@@ -866,7 +866,7 @@ class StructureController extends AbstractController
         $sql = new Sql();
         $this->response->addHTML(
             $sql->executeQueryAndGetQueryResponse(
-                isset($analyzed_sql_results) ? $analyzed_sql_results : '',
+                $analyzed_sql_results ?? '',
                 false, // is_gotofile
                 $this->db, // db
                 $this->table, // table
@@ -1373,7 +1373,7 @@ class StructureController extends AbstractController
             'primary' => $primary_index,
             'columns_with_unique_index' => $columns_with_unique_index,
             'columns_list' => $columns_list,
-            'table_stats' => isset($tablestats) ? $tablestats : null,
+            'table_stats' => $tablestats ?? null,
             'fields' => $fields,
             'extracted_columnspecs' => $extracted_columnspecs,
             'columns_with_index' => $columns_with_index,
@@ -1513,15 +1513,15 @@ class StructureController extends AbstractController
             'table_collation' => $tableCollation,
             'is_innodb' => $is_innodb,
             'mergetable' => $mergetable,
-            'avg_size' => isset($avg_size) ? $avg_size : null,
-            'avg_unit' => isset($avg_unit) ? $avg_unit : null,
+            'avg_size' => $avg_size ?? null,
+            'avg_unit' => $avg_unit ?? null,
             'data_size' => $data_size,
             'data_unit' => $data_unit,
-            'index_size' => isset($index_size) ? $index_size : null,
-            'index_unit' => isset($index_unit) ? $index_unit : null,
+            'index_size' => $index_size ?? null,
+            'index_unit' => $index_unit ?? null,
             'innodb_file_per_table' => $innodb_file_per_table,
-            'free_size' => isset($free_size) ? $free_size : null,
-            'free_unit' => isset($free_unit) ? $free_unit : null,
+            'free_size' => $free_size ?? null,
+            'free_unit' => $free_unit ?? null,
             'effect_size' => $effect_size,
             'effect_unit' => $effect_unit,
             'tot_size' => $tot_size,

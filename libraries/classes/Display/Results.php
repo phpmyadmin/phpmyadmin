@@ -1009,10 +1009,10 @@ class Results
         $buttons_html .= $this->_getTableNavigationButton(
             '&gt;&gt;',
             _pgettext('Last page', 'End'),
-            @((ceil(
+            @(ceil(
                 $this->__get('unlim_num_rows')
                 / $_SESSION['tmpval']['max_rows']
-            ) - 1) * $maxRows),
+            ) - 1) * $maxRows,
             $html_sql_query,
             false,
             $onsubmit,
@@ -2491,7 +2491,7 @@ class Results
         while ($row = $GLOBALS['dbi']->fetchRow($dt_result)) {
             // add repeating headers
             if (($row_no != 0) && ($_SESSION['tmpval']['repeat_cells'] != 0)
-                && ! ($row_no % $_SESSION['tmpval']['repeat_cells'])
+                && ! $row_no % $_SESSION['tmpval']['repeat_cells']
             ) {
                 $table_body_html .= $this->_getRepeatingHeaders(
                     $display_params
@@ -2841,11 +2841,7 @@ class Results
                             );
 
                             $transform_options = $this->transformations->getOptions(
-                                isset(
-                                    $mime_map[$orgFullColName]['transformation_options']
-                                )
-                                ? $mime_map[$orgFullColName]['transformation_options']
-                                : ''
+                                $mime_map[$orgFullColName]['transformation_options'] ?? ''
                             );
 
                             $meta->mimetype = str_replace(
@@ -2871,9 +2867,7 @@ class Results
                 $transformation_plugin = new $this->transformation_info[$dbLower][$tblLower][$nameLower][1](null);
 
                 $transform_options = $this->transformations->getOptions(
-                    isset($mime_map[$orgFullColName]['transformation_options'])
-                    ? $mime_map[$orgFullColName]['transformation_options']
-                    : ''
+                    $mime_map[$orgFullColName]['transformation_options'] ?? ''
                 );
 
                 $meta->mimetype = str_replace(
@@ -4642,9 +4636,7 @@ class Results
                     foreach ($rel as $key => $one_key) {
                         foreach ($one_key['index_list'] as $index => $one_field) {
                             $display_field = $this->relation->getDisplayField(
-                                isset($one_key['ref_db_name'])
-                                ? $one_key['ref_db_name']
-                                : $GLOBALS['db'],
+                                $one_key['ref_db_name'] ?? $GLOBALS['db'],
                                 $one_key['ref_table_name']
                             );
 
@@ -4652,9 +4644,7 @@ class Results
                                 $one_key['ref_table_name'],
                                 $one_key['ref_index_list'][$index],
                                 $display_field,
-                                isset($one_key['ref_db_name'])
-                                ? $one_key['ref_db_name']
-                                : $GLOBALS['db'],
+                                $one_key['ref_db_name'] ?? $GLOBALS['db'],
                             ];
                         }
                     }
@@ -5239,7 +5229,7 @@ class Results
     ) {
         $relational_display = $_SESSION['tmpval']['relational_display'];
         $printview = $this->__get('printview');
-        $decimals = isset($meta->decimals) ? $meta->decimals : '-1';
+        $decimals = $meta->decimals ?? '-1';
         $result = '<td data-decimals="' . $decimals . '"'
             . ' data-type="' . $meta->type . '"';
 

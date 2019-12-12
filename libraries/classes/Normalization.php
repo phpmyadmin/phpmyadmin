@@ -1047,10 +1047,7 @@ class Normalization
         if ($pkCnt && $pkCnt == $colCnt && $colCnt == $pkColCnt) {
             return true;
         }
-        if ($totalRows && $totalRows == $pkCnt) {
-            return true;
-        }
-        return false;
+        return $totalRows && $totalRows == $pkCnt;
     }
 
     /**

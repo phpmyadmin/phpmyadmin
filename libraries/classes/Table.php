@@ -431,7 +431,7 @@ class Table
     public function getAutoIncrement()
     {
         $table_auto_increment = $this->getStatusInfo('AUTO_INCREMENT', false, true);
-        return isset($table_auto_increment) ? $table_auto_increment : '';
+        return $table_auto_increment ?? '';
     }
 
     /**
@@ -454,7 +454,7 @@ class Table
             }
         }
         // we need explicit DEFAULT value here (different from '0')
-        $create_options['pack_keys'] = (! isset($create_options['pack_keys']) || strlen($create_options['pack_keys']) == 0)
+        $create_options['pack_keys'] = ! isset($create_options['pack_keys']) || strlen($create_options['pack_keys']) == 0
             ? 'DEFAULT'
             : $create_options['pack_keys'];
         return $create_options;
@@ -864,8 +864,6 @@ class Table
      *                             These are the important keys which differ
      *                             from the old entry
      *                             (array('FIELDNAME' => 'NEW FIELDVALUE'))
-     *
-     * @global relation variable
      *
      * @return int|boolean
      */
@@ -1998,7 +1996,7 @@ class Table
         }
 
         // default behaviour for other property:
-        return isset($this->uiprefs[$property]) ? $this->uiprefs[$property] : false;
+        return $this->uiprefs[$property] ?? false;
     }
 
     /**

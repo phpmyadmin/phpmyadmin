@@ -118,9 +118,7 @@ class UserPreferences
     public function save(array $config_array)
     {
         $cfgRelation = $this->relation->getRelationsParam();
-        $server = isset($GLOBALS['server'])
-            ? $GLOBALS['server']
-            : $GLOBALS['cfg']['ServerDefault'];
+        $server = $GLOBALS['server'] ?? $GLOBALS['cfg']['ServerDefault'];
         $cache_key = 'server_' . $server;
         if (! $cfgRelation['userconfigwork']) {
             // no pmadb table, use session storage

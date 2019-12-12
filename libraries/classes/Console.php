@@ -11,7 +11,6 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Bookmark;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Util;
 
 /**
  * Class used to output the console
@@ -133,7 +132,7 @@ class Console
      */
     public function getDisplay(): string
     {
-        if ((! $this->_isAjax) && $this->_isEnabled) {
+        if (! $this->_isAjax && $this->_isEnabled) {
             $cfgBookmark = Bookmark::getParams(
                 $GLOBALS['cfg']['Server']['user']
             );

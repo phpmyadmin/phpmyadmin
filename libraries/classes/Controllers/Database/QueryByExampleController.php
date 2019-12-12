@@ -153,7 +153,7 @@ class QueryByExampleController extends AbstractController
             $tooltip_truename,
             $tooltip_aliasname,
             $pos
-        ) = Util::getDbInfo($db, $sub_part === null ? '' : $sub_part);
+        ) = Util::getDbInfo($db, $sub_part ?? '');
 
         if ($message_to_display) {
             Message::error(

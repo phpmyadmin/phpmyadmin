@@ -55,7 +55,7 @@ $insertEdit = $containerBuilder->get('insert_edit');
     $found_unique_key,
     $after_insert,
 ] = $insertEdit->determineInsertOrEdit(
-    isset($where_clause) ? $where_clause : null,
+    $where_clause ?? null,
     $db,
     $table
 );

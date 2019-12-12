@@ -57,7 +57,7 @@ $sub_part = '_structure';
     $tooltip_truename,
     $tooltip_aliasname,
     $pos,
-] = Util::getDbInfo($db, $sub_part === null ? '' : $sub_part);
+] = Util::getDbInfo($db, $sub_part ?? '');
 
 if (isset($_POST['delete_tracking'], $_POST['table'])) {
     Tracker::deleteTracking($db, $_POST['table']);

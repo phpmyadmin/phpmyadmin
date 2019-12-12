@@ -11,7 +11,6 @@ namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
-use PhpMyAdmin\Util;
 use stdClass;
 
 /**

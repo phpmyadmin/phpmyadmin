@@ -344,26 +344,24 @@ class GisPolygon extends GisGeometry
      */
     public function generateWkt(array $gis_data, $index, $empty = '')
     {
-        $no_of_lines = isset($gis_data[$index]['POLYGON']['no_of_lines'])
-            ? $gis_data[$index]['POLYGON']['no_of_lines'] : 1;
+        $no_of_lines = $gis_data[$index]['POLYGON']['no_of_lines'] ?? 1;
         if ($no_of_lines < 1) {
             $no_of_lines = 1;
         }
 
         $wkt = 'POLYGON(';
         for ($i = 0; $i < $no_of_lines; $i++) {
-            $no_of_points = isset($gis_data[$index]['POLYGON'][$i]['no_of_points'])
-                ? $gis_data[$index]['POLYGON'][$i]['no_of_points'] : 4;
+            $no_of_points = $gis_data[$index]['POLYGON'][$i]['no_of_points'] ?? 4;
             if ($no_of_points < 4) {
                 $no_of_points = 4;
             }
             $wkt .= '(';
             for ($j = 0; $j < $no_of_points; $j++) {
-                $wkt .= ((isset($gis_data[$index]['POLYGON'][$i][$j]['x'])
-                        && trim((string) $gis_data[$index]['POLYGON'][$i][$j]['x']) != '')
+                $wkt .= (isset($gis_data[$index]['POLYGON'][$i][$j]['x'])
+                        && trim((string) $gis_data[$index]['POLYGON'][$i][$j]['x']) != ''
                         ? $gis_data[$index]['POLYGON'][$i][$j]['x'] : $empty)
-                    . ' ' . ((isset($gis_data[$index]['POLYGON'][$i][$j]['y'])
-                        && trim((string) $gis_data[$index]['POLYGON'][$i][$j]['y']) != '')
+                    . ' ' . (isset($gis_data[$index]['POLYGON'][$i][$j]['y'])
+                        && trim((string) $gis_data[$index]['POLYGON'][$i][$j]['y']) != ''
                         ? $gis_data[$index]['POLYGON'][$i][$j]['y'] : $empty) . ',';
             }
             $wkt

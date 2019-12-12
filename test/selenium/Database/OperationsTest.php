@@ -98,7 +98,7 @@ class OperationsTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            "//a[@class='item' and contains(., 'Database: " . $new_db_name . "')]"
+            "//a[contains(text(),'Database: ') and contains(text(),'" . $new_db_name . "')]"
         );
 
         $result = $this->dbQuery(

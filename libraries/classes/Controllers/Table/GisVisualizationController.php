@@ -146,8 +146,7 @@ class GisVisualizationController extends AbstractController
         }
 
         // Convert geometric columns from bytes to text.
-        $pos = isset($_GET['pos']) ? $_GET['pos']
-            : $_SESSION['tmpval']['pos'];
+        $pos = $_GET['pos'] ?? $_SESSION['tmpval']['pos'];
         if (isset($_GET['session_max_rows'])) {
             $rows = $_GET['session_max_rows'];
         } else {

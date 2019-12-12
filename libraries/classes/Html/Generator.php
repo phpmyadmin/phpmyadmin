@@ -324,7 +324,7 @@ class Generator
             'div_for_slider_effect',
             [
                 'id' => $id,
-                'initial_sliders_state' => ($overrideDefault != null) ? $overrideDefault
+                'initial_sliders_state' => $overrideDefault != null ? $overrideDefault
                     : $GLOBALS['cfg']['InitialSlidersState'],
                 'message' => $message,
             ]
@@ -658,7 +658,7 @@ class Generator
             $pos = $_SESSION['tmpval']['pos'];
         } else {
             $number_of_line = (int) $_REQUEST['unlim_num_rows'];
-            $pos = ((ceil($number_of_line / $rows) - 1) * $rows);
+            $pos = (ceil($number_of_line / $rows) - 1) * $rows;
             $_SESSION['tmpval']['pos'] = $pos;
         }
 
@@ -1354,7 +1354,7 @@ class Generator
              * The data-post indicates that client should do POST
              * this is handled in js/ajax.js
              */
-            $tag_params_strings[] = 'data-post="' . (isset($parts[1]) ? $parts[1] : '') . '"';
+            $tag_params_strings[] = 'data-post="' . ($parts[1] ?? '') . '"';
             $url = $parts[0];
             if (array_key_exists('class', $tag_params)
                 && strpos($tag_params['class'], 'create_view') !== false

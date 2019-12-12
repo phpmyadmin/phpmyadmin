@@ -41,7 +41,7 @@ list(
     $tooltip_truename,
     $tooltip_aliasname,
     $pos
-) = PhpMyAdmin\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+) = PhpMyAdmin\Util::getDbInfo($db, $sub_part ?? '');
 
 $response = Response::getInstance();
 $response->addHTML(

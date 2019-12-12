@@ -20,7 +20,6 @@ use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 
 /**
  * Displays a collapsible of database objects in the navigation frame
@@ -326,8 +325,8 @@ class NavigationTree
                 $path,
                 $this->pos2Name[$key],
                 $this->pos2Value[$key],
-                isset($this->pos3Name[$key]) ? $this->pos3Name[$key] : '',
-                isset($this->pos3Value[$key]) ? $this->pos3Value[$key] : ''
+                $this->pos3Name[$key] ?? '',
+                $this->pos3Value[$key] ?? ''
             );
         }
 
@@ -1194,7 +1193,7 @@ class NavigationTree
                     $args[] = urlencode($parent->realName);
                 }
                 $link = vsprintf($node->links['text'], $args);
-                $title = isset($node->links['title']) ? $node->links['title'] : '';
+                $title = $node->links['title'] ?? '';
                 if ($node->type == Node::CONTAINER) {
                     $retval .= "&nbsp;<a class='hover_show_full' href='" . $link . "'>";
                     $retval .= htmlspecialchars($node->name);

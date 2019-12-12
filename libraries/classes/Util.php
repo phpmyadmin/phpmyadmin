@@ -954,7 +954,7 @@ class Util
                     && ($meta->type != 'real')
                 ) {
                     $con_val = '= ' . $row[$i];
-                } elseif ((($meta->type == 'blob') || ($meta->type == 'string'))
+                } elseif (($meta->type == 'blob') || ($meta->type == 'string')
                     && false !== stripos($field_flags, 'BINARY')
                     && ! empty($row[$i])
                 ) {
@@ -1088,8 +1088,8 @@ class Util
         $prompt = ''
     ) {
         $increment = floor($nbTotalPage / $percent);
-        $pageNowMinusRange = ($pageNow - $range);
-        $pageNowPlusRange = ($pageNow + $range);
+        $pageNowMinusRange = $pageNow - $range;
+        $pageNowPlusRange = $pageNow + $range;
 
         $gotopage = $prompt . ' <select class="pageselector ajax"';
 
@@ -1782,7 +1782,7 @@ class Util
                 if (isset($escape_class, $escape_method)) {
                     $replace[$key] = $escape_class->$escape_method($val);
                 } else {
-                    $replace[$key] = ($escape == 'backquote')
+                    $replace[$key] = $escape == 'backquote'
                         ? self::$escape($val)
                         : $escape($val);
                 }
@@ -1903,7 +1903,7 @@ class Util
      */
     public static function createGISData($gis_string, $mysqlVersion)
     {
-        $geomFromText = ($mysqlVersion >= 50600) ? 'ST_GeomFromText' : 'GeomFromText';
+        $geomFromText = $mysqlVersion >= 50600 ? 'ST_GeomFromText' : 'GeomFromText';
         $gis_string = trim($gis_string);
         $geom_types = '(POINT|MULTIPOINT|LINESTRING|MULTILINESTRING|'
             . 'POLYGON|MULTIPOLYGON|GEOMETRYCOLLECTION)';
@@ -2293,7 +2293,7 @@ class Util
 
         for ($i = 0, $length = mb_strlen($values_string); $i < $length; $i++) {
             $curr = mb_substr($values_string, $i, 1);
-            $next = ($i == mb_strlen($values_string) - 1)
+            $next = $i == mb_strlen($values_string) - 1
                 ? ''
                 : mb_substr($values_string, $i + 1, 1);
 

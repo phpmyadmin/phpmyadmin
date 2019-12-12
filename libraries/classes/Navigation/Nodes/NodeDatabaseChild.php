@@ -9,9 +9,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 
 /**
  * Represents a node that is a child of a database node

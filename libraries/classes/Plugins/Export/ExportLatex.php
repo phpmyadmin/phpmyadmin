@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -18,8 +17,6 @@ use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 
 /**
@@ -422,7 +419,7 @@ class ExportLatex extends ExportPlugin
                 }
 
                 // last column ... no need for & character
-                if ($i == ($columns_cnt - 1)) {
+                if ($i == $columns_cnt - 1) {
                     $buffer .= $column_value;
                 } else {
                     $buffer .= $column_value . ' & ';
@@ -620,9 +617,9 @@ class ExportLatex extends ExportPlugin
             }
 
             $local_buffer = $col_as . "\000" . $type . "\000"
-                . (($row['Null'] == '' || $row['Null'] == 'NO')
+                . ($row['Null'] == '' || $row['Null'] == 'NO'
                     ? __('No') : __('Yes'))
-                . "\000" . (isset($row['Default']) ? $row['Default'] : '');
+                . "\000" . ($row['Default'] ?? '');
 
             if ($do_relation && $have_rel) {
                 $local_buffer .= "\000";

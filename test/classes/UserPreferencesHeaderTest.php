@@ -8,12 +8,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
-use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\UserPreferencesHeader;
 use Throwable;
 use Twig_Error_Loader;

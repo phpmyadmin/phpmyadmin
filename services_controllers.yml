@@ -76,6 +76,18 @@ services:
       template: '@template'
       db: '%db%'
 
+  PhpMyAdmin\Controllers\Database\OperationsController:
+    class: 'PhpMyAdmin\Controllers\Database\OperationsController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      db: '%db%'
+      operations: '@operations'
+      checkUserPrivileges: '@check_user_privileges'
+      relation: '@relation'
+      relationCleanup: '@relation_cleanup'
+
   PhpMyAdmin\Controllers\Database\PrivilegesController:
     class: 'PhpMyAdmin\Controllers\Database\PrivilegesController'
     arguments:
@@ -101,9 +113,18 @@ services:
       dbi: '@dbi'
       template: '@template'
       db: '%db%'
+      checkUserPrivileges: '@check_user_privileges'
 
   PhpMyAdmin\Controllers\Database\SearchController:
     class: 'PhpMyAdmin\Controllers\Database\SearchController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      db: '%db%'
+
+  PhpMyAdmin\Controllers\Database\SqlAutoCompleteController:
+    class: 'PhpMyAdmin\Controllers\Database\SqlAutoCompleteController'
     arguments:
       response: '@response'
       dbi: '@dbi'
@@ -397,6 +418,15 @@ services:
       relation: '@relation'
       transformations: '@transformations'
       create_add_field: '@create_add_field'
+
+  PhpMyAdmin\Controllers\Table\TriggersController:
+    class: 'PhpMyAdmin\Controllers\Table\TriggersController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      db: '%db%'
+      table: '%table%'
 
   PhpMyAdmin\Controllers\ThemesController:
     class: 'PhpMyAdmin\Controllers\ThemesController'

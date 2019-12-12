@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
-use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\CollationsController;
 use PhpMyAdmin\Response;
