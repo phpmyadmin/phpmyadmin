@@ -1926,13 +1926,10 @@ select.invalid_value,
   // The notification needs to be shown on the top of the page
   top: 0;
   position: fixed;
-  margin-top: 200px;
   margin-#{$right}: auto;
-  margin-bottom: 0;
   margin-#{$left}: auto;
   // Keep a little space on the sides of the text
   padding: 5px;
-  width: 350px;
   // If this is not kept at a high z-index, the jQueryUI modal dialogs (z-index: 1000) might hide this
   z-index: 1100;
   text-align: center;
