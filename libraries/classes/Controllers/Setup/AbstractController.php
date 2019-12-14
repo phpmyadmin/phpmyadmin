@@ -14,7 +14,6 @@ use PhpMyAdmin\Config\Forms\Setup\SetupFormList;
 use PhpMyAdmin\Template;
 
 /**
- * Class AbstractController
  * @package PhpMyAdmin\Controllers\Setup
  */
 abstract class AbstractController
@@ -30,8 +29,6 @@ abstract class AbstractController
     protected $template;
 
     /**
-     * AbstractController constructor.
-     *
      * @param ConfigFile $config   ConfigFile instance
      * @param Template   $template Template instance
      */

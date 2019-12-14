@@ -41,8 +41,6 @@ class Designer
     public $template;
 
     /**
-     * Designer constructor.
-     *
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param Relation          $relation Relation instance
      * @param Template          $template Template instance

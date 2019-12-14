@@ -89,8 +89,9 @@ class Response
     private $_CWD;
 
     /**
-     * @var array<int, string>
      * @see http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
+     *
+     * @var array<int, string>
      */
     protected static $httpStatusMessages = [
         // Informational

@@ -26,24 +26,28 @@ class PageSettings
 
     /**
      * Contains id of the form element
+     *
      * @var string
      */
     private $_elemId = 'page_settings_modal';
 
     /**
      * Name of the group to show
+     *
      * @var string
      */
     private $_groupName = '';
 
     /**
      * Contains HTML of errors
+     *
      * @var string
      */
     private $_errorHTML = '';
 
     /**
      * Contains HTML of settings
+     *
      * @var string
      */
     private $_HTML = '';
@@ -203,7 +207,9 @@ class PageSettings
 
     /**
      * Group to show for Page-related settings
+     *
      * @param string $formGroupName The name of config form group to display
+     *
      * @return PageSettings
      */
     public static function showGroup($formGroupName)
@@ -219,6 +225,7 @@ class PageSettings
 
     /**
      * Get HTML for navigation settings
+     *
      * @return string
      */
     public static function getNaviSettings()

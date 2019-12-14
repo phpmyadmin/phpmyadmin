@@ -3,7 +3,6 @@
  * Holds the PhpMyAdmin\MultSubmits class
  *
  * @usedby  mult_submits.inc.php
- *
  * @package PhpMyAdmin
  */
 declare(strict_types=1);

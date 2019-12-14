@@ -195,7 +195,6 @@ class Types
      * @param string $type The data type to get a description.
      *
      * @return string
-     *
      */
     public function getTypeDescription($type)
     {
@@ -403,7 +402,6 @@ class Types
      * @param string $type The data type to get a class.
      *
      * @return string
-     *
      */
     public function getTypeClass($type)
     {
@@ -469,7 +467,6 @@ class Types
      * @param string $class The class to get function list.
      *
      * @return string[]
-     *
      */
     public function getFunctionsClass($class)
     {
@@ -657,7 +654,6 @@ class Types
      * @param string $type The data type to get function list.
      *
      * @return string[]
-     *
      */
     public function getFunctions($type)
     {
@@ -669,7 +665,6 @@ class Types
      * Returns array of all functions available.
      *
      * @return string[]
-     *
      */
     public function getAllFunctions()
     {
@@ -687,7 +682,6 @@ class Types
      * Returns array of all attributes available.
      *
      * @return string[]
-     *
      */
     public function getAttributes()
     {
@@ -707,7 +701,6 @@ class Types
      * estimated popularity.
      *
      * @return string[]
-     *
      */
     public function getColumns()
     {

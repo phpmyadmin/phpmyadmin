@@ -22,6 +22,7 @@ class Core
 {
     /**
      * the whitelist for goto parameter
+     *
      * @static array $goto_whitelist
      */
     public static $goto_whitelist = [
@@ -49,13 +50,13 @@ class Core
      * echo Core::ifSetOr($cfg['EnableFoo'], false, 'boolean'); // true
      * </code>
      *
+     * @see self::isValid()
+     *
      * @param mixed $var     param to check
      * @param mixed $default default value
      * @param mixed $type    var type or array of values to check against $var
      *
      * @return mixed $var or $default
-     *
-     * @see self::isValid()
      */
     public static function ifSetOr(&$var, $default = null, $type = 'similar')
     {
@@ -99,6 +100,8 @@ class Core
      *
      * to avoid this we set this var to null if not isset
      *
+     * @see https://secure.php.net/gettype
+     *
      * @param mixed $var     variable to check
      * @param mixed $type    var type or array of valid values to check against $var
      * @param mixed $compare var to compare with $var
@@ -106,7 +109,6 @@ class Core
      * @return boolean whether valid or not
      *
      * @todo add some more var types like hex, bin, ...?
-     * @see https://secure.php.net/gettype
      */
     public static function isValid(&$var, $type = 'length', $compare = null): bool
     {
@@ -931,6 +933,7 @@ class Core
 
     /**
      * Checks that required PHP extensions are there.
+     *
      * @return void
      */
     public static function checkExtensions(): void
@@ -1226,6 +1229,7 @@ class Core
      * Sign the sql query using hmac using the session token
      *
      * @param string $sqlQuery The sql query
+     *
      * @return string
      */
     public static function signSqlQuery($sqlQuery)
@@ -1240,6 +1244,7 @@ class Core
      *
      * @param string $sqlQuery  The sql query
      * @param string $signature The Signature to check
+     *
      * @return bool
      */
     public static function checkSqlQuerySignature($sqlQuery, $signature)

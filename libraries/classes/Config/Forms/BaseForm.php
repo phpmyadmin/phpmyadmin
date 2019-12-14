@@ -49,9 +49,9 @@ abstract class BaseForm extends FormDisplay
      * End group blocks with:
      * ':group:end'
      *
-     * @todo This should be abstract, but that does not work in PHP 5
-     *
      * @return array
+     *
+     * @todo This should be abstract, but that does not work in PHP 5
      */
     public static function getForms()
     {
@@ -77,9 +77,9 @@ abstract class BaseForm extends FormDisplay
     /**
      * Returns name of the form
      *
-     * @todo This should be abstract, but that does not work in PHP 5
-     *
      * @return string
+     *
+     * @todo This should be abstract, but that does not work in PHP 5
      */
     public static function getName()
     {

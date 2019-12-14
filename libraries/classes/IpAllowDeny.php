@@ -222,11 +222,11 @@ class IpAllowDeny
     /**
      * Runs through IP Allow rules the use of it below for more information
      *
+     * @see     Core::getIp()
+     *
      * @return bool Whether rule has matched
      *
      * @access  public
-     *
-     * @see     Core::getIp()
      */
     public function allow()
     {
@@ -236,11 +236,11 @@ class IpAllowDeny
     /**
      * Runs through IP Deny rules the use of it below for more information
      *
+     * @see     Core::getIp()
+     *
      * @return bool Whether rule has matched
      *
      * @access  public
-     *
-     * @see     Core::getIp()
      */
     public function deny()
     {
@@ -250,13 +250,13 @@ class IpAllowDeny
     /**
      * Runs through IP Allow/Deny rules the use of it below for more information
      *
+     * @see     Core::getIp()
+     *
      * @param string $type 'allow' | 'deny' type of rule to match
      *
      * @return bool   Whether rule has matched
      *
      * @access  public
-     *
-     * @see     Core::getIp()
      */
     private function allowDeny($type)
     {

@@ -1,6 +1,7 @@
 <?php
 /**
  * Server replications
+ *
  * @package PhpMyAdmin\Controllers\Server
  */
 declare(strict_types=1);
@@ -15,6 +16,7 @@ use PhpMyAdmin\Template;
 
 /**
  * Server replications
+ *
  * @package PhpMyAdmin\Controllers\Server
  */
 class ReplicationController extends AbstractController

@@ -32,6 +32,9 @@ class TableStatsEps extends TableStats
     /**
      * The "PhpMyAdmin\Plugins\Schema\Eps\TableStatsEps" constructor
      *
+     * @see PMA_EPS, Table_Stats_Eps::Table_Stats_setWidth,
+     *      PhpMyAdmin\Plugins\Schema\Eps\TableStatsEps::Table_Stats_setHeight
+     *
      * @param object  $diagram         The EPS diagram
      * @param string  $db              The database name
      * @param string  $tableName       The table name
@@ -43,9 +46,6 @@ class TableStatsEps extends TableStats
      * @param boolean $tableDimension  Whether to display table position or not
      * @param boolean $offline         Whether the coordinates are sent
      *                                 from the browser
-     *
-     * @see PMA_EPS, Table_Stats_Eps::Table_Stats_setWidth,
-     *      PhpMyAdmin\Plugins\Schema\Eps\TableStatsEps::Table_Stats_setHeight
      */
     public function __construct(
         $diagram,
@@ -96,12 +96,12 @@ class TableStatsEps extends TableStats
     /**
      * Sets the width of the table
      *
+     * @see PMA_EPS
+     *
      * @param string  $font     The font name
      * @param integer $fontSize The font size
      *
      * @return void
-     *
-     * @see PMA_EPS
      */
     private function _setWidthTable($font, $fontSize)
     {
@@ -146,11 +146,11 @@ class TableStatsEps extends TableStats
     /**
      * Draw the table
      *
+     * @see PMA_EPS,PMA_EPS::line,PMA_EPS::rect
+     *
      * @param boolean $showColor Whether to display color
      *
      * @return void
-     *
-     * @see PMA_EPS,PMA_EPS::line,PMA_EPS::rect
      */
     public function tableDraw($showColor)
     {

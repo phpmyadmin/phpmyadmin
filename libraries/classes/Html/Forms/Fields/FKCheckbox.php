@@ -27,6 +27,7 @@ class FKCheckbox implements FieldGenerator
      * Get HTML for Foreign key check checkbox
      *
      * @return string HTML for checkbox
+     *
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime

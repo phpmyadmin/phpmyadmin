@@ -37,7 +37,6 @@ class GitRevision
     private $template;
 
     /**
-     * GitRevision constructor.
      * @param Response $response Response instance
      * @param Config   $config   Config instance
      * @param Template $template Template instance

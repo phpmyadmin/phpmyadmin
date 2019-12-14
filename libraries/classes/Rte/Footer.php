@@ -32,8 +32,6 @@ class Footer
     private $dbi;
 
     /**
-     * Footer constructor.
-     *
      * @param DatabaseInterface $dbi DatabaseInterface object
      */
     public function __construct(DatabaseInterface $dbi)

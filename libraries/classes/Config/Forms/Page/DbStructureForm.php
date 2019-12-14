@@ -12,7 +12,6 @@ use PhpMyAdmin\Config\Forms\BaseForm;
 use PhpMyAdmin\Config\Forms\User\MainForm;
 
 /**
- * Class DbStructureForm
  * @package PhpMyAdmin\Config\Forms\Page
  */
 class DbStructureForm extends BaseForm

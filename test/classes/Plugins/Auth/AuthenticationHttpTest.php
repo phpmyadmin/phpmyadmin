@@ -214,6 +214,7 @@ class AuthenticationHttpTest extends PmaTestCase
      * @param string $old_usr        value for $_REQUEST['old_usr']
      *
      * @return void
+     *
      * @dataProvider readCredentialsProvider
      */
     public function testAuthCheck(

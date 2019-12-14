@@ -29,6 +29,7 @@ class UserPreferencesHeader
      * @param Relation $relation Relation object
      *
      * @return string
+     *
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
@@ -45,6 +46,7 @@ class UserPreferencesHeader
      * @param Template $template Template object used to render data
      *
      * @return string
+     *
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime

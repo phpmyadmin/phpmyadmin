@@ -18,7 +18,6 @@ use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class QueriesControllerTest
  * @package PhpMyAdmin\Tests\Controllers\Server\Status
  */
 class QueriesControllerTest extends TestCase

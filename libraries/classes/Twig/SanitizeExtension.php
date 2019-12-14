@@ -13,8 +13,6 @@ use Twig\TwigFilter;
 use Twig\TwigFunction;
 
 /**
- * Class SanitizeExtension
- *
  * @package PhpMyAdmin\Twig
  */
 class SanitizeExtension extends AbstractExtension

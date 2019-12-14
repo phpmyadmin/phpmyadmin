@@ -24,6 +24,7 @@ use function imagesy;
 
 /**
  * Wrapper script for rendering transformations
+ *
  * @package PhpMyAdmin\Controllers
  */
 class TransformationWrapperController extends AbstractController

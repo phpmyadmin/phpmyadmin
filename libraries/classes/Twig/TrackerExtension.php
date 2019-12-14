@@ -12,8 +12,6 @@ use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
 /**
- * Class TrackerExtension
- *
  * @package PhpMyAdmin\Twig
  */
 class TrackerExtension extends AbstractExtension

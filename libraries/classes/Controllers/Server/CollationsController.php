@@ -34,8 +34,6 @@ class CollationsController extends AbstractController
     private $collations;
 
     /**
-     * CollationsController constructor.
-     *
      * @param Response          $response   Response object
      * @param DatabaseInterface $dbi        DatabaseInterface object
      * @param Template          $template   Template object

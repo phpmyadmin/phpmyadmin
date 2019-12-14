@@ -22,6 +22,7 @@ $db_is_system_schema = $dbi->isSystemSchema($db);
 
 /**
  * Set parameters for links
+ *
  * @deprecated
  */
 $url_query = Url::getCommon(['db' => $db, 'table' => $table]);

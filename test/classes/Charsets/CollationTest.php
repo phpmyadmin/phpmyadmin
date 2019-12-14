@@ -1,6 +1,5 @@
 <?php
 /**
- * Class CollationTest
  * @package PhpMyAdmin\Tests\Charsets
  */
 declare(strict_types=1);
@@ -11,7 +10,6 @@ use PhpMyAdmin\Charsets\Collation;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class CollationTest
  * @package PhpMyAdmin\Tests\Charsets
  */
 class CollationTest extends TestCase

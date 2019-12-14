@@ -38,7 +38,6 @@ class ErrorHandler
 
     /**
      * Constructor - set PHP error handler
-     *
      */
     public function __construct()
     {
@@ -60,7 +59,6 @@ class ErrorHandler
      * Destructor
      *
      * stores errors in session
-     *
      */
     public function __destruct()
     {

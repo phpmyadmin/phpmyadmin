@@ -1,6 +1,7 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Controllers\Table\IndexesController
+ *
  * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
@@ -20,6 +21,7 @@ use PhpMyAdmin\Url;
 
 /**
  * Tests for PhpMyAdmin\Controllers\Table\IndexesController
+ *
  * @package PhpMyAdmin-test
  */
 class IndexesControllerTest extends PmaTestCase
@@ -27,8 +29,9 @@ class IndexesControllerTest extends PmaTestCase
     /**
      * Setup function for test cases
      *
-     * @access protected
      * @return void
+     *
+     * @access protected
      */
     protected function setUp(): void
     {
@@ -80,6 +83,7 @@ class IndexesControllerTest extends PmaTestCase
      * Tests for doSaveDataAction() method
      *
      * @return void
+     *
      * @test
      */
     public function testDoSaveDataAction()
@@ -131,6 +135,7 @@ class IndexesControllerTest extends PmaTestCase
      * Tests for displayFormAction()
      *
      * @return void
+     *
      * @test
      */
     public function testDisplayFormAction()

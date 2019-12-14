@@ -1,6 +1,7 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Controllers\Table\RelationController
+ *
  * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
@@ -16,6 +17,7 @@ use stdClass;
 
 /**
  * Tests for PhpMyAdmin\Controllers\Table\RelationController
+ *
  * @package PhpMyAdmin-test
  */
 class RelationControllerTest extends PmaTestCase
@@ -52,6 +54,7 @@ class RelationControllerTest extends PmaTestCase
         {
             /**
              * @param mixed $name name
+             *
              * @return bool
              */
             public function exists($name)
@@ -96,6 +99,7 @@ class RelationControllerTest extends PmaTestCase
      *           table is a view.
      *
      * @return void
+     *
      * @test
      */
     public function testGetDropdownValueForTableActionIsView()
@@ -147,6 +151,7 @@ class RelationControllerTest extends PmaTestCase
      *           table is not a view (real tabletable).
      *
      * @return void
+     *
      * @test
      */
     public function testGetDropdownValueForTableActionNotView()
@@ -195,6 +200,7 @@ class RelationControllerTest extends PmaTestCase
      * Case one: foreign
      *
      * @return void
+     *
      * @test
      */
     public function testGetDropdownValueForDbActionOne()
@@ -247,6 +253,7 @@ class RelationControllerTest extends PmaTestCase
      * Case two: not foreign
      *
      * @return void
+     *
      * @test
      */
     public function testGetDropdownValueForDbActionTwo()

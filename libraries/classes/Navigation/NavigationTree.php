@@ -100,7 +100,6 @@ class NavigationTree
     private $dbi;
 
     /**
-     * NavigationTree constructor.
      * @param Template          $template Template instance
      * @param DatabaseInterface $dbi      DatabaseInterface instance
      */

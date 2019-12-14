@@ -15,7 +15,6 @@ use stdClass;
  * Responsible for retrieving version information and notifiying about latest version
  *
  * @package PhpMyAdmin
- *
  */
 class VersionInformation
 {

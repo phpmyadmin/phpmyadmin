@@ -116,6 +116,7 @@ class TablePropertyTest extends PmaTestCase
      * @param string $expected expected output
      *
      * @return void
+     *
      * @dataProvider isNotNullProvider
      */
     public function testIsNotNull($nullable, $expected): void
@@ -158,6 +159,7 @@ class TablePropertyTest extends PmaTestCase
      * @param string $expected expected output
      *
      * @return void
+     *
      * @dataProvider isUniqueProvider
      */
     public function testIsUnique($key, $expected): void
@@ -208,6 +210,7 @@ class TablePropertyTest extends PmaTestCase
      * @param string $expected expected output
      *
      * @return void
+     *
      * @dataProvider getDotNetPrimitiveTypeProvider
      */
     public function testGetDotNetPrimitiveType($type, $expected): void
@@ -282,6 +285,7 @@ class TablePropertyTest extends PmaTestCase
      * @param string $expected expected output
      *
      * @return void
+     *
      * @dataProvider getDotNetObjectTypeProvider
      */
     public function testGetDotNetObjectType($type, $expected): void

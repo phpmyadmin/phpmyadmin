@@ -11,7 +11,6 @@ namespace PhpMyAdmin\Config\Forms\Setup;
 use PhpMyAdmin\Config\Forms\BaseForm;
 
 /**
- * Class ServersForm
  * @package PhpMyAdmin\Config\Forms\Setup
  */
 class ServersForm extends BaseForm

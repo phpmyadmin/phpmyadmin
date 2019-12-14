@@ -1,6 +1,7 @@
 <?php
 /**
  * Represents the interface between the linter and the query editor.
+ *
  * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
@@ -12,12 +13,14 @@ use PhpMyAdmin\Linter;
 
 /**
  * Represents the interface between the linter and the query editor.
+ *
  * @package PhpMyAdmin\Controllers
  */
 class LintController extends AbstractController
 {
     /**
      * @param array $params Request parameters
+     *
      * @return void
      */
     public function index(array $params): void

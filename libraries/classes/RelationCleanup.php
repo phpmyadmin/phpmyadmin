@@ -30,8 +30,6 @@ class RelationCleanup
     public $dbi;
 
     /**
-     * RelationCleanup constructor.
-     *
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param Relation          $relation Relation object
      */

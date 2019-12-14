@@ -29,7 +29,6 @@ use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\Util;
 
 /**
- * Class HomeController
  * @package PhpMyAdmin\Controllers
  */
 class HomeController extends AbstractController
@@ -45,8 +44,6 @@ class HomeController extends AbstractController
     private $themeManager;
 
     /**
-     * HomeController constructor.
-     *
      * @param Response          $response     Response instance
      * @param DatabaseInterface $dbi          DatabaseInterface instance
      * @param Template          $template     Template object
@@ -293,6 +290,7 @@ class HomeController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return void
      */
     public function setTheme(array $params): void
@@ -310,6 +308,7 @@ class HomeController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return void
      */
     public function setCollationConnection(array $params): void

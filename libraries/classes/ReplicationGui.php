@@ -26,8 +26,6 @@ class ReplicationGui
     private $template;
 
     /**
-     * ReplicationGui constructor.
-     *
      * @param Replication $replication Replication instance
      * @param Template    $template    Template instance
      */

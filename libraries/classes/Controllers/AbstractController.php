@@ -35,8 +35,6 @@ abstract class AbstractController
     protected $template;
 
     /**
-     * AbstractController constructor.
-     *
      * @param Response          $response Response object
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param Template          $template Template that should be used

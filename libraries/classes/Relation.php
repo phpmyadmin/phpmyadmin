@@ -31,8 +31,6 @@ class Relation
     public $template;
 
     /**
-     * Relation constructor.
-     *
      * @param DatabaseInterface|null $dbi      Database interface
      * @param Template|null          $template Template instance
      */
@@ -52,7 +50,6 @@ class Relation
      * @return resource|boolean the result set, or false if no result set
      *
      * @access  public
-     *
      */
     public function queryAsControlUser($sql, $show_error = true, $options = 0)
     {
@@ -479,8 +476,9 @@ class Relation
      * just a copy of the functions used for relations ;-)
      * but added some stuff to check what will work
      *
-     * @access  protected
      * @return string[]    the relation parameters for the current user
+     *
+     * @access  protected
      */
     public function checkRelationsParam(): array
     {
@@ -750,6 +748,7 @@ class Relation
      * Check if the table is accessible
      *
      * @param string $tableDbName The table or table.db
+     *
      * @return boolean The table is accessible
      */
     public function canAccessStorageTable(string $tableDbName): bool
@@ -1052,9 +1051,9 @@ class Relation
     /**
      * Gets the comment for a db
      *
-     * @access  public
-     *
      * @return array comments
+     *
+     * @access  public
      */
     public function getDbComments()
     {

@@ -53,8 +53,6 @@ class Events
     private $dbi;
 
     /**
-     * Events constructor.
-     *
      * @param DatabaseInterface $dbi DatabaseInterface object
      */
     public function __construct(DatabaseInterface $dbi)

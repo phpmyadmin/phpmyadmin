@@ -13,8 +13,6 @@ use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
 /**
- * Class RelationExtension
- *
  * @package PhpMyAdmin\Twig
  */
 class RelationExtension extends AbstractExtension

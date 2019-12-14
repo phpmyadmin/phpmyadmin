@@ -35,8 +35,6 @@ class Operations
     private $dbi;
 
     /**
-     * Operations constructor.
-     *
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param Relation          $relation Relation object
      */

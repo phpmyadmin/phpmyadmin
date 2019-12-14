@@ -1,6 +1,5 @@
 <?php
 /**
- * Class PrivilegesControllerTest
  * @package PhpMyAdmin\Tests\Controllers\Database
  */
 declare(strict_types=1);
@@ -15,7 +14,6 @@ use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Url;
 
 /**
- * Class PrivilegesControllerTest
  * @package PhpMyAdmin\Tests\Controllers\Database
  */
 class PrivilegesControllerTest extends PmaTestCase

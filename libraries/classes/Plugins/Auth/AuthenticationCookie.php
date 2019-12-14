@@ -67,9 +67,9 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * this function MUST exit/quit the application
      *
-     * @global string $conn_error the last connection error
-     *
      * @return boolean|void
+     *
+     * @global string $conn_error the last connection error
      */
     public function showLoginForm()
     {

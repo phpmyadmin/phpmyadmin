@@ -75,6 +75,7 @@ abstract class TestBase extends TestCase
     {
         /**
          * Needs to be implemented
+         *
          * @ENV TESTSUITE_SELENIUM_COVERAGE
          * @ENV TESTSUITE_FULL
          */
@@ -199,6 +200,7 @@ abstract class TestBase extends TestCase
      * Navigate to URL
      *
      * @param string $url The URL
+     *
      * @return void
      */
     private function navigateTo(string $url): void
@@ -216,6 +218,7 @@ abstract class TestBase extends TestCase
      * Add specific capabilities
      *
      * @param DesiredCapabilities $capabilities The capabilities object
+     *
      * @return void
      */
     public function addCapabilities(DesiredCapabilities $capabilities): void
@@ -240,6 +243,7 @@ abstract class TestBase extends TestCase
 
         /**
          * Usefull for browserstack
+         *
          * @see https://github.com/phpmyadmin/phpmyadmin/pull/14595#issuecomment-418541475
          * Reports the name of the test to browserstack
          */
@@ -433,6 +437,7 @@ abstract class TestBase extends TestCase
      * Get element by Id
      *
      * @param string $id The element ID
+     *
      * @return WebDriverElement
      */
     public function byId(string $id): WebDriverElement
@@ -444,6 +449,7 @@ abstract class TestBase extends TestCase
      * Get element by css selector
      *
      * @param string $selector The element css selector
+     *
      * @return WebDriverElement
      */
     public function byCssSelector(string $selector): WebDriverElement
@@ -455,6 +461,7 @@ abstract class TestBase extends TestCase
      * Get element by xpath
      *
      * @param string $xpath The xpath
+     *
      * @return WebDriverElement
      */
     public function byXPath(string $xpath): WebDriverElement
@@ -466,6 +473,7 @@ abstract class TestBase extends TestCase
      * Get element by linkText
      *
      * @param string $linkText The link text
+     *
      * @return WebDriverElement
      */
     public function byLinkText(string $linkText): WebDriverElement
@@ -497,6 +505,7 @@ abstract class TestBase extends TestCase
      * Get element by byPartialLinkText
      *
      * @param string $partialLinkText The partial link text
+     *
      * @return WebDriverElement
      */
     public function byPartialLinkText(string $partialLinkText): WebDriverElement
@@ -518,6 +527,7 @@ abstract class TestBase extends TestCase
      * Get element by name
      *
      * @param string $name The name
+     *
      * @return WebDriverElement
      */
     public function byName(string $name): WebDriverElement
@@ -617,6 +627,7 @@ abstract class TestBase extends TestCase
      * @param string  $func    Locate using - cssSelector, xpath, tagName, partialLinkText, linkText, name, id, className
      * @param string  $arg     Selector
      * @param integer $timeout Timeout in seconds
+     *
      * @return WebDriverElement
      */
     public function waitUntilElementIsPresent(string $func, $arg, int $timeout): WebDriverElement
@@ -632,6 +643,7 @@ abstract class TestBase extends TestCase
      * @param string  $func    Locate using - cssSelector, xpath, tagName, partialLinkText, linkText, name, id, className
      * @param string  $arg     Selector
      * @param integer $timeout Timeout in seconds
+     *
      * @return WebDriverElement
      */
     public function waitUntilElementIsVisible(string $func, $arg, int $timeout): WebDriverElement
@@ -906,6 +918,7 @@ abstract class TestBase extends TestCase
      *
      * @param WebDriverElement $element The element
      * @param string           $value   The value of the option
+     *
      * @return void
      */
     public function selectByValue(WebDriverElement $element, string $value): void
@@ -919,6 +932,7 @@ abstract class TestBase extends TestCase
      *
      * @param WebDriverElement $element The element
      * @param string           $text    The text
+     *
      * @return void
      */
     public function selectByLabel(WebDriverElement $element, string $text): void

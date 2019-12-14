@@ -14,13 +14,13 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Setup\FormProcessing;
 
 /**
- * Class FormController
  * @package PhpMyAdmin\Controllers\Setup
  */
 class FormController extends AbstractController
 {
     /**
      * @param array $params Request parameters
+     *
      * @return string HTML
      */
     public function index(array $params): string

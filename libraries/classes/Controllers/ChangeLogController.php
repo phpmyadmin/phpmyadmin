@@ -9,7 +9,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 /**
- * Class ChangeLogController
  * @package PhpMyAdmin\Controllers
  */
 class ChangeLogController extends AbstractController

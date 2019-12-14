@@ -12,8 +12,6 @@ use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
 /**
- * Class StorageEngineExtension
- *
  * @package PhpMyAdmin\Twig
  */
 class StorageEngineExtension extends AbstractExtension

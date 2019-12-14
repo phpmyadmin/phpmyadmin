@@ -14,6 +14,7 @@ use PhpMyAdmin\Util;
 
 /**
  * Handles creation of VIEWs.
+ *
  * @package PhpMyAdmin\Controllers
  */
 class ViewCreateController extends AbstractController

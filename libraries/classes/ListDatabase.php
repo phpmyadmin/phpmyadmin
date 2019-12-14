@@ -19,7 +19,6 @@ use PhpMyAdmin\Util;
  * </code>
  *
  * @todo this object should be attached to the PMA_Server object
- *
  * @package PhpMyAdmin
  * @since   phpMyAdmin 2.9.10
  */

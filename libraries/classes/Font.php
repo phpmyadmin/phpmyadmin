@@ -19,6 +19,7 @@ class Font
      * Get list with characters and the corresponding width modifiers.
      *
      * @return array with characters and corresponding width modifier
+     *
      * @access public
      */
     public function getCharLists(): array
@@ -174,6 +175,7 @@ class Font
      * @param array|null $charLists list of characters and their width modifiers
      *
      * @return integer width of the text
+     *
      * @access public
      */
     public function getStringWidth(

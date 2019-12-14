@@ -17,36 +17,42 @@ class SavedSearches
 {
     /**
      * Global configuration
+     *
      * @var array
      */
     private $_config = null;
 
     /**
      * Id
+     *
      * @var int|null
      */
     private $_id = null;
 
     /**
      * Username
+     *
      * @var string
      */
     private $_username = null;
 
     /**
      * DB name
+     *
      * @var string
      */
     private $_dbname = null;
 
     /**
      * Saved search name
+     *
      * @var string
      */
     private $_searchName = null;
 
     /**
      * Criterias
+     *
      * @var array
      */
     private $_criterias = null;

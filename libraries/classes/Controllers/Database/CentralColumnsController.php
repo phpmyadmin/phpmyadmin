@@ -16,7 +16,6 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 
 /**
- * Class CentralColumnsController
  * @package PhpMyAdmin\Controllers\Database
  */
 class CentralColumnsController extends AbstractController
@@ -27,8 +26,6 @@ class CentralColumnsController extends AbstractController
     private $centralColumns;
 
     /**
-     * CentralColumnsController constructor.
-     *
      * @param Response          $response       Response instance
      * @param DatabaseInterface $dbi            DatabaseInterface instance
      * @param Template          $template       Template object
@@ -43,6 +40,7 @@ class CentralColumnsController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return string HTML
      */
     public function index(array $params): string
@@ -73,6 +71,7 @@ class CentralColumnsController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return array JSON
      */
     public function getColumnList(array $params): array
@@ -85,6 +84,7 @@ class CentralColumnsController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return string HTML
      */
     public function populateColumns(array $params): string
@@ -97,6 +97,7 @@ class CentralColumnsController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return true|Message
      */
     public function editSave(array $params)
@@ -121,6 +122,7 @@ class CentralColumnsController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return true|Message
      */
     public function addNewColumn(array $params)
@@ -145,6 +147,7 @@ class CentralColumnsController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return true|Message
      */
     public function addColumn(array $params)
@@ -158,6 +161,7 @@ class CentralColumnsController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return string HTML
      */
     public function editPage(array $params): string
@@ -170,6 +174,7 @@ class CentralColumnsController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return true|Message
      */
     public function updateMultipleColumn(array $params)
@@ -179,6 +184,7 @@ class CentralColumnsController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return true|Message
      */
     public function deleteSave(array $params)

@@ -181,7 +181,6 @@ class Util
      * @param array  $table the table infos
      *
      * @return int the possibly modified row count
-     *
      */
     private static function _checkRowCount($db, array $table)
     {
@@ -396,9 +395,9 @@ class Util
     /**
      * Verifies if current MySQL server supports profiling
      *
-     * @access  public
-     *
      * @return boolean whether profiling is supported
+     *
+     * @access  public
      */
     public static function profilingSupported()
     {
@@ -862,9 +861,9 @@ class Util
      *                                             none
      * @param array|null     $analyzed_sql_results the analyzed query
      *
-     * @access public
-     *
      * @return array the calculated condition and whether condition is unique
+     *
+     * @access public
      */
     public static function getUniqueCondition(
         $handle,
@@ -1199,9 +1198,12 @@ class Util
 
     /**
      * Calculate page number through position
+     *
      * @param int $pos       position of first item
      * @param int $max_count number of items per page
+     *
      * @return int $page_num
+     *
      * @access public
      */
     public static function getPageFromPosition($pos, $max_count)
@@ -1831,7 +1833,6 @@ class Util
      * @param string $selected The value to mark as selected in HTML mode
      *
      * @return mixed   An HTML snippet or an array of datatypes.
-     *
      */
     public static function getSupportedDatatypes($html = false, $selected = '')
     {
@@ -2566,7 +2567,6 @@ class Util
      * @param string|null $sub_part part of script name
      *
      * @return array
-     *
      */
     public static function getDbInfo($db, ?string $sub_part)
     {
@@ -2742,7 +2742,6 @@ class Util
      * @param object $db_info_result result set
      *
      * @return array list of tables
-     *
      */
     public static function getTablesWhenOpen($db, $db_info_result)
     {

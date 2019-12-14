@@ -11,7 +11,6 @@ namespace PhpMyAdmin\Config\Forms\User;
 use PhpMyAdmin\Config\Forms\BaseFormList;
 
 /**
- * Class UserFormList
  * @package PhpMyAdmin\Config\Forms\User
  */
 class UserFormList extends BaseFormList

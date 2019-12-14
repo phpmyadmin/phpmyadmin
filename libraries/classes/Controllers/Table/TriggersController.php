@@ -12,6 +12,7 @@ use PhpMyAdmin\Util;
 
 /**
  * Triggers management.
+ *
  * @package PhpMyAdmin\Controllers\Table
  */
 class TriggersController extends AbstractController

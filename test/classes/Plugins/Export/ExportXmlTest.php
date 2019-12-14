@@ -59,6 +59,7 @@ class ExportXmlTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\ExportXml::setProperties
      *
      * @return void
+     *
      * @group medium
      */
     public function testSetProperties()
@@ -201,6 +202,7 @@ class ExportXmlTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\ExportXml::exportHeader
      *
      * @return void
+     *
      * @group medium
      */
     public function testExportHeader()

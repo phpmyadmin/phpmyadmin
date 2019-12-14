@@ -34,8 +34,6 @@ class Common
     private $dbi;
 
     /**
-     * Common constructor.
-     *
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param Relation          $relation Relation instance
      */
@@ -50,6 +48,7 @@ class Common
      *
      * @param string $db    (optional) Filter only a DB ($table is required if you use $db)
      * @param string $table (optional) Filter only a table ($db is now required)
+     *
      * @return DesignerTable[] with table info
      */
     public function getTablesInfo(string $db = null, string $table = null): array
@@ -83,6 +82,7 @@ class Common
      * Retrieves table column info
      *
      * @param DesignerTable[] $designerTables The designer tables
+     *
      * @return array table column nfo
      */
     public function getColumnsInfo(array $designerTables): array
@@ -121,6 +121,7 @@ class Common
      * Returns JavaScript code for initializing vars
      *
      * @param DesignerTable[] $designerTables The designer tables
+     *
      * @return array JavaScript code
      */
     public function getScriptContr(array $designerTables): array
@@ -197,6 +198,7 @@ class Common
      * Returns UNIQUE and PRIMARY indices
      *
      * @param DesignerTable[] $designerTables The designer tables
+     *
      * @return array unique or primary indices
      */
     public function getPkOrUniqueKeys(array $designerTables): array
@@ -236,6 +238,7 @@ class Common
      * Return j_tab and h_tab arrays
      *
      * @param DesignerTable[] $designerTables The designer tables
+     *
      * @return array
      */
     public function getScriptTabs(array $designerTables): array

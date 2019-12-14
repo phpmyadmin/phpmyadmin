@@ -127,6 +127,7 @@ class UtilTest extends PmaTestCase
      * @param string $expected  Expected Charset Query
      *
      * @return void
+     *
      * @test
      * @dataProvider charsetQueryData
      */
@@ -175,9 +176,9 @@ class UtilTest extends PmaTestCase
     /**
      * Test if cached data is available after set
      *
-     * @covers \PhpMyAdmin\Util::cacheExists
-     *
      * @return void
+     *
+     * @covers \PhpMyAdmin\Util::cacheExists
      */
     public function testCacheExists()
     {
@@ -193,9 +194,9 @@ class UtilTest extends PmaTestCase
     /**
      * Test if PhpMyAdmin\Util::cacheGet does not return data for non existing cache entries
      *
-     * @covers \PhpMyAdmin\Util::cacheGet
-     *
      * @return void
+     *
+     * @covers \PhpMyAdmin\Util::cacheGet
      */
     public function testCacheGet()
     {
@@ -211,9 +212,9 @@ class UtilTest extends PmaTestCase
     /**
      * Test retrieval of cached data
      *
-     * @covers \PhpMyAdmin\Util::cacheSet
-     *
      * @return void
+     *
+     * @covers \PhpMyAdmin\Util::cacheSet
      */
     public function testCacheSetGet()
     {
@@ -229,9 +230,9 @@ class UtilTest extends PmaTestCase
     /**
      * Test clearing cached values
      *
-     * @covers \PhpMyAdmin\Util::cacheUnset
-     *
      * @return void
+     *
+     * @covers \PhpMyAdmin\Util::cacheUnset
      */
     public function testCacheUnSet()
     {
@@ -254,9 +255,9 @@ class UtilTest extends PmaTestCase
     /**
      * Test clearing user cache
      *
-     * @covers \PhpMyAdmin\Util::clearUserCache
-     *
      * @return void
+     *
+     * @covers \PhpMyAdmin\Util::clearUserCache
      */
     public function testClearUserCache()
     {
@@ -277,9 +278,9 @@ class UtilTest extends PmaTestCase
     /**
      * Test for Util::checkParameters
      *
-     * @covers \PhpMyAdmin\Util::checkParameters
-     *
      * @return void
+     *
+     * @covers \PhpMyAdmin\Util::checkParameters
      */
     public function testCheckParameterMissing()
     {
@@ -307,9 +308,9 @@ class UtilTest extends PmaTestCase
     /**
      * Test for Util::checkParameters
      *
-     * @covers \PhpMyAdmin\Util::checkParameters
-     *
      * @return void
+     *
+     * @covers \PhpMyAdmin\Util::checkParameters
      */
     public function testCheckParameter()
     {

@@ -39,7 +39,6 @@ class Scripts
 
     /**
      * Generates new Scripts objects
-     *
      */
     public function __construct()
     {

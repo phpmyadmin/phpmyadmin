@@ -61,6 +61,7 @@ class ThemeTest extends PmaTestCase
      * Test for Theme::loadInfo
      *
      * @return void
+     *
      * @group medium
      */
     public function testCheckImgPathNotExisted()

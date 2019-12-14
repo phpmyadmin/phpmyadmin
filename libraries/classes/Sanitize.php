@@ -215,7 +215,6 @@ class Sanitize
      * @param boolean $replaceDots Whether to also replace dots
      *
      * @return string  the sanitized filename
-     *
      */
     public static function sanitizeFilename($filename, $replaceDots = false)
     {
@@ -402,6 +401,7 @@ class Sanitize
      * @param string[] $whitelist list of variables to allow
      *
      * @return void
+     *
      * @access public
      */
     public static function removeRequestVars(&$whitelist): void

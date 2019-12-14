@@ -12,8 +12,6 @@ use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 
 /**
- * Class CoreExtension
- *
  * @package PhpMyAdmin\Twig
  */
 class CoreExtension extends AbstractExtension

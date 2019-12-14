@@ -17,13 +17,13 @@ use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Setup\Index;
 
 /**
- * Class HomeController
  * @package PhpMyAdmin\Controllers\Setup
  */
 class HomeController extends AbstractController
 {
     /**
      * @param array $params Request parameters
+     *
      * @return string HTML
      */
     public function index(array $params): string

@@ -11,6 +11,7 @@ use PhpMyAdmin\VersionInformation;
 
 /**
  * A caching proxy for retrieving version information from https://www.phpmyadmin.net/.
+ *
  * @package PhpMyAdmin\Controllers
  */
 class VersionCheckController extends AbstractController

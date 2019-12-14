@@ -1,6 +1,7 @@
 <?php
 /**
  * Tests for PhpMyAdmin\FileListing
+ *
  * @package PhpMyAdmin\Tests
  */
 
@@ -10,7 +11,6 @@ use PhpMyAdmin\FileListing;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class FileListingTest
  * @package PhpMyAdmin\Tests
  */
 class FileListingTest extends TestCase
@@ -111,6 +111,7 @@ HTML;
 
     /**
      * @return void
+     *
      * @requires extension bz2 1
      */
     public function testSupportedDecompressionsFull(): void

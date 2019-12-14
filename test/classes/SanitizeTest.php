@@ -193,9 +193,9 @@ class SanitizeTest extends TestCase
      * @param string $value    Value
      * @param string $expected Expected output
      *
-     * @dataProvider variables
-     *
      * @return void
+     *
+     * @dataProvider variables
      */
     public function testGetJsValue($key, $value, $expected): void
     {

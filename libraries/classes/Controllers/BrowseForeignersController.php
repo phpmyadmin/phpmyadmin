@@ -32,8 +32,6 @@ class BrowseForeignersController extends AbstractController
     private $relation;
 
     /**
-     * BrowseForeignersController constructor.
-     *
      * @param Response          $response         Response instance
      * @param DatabaseInterface $dbi              DatabaseInterface instance
      * @param Template          $template         Template object
@@ -49,6 +47,7 @@ class BrowseForeignersController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return string HTML
      */
     public function index(array $params): string

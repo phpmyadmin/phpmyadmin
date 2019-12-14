@@ -355,7 +355,9 @@ class Config
 
     /**
      * detects if Git revision
+     *
      * @param string $git_location (optional) verified git directory
+     *
      * @return boolean
      */
     public function isGitRevision(&$git_location = null): bool
@@ -1526,6 +1528,7 @@ class Config
      * Get the real cookie name
      *
      * @param string $cookieName The name of the cookie
+     *
      * @return string
      */
     public function getCookieName(string $cookieName): string

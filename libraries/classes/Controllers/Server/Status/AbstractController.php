@@ -16,6 +16,7 @@ use PhpMyAdmin\Template;
 
 /**
  * Abstract class Controller
+ *
  * @package PhpMyAdmin\Controllers\Server\Status
  */
 abstract class AbstractController extends Controller
@@ -26,8 +27,6 @@ abstract class AbstractController extends Controller
     protected $data;
 
     /**
-     * AbstractController constructor.
-     *
      * @param Response          $response Response object
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param Template          $template Template object

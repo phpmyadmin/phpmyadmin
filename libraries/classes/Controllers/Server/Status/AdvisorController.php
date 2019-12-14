@@ -27,8 +27,6 @@ class AdvisorController extends AbstractController
     private $advisor;
 
     /**
-     * AdvisorController constructor.
-     *
      * @param Response          $response Response object
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param Template          $template Template object

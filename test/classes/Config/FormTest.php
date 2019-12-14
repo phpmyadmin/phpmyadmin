@@ -62,6 +62,7 @@ class FormTest extends PmaTestCase
      * Test for Form::__constructor
      *
      * @return void
+     *
      * @group medium
      */
     public function testContructor()

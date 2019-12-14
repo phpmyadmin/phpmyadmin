@@ -75,6 +75,7 @@ class StructureControllerTest extends PmaTestCase
      * Case one: there are no primary key in the table
      *
      * @return void
+     *
      * @test
      */
     public function testGetKeyForTablePrimaryOne()
@@ -116,6 +117,7 @@ class StructureControllerTest extends PmaTestCase
      * Case two: there are a primary key in the table
      *
      * @return void
+     *
      * @test
      */
     public function testGetKeyForTablePrimaryTwo()
@@ -172,6 +174,7 @@ class StructureControllerTest extends PmaTestCase
      * Tests for adjustColumnPrivileges()
      *
      * @return void
+     *
      * @test
      */
     public function testAdjustColumnPrivileges()
@@ -207,6 +210,7 @@ class StructureControllerTest extends PmaTestCase
      * Tests for getMultipleFieldCommandType()
      *
      * @return void
+     *
      * @test
      */
     public function testGetMultipleFieldCommandType()
@@ -272,6 +276,7 @@ class StructureControllerTest extends PmaTestCase
      * Test for getDataForSubmitMult()
      *
      * @return void
+     *
      * @test
      */
     public function testPMAGetDataForSubmitMult()

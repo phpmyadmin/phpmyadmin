@@ -12,8 +12,6 @@ use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
 /**
- * Class UrlExtension
- *
  * @package PhpMyAdmin\Twig
  */
 class UrlExtension extends AbstractExtension

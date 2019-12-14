@@ -28,8 +28,9 @@ class GisGeometryCollectionTest extends TestCase
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      *
-     * @access protected
      * @return void
+     *
+     * @access protected
      */
     protected function setUp(): void
     {
@@ -40,8 +41,9 @@ class GisGeometryCollectionTest extends TestCase
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
      *
-     * @access protected
      * @return void
+     *
+     * @access protected
      */
     protected function tearDown(): void
     {

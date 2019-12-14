@@ -13,7 +13,6 @@ use PhpMyAdmin\Utils\HttpRequest;
 use ReflectionClass;
 
 /**
- * Class HttpRequestTest
  * @package PhpMyAdmin\Tests\Utils
  */
 class HttpRequestTest extends PmaTestCase
@@ -86,12 +85,10 @@ class HttpRequestTest extends PmaTestCase
      * @param bool   $return_only_status return only status
      * @param bool   $expected           expected result
      *
-     * @group medium
-     *
      * @return void
      *
+     * @group medium
      * @dataProvider httpRequests
-     *
      * @group network
      */
     public function testCurl($url, $method, $return_only_status, $expected): void
@@ -109,12 +106,10 @@ class HttpRequestTest extends PmaTestCase
      * @param bool   $return_only_status return only status
      * @param bool   $expected           expected result
      *
-     * @group medium
-     *
      * @return void
      *
+     * @group medium
      * @dataProvider httpRequests
-     *
      * @group network
      */
     public function testCurlCAPath($url, $method, $return_only_status, $expected): void
@@ -139,12 +134,10 @@ class HttpRequestTest extends PmaTestCase
      * @param bool   $return_only_status return only status
      * @param bool   $expected           expected result
      *
-     * @group medium
-     *
      * @return void
      *
+     * @group medium
      * @dataProvider httpRequests
-     *
      * @group network
      */
     public function testCurlCAInfo($url, $method, $return_only_status, $expected): void
@@ -169,12 +162,10 @@ class HttpRequestTest extends PmaTestCase
      * @param bool   $return_only_status return only status
      * @param bool   $expected           expected result
      *
-     * @group medium
-     *
      * @return void
      *
+     * @group medium
      * @dataProvider httpRequests
-     *
      * @group network
      */
     public function testFopen($url, $method, $return_only_status, $expected): void
@@ -195,12 +186,10 @@ class HttpRequestTest extends PmaTestCase
      * @param bool   $return_only_status return only status
      * @param bool   $expected           expected result
      *
-     * @group medium
-     *
      * @return void
      *
+     * @group medium
      * @dataProvider httpRequests
-     *
      * @group network
      */
     public function testCreate($url, $method, $return_only_status, $expected): void

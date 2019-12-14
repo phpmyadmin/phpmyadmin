@@ -11,7 +11,6 @@ namespace PhpMyAdmin\Config\Forms\Page;
 use PhpMyAdmin\Config\Forms\BaseFormList;
 
 /**
- * Class PageFormList
  * @package PhpMyAdmin\Config\Forms\Page
  */
 class PageFormList extends BaseFormList

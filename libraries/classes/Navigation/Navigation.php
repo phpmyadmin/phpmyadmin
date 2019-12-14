@@ -47,7 +47,6 @@ class Navigation
     private $tree;
 
     /**
-     * Navigation constructor.
      * @param Template          $template Template instance
      * @param Relation          $relation Relation instance
      * @param DatabaseInterface $dbi      DatabaseInterface instance
@@ -234,6 +233,7 @@ class Navigation
     /**
      * @param string      $database Database name
      * @param string|null $table    Table name
+     *
      * @return array
      */
     private function getHiddenItems(string $database, ?string $table): array

@@ -51,6 +51,7 @@ class TableTest extends PmaTestCase
         {
             /**
              * @param mixed $name name
+             *
              * @return bool
              */
             public function exists($name)
@@ -1101,6 +1102,7 @@ class TableTest extends PmaTestCase
      * Tests for _getSQLToCreateForeignKey() method.
      *
      * @return void
+     *
      * @test
      */
     public function testGetSQLToCreateForeignKey()
@@ -1164,6 +1166,7 @@ class TableTest extends PmaTestCase
      * Tests for getSqlQueryForIndexCreateOrEdit() method.
      *
      * @return void
+     *
      * @test
      */
     public function testGetSqlQueryForIndexCreateOrEdit()

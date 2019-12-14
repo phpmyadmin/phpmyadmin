@@ -17,7 +17,6 @@ use PhpMyAdmin\Template;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class VariablesControllerTest
  * @package PhpMyAdmin\Tests\Controllers\Server\Status
  */
 class VariablesControllerTest extends TestCase

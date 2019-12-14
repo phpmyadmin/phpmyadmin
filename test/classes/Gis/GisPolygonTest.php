@@ -29,8 +29,9 @@ class GisPolygonTest extends GisGeomTestCase
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      *
-     * @access protected
      * @return void
+     *
+     * @access protected
      */
     protected function setUp(): void
     {
@@ -41,8 +42,9 @@ class GisPolygonTest extends GisGeomTestCase
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
      *
-     * @access protected
      * @return void
+     *
+     * @access protected
      */
     protected function tearDown(): void
     {
@@ -208,8 +210,9 @@ class GisPolygonTest extends GisGeomTestCase
      * @param array $ring array of points forming the ring
      * @param float $area area of the ring
      *
-     * @dataProvider providerForTestArea
      * @return void
+     *
+     * @dataProvider providerForTestArea
      */
     public function testArea($ring, $area): void
     {
@@ -291,8 +294,9 @@ class GisPolygonTest extends GisGeomTestCase
      * @param array $polygon  array of points forming the ring
      * @param bool  $isInside output
      *
-     * @dataProvider providerForTestIsPointInsidePolygon
      * @return void
+     *
+     * @dataProvider providerForTestIsPointInsidePolygon
      */
     public function testIsPointInsidePolygon($point, $polygon, $isInside): void
     {
@@ -373,8 +377,9 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @param array $ring array of points forming the ring
      *
-     * @dataProvider providerForTestGetPointOnSurface
      * @return void
+     *
+     * @dataProvider providerForTestGetPointOnSurface
      */
     public function testGetPointOnSurface($ring): void
     {
@@ -448,6 +453,7 @@ class GisPolygonTest extends GisGeomTestCase
      * @param resource $image      image object
      *
      * @return void
+     *
      * @dataProvider providerForPrepareRowAsPng
      */
     public function testPrepareRowAsPng(
@@ -503,6 +509,7 @@ class GisPolygonTest extends GisGeomTestCase
      * @param TCPDF  $pdf        TCPDF instance
      *
      * @return void
+     *
      * @dataProvider providerForPrepareRowAsPdf
      */
     public function testPrepareRowAsPdf(
@@ -555,6 +562,7 @@ class GisPolygonTest extends GisGeomTestCase
      * @param string $output     expected output
      *
      * @return void
+     *
      * @dataProvider providerForPrepareRowAsSvg
      */
     public function testPrepareRowAsSvg(
@@ -610,6 +618,7 @@ class GisPolygonTest extends GisGeomTestCase
      * @param string $output     expected output
      *
      * @return void
+     *
      * @dataProvider providerForPrepareRowAsOl
      */
     public function testPrepareRowAsOl(
@@ -678,6 +687,7 @@ class GisPolygonTest extends GisGeomTestCase
      * @param array $ring coordinates of the points in a ring
      *
      * @return void
+     *
      * @dataProvider providerForIsOuterRing
      */
     public function testIsOuterRing($ring): void

@@ -33,6 +33,7 @@ class GisMultiPolygon extends GisGeometry
      * Returns the singleton.
      *
      * @return GisMultiPolygon the singleton
+     *
      * @access public
      */
     public static function singleton()
@@ -50,6 +51,7 @@ class GisMultiPolygon extends GisGeometry
      * @param string $spatial spatial data of a row
      *
      * @return array an array containing the min, max values for x and y coordinates
+     *
      * @access public
      */
     public function scaleRow($spatial)
@@ -91,6 +93,7 @@ class GisMultiPolygon extends GisGeometry
      * @param resource    $image      Image object
      *
      * @return resource the modified image object
+     *
      * @access public
      */
     public function prepareRowAsPng(
@@ -174,6 +177,7 @@ class GisMultiPolygon extends GisGeometry
      * @param TCPDF       $pdf        TCPDF instance
      *
      * @return TCPDF the modified TCPDF instance
+     *
      * @access public
      */
     public function prepareRowAsPdf($spatial, ?string $label, $fill_color, array $scale_data, $pdf)
@@ -249,6 +253,7 @@ class GisMultiPolygon extends GisGeometry
      * @param array  $scale_data Array containing data related to scaling
      *
      * @return string the code related to a row in the GIS dataset
+     *
      * @access public
      */
     public function prepareRowAsSvg($spatial, $label, $fill_color, array $scale_data)
@@ -315,6 +320,7 @@ class GisMultiPolygon extends GisGeometry
      * @param array  $scale_data Array containing data related to scaling
      *
      * @return string JavaScript related to a row in the GIS dataset
+     *
      * @access public
      */
     public function prepareRowAsOl($spatial, $srid, $label, $fill_color, array $scale_data)
@@ -357,6 +363,7 @@ class GisMultiPolygon extends GisGeometry
      * @param array  $scale_data Array containing data related to scaling
      *
      * @return string the code to draw the ring
+     *
      * @access private
      */
     private function _drawPath($polygon, array $scale_data)
@@ -381,6 +388,7 @@ class GisMultiPolygon extends GisGeometry
      * @param string $empty    Value for empty points
      *
      * @return string WKT with the set of parameters passed by the GIS editor
+     *
      * @access public
      */
     public function generateWkt(array $gis_data, $index, $empty = '')
@@ -446,6 +454,7 @@ class GisMultiPolygon extends GisGeometry
      * @param array $row_data GIS data
      *
      * @return string the WKT for the data from ESRI shape files
+     *
      * @access public
      */
     public function getShape(array $row_data)
@@ -549,6 +558,7 @@ class GisMultiPolygon extends GisGeometry
      * @param int    $index Index of the geometry
      *
      * @return array params for the GIS data editor from the value of the GIS column
+     *
      * @access public
      */
     public function generateParams($value, $index = -1)

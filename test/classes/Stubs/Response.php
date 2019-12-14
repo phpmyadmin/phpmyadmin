@@ -17,8 +17,6 @@ use PhpMyAdmin\Header;
 use PhpMyAdmin\Message;
 
 /**
- * Class Response
- *
  * @package PhpMyAdmin\Tests\Stubs
  */
 class Response

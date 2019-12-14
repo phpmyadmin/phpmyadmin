@@ -14,8 +14,6 @@ use Twig\TokenParser\TokenParserInterface;
 use Twig\TwigFilter;
 
 /**
- * Class I18nExtension
- *
  * @package PhpMyAdmin\Twig
  */
 class I18nExtension extends TwigI18nExtension

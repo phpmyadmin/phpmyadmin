@@ -18,7 +18,6 @@ use PhpMyAdmin\ZipExtension;
  *
  * @todo when uploading a file into a blob field, should we also consider using
  *       chunks like in import? UPDATE `table` SET `field` = `field` + [chunk]
- *
  * @package PhpMyAdmin
  */
 class File
@@ -105,6 +104,7 @@ class File
      * destructor
      *
      * @see     File::cleanUp()
+     *
      * @access  public
      */
     public function __destruct()
@@ -115,8 +115,9 @@ class File
     /**
      * deletes file if it is temporary, usually from a moved upload file
      *
-     * @access  public
      * @return boolean success
+     *
+     * @access  public
      */
     public function cleanUp(): bool
     {
@@ -130,8 +131,9 @@ class File
     /**
      * deletes the file
      *
-     * @access  public
      * @return boolean success
+     *
+     * @access  public
      */
     public function delete(): bool
     {
@@ -145,6 +147,7 @@ class File
      * @param boolean $is_temp sets the temp flag
      *
      * @return boolean File::$_is_temp
+     *
      * @access  public
      */
     public function isTemp(?bool $is_temp = null): bool
@@ -162,6 +165,7 @@ class File
      * @param string|null $name file name
      *
      * @return void
+     *
      * @access  public
      */
     public function setName(?string $name): void
@@ -220,9 +224,9 @@ class File
     /**
      * Whether file is uploaded.
      *
-     * @access  public
-     *
      * @return bool
+     *
+     * @access  public
      */
     public function isUploaded(): bool
     {
@@ -236,8 +240,9 @@ class File
     /**
      * accessor
      *
-     * @access public
      * @return string|null File::$_name
+     *
+     * @access public
      */
     public function getName(): ?string
     {
@@ -250,6 +255,7 @@ class File
      * @param string $name name of file uploaded
      *
      * @return boolean success
+     *
      * @access  public
      */
     public function setUploadedFile(string $name): bool
@@ -272,6 +278,7 @@ class File
      * @param string $rownumber number of row to process
      *
      * @return boolean success
+     *
      * @access  public
      */
     public function setUploadedFromTblChangeRequest(
@@ -355,6 +362,7 @@ class File
      * @param string $key       key to process
      *
      * @return array
+     *
      * @access  public
      * @static
      */
@@ -381,6 +389,7 @@ class File
      * @param string $rownumber number of row to process
      *
      * @return boolean success
+     *
      * @access  public
      */
     public function setSelectedFromTblChangeRequest(
@@ -402,8 +411,9 @@ class File
     /**
      * Returns possible error message.
      *
-     * @access  public
      * @return Message|null error message
+     *
+     * @access  public
      */
     public function getError(): ?Message
     {
@@ -413,8 +423,9 @@ class File
     /**
      * Checks whether there was any error.
      *
-     * @access  public
      * @return boolean whether an error occurred or not
+     *
+     * @access  public
      */
     public function isError(): bool
     {
@@ -429,6 +440,7 @@ class File
      * @param string $rownumber number of row to process
      *
      * @return boolean success
+     *
      * @access  public
      */
     public function checkTblChangeForm(string $key, string $rownumber): bool
@@ -453,6 +465,7 @@ class File
      * @param string $name file name
      *
      * @return boolean success
+     *
      * @access  public
      */
     public function setLocalSelectedFile(string $name): bool
@@ -481,8 +494,9 @@ class File
     /**
      * Checks whether file can be read.
      *
-     * @access  public
      * @return boolean whether the file is readable or not
+     *
+     * @access  public
      */
     public function isReadable(): bool
     {
@@ -496,9 +510,10 @@ class File
      * before opening it. The FAQ 1.11 explains how to create the "./tmp"
      * directory - if needed
      *
+     * @return boolean whether uploaded file is fine or not
+     *
      * @todo move check of $cfg['TempDir'] into Config?
      * @access  public
-     * @return boolean whether uploaded file is fine or not
      */
     public function checkUploadedFile(): bool
     {
@@ -547,11 +562,12 @@ class File
     /**
      * Detects what compression the file uses
      *
+     * @return  string|false false on error, otherwise string MIME type of
+     *                       compression, none for none
+     *
      * @todo    move file read part into readChunk() or getChunk()
      * @todo    add support for compression plugins
      * @access  protected
-     * @return  string|false false on error, otherwise string MIME type of
-     *                       compression, none for none
      */
     protected function detectCompression()
     {
@@ -772,6 +788,7 @@ class File
      * Returns compression used by file.
      *
      * @return string MIME type of compression, none for none
+     *
      * @access  public
      */
     public function getCompression(): string

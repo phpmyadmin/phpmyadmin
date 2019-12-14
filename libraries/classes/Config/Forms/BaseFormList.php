@@ -11,7 +11,6 @@ namespace PhpMyAdmin\Config\Forms;
 use PhpMyAdmin\Config\ConfigFile;
 
 /**
- * Class BaseFormList
  * @package PhpMyAdmin\Config\Forms
  */
 class BaseFormList
@@ -41,6 +40,7 @@ class BaseFormList
 
     /**
      * @param string $name Name
+     *
      * @return bool
      */
     public static function isValid($name)
@@ -50,6 +50,7 @@ class BaseFormList
 
     /**
      * @param string $name Name
+     *
      * @return null|string
      */
     public static function get($name)

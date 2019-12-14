@@ -108,6 +108,7 @@ class Table
      * returns table name
      *
      * @see Table::getName()
+     *
      * @return string  table name
      */
     public function __toString()
@@ -296,10 +297,10 @@ class Table
      * @param boolean $force_read    read new rather than serving from cache
      * @param boolean $disable_error if true, disables error message
      *
+     * @return mixed
+     *
      * @todo DatabaseInterface::getTablesFull needs to be merged
      * somehow into this class or at least better documented
-     *
-     * @return mixed
      */
     public function getStatusInfo(
         $info = null,
@@ -436,6 +437,7 @@ class Table
 
     /**
      * Returns the array for CREATE statement for current table.
+     *
      * @return array Return options array info if it is set for the selected table or return blank.
      */
     public function getCreateOptions()
@@ -480,11 +482,11 @@ class Table
      * @param string      $move_to            new position for column
      * @param array       $columns_with_index Fields having PRIMARY or UNIQUE KEY indexes
      *
+     * @return string  field specification
+     *
      * @todo    move into class PMA_Column
      * @todo on the interface, some js to clear the default value when the
      * default current_timestamp is checked
-     *
-     * @return string  field specification
      */
     public static function generateFieldSpec(
         $name,
@@ -791,6 +793,8 @@ class Table
     /**
      * Generates column specification for ALTER syntax
      *
+     * @see Table::generateFieldSpec()
+     *
      * @param string      $oldcol             old column name
      * @param string      $newcol             new column name
      * @param string      $type               type ('INT', 'VARCHAR', 'BIT', ...)
@@ -808,8 +812,6 @@ class Table
      * @param string      $expression         expression for the virtual column
      * @param string      $move_to            new position for column
      * @param array       $columns_with_index Fields having PRIMARY or UNIQUE KEY indexes
-     *
-     * @see Table::generateFieldSpec()
      *
      * @return string  field specification
      */
@@ -1006,6 +1008,7 @@ class Table
 
         /**
          * The full name of source table, quoted.
+         *
          * @var string $source
          */
         $source = Util::backquote($source_db)
@@ -1023,6 +1026,7 @@ class Table
 
         /**
          * The full name of target table, quoted.
+         *
          * @var string $target
          */
         $target = Util::backquote($target_db)
@@ -1054,6 +1058,7 @@ class Table
 
             /**
              * The old structure of the table..
+             *
              * @var string $sql_structure
              */
             $sql_structure = $export_sql_plugin->getTableDef(
@@ -1072,6 +1077,7 @@ class Table
 
             /**
              * The destination where the table is moved or copied to.
+             *
              * @var Expression
              */
             $destination = new Expression(
@@ -1097,6 +1103,7 @@ class Table
 
                 /**
                  * Drop statement used for building the query.
+                 *
                  * @var DropStatement $statement
                  */
                 $statement = new DropStatement();
@@ -1129,6 +1136,7 @@ class Table
 
             /**
              * The parser responsible for parsing the old queries.
+             *
              * @var Parser $parser
              */
             $parser = new Parser($sql_structure);
@@ -1137,6 +1145,7 @@ class Table
 
                 /**
                  * The CREATE statement of this structure.
+                 *
                  * @var CreateStatement $statement
                  */
                 $statement = $parser->statements[0];
@@ -1163,6 +1172,7 @@ class Table
 
                 /**
                  * The ALTER statement that generates the constraints.
+                 *
                  * @var AlterStatement $statement
                  */
                 $statement = $parser->statements[0];
@@ -1201,6 +1211,7 @@ class Table
                 $GLOBALS['sql_indexes'] = '';
                 /**
                  * The ALTER statement that generates the indexes.
+                 *
                  * @var AlterStatement $statement
                  */
                 foreach ($parser->statements as $statement) {
@@ -1241,6 +1252,7 @@ class Table
 
                     /**
                      * The ALTER statement that alters the AUTO_INCREMENT value.
+                     *
                      * @var AlterStatement $statement
                      */
                     $statement = $parser->statements[0];
@@ -1488,13 +1500,14 @@ class Table
      * checks if given name is a valid table name,
      * currently if not empty, trailing spaces, '.', '/' and '\'
      *
+     * @see  https://dev.mysql.com/doc/refman/5.0/en/legal-names.html
+     *
      * @param string  $table_name    name to check
      * @param boolean $is_backquoted whether this name is used inside backquotes or not
      *
-     * @todo add check for valid chars in filename on current system/os
-     * @see  https://dev.mysql.com/doc/refman/5.0/en/legal-names.html
-     *
      * @return boolean whether the string is valid or not
+     *
+     * @todo add check for valid chars in filename on current system/os
      */
     public static function isValidName($table_name, $is_backquoted = false)
     {
@@ -2085,6 +2098,7 @@ class Table
      * Get all column names which are MySQL reserved words
      *
      * @return array
+     *
      * @access public
      */
     public function getReservedColumnNames()

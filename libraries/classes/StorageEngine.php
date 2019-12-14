@@ -96,10 +96,11 @@ class StorageEngine
     /**
      * Returns array of storage engines
      *
+     * @return array[] array of storage engines
+     *
      * @static
      * @staticvar array $storage_engines storage engines
      * @access public
-     * @return array[] array of storage engines
      */
     public static function getStorageEngines()
     {
@@ -138,8 +139,9 @@ class StorageEngine
      *                                         engines be offered?
      * @param boolean $addEmpty                Whether to provide empty option
      *
-     * @static
      * @return string html selectbox
+     *
+     * @static
      */
     public static function getHtmlSelect(
         $name = 'engine',
@@ -186,6 +188,7 @@ class StorageEngine
      * @param string $engine The engine ID
      *
      * @return StorageEngine The engine plugin
+     *
      * @static
      */
     public static function getEngine($engine)
@@ -225,8 +228,9 @@ class StorageEngine
      *
      * @param string $engine name of engine
      *
-     * @static
      * @return boolean whether $engine is valid or not
+     *
+     * @static
      */
     public static function isValid($engine)
     {

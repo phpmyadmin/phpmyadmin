@@ -63,6 +63,7 @@ class Application extends TwoFactorPlugin
      * Checks authentication, returns true on success
      *
      * @return boolean
+     *
      * @throws IncompatibleWithGoogleAuthenticatorException
      * @throws InvalidCharactersException
      * @throws SecretKeyTooShortException
@@ -114,6 +115,7 @@ class Application extends TwoFactorPlugin
      * Performs backend configuration
      *
      * @return boolean
+     *
      * @throws IncompatibleWithGoogleAuthenticatorException
      * @throws InvalidCharactersException
      * @throws SecretKeyTooShortException

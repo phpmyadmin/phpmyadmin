@@ -32,8 +32,6 @@ class ServerConfigChecks
     protected $cfg;
 
     /**
-     * Constructor.
-     *
      * @param ConfigFile $cfg Configuration
      */
     public function __construct(ConfigFile $cfg)

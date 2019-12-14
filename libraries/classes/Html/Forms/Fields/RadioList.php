@@ -35,6 +35,7 @@ class RadioList implements FieldGenerator
      *                                 used if this is not supplied
      *
      * @return string                  set of html radio fields
+     *
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime

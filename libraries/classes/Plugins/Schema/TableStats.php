@@ -135,6 +135,7 @@ abstract class TableStats
      * Displays an error when the table cannot be found.
      *
      * @return void
+     *
      * @abstract
      */
     abstract protected function showMissingTableError();

@@ -16,7 +16,6 @@ use PhpMyAdmin\SysInfo;
 use PhpMyAdmin\Template;
 
 /**
- * Class MonitorController
  * @package PhpMyAdmin\Controllers\Server\Status
  */
 class MonitorController extends AbstractController
@@ -27,8 +26,6 @@ class MonitorController extends AbstractController
     private $monitor;
 
     /**
-     * MonitorController constructor.
-     *
      * @param Response          $response Response object
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param Template          $template Template object
@@ -87,6 +84,7 @@ class MonitorController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return array JSON
      */
     public function chartingData(array $params): array
@@ -107,6 +105,7 @@ class MonitorController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return array JSON
      */
     public function logDataTypeSlow(array $params): array
@@ -128,6 +127,7 @@ class MonitorController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return array JSON
      */
     public function logDataTypeGeneral(array $params): array
@@ -151,6 +151,7 @@ class MonitorController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return array JSON
      */
     public function loggingVars(array $params): array
@@ -172,6 +173,7 @@ class MonitorController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return array JSON
      */
     public function queryAnalyzer(array $params): array

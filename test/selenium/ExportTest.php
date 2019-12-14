@@ -47,8 +47,8 @@ class ExportTest extends TestBase
      * @param array  $expected Array of expected strings
      *
      * @return void
-     * @dataProvider exportDataProvider
      *
+     * @dataProvider exportDataProvider
      * @group large
      */
     public function testServerExport($plugin, $expected): void
@@ -67,8 +67,8 @@ class ExportTest extends TestBase
      * @param array  $expected Array of expected strings
      *
      * @return void
-     * @dataProvider exportDataProvider
      *
+     * @dataProvider exportDataProvider
      * @group large
      */
     public function testDbExport($plugin, $expected): void
@@ -89,8 +89,8 @@ class ExportTest extends TestBase
      * @param array  $expected Array of expected strings
      *
      * @return void
-     * @dataProvider exportDataProvider
      *
+     * @dataProvider exportDataProvider
      * @group large
      */
     public function testTableExport($plugin, $expected): void

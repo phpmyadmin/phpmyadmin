@@ -11,6 +11,7 @@ use PhpMyAdmin\DatabaseInterface;
 
 /**
  * Do not include full common.
+ *
  * @ignore
  */
 define('PMA_MINIMUM_COMMON', true);

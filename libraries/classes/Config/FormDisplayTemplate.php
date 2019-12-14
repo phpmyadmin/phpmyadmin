@@ -36,8 +36,6 @@ class FormDisplayTemplate
     public $template;
 
     /**
-     * FormDisplayTemplate constructor.
-     *
      * @param Config $config Config instance
      */
     public function __construct(Config $config)

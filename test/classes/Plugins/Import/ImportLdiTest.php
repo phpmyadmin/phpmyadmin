@@ -36,8 +36,9 @@ class ImportLdiTest extends PmaTestCase
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      *
-     * @access protected
      * @return void
+     *
+     * @access protected
      */
     protected function setUp(): void
     {
@@ -80,8 +81,9 @@ class ImportLdiTest extends PmaTestCase
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
      *
-     * @access protected
      * @return void
+     *
+     * @access protected
      */
     protected function tearDown(): void
     {
@@ -119,6 +121,7 @@ class ImportLdiTest extends PmaTestCase
     {
         /**
          * The \PhpMyAdmin\DatabaseInterface mocked object
+         *
          * @var MockObject $dbi
          */
         $dbi = $this->dbi;
@@ -164,6 +167,7 @@ class ImportLdiTest extends PmaTestCase
         $sql_query_disabled = false;
         /**
          * The \PhpMyAdmin\DatabaseInterface mocked object
+         *
          * @var MockObject $dbi
          */
         $dbi = $this->dbi;
@@ -231,6 +235,7 @@ class ImportLdiTest extends PmaTestCase
         $sql_query_disabled = false;
         /**
          * The \PhpMyAdmin\DatabaseInterface mocked object
+         *
          * @var MockObject $dbi
          */
         $dbi = $this->dbi;

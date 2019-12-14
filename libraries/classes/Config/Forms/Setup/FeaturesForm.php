@@ -9,7 +9,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Config\Forms\Setup;
 
 /**
- * Class FeaturesForm
  * @package PhpMyAdmin\Config\Forms\Setup
  */
 class FeaturesForm extends \PhpMyAdmin\Config\Forms\User\FeaturesForm

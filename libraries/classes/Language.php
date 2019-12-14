@@ -31,7 +31,6 @@ class Language
      * @param string $native Native name
      * @param string $regex  Match regullar expression
      * @param string $mysql  MySQL locale code
-     *
      */
     public function __construct($code, $name, $native, $regex, $mysql)
     {

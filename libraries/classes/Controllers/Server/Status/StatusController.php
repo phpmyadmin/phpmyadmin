@@ -17,6 +17,7 @@ use PhpMyAdmin\Util;
 
 /**
  * Object the server status page: processes, connections and traffic.
+ *
  * @package PhpMyAdmin\Controllers\Server\Status
  */
 class StatusController extends AbstractController

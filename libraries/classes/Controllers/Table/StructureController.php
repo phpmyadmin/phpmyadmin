@@ -892,7 +892,6 @@ class StructureController extends AbstractController
      * Update the table's structure based on $_REQUEST
      *
      * @return boolean              true if error occurred
-     *
      */
     protected function updateColumns()
     {
@@ -963,7 +962,6 @@ class StructureController extends AbstractController
              * @todo if someone selects A_I when altering a column we need to check:
              *  - no other column with A_I
              *  - the column has an index, if not create one
-             *
              */
 
             // To allow replication, we first select the db to use
@@ -1190,7 +1188,6 @@ class StructureController extends AbstractController
      * @param integer $i column index in the request
      *
      * @return boolean true if we need to generate ALTER TABLE
-     *
      */
     protected function columnNeedsAlterTable($i)
     {

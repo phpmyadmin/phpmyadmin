@@ -39,8 +39,9 @@ class ZipExtensionTest extends PmaTestCase
      * @param string $specific_entry regular expression to match a file
      * @param mixed  $output         expected output
      *
-     * @dataProvider provideTestGetContents
      * @return void
+     *
+     * @dataProvider provideTestGetContents
      */
     public function testGetContents($file, $specific_entry, $output): void
     {
@@ -84,8 +85,9 @@ class ZipExtensionTest extends PmaTestCase
      * @param string $file_regexp regular expression for the file name to match
      * @param mixed  $output      expected output
      *
-     * @dataProvider provideTestFindFile
      * @return void
+     *
+     * @dataProvider provideTestFindFile
      */
     public function testFindFile($file, $file_regexp, $output): void
     {

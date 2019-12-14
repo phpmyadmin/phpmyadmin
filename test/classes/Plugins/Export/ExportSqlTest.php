@@ -61,6 +61,7 @@ class ExportSqlTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::setProperties
      *
      * @return void
+     *
      * @group medium
      */
     public function testSetProperties()
@@ -945,6 +946,7 @@ class ExportSqlTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::getTableDef
      *
      * @return void
+     *
      * @group medium
      */
     public function testGetTableDef()
@@ -1301,6 +1303,7 @@ class ExportSqlTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportStructure
      *
      * @return void
+     *
      * @group medium
      */
     public function testExportStructure()
@@ -1506,6 +1509,7 @@ class ExportSqlTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportData
      *
      * @return void
+     *
      * @group medium
      */
     public function testExportData()
@@ -1662,6 +1666,7 @@ class ExportSqlTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportData
      *
      * @return void
+     *
      * @group medium
      */
     public function testExportDataWithUpdate()

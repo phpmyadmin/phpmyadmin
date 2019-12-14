@@ -20,30 +20,35 @@ class ConfigFile
 {
     /**
      * Stores default PMA config from config.default.php
+     *
      * @var array
      */
     private $_defaultCfg;
 
     /**
      * Stores allowed values for non-standard fields
+     *
      * @var array
      */
     private $_cfgDb;
 
     /**
      * Stores original PMA config, not modified by user preferences
+     *
      * @var array|null
      */
     private $_baseCfg;
 
     /**
      * Whether we are currently working in PMA Setup context
+     *
      * @var bool
      */
     private $_isInSetup;
 
     /**
      * Keys which will be always written to config file
+     *
      * @var array
      */
     private $_persistKeys = [];
@@ -51,12 +56,14 @@ class ConfigFile
     /**
      * Changes keys while updating config in {@link updateWithGlobalConfig()}
      * or reading by {@link getConfig()} or {@link getConfigArray()}
+     *
      * @var array
      */
     private $_cfgUpdateReadMapping = [];
 
     /**
      * Key filter for {@link set()}
+     *
      * @var array|null
      */
     private $_setFilter;
@@ -64,12 +71,14 @@ class ConfigFile
     /**
      * Instance id (key in $_SESSION array, separate for each server -
      * ConfigFile{server id})
+     *
      * @var string
      */
     private $_id;
 
     /**
      * Result for {@link _flattenArray()}
+     *
      * @var array|null
      */
     private $_flattenArrayResult;

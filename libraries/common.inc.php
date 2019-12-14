@@ -130,6 +130,7 @@ Core::cleanupPathInfo();
 /**
  * Force reading of config file, because we removed sensitive values
  * in the previous iteration.
+ *
  * @var Config $PMA_Config
  */
 $PMA_Config = $containerBuilder->get('config');
@@ -147,12 +148,14 @@ if (! defined('PMA_NO_SESSION')) {
 
 /**
  * holds parameters to be passed to next page
+ *
  * @global array $url_params
  */
 $diMigration->setGlobal('url_params', []);
 
 /**
  * holds page that should be displayed
+ *
  * @global string $goto
  */
 $diMigration->setGlobal('goto', '');
@@ -167,6 +170,7 @@ if (isset($_REQUEST['goto']) && Core::checkPageValidity($_REQUEST['goto'])) {
 
 /**
  * returning page
+ *
  * @global string $back
  */
 if (isset($_REQUEST['back']) && Core::checkPageValidity($_REQUEST['back'])) {
@@ -224,12 +228,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 /**
  * current selected database
+ *
  * @global string $db
  */
 Core::setGlobalDbOrTable('db');
 
 /**
  * current selected table
+ *
  * @global string $table
  */
 Core::setGlobalDbOrTable('table');
@@ -262,6 +268,7 @@ if (isset($_REQUEST['selected_recent_table']) && Core::isValid($_REQUEST['select
 
 /**
  * SQL query to be executed
+ *
  * @global string $sql_query
  */
 $diMigration->setGlobal('sql_query', '');
@@ -302,6 +309,7 @@ $PMA_Config->checkServers();
 
 /**
  * current server
+ *
  * @global integer $server
  */
 $diMigration->setGlobal('server', $PMA_Config->selectServer());
@@ -324,6 +332,7 @@ $dbi = null;
 if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * save some settings in cookies
+     *
      * @todo should be done in PhpMyAdmin\Config
      */
     $PMA_Config->setCookie('pma_lang', $lang);

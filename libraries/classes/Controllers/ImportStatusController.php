@@ -13,6 +13,7 @@ use PhpMyAdmin\Template;
 
 /**
  * Import progress bar backend
+ *
  * @package PhpMyAdmin\Controllers
  */
 class ImportStatusController

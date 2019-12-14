@@ -29,8 +29,9 @@ class GisLineStringTest extends GisGeomTestCase
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      *
-     * @access protected
      * @return void
+     *
+     * @access protected
      */
     protected function setUp(): void
     {
@@ -41,8 +42,9 @@ class GisLineStringTest extends GisGeomTestCase
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
      *
-     * @access protected
      * @return void
+     *
+     * @access protected
      */
     protected function tearDown(): void
     {
@@ -185,8 +187,9 @@ class GisLineStringTest extends GisGeomTestCase
      * @param array    $scale_data array containing data related to scaling
      * @param resource $image      image object
      *
-     * @dataProvider providerForPrepareRowAsPng
      * @return void
+     *
+     * @dataProvider providerForPrepareRowAsPng
      */
     public function testPrepareRowAsPng(
         $spatial,
@@ -241,8 +244,9 @@ class GisLineStringTest extends GisGeomTestCase
      * @param array  $scale_data array containing data related to scaling
      * @param TCPDF  $pdf        TCPDF instance
      *
-     * @dataProvider providerForPrepareRowAsPdf
      * @return void
+     *
+     * @dataProvider providerForPrepareRowAsPdf
      */
     public function testPrepareRowAsPdf(
         $spatial,
@@ -293,8 +297,9 @@ class GisLineStringTest extends GisGeomTestCase
      * @param array  $scale_data array containing data related to scaling
      * @param string $output     expected output
      *
-     * @dataProvider providerForPrepareRowAsSvg
      * @return void
+     *
+     * @dataProvider providerForPrepareRowAsSvg
      */
     public function testPrepareRowAsSvg(
         $spatial,
@@ -347,8 +352,9 @@ class GisLineStringTest extends GisGeomTestCase
      * @param array  $scale_data array containing data related to scaling
      * @param string $output     expected output
      *
-     * @dataProvider providerForPrepareRowAsOl
      * @return void
+     *
+     * @dataProvider providerForPrepareRowAsOl
      */
     public function testPrepareRowAsOl(
         $spatial,

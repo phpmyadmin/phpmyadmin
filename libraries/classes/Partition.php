@@ -148,8 +148,9 @@ class Partition extends SubPartition
      * @param string $db    database name
      * @param string $table table name
      *
-     * @access  public
      * @return Partition[]
+     *
+     * @access  public
      */
     public static function getPartitions($db, $table)
     {
@@ -189,8 +190,9 @@ class Partition extends SubPartition
      * @param string $db    database name
      * @param string $table table name
      *
-     * @access  public
      * @return array   of partition names
+     *
+     * @access  public
      */
     public static function getPartitionNames($db, $table)
     {
@@ -232,11 +234,12 @@ class Partition extends SubPartition
     /**
      * checks if MySQL server supports partitioning
      *
+     * @return boolean
+     *
      * @static
      * @staticvar boolean $have_partitioning
      * @staticvar boolean $already_checked
      * @access  public
-     * @return boolean
      */
     public static function havePartitioning()
     {

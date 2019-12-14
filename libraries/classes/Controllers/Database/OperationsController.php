@@ -23,6 +23,7 @@ use PhpMyAdmin\Util;
 
 /**
  * Handles miscellaneous database operations.
+ *
  * @package PhpMyAdmin\Controllers\Database
  */
 class OperationsController extends AbstractController

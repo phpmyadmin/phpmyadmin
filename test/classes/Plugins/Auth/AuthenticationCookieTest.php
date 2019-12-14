@@ -65,6 +65,7 @@ class AuthenticationCookieTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::showLoginForm
      *
      * @return void
+     *
      * @group medium
      */
     public function testAuthErrorAJAX()
@@ -182,6 +183,7 @@ class AuthenticationCookieTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::showLoginForm
      *
      * @return void
+     *
      * @group medium
      */
     public function testAuthError()
@@ -264,6 +266,7 @@ class AuthenticationCookieTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::showLoginForm
      *
      * @return void
+     *
      * @group medium
      */
     public function testAuthCaptcha()
@@ -1090,9 +1093,9 @@ class AuthenticationCookieTest extends PmaTestCase
     }
 
     /**
-     * @throws ReflectionException
-     *
      * @return void
+     *
+     * @throws ReflectionException
      */
     public function testPasswordChange()
     {

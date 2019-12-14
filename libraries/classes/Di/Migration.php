@@ -45,8 +45,6 @@ class Migration
     }
 
     /**
-     * Migration constructor.
-     *
      * @param ContainerBuilder $containerBuilder ContainerBuilder object that should be used to store the data
      */
     protected function __construct(ContainerBuilder $containerBuilder)

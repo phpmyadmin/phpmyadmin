@@ -27,6 +27,7 @@ class RadioListTest extends PmaTestCase
      * Test for getRadioFields
      *
      * @return void
+     *
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
@@ -47,6 +48,7 @@ class RadioListTest extends PmaTestCase
      * Test for getRadioFields
      *
      * @return void
+     *
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
@@ -83,6 +85,7 @@ class RadioListTest extends PmaTestCase
      * Test for getRadioFields
      *
      * @return void
+     *
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
@@ -127,6 +130,7 @@ class RadioListTest extends PmaTestCase
      * Test for getRadioFields
      *
      * @return void
+     *
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
@@ -179,6 +183,7 @@ class RadioListTest extends PmaTestCase
      * Test for getRadioFields
      *
      * @return void
+     *
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
@@ -222,6 +227,7 @@ class RadioListTest extends PmaTestCase
      * Test for getRadioFields
      *
      * @return void
+     *
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
@@ -268,6 +274,7 @@ class RadioListTest extends PmaTestCase
      * Test for getRadioFields
      *
      * @return void
+     *
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
@@ -314,6 +321,7 @@ class RadioListTest extends PmaTestCase
      * Test for getRadioFields
      *
      * @return void
+     *
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime

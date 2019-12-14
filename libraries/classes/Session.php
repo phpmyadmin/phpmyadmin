@@ -110,6 +110,7 @@ class Session
      *
      * @param Config       $config       Configuration handler
      * @param ErrorHandler $errorHandler Error handler
+     *
      * @return void
      */
     public static function setUp(Config $config, ErrorHandler $errorHandler)

@@ -40,8 +40,6 @@ class ExportRelationSchema
     protected $relation;
 
     /**
-     * Constructor.
-     *
      * @param string                                       $db      database name
      * @param Pdf\Pdf|Svg\Svg|Eps\Eps|Dia\Dia|Pdf\Pdf|null $diagram schema diagram
      */
@@ -287,9 +285,9 @@ class ExportRelationSchema
      * @param string  $type          Schema Type
      * @param string  $error_message The error message
      *
-     * @access public
-     *
      * @return void
+     *
+     * @access public
      */
     public static function dieSchema($pageNumber, $type = '', $error_message = '')
     {

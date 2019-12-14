@@ -81,8 +81,9 @@ class Console
     /**
      * Renders the bookmark content
      *
-     * @access public
      * @return string
+     *
+     * @access public
      */
     public static function getBookmarkContent(): string
     {
@@ -127,8 +128,9 @@ class Console
     /**
      * Renders the console
      *
-     * @access public
      * @return string
+     *
+     * @access public
      */
     public function getDisplay(): string
     {

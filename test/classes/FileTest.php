@@ -35,6 +35,7 @@ class FileTest extends PmaTestCase
      * @param string $mime expected mime
      *
      * @return void
+     *
      * @dataProvider compressedFiles
      */
     public function testMIME($file, $mime): void
@@ -49,6 +50,7 @@ class FileTest extends PmaTestCase
      * @param string $file file string
      *
      * @return void
+     *
      * @dataProvider compressedFiles
      */
     public function testBinaryContent($file): void
@@ -64,6 +66,7 @@ class FileTest extends PmaTestCase
      * @param string $file file string
      *
      * @return void
+     *
      * @dataProvider compressedFiles
      * @requires extension bz2 1
      * @requires extension zip 1

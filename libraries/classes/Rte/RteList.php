@@ -42,8 +42,6 @@ class RteList
     private $dbi;
 
     /**
-     * RteList constructor.
-     *
      * @param DatabaseInterface $dbi DatabaseInterface object
      */
     public function __construct(DatabaseInterface $dbi)

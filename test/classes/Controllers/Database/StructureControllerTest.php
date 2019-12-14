@@ -96,6 +96,7 @@ class StructureControllerTest extends PmaTestCase
      * Tests for getValuesForInnodbTable()
      *
      * @return void
+     *
      * @test
      */
     public function testGetValuesForInnodbTable()
@@ -202,6 +203,7 @@ class StructureControllerTest extends PmaTestCase
      * Tests for the getValuesForAriaTable()
      *
      * @return void
+     *
      * @test
      */
     public function testGetValuesForAriaTable()
@@ -321,6 +323,7 @@ class StructureControllerTest extends PmaTestCase
      * Tests for hasTable()
      *
      * @return void
+     *
      * @test
      */
     public function testHasTable()
@@ -367,6 +370,7 @@ class StructureControllerTest extends PmaTestCase
      * Tests for checkFavoriteTable()
      *
      * @return void
+     *
      * @test
      */
     public function testCheckFavoriteTable()
@@ -406,6 +410,7 @@ class StructureControllerTest extends PmaTestCase
      * Tests for synchronizeFavoriteTables()
      *
      * @return void
+     *
      * @test
      */
     public function testSynchronizeFavoriteTables()
@@ -468,6 +473,7 @@ class StructureControllerTest extends PmaTestCase
      * Tests for handleRealRowCountRequestAction()
      *
      * @return void
+     *
      * @test
      */
     public function testHandleRealRowCountRequestAction()
@@ -517,8 +523,9 @@ class StructureControllerTest extends PmaTestCase
     }
 
     /**
-     * @throws \ReflectionException
      * @return void
+     *
+     * @throws \ReflectionException
      */
     public function testDisplayTableList()
     {

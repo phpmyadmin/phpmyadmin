@@ -46,6 +46,7 @@ class DatabaseInterfaceTest extends PmaTestCase
      * @param array  $expected expected result
      *
      * @return void
+     *
      * @test
      * @dataProvider currentUserData
      */
@@ -108,6 +109,7 @@ class DatabaseInterfaceTest extends PmaTestCase
      * Tests for DBI::getColumnMapFromSql() method.
      *
      * @return void
+     *
      * @test
      */
     public function testPMAGetColumnMap()
@@ -174,6 +176,7 @@ class DatabaseInterfaceTest extends PmaTestCase
      * Tests for DBI::getSystemDatabase() method.
      *
      * @return void
+     *
      * @test
      */
     public function testGetSystemDatabase()
@@ -186,6 +189,7 @@ class DatabaseInterfaceTest extends PmaTestCase
      * Tests for DBI::postConnectControl() method.
      *
      * @return void
+     *
      * @test
      */
     public function testPostConnectControl()
@@ -200,6 +204,7 @@ class DatabaseInterfaceTest extends PmaTestCase
      * Test for getDbCollation
      *
      * @return void
+     *
      * @test
      */
     public function testGetDbCollation()
@@ -224,6 +229,7 @@ class DatabaseInterfaceTest extends PmaTestCase
      * Test for getServerCollation
      *
      * @return void
+     *
      * @test
      */
     public function testGetServerCollation()
@@ -460,6 +466,7 @@ class DatabaseInterfaceTest extends PmaTestCase
      * @param mixed $expected expected result
      *
      * @return void
+     *
      * @test
      * @dataProvider isAmazonRdsData
      */
@@ -562,6 +569,7 @@ class DatabaseInterfaceTest extends PmaTestCase
      * Tests for DBI::setCollationl() method.
      *
      * @return void
+     *
      * @test
      */
     public function testSetCollation()
@@ -601,6 +609,7 @@ class DatabaseInterfaceTest extends PmaTestCase
      * Tests for DBI::getForeignKeyConstrains() method.
      *
      * @return void
+     *
      * @test
      */
     public function testGetForeignKeyConstrains()

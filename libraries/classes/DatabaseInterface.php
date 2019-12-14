@@ -547,9 +547,9 @@ class DatabaseInterface implements DbalInterface
      * @param string          $table_type   whether table or view
      * @param mixed           $link         link type
      *
-     * @todo    move into Table
-     *
      * @return array           list of tables in given db(s)
+     *
+     * @todo    move into Table
      */
     public function getTablesFull(
         string $database,
@@ -867,9 +867,9 @@ class DatabaseInterface implements DbalInterface
      * @param bool|int $limit_count  row count for LIMIT or true
      *                               for $GLOBALS['cfg']['MaxDbList']
      *
-     * @todo    move into ListDatabase?
-     *
      * @return array
+     *
+     * @todo    move into ListDatabase?
      */
     public function getDatabasesFull(
         ?string $database = null,
@@ -1280,12 +1280,12 @@ class DatabaseInterface implements DbalInterface
      * The 'Key' column is not calculated properly, use $dbi->getColumns()
      * to get correct values.
      *
+     * @see getColumns()
+     *
      * @param string  $database name of database
      * @param string  $table    name of table to retrieve columns from
      * @param string  $column   name of column, null to show all columns
      * @param boolean $full     whether to return full info or only column names
-     *
-     * @see getColumns()
      *
      * @return string
      */

@@ -16,6 +16,7 @@ use PhpMyAdmin\Template;
 
 /**
  * Generic AJAX endpoint for getting information about database
+ *
  * @package PhpMyAdmin\Controllers
  */
 class AjaxController extends AbstractController
@@ -26,8 +27,6 @@ class AjaxController extends AbstractController
     private $config;
 
     /**
-     * AjaxController constructor.
-     *
      * @param Response          $response Response instance
      * @param DatabaseInterface $dbi      DatabaseInterface instance
      * @param Template          $template Template object
@@ -51,6 +50,7 @@ class AjaxController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return array JSON
      */
     public function tables(array $params): array
@@ -60,6 +60,7 @@ class AjaxController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return array JSON
      */
     public function columns(array $params): array
@@ -74,6 +75,7 @@ class AjaxController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return array JSON
      */
     public function getConfig(array $params): array
@@ -88,6 +90,7 @@ class AjaxController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return array
      */
     public function setConfig(array $params): array

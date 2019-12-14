@@ -786,6 +786,7 @@ class PrivilegesTest extends TestCase
      * Test for getHtmlToDisplayPrivilegesTable
      *
      * @return void
+     *
      * @group medium
      */
     public function testGetHtmlToDisplayPrivilegesTable()
@@ -1230,6 +1231,7 @@ class PrivilegesTest extends TestCase
      * Test for getHtmlForAddUser
      *
      * @return void
+     *
      * @group medium
      */
     public function testGetHtmlForAddUser()

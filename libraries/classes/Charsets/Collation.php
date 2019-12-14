@@ -1,6 +1,7 @@
 <?php
 /**
  * Value object class for a collation
+ *
  * @package PhpMyAdmin\Charsets
  */
 declare(strict_types=1);
@@ -9,54 +10,63 @@ namespace PhpMyAdmin\Charsets;
 
 /**
  * Value object class for a collation
+ *
  * @package PhpMyAdmin\Charsets
  */
 final class Collation
 {
     /**
      * The collation name
+     *
      * @var string
      */
     private $name;
 
     /**
      * A description of the collation
+     *
      * @var string
      */
     private $description;
 
     /**
      * The name of the character set with which the collation is associated
+     *
      * @var string
      */
     private $charset;
 
     /**
      * The collation ID
+     *
      * @var int
      */
     private $id;
 
     /**
      * Whether the collation is the default for its character set
+     *
      * @var bool
      */
     private $isDefault;
 
     /**
      * Whether the character set is compiled into the server
+     *
      * @var bool
      */
     private $isCompiled;
 
     /**
      * Used for determining the memory used to sort strings in this collation
+     *
      * @var int
      */
     private $sortLength;
 
     /**
      * The collation pad attribute
+     *
      * @var string
      */
     private $padAttribute;
@@ -91,6 +101,7 @@ final class Collation
 
     /**
      * @param array $state State obtained from the database server
+     *
      * @return self
      */
     public static function fromServer(array $state): self

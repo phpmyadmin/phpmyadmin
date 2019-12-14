@@ -90,9 +90,10 @@ class Transformations
     /**
      * Gets all available MIME-types
      *
+     * @return array    array[mimetype], array[transformation]
+     *
      * @access  public
      * @staticvar   array   mimetypes
-     * @return array    array[mimetype], array[transformation]
      */
     public function getAvailableMimeTypes()
     {
@@ -256,9 +257,9 @@ class Transformations
      * @param boolean $strict   whether to include only results having a mimetype set
      * @param boolean $fullName whether to use full column names as the key
      *
-     * @access public
-     *
      * @return array|bool [field_name][field_key] = field_value
+     *
+     * @access public
      */
     public function getMime($db, $table, $strict = false, $fullName = false)
     {
@@ -334,9 +335,9 @@ class Transformations
      * @param boolean $forcedelete        force delete, will erase any existing
      *                                    comments for this column
      *
-     * @access  public
-     *
      * @return boolean  true, if comment-query was made.
+     *
+     * @access  public
      */
     public function setMime(
         $db,

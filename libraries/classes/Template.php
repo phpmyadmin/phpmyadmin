@@ -33,8 +33,6 @@ use Twig_Error_Syntax;
 use Twig_TemplateWrapper;
 
 /**
- * Class Template
- *
  * Handle front end templating
  *
  * @package PhpMyAdmin
@@ -43,6 +41,7 @@ class Template
 {
     /**
      * Twig environment
+     *
      * @var Environment
      */
     protected static $twig;
@@ -93,6 +92,7 @@ class Template
      * @param string $templateName Template path name
      *
      * @return Twig_TemplateWrapper
+     *
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError
@@ -127,6 +127,7 @@ class Template
      * @param array  $data     Associative array of template variables
      *
      * @return string
+     *
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime

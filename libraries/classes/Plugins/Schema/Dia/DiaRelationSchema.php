@@ -49,9 +49,9 @@ class DiaRelationSchema extends ExportRelationSchema
      * Upon instantiation This outputs the Dia XML document
      * that user can download
      *
-     * @param string $db database name
-     *
      * @see Dia,TableStatsDia,RelationStatsDia
+     *
+     * @param string $db database name
      */
     public function __construct($db)
     {
@@ -142,6 +142,7 @@ class DiaRelationSchema extends ExportRelationSchema
      * Output Dia Document for download
      *
      * @return void
+     *
      * @access public
      */
     public function showOutput()
@@ -152,6 +153,8 @@ class DiaRelationSchema extends ExportRelationSchema
     /**
      * Defines relation objects
      *
+     * @see    TableStatsDia::__construct(),RelationStatsDia::__construct()
+     *
      * @param string $masterTable  The master table name
      * @param string $masterField  The relation field in the master table
      * @param string $foreignTable The foreign table name
@@ -161,7 +164,6 @@ class DiaRelationSchema extends ExportRelationSchema
      * @return void
      *
      * @access private
-     * @see    TableStatsDia::__construct(),RelationStatsDia::__construct()
      */
     private function _addRelation(
         $masterTable,
@@ -204,10 +206,11 @@ class DiaRelationSchema extends ExportRelationSchema
      * foreign table's foreign field using Dia object
      * type Database - Reference
      *
+     * @see    RelationStatsDia::relationDraw()
+     *
      * @return void
      *
      * @access private
-     * @see    RelationStatsDia::relationDraw()
      */
     private function _drawRelations()
     {
@@ -222,10 +225,11 @@ class DiaRelationSchema extends ExportRelationSchema
      * Tables are generated using Dia object type Database - Table
      * primary fields are underlined and bold in tables
      *
+     * @see    TableStatsDia::tableDraw()
+     *
      * @return void
      *
      * @access private
-     * @see    TableStatsDia::tableDraw()
      */
     private function _drawTables()
     {

@@ -10,6 +10,7 @@ use PhpMyAdmin\ThemeManager;
 
 /**
  * Displays list of themes.
+ *
  * @package PhpMyAdmin\Controllers
  */
 class ThemesController extends AbstractController

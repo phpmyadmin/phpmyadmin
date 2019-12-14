@@ -13,7 +13,6 @@ use PhpMyAdmin\Config\Forms\User\FeaturesForm;
 use PhpMyAdmin\Config\Forms\User\MainForm;
 
 /**
- * Class EditForm
  * @package PhpMyAdmin\Config\Forms\Page
  */
 class EditForm extends BaseForm

@@ -28,8 +28,9 @@ class PbxtTest extends PmaTestCase
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      *
-     * @access protected
      * @return void
+     *
+     * @access protected
      */
     protected function setUp(): void
     {
@@ -41,8 +42,9 @@ class PbxtTest extends PmaTestCase
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
      *
-     * @access protected
      * @return void
+     *
+     * @access protected
      */
     protected function tearDown(): void
     {
@@ -174,9 +176,9 @@ class PbxtTest extends PmaTestCase
      * @param string $formatted_size the size expression (for example 8MB)
      * @param string $output         Expected output
      *
-     * @dataProvider providerFortTestResolveTypeSize
-     *
      * @return void
+     *
+     * @dataProvider providerFortTestResolveTypeSize
      */
     public function testResolveTypeSize($formatted_size, $output): void
     {

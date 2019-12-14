@@ -13,13 +13,13 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Util;
 
 /**
- * Class ProcessesController
  * @package PhpMyAdmin\Controllers\Server\Status
  */
 class ProcessesController extends AbstractController
 {
     /**
      * @param array $params Request parameters
+     *
      * @return string
      */
     public function index(array $params): string
@@ -56,6 +56,7 @@ class ProcessesController extends AbstractController
      * Only sends the process list table
      *
      * @param array $params Request parameters
+     *
      * @return string
      */
     public function refresh(array $params): string
@@ -69,6 +70,7 @@ class ProcessesController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return array
      */
     public function kill(array $params): array
@@ -104,6 +106,7 @@ class ProcessesController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return string
      */
     private function getList(array $params): string

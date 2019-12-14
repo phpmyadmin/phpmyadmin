@@ -138,6 +138,7 @@ class HeaderTest extends PmaTestCase
      * Test for Disable Warnings
      *
      * @return void
+     *
      * @test
      */
     public function testDisableWarnings()

@@ -1,6 +1,7 @@
 <?php
 /**
  * Route definition file
+ *
  * @package PhpMyAdmin
  */
 declare(strict_types=1);

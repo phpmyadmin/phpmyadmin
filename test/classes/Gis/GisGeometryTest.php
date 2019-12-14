@@ -27,8 +27,9 @@ class GisGeometryTest extends TestCase
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      *
-     * @access protected
      * @return void
+     *
+     * @access protected
      */
     protected function setUp(): void
     {
@@ -39,8 +40,9 @@ class GisGeometryTest extends TestCase
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
      *
-     * @access protected
      * @return void
+     *
+     * @access protected
      */
     protected function tearDown(): void
     {
@@ -70,8 +72,9 @@ class GisGeometryTest extends TestCase
      * @param array  $min_max   Existing min, max values
      * @param array  $output    Expected output array
      *
-     * @dataProvider providerForTestSetMinMax
      * @return void
+     *
+     * @dataProvider providerForTestSetMinMax
      */
     public function testSetMinMax($point_set, $min_max, $output): void
     {
@@ -129,8 +132,9 @@ class GisGeometryTest extends TestCase
      * @param string $value  Geometry data
      * @param string $output Expected output
      *
-     * @dataProvider providerForTestGenerateParams
      * @return void
+     *
+     * @dataProvider providerForTestGenerateParams
      */
     public function testGenerateParams($value, $output): void
     {
@@ -183,8 +187,9 @@ class GisGeometryTest extends TestCase
      * @param boolean $linear     If true, as a 1D array, else as a 2D array
      * @param array   $output     Expected output
      *
-     * @dataProvider providerForTestExtractPoints
      * @return void
+     *
+     * @dataProvider providerForTestExtractPoints
      */
     public function testExtractPoints($point_set, $scale_data, $linear, $output): void
     {
@@ -299,6 +304,7 @@ class GisGeometryTest extends TestCase
      * @param string $output     expected output
      *
      * @return void
+     *
      * @dataProvider providerForTestGetBoundsForOl
      */
     public function testGetBoundsForOl($srid, $scale_data, $output): void
@@ -351,6 +357,7 @@ class GisGeometryTest extends TestCase
      * @param string $output   expected output
      *
      * @return void
+     *
      * @dataProvider providerForTestGetPolygonArrayForOpenLayers
      */
     public function testGetPolygonArrayForOpenLayers($polygons, $srid, $output): void

@@ -310,10 +310,12 @@ class ErrorReportTest extends TestCase
     /**
      * Test the url sanitization
      *
-     * @dataProvider urlsToSanitize
      * @param string $url    The url to test
      * @param array  $result The result
+     *
      * @return void
+     *
+     * @dataProvider urlsToSanitize
      */
     public function testSanitizeUrl(string $url, array $result): void
     {

@@ -1,6 +1,7 @@
 <?php
 /**
  * Server Plugin value object
+ *
  * @package PhpMyAdmin\Server
  */
 declare(strict_types=1);
@@ -9,6 +10,7 @@ namespace PhpMyAdmin\Server;
 
 /**
  * Server Plugin value object
+ *
  * @package PhpMyAdmin\Server
  */
 final class Plugin
@@ -125,6 +127,7 @@ final class Plugin
 
     /**
      * @param array $state array with the properties
+     *
      * @return self
      */
     public static function fromState(array $state): self

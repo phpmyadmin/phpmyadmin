@@ -9,7 +9,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server\Status;
 
 /**
- * Class QueriesController
  * @package PhpMyAdmin\Controllers\Server\Status
  */
 class QueriesController extends AbstractController

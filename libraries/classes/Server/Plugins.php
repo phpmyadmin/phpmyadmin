@@ -1,6 +1,5 @@
 <?php
 /**
- * Class Plugins
  * @package PhpMyAdmin\Server
  */
 declare(strict_types=1);
@@ -10,7 +9,6 @@ namespace PhpMyAdmin\Server;
 use PhpMyAdmin\DatabaseInterface;
 
 /**
- * Class Plugins
  * @package PhpMyAdmin\Server
  */
 class Plugins
@@ -51,6 +49,7 @@ class Plugins
 
     /**
      * @param array $row Row fetched from database
+     *
      * @return Plugin
      */
     private function mapRowToPlugin(array $row): Plugin

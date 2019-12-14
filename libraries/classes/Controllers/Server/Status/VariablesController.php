@@ -11,13 +11,13 @@ namespace PhpMyAdmin\Controllers\Server\Status;
 use PhpMyAdmin\Html\Generator;
 
 /**
- * Class VariablesController
  * @package PhpMyAdmin\Controllers\Server\Status
  */
 class VariablesController extends AbstractController
 {
     /**
      * @param array $params Request parameters
+     *
      * @return string HTML
      */
     public function index(array $params): string
@@ -118,6 +118,7 @@ class VariablesController extends AbstractController
      * Flush status variables if requested
      *
      * @param string $flush Variable name
+     *
      * @return void
      */
     private function flush(string $flush): void

@@ -1,6 +1,7 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\Server\SqlController
+ *
  * @package PhpMyAdmin\Controllers\Server
  */
 declare(strict_types=1);
@@ -16,6 +17,7 @@ use PhpMyAdmin\Template;
 
 /**
  * Server SQL executor
+ *
  * @package PhpMyAdmin\Controllers\Server
  */
 class SqlController extends AbstractController

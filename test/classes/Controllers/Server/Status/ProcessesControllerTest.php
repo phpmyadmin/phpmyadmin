@@ -18,7 +18,6 @@ use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class ProcessesControllerTest
  * @package PhpMyAdmin\Tests\Controllers\Server\Status
  */
 class ProcessesControllerTest extends TestCase

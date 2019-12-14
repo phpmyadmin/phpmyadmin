@@ -16,8 +16,6 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 
 /**
- * Class IndexesController
- *
  * @package PhpMyAdmin\Controllers
  */
 class IndexesController extends AbstractController

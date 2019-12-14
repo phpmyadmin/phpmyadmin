@@ -13,8 +13,6 @@ use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
 /**
- * Class TransformationsExtension
- *
  * @package PhpMyAdmin\Twig
  */
 class TransformationsExtension extends AbstractExtension

@@ -30,8 +30,6 @@ class UserPassword
     private $serverPrivileges;
 
     /**
-     * UserPassword constructor.
-     *
      * @param Privileges $serverPrivileges Privileges object
      */
     public function __construct(Privileges $serverPrivileges)

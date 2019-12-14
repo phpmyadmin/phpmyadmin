@@ -28,8 +28,9 @@ class NavigationTreeTest extends PmaTestCase
     /**
      * Sets up the fixture.
      *
-     * @access protected
      * @return void
+     *
+     * @access protected
      */
     protected function setUp(): void
     {
@@ -55,8 +56,9 @@ class NavigationTreeTest extends PmaTestCase
     /**
      * Tears down the fixture.
      *
-     * @access protected
      * @return void
+     *
+     * @access protected
      */
     protected function tearDown(): void
     {

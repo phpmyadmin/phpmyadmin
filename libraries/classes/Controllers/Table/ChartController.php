@@ -111,6 +111,7 @@ class ChartController extends AbstractController
 
         /**
          * Extract values for common work
+         *
          * @todo Extract common files
          */
         $db = &$this->db;
@@ -202,6 +203,7 @@ class ChartController extends AbstractController
     {
         /**
          * Extract values for common work
+         *
          * @todo Extract common files
          */
         $db = &$this->db;

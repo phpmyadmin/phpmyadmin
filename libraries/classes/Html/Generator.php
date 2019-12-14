@@ -116,6 +116,7 @@ class Generator
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
      * @throws Twig_Error_Syntax
+     *
      * @access  public
      */
     public static function getHtmlTab(array $tab, array $url_params = []): string
@@ -312,6 +313,7 @@ class Generator
      * @param string|null $overrideDefault override InitialSlidersState config
      *
      * @return string         html div element
+     *
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
@@ -342,6 +344,7 @@ class Generator
      *                            successfully processed
      *
      * @return string   HTML code for the toggle button
+     *
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
@@ -462,9 +465,9 @@ class Generator
      *
      * @return string An HTML snippet of a dropdown list with function
      *                names appropriate for the requested column.
+     *
      * @global mixed $data data of currently edited row
      *                     (used to detect whether to choose defaults)
-     *
      * @global array $cfg  PMA configuration
      */
     public static function getDefaultFunctionForField(array $field, $insert_mode): string
@@ -632,6 +635,7 @@ class Generator
      * @param string $sql_query sql query
      *
      * @return string html
+     *
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
@@ -725,6 +729,7 @@ class Generator
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
      * @throws Twig_Error_Syntax
+     *
      * @access  public
      */
     public static function getMessage(
@@ -1059,6 +1064,7 @@ class Generator
 
         /**
          * Error message to be built.
+         *
          * @var string $error_msg
          */
         $error_msg = '';
@@ -1076,18 +1082,21 @@ class Generator
 
         /**
          * The lexer used for analysis.
+         *
          * @var Lexer $lexer
          */
         $lexer = new Lexer($sql_query);
 
         /**
          * The parser used for analysis.
+         *
          * @var Parser $parser
          */
         $parser = new Parser($lexer->list);
 
         /**
          * The errors found by the lexer and the parser.
+         *
          * @var array $errors
          */
         $errors = ParserError::get(

@@ -318,7 +318,6 @@ class RelationController extends AbstractController
      * Send table columns for foreign table dropdown
      *
      * @return void
-     *
      */
     public function getDropdownValueForTableAction()
     {
@@ -353,7 +352,6 @@ class RelationController extends AbstractController
      * Send database selection values for dropdown
      *
      * @return void
-     *
      */
     public function getDropdownValueForDbAction()
     {

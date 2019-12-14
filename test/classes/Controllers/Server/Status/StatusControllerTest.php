@@ -19,7 +19,6 @@ use PhpMyAdmin\Template;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class StatusControllerTest
  * @package PhpMyAdmin\Tests\Controllers\Server\Status
  */
 class StatusControllerTest extends TestCase

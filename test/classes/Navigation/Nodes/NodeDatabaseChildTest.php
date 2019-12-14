@@ -23,6 +23,7 @@ class NodeDatabaseChildTest extends PmaTestCase
 {
     /**
      * Mock of NodeDatabaseChild
+     *
      * @var NodeDatabaseChild|MockObject
      */
     protected $object;
@@ -30,8 +31,9 @@ class NodeDatabaseChildTest extends PmaTestCase
     /**
      * Sets up the fixture.
      *
-     * @access protected
      * @return void
+     *
+     * @access protected
      */
     protected function setUp(): void
     {
@@ -51,8 +53,9 @@ class NodeDatabaseChildTest extends PmaTestCase
     /**
      * Tears down the fixture.
      *
-     * @access protected
      * @return void
+     *
+     * @access protected
      */
     protected function tearDown(): void
     {
@@ -63,6 +66,7 @@ class NodeDatabaseChildTest extends PmaTestCase
      * Tests getHtmlForControlButtons() method
      *
      * @return void
+     *
      * @test
      */
     public function testGetHtmlForControlButtons()

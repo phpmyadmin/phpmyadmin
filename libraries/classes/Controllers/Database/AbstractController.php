@@ -26,8 +26,6 @@ abstract class AbstractController extends Controller
     protected $db;
 
     /**
-     * AbstractController constructor.
-     *
      * @param Response          $response Response object
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param Template          $template Template object

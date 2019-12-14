@@ -15,8 +15,6 @@ use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
 
 /**
- * class PhpMyAdmin\Tests\Display\ExportTest
- *
  * this class is for testing PhpMyAdmin\Display\Export methods
  *
  * @package PhpMyAdmin-test

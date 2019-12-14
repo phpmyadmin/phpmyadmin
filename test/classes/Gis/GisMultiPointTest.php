@@ -29,8 +29,9 @@ class GisMultiPointTest extends GisGeomTestCase
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      *
-     * @access protected
      * @return void
+     *
+     * @access protected
      */
     protected function setUp(): void
     {
@@ -41,8 +42,9 @@ class GisMultiPointTest extends GisGeomTestCase
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
      *
-     * @access protected
      * @return void
+     *
+     * @access protected
      */
     protected function tearDown(): void
     {
@@ -191,6 +193,7 @@ class GisMultiPointTest extends GisGeomTestCase
      * @param resource $image       image object
      *
      * @return void
+     *
      * @dataProvider providerForPrepareRowAsPng
      */
     public function testPrepareRowAsPng(
@@ -246,6 +249,7 @@ class GisMultiPointTest extends GisGeomTestCase
      * @param TCPDF  $pdf         TCPDF instance
      *
      * @return void
+     *
      * @dataProvider providerForPrepareRowAsPdf
      */
     public function testPrepareRowAsPdf(
@@ -298,6 +302,7 @@ class GisMultiPointTest extends GisGeomTestCase
      * @param string $output      expected output
      *
      * @return void
+     *
      * @dataProvider providerForPrepareRowAsSvg
      */
     public function testPrepareRowAsSvg(
@@ -360,6 +365,7 @@ class GisMultiPointTest extends GisGeomTestCase
      * @param string $output      expected output
      *
      * @return void
+     *
      * @dataProvider providerForPrepareRowAsOl
      */
     public function testPrepareRowAsOl(

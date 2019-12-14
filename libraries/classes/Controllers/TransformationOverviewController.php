@@ -26,8 +26,6 @@ class TransformationOverviewController extends AbstractController
     private $transformations;
 
     /**
-     * TransformationOverviewController constructor.
-     *
      * @param Response          $response        Response object
      * @param DatabaseInterface $dbi             DatabaseInterface object
      * @param Template          $template        Template object

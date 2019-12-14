@@ -20,36 +20,42 @@ class Form
 {
     /**
      * Form name
+     *
      * @var string
      */
     public $name;
 
     /**
      * Arbitrary index, doesn't affect class' behavior
+     *
      * @var int
      */
     public $index;
 
     /**
      * Form fields (paths), filled by {@link readFormPaths()}, indexed by field name
+     *
      * @var array
      */
     public $fields;
 
     /**
      * Stores default values for some fields (eg. pmadb tables)
+     *
      * @var array
      */
     public $default;
 
     /**
      * Caches field types, indexed by field names
+     *
      * @var array
      */
     private $_fieldsTypes;
 
     /**
      * ConfigFile instance
+     *
      * @var ConfigFile
      */
     private $_configFile;

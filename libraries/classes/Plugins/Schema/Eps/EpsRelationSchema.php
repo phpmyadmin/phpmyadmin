@@ -45,9 +45,9 @@ class EpsRelationSchema extends ExportRelationSchema
      * Upon instantiation This starts writing the EPS document
      * user will be prompted for download as .eps extension
      *
-     * @param string $db database name
-     *
      * @see PMA_EPS
+     *
+     * @param string $db database name
      */
     public function __construct($db)
     {
@@ -163,6 +163,9 @@ class EpsRelationSchema extends ExportRelationSchema
     /**
      * Defines relation objects
      *
+     * @see _setMinMax,Table_Stats_Eps::__construct(),
+     * PhpMyAdmin\Plugins\Schema\Eps\RelationStatsEps::__construct()
+     *
      * @param string  $masterTable    The master table name
      * @param string  $font           The font
      * @param int     $fontSize       The font size
@@ -172,9 +175,6 @@ class EpsRelationSchema extends ExportRelationSchema
      * @param boolean $tableDimension Whether to display table position or not
      *
      * @return void
-     *
-     * @see _setMinMax,Table_Stats_Eps::__construct(),
-     * PhpMyAdmin\Plugins\Schema\Eps\RelationStatsEps::__construct()
      */
     private function _addRelation(
         $masterTable,
@@ -224,9 +224,9 @@ class EpsRelationSchema extends ExportRelationSchema
      * Draws relation arrows and lines connects master table's master field to
      * foreign table's foreign field
      *
-     * @return void
-     *
      * @see Relation_Stats_Eps::relationDraw()
+     *
+     * @return void
      */
     private function _drawRelations()
     {
@@ -238,9 +238,9 @@ class EpsRelationSchema extends ExportRelationSchema
     /**
      * Draws tables
      *
-     * @return void
-     *
      * @see Table_Stats_Eps::Table_Stats_tableDraw()
+     *
+     * @return void
      */
     private function _drawTables()
     {

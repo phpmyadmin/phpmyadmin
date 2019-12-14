@@ -22,6 +22,7 @@ $route = $_GET['route'] ?? $_POST['route'] ?? '/';
 
 /**
  * See FAQ 1.34.
+ *
  * @see https://docs.phpmyadmin.net/en/latest/faq.html#faq1-34
  */
 if (($route === '/' || $route === '') && isset($_GET['db']) && mb_strlen($_GET['db']) !== 0) {

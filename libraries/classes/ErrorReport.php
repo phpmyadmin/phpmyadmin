@@ -58,6 +58,7 @@ class ErrorReport
      * Set the URL where to submit reports to
      *
      * @param string $submissionUrl Submission URL
+     *
      * @return void
      */
     public function setSubmissionUrl(string $submissionUrl): void

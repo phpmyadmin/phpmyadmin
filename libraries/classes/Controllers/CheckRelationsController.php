@@ -1,6 +1,7 @@
 <?php
 /**
  * Displays status of phpMyAdmin configuration storage
+ *
  * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
@@ -13,7 +14,6 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 
 /**
- * Class CheckRelationsController
  * @package PhpMyAdmin\Controllers
  */
 class CheckRelationsController extends AbstractController
@@ -35,6 +35,7 @@ class CheckRelationsController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return string
      */
     public function index(array $params): string

@@ -18,14 +18,14 @@ class Url
     /**
      * Generates text with hidden inputs.
      *
+     * @see Url::getCommon()
+     *
      * @param string|array $db     optional database name
      *                             (can also be an array of parameters)
      * @param string       $table  optional table name
      * @param int          $indent indenting level
      * @param string|array $skip   do not generate a hidden field for this parameter
      *                             (can be an array of strings)
-     *
-     * @see Url::getCommon()
      *
      * @return string   string with input fields
      *
@@ -162,6 +162,7 @@ class Url
      * @param string $divider optional character to use instead of '?'
      *
      * @return string   string with URL parameters
+     *
      * @access  public
      */
     public static function getCommon($params = [], $divider = '?')
@@ -198,6 +199,7 @@ class Url
      * @param string $divider optional character to use instead of '?'
      *
      * @return string   string with URL parameters
+     *
      * @access  public
      */
     public static function getCommonRaw($params = [], $divider = '?')
@@ -238,6 +240,7 @@ class Url
      *                       currently 'none' or 'html'
      *
      * @return string  character used for separating url parts usually ; or &
+     *
      * @access  public
      */
     public static function getArgSeparator($encode = 'none')
@@ -274,6 +277,7 @@ class Url
     /**
      * @param string $route                Route to use
      * @param array  $additionalParameters Additional URL parameters
+     *
      * @return string
      */
     public static function getFromRoute(string $route, array $additionalParameters = []): string

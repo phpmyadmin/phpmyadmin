@@ -27,7 +27,6 @@ use PhpMyAdmin\Util;
  * This class tracks changes on databases, tables and views.
  *
  * @package PhpMyAdmin
- *
  * @todo use stristr instead of strstr
  */
 class Tracker
@@ -46,9 +45,9 @@ class Tracker
      * Actually enables tracking. This needs to be done after all
      * underlaying code is initialized.
      *
-     * @static
-     *
      * @return void
+     *
+     * @static
      */
     public static function enable()
     {
@@ -58,9 +57,9 @@ class Tracker
     /**
      * Gets the on/off value of the Tracker module, starts initialization.
      *
-     * @static
-     *
      * @return boolean (true=on|false=off)
+     *
+     * @static
      */
     public static function isActive()
     {
@@ -89,9 +88,9 @@ class Tracker
      *
      * @param string $string part of SQL statement
      *
-     * @static
-     *
      * @return string the name of table
+     *
+     * @static
      */
     protected static function getTableName($string)
     {
@@ -118,9 +117,9 @@ class Tracker
      * @param string $dbname    name of database
      * @param string $tablename name of table
      *
-     * @static
-     *
      * @return boolean true or false
+     *
+     * @static
      */
     public static function isTracked($dbname, $tablename)
     {
@@ -178,9 +177,9 @@ class Tracker
      * @param string $tracking_set set of tracking statements
      * @param bool   $is_view      if table is a view
      *
-     * @static
-     *
      * @return int result of version insertion
+     *
+     * @static
      */
     public static function createVersion(
         $dbname,
@@ -200,6 +199,7 @@ class Tracker
 
         /**
          * get Export SQL instance
+         *
          * @var ExportSql $export_sql_plugin
          */
         $export_sql_plugin = Plugins::getPlugin(
@@ -300,9 +300,9 @@ class Tracker
      * @param string $tablename name of table
      * @param string $version   version
      *
-     * @static
-     *
      * @return int result of version insertion
+     *
+     * @static
      */
     public static function deleteTracking($dbname, $tablename, $version = '')
     {
@@ -330,9 +330,9 @@ class Tracker
      * @param string $query        query
      * @param string $tracking_set set of tracking statements
      *
-     * @static
-     *
      * @return int result of version insertion
+     *
+     * @static
      */
     public static function createDatabaseVersion(
         $dbname,
@@ -396,9 +396,9 @@ class Tracker
      * @param string  $version   version
      * @param integer $new_state the new state of tracking
      *
-     * @static
-     *
      * @return int result of SQL query
+     *
+     * @static
      */
     private static function _changeTracking(
         $dbname,
@@ -426,9 +426,9 @@ class Tracker
      * @param string       $type      type of data(DDL || DML)
      * @param string|array $new_data  the new tracking data
      *
-     * @static
-     *
      * @return bool result of change
+     *
+     * @static
      */
     public static function changeTrackingData(
         $dbname,
@@ -476,9 +476,9 @@ class Tracker
      * @param string $tablename name of table
      * @param string $version   version
      *
-     * @static
-     *
      * @return int result of SQL query
+     *
+     * @static
      */
     public static function activateTracking($dbname, $tablename, $version)
     {
@@ -493,9 +493,9 @@ class Tracker
      * @param string $tablename name of table
      * @param string $version   version
      *
-     * @static
-     *
      * @return int result of SQL query
+     *
+     * @static
      */
     public static function deactivateTracking($dbname, $tablename, $version)
     {
@@ -511,9 +511,9 @@ class Tracker
      * @param string $tablename name of table
      * @param string $statement tracked statement
      *
-     * @static
-     *
      * @return int (-1 if no version exists | >  0 if a version exists)
+     *
+     * @static
      */
     public static function getVersion($dbname, $tablename, $statement = null)
     {
@@ -539,10 +539,10 @@ class Tracker
      * @param string $tablename name of table
      * @param string $version   version number
      *
-     * @static
-     *
      * @return mixed record DDM log, DDL log, structure snapshot, tracked
      *         statements.
+     *
+     * @static
      */
     public static function getTrackedData($dbname, $tablename, $version)
     {
@@ -665,12 +665,11 @@ class Tracker
      *
      * @param string $query query
      *
+     * @return mixed Array containing identifier, type and tablename.
+     *
      * @static
      * @todo: using PMA SQL Parser when possible
      * @todo: support multi-table/view drops
-     *
-     * @return mixed Array containing identifier, type and tablename.
-     *
      */
     public static function parseQuery($query)
     {
@@ -806,9 +805,9 @@ class Tracker
      *
      * @param string $query a SQL query
      *
-     * @static
-     *
      * @return void
+     *
+     * @static
      */
     public static function handleQuery($query)
     {

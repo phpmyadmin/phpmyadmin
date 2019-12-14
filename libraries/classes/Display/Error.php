@@ -30,6 +30,7 @@ class Error
      * @param string   $errorMessage Error message
      *
      * @return string
+     *
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime

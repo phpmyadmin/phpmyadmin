@@ -18,8 +18,6 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
- * Class SearchController
- *
  * @package PhpMyAdmin\Controllers
  */
 class SearchController extends AbstractController

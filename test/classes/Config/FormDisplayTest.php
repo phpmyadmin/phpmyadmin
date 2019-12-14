@@ -55,6 +55,7 @@ class FormDisplayTest extends PmaTestCase
      * Test for FormDisplay::__constructor
      *
      * @return void
+     *
      * @group medium
      */
     public function testFormDisplayContructor()
@@ -72,6 +73,7 @@ class FormDisplayTest extends PmaTestCase
      * Test for FormDisplay::registerForm
      *
      * @return void
+     *
      * @group medium
      */
     public function testRegisterForm()
@@ -124,6 +126,7 @@ class FormDisplayTest extends PmaTestCase
      * Test for FormDisplay::process
      *
      * @return void
+     *
      * @group medium
      */
     public function testProcess()

@@ -11,7 +11,6 @@ namespace PhpMyAdmin\Config\Forms\User;
 use PhpMyAdmin\Config\Forms\BaseForm;
 
 /**
- * Class MainForm
  * @package PhpMyAdmin\Config\Forms\User
  */
 class MainForm extends BaseForm

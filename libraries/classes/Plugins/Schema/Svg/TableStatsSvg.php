@@ -32,6 +32,9 @@ class TableStatsSvg extends TableStats
     /**
      * The "PhpMyAdmin\Plugins\Schema\Svg\TableStatsSvg" constructor
      *
+     * @see PMA_SVG, Table_Stats_Svg::Table_Stats_setWidth,
+     *       PhpMyAdmin\Plugins\Schema\Svg\TableStatsSvg::Table_Stats_setHeight
+     *
      * @param object  $diagram         The current SVG image document
      * @param string  $db              The database name
      * @param string  $tableName       The table name
@@ -42,10 +45,6 @@ class TableStatsSvg extends TableStats
      * @param boolean $showKeys        Whether to display keys or not
      * @param boolean $tableDimension  Whether to display table position or not
      * @param boolean $offline         Whether the coordinates are sent
-     *
-     *
-     * @see PMA_SVG, Table_Stats_Svg::Table_Stats_setWidth,
-     *       PhpMyAdmin\Plugins\Schema\Svg\TableStatsSvg::Table_Stats_setHeight
      */
     public function __construct(
         $diagram,
@@ -96,13 +95,14 @@ class TableStatsSvg extends TableStats
     /**
      * Sets the width of the table
      *
+     * @see    PMA_SVG
+     *
      * @param string  $font     The font size
      * @param integer $fontSize The font size
      *
      * @return void
-     * @access private
      *
-     * @see    PMA_SVG
+     * @access private
      */
     private function _setWidthTable($font, $fontSize)
     {
@@ -141,12 +141,13 @@ class TableStatsSvg extends TableStats
     /**
      * draw the table
      *
+     * @see    PMA_SVG,PMA_SVG::printElement
+     *
      * @param boolean $showColor Whether to display color
      *
-     * @access public
      * @return void
      *
-     * @see    PMA_SVG,PMA_SVG::printElement
+     * @access public
      */
     public function tableDraw($showColor)
     {

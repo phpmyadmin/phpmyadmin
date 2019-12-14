@@ -54,14 +54,14 @@ class RelationStatsPdf extends RelationStats
     /**
      * draws relation links and arrows shows foreign key relations
      *
+     * @see    Pdf
+     *
      * @param boolean $showColor Whether to use one color per relation or not
      * @param integer $i         The id of the link to draw
      *
-     * @access public
-     *
      * @return void
      *
-     * @see    Pdf
+     * @access public
      */
     public function relationDraw($showColor, $i)
     {

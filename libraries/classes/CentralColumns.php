@@ -87,6 +87,7 @@ class CentralColumns
      * Defines the central_columns parameters for the current user
      *
      * @return array|bool the central_columns parameters for the current user
+     *
      * @access public
      */
     public function getParams()
@@ -686,6 +687,7 @@ class CentralColumns
      * Update Multiple column in central columns list if a change is requested
      *
      * @param array $params Request parameters
+     *
      * @return true|Message
      */
     public function updateMultipleColumn(array $params)

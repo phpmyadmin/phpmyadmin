@@ -31,8 +31,6 @@ class Export
     private $dbi;
 
     /**
-     * Export constructor.
-     *
      * @param DatabaseInterface $dbi DatabaseInterface object
      */
     public function __construct(DatabaseInterface $dbi)

@@ -37,8 +37,9 @@ class SearchControllerTest extends PmaTestCase
     /**
      * Setup function for test cases
      *
-     * @access protected
      * @return void
+     *
+     * @access protected
      */
     protected function setUp(): void
     {
@@ -103,8 +104,9 @@ class SearchControllerTest extends PmaTestCase
     /**
      * tearDown function for test cases
      *
-     * @access protected
      * @return void
+     *
+     * @access protected
      */
     protected function tearDown(): void
     {
@@ -256,6 +258,7 @@ class SearchControllerTest extends PmaTestCase
      * Tests for getColumnMinMax()
      *
      * @return void
+     *
      * @test
      */
     public function testGetColumnMinMax()
@@ -288,6 +291,7 @@ class SearchControllerTest extends PmaTestCase
      * Tests for _generateWhereClause()
      *
      * @return void
+     *
      * @test
      */
     public function testGenerateWhereClause()
@@ -361,6 +365,7 @@ class SearchControllerTest extends PmaTestCase
      * Tests for getDataRowAction()
      *
      * @return void
+     *
      * @test
      */
     public function testGetDataRowAction()

@@ -12,6 +12,7 @@ use PhpMyAdmin\Database\MultiTableQuery;
 
 /**
  * Handles database multi-table querying
+ *
  * @package PhpMyAdmin\Controllers\Database
  */
 class MultiTableQueryController extends AbstractController
@@ -34,6 +35,7 @@ class MultiTableQueryController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return void
      */
     public function displayResults(array $params): void
@@ -49,6 +51,7 @@ class MultiTableQueryController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return array JSON
      */
     public function table(array $params): array

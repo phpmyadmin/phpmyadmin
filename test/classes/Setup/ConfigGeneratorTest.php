@@ -25,6 +25,7 @@ class ConfigGeneratorTest extends PmaTestCase
      * Test for ConfigGenerator::getConfigFile
      *
      * @return void
+     *
      * @group medium
      */
     public function testGetConfigFile()

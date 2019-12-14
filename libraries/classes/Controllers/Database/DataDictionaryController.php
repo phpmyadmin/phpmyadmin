@@ -17,7 +17,6 @@ use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 
 /**
- * Class DataDictionaryController
  * @package PhpMyAdmin\Controllers\Database
  */
 class DataDictionaryController extends AbstractController
@@ -33,8 +32,6 @@ class DataDictionaryController extends AbstractController
     private $transformations;
 
     /**
-     * DataDictionaryController constructor.
-     *
      * @param Response          $response        Response instance
      * @param DatabaseInterface $dbi             DatabaseInterface instance
      * @param Template          $template        Template object

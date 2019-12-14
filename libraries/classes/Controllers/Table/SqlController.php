@@ -14,6 +14,7 @@ use PhpMyAdmin\Url;
 
 /**
  * Table SQL executor
+ *
  * @package PhpMyAdmin\Controllers\Table
  */
 class SqlController extends AbstractController

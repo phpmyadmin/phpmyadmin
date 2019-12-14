@@ -42,6 +42,7 @@ class UserGroupsTest extends TestCase
      * Tests UserGroups::getHtmlForUserGroupsTable() function when there are no user groups
      *
      * @return void
+     *
      * @group medium
      */
     public function testGetHtmlForUserGroupsTableWithNoUserGroups()

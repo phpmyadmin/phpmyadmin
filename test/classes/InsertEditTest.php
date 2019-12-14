@@ -1715,7 +1715,6 @@ class InsertEditTest extends TestCase
          * This condition should be tested, however, it gives an undefined function
          * PhpMyAdmin\FileListing::getFileSelectOptions error:
          * $GLOBALS['cfg']['UploadDir'] = true;
-         *
          */
 
         $result = $this->callProtectedMethod('getBinaryAndBlobColumn', [

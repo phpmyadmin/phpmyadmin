@@ -28,9 +28,9 @@ class ServerConfigChecksTest extends PmaTestCase
     private $sessionID;
 
     /**
-     * @throws ReflectionException
-     *
      * @return void
+     *
+     * @throws ReflectionException
      */
     protected function setUp(): void
     {

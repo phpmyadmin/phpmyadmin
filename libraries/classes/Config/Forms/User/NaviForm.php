@@ -11,7 +11,6 @@ namespace PhpMyAdmin\Config\Forms\User;
 use PhpMyAdmin\Config\Forms\BaseForm;
 
 /**
- * Class NaviForm
  * @package PhpMyAdmin\Config\Forms\User
  */
 class NaviForm extends BaseForm

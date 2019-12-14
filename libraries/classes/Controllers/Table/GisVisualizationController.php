@@ -17,8 +17,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
 /**
- * Class GisVisualizationController
- *
  * @package PhpMyAdmin\Controllers
  */
 class GisVisualizationController extends AbstractController

@@ -14,15 +14,11 @@ use Twig\Node\Expression\AbstractExpression;
 use Twig\Node\Node;
 
 /**
- * Class NodeTrans
- *
  * @package PhpMyAdmin\Twig\I18n
  */
 class NodeTrans extends TransNode
 {
     /**
-     * Constructor.
-     *
      * The nodes are automatically made available as properties ($this->node).
      * The attributes are automatically made available as array items ($this['name']).
      *

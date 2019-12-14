@@ -1,6 +1,5 @@
 <?php
 /**
- * Class CharsetTest
  * @package PhpMyAdmin\Tests\Charsets
  */
 declare(strict_types=1);
@@ -11,7 +10,6 @@ use PhpMyAdmin\Charsets\Charset;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class CharsetTest
  * @package PhpMyAdmin\Tests\Charsets
  */
 class CharsetTest extends TestCase

@@ -13,8 +13,6 @@ use Twig\TwigFilter;
 use Twig\TwigFunction;
 
 /**
- * Class UtilExtension
- *
  * @package PhpMyAdmin\Twig
  */
 class UtilExtension extends AbstractExtension

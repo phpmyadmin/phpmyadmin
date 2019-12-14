@@ -14,8 +14,6 @@ use Twig\Token;
 use Twig_Error_Syntax;
 
 /**
- * Class TokenParserTrans
- *
  * @package PhpMyAdmin\Twig\I18n
  */
 class TokenParserTrans extends TransTokenParser

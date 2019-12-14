@@ -116,6 +116,7 @@ class GeneratorTest extends PmaTestCase
      * Test for getDivForSliderEffect
      *
      * @return void
+     *
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
@@ -140,6 +141,7 @@ class GeneratorTest extends PmaTestCase
      * Test for getDivForSliderEffect
      *
      * @return void
+     *
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
@@ -164,6 +166,7 @@ class GeneratorTest extends PmaTestCase
      * Test for getDivForSliderEffect
      *
      * @return void
+     *
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
@@ -353,9 +356,9 @@ class GeneratorTest extends PmaTestCase
     /**
      * Test for formatSql
      *
-     * @covers \PhpMyAdmin\Html\Generator::formatSql
-     *
      * @return void
+     *
+     * @covers \PhpMyAdmin\Html\Generator::formatSql
      */
     public function testFormatSql(): void
     {

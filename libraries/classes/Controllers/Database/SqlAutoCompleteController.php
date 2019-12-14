@@ -8,6 +8,7 @@ namespace PhpMyAdmin\Controllers\Database;
 
 /**
  * Table/Column autocomplete in SQL editors.
+ *
  * @package PhpMyAdmin\Controllers\Database
  */
 class SqlAutoCompleteController extends AbstractController

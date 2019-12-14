@@ -167,6 +167,7 @@ class Message
      *                       executed successfully')
      *
      * @return Message
+     *
      * @static
      */
     public static function success(string $string = ''): self
@@ -186,6 +187,7 @@ class Message
      * @param string $string A localized string e.g. __('Error')
      *
      * @return Message
+     *
      * @static
      */
     public static function error(string $string = ''): self
@@ -208,6 +210,7 @@ class Message
      *                       why click %shere%s.')
      *
      * @return Message
+     *
      * @static
      */
     public static function notice(string $string): self
@@ -224,6 +227,7 @@ class Message
      * @param integer $type    A numeric representation of the type of message
      *
      * @return Message
+     *
      * @static
      */
     public static function raw(string $message, int $type = Message::NOTICE): self
@@ -242,6 +246,7 @@ class Message
      * @param integer $rows Number of rows
      *
      * @return Message
+     *
      * @static
      */
     public static function getMessageForAffectedRows(int $rows): self
@@ -261,6 +266,7 @@ class Message
      * @param integer $rows Number of rows
      *
      * @return Message
+     *
      * @static
      */
     public static function getMessageForDeletedRows(int $rows): self
@@ -280,6 +286,7 @@ class Message
      * @param integer $rows Number of rows
      *
      * @return Message
+     *
      * @static
      */
     public static function getMessageForInsertedRows(int $rows): self
@@ -299,6 +306,7 @@ class Message
      * @param string $message A localized string
      *
      * @return Message
+     *
      * @static
      */
     public static function rawError(string $message): self
@@ -314,6 +322,7 @@ class Message
      * @param string $message A localized string
      *
      * @return Message
+     *
      * @static
      */
     public static function rawNotice(string $message): self
@@ -329,6 +338,7 @@ class Message
      * @param string $message A localized string
      *
      * @return Message
+     *
      * @static
      */
     public static function rawSuccess(string $message): self
@@ -608,6 +618,7 @@ class Message
      * @param mixed $message the message(s)
      *
      * @return mixed  the sanitized message(s)
+     *
      * @access  public
      * @static
      */
@@ -631,6 +642,7 @@ class Message
      * @param string $message the message
      *
      * @return string  the decoded message
+     *
      * @access  public
      * @static
      */
@@ -643,6 +655,7 @@ class Message
      * wrapper for sprintf()
      *
      * @param mixed[] ...$params Params
+     *
      * @return string formatted
      */
     public static function format(...$params): string

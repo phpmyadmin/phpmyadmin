@@ -213,6 +213,7 @@ class NodeTest extends PmaTestCase
      * when the node does not have any siblings.
      *
      * @return void
+     *
      * @test
      */
     public function testHasSiblingsWithNoSiblings()
@@ -228,6 +229,7 @@ class NodeTest extends PmaTestCase
      * when it actually has siblings.
      *
      * @return void
+     *
      * @test
      */
     public function testHasSiblingsWithSiblings()
@@ -263,6 +265,7 @@ class NodeTest extends PmaTestCase
      * for Nodes that are 3 levels deep (columns and indexes).
      *
      * @return void
+     *
      * @test
      */
     public function testHasSiblingsForNodesAtLevelThree()
@@ -285,6 +288,7 @@ class NodeTest extends PmaTestCase
      * Tests private method _getWhereClause()
      *
      * @return void
+     *
      * @test
      */
     public function testGetWhereClause()
@@ -346,6 +350,7 @@ class NodeTest extends PmaTestCase
      * grouping enabled.
      *
      * @return void
+     *
      * @test
      */
     public function testGetDataWithEnabledISAndGroupingEnabled()
@@ -396,6 +401,7 @@ class NodeTest extends PmaTestCase
      * grouping disabled.
      *
      * @return void
+     *
      * @test
      */
     public function testGetDataWithEnabledISAndGroupingDisabled()
@@ -434,6 +440,7 @@ class NodeTest extends PmaTestCase
      * grouping enabled.
      *
      * @return void
+     *
      * @test
      */
     public function testGetDataWithDisabledISAndGroupingEnabled()
@@ -486,6 +493,7 @@ class NodeTest extends PmaTestCase
      * grouping enabled.
      *
      * @return void
+     *
      * @test
      */
     public function testGetPresenceWithEnabledISAndGroupingEnabled()
@@ -521,6 +529,7 @@ class NodeTest extends PmaTestCase
      * grouping disabled.
      *
      * @return void
+     *
      * @test
      */
     public function testGetPresenceWithEnabledISAndGroupingDisabled()
@@ -547,6 +556,7 @@ class NodeTest extends PmaTestCase
      * Tests the getPresence method when DisableIS is true
      *
      * @return void
+     *
      * @test
      */
     public function testGetPresenceWithDisabledIS()

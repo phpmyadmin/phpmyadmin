@@ -18,6 +18,7 @@ use PhpMyAdmin\Util;
 
 /**
  * View manipulations
+ *
  * @package PhpMyAdmin\Controllers
  */
 class ViewOperationsController extends AbstractController

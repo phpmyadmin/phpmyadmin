@@ -14,8 +14,6 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Util;
 
 /**
- * Class SystemDatabase
- *
  * @package PhpMyAdmin
  */
 class SystemDatabase
@@ -34,7 +32,6 @@ class SystemDatabase
      * Get instance of SystemDatabase
      *
      * @param DatabaseInterface $dbi Database interface for the system database
-     *
      */
     public function __construct(DatabaseInterface $dbi)
     {

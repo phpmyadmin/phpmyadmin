@@ -856,6 +856,7 @@ class Index
      * @param string $schema schema name
      *
      * @return string  Output HTML
+     *
      * @access  public
      */
     public static function findDuplicates($table, $schema)

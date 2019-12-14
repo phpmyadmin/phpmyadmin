@@ -50,8 +50,6 @@ class Privileges
     public $relation;
 
     /**
-     * Privileges constructor.
-     *
      * @param Template          $template        Template object
      * @param DatabaseInterface $dbi             DatabaseInterface object
      * @param Relation          $relation        Relation object
@@ -194,9 +192,9 @@ class Privileges
      * @param boolean    $enableHTML add <dfn> tag with tooltips
      * @param boolean    $tablePrivs whether row contains table privileges
      *
-     * @global  resource $user_link the database connection
-     *
      * @return array
+     *
+     * @global  resource $user_link the database connection
      */
     public function extractPrivInfo($row = null, $enableHTML = false, $tablePrivs = false)
     {
@@ -629,10 +627,10 @@ class Privileges
      * @param string  $table  the table
      * @param boolean $submit whether to display the submit button or not
      *
+     * @return string html snippet
+     *
      * @global  array     $cfg         the phpMyAdmin configuration
      * @global  resource  $user_link   the database connection
-     *
-     * @return string html snippet
      */
     public function getHtmlToDisplayPrivilegesTable(
         $db = '*',

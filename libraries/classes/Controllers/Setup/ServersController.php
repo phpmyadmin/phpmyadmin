@@ -13,13 +13,13 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Setup\FormProcessing;
 
 /**
- * Class ServersController
  * @package PhpMyAdmin\Controllers\Setup
  */
 class ServersController extends AbstractController
 {
     /**
      * @param array $params Request parameters
+     *
      * @return string HTML
      */
     public function index(array $params): string
@@ -50,6 +50,7 @@ class ServersController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return void
      */
     public function destroy(array $params): void

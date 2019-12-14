@@ -29,12 +29,14 @@ class FormDisplay
 {
     /**
      * ConfigFile instance
+     *
      * @var ConfigFile
      */
     private $_configFile;
 
     /**
      * Form list
+     *
      * @var Form[]
      */
     private $_forms = [];
@@ -43,12 +45,14 @@ class FormDisplay
      * Stores validation errors, indexed by paths
      * [ Form_name ] is an array of form errors
      * [path] is a string storing error associated with single field
+     *
      * @var array
      */
     private $_errors = [];
 
     /**
      * Paths changed so that they can be used as HTML ids, indexed by paths
+     *
      * @var array
      */
     private $_translatedPaths = [];
@@ -56,6 +60,7 @@ class FormDisplay
     /**
      * Server paths change indexes so we define maps from current server
      * path to the first one, indexed by work path
+     *
      * @var array
      */
     private $_systemPaths = [];
@@ -63,24 +68,28 @@ class FormDisplay
     /**
      * Language strings which will be sent to Messages JS variable
      * Will be looked up in $GLOBALS: str{value} or strSetup{value}
+     *
      * @var array
      */
     private $_jsLangStrings = [];
 
     /**
      * Tells whether forms have been validated
+     *
      * @var bool
      */
     private $_isValidated = true;
 
     /**
      * Dictionary with user preferences keys
+     *
      * @var array|null
      */
     private $_userprefsKeys;
 
     /**
      * Dictionary with disallowed user preferences keys
+     *
      * @var array
      */
     private $_userprefsDisallow;

@@ -41,6 +41,7 @@ class DropDown implements FieldGenerator
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
      * @throws Twig_Error_Syntax
+     *
      * @todo    support titles
      */
     public static function generate(

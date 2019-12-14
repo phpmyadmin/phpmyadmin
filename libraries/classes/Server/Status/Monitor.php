@@ -25,7 +25,6 @@ class Monitor
     private $dbi;
 
     /**
-     * Monitor constructor.
      * @param DatabaseInterface $dbi DatabaseInterface instance
      */
     public function __construct($dbi)

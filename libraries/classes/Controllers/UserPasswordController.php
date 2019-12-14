@@ -15,6 +15,7 @@ use PhpMyAdmin\UserPassword;
 
 /**
  * Displays and handles the form where the user can change their password.
+ *
  * @package PhpMyAdmin\Controllers
  */
 class UserPasswordController extends AbstractController

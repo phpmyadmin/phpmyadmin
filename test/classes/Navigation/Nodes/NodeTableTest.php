@@ -63,6 +63,7 @@ class NodeTableTest extends PmaTestCase
      * @param string $imageName name of the image that should be set
      *
      * @return void
+     *
      * @dataProvider providerForTestIcon
      */
     public function testIcon($target, $imageName): void

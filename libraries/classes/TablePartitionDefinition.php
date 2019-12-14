@@ -11,8 +11,6 @@ namespace PhpMyAdmin;
 use function array_merge;
 
 /**
- * Class TablePartitionDefinition
- *
  * @package PhpMyAdmin
  */
 class TablePartitionDefinition

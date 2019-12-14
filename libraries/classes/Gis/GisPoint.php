@@ -33,6 +33,7 @@ class GisPoint extends GisGeometry
      * Returns the singleton.
      *
      * @return GisPoint the singleton
+     *
      * @access public
      */
     public static function singleton()
@@ -50,6 +51,7 @@ class GisPoint extends GisGeometry
      * @param string $spatial spatial data of a row
      *
      * @return array an array containing the min, max values for x and y coordinates
+     *
      * @access public
      */
     public function scaleRow($spatial)
@@ -75,6 +77,7 @@ class GisPoint extends GisGeometry
      * @param resource    $image       Image object
      *
      * @return resource the modified image object
+     *
      * @access public
      */
     public function prepareRowAsPng(
@@ -138,6 +141,7 @@ class GisPoint extends GisGeometry
      * @param TCPDF       $pdf         TCPDF instance
      *
      * @return TCPDF the modified TCPDF instance
+     *
      * @access public
      */
     public function prepareRowAsPdf(
@@ -200,6 +204,7 @@ class GisPoint extends GisGeometry
      * @param array  $scale_data  Array containing data related to scaling
      *
      * @return string the code related to a row in the GIS dataset
+     *
      * @access public
      */
     public function prepareRowAsSvg($spatial, $label, $point_color, array $scale_data)
@@ -246,6 +251,7 @@ class GisPoint extends GisGeometry
      * @param array  $scale_data  Array containing data related to scaling
      *
      * @return string JavaScript related to a row in the GIS dataset
+     *
      * @access public
      */
     public function prepareRowAsOl(
@@ -295,6 +301,7 @@ class GisPoint extends GisGeometry
      * @param string $empty    Point does not adhere to this parameter
      *
      * @return string WKT with the set of parameters passed by the GIS editor
+     *
      * @access public
      */
     public function generateWkt(array $gis_data, $index, $empty = '')
@@ -315,6 +322,7 @@ class GisPoint extends GisGeometry
      * @param array $row_data GIS data
      *
      * @return string the WKT for the data from ESRI shape files
+     *
      * @access public
      */
     public function getShape(array $row_data)
@@ -330,6 +338,7 @@ class GisPoint extends GisGeometry
      * @param int    $index of the geometry
      *
      * @return array params for the GIS data editor from the value of the GIS column
+     *
      * @access public
      */
     public function generateParams($value, $index = -1)

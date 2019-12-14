@@ -38,8 +38,8 @@ class EncodingTest extends TestCase
      * Test for Encoding::convertString
      *
      * @return void
-     * @test
      *
+     * @test
      * @group medium
      */
     public function testNoConversion()
@@ -139,6 +139,7 @@ class EncodingTest extends TestCase
      * Test for kanjiChangeOrder
      *
      * @return void
+     *
      * @test
      */
     public function testChangeOrder()
@@ -154,6 +155,7 @@ class EncodingTest extends TestCase
      * Test for Encoding::kanjiStrConv
      *
      * @return void
+     *
      * @test
      */
     public function testKanjiStrConv()
@@ -186,6 +188,7 @@ class EncodingTest extends TestCase
      * Test for Encoding::kanjiFileConv
      *
      * @return void
+     *
      * @test
      */
     public function testFileConv()
@@ -212,6 +215,7 @@ class EncodingTest extends TestCase
      * Test for Encoding::kanjiEncodingForm
      *
      * @return void
+     *
      * @test
      */
     public function testEncodingForm()

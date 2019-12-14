@@ -162,14 +162,14 @@ class CheckUserPrivileges
      * (no control user needed) and we don't have to try any other method for
      * detection
      *
+     * @return void
+     *
      * @todo fix to get really all privileges, not only explicitly defined for this user
      * from MySQL manual: (https://dev.mysql.com/doc/refman/5.0/en/show-grants.html)
      * SHOW GRANTS displays only the privileges granted explicitly to the named
      * account. Other privileges might be available to the account, but they are not
      * displayed. For example, if an anonymous account exists, the named account
      * might be able to use its privileges, but SHOW GRANTS will not display them.
-     *
-     * @return void
      */
     private function analyseShowGrant(): void
     {

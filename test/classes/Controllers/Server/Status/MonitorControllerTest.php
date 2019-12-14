@@ -19,7 +19,6 @@ use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class MonitorControllerTest
  * @package PhpMyAdmin\Tests\Controllers\Server\Status
  */
 class MonitorControllerTest extends TestCase

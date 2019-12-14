@@ -12,7 +12,6 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
- * Class SpecialSchemaLinks
  * @package PhpMyAdmin\Config
  */
 class SpecialSchemaLinks

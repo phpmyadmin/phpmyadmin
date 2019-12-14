@@ -33,8 +33,6 @@ class Tracking
     protected $relation;
 
     /**
-     * Tracking constructor.
-     *
      * @param SqlQueryForm $sqlQueryForm SqlQueryForm instance
      * @param Template     $template     Template instance
      * @param Relation     $relation     Relation instance

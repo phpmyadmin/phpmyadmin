@@ -113,6 +113,7 @@ class StructureController extends AbstractController
      * Index action
      *
      * @param array $parameters Request parameters
+     *
      * @return string HTML
      */
     public function index(array $parameters): string
@@ -194,6 +195,7 @@ class StructureController extends AbstractController
      * Add or remove favorite tables
      *
      * @param array $parameters Request parameters
+     *
      * @return array
      */
     public function addRemoveFavoriteTablesAction(array $parameters): ?array
@@ -283,6 +285,7 @@ class StructureController extends AbstractController
      * Handles request for real row count on database level view page.
      *
      * @param array $parameters Request parameters
+     *
      * @return array JSON
      */
     public function handleRealRowCountRequestAction(array $parameters): array
@@ -814,7 +817,6 @@ class StructureController extends AbstractController
     /**
      * Synchronize favorite tables
      *
-     *
      * @param RecentFavoriteTable $favoriteInstance Instance of this class
      * @param string              $user             The user hash
      * @param array               $favoriteTables   Existing favorites
@@ -895,12 +897,13 @@ class StructureController extends AbstractController
     /**
      * Get the value set for ENGINE table,
      *
+     * @internal param bool $table_is_view whether table is view or not
+     *
      * @param array   $current_table current table
      * @param integer $sum_size      total table size
      * @param integer $overhead_size overhead size
      *
      * @return array
-     * @internal param bool $table_is_view whether table is view or not
      */
     protected function getStuffForEngineTypeTable(
         array $current_table,

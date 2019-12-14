@@ -33,8 +33,9 @@ class PdfTest extends PmaTestCase
     /**
      * Test for Pdf::getPDFData
      *
-     * @group large
      * @return void
+     *
+     * @group large
      */
     public function testBasic()
     {
@@ -45,8 +46,9 @@ class PdfTest extends PmaTestCase
     /**
      * Test for Pdf::getPDFData
      *
-     * @group large
      * @return void
+     *
+     * @group large
      */
     public function testAlias()
     {
@@ -58,8 +60,9 @@ class PdfTest extends PmaTestCase
     /**
      * Test for Pdf::getPDFData
      *
-     * @group large
      * @return void
+     *
+     * @group large
      */
     public function testDocument()
     {

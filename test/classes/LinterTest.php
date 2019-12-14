@@ -81,12 +81,12 @@ class LinterTest extends PmaTestCase
     /**
      * Test for Linter::lint
      *
-     * @dataProvider lintProvider
-     *
      * @param array  $expected The expected result.
      * @param string $query    The query to be analyzed.
      *
      * @return void
+     *
+     * @dataProvider lintProvider
      */
     public function testLint($expected, $query): void
     {

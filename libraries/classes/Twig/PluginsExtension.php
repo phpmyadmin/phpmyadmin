@@ -12,8 +12,6 @@ use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
 /**
- * Class PluginsExtension
- *
  * @package PhpMyAdmin\Twig
  */
 class PluginsExtension extends AbstractExtension

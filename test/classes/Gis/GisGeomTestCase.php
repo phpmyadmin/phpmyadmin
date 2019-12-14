@@ -26,8 +26,9 @@ abstract class GisGeomTestCase extends TestCase
      * @param int    $index  index
      * @param array  $params expected output array
      *
-     * @dataProvider providerForTestGenerateParams
      * @return void
+     *
+     * @dataProvider providerForTestGenerateParams
      */
     public function testGenerateParams($wkt, $index, $params): void
     {
@@ -50,8 +51,9 @@ abstract class GisGeomTestCase extends TestCase
      * @param string $spatial spatial data of a row
      * @param array  $min_max expected results
      *
-     * @dataProvider providerForTestScaleRow
      * @return void
+     *
+     * @dataProvider providerForTestScaleRow
      */
     public function testScaleRow($spatial, $min_max): void
     {
