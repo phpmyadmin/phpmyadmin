@@ -5,13 +5,13 @@
   <input type="hidden" name="pos" value="0">
   <input type="hidden" name="goto" value="{{ goto }}">
   <input type="hidden" name="message_to_show" value="{% trans 'Your SQL query has been executed successfully.' %}">
-  <input type="hidden" name="prev_sql_query" value="{{ query }}">
+  <input type="hidden" name="prev_sql_query"  value="{{ query }}">
 
   {% if display_tab == 'full' or display_tab == 'sql' %}
-    <a id="querybox"></a>
+    <a id="querybox" ></a>
     <div id="queryboxcontainer">
       <fieldset id="queryboxf">
-        <legend>{{ legend|raw }}</legend>
+        <legend style="font-size:0.7em;">{{ legend|raw }}</legend>
         <div id="queryfieldscontainer">
           <div id="{{ columns_list is not empty ? 'sqlquerycontainer' : 'sqlquerycontainerfull' }}">
             <textarea tabindex="100" name="sql_query" id="sqlquery" cols="{{ textarea_cols }}" rows="{{ textarea_rows * 2 }}"
