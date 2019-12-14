@@ -115,10 +115,13 @@
                 {% trans 'Server type:' %}
                 {{ database_server.type }}
               </li>
-              <li id="li_server_connection">
-                {% trans 'Server connection:' %}
-                {{ database_server.connection|raw }}
-              </li>
+
+          {%  if(database_server.host !="Localhost via UNIX socket") %}
+                <li id="li_server_connection">
+                  {% trans 'Server connection:' %}
+                  {{ database_server.connection|raw }}
+                </li>
+          {%   endif %}
               <li id="li_server_version">
                 {% trans 'Server version:' %}
                 {{ database_server.version }}
