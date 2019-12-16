@@ -1027,6 +1027,7 @@ AJAX.registerOnload('functions.js', function () {
                         $('input[name=token]').val(data.new_token);
                     }
                     idleSecondsCounter = 0;
+                    Functions.handleRedirectAndReload(data);
                 }
             }
         });
