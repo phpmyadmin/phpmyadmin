@@ -12,11 +12,11 @@
     {% elseif master_configure is null and clear_screen is null %}
       <fieldset>
         <legend>{% trans 'Master replication' %}</legend>
-        {% filter format('<a href="server_replication.php" data-post="' ~ get_common(url_params|merge({'mr_configure': true}), '') ~ '">', '</a>')|raw %}
+        {% apply format('<a href="server_replication.php" data-post="' ~ get_common(url_params|merge({'mr_configure': true}), '') ~ '">', '</a>')|raw %}
           {% trans %}
             This server is not configured as master in a replication process. Would you like to %sconfigure%s it?
           {% endtrans %}
-        {% endfilter %}
+        {% endapply %}
       </fieldset>
     {% endif %}
 
