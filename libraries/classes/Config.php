@@ -1636,7 +1636,11 @@ class Config
      * @return mixed result of getCookie()
      */
     public function getCookie($cookieName) {
-        return @$_COOKIE[$this->getCookieName($cookieName)];
+        if (isset($_COOKIE[$this->getCookieName($cookieName)])) {
+            return $_COOKIE[$this->getCookieName($cookieName)];
+        } else {
+            return null;
+        }
     }
 
     /**
