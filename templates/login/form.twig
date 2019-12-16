@@ -76,7 +76,7 @@
   <fieldset class="tblFooters">
     {% if has_captcha %}
       <script src="https://www.google.com/recaptcha/api.js?hl={{ lang }}" async defer></script>
-      <input class="btn btn-primary g-recaptcha" data-sitekey="{{ captcha_key }}" data-callback="Functions.recaptchaCallback" value="{% trans 'Go' %}" type="submit" id="input_go">
+      <input class="btn btn-primary g-recaptcha" data-sitekey="{{ captcha_key }}" data-callback="Functions_recaptchaCallback" value="{% trans 'Go' %}" type="submit" id="input_go">
     {% else %}
       <input class="btn btn-primary" value="{% trans 'Go' %}" type="submit" id="input_go">
     {% endif %}
