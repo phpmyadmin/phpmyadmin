@@ -43,6 +43,7 @@ phpMyAdmin - ChangeLog
 - issue        Fix twig deprecation notices for php 8.0
 - issue #15435 Fix ReCAPTCHA couldn't find user-provided function: Functions.recaptchaCallback
 - issue #15623 Fix width of picker modal and remove date picker for int fields
+- issue #14732 Fixed can't rename primary key with auto increment
 
 4.9.3 (not yet released)
 - issue #15570 Fix page contents go underneath of floating menubar in some cases
