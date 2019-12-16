@@ -40,6 +40,7 @@ phpMyAdmin - ChangeLog
 - issue #15350 Change MIME type references to Media (MIME) type
 - issue        Fixed url.php crashing because it's not loading the DatabaseInterface service
 - issue #15540 Fixed uncaught TypeError: htmlspecialchars() in NavigationTree
+- issue        Fix twig deprecation notices for php 8.0
 
 4.9.3 (not yet released)
 - issue #15570 Fix page contents go underneath of floating menubar in some cases
