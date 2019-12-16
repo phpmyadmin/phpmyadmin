@@ -481,6 +481,7 @@ class Table
      * @param string      $expression         expression for the virtual column
      * @param string      $move_to            new position for column
      * @param array       $columns_with_index Fields having PRIMARY or UNIQUE KEY indexes
+     * @param string      $oldColumnName      Old column name
      *
      * @return string  field specification
      *
@@ -502,7 +503,8 @@ class Table
         $virtuality = '',
         $expression = '',
         $move_to = '',
-        $columns_with_index = null
+        $columns_with_index = null,
+        $oldColumnName = null
     ) {
         /** @var DatabaseInterface $dbi */
         $dbi = $GLOBALS['dbi'];
@@ -641,8 +643,14 @@ class Table
             $query .= ' AFTER ' . Util::backquote($move_to);
         }
         if (! $virtuality && ! empty($extra)) {
-            if (empty($columns_with_index) && ! in_array($name, $columns_with_index)) {
-                $query .= ', add PRIMARY KEY (' . Util::backquote($name) . ')';
+            if ($oldColumnName === null) {
+                if (is_array($columns_with_index) && ! in_array($name, $columns_with_index)) {
+                    $query .= ', add PRIMARY KEY (' . Util::backquote($name) . ')';
+                }
+            } else {
+                if (is_array($columns_with_index) && ! in_array($oldColumnName, $columns_with_index)) {
+                    $query .= ', add PRIMARY KEY (' . Util::backquote($name) . ')';
+                }
             }
         }
 
@@ -847,7 +855,8 @@ class Table
             $virtuality,
             $expression,
             $move_to,
-            $columns_with_index
+            $columns_with_index,
+            $oldcol
         );
     } // end function
 
