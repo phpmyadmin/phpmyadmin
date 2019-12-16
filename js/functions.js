@@ -4916,7 +4916,8 @@ Functions.toggleDatepickerIfInvalid = function ($td, $inputField) {
  * Function to submit the login form after validation is done.
  * NOTE: do NOT use a module or it will break the callback, issue #15435
  */
-Functions_recaptchaCallback = function () {
+// eslint-disable-next-line no-unused-vars, camelcase
+var Functions_recaptchaCallback = function () {
     $('#login_form').trigger('submit');
 };
 
