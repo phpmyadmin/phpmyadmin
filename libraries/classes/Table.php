@@ -641,7 +641,7 @@ class Table
             $query .= ' AFTER ' . Util::backquote($move_to);
         }
         if (! $virtuality && ! empty($extra)) {
-            if (is_array($columns_with_index) && ! in_array($name, $columns_with_index)) {
+            if (empty($columns_with_index) && ! in_array($name, $columns_with_index)) {
                 $query .= ', add PRIMARY KEY (' . Util::backquote($name) . ')';
             }
         }
