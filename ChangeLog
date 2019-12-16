@@ -41,6 +41,7 @@ phpMyAdmin - ChangeLog
 - issue        Fixed url.php crashing because it's not loading the DatabaseInterface service
 - issue #15540 Fixed uncaught TypeError: htmlspecialchars() in NavigationTree
 - issue        Fix twig deprecation notices for php 8.0
+- issue #15435 Fix ReCAPTCHA couldn't find user-provided function: Functions.recaptchaCallback
 
 4.9.3 (not yet released)
 - issue #15570 Fix page contents go underneath of floating menubar in some cases
