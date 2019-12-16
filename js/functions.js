@@ -112,6 +112,10 @@ $.ajaxPrefilter(function (options, originalOptions) {
  * @param {object} $thisElement a jQuery object pointing to the element
  */
 Functions.addDatepicker = function ($thisElement, type, options) {
+    if (type !== 'date' && type !== 'time' && type !== 'datetime' && type !== 'timestamp') {
+        return;
+    }
+
     var showTimepicker = true;
     if (type === 'date') {
         showTimepicker = false;
