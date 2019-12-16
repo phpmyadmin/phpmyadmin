@@ -1521,7 +1521,11 @@ class Config
      */
     public function getCookie(string $cookieName)
     {
-        return @$_COOKIE[$this->getCookieName($cookieName)];
+        if (isset($_COOKIE[$this->getCookieName($cookieName)])) {
+            return $_COOKIE[$this->getCookieName($cookieName)];
+        } else {
+            return null;
+        }
     }
 
     /**

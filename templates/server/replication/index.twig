@@ -17,11 +17,11 @@
     <div class="row">
       <fieldset>
         <legend>{% trans 'Master replication' %}</legend>
-        {% filter format('<a href="' ~ url('/server/replication') ~ '" data-post="' ~ get_common(url_params|merge({'mr_configure': true}), '') ~ '">', '</a>')|raw %}
+        {% apply format('<a href="' ~ url('/server/replication') ~ '" data-post="' ~ get_common(url_params|merge({'mr_configure': true}), '') ~ '">', '</a>')|raw %}
           {% trans %}
             This server is not configured as master in a replication process. Would you like to %sconfigure%s it?
           {% endtrans %}
-        {% endfilter %}
+        {% endapply %}
       </fieldset>
     </div>
     {% endif %}

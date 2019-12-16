@@ -38,6 +38,7 @@ class Error extends Message
         E_USER_NOTICE        => 'User Notice',
         E_STRICT             => 'Runtime Notice',
         E_DEPRECATED         => 'Deprecation Notice',
+        E_USER_DEPRECATED    => 'Deprecation Notice',
         E_RECOVERABLE_ERROR  => 'Catchable Fatal Error',
     ];
 
@@ -61,6 +62,7 @@ class Error extends Message
         E_USER_NOTICE        => 'notice',
         E_STRICT             => 'notice',
         E_DEPRECATED         => 'notice',
+        E_USER_DEPRECATED    => 'notice',
         E_RECOVERABLE_ERROR  => 'error',
     ];
 
