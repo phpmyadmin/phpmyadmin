@@ -265,6 +265,7 @@ class UserPreferencesTest extends PmaTestCase
 
         $result = $this->userPreferences->save([1]);
 
+        $this->assertIsObject($result);
         $this->assertEquals(
             'Could not save configuration<br><br>err1',
             $result->getMessage()
