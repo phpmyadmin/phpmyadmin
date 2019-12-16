@@ -731,7 +731,7 @@ class TableTest extends PmaTestCase
             'id'
         );
         $this->assertEquals(
-            "`ids` INT(11) PMA_attribute NULL AUTO_INCREMENT "
+            '`ids` INT(11) PMA_attribute NULL AUTO_INCREMENT '
             . "COMMENT 'PMA_comment' FIRST",
             $query
         );
@@ -758,7 +758,7 @@ class TableTest extends PmaTestCase
         );
         // Add primary key for AUTO_INCREMENT if missing
         $this->assertEquals(
-            "`ids` INT(11) PMA_attribute NULL AUTO_INCREMENT "
+            '`ids` INT(11) PMA_attribute NULL AUTO_INCREMENT '
             . "COMMENT 'PMA_comment' FIRST, add PRIMARY KEY (`ids`)",
             $query
         );
@@ -785,7 +785,7 @@ class TableTest extends PmaTestCase
         );
         // Do not add PK
         $this->assertEquals(
-            "`id` INT(11) PMA_attribute NULL DEF "
+            '`id` INT(11) PMA_attribute NULL DEF '
             . "COMMENT 'PMA_comment' FIRST",
             $query
         );
@@ -812,7 +812,7 @@ class TableTest extends PmaTestCase
         );
         // Do not add PK
         $this->assertEquals(
-            "`ids` INT(11) PMA_attribute NULL DEF "
+            '`ids` INT(11) PMA_attribute NULL DEF '
             . "COMMENT 'PMA_comment' FIRST",
             $query
         );
@@ -839,7 +839,7 @@ class TableTest extends PmaTestCase
         );
         // Add it beaucause it is missing
         $this->assertEquals(
-            "`ids` INT(11) PMA_attribute NULL DEF "
+            '`ids` INT(11) PMA_attribute NULL DEF '
             . "COMMENT 'PMA_comment' FIRST, add PRIMARY KEY (`ids`)",
             $query
         );
@@ -866,7 +866,7 @@ class TableTest extends PmaTestCase
         );
         // Do not add PK since it is not a AUTO_INCREMENT
         $this->assertEquals(
-            "`ids` INT(11) PMA_attribute AS (1) VIRTUAL NULL "
+            '`ids` INT(11) PMA_attribute AS (1) VIRTUAL NULL '
             . "USER_DEFINED COMMENT 'PMA_comment' FIRST",
             $query
         );

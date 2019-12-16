@@ -3989,7 +3989,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#8 \\$default_value of static method PhpMyAdmin\\\\Table\\:\\:generateFieldSpec\\(\\) expects string, int given\\.$#"
-			count: 8
+			count: 14
 			path: test/classes/TableTest.php
 
 		-
