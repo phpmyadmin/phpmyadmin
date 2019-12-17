@@ -5,10 +5,10 @@
 <tr id="tr_element_before_generate_password"></tr>
 </table>
 <div{{ orig_auth_plugin != 'sha256_password' ? ' class="hide"' }} id="ssl_reqd_warning_cp">
-  {% filter notice %}
+  {% apply notice %}
   {% trans %}
     This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted connection that encrypts the password using RSA</i>'; while connecting to the server.
   {% endtrans %}
   {{ show_mysql_docu('sha256-authentication-plugin') }}
-  {% endfilter %}
+  {% endapply %}
 </div>
