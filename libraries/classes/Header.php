@@ -10,6 +10,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\Navigation;
+use function ini_get;
 
 /**
  * Class used to output the HTTP and HTML headers
@@ -200,6 +201,7 @@ class Header
         // the user preferences have not been merged at this point
 
         $this->_scripts->addFile('messages.php', ['l' => $GLOBALS['lang']]);
+        $this->_scripts->addCode($this->getVariablesForJavaScript());
         $this->_scripts->addFile('config.js');
         $this->_scripts->addFile('doclinks.js');
         $this->_scripts->addFile('functions.js');
@@ -697,5 +699,22 @@ class Header
     public static function getVersionParameter(): string
     {
         return 'v=' . urlencode(PMA_VERSION);
+    }
+
+    /**
+     * @return string
+     */
+    private function getVariablesForJavaScript(): string
+    {
+        global $cfg, $pmaThemeImage;
+
+        $maxInputVars = ini_get('max_input_vars');
+        $maxInputVarsValue = $maxInputVars === false || $maxInputVars === '' ? 'false' : (int) $maxInputVars;
+
+        return $this->template->render('javascript/variables', [
+            'first_day_of_calendar' => $cfg['FirstDayOfCalendar'],
+            'pma_theme_image' => $pmaThemeImage,
+            'max_input_vars' => $maxInputVarsValue,
+        ]);
     }
 }

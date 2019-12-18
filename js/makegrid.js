@@ -1,4 +1,4 @@
-/* global firstDayOfCalendar */ // js/messages.php
+/* global firstDayOfCalendar */ // templates/javascript/variables.twig
 
 /**
  * Create advanced table (resize, reorder, and show/hide columns; and also grid editing).

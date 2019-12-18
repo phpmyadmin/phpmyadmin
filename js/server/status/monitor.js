@@ -9,7 +9,7 @@
 
 /* global isStorageSupported */ // js/config.js
 /* global codeMirrorEditor:writable */ // js/functions.js
-/* global firstDayOfCalendar, pmaThemeImage */ // js/messages.php
+/* global firstDayOfCalendar, pmaThemeImage */ // templates/javascript/variables.twig
 /* global variableNames */ // templates/server/status/monitor/index.twig
 
 var runtime = {};

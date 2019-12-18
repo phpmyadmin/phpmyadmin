@@ -339,63 +339,6 @@ class Sanitize
     }
 
     /**
-     * Prints an javascript assignment with proper escaping of a value
-     * and support for assigning array of strings.
-     *
-     * @param string $key   Name of value to set
-     * @param mixed  $value Value to set, can be either string or array of strings
-     *
-     * @return void
-     */
-    public static function printJsValue($key, $value)
-    {
-        echo self::getJsValue($key, $value);
-    }
-
-    /**
-     * Formats javascript assignment for form validation api
-     * with proper escaping of a value.
-     *
-     * @param string  $key   Name of value to set
-     * @param string  $value Value to set
-     * @param boolean $addOn Check if $.validator.format is required or not
-     * @param boolean $comma Check if comma is required
-     *
-     * @return string Javascript code.
-     */
-    public static function getJsValueForFormValidation($key, $value, $addOn, $comma)
-    {
-        $result = $key . ': ';
-        if ($addOn) {
-            $result .= '$.validator.format(';
-        }
-        $result .= self::formatJsVal($value);
-        if ($addOn) {
-            $result .= ')';
-        }
-        if ($comma) {
-            $result .= ', ';
-        }
-        return $result;
-    }
-
-    /**
-     * Prints javascript assignment for form validation api
-     * with proper escaping of a value.
-     *
-     * @param string  $key   Name of value to set
-     * @param string  $value Value to set
-     * @param boolean $addOn Check if $.validator.format is required or not
-     * @param boolean $comma Check if comma is required
-     *
-     * @return void
-     */
-    public static function printJsValueForFormValidation($key, $value, $addOn = false, $comma = true)
-    {
-        echo self::getJsValueForFormValidation($key, $value, $addOn, $comma);
-    }
-
-    /**
      * Removes all variables from request except whitelisted ones.
      *
      * @param string[] $whitelist list of variables to allow
