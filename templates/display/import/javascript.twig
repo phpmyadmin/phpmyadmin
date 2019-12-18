@@ -18,7 +18,7 @@ $( function() {
             {% set import_url = get_common_raw({'import_status': 1}) %}
 
             {% set upload_html %}
-                {% spaceless %}
+                {% apply spaceless %}
                     <div class="upload_progress">
                         <div class="upload_progress_bar_outer">
                             <div class="percentage"></div>
@@ -31,7 +31,7 @@ $( function() {
                         </div>
                         <div id="statustext"></div>
                     </div>
-                {% endspaceless %}
+                {% endapply %}
             {% endset %}
 
             {# Start output #}
