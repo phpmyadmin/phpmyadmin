@@ -386,7 +386,7 @@ class Util
 
         // '0' is also empty for php :-(
         if (strlen((string) $a_name) > 0 && $a_name !== '*') {
-            return $quote . str_replace($quote, $escapeChar . $quote, $a_name) . $quote;
+            return $quote . str_replace($quote, $escapeChar . $quote, (string) $a_name) . $quote;
         }
 
         return $a_name;
