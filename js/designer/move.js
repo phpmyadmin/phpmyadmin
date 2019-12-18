@@ -6,7 +6,7 @@
 /* global DesignerHistory, historyArray, selectField */ // js/designer/history.js
 /* global contr, db, designerTablesEnabled, displayField, hTabs, jTabs, selectedPage:writable, server */ // js/designer/init.js
 /* global DesignerPage */ // js/designer/page.js
-/* global pmaThemeImage */ // js/messages.php
+/* global pmaThemeImage */ // templates/javascript/variables.twig
 
 var DesignerMove = {};
 

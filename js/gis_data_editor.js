@@ -6,7 +6,7 @@
  */
 
 /* global addZoomPanControllers, loadSVG, selectVisualization, styleOSM, zoomAndPan */ // js/table/gis_visualization.js
-/* global pmaThemeImage */ // js/messages.php
+/* global pmaThemeImage */ // templates/javascript/variables.twig
 
 // eslint-disable-next-line no-unused-vars
 var gisEditorLoaded = false;

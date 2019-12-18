@@ -7,7 +7,7 @@
  *
  */
 
-/* global extendingValidatorMessages */ // js/messages.php
+/* global extendingValidatorMessages */ // templates/javascript/variables.twig
 /* global openGISEditor, gisEditorLoaded, loadJSAndGISEditor, loadGISEditor */ // js/gis_data_editor.js
 
 /**
