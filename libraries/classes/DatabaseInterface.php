@@ -1510,7 +1510,7 @@ class DatabaseInterface implements DbalInterface
             DatabaseInterface::CONNECT_USER
         );
 
-        if ($version) {
+        if (is_array($version)) {
             $this->_version_str = isset($version['@@version']) ? $version['@@version'] : '';
             $this->_version_int = self::versionToInt($this->_version_str);
             $this->_version_comment = isset($version['@@version_comment']) ? $version['@@version_comment'] : '';
