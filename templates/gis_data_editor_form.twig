@@ -46,7 +46,8 @@
                 <input type="hidden" name="gis_data[GEOMETRYCOLLECTION][geom_count]" value="{{ geom_count }}">
             {% endif %}
 
-            {% for a in 0..geom_count - 1 if gis_data[a] is not null %}
+            {% for a in 0..geom_count - 1 %}
+              {% if gis_data[a] is not null %}
                 {% if geom_type == 'GEOMETRYCOLLECTION' %}
                     <br><br>
                     {{ 'Geometry %d:'|trans|format(a + 1) }}
@@ -197,6 +198,7 @@
                     <br>
                     <input type="submit" name="gis_data[{{ a }}][{{ type }}][add_polygon]" class="btn btn-secondary add addPolygon" value="{% trans 'Add a polygon' %}">
                 {% endif %}
+              {% endif %}
             {% endfor %}
             {% if geom_type == 'GEOMETRYCOLLECTION' %}
                 <br><br>
