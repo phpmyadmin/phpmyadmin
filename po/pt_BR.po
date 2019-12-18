@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-11-22 01:31+0100\n"
-"PO-Revision-Date: 2019-11-08 14:26+0000\n"
+"PO-Revision-Date: 2019-12-19 20:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-0/pt_BR/>\n"
@@ -1961,10 +1961,8 @@ msgid "%d object(s) created."
 msgstr "%d objeto(s) criado(s)."
 
 #: js/messages.php:591
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
-msgstr "Nome das colunas"
+msgstr "Nome da coluna"
 
 #: js/messages.php:592 libraries/classes/SqlQueryForm.php:430
 msgid "Submit"
@@ -2587,7 +2585,7 @@ msgstr "calendar-month-year"
 #: js/messages.php:909
 msgctxt "Year suffix"
 msgid "none"
-msgstr "Sufixo de ano: nenhum"
+msgstr "none"
 
 #: js/messages.php:921
 msgid "Hour"
@@ -7543,18 +7541,14 @@ msgstr ""
 "instalação!"
 
 #: libraries/classes/Database/Designer/Common.php:534
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr ""
-"O armazenamento de configuração não está pronto para a lista central de "
-"colunas recurso."
+"O armazenamento de configuração do phpMyAdmin não está configurado para \""
+"Mostrar Recursos\"."
 
 #: libraries/classes/Database/Designer/Common.php:583
 msgid "Error: relationship already exists."
@@ -14378,7 +14372,7 @@ msgstr "Resetar zoom"
 #: templates/columns_definitions/column_default.twig:3
 msgctxt "for default"
 msgid "None"
-msgstr "Padrão: none"
+msgstr "Nenhum"
 
 #: templates/columns_definitions/column_default.twig:5
 msgid "As defined:"
@@ -14796,7 +14790,7 @@ msgstr "Privilégio insuficiente para exibir o assessor."
 #: templates/table/structure/display_structure.twig:91
 msgctxt "None for default"
 msgid "None"
-msgstr "Nenhum wrap (padrão: none)"
+msgstr "Nenhum"
 
 #: templates/database/designer/database_tables.twig:37
 msgid "Show/hide columns"
@@ -14807,10 +14801,9 @@ msgid "See table structure"
 msgstr "Ver estrutura da tabela"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Selecionar todos"
+msgstr "Selecionar \"%s\""
 
 #: templates/database/designer/database_tables.twig:109
 #, php-format
