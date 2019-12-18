@@ -900,7 +900,7 @@ class Util
 
         // '0' is also empty for php :-(
         if (strlen((string) $a_name) > 0 && $a_name !== '*') {
-            return '`' . str_replace('`', '``', $a_name) . '`';
+            return '`' . str_replace('`', '``', (string) $a_name) . '`';
         }
 
         return $a_name;
