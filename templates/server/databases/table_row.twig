@@ -14,28 +14,30 @@
             {{ current['SCHEMA_NAME'] }}
         </a>
     </td>
-    {% for stat_name, stat in column_order if stat_name in current|keys %}
-        {% if stat['format'] is same as('byte') %}
-            {% set byte_format = Util_formatByteDown(current[stat_name], 3, 1) %}
-            {% set value = byte_format[0] %}
-            {% set unit = byte_format[1] %}
-        {% elseif stat['format'] is same as('number') %}
-            {% set value = Util_formatNumber(current[stat_name], 0) %}
-        {% else %}
-            {% set value = htmlentities(current[stat_name], 0) %}
-        {% endif %}
-
-        <td class="value">
-            {% if stat['description_function'] is defined %}
-                <dfn title="{{ Charsets_getCollationDescr(current[stat_name]) }}">
-                    {{ value }}
-                </dfn>
+    {% for stat_name, stat in column_order %}
+        {% if stat_name in current|keys %}
+            {% if stat['format'] is same as('byte') %}
+                {% set byte_format = Util_formatByteDown(current[stat_name], 3, 1) %}
+                {% set value = byte_format[0] %}
+                {% set unit = byte_format[1] %}
+            {% elseif stat['format'] is same as('number') %}
+                {% set value = Util_formatNumber(current[stat_name], 0) %}
             {% else %}
-                {{ value }}
+                {% set value = htmlentities(current[stat_name], 0) %}
             {% endif %}
-        </td>
-        {% if stat['format'] is same as('byte') %}
-            <td class="unit">{{ unit }}</td>
+
+            <td class="value">
+                {% if stat['description_function'] is defined %}
+                    <dfn title="{{ Charsets_getCollationDescr(current[stat_name]) }}">
+                        {{ value }}
+                    </dfn>
+                {% else %}
+                    {{ value }}
+                {% endif %}
+            </td>
+            {% if stat['format'] is same as('byte') %}
+                <td class="unit">{{ unit }}</td>
+            {% endif %}
         {% endif %}
     {% endfor %}
 
