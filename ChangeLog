@@ -55,6 +55,7 @@ phpMyAdmin - ChangeLog
 - issue #15633 Fix designer set display field broken for php 5.x versions
 - issue #15621 Support CloudFront-Forwarded-Proto header for Amazon CloudFront proxy
 - issue        Fix php 8.0 php notices - Undefined index on login page
+- issue #15640 Fix php 7.4 error when trying to access array offset on value of type null on table browse
 
 4.9.2 (2019-11-21)
 - issue #14184 Change the cookie name from phpMyAdmin to phpMyAdmin_https for HTTPS, fixes many "Failed to set session cookie" errors
