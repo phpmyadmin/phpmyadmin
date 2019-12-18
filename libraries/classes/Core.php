@@ -21,15 +21,6 @@ use PhpMyAdmin\Display\Error as DisplayError;
 class Core
 {
     /**
-     * the whitelist for goto parameter
-     *
-     * @static array $goto_whitelist
-     */
-    public static $goto_whitelist = [
-        'index.php',
-    ];
-
-    /**
      * checks given $var and returns it if valid, or $default of not valid
      * given $var is also checked for type being 'similar' as $default
      * or against any other type if $type is provided
@@ -409,7 +400,7 @@ class Core
     public static function checkPageValidity(&$page, array $whitelist = [], $include = false): bool
     {
         if (empty($whitelist)) {
-            $whitelist = self::$goto_whitelist;
+            $whitelist = ['index.php'];
         }
         if (empty($page)) {
             return false;
