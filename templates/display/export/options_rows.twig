@@ -9,7 +9,7 @@
                 <li>
                     <label for="limit_to">{% trans 'Number of rows:' %}</label>
                     <input type="text" id="limit_to" name="limit_to" size="5" value="
-                        {%- spaceless %}
+                        {%- apply spaceless %}
                             {% if limit_to is not null %}
                                 {{ limit_to }}
                             {% elseif unlim_num_rows is not empty and unlim_num_rows != 0 %}
@@ -17,7 +17,7 @@
                             {% else %}
                                 {{ number_of_rows }}
                             {% endif %}
-                        {% endspaceless %}" onfocus="this.select()">
+                        {% endapply %}" onfocus="this.select()">
                 </li>
                 <li>
                     <label for="limit_from">{% trans 'Row to begin at:' %}</label>
