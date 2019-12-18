@@ -1454,13 +1454,13 @@ class DatabaseInterface
         );
 
         if ($version) {
-            $this->_version_int = self::versionToInt($version['@@version']);
-            $this->_version_str = $version['@@version'];
-            $this->_version_comment = $version['@@version_comment'];
-            if (stripos($version['@@version'], 'mariadb') !== false) {
+            $this->_version_str = isset($version['@@version']) ? $version['@@version'] : '';
+            $this->_version_int = self::versionToInt($this->_version_str);
+            $this->_version_comment = isset($version['@@version_comment']) ? $version['@@version_comment'] : '';
+            if (stripos($this->_version_str, 'mariadb') !== false) {
                 $this->_is_mariadb = true;
             }
-            if (stripos($version['@@version_comment'], 'percona') !== false) {
+            if (stripos($this->_version_comment, 'percona') !== false) {
                 $this->_is_percona = true;
             }
         }
