@@ -122,7 +122,8 @@
                 </tr>
             </thead>
             <tbody>
-                {% for table_name in untracked_tables if get_tracker_version(db, table_name) == -1 %}
+                {% for table_name in untracked_tables %}
+                  {% if get_tracker_version(db, table_name) == -1 %}
                     <tr>
                         <td class="center">
                             <input type="checkbox" name="selected_tbl[]"
@@ -140,6 +141,7 @@
                             </a>
                         </td>
                     </tr>
+                  {% endif %}
                 {% endfor %}
             </tbody>
         </table>

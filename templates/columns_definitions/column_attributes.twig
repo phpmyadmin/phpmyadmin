@@ -160,9 +160,11 @@
     {% set current_index = 0 %}
     {% set cols = move_columns|length - 1 %}
     {% set break = false %}
-    {% for mi in 0..cols if move_columns[mi].name == column_meta['Field'] and not break %}
+    {% for mi in 0..cols %}
+      {% if move_columns[mi].name == column_meta['Field'] and not break %}
         {% set current_index = mi %}
         {% set break = true %}
+      {% endif %}
     {% endfor %}
 
     <td class="center">
