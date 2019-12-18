@@ -21,10 +21,6 @@ use stdClass;
  */
 class CoreTest extends PmaTestCase
 {
-    protected $goto_whitelist = [
-        'index.php',
-    ];
-
     /**
      * Setup for test cases
      *
@@ -326,37 +322,37 @@ class CoreTest extends PmaTestCase
             ],
             [
                 'shell.php',
-                $this->goto_whitelist,
+                ['index.php'],
                 false,
                 false,
             ],
             [
                 'shell.php',
-                $this->goto_whitelist,
+                ['index.php'],
                 true,
                 false,
             ],
             [
                 'index.php?sql.php&test=true',
-                $this->goto_whitelist,
+                ['index.php'],
                 false,
                 true,
             ],
             [
                 'index.php?sql.php&test=true',
-                $this->goto_whitelist,
+                ['index.php'],
                 true,
                 false,
             ],
             [
                 'index.php%3Fsql.php%26test%3Dtrue',
-                $this->goto_whitelist,
+                ['index.php'],
                 false,
                 true,
             ],
             [
                 'index.php%3Fsql.php%26test%3Dtrue',
-                $this->goto_whitelist,
+                ['index.php'],
                 true,
                 false,
             ],

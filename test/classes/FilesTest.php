@@ -57,10 +57,6 @@ class FilesTest extends TestCase
     {
         return [
             [
-                'js/whitelist.php',
-                'var GotoWhitelist',
-            ],
-            [
                 'js/messages.php',
                 'var Messages = [];',
             ],
