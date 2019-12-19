@@ -1043,9 +1043,9 @@ class ReplicationGui
             $_POST['sr_slave_control_parm'] = null;
         }
         if ($_POST['sr_slave_action'] == 'reset') {
-            $qStop = Replication::slaveControl("STOP");
+            $qStop = Replication::slaveControl("STOP", null, DatabaseInterface::CONNECT_USER);
             $qReset = $GLOBALS['dbi']->tryQuery("RESET SLAVE;");
-            $qStart = Replication::slaveControl("START");
+            $qStart = Replication::slaveControl("START", null, DatabaseInterface::CONNECT_USER);
 
             $result = ($qStop !== false && $qStop !== -1 &&
                 $qReset !== false && $qReset !== -1 &&
@@ -1053,7 +1053,8 @@ class ReplicationGui
         } else {
             $qControl = Replication::slaveControl(
                 $_POST['sr_slave_action'],
-                $_POST['sr_slave_control_parm']
+                $_POST['sr_slave_control_parm'],
+                DatabaseInterface::CONNECT_USER
             );
 
             $result = ($qControl !== false && $qControl !== -1);
