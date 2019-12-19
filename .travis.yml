@@ -139,7 +139,7 @@ jobs:
       env: CI_MODE=test
       install:
         - pecl channel-update pecl.php.net
-        - pecl install dbase-7.0.0beta1
+        - pecl install dbase
         - composer install --no-interaction
         - yarn install --non-interactive
 
