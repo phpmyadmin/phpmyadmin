@@ -1075,11 +1075,11 @@ class ReplicationGui
             $count = $_POST['sr_skip_errors_count'] * 1;
         }
 
-        $qStop = Replication::slaveControl("STOP");
+        $qStop = Replication::slaveControl("STOP", null, DatabaseInterface::CONNECT_USER);
         $qSkip = $GLOBALS['dbi']->tryQuery(
             "SET GLOBAL SQL_SLAVE_SKIP_COUNTER = " . $count . ";"
         );
-        $qStart = Replication::slaveControl("START");
+        $qStart = Replication::slaveControl("START", null, DatabaseInterface::CONNECT_USER);
 
         $result = ($qStop !== false && $qStop !== -1 &&
             $qSkip !== false && $qSkip !== -1 &&
