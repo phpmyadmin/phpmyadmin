@@ -3343,7 +3343,7 @@ class Results
 
             $lnk_goto = 'sql.php' . Url::getCommonRaw($_url_params);
 
-            $kill = $GLOBALS['dbi']->getKillQuery($row[0]);
+            $kill = $GLOBALS['dbi']->getKillQuery((int) $row[0]);
 
             $_url_params = [
                 'db'        => 'mysql',
