@@ -221,6 +221,15 @@ services:
   PhpMyAdmin\Controllers\LogoutController:
     class: 'PhpMyAdmin\Controllers\LogoutController'
 
+  PhpMyAdmin\Controllers\NavigationController:
+    class: 'PhpMyAdmin\Controllers\NavigationController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      navigation: '@navigation'
+      relation: '@relation'
+
   PhpMyAdmin\Controllers\PhpInfoController:
     class: 'PhpMyAdmin\Controllers\PhpInfoController'
     arguments:

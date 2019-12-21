@@ -3358,11 +3358,6 @@ parameters:
 			path: libraries/entry_points/import.php
 
 		-
-			message: "#^Parameter \\#1 \\$content of method PhpMyAdmin\\\\Response\\:\\:addHTML\\(\\) expects string, PhpMyAdmin\\\\Message given\\.$#"
-			count: 1
-			path: libraries/entry_points/navigation.php
-
-		-
 			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, int\\|string given\\.$#"
 			count: 1
 			path: libraries/entry_points/preferences/manage.php
