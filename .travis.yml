@@ -63,6 +63,7 @@ matrix:
   include:
     - php: "7.1"
       env: CI_MODE=selenium
+      before_install: phpenv config-rm xdebug.ini
     - php: "7.0"
       node_js: 10
       env: CI_MODE=release
@@ -70,6 +71,7 @@ matrix:
       env: CI_MODE=docs
     - php: "7.1"
       env: CI_MODE=apidocs
+      before_install: phpenv config-rm xdebug.ini
     - os: osx
       name: "PHP 7.4"
       language: node_js
