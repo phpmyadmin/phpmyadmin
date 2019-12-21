@@ -89,6 +89,7 @@ jobs:
       php: 7.4
       name: "PHP 7.4"
       env: CI_MODE=test
+      before_install: phpenv config-rm xdebug.ini
 
     - stage: "PHP Unit tests"
       php: nightly
