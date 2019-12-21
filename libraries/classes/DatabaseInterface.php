@@ -2513,8 +2513,6 @@ class DatabaseInterface
             /* Run post connect for user connections */
             if ($target == DatabaseInterface::CONNECT_USER) {
                 $this->postConnect();
-            } elseif ($target == DatabaseInterface::CONNECT_CONTROL) {
-                $this->postConnectControl();
             }
             return $result;
         }

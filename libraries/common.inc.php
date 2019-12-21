@@ -458,3 +458,11 @@ $GLOBALS['PMA_Config']->loadUserPreferences();
 
 /* Tell tracker that it can actually work */
 Tracker::enable();
+
+if (! defined('PMA_MINIMUM_COMMON')
+    && ! empty($GLOBALS['server'])
+    && isset($GLOBALS['cfg']['ZeroConf'])
+    && $GLOBALS['cfg']['ZeroConf'] == true
+) {
+    $GLOBALS['dbi']->postConnectControl();
+}
