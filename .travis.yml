@@ -159,6 +159,7 @@ jobs:
 
     - stage: "Documentation"
       name: "Build API docs"
+      before_install: phpenv config-rm xdebug.ini
       before_script: skip
       after_script: skip
       after_success: skip
@@ -182,6 +183,7 @@ jobs:
         - TESTSUITE_SELENIUM_BROWSER=chrome
         - TESTSUITE_USER=root
         - TESTSUITE_URL=http://127.0.0.1:8000
+      before_install: phpenv config-rm xdebug.ini
       install:
         - ./test/install-browserstack
         - composer install --no-interaction
