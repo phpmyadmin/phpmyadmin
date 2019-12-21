@@ -93,5 +93,11 @@
         "branch-alias": {
             "dev-master": "4.9.x-dev"
         }
+    },
+    "scripts": {
+        "test": [
+            "phpcs",
+            "phpunit --color=always"
+        ]
     }
 }

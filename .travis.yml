@@ -119,6 +119,13 @@ matrix:
       env: CI_MODE=test
       install:
         - composer install --no-interaction --ignore-platform-reqs
+    - php: "7.1"
+      before_script: skip
+      after_script: skip
+      after_success: skip
+      script:
+        - test/ci-lint
+        - vendor/bin/phpcs --standard=phpcs.xml.dist
 
   allow_failures:
     - php: "nightly"
