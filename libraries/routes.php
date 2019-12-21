@@ -22,6 +22,7 @@ use PhpMyAdmin\Controllers\Database\SearchController;
 use PhpMyAdmin\Controllers\Database\SqlAutoCompleteController;
 use PhpMyAdmin\Controllers\Database\SqlFormatController;
 use PhpMyAdmin\Controllers\Database\StructureController;
+use PhpMyAdmin\Controllers\Database\TrackingController;
 use PhpMyAdmin\Controllers\Database\TriggersController;
 use PhpMyAdmin\Controllers\ErrorReportController;
 use PhpMyAdmin\Controllers\GisDataEditorController;
@@ -243,8 +244,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
                 ]));
             });
         });
-        $routes->addRoute(['GET', 'POST'], '/tracking', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/database/tracking.php';
+        $routes->addRoute(['GET', 'POST'], '/tracking', function () use ($containerBuilder) {
+            /** @var TrackingController $controller */
+            $controller = $containerBuilder->get(TrackingController::class);
+            $controller->index();
         });
         $routes->addRoute(['GET', 'POST'], '/triggers', function () use ($containerBuilder) {
             /** @var TriggersController $controller */

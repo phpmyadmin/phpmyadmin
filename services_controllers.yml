@@ -157,6 +157,15 @@ services:
       relation: '@relation'
       replication: '@replication'
 
+  PhpMyAdmin\Controllers\Database\TrackingController:
+    class: 'PhpMyAdmin\Controllers\Database\TrackingController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      db: '%db%'
+      tracking: '@tracking'
+
   PhpMyAdmin\Controllers\Database\TriggersController:
     class: 'PhpMyAdmin\Controllers\Database\TriggersController'
     arguments:
