@@ -114,6 +114,7 @@ matrix:
        - "find test/ -type f -print0 | xargs -0 sed -i 's/function setUpBeforeClass()/function setUpBeforeClass(): void/g'"
        - "find test/ -type f -print0 | xargs -0 sed -i 's/function setUp()/function setUp(): void/g'"
        - "find test/ -type f -print0 | xargs -0 sed -i 's/function tearDown()/function tearDown(): void/g'"
+       - phpenv config-rm xdebug.ini
     - php: "7.1"
       env: CI_MODE=test DBASE=true
       install:
