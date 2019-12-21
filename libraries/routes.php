@@ -20,6 +20,7 @@ use PhpMyAdmin\Controllers\Database\QueryByExampleController;
 use PhpMyAdmin\Controllers\Database\RoutinesController;
 use PhpMyAdmin\Controllers\Database\SearchController;
 use PhpMyAdmin\Controllers\Database\SqlAutoCompleteController;
+use PhpMyAdmin\Controllers\Database\SqlFormatController;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Controllers\Database\TriggersController;
 use PhpMyAdmin\Controllers\ErrorReportController;
@@ -208,8 +209,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
                 $controller = $containerBuilder->get(SqlAutoCompleteController::class);
                 $response->addJSON($controller->index());
             });
-            $routes->post('/format', function () {
-                require_once ROOT_PATH . 'libraries/entry_points/database/sql/format.php';
+            $routes->post('/format', function () use ($containerBuilder, $response) {
+                /** @var SqlFormatController $controller */
+                $controller = $containerBuilder->get(SqlFormatController::class);
+                $response->addJSON($controller->index(['sql' => $_POST['sql'] ?? null]));
             });
         });
         $routes->addGroup('/structure', function (RouteCollector $routes) use ($containerBuilder, $response) {

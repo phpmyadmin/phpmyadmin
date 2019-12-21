@@ -139,6 +139,14 @@ services:
       template: '@template'
       db: '%db%'
 
+  PhpMyAdmin\Controllers\Database\SqlFormatController:
+    class: 'PhpMyAdmin\Controllers\Database\SqlFormatController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      db: '%db%'
+
   PhpMyAdmin\Controllers\Database\StructureController:
     class: 'PhpMyAdmin\Controllers\Database\StructureController'
     arguments:
