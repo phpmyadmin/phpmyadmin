@@ -52,6 +52,7 @@ phpMyAdmin - ChangeLog
 - issue #15435 Fix ReCAPTCHA couldn't find user-provided function: Functions.recaptchaCallback
 - issue #15623 Fix width of picker modal and remove date picker for int fields
 - issue #14732 Fixed can't rename primary key with auto increment
+- issue #15677 Fix show process-list triggers a php exception
 
 4.9.3 (not yet released)
 - issue #15570 Fix page contents go underneath of floating menubar in some cases

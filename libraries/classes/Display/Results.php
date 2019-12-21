@@ -3341,7 +3341,7 @@ class Results
 
             $lnk_goto = Url::getFromRoute('/sql', $_url_params);
 
-            $kill = $GLOBALS['dbi']->getKillQuery($row[0]);
+            $kill = $GLOBALS['dbi']->getKillQuery((int) $row[0]);
 
             $_url_params = [
                 'db'        => 'mysql',
