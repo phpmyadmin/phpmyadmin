@@ -228,8 +228,8 @@ class InsertEdit
     /**
      * Add some url parameters
      *
-     * @param array  $url_params         containing $db and $table as url parameters
-     * @param array  $where_clause_array where clauses array
+     * @param array $url_params         containing $db and $table as url parameters
+     * @param array $where_clause_array where clauses array
      *
      * @return array Add some url parameters to $url_params array and return it
      */
