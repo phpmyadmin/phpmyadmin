@@ -83,6 +83,15 @@ matrix:
         - sleep 5
         # Enable password access
         - mysql -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('');"
+      install:
+        - composer require --no-interaction php>=7.1
+        - composer remove phpunit/phpunit-selenium --dev --no-interaction
+        - composer remove phpunit/phpunit --dev --no-interaction
+        - composer require --dev --no-interaction phpunit/phpunit ^8
+        - rm -rf test/selenium
+        - "find test/ -type f -iname '*.php' -print0 | xargs -0 sed -i.bak~ 's/function setUpBeforeClass()/function setUpBeforeClass(): void/g'"
+        - "find test/ -type f -iname '*.php' -print0 | xargs -0 sed -i.bak~ 's/function setUp()/function setUp(): void/g'"
+        - "find test/ -type f -iname '*.php' -print0 | xargs -0 sed -i.bak~ 's/function tearDown()/function tearDown(): void/g'"
       addons:
         homebrew:
           packages:
@@ -102,9 +111,9 @@ matrix:
        - composer remove phpunit/phpunit --dev --no-interaction
        - composer require --dev --no-interaction phpunit/phpunit ^8
        - rm -rf test/selenium
-       - "find test/ -type f -print0 | xargs -0 sed -i 's/function setUpBeforeClass()/function setUpBeforeClass(): void/g'"
-       - "find test/ -type f -print0 | xargs -0 sed -i 's/function setUp()/function setUp(): void/g'"
-       - "find test/ -type f -print0 | xargs -0 sed -i 's/function tearDown()/function tearDown(): void/g'"
+       - "find test/ -type f -iname '*.php' -print0 | xargs -0 sed -i 's/function setUpBeforeClass()/function setUpBeforeClass(): void/g'"
+       - "find test/ -type f -iname '*.php' -print0 | xargs -0 sed -i 's/function setUp()/function setUp(): void/g'"
+       - "find test/ -type f -iname '*.php' -print0 | xargs -0 sed -i 's/function tearDown()/function tearDown(): void/g'"
     - php: "7.4"
       env: CI_MODE=test
       name: "PHP: 7.4"
@@ -114,9 +123,9 @@ matrix:
        - composer remove phpunit/phpunit --dev --no-interaction
        - composer require --dev --no-interaction phpunit/phpunit ^8
        - rm -rf test/selenium
-       - "find test/ -type f -print0 | xargs -0 sed -i 's/function setUpBeforeClass()/function setUpBeforeClass(): void/g'"
-       - "find test/ -type f -print0 | xargs -0 sed -i 's/function setUp()/function setUp(): void/g'"
-       - "find test/ -type f -print0 | xargs -0 sed -i 's/function tearDown()/function tearDown(): void/g'"
+       - "find test/ -type f -iname '*.php' -print0 | xargs -0 sed -i 's/function setUpBeforeClass()/function setUpBeforeClass(): void/g'"
+       - "find test/ -type f -iname '*.php' -print0 | xargs -0 sed -i 's/function setUp()/function setUp(): void/g'"
+       - "find test/ -type f -iname '*.php' -print0 | xargs -0 sed -i 's/function tearDown()/function tearDown(): void/g'"
        - phpenv config-rm xdebug.ini
     - php: "7.1"
       env: CI_MODE=test DBASE=true
