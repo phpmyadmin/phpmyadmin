@@ -80,6 +80,9 @@ matrix:
         - echo "memory_limit=-1" > /usr/local/etc/php/7.4/conf.d/50-travis.ini
         - echo "pcre.jit=0" >> /usr/local/etc/php/7.4/conf.d/50-travis.ini
         - mysql.server start
+        - sleep 5
+        # Enable password access
+        - mysql -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('');"
       addons:
         homebrew:
           packages:
