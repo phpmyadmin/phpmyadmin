@@ -2167,7 +2167,10 @@ class Results
 
         $draggable_html = '<th';
         $th_class = [];
-        $th_class[] = 'draggable';
+        // The columns should not be draggable for show queries
+        if (!$this->__get('is_show')) {
+            $th_class[] = 'draggable';
+        }
         $this->_getClassForNumericColumnType($fields_meta, $th_class);
         if ($col_visib && ! $col_visib_j) {
             $th_class[] = 'hide';
