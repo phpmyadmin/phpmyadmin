@@ -65,6 +65,7 @@ phpMyAdmin - ChangeLog
 - issue        Fix php 8.0 php notices - Undefined index on login page
 - issue #15640 Fix php 7.4 error when trying to access array offset on value of type null on table browse
 - issue #15641 Fix replication actions where broken (start slave, stop slave, reset, ...)
+- issue #15608 Fix DisableIS is broken when with controluser configured (database list broken)
 
 4.9.2 (2019-11-21)
 - issue #14184 Change the cookie name from phpMyAdmin to phpMyAdmin_https for HTTPS, fixes many "Failed to set session cookie" errors

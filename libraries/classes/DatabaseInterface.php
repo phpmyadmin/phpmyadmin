@@ -2409,14 +2409,7 @@ class DatabaseInterface implements DbalInterface
     {
         if (count($this->_current_user) === 0) {
             $user = $this->getCurrentUser();
-            if ($user === '@') {// Request did not succeed, please do not cache
-                return [
-                    '',
-                    '',
-                ];
-            } else {
-                $this->_current_user = explode('@', $user);
-            }
+            $this->_current_user = explode("@", $user);
         }
         return $this->_current_user;
     }
@@ -2621,8 +2614,6 @@ class DatabaseInterface implements DbalInterface
             /* Run post connect for user connections */
             if ($target == DatabaseInterface::CONNECT_USER) {
                 $this->postConnect();
-            } elseif ($target == DatabaseInterface::CONNECT_CONTROL) {
-                $this->postConnectControl();
             }
             return $result;
         }
