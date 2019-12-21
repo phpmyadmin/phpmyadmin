@@ -306,7 +306,7 @@ class DatabaseInterface implements DbalInterface
         int $options = 0,
         bool $cache_affected_rows = true
     ) {
-        $debug = $GLOBALS['cfg']['DBG']['sql'];
+        $debug = isset($GLOBALS['cfg']['DBG']) ? $GLOBALS['cfg']['DBG']['sql'] : false;
         if (! isset($this->_links[$link])) {
             return false;
         }

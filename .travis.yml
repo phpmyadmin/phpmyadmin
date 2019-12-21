@@ -89,6 +89,7 @@ jobs:
       php: 7.4
       name: "PHP 7.4"
       env: CI_MODE=test
+      before_install: phpenv config-rm xdebug.ini
 
     - stage: "PHP Unit tests"
       php: nightly
@@ -106,9 +107,12 @@ jobs:
       node_js: 10
       before_install:
         - brew link --force gettext
-        - echo "memory_limit=-1" > /usr/local/etc/php/7.3/conf.d/50-travis.ini
-        - echo "pcre.jit=0" >> /usr/local/etc/php/7.3/conf.d/50-travis.ini
+        - echo "memory_limit=-1" > /usr/local/etc/php/7.4/conf.d/50-travis.ini
+        - echo "pcre.jit=0" >> /usr/local/etc/php/7.4/conf.d/50-travis.ini
         - mysql.server start
+        - sleep 5
+        # Enable password access
+        - mysql -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('');"
       addons:
         homebrew:
           packages:

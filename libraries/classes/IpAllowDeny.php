@@ -45,7 +45,7 @@ class IpAllowDeny
     /**
      * Based on IP Pattern Matcher
      * Originally by J.Adams <jna@retina.net>
-     * Found on <https://secure.php.net/manual/en/function.ip2long.php>
+     * Found on <https://www.php.net/manual/en/function.ip2long.php>
      * Modified for phpMyAdmin
      *
      * Matches:
