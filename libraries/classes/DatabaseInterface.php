@@ -307,7 +307,7 @@ class DatabaseInterface
     public function tryQuery($query, $link = DatabaseInterface::CONNECT_USER, $options = 0,
         $cache_affected_rows = true
     ) {
-        $debug = $GLOBALS['cfg']['DBG']['sql'];
+        $debug = isset($GLOBALS['cfg']['DBG']) ? $GLOBALS['cfg']['DBG']['sql'] : false;
         if (! isset($this->_links[$link])) {
             return false;
         }
