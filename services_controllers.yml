@@ -218,6 +218,9 @@ services:
       dbi: '@dbi'
       template: '@template'
 
+  PhpMyAdmin\Controllers\LogoutController:
+    class: 'PhpMyAdmin\Controllers\LogoutController'
+
   PhpMyAdmin\Controllers\PhpInfoController:
     class: 'PhpMyAdmin\Controllers\PhpInfoController'
     arguments:

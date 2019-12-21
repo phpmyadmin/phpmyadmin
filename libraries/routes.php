@@ -30,6 +30,7 @@ use PhpMyAdmin\Controllers\HomeController;
 use PhpMyAdmin\Controllers\ImportStatusController;
 use PhpMyAdmin\Controllers\LicenseController;
 use PhpMyAdmin\Controllers\LintController;
+use PhpMyAdmin\Controllers\LogoutController;
 use PhpMyAdmin\Controllers\PhpInfoController;
 use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\Controllers\Server\CollationsController;
@@ -289,8 +290,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             'options' => $_POST['options'] ?? null,
         ]);
     });
-    $routes->addRoute(['GET', 'POST'], '/logout', function () {
-        require_once ROOT_PATH . 'libraries/entry_points/logout.php';
+    $routes->addRoute(['GET', 'POST'], '/logout', function () use ($containerBuilder) {
+        /** @var LogoutController $controller */
+        $controller = $containerBuilder->get(LogoutController::class);
+        $controller->index();
     });
     $routes->addRoute(['GET', 'POST'], '/navigation', function () {
         require_once ROOT_PATH . 'libraries/entry_points/navigation.php';
