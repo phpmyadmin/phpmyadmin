@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  *
- * @see     https://secure.php.net/session
+ * @see     https://www.php.net/manual/en/features.sessions.php
  */
 declare(strict_types=1);
 

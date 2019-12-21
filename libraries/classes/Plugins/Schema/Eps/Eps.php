@@ -18,7 +18,7 @@ use PhpMyAdmin\Response;
  *
  * @package PhpMyAdmin
  * @access  public
- * @see     https://secure.php.net/manual/en/book.xmlwriter.php
+ * @see     https://www.php.net/manual/en/book.xmlwriter.php
  */
 class Eps
 {

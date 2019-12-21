@@ -38,6 +38,7 @@ class RoutinesTest extends TestCase
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';

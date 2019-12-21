@@ -106,9 +106,12 @@ jobs:
       node_js: 10
       before_install:
         - brew link --force gettext
-        - echo "memory_limit=-1" > /usr/local/etc/php/7.3/conf.d/50-travis.ini
-        - echo "pcre.jit=0" >> /usr/local/etc/php/7.3/conf.d/50-travis.ini
+        - echo "memory_limit=-1" > /usr/local/etc/php/7.4/conf.d/50-travis.ini
+        - echo "pcre.jit=0" >> /usr/local/etc/php/7.4/conf.d/50-travis.ini
         - mysql.server start
+        - sleep 5
+        # Enable password access
+        - mysql -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('');"
       addons:
         homebrew:
           packages:
@@ -127,10 +130,10 @@ jobs:
         - YARN_GPG=no
       before_install:
         - choco install php composer mariadb
-        - export PATH=/c/tools/php73:/c/ProgramData/ComposerSetup/bin:/c/"Program Files"/"MariaDB 10.4"/bin:$PATH
+        - export PATH=/c/tools/php74:/c/ProgramData/ComposerSetup/bin:/c/"Program Files"/"MariaDB 10.4"/bin:$PATH
         - PHP_EXTENSIONS="mysqli curl bz2 gd2 pdo_mysql"
-        - for php_ext in $PHP_EXTENSIONS ; do sed -i -e "s/^;extension=${php_ext}/extension=${php_ext}/" /c/tools/php73/php.ini ; done
-        - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /c/tools/php73/php.ini
+        - for php_ext in $PHP_EXTENSIONS ; do sed -i -e "s/^;extension=${php_ext}/extension=${php_ext}/" /c/tools/php74/php.ini ; done
+        - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /c/tools/php74/php.ini
         - find . -type f -name "*.php" -print0 | xargs -0 sed -i ':a;N;$!ba;s/\r//g'
 
     - stage: "PHP Unit tests"

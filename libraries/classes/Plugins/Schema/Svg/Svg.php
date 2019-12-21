@@ -19,7 +19,7 @@ use XMLWriter;
  *
  * @package PhpMyAdmin
  * @access  public
- * @see     https://secure.php.net/manual/en/book.xmlwriter.php
+ * @see     https://www.php.net/manual/en/book.xmlwriter.php
  */
 class Svg extends XMLWriter
 {

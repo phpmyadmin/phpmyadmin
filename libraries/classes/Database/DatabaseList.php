@@ -32,7 +32,7 @@ class DatabaseList
      * @param string $param parameter name
      *
      * @return mixed
-     * @see https://secure.php.net/language.oop5.overloading
+     * @see https://www.php.net/language.oop5.overloading
      */
     public function __get($param)
     {
