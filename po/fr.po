@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-11-22 01:29+0100\n"
-"PO-Revision-Date: 2019-11-26 00:05+0000\n"
+"PO-Revision-Date: 2019-12-23 14:21+0000\n"
 "Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/4-9/fr/"
 ">\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.10-dev\n"
+"X-Generator: Weblate 3.10\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -1120,7 +1120,7 @@ msgstr "Lignes correspondantes :"
 
 #: js/messages.php:135 libraries/classes/Util.php:566
 msgid "SQL query:"
-msgstr "Requête SQL : "
+msgstr "Requête SQL :"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:139
@@ -1545,7 +1545,7 @@ msgstr ""
 
 #: js/messages.php:283
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr "Fichier journal chargé. Requêtes exécutées dans ce laps de temps : "
+msgstr "Fichier journal chargé. Requêtes exécutées dans ce laps de temps :"
 
 #: js/messages.php:285
 msgid "Jump to Log table"
@@ -1631,7 +1631,7 @@ msgstr "Filtre"
 
 #: js/messages.php:307
 msgid "Filter queries by word/regexp:"
-msgstr "Filtrer les requêtes par mot ou expression régulière : "
+msgstr "Filtrer les requêtes par mot ou expression régulière :"
 
 #: js/messages.php:309
 msgid "Group queries, ignoring variable data in WHERE clauses"
@@ -1639,11 +1639,11 @@ msgstr "Grouper les requêtes en ignorant la partie variable des clauses WHERE"
 
 #: js/messages.php:310
 msgid "Sum of grouped rows:"
-msgstr "Somme des lignes regroupées : "
+msgstr "Somme des lignes regroupées :"
 
 #: js/messages.php:311
 msgid "Total:"
-msgstr "Total : "
+msgstr "Total :"
 
 #: js/messages.php:313
 msgid "Loading logs"
@@ -1669,7 +1669,7 @@ msgstr "Recharger la page"
 
 #: js/messages.php:322
 msgid "Affected rows:"
-msgstr "Lignes modifiées : "
+msgstr "Lignes modifiées :"
 
 #: js/messages.php:325
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
@@ -2130,7 +2130,7 @@ msgstr "Supprimer (DROP) les colonnes %s de la table %s"
 
 #: js/messages.php:473
 msgid "Create the following table"
-msgstr "Créer la table suivante :"
+msgstr "Créer la table suivante"
 
 #: js/messages.php:476
 msgid "Third step of normalization (3NF)"
@@ -2583,7 +2583,7 @@ msgstr ""
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:674
 msgid ", latest stable version:"
-msgstr ", dernière version stable : "
+msgstr ", dernière version stable :"
 
 #: js/messages.php:675
 msgid "up to date"
