@@ -34,6 +34,7 @@ use PhpMyAdmin\Controllers\LogoutController;
 use PhpMyAdmin\Controllers\NavigationController;
 use PhpMyAdmin\Controllers\NormalizationController;
 use PhpMyAdmin\Controllers\PhpInfoController;
+use PhpMyAdmin\Controllers\SchemaExportController;
 use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\Controllers\Server\CollationsController;
 use PhpMyAdmin\Controllers\Server\DatabasesController;
@@ -323,8 +324,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             require_once ROOT_PATH . 'libraries/entry_points/preferences/twofactor.php';
         });
     });
-    $routes->addRoute(['GET', 'POST'], '/schema_export', function () {
-        require_once ROOT_PATH . 'libraries/entry_points/schema_export.php';
+    $routes->addRoute(['GET', 'POST'], '/schema-export', function () use ($containerBuilder) {
+        /** @var SchemaExportController $controller */
+        $controller = $containerBuilder->get(SchemaExportController::class);
+        $controller->index();
     });
     $routes->addGroup('/server', function (RouteCollector $routes) use ($containerBuilder, $response) {
         $routes->addRoute(['GET', 'POST'], '/binlog', function () use ($containerBuilder, $response) {

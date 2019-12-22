@@ -245,6 +245,12 @@ services:
       dbi: '@dbi'
       template: '@template'
 
+  PhpMyAdmin\Controllers\SchemaExportController:
+    class: 'PhpMyAdmin\Controllers\SchemaExportController'
+      arguments:
+        export: '@export'
+        relation: '@relation'
+
   PhpMyAdmin\Controllers\Server\DatabasesController:
     class: 'PhpMyAdmin\Controllers\Server\DatabasesController'
     arguments:
