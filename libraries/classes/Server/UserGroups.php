@@ -112,7 +112,7 @@ class UserGroups
                 $html_output .= '<td>' . self::getAllowedTabNames($tabs, 'table') . '</td>';
 
                 $html_output .= '<td>';
-                $html_output .= '<a class="" href="' . Url::getFromRoute('/server/user_groups') . '" data-post="'
+                $html_output .= '<a class="" href="' . Url::getFromRoute('/server/user-groups') . '" data-post="'
                     . Url::getCommon(
                         [
                             'viewUsers' => 1,
@@ -124,7 +124,7 @@ class UserGroups
                     . Generator::getIcon('b_usrlist', __('View users'))
                     . '</a>';
                 $html_output .= '&nbsp;&nbsp;';
-                $html_output .= '<a class="" href="' . Url::getFromRoute('/server/user_groups') . '" data-post="'
+                $html_output .= '<a class="" href="' . Url::getFromRoute('/server/user-groups') . '" data-post="'
                     . Url::getCommon(
                         [
                             'editUserGroup' => 1,
@@ -136,7 +136,7 @@ class UserGroups
                     . Generator::getIcon('b_edit', __('Edit')) . '</a>';
                 $html_output .= '&nbsp;&nbsp;';
                 $html_output .= '<a class="deleteUserGroup ajax"'
-                    . ' href="' . Url::getFromRoute('/server/user_groups') . '" data-post="'
+                    . ' href="' . Url::getFromRoute('/server/user-groups') . '" data-post="'
                     . Url::getCommon(
                         [
                             'deleteUserGroup' => 1,
@@ -158,7 +158,7 @@ class UserGroups
         $GLOBALS['dbi']->freeResult($result);
 
         $html_output .= '<div class="row"><fieldset id="fieldset_add_user_group">';
-        $html_output .= '<a href="' . Url::getFromRoute('/server/user_groups', ['addUserGroup' => 1]) . '">'
+        $html_output .= '<a href="' . Url::getFromRoute('/server/user-groups', ['addUserGroup' => 1]) . '">'
             . Generator::getIcon('b_usradd')
             . __('Add user group') . '</a>';
         $html_output .= '</fieldset></div>';
@@ -234,7 +234,7 @@ class UserGroups
         }
 
         $html_output .= '<form name="userGroupForm" id="userGroupForm"'
-            . ' action="' . Url::getFromRoute('/server/user_groups') . '" method="post">';
+            . ' action="' . Url::getFromRoute('/server/user-groups') . '" method="post">';
         $urlParams = [];
         if ($userGroup != null) {
             $urlParams['userGroup'] = $userGroup;

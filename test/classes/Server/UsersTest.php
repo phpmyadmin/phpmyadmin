@@ -49,9 +49,9 @@ class UsersTest extends TestCase
             $html
         );
 
-        //validate 3: not-active for /server/user_groups
+        //validate 3: not-active for /server/user-groups
         $this->assertStringContainsString(
-            '<a href="index.php?route=/server/user_groups',
+            '<a href="index.php?route=/server/user-groups',
             $html
         );
         $this->assertStringContainsString(

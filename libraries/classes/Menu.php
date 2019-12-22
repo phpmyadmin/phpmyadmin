@@ -542,7 +542,7 @@ class Menu
             $tabs['rights']['text'] = __('User accounts');
             $tabs['rights']['active'] = in_array($route, [
                 '/server/privileges',
-                '/server/user_groups',
+                '/server/user-groups',
             ]);
             $tabs['rights']['args']['viewing_mode'] = 'server';
         }

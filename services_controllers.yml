@@ -303,6 +303,14 @@ services:
       template: '@template'
       sqlQueryForm: '@sql_query_form'
 
+  PhpMyAdmin\Controllers\Server\UserGroupsController:
+    class: 'PhpMyAdmin\Controllers\Server\UserGroupsController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      relation: '@relation'
+
   PhpMyAdmin\Controllers\Server\Status\AdvisorController:
     class: 'PhpMyAdmin\Controllers\Server\Status\AdvisorController'
     arguments:

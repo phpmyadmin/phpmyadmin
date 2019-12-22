@@ -48,6 +48,7 @@ use PhpMyAdmin\Controllers\Server\Status\ProcessesController;
 use PhpMyAdmin\Controllers\Server\Status\QueriesController;
 use PhpMyAdmin\Controllers\Server\Status\StatusController;
 use PhpMyAdmin\Controllers\Server\Status\VariablesController as StatusVariables;
+use PhpMyAdmin\Controllers\Server\UserGroupsController;
 use PhpMyAdmin\Controllers\Server\VariablesController;
 use PhpMyAdmin\Controllers\Table\TriggersController as TableTriggersController;
 use PhpMyAdmin\Controllers\ThemesController;
@@ -498,8 +499,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
                 ]));
             });
         });
-        $routes->addRoute(['GET', 'POST'], '/user_groups', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/server/user_groups.php';
+        $routes->addRoute(['GET', 'POST'], '/user-groups', function () use ($containerBuilder) {
+            /** @var UserGroupsController $controller */
+            $controller = $containerBuilder->get(UserGroupsController::class);
+            $controller->index();
         });
         $routes->addGroup('/variables', function (RouteCollector $routes) use ($containerBuilder, $response) {
             /** @var VariablesController $controller */
