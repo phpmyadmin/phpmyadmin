@@ -32,6 +32,7 @@ use PhpMyAdmin\Controllers\LicenseController;
 use PhpMyAdmin\Controllers\LintController;
 use PhpMyAdmin\Controllers\LogoutController;
 use PhpMyAdmin\Controllers\NavigationController;
+use PhpMyAdmin\Controllers\NormalizationController;
 use PhpMyAdmin\Controllers\PhpInfoController;
 use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\Controllers\Server\CollationsController;
@@ -301,8 +302,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $controller = $containerBuilder->get(NavigationController::class);
         $controller->index();
     });
-    $routes->addRoute(['GET', 'POST'], '/normalization', function () {
-        require_once ROOT_PATH . 'libraries/entry_points/normalization.php';
+    $routes->addRoute(['GET', 'POST'], '/normalization', function () use ($containerBuilder) {
+        /** @var NormalizationController $controller */
+        $controller = $containerBuilder->get(NormalizationController::class);
+        $controller->index();
     });
     $routes->get('/phpinfo', function () use ($containerBuilder) {
         /** @var PhpInfoController $controller */

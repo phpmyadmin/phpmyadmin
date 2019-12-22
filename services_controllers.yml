@@ -230,6 +230,14 @@ services:
       navigation: '@navigation'
       relation: '@relation'
 
+  PhpMyAdmin\Controllers\NormalizationController:
+    class: 'PhpMyAdmin\Controllers\NormalizationController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      normalization: '@normalization'
+
   PhpMyAdmin\Controllers\PhpInfoController:
     class: 'PhpMyAdmin\Controllers\PhpInfoController'
     arguments:
