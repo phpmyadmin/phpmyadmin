@@ -40,6 +40,7 @@ use PhpMyAdmin\Controllers\Server\CollationsController;
 use PhpMyAdmin\Controllers\Server\DatabasesController;
 use PhpMyAdmin\Controllers\Server\EnginesController;
 use PhpMyAdmin\Controllers\Server\PluginsController;
+use PhpMyAdmin\Controllers\Server\PrivilegesController;
 use PhpMyAdmin\Controllers\Server\ReplicationController;
 use PhpMyAdmin\Controllers\Server\SqlController;
 use PhpMyAdmin\Controllers\Server\Status\AdvisorController;
@@ -390,8 +391,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             $controller = $containerBuilder->get(PluginsController::class);
             $response->addHTML($controller->index());
         });
-        $routes->addRoute(['GET', 'POST'], '/privileges', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/server/privileges.php';
+        $routes->addRoute(['GET', 'POST'], '/privileges', function () use ($containerBuilder) {
+            /** @var PrivilegesController $controller */
+            $controller = $containerBuilder->get(PrivilegesController::class);
+            $controller->index();
         });
         $routes->addRoute(['GET', 'POST'], '/replication', function () use ($containerBuilder, $response) {
             /** @var ReplicationController $controller */

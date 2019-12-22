@@ -3373,16 +3373,6 @@ parameters:
 			path: libraries/entry_points/preferences/manage.php
 
 		-
-			message: "#^Parameter \\#5 \\$is_menuwork of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:addUser\\(\\) expects bool, string given\\.$#"
-			count: 1
-			path: libraries/entry_points/server/privileges.php
-
-		-
-			message: "#^Parameter \\#2 \\$is_menuswork of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getHtmlForUserGroupDialog\\(\\) expects bool, string given\\.$#"
-			count: 1
-			path: libraries/entry_points/server/privileges.php
-
-		-
 			message: "#^Parameter \\#1 \\$content of method PhpMyAdmin\\\\Response\\:\\:addHTML\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/entry_points/table/addfield.php

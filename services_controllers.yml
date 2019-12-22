@@ -287,6 +287,14 @@ services:
       template: '@template'
       plugins: '@server_plugins'
 
+  PhpMyAdmin\Controllers\Server\PrivilegesController:
+    class: 'PhpMyAdmin\Controllers\Server\PrivilegesController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      relation: '@relation'
+
   PhpMyAdmin\Controllers\Server\ReplicationController:
     class: 'PhpMyAdmin\Controllers\Server\ReplicationController'
     arguments:
