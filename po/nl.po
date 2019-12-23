@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:48-0300\n"
-"PO-Revision-Date: 2019-11-26 00:05+0000\n"
+"PO-Revision-Date: 2019-12-25 16:21+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -13,17 +13,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.10-dev\n"
+"X-Generator: Weblate 3.10\n"
 
 #: index.php:52
-#, fuzzy, php-format
-#| msgid "Source database `%s` was not found!"
+#, php-format
 msgid "Error 404! The page %s was not found."
-msgstr "Brondatabase `%s` is niet gevonden!"
+msgstr "Fout 404! De pagina %s is niet gevonden."
 
 #: index.php:59
 msgid "Error 405! Request method not allowed."
-msgstr ""
+msgstr "Fout 405! Methode voor aanvragen niet toegestaan."
 
 #: js/messages.php:45
 msgid "Confirm"
@@ -3218,10 +3217,8 @@ msgstr "Labelsleutel"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:546
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #: templates/database/data_dictionary/index.twig:25
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media type"
-msgstr "MIME-type"
+msgstr "Media type"
 
 #: libraries/classes/Config/Descriptions.php:218
 #: libraries/classes/Config/Descriptions.php:230
@@ -3384,7 +3381,7 @@ msgstr "Controles op extern sleutelveld"
 
 #: libraries/classes/Config/Descriptions.php:285
 msgid "First day of calendar"
-msgstr ""
+msgstr "Eerste dag van kalender"
 
 #: libraries/classes/Config/Descriptions.php:286
 msgid "Browse mode"
@@ -4454,15 +4451,11 @@ msgid "Bookmark table"
 msgstr "Bladwijzertabel"
 
 #: libraries/classes/Config/Descriptions.php:616
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: "
-#| "[kbd]pma__column_info[/kbd]."
 msgid ""
 "Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Laat dit veld leeg om geen kolomopmerkingen en mimetypes te ondersteunen, "
+"Laat dit veld leeg om geen kolomopmerkingen/media typen te ondersteunen, "
 "suggestie: [kbd]pma__column_info[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:619
@@ -6029,7 +6022,7 @@ msgid ""
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
 "Uw server werkt met standaard waardes voor de administrator (controluser) en "
-"wachtwoord (controlpass) en is kwetsbaar voor indringers;  u moet echt dit "
+"wachtwoord (controlpass) en is kwetsbaar voor indringers; u moet echt dit "
 "beveiligingsrisico verhelpen door het wachtwoord voor administrator 'pma' te "
 "wijzigen."
 
@@ -9078,10 +9071,8 @@ msgstr ""
 "navigatiepaneel."
 
 #: libraries/classes/Navigation/NavigationTree.php:793
-#, fuzzy
-#| msgid "Groups:"
 msgid "Groups"
-msgstr "Groepen:"
+msgstr "Groepen"
 
 #: libraries/classes/Navigation/NavigationTree.php:958
 #, php-format
@@ -10061,10 +10052,8 @@ msgstr "Toon opmerkingen"
 #: libraries/classes/Plugins/Export/ExportLatex.php:152
 #: libraries/classes/Plugins/Export/ExportOdt.php:113
 #: libraries/classes/Plugins/Export/ExportSql.php:130
-#, fuzzy
-#| msgid "Display MIME types"
 msgid "Display media types"
-msgstr "Toon beschikbare MIME-types"
+msgstr "Toon beschikbare media typen"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:169
 msgid "Put columns names in the first row:"
@@ -10359,10 +10348,8 @@ msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT voor een tabel"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1907
-#, fuzzy
-#| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
-msgstr "MIME-TYPES VOOR TABEL"
+msgstr "MEDIA TYPEN VOOR TABEL"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1930
 msgid "RELATIONSHIPS FOR TABLE"
@@ -12693,11 +12680,9 @@ msgstr "dec"
 
 #. l10n: Short week day name for Sunday
 #: libraries/classes/Util.php:695
-#, fuzzy
-#| msgid "Sun"
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
-msgstr "zo"
+msgstr "zon"
 
 #. l10n: Short week day name for Monday
 #: libraries/classes/Util.php:697 templates/javascript/variables.twig:58
@@ -14562,17 +14547,11 @@ msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: templates/javascript/variables.twig:11
-#, fuzzy
-#| msgctxt "Year suffix"
-#| msgid "none"
 msgid "none"
 msgstr "geen"
 
 #. l10n: Previous month. Display text for previous month link in calendar
 #: templates/javascript/variables.twig:16
-#, fuzzy
-#| msgctxt "Previous month"
-#| msgid "Prev"
 msgid "Prev"
 msgstr "Vorige"
 
@@ -15294,10 +15273,8 @@ msgid "Label:"
 msgstr "Label:"
 
 #: templates/table/structure/display_structure.twig:70
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media type:"
-msgstr "MIME-type"
+msgstr "Media type:"
 
 #: templates/table/structure/display_structure.twig:91
 #: templates/table/tracking/structure_snapshot_columns.twig:47
@@ -15604,10 +15581,8 @@ msgid "Not enough privilege to view server status."
 msgstr "Niet genoeg rechten om server status te mogen zien."
 
 #: templates/transformation_overview.twig:1
-#, fuzzy
-#| msgid "Available MIME types"
 msgid "Available media types"
-msgstr "Beschikbare MIME-types"
+msgstr "Beschikbare media types"
 
 #: templates/transformation_overview.twig:13
 msgid "Available browser display transformations"
@@ -15620,11 +15595,9 @@ msgstr "Browserweergavetransformaties"
 
 #: templates/transformation_overview.twig:19
 #: templates/transformation_overview.twig:38
-#, fuzzy
-#| msgid "Description"
 msgctxt "for media type transformation"
 msgid "Description"
-msgstr "Beschrijving"
+msgstr "Omschrijving"
 
 #: templates/transformation_overview.twig:32
 msgid "Available input transformations"
@@ -16248,10 +16221,8 @@ msgid "Username:"
 msgstr "Gebruikersnaam:"
 
 #: templates/login/form.twig:65
-#, fuzzy
-#| msgid "Server Choice:"
 msgid "Server choice:"
-msgstr "Serverkeuze:"
+msgstr "Server keuze:"
 
 #: templates/server/plugins/index.twig:26
 msgid "Plugin"
@@ -16262,26 +16233,20 @@ msgid "Author"
 msgstr "Auteur"
 
 #: templates/server/plugins/index.twig:41
-#, fuzzy
-#| msgid "active"
 msgid "inactive"
-msgstr "ingeschakeld"
+msgstr "niet actief"
 
 #: templates/server/plugins/index.twig:43
 msgid "disabled"
 msgstr "uitgeschakeld"
 
 #: templates/server/plugins/index.twig:45
-#, fuzzy
-#| msgid "Deleting"
 msgid "deleting"
-msgstr "Verwijderen"
+msgstr "verwijderen"
 
 #: templates/server/plugins/index.twig:47
-#, fuzzy
-#| msgid "Delete"
 msgid "deleted"
-msgstr "Verwijderen"
+msgstr "verwijderd"
 
 #: templates/table/insert/continue_insertion_form.twig:18
 #, php-format
@@ -16490,37 +16455,26 @@ msgid "Do not change the password"
 msgstr "Wijzig het wachtwoord niet"
 
 #: templates/server/privileges/login_information_fields.twig:54
-#, fuzzy
-#| msgid "Data length"
 msgctxt "Password strength"
 msgid "Strength:"
-msgstr "Lengte van de data"
+msgstr "Sterkte:"
 
 #: templates/server/privileges/login_information_fields.twig:68
-#, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication plugin"
-msgstr "Authenticatie Plugin"
+msgstr "Authenticatie plugin"
 
 #: templates/server/privileges/login_information_fields.twig:70
-#, fuzzy
-#| msgid "Password Hashing Method"
 msgid "Password hashing method"
 msgstr "Wachtwoord hashing methode"
 
 #: templates/server/privileges/login_information_fields.twig:79
-#, fuzzy
-#| msgid ""
-#| "This method requires using an '<i>SSL connection</i>' or an "
-#| "'<i>unencrypted connection that encrypts the password using RSA</i>'; "
-#| "while connecting to the server."
 msgid ""
 "This method requires using an '<em>SSL connection</em>' or an "
 "'<em>unencrypted connection that encrypts the password using RSA</em>'; "
 "while connecting to the server."
 msgstr ""
-"Deze methode vereist een '<i>SSL verbinding</i>' of een <i>niet-SSL "
-"verbinding die het wachtwoord versleuteld met RSA</i>'; wanneer verbinding "
+"Deze methode vereist een '<em>SSL verbinding</em>' of een <em>niet-SSL "
+"verbinding die het wachtwoord versleuteld met RSA</em>'; wanneer verbinding "
 "wordt gemaakt met de server."
 
 #: templates/database/designer/main.twig:21
@@ -16682,10 +16636,8 @@ msgid "Enter:"
 msgstr "Ingave:"
 
 #: templates/menu/breadcrumbs.twig:27
-#, fuzzy
-#| msgid "Views:"
 msgid "View:"
-msgstr "Views:"
+msgstr "View:"
 
 #: templates/database/designer/page_selector.twig:2
 msgid "Select page"
@@ -16868,7 +16820,7 @@ msgid ""
 "configured as master."
 msgstr ""
 "Nadat u de MySQL-server herstart heeft, klikt u op Start. Hierna zou u de "
-"melding moeten krijgen dat de server  geconfigureerd <strong>is</strong> als "
+"melding moeten krijgen dat de server geconfigureerd <strong>is</strong> als "
 "master."
 
 #: templates/database/structure/favorite_anchor.twig:4
