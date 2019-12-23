@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2019-12-23 14:21+0000\n"
-"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
+"PO-Revision-Date: 2019-12-23 19:26+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/4-9/fr/"
 ">\n"
 "Language: fr\n"
@@ -718,7 +718,7 @@ msgstr "Utilisateur :"
 
 #: index.php:370
 msgid "Server charset:"
-msgstr "Jeu de caractères du serveur : "
+msgstr "Jeu de caractères du serveur :"
 
 #: index.php:388
 msgid "Web server"
@@ -726,11 +726,11 @@ msgstr "Serveur Web"
 
 #: index.php:399
 msgid "Database client version:"
-msgstr "Version du client de base de données : "
+msgstr "Version du client de base de données :"
 
 #: index.php:403
 msgid "PHP extension:"
-msgstr "Extension PHP : "
+msgstr "Extension PHP :"
 
 #: index.php:417
 msgid "PHP version:"
@@ -742,7 +742,7 @@ msgstr "Afficher les informations relatives à PHP"
 
 #: index.php:447
 msgid "Version information:"
-msgstr "Version : "
+msgstr "Version :"
 
 #: index.php:456 libraries/classes/Config/FormDisplayTemplate.php:164
 #: libraries/classes/Display/Export.php:350
@@ -3172,7 +3172,7 @@ msgstr "par jour"
 
 #: libraries/classes/BrowseForeigners.php:193
 msgid "Search:"
-msgstr "Rechercher : "
+msgstr "Rechercher :"
 
 #: libraries/classes/BrowseForeigners.php:216
 #: libraries/classes/BrowseForeigners.php:220 libraries/classes/Index.php:719
@@ -3195,7 +3195,7 @@ msgstr "Description"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:520
 #: libraries/classes/Util.php:2316
 msgid "Page number:"
-msgstr "Page n° : "
+msgstr "Page n° :"
 
 #: libraries/classes/CentralColumns.php:227
 msgid ""
@@ -3308,7 +3308,7 @@ msgstr "Sélectionner une table"
 #: libraries/classes/CentralColumns.php:845
 #: templates/table/structure/add_column.twig:4
 msgid "Add column"
-msgstr "Ajouter une colonne :"
+msgstr "Ajouter une colonne"
 
 #: libraries/classes/CentralColumns.php:1304
 msgid "Add new column"
@@ -6613,7 +6613,7 @@ msgstr ""
 
 #: libraries/classes/Config/Validator.php:435
 msgid "Incorrect value:"
-msgstr "Valeur incorrecte : "
+msgstr "Valeur incorrecte :"
 
 #: libraries/classes/Config/Validator.php:444
 #, php-format
@@ -7028,7 +7028,7 @@ msgstr "Relation interne retirée."
 #: libraries/classes/Database/Qbe.php:456
 #: templates/table/search/search_and_replace.twig:6
 msgid "Column:"
-msgstr "Colonne : "
+msgstr "Colonne :"
 
 #: libraries/classes/Database/Qbe.php:502
 msgid "Alias:"
