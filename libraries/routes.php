@@ -35,6 +35,7 @@ use PhpMyAdmin\Controllers\NavigationController;
 use PhpMyAdmin\Controllers\NormalizationController;
 use PhpMyAdmin\Controllers\PhpInfoController;
 use PhpMyAdmin\Controllers\Preferences\FormsController;
+use PhpMyAdmin\Controllers\Preferences\ManageController;
 use PhpMyAdmin\Controllers\SchemaExportController;
 use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\Controllers\Server\CollationsController;
@@ -322,8 +323,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             $controller = $containerBuilder->get(FormsController::class);
             $controller->index();
         });
-        $routes->addRoute(['GET', 'POST'], '/manage', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/preferences/manage.php';
+        $routes->addRoute(['GET', 'POST'], '/manage', function () use ($containerBuilder) {
+            /** @var ManageController $controller */
+            $controller = $containerBuilder->get(ManageController::class);
+            $controller->index();
         });
         $routes->addRoute(['GET', 'POST'], '/twofactor', function () {
             require_once ROOT_PATH . 'libraries/entry_points/preferences/twofactor.php';

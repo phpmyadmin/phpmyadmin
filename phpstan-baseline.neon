@@ -3358,21 +3358,6 @@ parameters:
 			path: libraries/entry_points/import.php
 
 		-
-			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, int\\|string given\\.$#"
-			count: 1
-			path: libraries/entry_points/preferences/manage.php
-
-		-
-			message: "#^Parameter \\#3 \\$length of function mb_substr expects int\\|null, int\\|false given\\.$#"
-			count: 1
-			path: libraries/entry_points/preferences/manage.php
-
-		-
-			message: "#^Parameter \\#1 \\$file_name of method PhpMyAdmin\\\\UserPreferences\\:\\:redirect\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/entry_points/preferences/manage.php
-
-		-
 			message: "#^Parameter \\#1 \\$content of method PhpMyAdmin\\\\Response\\:\\:addHTML\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/entry_points/table/addfield.php
