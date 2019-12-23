@@ -1,7 +1,7 @@
 <?php
 /**
  * Display form for changing/adding table fields/columns.
- * Included by /table/addfield and /table/create
+ * Included by /table/add-field and /table/create
  *
  * @package PhpMyAdmin
  */
@@ -73,7 +73,7 @@ $action = $action ?? '';
 if ($action == Url::getFromRoute('/table/create')) {
     $form_params['reload'] = 1;
 } else {
-    if ($action == Url::getFromRoute('/table/addfield')) {
+    if ($action == Url::getFromRoute('/table/add-field')) {
         $form_params = array_merge(
             $form_params,
             [
@@ -103,7 +103,7 @@ if (isset($selected) && is_array($selected)) {
     }
 }
 
-$is_backup = ($action != Url::getFromRoute('/table/create') && $action != Url::getFromRoute('/table/addfield'));
+$is_backup = ($action != Url::getFromRoute('/table/create') && $action != Url::getFromRoute('/table/add-field'));
 
 $cfgRelation = $relation->getRelationsParam();
 

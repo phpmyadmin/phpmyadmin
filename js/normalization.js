@@ -549,7 +549,7 @@ AJAX.registerOnload('normalization.js', function () {
         var argsep = CommonParams.get('arg_separator');
         var datastring = $('#newCols :input').serialize();
         datastring += argsep + 'ajax_request=1' + argsep + 'do_save_data=1' + argsep + 'field_where=last';
-        $.post('index.php?route=/table/addfield', datastring, function (data) {
+        $.post('index.php?route=/table/add-field', datastring, function (data) {
             if (data.success) {
                 $.post(
                     'index.php?route=/sql',
@@ -617,7 +617,7 @@ AJAX.registerOnload('normalization.js', function () {
         var datastring = $('#newCols :input').serialize();
         var argsep = CommonParams.get('arg_separator');
         datastring += argsep + 'field_key[0]=primary_0' + argsep + 'ajax_request=1' + argsep + 'do_save_data=1' + argsep + 'field_where=last';
-        $.post('index.php?route=/table/addfield', datastring, function (data) {
+        $.post('index.php?route=/table/add-field', datastring, function (data) {
             if (data.success === true) {
                 $('#mainContent h4').html(Messages.strPrimaryKeyAdded);
                 $('#mainContent p').html(Messages.strToNextStep);

@@ -3358,11 +3358,6 @@ parameters:
 			path: libraries/entry_points/import.php
 
 		-
-			message: "#^Parameter \\#1 \\$content of method PhpMyAdmin\\\\Response\\:\\:addHTML\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/entry_points/table/addfield.php
-
-		-
 			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:getMessage\\(\\) expects PhpMyAdmin\\\\Message\\|string, null given\\.$#"
 			count: 2
 			path: libraries/entry_points/table/operations.php

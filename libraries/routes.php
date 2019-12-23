@@ -54,6 +54,7 @@ use PhpMyAdmin\Controllers\Server\Status\StatusController;
 use PhpMyAdmin\Controllers\Server\Status\VariablesController as StatusVariables;
 use PhpMyAdmin\Controllers\Server\UserGroupsController;
 use PhpMyAdmin\Controllers\Server\VariablesController;
+use PhpMyAdmin\Controllers\Table\AddFieldController;
 use PhpMyAdmin\Controllers\Table\TriggersController as TableTriggersController;
 use PhpMyAdmin\Controllers\ThemesController;
 use PhpMyAdmin\Controllers\TransformationOverviewController;
@@ -539,8 +540,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         require_once ROOT_PATH . 'libraries/entry_points/sql.php';
     });
     $routes->addGroup('/table', function (RouteCollector $routes) use ($containerBuilder) {
-        $routes->addRoute(['GET', 'POST'], '/addfield', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/table/addfield.php';
+        $routes->addRoute(['GET', 'POST'], '/add-field', function () use ($containerBuilder) {
+            /** @var AddFieldController $controller */
+            $controller = $containerBuilder->get(AddFieldController::class);
+            $controller->index();
         });
         $routes->addRoute(['GET', 'POST'], '/change', function () {
             require_once ROOT_PATH . 'libraries/entry_points/table/change.php';

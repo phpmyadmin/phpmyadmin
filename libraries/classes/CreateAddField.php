@@ -11,7 +11,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Html\Generator;
 
 /**
- * Set of functions for /table/create and /table/addfield
+ * Set of functions for /table/create and /table/add-field
  *
  * @package PhpMyAdmin
  */

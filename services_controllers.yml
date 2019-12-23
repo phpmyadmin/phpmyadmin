@@ -403,6 +403,17 @@ services:
       dbi: '@dbi'
       template: '@template'
 
+  PhpMyAdmin\Controllers\Table\AddFieldController:
+    class: 'PhpMyAdmin\Controllers\Table\AddFieldController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      db: '%db%'
+      table: '%table%'
+      transformations: '@transformations'
+      config: '@config'
+
   PhpMyAdmin\Controllers\Table\ChartController:
     class: 'PhpMyAdmin\Controllers\Table\ChartController'
     arguments:

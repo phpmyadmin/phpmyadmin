@@ -48,12 +48,12 @@ class NodeColumnContainer extends Node
         $new->isNew = true;
         $new->icon = Generator::getImage('b_column_add', $newLabel);
         $new->links = [
-            'text' => Url::getFromRoute('/table/addfield', [
+            'text' => Url::getFromRoute('/table/add-field', [
                 'server' => $GLOBALS['server'],
                 'field_where' => 'last',
                 'after_field' => '',
             ]) . '&amp;db=%3$s&amp;table=%2$s',
-            'icon' => Url::getFromRoute('/table/addfield', [
+            'icon' => Url::getFromRoute('/table/add-field', [
                 'server' => $GLOBALS['server'],
                 'field_where' => 'last',
                 'after_field' => '',
