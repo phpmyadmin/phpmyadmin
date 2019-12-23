@@ -563,7 +563,7 @@ class Menu
         $tabs['settings']['active'] = in_array($route, [
             '/preferences/forms',
             '/preferences/manage',
-            '/preferences/twofactor',
+            '/preferences/two-factor',
         ]);
 
         if (! empty($binary_logs)) {

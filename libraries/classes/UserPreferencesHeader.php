@@ -67,9 +67,9 @@ class UserPreferencesHeader
         /* Second authentication factor */
         $content .= Generator::getHtmlTab(
                 [
-                    'link' => 'index.php?route=/preferences/twofactor',
+                    'link' => 'index.php?route=/preferences/two-factor',
                     'text' => __('Two-factor authentication'),
-                    'active' => $route === '/preferences/twofactor',
+                    'active' => $route === '/preferences/two-factor',
                 ]
             ) . "\n";
 

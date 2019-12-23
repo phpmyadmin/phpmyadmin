@@ -36,6 +36,7 @@ use PhpMyAdmin\Controllers\NormalizationController;
 use PhpMyAdmin\Controllers\PhpInfoController;
 use PhpMyAdmin\Controllers\Preferences\FormsController;
 use PhpMyAdmin\Controllers\Preferences\ManageController;
+use PhpMyAdmin\Controllers\Preferences\TwoFactorController;
 use PhpMyAdmin\Controllers\SchemaExportController;
 use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\Controllers\Server\CollationsController;
@@ -328,8 +329,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             $controller = $containerBuilder->get(ManageController::class);
             $controller->index();
         });
-        $routes->addRoute(['GET', 'POST'], '/twofactor', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/preferences/twofactor.php';
+        $routes->addRoute(['GET', 'POST'], '/two-factor', function () use ($containerBuilder) {
+            /** @var TwoFactorController $controller */
+            $controller = $containerBuilder->get(TwoFactorController::class);
+            $controller->index();
         });
     });
     $routes->addRoute(['GET', 'POST'], '/schema-export', function () use ($containerBuilder) {
