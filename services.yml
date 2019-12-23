@@ -147,6 +147,9 @@ services:
     class: 'PhpMyAdmin\UserPassword'
     arguments: ['@server_privileges']
 
+  user_preferences:
+    class: 'PhpMyAdmin\UserPreferences'
+
   #Aliases
 
   PhpMyAdmin\Response: '@response'

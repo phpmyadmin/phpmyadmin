@@ -34,6 +34,7 @@ use PhpMyAdmin\Controllers\LogoutController;
 use PhpMyAdmin\Controllers\NavigationController;
 use PhpMyAdmin\Controllers\NormalizationController;
 use PhpMyAdmin\Controllers\PhpInfoController;
+use PhpMyAdmin\Controllers\Preferences\FormsController;
 use PhpMyAdmin\Controllers\SchemaExportController;
 use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\Controllers\Server\CollationsController;
@@ -315,9 +316,11 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $controller = $containerBuilder->get(PhpInfoController::class);
         $controller->index();
     });
-    $routes->addGroup('/preferences', function (RouteCollector $routes) {
-        $routes->addRoute(['GET', 'POST'], '/forms', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/preferences/forms.php';
+    $routes->addGroup('/preferences', function (RouteCollector $routes) use ($containerBuilder) {
+        $routes->addRoute(['GET', 'POST'], '/forms', function () use ($containerBuilder) {
+            /** @var FormsController $controller */
+            $controller = $containerBuilder->get(FormsController::class);
+            $controller->index();
         });
         $routes->addRoute(['GET', 'POST'], '/manage', function () {
             require_once ROOT_PATH . 'libraries/entry_points/preferences/manage.php';
