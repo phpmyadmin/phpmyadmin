@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:37-0300\n"
-"PO-Revision-Date: 2019-12-23 14:21+0000\n"
-"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
+"PO-Revision-Date: 2019-12-23 19:26+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/5-0/fr/"
 ">\n"
 "Language: fr\n"
@@ -2760,7 +2760,7 @@ msgstr "par jour"
 
 #: libraries/classes/BrowseForeigners.php:203
 msgid "Search:"
-msgstr "Rechercher : "
+msgstr "Rechercher :"
 
 #: libraries/classes/BrowseForeigners.php:226
 #: libraries/classes/BrowseForeigners.php:230 libraries/classes/Index.php:716
@@ -2783,7 +2783,7 @@ msgstr "Description"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:542
 #: libraries/classes/Util.php:2404
 msgid "Page number:"
-msgstr "Page n° : "
+msgstr "Page n° :"
 
 #: libraries/classes/CentralColumns.php:243
 msgid ""
@@ -6310,7 +6310,7 @@ msgstr ""
 
 #: libraries/classes/Config/Validator.php:436
 msgid "Incorrect value:"
-msgstr "Valeur incorrecte : "
+msgstr "Valeur incorrecte :"
 
 #: libraries/classes/Config/Validator.php:445
 #, php-format
@@ -7626,7 +7626,7 @@ msgstr "Relation interne retirée."
 #: libraries/classes/Database/Qbe.php:478
 #: templates/table/search/selection_form.twig:186
 msgid "Column:"
-msgstr "Colonne : "
+msgstr "Colonne :"
 
 #: libraries/classes/Database/Qbe.php:520
 msgid "Alias:"
@@ -14749,7 +14749,7 @@ msgstr "Utilisateur :"
 
 #: templates/home/index.twig:121
 msgid "Server charset:"
-msgstr "Jeu de caractères du serveur : "
+msgstr "Jeu de caractères du serveur :"
 
 #: templates/home/index.twig:132
 msgid "Web server"
@@ -14757,11 +14757,11 @@ msgstr "Serveur Web"
 
 #: templates/home/index.twig:139
 msgid "Database client version:"
-msgstr "Version du client de base de données : "
+msgstr "Version du client de base de données :"
 
 #: templates/home/index.twig:143
 msgid "PHP extension:"
-msgstr "Extension PHP : "
+msgstr "Extension PHP :"
 
 #: templates/home/index.twig:150
 msgid "PHP version:"
@@ -14769,7 +14769,7 @@ msgstr "Version de PHP :"
 
 #: templates/home/index.twig:165
 msgid "Version information:"
-msgstr "Version : "
+msgstr "Version :"
 
 #: templates/home/index.twig:175
 msgid "Official Homepage"
@@ -14860,7 +14860,7 @@ msgstr "Suivre la vue"
 #: templates/table/structure/display_structure.twig:420
 #: templates/database/central_columns/main.twig:194
 msgid "Add column"
-msgstr "Ajouter une colonne :"
+msgstr "Ajouter une colonne"
 
 #: templates/table/structure/display_structure.twig:425
 #, php-format
