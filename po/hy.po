@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.9.2-dev\n"
+"Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-11-22 01:29+0100\n"
+"POT-Creation-Date: 2019-12-23 15:36-0300\n"
 "PO-Revision-Date: 2019-04-27 16:55+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Armenian <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
@@ -59,7 +59,7 @@ msgid "Table comments:"
 msgstr "Աղյուսակների մեկնաբանությունները՝"
 
 #: db_datadict.php:117 libraries/classes/Index.php:723
-#: libraries/classes/InsertEdit.php:1914
+#: libraries/classes/InsertEdit.php:1912
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:30
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:291
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:387
@@ -71,25 +71,25 @@ msgstr "Աղյուսակների մեկնաբանությունները՝"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:512
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:629
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:652
-#: templates/table/tracking/structure_snapshot_columns.twig:6
+#: templates/table/relation/internal_relational_row.twig:24
+#: templates/table/search/zoom_result_form.twig:34
 #: templates/table/search/table_header.twig:6
-#: templates/table/tracking/structure_snapshot_indexes.twig:9
+#: templates/table/index_form.twig:115
+#: templates/columns_definitions/column_name.twig:16
 #: templates/table/relation/foreign_key_row.twig:122
 #: templates/table/relation/foreign_key_row.twig:132
-#: templates/table/index_form.twig:115
 #: templates/table/relation/common_form.twig:14
 #: templates/table/relation/common_form.twig:19
 #: templates/table/relation/common_form.twig:34
 #: templates/table/relation/common_form.twig:109
-#: templates/columns_definitions/column_name.twig:16
-#: templates/table/relation/internal_relational_row.twig:24
-#: templates/table/search/zoom_result_form.twig:34
+#: templates/table/tracking/structure_snapshot_indexes.twig:9
+#: templates/table/tracking/structure_snapshot_columns.twig:6
 msgid "Column"
 msgstr "Սյունակ"
 
 #: db_datadict.php:118 libraries/classes/CentralColumns.php:744
 #: libraries/classes/CentralColumns.php:1428 libraries/classes/Index.php:720
-#: libraries/classes/InsertEdit.php:308
+#: libraries/classes/InsertEdit.php:306
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:294
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:390
 #: libraries/classes/Plugins/Export/ExportLatex.php:527
@@ -100,23 +100,23 @@ msgstr "Սյունակ"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:514
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:630
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:653
-#: libraries/classes/Rte/Routines.php:913
-#: libraries/classes/Rte/Routines.php:944
-#: libraries/classes/Rte/Routines.php:1623 libraries/classes/Rte/RteList.php:90
+#: libraries/classes/Rte/Routines.php:914
+#: libraries/classes/Rte/Routines.php:945
+#: libraries/classes/Rte/Routines.php:1624 libraries/classes/Rte/RteList.php:90
 #: libraries/classes/Rte/RteList.php:118
 #: libraries/classes/Server/Privileges.php:2577
-#: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/columns_definitions/table_fields_definitions.twig:12
 #: templates/table/search/table_header.twig:7
+#: templates/columns_definitions/table_fields_definitions.twig:12
+#: templates/table/structure/table_structure_header.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
+#: templates/table/tracking/structure_snapshot_columns.twig:7
 msgid "Type"
 msgstr "Տեսակ"
 
 #: db_datadict.php:119 libraries/classes/CentralColumns.php:755
 #: libraries/classes/CentralColumns.php:1429 libraries/classes/Index.php:726
-#: libraries/classes/InsertEdit.php:1923
+#: libraries/classes/InsertEdit.php:1921
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:297
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:393
 #: libraries/classes/Plugins/Export/ExportLatex.php:528
@@ -127,11 +127,11 @@ msgstr "Տեսակ"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:516
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:632
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:655
-#: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/columns_definitions/table_fields_definitions.twig:30
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/search/zoom_result_form.twig:35
+#: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/structure/table_structure_header.twig:9
+#: templates/table/tracking/structure_snapshot_indexes.twig:12
+#: templates/table/tracking/structure_snapshot_columns.twig:9
 msgid "Null"
 msgstr "Null"
 
@@ -148,10 +148,10 @@ msgstr "Null"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:633
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:656
 #: libraries/classes/ReplicationGui.php:165
-#: templates/table/tracking/structure_snapshot_columns.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/structure/table_structure_header.twig:10
+#: templates/table/tracking/structure_snapshot_columns.twig:10
+#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "Լռելյան"
 
@@ -183,10 +183,10 @@ msgstr "Մեկնաբանություններ"
 #: db_datadict.php:156
 #: libraries/classes/Controllers/Table/TableStructureController.php:1231
 #: libraries/classes/Controllers/Table/TableStructureController.php:1236
-#: templates/table/tracking/structure_snapshot_columns.twig:25
 #: templates/table/structure/check_all_table_column.twig:33
-#: templates/table/structure/display_structure.twig:61
 #: templates/columns_definitions/column_indexes.twig:4
+#: templates/table/tracking/structure_snapshot_columns.twig:25
+#: templates/table/structure/display_structure.twig:61
 msgid "Primary"
 msgstr "Առաջնային"
 
@@ -205,13 +205,13 @@ msgstr "Առաջնային"
 #: libraries/classes/Server/Privileges.php:3010
 #: libraries/classes/Server/Privileges.php:3674
 #: libraries/classes/Server/Privileges.php:3703 prefs_manage.php:145
-#: templates/table/tracking/structure_snapshot_columns.twig:33
-#: templates/table/tracking/structure_snapshot_indexes.twig:23
-#: templates/table/tracking/structure_snapshot_indexes.twig:24
 #: templates/privileges/privileges_summary_row.twig:4
 #: templates/privileges/privileges_summary_row.twig:7
 #: templates/privileges/privileges_summary_row.twig:9
 #: templates/prefs_autoload.twig:12
+#: templates/table/tracking/structure_snapshot_indexes.twig:23
+#: templates/table/tracking/structure_snapshot_indexes.twig:24
+#: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/table/structure/table_structure_row.twig:25
 msgid "No"
 msgstr "Ոչ"
@@ -240,14 +240,13 @@ msgstr "Ոչ"
 #: libraries/classes/Server/Privileges.php:3671
 #: libraries/classes/Server/Privileges.php:3703
 #: libraries/mult_submits.inc.php:90 libraries/mult_submits.inc.php:219
-#: prefs_manage.php:143
-#: templates/table/tracking/structure_snapshot_columns.twig:33
-#: templates/table/tracking/structure_snapshot_indexes.twig:23
-#: templates/table/tracking/structure_snapshot_indexes.twig:24
-#: templates/privileges/privileges_summary_row.twig:4
+#: prefs_manage.php:143 templates/privileges/privileges_summary_row.twig:4
 #: templates/privileges/privileges_summary_row.twig:7
 #: templates/privileges/privileges_summary_row.twig:9
 #: templates/prefs_autoload.twig:11
+#: templates/table/tracking/structure_snapshot_indexes.twig:23
+#: templates/table/tracking/structure_snapshot_indexes.twig:24
+#: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/table/structure/table_structure_row.twig:25
 msgid "Yes"
 msgstr "Այո"
@@ -288,9 +287,9 @@ msgstr "Աղյուսակներ"
 #: libraries/classes/Util.php:4021 libraries/config.values.php:38
 #: libraries/config.values.php:46 libraries/config.values.php:110
 #: libraries/config.values.php:116
-#: templates/table/tracking/structure_snapshot_columns.twig:1
 #: templates/columns_definitions/table_fields_definitions.twig:4
 #: templates/database/central_columns/edit_table_header.twig:2
+#: templates/table/tracking/structure_snapshot_columns.twig:1
 msgid "Structure"
 msgstr "Կառուցվածք"
 
@@ -305,9 +304,9 @@ msgid "Data"
 msgstr "Տվյալներ"
 
 #: db_export.php:73 libraries/classes/ReplicationGui.php:387
+#: templates/database/designer/database_tables.twig:31
 #: templates/database/search/selection_form.twig:32
 #: templates/display/export/select_options.twig:4
-#: templates/database/designer/database_tables.twig:31
 msgid "Select all"
 msgstr "Ընտրել բոլորը"
 
@@ -500,8 +499,8 @@ msgstr "Ավելացնել երկրաչափություն"
 #: gis_data_editor.php:417 js/messages.php:354
 #: libraries/classes/BrowseForeigners.php:199
 #: libraries/classes/Display/ChangePassword.php:160
-#: libraries/classes/Index.php:664 libraries/classes/InsertEdit.php:1892
-#: libraries/classes/InsertEdit.php:1930
+#: libraries/classes/Index.php:664 libraries/classes/InsertEdit.php:1890
+#: libraries/classes/InsertEdit.php:1928
 #: libraries/classes/Normalization.php:216
 #: libraries/classes/Normalization.php:898 libraries/classes/Operations.php:67
 #: libraries/classes/Operations.php:133 libraries/classes/Operations.php:275
@@ -515,8 +514,8 @@ msgstr "Ավելացնել երկրաչափություն"
 #: libraries/classes/ReplicationGui.php:333
 #: libraries/classes/ReplicationGui.php:471
 #: libraries/classes/ReplicationGui.php:894
-#: libraries/classes/Rte/Events.php:529 libraries/classes/Rte/Routines.php:1084
-#: libraries/classes/Rte/Routines.php:1710
+#: libraries/classes/Rte/Events.php:529 libraries/classes/Rte/Routines.php:1085
+#: libraries/classes/Rte/Routines.php:1711
 #: libraries/classes/Rte/Triggers.php:412
 #: libraries/classes/Server/Privileges.php:717
 #: libraries/classes/Server/Privileges.php:2226
@@ -525,20 +524,21 @@ msgstr "Ավելացնել երկրաչափություն"
 #: libraries/classes/SqlQueryForm.php:374
 #: libraries/classes/SqlQueryForm.php:440 libraries/classes/Tracking.php:410
 #: libraries/classes/Tracking.php:522 prefs_manage.php:267 prefs_manage.php:351
-#: server_privileges.php:323 templates/table/structure/add_column.twig:23
-#: templates/start_and_number_of_rows_panel.twig:14
-#: templates/view_create.twig:116 templates/header_location.twig:18
-#: templates/privileges/privileges_summary.twig:60
-#: templates/display/results/options_block.twig:114
-#: templates/database/search/selection_form.twig:58
-#: templates/columns_definitions/column_definitions_form.twig:43
-#: templates/display/export/options_format.twig:18
-#: templates/server/binlog/log_selector.twig:27
-#: templates/database/create_table.twig:21 templates/table/index_form.twig:217
-#: templates/table/search/selection_form.twig:99
+#: server_privileges.php:323 templates/table/search/selection_form.twig:99
 #: templates/display/import/import.twig:191
+#: templates/display/export/options_format.twig:18
+#: templates/table/index_form.twig:217 templates/header_location.twig:18
+#: templates/table/structure/add_column.twig:23
+#: templates/privileges/edit_routine_privileges.twig:23
+#: templates/database/create_table.twig:21
+#: templates/start_and_number_of_rows_panel.twig:14
+#: templates/database/search/selection_form.twig:58
+#: templates/view_create.twig:116
+#: templates/display/results/options_block.twig:114
+#: templates/server/binlog/log_selector.twig:27
 #: templates/privileges/delete_user_fieldset.twig:16
-#: templates/privileges/edit_routine_privileges.twig:23 view_operations.php:115
+#: templates/columns_definitions/column_definitions_form.twig:43
+#: templates/privileges/privileges_summary.twig:60 view_operations.php:115
 msgid "Go"
 msgstr "Առաջ"
 
@@ -1042,7 +1042,7 @@ msgstr ""
 msgid "Save & close"
 msgstr "Պահպանել և փակել"
 
-#: js/messages.php:113 libraries/classes/InsertEdit.php:1896
+#: js/messages.php:113 libraries/classes/InsertEdit.php:1894
 #: prefs_manage.php:357 prefs_manage.php:368
 #: templates/config/form_display/fieldset_bottom.twig:9
 msgid "Reset"
@@ -1097,10 +1097,10 @@ msgstr "Համալրված՝"
 msgid "Please select column(s) for the index."
 msgstr "Ընտրեք սյունակներ՝ ցուցակագրի համար։"
 
-#: js/messages.php:130 libraries/classes/InsertEdit.php:1894
-#: templates/columns_definitions/column_definitions_form.twig:146
+#: js/messages.php:130 libraries/classes/InsertEdit.php:1892
 #: templates/table/index_form.twig:216
 #: templates/table/relation/common_form.twig:188
+#: templates/columns_definitions/column_definitions_form.twig:146
 msgid "Preview SQL"
 msgstr "SQL-ի նախադիտում"
 
@@ -1356,12 +1356,12 @@ msgstr "Ավելացրեք առնվազն մեկ փոփոխական այս շա�
 #: libraries/classes/Server/Status/Monitor.php:243
 #: libraries/classes/Server/Status/Processes.php:285
 #: libraries/config.values.php:69
-#: templates/privileges/privileges_summary.twig:30
-#: templates/database/designer/options_panel.twig:177
-#: templates/table/search/options_zoom.twig:12
-#: templates/table/search/rows_zoom.twig:20
-#: templates/display/export/options_output_compression.twig:7
 #: templates/columns_definitions/transformation.twig:4
+#: templates/display/export/options_output_compression.twig:7
+#: templates/database/designer/options_panel.twig:177
+#: templates/table/search/rows_zoom.twig:20
+#: templates/table/search/options_zoom.twig:12
+#: templates/privileges/privileges_summary.twig:30
 msgid "None"
 msgstr "Չկա"
 
@@ -1749,14 +1749,14 @@ msgstr "SQL-ի ձևավորում …"
 msgid "No parameters found!"
 msgstr "Հարաչափերը չեն գտնվել։"
 
-#: js/messages.php:355 templates/database/designer/having_query_panel.twig:118
-#: templates/database/designer/options_panel.twig:257
+#: js/messages.php:355 templates/database/designer/new_relation_panel.twig:90
+#: templates/server/variables/link_template.twig:5
+#: templates/database/designer/delete_relation_panel.twig:30
 #: templates/database/designer/rename_to_panel.twig:45
 #: templates/database/designer/aggregate_query_panel.twig:64
-#: templates/database/designer/delete_relation_panel.twig:30
+#: templates/database/designer/having_query_panel.twig:118
+#: templates/database/designer/options_panel.twig:257
 #: templates/database/designer/where_query_panel.twig:85
-#: templates/server/variables/link_template.twig:5
-#: templates/database/designer/new_relation_panel.twig:90
 msgid "Cancel"
 msgstr "Չեղարկել"
 
@@ -1825,13 +1825,13 @@ msgstr "Սյունակի ջնջում"
 msgid "Adding primary key"
 msgstr "Առաջնային բանալիի ավելացում"
 
-#: js/messages.php:377 templates/database/designer/having_query_panel.twig:114
-#: templates/database/designer/options_panel.twig:255
+#: js/messages.php:377 templates/database/designer/new_relation_panel.twig:88
+#: templates/console/display.twig:129
 #: templates/database/designer/rename_to_panel.twig:41
 #: templates/database/designer/aggregate_query_panel.twig:60
-#: templates/console/display.twig:129
+#: templates/database/designer/having_query_panel.twig:114
+#: templates/database/designer/options_panel.twig:255
 #: templates/database/designer/where_query_panel.twig:83
-#: templates/database/designer/new_relation_panel.twig:88
 msgid "OK"
 msgstr "Լավ"
 
@@ -1890,8 +1890,8 @@ msgstr ""
 "Պահված գործառույթի սահմանումը պետք է պարունակի RETURN արտահայտությունը։"
 
 #: js/messages.php:403 libraries/classes/Config/Forms/User/ExportForm.php:140
-#: libraries/classes/Display/Results.php:4713
-#: libraries/classes/Display/Results.php:4994 libraries/classes/Menu.php:383
+#: libraries/classes/Display/Results.php:4715
+#: libraries/classes/Display/Results.php:4996 libraries/classes/Menu.php:383
 #: libraries/classes/Menu.php:491 libraries/classes/Menu.php:617
 #: libraries/classes/Rte/RteList.php:168
 #: libraries/classes/Server/Privileges.php:2412
@@ -1911,7 +1911,7 @@ msgstr "Արտահանում"
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
 
-#: js/messages.php:408 libraries/classes/Rte/Routines.php:760
+#: js/messages.php:408 libraries/classes/Rte/Routines.php:761
 msgid "ENUM/SET editor"
 msgstr "ENUM/SET խմբագիր"
 
@@ -1951,27 +1951,28 @@ msgstr "Ցուցադրել հարցման դաշտը"
 #: js/messages.php:422 libraries/classes/CentralColumns.php:879
 #: libraries/classes/CentralColumns.php:1234
 #: libraries/classes/Config/Descriptions.php:1329
-#: libraries/classes/Display/Results.php:3338
-#: libraries/classes/Display/Results.php:4697 libraries/classes/Index.php:745
+#: libraries/classes/Display/Results.php:3340
+#: libraries/classes/Display/Results.php:4699 libraries/classes/Index.php:745
 #: libraries/classes/Server/UserGroups.php:132 libraries/classes/Util.php:595
 #: libraries/classes/Util.php:1079 libraries/classes/Util.php:3351
 #: libraries/classes/Util.php:3352 setup/frames/index.inc.php:157
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:175
+#: templates/console/bookmark_content.twig:7
 #: templates/server/variables/variable_row.twig:4
 #: templates/server/variables/variable_row.twig:7
+#: templates/console/display.twig:31 templates/console/display.twig:175
 msgid "Edit"
 msgstr "Խմբագրել"
 
 #: js/messages.php:423 libraries/classes/CentralColumns.php:881
 #: libraries/classes/CentralColumns.php:1238
-#: libraries/classes/Display/Results.php:3407
-#: libraries/classes/Display/Results.php:4681
+#: libraries/classes/Display/Results.php:3409
+#: libraries/classes/Display/Results.php:4683
 #: libraries/classes/Server/UserGroups.php:143
 #: libraries/classes/SqlQueryForm.php:427 libraries/classes/Tracking.php:354
-#: setup/frames/index.inc.php:161 templates/console/bookmark_content.twig:7
-#: templates/database/designer/delete_relation_panel.twig:28
+#: setup/frames/index.inc.php:161
 #: templates/display/export/template_loading.twig:22
+#: templates/console/bookmark_content.twig:7
+#: templates/database/designer/delete_relation_panel.twig:28
 #: templates/database/search/results.twig:43
 msgid "Delete"
 msgstr "Հեռացնել"
@@ -2146,12 +2147,12 @@ msgid "No dependencies selected!"
 msgstr "Ընտրած կախվածություններ չկան։"
 
 #: js/messages.php:482 libraries/classes/CentralColumns.php:1254
-#: libraries/classes/InsertEdit.php:1806
-#: templates/columns_definitions/column_definitions_form.twig:149
+#: libraries/classes/InsertEdit.php:1804
+#: templates/server/variables/link_template.twig:2
+#: templates/table/gis_visualization/gis_visualization.twig:48
 #: templates/table/structure/partition_definition_form.twig:12
 #: templates/table/relation/common_form.twig:189
-#: templates/table/gis_visualization/gis_visualization.twig:48
-#: templates/server/variables/link_template.twig:2
+#: templates/columns_definitions/column_definitions_form.twig:149
 msgid "Save"
 msgstr "Պահպանել"
 
@@ -2231,13 +2232,13 @@ msgid "Data point content"
 msgstr "Տվյալների կետի պարունակությունը"
 
 #: js/messages.php:519 js/messages.php:687 js/messages.php:704
-#: libraries/classes/ErrorHandler.php:372 libraries/classes/InsertEdit.php:2979
+#: libraries/classes/ErrorHandler.php:381 libraries/classes/InsertEdit.php:2977
 #: templates/table/index_form.twig:141 templates/table/index_form.twig:177
 msgid "Ignore"
 msgstr "Անտեսել"
 
-#: js/messages.php:520 libraries/classes/Display/Results.php:3341
-#: libraries/classes/Display/Results.php:4702
+#: js/messages.php:520 libraries/classes/Display/Results.php:3343
+#: libraries/classes/Display/Results.php:4704
 msgid "Copy"
 msgstr "Պատճենել"
 
@@ -2435,9 +2436,9 @@ msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "Կտտացրեք ելնող սլաքը՝<br />սյունակի տեսանելիությունը փոխարկելու համար։"
 
 #: js/messages.php:603 libraries/classes/BrowseForeigners.php:340
+#: templates/privileges/initials_row.twig:22
 #: templates/display/results/show_all_checkbox.twig:11
 #: templates/table/browse_foreigners/show_all.twig:4
-#: templates/privileges/initials_row.twig:20
 msgid "Show all"
 msgstr "Ցուցադրել բոլորը"
 
@@ -2492,7 +2493,7 @@ msgstr "Քաշեք ֆայլերը այստեղ"
 msgid "Select database first"
 msgstr "Սկզբից նշեք տվյալների բազան"
 
-#: js/messages.php:626 libraries/classes/Display/Results.php:4888
+#: js/messages.php:626 libraries/classes/Display/Results.php:4890
 #: libraries/classes/Util.php:3886
 #: templates/table/structure/optional_action_links.twig:1
 #: templates/database/structure/print_view_data_dictionary_link.twig:3
@@ -2579,7 +2580,7 @@ msgstr ", վերջին կայուն տարբերակն է՝"
 msgid "up to date"
 msgstr "արդի է"
 
-#: js/messages.php:677 libraries/classes/Display/Results.php:4822
+#: js/messages.php:677 libraries/classes/Display/Results.php:4824
 #: templates/view_create.twig:11
 msgid "Create view"
 msgstr "Ստեղծել ներկայացում"
@@ -2634,7 +2635,7 @@ msgstr "Սպասարկչում հայտնաբերվել են որոշակի սխ
 msgid "Please look at the bottom of this window."
 msgstr "Նայեք ընթացիկ պատուհանի ներքևի մասը։"
 
-#: js/messages.php:707 libraries/classes/ErrorHandler.php:376
+#: js/messages.php:707 libraries/classes/ErrorHandler.php:385
 msgid "Ignore All"
 msgstr "Անտեսել բոլորը"
 
@@ -2747,7 +2748,7 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "%s աղյուսակը արդեն սիկ առկա է։"
 
-#: js/messages.php:756 libraries/classes/InsertEdit.php:290
+#: js/messages.php:756 libraries/classes/InsertEdit.php:288
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:54
 msgid "Hide"
 msgstr "Թաքցնել"
@@ -3077,7 +3078,7 @@ msgid "Please enter a valid HEX input"
 msgstr "Խնդրում ենք մուտքագրել վավերական տասնվեցերորդական արժեքը"
 
 #: js/messages.php:989 libraries/classes/Core.php:297
-#: libraries/classes/Import.php:112 libraries/classes/InsertEdit.php:1497
+#: libraries/classes/Import.php:112 libraries/classes/InsertEdit.php:1495
 #: libraries/classes/Message.php:191 libraries/classes/Util.php:542
 #: view_operations.php:72
 msgid "Error"
@@ -3170,9 +3171,9 @@ msgstr "Բանալիի անվանումը"
 #: libraries/classes/BrowseForeigners.php:217
 #: libraries/classes/BrowseForeigners.php:219
 #: libraries/classes/Server/Status/Variables.php:230
+#: templates/server/plugins/section.twig:10
 #: templates/server/engines/engines.twig:5
 #: templates/server/collations/charsets.twig:6
-#: templates/server/plugins/section.twig:10
 msgid "Description"
 msgstr "Նկարագրություն"
 
@@ -3228,15 +3229,15 @@ msgstr "ՈՉ"
 #: libraries/classes/Server/Privileges.php:3566
 #: libraries/classes/Server/UserGroups.php:93
 #: libraries/classes/Tracking.php:163
+#: templates/database/tracking/untracked_tables.twig:10
+#: templates/server/databases/table_header.twig:39
+#: templates/table/structure/table_structure_header.twig:18
 #: templates/table/tracking/report_table.twig:8
 #: templates/database/structure/table_header.twig:22
 #: templates/database/tracking/tracked_tables.twig:16
-#: templates/privileges/privileges_summary.twig:22
-#: templates/database/tracking/untracked_tables.twig:10
-#: templates/server/databases/table_header.twig:37
 #: templates/table/structure/display_partitions.twig:33
+#: templates/privileges/privileges_summary.twig:22
 #: templates/server/variables/variable_table_head.twig:3
-#: templates/table/structure/table_structure_header.twig:18
 msgid "Action"
 msgstr "Գործողություն"
 
@@ -3246,36 +3247,36 @@ msgstr "Գործողություն"
 #: libraries/classes/Plugins/Export/ExportOdt.php:609
 #: libraries/classes/Plugins/Export/ExportTexytext.php:450
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:352
-#: libraries/classes/Rte/Routines.php:943
-#: libraries/classes/Rte/Routines.php:1622 libraries/classes/Rte/RteList.php:88
+#: libraries/classes/Rte/Routines.php:944
+#: libraries/classes/Rte/Routines.php:1623 libraries/classes/Rte/RteList.php:88
 #: libraries/classes/Rte/RteList.php:100 libraries/classes/Rte/RteList.php:115
 #: setup/frames/index.inc.php:141
 #: templates/columns_definitions/table_fields_definitions.twig:9
-#: templates/database/create_table.twig:11
 #: templates/table/structure/table_structure_header.twig:5
+#: templates/database/create_table.twig:11
 msgid "Name"
 msgstr "Անուն"
 
 #: libraries/classes/CentralColumns.php:746
 #: libraries/classes/CentralColumns.php:1428
-#: libraries/classes/Rte/Routines.php:945
+#: libraries/classes/Rte/Routines.php:946
 #: templates/columns_definitions/table_fields_definitions.twig:16
 msgid "Length/Values"
 msgstr "Երկարությունը/Արժեքները"
 
 #: libraries/classes/CentralColumns.php:750
-#: libraries/classes/CentralColumns.php:1429 libraries/classes/Charsets.php:298
+#: libraries/classes/CentralColumns.php:1429 libraries/classes/Charsets.php:302
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:332
 #: libraries/classes/Index.php:725 libraries/classes/Operations.php:305
 #: libraries/classes/Operations.php:1075
-#: templates/table/tracking/structure_snapshot_columns.twig:8
-#: templates/columns_definitions/table_fields_definitions.twig:24
+#: templates/server/collations/charsets.twig:5
 #: templates/table/search/table_header.twig:8
+#: templates/columns_definitions/table_fields_definitions.twig:24
+#: templates/table/structure/table_structure_header.twig:7
+#: templates/table/structure/row_stats_table.twig:30
 #: templates/database/structure/table_header.twig:33
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
-#: templates/server/collations/charsets.twig:5
-#: templates/table/structure/row_stats_table.twig:30
-#: templates/table/structure/table_structure_header.twig:7
+#: templates/table/tracking/structure_snapshot_columns.twig:8
 msgid "Collation"
 msgstr "Համադրում"
 
@@ -3309,409 +3310,409 @@ msgstr "Ավելացնել նոր սյունակ"
 msgid "Attributes"
 msgstr "Հատկանիշներ"
 
-#: libraries/classes/Charsets.php:244
+#: libraries/classes/Charsets.php:248
 #: templates/database/structure/table_header.twig:44
 msgid "Charset"
 msgstr "Կոդավորում"
 
-#: libraries/classes/Charsets.php:335
+#: libraries/classes/Charsets.php:339
 #, fuzzy
 #| msgid "unknown"
 msgid "Unknown"
 msgstr "անհայտ"
 
-#: libraries/classes/Charsets.php:349
+#: libraries/classes/Charsets.php:353
 #, fuzzy
 #| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Երկուական"
 
-#: libraries/classes/Charsets.php:361 libraries/classes/Charsets.php:600
+#: libraries/classes/Charsets.php:365 libraries/classes/Charsets.php:604
 #, fuzzy
 #| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Յունիկոդ"
 
-#: libraries/classes/Charsets.php:371 libraries/classes/Charsets.php:547
+#: libraries/classes/Charsets.php:375 libraries/classes/Charsets.php:551
 #, fuzzy
 #| msgid "West European"
 msgctxt "Collation"
 msgid "West European"
 msgstr "Արևմտաեվրոպական"
 
-#: libraries/classes/Charsets.php:378
+#: libraries/classes/Charsets.php:382
 #, fuzzy
 #| msgid "Central European"
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Կենտրոնեվրոպական"
 
-#: libraries/classes/Charsets.php:383 libraries/classes/Charsets.php:554
+#: libraries/classes/Charsets.php:387 libraries/classes/Charsets.php:558
 #, fuzzy
 #| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Ռուսերեն"
 
-#: libraries/classes/Charsets.php:388
+#: libraries/classes/Charsets.php:392
 #, fuzzy
 #| msgid "Simplified Chinese"
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Չինարեն (Չինաստան)"
 
-#: libraries/classes/Charsets.php:391
+#: libraries/classes/Charsets.php:395
 #, fuzzy
 #| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Չինարեն (ավանդական)"
 
-#: libraries/classes/Charsets.php:394 libraries/classes/Charsets.php:470
+#: libraries/classes/Charsets.php:398 libraries/classes/Charsets.php:474
 msgctxt "Collation"
 msgid "Chinese"
 msgstr ""
 
-#: libraries/classes/Charsets.php:402 libraries/classes/Charsets.php:518
+#: libraries/classes/Charsets.php:406 libraries/classes/Charsets.php:522
 #, fuzzy
 #| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Ճապոներեն"
 
-#: libraries/classes/Charsets.php:407
+#: libraries/classes/Charsets.php:411
 #, fuzzy
 #| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Բալտիկական"
 
-#: libraries/classes/Charsets.php:412
+#: libraries/classes/Charsets.php:416
 #, fuzzy
 #| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Հայերեն"
 
-#: libraries/classes/Charsets.php:415
+#: libraries/classes/Charsets.php:419
 #, fuzzy
 #| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Կիրիլիկ"
 
-#: libraries/classes/Charsets.php:418
+#: libraries/classes/Charsets.php:422
 #, fuzzy
 #| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Արաբերեն"
 
-#: libraries/classes/Charsets.php:421 libraries/classes/Charsets.php:533
+#: libraries/classes/Charsets.php:425 libraries/classes/Charsets.php:537
 #, fuzzy
 #| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Կորեերեն"
 
-#: libraries/classes/Charsets.php:424
+#: libraries/classes/Charsets.php:428
 #, fuzzy
 #| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Եբրայերեն"
 
-#: libraries/classes/Charsets.php:427
+#: libraries/classes/Charsets.php:431
 #, fuzzy
 #| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Վրացերեն"
 
-#: libraries/classes/Charsets.php:430
+#: libraries/classes/Charsets.php:434
 #, fuzzy
 #| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Հունարեն"
 
-#: libraries/classes/Charsets.php:433
+#: libraries/classes/Charsets.php:437
 #, fuzzy
 #| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Չեխոսլովակերեն"
 
-#: libraries/classes/Charsets.php:436 libraries/classes/Charsets.php:592
+#: libraries/classes/Charsets.php:440 libraries/classes/Charsets.php:596
 #, fuzzy
 #| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ուկրաիներեն"
 
-#: libraries/classes/Charsets.php:439 libraries/classes/Charsets.php:588
+#: libraries/classes/Charsets.php:443 libraries/classes/Charsets.php:592
 #, fuzzy
 #| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Թուրքերեն"
 
-#: libraries/classes/Charsets.php:442 libraries/classes/Charsets.php:580
+#: libraries/classes/Charsets.php:446 libraries/classes/Charsets.php:584
 #, fuzzy
 #| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Շվեդերեն"
 
-#: libraries/classes/Charsets.php:445 libraries/classes/Charsets.php:584
+#: libraries/classes/Charsets.php:449 libraries/classes/Charsets.php:588
 #, fuzzy
 #| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Թաի"
 
-#: libraries/classes/Charsets.php:448
+#: libraries/classes/Charsets.php:452
 #, fuzzy
 #| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "անհայտ"
 
-#: libraries/classes/Charsets.php:464
+#: libraries/classes/Charsets.php:468
 #, fuzzy
 #| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Բուլղարերեն"
 
-#: libraries/classes/Charsets.php:475
+#: libraries/classes/Charsets.php:479
 #, fuzzy
 #| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Խորվատերեն"
 
-#: libraries/classes/Charsets.php:479
+#: libraries/classes/Charsets.php:483
 #, fuzzy
 #| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Չեխերեն"
 
-#: libraries/classes/Charsets.php:483
+#: libraries/classes/Charsets.php:487
 #, fuzzy
 #| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Դանիերեն"
 
-#: libraries/classes/Charsets.php:487
+#: libraries/classes/Charsets.php:491
 #, fuzzy
 #| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "Անգլերեն"
 
-#: libraries/classes/Charsets.php:491
+#: libraries/classes/Charsets.php:495
 #, fuzzy
 #| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Էսպերանտո"
 
-#: libraries/classes/Charsets.php:495
+#: libraries/classes/Charsets.php:499
 #, fuzzy
 #| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Էստոներեն"
 
-#: libraries/classes/Charsets.php:498 libraries/classes/Charsets.php:619
+#: libraries/classes/Charsets.php:502 libraries/classes/Charsets.php:623
 #, fuzzy
 #| msgid "Data dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "Տվյալների բառարան"
 
-#: libraries/classes/Charsets.php:501 libraries/classes/Charsets.php:616
+#: libraries/classes/Charsets.php:505 libraries/classes/Charsets.php:620
 msgctxt "Collation"
 msgid "German (phone book order)"
 msgstr ""
 
-#: libraries/classes/Charsets.php:510
+#: libraries/classes/Charsets.php:514
 #, fuzzy
 #| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Հունգարերեն"
 
-#: libraries/classes/Charsets.php:514
+#: libraries/classes/Charsets.php:518
 #, fuzzy
 #| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Իսլանդերեն"
 
-#: libraries/classes/Charsets.php:521
+#: libraries/classes/Charsets.php:525
 msgctxt "Collation"
 msgid "Classical Latin"
 msgstr ""
 
-#: libraries/classes/Charsets.php:525
+#: libraries/classes/Charsets.php:529
 #, fuzzy
 #| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Լատվիերեն"
 
-#: libraries/classes/Charsets.php:529
+#: libraries/classes/Charsets.php:533
 #, fuzzy
 #| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Լիտվերեն"
 
-#: libraries/classes/Charsets.php:537
+#: libraries/classes/Charsets.php:541
 msgctxt "Collation"
 msgid "Burmese"
 msgstr ""
 
-#: libraries/classes/Charsets.php:540
+#: libraries/classes/Charsets.php:544
 #, fuzzy
 #| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Պարսկերեն"
 
-#: libraries/classes/Charsets.php:544
+#: libraries/classes/Charsets.php:548
 #, fuzzy
 #| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Լեհերեն"
 
-#: libraries/classes/Charsets.php:551
+#: libraries/classes/Charsets.php:555
 #, fuzzy
 #| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Ռումիներեն"
 
-#: libraries/classes/Charsets.php:558
+#: libraries/classes/Charsets.php:562
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr ""
 
-#: libraries/classes/Charsets.php:562
+#: libraries/classes/Charsets.php:566
 #, fuzzy
 #| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Սլովակերեն"
 
-#: libraries/classes/Charsets.php:566
+#: libraries/classes/Charsets.php:570
 #, fuzzy
 #| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Սլովեներեն"
 
-#: libraries/classes/Charsets.php:569 libraries/classes/Charsets.php:630
+#: libraries/classes/Charsets.php:573 libraries/classes/Charsets.php:634
 #, fuzzy
 #| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr "Իսպաներեն"
 
-#: libraries/classes/Charsets.php:576 libraries/classes/Charsets.php:627
+#: libraries/classes/Charsets.php:580 libraries/classes/Charsets.php:631
 msgctxt "Collation"
 msgid "Spanish (traditional)"
 msgstr ""
 
-#: libraries/classes/Charsets.php:596
+#: libraries/classes/Charsets.php:600
 #, fuzzy
 #| msgid "Vietnamese"
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Վիետնամերեն"
 
-#: libraries/classes/Charsets.php:663
+#: libraries/classes/Charsets.php:667
 #, fuzzy
 #| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "ոչ դուրճազգայուն"
 
-#: libraries/classes/Charsets.php:666
+#: libraries/classes/Charsets.php:670
 #, fuzzy
 #| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "դուրճազգայուն"
 
-#: libraries/classes/Charsets.php:669
+#: libraries/classes/Charsets.php:673
 #, fuzzy
 #| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
 msgstr "ոչ դուրճազգայուն"
 
-#: libraries/classes/Charsets.php:672
+#: libraries/classes/Charsets.php:676
 #, fuzzy
 #| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
 msgstr "դուրճազգայուն"
 
-#: libraries/classes/Charsets.php:675
+#: libraries/classes/Charsets.php:679
 #, fuzzy
 #| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
 msgstr "դուրճազգայուն"
 
-#: libraries/classes/Charsets.php:679
+#: libraries/classes/Charsets.php:683
 #, fuzzy
 #| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
 msgstr "բազմալեզու"
 
-#: libraries/classes/Charsets.php:682
+#: libraries/classes/Charsets.php:686
 #, fuzzy
 #| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "Երկուական"
 
-#: libraries/classes/Charsets.php:685
+#: libraries/classes/Charsets.php:689
 msgctxt "Collation variant"
 msgid "no-pad"
 msgstr ""
 
-#: libraries/classes/Config.php:1122
+#: libraries/classes/Config.php:1132
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Առկա կազմաձևի ֆայլը (%s) կարդացվող չէ։"
 
-#: libraries/classes/Config.php:1152
+#: libraries/classes/Config.php:1162
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Անվավեր արտոնություններ կազմաձևի ֆայլում։ Այն չպետք է բոլորի կողմից գրվող "
 "լինի։"
 
-#: libraries/classes/Config.php:1172
+#: libraries/classes/Config.php:1182
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr ""
 
-#: libraries/classes/Config.php:1179
+#: libraries/classes/Config.php:1189
 msgid "Failed to read configuration file!"
 msgstr ""
 
-#: libraries/classes/Config.php:1182
+#: libraries/classes/Config.php:1192
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3719,17 +3720,17 @@ msgstr ""
 "Սա սովորաբար նշանակում է շարահյուսության սխալների առկայություն, խնդրում ենք "
 "ստուգել ստորև ցուցադրվող սխալները։"
 
-#: libraries/classes/Config.php:1498
+#: libraries/classes/Config.php:1511
 #: libraries/classes/Config/Descriptions.php:1486
 msgid "Font size"
 msgstr "Տառաչափ"
 
-#: libraries/classes/Config.php:1854
+#: libraries/classes/Config.php:1871
 #, php-format
 msgid "Invalid server index: %s"
 msgstr ""
 
-#: libraries/classes/Config.php:1867
+#: libraries/classes/Config.php:1884
 #, php-format
 msgid "Server %d"
 msgstr "Սպասարկիչ %d"
@@ -5958,11 +5959,11 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:4561
 #: libraries/classes/Server/Status/Processes.php:77
 #: templates/console/bookmark_content.twig:7
-#: templates/table/relation/foreign_key_row.twig:100
-#: templates/console/display.twig:40 templates/console/display.twig:184
-#: templates/table/relation/common_form.twig:32
-#: templates/server/databases/table_header.twig:8
 #: templates/table/relation/internal_relational_row.twig:10
+#: templates/server/databases/table_header.twig:8
+#: templates/console/display.twig:40 templates/console/display.twig:184
+#: templates/table/relation/foreign_key_row.twig:100
+#: templates/table/relation/common_form.twig:32
 msgid "Database"
 msgstr "Տվյալների բազա"
 
@@ -5997,12 +5998,12 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:3359
 #: libraries/classes/Server/Privileges.php:3361
 #: libraries/classes/Server/Privileges.php:4575
+#: templates/table/relation/internal_relational_row.twig:17
+#: templates/database/tracking/untracked_tables.twig:9
+#: templates/table/relation/foreign_key_row.twig:110
+#: templates/table/relation/common_form.twig:33
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tracked_tables.twig:11
-#: templates/table/relation/foreign_key_row.twig:110
-#: templates/database/tracking/untracked_tables.twig:9
-#: templates/table/relation/common_form.twig:33
-#: templates/table/relation/internal_relational_row.twig:17
 msgid "Table"
 msgstr "Աղյուսակ"
 
@@ -6547,7 +6548,7 @@ msgid "Table %s has been dropped."
 msgstr "%s աղյուսակը ջնջվեց։"
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:797
-#: libraries/classes/Display/Results.php:4542
+#: libraries/classes/Display/Results.php:4544
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -6627,9 +6628,9 @@ msgstr[1] "%1$d տվյալների բազա հաջողությամբ ջնջվե�
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:343
 #: libraries/classes/Import.php:122
-#: templates/table/structure/actions_in_table_structure.twig:114
-#: templates/database/structure/table_header.twig:26
 #: templates/table/structure/row_stats_table.twig:41
+#: templates/database/structure/table_header.twig:26
+#: templates/table/structure/actions_in_table_structure.twig:114
 #: templates/table/structure/display_partitions.twig:28
 msgid "Rows"
 msgstr "Տողեր"
@@ -6705,8 +6706,8 @@ msgstr ""
 
 #: libraries/classes/Controllers/Table/TableRelationController.php:275
 #: libraries/classes/Controllers/Table/TableSearchController.php:585
-#: libraries/classes/Display/Results.php:4198 libraries/classes/Message.php:172
-#: libraries/classes/Rte/Routines.php:1464
+#: libraries/classes/Display/Results.php:4200 libraries/classes/Message.php:172
+#: libraries/classes/Rte/Routines.php:1465
 #: libraries/classes/SqlQueryForm.php:93 tbl_row_action.php:142
 #: view_operations.php:69
 msgid "Your SQL query has been executed successfully."
@@ -6774,9 +6775,9 @@ msgstr "Փոխել"
 #: libraries/classes/Index.php:770 libraries/classes/Operations.php:1606
 #: libraries/classes/Rte/RteList.php:172 libraries/classes/Util.php:3347
 #: libraries/classes/Util.php:3348
-#: templates/server/databases/databases_footer.twig:55
-#: templates/table/relation/foreign_key_row.twig:30
 #: templates/table/structure/check_all_table_column.twig:24
+#: templates/table/relation/foreign_key_row.twig:30
+#: templates/server/databases/databases_footer.twig:57
 #: templates/database/structure/check_all_tables.twig:16
 #: templates/table/structure/display_structure.twig:191
 msgid "Drop"
@@ -6785,11 +6786,11 @@ msgstr "Ջնջել"
 #: libraries/classes/Controllers/Table/TableStructureController.php:1232
 #: libraries/classes/Controllers/Table/TableStructureController.php:1237
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:30
-#: templates/table/tracking/structure_snapshot_columns.twig:27
-#: templates/columns_definitions/table_fields_definitions.twig:46
 #: templates/table/structure/check_all_table_column.twig:47
-#: templates/table/structure/display_structure.twig:66
 #: templates/columns_definitions/column_indexes.twig:12
+#: templates/columns_definitions/table_fields_definitions.twig:46
+#: templates/table/tracking/structure_snapshot_columns.twig:27
+#: templates/table/structure/display_structure.twig:66
 #: templates/table/structure/display_table_stats.twig:24
 msgid "Index"
 msgstr "Ցուցակագիր"
@@ -6797,9 +6798,9 @@ msgstr "Ցուցակագիր"
 #: libraries/classes/Controllers/Table/TableStructureController.php:1233
 #: libraries/classes/Controllers/Table/TableStructureController.php:1238
 #: libraries/classes/Index.php:721
-#: templates/table/tracking/structure_snapshot_indexes.twig:7
 #: templates/table/structure/check_all_table_column.twig:40
 #: templates/columns_definitions/column_indexes.twig:8
+#: templates/table/tracking/structure_snapshot_indexes.twig:7
 msgid "Unique"
 msgstr "Յուրահատուկ"
 
@@ -7112,23 +7113,23 @@ msgstr ""
 msgid "Details…"
 msgstr "Մանրամասները …"
 
-#: libraries/classes/DatabaseInterface.php:2502
+#: libraries/classes/DatabaseInterface.php:2498
 #, fuzzy
 #| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
 msgstr "Բացակայող հարաչափը՝"
 
-#: libraries/classes/DatabaseInterface.php:2529
+#: libraries/classes/DatabaseInterface.php:2523
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Չհաջողվեց միանալ որպես controluser, ինչպես այն սահմանված է կազմաձևի մեջ։"
 
-#: libraries/classes/DatabaseInterface.php:3045
+#: libraries/classes/DatabaseInterface.php:3039
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:3062
+#: libraries/classes/DatabaseInterface.php:3056
 msgid ""
 "You are using the mysql extension which is deprecated in phpMyAdmin. Please "
 "consider installing the mysqli extension."
@@ -7285,105 +7286,105 @@ msgstr "Մասնակի գրվածքներ"
 msgid "Full texts"
 msgstr "Ամբողջական գրվածքներ"
 
-#: libraries/classes/Display/Results.php:2119
-#: libraries/classes/Display/Results.php:2133
+#: libraries/classes/Display/Results.php:2121
+#: libraries/classes/Display/Results.php:2135
 #: libraries/classes/Operations.php:814
 #: libraries/classes/Server/Status/Processes.php:157
 #: libraries/classes/Util.php:4700 libraries/classes/Util.php:4717
 #: libraries/config.values.php:71
-#: templates/database/qbe/sort_select_cell.twig:7
-#: templates/table/search/options.twig:54
 #: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
+#: templates/table/search/options.twig:54
+#: templates/database/qbe/sort_select_cell.twig:7
 msgid "Descending"
 msgstr "Ըստ նվազման"
 
-#: libraries/classes/Display/Results.php:2123
-#: libraries/classes/Display/Results.php:2129
+#: libraries/classes/Display/Results.php:2125
+#: libraries/classes/Display/Results.php:2131
 #: libraries/classes/Operations.php:811
 #: libraries/classes/Server/Status/Processes.php:160
 #: libraries/classes/Util.php:4695 libraries/classes/Util.php:4712
 #: libraries/config.values.php:70
-#: templates/database/qbe/sort_select_cell.twig:5
-#: templates/table/search/options.twig:54
 #: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
+#: templates/table/search/options.twig:54
+#: templates/database/qbe/sort_select_cell.twig:5
 msgid "Ascending"
 msgstr "Ըստ աճման"
 
-#: libraries/classes/Display/Results.php:3383
-#: libraries/classes/Display/Results.php:3398
+#: libraries/classes/Display/Results.php:3385
+#: libraries/classes/Display/Results.php:3400
 msgid "The row has been deleted."
 msgstr "Տողը ջնջվեց։"
 
-#: libraries/classes/Display/Results.php:3431
-#: libraries/classes/Display/Results.php:4681
+#: libraries/classes/Display/Results.php:3433
+#: libraries/classes/Display/Results.php:4683
 #: libraries/classes/Server/Status/Processes.php:279
 msgid "Kill"
 msgstr "Ավարտել"
 
-#: libraries/classes/Display/Results.php:4125
+#: libraries/classes/Display/Results.php:4127
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Կարող է մոտավոր լինել։ Դիմեք [doc@faq3-11]FAQ 3.11[/doc]։"
 
-#: libraries/classes/Display/Results.php:4555
+#: libraries/classes/Display/Results.php:4557
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "%1s -ից %2s տողերի ցուցադրում"
 
-#: libraries/classes/Display/Results.php:4570
+#: libraries/classes/Display/Results.php:4572
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "Ընդամենը %1$d,%2$d հարցման մեջ"
 
-#: libraries/classes/Display/Results.php:4575
+#: libraries/classes/Display/Results.php:4577
 #, php-format
 msgid "%d total"
 msgstr "Ընդամենը %d"
 
-#: libraries/classes/Display/Results.php:4587 libraries/classes/Sql.php:1435
+#: libraries/classes/Display/Results.php:4589 libraries/classes/Sql.php:1435
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Հարցումը տևեց %01.4f վայրկյան։"
 
-#: libraries/classes/Display/Results.php:4686
-#: libraries/classes/Display/Results.php:4693 libraries/mult_submits.inc.php:57
+#: libraries/classes/Display/Results.php:4688
+#: libraries/classes/Display/Results.php:4695 libraries/mult_submits.inc.php:57
+#: templates/select_all.twig:2 templates/select_all.twig:6
 #: templates/database/structure/check_all_tables.twig:2
 #: templates/database/structure/check_all_tables.twig:9
-#: templates/select_all.twig:2 templates/select_all.twig:6
 msgid "With selected:"
 msgstr "Ներառյալ նշվածները՝"
 
-#: libraries/classes/Display/Results.php:4690
 #: libraries/classes/Display/Results.php:4692
+#: libraries/classes/Display/Results.php:4694
 #: libraries/classes/Server/Privileges.php:1188
 #: libraries/classes/Server/Privileges.php:1189
-#: libraries/classes/Server/UserGroups.php:248
-#: templates/privileges/global_priv_table.twig:5
+#: libraries/classes/Server/UserGroups.php:248 templates/select_all.twig:4
+#: templates/select_all.twig:5
 #: templates/database/structure/check_all_tables.twig:3
 #: templates/database/structure/check_all_tables.twig:4
-#: templates/select_all.twig:4 templates/select_all.twig:5
+#: templates/privileges/global_priv_table.twig:5
 msgid "Check all"
 msgstr "Նշել բոլորը"
 
-#: libraries/classes/Display/Results.php:4868
+#: libraries/classes/Display/Results.php:4870
 msgid "Copy to clipboard"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:4919
+#: libraries/classes/Display/Results.php:4921
 msgid "Query results operations"
 msgstr "Հարցման արդյունքների օգտագործումը"
 
-#: libraries/classes/Display/Results.php:5003
+#: libraries/classes/Display/Results.php:5005
 #: templates/table/chart/tbl_chart.twig:10
 msgid "Display chart"
 msgstr "Ցուցադրել գծապատկերը"
 
-#: libraries/classes/Display/Results.php:5025
+#: libraries/classes/Display/Results.php:5027
 msgid "Visualize GIS data"
 msgstr "Տեսողացնել GIS տվյալները"
 
-#: libraries/classes/Display/Results.php:5208
+#: libraries/classes/Display/Results.php:5210
 msgid "Link not found!"
 msgstr "Հղումներ չեն գտնվել։"
 
@@ -7685,15 +7686,15 @@ msgid ""
 "%sPrimeBase XT Home Page%s."
 msgstr ""
 
-#: libraries/classes/ErrorHandler.php:78
+#: libraries/classes/ErrorHandler.php:80
 msgid "Too many error messages, some are not displayed."
 msgstr "Չափազանց մեծ սխալների քանակը, որոշները չեն ցուցադրվում։"
 
-#: libraries/classes/ErrorHandler.php:361
+#: libraries/classes/ErrorHandler.php:370
 msgid "Report"
 msgstr "Զեկույց"
 
-#: libraries/classes/ErrorHandler.php:366 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:375 templates/error/report_form.twig:25
 msgid "Automatically send report next time"
 msgstr "Հաջորդ անգամ զեկույցը ինքնաշխատ ուղարկել"
 
@@ -7813,7 +7814,7 @@ msgid "Javascript must be enabled past this point!"
 msgstr "Javascript-ը պետք է միացրած լինի այս պահից սկսած։"
 
 #: libraries/classes/Import.php:130 libraries/classes/InsertEdit.php:178
-#: libraries/classes/Rte/Routines.php:1485 libraries/classes/Sql.php:1429
+#: libraries/classes/Rte/Routines.php:1486 libraries/classes/Sql.php:1429
 #: tbl_get_field.php:50
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
@@ -7863,12 +7864,12 @@ msgstr ""
 #: libraries/classes/Plugins/Import/ImportShp.php:59
 #: libraries/classes/Plugins/Import/ImportSql.php:47
 #: libraries/classes/Plugins/Import/ImportXml.php:49
-#: libraries/classes/Rte/Routines.php:946
-#: templates/display/results/options_block.twig:10
-#: templates/table/search/options.twig:1 templates/console/display.twig:7
+#: libraries/classes/Rte/Routines.php:947 templates/console/display.twig:7
 #: templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 #: templates/database/designer/database_tables.twig:131
+#: templates/table/structure/row_stats_table.twig:19
+#: templates/display/results/options_block.twig:10
+#: templates/table/search/options.twig:1
 msgid "Options"
 msgstr "Կայանքներ"
 
@@ -7929,11 +7930,11 @@ msgid "Cardinality"
 msgstr "Բազմության հզորություն"
 
 #: libraries/classes/Index.php:727 libraries/classes/Rte/Events.php:516
-#: libraries/classes/Rte/Routines.php:1071
-#: templates/table/tracking/structure_snapshot_columns.twig:12
+#: libraries/classes/Rte/Routines.php:1072
 #: templates/columns_definitions/partitions.twig:85
 #: templates/database/structure/table_header.twig:48
 #: templates/table/tracking/structure_snapshot_indexes.twig:13
+#: templates/table/tracking/structure_snapshot_columns.twig:12
 #: templates/table/structure/display_partitions.twig:31
 msgid "Comment"
 msgstr "Մեկնաբանություն"
@@ -7956,111 +7957,112 @@ msgstr ""
 "%1$s և %2$s ցուցակարգերը նույնն են, այդպես որ դրանցից մեկը հնարավոր է "
 "հեռացնել։"
 
-#: libraries/classes/InsertEdit.php:306
+#: libraries/classes/InsertEdit.php:304
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:30
-#: libraries/classes/Rte/Routines.php:1625
+#: libraries/classes/Rte/Routines.php:1626
 #: templates/table/search/table_header.twig:4
 msgid "Function"
 msgstr "Գործառույթ"
 
-#: libraries/classes/InsertEdit.php:470
+#: libraries/classes/InsertEdit.php:468
 msgid "Binary"
 msgstr "Երկուական"
 
-#: libraries/classes/InsertEdit.php:730
+#: libraries/classes/InsertEdit.php:728
 msgid "Because of its length,<br /> this column might not be editable."
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1338
+#: libraries/classes/InsertEdit.php:1336
 msgid "Binary - do not edit"
 msgstr "Երկուական տվյալներ - չեն խմբագրվում"
 
-#: libraries/classes/InsertEdit.php:1498 libraries/classes/Util.php:3313
+#: libraries/classes/InsertEdit.php:1496 libraries/classes/Util.php:3313
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Վերբեռնումների համար նախատեսված պանակը անհասանելի է։"
 
-#: libraries/classes/InsertEdit.php:1501 templates/table/search/options.twig:25
+#: libraries/classes/InsertEdit.php:1499
 #: templates/privileges/column_privileges.twig:17
+#: templates/table/search/options.twig:25
 msgid "Or"
 msgstr "Կամ"
 
-#: libraries/classes/InsertEdit.php:1502
+#: libraries/classes/InsertEdit.php:1500
 msgid "web server upload directory:"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1704
+#: libraries/classes/InsertEdit.php:1702
 #: templates/table/search/input_box.twig:38
 msgid "Edit/Insert"
 msgstr "Խմբագրել/Զետեղել"
 
-#: libraries/classes/InsertEdit.php:1771
+#: libraries/classes/InsertEdit.php:1769
 msgid "and then"
 msgstr "և հետո"
 
-#: libraries/classes/InsertEdit.php:1809
+#: libraries/classes/InsertEdit.php:1807
 msgid "Insert as new row"
 msgstr "Զետեղել որպես նոր տող"
 
-#: libraries/classes/InsertEdit.php:1812
+#: libraries/classes/InsertEdit.php:1810
 msgid "Insert as new row and ignore errors"
 msgstr "Զետեղել որպես նոր տող և անտեսել սխալներ"
 
-#: libraries/classes/InsertEdit.php:1815
+#: libraries/classes/InsertEdit.php:1813
 msgid "Show insert query"
 msgstr "Ցուցադրել զետեղման հարցումը"
 
-#: libraries/classes/InsertEdit.php:1835
+#: libraries/classes/InsertEdit.php:1833
 msgid "Go back to previous page"
 msgstr "Վերադառնալ նախորդ էջին"
 
-#: libraries/classes/InsertEdit.php:1838
+#: libraries/classes/InsertEdit.php:1836
 msgid "Insert another new row"
 msgstr "Զետեղել մեկ այլ նոր տող"
 
-#: libraries/classes/InsertEdit.php:1843
+#: libraries/classes/InsertEdit.php:1841
 msgid "Go back to this page"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1866
+#: libraries/classes/InsertEdit.php:1864
 msgid "Edit next row"
 msgstr "Խմբագրել հաջորդ տողը"
 
-#: libraries/classes/InsertEdit.php:1886
+#: libraries/classes/InsertEdit.php:1884
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr ""
 "Օգտագործեք TAB ստեղնը՝ արժեքների դաշտերի միջև տեղափոխվելու, կամ CTRL+սլաքեր՝ "
 "ցանկացած տեղ տեղափոխվելու համար։"
 
-#: libraries/classes/InsertEdit.php:1924
+#: libraries/classes/InsertEdit.php:1922
 #: libraries/classes/ReplicationGui.php:552
-#: libraries/classes/Rte/Routines.php:1627
+#: libraries/classes/Rte/Routines.php:1628
 #: libraries/classes/Server/Status/Variables.php:229
-#: templates/database/designer/having_query_panel.twig:100
+#: templates/table/search/zoom_result_form.twig:36
 #: templates/table/search/table_header.twig:10
+#: templates/database/designer/having_query_panel.twig:100
 #: templates/database/designer/options_panel.twig:73
 #: templates/database/designer/options_panel.twig:238
 #: templates/database/designer/where_query_panel.twig:69
 #: templates/server/variables/variable_table_head.twig:5
-#: templates/table/search/zoom_result_form.twig:36
 msgid "Value"
 msgstr "Արժեքը"
 
-#: libraries/classes/InsertEdit.php:2297 libraries/classes/Sql.php:1426
+#: libraries/classes/InsertEdit.php:2295 libraries/classes/Sql.php:1426
 msgid "Showing SQL query"
 msgstr "SQL հարցման ցուցադրում"
 
-#: libraries/classes/InsertEdit.php:2322 libraries/classes/Sql.php:1404
+#: libraries/classes/InsertEdit.php:2320 libraries/classes/Sql.php:1404
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Զետեղված տողի id՝ %1$d"
 
-#: libraries/classes/LanguageManager.php:922
+#: libraries/classes/LanguageManager.php:929
 msgid "Ignoring unsupported language code."
 msgstr ""
 
-#: libraries/classes/LanguageManager.php:949
-#: libraries/classes/LanguageManager.php:950 setup/frames/index.inc.php:63
+#: libraries/classes/LanguageManager.php:956
+#: libraries/classes/LanguageManager.php:957 setup/frames/index.inc.php:63
 msgid "Language"
 msgstr "Լեզու"
 
@@ -8126,8 +8128,8 @@ msgstr "Զետեղել"
 #: libraries/classes/Server/Privileges.php:2578
 #: libraries/classes/Server/Privileges.php:4449 libraries/classes/Util.php:4011
 #: libraries/classes/Util.php:4027 libraries/config.values.php:107
-#: templates/privileges/privileges_summary.twig:15
 #: templates/server/sub_page_header.twig:2
+#: templates/privileges/privileges_summary.twig:15
 msgid "Privileges"
 msgstr "Արտոնություններ"
 
@@ -8199,10 +8201,9 @@ msgid "Binary log"
 msgstr "Երկուական մատյան"
 
 #: libraries/classes/Menu.php:640 libraries/classes/Server/Status/Data.php:126
-#: libraries/classes/Util.php:3997
+#: libraries/classes/Util.php:3997 templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:11
-#: templates/server/sub_page_header.twig:2
 msgid "Replication"
 msgstr "Կրկնապատկում"
 
@@ -8276,7 +8277,7 @@ msgstr "Ավելացնել սահմանափակում"
 #: libraries/classes/MultSubmits.php:411 libraries/classes/Operations.php:127
 #: libraries/classes/Operations.php:265 libraries/classes/Operations.php:884
 #: libraries/classes/Operations.php:971 libraries/classes/Operations.php:1330
-#: libraries/classes/Rte/Routines.php:1024
+#: libraries/classes/Rte/Routines.php:1025
 #: templates/columns_definitions/table_fields_definitions.twig:36
 msgid "Adjust privileges"
 msgstr "Կարգավորել արտոնությունները"
@@ -8328,8 +8329,8 @@ msgstr "Ներկայացումներ՝"
 
 #: libraries/classes/Navigation/Navigation.php:236
 #: libraries/classes/Tracking.php:164 tbl_change.php:147
-#: templates/database/tracking/tracked_tables.twig:17
 #: templates/database/multi_table_query/form.twig:44
+#: templates/database/tracking/tracked_tables.twig:17
 msgid "Show"
 msgstr "Ցուցադրել"
 
@@ -9201,7 +9202,7 @@ msgstr "Իրադարձություն"
 #: libraries/classes/Plugins/Export/ExportOdt.php:618
 #: libraries/classes/Plugins/Export/ExportTexytext.php:453
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:358
-#: libraries/classes/Rte/Events.php:500 libraries/classes/Rte/Routines.php:1010
+#: libraries/classes/Rte/Events.php:500 libraries/classes/Rte/Routines.php:1011
 #: libraries/classes/Rte/Triggers.php:393
 msgid "Definition"
 msgstr "Սահմանում"
@@ -9748,8 +9749,8 @@ msgstr "Բովանդակության աղյուսակը"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Լրացուցիչ"
 
@@ -9824,7 +9825,7 @@ msgid ""
 "gmdate() function."
 msgstr ""
 
-#. l10n: See https://secure.php.net/manual/en/function.strftime.php
+#. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:62
 #: libraries/classes/Util.php:1522
 msgid "%B %d, %Y at %I:%M %p"
@@ -10204,7 +10205,7 @@ msgstr ""
 
 #: libraries/classes/ReplicationGui.php:58
 #: libraries/classes/ReplicationGui.php:352
-#: templates/server/databases/table_header.twig:32
+#: templates/server/databases/table_header.twig:34
 msgid "Master replication"
 msgstr "Հիմնական սպասարկչի կրկնապատկում"
 
@@ -10275,7 +10276,7 @@ msgstr ""
 "<b>կազմաձևած է</b> որպես հիմնական։"
 
 #: libraries/classes/ReplicationGui.php:153
-#: templates/server/databases/table_header.twig:35
+#: templates/server/databases/table_header.twig:37
 msgid "Slave replication"
 msgstr "Ենթարկվող սպասարկչի կրկնապատկում"
 
@@ -10565,7 +10566,7 @@ msgstr "Հիմնական սպասարկիչը հաջողությամբ փոխվ�
 #: libraries/classes/Rte/Events.php:162 libraries/classes/Rte/Routines.php:240
 #: libraries/classes/Rte/Routines.php:267
 #: libraries/classes/Rte/Routines.php:381
-#: libraries/classes/Rte/Routines.php:1494
+#: libraries/classes/Rte/Routines.php:1495
 #: libraries/classes/Rte/Triggers.php:97 libraries/classes/Rte/Triggers.php:106
 #: libraries/classes/Rte/Triggers.php:138
 #, php-format
@@ -10577,7 +10578,7 @@ msgstr ""
 #: libraries/classes/Rte/Routines.php:244
 #: libraries/classes/Rte/Routines.php:271
 #: libraries/classes/Rte/Routines.php:385
-#: libraries/classes/Rte/Routines.php:1498
+#: libraries/classes/Rte/Routines.php:1499
 #: libraries/classes/Rte/Triggers.php:101
 #: libraries/classes/Rte/Triggers.php:110
 #: libraries/classes/Rte/Triggers.php:142 libraries/classes/Util.php:615
@@ -10607,7 +10608,7 @@ msgstr "Ձեր հարցումը կատարելու ժամանակ առաջացե
 msgid "Edit event"
 msgstr "Խմբագրել իրադարձությունը"
 
-#: libraries/classes/Rte/Events.php:404 libraries/classes/Rte/Routines.php:905
+#: libraries/classes/Rte/Events.php:404 libraries/classes/Rte/Routines.php:906
 #: libraries/classes/Rte/Triggers.php:339 templates/view_create.twig:8
 msgid "Details"
 msgstr "Մանրամասները"
@@ -10616,7 +10617,7 @@ msgstr "Մանրամասները"
 msgid "Event name"
 msgstr "Իրադարձության անուն"
 
-#: libraries/classes/Rte/Events.php:450 libraries/classes/Rte/Routines.php:928
+#: libraries/classes/Rte/Events.php:450 libraries/classes/Rte/Routines.php:929
 #, php-format
 msgid "Change to %s"
 msgstr "Փոխել %s-ի"
@@ -10643,12 +10644,12 @@ msgstr "Վերջ"
 msgid "On completion preserve"
 msgstr "Վերջացնելուց պահպանել"
 
-#: libraries/classes/Rte/Events.php:511 libraries/classes/Rte/Routines.php:1045
+#: libraries/classes/Rte/Events.php:511 libraries/classes/Rte/Routines.php:1046
 #: libraries/classes/Rte/Triggers.php:399 templates/view_create.twig:45
 msgid "Definer"
 msgstr "Սահմանիչ"
 
-#: libraries/classes/Rte/Events.php:555 libraries/classes/Rte/Routines.php:1126
+#: libraries/classes/Rte/Events.php:555 libraries/classes/Rte/Routines.php:1127
 #: libraries/classes/Rte/Triggers.php:438
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "Սահմանիչը պետք է համապատասխանի \"օգտանուն@խնամորդի_անուն\" ձևաչափին։"
@@ -10676,8 +10677,8 @@ msgstr "Դուք պետք է տրամադրեք իրադարձության սա�
 
 #: libraries/classes/Rte/Export.php:54 libraries/classes/Rte/General.php:84
 #: libraries/classes/Rte/Routines.php:172
-#: libraries/classes/Rte/Routines.php:1331
-#: libraries/classes/Rte/Routines.php:1541
+#: libraries/classes/Rte/Routines.php:1332
+#: libraries/classes/Rte/Routines.php:1542
 msgid "Error in processing request:"
 msgstr "Հարցումը կատարելու սխալ՝"
 
@@ -10710,7 +10711,7 @@ msgid "Edit routine"
 msgstr "Խմբագրել գործընթացը"
 
 #: libraries/classes/Rte/Routines.php:221
-#: libraries/classes/Rte/Routines.php:1135
+#: libraries/classes/Rte/Routines.php:1136
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr ""
@@ -10734,103 +10735,103 @@ msgstr ""
 msgid "Routine %1$s has been modified."
 msgstr "%1$s գործընթացը փոփոխվել է։"
 
-#: libraries/classes/Rte/Routines.php:908
+#: libraries/classes/Rte/Routines.php:909
 msgid "Routine name"
 msgstr "Գործընթացի անունը"
 
-#: libraries/classes/Rte/Routines.php:934
+#: libraries/classes/Rte/Routines.php:935
 msgid "Parameters"
 msgstr "Հարաչափեր"
 
-#: libraries/classes/Rte/Routines.php:942
+#: libraries/classes/Rte/Routines.php:943
 msgid "Direction"
 msgstr "Ուղղություն"
 
-#: libraries/classes/Rte/Routines.php:963
+#: libraries/classes/Rte/Routines.php:964
 msgid "Add parameter"
 msgstr "Ավելացնել հարաչափ"
 
-#: libraries/classes/Rte/Routines.php:967
+#: libraries/classes/Rte/Routines.php:968
 msgid "Remove last parameter"
 msgstr ""
 
-#: libraries/classes/Rte/Routines.php:972
+#: libraries/classes/Rte/Routines.php:973
 msgid "Return type"
 msgstr ""
 
-#: libraries/classes/Rte/Routines.php:978
+#: libraries/classes/Rte/Routines.php:979
 msgid "Return length/values"
 msgstr ""
 
-#: libraries/classes/Rte/Routines.php:984
+#: libraries/classes/Rte/Routines.php:985
 msgid "Return options"
 msgstr ""
 
-#: libraries/classes/Rte/Routines.php:1016
+#: libraries/classes/Rte/Routines.php:1017
 msgid "Is deterministic"
 msgstr "Կողմնորոշիչ է"
 
-#: libraries/classes/Rte/Routines.php:1035
+#: libraries/classes/Rte/Routines.php:1036
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
 msgstr ""
 
-#: libraries/classes/Rte/Routines.php:1050
+#: libraries/classes/Rte/Routines.php:1051
 msgid "Security type"
 msgstr "Անվտանգության տեսակը"
 
-#: libraries/classes/Rte/Routines.php:1059
+#: libraries/classes/Rte/Routines.php:1060
 msgid "SQL data access"
 msgstr "SQL տվյալների մատչում"
 
-#: libraries/classes/Rte/Routines.php:1142
+#: libraries/classes/Rte/Routines.php:1143
 msgid "You must provide a routine name!"
 msgstr "Դուք պետք է տրամադրեք գործընթացի անունը։"
 
-#: libraries/classes/Rte/Routines.php:1176
+#: libraries/classes/Rte/Routines.php:1177
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr ""
 
-#: libraries/classes/Rte/Routines.php:1198
-#: libraries/classes/Rte/Routines.php:1262
+#: libraries/classes/Rte/Routines.php:1199
+#: libraries/classes/Rte/Routines.php:1263
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
 
-#: libraries/classes/Rte/Routines.php:1226
+#: libraries/classes/Rte/Routines.php:1227
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
 
-#: libraries/classes/Rte/Routines.php:1245
+#: libraries/classes/Rte/Routines.php:1246
 msgid "You must provide a valid return type for the routine."
 msgstr ""
 
-#: libraries/classes/Rte/Routines.php:1305
+#: libraries/classes/Rte/Routines.php:1306
 msgid "You must provide a routine definition."
 msgstr "Դուք պետք է տրամադրեք գործընթացի սահմանումը։"
 
-#: libraries/classes/Rte/Routines.php:1417
+#: libraries/classes/Rte/Routines.php:1418
 #, php-format
 msgid "Execution results of routine %s"
 msgstr ""
 
-#: libraries/classes/Rte/Routines.php:1472
+#: libraries/classes/Rte/Routines.php:1473
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "Ընթացակարգի վերջին արտահայտությունով ընդգրկվել է %d տող։"
 msgstr[1] "Ընթացակարգի վերջին արտահայտությունով ընդգրկվել է %d տող։"
 
-#: libraries/classes/Rte/Routines.php:1529
-#: libraries/classes/Rte/Routines.php:1536
+#: libraries/classes/Rte/Routines.php:1530
+#: libraries/classes/Rte/Routines.php:1537
 msgid "Execute routine"
 msgstr "Կատարել գործընթացը"
 
-#: libraries/classes/Rte/Routines.php:1615
-#: libraries/classes/Rte/Routines.php:1618
+#: libraries/classes/Rte/Routines.php:1616
+#: libraries/classes/Rte/Routines.php:1619
 msgid "Routine parameters"
 msgstr "Գործընթացի հարաչափերը"
 
@@ -13998,12 +13999,1182 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Նկարագրություն"
 
+#: templates/privileges/resource_limits.twig:2
+msgid "Resource limits"
+msgstr "Պաշարների օգտագործման սահմանափակումները"
+
+#: templates/privileges/resource_limits.twig:5
+msgid "Note: Setting these options to 0 (zero) removes the limit."
+msgstr ""
+"Նշում՝ այս կայանքների համար 0 (զրոյի) նշանակումը հանում է բոլոր "
+"սահմանափակումները։"
+
+#: templates/server/plugins/section.twig:9
+msgid "Plugin"
+msgstr "Խրվակ"
+
+#: templates/server/plugins/section.twig:12
+msgid "Author"
+msgstr "Հեղինակ"
+
+#: templates/server/plugins/section.twig:23
+msgid "disabled"
+msgstr "կասեցված"
+
+#: templates/error/report_form.twig:6
+msgid ""
+"This report automatically includes data about the error and information "
+"about relevant configuration settings. It will be sent to the phpMyAdmin "
+"team for debugging the error."
+msgstr ""
+
+#: templates/error/report_form.twig:12
+msgid ""
+"Can you tell us the steps leading to this error? It decisively helps in "
+"debugging:"
+msgstr ""
+
+#: templates/error/report_form.twig:19
+msgid "You may examine the data in the error report:"
+msgstr ""
+
+#: templates/display/export/template_loading.twig:2
+msgid "Export templates:"
+msgstr "Արտահանել ձևանմուշները՝"
+
+#: templates/display/export/template_loading.twig:6
+msgid "New template:"
+msgstr "Նոր ձևանմուշ՝"
+
+#: templates/display/export/template_loading.twig:8
+msgid "Template name"
+msgstr "Ձևանմուշի անունը"
+
+#: templates/display/export/template_loading.twig:10
+#: templates/server/databases/create.twig:30
+msgid "Create"
+msgstr "Ստեղծել"
+
+#: templates/display/export/template_loading.twig:16
+msgid "Existing templates:"
+msgstr "Առկա ձևանմուշներ՝"
+
+#: templates/display/export/template_loading.twig:17
+msgid "Template:"
+msgstr "Ձևանմուշ՝"
+
+#: templates/display/export/template_loading.twig:21
+msgid "Update"
+msgstr "Արդիացում"
+
+#: templates/table/search/selection_form.twig:12
+msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
+msgstr ""
+
+#: templates/table/search/selection_form.twig:42
+msgid "Do a \"query by example\" (wildcard: \"%\")"
+msgstr ""
+
+#: templates/privileges/column_privileges.twig:21
+#: templates/privileges/column_privileges.twig:22
+msgctxt "None privileges"
+msgid "None"
+msgstr "Չկա"
+
+#: templates/table/insert/continue_insertion_form.twig:18
+#, php-format
+msgid "Continue insertion with %s rows"
+msgstr ""
+
+#: templates/database/designer/new_relation_panel.twig:22
+#: templates/database/designer/side_menu.twig:85
+#: templates/database/designer/side_menu.twig:88
+#, fuzzy
+#| msgid "Create relation"
+msgid "Create relationship"
+msgstr "Ստեղծել կապակցումը"
+
+#: templates/privileges/add_privileges_database.twig:1
+msgid "Add privileges on the following database(s):"
+msgstr "Ավելացնել արտոնություններ հետևյալ տվյալների բազա(ներ)ի համար՝"
+
+#: templates/privileges/add_privileges_database.twig:14
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
+msgstr ""
+
+#: templates/database/structure/structure_table_row.twig:222
+msgid "in use"
+msgstr "օգտագործվում է"
+
+#: templates/privileges/add_privileges_table.twig:3
+msgid "Add privileges on the following table:"
+msgstr "Ավելացնել արտոնություններ հետևյալ աղյուսակի համար՝"
+
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:84 templates/console/display.twig:175
+msgid "Collapse"
+msgstr "Կոծկել"
+
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:84 templates/console/display.twig:175
+msgid "Expand"
+msgstr "Ընդարձակել"
+
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:175
+msgid "Requery"
+msgstr "Կրկնել հարցումը"
+
+#: templates/prefs_twofactor_confirm.twig:2
+#, fuzzy
+#| msgid "Config authentication"
+msgid "Confirm disabling two-factor authentication"
+msgstr "Վավերացում config ֆայլի միջոցով"
+
+#: templates/prefs_twofactor_confirm.twig:5
+msgid ""
+"By disabling two factor authentication you will be again able to login using "
+"password only."
+msgstr ""
+
+#: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:37
+#, fuzzy
+#| msgid "Config authentication"
+msgid "Disable two-factor authentication"
+msgstr "Վավերացում config ֆայլի միջոցով"
+
+#: templates/table/structure/check_all_table_column.twig:76
+#: templates/table/structure/actions_in_table_structure.twig:131
+msgid "Add to central columns"
+msgstr "Ավելացնել կենտրոնական սյունակներին"
+
+#: templates/table/structure/check_all_table_column.twig:83
+#: templates/table/structure/actions_in_table_structure.twig:127
+msgid "Remove from central columns"
+msgstr ""
+
+#: templates/table/tracking/create_version.twig:11
+#, php-format
+msgid "Create version %1$s of %2$s"
+msgstr "Ստեղծել %1$s տարբերակ %2$s-ից"
+
+#: templates/table/tracking/create_version.twig:16
+#, php-format
+msgid "Create version %1$s"
+msgstr "Ստեղծել %1$s տարբերակը"
+
+#: templates/table/tracking/create_version.twig:20
+msgid "Track these data definition statements:"
+msgstr ""
+
+#: templates/table/tracking/create_version.twig:59
+msgid "Track these data manipulation statements:"
+msgstr ""
+
+#: templates/table/tracking/create_version.twig:76
+msgid "Create version"
+msgstr "Ստեղծել տարբերակը"
+
+#: templates/display/results/additional_fields.twig:6
+#: templates/start_and_number_of_rows_panel.twig:10
+#: templates/display/export/options_rows.twig:10
+msgid "Number of rows:"
+msgstr "Տողերի քանակը՝"
+
+#: templates/display/export/options_output_format.twig:3
+msgid "File name template:"
+msgstr ""
+
+#: templates/display/export/options_output_format.twig:11
+msgid "use this for future exports"
+msgstr "օգտագործել հետագա արտահանուների համար"
+
+#: templates/table/search/zoom_result_form.twig:7
+msgid "Browse/Edit the points"
+msgstr ""
+
+#: templates/table/search/zoom_result_form.twig:15
+msgid "How to use"
+msgstr "Ինչպե՞ս օգտագործել"
+
+#: templates/table/search/zoom_result_form.twig:23
+msgid "Reset zoom"
+msgstr "Վերակայել խոշորացումը"
+
+#: templates/display/import/import.twig:40
+msgid "Importing into the current server"
+msgstr "Ընթացիկ սպասարկչին ներմուծումը"
+
+#: templates/display/import/import.twig:42
+#, php-format
+msgid "Importing into the database \"%s\""
+msgstr "Ներմուծում \"%s\" տվյալների բազայի մեջ"
+
+#: templates/display/import/import.twig:44
+#, php-format
+msgid "Importing into the table \"%s\""
+msgstr "Ներմուծում \"%s\" աղյուսակի մեջ"
+
+#: templates/display/import/import.twig:50
+msgid "File to import:"
+msgstr "Ներմուծելու ֆայլը՝"
+
+#: templates/display/import/import.twig:56
+#, php-format
+msgid "File may be compressed (%s) or uncompressed."
+msgstr "Ֆայլը կարող է լինել սեղմած պահոցի տեսքով (%s), կամ առանց սեղմելու։"
+
+#: templates/display/import/import.twig:58
+#, fuzzy
+#| msgid ""
+#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
+#| "Example: <b>.sql.zip</b>"
+msgid ""
+"A compressed file's name must end in <strong>.[format].[compression]</"
+"strong>. Example: <strong>.sql.zip</strong>"
+msgstr ""
+"Սեղմած ֆայլի անունը պետք է վերջանա <b>.[ձևաչափ].[սեղմում]</b> տեսքով։ "
+"Օրինակ՝ <b>.sql.zip</b>"
+
+#: templates/display/import/import.twig:69
+#: templates/display/import/import.twig:84
+msgid "You may also drag and drop a file on any page."
+msgstr "Դուք կարող եք նաև քաշել և գցել ֆայլը՝ ցանկացած էջում։"
+
+#: templates/display/import/import.twig:86
+msgid "File uploads are not allowed on this server."
+msgstr ""
+
+#: templates/display/import/import.twig:97
+#: templates/display/export/options_output_charset.twig:3
+msgid "Character set of the file:"
+msgstr "Ֆայլի կոդավորում՝"
+
+#: templates/display/import/import.twig:124
+msgid "Partial import:"
+msgstr "Մասնակի ներմուծումը՝"
+
+#: templates/display/import/import.twig:129
+#, php-format
+msgid ""
+"Previous import timed out, after resubmitting will continue from position %d."
+msgstr ""
+
+#: templates/display/import/import.twig:137
+msgid ""
+"Allow the interruption of an import in case the script detects it is close "
+"to the PHP timeout limit. <em>(This might be a good way to import large "
+"files, however it can break transactions.)</em>"
+msgstr ""
+
+#: templates/display/import/import.twig:144
+msgid "Skip this number of queries (for SQL) starting from the first one:"
+msgstr "Զանցել հարցումների (SQL-ի դեպքում) նշված քանակը, սկսած հետևյալից՝"
+
+#: templates/display/import/import.twig:161
+msgid "Other options:"
+msgstr "Այլ կայանքներ՝"
+
+#: templates/display/import/import.twig:174
+#: templates/display/export/options_format.twig:2
+msgid "Format-specific options:"
+msgstr ""
+
+#: templates/display/import/import.twig:176
+#: templates/display/export/options_format.twig:4
+msgid ""
+"Scroll down to fill in the options for the selected format and ignore the "
+"options for other formats."
+msgstr ""
+
+#: templates/display/import/import.twig:185
+#: templates/display/export/options_format.twig:12
+msgid "Encoding Conversion:"
+msgstr "Կոդավորման փոխարկումը՝"
+
+#: templates/columns_definitions/column_virtuality.twig:29
+#: templates/table/structure/display_partitions.twig:26
+msgid "Expression"
+msgstr "Արտահայտություն"
+
+#: templates/database/tracking/untracked_tables.twig:1
+msgid "Untracked tables"
+msgstr "Չհետագծվող աղյուսակներ"
+
+#: templates/database/tracking/untracked_tables.twig:29
+#: templates/database/tracking/untracked_tables.twig:42
+#: templates/table/structure/optional_action_links.twig:18
+msgid "Track table"
+msgstr "Հետագծել աղյուսակը"
+
+#: templates/database/designer/table_list.twig:4
+msgid "Hide/Show all"
+msgstr ""
+
+#: templates/database/designer/table_list.twig:14
+#, fuzzy
+#| msgid "Delete relation"
+msgid "Hide/Show tables with no relationship"
+msgstr "Ջնջել կապակցումը"
+
+#: templates/database/designer/table_list.twig:25
+msgid "Number of tables:"
+msgstr "Աղյուսակների քանակը՝"
+
+#: templates/database/structure/favorite_anchor.twig:4
+msgid "Add to Favorites"
+msgstr "Ավելացնել ընտրյալներին"
+
+#: templates/table/browse_foreigners/column_element.twig:4
+msgid "Use this value"
+msgstr "Օգտագործել այս արժեքը"
+
+#: templates/columns_definitions/column_length.twig:9
+msgid "Edit ENUM/SET values"
+msgstr ""
+
+#: templates/database/multi_table_query/form.twig:16
+#, fuzzy
+#| msgid "Query failed"
+msgid "Query window"
+msgstr "Հարցումը ձախողվեց"
+
+#: templates/database/multi_table_query/form.twig:33
+#: templates/database/multi_table_query/form.twig:121
+#, fuzzy
+#| msgid "Select table"
+msgid "select table"
+msgstr "Ընտրեք աղյուսակը"
+
+#: templates/database/multi_table_query/form.twig:40
+#: templates/database/multi_table_query/form.twig:129
+#, fuzzy
+#| msgid "Select a column."
+msgid "select column"
+msgstr "Ընտրեք սյունակը։"
+
+#: templates/database/multi_table_query/form.twig:46
+#, fuzzy
+#| msgid "Tables"
+msgid "Table alias"
+msgstr "Աղյուսակներ"
+
+#: templates/database/multi_table_query/form.twig:47
+#, fuzzy
+#| msgid "Column names"
+msgid "Column alias"
+msgstr "Սյունակների անուններ"
+
+#: templates/database/multi_table_query/form.twig:50
+#, fuzzy
+#| msgid "Use this column to label each point"
+msgid "Use this column in criteria"
+msgstr "Օգտագործեք այս սյունակը՝ ամեն կետը պիտակելու համար"
+
+#: templates/database/multi_table_query/form.twig:53
+#, fuzzy
+#| msgid "Criteria:"
+msgid "criteria"
+msgstr "Չափորոշիչներ՝"
+
+#: templates/database/multi_table_query/form.twig:67
+#, fuzzy
+#| msgid "Add %s"
+msgid "Add as"
+msgstr "Ավելացնել %s"
+
+#: templates/database/multi_table_query/form.twig:112
+#, fuzzy
+#| msgid "Move column"
+msgid "Another column"
+msgstr "Տեղափոխել սյունակը"
+
+#: templates/database/multi_table_query/form.twig:140
+msgid "Enter criteria as free text"
+msgstr ""
+
+#: templates/database/multi_table_query/form.twig:148
+#, fuzzy
+#| msgid "Move column"
+msgid "Remove this column"
+msgstr "Տեղափոխել սյունակը"
+
+#: templates/database/multi_table_query/form.twig:158
+#: templates/table/relation/foreign_key_row.twig:90
+msgid "+ Add column"
+msgstr "+ Ավելացնել սյունակ"
+
+#: templates/database/multi_table_query/form.twig:175
+#, fuzzy
+#| msgid "Update Query"
+msgid "Update query"
+msgstr "Արդիացնել հարցումը"
+
+#: templates/database/designer/side_menu.twig:13
+#: templates/database/designer/side_menu.twig:19
+msgid "Show/Hide tables list"
+msgstr "Ցուցադրել/թաքցնել աղյուսակների ցանկը"
+
+#: templates/database/designer/side_menu.twig:23
+#: templates/database/designer/side_menu.twig:29
+#: templates/database/designer/side_menu.twig:30
+msgid "View in fullscreen"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:28
+msgid "Exit fullscreen"
+msgstr "Դուրս գալ լիավահան եղանակից"
+
+#: templates/database/designer/side_menu.twig:42
+#: templates/database/designer/side_menu.twig:46
+msgid "New page"
+msgstr "Նոր էջ"
+
+#: templates/database/designer/side_menu.twig:71
+#: templates/database/designer/side_menu.twig:74
+msgid "Delete pages"
+msgstr "Ջնջել էջերը"
+
+#: templates/database/designer/side_menu.twig:78
+#: templates/database/designer/side_menu.twig:81
+#: templates/database/create_table.twig:7
+msgid "Create table"
+msgstr "Ստեղծել աղյուսակը"
+
+#: templates/database/designer/side_menu.twig:99
+#: templates/database/designer/side_menu.twig:102
+msgid "Reload"
+msgstr "Թարմացնել"
+
+#: templates/database/designer/side_menu.twig:108
+#: templates/database/designer/side_menu.twig:111
+msgid "Help"
+msgstr "Օգնություն"
+
+#: templates/database/designer/side_menu.twig:116
+#: templates/database/designer/side_menu.twig:119
+msgid "Angular links"
+msgstr "Անկյունային հղումներ"
+
+#: templates/database/designer/side_menu.twig:116
+#: templates/database/designer/side_menu.twig:119
+msgid "Direct links"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:123
+#: templates/database/designer/side_menu.twig:125
+msgid "Snap to grid"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:129
+#: templates/database/designer/side_menu.twig:135
+msgid "Small/Big All"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:139
+#: templates/database/designer/side_menu.twig:142
+msgid "Toggle small/big"
+msgstr "Փոխարկել փոքր/մեծ"
+
+#: templates/database/designer/side_menu.twig:146
+#: templates/database/designer/side_menu.twig:149
+msgid "Toggle relationship lines"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:154
+#: templates/database/designer/side_menu.twig:157
+msgid "Export schema"
+msgstr "Ուրվագծի արտահանում"
+
+#: templates/database/designer/side_menu.twig:165
+#: templates/database/designer/side_menu.twig:168
+msgid "Build Query"
+msgstr "Կազմել հարցումը"
+
+#: templates/database/designer/side_menu.twig:173
+#: templates/database/designer/side_menu.twig:177
+msgid "Move Menu"
+msgstr "Տեղափոխել ընտրացանկը"
+
+#: templates/database/designer/side_menu.twig:181
+#: templates/database/designer/side_menu.twig:186
+msgid "Pin text"
+msgstr ""
+
+#: templates/login/twofactor/application.twig:2
+#: templates/login/twofactor/application_configure.twig:21
+#, fuzzy
+#| msgid "Authentication"
+msgid "Authentication code:"
+msgstr "Վավերացում"
+
+#: templates/login/twofactor/application.twig:4
+msgid ""
+"Open the two-factor authentication app on your device to view your "
+"authentication code and verify your identity."
+msgstr ""
+
+#: templates/table/structure/move_columns_dialog.twig:1
+#: templates/table/structure/optional_action_links.twig:22
+msgid "Move columns"
+msgstr "Տեղափոխել սյունակները"
+
+#: templates/table/structure/move_columns_dialog.twig:2
+msgid "Move the columns by dragging them up and down."
+msgstr ""
+
+#: templates/table/tracking/activate_deactivate.twig:7
+#, php-format
+msgid "Activate tracking for %s"
+msgstr "Գործունացնել հետագումը %s-ի համար"
+
+#: templates/table/tracking/activate_deactivate.twig:9
+msgid "Activate now"
+msgstr "Գործունացնել"
+
+#: templates/table/tracking/activate_deactivate.twig:11
+#, php-format
+msgid "Deactivate tracking for %s"
+msgstr "Անջատել հետագծումը %s-ի համար"
+
+#: templates/table/tracking/activate_deactivate.twig:13
+msgid "Deactivate now"
+msgstr "Կասեցնել"
+
+#: templates/server/databases/index.twig:24
+msgid "No databases"
+msgstr "Տվյալների բազաներ չկան"
+
+#: templates/columns_definitions/partitions.twig:17
+msgid "Partition by:"
+msgstr "Մասնաբաժին ըստ՝"
+
+#: templates/columns_definitions/partitions.twig:32
+#: templates/columns_definitions/partitions.twig:60
+msgid "Expression or column list"
+msgstr "Արտահայտություն կամ սյունակների ցանկ"
+
+#: templates/columns_definitions/partitions.twig:37
+msgid "Partitions:"
+msgstr "Մասնաբաժիններ՝"
+
+#: templates/columns_definitions/partitions.twig:45
+msgid "Subpartition by:"
+msgstr "Ենթամասնաբաժին ըստ՝"
+
+#: templates/columns_definitions/partitions.twig:65
+msgid "Subpartitions:"
+msgstr "Ենթամասնաբաժիններ՝"
+
+#: templates/columns_definitions/partitions.twig:76
+#: templates/table/structure/display_partitions.twig:24
+msgid "Partition"
+msgstr "Մասնաբաժին"
+
+#: templates/columns_definitions/partitions.twig:78
+msgid "Values"
+msgstr "Արժեքները"
+
+#: templates/columns_definitions/partitions.twig:82
+msgid "Subpartition"
+msgstr "Ենթամասնաբաժին"
+
+#: templates/columns_definitions/partitions.twig:84
+msgid "Engine"
+msgstr "Պահպանման տեսակ"
+
+#: templates/columns_definitions/partitions.twig:86
+msgid "Data directory"
+msgstr "Տվյալների պանակ"
+
+#: templates/columns_definitions/partitions.twig:87
+msgid "Index directory"
+msgstr "Ցուցակագրի պանակ"
+
+#: templates/columns_definitions/partitions.twig:88
+msgid "Max rows"
+msgstr "Առավելագույն տողեր"
+
+#: templates/columns_definitions/partitions.twig:89
+msgid "Min rows"
+msgstr "Նվազագույն տողեր"
+
+#: templates/columns_definitions/partitions.twig:90
+msgid "Table space"
+msgstr "Աղյուսակի տարածություն"
+
+#: templates/columns_definitions/partitions.twig:91
+msgid "Node group"
+msgstr "Հանգույցի խումբ"
+
+#: templates/columns_definitions/move_column.twig:7
+msgid "first"
+msgstr "առաջին"
+
+#: templates/columns_definitions/move_column.twig:12
+#: templates/table/structure/add_column.twig:19
+#, php-format
+msgid "after %s"
+msgstr "%s-ից հետո"
+
 #: templates/login/header.twig:12
 msgid ""
 "There is mismatch between HTTPS indicated on the server and client. This can "
 "lead to non working phpMyAdmin or a security risk. Please fix your server "
 "configuration to indicate HTTPS properly."
 msgstr ""
+
+#: templates/display/export/template_options.twig:1
+msgid "Select a template"
+msgstr "Ընտրեք ձևանմուշը"
+
+#: templates/server/variables/variable_row.twig:6
+msgid "This is a read-only variable and can not be edited"
+msgstr ""
+
+#: templates/console/display.twig:7
+msgid "History"
+msgstr "Պատմություն"
+
+#: templates/console/display.twig:11 templates/console/display.twig:99
+msgid "Bookmarks"
+msgstr "Էջանիշեր"
+
+#: templates/console/display.twig:20
+msgid "Press Ctrl+Enter to execute query"
+msgstr "Սեղմեք Ctrl+Enter՝ հարցումը կատարելու համար"
+
+#: templates/console/display.twig:23
+msgid "Press Enter to execute query"
+msgstr "Սեղմեք Enter՝ հարցումը կատարելու համար"
+
+#: templates/console/display.twig:31 templates/console/display.twig:175
+msgid "Explain"
+msgstr "Բացատրել"
+
+#: templates/console/display.twig:40 templates/console/display.twig:184
+msgid "Bookmark"
+msgstr "Էջանշել"
+
+#: templates/console/display.twig:40 templates/console/display.twig:184
+msgid "Query failed"
+msgstr "Հարցումը ձախողվեց"
+
+#: templates/console/display.twig:42 templates/console/display.twig:184
+msgid "Queried time"
+msgstr "Հայցված ժամանակ"
+
+#: templates/console/display.twig:47
+msgid "During current session"
+msgstr "Ընթացիկ ժամանակաշրջանի ընթացքում"
+
+#: templates/console/display.twig:64
+msgid "ascending"
+msgstr "ըստ աճման"
+
+#: templates/console/display.twig:64
+msgid "descending"
+msgstr "ըստ նվազման"
+
+#: templates/console/display.twig:64
+msgid "Order:"
+msgstr "Հերթականություն՝"
+
+#: templates/console/display.twig:64 templates/console/display.twig:84
+#: templates/table/search/replace_preview.twig:17
+msgid "Count"
+msgstr "Քանակ"
+
+#: templates/console/display.twig:64
+msgid "Execution order"
+msgstr "Կատարման հերթականությունը"
+
+#: templates/console/display.twig:64 templates/console/display.twig:84
+msgid "Time taken"
+msgstr "Տևողություն"
+
+#: templates/console/display.twig:64
+msgid "Order by:"
+msgstr "Դասակարգել ըստ՝"
+
+#: templates/console/display.twig:64
+msgid "Ungroup queries"
+msgstr "Ապախմբավորել հարցումները"
+
+#: templates/console/display.twig:84
+msgid "Show trace"
+msgstr "Ցուցադրել հետագիծը"
+
+#: templates/console/display.twig:84
+msgid "Hide trace"
+msgstr "Թաքցնել հետագիծը"
+
+#: templates/console/display.twig:99
+#: templates/columns_definitions/column_definitions_form.twig:32
+#: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
+#: templates/export/alias_add.twig:46
+msgid "Add"
+msgstr "Ավելացնել"
+
+#: templates/console/display.twig:112
+msgid "Add bookmark"
+msgstr "Ավելացնել էջանիշ"
+
+#: templates/console/display.twig:121
+msgid "Label"
+msgstr "Պիտակ"
+
+#: templates/console/display.twig:124
+msgid "Target database"
+msgstr "Նպատակային տվյալների բազան"
+
+#: templates/console/display.twig:127
+msgid "Share this bookmark"
+msgstr "Տարածել այս էջանիշը"
+
+#: templates/console/display.twig:140
+msgid "Set default"
+msgstr "Նշանակել լռելյայնը"
+
+#: templates/console/display.twig:162
+msgid ""
+"Execute queries on Enter and insert new line with Shift + Enter. To make "
+"this permanent, view settings."
+msgstr ""
+"Կատարել հարցումը՝  Enter սեղմելով, և զետեղել նոր տող՝ Shift + Enter "
+"սեղմելով։ Այս հնարավորությունը մշտական դարձնելու համար՝ դիմեք կայանքներին։"
+
+#: templates/table/structure/optional_action_links.twig:8
+msgid "Propose table structure"
+msgstr ""
+
+#: templates/table/structure/optional_action_links.twig:25
+msgid "Normalize"
+msgstr ""
+
+#: templates/table/structure/optional_action_links.twig:31
+msgid "Track view"
+msgstr "Հետագծել ներկայացումը"
+
+#: templates/table/search/table_header.twig:9
+#: templates/database/designer/aggregate_query_panel.twig:30
+#: templates/database/designer/having_query_panel.twig:30
+#: templates/database/designer/having_query_panel.twig:61
+#: templates/database/designer/options_panel.twig:105
+#: templates/database/designer/options_panel.twig:169
+#: templates/database/designer/where_query_panel.twig:30
+msgid "Operator"
+msgstr "Գործարկու"
+
+#: templates/database/designer/delete_relation_panel.twig:21
+#, fuzzy
+#| msgid "Delete relation"
+msgid "Delete relationship"
+msgstr "Ջնջել կապակցումը"
+
+#: templates/columns_definitions/table_fields_definitions.twig:17
+msgid ""
+"If column type is \"enum\" or \"set\", please enter the values using this "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
+"single quote (\"'\") amongst those values, precede it with a backslash (for "
+"example '\\\\xyz' or 'a\\'b')."
+msgstr ""
+
+#: templates/columns_definitions/table_fields_definitions.twig:21
+msgid ""
+"For default values, please enter just a single value, without backslash "
+"escaping or quotes, using this format: a"
+msgstr ""
+
+#: templates/columns_definitions/table_fields_definitions.twig:59
+msgid "Virtuality"
+msgstr ""
+
+#: templates/columns_definitions/table_fields_definitions.twig:65
+msgid "Move column"
+msgstr "Տեղափոխել սյունակը"
+
+#: templates/columns_definitions/table_fields_definitions.twig:76
+#: templates/columns_definitions/table_fields_definitions.twig:87
+msgid "List of available transformations and their options"
+msgstr "Առկա ձևափոխումների և դրանց կայանքների ցանկը"
+
+#: templates/columns_definitions/table_fields_definitions.twig:82
+msgid "Browser display transformation options"
+msgstr "Դիտարկչի ցուցադրման ձևափոխման կայանքներ"
+
+#: templates/columns_definitions/table_fields_definitions.twig:83
+#: templates/columns_definitions/table_fields_definitions.twig:94
+msgid ""
+"Please enter the values for transformation options using this format: 'a', "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
+"quote (\"'\") amongst those values, precede it with a backslash (for example "
+"'\\\\xyz' or 'a\\'b')."
+msgstr ""
+
+#: templates/columns_definitions/table_fields_definitions.twig:93
+msgid "Input transformation options"
+msgstr "Ներածման ձևափոխման կայանքներ"
+
+#: templates/database/designer/query_details.twig:6
+msgid "Active options"
+msgstr "Գործուն կայանքներ"
+
+#: templates/database/designer/schema_export.twig:4
+msgid "Select Export Relational Type"
+msgstr ""
+
+#: templates/database/designer/rename_to_panel.twig:22
+#: templates/database/designer/options_panel.twig:84
+msgid "Rename to"
+msgstr "Վերանվանել"
+
+#: templates/database/designer/rename_to_panel.twig:30
+#: templates/database/designer/options_panel.twig:90
+msgid "New name"
+msgstr "Նոր անուն"
+
+#: templates/prefs_autoload.twig:7
+msgid ""
+"Your browser has phpMyAdmin configuration for this domain. Would you like to "
+"import it for current session?"
+msgstr ""
+
+#: templates/prefs_autoload.twig:13
+#, fuzzy
+#| msgid "Delete tracking"
+msgid "Delete settings"
+msgstr "Վերացնել հետագծումը"
+
+#: templates/privileges/add_privileges_routine.twig:3
+msgid "Add privileges on the following routine:"
+msgstr "Ավելացնել արտոնություններ հետևյալ գործընթացի համար՝"
+
+#: templates/database/designer/edit_delete_pages.twig:6
+msgid "Page to open"
+msgstr ""
+
+#: templates/database/designer/edit_delete_pages.twig:6
+msgid "Page to delete"
+msgstr "Ջնջվող էջը"
+
+#: templates/table/index_form.twig:15
+msgid "Index name:"
+msgstr "Ցուցակագրի անունը՝"
+
+#: templates/table/index_form.twig:16
+msgid ""
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
+msgstr ""
+
+#: templates/table/index_form.twig:34
+msgid "Index choice:"
+msgstr "Ցուցակագրի ընտրում՝"
+
+#: templates/table/index_form.twig:42
+#, fuzzy
+#| msgid "Active options"
+msgid "Advanced Options"
+msgstr "Գործուն կայանքներ"
+
+#: templates/table/index_form.twig:48
+msgid "Key block size:"
+msgstr ""
+
+#: templates/table/index_form.twig:65
+msgid "Index type:"
+msgstr "Ցուցակագրի տեսակը՝"
+
+#: templates/table/index_form.twig:77
+msgid "Parser:"
+msgstr "Վերլուծիչ՝"
+
+#: templates/table/index_form.twig:93
+msgid "Comment:"
+msgstr "Մեկնաբանություն՝"
+
+#: templates/table/index_form.twig:118
+#: templates/database/structure/table_header.twig:38
+msgid "Size"
+msgstr "Ծավալը"
+
+#: templates/table/index_form.twig:136 templates/table/index_form.twig:173
+msgid "Drag to reorder"
+msgstr "Քաշեք՝ վերադասակարգելու համար"
+
+#: templates/columns_definitions/column_name.twig:4
+#, php-format
+msgid "Referenced by %s."
+msgstr ""
+
+#: templates/columns_definitions/column_name.twig:12
+msgid "Is a foreign key."
+msgstr "Սա՝ արտաքին բանալի է։"
+
+#: templates/columns_definitions/column_name.twig:40
+msgid "Pick from Central Columns"
+msgstr "Ընտրել կենտրոնական սյունակներից"
+
+#: templates/display/import/javascript.twig:12
+msgid ""
+"The file being uploaded is probably larger than the maximum allowed size or "
+"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
+"browsers."
+msgstr ""
+
+#: templates/display/import/javascript.twig:16
+#, php-format
+msgid "%s of %s"
+msgstr "%s %s-ից"
+
+#: templates/display/import/javascript.twig:17
+#, php-format
+msgid "%s/sec."
+msgstr "%s/վրկ."
+
+#: templates/display/import/javascript.twig:18
+msgid "About %MIN min. %SEC sec. remaining."
+msgstr "Մնացել է մոտ %MIN րոպե %SEC վայրկյան։"
+
+#: templates/display/import/javascript.twig:19
+msgid "About %SEC sec. remaining."
+msgstr "Մնացել է մոտ %SEC վայրկյան։"
+
+#: templates/display/import/javascript.twig:20
+msgid "The file is being processed, please be patient."
+msgstr ""
+
+#: templates/display/import/javascript.twig:36
+msgid "Uploading your import file…"
+msgstr "Ներմուծման ֆայլի վերբեռնում …"
+
+#: templates/display/import/javascript.twig:161
+msgid ""
+"Please be patient, the file is being uploaded. Details about the upload are "
+"not available."
+msgstr ""
+
+#: templates/display/export/options_output_compression.twig:4
+msgid "Compression:"
+msgstr "Սեղմումը՝"
+
+#: templates/display/export/options_output_compression.twig:11
+msgid "zipped"
+msgstr "zip"
+
+#: templates/display/export/options_output_compression.twig:17
+msgid "gzipped"
+msgstr "gzip"
+
+#: templates/export/alias_item.twig:8
+msgid "Remove"
+msgstr ""
+
+#: templates/database/structure/show_create.twig:2
+msgid "Showing create queries"
+msgstr "Ստեղծման հարցումների ցուցադրում"
+
+#: templates/display/export/options_output_save_dir.twig:5
+#: templates/display/export/options_quick_export.twig:8
+#, fuzzy, php-format
+#| msgid "%1$s match in <strong>%2$s</strong>"
+#| msgid_plural "%1$s matches in <strong>%2$s</strong>"
+msgid "Save on server in the directory <strong>%s</strong>"
+msgstr "%1$s համընկնում <strong>%2$s-ում</strong>"
+
+#: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:43
+#: templates/prefs_twofactor.twig:54
+#, fuzzy
+#| msgid "Config authentication"
+msgid "Configure two-factor authentication"
+msgstr "Վավերացում config ֆայլի միջոցով"
+
+#: templates/prefs_twofactor_configure.twig:8
+#, fuzzy
+#| msgid "Config authentication"
+msgid "Enable two-factor authentication"
+msgstr "Վավերացում config ֆայլի միջոցով"
+
+#: templates/table/relation/foreign_key_row.twig:15
+#, php-format
+msgid "Foreign key constraint %s has been dropped"
+msgstr "Արտաքին բանալիի %s սահմանափակումը ջնջվեց"
+
+#: templates/table/relation/foreign_key_row.twig:38
+msgid "Constraint name"
+msgstr "Սահմանափակման անվանում"
+
+#: templates/login/twofactor/key-https-warning.twig:3
+msgid ""
+"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
+"most likely refuse to authenticate you."
+msgstr ""
+
+#: templates/database/designer/database_tables.twig:37
+msgid "Show/hide columns"
+msgstr "Ցուցադրել/թաքցնել սյունակները"
+
+#: templates/database/designer/database_tables.twig:46
+msgid "See table structure"
+msgstr "Դիտել աղյուսակի կառուցվածքը"
+
+#: templates/database/designer/database_tables.twig:91
+#, fuzzy, php-format
+#| msgid "Select all"
+msgid "Select \"%s\""
+msgstr "Ընտրել բոլորը"
+
+#: templates/database/designer/database_tables.twig:126
+#, php-format
+msgid "Add an option for column \"%s\"."
+msgstr "Ավելացնել հարաչափ \"%s\" սյունակի համար։"
+
+#: templates/database/designer/aggregate_query_panel.twig:22
+#: templates/database/designer/options_panel.twig:99
+msgid "Aggregate"
+msgstr "Միաձուլել"
+
+#: templates/display/export/options_quick_export.twig:2
+#: templates/display/export/options_output.twig:2
+msgid "Output:"
+msgstr "Արտածում՝"
+
+#: templates/table/gis_visualization/gis_visualization.twig:3
+msgid "Display GIS Visualization"
+msgstr ""
+
+#: templates/table/gis_visualization/gis_visualization.twig:8
+msgid "Label column"
+msgstr "Սյունակի պիտակը"
+
+#: templates/table/gis_visualization/gis_visualization.twig:11
+msgid "-- None --"
+msgstr "-- Չկա --"
+
+#: templates/table/gis_visualization/gis_visualization.twig:19
+msgid "Spatial column"
+msgstr ""
+
+#: templates/table/structure/row_stats_table.twig:2
+msgid "Row statistics"
+msgstr "Տողի վիճակագրությունը"
+
+#: templates/table/structure/row_stats_table.twig:8
+msgid "static"
+msgstr "կայուն"
+
+#: templates/table/structure/row_stats_table.twig:10
+msgid "dynamic"
+msgstr ""
+
+#: templates/table/structure/row_stats_table.twig:21
+msgid "partitioned"
+msgstr "մասնահատված"
+
+#: templates/table/structure/row_stats_table.twig:50
+msgid "Row length"
+msgstr "Տողի երկարությունը"
+
+#: templates/table/structure/row_stats_table.twig:62
+msgid "Row size"
+msgstr "Տողի չափ"
+
+#: templates/table/structure/row_stats_table.twig:69
+msgid "Next autoindex"
+msgstr ""
+
+#: templates/table/structure/row_stats_table.twig:76
+#: templates/database/structure/table_header.twig:53
+msgid "Creation"
+msgstr "Ստեղծում"
+
+#: templates/table/structure/row_stats_table.twig:83
+#: templates/database/structure/table_header.twig:58
+msgid "Last update"
+msgstr "Վերջին թարմացումը"
+
+#: templates/table/structure/row_stats_table.twig:90
+#: templates/database/structure/table_header.twig:63
+msgid "Last check"
+msgstr "Վերջին ստուգումը"
+
+#: templates/table/structure/add_column.twig:9
+#, php-format
+msgid "Add %s column(s)"
+msgstr "Ավելացնել %s սյունակ"
+
+#: templates/table/structure/add_column.twig:14
+msgid "at beginning of table"
+msgstr "աղյուսակի սկզբում"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Server variables and settings"
+msgstr "Սպասարկչի փոփոխականները և կայանքները"
+
+#: templates/server/sub_page_header.twig:2
+#, fuzzy
+#| msgid "Storage Engines"
+msgid "Storage engines"
+msgstr "Պահպանման տեսակներ"
+
+#: templates/server/sub_page_header.twig:2
+#, fuzzy
+#| msgid "Character Sets and Collations"
+msgid "Character sets and collations"
+msgstr "Կոդավորումները և համադրումները"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Databases statistics"
+msgstr "Տվյալների բազաների վիճակագրությունը"
+
+#: templates/server/databases/databases_footer.twig:67
+msgid ""
+"Note: Enabling the database statistics here might cause heavy traffic "
+"between the web server and the MySQL server."
+msgstr ""
+"Նշում՝ տվյալների բազաների վիճակագրության գործունացումը կարող է պատճառել "
+"մեծածավալ փոխանակում՝ վեբ սպասարկչի և MySQL սպասարկչի միջև։"
+
+#: templates/server/databases/databases_footer.twig:70
+#: templates/server/databases/databases_footer.twig:71
+msgid "Enable statistics"
+msgstr "Միացնել վիճակագրումը"
+
+#: templates/table/search/search_and_replace.twig:1
+#: templates/database/search/selection_form.twig:15
+msgid "Find:"
+msgstr "Գտնել՝"
+
+#: templates/table/search/search_and_replace.twig:3
+msgid "Replace with:"
+msgstr "Փոխարինել՝"
+
+#: templates/table/search/search_and_replace.twig:19
+msgid "Use regular expression"
+msgstr "Օգտագործել կանոնավոր արտահայտությունը"
+
+#: templates/table/structure/partition_definition_form.twig:6
+#: templates/table/structure/display_partitions.twig:141
+msgid "Edit partitioning"
+msgstr "Խմբագրել մասնաբաժանումը"
+
+#: templates/login/twofactor.twig:5
+msgid "Verify"
+msgstr ""
+
+#: templates/display/export/option_header.twig:5
+msgid "Exporting databases from the current server"
+msgstr "Ընթացիկ սպասարկչից տվյալների բազաների արտահանումը"
+
+#: templates/display/export/option_header.twig:7
+#, php-format
+msgid "Exporting tables from \"%s\" database"
+msgstr "\"%s\" տվյալների բազայից աղյուսակների արտահանում"
+
+#: templates/display/export/option_header.twig:9
+#, php-format
+msgid "Exporting rows from \"%s\" table"
+msgstr "\"%s\" աղյուսակից տողերի արտահանում"
 
 #: templates/display/export/options_output_separate_files.twig:7
 msgid "Export databases as separate files"
@@ -14012,6 +15183,549 @@ msgstr "Արտահանել տվյալների բազաները՝ առանձին 
 #: templates/display/export/options_output_separate_files.twig:9
 msgid "Export tables as separate files"
 msgstr ""
+
+#: templates/server/variables/session_variable_row.twig:3
+msgid "Session value"
+msgstr "Աշխատաշրջանի արժեքը"
+
+#: templates/database/designer/having_query_panel.twig:90
+#: templates/database/designer/options_panel.twig:63
+#: templates/database/designer/options_panel.twig:228
+#: templates/database/designer/where_query_panel.twig:59
+msgid "Except"
+msgstr "Բացառությամբ"
+
+#: templates/database/designer/having_query_panel.twig:102
+#: templates/database/designer/options_panel.twig:75
+#: templates/database/designer/options_panel.twig:240
+#: templates/database/designer/where_query_panel.twig:71
+msgid "subquery"
+msgstr "ենթահարցում"
+
+#: templates/database/create_table.twig:15
+msgid "Number of columns"
+msgstr "Սյունակների քանակը"
+
+#: templates/table/relation/common_form.twig:6
+msgid "Foreign key constraints"
+msgstr "Արտաքին բանալիի սահմանափակումները"
+
+#: templates/table/relation/common_form.twig:10
+msgid "Actions"
+msgstr "Գործողություններ"
+
+#: templates/table/relation/common_form.twig:11
+msgid "Constraint properties"
+msgstr "Սահմանափակման հատկություններ"
+
+#: templates/table/relation/common_form.twig:15
+msgid ""
+"Creating a foreign key over a non-indexed column would automatically create "
+"an index on it. Alternatively, you can define an index below, before "
+"creating the foreign key."
+msgstr ""
+
+#: templates/table/relation/common_form.twig:20
+msgid ""
+"Only columns with index will be displayed. You can define an index below."
+msgstr ""
+
+#: templates/table/relation/common_form.twig:24
+msgid "Foreign key constraint"
+msgstr ""
+
+#: templates/table/relation/common_form.twig:89
+msgid "+ Add constraint"
+msgstr "+ Ավելացնել սահմանափակում"
+
+#: templates/table/relation/common_form.twig:99
+#: templates/table/relation/common_form.twig:104
+#, fuzzy
+#| msgid "Internal relations"
+msgid "Internal relationships"
+msgstr "Ներքին կապակցումներ"
+
+#: templates/table/relation/common_form.twig:110
+msgid "Internal relation"
+msgstr "Ներքին կապակցում"
+
+#: templates/table/relation/common_form.twig:112
+msgid ""
+"An internal relation is not necessary when a corresponding FOREIGN KEY "
+"relation exists."
+msgstr ""
+
+#: templates/table/relation/common_form.twig:172
+msgid "Choose column to display:"
+msgstr ""
+
+#: templates/database/structure/check_all_tables.twig:6
+msgid "Check tables having overhead"
+msgstr ""
+
+#: templates/database/structure/check_all_tables.twig:10
+#, fuzzy
+#| msgid "Copy database to"
+msgid "Copy table"
+msgstr "Կրկնապատկել տվյալների բազան"
+
+#: templates/database/structure/check_all_tables.twig:11
+msgid "Show create"
+msgstr "Ցուցադրել ստեղծման ձևը"
+
+#: templates/database/structure/check_all_tables.twig:25
+msgid "Prefix"
+msgstr "Նախածանց"
+
+#: templates/database/structure/check_all_tables.twig:26
+msgid "Add prefix to table"
+msgstr "Ավելացնել նախածանց աղյուսակին"
+
+#: templates/database/structure/check_all_tables.twig:27
+msgid "Replace table prefix"
+msgstr ""
+
+#: templates/database/structure/check_all_tables.twig:33
+msgid "Add columns to central list"
+msgstr "Ավելացնել սյունակներ՝ կենտրոնական ցանկին"
+
+#: templates/database/structure/check_all_tables.twig:34
+msgid "Remove columns from central list"
+msgstr ""
+
+#: templates/database/structure/check_all_tables.twig:35
+msgid "Make consistent with central list"
+msgstr "Համապատասխանեցնել կենտրոնական ցանկին"
+
+#: templates/database/designer/options_panel.twig:34
+#: templates/database/designer/options_panel.twig:199
+#, fuzzy
+#| msgid "Relations"
+msgid "Relationship operator"
+msgstr "Կապակցումներ"
+
+#: templates/privileges/add_user_fieldset.twig:2
+msgctxt "Create new user"
+msgid "New"
+msgstr "Նոր"
+
+#: templates/login/twofactor/key_configure.twig:3
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm registration on the device."
+msgstr ""
+
+#: templates/table/tracking/report_table.twig:4
+#: templates/table/tracking/structure_snapshot_columns.twig:5
+msgctxt "Number"
+msgid "#"
+msgstr ""
+
+#: templates/table/tracking/report_table.twig:5
+msgid "Date"
+msgstr "Ամսաթիվ"
+
+#: templates/table/tracking/report_table.twig:6
+msgid "Username"
+msgstr "Օգտանուն"
+
+#: templates/database/qbe/footer_options.twig:3
+msgid "Add/Delete criteria rows"
+msgstr "Ավելացնել/ջնջել չափորոշիչների տողերը"
+
+#: templates/database/qbe/footer_options.twig:5
+msgid "Add/Delete columns"
+msgstr "Ավելացնել/ջնջել սյունակները"
+
+#: templates/table/search/rows_zoom.twig:12
+msgid "Additional search criteria"
+msgstr "Հավելյալ որոնման եղրեր"
+
+#: templates/database/search/results.twig:12
+#, php-format
+msgid "%1$s match in <strong>%2$s</strong>"
+msgid_plural "%1$s matches in <strong>%2$s</strong>"
+msgstr[0] "%1$s համընկնում <strong>%2$s-ում</strong>"
+msgstr[1] "%1$s համընկնում <strong>%2$s-ում</strong>"
+
+#: templates/database/search/results.twig:56
+#, fuzzy
+#| msgid "<b>Total:</b> <i>%s</i> match"
+#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
+msgid "<strong>Total:</strong> <em>%count%</em> match"
+msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+msgstr[0] "<b>Ընդամենը՝</b> <i>%s</i> համընկնում"
+msgstr[1] "<b>Ընդամենը՝</b> <i>%s</i> համընկնում"
+
+#: templates/database/structure/table_header.twig:27
+msgid ""
+"May be approximate. Click on the number to get the exact count. See "
+"[doc@faq3-11]FAQ 3.11[/doc]."
+msgstr ""
+
+#: templates/start_and_number_of_rows_panel.twig:3
+msgid "Start row:"
+msgstr "Սկզբնական տողը՝"
+
+#: templates/database/central_columns/add_column.twig:13
+msgid "Select a column."
+msgstr "Ընտրեք սյունակը։"
+
+#: templates/database/structure/tracking_icon.twig:3
+msgid "Tracking is active."
+msgstr "Հետագծումը միացրած է։"
+
+#: templates/database/structure/tracking_icon.twig:5
+msgid "Tracking is not active."
+msgstr "Հետագծումը միացրած չէ։"
+
+#: templates/database/search/selection_form.twig:5
+msgid "Search in database"
+msgstr "Որոնումը տվյալների բազայում"
+
+#: templates/database/search/selection_form.twig:8
+msgid "Words or values to search for (wildcard: \"%\"):"
+msgstr "Բառեր կամ արժեքներ՝ որոնելու համար (դերանշան՝ \"%\")՝"
+
+#: templates/database/search/selection_form.twig:29
+msgid "Inside tables:"
+msgstr "Աղյուսակներում՝"
+
+#: templates/database/search/selection_form.twig:51
+msgid "Inside column:"
+msgstr "Սյունակում՝"
+
+#: templates/view_create.twig:13
+#: templates/table/structure/display_structure.twig:138
+msgid "Edit view"
+msgstr "Խմբագրել ներկայացումը"
+
+#: templates/view_create.twig:65
+msgid "VIEW name"
+msgstr "VIEW անունը"
+
+#: templates/view_create.twig:79
+msgid "Column names"
+msgstr "Սյունակների անուններ"
+
+#: templates/theme_preview.twig:11
+msgid "No preview available."
+msgstr "Նախադիտումը հասանելի չէ։"
+
+#: templates/theme_preview.twig:13
+#, fuzzy
+#| msgid "take it"
+msgid "Take it"
+msgstr "կիրառել"
+
+#: templates/prefs_twofactor.twig:3
+#, fuzzy
+#| msgid "Authentication settings."
+msgid "Two-factor authentication status"
+msgstr "Վավերացման կայանքներ։"
+
+#: templates/prefs_twofactor.twig:9
+msgid ""
+"Two-factor authentication is not available, please install optional "
+"dependencies to enable authentication backends."
+msgstr ""
+
+#: templates/prefs_twofactor.twig:10
+msgid "Following composer packages are missing:"
+msgstr ""
+
+#: templates/prefs_twofactor.twig:18
+msgid "Two-factor authentication is available and configured for this account."
+msgstr ""
+
+#: templates/prefs_twofactor.twig:20
+msgid ""
+"Two-factor authentication is available, but not configured for this account."
+msgstr ""
+
+#: templates/prefs_twofactor.twig:24
+msgid ""
+"Two-factor authentication is not available, enable phpMyAdmin configuration "
+"storage to use it."
+msgstr ""
+
+#: templates/prefs_twofactor.twig:33
+msgid "You have enabled two factor authentication."
+msgstr ""
+
+#: templates/display/export/options_output_radio.twig:5
+msgid "View output as text"
+msgstr "Ցուցադրել արտածումը գրվածքի տեսքով"
+
+#: templates/login/twofactor/key.twig:3
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm login on the device."
+msgstr ""
+
+#: templates/server/databases/create.twig:8
+#: templates/server/databases/create.twig:36
+msgid "Create database"
+msgstr "Ստեղծել տվյալների բազա"
+
+#: templates/database/designer/page_save_as.twig:17
+msgid "Save to selected page"
+msgstr ""
+
+#: templates/database/designer/page_save_as.twig:17
+msgid "Create a page and save to it"
+msgstr ""
+
+#: templates/database/designer/page_save_as.twig:30
+msgid "New page name"
+msgstr "Նոր էջի անունը"
+
+#: templates/table/tracking/structure_snapshot_columns.twig:47
+#: templates/table/structure/table_structure_row.twig:34
+msgctxt "None for default"
+msgid "None"
+msgstr "Չկա"
+
+#: templates/display/export/options_rows.twig:2
+msgid "Rows:"
+msgstr "Տողեր՝"
+
+#: templates/display/export/options_rows.twig:7
+msgid "Dump some row(s)"
+msgstr ""
+
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
+msgstr ""
+
+#: templates/display/export/options_rows.twig:32
+msgid "Dump all rows"
+msgstr ""
+
+#: templates/table/structure/table_structure_row.twig:55
+#, php-format
+msgid "Column %s has been dropped."
+msgstr "%s սյունակը ջնջվեց։"
+
+#: templates/toggle_button.twig:3
+msgid "Click to toggle"
+msgstr "Կտտացրեք՝ փոխարկելու համար"
+
+#: templates/server/databases/table_row.twig:13
+#, fuzzy, php-format
+#| msgid "Jump to database"
+msgid "Jump to database '%s'"
+msgstr "Զանցել տվյալների բազային"
+
+#: templates/server/databases/table_row.twig:63
+#, php-format
+msgid "Check privileges for database \"%s\"."
+msgstr "Ստուգել արտոնությունները \"%s\" տվյալների բազայի համար։"
+
+#: templates/server/databases/table_row.twig:64
+msgid "Check privileges"
+msgstr "Ստուգել արտոնությունները"
+
+#: templates/table/search/replace_preview.twig:13
+msgid "Find and replace - preview"
+msgstr "Գտնել և փոխարինել՝ նախադիտում"
+
+#: templates/table/search/replace_preview.twig:18
+msgid "Original string"
+msgstr "Սկզբնական տողը"
+
+#: templates/table/search/replace_preview.twig:19
+msgid "Replaced string"
+msgstr "Փոխարինված տողը"
+
+#: templates/table/search/replace_preview.twig:37
+msgid "Replace"
+msgstr "Փոխարինում"
+
+#: templates/display/results/options_block.twig:30
+msgid "Relational key"
+msgstr "Կապակցող բանալի"
+
+#: templates/display/results/options_block.twig:30
+#, fuzzy
+#| msgid "Display column for relations"
+msgid "Display column for relationships"
+msgstr "Սյունակների մեկնաբանությունների ցուցադրումը"
+
+#: templates/display/results/options_block.twig:46
+msgid "Show binary contents"
+msgstr "Ցուցադրել երկուական տվյալները"
+
+#: templates/display/results/options_block.twig:53
+msgid "Show BLOB contents"
+msgstr "Ցուցադրել BLOB տվյալները"
+
+#: templates/display/results/options_block.twig:67
+msgid "Hide browser transformation"
+msgstr "Թաքցնել դիտարկչի ձևափոխումը"
+
+#: templates/display/results/options_block.twig:79
+#: templates/display/results/options_block.twig:96
+msgid "Well Known Text"
+msgstr "Գրվածք (Well Known Text)"
+
+#: templates/display/results/options_block.twig:79
+#: templates/display/results/options_block.twig:96
+msgid "Well Known Binary"
+msgstr "Երկուական (Well Known Binary)"
+
+#: templates/display/export/method.twig:3
+msgid "Export method:"
+msgstr "Արտահանման եղանակը՝"
+
+#: templates/display/export/method.twig:9
+msgid "Quick - display only the minimal options"
+msgstr "Արագ՝ ցուցադրել նվազագույն կայանքները"
+
+#: templates/display/export/method.twig:17
+msgid "Custom - display all possible options"
+msgstr "Ընտելական՝ ցուցադրել բոլոր առկա կայանքները"
+
+#: templates/database/structure/body_for_table_summary.twig:6
+#, php-format
+msgid "%s table"
+msgid_plural "%s tables"
+msgstr[0] "%s աղյուսակ"
+msgstr[1] "%s աղյուսակ"
+
+#: templates/database/structure/body_for_table_summary.twig:17
+msgid "Sum"
+msgstr "Ընդամենը"
+
+#: templates/login/twofactor/invalid.twig:2
+msgid ""
+"The configured two factor authentication is not available, please install "
+"missing dependencies."
+msgstr ""
+
+#: templates/server/binlog/log_selector.twig:5
+msgid "Select binary log to view"
+msgstr ""
+
+#: templates/display/export/options_output.twig:26
+msgid "Save output to a file"
+msgstr ""
+
+#: templates/display/export/options_output.twig:51
+#, fuzzy, php-format
+#| msgid "Skip tables larger than"
+msgid "Skip tables larger than %s MiB"
+msgstr "Զանցցել այղուսակներ, որոնց չափը ավվելի մեծ է, քան"
+
+#: templates/table/structure/display_structure.twig:194
+#: templates/table/structure/display_partitions.twig:4
+msgid "Partitions"
+msgstr "Մասնաբաժիններ"
+
+#: templates/table/secondary_tabs.twig:9
+msgid "Relation view"
+msgstr "Կապակցման դիտում"
+
+#: templates/columns_definitions/column_default.twig:3
+msgctxt "for default"
+msgid "None"
+msgstr "Չկա"
+
+#: templates/columns_definitions/column_default.twig:5
+msgid "As defined:"
+msgstr "Ըստ սահմանվածության՝"
+
+#: templates/database/designer/page_selector.twig:2
+msgid "Select page"
+msgstr "Ընտրեք էջը"
+
+#: templates/privileges/delete_user_fieldset.twig:3
+msgid "Remove selected user accounts"
+msgstr "Ջնջել նշված օգտվողների հաշիվները"
+
+#: templates/privileges/delete_user_fieldset.twig:6
+msgid "Revoke all active privileges from the users and delete them afterwards."
+msgstr ""
+
+#: templates/privileges/delete_user_fieldset.twig:7
+#: templates/privileges/delete_user_fieldset.twig:10
+#: templates/privileges/delete_user_fieldset.twig:11
+msgid "Drop the databases that have the same names as the users."
+msgstr ""
+"Ջնջել տվյալների բազաները, որոնց անունները համընկնում են օգտվողների անունների "
+"հետ։"
+
+#: templates/table/structure/actions_in_table_structure.twig:15
+#, php-format
+msgid "A primary key has been added on %s."
+msgstr ""
+
+#: templates/table/structure/actions_in_table_structure.twig:33
+#: templates/table/structure/actions_in_table_structure.twig:51
+#: templates/table/structure/actions_in_table_structure.twig:80
+#: templates/table/structure/actions_in_table_structure.twig:103
+#, php-format
+msgid "An index has been added on %s."
+msgstr "%s-ի համար ավելացվել է ցուցակագիր։"
+
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr "Աղյուսակի անուն"
+
+#: templates/columns_definitions/column_definitions_form.twig:40
+#, fuzzy
+#| msgid "Columns"
+msgid "column(s)"
+msgstr "Սյունակներ"
+
+#: templates/columns_definitions/column_definitions_form.twig:74
+msgid "Collation:"
+msgstr "Համադրում՝"
+
+#: templates/columns_definitions/column_definitions_form.twig:77
+msgid "Storage Engine:"
+msgstr "Պահպանման տեսակը՝"
+
+#: templates/columns_definitions/column_definitions_form.twig:82
+msgid "Connection:"
+msgstr "Միացում՝"
+
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
+msgstr "Մասնաբաժինների (PARTITION) սահմանումը՝"
+
+#: templates/table/search/options.twig:6
+msgid "Select columns (at least one):"
+msgstr "Ընտրեք սյունակները (առնվազն մեկը)՝"
+
+#: templates/table/search/options.twig:26
+msgid "Add search conditions (body of the \"where\" clause):"
+msgstr "Ավելացնել որոնման պայմանները (\"WHERE\" պայմանի պարունակությունը)՝"
+
+#: templates/table/search/options.twig:34
+msgid "Number of rows per page"
+msgstr "Տողերի քանակը մեկ էջում"
+
+#: templates/table/search/options.twig:45
+msgid "Display order:"
+msgstr "Ցուցադրման դասակարգումը՝"
+
+#: templates/database/tracking/tracked_tables.twig:2
+msgid "Tracked tables"
+msgstr "Հետագծվող աղյուսակներ"
+
+#: templates/database/tracking/tracked_tables.twig:12
+msgid "Last version"
+msgstr "Վերջին տարբերակը"
+
+#: templates/database/tracking/tracked_tables.twig:54
+#: templates/database/tracking/tracked_tables.twig:99
+msgid "Delete tracking"
+msgstr "Վերացնել հետագծումը"
+
+#: templates/database/tracking/tracked_tables.twig:65
+msgid "Versions"
+msgstr "Տարբերակներ"
 
 #: templates/table/chart/tbl_chart.twig:15
 msgctxt "Chart type"
@@ -14101,1572 +15815,6 @@ msgstr "Արժեքի սյունակը՝"
 msgid "Save chart as image"
 msgstr ""
 
-#: templates/columns_definitions/move_column.twig:7
-msgid "first"
-msgstr "առաջին"
-
-#: templates/columns_definitions/move_column.twig:12
-#: templates/table/structure/add_column.twig:19
-#, php-format
-msgid "after %s"
-msgstr "%s-ից հետո"
-
-#: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create"
-msgid "Create %s"
-msgstr "Ստեղծել"
-
-#: templates/database/designer/edit_delete_pages.twig:6
-msgid "Page to open"
-msgstr ""
-
-#: templates/database/designer/edit_delete_pages.twig:6
-msgid "Page to delete"
-msgstr "Ջնջվող էջը"
-
-#: templates/table/insert/continue_insertion_form.twig:18
-#, php-format
-msgid "Continue insertion with %s rows"
-msgstr ""
-
-#: templates/toggle_button.twig:3
-msgid "Click to toggle"
-msgstr "Կտտացրեք՝ փոխարկելու համար"
-
-#: templates/table/tracking/structure_snapshot_columns.twig:5
-#: templates/table/tracking/report_table.twig:4
-msgctxt "Number"
-msgid "#"
-msgstr ""
-
-#: templates/table/tracking/structure_snapshot_columns.twig:47
-#: templates/table/structure/table_structure_row.twig:34
-msgctxt "None for default"
-msgid "None"
-msgstr "Չկա"
-
-#: templates/columns_definitions/partitions.twig:17
-msgid "Partition by:"
-msgstr "Մասնաբաժին ըստ՝"
-
-#: templates/columns_definitions/partitions.twig:32
-#: templates/columns_definitions/partitions.twig:60
-msgid "Expression or column list"
-msgstr "Արտահայտություն կամ սյունակների ցանկ"
-
-#: templates/columns_definitions/partitions.twig:37
-msgid "Partitions:"
-msgstr "Մասնաբաժիններ՝"
-
-#: templates/columns_definitions/partitions.twig:45
-msgid "Subpartition by:"
-msgstr "Ենթամասնաբաժին ըստ՝"
-
-#: templates/columns_definitions/partitions.twig:65
-msgid "Subpartitions:"
-msgstr "Ենթամասնաբաժիններ՝"
-
-#: templates/columns_definitions/partitions.twig:76
-#: templates/table/structure/display_partitions.twig:24
-msgid "Partition"
-msgstr "Մասնաբաժին"
-
-#: templates/columns_definitions/partitions.twig:78
-msgid "Values"
-msgstr "Արժեքները"
-
-#: templates/columns_definitions/partitions.twig:82
-msgid "Subpartition"
-msgstr "Ենթամասնաբաժին"
-
-#: templates/columns_definitions/partitions.twig:84
-msgid "Engine"
-msgstr "Պահպանման տեսակ"
-
-#: templates/columns_definitions/partitions.twig:86
-msgid "Data directory"
-msgstr "Տվյալների պանակ"
-
-#: templates/columns_definitions/partitions.twig:87
-msgid "Index directory"
-msgstr "Ցուցակագրի պանակ"
-
-#: templates/columns_definitions/partitions.twig:88
-msgid "Max rows"
-msgstr "Առավելագույն տողեր"
-
-#: templates/columns_definitions/partitions.twig:89
-msgid "Min rows"
-msgstr "Նվազագույն տողեր"
-
-#: templates/columns_definitions/partitions.twig:90
-msgid "Table space"
-msgstr "Աղյուսակի տարածություն"
-
-#: templates/columns_definitions/partitions.twig:91
-msgid "Node group"
-msgstr "Հանգույցի խումբ"
-
-#: templates/table/structure/add_column.twig:9
-#, php-format
-msgid "Add %s column(s)"
-msgstr "Ավելացնել %s սյունակ"
-
-#: templates/table/structure/add_column.twig:14
-msgid "at beginning of table"
-msgstr "աղյուսակի սկզբում"
-
-#: templates/database/designer/having_query_panel.twig:30
-#: templates/database/designer/having_query_panel.twig:61
-#: templates/table/search/table_header.twig:9
-#: templates/database/designer/options_panel.twig:105
-#: templates/database/designer/options_panel.twig:169
-#: templates/database/designer/aggregate_query_panel.twig:30
-#: templates/database/designer/where_query_panel.twig:30
-msgid "Operator"
-msgstr "Գործարկու"
-
-#: templates/database/designer/having_query_panel.twig:90
-#: templates/database/designer/options_panel.twig:63
-#: templates/database/designer/options_panel.twig:228
-#: templates/database/designer/where_query_panel.twig:59
-msgid "Except"
-msgstr "Բացառությամբ"
-
-#: templates/database/designer/having_query_panel.twig:102
-#: templates/database/designer/options_panel.twig:75
-#: templates/database/designer/options_panel.twig:240
-#: templates/database/designer/where_query_panel.twig:71
-msgid "subquery"
-msgstr "ենթահարցում"
-
-#: templates/error/report_form.twig:6
-msgid ""
-"This report automatically includes data about the error and information "
-"about relevant configuration settings. It will be sent to the phpMyAdmin "
-"team for debugging the error."
-msgstr ""
-
-#: templates/error/report_form.twig:12
-msgid ""
-"Can you tell us the steps leading to this error? It decisively helps in "
-"debugging:"
-msgstr ""
-
-#: templates/error/report_form.twig:19
-msgid "You may examine the data in the error report:"
-msgstr ""
-
-#: templates/start_and_number_of_rows_panel.twig:3
-msgid "Start row:"
-msgstr "Սկզբնական տողը՝"
-
-#: templates/start_and_number_of_rows_panel.twig:10
-#: templates/display/export/options_rows.twig:10
-#: templates/display/results/additional_fields.twig:6
-msgid "Number of rows:"
-msgstr "Տողերի քանակը՝"
-
-#: templates/table/structure/optional_action_links.twig:8
-msgid "Propose table structure"
-msgstr ""
-
-#: templates/table/structure/optional_action_links.twig:18
-#: templates/database/tracking/untracked_tables.twig:28
-#: templates/database/tracking/untracked_tables.twig:40
-msgid "Track table"
-msgstr "Հետագծել աղյուսակը"
-
-#: templates/table/structure/optional_action_links.twig:22
-#: templates/table/structure/move_columns_dialog.twig:1
-msgid "Move columns"
-msgstr "Տեղափոխել սյունակները"
-
-#: templates/table/structure/optional_action_links.twig:25
-msgid "Normalize"
-msgstr ""
-
-#: templates/table/structure/optional_action_links.twig:31
-msgid "Track view"
-msgstr "Հետագծել ներկայացումը"
-
-#: templates/export/alias_item.twig:8
-msgid "Remove"
-msgstr ""
-
-#: templates/columns_definitions/table_fields_definitions.twig:17
-msgid ""
-"If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
-"single quote (\"'\") amongst those values, precede it with a backslash (for "
-"example '\\\\xyz' or 'a\\'b')."
-msgstr ""
-
-#: templates/columns_definitions/table_fields_definitions.twig:21
-msgid ""
-"For default values, please enter just a single value, without backslash "
-"escaping or quotes, using this format: a"
-msgstr ""
-
-#: templates/columns_definitions/table_fields_definitions.twig:59
-msgid "Virtuality"
-msgstr ""
-
-#: templates/columns_definitions/table_fields_definitions.twig:65
-msgid "Move column"
-msgstr "Տեղափոխել սյունակը"
-
-#: templates/columns_definitions/table_fields_definitions.twig:76
-#: templates/columns_definitions/table_fields_definitions.twig:87
-msgid "List of available transformations and their options"
-msgstr "Առկա ձևափոխումների և դրանց կայանքների ցանկը"
-
-#: templates/columns_definitions/table_fields_definitions.twig:82
-msgid "Browser display transformation options"
-msgstr "Դիտարկչի ցուցադրման ձևափոխման կայանքներ"
-
-#: templates/columns_definitions/table_fields_definitions.twig:83
-#: templates/columns_definitions/table_fields_definitions.twig:94
-msgid ""
-"Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
-"quote (\"'\") amongst those values, precede it with a backslash (for example "
-"'\\\\xyz' or 'a\\'b')."
-msgstr ""
-
-#: templates/columns_definitions/table_fields_definitions.twig:93
-msgid "Input transformation options"
-msgstr "Ներածման ձևափոխման կայանքներ"
-
-#: templates/encoding/kanji_encoding_form.twig:6
-msgctxt "None encoding conversion"
-msgid "None"
-msgstr "Չկա"
-
-#: templates/encoding/kanji_encoding_form.twig:17
-msgid "Convert to Kana"
-msgstr ""
-
-#: templates/table/tracking/report_table.twig:5
-msgid "Date"
-msgstr "Ամսաթիվ"
-
-#: templates/table/tracking/report_table.twig:6
-msgid "Username"
-msgstr "Օգտանուն"
-
-#: templates/display/export/method.twig:3
-msgid "Export method:"
-msgstr "Արտահանման եղանակը՝"
-
-#: templates/display/export/method.twig:9
-msgid "Quick - display only the minimal options"
-msgstr "Արագ՝ ցուցադրել նվազագույն կայանքները"
-
-#: templates/display/export/method.twig:17
-msgid "Custom - display all possible options"
-msgstr "Ընտելական՝ ցուցադրել բոլոր առկա կայանքները"
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Collapse"
-msgstr "Կոծկել"
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Expand"
-msgstr "Ընդարձակել"
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:175
-msgid "Requery"
-msgstr "Կրկնել հարցումը"
-
-#: templates/view_create.twig:13
-#: templates/table/structure/display_structure.twig:138
-msgid "Edit view"
-msgstr "Խմբագրել ներկայացումը"
-
-#: templates/view_create.twig:65
-msgid "VIEW name"
-msgstr "VIEW անունը"
-
-#: templates/view_create.twig:79
-msgid "Column names"
-msgstr "Սյունակների անուններ"
-
-#: templates/display/export/options_output_format.twig:3
-msgid "File name template:"
-msgstr ""
-
-#: templates/display/export/options_output_format.twig:11
-msgid "use this for future exports"
-msgstr "օգտագործել հետագա արտահանուների համար"
-
-#: templates/table/structure/actions_in_table_structure.twig:15
-#, php-format
-msgid "A primary key has been added on %s."
-msgstr ""
-
-#: templates/table/structure/actions_in_table_structure.twig:33
-#: templates/table/structure/actions_in_table_structure.twig:51
-#: templates/table/structure/actions_in_table_structure.twig:80
-#: templates/table/structure/actions_in_table_structure.twig:103
-#, php-format
-msgid "An index has been added on %s."
-msgstr "%s-ի համար ավելացվել է ցուցակագիր։"
-
-#: templates/table/structure/actions_in_table_structure.twig:127
-#: templates/table/structure/check_all_table_column.twig:83
-msgid "Remove from central columns"
-msgstr ""
-
-#: templates/table/structure/actions_in_table_structure.twig:131
-#: templates/table/structure/check_all_table_column.twig:76
-msgid "Add to central columns"
-msgstr "Ավելացնել կենտրոնական սյունակներին"
-
-#: templates/login/twofactor/application.twig:2
-#: templates/login/twofactor/application_configure.twig:21
-#, fuzzy
-#| msgid "Authentication"
-msgid "Authentication code:"
-msgstr "Վավերացում"
-
-#: templates/login/twofactor/application.twig:4
-msgid ""
-"Open the two-factor authentication app on your device to view your "
-"authentication code and verify your identity."
-msgstr ""
-
-#: templates/database/structure/table_header.twig:27
-msgid ""
-"May be approximate. Click on the number to get the exact count. See "
-"[doc@faq3-11]FAQ 3.11[/doc]."
-msgstr ""
-
-#: templates/database/structure/table_header.twig:38
-#: templates/table/index_form.twig:118
-msgid "Size"
-msgstr "Ծավալը"
-
-#: templates/database/structure/table_header.twig:53
-#: templates/table/structure/row_stats_table.twig:76
-msgid "Creation"
-msgstr "Ստեղծում"
-
-#: templates/database/structure/table_header.twig:58
-#: templates/table/structure/row_stats_table.twig:83
-msgid "Last update"
-msgstr "Վերջին թարմացումը"
-
-#: templates/database/structure/table_header.twig:63
-#: templates/table/structure/row_stats_table.twig:90
-msgid "Last check"
-msgstr "Վերջին ստուգումը"
-
-#: templates/display/export/option_header.twig:5
-msgid "Exporting databases from the current server"
-msgstr "Ընթացիկ սպասարկչից տվյալների բազաների արտահանումը"
-
-#: templates/display/export/option_header.twig:7
-#, php-format
-msgid "Exporting tables from \"%s\" database"
-msgstr "\"%s\" տվյալների բազայից աղյուսակների արտահանում"
-
-#: templates/display/export/option_header.twig:9
-#, php-format
-msgid "Exporting rows from \"%s\" table"
-msgstr "\"%s\" աղյուսակից տողերի արտահանում"
-
-#: templates/privileges/resource_limits.twig:2
-msgid "Resource limits"
-msgstr "Պաշարների օգտագործման սահմանափակումները"
-
-#: templates/privileges/resource_limits.twig:5
-msgid "Note: Setting these options to 0 (zero) removes the limit."
-msgstr ""
-"Նշում՝ այս կայանքների համար 0 (զրոյի) նշանակումը հանում է բոլոր "
-"սահմանափակումները։"
-
-#: templates/display/export/options_output_radio.twig:5
-msgid "View output as text"
-msgstr "Ցուցադրել արտածումը գրվածքի տեսքով"
-
-#: templates/columns_definitions/column_length.twig:9
-msgid "Edit ENUM/SET values"
-msgstr ""
-
-#: templates/database/tracking/tracked_tables.twig:2
-msgid "Tracked tables"
-msgstr "Հետագծվող աղյուսակներ"
-
-#: templates/database/tracking/tracked_tables.twig:12
-msgid "Last version"
-msgstr "Վերջին տարբերակը"
-
-#: templates/database/tracking/tracked_tables.twig:54
-#: templates/database/tracking/tracked_tables.twig:99
-msgid "Delete tracking"
-msgstr "Վերացնել հետագծումը"
-
-#: templates/database/tracking/tracked_tables.twig:65
-msgid "Versions"
-msgstr "Տարբերակներ"
-
-#: templates/database/designer/page_selector.twig:2
-msgid "Select page"
-msgstr "Ընտրեք էջը"
-
-#: templates/theme_preview.twig:11
-msgid "No preview available."
-msgstr "Նախադիտումը հասանելի չէ։"
-
-#: templates/theme_preview.twig:13
-#, fuzzy
-#| msgid "take it"
-msgid "Take it"
-msgstr "կիրառել"
-
-#: templates/server/databases/databases_footer.twig:65
-msgid ""
-"Note: Enabling the database statistics here might cause heavy traffic "
-"between the web server and the MySQL server."
-msgstr ""
-"Նշում՝ տվյալների բազաների վիճակագրության գործունացումը կարող է պատճառել "
-"մեծածավալ փոխանակում՝ վեբ սպասարկչի և MySQL սպասարկչի միջև։"
-
-#: templates/server/databases/databases_footer.twig:68
-#: templates/server/databases/databases_footer.twig:69
-msgid "Enable statistics"
-msgstr "Միացնել վիճակագրումը"
-
-#: templates/privileges/privileges_summary.twig:20
-msgid "Column-specific privileges"
-msgstr ""
-
-#: templates/database/designer/page_save_as.twig:17
-msgid "Save to selected page"
-msgstr ""
-
-#: templates/database/designer/page_save_as.twig:17
-msgid "Create a page and save to it"
-msgstr ""
-
-#: templates/database/designer/page_save_as.twig:30
-msgid "New page name"
-msgstr "Նոր էջի անունը"
-
-#: templates/columns_definitions/column_virtuality.twig:29
-#: templates/table/structure/display_partitions.twig:26
-msgid "Expression"
-msgstr "Արտահայտություն"
-
-#: templates/database/designer/schema_export.twig:4
-msgid "Select Export Relational Type"
-msgstr ""
-
-#: templates/table/relation/foreign_key_row.twig:15
-#, php-format
-msgid "Foreign key constraint %s has been dropped"
-msgstr "Արտաքին բանալիի %s սահմանափակումը ջնջվեց"
-
-#: templates/table/relation/foreign_key_row.twig:38
-msgid "Constraint name"
-msgstr "Սահմանափակման անվանում"
-
-#: templates/table/relation/foreign_key_row.twig:90
-#: templates/database/multi_table_query/form.twig:158
-msgid "+ Add column"
-msgstr "+ Ավելացնել սյունակ"
-
-#: templates/database/designer/options_panel.twig:34
-#: templates/database/designer/options_panel.twig:199
-#, fuzzy
-#| msgid "Relations"
-msgid "Relationship operator"
-msgstr "Կապակցումներ"
-
-#: templates/database/designer/options_panel.twig:84
-#: templates/database/designer/rename_to_panel.twig:22
-msgid "Rename to"
-msgstr "Վերանվանել"
-
-#: templates/database/designer/options_panel.twig:90
-#: templates/database/designer/rename_to_panel.twig:30
-msgid "New name"
-msgstr "Նոր անուն"
-
-#: templates/database/designer/options_panel.twig:99
-#: templates/database/designer/aggregate_query_panel.twig:22
-msgid "Aggregate"
-msgstr "Միաձուլել"
-
-#: templates/table/structure/move_columns_dialog.twig:2
-msgid "Move the columns by dragging them up and down."
-msgstr ""
-
-#: templates/display/export/options_rows.twig:2
-msgid "Rows:"
-msgstr "Տողեր՝"
-
-#: templates/display/export/options_rows.twig:7
-msgid "Dump some row(s)"
-msgstr ""
-
-#: templates/display/export/options_rows.twig:23
-msgid "Row to begin at:"
-msgstr ""
-
-#: templates/display/export/options_rows.twig:32
-msgid "Dump all rows"
-msgstr ""
-
-#: templates/display/results/options_block.twig:30
-msgid "Relational key"
-msgstr "Կապակցող բանալի"
-
-#: templates/display/results/options_block.twig:30
-#, fuzzy
-#| msgid "Display column for relations"
-msgid "Display column for relationships"
-msgstr "Սյունակների մեկնաբանությունների ցուցադրումը"
-
-#: templates/display/results/options_block.twig:46
-msgid "Show binary contents"
-msgstr "Ցուցադրել երկուական տվյալները"
-
-#: templates/display/results/options_block.twig:53
-msgid "Show BLOB contents"
-msgstr "Ցուցադրել BLOB տվյալները"
-
-#: templates/display/results/options_block.twig:67
-msgid "Hide browser transformation"
-msgstr "Թաքցնել դիտարկչի ձևափոխումը"
-
-#: templates/display/results/options_block.twig:79
-#: templates/display/results/options_block.twig:96
-msgid "Well Known Text"
-msgstr "Գրվածք (Well Known Text)"
-
-#: templates/display/results/options_block.twig:79
-#: templates/display/results/options_block.twig:96
-msgid "Well Known Binary"
-msgstr "Երկուական (Well Known Binary)"
-
-#: templates/database/qbe/footer_options.twig:3
-msgid "Add/Delete criteria rows"
-msgstr "Ավելացնել/ջնջել չափորոշիչների տողերը"
-
-#: templates/database/qbe/footer_options.twig:5
-msgid "Add/Delete columns"
-msgstr "Ավելացնել/ջնջել սյունակները"
-
-#: templates/login/twofactor/key-https-warning.twig:3
-msgid ""
-"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
-"most likely refuse to authenticate you."
-msgstr ""
-
-#: templates/table/search/options_zoom.twig:6
-msgid "Use this column to label each point"
-msgstr "Օգտագործեք այս սյունակը՝ ամեն կետը պիտակելու համար"
-
-#: templates/table/search/options_zoom.twig:32
-msgid "Maximum rows to plot"
-msgstr "Կառուցման ենթակա տողերի առավելագույն քանակը"
-
-#: templates/table/tracking/activate_deactivate.twig:7
-#, php-format
-msgid "Activate tracking for %s"
-msgstr "Գործունացնել հետագումը %s-ի համար"
-
-#: templates/table/tracking/activate_deactivate.twig:9
-msgid "Activate now"
-msgstr "Գործունացնել"
-
-#: templates/table/tracking/activate_deactivate.twig:11
-#, php-format
-msgid "Deactivate tracking for %s"
-msgstr "Անջատել հետագծումը %s-ի համար"
-
-#: templates/table/tracking/activate_deactivate.twig:13
-msgid "Deactivate now"
-msgstr "Կասեցնել"
-
-#: templates/login/twofactor/key_configure.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm registration on the device."
-msgstr ""
-
-#: templates/database/search/selection_form.twig:5
-msgid "Search in database"
-msgstr "Որոնումը տվյալների բազայում"
-
-#: templates/database/search/selection_form.twig:8
-msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Բառեր կամ արժեքներ՝ որոնելու համար (դերանշան՝ \"%\")՝"
-
-#: templates/database/search/selection_form.twig:15
-#: templates/table/search/search_and_replace.twig:1
-msgid "Find:"
-msgstr "Գտնել՝"
-
-#: templates/database/search/selection_form.twig:29
-msgid "Inside tables:"
-msgstr "Աղյուսակներում՝"
-
-#: templates/database/search/selection_form.twig:51
-msgid "Inside column:"
-msgstr "Սյունակում՝"
-
-#: templates/columns_definitions/column_definitions_form.twig:23
-msgid "Table name"
-msgstr "Աղյուսակի անուն"
-
-#: templates/columns_definitions/column_definitions_form.twig:32
-#: templates/console/display.twig:99 templates/export/alias_add.twig:18
-#: templates/export/alias_add.twig:32 templates/export/alias_add.twig:46
-msgid "Add"
-msgstr "Ավելացնել"
-
-#: templates/columns_definitions/column_definitions_form.twig:40
-#, fuzzy
-#| msgid "Columns"
-msgid "column(s)"
-msgstr "Սյունակներ"
-
-#: templates/columns_definitions/column_definitions_form.twig:74
-msgid "Collation:"
-msgstr "Համադրում՝"
-
-#: templates/columns_definitions/column_definitions_form.twig:77
-msgid "Storage Engine:"
-msgstr "Պահպանման տեսակը՝"
-
-#: templates/columns_definitions/column_definitions_form.twig:82
-msgid "Connection:"
-msgstr "Միացում՝"
-
-#: templates/columns_definitions/column_definitions_form.twig:128
-msgid "PARTITION definition:"
-msgstr "Մասնաբաժինների (PARTITION) սահմանումը՝"
-
-#: templates/table/search/options.twig:6
-msgid "Select columns (at least one):"
-msgstr "Ընտրեք սյունակները (առնվազն մեկը)՝"
-
-#: templates/table/search/options.twig:26
-msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Ավելացնել որոնման պայմանները (\"WHERE\" պայմանի պարունակությունը)՝"
-
-#: templates/table/search/options.twig:34
-msgid "Number of rows per page"
-msgstr "Տողերի քանակը մեկ էջում"
-
-#: templates/table/search/options.twig:45
-msgid "Display order:"
-msgstr "Ցուցադրման դասակարգումը՝"
-
-#: templates/privileges/add_privileges_table.twig:3
-msgid "Add privileges on the following table:"
-msgstr "Ավելացնել արտոնություններ հետևյալ աղյուսակի համար՝"
-
-#: templates/display/export/selection.twig:3
-msgid "Databases:"
-msgstr "Տվյալների բազաներ՝"
-
-#: templates/database/designer/delete_relation_panel.twig:21
-#, fuzzy
-#| msgid "Delete relation"
-msgid "Delete relationship"
-msgstr "Ջնջել կապակցումը"
-
-#: templates/server/databases/create.twig:8
-#: templates/server/databases/create.twig:36
-msgid "Create database"
-msgstr "Ստեղծել տվյալների բազա"
-
-#: templates/server/databases/create.twig:30
-#: templates/display/export/template_loading.twig:10
-msgid "Create"
-msgstr "Ստեղծել"
-
-#: templates/console/display.twig:7
-msgid "History"
-msgstr "Պատմություն"
-
-#: templates/console/display.twig:11 templates/console/display.twig:99
-msgid "Bookmarks"
-msgstr "Էջանիշեր"
-
-#: templates/console/display.twig:20
-msgid "Press Ctrl+Enter to execute query"
-msgstr "Սեղմեք Ctrl+Enter՝ հարցումը կատարելու համար"
-
-#: templates/console/display.twig:23
-msgid "Press Enter to execute query"
-msgstr "Սեղմեք Enter՝ հարցումը կատարելու համար"
-
-#: templates/console/display.twig:31 templates/console/display.twig:175
-msgid "Explain"
-msgstr "Բացատրել"
-
-#: templates/console/display.twig:40 templates/console/display.twig:184
-msgid "Bookmark"
-msgstr "Էջանշել"
-
-#: templates/console/display.twig:40 templates/console/display.twig:184
-msgid "Query failed"
-msgstr "Հարցումը ձախողվեց"
-
-#: templates/console/display.twig:42 templates/console/display.twig:184
-msgid "Queried time"
-msgstr "Հայցված ժամանակ"
-
-#: templates/console/display.twig:47
-msgid "During current session"
-msgstr "Ընթացիկ ժամանակաշրջանի ընթացքում"
-
-#: templates/console/display.twig:64
-msgid "ascending"
-msgstr "ըստ աճման"
-
-#: templates/console/display.twig:64
-msgid "descending"
-msgstr "ըստ նվազման"
-
-#: templates/console/display.twig:64
-msgid "Order:"
-msgstr "Հերթականություն՝"
-
-#: templates/console/display.twig:64 templates/console/display.twig:84
-#: templates/table/search/replace_preview.twig:17
-msgid "Count"
-msgstr "Քանակ"
-
-#: templates/console/display.twig:64
-msgid "Execution order"
-msgstr "Կատարման հերթականությունը"
-
-#: templates/console/display.twig:64 templates/console/display.twig:84
-msgid "Time taken"
-msgstr "Տևողություն"
-
-#: templates/console/display.twig:64
-msgid "Order by:"
-msgstr "Դասակարգել ըստ՝"
-
-#: templates/console/display.twig:64
-msgid "Ungroup queries"
-msgstr "Ապախմբավորել հարցումները"
-
-#: templates/console/display.twig:84
-msgid "Show trace"
-msgstr "Ցուցադրել հետագիծը"
-
-#: templates/console/display.twig:84
-msgid "Hide trace"
-msgstr "Թաքցնել հետագիծը"
-
-#: templates/console/display.twig:112
-msgid "Add bookmark"
-msgstr "Ավելացնել էջանիշ"
-
-#: templates/console/display.twig:121
-msgid "Label"
-msgstr "Պիտակ"
-
-#: templates/console/display.twig:124
-msgid "Target database"
-msgstr "Նպատակային տվյալների բազան"
-
-#: templates/console/display.twig:127
-msgid "Share this bookmark"
-msgstr "Տարածել այս էջանիշը"
-
-#: templates/console/display.twig:140
-msgid "Set default"
-msgstr "Նշանակել լռելյայնը"
-
-#: templates/console/display.twig:162
-msgid ""
-"Execute queries on Enter and insert new line with Shift + Enter. To make "
-"this permanent, view settings."
-msgstr ""
-"Կատարել հարցումը՝  Enter սեղմելով, և զետեղել նոր տող՝ Shift + Enter "
-"սեղմելով։ Այս հնարավորությունը մշտական դարձնելու համար՝ դիմեք կայանքներին։"
-
-#: templates/table/tracking/create_version.twig:11
-#, php-format
-msgid "Create version %1$s of %2$s"
-msgstr "Ստեղծել %1$s տարբերակ %2$s-ից"
-
-#: templates/table/tracking/create_version.twig:16
-#, php-format
-msgid "Create version %1$s"
-msgstr "Ստեղծել %1$s տարբերակը"
-
-#: templates/table/tracking/create_version.twig:20
-msgid "Track these data definition statements:"
-msgstr ""
-
-#: templates/table/tracking/create_version.twig:59
-msgid "Track these data manipulation statements:"
-msgstr ""
-
-#: templates/table/tracking/create_version.twig:76
-msgid "Create version"
-msgstr "Ստեղծել տարբերակը"
-
-#: templates/prefs_twofactor.twig:3
-#, fuzzy
-#| msgid "Authentication settings."
-msgid "Two-factor authentication status"
-msgstr "Վավերացման կայանքներ։"
-
-#: templates/prefs_twofactor.twig:9
-msgid ""
-"Two-factor authentication is not available, please install optional "
-"dependencies to enable authentication backends."
-msgstr ""
-
-#: templates/prefs_twofactor.twig:10
-msgid "Following composer packages are missing:"
-msgstr ""
-
-#: templates/prefs_twofactor.twig:18
-msgid "Two-factor authentication is available and configured for this account."
-msgstr ""
-
-#: templates/prefs_twofactor.twig:20
-msgid ""
-"Two-factor authentication is available, but not configured for this account."
-msgstr ""
-
-#: templates/prefs_twofactor.twig:24
-msgid ""
-"Two-factor authentication is not available, enable phpMyAdmin configuration "
-"storage to use it."
-msgstr ""
-
-#: templates/prefs_twofactor.twig:33
-msgid "You have enabled two factor authentication."
-msgstr ""
-
-#: templates/prefs_twofactor.twig:37 templates/prefs_twofactor_confirm.twig:9
-#, fuzzy
-#| msgid "Config authentication"
-msgid "Disable two-factor authentication"
-msgstr "Վավերացում config ֆայլի միջոցով"
-
-#: templates/prefs_twofactor.twig:43 templates/prefs_twofactor.twig:54
-#: templates/prefs_twofactor_configure.twig:2
-#, fuzzy
-#| msgid "Config authentication"
-msgid "Configure two-factor authentication"
-msgstr "Վավերացում config ֆայլի միջոցով"
-
-#: templates/display/export/options_format.twig:2
-#: templates/display/import/import.twig:174
-msgid "Format-specific options:"
-msgstr ""
-
-#: templates/display/export/options_format.twig:4
-#: templates/display/import/import.twig:176
-msgid ""
-"Scroll down to fill in the options for the selected format and ignore the "
-"options for other formats."
-msgstr ""
-
-#: templates/display/export/options_format.twig:12
-#: templates/display/import/import.twig:185
-msgid "Encoding Conversion:"
-msgstr "Կոդավորման փոխարկումը՝"
-
-#: templates/database/structure/show_create.twig:2
-msgid "Showing create queries"
-msgstr "Ստեղծման հարցումների ցուցադրում"
-
-#: templates/table/search/rows_zoom.twig:12
-msgid "Additional search criteria"
-msgstr "Հավելյալ որոնման եղրեր"
-
-#: templates/table/search/replace_preview.twig:13
-msgid "Find and replace - preview"
-msgstr "Գտնել և փոխարինել՝ նախադիտում"
-
-#: templates/table/search/replace_preview.twig:18
-msgid "Original string"
-msgstr "Սկզբնական տողը"
-
-#: templates/table/search/replace_preview.twig:19
-msgid "Replaced string"
-msgstr "Փոխարինված տողը"
-
-#: templates/table/search/replace_preview.twig:37
-msgid "Replace"
-msgstr "Փոխարինում"
-
-#: templates/display/export/template_options.twig:1
-msgid "Select a template"
-msgstr "Ընտրեք ձևանմուշը"
-
-#: templates/server/variables/variable_row.twig:6
-msgid "This is a read-only variable and can not be edited"
-msgstr ""
-
-#: templates/server/binlog/log_selector.twig:5
-msgid "Select binary log to view"
-msgstr ""
-
-#: templates/database/create_table.twig:7
-#: templates/database/designer/side_menu.twig:78
-#: templates/database/designer/side_menu.twig:81
-msgid "Create table"
-msgstr "Ստեղծել աղյուսակը"
-
-#: templates/database/create_table.twig:15
-msgid "Number of columns"
-msgstr "Սյունակների քանակը"
-
-#: templates/display/import/javascript.twig:12
-msgid ""
-"The file being uploaded is probably larger than the maximum allowed size or "
-"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
-"browsers."
-msgstr ""
-
-#: templates/display/import/javascript.twig:16
-#, php-format
-msgid "%s of %s"
-msgstr "%s %s-ից"
-
-#: templates/display/import/javascript.twig:17
-#, php-format
-msgid "%s/sec."
-msgstr "%s/վրկ."
-
-#: templates/display/import/javascript.twig:18
-msgid "About %MIN min. %SEC sec. remaining."
-msgstr "Մնացել է մոտ %MIN րոպե %SEC վայրկյան։"
-
-#: templates/display/import/javascript.twig:19
-msgid "About %SEC sec. remaining."
-msgstr "Մնացել է մոտ %SEC վայրկյան։"
-
-#: templates/display/import/javascript.twig:20
-msgid "The file is being processed, please be patient."
-msgstr ""
-
-#: templates/display/import/javascript.twig:36
-msgid "Uploading your import file…"
-msgstr "Ներմուծման ֆայլի վերբեռնում …"
-
-#: templates/display/import/javascript.twig:161
-msgid ""
-"Please be patient, the file is being uploaded. Details about the upload are "
-"not available."
-msgstr ""
-
-#: templates/database/tracking/untracked_tables.twig:1
-msgid "Untracked tables"
-msgstr "Չհետագծվող աղյուսակներ"
-
-#: templates/database/structure/body_for_table_summary.twig:6
-#, php-format
-msgid "%s table"
-msgid_plural "%s tables"
-msgstr[0] "%s աղյուսակ"
-msgstr[1] "%s աղյուսակ"
-
-#: templates/database/structure/body_for_table_summary.twig:17
-msgid "Sum"
-msgstr "Ընդամենը"
-
-#: templates/table/index_form.twig:15
-msgid "Index name:"
-msgstr "Ցուցակագրի անունը՝"
-
-#: templates/table/index_form.twig:16
-msgid ""
-"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr ""
-
-#: templates/table/index_form.twig:34
-msgid "Index choice:"
-msgstr "Ցուցակագրի ընտրում՝"
-
-#: templates/table/index_form.twig:42
-#, fuzzy
-#| msgid "Active options"
-msgid "Advanced Options"
-msgstr "Գործուն կայանքներ"
-
-#: templates/table/index_form.twig:48
-msgid "Key block size:"
-msgstr ""
-
-#: templates/table/index_form.twig:65
-msgid "Index type:"
-msgstr "Ցուցակագրի տեսակը՝"
-
-#: templates/table/index_form.twig:77
-msgid "Parser:"
-msgstr "Վերլուծիչ՝"
-
-#: templates/table/index_form.twig:93
-msgid "Comment:"
-msgstr "Մեկնաբանություն՝"
-
-#: templates/table/index_form.twig:136 templates/table/index_form.twig:173
-msgid "Drag to reorder"
-msgstr "Քաշեք՝ վերադասակարգելու համար"
-
-#: templates/server/plugins/section.twig:9
-msgid "Plugin"
-msgstr "Խրվակ"
-
-#: templates/server/plugins/section.twig:12
-msgid "Author"
-msgstr "Հեղինակ"
-
-#: templates/server/plugins/section.twig:23
-msgid "disabled"
-msgstr "կասեցված"
-
-#: templates/login/twofactor/key.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm login on the device."
-msgstr ""
-
-#: templates/database/central_columns/add_column.twig:13
-msgid "Select a column."
-msgstr "Ընտրեք սյունակը։"
-
-#: templates/display/export/options_output_compression.twig:4
-msgid "Compression:"
-msgstr "Սեղմումը՝"
-
-#: templates/display/export/options_output_compression.twig:11
-msgid "zipped"
-msgstr "zip"
-
-#: templates/display/export/options_output_compression.twig:17
-msgid "gzipped"
-msgstr "gzip"
-
-#: templates/database/structure/favorite_anchor.twig:4
-msgid "Add to Favorites"
-msgstr "Ավելացնել ընտրյալներին"
-
-#: templates/database/designer/side_menu.twig:13
-#: templates/database/designer/side_menu.twig:19
-msgid "Show/Hide tables list"
-msgstr "Ցուցադրել/թաքցնել աղյուսակների ցանկը"
-
-#: templates/database/designer/side_menu.twig:23
-#: templates/database/designer/side_menu.twig:29
-#: templates/database/designer/side_menu.twig:30
-msgid "View in fullscreen"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:28
-msgid "Exit fullscreen"
-msgstr "Դուրս գալ լիավահան եղանակից"
-
-#: templates/database/designer/side_menu.twig:42
-#: templates/database/designer/side_menu.twig:46
-msgid "New page"
-msgstr "Նոր էջ"
-
-#: templates/database/designer/side_menu.twig:71
-#: templates/database/designer/side_menu.twig:74
-msgid "Delete pages"
-msgstr "Ջնջել էջերը"
-
-#: templates/database/designer/side_menu.twig:85
-#: templates/database/designer/side_menu.twig:88
-#: templates/database/designer/new_relation_panel.twig:22
-#, fuzzy
-#| msgid "Create relation"
-msgid "Create relationship"
-msgstr "Ստեղծել կապակցումը"
-
-#: templates/database/designer/side_menu.twig:99
-#: templates/database/designer/side_menu.twig:102
-msgid "Reload"
-msgstr "Թարմացնել"
-
-#: templates/database/designer/side_menu.twig:108
-#: templates/database/designer/side_menu.twig:111
-msgid "Help"
-msgstr "Օգնություն"
-
-#: templates/database/designer/side_menu.twig:116
-#: templates/database/designer/side_menu.twig:119
-msgid "Angular links"
-msgstr "Անկյունային հղումներ"
-
-#: templates/database/designer/side_menu.twig:116
-#: templates/database/designer/side_menu.twig:119
-msgid "Direct links"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:123
-#: templates/database/designer/side_menu.twig:125
-msgid "Snap to grid"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:129
-#: templates/database/designer/side_menu.twig:135
-msgid "Small/Big All"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:139
-#: templates/database/designer/side_menu.twig:142
-msgid "Toggle small/big"
-msgstr "Փոխարկել փոքր/մեծ"
-
-#: templates/database/designer/side_menu.twig:146
-#: templates/database/designer/side_menu.twig:149
-msgid "Toggle relationship lines"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:154
-#: templates/database/designer/side_menu.twig:157
-msgid "Export schema"
-msgstr "Ուրվագծի արտահանում"
-
-#: templates/database/designer/side_menu.twig:165
-#: templates/database/designer/side_menu.twig:168
-msgid "Build Query"
-msgstr "Կազմել հարցումը"
-
-#: templates/database/designer/side_menu.twig:173
-#: templates/database/designer/side_menu.twig:177
-msgid "Move Menu"
-msgstr "Տեղափոխել ընտրացանկը"
-
-#: templates/database/designer/side_menu.twig:181
-#: templates/database/designer/side_menu.twig:186
-msgid "Pin text"
-msgstr ""
-
-#: templates/server/databases/table_row.twig:13
-#, fuzzy, php-format
-#| msgid "Jump to database"
-msgid "Jump to database '%s'"
-msgstr "Զանցել տվյալների բազային"
-
-#: templates/server/databases/table_row.twig:61
-#, php-format
-msgid "Check privileges for database \"%s\"."
-msgstr "Ստուգել արտոնությունները \"%s\" տվյալների բազայի համար։"
-
-#: templates/server/databases/table_row.twig:62
-msgid "Check privileges"
-msgstr "Ստուգել արտոնությունները"
-
-#: templates/table/structure/row_stats_table.twig:2
-msgid "Row statistics"
-msgstr "Տողի վիճակագրությունը"
-
-#: templates/table/structure/row_stats_table.twig:8
-msgid "static"
-msgstr "կայուն"
-
-#: templates/table/structure/row_stats_table.twig:10
-msgid "dynamic"
-msgstr ""
-
-#: templates/table/structure/row_stats_table.twig:21
-msgid "partitioned"
-msgstr "մասնահատված"
-
-#: templates/table/structure/row_stats_table.twig:50
-msgid "Row length"
-msgstr "Տողի երկարությունը"
-
-#: templates/table/structure/row_stats_table.twig:62
-msgid "Row size"
-msgstr "Տողի չափ"
-
-#: templates/table/structure/row_stats_table.twig:69
-msgid "Next autoindex"
-msgstr ""
-
-#: templates/database/designer/table_list.twig:4
-msgid "Hide/Show all"
-msgstr ""
-
-#: templates/database/designer/table_list.twig:14
-#, fuzzy
-#| msgid "Delete relation"
-msgid "Hide/Show tables with no relationship"
-msgstr "Ջնջել կապակցումը"
-
-#: templates/database/designer/table_list.twig:25
-msgid "Number of tables:"
-msgstr "Աղյուսակների քանակը՝"
-
-#: templates/table/search/selection_form.twig:12
-msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr ""
-
-#: templates/table/search/selection_form.twig:42
-msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr ""
-
-#: templates/privileges/add_privileges_routine.twig:3
-msgid "Add privileges on the following routine:"
-msgstr "Ավելացնել արտոնություններ հետևյալ գործընթացի համար՝"
-
-#: templates/display/export/template_loading.twig:2
-msgid "Export templates:"
-msgstr "Արտահանել ձևանմուշները՝"
-
-#: templates/display/export/template_loading.twig:6
-msgid "New template:"
-msgstr "Նոր ձևանմուշ՝"
-
-#: templates/display/export/template_loading.twig:8
-msgid "Template name"
-msgstr "Ձևանմուշի անունը"
-
-#: templates/display/export/template_loading.twig:16
-msgid "Existing templates:"
-msgstr "Առկա ձևանմուշներ՝"
-
-#: templates/display/export/template_loading.twig:17
-msgid "Template:"
-msgstr "Ձևանմուշ՝"
-
-#: templates/display/export/template_loading.twig:21
-msgid "Update"
-msgstr "Արդիացում"
-
-#: templates/table/structure/partition_definition_form.twig:6
-#: templates/table/structure/display_partitions.twig:141
-msgid "Edit partitioning"
-msgstr "Խմբագրել մասնաբաժանումը"
-
-#: templates/login/twofactor.twig:5
-msgid "Verify"
-msgstr ""
-
-#: templates/display/export/options_output_charset.twig:3
-#: templates/display/import/import.twig:97
-msgid "Character set of the file:"
-msgstr "Ֆայլի կոդավորում՝"
-
-#: templates/database/multi_table_query/form.twig:16
-#, fuzzy
-#| msgid "Query failed"
-msgid "Query window"
-msgstr "Հարցումը ձախողվեց"
-
-#: templates/database/multi_table_query/form.twig:33
-#: templates/database/multi_table_query/form.twig:121
-#, fuzzy
-#| msgid "Select table"
-msgid "select table"
-msgstr "Ընտրեք աղյուսակը"
-
-#: templates/database/multi_table_query/form.twig:40
-#: templates/database/multi_table_query/form.twig:129
-#, fuzzy
-#| msgid "Select a column."
-msgid "select column"
-msgstr "Ընտրեք սյունակը։"
-
-#: templates/database/multi_table_query/form.twig:46
-#, fuzzy
-#| msgid "Tables"
-msgid "Table alias"
-msgstr "Աղյուսակներ"
-
-#: templates/database/multi_table_query/form.twig:47
-#, fuzzy
-#| msgid "Column names"
-msgid "Column alias"
-msgstr "Սյունակների անուններ"
-
-#: templates/database/multi_table_query/form.twig:50
-#, fuzzy
-#| msgid "Use this column to label each point"
-msgid "Use this column in criteria"
-msgstr "Օգտագործեք այս սյունակը՝ ամեն կետը պիտակելու համար"
-
-#: templates/database/multi_table_query/form.twig:53
-#, fuzzy
-#| msgid "Criteria:"
-msgid "criteria"
-msgstr "Չափորոշիչներ՝"
-
-#: templates/database/multi_table_query/form.twig:67
-#, fuzzy
-#| msgid "Add %s"
-msgid "Add as"
-msgstr "Ավելացնել %s"
-
-#: templates/database/multi_table_query/form.twig:112
-#, fuzzy
-#| msgid "Move column"
-msgid "Another column"
-msgstr "Տեղափոխել սյունակը"
-
-#: templates/database/multi_table_query/form.twig:140
-msgid "Enter criteria as free text"
-msgstr ""
-
-#: templates/database/multi_table_query/form.twig:148
-#, fuzzy
-#| msgid "Move column"
-msgid "Remove this column"
-msgstr "Տեղափոխել սյունակը"
-
-#: templates/database/multi_table_query/form.twig:175
-#, fuzzy
-#| msgid "Update Query"
-msgid "Update query"
-msgstr "Արդիացնել հարցումը"
-
-#: templates/prefs_autoload.twig:7
-msgid ""
-"Your browser has phpMyAdmin configuration for this domain. Would you like to "
-"import it for current session?"
-msgstr ""
-
-#: templates/prefs_autoload.twig:13
-#, fuzzy
-#| msgid "Delete tracking"
-msgid "Delete settings"
-msgstr "Վերացնել հետագծումը"
-
-#: templates/prefs_twofactor_confirm.twig:2
-#, fuzzy
-#| msgid "Config authentication"
-msgid "Confirm disabling two-factor authentication"
-msgstr "Վավերացում config ֆայլի միջոցով"
-
-#: templates/prefs_twofactor_confirm.twig:5
-msgid ""
-"By disabling two factor authentication you will be again able to login using "
-"password only."
-msgstr ""
-
-#: templates/prefs_twofactor_configure.twig:8
-#, fuzzy
-#| msgid "Config authentication"
-msgid "Enable two-factor authentication"
-msgstr "Վավերացում config ֆայլի միջոցով"
-
-#: templates/display/import/import.twig:40
-msgid "Importing into the current server"
-msgstr "Ընթացիկ սպասարկչին ներմուծումը"
-
-#: templates/display/import/import.twig:42
-#, php-format
-msgid "Importing into the database \"%s\""
-msgstr "Ներմուծում \"%s\" տվյալների բազայի մեջ"
-
-#: templates/display/import/import.twig:44
-#, php-format
-msgid "Importing into the table \"%s\""
-msgstr "Ներմուծում \"%s\" աղյուսակի մեջ"
-
-#: templates/display/import/import.twig:50
-msgid "File to import:"
-msgstr "Ներմուծելու ֆայլը՝"
-
-#: templates/display/import/import.twig:56
-#, php-format
-msgid "File may be compressed (%s) or uncompressed."
-msgstr "Ֆայլը կարող է լինել սեղմած պահոցի տեսքով (%s), կամ առանց սեղմելու։"
-
-#: templates/display/import/import.twig:58
-#, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
-msgid ""
-"A compressed file's name must end in <strong>.[format].[compression]</"
-"strong>. Example: <strong>.sql.zip</strong>"
-msgstr ""
-"Սեղմած ֆայլի անունը պետք է վերջանա <b>.[ձևաչափ].[սեղմում]</b> տեսքով։ "
-"Օրինակ՝ <b>.sql.zip</b>"
-
-#: templates/display/import/import.twig:69
-#: templates/display/import/import.twig:84
-msgid "You may also drag and drop a file on any page."
-msgstr "Դուք կարող եք նաև քաշել և գցել ֆայլը՝ ցանկացած էջում։"
-
-#: templates/display/import/import.twig:86
-msgid "File uploads are not allowed on this server."
-msgstr ""
-
-#: templates/display/import/import.twig:124
-msgid "Partial import:"
-msgstr "Մասնակի ներմուծումը՝"
-
-#: templates/display/import/import.twig:129
-#, php-format
-msgid ""
-"Previous import timed out, after resubmitting will continue from position %d."
-msgstr ""
-
-#: templates/display/import/import.twig:137
-msgid ""
-"Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <em>(This might be a good way to import large "
-"files, however it can break transactions.)</em>"
-msgstr ""
-
-#: templates/display/import/import.twig:144
-msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr "Զանցել հարցումների (SQL-ի դեպքում) նշված քանակը, սկսած հետևյալից՝"
-
-#: templates/display/import/import.twig:161
-msgid "Other options:"
-msgstr "Այլ կայանքներ՝"
-
-#: templates/table/relation/common_form.twig:6
-msgid "Foreign key constraints"
-msgstr "Արտաքին բանալիի սահմանափակումները"
-
-#: templates/table/relation/common_form.twig:10
-msgid "Actions"
-msgstr "Գործողություններ"
-
-#: templates/table/relation/common_form.twig:11
-msgid "Constraint properties"
-msgstr "Սահմանափակման հատկություններ"
-
-#: templates/table/relation/common_form.twig:15
-msgid ""
-"Creating a foreign key over a non-indexed column would automatically create "
-"an index on it. Alternatively, you can define an index below, before "
-"creating the foreign key."
-msgstr ""
-
-#: templates/table/relation/common_form.twig:20
-msgid ""
-"Only columns with index will be displayed. You can define an index below."
-msgstr ""
-
-#: templates/table/relation/common_form.twig:24
-msgid "Foreign key constraint"
-msgstr ""
-
-#: templates/table/relation/common_form.twig:89
-msgid "+ Add constraint"
-msgstr "+ Ավելացնել սահմանափակում"
-
-#: templates/table/relation/common_form.twig:99
-#: templates/table/relation/common_form.twig:104
-#, fuzzy
-#| msgid "Internal relations"
-msgid "Internal relationships"
-msgstr "Ներքին կապակցումներ"
-
-#: templates/table/relation/common_form.twig:110
-msgid "Internal relation"
-msgstr "Ներքին կապակցում"
-
-#: templates/table/relation/common_form.twig:112
-msgid ""
-"An internal relation is not necessary when a corresponding FOREIGN KEY "
-"relation exists."
-msgstr ""
-
-#: templates/table/relation/common_form.twig:172
-msgid "Choose column to display:"
-msgstr ""
-
-#: templates/display/export/options_output.twig:2
-#: templates/display/export/options_quick_export.twig:2
-msgid "Output:"
-msgstr "Արտածում՝"
-
-#: templates/display/export/options_output.twig:26
-msgid "Save output to a file"
-msgstr ""
-
-#: templates/display/export/options_output.twig:51
-#, fuzzy, php-format
-#| msgid "Skip tables larger than"
-msgid "Skip tables larger than %s MiB"
-msgstr "Զանցցել այղուսակներ, որոնց չափը ավվելի մեծ է, քան"
-
-#: templates/table/browse_foreigners/column_element.twig:4
-msgid "Use this value"
-msgstr "Օգտագործել այս արժեքը"
-
-#: templates/table/gis_visualization/gis_visualization.twig:3
-msgid "Display GIS Visualization"
-msgstr ""
-
-#: templates/table/gis_visualization/gis_visualization.twig:8
-msgid "Label column"
-msgstr "Սյունակի պիտակը"
-
-#: templates/table/gis_visualization/gis_visualization.twig:11
-msgid "-- None --"
-msgstr "-- Չկա --"
-
-#: templates/table/gis_visualization/gis_visualization.twig:19
-msgid "Spatial column"
-msgstr ""
-
-#: templates/columns_definitions/column_default.twig:3
-msgctxt "for default"
-msgid "None"
-msgstr "Չկա"
-
-#: templates/columns_definitions/column_default.twig:5
-msgid "As defined:"
-msgstr "Ըստ սահմանվածության՝"
-
-#: templates/login/twofactor/application_configure.twig:4
-msgid ""
-"Please scan following QR code into the two-factor authentication app on your "
-"device and enter authentication code it generates."
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:11
-msgid ""
-"Please enter following secret/key into the two-factor authentication app on "
-"your device and enter authentication code it generates."
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:14
-msgid "OTP url:"
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:18
-msgid "Secret/key:"
-msgstr ""
-
-#: templates/privileges/delete_user_fieldset.twig:3
-msgid "Remove selected user accounts"
-msgstr "Ջնջել նշված օգտվողների հաշիվները"
-
-#: templates/privileges/delete_user_fieldset.twig:6
-msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr ""
-
-#: templates/privileges/delete_user_fieldset.twig:7
-#: templates/privileges/delete_user_fieldset.twig:10
-#: templates/privileges/delete_user_fieldset.twig:11
-msgid "Drop the databases that have the same names as the users."
-msgstr ""
-"Ջնջել տվյալների բազաները, որոնց անունները համընկնում են օգտվողների անունների "
-"հետ։"
-
 #: templates/export/alias_add.twig:4
 msgid "Define new aliases"
 msgstr ""
@@ -15701,139 +15849,24 @@ msgstr "Ընտրեք սյունակը։"
 msgid "New column name"
 msgstr "Նոր սյունակի անունը"
 
-#: templates/table/search/search_and_replace.twig:3
-msgid "Replace with:"
-msgstr "Փոխարինել՝"
-
-#: templates/table/search/search_and_replace.twig:19
-msgid "Use regular expression"
-msgstr "Օգտագործել կանոնավոր արտահայտությունը"
-
-#: templates/database/structure/check_all_tables.twig:6
-msgid "Check tables having overhead"
-msgstr ""
-
-#: templates/database/structure/check_all_tables.twig:10
-#, fuzzy
-#| msgid "Copy database to"
-msgid "Copy table"
-msgstr "Կրկնապատկել տվյալների բազան"
-
-#: templates/database/structure/check_all_tables.twig:11
-msgid "Show create"
-msgstr "Ցուցադրել ստեղծման ձևը"
-
-#: templates/database/structure/check_all_tables.twig:25
-msgid "Prefix"
-msgstr "Նախածանց"
-
-#: templates/database/structure/check_all_tables.twig:26
-msgid "Add prefix to table"
-msgstr "Ավելացնել նախածանց աղյուսակին"
-
-#: templates/database/structure/check_all_tables.twig:27
-msgid "Replace table prefix"
-msgstr ""
-
-#: templates/database/structure/check_all_tables.twig:33
-msgid "Add columns to central list"
-msgstr "Ավելացնել սյունակներ՝ կենտրոնական ցանկին"
-
-#: templates/database/structure/check_all_tables.twig:34
-msgid "Remove columns from central list"
-msgstr ""
-
-#: templates/database/structure/check_all_tables.twig:35
-msgid "Make consistent with central list"
-msgstr "Համապատասխանեցնել կենտրոնական ցանկին"
-
-#: templates/columns_definitions/column_name.twig:4
-#, php-format
-msgid "Referenced by %s."
-msgstr ""
-
-#: templates/columns_definitions/column_name.twig:12
-msgid "Is a foreign key."
-msgstr "Սա՝ արտաքին բանալի է։"
-
-#: templates/columns_definitions/column_name.twig:40
-msgid "Pick from Central Columns"
-msgstr "Ընտրել կենտրոնական սյունակներից"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Server variables and settings"
-msgstr "Սպասարկչի փոփոխականները և կայանքները"
-
-#: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Storage Engines"
-msgid "Storage engines"
-msgstr "Պահպանման տեսակներ"
-
-#: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Character Sets and Collations"
-msgid "Character sets and collations"
-msgstr "Կոդավորումները և համադրումները"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Databases statistics"
-msgstr "Տվյալների բազաների վիճակագրությունը"
-
-#: templates/database/designer/query_details.twig:6
-msgid "Active options"
-msgstr "Գործուն կայանքներ"
-
-#: templates/database/designer/database_tables.twig:37
-msgid "Show/hide columns"
-msgstr "Ցուցադրել/թաքցնել սյունակները"
-
-#: templates/database/designer/database_tables.twig:46
-msgid "See table structure"
-msgstr "Դիտել աղյուսակի կառուցվածքը"
-
-#: templates/database/designer/database_tables.twig:91
+#: templates/database/structure/show_create_row.twig:7
 #, fuzzy, php-format
-#| msgid "Select all"
-msgid "Select \"%s\""
-msgstr "Ընտրել բոլորը"
+#| msgid "Create"
+msgid "Create %s"
+msgstr "Ստեղծել"
 
-#: templates/database/designer/database_tables.twig:126
-#, php-format
-msgid "Add an option for column \"%s\"."
-msgstr "Ավելացնել հարաչափ \"%s\" սյունակի համար։"
+#: templates/encoding/kanji_encoding_form.twig:6
+msgctxt "None encoding conversion"
+msgid "None"
+msgstr "Չկա"
 
-#: templates/privileges/add_privileges_database.twig:1
-msgid "Add privileges on the following database(s):"
-msgstr "Ավելացնել արտոնություններ հետևյալ տվյալների բազա(ներ)ի համար՝"
-
-#: templates/privileges/add_privileges_database.twig:14
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
+#: templates/encoding/kanji_encoding_form.twig:17
+msgid "Convert to Kana"
 msgstr ""
 
-#: templates/database/structure/tracking_icon.twig:3
-msgid "Tracking is active."
-msgstr "Հետագծումը միացրած է։"
-
-#: templates/database/structure/tracking_icon.twig:5
-msgid "Tracking is not active."
-msgstr "Հետագծումը միացրած չէ։"
-
-#: templates/table/structure/display_structure.twig:194
-#: templates/table/structure/display_partitions.twig:4
-msgid "Partitions"
-msgstr "Մասնաբաժիններ"
-
-#: templates/login/twofactor/invalid.twig:2
-msgid ""
-"The configured two factor authentication is not available, please install "
-"missing dependencies."
-msgstr ""
-
-#: templates/privileges/add_user_fieldset.twig:2
-msgctxt "Create new user"
-msgid "New"
-msgstr "Նոր"
+#: templates/display/export/selection.twig:3
+msgid "Databases:"
+msgstr "Տվյալների բազաներ՝"
 
 #: templates/table/structure/display_partitions.twig:8
 msgid "No partitioning defined!"
@@ -15859,42 +15892,6 @@ msgstr "Ցուցակագրի երկարությունը"
 msgid "Partition table"
 msgstr "Մասնաբաժինների աղյուսակ"
 
-#: templates/server/databases/index.twig:24
-msgid "No databases"
-msgstr "Տվյալների բազաներ չկան"
-
-#: templates/server/variables/session_variable_row.twig:3
-msgid "Session value"
-msgstr "Աշխատաշրջանի արժեքը"
-
-#: templates/display/export/options_output_save_dir.twig:5
-#: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-#| msgid "%1$s match in <strong>%2$s</strong>"
-#| msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "%1$s համընկնում <strong>%2$s-ում</strong>"
-
-#: templates/database/search/results.twig:12
-#, php-format
-msgid "%1$s match in <strong>%2$s</strong>"
-msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%1$s համընկնում <strong>%2$s-ում</strong>"
-msgstr[1] "%1$s համընկնում <strong>%2$s-ում</strong>"
-
-#: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgid "<strong>Total:</strong> <em>%count%</em> match"
-msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Ընդամենը՝</b> <i>%s</i> համընկնում"
-msgstr[1] "<b>Ընդամենը՝</b> <i>%s</i> համընկնում"
-
-#: templates/table/secondary_tabs.twig:9
-msgid "Relation view"
-msgstr "Կապակցման դիտում"
-
 #: templates/table/structure/display_table_stats.twig:14
 msgid "Space usage"
 msgstr "Տարածության օգտագործում"
@@ -15903,32 +15900,37 @@ msgstr "Տարածության օգտագործում"
 msgid "Effective"
 msgstr "Արդյունավետություն"
 
-#: templates/table/search/zoom_result_form.twig:7
-msgid "Browse/Edit the points"
+#: templates/login/twofactor/application_configure.twig:4
+msgid ""
+"Please scan following QR code into the two-factor authentication app on your "
+"device and enter authentication code it generates."
 msgstr ""
 
-#: templates/table/search/zoom_result_form.twig:15
-msgid "How to use"
-msgstr "Ինչպե՞ս օգտագործել"
+#: templates/login/twofactor/application_configure.twig:11
+msgid ""
+"Please enter following secret/key into the two-factor authentication app on "
+"your device and enter authentication code it generates."
+msgstr ""
 
-#: templates/table/search/zoom_result_form.twig:23
-msgid "Reset zoom"
-msgstr "Վերակայել խոշորացումը"
+#: templates/login/twofactor/application_configure.twig:14
+msgid "OTP url:"
+msgstr ""
 
-#: templates/database/structure/structure_table_row.twig:222
-msgid "in use"
-msgstr "օգտագործվում է"
+#: templates/login/twofactor/application_configure.twig:18
+msgid "Secret/key:"
+msgstr ""
 
-#: templates/privileges/column_privileges.twig:21
-#: templates/privileges/column_privileges.twig:22
-msgctxt "None privileges"
-msgid "None"
-msgstr "Չկա"
+#: templates/table/search/options_zoom.twig:6
+msgid "Use this column to label each point"
+msgstr "Օգտագործեք այս սյունակը՝ ամեն կետը պիտակելու համար"
 
-#: templates/table/structure/table_structure_row.twig:55
-#, php-format
-msgid "Column %s has been dropped."
-msgstr "%s սյունակը ջնջվեց։"
+#: templates/table/search/options_zoom.twig:32
+msgid "Maximum rows to plot"
+msgstr "Կառուցման ենթակա տողերի առավելագույն քանակը"
+
+#: templates/privileges/privileges_summary.twig:20
+msgid "Column-specific privileges"
+msgstr ""
 
 #: url.php:41
 msgid "Taking you to the target site."

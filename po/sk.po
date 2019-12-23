@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.9.2-dev\n"
+"Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2019-11-22 01:29+0100\n"
+"POT-Creation-Date: 2019-12-23 15:36-0300\n"
 "PO-Revision-Date: 2018-08-25 07:42+0000\n"
 "Last-Translator: worm6666 <worm6666@gmail.com>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/4-8/sk/"
@@ -53,7 +53,7 @@ msgid "Table comments:"
 msgstr "Komentáre k tabuľke:"
 
 #: db_datadict.php:117 libraries/classes/Index.php:723
-#: libraries/classes/InsertEdit.php:1914
+#: libraries/classes/InsertEdit.php:1912
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:30
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:291
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:387
@@ -65,25 +65,25 @@ msgstr "Komentáre k tabuľke:"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:512
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:629
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:652
-#: templates/table/tracking/structure_snapshot_columns.twig:6
+#: templates/table/relation/internal_relational_row.twig:24
+#: templates/table/search/zoom_result_form.twig:34
 #: templates/table/search/table_header.twig:6
-#: templates/table/tracking/structure_snapshot_indexes.twig:9
+#: templates/table/index_form.twig:115
+#: templates/columns_definitions/column_name.twig:16
 #: templates/table/relation/foreign_key_row.twig:122
 #: templates/table/relation/foreign_key_row.twig:132
-#: templates/table/index_form.twig:115
 #: templates/table/relation/common_form.twig:14
 #: templates/table/relation/common_form.twig:19
 #: templates/table/relation/common_form.twig:34
 #: templates/table/relation/common_form.twig:109
-#: templates/columns_definitions/column_name.twig:16
-#: templates/table/relation/internal_relational_row.twig:24
-#: templates/table/search/zoom_result_form.twig:34
+#: templates/table/tracking/structure_snapshot_indexes.twig:9
+#: templates/table/tracking/structure_snapshot_columns.twig:6
 msgid "Column"
 msgstr "Stĺpec"
 
 #: db_datadict.php:118 libraries/classes/CentralColumns.php:744
 #: libraries/classes/CentralColumns.php:1428 libraries/classes/Index.php:720
-#: libraries/classes/InsertEdit.php:308
+#: libraries/classes/InsertEdit.php:306
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:294
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:390
 #: libraries/classes/Plugins/Export/ExportLatex.php:527
@@ -94,23 +94,23 @@ msgstr "Stĺpec"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:514
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:630
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:653
-#: libraries/classes/Rte/Routines.php:913
-#: libraries/classes/Rte/Routines.php:944
-#: libraries/classes/Rte/Routines.php:1623 libraries/classes/Rte/RteList.php:90
+#: libraries/classes/Rte/Routines.php:914
+#: libraries/classes/Rte/Routines.php:945
+#: libraries/classes/Rte/Routines.php:1624 libraries/classes/Rte/RteList.php:90
 #: libraries/classes/Rte/RteList.php:118
 #: libraries/classes/Server/Privileges.php:2577
-#: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/columns_definitions/table_fields_definitions.twig:12
 #: templates/table/search/table_header.twig:7
+#: templates/columns_definitions/table_fields_definitions.twig:12
+#: templates/table/structure/table_structure_header.twig:6
 #: templates/database/structure/table_header.twig:32
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/table_structure_header.twig:6
+#: templates/table/tracking/structure_snapshot_columns.twig:7
 msgid "Type"
 msgstr "Typ"
 
 #: db_datadict.php:119 libraries/classes/CentralColumns.php:755
 #: libraries/classes/CentralColumns.php:1429 libraries/classes/Index.php:726
-#: libraries/classes/InsertEdit.php:1923
+#: libraries/classes/InsertEdit.php:1921
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:297
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:393
 #: libraries/classes/Plugins/Export/ExportLatex.php:528
@@ -121,11 +121,11 @@ msgstr "Typ"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:516
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:632
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:655
-#: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/columns_definitions/table_fields_definitions.twig:30
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/search/zoom_result_form.twig:35
+#: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/table/structure/table_structure_header.twig:9
+#: templates/table/tracking/structure_snapshot_indexes.twig:12
+#: templates/table/tracking/structure_snapshot_columns.twig:9
 msgid "Null"
 msgstr "Nulový"
 
@@ -142,10 +142,10 @@ msgstr "Nulový"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:633
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:656
 #: libraries/classes/ReplicationGui.php:165
-#: templates/table/tracking/structure_snapshot_columns.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/structure/table_structure_header.twig:10
+#: templates/table/tracking/structure_snapshot_columns.twig:10
+#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "Predvolené"
 
@@ -177,10 +177,10 @@ msgstr "Komentáre"
 #: db_datadict.php:156
 #: libraries/classes/Controllers/Table/TableStructureController.php:1231
 #: libraries/classes/Controllers/Table/TableStructureController.php:1236
-#: templates/table/tracking/structure_snapshot_columns.twig:25
 #: templates/table/structure/check_all_table_column.twig:33
-#: templates/table/structure/display_structure.twig:61
 #: templates/columns_definitions/column_indexes.twig:4
+#: templates/table/tracking/structure_snapshot_columns.twig:25
+#: templates/table/structure/display_structure.twig:61
 msgid "Primary"
 msgstr "Primárny"
 
@@ -199,13 +199,13 @@ msgstr "Primárny"
 #: libraries/classes/Server/Privileges.php:3010
 #: libraries/classes/Server/Privileges.php:3674
 #: libraries/classes/Server/Privileges.php:3703 prefs_manage.php:145
-#: templates/table/tracking/structure_snapshot_columns.twig:33
-#: templates/table/tracking/structure_snapshot_indexes.twig:23
-#: templates/table/tracking/structure_snapshot_indexes.twig:24
 #: templates/privileges/privileges_summary_row.twig:4
 #: templates/privileges/privileges_summary_row.twig:7
 #: templates/privileges/privileges_summary_row.twig:9
 #: templates/prefs_autoload.twig:12
+#: templates/table/tracking/structure_snapshot_indexes.twig:23
+#: templates/table/tracking/structure_snapshot_indexes.twig:24
+#: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/table/structure/table_structure_row.twig:25
 msgid "No"
 msgstr "Nie"
@@ -234,14 +234,13 @@ msgstr "Nie"
 #: libraries/classes/Server/Privileges.php:3671
 #: libraries/classes/Server/Privileges.php:3703
 #: libraries/mult_submits.inc.php:90 libraries/mult_submits.inc.php:219
-#: prefs_manage.php:143
-#: templates/table/tracking/structure_snapshot_columns.twig:33
-#: templates/table/tracking/structure_snapshot_indexes.twig:23
-#: templates/table/tracking/structure_snapshot_indexes.twig:24
-#: templates/privileges/privileges_summary_row.twig:4
+#: prefs_manage.php:143 templates/privileges/privileges_summary_row.twig:4
 #: templates/privileges/privileges_summary_row.twig:7
 #: templates/privileges/privileges_summary_row.twig:9
 #: templates/prefs_autoload.twig:11
+#: templates/table/tracking/structure_snapshot_indexes.twig:23
+#: templates/table/tracking/structure_snapshot_indexes.twig:24
+#: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/table/structure/table_structure_row.twig:25
 msgid "Yes"
 msgstr "Áno"
@@ -282,9 +281,9 @@ msgstr "Tabuľky"
 #: libraries/classes/Util.php:4021 libraries/config.values.php:38
 #: libraries/config.values.php:46 libraries/config.values.php:110
 #: libraries/config.values.php:116
-#: templates/table/tracking/structure_snapshot_columns.twig:1
 #: templates/columns_definitions/table_fields_definitions.twig:4
 #: templates/database/central_columns/edit_table_header.twig:2
+#: templates/table/tracking/structure_snapshot_columns.twig:1
 msgid "Structure"
 msgstr "Štruktúra"
 
@@ -299,9 +298,9 @@ msgid "Data"
 msgstr "Dáta"
 
 #: db_export.php:73 libraries/classes/ReplicationGui.php:387
+#: templates/database/designer/database_tables.twig:31
 #: templates/database/search/selection_form.twig:32
 #: templates/display/export/select_options.twig:4
-#: templates/database/designer/database_tables.twig:31
 msgid "Select all"
 msgstr "Vybrať všetko"
 
@@ -494,8 +493,8 @@ msgstr "Pridať geometriu"
 #: gis_data_editor.php:417 js/messages.php:354
 #: libraries/classes/BrowseForeigners.php:199
 #: libraries/classes/Display/ChangePassword.php:160
-#: libraries/classes/Index.php:664 libraries/classes/InsertEdit.php:1892
-#: libraries/classes/InsertEdit.php:1930
+#: libraries/classes/Index.php:664 libraries/classes/InsertEdit.php:1890
+#: libraries/classes/InsertEdit.php:1928
 #: libraries/classes/Normalization.php:216
 #: libraries/classes/Normalization.php:898 libraries/classes/Operations.php:67
 #: libraries/classes/Operations.php:133 libraries/classes/Operations.php:275
@@ -509,8 +508,8 @@ msgstr "Pridať geometriu"
 #: libraries/classes/ReplicationGui.php:333
 #: libraries/classes/ReplicationGui.php:471
 #: libraries/classes/ReplicationGui.php:894
-#: libraries/classes/Rte/Events.php:529 libraries/classes/Rte/Routines.php:1084
-#: libraries/classes/Rte/Routines.php:1710
+#: libraries/classes/Rte/Events.php:529 libraries/classes/Rte/Routines.php:1085
+#: libraries/classes/Rte/Routines.php:1711
 #: libraries/classes/Rte/Triggers.php:412
 #: libraries/classes/Server/Privileges.php:717
 #: libraries/classes/Server/Privileges.php:2226
@@ -519,20 +518,21 @@ msgstr "Pridať geometriu"
 #: libraries/classes/SqlQueryForm.php:374
 #: libraries/classes/SqlQueryForm.php:440 libraries/classes/Tracking.php:410
 #: libraries/classes/Tracking.php:522 prefs_manage.php:267 prefs_manage.php:351
-#: server_privileges.php:323 templates/table/structure/add_column.twig:23
-#: templates/start_and_number_of_rows_panel.twig:14
-#: templates/view_create.twig:116 templates/header_location.twig:18
-#: templates/privileges/privileges_summary.twig:60
-#: templates/display/results/options_block.twig:114
-#: templates/database/search/selection_form.twig:58
-#: templates/columns_definitions/column_definitions_form.twig:43
-#: templates/display/export/options_format.twig:18
-#: templates/server/binlog/log_selector.twig:27
-#: templates/database/create_table.twig:21 templates/table/index_form.twig:217
-#: templates/table/search/selection_form.twig:99
+#: server_privileges.php:323 templates/table/search/selection_form.twig:99
 #: templates/display/import/import.twig:191
+#: templates/display/export/options_format.twig:18
+#: templates/table/index_form.twig:217 templates/header_location.twig:18
+#: templates/table/structure/add_column.twig:23
+#: templates/privileges/edit_routine_privileges.twig:23
+#: templates/database/create_table.twig:21
+#: templates/start_and_number_of_rows_panel.twig:14
+#: templates/database/search/selection_form.twig:58
+#: templates/view_create.twig:116
+#: templates/display/results/options_block.twig:114
+#: templates/server/binlog/log_selector.twig:27
 #: templates/privileges/delete_user_fieldset.twig:16
-#: templates/privileges/edit_routine_privileges.twig:23 view_operations.php:115
+#: templates/columns_definitions/column_definitions_form.twig:43
+#: templates/privileges/privileges_summary.twig:60 view_operations.php:115
 msgid "Go"
 msgstr "Vykonaj"
 
@@ -1024,7 +1024,7 @@ msgstr ""
 msgid "Save & close"
 msgstr "Uložiť a zavrieť"
 
-#: js/messages.php:113 libraries/classes/InsertEdit.php:1896
+#: js/messages.php:113 libraries/classes/InsertEdit.php:1894
 #: prefs_manage.php:357 prefs_manage.php:368
 #: templates/config/form_display/fieldset_bottom.twig:9
 msgid "Reset"
@@ -1079,10 +1079,10 @@ msgstr "Zložený z:"
 msgid "Please select column(s) for the index."
 msgstr "Vyberte stĺpce pre index."
 
-#: js/messages.php:130 libraries/classes/InsertEdit.php:1894
-#: templates/columns_definitions/column_definitions_form.twig:146
+#: js/messages.php:130 libraries/classes/InsertEdit.php:1892
 #: templates/table/index_form.twig:216
 #: templates/table/relation/common_form.twig:188
+#: templates/columns_definitions/column_definitions_form.twig:146
 msgid "Preview SQL"
 msgstr "Ukážka SQL"
 
@@ -1341,12 +1341,12 @@ msgstr "Pridajte prosím aspoň jednu hodnotu do série!"
 #: libraries/classes/Server/Status/Monitor.php:243
 #: libraries/classes/Server/Status/Processes.php:285
 #: libraries/config.values.php:69
-#: templates/privileges/privileges_summary.twig:30
-#: templates/database/designer/options_panel.twig:177
-#: templates/table/search/options_zoom.twig:12
-#: templates/table/search/rows_zoom.twig:20
-#: templates/display/export/options_output_compression.twig:7
 #: templates/columns_definitions/transformation.twig:4
+#: templates/display/export/options_output_compression.twig:7
+#: templates/database/designer/options_panel.twig:177
+#: templates/table/search/rows_zoom.twig:20
+#: templates/table/search/options_zoom.twig:12
+#: templates/privileges/privileges_summary.twig:30
 msgid "None"
 msgstr "Žiadny"
 
@@ -1726,14 +1726,14 @@ msgstr "Formátujem SQL…"
 msgid "No parameters found!"
 msgstr "Parametre neboli nájdené!"
 
-#: js/messages.php:355 templates/database/designer/having_query_panel.twig:118
-#: templates/database/designer/options_panel.twig:257
+#: js/messages.php:355 templates/database/designer/new_relation_panel.twig:90
+#: templates/server/variables/link_template.twig:5
+#: templates/database/designer/delete_relation_panel.twig:30
 #: templates/database/designer/rename_to_panel.twig:45
 #: templates/database/designer/aggregate_query_panel.twig:64
-#: templates/database/designer/delete_relation_panel.twig:30
+#: templates/database/designer/having_query_panel.twig:118
+#: templates/database/designer/options_panel.twig:257
 #: templates/database/designer/where_query_panel.twig:85
-#: templates/server/variables/link_template.twig:5
-#: templates/database/designer/new_relation_panel.twig:90
 msgid "Cancel"
 msgstr "Zrušiť"
 
@@ -1800,13 +1800,13 @@ msgstr "Odstraňujem stĺpec"
 msgid "Adding primary key"
 msgstr "Pridávam primárny kľúč"
 
-#: js/messages.php:377 templates/database/designer/having_query_panel.twig:114
-#: templates/database/designer/options_panel.twig:255
+#: js/messages.php:377 templates/database/designer/new_relation_panel.twig:88
+#: templates/console/display.twig:129
 #: templates/database/designer/rename_to_panel.twig:41
 #: templates/database/designer/aggregate_query_panel.twig:60
-#: templates/console/display.twig:129
+#: templates/database/designer/having_query_panel.twig:114
+#: templates/database/designer/options_panel.twig:255
 #: templates/database/designer/where_query_panel.twig:83
-#: templates/database/designer/new_relation_panel.twig:88
 msgid "OK"
 msgstr "OK"
 
@@ -1864,8 +1864,8 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Definícia uloženej funkcie musí obsahovať príkaz RETURN!"
 
 #: js/messages.php:403 libraries/classes/Config/Forms/User/ExportForm.php:140
-#: libraries/classes/Display/Results.php:4713
-#: libraries/classes/Display/Results.php:4994 libraries/classes/Menu.php:383
+#: libraries/classes/Display/Results.php:4715
+#: libraries/classes/Display/Results.php:4996 libraries/classes/Menu.php:383
 #: libraries/classes/Menu.php:491 libraries/classes/Menu.php:617
 #: libraries/classes/Rte/RteList.php:168
 #: libraries/classes/Server/Privileges.php:2412
@@ -1885,7 +1885,7 @@ msgstr "Exportovať"
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
 
-#: js/messages.php:408 libraries/classes/Rte/Routines.php:760
+#: js/messages.php:408 libraries/classes/Rte/Routines.php:761
 msgid "ENUM/SET editor"
 msgstr "Upraviť ENUM/SET"
 
@@ -1924,27 +1924,28 @@ msgstr "Zobrazit vyhľadávacie pole"
 #: js/messages.php:422 libraries/classes/CentralColumns.php:879
 #: libraries/classes/CentralColumns.php:1234
 #: libraries/classes/Config/Descriptions.php:1329
-#: libraries/classes/Display/Results.php:3338
-#: libraries/classes/Display/Results.php:4697 libraries/classes/Index.php:745
+#: libraries/classes/Display/Results.php:3340
+#: libraries/classes/Display/Results.php:4699 libraries/classes/Index.php:745
 #: libraries/classes/Server/UserGroups.php:132 libraries/classes/Util.php:595
 #: libraries/classes/Util.php:1079 libraries/classes/Util.php:3351
 #: libraries/classes/Util.php:3352 setup/frames/index.inc.php:157
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:175
+#: templates/console/bookmark_content.twig:7
 #: templates/server/variables/variable_row.twig:4
 #: templates/server/variables/variable_row.twig:7
+#: templates/console/display.twig:31 templates/console/display.twig:175
 msgid "Edit"
 msgstr "Upraviť"
 
 #: js/messages.php:423 libraries/classes/CentralColumns.php:881
 #: libraries/classes/CentralColumns.php:1238
-#: libraries/classes/Display/Results.php:3407
-#: libraries/classes/Display/Results.php:4681
+#: libraries/classes/Display/Results.php:3409
+#: libraries/classes/Display/Results.php:4683
 #: libraries/classes/Server/UserGroups.php:143
 #: libraries/classes/SqlQueryForm.php:427 libraries/classes/Tracking.php:354
-#: setup/frames/index.inc.php:161 templates/console/bookmark_content.twig:7
-#: templates/database/designer/delete_relation_panel.twig:28
+#: setup/frames/index.inc.php:161
 #: templates/display/export/template_loading.twig:22
+#: templates/console/bookmark_content.twig:7
+#: templates/database/designer/delete_relation_panel.twig:28
 #: templates/database/search/results.twig:43
 msgid "Delete"
 msgstr "Zmazať"
@@ -2114,12 +2115,12 @@ msgid "No dependencies selected!"
 msgstr "Neboli vybrané žiadne závislosti!"
 
 #: js/messages.php:482 libraries/classes/CentralColumns.php:1254
-#: libraries/classes/InsertEdit.php:1806
-#: templates/columns_definitions/column_definitions_form.twig:149
+#: libraries/classes/InsertEdit.php:1804
+#: templates/server/variables/link_template.twig:2
+#: templates/table/gis_visualization/gis_visualization.twig:48
 #: templates/table/structure/partition_definition_form.twig:12
 #: templates/table/relation/common_form.twig:189
-#: templates/table/gis_visualization/gis_visualization.twig:48
-#: templates/server/variables/link_template.twig:2
+#: templates/columns_definitions/column_definitions_form.twig:149
 msgid "Save"
 msgstr "Uložiť"
 
@@ -2196,13 +2197,13 @@ msgid "Data point content"
 msgstr "Obsah datového bodu"
 
 #: js/messages.php:519 js/messages.php:687 js/messages.php:704
-#: libraries/classes/ErrorHandler.php:372 libraries/classes/InsertEdit.php:2979
+#: libraries/classes/ErrorHandler.php:381 libraries/classes/InsertEdit.php:2977
 #: templates/table/index_form.twig:141 templates/table/index_form.twig:177
 msgid "Ignore"
 msgstr "Ignorovať"
 
-#: js/messages.php:520 libraries/classes/Display/Results.php:3341
-#: libraries/classes/Display/Results.php:4702
+#: js/messages.php:520 libraries/classes/Display/Results.php:3343
+#: libraries/classes/Display/Results.php:4704
 msgid "Copy"
 msgstr "Kopírovať"
 
@@ -2399,9 +2400,9 @@ msgstr ""
 "Kliknite na šípku rozbaľovacieho zoznamu<br />pre zmenu viditeľnosti stĺpca."
 
 #: js/messages.php:603 libraries/classes/BrowseForeigners.php:340
+#: templates/privileges/initials_row.twig:22
 #: templates/display/results/show_all_checkbox.twig:11
 #: templates/table/browse_foreigners/show_all.twig:4
-#: templates/privileges/initials_row.twig:20
 msgid "Show all"
 msgstr "Zobraziť všetko"
 
@@ -2454,7 +2455,7 @@ msgstr "Presuňte súbory sem"
 msgid "Select database first"
 msgstr "Najprv vyberte databázu"
 
-#: js/messages.php:626 libraries/classes/Display/Results.php:4888
+#: js/messages.php:626 libraries/classes/Display/Results.php:4890
 #: libraries/classes/Util.php:3886
 #: templates/table/structure/optional_action_links.twig:1
 #: templates/database/structure/print_view_data_dictionary_link.twig:3
@@ -2538,7 +2539,7 @@ msgstr ", posledná stabilná verzia:"
 msgid "up to date"
 msgstr "aktuálna"
 
-#: js/messages.php:677 libraries/classes/Display/Results.php:4822
+#: js/messages.php:677 libraries/classes/Display/Results.php:4824
 #: templates/view_create.twig:11
 msgid "Create view"
 msgstr "Vytvoriť pohľad"
@@ -2590,7 +2591,7 @@ msgstr "Na serveri boli zistené chyby!"
 msgid "Please look at the bottom of this window."
 msgstr "Prosím, pozrite sa na spodnú časť okna."
 
-#: js/messages.php:707 libraries/classes/ErrorHandler.php:376
+#: js/messages.php:707 libraries/classes/ErrorHandler.php:385
 msgid "Ignore All"
 msgstr "Ignorovať všetko"
 
@@ -2695,7 +2696,7 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "Tabuľka %s už existuje!"
 
-#: js/messages.php:756 libraries/classes/InsertEdit.php:290
+#: js/messages.php:756 libraries/classes/InsertEdit.php:288
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:54
 msgid "Hide"
 msgstr "Skryť"
@@ -3025,7 +3026,7 @@ msgid "Please enter a valid HEX input"
 msgstr "Prosím zdajte platný HEX vstup"
 
 #: js/messages.php:989 libraries/classes/Core.php:297
-#: libraries/classes/Import.php:112 libraries/classes/InsertEdit.php:1497
+#: libraries/classes/Import.php:112 libraries/classes/InsertEdit.php:1495
 #: libraries/classes/Message.php:191 libraries/classes/Util.php:542
 #: view_operations.php:72
 msgid "Error"
@@ -3116,9 +3117,9 @@ msgstr "Kľúčový názov"
 #: libraries/classes/BrowseForeigners.php:217
 #: libraries/classes/BrowseForeigners.php:219
 #: libraries/classes/Server/Status/Variables.php:230
+#: templates/server/plugins/section.twig:10
 #: templates/server/engines/engines.twig:5
 #: templates/server/collations/charsets.twig:6
-#: templates/server/plugins/section.twig:10
 msgid "Description"
 msgstr "Popis"
 
@@ -3170,15 +3171,15 @@ msgstr "NIE"
 #: libraries/classes/Server/Privileges.php:3566
 #: libraries/classes/Server/UserGroups.php:93
 #: libraries/classes/Tracking.php:163
+#: templates/database/tracking/untracked_tables.twig:10
+#: templates/server/databases/table_header.twig:39
+#: templates/table/structure/table_structure_header.twig:18
 #: templates/table/tracking/report_table.twig:8
 #: templates/database/structure/table_header.twig:22
 #: templates/database/tracking/tracked_tables.twig:16
-#: templates/privileges/privileges_summary.twig:22
-#: templates/database/tracking/untracked_tables.twig:10
-#: templates/server/databases/table_header.twig:37
 #: templates/table/structure/display_partitions.twig:33
+#: templates/privileges/privileges_summary.twig:22
 #: templates/server/variables/variable_table_head.twig:3
-#: templates/table/structure/table_structure_header.twig:18
 msgid "Action"
 msgstr "Akcia"
 
@@ -3188,36 +3189,36 @@ msgstr "Akcia"
 #: libraries/classes/Plugins/Export/ExportOdt.php:609
 #: libraries/classes/Plugins/Export/ExportTexytext.php:450
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:352
-#: libraries/classes/Rte/Routines.php:943
-#: libraries/classes/Rte/Routines.php:1622 libraries/classes/Rte/RteList.php:88
+#: libraries/classes/Rte/Routines.php:944
+#: libraries/classes/Rte/Routines.php:1623 libraries/classes/Rte/RteList.php:88
 #: libraries/classes/Rte/RteList.php:100 libraries/classes/Rte/RteList.php:115
 #: setup/frames/index.inc.php:141
 #: templates/columns_definitions/table_fields_definitions.twig:9
-#: templates/database/create_table.twig:11
 #: templates/table/structure/table_structure_header.twig:5
+#: templates/database/create_table.twig:11
 msgid "Name"
 msgstr "Názov"
 
 #: libraries/classes/CentralColumns.php:746
 #: libraries/classes/CentralColumns.php:1428
-#: libraries/classes/Rte/Routines.php:945
+#: libraries/classes/Rte/Routines.php:946
 #: templates/columns_definitions/table_fields_definitions.twig:16
 msgid "Length/Values"
 msgstr "Dĺžka/Nastaviť*"
 
 #: libraries/classes/CentralColumns.php:750
-#: libraries/classes/CentralColumns.php:1429 libraries/classes/Charsets.php:298
+#: libraries/classes/CentralColumns.php:1429 libraries/classes/Charsets.php:302
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:332
 #: libraries/classes/Index.php:725 libraries/classes/Operations.php:305
 #: libraries/classes/Operations.php:1075
-#: templates/table/tracking/structure_snapshot_columns.twig:8
-#: templates/columns_definitions/table_fields_definitions.twig:24
+#: templates/server/collations/charsets.twig:5
 #: templates/table/search/table_header.twig:8
+#: templates/columns_definitions/table_fields_definitions.twig:24
+#: templates/table/structure/table_structure_header.twig:7
+#: templates/table/structure/row_stats_table.twig:30
 #: templates/database/structure/table_header.twig:33
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
-#: templates/server/collations/charsets.twig:5
-#: templates/table/structure/row_stats_table.twig:30
-#: templates/table/structure/table_structure_header.twig:7
+#: templates/table/tracking/structure_snapshot_columns.twig:8
 msgid "Collation"
 msgstr "Zotriedenie"
 
@@ -3251,401 +3252,401 @@ msgstr "Pridať nový stĺpec"
 msgid "Attributes"
 msgstr "Atribúty"
 
-#: libraries/classes/Charsets.php:244
+#: libraries/classes/Charsets.php:248
 #: templates/database/structure/table_header.twig:44
 msgid "Charset"
 msgstr "Znaková sada"
 
-#: libraries/classes/Charsets.php:335
+#: libraries/classes/Charsets.php:339
 msgid "Unknown"
 msgstr "Neznámy"
 
-#: libraries/classes/Charsets.php:349
+#: libraries/classes/Charsets.php:353
 #, fuzzy
 #| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Binárny"
 
-#: libraries/classes/Charsets.php:361 libraries/classes/Charsets.php:600
+#: libraries/classes/Charsets.php:365 libraries/classes/Charsets.php:604
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicode"
 
-#: libraries/classes/Charsets.php:371 libraries/classes/Charsets.php:547
+#: libraries/classes/Charsets.php:375 libraries/classes/Charsets.php:551
 msgctxt "Collation"
 msgid "West European"
 msgstr "Západoeurópsky"
 
-#: libraries/classes/Charsets.php:378
+#: libraries/classes/Charsets.php:382
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Stredoeurópsky"
 
-#: libraries/classes/Charsets.php:383 libraries/classes/Charsets.php:554
+#: libraries/classes/Charsets.php:387 libraries/classes/Charsets.php:558
 #, fuzzy
 #| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Ruština"
 
-#: libraries/classes/Charsets.php:388
+#: libraries/classes/Charsets.php:392
 #, fuzzy
 #| msgid "Simplified Chinese"
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Zjednodušená Čínština"
 
-#: libraries/classes/Charsets.php:391
+#: libraries/classes/Charsets.php:395
 #, fuzzy
 #| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Tradičná Čínština"
 
-#: libraries/classes/Charsets.php:394 libraries/classes/Charsets.php:470
+#: libraries/classes/Charsets.php:398 libraries/classes/Charsets.php:474
 msgctxt "Collation"
 msgid "Chinese"
 msgstr ""
 
-#: libraries/classes/Charsets.php:402 libraries/classes/Charsets.php:518
+#: libraries/classes/Charsets.php:406 libraries/classes/Charsets.php:522
 #, fuzzy
 #| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Japončina"
 
-#: libraries/classes/Charsets.php:407
+#: libraries/classes/Charsets.php:411
 #, fuzzy
 #| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Baltické"
 
-#: libraries/classes/Charsets.php:412
+#: libraries/classes/Charsets.php:416
 #, fuzzy
 #| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Arménština"
 
-#: libraries/classes/Charsets.php:415
+#: libraries/classes/Charsets.php:419
 #, fuzzy
 #| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Cyrilika"
 
-#: libraries/classes/Charsets.php:418
+#: libraries/classes/Charsets.php:422
 #, fuzzy
 #| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Arabština"
 
-#: libraries/classes/Charsets.php:421 libraries/classes/Charsets.php:533
+#: libraries/classes/Charsets.php:425 libraries/classes/Charsets.php:537
 #, fuzzy
 #| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Kórejčina"
 
-#: libraries/classes/Charsets.php:424
+#: libraries/classes/Charsets.php:428
 #, fuzzy
 #| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Hebrejsky"
 
-#: libraries/classes/Charsets.php:427
+#: libraries/classes/Charsets.php:431
 #, fuzzy
 #| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Gruzínčina"
 
-#: libraries/classes/Charsets.php:430
+#: libraries/classes/Charsets.php:434
 #, fuzzy
 #| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Gréčtina"
 
-#: libraries/classes/Charsets.php:433
+#: libraries/classes/Charsets.php:437
 #, fuzzy
 #| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Čeština/Slovenčina"
 
-#: libraries/classes/Charsets.php:436 libraries/classes/Charsets.php:592
+#: libraries/classes/Charsets.php:440 libraries/classes/Charsets.php:596
 #, fuzzy
 #| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ukrajinsky"
 
-#: libraries/classes/Charsets.php:439 libraries/classes/Charsets.php:588
+#: libraries/classes/Charsets.php:443 libraries/classes/Charsets.php:592
 #, fuzzy
 #| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Turecky"
 
-#: libraries/classes/Charsets.php:442 libraries/classes/Charsets.php:580
+#: libraries/classes/Charsets.php:446 libraries/classes/Charsets.php:584
 #, fuzzy
 #| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Švédština"
 
-#: libraries/classes/Charsets.php:445 libraries/classes/Charsets.php:584
+#: libraries/classes/Charsets.php:449 libraries/classes/Charsets.php:588
 #, fuzzy
 #| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Thajčina"
 
-#: libraries/classes/Charsets.php:448
+#: libraries/classes/Charsets.php:452
 #, fuzzy
 #| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "neznámy"
 
-#: libraries/classes/Charsets.php:464
+#: libraries/classes/Charsets.php:468
 #, fuzzy
 #| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Bulharština"
 
-#: libraries/classes/Charsets.php:475
+#: libraries/classes/Charsets.php:479
 #, fuzzy
 #| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Chorvátsky"
 
-#: libraries/classes/Charsets.php:479
+#: libraries/classes/Charsets.php:483
 #, fuzzy
 #| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Čeština"
 
-#: libraries/classes/Charsets.php:483
+#: libraries/classes/Charsets.php:487
 #, fuzzy
 #| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Dánština"
 
-#: libraries/classes/Charsets.php:487
+#: libraries/classes/Charsets.php:491
 #, fuzzy
 #| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "Anglicky"
 
-#: libraries/classes/Charsets.php:491
+#: libraries/classes/Charsets.php:495
 #, fuzzy
 #| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Esperanto"
 
-#: libraries/classes/Charsets.php:495
+#: libraries/classes/Charsets.php:499
 #, fuzzy
 #| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Estónsky"
 
-#: libraries/classes/Charsets.php:498 libraries/classes/Charsets.php:619
+#: libraries/classes/Charsets.php:502 libraries/classes/Charsets.php:623
 #, fuzzy
 #| msgid "Data dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "Dátový slovník"
 
-#: libraries/classes/Charsets.php:501 libraries/classes/Charsets.php:616
+#: libraries/classes/Charsets.php:505 libraries/classes/Charsets.php:620
 msgctxt "Collation"
 msgid "German (phone book order)"
 msgstr ""
 
-#: libraries/classes/Charsets.php:510
+#: libraries/classes/Charsets.php:514
 #, fuzzy
 #| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Maďarsky"
 
-#: libraries/classes/Charsets.php:514
+#: libraries/classes/Charsets.php:518
 #, fuzzy
 #| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Islandčina"
 
-#: libraries/classes/Charsets.php:521
+#: libraries/classes/Charsets.php:525
 msgctxt "Collation"
 msgid "Classical Latin"
 msgstr ""
 
-#: libraries/classes/Charsets.php:525
+#: libraries/classes/Charsets.php:529
 #, fuzzy
 #| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Lotyšstina"
 
-#: libraries/classes/Charsets.php:529
+#: libraries/classes/Charsets.php:533
 #, fuzzy
 #| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Litovsky"
 
-#: libraries/classes/Charsets.php:537
+#: libraries/classes/Charsets.php:541
 msgctxt "Collation"
 msgid "Burmese"
 msgstr ""
 
-#: libraries/classes/Charsets.php:540
+#: libraries/classes/Charsets.php:544
 #, fuzzy
 #| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Perština"
 
-#: libraries/classes/Charsets.php:544
+#: libraries/classes/Charsets.php:548
 #, fuzzy
 #| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Poľština"
 
-#: libraries/classes/Charsets.php:551
+#: libraries/classes/Charsets.php:555
 #, fuzzy
 #| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Rumunština"
 
-#: libraries/classes/Charsets.php:558
+#: libraries/classes/Charsets.php:562
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr ""
 
-#: libraries/classes/Charsets.php:562
+#: libraries/classes/Charsets.php:566
 #, fuzzy
 #| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Slovenčina"
 
-#: libraries/classes/Charsets.php:566
+#: libraries/classes/Charsets.php:570
 #, fuzzy
 #| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Slovinčina"
 
-#: libraries/classes/Charsets.php:569 libraries/classes/Charsets.php:630
+#: libraries/classes/Charsets.php:573 libraries/classes/Charsets.php:634
 #, fuzzy
 #| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr "Španielština"
 
-#: libraries/classes/Charsets.php:576 libraries/classes/Charsets.php:627
+#: libraries/classes/Charsets.php:580 libraries/classes/Charsets.php:631
 msgctxt "Collation"
 msgid "Spanish (traditional)"
 msgstr ""
 
-#: libraries/classes/Charsets.php:596
+#: libraries/classes/Charsets.php:600
 #, fuzzy
 #| msgid "Vietnamese"
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnamčina"
 
-#: libraries/classes/Charsets.php:663
+#: libraries/classes/Charsets.php:667
 #, fuzzy
 #| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "nerozlišovať veľké a malé písmená"
 
-#: libraries/classes/Charsets.php:666
+#: libraries/classes/Charsets.php:670
 #, fuzzy
 #| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "rozlišovať veľké a malé písmená"
 
-#: libraries/classes/Charsets.php:669
+#: libraries/classes/Charsets.php:673
 #, fuzzy
 #| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
 msgstr "nerozlišovať veľké a malé písmená"
 
-#: libraries/classes/Charsets.php:672
+#: libraries/classes/Charsets.php:676
 #, fuzzy
 #| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
 msgstr "rozlišovať veľké a malé písmená"
 
-#: libraries/classes/Charsets.php:675
+#: libraries/classes/Charsets.php:679
 #, fuzzy
 #| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
 msgstr "rozlišovať veľké a malé písmená"
 
-#: libraries/classes/Charsets.php:679
+#: libraries/classes/Charsets.php:683
 #, fuzzy
 #| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
 msgstr "mnohojazyčný"
 
-#: libraries/classes/Charsets.php:682
+#: libraries/classes/Charsets.php:686
 #, fuzzy
 #| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "Binárny"
 
-#: libraries/classes/Charsets.php:685
+#: libraries/classes/Charsets.php:689
 msgctxt "Collation variant"
 msgid "no-pad"
 msgstr ""
 
-#: libraries/classes/Config.php:1122
+#: libraries/classes/Config.php:1132
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Existujúci konfiguračný súbor (%s) nie je čitateľný."
 
-#: libraries/classes/Config.php:1152
+#: libraries/classes/Config.php:1162
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Konfiguračný súbor má zlé prístupové práva, nemal by byť zapisovateľný pre "
 "všetkých!"
 
-#: libraries/classes/Config.php:1172
+#: libraries/classes/Config.php:1182
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Nepodarilo sa načítať prednastavenú konfiguráciu zo súboru: %1$s"
 
-#: libraries/classes/Config.php:1179
+#: libraries/classes/Config.php:1189
 msgid "Failed to read configuration file!"
 msgstr "Nepodarilo sa načítať konfiguračný súbor!"
 
-#: libraries/classes/Config.php:1182
+#: libraries/classes/Config.php:1192
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3653,17 +3654,17 @@ msgstr ""
 "Toto je často spôsobené syntaktickou chybou v súbore, prosím skontrolujte "
 "chyby vypísané nižšie."
 
-#: libraries/classes/Config.php:1498
+#: libraries/classes/Config.php:1511
 #: libraries/classes/Config/Descriptions.php:1486
 msgid "Font size"
 msgstr "Veľkosť písma"
 
-#: libraries/classes/Config.php:1854
+#: libraries/classes/Config.php:1871
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Chybný index servera: %s"
 
-#: libraries/classes/Config.php:1867
+#: libraries/classes/Config.php:1884
 #, php-format
 msgid "Server %d"
 msgstr "Server %d"
@@ -6047,11 +6048,11 @@ msgstr "Názov okna prehliadača pri výbere databázy."
 #: libraries/classes/Server/Privileges.php:4561
 #: libraries/classes/Server/Status/Processes.php:77
 #: templates/console/bookmark_content.twig:7
-#: templates/table/relation/foreign_key_row.twig:100
-#: templates/console/display.twig:40 templates/console/display.twig:184
-#: templates/table/relation/common_form.twig:32
-#: templates/server/databases/table_header.twig:8
 #: templates/table/relation/internal_relational_row.twig:10
+#: templates/server/databases/table_header.twig:8
+#: templates/console/display.twig:40 templates/console/display.twig:184
+#: templates/table/relation/foreign_key_row.twig:100
+#: templates/table/relation/common_form.twig:32
 msgid "Database"
 msgstr "Databáza"
 
@@ -6086,12 +6087,12 @@ msgstr "Popis okna prehliadača keď je vybraná tabuľka."
 #: libraries/classes/Server/Privileges.php:3359
 #: libraries/classes/Server/Privileges.php:3361
 #: libraries/classes/Server/Privileges.php:4575
+#: templates/table/relation/internal_relational_row.twig:17
+#: templates/database/tracking/untracked_tables.twig:9
+#: templates/table/relation/foreign_key_row.twig:110
+#: templates/table/relation/common_form.twig:33
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tracked_tables.twig:11
-#: templates/table/relation/foreign_key_row.twig:110
-#: templates/database/tracking/untracked_tables.twig:9
-#: templates/table/relation/common_form.twig:33
-#: templates/table/relation/internal_relational_row.twig:17
 msgid "Table"
 msgstr "Tabuľka"
 
@@ -6645,7 +6646,7 @@ msgid "Table %s has been dropped."
 msgstr "Tabuľka %s bola odstránená."
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:797
-#: libraries/classes/Display/Results.php:4542
+#: libraries/classes/Display/Results.php:4544
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -6725,9 +6726,9 @@ msgstr[2] "%1$d databáz bolo úspešne zrušených."
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:343
 #: libraries/classes/Import.php:122
-#: templates/table/structure/actions_in_table_structure.twig:114
-#: templates/database/structure/table_header.twig:26
 #: templates/table/structure/row_stats_table.twig:41
+#: templates/database/structure/table_header.twig:26
+#: templates/table/structure/actions_in_table_structure.twig:114
 #: templates/table/structure/display_partitions.twig:28
 msgid "Rows"
 msgstr "Riadkov"
@@ -6802,8 +6803,8 @@ msgstr "Zobrazený stĺpec bol aktualizovný."
 
 #: libraries/classes/Controllers/Table/TableRelationController.php:275
 #: libraries/classes/Controllers/Table/TableSearchController.php:585
-#: libraries/classes/Display/Results.php:4198 libraries/classes/Message.php:172
-#: libraries/classes/Rte/Routines.php:1464
+#: libraries/classes/Display/Results.php:4200 libraries/classes/Message.php:172
+#: libraries/classes/Rte/Routines.php:1465
 #: libraries/classes/SqlQueryForm.php:93 tbl_row_action.php:142
 #: view_operations.php:69
 msgid "Your SQL query has been executed successfully."
@@ -6872,9 +6873,9 @@ msgstr "Zmeniť"
 #: libraries/classes/Index.php:770 libraries/classes/Operations.php:1606
 #: libraries/classes/Rte/RteList.php:172 libraries/classes/Util.php:3347
 #: libraries/classes/Util.php:3348
-#: templates/server/databases/databases_footer.twig:55
-#: templates/table/relation/foreign_key_row.twig:30
 #: templates/table/structure/check_all_table_column.twig:24
+#: templates/table/relation/foreign_key_row.twig:30
+#: templates/server/databases/databases_footer.twig:57
 #: templates/database/structure/check_all_tables.twig:16
 #: templates/table/structure/display_structure.twig:191
 msgid "Drop"
@@ -6883,11 +6884,11 @@ msgstr "Odstrániť"
 #: libraries/classes/Controllers/Table/TableStructureController.php:1232
 #: libraries/classes/Controllers/Table/TableStructureController.php:1237
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:30
-#: templates/table/tracking/structure_snapshot_columns.twig:27
-#: templates/columns_definitions/table_fields_definitions.twig:46
 #: templates/table/structure/check_all_table_column.twig:47
-#: templates/table/structure/display_structure.twig:66
 #: templates/columns_definitions/column_indexes.twig:12
+#: templates/columns_definitions/table_fields_definitions.twig:46
+#: templates/table/tracking/structure_snapshot_columns.twig:27
+#: templates/table/structure/display_structure.twig:66
 #: templates/table/structure/display_table_stats.twig:24
 msgid "Index"
 msgstr "Index"
@@ -6895,9 +6896,9 @@ msgstr "Index"
 #: libraries/classes/Controllers/Table/TableStructureController.php:1233
 #: libraries/classes/Controllers/Table/TableStructureController.php:1238
 #: libraries/classes/Index.php:721
-#: templates/table/tracking/structure_snapshot_indexes.twig:7
 #: templates/table/structure/check_all_table_column.twig:40
 #: templates/columns_definitions/column_indexes.twig:8
+#: templates/table/tracking/structure_snapshot_indexes.twig:7
 msgid "Unique"
 msgstr "Unikátny"
 
@@ -7201,22 +7202,22 @@ msgstr "Overte prístupové práva k adresáru, v ktorom je uložená databáza.
 msgid "Details…"
 msgstr "Podrobnosti…"
 
-#: libraries/classes/DatabaseInterface.php:2502
+#: libraries/classes/DatabaseInterface.php:2498
 #, fuzzy
 #| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
 msgstr "Chýbajúci parameter:"
 
-#: libraries/classes/DatabaseInterface.php:2529
+#: libraries/classes/DatabaseInterface.php:2523
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "Nepodarilo sa pripojiť ku controluser podľa nastavení z konfigurácie."
 
-#: libraries/classes/DatabaseInterface.php:3045
+#: libraries/classes/DatabaseInterface.php:3039
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "Pozri %sour documentation%s pre viacej informácií."
 
-#: libraries/classes/DatabaseInterface.php:3062
+#: libraries/classes/DatabaseInterface.php:3056
 msgid ""
 "You are using the mysql extension which is deprecated in phpMyAdmin. Please "
 "consider installing the mysqli extension."
@@ -7378,105 +7379,105 @@ msgstr "Čiastočné texty"
 msgid "Full texts"
 msgstr "Plné texty"
 
-#: libraries/classes/Display/Results.php:2119
-#: libraries/classes/Display/Results.php:2133
+#: libraries/classes/Display/Results.php:2121
+#: libraries/classes/Display/Results.php:2135
 #: libraries/classes/Operations.php:814
 #: libraries/classes/Server/Status/Processes.php:157
 #: libraries/classes/Util.php:4700 libraries/classes/Util.php:4717
 #: libraries/config.values.php:71
-#: templates/database/qbe/sort_select_cell.twig:7
-#: templates/table/search/options.twig:54
 #: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
+#: templates/table/search/options.twig:54
+#: templates/database/qbe/sort_select_cell.twig:7
 msgid "Descending"
 msgstr "Zostupne"
 
-#: libraries/classes/Display/Results.php:2123
-#: libraries/classes/Display/Results.php:2129
+#: libraries/classes/Display/Results.php:2125
+#: libraries/classes/Display/Results.php:2131
 #: libraries/classes/Operations.php:811
 #: libraries/classes/Server/Status/Processes.php:160
 #: libraries/classes/Util.php:4695 libraries/classes/Util.php:4712
 #: libraries/config.values.php:70
-#: templates/database/qbe/sort_select_cell.twig:5
-#: templates/table/search/options.twig:54
 #: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
+#: templates/table/search/options.twig:54
+#: templates/database/qbe/sort_select_cell.twig:5
 msgid "Ascending"
 msgstr "Vzostupne"
 
-#: libraries/classes/Display/Results.php:3383
-#: libraries/classes/Display/Results.php:3398
+#: libraries/classes/Display/Results.php:3385
+#: libraries/classes/Display/Results.php:3400
 msgid "The row has been deleted."
 msgstr "Riadok bol zmazaný."
 
-#: libraries/classes/Display/Results.php:3431
-#: libraries/classes/Display/Results.php:4681
+#: libraries/classes/Display/Results.php:3433
+#: libraries/classes/Display/Results.php:4683
 #: libraries/classes/Server/Status/Processes.php:279
 msgid "Kill"
 msgstr "Zabiť"
 
-#: libraries/classes/Display/Results.php:4125
+#: libraries/classes/Display/Results.php:4127
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Môže byť nepresné. Viď [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:4555
+#: libraries/classes/Display/Results.php:4557
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Zobrazené riadky %1s - %2s"
 
-#: libraries/classes/Display/Results.php:4570
+#: libraries/classes/Display/Results.php:4572
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d celkom, %2$d v dotaze"
 
-#: libraries/classes/Display/Results.php:4575
+#: libraries/classes/Display/Results.php:4577
 #, php-format
 msgid "%d total"
 msgstr "celkom %d"
 
-#: libraries/classes/Display/Results.php:4587 libraries/classes/Sql.php:1435
+#: libraries/classes/Display/Results.php:4589 libraries/classes/Sql.php:1435
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Dopyt zabral %01.4f sekúnd."
 
-#: libraries/classes/Display/Results.php:4686
-#: libraries/classes/Display/Results.php:4693 libraries/mult_submits.inc.php:57
+#: libraries/classes/Display/Results.php:4688
+#: libraries/classes/Display/Results.php:4695 libraries/mult_submits.inc.php:57
+#: templates/select_all.twig:2 templates/select_all.twig:6
 #: templates/database/structure/check_all_tables.twig:2
 #: templates/database/structure/check_all_tables.twig:9
-#: templates/select_all.twig:2 templates/select_all.twig:6
 msgid "With selected:"
 msgstr "Výber:"
 
-#: libraries/classes/Display/Results.php:4690
 #: libraries/classes/Display/Results.php:4692
+#: libraries/classes/Display/Results.php:4694
 #: libraries/classes/Server/Privileges.php:1188
 #: libraries/classes/Server/Privileges.php:1189
-#: libraries/classes/Server/UserGroups.php:248
-#: templates/privileges/global_priv_table.twig:5
+#: libraries/classes/Server/UserGroups.php:248 templates/select_all.twig:4
+#: templates/select_all.twig:5
 #: templates/database/structure/check_all_tables.twig:3
 #: templates/database/structure/check_all_tables.twig:4
-#: templates/select_all.twig:4 templates/select_all.twig:5
+#: templates/privileges/global_priv_table.twig:5
 msgid "Check all"
 msgstr "Označiť všetko"
 
-#: libraries/classes/Display/Results.php:4868
+#: libraries/classes/Display/Results.php:4870
 msgid "Copy to clipboard"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:4919
+#: libraries/classes/Display/Results.php:4921
 msgid "Query results operations"
 msgstr "Operácie s výsledkami dopytu"
 
-#: libraries/classes/Display/Results.php:5003
+#: libraries/classes/Display/Results.php:5005
 #: templates/table/chart/tbl_chart.twig:10
 msgid "Display chart"
 msgstr "Zobraziť graf"
 
-#: libraries/classes/Display/Results.php:5025
+#: libraries/classes/Display/Results.php:5027
 msgid "Visualize GIS data"
 msgstr "Zobraziť GIS data"
 
-#: libraries/classes/Display/Results.php:5208
+#: libraries/classes/Display/Results.php:5210
 msgid "Link not found!"
 msgstr "Odkaz nebol nájdený!"
 
@@ -7799,15 +7800,15 @@ msgid ""
 "%sPrimeBase XT Home Page%s."
 msgstr ""
 
-#: libraries/classes/ErrorHandler.php:78
+#: libraries/classes/ErrorHandler.php:80
 msgid "Too many error messages, some are not displayed."
 msgstr "Príliš veľa chybových správ, niektoré neboli zobrazené."
 
-#: libraries/classes/ErrorHandler.php:361
+#: libraries/classes/ErrorHandler.php:370
 msgid "Report"
 msgstr "Nahlásiť"
 
-#: libraries/classes/ErrorHandler.php:366 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:375 templates/error/report_form.twig:25
 msgid "Automatically send report next time"
 msgstr "Nabudúce automaticky odosielať hlásenia"
 
@@ -7930,7 +7931,7 @@ msgid "Javascript must be enabled past this point!"
 msgstr "Pokiaľ chcete pokračovať, JavaScript musí byť povolený!"
 
 #: libraries/classes/Import.php:130 libraries/classes/InsertEdit.php:178
-#: libraries/classes/Rte/Routines.php:1485 libraries/classes/Sql.php:1429
+#: libraries/classes/Rte/Routines.php:1486 libraries/classes/Sql.php:1429
 #: tbl_get_field.php:50
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL vrátil prázdny výsledok (tj. nulový počet riadkov)."
@@ -7980,12 +7981,12 @@ msgstr "Upraviť štruktúru kliknutím na odkaz \"Štruktúra\"."
 #: libraries/classes/Plugins/Import/ImportShp.php:59
 #: libraries/classes/Plugins/Import/ImportSql.php:47
 #: libraries/classes/Plugins/Import/ImportXml.php:49
-#: libraries/classes/Rte/Routines.php:946
-#: templates/display/results/options_block.twig:10
-#: templates/table/search/options.twig:1 templates/console/display.twig:7
+#: libraries/classes/Rte/Routines.php:947 templates/console/display.twig:7
 #: templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
 #: templates/database/designer/database_tables.twig:131
+#: templates/table/structure/row_stats_table.twig:19
+#: templates/display/results/options_block.twig:10
+#: templates/table/search/options.twig:1
 msgid "Options"
 msgstr "Nastavenia"
 
@@ -8044,11 +8045,11 @@ msgid "Cardinality"
 msgstr "Mohutnosť"
 
 #: libraries/classes/Index.php:727 libraries/classes/Rte/Events.php:516
-#: libraries/classes/Rte/Routines.php:1071
-#: templates/table/tracking/structure_snapshot_columns.twig:12
+#: libraries/classes/Rte/Routines.php:1072
 #: templates/columns_definitions/partitions.twig:85
 #: templates/database/structure/table_header.twig:48
 #: templates/table/tracking/structure_snapshot_indexes.twig:13
+#: templates/table/tracking/structure_snapshot_columns.twig:12
 #: templates/table/structure/display_partitions.twig:31
 msgid "Comment"
 msgstr "Komentár"
@@ -8071,76 +8072,77 @@ msgstr ""
 "Indexy %1$s a %2$s vyzerajú rovnaké a jeden z nich môže byť pravdepodobne "
 "odstránený."
 
-#: libraries/classes/InsertEdit.php:306
+#: libraries/classes/InsertEdit.php:304
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:30
-#: libraries/classes/Rte/Routines.php:1625
+#: libraries/classes/Rte/Routines.php:1626
 #: templates/table/search/table_header.twig:4
 msgid "Function"
 msgstr "Funkcia"
 
-#: libraries/classes/InsertEdit.php:470
+#: libraries/classes/InsertEdit.php:468
 msgid "Binary"
 msgstr "Binárny"
 
-#: libraries/classes/InsertEdit.php:730
+#: libraries/classes/InsertEdit.php:728
 msgid "Because of its length,<br /> this column might not be editable."
 msgstr "Kvôli jeho dĺžke,<br /> sa toto pole nemusí dať upraviť."
 
-#: libraries/classes/InsertEdit.php:1338
+#: libraries/classes/InsertEdit.php:1336
 msgid "Binary - do not edit"
 msgstr "Binárny - neupravujte"
 
-#: libraries/classes/InsertEdit.php:1498 libraries/classes/Util.php:3313
+#: libraries/classes/InsertEdit.php:1496 libraries/classes/Util.php:3313
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Adresár určený pre upload súborov sa nedá otvoriť."
 
-#: libraries/classes/InsertEdit.php:1501 templates/table/search/options.twig:25
+#: libraries/classes/InsertEdit.php:1499
 #: templates/privileges/column_privileges.twig:17
+#: templates/table/search/options.twig:25
 msgid "Or"
 msgstr "Alebo"
 
-#: libraries/classes/InsertEdit.php:1502
+#: libraries/classes/InsertEdit.php:1500
 msgid "web server upload directory:"
 msgstr "upload adresár web serveru:"
 
-#: libraries/classes/InsertEdit.php:1704
+#: libraries/classes/InsertEdit.php:1702
 #: templates/table/search/input_box.twig:38
 msgid "Edit/Insert"
 msgstr "Upraviť/Vložiť"
 
-#: libraries/classes/InsertEdit.php:1771
+#: libraries/classes/InsertEdit.php:1769
 msgid "and then"
 msgstr "a potom"
 
-#: libraries/classes/InsertEdit.php:1809
+#: libraries/classes/InsertEdit.php:1807
 msgid "Insert as new row"
 msgstr "Vložiť ako nový riadok"
 
-#: libraries/classes/InsertEdit.php:1812
+#: libraries/classes/InsertEdit.php:1810
 msgid "Insert as new row and ignore errors"
 msgstr "Vložiť ako nový riadok a ignorovať chyby"
 
-#: libraries/classes/InsertEdit.php:1815
+#: libraries/classes/InsertEdit.php:1813
 msgid "Show insert query"
 msgstr "Zobraziť insert dopyt"
 
-#: libraries/classes/InsertEdit.php:1835
+#: libraries/classes/InsertEdit.php:1833
 msgid "Go back to previous page"
 msgstr "Späť"
 
-#: libraries/classes/InsertEdit.php:1838
+#: libraries/classes/InsertEdit.php:1836
 msgid "Insert another new row"
 msgstr "Vložiť nový záznam"
 
-#: libraries/classes/InsertEdit.php:1843
+#: libraries/classes/InsertEdit.php:1841
 msgid "Go back to this page"
 msgstr "Späť na túto stránku"
 
-#: libraries/classes/InsertEdit.php:1866
+#: libraries/classes/InsertEdit.php:1864
 msgid "Edit next row"
 msgstr "Upraviť nasledujúci riadok"
 
-#: libraries/classes/InsertEdit.php:1886
+#: libraries/classes/InsertEdit.php:1884
 #, fuzzy
 #| msgid ""
 #| "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
@@ -8150,35 +8152,35 @@ msgstr ""
 "Pre pohyb medzi hodnotami použite klávesu TAB alebo pre pohyb všetkými "
 "smermi klávesy CTRL+šípky"
 
-#: libraries/classes/InsertEdit.php:1924
+#: libraries/classes/InsertEdit.php:1922
 #: libraries/classes/ReplicationGui.php:552
-#: libraries/classes/Rte/Routines.php:1627
+#: libraries/classes/Rte/Routines.php:1628
 #: libraries/classes/Server/Status/Variables.php:229
-#: templates/database/designer/having_query_panel.twig:100
+#: templates/table/search/zoom_result_form.twig:36
 #: templates/table/search/table_header.twig:10
+#: templates/database/designer/having_query_panel.twig:100
 #: templates/database/designer/options_panel.twig:73
 #: templates/database/designer/options_panel.twig:238
 #: templates/database/designer/where_query_panel.twig:69
 #: templates/server/variables/variable_table_head.twig:5
-#: templates/table/search/zoom_result_form.twig:36
 msgid "Value"
 msgstr "Hodnota"
 
-#: libraries/classes/InsertEdit.php:2297 libraries/classes/Sql.php:1426
+#: libraries/classes/InsertEdit.php:2295 libraries/classes/Sql.php:1426
 msgid "Showing SQL query"
 msgstr "Zobrazujem SQL dotaz"
 
-#: libraries/classes/InsertEdit.php:2322 libraries/classes/Sql.php:1404
+#: libraries/classes/InsertEdit.php:2320 libraries/classes/Sql.php:1404
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Vložený riadok id: %1$d"
 
-#: libraries/classes/LanguageManager.php:922
+#: libraries/classes/LanguageManager.php:929
 msgid "Ignoring unsupported language code."
 msgstr ""
 
-#: libraries/classes/LanguageManager.php:949
-#: libraries/classes/LanguageManager.php:950 setup/frames/index.inc.php:63
+#: libraries/classes/LanguageManager.php:956
+#: libraries/classes/LanguageManager.php:957 setup/frames/index.inc.php:63
 msgid "Language"
 msgstr "Jazyk"
 
@@ -8242,8 +8244,8 @@ msgstr "Vložiť"
 #: libraries/classes/Server/Privileges.php:2578
 #: libraries/classes/Server/Privileges.php:4449 libraries/classes/Util.php:4011
 #: libraries/classes/Util.php:4027 libraries/config.values.php:107
-#: templates/privileges/privileges_summary.twig:15
 #: templates/server/sub_page_header.twig:2
+#: templates/privileges/privileges_summary.twig:15
 msgid "Privileges"
 msgstr "Oprávnenia"
 
@@ -8315,10 +8317,9 @@ msgid "Binary log"
 msgstr "Binárny log"
 
 #: libraries/classes/Menu.php:640 libraries/classes/Server/Status/Data.php:126
-#: libraries/classes/Util.php:3997
+#: libraries/classes/Util.php:3997 templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:11
-#: templates/server/sub_page_header.twig:2
 msgid "Replication"
 msgstr "Replikácia"
 
@@ -8393,7 +8394,7 @@ msgstr "Pridať obmedzenia"
 #: libraries/classes/MultSubmits.php:411 libraries/classes/Operations.php:127
 #: libraries/classes/Operations.php:265 libraries/classes/Operations.php:884
 #: libraries/classes/Operations.php:971 libraries/classes/Operations.php:1330
-#: libraries/classes/Rte/Routines.php:1024
+#: libraries/classes/Rte/Routines.php:1025
 #: templates/columns_definitions/table_fields_definitions.twig:36
 msgid "Adjust privileges"
 msgstr "Upraviť oprávnenia"
@@ -8445,8 +8446,8 @@ msgstr "Náhľady:"
 
 #: libraries/classes/Navigation/Navigation.php:236
 #: libraries/classes/Tracking.php:164 tbl_change.php:147
-#: templates/database/tracking/tracked_tables.twig:17
 #: templates/database/multi_table_query/form.twig:44
+#: templates/database/tracking/tracked_tables.twig:17
 msgid "Show"
 msgstr "Ukázať"
 
@@ -9327,7 +9328,7 @@ msgstr "Udalosť"
 #: libraries/classes/Plugins/Export/ExportOdt.php:618
 #: libraries/classes/Plugins/Export/ExportTexytext.php:453
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:358
-#: libraries/classes/Rte/Events.php:500 libraries/classes/Rte/Routines.php:1010
+#: libraries/classes/Rte/Events.php:500 libraries/classes/Rte/Routines.php:1011
 #: libraries/classes/Rte/Triggers.php:393
 msgid "Definition"
 msgstr "Definícia"
@@ -9883,8 +9884,8 @@ msgstr "Obsah"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Extra"
 
@@ -9959,7 +9960,7 @@ msgid ""
 "gmdate() function."
 msgstr ""
 
-#. l10n: See https://secure.php.net/manual/en/function.strftime.php
+#. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:62
 #: libraries/classes/Util.php:1522
 msgid "%B %d, %Y at %I:%M %p"
@@ -10384,7 +10385,7 @@ msgstr "%sVytvoriť%s chýbajúce tabuľky pre uloženie phpMyAdmin konfiguráci
 
 #: libraries/classes/ReplicationGui.php:58
 #: libraries/classes/ReplicationGui.php:352
-#: templates/server/databases/table_header.twig:32
+#: templates/server/databases/table_header.twig:34
 msgid "Master replication"
 msgstr "Master replikácia"
 
@@ -10445,7 +10446,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/ReplicationGui.php:153
-#: templates/server/databases/table_header.twig:35
+#: templates/server/databases/table_header.twig:37
 msgid "Slave replication"
 msgstr "Slave replikácia"
 
@@ -10736,7 +10737,7 @@ msgstr "Master server zmenený úspešne na %s."
 #: libraries/classes/Rte/Events.php:162 libraries/classes/Rte/Routines.php:240
 #: libraries/classes/Rte/Routines.php:267
 #: libraries/classes/Rte/Routines.php:381
-#: libraries/classes/Rte/Routines.php:1494
+#: libraries/classes/Rte/Routines.php:1495
 #: libraries/classes/Rte/Triggers.php:97 libraries/classes/Rte/Triggers.php:106
 #: libraries/classes/Rte/Triggers.php:138
 #, php-format
@@ -10748,7 +10749,7 @@ msgstr "Nasledujúci dopyt zlyhal: \"%s\""
 #: libraries/classes/Rte/Routines.php:244
 #: libraries/classes/Rte/Routines.php:271
 #: libraries/classes/Rte/Routines.php:385
-#: libraries/classes/Rte/Routines.php:1498
+#: libraries/classes/Rte/Routines.php:1499
 #: libraries/classes/Rte/Triggers.php:101
 #: libraries/classes/Rte/Triggers.php:110
 #: libraries/classes/Rte/Triggers.php:142 libraries/classes/Util.php:615
@@ -10778,7 +10779,7 @@ msgstr "Pri spracovaní požiadavky došlo k jednej alebo viacerým chybám:"
 msgid "Edit event"
 msgstr "Upraviť udalosť"
 
-#: libraries/classes/Rte/Events.php:404 libraries/classes/Rte/Routines.php:905
+#: libraries/classes/Rte/Events.php:404 libraries/classes/Rte/Routines.php:906
 #: libraries/classes/Rte/Triggers.php:339 templates/view_create.twig:8
 msgid "Details"
 msgstr "Podrobnosti"
@@ -10787,7 +10788,7 @@ msgstr "Podrobnosti"
 msgid "Event name"
 msgstr "Meno udalosti"
 
-#: libraries/classes/Rte/Events.php:450 libraries/classes/Rte/Routines.php:928
+#: libraries/classes/Rte/Events.php:450 libraries/classes/Rte/Routines.php:929
 #, php-format
 msgid "Change to %s"
 msgstr "Zmeniť na %s"
@@ -10814,12 +10815,12 @@ msgstr "Koniec"
 msgid "On completion preserve"
 msgstr "Zachovať pri ukončení"
 
-#: libraries/classes/Rte/Events.php:511 libraries/classes/Rte/Routines.php:1045
+#: libraries/classes/Rte/Events.php:511 libraries/classes/Rte/Routines.php:1046
 #: libraries/classes/Rte/Triggers.php:399 templates/view_create.twig:45
 msgid "Definer"
 msgstr ""
 
-#: libraries/classes/Rte/Events.php:555 libraries/classes/Rte/Routines.php:1126
+#: libraries/classes/Rte/Events.php:555 libraries/classes/Rte/Routines.php:1127
 #: libraries/classes/Rte/Triggers.php:438
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr ""
@@ -10846,8 +10847,8 @@ msgstr ""
 
 #: libraries/classes/Rte/Export.php:54 libraries/classes/Rte/General.php:84
 #: libraries/classes/Rte/Routines.php:172
-#: libraries/classes/Rte/Routines.php:1331
-#: libraries/classes/Rte/Routines.php:1541
+#: libraries/classes/Rte/Routines.php:1332
+#: libraries/classes/Rte/Routines.php:1542
 msgid "Error in processing request:"
 msgstr "Chyba pri spracovaní požiadavky:"
 
@@ -10884,7 +10885,7 @@ msgid "Edit routine"
 msgstr "Upraviť rutinu"
 
 #: libraries/classes/Rte/Routines.php:221
-#: libraries/classes/Rte/Routines.php:1135
+#: libraries/classes/Rte/Routines.php:1136
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Chybný typ rutiny: \"%s\""
@@ -10908,90 +10909,90 @@ msgstr "Rutina %1$s bola zmenená. Oprávnenia boli upravené."
 msgid "Routine %1$s has been modified."
 msgstr "Rutina %1$s bola zmenená."
 
-#: libraries/classes/Rte/Routines.php:908
+#: libraries/classes/Rte/Routines.php:909
 msgid "Routine name"
 msgstr "Meno rutiny"
 
-#: libraries/classes/Rte/Routines.php:934
+#: libraries/classes/Rte/Routines.php:935
 msgid "Parameters"
 msgstr "Parametre"
 
-#: libraries/classes/Rte/Routines.php:942
+#: libraries/classes/Rte/Routines.php:943
 msgid "Direction"
 msgstr "Smer"
 
-#: libraries/classes/Rte/Routines.php:963
+#: libraries/classes/Rte/Routines.php:964
 msgid "Add parameter"
 msgstr "Pridať parameter"
 
-#: libraries/classes/Rte/Routines.php:967
+#: libraries/classes/Rte/Routines.php:968
 msgid "Remove last parameter"
 msgstr "Odstrániť posledný parameter"
 
-#: libraries/classes/Rte/Routines.php:972
+#: libraries/classes/Rte/Routines.php:973
 msgid "Return type"
 msgstr "Návratový typ"
 
-#: libraries/classes/Rte/Routines.php:978
+#: libraries/classes/Rte/Routines.php:979
 msgid "Return length/values"
 msgstr "Vrátiť dĺžku/hodnoty"
 
-#: libraries/classes/Rte/Routines.php:984
+#: libraries/classes/Rte/Routines.php:985
 msgid "Return options"
 msgstr "Návratové možnosti"
 
-#: libraries/classes/Rte/Routines.php:1016
+#: libraries/classes/Rte/Routines.php:1017
 msgid "Is deterministic"
 msgstr "Je deterministický"
 
-#: libraries/classes/Rte/Routines.php:1035
+#: libraries/classes/Rte/Routines.php:1036
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
 msgstr ""
 
-#: libraries/classes/Rte/Routines.php:1050
+#: libraries/classes/Rte/Routines.php:1051
 msgid "Security type"
 msgstr "Typ zabezpečenia"
 
-#: libraries/classes/Rte/Routines.php:1059
+#: libraries/classes/Rte/Routines.php:1060
 msgid "SQL data access"
 msgstr ""
 
-#: libraries/classes/Rte/Routines.php:1142
+#: libraries/classes/Rte/Routines.php:1143
 msgid "You must provide a routine name!"
 msgstr "Musíte zadať názov rutiny!"
 
-#: libraries/classes/Rte/Routines.php:1176
+#: libraries/classes/Rte/Routines.php:1177
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr ""
 
-#: libraries/classes/Rte/Routines.php:1198
-#: libraries/classes/Rte/Routines.php:1262
+#: libraries/classes/Rte/Routines.php:1199
+#: libraries/classes/Rte/Routines.php:1263
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
 
-#: libraries/classes/Rte/Routines.php:1226
+#: libraries/classes/Rte/Routines.php:1227
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
 
-#: libraries/classes/Rte/Routines.php:1245
+#: libraries/classes/Rte/Routines.php:1246
 msgid "You must provide a valid return type for the routine."
 msgstr ""
 
-#: libraries/classes/Rte/Routines.php:1305
+#: libraries/classes/Rte/Routines.php:1306
 msgid "You must provide a routine definition."
 msgstr ""
 
-#: libraries/classes/Rte/Routines.php:1417
+#: libraries/classes/Rte/Routines.php:1418
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "Výsledky spustenia rutiny %s"
 
-#: libraries/classes/Rte/Routines.php:1472
+#: libraries/classes/Rte/Routines.php:1473
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
@@ -10999,13 +11000,13 @@ msgstr[0] "Posledným príkazom v procedúre bol ovplyvnený %d riadok."
 msgstr[1] "Posledným príkazom v procedúre boli ovplyvnené %d riadky."
 msgstr[2] "Posledným príkazom v procedúre bolo ovplyvnených %d riadkov."
 
-#: libraries/classes/Rte/Routines.php:1529
-#: libraries/classes/Rte/Routines.php:1536
+#: libraries/classes/Rte/Routines.php:1530
+#: libraries/classes/Rte/Routines.php:1537
 msgid "Execute routine"
 msgstr "Spustiť rutinu"
 
-#: libraries/classes/Rte/Routines.php:1615
-#: libraries/classes/Rte/Routines.php:1618
+#: libraries/classes/Rte/Routines.php:1616
+#: libraries/classes/Rte/Routines.php:1619
 msgid "Routine parameters"
 msgstr ""
 
@@ -14345,12 +14346,1260 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Popis"
 
+#: templates/privileges/resource_limits.twig:2
+msgid "Resource limits"
+msgstr "Obmedzenie zdrojov"
+
+#: templates/privileges/resource_limits.twig:5
+msgid "Note: Setting these options to 0 (zero) removes the limit."
+msgstr ""
+"Poznámka: Nastavenie týchto parametrov na 0 (nulu) odstráni obmedzenia."
+
+#: templates/server/plugins/section.twig:9
+msgid "Plugin"
+msgstr "Doplnok"
+
+#: templates/server/plugins/section.twig:12
+msgid "Author"
+msgstr "Autor"
+
+#: templates/server/plugins/section.twig:23
+msgid "disabled"
+msgstr "vypnuté"
+
+#: templates/error/report_form.twig:6
+msgid ""
+"This report automatically includes data about the error and information "
+"about relevant configuration settings. It will be sent to the phpMyAdmin "
+"team for debugging the error."
+msgstr ""
+
+#: templates/error/report_form.twig:12
+msgid ""
+"Can you tell us the steps leading to this error? It decisively helps in "
+"debugging:"
+msgstr ""
+
+#: templates/error/report_form.twig:19
+msgid "You may examine the data in the error report:"
+msgstr ""
+
+#: templates/display/export/template_loading.twig:2
+msgid "Export templates:"
+msgstr "Exportné šablóny:"
+
+#: templates/display/export/template_loading.twig:6
+msgid "New template:"
+msgstr "Nová šablóna:"
+
+#: templates/display/export/template_loading.twig:8
+msgid "Template name"
+msgstr "Názov šablóny"
+
+#: templates/display/export/template_loading.twig:10
+#: templates/server/databases/create.twig:30
+msgid "Create"
+msgstr "Vytvoriť"
+
+#: templates/display/export/template_loading.twig:16
+msgid "Existing templates:"
+msgstr "Existujúce šablóny:"
+
+#: templates/display/export/template_loading.twig:17
+msgid "Template:"
+msgstr "Šablóna:"
+
+#: templates/display/export/template_loading.twig:21
+msgid "Update"
+msgstr "Aktualizovať"
+
+#: templates/table/search/selection_form.twig:12
+msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
+msgstr ""
+"Vykonať \"dopyt podľa príkladu\" (nahradzujúci znak: \"%\") pre dva rôzne "
+"stĺpce"
+
+#: templates/table/search/selection_form.twig:42
+msgid "Do a \"query by example\" (wildcard: \"%\")"
+msgstr "Vykonať \"dopyt podľa príkladu\" (nahradzujúci znak: \"%\")"
+
+#: templates/privileges/column_privileges.twig:21
+#: templates/privileges/column_privileges.twig:22
+msgctxt "None privileges"
+msgid "None"
+msgstr "Žiadny"
+
+#: templates/table/insert/continue_insertion_form.twig:18
+#, php-format
+msgid "Continue insertion with %s rows"
+msgstr ""
+
+#: templates/database/designer/new_relation_panel.twig:22
+#: templates/database/designer/side_menu.twig:85
+#: templates/database/designer/side_menu.twig:88
+#, fuzzy
+#| msgid "Create relation"
+msgid "Create relationship"
+msgstr "Vytvoriť relaciu"
+
+#: templates/privileges/add_privileges_database.twig:1
+msgid "Add privileges on the following database(s):"
+msgstr "Pridať oprávnenia pre nasledujúcu databázu(y):"
+
+#: templates/privileges/add_privileges_database.twig:14
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
+msgstr ""
+"Náhradzujúcim znakom % a _ by mal predchádzať znak \\, pokiaľ ich nechcete "
+"použiť doslovne."
+
+#: templates/database/structure/structure_table_row.twig:222
+msgid "in use"
+msgstr "práve sa používa"
+
+#: templates/privileges/add_privileges_table.twig:3
+msgid "Add privileges on the following table:"
+msgstr "Pridať oprávnenia pre nasledujúcu tabuľku:"
+
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:84 templates/console/display.twig:175
+msgid "Collapse"
+msgstr "Zbaliť"
+
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:84 templates/console/display.twig:175
+msgid "Expand"
+msgstr "Rozbaliť"
+
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:175
+msgid "Requery"
+msgstr "Znovu spustiť dopyt"
+
+#: templates/prefs_twofactor_confirm.twig:2
+#, fuzzy
+#| msgid "Config authentication"
+msgid "Confirm disabling two-factor authentication"
+msgstr "Overenie konfigurácie"
+
+#: templates/prefs_twofactor_confirm.twig:5
+msgid ""
+"By disabling two factor authentication you will be again able to login using "
+"password only."
+msgstr ""
+
+#: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:37
+#, fuzzy
+#| msgid "Config authentication"
+msgid "Disable two-factor authentication"
+msgstr "Overenie konfigurácie"
+
+#: templates/table/structure/check_all_table_column.twig:76
+#: templates/table/structure/actions_in_table_structure.twig:131
+msgid "Add to central columns"
+msgstr "Pridať do centrálnych stĺpcov"
+
+#: templates/table/structure/check_all_table_column.twig:83
+#: templates/table/structure/actions_in_table_structure.twig:127
+msgid "Remove from central columns"
+msgstr "Odstrániť z centrálnych stĺpcov"
+
+#: templates/table/tracking/create_version.twig:11
+#, php-format
+msgid "Create version %1$s of %2$s"
+msgstr "Vytvoriť verziu %1$s z %2$s"
+
+#: templates/table/tracking/create_version.twig:16
+#, php-format
+msgid "Create version %1$s"
+msgstr "Vytvoriť verziu %1$s"
+
+#: templates/table/tracking/create_version.twig:20
+msgid "Track these data definition statements:"
+msgstr ""
+
+#: templates/table/tracking/create_version.twig:59
+msgid "Track these data manipulation statements:"
+msgstr ""
+
+#: templates/table/tracking/create_version.twig:76
+msgid "Create version"
+msgstr "Vytvoriť verziu"
+
+#: templates/display/results/additional_fields.twig:6
+#: templates/start_and_number_of_rows_panel.twig:10
+#: templates/display/export/options_rows.twig:10
+msgid "Number of rows:"
+msgstr "Počet riadkov:"
+
+#: templates/display/export/options_output_format.twig:3
+msgid "File name template:"
+msgstr "Šablóna pre názov súboru:"
+
+#: templates/display/export/options_output_format.twig:11
+msgid "use this for future exports"
+msgstr "použiť aj pre budúce exporty"
+
+#: templates/table/search/zoom_result_form.twig:7
+msgid "Browse/Edit the points"
+msgstr "Prezerať/Upraviť body"
+
+#: templates/table/search/zoom_result_form.twig:15
+msgid "How to use"
+msgstr "Návod na použitie"
+
+#: templates/table/search/zoom_result_form.twig:23
+msgid "Reset zoom"
+msgstr "Zrušiť zoom"
+
+#: templates/display/import/import.twig:40
+msgid "Importing into the current server"
+msgstr "Importujem na aktuálny server"
+
+#: templates/display/import/import.twig:42
+#, php-format
+msgid "Importing into the database \"%s\""
+msgstr "Importujem do databázy \"%s\""
+
+#: templates/display/import/import.twig:44
+#, php-format
+msgid "Importing into the table \"%s\""
+msgstr "Importujem do tabuľky \"%s\""
+
+#: templates/display/import/import.twig:50
+msgid "File to import:"
+msgstr "Súbor na importovanie:"
+
+#: templates/display/import/import.twig:56
+#, php-format
+msgid "File may be compressed (%s) or uncompressed."
+msgstr "Súbor môže byť komprimovaný (%s) alebo nekomprimovaný."
+
+#: templates/display/import/import.twig:58
+#, fuzzy
+#| msgid ""
+#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
+#| "Example: <b>.sql.zip</b>"
+msgid ""
+"A compressed file's name must end in <strong>.[format].[compression]</"
+"strong>. Example: <strong>.sql.zip</strong>"
+msgstr ""
+"Meno komprimovaného súboru musí končiť na <b>.[formát].[kompresia]</b>. "
+"Napríklad: <b>.sql.zip</b>"
+
+#: templates/display/import/import.twig:69
+#: templates/display/import/import.twig:84
+msgid "You may also drag and drop a file on any page."
+msgstr ""
+
+#: templates/display/import/import.twig:86
+msgid "File uploads are not allowed on this server."
+msgstr "Ukladanie súborov na server nie je povolené."
+
+#: templates/display/import/import.twig:97
+#: templates/display/export/options_output_charset.twig:3
+msgid "Character set of the file:"
+msgstr "Znaková sada súboru:"
+
+#: templates/display/import/import.twig:124
+msgid "Partial import:"
+msgstr "Čiastočný import:"
+
+#: templates/display/import/import.twig:129
+#, php-format
+msgid ""
+"Previous import timed out, after resubmitting will continue from position %d."
+msgstr ""
+"Predchádzajúcemu importu vypršal časový limit. Po znovuodoslaní formulára sa "
+"bude pokračovať od pozície %d."
+
+#: templates/display/import/import.twig:137
+#, fuzzy
+#| msgid ""
+#| "Allow the interruption of an import in case the script detects it is "
+#| "close to the PHP timeout limit. <i>(This might be a good way to import "
+#| "large files, however it can break transactions.)</i>"
+msgid ""
+"Allow the interruption of an import in case the script detects it is close "
+"to the PHP timeout limit. <em>(This might be a good way to import large "
+"files, however it can break transactions.)</em>"
+msgstr ""
+"Povoliť prerušenie importu v prípade, že sa blíži časový limit behu PHP "
+"skriptu. <i>(Týmto spôsobom sa môžu importovať aj veľké súbory, ale môže to "
+"zároveň spôsobiť problémy s transakciami.)</i>"
+
+#: templates/display/import/import.twig:144
+msgid "Skip this number of queries (for SQL) starting from the first one:"
+msgstr "Počet dopytov od začiatku (pre SQL) , ktoré sa majú preskočiť:"
+
+#: templates/display/import/import.twig:161
+msgid "Other options:"
+msgstr "Ďalšie nastavenia:"
+
+#: templates/display/import/import.twig:174
+#: templates/display/export/options_format.twig:2
+msgid "Format-specific options:"
+msgstr "Formát - špecifické voľby:"
+
+#: templates/display/import/import.twig:176
+#: templates/display/export/options_format.twig:4
+msgid ""
+"Scroll down to fill in the options for the selected format and ignore the "
+"options for other formats."
+msgstr ""
+"Posuňte sa nižšie pre nastavenie vybraného formátu a ignorujte nastavenia "
+"ostatných."
+
+#: templates/display/import/import.twig:185
+#: templates/display/export/options_format.twig:12
+msgid "Encoding Conversion:"
+msgstr "Prevod znakovej sady:"
+
+#: templates/columns_definitions/column_virtuality.twig:29
+#: templates/table/structure/display_partitions.twig:26
+msgid "Expression"
+msgstr "Výraz"
+
+#: templates/database/tracking/untracked_tables.twig:1
+msgid "Untracked tables"
+msgstr "Nesledované tabuľky"
+
+#: templates/database/tracking/untracked_tables.twig:29
+#: templates/database/tracking/untracked_tables.twig:42
+#: templates/table/structure/optional_action_links.twig:18
+msgid "Track table"
+msgstr "Sledovať tabuľku"
+
+#: templates/database/designer/table_list.twig:4
+msgid "Hide/Show all"
+msgstr "Skryť/Zobraziť všetko"
+
+#: templates/database/designer/table_list.twig:14
+#, fuzzy
+#| msgid "Hide table structure actions"
+msgid "Hide/Show tables with no relationship"
+msgstr "Skryť akcie štruktúry tabuľky"
+
+#: templates/database/designer/table_list.twig:25
+msgid "Number of tables:"
+msgstr "Počet tabuliek:"
+
+#: templates/database/structure/favorite_anchor.twig:4
+msgid "Add to Favorites"
+msgstr "Pridať k obľúbeným"
+
+#: templates/table/browse_foreigners/column_element.twig:4
+msgid "Use this value"
+msgstr "Použiť túto hodnotu"
+
+#: templates/columns_definitions/column_length.twig:9
+msgid "Edit ENUM/SET values"
+msgstr ""
+
+#: templates/database/multi_table_query/form.twig:16
+msgid "Query window"
+msgstr "SQL okno"
+
+#: templates/database/multi_table_query/form.twig:33
+#: templates/database/multi_table_query/form.twig:121
+#, fuzzy
+#| msgid "Select table"
+msgid "select table"
+msgstr "Zvoľte tabuľku"
+
+#: templates/database/multi_table_query/form.twig:40
+#: templates/database/multi_table_query/form.twig:129
+#, fuzzy
+#| msgid "Select a column."
+msgid "select column"
+msgstr "Zvoľte stĺpec."
+
+#: templates/database/multi_table_query/form.twig:46
+#, fuzzy
+#| msgid "Tables"
+msgid "Table alias"
+msgstr "Tabuľky"
+
+#: templates/database/multi_table_query/form.twig:47
+#, fuzzy
+#| msgid "Column names"
+msgid "Column alias"
+msgstr "Názvy stĺpcov"
+
+#: templates/database/multi_table_query/form.twig:50
+#, fuzzy
+#| msgid "Use this column to label each point"
+msgid "Use this column in criteria"
+msgstr "Tento stĺpec sa použije na označenie každého bodu"
+
+#: templates/database/multi_table_query/form.twig:53
+#, fuzzy
+#| msgid "Criteria:"
+msgid "criteria"
+msgstr "Kritériá:"
+
+#: templates/database/multi_table_query/form.twig:67
+#, fuzzy
+#| msgid "Add %s"
+msgid "Add as"
+msgstr "Pridať %s"
+
+#: templates/database/multi_table_query/form.twig:112
+#, fuzzy
+#| msgid "Alter column(s)"
+msgid "Another column"
+msgstr "Upraviť stĺpce"
+
+#: templates/database/multi_table_query/form.twig:140
+msgid "Enter criteria as free text"
+msgstr ""
+
+#: templates/database/multi_table_query/form.twig:148
+#, fuzzy
+#| msgid "Remove redundant columns"
+msgid "Remove this column"
+msgstr "Odstrániť redundantné stĺpce"
+
+#: templates/database/multi_table_query/form.twig:158
+#: templates/table/relation/foreign_key_row.twig:90
+msgid "+ Add column"
+msgstr "+ Pridať stĺpec"
+
+#: templates/database/multi_table_query/form.twig:175
+#, fuzzy
+#| msgid "Update Query"
+msgid "Update query"
+msgstr "Aktualizovať dotaz"
+
+#: templates/database/designer/side_menu.twig:13
+#: templates/database/designer/side_menu.twig:19
+msgid "Show/Hide tables list"
+msgstr "Zobraziť/skryť zoznam tabuliek"
+
+#: templates/database/designer/side_menu.twig:23
+#: templates/database/designer/side_menu.twig:29
+#: templates/database/designer/side_menu.twig:30
+msgid "View in fullscreen"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:28
+msgid "Exit fullscreen"
+msgstr ""
+
+#: templates/database/designer/side_menu.twig:42
+#: templates/database/designer/side_menu.twig:46
+msgid "New page"
+msgstr "Nová stránka"
+
+#: templates/database/designer/side_menu.twig:71
+#: templates/database/designer/side_menu.twig:74
+msgid "Delete pages"
+msgstr "Odstrániť stránky"
+
+#: templates/database/designer/side_menu.twig:78
+#: templates/database/designer/side_menu.twig:81
+#: templates/database/create_table.twig:7
+msgid "Create table"
+msgstr "Vytvoriť tabuľku"
+
+#: templates/database/designer/side_menu.twig:99
+#: templates/database/designer/side_menu.twig:102
+msgid "Reload"
+msgstr "Znovu načítať"
+
+#: templates/database/designer/side_menu.twig:108
+#: templates/database/designer/side_menu.twig:111
+msgid "Help"
+msgstr "Pomoc"
+
+#: templates/database/designer/side_menu.twig:116
+#: templates/database/designer/side_menu.twig:119
+msgid "Angular links"
+msgstr "Pravouhlé spoje"
+
+#: templates/database/designer/side_menu.twig:116
+#: templates/database/designer/side_menu.twig:119
+msgid "Direct links"
+msgstr "Priame odkazy"
+
+#: templates/database/designer/side_menu.twig:123
+#: templates/database/designer/side_menu.twig:125
+msgid "Snap to grid"
+msgstr "Prichytiť k mriežke"
+
+#: templates/database/designer/side_menu.twig:129
+#: templates/database/designer/side_menu.twig:135
+msgid "Small/Big All"
+msgstr "Všetko Malé/Veľké"
+
+#: templates/database/designer/side_menu.twig:139
+#: templates/database/designer/side_menu.twig:142
+msgid "Toggle small/big"
+msgstr "Prepnúť malé/veľké"
+
+#: templates/database/designer/side_menu.twig:146
+#: templates/database/designer/side_menu.twig:149
+#, fuzzy
+#| msgid "Toggle relation lines"
+msgid "Toggle relationship lines"
+msgstr "Prepnúť príbuzné riadky"
+
+#: templates/database/designer/side_menu.twig:154
+#: templates/database/designer/side_menu.twig:157
+msgid "Export schema"
+msgstr "Exportovať schému"
+
+#: templates/database/designer/side_menu.twig:165
+#: templates/database/designer/side_menu.twig:168
+msgid "Build Query"
+msgstr "Vytvoriť dopyt"
+
+#: templates/database/designer/side_menu.twig:173
+#: templates/database/designer/side_menu.twig:177
+msgid "Move Menu"
+msgstr "Presunúť Menu"
+
+#: templates/database/designer/side_menu.twig:181
+#: templates/database/designer/side_menu.twig:186
+msgid "Pin text"
+msgstr "Pripnúť text"
+
+#: templates/login/twofactor/application.twig:2
+#: templates/login/twofactor/application_configure.twig:21
+#, fuzzy
+#| msgid "Authentication"
+msgid "Authentication code:"
+msgstr "Overenie"
+
+#: templates/login/twofactor/application.twig:4
+msgid ""
+"Open the two-factor authentication app on your device to view your "
+"authentication code and verify your identity."
+msgstr ""
+
+#: templates/table/structure/move_columns_dialog.twig:1
+#: templates/table/structure/optional_action_links.twig:22
+msgid "Move columns"
+msgstr "Presunúť stĺpce"
+
+#: templates/table/structure/move_columns_dialog.twig:2
+msgid "Move the columns by dragging them up and down."
+msgstr ""
+
+#: templates/table/tracking/activate_deactivate.twig:7
+#, php-format
+msgid "Activate tracking for %s"
+msgstr "Aktivovať sledovanie %s"
+
+#: templates/table/tracking/activate_deactivate.twig:9
+msgid "Activate now"
+msgstr ""
+
+#: templates/table/tracking/activate_deactivate.twig:11
+#, php-format
+msgid "Deactivate tracking for %s"
+msgstr "Deaktivovať sledovanie %s"
+
+#: templates/table/tracking/activate_deactivate.twig:13
+msgid "Deactivate now"
+msgstr ""
+
+#: templates/server/databases/index.twig:24
+msgid "No databases"
+msgstr "Žiadne databázy"
+
+#: templates/columns_definitions/partitions.twig:17
+#, fuzzy
+#| msgid "Position"
+msgid "Partition by:"
+msgstr "Pozícia"
+
+#: templates/columns_definitions/partitions.twig:32
+#: templates/columns_definitions/partitions.twig:60
+#, fuzzy
+#| msgid "Values for column %s"
+msgid "Expression or column list"
+msgstr "Hodnoty pre pole %s"
+
+#: templates/columns_definitions/partitions.twig:37
+#, fuzzy
+#| msgid "Position"
+msgid "Partitions:"
+msgstr "Pozícia"
+
+#: templates/columns_definitions/partitions.twig:45
+#, fuzzy
+#| msgid "Position"
+msgid "Subpartition by:"
+msgstr "Pozícia"
+
+#: templates/columns_definitions/partitions.twig:65
+#, fuzzy
+#| msgid "Position"
+msgid "Subpartitions:"
+msgstr "Pozícia"
+
+#: templates/columns_definitions/partitions.twig:76
+#: templates/table/structure/display_partitions.twig:24
+#, fuzzy
+#| msgid "Position"
+msgid "Partition"
+msgstr "Pozícia"
+
+#: templates/columns_definitions/partitions.twig:78
+#, fuzzy
+#| msgid "Value"
+msgid "Values"
+msgstr "Hodnota"
+
+#: templates/columns_definitions/partitions.twig:82
+#, fuzzy
+#| msgid "Position"
+msgid "Subpartition"
+msgstr "Pozícia"
+
+#: templates/columns_definitions/partitions.twig:84
+#, fuzzy
+#| msgid "Engines"
+msgid "Engine"
+msgstr "Systémy"
+
+#: templates/columns_definitions/partitions.twig:86
+#, fuzzy
+#| msgid "Data home directory"
+msgid "Data directory"
+msgstr "Domovský adresár pre dáta"
+
+#: templates/columns_definitions/partitions.twig:87
+#, fuzzy
+#| msgid "Save directory"
+msgid "Index directory"
+msgstr "Adresár pre ukladanie"
+
+#: templates/columns_definitions/partitions.twig:88
+#, fuzzy
+#| msgid "Matched rows:"
+msgid "Max rows"
+msgstr "Vyhovujúce riadky:"
+
+#: templates/columns_definitions/partitions.twig:89
+#, fuzzy
+#| msgid "rows"
+msgid "Min rows"
+msgstr "Prechádzať"
+
+#: templates/columns_definitions/partitions.twig:90
+#, fuzzy
+#| msgid "Table search"
+msgid "Table space"
+msgstr "Vyhľadávanie v tabuľke"
+
+#: templates/columns_definitions/partitions.twig:91
+#, fuzzy
+#| msgid "User groups"
+msgid "Node group"
+msgstr "Užívateľské skupiny"
+
+#: templates/columns_definitions/move_column.twig:7
+msgid "first"
+msgstr "prvý"
+
+#: templates/columns_definitions/move_column.twig:12
+#: templates/table/structure/add_column.twig:19
+#, php-format
+msgid "after %s"
+msgstr "po %s"
+
 #: templates/login/header.twig:12
 msgid ""
 "There is mismatch between HTTPS indicated on the server and client. This can "
 "lead to non working phpMyAdmin or a security risk. Please fix your server "
 "configuration to indicate HTTPS properly."
 msgstr ""
+
+#: templates/display/export/template_options.twig:1
+msgid "Select a template"
+msgstr "Zvoľte šablónu"
+
+#: templates/server/variables/variable_row.twig:6
+msgid "This is a read-only variable and can not be edited"
+msgstr ""
+
+#: templates/console/display.twig:7
+msgid "History"
+msgstr "História"
+
+#: templates/console/display.twig:11 templates/console/display.twig:99
+msgid "Bookmarks"
+msgstr "Záložky"
+
+#: templates/console/display.twig:20
+msgid "Press Ctrl+Enter to execute query"
+msgstr "Stlačte Ctrl+Enter pre spustenie dopytu"
+
+#: templates/console/display.twig:23
+msgid "Press Enter to execute query"
+msgstr "Stlačte Enter pre spustenie dopytu"
+
+#: templates/console/display.twig:31 templates/console/display.twig:175
+msgid "Explain"
+msgstr "Vysvetliť"
+
+#: templates/console/display.twig:40 templates/console/display.twig:184
+msgid "Bookmark"
+msgstr "Záložka"
+
+#: templates/console/display.twig:40 templates/console/display.twig:184
+msgid "Query failed"
+msgstr "Dopyt zlyhal"
+
+#: templates/console/display.twig:42 templates/console/display.twig:184
+msgid "Queried time"
+msgstr "Čas behu"
+
+#: templates/console/display.twig:47
+msgid "During current session"
+msgstr "Počas aktuálnej relácie"
+
+#: templates/console/display.twig:64
+msgid "ascending"
+msgstr "vzostupne"
+
+#: templates/console/display.twig:64
+msgid "descending"
+msgstr "zostupne"
+
+#: templates/console/display.twig:64
+msgid "Order:"
+msgstr "Poradie:"
+
+#: templates/console/display.twig:64 templates/console/display.twig:84
+#: templates/table/search/replace_preview.twig:17
+msgid "Count"
+msgstr "Počet"
+
+#: templates/console/display.twig:64
+msgid "Execution order"
+msgstr "Poradie vykonávania"
+
+#: templates/console/display.twig:64 templates/console/display.twig:84
+msgid "Time taken"
+msgstr "Ubehnutý čas"
+
+#: templates/console/display.twig:64
+msgid "Order by:"
+msgstr "Zoradiť podľa:"
+
+#: templates/console/display.twig:64
+msgid "Ungroup queries"
+msgstr "Zrušiť zoskupenie dopytov"
+
+#: templates/console/display.twig:84
+msgid "Show trace"
+msgstr "Zobraziť trasovacie informácie"
+
+#: templates/console/display.twig:84
+msgid "Hide trace"
+msgstr "Skryť trasovacie informácie"
+
+#: templates/console/display.twig:99
+#: templates/columns_definitions/column_definitions_form.twig:32
+#: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
+#: templates/export/alias_add.twig:46
+msgid "Add"
+msgstr "Pridať"
+
+#: templates/console/display.twig:112
+msgid "Add bookmark"
+msgstr "Pridať záložku"
+
+#: templates/console/display.twig:121
+msgid "Label"
+msgstr "Názov"
+
+#: templates/console/display.twig:124
+msgid "Target database"
+msgstr "Cieľová databáza"
+
+#: templates/console/display.twig:127
+msgid "Share this bookmark"
+msgstr "Zdieľať túto záložku"
+
+#: templates/console/display.twig:140
+msgid "Set default"
+msgstr "Nastaviť predvolené"
+
+#: templates/console/display.twig:162
+msgid ""
+"Execute queries on Enter and insert new line with Shift + Enter. To make "
+"this permanent, view settings."
+msgstr ""
+
+#: templates/table/structure/optional_action_links.twig:8
+msgid "Propose table structure"
+msgstr "Navrhnúť štruktúru tabuľky"
+
+#: templates/table/structure/optional_action_links.twig:25
+msgid "Normalize"
+msgstr ""
+
+#: templates/table/structure/optional_action_links.twig:31
+msgid "Track view"
+msgstr "Sledovať pohľad"
+
+#: templates/table/search/table_header.twig:9
+#: templates/database/designer/aggregate_query_panel.twig:30
+#: templates/database/designer/having_query_panel.twig:30
+#: templates/database/designer/having_query_panel.twig:61
+#: templates/database/designer/options_panel.twig:105
+#: templates/database/designer/options_panel.twig:169
+#: templates/database/designer/where_query_panel.twig:30
+msgid "Operator"
+msgstr "Operátor"
+
+#: templates/database/designer/delete_relation_panel.twig:21
+#, fuzzy
+#| msgid "Delete relation"
+msgid "Delete relationship"
+msgstr "Zmazať reláciu"
+
+#: templates/columns_definitions/table_fields_definitions.twig:17
+#, fuzzy
+#| msgid ""
+#| "If column type is \"enum\" or \"set\", please enter the values using this "
+#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
+#| "a single quote (\"'\") amongst those values, precede it with a backslash "
+#| "(for example '\\\\xyz' or 'a\\'b')."
+msgid ""
+"If column type is \"enum\" or \"set\", please enter the values using this "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
+"single quote (\"'\") amongst those values, precede it with a backslash (for "
+"example '\\\\xyz' or 'a\\'b')."
+msgstr ""
+"Ak je pole typu \"enum\" alebo \"set\", prosím zadávajte hodnoty v tvare: "
+"'a','b','c'…<br />Ak potrebujete zadať spätné lomítko (\"\\\") alebo "
+"apostrof (\"'\") pri týchto hodnotách, zadajte ich pomocou uvádzacieho "
+"spätného lomítka (napr. '\\\\xyz' alebo 'a\\'b')."
+
+#: templates/columns_definitions/table_fields_definitions.twig:21
+msgid ""
+"For default values, please enter just a single value, without backslash "
+"escaping or quotes, using this format: a"
+msgstr ""
+"Pre predvolené hodnoty, prosím zadajte iba jednu hodnotu bez úvodzoviek "
+"alebo uvádzacích znakov, napr.: a"
+
+#: templates/columns_definitions/table_fields_definitions.twig:59
+msgid "Virtuality"
+msgstr ""
+
+#: templates/columns_definitions/table_fields_definitions.twig:65
+msgid "Move column"
+msgstr "Presunúť stĺpce"
+
+#: templates/columns_definitions/table_fields_definitions.twig:76
+#: templates/columns_definitions/table_fields_definitions.twig:87
+msgid "List of available transformations and their options"
+msgstr "Zoznam dostupných transformácií a ich možnosti"
+
+#: templates/columns_definitions/table_fields_definitions.twig:82
+msgid "Browser display transformation options"
+msgstr "Možnosti transformácie pri zobrazení"
+
+#: templates/columns_definitions/table_fields_definitions.twig:83
+#: templates/columns_definitions/table_fields_definitions.twig:94
+#, fuzzy
+#| msgid ""
+#| "Please enter the values for transformation options using this format: "
+#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
+#| "single quote (\"'\") amongst those values, precede it with a backslash "
+#| "(for example '\\\\xyz' or 'a\\'b')."
+msgid ""
+"Please enter the values for transformation options using this format: 'a', "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
+"quote (\"'\") amongst those values, precede it with a backslash (for example "
+"'\\\\xyz' or 'a\\'b')."
+msgstr ""
+"Prosím zadajte hodnoty pre parametre transformácie v nasledujúcom tvare: "
+"'a', 100, b,'c'…<br />Ak potrebujete použiť spätné lomítko (\"\\\") alebo "
+"jednoduché úvodzovky (\"'\") medzi týmito hodnotami, vložte pred nich spätné "
+"lomítko (napr. '\\\\xyz' alebo 'a\\'b')."
+
+#: templates/columns_definitions/table_fields_definitions.twig:93
+msgid "Input transformation options"
+msgstr "Vstupné parametre transformácie"
+
+#: templates/database/designer/query_details.twig:6
+msgid "Active options"
+msgstr "Zapnuté parametre"
+
+#: templates/database/designer/schema_export.twig:4
+msgid "Select Export Relational Type"
+msgstr ""
+
+#: templates/database/designer/rename_to_panel.twig:22
+#: templates/database/designer/options_panel.twig:84
+msgid "Rename to"
+msgstr "Premenovať na"
+
+#: templates/database/designer/rename_to_panel.twig:30
+#: templates/database/designer/options_panel.twig:90
+msgid "New name"
+msgstr "Nové meno"
+
+#: templates/prefs_autoload.twig:7
+msgid ""
+"Your browser has phpMyAdmin configuration for this domain. Would you like to "
+"import it for current session?"
+msgstr ""
+
+#: templates/prefs_autoload.twig:13
+#, fuzzy
+#| msgid "Delete tracking"
+msgid "Delete settings"
+msgstr "Vymazať sledovanie"
+
+#: templates/privileges/add_privileges_routine.twig:3
+#, fuzzy
+#| msgid "Add privileges on the following table:"
+msgid "Add privileges on the following routine:"
+msgstr "Pridať oprávnenia pre nasledujúcu tabuľku:"
+
+#: templates/database/designer/edit_delete_pages.twig:6
+msgid "Page to open"
+msgstr "Otvoriť stránku"
+
+#: templates/database/designer/edit_delete_pages.twig:6
+msgid "Page to delete"
+msgstr "Stránka na odstránenie"
+
+#: templates/table/index_form.twig:15
+msgid "Index name:"
+msgstr "Meno indexu&nbsp;:"
+
+#: templates/table/index_form.twig:16
+msgid ""
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
+msgstr "\"PRIMARY\" <b>musí</b> byť <b>iba</b> meno primárneho kľúča!"
+
+#: templates/table/index_form.twig:34
+msgid "Index choice:"
+msgstr "Výber indexu:"
+
+#: templates/table/index_form.twig:42
+#, fuzzy
+#| msgid "Active options"
+msgid "Advanced Options"
+msgstr "Zapnuté parametre"
+
+#: templates/table/index_form.twig:48
+msgid "Key block size:"
+msgstr ""
+
+#: templates/table/index_form.twig:65
+msgid "Index type:"
+msgstr "Typ indexu&nbsp;:"
+
+#: templates/table/index_form.twig:77
+msgid "Parser:"
+msgstr "Syntaktický analyzátor:"
+
+#: templates/table/index_form.twig:93
+msgid "Comment:"
+msgstr "Komentár:"
+
+#: templates/table/index_form.twig:118
+#: templates/database/structure/table_header.twig:38
+msgid "Size"
+msgstr "Veľkosť"
+
+#: templates/table/index_form.twig:136 templates/table/index_form.twig:173
+msgid "Drag to reorder"
+msgstr "Usporiadajte pretiahnutím"
+
+#: templates/columns_definitions/column_name.twig:4
+#, php-format
+msgid "Referenced by %s."
+msgstr "Odkazované v %s."
+
+#: templates/columns_definitions/column_name.twig:12
+msgid "Is a foreign key."
+msgstr "Je to cudzí kľúč."
+
+#: templates/columns_definitions/column_name.twig:40
+#, fuzzy
+#| msgid "Remove column(s)"
+msgid "Pick from Central Columns"
+msgstr "Odstrániť stĺpce"
+
+#: templates/display/import/javascript.twig:12
+msgid ""
+"The file being uploaded is probably larger than the maximum allowed size or "
+"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
+"browsers."
+msgstr ""
+"Uploadovaný súbor je pravdepodobne vačší ako maximálna povolená veľkosť "
+"alebo je toto známa chyba v prehliadačoch založených na gecko (Safari, "
+"Google Chrome, Arora etc.)."
+
+#: templates/display/import/javascript.twig:16
+#, php-format
+msgid "%s of %s"
+msgstr "%s z %s"
+
+#: templates/display/import/javascript.twig:17
+#, php-format
+msgid "%s/sec."
+msgstr "%s/sek."
+
+#: templates/display/import/javascript.twig:18
+msgid "About %MIN min. %SEC sec. remaining."
+msgstr ""
+
+#: templates/display/import/javascript.twig:19
+msgid "About %SEC sec. remaining."
+msgstr "Zostáva približne %SEC sekúnd."
+
+#: templates/display/import/javascript.twig:20
+msgid "The file is being processed, please be patient."
+msgstr "Súbor sa spracováva, buďte prosím trpezliví."
+
+#: templates/display/import/javascript.twig:36
+msgid "Uploading your import file…"
+msgstr "Nahrávam váš súbor s importom…"
+
+#: templates/display/import/javascript.twig:161
+msgid ""
+"Please be patient, the file is being uploaded. Details about the upload are "
+"not available."
+msgstr ""
+"Súbor sa načítava, buďte prosím trpezliví. Podrobnosti o nahrávaní nie sú "
+"dostupné."
+
+#: templates/display/export/options_output_compression.twig:4
+msgid "Compression:"
+msgstr "Kompresia:"
+
+#: templates/display/export/options_output_compression.twig:11
+msgid "zipped"
+msgstr "zazipované"
+
+#: templates/display/export/options_output_compression.twig:17
+msgid "gzipped"
+msgstr "gzip-ované"
+
+#: templates/export/alias_item.twig:8
+#, fuzzy
+#| msgid "Remote server"
+msgid "Remove"
+msgstr "Vzdialený server"
+
+#: templates/database/structure/show_create.twig:2
+msgid "Showing create queries"
+msgstr "Zobrazovanie SQL dopytov pre vytvorenie"
+
+#: templates/display/export/options_output_save_dir.twig:5
+#: templates/display/export/options_quick_export.twig:8
+#, fuzzy, php-format
+#| msgid "Save on server in the directory <b>%s</b>"
+msgid "Save on server in the directory <strong>%s</strong>"
+msgstr "Uložiť na server do adresára <b>%s</b>"
+
+#: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:43
+#: templates/prefs_twofactor.twig:54
+#, fuzzy
+#| msgid "Config authentication"
+msgid "Configure two-factor authentication"
+msgstr "Overenie konfigurácie"
+
+#: templates/prefs_twofactor_configure.twig:8
+#, fuzzy
+#| msgid "Config authentication"
+msgid "Enable two-factor authentication"
+msgstr "Overenie konfigurácie"
+
+#: templates/table/relation/foreign_key_row.twig:15
+#, php-format
+msgid "Foreign key constraint %s has been dropped"
+msgstr "Obmedzenie cudzieho kľúča %s bolo zrušené"
+
+#: templates/table/relation/foreign_key_row.twig:38
+msgid "Constraint name"
+msgstr "Názov obmedzenia"
+
+#: templates/login/twofactor/key-https-warning.twig:3
+msgid ""
+"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
+"most likely refuse to authenticate you."
+msgstr ""
+
+#: templates/database/designer/database_tables.twig:37
+msgid "Show/hide columns"
+msgstr "Zobraziť/skryť stĺpce"
+
+#: templates/database/designer/database_tables.twig:46
+msgid "See table structure"
+msgstr "Zobraziť štruktúru tabuľky"
+
+#: templates/database/designer/database_tables.twig:91
+#, fuzzy, php-format
+#| msgid "Select all"
+msgid "Select \"%s\""
+msgstr "Vybrať všetko"
+
+#: templates/database/designer/database_tables.twig:126
+#, php-format
+msgid "Add an option for column \"%s\"."
+msgstr "Pridať voľbu pre stĺpec \"%s\"."
+
+#: templates/database/designer/aggregate_query_panel.twig:22
+#: templates/database/designer/options_panel.twig:99
+msgid "Aggregate"
+msgstr "Zlúčiť"
+
+#: templates/display/export/options_quick_export.twig:2
+#: templates/display/export/options_output.twig:2
+msgid "Output:"
+msgstr "Výstup:"
+
+#: templates/table/gis_visualization/gis_visualization.twig:3
+msgid "Display GIS Visualization"
+msgstr "Zobraziť GIS vizualizáciu"
+
+#: templates/table/gis_visualization/gis_visualization.twig:8
+msgid "Label column"
+msgstr "Popis stĺpca"
+
+#: templates/table/gis_visualization/gis_visualization.twig:11
+msgid "-- None --"
+msgstr ""
+
+#: templates/table/gis_visualization/gis_visualization.twig:19
+msgid "Spatial column"
+msgstr "Priestorový stĺpec"
+
+#: templates/table/structure/row_stats_table.twig:2
+msgid "Row statistics"
+msgstr "Štatistika riadku"
+
+#: templates/table/structure/row_stats_table.twig:8
+msgid "static"
+msgstr "statický"
+
+#: templates/table/structure/row_stats_table.twig:10
+msgid "dynamic"
+msgstr "dynamický"
+
+#: templates/table/structure/row_stats_table.twig:21
+msgid "partitioned"
+msgstr ""
+
+#: templates/table/structure/row_stats_table.twig:50
+msgid "Row length"
+msgstr "Dĺžka riadku"
+
+#: templates/table/structure/row_stats_table.twig:62
+msgid "Row size"
+msgstr "Veľkosť riadku"
+
+#: templates/table/structure/row_stats_table.twig:69
+msgid "Next autoindex"
+msgstr ""
+
+#: templates/table/structure/row_stats_table.twig:76
+#: templates/database/structure/table_header.twig:53
+msgid "Creation"
+msgstr "Vytvorenie"
+
+#: templates/table/structure/row_stats_table.twig:83
+#: templates/database/structure/table_header.twig:58
+msgid "Last update"
+msgstr "Posledná zmena"
+
+#: templates/table/structure/row_stats_table.twig:90
+#: templates/database/structure/table_header.twig:63
+msgid "Last check"
+msgstr "Posledná kontrola"
+
+#: templates/table/structure/add_column.twig:9
+#, php-format
+msgid "Add %s column(s)"
+msgstr "Pridať %s stĺpcov"
+
+#: templates/table/structure/add_column.twig:14
+msgid "at beginning of table"
+msgstr "na začiatku tabuľky"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Server variables and settings"
+msgstr "Premenné a nastavenia serveru"
+
+#: templates/server/sub_page_header.twig:2
+#, fuzzy
+#| msgid "Storage Engines"
+msgid "Storage engines"
+msgstr "Úložné Systémy"
+
+#: templates/server/sub_page_header.twig:2
+#, fuzzy
+#| msgid "Character Sets and Collations"
+msgid "Character sets and collations"
+msgstr "Znakové sady a Zotriedenia"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Databases statistics"
+msgstr "Štatistiky databázy"
+
+#: templates/server/databases/databases_footer.twig:67
+msgid ""
+"Note: Enabling the database statistics here might cause heavy traffic "
+"between the web server and the MySQL server."
+msgstr ""
+"Poznámka: Aktivovanie štatistík databázy môže spôsobiť značné zvýšenie "
+"sieťovej prevádzky medzi databázou a web serverom."
+
+#: templates/server/databases/databases_footer.twig:70
+#: templates/server/databases/databases_footer.twig:71
+msgid "Enable statistics"
+msgstr "Povoliť štatistiky"
+
+#: templates/table/search/search_and_replace.twig:1
+#: templates/database/search/selection_form.twig:15
+msgid "Find:"
+msgstr "Nájdi:"
+
+#: templates/table/search/search_and_replace.twig:3
+msgid "Replace with:"
+msgstr "Nahradiť za:"
+
+#: templates/table/search/search_and_replace.twig:19
+msgid "Use regular expression"
+msgstr "Použiť regulárny výraz"
+
+#: templates/table/structure/partition_definition_form.twig:6
+#: templates/table/structure/display_partitions.twig:141
+#, fuzzy
+#| msgctxt "Inline edit query"
+#| msgid "Edit inline"
+msgid "Edit partitioning"
+msgstr "Upraviť v riadku"
+
+#: templates/login/twofactor.twig:5
+msgid "Verify"
+msgstr ""
+
+#: templates/display/export/option_header.twig:5
+msgid "Exporting databases from the current server"
+msgstr "Exportujem databázy z aktuálneho servera"
+
+#: templates/display/export/option_header.twig:7
+#, php-format
+msgid "Exporting tables from \"%s\" database"
+msgstr "Exportujem tabuľky z databázy \"%s\""
+
+#: templates/display/export/option_header.twig:9
+#, php-format
+msgid "Exporting rows from \"%s\" table"
+msgstr "Exportujem riadky z tabuľky \"%s\""
 
 #: templates/display/export/options_output_separate_files.twig:7
 msgid "Export databases as separate files"
@@ -14359,6 +15608,559 @@ msgstr "Exportovať databázy ako samostatné súbory"
 #: templates/display/export/options_output_separate_files.twig:9
 msgid "Export tables as separate files"
 msgstr "Exportovať tabuľky ako samostatné súbory"
+
+#: templates/server/variables/session_variable_row.twig:3
+msgid "Session value"
+msgstr "Hodnota sedenia"
+
+#: templates/database/designer/having_query_panel.twig:90
+#: templates/database/designer/options_panel.twig:63
+#: templates/database/designer/options_panel.twig:228
+#: templates/database/designer/where_query_panel.twig:59
+msgid "Except"
+msgstr "Okrem"
+
+#: templates/database/designer/having_query_panel.twig:102
+#: templates/database/designer/options_panel.twig:75
+#: templates/database/designer/options_panel.twig:240
+#: templates/database/designer/where_query_panel.twig:71
+msgid "subquery"
+msgstr "poddopyt"
+
+#: templates/database/create_table.twig:15
+msgid "Number of columns"
+msgstr "Počet polí"
+
+#: templates/table/relation/common_form.twig:6
+msgid "Foreign key constraints"
+msgstr "Obmedzenia cudzieho kľúča"
+
+#: templates/table/relation/common_form.twig:10
+msgid "Actions"
+msgstr "Akcie"
+
+#: templates/table/relation/common_form.twig:11
+msgid "Constraint properties"
+msgstr "Nastavenia obmedzenia"
+
+#: templates/table/relation/common_form.twig:15
+msgid ""
+"Creating a foreign key over a non-indexed column would automatically create "
+"an index on it. Alternatively, you can define an index below, before "
+"creating the foreign key."
+msgstr ""
+
+#: templates/table/relation/common_form.twig:20
+msgid ""
+"Only columns with index will be displayed. You can define an index below."
+msgstr ""
+
+#: templates/table/relation/common_form.twig:24
+msgid "Foreign key constraint"
+msgstr ""
+
+#: templates/table/relation/common_form.twig:89
+msgid "+ Add constraint"
+msgstr "+ Pridať obmedzenie"
+
+#: templates/table/relation/common_form.twig:99
+#: templates/table/relation/common_form.twig:104
+#, fuzzy
+#| msgid "Internal relations"
+msgid "Internal relationships"
+msgstr "Interné vzťahy"
+
+#: templates/table/relation/common_form.twig:110
+msgid "Internal relation"
+msgstr "Interné vzťahy"
+
+#: templates/table/relation/common_form.twig:112
+msgid ""
+"An internal relation is not necessary when a corresponding FOREIGN KEY "
+"relation exists."
+msgstr ""
+
+#: templates/table/relation/common_form.twig:172
+msgid "Choose column to display:"
+msgstr "Zvoľte, ktoré polia zobraziť:"
+
+#: templates/database/structure/check_all_tables.twig:6
+msgid "Check tables having overhead"
+msgstr "Zvoliť neoptimálne"
+
+#: templates/database/structure/check_all_tables.twig:10
+#, fuzzy
+#| msgid "No tables"
+msgid "Copy table"
+msgstr "Žiadne tabuľky"
+
+#: templates/database/structure/check_all_tables.twig:11
+msgid "Show create"
+msgstr "Zobraziť vytvorenie"
+
+#: templates/database/structure/check_all_tables.twig:25
+msgid "Prefix"
+msgstr "Predpona"
+
+#: templates/database/structure/check_all_tables.twig:26
+msgid "Add prefix to table"
+msgstr "Pridať predponu k tabuľke"
+
+#: templates/database/structure/check_all_tables.twig:27
+msgid "Replace table prefix"
+msgstr "Nahradiť predponu tabuľky"
+
+#: templates/database/structure/check_all_tables.twig:33
+msgid "Add columns to central list"
+msgstr "Pridať stĺpce do centrálneho zoznamu"
+
+#: templates/database/structure/check_all_tables.twig:34
+msgid "Remove columns from central list"
+msgstr ""
+
+#: templates/database/structure/check_all_tables.twig:35
+msgid "Make consistent with central list"
+msgstr "Zosúladiť s centrálnym zoznamom"
+
+#: templates/database/designer/options_panel.twig:34
+#: templates/database/designer/options_panel.twig:199
+#, fuzzy
+#| msgid "Relation operator"
+msgid "Relationship operator"
+msgstr "Relačný operátor"
+
+#: templates/privileges/add_user_fieldset.twig:2
+msgctxt "Create new user"
+msgid "New"
+msgstr "Nový"
+
+#: templates/login/twofactor/key_configure.twig:3
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm registration on the device."
+msgstr ""
+
+#: templates/table/tracking/report_table.twig:4
+#: templates/table/tracking/structure_snapshot_columns.twig:5
+#, fuzzy
+#| msgid "#"
+msgctxt "Number"
+msgid "#"
+msgstr "#"
+
+#: templates/table/tracking/report_table.twig:5
+msgid "Date"
+msgstr "Dátum"
+
+#: templates/table/tracking/report_table.twig:6
+msgid "Username"
+msgstr "Užívateľ"
+
+#: templates/database/qbe/footer_options.twig:3
+msgid "Add/Delete criteria rows"
+msgstr "Pridať/Odobrať riadky s kritériami"
+
+#: templates/database/qbe/footer_options.twig:5
+msgid "Add/Delete columns"
+msgstr "Pridať/Odobrať stĺpce"
+
+#: templates/table/search/rows_zoom.twig:12
+msgid "Additional search criteria"
+msgstr "Rozšírené parametre vyhľadávania"
+
+#: templates/database/search/results.twig:12
+#, php-format
+msgid "%1$s match in <strong>%2$s</strong>"
+msgid_plural "%1$s matches in <strong>%2$s</strong>"
+msgstr[0] "%1$s výskyt v <strong>%2$s</strong>"
+msgstr[1] "%1$s výskyty v <strong>%2$s</strong>"
+msgstr[2] "%1$s výskytov v <strong>%2$s</strong>"
+
+#: templates/database/search/results.twig:56
+#, fuzzy
+#| msgid "<b>Total:</b> <i>%s</i> match"
+#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
+msgid "<strong>Total:</strong> <em>%count%</em> match"
+msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+msgstr[0] "<b>Celkovo:</b> <i>%s</i> výskyt"
+msgstr[1] "<b>Celkovo:</b> <i>%s</i> výskyty"
+msgstr[2] "<b>Celkovo:</b> <i>%s</i> výskytov"
+
+#: templates/database/structure/table_header.twig:27
+msgid ""
+"May be approximate. Click on the number to get the exact count. See "
+"[doc@faq3-11]FAQ 3.11[/doc]."
+msgstr ""
+"Môže byť nepresné. Kliknutím na číslo dostanete presný počet. Viď "
+"[doc@faq3-11]FAQ 3.11[/doc]."
+
+#: templates/start_and_number_of_rows_panel.twig:3
+msgid "Start row:"
+msgstr "Začiatočný riadok:"
+
+#: templates/database/central_columns/add_column.twig:13
+msgid "Select a column."
+msgstr "Zvoľte stĺpec."
+
+#: templates/database/structure/tracking_icon.twig:3
+msgid "Tracking is active."
+msgstr "Sledovanie je aktívne."
+
+#: templates/database/structure/tracking_icon.twig:5
+msgid "Tracking is not active."
+msgstr "Sledovanie nie je aktívne."
+
+#: templates/database/search/selection_form.twig:5
+msgid "Search in database"
+msgstr "Hľadať v databáze"
+
+#: templates/database/search/selection_form.twig:8
+msgid "Words or values to search for (wildcard: \"%\"):"
+msgstr "Slová alebo hodnoty, ktoré chcete vyhľadať (nahradzujúci znak: \"%\"):"
+
+#: templates/database/search/selection_form.twig:29
+msgid "Inside tables:"
+msgstr "V tabuľkách:"
+
+#: templates/database/search/selection_form.twig:51
+msgid "Inside column:"
+msgstr "V tabuľke:"
+
+#: templates/view_create.twig:13
+#: templates/table/structure/display_structure.twig:138
+msgid "Edit view"
+msgstr "Upraviť zobrazenie"
+
+#: templates/view_create.twig:65
+msgid "VIEW name"
+msgstr "Meno pohľadu"
+
+#: templates/view_create.twig:79
+msgid "Column names"
+msgstr "Názvy stĺpcov"
+
+#: templates/theme_preview.twig:11
+msgid "No preview available."
+msgstr "Náhľad nie je dostupný."
+
+#: templates/theme_preview.twig:13
+#, fuzzy
+#| msgid "take it"
+msgid "Take it"
+msgstr "zvoliť"
+
+#: templates/prefs_twofactor.twig:3
+#, fuzzy
+#| msgid "Authentication settings."
+msgid "Two-factor authentication status"
+msgstr "Nastavenia prihlasovania."
+
+#: templates/prefs_twofactor.twig:9
+msgid ""
+"Two-factor authentication is not available, please install optional "
+"dependencies to enable authentication backends."
+msgstr ""
+
+#: templates/prefs_twofactor.twig:10
+msgid "Following composer packages are missing:"
+msgstr ""
+
+#: templates/prefs_twofactor.twig:18
+msgid "Two-factor authentication is available and configured for this account."
+msgstr ""
+
+#: templates/prefs_twofactor.twig:20
+msgid ""
+"Two-factor authentication is available, but not configured for this account."
+msgstr ""
+
+#: templates/prefs_twofactor.twig:24
+#, fuzzy
+#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
+msgid ""
+"Two-factor authentication is not available, enable phpMyAdmin configuration "
+"storage to use it."
+msgstr "%sVytvoriť%s chýbajúce tabuľky pre uloženie phpMyAdmin konfigurácie."
+
+#: templates/prefs_twofactor.twig:33
+msgid "You have enabled two factor authentication."
+msgstr ""
+
+#: templates/display/export/options_output_radio.twig:5
+msgid "View output as text"
+msgstr "Zobraziť výstup ako text"
+
+#: templates/login/twofactor/key.twig:3
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm login on the device."
+msgstr ""
+
+#: templates/server/databases/create.twig:8
+#: templates/server/databases/create.twig:36
+msgid "Create database"
+msgstr "Vytvoriť databázu"
+
+#: templates/database/designer/page_save_as.twig:17
+msgid "Save to selected page"
+msgstr "Uložiť na zvolenú stránku"
+
+#: templates/database/designer/page_save_as.twig:17
+msgid "Create a page and save to it"
+msgstr "Vytvoriť stránku a uložiť do nej"
+
+#: templates/database/designer/page_save_as.twig:30
+msgid "New page name"
+msgstr "Názov novej stránky"
+
+#: templates/table/tracking/structure_snapshot_columns.twig:47
+#: templates/table/structure/table_structure_row.twig:34
+msgctxt "None for default"
+msgid "None"
+msgstr "Žiadny"
+
+#: templates/display/export/options_rows.twig:2
+msgid "Rows:"
+msgstr "Riadky:"
+
+#: templates/display/export/options_rows.twig:7
+msgid "Dump some row(s)"
+msgstr "Vypísať niektoré riadky"
+
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
+msgstr "Začať od riadku:"
+
+#: templates/display/export/options_rows.twig:32
+msgid "Dump all rows"
+msgstr "Vypísať všetky riadky"
+
+#: templates/table/structure/table_structure_row.twig:55
+#, php-format
+msgid "Column %s has been dropped."
+msgstr "Stĺpec %s bol odstránený."
+
+#: templates/toggle_button.twig:3
+msgid "Click to toggle"
+msgstr "Kliknite pre prepnutie"
+
+#: templates/server/databases/table_row.twig:13
+#, fuzzy, php-format
+#| msgid "Jump to database"
+msgid "Jump to database '%s'"
+msgstr "Prejsť do databázy"
+
+#: templates/server/databases/table_row.twig:63
+#, php-format
+msgid "Check privileges for database \"%s\"."
+msgstr "Skontrolovať oprávnenia pre databázu \"%s\"."
+
+#: templates/server/databases/table_row.twig:64
+msgid "Check privileges"
+msgstr "Skontrolovať oprávnenia"
+
+#: templates/table/search/replace_preview.twig:13
+msgid "Find and replace - preview"
+msgstr "Nájsť a nahradiť - náhľad"
+
+#: templates/table/search/replace_preview.twig:18
+msgid "Original string"
+msgstr "Pôvodný reťazec"
+
+#: templates/table/search/replace_preview.twig:19
+msgid "Replaced string"
+msgstr "Nahradený reťazec"
+
+#: templates/table/search/replace_preview.twig:37
+msgid "Replace"
+msgstr "Nahradiť"
+
+#: templates/display/results/options_block.twig:30
+msgid "Relational key"
+msgstr "Relačný kľúč"
+
+#: templates/display/results/options_block.twig:30
+#, fuzzy
+#| msgid "Display column for relations"
+msgid "Display column for relationships"
+msgstr "Zobraziť stĺpec so vzťahmi"
+
+#: templates/display/results/options_block.twig:46
+msgid "Show binary contents"
+msgstr "Zobraziť binárny obsah"
+
+#: templates/display/results/options_block.twig:53
+msgid "Show BLOB contents"
+msgstr "Zobraziť obsah BLOBu"
+
+#: templates/display/results/options_block.twig:67
+msgid "Hide browser transformation"
+msgstr "Skryť transformácie prehliadača"
+
+#: templates/display/results/options_block.twig:79
+#: templates/display/results/options_block.twig:96
+msgid "Well Known Text"
+msgstr "Text (Well Known Text)"
+
+#: templates/display/results/options_block.twig:79
+#: templates/display/results/options_block.twig:96
+msgid "Well Known Binary"
+msgstr "Well Known Binary"
+
+#: templates/display/export/method.twig:3
+msgid "Export method:"
+msgstr "Metóda exportu:"
+
+#: templates/display/export/method.twig:9
+msgid "Quick - display only the minimal options"
+msgstr "Rýchla - zobraziť len minimum možností"
+
+#: templates/display/export/method.twig:17
+msgid "Custom - display all possible options"
+msgstr "Vlastná - zobrazí všetky voľby nastavení"
+
+#: templates/database/structure/body_for_table_summary.twig:6
+#, php-format
+msgid "%s table"
+msgid_plural "%s tables"
+msgstr[0] "%s tabuľka"
+msgstr[1] "%s tabuľky"
+msgstr[2] "%s tabuliek"
+
+#: templates/database/structure/body_for_table_summary.twig:17
+msgid "Sum"
+msgstr "Celkom"
+
+#: templates/login/twofactor/invalid.twig:2
+#, fuzzy
+#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
+msgid ""
+"The configured two factor authentication is not available, please install "
+"missing dependencies."
+msgstr "%sVytvoriť%s chýbajúce tabuľky pre uloženie phpMyAdmin konfigurácie."
+
+#: templates/server/binlog/log_selector.twig:5
+msgid "Select binary log to view"
+msgstr "Vyberte binárny log na zobrazenie"
+
+#: templates/display/export/options_output.twig:26
+msgid "Save output to a file"
+msgstr "Uložiť výstup do suboru"
+
+#: templates/display/export/options_output.twig:51
+#, fuzzy, php-format
+#| msgid "Skip tables larger than"
+msgid "Skip tables larger than %s MiB"
+msgstr "Preskočiť tabuľky väčšie ako"
+
+#: templates/table/structure/display_structure.twig:194
+#: templates/table/structure/display_partitions.twig:4
+msgid "Partitions"
+msgstr "Oddiely"
+
+#: templates/table/secondary_tabs.twig:9
+msgid "Relation view"
+msgstr "Zobrazenie relácii"
+
+#: templates/columns_definitions/column_default.twig:3
+msgctxt "for default"
+msgid "None"
+msgstr "Žiadny"
+
+#: templates/columns_definitions/column_default.twig:5
+msgid "As defined:"
+msgstr "Podľa zadania:"
+
+#: templates/database/designer/page_selector.twig:2
+msgid "Select page"
+msgstr "Zvoliť stránku"
+
+#: templates/privileges/delete_user_fieldset.twig:3
+msgid "Remove selected user accounts"
+msgstr "Odstrániť vybrané účty používateľov"
+
+#: templates/privileges/delete_user_fieldset.twig:6
+msgid "Revoke all active privileges from the users and delete them afterwards."
+msgstr ""
+"Odobranie všetkých aktívnych práv používateľom a ich následné odstránenie."
+
+#: templates/privileges/delete_user_fieldset.twig:7
+#: templates/privileges/delete_user_fieldset.twig:10
+#: templates/privileges/delete_user_fieldset.twig:11
+msgid "Drop the databases that have the same names as the users."
+msgstr "Odstrániť databázy s rovnakým menom ako majú používatelia."
+
+#: templates/table/structure/actions_in_table_structure.twig:15
+#, php-format
+msgid "A primary key has been added on %s."
+msgstr "Bol pridaný primárny kľúč pre %s."
+
+#: templates/table/structure/actions_in_table_structure.twig:33
+#: templates/table/structure/actions_in_table_structure.twig:51
+#: templates/table/structure/actions_in_table_structure.twig:80
+#: templates/table/structure/actions_in_table_structure.twig:103
+#, php-format
+msgid "An index has been added on %s."
+msgstr "Bol pridaný index pre %s."
+
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr "Názov tabuľky"
+
+#: templates/columns_definitions/column_definitions_form.twig:40
+#, fuzzy
+#| msgid "Add column(s)"
+msgid "column(s)"
+msgstr "Pridať stĺpce"
+
+#: templates/columns_definitions/column_definitions_form.twig:74
+msgid "Collation:"
+msgstr "Zoradenie:"
+
+#: templates/columns_definitions/column_definitions_form.twig:77
+msgid "Storage Engine:"
+msgstr "Úložný Systém:"
+
+#: templates/columns_definitions/column_definitions_form.twig:82
+msgid "Connection:"
+msgstr "Spojenie:"
+
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
+msgstr ""
+
+#: templates/table/search/options.twig:6
+msgid "Select columns (at least one):"
+msgstr "Zvoliť stĺpec (najmenej jeden):"
+
+#: templates/table/search/options.twig:26
+msgid "Add search conditions (body of the \"where\" clause):"
+msgstr "Pridať vyhľadávacie parametre (obsah dopytu po \"where\" príkaze):"
+
+#: templates/table/search/options.twig:34
+msgid "Number of rows per page"
+msgstr "Záznamov na stránku"
+
+#: templates/table/search/options.twig:45
+msgid "Display order:"
+msgstr "Zobraziť zoradené:"
+
+#: templates/database/tracking/tracked_tables.twig:2
+msgid "Tracked tables"
+msgstr "Sledované tabuľky"
+
+#: templates/database/tracking/tracked_tables.twig:12
+msgid "Last version"
+msgstr "Posledná verzia"
+
+#: templates/database/tracking/tracked_tables.twig:54
+#: templates/database/tracking/tracked_tables.twig:99
+msgid "Delete tracking"
+msgstr "Vymazať sledovanie"
+
+#: templates/database/tracking/tracked_tables.twig:65
+msgid "Versions"
+msgstr "Verzia"
 
 #: templates/table/chart/tbl_chart.twig:15
 msgctxt "Chart type"
@@ -14454,1653 +16256,6 @@ msgstr "Hodnoty pre pole %s"
 msgid "Save chart as image"
 msgstr "Uložiť graf ako obrázok"
 
-#: templates/columns_definitions/move_column.twig:7
-msgid "first"
-msgstr "prvý"
-
-#: templates/columns_definitions/move_column.twig:12
-#: templates/table/structure/add_column.twig:19
-#, php-format
-msgid "after %s"
-msgstr "po %s"
-
-#: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create User"
-msgid "Create %s"
-msgstr "Vytvoriť uživateľa"
-
-#: templates/database/designer/edit_delete_pages.twig:6
-msgid "Page to open"
-msgstr "Otvoriť stránku"
-
-#: templates/database/designer/edit_delete_pages.twig:6
-msgid "Page to delete"
-msgstr "Stránka na odstránenie"
-
-#: templates/table/insert/continue_insertion_form.twig:18
-#, php-format
-msgid "Continue insertion with %s rows"
-msgstr ""
-
-#: templates/toggle_button.twig:3
-msgid "Click to toggle"
-msgstr "Kliknite pre prepnutie"
-
-#: templates/table/tracking/structure_snapshot_columns.twig:5
-#: templates/table/tracking/report_table.twig:4
-#, fuzzy
-#| msgid "#"
-msgctxt "Number"
-msgid "#"
-msgstr "#"
-
-#: templates/table/tracking/structure_snapshot_columns.twig:47
-#: templates/table/structure/table_structure_row.twig:34
-msgctxt "None for default"
-msgid "None"
-msgstr "Žiadny"
-
-#: templates/columns_definitions/partitions.twig:17
-#, fuzzy
-#| msgid "Position"
-msgid "Partition by:"
-msgstr "Pozícia"
-
-#: templates/columns_definitions/partitions.twig:32
-#: templates/columns_definitions/partitions.twig:60
-#, fuzzy
-#| msgid "Values for column %s"
-msgid "Expression or column list"
-msgstr "Hodnoty pre pole %s"
-
-#: templates/columns_definitions/partitions.twig:37
-#, fuzzy
-#| msgid "Position"
-msgid "Partitions:"
-msgstr "Pozícia"
-
-#: templates/columns_definitions/partitions.twig:45
-#, fuzzy
-#| msgid "Position"
-msgid "Subpartition by:"
-msgstr "Pozícia"
-
-#: templates/columns_definitions/partitions.twig:65
-#, fuzzy
-#| msgid "Position"
-msgid "Subpartitions:"
-msgstr "Pozícia"
-
-#: templates/columns_definitions/partitions.twig:76
-#: templates/table/structure/display_partitions.twig:24
-#, fuzzy
-#| msgid "Position"
-msgid "Partition"
-msgstr "Pozícia"
-
-#: templates/columns_definitions/partitions.twig:78
-#, fuzzy
-#| msgid "Value"
-msgid "Values"
-msgstr "Hodnota"
-
-#: templates/columns_definitions/partitions.twig:82
-#, fuzzy
-#| msgid "Position"
-msgid "Subpartition"
-msgstr "Pozícia"
-
-#: templates/columns_definitions/partitions.twig:84
-#, fuzzy
-#| msgid "Engines"
-msgid "Engine"
-msgstr "Systémy"
-
-#: templates/columns_definitions/partitions.twig:86
-#, fuzzy
-#| msgid "Data home directory"
-msgid "Data directory"
-msgstr "Domovský adresár pre dáta"
-
-#: templates/columns_definitions/partitions.twig:87
-#, fuzzy
-#| msgid "Save directory"
-msgid "Index directory"
-msgstr "Adresár pre ukladanie"
-
-#: templates/columns_definitions/partitions.twig:88
-#, fuzzy
-#| msgid "Matched rows:"
-msgid "Max rows"
-msgstr "Vyhovujúce riadky:"
-
-#: templates/columns_definitions/partitions.twig:89
-#, fuzzy
-#| msgid "rows"
-msgid "Min rows"
-msgstr "Prechádzať"
-
-#: templates/columns_definitions/partitions.twig:90
-#, fuzzy
-#| msgid "Table search"
-msgid "Table space"
-msgstr "Vyhľadávanie v tabuľke"
-
-#: templates/columns_definitions/partitions.twig:91
-#, fuzzy
-#| msgid "User groups"
-msgid "Node group"
-msgstr "Užívateľské skupiny"
-
-#: templates/table/structure/add_column.twig:9
-#, php-format
-msgid "Add %s column(s)"
-msgstr "Pridať %s stĺpcov"
-
-#: templates/table/structure/add_column.twig:14
-msgid "at beginning of table"
-msgstr "na začiatku tabuľky"
-
-#: templates/database/designer/having_query_panel.twig:30
-#: templates/database/designer/having_query_panel.twig:61
-#: templates/table/search/table_header.twig:9
-#: templates/database/designer/options_panel.twig:105
-#: templates/database/designer/options_panel.twig:169
-#: templates/database/designer/aggregate_query_panel.twig:30
-#: templates/database/designer/where_query_panel.twig:30
-msgid "Operator"
-msgstr "Operátor"
-
-#: templates/database/designer/having_query_panel.twig:90
-#: templates/database/designer/options_panel.twig:63
-#: templates/database/designer/options_panel.twig:228
-#: templates/database/designer/where_query_panel.twig:59
-msgid "Except"
-msgstr "Okrem"
-
-#: templates/database/designer/having_query_panel.twig:102
-#: templates/database/designer/options_panel.twig:75
-#: templates/database/designer/options_panel.twig:240
-#: templates/database/designer/where_query_panel.twig:71
-msgid "subquery"
-msgstr "poddopyt"
-
-#: templates/error/report_form.twig:6
-msgid ""
-"This report automatically includes data about the error and information "
-"about relevant configuration settings. It will be sent to the phpMyAdmin "
-"team for debugging the error."
-msgstr ""
-
-#: templates/error/report_form.twig:12
-msgid ""
-"Can you tell us the steps leading to this error? It decisively helps in "
-"debugging:"
-msgstr ""
-
-#: templates/error/report_form.twig:19
-msgid "You may examine the data in the error report:"
-msgstr ""
-
-#: templates/start_and_number_of_rows_panel.twig:3
-msgid "Start row:"
-msgstr "Začiatočný riadok:"
-
-#: templates/start_and_number_of_rows_panel.twig:10
-#: templates/display/export/options_rows.twig:10
-#: templates/display/results/additional_fields.twig:6
-msgid "Number of rows:"
-msgstr "Počet riadkov:"
-
-#: templates/table/structure/optional_action_links.twig:8
-msgid "Propose table structure"
-msgstr "Navrhnúť štruktúru tabuľky"
-
-#: templates/table/structure/optional_action_links.twig:18
-#: templates/database/tracking/untracked_tables.twig:28
-#: templates/database/tracking/untracked_tables.twig:40
-msgid "Track table"
-msgstr "Sledovať tabuľku"
-
-#: templates/table/structure/optional_action_links.twig:22
-#: templates/table/structure/move_columns_dialog.twig:1
-msgid "Move columns"
-msgstr "Presunúť stĺpce"
-
-#: templates/table/structure/optional_action_links.twig:25
-msgid "Normalize"
-msgstr ""
-
-#: templates/table/structure/optional_action_links.twig:31
-msgid "Track view"
-msgstr "Sledovať pohľad"
-
-#: templates/export/alias_item.twig:8
-#, fuzzy
-#| msgid "Remote server"
-msgid "Remove"
-msgstr "Vzdialený server"
-
-#: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
-#| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
-msgid ""
-"If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
-"single quote (\"'\") amongst those values, precede it with a backslash (for "
-"example '\\\\xyz' or 'a\\'b')."
-msgstr ""
-"Ak je pole typu \"enum\" alebo \"set\", prosím zadávajte hodnoty v tvare: "
-"'a','b','c'…<br />Ak potrebujete zadať spätné lomítko (\"\\\") alebo "
-"apostrof (\"'\") pri týchto hodnotách, zadajte ich pomocou uvádzacieho "
-"spätného lomítka (napr. '\\\\xyz' alebo 'a\\'b')."
-
-#: templates/columns_definitions/table_fields_definitions.twig:21
-msgid ""
-"For default values, please enter just a single value, without backslash "
-"escaping or quotes, using this format: a"
-msgstr ""
-"Pre predvolené hodnoty, prosím zadajte iba jednu hodnotu bez úvodzoviek "
-"alebo uvádzacích znakov, napr.: a"
-
-#: templates/columns_definitions/table_fields_definitions.twig:59
-msgid "Virtuality"
-msgstr ""
-
-#: templates/columns_definitions/table_fields_definitions.twig:65
-msgid "Move column"
-msgstr "Presunúť stĺpce"
-
-#: templates/columns_definitions/table_fields_definitions.twig:76
-#: templates/columns_definitions/table_fields_definitions.twig:87
-msgid "List of available transformations and their options"
-msgstr "Zoznam dostupných transformácií a ich možnosti"
-
-#: templates/columns_definitions/table_fields_definitions.twig:82
-msgid "Browser display transformation options"
-msgstr "Možnosti transformácie pri zobrazení"
-
-#: templates/columns_definitions/table_fields_definitions.twig:83
-#: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
-msgid ""
-"Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
-"quote (\"'\") amongst those values, precede it with a backslash (for example "
-"'\\\\xyz' or 'a\\'b')."
-msgstr ""
-"Prosím zadajte hodnoty pre parametre transformácie v nasledujúcom tvare: "
-"'a', 100, b,'c'…<br />Ak potrebujete použiť spätné lomítko (\"\\\") alebo "
-"jednoduché úvodzovky (\"'\") medzi týmito hodnotami, vložte pred nich spätné "
-"lomítko (napr. '\\\\xyz' alebo 'a\\'b')."
-
-#: templates/columns_definitions/table_fields_definitions.twig:93
-msgid "Input transformation options"
-msgstr "Vstupné parametre transformácie"
-
-#: templates/encoding/kanji_encoding_form.twig:6
-msgctxt "None encoding conversion"
-msgid "None"
-msgstr "Žiadny"
-
-#: templates/encoding/kanji_encoding_form.twig:17
-msgid "Convert to Kana"
-msgstr ""
-
-#: templates/table/tracking/report_table.twig:5
-msgid "Date"
-msgstr "Dátum"
-
-#: templates/table/tracking/report_table.twig:6
-msgid "Username"
-msgstr "Užívateľ"
-
-#: templates/display/export/method.twig:3
-msgid "Export method:"
-msgstr "Metóda exportu:"
-
-#: templates/display/export/method.twig:9
-msgid "Quick - display only the minimal options"
-msgstr "Rýchla - zobraziť len minimum možností"
-
-#: templates/display/export/method.twig:17
-msgid "Custom - display all possible options"
-msgstr "Vlastná - zobrazí všetky voľby nastavení"
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Collapse"
-msgstr "Zbaliť"
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Expand"
-msgstr "Rozbaliť"
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:175
-msgid "Requery"
-msgstr "Znovu spustiť dopyt"
-
-#: templates/view_create.twig:13
-#: templates/table/structure/display_structure.twig:138
-msgid "Edit view"
-msgstr "Upraviť zobrazenie"
-
-#: templates/view_create.twig:65
-msgid "VIEW name"
-msgstr "Meno pohľadu"
-
-#: templates/view_create.twig:79
-msgid "Column names"
-msgstr "Názvy stĺpcov"
-
-#: templates/display/export/options_output_format.twig:3
-msgid "File name template:"
-msgstr "Šablóna pre názov súboru:"
-
-#: templates/display/export/options_output_format.twig:11
-msgid "use this for future exports"
-msgstr "použiť aj pre budúce exporty"
-
-#: templates/table/structure/actions_in_table_structure.twig:15
-#, php-format
-msgid "A primary key has been added on %s."
-msgstr "Bol pridaný primárny kľúč pre %s."
-
-#: templates/table/structure/actions_in_table_structure.twig:33
-#: templates/table/structure/actions_in_table_structure.twig:51
-#: templates/table/structure/actions_in_table_structure.twig:80
-#: templates/table/structure/actions_in_table_structure.twig:103
-#, php-format
-msgid "An index has been added on %s."
-msgstr "Bol pridaný index pre %s."
-
-#: templates/table/structure/actions_in_table_structure.twig:127
-#: templates/table/structure/check_all_table_column.twig:83
-msgid "Remove from central columns"
-msgstr "Odstrániť z centrálnych stĺpcov"
-
-#: templates/table/structure/actions_in_table_structure.twig:131
-#: templates/table/structure/check_all_table_column.twig:76
-msgid "Add to central columns"
-msgstr "Pridať do centrálnych stĺpcov"
-
-#: templates/login/twofactor/application.twig:2
-#: templates/login/twofactor/application_configure.twig:21
-#, fuzzy
-#| msgid "Authentication"
-msgid "Authentication code:"
-msgstr "Overenie"
-
-#: templates/login/twofactor/application.twig:4
-msgid ""
-"Open the two-factor authentication app on your device to view your "
-"authentication code and verify your identity."
-msgstr ""
-
-#: templates/database/structure/table_header.twig:27
-msgid ""
-"May be approximate. Click on the number to get the exact count. See "
-"[doc@faq3-11]FAQ 3.11[/doc]."
-msgstr ""
-"Môže byť nepresné. Kliknutím na číslo dostanete presný počet. Viď "
-"[doc@faq3-11]FAQ 3.11[/doc]."
-
-#: templates/database/structure/table_header.twig:38
-#: templates/table/index_form.twig:118
-msgid "Size"
-msgstr "Veľkosť"
-
-#: templates/database/structure/table_header.twig:53
-#: templates/table/structure/row_stats_table.twig:76
-msgid "Creation"
-msgstr "Vytvorenie"
-
-#: templates/database/structure/table_header.twig:58
-#: templates/table/structure/row_stats_table.twig:83
-msgid "Last update"
-msgstr "Posledná zmena"
-
-#: templates/database/structure/table_header.twig:63
-#: templates/table/structure/row_stats_table.twig:90
-msgid "Last check"
-msgstr "Posledná kontrola"
-
-#: templates/display/export/option_header.twig:5
-msgid "Exporting databases from the current server"
-msgstr "Exportujem databázy z aktuálneho servera"
-
-#: templates/display/export/option_header.twig:7
-#, php-format
-msgid "Exporting tables from \"%s\" database"
-msgstr "Exportujem tabuľky z databázy \"%s\""
-
-#: templates/display/export/option_header.twig:9
-#, php-format
-msgid "Exporting rows from \"%s\" table"
-msgstr "Exportujem riadky z tabuľky \"%s\""
-
-#: templates/privileges/resource_limits.twig:2
-msgid "Resource limits"
-msgstr "Obmedzenie zdrojov"
-
-#: templates/privileges/resource_limits.twig:5
-msgid "Note: Setting these options to 0 (zero) removes the limit."
-msgstr ""
-"Poznámka: Nastavenie týchto parametrov na 0 (nulu) odstráni obmedzenia."
-
-#: templates/display/export/options_output_radio.twig:5
-msgid "View output as text"
-msgstr "Zobraziť výstup ako text"
-
-#: templates/columns_definitions/column_length.twig:9
-msgid "Edit ENUM/SET values"
-msgstr ""
-
-#: templates/database/tracking/tracked_tables.twig:2
-msgid "Tracked tables"
-msgstr "Sledované tabuľky"
-
-#: templates/database/tracking/tracked_tables.twig:12
-msgid "Last version"
-msgstr "Posledná verzia"
-
-#: templates/database/tracking/tracked_tables.twig:54
-#: templates/database/tracking/tracked_tables.twig:99
-msgid "Delete tracking"
-msgstr "Vymazať sledovanie"
-
-#: templates/database/tracking/tracked_tables.twig:65
-msgid "Versions"
-msgstr "Verzia"
-
-#: templates/database/designer/page_selector.twig:2
-msgid "Select page"
-msgstr "Zvoliť stránku"
-
-#: templates/theme_preview.twig:11
-msgid "No preview available."
-msgstr "Náhľad nie je dostupný."
-
-#: templates/theme_preview.twig:13
-#, fuzzy
-#| msgid "take it"
-msgid "Take it"
-msgstr "zvoliť"
-
-#: templates/server/databases/databases_footer.twig:65
-msgid ""
-"Note: Enabling the database statistics here might cause heavy traffic "
-"between the web server and the MySQL server."
-msgstr ""
-"Poznámka: Aktivovanie štatistík databázy môže spôsobiť značné zvýšenie "
-"sieťovej prevádzky medzi databázou a web serverom."
-
-#: templates/server/databases/databases_footer.twig:68
-#: templates/server/databases/databases_footer.twig:69
-msgid "Enable statistics"
-msgstr "Povoliť štatistiky"
-
-#: templates/privileges/privileges_summary.twig:20
-msgid "Column-specific privileges"
-msgstr "Oprávnenia pre jednotlivé stĺpce"
-
-#: templates/database/designer/page_save_as.twig:17
-msgid "Save to selected page"
-msgstr "Uložiť na zvolenú stránku"
-
-#: templates/database/designer/page_save_as.twig:17
-msgid "Create a page and save to it"
-msgstr "Vytvoriť stránku a uložiť do nej"
-
-#: templates/database/designer/page_save_as.twig:30
-msgid "New page name"
-msgstr "Názov novej stránky"
-
-#: templates/columns_definitions/column_virtuality.twig:29
-#: templates/table/structure/display_partitions.twig:26
-msgid "Expression"
-msgstr "Výraz"
-
-#: templates/database/designer/schema_export.twig:4
-msgid "Select Export Relational Type"
-msgstr ""
-
-#: templates/table/relation/foreign_key_row.twig:15
-#, php-format
-msgid "Foreign key constraint %s has been dropped"
-msgstr "Obmedzenie cudzieho kľúča %s bolo zrušené"
-
-#: templates/table/relation/foreign_key_row.twig:38
-msgid "Constraint name"
-msgstr "Názov obmedzenia"
-
-#: templates/table/relation/foreign_key_row.twig:90
-#: templates/database/multi_table_query/form.twig:158
-msgid "+ Add column"
-msgstr "+ Pridať stĺpec"
-
-#: templates/database/designer/options_panel.twig:34
-#: templates/database/designer/options_panel.twig:199
-#, fuzzy
-#| msgid "Relation operator"
-msgid "Relationship operator"
-msgstr "Relačný operátor"
-
-#: templates/database/designer/options_panel.twig:84
-#: templates/database/designer/rename_to_panel.twig:22
-msgid "Rename to"
-msgstr "Premenovať na"
-
-#: templates/database/designer/options_panel.twig:90
-#: templates/database/designer/rename_to_panel.twig:30
-msgid "New name"
-msgstr "Nové meno"
-
-#: templates/database/designer/options_panel.twig:99
-#: templates/database/designer/aggregate_query_panel.twig:22
-msgid "Aggregate"
-msgstr "Zlúčiť"
-
-#: templates/table/structure/move_columns_dialog.twig:2
-msgid "Move the columns by dragging them up and down."
-msgstr ""
-
-#: templates/display/export/options_rows.twig:2
-msgid "Rows:"
-msgstr "Riadky:"
-
-#: templates/display/export/options_rows.twig:7
-msgid "Dump some row(s)"
-msgstr "Vypísať niektoré riadky"
-
-#: templates/display/export/options_rows.twig:23
-msgid "Row to begin at:"
-msgstr "Začať od riadku:"
-
-#: templates/display/export/options_rows.twig:32
-msgid "Dump all rows"
-msgstr "Vypísať všetky riadky"
-
-#: templates/display/results/options_block.twig:30
-msgid "Relational key"
-msgstr "Relačný kľúč"
-
-#: templates/display/results/options_block.twig:30
-#, fuzzy
-#| msgid "Display column for relations"
-msgid "Display column for relationships"
-msgstr "Zobraziť stĺpec so vzťahmi"
-
-#: templates/display/results/options_block.twig:46
-msgid "Show binary contents"
-msgstr "Zobraziť binárny obsah"
-
-#: templates/display/results/options_block.twig:53
-msgid "Show BLOB contents"
-msgstr "Zobraziť obsah BLOBu"
-
-#: templates/display/results/options_block.twig:67
-msgid "Hide browser transformation"
-msgstr "Skryť transformácie prehliadača"
-
-#: templates/display/results/options_block.twig:79
-#: templates/display/results/options_block.twig:96
-msgid "Well Known Text"
-msgstr "Text (Well Known Text)"
-
-#: templates/display/results/options_block.twig:79
-#: templates/display/results/options_block.twig:96
-msgid "Well Known Binary"
-msgstr "Well Known Binary"
-
-#: templates/database/qbe/footer_options.twig:3
-msgid "Add/Delete criteria rows"
-msgstr "Pridať/Odobrať riadky s kritériami"
-
-#: templates/database/qbe/footer_options.twig:5
-msgid "Add/Delete columns"
-msgstr "Pridať/Odobrať stĺpce"
-
-#: templates/login/twofactor/key-https-warning.twig:3
-msgid ""
-"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
-"most likely refuse to authenticate you."
-msgstr ""
-
-#: templates/table/search/options_zoom.twig:6
-msgid "Use this column to label each point"
-msgstr "Tento stĺpec sa použije na označenie každého bodu"
-
-#: templates/table/search/options_zoom.twig:32
-msgid "Maximum rows to plot"
-msgstr "Maximálny počet zobrazených riadkov"
-
-#: templates/table/tracking/activate_deactivate.twig:7
-#, php-format
-msgid "Activate tracking for %s"
-msgstr "Aktivovať sledovanie %s"
-
-#: templates/table/tracking/activate_deactivate.twig:9
-msgid "Activate now"
-msgstr ""
-
-#: templates/table/tracking/activate_deactivate.twig:11
-#, php-format
-msgid "Deactivate tracking for %s"
-msgstr "Deaktivovať sledovanie %s"
-
-#: templates/table/tracking/activate_deactivate.twig:13
-msgid "Deactivate now"
-msgstr ""
-
-#: templates/login/twofactor/key_configure.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm registration on the device."
-msgstr ""
-
-#: templates/database/search/selection_form.twig:5
-msgid "Search in database"
-msgstr "Hľadať v databáze"
-
-#: templates/database/search/selection_form.twig:8
-msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Slová alebo hodnoty, ktoré chcete vyhľadať (nahradzujúci znak: \"%\"):"
-
-#: templates/database/search/selection_form.twig:15
-#: templates/table/search/search_and_replace.twig:1
-msgid "Find:"
-msgstr "Nájdi:"
-
-#: templates/database/search/selection_form.twig:29
-msgid "Inside tables:"
-msgstr "V tabuľkách:"
-
-#: templates/database/search/selection_form.twig:51
-msgid "Inside column:"
-msgstr "V tabuľke:"
-
-#: templates/columns_definitions/column_definitions_form.twig:23
-msgid "Table name"
-msgstr "Názov tabuľky"
-
-#: templates/columns_definitions/column_definitions_form.twig:32
-#: templates/console/display.twig:99 templates/export/alias_add.twig:18
-#: templates/export/alias_add.twig:32 templates/export/alias_add.twig:46
-msgid "Add"
-msgstr "Pridať"
-
-#: templates/columns_definitions/column_definitions_form.twig:40
-#, fuzzy
-#| msgid "Add column(s)"
-msgid "column(s)"
-msgstr "Pridať stĺpce"
-
-#: templates/columns_definitions/column_definitions_form.twig:74
-msgid "Collation:"
-msgstr "Zoradenie:"
-
-#: templates/columns_definitions/column_definitions_form.twig:77
-msgid "Storage Engine:"
-msgstr "Úložný Systém:"
-
-#: templates/columns_definitions/column_definitions_form.twig:82
-msgid "Connection:"
-msgstr "Spojenie:"
-
-#: templates/columns_definitions/column_definitions_form.twig:128
-msgid "PARTITION definition:"
-msgstr ""
-
-#: templates/table/search/options.twig:6
-msgid "Select columns (at least one):"
-msgstr "Zvoliť stĺpec (najmenej jeden):"
-
-#: templates/table/search/options.twig:26
-msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Pridať vyhľadávacie parametre (obsah dopytu po \"where\" príkaze):"
-
-#: templates/table/search/options.twig:34
-msgid "Number of rows per page"
-msgstr "Záznamov na stránku"
-
-#: templates/table/search/options.twig:45
-msgid "Display order:"
-msgstr "Zobraziť zoradené:"
-
-#: templates/privileges/add_privileges_table.twig:3
-msgid "Add privileges on the following table:"
-msgstr "Pridať oprávnenia pre nasledujúcu tabuľku:"
-
-#: templates/display/export/selection.twig:3
-msgid "Databases:"
-msgstr "Databázy:"
-
-#: templates/database/designer/delete_relation_panel.twig:21
-#, fuzzy
-#| msgid "Delete relation"
-msgid "Delete relationship"
-msgstr "Zmazať reláciu"
-
-#: templates/server/databases/create.twig:8
-#: templates/server/databases/create.twig:36
-msgid "Create database"
-msgstr "Vytvoriť databázu"
-
-#: templates/server/databases/create.twig:30
-#: templates/display/export/template_loading.twig:10
-msgid "Create"
-msgstr "Vytvoriť"
-
-#: templates/console/display.twig:7
-msgid "History"
-msgstr "História"
-
-#: templates/console/display.twig:11 templates/console/display.twig:99
-msgid "Bookmarks"
-msgstr "Záložky"
-
-#: templates/console/display.twig:20
-msgid "Press Ctrl+Enter to execute query"
-msgstr "Stlačte Ctrl+Enter pre spustenie dopytu"
-
-#: templates/console/display.twig:23
-msgid "Press Enter to execute query"
-msgstr "Stlačte Enter pre spustenie dopytu"
-
-#: templates/console/display.twig:31 templates/console/display.twig:175
-msgid "Explain"
-msgstr "Vysvetliť"
-
-#: templates/console/display.twig:40 templates/console/display.twig:184
-msgid "Bookmark"
-msgstr "Záložka"
-
-#: templates/console/display.twig:40 templates/console/display.twig:184
-msgid "Query failed"
-msgstr "Dopyt zlyhal"
-
-#: templates/console/display.twig:42 templates/console/display.twig:184
-msgid "Queried time"
-msgstr "Čas behu"
-
-#: templates/console/display.twig:47
-msgid "During current session"
-msgstr "Počas aktuálnej relácie"
-
-#: templates/console/display.twig:64
-msgid "ascending"
-msgstr "vzostupne"
-
-#: templates/console/display.twig:64
-msgid "descending"
-msgstr "zostupne"
-
-#: templates/console/display.twig:64
-msgid "Order:"
-msgstr "Poradie:"
-
-#: templates/console/display.twig:64 templates/console/display.twig:84
-#: templates/table/search/replace_preview.twig:17
-msgid "Count"
-msgstr "Počet"
-
-#: templates/console/display.twig:64
-msgid "Execution order"
-msgstr "Poradie vykonávania"
-
-#: templates/console/display.twig:64 templates/console/display.twig:84
-msgid "Time taken"
-msgstr "Ubehnutý čas"
-
-#: templates/console/display.twig:64
-msgid "Order by:"
-msgstr "Zoradiť podľa:"
-
-#: templates/console/display.twig:64
-msgid "Ungroup queries"
-msgstr "Zrušiť zoskupenie dopytov"
-
-#: templates/console/display.twig:84
-msgid "Show trace"
-msgstr "Zobraziť trasovacie informácie"
-
-#: templates/console/display.twig:84
-msgid "Hide trace"
-msgstr "Skryť trasovacie informácie"
-
-#: templates/console/display.twig:112
-msgid "Add bookmark"
-msgstr "Pridať záložku"
-
-#: templates/console/display.twig:121
-msgid "Label"
-msgstr "Názov"
-
-#: templates/console/display.twig:124
-msgid "Target database"
-msgstr "Cieľová databáza"
-
-#: templates/console/display.twig:127
-msgid "Share this bookmark"
-msgstr "Zdieľať túto záložku"
-
-#: templates/console/display.twig:140
-msgid "Set default"
-msgstr "Nastaviť predvolené"
-
-#: templates/console/display.twig:162
-msgid ""
-"Execute queries on Enter and insert new line with Shift + Enter. To make "
-"this permanent, view settings."
-msgstr ""
-
-#: templates/table/tracking/create_version.twig:11
-#, php-format
-msgid "Create version %1$s of %2$s"
-msgstr "Vytvoriť verziu %1$s z %2$s"
-
-#: templates/table/tracking/create_version.twig:16
-#, php-format
-msgid "Create version %1$s"
-msgstr "Vytvoriť verziu %1$s"
-
-#: templates/table/tracking/create_version.twig:20
-msgid "Track these data definition statements:"
-msgstr ""
-
-#: templates/table/tracking/create_version.twig:59
-msgid "Track these data manipulation statements:"
-msgstr ""
-
-#: templates/table/tracking/create_version.twig:76
-msgid "Create version"
-msgstr "Vytvoriť verziu"
-
-#: templates/prefs_twofactor.twig:3
-#, fuzzy
-#| msgid "Authentication settings."
-msgid "Two-factor authentication status"
-msgstr "Nastavenia prihlasovania."
-
-#: templates/prefs_twofactor.twig:9
-msgid ""
-"Two-factor authentication is not available, please install optional "
-"dependencies to enable authentication backends."
-msgstr ""
-
-#: templates/prefs_twofactor.twig:10
-msgid "Following composer packages are missing:"
-msgstr ""
-
-#: templates/prefs_twofactor.twig:18
-msgid "Two-factor authentication is available and configured for this account."
-msgstr ""
-
-#: templates/prefs_twofactor.twig:20
-msgid ""
-"Two-factor authentication is available, but not configured for this account."
-msgstr ""
-
-#: templates/prefs_twofactor.twig:24
-#, fuzzy
-#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgid ""
-"Two-factor authentication is not available, enable phpMyAdmin configuration "
-"storage to use it."
-msgstr "%sVytvoriť%s chýbajúce tabuľky pre uloženie phpMyAdmin konfigurácie."
-
-#: templates/prefs_twofactor.twig:33
-msgid "You have enabled two factor authentication."
-msgstr ""
-
-#: templates/prefs_twofactor.twig:37 templates/prefs_twofactor_confirm.twig:9
-#, fuzzy
-#| msgid "Config authentication"
-msgid "Disable two-factor authentication"
-msgstr "Overenie konfigurácie"
-
-#: templates/prefs_twofactor.twig:43 templates/prefs_twofactor.twig:54
-#: templates/prefs_twofactor_configure.twig:2
-#, fuzzy
-#| msgid "Config authentication"
-msgid "Configure two-factor authentication"
-msgstr "Overenie konfigurácie"
-
-#: templates/display/export/options_format.twig:2
-#: templates/display/import/import.twig:174
-msgid "Format-specific options:"
-msgstr "Formát - špecifické voľby:"
-
-#: templates/display/export/options_format.twig:4
-#: templates/display/import/import.twig:176
-msgid ""
-"Scroll down to fill in the options for the selected format and ignore the "
-"options for other formats."
-msgstr ""
-"Posuňte sa nižšie pre nastavenie vybraného formátu a ignorujte nastavenia "
-"ostatných."
-
-#: templates/display/export/options_format.twig:12
-#: templates/display/import/import.twig:185
-msgid "Encoding Conversion:"
-msgstr "Prevod znakovej sady:"
-
-#: templates/database/structure/show_create.twig:2
-msgid "Showing create queries"
-msgstr "Zobrazovanie SQL dopytov pre vytvorenie"
-
-#: templates/table/search/rows_zoom.twig:12
-msgid "Additional search criteria"
-msgstr "Rozšírené parametre vyhľadávania"
-
-#: templates/table/search/replace_preview.twig:13
-msgid "Find and replace - preview"
-msgstr "Nájsť a nahradiť - náhľad"
-
-#: templates/table/search/replace_preview.twig:18
-msgid "Original string"
-msgstr "Pôvodný reťazec"
-
-#: templates/table/search/replace_preview.twig:19
-msgid "Replaced string"
-msgstr "Nahradený reťazec"
-
-#: templates/table/search/replace_preview.twig:37
-msgid "Replace"
-msgstr "Nahradiť"
-
-#: templates/display/export/template_options.twig:1
-msgid "Select a template"
-msgstr "Zvoľte šablónu"
-
-#: templates/server/variables/variable_row.twig:6
-msgid "This is a read-only variable and can not be edited"
-msgstr ""
-
-#: templates/server/binlog/log_selector.twig:5
-msgid "Select binary log to view"
-msgstr "Vyberte binárny log na zobrazenie"
-
-#: templates/database/create_table.twig:7
-#: templates/database/designer/side_menu.twig:78
-#: templates/database/designer/side_menu.twig:81
-msgid "Create table"
-msgstr "Vytvoriť tabuľku"
-
-#: templates/database/create_table.twig:15
-msgid "Number of columns"
-msgstr "Počet polí"
-
-#: templates/display/import/javascript.twig:12
-msgid ""
-"The file being uploaded is probably larger than the maximum allowed size or "
-"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
-"browsers."
-msgstr ""
-"Uploadovaný súbor je pravdepodobne vačší ako maximálna povolená veľkosť "
-"alebo je toto známa chyba v prehliadačoch založených na gecko (Safari, "
-"Google Chrome, Arora etc.)."
-
-#: templates/display/import/javascript.twig:16
-#, php-format
-msgid "%s of %s"
-msgstr "%s z %s"
-
-#: templates/display/import/javascript.twig:17
-#, php-format
-msgid "%s/sec."
-msgstr "%s/sek."
-
-#: templates/display/import/javascript.twig:18
-msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
-
-#: templates/display/import/javascript.twig:19
-msgid "About %SEC sec. remaining."
-msgstr "Zostáva približne %SEC sekúnd."
-
-#: templates/display/import/javascript.twig:20
-msgid "The file is being processed, please be patient."
-msgstr "Súbor sa spracováva, buďte prosím trpezliví."
-
-#: templates/display/import/javascript.twig:36
-msgid "Uploading your import file…"
-msgstr "Nahrávam váš súbor s importom…"
-
-#: templates/display/import/javascript.twig:161
-msgid ""
-"Please be patient, the file is being uploaded. Details about the upload are "
-"not available."
-msgstr ""
-"Súbor sa načítava, buďte prosím trpezliví. Podrobnosti o nahrávaní nie sú "
-"dostupné."
-
-#: templates/database/tracking/untracked_tables.twig:1
-msgid "Untracked tables"
-msgstr "Nesledované tabuľky"
-
-#: templates/database/structure/body_for_table_summary.twig:6
-#, php-format
-msgid "%s table"
-msgid_plural "%s tables"
-msgstr[0] "%s tabuľka"
-msgstr[1] "%s tabuľky"
-msgstr[2] "%s tabuliek"
-
-#: templates/database/structure/body_for_table_summary.twig:17
-msgid "Sum"
-msgstr "Celkom"
-
-#: templates/table/index_form.twig:15
-msgid "Index name:"
-msgstr "Meno indexu&nbsp;:"
-
-#: templates/table/index_form.twig:16
-msgid ""
-"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr "\"PRIMARY\" <b>musí</b> byť <b>iba</b> meno primárneho kľúča!"
-
-#: templates/table/index_form.twig:34
-msgid "Index choice:"
-msgstr "Výber indexu:"
-
-#: templates/table/index_form.twig:42
-#, fuzzy
-#| msgid "Active options"
-msgid "Advanced Options"
-msgstr "Zapnuté parametre"
-
-#: templates/table/index_form.twig:48
-msgid "Key block size:"
-msgstr ""
-
-#: templates/table/index_form.twig:65
-msgid "Index type:"
-msgstr "Typ indexu&nbsp;:"
-
-#: templates/table/index_form.twig:77
-msgid "Parser:"
-msgstr "Syntaktický analyzátor:"
-
-#: templates/table/index_form.twig:93
-msgid "Comment:"
-msgstr "Komentár:"
-
-#: templates/table/index_form.twig:136 templates/table/index_form.twig:173
-msgid "Drag to reorder"
-msgstr "Usporiadajte pretiahnutím"
-
-#: templates/server/plugins/section.twig:9
-msgid "Plugin"
-msgstr "Doplnok"
-
-#: templates/server/plugins/section.twig:12
-msgid "Author"
-msgstr "Autor"
-
-#: templates/server/plugins/section.twig:23
-msgid "disabled"
-msgstr "vypnuté"
-
-#: templates/login/twofactor/key.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm login on the device."
-msgstr ""
-
-#: templates/database/central_columns/add_column.twig:13
-msgid "Select a column."
-msgstr "Zvoľte stĺpec."
-
-#: templates/display/export/options_output_compression.twig:4
-msgid "Compression:"
-msgstr "Kompresia:"
-
-#: templates/display/export/options_output_compression.twig:11
-msgid "zipped"
-msgstr "zazipované"
-
-#: templates/display/export/options_output_compression.twig:17
-msgid "gzipped"
-msgstr "gzip-ované"
-
-#: templates/database/structure/favorite_anchor.twig:4
-msgid "Add to Favorites"
-msgstr "Pridať k obľúbeným"
-
-#: templates/database/designer/side_menu.twig:13
-#: templates/database/designer/side_menu.twig:19
-msgid "Show/Hide tables list"
-msgstr "Zobraziť/skryť zoznam tabuliek"
-
-#: templates/database/designer/side_menu.twig:23
-#: templates/database/designer/side_menu.twig:29
-#: templates/database/designer/side_menu.twig:30
-msgid "View in fullscreen"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:28
-msgid "Exit fullscreen"
-msgstr ""
-
-#: templates/database/designer/side_menu.twig:42
-#: templates/database/designer/side_menu.twig:46
-msgid "New page"
-msgstr "Nová stránka"
-
-#: templates/database/designer/side_menu.twig:71
-#: templates/database/designer/side_menu.twig:74
-msgid "Delete pages"
-msgstr "Odstrániť stránky"
-
-#: templates/database/designer/side_menu.twig:85
-#: templates/database/designer/side_menu.twig:88
-#: templates/database/designer/new_relation_panel.twig:22
-#, fuzzy
-#| msgid "Create relation"
-msgid "Create relationship"
-msgstr "Vytvoriť relaciu"
-
-#: templates/database/designer/side_menu.twig:99
-#: templates/database/designer/side_menu.twig:102
-msgid "Reload"
-msgstr "Znovu načítať"
-
-#: templates/database/designer/side_menu.twig:108
-#: templates/database/designer/side_menu.twig:111
-msgid "Help"
-msgstr "Pomoc"
-
-#: templates/database/designer/side_menu.twig:116
-#: templates/database/designer/side_menu.twig:119
-msgid "Angular links"
-msgstr "Pravouhlé spoje"
-
-#: templates/database/designer/side_menu.twig:116
-#: templates/database/designer/side_menu.twig:119
-msgid "Direct links"
-msgstr "Priame odkazy"
-
-#: templates/database/designer/side_menu.twig:123
-#: templates/database/designer/side_menu.twig:125
-msgid "Snap to grid"
-msgstr "Prichytiť k mriežke"
-
-#: templates/database/designer/side_menu.twig:129
-#: templates/database/designer/side_menu.twig:135
-msgid "Small/Big All"
-msgstr "Všetko Malé/Veľké"
-
-#: templates/database/designer/side_menu.twig:139
-#: templates/database/designer/side_menu.twig:142
-msgid "Toggle small/big"
-msgstr "Prepnúť malé/veľké"
-
-#: templates/database/designer/side_menu.twig:146
-#: templates/database/designer/side_menu.twig:149
-#, fuzzy
-#| msgid "Toggle relation lines"
-msgid "Toggle relationship lines"
-msgstr "Prepnúť príbuzné riadky"
-
-#: templates/database/designer/side_menu.twig:154
-#: templates/database/designer/side_menu.twig:157
-msgid "Export schema"
-msgstr "Exportovať schému"
-
-#: templates/database/designer/side_menu.twig:165
-#: templates/database/designer/side_menu.twig:168
-msgid "Build Query"
-msgstr "Vytvoriť dopyt"
-
-#: templates/database/designer/side_menu.twig:173
-#: templates/database/designer/side_menu.twig:177
-msgid "Move Menu"
-msgstr "Presunúť Menu"
-
-#: templates/database/designer/side_menu.twig:181
-#: templates/database/designer/side_menu.twig:186
-msgid "Pin text"
-msgstr "Pripnúť text"
-
-#: templates/server/databases/table_row.twig:13
-#, fuzzy, php-format
-#| msgid "Jump to database"
-msgid "Jump to database '%s'"
-msgstr "Prejsť do databázy"
-
-#: templates/server/databases/table_row.twig:61
-#, php-format
-msgid "Check privileges for database \"%s\"."
-msgstr "Skontrolovať oprávnenia pre databázu \"%s\"."
-
-#: templates/server/databases/table_row.twig:62
-msgid "Check privileges"
-msgstr "Skontrolovať oprávnenia"
-
-#: templates/table/structure/row_stats_table.twig:2
-msgid "Row statistics"
-msgstr "Štatistika riadku"
-
-#: templates/table/structure/row_stats_table.twig:8
-msgid "static"
-msgstr "statický"
-
-#: templates/table/structure/row_stats_table.twig:10
-msgid "dynamic"
-msgstr "dynamický"
-
-#: templates/table/structure/row_stats_table.twig:21
-msgid "partitioned"
-msgstr ""
-
-#: templates/table/structure/row_stats_table.twig:50
-msgid "Row length"
-msgstr "Dĺžka riadku"
-
-#: templates/table/structure/row_stats_table.twig:62
-msgid "Row size"
-msgstr "Veľkosť riadku"
-
-#: templates/table/structure/row_stats_table.twig:69
-msgid "Next autoindex"
-msgstr ""
-
-#: templates/database/designer/table_list.twig:4
-msgid "Hide/Show all"
-msgstr "Skryť/Zobraziť všetko"
-
-#: templates/database/designer/table_list.twig:14
-#, fuzzy
-#| msgid "Hide table structure actions"
-msgid "Hide/Show tables with no relationship"
-msgstr "Skryť akcie štruktúry tabuľky"
-
-#: templates/database/designer/table_list.twig:25
-msgid "Number of tables:"
-msgstr "Počet tabuliek:"
-
-#: templates/table/search/selection_form.twig:12
-msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr ""
-"Vykonať \"dopyt podľa príkladu\" (nahradzujúci znak: \"%\") pre dva rôzne "
-"stĺpce"
-
-#: templates/table/search/selection_form.twig:42
-msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "Vykonať \"dopyt podľa príkladu\" (nahradzujúci znak: \"%\")"
-
-#: templates/privileges/add_privileges_routine.twig:3
-#, fuzzy
-#| msgid "Add privileges on the following table:"
-msgid "Add privileges on the following routine:"
-msgstr "Pridať oprávnenia pre nasledujúcu tabuľku:"
-
-#: templates/display/export/template_loading.twig:2
-msgid "Export templates:"
-msgstr "Exportné šablóny:"
-
-#: templates/display/export/template_loading.twig:6
-msgid "New template:"
-msgstr "Nová šablóna:"
-
-#: templates/display/export/template_loading.twig:8
-msgid "Template name"
-msgstr "Názov šablóny"
-
-#: templates/display/export/template_loading.twig:16
-msgid "Existing templates:"
-msgstr "Existujúce šablóny:"
-
-#: templates/display/export/template_loading.twig:17
-msgid "Template:"
-msgstr "Šablóna:"
-
-#: templates/display/export/template_loading.twig:21
-msgid "Update"
-msgstr "Aktualizovať"
-
-#: templates/table/structure/partition_definition_form.twig:6
-#: templates/table/structure/display_partitions.twig:141
-#, fuzzy
-#| msgctxt "Inline edit query"
-#| msgid "Edit inline"
-msgid "Edit partitioning"
-msgstr "Upraviť v riadku"
-
-#: templates/login/twofactor.twig:5
-msgid "Verify"
-msgstr ""
-
-#: templates/display/export/options_output_charset.twig:3
-#: templates/display/import/import.twig:97
-msgid "Character set of the file:"
-msgstr "Znaková sada súboru:"
-
-#: templates/database/multi_table_query/form.twig:16
-msgid "Query window"
-msgstr "SQL okno"
-
-#: templates/database/multi_table_query/form.twig:33
-#: templates/database/multi_table_query/form.twig:121
-#, fuzzy
-#| msgid "Select table"
-msgid "select table"
-msgstr "Zvoľte tabuľku"
-
-#: templates/database/multi_table_query/form.twig:40
-#: templates/database/multi_table_query/form.twig:129
-#, fuzzy
-#| msgid "Select a column."
-msgid "select column"
-msgstr "Zvoľte stĺpec."
-
-#: templates/database/multi_table_query/form.twig:46
-#, fuzzy
-#| msgid "Tables"
-msgid "Table alias"
-msgstr "Tabuľky"
-
-#: templates/database/multi_table_query/form.twig:47
-#, fuzzy
-#| msgid "Column names"
-msgid "Column alias"
-msgstr "Názvy stĺpcov"
-
-#: templates/database/multi_table_query/form.twig:50
-#, fuzzy
-#| msgid "Use this column to label each point"
-msgid "Use this column in criteria"
-msgstr "Tento stĺpec sa použije na označenie každého bodu"
-
-#: templates/database/multi_table_query/form.twig:53
-#, fuzzy
-#| msgid "Criteria:"
-msgid "criteria"
-msgstr "Kritériá:"
-
-#: templates/database/multi_table_query/form.twig:67
-#, fuzzy
-#| msgid "Add %s"
-msgid "Add as"
-msgstr "Pridať %s"
-
-#: templates/database/multi_table_query/form.twig:112
-#, fuzzy
-#| msgid "Alter column(s)"
-msgid "Another column"
-msgstr "Upraviť stĺpce"
-
-#: templates/database/multi_table_query/form.twig:140
-msgid "Enter criteria as free text"
-msgstr ""
-
-#: templates/database/multi_table_query/form.twig:148
-#, fuzzy
-#| msgid "Remove redundant columns"
-msgid "Remove this column"
-msgstr "Odstrániť redundantné stĺpce"
-
-#: templates/database/multi_table_query/form.twig:175
-#, fuzzy
-#| msgid "Update Query"
-msgid "Update query"
-msgstr "Aktualizovať dotaz"
-
-#: templates/prefs_autoload.twig:7
-msgid ""
-"Your browser has phpMyAdmin configuration for this domain. Would you like to "
-"import it for current session?"
-msgstr ""
-
-#: templates/prefs_autoload.twig:13
-#, fuzzy
-#| msgid "Delete tracking"
-msgid "Delete settings"
-msgstr "Vymazať sledovanie"
-
-#: templates/prefs_twofactor_confirm.twig:2
-#, fuzzy
-#| msgid "Config authentication"
-msgid "Confirm disabling two-factor authentication"
-msgstr "Overenie konfigurácie"
-
-#: templates/prefs_twofactor_confirm.twig:5
-msgid ""
-"By disabling two factor authentication you will be again able to login using "
-"password only."
-msgstr ""
-
-#: templates/prefs_twofactor_configure.twig:8
-#, fuzzy
-#| msgid "Config authentication"
-msgid "Enable two-factor authentication"
-msgstr "Overenie konfigurácie"
-
-#: templates/display/import/import.twig:40
-msgid "Importing into the current server"
-msgstr "Importujem na aktuálny server"
-
-#: templates/display/import/import.twig:42
-#, php-format
-msgid "Importing into the database \"%s\""
-msgstr "Importujem do databázy \"%s\""
-
-#: templates/display/import/import.twig:44
-#, php-format
-msgid "Importing into the table \"%s\""
-msgstr "Importujem do tabuľky \"%s\""
-
-#: templates/display/import/import.twig:50
-msgid "File to import:"
-msgstr "Súbor na importovanie:"
-
-#: templates/display/import/import.twig:56
-#, php-format
-msgid "File may be compressed (%s) or uncompressed."
-msgstr "Súbor môže byť komprimovaný (%s) alebo nekomprimovaný."
-
-#: templates/display/import/import.twig:58
-#, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
-msgid ""
-"A compressed file's name must end in <strong>.[format].[compression]</"
-"strong>. Example: <strong>.sql.zip</strong>"
-msgstr ""
-"Meno komprimovaného súboru musí končiť na <b>.[formát].[kompresia]</b>. "
-"Napríklad: <b>.sql.zip</b>"
-
-#: templates/display/import/import.twig:69
-#: templates/display/import/import.twig:84
-msgid "You may also drag and drop a file on any page."
-msgstr ""
-
-#: templates/display/import/import.twig:86
-msgid "File uploads are not allowed on this server."
-msgstr "Ukladanie súborov na server nie je povolené."
-
-#: templates/display/import/import.twig:124
-msgid "Partial import:"
-msgstr "Čiastočný import:"
-
-#: templates/display/import/import.twig:129
-#, php-format
-msgid ""
-"Previous import timed out, after resubmitting will continue from position %d."
-msgstr ""
-"Predchádzajúcemu importu vypršal časový limit. Po znovuodoslaní formulára sa "
-"bude pokračovať od pozície %d."
-
-#: templates/display/import/import.twig:137
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <i>(This might be a good way to import "
-#| "large files, however it can break transactions.)</i>"
-msgid ""
-"Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <em>(This might be a good way to import large "
-"files, however it can break transactions.)</em>"
-msgstr ""
-"Povoliť prerušenie importu v prípade, že sa blíži časový limit behu PHP "
-"skriptu. <i>(Týmto spôsobom sa môžu importovať aj veľké súbory, ale môže to "
-"zároveň spôsobiť problémy s transakciami.)</i>"
-
-#: templates/display/import/import.twig:144
-msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr "Počet dopytov od začiatku (pre SQL) , ktoré sa majú preskočiť:"
-
-#: templates/display/import/import.twig:161
-msgid "Other options:"
-msgstr "Ďalšie nastavenia:"
-
-#: templates/table/relation/common_form.twig:6
-msgid "Foreign key constraints"
-msgstr "Obmedzenia cudzieho kľúča"
-
-#: templates/table/relation/common_form.twig:10
-msgid "Actions"
-msgstr "Akcie"
-
-#: templates/table/relation/common_form.twig:11
-msgid "Constraint properties"
-msgstr "Nastavenia obmedzenia"
-
-#: templates/table/relation/common_form.twig:15
-msgid ""
-"Creating a foreign key over a non-indexed column would automatically create "
-"an index on it. Alternatively, you can define an index below, before "
-"creating the foreign key."
-msgstr ""
-
-#: templates/table/relation/common_form.twig:20
-msgid ""
-"Only columns with index will be displayed. You can define an index below."
-msgstr ""
-
-#: templates/table/relation/common_form.twig:24
-msgid "Foreign key constraint"
-msgstr ""
-
-#: templates/table/relation/common_form.twig:89
-msgid "+ Add constraint"
-msgstr "+ Pridať obmedzenie"
-
-#: templates/table/relation/common_form.twig:99
-#: templates/table/relation/common_form.twig:104
-#, fuzzy
-#| msgid "Internal relations"
-msgid "Internal relationships"
-msgstr "Interné vzťahy"
-
-#: templates/table/relation/common_form.twig:110
-msgid "Internal relation"
-msgstr "Interné vzťahy"
-
-#: templates/table/relation/common_form.twig:112
-msgid ""
-"An internal relation is not necessary when a corresponding FOREIGN KEY "
-"relation exists."
-msgstr ""
-
-#: templates/table/relation/common_form.twig:172
-msgid "Choose column to display:"
-msgstr "Zvoľte, ktoré polia zobraziť:"
-
-#: templates/display/export/options_output.twig:2
-#: templates/display/export/options_quick_export.twig:2
-msgid "Output:"
-msgstr "Výstup:"
-
-#: templates/display/export/options_output.twig:26
-msgid "Save output to a file"
-msgstr "Uložiť výstup do suboru"
-
-#: templates/display/export/options_output.twig:51
-#, fuzzy, php-format
-#| msgid "Skip tables larger than"
-msgid "Skip tables larger than %s MiB"
-msgstr "Preskočiť tabuľky väčšie ako"
-
-#: templates/table/browse_foreigners/column_element.twig:4
-msgid "Use this value"
-msgstr "Použiť túto hodnotu"
-
-#: templates/table/gis_visualization/gis_visualization.twig:3
-msgid "Display GIS Visualization"
-msgstr "Zobraziť GIS vizualizáciu"
-
-#: templates/table/gis_visualization/gis_visualization.twig:8
-msgid "Label column"
-msgstr "Popis stĺpca"
-
-#: templates/table/gis_visualization/gis_visualization.twig:11
-msgid "-- None --"
-msgstr ""
-
-#: templates/table/gis_visualization/gis_visualization.twig:19
-msgid "Spatial column"
-msgstr "Priestorový stĺpec"
-
-#: templates/columns_definitions/column_default.twig:3
-msgctxt "for default"
-msgid "None"
-msgstr "Žiadny"
-
-#: templates/columns_definitions/column_default.twig:5
-msgid "As defined:"
-msgstr "Podľa zadania:"
-
-#: templates/login/twofactor/application_configure.twig:4
-msgid ""
-"Please scan following QR code into the two-factor authentication app on your "
-"device and enter authentication code it generates."
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:11
-msgid ""
-"Please enter following secret/key into the two-factor authentication app on "
-"your device and enter authentication code it generates."
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:14
-msgid "OTP url:"
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:18
-msgid "Secret/key:"
-msgstr ""
-
-#: templates/privileges/delete_user_fieldset.twig:3
-msgid "Remove selected user accounts"
-msgstr "Odstrániť vybrané účty používateľov"
-
-#: templates/privileges/delete_user_fieldset.twig:6
-msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr ""
-"Odobranie všetkých aktívnych práv používateľom a ich následné odstránenie."
-
-#: templates/privileges/delete_user_fieldset.twig:7
-#: templates/privileges/delete_user_fieldset.twig:10
-#: templates/privileges/delete_user_fieldset.twig:11
-msgid "Drop the databases that have the same names as the users."
-msgstr "Odstrániť databázy s rovnakým menom ako majú používatelia."
-
 #: templates/export/alias_add.twig:4
 msgid "Define new aliases"
 msgstr ""
@@ -16135,145 +16290,24 @@ msgstr "Zvoľte stĺpec."
 msgid "New column name"
 msgstr "Nový názov stĺpca"
 
-#: templates/table/search/search_and_replace.twig:3
-msgid "Replace with:"
-msgstr "Nahradiť za:"
-
-#: templates/table/search/search_and_replace.twig:19
-msgid "Use regular expression"
-msgstr "Použiť regulárny výraz"
-
-#: templates/database/structure/check_all_tables.twig:6
-msgid "Check tables having overhead"
-msgstr "Zvoliť neoptimálne"
-
-#: templates/database/structure/check_all_tables.twig:10
-#, fuzzy
-#| msgid "No tables"
-msgid "Copy table"
-msgstr "Žiadne tabuľky"
-
-#: templates/database/structure/check_all_tables.twig:11
-msgid "Show create"
-msgstr "Zobraziť vytvorenie"
-
-#: templates/database/structure/check_all_tables.twig:25
-msgid "Prefix"
-msgstr "Predpona"
-
-#: templates/database/structure/check_all_tables.twig:26
-msgid "Add prefix to table"
-msgstr "Pridať predponu k tabuľke"
-
-#: templates/database/structure/check_all_tables.twig:27
-msgid "Replace table prefix"
-msgstr "Nahradiť predponu tabuľky"
-
-#: templates/database/structure/check_all_tables.twig:33
-msgid "Add columns to central list"
-msgstr "Pridať stĺpce do centrálneho zoznamu"
-
-#: templates/database/structure/check_all_tables.twig:34
-msgid "Remove columns from central list"
-msgstr ""
-
-#: templates/database/structure/check_all_tables.twig:35
-msgid "Make consistent with central list"
-msgstr "Zosúladiť s centrálnym zoznamom"
-
-#: templates/columns_definitions/column_name.twig:4
-#, php-format
-msgid "Referenced by %s."
-msgstr "Odkazované v %s."
-
-#: templates/columns_definitions/column_name.twig:12
-msgid "Is a foreign key."
-msgstr "Je to cudzí kľúč."
-
-#: templates/columns_definitions/column_name.twig:40
-#, fuzzy
-#| msgid "Remove column(s)"
-msgid "Pick from Central Columns"
-msgstr "Odstrániť stĺpce"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Server variables and settings"
-msgstr "Premenné a nastavenia serveru"
-
-#: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Storage Engines"
-msgid "Storage engines"
-msgstr "Úložné Systémy"
-
-#: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Character Sets and Collations"
-msgid "Character sets and collations"
-msgstr "Znakové sady a Zotriedenia"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Databases statistics"
-msgstr "Štatistiky databázy"
-
-#: templates/database/designer/query_details.twig:6
-msgid "Active options"
-msgstr "Zapnuté parametre"
-
-#: templates/database/designer/database_tables.twig:37
-msgid "Show/hide columns"
-msgstr "Zobraziť/skryť stĺpce"
-
-#: templates/database/designer/database_tables.twig:46
-msgid "See table structure"
-msgstr "Zobraziť štruktúru tabuľky"
-
-#: templates/database/designer/database_tables.twig:91
+#: templates/database/structure/show_create_row.twig:7
 #, fuzzy, php-format
-#| msgid "Select all"
-msgid "Select \"%s\""
-msgstr "Vybrať všetko"
+#| msgid "Create User"
+msgid "Create %s"
+msgstr "Vytvoriť uživateľa"
 
-#: templates/database/designer/database_tables.twig:126
-#, php-format
-msgid "Add an option for column \"%s\"."
-msgstr "Pridať voľbu pre stĺpec \"%s\"."
+#: templates/encoding/kanji_encoding_form.twig:6
+msgctxt "None encoding conversion"
+msgid "None"
+msgstr "Žiadny"
 
-#: templates/privileges/add_privileges_database.twig:1
-msgid "Add privileges on the following database(s):"
-msgstr "Pridať oprávnenia pre nasledujúcu databázu(y):"
-
-#: templates/privileges/add_privileges_database.twig:14
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
+#: templates/encoding/kanji_encoding_form.twig:17
+msgid "Convert to Kana"
 msgstr ""
-"Náhradzujúcim znakom % a _ by mal predchádzať znak \\, pokiaľ ich nechcete "
-"použiť doslovne."
 
-#: templates/database/structure/tracking_icon.twig:3
-msgid "Tracking is active."
-msgstr "Sledovanie je aktívne."
-
-#: templates/database/structure/tracking_icon.twig:5
-msgid "Tracking is not active."
-msgstr "Sledovanie nie je aktívne."
-
-#: templates/table/structure/display_structure.twig:194
-#: templates/table/structure/display_partitions.twig:4
-msgid "Partitions"
-msgstr "Oddiely"
-
-#: templates/login/twofactor/invalid.twig:2
-#, fuzzy
-#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgid ""
-"The configured two factor authentication is not available, please install "
-"missing dependencies."
-msgstr "%sVytvoriť%s chýbajúce tabuľky pre uloženie phpMyAdmin konfigurácie."
-
-#: templates/privileges/add_user_fieldset.twig:2
-msgctxt "Create new user"
-msgid "New"
-msgstr "Nový"
+#: templates/display/export/selection.twig:3
+msgid "Databases:"
+msgstr "Databázy:"
 
 #: templates/table/structure/display_partitions.twig:8
 #, fuzzy
@@ -16305,43 +16339,6 @@ msgstr "Dĺžka kľúča"
 msgid "Partition table"
 msgstr "Pozícia"
 
-#: templates/server/databases/index.twig:24
-msgid "No databases"
-msgstr "Žiadne databázy"
-
-#: templates/server/variables/session_variable_row.twig:3
-msgid "Session value"
-msgstr "Hodnota sedenia"
-
-#: templates/display/export/options_output_save_dir.twig:5
-#: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
-msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Uložiť na server do adresára <b>%s</b>"
-
-#: templates/database/search/results.twig:12
-#, php-format
-msgid "%1$s match in <strong>%2$s</strong>"
-msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%1$s výskyt v <strong>%2$s</strong>"
-msgstr[1] "%1$s výskyty v <strong>%2$s</strong>"
-msgstr[2] "%1$s výskytov v <strong>%2$s</strong>"
-
-#: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgid "<strong>Total:</strong> <em>%count%</em> match"
-msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Celkovo:</b> <i>%s</i> výskyt"
-msgstr[1] "<b>Celkovo:</b> <i>%s</i> výskyty"
-msgstr[2] "<b>Celkovo:</b> <i>%s</i> výskytov"
-
-#: templates/table/secondary_tabs.twig:9
-msgid "Relation view"
-msgstr "Zobrazenie relácii"
-
 #: templates/table/structure/display_table_stats.twig:14
 msgid "Space usage"
 msgstr "Zabrané miesto"
@@ -16350,32 +16347,37 @@ msgstr "Zabrané miesto"
 msgid "Effective"
 msgstr "Efektívny"
 
-#: templates/table/search/zoom_result_form.twig:7
-msgid "Browse/Edit the points"
-msgstr "Prezerať/Upraviť body"
+#: templates/login/twofactor/application_configure.twig:4
+msgid ""
+"Please scan following QR code into the two-factor authentication app on your "
+"device and enter authentication code it generates."
+msgstr ""
 
-#: templates/table/search/zoom_result_form.twig:15
-msgid "How to use"
-msgstr "Návod na použitie"
+#: templates/login/twofactor/application_configure.twig:11
+msgid ""
+"Please enter following secret/key into the two-factor authentication app on "
+"your device and enter authentication code it generates."
+msgstr ""
 
-#: templates/table/search/zoom_result_form.twig:23
-msgid "Reset zoom"
-msgstr "Zrušiť zoom"
+#: templates/login/twofactor/application_configure.twig:14
+msgid "OTP url:"
+msgstr ""
 
-#: templates/database/structure/structure_table_row.twig:222
-msgid "in use"
-msgstr "práve sa používa"
+#: templates/login/twofactor/application_configure.twig:18
+msgid "Secret/key:"
+msgstr ""
 
-#: templates/privileges/column_privileges.twig:21
-#: templates/privileges/column_privileges.twig:22
-msgctxt "None privileges"
-msgid "None"
-msgstr "Žiadny"
+#: templates/table/search/options_zoom.twig:6
+msgid "Use this column to label each point"
+msgstr "Tento stĺpec sa použije na označenie každého bodu"
 
-#: templates/table/structure/table_structure_row.twig:55
-#, php-format
-msgid "Column %s has been dropped."
-msgstr "Stĺpec %s bol odstránený."
+#: templates/table/search/options_zoom.twig:32
+msgid "Maximum rows to plot"
+msgstr "Maximálny počet zobrazených riadkov"
+
+#: templates/privileges/privileges_summary.twig:20
+msgid "Column-specific privileges"
+msgstr "Oprávnenia pre jednotlivé stĺpce"
 
 #: url.php:41
 #, fuzzy
