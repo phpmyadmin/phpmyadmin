@@ -422,9 +422,6 @@ services:
       template: '@template'
       db: '%db%'
       table: '%table%'
-      sql_query: null
-      url_query: null
-      cfg: null
 
   PhpMyAdmin\Controllers\Table\GisVisualizationController:
     class: 'PhpMyAdmin\Controllers\Table\GisVisualizationController'

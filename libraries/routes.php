@@ -55,6 +55,7 @@ use PhpMyAdmin\Controllers\Server\Status\VariablesController as StatusVariables;
 use PhpMyAdmin\Controllers\Server\UserGroupsController;
 use PhpMyAdmin\Controllers\Server\VariablesController;
 use PhpMyAdmin\Controllers\Table\AddFieldController;
+use PhpMyAdmin\Controllers\Table\ChartController;
 use PhpMyAdmin\Controllers\Table\TriggersController as TableTriggersController;
 use PhpMyAdmin\Controllers\ThemesController;
 use PhpMyAdmin\Controllers\TransformationOverviewController;
@@ -548,8 +549,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $routes->addRoute(['GET', 'POST'], '/change', function () {
             require_once ROOT_PATH . 'libraries/entry_points/table/change.php';
         });
-        $routes->addRoute(['GET', 'POST'], '/chart', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/table/chart.php';
+        $routes->addRoute(['GET', 'POST'], '/chart', function () use ($containerBuilder) {
+            /** @var ChartController $controller */
+            $controller = $containerBuilder->get(ChartController::class);
+            $controller->index();
         });
         $routes->addRoute(['GET', 'POST'], '/create', function () {
             require_once ROOT_PATH . 'libraries/entry_points/table/create.php';
