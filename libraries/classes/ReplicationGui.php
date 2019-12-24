@@ -262,18 +262,20 @@ class ReplicationGui
 
         $variables = [];
         foreach ($replicationVariables as $variable) {
+            $serverReplicationVariable = is_array($serverReplication) && isset($serverReplication[0]) ? $serverReplication[0][$variable] : '';
+
             $variables[$variable] = [
                 'name' => $variable,
                 'status' => '',
-                'value' => $serverReplication[0][$variable],
+                'value' => $serverReplicationVariable,
             ];
 
             if (isset($variablesAlerts[$variable])
-                && $variablesAlerts[$variable] === $serverReplication[0][$variable]
+                && $variablesAlerts[$variable] === $serverReplicationVariable
             ) {
                 $variables[$variable]['status'] = 'attention';
             } elseif (isset($variablesOks[$variable])
-                && $variablesOks[$variable] === $serverReplication[0][$variable]
+                && $variablesOks[$variable] === $serverReplicationVariable
             ) {
                 $variables[$variable]['status'] = 'allfine';
             }
@@ -290,7 +292,7 @@ class ReplicationGui
                 $variables[$variable]['value'] = str_replace(
                     ',',
                     ', ',
-                    $serverReplication[0][$variable]
+                    $serverReplicationVariable
                 );
             }
         }
