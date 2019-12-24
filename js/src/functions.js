@@ -482,6 +482,51 @@ Functions.prepareForAjaxRequest = function ($form) {
     }
 };
 
+/**
+ * Gets random character from a text value.
+ *
+ */
+Functions.getRandomChar = function (textValue) {
+    return textValue.charAt(Math.abs(Math.floor(Math.random() * textValue.length)) % textValue.length);
+};
+
+/**
+ * Generates a password based on password policy
+ *
+ */
+Functions.getValueForPolicy = function (passwordSettings) {
+    var passwordLength = passwordSettings[0] + 1;
+    var characters = [
+        'abcdefghijklmnopqrstuvwxyz',
+        'ABCDEFGHIJKLMNOPQRSTUVWYXZ',
+        '0123456789',
+        '@!_.*/()[]-',
+        'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWYXZ0123456789@!_.*/()[]-'
+    ];
+    var generatedPassword = '';
+    for (var i = 1; i < 5; i++) {
+        var charsetLength = Math.abs(Math.round(Math.random() * (passwordLength - 1)) + 1);
+        if (charsetLength < passwordSettings[i]) {
+            charsetLength = passwordSettings[i];
+        }
+        for (var j = 0; j < charsetLength; j++) {
+            generatedPassword += Functions.getRandomChar(characters[i - 1]);
+        }
+        passwordLength -= charsetLength;
+    }
+
+    if (generatedPassword.length < passwordSettings[0]) {
+        for (i = generatedPassword.length; i < passwordSettings[0]; i++) {
+            generatedPassword += Functions.getRandomChar(characters[4]);
+        }
+    }
+
+    generatedPassword = generatedPassword.split('').sort(function () {
+        return 0.5 - Math.random();
+    }).join('');
+    return generatedPassword;
+};
+
 Functions.checkPasswordStrength = function (value, meterObject, meterObjectLabel, username) {
     // List of words we don't want to appear in the password
     var customDict = [
@@ -523,37 +568,29 @@ Functions.suggestPassword = function (passwordForm) {
     // restrict the password to just letters and numbers to avoid problems:
     // "editors and viewers regard the password as multiple words and
     // things like double click no longer work"
-    var pwchars = 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWYXZ@!_.*/()[]-';
-    var passwordlength = 16;    // do we want that to be dynamic?  no, keep it simple :)
+
+    // Share validate_password variables here.
+    // If no variables found, then we set our own values
+
+    var validatePassword = {};
+    validatePassword.length = 8;
+    validatePassword.mixedCaseCount = 1;
+    validatePassword.numberCount = 2;
+    validatePassword.specialCharCount = 3;
+
     var passwd = passwordForm.generated_pw;
-    // eslint-disable-next-line compat/compat
-    var randomWords = new Int32Array(passwordlength);
 
-    passwd.value = '';
+    var passwordSettings = [
+        validatePassword.length,
+        validatePassword.mixedCaseCount,
+        validatePassword.mixedCaseCount,
+        validatePassword.specialCharCount,
+        validatePassword.numberCount,
+    ];
 
-    var i;
-
-    // First we're going to try to use a built-in CSPRNG
-    // eslint-disable-next-line compat/compat
-    if (window.crypto && window.crypto.getRandomValues) {
-        // eslint-disable-next-line compat/compat
-        window.crypto.getRandomValues(randomWords);
-    } else if (window.msCrypto && window.msCrypto.getRandomValues) {
-        // Because of course IE calls it msCrypto instead of being standard
-        window.msCrypto.getRandomValues(randomWords);
-    } else {
-        // Fallback to Math.random
-        for (i = 0; i < passwordlength; i++) {
-            randomWords[i] = Math.floor(Math.random() * pwchars.length);
-        }
-    }
-
-    for (i = 0; i < passwordlength; i++) {
-        passwd.value += pwchars.charAt(Math.abs(randomWords[i]) % pwchars.length);
-    }
+    passwd.value = Functions.getValueForPolicy(passwordSettings);
 
     var $jQueryPasswordForm = $(passwordForm);
-
     passwordForm.elements.pma_pw.value = passwd.value;
     passwordForm.elements.pma_pw2.value = passwd.value;
     var meterObj = $jQueryPasswordForm.find('meter[name="pw_meter"]').first();
