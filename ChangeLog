@@ -60,6 +60,7 @@ phpMyAdmin - ChangeLog
 - issue #15641 Fix replication actions where broken (start slave, stop slave, reset, ...)
 - issue #15608 Fix DisableIS is broken when with controluser configured (database list broken)
 - issue #15614 Fix undefined offset on index page for MySQL 5.7.8 (server charset)
+- issue #15692 Fix JavaScript error when user has not enough privilege to view query statistics.
 
 4.9.2 (2019-11-21)
 - issue #14184 Change the cookie name from phpMyAdmin to phpMyAdmin_https for HTTPS, fixes many "Failed to set session cookie" errors
