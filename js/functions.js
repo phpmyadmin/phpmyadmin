@@ -491,8 +491,8 @@ Functions.suggestPassword = function (passwordForm) {
     validate_password['policy'] = 1;
     validate_password['length'] = 8;
     validate_password['mixed_case_count'] = 1;
-    validate_password['number_count'] = 1;
-    validate_password['special_char_count'] = 7;
+    validate_password['number_count'] = 2;
+    validate_password['special_char_count'] = 3;
     var lowercase = "abcdefghijklmnopqrstuvwxyz";
     var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWYXZ";
     var numbers = "0123456789";
@@ -508,7 +508,7 @@ Functions.suggestPassword = function (passwordForm) {
     // Assigning lowercase
     var charset_length = Math.abs(Math.round(Math.random() * (password_length - 1)) + 1);
     if(charset_length < validate_password.mixed_case_count) {
-        charset_length += validate_password.mixed_case_count;
+        charset_length = validate_password.mixed_case_count;
     }
     for(i = 0; i < charset_length; i++) {
         passwd.value += lowercase.charAt(Math.abs(Math.floor(Math.random() * lowercase.length)) % lowercase.length);
@@ -518,7 +518,7 @@ Functions.suggestPassword = function (passwordForm) {
     // Assigning uppercase
     charset_length = Math.abs(Math.round(Math.random() * (password_length - 1)) + 1);
     if(charset_length < validate_password.mixed_case_count) {
-        charset_length += validate_password.mixed_case_count;
+        charset_length = validate_password.mixed_case_count;
     }
     for(i = 0; i < charset_length; i++) {
         passwd.value += uppercase.charAt(Math.abs(Math.floor(Math.random() * uppercase.length)) % uppercase.length);
@@ -528,7 +528,7 @@ Functions.suggestPassword = function (passwordForm) {
     // Assigning numbers
     charset_length = Math.abs(Math.round(Math.random() * (password_length - 1)) + 1);
     if(charset_length < validate_password.number_count) {
-        charset_length += validate_password.number_count;
+        charset_length = validate_password.number_count;
     }
     for(i = 0; i < charset_length; i++) {
         passwd.value += numbers.charAt(Math.abs(Math.floor(Math.random() * numbers.length)) % numbers.length);
@@ -537,7 +537,7 @@ Functions.suggestPassword = function (passwordForm) {
 
     // Assigning special chars
     if(charset_length < validate_password.special_char_count) {
-        charset_length += validate_password.special_char_count;
+        charset_length = validate_password.special_char_count;
     }
     for(i = 0; i < charset_length; i++) {
         passwd.value += special_chars.charAt(Math.abs(Math.floor(Math.random() * special_chars.length)) % special_chars.length);
