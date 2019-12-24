@@ -2039,27 +2039,27 @@ class Sql
     /**
      * Function to execute the query and send the response
      *
-     * @param array          $analyzed_sql_results   analysed sql results
-     * @param bool           $is_gotofile            whether goto file or not
-     * @param string         $db                     current database
-     * @param string         $table                  current table
-     * @param bool|null      $find_real_end          whether to find real end or not
-     * @param string         $sql_query_for_bookmark the sql query to be stored as bookmark
-     * @param array|null     $extra_data             extra data
-     * @param string         $message_to_show        message to show
-     * @param string         $message                message
-     * @param array|null     $sql_data               sql data
-     * @param string         $goto                   goto page url
-     * @param string         $pmaThemeImage          uri of the PMA theme image
-     * @param string         $disp_query             display query
-     * @param Message|string $disp_message           display message
-     * @param string         $query_type             query type
-     * @param string         $sql_query              sql query
-     * @param array|null     $selectedTables         array of table names selected from the
-     *                                               database structure page, for an action
-     *                                               like check table, optimize table,
-     *                                               analyze table or repair table
-     * @param string         $complete_query         complete query
+     * @param array|null          $analyzed_sql_results   analysed sql results
+     * @param bool                $is_gotofile            whether goto file or not
+     * @param string              $db                     current database
+     * @param string|null         $table                  current table
+     * @param bool|null           $find_real_end          whether to find real end or not
+     * @param string|null         $sql_query_for_bookmark the sql query to be stored as bookmark
+     * @param array|null          $extra_data             extra data
+     * @param string|null         $message_to_show        message to show
+     * @param Message|string|null $message                message
+     * @param array|null          $sql_data               sql data
+     * @param string              $goto                   goto page url
+     * @param string              $pmaThemeImage          uri of the PMA theme image
+     * @param string|null         $disp_query             display query
+     * @param Message|string|null $disp_message           display message
+     * @param string|null         $query_type             query type
+     * @param string              $sql_query              sql query
+     * @param array|null          $selectedTables         array of table names selected from the
+     *                                                    database structure page, for an action
+     *                                                    like check table, optimize table,
+     *                                                    analyze table or repair table
+     * @param string|null         $complete_query         complete query
      *
      * @return void
      */

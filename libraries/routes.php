@@ -60,6 +60,7 @@ use PhpMyAdmin\Controllers\Table\CreateController;
 use PhpMyAdmin\Controllers\Table\GetFieldController;
 use PhpMyAdmin\Controllers\Table\OperationsController as TableOperationsController;
 use PhpMyAdmin\Controllers\Table\RecentFavoriteController;
+use PhpMyAdmin\Controllers\Table\RowActionController;
 use PhpMyAdmin\Controllers\Table\TriggersController as TableTriggersController;
 use PhpMyAdmin\Controllers\ThemesController;
 use PhpMyAdmin\Controllers\TransformationOverviewController;
@@ -599,8 +600,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $routes->addRoute(['GET', 'POST'], '/replace', function () {
             require_once ROOT_PATH . 'libraries/entry_points/table/replace.php';
         });
-        $routes->addRoute(['GET', 'POST'], '/row_action', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/table/row_action.php';
+        $routes->addRoute(['GET', 'POST'], '/row-action', function () use ($containerBuilder) {
+            /** @var RowActionController $controller */
+            $controller = $containerBuilder->get(RowActionController::class);
+            $controller->index();
         });
         $routes->addRoute(['GET', 'POST'], '/search', function () {
             require_once ROOT_PATH . 'libraries/entry_points/table/select.php';

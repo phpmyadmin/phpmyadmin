@@ -514,6 +514,15 @@ services:
       upd_query: null
       relation: '@relation'
 
+  PhpMyAdmin\Controllers\Table\RowActionController:
+    class: 'PhpMyAdmin\Controllers\Table\RowActionController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      db: '%db%'
+      table: '%table%'
+
   PhpMyAdmin\Controllers\Table\SearchController:
     class: 'PhpMyAdmin\Controllers\Table\SearchController'
     arguments:

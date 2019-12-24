@@ -343,51 +343,6 @@ parameters:
 			path: libraries/classes/Controllers/Database/OperationsController.php
 
 		-
-			message: "#^Parameter \\#1 \\$analyzed_sql_results of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects array, null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/QueryByExampleController.php
-
-		-
-			message: "#^Parameter \\#13 \\$disp_query of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/QueryByExampleController.php
-
-		-
-			message: "#^Parameter \\#14 \\$disp_message of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects PhpMyAdmin\\\\Message\\|string, null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/QueryByExampleController.php
-
-		-
-			message: "#^Parameter \\#15 \\$query_type of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/QueryByExampleController.php
-
-		-
-			message: "#^Parameter \\#18 \\$complete_query of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/QueryByExampleController.php
-
-		-
-			message: "#^Parameter \\#4 \\$table of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/QueryByExampleController.php
-
-		-
-			message: "#^Parameter \\#6 \\$sql_query_for_bookmark of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/QueryByExampleController.php
-
-		-
-			message: "#^Parameter \\#8 \\$message_to_show of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/QueryByExampleController.php
-
-		-
-			message: "#^Parameter \\#9 \\$message of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/QueryByExampleController.php
-
-		-
 			message: "#^Parameter \\#1 \\$content of method PhpMyAdmin\\\\Response\\:\\:addHTML\\(\\) expects string, PhpMyAdmin\\\\Message given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/QueryByExampleController.php
@@ -539,46 +494,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$column_index of method PhpMyAdmin\\\\Controllers\\\\Table\\\\SearchController\\:\\:getColumnProperties\\(\\) expects int, int\\|string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SearchController.php
-
-		-
-			message: "#^Parameter \\#1 \\$analyzed_sql_results of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects array, null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SearchController.php
-
-		-
-			message: "#^Parameter \\#13 \\$disp_query of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SearchController.php
-
-		-
-			message: "#^Parameter \\#14 \\$disp_message of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects PhpMyAdmin\\\\Message\\|string, null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SearchController.php
-
-		-
-			message: "#^Parameter \\#15 \\$query_type of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SearchController.php
-
-		-
-			message: "#^Parameter \\#18 \\$complete_query of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SearchController.php
-
-		-
-			message: "#^Parameter \\#6 \\$sql_query_for_bookmark of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SearchController.php
-
-		-
-			message: "#^Parameter \\#8 \\$message_to_show of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SearchController.php
-
-		-
-			message: "#^Parameter \\#9 \\$message of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/SearchController.php
 
@@ -766,51 +681,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Database\\\\Designer\\\\DesignerTable\\:\\:getDisplayField\\(\\) should return string but returns string\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer/DesignerTable.php
-
-		-
-			message: "#^Parameter \\#1 \\$analyzed_sql_results of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects array, null given\\.$#"
-			count: 1
-			path: libraries/classes/Database/MultiTableQuery.php
-
-		-
-			message: "#^Parameter \\#13 \\$disp_query of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/classes/Database/MultiTableQuery.php
-
-		-
-			message: "#^Parameter \\#14 \\$disp_message of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects PhpMyAdmin\\\\Message\\|string, null given\\.$#"
-			count: 1
-			path: libraries/classes/Database/MultiTableQuery.php
-
-		-
-			message: "#^Parameter \\#15 \\$query_type of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/classes/Database/MultiTableQuery.php
-
-		-
-			message: "#^Parameter \\#18 \\$complete_query of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/classes/Database/MultiTableQuery.php
-
-		-
-			message: "#^Parameter \\#4 \\$table of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/classes/Database/MultiTableQuery.php
-
-		-
-			message: "#^Parameter \\#6 \\$sql_query_for_bookmark of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/classes/Database/MultiTableQuery.php
-
-		-
-			message: "#^Parameter \\#8 \\$message_to_show of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/classes/Database/MultiTableQuery.php
-
-		-
-			message: "#^Parameter \\#9 \\$message of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/classes/Database/MultiTableQuery.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Database\\\\Qbe\\:\\:\\$_currentSearch \\(PhpMyAdmin\\\\SavedSearches\\) does not accept PhpMyAdmin\\\\SavedSearches\\|null\\.$#"
@@ -3378,46 +3248,6 @@ parameters:
 			path: libraries/entry_points/table/replace.php
 
 		-
-			message: "#^Parameter \\#1 \\$analyzed_sql_results of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects array, null given\\.$#"
-			count: 1
-			path: libraries/entry_points/table/row_action.php
-
-		-
-			message: "#^Parameter \\#13 \\$disp_query of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/entry_points/table/row_action.php
-
-		-
-			message: "#^Parameter \\#14 \\$disp_message of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects PhpMyAdmin\\\\Message\\|string, null given\\.$#"
-			count: 1
-			path: libraries/entry_points/table/row_action.php
-
-		-
-			message: "#^Parameter \\#15 \\$query_type of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/entry_points/table/row_action.php
-
-		-
-			message: "#^Parameter \\#18 \\$complete_query of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/entry_points/table/row_action.php
-
-		-
-			message: "#^Parameter \\#6 \\$sql_query_for_bookmark of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/entry_points/table/row_action.php
-
-		-
-			message: "#^Parameter \\#8 \\$message_to_show of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/entry_points/table/row_action.php
-
-		-
-			message: "#^Parameter \\#9 \\$message of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/entry_points/table/row_action.php
-
-		-
 			message: "#^Parameter \\#2 \\$filter_ts_from of method PhpMyAdmin\\\\Tracking\\:\\:getEntries\\(\\) expects int, int\\|string\\|false given\\.$#"
 			count: 1
 			path: libraries/entry_points/table/tracking.php
@@ -3444,41 +3274,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#6 \\$primary of method PhpMyAdmin\\\\MultSubmits\\:\\:buildOrExecuteQuery\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/mult_submits.inc.php
-
-		-
-			message: "#^Parameter \\#1 \\$analyzed_sql_results of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects array, null given\\.$#"
-			count: 1
-			path: libraries/mult_submits.inc.php
-
-		-
-			message: "#^Parameter \\#13 \\$disp_query of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/mult_submits.inc.php
-
-		-
-			message: "#^Parameter \\#14 \\$disp_message of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects PhpMyAdmin\\\\Message\\|string, null given\\.$#"
-			count: 1
-			path: libraries/mult_submits.inc.php
-
-		-
-			message: "#^Parameter \\#18 \\$complete_query of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/mult_submits.inc.php
-
-		-
-			message: "#^Parameter \\#6 \\$sql_query_for_bookmark of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/mult_submits.inc.php
-
-		-
-			message: "#^Parameter \\#8 \\$message_to_show of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/mult_submits.inc.php
-
-		-
-			message: "#^Parameter \\#9 \\$message of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, null given\\.$#"
 			count: 1
 			path: libraries/mult_submits.inc.php
 
