@@ -188,7 +188,7 @@ class RecentFavoriteTable
             if ($this->_tableType == 'recent') {
                 foreach ($this->_tables as $table) {
                     $html .= '<li class="warp_link">';
-                    $recent_url = Url::getFromRoute('/table/recent_favorite', [
+                    $recent_url = Url::getFromRoute('/table/recent-favorite', [
                         'db' => $table['db'],
                         'table' => $table['table'],
                     ]);
@@ -216,7 +216,7 @@ class RecentFavoriteTable
                         . Generator::getIcon('b_favorite')
                         . '</a>';
 
-                    $table_url = Url::getFromRoute('/table/recent_favorite', [
+                    $table_url = Url::getFromRoute('/table/recent-favorite', [
                         'db' => $table['db'],
                         'table' => $table['table'],
                     ]);

@@ -489,6 +489,15 @@ services:
       table: '%table%'
       privileges: '@server_privileges'
 
+  PhpMyAdmin\Controllers\Table\RecentFavoriteController:
+    class: 'PhpMyAdmin\Controllers\Table\RecentFavoriteController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      db: '%db%'
+      table: '%table%'
+
   PhpMyAdmin\Controllers\Table\RelationController:
     class: 'PhpMyAdmin\Controllers\Table\RelationController'
     arguments:
