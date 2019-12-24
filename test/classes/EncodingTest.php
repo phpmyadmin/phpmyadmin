@@ -68,6 +68,11 @@ class EncodingTest extends TestCase
         );
     }
 
+    /**
+     * This group is used on debian packaging to exclude the test
+     * @see https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=854821#27
+     * @group extension-iconv
+     */
     public function testIconv()
     {
         if (! function_exists('iconv')) {
