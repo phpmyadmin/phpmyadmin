@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:37-0300\n"
-"PO-Revision-Date: 2019-06-26 21:00+0000\n"
+"PO-Revision-Date: 2019-12-25 08:21+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"de/>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/5-0/de/"
+">\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7.1-dev\n"
+"X-Generator: Weblate 3.10\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -3263,7 +3263,7 @@ msgstr "Binär"
 #: libraries/classes/Charsets/Collation.php:534
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "no-pad"
 
 #: libraries/classes/Config.php:1156
 #, php-format
