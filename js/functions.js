@@ -121,7 +121,13 @@ Functions.addDatepicker = function ($thisElement, type, options) {
         showTimepicker = false;
     }
 
+    // Getting the current Date and time
+    var currentDateTime = new Date();
+
     var defaultOptions = {
+        hour: currentDateTime.getHours(),
+        minute: currentDateTime.getMinutes(),
+        second: currentDateTime.getSeconds(),
         showOn: 'button',
         buttonImage: pmaThemeImage + 'b_calendar.png',
         buttonImageOnly: true,
