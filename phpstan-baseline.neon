@@ -3358,31 +3358,6 @@ parameters:
 			path: libraries/entry_points/import.php
 
 		-
-			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:getMessage\\(\\) expects PhpMyAdmin\\\\Message\\|string, null given\\.$#"
-			count: 2
-			path: libraries/entry_points/table/operations.php
-
-		-
-			message: "#^Parameter \\#1 \\$haystack of function mb_strstr expects string, string\\|null given\\.$#"
-			count: 2
-			path: libraries/entry_points/table/operations.php
-
-		-
-			message: "#^Parameter \\#3 \\$subject of function preg_replace expects array\\|string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/entry_points/table/operations.php
-
-		-
-			message: "#^Parameter \\#2 \\$comment of method PhpMyAdmin\\\\Operations\\:\\:getTableOptionDiv\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/entry_points/table/operations.php
-
-		-
-			message: "#^Parameter \\#6 \\$auto_increment of method PhpMyAdmin\\\\Operations\\:\\:getTableOptionDiv\\(\\) expects string, int given\\.$#"
-			count: 1
-			path: libraries/entry_points/table/operations.php
-
-		-
 			message: "#^Parameter \\#1 \\$goto_include of method PhpMyAdmin\\\\InsertEdit\\:\\:getGotoInclude\\(\\) expects string, false given\\.$#"
 			count: 1
 			path: libraries/entry_points/table/replace.php

@@ -58,6 +58,7 @@ use PhpMyAdmin\Controllers\Table\AddFieldController;
 use PhpMyAdmin\Controllers\Table\ChartController;
 use PhpMyAdmin\Controllers\Table\CreateController;
 use PhpMyAdmin\Controllers\Table\GetFieldController;
+use PhpMyAdmin\Controllers\Table\OperationsController as TableOperationsController;
 use PhpMyAdmin\Controllers\Table\TriggersController as TableTriggersController;
 use PhpMyAdmin\Controllers\ThemesController;
 use PhpMyAdmin\Controllers\TransformationOverviewController;
@@ -581,8 +582,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $routes->addRoute(['GET', 'POST'], '/indexes', function () {
             require_once ROOT_PATH . 'libraries/entry_points/table/indexes.php';
         });
-        $routes->addRoute(['GET', 'POST'], '/operations', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/table/operations.php';
+        $routes->addRoute(['GET', 'POST'], '/operations', function () use ($containerBuilder) {
+            /** @var TableOperationsController $controller */
+            $controller = $containerBuilder->get(TableOperationsController::class);
+            $controller->index();
         });
         $routes->addRoute(['GET', 'POST'], '/recent_favorite', function () {
             require_once ROOT_PATH . 'libraries/entry_points/table/recent_favorite.php';

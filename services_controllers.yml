@@ -467,6 +467,18 @@ services:
       table: '%table%'
       index: '%index%'
 
+  PhpMyAdmin\Controllers\Table\OperationsController:
+    class: 'PhpMyAdmin\Controllers\Table\OperationsController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      db: '%db%'
+      table: '%table%'
+      operations: '@operations'
+      checkUserPrivileges: '@check_user_privileges'
+      relation: '@relation'
+
   PhpMyAdmin\Controllers\Table\PrivilegesController:
     class: 'PhpMyAdmin\Controllers\Table\PrivilegesController'
     arguments:
