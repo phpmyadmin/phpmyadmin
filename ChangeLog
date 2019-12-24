@@ -19,6 +19,7 @@ phpMyAdmin - ChangeLog
 - issue #14248 Fixed date selection in search menu missing higher Z-index value
 - issue        Fix Uncaught php TypeError on php 8.0 when adding a column to table create form
 - issue #15682 Fix calendar not taking current time as default value
+- issue #15636 Fix php error trying to access array offset on value o type null on replication GUI
 
 4.9.2 (2019-11-21)
 - issue #14184 Change the cookie name from phpMyAdmin to phpMyAdmin_https for HTTPS, fixes many "Failed to set session cookie" errors
