@@ -423,6 +423,17 @@ services:
       db: '%db%'
       table: '%table%'
 
+  PhpMyAdmin\Controllers\Table\CreateController:
+    class: 'PhpMyAdmin\Controllers\Table\CreateController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      db: '%db%'
+      table: '%table%'
+      transformations: '@transformations'
+      config: '@config'
+
   PhpMyAdmin\Controllers\Table\GisVisualizationController:
     class: 'PhpMyAdmin\Controllers\Table\GisVisualizationController'
     arguments:

@@ -56,6 +56,7 @@ use PhpMyAdmin\Controllers\Server\UserGroupsController;
 use PhpMyAdmin\Controllers\Server\VariablesController;
 use PhpMyAdmin\Controllers\Table\AddFieldController;
 use PhpMyAdmin\Controllers\Table\ChartController;
+use PhpMyAdmin\Controllers\Table\CreateController;
 use PhpMyAdmin\Controllers\Table\TriggersController as TableTriggersController;
 use PhpMyAdmin\Controllers\ThemesController;
 use PhpMyAdmin\Controllers\TransformationOverviewController;
@@ -554,8 +555,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             $controller = $containerBuilder->get(ChartController::class);
             $controller->index();
         });
-        $routes->addRoute(['GET', 'POST'], '/create', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/table/create.php';
+        $routes->addRoute(['GET', 'POST'], '/create', function () use ($containerBuilder) {
+            /** @var CreateController $controller */
+            $controller = $containerBuilder->get(CreateController::class);
+            $controller->index();
         });
         $routes->addRoute(['GET', 'POST'], '/export', function () {
             require_once ROOT_PATH . 'libraries/entry_points/table/export.php';
