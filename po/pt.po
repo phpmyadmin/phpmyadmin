@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:37-0300\n"
-"PO-Revision-Date: 2019-06-24 14:00+0000\n"
+"PO-Revision-Date: 2019-12-25 08:21+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/pt/>\n"
+"5-0/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.7.1-dev\n"
+"X-Generator: Weblate 3.10\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -312,35 +312,35 @@ msgstr "Está prestes a DESTRUIR uma base de dados completa!"
 
 #: js/messages.php:55
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "Está prestes a TRUNCAR uma base de dados completa!"
+msgstr "Está prestes a TRUNCAR a tabela completa!"
 
 #: js/messages.php:56
 msgid "Delete tracking data for this table?"
-msgstr "Apagar dados de tracking para esta tabela?"
+msgstr "Eliminar os dados de rastreamento para esta tabela?"
 
 #: js/messages.php:58
 msgid "Delete tracking data for these tables?"
-msgstr "Apagar dados de tracking para estas tabelas?"
+msgstr "Eliminar os dados de rastreamento para estas tabelas?"
 
 #: js/messages.php:60
 msgid "Delete tracking data for this version?"
-msgstr "Apagar dados de tracking para esta versão?"
+msgstr "Eliminar os dados de rastreamento para esta versão?"
 
 #: js/messages.php:62
 msgid "Delete tracking data for these versions?"
-msgstr "Apagar dados de tracking para estas versões?"
+msgstr "Eliminar os dados de rastreamento para estas versões?"
 
 #: js/messages.php:63
 msgid "Delete entry from tracking report?"
-msgstr "Apagar entrada do relatório de rastreamento?"
+msgstr "Eliminar a entrada do relatório de rastreamento?"
 
 #: js/messages.php:64
 msgid "Deleting tracking data"
-msgstr "Apagando dados de tracking"
+msgstr "A eliminar os dados de rastreamento"
 
 #: js/messages.php:65
 msgid "Dropping Primary Key/Index"
-msgstr "Apagando Chave Primária/Indice"
+msgstr "Eliminando Chave Primária/Índice"
 
 #: js/messages.php:66
 msgid "Dropping Foreign key."
@@ -363,16 +363,15 @@ msgstr "Deseja realmente eliminar a pesquisa \"%s\"?"
 #: js/messages.php:74
 msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr ""
-"Editou alguns dados e estes não foram guardados. Tem certeza que quer sair "
-"desta página antes de guardar as alterações?"
+"Tem alterações não gravadas; tem a certeza que deseja sair desta página?"
 
 #: js/messages.php:76
 msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
-"Você está a tentar reduzir a quantidade de linhas, mas já inseriu dados "
-"nessas linhas que serão perdidas. Deseja continuar?"
+"Está a tentar reduzir a quantidade de linhas, mas já inseriu dados nessas "
+"linhas que serão perdidas. Deseja continuar?"
 
 #: js/messages.php:78
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -1371,7 +1370,7 @@ msgstr "Navegação"
 
 #: js/messages.php:405
 msgid "Deleting"
-msgstr "A Eliminar"
+msgstr "Apagando"
 
 #: js/messages.php:406
 #, php-format
@@ -1956,10 +1955,8 @@ msgid "%d object(s) created."
 msgstr "%d objecto(s) criado(s)."
 
 #: js/messages.php:591
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
-msgstr "Nome dos Campos"
+msgstr "Nome da coluna"
 
 #: js/messages.php:592 libraries/classes/SqlQueryForm.php:430
 msgid "Submit"
@@ -2329,8 +2326,7 @@ msgid "Failed security key activation (%s)."
 msgstr "Falhou a activação com chave segura (%s)."
 
 #: js/messages.php:766
-#, fuzzy, php-format
-#| msgid "Table %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
@@ -2603,11 +2599,11 @@ msgstr "Por favor, corrija este campo"
 
 #: js/messages.php:936
 msgid "Please enter a valid email address"
-msgstr "Por favor, digite um e-mail válido"
+msgstr "Por favor, digite um endereço de e-mail válido"
 
 #: js/messages.php:937
 msgid "Please enter a valid URL"
-msgstr "Por favor, digite uma URL válida"
+msgstr "Por favor, digite um URL válido"
 
 #: js/messages.php:938
 msgid "Please enter a valid date"
@@ -2635,7 +2631,7 @@ msgstr "Por favor, digite o mesmo valor novamente"
 
 #: js/messages.php:955
 msgid "Please enter no more than {0} characters"
-msgstr "Por favor, digite no máximo {0} caracteres"
+msgstr "Por favor, digite no máximo {0} carateres"
 
 #: js/messages.php:960
 msgid "Please enter at least {0} characters"
@@ -3214,12 +3210,9 @@ msgid "accent-sensitive"
 msgstr "Sensível aos acentos"
 
 #: libraries/classes/Charsets/Collation.php:524
-#, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "accent-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "Sensível aos acentos"
+msgstr "Sensível ao kana"
 
 #: libraries/classes/Charsets/Collation.php:528
 msgctxt "Collation variant"
@@ -3234,7 +3227,7 @@ msgstr "binário"
 #: libraries/classes/Charsets/Collation.php:534
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "no-pad"
 
 #: libraries/classes/Config.php:1156
 #, php-format
@@ -3441,7 +3434,7 @@ msgid ""
 "encounter problems with created gzip files disable this feature."
 msgstr ""
 "Comprime exportações gzip imediatamente sem a necessidade de muita memória; "
-"se encontrar problemas com arquivos gzip criados desactive esta "
+"se encontrar problemas com ficheiros gzip criados desative esta "
 "funcionalidade."
 
 #: libraries/classes/Config/Descriptions.php:134
@@ -3769,10 +3762,8 @@ msgstr "Rótulo da chave"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:557
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #: templates/database/data_dictionary/index.twig:25
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media (MIME) type"
-msgstr "Tipo MIME"
+msgstr "Tipo de mídia (MIME)"
 
 #: libraries/classes/Config/Descriptions.php:219
 #: libraries/classes/Config/Descriptions.php:231
@@ -3869,7 +3860,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:261
 #: libraries/classes/Plugins/Export/ExportSql.php:316
 msgid "Exclude definition of current user"
-msgstr "Excluir definição do usuário atual"
+msgstr "Excluir definição do utilizador atual"
 
 #: libraries/classes/Config/Descriptions.php:262
 #: libraries/classes/Plugins/Export/ExportSql.php:322
@@ -4854,9 +4845,9 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
-"Ativar se quiser  histórico de consultas DB-based(requer configuração de "
-"armazenamento phpMyAdmin). Se desativado, este utiliza rotinas-JS para "
-"mostrar o histórico de consulta (perdido por fecho da janela)."
+"Ativar se quiser histórico de consultas baseadas na base de dados (requer a "
+"configuração de armazenamento phpMyAdmin). Se estiver desativado, utiliza as "
+"rotinas JS para mostrar o histórico de consulta (perdido fechando da janela)."
 
 #: libraries/classes/Config/Descriptions.php:577
 msgid "Permanent query history"
@@ -4997,16 +4988,12 @@ msgid "Bookmark table"
 msgstr "Tabela de favoritos"
 
 #: libraries/classes/Config/Descriptions.php:616
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: "
-#| "[kbd]pma__column_info[/kbd]."
 msgid ""
 "Leave blank for no column comments/media (MIME) types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Deixe em branco quando não houver colunas de comentário/tipo mime, "
-"sugeridas: [kbd]pma__column_info[/kbd]."
+"Deixe em branco quando não houver comentários/tipos de mídia de colunas, "
+"sugestão: [kbd]pma__column_info[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:619
 msgid "Column information table"
@@ -5029,7 +5016,7 @@ msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
-"Um usuário especial do MySQL configurado com permissões limitadas, mais "
+"Um utilizador especial do MySQL configurado com permissões limitadas, mais "
 "informações disponíveis na [doc@linked-tables]documentação[/doc]."
 
 #: libraries/classes/Config/Descriptions.php:627
@@ -6113,12 +6100,12 @@ msgid ""
 "protection with trusted proxies list may not be reliable if your IP belongs "
 "to an ISP where thousands of users, including you, are connected to."
 msgstr ""
-"Esta %s opção %s deveria ser desativata pois ela permite que atacantes façam "
-"login por força bruta em qualquer servidor MySQL. Se você acha que ela é "
+"Esta %sopção%s deveria ser desativata, pois ela permite que atacantes façam "
+"login por força bruta em qualquer servidor MySQL. Se julga que ela é "
 "necessária, use o %s login restrito para o servidor MySQL %s ou %s a lista "
 "de proxies confiáveis %s. Entretanto, proteções baseadas no protocolo IP "
-"podem não ser confiáveis se seu endereço IP pertence a um PROVEDOR onde "
-"centenas de usuários, incluindo você, estão conectados."
+"podem não ser confiáveis se o seu endereço IP pertence a um PROVEDOR onde "
+"centenas de utilizadores, incluindo você, estão conectados."
 
 #: libraries/classes/Config/ServerConfigChecks.php:101
 msgid ""
@@ -6141,11 +6128,11 @@ msgid ""
 "based protection may not be reliable if your IP belongs to an ISP where "
 "thousands of users, including you, are connected to."
 msgstr ""
-"Se achar necessário, você pode usar as configurações de proteção adicional - "
-"as configurações %1$shost authentication%2$s e %3$strusted proxies list%4%s. "
-"No entanto, proteções baseadas em IP podem não ser confiáveis se o seu IP "
-"pertence a um servidor ISP onde milhares de usuários, incluindo você, estão "
-"conectados."
+"Se achar necessário, pode usar as configurações de proteção adicional - as "
+"configurações %1$shost authentication%2$s e %3$strusted proxies list%4%s. No "
+"entanto, proteções baseadas em IP podem não ser confiáveis se o seu IP "
+"pertence a um servidor do provedor onde milhares de utilizadores, incluindo "
+"você, estão conectados."
 
 #: libraries/classes/Config/ServerConfigChecks.php:212
 #, php-format
@@ -6687,7 +6674,7 @@ msgid ""
 "SELECT col1 FROM foo, assuming that col1 is indexed."
 msgstr ""
 "As vezes que a primeira entrada foi lida de um índice. Se for alto, sugere "
-"que o usuário está fazendo muitas varreduras completas do índice; por "
+"que o utilizador está a fazer muitas varreduras completas do índice; por "
 "exemplo, SELECT col1 FROM foo, supondo que col1 é um índice."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:270
@@ -7348,7 +7335,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Setup/HomeController.php:130
 msgid "let the user choose"
-msgstr "deixar o usuário escolher"
+msgstr "deixar o utilizador escolher"
 
 #: libraries/classes/Controllers/Setup/HomeController.php:160
 msgid "- none -"
@@ -7560,18 +7547,14 @@ msgstr ""
 "instalação!"
 
 #: libraries/classes/Database/Designer/Common.php:534
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr ""
-"O armazenamento de configurações não está preparado para a funcionalidade de "
-"lista de colunas central."
+"O armazenamento de configuração do phpMyAdmin não está configurado para \""
+"Mostrar Recursos\"."
 
 #: libraries/classes/Database/Designer/Common.php:583
 msgid "Error: relationship already exists."
@@ -8918,7 +8901,7 @@ msgstr "Colunas centrais"
 
 #: libraries/classes/Menu.php:606
 msgid "User accounts"
-msgstr "Contas de usuário"
+msgstr "Contas de utilizador"
 
 #: libraries/classes/Menu.php:640 libraries/classes/Server/Status/Data.php:123
 #: libraries/classes/Util.php:4205 templates/server/binlog/index.twig:3
@@ -9395,7 +9378,7 @@ msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
-"Nenhuma dependência parcial possível quando a chave primária  ( %1$s ) tem "
+"Nenhuma dependência parcial possível quando a chave primária ( %1$s ) tem "
 "apenas uma coluna."
 
 #: libraries/classes/Normalization.php:494
@@ -10074,10 +10057,8 @@ msgstr "Exibir comentários"
 #: libraries/classes/Plugins/Export/ExportLatex.php:156
 #: libraries/classes/Plugins/Export/ExportOdt.php:116
 #: libraries/classes/Plugins/Export/ExportSql.php:132
-#, fuzzy
-#| msgid "Display MIME types"
 msgid "Display media (MIME) types"
-msgstr "Exibir os tipos MIME"
+msgstr "Exibir os tipos de mídia (MIME)"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
 msgid "Put columns names in the first row:"
@@ -10371,10 +10352,8 @@ msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT de tabela"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1911
-#, fuzzy
-#| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA (MIME) TYPES FOR TABLE"
-msgstr "TIPOS MIME PARA TABELAS"
+msgstr "TIPOS de MÍDIA (MIME) PARA TABELAS"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1934
 msgid "RELATIONSHIPS FOR TABLE"
@@ -11027,7 +11006,7 @@ msgstr "Preferências de UI de tabelas persistentes"
 
 #: libraries/classes/Relation.php:307
 msgid "User preferences"
-msgstr "Preferências do usuário"
+msgstr "Preferências do utilizador"
 
 #: libraries/classes/Relation.php:324
 msgid "Configurable menus"
@@ -11064,7 +11043,7 @@ msgstr "Criar tabelas necessárias através de <code>%screate_tables.sql</code>.
 
 #: libraries/classes/Relation.php:397
 msgid "Create a pma user and give access to these tables."
-msgstr "Criar um usuário pma e dar acesso a essas tabelas."
+msgstr "Criar um utilizador pma e dar acesso a essas tabelas."
 
 #: libraries/classes/Relation.php:400
 msgid ""
@@ -11702,7 +11681,7 @@ msgstr "Permite desligar o servidor."
 #: libraries/classes/Server/Privileges.php:386
 #: libraries/classes/Server/Privileges.php:1458 server_privileges.php:115
 msgid "Allows viewing processes of all users."
-msgstr "Permite visualizar processos de todos os usuários."
+msgstr "Permite visualizar processos de todos os utilizadores."
 
 #: libraries/classes/Server/Privileges.php:391
 #: libraries/classes/Server/Privileges.php:1326 server_privileges.php:94
@@ -11739,7 +11718,7 @@ msgid ""
 msgstr ""
 "Permite conectar, mesmo que a quantidade máxima de conexões seja alcançado; "
 "necessário para a maioria das operações administrativas, como definir "
-"variáveis globais ou matar processos de outros usuários."
+"variáveis globais ou matar processos de outros utilizadores."
 
 #: libraries/classes/Server/Privileges.php:425
 #: libraries/classes/Server/Privileges.php:1370 server_privileges.php:85
@@ -11759,7 +11738,7 @@ msgstr "Necessário para a replicação dos slaves."
 #: libraries/classes/Server/Privileges.php:440
 #: libraries/classes/Server/Privileges.php:1501 server_privileges.php:121
 msgid "Allows the user to ask where the slaves / masters are."
-msgstr "Permitir que o usuário pergunte onde os slaves / masters estão."
+msgstr "Permitir que o utilizador pergunte onde os slaves / masters estão."
 
 #: libraries/classes/Server/Privileges.php:445
 #: libraries/classes/Server/Privileges.php:461
@@ -11843,16 +11822,16 @@ msgid ""
 "execute per hour."
 msgstr ""
 "Limita o número de comandos que alteram tabelas ou bancos de dados que o "
-"usuário pode executar por hora."
+"utilizador pode executar por hora."
 
 #: libraries/classes/Server/Privileges.php:913 server_privileges.php:103
 msgid "Limits the number of new connections the user may open per hour."
 msgstr ""
-"Limita a quantidade de novas conexões que o usuário pode abrir por hora."
+"Limita a quantidade de novas conexões que o utilizador pode abrir por hora."
 
 #: libraries/classes/Server/Privileges.php:922 server_privileges.php:113
 msgid "Limits the number of simultaneous connections the user may have."
-msgstr "Limita a quantidade de conexões simultâneas que o usuário pode ter."
+msgstr "Limita a quantidade de conexões simultâneas que o utilizador pode ter."
 
 #: libraries/classes/Server/Privileges.php:973
 #: libraries/classes/Server/Privileges.php:3520
@@ -11867,8 +11846,8 @@ msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
 msgstr ""
-"Permite ao usuário dar privilégios que o usuário possui nesta rotina a "
-"outros usuários ou remover de outros usuários."
+"Permite ao utilizador dar privilégios que o utilizador possui nesta rotina a "
+"outros utilizadores ou remover de outros utilizadores."
 
 #: libraries/classes/Server/Privileges.php:1010
 msgid "Allows altering and dropping this routine."
@@ -11940,8 +11919,8 @@ msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
 msgstr ""
-"Permite que o usuário dê os privilégios que ele mesmo possui a outros "
-"usuários ou remova de outros usuários."
+"Permite que o utilizador dê os privilégios que ele mesmo possui a outros "
+"utilizadores ou remova de outros utilizadores."
 
 #: libraries/classes/Server/Privileges.php:1566
 #: libraries/classes/Server/Privileges.php:1597
@@ -11961,7 +11940,7 @@ msgstr "Informação de Login"
 #: templates/server/replication/master_add_slave_user.twig:16
 #: templates/server/replication/change_master.twig:14
 msgid "User name:"
-msgstr "Nome de usuário:"
+msgstr "Nome de utilizador:"
 
 #: libraries/classes/Server/Privileges.php:1641
 #: libraries/classes/Server/Privileges.php:1662
@@ -11990,7 +11969,7 @@ msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
 msgstr ""
-"Uma conta já existe com o mesmo nome de usuário, mas possivelmente com um "
+"Uma conta já existe com o mesmo nome de utilizador, mas possivelmente com um "
 "nome de servidor diferente."
 
 #: libraries/classes/Server/Privileges.php:1689
@@ -12077,11 +12056,11 @@ msgstr "Anulou os privilégios para %s."
 #: libraries/classes/Server/Privileges.php:2304
 #: templates/server/privileges/add_user_fieldset.twig:7
 msgid "Add user account"
-msgstr "Adicionar conta de usuário"
+msgstr "Adicionar conta de utilizador"
 
 #: libraries/classes/Server/Privileges.php:2313
 msgid "Database for user account"
-msgstr "Banco de dados para a conta de usuário"
+msgstr "Banco de dados para a conta de utilizador"
 
 #: libraries/classes/Server/Privileges.php:2317
 msgid "Create database with same name and grant all privileges."
@@ -12089,7 +12068,7 @@ msgstr "Criar banco de dados com o mesmo nome e conceder todos os privilégios."
 
 #: libraries/classes/Server/Privileges.php:2325
 msgid "Grant all privileges on wildcard name (username\\_%)."
-msgstr "Conceder todos os privilégios no nome curinga (nome_do_usuário_%)."
+msgstr "Conceder todos os privilégios no nome curinga (nome_do_utilizador_%)."
 
 #: libraries/classes/Server/Privileges.php:2335
 #, php-format
@@ -12104,7 +12083,7 @@ msgstr "Utilizadores que tem acesso a \"%s\""
 
 #: libraries/classes/Server/Privileges.php:2556
 msgid "User has been added."
-msgstr "O usuário foi adicionado."
+msgstr "O utilizador foi adicionado."
 
 #: libraries/classes/Server/Privileges.php:2710
 #: libraries/classes/Server/Privileges.php:3714
@@ -12114,12 +12093,12 @@ msgstr "Conceder/Grant"
 
 #: libraries/classes/Server/Privileges.php:2725
 msgid "Not enough privilege to view users."
-msgstr "Privilégio insuficiente para exibir usuário(s)."
+msgstr "Privilégio insuficiente para exibir utilizador(es)."
 
 #: libraries/classes/Server/Privileges.php:2744
 #: libraries/classes/Server/Privileges.php:4141
 msgid "No user found."
-msgstr "Nenhum usuário encontrado."
+msgstr "Nenhum utilizador encontrado."
 
 #: libraries/classes/Server/Privileges.php:2775
 #: libraries/classes/Server/Privileges.php:3126
@@ -12153,7 +12132,7 @@ msgstr "Anula"
 
 #: libraries/classes/Server/Privileges.php:3016
 msgid "Edit user group"
-msgstr "Editar grupo de usuários"
+msgstr "Editar grupo de utilizadores"
 
 #: libraries/classes/Server/Privileges.php:3240
 msgid "… keep the old one."
@@ -12178,11 +12157,11 @@ msgstr ""
 
 #: libraries/classes/Server/Privileges.php:3269
 msgid "Change login information / Copy user account"
-msgstr "Mudar informações de login / Copiar conta de usuário"
+msgstr "Mudar informações de login / Copiar conta de utilizador"
 
 #: libraries/classes/Server/Privileges.php:3275
 msgid "Create a new user account with the same privileges and …"
-msgstr "Criar uma nova conta de usuário com os mesmos privilégios e …"
+msgstr "Criar uma conta de utilizador com os mesmos privilégios e …"
 
 #: libraries/classes/Server/Privileges.php:3521
 #: templates/server/privileges/edit_routine_privileges.twig:12
@@ -12194,7 +12173,7 @@ msgstr "Privilégios específicos de rotina"
 #: templates/server/privileges/choose_user_group.twig:4
 #: templates/server/privileges/choose_user_group.twig:5
 msgid "User group"
-msgstr "Grupo de usuários"
+msgstr "Grupo de utilizadores"
 
 #: libraries/classes/Server/Privileges.php:3835
 #: libraries/classes/Server/Privileges.php:5015
@@ -12203,7 +12182,7 @@ msgstr "O utilizador selecionado não se encontra na tabela de privilégios."
 
 #: libraries/classes/Server/Privileges.php:4011
 msgid "No users selected for deleting!"
-msgstr "Nenhum usuário selecionado para exclusão!"
+msgstr "Nenhum utilizador selecionado para exclusão!"
 
 #: libraries/classes/Server/Privileges.php:4014
 msgid "Reloading the privileges"
@@ -12243,19 +12222,19 @@ msgstr "Editar privilégios:"
 
 #: libraries/classes/Server/Privileges.php:4723
 msgid "User account"
-msgstr "Conta de usuário"
+msgstr "Conta de utilizador"
 
 #: libraries/classes/Server/Privileges.php:4795
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
-"Nota: você está tentando editar os privilégios do usuário da sessão atual."
+"Nota: está a tentar editar os privilégios do utilizador da sessão atual."
 
 #: libraries/classes/Server/Privileges.php:4815
 #: libraries/classes/Server/Users.php:32
 msgid "User accounts overview"
-msgstr "Visão geral das contas de usuário"
+msgstr "Visão geral das contas de utilizador"
 
 #: libraries/classes/Server/Privileges.php:4890
 msgid ""
@@ -12263,9 +12242,9 @@ msgid ""
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
-"Existe uma conta de usuário que permite que qualquer usuário do localhost se "
-"conecte. Isso impedirá que outros usuários se conectem se a parte do host "
-"dessas contas permitir uma conexão de qualquer host (%)."
+"Existe uma conta de utilizador que permite que qualquer utilizador do "
+"localhost se conecte. Isso impedirá que outros utilizadores se conectem se a "
+"parte do host dessas contas permitir uma conexão de qualquer host (%)."
 
 #: libraries/classes/Server/Privileges.php:4935
 #, php-format
@@ -12275,8 +12254,8 @@ msgid ""
 "server uses, if they have been changed manually. In this case, you should "
 "%sreload the privileges%s before you continue."
 msgstr ""
-"Nota: o phpMyAdmin obtém os privilégios dos usuários diretamente das tabelas "
-"de privilégios do MySQL. O conteúdo dessas tabelas pode divergir dos "
+"Nota: o phpMyAdmin obtém os privilégios dos utilizadores diretamente das "
+"tabelas de privilégios do MySQL. O conteúdo dessas tabelas pode divergir dos "
 "privilégios que o servidor usa, se eles foram modificados manualmente. Neste "
 "caso, você deve %srecarregar os privilégios%s antes de continuar."
 
@@ -12288,10 +12267,10 @@ msgid ""
 "privileges have to be reloaded but currently, you don't have the RELOAD "
 "privilege."
 msgstr ""
-"Nota: o phpMyAdmin obtém os privilégios dos usuários diretamente das tabelas "
-"de privilégios do MySQL. O conteúdo dessas tabelas pode divergir dos "
+"Nota: o phpMyAdmin obtém os privilégios dos utilizadores diretamente das "
+"tabelas de privilégios do MySQL. O conteúdo dessas tabelas pode divergir dos "
 "privilégios que o servidor usa, se eles foram manualmente modificados. Nesse "
-"caso, os privilégios devem ser recarregados, mas atualmente você não tem o "
+"caso, os privilégios devem ser recarregados, mas atualmente não tem o "
 "privilégio RELOAD."
 
 #: libraries/classes/Server/Privileges.php:5263
@@ -12382,7 +12361,7 @@ msgstr ""
 #: libraries/classes/Server/UserGroups.php:77
 #: libraries/classes/Server/Users.php:40
 msgid "User groups"
-msgstr "Grupos de usuários"
+msgstr "Grupos de utilizadores"
 
 #: libraries/classes/Server/UserGroups.php:92
 msgid "Server level tabs"
@@ -12398,21 +12377,21 @@ msgstr "Abas de nível de tabela"
 
 #: libraries/classes/Server/UserGroups.php:124
 msgid "View users"
-msgstr "Ver usuários"
+msgstr "Ver utilizadores"
 
 #: libraries/classes/Server/UserGroups.php:164
 #: libraries/classes/Server/UserGroups.php:230
 msgid "Add user group"
-msgstr "Adicionar grupo de usuários"
+msgstr "Adicionar grupo de utilizadores"
 
 #: libraries/classes/Server/UserGroups.php:233
 #, php-format
 msgid "Edit user group: '%s'"
-msgstr "Editar grupo de usuários: '%s'"
+msgstr "Editar grupo de utilizadores: '%s'"
 
 #: libraries/classes/Server/UserGroups.php:249
 msgid "User group menu assignments"
-msgstr "Atribuições do menu de grupos de usuários"
+msgstr "Atribuições do menu de grupos de utilizadores"
 
 #: libraries/classes/Server/UserGroups.php:257
 msgid "Group name:"
@@ -12706,7 +12685,7 @@ msgstr "Nenhum dado"
 #: libraries/classes/Tracking.php:427 libraries/classes/Tracking.php:493
 #, php-format
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
-msgstr "Mostrar %1$s com datas desde %2$s até %3$s pelo usuário %4$s %5$s"
+msgstr "Mostrar %1$s com datas desde %2$s até %3$s pelo utilizador %4$s %5$s"
 
 #: libraries/classes/Tracking.php:514
 msgid "SQL dump (file download)"
@@ -13454,14 +13433,14 @@ msgstr "Sem Privilégios"
 
 #: server_privileges.php:167
 msgid "You do not have the privileges to administrate the users!"
-msgstr "Você não tem privilégios para administrar os usuários!"
+msgstr "Não tem privilégios para administrar os utilizadores!"
 
 #: server_privileges.php:181
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
 msgstr ""
-"O nome de usuário e o hostname não foram modificados. Se quiser apenas "
+"O nome de utilizador e o hostname não foram modificados. Se quiser apenas "
 "alterar a palavra-passe, utilize a aba \"Alterar palavra-passe\"."
 
 #: setup/index.php:28
@@ -13546,10 +13525,8 @@ msgid "As defined:"
 msgstr "Como definido:"
 
 #: templates/transformation_overview.twig:1
-#, fuzzy
-#| msgid "Available MIME types"
 msgid "Available media (MIME) types"
-msgstr "Tipos de MIME disponíveis"
+msgstr "Tipos de mídia (MIME) disponíveis"
 
 #: templates/transformation_overview.twig:13
 msgid "Available browser display transformations"
@@ -13562,8 +13539,6 @@ msgstr "Transformação de visualização do navegador"
 
 #: templates/transformation_overview.twig:19
 #: templates/transformation_overview.twig:38
-#, fuzzy
-#| msgid "Description"
 msgctxt "for media (MIME) type transformation"
 msgid "Description"
 msgstr "Descrição"
@@ -14032,7 +14007,7 @@ msgstr ""
 
 #: templates/server/privileges/delete_user_fieldset.twig:3
 msgid "Remove selected user accounts"
-msgstr "Remover as contas de usuário selecionadas"
+msgstr "Remover as contas de utilizador selecionadas"
 
 #: templates/server/privileges/delete_user_fieldset.twig:6
 msgid "Revoke all active privileges from the users and delete them afterwards."
@@ -14113,7 +14088,7 @@ msgstr ""
 #: templates/server/replication/master_replication.twig:43
 #: templates/server/replication/master_add_slave_user.twig:6
 msgid "Add slave replication user"
-msgstr "Adicionar usuário de replicação de slave"
+msgstr "Adicionar utilizador de replicação de slave"
 
 #: templates/themes.twig:4
 msgid "Get more themes!"
@@ -14515,26 +14490,20 @@ msgid "License"
 msgstr "Licença"
 
 #: templates/server/plugins/index.twig:37
-#, fuzzy
-#| msgid "active"
 msgid "inactive"
-msgstr "activo"
+msgstr "inativo"
 
 #: templates/server/plugins/index.twig:39
 msgid "disabled"
 msgstr "desatidado"
 
 #: templates/server/plugins/index.twig:41
-#, fuzzy
-#| msgid "Deleting"
 msgid "deleting"
-msgstr "A Eliminar"
+msgstr "apagando"
 
 #: templates/server/plugins/index.twig:43
-#, fuzzy
-#| msgid "Delete"
 msgid "deleted"
-msgstr "Apagar"
+msgstr "apagado"
 
 #: templates/table/search/fields_table.twig:10
 #: templates/database/designer/main.twig:521
@@ -14718,10 +14687,8 @@ msgid "List of changes"
 msgstr "Lista de alterações"
 
 #: templates/table/structure/display_structure.twig:70
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media (MIME) type:"
-msgstr "Tipo MIME"
+msgstr "Tipo de mídia (MIME):"
 
 #: templates/table/structure/display_structure.twig:91
 #: templates/table/tracking/structure_snapshot_columns.twig:47
@@ -15685,10 +15652,9 @@ msgid "See table structure"
 msgstr "Ver estrutura da tabela"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Seleccionar tudo"
+msgstr "Selecionar \"%s\""
 
 #: templates/database/designer/database_tables.twig:109
 #, php-format
