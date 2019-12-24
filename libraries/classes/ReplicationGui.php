@@ -555,6 +555,10 @@ class ReplicationGui
         $html .= '   <tbody>';
 
         foreach (${"{$type}_variables"} as $variable) {
+            $serverReplicationVariable =
+                is_array(${"server_{$type}_replication"}) && isset(${"server_{$type}_replication"}[0])
+                ? ${"server_{$type}_replication"}[0][$variable] : '';
+
             $html .= '   <tr>';
             $html .= '     <td class="name">';
             $html .= htmlspecialchars($variable);
@@ -563,12 +567,12 @@ class ReplicationGui
 
             // TODO change to regexp or something, to allow for negative match
             if (isset(${"{$type}_variables_alerts"}[$variable])
-                && ${"{$type}_variables_alerts"}[$variable] == ${"server_{$type}_replication"}[0][$variable]
+                && ${"{$type}_variables_alerts"}[$variable] == $serverReplicationVariable
             ) {
                 $html .= '<span class="attention">';
 
             } elseif (isset(${"{$type}_variables_oks"}[$variable])
-                && ${"{$type}_variables_oks"}[$variable] == ${"server_{$type}_replication"}[0][$variable]
+                && ${"{$type}_variables_oks"}[$variable] == $serverReplicationVariable
             ) {
                 $html .= '<span class="allfine">';
             } else {
@@ -583,10 +587,10 @@ class ReplicationGui
                 $html .= htmlspecialchars(str_replace(
                     ',',
                     ', ',
-                    ${"server_{$type}_replication"}[0][$variable]
+                    $serverReplicationVariable
                 ));
             } else {
-                $html .= htmlspecialchars(${"server_{$type}_replication"}[0][$variable]);
+                $html .= htmlspecialchars($serverReplicationVariable);
             }
             $html .= '</span>';
 
