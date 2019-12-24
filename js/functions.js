@@ -492,7 +492,7 @@ Functions.suggestPassword = function (passwordForm) {
     validate_password['length'] = 8;
     validate_password['mixed_case_count'] = 1;
     validate_password['number_count'] = 1;
-    validate_password['special_char_count'] = 1;
+    validate_password['special_char_count'] = 7;
     var lowercase = "abcdefghijklmnopqrstuvwxyz";
     var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWYXZ";
     var numbers = "0123456789";
@@ -503,45 +503,44 @@ Functions.suggestPassword = function (passwordForm) {
     
     var i;
 
-    if(validate_password.policy == 0) {
-        for (i = 0; i < validate_password.length; i++) {
-            passwd.value += lowercase.charAt(Math.abs(Math.floor(Math.random() * lowercase.length)) % lowercase.length);
-        }
-    } 
+    var password_length = validate_password.length;
 
-    if(validate_password.policy >= 1) {
-        var password_length = validate_password.length;
+    // Assigning lowercase
+    var charset_length = Math.abs(Math.round(Math.random() * (password_length - 1)) + 1);
+    if(charset_length < validate_password.mixed_case_count) {
+        charset_length += validate_password.mixed_case_count;
+    }
+    for(i = 0; i < charset_length; i++) {
+        passwd.value += lowercase.charAt(Math.abs(Math.floor(Math.random() * lowercase.length)) % lowercase.length);
+    }
+    password_length -= charset_length;
 
-        // Assigning lowercase
+    // Assigning uppercase
+    charset_length = Math.abs(Math.round(Math.random() * (password_length - 1)) + 1);
+    if(charset_length < validate_password.mixed_case_count) {
+        charset_length += validate_password.mixed_case_count;
+    }
+    for(i = 0; i < charset_length; i++) {
+        passwd.value += uppercase.charAt(Math.abs(Math.floor(Math.random() * uppercase.length)) % uppercase.length);
+    }
+    password_length -= charset_length;
 
-        var charset_length = Math.abs(Math.round(Math.random() * (password_length - 1)) + 1) + validate_password.mixed_case_count;
-        for(i = 0; i < charset_length; i++) {
-            passwd.value += lowercase.charAt(Math.abs(Math.floor(Math.random() * lowercase.length)) % lowercase.length);
-        }
-        password_length -= charset_length;
+    // Assigning numbers
+    charset_length = Math.abs(Math.round(Math.random() * (password_length - 1)) + 1);
+    if(charset_length < validate_password.number_count) {
+        charset_length += validate_password.number_count;
+    }
+    for(i = 0; i < charset_length; i++) {
+        passwd.value += numbers.charAt(Math.abs(Math.floor(Math.random() * numbers.length)) % numbers.length);
+    }
+    password_length -= charset_length;
 
-        // Assigning uppercase
-
-        charset_length = Math.abs(Math.round(Math.random() * (password_length - 1)) + 1) + validate_password.mixed_case_count;
-        for(i = 0; i < charset_length; i++) {
-            passwd.value += uppercase.charAt(Math.abs(Math.floor(Math.random() * uppercase.length)) % uppercase.length);
-        }
-        password_length -= charset_length;
-
-        // Assigning numbers
-
-        charset_length = Math.abs(Math.round(Math.random() * (password_length - 1)) + 1) + validate_password.number_count;
-        for(i = 0; i < charset_length; i++) {
-            passwd.value += numbers.charAt(Math.abs(Math.floor(Math.random() * numbers.length)) % numbers.length);
-        }
-        password_length -= charset_length;
-
-        // Assigning special chars
-
+    // Assigning special chars
+    if(charset_length < validate_password.special_char_count) {
         charset_length += validate_password.special_char_count;
-        for(i = 0; i < charset_length; i++) {
-            passwd.value += special_chars.charAt(Math.abs(Math.floor(Math.random() * special_chars.length)) % special_chars.length);
-        }
+    }
+    for(i = 0; i < charset_length; i++) {
+        passwd.value += special_chars.charAt(Math.abs(Math.floor(Math.random() * special_chars.length)) % special_chars.length);
     }
 
     if(validate_password.policy >= 2) {
@@ -552,7 +551,6 @@ Functions.suggestPassword = function (passwordForm) {
     passwd.value = passwd.value.split('').sort(function(){return 0.5-Math.random()}).join('');
 
     var $jQueryPasswordForm = $(passwordForm);
-    
     passwordForm.elements.pma_pw.value = passwd.value;
     passwordForm.elements.pma_pw2.value = passwd.value;
     var meterObj = $jQueryPasswordForm.find('meter[name="pw_meter"]').first();
