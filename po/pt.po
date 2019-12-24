@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:48-0300\n"
-"PO-Revision-Date: 2019-11-26 00:04+0000\n"
+"PO-Revision-Date: 2019-12-25 16:21+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.10-dev\n"
+"X-Generator: Weblate 3.10\n"
 
 #: index.php:52
 #, php-format
@@ -85,7 +85,7 @@ msgstr "Eliminando Chave estrangeira."
 
 #: js/messages.php:67
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "Esta operação poderá demorar algum tempo. Deseja prosseguir?"
+msgstr "Esta operação poderá demorar. Deseja prosseguir?"
 
 #: js/messages.php:69
 #, php-format
@@ -100,15 +100,15 @@ msgstr "Deseja realmente eliminar a pesquisa \"%s\"?"
 #: js/messages.php:73
 msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr ""
-"Tem alterações não guardadas; tem a certeza que deseja sair desta página?"
+"Tem alterações não gravadas; tem a certeza que deseja sair desta página?"
 
 #: js/messages.php:75
 msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
-"Está a tentar reduzir o número de linhas, mas já inseriu dados nessas linhas "
-"que serão perdidos. Deseja continuar?"
+"Está a tentar reduzir a quantidade de linhas, mas já inseriu dados nessas "
+"linhas que serão perdidas. Deseja continuar?"
 
 #: js/messages.php:77
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -1109,7 +1109,7 @@ msgstr "Navegação"
 
 #: js/messages.php:404
 msgid "Deleting"
-msgstr "A Eliminar"
+msgstr "Apagando"
 
 #: js/messages.php:405
 #, php-format
@@ -2883,7 +2883,7 @@ msgid ""
 "encounter problems with created gzip files disable this feature."
 msgstr ""
 "Comprime exportações gzip imediatamente sem a necessidade de muita memória; "
-"se encontrar problemas com arquivos gzip criados desactive esta "
+"se encontrar problemas com ficheiros gzip criados desative esta "
 "funcionalidade."
 
 #: libraries/classes/Config/Descriptions.php:133
@@ -4308,9 +4308,9 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
-"Ativar se quiser  histórico de consultas DB-based(requer configuração de "
-"armazenamento phpMyAdmin). Se desativado, este utiliza rotinas-JS para "
-"mostrar o histórico de consulta (perdido por fecho da janela)."
+"Ativar se quiser histórico de consultas baseadas na base de dados (requer a "
+"configuração de armazenamento phpMyAdmin). Se estiver desativado, utiliza as "
+"rotinas JS para mostrar o histórico de consulta (perdido fechando da janela)."
 
 #: libraries/classes/Config/Descriptions.php:577
 msgid "Permanent query history"
@@ -5576,11 +5576,11 @@ msgid ""
 "protection with trusted proxies list may not be reliable if your IP belongs "
 "to an ISP where thousands of users, including you, are connected to."
 msgstr ""
-"Esta %s opção %s deveria ser desativata pois ela permite que atacantes façam "
-"login por força bruta em qualquer servidor MySQL. Se você acha que ela é "
+"Esta %sopção%s deveria ser desativata, pois ela permite que atacantes façam "
+"login por força bruta em qualquer servidor MySQL. Se julga que ela é "
 "necessária, use o %s login restrito para o servidor MySQL %s ou %s a lista "
 "de proxies confiáveis %s. Entretanto, proteções baseadas no protocolo IP "
-"podem não ser confiáveis se seu endereço IP pertence a um PROVEDOR onde "
+"podem não ser confiáveis se o seu endereço IP pertence a um PROVEDOR onde "
 "centenas de utilizadores, incluindo você, estão conectados."
 
 #: libraries/classes/Config/ServerConfigChecks.php:98
@@ -5604,11 +5604,11 @@ msgid ""
 "based protection may not be reliable if your IP belongs to an ISP where "
 "thousands of users, including you, are connected to."
 msgstr ""
-"Se achar necessário, você pode usar as configurações de proteção adicional - "
-"as configurações %1$shost authentication%2$s e %3$strusted proxies list%4%s. "
-"No entanto, proteções baseadas em IP podem não ser confiáveis se o seu IP "
-"pertence a um servidor ISP onde milhares de utilizadores, incluindo você, "
-"estão conectados."
+"Se achar necessário, pode usar as configurações de proteção adicional - as "
+"configurações %1$shost authentication%2$s e %3$strusted proxies list%4%s. No "
+"entanto, proteções baseadas em IP podem não ser confiáveis se o seu IP "
+"pertence a um servidor do provedor onde milhares de utilizadores, incluindo "
+"você, estão conectados."
 
 #: libraries/classes/Config/ServerConfigChecks.php:209
 #, php-format
@@ -6437,7 +6437,7 @@ msgstr "Sem Privilégios"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:217
 msgid "You do not have the privileges to administrate the users!"
-msgstr "Você não tem privilégios para administrar os usuários!"
+msgstr "Não tem privilégios para administrar os utilizadores!"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:231
 msgid ""
@@ -7522,8 +7522,8 @@ msgctxt ""
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr ""
-"O armazenamento de configurações do phpMyAdmin não está configurado para "
-"\"Recursos de Exibição\"."
+"O armazenamento de configuração do phpMyAdmin não está configurado para \""
+"Mostrar Recursos\"."
 
 #: libraries/classes/Database/Designer/Common.php:582
 msgid "Error: relationship already exists."
@@ -9398,7 +9398,7 @@ msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
-"Nenhuma dependência parcial possível quando a chave primária  ( %1$s ) tem "
+"Nenhuma dependência parcial possível quando a chave primária ( %1$s ) tem "
 "apenas uma coluna."
 
 #: libraries/classes/Normalization.php:494
@@ -11727,7 +11727,7 @@ msgstr ""
 "Nota: o phpMyAdmin obtém os privilégios dos utilizadores diretamente das "
 "tabelas de privilégios do MySQL. O conteúdo dessas tabelas pode divergir dos "
 "privilégios que o servidor usa, se eles foram modificados manualmente. Neste "
-"caso, deve %srecarregar os privilégios%s antes de continuar."
+"caso, você deve %srecarregar os privilégios%s antes de continuar."
 
 #: libraries/classes/Server/Privileges.php:3143
 msgid ""
@@ -14520,19 +14520,13 @@ msgstr "Calendário-mês-ano"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: templates/javascript/variables.twig:11
-#, fuzzy
-#| msgctxt "Year suffix"
-#| msgid "none"
 msgid "none"
-msgstr "Nenhum"
+msgstr "nenhum"
 
 #. l10n: Previous month. Display text for previous month link in calendar
 #: templates/javascript/variables.twig:16
-#, fuzzy
-#| msgctxt "Previous month"
-#| msgid "Prev"
 msgid "Prev"
-msgstr "Ant"
+msgstr "Anterior"
 
 #. l10n: Next month. Display text for next month link in calendar
 #: templates/javascript/variables.twig:17
@@ -14685,7 +14679,7 @@ msgstr "Por favor, digite um número de cartão de crédito válido"
 
 #: templates/javascript/variables.twig:98
 msgid "Please enter only digits"
-msgstr "Por favor, digite apenas dígitos"
+msgstr "Por favor, utilize somente dígitos"
 
 #: templates/javascript/variables.twig:99
 msgid "Please enter the same value again"
@@ -14794,7 +14788,7 @@ msgstr "Criar banco de dados com o mesmo nome e conceder todos os privilégios."
 
 #: templates/server/privileges/add_user.twig:19
 msgid "Grant all privileges on wildcard name (username\\_%)."
-msgstr "Conceder todos os privilégios no nome curinga (username\\_%)."
+msgstr "Conceder todos os privilégios no nome curinga (nome_do_utilizador_%)."
 
 #: templates/server/privileges/add_user.twig:24
 #, php-format
@@ -16600,10 +16594,8 @@ msgid "Enter:"
 msgstr "Introduza:"
 
 #: templates/menu/breadcrumbs.twig:27
-#, fuzzy
-#| msgid "Views:"
 msgid "View:"
-msgstr "Views:"
+msgstr "Ver:"
 
 #: templates/database/designer/page_selector.twig:2
 msgid "Select page"
