@@ -61,6 +61,7 @@ use PhpMyAdmin\Controllers\Table\GetFieldController;
 use PhpMyAdmin\Controllers\Table\OperationsController as TableOperationsController;
 use PhpMyAdmin\Controllers\Table\RecentFavoriteController;
 use PhpMyAdmin\Controllers\Table\RowActionController;
+use PhpMyAdmin\Controllers\Table\TrackingController as TableTrackingController;
 use PhpMyAdmin\Controllers\Table\TriggersController as TableTriggersController;
 use PhpMyAdmin\Controllers\ThemesController;
 use PhpMyAdmin\Controllers\TransformationOverviewController;
@@ -614,8 +615,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $routes->addRoute(['GET', 'POST'], '/structure', function () {
             require_once ROOT_PATH . 'libraries/entry_points/table/structure.php';
         });
-        $routes->addRoute(['GET', 'POST'], '/tracking', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/table/tracking.php';
+        $routes->addRoute(['GET', 'POST'], '/tracking', function () use ($containerBuilder) {
+            /** @var TableTrackingController $controller */
+            $controller = $containerBuilder->get(TableTrackingController::class);
+            $controller->index();
         });
         $routes->addRoute(['GET', 'POST'], '/triggers', function () use ($containerBuilder) {
             /** @var TableTriggersController $controller */

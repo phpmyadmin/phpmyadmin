@@ -562,6 +562,16 @@ services:
       transformations: '@transformations'
       create_add_field: '@create_add_field'
 
+  PhpMyAdmin\Controllers\Table\TrackingController:
+    class: 'PhpMyAdmin\Controllers\Table\TrackingController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      db: '%db%'
+      table: '%table%'
+      tracking: '@tracking'
+
   PhpMyAdmin\Controllers\Table\TriggersController:
     class: 'PhpMyAdmin\Controllers\Table\TriggersController'
     arguments:

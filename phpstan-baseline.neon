@@ -3248,26 +3248,6 @@ parameters:
 			path: libraries/entry_points/table/replace.php
 
 		-
-			message: "#^Parameter \\#2 \\$filter_ts_from of method PhpMyAdmin\\\\Tracking\\:\\:getEntries\\(\\) expects int, int\\|string\\|false given\\.$#"
-			count: 1
-			path: libraries/entry_points/table/tracking.php
-
-		-
-			message: "#^Parameter \\#3 \\$filter_ts_to of method PhpMyAdmin\\\\Tracking\\:\\:getEntries\\(\\) expects int, int\\|string\\|false given\\.$#"
-			count: 1
-			path: libraries/entry_points/table/tracking.php
-
-		-
-			message: "#^Parameter \\#6 \\$filter_ts_to of method PhpMyAdmin\\\\Tracking\\:\\:getHtmlForTrackingReport\\(\\) expects int, int\\|string\\|false given\\.$#"
-			count: 1
-			path: libraries/entry_points/table/tracking.php
-
-		-
-			message: "#^Parameter \\#7 \\$filter_ts_from of method PhpMyAdmin\\\\Tracking\\:\\:getHtmlForTrackingReport\\(\\) expects int, int\\|string\\|false given\\.$#"
-			count: 1
-			path: libraries/entry_points/table/tracking.php
-
-		-
 			message: "#^Parameter \\#9 \\$originalUrlQuery of method PhpMyAdmin\\\\MultSubmits\\:\\:getUrlParams\\(\\) expects string, null given\\.$#"
 			count: 2
 			path: libraries/mult_submits.inc.php
