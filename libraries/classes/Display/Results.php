@@ -5130,7 +5130,7 @@ class Results
             && (! empty($tmpdb) && ! empty($meta->orgtable))
         ) {
             $result = '<a href="'
-                . Url::getFromRoute('/table/get_field', $url_params)
+                . Url::getFromRoute('/table/get-field', $url_params)
                 . '" class="disableAjax">'
                 . $result . '</a>';
         }

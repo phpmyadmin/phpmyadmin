@@ -57,6 +57,7 @@ use PhpMyAdmin\Controllers\Server\VariablesController;
 use PhpMyAdmin\Controllers\Table\AddFieldController;
 use PhpMyAdmin\Controllers\Table\ChartController;
 use PhpMyAdmin\Controllers\Table\CreateController;
+use PhpMyAdmin\Controllers\Table\GetFieldController;
 use PhpMyAdmin\Controllers\Table\TriggersController as TableTriggersController;
 use PhpMyAdmin\Controllers\ThemesController;
 use PhpMyAdmin\Controllers\TransformationOverviewController;
@@ -566,8 +567,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $routes->addRoute(['GET', 'POST'], '/find_replace', function () {
             require_once ROOT_PATH . 'libraries/entry_points/table/find_replace.php';
         });
-        $routes->addRoute(['GET', 'POST'], '/get_field', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/table/get_field.php';
+        $routes->addRoute(['GET', 'POST'], '/get-field', function () use ($containerBuilder) {
+            /** @var GetFieldController $controller */
+            $controller = $containerBuilder->get(GetFieldController::class);
+            $controller->index();
         });
         $routes->addRoute(['GET', 'POST'], '/gis_visualization', function () {
             require_once ROOT_PATH . 'libraries/entry_points/table/gis_visualization.php';

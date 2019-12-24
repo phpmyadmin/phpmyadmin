@@ -434,6 +434,15 @@ services:
       transformations: '@transformations'
       config: '@config'
 
+  PhpMyAdmin\Controllers\Table\GetFieldController:
+    class: 'PhpMyAdmin\Controllers\Table\GetFieldController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      db: '%db%'
+      table: '%table%'
+
   PhpMyAdmin\Controllers\Table\GisVisualizationController:
     class: 'PhpMyAdmin\Controllers\Table\GisVisualizationController'
     arguments:
