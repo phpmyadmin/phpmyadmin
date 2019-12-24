@@ -17,6 +17,7 @@ phpMyAdmin - ChangeLog
 - issue #15614 Fix undefined offset on index page for MySQL 5.7.8 (server charset)
 - issue #15692 Fix JavaScript error when user has not enough privilege to view query statistics.
 - issue #14248 Fixed date selection in search menu missing higher Z-index value
+- issue        Fix Uncaught php TypeError on php 8.0 when adding a column to table create form
 
 4.9.2 (2019-11-21)
 - issue #14184 Change the cookie name from phpMyAdmin to phpMyAdmin_https for HTTPS, fixes many "Failed to set session cookie" errors
