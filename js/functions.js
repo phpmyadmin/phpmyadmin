@@ -489,7 +489,7 @@ Functions.suggestPassword = function (passwordForm) {
     var validate_password = {}
     validate_password['dictionary_file'] = []; //Get array of dictionaries here.
     validate_password['policy'] = 1;
-    validate_password['length'] = 8;
+    validate_password['length'] = 16;
     validate_password['mixed_case_count'] = 1;
     validate_password['number_count'] = 2;
     validate_password['special_char_count'] = 3;
@@ -503,7 +503,7 @@ Functions.suggestPassword = function (passwordForm) {
     
     var i;
 
-    var password_length = validate_password.length;
+    var password_length = validate_password.length + 1;
 
     // Assigning lowercase
     var charset_length = Math.abs(Math.round(Math.random() * (password_length - 1)) + 1);
