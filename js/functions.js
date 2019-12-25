@@ -542,11 +542,14 @@ Functions.suggestPassword = function (passwordForm) {
         passwd.value += special_chars.charAt(Math.abs(Math.floor(Math.random() * special_chars.length)) % special_chars.length);
     }
 
+    // If the generated password is less that the minimum required length,
+    // we add extra characters
     if(passwd.value.length < validate_password.length) {
         for(i = passwd.value.length; i < validate_password.length; i++) {
             passwd.value += all_chars.charAt(Math.abs(Math.floor(Math.random() * all_chars.length)) % all_chars.length);
         }
     }
+
     //Shuffling the generated password.
     passwd.value = passwd.value.split('').sort(function(){return 0.5-Math.random()}).join('');
 
