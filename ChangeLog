@@ -53,6 +53,7 @@ phpMyAdmin - ChangeLog
 - issue #15623 Fix width of picker modal and remove date picker for int fields
 - issue #14732 Fixed can't rename primary key with auto increment
 - issue #15677 Fix show process-list triggers a php exception
+- issue #15697 Fix uncaught php error: "Call to a member function get() on null" in db_export.php when exporting a table from the list
 
 4.9.3 (not yet released)
 - issue #15570 Fix page contents go underneath of floating menubar in some cases
