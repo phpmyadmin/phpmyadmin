@@ -489,7 +489,7 @@ Functions.suggestPassword = function (passwordForm) {
     var validate_password = {}
     validate_password['dictionary_file'] = []; //Get array of dictionaries here.
     validate_password['policy'] = 1;
-    validate_password['length'] = 16;
+    validate_password['length'] = 8;
     validate_password['mixed_case_count'] = 1;
     validate_password['number_count'] = 2;
     validate_password['special_char_count'] = 3;
@@ -497,14 +497,13 @@ Functions.suggestPassword = function (passwordForm) {
     var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWYXZ";
     var numbers = "0123456789";
     var special_chars = "@!_.*/()[]-";
+    var all_chars = lowercase + uppercase + numbers + special_chars
     var passwd = passwordForm.generated_pw;
 
     passwd.value = '';
-    
     var i;
-
     var password_length = validate_password.length + 1;
-
+    
     // Assigning lowercase
     var charset_length = Math.abs(Math.round(Math.random() * (password_length - 1)) + 1);
     if(charset_length < validate_password.mixed_case_count) {
@@ -543,12 +542,17 @@ Functions.suggestPassword = function (passwordForm) {
         passwd.value += special_chars.charAt(Math.abs(Math.floor(Math.random() * special_chars.length)) % special_chars.length);
     }
 
+    if(passwd.value.length < validate_password.length) {
+        for(i = passwd.value.length; i < validate_password.length; i++) {
+            passwd.value += all_chars.charAt(Math.abs(Math.floor(Math.random() * all_chars.length)) % all_chars.length);
+        }
+    }
+    //Shuffling the generated password.
+    passwd.value = passwd.value.split('').sort(function(){return 0.5-Math.random()}).join('');
+
     if(validate_password.policy >= 2) {
         // Handle dictionary here.
     }
-
-    //Shuffling the generated password.
-    passwd.value = passwd.value.split('').sort(function(){return 0.5-Math.random()}).join('');
 
     var $jQueryPasswordForm = $(passwordForm);
     passwordForm.elements.pma_pw.value = passwd.value;
