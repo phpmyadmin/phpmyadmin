@@ -451,11 +451,6 @@ services:
       template: '@template'
       db: '%db%'
       table: '%table%'
-      sql_query: null
-      url_params: null
-      goto: null
-      back: null
-      visualizationSettings: null
 
   PhpMyAdmin\Controllers\Table\IndexesController:
     class: 'PhpMyAdmin\Controllers\Table\IndexesController'

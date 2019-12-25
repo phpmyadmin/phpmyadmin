@@ -58,6 +58,7 @@ use PhpMyAdmin\Controllers\Table\AddFieldController;
 use PhpMyAdmin\Controllers\Table\ChartController;
 use PhpMyAdmin\Controllers\Table\CreateController;
 use PhpMyAdmin\Controllers\Table\GetFieldController;
+use PhpMyAdmin\Controllers\Table\GisVisualizationController;
 use PhpMyAdmin\Controllers\Table\OperationsController as TableOperationsController;
 use PhpMyAdmin\Controllers\Table\RecentFavoriteController;
 use PhpMyAdmin\Controllers\Table\RelationController;
@@ -577,8 +578,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             $controller = $containerBuilder->get(GetFieldController::class);
             $controller->index();
         });
-        $routes->addRoute(['GET', 'POST'], '/gis_visualization', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/table/gis_visualization.php';
+        $routes->addRoute(['GET', 'POST'], '/gis-visualization', function () use ($containerBuilder) {
+            /** @var GisVisualizationController $controller */
+            $controller = $containerBuilder->get(GisVisualizationController::class);
+            $controller->index();
         });
         $routes->addRoute(['GET', 'POST'], '/import', function () {
             require_once ROOT_PATH . 'libraries/entry_points/table/import.php';

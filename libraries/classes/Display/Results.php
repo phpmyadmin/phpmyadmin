@@ -4986,7 +4986,7 @@ class Results
             if ($geometry_found) {
                 $results_operations_html
                     .= Generator::linkOrButton(
-                        Url::getFromRoute('/table/gis_visualization', $_url_params),
+                        Url::getFromRoute('/table/gis-visualization', $_url_params),
                         Generator::getIcon(
                             'b_globe',
                             __('Visualize GIS data'),
