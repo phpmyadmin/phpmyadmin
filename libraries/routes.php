@@ -60,6 +60,7 @@ use PhpMyAdmin\Controllers\Table\CreateController;
 use PhpMyAdmin\Controllers\Table\GetFieldController;
 use PhpMyAdmin\Controllers\Table\OperationsController as TableOperationsController;
 use PhpMyAdmin\Controllers\Table\RecentFavoriteController;
+use PhpMyAdmin\Controllers\Table\RelationController;
 use PhpMyAdmin\Controllers\Table\RowActionController;
 use PhpMyAdmin\Controllers\Table\TrackingController as TableTrackingController;
 use PhpMyAdmin\Controllers\Table\TriggersController as TableTriggersController;
@@ -595,8 +596,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             $controller = $containerBuilder->get(RecentFavoriteController::class);
             $controller->index();
         });
-        $routes->addRoute(['GET', 'POST'], '/relation', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/table/relation.php';
+        $routes->addRoute(['GET', 'POST'], '/relation', function () use ($containerBuilder) {
+            /** @var RelationController $controller */
+            $controller = $containerBuilder->get(RelationController::class);
+            $controller->index();
         });
         $routes->addRoute(['GET', 'POST'], '/replace', function () {
             require_once ROOT_PATH . 'libraries/entry_points/table/replace.php';

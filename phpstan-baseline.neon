@@ -458,26 +458,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/GisVisualizationController.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Table\\\\RelationController\\:\\:\\$options_array \\(array\\) does not accept array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/RelationController.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Table\\\\RelationController\\:\\:\\$cfgRelation \\(array\\) does not accept array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/RelationController.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Table\\\\RelationController\\:\\:\\$existrel \\(array\\) does not accept array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/RelationController.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Table\\\\RelationController\\:\\:\\$existrel_foreign \\(array\\) does not accept array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/RelationController.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of function mb_strtolower expects string, array\\<string\\>\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/SearchController.php
@@ -3355,16 +3335,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$response of class PhpMyAdmin\\\\Controllers\\\\Table\\\\RelationController constructor expects PhpMyAdmin\\\\Response, PhpMyAdmin\\\\Tests\\\\Stubs\\\\Response given\\.$#"
 			count: 4
-			path: test/classes/Controllers/Table/RelationControllerTest.php
-
-		-
-			message: "#^Parameter \\#11 \\$upd_query of class PhpMyAdmin\\\\Controllers\\\\Table\\\\RelationController constructor expects PhpMyAdmin\\\\Table, null given\\.$#"
-			count: 4
-			path: test/classes/Controllers/Table/RelationControllerTest.php
-
-		-
-			message: "#^Parameter \\#8 \\$tbl_storage_engine of class PhpMyAdmin\\\\Controllers\\\\Table\\\\RelationController constructor expects string, null given\\.$#"
-			count: 2
 			path: test/classes/Controllers/Table/RelationControllerTest.php
 
 		-

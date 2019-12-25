@@ -506,12 +506,6 @@ services:
       template: '@template'
       db: '%db%'
       table: '%table%'
-      options_array: null
-      cfgRelation: null
-      tbl_storage_engine: null
-      existrel: null
-      existrel_foreign: null
-      upd_query: null
       relation: '@relation'
 
   PhpMyAdmin\Controllers\Table\RowActionController:
