@@ -3323,16 +3323,6 @@ parameters:
 			path: test/classes/Controllers/Table/IndexesControllerTest.php
 
 		-
-			message: "#^Parameter \\#6 \\$index of class PhpMyAdmin\\\\Controllers\\\\Table\\\\IndexesController constructor expects PhpMyAdmin\\\\Index, null given\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/IndexesControllerTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:showHint\\(\\) expects string, PhpMyAdmin\\\\Message given\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/IndexesControllerTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$response of class PhpMyAdmin\\\\Controllers\\\\Table\\\\RelationController constructor expects PhpMyAdmin\\\\Response, PhpMyAdmin\\\\Tests\\\\Stubs\\\\Response given\\.$#"
 			count: 4
 			path: test/classes/Controllers/Table/RelationControllerTest.php

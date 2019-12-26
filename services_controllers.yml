@@ -460,7 +460,6 @@ services:
       template: '@template'
       db: '%db%'
       table: '%table%'
-      index: '%index%'
 
   PhpMyAdmin\Controllers\Table\OperationsController:
     class: 'PhpMyAdmin\Controllers\Table\OperationsController'

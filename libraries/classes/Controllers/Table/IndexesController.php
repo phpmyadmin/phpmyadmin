@@ -1,8 +1,6 @@
 <?php
 /**
- * Holds the PhpMyAdmin\Controllers\Table\IndexesController
- *
- * @package PhpMyAdmin\Controllers
+ * @package PhpMyAdmin\Controllers\Table
  */
 declare(strict_types=1);
 
@@ -16,59 +14,64 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 
 /**
- * @package PhpMyAdmin\Controllers
+ * Displays index edit/creation form and handles it.
+ *
+ * @package PhpMyAdmin\Controllers\Table
  */
 class IndexesController extends AbstractController
 {
     /**
-     * @var Index
-     */
-    protected $index;
-
-    /**
-     * Constructor
-     *
      * @param Response          $response Response object
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param Template          $template Template object
      * @param string            $db       Database name
      * @param string            $table    Table name
-     * @param Index             $index    Index object
      */
     public function __construct(
         $response,
         $dbi,
         Template $template,
         $db,
-        $table,
-        $index
+        $table
     ) {
         parent::__construct($response, $dbi, $template, $db, $table);
-
-        $this->index = $index;
     }
 
     /**
-     * Index
-     *
      * @return void
      */
-    public function indexAction()
+    public function index(): void
     {
-        if (isset($_POST['do_save_data'])) {
-            $this->doSaveDataAction();
-            return;
-        } // end builds the new index
+        if (! isset($_POST['create_edit_table'])) {
+            include_once ROOT_PATH . 'libraries/tbl_common.inc.php';
+        }
+        if (isset($_POST['index'])) {
+            if (is_array($_POST['index'])) {
+                // coming already from form
+                $index = new Index($_POST['index']);
+            } else {
+                $index = $this->dbi->getTable($this->db, $this->table)->getIndex($_POST['index']);
+            }
+        } else {
+            $index = new Index();
+        }
 
-        $this->displayFormAction();
+        if (isset($_POST['do_save_data'])) {
+            $this->doSaveData($index);
+            return;
+        }
+
+        $this->displayForm($index);
     }
 
     /**
      * Display the form to edit/create an index
      *
+     * @param Index $index An Index instance.
+     *
      * @return void
      */
-    public function displayFormAction()
+    public function displayForm(Index $index): void
     {
         $this->dbi->selectDb($GLOBALS['db']);
         $add_fields = 0;
@@ -76,7 +79,7 @@ class IndexesController extends AbstractController
             // coming already from form
             if (isset($_POST['index']['columns']['names'])) {
                 $add_fields = count($_POST['index']['columns']['names'])
-                    - $this->index->getColumnCount();
+                    - $index->getColumnCount();
             }
             if (isset($_POST['add_fields'])) {
                 $add_fields += $_POST['added_fields'];
@@ -92,7 +95,7 @@ class IndexesController extends AbstractController
                 'Non_unique' => $_POST['index']['Index_choice'] == 'UNIQUE'
                     ? '0' : '1',
             ];
-            $this->index->set($index_params);
+            $index->set($index_params);
             $add_fields = count($fields);
         } else {
             $fields = $this->dbi->getTable($this->db, $this->table)
@@ -117,7 +120,7 @@ class IndexesController extends AbstractController
         $this->response->addHTML(
             $this->template->render('table/index_form', [
                 'fields' => $fields,
-                'index' => $this->index,
+                'index' => $index,
                 'form_params' => $form_params,
                 'add_fields' => $add_fields,
                 'create_edit_table' => isset($_POST['create_edit_table']),
@@ -131,14 +134,16 @@ class IndexesController extends AbstractController
      * run the query to build the new index
      * and moves back to /table/sql
      *
+     * @param Index $index An Index instance.
+     *
      * @return void
      */
-    public function doSaveDataAction()
+    public function doSaveData(Index $index): void
     {
         $error = false;
 
         $sql_query = $this->dbi->getTable($this->db, $this->table)
-            ->getSqlQueryForIndexCreateOrEdit($this->index, $error);
+            ->getSqlQueryForIndexCreateOrEdit($index, $error);
 
         // If there is a request for SQL previewing.
         if (isset($_POST['preview_sql'])) {
