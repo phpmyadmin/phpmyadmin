@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.9.3 (not yet released)
+4.9.3 (2019-12-26)
 - issue #15570 Fix page contents go underneath of floating menubar in some cases
 - issue #15591 Fix php notice 'Undefined index: foreign_keys_data' on relations view when the user has column access
 - issue #15592 Fix php warning "error_reporting() has been disabled for security reasons"
