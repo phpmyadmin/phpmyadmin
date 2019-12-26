@@ -6,9 +6,9 @@ $( function() {
 
         {% if handler != 'PhpMyAdmin\\Plugins\\Import\\Upload\\UploadNoplugin' %}
             {# Some variable for javascript #}
-            {% set ajax_url = 'import_status.php?id=' ~ upload_id ~ '&' ~ Url_getCommonRaw({
+            {% set ajax_url = 'import_status.php?id=' ~ upload_id ~ Url_getCommonRaw({
                 'import_status': 1
-            }) %}
+            }, '&') %}
             {% set promot_str = Sanitize_jsFormat(
                 'The file being uploaded is probably larger than the maximum allowed size or this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) browsers.'|trans,
                 false
@@ -21,7 +21,7 @@ $( function() {
                 'The file is being processed, please be patient.'|trans,
                 false
             ) %}
-            {% set import_url = Url_getCommonRaw({'import_status': 1}) %}
+            {% set import_url = Url_getCommonRaw({'import_status': 1}, '&') %}
 
             {% set upload_html %}
                 {% apply spaceless %}
