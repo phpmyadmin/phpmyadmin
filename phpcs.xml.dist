@@ -1,6 +1,24 @@
 <?xml version="1.0"?>
 <ruleset name="phpMyAdmin Coding Standard">
-    <rule ref="./vendor/phpmyadmin/coding-standard/PMAStandard/ruleset.xml"/>
+    <rule ref="./vendor/phpmyadmin/coding-standard/PMAStandard/ruleset.xml">
+        <exclude name="Generic.Metrics.NestingLevel.TooHigh"/>
+        <exclude name="PSR1.Files.SideEffects.FoundWithSymbols"/>
+        <exclude name="PSR1.Classes.ClassDeclaration.MissingNamespace"/>
+        <exclude name="PSR1.Classes.ClassDeclaration.MultipleClasses"/>
+        <exclude name="Squiz.Classes.ValidClassName.NotCamelCaps"/>
+        <exclude name="PMAStandard.Commenting.FileComment.Missing"/>
+        <exclude name="PMAStandard.Commenting.ClassComment.Missing"/>
+        <exclude name="PMAStandard.Commenting.ClassComment.MissingPackageTag"/>
+        <exclude name="PMAStandard.Commenting.FunctionComment.Missing"/>
+        <exclude name="PMAStandard.Commenting.FunctionComment.MissingParamComment"/>
+        <exclude name="PMAStandard.Commenting.FunctionComment.MissingParamName"/>
+        <exclude name="PMAStandard.Commenting.FunctionComment.MissingParamTag"/>
+        <exclude name="PMAStandard.Commenting.FunctionComment.MissingReturn"/>
+        <exclude name="PMAStandard.Commenting.FunctionComment.ExtraParamComment"/>
+        <exclude name="PMAStandard.Commenting.FunctionComment.ParamNameNoMatch"/>
+        <exclude name="PMAStandard.Commenting.FunctionComment.SpacingAfter"/>
+        <exclude name="PMAStandard.Files.SpacesAroundConcat.Found"/>
+    </rule>
 
     <arg value="sp"/>
     <arg name="colors"/>

@@ -38,6 +38,13 @@ class LanguageManager
             'af|afrikaans',
             '',
         ),
+        'am' => array(
+            'am',
+            'Amharic',
+            'አማርኛ',
+            'am|amharic',
+            '',
+        ),
         'ar' => array(
             'ar',
             'Arabic',

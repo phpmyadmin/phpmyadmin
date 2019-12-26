@@ -1,6 +1,27 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.9.3 (2019-12-26)
+- issue #15570 Fix page contents go underneath of floating menubar in some cases
+- issue #15591 Fix php notice 'Undefined index: foreign_keys_data' on relations view when the user has column access
+- issue #15592 Fix php warning "error_reporting() has been disabled for security reasons"
+- issue #15434 Fix middle click on table sort column name shows a blank page
+- issue        Fix php notice "Undefined index table_create_time" when setting displayed columns on results of a view
+- issue #15571 Fix fatal error when trying to edit row with row checked and button under the table
+- issue #15633 Fix designer set display field broken for php 5.x versions
+- issue #15621 Support CloudFront-Forwarded-Proto header for Amazon CloudFront proxy
+- issue        Fix php 8.0 php notices - Undefined index on login page
+- issue #15640 Fix php 7.4 error when trying to access array offset on value of type null on table browse
+- issue #15641 Fix replication actions where broken (start slave, stop slave, reset, ...)
+- issue #15608 Fix DisableIS is broken when with controluser configured (database list broken)
+- issue #15614 Fix undefined offset on index page for MySQL 5.7.8 (server charset)
+- issue #15692 Fix JavaScript error when user has not enough privilege to view query statistics.
+- issue #14248 Fixed date selection in search menu missing higher Z-index value
+- issue        Fix Uncaught php TypeError on php 8.0 when adding a column to table create form
+- issue #15682 Fix calendar not taking current time as default value
+- issue #15636 Fix php error trying to access array offset on value o type null on replication GUI
+- issue #15695 Fix input field for the time in datetime picker is disabled
+
 4.9.2 (2019-11-21)
 - issue #14184 Change the cookie name from phpMyAdmin to phpMyAdmin_https for HTTPS, fixes many "Failed to set session cookie" errors
 - issue #15304 Fix ssl_use php error

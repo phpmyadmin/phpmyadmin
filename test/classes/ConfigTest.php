@@ -550,7 +550,7 @@ class ConfigTest extends PmaTestCase
      *
      * @dataProvider httpsParams
      */
-    public function testIsHttps($scheme, $https, $uri, $lb, $front, $proto, $port, $expected)
+    public function testIsHttps($scheme, $https, $uri, $lb, $front, $proto, $protoCloudFront, $pmaAbsoluteUri, $port, $expected)
     {
         $_SERVER['HTTP_SCHEME'] = $scheme;
         $_SERVER['HTTPS'] = $https;
@@ -558,9 +558,11 @@ class ConfigTest extends PmaTestCase
         $_SERVER['HTTP_HTTPS_FROM_LB'] = $lb;
         $_SERVER['HTTP_FRONT_END_HTTPS'] = $front;
         $_SERVER['HTTP_X_FORWARDED_PROTO'] = $proto;
+        $_SERVER['HTTP_CLOUDFRONT_FORWARDED_PROTO'] = $protoCloudFront;
         $_SERVER['SERVER_PORT'] = $port;
 
         $this->object->set('is_https', null);
+        $this->object->set('PmaAbsoluteUri', $pmaAbsoluteUri);
         $this->assertEquals($expected, $this->object->isHttps());
     }
 
@@ -572,15 +574,21 @@ class ConfigTest extends PmaTestCase
     public function httpsParams()
     {
         return array(
-            array('http', '', '', '', '', 'http', 80, false),
-            array('http', '', 'http://', '', '', 'http', 80, false),
-            array('http', '', '', '', '', 'http', 443, true),
-            array('http', '', '', '', '', 'https', 80, true),
-            array('http', '', '', '', 'on', 'http', 80, true),
-            array('http', '', '', 'on', '', 'http', 80, true),
-            array('http', '', 'https://', '', '', 'http', 80, true),
-            array('http', 'on', '', '', '', 'http', 80, true),
-            array('https', '', '', '', '', 'http', 80, true),
+            array('http', '', '', '', '', 'http', '', '', 80, false),
+            array('http', '', 'http://', '', '', 'http', '', '', 80, false),
+            array('http', '', '', '', '', 'http', '', '', 443, true),
+            array('http', '', '', '', '', 'https', '', '', 80, true),
+            array('http', '', '', '', 'on', 'http', '', '', 80, true),
+            array('http', '', '', 'on', '', 'http', '', '', 80, true),
+            array('http', '', 'https://', '', '', 'http', '', '', 80, true),
+            array('http', 'on', '', '', '', 'http', '', '', 80, true),
+            array('https', '', '', '', '', 'http', '', '', 80, true),
+            array('http', '', '', '', '', '', 'https', '', 80, true),
+            array('http', '', '', '', '', 'https', 'http', '', 80, true),
+            array('https', '', '', '', '', '', '', '', 80, true),
+            array('http', '', '', '', '', '', '', '', 8080, false),
+            array('', '', '', '', '', '', '', 'https://127.0.0.1', 80, true),
+            array('', '', '', '', '', '', '', 'http://127.0.0.1', 80, false),
         );
     }
 

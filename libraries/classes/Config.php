@@ -116,7 +116,7 @@ class Config
      */
     public function checkSystem()
     {
-        $this->set('PMA_VERSION', '4.9.2');
+        $this->set('PMA_VERSION', '4.9.3');
         /* Major version */
         $this->set(
             'PMA_MAJOR_VERSION',
@@ -768,13 +768,18 @@ class Config
             $this->error_config_default_file = true;
             return false;
         }
-        $old_error_reporting = error_reporting(0);
+        $canUseErrorReporting = function_exists('error_reporting');
+        if ($canUseErrorReporting) {
+            $old_error_reporting = error_reporting(0);
+        }
         ob_start();
         $GLOBALS['pma_config_loading'] = true;
         $eval_result = include $this->default_source;
         $GLOBALS['pma_config_loading'] = false;
         ob_end_clean();
-        error_reporting($old_error_reporting);
+        if ($canUseErrorReporting) {
+            error_reporting($old_error_reporting);
+        }
 
         if ($eval_result === false) {
             $this->error_config_default_file = true;
@@ -820,13 +825,18 @@ class Config
          * Parses the configuration file, we throw away any errors or
          * output.
          */
-        $old_error_reporting = error_reporting(0);
+        $canUseErrorReporting = function_exists('error_reporting');
+        if ($canUseErrorReporting) {
+            $old_error_reporting = error_reporting(0);
+        }
         ob_start();
         $GLOBALS['pma_config_loading'] = true;
         $eval_result = include $this->getSource();
         $GLOBALS['pma_config_loading'] = false;
         ob_end_clean();
-        error_reporting($old_error_reporting);
+        if ($canUseErrorReporting) {
+            error_reporting($old_error_reporting);
+        }
 
         if ($eval_result === false) {
             $this->error_config_file = true;
@@ -1330,6 +1340,9 @@ class Config
             $is_https = true;
         } elseif (strtolower(Core::getenv('HTTP_X_FORWARDED_PROTO')) == 'https') {
             $is_https = true;
+        } elseif (strtolower(Core::getenv('HTTP_CLOUDFRONT_FORWARDED_PROTO')) === 'https') {
+            // Amazon CloudFront, issue #15621
+            $is_https = true;
         } elseif (Core::getenv('SERVER_PORT') == 443) {
             $is_https = true;
         }
@@ -1623,7 +1636,11 @@ class Config
      * @return mixed result of getCookie()
      */
     public function getCookie($cookieName) {
-        return @$_COOKIE[$this->getCookieName($cookieName)];
+        if (isset($_COOKIE[$this->getCookieName($cookieName)])) {
+            return $_COOKIE[$this->getCookieName($cookieName)];
+        } else {
+            return null;
+        }
     }
 
     /**

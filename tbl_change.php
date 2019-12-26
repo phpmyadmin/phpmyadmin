@@ -119,7 +119,7 @@ $biggest_max_file_size = 0;
 $url_params['db'] = $db;
 $url_params['table'] = $table;
 $url_params = $insertEdit->urlParamsInEditMode(
-    $url_params, $where_clause_array, $where_clause
+    $url_params, $where_clause_array
 );
 
 $has_blob_field = false;

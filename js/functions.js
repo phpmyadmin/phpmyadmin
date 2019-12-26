@@ -98,7 +98,14 @@ function PMA_addDatepicker ($this_element, type, options) {
         showTimepicker = false;
     }
 
+    // Getting the current Date and time
+    var currentDateTime = new Date();
+
     var defaultOptions = {
+        timeInput : true,
+        hour: currentDateTime.getHours(),
+        minute: currentDateTime.getMinutes(),
+        second: currentDateTime.getSeconds(),
         showOn: 'button',
         buttonImage: themeCalendarImage, // defined in js/messages.php
         buttonImageOnly: true,

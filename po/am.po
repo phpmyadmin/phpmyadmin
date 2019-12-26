@@ -1,26 +1,27 @@
 # phpMyAdmin translation.
-# Copyright (C) 2003 - 2014 phpMyAdmin devel team
+# Copyright (C) 2003 - 2019 phpMyAdmin devel team
 # This file is distributed under the same license as the phpMyAdmin package.
-# Automatically generated, 2014.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2019-04-27 16:55+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
-"Language-Team: Esperanto <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
-"eo/>\n"
-"Language: eo\n"
+"PO-Revision-Date: 2019-11-30 11:04+0000\n"
+"Last-Translator: Eyob Shiferaw <eeyyoobb@gmail.com>\n"
+"Language-Team: Amharic <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
+"am/>\n"
+"Language: am\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.10-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
-msgstr ""
+msgstr "የማይረባ ዓይነት!"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -28,8 +29,6 @@ msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"La dosiero %s ne estas disponebla en ĉi tiu sistemo, vizitu %s por pli da "
-"informo."
 
 #: db_central_columns.php:129
 msgid "The central list of columns for the current database is empty."
@@ -37,7 +36,7 @@ msgstr ""
 
 #: db_central_columns.php:158
 msgid "Click to sort."
-msgstr "Klaku por ordigi."
+msgstr "ለመደርደር ይጫኑ"
 
 #: db_central_columns.php:177
 #, php-format
@@ -46,14 +45,14 @@ msgstr ""
 
 #: db_datadict.php:61 libraries/classes/Operations.php:60
 msgid "Database comment"
-msgstr ""
+msgstr "የዳታቤዝ ኮሜንት"
 
 #: db_datadict.php:108
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:596
 #: templates/columns_definitions/column_definitions_form.twig:72
 #: templates/table/structure/display_table_stats.twig:6
 msgid "Table comments:"
-msgstr ""
+msgstr "የቴብል ኮሜንት"
 
 #: db_datadict.php:117 libraries/classes/Index.php:723
 #: libraries/classes/InsertEdit.php:1912
@@ -82,7 +81,7 @@ msgstr ""
 #: templates/table/tracking/structure_snapshot_indexes.twig:9
 #: templates/table/tracking/structure_snapshot_columns.twig:6
 msgid "Column"
-msgstr "Kolumno"
+msgstr "ኮለመን"
 
 #: db_datadict.php:118 libraries/classes/CentralColumns.php:744
 #: libraries/classes/CentralColumns.php:1428 libraries/classes/Index.php:720
@@ -109,7 +108,7 @@ msgstr "Kolumno"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/table/tracking/structure_snapshot_columns.twig:7
 msgid "Type"
-msgstr "Tipo"
+msgstr "ዓይነት"
 
 #: db_datadict.php:119 libraries/classes/CentralColumns.php:755
 #: libraries/classes/CentralColumns.php:1429 libraries/classes/Index.php:726
@@ -130,7 +129,7 @@ msgstr "Tipo"
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:9
 msgid "Null"
-msgstr "Senvalora"
+msgstr "ባዶ"
 
 #: db_datadict.php:120 libraries/classes/CentralColumns.php:748
 #: libraries/classes/CentralColumns.php:1428
@@ -150,7 +149,7 @@ msgstr "Senvalora"
 #: templates/table/tracking/structure_snapshot_columns.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
-msgstr "Defaŭlta"
+msgstr ""
 
 #: db_datadict.php:122 libraries/classes/Plugins/Export/ExportHtmlword.php:400
 #: libraries/classes/Plugins/Export/ExportLatex.php:531
@@ -160,7 +159,7 @@ msgstr "Defaŭlta"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:635
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:658
 msgid "Links to"
-msgstr ""
+msgstr "አገናኝ ከ"
 
 #: db_datadict.php:124 libraries/classes/Config/Descriptions.php:302
 #: libraries/classes/Config/Descriptions.php:332
@@ -175,7 +174,7 @@ msgstr ""
 #: templates/columns_definitions/table_fields_definitions.twig:54
 #: templates/table/structure/table_structure_header.twig:12
 msgid "Comments"
-msgstr "Komentoj"
+msgstr "ኮሜንት"
 
 #: db_datadict.php:156
 #: libraries/classes/Controllers/Table/TableStructureController.php:1231
@@ -185,7 +184,7 @@ msgstr "Komentoj"
 #: templates/table/tracking/structure_snapshot_columns.twig:25
 #: templates/table/structure/display_structure.twig:61
 msgid "Primary"
-msgstr "Primara"
+msgstr "የመጀመሪያ"
 
 #: db_datadict.php:166 js/messages.php:384
 #: libraries/classes/CentralColumns.php:998
@@ -211,7 +210,7 @@ msgstr "Primara"
 #: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/table/structure/table_structure_row.twig:25
 msgid "No"
-msgstr "Ne"
+msgstr "አይደለም"
 
 #: db_datadict.php:166 js/messages.php:532
 #: libraries/classes/CentralColumns.php:998
@@ -246,7 +245,7 @@ msgstr "Ne"
 #: templates/table/tracking/structure_snapshot_columns.twig:33
 #: templates/table/structure/table_structure_row.twig:25
 msgid "Yes"
-msgstr "Jes"
+msgstr "አዎ"
 
 #: db_export.php:48
 msgid "View dump (schema) of database"
@@ -257,7 +256,7 @@ msgstr ""
 #: libraries/classes/Database/Qbe.php:341
 #: libraries/classes/Navigation/NavigationTree.php:926
 msgid "No tables found in database."
-msgstr ""
+msgstr "ዳታቤዝ ውስጥ ምንም ቴብል የለም"
 
 #: db_export.php:68 libraries/classes/Config/Descriptions.php:490
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:338
@@ -267,7 +266,7 @@ msgstr ""
 #: libraries/classes/Server/Status/Data.php:128
 #: templates/database/structure/show_create.twig:14
 msgid "Tables"
-msgstr "Tabeloj"
+msgstr "ቴብሎች"
 
 #: db_export.php:69 js/messages.php:757
 #: libraries/classes/Config/Forms/User/ExportForm.php:49
@@ -288,7 +287,7 @@ msgstr "Tabeloj"
 #: templates/database/central_columns/edit_table_header.twig:2
 #: templates/table/tracking/structure_snapshot_columns.twig:1
 msgid "Structure"
-msgstr "Strukturo"
+msgstr ""
 
 #: db_export.php:70 libraries/classes/Config/Forms/User/ExportForm.php:62
 #: libraries/classes/Config/Forms/User/ExportForm.php:101
@@ -298,18 +297,18 @@ msgstr "Strukturo"
 #: libraries/classes/Server/Privileges.php:1154
 #: templates/table/structure/display_table_stats.twig:17
 msgid "Data"
-msgstr "Datumoj"
+msgstr "ዳታ"
 
 #: db_export.php:73 libraries/classes/ReplicationGui.php:387
 #: templates/database/designer/database_tables.twig:31
 #: templates/database/search/selection_form.twig:32
 #: templates/display/export/select_options.twig:4
 msgid "Select all"
-msgstr ""
+msgstr "ሁሉንም ምረጥ"
 
 #: db_operations.php:58 tbl_create.php:27
 msgid "The database name is empty!"
-msgstr ""
+msgstr "የዳታቤዝ ስም ባዶ ነው!"
 
 #: db_operations.php:69
 msgid "Cannot copy database to the same name. Change the name and try again."
@@ -336,10 +335,8 @@ msgid "You have to choose at least one column to display!"
 msgstr ""
 
 #: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Analyse query"
 msgid "Multi-table query"
-msgstr "Analizi peton"
+msgstr ""
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
 msgid "Query by example"
@@ -355,7 +352,7 @@ msgstr ""
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:78
 #: libraries/classes/Plugins/AuthenticationPlugin.php:174
 msgid "Access denied!"
-msgstr "Atingo rifuzita!"
+msgstr "የተከለከለ ነው!"
 
 #: db_tracking.php:55 db_tracking.php:80
 msgid "Tracking data deleted successfully."
@@ -369,7 +366,7 @@ msgstr ""
 
 #: db_tracking.php:95
 msgid "No tables selected."
-msgstr ""
+msgstr "ምንም ቴብል አልተመረጠም።"
 
 #: db_tracking.php:153
 msgid "Database Log"
@@ -406,7 +403,7 @@ msgstr ""
 #: gis_data_editor.php:122
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr "Valoro por la kolumno \"%s\""
+msgstr ""
 
 #: gis_data_editor.php:151
 #: templates/table/gis_visualization/gis_visualization.twig:38
@@ -416,16 +413,16 @@ msgstr ""
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:173
 msgid "SRID:"
-msgstr "SRID:"
+msgstr ""
 
 #: gis_data_editor.php:199
 #, php-format
 msgid "Geometry %d:"
-msgstr "Geometrio %d:"
+msgstr ""
 
 #: gis_data_editor.php:221
 msgid "Point:"
-msgstr "Punkto:"
+msgstr ""
 
 #: gis_data_editor.php:222 gis_data_editor.php:249 gis_data_editor.php:305
 #: gis_data_editor.php:378 js/messages.php:521
@@ -441,12 +438,12 @@ msgstr "Y"
 #: js/messages.php:524
 #, php-format
 msgid "Point %d"
-msgstr "Punkto %d"
+msgstr ""
 
 #: gis_data_editor.php:260 gis_data_editor.php:316 gis_data_editor.php:394
 #: js/messages.php:530
 msgid "Add a point"
-msgstr "Aldoni punkton"
+msgstr ""
 
 #: gis_data_editor.php:277
 #, php-format
@@ -481,7 +478,7 @@ msgstr ""
 
 #: gis_data_editor.php:411
 msgid "Add geometry"
-msgstr "Aldoni geometrion"
+msgstr ""
 
 #: gis_data_editor.php:417 js/messages.php:354
 #: libraries/classes/BrowseForeigners.php:199
@@ -527,7 +524,7 @@ msgstr "Aldoni geometrion"
 #: templates/columns_definitions/column_definitions_form.twig:43
 #: templates/privileges/privileges_summary.twig:60 view_operations.php:115
 msgid "Go"
-msgstr "Ek"
+msgstr ""
 
 #: gis_data_editor.php:420
 msgid "Output"
@@ -615,7 +612,7 @@ msgstr ""
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:303
 #: libraries/classes/UserPassword.php:248 libraries/classes/Util.php:665
 msgid "Back"
-msgstr "Reen"
+msgstr ""
 
 #: index.php:158
 msgid ""
@@ -638,14 +635,14 @@ msgstr ""
 
 #: index.php:216
 msgid "General settings"
-msgstr "Ĝeneralaj agordoj"
+msgstr ""
 
 #: index.php:245 js/messages.php:652
 #: libraries/classes/Display/ChangePassword.php:58
 #: libraries/classes/Display/ChangePassword.php:61
 #: libraries/classes/UserPassword.php:242
 msgid "Change password"
-msgstr "Ŝanĝi pasvorton"
+msgstr ""
 
 #: index.php:262 libraries/classes/Config/Descriptions.php:1488
 msgid "Server connection collation"
@@ -657,47 +654,45 @@ msgstr ""
 
 #: index.php:318 prefs_manage.php:276
 msgid "More settings"
-msgstr "Pli agordoj"
+msgstr ""
 
 #: index.php:340
 msgid "Database server"
-msgstr "Datumbaza servilo"
+msgstr ""
 
 #: index.php:343 libraries/classes/Plugins/Auth/AuthenticationCookie.php:165
 msgid "Server:"
-msgstr "Servilo:"
+msgstr ""
 
 #: index.php:347
 msgid "Server type:"
-msgstr "Servila tipo:"
+msgstr ""
 
 #: index.php:351
-#, fuzzy
-#| msgid "Server version:"
 msgid "Server connection:"
-msgstr "Servila versio:"
+msgstr ""
 
 #: index.php:355 libraries/classes/Plugins/Export/ExportLatex.php:223
 #: libraries/classes/Plugins/Export/ExportSql.php:705
 #: libraries/classes/Plugins/Export/ExportXml.php:245
 msgid "Server version:"
-msgstr "Servila versio:"
+msgstr ""
 
 #: index.php:361
 msgid "Protocol version:"
-msgstr "Protokola versio:"
+msgstr ""
 
 #: index.php:365
 msgid "User:"
-msgstr "Uzanto:"
+msgstr ""
 
 #: index.php:370
 msgid "Server charset:"
-msgstr "Servila signaro:"
+msgstr ""
 
 #: index.php:388
 msgid "Web server"
-msgstr "Retservilo"
+msgstr ""
 
 #: index.php:399
 msgid "Database client version:"
@@ -705,19 +700,19 @@ msgstr ""
 
 #: index.php:403
 msgid "PHP extension:"
-msgstr "PHP-kromprogramo:"
+msgstr ""
 
 #: index.php:417
 msgid "PHP version:"
-msgstr "PHP-versio:"
+msgstr ""
 
 #: index.php:428
 msgid "Show PHP information"
-msgstr "Montri PHP-informon"
+msgstr ""
 
 #: index.php:447
 msgid "Version information:"
-msgstr "Versioinformo:"
+msgstr ""
 
 #: index.php:456 libraries/classes/Config/FormDisplayTemplate.php:164
 #: libraries/classes/Display/Export.php:350
@@ -727,27 +722,27 @@ msgstr "Versioinformo:"
 #: libraries/classes/Util.php:381
 #: templates/server/variables/link_template.twig:7
 msgid "Documentation"
-msgstr "Dokumentado"
+msgstr ""
 
 #: index.php:465
 msgid "Official Homepage"
-msgstr "Oficiala retejo"
+msgstr ""
 
 #: index.php:472
 msgid "Contribute"
-msgstr "Kontribui"
+msgstr ""
 
 #: index.php:479
 msgid "Get support"
-msgstr "Akiru subtenon"
+msgstr ""
 
 #: index.php:486
 msgid "List of changes"
-msgstr "Listo de ŝanĝoj"
+msgstr ""
 
 #: index.php:493 templates/server/plugins/section.twig:13
 msgid "License"
-msgstr "Permesilo"
+msgstr ""
 
 #: index.php:513
 msgid ""
@@ -820,7 +815,7 @@ msgstr ""
 
 #: js/messages.php:42
 msgid "Confirm"
-msgstr "Konfirmi"
+msgstr ""
 
 #: js/messages.php:43
 #, php-format
@@ -994,11 +989,11 @@ msgstr ""
 
 #: js/messages.php:121
 msgid "Add index"
-msgstr "Aldoni indekson"
+msgstr ""
 
 #: js/messages.php:122
 msgid "Edit index"
-msgstr "Redakti indekson"
+msgstr ""
 
 #: js/messages.php:123 templates/table/index_form.twig:211
 #, php-format
@@ -1038,12 +1033,12 @@ msgstr ""
 
 #: js/messages.php:135 libraries/classes/Util.php:566
 msgid "SQL query:"
-msgstr "SQL-peto:"
+msgstr ""
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:139
 msgid "Y values"
-msgstr "Y-valoroj"
+msgstr ""
 
 #: js/messages.php:142
 msgid "Please enter the SQL query first."
@@ -1074,7 +1069,7 @@ msgstr ""
 #: js/messages.php:150 js/messages.php:217 libraries/classes/Tracking.php:335
 #: libraries/classes/Tracking.php:651
 msgid "Close"
-msgstr "Fermi"
+msgstr ""
 
 #: js/messages.php:153
 msgid "Template was created."
@@ -1096,23 +1091,23 @@ msgstr ""
 #: js/messages.php:159 libraries/classes/Server/Status/Data.php:132
 #: libraries/classes/Server/Status/Queries.php:149
 msgid "Other"
-msgstr "Alia"
+msgstr ""
 
 #. l10n: Thousands separator
 #: js/messages.php:161 libraries/classes/Util.php:1353
 #: libraries/classes/Util.php:1384
 msgid ","
-msgstr "  "
+msgstr ""
 
 #. l10n: Decimal separator
 #: js/messages.php:163 libraries/classes/Util.php:1351
 #: libraries/classes/Util.php:1382
 msgid "."
-msgstr ","
+msgstr ""
 
 #: js/messages.php:165
 msgid "Connections / Processes"
-msgstr "Konektoj / procezoj"
+msgstr ""
 
 #: js/messages.php:169
 msgid "Local monitor configuration incompatible!"
@@ -1200,59 +1195,59 @@ msgstr ""
 
 #: js/messages.php:199 libraries/classes/Server/Status.php:243
 msgid "Connections"
-msgstr "Konektoj"
+msgstr ""
 
 #: js/messages.php:200 libraries/classes/Server/Status/Data.php:431
 #: libraries/classes/Server/Status/Processes.php:128
 msgid "Processes"
-msgstr "Procezoj"
+msgstr ""
 
 #. l10n: shortcuts for Byte
 #: js/messages.php:203 libraries/classes/Util.php:1264
 msgid "B"
-msgstr "B"
+msgstr ""
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:204 libraries/classes/Server/Status/Monitor.php:224
 #: libraries/classes/Util.php:1266
 msgid "KiB"
-msgstr "KiB"
+msgstr ""
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:205 libraries/classes/Server/Status/Monitor.php:225
 #: libraries/classes/Util.php:1268
 msgid "MiB"
-msgstr "MiB"
+msgstr ""
 
 #. l10n: shortcuts for Gigabyte
 #: js/messages.php:206 libraries/classes/Util.php:1270
 msgid "GiB"
-msgstr "GiB"
+msgstr ""
 
 #. l10n: shortcuts for Terabyte
 #: js/messages.php:207 libraries/classes/Util.php:1272
 msgid "TiB"
-msgstr "TiB"
+msgstr ""
 
 #. l10n: shortcuts for Petabyte
 #: js/messages.php:208 libraries/classes/Util.php:1274
 msgid "PiB"
-msgstr "PiB"
+msgstr ""
 
 #. l10n: shortcuts for Exabyte
 #: js/messages.php:209 libraries/classes/Util.php:1276
 msgid "EiB"
-msgstr "EiB"
+msgstr ""
 
 #: js/messages.php:210
 #, php-format
 msgid "%d table(s)"
-msgstr "%d tabelo(j)"
+msgstr ""
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:213
 msgid "Questions"
-msgstr "Demandoj"
+msgstr ""
 
 #: js/messages.php:214 libraries/classes/Server/Status.php:151
 msgid "Traffic"
@@ -1262,7 +1257,7 @@ msgstr ""
 #: libraries/classes/Server/Status/Monitor.php:264
 #: libraries/classes/Util.php:3995
 msgid "Settings"
-msgstr "Agordoj"
+msgstr ""
 
 #: js/messages.php:216
 msgid "Add chart to grid"
@@ -1285,7 +1280,7 @@ msgstr ""
 #: templates/table/search/options_zoom.twig:12
 #: templates/privileges/privileges_summary.twig:30
 msgid "None"
-msgstr "Neniu"
+msgstr ""
 
 #: js/messages.php:221
 msgid "Resume monitor"
@@ -1378,11 +1373,11 @@ msgstr ""
 
 #: js/messages.php:254
 msgid "Change settings"
-msgstr "Ŝanĝi agordojn"
+msgstr ""
 
 #: js/messages.php:255
 msgid "Current settings"
-msgstr "Nunaj agordoj"
+msgstr ""
 
 #: js/messages.php:257
 msgid "Chart title"
@@ -1471,7 +1466,7 @@ msgstr ""
 #: libraries/config.values.php:105
 #: templates/database/tracking/tracked_tables.twig:15
 msgid "Status"
-msgstr "Stato"
+msgstr ""
 
 #: js/messages.php:293 js/messages.php:913
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:487
@@ -1482,7 +1477,7 @@ msgstr "Stato"
 #: libraries/classes/Server/Status/Processes.php:85
 #: libraries/classes/Sql.php:277
 msgid "Time"
-msgstr "Tempo"
+msgstr ""
 
 #: js/messages.php:294
 msgid "Total time:"
@@ -1495,32 +1490,26 @@ msgstr ""
 #: js/messages.php:296
 msgctxt "Display format"
 msgid "Table"
-msgstr "Tabelo"
+msgstr ""
 
 #: js/messages.php:297
 msgid "Chart"
 msgstr ""
 
 #: js/messages.php:299 libraries/classes/Display/Export.php:579
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
-msgstr "Datumbazo"
+msgstr ""
 
 #: js/messages.php:300 libraries/classes/Display/Export.php:591
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
-msgstr "Tabelo"
+msgstr ""
 
 #: js/messages.php:301 libraries/classes/Display/Export.php:602
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
-msgstr "Kolumno"
+msgstr ""
 
 #. l10n: A collection of available filters
 #: js/messages.php:304
@@ -1588,7 +1577,7 @@ msgstr ""
 #: libraries/classes/Util.php:4026 prefs_manage.php:228
 #: templates/display/import/import.twig:38
 msgid "Import"
-msgstr "Importi"
+msgstr ""
 
 #: js/messages.php:331
 msgid "Import monitor configuration"
@@ -1604,7 +1593,7 @@ msgstr ""
 
 #: js/messages.php:336
 msgid "Analyse query"
-msgstr "Analizi peton"
+msgstr ""
 
 #: js/messages.php:340
 msgid "Advisor system"
@@ -1616,7 +1605,7 @@ msgstr ""
 
 #: js/messages.php:342
 msgid "Issue"
-msgstr "Problemo"
+msgstr ""
 
 #: js/messages.php:343
 msgid "Recommendation"
@@ -1636,7 +1625,7 @@ msgstr ""
 
 #: js/messages.php:347
 msgid "Test"
-msgstr "Testi"
+msgstr ""
 
 #: js/messages.php:350
 msgid "Formatting SQL…"
@@ -1655,7 +1644,7 @@ msgstr ""
 #: templates/database/designer/options_panel.twig:257
 #: templates/database/designer/where_query_panel.twig:85
 msgid "Cancel"
-msgstr "Nuligi"
+msgstr ""
 
 #: js/messages.php:358 libraries/classes/Header.php:461
 msgid "Page-related settings"
@@ -1663,7 +1652,7 @@ msgstr ""
 
 #: js/messages.php:359 templates/config/form_display/fieldset_bottom.twig:8
 msgid "Apply"
-msgstr "Apliki"
+msgstr ""
 
 #: js/messages.php:362 libraries/classes/Navigation/NavigationHeader.php:61
 #: libraries/classes/Server/Status/Monitor.php:130
@@ -1728,7 +1717,7 @@ msgstr ""
 #: templates/database/designer/options_panel.twig:255
 #: templates/database/designer/where_query_panel.twig:83
 msgid "OK"
-msgstr "Bone"
+msgstr ""
 
 #: js/messages.php:378
 msgid "Click to dismiss this notification"
@@ -1799,7 +1788,7 @@ msgstr ""
 #: templates/display/export/option_header.twig:3
 #: templates/database/structure/check_all_tables.twig:12
 msgid "Export"
-msgstr "Eksporti"
+msgstr ""
 
 #: js/messages.php:405
 msgid "No routine is exportable. Required privileges may be lacking."
@@ -1812,11 +1801,11 @@ msgstr ""
 #: js/messages.php:409
 #, php-format
 msgid "Values for column %s"
-msgstr "Valoroj por la kolumno %s"
+msgstr ""
 
 #: js/messages.php:410
 msgid "Values for a new column"
-msgstr "Valoroj por nova kolumno"
+msgstr ""
 
 #: js/messages.php:411
 msgid "Enter each value in a separate field."
@@ -1825,7 +1814,7 @@ msgstr ""
 #: js/messages.php:412
 #, php-format
 msgid "Add %d value(s)"
-msgstr "Aldoni %d valoro(j)"
+msgstr ""
 
 #: js/messages.php:416
 msgid ""
@@ -1853,7 +1842,7 @@ msgstr ""
 #: templates/server/variables/variable_row.twig:7
 #: templates/console/display.twig:31 templates/console/display.twig:175
 msgid "Edit"
-msgstr "Redakti"
+msgstr ""
 
 #: js/messages.php:423 libraries/classes/CentralColumns.php:881
 #: libraries/classes/CentralColumns.php:1238
@@ -1867,7 +1856,7 @@ msgstr "Redakti"
 #: templates/database/designer/delete_relation_panel.twig:28
 #: templates/database/search/results.twig:43
 msgid "Delete"
-msgstr "Forigi"
+msgstr ""
 
 #: js/messages.php:424 libraries/classes/Display/Results.php:934
 #: libraries/classes/Display/Results.php:942
@@ -1893,7 +1882,7 @@ msgstr ""
 
 #: js/messages.php:430 libraries/classes/Normalization.php:967
 msgid "Pick"
-msgstr "Elekti"
+msgstr ""
 
 #: js/messages.php:431
 msgid "Column selector"
@@ -1916,7 +1905,7 @@ msgstr ""
 
 #: js/messages.php:438
 msgid "Are you sure?"
-msgstr "Ĉu vi certas?"
+msgstr ""
 
 #: js/messages.php:440
 msgid ""
@@ -1926,7 +1915,7 @@ msgstr ""
 
 #: js/messages.php:443
 msgid "Continue"
-msgstr "Daŭrigi"
+msgstr ""
 
 #: js/messages.php:446
 msgid "Add primary key"
@@ -1960,7 +1949,7 @@ msgstr ""
 #: js/messages.php:453 js/messages.php:782
 #: libraries/classes/Normalization.php:340
 msgid "Done"
-msgstr "Farita"
+msgstr ""
 
 #: js/messages.php:454
 msgid "Confirm partial dependencies"
@@ -1996,7 +1985,7 @@ msgstr ""
 
 #: js/messages.php:469
 msgid "Step"
-msgstr "Paŝo"
+msgstr ""
 
 #: js/messages.php:471
 msgid "The following actions will be performed:"
@@ -2035,7 +2024,7 @@ msgstr ""
 #: templates/table/relation/common_form.twig:189
 #: templates/columns_definitions/column_definitions_form.twig:149
 msgid "Save"
-msgstr "Konservi"
+msgstr ""
 
 #: js/messages.php:485
 msgid "Hide search criteria"
@@ -2059,11 +2048,11 @@ msgstr ""
 
 #: js/messages.php:490
 msgid "Minimum value:"
-msgstr "Minimuma valoro:"
+msgstr ""
 
 #: js/messages.php:491
 msgid "Maximum value:"
-msgstr "Maksimuma valoro:"
+msgstr ""
 
 #: js/messages.php:494
 msgid "Hide find and replace criteria"
@@ -2113,16 +2102,16 @@ msgstr ""
 #: libraries/classes/ErrorHandler.php:381 libraries/classes/InsertEdit.php:2977
 #: templates/table/index_form.twig:141 templates/table/index_form.twig:177
 msgid "Ignore"
-msgstr "Ignori"
+msgstr ""
 
 #: js/messages.php:520 libraries/classes/Display/Results.php:3343
 #: libraries/classes/Display/Results.php:4704
 msgid "Copy"
-msgstr "Kopii"
+msgstr ""
 
 #: js/messages.php:523
 msgid "Point"
-msgstr "Punkto"
+msgstr ""
 
 #: js/messages.php:525
 msgid "Linestring"
@@ -2134,7 +2123,7 @@ msgstr ""
 
 #: js/messages.php:527 templates/display/results/options_block.twig:79
 msgid "Geometry"
-msgstr "Geometrio"
+msgstr ""
 
 #: js/messages.php:528
 msgid "Inner ring"
@@ -2150,7 +2139,7 @@ msgstr ""
 
 #: js/messages.php:534
 msgid "Encryption key"
-msgstr "Ĉifroŝlosilo"
+msgstr ""
 
 #: js/messages.php:538
 msgid ""
@@ -2176,7 +2165,7 @@ msgstr ""
 
 #: js/messages.php:556
 msgid "Select Foreign Key"
-msgstr "Elekti fremdan ŝlosilon"
+msgstr ""
 
 #: js/messages.php:558
 msgid "Please select the primary key or a unique key!"
@@ -2209,25 +2198,25 @@ msgstr ""
 #: js/messages.php:567 templates/database/designer/side_menu.twig:57
 #: templates/database/designer/side_menu.twig:60
 msgid "Save page"
-msgstr "Konservi paĝon"
+msgstr ""
 
 #: js/messages.php:568 templates/database/designer/side_menu.twig:64
 #: templates/database/designer/side_menu.twig:67
 msgid "Save page as"
-msgstr "Konservi paĝon kiel"
+msgstr ""
 
 #: js/messages.php:569 templates/database/designer/side_menu.twig:50
 #: templates/database/designer/side_menu.twig:53
 msgid "Open page"
-msgstr "Malfermi paĝon"
+msgstr ""
 
 #: js/messages.php:570
 msgid "Delete page"
-msgstr "Forigi paĝon"
+msgstr ""
 
 #: js/messages.php:571 templates/database/designer/side_menu.twig:4
 msgid "Untitled"
-msgstr "Sentitola"
+msgstr ""
 
 #: js/messages.php:572
 msgid "Please select a page to continue"
@@ -2259,10 +2248,8 @@ msgid "%d object(s) created."
 msgstr ""
 
 #: js/messages.php:582
-#, fuzzy
-#| msgid "Columns"
 msgid "Column name"
-msgstr "Kolumnoj"
+msgstr ""
 
 #: js/messages.php:583 libraries/classes/SqlQueryForm.php:419
 msgid "Submit"
@@ -2334,7 +2321,7 @@ msgstr ""
 
 #: js/messages.php:617
 msgid "cancel"
-msgstr "nuligi"
+msgstr ""
 
 #: js/messages.php:618 libraries/classes/Server/Status.php:288
 msgid "Aborted"
@@ -2361,7 +2348,7 @@ msgstr ""
 #: templates/table/structure/optional_action_links.twig:1
 #: templates/database/structure/print_view_data_dictionary_link.twig:3
 msgid "Print"
-msgstr "Presi"
+msgstr ""
 
 #: js/messages.php:633
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -2385,11 +2372,11 @@ msgstr ""
 
 #: js/messages.php:650
 msgid "Generate password"
-msgstr "Generi pasvorton"
+msgstr ""
 
 #: js/messages.php:651 libraries/classes/ReplicationGui.php:886
 msgid "Generate"
-msgstr "Generi"
+msgstr ""
 
 #: js/messages.php:655
 #: templates/table/structure/actions_in_table_structure.twig:4
@@ -2592,7 +2579,7 @@ msgstr ""
 #: js/messages.php:756 libraries/classes/InsertEdit.php:288
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:54
 msgid "Hide"
-msgstr "Kaŝi"
+msgstr ""
 
 #: js/messages.php:786
 msgctxt "Previous month"
@@ -2607,214 +2594,214 @@ msgstr ""
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:794
 msgid "Today"
-msgstr "hodiaŭ"
+msgstr ""
 
 #: js/messages.php:798
 msgid "January"
-msgstr "januaro"
+msgstr ""
 
 #: js/messages.php:799
 msgid "February"
-msgstr "februaro"
+msgstr ""
 
 #: js/messages.php:800
 msgid "March"
-msgstr "marto"
+msgstr ""
 
 #: js/messages.php:801
 msgid "April"
-msgstr "aprilo"
+msgstr ""
 
 #: js/messages.php:802
 msgid "May"
-msgstr "majo"
+msgstr ""
 
 #: js/messages.php:803
 msgid "June"
-msgstr "junio"
+msgstr ""
 
 #: js/messages.php:804
 msgid "July"
-msgstr "julio"
+msgstr ""
 
 #: js/messages.php:805
 msgid "August"
-msgstr "aŭgusto"
+msgstr ""
 
 #: js/messages.php:806
 msgid "September"
-msgstr "septembro"
+msgstr ""
 
 #: js/messages.php:807
 msgid "October"
-msgstr "oktobro"
+msgstr ""
 
 #: js/messages.php:808
 msgid "November"
-msgstr "novembro"
+msgstr ""
 
 #: js/messages.php:809
 msgid "December"
-msgstr "decembro"
+msgstr ""
 
 #. l10n: Short month name
 #: js/messages.php:816 libraries/classes/Util.php:1481
 msgid "Jan"
-msgstr "jan"
+msgstr ""
 
 #. l10n: Short month name
 #: js/messages.php:818 libraries/classes/Util.php:1483
 msgid "Feb"
-msgstr "feb"
+msgstr ""
 
 #. l10n: Short month name
 #: js/messages.php:820 libraries/classes/Util.php:1485
 msgid "Mar"
-msgstr "mar"
+msgstr ""
 
 #. l10n: Short month name
 #: js/messages.php:822 libraries/classes/Util.php:1487
 msgid "Apr"
-msgstr "apr"
+msgstr ""
 
 #. l10n: Short month name
 #: js/messages.php:824 libraries/classes/Util.php:1489
 msgctxt "Short month name"
 msgid "May"
-msgstr "maj"
+msgstr ""
 
 #. l10n: Short month name
 #: js/messages.php:826 libraries/classes/Util.php:1491
 msgid "Jun"
-msgstr "jun"
+msgstr ""
 
 #. l10n: Short month name
 #: js/messages.php:828 libraries/classes/Util.php:1493
 msgid "Jul"
-msgstr "jul"
+msgstr ""
 
 #. l10n: Short month name
 #: js/messages.php:830 libraries/classes/Util.php:1495
 msgid "Aug"
-msgstr "aŭg"
+msgstr ""
 
 #. l10n: Short month name
 #: js/messages.php:832 libraries/classes/Util.php:1497
 msgid "Sep"
-msgstr "sep"
+msgstr ""
 
 #. l10n: Short month name
 #: js/messages.php:834 libraries/classes/Util.php:1499
 msgid "Oct"
-msgstr "okt"
+msgstr ""
 
 #. l10n: Short month name
 #: js/messages.php:836 libraries/classes/Util.php:1501
 msgid "Nov"
-msgstr "nov"
+msgstr ""
 
 #. l10n: Short month name
 #: js/messages.php:838 libraries/classes/Util.php:1503
 msgid "Dec"
-msgstr "dec"
+msgstr ""
 
 #: js/messages.php:844
 msgid "Sunday"
-msgstr "dimanĉo"
+msgstr ""
 
 #: js/messages.php:845
 msgid "Monday"
-msgstr "lundo"
+msgstr ""
 
 #: js/messages.php:846
 msgid "Tuesday"
-msgstr "mardo"
+msgstr ""
 
 #: js/messages.php:847
 msgid "Wednesday"
-msgstr "merkredo"
+msgstr ""
 
 #: js/messages.php:848
 msgid "Thursday"
-msgstr "ĵaŭdo"
+msgstr ""
 
 #: js/messages.php:849
 msgid "Friday"
-msgstr "vendredo"
+msgstr ""
 
 #: js/messages.php:850
 msgid "Saturday"
-msgstr "sabato"
+msgstr ""
 
 #. l10n: Short week day name for Sunday
 #: js/messages.php:857
 msgid "Sun"
-msgstr "dim"
+msgstr ""
 
 #. l10n: Short week day name for Monday
 #: js/messages.php:859 libraries/classes/Util.php:1508
 msgid "Mon"
-msgstr "lun"
+msgstr ""
 
 #. l10n: Short week day name for Tuesday
 #: js/messages.php:861 libraries/classes/Util.php:1510
 msgid "Tue"
-msgstr "mar"
+msgstr ""
 
 #. l10n: Short week day name for Wednesday
 #: js/messages.php:863 libraries/classes/Util.php:1512
 msgid "Wed"
-msgstr "mer"
+msgstr ""
 
 #. l10n: Short week day name for Thursday
 #: js/messages.php:865 libraries/classes/Util.php:1514
 msgid "Thu"
-msgstr "ĵaŭ"
+msgstr ""
 
 #. l10n: Short week day name for Friday
 #: js/messages.php:867 libraries/classes/Util.php:1516
 msgid "Fri"
-msgstr "ven"
+msgstr ""
 
 #. l10n: Short week day name for Saturday
 #: js/messages.php:869 libraries/classes/Util.php:1518
 msgid "Sat"
-msgstr "sab"
+msgstr ""
 
 #. l10n: Minimal week day name for Sunday
 #: js/messages.php:876
 msgid "Su"
-msgstr "di"
+msgstr ""
 
 #. l10n: Minimal week day name for Monday
 #: js/messages.php:878
 msgid "Mo"
-msgstr "lu"
+msgstr ""
 
 #. l10n: Minimal week day name for Tuesday
 #: js/messages.php:880
 msgid "Tu"
-msgstr "ma"
+msgstr ""
 
 #. l10n: Minimal week day name for Wednesday
 #: js/messages.php:882
 msgid "We"
-msgstr "me"
+msgstr ""
 
 #. l10n: Minimal week day name for Thursday
 #: js/messages.php:884
 msgid "Th"
-msgstr "ĵa"
+msgstr ""
 
 #. l10n: Minimal week day name for Friday
 #: js/messages.php:886
 msgid "Fr"
-msgstr "ve"
+msgstr ""
 
 #. l10n: Minimal week day name for Saturday
 #: js/messages.php:888
 msgid "Sa"
-msgstr "sa"
+msgstr ""
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:892
@@ -2832,19 +2819,19 @@ msgstr ""
 #: js/messages.php:902
 msgctxt "Year suffix"
 msgid "none"
-msgstr "neniu"
+msgstr ""
 
 #: js/messages.php:914
 msgid "Hour"
-msgstr "Horo"
+msgstr ""
 
 #: js/messages.php:915
 msgid "Minute"
-msgstr "Minuto"
+msgstr ""
 
 #: js/messages.php:916
 msgid "Second"
-msgstr "Sekundo"
+msgstr ""
 
 #: js/messages.php:927
 msgid "This field is required"
@@ -2923,7 +2910,7 @@ msgstr ""
 #: libraries/classes/Message.php:191 libraries/classes/Util.php:542
 #: view_operations.php:72
 msgid "Error"
-msgstr "Eraro"
+msgstr ""
 
 #: libraries/classes/Advisor.php:259
 #, php-format
@@ -2996,7 +2983,7 @@ msgstr ""
 
 #: libraries/classes/BrowseForeigners.php:193
 msgid "Search:"
-msgstr "Serĉi:"
+msgstr ""
 
 #: libraries/classes/BrowseForeigners.php:216
 #: libraries/classes/BrowseForeigners.php:220 libraries/classes/Index.php:719
@@ -3011,7 +2998,7 @@ msgstr ""
 #: templates/server/engines/engines.twig:5
 #: templates/server/collations/charsets.twig:6
 msgid "Description"
-msgstr "Priskribo"
+msgstr ""
 
 #: libraries/classes/BrowseForeigners.php:324
 #: libraries/classes/Language.php:197 libraries/classes/Pdf.php:74
@@ -3048,11 +3035,11 @@ msgstr ""
 
 #: libraries/classes/CentralColumns.php:626
 msgid "YES"
-msgstr "JES"
+msgstr ""
 
 #: libraries/classes/CentralColumns.php:626
 msgid "NO"
-msgstr "NE"
+msgstr ""
 
 #: libraries/classes/CentralColumns.php:734 libraries/classes/Index.php:717
 #: libraries/classes/Rte/RteList.php:89 libraries/classes/Rte/RteList.php:104
@@ -3071,7 +3058,7 @@ msgstr "NE"
 #: templates/privileges/privileges_summary.twig:22
 #: templates/server/variables/variable_table_head.twig:3
 msgid "Action"
-msgstr "Ago"
+msgstr ""
 
 #: libraries/classes/CentralColumns.php:742
 #: libraries/classes/CentralColumns.php:1428
@@ -3087,7 +3074,7 @@ msgstr "Ago"
 #: templates/table/structure/table_structure_header.twig:5
 #: templates/database/create_table.twig:11
 msgid "Name"
-msgstr "Nomo"
+msgstr ""
 
 #: libraries/classes/CentralColumns.php:746
 #: libraries/classes/CentralColumns.php:1428
@@ -3114,7 +3101,7 @@ msgstr ""
 
 #: libraries/classes/CentralColumns.php:753
 msgid "Attribute"
-msgstr "Atributo"
+msgstr ""
 
 #: libraries/classes/CentralColumns.php:757
 #: libraries/classes/CentralColumns.php:1429
@@ -3123,16 +3110,16 @@ msgstr ""
 
 #: libraries/classes/CentralColumns.php:793
 msgid "Select a table"
-msgstr "Elektu tabelon"
+msgstr ""
 
 #: libraries/classes/CentralColumns.php:845
 #: templates/table/structure/add_column.twig:4
 msgid "Add column"
-msgstr "Aldoni kolumnon"
+msgstr ""
 
 #: libraries/classes/CentralColumns.php:1304
 msgid "Add new column"
-msgstr "Aldoni novan kolumnon"
+msgstr ""
 
 #: libraries/classes/CentralColumns.php:1429
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:631
@@ -3140,32 +3127,26 @@ msgstr "Aldoni novan kolumnon"
 #: templates/columns_definitions/table_fields_definitions.twig:27
 #: templates/table/structure/table_structure_header.twig:8
 msgid "Attributes"
-msgstr "Atributoj"
+msgstr ""
 
 #: libraries/classes/Charsets.php:248
 #: templates/database/structure/table_header.twig:44
 msgid "Charset"
-msgstr "Signaro"
+msgstr ""
 
 #: libraries/classes/Charsets.php:339
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknown"
-msgstr "nekonata"
+msgstr ""
 
 #: libraries/classes/Charsets.php:353
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
-msgstr "Duuma"
+msgstr ""
 
 #: libraries/classes/Charsets.php:365 libraries/classes/Charsets.php:604
-#, fuzzy
-#| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
-msgstr "Unikodo"
+msgstr ""
 
 #: libraries/classes/Charsets.php:375 libraries/classes/Charsets.php:551
 msgctxt "Collation"
@@ -3178,11 +3159,9 @@ msgid "Central European"
 msgstr ""
 
 #: libraries/classes/Charsets.php:387 libraries/classes/Charsets.php:558
-#, fuzzy
-#| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
-msgstr "Rusa"
+msgstr ""
 
 #: libraries/classes/Charsets.php:392
 msgctxt "Collation"
@@ -3200,158 +3179,114 @@ msgid "Chinese"
 msgstr ""
 
 #: libraries/classes/Charsets.php:406 libraries/classes/Charsets.php:522
-#, fuzzy
-#| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
-msgstr "Japana"
+msgstr ""
 
 #: libraries/classes/Charsets.php:411
-#, fuzzy
-#| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
-msgstr "Balta"
+msgstr ""
 
 #: libraries/classes/Charsets.php:416
-#, fuzzy
-#| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
-msgstr "Armena"
+msgstr ""
 
 #: libraries/classes/Charsets.php:419
-#, fuzzy
-#| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
-msgstr "Cirila"
+msgstr ""
 
 #: libraries/classes/Charsets.php:422
-#, fuzzy
-#| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
-msgstr "Araba"
+msgstr ""
 
 #: libraries/classes/Charsets.php:425 libraries/classes/Charsets.php:537
-#, fuzzy
-#| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
-msgstr "Korea"
+msgstr ""
 
 #: libraries/classes/Charsets.php:428
-#, fuzzy
-#| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
-msgstr "Hebrea"
+msgstr ""
 
 #: libraries/classes/Charsets.php:431
-#, fuzzy
-#| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
-msgstr "Kartvela"
+msgstr ""
 
 #: libraries/classes/Charsets.php:434
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
-msgstr "Greka"
+msgstr ""
 
 #: libraries/classes/Charsets.php:437
-#, fuzzy
-#| msgid "Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
-msgstr "Slovaka"
+msgstr ""
 
 #: libraries/classes/Charsets.php:440 libraries/classes/Charsets.php:596
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
-msgstr "Ukraina"
+msgstr ""
 
 #: libraries/classes/Charsets.php:443 libraries/classes/Charsets.php:592
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
-msgstr "Turka"
+msgstr ""
 
 #: libraries/classes/Charsets.php:446 libraries/classes/Charsets.php:584
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
-msgstr "Sveda"
+msgstr ""
 
 #: libraries/classes/Charsets.php:449 libraries/classes/Charsets.php:588
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
-msgstr "Taja"
+msgstr ""
 
 #: libraries/classes/Charsets.php:452
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
-msgstr "nekonata"
+msgstr ""
 
 #: libraries/classes/Charsets.php:468
-#, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
-msgstr "Bulgara"
+msgstr ""
 
 #: libraries/classes/Charsets.php:479
-#, fuzzy
-#| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
-msgstr "Kroata"
+msgstr ""
 
 #: libraries/classes/Charsets.php:483
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
-msgstr "Ĉeĥa"
+msgstr ""
 
 #: libraries/classes/Charsets.php:487
-#, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
-msgstr "Dana"
+msgstr ""
 
 #: libraries/classes/Charsets.php:491
-#, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
-msgstr "Angla"
+msgstr ""
 
 #: libraries/classes/Charsets.php:495
-#, fuzzy
-#| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
-msgstr "Esperanto"
+msgstr ""
 
 #: libraries/classes/Charsets.php:499
-#, fuzzy
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
-msgstr "Estona"
+msgstr ""
 
 #: libraries/classes/Charsets.php:502 libraries/classes/Charsets.php:623
 msgctxt "Collation"
@@ -3364,18 +3299,14 @@ msgid "German (phone book order)"
 msgstr ""
 
 #: libraries/classes/Charsets.php:514
-#, fuzzy
-#| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
-msgstr "Hungara"
+msgstr ""
 
 #: libraries/classes/Charsets.php:518
-#, fuzzy
-#| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
-msgstr "Islanda"
+msgstr ""
 
 #: libraries/classes/Charsets.php:525
 msgctxt "Collation"
@@ -3383,18 +3314,14 @@ msgid "Classical Latin"
 msgstr ""
 
 #: libraries/classes/Charsets.php:529
-#, fuzzy
-#| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
-msgstr "Latva"
+msgstr ""
 
 #: libraries/classes/Charsets.php:533
-#, fuzzy
-#| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
-msgstr "Litova"
+msgstr ""
 
 #: libraries/classes/Charsets.php:541
 msgctxt "Collation"
@@ -3402,53 +3329,39 @@ msgid "Burmese"
 msgstr ""
 
 #: libraries/classes/Charsets.php:544
-#, fuzzy
-#| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
-msgstr "Persa"
+msgstr ""
 
 #: libraries/classes/Charsets.php:548
-#, fuzzy
-#| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
-msgstr "Pola"
+msgstr ""
 
 #: libraries/classes/Charsets.php:555
-#, fuzzy
-#| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
-msgstr "Rumana"
+msgstr ""
 
 #: libraries/classes/Charsets.php:562
-#, fuzzy
-#| msgid "Sinhalese"
 msgctxt "Collation"
 msgid "Sinhalese"
-msgstr "Sinhala"
+msgstr ""
 
 #: libraries/classes/Charsets.php:566
-#, fuzzy
-#| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
-msgstr "Slovaka"
+msgstr ""
 
 #: libraries/classes/Charsets.php:570
-#, fuzzy
-#| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
-msgstr "Slovena"
+msgstr ""
 
 #: libraries/classes/Charsets.php:573 libraries/classes/Charsets.php:634
-#, fuzzy
-#| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr "Hispana"
+msgstr ""
 
 #: libraries/classes/Charsets.php:580 libraries/classes/Charsets.php:631
 msgctxt "Collation"
@@ -3456,60 +3369,44 @@ msgid "Spanish (traditional)"
 msgstr ""
 
 #: libraries/classes/Charsets.php:600
-#, fuzzy
-#| msgid "Vietnamese"
 msgctxt "Collation"
 msgid "Vietnamese"
-msgstr "Vjetnama"
+msgstr ""
 
 #: libraries/classes/Charsets.php:667
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
-msgstr "usklecoblinda"
+msgstr ""
 
 #: libraries/classes/Charsets.php:670
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
-msgstr "usklecodistinga"
+msgstr ""
 
 #: libraries/classes/Charsets.php:673
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
-msgstr "usklecoblinda"
+msgstr ""
 
 #: libraries/classes/Charsets.php:676
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
-msgstr "usklecodistinga"
+msgstr ""
 
 #: libraries/classes/Charsets.php:679
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "usklecodistinga"
+msgstr ""
 
 #: libraries/classes/Charsets.php:683
-#, fuzzy
-#| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
-msgstr "plurlingva"
+msgstr ""
 
 #: libraries/classes/Charsets.php:686
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
-msgstr "Duuma"
+msgstr ""
 
 #: libraries/classes/Charsets.php:689
 msgctxt "Collation variant"
@@ -3543,7 +3440,7 @@ msgstr ""
 #: libraries/classes/Config.php:1511
 #: libraries/classes/Config/Descriptions.php:1486
 msgid "Font size"
-msgstr "Tipara grando"
+msgstr ""
 
 #: libraries/classes/Config.php:1871
 #, php-format
@@ -3553,7 +3450,7 @@ msgstr ""
 #: libraries/classes/Config.php:1884
 #, php-format
 msgid "Server %d"
-msgstr "Servilo %d"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:62
 msgid ""
@@ -3622,7 +3519,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:104
 msgid "Bzip2"
-msgstr "Bzip2"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:107
 msgid ""
@@ -3859,7 +3756,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:254
 msgid "Save as file"
-msgstr "Konservi kiel dosieron"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:256
 #: libraries/classes/Config/Descriptions.php:629
@@ -3993,15 +3890,13 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportOdt.php:511
 #: templates/columns_definitions/table_fields_definitions.twig:71
 msgid "MIME type"
-msgstr "MIME-tipo"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:314
 #: libraries/classes/Config/Descriptions.php:338
 #: libraries/classes/Config/Descriptions.php:403
-#, fuzzy
-#| msgid "Relations"
 msgid "Relationships"
-msgstr "Rilatoj"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:324
 msgid "Export method"
@@ -4074,7 +3969,7 @@ msgstr ""
 #: libraries/classes/Operations.php:238 libraries/classes/Operations.php:1299
 #, php-format
 msgid "Add %s"
-msgstr "Aldoni %s"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:384
 msgid "Use hexadecimal for BINARY & BLOB"
@@ -4159,11 +4054,11 @@ msgstr ""
 #: libraries/classes/Config/Forms/User/ExportForm.php:75
 #: libraries/classes/Config/Forms/User/ImportForm.php:29
 msgid "CSV"
-msgstr "CSV"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:446
 msgid "Developer"
-msgstr "Programisto"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:448
 msgid "Settings for phpMyAdmin developers."
@@ -4187,7 +4082,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:458
 msgid "General"
-msgstr "Ĝenerala"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:460
 msgid "Set some commonly used options."
@@ -4203,7 +4098,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:466
 msgid "Import / export"
-msgstr "Importi / eksporti"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:468
 msgid "Set import and export directories and compression options."
@@ -4211,7 +4106,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:470
 msgid "LaTeX"
-msgstr "LaTeX"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:474
 #: libraries/classes/Config/Descriptions.php:589 libraries/classes/Menu.php:583
@@ -4219,7 +4114,7 @@ msgstr "LaTeX"
 #: libraries/classes/Server/Privileges.php:4561 libraries/classes/Util.php:3989
 #: libraries/config.values.php:104 templates/server/sub_page_header.twig:2
 msgid "Databases"
-msgstr "Datumbazoj"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:476
 msgid "Databases display options."
@@ -4245,7 +4140,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:486
 #: libraries/classes/Server/Select.php:56 setup/frames/index.inc.php:123
 msgid "Servers"
-msgstr "Serviloj"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:488
 msgid "Servers display options."
@@ -4284,7 +4179,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:516
 msgid "Security"
-msgstr "Sekureco"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:519
 msgid ""
@@ -4298,7 +4193,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:525
 msgid "Authentication"
-msgstr "Aŭtentigo"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:527
 msgid "Authentication settings."
@@ -4348,7 +4243,7 @@ msgstr ""
 #: libraries/config.values.php:39 libraries/config.values.php:47
 #: libraries/config.values.php:111 libraries/config.values.php:117
 msgid "SQL"
-msgstr "SQL"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:555
 msgid "SQL Query box"
@@ -4396,7 +4291,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:577
 msgid "Tabs"
-msgstr "Langetoj"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:579
 msgid "Choose how you want tabs to work."
@@ -4430,7 +4325,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:599
 msgid "Warnings"
-msgstr "Avertoj"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:601
 msgid "Disable some of the warnings shown by phpMyAdmin."
@@ -4439,7 +4334,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:603
 #: templates/console/display.twig:4
 msgid "Console"
-msgstr "Konzolo"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:606
 msgid "Enable gzip compression for import and export operations."
@@ -4447,7 +4342,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:610
 msgid "GZip"
-msgstr "GZip"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:612
 msgid "Extra parameters for iconv"
@@ -5546,10 +5441,8 @@ msgid "Show or hide a column displaying the charset for all tables."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1287
-#, fuzzy
-#| msgid "Server charset:"
 msgid "Show table charset"
-msgstr "Servila signaro:"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1290
 msgid ""
@@ -5643,7 +5536,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:1335
 #: libraries/classes/Util.php:1109
 msgid "Create PHP code"
-msgstr "Krei PHP-kodon"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1338
 msgid ""
@@ -5708,7 +5601,7 @@ msgstr ""
 #: templates/table/relation/foreign_key_row.twig:100
 #: templates/table/relation/common_form.twig:32
 msgid "Database"
-msgstr "Datumbazo"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1370
 msgid "Title of browser window when nothing is selected."
@@ -5725,7 +5618,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:1376
 #: libraries/classes/Menu.php:220 libraries/classes/Server/Status/Data.php:427
 msgid "Server"
-msgstr "Servilo"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1378
 msgid "Title of browser window when a table is selected."
@@ -5748,7 +5641,7 @@ msgstr ""
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tracked_tables.twig:11
 msgid "Table"
-msgstr "Tabelo"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1383
 msgid ""
@@ -5835,7 +5728,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1435
 msgid "ZIP"
-msgstr "ZIP"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1437
 msgid "Enter your public key for your domain reCaptcha service."
@@ -5906,16 +5799,12 @@ msgid "Switch to dark theme"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1476
-#, fuzzy
-#| msgid "Console"
 msgid "Console height"
-msgstr "Konzolo"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1478
-#, fuzzy
-#| msgid "Console"
 msgid "Console mode"
-msgstr "Konzolo"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1480
 #: templates/console/display.twig:64
@@ -5949,7 +5838,7 @@ msgstr ""
 #: libraries/classes/Config/FormDisplay.php:656
 #: libraries/classes/Config/Validator.php:571
 msgid "Incorrect value!"
-msgstr "Malĝusta valoro!"
+msgstr ""
 
 #: libraries/classes/Config/FormDisplay.php:103
 #: libraries/classes/Config/Validator.php:587
@@ -5965,7 +5854,7 @@ msgstr ""
 #: libraries/classes/Config/FormDisplay.php:807
 #: libraries/classes/Config/FormDisplay.php:813
 msgid "unavailable"
-msgstr "maldisponebla"
+msgstr ""
 
 #: libraries/classes/Config/FormDisplay.php:809
 #: libraries/classes/Config/FormDisplay.php:815
@@ -5986,7 +5875,7 @@ msgstr ""
 #: libraries/classes/Config/FormDisplay.php:857
 #, php-format
 msgid "maximum %s"
-msgstr "maksimuma %s"
+msgstr ""
 
 #: libraries/classes/Config/FormDisplayTemplate.php:233
 msgid "This setting is disabled, it will not be applied to your configuration."
@@ -5996,7 +5885,7 @@ msgstr ""
 #: libraries/classes/Relation.php:113 libraries/classes/Relation.php:121
 #: libraries/config.values.php:95 libraries/config.values.php:125
 msgid "Disabled"
-msgstr "Malŝaltita"
+msgstr ""
 
 #: libraries/classes/Config/FormDisplayTemplate.php:332
 #, php-format
@@ -6017,7 +5906,7 @@ msgstr ""
 
 #: libraries/classes/Config/Forms/Setup/ServersForm.php:30
 msgid "HTTP authentication"
-msgstr "HTTP-aŭtentigo"
+msgstr ""
 
 #: libraries/classes/Config/Forms/Setup/ServersForm.php:33
 msgid "Signon authentication"
@@ -6029,7 +5918,7 @@ msgstr ""
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:23
 msgid "Custom"
-msgstr "Propra"
+msgstr ""
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:84
 msgid "CSV for MS Excel"
@@ -6050,7 +5939,7 @@ msgstr ""
 
 #: libraries/classes/Config/Forms/User/FeaturesForm.php:82
 msgid "Features"
-msgstr "Trajtoj"
+msgstr ""
 
 #: libraries/classes/Config/Forms/User/ImportForm.php:37
 msgid "CSV using LOAD DATA"
@@ -6177,10 +6066,8 @@ msgid "Could not connect to the database server!"
 msgstr ""
 
 #: libraries/classes/Config/Validator.php:253
-#, fuzzy
-#| msgid "HTTP authentication"
 msgid "Invalid authentication type!"
-msgstr "HTTP-aŭtentigo"
+msgstr ""
 
 #: libraries/classes/Config/Validator.php:260
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -6209,12 +6096,12 @@ msgstr ""
 
 #: libraries/classes/Config/Validator.php:435
 msgid "Incorrect value:"
-msgstr "Malĝusta valoro:"
+msgstr ""
 
 #: libraries/classes/Config/Validator.php:444
 #, php-format
 msgid "Incorrect IP address: %s"
-msgstr "Malĝusta IP-adreso: %s"
+msgstr ""
 
 #: libraries/classes/Console.php:93
 #, php-format
@@ -6263,7 +6150,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:1013
 msgid "unknown"
-msgstr "nekonata"
+msgstr ""
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:156
 msgid "Log name"
@@ -6271,7 +6158,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:157
 msgid "Position"
-msgstr "Pozicio"
+msgstr ""
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:158
 #: libraries/classes/Rte/Events.php:428
@@ -6285,12 +6172,12 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:160
 msgid "Original position"
-msgstr "Originala pozicio"
+msgstr ""
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:161
 #: templates/table/structure/display_table_stats.twig:3
 msgid "Information"
-msgstr "Informo"
+msgstr ""
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:198
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:200
@@ -6337,7 +6224,7 @@ msgstr[1] ""
 #: templates/table/structure/actions_in_table_structure.twig:114
 #: templates/table/structure/display_partitions.twig:28
 msgid "Rows"
-msgstr "Vicoj"
+msgstr ""
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:353
 #: libraries/classes/Index.php:695 libraries/classes/Index.php:706
@@ -6345,7 +6232,7 @@ msgstr "Vicoj"
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:26
 #: templates/table/tracking/structure_snapshot_indexes.twig:1
 msgid "Indexes"
-msgstr "Indeksoj"
+msgstr ""
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:358
 #: libraries/classes/Engines/Innodb.php:169
@@ -6467,7 +6354,7 @@ msgstr ""
 #: libraries/classes/Controllers/Table/TableStructureController.php:1228
 #: templates/table/structure/check_all_table_column.twig:17
 msgid "Change"
-msgstr "Ŝanĝi"
+msgstr ""
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1229
 #: libraries/classes/Controllers/Table/TableStructureController.php:1230
@@ -6480,7 +6367,7 @@ msgstr "Ŝanĝi"
 #: templates/database/structure/check_all_tables.twig:16
 #: templates/table/structure/display_structure.twig:191
 msgid "Drop"
-msgstr "Forigi"
+msgstr ""
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1232
 #: libraries/classes/Controllers/Table/TableStructureController.php:1237
@@ -6492,7 +6379,7 @@ msgstr "Forigi"
 #: templates/table/structure/display_structure.twig:66
 #: templates/table/structure/display_table_stats.twig:24
 msgid "Index"
-msgstr "Indekso"
+msgstr ""
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1233
 #: libraries/classes/Controllers/Table/TableStructureController.php:1238
@@ -6611,7 +6498,7 @@ msgstr ""
 #: libraries/classes/Database/Qbe.php:456
 #: templates/table/search/search_and_replace.twig:6
 msgid "Column:"
-msgstr "Kolumno:"
+msgstr ""
 
 #: libraries/classes/Database/Qbe.php:502
 msgid "Alias:"
@@ -6619,7 +6506,7 @@ msgstr ""
 
 #: libraries/classes/Database/Qbe.php:554
 msgid "Sort:"
-msgstr "Ordigo:"
+msgstr ""
 
 #: libraries/classes/Database/Qbe.php:616
 msgid "Sort order:"
@@ -6636,21 +6523,21 @@ msgstr ""
 #: libraries/classes/Database/Qbe.php:797
 #: libraries/classes/Database/Qbe.php:829
 msgid "Update Query"
-msgstr "Ĝisdatigi peton"
+msgstr ""
 
 #: libraries/classes/Database/Qbe.php:812
 msgid "Use Tables"
-msgstr "Uzi tabelojn"
+msgstr ""
 
 #: libraries/classes/Database/Qbe.php:850
 #: libraries/classes/Database/Qbe.php:961
 msgid "Or:"
-msgstr "Aŭ:"
+msgstr ""
 
 #: libraries/classes/Database/Qbe.php:854
 #: libraries/classes/Database/Qbe.php:946
 msgid "And:"
-msgstr "Kaj:"
+msgstr ""
 
 #: libraries/classes/Database/Qbe.php:859
 msgid "Ins"
@@ -6687,19 +6574,19 @@ msgstr ""
 
 #: libraries/classes/Database/Qbe.php:1858
 msgid "New bookmark"
-msgstr "Nova legosigno"
+msgstr ""
 
 #: libraries/classes/Database/Qbe.php:1884
 msgid "Create bookmark"
-msgstr "Krei legosignon"
+msgstr ""
 
 #: libraries/classes/Database/Qbe.php:1887
 msgid "Update bookmark"
-msgstr "Ĝisdatigi legosignon"
+msgstr ""
 
 #: libraries/classes/Database/Qbe.php:1889
 msgid "Delete bookmark"
-msgstr "Forigi legosignon"
+msgstr ""
 
 #: libraries/classes/Database/Search.php:93
 msgid "at least one of the words"
@@ -6758,7 +6645,7 @@ msgstr ""
 
 #: libraries/classes/DatabaseInterface.php:2194
 msgid "Details…"
-msgstr "Detaloj…"
+msgstr ""
 
 #: libraries/classes/DatabaseInterface.php:2498
 msgid "Missing connection parameters!"
@@ -6801,7 +6688,7 @@ msgstr ""
 #: libraries/classes/ReplicationGui.php:854
 #: libraries/classes/Server/Privileges.php:1672
 msgid "Password:"
-msgstr "Pasvorto:"
+msgstr ""
 
 #: libraries/classes/Display/ChangePassword.php:79
 msgid "Enter:"
@@ -6918,7 +6805,7 @@ msgstr ""
 
 #: libraries/classes/Display/Results.php:1416
 msgid "Sort by key"
-msgstr "Ordigi per ŝlosilo"
+msgstr ""
 
 #: libraries/classes/Display/Results.php:1729
 #: templates/display/results/options_block.twig:14
@@ -7083,7 +6970,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Innodb.php:175
 msgid "pages"
-msgstr "paĝoj"
+msgstr ""
 
 #: libraries/classes/Engines/Innodb.php:189
 msgid "Free pages"
@@ -7334,7 +7221,7 @@ msgstr ""
 
 #: libraries/classes/ErrorHandler.php:370
 msgid "Report"
-msgstr "Raporti"
+msgstr ""
 
 #: libraries/classes/ErrorHandler.php:375 templates/error/report_form.twig:25
 msgid "Automatically send report next time"
@@ -7507,7 +7394,7 @@ msgstr ""
 #: templates/display/results/options_block.twig:10
 #: templates/table/search/options.twig:1
 msgid "Options"
-msgstr "Opcioj"
+msgstr ""
 
 #: libraries/classes/Import.php:1228
 #, php-format
@@ -7571,7 +7458,7 @@ msgstr ""
 #: templates/table/tracking/structure_snapshot_columns.twig:12
 #: templates/table/structure/display_partitions.twig:31
 msgid "Comment"
-msgstr "Komento"
+msgstr ""
 
 #: libraries/classes/Index.php:753
 msgid "The primary key has been dropped."
@@ -7594,11 +7481,11 @@ msgstr ""
 #: libraries/classes/Rte/Routines.php:1626
 #: templates/table/search/table_header.twig:4
 msgid "Function"
-msgstr "Funkcio"
+msgstr ""
 
 #: libraries/classes/InsertEdit.php:468
 msgid "Binary"
-msgstr "Duuma"
+msgstr ""
 
 #: libraries/classes/InsertEdit.php:728
 msgid "Because of its length,<br /> this column might not be editable."
@@ -7616,7 +7503,7 @@ msgstr ""
 #: templates/privileges/column_privileges.twig:17
 #: templates/table/search/options.twig:25
 msgid "Or"
-msgstr "Aŭ"
+msgstr ""
 
 #: libraries/classes/InsertEdit.php:1500
 msgid "web server upload directory:"
@@ -7676,7 +7563,7 @@ msgstr ""
 #: templates/database/designer/where_query_panel.twig:69
 #: templates/server/variables/variable_table_head.twig:5
 msgid "Value"
-msgstr "Valoro"
+msgstr ""
 
 #: libraries/classes/InsertEdit.php:2295 libraries/classes/Sql.php:1426
 msgid "Showing SQL query"
@@ -7694,7 +7581,7 @@ msgstr ""
 #: libraries/classes/LanguageManager.php:956
 #: libraries/classes/LanguageManager.php:957 setup/frames/index.inc.php:63
 msgid "Language"
-msgstr "Lingvo"
+msgstr ""
 
 #: libraries/classes/Linter.php:98
 msgid ""
@@ -7728,7 +7615,7 @@ msgstr ""
 #: templates/table/structure/check_all_table_column.twig:8
 #: templates/database/search/results.twig:34
 msgid "Browse"
-msgstr "Foliumi"
+msgstr ""
 
 #: libraries/classes/Menu.php:367 libraries/classes/Menu.php:470
 #: libraries/classes/Navigation/Nodes/NodeTable.php:291
@@ -7739,7 +7626,7 @@ msgstr "Foliumi"
 #: libraries/config.values.php:48 libraries/config.values.php:112
 #: libraries/config.values.php:118
 msgid "Search"
-msgstr "Serĉi"
+msgstr ""
 
 #: libraries/classes/Menu.php:377
 #: libraries/classes/Navigation/Nodes/NodeTable.php:294
@@ -7767,7 +7654,7 @@ msgstr ""
 #: libraries/classes/Util.php:4028 libraries/config.values.php:113
 #: view_operations.php:101
 msgid "Operations"
-msgstr "Operacioj"
+msgstr ""
 
 #: libraries/classes/Menu.php:423 libraries/classes/Menu.php:534
 #: libraries/classes/Relation.php:279 libraries/classes/Util.php:4015
@@ -7795,7 +7682,7 @@ msgstr ""
 
 #: libraries/classes/Menu.php:477 libraries/classes/Util.php:4007
 msgid "Query"
-msgstr "Peto"
+msgstr ""
 
 #: libraries/classes/Menu.php:517 libraries/classes/Rte/Words.php:49
 #: libraries/classes/Util.php:4012
@@ -7808,7 +7695,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportXml.php:106
 #: libraries/classes/Rte/Words.php:77 libraries/classes/Util.php:4013
 msgid "Events"
-msgstr "Eventoj"
+msgstr ""
 
 #: libraries/classes/Menu.php:540 libraries/classes/Util.php:4016
 msgid "Designer"
@@ -7821,7 +7708,7 @@ msgstr ""
 
 #: libraries/classes/Menu.php:607
 msgid "User accounts"
-msgstr "Uzantkontoj"
+msgstr ""
 
 #: libraries/classes/Menu.php:634 libraries/classes/Server/Status/Data.php:121
 #: libraries/classes/Util.php:3996 templates/server/sub_page_header.twig:2
@@ -7833,27 +7720,27 @@ msgstr ""
 #: templates/database/structure/table_header.twig:10
 #: templates/database/structure/body_for_table_summary.twig:11
 msgid "Replication"
-msgstr "Replikado"
+msgstr ""
 
 #: libraries/classes/Menu.php:645 libraries/classes/Server/Status/Data.php:194
 #: libraries/classes/SqlQueryForm.php:432 libraries/classes/Util.php:3998
 #: libraries/config.values.php:106 templates/server/engines/engine.twig:12
 #: templates/server/engines/engine.twig:16
 msgid "Variables"
-msgstr "Variabloj"
+msgstr ""
 
 #: libraries/classes/Menu.php:649 libraries/classes/Util.php:3999
 msgid "Charsets"
-msgstr "Signaroj"
+msgstr ""
 
 #: libraries/classes/Menu.php:653 libraries/classes/Util.php:4001
 msgid "Engines"
-msgstr "Moduloj"
+msgstr ""
 
 #: libraries/classes/Menu.php:657 libraries/classes/Util.php:4000
 #: templates/server/sub_page_header.twig:2
 msgid "Plugins"
-msgstr "Kromprogramoj"
+msgstr ""
 
 #: libraries/classes/Message.php:247
 #, php-format
@@ -7898,7 +7785,7 @@ msgstr ""
 #: libraries/classes/MultSubmits.php:409 libraries/classes/Operations.php:247
 #: libraries/classes/Operations.php:1311
 msgid "Add constraints"
-msgstr "Aldoni limigojn"
+msgstr ""
 
 #: libraries/classes/MultSubmits.php:411 libraries/classes/Operations.php:127
 #: libraries/classes/Operations.php:265 libraries/classes/Operations.php:884
@@ -7910,11 +7797,11 @@ msgstr ""
 
 #: libraries/classes/MultSubmits.php:433
 msgid "From"
-msgstr "El"
+msgstr ""
 
 #: libraries/classes/MultSubmits.php:439
 msgid "To"
-msgstr "Al"
+msgstr ""
 
 #: libraries/classes/MultSubmits.php:467
 msgid "Add prefix"
@@ -7930,24 +7817,24 @@ msgstr ""
 
 #: libraries/classes/Navigation/Navigation.php:207
 msgid "Groups:"
-msgstr "Grupoj:"
+msgstr ""
 
 #: libraries/classes/Navigation/Navigation.php:208
 msgid "Events:"
-msgstr "Eventoj:"
+msgstr ""
 
 #: libraries/classes/Navigation/Navigation.php:209
 msgid "Functions:"
-msgstr "Funkcioj:"
+msgstr ""
 
 #: libraries/classes/Navigation/Navigation.php:210
 msgid "Procedures:"
-msgstr "Proceduroj:"
+msgstr ""
 
 #: libraries/classes/Navigation/Navigation.php:211
 #: templates/display/export/selection.twig:5
 msgid "Tables:"
-msgstr "Tabeloj:"
+msgstr ""
 
 #: libraries/classes/Navigation/Navigation.php:212
 msgid "Views:"
@@ -7958,7 +7845,7 @@ msgstr ""
 #: templates/database/multi_table_query/form.twig:44
 #: templates/database/tracking/tracked_tables.twig:17
 msgid "Show"
-msgstr "Montri"
+msgstr ""
 
 #: libraries/classes/Navigation/NavigationHeader.php:169
 msgid "Home"
@@ -7966,7 +7853,7 @@ msgstr ""
 
 #: libraries/classes/Navigation/NavigationHeader.php:177
 msgid "Log out"
-msgstr "Elsaluti"
+msgstr ""
 
 #: libraries/classes/Navigation/NavigationHeader.php:179
 msgid "Empty session data"
@@ -8024,18 +7911,18 @@ msgstr ""
 
 #: libraries/classes/Navigation/Nodes/Node.php:802
 msgid "Expand/Collapse"
-msgstr "Etendi/maletendi"
+msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:26
 #: libraries/classes/SqlQueryForm.php:269
 msgid "Columns"
-msgstr "Kolumnoj"
+msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:35
 msgctxt "Create new column"
 msgid "New"
-msgstr "Nova"
+msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:41
 msgid "Database operations"
@@ -8048,56 +7935,56 @@ msgstr ""
 #: libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php:36
 msgctxt "Create new database"
 msgid "New"
-msgstr "Nova"
+msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:37
 msgctxt "Create new event"
 msgid "New"
-msgstr "Nova"
+msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:574
 #: libraries/classes/Plugins/Export/ExportXml.php:111
 msgid "Functions"
-msgstr "Funkcioj"
+msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:35
 msgctxt "Create new function"
 msgid "New"
-msgstr "Nova"
+msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:35
 msgctxt "Create new index"
 msgid "New"
-msgstr "Nova"
+msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeProcedure.php:30
 msgid "Procedure"
-msgstr "Proceduro"
+msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:563
 #: libraries/classes/Plugins/Export/ExportXml.php:116
 msgid "Procedures"
-msgstr "Proceduroj"
+msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:35
 #: libraries/classes/Rte/Footer.php:37
 msgctxt "Create new procedure"
 msgid "New"
-msgstr "Nova"
+msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:36
 msgctxt "Create new table"
 msgid "New"
-msgstr "Nova"
+msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:37
 msgctxt "Create new trigger"
 msgid "New"
-msgstr "Nova"
+msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:26
@@ -8109,7 +7996,7 @@ msgstr ""
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:36
 msgctxt "Create new view"
 msgid "New"
-msgstr "Nova"
+msgstr ""
 
 #: libraries/classes/Normalization.php:182
 msgid "Make all columns atomic"
@@ -8125,7 +8012,7 @@ msgstr ""
 #: libraries/classes/Normalization.php:287
 #: libraries/classes/Normalization.php:325
 msgid "Step 1."
-msgstr "Paŝo 1."
+msgstr ""
 
 #: libraries/classes/Normalization.php:189
 msgid ""
@@ -8155,7 +8042,7 @@ msgstr ""
 #: normalization.php:25
 msgctxt "string types"
 msgid "String"
-msgstr "Ĉeno"
+msgstr ""
 
 #: libraries/classes/Normalization.php:214
 msgid "split into "
@@ -8238,7 +8125,7 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:370
 msgid "Step 2."
-msgstr "Paŝo 2."
+msgstr ""
 
 #: libraries/classes/Normalization.php:370
 msgid "Find partial dependencies"
@@ -8330,7 +8217,7 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:793
 msgid "Step 3."
-msgstr "Paŝo 3."
+msgstr ""
 
 #: libraries/classes/Normalization.php:793
 msgid "Find transitive dependencies"
@@ -8406,7 +8293,7 @@ msgstr ""
 
 #: libraries/classes/Operations.php:170
 msgid "Remove database"
-msgstr "Forigi datumbazon"
+msgstr ""
 
 #: libraries/classes/Operations.php:176
 msgid "Drop the database (DROP)"
@@ -8515,7 +8402,7 @@ msgstr ""
 #: libraries/classes/Operations.php:1486
 #: templates/database/structure/check_all_tables.twig:23
 msgid "Repair table"
-msgstr "Ripari tabelon"
+msgstr ""
 
 #: libraries/classes/Operations.php:1532
 #: templates/database/structure/check_all_tables.twig:14
@@ -8534,7 +8421,7 @@ msgstr ""
 #: libraries/classes/Operations.php:1589
 #: templates/table/structure/display_structure.twig:182
 msgid "Analyze"
-msgstr "Analizi"
+msgstr ""
 
 #: libraries/classes/Operations.php:1590
 #: templates/table/structure/display_structure.twig:182
@@ -8554,7 +8441,7 @@ msgstr ""
 #: libraries/classes/Operations.php:1593
 #: templates/table/structure/display_structure.twig:182
 msgid "Repair"
-msgstr "Ripari"
+msgstr ""
 
 #: libraries/classes/Operations.php:1594
 #: templates/table/structure/display_structure.twig:182
@@ -8632,7 +8519,7 @@ msgstr ""
 #: templates/login/header.twig:5
 #, php-format
 msgid "Welcome to %s"
-msgstr "Bonvenon al %s"
+msgstr ""
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:105
 #, php-format
@@ -8659,7 +8546,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:154
 msgid "Log in"
-msgstr "Ensaluti"
+msgstr ""
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:162
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:172
@@ -8668,11 +8555,11 @@ msgstr ""
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:177
 msgid "Username:"
-msgstr "Uzantnomo:"
+msgstr ""
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:189
 msgid "Server Choice:"
-msgstr "Elekti servilon:"
+msgstr ""
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:313
 msgid "Failed to connect to the reCAPTCHA service!"
@@ -8692,7 +8579,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:88
 msgid "Wrong username/password. Access denied."
-msgstr "Malĝusta uzantnomo/pasvorto. Atingo rifuzita."
+msgstr ""
 
 #: libraries/classes/Plugins/Auth/AuthenticationSignon.php:135
 msgid "Can not find signon authentication script:"
@@ -8771,7 +8658,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportTexytext.php:69
 #: libraries/config.values.php:164
 msgid "structure"
-msgstr "strukturo"
+msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:71
 #: libraries/classes/Plugins/Export/ExportLatex.php:104
@@ -8782,7 +8669,7 @@ msgstr "strukturo"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:70
 #: libraries/config.values.php:165
 msgid "data"
-msgstr "datumoj"
+msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:72
 #: libraries/classes/Plugins/Export/ExportLatex.php:105
@@ -8793,7 +8680,7 @@ msgstr "datumoj"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:71
 #: libraries/config.values.php:166
 msgid "structure and data"
-msgstr "strukturo kaj datumoj"
+msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:81
 #: libraries/classes/Plugins/Export/ExportLatex.php:162
@@ -8816,7 +8703,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:356
 #: libraries/classes/Rte/RteList.php:106 libraries/classes/Rte/Triggers.php:379
 msgid "Event"
-msgstr "Evento"
+msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:489
 #: libraries/classes/Plugins/Export/ExportOdt.php:618
@@ -8928,23 +8815,23 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportSql.php:707
 #: libraries/classes/Plugins/Export/ExportXml.php:246
 msgid "PHP Version:"
-msgstr "PHP-versio:"
+msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:254
 #: libraries/classes/Plugins/Export/ExportSql.php:896
 #: libraries/classes/Plugins/Export/ExportXml.php:411
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:158
 msgid "Database:"
-msgstr "Datumbazo:"
+msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:327
 #: libraries/classes/Plugins/Export/ExportSql.php:2195
 msgid "Data:"
-msgstr "Datumoj:"
+msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:507
 msgid "Structure:"
-msgstr "Stukturo:"
+msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:81
 msgid "Export table names"
@@ -9017,7 +8904,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportSql.php:298
 #, php-format
 msgid "%s value"
-msgstr "%s valoro"
+msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:332
 msgid ""
@@ -9147,7 +9034,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1725
 msgid "Constraints for table"
-msgstr "Limigoj por tabelo"
+msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1755
 msgid "Indexes for dumped tables"
@@ -9187,10 +9074,9 @@ msgid "(See below for the actual view)"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2210
-#, fuzzy, php-format
-#| msgid "Constraints for table"
+#, php-format
 msgid "Error reading data for table %s:"
-msgstr "Limigoj por tabelo"
+msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportXml.php:100
 msgid "Object creation options (all are recommended)"
@@ -9202,7 +9088,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:159
 msgid "Table:"
-msgstr "Tabelo:"
+msgstr ""
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:160
 msgid "Purpose:"
@@ -9210,7 +9096,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:541
 msgid "MIME"
-msgstr "MIME"
+msgstr ""
 
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:51
 msgid ""
@@ -9268,7 +9154,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:53
 msgid "MediaWiki Table"
-msgstr "MediaVikio-tabelo"
+msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:276
 #, php-format
@@ -9324,7 +9210,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportXml.php:45
 msgid "XML"
-msgstr "XML"
+msgstr ""
 
 #: libraries/classes/Plugins/Schema/Dia/TableStatsDia.php:74
 #: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php:92
@@ -9360,7 +9246,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:486
 msgid "Table of contents"
-msgstr "Tabelo de enhavo"
+msgstr ""
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
@@ -9594,10 +9480,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:146
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication Application (2FA)"
-msgstr "Aŭtentigo"
+msgstr ""
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:156
 msgid ""
@@ -9615,10 +9499,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:52
-#, fuzzy
-#| msgid "SHA256 password authentication"
 msgid "Simple two-factor authentication"
-msgstr "SHA256-a pasvorta aŭtentigo"
+msgstr ""
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:62
 msgid "For testing purposes only!"
@@ -9630,10 +9512,8 @@ msgid "Two-factor authentication failed: %s"
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:74
-#, fuzzy
-#| msgid "HTTP authentication"
 msgid "Two-factor authentication failed."
-msgstr "HTTP-aŭtentigo"
+msgstr ""
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:127
 msgid "No Two-Factor"
@@ -9687,7 +9567,7 @@ msgstr ""
 
 #: libraries/classes/Relation.php:112
 msgid "Enabled"
-msgstr "Ŝaltita"
+msgstr ""
 
 #: libraries/classes/Relation.php:116
 msgid "Configuration of pmadb…"
@@ -9723,7 +9603,7 @@ msgstr ""
 
 #: libraries/classes/Relation.php:235
 msgid "SQL history"
-msgstr "SQL-historio"
+msgstr ""
 
 #: libraries/classes/Relation.php:246
 msgid "Persistent recently used tables"
@@ -9993,7 +9873,7 @@ msgstr ""
 #: libraries/classes/ReplicationGui.php:791
 #: libraries/classes/Server/Privileges.php:1510
 msgid "User name:"
-msgstr "Uzantnomo:"
+msgstr ""
 
 #: libraries/classes/ReplicationGui.php:426
 #: libraries/classes/ReplicationGui.php:795
@@ -10003,7 +9883,7 @@ msgstr "Uzantnomo:"
 #: libraries/classes/Server/Privileges.php:2575
 #: libraries/classes/Server/Privileges.php:3553
 msgid "User name"
-msgstr "Uzantnomo"
+msgstr ""
 
 #: libraries/classes/ReplicationGui.php:437
 #: libraries/classes/ReplicationGui.php:858
@@ -10012,7 +9892,7 @@ msgstr "Uzantnomo"
 #: libraries/classes/Server/Privileges.php:1693
 #: libraries/classes/Server/Privileges.php:3555
 msgid "Password"
-msgstr "Pasvorto"
+msgstr ""
 
 #: libraries/classes/ReplicationGui.php:455
 msgid "Port:"
@@ -10030,7 +9910,7 @@ msgstr ""
 #: libraries/classes/Server/Status/Variables.php:228
 #: templates/server/variables/variable_table_head.twig:4
 msgid "Variable"
-msgstr "Variablo"
+msgstr ""
 
 #: libraries/classes/ReplicationGui.php:626
 #: libraries/classes/ReplicationGui.php:709
@@ -10129,11 +10009,11 @@ msgstr ""
 
 #: libraries/classes/ReplicationGui.php:936
 msgid "Error."
-msgstr "Eraro."
+msgstr ""
 
 #: libraries/classes/ReplicationGui.php:982
 msgid "Unknown error"
-msgstr "Nekonata eraro"
+msgstr ""
 
 #: libraries/classes/ReplicationGui.php:992
 #, php-format
@@ -10175,7 +10055,7 @@ msgstr ""
 #: libraries/classes/Rte/Triggers.php:110
 #: libraries/classes/Rte/Triggers.php:142 libraries/classes/Util.php:615
 msgid "MySQL said: "
-msgstr "MySQL diris: "
+msgstr ""
 
 #: libraries/classes/Rte/Events.php:142
 msgid "Sorry, we failed to restore the dropped event."
@@ -10198,12 +10078,12 @@ msgstr ""
 
 #: libraries/classes/Rte/Events.php:238
 msgid "Edit event"
-msgstr "Redakti eventon"
+msgstr ""
 
 #: libraries/classes/Rte/Events.php:404 libraries/classes/Rte/Routines.php:906
 #: libraries/classes/Rte/Triggers.php:339 templates/view_create.twig:8
 msgid "Details"
-msgstr "Detaloj"
+msgstr ""
 
 #: libraries/classes/Rte/Events.php:407
 msgid "Event name"
@@ -10275,11 +10155,11 @@ msgstr ""
 
 #: libraries/classes/Rte/Footer.php:102
 msgid "OFF"
-msgstr "MALŜALTITA"
+msgstr ""
 
 #: libraries/classes/Rte/Footer.php:107
 msgid "ON"
-msgstr "ŜALTITA"
+msgstr ""
 
 #: libraries/classes/Rte/Footer.php:119
 msgid "Event scheduler status"
@@ -10455,7 +10335,7 @@ msgstr ""
 #: libraries/classes/Rte/Triggers.php:365
 msgctxt "Trigger action time"
 msgid "Time"
-msgstr "Tempo"
+msgstr ""
 
 #: libraries/classes/Rte/Triggers.php:445
 msgid "You must provide a trigger name!"
@@ -10545,7 +10425,7 @@ msgstr ""
 
 #: libraries/classes/Rte/Words.php:68
 msgid "Add event"
-msgstr "Aldoni eventon"
+msgstr ""
 
 #: libraries/classes/Rte/Words.php:70
 #, php-format
@@ -10554,7 +10434,7 @@ msgstr ""
 
 #: libraries/classes/Rte/Words.php:71
 msgid "event"
-msgstr "evento"
+msgstr ""
 
 #: libraries/classes/Rte/Words.php:73
 msgid "You do not have the necessary privileges to create an event."
@@ -10869,7 +10749,7 @@ msgstr ""
 
 #: libraries/classes/Server/Privileges.php:1473
 msgid "SHA256 password authentication"
-msgstr "SHA256-a pasvorta aŭtentigo"
+msgstr ""
 
 #: libraries/classes/Server/Privileges.php:1507
 #: libraries/classes/Server/Privileges.php:3122
@@ -10891,14 +10771,14 @@ msgstr ""
 
 #: libraries/classes/Server/Privileges.php:1565
 msgid "Host name:"
-msgstr "Gastignomo:"
+msgstr ""
 
 #: libraries/classes/Server/Privileges.php:1570
 #: libraries/classes/Server/Privileges.php:1655
 #: libraries/classes/Server/Privileges.php:2576
 #: libraries/classes/Server/Privileges.php:3554
 msgid "Host name"
-msgstr "Gastignomo"
+msgstr ""
 
 #: libraries/classes/Server/Privileges.php:1678
 msgid "Do not change the password"
@@ -10925,11 +10805,11 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:2169
 #: templates/privileges/add_user_fieldset.twig:7
 msgid "Add user account"
-msgstr "Aldoni uzantkonton"
+msgstr ""
 
 #: libraries/classes/Server/Privileges.php:2178
 msgid "Database for user account"
-msgstr "Datumbazo por uzantkonto"
+msgstr ""
 
 #: libraries/classes/Server/Privileges.php:2184
 msgid "Create database with same name and grant all privileges."
@@ -11087,7 +10967,7 @@ msgstr ""
 #: libraries/classes/Server/Status/Processes.php:69
 #: libraries/classes/Server/UserGroups.php:49
 msgid "User"
-msgstr "Uzanto"
+msgstr ""
 
 #: libraries/classes/Server/Privileges.php:4540
 msgid "Edit privileges:"
@@ -11095,7 +10975,7 @@ msgstr ""
 
 #: libraries/classes/Server/Privileges.php:4541
 msgid "User account"
-msgstr "Uzantkonto"
+msgstr ""
 
 #: libraries/classes/Server/Privileges.php:4615
 msgid ""
@@ -11140,7 +11020,7 @@ msgstr ""
 #: libraries/classes/Server/Select.php:53
 #: libraries/classes/Server/Select.php:58
 msgid "Current server:"
-msgstr "Nuna servilo:"
+msgstr ""
 
 #: libraries/classes/Server/Status.php:68
 #, php-format
@@ -11226,7 +11106,7 @@ msgstr ""
 #: libraries/classes/Server/Status/Data.php:115
 #: libraries/classes/Server/Status/Processes.php:97
 msgid "SQL query"
-msgstr "SQL-peto"
+msgstr ""
 
 #: libraries/classes/Server/Status/Data.php:118
 msgid "Handler"
@@ -11238,7 +11118,7 @@ msgstr ""
 
 #: libraries/classes/Server/Status/Data.php:120
 msgid "Threads"
-msgstr "Fadenoj"
+msgstr ""
 
 #: libraries/classes/Server/Status/Data.php:122
 msgid "Temporary data"
@@ -11258,7 +11138,7 @@ msgstr ""
 
 #: libraries/classes/Server/Status/Data.php:127
 msgid "Sorting"
-msgstr "Ordigado"
+msgstr ""
 
 #: libraries/classes/Server/Status/Data.php:129
 msgid "Transaction coordinator"
@@ -11267,7 +11147,7 @@ msgstr ""
 #: libraries/classes/Server/Status/Data.php:130
 #: templates/server/binlog/log_selector.twig:21
 msgid "Files"
-msgstr "Dosieroj"
+msgstr ""
 
 #: libraries/classes/Server/Status/Data.php:146
 msgid "Flush (close) all tables"
@@ -11309,15 +11189,15 @@ msgstr ""
 #, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "%d sekundo"
-msgstr[1] "%d sekundoj"
+msgstr[0] ""
+msgstr[1] ""
 
 #: libraries/classes/Server/Status/Data.php:496
 #, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "%d minuto"
-msgstr[1] "%d minutoj"
+msgstr[0] ""
+msgstr[1] ""
 
 #: libraries/classes/Server/Status/Monitor.php:73
 msgid "Log statistics"
@@ -11534,7 +11414,7 @@ msgstr ""
 #. l10n: # = Amount of queries
 #: libraries/classes/Server/Status/Queries.php:101
 msgid "#"
-msgstr "#"
+msgstr ""
 
 #: libraries/classes/Server/Status/Variables.php:52 templates/filter.twig:4
 msgid "Containing the word:"
@@ -12171,7 +12051,7 @@ msgstr ""
 
 #: libraries/classes/Server/UserGroups.php:252
 msgid "Group name:"
-msgstr "Grupnomo:"
+msgstr ""
 
 #: libraries/classes/Server/UserGroups.php:289
 msgid "Server-level tabs"
@@ -12208,7 +12088,7 @@ msgstr ""
 
 #: libraries/classes/Sql.php:295
 msgid "% Time"
-msgstr "% Tempo"
+msgstr ""
 
 #: libraries/classes/Sql.php:297
 msgid "Calls"
@@ -12216,7 +12096,7 @@ msgstr ""
 
 #: libraries/classes/Sql.php:299
 msgid "ø Time"
-msgstr "ø Tempo"
+msgstr ""
 
 #: libraries/classes/Sql.php:604 libraries/classes/Sql.php:622
 msgid "Bookmark this SQL query"
@@ -12280,7 +12160,7 @@ msgstr ""
 #: libraries/classes/SqlQueryForm.php:248 setup/frames/index.inc.php:255
 #: templates/console/display.twig:7
 msgid "Clear"
-msgstr "Vakigi"
+msgstr ""
 
 #: libraries/classes/SqlQueryForm.php:254
 msgid "Get auto-saved query"
@@ -12425,12 +12305,12 @@ msgstr ""
 #: libraries/classes/ThemeManager.php:94
 #, php-format
 msgid "Default theme %s not found!"
-msgstr "Defaŭlta etoso %s ne trovita!"
+msgstr ""
 
 #: libraries/classes/ThemeManager.php:174
 #, php-format
 msgid "Theme %s not found!"
-msgstr "Etoso %s ne trovita!"
+msgstr ""
 
 #: libraries/classes/ThemeManager.php:258
 #, php-format
@@ -12439,25 +12319,25 @@ msgstr ""
 
 #: libraries/classes/ThemeManager.php:348
 msgid "Theme:"
-msgstr "Etoso:"
+msgstr ""
 
 #: libraries/classes/Tracking.php:159 templates/server/plugins/section.twig:11
 msgid "Version"
-msgstr "Versio"
+msgstr ""
 
 #: libraries/classes/Tracking.php:160
 #: templates/database/tracking/tracked_tables.twig:13
 msgid "Created"
-msgstr "Kreita"
+msgstr ""
 
 #: libraries/classes/Tracking.php:161
 #: templates/database/tracking/tracked_tables.twig:14
 msgid "Updated"
-msgstr "Ĝisdatigita"
+msgstr ""
 
 #: libraries/classes/Tracking.php:170 libraries/classes/Tracking.php:234
 msgid "Delete version"
-msgstr "Forigi version"
+msgstr ""
 
 #: libraries/classes/Tracking.php:171 libraries/classes/Tracking.php:334
 #: templates/database/tracking/tracked_tables.twig:76
@@ -12505,7 +12385,7 @@ msgstr ""
 #: libraries/classes/Tracking.php:524
 #, php-format
 msgid "Export as %s"
-msgstr "Eksporti kiel %s"
+msgstr ""
 
 #: libraries/classes/Tracking.php:550
 msgid "Data manipulation statement"
@@ -12570,12 +12450,12 @@ msgstr ""
 #: libraries/classes/Tracking.php:1114 libraries/classes/Tracking.php:1258
 #: templates/table/tracking/selectable_tables.twig:9
 msgid "active"
-msgstr "aktiva"
+msgstr ""
 
 #: libraries/classes/Tracking.php:1117 libraries/classes/Tracking.php:1253
 #: templates/table/tracking/selectable_tables.twig:11
 msgid "not active"
-msgstr "malaktiva"
+msgstr ""
 
 #: libraries/classes/Types.php:203
 msgid ""
@@ -12799,12 +12679,12 @@ msgstr ""
 #: libraries/classes/Types.php:718
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr "Nombra"
+msgstr ""
 
 #: libraries/classes/Types.php:736
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr "Dato kaj tempo"
+msgstr ""
 
 #: libraries/classes/Types.php:766
 msgctxt "spatial types"
@@ -12826,11 +12706,11 @@ msgstr ""
 #: libraries/classes/Util.php:175
 #, php-format
 msgid "Max: %s%s"
-msgstr "Maksimuma: %s%s"
+msgstr ""
 
 #: libraries/classes/Util.php:549
 msgid "Static analysis:"
-msgstr "Statika analizo:"
+msgstr ""
 
 #: libraries/classes/Util.php:552
 #, php-format
@@ -12864,7 +12744,7 @@ msgstr ""
 #: libraries/classes/Util.php:1506
 msgctxt "Short week day name"
 msgid "Sun"
-msgstr "dim"
+msgstr ""
 
 #: libraries/classes/Util.php:1543
 msgctxt "AM/PM indication in time"
@@ -12879,7 +12759,7 @@ msgstr ""
 #: libraries/classes/Util.php:1847
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
-msgstr "%s tagoj, %s horoj, %s minutoj kaj %s sekundoj"
+msgstr ""
 
 #: libraries/classes/Util.php:1882
 msgid "Missing parameter:"
@@ -12915,7 +12795,7 @@ msgstr ""
 
 #: libraries/classes/Util.php:3355 libraries/classes/Util.php:3356
 msgid "Execute"
-msgstr "Plenumi"
+msgstr ""
 
 #: libraries/classes/Util.php:3861
 msgid "SSL is not being used"
@@ -12935,7 +12815,7 @@ msgstr ""
 
 #: libraries/classes/Util.php:3992
 msgid "Users"
-msgstr "Uzantoj"
+msgstr ""
 
 #: libraries/classes/Util.php:4687
 #: templates/database/multi_table_query/form.twig:61
@@ -12978,28 +12858,28 @@ msgstr ""
 #: libraries/config.values.php:89
 #: templates/database/multi_table_query/form.twig:111
 msgid "Text"
-msgstr "Teksto"
+msgstr ""
 
 #: libraries/config.values.php:58 libraries/config.values.php:66
 #: libraries/config.values.php:78 libraries/config.values.php:90
 msgid "Both"
-msgstr "Ambaŭ"
+msgstr ""
 
 #: libraries/config.values.php:63
 msgid "Nowhere"
-msgstr "Nenie"
+msgstr ""
 
 #: libraries/config.values.php:64
 msgid "Left"
-msgstr "Maldekstra"
+msgstr ""
 
 #: libraries/config.values.php:65
 msgid "Right"
-msgstr "Dekstra"
+msgstr ""
 
 #: libraries/config.values.php:93
 msgid "Click"
-msgstr "Klaku"
+msgstr ""
 
 #: libraries/config.values.php:94
 msgid "Double click"
@@ -13007,7 +12887,7 @@ msgstr ""
 
 #: libraries/config.values.php:98
 msgid "key"
-msgstr "ŝlosilo"
+msgstr ""
 
 #: libraries/config.values.php:99
 msgid "display column"
@@ -13015,15 +12895,15 @@ msgstr ""
 
 #: libraries/config.values.php:103
 msgid "Welcome"
-msgstr "Bonvenon"
+msgstr ""
 
 #: libraries/config.values.php:123
 msgid "Open"
-msgstr "Malfermi"
+msgstr ""
 
 #: libraries/config.values.php:124
 msgid "Closed"
-msgstr "Fermita"
+msgstr ""
 
 #: libraries/config.values.php:128
 msgid "Ask before sending error reports"
@@ -13043,11 +12923,11 @@ msgstr ""
 
 #: libraries/config.values.php:134
 msgid "Enable"
-msgstr "Ŝalti"
+msgstr ""
 
 #: libraries/config.values.php:135
 msgid "Disable"
-msgstr "malŝalti"
+msgstr ""
 
 #: libraries/config.values.php:169
 msgid "Quick - display only the minimal options to configure"
@@ -13090,10 +12970,8 @@ msgid "Manage your settings"
 msgstr ""
 
 #: libraries/user_preferences.inc.php:38
-#, fuzzy
-#| msgid "HTTP authentication"
 msgid "Two-factor authentication"
-msgstr "HTTP-aŭtentigo"
+msgstr ""
 
 #: libraries/user_preferences.inc.php:63 prefs_manage.php:298
 msgid "Configuration has been saved."
@@ -13174,16 +13052,12 @@ msgid ""
 msgstr ""
 
 #: prefs_manage.php:309
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as JSON file"
-msgstr "Konservi kiel dosieron"
+msgstr ""
 
 #: prefs_manage.php:314
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as PHP file"
-msgstr "Konservi kiel dosieron"
+msgstr ""
 
 #: prefs_manage.php:319
 msgid "Save to browser's storage"
@@ -13265,7 +13139,7 @@ msgstr ""
 
 #: setup/frames/config.inc.php:34 setup/frames/index.inc.php:253
 msgid "Download"
-msgstr "Elŝuti"
+msgstr ""
 
 #: setup/frames/index.inc.php:49
 msgid ""
@@ -13318,11 +13192,11 @@ msgstr ""
 
 #: setup/frames/index.inc.php:180
 msgid "New server"
-msgstr "Nova servilo"
+msgstr ""
 
 #: setup/frames/index.inc.php:209
 msgid "Default language"
-msgstr "Defaŭlta lingvo"
+msgstr ""
 
 #: setup/frames/index.inc.php:219
 msgid "let the user choose"
@@ -13330,11 +13204,11 @@ msgstr ""
 
 #: setup/frames/index.inc.php:230
 msgid "- none -"
-msgstr "- neniu -"
+msgstr ""
 
 #: setup/frames/index.inc.php:234
 msgid "Default server"
-msgstr "Defaŭlta servilo"
+msgstr ""
 
 #: setup/frames/index.inc.php:246
 msgid "End of line"
@@ -13358,11 +13232,11 @@ msgstr ""
 
 #: setup/frames/servers.inc.php:27
 msgid "Edit server"
-msgstr "Redakti servilon"
+msgstr ""
 
 #: setup/frames/servers.inc.php:37
 msgid "Add a new server"
-msgstr "Aldoni novan servilon"
+msgstr ""
 
 #: setup/index.php:18
 msgid "Configuration already exists, setup is disabled!"
@@ -13374,7 +13248,7 @@ msgstr ""
 
 #: setup/lib/FormProcessing.php:63
 msgid "Warning"
-msgstr "Averto"
+msgstr ""
 
 #: setup/lib/FormProcessing.php:64
 msgid "Submitted form contains errors"
@@ -13472,7 +13346,7 @@ msgstr ""
 
 #: themes.php:22 themes.php:27
 msgid "Theme"
-msgstr "Etoso"
+msgstr ""
 
 #: themes.php:30
 msgid "Get more themes!"
@@ -13503,7 +13377,7 @@ msgstr ""
 #: transformation_overview.php:55
 msgctxt "for MIME transformation"
 msgid "Description"
-msgstr "Priskribo"
+msgstr ""
 
 #: templates/privileges/resource_limits.twig:2
 msgid "Resource limits"
@@ -13515,15 +13389,15 @@ msgstr ""
 
 #: templates/server/plugins/section.twig:9
 msgid "Plugin"
-msgstr "Kromprogramo"
+msgstr ""
 
 #: templates/server/plugins/section.twig:12
 msgid "Author"
-msgstr "Aŭtoro"
+msgstr ""
 
 #: templates/server/plugins/section.twig:23
 msgid "disabled"
-msgstr "malŝaltita"
+msgstr ""
 
 #: templates/error/report_form.twig:6
 msgid ""
@@ -13544,11 +13418,11 @@ msgstr ""
 
 #: templates/display/export/template_loading.twig:2
 msgid "Export templates:"
-msgstr "Eksporti ŝablonojn:"
+msgstr ""
 
 #: templates/display/export/template_loading.twig:6
 msgid "New template:"
-msgstr "Nova ŝablono:"
+msgstr ""
 
 #: templates/display/export/template_loading.twig:8
 msgid "Template name"
@@ -13557,7 +13431,7 @@ msgstr ""
 #: templates/display/export/template_loading.twig:10
 #: templates/server/databases/create.twig:30
 msgid "Create"
-msgstr "Krei"
+msgstr ""
 
 #: templates/display/export/template_loading.twig:16
 msgid "Existing templates:"
@@ -13565,11 +13439,11 @@ msgstr ""
 
 #: templates/display/export/template_loading.twig:17
 msgid "Template:"
-msgstr "Ŝablono:"
+msgstr ""
 
 #: templates/display/export/template_loading.twig:21
 msgid "Update"
-msgstr "Ĝisdatigi"
+msgstr ""
 
 #: templates/table/search/selection_form.twig:12
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
@@ -13583,7 +13457,7 @@ msgstr ""
 #: templates/privileges/column_privileges.twig:22
 msgctxt "None privileges"
 msgid "None"
-msgstr "Neniu"
+msgstr ""
 
 #: templates/table/insert/continue_insertion_form.twig:18
 #, php-format
@@ -13615,17 +13489,17 @@ msgstr ""
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:84 templates/console/display.twig:175
 msgid "Collapse"
-msgstr "Maletendi"
+msgstr ""
 
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:84 templates/console/display.twig:175
 msgid "Expand"
-msgstr "Etendi"
+msgstr ""
 
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:175
 msgid "Requery"
-msgstr "Repeti"
+msgstr ""
 
 #: templates/prefs_twofactor_confirm.twig:2
 msgid "Confirm disabling two-factor authentication"
@@ -13638,10 +13512,8 @@ msgid ""
 msgstr ""
 
 #: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:37
-#, fuzzy
-#| msgid "SHA256 password authentication"
 msgid "Disable two-factor authentication"
-msgstr "SHA256-a pasvorta aŭtentigo"
+msgstr ""
 
 #: templates/table/structure/check_all_table_column.twig:76
 #: templates/table/structure/actions_in_table_structure.twig:131
@@ -13767,7 +13639,7 @@ msgstr ""
 
 #: templates/display/import/import.twig:161
 msgid "Other options:"
-msgstr "Aliaj opcioj:"
+msgstr ""
 
 #: templates/display/import/import.twig:174
 #: templates/display/export/options_format.twig:2
@@ -13806,10 +13678,8 @@ msgid "Hide/Show all"
 msgstr ""
 
 #: templates/database/designer/table_list.twig:14
-#, fuzzy
-#| msgid "More settings"
 msgid "Hide/Show tables with no relationship"
-msgstr "Pli agordoj"
+msgstr ""
 
 #: templates/database/designer/table_list.twig:25
 msgid "Number of tables:"
@@ -13821,7 +13691,7 @@ msgstr ""
 
 #: templates/table/browse_foreigners/column_element.twig:4
 msgid "Use this value"
-msgstr "Uzi ĉi tiun valoron"
+msgstr ""
 
 #: templates/columns_definitions/column_length.twig:9
 msgid "Edit ENUM/SET values"
@@ -13833,29 +13703,21 @@ msgstr ""
 
 #: templates/database/multi_table_query/form.twig:33
 #: templates/database/multi_table_query/form.twig:121
-#, fuzzy
-#| msgid "Select table"
 msgid "select table"
-msgstr "Elekti tabelon"
+msgstr ""
 
 #: templates/database/multi_table_query/form.twig:40
 #: templates/database/multi_table_query/form.twig:129
-#, fuzzy
-#| msgid "Select a column."
 msgid "select column"
-msgstr "Elekti kolumnon."
+msgstr ""
 
 #: templates/database/multi_table_query/form.twig:46
-#, fuzzy
-#| msgid "Tables"
 msgid "Table alias"
-msgstr "Tabeloj"
+msgstr ""
 
 #: templates/database/multi_table_query/form.twig:47
-#, fuzzy
-#| msgid "Columns"
 msgid "Column alias"
-msgstr "Kolumnoj"
+msgstr ""
 
 #: templates/database/multi_table_query/form.twig:50
 msgid "Use this column in criteria"
@@ -13866,37 +13728,29 @@ msgid "criteria"
 msgstr ""
 
 #: templates/database/multi_table_query/form.twig:67
-#, fuzzy
-#| msgid "Add %s"
 msgid "Add as"
-msgstr "Aldoni %s"
+msgstr ""
 
 #: templates/database/multi_table_query/form.twig:112
-#, fuzzy
-#| msgid "Add new column"
 msgid "Another column"
-msgstr "Aldoni novan kolumnon"
+msgstr ""
 
 #: templates/database/multi_table_query/form.twig:140
 msgid "Enter criteria as free text"
 msgstr ""
 
 #: templates/database/multi_table_query/form.twig:148
-#, fuzzy
-#| msgid "Select a column."
 msgid "Remove this column"
-msgstr "Elekti kolumnon."
+msgstr ""
 
 #: templates/database/multi_table_query/form.twig:158
 #: templates/table/relation/foreign_key_row.twig:90
 msgid "+ Add column"
-msgstr "+ Aldoni kolumnon"
+msgstr ""
 
 #: templates/database/multi_table_query/form.twig:175
-#, fuzzy
-#| msgid "Update Query"
 msgid "Update query"
-msgstr "Ĝisdatigi peton"
+msgstr ""
 
 #: templates/database/designer/side_menu.twig:13
 #: templates/database/designer/side_menu.twig:19
@@ -13916,7 +13770,7 @@ msgstr ""
 #: templates/database/designer/side_menu.twig:42
 #: templates/database/designer/side_menu.twig:46
 msgid "New page"
-msgstr "Nova paĝo"
+msgstr ""
 
 #: templates/database/designer/side_menu.twig:71
 #: templates/database/designer/side_menu.twig:74
@@ -13927,7 +13781,7 @@ msgstr ""
 #: templates/database/designer/side_menu.twig:81
 #: templates/database/create_table.twig:7
 msgid "Create table"
-msgstr "Krei tabelon"
+msgstr ""
 
 #: templates/database/designer/side_menu.twig:99
 #: templates/database/designer/side_menu.twig:102
@@ -13937,7 +13791,7 @@ msgstr ""
 #: templates/database/designer/side_menu.twig:108
 #: templates/database/designer/side_menu.twig:111
 msgid "Help"
-msgstr "Helpo"
+msgstr ""
 
 #: templates/database/designer/side_menu.twig:116
 #: templates/database/designer/side_menu.twig:119
@@ -13991,10 +13845,8 @@ msgstr ""
 
 #: templates/login/twofactor/application.twig:2
 #: templates/login/twofactor/application_configure.twig:21
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication code:"
-msgstr "Aŭtentigo"
+msgstr ""
 
 #: templates/login/twofactor/application.twig:4
 msgid ""
@@ -14114,7 +13966,7 @@ msgstr ""
 
 #: templates/display/export/template_options.twig:1
 msgid "Select a template"
-msgstr "Elekti ŝablonon"
+msgstr ""
 
 #: templates/server/variables/variable_row.twig:6
 msgid "This is a read-only variable and can not be edited"
@@ -14122,11 +13974,11 @@ msgstr ""
 
 #: templates/console/display.twig:7
 msgid "History"
-msgstr "Historio"
+msgstr ""
 
 #: templates/console/display.twig:11 templates/console/display.twig:99
 msgid "Bookmarks"
-msgstr "Legosignoj"
+msgstr ""
 
 #: templates/console/display.twig:20
 msgid "Press Ctrl+Enter to execute query"
@@ -14142,7 +13994,7 @@ msgstr ""
 
 #: templates/console/display.twig:40 templates/console/display.twig:184
 msgid "Bookmark"
-msgstr "Legosigno"
+msgstr ""
 
 #: templates/console/display.twig:40 templates/console/display.twig:184
 msgid "Query failed"
@@ -14202,11 +14054,11 @@ msgstr ""
 #: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
 #: templates/export/alias_add.twig:46
 msgid "Add"
-msgstr "Aldoni"
+msgstr ""
 
 #: templates/console/display.twig:112
 msgid "Add bookmark"
-msgstr "Aldoni legosignon"
+msgstr ""
 
 #: templates/console/display.twig:121
 msgid "Label"
@@ -14218,7 +14070,7 @@ msgstr ""
 
 #: templates/console/display.twig:127
 msgid "Share this bookmark"
-msgstr "Konigi ĉi tiun legosignon"
+msgstr ""
 
 #: templates/console/display.twig:140
 msgid "Set default"
@@ -14253,10 +14105,8 @@ msgid "Operator"
 msgstr ""
 
 #: templates/database/designer/delete_relation_panel.twig:21
-#, fuzzy
-#| msgid "More settings"
 msgid "Delete relationship"
-msgstr "Pli agordoj"
+msgstr ""
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
 msgid ""
@@ -14304,7 +14154,7 @@ msgstr ""
 
 #: templates/database/designer/query_details.twig:6
 msgid "Active options"
-msgstr "Aktivaj opcioj"
+msgstr ""
 
 #: templates/database/designer/schema_export.twig:4
 msgid "Select Export Relational Type"
@@ -14318,7 +14168,7 @@ msgstr ""
 #: templates/database/designer/rename_to_panel.twig:30
 #: templates/database/designer/options_panel.twig:90
 msgid "New name"
-msgstr "Nova nomo"
+msgstr ""
 
 #: templates/prefs_autoload.twig:7
 msgid ""
@@ -14327,10 +14177,8 @@ msgid ""
 msgstr ""
 
 #: templates/prefs_autoload.twig:13
-#, fuzzy
-#| msgid "More settings"
 msgid "Delete settings"
-msgstr "Pli agordoj"
+msgstr ""
 
 #: templates/privileges/add_privileges_routine.twig:3
 msgid "Add privileges on the following routine:"
@@ -14358,10 +14206,8 @@ msgid "Index choice:"
 msgstr ""
 
 #: templates/table/index_form.twig:42
-#, fuzzy
-#| msgid "Active options"
 msgid "Advanced Options"
-msgstr "Aktivaj opcioj"
+msgstr ""
 
 #: templates/table/index_form.twig:48
 msgid "Key block size:"
@@ -14373,16 +14219,16 @@ msgstr ""
 
 #: templates/table/index_form.twig:77
 msgid "Parser:"
-msgstr "Analizilo:"
+msgstr ""
 
 #: templates/table/index_form.twig:93
 msgid "Comment:"
-msgstr "Komento:"
+msgstr ""
 
 #: templates/table/index_form.twig:118
 #: templates/database/structure/table_header.twig:38
 msgid "Size"
-msgstr "Grando"
+msgstr ""
 
 #: templates/table/index_form.twig:136 templates/table/index_form.twig:173
 msgid "Drag to reorder"
@@ -14395,7 +14241,7 @@ msgstr ""
 
 #: templates/columns_definitions/column_name.twig:12
 msgid "Is a foreign key."
-msgstr "Estas fremda ŝlosilo."
+msgstr ""
 
 #: templates/columns_definitions/column_name.twig:40
 msgid "Pick from Central Columns"
@@ -14411,7 +14257,7 @@ msgstr ""
 #: templates/display/import/javascript.twig:16
 #, php-format
 msgid "%s of %s"
-msgstr "%s de %s"
+msgstr ""
 
 #: templates/display/import/javascript.twig:17
 #, php-format
@@ -14472,10 +14318,8 @@ msgid "Configure two-factor authentication"
 msgstr ""
 
 #: templates/prefs_twofactor_configure.twig:8
-#, fuzzy
-#| msgid "SHA256 password authentication"
 msgid "Enable two-factor authentication"
-msgstr "SHA256-a pasvorta aŭtentigo"
+msgstr ""
 
 #: templates/table/relation/foreign_key_row.twig:15
 #, php-format
@@ -14501,10 +14345,9 @@ msgid "See table structure"
 msgstr ""
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select page"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Elektu paĝon"
+msgstr ""
 
 #: templates/database/designer/database_tables.twig:126
 #, php-format
@@ -14531,7 +14374,7 @@ msgstr ""
 
 #: templates/table/gis_visualization/gis_visualization.twig:11
 msgid "-- None --"
-msgstr "-- Neniu --"
+msgstr ""
 
 #: templates/table/gis_visualization/gis_visualization.twig:19
 msgid "Spatial column"
@@ -14619,7 +14462,7 @@ msgstr ""
 #: templates/table/search/search_and_replace.twig:1
 #: templates/database/search/selection_form.twig:15
 msgid "Find:"
-msgstr "Trovi:"
+msgstr ""
 
 #: templates/table/search/search_and_replace.twig:3
 msgid "Replace with:"
@@ -14688,7 +14531,7 @@ msgstr ""
 
 #: templates/table/relation/common_form.twig:10
 msgid "Actions"
-msgstr "Agoj"
+msgstr ""
 
 #: templates/table/relation/common_form.twig:11
 msgid "Constraint properties"
@@ -14712,7 +14555,7 @@ msgstr ""
 
 #: templates/table/relation/common_form.twig:89
 msgid "+ Add constraint"
-msgstr "+ Aldoni limigon"
+msgstr ""
 
 #: templates/table/relation/common_form.twig:99
 #: templates/table/relation/common_form.twig:104
@@ -14739,7 +14582,7 @@ msgstr ""
 
 #: templates/database/structure/check_all_tables.twig:10
 msgid "Copy table"
-msgstr "Kopii tabelon"
+msgstr ""
 
 #: templates/database/structure/check_all_tables.twig:11
 msgid "Show create"
@@ -14747,7 +14590,7 @@ msgstr ""
 
 #: templates/database/structure/check_all_tables.twig:25
 msgid "Prefix"
-msgstr "Prefikso"
+msgstr ""
 
 #: templates/database/structure/check_all_tables.twig:26
 msgid "Add prefix to table"
@@ -14771,15 +14614,13 @@ msgstr ""
 
 #: templates/database/designer/options_panel.twig:34
 #: templates/database/designer/options_panel.twig:199
-#, fuzzy
-#| msgid "Relations"
 msgid "Relationship operator"
-msgstr "Rilatoj"
+msgstr ""
 
 #: templates/privileges/add_user_fieldset.twig:2
 msgctxt "Create new user"
 msgid "New"
-msgstr "Nova"
+msgstr ""
 
 #: templates/login/twofactor/key_configure.twig:3
 msgid ""
@@ -14789,19 +14630,17 @@ msgstr ""
 
 #: templates/table/tracking/report_table.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:5
-#, fuzzy
-#| msgid "#"
 msgctxt "Number"
 msgid "#"
-msgstr "#"
+msgstr ""
 
 #: templates/table/tracking/report_table.twig:5
 msgid "Date"
-msgstr "Dato"
+msgstr ""
 
 #: templates/table/tracking/report_table.twig:6
 msgid "Username"
-msgstr "Uzantnomo"
+msgstr ""
 
 #: templates/database/qbe/footer_options.twig:3
 msgid "Add/Delete criteria rows"
@@ -14809,7 +14648,7 @@ msgstr ""
 
 #: templates/database/qbe/footer_options.twig:5
 msgid "Add/Delete columns"
-msgstr "Aldoni/forigi kolumnojn"
+msgstr ""
 
 #: templates/table/search/rows_zoom.twig:12
 msgid "Additional search criteria"
@@ -14840,7 +14679,7 @@ msgstr ""
 
 #: templates/database/central_columns/add_column.twig:13
 msgid "Select a column."
-msgstr "Elekti kolumnon."
+msgstr ""
 
 #: templates/database/structure/tracking_icon.twig:3
 msgid "Tracking is active."
@@ -14888,10 +14727,8 @@ msgid "Take it"
 msgstr ""
 
 #: templates/prefs_twofactor.twig:3
-#, fuzzy
-#| msgid "HTTP authentication"
 msgid "Two-factor authentication status"
-msgstr "HTTP-aŭtentigo"
+msgstr ""
 
 #: templates/prefs_twofactor.twig:9
 msgid ""
@@ -14935,7 +14772,7 @@ msgstr ""
 #: templates/server/databases/create.twig:8
 #: templates/server/databases/create.twig:36
 msgid "Create database"
-msgstr "Krei datumbazon"
+msgstr ""
 
 #: templates/database/designer/page_save_as.twig:17
 msgid "Save to selected page"
@@ -14947,13 +14784,13 @@ msgstr ""
 
 #: templates/database/designer/page_save_as.twig:30
 msgid "New page name"
-msgstr "Nova paĝnomo"
+msgstr ""
 
 #: templates/table/tracking/structure_snapshot_columns.twig:47
 #: templates/table/structure/table_structure_row.twig:34
 msgctxt "None for default"
 msgid "None"
-msgstr "Neniu"
+msgstr ""
 
 #: templates/display/export/options_rows.twig:2
 msgid "Rows:"
@@ -14981,10 +14818,9 @@ msgid "Click to toggle"
 msgstr ""
 
 #: templates/server/databases/table_row.twig:13
-#, fuzzy, php-format
-#| msgid "Remove database"
+#, php-format
 msgid "Jump to database '%s'"
-msgstr "Forigi datumbazon"
+msgstr ""
 
 #: templates/server/databases/table_row.twig:63
 #, php-format
@@ -15013,7 +14849,7 @@ msgstr ""
 
 #: templates/display/results/options_block.twig:30
 msgid "Relational key"
-msgstr "Rilata ŝlosilo"
+msgstr ""
 
 #: templates/display/results/options_block.twig:30
 msgid "Display column for relationships"
@@ -15057,8 +14893,8 @@ msgstr ""
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s tabelo"
-msgstr[1] "%s tabeloj"
+msgstr[0] ""
+msgstr[1] ""
 
 #: templates/database/structure/body_for_table_summary.twig:17
 msgid "Sum"
@@ -15095,7 +14931,7 @@ msgstr ""
 #: templates/columns_definitions/column_default.twig:3
 msgctxt "for default"
 msgid "None"
-msgstr "Neniu"
+msgstr ""
 
 #: templates/columns_definitions/column_default.twig:5
 msgid "As defined:"
@@ -15103,11 +14939,11 @@ msgstr ""
 
 #: templates/database/designer/page_selector.twig:2
 msgid "Select page"
-msgstr "Elektu paĝon"
+msgstr ""
 
 #: templates/privileges/delete_user_fieldset.twig:3
 msgid "Remove selected user accounts"
-msgstr "Forigi elektitajn uzantkontojn"
+msgstr ""
 
 #: templates/privileges/delete_user_fieldset.twig:6
 msgid "Revoke all active privileges from the users and delete them afterwards."
@@ -15137,10 +14973,8 @@ msgid "Table name"
 msgstr ""
 
 #: templates/columns_definitions/column_definitions_form.twig:40
-#, fuzzy
-#| msgid "Columns"
 msgid "column(s)"
-msgstr "Kolumnoj"
+msgstr ""
 
 #: templates/columns_definitions/column_definitions_form.twig:74
 msgid "Collation:"
@@ -15152,7 +14986,7 @@ msgstr ""
 
 #: templates/columns_definitions/column_definitions_form.twig:82
 msgid "Connection:"
-msgstr "Konekto:"
+msgstr ""
 
 #: templates/columns_definitions/column_definitions_form.twig:128
 msgid "PARTITION definition:"
@@ -15180,7 +15014,7 @@ msgstr ""
 
 #: templates/database/tracking/tracked_tables.twig:12
 msgid "Last version"
-msgstr "Lasta versio"
+msgstr ""
 
 #: templates/database/tracking/tracked_tables.twig:54
 #: templates/database/tracking/tracked_tables.twig:99
@@ -15189,7 +15023,7 @@ msgstr ""
 
 #: templates/database/tracking/tracked_tables.twig:65
 msgid "Versions"
-msgstr "Versioj"
+msgstr ""
 
 #: templates/table/chart/tbl_chart.twig:15
 msgctxt "Chart type"
@@ -15199,12 +15033,12 @@ msgstr ""
 #: templates/table/chart/tbl_chart.twig:19
 msgctxt "Chart type"
 msgid "Column"
-msgstr "Kolumno"
+msgstr ""
 
 #: templates/table/chart/tbl_chart.twig:23
 msgctxt "Chart type"
 msgid "Line"
-msgstr "Linio"
+msgstr ""
 
 #: templates/table/chart/tbl_chart.twig:27
 msgctxt "Chart type"
@@ -15224,7 +15058,7 @@ msgstr ""
 #: templates/table/chart/tbl_chart.twig:39
 msgctxt "Chart type"
 msgid "Timeline"
-msgstr "Templinio"
+msgstr ""
 
 #: templates/table/chart/tbl_chart.twig:43
 msgctxt "Chart type"
@@ -15253,7 +15087,7 @@ msgstr ""
 
 #: templates/table/chart/tbl_chart.twig:104
 msgid "X Values"
-msgstr "X-valoroj"
+msgstr ""
 
 #: templates/table/chart/tbl_chart.twig:107
 msgid "Y-Axis label:"
@@ -15261,7 +15095,7 @@ msgstr ""
 
 #: templates/table/chart/tbl_chart.twig:109
 msgid "Y Values"
-msgstr "Y-valoroj"
+msgstr ""
 
 #: templates/table/chart/tbl_chart.twig:115
 msgid "Series names are in a column"
@@ -15277,52 +15111,45 @@ msgstr ""
 
 #: templates/table/chart/tbl_chart.twig:153
 msgid "Save chart as image"
-msgstr "Konservi kiel dosieron"
+msgstr ""
 
 #: templates/export/alias_add.twig:4
 msgid "Define new aliases"
 msgstr ""
 
 #: templates/export/alias_add.twig:9
-#, fuzzy
-#| msgid "Select database"
 msgid "Select database:"
-msgstr "Elekti datumbazon"
+msgstr ""
 
 #: templates/export/alias_add.twig:15
 msgid "New database name"
 msgstr ""
 
 #: templates/export/alias_add.twig:23
-#, fuzzy
-#| msgid "Select table"
 msgid "Select table:"
-msgstr "Elekti tabelon"
+msgstr ""
 
 #: templates/export/alias_add.twig:29
 msgid "New table name"
 msgstr ""
 
 #: templates/export/alias_add.twig:37
-#, fuzzy
-#| msgid "Select a column."
 msgid "Select column:"
-msgstr "Elekti kolumnon."
+msgstr ""
 
 #: templates/export/alias_add.twig:43
 msgid "New column name"
 msgstr ""
 
 #: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create"
+#, php-format
 msgid "Create %s"
-msgstr "Krei"
+msgstr ""
 
 #: templates/encoding/kanji_encoding_form.twig:6
 msgctxt "None encoding conversion"
 msgid "None"
-msgstr "Neniu"
+msgstr ""
 
 #: templates/encoding/kanji_encoding_form.twig:17
 msgid "Convert to Kana"
@@ -15330,7 +15157,7 @@ msgstr ""
 
 #: templates/display/export/selection.twig:3
 msgid "Databases:"
-msgstr "Datumbazoj:"
+msgstr ""
 
 #: templates/table/structure/display_partitions.twig:8
 msgid "No partitioning defined!"
@@ -15591,7 +15418,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.txt:121
 #: libraries/advisory_rules_generic.txt:128
 msgid "Distribution"
-msgstr "Distribuo"
+msgstr ""
 
 #: libraries/advisory_rules_generic.txt:124
 msgid "Version is compiled from source, not a MySQL official binary."
@@ -15624,7 +15451,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.txt:135
 msgid "MySQL Architecture"
-msgstr "MySQL-arkitekturo"
+msgstr ""
 
 #: libraries/advisory_rules_generic.txt:138
 msgid "MySQL is not compiled as a 64-bit package."
@@ -16471,50 +16298,3 @@ msgstr ""
 #: libraries/advisory_rules_mysql_before80003.txt:57
 msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
-
-#, fuzzy
-#~| msgid "Text"
-#~ msgctxt "Text context"
-#~ msgid "Text"
-#~ msgstr "Teksto"
-
-#, fuzzy
-#~| msgid "unknown"
-#~ msgid "Unknonwn"
-#~ msgstr "nekonata"
-
-#, fuzzy
-#~| msgid "Right"
-#~ msgctxt "Collation variant"
-#~ msgid "weight=2"
-#~ msgstr "Dekstra"
-
-#~ msgid "German"
-#~ msgstr "Germana"
-
-#~ msgid "dictionary"
-#~ msgstr "vortaro"
-
-#~ msgid "phone book"
-#~ msgstr "telefonlibro"
-
-#, fuzzy
-#~| msgid "case-insensitive"
-#~ msgid "case-insensitive collation"
-#~ msgstr "usklecoblinda"
-
-#, fuzzy
-#~| msgid "case-sensitive"
-#~ msgid "case-sensitive collation"
-#~ msgstr "usklecodistinga"
-
-#~ msgid "\"%d\" second"
-#~ msgid_plural "\"%d\" seconds"
-#~ msgstr[0] "\"%d\" sekundo"
-#~ msgstr[1] "\"%d\" sekundoj"
-
-#~ msgid "error #1"
-#~ msgstr "eraro #1"
-
-#~ msgid "Wiki"
-#~ msgstr "Vikio"

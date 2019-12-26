@@ -1184,7 +1184,7 @@ class Results
 
         for ($j = 0; $j < $number_of_columns; $j++) {
             // PHP 7.4 fix for accessing array offset on bool
-            $col_visib_current = is_array($col_visib) ? $col_visib[$j] : null;
+            $col_visib_current = is_array($col_visib) && isset($col_visib[$j]) ? $col_visib[$j] : null;
 
             // assign $i with the appropriate column order
             $i = $col_order ? $col_order[$j] : $j;
@@ -1856,6 +1856,7 @@ class Results
             'db'                 => $this->__get('db'),
             'table'              => $this->__get('table'),
             'sql_query'          => $single_sorted_sql_query,
+            'sql_signature'      => Core::signSqlQuery($single_sorted_sql_query),
             'session_max_rows'   => $session_max_rows,
             'is_browse_distinct' => $this->__get('is_browse_distinct'),
         );
@@ -1864,6 +1865,7 @@ class Results
             'db'                 => $this->__get('db'),
             'table'              => $this->__get('table'),
             'sql_query'          => $multi_sorted_sql_query,
+            'sql_signature'      => Core::signSqlQuery($multi_sorted_sql_query),
             'session_max_rows'   => $session_max_rows,
             'is_browse_distinct' => $this->__get('is_browse_distinct'),
         );

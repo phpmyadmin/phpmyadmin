@@ -143,11 +143,11 @@
                         ) }}
                     </td>
                     <td>
-                        {% spaceless %}
+                        {% apply spaceless %}
                         <textarea name="{{ subpartition['prefix'] }}[comment]">
                             {{ subpartition['comment'] }}
                         </textarea>
-                        {% endspaceless %}
+                        {% endapply %}
                     </td>
                     <td>
                         <input type="text" name="{{ subpartition['prefix'] }}[data_directory]"

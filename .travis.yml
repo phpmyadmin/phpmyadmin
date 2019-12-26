@@ -11,7 +11,6 @@ services:
   - mysql
 
 php:
-  - "7.4snapshot"
   - "7.3"
   - "7.2"
   - "7.1"
@@ -64,6 +63,7 @@ matrix:
   include:
     - php: "7.1"
       env: CI_MODE=selenium
+      before_install: phpenv config-rm xdebug.ini
     - php: "7.0"
       node_js: 10
       env: CI_MODE=release
@@ -71,16 +71,29 @@ matrix:
       env: CI_MODE=docs
     - php: "7.1"
       env: CI_MODE=apidocs
+      before_install: phpenv config-rm xdebug.ini
     - os: osx
-      name: "PHP 7.3"
+      name: "PHP 7.4"
       language: node_js
       node_js: 10
       env: CI_MODE=test
       before_install:
         - brew link --force gettext
-        - echo "memory_limit=-1" > /usr/local/etc/php/7.3/conf.d/50-travis.ini
-        - echo "pcre.jit=0" >> /usr/local/etc/php/7.3/conf.d/50-travis.ini
+        - echo "memory_limit=-1" > /usr/local/etc/php/7.4/conf.d/50-travis.ini
+        - echo "pcre.jit=0" >> /usr/local/etc/php/7.4/conf.d/50-travis.ini
         - mysql.server start
+        - sleep 5
+        # Enable password access
+        - mysql -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('');"
+      install:
+        - composer require --no-interaction php>=7.1
+        - composer remove phpunit/phpunit-selenium --dev --no-interaction
+        - composer remove phpunit/phpunit --dev --no-interaction
+        - composer require --dev --no-interaction phpunit/phpunit ^8
+        - rm -rf test/selenium
+        - "find test/ -type f -iname '*.php' -print0 | xargs -0 sed -i.bak~ 's/function setUpBeforeClass()/function setUpBeforeClass(): void/g'"
+        - "find test/ -type f -iname '*.php' -print0 | xargs -0 sed -i.bak~ 's/function setUp()/function setUp(): void/g'"
+        - "find test/ -type f -iname '*.php' -print0 | xargs -0 sed -i.bak~ 's/function tearDown()/function tearDown(): void/g'"
       addons:
         homebrew:
           packages:
@@ -100,24 +113,48 @@ matrix:
        - composer remove phpunit/phpunit --dev --no-interaction
        - composer require --dev --no-interaction phpunit/phpunit ^8
        - rm -rf test/selenium
-       - "find test/ -type f -print0 | xargs -0 sed -i 's/function setUpBeforeClass()/function setUpBeforeClass(): void/g'"
-       - "find test/ -type f -print0 | xargs -0 sed -i 's/function setUp()/function setUp(): void/g'"
-       - "find test/ -type f -print0 | xargs -0 sed -i 's/function tearDown()/function tearDown(): void/g'"
-    - php: "7.1"
-      env: CI_MODE=test DBASE=true
+       - "find test/ -type f -iname '*.php' -print0 | xargs -0 sed -i 's/function setUpBeforeClass()/function setUpBeforeClass(): void/g'"
+       - "find test/ -type f -iname '*.php' -print0 | xargs -0 sed -i 's/function setUp()/function setUp(): void/g'"
+       - "find test/ -type f -iname '*.php' -print0 | xargs -0 sed -i 's/function tearDown()/function tearDown(): void/g'"
+    - php: "7.4"
+      env: CI_MODE=test
+      name: "PHP: 7.4"
       install:
-        - pecl channel-update pecl.php.net
-        - pecl install dbase-7.0.0beta1
-        - test/ci-install-test
-    - php: "5.6"
+       - composer require --no-interaction php>=7.1
+       - composer remove phpunit/phpunit-selenium --dev --no-interaction
+       - composer remove phpunit/phpunit --dev --no-interaction
+       - composer require --dev --no-interaction phpunit/phpunit ^8
+       - rm -rf test/selenium
+       - "find test/ -type f -iname '*.php' -print0 | xargs -0 sed -i 's/function setUpBeforeClass()/function setUpBeforeClass(): void/g'"
+       - "find test/ -type f -iname '*.php' -print0 | xargs -0 sed -i 's/function setUp()/function setUp(): void/g'"
+       - "find test/ -type f -iname '*.php' -print0 | xargs -0 sed -i 's/function tearDown()/function tearDown(): void/g'"
+       - phpenv config-rm xdebug.ini
+    - php: "7.1"
       env: CI_MODE=test DBASE=true
       install:
         - pecl channel-update pecl.php.net
         - pecl install dbase
         - test/ci-install-test
+    - php: "5.6"
+      env: CI_MODE=test DBASE=true
+      install:
+        - pecl channel-update pecl.php.net
+        - pecl install dbase-5.1.1
+        - test/ci-install-test
+    - php: "nightly"
+      env: CI_MODE=test
+      install:
+        - composer install --no-interaction --ignore-platform-reqs
+    - php: "7.1"
+      before_script: skip
+      after_script: skip
+      after_success: skip
+      script:
+        - test/ci-lint
+        - vendor/bin/phpcs --standard=phpcs.xml.dist
 
   allow_failures:
-    - php: "7.4snapshot"
+    - php: "nightly"
     - env: CI_MODE=test DBASE=true
 
 cache:

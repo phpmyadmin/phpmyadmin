@@ -12,21 +12,23 @@
                 ) }}
             </a>
         </th>
-        {% for stat_name, stat in column_order if stat_name in first_database|keys %}
-            {% set url_params = url_params|merge({
-                'sort_by': stat_name,
-                'sort_order': sort_by == stat_name and sort_order == 'desc' ? 'asc' : 'desc'
-            }) %}
+        {% for stat_name, stat in column_order %}
+            {% if stat_name in first_database|keys %}
+                {% set url_params = url_params|merge({
+                    'sort_by': stat_name,
+                    'sort_order': sort_by == stat_name and sort_order == 'desc' ? 'asc' : 'desc'
+                }) %}
 
-            <th{{ stat['format'] is same as('byte') ? ' colspan="2"' }}>
-                <a href="server_databases.php{{ Url_getCommon(url_params) }}">
-                    {{ stat['disp_name'] }}
-                    {{ sort_by == stat_name ? Util_getImage(
-                        's_' ~ sort_order,
-                        sort_order_text
-                    ) }}
-                </a>
-            </th>
+                <th{{ stat['format'] is same as('byte') ? ' colspan="2"' }}>
+                    <a href="server_databases.php{{ Url_getCommon(url_params) }}">
+                        {{ stat['disp_name'] }}
+                        {{ sort_by == stat_name ? Util_getImage(
+                            's_' ~ sort_order,
+                            sort_order_text
+                        ) }}
+                    </a>
+                </th>
+            {% endif %}
         {% endfor %}
         {% if master_replication %}
             <th>{% trans 'Master replication' %}</th>

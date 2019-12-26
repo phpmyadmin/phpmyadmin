@@ -1008,7 +1008,7 @@ are always ways to make your installation more secure:
 * Serve phpMyAdmin on HTTPS only. Preferably, you should use HSTS as well, so that
   you're protected from protocol downgrade attacks.
 * Ensure your PHP setup follows recommendations for production sites, for example
-  `display_errors <https://secure.php.net/manual/en/errorfunc.configuration.php#ini.display-errors>`_
+  `display_errors <https://www.php.net/manual/en/errorfunc.configuration.php#ini.display-errors>`_
   should be disabled.
 * Remove the ``test`` directory from phpMyAdmin, unless you are developing and need a test suite.
 * Remove the ``setup`` directory from phpMyAdmin, you will probably not

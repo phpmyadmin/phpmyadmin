@@ -11,24 +11,26 @@
             </tr>
         </thead>
         <tbody>
-            {% for table_name in untracked_tables if Tracker_getVersion(db, table_name) == -1 %}
-                <tr>
-                    <td class="center">
-                        <input type="checkbox" name="selected_tbl[]"
-                            class="checkall" id="selected_tbl_{{ table_name }}"
-                            value="{{ table_name }}"/>
-                    </td>
-                    <th>
-                        <label for="selected_tbl_{{ table_name }}">
-                            {{ table_name }}
-                        </label>
-                    </th>
-                    <td>
-                        <a href="tbl_tracking.php{{ url_query|raw }}&amp;table={{ table_name }}">
-                            {{ Util_getIcon('eye', 'Track table'|trans) }}
-                        </a>
-                    </td>
-                </tr>
+            {% for table_name in untracked_tables %}
+                {% if Tracker_getVersion(db, table_name) == -1 %}
+                    <tr>
+                        <td class="center">
+                            <input type="checkbox" name="selected_tbl[]"
+                                class="checkall" id="selected_tbl_{{ table_name }}"
+                                value="{{ table_name }}"/>
+                        </td>
+                        <th>
+                            <label for="selected_tbl_{{ table_name }}">
+                                {{ table_name }}
+                            </label>
+                        </th>
+                        <td>
+                            <a href="tbl_tracking.php{{ url_query|raw }}&amp;table={{ table_name }}">
+                                {{ Util_getIcon('eye', 'Track table'|trans) }}
+                            </a>
+                        </td>
+                    </tr>
+                {% endif %}
             {% endfor %}
         </tbody>
     </table>

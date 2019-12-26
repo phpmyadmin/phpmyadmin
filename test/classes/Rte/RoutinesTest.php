@@ -43,6 +43,7 @@ class RoutinesTest extends TestCase
         $GLOBALS['cfg']['Confirm'] = true;
         $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';

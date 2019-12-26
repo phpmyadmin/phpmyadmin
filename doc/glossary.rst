@@ -208,7 +208,7 @@ From Wikipedia, the free encyclopedia
 
        If you have troubles installing this extension, please follow :ref:`faqmysql`, it provides useful hints.
 
-       .. seealso:: <https://secure.php.net/manual/en/book.mbstring.php>
+       .. seealso:: <https://www.php.net/manual/en/book.mbstring.php>
 
     MCrypt
       a cryptographic library.
@@ -218,7 +218,7 @@ From Wikipedia, the free encyclopedia
     mcrypt
       the MCrypt PHP extension.
 
-      .. seealso:: <https://secure.php.net/mcrypt>
+      .. seealso:: <https://www.php.net/mcrypt>
 
     MIME
       Multipurpose Internet Mail Extensions is
@@ -243,12 +243,12 @@ From Wikipedia, the free encyclopedia
     mysqli
       the improved MySQL client PHP extension.
 
-      .. seealso:: <https://secure.php.net/manual/en/book.mysqli.php>
+      .. seealso:: <https://www.php.net/manual/en/book.mysqli.php>
 
     mysql
       the MySQL client PHP extension.
 
-      .. seealso:: <https://secure.php.net/manual/en/book.mysql.php>
+      .. seealso:: <https://www.php.net/manual/en/book.mysql.php>
 
     OpenDocument
       an open standard for office documents.
@@ -276,7 +276,7 @@ From Wikipedia, the free encyclopedia
       Perl Compatible Regular Expressions is the perl-compatible regular
       expression functions for PHP
 
-      .. seealso:: <https://secure.php.net/pcre>
+      .. seealso:: <https://www.php.net/pcre>
 
     PHP
       short for "PHP: Hypertext Preprocessor", is an open-source, reflective

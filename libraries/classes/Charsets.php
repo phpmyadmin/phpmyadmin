@@ -147,7 +147,11 @@ class Charsets
         if (self::$_charset_server) {
             return self::$_charset_server;
         } else {
-            self::$_charset_server = $dbi->getVariable('character_set_server');
+            $charsetServer = $dbi->getVariable('character_set_server');
+            if (! is_string($charsetServer)) {// MySQL 5.7.8 fallback, issue #15614
+                $charsetServer = $dbi->fetchValue("SELECT @@character_set_server;");
+            }
+            self::$_charset_server = $charsetServer;
             return self::$_charset_server;
         }
     }

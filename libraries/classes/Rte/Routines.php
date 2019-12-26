@@ -699,7 +699,8 @@ class Routines
      */
     public static function getParameterRow(array $routine = array(), $index = null, $class = '')
     {
-        global $param_directions, $param_opts_num, $titles;
+        $titles = Util::buildActionTitles();
+        global $param_directions, $param_opts_num;
 
         if ($index === null) {
             // template row for AJAX request
