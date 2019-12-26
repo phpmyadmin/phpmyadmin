@@ -6,16 +6,16 @@ $( function() {
 
         {% if handler != 'PhpMyAdmin\\Plugins\\Import\\Upload\\UploadNoplugin' %}
             {# Some variable for javascript #}
-            {% set ajax_url = 'index.php?route=/import-status&id=' ~ upload_id ~ '&' ~ get_common_raw({
+            {% set ajax_url = 'index.php?route=/import-status&id=' ~ upload_id ~ get_common_raw({
                 'import_status': 1
-            }) %}
+            }, '&') %}
             {% set promot_str = 'The file being uploaded is probably larger than the maximum allowed size or this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) browsers.'|trans|js_format(false) %}
             {% set statustext_str = '%s of %s'|trans|escape_js_string %}
             {% set second_str = '%s/sec.'|trans|js_format(false) %}
             {% set remaining_min = 'About %MIN min. %SEC sec. remaining.'|trans|js_format(false) %}
             {% set remaining_second = 'About %SEC sec. remaining.'|trans|js_format(false) %}
             {% set processed_str = 'The file is being processed, please be patient.'|trans|js_format(false) %}
-            {% set import_url = get_common_raw({'import_status': 1}) %}
+            {% set import_url = get_common_raw({'import_status': 1}, '&') %}
 
             {% set upload_html %}
                 {% apply spaceless %}
