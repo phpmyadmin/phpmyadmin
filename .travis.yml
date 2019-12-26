@@ -50,6 +50,7 @@ jobs:
     - php: nightly
     - os: osx
     - name: "PHP 7.1 with dbase extension"
+    - name: "PHPUnit test in random order"
 
   include:
     - stage: "Lint and analyse code"
@@ -146,6 +147,14 @@ jobs:
         - pecl install dbase
         - composer install --no-interaction
         - yarn install --non-interactive
+
+    - stage: "PHP Unit tests"
+      php: 7.4
+      name: "PHPUnit tests in random order"
+      env: CI_MODE=test
+      script:
+        - scripts/generate-mo --quiet
+        - vendor/bin/phpunit --configuration phpunit.xml.dist --exclude-group selenium --order-by=random --stop-on-failure
 
     - stage: "Documentation"
       name: "Build docs"
