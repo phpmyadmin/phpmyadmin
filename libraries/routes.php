@@ -11,6 +11,7 @@ use PhpMyAdmin\Controllers\AjaxController;
 use PhpMyAdmin\Controllers\BrowseForeignersController;
 use PhpMyAdmin\Controllers\ChangeLogController;
 use PhpMyAdmin\Controllers\CheckRelationsController;
+use PhpMyAdmin\Controllers\Database\CentralColumnsController;
 use PhpMyAdmin\Controllers\Database\DataDictionaryController;
 use PhpMyAdmin\Controllers\Database\DesignerController;
 use PhpMyAdmin\Controllers\Database\EventsController;
@@ -156,8 +157,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         ]));
     });
     $routes->addGroup('/database', function (RouteCollector $routes) use ($containerBuilder, $response) {
-        $routes->addRoute(['GET', 'POST'], '/central_columns', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/database/central_columns.php';
+        $routes->addRoute(['GET', 'POST'], '/central-columns', function () use ($containerBuilder) {
+            /** @var CentralColumnsController $controller */
+            $controller = $containerBuilder->get(CentralColumnsController::class);
+            $controller->index();
         });
         $routes->get('/data-dictionary/{database}', function (array $vars) use ($containerBuilder, $response) {
             /** @var DataDictionaryController $controller */

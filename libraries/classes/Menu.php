@@ -481,8 +481,8 @@ class Menu
         ) {
             $tabs['central_columns']['text'] = __('Central columns');
             $tabs['central_columns']['icon'] = 'centralColumns';
-            $tabs['central_columns']['link'] = Url::getFromRoute('/database/central_columns');
-            $tabs['central_columns']['active'] = $route === '/database/central_columns';
+            $tabs['central_columns']['link'] = Url::getFromRoute('/database/central-columns');
+            $tabs['central_columns']['active'] = $route === '/database/central-columns';
         }
         return $tabs;
     }

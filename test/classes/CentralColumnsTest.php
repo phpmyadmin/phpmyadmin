@@ -661,7 +661,7 @@ class CentralColumnsTest extends TestCase
             $text_dir
         );
         $this->assertStringContainsString(
-            '<form action="index.php?route=/database/central_columns',
+            '<form action="index.php?route=/database/central-columns',
             $result
         );
         $this->assertStringContainsString(
