@@ -102,6 +102,7 @@ function PMA_addDatepicker ($this_element, type, options) {
     var currentDateTime = new Date();
 
     var defaultOptions = {
+        timeInput : true,
         hour: currentDateTime.getHours(),
         minute: currentDateTime.getMinutes(),
         second: currentDateTime.getSeconds(),
