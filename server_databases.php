@@ -5,26 +5,55 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
-use PhpMyAdmin\Controllers\Server\ServerDatabasesController;
-use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\Controllers\Server\DatabasesController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 
-require_once 'libraries/common.inc.php';
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
 
-$container = Container::getDefaultContainer();
-$container->factory(
-    'PhpMyAdmin\Controllers\Server\ServerDatabasesController'
-);
-$container->alias(
-    'ServerDatabasesController',
-    'PhpMyAdmin\Controllers\Server\ServerDatabasesController'
-);
-$container->set('PhpMyAdmin\Response', Response::getInstance());
-$container->alias('response', 'PhpMyAdmin\Response');
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
-/** @var ServerDatabasesController $controller */
-$controller = $container->get(
-    'ServerDatabasesController', array()
-);
-$controller->indexAction();
+/** @var DatabasesController $controller */
+$controller = $containerBuilder->get(DatabasesController::class);
+
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $containerBuilder->get(DatabaseInterface::class);
+
+$checkUserPrivileges = new CheckUserPrivileges($dbi);
+$checkUserPrivileges->getPrivileges();
+
+if (isset($_POST['drop_selected_dbs'])
+    && $response->isAjax()
+    && ($dbi->isSuperuser() || $GLOBALS['cfg']['AllowUserDropDatabase'])
+) {
+    $response->addJSON($controller->dropDatabasesAction([
+        'drop_selected_dbs' => $_POST['drop_selected_dbs'],
+        'selected_dbs' => $_POST['selected_dbs'] ?? null,
+    ]));
+} elseif (isset($_POST['new_db'])
+    && $response->isAjax()
+) {
+    $response->addJSON($controller->createDatabaseAction([
+        'new_db' => $_POST['new_db'],
+        'db_collation' => $_POST['db_collation'] ?? null,
+    ]));
+} else {
+    $header = $response->getHeader();
+    $scripts = $header->getScripts();
+    $scripts->addFile('server/databases.js');
+
+    $response->addHTML($controller->indexAction([
+        'statistics' => $_REQUEST['statistics'] ?? null,
+        'pos' => $_REQUEST['pos'] ?? null,
+        'sort_by' => $_REQUEST['sort_by'] ?? null,
+        'sort_order' => $_REQUEST['sort_order'] ?? null,
+    ]));
+}

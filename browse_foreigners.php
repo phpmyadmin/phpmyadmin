@@ -5,70 +5,58 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\BrowseForeigners;
-use PhpMyAdmin\Relation;
+use PhpMyAdmin\Controllers\BrowseForeignersController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
-require_once 'libraries/common.inc.php';
-
-/**
- * Sets globals from $_POST
- */
-$request_params = array(
-    'data',
-    'field'
-);
-
-foreach ($request_params as $one_request_param) {
-    if (isset($_POST[$one_request_param])) {
-        $GLOBALS[$one_request_param] = $_POST[$one_request_param];
-    }
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 }
 
-Util::checkParameters(array('db', 'table', 'field'));
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$response = Response::getInstance();
+Util::checkParameters(['db', 'table', 'field'], true);
+
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $containerBuilder->get(DatabaseInterface::class);
+
+/** @var Template $template */
+$template = $containerBuilder->get('template');
+/* Register BrowseForeignersController dependencies */
+$containerBuilder->set(
+    'browse_foreigners',
+    new BrowseForeigners(
+        $GLOBALS['cfg']['LimitChars'],
+        $GLOBALS['cfg']['MaxRows'],
+        $GLOBALS['cfg']['RepeatCells'],
+        $GLOBALS['cfg']['ShowAll'],
+        $GLOBALS['pmaThemeImage'],
+        $template
+    )
+);
+
+/** @var BrowseForeignersController $controller */
+$controller = $containerBuilder->get(BrowseForeignersController::class);
+
 $response->getFooter()->setMinimal();
 $header = $response->getHeader();
 $header->disableMenuAndConsole();
 $header->setBodyId('body_browse_foreigners');
 
-$relation = new Relation();
-
-/**
- * Displays the frame
- */
-$foreigners = $relation->getForeigners($db, $table);
-$browseForeigners = new BrowseForeigners(
-    $GLOBALS['cfg']['LimitChars'],
-    $GLOBALS['cfg']['MaxRows'],
-    $GLOBALS['cfg']['RepeatCells'],
-    $GLOBALS['cfg']['ShowAll'],
-    $GLOBALS['pmaThemeImage']
-);
-$foreign_limit = $browseForeigners->getForeignLimit(
-    isset($_POST['foreign_showAll']) ? $_POST['foreign_showAll'] : null
-);
-
-$foreignData = $relation->getForeignData(
-    $foreigners, $_POST['field'], true,
-    isset($_POST['foreign_filter'])
-    ? $_POST['foreign_filter']
-    : '',
-    isset($foreign_limit) ? $foreign_limit : null,
-    true // for getting value in $foreignData['the_total']
-);
-
-// HTML output
-$html = $browseForeigners->getHtmlForRelationalFieldSelection(
-    $db,
-    $table,
-    $_POST['field'],
-    $foreignData,
-    isset($fieldkey) ? $fieldkey : null,
-    isset($data) ? $data : null
-);
-
-$response->addHtml($html);
+$response->addHTML($controller->index([
+    'db' => $_POST['db'] ?? null,
+    'table' => $_POST['table'] ?? null,
+    'field' => $_POST['field'] ?? null,
+    'fieldkey' => $_POST['fieldkey'] ?? null,
+    'data' => $_POST['data'] ?? null,
+    'foreign_showAll' => $_POST['foreign_showAll'] ?? null,
+    'foreign_filter' => $_POST['foreign_filter'] ?? null,
+]));

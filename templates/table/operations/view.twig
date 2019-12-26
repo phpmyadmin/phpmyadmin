@@ -1,0 +1,31 @@
+<!-- VIEW operations -->
+<div>
+    <form method="post" action="view_operations.php">
+        {{ get_hidden_inputs(db, table) }}
+        <input type="hidden" name="reload" value="1">
+        <fieldset>
+            <legend>{% trans 'Operations' %}</legend>
+            <table>
+                <!-- Change view name -->
+                <tr>
+                    <td>{% trans 'Rename view to' %}</td>
+                    <td><input type="text" name="new_name" onfocus="this.select()"
+                               value="{{ table }}"
+                               required>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset class="tblFooters">
+            <input type="hidden" name="submitoptions" value="1">
+            <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
+        </fieldset>
+    </form>
+</div>
+
+<div>
+    <fieldset class="caution">
+        <legend>{% trans 'Delete data or table' %}</legend>
+        <ul>{{ delete_data_or_table_link | raw }}</ul>
+    </fieldset>
+</div>

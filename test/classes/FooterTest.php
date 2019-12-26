@@ -4,6 +4,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
@@ -24,7 +26,7 @@ class FooterTest extends PmaTestCase
     /**
      * @var array store private attributes of PhpMyAdmin\Footer
      */
-    public $privates = array();
+    public $privates = [];
 
     /**
      * @access protected
@@ -38,7 +40,7 @@ class FooterTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $_SERVER['SCRIPT_NAME'] = 'index.php';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
@@ -66,7 +68,7 @@ class FooterTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -77,7 +79,7 @@ class FooterTest extends PmaTestCase
      * @param string $name   method name
      * @param array  $params parameters for the invocation
      *
-     * @return the output from the private method.
+     * @return mixed the output from the private method.
      */
     private function _callPrivateFunction($name, $params)
     {
@@ -97,18 +99,18 @@ class FooterTest extends PmaTestCase
     public function testGetDebugMessage()
     {
         $GLOBALS['cfg']['DBG']['sql'] = true;
-        $_SESSION['debug']['queries'] = array(
-            array(
+        $_SESSION['debug']['queries'] = [
+            [
                 'count' => 1,
                 'time' => 0.2,
                 'query' => 'SELECT * FROM `pma_bookmark` WHERE 1',
-            ),
-            array(
+            ],
+            [
                 'count' => 1,
                 'time' => 2.5,
                 'query' => 'SELECT * FROM `db` WHERE 1',
-            ),
-        );
+            ],
+        ];
 
         $this->assertEquals(
             '{"queries":[{"count":1,"time":0.2,"query":"SELECT * FROM `pma_bookmark` WHERE 1"},'
@@ -124,15 +126,15 @@ class FooterTest extends PmaTestCase
      */
     public function testRemoveRecursion()
     {
-        $object = (object) array();
-        $object->child = (object) array();
+        $object = (object) [];
+        $object->child = (object) [];
         $object->child->parent = $object;
 
         $this->_callPrivateFunction(
             '_removeRecursion',
-            array(
-                &$object
-            )
+            [
+                &$object,
+            ]
         );
 
         $this->assertEquals(
@@ -159,9 +161,9 @@ class FooterTest extends PmaTestCase
             . 'target="_blank" rel="noopener noreferrer">Open new phpMyAdmin window</a></div>',
             $this->_callPrivateFunction(
                 '_getSelfLink',
-                array(
-                    $this->object->getSelfUrl()
-                )
+                [
+                    $this->object->getSelfUrl(),
+                ]
             )
         );
     }
@@ -183,12 +185,12 @@ class FooterTest extends PmaTestCase
             . '" title="Open new phpMyAdmin window" '
             . 'target="_blank" rel="noopener noreferrer"><img src="themes/dot.gif" title="Open new '
             . 'phpMyAdmin window" alt="Open new phpMyAdmin window" '
-            . 'class="icon ic_window-new" /></a></div>',
+            . 'class="icon ic_window-new"></a></div>',
             $this->_callPrivateFunction(
                 '_getSelfLink',
-                array(
-                    $this->object->getSelfUrl()
-                )
+                [
+                    $this->object->getSelfUrl(),
+                ]
             )
         );
     }
@@ -231,7 +233,7 @@ class FooterTest extends PmaTestCase
     public function testGetScripts()
     {
         $footer = new Footer();
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<script data-cfasync="false" type="text/javascript">',
             $footer->getScripts()->getDisplay()
         );
@@ -246,7 +248,7 @@ class FooterTest extends PmaTestCase
     public function testDisplay()
     {
         $footer = new Footer();
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Open new phpMyAdmin window',
             $footer->getDisplay()
         );
@@ -262,7 +264,7 @@ class FooterTest extends PmaTestCase
         $footer = new Footer();
         $footer->setMinimal();
         $this->assertEquals(
-            '</div></body></html>',
+            "  </div>\n  </body>\n</html>\n",
             $footer->getDisplay()
         );
     }

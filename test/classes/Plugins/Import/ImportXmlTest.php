@@ -4,17 +4,13 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Plugins\Import;
 
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportXml;
 use PhpMyAdmin\Tests\PmaTestCase;
-
-/*
- * we must set $GLOBALS['server'] here
- * since 'check_user_privileges.inc.php' will use it globally
- */
-$GLOBALS['server'] = 0;
 
 /**
  * Tests for PhpMyAdmin\Plugins\Import\ImportXml class
@@ -35,8 +31,10 @@ class ImportXmlTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
+        $GLOBALS['server'] = 0;
+
         $this->object = new ImportXml();
 
         //setting
@@ -62,7 +60,7 @@ class ImportXmlTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -90,14 +88,13 @@ class ImportXmlTest extends PmaTestCase
             $properties->getMimeType()
         );
         $this->assertEquals(
-            array(),
+            [],
             $properties->getOptions()
         );
         $this->assertEquals(
             __('Options'),
             $properties->getOptionsText()
         );
-
     }
 
     /**
@@ -135,23 +132,23 @@ class ImportXmlTest extends PmaTestCase
         */
 
         //asset that all databases and tables are imported
-        $this->assertContains(
+        $this->assertStringContainsString(
             'The following structures have either been created or altered.',
             $import_notice
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Go to database: `phpmyadmintest`',
             $import_notice
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Edit settings for `phpmyadmintest`',
             $import_notice
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Go to table: `pma_bookmarktest`',
             $import_notice
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Edit settings for `pma_bookmarktest`',
             $import_notice
         );
@@ -159,6 +156,5 @@ class ImportXmlTest extends PmaTestCase
             true,
             $GLOBALS['finished']
         );
-
     }
 }

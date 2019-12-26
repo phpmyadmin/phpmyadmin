@@ -4,9 +4,12 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Database;
 
 use PhpMyAdmin\Database\Search;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Theme;
 use ReflectionClass;
@@ -30,9 +33,8 @@ class SearchTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
-        $this->object = new Search('pma_test');
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'pma';
 
@@ -44,16 +46,17 @@ class SearchTest extends PmaTestCase
         $dbi->expects($this->any())
             ->method('getColumns')
             ->with('pma', 'table1')
-            ->will($this->returnValue(array(
-                array('Field' => 'column1'),
-                array('Field' => 'column2'),
-            )));
+            ->will($this->returnValue([
+                ['Field' => 'column1'],
+                ['Field' => 'column2'],
+            ]));
 
         $dbi->expects($this->any())
             ->method('escapeString')
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->object = new Search($dbi, 'pma_test', new Template());
     }
 
     /**
@@ -63,7 +66,7 @@ class SearchTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -74,7 +77,7 @@ class SearchTest extends PmaTestCase
      * @param string $name   method name
      * @param array  $params parameters for the invocation
      *
-     * @return the output from the protected method.
+     * @return mixed the output from the protected method.
      */
     private function callProtectedFunction($name, $params)
     {
@@ -87,19 +90,24 @@ class SearchTest extends PmaTestCase
     /**
      * Test for generating where clause for different search types
      *
+     * @param string $type     type
+     * @param string $expected expected result
+     *
+     * @return void
+     *
      * @dataProvider searchTypes
      */
-    public function testGetWhereClause($type, $expected)
+    public function testGetWhereClause($type, $expected): void
     {
         $_POST['criteriaSearchType'] = $type;
         $_POST['criteriaSearchString'] = 'search string';
 
-        $this->object = new Search('pma_test');
+        $this->object = new Search($GLOBALS['dbi'], 'pma_test', new Template());
         $this->assertEquals(
             $expected,
             $this->callProtectedFunction(
                 'getWhereClause',
-                array('table1')
+                ['table1']
             )
         );
     }
@@ -111,28 +119,28 @@ class SearchTest extends PmaTestCase
      */
     public function searchTypes()
     {
-        return array(
-            array(
+        return [
+            [
                 '1',
-                " WHERE (CONVERT(`column1` USING utf8) LIKE '%search%' OR CONVERT(`column2` USING utf8) LIKE '%search%')  OR  (CONVERT(`column1` USING utf8) LIKE '%string%' OR CONVERT(`column2` USING utf8) LIKE '%string%')"
-            ),
-            array(
+                " WHERE (CONVERT(`column1` USING utf8) LIKE '%search%' OR CONVERT(`column2` USING utf8) LIKE '%search%')  OR  (CONVERT(`column1` USING utf8) LIKE '%string%' OR CONVERT(`column2` USING utf8) LIKE '%string%')",
+            ],
+            [
                 '2',
-                " WHERE (CONVERT(`column1` USING utf8) LIKE '%search%' OR CONVERT(`column2` USING utf8) LIKE '%search%')  AND  (CONVERT(`column1` USING utf8) LIKE '%string%' OR CONVERT(`column2` USING utf8) LIKE '%string%')"
-            ),
-            array(
+                " WHERE (CONVERT(`column1` USING utf8) LIKE '%search%' OR CONVERT(`column2` USING utf8) LIKE '%search%')  AND  (CONVERT(`column1` USING utf8) LIKE '%string%' OR CONVERT(`column2` USING utf8) LIKE '%string%')",
+            ],
+            [
                 '3',
-                " WHERE (CONVERT(`column1` USING utf8) LIKE '%search string%' OR CONVERT(`column2` USING utf8) LIKE '%search string%')"
-            ),
-            array(
+                " WHERE (CONVERT(`column1` USING utf8) LIKE '%search string%' OR CONVERT(`column2` USING utf8) LIKE '%search string%')",
+            ],
+            [
                 '4',
-                " WHERE (CONVERT(`column1` USING utf8) LIKE 'search string' OR CONVERT(`column2` USING utf8) LIKE 'search string')"
-            ),
-            array(
+                " WHERE (CONVERT(`column1` USING utf8) LIKE 'search string' OR CONVERT(`column2` USING utf8) LIKE 'search string')",
+            ],
+            [
                 '5',
-                " WHERE (CONVERT(`column1` USING utf8) REGEXP 'search string' OR CONVERT(`column2` USING utf8) REGEXP 'search string')"
-            ),
-        );
+                " WHERE (CONVERT(`column1` USING utf8) REGEXP 'search string' OR CONVERT(`column2` USING utf8) REGEXP 'search string')",
+            ],
+        ];
     }
 
     /**
@@ -143,15 +151,15 @@ class SearchTest extends PmaTestCase
     public function testGetSearchSqls()
     {
         $this->assertEquals(
-            array (
+            [
                 'select_columns' => 'SELECT *  FROM `pma`.`table1` WHERE FALSE',
                 'select_count' => 'SELECT COUNT(*) AS `count` FROM `pma`.`table1` ' .
                     'WHERE FALSE',
-                'delete' => 'DELETE FROM `pma`.`table1` WHERE FALSE'
-            ),
+                'delete' => 'DELETE FROM `pma`.`table1` WHERE FALSE',
+            ],
             $this->callProtectedFunction(
                 'getSearchSqls',
-                array('table1')
+                ['table1']
             )
         );
     }
@@ -163,7 +171,7 @@ class SearchTest extends PmaTestCase
      */
     public function testGetSearchResults()
     {
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Search results for "<em></em>" :',
             $this->object->getSearchResults()
         );
@@ -174,44 +182,35 @@ class SearchTest extends PmaTestCase
      *
      * @return void
      */
-    public function testGetSelectionForm()
+    public function testGetMainHtml()
     {
-        $form = $this->object->getSelectionForm();
-        $this->assertContains('<form', $form);
-        $this->assertContains('<a id="togglesearchformlink">', $form);
-        $this->assertContains('criteriaSearchType', $form);
-    }
+        $main = $this->object->getMainHtml();
 
-    /**
-     * Test for getResultDivs
-     *
-     * @return void
-     */
-    public function testGetResultDivs()
-    {
-        $actual = $this->callProtectedFunction(
-            'getResultDivs',
-            array()
-        );
-        $this->assertContains(
+        // test selection form
+        $this->assertStringContainsString('<form', $main);
+        $this->assertStringContainsString('<a id="togglesearchformlink">', $main);
+        $this->assertStringContainsString('criteriaSearchType', $main);
+
+        // test result divs
+        $this->assertStringContainsString(
             '<div id="table-info"',
-            $actual
+            $main
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<a id="table-link"',
-            $actual
+            $main
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div id="browse-results"',
-            $actual
+            $main
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div id="sqlqueryform"',
-            $actual
+            $main
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<a id="togglequerybox"',
-            $actual
+            $main
         );
     }
 }

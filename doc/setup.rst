@@ -91,6 +91,13 @@ You can find more of such options at `Wikipedia <https://en.wikipedia.org/wiki/L
 Installing from Git
 +++++++++++++++++++
 
+In order to install from Git, you'll need a few supporting applications:
+
+* `Git <https://git-scm.com/downloads>`_ to download the source, or you can download the most recent source directly from `Github <https://codeload.github.com/phpmyadmin/phpmyadmin/zip/master>`_
+* `Composer <https://getcomposer.org/download/>`__
+* `Node.js <https://nodejs.org/en/download/>`_ (version 8 or higher)
+* `Yarn <https://yarnpkg.com/lang/en/docs/install>`_
+
 You can clone current phpMyAdmin source from
 ``https://github.com/phpmyadmin/phpmyadmin.git``:
 
@@ -98,7 +105,7 @@ You can clone current phpMyAdmin source from
 
     git clone https://github.com/phpmyadmin/phpmyadmin.git
 
-Additionally you need to install dependencies using the `Composer tool`_:
+Additionally you need to install dependencies using `Composer <https://getcomposer.org>`__:
 
 .. code-block:: sh
 
@@ -110,6 +117,12 @@ by invoking:
 .. code-block:: sh
 
     composer update --no-dev
+
+Finally, you'll need to use `Yarn`_ to install some JavaScript dependencies:
+
+.. code-block:: sh
+
+    yarn install
 
 .. _composer:
 
@@ -253,7 +266,6 @@ configuration file:
 
     <?php
     $cfg['Export']['csv_columns'] = true;
-    ?>
 
 You can also use it to define server configuration instead of using the
 environment variables listed in :ref:`docker-vars`:
@@ -467,7 +479,7 @@ Quick Install
    webserver's document root. If you don't have direct access to your
    document root, put the files in a directory on your local machine,
    and, after step 4, transfer the directory on your web server using,
-   for example, ftp.
+   for example, FTP.
 #. Ensure that all the scripts have the appropriate owner (if PHP is
    running in safe mode, having some scripts with an owner different from
    the owner of other scripts will be a problem). See :ref:`faq4_2` and
@@ -502,8 +514,7 @@ simple configuration may look like this:
     $i++;
     $cfg['Servers'][$i]['auth_type']     = 'cookie';
     // if you insist on "root" having no password:
-    // $cfg['Servers'][$i]['AllowNoPassword'] = true; `
-    ?>
+    // $cfg['Servers'][$i]['AllowNoPassword'] = true;
 
 Or, if you prefer to not be prompted every time you log in:
 
@@ -516,7 +527,6 @@ Or, if you prefer to not be prompted every time you log in:
     $cfg['Servers'][$i]['user']          = 'root';
     $cfg['Servers'][$i]['password']      = 'cbb74bc'; // use here your password
     $cfg['Servers'][$i]['auth_type']     = 'config';
-    ?>
 
 .. warning::
 

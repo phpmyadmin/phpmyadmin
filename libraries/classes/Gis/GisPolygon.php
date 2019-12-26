@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-GIS
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Gis;
 
 use TCPDF;
@@ -36,9 +38,8 @@ class GisPolygon extends GisGeometry
      */
     public static function singleton()
     {
-        if (!isset(self::$_instance)) {
-            $class = __CLASS__;
-            self::$_instance = new $class;
+        if (! isset(self::$_instance)) {
+            self::$_instance = new GisPolygon();
         }
 
         return self::$_instance;
@@ -70,24 +71,24 @@ class GisPolygon extends GisGeometry
             $ring = $parts[0];
         }
 
-        return $this->setMinMax($ring, array());
+        return $this->setMinMax($ring, []);
     }
 
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string $spatial    GIS POLYGON object
-     * @param string $label      Label for the GIS POLYGON object
-     * @param string $fill_color Color for the GIS POLYGON object
-     * @param array  $scale_data Array containing data related to scaling
-     * @param object $image      Image object
+     * @param string      $spatial    GIS POLYGON object
+     * @param string|null $label      Label for the GIS POLYGON object
+     * @param string      $fill_color Color for the GIS POLYGON object
+     * @param array       $scale_data Array containing data related to scaling
+     * @param resource    $image      Image object
      *
-     * @return object the modified image object
+     * @return resource the modified image object
      * @access public
      */
     public function prepareRowAsPng(
         $spatial,
-        $label,
+        ?string $label,
         $fill_color,
         array $scale_data,
         $image
@@ -103,7 +104,6 @@ class GisPolygon extends GisGeometry
         $polygon = mb_substr(
             $spatial,
             9,
-
             mb_strlen($spatial) - 11
         );
 
@@ -127,7 +127,7 @@ class GisPolygon extends GisGeometry
         }
 
         // draw polygon
-        imagefilledpolygon($image, $points_arr, sizeof($points_arr) / 2, $color);
+        imagefilledpolygon($image, $points_arr, count($points_arr) / 2, $color);
         // print label if applicable
         if (isset($label) && trim($label) != '') {
             imagestring(
@@ -146,22 +146,26 @@ class GisPolygon extends GisGeometry
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string $spatial    GIS POLYGON object
-     * @param string $label      Label for the GIS POLYGON object
-     * @param string $fill_color Color for the GIS POLYGON object
-     * @param array  $scale_data Array containing data related to scaling
-     * @param TCPDF  $pdf        TCPDF instance
+     * @param string      $spatial    GIS POLYGON object
+     * @param string|null $label      Label for the GIS POLYGON object
+     * @param string      $fill_color Color for the GIS POLYGON object
+     * @param array       $scale_data Array containing data related to scaling
+     * @param TCPDF       $pdf        TCPDF instance
      *
      * @return TCPDF the modified TCPDF instance
      * @access public
      */
-    public function prepareRowAsPdf($spatial, $label, $fill_color, array $scale_data, $pdf)
+    public function prepareRowAsPdf($spatial, ?string $label, $fill_color, array $scale_data, $pdf)
     {
         // allocate colors
         $red = hexdec(mb_substr($fill_color, 1, 2));
         $green = hexdec(mb_substr($fill_color, 3, 2));
         $blue = hexdec(mb_substr($fill_color, 4, 2));
-        $color = array($red, $green, $blue);
+        $color = [
+            $red,
+            $green,
+            $blue,
+        ];
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = mb_substr(
@@ -190,7 +194,7 @@ class GisPolygon extends GisGeometry
         }
 
         // draw polygon
-        $pdf->Polygon($points_arr, 'F*', array(), $color, true);
+        $pdf->Polygon($points_arr, 'F*', [], $color, true);
         // print label if applicable
         if (isset($label) && trim($label) != '') {
             $pdf->SetXY($points_arr[2], $points_arr[3]);
@@ -214,16 +218,16 @@ class GisPolygon extends GisGeometry
      */
     public function prepareRowAsSvg($spatial, $label, $fill_color, array $scale_data)
     {
-        $polygon_options = array(
+        $polygon_options = [
             'name'         => $label,
-            'id'           => $label . rand(),
+            'id'           => $label . mt_rand(),
             'class'        => 'polygon vector',
             'stroke'       => 'black',
             'stroke-width' => 0.5,
             'fill'         => $fill_color,
             'fill-rule'    => 'evenodd',
             'fill-opacity' => 0.8,
-        );
+        ];
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon
@@ -253,7 +257,7 @@ class GisPolygon extends GisGeometry
 
         $row .= '"';
         foreach ($polygon_options as $option => $val) {
-            $row .= ' ' . $option . '="' . trim($val) . '"';
+            $row .= ' ' . $option . '="' . trim((string) $val) . '"';
         }
         $row .= '/>';
 
@@ -275,14 +279,14 @@ class GisPolygon extends GisGeometry
      */
     public function prepareRowAsOl($spatial, $srid, $label, $fill_color, array $scale_data)
     {
-        $style_options = array(
+        $style_options = [
             'strokeColor' => '#000000',
             'strokeWidth' => 0.5,
             'fillColor'   => $fill_color,
             'fillOpacity' => 0.8,
             'label'       => $label,
             'fontSize'    => 10,
-        );
+        ];
         if ($srid == 0) {
             $srid = 4326;
         }
@@ -294,7 +298,6 @@ class GisPolygon extends GisGeometry
             mb_substr(
                 $spatial,
                 9,
-
                 mb_strlen($spatial) - 11
             );
 
@@ -358,10 +361,10 @@ class GisPolygon extends GisGeometry
             $wkt .= '(';
             for ($j = 0; $j < $no_of_points; $j++) {
                 $wkt .= ((isset($gis_data[$index]['POLYGON'][$i][$j]['x'])
-                        && trim($gis_data[$index]['POLYGON'][$i][$j]['x']) != '')
+                        && trim((string) $gis_data[$index]['POLYGON'][$i][$j]['x']) != '')
                         ? $gis_data[$index]['POLYGON'][$i][$j]['x'] : $empty)
                     . ' ' . ((isset($gis_data[$index]['POLYGON'][$i][$j]['y'])
-                        && trim($gis_data[$index]['POLYGON'][$i][$j]['y']) != '')
+                        && trim((string) $gis_data[$index]['POLYGON'][$i][$j]['y']) != '')
                         ? $gis_data[$index]['POLYGON'][$i][$j]['y'] : $empty) . ',';
             }
             $wkt
@@ -466,17 +469,17 @@ class GisPolygon extends GisGeometry
         $p1 = $polygon[0];
         for ($i = 1; $i <= $no_of_points; $i++) {
             $p2 = $polygon[$i % $no_of_points];
-            if ($point['y'] <= min(array($p1['y'], $p2['y']))) {
+            if ($point['y'] <= min([$p1['y'], $p2['y']])) {
                 $p1 = $p2;
                 continue;
             }
 
-            if ($point['y'] > max(array($p1['y'], $p2['y']))) {
+            if ($point['y'] > max([$p1['y'], $p2['y']])) {
                 $p1 = $p2;
                 continue;
             }
 
-            if ($point['x'] > max(array($p1['x'], $p2['x']))) {
+            if ($point['x'] > max([$p1['x'], $p2['x']])) {
                 $p1 = $p2;
                 continue;
             }
@@ -502,12 +505,16 @@ class GisPolygon extends GisGeometry
      *
      * @param array $ring array of points forming the ring
      *
-     * @return array|void a point on the surface of the ring
+     * @return array|bool a point on the surface of the ring
      * @access public
      * @static
      */
     public static function getPointOnSurface(array $ring)
     {
+        $x0 = null;
+        $x1 = null;
+        $y0 = null;
+        $y1 = null;
         // Find two consecutive distinct points.
         for ($i = 0, $nb = count($ring) - 1; $i < $nb; $i++) {
             if ($ring[$i]['y'] != $ring[$i + 1]['y']) {
@@ -519,7 +526,7 @@ class GisPolygon extends GisGeometry
             }
         }
 
-        if (!isset($x0)) {
+        if (! isset($x0)) {
             return false;
         }
 
@@ -529,9 +536,9 @@ class GisPolygon extends GisGeometry
 
         // Always keep $epsilon < 1 to go with the reduction logic down here
         $epsilon = 0.1;
-        $denominator = sqrt(pow(($y1 - $y0), 2) + pow(($x0 - $x1), 2));
-        $pointA = array();
-        $pointB = array();
+        $denominator = sqrt(pow($y1 - $y0, 2) + pow($x0 - $x1, 2));
+        $pointA = [];
+        $pointB = [];
 
         while (true) {
             // Get the points on either sides of the line
@@ -571,7 +578,7 @@ class GisPolygon extends GisGeometry
      */
     public function generateParams($value, $index = -1)
     {
-        $params = array();
+        $params = [];
         if ($index == -1) {
             $index = 0;
             $data = GisGeometry::generateParams($value);

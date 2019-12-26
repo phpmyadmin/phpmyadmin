@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin\Twig
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Twig;
 
 use Twig\Extension\AbstractExtension;
@@ -24,27 +26,27 @@ class PluginsExtension extends AbstractExtension
      */
     public function getFunctions()
     {
-        return array(
+        return [
             new TwigFunction(
-                'Plugins_checkboxCheck',
+                'checkbox_check',
                 'PhpMyAdmin\Plugins::checkboxCheck',
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
             new TwigFunction(
-                'Plugins_getChoice',
+                'get_choice',
                 'PhpMyAdmin\Plugins::getChoice',
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
             new TwigFunction(
-                'Plugins_getDefault',
+                'get_default_plugin',
                 'PhpMyAdmin\Plugins::getDefault',
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
             new TwigFunction(
-                'Plugins_getOptions',
+                'get_options',
                 'PhpMyAdmin\Plugins::getOptions',
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
-        );
+        ];
     }
 }

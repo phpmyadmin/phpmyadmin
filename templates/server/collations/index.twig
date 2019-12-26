@@ -1,0 +1,32 @@
+<h2>
+  {{ get_image('s_asci') }}
+  {% trans 'Character sets and collations' %}
+</h2>
+
+<div id="div_mysql_charset_collations">
+  <table class="data noclick">
+    <thead>
+      <tr>
+        <th id="collationHeader">{% trans 'Collation' %}</th>
+        <th>{% trans 'Description' %}</th>
+      </tr>
+    </thead>
+
+    {% for charset in charsets %}
+      <tr>
+        <th colspan="2" class="right">
+          {{ charset.name }}
+          {% if charset.description is not empty %}
+            (<em>{{ charset.description }}</em>)
+          {% endif %}
+        </th>
+      </tr>
+      {% for collation in charset.collations %}
+        <tr{{ collation.is_default ? ' class="marked"' }}>
+          <td>{{ collation.name }}</td>
+          <td>{{ collation.description }}</td>
+        </tr>
+      {% endfor %}
+    {% endfor %}
+  </table>
+</div>

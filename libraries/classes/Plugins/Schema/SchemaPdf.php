@@ -6,15 +6,17 @@
  * @package    PhpMyAdmin-Schema
  * @subpackage PDF
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Schema;
 
-use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
-use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
-use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Plugins\Schema\Pdf\PdfRelationSchema;
 use PhpMyAdmin\Plugins\SchemaPlugin;
-use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
+use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
+use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
+use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
+use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
 
 /**
  * Handles the schema export for the PDF format
@@ -68,10 +70,10 @@ class SchemaPdf extends SchemaPlugin
             __('Orientation')
         );
         $leaf->setValues(
-            array(
+            [
                 'L' => __('Landscape'),
                 'P' => __('Portrait'),
-            )
+            ]
         );
         $specificOptions->addProperty($leaf);
 
@@ -99,11 +101,11 @@ class SchemaPdf extends SchemaPlugin
             __('Order of the tables')
         );
         $leaf->setValues(
-            array(
+            [
                 ''          => __('None'),
                 'name_asc'  => __('Name (Ascending)'),
                 'name_desc' => __('Name (Descending)'),
-            )
+            ]
         );
         $specificOptions->addProperty($leaf);
 
@@ -126,5 +128,6 @@ class SchemaPdf extends SchemaPlugin
     {
         $export = new PdfRelationSchema($db);
         $export->showOutput();
+        return true;
     }
 }

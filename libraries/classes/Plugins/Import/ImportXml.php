@@ -7,6 +7,7 @@
  * @package    PhpMyAdmin-Import
  * @subpackage XML
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
 
@@ -30,6 +31,7 @@ class ImportXml extends ImportPlugin
      */
     public function __construct()
     {
+        parent::__construct();
         $this->setProperties();
     }
 
@@ -45,7 +47,7 @@ class ImportXml extends ImportPlugin
         $importPluginProperties->setText(__('XML'));
         $importPluginProperties->setExtension('xml');
         $importPluginProperties->setMimeType('text/xml');
-        $importPluginProperties->setOptions(array());
+        $importPluginProperties->setOptions([]);
         $importPluginProperties->setOptionsText(__('Options'));
 
         $this->properties = $importPluginProperties;
@@ -54,11 +56,11 @@ class ImportXml extends ImportPlugin
     /**
      * Handles the whole import logic
      *
-     * @param array &$sql_data 2-element array with sql data
+     * @param array $sql_data 2-element array with sql data
      *
      * @return void
      */
-    public function doImport(array &$sql_data = array())
+    public function doImport(array &$sql_data = [])
     {
         global $error, $timeout_passed, $finished, $db;
 
@@ -70,15 +72,13 @@ class ImportXml extends ImportPlugin
          * Read in the file via Import::getNextChunk so that
          * it can process compressed files
          */
-        while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
-            $data = Import::getNextChunk();
+        while (! ($finished && $i >= $len) && ! $error && ! $timeout_passed) {
+            $data = $this->import->getNextChunk();
             if ($data === false) {
                 /* subtract data we didn't handle yet and stop processing */
                 $GLOBALS['offset'] -= strlen($buffer);
                 break;
-            } elseif ($data === true) {
-                /* Handle rest of buffer */
-            } else {
+            } elseif ($data !== true) {
                 /* Append new data to buffer */
                 $buffer .= $data;
                 unset($data);
@@ -123,17 +123,17 @@ class ImportXml extends ImportPlugin
         /**
          * Table accumulator
          */
-        $tables = array();
+        $tables = [];
         /**
          * Row accumulator
          */
-        $rows = array();
+        $rows = [];
 
         /**
          * Temp arrays
          */
-        $tempRow = array();
-        $tempCells = array();
+        $tempRow = [];
+        $tempCells = [];
 
         /**
          * CREATE code included (by default: no)
@@ -143,7 +143,7 @@ class ImportXml extends ImportPlugin
         /**
          * Analyze the data in each table
          */
-        $namespaces = $xml->getNameSpaces(true);
+        $namespaces = $xml->getNamespaces(true);
 
         /**
          * Get the database name, collation and charset
@@ -153,9 +153,9 @@ class ImportXml extends ImportPlugin
 
         if ($db_attr instanceof SimpleXMLElement) {
             $db_attr = $db_attr->attributes();
-            $db_name = (string)$db_attr['name'];
-            $collation = (string)$db_attr['collation'];
-            $charset = (string)$db_attr['charset'];
+            $db_name = (string) $db_attr['name'];
+            $collation = (string) $db_attr['collation'];
+            $charset = (string) $db_attr['charset'];
         } else {
             /**
              * If the structure section is not present
@@ -163,7 +163,7 @@ class ImportXml extends ImportPlugin
              */
             $db_attr = $xml->children()
                 ->attributes();
-            $db_name = (string)$db_attr['name'];
+            $db_name = (string) $db_attr['name'];
             $collation = null;
             $charset = null;
         }
@@ -196,7 +196,7 @@ class ImportXml extends ImportPlugin
              */
             $struct = $xml->children($namespaces['pma']);
 
-            $create = array();
+            $create = [];
 
             /** @var SimpleXMLElement $val1 */
             foreach ($struct as $val1) {
@@ -218,7 +218,7 @@ class ImportXml extends ImportPlugin
                         /**
                          * Remove the extra cosmetic spacing
                          */
-                        $val3 = str_replace("                ", "", (string)$val3);
+                        $val3 = str_replace("                ", "", (string) $val3);
                         $create[] = $val3;
                     }
                 }
@@ -250,28 +250,32 @@ class ImportXml extends ImportPlugin
                 $isInTables = false;
                 $num_tables = count($tables);
                 for ($i = 0; $i < $num_tables; ++$i) {
-                    if (!strcmp($tables[$i][Import::TBL_NAME], (string)$tbl_attr['name'])) {
+                    if (! strcmp($tables[$i][Import::TBL_NAME], (string) $tbl_attr['name'])) {
                         $isInTables = true;
                         break;
                     }
                 }
 
-                if (!$isInTables) {
-                    $tables[] = array((string)$tbl_attr['name']);
+                if (! $isInTables) {
+                    $tables[] = [(string) $tbl_attr['name']];
                 }
 
                 foreach ($v1 as $v2) {
                     $row_attr = $v2->attributes();
-                    if (!array_search((string)$row_attr['name'], $tempRow)) {
-                        $tempRow[] = (string)$row_attr['name'];
+                    if (! array_search((string) $row_attr['name'], $tempRow)) {
+                        $tempRow[] = (string) $row_attr['name'];
                     }
-                    $tempCells[] = (string)$v2;
+                    $tempCells[] = (string) $v2;
                 }
 
-                $rows[] = array((string)$tbl_attr['name'], $tempRow, $tempCells);
+                $rows[] = [
+                    (string) $tbl_attr['name'],
+                    $tempRow,
+                    $tempCells,
+                ];
 
-                $tempRow = array();
-                $tempCells = array();
+                $tempRow = [];
+                $tempCells = [];
             }
 
             unset($tempRow);
@@ -285,8 +289,8 @@ class ImportXml extends ImportPlugin
             for ($i = 0; $i < $num_tables; ++$i) {
                 $num_rows = count($rows);
                 for ($j = 0; $j < $num_rows; ++$j) {
-                    if (!strcmp($tables[$i][Import::TBL_NAME], $rows[$j][Import::TBL_NAME])) {
-                        if (!isset($tables[$i][Import::COL_NAMES])) {
+                    if (! strcmp($tables[$i][Import::TBL_NAME], $rows[$j][Import::TBL_NAME])) {
+                        if (! isset($tables[$i][Import::COL_NAMES])) {
                             $tables[$i][] = $rows[$j][Import::COL_NAMES];
                         }
 
@@ -297,12 +301,12 @@ class ImportXml extends ImportPlugin
 
             unset($rows);
 
-            if (!$struct_present) {
-                $analyses = array();
+            if (! $struct_present) {
+                $analyses = [];
 
                 $len = count($tables);
                 for ($i = 0; $i < $len; ++$i) {
-                    $analyses[] = Import::analyzeTable($tables[$i]);
+                    $analyses[] = $this->import->analyzeTable($tables[$i]);
                 }
             }
         }
@@ -319,9 +323,9 @@ class ImportXml extends ImportPlugin
              * Set values to NULL if they were not present
              * to maintain Import::buildSql() call integrity
              */
-            if (!isset($analyses)) {
+            if (! isset($analyses)) {
                 $analyses = null;
-                if (!$struct_present) {
+                if (! $struct_present) {
                     $create = null;
                 }
             }
@@ -342,30 +346,30 @@ class ImportXml extends ImportPlugin
          */
 
         /* Set database name to the currently selected one, if applicable */
-        if (strlen($db)) {
+        if (strlen((string) $db)) {
             /* Override the database name in the XML file, if one is selected */
             $db_name = $db;
-            $options = array('create_db' => false);
+            $options = ['create_db' => false];
         } else {
             if ($db_name === null) {
                 $db_name = 'XML_DB';
             }
 
             /* Set database collation/charset */
-            $options = array(
+            $options = [
                 'db_collation' => $collation,
                 'db_charset'   => $charset,
-            );
+            ];
         }
 
         /* Created and execute necessary SQL statements from data */
-        Import::buildSql($db_name, $tables, $analyses, $create, $options, $sql_data);
+        $this->import->buildSql($db_name, $tables, $analyses, $create, $options, $sql_data);
 
         unset($analyses);
         unset($tables);
         unset($create);
 
         /* Commit any possible data in buffers */
-        Import::runQuery('', '', $sql_data);
+        $this->import->runQuery('', '', $sql_data);
     }
 }

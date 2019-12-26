@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Properties\Options;
 
 use PHPUnit\Framework\TestCase;
@@ -23,7 +25,7 @@ class OptionsPropertyOneItemTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->stub = $this->getMockForAbstractClass('PhpMyAdmin\Properties\Options\OptionsPropertyOneItem');
     }
@@ -33,7 +35,7 @@ class OptionsPropertyOneItemTest extends TestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         unset($this->stub);
     }
@@ -47,10 +49,13 @@ class OptionsPropertyOneItemTest extends TestCase
      */
     public function testGetSetValues()
     {
-        $this->stub->setValues(array(1, 2));
+        $this->stub->setValues([1, 2]);
 
         $this->assertEquals(
-            array(1, 2),
+            [
+                1,
+                2,
+            ],
             $this->stub->getValues()
         );
     }

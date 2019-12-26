@@ -5,11 +5,12 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins;
 
-use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
+use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
 
 /**
@@ -46,7 +47,7 @@ abstract class SchemaPlugin
      *
      * @return void
      */
-    protected abstract function setProperties();
+    abstract protected function setProperties();
 
     /**
      * Exports the schema into the specified format.
@@ -55,12 +56,12 @@ abstract class SchemaPlugin
      *
      * @return bool Whether it succeeded
      */
-    public abstract function exportSchema($db);
+    abstract public function exportSchema($db);
 
     /**
      * Adds export options common to all plugins.
      *
-     * @param \PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup $propertyGroup property group
+     * @param OptionsPropertyMainGroup $propertyGroup property group
      *
      * @return void
      */
@@ -79,7 +80,7 @@ abstract class SchemaPlugin
      */
     protected function getPaperSizeArray()
     {
-        $ret = array();
+        $ret = [];
         foreach ($GLOBALS['cfg']['PDFPageSizes'] as $val) {
             $ret[$val] = $val;
         }

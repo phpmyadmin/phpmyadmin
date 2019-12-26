@@ -5,28 +5,37 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Config\Forms\User;
 
 use PhpMyAdmin\Config\Forms\BaseForm;
 
+/**
+ * Class MainForm
+ * @package PhpMyAdmin\Config\Forms\User
+ */
 class MainForm extends BaseForm
 {
+    /**
+     * @return array
+     */
     public static function getForms()
     {
-        return array(
-            'Startup' => array(
+        return [
+            'Startup' => [
                 'ShowCreateDb',
                 'ShowStats',
-                'ShowServerInfo'
-            ),
-            'DbStructure' => array(
+                'ShowServerInfo',
+            ],
+            'DbStructure' => [
                 'ShowDbStructureCharset',
                 'ShowDbStructureComment',
                 'ShowDbStructureCreation',
                 'ShowDbStructureLastUpdate',
-                'ShowDbStructureLastCheck'
-            ),
-            'TableStructure' => array(
+                'ShowDbStructureLastCheck',
+            ],
+            'TableStructure' => [
                 'HideStructureActions',
                 'ShowColumnComments',
                 ':group:' . __('Default transformations'),
@@ -39,9 +48,9 @@ class MainForm extends BaseForm
                 'DefaultTransformations/Inline',
                 'DefaultTransformations/TextImageLink',
                 'DefaultTransformations/TextLink',
-                ':group:end'
-            ),
-            'Browse' => array(
+                ':group:end',
+            ],
+            'Browse' => [
                 'TableNavigationLinksMode',
                 'ActionLinksMode',
                 'ShowAll',
@@ -57,28 +66,31 @@ class MainForm extends BaseForm
                 'RowActionLinksWithoutUnique',
                 'TablePrimaryKeyOrder',
                 'RememberSorting',
-                'RelationalDisplay'
-            ),
-            'Edit' => array(
+                'RelationalDisplay',
+            ],
+            'Edit' => [
                 'ProtectBinary',
                 'ShowFunctionFields',
                 'ShowFieldTypesInDataEditView',
                 'InsertRows',
                 'ForeignKeyDropdownOrder',
-                'ForeignKeyMaxLimit'
-            ),
-            'Tabs' => array(
+                'ForeignKeyMaxLimit',
+            ],
+            'Tabs' => [
                 'TabsMode',
                 'DefaultTabServer',
                 'DefaultTabDatabase',
-                'DefaultTabTable'
-            ),
-            'DisplayRelationalSchema' => array(
-                'PDFDefaultPageSize'
-            ),
-        );
+                'DefaultTabTable',
+            ],
+            'DisplayRelationalSchema' => [
+                'PDFDefaultPageSize',
+            ],
+        ];
     }
 
+    /**
+     * @return string
+     */
     public static function getName()
     {
         return __('Main panel');

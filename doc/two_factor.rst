@@ -15,7 +15,7 @@ manually; the typical way of doing so is with the command:
 
 .. code-block:: sh
 
-    composer require pragmarx/google2fa bacon/bacon-qr-code
+    composer require pragmarx/google2fa-qrcode
 
 Or when using a hardware security key with FIDO U2F:
 

@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Properties\Options\Groups;
 
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -24,7 +26,7 @@ class OptionsPropertyMainGroupTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = new OptionsPropertyMainGroup();
     }
@@ -34,7 +36,7 @@ class OptionsPropertyMainGroupTest extends TestCase
      *
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -51,5 +53,4 @@ class OptionsPropertyMainGroupTest extends TestCase
             $this->object->getItemType()
         );
     }
-
 }

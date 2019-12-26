@@ -4,52 +4,52 @@
 {# Display Chart options #}
 <div id="div_view_options">
     <form method="post" id="tblchartform" action="tbl_chart.php" class="ajax">
-        {{ Url_getHiddenInputs(url_params) }}
+        {{ get_hidden_inputs(url_params) }}
         <fieldset>
             <legend>
                 {% trans 'Display chart' %}
             </legend>
             <div class="chartOption">
                 <div class="formelement">
-                    <input type="radio" name="chartType" value="bar" id="radio_bar" />
+                    <input type="radio" name="chartType" value="bar" id="radio_bar">
                     <label for ="radio_bar">{% trans %}Bar{% context %}Chart type{% endtrans %}</label>
                 </div>
                 <div class="formelement">
-                    <input type="radio" name="chartType" value="column" id="radio_column" />
+                    <input type="radio" name="chartType" value="column" id="radio_column">
                     <label for ="radio_column">{% trans %}Column{% context %}Chart type{% endtrans %}</label>
                 </div>
                 <div class="formelement">
-                    <input type="radio" name="chartType" value="line" id="radio_line" checked="checked" />
+                    <input type="radio" name="chartType" value="line" id="radio_line" checked="checked">
                     <label for ="radio_line">{% trans %}Line{% context %}Chart type{% endtrans %}</label>
                 </div>
                 <div class="formelement">
-                    <input type="radio" name="chartType" value="spline" id="radio_spline" />
+                    <input type="radio" name="chartType" value="spline" id="radio_spline">
                     <label for ="radio_spline">{% trans %}Spline{% context %}Chart type{% endtrans %}</label>
                 </div>
                 <div class="formelement">
-                    <input type="radio" name="chartType" value="area" id="radio_area" />
+                    <input type="radio" name="chartType" value="area" id="radio_area">
                     <label for ="radio_area">{% trans %}Area{% context %}Chart type{% endtrans %}</label>
                 </div>
                 <span class="span_pie hide">
-                    <input type="radio" name="chartType" value="pie" id="radio_pie" />
+                    <input type="radio" name="chartType" value="pie" id="radio_pie">
                     <label for ="radio_pie">{% trans %}Pie{% context %}Chart type{% endtrans %}</label>
                 </span>
                 <span class="span_timeline hide">
-                    <input type="radio" name="chartType" value="timeline" id="radio_timeline" />
+                    <input type="radio" name="chartType" value="timeline" id="radio_timeline">
                     <label for ="radio_timeline">{% trans %}Timeline{% context %}Chart type{% endtrans %}</label>
                 </span>
                 <span class="span_scatter hide">
-                <input type="radio" name="chartType" value="scatter" id="radio_scatter" />
+                <input type="radio" name="chartType" value="scatter" id="radio_scatter">
                 <label for ="radio_scatter">{% trans %}Scatter{% context %}Chart type{% endtrans %}</label>
                 </span>
-                <br /><br />
+                <br><br>
                 <span class="barStacked hide">
-                    <input type="checkbox" name="barStacked" value="1" id="checkbox_barStacked" />
+                    <input type="checkbox" name="barStacked" value="1" id="checkbox_barStacked">
                     <label for ="checkbox_barStacked">{% trans 'Stacked' %}</label>
                 </span>
-                <br /><br />
+                <br><br>
                 <label for ="chartTitle">{% trans 'Chart title:' %}</label>
-                <input type="text" name="chartTitle" id="chartTitle" />
+                <input type="text" name="chartTitle" id="chartTitle">
             </div>
             {% set xaxis = null %}
             <div class="chartOption">
@@ -66,7 +66,7 @@
                         {% endif %}
                     {% endfor %}
                 </select>
-                <br />
+                <br>
                 <label for="select_chartSeries">
                     {% trans 'Series:' %}
                 </label>
@@ -87,33 +87,31 @@
                         {% if fields_meta[idx].type in date_time_types %}
                             {{ idx ~ ' ' }}
                         {% endif %}
-                    {% endfor %}"
-                />
+                    {% endfor %}">
                 <input type="hidden" name="numericCols" value="
                     {% for idx, key in keys %}
                         {% if fields_meta[idx].type in numeric_types %}
                             {{ idx ~ ' ' }}
                         {% endif %}
-                    {% endfor %}"
-                />
+                    {% endfor %}">
             </div>
             <div class="chartOption">
                 <label for="xaxis_panel">
                     {% trans 'X-Axis label:' %}
                 </label>
-                <input style="margin-top:0;" type="text" name="xaxis_label" id="xaxis_label" value="{{ xaxis == -1 ? 'X Values'|trans : keys[xaxis] }}" />
-                <br />
+                <input style="margin-top:0;" type="text" name="xaxis_label" id="xaxis_label" value="{{ xaxis == -1 ? 'X Values'|trans : keys[xaxis] }}">
+                <br>
                 <label for="yaxis_label">
                     {% trans 'Y-Axis label:' %}
                 </label>
-                <input type="text" name="yaxis_label" id="yaxis_label" value="{% trans 'Y Values' %}" />
-                <br />
+                <input type="text" name="yaxis_label" id="yaxis_label" value="{% trans 'Y Values' %}">
+                <br>
             </div>
             <div class="clearfloat"></div>
             <div>
-                <input type="checkbox" id="chkAlternative" name="chkAlternative" value="alternativeFormat" />
+                <input type="checkbox" id="chkAlternative" name="chkAlternative" value="alternativeFormat">
                 <label for="chkAlternative">{% trans 'Series names are in a column' %}</label>
-                <br />
+                <br>
                 <label for="select_seriesColumn">
                     {% trans 'Series column:' %}
                 </label>
@@ -145,12 +143,12 @@
                     {% endfor %}
                 </select>
             </div>
-            {{ Util_getStartAndNumberOfRowsPanel(sql_query) }}
+            {{ get_start_and_number_of_rows_panel(sql_query) }}
             <div class="clearfloat"></div>
             <div id="resizer" style="width:600px; height:400px;">
                 <div style="position: absolute; right: 10px; top: 10px; cursor: pointer; z-index: 1000;">
                     <a class="disableAjax" id="saveChart" href="#" download="chart.png">
-                        {{ Util_getImage('b_saveimage', 'Save chart as image'|trans) }}
+                        {{ get_image('b_saveimage', 'Save chart as image'|trans) }}
                     </a>
                 </div>
                 <div id="querychart" dir="ltr">

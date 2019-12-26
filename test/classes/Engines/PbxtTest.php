@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Engines;
 
 use PhpMyAdmin\Core;
@@ -30,7 +32,7 @@ class PbxtTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $this->object = new Pbxt('pbxt');
@@ -43,7 +45,7 @@ class PbxtTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -57,17 +59,17 @@ class PbxtTest extends PmaTestCase
     {
         $this->assertEquals(
             $this->object->getVariables(),
-            array(
-                'pbxt_index_cache_size' => array(
+            [
+                'pbxt_index_cache_size' => [
                     'title' => __('Index cache size'),
                     'desc'  => __(
                         'This is the amount of memory allocated to the'
                         . ' index cache. Default value is 32MB. The memory'
                         . ' allocated here is used only for caching index pages.'
                     ),
-                    'type'  => 1
-                ),
-                'pbxt_record_cache_size' => array(
+                    'type'  => 1,
+                ],
+                'pbxt_record_cache_size' => [
                     'title' => __('Record cache size'),
                     'desc'  => __(
                         'This is the amount of memory allocated to the'
@@ -75,44 +77,44 @@ class PbxtTest extends PmaTestCase
                         . ' value is 32MB. This memory is used to cache changes to'
                         . ' the handle data (.xtd) and row pointer (.xtr) files.'
                     ),
-                    'type'  => 1
-                ),
-                'pbxt_log_cache_size' => array(
+                    'type'  => 1,
+                ],
+                'pbxt_log_cache_size' => [
                     'title' => __('Log cache size'),
                     'desc'  => __(
                         'The amount of memory allocated to the'
                         . ' transaction log cache used to cache on transaction log'
                         . ' data. The default is 16MB.'
                     ),
-                    'type'  => 1
-                ),
-                'pbxt_log_file_threshold' => array(
+                    'type'  => 1,
+                ],
+                'pbxt_log_file_threshold' => [
                     'title' => __('Log file threshold'),
                     'desc'  => __(
                         'The size of a transaction log before rollover,'
                         . ' and a new log is created. The default value is 16MB.'
                     ),
-                    'type'  => 1
-                ),
-                'pbxt_transaction_buffer_size' => array(
+                    'type'  => 1,
+                ],
+                'pbxt_transaction_buffer_size' => [
                     'title' => __('Transaction buffer size'),
                     'desc'  => __(
                         'The size of the global transaction log buffer'
                         . ' (the engine allocates 2 buffers of this size).'
                         . ' The default is 1MB.'
                     ),
-                    'type'  => 1
-                ),
-                'pbxt_checkpoint_frequency' => array(
+                    'type'  => 1,
+                ],
+                'pbxt_checkpoint_frequency' => [
                     'title' => __('Checkpoint frequency'),
                     'desc'  => __(
                         'The amount of data written to the transaction'
                         . ' log before a checkpoint is performed.'
                         . ' The default value is 24MB.'
                     ),
-                    'type'  => 1
-                ),
-                'pbxt_data_log_threshold' => array(
+                    'type'  => 1,
+                ],
+                'pbxt_data_log_threshold' => [
                     'title' => __('Data log threshold'),
                     'desc'  => __(
                         'The maximum size of a data log file. The default'
@@ -121,18 +123,18 @@ class PbxtTest extends PmaTestCase
                         . ' this variable can be increased to increase the total'
                         . ' amount of data that can be stored in the database.'
                     ),
-                    'type'  => 1
-                ),
-                'pbxt_garbage_threshold' => array(
+                    'type'  => 1,
+                ],
+                'pbxt_garbage_threshold' => [
                     'title' => __('Garbage threshold'),
                     'desc'  => __(
                         'The percentage of garbage in a data log file'
                         . ' before it is compacted. This is a value between 1 and'
                         . ' 99. The default is 50.'
                     ),
-                    'type'  => 2
-                ),
-                'pbxt_log_buffer_size' => array(
+                    'type'  => 2,
+                ],
+                'pbxt_log_buffer_size' => [
                     'title' => __('Log buffer size'),
                     'desc'  => __(
                         'The size of the buffer used when writing a data'
@@ -140,19 +142,19 @@ class PbxtTest extends PmaTestCase
                         . ' buffer per thread, but only if the thread is required'
                         . ' to write a data log.'
                     ),
-                    'type'  => 1
-                ),
-                'pbxt_data_file_grow_size' => array(
+                    'type'  => 1,
+                ],
+                'pbxt_data_file_grow_size' => [
                     'title' => __('Data file grow size'),
                     'desc'  => __('The grow size of the handle data (.xtd) files.'),
-                    'type'  => 1
-                ),
-                'pbxt_row_file_grow_size' => array(
+                    'type'  => 1,
+                ],
+                'pbxt_row_file_grow_size' => [
                     'title' => __('Row file grow size'),
                     'desc'  => __('The grow size of the row pointer (.xtr) files.'),
-                    'type'  => 1
-                ),
-                'pbxt_log_file_count' => array(
+                    'type'  => 1,
+                ],
+                'pbxt_log_file_count' => [
                     'title' => __('Log file count'),
                     'desc'  => __(
                         'This is the number of transaction log files'
@@ -161,9 +163,9 @@ class PbxtTest extends PmaTestCase
                         . ' deleted, otherwise they are renamed and given the next'
                         . ' highest number.'
                     ),
-                    'type'  => 2
-                ),
-            )
+                    'type'  => 2,
+                ],
+            ]
         );
     }
 
@@ -177,7 +179,7 @@ class PbxtTest extends PmaTestCase
      *
      * @return void
      */
-    public function testResolveTypeSize($formatted_size, $output)
+    public function testResolveTypeSize($formatted_size, $output): void
     {
         $this->assertEquals(
             $this->object->resolveTypeSize($formatted_size),
@@ -192,29 +194,29 @@ class PbxtTest extends PmaTestCase
      */
     public function providerFortTestResolveTypeSize()
     {
-        return array(
-            array(
+        return [
+            [
                 '8MB',
-                array (
+                [
                     0 => '8,192',
-                    1 => 'KiB'
-                )
-            ),
-            array(
+                    1 => 'KiB',
+                ],
+            ],
+            [
                 '10mb',
-                array (
+                [
                     0 => '-1',
-                    1 => 'B'
-                )
-            ),
-            array(
+                    1 => 'B',
+                ],
+            ],
+            [
                 'A4',
-                array (
+                [
                     0 => '0',
-                    1 => 'B'
-                )
-            )
-        );
+                    1 => 'B',
+                ],
+            ],
+        ];
     }
 
     /**
@@ -226,9 +228,9 @@ class PbxtTest extends PmaTestCase
     {
         $this->assertEquals(
             $this->object->getInfoPages(),
-            array(
-                'Documentation' => 'Documentation'
-            )
+            [
+                'Documentation' => 'Documentation',
+            ]
         );
     }
 

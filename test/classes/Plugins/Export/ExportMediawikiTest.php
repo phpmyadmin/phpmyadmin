@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
@@ -28,7 +30,7 @@ class ExportMediawikiTest extends PmaTestCase
      *
      * @return void
      */
-    function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
@@ -44,7 +46,7 @@ class ExportMediawikiTest extends PmaTestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -151,11 +153,11 @@ class ExportMediawikiTest extends PmaTestCase
         );
 
         $this->assertEquals(
-            array(
+            [
                 'structure' => __('structure'),
                 'data' => __('data'),
-                'structure_and_data' => __('structure and data')
-            ),
+                'structure_and_data' => __('structure and data'),
+            ],
             $sgHeader->getValues()
         );
 
@@ -265,24 +267,24 @@ class ExportMediawikiTest extends PmaTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $columns = array(
-            array(
+        $columns = [
+            [
                 'Null' => 'Yes',
                 'Field' => 'name1',
                 'Key' => 'PRI',
                 'Type' => 'set(abc)enum123',
                 'Default' => '',
-                'Extra' => ''
-            ),
-            array(
+                'Extra' => '',
+            ],
+            [
                 'Null' => 'NO',
                 'Field' => 'fields',
                 'Key' => 'COMP',
                 'Type' => '',
                 'Default' => 'def',
-                'Extra' => 'ext'
-            )
-        );
+                'Extra' => 'ext',
+            ],
+        ];
 
         $dbi->expects($this->at(0))
             ->method('getColumns')
@@ -296,7 +298,12 @@ class ExportMediawikiTest extends PmaTestCase
         ob_start();
         $this->assertTrue(
             $this->object->exportStructure(
-                'db', 'table', "\n", "example.com", "create_table", "test"
+                'db',
+                'table',
+                "\n",
+                "example.com",
+                "create_table",
+                "test"
             )
         );
         $result = ob_get_clean();
@@ -346,7 +353,7 @@ class ExportMediawikiTest extends PmaTestCase
         $dbi->expects($this->once())
             ->method('getColumnNames')
             ->with('db', 'table')
-            ->will($this->returnValue(array('name1', 'fields')));
+            ->will($this->returnValue(['name1', 'fields']));
 
         $dbi->expects($this->once())
             ->method('query')
@@ -361,12 +368,12 @@ class ExportMediawikiTest extends PmaTestCase
         $dbi->expects($this->at(3))
             ->method('fetchRow')
             ->with(true)
-            ->will($this->returnValue(array('r1', 'r2')));
+            ->will($this->returnValue(['r1', 'r2']));
 
         $dbi->expects($this->at(4))
             ->method('fetchRow')
             ->with(true)
-            ->will($this->returnValue(array('r3', '')));
+            ->will($this->returnValue(['r3', '']));
 
         $dbi->expects($this->at(4))
             ->method('fetchRow')
@@ -380,7 +387,11 @@ class ExportMediawikiTest extends PmaTestCase
         ob_start();
         $this->assertTrue(
             $this->object->exportData(
-                'db', 'table', "\n", "example.com", "SELECT"
+                'db',
+                'table',
+                "\n",
+                "example.com",
+                "SELECT"
             )
         );
         $result = ob_get_clean();

@@ -1,0 +1,36 @@
+<h2>
+  {{ get_image('s_replication') }}
+  {% trans 'Replication' %}
+</h2>
+
+{% if is_super_user %}
+  <div id="replication">
+    {{ error_messages|raw }}
+
+    {% if is_master %}
+      {{ master_replication_html|raw }}
+    {% elseif master_configure is null and clear_screen is null %}
+      <fieldset>
+        <legend>{% trans 'Master replication' %}</legend>
+        {% apply format('<a href="server_replication.php" data-post="' ~ get_common(url_params|merge({'mr_configure': true}), '') ~ '">', '</a>')|raw %}
+          {% trans %}
+            This server is not configured as master in a replication process. Would you like to %sconfigure%s it?
+          {% endtrans %}
+        {% endapply %}
+      </fieldset>
+    {% endif %}
+
+    {% if master_configure is not null %}
+      {{ master_configuration_html|raw }}
+    {% else %}
+      {% if clear_screen is null %}
+        {{ slave_configuration_html|raw }}
+      {% endif %}
+      {% if slave_configure is not null %}
+        {{ change_master_html|raw }}
+      {% endif %}
+    {% endif %}
+  </div>
+{% else %}
+  {{ 'No privileges'|trans|error }}
+{% endif %}

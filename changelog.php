@@ -5,12 +5,22 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
+
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
 
 /**
  * Gets core libraries and defines some variables
  */
-require 'libraries/common.inc.php';
+require ROOT_PATH . 'libraries/common.inc.php';
+
+/** @var Template $template */
+$template = $containerBuilder->get('template');
 
 $response = Response::getInstance();
 $response->disable();
@@ -23,7 +33,6 @@ $filename = CHANGELOG_FILE;
  */
 // Check if the file is available, some distributions remove these.
 if (@is_readable($filename)) {
-
     // Test if the if is in a compressed format
     if (substr($filename, -3) == '.gz') {
         ob_start();
@@ -53,7 +62,7 @@ $changelog = htmlspecialchars($changelog);
 $github_url = 'https://github.com/phpmyadmin/phpmyadmin/';
 $faq_url = 'https://docs.phpmyadmin.net/en/latest/faq.html';
 
-$replaces = array(
+$replaces = [
     '@(https?://[./a-zA-Z0-9.-_-]*[/a-zA-Z0-9_])@'
     => '<a href="url.php?url=\\1">\\1</a>',
 
@@ -79,11 +88,11 @@ $replaces = array(
 
     // Highlight releases (with links)
     '/([0-9]+)\.([0-9]+)\.([0-9]+)\.0 (\([0-9-]+\))/'
-    => '<a name="\\1_\\2_\\3"></a>'
+    => '<a id="\\1_\\2_\\3"></a>'
         . '<a href="url.php?url=' . $github_url . 'commits/RELEASE_\\1_\\2_\\3">'
         . '\\1.\\2.\\3.0 \\4</a>',
     '/([0-9]+)\.([0-9]+)\.([0-9]+)\.([1-9][0-9]*) (\([0-9-]+\))/'
-    => '<a name="\\1_\\2_\\3_\\4"></a>'
+    => '<a id="\\1_\\2_\\3_\\4"></a>'
         . '<a href="url.php?url=' . $github_url . 'commits/RELEASE_\\1_\\2_\\3_\\4">'
         . '\\1.\\2.\\3.\\4 \\5</a>',
 
@@ -92,26 +101,12 @@ $replaces = array(
     => '\\1<b>\\2</b>',
 
     // Links target and rel
-    '/a href="/' => 'a target="_blank" rel="noopener noreferrer" href="'
+    '/a href="/' => 'a target="_blank" rel="noopener noreferrer" href="',
 
-);
+];
 
 header('Content-type: text/html; charset=utf-8');
-?>
-<!DOCTYPE HTML>
-<html lang="en" dir="ltr">
-<head>
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <title>phpMyAdmin - ChangeLog</title>
-    <meta charset="utf-8" />
-</head>
-<body>
-<h1>phpMyAdmin - ChangeLog</h1>
-<?php
-echo '<pre>';
-echo preg_replace(array_keys($replaces), $replaces, $changelog);
-echo '</pre>';
-?>
-</body>
-</html>
+
+echo $template->render('changelog', [
+    'changelog' => preg_replace(array_keys($replaces), $replaces, $changelog),
+]);

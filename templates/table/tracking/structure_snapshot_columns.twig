@@ -22,9 +22,9 @@
                     <strong>
                         {{ field['Field'] }}
                         {% if field['Key'] == 'PRI' %}
-                            {{ Util_getImage('b_primary', 'Primary'|trans) }}
+                            {{ get_image('b_primary', 'Primary'|trans) }}
                         {% elseif field['Key'] is not empty %}
-                            {{ Util_getImage('bd_primary', 'Index'|trans) }}
+                            {{ get_image('bd_primary', 'Index'|trans) }}
                         {% endif %}
                     </strong>
                 </td>
@@ -33,10 +33,10 @@
                 <td>{{ field['Null'] == 'YES' ? 'Yes'|trans : 'No'|trans }}</td>
                 <td>
                     {% if field['Default'] is defined %}
-                        {% set extracted_columnspec = Util_extractColumnSpec(field['Type']) %}
+                        {% set extracted_columnspec = extract_column_spec(field['Type']) %}
                         {% if extracted_columnspec['type'] == 'bit' %}
                             {# here, $field['Default'] contains something like b'010' #}
-                            {{ Util_convertBitDefaultValue(field['Default']) }}
+                            {{ field['Default']|convert_bit_default_value }}
                         {% else %}
                             {{ field['Default'] }}
                         {% endif %}

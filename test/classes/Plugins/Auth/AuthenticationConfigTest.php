@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Plugins\Auth;
 
 use PhpMyAdmin\Config;
@@ -26,7 +28,7 @@ class AuthenticationConfigTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
@@ -44,7 +46,7 @@ class AuthenticationConfigTest extends PmaTestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -68,10 +70,10 @@ class AuthenticationConfigTest extends PmaTestCase
      */
     public function testAuthCheck()
     {
-        $GLOBALS['cfg']['Server'] = array(
+        $GLOBALS['cfg']['Server'] = [
             'user' => 'username',
             'password' => 'password',
-        );
+        ];
         $this->assertTrue(
             $this->object->readCredentials()
         );
@@ -96,9 +98,8 @@ class AuthenticationConfigTest extends PmaTestCase
      */
     public function testAuthFails()
     {
-        $removeConstant = false;
-        $GLOBALS['error_handler'] = new ErrorHandler;
-        $GLOBALS['cfg']['Servers'] = array(1);
+        $GLOBALS['error_handler'] = new ErrorHandler();
+        $GLOBALS['cfg']['Servers'] = [1];
         $GLOBALS['allowDeny_forbidden'] = false;
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
@@ -110,27 +111,27 @@ class AuthenticationConfigTest extends PmaTestCase
         $this->object->showFailure('');
         $html = ob_get_clean();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'You probably did not create a configuration file. You might want ' .
             'to use the <a href="setup/">setup script</a> to create one.',
             $html
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<strong>MySQL said: </strong><a href="./url.php?url=https%3A%2F%2F' .
             'dev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Ferror-messages-server.html"' .
             ' target="mysql_doc">' .
             '<img src="themes/dot.gif" title="Documentation" alt="Documentation" ' .
-            'class="icon ic_b_help" /></a>',
+            'class="icon ic_b_help"></a>',
             $html
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Cannot connect: invalid settings.',
             $html
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<a href="index.php?server=0&amp;lang=en" '
             . 'class="button disableAjax">Retry to connect</a>',
             $html

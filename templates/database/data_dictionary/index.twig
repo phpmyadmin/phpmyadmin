@@ -1,0 +1,65 @@
+<h1>{{ database }}</h1>
+{% if comment is not empty %}
+  <p>{% trans 'Database comment:' %} <em>{{ comment }}</em></p>
+{% endif %}
+
+<div>
+  {% for table in tables %}
+    <div>
+      <h2>{{ table.name }}</h2>
+      {% if table.comment is not empty %}
+        <p>{% trans 'Table comments:' %} <em>{{ table.comment }}</em></p>
+      {% endif %}
+
+      <table class="print">
+        <tr>
+          <th>{% trans 'Column' %}</th>
+          <th>{% trans 'Type' %}</th>
+          <th>{% trans 'Null' %}</th>
+          <th>{% trans 'Default' %}</th>
+          {% if table.has_relation %}
+            <th>{% trans 'Links to' %}</th>
+          {% endif %}
+          <th>{% trans 'Comments' %}</th>
+          {% if table.has_mime %}
+            <th>{% trans 'Media (MIME) type' %}</th>
+          {% endif %}
+        </tr>
+        {% for column in table.columns %}
+          <tr>
+            <td class="nowrap">
+              {{ column.name }}
+              {% if column.has_primary_key %}
+                <em>({% trans 'Primary' %})</em>
+              {% endif %}
+            </td>
+            <td lang="en" dir="ltr"{{ 'set' != column.type and 'enum' != column.type ? ' class="nowrap"' }}>
+              {{ column.print_type }}
+            </td>
+            <td>{{ column.is_nullable ? 'Yes'|trans : 'No'|trans }}</td>
+            <td class="nowrap">
+              {% if column.default is null and column.is_nullable %}
+                <em>NULL</em>
+              {% else %}
+                {{ column.default }}
+              {% endif %}
+            </td>
+            {% if table.has_relation %}
+              <td>{{ column.relation }}</td>
+            {% endif %}
+            <td>{{ column.comment }}</td>
+            {% if table.has_mime %}
+              <td>{{ column.mime }}</td>
+            {% endif %}
+          </tr>
+        {% endfor %}
+      </table>
+
+      {{ table.indexes_table|raw }}
+    </div>
+  {% endfor %}
+</div>
+
+<p class="print_ignore">
+  <input type="button" class="btn btn-secondary button" id="print" value="{% trans 'Print' %}">
+</p>

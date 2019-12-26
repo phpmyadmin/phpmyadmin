@@ -6,6 +6,7 @@
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
@@ -23,7 +24,7 @@ class ExportTest extends TestBase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->dbQuery(
@@ -36,16 +37,7 @@ class ExportTest extends TestBase
         $this->dbQuery(
             "INSERT INTO `test_table` (val) VALUES (2);"
         );
-    }
 
-    /**
-     * setUp function that can use the selenium session (called before each test)
-     *
-     * @return void
-     */
-    public function setUpPage()
-    {
-        parent::setUpPage();
         $this->login();
     }
 
@@ -60,14 +52,13 @@ class ExportTest extends TestBase
      *
      * @group large
      */
-    public function testServerExport($plugin, $expected)
+    public function testServerExport($plugin, $expected): void
     {
         $text = $this->_doExport('server', $plugin);
 
         foreach ($expected as $str) {
-            $this->assertContains($str, $text);
+            $this->assertStringContainsString($str, $text);
         }
-
     }
 
     /**
@@ -81,14 +72,14 @@ class ExportTest extends TestBase
      *
      * @group large
      */
-    public function testDbExport($plugin, $expected)
+    public function testDbExport($plugin, $expected): void
     {
         $this->navigateDatabase($this->database_name);
 
         $text = $this->_doExport('db', $plugin);
 
         foreach ($expected as $str) {
-            $this->assertContains($str, $text);
+            $this->assertStringContainsString($str, $text);
         }
     }
 
@@ -103,7 +94,7 @@ class ExportTest extends TestBase
      *
      * @group large
      */
-    public function testTableExport($plugin, $expected)
+    public function testTableExport($plugin, $expected): void
     {
         $this->dbQuery("INSERT INTO `test_table` (val) VALUES (3);");
 
@@ -112,7 +103,7 @@ class ExportTest extends TestBase
         $text = $this->_doExport('table', $plugin);
 
         foreach ($expected as $str) {
-            $this->assertContains($str, $text);
+            $this->assertStringContainsString($str, $text);
         }
     }
 
@@ -124,24 +115,24 @@ class ExportTest extends TestBase
      */
     public function exportDataProvider()
     {
-        return array(
-            array(
+        return [
+            [
                 'CSV',
-                array('"1","2"')
-            ),
-            array(
+                ['"1","2"'],
+            ],
+            [
                 'SQL',
-                array(
+                [
                     "CREATE TABLE IF NOT EXISTS `test_table`",
                     "INSERT INTO `test_table` (`id`, `val`) VALUES",
                     "(1, 2)",
-                )
-            ),
-            array(
+                ],
+            ],
+            [
                 'JSON',
-                array('{"id":"1","val":"2"}')
-            )
-        );
+                ['{"id":"1","val":"2"}'],
+            ],
+        ];
     }
 
     /**
@@ -155,14 +146,16 @@ class ExportTest extends TestBase
     private function _doExport($type, $plugin)
     {
         $this->expandMore();
-
-        $this->waitForElement('byPartialLinkText', "Export")->click();
+        $this->waitForElement('partialLinkText', "Export")->click();
         $this->waitAjax();
 
-        $this->waitForElement("byId", "quick_or_custom");
+        $this->waitForElement('id', "quick_or_custom");
         $this->byCssSelector("label[for=radio_custom_export]")->click();
 
-        $this->select($this->byId("plugins"))->selectOptionByLabel($plugin);
+        $this->selectByLabel(
+            $this->byId("plugins"),
+            $plugin
+        );
 
         if ($type === 'server') {
             $this->scrollIntoView('databases_and_tables', 200);
@@ -175,7 +168,7 @@ class ExportTest extends TestBase
             $this->scrollIntoView('radio_allrows_0');
             $this->byCssSelector("label[for=radio_allrows_0]")->click();
             $this->byName("limit_to")->clear();
-            $this->byName("limit_to")->value("1");
+            $this->byName("limit_to")->sendKeys("1");
         }
 
         $this->scrollIntoView('radio_view_as_text');
@@ -189,7 +182,7 @@ class ExportTest extends TestBase
 
             $this->scrollIntoView('checkbox_sql_if_not_exists');
             $ele = $this->byId('checkbox_sql_if_not_exists');
-            if (! $ele->selected()) {
+            if (! $ele->isSelected()) {
                 $this->byCssSelector("label[for=checkbox_sql_if_not_exists]")->click();
             }
         }
@@ -199,7 +192,7 @@ class ExportTest extends TestBase
         $this->byId("buttonGo")->click();
         $this->waitAjax();
 
-        $text = $this->waitForElement("byId", "textSQLDUMP")->text();
+        $text = $this->waitForElement('id', "textSQLDUMP")->getText();
         return $text;
     }
 }

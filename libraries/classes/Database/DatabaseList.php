@@ -6,6 +6,8 @@
  * @package PhpMyAdmin
  *
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\ListDatabase;
@@ -35,8 +37,8 @@ class DatabaseList
     public function __get($param)
     {
         switch ($param) {
-        case 'databases' :
-            return $this->getDatabaseList();
+            case 'databases':
+                return $this->getDatabaseList();
         }
 
         return null;

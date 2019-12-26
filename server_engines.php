@@ -5,26 +5,28 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
-use PhpMyAdmin\Controllers\Server\ServerEnginesController;
-use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Controllers\Server\EnginesController;
 use PhpMyAdmin\Response;
 
-require_once 'libraries/common.inc.php';
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
 
-$container = Container::getDefaultContainer();
-$container->factory(
-    'PhpMyAdmin\Controllers\Server\ServerEnginesController'
-);
-$container->alias(
-    'ServerEnginesController',
-    'PhpMyAdmin\Controllers\Server\ServerEnginesController'
-);
-$container->set('PhpMyAdmin\Response', Response::getInstance());
-$container->alias('response', 'PhpMyAdmin\Response');
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
-/** @var ServerEnginesController $controller */
-$controller = $container->get(
-    'ServerEnginesController', array()
-);
-$controller->indexAction();
+/** @var EnginesController $controller */
+$controller = $containerBuilder->get(EnginesController::class);
+
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
+
+if (isset($_GET['engine']) && $_GET['engine'] !== '') {
+    $response->addHTML($controller->show([
+        'engine' => $_GET['engine'],
+        'page' => $_GET['page'] ?? null,
+    ]));
+} else {
+    $response->addHTML($controller->index());
+}

@@ -4,6 +4,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Engines;
 
 use PhpMyAdmin\Engines\MrgMyisam;
@@ -28,7 +30,7 @@ class MrgMyisamTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $this->object = new MrgMyisam('mrg_myisam');
@@ -41,7 +43,7 @@ class MrgMyisamTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -57,6 +59,5 @@ class MrgMyisamTest extends PmaTestCase
             $this->object->getMysqlHelpPage(),
             'merge-storage-engine'
         );
-
     }
 }

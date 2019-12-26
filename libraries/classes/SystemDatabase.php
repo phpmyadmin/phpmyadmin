@@ -5,8 +5,11 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
+use mysqli_result;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Util;
@@ -24,7 +27,7 @@ class SystemDatabase
     protected $dbi;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 
@@ -34,10 +37,10 @@ class SystemDatabase
      * @param DatabaseInterface $dbi Database interface for the system database
      *
      */
-    function __construct(DatabaseInterface $dbi)
+    public function __construct(DatabaseInterface $dbi)
     {
         $this->dbi = $dbi;
-        $this->relation = new Relation();
+        $this->relation = new Relation($this->dbi);
     }
 
     /**
@@ -46,7 +49,7 @@ class SystemDatabase
      *
      * @param string $db Database name looking for
      *
-     * @return \mysqli_result Result of executed SQL query
+     * @return mysqli_result Result of executed SQL query
      */
     public function getExistingTransformationData($db)
     {
@@ -72,10 +75,13 @@ class SystemDatabase
      * @param string $view_name               Name of the VIEW
      * @param string $db                      Database name of the VIEW
      *
-     * @return string $new_transformations_sql SQL query for new transformations
+     * @return string SQL query for new transformations
      */
-    function getNewTransformationDataSql(
-        $pma_transformation_data, array $column_map, $view_name, $db
+    public function getNewTransformationDataSql(
+        $pma_transformation_data,
+        array $column_map,
+        $view_name,
+        $db
     ) {
         $cfgRelation = $this->relation->getRelationsParam();
 
@@ -93,9 +99,7 @@ class SystemDatabase
         $add_comma = false;
 
         while ($data_row = $this->dbi->fetchAssoc($pma_transformation_data)) {
-
             foreach ($column_map as $column) {
-
                 if ($data_row['table_name'] != $column['table_name']
                     || $data_row['column_name'] != $column['refering_column']
                 ) {

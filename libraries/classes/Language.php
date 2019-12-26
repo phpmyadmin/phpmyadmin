@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\LanguageManager;
@@ -157,13 +159,13 @@ class Language
      */
     public function isRTL()
     {
-        return in_array($this->code, array('ar', 'fa', 'he', 'ur'));
+        return in_array($this->code, ['ar', 'fa', 'he', 'ur']);
     }
 
     /**
      * Activates given translation
      *
-     * @return bool
+     * @return void
      */
     public function activate()
     {
@@ -186,7 +188,7 @@ class Language
         }
 
         /* TCPDF */
-        $GLOBALS['l'] = array();
+        $GLOBALS['l'] = [];
 
         /* TCPDF settings */
         $GLOBALS['l']['a_meta_charset'] = 'UTF-8';

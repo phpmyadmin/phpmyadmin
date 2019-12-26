@@ -5,7 +5,10 @@
  *
  * @package PhpMyAdmin-Setup
  */
+declare(strict_types=1);
+
 use PhpMyAdmin\Config\ConfigFile;
+use PhpMyAdmin\DatabaseInterface;
 
 /**
  * Do not include full common.
@@ -14,12 +17,11 @@ use PhpMyAdmin\Config\ConfigFile;
 define('PMA_MINIMUM_COMMON', true);
 chdir('..');
 
-if (!file_exists('./libraries/common.inc.php')) {
+if (! file_exists(ROOT_PATH . 'libraries/common.inc.php')) {
     die('Bad invocation!');
 }
 
-require_once './libraries/common.inc.php';
-require_once './setup/lib/ConfigGenerator.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 // use default error handler
 restore_error_handler();
@@ -30,7 +32,7 @@ $GLOBALS['PMA_Config']->set('is_setup', true);
 
 $GLOBALS['ConfigFile'] = new ConfigFile();
 $GLOBALS['ConfigFile']->setPersistKeys(
-    array(
+    [
         'DefaultLang',
         'ServerDefault',
         'UploadDir',
@@ -41,9 +43,11 @@ $GLOBALS['ConfigFile']->setPersistKeys(
         'Servers/1/socket',
         'Servers/1/auth_type',
         'Servers/1/user',
-        'Servers/1/password'
-    )
+        'Servers/1/password',
+    ]
 );
+
+$GLOBALS['dbi'] = DatabaseInterface::load();
 
 // allows for redirection even after sending some data
 ob_start();

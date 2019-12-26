@@ -4,6 +4,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Database\Designer;
 
 use PhpMyAdmin\Database\Designer\Common;
@@ -28,21 +30,20 @@ class CommonTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 1;
-        $_SESSION = array(
-            'relation' => array(
-                '1' => array(
+        $_SESSION = [
+            'relation' => [
+                '1' => [
                     'PMA_VERSION' => PMA_VERSION,
                     'db' => 'pmadb',
                     'pdf_pages' => 'pdf_pages',
                     'pdfwork' => true,
-                    'table_coords' => 'table_coords'
-                )
-            )
-        );
-        $this->designerCommon = new Common();
+                    'table_coords' => 'table_coords',
+                ],
+            ],
+        ];
     }
 
     /**
@@ -79,6 +80,8 @@ class CommonTest extends TestCase
             );
         $GLOBALS['dbi'] = $dbi;
 
+        $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
+
         $this->designerCommon->getTablePositions($pg);
     }
 
@@ -108,8 +111,10 @@ class CommonTest extends TestCase
                 DatabaseInterface::CONNECT_CONTROL,
                 DatabaseInterface::QUERY_STORE
             )
-            ->will($this->returnValue(array($pageName)));
+            ->will($this->returnValue([$pageName]));
         $GLOBALS['dbi'] = $dbi;
+
+        $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
 
         $result = $this->designerCommon->getPageName($pg);
 
@@ -139,6 +144,7 @@ class CommonTest extends TestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
 
         $result = $this->designerCommon->deletePage($pg);
         $this->assertEquals(true, $result);
@@ -170,11 +176,12 @@ class CommonTest extends TestCase
                 DatabaseInterface::CONNECT_CONTROL,
                 DatabaseInterface::QUERY_STORE
             )
-            ->will($this->returnValue(array($default_pg)));
+            ->will($this->returnValue([$default_pg]));
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
 
         $result = $this->designerCommon->getDefaultPage($db);
         $this->assertEquals($default_pg, $result);
@@ -204,11 +211,12 @@ class CommonTest extends TestCase
                 DatabaseInterface::CONNECT_CONTROL,
                 DatabaseInterface::QUERY_STORE
             )
-            ->will($this->returnValue(array()));
+            ->will($this->returnValue([]));
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
 
         $result = $this->designerCommon->getDefaultPage($db);
         $this->assertEquals(-1, $result);
@@ -239,11 +247,12 @@ class CommonTest extends TestCase
                 DatabaseInterface::CONNECT_CONTROL,
                 DatabaseInterface::QUERY_STORE
             )
-            ->will($this->returnValue(array($default_pg)));
+            ->will($this->returnValue([$default_pg]));
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
 
         $result = $this->designerCommon->getLoadingPage($db);
         $this->assertEquals($default_pg, $result);
@@ -266,13 +275,14 @@ class CommonTest extends TestCase
         $dbi->expects($this->exactly(2))
             ->method('fetchResult')
             ->willReturnOnConsecutiveCalls(
-                array(),
-                array(array($first_pg))
+                [],
+                [[$first_pg]]
             );
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
 
         $result = $this->designerCommon->getLoadingPage($db);
         $this->assertEquals($first_pg, $result);

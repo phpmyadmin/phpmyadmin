@@ -3,7 +3,7 @@
         <legend>{% trans 'Display GIS Visualization' %}</legend>
         <div id="gis_div" style="position:relative;">
             <form method="post" action="tbl_gis_visualization.php">
-                {{ Url_getHiddenInputs(url_params) }}
+                {{ get_hidden_inputs(url_params) }}
                 <label for="labelColumn">
                     {% trans "Label column" %}
                 </label>
@@ -33,19 +33,19 @@
                                    id="choice" value="useBaseLayer"
                                    {% if visualization_settings['choice'] is defined %}
                                         checked="checked"
-                                   {% endif %}/>
+                                   {% endif %}>
                             <label for="choice" id="labelChoice">
                                 {% trans "Use OpenStreetMaps as Base Layer" %}
                             </label>
                         </td>
                     </tr>
-                {{ Util_getStartAndNumberOfRowsPanel(sql_query) }}
+                {{ get_start_and_number_of_rows_panel(sql_query) }}
             </form>
 
             <div class="pma_quick_warp" style="width: 50px; position: absolute; right: 0; top: 0; cursor: pointer;">
                 <div class="drop_list">
                     <span class="drop_button" style="padding: 0; border: 0;">
-                        {{ Util_getImage('b_saveimage', 'Save'|trans) }}
+                        {{ get_image('b_saveimage', 'Save'|trans) }}
                     </span>
                     <ul>
                         <li class="warp_link">
@@ -69,7 +69,7 @@
             {{ visualization|raw }}
         </div>
         <div id="openlayersmap"></div>
-        <input type="hidden" id="pmaThemeImage" value="{{ pma_theme_image }}" />
+        <input type="hidden" id="pmaThemeImage" value="{{ pma_theme_image }}">
         <script language="javascript" type="text/javascript">
             function drawOpenLayers()
             {

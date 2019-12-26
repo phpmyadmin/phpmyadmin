@@ -4,6 +4,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 /**
@@ -88,7 +90,10 @@ class OutputBuffering
                 header('X-ob_mode: ' . $this->_mode);
             }
             register_shutdown_function(
-                array(OutputBuffering::class, 'stop')
+                [
+                    OutputBuffering::class,
+                    'stop',
+                ]
             );
             $this->_on = true;
         }

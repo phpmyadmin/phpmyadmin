@@ -2,10 +2,10 @@
     <fieldset>
         <legend>
             {% trans 'Partitions' %}
-            {{ Util_showMySQLDocu('partitioning') }}
+            {{ show_mysql_docu('partitioning') }}
         </legend>
         {% if partitions is empty %}
-            {{ Message_notice('No partitioning defined!'|trans) }}
+            {{ 'No partitioning defined!'|trans|notice }}
         {% else %}
             <p>
                 {% trans 'Partitioned by:' %}
@@ -56,7 +56,7 @@
                         {% endif %}
                         <td class="value">{{ partition.getRows() }}</td>
                         <td class="value">
-                            {% set data_length = Util_formatByteDown(
+                            {% set data_length = format_byte_down(
                                 partition.getDataLength(),
                                 3,
                                 1
@@ -65,7 +65,7 @@
                             <span class="unit">{{ data_length[1] }}</span>
                         </td>
                         <td class="value">
-                            {% set index_length = Util_formatByteDown(
+                            {% set index_length = format_byte_down(
                                 partition.getIndexLength(),
                                 3,
                                 1
@@ -78,7 +78,7 @@
                             <td>
                                 <a href="tbl_structure.php" data-post="{{ url_query -}}
                                     &amp;partition_maintenance=1&amp;sql_query=
-                                    {{- ("ALTER TABLE " ~ Util_backquote(table) ~ " " ~ action
+                                    {{- ("ALTER TABLE " ~ backquote(table) ~ " " ~ action
                                         ~ " PARTITION " ~ partition.getName())|url_encode }}"
                                     id="partition_action_{{ action }}"
                                     name="partition_action_{{ action }}"
@@ -99,7 +99,7 @@
                                     {% endif %}
                                     <td class="value">{{ sub_partition.getRows() }}</td>
                                     <td class="value">
-                                        {% set data_length = Util_formatByteDown(
+                                        {% set data_length = format_byte_down(
                                             sub_partition.getDataLength(),
                                             3,
                                             1
@@ -108,7 +108,7 @@
                                         <span class="unit">{{ data_length[1] }}</span>
                                     </td>
                                     <td class="value">
-                                        {% set index_length = Util_formatByteDown(
+                                        {% set index_length = format_byte_down(
                                             sub_partition.getIndexLength(),
                                             3,
                                             1
@@ -129,16 +129,16 @@
     </fieldset>
     <fieldset class="tblFooters print_ignore">
         <form action="tbl_structure.php" method="post">
-            {{ Url_getHiddenInputs(db, table) }}
-            <input type="hidden" name="edit_partitioning" value="true" />
+            {{ get_hidden_inputs(db, table) }}
+            <input type="hidden" name="edit_partitioning" value="true">
             {% if partitions is empty %}
-                <input type="submit" name="edit_partitioning" value="{% trans 'Partition table' %}" />
+                <input class="btn btn-secondary" type="submit" name="edit_partitioning" value="{% trans 'Partition table' %}">
             {% else %}
-                {{ Util_linkOrButton(remove_url, 'Remove partitioning'|trans, {
+                {{ link_or_button(remove_url, 'Remove partitioning'|trans, {
                     'class': 'button ajax',
                     'id': 'remove_partitioning'
                 }) }}
-                <input type="submit" name="edit_partitioning" value="{% trans 'Edit partitioning' %}" />
+                <input class="btn btn-secondary" type="submit" name="edit_partitioning" value="{% trans 'Edit partitioning' %}">
             {% endif %}
         </form>
     </fieldset>

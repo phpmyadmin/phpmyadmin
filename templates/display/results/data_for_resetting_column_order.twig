@@ -1,0 +1,9 @@
+{% if column_order %}
+  <input class="col_order" type="hidden" value="{{ column_order|join(',') }}">
+{% endif %}
+{% if column_visibility %}
+  <input class="col_visib" type="hidden" value="{{ column_visibility|join(',') }}">
+{% endif %}
+{% if not is_view %}
+  <input class="table_create_time" type="hidden" value="{{ table_create_time }}">
+{% endif %}

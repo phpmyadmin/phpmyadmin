@@ -1,0 +1,65 @@
+<div class="responsivetable">
+  <table id="tableprocesslist" class="data clearfloat noclick sortable">
+    <thead>
+      <tr>
+        <th>{% trans 'Processes' %}</th>
+        {% for column in columns %}
+          <th>
+            <a href="server_status_processes.php" data-post="{{ get_common(column.params) }}" class="sortlink">
+              {{ column.name }}
+              {% if column.is_sorted %}
+                <img class="icon ic_s_desc soimg" alt="
+                  {%- trans 'Descending' %}" src="themes/dot.gif" style="display: {{ column.sort_order == 'DESC' ? 'none' : 'inline' }}">
+                <img class="icon ic_s_asc soimg hide" alt="
+                  {%- trans 'Ascending' %}" src="themes/dot.gif" style="display: {{ column.sort_order == 'DESC' ? 'inline' : 'none' }}">
+              {% endif %}
+            </a>
+            {% if column.has_full_query %}
+              <a href="server_status_processes.php" data-post="{{ get_common(refresh_params, '') }}">
+                {% if column.is_full %}
+                  {{ get_image(
+                    's_partialtext',
+                    'Truncate shown queries'|trans,
+                    {'class': 'icon_fulltext'}
+                  ) }}
+                {% else %}
+                  {{ get_image(
+                    's_fulltext',
+                    'Show full queries'|trans,
+                    {'class': 'icon_fulltext'}
+                  ) }}
+                {% endif %}
+              </a>
+            {% endif %}
+          </th>
+        {% endfor %}
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for row in rows %}
+        <tr>
+          <td>
+            <a class="ajax kill_process" href="server_status_processes.php" data-post="{{ get_common({'kill': row.id}, '') }}">
+              {% trans 'Kill' %}
+            </a>
+          </td>
+          <td class="value">{{ row.id }}</td>
+          <td>{{ row.user }}</td>
+          <td>{{ row.host }}</td>
+          <td>
+            {% if row.db != '' %}
+              {{ row.db }}
+            {% else %}
+              <em>{% trans 'None' %}</em>
+            {% endif %}
+          </td>
+          <td>{{ row.command }}</td>
+          <td class="value">{{ row.time }}</td>
+          <td>{{ row.state }}</td>
+          <td>{{ row.progress }}</td>
+          <td>{{ row.info|raw }}</td>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

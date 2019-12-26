@@ -1,0 +1,47 @@
+.rte_table {
+  table-layout: auto;
+  width: 100%;
+
+  td {
+    vertical-align: middle;
+    padding: 0.2em;
+    width: 20%;
+  }
+
+  tr td:nth-child(1) {
+    font-weight: bold;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  input {
+    &[type=button],
+    &[type=checkbox],
+    &[type=radio] {
+      width: auto;
+      margin-#{$right}: 6px;
+    }
+  }
+
+  .routine_params_table {
+    width: 100%;
+  }
+
+  .half_width {
+    width: 49%;
+  }
+}
+
+.isdisableremoveparam_class {
+  color: gray;
+}
+
+.ui_tpicker_time_input {
+  width: 100%;
+}

@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
@@ -28,7 +30,7 @@ class ExportCsvTest extends PmaTestCase
      *
      * @return void
      */
-    function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $this->object = new ExportCsv();
@@ -39,7 +41,7 @@ class ExportCsvTest extends PmaTestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -241,7 +243,6 @@ class ExportCsvTest extends PmaTestCase
             'structure_or_data',
             $property->getName()
         );
-
     }
 
     /**
@@ -495,7 +496,11 @@ class ExportCsvTest extends PmaTestCase
         ob_start();
         $this->assertFalse(
             $this->object->exportData(
-                'testDB', 'testTable', "\n", 'example.com', 'test'
+                'testDB',
+                'testTable',
+                "\n",
+                'example.com',
+                'test'
             )
         );
         $result = ob_get_clean();
@@ -523,7 +528,7 @@ class ExportCsvTest extends PmaTestCase
         $dbi->expects($this->at(3))
             ->method('fetchRow')
             ->with(true)
-            ->will($this->returnValue(array(null, 'b', 'c', false, 'e', 'f')));
+            ->will($this->returnValue([null, 'b', 'c', false, 'e', 'f']));
 
         $dbi->expects($this->at(4))
             ->method('fetchRow')
@@ -542,7 +547,11 @@ class ExportCsvTest extends PmaTestCase
         ob_start();
         $this->assertTrue(
             $this->object->exportData(
-                'testDB', 'testTable', "\n", 'example.com', 'test'
+                'testDB',
+                'testTable',
+                "\n",
+                'example.com',
+                'test'
             )
         );
         $result = ob_get_clean();
@@ -576,7 +585,7 @@ class ExportCsvTest extends PmaTestCase
         $dbi->expects($this->at(3))
             ->method('fetchRow')
             ->with(true)
-            ->will($this->returnValue(array(1 => 'a')));
+            ->will($this->returnValue([1 => 'a']));
 
         $dbi->expects($this->at(4))
             ->method('fetchRow')
@@ -589,7 +598,11 @@ class ExportCsvTest extends PmaTestCase
         ob_start();
         $this->assertTrue(
             $this->object->exportData(
-                'testDB', 'testTable', "\n", 'example.com', 'test'
+                'testDB',
+                'testTable',
+                "\n",
+                'example.com',
+                'test'
             )
         );
         $result = ob_get_clean();
@@ -623,7 +636,7 @@ class ExportCsvTest extends PmaTestCase
         $dbi->expects($this->at(3))
             ->method('fetchRow')
             ->with(true)
-            ->will($this->returnValue(array("test\015\012\n")));
+            ->will($this->returnValue(["test\015\012\n"]));
 
         $dbi->expects($this->at(4))
             ->method('fetchRow')
@@ -639,7 +652,11 @@ class ExportCsvTest extends PmaTestCase
         ob_start();
         $this->assertTrue(
             $this->object->exportData(
-                'testDB', 'testTable', "\n", 'example.com', 'test'
+                'testDB',
+                'testTable',
+                "\n",
+                'example.com',
+                'test'
             )
         );
         $result = ob_get_clean();
@@ -673,7 +690,7 @@ class ExportCsvTest extends PmaTestCase
         $dbi->expects($this->at(3))
             ->method('fetchRow')
             ->with(true)
-            ->will($this->returnValue(array("test\015\n")));
+            ->will($this->returnValue(["test\015\n"]));
 
         $dbi->expects($this->at(4))
             ->method('fetchRow')
@@ -688,7 +705,11 @@ class ExportCsvTest extends PmaTestCase
         ob_start();
         $this->assertTrue(
             $this->object->exportData(
-                'testDB', 'testTable', "\n", 'example.com', 'test'
+                'testDB',
+                'testTable',
+                "\n",
+                'example.com',
+                'test'
             )
         );
         $result = ob_get_clean();
@@ -721,7 +742,7 @@ class ExportCsvTest extends PmaTestCase
         $dbi->expects($this->at(4))
             ->method('fetchRow')
             ->with(true)
-            ->will($this->returnValue(array("test\015\n", "test\n")));
+            ->will($this->returnValue(["test\015\n", "test\n"]));
 
         $dbi->expects($this->at(5))
             ->method('fetchRow')
@@ -736,7 +757,11 @@ class ExportCsvTest extends PmaTestCase
         ob_start();
         $this->assertTrue(
             $this->object->exportData(
-                'testDB', 'testTable', "\n", 'example.com', 'test'
+                'testDB',
+                'testTable',
+                "\n",
+                'example.com',
+                'test'
             )
         );
         $result = ob_get_clean();

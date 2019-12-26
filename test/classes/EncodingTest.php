@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Encoding;
@@ -17,12 +19,18 @@ use PHPUnit\Framework\TestCase;
  */
 class EncodingTest extends TestCase
 {
-    public function setUp()
+    /**
+     * @return void
+     */
+    protected function setUp(): void
     {
         Encoding::initEngine();
     }
 
-    public function tearDown()
+    /**
+     * @return void
+     */
+    protected function tearDown(): void
     {
         Encoding::initEngine();
     }
@@ -43,6 +51,9 @@ class EncodingTest extends TestCase
         );
     }
 
+    /**
+     * @return void
+     */
     public function testInvalidConversion()
     {
         // Invalid value to use default case
@@ -53,6 +64,9 @@ class EncodingTest extends TestCase
         );
     }
 
+    /**
+     * @return void
+     */
     public function testRecode()
     {
         if (! function_exists('recode_string')) {
@@ -63,7 +77,9 @@ class EncodingTest extends TestCase
         $this->assertEquals(
             'Only That ecole & Can Be My Blame',
             Encoding::convertString(
-                'UTF-8', 'flat', 'Only That école & Can Be My Blame'
+                'UTF-8',
+                'flat',
+                'Only That école & Can Be My Blame'
             )
         );
     }
@@ -72,6 +88,7 @@ class EncodingTest extends TestCase
      * This group is used on debian packaging to exclude the test
      * @see https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=854821#27
      * @group extension-iconv
+     * @return void
      */
     public function testIconv()
     {
@@ -106,22 +123,24 @@ class EncodingTest extends TestCase
         }
     }
 
+    /**
+     * @return void
+     */
     public function testMbstring()
     {
         Encoding::setEngine(Encoding::ENGINE_MB);
         $this->assertEquals(
             "This is the Euro symbol '?'.",
             Encoding::convertString(
-                'UTF-8', 'ISO-8859-1', "This is the Euro symbol '€'."
+                'UTF-8',
+                'ISO-8859-1',
+                "This is the Euro symbol '€'."
             )
         );
     }
 
     /**
      * Test for kanjiChangeOrder
-     *
-     * @param string $kanji_test_list current list
-     * @param string $expected        expected list
      *
      * @return void
      * @test
@@ -178,7 +197,7 @@ class EncodingTest extends TestCase
         $file_str = "教育漢字常用漢字";
         $filename = 'test.kanji';
         $file = fopen($filename, 'w');
-        fputs($file, $file_str);
+        fwrite($file, $file_str);
         fclose($file);
         $GLOBALS['kanji_encoding_list'] = 'ASCII,EUC-JP,SJIS,JIS';
 
@@ -202,28 +221,31 @@ class EncodingTest extends TestCase
     public function testEncodingForm()
     {
         $actual = Encoding::kanjiEncodingForm();
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="radio" name="knjenc"',
             $actual
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'type="radio" name="knjenc"',
             $actual
         );
-        $this->assertContains(
-            '<input type="radio" name="knjenc" value="EUC-JP" id="kj-euc" />',
+        $this->assertStringContainsString(
+            '<input type="radio" name="knjenc" value="EUC-JP" id="kj-euc">',
             $actual
         );
-        $this->assertContains(
-            '<input type="radio" name="knjenc" value="SJIS" id="kj-sjis" />',
+        $this->assertStringContainsString(
+            '<input type="radio" name="knjenc" value="SJIS" id="kj-sjis">',
             $actual
         );
-        $this->assertContains(
-            '<input type="checkbox" name="xkana" value="kana" id="kj-kana" />',
+        $this->assertStringContainsString(
+            '<input type="checkbox" name="xkana" value="kana" id="kj-kana">',
             $actual
         );
     }
 
+    /**
+     * @return void
+     */
     public function testListEncodings()
     {
         $GLOBALS['cfg']['AvailableCharsets'] = ['utf-8'];

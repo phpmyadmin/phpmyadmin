@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Schema\Pdf;
 
 use PhpMyAdmin\Pdf as PdfLib;
@@ -22,7 +24,7 @@ if (! class_exists('TCPDF')) {
 /**
  * block attempts to directly run this script
  */
-if (getcwd() == dirname(__FILE__)) {
+if (getcwd() == __DIR__) {
     die('Attack stopped');
 }
 
@@ -39,15 +41,16 @@ class Pdf extends PdfLib
     /**
      * Defines properties
      */
-    var $_xMin;
-    var $_yMin;
-    var $leftMargin = 10;
-    var $topMargin = 10;
-    var $scale;
-    var $PMA_links;
-    var $Outlines = array();
-    var $def_outlines;
-    var $widths;
+    public $_xMin;
+    public $_yMin;
+    public $leftMargin = 10;
+    public $topMargin = 10;
+    public $scale;
+    public $PMA_links;
+    public $Outlines = [];
+    public $def_outlines;
+    public $widths;
+    public $cMargin;
     private $_ff = PdfLib::PMA_PDF_FONT;
     private $_offline;
     private $_pageNumber;
@@ -55,7 +58,7 @@ class Pdf extends PdfLib
     private $_db;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 
@@ -72,13 +75,18 @@ class Pdf extends PdfLib
      * @access public
      */
     public function __construct(
-        $orientation, $unit, $paper, $pageNumber, $withDoc, $db
+        $orientation,
+        $unit,
+        $paper,
+        $pageNumber,
+        $withDoc,
+        $db
     ) {
         parent::__construct($orientation, $unit, $paper);
         $this->_pageNumber = $pageNumber;
         $this->_withDoc = $withDoc;
         $this->_db = $db;
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
     }
 
     /**
@@ -104,8 +112,12 @@ class Pdf extends PdfLib
      *
      * @return void
      */
-    public function setScale($scale = 1, $xMin = 0, $yMin = 0,
-        $leftMargin = -1, $topMargin = -1
+    public function setScale(
+        $scale = 1,
+        $xMin = 0,
+        $yMin = 0,
+        $leftMargin = -1,
+        $topMargin = -1
     ) {
         $this->scale = $scale;
         $this->_xMin = $xMin;
@@ -134,11 +146,18 @@ class Pdf extends PdfLib
      *
      * @see TCPDF::Cell()
      */
-    public function cellScale($w, $h = 0, $txt = '', $border = 0, $ln = 0,
-        $align = '', $fill = 0, $link = ''
+    public function cellScale(
+        $w,
+        $h = 0,
+        $txt = '',
+        $border = 0,
+        $ln = 0,
+        $align = '',
+        $fill = 0,
+        $link = ''
     ) {
-        $h = $h / $this->scale;
-        $w = $w / $this->scale;
+        $h /= $this->scale;
+        $w /= $this->scale;
         $this->Cell($w, $h, $txt, $border, $ln, $align, $fill, $link);
     }
 
@@ -207,7 +226,7 @@ class Pdf extends PdfLib
     public function setFontSizeScale($size)
     {
         // Set font size in points
-        $size = $size / $this->scale;
+        $size /= $this->scale;
         $this->SetFontSize($size);
     }
 
@@ -222,7 +241,7 @@ class Pdf extends PdfLib
      */
     public function setLineWidthScale($width)
     {
-        $width = $width / $this->scale;
+        $width /= $this->scale;
         $this->SetLineWidth($width);
     }
 
@@ -301,16 +320,16 @@ class Pdf extends PdfLib
         // line height
         $nb = 0;
         $data_cnt = count($data);
-        for ($i = 0;$i < $data_cnt;$i++) {
+        for ($i = 0; $i < $data_cnt; $i++) {
             $nb = max($nb, $this->numLines($this->widths[$i], $data[$i]));
         }
         $il = $this->FontSize;
         $h = ($il + 1) * $nb;
         // page break if necessary
-        $this->CheckPageBreak($h);
+        $this->checkPageBreak($h);
         // draw the cells
         $data_cnt = count($data);
-        for ($i = 0;$i < $data_cnt;$i++) {
+        for ($i = 0; $i < $data_cnt; $i++) {
             $w = $this->widths[$i];
             // save current position
             $x = $this->GetX();
@@ -343,10 +362,10 @@ class Pdf extends PdfLib
         if ($w == 0) {
             $w = $this->w - $this->rMargin - $this->x;
         }
-        $wmax = ($w-2 * $this->cMargin) * 1000 / $this->FontSize;
+        $wmax = ($w - 2 * $this->cMargin) * 1000 / $this->FontSize;
         $s = str_replace("\r", '', $txt);
         $nb = strlen($s);
-        if ($nb > 0 && $s[$nb-1] == "\n") {
+        if ($nb > 0 && $s[$nb - 1] == "\n") {
             $nb--;
         }
         $sep = -1;
@@ -367,7 +386,7 @@ class Pdf extends PdfLib
             if ($c == ' ') {
                 $sep = $i;
             }
-            $l += isset($cw[mb_ord($c)])?$cw[mb_ord($c)]:0 ;
+            $l += isset($cw[mb_ord($c)]) ? $cw[mb_ord($c)] : 0 ;
             if ($l > $wmax) {
                 if ($sep == -1) {
                     if ($i == $j) {

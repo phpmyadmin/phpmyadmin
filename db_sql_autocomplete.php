@@ -5,23 +5,37 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
-require_once 'libraries/common.inc.php';
+
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
+require_once ROOT_PATH . 'libraries/common.inc.php';
+
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
 if ($GLOBALS['cfg']['EnableAutocompleteForTablesAndColumns']) {
     $db = isset($_POST['db']) ? $_POST['db'] : $GLOBALS['db'];
-    $sql_autocomplete = array();
+    $sql_autocomplete = [];
     if ($db) {
-        $tableNames = $GLOBALS['dbi']->getTables($db);
+        $tableNames = $dbi->getTables($db);
         foreach ($tableNames as $tableName) {
-            $sql_autocomplete[$tableName] = $GLOBALS['dbi']->getColumns(
-                $db, $tableName
+            $sql_autocomplete[$tableName] = $dbi->getColumns(
+                $db,
+                $tableName
             );
         }
     }
 } else {
     $sql_autocomplete = true;
 }
-$response = Response::getInstance();
+
 $response->addJSON("tables", json_encode($sql_autocomplete));

@@ -5,10 +5,15 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Display;
 
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Server\Privileges;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -20,17 +25,25 @@ use PhpMyAdmin\Util;
 class ChangePassword
 {
     /**
-      * Get HTML for the Change password dialog
-      *
-      * @param string $mode     where is the function being called?
-      *                         values : 'change_pw' or 'edit_other'
-      * @param string $username username
-      * @param string $hostname hostname
-      *
-      * @return string html snippet
-      */
+     * Get HTML for the Change password dialog
+     *
+     * @param string $mode     where is the function being called?
+     *                         values : 'change_pw' or 'edit_other'
+     * @param string $username username
+     * @param string $hostname hostname
+     *
+     * @return string html snippet
+     */
     public static function getHtml($mode, $username, $hostname)
     {
+        $relation = new Relation($GLOBALS['dbi']);
+        $serverPrivileges = new Privileges(
+            new Template(),
+            $GLOBALS['dbi'],
+            $relation,
+            new RelationCleanup($GLOBALS['dbi'], $relation)
+        );
+
         /**
          * autocomplete feature of IE kills the "onchange" event handler and it
          * must be replaced by the "onpropertychange" one in this case
@@ -48,9 +61,9 @@ class ChangePassword
 
         if (strpos($GLOBALS['PMA_PHP_SELF'], 'server_privileges') !== false) {
             $html .= '<input type="hidden" name="username" '
-                . 'value="' . htmlspecialchars($username) . '" />'
+                . 'value="' . htmlspecialchars($username) . '">'
                 . '<input type="hidden" name="hostname" '
-                . 'value="' . htmlspecialchars($hostname) . '" />';
+                . 'value="' . htmlspecialchars($hostname) . '">';
         }
         $html .= '<fieldset id="fieldset_change_password">'
             . '<legend'
@@ -64,7 +77,7 @@ class ChangePassword
             . '<td colspan="2">'
             . '<input type="radio" name="nopass" value="1" id="nopass_1" '
             . 'onclick="pma_pw.value = \'\'; pma_pw2.value = \'\'; '
-            . 'this.checked = true" />'
+            . 'this.checked = true">'
             . '<label for="nopass_1">' . __('No Password') . '</label>'
             . '</td>'
             . '</tr>'
@@ -72,28 +85,28 @@ class ChangePassword
             . '<td>'
             . '<input type="radio" name="nopass" value="0" id="nopass_0" '
             . 'onclick="document.getElementById(\'text_pma_change_pw\').focus();" '
-            . 'checked="checked" />'
+            . 'checked="checked">'
             . '<label for="nopass_0">' . __('Password:') . '&nbsp;</label>'
             . '</td>'
             . '<td>'
             . __('Enter:') . '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp'
             . '<input type="password" name="pma_pw" id="text_pma_change_pw" size="10" '
             . 'class="textfield"'
-            . 'onkeyup="checkPasswordStrength($(this).val(), $(\'#change_password_strength_meter\'), meter_obj_label = $(\'#change_password_strength\'), PMA_commonParams.get(\'user\'));" '
-            . $chg_evt_handler . '="nopass[1].checked = true" />'
+            . 'onkeyup="checkPasswordStrength($(this).val(), $(\'#change_password_strength_meter\'), meter_obj_label = $(\'#change_password_strength\'), CommonParams.get(\'user\'));" '
+            . $chg_evt_handler . '="nopass[1].checked = true">'
             . '<span>Strength:</span> '
             . '<meter max="4" id="change_password_strength_meter" name="pw_meter"></meter> '
             . '<span id="change_password_strength" name="pw_strength">Good</span>'
             . '<br>' . __('Re-type:') . '&nbsp;'
             . '<input type="password" name="pma_pw2" id="text_pma_change_pw2" size="10" '
             . 'class="textfield"'
-            . $chg_evt_handler . '="nopass[1].checked = true" />'
+            . $chg_evt_handler . '="nopass[1].checked = true">'
             . '</td>'
             . '</tr>';
 
         $serverType = Util::getServerType();
         $serverVersion = $GLOBALS['dbi']->getVersion();
-        $orig_auth_plugin = Privileges::getCurrentAuthenticationPlugin(
+        $orig_auth_plugin = $serverPrivileges->getCurrentAuthenticationPlugin(
             'change',
             $username,
             $hostname
@@ -110,8 +123,10 @@ class ChangePassword
                 && $serverVersion >= 50706)
                 || ($GLOBALS['dbi']->isSuperuser() && $mode == 'edit_other')
             ) {
-                $auth_plugin_dropdown = Privileges::getHtmlForAuthPluginsDropdown(
-                    $orig_auth_plugin, 'change_pw', 'new'
+                $auth_plugin_dropdown = $serverPrivileges->getHtmlForAuthPluginsDropdown(
+                    $orig_auth_plugin,
+                    'change_pw',
+                    'new'
                 );
 
                 $html .= '<tr class="vmiddle">'
@@ -143,8 +158,10 @@ class ChangePassword
                     . '</table>';
             }
         } else {
-            $auth_plugin_dropdown = Privileges::getHtmlForAuthPluginsDropdown(
-                $orig_auth_plugin, 'change_pw', 'old'
+            $auth_plugin_dropdown = $serverPrivileges->getHtmlForAuthPluginsDropdown(
+                $orig_auth_plugin,
+                'change_pw',
+                'old'
             );
 
             $html .= '<tr class="vmiddle">'
@@ -156,8 +173,8 @@ class ChangePassword
 
         $html .= '</fieldset>'
             . '<fieldset id="fieldset_change_password_footer" class="tblFooters">'
-            . '<input type="hidden" name="change_pw" value="1" />'
-            . '<input type="submit" value="' . __('Go') . '" />'
+            . '<input type="hidden" name="change_pw" value="1">'
+            . '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">'
             . '</fieldset>'
             . '</form>';
         return $html;

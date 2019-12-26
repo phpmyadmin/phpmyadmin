@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Import\Upload;
 
 use PhpMyAdmin\Display\ImportAjax;
@@ -44,23 +46,26 @@ class UploadProgress implements UploadInterface
             return null;
         }
 
-        if (!array_key_exists($id, $_SESSION[$SESSION_KEY])) {
-            $_SESSION[$SESSION_KEY][$id] = array(
+        if (! array_key_exists($id, $_SESSION[$SESSION_KEY])) {
+            $_SESSION[$SESSION_KEY][$id] = [
                 'id'       => $id,
                 'finished' => false,
                 'percent'  => 0,
                 'total'    => 0,
                 'complete' => 0,
                 'plugin'   => UploadProgress::getIdKey(),
-            );
+            ];
         }
         $ret = $_SESSION[$SESSION_KEY][$id];
 
-        if (!ImportAjax::progressCheck() || $ret['finished']) {
+        if (! ImportAjax::progressCheck() || $ret['finished']) {
             return $ret;
         }
 
-        $status = uploadprogress_get_info($id);
+        $status = null;
+        if (function_exists('uploadprogress_get_info')) {
+            $status = uploadprogress_get_info($id);
+        }
 
         if ($status) {
             if ($status['bytes_uploaded'] == $status['bytes_total']) {
@@ -75,14 +80,14 @@ class UploadProgress implements UploadInterface
                 $ret['percent'] = $ret['complete'] / $ret['total'] * 100;
             }
         } else {
-            $ret = array(
+            $ret = [
                 'id'       => $id,
                 'finished' => true,
                 'percent'  => 100,
                 'total'    => $ret['total'],
                 'complete' => $ret['total'],
                 'plugin'   => UploadProgress::getIdKey(),
-            );
+            ];
         }
 
         $_SESSION[$SESSION_KEY][$id] = $ret;

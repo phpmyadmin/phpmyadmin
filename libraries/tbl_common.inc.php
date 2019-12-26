@@ -5,14 +5,18 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 use PhpMyAdmin\Url;
 
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+global $db, $table;
+
 // Check parameters
-PhpMyAdmin\Util::checkParameters(array('db', 'table'));
+PhpMyAdmin\Util::checkParameters(['db', 'table']);
 
 $db_is_system_schema = $GLOBALS['dbi']->isSystemSchema($db);
 
@@ -20,12 +24,12 @@ $db_is_system_schema = $GLOBALS['dbi']->isSystemSchema($db);
  * Set parameters for links
  * @deprecated
  */
-$url_query = Url::getCommon(array('db' => $db, 'table' => $table));
+$url_query = Url::getCommon(['db' => $db, 'table' => $table]);
 
 /**
  * Set parameters for links
  */
-$url_params = array();
+$url_params = [];
 $url_params['db']    = $db;
 $url_params['table'] = $table;
 
@@ -33,12 +37,14 @@ $url_params['table'] = $table;
  * Defines the urls to return to in case of error in a sql statement
  */
 $err_url_0 = PhpMyAdmin\Util::getScriptNameForOption(
-    $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+    $GLOBALS['cfg']['DefaultTabDatabase'],
+    'database'
 )
-    . Url::getCommon(array('db' => $db));
+    . Url::getCommon(['db' => $db]);
 
 $err_url = PhpMyAdmin\Util::getScriptNameForOption(
-    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+    $GLOBALS['cfg']['DefaultTabTable'],
+    'table'
 )
     . Url::getCommon($url_params);
 
@@ -48,5 +54,5 @@ $err_url = PhpMyAdmin\Util::getScriptNameForOption(
  * Skip test if we are exporting as we can't tell whether a table name is an alias (which would fail the test).
  */
 if (basename($_SERVER['PHP_SELF']) != 'tbl_export.php') {
-    require_once './libraries/db_table_exists.inc.php';
+    require_once ROOT_PATH . 'libraries/db_table_exists.inc.php';
 }

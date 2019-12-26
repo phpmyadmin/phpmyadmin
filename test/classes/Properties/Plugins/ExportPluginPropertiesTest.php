@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Properties\Plugins;
 
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
@@ -25,7 +27,7 @@ class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = new ExportPluginProperties();
     }
@@ -35,7 +37,7 @@ class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -68,5 +70,4 @@ class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
             $this->object->getForceFile()
         );
     }
-
 }

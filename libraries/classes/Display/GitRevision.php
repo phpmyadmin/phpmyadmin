@@ -5,10 +5,14 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Display;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 /**
@@ -19,65 +23,91 @@ use PhpMyAdmin\Util;
 class GitRevision
 {
     /**
-    * Prints details about the current Git commit revision
-    *
-    * @return void
-    */
-    public static function display()
+     * @var Response
+     */
+    private $response;
+
+    /**
+     * @var Config
+     */
+    private $config;
+
+    /**
+     * @var Template
+     */
+    private $template;
+
+    /**
+     * GitRevision constructor.
+     * @param Response $response Response instance
+     * @param Config   $config   Config instance
+     * @param Template $template Template instance
+     */
+    public function __construct($response, $config, $template)
     {
+        $this->response = $response;
+        $this->config = $config;
+        $this->template = $template;
+    }
 
+    /**
+     * Returns details about the current Git commit revision
+     *
+     * @return string HTML
+     */
+    public function display(): string
+    {
         // load revision data from repo
-        $GLOBALS['PMA_Config']->checkGitRevision();
+        $this->config->checkGitRevision();
 
-        if (! $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT')) {
-            $response = Response::getInstance();
-            $response->setRequestStatus(false);
-            return;
+        if (! $this->config->get('PMA_VERSION_GIT')) {
+            $this->response->setRequestStatus(false);
+            return '';
         }
 
         // if using a remote commit fast-forwarded, link to GitHub
-        $commit_hash = substr(
-            $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_COMMITHASH'),
+        $commitHash = substr(
+            $this->config->get('PMA_VERSION_GIT_COMMITHASH'),
             0,
             7
         );
-        $commit_hash = '<strong title="'
-            . htmlspecialchars($GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_MESSAGE'))
-            . '">' . htmlspecialchars($commit_hash) . '</strong>';
-        if ($GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_ISREMOTECOMMIT')) {
-            $commit_hash = '<a href="'
+        $commitHash = '<strong title="'
+            . htmlspecialchars($this->config->get('PMA_VERSION_GIT_MESSAGE'))
+            . '">' . htmlspecialchars($commitHash) . '</strong>';
+        if ($this->config->get('PMA_VERSION_GIT_ISREMOTECOMMIT')) {
+            $commitHash = '<a href="'
                 . Core::linkURL(
                     'https://github.com/phpmyadmin/phpmyadmin/commit/'
-                    . htmlspecialchars($GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_COMMITHASH'))
+                    . htmlspecialchars($this->config->get('PMA_VERSION_GIT_COMMITHASH'))
                 )
-                . '" rel="noopener noreferrer" target="_blank">' . $commit_hash . '</a>';
+                . '" rel="noopener noreferrer" target="_blank">' . $commitHash . '</a>';
         }
 
-        $branch = $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_BRANCH');
-        $isRemoteBranch = $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_ISREMOTEBRANCH');
+        $branch = $this->config->get('PMA_VERSION_GIT_BRANCH');
+        $isRemoteBranch = $this->config->get('PMA_VERSION_GIT_ISREMOTEBRANCH');
         if ($isRemoteBranch) {
             $branch = '<a href="'
                 . Core::linkURL(
                     'https://github.com/phpmyadmin/phpmyadmin/tree/'
-                    . $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_BRANCH')
+                    . $this->config->get('PMA_VERSION_GIT_BRANCH')
                 )
                 . '" rel="noopener noreferrer" target="_blank">' . htmlspecialchars($branch) . '</a>';
         }
         if ($branch !== false) {
             $branch = sprintf(
                 __('%1$s from %2$s branch'),
-                $commit_hash,
+                $commitHash,
                 $isRemoteBranch ? $branch : htmlspecialchars($branch)
             );
         } else {
-            $branch = $commit_hash . ' (' . __('no branch') . ')';
+            $branch = $commitHash . ' (' . __('no branch') . ')';
         }
 
-        $committer = $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_COMMITTER');
-        $author = $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_AUTHOR');
-        Core::printListItem(
-            __('Git revision:') . ' '
-            . $branch . ',<br /> '
+        $committer = $this->config->get('PMA_VERSION_GIT_COMMITTER');
+        $author = $this->config->get('PMA_VERSION_GIT_AUTHOR');
+
+        $name = __('Git revision:') . ' '
+            . $branch . ',<br> '
             . sprintf(
                 __('committed on %1$s by %2$s'),
                 Util::localisedDate(strtotime($committer['date'])),
@@ -87,7 +117,7 @@ class GitRevision
                 . htmlspecialchars($committer['name']) . '</a>'
             )
             . ($author != $committer
-                ? ', <br />'
+                ? ', <br>'
                 . sprintf(
                     __('authored on %1$s by %2$s'),
                     Util::localisedDate(strtotime($author['date'])),
@@ -96,8 +126,19 @@ class GitRevision
                     ) . '">'
                     . htmlspecialchars($author['name']) . '</a>'
                 )
-                : ''),
-            'li_pma_version_git', null, null, null
-        );
+                : '');
+
+        return $this->template->render('list/item', [
+            'content' => $name,
+            'id' => 'li_pma_version_git',
+            'class' => null,
+            'url' => [
+                'href' => null,
+                'target' => null,
+                'id' => null,
+                'class' => null,
+            ],
+            'mysql_help_page' => null,
+        ]);
     }
 }

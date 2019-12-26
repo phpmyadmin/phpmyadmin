@@ -33,9 +33,9 @@
                 {% endfor %}
             </select>
         </th>
-        {% if criteria_column_names is defined
+        {% if criteria_column_names[i] is defined
             and criteria_column_names[i] != 'pma_null' %}
-            {% set key = array_search(criteria_column_names[i], column_names) %}
+            {% set key = keys[criteria_column_names[i]] %}
             {% set properties = self.getColumnProperties(i, key) %}
             {% set type = type|merge({i: properties['type']}) %}
             {% set collation = collation|merge({i: properties['collation']}) %}
@@ -65,10 +65,10 @@
                 id="types_{{ i }}"
                 {%- if criteria_column_types[i] is defined %}
                     value="{{ criteria_column_types[i] }}"
-                {%- endif %} />
+                {%- endif %}>
             <input type="hidden"
                 name="criteriaColumnCollations[{{ i }}]"
-                id="collations_{{ i }}" />
+                id="collations_{{ i }}">
         </td>
     </tr>
 {% endfor %}

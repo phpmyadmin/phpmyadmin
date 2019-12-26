@@ -47,21 +47,27 @@
         'ci_offset': ci_offset,
         'column_meta': column_meta,
         'type_upper': type_upper,
+        'default_value': default_value,
         'char_editing': char_editing
     } only %}
     {% set ci = ci + 1 %}
 </td>
 <td class="center">
-    {# column collation #}
-    {{ Charsets_getCollationDropdownBox(
-        dbi,
-        disable_is,
-        'field_collation[' ~ column_number ~ ']',
-        'field_' ~ column_number ~ '_' ~ (ci - ci_offset),
-        column_meta['Collation'] is not empty ? column_meta['Collation'] : null,
-        false
-    ) }}
-    {% set ci = ci + 1 %}
+  {# column collation #}
+  <select lang="en" dir="ltr" name="field_collation[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}">
+    <option value=""></option>
+    {% for charset in charsets %}
+      <optgroup label="{{ charset.name }}" title="{{ charset.description }}">
+        {% for collation in charset.collations %}
+          <option value="{{ collation.name }}" title="{{ collation.description }}"
+            {{- collation.name == column_meta['Collation'] ? ' selected' }}>
+            {{- collation.name -}}
+          </option>
+        {% endfor %}
+      </optgroup>
+    {% endfor %}
+  </select>
+  {% set ci = ci + 1 %}
 </td>
 <td class="center">
     {# column attribute #}

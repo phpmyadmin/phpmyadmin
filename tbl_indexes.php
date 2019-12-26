@@ -5,30 +5,29 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
-use PhpMyAdmin\Controllers\Table\TableIndexesController;
-use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Controllers\Table\IndexesController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
-use PhpMyAdmin\Response;
 
-require_once 'libraries/common.inc.php';
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
 
-$container = Container::getDefaultContainer();
-$container->factory('PhpMyAdmin\Controllers\Table\TableIndexesController');
-$container->alias(
-    'TableIndexesController',
-    'PhpMyAdmin\Controllers\Table\TableIndexesController'
-);
-$container->set('PhpMyAdmin\Response', Response::getInstance());
-$container->alias('response', 'PhpMyAdmin\Response');
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
-/* Define dependencies for the concerned controller */
-$db = $container->get('db');
-$table = $container->get('table');
-$dbi = $container->get('dbi');
+/** @var DatabaseInterface $dbi */
+$dbi = $containerBuilder->get('dbi');
 
-if (!isset($_POST['create_edit_table'])) {
-    include_once 'libraries/tbl_common.inc.php';
+/** @var string $db */
+$db = $containerBuilder->getParameter('db');
+
+/** @var string $table */
+$table = $containerBuilder->getParameter('table');
+
+if (! isset($_POST['create_edit_table'])) {
+    include_once ROOT_PATH . 'libraries/tbl_common.inc.php';
 }
 if (isset($_POST['index'])) {
     if (is_array($_POST['index'])) {
@@ -38,13 +37,12 @@ if (isset($_POST['index'])) {
         $index = $dbi->getTable($db, $table)->getIndex($_POST['index']);
     }
 } else {
-    $index = new Index;
+    $index = new Index();
 }
 
-$dependency_definitions = array(
-    "index" => $index
-);
+/* Define dependencies for the concerned controller */
+$containerBuilder->setParameter('index', $index);
 
-/** @var TableIndexesController $controller */
-$controller = $container->get('TableIndexesController', $dependency_definitions);
+/** @var IndexesController $controller */
+$controller = $containerBuilder->get(IndexesController::class);
 $controller->indexAction();

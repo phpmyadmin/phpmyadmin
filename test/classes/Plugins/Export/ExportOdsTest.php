@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
@@ -29,7 +31,7 @@ class ExportOdsTest extends PmaTestCase
      *
      * @return void
      */
-    function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
@@ -45,7 +47,7 @@ class ExportOdsTest extends PmaTestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -166,7 +168,6 @@ class ExportOdsTest extends PmaTestCase
             'structure_or_data',
             $property->getName()
         );
-
     }
 
     /**
@@ -202,22 +203,22 @@ class ExportOdsTest extends PmaTestCase
             $this->object->exportFooter()
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'header',
             $GLOBALS['ods_buffer']
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '</office:spreadsheet>',
             $GLOBALS['ods_buffer']
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '</office:body>',
             $GLOBALS['ods_buffer']
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '</office:document-content>',
             $GLOBALS['ods_buffer']
         );
@@ -270,44 +271,44 @@ class ExportOdsTest extends PmaTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $flags = array();
-        $a = new stdClass;
+        $flags = [];
+        $a = new stdClass();
         $a->type = '';
         $flags[] = $a;
 
-        $a = new stdClass;
+        $a = new stdClass();
         $a->type = '';
         $a->blob = true;
         $flags[] = $a;
 
-        $a = new stdClass;
+        $a = new stdClass();
         $a->blob = false;
         $a->type = 'date';
         $flags[] = $a;
 
-        $a = new stdClass;
+        $a = new stdClass();
         $a->blob = false;
         $a->type = 'time';
         $flags[] = $a;
 
-        $a = new stdClass;
+        $a = new stdClass();
         $a->blob = false;
         $a->type = 'datetime';
         $flags[] = $a;
 
-        $a = new stdClass;
+        $a = new stdClass();
         $a->numeric = true;
         $a->type = 'none';
         $a->blob = false;
         $flags[] = $a;
 
-        $a = new stdClass;
+        $a = new stdClass();
         $a->numeric = true;
         $a->type = 'real';
         $a->blob = true;
         $flags[] = $a;
 
-        $a = new stdClass;
+        $a = new stdClass();
         $a->type = "dummy";
         $a->blob = false;
         $a->numeric = false;
@@ -346,10 +347,16 @@ class ExportOdsTest extends PmaTestCase
             ->with(true)
             ->will(
                 $this->returnValue(
-                    array(
-                        null, '01-01-2000', '01-01-2000', '01-01-2000 10:00:00',
-                        "01-01-2014 10:02:00", "t>s", "a&b", "<"
-                    )
+                    [
+                        null,
+                        '01-01-2000',
+                        '01-01-2000',
+                        '01-01-2000 10:00:00',
+                        "01-01-2014 10:02:00",
+                        "t>s",
+                        "a&b",
+                        "<",
+                    ]
                 )
             );
 
@@ -361,7 +368,11 @@ class ExportOdsTest extends PmaTestCase
 
         $this->assertTrue(
             $this->object->exportData(
-                'db', 'table', "\n", "example.com", "SELECT"
+                'db',
+                'table',
+                "\n",
+                "example.com",
+                "SELECT"
             )
         );
 
@@ -397,15 +408,15 @@ class ExportOdsTest extends PmaTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $flags = array();
-        $a = new \stdClass();
+        $flags = [];
+        $a = new stdClass();
         $a->blob = false;
         $a->numeric = false;
         $a->type = 'string';
         $a->name = 'fna\"me';
         $a->length = 20;
         $flags[] = $a;
-        $b = new \stdClass();
+        $b = new stdClass();
         $b->blob = false;
         $b->numeric = false;
         $b->type = 'string';
@@ -458,7 +469,11 @@ class ExportOdsTest extends PmaTestCase
 
         $this->assertTrue(
             $this->object->exportData(
-                'db', 'table', "\n", "example.com", "SELECT"
+                'db',
+                'table',
+                "\n",
+                "example.com",
+                "SELECT"
             )
         );
 
@@ -476,7 +491,7 @@ class ExportOdsTest extends PmaTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $flags = array();
+        $flags = [];
 
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
@@ -511,7 +526,11 @@ class ExportOdsTest extends PmaTestCase
 
         $this->assertTrue(
             $this->object->exportData(
-                'db', 'table', "\n", "example.com", "SELECT"
+                'db',
+                'table',
+                "\n",
+                "example.com",
+                "SELECT"
             )
         );
 

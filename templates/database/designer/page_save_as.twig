@@ -1,11 +1,11 @@
 <form action="db_designer.php" method="post" name="save_as_pages" id="save_as_pages" class="ajax">
-    {{ Url_getHiddenInputs(db) }}
+    {{ get_hidden_inputs(db) }}
     <fieldset id="page_save_as_options">
         <table>
             <tbody>
                 <tr>
                     <td>
-                        <input type="hidden" name="operation" value="savePage" />
+                        <input type="hidden" name="operation" value="savePage">
                         {% include 'database/designer/page_selector.twig' with {
                             'pdfwork': pdfwork,
                             'pages': pages
@@ -14,7 +14,7 @@
                 </tr>
                 <tr>
                     <td>
-                        {{ Util_getRadioFields(
+                        {{ get_radio_fields(
                             'save_page',
                             {
                                 'same': 'Save to selected page'|trans,
@@ -28,7 +28,7 @@
                 <tr>
                     <td>
                         <label for="selected_value">{% trans 'New page name' %}</label>
-                        <input type="text" name="selected_value" id="selected_value" />
+                        <input type="text" name="selected_value" id="selected_value">
                     </td>
                 </tr>
             </tbody>

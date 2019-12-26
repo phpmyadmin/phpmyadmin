@@ -5,8 +5,11 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
+use Exception;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
@@ -21,13 +24,13 @@ use TCPDF_FONTS;
  */
 class Pdf extends TCPDF
 {
-    var $footerset;
-    var $Alias = array();
+    public $footerset;
+    public $Alias = [];
 
     /**
      * PDF font to use.
      */
-    const PMA_PDF_FONT = 'DejaVuSans';
+    public const PMA_PDF_FONT = 'DejaVuSans';
 
     /**
      * Constructs PDF and configures standard parameters.
@@ -41,20 +44,32 @@ class Pdf extends TCPDF
      *                             temporary data on filesystem (slower).
      * @param boolean $pdfa        If TRUE set the document to PDF/A mode.
      *
+     * @throws Exception
      * @access public
      */
-    public function __construct($orientation = 'P', $unit = 'mm', $format = 'A4',
-        $unicode = true, $encoding = 'UTF-8', $diskcache = false, $pdfa=false
+    public function __construct(
+        $orientation = 'P',
+        $unit = 'mm',
+        $format = 'A4',
+        $unicode = true,
+        $encoding = 'UTF-8',
+        $diskcache = false,
+        $pdfa = false
     ) {
         parent::__construct(
-            $orientation, $unit, $format, $unicode,
-            $encoding, $diskcache, $pdfa
+            $orientation,
+            $unit,
+            $format,
+            $unicode,
+            $encoding,
+            $diskcache,
+            $pdfa
         );
         $this->SetAuthor('phpMyAdmin ' . PMA_VERSION);
         $this->AddFont('DejaVuSans', '', 'dejavusans.php');
         $this->AddFont('DejaVuSans', 'B', 'dejavusansb.php');
         $this->SetFont(Pdf::PMA_PDF_FONT, '', 14);
-        $this->setFooterFont(array(Pdf::PMA_PDF_FONT, '', 14));
+        $this->setFooterFont([Pdf::PMA_PDF_FONT, '', 14]);
     }
 
     /**
@@ -66,14 +81,17 @@ class Pdf extends TCPDF
     public function Footer()
     {
         // Check if footer for this page already exists
-        if (!isset($this->footerset[$this->page])) {
+        if (! isset($this->footerset[$this->page])) {
             $this->SetY(-15);
             $this->SetFont(Pdf::PMA_PDF_FONT, '', 14);
             $this->Cell(
-                0, 6,
+                0,
+                6,
                 __('Page number:') . ' '
-                . $this->getAliasNumPage() . '/' .  $this->getAliasNbPages(),
-                'T', 0, 'C'
+                . $this->getAliasNumPage() . '/' . $this->getAliasNbPages(),
+                'T',
+                0,
+                'C'
             );
             $this->Cell(0, 6, Util::localisedDate(), 0, 1, 'R');
             $this->SetY(20);
@@ -94,10 +112,16 @@ class Pdf extends TCPDF
     public function setAlias($name, $value)
     {
         $name = TCPDF_FONTS::UTF8ToUTF16BE(
-            $name, false, true, $this->CurrentFont
+            $name,
+            false,
+            true,
+            $this->CurrentFont
         );
         $this->Alias[$name] = TCPDF_FONTS::UTF8ToUTF16BE(
-            $value, false, true, $this->CurrentFont
+            $value,
+            false,
+            true,
+            $this->CurrentFont
         );
     }
 

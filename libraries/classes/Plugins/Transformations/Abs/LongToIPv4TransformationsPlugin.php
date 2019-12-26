@@ -6,10 +6,13 @@
  * @package    PhpMyAdmin-Transformations
  * @subpackage LongToIPv4
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Util;
+use stdClass;
 
 /**
  * Provides common methods for all of the long to IPv4 transformations plugins.
@@ -34,13 +37,13 @@ abstract class LongToIPv4TransformationsPlugin extends TransformationsPlugin
     /**
      * Does the actual work of each specific transformations plugin.
      *
-     * @param string $buffer  text to be transformed
-     * @param array  $options transformation options
-     * @param string $meta    meta information
+     * @param string        $buffer  text to be transformed
+     * @param array         $options transformation options
+     * @param stdClass|null $meta    meta information
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = array(), $meta = '')
+    public function applyTransformation($buffer, array $options = [], ?stdClass $meta = null)
     {
         if (! Util::isInteger($buffer) || $buffer < 0 || $buffer > 4294967295) {
             return htmlspecialchars($buffer);

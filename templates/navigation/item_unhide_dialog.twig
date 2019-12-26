@@ -1,0 +1,29 @@
+<form class="ajax" action="navigation.php" method="post">
+  <fieldset>
+    {{ get_hidden_inputs(database, table) }}
+
+    {% for type, label in types %}
+      {% if (item_type is empty or item_type == type) and hidden[type] is iterable %}
+        {{ not loop.first ? '<br>' }}
+        <strong>{{ label }}</strong>
+        <table class="all100">
+          <tbody>
+            {% for item in hidden[type] %}
+              <tr>
+                <td>{{ item }}</td>
+                <td class="right">
+                  <a class="unhideNavItem ajax" href="navigation.php" data-post="{{ get_common({
+                    'unhideNavItem': true,
+                    'itemType': type,
+                    'itemName': item,
+                    'dbName': database
+                  }, '') }}">{{ get_icon('show', 'Unhide'|trans) }}</a>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% endif %}
+    {% endfor %}
+  </fieldset>
+</form>

@@ -5,17 +5,26 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Config\Forms\Page;
 
 use PhpMyAdmin\Config\Forms\BaseForm;
 use PhpMyAdmin\Config\Forms\User\MainForm;
 
+/**
+ * Class BrowseForm
+ * @package PhpMyAdmin\Config\Forms\Page
+ */
 class BrowseForm extends BaseForm
 {
+    /**
+     * @return array
+     */
     public static function getForms()
     {
         return [
-            'Browse' => MainForm::getForms()['Browse']
+            'Browse' => MainForm::getForms()['Browse'],
         ];
     }
 }

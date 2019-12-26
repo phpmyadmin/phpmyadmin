@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Properties\Options;
 
 /**
@@ -50,7 +52,7 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
     /**
      * Gets the force parameter
      *
-     * @return string
+     * @return bool
      */
     public function getForce()
     {
@@ -72,7 +74,7 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
     /**
      * Gets the values
      *
-     * @return string
+     * @return array
      */
     public function getValues()
     {
@@ -94,7 +96,7 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
     /**
      * Gets MySQL documentation pointer
      *
-     * @return array
+     * @return string
      */
     public function getDoc()
     {

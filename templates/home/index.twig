@@ -1,0 +1,203 @@
+{% if is_git_revision %}
+  <div id="is_git_revision"></div>
+{% endif %}
+
+{{ message|raw }}
+
+{{ partial_logout|raw }}
+
+<div id="maincontainer">
+  {{ sync_favorite_tables|raw }}
+
+  <div id="main_pane_left">
+    {% if has_server %}
+      {% if is_demo %}
+        <div class="group">
+          <h2>{% trans 'phpMyAdmin Demo Server' %}</h2>
+          <p class="cfg_dbg_demo">
+            {% apply format('<a href="url.php?url=https://demo.phpmyadmin.net/" target="_blank" rel="noopener noreferrer">demo.phpmyadmin.net</a>')|raw %}
+              {% trans %}
+                You are using the demo server. You can do anything here, but please do not change root, debian-sys-maint and pma users. More information is available at %s.
+              {% endtrans %}
+            {% endapply %}
+          </p>
+        </div>
+      {% endif %}
+
+      <div class="group">
+        <h2>{% trans 'General settings' %}</h2>
+        <ul>
+          {% if has_server_selection %}
+            <li id="li_select_server" class="no_bullets">
+              {{ get_image('s_host') }}
+              {{ server_selection|raw }}
+            </li>
+          {% endif %}
+
+          {% if server > 0 %}
+            {{ change_password is not empty ? change_password|raw }}
+
+            <li id="li_select_mysql_collation" class="no_bullets">
+              <form class="disableAjax" method="post" action="index.php">
+                {{ get_hidden_inputs(null, null, 4, 'collation_connection') }}
+                <label for="select_collation_connection">
+                  {{ get_image('s_asci') }}
+                  {% trans 'Server connection collation:' %}
+                  {{ show_mysql_docu('charset-connection') }}
+                </label>
+                {% if charsets is not empty %}
+                  <select lang="en" dir="ltr" name="collation_connection" id="select_collation_connection" class="autosubmit">
+                    <option value="">{% trans 'Collation' %}</option>
+                    <option value=""></option>
+                    {% for charset in charsets %}
+                      <optgroup label="{{ charset.name }}" title="{{ charset.description }}">
+                        {% for collation in charset.collations %}
+                          <option value="{{ collation.name }}" title="{{ collation.description }}"{{ collation.is_selected ? ' selected' }}>
+                            {{- collation.name -}}
+                          </option>
+                        {% endfor %}
+                      </optgroup>
+                    {% endfor %}
+                  </select>
+                {% endif %}
+              </form>
+            </li>
+          {% endif %}
+          {{ user_preferences is not empty ? user_preferences|raw }}
+        </ul>
+      </div>
+    {% endif %}
+
+    <div class="group">
+      <h2>{% trans 'Appearance settings' %}</h2>
+      <ul>
+        {% if language_selector is not empty %}
+          <li id="li_select_lang" class="no_bullets">
+            {{ get_image('s_lang') }}
+            {{ language_selector|raw }}
+          </li>
+        {% endif %}
+
+        {% if theme_selection is not empty %}
+          <li id="li_select_theme" class="no_bullets">
+            {{ get_image('s_theme') }}
+            {{ theme_selection|raw }}
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+
+  <div id="main_pane_right">
+    {% if database_server is not empty %}
+      <div class="group">
+        <h2>{% trans 'Database server' %}</h2>
+        <ul>
+          <li id="li_server_info">
+            {% trans 'Server:' %}
+            {{ database_server.host }}
+          </li>
+          <li id="li_server_type">
+            {% trans 'Server type:' %}
+            {{ database_server.type }}
+          </li>
+          <li id="li_server_connection">
+            {% trans 'Server connection:' %}
+            {{ database_server.connection|raw }}
+          </li>
+          <li id="li_server_version">
+            {% trans 'Server version:' %}
+            {{ database_server.version }}
+          </li>
+          <li id="li_mysql_proto">
+            {% trans 'Protocol version:' %}
+            {{ database_server.protocol }}
+          </li>
+          <li id="li_user_info">
+            {% trans 'User:' %}
+            {{ database_server.user }}
+          </li>
+          <li id="li_mysql_charset">
+            {% trans 'Server charset:' %}
+            <span lang="en" dir="ltr">
+              {{ database_server.charset }}
+            </span>
+          </li>
+        </ul>
+      </div>
+    {% endif %}
+
+    {% if web_server is not empty or php_info is not empty %}
+      <div class="group">
+        <h2>{% trans 'Web server' %}</h2>
+        <ul>
+          {% if web_server is not empty %}
+            <li id="li_web_server_software">
+              {{ web_server.software }}
+            </li>
+            <li id="li_mysql_client_version">
+              {% trans 'Database client version:' %}
+              {{ web_server.database }}
+            </li>
+            <li id="li_used_php_extension">
+              {% trans 'PHP extension:' %}
+              {% for extension in web_server.php_extensions %}
+                {{ extension }}
+                {{ show_php_docu('book.' ~ extension ~ '.php') }}
+              {% endfor %}
+            </li>
+            <li id="li_used_php_version">
+              {% trans 'PHP version:' %}
+              {{ web_server.php_version }}
+            </li>
+          {% endif %}
+          {% if php_info is not empty %}
+            {{ php_info|raw }}
+          {% endif %}
+        </ul>
+      </div>
+    {% endif %}
+
+    <div class="group pmagroup">
+      <h2>phpMyAdmin</h2>
+      <ul>
+        <li id="li_pma_version"{{ is_version_checked ? ' class="jsversioncheck"' }}>
+          {% trans 'Version information:' %}
+          <span class="version">{{ phpmyadmin_version }}</span>
+        </li>
+        <li id="li_pma_docs">
+          <a href="{{ get_docu_link('index') }}" target="_blank" rel="noopener noreferrer">
+            {% trans 'Documentation' %}
+          </a>
+        </li>
+        <li id="li_pma_homepage">
+          <a href="{{ 'https://www.phpmyadmin.net/'|link }}" target="_blank" rel="noopener noreferrer">
+            {% trans 'Official Homepage' %}
+          </a>
+        </li>
+        <li id="li_pma_contribute">
+          <a href="{{ 'https://www.phpmyadmin.net/contribute/'|link }}" target="_blank" rel="noopener noreferrer">
+            {% trans 'Contribute' %}
+          </a>
+        </li>
+        <li id="li_pma_support">
+          <a href="{{ 'https://www.phpmyadmin.net/support/'|link }}" target="_blank" rel="noopener noreferrer">
+            {% trans 'Get support' %}
+          </a>
+        </li>
+        <li id="li_pma_changes">
+          <a href="changelog.php{{ get_common() }}" target="_blank">
+            {% trans 'List of changes' %}
+          </a>
+        </li>
+        <li id="li_pma_license">
+          <a href="license.php{{ get_common() }}" target="_blank">
+            {% trans 'License' %}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+{{ config_storage_message|raw }}

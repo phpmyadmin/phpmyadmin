@@ -6,9 +6,12 @@
  * @package    PhpMyAdmin-Transformations
  * @subpackage Download
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\TransformationsPlugin;
+use stdClass;
 
 /**
  * Provides common methods for all of the download transformations plugins.
@@ -36,20 +39,20 @@ abstract class DownloadTransformationsPlugin extends TransformationsPlugin
     /**
      * Does the actual work of each specific transformations plugin.
      *
-     * @param string $buffer  text to be transformed
-     * @param array  $options transformation options
-     * @param string $meta    meta information
+     * @param string        $buffer  text to be transformed
+     * @param array         $options transformation options
+     * @param stdClass|null $meta    meta information
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = array(), $meta = '')
+    public function applyTransformation($buffer, array $options = [], ?stdClass $meta = null)
     {
         global $row, $fields_meta;
 
-        if (isset($options[0]) && !empty($options[0])) {
+        if (isset($options[0]) && ! empty($options[0])) {
             $cn = $options[0]; // filename
         } else {
-            if (isset($options[1]) && !empty($options[1])) {
+            if (isset($options[1]) && ! empty($options[1])) {
                 foreach ($fields_meta as $key => $val) {
                     if ($val->name == $options[1]) {
                         $pos = $key;

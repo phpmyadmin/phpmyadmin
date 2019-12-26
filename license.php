@@ -8,12 +8,18 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 use PhpMyAdmin\Response;
+
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
 
 /**
  * Gets core libraries and defines some variables
  */
-require 'libraries/common.inc.php';
+require ROOT_PATH . 'libraries/common.inc.php';
 
 $response = Response::getInstance();
 $response->disable();

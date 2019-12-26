@@ -1,6 +1,52 @@
 phpMyAdmin - ChangeLog
 ======================
 
+5.0.0 (2019-12-26)
+- issue #13896 Drop support for PHP 5.5, PHP 5.6, PHP 7.0 and HHVM
+- issue #14007 Enable columns names by default for CSV exports
+- issue #13919 Remove font size feature
+- issue #12373 Add Metro theme
+- issue #14155 Add move columns preview SQL button
+- issue #14296 Enable strict mode in PHP files
+- issue #13627 Increase field width for editing varchar fields
+- issue #12603 Show warning for users with the default values for controluser and controlpass
+- issue #14589 Fix rendering of column comments in Safari, improve display in all browsers
+- issue #14330 New features for csv import plugin
+- issue #14417 Automatically add index while editing an existing row and setting auto increment
+- issue #13057 Add export option to drop user security definers from views
+- issue #14404 Drop view and or replace added to exporting view
+- issue #14594 Database "Search" selects all tables by default
+- issue #12158 Auto expand the single database
+- issue #13067 Inconsistency with submit buttons
+- issue #14683 Improper message in Show Hidden Navigation Tree Items
+- issue #14695 Remove unlabeled default collation from the bottom of the database list; this information is available elsewhere
+- issue #14677 Security confirm() before running UPDATE statement without WHERE condition
+- issue #13023 Show errors at the bottom of the page and add copy query button for errors in processing sql queries
+- issue #14633 Use Sass instead of PHP to compile CSS
+- issue #14765 Add initial support for Bootstrap 4
+- issue #14829 Change table column comment field from input to textarea
+- issue #14725 Console: ctrl+l clear line and ctrl+u clear console
+- issue #14837 Use charset 'windows-1252' when format is MS Excel
+- issue #15030 Move 'More settings' link from 'Appearance settings' to 'General settings'
+- issue #15029 Remove the redundant 'i' help/tool tip in page settings "Query History Length" area
+- issue #13424 Importing CSV now uses file name as the table name instead of 'TABLE #'
+- issue #14926 Add an Edit link for each view in tables list
+- issue #14890 Display column details in navigation bar
+- issue #14977 Add title for group in navigation bar
+- issue #14927 Show InnoDB table overhead (free space)
+- issue #15072 Add 'Close' button to the Monitor Instructions modal
+- issue #15174 Improved filter method in server variables page
+- issue #15266 Add an external dependency injection system
+- issue #15350 Change MIME type references to Media (MIME) type
+- issue        Fixed url.php crashing because it's not loading the DatabaseInterface service
+- issue #15540 Fixed uncaught TypeError: htmlspecialchars() in NavigationTree
+- issue        Fix twig deprecation notices for php 8.0
+- issue #15435 Fix ReCAPTCHA couldn't find user-provided function: Functions.recaptchaCallback
+- issue #15623 Fix width of picker modal and remove date picker for int fields
+- issue #14732 Fixed can't rename primary key with auto increment
+- issue #15677 Fix show process-list triggers a php exception
+- issue #15697 Fix uncaught php error: "Call to a member function get() on null" in db_export.php when exporting a table from the list
+
 4.9.3 (2019-12-26)
 - issue #15570 Fix page contents go underneath of floating menubar in some cases
 - issue #15591 Fix php notice 'Undefined index: foreign_keys_data' on relations view when the user has column access

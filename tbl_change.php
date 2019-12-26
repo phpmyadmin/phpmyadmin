@@ -5,26 +5,39 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
-/**
- * Gets the variables sent or posted to this script and displays the header
- */
-require_once 'libraries/common.inc.php';
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
+global $cfg, $containerBuilder, $db, $table, $text_dir;
+
+require_once ROOT_PATH . 'libraries/common.inc.php';
+
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $containerBuilder->get(DatabaseInterface::class);
 
 PageSettings::showGroup('Edit');
 
 /**
  * Ensures db and table are valid, else moves to the "parent" script
  */
-require_once 'libraries/db_table_exists.inc.php';
+require_once ROOT_PATH . 'libraries/db_table_exists.inc.php';
 
-$insertEdit = new InsertEdit($GLOBALS['dbi']);
+/** @var InsertEdit $insertEdit */
+$insertEdit = $containerBuilder->get('insert_edit');
 
 /**
  * Determine whether Insert or Edit and set global variables
@@ -33,10 +46,12 @@ list(
     $insert_mode, $where_clause, $where_clause_array, $where_clauses,
     $result, $rows, $found_unique_key, $after_insert
 ) = $insertEdit->determineInsertOrEdit(
-    isset($where_clause) ? $where_clause : null, $db, $table
+    isset($where_clause) ? $where_clause : null,
+    $db,
+    $table
 );
 // Increase number of rows if unsaved rows are more
-if (!empty($unsaved_values) && count($rows) < count($unsaved_values)) {
+if (! empty($unsaved_values) && count($rows) < count($unsaved_values)) {
     $rows = array_fill(0, count($unsaved_values), false);
 }
 
@@ -64,14 +79,10 @@ $comments_map = $insertEdit->getCommentsMap($db, $table);
  * START REGULAR OUTPUT
  */
 
-/**
- * Load JavaScript files
- */
-$response = Response::getInstance();
-$header   = $response->getHeader();
-$scripts  = $header->getScripts();
+$header = $response->getHeader();
+$scripts = $header->getScripts();
 $scripts->addFile('sql.js');
-$scripts->addFile('tbl_change.js');
+$scripts->addFile('table/change.js');
 $scripts->addFile('vendor/jquery/additional-methods.js');
 $scripts->addFile('gis_data_editor.js');
 
@@ -87,12 +98,17 @@ if (! empty($disp_message)) {
 $table_columns = $insertEdit->getTableColumns($db, $table);
 
 // retrieve keys into foreign fields, if any
-$relation = new Relation();
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
 $foreigners = $relation->getForeigners($db, $table);
 
 // Retrieve form parameters for insert/edit form
 $_form_params = $insertEdit->getFormParametersForInsertForm(
-    $db, $table, $where_clauses, $where_clause_array, $err_url
+    $db,
+    $table,
+    $where_clauses,
+    $where_clause_array,
+    $err_url
 );
 
 /**
@@ -119,14 +135,20 @@ $biggest_max_file_size = 0;
 $url_params['db'] = $db;
 $url_params['table'] = $table;
 $url_params = $insertEdit->urlParamsInEditMode(
-    $url_params, $where_clause_array
+    $url_params,
+    $where_clause_array
 );
 
 $has_blob_field = false;
 foreach ($table_columns as $column) {
     if ($insertEdit->isColumn(
         $column,
-        array('blob', 'tinyblob', 'mediumblob', 'longblob')
+        [
+            'blob',
+            'tinyblob',
+            'mediumblob',
+            'longblob',
+        ]
     )) {
         $has_blob_field = true;
         break;
@@ -155,10 +177,10 @@ if (! $cfg['ShowFieldTypesInDataEditView']) {
     $html_output .= $insertEdit->showTypeOrFunction('type', $url_params, false);
 }
 
-$GLOBALS['plugin_scripts'] = array();
+$GLOBALS['plugin_scripts'] = [];
 foreach ($rows as $row_id => $current_row) {
     if (empty($current_row)) {
-        $current_row = array();
+        $current_row = [];
     }
 
     $jsvkey = $row_id;
@@ -167,7 +189,7 @@ foreach ($rows as $row_id => $current_row) {
     $current_result = (isset($result) && is_array($result) && isset($result[$row_id])
         ? $result[$row_id]
         : $result);
-    $repopulate = array();
+    $repopulate = [];
     $checked = true;
     if (isset($unsaved_values[$row_id])) {
         $repopulate = $unsaved_values[$row_id];
@@ -178,12 +200,32 @@ foreach ($rows as $row_id => $current_row) {
     }
 
     $html_output .= $insertEdit->getHtmlForInsertEditRow(
-        $url_params, $table_columns, $comments_map, $timestamp_seen,
-        $current_result, $chg_evt_handler, $jsvkey, $vkey, $insert_mode,
-        $current_row, $o_rows, $tabindex, $columns_cnt,
-        $is_upload, $tabindex_for_function, $foreigners, $tabindex_for_null,
-        $tabindex_for_value, $table, $db, $row_id, $titles,
-        $biggest_max_file_size, $text_dir, $repopulate, $where_clause_array
+        $url_params,
+        $table_columns,
+        $comments_map,
+        $timestamp_seen,
+        $current_result,
+        $chg_evt_handler,
+        $jsvkey,
+        $vkey,
+        $insert_mode,
+        $current_row,
+        $o_rows,
+        $tabindex,
+        $columns_cnt,
+        $is_upload,
+        $tabindex_for_function,
+        $foreigners,
+        $tabindex_for_null,
+        $tabindex_for_value,
+        $table,
+        $db,
+        $row_id,
+        $titles,
+        $biggest_max_file_size,
+        $text_dir,
+        $repopulate,
+        $where_clause_array
     );
 } // end foreach on multi-edit
 $scripts->addFiles($GLOBALS['plugin_scripts']);
@@ -195,8 +237,11 @@ if (! isset($after_insert)) {
 
 //action panel
 $html_output .= $insertEdit->getActionsPanel(
-    $where_clause, $after_insert, $tabindex,
-    $tabindex_for_value, $found_unique_key
+    $where_clause,
+    $after_insert,
+    $tabindex,
+    $tabindex_for_value,
+    $found_unique_key
 );
 
 if ($biggest_max_file_size > 0) {
@@ -213,7 +258,10 @@ $html_output .= $insertEdit->getHtmlForGisEditor();
 if ($insert_mode) {
     //Continue insertion form
     $html_output .= $insertEdit->getContinueInsertionForm(
-        $table, $db, $where_clause_array, $err_url
+        $table,
+        $db,
+        $where_clause_array,
+        $err_url
     );
 }
 

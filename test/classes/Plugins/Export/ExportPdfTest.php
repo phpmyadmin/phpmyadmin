@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\Plugins\Export\ExportPdf;
@@ -28,7 +30,7 @@ class ExportPdfTest extends PmaTestCase
      *
      * @return void
      */
-    function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
@@ -44,7 +46,7 @@ class ExportPdfTest extends PmaTestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -165,14 +167,13 @@ class ExportPdfTest extends PmaTestCase
         );
 
         $this->assertEquals(
-            array(
+            [
                 'structure' => __('structure'),
                 'data' => __('data'),
-                'structure_and_data' => __('structure and data')
-            ),
+                'structure_and_data' => __('structure and data'),
+            ],
             $property->getValues()
         );
-
     }
 
     /**
@@ -277,11 +278,14 @@ class ExportPdfTest extends PmaTestCase
         $pdf->expects($this->once())
             ->method('setAttributes')
             ->with(
-                array(
-                    'currentDb' => 'db', 'currentTable' => 'table',
-                    'dbAlias' => 'db', 'tableAlias' => 'table',
-                    'aliases' => array()
-                )
+                [
+                    'currentDb' => 'db',
+                    'currentTable' => 'table',
+                    'dbAlias' => 'db',
+                    'tableAlias' => 'table',
+                    'aliases' => [],
+                    'purpose' => __('Dumping data'),
+                ]
             );
 
         $pdf->expects($this->once())
@@ -294,7 +298,11 @@ class ExportPdfTest extends PmaTestCase
 
         $this->assertTrue(
             $this->object->exportData(
-                'db', 'table', "\n", "phpmyadmin.net/err", 'SELECT'
+                'db',
+                'table',
+                "\n",
+                "phpmyadmin.net/err",
+                'SELECT'
             )
         );
     }
@@ -310,7 +318,7 @@ class ExportPdfTest extends PmaTestCase
     {
         $setter = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportPdf', '_setPdf');
         $setter->setAccessible(true);
-        $setter->invoke($this->object, new Pdf);
+        $setter->invoke($this->object, new Pdf());
 
         $getter = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportPdf', '_getPdf');
         $getter->setAccessible(true);

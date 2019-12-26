@@ -5,11 +5,16 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\OutputBuffering;
 
-if (!defined('TESTSUITE')) {
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
+}
+
+if (! defined('TESTSUITE')) {
     chdir('..');
 
     // Send correct type:
@@ -23,14 +28,14 @@ if (!defined('TESTSUITE')) {
     // non-js-compatible stuff like DOCTYPE
     define('PMA_MINIMUM_COMMON', true);
     define('PMA_PATH_TO_BASEDIR', '../');
-    require_once './libraries/common.inc.php';
+    require_once ROOT_PATH . 'libraries/common.inc.php';
     // Close session early as we won't write anything there
     session_write_close();
 }
 
 $buffer = OutputBuffering::getInstance();
 $buffer->start();
-if (!defined('TESTSUITE')) {
+if (! defined('TESTSUITE')) {
     register_shutdown_function(
         function () {
             echo OutputBuffering::getInstance()->getContents();
@@ -38,9 +43,9 @@ if (!defined('TESTSUITE')) {
     );
 }
 
-echo "var PMA_gotoWhitelist = new Array();\n";
+echo "var GotoWhitelist = [];\n";
 $i = 0;
 foreach (Core::$goto_whitelist as $one_whitelist) {
-    echo 'PMA_gotoWhitelist[' , $i , ']="' , $one_whitelist , '";' , "\n";
+    echo 'GotoWhitelist[' , $i , '] = \'' , $one_whitelist , '\';' , "\n";
     $i++;
 }

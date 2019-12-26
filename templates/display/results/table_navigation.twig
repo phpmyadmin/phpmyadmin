@@ -1,0 +1,82 @@
+<table class="navigation nospacing nopadding print_ignore">
+  <tr>
+    <td class="navigation_separator"></td>
+    {{ move_backward_buttons|raw }}
+    {{ page_selector|raw }}
+    {{ move_forward_buttons|raw }}
+    {% if number_total_page > 1 %}
+      <td><div class="navigation_separator">|</div></td>
+    {% endif %}
+    {% if has_show_all %}
+      <td>
+        <form action="sql.php" method="post">
+          {{ get_hidden_fields(hidden_fields|merge({
+            'session_max_rows': session_max_rows,
+            'pos': '0'
+          })) }}
+          <input type="checkbox" name="navig" id="showAll_{{ unique_id }}" class="showAllRows" value="all"
+            {{- is_showing_all ? ' checked' }}>
+          <label for="showAll_{{ unique_id }}">{% trans 'Show all' %}</label>
+        </form>
+      </td>
+      <td><div class="navigation_separator">|</div></td>
+    {% endif %}
+    <td>
+      <div class="save_edited hide">
+        <input class="btn btn-link" type="submit" value="{% trans 'Save edited data' %}">
+        <div class="navigation_separator">|</div>
+      </div>
+    </td>
+    <td>
+      <div class="restore_column hide">
+        <input class="btn btn-link" type="submit" value="{% trans 'Restore column order' %}">
+        <div class="navigation_separator">|</div>
+      </div>
+    </td>
+    <td class="navigation_goto">
+      {# if displaying a VIEW, $unlim_num_rows could be zero because #}
+      {# of $cfg['MaxExactCountViews']; in this case, avoid passing #}
+      {# the 5th parameter to Functions.checkFormElementInRange() #}
+      {# (this means we can't validate the upper limit) #}
+      <form action="sql.php" method="post" onsubmit="return (Functions.checkFormElementInRange(this, 'session_max_rows', '
+        {{- '%d is not valid row number.'|trans|replace({'\'': '\\\''}) -}}
+        ', 1) && Functions.checkFormElementInRange(this, 'pos', '
+        {{- '%d is not valid row number.'|trans|replace({'\'': '\\\''}) -}}
+        ', 0
+        {{- unlim_num_rows > 0 ? ', ' ~ (unlim_num_rows - 1) -}}
+        ));">
+
+        {{ get_hidden_fields(hidden_fields|merge({
+          'pos': pos
+        })) }}
+
+        {% trans 'Number of rows:' %}
+
+        {{ get_dropdown(
+          'session_max_rows',
+          {
+            '25': 25,
+            '50': 50,
+            '100': 100,
+            '250': 250,
+            '500': 500,
+          },
+          max_rows,
+          '',
+          'autosubmit',
+          is_showing_all ? 'All'|trans
+        ) }}
+      </form>
+    </td>
+    <td class="navigation_separator"></td>
+    <td class="largescreenonly">
+      <span>{% trans 'Filter rows' %}:</span>
+      <input type="text" class="filter_rows" placeholder="
+        {%- trans 'Search this table' %}" data-for="{{ unique_id }}">
+    </td>
+    <td class="largescreenonly">
+      {{ sort_by_key|raw }}
+    </td>
+    <td class="navigation_separator"></td>
+  </tr>
+</table>

@@ -1,0 +1,9 @@
+<form action="sql.php" method="post" class="print_ignore">
+  {{ get_hidden_fields(hidden_fields) }}
+  {% trans 'Sort by key:' %}
+  <select name="sql_query" class="autosubmit">
+    {% for option in options %}
+      <option value="{{ option.value }}"{{ option.is_selected ? ' selected' }}>{{ option.content }}</option>
+    {% endfor %}
+  </select>
+</form>

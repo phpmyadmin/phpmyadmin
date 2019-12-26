@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Properties\Plugins;
 
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
@@ -24,7 +26,7 @@ class ImportPluginPropertiesTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = new ImportPluginProperties();
     }
@@ -34,7 +36,7 @@ class ImportPluginPropertiesTest extends TestCase
      *
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -85,5 +87,4 @@ class ImportPluginPropertiesTest extends TestCase
             $this->object->getMimeType()
         );
     }
-
 }

@@ -6,6 +6,7 @@
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
@@ -23,7 +24,7 @@ class NormalizationTest extends TestBase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->dbQuery(
@@ -34,29 +35,21 @@ class NormalizationTest extends TestBase
             . "PRIMARY KEY(id)"
             . ")"
         );
-    }
 
-    /**
-     * setUp function that can use the selenium session
-     *
-     * @return void
-     */
-    public function setUpPage()
-    {
-        parent::setUpPage();
+        $this->maximize();
 
         $this->login();
         $this->navigateTable('test_table');
         $this->waitForElement(
-            "byXPath",
+            'xpath',
             "(//a[contains(., 'Structure')])"
         )->click();
 
         $this->waitAjax();
 
-        $this->waitForElement("byId", "tablestructure");
+        $this->waitForElement('id', "tablestructure");
         $this->byPartialLinkText('Normalize')->click();
-        $this->waitForElement("byId", "normalizeTable");
+        $this->waitForElement('id', "normalizeTable");
     }
 
     /**
@@ -69,19 +62,20 @@ class NormalizationTest extends TestBase
     public function testNormalizationTo1NF()
     {
         $this->assertTrue(
-            $this->isElementPresent('byCssSelector', 'fieldset')
+            $this->isElementPresent('cssSelector', 'fieldset')
         );
         $this->assertEquals(
             "First step of normalization (1NF)",
-            $this->byCssSelector('label[for=normalizeTo_1nf]')->text()
+            $this->byCssSelector('label[for=normalizeTo_1nf]')->getText()
         );
         $this->assertTrue(
             $this->isElementPresent(
-                'byCssSelector', 'input[id=normalizeTo_1nf][type=radio]:checked'
+                'cssSelector',
+                'input[id=normalizeTo_1nf][type=radio]:checked'
             )
         );
         $this->byCssSelector('input[name=submit_normalize]')->click();
-        $this->waitForElement('byId', 'mainContent');
+        $this->waitForElement('id', 'mainContent');
         $this->_test1NFSteps();
     }
 
@@ -94,80 +88,92 @@ class NormalizationTest extends TestBase
     {
         $this->assertEquals(
             "First step of normalization (1NF)",
-            $this->byCssSelector('#page_content h3')->text()
+            $this->byCssSelector('#page_content h3')->getText()
         );
         $this->assertTrue(
             $this->isElementPresent(
-                'byCssSelector', '#mainContent h4'
+                'cssSelector',
+                '#mainContent h4'
             )
         );
         $this->assertTrue(
             $this->isElementPresent(
-                'byCssSelector', '#mainContent #newCols'
+                'cssSelector',
+                '#mainContent #newCols'
             )
         );
         $this->assertTrue(
             $this->isElementPresent(
-                'byCssSelector', '.tblFooters'
+                'cssSelector',
+                '.tblFooters'
             )
         );
         $this->assertTrue(
             $this->isElementPresent(
-                'byCssSelector', '#selectNonAtomicCol option[value=val2]'
+                'cssSelector',
+                '#selectNonAtomicCol option[value=val2]'
             )
         );
         $this->assertFalse(
             $this->isElementPresent(
-                'byCssSelector', '#selectNonAtomicCol option[value=val]'
+                'cssSelector',
+                '#selectNonAtomicCol option[value=val]'
             )
         );
         $this->assertTrue(
             $this->isElementPresent(
-                'byCssSelector', '#selectNonAtomicCol option[value=no_such_col]'
+                'cssSelector',
+                '#selectNonAtomicCol option[value=no_such_col]'
             )
         );
-        $this->select(
-            $this->byId('selectNonAtomicCol')
-        )->selectOptionByValue('no_such_col');
+
+        $this->selectByValue(
+            $this->byId('selectNonAtomicCol'),
+            'no_such_col'
+        );
+
         $this->waitForElement(
-            "byXPath",
+            'xpath',
             "//legend[contains(., 'Step 1.2 Have a primary key')]"
         );
-        $text = $this->byCssSelector("#mainContent h4")->text();
-        $this->assertContains("Primary key already exists.", $text);
+        $text = $this->byCssSelector("#mainContent h4")->getText();
+        $this->assertStringContainsString("Primary key already exists.", $text);
         $this->waitForElement(
-            "byXPath",
+            'xpath',
             "//legend[contains(., 'Step 1.3 Move repeating groups')]"
         );
         $this->byCssSelector('input[value="No repeating group"]')->click();
         $this->waitForElement(
-            "byXPath",
+            'xpath',
             "//legend[contains(., 'Step 1.4 Remove redundant columns')]"
         );
         $this->assertTrue(
             $this->isElementPresent(
-                'byCssSelector', '#mainContent #extra'
+                'cssSelector',
+                '#mainContent #extra'
             )
         );
         $this->assertTrue(
             $this->isElementPresent(
-                'byCssSelector', '#extra input[value=val2][type=checkbox]'
+                'cssSelector',
+                '#extra input[value=val2][type=checkbox]'
             )
         );
         $this->assertTrue(
             $this->isElementPresent(
-                'byCssSelector', '#extra input[value=id][type=checkbox]'
+                'cssSelector',
+                '#extra input[value=id][type=checkbox]'
             )
         );
         $this->byCssSelector('#extra input[value=val][type=checkbox]')->click();
         $this->byCssSelector("#removeRedundant")->click();
         $this->waitForElement(
-            "byXPath",
+            'xpath',
             "//legend[contains(., 'End of step')]"
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             "The first step of normalization is complete for table 'test_table'.",
-            $this->byCssSelector("#mainContent h4")->text()
+            $this->byCssSelector("#mainContent h4")->getText()
         );
     }
 }

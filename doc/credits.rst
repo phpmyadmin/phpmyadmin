@@ -439,6 +439,43 @@ Credits, in chronological order
 
   * Other UI improvements
 
+* Maurício Meneghini Fauth
+
+  * Major improvements and upgrades to the JavaScript core
+  * Modernize JavaScript library functionality
+  * Modernize templating and introduce Twig
+
+* William Desportes
+
+  * Coding style improvements based on PHPStan
+  * Improve links to external MySQL and MariaDB documentation
+  * Numerous other bug fixes
+
+* Emanuel Bronshtein
+
+  * Comprehensive security assessment and suggestions
+
+* Lakshya Arora (Google Summer of Code 2018)
+
+  * Various improvements including:
+
+    * Integrate user preferences with local storage
+    * Use a modal login after session expiration
+    * Add support for CHECK CONSTRAINTS
+    * and more!
+
+* Saksham Gupta (Google Summer of Code 2018)
+
+  * Automated theme generator tool
+
+* Leonardo Strozzi (Google Summer of Code 2018)
+
+  * Refactoring Twig templates and other internal code improvements
+
+* Piyush Vijay (Google Summer of Code 2018)
+
+  * Modernize the JavaScript code including introducing Webpack, Babel, and Yarn as well as eslint and Jsdoc
+
 And also to the following people who have contributed minor changes,
 enhancements, bugfixes or support for a new language since version
 2.1.0:

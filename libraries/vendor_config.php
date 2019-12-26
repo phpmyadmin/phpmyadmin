@@ -9,6 +9,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -17,36 +19,36 @@ if (! defined('PHPMYADMIN')) {
  * Path to vendor autoload file. Useful when you want to
  * have have vendor dependencies somewhere else.
  */
-define('AUTOLOAD_FILE', './vendor/autoload.php');
+define('AUTOLOAD_FILE', ROOT_PATH . 'vendor/autoload.php');
 
 /**
  * Directory where cache files are stored.
  */
-define('TEMP_DIR', './tmp/');
+define('TEMP_DIR', ROOT_PATH . 'tmp/');
 
 /**
  * Path to changelog file, can be gzip compressed. Useful when you want to
  * have documentation somewhere else, eg. /usr/share/doc.
  */
-define('CHANGELOG_FILE', './ChangeLog');
+define('CHANGELOG_FILE', ROOT_PATH . 'ChangeLog');
 
 /**
  * Path to license file. Useful when you want to have documentation somewhere
  * else, eg. /usr/share/doc.
  */
-define('LICENSE_FILE', './LICENSE');
+define('LICENSE_FILE', ROOT_PATH . 'LICENSE');
 
 /**
  * Directory where SQL scripts to create/upgrade configuration storage reside.
  */
-define('SQL_DIR', './sql/');
+define('SQL_DIR', ROOT_PATH . 'sql/');
 
 /**
  * Directory where configuration files are stored.
  * It is not used directly in code, just a convenient
  * define used further in this file.
  */
-define('CONFIG_DIR', '');
+define('CONFIG_DIR', ROOT_PATH);
 
 /**
  * Filename of a configuration file.
@@ -71,10 +73,10 @@ define('VERSION_CHECK_DEFAULT', true);
 /**
  * Path to files with compiled locales (*.mo)
  */
-define('LOCALE_PATH', './locale/');
+define('LOCALE_PATH', ROOT_PATH . 'locale/');
 
 /**
  * Avoid referring to nonexistent files (causes warnings when open_basedir
  * is used)
  */
-define('K_PATH_IMAGES', '');
+define('K_PATH_IMAGES', ROOT_PATH);

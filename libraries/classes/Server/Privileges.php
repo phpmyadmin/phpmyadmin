@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Server;
 
 use PhpMyAdmin\Core;
@@ -26,6 +28,46 @@ use PhpMyAdmin\Util;
 class Privileges
 {
     /**
+     * @var Template
+     */
+    public $template;
+
+    /**
+     * @var RelationCleanup
+     */
+    private $relationCleanup;
+
+    /**
+     * @var DatabaseInterface
+     */
+    public $dbi;
+
+    /**
+     * @var Relation
+     */
+    public $relation;
+
+    /**
+     * Privileges constructor.
+     *
+     * @param Template          $template        Template object
+     * @param DatabaseInterface $dbi             DatabaseInterface object
+     * @param Relation          $relation        Relation object
+     * @param RelationCleanup   $relationCleanup RelationCleanup object
+     */
+    public function __construct(
+        Template $template,
+        $dbi,
+        Relation $relation,
+        RelationCleanup $relationCleanup
+    ) {
+        $this->template = $template;
+        $this->dbi = $dbi;
+        $this->relation = $relation;
+        $this->relationCleanup = $relationCleanup;
+    }
+
+    /**
      * Get Html for User Group Dialog
      *
      * @param string $username     username
@@ -33,11 +75,11 @@ class Privileges
      *
      * @return string html
      */
-    public static function getHtmlForUserGroupDialog($username, $is_menuswork)
+    public function getHtmlForUserGroupDialog($username, $is_menuswork)
     {
         $html = '';
         if (! empty($_GET['edit_user_group_dialog']) && $is_menuswork) {
-            $dialog = self::getHtmlToChooseUserGroup($username);
+            $dialog = $this->getHtmlToChooseUserGroup($username);
             $response = Response::getInstance();
             if ($response->isAjax()) {
                 $response->addJSON('message', $dialog);
@@ -65,7 +107,7 @@ class Privileges
      *
      * @return string the escaped (if necessary) database.table
      */
-    public static function wildcardEscapeForGrant($dbname, $tablename)
+    public function wildcardEscapeForGrant($dbname, $tablename)
     {
         if (strlen($dbname) === 0) {
             $db_and_table = '*.*';
@@ -89,7 +131,7 @@ class Privileges
      *
      * @return string   the generated condition
      */
-    public static function rangeOfUsers($initial = '')
+    public function rangeOfUsers($initial = '')
     {
         // strtolower() is used because the User field
         // might be BINARY, so LIKE would be case sensitive
@@ -98,9 +140,9 @@ class Privileges
         }
 
         $ret = " WHERE `User` LIKE '"
-            . $GLOBALS['dbi']->escapeString($initial) . "%'"
+            . $this->dbi->escapeString($initial) . "%'"
             . " OR `User` LIKE '"
-            . $GLOBALS['dbi']->escapeString(mb_strtolower($initial))
+            . $this->dbi->escapeString(mb_strtolower($initial))
             . "%'";
         return $ret;
     } // end function
@@ -113,7 +155,7 @@ class Privileges
      *
      * @return string
      */
-    public static function formatPrivilege(array $privilege, $html)
+    public function formatPrivilege(array $privilege, $html)
     {
         if ($html) {
             return '<dfn title="' . $privilege[2] . '">'
@@ -126,13 +168,13 @@ class Privileges
     /**
      * Parses privileges into an array, it modifies the array
      *
-     * @param array &$row Results row from
+     * @param array $row Results row from
      *
      * @return void
      */
-    public static function fillInTablePrivileges(array &$row)
+    public function fillInTablePrivileges(array &$row)
     {
-        $row1 = $GLOBALS['dbi']->fetchSingleRow(
+        $row1 = $this->dbi->fetchSingleRow(
             'SHOW COLUMNS FROM `mysql`.`tables_priv` LIKE \'Table_priv\';',
             'ASSOC'
         );
@@ -172,46 +214,46 @@ class Privileges
      *
      * @return array
      */
-    public static function extractPrivInfo($row = null, $enableHTML = false, $tablePrivs = false)
+    public function extractPrivInfo($row = null, $enableHTML = false, $tablePrivs = false)
     {
         if ($tablePrivs) {
-            $grants = self::getTableGrantsArray();
+            $grants = $this->getTableGrantsArray();
         } else {
-            $grants = self::getGrantsArray();
+            $grants = $this->getGrantsArray();
         }
 
-        if (! is_null($row) && isset($row['Table_priv'])) {
-            self::fillInTablePrivileges($row);
+        if ($row !== null && isset($row['Table_priv'])) {
+            $this->fillInTablePrivileges($row);
         }
 
-        $privs = array();
+        $privs = [];
         $allPrivileges = true;
         foreach ($grants as $current_grant) {
-            if ((! is_null($row) && isset($row[$current_grant[0]]))
-                || (is_null($row) && isset($GLOBALS[$current_grant[0]]))
+            if (($row !== null && isset($row[$current_grant[0]]))
+                || ($row === null && isset($GLOBALS[$current_grant[0]]))
             ) {
-                if ((! is_null($row) && $row[$current_grant[0]] == 'Y')
-                    || (is_null($row)
+                if (($row !== null && $row[$current_grant[0]] == 'Y')
+                    || ($row === null
                     && ($GLOBALS[$current_grant[0]] == 'Y'
                     || (is_array($GLOBALS[$current_grant[0]])
                     && count($GLOBALS[$current_grant[0]]) == $_REQUEST['column_count']
                     && empty($GLOBALS[$current_grant[0] . '_none']))))
                 ) {
-                    $privs[] = self::formatPrivilege($current_grant, $enableHTML);
+                    $privs[] = $this->formatPrivilege($current_grant, $enableHTML);
                 } elseif (! empty($GLOBALS[$current_grant[0]])
                     && is_array($GLOBALS[$current_grant[0]])
                     && empty($GLOBALS[$current_grant[0] . '_none'])
                 ) {
                     // Required for proper escaping of ` (backtick) in a column name
                     $grant_cols = array_map(
-                        function($val) {
+                        function ($val) {
                             return Util::backquote($val);
                         },
                         $GLOBALS[$current_grant[0]]
                     );
 
-                    $privs[] = self::formatPrivilege($current_grant, $enableHTML)
-                        . ' (' . join(', ', $grant_cols) . ')';
+                    $privs[] = $this->formatPrivilege($current_grant, $enableHTML)
+                        . ' (' . implode(', ', $grant_cols) . ')';
                 } else {
                     $allPrivileges = false;
                 }
@@ -227,66 +269,66 @@ class Privileges
             && (! isset($_POST['grant_count']) || count($privs) == $_POST['grant_count'])
         ) {
             if ($enableHTML) {
-                $privs = array('<dfn title="'
+                $privs = ['<dfn title="'
                     . __('Includes all privileges except GRANT.')
-                    . '">ALL PRIVILEGES</dfn>'
-                );
+                    . '">ALL PRIVILEGES</dfn>',
+                ];
             } else {
-                $privs = array('ALL PRIVILEGES');
+                $privs = ['ALL PRIVILEGES'];
             }
         }
         return $privs;
-    } // end of the 'self::extractPrivInfo()' function
+    }
 
     /**
      * Returns an array of table grants and their descriptions
      *
      * @return array array of table grants
      */
-    public static function getTableGrantsArray()
+    public function getTableGrantsArray()
     {
-        return array(
-            array(
+        return [
+            [
                 'Delete',
                 'DELETE',
-                $GLOBALS['strPrivDescDelete']
-            ),
-            array(
+                $GLOBALS['strPrivDescDelete'],
+            ],
+            [
                 'Create',
                 'CREATE',
-                $GLOBALS['strPrivDescCreateTbl']
-            ),
-            array(
+                $GLOBALS['strPrivDescCreateTbl'],
+            ],
+            [
                 'Drop',
                 'DROP',
-                $GLOBALS['strPrivDescDropTbl']
-            ),
-            array(
+                $GLOBALS['strPrivDescDropTbl'],
+            ],
+            [
                 'Index',
                 'INDEX',
-                $GLOBALS['strPrivDescIndex']
-            ),
-            array(
+                $GLOBALS['strPrivDescIndex'],
+            ],
+            [
                 'Alter',
                 'ALTER',
-                $GLOBALS['strPrivDescAlter']
-            ),
-            array(
+                $GLOBALS['strPrivDescAlter'],
+            ],
+            [
                 'Create View',
                 'CREATE_VIEW',
-                $GLOBALS['strPrivDescCreateView']
-            ),
-            array(
+                $GLOBALS['strPrivDescCreateView'],
+            ],
+            [
                 'Show view',
                 'SHOW_VIEW',
-                $GLOBALS['strPrivDescShowView']
-            ),
-            array(
+                $GLOBALS['strPrivDescShowView'],
+            ],
+            [
                 'Trigger',
                 'TRIGGER',
-                $GLOBALS['strPrivDescTrigger']
-            ),
-        );
+                $GLOBALS['strPrivDescTrigger'],
+            ],
+        ];
     }
 
     /**
@@ -295,171 +337,171 @@ class Privileges
      *
      * @return array
      */
-    public static function getGrantsArray()
+    public function getGrantsArray()
     {
-        return array(
-            array(
+        return [
+            [
                 'Select_priv',
                 'SELECT',
-                __('Allows reading data.')
-            ),
-            array(
+                __('Allows reading data.'),
+            ],
+            [
                 'Insert_priv',
                 'INSERT',
-                __('Allows inserting and replacing data.')
-            ),
-            array(
+                __('Allows inserting and replacing data.'),
+            ],
+            [
                 'Update_priv',
                 'UPDATE',
-                __('Allows changing data.')
-            ),
-            array(
+                __('Allows changing data.'),
+            ],
+            [
                 'Delete_priv',
                 'DELETE',
-                __('Allows deleting data.')
-            ),
-            array(
+                __('Allows deleting data.'),
+            ],
+            [
                 'Create_priv',
                 'CREATE',
-                __('Allows creating new databases and tables.')
-            ),
-            array(
+                __('Allows creating new databases and tables.'),
+            ],
+            [
                 'Drop_priv',
                 'DROP',
-                __('Allows dropping databases and tables.')
-            ),
-            array(
+                __('Allows dropping databases and tables.'),
+            ],
+            [
                 'Reload_priv',
                 'RELOAD',
-                __('Allows reloading server settings and flushing the server\'s caches.')
-            ),
-            array(
+                __('Allows reloading server settings and flushing the server\'s caches.'),
+            ],
+            [
                 'Shutdown_priv',
                 'SHUTDOWN',
-                __('Allows shutting down the server.')
-            ),
-            array(
+                __('Allows shutting down the server.'),
+            ],
+            [
                 'Process_priv',
                 'PROCESS',
-                __('Allows viewing processes of all users.')
-            ),
-            array(
+                __('Allows viewing processes of all users.'),
+            ],
+            [
                 'File_priv',
                 'FILE',
-                __('Allows importing data from and exporting data into files.')
-            ),
-            array(
+                __('Allows importing data from and exporting data into files.'),
+            ],
+            [
                 'References_priv',
                 'REFERENCES',
-                __('Has no effect in this MySQL version.')
-            ),
-            array(
+                __('Has no effect in this MySQL version.'),
+            ],
+            [
                 'Index_priv',
                 'INDEX',
-                __('Allows creating and dropping indexes.')
-            ),
-            array(
+                __('Allows creating and dropping indexes.'),
+            ],
+            [
                 'Alter_priv',
                 'ALTER',
-                __('Allows altering the structure of existing tables.')
-            ),
-            array(
+                __('Allows altering the structure of existing tables.'),
+            ],
+            [
                 'Show_db_priv',
                 'SHOW DATABASES',
-                __('Gives access to the complete list of databases.')
-            ),
-            array(
+                __('Gives access to the complete list of databases.'),
+            ],
+            [
                 'Super_priv',
                 'SUPER',
                 __(
                     'Allows connecting, even if maximum number of connections '
                     . 'is reached; required for most administrative operations '
                     . 'like setting global variables or killing threads of other users.'
-                )
-            ),
-            array(
+                ),
+            ],
+            [
                 'Create_tmp_table_priv',
                 'CREATE TEMPORARY TABLES',
-                __('Allows creating temporary tables.')
-            ),
-            array(
+                __('Allows creating temporary tables.'),
+            ],
+            [
                 'Lock_tables_priv',
                 'LOCK TABLES',
-                __('Allows locking tables for the current thread.')
-            ),
-            array(
+                __('Allows locking tables for the current thread.'),
+            ],
+            [
                 'Repl_slave_priv',
                 'REPLICATION SLAVE',
-                __('Needed for the replication slaves.')
-            ),
-            array(
+                __('Needed for the replication slaves.'),
+            ],
+            [
                 'Repl_client_priv',
                 'REPLICATION CLIENT',
-                __('Allows the user to ask where the slaves / masters are.')
-            ),
-            array(
+                __('Allows the user to ask where the slaves / masters are.'),
+            ],
+            [
                 'Create_view_priv',
                 'CREATE VIEW',
-                __('Allows creating new views.')
-            ),
-            array(
+                __('Allows creating new views.'),
+            ],
+            [
                 'Event_priv',
                 'EVENT',
-                __('Allows to set up events for the event scheduler.')
-            ),
-            array(
+                __('Allows to set up events for the event scheduler.'),
+            ],
+            [
                 'Trigger_priv',
                 'TRIGGER',
-                __('Allows creating and dropping triggers.')
-            ),
+                __('Allows creating and dropping triggers.'),
+            ],
             // for table privs:
-            array(
+            [
                 'Create View_priv',
                 'CREATE VIEW',
-                __('Allows creating new views.')
-            ),
-            array(
+                __('Allows creating new views.'),
+            ],
+            [
                 'Show_view_priv',
                 'SHOW VIEW',
-                __('Allows performing SHOW CREATE VIEW queries.')
-            ),
+                __('Allows performing SHOW CREATE VIEW queries.'),
+            ],
             // for table privs:
-            array(
+            [
                 'Show view_priv',
                 'SHOW VIEW',
-                __('Allows performing SHOW CREATE VIEW queries.')
-            ),
-            array(
+                __('Allows performing SHOW CREATE VIEW queries.'),
+            ],
+            [
                 'Delete_history_priv',
                 'DELETE HISTORY',
-                $GLOBALS['strPrivDescDeleteHistoricalRows']
-            ),
-            array(
+                $GLOBALS['strPrivDescDeleteHistoricalRows'],
+            ],
+            [
                 'Delete versioning rows_priv',
                 'DELETE HISTORY',
-                $GLOBALS['strPrivDescDeleteHistoricalRows']
-            ),
-            array(
+                $GLOBALS['strPrivDescDeleteHistoricalRows'],
+            ],
+            [
                 'Create_routine_priv',
                 'CREATE ROUTINE',
-                __('Allows creating stored routines.')
-            ),
-            array(
+                __('Allows creating stored routines.'),
+            ],
+            [
                 'Alter_routine_priv',
                 'ALTER ROUTINE',
-                __('Allows altering and dropping stored routines.')
-            ),
-            array(
+                __('Allows altering and dropping stored routines.'),
+            ],
+            [
                 'Create_user_priv',
                 'CREATE USER',
-                __('Allows creating, dropping and renaming user accounts.')
-            ),
-            array(
+                __('Allows creating, dropping and renaming user accounts.'),
+            ],
+            [
                 'Execute_priv',
                 'EXECUTE',
-                __('Allows executing stored routines.')
-            ),
-        );
+                __('Allows executing stored routines.'),
+            ],
+        ];
     }
 
     /**
@@ -474,26 +516,27 @@ class Privileges
      * @param string $name_for_dfn     name for dfn
      * @param string $name_for_current name for current
      *
-     * @return string $html_output html snippet
+     * @return string html snippet
      */
-    public static function getHtmlForColumnPrivileges(array $columns, array $row, $name_for_select,
-        $priv_for_header, $name, $name_for_dfn, $name_for_current
+    public function getHtmlForColumnPrivileges(
+        array $columns,
+        array $row,
+        $name_for_select,
+        $priv_for_header,
+        $name,
+        $name_for_dfn,
+        $name_for_current
     ) {
-        $data = array(
-            'columns'          => $columns,
-            'row'              => $row,
-            'name_for_select'  => $name_for_select,
-            'priv_for_header'  => $priv_for_header,
-            'name'             => $name,
-            'name_for_dfn'     => $name_for_dfn,
-            'name_for_current' => $name_for_current
-        );
-
-        $html_output = Template::get('privileges/column_privileges')
-            ->render($data);
-
-        return $html_output;
-    } // end function
+        return $this->template->render('server/privileges/column_privileges', [
+            'columns' => $columns,
+            'row' => $row,
+            'name_for_select' => $name_for_select,
+            'priv_for_header' => $priv_for_header,
+            'name' => $name,
+            'name_for_dfn' => $name_for_dfn,
+            'name_for_current' => $name_for_current,
+        ]);
+    }
 
     /**
      * Get sql query for display privileges table
@@ -505,25 +548,25 @@ class Privileges
      *
      * @return string sql query
      */
-    public static function getSqlQueryForDisplayPrivTable($db, $table, $username, $hostname)
+    public function getSqlQueryForDisplayPrivTable($db, $table, $username, $hostname)
     {
         if ($db == '*') {
             return "SELECT * FROM `mysql`.`user`"
-                . " WHERE `User` = '" . $GLOBALS['dbi']->escapeString($username) . "'"
-                . " AND `Host` = '" . $GLOBALS['dbi']->escapeString($hostname) . "';";
+                . " WHERE `User` = '" . $this->dbi->escapeString($username) . "'"
+                . " AND `Host` = '" . $this->dbi->escapeString($hostname) . "';";
         } elseif ($table == '*') {
             return "SELECT * FROM `mysql`.`db`"
-                . " WHERE `User` = '" . $GLOBALS['dbi']->escapeString($username) . "'"
-                . " AND `Host` = '" . $GLOBALS['dbi']->escapeString($hostname) . "'"
-                . " AND '" . $GLOBALS['dbi']->escapeString(Util::unescapeMysqlWildcards($db)) . "'"
+                . " WHERE `User` = '" . $this->dbi->escapeString($username) . "'"
+                . " AND `Host` = '" . $this->dbi->escapeString($hostname) . "'"
+                . " AND '" . $this->dbi->escapeString(Util::unescapeMysqlWildcards($db)) . "'"
                 . " LIKE `Db`;";
         }
         return "SELECT `Table_priv`"
             . " FROM `mysql`.`tables_priv`"
-            . " WHERE `User` = '" . $GLOBALS['dbi']->escapeString($username) . "'"
-            . " AND `Host` = '" . $GLOBALS['dbi']->escapeString($hostname) . "'"
-            . " AND `Db` = '" . $GLOBALS['dbi']->escapeString(Util::unescapeMysqlWildcards($db)) . "'"
-            . " AND `Table_name` = '" . $GLOBALS['dbi']->escapeString($table) . "';";
+            . " WHERE `User` = '" . $this->dbi->escapeString($username) . "'"
+            . " AND `Host` = '" . $this->dbi->escapeString($hostname) . "'"
+            . " AND `Db` = '" . $this->dbi->escapeString(Util::unescapeMysqlWildcards($db)) . "'"
+            . " AND `Table_name` = '" . $this->dbi->escapeString($table) . "';";
     }
 
     /**
@@ -534,10 +577,9 @@ class Privileges
      *
      * @return string html to select the user group
      */
-    public static function getHtmlToChooseUserGroup($username)
+    public function getHtmlToChooseUserGroup($username)
     {
-        $relation = new Relation();
-        $cfgRelation = $relation->getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         $groupTable = Util::backquote($cfgRelation['db'])
             . "." . Util::backquote($cfgRelation['usergroups']);
         $userTable = Util::backquote($cfgRelation['db'])
@@ -546,32 +588,30 @@ class Privileges
         $userGroup = '';
         if (isset($GLOBALS['username'])) {
             $sql_query = "SELECT `usergroup` FROM " . $userTable
-                . " WHERE `username` = '" . $GLOBALS['dbi']->escapeString($username) . "'";
-            $userGroup = $GLOBALS['dbi']->fetchValue(
-                $sql_query, 0, 0, DatabaseInterface::CONNECT_CONTROL
+                . " WHERE `username` = '" . $this->dbi->escapeString($username) . "'";
+            $userGroup = $this->dbi->fetchValue(
+                $sql_query,
+                0,
+                0,
+                DatabaseInterface::CONNECT_CONTROL
             );
         }
 
-        $allUserGroups = array('' => '');
+        $allUserGroups = ['' => ''];
         $sql_query = "SELECT DISTINCT `usergroup` FROM " . $groupTable;
-        $result = $relation->queryAsControlUser($sql_query, false);
+        $result = $this->relation->queryAsControlUser($sql_query, false);
         if ($result) {
-            while ($row = $GLOBALS['dbi']->fetchRow($result)) {
+            while ($row = $this->dbi->fetchRow($result)) {
                 $allUserGroups[$row[0]] = $row[0];
             }
         }
-        $GLOBALS['dbi']->freeResult($result);
+        $this->dbi->freeResult($result);
 
-        // render the template
-        $data = array(
+        return $this->template->render('server/privileges/choose_user_group', [
             'all_user_groups' => $allUserGroups,
-            'user_group'      => $userGroup,
-            'params'          => array('username' => $username)
-        );
-        $html_output = Template::get('privileges/choose_user_group')
-            ->render($data);
-
-        return $html_output;
+            'user_group' => $userGroup,
+            'params' => ['username' => $username],
+        ]);
     }
 
     /**
@@ -582,10 +622,10 @@ class Privileges
      *
      * @return void
      */
-    public static function setUserGroup($username, $userGroup)
+    public function setUserGroup($username, $userGroup)
     {
-        $relation = new Relation();
-        $cfgRelation = $relation->getRelationsParam();
+        $userGroup = $userGroup === null ? '' : $userGroup;
+        $cfgRelation = $this->relation->getRelationsParam();
         if (empty($cfgRelation['db']) || empty($cfgRelation['users']) || empty($cfgRelation['usergroups'])) {
             return;
         }
@@ -594,27 +634,30 @@ class Privileges
             . "." . Util::backquote($cfgRelation['users']);
 
         $sql_query = "SELECT `usergroup` FROM " . $userTable
-            . " WHERE `username` = '" . $GLOBALS['dbi']->escapeString($username) . "'";
-        $oldUserGroup = $GLOBALS['dbi']->fetchValue(
-            $sql_query, 0, 0, DatabaseInterface::CONNECT_CONTROL
+            . " WHERE `username` = '" . $this->dbi->escapeString($username) . "'";
+        $oldUserGroup = $this->dbi->fetchValue(
+            $sql_query,
+            0,
+            0,
+            DatabaseInterface::CONNECT_CONTROL
         );
 
         if ($oldUserGroup === false) {
             $upd_query = "INSERT INTO " . $userTable . "(`username`, `usergroup`)"
-                . " VALUES ('" . $GLOBALS['dbi']->escapeString($username) . "', "
-                . "'" . $GLOBALS['dbi']->escapeString($userGroup) . "')";
+                . " VALUES ('" . $this->dbi->escapeString($username) . "', "
+                . "'" . $this->dbi->escapeString($userGroup) . "')";
         } else {
             if (empty($userGroup)) {
                 $upd_query = "DELETE FROM " . $userTable
-                    . " WHERE `username`='" . $GLOBALS['dbi']->escapeString($username) . "'";
+                    . " WHERE `username`='" . $this->dbi->escapeString($username) . "'";
             } elseif ($oldUserGroup != $userGroup) {
                 $upd_query = "UPDATE " . $userTable
-                    . " SET `usergroup`='" . $GLOBALS['dbi']->escapeString($userGroup) . "'"
-                    . " WHERE `username`='" . $GLOBALS['dbi']->escapeString($username) . "'";
+                    . " SET `usergroup`='" . $this->dbi->escapeString($userGroup) . "'"
+                    . " WHERE `username`='" . $this->dbi->escapeString($username) . "'";
             }
         }
         if (isset($upd_query)) {
-            $relation->queryAsControlUser($upd_query);
+            $this->relation->queryAsControlUser($upd_query);
         }
     }
 
@@ -630,8 +673,10 @@ class Privileges
      *
      * @return string html snippet
      */
-    public static function getHtmlToDisplayPrivilegesTable($db = '*',
-        $table = '*', $submit = true
+    public function getHtmlToDisplayPrivilegesTable(
+        $db = '*',
+        $table = '*',
+        $submit = true
     ) {
         $html_output = '';
         $sql_query = '';
@@ -639,25 +684,29 @@ class Privileges
         if ($db == '*') {
             $table = '*';
         }
-
+        $username = '';
+        $hostname = '';
         if (isset($GLOBALS['username'])) {
             $username = $GLOBALS['username'];
             $hostname = $GLOBALS['hostname'];
-            $sql_query = self::getSqlQueryForDisplayPrivTable(
-                $db, $table, $username, $hostname
+            $sql_query = $this->getSqlQueryForDisplayPrivTable(
+                $db,
+                $table,
+                $username,
+                $hostname
             );
-            $row = $GLOBALS['dbi']->fetchSingleRow($sql_query);
+            $row = $this->dbi->fetchSingleRow($sql_query);
         }
         if (empty($row)) {
-            if ($table == '*' && $GLOBALS['dbi']->isSuperuser()) {
-                $row = array();
+            if ($table == '*' && $this->dbi->isSuperuser()) {
+                $row = [];
                 if ($db == '*') {
                     $sql_query = 'SHOW COLUMNS FROM `mysql`.`user`;';
                 } elseif ($table == '*') {
                     $sql_query = 'SHOW COLUMNS FROM `mysql`.`db`;';
                 }
-                $res = $GLOBALS['dbi']->query($sql_query);
-                while ($row1 = $GLOBALS['dbi']->fetchRow($res)) {
+                $res = $this->dbi->query($sql_query);
+                while ($row1 = $this->dbi->fetchRow($res)) {
                     if (mb_substr($row1[0], 0, 4) == 'max_') {
                         $row[$row1[0]] = 0;
                     } elseif (mb_substr($row1[0], 0, 5) == 'x509_'
@@ -668,53 +717,58 @@ class Privileges
                         $row[$row1[0]] = 'N';
                     }
                 }
-                $GLOBALS['dbi']->freeResult($res);
+                $this->dbi->freeResult($res);
             } elseif ($table == '*') {
-                $row = array();
+                $row = [];
             } else {
-                $row = array('Table_priv' => '');
+                $row = ['Table_priv' => ''];
             }
         }
         if (isset($row['Table_priv'])) {
-            self::fillInTablePrivileges($row);
+            $this->fillInTablePrivileges($row);
 
             // get columns
-            $res = $GLOBALS['dbi']->tryQuery(
+            $res = $this->dbi->tryQuery(
                 'SHOW COLUMNS FROM '
                 . Util::backquote(
                     Util::unescapeMysqlWildcards($db)
                 )
                 . '.' . Util::backquote($table) . ';'
             );
-            $columns = array();
+            $columns = [];
             if ($res) {
-                while ($row1 = $GLOBALS['dbi']->fetchRow($res)) {
-                    $columns[$row1[0]] = array(
+                while ($row1 = $this->dbi->fetchRow($res)) {
+                    $columns[$row1[0]] = [
                         'Select' => false,
                         'Insert' => false,
                         'Update' => false,
-                        'References' => false
-                    );
+                        'References' => false,
+                    ];
                 }
-                $GLOBALS['dbi']->freeResult($res);
+                $this->dbi->freeResult($res);
             }
             unset($res, $row1);
         }
         // table-specific privileges
         if (! empty($columns)) {
-            $html_output .= self::getHtmlForTableSpecificPrivileges(
-                $username, $hostname, $db, $table, $columns, $row
+            $html_output .= $this->getHtmlForTableSpecificPrivileges(
+                $username,
+                $hostname,
+                $db,
+                $table,
+                $columns,
+                $row
             );
         } else {
             // global or db-specific
-            $html_output .= self::getHtmlForGlobalOrDbSpecificPrivs($db, $table, $row);
+            $html_output .= $this->getHtmlForGlobalOrDbSpecificPrivs($db, $table, $row);
         }
         $html_output .= '</fieldset>' . "\n";
         if ($submit) {
             $html_output .= '<fieldset id="fieldset_user_privtable_footer" '
                 . 'class="tblFooters">' . "\n"
-                . '<input type="hidden" name="update_privs" value="1" />' . "\n"
-                . '<input type="submit" value="' . __('Go') . '" />' . "\n"
+                . '<input type="hidden" name="update_privs" value="1">' . "\n"
+                . '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">' . "\n"
                 . '</fieldset>' . "\n";
         }
         return $html_output;
@@ -727,108 +781,101 @@ class Privileges
      *
      * @return string html snippet
      */
-    public static function getHtmlForRequires(array $row)
+    public function getHtmlForRequires(array $row)
     {
         $specified = (isset($row['ssl_type']) && $row['ssl_type'] == 'SPECIFIED');
-        $require_options = array(
-            array(
+        $require_options = [
+            [
                 'name'        => 'ssl_type',
                 'value'       => 'NONE',
                 'description' => __(
                     'Does not require SSL-encrypted connections.'
                 ),
                 'label'       => 'REQUIRE NONE',
-                'checked'     => ((isset($row['ssl_type'])
+                'checked'     => isset($row['ssl_type'])
                     && ($row['ssl_type'] == 'NONE'
-                        || $row['ssl_type'] == ''))
+                        || $row['ssl_type'] == '')
                     ? 'checked="checked"'
-                    : ''
-                ),
+                    : '',
                 'disabled'    => false,
-                'radio'       => true
-            ),
-            array(
+                'radio'       => true,
+            ],
+            [
                 'name'        => 'ssl_type',
                 'value'       => 'ANY',
                 'description' => __(
                     'Requires SSL-encrypted connections.'
                 ),
                 'label'       => 'REQUIRE SSL',
-                'checked'     => (isset($row['ssl_type']) && ($row['ssl_type'] == 'ANY')
+                'checked'     => isset($row['ssl_type']) && ($row['ssl_type'] == 'ANY')
                     ? 'checked="checked"'
-                    : ''
-                ),
+                    : '',
                 'disabled'    => false,
-                'radio'       => true
-            ),
-            array(
+                'radio'       => true,
+            ],
+            [
                 'name'        => 'ssl_type',
                 'value'       => 'X509',
                 'description' => __(
                     'Requires a valid X509 certificate.'
                 ),
                 'label'       => 'REQUIRE X509',
-                'checked'     => (isset($row['ssl_type']) && ($row['ssl_type'] == 'X509')
+                'checked'     => isset($row['ssl_type']) && ($row['ssl_type'] == 'X509')
                     ? 'checked="checked"'
-                    : ''
-                ),
+                    : '',
                 'disabled'    => false,
-                'radio'       => true
-            ),
-            array(
+                'radio'       => true,
+            ],
+            [
                 'name'        => 'ssl_type',
                 'value'       => 'SPECIFIED',
                 'description' => '',
                 'label'       => 'SPECIFIED',
-                'checked'     => ($specified ? 'checked="checked"' : ''),
+                'checked'     => $specified ? 'checked="checked"' : '',
                 'disabled'    => false,
-                'radio'       => true
-            ),
-            array(
+                'radio'       => true,
+            ],
+            [
                 'name'        => 'ssl_cipher',
-                'value'       => (isset($row['ssl_cipher'])
-                    ? htmlspecialchars($row['ssl_cipher']) : ''
-                ),
+                'value'       => isset($row['ssl_cipher'])
+                    ? htmlspecialchars($row['ssl_cipher']) : '',
                 'description' => __(
                     'Requires that a specific cipher method be used for a connection.'
                 ),
                 'label'       => 'REQUIRE CIPHER',
                 'checked'     => '',
                 'disabled'    => ! $specified,
-                'radio'       => false
-            ),
-            array(
+                'radio'       => false,
+            ],
+            [
                 'name'        => 'x509_issuer',
-                'value'       => (isset($row['x509_issuer'])
-                    ? htmlspecialchars($row['x509_issuer']) : ''
-                ),
+                'value'       => isset($row['x509_issuer'])
+                    ? htmlspecialchars($row['x509_issuer']) : '',
                 'description' => __(
                     'Requires that a valid X509 certificate issued by this CA be presented.'
                 ),
                 'label'       => 'REQUIRE ISSUER',
                 'checked'     => '',
                 'disabled'    => ! $specified,
-                'radio'       => false
-            ),
-            array(
+                'radio'       => false,
+            ],
+            [
                 'name'        => 'x509_subject',
-                'value'       => (isset($row['x509_subject'])
-                    ? htmlspecialchars($row['x509_subject']) : ''
-                ),
+                'value'       => isset($row['x509_subject'])
+                    ? htmlspecialchars($row['x509_subject']) : '',
                 'description' => __(
                     'Requires that a valid X509 certificate with this subject be presented.'
                 ),
                 'label'       => 'REQUIRE SUBJECT',
                 'checked'     => '',
                 'disabled'    => ! $specified,
-                'radio'       => false
-            ),
-        );
+                'radio'       => false,
+            ],
+        ];
 
-        $html_output = Template::get('privileges/require_options')
-            ->render(array('require_options' => $require_options));
-
-        return $html_output;
+        return $this->template->render('server/privileges/require_options', [
+            'require_options' => $require_options,
+        ]);
     }
 
     /**
@@ -838,48 +885,49 @@ class Privileges
      *
      * @return string html snippet
      */
-    public static function getHtmlForResourceLimits(array $row)
+    public function getHtmlForResourceLimits(array $row)
     {
-        $limits = array(
-            array(
+        $limits = [
+            [
                 'input_name'  => 'max_questions',
                 'name_main'   => 'MAX QUERIES PER HOUR',
-                'value'       => (isset($row['max_questions']) ? $row['max_questions'] : '0'),
+                'value'       => isset($row['max_questions']) ? $row['max_questions'] : '0',
                 'description' => __(
                     'Limits the number of queries the user may send to the server per hour.'
-                )
-            ),
-            array(
+                ),
+            ],
+            [
                 'input_name'  => 'max_updates',
                 'name_main'   => 'MAX UPDATES PER HOUR',
-                'value'       => (isset($row['max_updates']) ? $row['max_updates'] : '0'),
+                'value'       => isset($row['max_updates']) ? $row['max_updates'] : '0',
                 'description' => __(
                     'Limits the number of commands that change any table '
                     . 'or database the user may execute per hour.'
-                )
-            ),
-            array(
+                ),
+            ],
+            [
                 'input_name'  => 'max_connections',
                 'name_main'   => 'MAX CONNECTIONS PER HOUR',
-                'value'       => (isset($row['max_connections']) ? $row['max_connections'] : '0'),
+                'value'       => isset($row['max_connections']) ? $row['max_connections'] : '0',
                 'description' => __(
                     'Limits the number of new connections the user may open per hour.'
-                )
-            ),
-            array(
+                ),
+            ],
+            [
                 'input_name'  => 'max_user_connections',
                 'name_main'   => 'MAX USER_CONNECTIONS',
-                'value'       => (isset($row['max_user_connections']) ?
-                    $row['max_user_connections'] : '0'),
+                'value'       => isset($row['max_user_connections']) ?
+                    $row['max_user_connections'] : '0',
                 'description' => __(
                     'Limits the number of simultaneous connections '
                     . 'the user may have.'
-                )
-            )
-        );
+                ),
+            ],
+        ];
 
-        return Template::get('privileges/resource_limits')
-            ->render(array('limits' => $limits));
+        return $this->template->render('server/privileges/resource_limits', [
+            'limits' => $limits,
+        ]);
     }
 
     /**
@@ -891,75 +939,82 @@ class Privileges
      * @param string $routine    the routine
      * @param string $url_dbname url encoded db name
      *
-     * @return string $html_output
+     * @return string
      */
-    public static function getHtmlForRoutineSpecificPrivileges(
-        $username, $hostname, $db, $routine, $url_dbname
+    public function getHtmlForRoutineSpecificPrivileges(
+        $username,
+        $hostname,
+        $db,
+        $routine,
+        $url_dbname
     ) {
-        $header = self::getHtmlHeaderForUserProperties(
-            false, $url_dbname, $db, $username, $hostname,
-            $routine, 'routine'
+        $header = $this->getHtmlHeaderForUserProperties(
+            false,
+            $url_dbname,
+            $db,
+            $username,
+            $hostname,
+            $routine,
+            'routine'
         );
 
         $sql = "SELECT `Proc_priv`"
             . " FROM `mysql`.`procs_priv`"
-            . " WHERE `User` = '" . $GLOBALS['dbi']->escapeString($username) . "'"
-            . " AND `Host` = '" . $GLOBALS['dbi']->escapeString($hostname) . "'"
+            . " WHERE `User` = '" . $this->dbi->escapeString($username) . "'"
+            . " AND `Host` = '" . $this->dbi->escapeString($hostname) . "'"
             . " AND `Db` = '"
-            . $GLOBALS['dbi']->escapeString(Util::unescapeMysqlWildcards($db)) . "'"
-            . " AND `Routine_name` LIKE '" . $GLOBALS['dbi']->escapeString($routine) . "';";
-        $res = $GLOBALS['dbi']->fetchValue($sql);
+            . $this->dbi->escapeString(Util::unescapeMysqlWildcards($db)) . "'"
+            . " AND `Routine_name` LIKE '" . $this->dbi->escapeString($routine) . "';";
+        $res = $this->dbi->fetchValue($sql);
 
-        $privs = self::parseProcPriv($res);
+        $privs = $this->parseProcPriv($res);
 
-        $routineArray   = array(self::getTriggerPrivilegeTable());
-        $privTableNames = array(__('Routine'));
-        $privCheckboxes = self::getHtmlForGlobalPrivTableWithCheckboxes(
-            $routineArray, $privTableNames, $privs
+        $routineArray   = [$this->getTriggerPrivilegeTable()];
+        $privTableNames = [__('Routine')];
+        $privCheckboxes = $this->getHtmlForGlobalPrivTableWithCheckboxes(
+            $routineArray,
+            $privTableNames,
+            $privs
         );
 
-        $data = array(
-            'username'       => $username,
-            'hostname'       => $hostname,
-            'database'       => $db,
-            'routine'        => $routine,
-            'grant_count'     => count($privs),
+        return $this->template->render('server/privileges/edit_routine_privileges', [
+            'username' => $username,
+            'hostname' => $hostname,
+            'database' => $db,
+            'routine' => $routine,
+            'grant_count' => count($privs),
             'priv_checkboxes' => $privCheckboxes,
-            'header'         => $header,
-        );
-        $html_output = Template::get('privileges/edit_routine_privileges')
-            ->render($data);
-
-        return $html_output;
+            'header' => $header,
+        ]);
     }
 
     /**
      * Get routine privilege table as an array
      *
-     * @return privilege type array
+     * @return array privilege type array
      */
-    public static function getTriggerPrivilegeTable()
+    public function getTriggerPrivilegeTable()
     {
-        $routinePrivTable = array(
-            array(
+        $routinePrivTable = [
+            [
                 'Grant',
                 'GRANT',
                 __(
                     'Allows user to give to other users or remove from other users '
                     . 'privileges that user possess on this routine.'
-                )
-            ),
-            array(
+                ),
+            ],
+            [
                 'Alter_routine',
                 'ALTER ROUTINE',
-                __('Allows altering and dropping this routine.')
-            ),
-            array(
+                __('Allows altering and dropping this routine.'),
+            ],
+            [
                 'Execute',
                 'EXECUTE',
-                __('Allows executing this routine.')
-            )
-        );
+                __('Allows executing this routine.'),
+            ],
+        ];
         return $routinePrivTable;
     }
 
@@ -973,39 +1028,44 @@ class Privileges
      * @param array  $columns  columns array
      * @param array  $row      current privileges row
      *
-     * @return string $html_output
+     * @return string
      */
-    public static function getHtmlForTableSpecificPrivileges(
-        $username, $hostname, $db, $table, array $columns, array $row
+    public function getHtmlForTableSpecificPrivileges(
+        $username,
+        $hostname,
+        $db,
+        $table,
+        array $columns,
+        array $row
     ) {
-        $res = $GLOBALS['dbi']->query(
+        $res = $this->dbi->query(
             'SELECT `Column_name`, `Column_priv`'
             . ' FROM `mysql`.`columns_priv`'
             . ' WHERE `User`'
-            . ' = \'' . $GLOBALS['dbi']->escapeString($username) . "'"
+            . ' = \'' . $this->dbi->escapeString($username) . "'"
             . ' AND `Host`'
-            . ' = \'' . $GLOBALS['dbi']->escapeString($hostname) . "'"
+            . ' = \'' . $this->dbi->escapeString($hostname) . "'"
             . ' AND `Db`'
-            . ' = \'' . $GLOBALS['dbi']->escapeString(
+            . ' = \'' . $this->dbi->escapeString(
                 Util::unescapeMysqlWildcards($db)
             ) . "'"
             . ' AND `Table_name`'
-            . ' = \'' . $GLOBALS['dbi']->escapeString($table) . '\';'
+            . ' = \'' . $this->dbi->escapeString($table) . '\';'
         );
 
-        while ($row1 = $GLOBALS['dbi']->fetchRow($res)) {
+        while ($row1 = $this->dbi->fetchRow($res)) {
             $row1[1] = explode(',', $row1[1]);
             foreach ($row1[1] as $current) {
                 $columns[$row1[0]][$current] = true;
             }
         }
-        $GLOBALS['dbi']->freeResult($res);
+        $this->dbi->freeResult($res);
         unset($res, $row1, $current);
 
         $html_output = '<input type="hidden" name="grant_count" '
-            . 'value="' . count($row) . '" />' . "\n"
+            . 'value="' . count($row) . '">' . "\n"
             . '<input type="hidden" name="column_count" '
-            . 'value="' . count($columns) . '" />' . "\n"
+            . 'value="' . count($columns) . '">' . "\n"
             . '<fieldset id="fieldset_user_priv">' . "\n"
             . '<legend data-submenu-label="' . __('Table') . '">' . __('Table-specific privileges')
             . '</legend>'
@@ -1014,13 +1074,14 @@ class Privileges
             . '</i></small></p>';
 
         // privs that are attached to a specific column
-        $html_output .= self::getHtmlForAttachedPrivilegesToTableSpecificColumn(
-            $columns, $row
+        $html_output .= $this->getHtmlForAttachedPrivilegesToTableSpecificColumn(
+            $columns,
+            $row
         );
 
         // privs that are not attached to a specific column
         $html_output .= '<div class="item">' . "\n"
-            . self::getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row)
+            . $this->getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row)
             . '</div>' . "\n";
 
         // for Safari 2.0.2
@@ -1035,28 +1096,48 @@ class Privileges
      * @param array $columns columns array
      * @param array $row     first row from result or boolean false
      *
-     * @return string $html_output
+     * @return string
      */
-    public static function getHtmlForAttachedPrivilegesToTableSpecificColumn(array $columns, array $row)
+    public function getHtmlForAttachedPrivilegesToTableSpecificColumn(array $columns, array $row)
     {
-        $html_output = self::getHtmlForColumnPrivileges(
-            $columns, $row, 'Select_priv', 'SELECT',
-            'select', __('Allows reading data.'), 'Select'
+        $html_output = $this->getHtmlForColumnPrivileges(
+            $columns,
+            $row,
+            'Select_priv',
+            'SELECT',
+            'select',
+            __('Allows reading data.'),
+            'Select'
         );
 
-        $html_output .= self::getHtmlForColumnPrivileges(
-            $columns, $row, 'Insert_priv', 'INSERT',
-            'insert', __('Allows inserting and replacing data.'), 'Insert'
+        $html_output .= $this->getHtmlForColumnPrivileges(
+            $columns,
+            $row,
+            'Insert_priv',
+            'INSERT',
+            'insert',
+            __('Allows inserting and replacing data.'),
+            'Insert'
         );
 
-        $html_output .= self::getHtmlForColumnPrivileges(
-            $columns, $row, 'Update_priv', 'UPDATE',
-            'update', __('Allows changing data.'), 'Update'
+        $html_output .= $this->getHtmlForColumnPrivileges(
+            $columns,
+            $row,
+            'Update_priv',
+            'UPDATE',
+            'update',
+            __('Allows changing data.'),
+            'Update'
         );
 
-        $html_output .= self::getHtmlForColumnPrivileges(
-            $columns, $row, 'References_priv', 'REFERENCES', 'references',
-            __('Has no effect in this MySQL version.'), 'References'
+        $html_output .= $this->getHtmlForColumnPrivileges(
+            $columns,
+            $row,
+            'References_priv',
+            'REFERENCES',
+            'references',
+            __('Has no effect in this MySQL version.'),
+            'References'
         );
         return $html_output;
     }
@@ -1066,15 +1147,15 @@ class Privileges
      *
      * @param array $row first row from result or boolean false
      *
-     * @return string $html_output
+     * @return string
      */
-    public static function getHtmlForNotAttachedPrivilegesToTableSpecificColumn(array $row)
+    public function getHtmlForNotAttachedPrivilegesToTableSpecificColumn(array $row)
     {
         $html_output = '';
 
         foreach ($row as $current_grant => $current_grant_value) {
             $grant_type = substr($current_grant, 0, -5);
-            if (in_array($grant_type, array('Select', 'Insert', 'Update', 'References'))
+            if (in_array($grant_type, ['Select', 'Insert', 'Update', 'References'])
             ) {
                 continue;
             }
@@ -1106,13 +1187,13 @@ class Privileges
                 . mb_substr(
                     $tmp_current_grant,
                     0,
-                    (mb_strlen($tmp_current_grant) - 5)
+                    mb_strlen($tmp_current_grant) - 5
                 );
             $html_output .= (isset($GLOBALS[$privGlobalName])
                     ? $GLOBALS[$privGlobalName]
                     : $GLOBALS[$privGlobalName . 'Tbl']
                 )
-                . '"/>' . "\n";
+                . '">' . "\n";
 
             $privGlobalName1 = 'strPrivDesc'
                 . mb_substr(
@@ -1147,23 +1228,19 @@ class Privileges
      * @param string $table the table
      * @param array  $row   first row from result or boolean false
      *
-     * @return string $html_output
+     * @return string
      */
-    public static function getHtmlForGlobalOrDbSpecificPrivs($db, $table, array $row)
+    public function getHtmlForGlobalOrDbSpecificPrivs($db, $table, array $row)
     {
-        $privTable_names = array(0 => __('Data'),
+        $privTable_names = [
+            0 => __('Data'),
             1 => __('Structure'),
-            2 => __('Administration')
-        );
-        $privTable = array();
-        // d a t a
-        $privTable[0] = self::getDataPrivilegeTable($db);
-
-        // s t r u c t u r e
-        $privTable[1] = self::getStructurePrivilegeTable($table, $row);
-
-        // a d m i n i s t r a t i o n
-        $privTable[2] = self::getAdministrationPrivilegeTable($db);
+            2 => __('Administration'),
+        ];
+        $privTable = [];
+        $privTable[0] = $this->getDataPrivilegeTable($db);
+        $privTable[1] = $this->getStructurePrivilegeTable($table, $row);
+        $privTable[2] = $this->getAdministrationPrivilegeTable($db);
 
         $html_output = '<input type="hidden" name="grant_count" value="'
             . (count($privTable[0])
@@ -1171,7 +1248,7 @@ class Privileges
                 + count($privTable[2])
                 - (isset($row['Grant_priv']) ? 1 : 0)
             )
-            . '" />';
+            . '">';
         if ($db == '*') {
             $legend     = __('Global privileges');
             $menu_label = __('Global');
@@ -1185,7 +1262,7 @@ class Privileges
         $html_output .= '<fieldset id="fieldset_user_global_rights">'
             . '<legend data-submenu-label="' . $menu_label . '">' . $legend
             . '<input type="checkbox" id="addUsersForm_checkall" '
-            . 'class="checkall_box" title="' . __('Check all') . '" /> '
+            . 'class="checkall_box" title="' . __('Check all') . '"> '
             . '<label for="addUsersForm_checkall">' . __('Check all') . '</label> '
             . '</legend>'
             . '<p><small><i>'
@@ -1193,14 +1270,16 @@ class Privileges
             . '</i></small></p>';
 
         // Output the Global privilege tables with checkboxes
-        $html_output .= self::getHtmlForGlobalPrivTableWithCheckboxes(
-            $privTable, $privTable_names, $row
+        $html_output .= $this->getHtmlForGlobalPrivTableWithCheckboxes(
+            $privTable,
+            $privTable_names,
+            $row
         );
 
         // The "Resource limits" box is not displayed for db-specific privs
         if ($db == '*') {
-            $html_output .= self::getHtmlForResourceLimits($row);
-            $html_output .= self::getHtmlForRequires($row);
+            $html_output .= $this->getHtmlForResourceLimits($row);
+            $html_output .= $this->getHtmlForRequires($row);
         }
         // for Safari 2.0.2
         $html_output .= '<div class="clearfloat"></div>';
@@ -1213,22 +1292,39 @@ class Privileges
      *
      * @param string $db the database
      *
-     * @return string data privilege table
+     * @return array data privilege table
      */
-    public static function getDataPrivilegeTable($db)
+    public function getDataPrivilegeTable($db)
     {
-        $data_privTable = array(
-            array('Select', 'SELECT', __('Allows reading data.')),
-            array('Insert', 'INSERT', __('Allows inserting and replacing data.')),
-            array('Update', 'UPDATE', __('Allows changing data.')),
-            array('Delete', 'DELETE', __('Allows deleting data.'))
-        );
+        $data_privTable = [
+            [
+                'Select',
+                'SELECT',
+                __('Allows reading data.'),
+            ],
+            [
+                'Insert',
+                'INSERT',
+                __('Allows inserting and replacing data.'),
+            ],
+            [
+                'Update',
+                'UPDATE',
+                __('Allows changing data.'),
+            ],
+            [
+                'Delete',
+                'DELETE',
+                __('Allows deleting data.'),
+            ],
+        ];
         if ($db == '*') {
             $data_privTable[]
-                = array('File',
+                = [
+                    'File',
                     'FILE',
-                    __('Allows importing data from and exporting data into files.')
-                );
+                    __('Allows importing data from and exporting data into files.'),
+                ];
         }
         return $data_privTable;
     }
@@ -1239,72 +1335,89 @@ class Privileges
      * @param string $table the table
      * @param array  $row   first row from result or boolean false
      *
-     * @return string structure privilege table
+     * @return array structure privilege table
      */
-    public static function getStructurePrivilegeTable($table, array $row)
+    public function getStructurePrivilegeTable($table, array $row)
     {
-        $structure_privTable = array(
-            array('Create',
+        $structure_privTable = [
+            [
+                'Create',
                 'CREATE',
-                ($table == '*'
+                $table == '*'
                     ? __('Allows creating new databases and tables.')
-                    : __('Allows creating new tables.')
-                )
-            ),
-            array('Alter',
+                    : __('Allows creating new tables.'),
+            ],
+            [
+                'Alter',
                 'ALTER',
-                __('Allows altering the structure of existing tables.')
-            ),
-            array('Index', 'INDEX', __('Allows creating and dropping indexes.')),
-            array('Drop',
+                __('Allows altering the structure of existing tables.'),
+            ],
+            [
+                'Index',
+                'INDEX',
+                __('Allows creating and dropping indexes.'),
+            ],
+            [
+                'Drop',
                 'DROP',
-                ($table == '*'
+                $table == '*'
                     ? __('Allows dropping databases and tables.')
-                    : __('Allows dropping tables.')
-                )
-            ),
-            array('Create_tmp_table',
+                    : __('Allows dropping tables.'),
+            ],
+            [
+                'Create_tmp_table',
                 'CREATE TEMPORARY TABLES',
-                __('Allows creating temporary tables.')
-            ),
-            array('Show_view',
+                __('Allows creating temporary tables.'),
+            ],
+            [
+                'Show_view',
                 'SHOW VIEW',
-                __('Allows performing SHOW CREATE VIEW queries.')
-            ),
-            array('Create_routine',
+                __('Allows performing SHOW CREATE VIEW queries.'),
+            ],
+            [
+                'Create_routine',
                 'CREATE ROUTINE',
-                __('Allows creating stored routines.')
-            ),
-            array('Alter_routine',
+                __('Allows creating stored routines.'),
+            ],
+            [
+                'Alter_routine',
                 'ALTER ROUTINE',
-                __('Allows altering and dropping stored routines.')
-            ),
-            array('Execute', 'EXECUTE', __('Allows executing stored routines.')),
-        );
+                __('Allows altering and dropping stored routines.'),
+            ],
+            [
+                'Execute',
+                'EXECUTE',
+                __('Allows executing stored routines.'),
+            ],
+        ];
         // this one is for a db-specific priv: Create_view_priv
         if (isset($row['Create_view_priv'])) {
-            $structure_privTable[] = array('Create_view',
+            $structure_privTable[] = [
+                'Create_view',
                 'CREATE VIEW',
-                __('Allows creating new views.')
-            );
+                __('Allows creating new views.'),
+            ];
         }
         // this one is for a table-specific priv: Create View_priv
         if (isset($row['Create View_priv'])) {
-            $structure_privTable[] = array('Create View',
+            $structure_privTable[] = [
+                'Create View',
                 'CREATE VIEW',
-                __('Allows creating new views.')
-            );
+                __('Allows creating new views.'),
+            ];
         }
         if (isset($row['Event_priv'])) {
             // MySQL 5.1.6
-            $structure_privTable[] = array('Event',
+            $structure_privTable[] = [
+                'Event',
                 'EVENT',
-                __('Allows to set up events for the event scheduler.')
-            );
-            $structure_privTable[] = array('Trigger',
+                __('Allows to set up events for the event scheduler.'),
+            ];
+            $structure_privTable[] = [
+                'Trigger',
                 'TRIGGER',
-                __('Allows creating and dropping triggers.')
-            );
+                __('Allows creating and dropping triggers.'),
+            ];
         }
         return $structure_privTable;
     }
@@ -1314,78 +1427,89 @@ class Privileges
      *
      * @param string $db the table
      *
-     * @return string administration privilege table
+     * @return array administration privilege table
      */
-    public static function getAdministrationPrivilegeTable($db)
+    public function getAdministrationPrivilegeTable($db)
     {
         if ($db == '*') {
-            $adminPrivTable = array(
-                array('Grant',
+            $adminPrivTable = [
+                [
+                    'Grant',
                     'GRANT',
                     __(
                         'Allows adding users and privileges '
                         . 'without reloading the privilege tables.'
-                    )
-                ),
-            );
-            $adminPrivTable[] = array('Super',
+                    ),
+                ],
+            ];
+            $adminPrivTable[] = [
+                'Super',
                 'SUPER',
                 __(
                     'Allows connecting, even if maximum number '
                     . 'of connections is reached; required for '
                     . 'most administrative operations like '
                     . 'setting global variables or killing threads of other users.'
-                )
-            );
-            $adminPrivTable[] = array('Process',
+                ),
+            ];
+            $adminPrivTable[] = [
+                'Process',
                 'PROCESS',
-                __('Allows viewing processes of all users.')
-            );
-            $adminPrivTable[] = array('Reload',
+                __('Allows viewing processes of all users.'),
+            ];
+            $adminPrivTable[] = [
+                'Reload',
                 'RELOAD',
-                __('Allows reloading server settings and flushing the server\'s caches.')
-            );
-            $adminPrivTable[] = array('Shutdown',
+                __('Allows reloading server settings and flushing the server\'s caches.'),
+            ];
+            $adminPrivTable[] = [
+                'Shutdown',
                 'SHUTDOWN',
-                __('Allows shutting down the server.')
-            );
-            $adminPrivTable[] = array('Show_db',
+                __('Allows shutting down the server.'),
+            ];
+            $adminPrivTable[] = [
+                'Show_db',
                 'SHOW DATABASES',
-                __('Gives access to the complete list of databases.')
-            );
-        }
-        else {
-            $adminPrivTable = array(
-                array('Grant',
+                __('Gives access to the complete list of databases.'),
+            ];
+        } else {
+            $adminPrivTable = [
+                [
+                    'Grant',
                     'GRANT',
                     __(
                         'Allows user to give to other users or remove from other'
                         . ' users the privileges that user possess yourself.'
-                    )
-               ),
-            );
+                    ),
+                ],
+            ];
         }
-        $adminPrivTable[] = array('Lock_tables',
+        $adminPrivTable[] = [
+            'Lock_tables',
             'LOCK TABLES',
-            __('Allows locking tables for the current thread.')
-        );
-        $adminPrivTable[] = array('References',
+            __('Allows locking tables for the current thread.'),
+        ];
+        $adminPrivTable[] = [
+            'References',
             'REFERENCES',
-            __('Has no effect in this MySQL version.')
-        );
+            __('Has no effect in this MySQL version.'),
+        ];
         if ($db == '*') {
-            $adminPrivTable[] = array('Repl_client',
+            $adminPrivTable[] = [
+                'Repl_client',
                 'REPLICATION CLIENT',
-                __('Allows the user to ask where the slaves / masters are.')
-            );
-            $adminPrivTable[] = array('Repl_slave',
+                __('Allows the user to ask where the slaves / masters are.'),
+            ];
+            $adminPrivTable[] = [
+                'Repl_slave',
                 'REPLICATION SLAVE',
-                __('Needed for the replication slaves.')
-            );
-            $adminPrivTable[] = array('Create_user',
+                __('Needed for the replication slaves.'),
+            ];
+            $adminPrivTable[] = [
+                'Create_user',
                 'CREATE USER',
-                __('Allows creating, dropping and renaming user accounts.')
-            );
+                __('Allows creating, dropping and renaming user accounts.'),
+            ];
         }
         return $adminPrivTable;
     }
@@ -1398,16 +1522,18 @@ class Privileges
      *                              (Data, Structure, Administration)
      * @param array $row            first row from result or boolean false
      *
-     * @return string $html_output
+     * @return string
      */
-    public static function getHtmlForGlobalPrivTableWithCheckboxes(
-        array $privTable, array $privTableNames, array $row
+    public function getHtmlForGlobalPrivTableWithCheckboxes(
+        array $privTable,
+        array $privTableNames,
+        array $row
     ) {
-        return Template::get('privileges/global_priv_table')->render(array(
+        return $this->template->render('server/privileges/global_priv_table', [
             'priv_table' => $privTable,
             'priv_table_names' => $privTableNames,
             'row' => $row,
-        ));
+        ]);
     }
 
     /**
@@ -1419,26 +1545,26 @@ class Privileges
      *                                 (allowed values: 'new', 'edit', 'change_pw')
      * @param string $versions         Is MySQL version newer or older than 5.5.7
      *
-     * @return string $html_output
+     * @return string
      */
-    public static function getHtmlForAuthPluginsDropdown(
+    public function getHtmlForAuthPluginsDropdown(
         $orig_auth_plugin,
         $mode = 'new',
         $versions = 'new'
     ) {
         $select_id = 'select_authentication_plugin'
-            . ($mode =='change_pw' ? '_cp' : '');
+            . ($mode == 'change_pw' ? '_cp' : '');
 
         if ($versions == 'new') {
-            $active_auth_plugins = self::getActiveAuthPlugins();
+            $active_auth_plugins = $this->getActiveAuthPlugins();
 
             if (isset($active_auth_plugins['mysql_old_password'])) {
                 unset($active_auth_plugins['mysql_old_password']);
             }
         } else {
-            $active_auth_plugins = array(
-                'mysql_native_password' => __('Native MySQL authentication')
-            );
+            $active_auth_plugins = [
+                'mysql_native_password' => __('Native MySQL authentication'),
+            ];
         }
 
         $html_output = Util::getDropdown(
@@ -1454,18 +1580,18 @@ class Privileges
     /**
      * Gets the currently active authentication plugins
      *
-     * @return array $result  array of plugin names and descriptions
+     * @return array  array of plugin names and descriptions
      */
-    public static function getActiveAuthPlugins()
+    public function getActiveAuthPlugins()
     {
         $get_plugins_query = "SELECT `PLUGIN_NAME`, `PLUGIN_DESCRIPTION`"
             . " FROM `information_schema`.`PLUGINS` "
             . "WHERE `PLUGIN_TYPE` = 'AUTHENTICATION';";
-        $resultset = $GLOBALS['dbi']->query($get_plugins_query);
+        $resultset = $this->dbi->query($get_plugins_query);
 
-        $result = array();
+        $result = [];
 
-        while ($row = $GLOBALS['dbi']->fetchAssoc($resultset)) {
+        while ($row = $this->dbi->fetchAssoc($resultset)) {
             // if description is known, enable its translation
             if ('mysql_native_password' == $row['PLUGIN_NAME']) {
                 $row['PLUGIN_DESCRIPTION'] = __('Native MySQL authentication');
@@ -1491,14 +1617,14 @@ class Privileges
      * @global  array      $cfg     the phpMyAdmin configuration
      * @global  resource   $user_link the database connection
      *
-     * @return string $html_output  a HTML snippet
+     * @return string  a HTML snippet
      */
-    public static function getHtmlForLoginInformationFields(
+    public function getHtmlForLoginInformationFields(
         $mode = 'new',
         $username = null,
         $hostname = null
     ) {
-        list($username_length, $hostname_length) = self::getUsernameAndHostnameLength();
+        list($username_length, $hostname_length) = $this->getUsernameAndHostnameLength();
 
         if (isset($GLOBALS['username']) && strlen($GLOBALS['username']) === 0) {
             $GLOBALS['pred_username'] = 'any';
@@ -1515,16 +1641,15 @@ class Privileges
             . 'title="' . __('User name') . '">' . "\n";
 
         $html_output .= '<option value="any"'
-            . ((isset($GLOBALS['pred_username']) && $GLOBALS['pred_username'] == 'any')
+            . (isset($GLOBALS['pred_username']) && $GLOBALS['pred_username'] == 'any'
                 ? ' selected="selected"'
                 : '') . '>'
             . __('Any user')
             . '</option>' . "\n";
 
         $html_output .= '<option value="userdefined"'
-            . ((! isset($GLOBALS['pred_username'])
+            . (! isset($GLOBALS['pred_username'])
                     || $GLOBALS['pred_username'] == 'userdefined'
-                )
                 ? ' selected="selected"'
                 : '') . '>'
             . __('Use text field')
@@ -1543,11 +1668,10 @@ class Privileges
                    : $GLOBALS['username']
                ) . '"'
             )
-            . ((! isset($GLOBALS['pred_username'])
+            . (! isset($GLOBALS['pred_username'])
                     || $GLOBALS['pred_username'] == 'userdefined'
-                )
                 ? 'required="required"'
-                : '') . ' />' . "\n";
+                : '') . '>' . "\n";
 
         $html_output .= '<div id="user_exists_warning"'
             . ' name="user_exists_warning" class="hide">'
@@ -1568,14 +1692,14 @@ class Privileges
         $html_output .= '<span class="options">' . "\n"
             . '    <select name="pred_hostname" id="select_pred_hostname" '
             . 'title="' . __('Host name') . '"' . "\n";
-        $_current_user = $GLOBALS['dbi']->fetchValue('SELECT USER();');
+        $_current_user = $this->dbi->fetchValue('SELECT USER();');
         if (! empty($_current_user)) {
             $thishost = str_replace(
                 "'",
                 '',
                 mb_substr(
                     $_current_user,
-                    (mb_strrpos($_current_user, '@') + 1)
+                    mb_strrpos($_current_user, '@') + 1
                 )
             );
             if ($thishost != 'localhost' && $thishost != '127.0.0.1') {
@@ -1590,39 +1714,36 @@ class Privileges
         // when we start editing a user, $GLOBALS['pred_hostname'] is not defined
         if (! isset($GLOBALS['pred_hostname']) && isset($GLOBALS['hostname'])) {
             switch (mb_strtolower($GLOBALS['hostname'])) {
-            case 'localhost':
-            case '127.0.0.1':
-                $GLOBALS['pred_hostname'] = 'localhost';
-                break;
-            case '%':
-                $GLOBALS['pred_hostname'] = 'any';
-                break;
-            default:
-                $GLOBALS['pred_hostname'] = 'userdefined';
-                break;
+                case 'localhost':
+                case '127.0.0.1':
+                    $GLOBALS['pred_hostname'] = 'localhost';
+                    break;
+                case '%':
+                    $GLOBALS['pred_hostname'] = 'any';
+                    break;
+                default:
+                    $GLOBALS['pred_hostname'] = 'userdefined';
+                    break;
             }
         }
         $html_output .=  '<option value="any"'
-            . ((isset($GLOBALS['pred_hostname'])
+            . (isset($GLOBALS['pred_hostname'])
                     && $GLOBALS['pred_hostname'] == 'any'
-                )
                 ? ' selected="selected"'
                 : '') . '>'
             . __('Any host')
             . '</option>' . "\n"
             . '<option value="localhost"'
-            . ((isset($GLOBALS['pred_hostname'])
+            . (isset($GLOBALS['pred_hostname'])
                     && $GLOBALS['pred_hostname'] == 'localhost'
-                )
                 ? ' selected="selected"'
                 : '') . '>'
             . __('Local')
             . '</option>' . "\n";
         if (! empty($thishost)) {
             $html_output .= '<option value="thishost"'
-                . ((isset($GLOBALS['pred_hostname'])
+                . (isset($GLOBALS['pred_hostname'])
                         && $GLOBALS['pred_hostname'] == 'thishost'
-                    )
                     ? ' selected="selected"'
                     : '') . '>'
                 . __('This Host')
@@ -1630,18 +1751,16 @@ class Privileges
         }
         unset($thishost);
         $html_output .= '<option value="hosttable"'
-            . ((isset($GLOBALS['pred_hostname'])
+            . (isset($GLOBALS['pred_hostname'])
                     && $GLOBALS['pred_hostname'] == 'hosttable'
-                )
                 ? ' selected="selected"'
                 : '') . '>'
             . __('Use Host Table')
             . '</option>' . "\n";
 
         $html_output .= '<option value="userdefined"'
-            . ((isset($GLOBALS['pred_hostname'])
+            . (isset($GLOBALS['pred_hostname'])
                     && $GLOBALS['pred_hostname'] == 'userdefined'
-                )
                 ? ' selected="selected"'
                 : '') . '>'
             . __('Use text field:') . '</option>' . "\n"
@@ -1653,12 +1772,11 @@ class Privileges
             // use default value of '%' to match with the default 'Any host'
             . htmlspecialchars(isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '%')
             . '" title="' . __('Host name') . '" '
-            . ((isset($GLOBALS['pred_hostname'])
+            . (isset($GLOBALS['pred_hostname'])
                     && $GLOBALS['pred_hostname'] == 'userdefined'
-                )
                 ? 'required="required"'
                 : '')
-            . ' />' . "\n"
+            . '>' . "\n"
             . Util::showHint(
                 __(
                     'When Host table is used, this field is ignored '
@@ -1692,7 +1810,7 @@ class Privileges
             . '<input type="password" id="text_pma_pw" name="pma_pw" '
             . 'title="' . __('Password') . '" '
             . (isset($GLOBALS['username']) ? '' : 'required="required"')
-            . '/>' . "\n"
+            . '>' . "\n"
             . '<span>Strength:</span> '
             . '<meter max="4" id="password_strength_meter" name="pw_meter"></meter> '
             . '<span id="password_strength" name="pw_strength"></span>' . "\n"
@@ -1707,14 +1825,14 @@ class Privileges
             . '<input type="password" name="pma_pw2" id="text_pma_pw2" '
             . 'title="' . __('Re-type') . '" '
             . (isset($GLOBALS['username']) ? '' : 'required="required"')
-            . '/>' . "\n"
+            . '>' . "\n"
             . '</div>' . "\n"
             . '<div class="item" id="authentication_plugin_div">'
             . '<label for="select_authentication_plugin" >';
 
         $serverType = Util::getServerType();
-        $serverVersion = $GLOBALS['dbi']->getVersion();
-        $orig_auth_plugin = self::getCurrentAuthenticationPlugin(
+        $serverVersion = $this->dbi->getVersion();
+        $orig_auth_plugin = $this->getCurrentAuthenticationPlugin(
             $mode,
             $username,
             $hostname
@@ -1728,14 +1846,18 @@ class Privileges
             $html_output .= __('Authentication Plugin')
             . '</label><span class="options">&nbsp;</span>' . "\n";
 
-            $auth_plugin_dropdown = self::getHtmlForAuthPluginsDropdown(
-                $orig_auth_plugin, $mode, 'new'
+            $auth_plugin_dropdown = $this->getHtmlForAuthPluginsDropdown(
+                $orig_auth_plugin,
+                $mode,
+                'new'
             );
         } else {
             $html_output .= __('Password Hashing Method')
                 . '</label><span class="options">&nbsp;</span>' . "\n";
-            $auth_plugin_dropdown = self::getHtmlForAuthPluginsDropdown(
-                $orig_auth_plugin, $mode, 'old'
+            $auth_plugin_dropdown = $this->getHtmlForAuthPluginsDropdown(
+                $orig_auth_plugin,
+                $mode,
+                'old'
             );
         }
         $html_output .= $auth_plugin_dropdown;
@@ -1759,21 +1881,21 @@ class Privileges
            . '</fieldset>' . "\n";
 
         return $html_output;
-    } // end of the 'self::getHtmlForLoginInformationFields()' function
+    }
 
     /**
      * Get username and hostname length
      *
      * @return array username length and hostname length
      */
-    public static function getUsernameAndHostnameLength()
+    public function getUsernameAndHostnameLength()
     {
         /* Fallback values */
         $username_length = 16;
         $hostname_length = 41;
 
         /* Try to get real lengths from the database */
-        $fields_info = $GLOBALS['dbi']->fetchResult(
+        $fields_info = $this->dbi->fetchResult(
             'SELECT COLUMN_NAME, CHARACTER_MAXIMUM_LENGTH '
             . 'FROM information_schema.columns '
             . "WHERE table_schema = 'mysql' AND table_name = 'user' "
@@ -1786,7 +1908,10 @@ class Privileges
                 $hostname_length = $val['CHARACTER_MAXIMUM_LENGTH'];
             }
         }
-        return array($username_length, $hostname_length);
+        return [
+            $username_length,
+            $hostname_length,
+        ];
     }
 
     /**
@@ -1799,39 +1924,39 @@ class Privileges
      *
      * @return string authentication plugin in use
      */
-    public static function getCurrentAuthenticationPlugin(
+    public function getCurrentAuthenticationPlugin(
         $mode = 'new',
         $username = null,
         $hostname = null
     ) {
         /* Fallback (standard) value */
         $authentication_plugin = 'mysql_native_password';
-        $serverVersion = $GLOBALS['dbi']->getVersion();
+        $serverVersion = $this->dbi->getVersion();
 
         if (isset($username) && isset($hostname)
             && $mode == 'change'
         ) {
-            $row = $GLOBALS['dbi']->fetchSingleRow(
+            $row = $this->dbi->fetchSingleRow(
                 'SELECT `plugin` FROM `mysql`.`user` WHERE '
                 . '`User` = "' . $username . '" AND `Host` = "' . $hostname . '" LIMIT 1'
             );
             // Table 'mysql'.'user' may not exist for some previous
             // versions of MySQL - in that case consider fallback value
-            if (isset($row) && $row) {
+            if (is_array($row) && isset($row['plugin'])) {
                 $authentication_plugin = $row['plugin'];
             }
         } elseif ($mode == 'change') {
-            list($username, $hostname) = $GLOBALS['dbi']->getCurrentUserAndHost();
+            list($username, $hostname) = $this->dbi->getCurrentUserAndHost();
 
-            $row = $GLOBALS['dbi']->fetchSingleRow(
+            $row = $this->dbi->fetchSingleRow(
                 'SELECT `plugin` FROM `mysql`.`user` WHERE '
                 . '`User` = "' . $username . '" AND `Host` = "' . $hostname . '"'
             );
-            if (isset($row) && $row && ! empty($row['plugin'])) {
+            if (is_array($row) && isset($row['plugin'])) {
                 $authentication_plugin = $row['plugin'];
             }
         } elseif ($serverVersion >= 50702) {
-            $row = $GLOBALS['dbi']->fetchSingleRow(
+            $row = $this->dbi->fetchSingleRow(
                 'SELECT @@default_authentication_plugin'
             );
             $authentication_plugin = is_array($row) ? $row['@@default_authentication_plugin'] : null;
@@ -1849,19 +1974,19 @@ class Privileges
      *
      * @return string containing all the grants text
      */
-    public static function getGrants($user, $host)
+    public function getGrants($user, $host)
     {
-        $grants = $GLOBALS['dbi']->fetchResult(
+        $grants = $this->dbi->fetchResult(
             "SHOW GRANTS FOR '"
-            . $GLOBALS['dbi']->escapeString($user) . "'@'"
-            . $GLOBALS['dbi']->escapeString($host) . "'"
+            . $this->dbi->escapeString($user) . "'@'"
+            . $this->dbi->escapeString($host) . "'"
         );
         $response = '';
         foreach ($grants as $one_grant) {
             $response .= $one_grant . ";\n\n";
         }
         return $response;
-    } // end of the 'self::getGrants()' function
+    }
 
     /**
      * Update password and get message for password updating
@@ -1870,12 +1995,12 @@ class Privileges
      * @param string $username username
      * @param string $hostname hostname
      *
-     * @return string $message  success or error message after updating password
+     * @return Message success or error message after updating password
      */
-    public static function updatePassword($err_url, $username, $hostname)
+    public function updatePassword($err_url, $username, $hostname)
     {
         // similar logic in user_password.php
-        $message = '';
+        $message = null;
 
         if (empty($_POST['nopass'])
             && isset($_POST['pma_pw'])
@@ -1889,14 +2014,14 @@ class Privileges
         }
 
         // here $nopass could be == 1
-        if (empty($message)) {
+        if ($message === null) {
             $hashing_function = 'PASSWORD';
             $serverType = Util::getServerType();
-            $serverVersion = $GLOBALS['dbi']->getVersion();
+            $serverVersion = $this->dbi->getVersion();
             $authentication_plugin
                 = (isset($_POST['authentication_plugin'])
                 ? $_POST['authentication_plugin']
-                : self::getCurrentAuthenticationPlugin(
+                : $this->getCurrentAuthenticationPlugin(
                     'change',
                     $username,
                     $hostname
@@ -1908,15 +2033,15 @@ class Privileges
             ) {
                 if ($authentication_plugin != 'mysql_old_password') {
                     $query_prefix = "ALTER USER '"
-                        . $GLOBALS['dbi']->escapeString($username)
-                        . "'@'" . $GLOBALS['dbi']->escapeString($hostname) . "'"
+                        . $this->dbi->escapeString($username)
+                        . "'@'" . $this->dbi->escapeString($hostname) . "'"
                         . " IDENTIFIED WITH "
                         . $authentication_plugin
                         . " BY '";
                 } else {
                     $query_prefix = "ALTER USER '"
-                        . $GLOBALS['dbi']->escapeString($username)
-                        . "'@'" . $GLOBALS['dbi']->escapeString($hostname) . "'"
+                        . $this->dbi->escapeString($username)
+                        . "'@'" . $this->dbi->escapeString($hostname) . "'"
                         . " IDENTIFIED BY '";
                 }
 
@@ -1924,39 +2049,38 @@ class Privileges
                 $sql_query = $query_prefix . "*'";
 
                 $local_query = $query_prefix
-                    . $GLOBALS['dbi']->escapeString($_POST['pma_pw']) . "'";
+                    . $this->dbi->escapeString($_POST['pma_pw']) . "'";
             } elseif ($serverType == 'MariaDB' && $serverVersion >= 10000) {
                 // MariaDB uses "SET PASSWORD" syntax to change user password.
                 // On Galera cluster only DDL queries are replicated, since
                 // users are stored in MyISAM storage engine.
                 $query_prefix = "SET PASSWORD FOR  '"
-                    . $GLOBALS['dbi']->escapeString($username)
-                    . "'@'" . $GLOBALS['dbi']->escapeString($hostname) . "'"
+                    . $this->dbi->escapeString($username)
+                    . "'@'" . $this->dbi->escapeString($hostname) . "'"
                     . " = PASSWORD ('";
                 $sql_query = $local_query = $query_prefix
-                    . $GLOBALS['dbi']->escapeString($_POST['pma_pw']) . "')";
+                    . $this->dbi->escapeString($_POST['pma_pw']) . "')";
             } elseif ($serverType == 'MariaDB'
                 && $serverVersion >= 50200
-                && $GLOBALS['dbi']->isSuperuser()
+                && $this->dbi->isSuperuser()
             ) {
                 // Use 'UPDATE `mysql`.`user` ...' Syntax for MariaDB 5.2+
                 if ($authentication_plugin == 'mysql_native_password') {
                     // Set the hashing method used by PASSWORD()
                     // to be 'mysql_native_password' type
-                    $GLOBALS['dbi']->tryQuery('SET old_passwords = 0;');
-
+                    $this->dbi->tryQuery('SET old_passwords = 0;');
                 } elseif ($authentication_plugin == 'sha256_password') {
                     // Set the hashing method used by PASSWORD()
                     // to be 'sha256_password' type
-                    $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 2;');
+                    $this->dbi->tryQuery('SET `old_passwords` = 2;');
                 }
 
-                $hashedPassword = self::getHashedPassword($_POST['pma_pw']);
+                $hashedPassword = $this->getHashedPassword($_POST['pma_pw']);
 
                 $sql_query        = 'SET PASSWORD FOR \''
-                    . $GLOBALS['dbi']->escapeString($username)
-                    . '\'@\'' . $GLOBALS['dbi']->escapeString($hostname) . '\' = '
-                    . (($_POST['pma_pw'] == '')
+                    . $this->dbi->escapeString($username)
+                    . '\'@\'' . $this->dbi->escapeString($hostname) . '\' = '
+                    . ($_POST['pma_pw'] == ''
                         ? '\'\''
                         : $hashing_function . '(\''
                         . preg_replace('@.@s', '*', $_POST['pma_pw']) . '\')');
@@ -1970,7 +2094,7 @@ class Privileges
             } else {
                 // USE 'SET PASSWORD ...' syntax for rest of the versions
                 // Backup the old value, to be reset later
-                $row = $GLOBALS['dbi']->fetchSingleRow(
+                $row = $this->dbi->fetchSingleRow(
                     'SELECT @@old_passwords;'
                 );
                 $orig_value = $row['@@old_passwords'];
@@ -1980,53 +2104,57 @@ class Privileges
                     . $hostname . "';";
 
                 // Update the plugin for the user
-                if (!($GLOBALS['dbi']->tryQuery($update_plugin_query))) {
+                if (! $this->dbi->tryQuery($update_plugin_query)) {
                     Util::mysqlDie(
-                        $GLOBALS['dbi']->getError(),
+                        $this->dbi->getError(),
                         $update_plugin_query,
-                        false, $err_url
+                        false,
+                        $err_url
                     );
                 }
-                $GLOBALS['dbi']->tryQuery("FLUSH PRIVILEGES;");
+                $this->dbi->tryQuery("FLUSH PRIVILEGES;");
 
                 if ($authentication_plugin == 'mysql_native_password') {
                     // Set the hashing method used by PASSWORD()
                     // to be 'mysql_native_password' type
-                    $GLOBALS['dbi']->tryQuery('SET old_passwords = 0;');
+                    $this->dbi->tryQuery('SET old_passwords = 0;');
                 } elseif ($authentication_plugin == 'sha256_password') {
                     // Set the hashing method used by PASSWORD()
                     // to be 'sha256_password' type
-                    $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 2;');
+                    $this->dbi->tryQuery('SET `old_passwords` = 2;');
                 }
                 $sql_query        = 'SET PASSWORD FOR \''
-                    . $GLOBALS['dbi']->escapeString($username)
-                    . '\'@\'' . $GLOBALS['dbi']->escapeString($hostname) . '\' = '
-                    . (($_POST['pma_pw'] == '')
+                    . $this->dbi->escapeString($username)
+                    . '\'@\'' . $this->dbi->escapeString($hostname) . '\' = '
+                    . ($_POST['pma_pw'] == ''
                         ? '\'\''
                         : $hashing_function . '(\''
                         . preg_replace('@.@s', '*', $_POST['pma_pw']) . '\')');
 
                 $local_query      = 'SET PASSWORD FOR \''
-                    . $GLOBALS['dbi']->escapeString($username)
-                    . '\'@\'' . $GLOBALS['dbi']->escapeString($hostname) . '\' = '
-                    . (($_POST['pma_pw'] == '') ? '\'\'' : $hashing_function
-                    . '(\'' . $GLOBALS['dbi']->escapeString($_POST['pma_pw']) . '\')');
+                    . $this->dbi->escapeString($username)
+                    . '\'@\'' . $this->dbi->escapeString($hostname) . '\' = '
+                    . ($_POST['pma_pw'] == '' ? '\'\'' : $hashing_function
+                    . '(\'' . $this->dbi->escapeString($_POST['pma_pw']) . '\')');
             }
 
-            if (!($GLOBALS['dbi']->tryQuery($local_query))) {
+            if (! $this->dbi->tryQuery($local_query)) {
                 Util::mysqlDie(
-                    $GLOBALS['dbi']->getError(), $sql_query, false, $err_url
+                    $this->dbi->getError(),
+                    $sql_query,
+                    false,
+                    $err_url
                 );
             }
             // Flush privileges after successful password change
-            $GLOBALS['dbi']->tryQuery("FLUSH PRIVILEGES;");
+            $this->dbi->tryQuery("FLUSH PRIVILEGES;");
 
             $message = Message::success(
                 __('The password for %s was changed successfully.')
             );
             $message->addParam('\'' . $username . '\'@\'' . $hostname . '\'');
             if (isset($orig_value)) {
-                $GLOBALS['dbi']->tryQuery(
+                $this->dbi->tryQuery(
                     'SET `old_passwords` = ' . $orig_value . ';'
                 );
             }
@@ -2045,22 +2173,26 @@ class Privileges
      *
      * @return array ($message, $sql_query)
      */
-    public static function getMessageAndSqlQueryForPrivilegesRevoke($dbname,
-        $tablename, $username, $hostname, $itemType
+    public function getMessageAndSqlQueryForPrivilegesRevoke(
+        $dbname,
+        $tablename,
+        $username,
+        $hostname,
+        $itemType
     ) {
-        $db_and_table = self::wildcardEscapeForGrant($dbname, $tablename);
+        $db_and_table = $this->wildcardEscapeForGrant($dbname, $tablename);
 
         $sql_query0 = 'REVOKE ALL PRIVILEGES ON ' . $itemType . ' ' . $db_and_table
             . ' FROM \''
-            . $GLOBALS['dbi']->escapeString($username) . '\'@\''
-            . $GLOBALS['dbi']->escapeString($hostname) . '\';';
+            . $this->dbi->escapeString($username) . '\'@\''
+            . $this->dbi->escapeString($hostname) . '\';';
 
         $sql_query1 = 'REVOKE GRANT OPTION ON ' . $itemType . ' ' . $db_and_table
-            . ' FROM \'' . $GLOBALS['dbi']->escapeString($username) . '\'@\''
-            . $GLOBALS['dbi']->escapeString($hostname) . '\';';
+            . ' FROM \'' . $this->dbi->escapeString($username) . '\'@\''
+            . $this->dbi->escapeString($hostname) . '\';';
 
-        $GLOBALS['dbi']->query($sql_query0);
-        if (! $GLOBALS['dbi']->tryQuery($sql_query1)) {
+        $this->dbi->query($sql_query0);
+        if (! $this->dbi->tryQuery($sql_query1)) {
             // this one may fail, too...
             $sql_query1 = '';
         }
@@ -2070,7 +2202,10 @@ class Privileges
         );
         $message->addParam('\'' . $username . '\'@\'' . $hostname . '\'');
 
-        return array($message, $sql_query);
+        return [
+            $message,
+            $sql_query,
+        ];
     }
 
     /**
@@ -2078,22 +2213,22 @@ class Privileges
      *
      * @return string REQUIRE clause
      */
-    public static function getRequireClause()
+    public function getRequireClause()
     {
         $arr = isset($_POST['ssl_type']) ? $_POST : $GLOBALS;
         if (isset($arr['ssl_type']) && $arr['ssl_type'] == 'SPECIFIED') {
-            $require = array();
+            $require = [];
             if (! empty($arr['ssl_cipher'])) {
                 $require[] = "CIPHER '"
-                        . $GLOBALS['dbi']->escapeString($arr['ssl_cipher']) . "'";
+                        . $this->dbi->escapeString($arr['ssl_cipher']) . "'";
             }
             if (! empty($arr['x509_issuer'])) {
                 $require[] = "ISSUER '"
-                        . $GLOBALS['dbi']->escapeString($arr['x509_issuer']) . "'";
+                        . $this->dbi->escapeString($arr['x509_issuer']) . "'";
             }
             if (! empty($arr['x509_subject'])) {
                 $require[] = "SUBJECT '"
-                        . $GLOBALS['dbi']->escapeString($arr['x509_subject']) . "'";
+                        . $this->dbi->escapeString($arr['x509_subject']) . "'";
             }
             if (count($require)) {
                 $require_clause = " REQUIRE " . implode(" AND ", $require);
@@ -2114,33 +2249,33 @@ class Privileges
     /**
      * Get a WITH clause for 'update privileges' and 'add user'
      *
-     * @return string $sql_query
+     * @return string
      */
-    public static function getWithClauseForAddUserAndUpdatePrivs()
+    public function getWithClauseForAddUserAndUpdatePrivs()
     {
         $sql_query = '';
         if (((isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y')
             || (isset($GLOBALS['Grant_priv']) && $GLOBALS['Grant_priv'] == 'Y'))
             && ! ((Util::getServerType() == 'MySQL' || Util::getServerType() == 'Percona Server')
-                && $GLOBALS['dbi']->getVersion() >= 80011)
+                && $this->dbi->getVersion() >= 80011)
         ) {
             $sql_query .= ' GRANT OPTION';
         }
         if (isset($_POST['max_questions']) || isset($GLOBALS['max_questions'])) {
             $max_questions = isset($_POST['max_questions'])
-                ? (int)$_POST['max_questions'] : (int)$GLOBALS['max_questions'];
+                ? (int) $_POST['max_questions'] : (int) $GLOBALS['max_questions'];
             $max_questions = max(0, $max_questions);
             $sql_query .= ' MAX_QUERIES_PER_HOUR ' . $max_questions;
         }
         if (isset($_POST['max_connections']) || isset($GLOBALS['max_connections'])) {
             $max_connections = isset($_POST['max_connections'])
-                ? (int)$_POST['max_connections'] : (int)$GLOBALS['max_connections'];
+                ? (int) $_POST['max_connections'] : (int) $GLOBALS['max_connections'];
             $max_connections = max(0, $max_connections);
             $sql_query .= ' MAX_CONNECTIONS_PER_HOUR ' . $max_connections;
         }
         if (isset($_POST['max_updates']) || isset($GLOBALS['max_updates'])) {
             $max_updates = isset($_POST['max_updates'])
-                ? (int)$_POST['max_updates'] : (int)$GLOBALS['max_updates'];
+                ? (int) $_POST['max_updates'] : (int) $GLOBALS['max_updates'];
             $max_updates = max(0, $max_updates);
             $sql_query .= ' MAX_UPDATES_PER_HOUR ' . $max_updates;
         }
@@ -2148,12 +2283,12 @@ class Privileges
             || isset($GLOBALS['max_user_connections'])
         ) {
             $max_user_connections = isset($_POST['max_user_connections'])
-                ? (int)$_POST['max_user_connections']
-                : (int)$GLOBALS['max_user_connections'];
+                ? (int) $_POST['max_user_connections']
+                : (int) $GLOBALS['max_user_connections'];
             $max_user_connections = max(0, $max_user_connections);
             $sql_query .= ' MAX_USER_CONNECTIONS ' . $max_user_connections;
         }
-        return ((!empty($sql_query)) ? ' WITH' . $sql_query : '');
+        return (! empty($sql_query) ? ' WITH' . $sql_query : '');
     }
 
     /**
@@ -2163,7 +2298,7 @@ class Privileges
      *
      * @return string HTML for addUserForm
      */
-    public static function getHtmlForAddUser($dbname)
+    public function getHtmlForAddUser($dbname)
     {
         $html_output = '<h2>' . "\n"
            . Util::getIcon('b_usradd') . __('Add user account') . "\n"
@@ -2172,58 +2307,49 @@ class Privileges
            . ' onsubmit="return checkAddUser(this);"'
            . ' action="server_privileges.php" method="post" autocomplete="off" >' . "\n"
            . Url::getHiddenInputs('', '')
-           . self::getHtmlForLoginInformationFields('new');
+           . $this->getHtmlForLoginInformationFields('new');
 
         $html_output .= '<fieldset id="fieldset_add_user_database">' . "\n"
             . '<legend>' . __('Database for user account') . '</legend>' . "\n";
 
-        $html_output .= Template::get('checkbox')
-            ->render(
-                array(
-                    'html_field_name'   => 'createdb-1',
-                    'label'             => __('Create database with same name and grant all privileges.'),
-                    'checked'           => false,
-                    'onclick'           => false,
-                    'html_field_id'     => 'createdb-1',
-                )
-            );
-        $html_output .= '<br />' . "\n";
-        $html_output .= Template::get('checkbox')
-            ->render(
-                array(
-                    'html_field_name'   => 'createdb-2',
-                    'label'             => __('Grant all privileges on wildcard name (username\\_%).'),
-                    'checked'           => false,
-                    'onclick'           => false,
-                    'html_field_id'     => 'createdb-2',
-                )
-            );
-        $html_output .= '<br />' . "\n";
+        $html_output .= $this->template->render('checkbox', [
+            'html_field_name' => 'createdb-1',
+            'label' => __('Create database with same name and grant all privileges.'),
+            'checked' => false,
+            'onclick' => false,
+            'html_field_id' => 'createdb-1',
+        ]);
+        $html_output .= '<br>' . "\n";
+        $html_output .= $this->template->render('checkbox', [
+            'html_field_name' => 'createdb-2',
+            'label' => __('Grant all privileges on wildcard name (username\\_%).'),
+            'checked' => false,
+            'onclick' => false,
+            'html_field_id' => 'createdb-2',
+        ]);
+        $html_output .= '<br>' . "\n";
 
-        if (! empty($dbname) ) {
-            $html_output .= Template::get('checkbox')
-                ->render(
-                    array(
-                        'html_field_name'   => 'createdb-3',
-                        'label'             => sprintf(__('Grant all privileges on database %s.'), htmlspecialchars($dbname)),
-                        'checked'           => true,
-                        'onclick'           => false,
-                        'html_field_id'     => 'createdb-3',
-                    )
-                );
+        if (! empty($dbname)) {
+            $html_output .= $this->template->render('checkbox', [
+                'html_field_name' => 'createdb-3',
+                'label' => sprintf(__('Grant all privileges on database %s.'), htmlspecialchars($dbname)),
+                'checked' => true,
+                'onclick' => false,
+                'html_field_id' => 'createdb-3',
+            ]);
             $html_output .= '<input type="hidden" name="dbname" value="'
-                . htmlspecialchars($dbname) . '" />' . "\n";
-            $html_output .= '<br />' . "\n";
+                . htmlspecialchars($dbname) . '">' . "\n";
+            $html_output .= '<br>' . "\n";
         }
 
         $html_output .= '</fieldset>' . "\n";
         if ($GLOBALS['is_grantuser']) {
-            $html_output .= self::getHtmlToDisplayPrivilegesTable('*', '*', false);
+            $html_output .= $this->getHtmlToDisplayPrivilegesTable('*', '*', false);
         }
         $html_output .= '<fieldset id="fieldset_add_user_footer" class="tblFooters">'
             . "\n"
-            . '<input type="hidden" name="adduser_submit" value="1" />' . "\n"
-            . '<input type="submit" id="adduser_submit" value="' . __('Go') . '" />'
+            . '<input type="hidden" name="adduser_submit" value="1">' . "\n"
+            . '<input class="btn btn-primary" type="submit" id="adduser_submit" value="' . __('Go') . '">'
             . "\n"
             . '</fieldset>' . "\n"
             . '</form>' . "\n";
@@ -2237,7 +2363,7 @@ class Privileges
      *
      * @return array $list_of_privileges, $list_of_compared_privileges
      */
-    public static function getListOfPrivilegesAndComparedPrivileges()
+    public function getListOfPrivilegesAndComparedPrivileges()
     {
         $list_of_privileges
             = '`User`, '
@@ -2283,7 +2409,10 @@ class Privileges
         $listOfComparedPrivs .=
             ' AND `Event_priv` = \'N\''
             . ' AND `Trigger_priv` = \'N\'';
-        return array($list_of_privileges, $listOfComparedPrivs);
+        return [
+            $list_of_privileges,
+            $listOfComparedPrivs,
+        ];
     }
 
     /**
@@ -2292,15 +2421,14 @@ class Privileges
      * @param string $db             database name
      * @param string $index_checkbox starting index for rows to be added
      *
-     * @return string $html_output
+     * @return string
      */
-    public static function getHtmlTableBodyForSpecificDbRoutinePrivs($db, $index_checkbox)
+    public function getHtmlTableBodyForSpecificDbRoutinePrivs($db, $index_checkbox)
     {
-        $sql_query = 'SELECT * FROM `mysql`.`procs_priv` WHERE Db = \'' . $GLOBALS['dbi']->escapeString($db) . '\';';
-        $res = $GLOBALS['dbi']->query($sql_query);
+        $sql_query = 'SELECT * FROM `mysql`.`procs_priv` WHERE Db = \'' . $this->dbi->escapeString($db) . '\';';
+        $res = $this->dbi->query($sql_query);
         $html_output = '';
-        while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
-
+        while ($row = $this->dbi->fetchAssoc($res)) {
             $html_output .= '<tr>';
 
             $html_output .= '<td';
@@ -2309,29 +2437,31 @@ class Privileges
             $html_output .= '<input type="checkbox" class="checkall" '
                 . 'name="selected_usr[]" '
                 . 'id="checkbox_sel_users_' . ($index_checkbox++) . '" '
-                . 'value="' . $value . '" /></td>';
+                . 'value="' . $value . '"></td>';
 
             $html_output .= '<td>' . htmlspecialchars($row['User'])
                 . '</td>'
                 . '<td>' . htmlspecialchars($row['Host'])
                 . '</td>'
-                . '<td>' . 'routine'
+                . '<td>routine'
                 . '</td>'
-                . '<td>' . '<code>' . htmlspecialchars($row['Routine_name']) . '</code>'
+                . '<td><code>' . htmlspecialchars($row['Routine_name']) . '</code>'
                 . '</td>'
-                . '<td>' . 'Yes'
+                . '<td>Yes'
                 . '</td>';
             $current_user = $row['User'];
             $current_host = $row['Host'];
             $routine = $row['Routine_name'];
             $html_output .= '<td>';
+            $specific_db = '';
+            $specific_table = '';
             if ($GLOBALS['is_grantuser']) {
-                $specific_db = (isset($row['Db']) && $row['Db'] != '*')
+                $specific_db = isset($row['Db']) && $row['Db'] != '*'
                     ? $row['Db'] : '';
-                $specific_table = (isset($row['Table_name'])
-                    && $row['Table_name'] != '*')
+                $specific_table = isset($row['Table_name'])
+                    && $row['Table_name'] != '*'
                     ? $row['Table_name'] : '';
-                $html_output .= self::getUserLink(
+                $html_output .= $this->getUserLink(
                     'edit',
                     $current_user,
                     $current_host,
@@ -2342,7 +2472,7 @@ class Privileges
             }
             $html_output .= '</td>';
             $html_output .= '<td>';
-            $html_output .= self::getUserLink(
+            $html_output .= $this->getUserLink(
                 'export',
                 $current_user,
                 $current_host,
@@ -2353,7 +2483,6 @@ class Privileges
             $html_output .= '</td>';
 
             $html_output .= '</tr>';
-
         }
         return $html_output;
     }
@@ -2363,13 +2492,13 @@ class Privileges
      *
      * @param string $db database name
      *
-     * @return string $html_output
+     * @return string
      */
-    public static function getHtmlForSpecificDbPrivileges($db)
+    public function getHtmlForSpecificDbPrivileges($db)
     {
         $html_output = '';
 
-        if ($GLOBALS['dbi']->isSuperuser()) {
+        if ($this->dbi->isSuperuser()) {
             // check the privileges for a particular database.
             $html_output  = '<form id="usersForm" action="server_privileges.php">';
             $html_output .= Url::getHiddenInputs($db);
@@ -2381,10 +2510,11 @@ class Privileges
                 . sprintf(
                     __('Users having access to "%s"'),
                     '<a href="' . Util::getScriptNameForOption(
-                        $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+                        $GLOBALS['cfg']['DefaultTabDatabase'],
+                        'database'
                     )
-                    . Url::getCommon(array('db' => $db)) . '">'
-                    .  htmlspecialchars($db)
+                    . Url::getCommon(['db' => $db]) . '">'
+                    . htmlspecialchars($db)
                     . '</a>'
                 )
                 . "\n"
@@ -2392,35 +2522,35 @@ class Privileges
 
             $html_output .= '<div class="responsivetable jsresponsive">';
             $html_output .= '<table id="dbspecificuserrights" class="data">';
-            $html_output .= self::getHtmlForPrivsTableHead();
-            $privMap = self::getPrivMap($db);
-            $html_output .= self::getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
+            $html_output .= $this->getHtmlForPrivsTableHead();
+            $privMap = $this->getPrivMap($db);
+            $html_output .= $this->getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
             $html_output .= '</table>';
             $html_output .= '</div>';
 
             $html_output .= '<div class="floatleft">';
-            $html_output .= Template::get('select_all')
-                ->render(
-                    array(
-                        'pma_theme_image' => $GLOBALS['pmaThemeImage'],
-                        'text_dir'        => $GLOBALS['text_dir'],
-                        'form_name'       => "usersForm",
-                    )
-                );
+            $html_output .= $this->template->render('select_all', [
+                'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+                'text_dir' => $GLOBALS['text_dir'],
+                'form_name' => "usersForm",
+            ]);
             $html_output .= Util::getButtonOrImage(
-                'submit_mult', 'mult_submit',
-                __('Export'), 'b_tblexport', 'export'
+                'submit_mult',
+                'mult_submit',
+                __('Export'),
+                'b_tblexport',
+                'export'
             );
 
             $html_output .= '</fieldset>';
             $html_output .= '</div>';
             $html_output .= '</form>';
         } else {
-            $html_output .= self::getHtmlForViewUsersError();
+            $html_output .= $this->getHtmlForViewUsersError();
         }
 
         $response = Response::getInstance();
-        if ($response->isAjax() == true
+        if ($response->isAjax() === true
             && empty($_REQUEST['ajax_page_request'])
         ) {
             $message = Message::success(__('User has been added.'));
@@ -2429,7 +2559,7 @@ class Privileges
             exit;
         } else {
             // Offer to create a new user for the current database
-            $html_output .= self::getAddUserHtmlFieldset($db);
+            $html_output .= $this->getAddUserHtmlFieldset($db);
         }
         return $html_output;
     }
@@ -2440,12 +2570,12 @@ class Privileges
      * @param string $db    database name
      * @param string $table table name
      *
-     * @return string $html_output
+     * @return string
      */
-    public static function getHtmlForSpecificTablePrivileges($db, $table)
+    public function getHtmlForSpecificTablePrivileges($db, $table)
     {
         $html_output = '';
-        if ($GLOBALS['dbi']->isSuperuser()) {
+        if ($this->dbi->isSuperuser()) {
             // check the privileges for a particular table.
             $html_output  = '<form id="usersForm" action="server_privileges.php">';
             $html_output .= Url::getHiddenInputs($db, $table);
@@ -2455,56 +2585,57 @@ class Privileges
                 . sprintf(
                     __('Users having access to "%s"'),
                     '<a href="' . Util::getScriptNameForOption(
-                        $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                        $GLOBALS['cfg']['DefaultTabTable'],
+                        'table'
                     )
                     . Url::getCommon(
-                        array(
+                        [
                             'db' => $db,
                             'table' => $table,
-                        )
+                        ]
                     ) . '">'
-                    .  htmlspecialchars($db) . '.' . htmlspecialchars($table)
+                    . htmlspecialchars($db) . '.' . htmlspecialchars($table)
                     . '</a>'
                 )
                 . '</legend>';
 
             $html_output .= '<div class="responsivetable jsresponsive">';
             $html_output .= '<table id="tablespecificuserrights" class="data">';
-            $html_output .= self::getHtmlForPrivsTableHead();
-            $privMap = self::getPrivMap($db);
+            $html_output .= $this->getHtmlForPrivsTableHead();
+            $privMap = $this->getPrivMap($db);
             $sql_query = "SELECT `User`, `Host`, `Db`,"
                 . " 't' AS `Type`, `Table_name`, `Table_priv`"
                 . " FROM `mysql`.`tables_priv`"
-                . " WHERE '" . $GLOBALS['dbi']->escapeString($db) . "' LIKE `Db`"
-                . "     AND '" . $GLOBALS['dbi']->escapeString($table) . "' LIKE `Table_name`"
+                . " WHERE '" . $this->dbi->escapeString($db) . "' LIKE `Db`"
+                . "     AND '" . $this->dbi->escapeString($table) . "' LIKE `Table_name`"
                 . "     AND NOT (`Table_priv` = '' AND Column_priv = '')"
                 . " ORDER BY `User` ASC, `Host` ASC, `Db` ASC, `Table_priv` ASC;";
-            $res = $GLOBALS['dbi']->query($sql_query);
-            self::mergePrivMapFromResult($privMap, $res);
-            $html_output .= self::getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
+            $res = $this->dbi->query($sql_query);
+            $this->mergePrivMapFromResult($privMap, $res);
+            $html_output .= $this->getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
             $html_output .= '</table></div>';
 
             $html_output .= '<div class="floatleft">';
-            $html_output .= Template::get('select_all')
-                ->render(
-                    array(
-                        'pma_theme_image' => $GLOBALS['pmaThemeImage'],
-                        'text_dir'        => $GLOBALS['text_dir'],
-                        'form_name'       => "usersForm",
-                    )
-                );
+            $html_output .= $this->template->render('select_all', [
+                'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+                'text_dir' => $GLOBALS['text_dir'],
+                'form_name' => "usersForm",
+            ]);
             $html_output .= Util::getButtonOrImage(
-                'submit_mult', 'mult_submit',
-                __('Export'), 'b_tblexport', 'export'
+                'submit_mult',
+                'mult_submit',
+                __('Export'),
+                'b_tblexport',
+                'export'
             );
 
             $html_output .= '</fieldset>';
             $html_output .= '</form>';
         } else {
-            $html_output .= self::getHtmlForViewUsersError();
+            $html_output .= $this->getHtmlForViewUsersError();
         }
         // Offer to create a new user for the current database
-        $html_output .= self::getAddUserHtmlFieldset($db, $table);
+        $html_output .= $this->getAddUserHtmlFieldset($db, $table);
         return $html_output;
     }
 
@@ -2513,12 +2644,12 @@ class Privileges
      *
      * @param string $db the database
      *
-     * @return array $privMap the privilege map
+     * @return array the privilege map
      */
-    public static function getPrivMap($db)
+    public function getPrivMap($db)
     {
         list($listOfPrivs, $listOfComparedPrivs)
-            = self::getListOfPrivilegesAndComparedPrivileges();
+            = $this->getListOfPrivilegesAndComparedPrivileges();
         $sql_query
             = "("
             . " SELECT " . $listOfPrivs . ", '*' AS `Db`, 'g' AS `Type`"
@@ -2529,34 +2660,34 @@ class Privileges
             . "("
             . " SELECT " . $listOfPrivs . ", `Db`, 'd' AS `Type`"
             . " FROM `mysql`.`db`"
-            . " WHERE '" . $GLOBALS['dbi']->escapeString($db) . "' LIKE `Db`"
+            . " WHERE '" . $this->dbi->escapeString($db) . "' LIKE `Db`"
             . "     AND NOT (" . $listOfComparedPrivs . ")"
             . ")"
             . " ORDER BY `User` ASC, `Host` ASC, `Db` ASC;";
-        $res = $GLOBALS['dbi']->query($sql_query);
-        $privMap = array();
-        self::mergePrivMapFromResult($privMap, $res);
+        $res = $this->dbi->query($sql_query);
+        $privMap = [];
+        $this->mergePrivMapFromResult($privMap, $res);
         return $privMap;
     }
 
     /**
      * merge privilege map and rows from resultset
      *
-     * @param array  &$privMap the privilege map reference
-     * @param object $result   the resultset of query
+     * @param array  $privMap the privilege map reference
+     * @param object $result  the resultset of query
      *
      * @return void
      */
-    public static function mergePrivMapFromResult(array &$privMap, $result)
+    public function mergePrivMapFromResult(array &$privMap, $result)
     {
-        while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
+        while ($row = $this->dbi->fetchAssoc($result)) {
             $user = $row['User'];
             $host = $row['Host'];
             if (! isset($privMap[$user])) {
-                $privMap[$user] = array();
+                $privMap[$user] = [];
             }
             if (! isset($privMap[$user][$host])) {
-                $privMap[$user][$host] = array();
+                $privMap[$user][$host] = [];
             }
             $privMap[$user][$host][] = $row;
         }
@@ -2565,9 +2696,9 @@ class Privileges
     /**
      * Get HTML snippet for privileges table head
      *
-     * @return string $html_output
+     * @return string
      */
-    public static function getHtmlForPrivsTableHead()
+    public function getHtmlForPrivsTableHead()
     {
         return '<thead>'
             . '<tr>'
@@ -2586,9 +2717,9 @@ class Privileges
      * Get HTML error for View Users form
      * For non superusers such as grant/create users
      *
-     * @return string $html_output
+     * @return string
      */
-    public static function getHtmlForViewUsersError()
+    public function getHtmlForViewUsersError()
     {
         return Message::error(
             __('Not enough privilege to view users.')
@@ -2601,9 +2732,9 @@ class Privileges
      * @param array  $privMap privilege map
      * @param string $db      database
      *
-     * @return string $html_output
+     * @return string
      */
-    public static function getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db)
+    public function getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db)
     {
         $html_output = '<tbody>';
         $index_checkbox = 0;
@@ -2631,7 +2762,7 @@ class Privileges
                 $html_output .= '<input type="checkbox" class="checkall" '
                     . 'name="selected_usr[]" '
                     . 'id="checkbox_sel_users_' . ($index_checkbox++) . '" '
-                    . 'value="' . $value . '" /></td>' . "\n";
+                    . 'value="' . $value . '"></td>' . "\n";
 
                 // user
                 $html_output .= '<td';
@@ -2656,15 +2787,17 @@ class Privileges
                 $html_output .= htmlspecialchars($current_host);
                 $html_output .= '</td>';
 
-                $html_output .= self::getHtmlListOfPrivs(
-                    $db, $current_privileges, $current_user,
+                $html_output .= $this->getHtmlListOfPrivs(
+                    $db,
+                    $current_privileges,
+                    $current_user,
                     $current_host
                 );
             }
         }
 
         //For fetching routine based privileges
-        $html_output .= self::getHtmlTableBodyForSpecificDbRoutinePrivs($db, $index_checkbox);
+        $html_output .= $this->getHtmlTableBodyForSpecificDbRoutinePrivs($db, $index_checkbox);
         $html_output .= '</tbody>';
 
         return $html_output;
@@ -2680,8 +2813,10 @@ class Privileges
      *
      * @return string HTML to display privileges
      */
-    public static function getHtmlListOfPrivs(
-        $db, array $current_privileges, $current_user,
+    public function getHtmlListOfPrivs(
+        $db,
+        array $current_privileges,
+        $current_user,
         $current_host
     ) {
         $nbPrivileges = count($current_privileges);
@@ -2711,8 +2846,8 @@ class Privileges
             $html_output .= '<td>';
             if (isset($current['Table_name'])) {
                 $privList = explode(',', $current['Table_priv']);
-                $privs = array();
-                $grantsArr = self::getTableGrantsArray();
+                $privs = [];
+                $grantsArr = $this->getTableGrantsArray();
                 foreach ($grantsArr as $grant) {
                     $privs[$grant[0]] = 'N';
                     foreach ($privList as $priv) {
@@ -2722,16 +2857,16 @@ class Privileges
                     }
                 }
                 $html_output .= '<code>'
-                    . join(
+                    . implode(
                         ',',
-                        self::extractPrivInfo($privs, true, true)
+                        $this->extractPrivInfo($privs, true, true)
                     )
                     . '</code>';
             } else {
                 $html_output .= '<code>'
-                    . join(
+                    . implode(
                         ',',
-                        self::extractPrivInfo($current, true, false)
+                        $this->extractPrivInfo($current, true, false)
                     )
                     . '</code>';
             }
@@ -2755,13 +2890,13 @@ class Privileges
 
             // action
             $html_output .= '<td>';
-            $specific_db = (isset($current['Db']) && $current['Db'] != '*')
+            $specific_db = isset($current['Db']) && $current['Db'] != '*'
                 ? $current['Db'] : '';
-            $specific_table = (isset($current['Table_name'])
-                && $current['Table_name'] != '*')
+            $specific_table = isset($current['Table_name'])
+                && $current['Table_name'] != '*'
                 ? $current['Table_name'] : '';
             if ($GLOBALS['is_grantuser']) {
-                $html_output .= self::getUserLink(
+                $html_output .= $this->getUserLink(
                     'edit',
                     $current_user,
                     $current_host,
@@ -2771,7 +2906,7 @@ class Privileges
             }
             $html_output .= '</td>';
             $html_output .= '<td class="center">'
-                . self::getUserLink(
+                . $this->getUserLink(
                     'export',
                     $current_user,
                     $current_host,
@@ -2801,39 +2936,44 @@ class Privileges
      *
      * @return string HTML code with link
      */
-    public static function getUserLink(
-        $linktype, $username, $hostname, $dbname = '',
-        $tablename = '', $routinename = '', $initial = ''
+    public function getUserLink(
+        $linktype,
+        $username,
+        $hostname,
+        $dbname = '',
+        $tablename = '',
+        $routinename = '',
+        $initial = ''
     ) {
         $html = '<a';
-        switch($linktype) {
-        case 'edit':
-            $html .= ' class="edit_user_anchor"';
-            break;
-        case 'export':
-            $html .= ' class="export_user_anchor ajax"';
-            break;
+        switch ($linktype) {
+            case 'edit':
+                $html .= ' class="edit_user_anchor"';
+                break;
+            case 'export':
+                $html .= ' class="export_user_anchor ajax"';
+                break;
         }
-        $params = array(
+        $params = [
             'username' => $username,
-            'hostname' => $hostname
-        );
-        switch($linktype) {
-        case 'edit':
-            $params['dbname'] = $dbname;
-            $params['tablename'] = $tablename;
-            $params['routinename'] = $routinename;
-            break;
-        case 'revoke':
-            $params['dbname'] = $dbname;
-            $params['tablename'] = $tablename;
-            $params['routinename'] = $routinename;
-            $params['revokeall'] = 1;
-            break;
-        case 'export':
-            $params['initial'] = $initial;
-            $params['export'] = 1;
-            break;
+            'hostname' => $hostname,
+        ];
+        switch ($linktype) {
+            case 'edit':
+                $params['dbname'] = $dbname;
+                $params['tablename'] = $tablename;
+                $params['routinename'] = $routinename;
+                break;
+            case 'revoke':
+                $params['dbname'] = $dbname;
+                $params['tablename'] = $tablename;
+                $params['routinename'] = $routinename;
+                $params['revokeall'] = 1;
+                break;
+            case 'export':
+                $params['initial'] = $initial;
+                $params['export'] = 1;
+                break;
         }
 
         $html .= ' href="server_privileges.php';
@@ -2844,16 +2984,16 @@ class Privileges
         }
         $html .= '">';
 
-        switch($linktype) {
-        case 'edit':
-            $html .= Util::getIcon('b_usredit', __('Edit privileges'));
-            break;
-        case 'revoke':
-            $html .= Util::getIcon('b_usrdrop', __('Revoke'));
-            break;
-        case 'export':
-            $html .= Util::getIcon('b_tblexport', __('Export'));
-            break;
+        switch ($linktype) {
+            case 'edit':
+                $html .= Util::getIcon('b_usredit', __('Edit privileges'));
+                break;
+            case 'revoke':
+                $html .= Util::getIcon('b_usrdrop', __('Revoke'));
+                break;
+            case 'export':
+                $html .= Util::getIcon('b_tblexport', __('Export'));
+                break;
         }
         $html .= '</a>';
 
@@ -2867,11 +3007,11 @@ class Privileges
      *
      * @return string HTML code with link
      */
-    public static function getUserGroupEditLink($username)
+    public function getUserGroupEditLink($username)
     {
          return '<a class="edit_user_group_anchor ajax"'
             . ' href="server_privileges.php'
-            . Url::getCommon(array('username' => $username))
+            . Url::getCommon(['username' => $username])
             . '">'
             . Util::getIcon('b_usrlist', __('Edit user group'))
             . '</a>';
@@ -2880,17 +3020,19 @@ class Privileges
     /**
      * Returns number of defined user groups
      *
-     * @return integer $user_group_count
+     * @return integer
      */
-    public static function getUserGroupCount()
+    public function getUserGroupCount()
     {
-        $relation = new Relation();
-        $cfgRelation = $relation->getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         $user_group_table = Util::backquote($cfgRelation['db'])
             . '.' . Util::backquote($cfgRelation['usergroups']);
         $sql_query = 'SELECT COUNT(*) FROM ' . $user_group_table;
-        $user_group_count = $GLOBALS['dbi']->fetchValue(
-            $sql_query, 0, 0, DatabaseInterface::CONNECT_CONTROL
+        $user_group_count = $this->dbi->fetchValue(
+            $sql_query,
+            0,
+            0,
+            DatabaseInterface::CONNECT_CONTROL
         );
 
         return $user_group_count;
@@ -2903,10 +3045,9 @@ class Privileges
      *
      * @return mixed usergroup if found or null if not found
      */
-    public static function getUserGroupForUser($username)
+    public function getUserGroupForUser($username)
     {
-        $relation = new Relation();
-        $cfgRelation = $relation->getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
 
         if (empty($cfgRelation['db'])
             || empty($cfgRelation['users'])
@@ -2920,8 +3061,11 @@ class Privileges
             . ' WHERE `username` = \'' . $username . '\''
             . ' LIMIT 1';
 
-        $usergroup = $GLOBALS['dbi']->fetchValue(
-            $sql_query, 0, 0, DatabaseInterface::CONNECT_CONTROL
+        $usergroup = $this->dbi->fetchValue(
+            $sql_query,
+            0,
+            0,
+            DatabaseInterface::CONNECT_CONTROL
         );
 
         if ($usergroup === false) {
@@ -2939,15 +3083,17 @@ class Privileges
      * @param string $hostname  hostname
      * @param string $username  username
      *
-     * @return array $extra_data
+     * @return array
      */
-    public static function getExtraDataForAjaxBehavior(
-        $password, $sql_query, $hostname, $username
+    public function getExtraDataForAjaxBehavior(
+        $password,
+        $sql_query,
+        $hostname,
+        $username
     ) {
-        $relation = new Relation();
         if (isset($GLOBALS['dbname'])) {
             //if (preg_match('/\\\\(?:_|%)/i', $dbname)) {
-            if (preg_match('/(?<!\\\\)(?:_|%)/i', $GLOBALS['dbname'])) {
+            if (preg_match('/(?<!\\\\)(?:_|%)/', $GLOBALS['dbname'])) {
                 $dbname_is_wildcard = true;
             } else {
                 $dbname_is_wildcard = false;
@@ -2956,10 +3102,10 @@ class Privileges
 
         $user_group_count = 0;
         if ($GLOBALS['cfgRelation']['menuswork']) {
-            $user_group_count = self::getUserGroupCount();
+            $user_group_count = $this->getUserGroupCount();
         }
 
-        $extra_data = array();
+        $extra_data = [];
         if (strlen($sql_query) > 0) {
             $extra_data['sql_query'] = Util::getMessage(null, $sql_query);
         }
@@ -2973,7 +3119,7 @@ class Privileges
                 . 'id="checkbox_sel_users_"'
                 . 'value="'
                 . htmlspecialchars($username)
-                . '&amp;#27;' . htmlspecialchars($hostname) . '" />'
+                . '&amp;#27;' . htmlspecialchars($hostname) . '">'
                 . '</td>' . "\n"
                 . '<td><label for="checkbox_sel_users_">'
                 . (empty($_POST['username'])
@@ -2989,42 +3135,42 @@ class Privileges
                 $new_user_string .= '<span style="color: #FF0000">'
                     . __('No')
                 . '</span>';
-            };
+            }
 
             $new_user_string .= '</td>' . "\n";
             $new_user_string .= '<td>'
-                . '<code>' . join(', ', self::extractPrivInfo(null, true)) . '</code>'
+                . '<code>' . implode(', ', $this->extractPrivInfo(null, true)) . '</code>'
                 . '</td>'; //Fill in privileges here
 
             // if $cfg['Servers'][$i]['users'] and $cfg['Servers'][$i]['usergroups'] are
             // enabled
-            $cfgRelation = $relation->getRelationsParam();
-            if (!empty($cfgRelation['users']) && !empty($cfgRelation['usergroups'])) {
+            $cfgRelation = $this->relation->getRelationsParam();
+            if (! empty($cfgRelation['users']) && ! empty($cfgRelation['usergroups'])) {
                 $new_user_string .= '<td class="usrGroup"></td>';
             }
 
             $new_user_string .= '<td>';
-            if ((isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y')) {
+            if (isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y') {
                 $new_user_string .= __('Yes');
             } else {
                 $new_user_string .= __('No');
             }
-            $new_user_string .='</td>';
+            $new_user_string .= '</td>';
 
             if ($GLOBALS['is_grantuser']) {
                 $new_user_string .= '<td>'
-                    . self::getUserLink('edit', $username, $hostname)
+                    . $this->getUserLink('edit', $username, $hostname)
                     . '</td>' . "\n";
             }
 
             if ($cfgRelation['menuswork'] && $user_group_count > 0) {
                 $new_user_string .= '<td>'
-                    . self::getUserGroupEditLink($username)
+                    . $this->getUserGroupEditLink($username)
                     . '</td>' . "\n";
             }
 
             $new_user_string .= '<td>'
-                . self::getUserLink(
+                . $this->getUserLink(
                     'export',
                     $username,
                     $hostname,
@@ -3047,7 +3193,7 @@ class Privileges
                 mb_substr($username, 0, 1)
             );
             $newUserInitialString = '<a href="server_privileges.php'
-                . Url::getCommon(array('initial' => $new_user_initial)) . '">'
+                . Url::getCommon(['initial' => $new_user_initial]) . '">'
                 . $new_user_initial . '</a>';
             $extra_data['new_user_initial'] = $new_user_initial;
             $extra_data['new_user_initial_string'] = $newUserInitialString;
@@ -3060,7 +3206,7 @@ class Privileges
                 $extra_data['db_specific_privs'] = ! $dbname_is_wildcard;
                 $extra_data['db_wildcard_privs'] = $dbname_is_wildcard;
             }
-            $new_privileges = join(', ', self::extractPrivInfo(null, true));
+            $new_privileges = implode(', ', $this->extractPrivInfo(null, true));
 
             $extra_data['new_privileges'] = $new_privileges;
         }
@@ -3068,8 +3214,8 @@ class Privileges
         if (isset($_GET['validate_username'])) {
             $sql_query = "SELECT * FROM `mysql`.`user` WHERE `User` = '"
                 . $_GET['username'] . "';";
-            $res = $GLOBALS['dbi']->query($sql_query);
-            $row = $GLOBALS['dbi']->fetchRow($res);
+            $res = $this->dbi->query($sql_query);
+            $row = $this->dbi->fetchRow($res);
             if (empty($row)) {
                 $extra_data['user_exists'] = false;
             } else {
@@ -3088,9 +3234,9 @@ class Privileges
      *
      * @return string HTML snippet
      */
-    public static function getChangeLoginInformationHtmlForm($username, $hostname)
+    public function getChangeLoginInformationHtmlForm($username, $hostname)
     {
-        $choices = array(
+        $choices = [
             '4' => __('… keep the old one.'),
             '1' => __('… delete the old one from the user tables.'),
             '2' => __(
@@ -3100,44 +3246,47 @@ class Privileges
             '3' => __(
                 '… delete the old one from the user tables '
                 . 'and reload the privileges afterwards.'
-            )
-        );
+            ),
+        ];
 
         $html_output = '<form action="server_privileges.php" '
             . 'onsubmit="return checkAddUser(this);" '
             . 'method="post" class="copyUserForm submenu-item">' . "\n"
             . Url::getHiddenInputs('', '')
             . '<input type="hidden" name="old_username" '
-            . 'value="' . htmlspecialchars($username) . '" />' . "\n"
+            . 'value="' . htmlspecialchars($username) . '">' . "\n"
             . '<input type="hidden" name="old_hostname" '
-            . 'value="' . htmlspecialchars($hostname) . '" />' . "\n";
+            . 'value="' . htmlspecialchars($hostname) . '">' . "\n";
 
-        $usergroup = self::getUserGroupForUser($username);
+        $usergroup = $this->getUserGroupForUser($username);
         if ($usergroup !== null) {
             $html_output .= '<input type="hidden" name="old_usergroup" '
-            . 'value="' . htmlspecialchars($usergroup) . '" />' . "\n";
+            . 'value="' . htmlspecialchars($usergroup) . '">' . "\n";
         }
 
         $html_output .= '<fieldset id="fieldset_change_copy_user">' . "\n"
             . '<legend data-submenu-label="' . __('Login Information') . '">' . "\n"
             . __('Change login information / Copy user account')
             . '</legend>' . "\n"
-            . self::getHtmlForLoginInformationFields('change', $username, $hostname);
+            . $this->getHtmlForLoginInformationFields('change', $username, $hostname);
 
         $html_output .= '<fieldset id="fieldset_mode">' . "\n"
             . ' <legend>'
             . __('Create a new user account with the same privileges and …')
             . '</legend>' . "\n";
         $html_output .= Util::getRadioFields(
-            'mode', $choices, '4', true
+            'mode',
+            $choices,
+            '4',
+            true
         );
         $html_output .= '</fieldset>' . "\n"
            . '</fieldset>' . "\n";
 
         $html_output .= '<fieldset id="fieldset_change_copy_user_footer" '
             . 'class="tblFooters">' . "\n"
-            . '<input type="hidden" name="change_copy" value="1" />' . "\n"
-            . '<input type="submit" value="' . __('Go') . '" />' . "\n"
+            . '<input type="hidden" name="change_copy" value="1">' . "\n"
+            . '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">' . "\n"
             . '</fieldset>' . "\n"
             . '</form>' . "\n";
 
@@ -3153,17 +3302,18 @@ class Privileges
      *
      * @return string HTML snippet
      */
-    public static function getLinkToDbAndTable($url_dbname, $dbname, $tablename)
+    public function getLinkToDbAndTable($url_dbname, $dbname, $tablename)
     {
         $html_output = '[ ' . __('Database')
             . ' <a href="' . Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+                $GLOBALS['cfg']['DefaultTabDatabase'],
+                'database'
             )
             . Url::getCommon(
-                array(
+                [
                     'db' => $url_dbname,
-                    'reload' => 1
-                )
+                    'reload' => 1,
+                ]
             )
             . '">'
             . htmlspecialchars(Util::unescapeMysqlWildcards($dbname)) . ': '
@@ -3175,14 +3325,15 @@ class Privileges
         if (strlen($tablename) > 0) {
             $html_output .= ' [ ' . __('Table') . ' <a href="'
                 . Util::getScriptNameForOption(
-                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                    $GLOBALS['cfg']['DefaultTabTable'],
+                    'table'
                 )
                 . Url::getCommon(
-                    array(
+                    [
                         'db' => $url_dbname,
                         'table' => $tablename,
                         'reload' => 1,
-                    )
+                    ]
                 )
                 . '">' . htmlspecialchars($tablename) . ': '
                 . Util::getTitleForTarget(
@@ -3203,36 +3354,38 @@ class Privileges
      * @param string $type     database or table
      * @param string $dbname   database name
      *
-     * @return array $db_rights database rights
+     * @return array database rights
      */
-    public static function getUserSpecificRights($username, $hostname, $type, $dbname = '')
+    public function getUserSpecificRights($username, $hostname, $type, $dbname = '')
     {
         $user_host_condition = " WHERE `User`"
-            . " = '" . $GLOBALS['dbi']->escapeString($username) . "'"
+            . " = '" . $this->dbi->escapeString($username) . "'"
             . " AND `Host`"
-            . " = '" . $GLOBALS['dbi']->escapeString($hostname) . "'";
+            . " = '" . $this->dbi->escapeString($hostname) . "'";
 
         if ($type == 'database') {
-            $tables_to_search_for_users = array(
-                'tables_priv', 'columns_priv', 'procs_priv'
-            );
+            $tables_to_search_for_users = [
+                'tables_priv',
+                'columns_priv',
+                'procs_priv',
+            ];
             $dbOrTableName = 'Db';
         } elseif ($type == 'table') {
             $user_host_condition .= " AND `Db` LIKE '"
-                . $GLOBALS['dbi']->escapeString($dbname) . "'";
-            $tables_to_search_for_users = array('columns_priv',);
+                . $this->dbi->escapeString($dbname) . "'";
+            $tables_to_search_for_users = ['columns_priv'];
             $dbOrTableName = 'Table_name';
         } else { // routine
             $user_host_condition .= " AND `Db` LIKE '"
-                . $GLOBALS['dbi']->escapeString($dbname) . "'";
-            $tables_to_search_for_users = array('procs_priv',);
+                . $this->dbi->escapeString($dbname) . "'";
+            $tables_to_search_for_users = ['procs_priv'];
             $dbOrTableName = 'Routine_name';
         }
 
         // we also want privileges for this user not in table `db` but in other table
-        $tables = $GLOBALS['dbi']->fetchResult('SHOW TABLES FROM `mysql`;');
+        $tables = $this->dbi->fetchResult('SHOW TABLES FROM `mysql`;');
 
-        $db_rights_sqls = array();
+        $db_rights_sqls = [];
         foreach ($tables_to_search_for_users as $table_search_in) {
             if (in_array($table_search_in, $tables)) {
                 $db_rights_sqls[] = '
@@ -3242,22 +3395,22 @@ class Privileges
             }
         }
 
-        $user_defaults = array(
+        $user_defaults = [
             $dbOrTableName  => '',
             'Grant_priv'    => 'N',
-            'privs'         => array('USAGE'),
+            'privs'         => ['USAGE'],
             'Column_priv'   => true,
-        );
+        ];
 
         // for the rights
-        $db_rights = array();
+        $db_rights = [];
 
         $db_rights_sql = '(' . implode(') UNION (', $db_rights_sqls) . ')'
             . ' ORDER BY `' . $dbOrTableName . '` ASC';
 
-        $db_rights_result = $GLOBALS['dbi']->query($db_rights_sql);
+        $db_rights_result = $this->dbi->query($db_rights_sql);
 
-        while ($db_rights_row = $GLOBALS['dbi']->fetchAssoc($db_rights_result)) {
+        while ($db_rights_row = $this->dbi->fetchAssoc($db_rights_result)) {
             $db_rights_row = array_merge($user_defaults, $db_rights_row);
             if ($type == 'database') {
                 // only Db names in the table `mysql`.`db` uses wildcards
@@ -3270,7 +3423,7 @@ class Privileges
             $db_rights[$db_rights_row[$dbOrTableName]] = $db_rights_row;
         }
 
-        $GLOBALS['dbi']->freeResult($db_rights_result);
+        $this->dbi->freeResult($db_rights_result);
 
         if ($type == 'database') {
             $sql_query = 'SELECT * FROM `mysql`.`db`'
@@ -3288,12 +3441,11 @@ class Privileges
                 . " FROM `mysql`.`procs_priv`"
                 . $user_host_condition
                 . " ORDER BY `Routine_name`";
-
         }
 
-        $result = $GLOBALS['dbi']->query($sql_query);
+        $result = $this->dbi->query($sql_query);
 
-        while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
+        while ($row = $this->dbi->fetchAssoc($result)) {
             if (isset($db_rights[$row[$dbOrTableName]])) {
                 $db_rights[$row[$dbOrTableName]]
                     = array_merge($db_rights[$row[$dbOrTableName]], $row);
@@ -3306,7 +3458,7 @@ class Privileges
                 $db_rights[$row['Db']]['can_delete'] = true;
             }
         }
-        $GLOBALS['dbi']->freeResult($result);
+        $this->dbi->freeResult($result);
         return $db_rights;
     }
 
@@ -3317,14 +3469,14 @@ class Privileges
      *
      * @return array
      */
-    public static function parseProcPriv($privs)
+    public function parseProcPriv($privs)
     {
-        $result = array(
+        $result = [
             'Alter_routine_priv' => 'N',
             'Execute_priv'       => 'N',
             'Grant_priv'         => 'N',
-        );
-        foreach (explode(',', $privs) as $priv) {
+        ];
+        foreach (explode(',', (string) $privs) as $priv) {
             if ($priv == 'Alter Routine') {
                 $result['Alter_routine_priv'] = 'Y';
             } else {
@@ -3342,43 +3494,46 @@ class Privileges
      * @param string $type     database, table or routine
      * @param string $dbname   database name
      *
-     * @return array $html_output
+     * @return string
      */
-    public static function getHtmlForAllTableSpecificRights(
-        $username, $hostname, $type, $dbname = ''
+    public function getHtmlForAllTableSpecificRights(
+        $username,
+        $hostname,
+        $type,
+        $dbname = ''
     ) {
-        $uiData = array(
-            'database' => array(
+        $uiData = [
+            'database' => [
                 'form_id'        => 'database_specific_priv',
                 'sub_menu_label' => __('Database'),
                 'legend'         => __('Database-specific privileges'),
                 'type_label'     => __('Database'),
-            ),
-            'table' => array(
+            ],
+            'table' => [
                 'form_id'        => 'table_specific_priv',
                 'sub_menu_label' => __('Table'),
                 'legend'         => __('Table-specific privileges'),
                 'type_label'     => __('Table'),
-            ),
-            'routine' => array(
+            ],
+            'routine' => [
                 'form_id'        => 'routine_specific_priv',
                 'sub_menu_label' => __('Routine'),
                 'legend'         => __('Routine-specific privileges'),
                 'type_label'     => __('Routine'),
-            ),
-        );
+            ],
+        ];
 
         /**
          * no db name given, so we want all privs for the given user
          * db name was given, so we want all user specific rights for this db
          */
-        $db_rights = self::getUserSpecificRights($username, $hostname, $type, $dbname);
+        $db_rights = $this->getUserSpecificRights($username, $hostname, $type, $dbname);
         ksort($db_rights);
 
-        $foundRows = array();
-        $privileges = array();
+        $foundRows = [];
+        $privileges = [];
         foreach ($db_rights as $row) {
-            $onePrivilege = array();
+            $onePrivilege = [];
 
             $paramTableName = '';
             $paramRoutineName = '';
@@ -3388,10 +3543,9 @@ class Privileges
                 $onePrivilege['grant']        = $row['Grant_priv'] == 'Y';
                 $onePrivilege['table_privs']   = ! empty($row['Table_priv'])
                     || ! empty($row['Column_priv']);
-                $onePrivilege['privileges'] = join(',', self::extractPrivInfo($row, true));
+                $onePrivilege['privileges'] = implode(',', $this->extractPrivInfo($row, true));
 
                 $paramDbName = $row['Db'];
-
             } elseif ($type == 'table') {
                 $name = $row['Table_name'];
                 $onePrivilege['grant'] = in_array(
@@ -3399,11 +3553,10 @@ class Privileges
                     explode(',', $row['Table_priv'])
                 );
                 $onePrivilege['column_privs']  = ! empty($row['Column_priv']);
-                $onePrivilege['privileges'] = join(',', self::extractPrivInfo($row, true));
+                $onePrivilege['privileges'] = implode(',', $this->extractPrivInfo($row, true));
 
                 $paramDbName = $dbname;
                 $paramTableName = $row['Table_name'];
-
             } else { // routine
                 $name = $row['Routine_name'];
                 $onePrivilege['grant'] = in_array(
@@ -3411,10 +3564,10 @@ class Privileges
                     explode(',', $row['Proc_priv'])
                 );
 
-                $privs = self::parseProcPriv($row['Proc_priv']);
-                $onePrivilege['privileges'] = join(
+                $privs = $this->parseProcPriv($row['Proc_priv']);
+                $onePrivilege['privileges'] = implode(
                     ',',
-                    self::extractPrivInfo($privs, true)
+                    $this->extractPrivInfo($privs, true)
                 );
 
                 $paramDbName = $dbname;
@@ -3426,7 +3579,7 @@ class Privileges
 
             $onePrivilege['edit_link'] = '';
             if ($GLOBALS['is_grantuser']) {
-                $onePrivilege['edit_link'] = self::getUserLink(
+                $onePrivilege['edit_link'] = $this->getUserLink(
                     'edit',
                     $username,
                     $hostname,
@@ -3438,7 +3591,7 @@ class Privileges
 
             $onePrivilege['revoke_link'] = '';
             if ($type != 'database' || ! empty($row['can_delete'])) {
-                $onePrivilege['revoke_link'] = self::getUserLink(
+                $onePrivilege['revoke_link'] = $this->getUserLink(
                     'revoke',
                     $username,
                     $hostname,
@@ -3459,13 +3612,15 @@ class Privileges
         $data['type']       = $type;
 
         if ($type == 'database') {
-
             // we already have the list of databases from libraries/common.inc.php
             // via $pma = new PMA;
             $pred_db_array = $GLOBALS['dblist']->databases;
-            $databases_to_skip = array('information_schema', 'performance_schema');
+            $databases_to_skip = [
+                'information_schema',
+                'performance_schema',
+            ];
 
-            $databases = array();
+            $databases = [];
             if (! empty($pred_db_array)) {
                 foreach ($pred_db_array as $current_db) {
                     if (in_array($current_db, $databases_to_skip)) {
@@ -3482,29 +3637,27 @@ class Privileges
                 }
             }
             $data['databases'] = $databases;
-
         } elseif ($type == 'table') {
-            $result = @$GLOBALS['dbi']->tryQuery(
+            $result = @$this->dbi->tryQuery(
                 "SHOW TABLES FROM " . Util::backquote($dbname),
                 DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_STORE
             );
 
-            $tables = array();
+            $tables = [];
             if ($result) {
-                while ($row = $GLOBALS['dbi']->fetchRow($result)) {
+                while ($row = $this->dbi->fetchRow($result)) {
                     if (! in_array($row[0], $foundRows)) {
                         $tables[] = $row[0];
                     }
                 }
-                $GLOBALS['dbi']->freeResult($result);
+                $this->dbi->freeResult($result);
             }
             $data['tables'] = $tables;
-
         } else { // routine
-            $routineData = $GLOBALS['dbi']->getRoutines($dbname);
+            $routineData = $this->dbi->getRoutines($dbname);
 
-            $routines = array();
+            $routines = [];
             foreach ($routineData as $routine) {
                 if (! in_array($routine['name'], $foundRows)) {
                     $routines[] = $routine['name'];
@@ -3513,10 +3666,7 @@ class Privileges
             $data['routines'] = $routines;
         }
 
-        $html_output = Template::get('privileges/privileges_summary')
-            ->render($data);
-
-        return $html_output;
+        return $this->template->render('server/privileges/privileges_summary', $data);
     }
 
     /**
@@ -3530,16 +3680,16 @@ class Privileges
      *
      * @return string HTML snippet
      */
-    public static function getUsersOverview($result, array $db_rights, $pmaThemeImage, $text_dir)
+    public function getUsersOverview($result, array $db_rights, $pmaThemeImage, $text_dir)
     {
-        while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
-            $row['privs'] = self::extractPrivInfo($row, true);
+        while ($row = $this->dbi->fetchAssoc($result)) {
+            $row['privs'] = $this->extractPrivInfo($row, true);
             $db_rights[$row['User']][$row['Host']] = $row;
         }
-        $GLOBALS['dbi']->freeResult($result);
+        $this->dbi->freeResult($result);
         $user_group_count = 0;
         if ($GLOBALS['cfgRelation']['menuswork']) {
-            $user_group_count = self::getUserGroupCount();
+            $user_group_count = $this->getUserGroupCount();
         }
 
         $html_output
@@ -3568,30 +3718,30 @@ class Privileges
             . '</thead>' . "\n";
 
         $html_output .= '<tbody>' . "\n";
-        $html_output .= self::getHtmlTableBodyForUserRights($db_rights);
+        $html_output .= $this->getHtmlTableBodyForUserRights($db_rights);
         $html_output .= '</tbody>'
             . '</table></div>' . "\n";
 
         $html_output .= '<div class="floatleft">'
-            . Template::get('select_all')
-                ->render(
-                    array(
-                        'pma_theme_image' => $pmaThemeImage,
-                        'text_dir'        => $text_dir,
-                        'form_name'       => 'usersForm',
-                    )
-                ) . "\n";
+            . $this->template->render('select_all', [
+                'pma_theme_image' => $pmaThemeImage,
+                'text_dir' => $text_dir,
+                'form_name' => 'usersForm',
+            ]) . "\n";
         $html_output .= Util::getButtonOrImage(
-            'submit_mult', 'mult_submit',
-            __('Export'), 'b_tblexport', 'export'
+            'submit_mult',
+            'mult_submit',
+            __('Export'),
+            'b_tblexport',
+            'export'
         );
         $html_output .= '<input type="hidden" name="initial" '
-            . 'value="' . (isset($_GET['initial']) ? htmlspecialchars($_GET['initial']) : '') . '" />';
+            . 'value="' . (isset($_GET['initial']) ? htmlspecialchars($_GET['initial']) : '') . '">';
         $html_output .= '</div>'
             . '<div class="clearfloat"></div>';
 
         // add/delete user fieldset
-        $html_output .= self::getFieldsetForAddDeleteUser();
+        $html_output .= $this->getFieldsetForAddDeleteUser();
         $html_output .= '</form>' . "\n";
 
         return $html_output;
@@ -3604,24 +3754,24 @@ class Privileges
      *
      * @return string HTML snippet
      */
-    public static function getHtmlTableBodyForUserRights(array $db_rights)
+    public function getHtmlTableBodyForUserRights(array $db_rights)
     {
-        $relation = new Relation();
-        $cfgRelation = $relation->getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
+        $user_group_count = 0;
         if ($cfgRelation['menuswork']) {
             $users_table = Util::backquote($cfgRelation['db'])
                 . "." . Util::backquote($cfgRelation['users']);
             $sql_query = 'SELECT * FROM ' . $users_table;
-            $result = $relation->queryAsControlUser($sql_query, false);
-            $group_assignment = array();
+            $result = $this->relation->queryAsControlUser($sql_query, false);
+            $group_assignment = [];
             if ($result) {
-                while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
+                while ($row = $this->dbi->fetchAssoc($result)) {
                     $group_assignment[$row['username']] = $row['usergroup'];
                 }
             }
-            $GLOBALS['dbi']->freeResult($result);
+            $this->dbi->freeResult($result);
 
-            $user_group_count = self::getUserGroupCount();
+            $user_group_count = $this->getUserGroupCount();
         }
 
         $index_checkbox = 0;
@@ -3638,7 +3788,7 @@ class Privileges
                     . $index_checkbox . '" value="'
                     . htmlspecialchars($host['User'] . '&amp;#27;' . $host['Host'])
                     . '"'
-                    . ' /></td>' . "\n";
+                    . '></td>' . "\n";
 
                 $html_output .= '<td><label '
                     . 'for="checkbox_sel_users_' . $index_checkbox . '">'
@@ -3654,7 +3804,7 @@ class Privileges
                 $check_plugin_query = "SELECT * FROM `mysql`.`user` WHERE "
                     . "`User` = '" . $host['User'] . "' AND `Host` = '"
                     . $host['Host'] . "'";
-                $res = $GLOBALS['dbi']->fetchSingleRow($check_plugin_query);
+                $res = $this->dbi->fetchSingleRow($check_plugin_query);
 
                 if ((isset($res['authentication_string'])
                     && ! empty($res['authentication_string']))
@@ -3667,17 +3817,17 @@ class Privileges
                 }
 
                 switch ($host[$password_column]) {
-                case 'Y':
-                    $html_output .= __('Yes');
-                    break;
-                case 'N':
-                    $html_output .= '<span style="color: #FF0000">' . __('No')
+                    case 'Y':
+                        $html_output .= __('Yes');
+                        break;
+                    case 'N':
+                        $html_output .= '<span style="color: #FF0000">' . __('No')
                         . '</span>';
-                    break;
+                        break;
                 // this happens if this is a definition not coming from mysql.user
-                default:
-                    $html_output .= '--'; // in future version, replace by "not present"
-                    break;
+                    default:
+                        $html_output .= '--'; // in future version, replace by "not present"
+                        break;
                 } // end switch
 
                 if (! isset($host['Select_priv'])) {
@@ -3705,7 +3855,7 @@ class Privileges
 
                 if ($GLOBALS['is_grantuser']) {
                     $html_output .= '<td class="center">'
-                        . self::getUserLink(
+                        . $this->getUserLink(
                             'edit',
                             $host['User'],
                             $host['Host']
@@ -3717,12 +3867,12 @@ class Privileges
                         $html_output .= '<td class="center"></td>';
                     } else {
                         $html_output .= '<td class="center">'
-                            . self::getUserGroupEditLink($host['User'])
+                            . $this->getUserGroupEditLink($host['User'])
                             . '</td>';
                     }
                 }
                 $html_output .= '<td class="center">'
-                    . self::getUserLink(
+                    . $this->getUserLink(
                         'export',
                         $host['User'],
                         $host['Host'],
@@ -3743,12 +3893,11 @@ class Privileges
      *
      * @return string HTML snippet
      */
-    public static function getFieldsetForAddDeleteUser()
+    public function getFieldsetForAddDeleteUser()
     {
-        $html_output = self::getAddUserHtmlFieldset();
+        $html_output = $this->getAddUserHtmlFieldset();
 
-        $html_output .= Template::get('privileges/delete_user_fieldset')
-            ->render(array());
+        $html_output .= $this->template->render('server/privileges/delete_user_fieldset');
 
         return $html_output;
     }
@@ -3760,7 +3909,7 @@ class Privileges
      *
      * @return string HTML snippet
      */
-    public static function getHtmlForInitials(array $array_initials)
+    public function getHtmlForInitials(array $array_initials)
     {
         // initialize to false the letters A-Z
         for ($letter_counter = 1; $letter_counter < 27; $letter_counter++) {
@@ -3769,14 +3918,14 @@ class Privileges
             }
         }
 
-        $initials = $GLOBALS['dbi']->tryQuery(
+        $initials = $this->dbi->tryQuery(
             'SELECT DISTINCT UPPER(LEFT(`User`,1)) FROM `user`'
             . ' ORDER BY UPPER(LEFT(`User`,1)) ASC',
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
         if ($initials) {
-            while (list($tmp_initial) = $GLOBALS['dbi']->fetchRow($initials)) {
+            while (list($tmp_initial) = $this->dbi->fetchRow($initials)) {
                 $array_initials[$tmp_initial] = true;
             }
         }
@@ -3787,63 +3936,62 @@ class Privileges
 
         uksort($array_initials, "strnatcasecmp");
 
-        $html_output = Template::get('privileges/initials_row')
-            ->render(
-                array(
-                    'array_initials' => $array_initials,
-                    'initial' => isset($_GET['initial']) ? $_GET['initial'] : null,
-                )
-            );
-
-        return $html_output;
+        return $this->template->render('server/privileges/initials_row', [
+            'array_initials' => $array_initials,
+            'initial' => isset($_GET['initial']) ? $_GET['initial'] : null,
+        ]);
     }
 
     /**
      * Get the database rights array for Display user overview
      *
-     * @return array  $db_rights    database rights array
+     * @return array    database rights array
      */
-    public static function getDbRightsForUserOverview()
+    public function getDbRightsForUserOverview()
     {
         // we also want users not in table `user` but in other table
-        $tables = $GLOBALS['dbi']->fetchResult('SHOW TABLES FROM `mysql`;');
+        $tables = $this->dbi->fetchResult('SHOW TABLES FROM `mysql`;');
 
-        $tablesSearchForUsers = array(
-            'user', 'db', 'tables_priv', 'columns_priv', 'procs_priv',
-        );
+        $tablesSearchForUsers = [
+            'user',
+            'db',
+            'tables_priv',
+            'columns_priv',
+            'procs_priv',
+        ];
 
-        $db_rights_sqls = array();
+        $db_rights_sqls = [];
         foreach ($tablesSearchForUsers as $table_search_in) {
             if (in_array($table_search_in, $tables)) {
                 $db_rights_sqls[] = 'SELECT DISTINCT `User`, `Host` FROM `mysql`.`'
                     . $table_search_in . '` '
                     . (isset($_GET['initial'])
-                    ? self::rangeOfUsers($_GET['initial'])
+                    ? $this->rangeOfUsers($_GET['initial'])
                     : '');
             }
         }
-        $user_defaults = array(
+        $user_defaults = [
             'User'       => '',
             'Host'       => '%',
             'Password'   => '?',
             'Grant_priv' => 'N',
-            'privs'      => array('USAGE'),
-        );
+            'privs'      => ['USAGE'],
+        ];
 
         // for the rights
-        $db_rights = array();
+        $db_rights = [];
 
         $db_rights_sql = '(' . implode(') UNION (', $db_rights_sqls) . ')'
             . ' ORDER BY `User` ASC, `Host` ASC';
 
-        $db_rights_result = $GLOBALS['dbi']->query($db_rights_sql);
+        $db_rights_result = $this->dbi->query($db_rights_sql);
 
-        while ($db_rights_row = $GLOBALS['dbi']->fetchAssoc($db_rights_result)) {
+        while ($db_rights_row = $this->dbi->fetchAssoc($db_rights_result)) {
             $db_rights_row = array_merge($user_defaults, $db_rights_row);
             $db_rights[$db_rights_row['User']][$db_rights_row['Host']]
                 = $db_rights_row;
         }
-        $GLOBALS['dbi']->freeResult($db_rights_result);
+        $this->dbi->freeResult($db_rights_result);
         ksort($db_rights);
 
         return $db_rights;
@@ -3856,7 +4004,7 @@ class Privileges
      *
      * @return array Message
      */
-    public static function deleteUser(array $queries)
+    public function deleteUser(array $queries)
     {
         $sql_query = '';
         if (empty($queries)) {
@@ -3869,15 +4017,15 @@ class Privileges
             $drop_user_error = '';
             foreach ($queries as $sql_query) {
                 if ($sql_query[0] != '#') {
-                    if (! $GLOBALS['dbi']->tryQuery($sql_query)) {
-                        $drop_user_error .= $GLOBALS['dbi']->getError() . "\n";
+                    if (! $this->dbi->tryQuery($sql_query)) {
+                        $drop_user_error .= $this->dbi->getError() . "\n";
                     }
                 }
             }
             // tracking sets this, causing the deleted db to be shown in navi
             unset($GLOBALS['db']);
 
-            $sql_query = join("\n", $queries);
+            $sql_query = implode("\n", $queries);
             if (! empty($drop_user_error)) {
                 $message = Message::rawError($drop_user_error);
             } else {
@@ -3886,7 +4034,10 @@ class Privileges
                 );
             }
         }
-        return array($sql_query, $message);
+        return [
+            $sql_query,
+            $message,
+        ];
     }
 
     /**
@@ -3898,20 +4049,20 @@ class Privileges
      * @param string $dbname    database name
      * @param string $itemType  item type
      *
-     * @return Message success message or error message for update
+     * @return array success message or error message for update
      */
-    public static function updatePrivileges($username, $hostname, $tablename, $dbname, $itemType)
+    public function updatePrivileges($username, $hostname, $tablename, $dbname, $itemType)
     {
-        $db_and_table = self::wildcardEscapeForGrant($dbname, $tablename);
+        $db_and_table = $this->wildcardEscapeForGrant($dbname, $tablename);
 
         $sql_query0 = 'REVOKE ALL PRIVILEGES ON ' . $itemType . ' ' . $db_and_table
-            . ' FROM \'' . $GLOBALS['dbi']->escapeString($username)
-            . '\'@\'' . $GLOBALS['dbi']->escapeString($hostname) . '\';';
+            . ' FROM \'' . $this->dbi->escapeString($username)
+            . '\'@\'' . $this->dbi->escapeString($hostname) . '\';';
 
         if (! isset($_POST['Grant_priv']) || $_POST['Grant_priv'] != 'Y') {
             $sql_query1 = 'REVOKE GRANT OPTION ON ' . $itemType . ' ' . $db_and_table
-                . ' FROM \'' . $GLOBALS['dbi']->escapeString($username) . '\'@\''
-                . $GLOBALS['dbi']->escapeString($hostname) . '\';';
+                . ' FROM \'' . $this->dbi->escapeString($username) . '\'@\''
+                . $this->dbi->escapeString($hostname) . '\';';
         } else {
             $sql_query1 = '';
         }
@@ -3919,16 +4070,16 @@ class Privileges
         // Should not do a GRANT USAGE for a table-specific privilege, it
         // causes problems later (cannot revoke it)
         if (! (strlen($tablename) > 0
-            && 'USAGE' == implode('', self::extractPrivInfo()))
+            && 'USAGE' == implode('', $this->extractPrivInfo()))
         ) {
-            $sql_query2 = 'GRANT ' . join(', ', self::extractPrivInfo())
+            $sql_query2 = 'GRANT ' . implode(', ', $this->extractPrivInfo())
                 . ' ON ' . $itemType . ' ' . $db_and_table
-                . ' TO \'' . $GLOBALS['dbi']->escapeString($username) . '\'@\''
-                . $GLOBALS['dbi']->escapeString($hostname) . '\'';
+                . ' TO \'' . $this->dbi->escapeString($username) . '\'@\''
+                . $this->dbi->escapeString($hostname) . '\'';
 
             if (strlen($dbname) === 0) {
                 // add REQUIRE clause
-                $sql_query2 .= self::getRequireClause();
+                $sql_query2 .= $this->getRequireClause();
             }
 
             if ((isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y')
@@ -3937,22 +4088,22 @@ class Privileges
                 || isset($_POST['max_updates'])
                 || isset($_POST['max_user_connections'])))
             ) {
-                $sql_query2 .= self::getWithClauseForAddUserAndUpdatePrivs();
+                $sql_query2 .= $this->getWithClauseForAddUserAndUpdatePrivs();
             }
             $sql_query2 .= ';';
         }
-        if (! $GLOBALS['dbi']->tryQuery($sql_query0)) {
+        if (! $this->dbi->tryQuery($sql_query0)) {
             // This might fail when the executing user does not have
             // ALL PRIVILEGES himself.
             // See https://github.com/phpmyadmin/phpmyadmin/issues/9673
             $sql_query0 = '';
         }
-        if (! empty($sql_query1) && ! $GLOBALS['dbi']->tryQuery($sql_query1)) {
+        if (! empty($sql_query1) && ! $this->dbi->tryQuery($sql_query1)) {
             // this one may fail, too...
             $sql_query1 = '';
         }
         if (! empty($sql_query2)) {
-            $GLOBALS['dbi']->query($sql_query2);
+            $this->dbi->query($sql_query2);
         } else {
             $sql_query2 = '';
         }
@@ -3960,7 +4111,10 @@ class Privileges
         $message = Message::success(__('You have updated the privileges for %s.'));
         $message->addParam('\'' . $username . '\'@\'' . $hostname . '\'');
 
-        return array($sql_query, $message);
+        return [
+            $sql_query,
+            $message,
+        ];
     }
 
     /**
@@ -3968,17 +4122,17 @@ class Privileges
      *
      * @return array
      */
-    public static function getDataForChangeOrCopyUser()
+    public function getDataForChangeOrCopyUser()
     {
         $queries = null;
         $password = null;
 
         if (isset($_POST['change_copy'])) {
             $user_host_condition = ' WHERE `User` = '
-                . "'" . $GLOBALS['dbi']->escapeString($_POST['old_username']) . "'"
+                . "'" . $this->dbi->escapeString($_POST['old_username']) . "'"
                 . ' AND `Host` = '
-                . "'" . $GLOBALS['dbi']->escapeString($_POST['old_hostname']) . "';";
-            $row = $GLOBALS['dbi']->fetchSingleRow(
+                . "'" . $this->dbi->escapeString($_POST['old_hostname']) . "';";
+            $row = $this->dbi->fetchSingleRow(
                 'SELECT * FROM `mysql`.`user` ' . $user_host_condition
             );
             if (! $row) {
@@ -3988,51 +4142,53 @@ class Privileges
                 );
                 unset($_POST['change_copy']);
             } else {
-                extract($row, EXTR_OVERWRITE);
                 foreach ($row as $key => $value) {
                     $GLOBALS[$key] = $value;
                 }
-                $serverVersion = $GLOBALS['dbi']->getVersion();
+                $serverVersion = $this->dbi->getVersion();
                 // Recent MySQL versions have the field "Password" in mysql.user,
-                // so the previous extract creates $Password but this script
+                // so the previous extract creates $row['Password'] but this script
                 // uses $password
-                if (! isset($password) && isset($Password)) {
-                    $password = $Password;
+                if (! isset($row['password']) && isset($row['Password'])) {
+                    $row['password'] = $row['Password'];
                 }
                 if (Util::getServerType() == 'MySQL'
                     && $serverVersion >= 50606
                     && $serverVersion < 50706
-                    && ((isset($authentication_string)
-                    && empty($password))
-                    || (isset($plugin)
-                    && $plugin == 'sha256_password'))
+                    && ((isset($row['authentication_string'])
+                    && empty($row['password']))
+                    || (isset($row['plugin'])
+                    && $row['plugin'] == 'sha256_password'))
                 ) {
-                    $password = $authentication_string;
+                    $row['password'] = $row['authentication_string'];
                 }
 
                 if (Util::getServerType() == 'MariaDB'
                     && $serverVersion >= 50500
-                    && isset($authentication_string)
-                    && empty($password)
+                    && isset($row['authentication_string'])
+                    && empty($row['password'])
                 ) {
-                    $password = $authentication_string;
+                    $row['password'] = $row['authentication_string'];
                 }
 
                 // Always use 'authentication_string' column
                 // for MySQL 5.7.6+ since it does not have
                 // the 'password' column at all
-                if (in_array(Util::getServerType(), array('MySQL', 'Percona Server'))
+                if (in_array(Util::getServerType(), ['MySQL', 'Percona Server'])
                     && $serverVersion >= 50706
-                    && isset($authentication_string)
+                    && isset($row['authentication_string'])
                 ) {
-                    $password = $authentication_string;
+                    $row['password'] = $row['authentication_string'];
                 }
-
-                $queries = array();
+                $password = $row['password'];
+                $queries = [];
             }
         }
 
-        return array($queries, $password);
+        return [
+            $queries,
+            $password,
+        ];
     }
 
     /**
@@ -4042,20 +4198,20 @@ class Privileges
      *
      * @return array
      */
-    public static function getDataForDeleteUsers($queries)
+    public function getDataForDeleteUsers($queries)
     {
         if (isset($_POST['change_copy'])) {
-            $selected_usr = array(
-                $_POST['old_username'] . '&amp;#27;' . $_POST['old_hostname']
-            );
+            $selected_usr = [
+                $_POST['old_username'] . '&amp;#27;' . $_POST['old_hostname'],
+            ];
         } else {
             $selected_usr = $_POST['selected_usr'];
-            $queries = array();
+            $queries = [];
         }
 
         // this happens, was seen in https://reports.phpmyadmin.net/reports/view/17146
         if (! is_array($selected_usr)) {
-            return array();
+            return [];
         }
 
         foreach ($selected_usr as $each_user) {
@@ -4067,9 +4223,9 @@ class Privileges
                 )
                 . ' ...';
             $queries[] = 'DROP USER \''
-                . $GLOBALS['dbi']->escapeString($this_user)
-                . '\'@\'' . $GLOBALS['dbi']->escapeString($this_host) . '\';';
-            RelationCleanup::user($this_user);
+                . $this->dbi->escapeString($this_user)
+                . '\'@\'' . $this->dbi->escapeString($this_host) . '\';';
+            $this->relationCleanup->user($this_user);
 
             if (isset($_POST['drop_users_db'])) {
                 $queries[] = 'DROP DATABASE IF EXISTS '
@@ -4083,14 +4239,14 @@ class Privileges
     /**
      * update Message For Reload
      *
-     * @return array
+     * @return Message|null
      */
-    public static function updateMessageForReload()
+    public function updateMessageForReload(): ?Message
     {
         $message = null;
         if (isset($_GET['flush_privileges'])) {
             $sql_query = 'FLUSH PRIVILEGES;';
-            $GLOBALS['dbi']->query($sql_query);
+            $this->dbi->query($sql_query);
             $message = Message::success(
                 __('The privileges were reloaded successfully.')
             );
@@ -4109,14 +4265,14 @@ class Privileges
      * @param array      $queries             queries array
      * @param array|null $queries_for_display queries array for display
      *
-     * @return null
+     * @return array
      */
-    public static function getDataForQueries(array $queries, $queries_for_display)
+    public function getDataForQueries(array $queries, $queries_for_display)
     {
         $tmp_count = 0;
         foreach ($queries as $sql_query) {
             if ($sql_query[0] != '#') {
-                $GLOBALS['dbi']->query($sql_query);
+                $this->dbi->query($sql_query);
             }
             // when there is a query containing a hidden password, take it
             // instead of the real query sent
@@ -4132,17 +4288,20 @@ class Privileges
     /**
      * update Data for information: Adds a user
      *
-     * @param string $dbname      db name
-     * @param string $username    user name
-     * @param string $hostname    host name
-     * @param string $password    password
-     * @param bool   $is_menuwork is_menuwork set?
+     * @param string|array|null $dbname      db name
+     * @param string            $username    user name
+     * @param string            $hostname    host name
+     * @param string|null       $password    password
+     * @param bool              $is_menuwork is_menuwork set?
      *
      * @return array
      */
-    public static function addUser(
-        $dbname, $username, $hostname,
-        $password, $is_menuwork
+    public function addUser(
+        $dbname,
+        $username,
+        $hostname,
+        ?string $password,
+        $is_menuwork
     ) {
         $_add_user_error = false;
         $message = null;
@@ -4150,10 +4309,14 @@ class Privileges
         $queries_for_display = null;
         $sql_query = null;
 
-        if (!isset($_POST['adduser_submit']) && !isset($_POST['change_copy'])) {
-            return array(
-                $message, $queries, $queries_for_display, $sql_query, $_add_user_error
-            );
+        if (! isset($_POST['adduser_submit']) && ! isset($_POST['change_copy'])) {
+            return [
+                $message,
+                $queries,
+                $queries_for_display,
+                $sql_query,
+                $_add_user_error,
+            ];
         }
 
         $sql_query = '';
@@ -4161,100 +4324,106 @@ class Privileges
             $username = '';
         }
         switch ($_POST['pred_hostname']) {
-        case 'any':
-            $hostname = '%';
-            break;
-        case 'localhost':
-            $hostname = 'localhost';
-            break;
-        case 'hosttable':
-            $hostname = '';
-            break;
-        case 'thishost':
-            $_user_name = $GLOBALS['dbi']->fetchValue('SELECT USER()');
-            $hostname = mb_substr(
-                $_user_name,
-                (mb_strrpos($_user_name, '@') + 1)
-            );
-            unset($_user_name);
-            break;
+            case 'any':
+                $hostname = '%';
+                break;
+            case 'localhost':
+                $hostname = 'localhost';
+                break;
+            case 'hosttable':
+                $hostname = '';
+                break;
+            case 'thishost':
+                $_user_name = $this->dbi->fetchValue('SELECT USER()');
+                $hostname = mb_substr(
+                    $_user_name,
+                    mb_strrpos($_user_name, '@') + 1
+                );
+                unset($_user_name);
+                break;
         }
         $sql = "SELECT '1' FROM `mysql`.`user`"
-            . " WHERE `User` = '" . $GLOBALS['dbi']->escapeString($username) . "'"
-            . " AND `Host` = '" . $GLOBALS['dbi']->escapeString($hostname) . "';";
-        if ($GLOBALS['dbi']->fetchValue($sql) == 1) {
+            . " WHERE `User` = '" . $this->dbi->escapeString($username) . "'"
+            . " AND `Host` = '" . $this->dbi->escapeString($hostname) . "';";
+        if ($this->dbi->fetchValue($sql) == 1) {
             $message = Message::error(__('The user %s already exists!'));
             $message->addParam('[em]\'' . $username . '\'@\'' . $hostname . '\'[/em]');
             $_GET['adduser'] = true;
             $_add_user_error = true;
 
-            return array(
+            return [
                 $message,
                 $queries,
                 $queries_for_display,
                 $sql_query,
-                $_add_user_error
-            );
+                $_add_user_error,
+            ];
         }
 
         list(
-            $create_user_real, $create_user_show, $real_sql_query, $sql_query,
-            $password_set_real, $password_set_show,
+            $create_user_real,
+            $create_user_show,
+            $real_sql_query,
+            $sql_query,
+            $password_set_real,
+            $password_set_show,
             $alter_real_sql_query,
             $alter_sql_query
-        ) = self::getSqlQueriesForDisplayAndAddUser(
-            $username, $hostname, (isset($password) ? $password : '')
+        ) = $this->getSqlQueriesForDisplayAndAddUser(
+            $username,
+            $hostname,
+            (isset($password) ? $password : '')
         );
 
         if (empty($_POST['change_copy'])) {
             $_error = false;
 
-            if (isset($create_user_real)) {
-                if (!$GLOBALS['dbi']->tryQuery($create_user_real)) {
+            if ($create_user_real !== null) {
+                if (! $this->dbi->tryQuery($create_user_real)) {
                     $_error = true;
                 }
-                if (isset($password_set_real) && !empty($password_set_real)
+                if (isset($password_set_real) && ! empty($password_set_real)
                     && isset($_POST['authentication_plugin'])
                 ) {
-                    self::setProperPasswordHashing(
+                    $this->setProperPasswordHashing(
                         $_POST['authentication_plugin']
                     );
-                    if ($GLOBALS['dbi']->tryQuery($password_set_real)) {
+                    if ($this->dbi->tryQuery($password_set_real)) {
                         $sql_query .= $password_set_show;
                     }
                 }
                 $sql_query = $create_user_show . $sql_query;
             }
 
-            list($sql_query, $message) = self::addUserAndCreateDatabase(
+            list($sql_query, $message) = $this->addUserAndCreateDatabase(
                 $_error,
                 $real_sql_query,
                 $sql_query,
                 $username,
                 $hostname,
-                isset($dbname) ? $dbname : null,
+                $dbname,
                 $alter_real_sql_query,
                 $alter_sql_query
             );
-            if (!empty($_POST['userGroup']) && $is_menuwork) {
-                self::setUserGroup($GLOBALS['username'], $_POST['userGroup']);
+            if (! empty($_POST['userGroup']) && $is_menuwork) {
+                $this->setUserGroup($GLOBALS['username'], $_POST['userGroup']);
             }
 
-            return array(
+            return [
                 $message,
                 $queries,
                 $queries_for_display,
                 $sql_query,
-                $_add_user_error
-            );
+                $_add_user_error,
+            ];
         }
 
         // Copy the user group while copying a user
         $old_usergroup =
             isset($_POST['old_usergroup']) ? $_POST['old_usergroup'] : null;
-        self::setUserGroup($_POST['username'], $old_usergroup);
+        $this->setUserGroup($_POST['username'], $old_usergroup);
 
-        if (isset($create_user_real)) {
+        if ($create_user_real === null) {
             $queries[] = $create_user_real;
         }
         $queries[] = $real_sql_query;
@@ -4262,7 +4431,7 @@ class Privileges
         if (isset($password_set_real) && ! empty($password_set_real)
             && isset($_POST['authentication_plugin'])
         ) {
-            self::setProperPasswordHashing(
+            $this->setProperPasswordHashing(
                 $_POST['authentication_plugin']
             );
 
@@ -4283,9 +4452,13 @@ class Privileges
             $queries_for_display[$tmp_count - 1] = $sql_query;
         }
 
-        return array(
-            $message, $queries, $queries_for_display, $sql_query, $_add_user_error
-        );
+        return [
+            $message,
+            $queries,
+            $queries_for_display,
+            $sql_query,
+            $_add_user_error,
+        ];
     }
 
     /**
@@ -4296,16 +4469,16 @@ class Privileges
      *
      * @return void
      */
-    public static function setProperPasswordHashing($auth_plugin)
+    public function setProperPasswordHashing($auth_plugin)
     {
         // Set the hashing method used by PASSWORD()
         // to be of type depending upon $authentication_plugin
         if ($auth_plugin == 'sha256_password') {
-            $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 2;');
+            $this->dbi->tryQuery('SET `old_passwords` = 2;');
         } elseif ($auth_plugin == 'mysql_old_password') {
-            $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 1;');
+            $this->dbi->tryQuery('SET `old_passwords` = 1;');
         } else {
-            $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 0;');
+            $this->dbi->tryQuery('SET `old_passwords` = 0;');
         }
     }
 
@@ -4314,7 +4487,7 @@ class Privileges
      *
      * @return array
      */
-    public static function getDataForDBInfo()
+    public function getDataForDBInfo()
     {
         $username = null;
         $hostname = null;
@@ -4377,7 +4550,7 @@ class Privileges
         if (isset($is_valid_pred_dbname) && $is_valid_pred_dbname) {
             $dbname = $_POST['pred_dbname'];
             // If dbname contains only one database.
-            if (count($dbname) == 1) {
+            if (count($dbname) === 1) {
                 $dbname = $dbname[0];
             }
         } elseif (isset($is_valid_dbname) && $is_valid_dbname) {
@@ -4415,21 +4588,22 @@ class Privileges
         // check if given $dbname is a wildcard or not
         if (isset($dbname)) {
             //if (preg_match('/\\\\(?:_|%)/i', $dbname)) {
-            if (! is_array($dbname) && preg_match('/(?<!\\\\)(?:_|%)/i', $dbname)) {
+            if (! is_array($dbname) && preg_match('/(?<!\\\\)(?:_|%)/', $dbname)) {
                 $dbname_is_wildcard = true;
             } else {
                 $dbname_is_wildcard = false;
             }
         }
 
-        return array(
-            $username, $hostname,
-            isset($dbname)? $dbname : null,
-            isset($tablename)? $tablename : null,
+        return [
+            $username,
+            $hostname,
+            isset($dbname) ? $dbname : null,
+            isset($tablename) ? $tablename : null,
             isset($routinename) ? $routinename : null,
             $db_and_table,
             $dbname_is_wildcard,
-        );
+        ];
     }
 
     /**
@@ -4440,7 +4614,7 @@ class Privileges
      *
      * @return array ($title, $export)
      */
-    public static function getListForExportUserDefinition($username, $hostname)
+    public function getListForExportUserDefinition($username, $hostname)
     {
         $export = '<textarea class="export" cols="60" rows="15">';
 
@@ -4453,10 +4627,13 @@ class Privileges
 
             foreach ($_POST['selected_usr'] as $export_user) {
                 $export_username = mb_substr(
-                    $export_user, 0, mb_strpos($export_user, '&')
+                    $export_user,
+                    0,
+                    mb_strpos($export_user, '&')
                 );
                 $export_hostname = mb_substr(
-                    $export_user, mb_strrpos($export_user, ';') + 1
+                    $export_user,
+                    mb_strrpos($export_user, ';') + 1
                 );
                 $export .= '# '
                     . sprintf(
@@ -4465,20 +4642,23 @@ class Privileges
                         . '`@`' . htmlspecialchars($export_hostname) . '`'
                     )
                     . "\n\n";
-                $export .= self::getGrants($export_username, $export_hostname) . "\n";
+                $export .= $this->getGrants($export_username, $export_hostname) . "\n";
             }
         } else {
             // export privileges for a single user
             $title = __('User') . ' `' . htmlspecialchars($username)
                 . '`@`' . htmlspecialchars($hostname) . '`';
-            $export .= self::getGrants($username, $hostname);
+            $export .= $this->getGrants($username, $hostname);
         }
         // remove trailing whitespace
         $export = trim($export);
 
         $export .= '</textarea>';
 
-        return array($title, $export);
+        return [
+            $title,
+            $export,
+        ];
     }
 
     /**
@@ -4489,33 +4669,30 @@ class Privileges
      *
      * @return string html output
      */
-    public static function getAddUserHtmlFieldset($db = '', $table = '')
+    public function getAddUserHtmlFieldset($db = '', $table = '')
     {
-        if (!$GLOBALS['is_createuser']) {
+        if (! $GLOBALS['is_createuser']) {
             return '';
         }
-        $rel_params = array();
-        $url_params = array(
-            'adduser' => 1
-        );
-        if (!empty($db)) {
+        $rel_params = [];
+        $url_params = [
+            'adduser' => 1,
+        ];
+        if (! empty($db)) {
             $url_params['dbname']
                 = $rel_params['checkprivsdb']
                     = $db;
         }
-        if (!empty($table)) {
+        if (! empty($table)) {
             $url_params['tablename']
                 = $rel_params['checkprivstable']
                     = $table;
         }
 
-        return Template::get('privileges/add_user_fieldset')
-            ->render(
-                array(
-                    'url_params' => $url_params,
-                    'rel_params' => $rel_params
-                )
-            );
+        return $this->template->render('server/privileges/add_user_fieldset', [
+            'url_params' => $url_params,
+            'rel_params' => $rel_params,
+        ]);
     }
 
     /**
@@ -4529,11 +4706,16 @@ class Privileges
      * @param string  $entity_name        entity (table or routine) name
      * @param string  $entity_type        optional, type of entity ('table' or 'routine')
      *
-     * @return string $html_output
+     * @return string
      */
-    public static function getHtmlHeaderForUserProperties(
-        $dbname_is_wildcard, $url_dbname, $dbname,
-        $username, $hostname, $entity_name, $entity_type='table'
+    public function getHtmlHeaderForUserProperties(
+        $dbname_is_wildcard,
+        $url_dbname,
+        $dbname,
+        $username,
+        $hostname,
+        $entity_name,
+        $entity_type = 'table'
     ) {
         $html_output = '<h2>' . "\n"
            . Util::getIcon('b_usredit')
@@ -4544,30 +4726,30 @@ class Privileges
             $html_output .= ' <i><a class="edit_user_anchor"'
                 . ' href="server_privileges.php'
                 . Url::getCommon(
-                    array(
+                    [
                         'username' => $username,
                         'hostname' => $hostname,
                         'dbname' => '',
                         'tablename' => '',
-                    )
+                    ]
                 )
                 . '">\'' . htmlspecialchars($username)
                 . '\'@\'' . htmlspecialchars($hostname)
                 . '\'</a></i>' . "\n";
 
             $html_output .= ' - ';
-            $html_output .= ($dbname_is_wildcard
-                || is_array($dbname) && count($dbname) > 1)
+            $html_output .= $dbname_is_wildcard
+                || is_array($dbname) && count($dbname) > 1
                 ? __('Databases') : __('Database');
             if (! empty($entity_name) && $entity_type === 'table') {
                 $html_output .= ' <i><a href="server_privileges.php'
                     . Url::getCommon(
-                        array(
+                        [
                             'username' => $username,
                             'hostname' => $hostname,
                             'dbname' => $url_dbname,
                             'tablename' => '',
-                        )
+                        ]
                     )
                     . '">' . htmlspecialchars($dbname)
                     . '</a></i>';
@@ -4577,12 +4759,12 @@ class Privileges
             } elseif (! empty($entity_name)) {
                 $html_output .= ' <i><a href="server_privileges.php'
                     . Url::getCommon(
-                        array(
+                        [
                             'username' => $username,
                             'hostname' => $hostname,
                             'dbname' => $url_dbname,
                             'routinename' => '',
-                        )
+                        ]
                     )
                     . '">' . htmlspecialchars($dbname)
                     . '</a></i>';
@@ -4591,21 +4773,19 @@ class Privileges
                     . ' <i>' . htmlspecialchars($entity_name) . '</i>';
             } else {
                 if (! is_array($dbname)) {
-                    $dbname = array($dbname);
+                    $dbname = [$dbname];
                 }
                 $html_output .= ' <i>'
                     . htmlspecialchars(implode(', ', $dbname))
                     . '</i>';
             }
-
         } else {
             $html_output .= ' <i>\'' . htmlspecialchars($username)
                 . '\'@\'' . htmlspecialchars($hostname)
                 . '\'</i>' . "\n";
-
         }
         $html_output .= '</h2>' . "\n";
-        $cur_user = $GLOBALS['dbi']->getCurrentUser();
+        $cur_user = $this->dbi->getCurrentUser();
         $user = $username . '@' . $hostname;
         // Add a short notice for the user
         // to remind him that he is editing his own privileges
@@ -4626,9 +4806,9 @@ class Privileges
      * @param string $pmaThemeImage a image source link
      * @param string $text_dir      text directory
      *
-     * @return string $html_output
+     * @return string
      */
-    public static function getHtmlForUserOverview($pmaThemeImage, $text_dir)
+    public function getHtmlForUserOverview($pmaThemeImage, $text_dir)
     {
         $html_output = '<h2>' . "\n"
            . Util::getIcon('b_usrlist')
@@ -4637,7 +4817,7 @@ class Privileges
 
         $password_column = 'Password';
         $server_type = Util::getServerType();
-        $serverVersion = $GLOBALS['dbi']->getVersion();
+        $serverVersion = $this->dbi->getVersion();
         if (($server_type == 'MySQL' || $server_type == 'Percona Server')
             && $serverVersion >= 50706
         ) {
@@ -4651,18 +4831,18 @@ class Privileges
             ' FROM `mysql`.`user`';
 
         $sql_query .= (isset($_GET['initial'])
-            ? self::rangeOfUsers($_GET['initial'])
+            ? $this->rangeOfUsers($_GET['initial'])
             : '');
 
         $sql_query .= ' ORDER BY `User` ASC, `Host` ASC;';
         $sql_query_all .= ' ;';
 
-        $res = $GLOBALS['dbi']->tryQuery(
+        $res = $this->dbi->tryQuery(
             $sql_query,
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
-        $res_all = $GLOBALS['dbi']->tryQuery(
+        $res_all = $this->dbi->tryQuery(
             $sql_query_all,
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
@@ -4674,33 +4854,33 @@ class Privileges
             // - the privilege tables use a structure of an earlier version.
             // so let's try a more simple query
 
-            $GLOBALS['dbi']->freeResult($res);
-            $GLOBALS['dbi']->freeResult($res_all);
+            $this->dbi->freeResult($res);
+            $this->dbi->freeResult($res_all);
             $sql_query = 'SELECT * FROM `mysql`.`user`';
-            $res = $GLOBALS['dbi']->tryQuery(
+            $res = $this->dbi->tryQuery(
                 $sql_query,
                 DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_STORE
             );
 
             if (! $res) {
-                $html_output .= self::getHtmlForViewUsersError();
-                $html_output .= self::getAddUserHtmlFieldset();
+                $html_output .= $this->getHtmlForViewUsersError();
+                $html_output .= $this->getAddUserHtmlFieldset();
             } else {
                 // This message is hardcoded because I will replace it by
                 // a automatic repair feature soon.
                 $raw = 'Your privilege table structure seems to be older than'
-                    . ' this MySQL version!<br />'
+                    . ' this MySQL version!<br>'
                     . 'Please run the <code>mysql_upgrade</code> command'
                     . ' that should be included in your MySQL server distribution'
                     . ' to solve this problem!';
                 $html_output .= Message::rawError($raw)->getDisplay();
             }
-            $GLOBALS['dbi']->freeResult($res);
+            $this->dbi->freeResult($res);
         } else {
-            $db_rights = self::getDbRightsForUserOverview();
+            $db_rights = $this->getDbRightsForUserOverview();
             // for all initials, even non A-Z
-            $array_initials = array();
+            $array_initials = [];
 
             foreach ($db_rights as $right) {
                 foreach ($right as $account) {
@@ -4723,8 +4903,8 @@ class Privileges
              * Displays the initials
              * Also not necessary if there is less than 20 privileges
              */
-            if ($GLOBALS['dbi']->numRows($res_all) > 20) {
-                $html_output .= self::getHtmlForInitials($array_initials);
+            if ($this->dbi->numRows($res_all) > 20) {
+                $html_output .= $this->getHtmlForInitials($array_initials);
             }
 
             /**
@@ -4733,13 +4913,16 @@ class Privileges
             */
             if (isset($_GET['initial'])
                 || isset($_GET['showall'])
-                || $GLOBALS['dbi']->numRows($res) < 50
+                || $this->dbi->numRows($res) < 50
             ) {
-                $html_output .= self::getUsersOverview(
-                    $res, $db_rights, $pmaThemeImage, $text_dir
+                $html_output .= $this->getUsersOverview(
+                    $res,
+                    $db_rights,
+                    $pmaThemeImage,
+                    $text_dir
                 );
             } else {
-                $html_output .= self::getAddUserHtmlFieldset();
+                $html_output .= $this->getAddUserHtmlFieldset();
             } // end if (display overview)
 
             $response = Response::getInstance();
@@ -4759,7 +4942,7 @@ class Privileges
                     );
                     $flushnote->addParamHtml(
                         '<a href="server_privileges.php'
-                        . Url::getCommon(array('flush_privileges' => 1))
+                        . Url::getCommon(['flush_privileges' => 1])
                         . '" id="reload_privileges_anchor">'
                     );
                     $flushnote->addParamHtml('</a>');
@@ -4776,6 +4959,8 @@ class Privileges
                         . Util::showMySQLDocu(
                             'privileges-provided',
                             false,
+                            null,
+                            null,
                             'priv_reload'
                         ),
                         Message::NOTICE
@@ -4798,34 +4983,44 @@ class Privileges
      * @param string  $dbname             database name
      * @param string  $tablename          table name
      *
-     * @return string $html_output
+     * @return string
      */
-    public static function getHtmlForUserProperties($dbname_is_wildcard, $url_dbname,
-        $username, $hostname, $dbname, $tablename
+    public function getHtmlForUserProperties(
+        $dbname_is_wildcard,
+        $url_dbname,
+        $username,
+        $hostname,
+        $dbname,
+        $tablename
     ) {
         $html_output  = '<div id="edit_user_dialog">';
-        $html_output .= self::getHtmlHeaderForUserProperties(
-            $dbname_is_wildcard, $url_dbname, $dbname, $username, $hostname,
-            $tablename, 'table'
+        $html_output .= $this->getHtmlHeaderForUserProperties(
+            $dbname_is_wildcard,
+            $url_dbname,
+            $dbname,
+            $username,
+            $hostname,
+            $tablename,
+            'table'
         );
 
         $sql = "SELECT '1' FROM `mysql`.`user`"
-            . " WHERE `User` = '" . $GLOBALS['dbi']->escapeString($username) . "'"
-            . " AND `Host` = '" . $GLOBALS['dbi']->escapeString($hostname) . "';";
+            . " WHERE `User` = '" . $this->dbi->escapeString($username) . "'"
+            . " AND `Host` = '" . $this->dbi->escapeString($hostname) . "';";
 
-        $user_does_not_exists = (bool) ! $GLOBALS['dbi']->fetchValue($sql);
+        $user_does_not_exists = (bool) ! $this->dbi->fetchValue($sql);
 
         if ($user_does_not_exists) {
             $html_output .= Message::error(
                 __('The selected user was not found in the privilege table.')
             )->getDisplay();
-            $html_output .= self::getHtmlForLoginInformationFields();
+            $html_output .= $this->getHtmlForLoginInformationFields();
         }
 
-        $_params = array(
+        $_params = [
             'username' => $username,
             'hostname' => $hostname,
-        );
+        ];
         if (! is_array($dbname) && strlen($dbname) > 0) {
             $_params['dbname'] = $dbname;
             if (strlen($tablename) > 0) {
@@ -4838,9 +5033,9 @@ class Privileges
         $html_output .= '<form class="submenu-item" name="usersForm" '
             . 'id="addUsersForm" action="server_privileges.php" method="post">' . "\n";
         $html_output .= Url::getHiddenInputs($_params);
-        $html_output .= self::getHtmlToDisplayPrivilegesTable(
+        $html_output .= $this->getHtmlToDisplayPrivilegesTable(
             // If $dbname is an array, pass any one db as all have same privs.
-            Core::ifSetOr($dbname, (is_array($dbname)) ? $dbname[0] : '*', 'length'),
+            Core::ifSetOr($dbname, is_array($dbname) ? $dbname[0] : '*', 'length'),
             Core::ifSetOr($tablename, '*', 'length')
         );
 
@@ -4852,26 +5047,33 @@ class Privileges
             // no table name was given, display all table specific rights
             // but only if $dbname contains no wildcards
             if (strlen($dbname) === 0) {
-                $html_output .= self::getHtmlForAllTableSpecificRights(
-                    $username, $hostname, 'database'
+                $html_output .= $this->getHtmlForAllTableSpecificRights(
+                    $username,
+                    $hostname,
+                    'database'
                 );
             } else {
                 // unescape wildcards in dbname at table level
                 $unescaped_db = Util::unescapeMysqlWildcards($dbname);
 
-                $html_output .= self::getHtmlForAllTableSpecificRights(
-                    $username, $hostname, 'table', $unescaped_db
+                $html_output .= $this->getHtmlForAllTableSpecificRights(
+                    $username,
+                    $hostname,
+                    'table',
+                    $unescaped_db
                 );
-                $html_output .= self::getHtmlForAllTableSpecificRights(
-                    $username, $hostname, 'routine', $unescaped_db
+                $html_output .= $this->getHtmlForAllTableSpecificRights(
+                    $username,
+                    $hostname,
+                    'routine',
+                    $unescaped_db
                 );
             }
         }
 
         // Provide a line with links to the relevant database and table
         if (! is_array($dbname) && strlen($dbname) > 0 && empty($dbname_is_wildcard)) {
-            $html_output .= self::getLinkToDbAndTable($url_dbname, $dbname, $tablename);
-
+            $html_output .= $this->getLinkToDbAndTable($url_dbname, $dbname, $tablename);
         }
 
         if (! is_array($dbname) && strlen($dbname) === 0 && ! $user_does_not_exists) {
@@ -4881,7 +5083,7 @@ class Privileges
                 $username,
                 $hostname
             );
-            $html_output .= self::getChangeLoginInformationHtmlForm($username, $hostname);
+            $html_output .= $this->getChangeLoginInformationHtmlForm($username, $hostname);
         }
         $html_output .= '</div>';
 
@@ -4897,44 +5099,46 @@ class Privileges
      * @param string $username            username
      * @param string $hostname            host name
      *
-     * @return array  $queries
+     * @return array
      */
-    public static function getTablePrivsQueriesForChangeOrCopyUser($user_host_condition,
-        array $queries, $username, $hostname
+    public function getTablePrivsQueriesForChangeOrCopyUser(
+        $user_host_condition,
+        array $queries,
+        $username,
+        $hostname
     ) {
-        $res = $GLOBALS['dbi']->query(
+        $res = $this->dbi->query(
             'SELECT `Db`, `Table_name`, `Table_priv` FROM `mysql`.`tables_priv`'
             . $user_host_condition,
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
-        while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
-
-            $res2 = $GLOBALS['dbi']->query(
+        while ($row = $this->dbi->fetchAssoc($res)) {
+            $res2 = $this->dbi->query(
                 'SELECT `Column_name`, `Column_priv`'
                 . ' FROM `mysql`.`columns_priv`'
                 . ' WHERE `User`'
-                . ' = \'' . $GLOBALS['dbi']->escapeString($_POST['old_username']) . "'"
+                . ' = \'' . $this->dbi->escapeString($_POST['old_username']) . "'"
                 . ' AND `Host`'
-                . ' = \'' . $GLOBALS['dbi']->escapeString($_POST['old_username']) . '\''
+                . ' = \'' . $this->dbi->escapeString($_POST['old_username']) . '\''
                 . ' AND `Db`'
-                . ' = \'' . $GLOBALS['dbi']->escapeString($row['Db']) . "'"
+                . ' = \'' . $this->dbi->escapeString($row['Db']) . "'"
                 . ' AND `Table_name`'
-                . ' = \'' . $GLOBALS['dbi']->escapeString($row['Table_name']) . "'"
+                . ' = \'' . $this->dbi->escapeString($row['Table_name']) . "'"
                 . ';',
                 DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_STORE
             );
 
-            $tmp_privs1 = self::extractPrivInfo($row);
-            $tmp_privs2 = array(
-                'Select' => array(),
-                'Insert' => array(),
-                'Update' => array(),
-                'References' => array()
-            );
+            $tmp_privs1 = $this->extractPrivInfo($row);
+            $tmp_privs2 = [
+                'Select' => [],
+                'Insert' => [],
+                'Update' => [],
+                'References' => [],
+            ];
 
-            while ($row2 = $GLOBALS['dbi']->fetchAssoc($res2)) {
+            while ($row2 = $this->dbi->fetchAssoc($res2)) {
                 $tmp_array = explode(',', $row2['Column_priv']);
                 if (in_array('Select', $tmp_array)) {
                     $tmp_privs2['Select'][] = $row2['Column_name'];
@@ -4950,26 +5154,26 @@ class Privileges
                 }
             }
             if (count($tmp_privs2['Select']) > 0 && ! in_array('SELECT', $tmp_privs1)) {
-                $tmp_privs1[] = 'SELECT (`' . join('`, `', $tmp_privs2['Select']) . '`)';
+                $tmp_privs1[] = 'SELECT (`' . implode('`, `', $tmp_privs2['Select']) . '`)';
             }
             if (count($tmp_privs2['Insert']) > 0 && ! in_array('INSERT', $tmp_privs1)) {
-                $tmp_privs1[] = 'INSERT (`' . join('`, `', $tmp_privs2['Insert']) . '`)';
+                $tmp_privs1[] = 'INSERT (`' . implode('`, `', $tmp_privs2['Insert']) . '`)';
             }
             if (count($tmp_privs2['Update']) > 0 && ! in_array('UPDATE', $tmp_privs1)) {
-                $tmp_privs1[] = 'UPDATE (`' . join('`, `', $tmp_privs2['Update']) . '`)';
+                $tmp_privs1[] = 'UPDATE (`' . implode('`, `', $tmp_privs2['Update']) . '`)';
             }
             if (count($tmp_privs2['References']) > 0
                 && ! in_array('REFERENCES', $tmp_privs1)
             ) {
                 $tmp_privs1[]
-                    = 'REFERENCES (`' . join('`, `', $tmp_privs2['References']) . '`)';
+                    = 'REFERENCES (`' . implode('`, `', $tmp_privs2['References']) . '`)';
             }
 
-            $queries[] = 'GRANT ' . join(', ', $tmp_privs1)
+            $queries[] = 'GRANT ' . implode(', ', $tmp_privs1)
                 . ' ON ' . Util::backquote($row['Db']) . '.'
                 . Util::backquote($row['Table_name'])
-                . ' TO \'' . $GLOBALS['dbi']->escapeString($username)
-                . '\'@\'' . $GLOBALS['dbi']->escapeString($hostname) . '\''
+                . ' TO \'' . $this->dbi->escapeString($username)
+                . '\'@\'' . $this->dbi->escapeString($hostname) . '\''
                 . (in_array('Grant', explode(',', $row['Table_priv']))
                 ? ' WITH GRANT OPTION;'
                 : ';');
@@ -4984,31 +5188,36 @@ class Privileges
      * @param string $username username
      * @param string $hostname host name
      *
-     * @return array $queries
+     * @return array
      */
-    public static function getDbSpecificPrivsQueriesForChangeOrCopyUser(
-        array $queries, $username, $hostname
+    public function getDbSpecificPrivsQueriesForChangeOrCopyUser(
+        array $queries,
+        $username,
+        $hostname
     ) {
         $user_host_condition = ' WHERE `User`'
-            . ' = \'' . $GLOBALS['dbi']->escapeString($_POST['old_username']) . "'"
+            . ' = \'' . $this->dbi->escapeString($_POST['old_username']) . "'"
             . ' AND `Host`'
-            . ' = \'' . $GLOBALS['dbi']->escapeString($_POST['old_hostname']) . '\';';
+            . ' = \'' . $this->dbi->escapeString($_POST['old_hostname']) . '\';';
 
-        $res = $GLOBALS['dbi']->query(
+        $res = $this->dbi->query(
             'SELECT * FROM `mysql`.`db`' . $user_host_condition
         );
 
-        while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
-            $queries[] = 'GRANT ' . join(', ', self::extractPrivInfo($row))
+        while ($row = $this->dbi->fetchAssoc($res)) {
+            $queries[] = 'GRANT ' . implode(', ', $this->extractPrivInfo($row))
                 . ' ON ' . Util::backquote($row['Db']) . '.*'
-                . ' TO \'' . $GLOBALS['dbi']->escapeString($username)
-                . '\'@\'' . $GLOBALS['dbi']->escapeString($hostname) . '\''
+                . ' TO \'' . $this->dbi->escapeString($username)
+                . '\'@\'' . $this->dbi->escapeString($hostname) . '\''
                 . ($row['Grant_priv'] == 'Y' ? ' WITH GRANT OPTION;' : ';');
         }
-        $GLOBALS['dbi']->freeResult($res);
+        $this->dbi->freeResult($res);
 
-        $queries = self::getTablePrivsQueriesForChangeOrCopyUser(
-            $user_host_condition, $queries, $username, $hostname
+        $queries = $this->getTablePrivsQueriesForChangeOrCopyUser(
+            $user_host_condition,
+            $queries,
+            $username,
+            $hostname
         );
 
         return $queries;
@@ -5027,9 +5236,9 @@ class Privileges
      * @param string  $alter_real_sql_query SQL query for ALTER USER
      * @param string  $alter_sql_query      SQL query for ALTER USER to be displayed
      *
-     * @return array  $sql_query, $message
+     * @return array, $message
      */
-    public static function addUserAndCreateDatabase(
+    public function addUserAndCreateDatabase(
         $_error,
         $real_sql_query,
         $sql_query,
@@ -5039,16 +5248,16 @@ class Privileges
         $alter_real_sql_query,
         $alter_sql_query
     ) {
-        if ($_error || (!empty($real_sql_query)
-            && !$GLOBALS['dbi']->tryQuery($real_sql_query))
+        if ($_error || (! empty($real_sql_query)
+            && ! $this->dbi->tryQuery($real_sql_query))
         ) {
             $_POST['createdb-1'] = $_POST['createdb-2']
                 = $_POST['createdb-3'] = null;
-            $message = Message::rawError($GLOBALS['dbi']->getError());
-        } elseif ($alter_real_sql_query !== '' && !$GLOBALS['dbi']->tryQuery($alter_real_sql_query)) {
+            $message = Message::rawError($this->dbi->getError());
+        } elseif ($alter_real_sql_query !== '' && ! $this->dbi->tryQuery($alter_real_sql_query)) {
             $_POST['createdb-1'] = $_POST['createdb-2']
                 = $_POST['createdb-3'] = null;
-            $message = Message::rawError($GLOBALS['dbi']->getError());
+            $message = Message::rawError($this->dbi->getError());
         } else {
             $sql_query .= $alter_sql_query;
             $message = Message::success(__('You have added a new user.'));
@@ -5058,11 +5267,11 @@ class Privileges
             // Create database with same name and grant all privileges
             $q = 'CREATE DATABASE IF NOT EXISTS '
                 . Util::backquote(
-                    $GLOBALS['dbi']->escapeString($username)
+                    $this->dbi->escapeString($username)
                 ) . ';';
             $sql_query .= $q;
-            if (! $GLOBALS['dbi']->tryQuery($q)) {
-                $message = Message::rawError($GLOBALS['dbi']->getError());
+            if (! $this->dbi->tryQuery($q)) {
+                $message = Message::rawError($this->dbi->getError());
             }
 
             /**
@@ -5074,14 +5283,14 @@ class Privileges
             $q = 'GRANT ALL PRIVILEGES ON '
                 . Util::backquote(
                     Util::escapeMysqlWildcards(
-                        $GLOBALS['dbi']->escapeString($username)
+                        $this->dbi->escapeString($username)
                     )
                 ) . '.* TO \''
-                . $GLOBALS['dbi']->escapeString($username)
-                . '\'@\'' . $GLOBALS['dbi']->escapeString($hostname) . '\';';
+                . $this->dbi->escapeString($username)
+                . '\'@\'' . $this->dbi->escapeString($hostname) . '\';';
             $sql_query .= $q;
-            if (! $GLOBALS['dbi']->tryQuery($q)) {
-                $message = Message::rawError($GLOBALS['dbi']->getError());
+            if (! $this->dbi->tryQuery($q)) {
+                $message = Message::rawError($this->dbi->getError());
             }
         }
 
@@ -5090,14 +5299,14 @@ class Privileges
             $q = 'GRANT ALL PRIVILEGES ON '
                 . Util::backquote(
                     Util::escapeMysqlWildcards(
-                        $GLOBALS['dbi']->escapeString($username)
+                        $this->dbi->escapeString($username)
                     ) . '\_%'
                 ) . '.* TO \''
-                . $GLOBALS['dbi']->escapeString($username)
-                . '\'@\'' . $GLOBALS['dbi']->escapeString($hostname) . '\';';
+                . $this->dbi->escapeString($username)
+                . '\'@\'' . $this->dbi->escapeString($hostname) . '\';';
             $sql_query .= $q;
-            if (! $GLOBALS['dbi']->tryQuery($q)) {
-                $message = Message::rawError($GLOBALS['dbi']->getError());
+            if (! $this->dbi->tryQuery($q)) {
+                $message = Message::rawError($this->dbi->getError());
             }
         }
 
@@ -5105,16 +5314,19 @@ class Privileges
             // Grant all privileges on the specified database to the new user
             $q = 'GRANT ALL PRIVILEGES ON '
             . Util::backquote(
-                $GLOBALS['dbi']->escapeString($dbname)
+                $this->dbi->escapeString($dbname)
             ) . '.* TO \''
-            . $GLOBALS['dbi']->escapeString($username)
-            . '\'@\'' . $GLOBALS['dbi']->escapeString($hostname) . '\';';
+            . $this->dbi->escapeString($username)
+            . '\'@\'' . $this->dbi->escapeString($hostname) . '\';';
             $sql_query .= $q;
-            if (! $GLOBALS['dbi']->tryQuery($q)) {
-                $message = Message::rawError($GLOBALS['dbi']->getError());
+            if (! $this->dbi->tryQuery($q)) {
+                $message = Message::rawError($this->dbi->getError());
             }
         }
-        return array($sql_query, $message);
+        return [
+            $sql_query,
+            $message,
+        ];
     }
 
     /**
@@ -5122,18 +5334,16 @@ class Privileges
      *
      * @param string $password password
      *
-     * @return string $hashedPassword
+     * @return string
      */
-    public static function getHashedPassword($password)
+    public function getHashedPassword($password)
     {
-        $password = $GLOBALS['dbi']->escapeString($password);
-        $result = $GLOBALS['dbi']->fetchSingleRow(
+        $password = $this->dbi->escapeString($password);
+        $result = $this->dbi->fetchSingleRow(
             "SELECT PASSWORD('" . $password . "') AS `password`;"
         );
 
-        $hashedPassword = $result['password'];
-
-        return $hashedPassword;
+        return $result['password'];
     }
 
     /**
@@ -5142,14 +5352,14 @@ class Privileges
      *
      * @return boolean if atleast one of the plugins is ACTIVE
      */
-    public static function checkIfMariaDBPwdCheckPluginActive()
+    public function checkIfMariaDBPwdCheckPluginActive()
     {
-        $serverVersion = $GLOBALS['dbi']->getVersion();
-        if (!(Util::getServerType() == 'MariaDB' && $serverVersion >= 100002)) {
+        $serverVersion = $this->dbi->getVersion();
+        if (! (Util::getServerType() == 'MariaDB' && $serverVersion >= 100002)) {
             return false;
         }
 
-        $result = $GLOBALS['dbi']->tryQuery(
+        $result = $this->dbi->tryQuery(
             'SHOW PLUGINS SONAME LIKE \'%_password_check%\''
         );
 
@@ -5158,7 +5368,7 @@ class Privileges
             return false;
         }
 
-        while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
+        while ($row = $this->dbi->fetchAssoc($result)) {
             if ($row['Status'] === 'ACTIVE') {
                 return true;
             }
@@ -5178,20 +5388,20 @@ class Privileges
      * @return array ($create_user_real, $create_user_show, $real_sql_query, $sql_query
      *                $password_set_real, $password_set_show, $alter_real_sql_query, $alter_sql_query)
      */
-    public static function getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
+    public function getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
     {
-        $slashedUsername = $GLOBALS['dbi']->escapeString($username);
-        $slashedHostname = $GLOBALS['dbi']->escapeString($hostname);
-        $slashedPassword = $GLOBALS['dbi']->escapeString($password);
+        $slashedUsername = $this->dbi->escapeString($username);
+        $slashedHostname = $this->dbi->escapeString($hostname);
+        $slashedPassword = $this->dbi->escapeString($password);
         $serverType = Util::getServerType();
-        $serverVersion = $GLOBALS['dbi']->getVersion();
+        $serverVersion = $this->dbi->getVersion();
 
         $create_user_stmt = sprintf(
             'CREATE USER \'%s\'@\'%s\'',
             $slashedUsername,
             $slashedHostname
         );
-        $isMariaDBPwdPluginActive = self::checkIfMariaDBPwdCheckPluginActive();
+        $isMariaDBPwdPluginActive = $this->checkIfMariaDBPwdCheckPluginActive();
 
         // See https://github.com/phpmyadmin/phpmyadmin/pull/11560#issuecomment-147158219
         // for details regarding details of syntax usage for various versions
@@ -5217,7 +5427,8 @@ class Privileges
                 . $_POST['authentication_plugin'];
         }
 
-        $create_user_real = $create_user_show = $create_user_stmt;
+        $create_user_real = $create_user_stmt;
+        $create_user_show = $create_user_stmt;
 
         $password_set_stmt = 'SET PASSWORD FOR \'%s\'@\'%s\' = \'%s\'';
         $password_set_show = sprintf(
@@ -5229,7 +5440,7 @@ class Privileges
 
         $sql_query_stmt = sprintf(
             'GRANT %s ON *.* TO \'%s\'@\'%s\'',
-            join(', ', self::extractPrivInfo()),
+            implode(', ', $this->extractPrivInfo()),
             $slashedUsername,
             $slashedHostname
         );
@@ -5237,7 +5448,7 @@ class Privileges
 
         // Set the proper hashing method
         if (isset($_POST['authentication_plugin'])) {
-            self::setProperPasswordHashing(
+            $this->setProperPasswordHashing(
                 $_POST['authentication_plugin']
             );
         }
@@ -5255,7 +5466,9 @@ class Privileges
 
             // Required for binding '%' with '%s'
             $create_user_stmt = str_replace(
-                '%', '%%', $create_user_stmt
+                '%',
+                '%%',
+                $create_user_stmt
             );
 
             // MariaDB uses 'USING' whereas MySQL uses 'AS'
@@ -5293,7 +5506,7 @@ class Privileges
             } else {
                 if (! (($serverType == 'MariaDB' && $isMariaDBPwdPluginActive)
                     || ($serverType == 'MySQL' || $serverType == 'Percona Server') && $serverVersion >= 80011)) {
-                    $hashedPassword = self::getHashedPassword($_POST['pma_pw']);
+                    $hashedPassword = $this->getHashedPassword($_POST['pma_pw']);
                 } else {
                     // MariaDB with validation plugin needs cleartext password
                     $hashedPassword = $_POST['pma_pw'];
@@ -5325,7 +5538,7 @@ class Privileges
                     null
                 );
             } else {
-                $hashedPassword = self::getHashedPassword($_POST['pma_pw']);
+                $hashedPassword = $this->getHashedPassword($_POST['pma_pw']);
                 $password_set_real = sprintf(
                     $password_set_stmt,
                     $slashedUsername,
@@ -5357,8 +5570,8 @@ class Privileges
         }
 
         // add REQUIRE clause
-        $require_clause = self::getRequireClause();
-        $with_clause = self::getWithClauseForAddUserAndUpdatePrivs();
+        $require_clause = $this->getRequireClause();
+        $with_clause = $this->getWithClauseForAddUserAndUpdatePrivs();
 
         if (($serverType == 'MySQL' || $serverType == 'Percona Server') && $serverVersion >= 80011) {
             $alter_real_sql_query .= $require_clause;
@@ -5372,18 +5585,16 @@ class Privileges
             $sql_query .= $with_clause;
         }
 
-        if (isset($create_user_real)) {
-            $create_user_real .= ';';
-            $create_user_show .= ';';
-        }
         if ($alter_real_sql_query !== '') {
             $alter_real_sql_query .= ';';
             $alter_sql_query .= ';';
         }
+        $create_user_real .= ';';
+        $create_user_show .= ';';
         $real_sql_query .= ';';
         $sql_query .= ';';
         // No Global GRANT_OPTION privilege
-        if (!$GLOBALS['is_grantuser']) {
+        if (! $GLOBALS['is_grantuser']) {
             $real_sql_query = '';
             $sql_query = '';
         }
@@ -5404,7 +5615,7 @@ class Privileges
             $password_set_show .= ";";
         }
 
-        return array(
+        return [
             $create_user_real,
             $create_user_show,
             $real_sql_query,
@@ -5412,8 +5623,8 @@ class Privileges
             $password_set_real,
             $password_set_show,
             $alter_real_sql_query,
-            $alter_sql_query
-        );
+            $alter_sql_query,
+        ];
     }
 
     /**
@@ -5424,9 +5635,9 @@ class Privileges
      *
      * @return string type
      */
-    public static function getRoutineType($dbname, $routineName)
+    public function getRoutineType($dbname, $routineName)
     {
-        $routineData = $GLOBALS['dbi']->getRoutines($dbname);
+        $routineData = $this->dbi->getRoutines($dbname);
 
         foreach ($routineData as $routine) {
             if ($routine['name'] === $routineName) {

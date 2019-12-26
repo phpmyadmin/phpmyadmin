@@ -5,45 +5,56 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Transformations;
 
-/**
- *
- */
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 define('IS_TRANSFORMATION_WRAPPER', true);
 
-/**
- * Gets a core script and starts output buffering work
- */
-require_once './libraries/common.inc.php';
+global $db, $table;
 
-$relation = new Relation();
+require_once ROOT_PATH . 'libraries/common.inc.php';
+
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $containerBuilder->get(DatabaseInterface::class);
+
+/** @var Transformations $transformations */
+$transformations = $containerBuilder->get('transformations');
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
 $cfgRelation = $relation->getRelationsParam();
 
 /**
  * Ensures db and table are valid, else moves to the "parent" script
  */
-require_once './libraries/db_table_exists.inc.php';
+require_once ROOT_PATH . 'libraries/db_table_exists.inc.php';
 
 
 /**
  * Sets globals from $_REQUEST
  */
-$request_params = array(
+$request_params = [
     'cn',
     'ct',
     'sql_query',
     'transform_key',
-    'where_clause'
-);
-$size_params = array(
+    'where_clause',
+];
+$size_params = [
     'newHeight',
     'newWidth',
-);
+];
 foreach ($request_params as $one_request_param) {
     if (isset($_REQUEST[$one_request_param])) {
         if (in_array($one_request_param, $size_params)) {
@@ -61,22 +72,22 @@ foreach ($request_params as $one_request_param) {
 /**
  * Get the list of the fields of the current table
  */
-$GLOBALS['dbi']->selectDb($db);
+$dbi->selectDb($db);
 if (isset($where_clause)) {
-    $result = $GLOBALS['dbi']->query(
+    $result = $dbi->query(
         'SELECT * FROM ' . PhpMyAdmin\Util::backquote($table)
         . ' WHERE ' . $where_clause . ';',
         PhpMyAdmin\DatabaseInterface::CONNECT_USER,
         PhpMyAdmin\DatabaseInterface::QUERY_STORE
     );
-    $row = $GLOBALS['dbi']->fetchAssoc($result);
+    $row = $dbi->fetchAssoc($result);
 } else {
-    $result = $GLOBALS['dbi']->query(
+    $result = $dbi->query(
         'SELECT * FROM ' . PhpMyAdmin\Util::backquote($table) . ' LIMIT 1;',
         PhpMyAdmin\DatabaseInterface::CONNECT_USER,
         PhpMyAdmin\DatabaseInterface::QUERY_STORE
     );
-    $row = $GLOBALS['dbi']->fetchAssoc($result);
+    $row = $dbi->fetchAssoc($result);
 }
 
 // No row returned
@@ -87,8 +98,8 @@ if (! $row) {
 $default_ct = 'application/octet-stream';
 
 if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
-    $mime_map = Transformations::getMIME($db, $table);
-    $mime_options = Transformations::getOptions(
+    $mime_map = $transformations->getMime($db, $table);
+    $mime_options = $transformations->getOptions(
         isset($mime_map[$transform_key]['transformation_options'])
         ? $mime_map[$transform_key]['transformation_options'] : ''
     );
@@ -100,15 +111,13 @@ if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
     }
 }
 
-// Only output the http headers
-$response = Response::getInstance();
 $response->getHeader()->sendHttpHeaders();
 
 // [MIME]
 if (isset($ct) && ! empty($ct)) {
     $mime_type = $ct;
 } else {
-    $mime_type = (!empty($mime_map[$transform_key]['mimetype'])
+    $mime_type = (! empty($mime_map[$transform_key]['mimetype'])
         ? str_replace('_', '/', $mime_map[$transform_key]['mimetype'])
         : $default_ct)
     . (isset($mime_options['charset']) ? $mime_options['charset'] : '');
@@ -127,42 +136,49 @@ if (! isset($_REQUEST['resize'])) {
     // it sets the resize parameter to jpeg or png
 
     $srcImage = imagecreatefromstring($row[$transform_key]);
-    $srcWidth = ImageSX($srcImage);
-    $srcHeight = ImageSY($srcImage);
+    $srcWidth = imagesx($srcImage);
+    $srcHeight = imagesy($srcImage);
 
     // Check to see if the width > height or if width < height
     // if so adjust accordingly to make sure the image
     // stays smaller than the new width and new height
 
-    $ratioWidth = $srcWidth/$_REQUEST['newWidth'];
-    $ratioHeight = $srcHeight/$_REQUEST['newHeight'];
+    $ratioWidth = $srcWidth / $_REQUEST['newWidth'];
+    $ratioHeight = $srcHeight / $_REQUEST['newHeight'];
 
     if ($ratioWidth < $ratioHeight) {
-        $destWidth = $srcWidth/$ratioHeight;
+        $destWidth = $srcWidth / $ratioHeight;
         $destHeight = $_REQUEST['newHeight'];
     } else {
         $destWidth = $_REQUEST['newWidth'];
-        $destHeight = $srcHeight/$ratioWidth;
+        $destHeight = $srcHeight / $ratioWidth;
     }
 
     if ($_REQUEST['resize']) {
-        $destImage = ImageCreateTrueColor($destWidth, $destHeight);
-    }
+        $destImage = imagecreatetruecolor($destWidth, $destHeight);
 
-    // ImageCopyResized($destImage, $srcImage, 0, 0, 0, 0,
-    // $destWidth, $destHeight, $srcWidth, $srcHeight);
-    // better quality but slower:
-    ImageCopyResampled(
-        $destImage, $srcImage, 0, 0, 0, 0, $destWidth,
-        $destHeight, $srcWidth, $srcHeight
-    );
-
-    if ($_REQUEST['resize'] == 'jpeg') {
-        ImageJPEG($destImage, null, 75);
+        // ImageCopyResized($destImage, $srcImage, 0, 0, 0, 0,
+        // $destWidth, $destHeight, $srcWidth, $srcHeight);
+        // better quality but slower:
+        imagecopyresampled(
+            $destImage,
+            $srcImage,
+            0,
+            0,
+            0,
+            0,
+            $destWidth,
+            $destHeight,
+            $srcWidth,
+            $srcHeight
+        );
+        if ($_REQUEST['resize'] == 'jpeg') {
+            imagejpeg($destImage, null, 75);
+        }
+        if ($_REQUEST['resize'] == 'png') {
+            imagepng($destImage);
+        }
+        imagedestroy($destImage);
     }
-    if ($_REQUEST['resize'] == 'png') {
-        ImagePNG($destImage);
-    }
-    ImageDestroy($srcImage);
-    ImageDestroy($destImage);
+    imagedestroy($srcImage);
 }

@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\MultSubmits;
@@ -27,7 +29,7 @@ class MultSubmitsTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         //$GLOBALS
         $GLOBALS['cfg']['MaxRows'] = 10;
@@ -80,24 +82,24 @@ class MultSubmitsTest extends TestCase
     public function testGetHtmlForReplacePrefixTable()
     {
         $action = 'delete_row';
-        $urlParams = ['url_query'=>'PMA_original_url_query'];
+        $urlParams = ['url_query' => 'PMA_original_url_query'];
 
         //Call the test function
         $html = $this->multSubmits->getHtmlForReplacePrefixTable($action, $urlParams);
 
         //form action
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<form id="ajax_form" action="delete_row" method="post">',
             $html
         );
         //$Url::getHiddenInputs
-        $this->assertContains(
+        $this->assertStringContainsString(
             Url::getHiddenInputs($urlParams),
             $html
         );
         //from_prefix
-        $this->assertContains(
-            '<input type="text" name="from_prefix" id="initialPrefix" />',
+        $this->assertStringContainsString(
+            '<input type="text" name="from_prefix" id="initialPrefix">',
             $html
         );
     }
@@ -110,23 +112,23 @@ class MultSubmitsTest extends TestCase
     public function testGetHtmlForAddPrefixTable()
     {
         $action = 'delete_row';
-        $urlParams = ['url_query'=>'PMA_original_url_query'];
+        $urlParams = ['url_query' => 'PMA_original_url_query'];
 
         //Call the test function
         $html = $this->multSubmits->getHtmlForAddPrefixTable($action, $urlParams);
 
         //form action
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<form id="ajax_form" action="' . $action . '" method="post">',
             $html
         );
         //$urlParams
-        $this->assertContains(
+        $this->assertStringContainsString(
             Url::getHiddenInputs($urlParams),
             $html
         );
         //from_prefix
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Add prefix'),
             $html
         );
@@ -141,7 +143,7 @@ class MultSubmitsTest extends TestCase
     {
         $what = 'replace_prefix_tbl';
         $action = 'delete_row';
-        $urlParams = ['url_query'=>'PMA_original_url_query'];
+        $urlParams = ['url_query' => 'PMA_original_url_query'];
         $fullQuery = 'select column from PMA_table';
 
         //Call the test function
@@ -153,31 +155,31 @@ class MultSubmitsTest extends TestCase
         );
 
         //validate 1: form action
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<form action="' . $action . '" method="post">',
             $html
         );
         //validate 2: $urlParams
-        $this->assertContains(
+        $this->assertStringContainsString(
             Url::getHiddenInputs($urlParams),
             $html
         );
         //validate 3: conform
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Do you really want to execute the following query?'),
             $html
         );
         //validate 4: query
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<code>' . $fullQuery . '</code>',
             $html
         );
         //validate 5: button : yes or no
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Yes'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('No'),
             $html
         );
@@ -196,7 +198,7 @@ class MultSubmitsTest extends TestCase
         $db = "PMA_db";
         $table = "PMA_table";
         $selected = [
-            "index1" => "table1"
+            "index1" => "table1",
         ];
         $views = null;
         $originalSqlQuery = "original_sql_query";
@@ -246,7 +248,8 @@ class MultSubmitsTest extends TestCase
         $db = "PMA_db";
         $table = "PMA_table";
         $selected = [
-            "table1", "table2"
+            "table1",
+            "table2",
         ];
         $views = null;
         $primary = null;
@@ -326,10 +329,12 @@ class MultSubmitsTest extends TestCase
         $what = "drop_tbl";
         $table = "PMA_table";
         $selected = [
-            "table1", "table2"
+            "table1",
+            "table2",
         ];
         $views = [
-            "table1", "table2"
+            "table1",
+            "table2",
         ];
 
         list($fullQuery, $reload, $fullQueryViews)
@@ -341,7 +346,7 @@ class MultSubmitsTest extends TestCase
             );
 
         //validate 1: $fullQuery
-        $this->assertContains(
+        $this->assertStringContainsString(
             "DROP VIEW `table1`, `table2`",
             $fullQuery
         );
@@ -369,8 +374,8 @@ class MultSubmitsTest extends TestCase
             );
 
         //validate 1: $fullQuery
-        $this->assertContains(
-            "DROP DATABASE `table1`;<br />DROP DATABASE `table2`;",
+        $this->assertStringContainsString(
+            "DROP DATABASE `table1`;<br>DROP DATABASE `table2`;",
             $fullQuery
         );
 

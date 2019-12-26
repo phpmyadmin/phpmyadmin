@@ -5,9 +5,14 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Display\ImportAjax;
+
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
 
 /* PHP 5.4 stores upload progress data only in the default session.
  * After calling session_name(), we won't find the progress data anymore.
@@ -52,7 +57,7 @@ if (ini_get('session.upload_progress.enabled')) {
 
 define('PMA_MINIMUM_COMMON', 1);
 
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 list(
     $SESSION_KEY,
     $upload_id,
@@ -82,7 +87,6 @@ if (defined('SESSIONUPLOAD')) {
 
 // $_GET["message"] is used for asking for an import message
 if (isset($_GET["message"]) && $_GET["message"]) {
-
     // AJAX requests can't be cached!
     Core::noCacheHeader();
 
@@ -116,7 +120,6 @@ if (isset($_GET["message"]) && $_GET["message"]) {
     echo '    [ <a href="' , $_SESSION['Import_message']['go_back_url']
         . '">' , __('Back') , '</a> ]' , "\n";
     echo '</fieldset>' , "\n";
-
 } else {
     ImportAjax::status($_GET["id"]);
 }

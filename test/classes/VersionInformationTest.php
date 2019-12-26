@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Tests\PmaTestCase;
@@ -26,9 +28,9 @@ class VersionInformationTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
-        $this->_releases = array();
+        $this->_releases = [];
 
         $release = new stdClass();
         $release->date = "2015-09-08";
@@ -82,7 +84,7 @@ class VersionInformationTest extends PmaTestCase
      *
      * @dataProvider dataVersions
      */
-    public function testVersionToInt($version, $numeric)
+    public function testVersionToInt($version, $numeric): void
     {
         $versionInformation = new VersionInformation();
         $this->assertEquals(
@@ -99,27 +101,84 @@ class VersionInformationTest extends PmaTestCase
      */
     public function dataVersions()
     {
-        return array(
-            array('1.0.0', 1000050),
-            array('2.0.0.2-dev', 2000002),
-            array('3.4.2.1', 3040251),
-            array('3.4.2-dev3', 3040203),
-            array('3.4.2-dev', 3040200),
-            array('3.4.2-pl', 3040260),
-            array('3.4.2-pl3', 3040263),
-            array('4.4.2-rc22', 4040252),
-            array('4.4.2-rc', 4040230),
-            array('4.4.22-beta22', 4042242),
-            array('4.4.22-beta', 4042220),
-            array('4.4.21-alpha22', 4042132),
-            array('4.4.20-alpha', 4042010),
-            array('4.40.20-alpha-dev', 4402010),
-            array('4.4a', 4000050),
-            array('4.4.4-test', 4040400),
-            array('4.1.0', 4010050),
-            array('4.0.1.3', 4000153),
-            array('4.1-dev', 4010000),
-        );
+        return [
+            [
+                '1.0.0',
+                1000050,
+            ],
+            [
+                '2.0.0.2-dev',
+                2000002,
+            ],
+            [
+                '3.4.2.1',
+                3040251,
+            ],
+            [
+                '3.4.2-dev3',
+                3040203,
+            ],
+            [
+                '3.4.2-dev',
+                3040200,
+            ],
+            [
+                '3.4.2-pl',
+                3040260,
+            ],
+            [
+                '3.4.2-pl3',
+                3040263,
+            ],
+            [
+                '4.4.2-rc22',
+                4040252,
+            ],
+            [
+                '4.4.2-rc',
+                4040230,
+            ],
+            [
+                '4.4.22-beta22',
+                4042242,
+            ],
+            [
+                '4.4.22-beta',
+                4042220,
+            ],
+            [
+                '4.4.21-alpha22',
+                4042132,
+            ],
+            [
+                '4.4.20-alpha',
+                4042010,
+            ],
+            [
+                '4.40.20-alpha-dev',
+                4402010,
+            ],
+            [
+                '4.4a',
+                4000050,
+            ],
+            [
+                '4.4.4-test',
+                4040400,
+            ],
+            [
+                '4.1.0',
+                4010050,
+            ],
+            [
+                '4.0.1.3',
+                4000153,
+            ],
+            [
+                '4.1-dev',
+                4010000,
+            ],
+        ];
     }
 
     /**
@@ -129,12 +188,12 @@ class VersionInformationTest extends PmaTestCase
      */
     public function testGetLatestCompatibleVersionWithSingleServer()
     {
-        $GLOBALS['cfg']['Servers'] = array(
-            array()
-        );
+        $GLOBALS['cfg']['Servers'] = [
+            [],
+        ];
 
         $mockVersionInfo = $this->getMockBuilder('PhpMyAdmin\VersionInformation')
-            ->setMethods(array('evaluateVersionCondition'))
+            ->setMethods(['evaluateVersionCondition'])
             ->getMock();
 
         $mockVersionInfo->expects($this->at(0))
@@ -155,7 +214,6 @@ class VersionInformationTest extends PmaTestCase
         $compatible = $mockVersionInfo
             ->getLatestCompatibleVersion($this->_releases);
         $this->assertEquals('4.4.14.1', $compatible['version']);
-
     }
 
     /**
@@ -165,13 +223,13 @@ class VersionInformationTest extends PmaTestCase
      */
     public function testGetLaestCompatibleVersionWithMultipleServers()
     {
-        $GLOBALS['cfg']['Servers'] = array(
-            array(),
-            array()
-        );
+        $GLOBALS['cfg']['Servers'] = [
+            [],
+            [],
+        ];
 
         $mockVersionInfo = $this->getMockBuilder('PhpMyAdmin\VersionInformation')
-            ->setMethods(array('evaluateVersionCondition'))
+            ->setMethods(['evaluateVersionCondition'])
             ->getMock();
 
         $mockVersionInfo->expects($this->at(0))
@@ -196,13 +254,13 @@ class VersionInformationTest extends PmaTestCase
      */
     public function testGetLaestCompatibleVersionWithOldPHPVersion()
     {
-        $GLOBALS['cfg']['Servers'] = array(
-            array(),
-            array()
-        );
+        $GLOBALS['cfg']['Servers'] = [
+            [],
+            [],
+        ];
 
         $mockVersionInfo = $this->getMockBuilder('PhpMyAdmin\VersionInformation')
-            ->setMethods(array('evaluateVersionCondition'))
+            ->setMethods(['evaluateVersionCondition'])
             ->getMock();
 
         $mockVersionInfo->expects($this->at(0))
@@ -238,7 +296,7 @@ class VersionInformationTest extends PmaTestCase
     public function testEvaluateVersionCondition()
     {
         $mockVersionInfo = $this->getMockBuilder('PhpMyAdmin\VersionInformation')
-            ->setMethods(array('getPHPVersion'))
+            ->setMethods(['getPHPVersion'])
             ->getMock();
 
         $mockVersionInfo->expects($this->any())

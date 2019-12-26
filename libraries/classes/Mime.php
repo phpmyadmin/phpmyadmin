@@ -6,6 +6,8 @@
  * @package PhpMyAdmin
  * @todo Maybe we could try to use fileinfo module if loaded
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 /**
@@ -18,7 +20,7 @@ class Mime
     /**
      * Tries to detect MIME type of content.
      *
-     * @param string &$test First few bytes of content to use for detection
+     * @param string $test First few bytes of content to use for detection
      *
      * @return string
      */

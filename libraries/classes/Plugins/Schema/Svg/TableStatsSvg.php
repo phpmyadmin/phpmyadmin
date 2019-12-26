@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Schema\Svg;
 
 use PhpMyAdmin\Font;
@@ -32,16 +34,16 @@ class TableStatsSvg extends TableStats
     /**
      * The "PhpMyAdmin\Plugins\Schema\Svg\TableStatsSvg" constructor
      *
-     * @param object  $diagram          The current SVG image document
-     * @param string  $db               The database name
-     * @param string  $tableName        The table name
-     * @param string  $font             Font face
-     * @param integer $fontSize         The font size
-     * @param integer $pageNumber       Page number
-     * @param integer &$same_wide_width The max. width among tables
-     * @param boolean $showKeys         Whether to display keys or not
-     * @param boolean $tableDimension   Whether to display table position or not
-     * @param boolean $offline          Whether the coordinates are sent
+     * @param object  $diagram         The current SVG image document
+     * @param string  $db              The database name
+     * @param string  $tableName       The table name
+     * @param string  $font            Font face
+     * @param integer $fontSize        The font size
+     * @param integer $pageNumber      Page number
+     * @param integer $same_wide_width The max. width among tables
+     * @param boolean $showKeys        Whether to display keys or not
+     * @param boolean $tableDimension  Whether to display table position or not
+     * @param boolean $offline         Whether the coordinates are sent
      *
      *
      * @see PMA_SVG, Table_Stats_Svg::Table_Stats_setWidth,
@@ -109,17 +111,17 @@ class TableStatsSvg extends TableStats
         foreach ($this->fields as $field) {
             $this->width = max(
                 $this->width,
-                Font::getStringWidth($field, $font, $fontSize)
+                $this->font->getStringWidth($field, $font, $fontSize)
             );
         }
-        $this->width += Font::getStringWidth('  ', $font, $fontSize);
+        $this->width += $this->font->getStringWidth('  ', $font, $fontSize);
 
         /*
          * it is unknown what value must be added, because
          * table title is affected by the table width value
          */
         while ($this->width
-            < Font::getStringWidth($this->getTitle(), $font, $fontSize)
+            < $this->font->getStringWidth($this->getTitle(), $font, $fontSize)
         ) {
             $this->width += 7;
         }

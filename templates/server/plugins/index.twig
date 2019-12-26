@@ -1,0 +1,58 @@
+<h2>
+  {{ get_image('b_plugin') }}
+  {% trans 'Plugins' %}
+</h2>
+
+<div id="plugins_plugins">
+  <div id="sectionlinks">
+    {% for type in plugins|keys %}
+      <a class="btn btn-primary" href="#plugins-{{ clean_types[type] }}">
+          {{ type }}
+      </a>
+    {% endfor %}
+  </div>
+  {% for type, list in plugins %}
+    <div class="responsivetable">
+      <table class="data_full_width" id="plugins-{{ clean_types[type] }}">
+        <caption class="tblHeaders">
+          {{ type }}
+        </caption>
+        <thead>
+          <tr>
+            <th>{% trans 'Plugin' %}</th>
+            <th>{% trans 'Description' %}</th>
+            <th>{% trans 'Version' %}</th>
+            <th>{% trans 'Author' %}</th>
+            <th>{% trans 'License' %}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for plugin in list %}
+            <tr class="noclick">
+              <th>
+                {{ plugin.name }}
+                {% if plugin.status != 'ACTIVE' %}
+                  <small class="attention">
+                    {% if plugin.status == 'INACTIVE' %}
+                      {% trans 'inactive' %}
+                    {% elseif plugin.status == 'DISABLED' %}
+                      {% trans 'disabled' %}
+                    {% elseif plugin.status == 'DELETING' %}
+                      {% trans 'deleting' %}
+                    {% elseif plugin.status == 'DELETED' %}
+                      {% trans 'deleted' %}
+                    {% endif %}
+                  </small>
+                {% endif %}
+              </th>
+              <td>{{ plugin.description }}</td>
+              <td>{{ plugin.version }}</td>
+              <td>{{ plugin.author }}</td>
+              <td>{{ plugin.license }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% endfor %}
+</div>

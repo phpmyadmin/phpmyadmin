@@ -1,11 +1,12 @@
 <?php
-
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Test for PhpMyAdmin\Gis\GisGeometry
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisGeometryCollection;
@@ -19,7 +20,6 @@ use TCPDF;
  */
 class GisGeometryCollectionTest extends TestCase
 {
-
     /**
      * @access protected
      */
@@ -32,7 +32,7 @@ class GisGeometryCollectionTest extends TestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = GisGeometryCollection::singleton();
     }
@@ -44,7 +44,7 @@ class GisGeometryCollectionTest extends TestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -59,7 +59,7 @@ class GisGeometryCollectionTest extends TestCase
      *
      * @dataProvider providerForScaleRow
      */
-    public function testScaleRow($spatial, $output)
+    public function testScaleRow($spatial, $output): void
     {
         $this->assertEquals($output, $this->object->scaleRow($spatial));
     }
@@ -71,18 +71,18 @@ class GisGeometryCollectionTest extends TestCase
      */
     public function providerForScaleRow()
     {
-        return array(
-            array(
+        return [
+            [
                 'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),'
                     . '(20 30,35 32,30 20,20 30)))',
-                array(
+                [
                     'maxX' => 45.0,
                     'minX' => 10.0,
                     'maxY' => 45.0,
-                    'minY' => 10.0
-                )
-            )
-        );
+                    'minY' => 10.0,
+                ],
+            ],
+        ];
     }
 
     /**
@@ -97,7 +97,7 @@ class GisGeometryCollectionTest extends TestCase
      *
      * @dataProvider providerForGenerateWkt
      */
-    public function testGenerateWkt($gis_data, $index, $empty, $output)
+    public function testGenerateWkt($gis_data, $index, $empty, $output): void
     {
         $this->assertEquals(
             $output,
@@ -112,25 +112,31 @@ class GisGeometryCollectionTest extends TestCase
      */
     public function providerForGenerateWkt()
     {
-        $temp1 = array(
-            0 => array(
+        $temp1 = [
+            0 => [
                 'gis_type' => 'LINESTRING',
-                'LINESTRING' => array(
+                'LINESTRING' => [
                     'no_of_points' => 2,
-                    0 => array('x' => 5.02, 'y' => 8.45),
-                    1 => array('x' => 6.14, 'y' => 0.15)
-                )
-            )
-        );
+                    0 => [
+                        'x' => 5.02,
+                        'y' => 8.45,
+                    ],
+                    1 => [
+                        'x' => 6.14,
+                        'y' => 0.15,
+                    ],
+                ],
+            ],
+        ];
 
-        return array(
-            array(
+        return [
+            [
                 $temp1,
                 0,
                 null,
-                'GEOMETRYCOLLECTION(LINESTRING(5.02 8.45,6.14 0.15))'
-            )
-        );
+                'GEOMETRYCOLLECTION(LINESTRING(5.02 8.45,6.14 0.15))',
+            ],
+        ];
     }
 
     /**
@@ -143,7 +149,7 @@ class GisGeometryCollectionTest extends TestCase
      *
      * @dataProvider providerForGenerateParams
      */
-    public function testGenerateParams($value, $output)
+    public function testGenerateParams($value, $output): void
     {
         $this->assertEquals($output, $this->object->generateParams($value));
     }
@@ -155,29 +161,29 @@ class GisGeometryCollectionTest extends TestCase
      */
     public function providerForGenerateParams()
     {
-        return array(
-            array(
+        return [
+            [
                 'GEOMETRYCOLLECTION(LINESTRING(5.02 8.45,6.14 0.15))',
-                array(
+                [
                     'srid' => 0,
-                    'GEOMETRYCOLLECTION' => array('geom_count' => 1),
-                    '0' => array(
+                    'GEOMETRYCOLLECTION' => ['geom_count' => 1],
+                    '0' => [
                         'gis_type' => 'LINESTRING',
-                        'LINESTRING' => array(
+                        'LINESTRING' => [
                             'no_of_points' => 2,
-                            '0' => array(
+                            '0' => [
                                 'x' => 5.02,
-                                'y' => 8.45
-                            ),
-                            '1' => array(
+                                'y' => 8.45,
+                            ],
+                            '1' => [
                                 'x' => 6.14,
-                                'y' => 0.15
-                            )
-                        )
-                    )
-                ),
-            ),
-        );
+                                'y' => 0.15,
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ];
     }
 
     /**
@@ -194,10 +200,18 @@ class GisGeometryCollectionTest extends TestCase
      * @dataProvider providerForPrepareRowAsPng
      */
     public function testPrepareRowAsPng(
-        $spatial, $label, $line_color, $scale_data, $image
+        $spatial,
+        $label,
+        $line_color,
+        $scale_data,
+        $image
     ) {
         $return = $this->object->prepareRowAsPng(
-            $spatial, $label, $line_color, $scale_data, $image
+            $spatial,
+            $label,
+            $line_color,
+            $scale_data,
+            $image
         );
         $this->assertEquals(120, imagesx($return));
         $this->assertEquals(150, imagesy($return));
@@ -213,21 +227,21 @@ class GisGeometryCollectionTest extends TestCase
         if (! function_exists('imagecreatetruecolor')) {
             $this->markTestSkipped('GD extension missing!');
         }
-        return array(
-            array(
+        return [
+            [
                 'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),'
                     . '(20 30,35 32,30 20,20 30)))',
                 'image',
                 '#B02EE0',
-                array(
+                [
                     'x' => 12,
                     'y' => 69,
                     'scale' => 2,
-                    'height' => 150
-                ),
-                imagecreatetruecolor('120', '150')
-            )
-        );
+                    'height' => 150,
+                ],
+                imagecreatetruecolor(120, 150),
+            ],
+        ];
     }
 
     /**
@@ -244,10 +258,18 @@ class GisGeometryCollectionTest extends TestCase
      * @dataProvider providerForPrepareRowAsPdf
      */
     public function testPrepareRowAsPdf(
-        $spatial, $label, $line_color, $scale_data, $pdf
+        $spatial,
+        $label,
+        $line_color,
+        $scale_data,
+        $pdf
     ) {
         $return = $this->object->prepareRowAsPdf(
-            $spatial, $label, $line_color, $scale_data, $pdf
+            $spatial,
+            $label,
+            $line_color,
+            $scale_data,
+            $pdf
         );
         $this->assertInstanceOf('TCPDF', $return);
     }
@@ -259,21 +281,21 @@ class GisGeometryCollectionTest extends TestCase
      */
     public function providerForPrepareRowAsPdf()
     {
-        return array(
-            array(
+        return [
+            [
                 'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),'
                     . '(20 30,35 32,30 20,20 30)))',
                 'pdf',
                 '#B02EE0',
-                array(
+                [
                     'x' => 12,
                     'y' => 69,
                     'scale' => 2,
-                    'height' => 150
-                ),
+                    'height' => 150,
+                ],
                 new TCPDF(),
-            )
-        );
+            ],
+        ];
     }
 
     /**
@@ -290,16 +312,26 @@ class GisGeometryCollectionTest extends TestCase
      * @dataProvider providerForPrepareRowAsSvg
      */
     public function testPrepareRowAsSvg(
-        $spatial, $label, $line_color, $scale_data, $output
+        $spatial,
+        $label,
+        $line_color,
+        $scale_data,
+        $output
     ) {
         $string = $this->object->prepareRowAsSvg(
-            $spatial, $label, $line_color, $scale_data
+            $spatial,
+            $label,
+            $line_color,
+            $scale_data
         );
         $this->assertEquals(1, preg_match($output, $string));
         $this->assertRegExp(
             $output,
             $this->object->prepareRowAsSvg(
-                $spatial, $label, $line_color, $scale_data
+                $spatial,
+                $label,
+                $line_color,
+                $scale_data
             )
         );
     }
@@ -311,24 +343,24 @@ class GisGeometryCollectionTest extends TestCase
      */
     public function providerForPrepareRowAsSvg()
     {
-        return array(
-            array(
+        return [
+            [
                 'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),'
                     . '(20 30,35 32,30 20,20 30)))',
                 'svg',
                 '#B02EE0',
-                array(
+                [
                     'x' => 12,
                     'y' => 69,
                     'scale' => 2,
-                    'height' => 150
-                ),
+                    'height' => 150,
+                ],
                 '/^(<path d=" M 46, 268 L -4, 248 L 6, 208 L 66, 198 Z  M 16,'
                     . ' 228 L 46, 224 L 36, 248 Z " name="svg" id="svg)(\d+)'
                     . '(" class="polygon vector" stroke="black" stroke-width="0.5"'
-                    . ' fill="#B02EE0" fill-rule="evenodd" fill-opacity="0.8"\/>)$/'
-            )
-        );
+                    . ' fill="#B02EE0" fill-rule="evenodd" fill-opacity="0.8"\/>)$/',
+            ],
+        ];
     }
 
     /**
@@ -346,12 +378,21 @@ class GisGeometryCollectionTest extends TestCase
      * @dataProvider providerForPrepareRowAsOl
      */
     public function testPrepareRowAsOl(
-        $spatial, $srid, $label, $line_color, $scale_data, $output
+        $spatial,
+        $srid,
+        $label,
+        $line_color,
+        $scale_data,
+        $output
     ) {
         $this->assertEquals(
             $output,
             $this->object->prepareRowAsOl(
-                $spatial, $srid, $label, $line_color, $scale_data
+                $spatial,
+                $srid,
+                $label,
+                $line_color,
+                $scale_data
             )
         );
     }
@@ -363,19 +404,19 @@ class GisGeometryCollectionTest extends TestCase
      */
     public function providerForPrepareRowAsOl()
     {
-        return array(
-            array(
+        return [
+            [
                 'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),'
                     . '(20 30,35 32,30 20,20 30)))',
                 4326,
                 'Ol',
                 '#B02EE0',
-                array(
+                [
                     'minX' => '0',
                     'minY' => '0',
                     'maxX' => '1',
                     'maxY' => '1',
-                ),
+                ],
                 'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.'
                 . 'LonLat(0, 0).transform(new OpenLayers.Projection("EPSG:4326'
                 . '"), map.getProjectionObject())); bound.extend(new OpenLayer'
@@ -403,8 +444,8 @@ class GisGeometryCollectionTest extends TestCase
                 . '.Point(20,30)).transform(new OpenLayers.Projection("EPSG:43'
                 . '26"), map.getProjectionObject()))))), null, {"strokeColor":'
                 . '"#000000","strokeWidth":0.5,"fillColor":"#B02EE0","fillOpac'
-                . 'ity":0.8,"label":"Ol","fontSize":10}));'
-            )
-        );
+                . 'ity":0.8,"label":"Ol","fontSize":10}));',
+            ],
+        ];
     }
 }

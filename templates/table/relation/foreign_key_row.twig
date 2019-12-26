@@ -4,9 +4,9 @@
         {% set js_msg = '' %}
         {% set this_params = null %}
         {% if one_key['constraint'] is defined %}
-            {% set drop_fk_query = 'ALTER TABLE ' ~ Util_backquote(db) ~ '.' ~ Util_backquote(table)
+            {% set drop_fk_query = 'ALTER TABLE ' ~ backquote(db) ~ '.' ~ backquote(table)
                 ~ ' DROP FOREIGN KEY '
-                ~ Util_backquote(one_key['constraint']) ~ ';'
+                ~ backquote(one_key['constraint']) ~ ';'
             %}
             {% set this_params = url_params %}
             {% set this_params = {
@@ -17,25 +17,21 @@
                     one_key['constraint']
                 )
             } %}
-            {% set js_msg = Sanitize_jsFormat(
-                'ALTER TABLE ' ~ db ~ '.' ~ table
-                ~ ' DROP FOREIGN KEY '
-                ~ one_key['constraint'] ~ ';'
-            ) %}
+            {% set js_msg = 'ALTER TABLE ' ~ db ~ '.' ~ table ~ ' DROP FOREIGN KEY ' ~ one_key['constraint'] ~ ';'|js_format %}
         {% endif %}
         {% if one_key['constraint'] is defined %}
             <input type="hidden" class="drop_foreign_key_msg" value="
-                {{- js_msg }}" />
-            {% set drop_url = 'sql.php' ~ Url_getCommon(this_params) %}
-            {% set drop_str = Util_getIcon('b_drop', 'Drop'|trans) %}
-            {{ Util_linkOrButton(drop_url, drop_str, {'class': 'drop_foreign_key_anchor ajax'}) }}
+                {{- js_msg }}">
+            {% set drop_url = 'sql.php' ~ get_common(this_params) %}
+            {% set drop_str = get_icon('b_drop', 'Drop'|trans) %}
+            {{ link_or_button(drop_url, drop_str, {'class': 'drop_foreign_key_anchor ajax'}) }}
         {% endif %}
     </td>
     <td>
         <span class="formelement clearfloat">
             <input type="text" name="constraint_name[{{ i }}]" value="
                 {{- one_key['constraint'] is defined ? one_key['constraint'] -}}
-                " placeholder="{% trans 'Constraint name' %}" maxlength="64" />
+                " placeholder="{% trans 'Constraint name' %}" maxlength="64">
         </span>
         <div class="floatleft">
             {# For ON DELETE and ON UPDATE, the default action
@@ -92,7 +88,7 @@
     </td>
     {% set tables = [] %}
     {% if foreign_db %}
-        {% set tables = Relation_getTables(foreign_db, tbl_storage_engine) %}
+        {% set tables = get_tables(foreign_db, tbl_storage_engine) %}
     {% endif %}
     <td>
         <span class="formelement clearfloat">

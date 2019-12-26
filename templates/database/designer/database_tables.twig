@@ -18,7 +18,7 @@
         style="position:absolute; left:
             {{- tab_pos[t_n] is defined ? tab_pos[t_n]['X'] : random(range(20, 700)) }}px; top:
             {{- tab_pos[t_n] is defined ? tab_pos[t_n]['Y'] : random(range(20, 550)) }}px; display:
-            {{- tab_pos[t_n] is defined or display_page == -1 ? 'block' : 'none' }}; z-index: 1;">
+            {{- tab_pos[t_n] is defined or display_page == -1 ? 'block' : 'none' }}; z-index: 1;"> <!--"-->
         <thead>
             <tr class="header">
                 {% if has_query %}
@@ -43,7 +43,7 @@
                     table_name="{{ designerTable.getTableName() }}"
                     table_name_url="{{ designerTable.getTableName()|escape('url') }}">
                     <img src="{{ theme.getImgPath('designer/exec_small.png') }}"
-                        title="{% trans 'See table structure' %}" />
+                        title="{% trans 'See table structure' %}">
                 </td>
                 <td id="id_zag_{{ t_n_url }}"
                     class="tab_zag nowrap tab_zag_noquery"
@@ -98,25 +98,8 @@
                     <td width="10px" colspan="3" id="{{ t_n_url }}.
                         {{- tab_column[t_n]['COLUMN_NAME'][j]|url_encode }}">
                         <div class="nowrap">
-                            {% if tables_pk_or_unique_keys[t_n ~ '.' ~ tab_column[t_n]['COLUMN_NAME'][j]] is defined %}
-                                <img src="{{ theme.getImgPath('designer/FieldKey_small.png') }}" alt="*" />
-                            {% else %}
-                                {% set type = 'designer/Field_small' %}
-                                {% if strstr(tab_column[t_n]['TYPE'][j], 'char')
-                                    or strstr(tab_column[t_n]['TYPE'][j], 'text') %}
-                                    {% set type = type ~ '_char' %}
-                                {% elseif strstr(tab_column[t_n]['TYPE'][j], 'int')
-                                    or strstr(tab_column[t_n]['TYPE'][j], 'float')
-                                    or strstr(tab_column[t_n]['TYPE'][j], 'double')
-                                    or strstr(tab_column[t_n]['TYPE'][j], 'decimal') %}
-                                    {% set type = type ~ '_int' %}
-                                {% elseif strstr(tab_column[t_n]['TYPE'][j], 'date')
-                                    or strstr(tab_column[t_n]['TYPE'][j], 'time')
-                                    or strstr(tab_column[t_n]['TYPE'][j], 'year') %}
-                                    {% set type = type ~ '_date' %}
-                                {% endif %}
-                                <img src="{{ theme.getImgPath(type) }}.png" alt="*" />
-                            {% endif %}
+                            {% set type = columns_type[t_n ~ '.' ~ tab_column[t_n]['COLUMN_NAME'][j]] %}
+                            <img src="{{ theme.getImgPath(type) }}.png" alt="*">
                             {{ tab_column[t_n]['COLUMN_NAME'][j] }} : {{ tab_column[t_n]['TYPE'][j] }}
                         </div>
                     </td>

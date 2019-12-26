@@ -5,10 +5,12 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Rte;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Rte\Words;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Utils\Routine;
@@ -24,6 +26,33 @@ use PhpMyAdmin\Util;
 class RteList
 {
     /**
+     * @var Words
+     */
+    private $words;
+
+    /**
+     * @var Template
+     */
+    public $template;
+
+    /**
+     * @var DatabaseInterface
+     */
+    private $dbi;
+
+    /**
+     * RteList constructor.
+     *
+     * @param DatabaseInterface $dbi DatabaseInterface object
+     */
+    public function __construct(DatabaseInterface $dbi)
+    {
+        $this->dbi = $dbi;
+        $this->words = new Words();
+        $this->template = new Template();
+    }
+
+    /**
      * Creates a list of items containing the relevant
      * information and some action links.
      *
@@ -32,7 +61,7 @@ class RteList
      *
      * @return string HTML code of the list of items
      */
-    public static function get($type, array $items)
+    public function get($type, array $items)
     {
         global $table;
 
@@ -48,86 +77,85 @@ class RteList
         /**
          * Generate output
          */
-        $retval  = "<!-- LIST OF " . Words::get('docu') . " START -->\n";
+        $retval  = "<!-- LIST OF " . $this->words->get('docu') . " START -->\n";
         $retval .= '<form id="rteListForm" class="ajax" action="';
         switch ($type) {
-        case 'routine':
-            $retval .= 'db_routines.php';
-            break;
-        case 'trigger':
-            if (! empty($table)) {
-                $retval .= 'tbl_triggers.php';
-            } else {
-                $retval .= 'db_triggers.php';
-            }
-            break;
-        case 'event':
-            $retval .= 'db_events.php';
-            break;
-        default:
-            break;
+            case 'routine':
+                $retval .= 'db_routines.php';
+                break;
+            case 'trigger':
+                if (! empty($table)) {
+                    $retval .= 'tbl_triggers.php';
+                } else {
+                    $retval .= 'db_triggers.php';
+                }
+                break;
+            case 'event':
+                $retval .= 'db_events.php';
+                break;
+            default:
+                break;
         }
         $retval .= '">';
         $retval .= Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
         $retval .= "<fieldset>\n";
         $retval .= "    <legend>\n";
-        $retval .= "        " . Words::get('title') . "\n";
+        $retval .= "        " . $this->words->get('title') . "\n";
         $retval .= "        "
-            . Util::showMySQLDocu(Words::get('docu')) . "\n";
+            . Util::showMySQLDocu($this->words->get('docu')) . "\n";
         $retval .= "    </legend>\n";
         $retval .= "    <div class='$class1' id='nothing2display'>\n";
-        $retval .= "      " . Words::get('nothing') . "\n";
+        $retval .= "      " . $this->words->get('nothing') . "\n";
         $retval .= "    </div>\n";
         $retval .= "    <table class='data$class2'>\n";
         $retval .= "        <!-- TABLE HEADERS -->\n";
         $retval .= "        <tr>\n";
         // th cells with a colspan need corresponding td cells, according to W3C
         switch ($type) {
-        case 'routine':
-            $retval .= "            <th></th>\n";
-            $retval .= "            <th>" . __('Name') . "</th>\n";
-            $retval .= "            <th colspan='4'>" . __('Action') . "</th>\n";
-            $retval .= "            <th>" . __('Type') . "</th>\n";
-            $retval .= "            <th>" . __('Returns') . "</th>\n";
-            $retval .= "        </tr>\n";
-            $retval .= "        <tr class='hide'>\n"; // see comment above
-            for ($i = 0; $i < 7; $i++) {
-                $retval .= "            <td></td>\n";
-            }
-            break;
-        case 'trigger':
-            $retval .= "            <th></th>\n";
-            $retval .= "            <th>" . __('Name') . "</th>\n";
-            if (empty($table)) {
-                $retval .= "            <th>" . __('Table') . "</th>\n";
-            }
-            $retval .= "            <th colspan='3'>" . __('Action') . "</th>\n";
-            $retval .= "            <th>" . __('Time') . "</th>\n";
-            $retval .= "            <th>" . __('Event') . "</th>\n";
-            $retval .= "        </tr>\n";
-            $retval .= "        <tr class='hide'>\n"; // see comment above
-            for ($i = 0; $i < (empty($table) ? 7 : 6); $i++) {
-                $retval .= "            <td></td>\n";
-            }
-            break;
-        case 'event':
-            $retval .= "            <th></th>\n";
-            $retval .= "            <th>" . __('Name') . "</th>\n";
-            $retval .= "            <th>" . __('Status') . "</th>\n";
-            $retval .= "            <th colspan='3'>" . __('Action') . "</th>\n";
-            $retval .= "            <th>" . __('Type') . "</th>\n";
-            $retval .= "        </tr>\n";
-            $retval .= "        <tr class='hide'>\n"; // see comment above
-            for ($i = 0; $i < 6; $i++) {
-                $retval .= "            <td></td>\n";
-            }
-            break;
-        default:
-            break;
+            case 'routine':
+                $retval .= "            <th></th>\n";
+                $retval .= "            <th>" . __('Name') . "</th>\n";
+                $retval .= "            <th colspan='4'>" . __('Action') . "</th>\n";
+                $retval .= "            <th>" . __('Type') . "</th>\n";
+                $retval .= "            <th>" . __('Returns') . "</th>\n";
+                $retval .= "        </tr>\n";
+                $retval .= "        <tr class='hide'>\n"; // see comment above
+                for ($i = 0; $i < 7; $i++) {
+                    $retval .= "            <td></td>\n";
+                }
+                break;
+            case 'trigger':
+                $retval .= "            <th></th>\n";
+                $retval .= "            <th>" . __('Name') . "</th>\n";
+                if (empty($table)) {
+                    $retval .= "            <th>" . __('Table') . "</th>\n";
+                }
+                $retval .= "            <th colspan='3'>" . __('Action') . "</th>\n";
+                $retval .= "            <th>" . __('Time') . "</th>\n";
+                $retval .= "            <th>" . __('Event') . "</th>\n";
+                $retval .= "        </tr>\n";
+                $retval .= "        <tr class='hide'>\n"; // see comment above
+                for ($i = 0; $i < (empty($table) ? 7 : 6); $i++) {
+                    $retval .= "            <td></td>\n";
+                }
+                break;
+            case 'event':
+                $retval .= "            <th></th>\n";
+                $retval .= "            <th>" . __('Name') . "</th>\n";
+                $retval .= "            <th>" . __('Status') . "</th>\n";
+                $retval .= "            <th colspan='3'>" . __('Action') . "</th>\n";
+                $retval .= "            <th>" . __('Type') . "</th>\n";
+                $retval .= "        </tr>\n";
+                $retval .= "        <tr class='hide'>\n"; // see comment above
+                for ($i = 0; $i < 6; $i++) {
+                    $retval .= "            <td></td>\n";
+                }
+                break;
+            default:
+                break;
         }
         $retval .= "        </tr>\n";
         $retval .= "        <!-- TABLE DATA -->\n";
-        $count = 0;
         $response = Response::getInstance();
         foreach ($items as $item) {
             if ($response->isAjax() && empty($_REQUEST['ajax_page_request'])) {
@@ -137,49 +165,51 @@ class RteList
             }
             // Get each row from the correct function
             switch ($type) {
-            case 'routine':
-                $retval .= self::getRoutineRow($item, $rowclass);
-                break;
-            case 'trigger':
-                $retval .= self::getTriggerRow($item, $rowclass);
-                break;
-            case 'event':
-                $retval .= self::getEventRow($item, $rowclass);
-                break;
-            default:
-                break;
+                case 'routine':
+                    $retval .= $this->getRoutineRow($item, $rowclass);
+                    break;
+                case 'trigger':
+                    $retval .= $this->getTriggerRow($item, $rowclass);
+                    break;
+                case 'event':
+                    $retval .= $this->getEventRow($item, $rowclass);
+                    break;
+                default:
+                    break;
             }
-            $count++;
         }
         $retval .= "    </table>\n";
 
         if (count($items)) {
             $retval .= '<div class="withSelected">';
-            $retval .= Template::get('select_all')
-                ->render(
-                    array(
-                        'pma_theme_image' => $GLOBALS['pmaThemeImage'],
-                        'text_dir'        => $GLOBALS['text_dir'],
-                        'form_name'       => 'rteListForm',
-                    )
-                );
+            $retval .= $this->template->render('select_all', [
+                'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+                'text_dir' => $GLOBALS['text_dir'],
+                'form_name' => 'rteListForm',
+            ]);
             $retval .= Util::getButtonOrImage(
-                'submit_mult', 'mult_submit',
-                __('Export'), 'b_export', 'export'
+                'submit_mult',
+                'mult_submit',
+                __('Export'),
+                'b_export',
+                'export'
             );
             $retval .= Util::getButtonOrImage(
-                'submit_mult', 'mult_submit',
-                __('Drop'), 'b_drop', 'drop'
+                'submit_mult',
+                'mult_submit',
+                __('Drop'),
+                'b_drop',
+                'drop'
             );
             $retval .= '</div>';
         }
 
         $retval .= "</fieldset>\n";
         $retval .= "</form>\n";
-        $retval .= "<!-- LIST OF " . Words::get('docu') . " END -->\n";
+        $retval .= "<!-- LIST OF " . $this->words->get('docu') . " END -->\n";
 
         return $retval;
-    } // end self::get()
+    }
 
     /**
      * Creates the contents for a row in the list of routines
@@ -189,7 +219,7 @@ class RteList
      *
      * @return string HTML code of a row for the list of routines
      */
-    public static function getRoutineRow(array $routine, $rowclass = '')
+    public function getRoutineRow(array $routine, $rowclass = '')
     {
         global $url_query, $db, $titles;
 
@@ -204,7 +234,7 @@ class RteList
         $retval .= "            <td>\n";
         $retval .= '                <input type="checkbox"'
             . ' class="checkall" name="item_name[]"'
-            . ' value="' . htmlspecialchars($routine['name']) . '" />';
+            . ' value="' . htmlspecialchars($routine['name']) . '">';
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
         $retval .= "                <span class='drop_sql hide'>"
@@ -219,19 +249,19 @@ class RteList
         // this is for our purpose to decide whether to
         // show the edit link or not, so we need the DEFINER for the routine
         $where = "ROUTINE_SCHEMA " . Util::getCollateForIS() . "="
-            . "'" . $GLOBALS['dbi']->escapeString($db) . "' "
-            . "AND SPECIFIC_NAME='" . $GLOBALS['dbi']->escapeString($routine['name']) . "'"
-            . "AND ROUTINE_TYPE='" . $GLOBALS['dbi']->escapeString($routine['type']) . "'";
+            . "'" . $this->dbi->escapeString($db) . "' "
+            . "AND SPECIFIC_NAME='" . $this->dbi->escapeString($routine['name']) . "'"
+            . "AND ROUTINE_TYPE='" . $this->dbi->escapeString($routine['type']) . "'";
         $query = "SELECT `DEFINER` FROM INFORMATION_SCHEMA.ROUTINES WHERE $where;";
-        $routine_definer = $GLOBALS['dbi']->fetchValue($query);
+        $routine_definer = $this->dbi->fetchValue($query);
 
-        $curr_user = $GLOBALS['dbi']->getCurrentUser();
+        $curr_user = $this->dbi->getCurrentUser();
 
         // Since editing a procedure involved dropping and recreating, check also for
         // CREATE ROUTINE privilege to avoid lost procedures.
         if ((Util::currentUserHasPrivilege('CREATE ROUTINE', $db)
             && $curr_user == $routine_definer)
-            || $GLOBALS['dbi']->isSuperuser()
+            || $this->dbi->isSuperuser()
         ) {
             $retval .= '                <a class="ajax edit_anchor"'
                                              . ' href="db_routines.php'
@@ -258,10 +288,12 @@ class RteList
         // we will show a dialog to get values for these parameters,
         // otherwise we can execute it directly.
 
-        $definition = $GLOBALS['dbi']->getDefinition(
-            $db, $routine['type'], $routine['name']
+        $definition = $this->dbi->getDefinition(
+            $db,
+            $routine['type'],
+            $routine['name']
         );
-        if ($definition !== false) {
+        if ($definition !== null) {
             $parser = new Parser($definition);
 
             /**
@@ -300,7 +332,7 @@ class RteList
         $retval .= "            <td>\n";
         if ((Util::currentUserHasPrivilege('CREATE ROUTINE', $db)
             && $curr_user == $routine_definer)
-            || $GLOBALS['dbi']->isSuperuser()
+            || $this->dbi->isSuperuser()
         ) {
             $retval .= '                <a class="ajax export_anchor"'
                                              . ' href="db_routines.php'
@@ -331,7 +363,7 @@ class RteList
         $retval .= "        </tr>\n";
 
         return $retval;
-    } // end self::getRoutineRow()
+    }
 
     /**
      * Creates the contents for a row in the list of triggers
@@ -341,7 +373,7 @@ class RteList
      *
      * @return string HTML code of a cell for the list of triggers
      */
-    public static function getTriggerRow(array $trigger, $rowclass = '')
+    public function getTriggerRow(array $trigger, $rowclass = '')
     {
         global $url_query, $db, $table, $titles;
 
@@ -349,7 +381,7 @@ class RteList
         $retval .= "            <td>\n";
         $retval .= '                <input type="checkbox"'
             . ' class="checkall" name="item_name[]"'
-            . ' value="' . htmlspecialchars($trigger['name']) . '" />';
+            . ' value="' . htmlspecialchars($trigger['name']) . '">';
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
         $retval .= "                <span class='drop_sql hide'>"
@@ -407,7 +439,7 @@ class RteList
         $retval .= "        </tr>\n";
 
         return $retval;
-    } // end self::getTriggerRow()
+    }
 
     /**
      * Creates the contents for a row in the list of events
@@ -417,7 +449,7 @@ class RteList
      *
      * @return string HTML code of a cell for the list of events
      */
-    public static function getEventRow(array $event, $rowclass = '')
+    public function getEventRow(array $event, $rowclass = '')
     {
         global $url_query, $db, $titles;
 
@@ -430,7 +462,7 @@ class RteList
         $retval .= "            <td>\n";
         $retval .= '                <input type="checkbox"'
             . ' class="checkall" name="item_name[]"'
-            . ' value="' . htmlspecialchars($event['name']) . '" />';
+            . ' value="' . htmlspecialchars($event['name']) . '">';
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
         $retval .= "                <span class='drop_sql hide'>"
@@ -482,5 +514,5 @@ class RteList
         $retval .= "        </tr>\n";
 
         return $retval;
-    } // end self::getEventRow()
+    }
 }

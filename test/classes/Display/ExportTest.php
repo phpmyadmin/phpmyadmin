@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Display;
 
 use PhpMyAdmin\Core;
@@ -32,7 +34,7 @@ class ExportTest extends TestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp(): void
     {
         //$GLOBALS
         $GLOBALS['cfg']['MaxRows'] = 10;
@@ -98,16 +100,16 @@ class ExportTest extends TestCase
 
         //validate 1: Url::getHiddenInputs
         //$single_table
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="single_table" value="TRUE"',
             $html
         );
         //$export_type
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="export_type" value="server"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="export_method" value="quick"',
             $html
         );
@@ -130,17 +132,17 @@ class ExportTest extends TestCase
         $multi_values_str = "multi_values_str";
         $num_tables_str = "10";
         $unlim_num_rows_str = "unlim_num_rows_str";
-        $single_table = "single_table";
-        $GLOBALS['dbi']->cacheTableContent(array($db, $table, 'ENGINE'), 'MERGE');
+        //$single_table = "single_table";
+        $GLOBALS['dbi']->cacheTableContent([$db, $table, 'ENGINE'], 'MERGE');
 
-        $columns_info = array(
-            'test_column1' => array(
-                'COLUMN_NAME' => 'test_column1'
-            ),
-            'test_column2' => array(
-                'COLUMN_NAME' => 'test_column2'
-            )
-        );
+        $columns_info = [
+            'test_column1' => [
+                'COLUMN_NAME' => 'test_column1',
+            ],
+            'test_column2' => [
+                'COLUMN_NAME' => 'test_column2',
+            ],
+        ];
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
@@ -148,7 +150,7 @@ class ExportTest extends TestCase
         $dbi->expects($this->any())->method('getColumnsFull')
             ->will($this->returnValue($columns_info));
         $dbi->expects($this->any())->method('getCompatibilities')
-            ->will($this->returnValue(array()));
+            ->will($this->returnValue([]));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -156,10 +158,10 @@ class ExportTest extends TestCase
         $export_list = Plugins::getPlugins(
             "export",
             'libraries/classes/Plugins/Export/',
-            array(
+            [
                 'export_type' => $export_type,
-                'single_table' => isset($single_table)
-            )
+                'single_table' => true,// isset($single_table)
+            ]
         );
 
         //Call the test function
@@ -174,87 +176,87 @@ class ExportTest extends TestCase
         );
 
         //validate 2: Export::getHtmlForOptionsMethod
-        $this->assertContains(
+        $this->assertStringContainsString(
             $cfg['Export']['method'],
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div class="exportoptions" id="quick_or_custom">',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Export method:'),
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Custom - display all possible options'),
             $html
         );
 
         //validate 3: Export::getHtmlForOptionsSelection
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div class="exportoptions" id="databases_and_tables">',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<h3>' . __('Databases:') . '</h3>',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $multi_values_str,
             $html
         );
 
         //validate 4: Export::getHtmlForOptionsQuickExport
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="checkbox" name="onserver" value="saveit"',
             $html
         );
         $dir = htmlspecialchars(Util::userDir($cfg['SaveDir']));
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Save on server in the directory <strong>' . $dir . '</strong>',
             $html
         );
 
         //validate 5: Export::getHtmlForAliasModalDialog
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div id="alias_modal" class="hide" title="'
             . 'Rename exported databases/tables/columns">',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Select database',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Select table',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'New database name',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'New table name',
             $html
         );
 
         //validate 6: Export::getHtmlForOptionsOutput
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div class="exportoptions" id="output">',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'user value for test',
             $html
         );
 
         //validate 7: Export::getHtmlForOptionsFormat
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div class="exportoptions" id="format">',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<h3>' . __('Format:') . '</h3>',
             $html
         );
@@ -267,18 +269,18 @@ class ExportTest extends TestCase
      */
     public function testGetHtmlForAliasModalDialog()
     {
-        $columns_info = array(
-            'test\'_db' => array(
-                'test_<b>table' => array(
-                    'co"l1' => array(
-                        'COLUMN_NAME' => 'co"l1'
-                    ),
-                    'col<2' => array(
-                        'COLUMN_NAME' => 'col<2'
-                    )
-                )
-            )
-        );
+        $columns_info = [
+            'test\'_db' => [
+                'test_<b>table' => [
+                    'co"l1' => [
+                        'COLUMN_NAME' => 'co"l1',
+                    ],
+                    'col<2' => [
+                        'COLUMN_NAME' => 'col<2',
+                    ],
+                ],
+            ],
+        ];
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -291,12 +293,12 @@ class ExportTest extends TestCase
 
         $html = $this->export->getHtmlForAliasModalDialog();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div id="alias_modal" class="hide" title="'
             . 'Rename exported databases/tables/columns">',
             $html
         );
 
-        $this->assertContains('<button class="alias_remove', $html);
+        $this->assertStringContainsString('<button class="alias_remove', $html);
     }
 }

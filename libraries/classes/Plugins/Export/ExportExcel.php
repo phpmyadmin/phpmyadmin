@@ -6,15 +6,17 @@
  * @package    PhpMyAdmin-Export
  * @subpackage CSV-Excel
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Export;
 
-use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
+use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 
 /**
  * Handles the export for the CSV-Excel format
@@ -67,11 +69,11 @@ class ExportExcel extends ExportCsv
             __('Excel edition:')
         );
         $leaf->setValues(
-            array(
+            [
                 'win'           => 'Windows',
                 'mac_excel2003' => 'Excel 2003 / Macintosh',
                 'mac_excel2008' => 'Excel 2008 / Macintosh',
-            )
+            ]
         );
         $generalOptions->addProperty($leaf);
         $leaf = new HiddenPropertyItem(

@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
@@ -23,7 +25,7 @@ class NodeColumnTest extends PmaTestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
     }
@@ -35,12 +37,18 @@ class NodeColumnTest extends PmaTestCase
      */
     public function testConstructor()
     {
-        $parent = NodeFactory::getInstance('NodeColumn');
+        $parent = NodeFactory::getInstance(
+            'NodeColumn',
+            [
+                'name' => 'name',
+                'key' => 'key',
+            ]
+        );
         $this->assertArrayHasKey(
             'text',
             $parent->links
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'tbl_structure.php',
             $parent->links['text']
         );

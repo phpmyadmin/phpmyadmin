@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Server;
 
 use PhpMyAdmin\Server\UserGroups;
@@ -24,19 +26,18 @@ class UserGroupsTest extends TestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
 
         $GLOBALS['server'] = 1;
-        $_SESSION['relation'][$GLOBALS['server']] = array(
+        $_SESSION['relation'][$GLOBALS['server']] = [
             'PMA_VERSION' => PMA_VERSION,
             'db' => 'pmadb',
             'users' => 'users',
-            'usergroups' => 'usergroups'
-        );
-
+            'usergroups' => 'usergroups',
+        ];
     }
 
     /**
@@ -66,13 +67,13 @@ class UserGroupsTest extends TestCase
         $GLOBALS['dbi'] = $dbi;
 
         $html = UserGroups::getHtmlForUserGroupsTable();
-        $this->assertNotContains(
+        $this->assertStringNotContainsString(
             '<table id="userGroupsTable">',
             $html
         );
         $url_tag = '<a href="server_user_groups.php'
-            . Url::getCommon(array('addUserGroup' => 1));
-        $this->assertContains(
+            . Url::getCommon(['addUserGroup' => 1]);
+        $this->assertStringContainsString(
             $url_tag,
             $html
         );
@@ -104,11 +105,11 @@ class UserGroupsTest extends TestCase
             ->withAnyParameters()
             ->will(
                 $this->returnValue(
-                    array(
+                    [
                         'usergroup' => 'usergroup',
                         'tab' => 'server_sql',
-                        'allowed' => 'Y'
-                    )
+                        'allowed' => 'Y',
+                    ]
                 )
             );
         $dbi->expects($this->at(3))
@@ -120,42 +121,43 @@ class UserGroupsTest extends TestCase
         $GLOBALS['dbi'] = $dbi;
 
         $html = UserGroups::getHtmlForUserGroupsTable();
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<td>usergroup</td>',
             $html
         );
         $url_tag = '<a class="" href="server_user_groups.php" data-post="'
             . Url::getCommon(
-                array(
-                    'viewUsers'=>1, 'userGroup'=>htmlspecialchars('usergroup')
-                ),
+                [
+                    'viewUsers' => 1,
+                    'userGroup' => htmlspecialchars('usergroup'),
+                ],
                 ''
             );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $url_tag,
             $html
         );
         $url_tag = '<a class="" href="server_user_groups.php" data-post="'
             . Url::getCommon(
-                array(
-                    'editUserGroup'=>1,
-                    'userGroup'=>htmlspecialchars('usergroup')
-                ),
+                [
+                    'editUserGroup' => 1,
+                    'userGroup' => htmlspecialchars('usergroup'),
+                ],
                 ''
             );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $url_tag,
             $html
         );
         $url_tag = '<a class="deleteUserGroup ajax" href="server_user_groups.php" data-post="'
             . Url::getCommon(
-                array(
-                    'deleteUserGroup'=> 1,
-                    'userGroup'=>htmlspecialchars('usergroup')
-                ),
-                ""
+                [
+                    'deleteUserGroup' => 1,
+                    'userGroup' => htmlspecialchars('usergroup'),
+                ],
+                ''
             );
-        $this->assertContains(
+        $this->assertStringContainsString(
             $url_tag,
             $html
         );
@@ -200,11 +202,11 @@ class UserGroupsTest extends TestCase
     {
         // adding a user group
         $html = UserGroups::getHtmlToEditUserGroup();
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="addUserGroupSubmit" value="1"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="text" name="userGroup"',
             $html
         );
@@ -221,11 +223,11 @@ class UserGroupsTest extends TestCase
         $dbi->expects($this->exactly(2))
             ->method('fetchAssoc')
             ->willReturnOnConsecutiveCalls(
-                array(
+                [
                     'usergroup' => 'ug',
                     'tab' => 'server_sql',
-                    'allowed' => 'Y'
-                ),
+                    'allowed' => 'Y',
+                ],
                 false
             );
         $dbi->expects($this->once())
@@ -238,26 +240,26 @@ class UserGroupsTest extends TestCase
 
         // editing a user group
         $html = UserGroups::getHtmlToEditUserGroup('ug');
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="userGroup" value="ug"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="editUserGroupSubmit" value="1"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="hidden" name="editUserGroupSubmit" value="1"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="checkbox" class="checkall" checked="checked"'
-            . ' name="server_sql" value="Y" />',
+            . ' name="server_sql" value="Y">',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="checkbox" class="checkall"'
-            . ' name="server_databases" value="Y" />',
+            . ' name="server_databases" value="Y">',
             $html
         );
     }

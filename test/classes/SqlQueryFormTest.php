@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Core;
@@ -28,12 +30,19 @@ $GLOBALS['server'] = 0;
 class SqlQueryFormTest extends TestCase
 {
     /**
+     * @var SqlQueryForm
+     */
+    private $sqlQueryForm;
+
+    /**
      * Test for setUp
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp(): void
     {
+        $this->sqlQueryForm = new SqlQueryForm();
+
         //$GLOBALS
         $GLOBALS['max_upload_size'] = 100;
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
@@ -56,7 +65,7 @@ class SqlQueryFormTest extends TestCase
         $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'default';
 
         //_SESSION
-        $_SESSION['relation'][0] = array(
+        $_SESSION['relation'][0] = [
             'PMA_VERSION' => PMA_VERSION,
             'table_coords' => "table_name",
             'displaywork' => 'displaywork',
@@ -65,7 +74,7 @@ class SqlQueryFormTest extends TestCase
             'relwork' => 'relwork',
             'relation' => 'relation',
             'bookmarkwork' => false,
-        );
+        ];
         //$GLOBALS
         $GLOBALS['cfg']['Server']['user'] = "user";
         $GLOBALS['cfg']['Server']['pmadb'] = "pmadb";
@@ -78,17 +87,20 @@ class SqlQueryFormTest extends TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $fetchResult = array("index1"=>"table1", "index2"=>"table2");
+        $fetchResult = [
+            "index1" => "table1",
+            "index2" => "table2",
+        ];
         $dbi->expects($this->any())
             ->method('fetchResult')
             ->will($this->returnValue($fetchResult));
 
-        $getColumns = array(
-            array(
+        $getColumns = [
+            [
                 "Field" => "field1",
-                "Comment" => "Comment1"
-            )
-        );
+                "Comment" => "Comment1",
+            ],
+        ];
         $dbi->expects($this->any())
             ->method('getColumns')
             ->will($this->returnValue($getColumns));
@@ -97,7 +109,7 @@ class SqlQueryFormTest extends TestCase
     }
 
     /**
-     * Test for SqlQueryForm::getHtmlForInsert
+     * Test for getHtmlForInsert
      *
      * @return void
      */
@@ -105,62 +117,62 @@ class SqlQueryFormTest extends TestCase
     {
         //Call the test function
         $query = "select * from PMA";
-        $html = SqlQueryForm::getHtmlForInsert($query);
+        $html = $this->sqlQueryForm->getHtmlForInsert($query);
 
         //validate 1: query
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars($query),
             $html
         );
 
         //validate 2: enable auto select text in textarea
-        $auto_sel = ' onclick="selectContent(this, sql_box_locked, true);"';
-        $this->assertContains(
+        $auto_sel = ' onclick="Functions.selectContent(this, sqlBoxLocked, true);"';
+        $this->assertStringContainsString(
             $auto_sel,
             $html
         );
 
         //validate 3: showMySQLDocu
-        $this->assertContains(
+        $this->assertStringContainsString(
             Util::showMySQLDocu('SELECT'),
             $html
         );
 
         //validate 4: $fields_list
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="button" value="DELETE" id="delete"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="button" value="UPDATE" id="update"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="button" value="INSERT" id="insert"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="button" value="SELECT" id="select"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="button" value="SELECT *" id="selectall"',
             $html
         );
 
         //validate 5: Clear button
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="button" value="DELETE" id="delete"',
             $html
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('Clear'),
             $html
         );
     }
 
     /**
-     * Test for SqlQueryForm::getHtml
+     * Test for getHtml
      *
      * @return void
      */
@@ -170,23 +182,23 @@ class SqlQueryFormTest extends TestCase
         $GLOBALS['is_upload'] = true;
         $GLOBALS['lang'] = 'ja';
         $query = "select * from PMA";
-        $html = SqlQueryForm::getHtml($query);
+        $html = $this->sqlQueryForm->getHtml($query);
 
         //validate 1: query
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars($query),
             $html
         );
 
         //validate 2: $enctype
         $enctype = ' enctype="multipart/form-data"';
-        $this->assertContains(
+        $this->assertStringContainsString(
             $enctype,
             $html
         );
 
         //validate 3: sqlqueryform
-        $this->assertContains(
+        $this->assertStringContainsString(
             'id="sqlqueryform" name="sqlform">',
             $html
         );
@@ -194,20 +206,20 @@ class SqlQueryFormTest extends TestCase
         //validate 4: $db, $table
         $table  = $GLOBALS['table'];
         $db     = $GLOBALS['db'];
-        $this->assertContains(
+        $this->assertStringContainsString(
             Url::getHiddenInputs($db, $table),
             $html
         );
 
         //validate 5: $goto
         $goto = empty($GLOBALS['goto']) ? 'tbl_sql.php' : $GLOBALS['goto'];
-        $this->assertContains(
+        $this->assertStringContainsString(
             htmlspecialchars($goto),
             $html
         );
 
         //validate 6: Kanji encoding form
-        $this->assertContains(
+        $this->assertStringContainsString(
             Encoding::kanjiEncodingForm(),
             $html
         );

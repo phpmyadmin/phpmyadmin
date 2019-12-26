@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\ZipExtension;
@@ -17,7 +19,7 @@ use PhpMyAdmin\ZipExtension;
 class OpenDocument
 {
 
-    const NS = <<<EOT
+    public const NS = <<<EOT
 xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
 xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
 xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"
@@ -38,7 +40,7 @@ EOT;
      */
     public static function create($mime, $data)
     {
-        $data = array(
+        $data = [
             $mime,
             $data,
             '<?xml version="1.0" encoding="UTF-8"?' . '>'
@@ -160,16 +162,16 @@ EOT;
             . ' manifest:full-path="meta.xml"/>'
             . '<manifest:file-entry manifest:media-type="text/xml"'
             . ' manifest:full-path="styles.xml"/>'
-            . '</manifest:manifest>'
-        );
+            . '</manifest:manifest>',
+        ];
 
-        $name = array(
+        $name = [
             'mimetype',
             'content.xml',
             'meta.xml',
             'styles.xml',
-            'META-INF/manifest.xml'
-        );
+            'META-INF/manifest.xml',
+        ];
 
         $zipExtension = new ZipExtension();
         return $zipExtension->createFile($data, $name);

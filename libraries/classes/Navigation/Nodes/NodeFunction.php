@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-Navigation
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\Util;
@@ -19,23 +21,23 @@ class NodeFunction extends NodeDatabaseChild
     /**
      * Initialises the class
      *
-     * @param string $name     An identifier for the new node
-     * @param int    $type     Type of node, may be one of CONTAINER or OBJECT
-     * @param bool   $is_group Whether this object has been created
-     *                         while grouping nodes
+     * @param string $name    An identifier for the new node
+     * @param int    $type    Type of node, may be one of CONTAINER or OBJECT
+     * @param bool   $isGroup Whether this object has been created
+     *                        while grouping nodes
      */
-    public function __construct($name, $type = Node::OBJECT, $is_group = false)
+    public function __construct($name, $type = Node::OBJECT, $isGroup = false)
     {
-        parent::__construct($name, $type, $is_group);
+        parent::__construct($name, $type, $isGroup);
         $this->icon = Util::getImage('b_routines', __('Function'));
-        $this->links = array(
+        $this->links = [
             'text' => 'db_routines.php?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s&amp;item_name=%1$s&amp;item_type=FUNCTION'
                 . '&amp;edit_item=1',
             'icon' => 'db_routines.php?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s&amp;item_name=%1$s&amp;item_type=FUNCTION'
                 . '&amp;execute_dialog=1',
-        );
+        ];
         $this->classes = 'function';
     }
 

@@ -1,31 +1,39 @@
 <?xml version="1.0"?>
-<ruleset name="phpMyAdmin Coding Standard">
-    <rule ref="./vendor/phpmyadmin/coding-standard/PMAStandard/ruleset.xml">
-        <exclude name="Generic.Metrics.NestingLevel.TooHigh"/>
-        <exclude name="PSR1.Files.SideEffects.FoundWithSymbols"/>
-        <exclude name="PSR1.Classes.ClassDeclaration.MissingNamespace"/>
-        <exclude name="PSR1.Classes.ClassDeclaration.MultipleClasses"/>
-        <exclude name="Squiz.Classes.ValidClassName.NotCamelCaps"/>
-        <exclude name="PMAStandard.Commenting.FileComment.Missing"/>
-        <exclude name="PMAStandard.Commenting.ClassComment.Missing"/>
-        <exclude name="PMAStandard.Commenting.ClassComment.MissingPackageTag"/>
-        <exclude name="PMAStandard.Commenting.FunctionComment.Missing"/>
-        <exclude name="PMAStandard.Commenting.FunctionComment.MissingParamComment"/>
-        <exclude name="PMAStandard.Commenting.FunctionComment.MissingParamName"/>
-        <exclude name="PMAStandard.Commenting.FunctionComment.MissingParamTag"/>
-        <exclude name="PMAStandard.Commenting.FunctionComment.MissingReturn"/>
-        <exclude name="PMAStandard.Commenting.FunctionComment.ExtraParamComment"/>
-        <exclude name="PMAStandard.Commenting.FunctionComment.ParamNameNoMatch"/>
-        <exclude name="PMAStandard.Commenting.FunctionComment.SpacingAfter"/>
-        <exclude name="PMAStandard.Files.SpacesAroundConcat.Found"/>
+<ruleset
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    name="phpMyAdmin"
+    xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd"
+>
+    <rule ref="vendor/phpmyadmin/coding-standard/PhpMyAdmin/ruleset.xml"/>
+
+    <rule ref="Generic.Files.LineLength.TooLong">
+        <severity>4</severity>
+    </rule>
+    <rule ref="Generic.Metrics.NestingLevel.TooHigh">
+        <severity>4</severity>
+    </rule>
+    <rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
+        <severity>4</severity>
+    </rule>
+    <rule ref="PSR2.Classes.PropertyDeclaration.Underscore">
+        <severity>4</severity>
+    </rule>
+    <rule ref="PSR2.Methods.MethodDeclaration.Underscore">
+        <severity>4</severity>
+    </rule>
+    <rule ref="Squiz.NamingConventions.ValidVariableName">
+        <severity>4</severity>
+    </rule>
+    <rule ref="PSR2.Methods.FunctionCallSignature.Indent">
+        <severity>0</severity>
     </rule>
 
     <arg value="sp"/>
     <arg name="colors"/>
     <arg name="extensions" value="php"/>
 
-    <exclude-pattern>*/build/*</exclude-pattern>
     <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/test/sami-config.php</exclude-pattern>
     <exclude-pattern>*/tmp/*</exclude-pattern>
     <exclude-pattern>*/vendor/*</exclude-pattern>
 

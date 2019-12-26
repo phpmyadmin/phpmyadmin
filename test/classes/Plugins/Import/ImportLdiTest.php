@@ -4,11 +4,15 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Plugins\Import;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportLdi;
 use PhpMyAdmin\Tests\PmaTestCase;
+use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * Tests for PhpMyAdmin\Plugins\Import\ImportLdi class
@@ -23,7 +27,7 @@ class ImportLdiTest extends PmaTestCase
     protected $object;
 
     /**
-     * @var \PhpMyAdmin\DatabaseInterface
+     * @var DatabaseInterface
      * @access protected
      */
     protected $dbi;
@@ -35,7 +39,7 @@ class ImportLdiTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         //setting
         $GLOBALS['server'] = 0;
@@ -79,7 +83,7 @@ class ImportLdiTest extends PmaTestCase
      * @access protected
      * @return void
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -113,16 +117,21 @@ class ImportLdiTest extends PmaTestCase
      */
     public function testGetPropertiesAutoLdi()
     {
-        $this->dbi->expects($this->any())->method('tryQuery')
+        /**
+         * The \PhpMyAdmin\DatabaseInterface mocked object
+         * @var MockObject $dbi
+         */
+        $dbi = $this->dbi;
+        $dbi->expects($this->any())->method('tryQuery')
             ->will($this->returnValue(true));
-        $this->dbi->expects($this->any())->method('numRows')
+        $dbi->expects($this->any())->method('numRows')
             ->will($this->returnValue(10));
 
-        $fetchRowResult = array("ON");
-        $this->dbi->expects($this->any())->method('fetchRow')
+        $fetchRowResult = ["ON"];
+        $dbi->expects($this->any())->method('fetchRow')
             ->will($this->returnValue($fetchRowResult));
 
-        $GLOBALS['dbi'] = $this->dbi;
+        $GLOBALS['dbi'] = $dbi;
 
         $GLOBALS['cfg']['Import']['ldi_local_option'] = 'auto';
         $this->object = new ImportLdi();
@@ -153,16 +162,20 @@ class ImportLdiTest extends PmaTestCase
         //$sql_query_disabled will show the import SQL detail
         global $sql_query, $sql_query_disabled;
         $sql_query_disabled = false;
-
-        $this->dbi->expects($this->any())->method('escapeString')
+        /**
+         * The \PhpMyAdmin\DatabaseInterface mocked object
+         * @var MockObject $dbi
+         */
+        $dbi = $this->dbi;
+        $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
-        $GLOBALS['dbi'] = $this->dbi;
+        $GLOBALS['dbi'] = $dbi;
 
         //Test function called
         $this->object->doImport();
 
         //asset that all sql are executed
-        $this->assertContains(
+        $this->assertStringContainsString(
             "LOAD DATA INFILE 'test/test_data/db_test_ldi.csv' INTO TABLE "
             . "`phpmyadmintest`",
             $sql_query
@@ -190,7 +203,7 @@ class ImportLdiTest extends PmaTestCase
         $this->object->doImport();
 
         // We handle only some kind of data!
-        $this->assertContains(
+        $this->assertStringContainsString(
             __('This plugin does not support compressed imports!'),
             $GLOBALS['message']->__toString()
         );
@@ -216,10 +229,14 @@ class ImportLdiTest extends PmaTestCase
         //$sql_query_disabled will show the import SQL detail
         global $sql_query, $sql_query_disabled;
         $sql_query_disabled = false;
-
-        $this->dbi->expects($this->any())->method('escapeString')
+        /**
+         * The \PhpMyAdmin\DatabaseInterface mocked object
+         * @var MockObject $dbi
+         */
+        $dbi = $this->dbi;
+        $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
-        $GLOBALS['dbi'] = $this->dbi;
+        $GLOBALS['dbi'] = $dbi;
 
         $ldi_local_option = true;
         $ldi_replace = true;
@@ -234,26 +251,26 @@ class ImportLdiTest extends PmaTestCase
 
         //asset that all sql are executed
         //replace
-        $this->assertContains(
+        $this->assertStringContainsString(
             "LOAD DATA LOCAL INFILE 'test/test_data/db_test_ldi.csv' REPLACE INTO "
             . "TABLE `phpmyadmintest`",
             $sql_query
         );
 
         //FIELDS TERMINATED
-        $this->assertContains(
+        $this->assertStringContainsString(
             "FIELDS TERMINATED BY ','",
             $sql_query
         );
 
         //LINES TERMINATED
-        $this->assertContains(
+        $this->assertStringContainsString(
             "LINES TERMINATED BY 'newline_mark'",
             $sql_query
         );
 
         //IGNORE
-        $this->assertContains(
+        $this->assertStringContainsString(
             "IGNORE 1 LINES",
             $sql_query
         );

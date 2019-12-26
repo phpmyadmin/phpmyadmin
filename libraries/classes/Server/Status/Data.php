@@ -6,6 +6,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Server\Status;
 
 use PhpMyAdmin\Url;
@@ -55,7 +57,7 @@ class Data
      */
     private function _getAllocations()
     {
-        return array(
+        return [
             // variable name => section
             // variable names match when they begin with the given string
 
@@ -99,7 +101,7 @@ class Data
             'Open_files'        => 'files',
             'Open_streams'      => 'files',
             'Opened_files'      => 'files',
-        );
+        ];
     }
 
     /**
@@ -109,7 +111,7 @@ class Data
      */
     private function _getSections()
     {
-        return array(
+        return [
             // section => section name (description)
             'com'           => 'Com',
             'query'         => __('SQL query'),
@@ -129,8 +131,8 @@ class Data
             'tc'            => __('Transaction coordinator'),
             'files'         => __('Files'),
             'ssl'           => 'SSL',
-            'other'         => __('Other')
-        );
+            'other'         => __('Other'),
+        ];
     }
 
     /**
@@ -140,7 +142,7 @@ class Data
      */
     private function _getLinks()
     {
-        $links = array();
+        $links = [];
         // variable or section name => (name => url)
 
         $links['table'][__('Flush (close) all tables')] = [
@@ -204,7 +206,7 @@ class Data
         ];
         $links['innodb']['doc'] = 'innodb';
 
-        return($links);
+        return $links;
     }
 
     /**
@@ -213,7 +215,7 @@ class Data
      * @param array $server_status    contains results of SHOW GLOBAL STATUS
      * @param array $server_variables contains results of SHOW GLOBAL VARIABLES
      *
-     * @return array $server_status
+     * @return array
      */
     private function _calculateValues(array $server_status, array $server_variables)
     {
@@ -265,7 +267,6 @@ class Data
             && isset($server_status['Connections'])
             && $server_status['Connections'] > 0
         ) {
-
             $server_status['Threads_cache_hitrate_%']
                 = 100 - $server_status['Threads_created']
                 / $server_status['Connections'] * 100;
@@ -285,7 +286,10 @@ class Data
      * @return array ($allocationMap, $sectionUsed, $used_queries)
      */
     private function _sortVariables(
-        array $server_status, array $allocations, array $allocationMap, array $sectionUsed,
+        array $server_status,
+        array $allocations,
+        array $allocationMap,
+        array $sectionUsed,
         array $used_queries
     ) {
         foreach ($server_status as $name => $value) {
@@ -306,7 +310,11 @@ class Data
                 $sectionUsed['other'] = true;
             }
         }
-        return array($allocationMap, $sectionUsed, $used_queries);
+        return [
+            $allocationMap,
+            $sectionUsed,
+            $used_queries,
+        ];
     }
 
     /**
@@ -318,7 +326,7 @@ class Data
 
         // get status from server
         $server_status_result = $GLOBALS['dbi']->tryQuery('SHOW GLOBAL STATUS');
-        $server_status = array();
+        $server_status = [];
         if ($server_status_result === false) {
             $this->dataLoaded = false;
         } else {
@@ -331,7 +339,9 @@ class Data
 
         // for some calculations we require also some server settings
         $server_variables = $GLOBALS['dbi']->fetchResult(
-            'SHOW GLOBAL VARIABLES', 0, 1
+            'SHOW GLOBAL VARIABLES',
+            0,
+            1
         );
 
         // cleanup of some deprecated values
@@ -339,7 +349,8 @@ class Data
 
         // calculate some values
         $server_status = $this->_calculateValues(
-            $server_status, $server_variables
+            $server_status,
+            $server_variables
         );
 
         // split variables in sections
@@ -351,20 +362,23 @@ class Data
         $links = $this->_getLinks();
 
         // Variable to contain all com_ variables (query statistics)
-        $used_queries = array();
+        $used_queries = [];
 
         // Variable to map variable names to their respective section name
         // (used for js category filtering)
-        $allocationMap = array();
+        $allocationMap = [];
 
         // Variable to mark used sections
-        $sectionUsed = array();
+        $sectionUsed = [];
 
         // sort vars into arrays
         list(
             $allocationMap, $sectionUsed, $used_queries
         ) = $this->_sortVariables(
-            $server_status, $allocations, $allocationMap, $sectionUsed,
+            $server_status,
+            $allocations,
+            $allocationMap,
+            $sectionUsed,
             $used_queries
         );
 
@@ -401,104 +415,16 @@ class Data
      */
     public static function cleanDeprecated(array $server_status)
     {
-        $deprecated = array(
+        $deprecated = [
             'Com_prepare_sql' => 'Com_stmt_prepare',
             'Com_execute_sql' => 'Com_stmt_execute',
             'Com_dealloc_sql' => 'Com_stmt_close',
-        );
+        ];
         foreach ($deprecated as $old => $new) {
             if (isset($server_status[$old]) && isset($server_status[$new])) {
                 unset($server_status[$old]);
             }
         }
         return $server_status;
-    }
-
-    /**
-     * Generates menu HTML
-     *
-     * @return string
-     */
-    public function getMenuHtml()
-    {
-        $url_params = Url::getCommon();
-        $items = array(
-            array(
-                'name' => __('Server'),
-                'url' => 'server_status.php'
-            ),
-            array(
-                'name' => __('Processes'),
-                'url' => 'server_status_processes.php'
-            ),
-            array(
-                'name' => __('Query statistics'),
-                'url' => 'server_status_queries.php'
-            ),
-            array(
-                'name' => __('All status variables'),
-                'url' => 'server_status_variables.php'
-            ),
-            array(
-                'name' => __('Monitor'),
-                'url' => 'server_status_monitor.php'
-            ),
-            array(
-                'name' => __('Advisor'),
-                'url' => 'server_status_advisor.php'
-            )
-        );
-
-        $retval  = '<ul id="topmenu2">';
-        foreach ($items as $item) {
-            $class = '';
-            if ($item['url'] === $this->selfUrl) {
-                $class = ' class="tabactive"';
-            }
-            $retval .= '<li>';
-            $retval .= '<a' . $class;
-            $retval .= ' href="' . $item['url'] . $url_params . '">';
-            $retval .= $item['name'];
-            $retval .= '</a>';
-            $retval .= '</li>';
-        }
-        $retval .= '</ul>';
-        $retval .= '<div class="clearfloat"></div>';
-
-        return $retval;
-    }
-
-    /**
-     * Builds a <select> list for refresh rates
-     *
-     * @param string $name         Name of select
-     * @param int    $defaultRate  Currently chosen rate
-     * @param array  $refreshRates List of refresh rates
-     *
-     * @return string
-     */
-    public static function getHtmlForRefreshList($name,
-        $defaultRate = 5,
-        array $refreshRates = array(1, 2, 5, 10, 20, 40, 60, 120, 300, 600)
-    ) {
-        $return = '<select name="' . $name . '" id="id_' . $name
-            . '" class="refreshRate">';
-        foreach ($refreshRates as $rate) {
-            $selected = ($rate == $defaultRate)?' selected="selected"':'';
-            $return .= '<option value="' . $rate . '"' . $selected . '>';
-            if ($rate < 60) {
-                $return .= sprintf(
-                    _ngettext('%d second', '%d seconds', $rate), $rate
-                );
-            } else {
-                $rate = $rate / 60;
-                $return .= sprintf(
-                    _ngettext('%d minute', '%d minutes', $rate), $rate
-                );
-            }
-            $return .=  '</option>';
-        }
-        $return .= '</select>';
-        return $return;
     }
 }

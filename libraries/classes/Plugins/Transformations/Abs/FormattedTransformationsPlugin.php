@@ -6,9 +6,12 @@
  * @package    PhpMyAdmin-Transformations
  * @subpackage Formatted
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\TransformationsPlugin;
+use stdClass;
 
 /**
  * Provides common methods for all of the formatted transformations plugins.
@@ -34,13 +37,13 @@ abstract class FormattedTransformationsPlugin extends TransformationsPlugin
     /**
      * Does the actual work of each specific transformations plugin.
      *
-     * @param string $buffer  text to be transformed
-     * @param array  $options transformation options
-     * @param string $meta    meta information
+     * @param string        $buffer  text to be transformed
+     * @param array         $options transformation options
+     * @param stdClass|null $meta    meta information
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = array(), $meta = '')
+    public function applyTransformation($buffer, array $options = [], ?stdClass $meta = null)
     {
         return '<iframe srcdoc="'
             . strtr($buffer, '"', '\'')

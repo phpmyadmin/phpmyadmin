@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\TwoFactor;
 
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
@@ -14,6 +16,8 @@ use PhpMyAdmin\Template;
  * Simple two-factor authentication auth asking just for confirmation.
  *
  * This has no practical use, but can be used for testing.
+ *
+ * @package PhpMyAdmin
  */
 class Simple extends TwoFactorPlugin
 {
@@ -39,7 +43,7 @@ class Simple extends TwoFactorPlugin
      */
     public function render()
     {
-        return Template::get('login/twofactor/simple')->render();
+        return $this->template->render('login/twofactor/simple');
     }
 
     /**

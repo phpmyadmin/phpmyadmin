@@ -9,6 +9,8 @@
  *
  * @package PhpMyAdmin-sysinfo
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\SysInfoBase;
@@ -20,7 +22,7 @@ use PhpMyAdmin\SysInfoBase;
  */
 class SysInfo
 {
-    const MEMORY_REGEXP = '/^(MemTotal|MemFree|Cached|Buffers|SwapCached|SwapTotal|SwapFree):\s+(.*)\s*kB/im';
+    public const MEMORY_REGEXP = '/^(MemTotal|MemFree|Cached|Buffers|SwapCached|SwapTotal|SwapFree):\s+(.*)\s*kB/im';
 
     /**
      * Returns OS type used for sysinfo class
@@ -32,7 +34,10 @@ class SysInfo
     public static function getOs($php_os = PHP_OS)
     {
         // look for common UNIX-like systems
-        $unix_like = array('FreeBSD', 'DragonFly');
+        $unix_like = [
+            'FreeBSD',
+            'DragonFly',
+        ];
         if (in_array($php_os, $unix_like)) {
             $php_os = 'Linux';
         }
@@ -43,16 +48,20 @@ class SysInfo
     /**
      * Gets sysinfo class mathing current OS
      *
-     * @return PhpMyAdmin\SysInfoBase|mixed sysinfo class
+     * @return SysInfoBase sysinfo class
      */
     public static function get()
     {
         $php_os = self::getOs();
-        $supported = array('Linux', 'WINNT', 'SunOS');
+        $supported = [
+            'Linux',
+            'WINNT',
+            'SunOS',
+        ];
 
         if (in_array($php_os, $supported)) {
             $class_name = 'PhpMyAdmin\SysInfo' . $php_os;
-            /** @var PhpMyAdmin\SysInfoBase $ret */
+            /** @var SysInfoBase $ret */
             $ret = new $class_name();
             if ($ret->supported()) {
                 return $ret;

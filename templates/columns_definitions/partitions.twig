@@ -30,14 +30,14 @@
         <td>
             (<input name="partition_expr" type="text"
                 placeholder="{% trans 'Expression or column list' %}"
-                value="{{ partition_details['partition_expr'] }}" />)
+                value="{{ partition_details['partition_expr'] }}">)
         </td>
     </tr>
     <tr class="vmiddle">
         <td><label for="partition_count">{% trans 'Partitions:' %}</label></td>
         <td colspan="2">
             <input name="partition_count" type="number" min="2"
-                value="{{ partition_details['partition_count'] }}" />
+                value="{{ partition_details['partition_count'] }}">
         </td>
     </tr>
     {% if partition_details['can_have_subpartitions'] %}
@@ -58,14 +58,14 @@
             <td>
                 (<input name="subpartition_expr" type="text"
                     placeholder="{% trans 'Expression or column list' %}"
-                    value="{{ partition_details['subpartition_expr'] }}" />)
+                    value="{{ partition_details['subpartition_expr'] }}">)
             </td>
         </tr>
         <tr class="vmiddle">
             <td><label for="subpartition_count">{% trans 'Subpartitions:' %}</label></td>
             <td colspan="2">
                 <input name="subpartition_count" type="number" min="2"
-                       value="{{ partition_details['subpartition_count'] }}" />
+                       value="{{ partition_details['subpartition_count'] }}">
             </td>
         </tr>
     {% endif %}
@@ -96,7 +96,7 @@
             <tr>
                 <td rowspan="{{ rowspan }}">
                     <input type="text" name="{{ partition['prefix'] }}[name]"
-                        value="{{ partition['name'] }}" />
+                        value="{{ partition['name'] }}">
                 </td>
                 {% if partition_details['value_enabled'] %}
                     <td rowspan="{{ rowspan }}" class="vmiddle">
@@ -113,7 +113,7 @@
                         </select>
                         <input type="text" class="partition_value"
                             name="{{ partition['prefix'] }}[value]"
-                            value="{{ partition['value'] }}" />
+                            value="{{ partition['value'] }}">
                     </td>
                 {% endif %}
             </tr>
@@ -130,11 +130,11 @@
                         and partition_details['subpartition_count'] > 1 %}
                         <td>
                             <input type="text" name="{{ subpartition['prefix'] }}[name]"
-                                value="{{ subpartition['name'] }}" />
+                                value="{{ subpartition['name'] }}">
                         </td>
                     {% endif %}
                     <td>
-                        {{ StorageEngine_getHtmlSelect(
+                        {{ get_html_select(
                             subpartition['prefix'] ~ '[engine]',
                             null,
                             subpartition['engine'],
@@ -151,27 +151,27 @@
                     </td>
                     <td>
                         <input type="text" name="{{ subpartition['prefix'] }}[data_directory]"
-                            value="{{ subpartition['data_directory'] }}" />
+                            value="{{ subpartition['data_directory'] }}">
                     </td>
                     <td>
                         <input type="text" name="{{ subpartition['prefix'] }}[index_directory]"
-                            value="{{ subpartition['index_directory'] }}" />
+                            value="{{ subpartition['index_directory'] }}">
                     </td>
                     <td>
                         <input type="number" name="{{ subpartition['prefix'] }}[max_rows]"
-                            value="{{ subpartition['max_rows'] }}" />
+                            value="{{ subpartition['max_rows'] }}">
                     </td>
                     <td>
                         <input type="number" min="0" name="{{ subpartition['prefix'] }}[min_rows]"
-                            value="{{ subpartition['min_rows'] }}" />
+                            value="{{ subpartition['min_rows'] }}">
                     </td>
                     <td>
                         <input type="text" min="0" name="{{ subpartition['prefix'] }}[tablespace]"
-                            value="{{ subpartition['tablespace'] }}" />
+                            value="{{ subpartition['tablespace'] }}">
                     </td>
                     <td>
                         <input type="text" name="{{ subpartition['prefix'] }}[node_group]"
-                            value="{{ subpartition['node_group'] }}" />
+                            value="{{ subpartition['node_group'] }}">
                     </td>
                 </tr>
             {% endfor %}

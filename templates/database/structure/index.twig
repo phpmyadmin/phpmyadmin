@@ -1,0 +1,24 @@
+{% if has_tables %}
+  <div id="tableslistcontainer">
+    {{ list_navigator_html|raw }}
+
+    {{ table_list_html|raw }}
+
+    {{ list_navigator_html|raw }}
+  </div>
+  <hr>
+  <p class="print_ignore">
+    <a href="#" id="printView">
+      {{ get_icon('b_print', 'Print'|trans, true) }}
+    </a>
+    <a href="db_datadict.php{{ get_common({'db': database, 'goto': 'db_structure.php'}) }}" target="print_view">
+      {{ get_icon('b_tblanalyse', 'Data dictionary'|trans, true) }}
+    </a>
+  </p>
+{% else %}
+  {{ 'No tables found in database.'|trans|notice }}
+{% endif %}
+
+{% if not is_system_schema %}
+  {{ create_table_html|raw }}
+{% endif %}

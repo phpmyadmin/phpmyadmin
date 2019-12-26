@@ -1,0 +1,78 @@
+<h2>
+  {{ get_image('s_vars') }}
+  {% trans 'Server variables and settings' %}
+  {{ show_mysql_docu('server_system_variables') }}
+</h2>
+
+{% if variables is not empty %}
+  <a href="server_variables.php{{ get_common() }}" class="ajax saveLink hide">
+    {{ get_icon('b_save', 'Save'|trans) }}
+  </a>
+  <a href="#" class="cancelLink hide">
+    {{ get_icon('b_close', 'Cancel'|trans) }}
+  </a>
+  {{ get_image('b_help', 'Documentation'|trans, {
+    'class': 'hide',
+    'id': 'docImage'
+  }) }}
+
+  {% include 'filter.twig' with {
+    'filter_value': filter_value
+  } only %}
+
+  <div class="responsivetable">
+    <table id="serverVariables" class="width100 data filteredData noclick">
+      <thead>
+        <tr class="var-header var-row">
+          <td class="var-action">{% trans 'Action' %}</td>
+          <td class="var-name">{% trans 'Variable' %}</td>
+          <td class="var-value">{% trans 'Value' %}</td>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for variable in variables %}
+          <tr class="var-row{{ variable.has_session_value ? ' diffSession' }}" data-filter-row="{{ variable.name|upper }}">
+            <td class="var-action">
+              {% if variable.is_editable %}
+                <a href="#" data-variable="{{ variable.name }}" class="editLink">{{ get_icon('b_edit', 'Edit'|trans) }}</a>
+              {% else %}
+                <span title="{% trans 'This is a read-only variable and can not be edited' %}" class="read_only_var">
+                  {{ get_icon('bd_edit', 'Edit'|trans) }}
+                </span>
+              {% endif %}
+            </td>
+            <td class="var-name">
+              {% if variable.doc_link != null %}
+                <span title="{{ variable.name|replace({'_': ' '}) }}">
+                  {{ variable.doc_link|raw }}
+                </span>
+              {% else %}
+                {{ variable.name|replace({'_': ' '}) }}
+              {% endif %}
+            </td>
+            <td class="var-value value{{ is_superuser ? ' editable' }}">
+              {% if variable.is_escaped %}
+                {{ variable.value|raw }}
+              {% else %}
+                {{ variable.value|e|replace({',': ',&#8203;'})|raw }}
+              {% endif %}
+            </td>
+          </tr>
+
+          {% if variable.has_session_value %}
+            <tr class="var-row diffSession" data-filter-row="{{ variable.name|upper }}">
+              <td class="var-action"></td>
+              <td class="var-name session">({% trans 'Session value' %})</td>
+              <td class="var-value value">{{ variable.session_value }}</td>
+            </tr>
+          {% endif %}
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% else %}
+  {{ 'Not enough privilege to view server variables and settings. %s'|trans|format(
+    link_to_var_documentation('show_compatibility_56', is_mariadb)
+  )|error }}
+{% endif %}

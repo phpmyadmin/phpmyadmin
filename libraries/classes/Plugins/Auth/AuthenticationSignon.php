@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Authentication
  * @subpackage SignOn
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Auth;
 
 use PhpMyAdmin\Core;
@@ -33,8 +35,8 @@ class AuthenticationSignon extends AuthenticationPlugin
             Core::sendHeaderLocation($GLOBALS['cfg']['Server']['SignonURL']);
         }
 
-        if (!defined('TESTSUITE')) {
-            exit();
+        if (! defined('TESTSUITE')) {
+            exit;
         } else {
             return false;
         }
@@ -46,7 +48,7 @@ class AuthenticationSignon extends AuthenticationPlugin
      * @param array $sessionCookieParams The cookie params
      * @return void
      */
-    public function setCookieParams(array $sessionCookieParams = null)
+    public function setCookieParams(array $sessionCookieParams = null): void
     {
         /* Session cookie params from config */
         if ($sessionCookieParams === null) {
@@ -70,14 +72,14 @@ class AuthenticationSignon extends AuthenticationPlugin
             return null;
         };
 
-        foreach (array('lifetime', 'path', 'domain', 'secure', 'httponly') as $key) {
+        foreach (['lifetime', 'path', 'domain', 'secure', 'httponly'] as $key) {
             if (! isset($sessionCookieParams[$key])) {
                 $sessionCookieParams[$key] = $defaultCookieParams($key);
             }
         }
 
         if (isset($sessionCookieParams['samesite'])
-            && ! in_array($sessionCookieParams['samesite'], array('Lax', 'Strict'))) {
+            && ! in_array($sessionCookieParams['samesite'], ['Lax', 'Strict'])) {
                 // Not a valid value for samesite
                 unset($sessionCookieParams['samesite']);
         }
@@ -126,11 +128,11 @@ class AuthenticationSignon extends AuthenticationPlugin
         $single_signon_port = $GLOBALS['cfg']['Server']['port'];
 
         /* No configuration updates */
-        $single_signon_cfgupdate = array();
+        $single_signon_cfgupdate = [];
 
         /* Handle script based auth */
-        if (!empty($script_name)) {
-            if (!@file_exists($script_name)) {
+        if (! empty($script_name)) {
+            if (! @file_exists($script_name)) {
                 Core::fatalError(
                     __('Can not find signon authentication script:')
                     . ' ' . $script_name
@@ -145,11 +147,11 @@ class AuthenticationSignon extends AuthenticationPlugin
             $old_session = session_name();
             $old_id = session_id();
             $oldCookieParams = session_get_cookie_params();
-            if (!defined('TESTSUITE')) {
+            if (! defined('TESTSUITE')) {
                 session_write_close();
             }
             /* Load single signon session */
-            if (!defined('TESTSUITE')) {
+            if (! defined('TESTSUITE')) {
                 $this->setCookieParams();
                 session_name($session_name);
                 session_id($_COOKIE[$session_name]);
@@ -185,15 +187,15 @@ class AuthenticationSignon extends AuthenticationPlugin
             }
 
             /* End single signon session */
-            if (!defined('TESTSUITE')) {
+            if (! defined('TESTSUITE')) {
                 session_write_close();
             }
 
             /* Restart phpMyAdmin session */
-            if (!defined('TESTSUITE')) {
+            if (! defined('TESTSUITE')) {
                 $this->setCookieParams($oldCookieParams);
                 session_name($old_session);
-                if (!empty($old_id)) {
+                if (! empty($old_id)) {
                     session_id($old_id);
                 }
                 session_start();
@@ -212,7 +214,7 @@ class AuthenticationSignon extends AuthenticationPlugin
             );
 
             /* Restore our token */
-            if (!empty($pma_token)) {
+            if (! empty($pma_token)) {
                 $_SESSION[' PMA_token '] = $pma_token;
                 $_SESSION[' HMAC_secret '] = Util::generateRandom(16);
             }
@@ -251,7 +253,7 @@ class AuthenticationSignon extends AuthenticationPlugin
 
         /* Does session exist? */
         if (isset($_COOKIE[$session_name])) {
-            if (!defined('TESTSUITE')) {
+            if (! defined('TESTSUITE')) {
                 /* End current session */
                 session_write_close();
 

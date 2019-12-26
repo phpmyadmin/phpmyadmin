@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Schema\Svg;
 
 use PhpMyAdmin\Core;
@@ -144,11 +146,11 @@ class Svg extends XMLWriter
     {
         $this->startElement('svg');
 
-        if (!is_int($width)) {
+        if (! is_int($width)) {
             $width = intval($width);
         }
 
-        if (!is_int($height)) {
+        if (! is_int($height)) {
             $height = intval($height);
         }
 
@@ -205,18 +207,18 @@ class Svg extends XMLWriter
      * and other elements who have x,y co-ordinates are drawn.
      * specify their width and height and can give styles too.
      *
-     * @param string     $name   RelationStatsSvg element name
-     * @param int        $x      The x attr defines the left position of the element
-     *                           (e.g. x="0" places the element 0 pixels from the
-     *                           left of the browser window)
-     * @param integer    $y      The y attribute defines the top position of the
-     *                           element (e.g. y="0" places the element 0 pixels
-     *                           from the top of the browser window)
-     * @param int|string $width  The width attribute defines the width the element
-     * @param int|string $height The height attribute defines the height the element
-     * @param string     $text   The text attribute defines the text the element
-     * @param string     $styles The style attribute defines the style the element
-     *                           styles can be defined like CSS styles
+     * @param string      $name   RelationStatsSvg element name
+     * @param int         $x      The x attr defines the left position of the element
+     *                            (e.g. x="0" places the element 0 pixels from the
+     *                            left of the browser window)
+     * @param integer     $y      The y attribute defines the top position of the
+     *                            element (e.g. y="0" places the element 0 pixels
+     *                            from the top of the browser window)
+     * @param int|string  $width  The width attribute defines the width the element
+     * @param int|string  $height The height attribute defines the height the element
+     * @param string|null $text   The text attribute defines the text the element
+     * @param string      $styles The style attribute defines the style the element
+     *                            styles can be defined like CSS styles
      *
      * @return void
      *
@@ -229,17 +231,17 @@ class Svg extends XMLWriter
         $y,
         $width = '',
         $height = '',
-        $text = '',
+        ?string $text = '',
         $styles = ''
     ) {
         $this->startElement($name);
-        $this->writeAttribute('width', $width);
-        $this->writeAttribute('height', $height);
-        $this->writeAttribute('x', $x);
-        $this->writeAttribute('y', $y);
-        $this->writeAttribute('style', $styles);
+        $this->writeAttribute('width', (string) $width);
+        $this->writeAttribute('height', (string) $height);
+        $this->writeAttribute('x', (string) $x);
+        $this->writeAttribute('y', (string) $y);
+        $this->writeAttribute('style', (string) $styles);
         if (isset($text)) {
-            $this->writeAttribute('font-family', $this->font);
+            $this->writeAttribute('font-family', (string) $this->font);
             $this->writeAttribute('font-size', $this->fontSize . 'px');
             $this->text($text);
         }

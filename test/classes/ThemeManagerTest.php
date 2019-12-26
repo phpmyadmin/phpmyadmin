@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
@@ -23,7 +25,7 @@ class ThemeManagerTest extends PmaTestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['cfg']['ThemePerServer'] = false;
         $GLOBALS['cfg']['ThemeDefault'] = 'pmahomme';
@@ -71,7 +73,7 @@ class ThemeManagerTest extends PmaTestCase
     public function testHtmlSelectBox()
     {
         $tm = new ThemeManager();
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<option value="pmahomme" selected="selected">',
             $tm->getHtmlSelectBox()
         );
@@ -99,24 +101,10 @@ class ThemeManagerTest extends PmaTestCase
     {
         $tm = new ThemeManager();
         $preview = $tm->getPrintPreviews();
-        $this->assertContains('<div class="theme_preview"', $preview);
-        $this->assertContains('Original', $preview);
-        $this->assertContains('set_theme=original', $preview);
-        $this->assertContains('pmahomme', $preview);
-        $this->assertContains('set_theme=pmahomme', $preview);
-    }
-
-    /**
-     * Test for getFallBackTheme
-     *
-     * @return void
-     */
-    public function testGetFallBackTheme()
-    {
-        $tm = new ThemeManager();
-        $this->assertInstanceOf(
-            'PhpMyAdmin\Theme',
-            $tm->getFallBackTheme()
-        );
+        $this->assertStringContainsString('<div class="theme_preview"', $preview);
+        $this->assertStringContainsString('Original', $preview);
+        $this->assertStringContainsString('set_theme=original', $preview);
+        $this->assertStringContainsString('pmahomme', $preview);
+        $this->assertStringContainsString('set_theme=pmahomme', $preview);
     }
 }

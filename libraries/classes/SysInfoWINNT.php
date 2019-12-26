@@ -5,10 +5,13 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use COM;
 use PhpMyAdmin\SysInfoBase;
+use function is_string;
 
 /**
  * Windows NT based SysInfo class
@@ -25,7 +28,7 @@ class SysInfoWINNT extends SysInfoBase
      */
     public function __construct()
     {
-        if (!class_exists('COM')) {
+        if (! class_exists('COM')) {
             $this->_wmi = null;
         } else {
             // initialize the wmi object
@@ -39,29 +42,27 @@ class SysInfoWINNT extends SysInfoBase
      *
      * @return array with load data
      */
-    function loadavg()
+    public function loadavg()
     {
-        $loadavg = "";
         $sum = 0;
-        $buffer = $this->_getWMI('Win32_Processor', array('LoadPercentage'));
+        $buffer = $this->_getWMI('Win32_Processor', ['LoadPercentage']);
 
         foreach ($buffer as $load) {
             $value = $load['LoadPercentage'];
-            $loadavg .= $value . ' ';
             $sum += $value;
         }
 
-        return array('loadavg' => $sum / count($buffer));
+        return ['loadavg' => $sum / count($buffer)];
     }
 
     /**
      * Checks whether class is supported in this environment
      *
-     * @return true on success
+     * @return bool true on success
      */
     public function supported()
     {
-        return !is_null($this->_wmi);
+        return $this->_wmi !== null;
     }
 
     /**
@@ -72,15 +73,15 @@ class SysInfoWINNT extends SysInfoBase
      *
      * @return array with results
      */
-    private function _getWMI($strClass, array $strValue = array())
+    private function _getWMI($strClass, array $strValue = [])
     {
-        $arrData = array();
+        $arrData = [];
 
         $objWEBM = $this->_wmi->Get($strClass);
         $arrProp = $objWEBM->Properties_;
         $arrWEBMCol = $objWEBM->Instances_();
         foreach ($arrWEBMCol as $objItem) {
-            $arrInstance = array();
+            $arrInstance = [];
             foreach ($arrProp as $propItem) {
                 $name = $propItem->Name;
                 if (empty($strValue) || in_array($name, $strValue)) {
@@ -103,13 +104,16 @@ class SysInfoWINNT extends SysInfoBase
      *
      * @return array with memory usage data
      */
-    function memory()
+    public function memory()
     {
         $buffer = $this->_getWMI(
             "Win32_OperatingSystem",
-            array('TotalVisibleMemorySize', 'FreePhysicalMemory')
+            [
+                'TotalVisibleMemorySize',
+                'FreePhysicalMemory',
+            ]
         );
-        $mem = Array();
+        $mem = [];
         $mem['MemTotal'] = $buffer[0]['TotalVisibleMemorySize'];
         $mem['MemFree'] = $buffer[0]['FreePhysicalMemory'];
         $mem['MemUsed'] = $mem['MemTotal'] - $mem['MemFree'];

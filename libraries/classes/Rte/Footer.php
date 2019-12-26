@@ -5,9 +5,11 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Rte;
 
-use PhpMyAdmin\Rte\Words;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Util;
 
 /**
@@ -18,6 +20,27 @@ use PhpMyAdmin\Util;
 class Footer
 {
     /**
+     * @var Words
+     */
+    private $words;
+
+    /**
+     * @var DatabaseInterface
+     */
+    private $dbi;
+
+    /**
+     * Footer constructor.
+     *
+     * @param DatabaseInterface $dbi DatabaseInterface object
+     */
+    public function __construct(DatabaseInterface $dbi)
+    {
+        $this->dbi = $dbi;
+        $this->words = new Words();
+    }
+
+    /**
      * Creates a fieldset for adding a new item, if the user has the privileges.
      *
      * @param string $docu String used to create a link to the MySQL docs
@@ -26,7 +49,7 @@ class Footer
      *
      * @return string An HTML snippet with the link to add a new item
      */
-    private static function getLinks($docu, $priv, $name)
+    private function getLinks($docu, $priv, $name)
     {
         global $db, $table, $url_query;
 
@@ -43,11 +66,11 @@ class Footer
             $retval .= "onclick='$.datepicker.initialized = false;'>";
             $icon = 'b_' . $icon;
             $retval .= Util::getIcon($icon);
-            $retval .= Words::get('add') . "</a>\n";
+            $retval .= $this->words->get('add') . "</a>\n";
         } else {
             $icon = 'bd_' . $icon;
             $retval .= Util::getIcon($icon);
-            $retval .= Words::get('add') . "\n";
+            $retval .= $this->words->get('add') . "\n";
         }
         $retval .= "            " . Util::showMySQLDocu($docu) . "\n";
         $retval .= "        </div>\n";
@@ -55,34 +78,34 @@ class Footer
         $retval .= "<!-- ADD " . $name . " FORM END -->\n\n";
 
         return $retval;
-    } // end self::getLinks()
+    }
 
     /**
      * Creates a fieldset for adding a new routine, if the user has the privileges.
      *
      * @return string    HTML code with containing the footer fieldset
      */
-    public static function routines()
+    public function routines()
     {
-        return self::getLinks('CREATE_PROCEDURE', 'CREATE ROUTINE', 'ROUTINE');
-    }// end self::routines()
+        return $this->getLinks('CREATE_PROCEDURE', 'CREATE ROUTINE', 'ROUTINE');
+    }
 
     /**
      * Creates a fieldset for adding a new trigger, if the user has the privileges.
      *
      * @return string    HTML code with containing the footer fieldset
      */
-    public static function triggers()
+    public function triggers()
     {
-        return self::getLinks('CREATE_TRIGGER', 'TRIGGER', 'TRIGGER');
-    } // end self::triggers()
+        return $this->getLinks('CREATE_TRIGGER', 'TRIGGER', 'TRIGGER');
+    }
 
     /**
      * Creates a fieldset for adding a new event, if the user has the privileges.
      *
      * @return string    HTML code with containing the footer fieldset
      */
-    public static function events()
+    public function events()
     {
         global $db, $url_query;
 
@@ -91,29 +114,29 @@ class Footer
          * a form for toggling the state of the event scheduler
          */
         // Init options for the event scheduler toggle functionality
-        $es_state = $GLOBALS['dbi']->fetchValue(
+        $es_state = $this->dbi->fetchValue(
             "SHOW GLOBAL VARIABLES LIKE 'event_scheduler'",
             0,
             1
         );
         $es_state = mb_strtolower($es_state);
-        $options = array(
-                        0 => array(
-                            'label' => __('OFF'),
-                            'value' => "SET GLOBAL event_scheduler=\"OFF\"",
-                            'selected' => ($es_state != 'on')
-                        ),
-                        1 => array(
-                            'label' => __('ON'),
-                            'value' => "SET GLOBAL event_scheduler=\"ON\"",
-                            'selected' => ($es_state == 'on')
-                        )
-                   );
+        $options = [
+            0 => [
+                'label' => __('OFF'),
+                'value' => "SET GLOBAL event_scheduler=\"OFF\"",
+                'selected' => $es_state != 'on',
+            ],
+            1 => [
+                'label' => __('ON'),
+                'value' => "SET GLOBAL event_scheduler=\"ON\"",
+                'selected' => $es_state == 'on',
+            ],
+        ];
         // Generate output
         $retval  = "<!-- FOOTER LINKS START -->\n";
         $retval .= "<div class='doubleFieldset'>\n";
         // show the usual footer
-        $retval .= self::getLinks('CREATE_EVENT', 'EVENT', 'EVENT');
+        $retval .= $this->getLinks('CREATE_EVENT', 'EVENT', 'EVENT');
         $retval .= "    <fieldset class='right'>\n";
         $retval .= "        <legend>\n";
         $retval .= "            " . __('Event scheduler status') . "\n";
@@ -124,7 +147,7 @@ class Footer
             "sql.php$url_query&amp;goto=db_events.php" . urlencode("?db=$db"),
             'sql_query',
             $options,
-            'PMA_slidingMessage(data.sql_query);'
+            'Functions.slidingMessage(data.sql_query);'
         );
         $retval .= "        </div>\n";
         $retval .= "    </fieldset>\n";
@@ -133,5 +156,5 @@ class Footer
         $retval .= "<!-- FOOTER LINKS END -->\n";
 
         return $retval;
-    } // end self::events()
+    }
 }

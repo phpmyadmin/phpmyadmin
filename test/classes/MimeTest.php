@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Mime;
@@ -26,7 +28,7 @@ class MimeTest extends TestCase
      * @return void
      * @dataProvider providerForTestDetect
      */
-    public function testDetect($test, $output)
+    public function testDetect($test, $output): void
     {
 
         $this->assertEquals(
@@ -42,23 +44,23 @@ class MimeTest extends TestCase
      */
     public function providerForTestDetect()
     {
-        return array(
-            array(
+        return [
+            [
                 'pma',
-                'application/octet-stream'
-            ),
-            array(
+                'application/octet-stream',
+            ],
+            [
                 'GIF',
-                'image/gif'
-            ),
-            array(
+                'image/gif',
+            ],
+            [
                 "\x89PNG",
-                'image/png'
-            ),
-            array(
+                'image/png',
+            ],
+            [
                 chr(0xff) . chr(0xd8),
-                'image/jpeg'
-            ),
-        );
+                'image/jpeg',
+            ],
+        ];
     }
 }

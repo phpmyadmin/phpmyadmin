@@ -5,7 +5,7 @@
         {% set num_tables_trans -%}
             {% trans %}%s table{% plural num_tables %}%s tables{% endtrans %}
         {%- endset %}
-        {{ num_tables_trans|format(Util_formatNumber(num_tables, 0)) }}
+        {{ num_tables_trans|format(format_number(num_tables, 0)) }}
     </th>
     {% if server_slave_status %}
         <th>{% trans 'Replication' %}</th>
@@ -15,7 +15,7 @@
         {% set sum_colspan = sum_colspan - 1 %}
     {% endif %}
     <th colspan="{{ sum_colspan }}" class="print_ignore">{% trans 'Sum' %}</th>
-    {% set row_count_sum = Util_formatNumber(sum_entries, 0) %}
+    {% set row_count_sum = format_number(sum_entries, 0) %}
     {# If a table shows approximate rows count, display update-all-real-count anchor. #}
     {% set row_sum_url = [] %}
     {% if approx_rows is defined %}
@@ -29,7 +29,7 @@
     {% if approx_rows %}
         {% set cell_text -%}
             <a href="db_structure.php
-                {{- Url_getCommon(row_sum_url) }}" class="ajax row_count_sum">~
+                {{- get_common(row_sum_url) }}" class="ajax row_count_sum">~
                 {{- row_count_sum -}}
             </a>
         {%- endset %}
@@ -50,45 +50,45 @@
             </dfn>
         </th>
         <th>
-            {% if db_collation is not empty %}
-                <dfn title="{{ Charsets_getCollationDescr(db_collation) }} ({% trans 'Default' %})">
-                    {{ db_collation }}
+            {% if database_collation is not empty %}
+                <dfn title="{{ database_collation.description }} ({% trans 'Default' %})">
+                    {{ database_collation.name }}
                 </dfn>
             {% endif %}
         </th>
     {% endif %}
 
     {% if is_show_stats %}
-        {% set sum = Util_formatByteDown(sum_size, 3, 1) %}
+        {% set sum = format_byte_down(sum_size, 3, 1) %}
         {% set sum_formatted = sum[0] %}
         {% set sum_unit = sum[1] %}
         <th class="value tbl_size">{{ sum_formatted }} {{ sum_unit }}</th>
 
-        {% set overhead = Util_formatByteDown(overhead_size, 3, 1) %}
+        {% set overhead = format_byte_down(overhead_size, 3, 1) %}
         {% set overhead_formatted = overhead[0] %}
         {% set overhead_unit = overhead[1] %}
         <th class="value tbl_overhead">{{ overhead_formatted }} {{ overhead_unit }}</th>
     {% endif %}
 
     {% if show_charset %}
-        <th>{{ db_charset }}</th>
+        <th>{{ database_charset }}</th>
     {% endif %}
     {% if show_comment %}
         <th></th>
     {% endif %}
     {% if show_creation %}
         <th class="value tbl_creation">
-            {{ create_time_all ? Util_localisedDate(strtotime(create_time_all)) : '-' }}
+            {{ create_time_all }}
         </th>
     {% endif %}
     {% if show_last_update %}
         <th class="value tbl_last_update">
-            {{ update_time_all ? Util_localisedDate(strtotime(update_time_all)) : '-' }}
+            {{ update_time_all }}
         </th>
     {% endif %}
     {% if show_last_check %}
         <th class="value tbl_last_check">
-            {{ check_time_all ? Util_localisedDate(strtotime(check_time_all)) : '-' }}
+            {{ check_time_all }}
         </th>
     {% endif %}
 </tr>

@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Sanitize;
@@ -18,15 +20,6 @@ use PHPUnit\Framework\TestCase;
 class SanitizeTest extends TestCase
 {
     /**
-     * Setup various pre conditions
-     *
-     * @return void
-     */
-    function setUp()
-    {
-    }
-
-    /**
      * Tests for proper escaping of XSS.
      *
      * @return void
@@ -35,7 +28,7 @@ class SanitizeTest extends TestCase
     {
         $this->assertEquals(
             '[a@javascript:alert(\'XSS\');@target]link</a>',
-            Sanitize::sanitize('[a@javascript:alert(\'XSS\');@target]link[/a]')
+            Sanitize::sanitizeMessage('[a@javascript:alert(\'XSS\');@target]link[/a]')
         );
     }
 
@@ -52,7 +45,7 @@ class SanitizeTest extends TestCase
         unset($GLOBALS['lang']);
         $this->assertEquals(
             '<a href="./url.php?url=https%3A%2F%2Fwww.phpmyadmin.net%2F" target="target">link</a>',
-            Sanitize::sanitize('[a@https://www.phpmyadmin.net/@target]link[/a]')
+            Sanitize::sanitizeMessage('[a@https://www.phpmyadmin.net/@target]link[/a]')
         );
 
         $GLOBALS['lang'] = $lang;
@@ -61,15 +54,18 @@ class SanitizeTest extends TestCase
     /**
      * Tests links to documentation.
      *
+     * @param string $link     link
+     * @param string $expected expected result
+     *
      * @return void
      *
      * @dataProvider docLinks
      */
-    public function testDoc($link, $expected)
+    public function testDoc($link, $expected): void
     {
         $this->assertEquals(
             '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2F' . $expected . '" target="documentation">doclink</a>',
-            Sanitize::sanitize('[doc@' . $link . ']doclink[/doc]')
+            Sanitize::sanitizeMessage('[doc@' . $link . ']doclink[/doc]')
         );
     }
 
@@ -80,12 +76,24 @@ class SanitizeTest extends TestCase
      */
     public function docLinks()
     {
-        return array(
-            array('foo', 'setup.html%23foo'),
-            array('cfg_TitleTable', 'config.html%23cfg_TitleTable'),
-            array('faq3-11', 'faq.html%23faq3-11'),
-            array('bookmarks@', 'bookmarks.html'),
-        );
+        return [
+            [
+                'foo',
+                'setup.html%23foo',
+            ],
+            [
+                'cfg_TitleTable',
+                'config.html%23cfg_TitleTable',
+            ],
+            [
+                'faq3-11',
+                'faq.html%23faq3-11',
+            ],
+            [
+                'bookmarks@',
+                'bookmarks.html',
+            ],
+        ];
     }
 
     /**
@@ -97,7 +105,7 @@ class SanitizeTest extends TestCase
     {
         $this->assertEquals(
             '[a@./Documentation.html@INVALID9]doc</a>',
-            Sanitize::sanitize('[a@./Documentation.html@INVALID9]doc[/a]')
+            Sanitize::sanitizeMessage('[a@./Documentation.html@INVALID9]doc[/a]')
         );
     }
 
@@ -110,7 +118,7 @@ class SanitizeTest extends TestCase
     {
         $this->assertEquals(
             '[a@./Documentation.html" onmouseover="alert(foo)"]doc</a>',
-            Sanitize::sanitize('[a@./Documentation.html" onmouseover="alert(foo)"]doc[/a]')
+            Sanitize::sanitizeMessage('[a@./Documentation.html" onmouseover="alert(foo)"]doc[/a]')
         );
     }
 
@@ -123,7 +131,7 @@ class SanitizeTest extends TestCase
     {
         $this->assertEquals(
             '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2F">doc</a>[a@javascript:alert(\'XSS\');@target]link</a>',
-            Sanitize::sanitize('[a@https://docs.phpmyadmin.net/]doc[/a][a@javascript:alert(\'XSS\');@target]link[/a]')
+            Sanitize::sanitizeMessage('[a@https://docs.phpmyadmin.net/]doc[/a][a@javascript:alert(\'XSS\');@target]link[/a]')
         );
     }
 
@@ -136,7 +144,7 @@ class SanitizeTest extends TestCase
     {
         $this->assertEquals(
             '&lt;div onclick=""&gt;',
-            Sanitize::sanitize('<div onclick="">')
+            Sanitize::sanitizeMessage('<div onclick="">')
         );
     }
 
@@ -149,7 +157,7 @@ class SanitizeTest extends TestCase
     {
         $this->assertEquals(
             '<strong>strong</strong>',
-            Sanitize::sanitize('[strong]strong[/strong]')
+            Sanitize::sanitizeMessage('[strong]strong[/strong]')
         );
     }
 
@@ -162,7 +170,7 @@ class SanitizeTest extends TestCase
     {
         $this->assertEquals(
             '&lt;strong&gt;strong&lt;/strong&gt;',
-            Sanitize::sanitize('[strong]strong[/strong]', true)
+            Sanitize::sanitizeMessage('[strong]strong[/strong]', true)
         );
     }
 
@@ -190,11 +198,15 @@ class SanitizeTest extends TestCase
      *
      * @return void
      */
-    public function testGetJsValue($key, $value, $expected)
+    public function testGetJsValue($key, $value, $expected): void
     {
         $this->assertEquals($expected, Sanitize::getJsValue($key, $value));
         $this->assertEquals('foo = 100', Sanitize::getJsValue('foo', '100', false));
-        $array = array('1','2','3');
+        $array = [
+            '1',
+            '2',
+            '3',
+        ];
         $this->assertEquals(
             "foo = [\"1\",\"2\",\"3\",];\n",
             Sanitize::getJsValue('foo', $array)
@@ -222,15 +234,43 @@ class SanitizeTest extends TestCase
      */
     public function variables()
     {
-        return array(
-            array('foo', true, "foo = true;\n"),
-            array('foo', false, "foo = false;\n"),
-            array('foo', 100, "foo = 100;\n"),
-            array('foo', 0, "foo = 0;\n"),
-            array('foo', 'text', "foo = \"text\";\n"),
-            array('foo', 'quote"', "foo = \"quote\\\"\";\n"),
-            array('foo', 'apostroph\'', "foo = \"apostroph\\'\";\n"),
-        );
+        return [
+            [
+                'foo',
+                true,
+                "foo = true;\n",
+            ],
+            [
+                'foo',
+                false,
+                "foo = false;\n",
+            ],
+            [
+                'foo',
+                100,
+                "foo = 100;\n",
+            ],
+            [
+                'foo',
+                0,
+                "foo = 0;\n",
+            ],
+            [
+                'foo',
+                'text',
+                "foo = \"text\";\n",
+            ],
+            [
+                'foo',
+                'quote"',
+                "foo = \"quote\\\"\";\n",
+            ],
+            [
+                'foo',
+                'apostroph\'',
+                "foo = \"apostroph\\'\";\n",
+            ],
+        ];
     }
 
     /**
@@ -243,7 +283,7 @@ class SanitizeTest extends TestCase
      *
      * @dataProvider escapeDataProvider
      */
-    public function testEscapeJsString($target, $source)
+    public function testEscapeJsString($target, $source): void
     {
         $this->assertEquals($target, Sanitize::escapeJsString($source));
     }
@@ -255,17 +295,32 @@ class SanitizeTest extends TestCase
      */
     public function escapeDataProvider()
     {
-        return array(
-            array('\\\';', '\';'),
-            array('\r\n\\\'<scrIpt></\' + \'script>', "\r\n'<scrIpt></sCRIPT>"),
-            array('\\\';[XSS]', '\';[XSS]'),
-            array(
-                    '</\' + \'script></head><body>[HTML]',
-                    '</SCRIPT></head><body>[HTML]'
-            ),
-            array('\"\\\'\\\\\\\'\"', '"\'\\\'"'),
-            array("\\\\\'\'\'\'\'\'\'\'\'\'\'\'\\\\", "\\''''''''''''\\")
-        );
+        return [
+            [
+                '\\\';',
+                '\';',
+            ],
+            [
+                '\r\n\\\'<scrIpt></\' + \'script>',
+                "\r\n'<scrIpt></sCRIPT>",
+            ],
+            [
+                '\\\';[XSS]',
+                '\';[XSS]',
+            ],
+            [
+                '</\' + \'script></head><body>[HTML]',
+                '</SCRIPT></head><body>[HTML]',
+            ],
+            [
+                '\"\\\'\\\\\\\'\"',
+                '"\'\\\'"',
+            ],
+            [
+                "\\\\\'\'\'\'\'\'\'\'\'\'\'\'\\\\",
+                "\\''''''''''''\\",
+            ],
+        ];
     }
 
     /**
@@ -278,11 +333,13 @@ class SanitizeTest extends TestCase
         $_REQUEST['foo'] = 'bar';
         $_REQUEST['allow'] = 'all';
         $_REQUEST['second'] = 1;
-        $allow_list = array('allow', 'second');
+        $allow_list = [
+            'allow',
+            'second',
+        ];
         Sanitize::removeRequestVars($allow_list);
         $this->assertArrayNotHasKey('foo', $_REQUEST);
         $this->assertArrayNotHasKey('second', $_REQUEST);
         $this->assertArrayHasKey('allow', $_REQUEST);
     }
-
 }

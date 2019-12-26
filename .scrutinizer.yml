@@ -11,12 +11,18 @@ filter:
         - vendor/
 checks:
     javascript: true
+    php: true
 build:
-    dependencies:
-        before:
-            - composer install
-            - composer require tecnickcom/tcpdf pragmarx/google2fa bacon/bacon-qr-code samyoul/u2f-php-server
-    tests:
-        override:
-            - php-scrutinizer-run
-            - phpcs-run
+    nodes:
+        analysis:
+            environment:
+                php: 7.1
+                node: 10
+            dependencies:
+                before:
+                    - composer install
+                    - composer require tecnickcom/tcpdf pragmarx/google2fa-qrcode samyoul/u2f-php-server
+            tests:
+                override:
+                    - php-scrutinizer-run
+                    - phpcs-run

@@ -5,28 +5,41 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\UserGroups;
 use PhpMyAdmin\Server\Users;
 
-require_once 'libraries/common.inc.php';
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
 
-$relation = new Relation();
+require_once ROOT_PATH . 'libraries/common.inc.php';
+
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $containerBuilder->get(DatabaseInterface::class);
+
+/** @var Relation $relation */
+$relation = $containerBuilder->get('relation');
 $cfgRelation = $relation->getRelationsParam();
 if (! $cfgRelation['menuswork']) {
     exit;
 }
 
-$response = Response::getInstance();
-$header   = $response->getHeader();
-$scripts  = $header->getScripts();
-$scripts->addFile('server_user_groups.js');
+$header = $response->getHeader();
+$scripts = $header->getScripts();
+$scripts->addFile('server/user_groups.js');
 
 /**
  * Only allowed to superuser
  */
-if (! $GLOBALS['dbi']->isSuperuser()) {
+if (! $dbi->isSuperuser()) {
     $response->addHTML(
         PhpMyAdmin\Message::error(__('No Privileges'))
             ->getDisplay()

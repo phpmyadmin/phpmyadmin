@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
@@ -23,7 +25,7 @@ class NodeTableContainerTest extends PmaTestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
@@ -45,11 +47,11 @@ class NodeTableContainerTest extends PmaTestCase
             'text',
             $parent->links
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'db_structure.php',
             $parent->links['text']
         );
-        $this->assertEquals('tables', $parent->real_name);
-        $this->assertContains('tableContainer', $parent->classes);
+        $this->assertEquals('tables', $parent->realName);
+        $this->assertStringContainsString('tableContainer', $parent->classes);
     }
 }

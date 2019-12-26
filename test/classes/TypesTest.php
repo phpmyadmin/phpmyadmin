@@ -4,6 +4,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Tests\PmaTestCase;
@@ -27,7 +29,7 @@ class TypesTest extends PmaTestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->object = new Types($GLOBALS['dbi']);
     }
@@ -51,12 +53,12 @@ class TypesTest extends PmaTestCase
     public function testGetUnaryOperators()
     {
         $this->assertEquals(
-            array(
+            [
                 'IS NULL',
                 'IS NOT NULL',
                 "= ''",
                 "!= ''",
-            ),
+            ],
             $this->object->getUnaryOperators()
         );
     }
@@ -69,10 +71,10 @@ class TypesTest extends PmaTestCase
     public function testGetNullOperators()
     {
         $this->assertEquals(
-            array(
+            [
                 'IS NULL',
                 'IS NOT NULL',
-            ),
+            ],
             $this->object->getNullOperators()
         );
     }
@@ -85,10 +87,10 @@ class TypesTest extends PmaTestCase
     public function testGetEnumOperators()
     {
         $this->assertEquals(
-            array(
+            [
                 '=',
                 '!=',
-            ),
+            ],
             $this->object->getEnumOperators()
         );
     }
@@ -101,7 +103,7 @@ class TypesTest extends PmaTestCase
     public function testgetTextOperators()
     {
         $this->assertEquals(
-            array(
+            [
                 'LIKE',
                 'LIKE %...%',
                 'NOT LIKE',
@@ -116,7 +118,7 @@ class TypesTest extends PmaTestCase
                 'NOT IN (...)',
                 'BETWEEN',
                 'NOT BETWEEN',
-            ),
+            ],
             $this->object->getTextOperators()
         );
     }
@@ -129,7 +131,7 @@ class TypesTest extends PmaTestCase
     public function testGetNumberOperators()
     {
         $this->assertEquals(
-            array(
+            [
                 '=',
                 '>',
                 '>=',
@@ -143,7 +145,7 @@ class TypesTest extends PmaTestCase
                 'NOT IN (...)',
                 'BETWEEN',
                 'NOT BETWEEN',
-            ),
+            ],
             $this->object->getNumberOperators()
         );
     }
@@ -159,7 +161,7 @@ class TypesTest extends PmaTestCase
      *
      * @dataProvider providerForGetTypeOperators
      */
-    public function testGetTypeOperators($type, $null, $output)
+    public function testGetTypeOperators($type, $null, $output): void
     {
         $this->assertEquals(
             $output,
@@ -170,23 +172,23 @@ class TypesTest extends PmaTestCase
     /**
      * data provider for testGetTypeOperators
      *
-     * @return data for testGetTypeOperators
+     * @return array data for testGetTypeOperators
      */
     public function providerForGetTypeOperators()
     {
-        return array(
-            array(
+        return [
+            [
                 'enum',
                 false,
-                array(
+                [
                     '=',
                     '!=',
-                )
-            ),
-            array(
+                ],
+            ],
+            [
                 'CHAR',
                 true,
-                array(
+                [
                     'LIKE',
                     'LIKE %...%',
                     'NOT LIKE',
@@ -203,17 +205,17 @@ class TypesTest extends PmaTestCase
                     'NOT BETWEEN',
                     'IS NULL',
                     'IS NOT NULL',
-                ),
-                array(
+                ],
+                [
                     'int',
                     false,
-                    array(
+                    [
                         '=',
                         '!=',
-                    )
-                ),
-            )
-        );
+                    ],
+                ],
+            ],
+        ];
     }
 
     /**
@@ -229,7 +231,10 @@ class TypesTest extends PmaTestCase
      * @dataProvider providerForTestGetTypeOperatorsHtml
      */
     public function testGetTypeOperatorsHtml(
-        $type, $null, $selectedOperator, $output
+        $type,
+        $null,
+        $selectedOperator,
+        $output
     ) {
         $this->assertEquals(
             $output,
@@ -240,19 +245,19 @@ class TypesTest extends PmaTestCase
     /**
      * Provider for testGetTypeOperatorsHtml
      *
-     * @return test data for getTypeOperatorsHtml
+     * @return array test data for getTypeOperatorsHtml
      */
     public function providerForTestGetTypeOperatorsHtml()
     {
-        return array(
-            array(
+        return [
+            [
                 'enum',
                 false,
                 '=',
                 '<option value="=" selected="selected">=</option>'
-                . '<option value="!=">!=</option>'
-            )
-        );
+                . '<option value="!=">!=</option>',
+            ],
+        ];
     }
 
     /**
@@ -264,7 +269,7 @@ class TypesTest extends PmaTestCase
      *
      * @dataProvider providerForTestGetTypeDescription
      */
-    public function testGetTypeDescription($type)
+    public function testGetTypeDescription($type): void
     {
         $this->assertNotEquals(
             '',
@@ -292,47 +297,47 @@ class TypesTest extends PmaTestCase
      */
     public function providerForTestGetTypeDescription()
     {
-        return array(
-            array('TINYINT'),
-            array('SMALLINT'),
-            array('MEDIUMINT'),
-            array('INT'),
-            array('BIGINT'),
-            array('DECIMAL'),
-            array('FLOAT'),
-            array('DOUBLE'),
-            array('REAL'),
-            array('BIT'),
-            array('BOOLEAN'),
-            array('SERIAL'),
-            array('DATE'),
-            array('DATETIME'),
-            array('TIMESTAMP'),
-            array('TIME'),
-            array('YEAR'),
-            array('CHAR'),
-            array('VARCHAR'),
-            array('TINYTEXT'),
-            array('TEXT'),
-            array('MEDIUMTEXT'),
-            array('LONGTEXT'),
-            array('BINARY'),
-            array('VARBINARY'),
-            array('TINYBLOB'),
-            array('MEDIUMBLOB'),
-            array('BLOB'),
-            array('LONGBLOB'),
-            array('ENUM'),
-            array('SET'),
-            array('GEOMETRY'),
-            array('POINT'),
-            array('LINESTRING'),
-            array('POLYGON'),
-            array('MULTIPOINT'),
-            array('MULTILINESTRING'),
-            array('MULTIPOLYGON'),
-            array('GEOMETRYCOLLECTION'),
-        );
+        return [
+            ['TINYINT'],
+            ['SMALLINT'],
+            ['MEDIUMINT'],
+            ['INT'],
+            ['BIGINT'],
+            ['DECIMAL'],
+            ['FLOAT'],
+            ['DOUBLE'],
+            ['REAL'],
+            ['BIT'],
+            ['BOOLEAN'],
+            ['SERIAL'],
+            ['DATE'],
+            ['DATETIME'],
+            ['TIMESTAMP'],
+            ['TIME'],
+            ['YEAR'],
+            ['CHAR'],
+            ['VARCHAR'],
+            ['TINYTEXT'],
+            ['TEXT'],
+            ['MEDIUMTEXT'],
+            ['LONGTEXT'],
+            ['BINARY'],
+            ['VARBINARY'],
+            ['TINYBLOB'],
+            ['MEDIUMBLOB'],
+            ['BLOB'],
+            ['LONGBLOB'],
+            ['ENUM'],
+            ['SET'],
+            ['GEOMETRY'],
+            ['POINT'],
+            ['LINESTRING'],
+            ['POLYGON'],
+            ['MULTIPOINT'],
+            ['MULTILINESTRING'],
+            ['MULTIPOLYGON'],
+            ['GEOMETRYCOLLECTION'],
+        ];
     }
 
     /**
@@ -345,7 +350,7 @@ class TypesTest extends PmaTestCase
      *
      * @dataProvider providerFortTestGetFunctionsClass
      */
-    public function testGetFunctionsClass($class, $output)
+    public function testGetFunctionsClass($class, $output): void
     {
         $this->assertEquals(
             $output,
@@ -360,10 +365,10 @@ class TypesTest extends PmaTestCase
      */
     public function providerFortTestGetFunctionsClass()
     {
-        return array(
-            array(
+        return [
+            [
                 'CHAR',
-                array(
+                [
                     'AES_DECRYPT',
                     'AES_ENCRYPT',
                     'BIN',
@@ -398,11 +403,11 @@ class TypesTest extends PmaTestCase
                     'USER',
                     'UUID',
                     'VERSION',
-                )
-            ),
-            array(
+                ],
+            ],
+            [
                 'DATE',
-                array(
+                [
                     'CURRENT_DATE',
                     'CURRENT_TIME',
                     'DATE',
@@ -418,11 +423,11 @@ class TypesTest extends PmaTestCase
                     'UTC_TIME',
                     'UTC_TIMESTAMP',
                     'YEAR',
-                )
-            ),
-            array(
+                ],
+            ],
+            [
                 'SPATIAL',
-                array(
+                [
                     'ST_GeomFromText',
                     'ST_GeomFromWKB',
 
@@ -441,11 +446,11 @@ class TypesTest extends PmaTestCase
                     'ST_MPointFromWKB',
                     'ST_PolyFromWKB',
                     'ST_MPolyFromWKB',
-                )
-            ),
-            array(
+                ],
+            ],
+            [
                 'NUMBER',
-                array(
+                [
                     '0' => 'ABS',
                     '1' => 'ACOS',
                     '2' => 'ASCII',
@@ -497,14 +502,14 @@ class TypesTest extends PmaTestCase
                     '48' => 'WEEK',
                     '49' => 'WEEKDAY',
                     '50' => 'WEEKOFYEAR',
-                    '51' => 'YEARWEEK'
-                )
-            ),
-            array(
+                    '51' => 'YEARWEEK',
+                ],
+            ],
+            [
                 'UNKNOWN',
-                array()
-            )
-        );
+                [],
+            ],
+        ];
     }
 
     /**
@@ -515,7 +520,7 @@ class TypesTest extends PmaTestCase
     public function testGetFunctions()
     {
         $this->assertEquals(
-            array(
+            [
                 'AES_DECRYPT',
                 'AES_ENCRYPT',
                 'BIN',
@@ -550,7 +555,7 @@ class TypesTest extends PmaTestCase
                 'USER',
                 'UUID',
                 'VERSION',
-            ),
+            ],
             $this->object->getFunctions('enum')
         );
     }
@@ -563,7 +568,7 @@ class TypesTest extends PmaTestCase
     public function testGetAllFunctions()
     {
         $this->assertEquals(
-            array(
+            [
                 'ABS',
                 'ACOS',
                 'AES_DECRYPT',
@@ -665,7 +670,7 @@ class TypesTest extends PmaTestCase
                 'WEEKOFYEAR',
                 'YEAR',
                 'YEARWEEK',
-            ),
+            ],
             $this->object->getAllFunctions()
         );
     }
@@ -678,13 +683,13 @@ class TypesTest extends PmaTestCase
     public function testGetAttributes()
     {
         $this->assertEquals(
-            array(
+            [
                 '',
                 'BINARY',
                 'UNSIGNED',
                 'UNSIGNED ZEROFILL',
                 'on update CURRENT_TIMESTAMP',
-            ),
+            ],
             $this->object->getAttributes()
         );
     }
@@ -697,16 +702,16 @@ class TypesTest extends PmaTestCase
     public function testGetColumns()
     {
         $this->assertEquals(
-            array(
+            [
                 0 => 'INT',
                 1 => 'VARCHAR',
                 2 => 'TEXT',
                 3 => 'DATE',
-                'Numeric' => array (
+                'Numeric' =>  [
                     'TINYINT',
                     'SMALLINT',
                     'MEDIUMINT',
-                'INT',
+                    'INT',
                     'BIGINT',
                     '-',
                     'DECIMAL',
@@ -717,20 +722,20 @@ class TypesTest extends PmaTestCase
                     'BIT',
                     'BOOLEAN',
                     'SERIAL',
-                ),
-                'Date and time' => array (
+                ],
+                'Date and time' =>  [
                     'DATE',
                     'DATETIME',
                     'TIMESTAMP',
                     'TIME',
                     'YEAR',
-                ),
-                'String' => array (
+                ],
+                'String' =>  [
                     'CHAR',
-                'VARCHAR',
+                    'VARCHAR',
                     '-',
                     'TINYTEXT',
-                'TEXT',
+                    'TEXT',
                     'MEDIUMTEXT',
                     'LONGTEXT',
                     '-',
@@ -738,14 +743,14 @@ class TypesTest extends PmaTestCase
                     'VARBINARY',
                     '-',
                     'TINYBLOB',
-                    'MEDIUMBLOB',
                     'BLOB',
+                    'MEDIUMBLOB',
                     'LONGBLOB',
                     '-',
                     'ENUM',
                     'SET',
-                ),
-                'Spatial' => array (
+                ],
+                'Spatial' =>  [
                     'GEOMETRY',
                     'POINT',
                     'LINESTRING',
@@ -754,11 +759,11 @@ class TypesTest extends PmaTestCase
                     'MULTILINESTRING',
                     'MULTIPOLYGON',
                     'GEOMETRYCOLLECTION',
-                ),
-                'JSON' => array(
-                    'JSON'
-                )
-            ),
+                ],
+                'JSON' => [
+                    'JSON',
+                ],
+            ],
             $this->object->getColumns()
         );
     }
@@ -773,7 +778,7 @@ class TypesTest extends PmaTestCase
      *
      * @dataProvider providerFortTestGetTypeClass
      */
-    public function testGetTypeClass($type, $output)
+    public function testGetTypeClass($type, $output): void
     {
         $this->assertEquals(
             $output,
@@ -788,27 +793,27 @@ class TypesTest extends PmaTestCase
      */
     public function providerFortTestGetTypeClass()
     {
-        return array(
-            array(
+        return [
+            [
                 'SERIAL',
-                'NUMBER'
-            ),
-            array(
+                'NUMBER',
+            ],
+            [
                 'YEAR',
-                'DATE'
-            ),
-            array(
+                'DATE',
+            ],
+            [
                 'GEOMETRYCOLLECTION',
-                'SPATIAL'
-            ),
-            array(
+                'SPATIAL',
+            ],
+            [
                 'SET',
-                'CHAR'
-            ),
-            array(
+                'CHAR',
+            ],
+            [
                 'UNKNOWN',
-                ''
-            )
-        );
+                '',
+            ],
+        ];
     }
 }

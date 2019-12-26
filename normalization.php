@@ -5,15 +5,30 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Url;
 
-require_once 'libraries/common.inc.php';
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
 
-$normalization = new Normalization($GLOBALS['dbi']);
+global $db, $table;
+
+require_once ROOT_PATH . 'libraries/common.inc.php';
+
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $containerBuilder->get(DatabaseInterface::class);
+
+/** @var Normalization $normalization */
+$normalization = $containerBuilder->get('normalization');
 
 if (isset($_POST['getColumns'])) {
     $html = '<option selected disabled>' . __('Select one…') . '</option>'
@@ -36,9 +51,15 @@ if (isset($_POST['splitColumn'])) {
 }
 if (isset($_POST['addNewPrimary'])) {
     $num_fields = 1;
-    $columnMeta = array('Field'=>$table . "_id", 'Extra'=>'auto_increment');
+    $columnMeta = [
+        'Field' => $table . "_id",
+        'Extra' => 'auto_increment',
+    ];
     $html = $normalization->getHtmlForCreateNewColumn(
-        $num_fields, $db, $table, $columnMeta
+        $num_fields,
+        $db,
+        $table,
+        $columnMeta
     );
     $html .= Url::getHiddenInputs($db, $table);
     echo $html;
@@ -57,8 +78,6 @@ if (isset($_POST['getNewTables2NF'])) {
     exit;
 }
 
-$response = Response::getInstance();
-
 if (isset($_POST['getNewTables3NF'])) {
     $dependencies = json_decode($_POST['pd']);
     $tables = json_decode($_POST['tables']);
@@ -74,7 +93,7 @@ $scripts = $header->getScripts();
 $scripts->addFile('normalization.js');
 $scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
 $normalForm = '1nf';
-if (Core::isValid($_POST['normalizeTo'], array('1nf', '2nf', '3nf'))) {
+if (Core::isValid($_POST['normalizeTo'], ['1nf', '2nf', '3nf'])) {
     $normalForm = $_POST['normalizeTo'];
 }
 if (isset($_POST['createNewTables2NF'])) {
@@ -96,7 +115,12 @@ if (isset($_POST['repeatingColumns'])) {
     $newColumn = $_POST['newColumn'];
     $primary_columns = $_POST['primary_columns'];
     $res = $normalization->moveRepeatingGroup(
-        $repeatingColumns, $primary_columns, $newTable, $newColumn, $table, $db
+        $repeatingColumns,
+        $primary_columns,
+        $newTable,
+        $newColumn,
+        $table,
+        $db
     );
     $response->addJSON($res);
     exit;

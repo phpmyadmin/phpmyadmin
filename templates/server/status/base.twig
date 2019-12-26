@@ -1,0 +1,39 @@
+<div>
+  <ul id="topmenu2">
+    <li>
+      <a href="server_status.php{{ get_common() }}"{{ active == 'status' ? ' class="tabactive"' }}>
+        {% trans 'Server' %}
+      </a>
+    </li>
+    <li>
+      <a href="server_status_processes.php{{ get_common() }}"{{ active == 'processes' ? ' class="tabactive"' }}>
+        {% trans 'Processes' %}
+      </a>
+    </li>
+    <li>
+      <a href="server_status_queries.php{{ get_common() }}"{{ active == 'queries' ? ' class="tabactive"' }}>
+        {% trans 'Query statistics' %}
+      </a>
+    </li>
+    <li>
+      <a href="server_status_variables.php{{ get_common() }}"{{ active == 'variables' ? ' class="tabactive"' }}>
+        {% trans 'All status variables' %}
+      </a>
+    </li>
+    <li>
+      <a href="server_status_monitor.php{{ get_common() }}"{{ active == 'monitor' ? ' class="tabactive"' }}>
+        {% trans 'Monitor' %}
+      </a>
+    </li>
+    <li>
+      <a href="server_status_advisor.php{{ get_common() }}"{{ active == 'advisor' ? ' class="tabactive"' }}>
+        {% trans 'Advisor' %}
+      </a>
+    </li>
+  </ul>
+  <div class="clearfloat"></div>
+
+  <div>
+    {% block content %}{% endblock %}
+  </div>
+</div>

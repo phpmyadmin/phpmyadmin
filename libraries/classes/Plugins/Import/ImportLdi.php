@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Import
  * @subpackage LDI
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\Import;
@@ -15,12 +17,8 @@ use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Util;
 
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
-
 // We need relations enabled and we work only on database
-if ($GLOBALS['plugin_param'] !== 'table') {
+if (! isset($GLOBALS['plugin_param']) || $GLOBALS['plugin_param'] !== 'table') {
     $GLOBALS['skip_import'] = true;
 
     return;
@@ -39,6 +37,7 @@ class ImportLdi extends AbstractImportCsv
      */
     public function __construct()
     {
+        parent::__construct();
         $this->setProperties();
     }
 
@@ -92,11 +91,11 @@ class ImportLdi extends AbstractImportCsv
     /**
      * Handles the whole import logic
      *
-     * @param array &$sql_data 2-element array with sql data
+     * @param array $sql_data 2-element array with sql data
      *
      * @return void
      */
-    public function doImport(array &$sql_data = array())
+    public function doImport(array &$sql_data = [])
     {
         global $finished, $import_file, $charset_conversion, $table;
         global $ldi_local_option, $ldi_replace, $ldi_ignore, $ldi_terminated,
@@ -130,18 +129,18 @@ class ImportLdi extends AbstractImportCsv
         }
         $sql .= ' INTO TABLE ' . Util::backquote($table);
 
-        if (strlen($ldi_terminated) > 0) {
+        if (strlen((string) $ldi_terminated) > 0) {
             $sql .= ' FIELDS TERMINATED BY \'' . $ldi_terminated . '\'';
         }
-        if (strlen($ldi_enclosed) > 0) {
+        if (strlen((string) $ldi_enclosed) > 0) {
             $sql .= ' ENCLOSED BY \''
                 . $GLOBALS['dbi']->escapeString($ldi_enclosed) . '\'';
         }
-        if (strlen($ldi_escaped) > 0) {
+        if (strlen((string) $ldi_escaped) > 0) {
             $sql .= ' ESCAPED BY \''
                 . $GLOBALS['dbi']->escapeString($ldi_escaped) . '\'';
         }
-        if (strlen($ldi_new_line) > 0) {
+        if (strlen((string) $ldi_new_line) > 0) {
             if ($ldi_new_line == 'auto') {
                 $ldi_new_line
                     = (PHP_EOL == "\n")
@@ -154,7 +153,7 @@ class ImportLdi extends AbstractImportCsv
             $sql .= ' IGNORE ' . $skip_queries . ' LINES';
             $skip_queries = 0;
         }
-        if (strlen($ldi_columns) > 0) {
+        if (strlen((string) $ldi_columns) > 0) {
             $sql .= ' (';
             $tmp = preg_split('/,( ?)/', $ldi_columns);
             $cnt_tmp = count($tmp);
@@ -170,8 +169,8 @@ class ImportLdi extends AbstractImportCsv
             $sql .= ')';
         }
 
-        Import::runQuery($sql, $sql, $sql_data);
-        Import::runQuery('', '', $sql_data);
+        $this->import->runQuery($sql, $sql, $sql_data);
+        $this->import->runQuery('', '', $sql_data);
         $finished = true;
     }
 }

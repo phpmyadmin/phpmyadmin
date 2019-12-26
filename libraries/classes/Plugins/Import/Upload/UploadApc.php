@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Import\Upload;
 
 use PhpMyAdmin\Display\ImportAjax;
@@ -43,25 +45,25 @@ class UploadApc implements UploadInterface
         if (trim($id) == "") {
             return null;
         }
-        if (!array_key_exists($id, $_SESSION[$SESSION_KEY])) {
-            $_SESSION[$SESSION_KEY][$id] = array(
+        if (! array_key_exists($id, $_SESSION[$SESSION_KEY])) {
+            $_SESSION[$SESSION_KEY][$id] = [
                 'id'       => $id,
                 'finished' => false,
                 'percent'  => 0,
                 'total'    => 0,
                 'complete' => 0,
                 'plugin'   => UploadApc::getIdKey(),
-            );
+            ];
         }
         $ret = $_SESSION[$SESSION_KEY][$id];
 
-        if (!ImportAjax::apcCheck() || $ret['finished']) {
+        if (! ImportAjax::apcCheck() || $ret['finished']) {
             return $ret;
         }
         $status = apc_fetch('upload_' . $id);
 
         if ($status) {
-            $ret['finished'] = (bool)$status['done'];
+            $ret['finished'] = (bool) $status['done'];
             $ret['total'] = $status['total'];
             $ret['complete'] = $status['current'];
 
@@ -70,7 +72,7 @@ class UploadApc implements UploadInterface
             }
 
             if ($ret['percent'] == 100) {
-                $ret['finished'] = (bool)true;
+                $ret['finished'] = (bool) true;
             }
 
             $_SESSION[$SESSION_KEY][$id] = $ret;

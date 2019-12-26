@@ -1,0 +1,84 @@
+<a id="db_search"></a>
+<form id="db_search_form" method="post" action="db_search.php" name="db_search" class="ajax lock-page">
+    {{ get_hidden_inputs(db) }}
+    <fieldset>
+        <legend>{% trans 'Search in database' %}</legend>
+        <p>
+            <label for="criteriaSearchString" class="displayblock">
+                {% trans 'Words or values to search for (wildcard: "%"):' %}
+            </label>
+            <input id="criteriaSearchString" name="criteriaSearchString" class="all85" type="text" value="
+                {{- criteria_search_string }}">
+        </p>
+
+        <fieldset>
+            <legend>{% trans 'Find:' %}</legend>
+            {# 4th parameter set to true to add line breaks #}
+            {# 5th parameter set to false to avoid htmlspecialchars() escaping
+            in the label since we have some HTML in some labels #}
+            {{ get_radio_fields(
+                'criteriaSearchType',
+                choices,
+                criteria_search_type,
+                true,
+                false
+            ) }}
+        </fieldset>
+
+        <fieldset>
+            <legend>{% trans 'Inside tables:' %}</legend>
+            <p>
+                <a href="#" onclick="Functions.setSelectOptions('db_search', 'criteriaTables[]', true); return false;">
+                    {% trans 'Select all' %}
+                </a> /
+                <a href="#" onclick="Functions.setSelectOptions('db_search', 'criteriaTables[]', false); return false;">
+                    {% trans 'Unselect all' %}
+                </a>
+            </p>
+            <select name="criteriaTables[]" multiple>
+                {% for each_table in tables_names_only %}
+                    <option value="{{ each_table }}"
+                            {% if criteria_tables|length > 0 %}
+                                {{- each_table in criteria_tables ? ' selected' }}
+                            {% else %}
+                                {{- ' selected' }}
+                            {% endif %}
+                        >
+                        {{ each_table }}
+                    </option>
+                {% endfor %}
+            </select>
+        </fieldset>
+
+        <p>
+            {# Inputbox for column name entry #}
+            <label for="criteriaColumnName" class="displayblock">
+                {% trans 'Inside column:' %}
+            </label>
+            <input id="criteriaColumnName" type="text" name="criteriaColumnName" class="all85" value="
+                {{- criteria_column_name is not empty ? criteria_column_name }}">
+        </p>
+    </fieldset>
+    <fieldset class="tblFooters">
+        <input id="buttonGo" class="btn btn-primary" type="submit" name="submit_search" value="{% trans 'Go' %}">
+    </fieldset>
+</form>
+<div id="togglesearchformdiv">
+    <a id="togglesearchformlink"></a>
+</div>
+<div id="searchresults"></div>
+<div id="togglesearchresultsdiv"><a id="togglesearchresultlink"></a></div>
+<br class="clearfloat">
+{# These two table-image and table-link elements display the table name in browse search results #}
+<div id="table-info">
+    <a id="table-link" class="item"></a>
+</div>
+{# Div for browsing results #}
+<div id="browse-results">
+    {# This browse-results div is used to load the browse and delete results in the db search #}
+</div>
+<div id="sqlqueryform" class="clearfloat">
+    {# This sqlqueryform div is used to load the delete form in the db search #}
+</div>
+{# Toggle query box link #}
+<a id="togglequerybox"></a>

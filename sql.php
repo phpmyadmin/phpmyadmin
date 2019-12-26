@@ -7,7 +7,11 @@
  *          that returns 0 rows - to prevent cyclic redirects or includes
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
+use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
@@ -15,24 +19,36 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Core;
 
-/**
- * Gets some core libraries
- */
-require_once 'libraries/common.inc.php';
-require_once 'libraries/check_user_privileges.inc.php';
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
+global $cfg, $containerBuilder, $pmaThemeImage;
+
+require_once ROOT_PATH . 'libraries/common.inc.php';
+
+/** @var Response $response */
+$response = $containerBuilder->get(Response::class);
+
+/** @var DatabaseInterface $dbi */
+$dbi = $containerBuilder->get(DatabaseInterface::class);
+
+/** @var CheckUserPrivileges $checkUserPrivileges */
+$checkUserPrivileges = $containerBuilder->get('check_user_privileges');
+$checkUserPrivileges->getPrivileges();
 
 PageSettings::showGroup('Browse');
 
-$response = Response::getInstance();
-$header   = $response->getHeader();
-$scripts  = $header->getScripts();
+$header = $response->getHeader();
+$scripts = $header->getScripts();
 $scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
-$scripts->addFile('tbl_change.js');
+$scripts->addFile('table/change.js');
 $scripts->addFile('indexes.js');
 $scripts->addFile('gis_data_editor.js');
 $scripts->addFile('multi_column_sort.js');
 
-$sql = new Sql();
+/** @var Sql $sql */
+$sql = $containerBuilder->get('sql');
 
 /**
  * Set ajax_reload in the response if it was already set
@@ -48,18 +64,20 @@ $is_gotofile  = true;
 if (empty($goto)) {
     if (empty($table)) {
         $goto = Util::getScriptNameForOption(
-            $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+            $cfg['DefaultTabDatabase'],
+            'database'
         );
     } else {
         $goto = Util::getScriptNameForOption(
-            $GLOBALS['cfg']['DefaultTabTable'], 'table'
+            $cfg['DefaultTabTable'],
+            'table'
         );
     }
 } // end if
 
 if (! isset($err_url)) {
     $err_url = (! empty($back) ? $back : $goto)
-        . '?' . Url::getCommon(array('db' => $GLOBALS['db']))
+        . '?' . Url::getCommon(['db' => $GLOBALS['db']])
         . ((mb_strpos(' ' . $goto, 'db_') != 1
             && strlen($table) > 0)
             ? '&amp;table=' . urlencode($table)
@@ -109,7 +127,8 @@ if (isset($_GET['get_default_fk_check_value'])
 ) {
     $response = Response::getInstance();
     $response->addJSON(
-        'default_fk_check_value', Util::isForeignKeyCheck()
+        'default_fk_check_value',
+        Util::isForeignKeyCheck()
     );
     exit;
 }
@@ -131,7 +150,7 @@ if (empty($sql_query) && strlen($table) > 0 && strlen($db) > 0) {
     $goto = '';
 } else {
     // Now we can check the parameters
-    Util::checkParameters(array('sql_query'));
+    Util::checkParameters(['sql_query']);
 }
 
 /**
@@ -145,7 +164,7 @@ list(
 // @todo: possibly refactor
 extract($analyzed_sql_results);
 
-if ($table != $table_from_sql && !empty($table_from_sql)) {
+if ($table != $table_from_sql && ! empty($table_from_sql)) {
     $table = $table_from_sql;
 }
 
@@ -158,7 +177,9 @@ if ($table != $table_from_sql && !empty($table_from_sql)) {
  * into account this case.
  */
 if ($sql->hasNoRightsToDropDatabase(
-    $analyzed_sql_results, $cfg['AllowUserDropDatabase'], $GLOBALS['dbi']->isSuperuser()
+    $analyzed_sql_results,
+    $cfg['AllowUserDropDatabase'],
+    $dbi->isSuperuser()
 )) {
     Util::mysqlDie(
         __('"DROP DATABASE" statements are disabled.'),
@@ -191,11 +212,11 @@ if (isset($_POST['store_bkm'])) {
 if ($goto == 'sql.php') {
     $is_gotofile = false;
     $goto = 'sql.php' . Url::getCommon(
-        array(
+        [
             'db' => $db,
             'table' => $table,
-            'sql_query' => $sql_query
-        )
+            'sql_query' => $sql_query,
+        ]
     );
 } // end if
 

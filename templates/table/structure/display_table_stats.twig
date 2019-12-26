@@ -53,12 +53,13 @@
                     and (tbl_storage_engine == 'MYISAM'
                     or tbl_storage_engine == 'ARIA'
                     or tbl_storage_engine == 'MARIA'
-                    or tbl_storage_engine == 'BDB') %}
+                    or tbl_storage_engine == 'BDB')
+                    or (tbl_storage_engine == 'INNODB' and innodb_file_per_table == true) %}
                     <tr class="tblFooters print_ignore">
                         <td colspan="3" class="center">
                             <a href="sql.php" data-post="{{ url_query }}&amp;pos=0&amp;sql_query=
-                                {{- ('OPTIMIZE TABLE ' ~ Util_backquote(table))|url_encode }}">
-                                {{ Util_getIcon('b_tbloptimize', 'Optimize table'|trans) }}
+                                {{- ('OPTIMIZE TABLE ' ~ backquote(table))|url_encode }}">
+                                {{ get_icon('b_tbloptimize', 'Optimize table'|trans) }}
                             </a>
                         </td>
                     </tr>
@@ -67,13 +68,102 @@
             </table>
         {% endif %}
 
-        {% include 'table/structure/row_stats_table.twig' with {
-            'showtable': showtable,
-            'tbl_collation': tbl_collation,
-            'is_innodb': is_innodb,
-            'mergetable': mergetable,
-            'avg_size': avg_size is defined ? avg_size : null,
-            'avg_unit': avg_unit is defined ? avg_unit : null
-        } only %}
+        {% set avg_size = avg_size is defined ? avg_size : null %}
+        {% set avg_unit = avg_unit is defined ? avg_unit : null %}
+        <table id="tablerowstats" class="width100 data">
+            <caption class="tblHeaders">{% trans 'Row statistics' %}</caption>
+            <tbody>
+                {% if showtable['Row_format'] is defined %}
+                    <tr>
+                    <th class="name">{% trans 'Format' %}</th>
+                    {% if showtable['Row_format'] == 'Fixed' %}
+                        <td class="value">{% trans 'static' %}</td>
+                    {% elseif showtable['Row_format'] == 'Dynamic' %}
+                        <td class="value">{% trans 'dynamic' %}</td>
+                    {% else %}
+                        <td class="value">{{ showtable['Row_format'] }}</td>
+                    {% endif %}
+                    </tr>
+                {% endif %}
+
+                {% if showtable['Create_options'] is not empty %}
+                    <tr>
+                    <th class="name">{% trans 'Options' %}</th>
+                    {% if showtable['Create_options'] == 'partitioned' %}
+                        <td class="value">{% trans 'partitioned' %}</td>
+                    {% else %}
+                        <td class="value">{{ showtable['Create_options'] }}</td>
+                    {% endif %}
+                    </tr>
+                {% endif %}
+
+                {% if table_collation is not empty %}
+                    <tr>
+                    <th class="name">{% trans 'Collation' %}</th>
+                    <td class="value">
+                        <dfn title="{{ table_collation.description }}">
+                            {{ table_collation.name }}
+                        </dfn>
+                    </td>
+                    </tr>
+                {% endif %}
+
+                {% if not is_innodb and showtable['Rows'] is defined %}
+                    <tr>
+                    <th class="name">{% trans 'Rows' %}</th>
+                    <td class="value">{{ format_number(showtable['Rows'], 0) }}</td>
+                    </tr>
+                {% endif %}
+
+                {% if not is_innodb
+                    and showtable['Avg_row_length'] is defined
+                    and showtable['Avg_row_length'] > 0 %}
+                    <tr>
+                    <th class="name">{% trans 'Row length' %}</th>
+                    {% set avg_row_length = format_byte_down(showtable['Avg_row_length'], 6, 1) %}
+                    <td class="value">{{ avg_row_length[0] }} {{ avg_row_length[1] }}</td>
+                    </tr>
+                {% endif %}
+
+                {% if not is_innodb
+                    and showtable['Data_length'] is defined
+                    and showtable['Rows'] is defined
+                    and showtable['Rows'] > 0
+                    and mergetable == false %}
+                    <tr>
+                    <th class="name">{% trans 'Row size' %}</th>
+                    <td class="value">{{ avg_size }} {{ avg_unit }}</td>
+                    </tr>
+                {% endif %}
+
+                {% if showtable['Auto_increment'] is defined %}
+                    <tr>
+                    <th class="name">{% trans 'Next autoindex' %}</th>
+                    <td class="value">{{ format_number(showtable['Auto_increment'], 0) }}</td>
+                    </tr>
+                {% endif %}
+
+                {% if showtable['Create_time'] is defined %}
+                    <tr>
+                    <th class="name">{% trans 'Creation' %}</th>
+                    <td class="value">{{ localised_date(showtable['Create_time']|date('U')) }}</td>
+                    </tr>
+                {% endif %}
+
+                {% if showtable['Update_time'] is defined %}
+                    <tr>
+                    <th class="name">{% trans 'Last update' %}</th>
+                    <td class="value">{{ localised_date(showtable['Update_time']|date('U')) }}</td>
+                    </tr>
+                {% endif %}
+
+                {% if showtable['Check_time'] is defined %}
+                    <tr>
+                    <th class="name">{% trans 'Last check' %}</th>
+                    <td class="value">{{ localised_date(showtable['Check_time']|date('U')) }}</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
     </fieldset>
 </div>

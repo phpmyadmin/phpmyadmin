@@ -1,36 +1,48 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for FromDisplay.tpl.php
+ * tests for FormDisplayTemplate
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Config;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\FormDisplayTemplate;
-use PhpMyAdmin\Theme;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Tests for FromDisplay.tpl.php
+ * Tests for FormDisplayTemplate
  *
  * @package PhpMyAdmin-test
  */
 class FormDisplayTemplateTest extends TestCase
 {
     /**
+     * @var FormDisplayTemplate
+     */
+    protected $formDisplayTemplate;
+
+    /**
+     * @var Config
+     */
+    protected $config;
+
+    /**
      * Setup tests
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp(): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        $this->config = new Config();
+        $this->formDisplayTemplate = new FormDisplayTemplate($this->config);
     }
 
     /**
-     * Test for FormDisplayTemplate::displayFormTop()
+     * Test for displayFormTop()
      *
      * @return void
      */
@@ -38,425 +50,463 @@ class FormDisplayTemplateTest extends TestCase
     {
         $_SERVER['REQUEST_URI'] = 'https://www.phpmyadmin.net';
         $GLOBALS['cfg']['ServerDefault'] = '';
-        $result = FormDisplayTemplate::displayFormTop(null, 'posted', array(1));
+        $result = $this->formDisplayTemplate->displayFormTop(null, 'posted', [1]);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<form method="get" action="https://www.phpmyadmin.net" ' .
             'class="config-form disableAjax">',
             $result
         );
 
-        $this->assertContains(
-            '<input type="hidden" name="tab_hash" value="" />',
+        $this->assertStringContainsString(
+            '<input type="hidden" name="tab_hash" value="">',
             $result
         );
 
-        $this->assertContains(
-            '<input type="hidden" name="lang" value="en" />',
+        $this->assertStringContainsString(
+            '<input type="hidden" name="lang" value="en">',
             $result
         );
 
-        $this->assertContains(
-            '<input type="hidden" name="token" value="token" />',
+        $this->assertStringContainsString(
+            '<input type="hidden" name="token" value="token">',
             $result
         );
 
-        $this->assertContains(
-            '<input type="hidden" name="0" value="1" />',
+        $this->assertStringContainsString(
+            '<input type="hidden" name="0" value="1">',
             $result
         );
     }
 
     /**
-     * Test for FormDisplayTemplate::displayTabsTop()
+     * Test for displayTabsTop()
      *
      * @return void
      */
     public function testDisplayTabsTop()
     {
-        $result = FormDisplayTemplate::displayTabsTop(array('one', 'two'));
+        $result = $this->formDisplayTemplate->displayTabsTop(['one', 'two']);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<ul class="tabs responsivetable"',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<a href="#0"',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<a href="#1"',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<div class="tabs_contents"',
             $result
         );
     }
 
     /**
-     * Test for FormDisplayTemplate::displayFieldsetTop()
+     * Test for displayFieldsetTop()
      *
      * @return void
      */
     public function testDisplayFieldsetTop()
     {
-        $attributes = array('name' => 'attrname');
-        $errors = array('e1', 'e2');
+        $attributes = ['name' => 'attrname'];
+        $errors = [
+            'e1',
+            'e2',
+        ];
 
-        $result = FormDisplayTemplate::displayFieldsetTop("TitleTest", "DescTest", $errors, $attributes);
+        $result = $this->formDisplayTemplate->displayFieldsetTop("TitleTest", "DescTest", $errors, $attributes);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<fieldset class="optbox" name="attrname">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<legend>',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<p>',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<dl class="errors">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<dd>',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<table width="100%" cellspacing="0">',
             $result
         );
     }
 
     /**
-     * Test for FormDisplayTemplate::displayInput()
+     * Test for displayInput()
      *
      * @return void
      */
     public function testDisplayInput()
     {
-        $GLOBALS['_FormDislayGroup'] = 1;
-        $opts = array();
-        $opts['errors'] = array('e1');
+        $opts = [];
+        $opts['errors'] = ['e1'];
         $opts['userprefs_allow'] = false;
         $opts['setvalue'] = ':group';
         $opts['doc'] = "https://example.com/";
         $opts['comment'] = "testComment";
         $opts['comment_warning'] = true;
         $opts['show_restore_default'] = true;
-        $result = FormDisplayTemplate::displayInput(
-            'test/path', 'testName', 'text', 'val',
-            'desc', false, $opts
+        $result = $this->formDisplayTemplate->displayInput(
+            'test/path',
+            'testName',
+            'text',
+            'val',
+            'desc',
+            false,
+            $opts
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<tr class="group-header-field group-header-1 disabled-field">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<label for="test/path">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<a href="https://example.com/" target="documentation"',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<img src="themes/dot.gif" title="Documentation" ' .
-            'alt="Documentation" class="icon ic_b_help" /',
+            'alt="Documentation" class="icon ic_b_help"',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<span class="disabled-notice"',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<small>',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="text" class="all85" name="test/path" id="test/path" ' .
-            'class="custom field-error" value="val" />',
+            'class="custom field-error" value="val">',
             $result
         );
 
-        $this->assertContains(
-            '<span class="field-comment-mark field-comment-warning" '
-            . 'title="testComment">',
-            $result
-        );
-
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<a class="restore-default hide" href="#test/path"',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<dl class="inline_errors"><dd>e1</dd></dl>',
             $result
         );
 
         // second case
 
-        $GLOBALS['PMA_Config']->set('is_setup', true);
-        $GLOBALS['_FormDislayGroup'] = 0;
-        $opts = array();
-        $opts['errors'] = array();
+        $this->config->set('is_setup', true);
+        $opts = [];
+        $opts['errors'] = [];
         $opts['setvalue'] = 'setVal';
         $opts['comment'] = "testComment";
         $opts['show_restore_default'] = true;
         $opts['userprefs_comment'] = 'userprefsComment';
         $opts['userprefs_allow'] = true;
 
-        $result = FormDisplayTemplate::displayInput(
-            'test/path', 'testName', 'checkbox', 'val',
-            '', false, $opts
+        $result = $this->formDisplayTemplate->displayInput(
+            'test/path',
+            'testName',
+            'checkbox',
+            'val',
+            '',
+            false,
+            $opts
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<tr class="group-field group-field-1">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="checkbox" name="test/path" id="test/path" ' .
-            'checked="checked" />',
+            'checked="checked">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<a class="userprefs-comment" title="userprefsComment">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<td class="userprefs-allow" title="Allow users to customize ' .
             'this value">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<a class="set-value hide" href="#test/path=setVal" ' .
             'title="Set value: setVal">',
             $result
         );
 
         // short_text
-        $GLOBALS['_FormDislayGroup'] = 0;
-        $opts = array();
-        $opts['errors'] = array();
+        $opts = [];
+        $opts['errors'] = [];
 
-        $result = FormDisplayTemplate::displayInput(
-            'test/path', 'testName', 'short_text', 'val',
-            '', true, $opts
+        $result = $this->formDisplayTemplate->displayInput(
+            'test/path',
+            'testName',
+            'short_text',
+            'val',
+            '',
+            true,
+            $opts
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="text" size="25" name="test/path" id="test/path" ' .
-            'value="val" />',
+            'value="val">',
             $result
         );
 
         // number_text
-        $result = FormDisplayTemplate::displayInput(
-            'test/path', 'testName', 'number_text', 'val',
-            '', true, $opts
+        $result = $this->formDisplayTemplate->displayInput(
+            'test/path',
+            'testName',
+            'number_text',
+            'val',
+            '',
+            true,
+            $opts
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<input type="number" name="test/path" ' .
-            'id="test/path" value="val" />',
+            'id="test/path" value="val">',
             $result
         );
 
         // select case 1
         $opts['values_escaped'] = true;
-        $opts['values_disabled'] = array(1, 2);
-        $opts['values'] = array(
+        $opts['values_disabled'] = [
+            1,
+            2,
+        ];
+        $opts['values'] = [
             1 => 'test',
             'key1' => true,
             'key2' => false,
+        ];
+        $result = $this->formDisplayTemplate->displayInput(
+            'test/path',
+            'testName',
+            'select',
+            true,
+            '',
+            true,
+            $opts
         );
-        $result = FormDisplayTemplate::displayInput(
-            'test/path', 'testName', 'select', true,
-            '', true, $opts
-        );
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<select class="all85" name="test/path" id="test/path">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<option value="1" selected="selected" disabled="disabled">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<option value="key1">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<option value="key2">',
             $result
         );
 
         // select case 2
         $opts['values_escaped'] = false;
-        $opts['values_disabled'] = array(1, 2);
-        $opts['values'] = array(
+        $opts['values_disabled'] = [
+            1,
+            2,
+        ];
+        $opts['values'] = [
             'a<b' => 'c&d',
             'key1' => true,
             'key2' => false,
-        );
-        $result = FormDisplayTemplate::displayInput(
-            'test/path', 'testName', 'select', false,
-            '', true, $opts
+        ];
+        $result = $this->formDisplayTemplate->displayInput(
+            'test/path',
+            'testName',
+            'select',
+            false,
+            '',
+            true,
+            $opts
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<select class="all85" name="test/path" id="test/path">',
             $result
         );
 
         // assertContains doesn't seem to work with htmlentities
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<option value="a&lt;b">c&amp;d</option>',
             $result
         );
 
         // list
-        $result = FormDisplayTemplate::displayInput(
-            'test/path', 'testName', 'list', array('foo', 'bar'),
-            '', true, $opts
+        $result = $this->formDisplayTemplate->displayInput(
+            'test/path',
+            'testName',
+            'list',
+            [
+                'foo',
+                'bar',
+            ],
+            '',
+            true,
+            $opts
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<textarea cols="35" rows="5" name="test/path" id="test/path">',
             $result
         );
     }
 
     /**
-     * Test for FormDisplayTemplate::displayGroupHeader()
+     * Test for displayGroupHeader()
      *
      * @return void
      */
     public function testDisplayGroupHeader()
     {
-        $this->assertNull(
-            FormDisplayTemplate::displayGroupHeader('')
+        $this->assertEquals(
+            '',
+            $this->formDisplayTemplate->displayGroupHeader('')
         );
 
-        $GLOBALS['_FormDisplayGroup'] = 3;
+        $this->formDisplayTemplate->group = 3;
 
-        $GLOBALS['PMA_Config']->set('is_setup', true);
+        $this->config->set('is_setup', true);
 
-        $result = FormDisplayTemplate::displayGroupHeader('headerText');
+        $result = $this->formDisplayTemplate->displayGroupHeader('headerText');
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<tr class="group-header group-header-4">',
             $result
         );
 
         // without PMA_SETUP
-        $GLOBALS['PMA_Config']->set('is_setup', false);
+        $this->config->set('is_setup', false);
 
-        $GLOBALS['_FormDisplayGroup'] = 3;
+        $this->formDisplayTemplate->group = 3;
 
-        $result = FormDisplayTemplate::displayGroupHeader('headerText');
+        $result = $this->formDisplayTemplate->displayGroupHeader('headerText');
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<tr class="group-header group-header-4">',
             $result
         );
-
     }
 
     /**
-     * Test for FormDisplayTemplate::displayGroupFooter()
+     * Test for displayGroupFooter()
      *
      * @return void
      */
     public function testDisplayGroupFooter()
     {
-        $GLOBALS['_FormDisplayGroup'] = 3;
-        FormDisplayTemplate::displayGroupFooter();
+        $this->formDisplayTemplate->group = 3;
+        $this->formDisplayTemplate->displayGroupFooter();
         $this->assertEquals(
             2,
-            $GLOBALS['_FormDisplayGroup']
+            $this->formDisplayTemplate->group
         );
     }
 
     /**
-     * Test for FormDisplayTemplate::displayFieldsetBottom()
+     * Test for displayFieldsetBottom()
      *
      * @return void
      */
     public function testDisplayFieldsetBottom()
     {
         // with PMA_SETUP
-        $GLOBALS['PMA_Config']->set('is_setup', true);
+        $this->config->set('is_setup', true);
 
-        $result = FormDisplayTemplate::displayFieldsetBottom();
+        $result = $this->formDisplayTemplate->displayFieldsetBottom();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<td colspan="3" class="lastrow">',
             $result
         );
 
-        $this->assertContains(
-            '<input type="submit" name="submit_save" value="Apply"',
+        $this->assertStringContainsString(
+            '<input class="btn btn-primary green" type="submit" name="submit_save" value="Apply"',
             $result
         );
 
-        $this->assertContains(
-            '<input type="button" name="submit_reset" value="Reset" />',
+        $this->assertStringContainsString(
+            '<input class="btn btn-secondary" type="button" name="submit_reset" value="Reset">',
             $result
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '</fieldset>',
             $result
         );
 
         // without PMA_SETUP
-        $GLOBALS['PMA_Config']->set('is_setup', false);
+        $this->config->set('is_setup', false);
 
-        $result = FormDisplayTemplate::displayFieldsetBottom();
+        $result = $this->formDisplayTemplate->displayFieldsetBottom();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '<td colspan="2" class="lastrow">',
             $result
         );
     }
 
     /**
-     * Test for FormDisplayTemplate::displayTabsBottom()
+     * Test for displayTabsBottom()
      *
      * @return void
      */
     public function testDisplayTabsBottom()
     {
-        $result = FormDisplayTemplate::displayTabsBottom();
+        $result = $this->formDisplayTemplate->displayTabsBottom();
         $this->assertEquals(
             "</div>\n",
             $result
@@ -464,13 +514,13 @@ class FormDisplayTemplateTest extends TestCase
     }
 
     /**
-     * Test for FormDisplayTemplate::displayFormBottom()
+     * Test for displayFormBottom()
      *
      * @return void
      */
     public function testDisplayFormBottom()
     {
-        $result = FormDisplayTemplate::displayFormBottom();
+        $result = $this->formDisplayTemplate->displayFormBottom();
         $this->assertEquals(
             "</form>\n",
             $result
@@ -478,44 +528,48 @@ class FormDisplayTemplateTest extends TestCase
     }
 
     /**
-     * Test for FormDisplayTemplate::addJsValidate()
+     * Test for addJsValidate()
      *
      * @return void
      */
     public function testAddJsValidate()
     {
-        $validators = array(
-            'one' => array('\\\';', '\r\n\\\'<scrIpt></\' + \'script>'),
-            'two' => array()
-        );
+        $validators = [
+            'one' => [
+                '\\\';',
+                '\r\n\\\'<scrIpt></\' + \'script>',
+            ],
+            'two' => [],
+        ];
 
-        $js = array();
+        $js = [];
 
-        FormDisplayTemplate::addJsValidate('testID', $validators, $js);
+        $this->formDisplayTemplate->addJsValidate('testID', $validators, $js);
 
         $this->assertEquals(
-            array(
-                'validateField(\'testID\', \'PMA_\\\';\', true, '
+            [
+                'registerFieldValidator(\'testID\', \'\\\';\', true, '
                     . '[\'\\\\r\\\\n\\\\\\\''
                     . '<scrIpt></\\\' + \\\'script>\'])',
-                'validateField(\'testID\', \'PMA_\', true)'
-            ),
+                'registerFieldValidator(\'testID\', \'\', true)',
+            ],
             $js
         );
     }
 
     /**
-     * Test for FormDisplayTemplate::displayJavascript()
+     * Test for displayJavascript()
      *
      * @return void
      */
     public function testDisplayJavascript()
     {
-        $this->assertNull(
-            FormDisplayTemplate::displayJavascript(array())
+        $this->assertEquals(
+            '',
+            $this->formDisplayTemplate->displayJavascript([])
         );
 
-        $result = FormDisplayTemplate::displayJavascript(array('var i = 1', 'i++'));
+        $result = $this->formDisplayTemplate->displayJavascript(['var i = 1', 'i++']);
 
         $this->assertEquals(
             '<script type="text/javascript">' . "\n"
@@ -528,7 +582,7 @@ class FormDisplayTemplateTest extends TestCase
             . '});' . "\n"
             . 'if (typeof configScriptLoaded !== "undefined"'
             . ' && configInlineParams) loadInlineConfig();'
-            . "\n" . '</script>'. "\n",
+            . "\n" . '</script>' . "\n",
             $result
         );
     }

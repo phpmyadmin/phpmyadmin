@@ -366,7 +366,7 @@ rule 'Is InnoDB disabled?' [PMA_MYSQL_INT_VERSION < 50600]
 	have_innodb is set to 'value'
 
 rule 'InnoDB log size' [innodb_buffer_pool_size > 0]
-	innodb_log_file_size / innodb_buffer_pool_size * 100
+	(innodb_log_file_size * innodb_log_files_in_group)/ innodb_buffer_pool_size * 100
 	value < 20 && innodb_log_file_size / (1024 * 1024) < 256
 	The InnoDB log file size is not an appropriate size, in relation to the InnoDB buffer pool.
 	Especially on a system with a lot of writes to InnoDB tables you should set {innodb_log_file_size} to 25% of {innodb_buffer_pool_size}. However the bigger this value, the longer the recovery time will be when database crashes, so this value should not be set much higher than 256 MiB. Please note however that you cannot simply change the value of this variable. You need to shutdown the server, remove the InnoDB log files, set the new value in my.cnf, start the server, then check the error logs if everything went fine. See also <a href="https://mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html">this blog entry</a>

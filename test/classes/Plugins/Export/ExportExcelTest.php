@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\Plugins\Export\ExportExcel;
@@ -27,7 +29,7 @@ class ExportExcelTest extends PmaTestCase
      *
      * @return void
      */
-    function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $this->object = new ExportExcel();
@@ -38,7 +40,7 @@ class ExportExcelTest extends PmaTestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -174,11 +176,11 @@ class ExportExcelTest extends PmaTestCase
         );
 
         $this->assertEquals(
-            array(
+            [
                 'win' => 'Windows',
                 'mac_excel2003' => 'Excel 2003 / Macintosh',
-                'mac_excel2008' => 'Excel 2008 / Macintosh'
-            ),
+                'mac_excel2008' => 'Excel 2008 / Macintosh',
+            ],
             $property->getValues()
         );
 
@@ -199,5 +201,4 @@ class ExportExcelTest extends PmaTestCase
             $property->getName()
         );
     }
-
 }

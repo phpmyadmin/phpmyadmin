@@ -5,9 +5,12 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Operations;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Theme;
 use PHPUnit\Framework\TestCase;
 use ReflectionMethod;
@@ -29,16 +32,16 @@ class OperationsTest extends TestCase
      *
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 1;
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
-        $GLOBALS['cfg'] = array(
+        $GLOBALS['cfg'] = [
             'ServerDefault' => 1,
             'ActionLinksMode' => 'icons',
             'LinkLengthLimit' => 1000,
-        );
+        ];
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['server'] = 1;
 
@@ -50,7 +53,8 @@ class OperationsTest extends TestCase
         $GLOBALS['is_reload_priv'] = false;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
-        $this->operations = new Operations();
+        $relation = new Relation($GLOBALS['dbi']);
+        $this->operations = new Operations($GLOBALS['dbi'], $relation);
     }
 
     /**
@@ -77,7 +81,7 @@ class OperationsTest extends TestCase
 
         $db_collation = 'db1';
         $html = $this->operations->getHtmlForRenameDatabase("pma", $db_collation);
-        $this->assertContains('db_operations.php', $html);
+        $this->assertStringContainsString('db_operations.php', $html);
         $this->assertRegExp(
             '/.*db_rename.*Rename database to.*/',
             $html
@@ -123,10 +127,12 @@ class OperationsTest extends TestCase
         $db_collation = 'db1';
         $result = $this->operations->getHtmlForChangeDatabaseCharset("pma", $db_collation);
         $this->assertRegExp(
-            '/.*select_db_collation.*Collation.*/m', $result
+            '/.*select_db_collation.*Collation.*/m',
+            $result
         );
         $this->assertRegExp(
-            '/.*db_operations.php.*/', $result
+            '/.*db_operations.php.*/',
+            $result
         );
     }
 
@@ -141,7 +147,10 @@ class OperationsTest extends TestCase
         $this->assertRegExp(
             '/.*tbl_operations.php(.|[\n])*Alter table order by([\n]|.)*order_order.*/m',
             $this->operations->getHtmlForOrderTheTable(
-                array(array('Field' => "column1"), array('Field' => "column2"))
+                [
+                    ['Field' => "column1"],
+                    ['Field' => "column2"],
+                ]
             )
         );
     }
@@ -158,7 +167,7 @@ class OperationsTest extends TestCase
         $result = $method->invokeArgs($this->operations, ['name', 'lable', 'value']);
 
         $this->assertEquals(
-            '<tr><td class="vmiddle"><label for="name">lable</label></td><td><input type="checkbox" name="name" id="name" value="1"/></td></tr>',
+            '<tr><td class="vmiddle"><label for="name">lable</label></td><td><input type="checkbox" name="name" id="name" value="1"></td></tr>',
             $result
         );
     }
@@ -174,9 +183,12 @@ class OperationsTest extends TestCase
         $method->setAccessible(true);
         $result = $method->invokeArgs($this->operations, [
             'post',
-            ['name' => 'foo', 'value' => 'bar'],
+            [
+                'name' => 'foo',
+                'value' => 'bar',
+            ],
             [],
-            'doclink'
+            'doclink',
         ]);
 
         $this->assertRegExp(
@@ -196,7 +208,8 @@ class OperationsTest extends TestCase
         $this->assertRegExp(
             '/.*Delete data or table.*Empty the table.*Delete the table.*/m',
             $this->operations->getHtmlForDeleteDataOrTable(
-                array("truncate" => 'foo'), array("drop" => 'bar')
+                ["truncate" => 'foo'],
+                ["drop" => 'bar']
             )
         );
     }
@@ -212,7 +225,7 @@ class OperationsTest extends TestCase
         $this->assertRegExp(
             '/.*TRUNCATE.TABLE.foo.*id_truncate.*Truncate table.*/m',
             $this->operations->getDeleteDataOrTablelink(
-                array("sql" => 'TRUNCATE TABLE foo'),
+                ["sql" => 'TRUNCATE TABLE foo'],
                 "TRUNCATE_TABLE",
                 "Truncate table",
                 "id_truncate"
@@ -228,8 +241,14 @@ class OperationsTest extends TestCase
     public function testGetHtmlForPartitionMaintenance()
     {
         $html = $this->operations->getHtmlForPartitionMaintenance(
-            array("partition1", "partion2"),
-            array("param1" => 'foo', "param2" => 'bar')
+            [
+                "partition1",
+                "partion2",
+            ],
+            [
+                "param1" => 'foo',
+                "param2" => 'bar',
+            ]
         );
         $this->assertRegExp('/.*action="tbl_operations.php".*/', $html);
         $this->assertRegExp('/.*ANALYZE.*/', $html);
@@ -249,17 +268,18 @@ class OperationsTest extends TestCase
         $this->assertRegExp(
             '/.*Check referential integrity.*href="sql.php(.|[\n])*/m',
             $this->operations->getHtmlForReferentialIntegrityCheck(
-                array(
-                    array(
+                [
+                    [
                         'foreign_db'    => 'db1',
                         'foreign_table' => "foreign1",
-                        'foreign_field' => "foreign2"
-                    )
-                ),
-                array("param1" => 'a', "param2" => 'b')
+                        'foreign_field' => "foreign2",
+                    ],
+                ],
+                [
+                    "param1" => 'a',
+                    "param2" => 'b',
+                ]
             )
         );
     }
-
-
 }

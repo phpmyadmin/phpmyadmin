@@ -5,10 +5,13 @@
  *
  * @package PhpMyAdmin\Twig
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Twig;
 
 use PhpMyAdmin\Twig\I18n\TokenParserTrans;
 use Twig\Extensions\I18nExtension as TwigI18nExtension;
+use Twig\TokenParser\TokenParserInterface;
 use Twig\TwigFilter;
 
 /**
@@ -21,11 +24,11 @@ class I18nExtension extends TwigI18nExtension
     /**
      * Returns the token parser instances to add to the existing list.
      *
-     * @return \Twig\TokenParser\TokenParserInterface[]
+     * @return TokenParserInterface[]
      */
     public function getTokenParsers()
     {
-        return array(new TokenParserTrans());
+        return [new TokenParserTrans()];
     }
 
     /**
@@ -35,8 +38,8 @@ class I18nExtension extends TwigI18nExtension
      */
     public function getFilters()
     {
-        return array(
-             new TwigFilter('trans', '_gettext'),
-        );
+        return [
+            new TwigFilter('trans', '_gettext'),
+        ];
     }
 }

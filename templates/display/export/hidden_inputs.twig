@@ -1,9 +1,9 @@
 {% if export_type == 'server' %}
-    {{ Url_getHiddenInputs('', '', 1) }}
+    {{ get_hidden_inputs('', '', 1) }}
 {% elseif export_type == 'database' %}
-    {{ Url_getHiddenInputs(db, '', 1) }}
+    {{ get_hidden_inputs(db, '', 1) }}
 {% else %}
-    {{ Url_getHiddenInputs(db, table, 1) }}
+    {{ get_hidden_inputs(db, table, 1) }}
 {% endif %}
 
 {# Just to keep this value for possible next display of this form after saving on server #}

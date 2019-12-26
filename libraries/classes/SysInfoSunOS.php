@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\SysInfoBase;
@@ -28,7 +30,7 @@ class SysInfoSunOS extends SysInfoBase
     private function _kstat($key)
     {
         if ($m = shell_exec('kstat -p d ' . $key)) {
-            list(, $value) = preg_split("/\t/", trim($m), 2);
+            list(, $value) = explode("\t", trim($m), 2);
 
             return $value;
         } else {
@@ -45,13 +47,13 @@ class SysInfoSunOS extends SysInfoBase
     {
         $load1 = $this->_kstat('unix:0:system_misc:avenrun_1min');
 
-        return array('loadavg' => $load1);
+        return ['loadavg' => $load1];
     }
 
     /**
      * Checks whether class is supported in this environment
      *
-     * @return true on success
+     * @return bool true on success
      */
     public function supported()
     {
@@ -65,17 +67,14 @@ class SysInfoSunOS extends SysInfoBase
      */
     public function memory()
     {
-        $pagesize = $this->_kstat('unix:0:seg_cache:slab_size');
-        $mem = array();
-        $mem['MemTotal']
-            = $this->_kstat('unix:0:system_pages:pagestotal') * $pagesize;
-        $mem['MemUsed']
-            = $this->_kstat('unix:0:system_pages:pageslocked') * $pagesize;
-        $mem['MemFree']
-            = $this->_kstat('unix:0:system_pages:pagesfree') * $pagesize;
-        $mem['SwapTotal'] = $this->_kstat('unix:0:vminfo:swap_avail') / 1024;
-        $mem['SwapUsed'] = $this->_kstat('unix:0:vminfo:swap_alloc') / 1024;
-        $mem['SwapFree'] = $this->_kstat('unix:0:vminfo:swap_free') / 1024;
+        $pagesize = (int) $this->_kstat('unix:0:seg_cache:slab_size');
+        $mem = [];
+        $mem['MemTotal'] = (int) $this->_kstat('unix:0:system_pages:pagestotal') * $pagesize;
+        $mem['MemUsed'] = (int) $this->_kstat('unix:0:system_pages:pageslocked') * $pagesize;
+        $mem['MemFree'] = (int) $this->_kstat('unix:0:system_pages:pagesfree') * $pagesize;
+        $mem['SwapTotal'] = (int) $this->_kstat('unix:0:vminfo:swap_avail') / 1024;
+        $mem['SwapUsed'] = (int) $this->_kstat('unix:0:vminfo:swap_alloc') / 1024;
+        $mem['SwapFree'] = (int) $this->_kstat('unix:0:vminfo:swap_free') / 1024;
 
         return $mem;
     }

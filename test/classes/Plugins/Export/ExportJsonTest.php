@@ -5,12 +5,15 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\Plugins\Export\ExportJson;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
+use stdClass;
 
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportJson class
@@ -27,7 +30,7 @@ class ExportJsonTest extends PmaTestCase
      *
      * @return void
      */
-    function setUp()
+    protected function setUp(): void
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
@@ -43,7 +46,7 @@ class ExportJsonTest extends PmaTestCase
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         unset($this->object);
     }
@@ -126,7 +129,6 @@ class ExportJsonTest extends PmaTestCase
             'structure_or_data',
             $property->getName()
         );
-
     }
 
     /**
@@ -219,8 +221,8 @@ class ExportJsonTest extends PmaTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $flags = array();
-        $a = new \stdClass();
+        $flags = [];
+        $a = new stdClass();
         $a->blob = false;
         $a->numeric = false;
         $a->type = 'string';
@@ -246,12 +248,12 @@ class ExportJsonTest extends PmaTestCase
         $dbi->expects($this->at(4))
             ->method('fetchRow')
             ->with(null)
-            ->will($this->returnValue(array('foo')));
+            ->will($this->returnValue(['foo']));
 
         $dbi->expects($this->at(5))
             ->method('fetchRow')
             ->with(null)
-            ->will($this->returnValue(array('bar')));
+            ->will($this->returnValue(['bar']));
 
         $dbi->expects($this->at(6))
             ->method('fetchRow')
