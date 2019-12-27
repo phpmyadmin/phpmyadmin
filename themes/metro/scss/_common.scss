@@ -2865,6 +2865,7 @@ form.append_fields_form .tblFooters {
 .tooltip {
   background: #333 !important;
   opacity: 0.8 !important;
+  z-index: 9999;
   border: 1px solid #000 !important;
   font-size: 10px !important;
   font-weight: normal !important;

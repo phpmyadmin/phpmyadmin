@@ -2755,6 +2755,7 @@ input#auto_increment_opt {
 .tooltip {
   background: #333 !important;
   opacity: 0.8 !important;
+  z-index: 9999;
   border: 1px solid #000 !important;
   -moz-border-radius: 0.3em !important;
   -webkit-border-radius: 0.3em !important;
