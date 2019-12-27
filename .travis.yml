@@ -50,7 +50,7 @@ jobs:
     - php: nightly
     - os: osx
     - name: "PHP 7.1 with dbase extension"
-    - name: "PHPUnit test in random order"
+    - name: "PHPUnit tests in random order"
 
   include:
     - stage: "Lint and analyse code"
