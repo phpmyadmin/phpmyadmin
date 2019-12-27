@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:37-0300\n"
-"PO-Revision-Date: 2019-12-23 19:26+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2019-12-28 09:29+0000\n"
+"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/5-0/fr/"
 ">\n"
 "Language: fr\n"
@@ -3942,7 +3942,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:285
 msgid "Foreign key checks"
-msgstr "Vérification des clés étrangères :"
+msgstr "Vérification des clés étrangères"
 
 #: libraries/classes/Config/Descriptions.php:286
 msgid "Browse mode"
@@ -5962,7 +5962,7 @@ msgstr "Ordre"
 
 #: libraries/classes/Config/Descriptions.php:926
 msgid "Order by"
-msgstr "Trier par :"
+msgstr "Trier par"
 
 #: libraries/classes/Config/Descriptions.php:927
 msgid "Server connection collation"
@@ -7634,7 +7634,7 @@ msgstr "Alias :"
 
 #: libraries/classes/Database/Qbe.php:568
 msgid "Sort:"
-msgstr "Tri : "
+msgstr "Tri :"
 
 #: libraries/classes/Database/Qbe.php:627
 msgid "Sort order:"
@@ -7646,7 +7646,7 @@ msgstr "Afficher :"
 
 #: libraries/classes/Database/Qbe.php:719
 msgid "Criteria:"
-msgstr "Critère : "
+msgstr "Critère :"
 
 #: libraries/classes/Database/Qbe.php:799
 #: libraries/classes/Database/Qbe.php:831
@@ -7660,12 +7660,12 @@ msgstr "Utiliser les tables"
 #: libraries/classes/Database/Qbe.php:854
 #: libraries/classes/Database/Qbe.php:961
 msgid "Or:"
-msgstr "Ou : "
+msgstr "Ou :"
 
 #: libraries/classes/Database/Qbe.php:858
 #: libraries/classes/Database/Qbe.php:946
 msgid "And:"
-msgstr "Et : "
+msgstr "Et :"
 
 #: libraries/classes/Database/Qbe.php:863
 msgid "Ins"
@@ -7677,15 +7677,15 @@ msgstr "Suppr."
 
 #: libraries/classes/Database/Qbe.php:882
 msgid "Modify:"
-msgstr "Modifier : "
+msgstr "Modifier :"
 
 #: libraries/classes/Database/Qbe.php:941
 msgid "Ins:"
-msgstr "Insérer : "
+msgstr "Insérer :"
 
 #: libraries/classes/Database/Qbe.php:956
 msgid "Del:"
-msgstr "Supprimer : "
+msgstr "Supprimer :"
 
 #: libraries/classes/Database/Qbe.php:1810
 #, php-format
@@ -7812,7 +7812,7 @@ msgstr "Aucun mot de passe"
 #: templates/server/replication/master_add_slave_user.twig:49
 #: templates/server/replication/change_master.twig:18
 msgid "Password:"
-msgstr "Mot de passe : "
+msgstr "Mot de passe :"
 
 #: libraries/classes/Display/ChangePassword.php:92
 msgid "Enter:"
@@ -7827,7 +7827,7 @@ msgstr "Saisir à nouveau :"
 #: libraries/classes/Display/ChangePassword.php:133
 #: libraries/classes/Display/ChangePassword.php:168
 msgid "Password Hashing:"
-msgstr "Hachage du mot de passe : "
+msgstr "Hachage du mot de passe :"
 
 #: libraries/classes/Display/ChangePassword.php:146
 #: libraries/classes/Server/Privileges.php:1870
@@ -7890,7 +7890,7 @@ msgstr "aucune branche"
 
 #: libraries/classes/Display/GitRevision.php:109
 msgid "Git revision:"
-msgstr "Révision Git : "
+msgstr "Révision Git :"
 
 #: libraries/classes/Display/GitRevision.php:112
 #, php-format
@@ -9055,20 +9055,20 @@ msgstr "Évènements :"
 
 #: libraries/classes/Navigation/Navigation.php:220
 msgid "Functions:"
-msgstr "Fonctions : "
+msgstr "Fonctions :"
 
 #: libraries/classes/Navigation/Navigation.php:221
 msgid "Procedures:"
-msgstr "Procédures : "
+msgstr "Procédures :"
 
 #: libraries/classes/Navigation/Navigation.php:222
 #: templates/display/export/selection.twig:5
 msgid "Tables:"
-msgstr "Tables : "
+msgstr "Tables :"
 
 #: libraries/classes/Navigation/Navigation.php:223
 msgid "Views:"
-msgstr "Vues : "
+msgstr "Vues :"
 
 #: libraries/classes/Navigation/NavigationTree.php:777
 msgid ""
@@ -9733,7 +9733,7 @@ msgstr "Retirer le partitionnement"
 
 #: libraries/classes/Operations.php:1767
 msgid "Check referential integrity:"
-msgstr "Vérifier l'intégrité référentielle : "
+msgstr "Vérifier l'intégrité référentielle :"
 
 #: libraries/classes/Operations.php:2169
 msgid "Can't move table to same one!"
@@ -9769,7 +9769,7 @@ msgstr "Le nom de la table est vide !"
 
 #: libraries/classes/Pdf.php:155
 msgid "Error while creating PDF:"
-msgstr "Erreur pendant la création du PDF : "
+msgstr "Erreur pendant la création du PDF :"
 
 #: libraries/classes/Plugins.php:627
 msgid "This format has no options"
@@ -9845,11 +9845,11 @@ msgstr "Serveur : "
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:217
 msgid "Username:"
-msgstr "Utilisateur : "
+msgstr "Utilisateur :"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:229
 msgid "Server Choice:"
-msgstr "Choix du serveur : "
+msgstr "Choix du serveur :"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:359
 msgid "Failed to connect to the reCAPTCHA service!"
