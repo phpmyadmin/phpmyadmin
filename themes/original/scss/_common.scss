@@ -222,7 +222,7 @@ div.tools {
 
   /* avoid a thick line since this should be used under another fieldset */
   border-top: 0;
-  text-align: $right;
+  text-align: $left;
   float: none;
   clear: both;
 }
@@ -233,7 +233,7 @@ fieldset.tblFooters {
 
   /* avoid a thick line since this should be used under another fieldset */
   border-top: 0;
-  text-align: $right;
+  text-align: $left;
   float: none;
   clear: both;
 }

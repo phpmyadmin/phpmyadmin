@@ -513,7 +513,7 @@ div.tools {
   margin-bottom: 0.5em;
   // avoid a thick line since this should be used under another fieldset
   border-top: 0;
-  text-align: $right;
+  text-align: $left;
   float: none;
   clear: both;
   -webkit-border-radius: 0 0 4px 4px;
@@ -526,7 +526,7 @@ fieldset.tblFooters {
   margin-bottom: 0.5em;
   // avoid a thick line since this should be used under another fieldset
   border-top: 0;
-  text-align: $right;
+  text-align: $left;
   float: none;
   clear: both;
   -webkit-border-radius: 0 0 4px 4px;

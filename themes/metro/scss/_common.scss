@@ -511,7 +511,7 @@ td.vbottom {
 
 div.tools {
   padding: 10px;
-  text-align: $right;
+  text-align: $left;
 
   span {
     float: $right;
@@ -582,7 +582,7 @@ tr.noclick td:first-child::before {
 fieldset.tblFooters {
   margin-top: -1px;
   border-top: 0;
-  text-align: $right;
+  text-align: $left;
   float: none;
   clear: both;
 }
