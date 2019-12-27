@@ -453,6 +453,11 @@ parameters:
 			path: libraries/classes/Controllers/Table/ChartController.php
 
 		-
+			message: "#^Parameter \\#1 \\$str of function mb_strtolower expects string, array\\<string\\>\\|string given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/FindReplaceController.php
+
+		-
 			message: "#^Parameter \\#1 \\$content of method PhpMyAdmin\\\\Response\\:\\:addHTML\\(\\) expects string, PhpMyAdmin\\\\Message given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/GisVisualizationController.php
@@ -3329,12 +3334,12 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$response of class PhpMyAdmin\\\\Controllers\\\\Table\\\\SearchController constructor expects PhpMyAdmin\\\\Response, PhpMyAdmin\\\\Tests\\\\Stubs\\\\Response given\\.$#"
-			count: 5
+			count: 4
 			path: test/classes/Controllers/Table/SearchControllerTest.php
 
 		-
 			message: "#^Parameter \\#7 \\$url_query of class PhpMyAdmin\\\\Controllers\\\\Table\\\\SearchController constructor expects string, null given\\.$#"
-			count: 5
+			count: 4
 			path: test/classes/Controllers/Table/SearchControllerTest.php
 
 		-

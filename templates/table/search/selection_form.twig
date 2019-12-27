@@ -166,45 +166,6 @@
         </fieldset>
         <div class="clearfloat"></div>
     </fieldset>
-{% elseif search_type == 'replace' %}
-    {% include 'table/search/form_tag.twig' with {
-        'script_name': url('/table/find_replace'),
-        'form_id': 'find_replace_form',
-        'db': db,
-        'table': table,
-        'goto': goto
-    } only %}
-    <fieldset id="fieldset_find_replace">
-        <fieldset id="fieldset_find">
-            <legend>
-                {% trans 'Find and replace' %}
-            </legend>{% trans 'Find:' %}
-            <input type="text" value="" name="find" required>
-            {% trans 'Replace with:' %}
-            <input type="text" value="" name="replaceWith">
-
-            {% trans 'Column:' %}
-            <select name="columnIndex">
-                {% for i in 0..column_names|length - 1 %}
-                    {% set type = types[column_names[i]] %}
-
-                    {% if sql_types.getTypeClass(type) == 'CHAR' %}
-                        <option value="{{ i }}">
-                            {{- column_names[i] -}}
-                        </option>
-                    {% endif %}
-                {% endfor %}
-            </select>
-
-            {% include 'checkbox.twig' with {
-                'html_field_id': 'useRegex',
-                'html_field_name': 'useRegex',
-                'label': 'Use regular expression'|trans,
-                'checked': false,
-                'onclick': false
-            } only %}
-        </fieldset>
-    </fieldset>
 {% else %}
     {% include 'table/search/form_tag.twig' with {
         'script_name': '',

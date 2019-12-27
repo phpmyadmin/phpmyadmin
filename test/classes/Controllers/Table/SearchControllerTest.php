@@ -102,57 +102,6 @@ class SearchControllerTest extends PmaTestCase
     }
 
     /**
-     * tearDown function for test cases
-     *
-     * @return void
-     *
-     * @access protected
-     */
-    protected function tearDown(): void
-    {
-    }
-
-    /**
-     * Test for replace
-     *
-     * @return void
-     */
-    public function testReplace()
-    {
-        $tableSearch = new SearchController(
-            $this->_response,
-            $GLOBALS['dbi'],
-            $this->template,
-            $GLOBALS['db'],
-            $GLOBALS['table'],
-            'zoom',
-            null,
-            new Relation($GLOBALS['dbi'], $this->template)
-        );
-        $columnIndex = 0;
-        $find = 'Field';
-        $replaceWith = 'Column';
-        $useRegex = false;
-        $charSet = 'UTF-8';
-        $tableSearch->replace(
-            $columnIndex,
-            $find,
-            $replaceWith,
-            $useRegex,
-            $charSet
-        );
-
-        $sql_query = $GLOBALS['sql_query'];
-        $result = 'UPDATE `PMA_BookMark` SET `Field1` = '
-            . "REPLACE(`Field1`, 'Field', 'Column') "
-            . "WHERE `Field1` LIKE '%Field%' COLLATE UTF-8_bin";
-        $this->assertEquals(
-            $result,
-            $sql_query
-        );
-    }
-
-    /**
      * Test for buildSqlQuery
      *
      * @return void

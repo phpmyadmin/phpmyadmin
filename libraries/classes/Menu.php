@@ -283,7 +283,7 @@ class Menu
         $tabs['search']['text'] = __('Search');
         $tabs['search']['link'] = Url::getFromRoute('/table/search');
         $tabs['search']['active'] = in_array($route, [
-            '/table/find_replace',
+            '/table/find-replace',
             '/table/search',
             '/table/zoom_select',
         ]);

@@ -58,6 +58,7 @@ use PhpMyAdmin\Controllers\Server\VariablesController;
 use PhpMyAdmin\Controllers\Table\AddFieldController;
 use PhpMyAdmin\Controllers\Table\ChartController;
 use PhpMyAdmin\Controllers\Table\CreateController;
+use PhpMyAdmin\Controllers\Table\FindReplaceController;
 use PhpMyAdmin\Controllers\Table\GetFieldController;
 use PhpMyAdmin\Controllers\Table\GisVisualizationController;
 use PhpMyAdmin\Controllers\Table\IndexesController;
@@ -574,8 +575,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $routes->addRoute(['GET', 'POST'], '/export', function () {
             require_once ROOT_PATH . 'libraries/entry_points/table/export.php';
         });
-        $routes->addRoute(['GET', 'POST'], '/find_replace', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/table/find_replace.php';
+        $routes->addRoute(['GET', 'POST'], '/find-replace', function () use ($containerBuilder) {
+            /** @var FindReplaceController $controller */
+            $controller = $containerBuilder->get(FindReplaceController::class);
+            $controller->index();
         });
         $routes->addRoute(['GET', 'POST'], '/get-field', function () use ($containerBuilder) {
             /** @var GetFieldController $controller */

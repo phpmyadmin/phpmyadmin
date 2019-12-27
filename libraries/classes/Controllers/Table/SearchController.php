@@ -192,25 +192,6 @@ class SearchController extends AbstractController
     {
         global $goto;
         switch ($this->_searchType) {
-            case 'replace':
-                if (isset($_POST['find'])) {
-                    $this->findAction();
-
-                    return;
-                }
-                $this->response
-                ->getHeader()
-                ->getScripts()
-                ->addFile('table/find_replace.js');
-
-                if (isset($_POST['replace'])) {
-                    $this->replaceAction();
-                }
-
-                // Displays the find and replace form
-                $this->displaySelectionFormAction();
-                break;
-
             case 'normal':
                 $this->response->getHeader()
                 ->getScripts()
@@ -534,13 +515,6 @@ class SearchController extends AbstractController
 
         $column_names = $this->_columnNames;
         $column_types = $this->_columnTypes;
-        $types = [];
-        if ($this->_searchType == 'replace') {
-            $num_cols = count($column_names);
-            for ($i = 0; $i < $num_cols; $i++) {
-                $types[$column_names[$i]] = preg_replace('@\\(.*@s', '', $column_types[$i]);
-            }
-        }
 
         $criteria_column_names = $_POST['criteriaColumnNames'] ?? null;
         $keys = [];
@@ -562,14 +536,12 @@ class SearchController extends AbstractController
                 'geom_column_flag' => $this->_geomColumnFlag,
                 'column_names' => $column_names,
                 'column_types' => $column_types,
-                'types' => $types,
                 'column_collations' => $this->_columnCollations,
                 'data_label' => $dataLabel,
                 'keys' => $keys,
                 'criteria_column_names' => $criteria_column_names,
                 'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
                 'criteria_column_types' => $_POST['criteriaColumnTypes'] ?? null,
-                'sql_types' => $this->dbi->types,
                 'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
                 'max_plot_limit' => ! empty($_POST['maxPlotLimit'])
                     ? intval($_POST['maxPlotLimit'])
@@ -587,239 +559,6 @@ class SearchController extends AbstractController
     {
         $min_max = $this->getColumnMinMax($_POST['column']);
         $this->response->addJSON('column_data', $min_max);
-    }
-
-    /**
-     * Find action
-     *
-     * @return void
-     */
-    public function findAction()
-    {
-        $useRegex = array_key_exists('useRegex', $_POST)
-            && $_POST['useRegex'] == 'on';
-
-        $preview = $this->getReplacePreview(
-            $_POST['columnIndex'],
-            $_POST['find'],
-            $_POST['replaceWith'],
-            $useRegex,
-            $this->_connectionCharSet
-        );
-        $this->response->addJSON('preview', $preview);
-    }
-
-    /**
-     * Replace action
-     *
-     * @return void
-     */
-    public function replaceAction()
-    {
-        $this->replace(
-            $_POST['columnIndex'],
-            $_POST['findString'],
-            $_POST['replaceWith'],
-            $_POST['useRegex'],
-            $this->_connectionCharSet
-        );
-        $this->response->addHTML(
-            Generator::getMessage(
-                __('Your SQL query has been executed successfully.'),
-                null,
-                'success'
-            )
-        );
-    }
-
-    /**
-     * Returns HTML for previewing strings found and their replacements
-     *
-     * @param int     $columnIndex index of the column
-     * @param string  $find        string to find in the column
-     * @param string  $replaceWith string to replace with
-     * @param boolean $useRegex    to use Regex replace or not
-     * @param string  $charSet     character set of the connection
-     *
-     * @return string HTML for previewing strings found and their replacements
-     */
-    public function getReplacePreview(
-        $columnIndex,
-        $find,
-        $replaceWith,
-        $useRegex,
-        $charSet
-    ) {
-        $column = $this->_columnNames[$columnIndex];
-        if ($useRegex) {
-            $result = $this->_getRegexReplaceRows(
-                $columnIndex,
-                $find,
-                $replaceWith,
-                $charSet
-            );
-        } else {
-            $sql_query = 'SELECT '
-                . Util::backquote($column) . ','
-                . ' REPLACE('
-                . Util::backquote($column) . ", '" . $find . "', '"
-                . $replaceWith
-                . "'),"
-                . ' COUNT(*)'
-                . ' FROM ' . Util::backquote($this->db)
-                . '.' . Util::backquote($this->table)
-                . ' WHERE ' . Util::backquote($column)
-                . " LIKE '%" . $find . "%' COLLATE " . $charSet . '_bin'; // here we
-            // change the collation of the 2nd operand to a case sensitive
-            // binary collation to make sure that the comparison
-            // is case sensitive
-            $sql_query .= ' GROUP BY ' . Util::backquote($column)
-                . ' ORDER BY ' . Util::backquote($column) . ' ASC';
-
-            $result = $this->dbi->fetchResult($sql_query, 0);
-        }
-
-        return $this->template->render('table/search/replace_preview', [
-            'db' => $this->db,
-            'table' => $this->table,
-            'column_index' => $columnIndex,
-            'find' => $find,
-            'replace_with' => $replaceWith,
-            'use_regex' => $useRegex,
-            'result' => $result,
-        ]);
-    }
-
-    /**
-     * Finds and returns Regex pattern and their replacements
-     *
-     * @param int    $columnIndex index of the column
-     * @param string $find        string to find in the column
-     * @param string $replaceWith string to replace with
-     * @param string $charSet     character set of the connection
-     *
-     * @return array|bool Array containing original values, replaced values and count
-     */
-    private function _getRegexReplaceRows(
-        $columnIndex,
-        $find,
-        $replaceWith,
-        $charSet
-    ) {
-        $column = $this->_columnNames[$columnIndex];
-        $sql_query = 'SELECT '
-            . Util::backquote($column) . ','
-            . ' 1,' // to add an extra column that will have replaced value
-            . ' COUNT(*)'
-            . ' FROM ' . Util::backquote($this->db)
-            . '.' . Util::backquote($this->table)
-            . ' WHERE ' . Util::backquote($column)
-            . " RLIKE '" . $this->dbi->escapeString($find) . "' COLLATE "
-            . $charSet . '_bin'; // here we
-        // change the collation of the 2nd operand to a case sensitive
-        // binary collation to make sure that the comparison is case sensitive
-        $sql_query .= ' GROUP BY ' . Util::backquote($column)
-            . ' ORDER BY ' . Util::backquote($column) . ' ASC';
-
-        $result = $this->dbi->fetchResult($sql_query, 0);
-
-        if (is_array($result)) {
-            /* Iterate over possible delimiters to get one */
-            $delimiters = [
-                '/',
-                '@',
-                '#',
-                '~',
-                '!',
-                '$',
-                '%',
-                '^',
-                '&',
-                '_',
-            ];
-            $found = false;
-            for ($i = 0, $l = count($delimiters); $i < $l; $i++) {
-                if (strpos($find, $delimiters[$i]) === false) {
-                    $found = true;
-                    break;
-                }
-            }
-            if (! $found) {
-                return false;
-            }
-            $find = $delimiters[$i] . $find . $delimiters[$i];
-            foreach ($result as $index => $row) {
-                $result[$index][1] = preg_replace(
-                    $find,
-                    $replaceWith,
-                    $row[0]
-                );
-            }
-        }
-        return $result;
-    }
-
-    /**
-     * Replaces a given string in a column with a give replacement
-     *
-     * @param int     $columnIndex index of the column
-     * @param string  $find        string to find in the column
-     * @param string  $replaceWith string to replace with
-     * @param boolean $useRegex    to use Regex replace or not
-     * @param string  $charSet     character set of the connection
-     *
-     * @return void
-     */
-    public function replace(
-        $columnIndex,
-        $find,
-        $replaceWith,
-        $useRegex,
-        $charSet
-    ) {
-        $column = $this->_columnNames[$columnIndex];
-        if ($useRegex) {
-            $toReplace = $this->_getRegexReplaceRows(
-                $columnIndex,
-                $find,
-                $replaceWith,
-                $charSet
-            );
-            $sql_query = 'UPDATE ' . Util::backquote($this->table)
-                . ' SET ' . Util::backquote($column) . ' = CASE';
-            if (is_array($toReplace)) {
-                foreach ($toReplace as $row) {
-                    $sql_query .= "\n WHEN " . Util::backquote($column)
-                        . " = '" . $this->dbi->escapeString($row[0])
-                        . "' THEN '" . $this->dbi->escapeString($row[1]) . "'";
-                }
-            }
-            $sql_query .= ' END'
-                . ' WHERE ' . Util::backquote($column)
-                . " RLIKE '" . $this->dbi->escapeString($find) . "' COLLATE "
-                . $charSet . '_bin'; // here we
-            // change the collation of the 2nd operand to a case sensitive
-            // binary collation to make sure that the comparison
-            // is case sensitive
-        } else {
-            $sql_query = 'UPDATE ' . Util::backquote($this->table)
-                . ' SET ' . Util::backquote($column) . ' ='
-                . ' REPLACE('
-                . Util::backquote($column) . ", '" . $find . "', '"
-                . $replaceWith
-                . "')"
-                . ' WHERE ' . Util::backquote($column)
-                . " LIKE '%" . $find . "%' COLLATE " . $charSet . '_bin'; // here we
-            // change the collation of the 2nd operand to a case sensitive
-            // binary collation to make sure that the comparison
-            // is case sensitive
-        }
-        $this->dbi->query(
-            $sql_query,
-            DatabaseInterface::CONNECT_USER,
-            DatabaseInterface::QUERY_STORE
-        );
-        $GLOBALS['sql_query'] = $sql_query;
     }
 
     /**
@@ -863,10 +602,10 @@ class SearchController extends AbstractController
         $subtabs['zoom']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/table/zoom_select';
 
         $subtabs['replace']['icon'] = 'b_find_replace';
-        $subtabs['replace']['link'] = Url::getFromRoute('/table/find_replace');
+        $subtabs['replace']['link'] = Url::getFromRoute('/table/find-replace');
         $subtabs['replace']['text'] = __('Find and replace');
         $subtabs['replace']['id'] = 'find_replace_id';
-        $subtabs['replace']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/table/find_replace';
+        $subtabs['replace']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/table/find-replace';
 
         return $subtabs;
     }
