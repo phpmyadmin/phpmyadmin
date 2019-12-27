@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:48-0300\n"
-"PO-Revision-Date: 2019-12-23 19:26+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2019-12-28 09:29+0000\n"
+"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -3390,7 +3390,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:284
 msgid "Foreign key checks"
-msgstr "Vérification des clés étrangères :"
+msgstr "Vérification des clés étrangères"
 
 #: libraries/classes/Config/Descriptions.php:285
 msgid "First day of calendar"
@@ -5425,7 +5425,7 @@ msgstr "Ordre"
 
 #: libraries/classes/Config/Descriptions.php:926
 msgid "Order by"
-msgstr "Trier par :"
+msgstr "Trier par"
 
 #: libraries/classes/Config/Descriptions.php:927
 msgid "Server connection collation"
@@ -7616,7 +7616,7 @@ msgstr "Alias :"
 
 #: libraries/classes/Database/Qbe.php:556
 msgid "Sort:"
-msgstr "Tri : "
+msgstr "Tri :"
 
 #: libraries/classes/Database/Qbe.php:614
 msgid "Sort order:"
@@ -7628,7 +7628,7 @@ msgstr "Afficher :"
 
 #: libraries/classes/Database/Qbe.php:706
 msgid "Criteria:"
-msgstr "Critère : "
+msgstr "Critère :"
 
 #: libraries/classes/Database/Qbe.php:786
 #: libraries/classes/Database/Qbe.php:818
@@ -7642,12 +7642,12 @@ msgstr "Utiliser les tables"
 #: libraries/classes/Database/Qbe.php:841
 #: libraries/classes/Database/Qbe.php:948
 msgid "Or:"
-msgstr "Ou : "
+msgstr "Ou :"
 
 #: libraries/classes/Database/Qbe.php:845
 #: libraries/classes/Database/Qbe.php:933
 msgid "And:"
-msgstr "Et : "
+msgstr "Et :"
 
 #: libraries/classes/Database/Qbe.php:850
 msgid "Ins"
@@ -7659,15 +7659,15 @@ msgstr "Suppr."
 
 #: libraries/classes/Database/Qbe.php:869
 msgid "Modify:"
-msgstr "Modifier : "
+msgstr "Modifier :"
 
 #: libraries/classes/Database/Qbe.php:928
 msgid "Ins:"
-msgstr "Insérer : "
+msgstr "Insérer :"
 
 #: libraries/classes/Database/Qbe.php:943
 msgid "Del:"
-msgstr "Supprimer : "
+msgstr "Supprimer :"
 
 #: libraries/classes/Database/Qbe.php:1796
 #, php-format
@@ -7833,7 +7833,7 @@ msgstr "aucune branche"
 
 #: libraries/classes/Display/GitRevision.php:107
 msgid "Git revision:"
-msgstr "Révision Git : "
+msgstr "Révision Git :"
 
 #: libraries/classes/Display/GitRevision.php:110
 #, php-format
@@ -9093,20 +9093,20 @@ msgstr "Évènements :"
 
 #: libraries/classes/Navigation/Navigation.php:218
 msgid "Functions:"
-msgstr "Fonctions : "
+msgstr "Fonctions :"
 
 #: libraries/classes/Navigation/Navigation.php:219
 msgid "Procedures:"
-msgstr "Procédures : "
+msgstr "Procédures :"
 
 #: libraries/classes/Navigation/Navigation.php:220
 #: templates/display/export/selection.twig:5
 msgid "Tables:"
-msgstr "Tables : "
+msgstr "Tables :"
 
 #: libraries/classes/Navigation/Navigation.php:221
 msgid "Views:"
-msgstr "Vues : "
+msgstr "Vues :"
 
 #: libraries/classes/Navigation/NavigationTree.php:775
 msgid ""
@@ -9766,7 +9766,7 @@ msgstr "Retirer le partitionnement"
 
 #: libraries/classes/Operations.php:1770
 msgid "Check referential integrity:"
-msgstr "Vérifier l'intégrité référentielle : "
+msgstr "Vérifier l'intégrité référentielle :"
 
 #: libraries/classes/Operations.php:2170
 msgid "Can't move table to same one!"
@@ -9802,7 +9802,7 @@ msgstr "Le nom de la table est vide !"
 
 #: libraries/classes/Pdf.php:155
 msgid "Error while creating PDF:"
-msgstr "Erreur pendant la création du PDF : "
+msgstr "Erreur pendant la création du PDF :"
 
 #: libraries/classes/Plugins.php:623
 msgid "This format has no options"
@@ -14122,7 +14122,7 @@ msgstr ""
 #: templates/server/privileges/login_information_fields.twig:43
 #: templates/display/change_password/file_a.twig:20
 msgid "Password:"
-msgstr "Mot de passe : "
+msgstr "Mot de passe :"
 
 #: templates/server/replication/master_add_slave_user.twig:52
 #: templates/server/replication/master_add_slave_user.twig:57
@@ -15038,7 +15038,7 @@ msgstr "Téléversement SQL"
 #: templates/display/change_password/file_d.twig:2
 #: templates/display/change_password/file_b.twig:2
 msgid "Password Hashing:"
-msgstr "Hachage du mot de passe : "
+msgstr "Hachage du mot de passe :"
 
 #: templates/columns_definitions/column_default.twig:3
 msgctxt "for default"
@@ -16284,7 +16284,7 @@ msgstr ""
 
 #: templates/login/form.twig:46
 msgid "Username:"
-msgstr "Utilisateur : "
+msgstr "Utilisateur :"
 
 #: templates/login/form.twig:65
 msgid "Server choice:"
