@@ -95,11 +95,6 @@ class EnginesControllerTest extends TestCase
      */
     public function testShow(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $GLOBALS['dbi'] = $dbi;
-
         $controller = new EnginesController(
             Response::getInstance(),
             $GLOBALS['dbi'],

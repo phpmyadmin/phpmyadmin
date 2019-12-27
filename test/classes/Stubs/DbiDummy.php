@@ -637,6 +637,10 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
+                'query' => 'SHOW GLOBAL VARIABLES ;',
+                'result' => [],
+            ],
+            [
                 'query'  => 'SHOW GLOBAL VARIABLES LIKE \'innodb_file_per_table\';',
                 'result' => [
                     [

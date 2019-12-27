@@ -125,6 +125,8 @@ class Header
      */
     public function __construct()
     {
+        global $db, $table;
+
         $this->template = new Template();
 
         $this->_isEnabled = true;
@@ -132,11 +134,9 @@ class Header
         $this->_bodyId = '';
         $this->_title = '';
         $this->_console = new Console();
-        $db = strlen($GLOBALS['db']) ? $GLOBALS['db'] : '';
-        $table = strlen($GLOBALS['table']) ? $GLOBALS['table'] : '';
         $this->_menu = new Menu(
-            $db,
-            $table
+            $db ?? '',
+            $table ?? ''
         );
         $this->_menuEnabled = true;
         $this->_warningsEnabled = true;
@@ -226,8 +226,8 @@ class Header
      */
     public function getJsParams(): array
     {
-        $db = strlen($GLOBALS['db']) ? $GLOBALS['db'] : '';
-        $table = strlen($GLOBALS['table']) ? $GLOBALS['table'] : '';
+        global $db, $table;
+
         $pftext = $_SESSION['tmpval']['pftext'] ?? '';
 
         $params = [
@@ -238,8 +238,8 @@ class Header
             ),
             'lang' => $GLOBALS['lang'],
             'server' => $GLOBALS['server'],
-            'table' => $table,
-            'db' => $db,
+            'table' => $table ?? '',
+            'db' => $db ?? '',
             'token' => $_SESSION[' PMA_token '],
             'text_dir' => $GLOBALS['text_dir'],
             'show_databases_navigation_as_tree' => $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'],
@@ -400,6 +400,8 @@ class Header
      */
     public function getDisplay(): string
     {
+        global $db, $table;
+
         if (! $this->_headerIsSent) {
             if (! $this->_isAjax && $this->_isEnabled) {
                 $this->sendHttpHeaders();
@@ -451,10 +453,7 @@ class Header
                 $messages = $this->getMessage();
             }
             if ($this->_isEnabled && empty($_REQUEST['recent_table'])) {
-                $recentTable = $this->_addRecentTable(
-                    $GLOBALS['db'],
-                    $GLOBALS['table']
-                );
+                $recentTable = $this->_addRecentTable($db, $table);
             }
             return $this->template->render('header', [
                 'is_ajax' => $this->_isAjax,
