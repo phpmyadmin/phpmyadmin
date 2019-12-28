@@ -488,11 +488,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/SearchController.php
 
 		-
-			message: "#^Result of && is always false\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SearchController.php
-
-		-
 			message: "#^Parameter \\#1 \\$selected of method PhpMyAdmin\\\\Controllers\\\\Table\\\\StructureController\\:\\:displayHtmlForColumnChange\\(\\) expects array, null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/StructureController.php
@@ -3334,12 +3329,12 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$response of class PhpMyAdmin\\\\Controllers\\\\Table\\\\SearchController constructor expects PhpMyAdmin\\\\Response, PhpMyAdmin\\\\Tests\\\\Stubs\\\\Response given\\.$#"
-			count: 4
+			count: 2
 			path: test/classes/Controllers/Table/SearchControllerTest.php
 
 		-
 			message: "#^Parameter \\#7 \\$url_query of class PhpMyAdmin\\\\Controllers\\\\Table\\\\SearchController constructor expects string, null given\\.$#"
-			count: 4
+			count: 2
 			path: test/classes/Controllers/Table/SearchControllerTest.php
 
 		-

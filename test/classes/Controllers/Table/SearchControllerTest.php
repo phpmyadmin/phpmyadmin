@@ -10,11 +10,11 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\SearchController;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Types;
-use ReflectionClass;
 use stdClass;
 
 /**
@@ -102,108 +102,6 @@ class SearchControllerTest extends PmaTestCase
     }
 
     /**
-     * Test for buildSqlQuery
-     *
-     * @return void
-     */
-    public function testBuildSqlQuery()
-    {
-        $_POST['distinct'] = true;
-        $_POST['zoom_submit'] = true;
-        $_POST['table'] = 'PMA';
-        $_POST['orderByColumn'] = 'name';
-        $_POST['order'] = 'asc';
-        $_POST['customWhereClause'] = "name='pma'";
-
-        $class = new ReflectionClass(SearchController::class);
-        $method = $class->getMethod('_buildSqlQuery');
-        $method->setAccessible(true);
-        $tableSearch = new SearchController(
-            $this->_response,
-            $GLOBALS['dbi'],
-            $this->template,
-            $GLOBALS['db'],
-            $GLOBALS['table'],
-            'zoom',
-            null,
-            new Relation($GLOBALS['dbi'], $this->template)
-        );
-
-        $sql = $method->invoke($tableSearch);
-        $result = "SELECT DISTINCT *  FROM `PMA` WHERE name='pma' "
-            . 'ORDER BY `name` asc';
-
-        $this->assertEquals(
-            $result,
-            $sql
-        );
-
-        unset($_POST['customWhereClause']);
-        $sql = $method->invoke($tableSearch);
-        $result = 'SELECT DISTINCT *  FROM `PMA` ORDER BY `name` asc';
-        $this->assertEquals(
-            $result,
-            $sql
-        );
-
-        $_POST['criteriaValues'] = [
-            'value1',
-            'value2',
-            'value3',
-            'value4',
-            'value5',
-            'value6',
-            'value7,value8',
-        ];
-        $_POST['criteriaColumnNames'] = [
-            'name',
-            'id',
-            'index',
-            'index2',
-            'index3',
-            'index4',
-            'index5',
-        ];
-        $_POST['criteriaColumnTypes'] = [
-            'varchar',
-            'int',
-            'enum',
-            'type1',
-            'type2',
-            'type3',
-            'type4',
-        ];
-        $_POST['criteriaColumnCollations'] = [
-            'char1',
-            'char2',
-            'char3',
-            'char4',
-            'char5',
-            'char6',
-            'char7',
-        ];
-        $_POST['criteriaColumnOperators'] = [
-            '!=',
-            '>',
-            'IS NULL',
-            'LIKE %...%',
-            'REGEXP ^...$',
-            'IN (...)',
-            'BETWEEN',
-        ];
-
-        $sql = $method->invoke($tableSearch);
-        $result = "SELECT DISTINCT *  FROM `PMA` WHERE `name` != 'value1'"
-            . " AND `id` > value2 AND `index` IS NULL AND `index2` LIKE '%value4%'"
-            . ' AND `index3` REGEXP ^value5$ AND `index4` IN (value6) AND `index5`'
-            . ' BETWEEN value7 AND value8 ORDER BY `name` asc';
-        $this->assertEquals(
-            $result,
-            $sql
-        );
-    }
-
-    /**
      * Tests for getColumnMinMax()
      *
      * @return void
@@ -223,6 +121,7 @@ class SearchControllerTest extends PmaTestCase
             $GLOBALS['table'],
             'replace',
             null,
+            new Search($GLOBALS['dbi']),
             new Relation($GLOBALS['dbi'], $this->template)
         );
 
@@ -232,80 +131,6 @@ class SearchControllerTest extends PmaTestCase
             . 'FROM `PMA`.`PMA_BookMark`';
         $this->assertEquals(
             $expected,
-            $result
-        );
-    }
-
-    /**
-     * Tests for _generateWhereClause()
-     *
-     * @return void
-     *
-     * @test
-     */
-    public function testGenerateWhereClause()
-    {
-        $types = $this->getMockBuilder('PhpMyAdmin\Types')
-            ->disableOriginalConstructor()
-            ->getMock();
-        $types->expects($this->any())->method('isUnaryOperator')
-            ->will($this->returnValue(false));
-
-        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Table\SearchController');
-        $method = $class->getMethod('_generateWhereClause');
-        $method->setAccessible(true);
-
-        $ctrl = new SearchController(
-            $this->_response,
-            $GLOBALS['dbi'],
-            $this->template,
-            $GLOBALS['db'],
-            $GLOBALS['table'],
-            'replace',
-            null,
-            new Relation($GLOBALS['dbi'], $this->template)
-        );
-
-        $_POST['customWhereClause'] = '`table` = \'PMA_BookMark\'';
-        $result = $method->invoke($ctrl);
-        $this->assertEquals(
-            ' WHERE `table` = \'PMA_BookMark\'',
-            $result
-        );
-
-        unset($_POST['customWhereClause']);
-        $this->assertEquals(
-            '',
-            $method->invoke($ctrl)
-        );
-
-        $_POST['criteriaColumnNames'] = [
-            'b',
-            'a',
-            'c',
-            'd',
-        ];
-        $_POST['criteriaColumnOperators'] = [
-            '<=',
-            '=',
-            'IS NULL',
-            'IS NOT NULL',
-        ];
-        $_POST['criteriaValues'] = [
-            '10',
-            '2',
-            '',
-            '',
-        ];
-        $_POST['criteriaColumnTypes'] = [
-            'int(11)',
-            'int(11)',
-            'int(11)',
-            'int(11)',
-        ];
-        $result = $method->invoke($ctrl);
-        $this->assertEquals(
-            ' WHERE `b` <= 10 AND `a` = 2 AND `c` IS NULL AND `d` IS NOT NULL',
             $result
         );
     }
@@ -359,6 +184,7 @@ class SearchControllerTest extends PmaTestCase
             $GLOBALS['table'],
             'replace',
             null,
+            new Search($GLOBALS['dbi']),
             new Relation($GLOBALS['dbi'], $this->template)
         );
 

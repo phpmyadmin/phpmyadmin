@@ -130,6 +130,11 @@ services:
     class: 'PhpMyAdmin\Server\Status\Monitor'
     arguments: ['@dbi']
 
+  table_search:
+    class: 'PhpMyAdmin\Table\Search'
+    arguments:
+      dbi: '@dbi'
+
   template:
     class: 'PhpMyAdmin\Template'
 
