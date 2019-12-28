@@ -469,16 +469,6 @@ parameters:
 
 		-
 			message: "#^Argument of an invalid type \\(array\\)\\|true supplied for foreach, only iterables are supported\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/Table/SearchController.php
-
-		-
-			message: "#^Cannot assign offset 'where_clause' to \\(array\\)\\|true\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SearchController.php
-
-		-
-			message: "#^Parameter \\#2 \\$column_index of method PhpMyAdmin\\\\Controllers\\\\Table\\\\SearchController\\:\\:getColumnProperties\\(\\) expects int, int\\|string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/SearchController.php
 
@@ -511,6 +501,26 @@ parameters:
 			message: "#^Cannot cast ''\\|int to int\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/StructureController.php
+
+		-
+			message: "#^Parameter \\#1 \\$str of function mb_strtolower expects string, array\\<string\\>\\|string given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ZoomSearchController.php
+
+		-
+			message: "#^Argument of an invalid type \\(array\\)\\|true supplied for foreach, only iterables are supported\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Table/ZoomSearchController.php
+
+		-
+			message: "#^Parameter \\#2 \\$column_index of method PhpMyAdmin\\\\Controllers\\\\Table\\\\ZoomSearchController\\:\\:getColumnProperties\\(\\) expects int, int\\|string\\|false given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ZoomSearchController.php
+
+		-
+			message: "#^Cannot assign offset 'where_clause' to \\(array\\)\\|true\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
 		-
 			message: "#^Parameter \\#1 \\$im of function imagesx expects resource, resource\\|false given\\.$#"

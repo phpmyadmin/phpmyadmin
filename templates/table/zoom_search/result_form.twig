@@ -1,7 +1,7 @@
-<form method="post" action="{{ url('/table/zoom_select') }}" name="displayResultForm" id="zoom_display_form" class="ajax">
+<form method="post" action="{{ url('/table/zoom-search') }}" name="displayResultForm" id="zoom_display_form" class="ajax">
     {{ get_hidden_inputs(db, table) }}
     <input type="hidden" name="goto" value="{{ goto }}">
-    <input type="hidden" name="back" value="{{ url('/table/zoom_select') }}">
+    <input type="hidden" name="back" value="{{ url('/table/zoom-search') }}">
 
     <fieldset id="displaySection">
         <legend>{% trans 'Browse/Edit the points' %}</legend>

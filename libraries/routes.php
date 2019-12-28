@@ -68,6 +68,7 @@ use PhpMyAdmin\Controllers\Table\RelationController;
 use PhpMyAdmin\Controllers\Table\RowActionController;
 use PhpMyAdmin\Controllers\Table\TrackingController as TableTrackingController;
 use PhpMyAdmin\Controllers\Table\TriggersController as TableTriggersController;
+use PhpMyAdmin\Controllers\Table\ZoomSearchController;
 use PhpMyAdmin\Controllers\ThemesController;
 use PhpMyAdmin\Controllers\TransformationOverviewController;
 use PhpMyAdmin\Controllers\TransformationWrapperController;
@@ -640,8 +641,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             $controller = $containerBuilder->get(TableTriggersController::class);
             $controller->index();
         });
-        $routes->addRoute(['GET', 'POST'], '/zoom_select', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/table/zoom_select.php';
+        $routes->addRoute(['GET', 'POST'], '/zoom-search', function () use ($containerBuilder) {
+            /** @var ZoomSearchController $controller */
+            $controller = $containerBuilder->get(ZoomSearchController::class);
+            $controller->index();
         });
     });
     $routes->get('/themes', function () use ($containerBuilder, $response) {

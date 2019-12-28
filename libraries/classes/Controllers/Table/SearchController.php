@@ -72,13 +72,6 @@ class SearchController extends AbstractController
      * @var array
      */
     private $_foreigners;
-    /**
-     * Connection charset
-     *
-     * @access private
-     * @var string
-     */
-    private $_connectionCharSet;
 
     protected $url_query;
 
@@ -128,9 +121,6 @@ class SearchController extends AbstractController
         $this->relation = $relation;
         // Loads table's information
         $this->_loadTableInfo();
-        $this->_connectionCharSet = $this->dbi->fetchValue(
-            'SELECT @@character_set_connection'
-        );
     }
 
     /**
@@ -197,7 +187,6 @@ class SearchController extends AbstractController
      */
     public function indexAction()
     {
-        global $goto;
         switch ($this->_searchType) {
             case 'normal':
                 $this->response->getHeader()
@@ -230,192 +219,7 @@ class SearchController extends AbstractController
                     $this->doSelectionAction();
                 }
                 break;
-
-            case 'zoom':
-                $this->response->getHeader()
-                ->getScripts()
-                ->addFiles(
-                    [
-                        'makegrid.js',
-                        'sql.js',
-                        'vendor/jqplot/jquery.jqplot.js',
-                        'vendor/jqplot/plugins/jqplot.canvasTextRenderer.js',
-                        'vendor/jqplot/plugins/jqplot.canvasAxisLabelRenderer.js',
-                        'vendor/jqplot/plugins/jqplot.dateAxisRenderer.js',
-                        'vendor/jqplot/plugins/jqplot.highlighter.js',
-                        'vendor/jqplot/plugins/jqplot.cursor.js',
-                        'table/zoom_plot_jqplot.js',
-                        'table/change.js',
-                    ]
-                );
-
-                /**
-                 * Handle AJAX request for data row on point select
-                 */
-                if (isset($_POST['get_data_row'])
-                    && $_POST['get_data_row'] == true
-                ) {
-                    $this->getDataRowAction();
-
-                    return;
-                }
-                /**
-                 * Handle AJAX request for changing field information
-                 * (value,collation,operators,field values) in input form
-                 */
-                if (isset($_POST['change_tbl_info'])
-                && $_POST['change_tbl_info'] == true
-                ) {
-                    $this->changeTableInfoAction();
-
-                    return;
-                }
-
-                //Set default datalabel if not selected
-                if (! isset($_POST['zoom_submit']) || $_POST['dataLabel'] == '') {
-                    $dataLabel = $this->relation->getDisplayField($this->db, $this->table);
-                } else {
-                    $dataLabel = $_POST['dataLabel'];
-                }
-
-                // Displays the zoom search form
-                $this->displaySelectionFormAction($dataLabel);
-
-                /*
-                 * Handle the input criteria and generate the query result
-                 * Form for displaying query results
-                 */
-                if (isset($_POST['zoom_submit'])
-                && $_POST['criteriaColumnNames'][0] != 'pma_null'
-                && $_POST['criteriaColumnNames'][1] != 'pma_null'
-                && $_POST['criteriaColumnNames'][0] != $_POST['criteriaColumnNames'][1]
-                ) {
-                    if (! isset($goto)) {
-                        $goto = Util::getScriptNameForOption(
-                            $GLOBALS['cfg']['DefaultTabTable'],
-                            'table'
-                        );
-                    }
-                    $this->zoomSubmitAction($dataLabel, $goto);
-                }
-                break;
         }
-    }
-
-    /**
-     * Zoom submit action
-     *
-     * @param string $dataLabel Data label
-     * @param string $goto      Goto
-     *
-     * @return void
-     */
-    public function zoomSubmitAction($dataLabel, $goto)
-    {
-        //Query generation part
-        $sql_query = $this->search->buildSqlQuery();
-        $sql_query .= ' LIMIT ' . $_POST['maxPlotLimit'];
-
-        //Query execution part
-        $result = $this->dbi->query(
-            $sql_query . ';',
-            DatabaseInterface::CONNECT_USER,
-            DatabaseInterface::QUERY_STORE
-        );
-        $fields_meta = $this->dbi->getFieldsMeta($result);
-        $data = [];
-        while ($row = $this->dbi->fetchAssoc($result)) {
-            //Need a row with indexes as 0,1,2 for the getUniqueCondition
-            // hence using a temporary array
-            $tmpRow = [];
-            foreach ($row as $val) {
-                $tmpRow[] = $val;
-            }
-            //Get unique condition on each row (will be needed for row update)
-            $uniqueCondition = Util::getUniqueCondition(
-                $result, // handle
-                count($this->_columnNames), // fields_cnt
-                $fields_meta, // fields_meta
-                $tmpRow, // row
-                true, // force_unique
-                false, // restrict_to_table
-                null // analyzed_sql_results
-            );
-            //Append it to row array as where_clause
-            $row['where_clause'] = $uniqueCondition[0];
-
-            $tmpData = [
-                $_POST['criteriaColumnNames'][0] =>
-                    $row[$_POST['criteriaColumnNames'][0]],
-                $_POST['criteriaColumnNames'][1] =>
-                    $row[$_POST['criteriaColumnNames'][1]],
-                'where_clause' => $uniqueCondition[0],
-            ];
-            $tmpData[$dataLabel] = $dataLabel ? $row[$dataLabel] : '';
-            $data[] = $tmpData;
-        }
-        unset($tmpData);
-
-        //Displays form for point data and scatter plot
-        $titles = [
-            'Browse' => Generator::getIcon(
-                'b_browse',
-                __('Browse foreign values')
-            ),
-        ];
-        $column_names_hashes = [];
-
-        foreach ($this->_columnNames as $columnName) {
-            $column_names_hashes[$columnName] = md5($columnName);
-        }
-
-        $this->response->addHTML(
-            $this->template->render('table/search/zoom_result_form', [
-                'db' => $this->db,
-                'table' => $this->table,
-                'column_names' => $this->_columnNames,
-                'column_names_hashes' => $column_names_hashes,
-                'foreigners' => $this->_foreigners,
-                'column_null_flags' => $this->_columnNullFlags,
-                'column_types' => $this->_columnTypes,
-                'titles' => $titles,
-                'goto' => $goto,
-                'data' => $data,
-                'data_json' => json_encode($data),
-                'zoom_submit' => isset($_POST['zoom_submit']),
-                'foreign_max_limit' => $GLOBALS['cfg']['ForeignKeyMaxLimit'],
-            ])
-        );
-    }
-
-    /**
-     * Change table info action
-     *
-     * @return void
-     */
-    public function changeTableInfoAction()
-    {
-        $field = $_POST['field'];
-        if ($field == 'pma_null') {
-            $this->response->addJSON('field_type', '');
-            $this->response->addJSON('field_collation', '');
-            $this->response->addJSON('field_operators', '');
-            $this->response->addJSON('field_value', '');
-            return;
-        }
-        $key = array_search($field, $this->_columnNames);
-        $search_index
-            = (isset($_POST['it']) && is_numeric($_POST['it'])
-                ? intval($_POST['it']) : 0);
-
-        $properties = $this->getColumnProperties($search_index, $key);
-        $this->response->addJSON(
-            'field_type',
-            htmlspecialchars($properties['type'])
-        );
-        $this->response->addJSON('field_collation', $properties['collation']);
-        $this->response->addJSON('field_operators', $properties['func']);
-        $this->response->addJSON('field_value', $properties['value']);
     }
 
     /**
@@ -492,11 +296,9 @@ class SearchController extends AbstractController
     /**
      * Display selection form action
      *
-     * @param string $dataLabel Data label
-     *
      * @return void
      */
-    public function displaySelectionFormAction($dataLabel = null)
+    public function displaySelectionFormAction()
     {
         global $goto;
         $this->url_query .= Url::getCommon([
@@ -523,19 +325,8 @@ class SearchController extends AbstractController
         $column_names = $this->_columnNames;
         $column_types = $this->_columnTypes;
 
-        $criteria_column_names = $_POST['criteriaColumnNames'] ?? null;
-        $keys = [];
-        for ($i = 0; $i < 4; $i++) {
-            if (isset($criteria_column_names[$i])) {
-                if ($criteria_column_names[$i] != 'pma_null') {
-                    $keys[$criteria_column_names[$i]] = array_search($criteria_column_names[$i], $column_names);
-                }
-            }
-        }
-
         $this->response->addHTML(
             $this->template->render('table/search/selection_form', [
-                'search_type' => $this->_searchType,
                 'db' => $this->db,
                 'table' => $this->table,
                 'goto' => $goto,
@@ -544,15 +335,8 @@ class SearchController extends AbstractController
                 'column_names' => $column_names,
                 'column_types' => $column_types,
                 'column_collations' => $this->_columnCollations,
-                'data_label' => $dataLabel,
-                'keys' => $keys,
-                'criteria_column_names' => $criteria_column_names,
                 'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
-                'criteria_column_types' => $_POST['criteriaColumnTypes'] ?? null,
                 'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
-                'max_plot_limit' => ! empty($_POST['maxPlotLimit'])
-                    ? intval($_POST['maxPlotLimit'])
-                    : intval($GLOBALS['cfg']['maxRowPlotLimit']),
             ])
         );
     }
@@ -603,10 +387,10 @@ class SearchController extends AbstractController
         $subtabs['search']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/table/search';
 
         $subtabs['zoom']['icon'] = 'b_select';
-        $subtabs['zoom']['link'] = Url::getFromRoute('/table/zoom_select');
+        $subtabs['zoom']['link'] = Url::getFromRoute('/table/zoom-search');
         $subtabs['zoom']['text'] = __('Zoom search');
         $subtabs['zoom']['id'] = 'zoom_search_id';
-        $subtabs['zoom']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/table/zoom_select';
+        $subtabs['zoom']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/table/zoom-search';
 
         $subtabs['replace']['icon'] = 'b_find_replace';
         $subtabs['replace']['link'] = Url::getFromRoute('/table/find-replace');

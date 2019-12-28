@@ -1,72 +1,3 @@
-{% if search_type == 'zoom' %}
-    {% include 'table/search/form_tag.twig' with {
-        'script_name': url('/table/zoom_select'),
-        'form_id': 'zoom_search_form',
-        'db': db,
-        'table': table,
-        'goto': goto
-    } only %}
-    <fieldset id="fieldset_zoom_search">
-        <fieldset id="inputSection">
-            <legend>
-                {% trans 'Do a "query by example" (wildcard: "%") for two different columns' %}
-            </legend>
-            {% include 'table/search/fields_table.twig' with {
-                'self': self,
-                'search_type': search_type,
-                'geom_column_flag': geom_column_flag,
-                'column_names': column_names,
-                'column_types': column_types,
-                'column_collations': column_collations,
-                'keys' : keys,
-                'criteria_column_names': criteria_column_names,
-                'criteria_column_types': criteria_column_types
-            } only %}<table class="data">
-                {# Select options for data label #}
-                <tr>
-                    <td>
-                        <label for="dataLabel">
-                            {% trans 'Use this column to label each point' %}
-                        </label>
-                    </td>
-                    <td>
-                        <select name="dataLabel" id="dataLabel" >
-                            <option value = "">
-                                {% trans 'None' %}
-                            </option>
-                            {% for i in 0..column_names|length - 1 %}
-                                {% if data_label is defined and data_label == column_names[i]|e %}
-                                    <option value="{{ column_names[i] }}" selected="selected">
-                                        {{ column_names[i] }}
-                                    </option>
-                                {% else %}
-                                    <option value="{{ column_names[i] }}" >
-                                        {{ column_names[i] }}
-                                    </option>
-                                {% endif %}
-                            {% endfor %}
-                        </select>
-                    </td>
-                </tr>
-                {# Inputbox for changing default maximum rows to plot #}
-                <tr>
-                    <td>
-                        <label for="maxRowPlotLimit">
-                            {% trans 'Maximum rows to plot' %}
-                        </label>
-                    </td>
-                    <td>
-                        <input type="number"
-                            name="maxPlotLimit"
-                            id="maxRowPlotLimit"
-                            required="required"
-                            value="{{ max_plot_limit }}">
-                    </td>
-                </tr>
-            </table>
-        </fieldset>
-    </fieldset>
-{% elseif search_type == 'normal' %}
     {% include 'table/search/form_tag.twig' with {
         'script_name': url('/table/search'),
         'form_id': 'tbl_search_form',
@@ -82,13 +13,10 @@
             <div class="responsivetable jsresponsive">
                 {% include 'table/search/fields_table.twig' with {
                     'self': self,
-                    'search_type': search_type,
                     'geom_column_flag': geom_column_flag,
                     'column_names': column_names,
                     'column_types': column_types,
-                    'column_collations': column_collations,
-                    'criteria_column_names': criteria_column_names,
-                    'criteria_column_types': criteria_column_types
+                    'column_collations': column_collations
                 } only %}
             </div>
             <div id="gis_editor"></div>
@@ -166,22 +94,10 @@
         </fieldset>
         <div class="clearfloat"></div>
     </fieldset>
-{% else %}
-    {% include 'table/search/form_tag.twig' with {
-        'script_name': '',
-        'form_id': '',
-        'db': db,
-        'table': table,
-        'goto': goto
-    } only %}
-{% endif %}
 
 {# Displays selection form's footer elements #}
     <fieldset class="tblFooters">
-        <input class="btn btn-primary" type="submit"
-            name="{{ search_type == 'zoom' ? 'zoom_submit' : 'submit' }}"
-            {{ search_type == 'zoom' ? 'id="inputFormSubmitId"' }}
-            value="{% trans 'Go' %}">
+        <input class="btn btn-primary" type="submit" name="submit" value="{% trans 'Go' %}">
     </fieldset>
 </form>
 <div id="sqlqueryresultsouter"></div>

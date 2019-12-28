@@ -285,7 +285,7 @@ class Menu
         $tabs['search']['active'] = in_array($route, [
             '/table/find-replace',
             '/table/search',
-            '/table/zoom_select',
+            '/table/zoom-search',
         ]);
 
         if (! $db_is_system_schema && (! $tbl_is_view || $updatable_view)) {
