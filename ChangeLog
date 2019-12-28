@@ -9,7 +9,9 @@ phpMyAdmin - ChangeLog
 - issue #15491 Improve complexity of generated passwords
 - issue #14909 Add a configuration option to define the 1st day of week
 
-5.0.0 (not yet released)
+5.0.1 (not yet released)
+
+5.0.0 (2019-12-26)
 - issue #13896 Drop support for PHP 5.5, PHP 5.6, PHP 7.0 and HHVM
 - issue #14007 Enable columns names by default for CSV exports
 - issue #13919 Remove font size feature
@@ -55,7 +57,7 @@ phpMyAdmin - ChangeLog
 - issue #15677 Fix show process-list triggers a php exception
 - issue #15697 Fix uncaught php error: "Call to a member function get() on null" in db_export.php when exporting a table from the list
 
-4.9.3 (not yet released)
+4.9.3 (2019-12-26)
 - issue #15570 Fix page contents go underneath of floating menubar in some cases
 - issue #15591 Fix php notice 'Undefined index: foreign_keys_data' on relations view when the user has column access
 - issue #15592 Fix php warning "error_reporting() has been disabled for security reasons"
