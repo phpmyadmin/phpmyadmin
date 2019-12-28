@@ -1,6 +1,6 @@
 {
   "name": "phpmyadmin",
-  "version": "5.0.0",
+  "version": "5.0.1-dev",
   "description": "A web interface for MySQL and MariaDB",
   "repository": "https://github.com/phpmyadmin/phpmyadmin.git",
   "author": "The phpMyAdmin Team <developers@phpmyadmin.net> (https://www.phpmyadmin.net/team/)",
