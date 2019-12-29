@@ -1681,7 +1681,7 @@ class Privileges
      *
      * @param string $username User name
      *
-     * @return mixed usergroup if found or null if not found
+     * @return mixed|null usergroup if found or null if not found
      */
     public function getUserGroupForUser($username)
     {

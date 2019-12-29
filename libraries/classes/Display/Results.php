@@ -240,7 +240,7 @@ class Results
      *
      * @param string $property name of the property
      *
-     * @return mixed|void if property exist, value of the relevant property
+     * @return mixed|null if property exist, value of the relevant property
      */
     public function __get($property)
     {
@@ -5655,14 +5655,14 @@ class Results
      *
      * @param string $str string to be truncated
      *
-     * @return mixed
+     * @return array
      *
      * @access  private
      *
      * @see     _handleNonPrintableContents(), _getDataCellForGeometryColumns(),
      *          _getDataCellForNonNumericColumns
      */
-    private function _getPartialText($str)
+    private function _getPartialText($str): array
     {
         $original_length = mb_strlen($str);
         if ($original_length > $GLOBALS['cfg']['LimitChars']

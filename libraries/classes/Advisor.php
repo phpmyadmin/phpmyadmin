@@ -126,9 +126,9 @@ class Advisor
     /**
      * Get variables
      *
-     * @return mixed
+     * @return array
      */
-    public function getVariables()
+    public function getVariables(): array
     {
         return $this->variables;
     }
@@ -165,9 +165,9 @@ class Advisor
     /**
      * Get parseResult
      *
-     * @return mixed
+     * @return array
      */
-    public function getParseResult()
+    public function getParseResult(): array
     {
         return $this->parseResult;
     }
@@ -189,9 +189,9 @@ class Advisor
     /**
      * Get runResult
      *
-     * @return mixed
+     * @return array
      */
-    public function getRunResult()
+    public function getRunResult(): array
     {
         return $this->runResult;
     }

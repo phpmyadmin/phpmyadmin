@@ -57,9 +57,9 @@ abstract class ListAbstract extends ArrayObject
     /**
      * returns HTML <option>-tags to be used inside <select></select>
      *
-     * @param mixed   $selected                   the selected db or true for
-     *                                            selecting current db
-     * @param boolean $include_information_schema whether include information schema
+     * @param string|true $selected                   the selected db or true for
+     *                                                selecting current db
+     * @param boolean     $include_information_schema whether include information schema
      *
      * @return string  HTML option tags
      */

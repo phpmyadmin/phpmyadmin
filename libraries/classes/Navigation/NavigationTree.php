@@ -673,16 +673,16 @@ class NavigationTree
     /**
      * Recursively groups tree nodes given a separator
      *
-     * @param mixed $node The node to group or null
-     *                    to group the whole tree. If
-     *                    passed as an argument, $node
-     *                    must be of type CONTAINER
+     * @param Node $node The node to group or null
+     *                   to group the whole tree. If
+     *                   passed as an argument, $node
+     *                   must be of type CONTAINER
      *
      * @return void
      */
-    public function groupTree($node = null)
+    public function groupTree(?Node $node = null): void
     {
-        if (! isset($node)) {
+        if ($node === null) {
             $node = $this->tree;
         }
         $this->groupNode($node);

@@ -48,7 +48,7 @@ class DatabaseList
      *
      * @return ListDatabase
      */
-    public function getDatabaseList()
+    public function getDatabaseList(): ListDatabase
     {
         if (null === $this->databases) {
             $this->databases = new ListDatabase();

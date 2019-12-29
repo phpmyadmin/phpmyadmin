@@ -2898,9 +2898,9 @@ class InsertEdit
      * @param string $db           current database
      * @param string $table        current table
      *
-     * @return mixed
+     * @return array
      */
-    public function determineInsertOrEdit($where_clause, $db, $table)
+    public function determineInsertOrEdit($where_clause, $db, $table): array
     {
         if (isset($_POST['where_clause'])) {
             $where_clause = $_POST['where_clause'];

@@ -318,11 +318,11 @@ class Sql
      *
      * @param array $profiling_results profiling results
      *
-     * @return mixed
+     * @return array
      */
     private function analyzeAndGetTableHtmlForProfilingResults(
         $profiling_results
-    ) {
+    ): array {
         $profiling_stats = [
             'total_time' => 0,
             'states' => [],

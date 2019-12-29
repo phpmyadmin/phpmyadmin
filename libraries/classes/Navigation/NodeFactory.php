@@ -78,14 +78,14 @@ class NodeFactory
      * @param bool   $isGroup Whether this object has been created
      *                        while grouping nodes
      *
-     * @return mixed
+     * @return Node
      */
     public static function getInstance(
         $class = 'Node',
         $name = 'default',
         $type = Node::OBJECT,
         $isGroup = false
-    ) {
+    ): Node {
         $class = self::sanitizeClass($class);
         return new $class($name, $type, $isGroup);
     }

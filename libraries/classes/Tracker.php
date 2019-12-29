@@ -665,13 +665,13 @@ class Tracker
      *
      * @param string $query query
      *
-     * @return mixed Array containing identifier, type and tablename.
+     * @return array containing identifier, type and tablename.
      *
      * @static
      * @todo: using PMA SQL Parser when possible
      * @todo: support multi-table/view drops
      */
-    public static function parseQuery($query)
+    public static function parseQuery($query): array
     {
         // Usage of PMA_SQP does not work here
         //

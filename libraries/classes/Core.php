@@ -606,7 +606,7 @@ class Core
      * @param array  $array   the array
      * @param mixed  $default default value
      *
-     * @return mixed    array element or $default
+     * @return array|null|mixed    array element or $default
      */
     public static function arrayRead(string $path, array $array, $default = null)
     {
@@ -1051,7 +1051,7 @@ class Core
      *
      * @param string $data Data to unserialize
      *
-     * @return mixed
+     * @return mixed|null
      */
     public static function safeUnserialize(string $data)
     {

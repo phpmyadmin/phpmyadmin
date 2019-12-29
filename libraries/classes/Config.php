@@ -1195,7 +1195,7 @@ class Config
      *
      * @param string $setting config setting
      *
-     * @return mixed value
+     * @return mixed|null value
      */
     public function get(string $setting)
     {
@@ -1517,7 +1517,7 @@ class Config
      *
      * @param string $cookieName The name of the cookie to get
      *
-     * @return mixed result of getCookie()
+     * @return mixed|null result of getCookie()
      */
     public function getCookie(string $cookieName)
     {

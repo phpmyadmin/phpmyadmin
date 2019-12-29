@@ -70,7 +70,7 @@ class Replication
      *                         SQL_THREAD and IO_THREAD
      * @param integer $link    mysql link
      *
-     * @return mixed output of DatabaseInterface::tryQuery
+     * @return mixed|int output of DatabaseInterface::tryQuery
      */
     public function slaveControl($action, $control = null, $link = null)
     {

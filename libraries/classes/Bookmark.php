@@ -348,7 +348,7 @@ class Bookmark
      * @param DatabaseInterface $dbi                 DatabaseInterface object
      * @param string            $user                Current user
      * @param string            $db                  the current database name
-     * @param mixed             $id                  an identifier of the bookmark to get
+     * @param int|string        $id                  an identifier of the bookmark to get
      * @param string            $id_field            which field to look up the identifier
      * @param boolean           $action_bookmark_all true: get all bookmarks regardless
      *                                               of the owning user
