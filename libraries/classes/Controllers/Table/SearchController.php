@@ -1,8 +1,6 @@
 <?php
 /**
- * Holds the PhpMyAdmin\Controllers\Table\SearchController
- *
- * @package PhpMyAdmin\Controllers
+ * @package PhpMyAdmin\Controllers\Table
  */
 declare(strict_types=1);
 
@@ -15,21 +13,18 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
- * @package PhpMyAdmin\Controllers
+ * Handles table search tab.
+ *
+ * Display table search form, create SQL query from form data
+ * and call Sql::executeQueryAndSendQueryResponse() to execute it.
+ *
+ * @package PhpMyAdmin\Controllers\Table
  */
 class SearchController extends AbstractController
 {
-    /**
-     * Normal search or Zoom search
-     *
-     * @access private
-     * @var string
-     */
-    private $_searchType;
     /**
      * Names of columns
      *
@@ -73,8 +68,6 @@ class SearchController extends AbstractController
      */
     private $_foreigners;
 
-    protected $url_query;
-
     /** @var Search */
     private $search;
 
@@ -86,15 +79,13 @@ class SearchController extends AbstractController
     /**
      * Constructor
      *
-     * @param Response          $response   Response object
-     * @param DatabaseInterface $dbi        DatabaseInterface object
-     * @param Template          $template   Template object
-     * @param string            $db         Database name
-     * @param string            $table      Table name
-     * @param string            $searchType Search type
-     * @param string            $url_query  URL query
-     * @param Search            $search     A Search instance.
-     * @param Relation          $relation   Relation instance
+     * @param Response          $response Response object
+     * @param DatabaseInterface $dbi      DatabaseInterface object
+     * @param Template          $template Template object
+     * @param string            $db       Database name
+     * @param string            $table    Table name
+     * @param Search            $search   A Search instance.
+     * @param Relation          $relation Relation instance
      */
     public function __construct(
         $response,
@@ -102,24 +93,18 @@ class SearchController extends AbstractController
         Template $template,
         $db,
         $table,
-        $searchType,
-        $url_query,
         Search $search,
         Relation $relation
     ) {
         parent::__construct($response, $dbi, $template, $db, $table);
-
-        $this->url_query = $url_query;
-        $this->_searchType = $searchType;
+        $this->search = $search;
+        $this->relation = $relation;
         $this->_columnNames = [];
         $this->_columnNullFlags = [];
         $this->_columnTypes = [];
         $this->_columnCollations = [];
         $this->_geomColumnFlag = false;
         $this->_foreigners = [];
-        $this->search = $search;
-        $this->relation = $relation;
-        // Loads table's information
         $this->_loadTableInfo();
     }
 
@@ -185,40 +170,35 @@ class SearchController extends AbstractController
      *
      * @return void
      */
-    public function indexAction()
+    public function index(): void
     {
-        switch ($this->_searchType) {
-            case 'normal':
-                $this->response->getHeader()
-                ->getScripts()
-                ->addFiles(
-                    [
-                        'makegrid.js',
-                        'sql.js',
-                        'table/select.js',
-                        'table/change.js',
-                        'vendor/jquery/jquery.uitablefilter.js',
-                        'gis_data_editor.js',
-                    ]
-                );
+        require_once ROOT_PATH . 'libraries/tbl_common.inc.php';
 
-                if (isset($_POST['range_search'])) {
-                    $this->rangeSearchAction();
+        $header = $this->response->getHeader();
+        $scripts = $header->getScripts();
+        $scripts->addFiles([
+            'makegrid.js',
+            'sql.js',
+            'table/select.js',
+            'table/change.js',
+            'vendor/jquery/jquery.uitablefilter.js',
+            'gis_data_editor.js',
+        ]);
 
-                    return;
-                }
+        if (isset($_POST['range_search'])) {
+            $this->rangeSearchAction();
+            return;
+        }
 
-                /**
-                 * No selection criteria received -> display the selection form
-                 */
-                if (! isset($_POST['columnsToDisplay'])
-                && ! isset($_POST['displayAllColumns'])
-                ) {
-                    $this->displaySelectionFormAction();
-                } else {
-                    $this->doSelectionAction();
-                }
-                break;
+        /**
+         * No selection criteria received -> display the selection form
+         */
+        if (! isset($_POST['columnsToDisplay'])
+            && ! isset($_POST['displayAllColumns'])
+        ) {
+            $this->displaySelectionFormAction();
+        } else {
+            $this->doSelectionAction();
         }
     }
 
@@ -298,45 +278,29 @@ class SearchController extends AbstractController
      *
      * @return void
      */
-    public function displaySelectionFormAction()
+    public function displaySelectionFormAction(): void
     {
-        global $goto;
-        $this->url_query .= Url::getCommon([
-            'back' => Url::getFromRoute('/table/search'),
-            'goto' => Url::getFromRoute('/table/search'),
-        ], '&');
+        global $goto, $cfg;
+
         if (! isset($goto)) {
             $goto = Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabTable'],
+                $cfg['DefaultTabTable'],
                 'table'
             );
         }
-        // Displays the table search form
-        $this->response->addHTML(
-            $this->template->render('secondary_tabs', [
-                'url_params' => [
-                    'db'    => $this->db,
-                    'table' => $this->table,
-                ],
-                'sub_tabs'   => $this->_getSubTabs(),
-            ])
-        );
-
-        $column_names = $this->_columnNames;
-        $column_types = $this->_columnTypes;
 
         $this->response->addHTML(
-            $this->template->render('table/search/selection_form', [
+            $this->template->render('table/search/index', [
                 'db' => $this->db,
                 'table' => $this->table,
                 'goto' => $goto,
                 'self' => $this,
                 'geom_column_flag' => $this->_geomColumnFlag,
-                'column_names' => $column_names,
-                'column_types' => $column_types,
+                'column_names' => $this->_columnNames,
+                'column_types' => $this->_columnTypes,
                 'column_collations' => $this->_columnCollations,
-                'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
-                'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
+                'default_sliders_state' => $cfg['InitialSlidersState'],
+                'max_rows' => intval($cfg['MaxRows']),
             ])
         );
     }
@@ -367,38 +331,6 @@ class SearchController extends AbstractController
             . Util::backquote($this->table);
 
         return $this->dbi->fetchSingleRow($sql_query);
-    }
-
-    /**
-     * Returns an array with necessary configurations to create
-     * sub-tabs in the table_select page.
-     *
-     * @return array Array containing configuration (icon, text, link, id, args)
-     * of sub-tabs
-     */
-    private function _getSubTabs()
-    {
-        $subtabs = [];
-        $subtabs['search']['icon'] = 'b_search';
-        $subtabs['search']['text'] = __('Table search');
-        $subtabs['search']['link'] = Url::getFromRoute('/table/search');
-        $subtabs['search']['id'] = 'tbl_search_id';
-        $subtabs['search']['args']['pos'] = 0;
-        $subtabs['search']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/table/search';
-
-        $subtabs['zoom']['icon'] = 'b_select';
-        $subtabs['zoom']['link'] = Url::getFromRoute('/table/zoom-search');
-        $subtabs['zoom']['text'] = __('Zoom search');
-        $subtabs['zoom']['id'] = 'zoom_search_id';
-        $subtabs['zoom']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/table/zoom-search';
-
-        $subtabs['replace']['icon'] = 'b_find_replace';
-        $subtabs['replace']['link'] = Url::getFromRoute('/table/find-replace');
-        $subtabs['replace']['text'] = __('Find and replace');
-        $subtabs['replace']['id'] = 'find_replace_id';
-        $subtabs['replace']['active'] = isset($_REQUEST['route']) && $_REQUEST['route'] === '/table/find-replace';
-
-        return $subtabs;
     }
 
     /**

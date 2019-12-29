@@ -3343,11 +3343,6 @@ parameters:
 			path: test/classes/Controllers/Table/SearchControllerTest.php
 
 		-
-			message: "#^Parameter \\#7 \\$url_query of class PhpMyAdmin\\\\Controllers\\\\Table\\\\SearchController constructor expects string, null given\\.$#"
-			count: 2
-			path: test/classes/Controllers/Table/SearchControllerTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$response of class PhpMyAdmin\\\\Controllers\\\\Table\\\\StructureController constructor expects PhpMyAdmin\\\\Response, PhpMyAdmin\\\\Tests\\\\Stubs\\\\Response given\\.$#"
 			count: 5
 			path: test/classes/Controllers/Table/StructureControllerTest.php

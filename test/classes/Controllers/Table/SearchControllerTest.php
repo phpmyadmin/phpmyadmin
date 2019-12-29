@@ -119,8 +119,6 @@ class SearchControllerTest extends PmaTestCase
             $this->template,
             $GLOBALS['db'],
             $GLOBALS['table'],
-            'replace',
-            null,
             new Search($GLOBALS['dbi']),
             new Relation($GLOBALS['dbi'], $this->template)
         );
@@ -182,8 +180,6 @@ class SearchControllerTest extends PmaTestCase
             $this->template,
             $GLOBALS['db'],
             $GLOBALS['table'],
-            'replace',
-            null,
             new Search($GLOBALS['dbi']),
             new Relation($GLOBALS['dbi'], $this->template)
         );

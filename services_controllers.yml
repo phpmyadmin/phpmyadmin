@@ -528,8 +528,6 @@ services:
       template: '@template'
       db: '%db%'
       table: '%table%'
-      searchType: null
-      url_query: null
       search: '@table_search'
       relation: '@relation'
 
