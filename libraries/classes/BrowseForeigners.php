@@ -40,10 +40,10 @@ class BrowseForeigners
 
         $this->template = $template;
 
-        $this->limitChars = $cfg['LimitChars'];
-        $this->maxRows = $cfg['MaxRows'];
-        $this->repeatCells = $cfg['RepeatCells'];
-        $this->showAll = $cfg['ShowAll'];
+        $this->limitChars = (int) $cfg['LimitChars'];
+        $this->maxRows = (int) $cfg['MaxRows'];
+        $this->repeatCells = (int) $cfg['RepeatCells'];
+        $this->showAll = (bool) $cfg['ShowAll'];
         $this->themeImage = $pmaThemeImage;
     }
 

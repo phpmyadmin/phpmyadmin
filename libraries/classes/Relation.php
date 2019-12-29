@@ -1353,7 +1353,7 @@ class Relation
                         mb_substr(
                             $value,
                             0,
-                            $GLOBALS['cfg']['LimitChars']
+                            (int) $GLOBALS['cfg']['LimitChars']
                         ) . '...'
                     );
                 }

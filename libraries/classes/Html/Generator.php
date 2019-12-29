@@ -652,7 +652,7 @@ class Generator
         ) {
             $rows = $_SESSION['tmpval']['max_rows'];
         } else {
-            $rows = $GLOBALS['cfg']['MaxRows'];
+            $rows = (int) $GLOBALS['cfg']['MaxRows'];
             $_SESSION['tmpval']['max_rows'] = $rows;
         }
 
