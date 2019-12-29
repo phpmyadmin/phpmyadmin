@@ -36,11 +36,9 @@ class NodeEventContainer extends NodeDatabaseChildContainer
         ];
         $this->realName = 'events';
 
-        $new = NodeFactory::getInstance(
-            'Node',
+        $new = NodeFactory::getInstanceForNewNode(
             _pgettext('Create new event', 'New')
         );
-        $new->isNew = true;
         $new->icon = Generator::getImage('b_event_add', '');
         $new->links = [
             'text' => Url::getFromRoute('/database/events', [

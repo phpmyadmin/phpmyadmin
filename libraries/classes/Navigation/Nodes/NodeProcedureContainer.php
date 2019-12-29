@@ -39,11 +39,10 @@ class NodeProcedureContainer extends NodeDatabaseChildContainer
         $this->realName = 'procedures';
 
         $newLabel = _pgettext('Create new procedure', 'New');
-        $new = NodeFactory::getInstance(
-            'Node',
+        $new = NodeFactory::getInstanceForNewNode(
+            $newLabel,
             $newLabel
         );
-        $new->isNew = true;
         $new->icon = Generator::getImage('b_routine_add', $newLabel);
         $new->links = [
             'text' => Url::getFromRoute('/database/routines', [

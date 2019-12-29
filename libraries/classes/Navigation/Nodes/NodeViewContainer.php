@@ -42,11 +42,9 @@ class NodeViewContainer extends NodeDatabaseChildContainer
         $this->realName = 'views';
 
         $newLabel = _pgettext('Create new view', 'New');
-        $new = NodeFactory::getInstance(
-            'Node',
+        $new = NodeFactory::getInstanceForNewNode(
             $newLabel
         );
-        $new->isNew = true;
         $new->icon = Generator::getImage('b_view_add', $newLabel);
         $new->links = [
             'text' => Url::getFromRoute('/view/create', [

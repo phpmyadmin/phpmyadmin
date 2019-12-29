@@ -41,11 +41,9 @@ class NodeColumnContainer extends Node
         $this->realName = 'columns';
 
         $newLabel = _pgettext('Create new column', 'New');
-        $new = NodeFactory::getInstance(
-            'Node',
+        $new = NodeFactory::getInstanceForNewNode(
             $newLabel
         );
-        $new->isNew = true;
         $new->icon = Generator::getImage('b_column_add', $newLabel);
         $new->links = [
             'text' => Url::getFromRoute('/table/add-field', [

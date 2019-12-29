@@ -41,11 +41,9 @@ class NodeIndexContainer extends Node
         $this->realName = 'indexes';
 
         $newLabel = _pgettext('Create new index', 'New');
-        $new = NodeFactory::getInstance(
-            'Node',
+        $new = NodeFactory::getInstanceForNewNode(
             $newLabel
         );
-        $new->isNew = true;
         $new->icon = Generator::getImage('b_index_add', $newLabel);
         $new->links = [
             'text' => Url::getFromRoute('/table/indexes', [

@@ -42,11 +42,9 @@ class NodeTableContainer extends NodeDatabaseChildContainer
         $this->classes = 'tableContainer subContainer';
 
         $newLabel = _pgettext('Create new table', 'New');
-        $new = NodeFactory::getInstance(
-            'Node',
+        $new = NodeFactory::getInstanceForNewNode(
             $newLabel
         );
-        $new->isNew = true;
         $new->icon = Generator::getImage('b_table_add', $newLabel);
         $new->links = [
             'text' => Url::getFromRoute('/table/create', [

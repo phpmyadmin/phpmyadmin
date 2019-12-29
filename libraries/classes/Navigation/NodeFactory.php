@@ -89,4 +89,19 @@ class NodeFactory
         $class = self::sanitizeClass($class);
         return new $class($name, $type, $isGroup);
     }
+
+    /**
+     * Instantiates a Node object that will be used only for "New db/table/etc.." objects
+     *
+     * @param string $name    An identifier for the new node
+     *
+     * @return Node
+     */
+    public static function getInstanceForNewNode(
+        string $name
+    ): Node {
+        $node = new Node($name, Node::OBJECT, false);
+        $node->isNew = true;
+        return $node;
+    }
 }
