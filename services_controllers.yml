@@ -68,6 +68,14 @@ services:
       template: '@template'
       db: '%db%'
 
+  PhpMyAdmin\Controllers\Database\ImportController:
+    class: 'PhpMyAdmin\Controllers\Database\ImportController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      db: '%db%'
+
   PhpMyAdmin\Controllers\Database\MultiTableQueryController:
     class: 'PhpMyAdmin\Controllers\Database\MultiTableQueryController'
     arguments:

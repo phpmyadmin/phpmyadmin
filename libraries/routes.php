@@ -15,6 +15,7 @@ use PhpMyAdmin\Controllers\Database\CentralColumnsController;
 use PhpMyAdmin\Controllers\Database\DataDictionaryController;
 use PhpMyAdmin\Controllers\Database\DesignerController;
 use PhpMyAdmin\Controllers\Database\EventsController;
+use PhpMyAdmin\Controllers\Database\ImportController;
 use PhpMyAdmin\Controllers\Database\MultiTableQueryController;
 use PhpMyAdmin\Controllers\Database\OperationsController;
 use PhpMyAdmin\Controllers\Database\QueryByExampleController;
@@ -184,8 +185,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $routes->addRoute(['GET', 'POST'], '/export', function () {
             require_once ROOT_PATH . 'libraries/entry_points/database/export.php';
         });
-        $routes->addRoute(['GET', 'POST'], '/import', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/database/import.php';
+        $routes->addRoute(['GET', 'POST'], '/import', function () use ($containerBuilder) {
+            /** @var ImportController $controller */
+            $controller = $containerBuilder->get(ImportController::class);
+            $controller->index();
         });
         $routes->addGroup('/multi_table_query', function (RouteCollector $routes) use ($containerBuilder, $response) {
             /** @var MultiTableQueryController $controller */
