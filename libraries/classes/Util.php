@@ -2972,7 +2972,7 @@ class Util
                 mb_substr(
                     $printtype,
                     0,
-                    $GLOBALS['cfg']['LimitChars']
+                    (int) $GLOBALS['cfg']['LimitChars']
                 ) . '...'
             );
             $displayed_type .= '</abbr>';
@@ -4448,7 +4448,7 @@ class Util
         ) {
             $rows = $_SESSION['tmpval']['max_rows'];
         } else {
-            $rows = $GLOBALS['cfg']['MaxRows'];
+            $rows = (int) $GLOBALS['cfg']['MaxRows'];
             $_SESSION['tmpval']['max_rows'] = $rows;
         }
 

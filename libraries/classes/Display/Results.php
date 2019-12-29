@@ -4449,7 +4449,7 @@ class Results
             mb_substr(
                 (string) $column_for_first_row,
                 0,
-                $GLOBALS['cfg']['LimitChars']
+                (int) $GLOBALS['cfg']['LimitChars']
             ) . '...'
         );
 
@@ -4478,7 +4478,7 @@ class Results
             mb_substr(
                 (string) $column_for_last_row,
                 0,
-                $GLOBALS['cfg']['LimitChars']
+                (int) $GLOBALS['cfg']['LimitChars']
             ) . '...'
         );
 
@@ -5682,7 +5682,7 @@ class Results
             $str = mb_substr(
                 $str,
                 0,
-                $GLOBALS['cfg']['LimitChars']
+                (int) $GLOBALS['cfg']['LimitChars']
             ) . '...';
             $truncated = true;
         } else {
