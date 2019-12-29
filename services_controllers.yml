@@ -313,6 +313,13 @@ services:
       dbi: '@dbi'
       template: '@template'
 
+  PhpMyAdmin\Controllers\Server\ImportController:
+    class: 'PhpMyAdmin\Controllers\Server\ImportController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+
   PhpMyAdmin\Controllers\Server\PluginsController:
     class: 'PhpMyAdmin\Controllers\Server\PluginsController'
     arguments:

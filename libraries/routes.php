@@ -44,6 +44,7 @@ use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\Controllers\Server\CollationsController;
 use PhpMyAdmin\Controllers\Server\DatabasesController;
 use PhpMyAdmin\Controllers\Server\EnginesController;
+use PhpMyAdmin\Controllers\Server\ImportController as ServerImportController;
 use PhpMyAdmin\Controllers\Server\PluginsController;
 use PhpMyAdmin\Controllers\Server\PrivilegesController;
 use PhpMyAdmin\Controllers\Server\ReplicationController;
@@ -413,8 +414,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $routes->addRoute(['GET', 'POST'], '/export', function () {
             require_once ROOT_PATH . 'libraries/entry_points/server/export.php';
         });
-        $routes->addRoute(['GET', 'POST'], '/import', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/server/import.php';
+        $routes->addRoute(['GET', 'POST'], '/import', function () use ($containerBuilder) {
+            /** @var ServerImportController $controller */
+            $controller = $containerBuilder->get(ServerImportController::class);
+            $controller->index();
         });
         $routes->get('/plugins', function () use ($containerBuilder, $response) {
             /** @var PluginsController $controller */
