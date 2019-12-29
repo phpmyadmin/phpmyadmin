@@ -40,7 +40,8 @@ class NodeFunctionContainer extends NodeDatabaseChildContainer
 
         $newLabel = _pgettext('Create new function', 'New');
         $new = NodeFactory::getInstanceForNewNode(
-            $newLabel
+            $newLabel,
+            'new_function italics'
         );
         $new->icon = Generator::getImage('b_routine_add', $newLabel);
         $new->links = [
@@ -55,7 +56,6 @@ class NodeFunctionContainer extends NodeDatabaseChildContainer
                 'add_item' => 1,
             ]) . '&amp;db=%2$s',
         ];
-        $new->classes = 'new_function italics';
         $this->addChild($new);
     }
 }

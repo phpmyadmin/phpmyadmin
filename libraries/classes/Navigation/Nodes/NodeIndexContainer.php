@@ -42,7 +42,8 @@ class NodeIndexContainer extends Node
 
         $newLabel = _pgettext('Create new index', 'New');
         $new = NodeFactory::getInstanceForNewNode(
-            $newLabel
+            $newLabel,
+            'new_index italics'
         );
         $new->icon = Generator::getImage('b_index_add', $newLabel);
         $new->links = [
@@ -57,7 +58,6 @@ class NodeIndexContainer extends Node
                 'added_fields' => 2,
             ]) . '&amp;db=%3$s&amp;table=%2$s',
         ];
-        $new->classes = 'new_index italics';
         $this->addChild($new);
     }
 }

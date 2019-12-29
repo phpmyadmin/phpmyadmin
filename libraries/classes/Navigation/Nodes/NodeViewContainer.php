@@ -43,7 +43,8 @@ class NodeViewContainer extends NodeDatabaseChildContainer
 
         $newLabel = _pgettext('Create new view', 'New');
         $new = NodeFactory::getInstanceForNewNode(
-            $newLabel
+            $newLabel,
+            'new_view italics'
         );
         $new->icon = Generator::getImage('b_view_add', $newLabel);
         $new->links = [
@@ -54,7 +55,6 @@ class NodeViewContainer extends NodeDatabaseChildContainer
                 'server' => $GLOBALS['server'],
             ]) . '&amp;db=%2$s',
         ];
-        $new->classes = 'new_view italics';
         $this->addChild($new);
     }
 }

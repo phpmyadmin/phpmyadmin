@@ -36,14 +36,14 @@ class NodeDatabaseContainer extends Node
             && $GLOBALS['cfg']['ShowCreateDb'] !== false
         ) {
             $new = NodeFactory::getInstanceForNewNode(
-                _pgettext('Create new database', 'New')
+                _pgettext('Create new database', 'New'),
+                'new_database italics'
             );
             $new->icon = Generator::getImage('b_newdb', '');
             $new->links = [
                 'text' => Url::getFromRoute('/server/databases', ['server' => $GLOBALS['server']]),
                 'icon' => Url::getFromRoute('/server/databases', ['server' => $GLOBALS['server']]),
             ];
-            $new->classes = 'new_database italics';
             $this->addChild($new);
         }
     }

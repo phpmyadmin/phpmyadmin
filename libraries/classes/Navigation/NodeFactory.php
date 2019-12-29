@@ -94,14 +94,17 @@ class NodeFactory
      * Instantiates a Node object that will be used only for "New db/table/etc.." objects
      *
      * @param string $name    An identifier for the new node
+     * @param string $classes Extra CSS classes for the node
      *
      * @return Node
      */
     public static function getInstanceForNewNode(
-        string $name
+        string $name,
+        string $classes
     ): Node {
         $node = new Node($name, Node::OBJECT, false);
         $node->isNew = true;
+        $node->classes = $classes;
         return $node;
     }
 }

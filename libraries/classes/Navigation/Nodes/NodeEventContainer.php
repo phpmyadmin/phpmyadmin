@@ -37,7 +37,8 @@ class NodeEventContainer extends NodeDatabaseChildContainer
         $this->realName = 'events';
 
         $new = NodeFactory::getInstanceForNewNode(
-            _pgettext('Create new event', 'New')
+            _pgettext('Create new event', 'New'),
+            'new_event italics'
         );
         $new->icon = Generator::getImage('b_event_add', '');
         $new->links = [
@@ -50,7 +51,6 @@ class NodeEventContainer extends NodeDatabaseChildContainer
                 'add_item' => 1,
             ]) . '&amp;db=%2$s',
         ];
-        $new->classes = 'new_event italics';
         $this->addChild($new);
     }
 }
