@@ -461,6 +461,15 @@ services:
       db: '%db%'
       table: '%table%'
 
+  PhpMyAdmin\Controllers\Table\ImportController:
+    class: 'PhpMyAdmin\Controllers\Table\ImportController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      db: '%db%'
+      table: '%table%'
+
   PhpMyAdmin\Controllers\Table\IndexesController:
     class: 'PhpMyAdmin\Controllers\Table\IndexesController'
     arguments:

@@ -61,6 +61,7 @@ use PhpMyAdmin\Controllers\Table\CreateController;
 use PhpMyAdmin\Controllers\Table\FindReplaceController;
 use PhpMyAdmin\Controllers\Table\GetFieldController;
 use PhpMyAdmin\Controllers\Table\GisVisualizationController;
+use PhpMyAdmin\Controllers\Table\ImportController as TableImportController;
 use PhpMyAdmin\Controllers\Table\IndexesController;
 use PhpMyAdmin\Controllers\Table\OperationsController as TableOperationsController;
 use PhpMyAdmin\Controllers\Table\RecentFavoriteController;
@@ -592,8 +593,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             $controller = $containerBuilder->get(GisVisualizationController::class);
             $controller->index();
         });
-        $routes->addRoute(['GET', 'POST'], '/import', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/table/import.php';
+        $routes->addRoute(['GET', 'POST'], '/import', function () use ($containerBuilder) {
+            /** @var TableImportController $controller */
+            $controller = $containerBuilder->get(TableImportController::class);
+            $controller->index();
         });
         $routes->addRoute(['GET', 'POST'], '/indexes', function () use ($containerBuilder) {
             /** @var IndexesController $controller */
