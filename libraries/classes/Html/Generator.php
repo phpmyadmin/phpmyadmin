@@ -281,7 +281,7 @@ class Generator
      * @param string $minimum_version of this component
      * @param string $bugref          bug reference for this component
      *
-     * @return String
+     * @return string
      */
     public static function getExternalBug(
         $functionality,

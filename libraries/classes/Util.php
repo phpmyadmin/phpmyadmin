@@ -2335,11 +2335,11 @@ class Util
      * Get regular expression which occur first inside the given sql query.
      *
      * @param array  $regex_array Comparing regular expressions.
-     * @param String $query       SQL query to be checked.
+     * @param string $query       SQL query to be checked.
      *
-     * @return String Matching regular expression.
+     * @return string Matching regular expression.
      */
-    public static function getFirstOccurringRegularExpression(array $regex_array, $query)
+    public static function getFirstOccurringRegularExpression(array $regex_array, $query): string
     {
         $minimum_first_occurence_index = null;
         $regex = null;

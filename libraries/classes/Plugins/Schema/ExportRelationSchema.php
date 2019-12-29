@@ -257,11 +257,11 @@ class ExportRelationSchema
     /**
      * Returns the file name
      *
-     * @param String $extension file extension
+     * @param string $extension file extension
      *
      * @return string file name
      */
-    protected function getFileName($extension)
+    protected function getFileName($extension): string
     {
         $filename = $this->db . $extension;
         // Get the name of this page to use as filename

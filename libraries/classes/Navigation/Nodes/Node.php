@@ -142,7 +142,7 @@ class Node
      *
      * @return void
      */
-    public function addChild($child)
+    public function addChild($child): void
     {
         $this->children[] = $child;
         $child->parent = $this;
@@ -184,7 +184,7 @@ class Node
      *
      * @return void
      */
-    public function removeChild($name)
+    public function removeChild($name): void
     {
         foreach ($this->children as $key => $child) {
             if ($child->name == $name) {
@@ -201,9 +201,9 @@ class Node
      * @param bool $containers Whether to include nodes of type CONTAINER
      * @param bool $groups     Whether to include nodes which have $group == true
      *
-     * @return array An array of parent Nodes
+     * @return Node[] An array of parent Nodes
      */
-    public function parents($self = false, $containers = false, $groups = false)
+    public function parents($self = false, $containers = false, $groups = false): array
     {
         $parents = [];
         if ($self
@@ -250,7 +250,7 @@ class Node
      *
      * @return bool Whether the node has child nodes
      */
-    public function hasChildren($countEmptyContainers = true)
+    public function hasChildren($countEmptyContainers = true): bool
     {
         $retval = false;
         if ($countEmptyContainers) {
@@ -279,7 +279,7 @@ class Node
      *
      * @return bool
      */
-    public function hasSiblings()
+    public function hasSiblings(): bool
     {
         $retval = false;
         $paths = $this->getPaths();
@@ -304,7 +304,7 @@ class Node
      *
      * @return int The number of children nodes
      */
-    public function numChildren()
+    public function numChildren(): int
     {
         $retval = 0;
         foreach ($this->children as $child) {
@@ -324,7 +324,7 @@ class Node
      *
      * @return array
      */
-    public function getPaths()
+    public function getPaths(): array
     {
         $aPath = [];
         $aPathClean = [];
@@ -754,9 +754,9 @@ class Node
     /**
      * Returns HTML for control buttons displayed infront of a node
      *
-     * @return String HTML for control buttons
+     * @return string HTML for control buttons
      */
-    public function getHtmlForControlButtons()
+    public function getHtmlForControlButtons(): string
     {
         return '';
     }
@@ -766,9 +766,9 @@ class Node
      *
      * @param boolean $match Whether the node matched loaded tree
      *
-     * @return String with html classes.
+     * @return string with html classes.
      */
-    public function getCssClasses($match)
+    public function getCssClasses($match): string
     {
         if (! $GLOBALS['cfg']['NavigationTreeEnableExpansion']
         ) {
@@ -792,9 +792,9 @@ class Node
      *
      * @param boolean $match Whether the node matched loaded tree
      *
-     * @return String with image name
+     * @return string with image name
      */
-    public function getIcon($match)
+    public function getIcon($match): string
     {
         if (! $GLOBALS['cfg']['NavigationTreeEnableExpansion']
         ) {

@@ -3043,9 +3043,9 @@ class InsertEdit
      * @param array  $column               column
      * @param string $column_name_appendix column name appendix
      *
-     * @return String
+     * @return string
      */
-    private function getHtmlForFunctionOption(array $column, $column_name_appendix)
+    private function getHtmlForFunctionOption(array $column, $column_name_appendix): string
     {
         return '<tr class="noclick">'
             . '<td '

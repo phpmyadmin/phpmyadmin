@@ -30,9 +30,9 @@ abstract class NodeDatabaseChild extends Node
     /**
      * Returns HTML for control buttons displayed infront of a node
      *
-     * @return String HTML for control buttons
+     * @return string HTML for control buttons
      */
-    public function getHtmlForControlButtons()
+    public function getHtmlForControlButtons(): string
     {
         $ret = '';
         $cfgRelation = $this->relation->getRelationsParam();
