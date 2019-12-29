@@ -310,6 +310,7 @@ class NavigationTree
         );
         $hiddenCounts = $this->tree->getNavigationHidingData();
         foreach ($data as $db) {
+            /** @var NodeDatabase $node */
             $node = NodeFactory::getInstance('NodeDatabase', $db);
             if (isset($hiddenCounts[$db])) {
                 $node->setHiddenCount($hiddenCounts[$db]);
@@ -823,6 +824,7 @@ class NavigationTree
                         $class = get_class($child);
                         $className = substr($class, strrpos($class, '\\') + 1);
                         unset($class);
+                        /** @var NodeDatabase $newChild */
                         $newChild = NodeFactory::getInstance(
                             $className,
                             mb_substr(

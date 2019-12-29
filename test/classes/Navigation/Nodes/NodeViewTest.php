@@ -44,7 +44,9 @@ class NodeViewTest extends PmaTestCase
             'index.php?route=/sql',
             $parent->links['text']
         );
-        $this->assertStringContainsString('b_props', $parent->icon);
+        if (is_string($parent->icon)) {
+            $this->assertStringContainsString('b_props', $parent->icon);
+        }
         $this->assertStringContainsString('view', $parent->classes);
     }
 }

@@ -121,6 +121,7 @@ class NodeDatabaseTest extends PmaTestCase
      */
     public function testHiddenCount()
     {
+        /** @var \PhpMyAdmin\Navigation\Nodes\NodeDatabase $parent */
         $parent = NodeFactory::getInstance('NodeDatabase');
 
         $parent->setHiddenCount(3);
