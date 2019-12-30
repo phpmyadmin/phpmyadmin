@@ -4,6 +4,7 @@ phpMyAdmin - ChangeLog
 5.0.1 (not yet released)
 - issue #15719 Fixed error 500 when browsing a table when $cfg['LimitChars'] used a string and not an int value
 - issue #14936 Fixed display NULL on numeric fields has showing empty string since 5.0.0
+- issue #15722 Fix get Database structure fails with PHP error on replicated server
 
 5.0.0 (2019-12-26)
 - issue #13896 Drop support for PHP 5.5, PHP 5.6, PHP 7.0 and HHVM
