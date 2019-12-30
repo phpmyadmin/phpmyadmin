@@ -29,12 +29,19 @@ class SysInfoLinux extends SysInfoBase
     public function loadavg()
     {
         $buf = file_get_contents('/proc/stat');
+        if ($buf === false) {
+            $buf = '';
+        }
+        $pos = mb_strpos($buf, "\n");
+        if ($pos === false) {
+            $pos = 0;
+        }
         $nums = preg_split(
             "/\s+/",
             mb_substr(
                 $buf,
                 0,
-                mb_strpos($buf, "\n")
+                $pos
             )
         );
 
