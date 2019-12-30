@@ -129,8 +129,7 @@
         {% if is_show_stats %}
             <td class="value tbl_size">
                 <a href="tbl_structure.php{{ tbl_url_query|raw }}#showusage">
-                    <span>{{ formatted_size }}</span>
-                    <span class="unit">{{ unit }}</span>
+                    <span>{{ formatted_size }}</span>&nbsp;<span class="unit">{{ unit }}</span>
                 </a>
             </td>
             <td class="value tbl_overhead">
