@@ -348,11 +348,6 @@ parameters:
 			path: libraries/classes/Controllers/Database/QueryByExampleController.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, int\\|string given\\.$#"
-			count: 4
-			path: libraries/classes/Controllers/Database/StructureController.php
-
-		-
 			message: "#^Parameter \\#4 \\$formatted_size of method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:getValuesForAriaTable\\(\\) expects int, string given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/StructureController.php
@@ -740,11 +735,6 @@ parameters:
 		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:_cacheTableData\\(\\) expects bool\\|string, array\\|string given\\.$#"
 			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
-			message: "#^Parameter \\#3 \\$length of function substr expects int, int\\|false given\\.$#"
-			count: 2
 			path: libraries/classes/DatabaseInterface.php
 
 		-
@@ -2811,21 +2801,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\StorageEngine\\:\\:resolveTypeSize\\(\\) should return array but returns array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/StorageEngine.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function mb_substr expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/SysInfoLinux.php
-
-		-
-			message: "#^Parameter \\#3 \\$length of function mb_substr expects int\\|null, int\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/SysInfoLinux.php
-
-		-
-			message: "#^Parameter \\#1 \\$haystack of function mb_strpos expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/SysInfoLinux.php
 
 		-
 			message: "#^Parameter \\#2 \\$subject of function preg_match_all expects string, string\\|false given\\.$#"
