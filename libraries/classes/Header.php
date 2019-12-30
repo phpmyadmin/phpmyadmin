@@ -402,8 +402,8 @@ class Header
     {
         global $db, $table;
 
-        if (! $this->_headerIsSent) {
-            if (! $this->_isAjax && $this->_isEnabled) {
+        if (! $this->_headerIsSent && $this->_isEnabled) {
+            if (! $this->_isAjax) {
                 $this->sendHttpHeaders();
 
                 $baseDir = defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : '';
@@ -452,7 +452,7 @@ class Header
                 $console = $this->_console->getDisplay();
                 $messages = $this->getMessage();
             }
-            if ($this->_isEnabled && empty($_REQUEST['recent_table'])) {
+            if (empty($_REQUEST['recent_table'])) {
                 $recentTable = $this->_addRecentTable($db, $table);
             }
             return $this->template->render('header', [
