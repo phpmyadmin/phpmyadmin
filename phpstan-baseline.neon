@@ -363,6 +363,16 @@ parameters:
 			path: libraries/classes/Controllers/Database/StructureController.php
 
 		-
+			message: "#^Parameter \\#2 \\$dump_buffer of method PhpMyAdmin\\\\Export\\:\\:closeFile\\(\\) expects string, array\\|bool\\|string given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/ExportController.php
+
+		-
+			message: "#^Parameter \\#1 \\(array\\|bool\\|string\\) of echo cannot be converted to string\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/ExportController.php
+
+		-
 			message: "#^Cannot call method generateParams\\(\\) on PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\|PhpMyAdmin\\\\Gis\\\\GisLineString\\|PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\|PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\|PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\|PhpMyAdmin\\\\Gis\\\\GisPoint\\|PhpMyAdmin\\\\Gis\\\\GisPolygon\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/GisDataEditorController.php
@@ -3191,16 +3201,6 @@ parameters:
 			message: "#^Strict comparison using \\=\\=\\= between string and null will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/entry_points/database/export.php
-
-		-
-			message: "#^Parameter \\#2 \\$dump_buffer of method PhpMyAdmin\\\\Export\\:\\:closeFile\\(\\) expects string, array\\|bool\\|string given\\.$#"
-			count: 1
-			path: libraries/entry_points/export.php
-
-		-
-			message: "#^Parameter \\#1 \\(array\\|bool\\|string\\) of echo cannot be converted to string\\.$#"
-			count: 1
-			path: libraries/entry_points/export.php
 
 		-
 			message: "#^Parameter \\#1 \\$goto_include of method PhpMyAdmin\\\\InsertEdit\\:\\:getGotoInclude\\(\\) expects string, false given\\.$#"

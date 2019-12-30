@@ -191,6 +191,15 @@ services:
       errorReport: '@error_report'
       errorHandler: '@error_handler'
 
+  PhpMyAdmin\Controllers\ExportController:
+    class: 'PhpMyAdmin\Controllers\ExportController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      export: '@export'
+      relation: '@relation'
+
   PhpMyAdmin\Controllers\GisDataEditorController:
     class: 'PhpMyAdmin\Controllers\GisDataEditorController'
     arguments:

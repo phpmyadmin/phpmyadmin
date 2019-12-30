@@ -27,6 +27,7 @@ use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Controllers\Database\TrackingController;
 use PhpMyAdmin\Controllers\Database\TriggersController;
 use PhpMyAdmin\Controllers\ErrorReportController;
+use PhpMyAdmin\Controllers\ExportController;
 use PhpMyAdmin\Controllers\GisDataEditorController;
 use PhpMyAdmin\Controllers\HomeController;
 use PhpMyAdmin\Controllers\ImportController;
@@ -292,8 +293,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $controller = $containerBuilder->get(ErrorReportController::class);
         $controller->index();
     });
-    $routes->addRoute(['GET', 'POST'], '/export', function () {
-        require_once ROOT_PATH . 'libraries/entry_points/export.php';
+    $routes->addRoute(['GET', 'POST'], '/export', function () use ($containerBuilder) {
+        /** @var ExportController $controller */
+        $controller = $containerBuilder->get(ExportController::class);
+        $controller->index();
     });
     $routes->addRoute(['GET', 'POST'], '/gis-data-editor', function () use ($containerBuilder, $response) {
         /** @var GisDataEditorController $controller */
