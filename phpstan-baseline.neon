@@ -1548,11 +1548,6 @@ parameters:
 			path: libraries/classes/InsertEdit.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
 			message: "#^Cannot assign offset mixed to array\\|bool\\.$#"
 			count: 2
 			path: libraries/classes/InsertEdit.php
