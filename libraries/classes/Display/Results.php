@@ -2948,7 +2948,7 @@ class Results
 
                 $display_params['data'][$row_no][$i]
                     = $this->_getDataCellForNumericColumns(
-                        (string) $row[$i],
+                        $row[$i],
                         $class,
                         $condition_field,
                         $meta,
