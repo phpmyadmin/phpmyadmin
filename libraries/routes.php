@@ -15,7 +15,7 @@ use PhpMyAdmin\Controllers\Database\CentralColumnsController;
 use PhpMyAdmin\Controllers\Database\DataDictionaryController;
 use PhpMyAdmin\Controllers\Database\DesignerController;
 use PhpMyAdmin\Controllers\Database\EventsController;
-use PhpMyAdmin\Controllers\Database\ImportController;
+use PhpMyAdmin\Controllers\Database\ImportController as DatabaseImportController;
 use PhpMyAdmin\Controllers\Database\MultiTableQueryController;
 use PhpMyAdmin\Controllers\Database\OperationsController;
 use PhpMyAdmin\Controllers\Database\QueryByExampleController;
@@ -29,6 +29,7 @@ use PhpMyAdmin\Controllers\Database\TriggersController;
 use PhpMyAdmin\Controllers\ErrorReportController;
 use PhpMyAdmin\Controllers\GisDataEditorController;
 use PhpMyAdmin\Controllers\HomeController;
+use PhpMyAdmin\Controllers\ImportController;
 use PhpMyAdmin\Controllers\ImportStatusController;
 use PhpMyAdmin\Controllers\LicenseController;
 use PhpMyAdmin\Controllers\LintController;
@@ -187,8 +188,8 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             require_once ROOT_PATH . 'libraries/entry_points/database/export.php';
         });
         $routes->addRoute(['GET', 'POST'], '/import', function () use ($containerBuilder) {
-            /** @var ImportController $controller */
-            $controller = $containerBuilder->get(ImportController::class);
+            /** @var DatabaseImportController $controller */
+            $controller = $containerBuilder->get(DatabaseImportController::class);
             $controller->index();
         });
         $routes->addGroup('/multi_table_query', function (RouteCollector $routes) use ($containerBuilder, $response) {
@@ -299,8 +300,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $controller = $containerBuilder->get(GisDataEditorController::class);
         $response->addJSON($controller->index());
     });
-    $routes->addRoute(['GET', 'POST'], '/import', function () {
-        require_once ROOT_PATH . 'libraries/entry_points/import.php';
+    $routes->addRoute(['GET', 'POST'], '/import', function () use ($containerBuilder) {
+        /** @var ImportController $controller */
+        $controller = $containerBuilder->get(ImportController::class);
+        $controller->index();
     });
     $routes->addRoute(['GET', 'POST'], '/import-status', function () use ($containerBuilder) {
         /** @var ImportStatusController $controller */

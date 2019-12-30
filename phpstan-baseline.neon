@@ -373,6 +373,36 @@ parameters:
 			path: libraries/classes/Controllers/GisDataEditorController.php
 
 		-
+			message: "#^Parameter \\#1 \\$error_message of method PhpMyAdmin\\\\Import\\:\\:stop\\(\\) expects PhpMyAdmin\\\\Message, PhpMyAdmin\\\\Message\\|null given\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/ImportController.php
+
+		-
+			message: "#^Negated boolean expression is always true\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/ImportController.php
+
+		-
+			message: "#^Elseif condition is always false\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/ImportController.php
+
+		-
+			message: "#^Left side of && is always false\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/ImportController.php
+
+		-
+			message: "#^If condition is always false\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/ImportController.php
+
+		-
+			message: "#^Else branch is unreachable because previous condition is always true\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/ImportController.php
+
+		-
 			message: "#^Argument of an invalid type array\\|null supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/CollationsController.php
@@ -3171,51 +3201,6 @@ parameters:
 			message: "#^Parameter \\#1 \\(array\\|bool\\|string\\) of echo cannot be converted to string\\.$#"
 			count: 1
 			path: libraries/entry_points/export.php
-
-		-
-			message: "#^Cannot call method applyVariables\\(\\) on PhpMyAdmin\\\\Bookmark\\|null\\.$#"
-			count: 1
-			path: libraries/entry_points/import.php
-
-		-
-			message: "#^Cannot call method getQuery\\(\\) on PhpMyAdmin\\\\Bookmark\\|null\\.$#"
-			count: 2
-			path: libraries/entry_points/import.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function trim expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/entry_points/import.php
-
-		-
-			message: "#^Parameter \\#1 \\$error_message of method PhpMyAdmin\\\\Import\\:\\:stop\\(\\) expects PhpMyAdmin\\\\Message, PhpMyAdmin\\\\Message\\|null given\\.$#"
-			count: 2
-			path: libraries/entry_points/import.php
-
-		-
-			message: "#^Negated boolean expression is always true\\.$#"
-			count: 1
-			path: libraries/entry_points/import.php
-
-		-
-			message: "#^Elseif condition is always false\\.$#"
-			count: 2
-			path: libraries/entry_points/import.php
-
-		-
-			message: "#^Left side of && is always false\\.$#"
-			count: 1
-			path: libraries/entry_points/import.php
-
-		-
-			message: "#^If condition is always false\\.$#"
-			count: 1
-			path: libraries/entry_points/import.php
-
-		-
-			message: "#^Else branch is unreachable because previous condition is always true\\.$#"
-			count: 1
-			path: libraries/entry_points/import.php
 
 		-
 			message: "#^Parameter \\#1 \\$goto_include of method PhpMyAdmin\\\\InsertEdit\\:\\:getGotoInclude\\(\\) expects string, false given\\.$#"

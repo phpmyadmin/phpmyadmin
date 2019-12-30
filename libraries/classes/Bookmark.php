@@ -354,7 +354,7 @@ class Bookmark
      *                                               of the owning user
      * @param boolean           $exact_user_match    whether to ignore bookmarks with no user
      *
-     * @return Bookmark the bookmark
+     * @return Bookmark|null the bookmark
      *
      * @access  public
      */
