@@ -59,7 +59,21 @@ class HeaderTest extends PmaTestCase
         $header = new Header();
         $header->disable();
         $this->assertEquals(
-            "\n",
+            '',
+            $header->getDisplay()
+        );
+    }
+
+    /**
+     * Test for enable
+     *
+     * @return void
+     */
+    public function testEnable()
+    {
+        $header = new Header();
+        $this->assertStringContainsString(
+            '<title>phpMyAdmin</title>',
             $header->getDisplay()
         );
     }
