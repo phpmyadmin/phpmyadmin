@@ -59,7 +59,7 @@ class HeaderTest extends PmaTestCase
         $header = new Header();
         $header->disable();
         $this->assertEquals(
-            "\n",
+            '',
             $header->getDisplay()
         );
     }
