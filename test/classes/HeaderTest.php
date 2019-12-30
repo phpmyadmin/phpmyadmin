@@ -65,6 +65,20 @@ class HeaderTest extends PmaTestCase
     }
 
     /**
+     * Test for enable
+     *
+     * @return void
+     */
+    public function testEnable()
+    {
+        $header = new Header();
+        $this->assertStringContainsString(
+            '<title>phpMyAdmin</title>',
+            $header->getDisplay()
+        );
+    }
+
+    /**
      * Test for Set BodyId
      *
      * @return void
