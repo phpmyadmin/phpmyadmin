@@ -784,8 +784,8 @@ class StructureController extends AbstractController
                 $GLOBALS['replication_info']['slave']['Do_DB']
             );
 
-            $do = ($searchDoDBInTruename && strlen($searchDoDBInTruename) > 0)
-                || ($searchDoDBInDB && strlen($searchDoDBInDB) > 0)
+            $do = (is_string($searchDoDBInTruename) && strlen($searchDoDBInTruename) > 0)
+                || (is_string($searchDoDBInDB) && strlen($searchDoDBInDB) > 0)
                 || ($nbServSlaveDoDb == 0 && $nbServSlaveIgnoreDb == 0)
                 || $this->hasTable(
                     $GLOBALS['replication_info']['slave']['Wild_Do_Table'],
@@ -800,8 +800,8 @@ class StructureController extends AbstractController
                 $table,
                 $GLOBALS['replication_info']['slave']['Ignore_Table']
             );
-            $ignored = ($searchTable && strlen($searchTable) > 0)
-                || ($searchDb && strlen($searchDb) > 0)
+            $ignored = (is_string($searchTable) && strlen($searchTable) > 0)
+                || (is_string($searchDb) && strlen($searchDb) > 0)
                 || $this->hasTable(
                     $GLOBALS['replication_info']['slave']['Wild_Ignore_Table'],
                     $table
