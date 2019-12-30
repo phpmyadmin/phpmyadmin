@@ -1247,11 +1247,15 @@ class DatabaseInterface
             $columns[$column_name]['TABLE_SCHEMA'] = $database;
             $columns[$column_name]['TABLE_NAME'] = $table;
             $columns[$column_name]['ORDINAL_POSITION'] = $ordinal_position;
+            $colType = $columns[$column_name]['COLUMN_TYPE'];
+            $colType = is_string($colType) ? $colType : '';
+            $colTypePosComa = strpos($colType, '(');
+            $colTypePosComa = $colTypePosComa !== false ? $colTypePosComa : strlen($colType);
             $columns[$column_name]['DATA_TYPE']
                 = substr(
-                    $columns[$column_name]['COLUMN_TYPE'],
+                    $colType,
                     0,
-                    strpos($columns[$column_name]['COLUMN_TYPE'], '(')
+                    $colTypePosComa
                 );
             /**
              * @todo guess CHARACTER_MAXIMUM_LENGTH from COLUMN_TYPE
@@ -1263,11 +1267,15 @@ class DatabaseInterface
             $columns[$column_name]['CHARACTER_OCTET_LENGTH'] = null;
             $columns[$column_name]['NUMERIC_PRECISION'] = null;
             $columns[$column_name]['NUMERIC_SCALE'] = null;
+            $colCollation = $columns[$column_name]['COLLATION_NAME'];
+            $colCollation = is_string($colCollation) ? $colCollation : '';
+            $colCollationPosUnderscore = strpos($colCollation, '_');
+            $colCollationPosUnderscore = $colCollationPosUnderscore !== false ? $colCollationPosUnderscore : strlen($colCollation);
             $columns[$column_name]['CHARACTER_SET_NAME']
                 = substr(
-                    $columns[$column_name]['COLLATION_NAME'],
+                    $colCollation,
                     0,
-                    strpos($columns[$column_name]['COLLATION_NAME'], '_')
+                    $colCollationPosUnderscore
                 );
 
             $ordinal_position++;
