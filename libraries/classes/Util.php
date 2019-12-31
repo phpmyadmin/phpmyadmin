@@ -4839,7 +4839,7 @@ class Util
     {
         // The function can be disabled in php.ini
         if (function_exists('set_time_limit')) {
-            @set_time_limit($GLOBALS['cfg']['ExecTimeLimit']);
+            @set_time_limit((int) $GLOBALS['cfg']['ExecTimeLimit']);
         }
     }
 
