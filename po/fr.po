@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:37-0300\n"
-"PO-Revision-Date: 2019-12-28 09:29+0000\n"
+"PO-Revision-Date: 2020-01-01 11:21+0000\n"
 "Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/5-0/fr/"
 ">\n"
@@ -9904,17 +9904,17 @@ msgstr ""
 #: templates/display/import/import.twig:169
 #: templates/display/export/format_dropdown.twig:2
 msgid "Format:"
-msgstr "Format : "
+msgstr "Format :"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:66
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:60
 msgid "Columns separated with:"
-msgstr "Colonnes séparées par : "
+msgstr "Colonnes séparées par :"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:71
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:66
 msgid "Columns enclosed with:"
-msgstr "Colonnes entourées par : "
+msgstr "Colonnes entourées par :"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:76
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:73
@@ -9924,7 +9924,7 @@ msgstr "Colonnes échappées avec :"
 #: libraries/classes/Plugins/Export/ExportCsv.php:81
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:80
 msgid "Lines terminated with:"
-msgstr "Lignes terminées par : "
+msgstr "Lignes terminées par :"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:86
 #: libraries/classes/Plugins/Export/ExportExcel.php:54
@@ -9934,7 +9934,7 @@ msgstr "Lignes terminées par : "
 #: libraries/classes/Plugins/Export/ExportOdt.php:138
 #: libraries/classes/Plugins/Export/ExportTexytext.php:95
 msgid "Replace NULL with:"
-msgstr "Remplacer NULL par : "
+msgstr "Remplacer NULL par :"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:91
 #: libraries/classes/Plugins/Export/ExportExcel.php:59
@@ -9943,7 +9943,7 @@ msgstr "Retirer les caractères de fin de ligne à l'intérieur des colonnes"
 
 #: libraries/classes/Plugins/Export/ExportExcel.php:69
 msgid "Excel edition:"
-msgstr "Version d'Excel : "
+msgstr "Version d'Excel :"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:73
 #: libraries/classes/Plugins/Export/ExportLatex.php:106
@@ -10108,7 +10108,7 @@ msgstr "Afficher les types média (MIME)"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
 msgid "Put columns names in the first row:"
-msgstr "Afficher les noms de colonnes en première ligne : "
+msgstr "Afficher les noms de colonnes en première ligne :"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:221
 #: libraries/classes/Plugins/Export/ExportSql.php:718
@@ -10122,7 +10122,7 @@ msgstr "Hôte :"
 #: libraries/classes/Plugins/Export/ExportSql.php:724
 #: libraries/classes/Plugins/Export/ExportXml.php:249
 msgid "Generation Time:"
-msgstr "Généré le : "
+msgstr "Généré le :"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:228
 #: libraries/classes/Plugins/Export/ExportSql.php:728
@@ -10135,23 +10135,23 @@ msgstr "Version du serveur : "
 #: libraries/classes/Plugins/Export/ExportSql.php:730
 #: libraries/classes/Plugins/Export/ExportXml.php:252
 msgid "PHP Version:"
-msgstr "Version de PHP : "
+msgstr "Version de PHP :"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:259
 #: libraries/classes/Plugins/Export/ExportSql.php:919
 #: libraries/classes/Plugins/Export/ExportXml.php:420
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:181
 msgid "Database:"
-msgstr "Base de données : "
+msgstr "Base de données :"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:332
 #: libraries/classes/Plugins/Export/ExportSql.php:2241
 msgid "Data:"
-msgstr "Données : "
+msgstr "Données :"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:520
 msgid "Structure:"
-msgstr "Structure : "
+msgstr "Structure :"
 
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:86
 msgid "Export table names"
@@ -10163,7 +10163,7 @@ msgstr "Exporter les entêtes de table"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:104
 msgid "Report title:"
-msgstr "Titre du rapport : "
+msgstr "Titre du rapport :"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:235
 msgid "Dumping data"
@@ -10205,8 +10205,8 @@ msgstr "Exporter les métadonnées"
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
-"Maximiser la compatibilité avec un système de base de données ou un ancien "
-"serveur MySQL : "
+"Système de base de données ou ancien serveur MySQL pour maximiser la "
+"compatibilité de sortie avec :"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:238
 msgid "Add statements:"
@@ -10270,7 +10270,7 @@ msgstr "Fonction à utiliser lors du déchargement des données :"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:423
 msgid "Syntax to use when inserting data:"
-msgstr "Syntaxe à utiliser lors de l'insertion de données : "
+msgstr "Syntaxe à utiliser lors de l'insertion de données :"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:433
 msgid ""
@@ -10354,17 +10354,17 @@ msgstr "Métadonnées pour la base de données %s"
 #: libraries/classes/Plugins/Export/ExportSql.php:1440
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:649
 msgid "Creation:"
-msgstr "Création : "
+msgstr "Création :"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1453
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:660
 msgid "Last update:"
-msgstr "Dernière modification : "
+msgstr "Dernière modification :"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1466
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:671
 msgid "Last check:"
-msgstr "Dernière vérification : "
+msgstr "Dernière vérification :"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1522
 #, php-format
@@ -10435,7 +10435,7 @@ msgstr "Exporter les contenus"
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:182
 msgid "Table:"
-msgstr "Table : "
+msgstr "Table :"
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:183
 msgid "Purpose:"
@@ -10577,7 +10577,7 @@ msgstr "Le fichier importé ne contient aucune donnée !"
 
 #: libraries/classes/Plugins/Import/ImportSql.php:72
 msgid "SQL compatibility mode:"
-msgstr "Mode de compatibilité SQL : "
+msgstr "Mode de compatibilité SQL :"
 
 #: libraries/classes/Plugins/Import/ImportSql.php:84
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
