@@ -2859,10 +2859,7 @@ class InsertEdit
         $meta = $fields_meta[0];
         if ($row = $this->dbi->fetchRow($result)) {
             $new_value = $row[0];
-            if ((substr($meta->type, 0, 9) == 'timestamp')
-                || ($meta->type == 'datetime')
-                || ($meta->type == 'time')
-            ) {
+            if (($meta->type == 'time')) {
                 $new_value = Util::addMicroseconds($new_value);
             } elseif (mb_strpos($meta->flags, 'binary') !== false) {
                 $new_value = '0x' . bin2hex($new_value);
