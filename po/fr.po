@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2020-01-01 11:21+0000\n"
+"PO-Revision-Date: 2020-01-02 13:21+0000\n"
 "Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/4-9/fr/"
 ">\n"
@@ -10466,7 +10466,7 @@ msgstr "Enregistrement des modèles d'exportation"
 
 #: libraries/classes/Relation.php:370
 msgid "Quick steps to set up advanced features:"
-msgstr "Guide rapide de configuration des fonctions avancées : "
+msgstr "Guide rapide de configuration des fonctions avancées :"
 
 #: libraries/classes/Relation.php:376
 #, php-format
@@ -10635,7 +10635,7 @@ msgstr "Voir l'état de l'esclave"
 
 #: libraries/classes/ReplicationGui.php:250
 msgid "Control slave:"
-msgstr "Contrôler le serveur esclave : "
+msgstr "Contrôler le serveur esclave :"
 
 #: libraries/classes/ReplicationGui.php:256
 msgid "Full start"
@@ -10681,7 +10681,7 @@ msgstr ""
 
 #: libraries/classes/ReplicationGui.php:316
 msgid "Error management:"
-msgstr "Gestion des erreurs : "
+msgstr "Gestion des erreurs :"
 
 #: libraries/classes/ReplicationGui.php:319
 msgid "Skipping errors might lead into unsynchronized master and slave!"
@@ -10730,7 +10730,7 @@ msgstr ""
 #: libraries/classes/ReplicationGui.php:791
 #: libraries/classes/Server/Privileges.php:1510
 msgid "User name:"
-msgstr "Nom d'utilisateur : "
+msgstr "Nom d'utilisateur :"
 
 #: libraries/classes/ReplicationGui.php:426
 #: libraries/classes/ReplicationGui.php:795
@@ -10753,7 +10753,7 @@ msgstr "Mot de passe"
 
 #: libraries/classes/ReplicationGui.php:455
 msgid "Port:"
-msgstr "Port : "
+msgstr "Port :"
 
 #: libraries/classes/ReplicationGui.php:539
 msgid "Master status"
@@ -11016,7 +11016,7 @@ msgstr "Il faut fournir une définition pour l'évènement."
 #: libraries/classes/Rte/Routines.php:1332
 #: libraries/classes/Rte/Routines.php:1542
 msgid "Error in processing request:"
-msgstr "Erreur dans le traitement de la requête : "
+msgstr "Erreur dans le traitement de la requête :"
 
 #: libraries/classes/Rte/Footer.php:102
 msgid "OFF"
@@ -11032,7 +11032,7 @@ msgstr "État du planificateur d'évènements"
 
 #: libraries/classes/Rte/General.php:46
 msgid "The backed up query was:"
-msgstr "La requête conservée est : "
+msgstr "La requête conservée est :"
 
 #: libraries/classes/Rte/Routines.php:92
 msgid ""
@@ -12209,7 +12209,7 @@ msgstr ""
 
 #: libraries/classes/Server/Status/Monitor.php:135
 msgid "Using the monitor:"
-msgstr "Utilisation de la surveillance : "
+msgstr "Utilisation de la surveillance :"
 
 #: libraries/classes/Server/Status/Monitor.php:138
 msgid ""
@@ -12238,7 +12238,7 @@ msgstr ""
 
 #: libraries/classes/Server/Status/Monitor.php:154
 msgid "Please note:"
-msgstr "Note : "
+msgstr "Veuillez noter :"
 
 #: libraries/classes/Server/Status/Monitor.php:157
 msgid ""
@@ -12333,7 +12333,7 @@ msgstr "Colonnes des graphiques"
 
 #: libraries/classes/Server/Status/Monitor.php:315
 msgid "Chart arrangement"
-msgstr "Actions sur la dispositions des graphiques :"
+msgstr "Actions sur la dispositions des graphiques"
 
 #: libraries/classes/Server/Status/Monitor.php:318
 msgid ""
@@ -12383,15 +12383,15 @@ msgstr "Nombre d'instructions exécutées depuis le démarrage : %s"
 
 #: libraries/classes/Server/Status/Queries.php:51
 msgid "per hour:"
-msgstr "par heure : "
+msgstr "par heure :"
 
 #: libraries/classes/Server/Status/Queries.php:54
 msgid "per minute:"
-msgstr "par minute : "
+msgstr "par minute :"
 
 #: libraries/classes/Server/Status/Queries.php:61
 msgid "per second:"
-msgstr "par seconde : "
+msgstr "par seconde :"
 
 #: libraries/classes/Server/Status/Queries.php:98
 msgid "Statements"
@@ -12404,7 +12404,7 @@ msgstr "#"
 
 #: libraries/classes/Server/Status/Variables.php:52 templates/filter.twig:4
 msgid "Containing the word:"
-msgstr "Contenant le mot : "
+msgstr "Contenant le mot :"
 
 #: libraries/classes/Server/Status/Variables.php:60
 msgid "Show only alert values"
@@ -12420,7 +12420,7 @@ msgstr "Afficher les valeurs non formatées"
 
 #: libraries/classes/Server/Status/Variables.php:105
 msgid "Related links:"
-msgstr "Liens connexes : "
+msgstr "Liens connexes :"
 
 #: libraries/classes/Server/Status/Variables.php:341
 msgid ""
@@ -13171,7 +13171,7 @@ msgstr "Attributions de menu du groupe d'utilisateurs"
 
 #: libraries/classes/Server/UserGroups.php:252
 msgid "Group name:"
-msgstr "Nom du groupe : "
+msgstr "Nom du groupe :"
 
 #: libraries/classes/Server/UserGroups.php:289
 msgid "Server-level tabs"
@@ -13224,7 +13224,7 @@ msgstr "Conserver cette requête SQL dans les signets"
 
 #: libraries/classes/Sql.php:608
 msgid "Label:"
-msgstr "Intitulé : "
+msgstr "Intitulé :"
 
 #: libraries/classes/Sql.php:615 libraries/classes/SqlQueryForm.php:316
 msgid "Let every user access this bookmark"
