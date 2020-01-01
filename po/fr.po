@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:48-0300\n"
-"PO-Revision-Date: 2020-01-01 11:21+0000\n"
+"PO-Revision-Date: 2020-01-02 13:21+0000\n"
 "Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
@@ -11086,7 +11086,7 @@ msgstr "Enregistrement des modèles d'exportation"
 
 #: libraries/classes/Relation.php:383
 msgid "Quick steps to set up advanced features:"
-msgstr "Guide rapide de configuration des fonctions avancées : "
+msgstr "Guide rapide de configuration des fonctions avancées :"
 
 #: libraries/classes/Relation.php:389
 #, php-format
@@ -11327,7 +11327,7 @@ msgstr "Il faut fournir une définition pour l'évènement."
 #: libraries/classes/Rte/Routines.php:1357
 #: libraries/classes/Rte/Routines.php:1562
 msgid "Error in processing request:"
-msgstr "Erreur dans le traitement de la requête : "
+msgstr "Erreur dans le traitement de la requête :"
 
 #: libraries/classes/Rte/Footer.php:137
 msgid "OFF"
@@ -11343,7 +11343,7 @@ msgstr "État du planificateur d'évènements"
 
 #: libraries/classes/Rte/General.php:58
 msgid "The backed up query was:"
-msgstr "La requête conservée est : "
+msgstr "La requête conservée est :"
 
 #: libraries/classes/Rte/Routines.php:141
 msgid ""
@@ -11969,7 +11969,7 @@ msgstr "Tout cocher"
 
 #: libraries/classes/Server/UserGroups.php:256
 msgid "Group name:"
-msgstr "Nom du groupe : "
+msgstr "Nom du groupe :"
 
 #: libraries/classes/Server/UserGroups.php:293
 msgid "Server-level tabs"
@@ -13482,7 +13482,7 @@ msgstr "Colonnes des graphiques"
 
 #: templates/server/status/monitor/index.twig:74
 msgid "Chart arrangement"
-msgstr "Actions sur la dispositions des graphiques :"
+msgstr "Actions sur la dispositions des graphiques"
 
 #: templates/server/status/monitor/index.twig:75
 msgid ""
@@ -13516,7 +13516,7 @@ msgstr ""
 
 #: templates/server/status/monitor/index.twig:101
 msgid "Using the monitor:"
-msgstr "Utilisation de la surveillance : "
+msgstr "Utilisation de la surveillance :"
 
 #: templates/server/status/monitor/index.twig:103
 msgid ""
@@ -13545,7 +13545,7 @@ msgstr ""
 
 #: templates/server/status/monitor/index.twig:114
 msgid "Please note:"
-msgstr "Note : "
+msgstr "Veuillez noter :"
 
 #: templates/server/status/monitor/index.twig:117
 msgid ""
@@ -14063,7 +14063,7 @@ msgstr "Ajouter un utilisateur pour la réplication vers l'esclave"
 #: templates/server/replication/change_master.twig:14
 #: templates/server/privileges/login_information_fields.twig:4
 msgid "User name:"
-msgstr "Nom d'utilisateur : "
+msgstr "Nom d'utilisateur :"
 
 #: templates/server/replication/master_add_slave_user.twig:19
 #: templates/server/replication/master_add_slave_user.twig:24
@@ -14502,7 +14502,7 @@ msgstr ""
 
 #: templates/server/replication/change_master.twig:26
 msgid "Port:"
-msgstr "Port : "
+msgstr "Port :"
 
 #: templates/database/structure/structure_table_row.twig:226
 msgid "in use"
@@ -14557,7 +14557,7 @@ msgstr "Filtres"
 
 #: templates/server/status/variables/index.twig:15 templates/filter.twig:6
 msgid "Containing the word:"
-msgstr "Contenant le mot : "
+msgstr "Contenant le mot :"
 
 #: templates/server/status/variables/index.twig:22
 msgid "Show only alert values"
@@ -14573,7 +14573,7 @@ msgstr "Afficher les valeurs non formatées"
 
 #: templates/server/status/variables/index.twig:47
 msgid "Related links:"
-msgstr "Liens connexes : "
+msgstr "Liens connexes :"
 
 #: templates/server/status/variables/index.twig:72
 #: templates/server/replication/status_table.twig:16
@@ -15330,7 +15330,7 @@ msgstr "Conserver cette requête SQL dans les signets"
 
 #: templates/sql/bookmark.twig:15
 msgid "Label:"
-msgstr "Intitulé : "
+msgstr "Intitulé :"
 
 #: templates/table/structure/display_structure.twig:70
 msgid "Media type:"
@@ -15873,7 +15873,7 @@ msgstr "Voir l'état de l'esclave"
 
 #: templates/server/replication/slave_configuration.twig:38
 msgid "Control slave:"
-msgstr "Contrôler le serveur esclave : "
+msgstr "Contrôler le serveur esclave :"
 
 #: templates/server/replication/slave_configuration.twig:48
 msgid "Reset slave"
@@ -15897,7 +15897,7 @@ msgstr "Arrêter seulement le fil d'exécution des entrées/sorties"
 
 #: templates/server/replication/slave_configuration.twig:74
 msgid "Error management:"
-msgstr "Gestion des erreurs : "
+msgstr "Gestion des erreurs :"
 
 #: templates/server/replication/slave_configuration.twig:77
 msgid "Skipping errors might lead into unsynchronized master and slave!"
@@ -16362,15 +16362,15 @@ msgstr "Nombre d'instructions exécutées depuis le démarrage :"
 
 #: templates/server/status/queries/index.twig:20
 msgid "per hour:"
-msgstr "par heure : "
+msgstr "par heure :"
 
 #: templates/server/status/queries/index.twig:21
 msgid "per minute:"
-msgstr "par minute : "
+msgstr "par minute :"
 
 #: templates/server/status/queries/index.twig:23
 msgid "per second:"
-msgstr "par seconde : "
+msgstr "par seconde :"
 
 #: templates/server/status/queries/index.twig:37
 msgid "Statements"
