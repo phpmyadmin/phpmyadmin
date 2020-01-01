@@ -3067,7 +3067,7 @@ class Privileges
 
         if (isset($_GET['validate_username'])) {
             $sql_query = "SELECT * FROM `mysql`.`user` WHERE `User` = '"
-                . $_GET['username'] . "';";
+                . $GLOBALS['dbi']->escapeString($_GET['username']) . "';";
             $res = $GLOBALS['dbi']->query($sql_query);
             $row = $GLOBALS['dbi']->fetchRow($res);
             if (empty($row)) {
