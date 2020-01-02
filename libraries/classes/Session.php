@@ -157,6 +157,16 @@ class Session
             ini_set('session.save_handler', 'files');
         }
 
+        // Verify that the session_save_path is writable, may be unwritable
+        // due to open_basedir restrictions or directory permissions
+        if (! is_writable(session_save_path())) {
+            Core::fatalError(
+                'Session path "'
+				. session_save_path()
+				. '" is not writable.'
+            );
+        }
+
         // use cookies only
         ini_set('session.use_only_cookies', '1');
         // strict session mode (do not accept random string as session ID)
