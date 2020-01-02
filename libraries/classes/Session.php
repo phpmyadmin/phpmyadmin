@@ -161,9 +161,9 @@ class Session
         // due to open_basedir restrictions or directory permissions
         if (! is_writable(session_save_path())) {
             Core::fatalError(
-                'Session path "'
+                __('Session path "'
 				. session_save_path()
-				. '" is not writable.'
+				. '" is not writable.')
             );
         }
 
