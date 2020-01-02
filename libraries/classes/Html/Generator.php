@@ -937,7 +937,7 @@ class Generator
                 && ! isset($GLOBALS['show_as_php']) // 'Submit query' does the same
                 && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $sql_query)
             ) {
-                $refresh_link = Url::getFromRoute('/import', $url_params);
+                $refresh_link = Url::getFromRoute('/sql', $url_params);
                 $refresh_link = ' [&nbsp;'
                     . self::linkOrButton($refresh_link, __('Refresh')) . ']';
             } else {
