@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:37-0300\n"
-"PO-Revision-Date: 2020-01-02 13:21+0000\n"
+"PO-Revision-Date: 2020-01-04 14:21+0000\n"
 "Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/5-0/fr/"
 ">\n"
@@ -12666,7 +12666,7 @@ msgstr "Nom de base de données invalide : "
 
 #: libraries/classes/Table.php:1576
 msgid "Invalid table name:"
-msgstr "Nom de table invalide : "
+msgstr "Nom de table invalide :"
 
 #: libraries/classes/Table.php:1613
 #, php-format
@@ -12748,7 +12748,7 @@ msgstr "Chemin non trouvé pour le thème %s !"
 
 #: libraries/classes/ThemeManager.php:352
 msgid "Theme:"
-msgstr "Thème : "
+msgstr "Thème :"
 
 #: libraries/classes/Tracking.php:275
 #: templates/database/tracking/tables.twig:78
