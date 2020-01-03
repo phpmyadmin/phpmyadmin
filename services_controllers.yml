@@ -155,6 +155,7 @@ services:
       dbi: '@dbi'
       template: '@template'
       db: '%db%'
+      sqlQueryForm: '@sql_query_form'
 
   PhpMyAdmin\Controllers\Database\SqlFormatController:
     class: 'PhpMyAdmin\Controllers\Database\SqlFormatController'

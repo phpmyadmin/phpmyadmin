@@ -1,7 +1,5 @@
 <?php
 /**
- * Holds the PhpMyAdmin\Controllers\Database\SqlController
- *
  * @package PhpMyAdmin\Controllers\Database
  */
 declare(strict_types=1);
@@ -9,7 +7,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlQueryForm;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
 /**
@@ -19,15 +20,36 @@ use PhpMyAdmin\Url;
  */
 class SqlController extends AbstractController
 {
+    /** @var SqlQueryForm */
+    private $sqlQueryForm;
+
     /**
-     * @param array        $params       Request parameters
-     * @param SqlQueryForm $sqlQueryForm SqlQueryForm instance
+     * @param Response          $response     Response instance
+     * @param DatabaseInterface $dbi          DatabaseInterface instance
+     * @param Template          $template     Template instance
+     * @param string            $db           Database name
+     * @param SqlQueryForm      $sqlQueryForm SqlQueryForm instance
+     */
+    public function __construct($response, $dbi, Template $template, $db, SqlQueryForm $sqlQueryForm)
+    {
+        parent::__construct($response, $dbi, $template, $db);
+        $this->sqlQueryForm = $sqlQueryForm;
+    }
+
+    /**
+     * @param array $params Request parameters
      *
      * @return string HTML
      */
-    public function index(array $params, SqlQueryForm $sqlQueryForm): string
+    public function index(array $params): string
     {
         global $goto, $back;
+
+        $header = $this->response->getHeader();
+        $scripts = $header->getScripts();
+        $scripts->addFile('makegrid.js');
+        $scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
+        $scripts->addFile('sql.js');
 
         PageSettings::showGroup('Sql');
 
@@ -40,7 +62,7 @@ class SqlController extends AbstractController
         $goto = Url::getFromRoute('/database/sql');
         $back = $goto;
 
-        return $sqlQueryForm->getHtml(
+        return $this->sqlQueryForm->getHtml(
             true,
             false,
             isset($params['delimiter'])
