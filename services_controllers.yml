@@ -341,6 +341,14 @@ services:
       dbi: '@dbi'
       template: '@template'
 
+  PhpMyAdmin\Controllers\Server\ExportController:
+    class: 'PhpMyAdmin\Controllers\Server\ExportController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      export: '@display_export'
+
   PhpMyAdmin\Controllers\Server\ImportController:
     class: 'PhpMyAdmin\Controllers\Server\ImportController'
     arguments:
