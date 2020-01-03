@@ -736,12 +736,14 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
             // destroy datepicker in edit area, if exist
             var $dp = $(g.cEdit).find('.hasDatepicker');
             if ($dp.length > 0) {
+                $(document).ready(function () {
                 // eslint-disable-next-line no-underscore-dangle
                 $(document).on('mousedown', $.datepicker._checkExternalClick);
                 $dp.datepicker('destroy');
                 // change the cursor in edit box back to normal
                 // (the cursor become a hand pointer when we add datepicker)
                 $(g.cEdit).find('.edit_box').css('cursor', 'inherit');
+                });
             }
         },
 
