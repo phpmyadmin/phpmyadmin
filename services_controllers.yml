@@ -445,6 +445,15 @@ services:
       dbi: '@dbi'
       template: '@template'
 
+  PhpMyAdmin\Controllers\SqlController:
+    class: 'PhpMyAdmin\Controllers\SqlController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      sql: '@sql'
+      checkUserPrivileges: '@check_user_privileges'
+
   PhpMyAdmin\Controllers\Table\AddFieldController:
     class: 'PhpMyAdmin\Controllers\Table\AddFieldController'
     arguments:
