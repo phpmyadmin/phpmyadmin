@@ -3168,11 +3168,6 @@ parameters:
 			path: libraries/common.inc.php
 
 		-
-			message: "#^Strict comparison using \\=\\=\\= between string and null will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/entry_points/database/export.php
-
-		-
 			message: "#^Parameter \\#1 \\$goto_include of method PhpMyAdmin\\\\InsertEdit\\:\\:getGotoInclude\\(\\) expects string, false given\\.$#"
 			count: 1
 			path: libraries/entry_points/table/replace.php
