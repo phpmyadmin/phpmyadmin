@@ -474,6 +474,17 @@ services:
       transformations: '@transformations'
       config: '@config'
 
+  PhpMyAdmin\Controllers\Table\ChangeController:
+    class: 'PhpMyAdmin\Controllers\Table\ChangeController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      db: '%db%'
+      table: '%table%'
+      insertEdit: '@insert_edit'
+      relation: '@relation'
+
   PhpMyAdmin\Controllers\Table\ChartController:
     class: 'PhpMyAdmin\Controllers\Table\ChartController'
     arguments:
