@@ -642,6 +642,7 @@ services:
       template: '@template'
       db: '%db%'
       table: '%table%'
+      sqlQueryForm: '@sql_query_form'
 
   PhpMyAdmin\Controllers\Table\StructureController:
     class: 'PhpMyAdmin\Controllers\Table\StructureController'

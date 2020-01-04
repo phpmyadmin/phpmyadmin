@@ -1,7 +1,5 @@
 <?php
 /**
- * Holds the PhpMyAdmin\Controllers\Table\SqlController
- *
  * @package PhpMyAdmin\Controllers\Table
  */
 declare(strict_types=1);
@@ -9,7 +7,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlQueryForm;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
 /**
@@ -17,17 +18,37 @@ use PhpMyAdmin\Url;
  *
  * @package PhpMyAdmin\Controllers\Table
  */
-class SqlController extends AbstractController
+final class SqlController extends AbstractController
 {
+    /** @var SqlQueryForm */
+    private $sqlQueryForm;
+
     /**
-     * @param array        $params       Request parameters
-     * @param SqlQueryForm $sqlQueryForm SqlQueryForm instance
-     *
-     * @return string HTML
+     * @param Response          $response     A Response instance.
+     * @param DatabaseInterface $dbi          A DatabaseInterface instance.
+     * @param Template          $template     A Template instance.
+     * @param string            $db           Database name.
+     * @param string            $table        Table name.
+     * @param SqlQueryForm      $sqlQueryForm An SqlQueryForm instance.
      */
-    public function index(array $params, SqlQueryForm $sqlQueryForm): string
+    public function __construct($response, $dbi, Template $template, $db, $table, SqlQueryForm $sqlQueryForm)
+    {
+        parent::__construct($response, $dbi, $template, $db, $table);
+        $this->sqlQueryForm = $sqlQueryForm;
+    }
+
+    /**
+     * @return void
+     */
+    public function index(): void
     {
         global $url_query, $err_url, $goto, $back;
+
+        $header = $this->response->getHeader();
+        $scripts = $header->getScripts();
+        $scripts->addFile('makegrid.js');
+        $scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
+        $scripts->addFile('sql.js');
 
         PageSettings::showGroup('Sql');
 
@@ -46,12 +67,12 @@ class SqlController extends AbstractController
             'back' => $back,
         ], '&');
 
-        return $sqlQueryForm->getHtml(
-            $params['sql_query'] ?? true,
+        $this->response->addHTML($this->sqlQueryForm->getHtml(
+            $_GET['sql_query'] ?? true,
             false,
-            isset($params['delimiter'])
-                ? htmlspecialchars($params['delimiter'])
+            isset($_POST['delimiter'])
+                ? htmlspecialchars($_POST['delimiter'])
                 : ';'
-        );
+        ));
     }
 }
