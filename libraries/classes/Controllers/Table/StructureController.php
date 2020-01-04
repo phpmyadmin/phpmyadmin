@@ -1,7 +1,5 @@
 <?php
 /**
- * Holds the PhpMyAdmin\Controllers\Table\StructureController
- *
  * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
@@ -36,10 +34,10 @@ use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use stdClass;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
- * Handles table structure logic
+ * Displays table structure infos like columns, indexes, size, rows
+ * and allows manipulation of indexes and columns.
  *
  * @package PhpMyAdmin\Controllers
  */
@@ -49,34 +47,11 @@ class StructureController extends AbstractController
      * @var Table  The table object
      */
     protected $table_obj;
+
     /**
      * @var string  The URL query string
      */
     protected $_url_query;
-    /**
-     * @var bool DB is information_schema
-     */
-    protected $_db_is_system_schema;
-    /**
-     * @var bool Table is a view
-     */
-    protected $_tbl_is_view;
-    /**
-     * @var string Table storage engine
-     */
-    protected $_tbl_storage_engine;
-    /**
-     * @var int Number of rows
-     */
-    protected $_table_info_num_rows;
-    /**
-     * @var string Table collation
-     */
-    protected $_tbl_collation;
-    /**
-     * @var array Show table info
-     */
-    protected $_showtable;
 
     /**
      * @var CreateAddField
@@ -96,20 +71,14 @@ class StructureController extends AbstractController
     /**
      * StructureController constructor
      *
-     * @param Response          $response            Response object
-     * @param DatabaseInterface $dbi                 DatabaseInterface object
-     * @param Template          $template            Template object
-     * @param string            $db                  Database name
-     * @param string            $table               Table name
-     * @param bool              $db_is_system_schema DB is information_schema
-     * @param bool              $tbl_is_view         Table is a view
-     * @param string            $tbl_storage_engine  Table storage engine
-     * @param int               $table_info_num_rows Number of rows
-     * @param string            $tbl_collation       Table collation
-     * @param array             $showtable           Show table info
-     * @param Relation          $relation            Relation instance
-     * @param Transformations   $transformations     Transformations instance
-     * @param CreateAddField    $createAddField      CreateAddField instance
+     * @param Response          $response        Response object
+     * @param DatabaseInterface $dbi             DatabaseInterface object
+     * @param Template          $template        Template object
+     * @param string            $db              Database name
+     * @param string            $table           Table name
+     * @param Relation          $relation        Relation instance
+     * @param Transformations   $transformations Transformations instance
+     * @param CreateAddField    $createAddField  CreateAddField instance
      */
     public function __construct(
         $response,
@@ -117,42 +86,42 @@ class StructureController extends AbstractController
         Template $template,
         $db,
         $table,
-        $db_is_system_schema,
-        $tbl_is_view,
-        $tbl_storage_engine,
-        $table_info_num_rows,
-        $tbl_collation,
-        $showtable,
         Relation $relation,
         Transformations $transformations,
         CreateAddField $createAddField
     ) {
         parent::__construct($response, $dbi, $template, $db, $table);
-
-        $this->_db_is_system_schema = $db_is_system_schema;
-        $this->_url_query = Url::getCommonRaw(['db' => $db, 'table' => $table]);
-        $this->_tbl_is_view = $tbl_is_view;
-        $this->_tbl_storage_engine = $tbl_storage_engine;
-        $this->_table_info_num_rows = $table_info_num_rows;
-        $this->_tbl_collation = $tbl_collation;
-        $this->_showtable = $showtable;
-        $this->table_obj = $this->dbi->getTable($this->db, $this->table);
-
         $this->createAddField = $createAddField;
         $this->relation = $relation;
         $this->transformations = $transformations;
+
+        $this->_url_query = Url::getCommonRaw(['db' => $db, 'table' => $table]);
+        $this->table_obj = $this->dbi->getTable($this->db, $this->table);
     }
 
     /**
-     * Index action
-     *
-     * @param ContainerBuilder $containerBuilder ContainerBuilder instance
-     *
      * @return void
      */
-    public function indexAction(ContainerBuilder $containerBuilder): void
+    public function index(): void
     {
-        global $sql_query;
+        global $sql_query, $reread_info, $showtable;
+        global $tbl_is_view, $tbl_storage_engine, $tbl_collation, $table_info_num_rows;
+
+        $this->dbi->selectDb($this->db);
+        $reread_info = $this->table_obj->getStatusInfo(null, true);
+        $showtable = $this->table_obj->getStatusInfo(
+            null,
+            (isset($reread_info) && $reread_info ? true : false)
+        );
+        if ($this->table_obj->isView()) {
+            $tbl_is_view = true;
+            $tbl_storage_engine = __('View');
+        } else {
+            $tbl_is_view = false;
+            $tbl_storage_engine = $this->table_obj->getStorageEngine();
+        }
+        $tbl_collation = $this->table_obj->getCollation();
+        $table_info_num_rows = $this->table_obj->getNumRows();
 
         PageSettings::showGroup('TableStructure');
 
@@ -217,8 +186,7 @@ class StructureController extends AbstractController
         if (isset($_GET['change_column'])) {
             $this->displayHtmlForColumnChange(
                 null,
-                Url::getFromRoute('/table/structure'),
-                $containerBuilder
+                Url::getFromRoute('/table/structure')
             );
             return;
         }
@@ -262,8 +230,7 @@ class StructureController extends AbstractController
                     ] = $this->getDataForSubmitMult(
                         $submit_mult,
                         $_POST['selected_fld'],
-                        $action,
-                        $containerBuilder
+                        $action
                     );
                     //update the existing variables
                     // todo: refactor mult_submits.inc.php such as
@@ -350,9 +317,9 @@ class StructureController extends AbstractController
         $db = &$this->db;
         $table = &$this->table;
         $url_params = [];
-        $db_is_system_schema = false;
+
         include_once ROOT_PATH . 'libraries/tbl_common.inc.php';
-        $this->_db_is_system_schema = $db_is_system_schema;
+
         $this->_url_query = Url::getCommonRaw([
             'db' => $db,
             'table' => $table,
@@ -527,13 +494,12 @@ class StructureController extends AbstractController
     /**
      * Displays HTML for changing one or more columns
      *
-     * @param array            $selected         the selected columns
-     * @param string           $action           target script to call
-     * @param ContainerBuilder $containerBuilder Container builder instance (Used in tbl_columns_definition_form.inc.php)
+     * @param array  $selected the selected columns
+     * @param string $action   target script to call
      *
      * @return void
      */
-    protected function displayHtmlForColumnChange($selected, $action, ContainerBuilder $containerBuilder)
+    protected function displayHtmlForColumnChange($selected, $action)
     {
         // $selected comes from mult_submits.inc.php
         if (empty($selected)) {
@@ -1247,7 +1213,7 @@ class StructureController extends AbstractController
         array $fields,
         array $columns_with_index
     ) {
-        global $route;
+        global $route, $db_is_system_schema, $tbl_is_view, $tbl_storage_engine;
 
         // prepare comments
         $comments_map = [];
@@ -1362,12 +1328,12 @@ class StructureController extends AbstractController
             'hide_structure_actions' => $hideStructureActions,
             'db' => $this->db,
             'table' => $this->table,
-            'db_is_system_schema' => $this->_db_is_system_schema,
-            'tbl_is_view' => $this->_tbl_is_view,
+            'db_is_system_schema' => $db_is_system_schema,
+            'tbl_is_view' => $tbl_is_view,
             'mime_map' => $mime_map,
             'url_query' => $this->_url_query,
             'titles' => $titles,
-            'tbl_storage_engine' => $this->_tbl_storage_engine,
+            'tbl_storage_engine' => $tbl_storage_engine,
             'primary' => $primary_index,
             'columns_with_unique_index' => $columns_with_unique_index,
             'columns_list' => $columns_list,
@@ -1406,22 +1372,24 @@ class StructureController extends AbstractController
      */
     protected function getTableStats()
     {
-        if (empty($this->_showtable)) {
-            $this->_showtable = $this->dbi->getTable(
+        global $showtable, $db_is_system_schema, $tbl_is_view, $tbl_storage_engine, $table_info_num_rows, $tbl_collation;
+
+        if (empty($showtable)) {
+            $showtable = $this->dbi->getTable(
                 $this->db,
                 $this->table
             )->getStatusInfo(null, true);
         }
 
-        if (empty($this->_showtable['Data_length'])) {
-            $this->_showtable['Data_length'] = 0;
+        if (empty($showtable['Data_length'])) {
+            $showtable['Data_length'] = 0;
         }
-        if (empty($this->_showtable['Index_length'])) {
-            $this->_showtable['Index_length'] = 0;
+        if (empty($showtable['Index_length'])) {
+            $showtable['Index_length'] = 0;
         }
 
-        $is_innodb = (isset($this->_showtable['Type'])
-            && $this->_showtable['Type'] == 'InnoDB');
+        $is_innodb = (isset($showtable['Type'])
+            && $showtable['Type'] == 'InnoDB');
 
         $mergetable = $this->table_obj->isMerge();
 
@@ -1429,48 +1397,48 @@ class StructureController extends AbstractController
         $max_digits = 3;
         $decimals = 1;
         [$data_size, $data_unit] = Util::formatByteDown(
-            $this->_showtable['Data_length'],
+            $showtable['Data_length'],
             $max_digits,
             $decimals
         );
         if ($mergetable === false) {
             [$index_size, $index_unit] = Util::formatByteDown(
-                $this->_showtable['Index_length'],
+                $showtable['Index_length'],
                 $max_digits,
                 $decimals
             );
         }
-        if (isset($this->_showtable['Data_free'])) {
+        if (isset($showtable['Data_free'])) {
             [$free_size, $free_unit] = Util::formatByteDown(
-                $this->_showtable['Data_free'],
+                $showtable['Data_free'],
                 $max_digits,
                 $decimals
             );
             [$effect_size, $effect_unit] = Util::formatByteDown(
-                $this->_showtable['Data_length']
-                + $this->_showtable['Index_length']
-                - $this->_showtable['Data_free'],
+                $showtable['Data_length']
+                + $showtable['Index_length']
+                - $showtable['Data_free'],
                 $max_digits,
                 $decimals
             );
         } else {
             [$effect_size, $effect_unit] = Util::formatByteDown(
-                $this->_showtable['Data_length']
-                + $this->_showtable['Index_length'],
+                $showtable['Data_length']
+                + $showtable['Index_length'],
                 $max_digits,
                 $decimals
             );
         }
         [$tot_size, $tot_unit] = Util::formatByteDown(
-            $this->_showtable['Data_length'] + $this->_showtable['Index_length'],
+            $showtable['Data_length'] + $showtable['Index_length'],
             $max_digits,
             $decimals
         );
-        if ($this->_table_info_num_rows > 0) {
+        if ($table_info_num_rows > 0) {
             [$avg_size, $avg_unit] = Util::formatByteDown(
-                ($this->_showtable['Data_length']
-                + $this->_showtable['Index_length'])
-                / $this->_showtable['Rows'],
+                ($showtable['Data_length']
+                + $showtable['Index_length'])
+                / $showtable['Rows'],
                 6,
                 1
             );
@@ -1487,7 +1455,7 @@ class StructureController extends AbstractController
         $collation = Charsets::findCollationByName(
             $this->dbi,
             $GLOBALS['cfg']['Server']['DisableIS'],
-            $this->_tbl_collation
+            $tbl_collation
         );
         if ($collation !== null) {
             $tableCollation = [
@@ -1502,11 +1470,11 @@ class StructureController extends AbstractController
             ],
             'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
             'cfg_relation' => $this->relation->getRelationsParam(),
-            'showtable' => $this->_showtable,
-            'table_info_num_rows' => $this->_table_info_num_rows,
-            'tbl_is_view' => $this->_tbl_is_view,
-            'db_is_system_schema' => $this->_db_is_system_schema,
-            'tbl_storage_engine' => $this->_tbl_storage_engine,
+            'showtable' => $showtable,
+            'table_info_num_rows' => $table_info_num_rows,
+            'tbl_is_view' => $tbl_is_view,
+            'db_is_system_schema' => $db_is_system_schema,
+            'tbl_storage_engine' => $tbl_storage_engine,
             'url_query' => $this->_url_query,
             'table_collation' => $tableCollation,
             'is_innodb' => $is_innodb,
@@ -1554,14 +1522,13 @@ class StructureController extends AbstractController
     /**
      * Get List of information for Submit Mult
      *
-     * @param string           $submit_mult      mult_submit type
-     * @param array            $selected         the selected columns
-     * @param string           $action           action type
-     * @param ContainerBuilder $containerBuilder Container builder instance
+     * @param string $submit_mult mult_submit type
+     * @param array  $selected    the selected columns
+     * @param string $action      action type
      *
      * @return array
      */
-    protected function getDataForSubmitMult($submit_mult, $selected, $action, ContainerBuilder $containerBuilder)
+    protected function getDataForSubmitMult($submit_mult, $selected, $action)
     {
         $centralColumns = new CentralColumns($this->dbi);
         $what = null;
@@ -1620,7 +1587,7 @@ class StructureController extends AbstractController
                 );
                 break;
             case 'change':
-                $this->displayHtmlForColumnChange($selected, $action, $containerBuilder);
+                $this->displayHtmlForColumnChange($selected, $action);
                 // execution stops here but PhpMyAdmin\Response correctly finishes
                 // the rendering
                 exit;

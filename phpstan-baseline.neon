@@ -3293,36 +3293,6 @@ parameters:
 			path: test/classes/Controllers/Table/StructureControllerTest.php
 
 		-
-			message: "#^Parameter \\#10 \\$tbl_collation of class PhpMyAdmin\\\\Controllers\\\\Table\\\\StructureController constructor expects string, null given\\.$#"
-			count: 5
-			path: test/classes/Controllers/Table/StructureControllerTest.php
-
-		-
-			message: "#^Parameter \\#11 \\$showtable of class PhpMyAdmin\\\\Controllers\\\\Table\\\\StructureController constructor expects array, null given\\.$#"
-			count: 5
-			path: test/classes/Controllers/Table/StructureControllerTest.php
-
-		-
-			message: "#^Parameter \\#6 \\$db_is_system_schema of class PhpMyAdmin\\\\Controllers\\\\Table\\\\StructureController constructor expects bool, null given\\.$#"
-			count: 5
-			path: test/classes/Controllers/Table/StructureControllerTest.php
-
-		-
-			message: "#^Parameter \\#7 \\$tbl_is_view of class PhpMyAdmin\\\\Controllers\\\\Table\\\\StructureController constructor expects bool, null given\\.$#"
-			count: 5
-			path: test/classes/Controllers/Table/StructureControllerTest.php
-
-		-
-			message: "#^Parameter \\#8 \\$tbl_storage_engine of class PhpMyAdmin\\\\Controllers\\\\Table\\\\StructureController constructor expects string, null given\\.$#"
-			count: 5
-			path: test/classes/Controllers/Table/StructureControllerTest.php
-
-		-
-			message: "#^Parameter \\#9 \\$table_info_num_rows of class PhpMyAdmin\\\\Controllers\\\\Table\\\\StructureController constructor expects int, null given\\.$#"
-			count: 5
-			path: test/classes/Controllers/Table/StructureControllerTest.php
-
-		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with int and bool will always evaluate to false\\.$#"
 			count: 1
 			path: test/classes/CoreTest.php

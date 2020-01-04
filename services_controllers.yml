@@ -652,12 +652,6 @@ services:
       template: '@template'
       db: '%db%'
       table: '%table%'
-      db_is_system_schema: null
-      tbl_is_view: null
-      tbl_storage_engine: null
-      table_info_num_rows: null
-      tbl_collation: null
-      showtable: null
       relation: '@relation'
       transformations: '@transformations'
       create_add_field: '@create_add_field'
