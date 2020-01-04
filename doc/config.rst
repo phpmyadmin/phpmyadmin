@@ -3433,6 +3433,18 @@ Developer
 
     These settings might have huge effect on performance or security.
 
+.. config:option:: $cfg['environment']
+
+    :type: string
+    :default: ``'production'``
+
+    Sets the working environment.
+
+    This only needs to be changed when you are developing phpMyAdmin itself.
+    The ``development`` mode may display debug information in some places.
+
+    Possible values are ``'production'`` or ``'development'``.
+
 .. config:option:: $cfg['DBG']
 
     :type: array
