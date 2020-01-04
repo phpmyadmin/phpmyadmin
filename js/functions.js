@@ -2280,6 +2280,9 @@ Functions.ajaxShowMessage = function (message, timeout, type) {
             Messages.strDismiss
         );
     }
+    if (msg !== Messages.strLoading) {
+        $retval.css('background-image', 'none');
+    }
     Functions.highlightSql($retval);
 
     return $retval;
