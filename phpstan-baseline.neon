@@ -498,6 +498,21 @@ parameters:
 			path: libraries/classes/Controllers/Table/GisVisualizationController.php
 
 		-
+			message: "#^Cannot assign offset mixed to array\\|true\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Parameter \\#1 \\$messages of method PhpMyAdmin\\\\Message\\:\\:addMessagesString\\(\\) expects array\\<string\\>, array\\<int, PhpMyAdmin\\\\Message\\|string\\|null\\> given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
+			message: "#^Argument of an invalid type array\\|true supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
 			message: "#^Parameter \\#1 \\$str of function mb_strtolower expects string, array\\<string\\>\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/SearchController.php
@@ -3166,26 +3181,6 @@ parameters:
 			message: "#^Strict comparison using \\=\\=\\= between PhpMyAdmin\\\\DatabaseInterface and false will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/common.inc.php
-
-		-
-			message: "#^Parameter \\#1 \\$goto_include of method PhpMyAdmin\\\\InsertEdit\\:\\:getGotoInclude\\(\\) expects string, false given\\.$#"
-			count: 1
-			path: libraries/entry_points/table/replace.php
-
-		-
-			message: "#^Cannot assign offset mixed to array\\|true\\.$#"
-			count: 1
-			path: libraries/entry_points/table/replace.php
-
-		-
-			message: "#^Parameter \\#1 \\$messages of method PhpMyAdmin\\\\Message\\:\\:addMessagesString\\(\\) expects array\\<string\\>, array\\<int, PhpMyAdmin\\\\Message\\|string\\|null\\> given\\.$#"
-			count: 1
-			path: libraries/entry_points/table/replace.php
-
-		-
-			message: "#^Argument of an invalid type array\\|true supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/entry_points/table/replace.php
 
 		-
 			message: "#^Parameter \\#9 \\$originalUrlQuery of method PhpMyAdmin\\\\MultSubmits\\:\\:getUrlParams\\(\\) expects string, null given\\.$#"

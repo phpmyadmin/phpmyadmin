@@ -602,6 +602,18 @@ services:
       table: '%table%'
       relation: '@relation'
 
+  PhpMyAdmin\Controllers\Table\ReplaceController:
+    class: 'PhpMyAdmin\Controllers\Table\ReplaceController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      db: '%db%'
+      table: '%table%'
+      insertEdit: '@insert_edit'
+      transformations: '@transformations'
+      relation: '@relation'
+
   PhpMyAdmin\Controllers\Table\RowActionController:
     class: 'PhpMyAdmin\Controllers\Table\RowActionController'
     arguments:

@@ -2237,10 +2237,10 @@ class InsertEdit
      * if $GLOBALS['goto'] empty, if $goto_include previously not defined
      * and new_insert, same_insert, edit_next
      *
-     * @param string $goto_include store some script for include, otherwise it is
-     *                             boolean false
+     * @param string|false $goto_include store some script for include, otherwise it is
+     *                                   boolean false
      *
-     * @return string
+     * @return string|false
      */
     public function getGotoInclude($goto_include)
     {
