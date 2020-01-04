@@ -71,6 +71,8 @@ require_once ROOT_PATH . 'libraries/vendor_config.php';
 require_once AUTOLOAD_FILE;
 Loader::loadFunctions();
 $GLOBALS['PMA_Config'] = new Config();
+$GLOBALS['PMA_Config']->set('environment', 'development');
+$GLOBALS['cfg']['environment'] = 'development';
 // Initialize PMA_VERSION variable
 define('PMA_VERSION', $GLOBALS['PMA_Config']->get('PMA_VERSION'));
 define('PMA_MAJOR_VERSION', $GLOBALS['PMA_Config']->get('PMA_MAJOR_VERSION'));
