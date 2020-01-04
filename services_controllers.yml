@@ -505,6 +505,17 @@ services:
       transformations: '@transformations'
       config: '@config'
 
+  PhpMyAdmin\Controllers\Table\ExportController:
+    class: 'PhpMyAdmin\Controllers\Table\ExportController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      db: '%db%'
+      table: '%table%'
+      export: '@display_export'
+      relation: '@relation'
+
   PhpMyAdmin\Controllers\Table\FindReplaceController:
     class: 'PhpMyAdmin\Controllers\Table\FindReplaceController'
     arguments:
