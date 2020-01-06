@@ -60,6 +60,9 @@ phpMyAdmin - ChangeLog
 - issue #15677 Fix show process-list triggers a php exception
 - issue #15697 Fix uncaught php error: "Call to a member function get() on null" in db_export.php when exporting a table from the list
 
+4.9.4 (not yet released)
+- issue #15724 Fix 2FA was disabled by a bug
+
 4.9.3 (2019-12-26)
 - issue #15570 Fix page contents go underneath of floating menubar in some cases
 - issue #15591 Fix php notice 'Undefined index: foreign_keys_data' on relations view when the user has column access
