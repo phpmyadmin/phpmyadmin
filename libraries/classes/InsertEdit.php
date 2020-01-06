@@ -2258,7 +2258,7 @@ class InsertEdit
                 // this should NOT happen
                 //$GLOBALS['goto'] = false;
                 if ($GLOBALS['goto'] === 'index.php?route=/sql') {
-                    $goto_include = 'libraries/entry_points/sql.php';
+                    $goto_include = '/sql';
                 } else {
                     $goto_include = false;
                 }

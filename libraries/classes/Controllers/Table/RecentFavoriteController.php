@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\Controllers\SqlController;
 use PhpMyAdmin\RecentFavoriteTable;
 
 /**
@@ -20,6 +21,8 @@ class RecentFavoriteController extends AbstractController
      */
     public function index(): void
     {
+        global $containerBuilder;
+
         RecentFavoriteTable::getInstance('recent')->removeIfInvalid(
             $_REQUEST['db'],
             $_REQUEST['table']
@@ -30,6 +33,8 @@ class RecentFavoriteController extends AbstractController
             $_REQUEST['table']
         );
 
-        require ROOT_PATH . 'libraries/entry_points/sql.php';
+        /** @var SqlController $controller */
+        $controller = $containerBuilder->get(SqlController::class);
+        $controller->index();
     }
 }

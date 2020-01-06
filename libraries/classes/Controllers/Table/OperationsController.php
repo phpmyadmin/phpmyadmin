@@ -7,6 +7,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\Controllers\SqlController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
@@ -64,7 +65,7 @@ class OperationsController extends AbstractController
      */
     public function index(): void
     {
-        global $url_query, $url_params, $reread_info, $tbl_is_view, $tbl_storage_engine;
+        global $containerBuilder, $url_query, $url_params, $reread_info, $tbl_is_view, $tbl_storage_engine;
         global $show_comment, $tbl_collation, $table_info_num_rows, $row_format, $auto_increment, $create_options;
         global $table_alters, $warning_messages, $lowerCaseNames, $db, $table, $reload, $result;
         global $new_tbl_storage_engine, $sql_query, $message_to_show, $columns, $hideOrderTable, $indexes;
@@ -152,7 +153,10 @@ class OperationsController extends AbstractController
          * If the table has to be maintained
          */
         if (isset($_POST['table_maintenance'])) {
-            include_once ROOT_PATH . 'libraries/entry_points/sql.php';
+            /** @var SqlController $controller */
+            $controller = $containerBuilder->get(SqlController::class);
+            $controller->index();
+
             unset($result);
         }
         /**

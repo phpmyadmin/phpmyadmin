@@ -10,6 +10,7 @@ use PhpMyAdmin\CentralColumns;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Controllers\SqlController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\DatabaseInterface;
@@ -104,7 +105,7 @@ class StructureController extends AbstractController
      */
     public function index(): void
     {
-        global $sql_query, $reread_info, $showtable;
+        global $containerBuilder, $sql_query, $reread_info, $showtable;
         global $tbl_is_view, $tbl_storage_engine, $tbl_collation, $table_info_num_rows;
 
         $this->dbi->selectDb($this->db);
@@ -293,14 +294,10 @@ class StructureController extends AbstractController
         if (isset($_POST['add_key'])
             || isset($_POST['partition_maintenance'])
         ) {
-            //todo: set some variables for /sql include, to be eliminated
-            //after refactoring /sql
-            $db = $this->db;
-            $table = $this->table;
-            $sql_query = $GLOBALS['sql_query'];
-            $cfg = $GLOBALS['cfg'];
-            $pmaThemeImage = $GLOBALS['pmaThemeImage'];
-            include ROOT_PATH . 'libraries/entry_points/sql.php';
+            /** @var SqlController $controller */
+            $controller = $containerBuilder->get(SqlController::class);
+            $controller->index();
+
             $GLOBALS['reload'] = true;
         }
 
