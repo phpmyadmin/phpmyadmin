@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Controllers\Server\ExportController as ServerExportController;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\SchemaPlugin;
 
@@ -1047,10 +1048,13 @@ class Export
      */
     public function showPage(string $db, string $table, string $export_type): void
     {
-        global $cfg;
+        global $active_page, $containerBuilder;
+
         if ($export_type == 'server') {
             $active_page = Url::getFromRoute('/server/export');
-            include_once ROOT_PATH . 'libraries/entry_points/server/export.php';
+            /** @var ServerExportController $controller */
+            $controller = $containerBuilder->get(ServerExportController::class);
+            $controller->index();
         } elseif ($export_type == 'database') {
             $active_page = Url::getFromRoute('/database/export');
             include_once ROOT_PATH . 'libraries/entry_points/database/export.php';
