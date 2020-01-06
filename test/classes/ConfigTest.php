@@ -1008,6 +1008,39 @@ class ConfigTest extends PmaTestCase
     }
 
     /**
+     * Test for getTempDir
+     *
+     * @return void
+     *
+     * @group file-system
+     */
+    public function testGetTempDir(): void
+    {
+        $this->object->set('TempDir', sys_get_temp_dir() . DIRECTORY_SEPARATOR);
+        // Check no double slash is here
+        $this->assertEquals(
+            sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'upload',
+            $this->object->getTempDir('upload')
+        );
+    }
+
+    /**
+     * Test for getUploadTempDir
+     *
+     * @return void
+     *
+     * @group file-system
+     */
+    public function testGetUploadTempDir(): void
+    {
+        $this->object->set('TempDir', sys_get_temp_dir() . DIRECTORY_SEPARATOR);
+        $this->assertEquals(
+            $this->object->getTempDir('upload'),
+            $this->object->getUploadTempDir()
+        );
+    }
+
+    /**
      * Test for isGitRevision
      *
      * @return void
