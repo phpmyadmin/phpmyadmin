@@ -121,6 +121,7 @@ class ChangeController extends AbstractController
 
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();
+        $scripts->addFile('makegrid.js');
         $scripts->addFile('sql.js');
         $scripts->addFile('table/change.js');
         $scripts->addFile('vendor/jquery/additional-methods.js');
