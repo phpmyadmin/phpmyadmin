@@ -2265,13 +2265,13 @@ class InsertEdit
             } else {
                 $goto_include = $GLOBALS['goto'];
             }
-            if ($GLOBALS['goto'] == 'libraries/entry_points/database/sql.php' && strlen($GLOBALS['table']) > 0) {
+            if ($GLOBALS['goto'] == 'index.php?route=/database/sql' && strlen($GLOBALS['table']) > 0) {
                 $GLOBALS['table'] = '';
             }
         }
         if (! $goto_include) {
             if (strlen($GLOBALS['table']) === 0) {
-                $goto_include = 'libraries/entry_points/database/sql.php';
+                $goto_include = '/database/sql';
             } else {
                 $goto_include = 'libraries/entry_points/table/sql.php';
             }
