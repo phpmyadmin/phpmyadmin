@@ -122,7 +122,9 @@ class RowActionController extends AbstractController
                         }
                     }
                     $active_page = Url::getFromRoute('/table/export');
-                    include ROOT_PATH . 'libraries/entry_points/table/export.php';
+                    /** @var ExportController $controller */
+                    $controller = $containerBuilder->get(ExportController::class);
+                    $controller->index();
                     break;
 
                 case 'row_delete':
