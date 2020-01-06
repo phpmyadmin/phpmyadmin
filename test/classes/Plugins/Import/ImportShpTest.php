@@ -29,8 +29,9 @@ class ImportShpTest extends PmaTestCase
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      *
-     * @access protected
      * @return void
+     *
+     * @access protected
      */
     protected function setUp(): void
     {
@@ -84,8 +85,9 @@ class ImportShpTest extends PmaTestCase
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
      *
-     * @access protected
      * @return void
+     *
+     * @access protected
      */
     protected function tearDown(): void
     {
@@ -138,13 +140,20 @@ class ImportShpTest extends PmaTestCase
         $this->runImport('test/test_data/dresden_osm.shp.zip');
 
         $this->assertMessages($import_notice);
+
+        $endsWith = "13.737122 51.0542065)))'))";
+
+        if (extension_loaded('dbase')) {
+            $endsWith = "13.737122 51.0542065)))'),";
+        }
+
         $this->assertStringContainsString(
             "(GeomFromText('MULTIPOLYGON((("
-            . "13.737122 51.0542065,"
-            . "13.7373039 51.0541298,"
-            . "13.7372661 51.0540944,"
-            . "13.7370842 51.0541711,"
-            . "13.737122 51.0542065)))'))",
+            . '13.737122 51.0542065,'
+            . '13.7373039 51.0541298,'
+            . '13.7372661 51.0540944,'
+            . '13.7370842 51.0541711,'
+            . $endsWith,
             $sql_query
         );
     }
@@ -166,22 +175,39 @@ class ImportShpTest extends PmaTestCase
         //Test function called
         $this->runImport('test/test_data/timezone.shp.zip');
 
-        //asset that all sql are executed
+        // asset that all sql are executed
         $this->assertStringContainsString(
             'CREATE DATABASE IF NOT EXISTS `SHP_DB` DEFAULT CHARACTER '
             . 'SET utf8 COLLATE utf8_general_ci',
             $sql_query
         );
-        $this->assertStringContainsString(
-            'CREATE TABLE IF NOT EXISTS `SHP_DB`.`TBL_NAME` '
-            . '(`SPATIAL` geometry) DEFAULT CHARACTER '
-            . 'SET utf8 COLLATE utf8_general_ci;',
-            $sql_query
-        );
-        $this->assertStringContainsString(
-            "INSERT INTO `SHP_DB`.`TBL_NAME` (`SPATIAL`) VALUES",
-            $sql_query
-        );
+
+        // dbase extension will generate different sql statement
+        if (extension_loaded('dbase')) {
+            $this->assertStringContainsString(
+                'CREATE TABLE IF NOT EXISTS `SHP_DB`.`TBL_NAME` '
+                . '(`SPATIAL` geometry, `ID` int(2), `AUTHORITY` varchar(25), `NAME` varchar(42)) '
+                . 'DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;',
+                $sql_query
+            );
+
+            $this->assertStringContainsString(
+                'INSERT INTO `SHP_DB`.`TBL_NAME` (`SPATIAL`, `ID`, `AUTHORITY`, `NAME`) VALUES',
+                $sql_query
+            );
+        } else {
+            $this->assertStringContainsString(
+                'CREATE TABLE IF NOT EXISTS `SHP_DB`.`TBL_NAME` (`SPATIAL` geometry)',
+                $sql_query
+            );
+
+            $this->assertStringContainsString(
+                'INSERT INTO `SHP_DB`.`TBL_NAME` (`SPATIAL`) VALUES',
+                $sql_query
+            );
+        }
+
+
         $this->assertStringContainsString(
             "GeomFromText('POINT(1294523.1759236",
             $sql_query

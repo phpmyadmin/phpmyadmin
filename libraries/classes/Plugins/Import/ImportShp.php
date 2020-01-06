@@ -115,21 +115,24 @@ class ImportShp extends ImportPlugin
                         $dbf_file_name
                     );
                     if ($extracted !== false) {
-                        $dbf_file_path = $temp . (PMA_IS_WINDOWS ? '\\' : '/')
-                            . Sanitize::sanitizeFilename($dbf_file_name, true);
-                        $handle = fopen($dbf_file_path, 'wb');
-                        if ($handle !== false) {
-                            fwrite($handle, $extracted);
-                            fclose($handle);
+                        // remove filename extension, e.g.
+                        // dresden_osm.shp/gis.osm_transport_a_v06.dbf
+                        // to
+                        // dresden_osm.shp/gis.osm_transport_a_v06
+                        $path_parts = pathinfo($dbf_file_name);
+                        $dbf_file_name = $path_parts['dirname'] . '/' . $path_parts['filename'];
+
+                        // sanitize filename
+                        $dbf_file_name = Sanitize::sanitizeFilename($dbf_file_name, true);
+
+                        // concat correct filename and extension
+                        $dbf_file_path = $temp . '/' . $dbf_file_name . '.dbf';
+
+                        if (file_put_contents($dbf_file_path, $extracted, LOCK_EX) !== false) {
                             $temp_dbf_file = true;
-                            // Replace the .dbf with .*, as required
-                            // by the bsShapeFiles library.
-                            $file_name = substr(
-                                $dbf_file_path,
-                                0,
-                                strlen($dbf_file_path) - 4
-                            ) . '.*';
-                            $shp->FileName = $file_name;
+
+                            // Replace the .dbf with .*, as required by the bsShapeFiles library.
+                            $shp->FileName = substr($dbf_file_path, 0, -4) . '.*';
                         }
                     }
                 }
@@ -150,6 +153,9 @@ class ImportShp extends ImportPlugin
             }
         }
 
+        // It should load data before file being deleted
+        $shp->loadFromFile('');
+
         // Delete the .dbf file extracted to 'TempDir'
         if ($temp_dbf_file
             && isset($dbf_file_path)
@@ -158,9 +164,7 @@ class ImportShp extends ImportPlugin
             unlink($dbf_file_path);
         }
 
-        // Load data
-        $shp->loadFromFile('');
-        if ($shp->lastError != "") {
+        if ($shp->lastError != '') {
             $error = true;
             $message = Message::error(
                 __('There was an error importing the ESRI shape file: "%s".')
@@ -224,7 +228,7 @@ class ImportShp extends ImportPlugin
 
                 if ($shp->getDBFHeader() !== null) {
                     foreach ($shp->getDBFHeader() as $c) {
-                        $cell = trim($record->DBFData[$c[0]]);
+                        $cell = trim((string) $record->DBFData[$c[0]]);
 
                         if (! strcmp($cell, '')) {
                             $cell = 'NULL';
