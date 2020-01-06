@@ -387,7 +387,7 @@ final class ReplaceController extends AbstractController
             // Note: logic passes here for inline edit
             $message = Message::success(__('No change'));
             // Avoid infinite recursion
-            if ($goto_include == 'libraries/entry_points/table/replace.php') {
+            if ($goto_include == '/table/replace') {
                 $goto_include = '/table/change';
             }
             $active_page = $goto_include;
