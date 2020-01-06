@@ -1643,8 +1643,10 @@ class DatabaseInterface
             }
         }
         $cfgRelation = $this->relation->getRelationsParam();
-        if (empty($cfgRelation['db']) && $GLOBALS['dblist']->databases->exists('phpmyadmin')) {
-            $this->relation->fixPmaTables('phpmyadmin', false);
+        if (empty($cfgRelation['db']) && isset($GLOBALS['dblist'])) {
+            if ($GLOBALS['dblist']->databases->exists('phpmyadmin')) {
+                $this->relation->fixPmaTables('phpmyadmin', false);
+            }
         }
     }
 
