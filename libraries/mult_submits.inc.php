@@ -7,6 +7,7 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\CentralColumns;
+use PhpMyAdmin\Controllers\Database\ExportController;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\MultSubmits;
 use PhpMyAdmin\Response;
@@ -44,7 +45,7 @@ foreach ($request_params as $one_request_param) {
 }
 $response = Response::getInstance();
 
-global $db, $table,  $clause_is_unique, $from_prefix, $goto, $message,
+global $containerBuilder, $db, $table,  $clause_is_unique, $from_prefix, $goto, $message,
        $mult_btn, $original_sql_query, $query_type, $reload,
        $selected, $selected_fld, $selected_recent_table, $sql_query,
        $submit_mult, $table_type, $to_prefix, $url_query, $pmaThemeImage;
@@ -95,7 +96,9 @@ if (! empty($submit_mult)
                 break;
             case 'export':
                 unset($submit_mult);
-                include ROOT_PATH . 'libraries/entry_points/database/export.php';
+                /** @var ExportController $controller */
+                $controller = $containerBuilder->get(ExportController::class);
+                $controller->index();
                 exit;
             case 'copy_tbl':
                 $views = $GLOBALS['dbi']->getVirtualTables($db);

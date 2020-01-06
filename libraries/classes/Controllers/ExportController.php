@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use PhpMyAdmin\Controllers\Database\ExportController as DatabaseExportController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Encoding;
@@ -54,7 +55,7 @@ final class ExportController extends AbstractController
      */
     public function index(): void
     {
-        global $db, $export_type, $filename_template, $sql_query, $err_url, $message;
+        global $containerBuilder, $db, $export_type, $filename_template, $sql_query, $err_url, $message;
         global $compression, $crlf, $asfile, $buffer_needed, $save_on_server, $file_handle;
         global $output_charset_conversion, $output_kanji_conversion, $table, $what, $export_plugin, $single_table;
         global $compression_methods, $onserver, $back_button, $refreshButton, $save_filename, $filename, $separate_files;
@@ -436,7 +437,9 @@ final class ExportController extends AbstractController
                             __('No tables found in database.')
                         );
                         $active_page = Url::getFromRoute('/database/export');
-                        include ROOT_PATH . 'libraries/entry_points/database/export.php';
+                        /** @var DatabaseExportController $controller */
+                        $controller = $containerBuilder->get(DatabaseExportController::class);
+                        $controller->index();
                         exit;
                     }
                 }

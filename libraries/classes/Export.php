@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Controllers\Database\ExportController as DatabaseExportController;
 use PhpMyAdmin\Controllers\Server\ExportController as ServerExportController;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\SchemaPlugin;
@@ -1057,7 +1058,9 @@ class Export
             $controller->index();
         } elseif ($export_type == 'database') {
             $active_page = Url::getFromRoute('/database/export');
-            include_once ROOT_PATH . 'libraries/entry_points/database/export.php';
+            /** @var DatabaseExportController $controller */
+            $controller = $containerBuilder->get(DatabaseExportController::class);
+            $controller->index();
         } else {
             $active_page = Url::getFromRoute('/table/export');
             include_once ROOT_PATH . 'libraries/entry_points/table/export.php';
