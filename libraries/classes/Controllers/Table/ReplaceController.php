@@ -388,7 +388,7 @@ final class ReplaceController extends AbstractController
             $message = Message::success(__('No change'));
             // Avoid infinite recursion
             if ($goto_include == 'libraries/entry_points/table/replace.php') {
-                $goto_include = 'libraries/entry_points/table/change.php';
+                $goto_include = '/table/change';
             }
             $active_page = $goto_include;
 
@@ -400,6 +400,11 @@ final class ReplaceController extends AbstractController
             } elseif ($goto_include === '/database/sql') {
                 /** @var DatabaseSqlController $controller */
                 $controller = $containerBuilder->get(DatabaseSqlController::class);
+                $controller->index();
+                return;
+            } elseif ($goto_include === '/table/change') {
+                /** @var ChangeController $controller */
+                $controller = $containerBuilder->get(ChangeController::class);
                 $controller->index();
                 return;
             }
@@ -438,7 +443,7 @@ final class ReplaceController extends AbstractController
             );
         }
         if ($row_skipped) {
-            $goto_include = 'libraries/entry_points/table/change.php';
+            $goto_include = '/table/change';
             $message->addMessagesString($insert_errors, '<br>');
             $message->isError(true);
         }
@@ -588,6 +593,11 @@ final class ReplaceController extends AbstractController
         } elseif ($goto_include === '/database/sql') {
             /** @var DatabaseSqlController $controller */
             $controller = $containerBuilder->get(DatabaseSqlController::class);
+            $controller->index();
+            return;
+        } elseif ($goto_include === '/table/change') {
+            /** @var ChangeController $controller */
+            $controller = $containerBuilder->get(ChangeController::class);
             $controller->index();
             return;
         }

@@ -2619,7 +2619,7 @@ class InsertEditTest extends TestCase
 
         $_POST['after_insert'] = 'new_insert';
         $this->assertEquals(
-            'libraries/entry_points/table/change.php',
+            '/table/change',
             $this->insertEdit->getGotoInclude('index')
         );
     }

@@ -21,7 +21,7 @@ class RowActionController extends AbstractController
      */
     public function index(): void
     {
-        global $db, $goto, $pmaThemeImage, $sql_query, $table;
+        global $containerBuilder, $db, $goto, $pmaThemeImage, $sql_query, $table;
         global $submit_mult, $active_page, $err_url, $original_sql_query, $url_query, $original_url_query;
         global $disp_message, $disp_query, $single_table, $where_clause, $action;
 
@@ -100,7 +100,9 @@ class RowActionController extends AbstractController
                         }
                     }
                     $active_page = Url::getFromRoute('/table/change');
-                    include ROOT_PATH . 'libraries/entry_points/table/change.php';
+                    /** @var ChangeController $controller */
+                    $controller = $containerBuilder->get(ChangeController::class);
+                    $controller->index();
                     break;
 
                 case 'row_export':
