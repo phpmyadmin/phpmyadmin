@@ -3,17 +3,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:37-0300\n"
-"PO-Revision-Date: 2018-05-19 17:38+0000\n"
-"Last-Translator: Muhammad Rifqi Priyo Susanto "
-"<muhammadrifqipriyosusanto@gmail.com>\n"
+"PO-Revision-Date: 2020-01-07 01:21+0000\n"
+"Last-Translator: Timothy Aditya Sutantyo <timisutantyo@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/id/>\n"
+"5-0/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.0-dev\n"
+"X-Generator: Weblate 3.10\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
@@ -125,16 +124,12 @@ msgid "You have to choose at least one column to display!"
 msgstr "Anda harus memilih paling sedikit satu kolom untuk ditampilkan!"
 
 #: db_qbe.php:159 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Simulasikan query"
+msgstr "Query multi tabel"
 
 #: db_qbe.php:163 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "Kueri gagal"
+msgstr "Kueri dengan contoh"
 
 #: db_qbe.php:182
 #, php-format
@@ -344,7 +339,6 @@ msgid "Dropping Primary Key/Index"
 msgstr "Menghapus Kunci Primer/Indeks"
 
 #: js/messages.php:66
-#, fuzzy
 msgid "Dropping Foreign key."
 msgstr "Penghapusan Foreign Key."
 
@@ -540,10 +534,8 @@ msgid "Y values"
 msgstr "Nilai Y"
 
 #: js/messages.php:146
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "Silakan masukkan lagi nilai yang sama"
+msgstr "Silakan masukkan kueri SQL dulu."
 
 #: js/messages.php:149
 msgid "The host name is empty!"
