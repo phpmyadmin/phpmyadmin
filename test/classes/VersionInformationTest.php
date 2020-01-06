@@ -221,7 +221,7 @@ class VersionInformationTest extends PmaTestCase
      *
      * @return void
      */
-    public function testGetLaestCompatibleVersionWithMultipleServers()
+    public function testGetLatestCompatibleVersionWithMultipleServers()
     {
         $GLOBALS['cfg']['Servers'] = [
             [],
@@ -252,7 +252,7 @@ class VersionInformationTest extends PmaTestCase
      *
      * @return void
      */
-    public function testGetLaestCompatibleVersionWithOldPHPVersion()
+    public function testGetLatestCompatibleVersionWithOldPHPVersion()
     {
         $GLOBALS['cfg']['Servers'] = [
             [],
@@ -286,6 +286,48 @@ class VersionInformationTest extends PmaTestCase
         $compatible = $mockVersionInfo
             ->getLatestCompatibleVersion($this->_releases);
         $this->assertEquals('4.0.10.10', $compatible['version']);
+    }
+
+
+    /**
+     * Tests getLatestCompatibleVersion() with an new PHP version
+     *
+     * @return void
+     */
+    public function testGetLatestCompatibleVersionWithNewPHPVersion()
+    {
+        $GLOBALS['cfg']['Servers'] = [
+            [],
+            [],
+        ];
+
+        $mockVersionInfo = $this->getMockBuilder('PhpMyAdmin\VersionInformation')
+            ->setMethods(['evaluateVersionCondition'])
+            ->getMock();
+
+        $mockVersionInfo->expects($this->at(0))
+            ->method('evaluateVersionCondition')
+            ->with('PHP', '>=7.1')
+            ->will($this->returnValue(true));
+
+        $mockVersionInfo->expects($this->at(1))
+            ->method('evaluateVersionCondition')
+            ->with('PHP', '>=5.3')
+            ->will($this->returnValue(true));
+
+        $mockVersionInfo->expects($this->at(2))
+            ->method('evaluateVersionCondition')
+            ->with('PHP', '>=5.2')
+            ->will($this->returnValue(true));
+
+        $mockVersionInfo->expects($this->at(3))
+            ->method('evaluateVersionCondition')
+            ->with('PHP', '<5.3')
+            ->will($this->returnValue(false));
+
+        $compatible = $mockVersionInfo
+            ->getLatestCompatibleVersion($this->_releases);
+        $this->assertEquals('5.0.0', $compatible['version']);
     }
 
     /**
