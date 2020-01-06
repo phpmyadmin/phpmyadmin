@@ -18,6 +18,4 @@ $response = $containerBuilder->get(Response::class);
 
 /** @var SqlController $controller */
 $controller = $containerBuilder->get(SqlController::class);
-$response->addHTML($controller->index([
-    'delimiter' => $_POST['delimiter'] ?? null,
-]));
+$controller->index();

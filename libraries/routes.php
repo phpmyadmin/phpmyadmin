@@ -15,6 +15,7 @@ use PhpMyAdmin\Controllers\Database\CentralColumnsController;
 use PhpMyAdmin\Controllers\Database\DataDictionaryController;
 use PhpMyAdmin\Controllers\Database\DesignerController;
 use PhpMyAdmin\Controllers\Database\EventsController;
+use PhpMyAdmin\Controllers\Database\ExportController as DatabaseExportController;
 use PhpMyAdmin\Controllers\Database\ImportController as DatabaseImportController;
 use PhpMyAdmin\Controllers\Database\MultiTableQueryController;
 use PhpMyAdmin\Controllers\Database\OperationsController;
@@ -22,6 +23,7 @@ use PhpMyAdmin\Controllers\Database\QueryByExampleController;
 use PhpMyAdmin\Controllers\Database\RoutinesController;
 use PhpMyAdmin\Controllers\Database\SearchController;
 use PhpMyAdmin\Controllers\Database\SqlAutoCompleteController;
+use PhpMyAdmin\Controllers\Database\SqlController as DatabaseSqlController;
 use PhpMyAdmin\Controllers\Database\SqlFormatController;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Controllers\Database\TrackingController;
@@ -46,11 +48,12 @@ use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\Controllers\Server\CollationsController;
 use PhpMyAdmin\Controllers\Server\DatabasesController;
 use PhpMyAdmin\Controllers\Server\EnginesController;
+use PhpMyAdmin\Controllers\Server\ExportController as ServerExportController;
 use PhpMyAdmin\Controllers\Server\ImportController as ServerImportController;
 use PhpMyAdmin\Controllers\Server\PluginsController;
 use PhpMyAdmin\Controllers\Server\PrivilegesController;
 use PhpMyAdmin\Controllers\Server\ReplicationController;
-use PhpMyAdmin\Controllers\Server\SqlController;
+use PhpMyAdmin\Controllers\Server\SqlController as ServerSqlController;
 use PhpMyAdmin\Controllers\Server\Status\AdvisorController;
 use PhpMyAdmin\Controllers\Server\Status\MonitorController;
 use PhpMyAdmin\Controllers\Server\Status\ProcessesController;
@@ -59,9 +62,12 @@ use PhpMyAdmin\Controllers\Server\Status\StatusController;
 use PhpMyAdmin\Controllers\Server\Status\VariablesController as StatusVariables;
 use PhpMyAdmin\Controllers\Server\UserGroupsController;
 use PhpMyAdmin\Controllers\Server\VariablesController;
+use PhpMyAdmin\Controllers\SqlController;
 use PhpMyAdmin\Controllers\Table\AddFieldController;
+use PhpMyAdmin\Controllers\Table\ChangeController;
 use PhpMyAdmin\Controllers\Table\ChartController;
 use PhpMyAdmin\Controllers\Table\CreateController;
+use PhpMyAdmin\Controllers\Table\ExportController as TableExportController;
 use PhpMyAdmin\Controllers\Table\FindReplaceController;
 use PhpMyAdmin\Controllers\Table\GetFieldController;
 use PhpMyAdmin\Controllers\Table\GisVisualizationController;
@@ -70,8 +76,11 @@ use PhpMyAdmin\Controllers\Table\IndexesController;
 use PhpMyAdmin\Controllers\Table\OperationsController as TableOperationsController;
 use PhpMyAdmin\Controllers\Table\RecentFavoriteController;
 use PhpMyAdmin\Controllers\Table\RelationController;
+use PhpMyAdmin\Controllers\Table\ReplaceController;
 use PhpMyAdmin\Controllers\Table\RowActionController;
 use PhpMyAdmin\Controllers\Table\SearchController as TableSearchController;
+use PhpMyAdmin\Controllers\Table\SqlController as TableSqlController;
+use PhpMyAdmin\Controllers\Table\StructureController as TableStructureController;
 use PhpMyAdmin\Controllers\Table\TrackingController as TableTrackingController;
 use PhpMyAdmin\Controllers\Table\TriggersController as TableTriggersController;
 use PhpMyAdmin\Controllers\Table\ZoomSearchController;
@@ -185,8 +194,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             $controller = $containerBuilder->get(EventsController::class);
             $controller->index();
         });
-        $routes->addRoute(['GET', 'POST'], '/export', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/database/export.php';
+        $routes->addRoute(['GET', 'POST'], '/export', function () use ($containerBuilder) {
+            /** @var DatabaseExportController $controller */
+            $controller = $containerBuilder->get(DatabaseExportController::class);
+            $controller->index();
         });
         $routes->addRoute(['GET', 'POST'], '/import', function () use ($containerBuilder) {
             /** @var DatabaseImportController $controller */
@@ -235,8 +246,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             $controller->index();
         });
         $routes->addGroup('/sql', function (RouteCollector $routes) use ($containerBuilder, $response) {
-            $routes->addRoute(['GET', 'POST'], '', function () {
-                require_once ROOT_PATH . 'libraries/entry_points/database/sql.php';
+            $routes->addRoute(['GET', 'POST'], '', function () use ($containerBuilder) {
+                /** @var DatabaseSqlController $controller */
+                $controller = $containerBuilder->get(DatabaseSqlController::class);
+                $controller->index();
             });
             $routes->post('/autocomplete', function () use ($containerBuilder, $response) {
                 /** @var SqlAutoCompleteController $controller */
@@ -417,8 +430,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
                 $response->addHTML($controller->show($vars));
             });
         });
-        $routes->addRoute(['GET', 'POST'], '/export', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/server/export.php';
+        $routes->addRoute(['GET', 'POST'], '/export', function () use ($containerBuilder) {
+            /** @var ServerExportController $controller */
+            $controller = $containerBuilder->get(ServerExportController::class);
+            $controller->index();
         });
         $routes->addRoute(['GET', 'POST'], '/import', function () use ($containerBuilder) {
             /** @var ServerImportController $controller */
@@ -446,8 +461,8 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             ]));
         });
         $routes->addRoute(['GET', 'POST'], '/sql', function () use ($containerBuilder, $response) {
-            /** @var SqlController $controller */
-            $controller = $containerBuilder->get(SqlController::class);
+            /** @var ServerSqlController $controller */
+            $controller = $containerBuilder->get(ServerSqlController::class);
             $response->addHTML($controller->index());
         });
         $routes->addGroup('/status', function (RouteCollector $routes) use ($containerBuilder, $response) {
@@ -565,8 +580,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             });
         });
     });
-    $routes->addRoute(['GET', 'POST'], '/sql', function () {
-        require_once ROOT_PATH . 'libraries/entry_points/sql.php';
+    $routes->addRoute(['GET', 'POST'], '/sql', function () use ($containerBuilder) {
+        /** @var SqlController $controller */
+        $controller = $containerBuilder->get(SqlController::class);
+        $controller->index();
     });
     $routes->addGroup('/table', function (RouteCollector $routes) use ($containerBuilder) {
         $routes->addRoute(['GET', 'POST'], '/add-field', function () use ($containerBuilder) {
@@ -574,8 +591,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             $controller = $containerBuilder->get(AddFieldController::class);
             $controller->index();
         });
-        $routes->addRoute(['GET', 'POST'], '/change', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/table/change.php';
+        $routes->addRoute(['GET', 'POST'], '/change', function () use ($containerBuilder) {
+            /** @var ChangeController $controller */
+            $controller = $containerBuilder->get(ChangeController::class);
+            $controller->index();
         });
         $routes->addRoute(['GET', 'POST'], '/chart', function () use ($containerBuilder) {
             /** @var ChartController $controller */
@@ -587,8 +606,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             $controller = $containerBuilder->get(CreateController::class);
             $controller->index();
         });
-        $routes->addRoute(['GET', 'POST'], '/export', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/table/export.php';
+        $routes->addRoute(['GET', 'POST'], '/export', function () use ($containerBuilder) {
+            /** @var TableExportController $controller */
+            $controller = $containerBuilder->get(TableExportController::class);
+            $controller->index();
         });
         $routes->addRoute(['GET', 'POST'], '/find-replace', function () use ($containerBuilder) {
             /** @var FindReplaceController $controller */
@@ -630,8 +651,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             $controller = $containerBuilder->get(RelationController::class);
             $controller->index();
         });
-        $routes->addRoute(['GET', 'POST'], '/replace', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/table/replace.php';
+        $routes->addRoute(['GET', 'POST'], '/replace', function () use ($containerBuilder) {
+            /** @var ReplaceController $controller */
+            $controller = $containerBuilder->get(ReplaceController::class);
+            $controller->index();
         });
         $routes->addRoute(['GET', 'POST'], '/row-action', function () use ($containerBuilder) {
             /** @var RowActionController $controller */
@@ -643,11 +666,15 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             $controller = $containerBuilder->get(TableSearchController::class);
             $controller->index();
         });
-        $routes->addRoute(['GET', 'POST'], '/sql', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/table/sql.php';
+        $routes->addRoute(['GET', 'POST'], '/sql', function () use ($containerBuilder) {
+            /** @var TableSqlController $controller */
+            $controller = $containerBuilder->get(TableSqlController::class);
+            $controller->index();
         });
-        $routes->addRoute(['GET', 'POST'], '/structure', function () {
-            require_once ROOT_PATH . 'libraries/entry_points/table/structure.php';
+        $routes->addRoute(['GET', 'POST'], '/structure', function () use ($containerBuilder) {
+            /** @var TableStructureController $controller */
+            $controller = $containerBuilder->get(TableStructureController::class);
+            $controller->index();
         });
         $routes->addRoute(['GET', 'POST'], '/tracking', function () use ($containerBuilder) {
             /** @var TableTrackingController $controller */

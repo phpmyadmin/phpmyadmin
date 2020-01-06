@@ -37,11 +37,9 @@ class SqlController extends AbstractController
     }
 
     /**
-     * @param array $params Request parameters
-     *
-     * @return string HTML
+     * @return void
      */
-    public function index(array $params): string
+    public function index(): void
     {
         global $goto, $back;
 
@@ -62,12 +60,12 @@ class SqlController extends AbstractController
         $goto = Url::getFromRoute('/database/sql');
         $back = $goto;
 
-        return $this->sqlQueryForm->getHtml(
+        $this->response->addHTML($this->sqlQueryForm->getHtml(
             true,
             false,
-            isset($params['delimiter'])
-                ? htmlspecialchars($params['delimiter'])
+            isset($_POST['delimiter'])
+                ? htmlspecialchars($_POST['delimiter'])
                 : ';'
-        );
+        ));
     }
 }
