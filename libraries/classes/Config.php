@@ -1641,7 +1641,7 @@ class Config
         if (empty($path)) {
             $path = null;
         } else {
-            $path .= '/' . $name;
+            $path = rtrim($path, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $name;
             if (! @is_dir($path)) {
                 @mkdir($path, 0770, true);
             }

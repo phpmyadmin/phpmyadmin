@@ -1983,16 +1983,6 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportShp.php
 
 		-
-			message: "#^Ternary operator condition is always false\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportShp.php
-
-		-
-			message: "#^Parameter \\#2 \\$str of function fwrite expects string, string\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportShp.php
-
-		-
 			message: "#^Else branch is unreachable because ternary operator condition is always true\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportShp.php
