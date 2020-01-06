@@ -1623,6 +1623,26 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
+     * This function checks and initialises the phpMyAdmin configuration
+     * storage state before it is used into session cache.
+     *
+     * @return void
+     */
+    public function initRelationParamsCache()
+    {
+        if (strlen($GLOBALS['db'])) {
+            $cfgRelation = $this->relation->getRelationsParam();
+            if (empty($cfgRelation['db'])) {
+                $this->relation->fixPmaTables($GLOBALS['db'], false);
+            }
+        }
+        $cfgRelation = $this->relation->getRelationsParam();
+        if (empty($cfgRelation['db']) && $GLOBALS['dblist']->databases->exists('phpmyadmin')) {
+            $this->relation->fixPmaTables('phpmyadmin', false);
+        }
+    }
+
+    /**
      * Function called just after a connection to the MySQL database server has
      * been established. It sets the connection collation, and determines the
      * version of MySQL which is running.
@@ -1638,16 +1658,7 @@ class DatabaseInterface implements DbalInterface
              */
             $GLOBALS['dblist'] = new DatabaseList();
 
-            if (strlen($GLOBALS['db'])) {
-                $cfgRelation = $this->relation->getRelationsParam();
-                if (empty($cfgRelation['db'])) {
-                    $this->relation->fixPmaTables($GLOBALS['db'], false);
-                }
-            }
-            $cfgRelation = $this->relation->getRelationsParam();
-            if (empty($cfgRelation['db']) && $GLOBALS['dblist']->databases->exists('phpmyadmin')) {
-                $this->relation->fixPmaTables('phpmyadmin', false);
-            }
+            $this->initRelationParamsCache();
         }
     }
 
