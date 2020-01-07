@@ -1010,6 +1010,19 @@ class AuthenticationCookieTest extends PmaTestCase
                 'sec321'
             )
         );
+        $this->assertEquals(
+            'root',
+            $this->object->cookieDecrypt(
+                '{"iv":"AclJhCM7ryNiuPnw3Y8cXg==","mac":"d0ef75e852bc162e81496e116dc571182cb2cba6","payload":"O4vrt9R1xyzAw7ypvrLmQA=="}',
+                ':Kb1?)c(r{]-{`HW*hOzuufloK(M~!p'
+            )
+        );
+        $this->assertFalse(
+            $this->object->cookieDecrypt(
+                '{"iv":"AclJhCM7ryNiuPnw3Y8cXg==","mac":"d0ef75e852bc162e81496e116dc571182cb2cba6","payload":"O4vrt9R1xyzAw7ypvrLmQA=="}',
+                'aedzoiefpzf,zf1z7ef6ef84'
+            )
+        );
     }
 
     /**

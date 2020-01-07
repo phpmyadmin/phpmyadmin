@@ -19,6 +19,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\UserPreferencesHeader;
+use PhpMyAdmin\TwoFactor;
 
 /**
  * User preferences page.
@@ -87,8 +88,12 @@ class FormsController extends AbstractController
 
         $error = null;
         if ($form_display->process(false) && ! $form_display->hasErrors()) {
+            // Load 2FA settings
+            $twoFactor = new TwoFactor($GLOBALS['cfg']['Server']['user']);
             // save settings
             $result = $this->userPreferences->save($cf->getConfigArray());
+            // save back the 2FA setting only
+            $twoFactor->save();
             if ($result === true) {
                 // reload config
                 $PMA_Config->loadUserPreferences();
