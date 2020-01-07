@@ -7,6 +7,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\SqlController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
@@ -90,7 +91,7 @@ class OperationsController extends AbstractController
         /**
          * Runs common work
          */
-        require ROOT_PATH . 'libraries/tbl_common.inc.php';
+        Common::table();
         $url_params['goto'] = $url_params['back'] = Url::getFromRoute('/table/operations');
         $url_query .= Url::getCommon($url_params, '&');
 

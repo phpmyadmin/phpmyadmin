@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\DatabaseInterface;
@@ -166,7 +167,7 @@ class AddFieldController extends AbstractController
             /**
              * Gets tables information
              */
-            include_once ROOT_PATH . 'libraries/tbl_common.inc.php';
+            Common::table();
 
             $active_page = Url::getFromRoute('/table/structure');
             /**

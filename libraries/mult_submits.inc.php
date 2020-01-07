@@ -175,7 +175,7 @@ if (! empty($submit_mult) && ! empty($what)) {
     unset($message);
 
     if (strlen($table) > 0) {
-        include ROOT_PATH . 'libraries/tbl_common.inc.php';
+        Common::table();
         $url_query .= Url::getCommon([
             'goto' => Url::getFromRoute('/table/sql'),
             'back' => Url::getFromRoute('/table/sql'),

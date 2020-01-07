@@ -35,7 +35,7 @@ class EventsController extends AbstractController
              * Displays the header and tabs
              */
             if (! empty($table) && in_array($table, $this->dbi->getTables($db))) {
-                include_once ROOT_PATH . 'libraries/tbl_common.inc.php';
+                Common::table();
             } else {
                 $table = '';
                 Common::database();

@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\Export;
@@ -78,7 +79,7 @@ class ExportController extends AbstractController
         /**
          * Gets tables information and displays top links
          */
-        require_once ROOT_PATH . 'libraries/tbl_common.inc.php';
+        Common::table();
 
         $url_params = [
             'goto' => Url::getFromRoute('/table/export'),

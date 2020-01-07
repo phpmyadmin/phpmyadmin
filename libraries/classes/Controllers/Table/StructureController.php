@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\CentralColumns;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\SqlController;
 use PhpMyAdmin\Core;
@@ -315,7 +316,7 @@ class StructureController extends AbstractController
         $table = &$this->table;
         $url_params = [];
 
-        include_once ROOT_PATH . 'libraries/tbl_common.inc.php';
+        Common::table();
 
         $this->_url_query = Url::getCommonRaw([
             'db' => $db,
