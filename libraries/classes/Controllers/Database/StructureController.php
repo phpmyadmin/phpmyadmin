@@ -18,6 +18,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Replication;
+use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Template;
@@ -149,7 +150,7 @@ class StructureController extends AbstractController
             Core::sendHeaderLocation($uri);
         }
 
-        include_once ROOT_PATH . 'libraries/replication.inc.php';
+        ReplicationInfo::load();
 
         PageSettings::showGroup('DbStructure');
 

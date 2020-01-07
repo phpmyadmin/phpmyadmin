@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ReplicationGui;
+use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 
@@ -46,7 +47,7 @@ class ReplicationController extends AbstractController
         global $replication_info, $server_slave_replication, $url_params;
 
         require_once ROOT_PATH . 'libraries/server_common.inc.php';
-        require_once ROOT_PATH . 'libraries/replication.inc.php';
+        ReplicationInfo::load();
 
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();

@@ -16,6 +16,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -87,8 +88,8 @@ class DatabasesController extends AbstractController
         $scripts = $header->getScripts();
         $scripts->addFile('server/databases.js');
 
-        include_once ROOT_PATH . 'libraries/replication.inc.php';
         include_once ROOT_PATH . 'libraries/server_common.inc.php';
+        ReplicationInfo::load();
 
         $this->setSortDetails($params['sort_by'], $params['sort_order']);
         $this->hasStatistics = ! empty($params['statistics']);

@@ -12,6 +12,7 @@ use PhpMyAdmin\Advisor;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\AdvisorController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
@@ -40,7 +41,7 @@ class AdvisorControllerTest extends TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
 
-        require_once ROOT_PATH . 'libraries/replication.inc.php';
+        ReplicationInfo::load();
 
         //this data is needed when PhpMyAdmin\Server\Status\Data constructs
         $serverStatus = [

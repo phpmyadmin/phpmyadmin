@@ -16,33 +16,6 @@ namespace PhpMyAdmin;
 class Replication
 {
     /**
-     * Fill global replication_info variable.
-     *
-     * @param string $type               Type: master, slave
-     * @param string $replicationInfoKey Key in replication_info variable
-     * @param array  $mysqlInfo          MySQL data about replication
-     * @param string $mysqlKey           MySQL key
-     *
-     * @return array
-     */
-    public function fillInfo(
-        $type,
-        $replicationInfoKey,
-        array $mysqlInfo,
-        $mysqlKey
-    ) {
-        $GLOBALS['replication_info'][$type][$replicationInfoKey]
-            = empty($mysqlInfo[$mysqlKey])
-                ? []
-                : explode(
-                    ',',
-                    $mysqlInfo[$mysqlKey]
-                );
-
-        return $GLOBALS['replication_info'][$type][$replicationInfoKey];
-    }
-
-    /**
      * Extracts database or table name from string
      *
      * @param string $string contains "dbname.tablename"
