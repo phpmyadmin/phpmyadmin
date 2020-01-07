@@ -7,6 +7,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\CreateTable;
 use PhpMyAdmin\Html\Generator;
@@ -267,7 +268,7 @@ class OperationsController extends AbstractController
             $this->relation->setDbComment($db, $_POST['comment']);
         }
 
-        require ROOT_PATH . 'libraries/db_common.inc.php';
+        Common::database();
 
         $url_params['goto'] = Url::getFromRoute('/database/operations');
         $url_query .= Url::getCommon($url_params, '&');

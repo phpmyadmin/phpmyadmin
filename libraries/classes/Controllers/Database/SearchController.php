@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Url;
@@ -30,7 +31,7 @@ class SearchController extends AbstractController
         $scripts->addFile('sql.js');
         $scripts->addFile('makegrid.js');
 
-        require ROOT_PATH . 'libraries/db_common.inc.php';
+        Common::database();
 
         // If config variable $cfg['UseDbSearch'] is on false : exit.
         if (! $cfg['UseDbSearch']) {

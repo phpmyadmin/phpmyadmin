@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\Export as DisplayExport;
@@ -56,7 +57,7 @@ final class ExportController extends AbstractController
         // /database/export, in which case we don't obey $cfg['MaxTableList']
         $sub_part  = '_export';
 
-        require_once ROOT_PATH . 'libraries/db_common.inc.php';
+        Common::database();
 
         $url_params['goto'] = Url::getFromRoute('/database/export');
         $url_query .= Url::getCommon($url_params, '&');

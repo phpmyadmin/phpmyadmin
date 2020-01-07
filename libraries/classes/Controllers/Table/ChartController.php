@@ -81,7 +81,7 @@ class ChartController extends AbstractController
                 'database'
             );
             $url_params['back'] = Url::getFromRoute('/sql');
-            include ROOT_PATH . 'libraries/db_common.inc.php';
+            Common::database();
         } else {
             $url_params['goto'] = Util::getScriptNameForOption(
                 $cfg['DefaultTabServer'],

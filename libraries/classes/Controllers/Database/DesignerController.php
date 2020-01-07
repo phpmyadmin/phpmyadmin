@@ -6,8 +6,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Database\Designer;
-use PhpMyAdmin\Database\Designer\Common;
+use PhpMyAdmin\Database\Designer\Common as DesignerCommon;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
@@ -21,7 +22,7 @@ class DesignerController extends AbstractController
     /** @var Designer */
     private $databaseDesigner;
 
-    /** @var Common */
+    /** @var DesignerCommon */
     private $designerCommon;
 
     /**
@@ -30,7 +31,7 @@ class DesignerController extends AbstractController
      * @param Template          $template         Template object
      * @param string            $db               Database name
      * @param Designer          $databaseDesigner Designer object
-     * @param Common            $designerCommon   Designer\Common object
+     * @param DesignerCommon    $designerCommon   Designer\Common object
      */
     public function __construct(
         $response,
@@ -38,7 +39,7 @@ class DesignerController extends AbstractController
         Template $template,
         $db,
         Designer $databaseDesigner,
-        Common $designerCommon
+        DesignerCommon $designerCommon
     ) {
         parent::__construct($response, $dbi, $template, $db);
         $this->databaseDesigner = $databaseDesigner;
@@ -146,7 +147,7 @@ class DesignerController extends AbstractController
             return;
         }
 
-        require ROOT_PATH . 'libraries/db_common.inc.php';
+        Common::database();
 
         $script_display_field = $this->designerCommon->getTablesInfo();
 

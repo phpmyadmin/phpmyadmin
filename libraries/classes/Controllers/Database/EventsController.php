@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Rte\Events;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -37,7 +38,7 @@ class EventsController extends AbstractController
                 include_once ROOT_PATH . 'libraries/tbl_common.inc.php';
             } else {
                 $table = '';
-                include_once ROOT_PATH . 'libraries/db_common.inc.php';
+                Common::database();
 
                 list(
                     $tables,

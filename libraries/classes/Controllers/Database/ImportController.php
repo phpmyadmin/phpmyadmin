@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Display\Import;
 use PhpMyAdmin\Util;
@@ -32,7 +33,7 @@ final class ImportController extends AbstractController
         /**
          * Gets tables information and displays top links
          */
-        require ROOT_PATH . 'libraries/db_common.inc.php';
+        Common::database();
 
         list(
             $tables,

@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Rte\Triggers;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -36,7 +37,7 @@ class TriggersController extends AbstractController
                 include_once ROOT_PATH . 'libraries/tbl_common.inc.php';
             } else {
                 $table = '';
-                include_once ROOT_PATH . 'libraries/db_common.inc.php';
+                Common::database();
 
                 list(
                     $tables,

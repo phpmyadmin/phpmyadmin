@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Database\Qbe;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
@@ -138,7 +139,7 @@ class QueryByExampleController extends AbstractController
         }
 
         $sub_part  = '_qbe';
-        require ROOT_PATH . 'libraries/db_common.inc.php';
+        Common::database();
 
         $url_params['goto'] = Url::getFromRoute('/database/qbe');
         $url_query .= Url::getCommon($url_params, '&');

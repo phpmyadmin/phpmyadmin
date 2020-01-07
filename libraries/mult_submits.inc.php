@@ -181,7 +181,7 @@ if (! empty($submit_mult) && ! empty($what)) {
             'back' => Url::getFromRoute('/table/sql'),
         ], '&');
     } elseif (strlen($db) > 0) {
-        include ROOT_PATH . 'libraries/db_common.inc.php';
+        Common::database();
 
         list(
             $tables,

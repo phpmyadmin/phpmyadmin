@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
@@ -51,7 +52,7 @@ class SqlController extends AbstractController
 
         PageSettings::showGroup('Sql');
 
-        require ROOT_PATH . 'libraries/db_common.inc.php';
+        Common::database();
 
         /**
          * After a syntax error, we return to this script

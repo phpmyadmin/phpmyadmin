@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\CreateTable;
 use PhpMyAdmin\Html\Generator;
@@ -57,7 +58,7 @@ class TrackingController extends AbstractController
         /**
          * If we are not in an Ajax request, then do the common work and show the links etc.
          */
-        require ROOT_PATH . 'libraries/db_common.inc.php';
+        Common::database();
 
         $url_params['goto'] = Url::getFromRoute('/table/tracking');
         $url_params['back'] = Url::getFromRoute('/database/tracking');

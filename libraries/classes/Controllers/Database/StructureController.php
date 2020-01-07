@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
@@ -121,7 +122,7 @@ class StructureController extends AbstractController
     {
         global $cfg;
 
-        require_once ROOT_PATH . 'libraries/db_common.inc.php';
+        Common::database();
 
         $this->response->getHeader()->getScripts()->addFiles([
             'database/structure.js',
@@ -203,7 +204,7 @@ class StructureController extends AbstractController
     {
         global $cfg;
 
-        require_once ROOT_PATH . 'libraries/db_common.inc.php';
+        Common::database();
 
         if (! $this->response->isAjax()) {
             return [];
@@ -291,7 +292,7 @@ class StructureController extends AbstractController
      */
     public function handleRealRowCountRequestAction(array $parameters): array
     {
-        require_once ROOT_PATH . 'libraries/db_common.inc.php';
+        Common::database();
 
         if (! $this->response->isAjax()) {
             return [];
