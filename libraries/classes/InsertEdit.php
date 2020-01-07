@@ -2278,7 +2278,7 @@ class InsertEdit
             if (strlen($GLOBALS['table']) === 0) {
                 $goto_include = '/database/sql';
             } else {
-                $goto_include = 'libraries/entry_points/table/sql.php';
+                $goto_include = '/table/sql';
             }
         }
         return $goto_include;

@@ -8,6 +8,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Database\SqlController as DatabaseSqlController;
 use PhpMyAdmin\Controllers\SqlController;
+use PhpMyAdmin\Controllers\Table\SqlController as TableSqlController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
@@ -407,6 +408,11 @@ final class ReplaceController extends AbstractController
                 $controller = $containerBuilder->get(ChangeController::class);
                 $controller->index();
                 return;
+            } elseif ($goto_include === '/table/sql') {
+                /** @var TableSqlController $controller */
+                $controller = $containerBuilder->get(TableSqlController::class);
+                $controller->index();
+                return;
             }
 
             include ROOT_PATH . Core::securePath((string) $goto_include);
@@ -598,6 +604,11 @@ final class ReplaceController extends AbstractController
         } elseif ($goto_include === '/table/change') {
             /** @var ChangeController $controller */
             $controller = $containerBuilder->get(ChangeController::class);
+            $controller->index();
+            return;
+        } elseif ($goto_include === '/table/sql') {
+            /** @var TableSqlController $controller */
+            $controller = $containerBuilder->get(TableSqlController::class);
             $controller->index();
             return;
         }

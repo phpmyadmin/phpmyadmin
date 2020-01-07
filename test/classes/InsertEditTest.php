@@ -2601,7 +2601,7 @@ class InsertEditTest extends TestCase
 
         $GLOBALS['table'] = 'tbl';
         $this->assertEquals(
-            'libraries/entry_points/table/sql.php',
+            '/table/sql',
             $this->insertEdit->getGotoInclude('index')
         );
 
