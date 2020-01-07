@@ -14,6 +14,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\UserPreferencesHeader;
@@ -59,8 +60,12 @@ if (isset($_POST['revert'])) {
 
 $error = null;
 if ($form_display->process(false) && ! $form_display->hasErrors()) {
+    // Load 2FA settings
+    $twoFactor = new TwoFactor($GLOBALS['cfg']['Server']['user']);
     // save settings
     $result = $userPreferences->save($cf->getConfigArray());
+    // save back the 2FA setting only
+    $twoFactor->save();
     if ($result === true) {
         // reload config
         $GLOBALS['PMA_Config']->loadUserPreferences();
