@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
@@ -41,7 +42,7 @@ final class ExportController extends AbstractController
         global $db, $table, $sql_query, $num_tables, $unlim_num_rows;
         global $tmp_select, $select_item, $multi_values, $export_page_title;
 
-        require_once ROOT_PATH . 'libraries/server_common.inc.php';
+        Common::server();
 
         PageSettings::showGroup('Export');
 

@@ -7,6 +7,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\PrivilegesController as DatabaseController;
 use PhpMyAdmin\Controllers\Table\PrivilegesController as TableController;
@@ -116,7 +117,7 @@ class PrivilegesController extends AbstractController
 
         Core::setPostAsGlobal($post_patterns);
 
-        require ROOT_PATH . 'libraries/server_common.inc.php';
+        Common::server();
 
         /**
          * Messages are built using the message name

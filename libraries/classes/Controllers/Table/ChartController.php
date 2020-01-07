@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\SqlParser\Components\Limit;
 use PhpMyAdmin\SqlParser\Parser;
@@ -87,7 +88,7 @@ class ChartController extends AbstractController
                 'server'
             );
             $url_params['back'] = Url::getFromRoute('/sql');
-            include ROOT_PATH . 'libraries/server_common.inc.php';
+            Common::server();
         }
 
         $data = [];

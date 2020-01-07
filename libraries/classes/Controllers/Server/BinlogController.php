@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
@@ -58,7 +59,7 @@ class BinlogController extends AbstractController
     {
         global $cfg, $pmaThemeImage;
 
-        include_once ROOT_PATH . 'libraries/server_common.inc.php';
+        Common::server();
 
         $position = ! empty($params['pos']) ? (int) $params['pos'] : 0;
 

@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\StorageEngine;
 
@@ -25,7 +26,7 @@ class EnginesController extends AbstractController
      */
     public function index(): string
     {
-        require ROOT_PATH . 'libraries/server_common.inc.php';
+        Common::server();
 
         return $this->template->render('server/engines/index', [
             'engines' => StorageEngine::getStorageEngines(),
@@ -41,7 +42,7 @@ class EnginesController extends AbstractController
      */
     public function show(array $params): string
     {
-        require ROOT_PATH . 'libraries/server_common.inc.php';
+        Common::server();
 
         $page = $params['page'] ?? '';
 

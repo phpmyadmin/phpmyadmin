@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\Response;
@@ -45,7 +46,7 @@ class StatusController extends AbstractController
     {
         global $replication_info;
 
-        require_once ROOT_PATH . 'libraries/server_common.inc.php';
+        Common::server();
 
         $traffic = [];
         $connections = [];

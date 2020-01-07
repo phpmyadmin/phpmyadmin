@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Display\Import;
@@ -28,7 +29,7 @@ final class ImportController extends AbstractController
         $scripts = $header->getScripts();
         $scripts->addFile('import.js');
 
-        require ROOT_PATH . 'libraries/server_common.inc.php';
+        Common::server();
 
         $this->response->addHTML(Import::get(
             'server',

@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;
 
+use PhpMyAdmin\Common;
+
 /**
  * @package PhpMyAdmin\Controllers\Server\Status
  */
@@ -18,7 +20,7 @@ class QueriesController extends AbstractController
      */
     public function index(): string
     {
-        require_once ROOT_PATH . 'libraries/server_common.inc.php';
+        Common::server();
 
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();

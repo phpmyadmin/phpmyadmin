@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
@@ -50,7 +51,7 @@ class SqlController extends AbstractController
 
         PageSettings::showGroup('Sql');
 
-        require_once ROOT_PATH . 'libraries/server_common.inc.php';
+        Common::server();
 
         return $this->sqlQueryForm->getHtml();
     }

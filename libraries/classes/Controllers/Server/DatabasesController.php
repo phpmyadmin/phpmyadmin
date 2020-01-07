@@ -12,6 +12,7 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
@@ -88,7 +89,7 @@ class DatabasesController extends AbstractController
         $scripts = $header->getScripts();
         $scripts->addFile('server/databases.js');
 
-        include_once ROOT_PATH . 'libraries/server_common.inc.php';
+        Common::server();
         ReplicationInfo::load();
 
         $this->setSortDetails($params['sort_by'], $params['sort_order']);

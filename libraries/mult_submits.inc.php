@@ -7,6 +7,7 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\CentralColumns;
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\Database\ExportController;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\MultSubmits;
@@ -194,7 +195,7 @@ if (! empty($submit_mult) && ! empty($what)) {
             $pos
         ) = Util::getDbInfo($db, $sub_part ?? '');
     } else {
-        include_once ROOT_PATH . 'libraries/server_common.inc.php';
+        Common::server();
     }
 
     // Builds the query
