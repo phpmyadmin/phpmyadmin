@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Server\Status;
 
+use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\Url;
 
 /**
@@ -316,7 +317,7 @@ class Data
         global $replication_info;
 
         if (! isset($replication_info)) {
-            require_once ROOT_PATH . 'libraries/replication.inc.php';
+            ReplicationInfo::load();
         }
 
         $this->selfUrl = basename($GLOBALS['PMA_PHP_SELF']);

@@ -11,13 +11,9 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Replication;
 use PhpMyAdmin\ReplicationGui;
+use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\Template;
 use PHPUnit\Framework\TestCase;
-
-/*
-* Include to test.
-*/
-require_once ROOT_PATH . 'libraries/replication.inc.php';
 
 /**
  * PhpMyAdmin\Tests\ReplicationGuiTest class
@@ -59,6 +55,8 @@ class ReplicationGuiTest extends TestCase
 
         $GLOBALS['table'] = 'table';
         $GLOBALS['url_params'] = [];
+
+        ReplicationInfo::load();
 
         $this->replicationGui = new ReplicationGui(new Replication(), new Template());
 
