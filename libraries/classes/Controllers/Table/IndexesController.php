@@ -140,6 +140,8 @@ class IndexesController extends AbstractController
      */
     public function doSaveData(Index $index): void
     {
+        global $containerBuilder;
+
         $error = false;
 
         $sql_query = $this->dbi->getTable($this->db, $this->table)
@@ -171,7 +173,9 @@ class IndexesController extends AbstractController
                     )
                 );
             } else {
-                include ROOT_PATH . 'libraries/entry_points/table/structure.php';
+                /** @var StructureController $controller */
+                $controller = $containerBuilder->get(StructureController::class);
+                $controller->index();
             }
         } else {
             $this->response->setRequestStatus(false);

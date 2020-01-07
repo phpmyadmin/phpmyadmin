@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
@@ -26,7 +27,7 @@ class ViewCreateController extends AbstractController
     {
         global $text_dir, $url_params, $view_algorithm_options, $view_with_options, $view_security_options;
         global $message, $sep, $sql_query, $arr, $view_columns, $column_map, $systemDb, $pma_transformation_data;
-        global $new_transformations_sql, $view, $item, $parts, $db;
+        global $containerBuilder, $new_transformations_sql, $view, $item, $parts, $db;
 
         require ROOT_PATH . 'libraries/db_common.inc.php';
 
@@ -164,7 +165,9 @@ class ViewCreateController extends AbstractController
 
             if (! isset($_POST['ajax_dialog'])) {
                 $message = Message::success();
-                include ROOT_PATH . 'libraries/entry_points/table/structure.php';
+                /** @var StructureController $controller */
+                $controller = $containerBuilder->get(StructureController::class);
+                $controller->index();
             } else {
                 $this->response->addJSON(
                     'message',
