@@ -1,5 +1,5 @@
 <form method="post" id="change_password_form"
-action="{{ is_privileges ? url('/server/privileges') : url('/user_password') }}" name="chgPassword" class="{{ is_privileges ? 'submenu-item' }}">
+action="{{ is_privileges ? url('/server/privileges') : url('/user-password') }}" name="chgPassword" class="{{ is_privileges ? 'submenu-item' }}">
 {{ get_hidden_inputs() }}
 {% if is_privileges %}
     <input type="hidden" name="username" value="{{ username }}">
