@@ -113,7 +113,7 @@ class Config
      */
     public function checkSystem(): void
     {
-        $this->set('PMA_VERSION', '5.0.0');
+        $this->set('PMA_VERSION', '5.0.1');
         /* Major version */
         $this->set(
             'PMA_MAJOR_VERSION',
@@ -1673,7 +1673,7 @@ class Config
         if (empty($path)) {
             $path = null;
         } else {
-            $path .= '/' . $name;
+            $path = rtrim($path, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $name;
             if (! @is_dir($path)) {
                 @mkdir($path, 0770, true);
             }

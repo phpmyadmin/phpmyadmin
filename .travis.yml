@@ -49,7 +49,6 @@ jobs:
   allow_failures:
     - php: nightly
     - os: osx
-    - name: "PHP 7.1 with dbase extension"
 
   include:
     - stage: "Lint and analyse code"
@@ -144,6 +143,7 @@ jobs:
       install:
         - pecl channel-update pecl.php.net
         - pecl install dbase
+        - php -m |grep -F 'dbase'
         - composer install --no-interaction
         - yarn install --non-interactive
 

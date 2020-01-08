@@ -692,6 +692,30 @@ A list of files and corresponding functionality which degrade gracefully when re
 * :file:`./sql/` (SQL scripts to configure advanced functionality)
 * :file:`./js/vendor/openlayers/` (GIS visualization)
 
+.. _faq1_45:
+
+1.45 I get an error message about unknown authentication method caching_sha2_password when trying to log in
+-----------------------------------------------------------------------------------------------------------
+
+When logging in using MySQL version 8 or newer, you may encounter an error message like this:
+
+    mysqli_real_connect(): The server requested authentication method unknown to the client [caching_sha2_password]
+
+    mysqli_real_connect(): (HY000/2054): The server requested authentication method unknown to the client
+
+This error is because of a version compatibility problem between PHP and MySQL. The MySQL project introduced a new authentication
+method (our tests show this began with version 8.0.11) however PHP did not include the ability to use that authentication method.
+PHP reports that this was fixed in PHP version 7.4.
+
+Users experiencing this are encouraged to upgrade their PHP installation, however a workaround exists. Your MySQL user account
+can be set to use the older authentication with a command such as
+
+.. code-block:: mysql
+
+  ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'PASSWORD';
+
+.. seealso:: <https://github.com/phpmyadmin/phpmyadmin/issues/14220>, <https://stackoverflow.com/questions/49948350/phpmyadmin-on-mysql-8-0>, <https://bugs.php.net/bug.php?id=76243>
+
 .. _faqconfig:
 
 Configuration

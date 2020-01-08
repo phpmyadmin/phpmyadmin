@@ -1247,11 +1247,15 @@ class DatabaseInterface
             $columns[$column_name]['TABLE_SCHEMA'] = $database;
             $columns[$column_name]['TABLE_NAME'] = $table;
             $columns[$column_name]['ORDINAL_POSITION'] = $ordinal_position;
+            $colType = $columns[$column_name]['COLUMN_TYPE'];
+            $colType = is_string($colType) ? $colType : '';
+            $colTypePosComa = strpos($colType, '(');
+            $colTypePosComa = $colTypePosComa !== false ? $colTypePosComa : strlen($colType);
             $columns[$column_name]['DATA_TYPE']
                 = substr(
-                    $columns[$column_name]['COLUMN_TYPE'],
+                    $colType,
                     0,
-                    strpos($columns[$column_name]['COLUMN_TYPE'], '(')
+                    $colTypePosComa
                 );
             /**
              * @todo guess CHARACTER_MAXIMUM_LENGTH from COLUMN_TYPE
@@ -1263,11 +1267,15 @@ class DatabaseInterface
             $columns[$column_name]['CHARACTER_OCTET_LENGTH'] = null;
             $columns[$column_name]['NUMERIC_PRECISION'] = null;
             $columns[$column_name]['NUMERIC_SCALE'] = null;
+            $colCollation = $columns[$column_name]['COLLATION_NAME'];
+            $colCollation = is_string($colCollation) ? $colCollation : '';
+            $colCollationPosUnderscore = strpos($colCollation, '_');
+            $colCollationPosUnderscore = $colCollationPosUnderscore !== false ? $colCollationPosUnderscore : strlen($colCollation);
             $columns[$column_name]['CHARACTER_SET_NAME']
                 = substr(
-                    $columns[$column_name]['COLLATION_NAME'],
+                    $colCollation,
                     0,
-                    strpos($columns[$column_name]['COLLATION_NAME'], '_')
+                    $colCollationPosUnderscore
                 );
 
             $ordinal_position++;
@@ -1621,6 +1629,28 @@ class DatabaseInterface
     }
 
     /**
+     * This function checks and initialises the phpMyAdmin configuration
+     * storage state before it is used into session cache.
+     *
+     * @return void
+     */
+    public function initRelationParamsCache()
+    {
+        if (strlen($GLOBALS['db'])) {
+            $cfgRelation = $this->relation->getRelationsParam();
+            if (empty($cfgRelation['db'])) {
+                $this->relation->fixPmaTables($GLOBALS['db'], false);
+            }
+        }
+        $cfgRelation = $this->relation->getRelationsParam();
+        if (empty($cfgRelation['db']) && isset($GLOBALS['dblist'])) {
+            if ($GLOBALS['dblist']->databases->exists('phpmyadmin')) {
+                $this->relation->fixPmaTables('phpmyadmin', false);
+            }
+        }
+    }
+
+    /**
      * Function called just after a connection to the MySQL database server has
      * been established. It sets the connection collation, and determines the
      * version of MySQL which is running.
@@ -1636,16 +1666,7 @@ class DatabaseInterface
              */
             $GLOBALS['dblist'] = new DatabaseList();
 
-            if (strlen($GLOBALS['db'])) {
-                $cfgRelation = $this->relation->getRelationsParam();
-                if (empty($cfgRelation['db'])) {
-                    $this->relation->fixPmaTables($GLOBALS['db'], false);
-                }
-            }
-            $cfgRelation = $this->relation->getRelationsParam();
-            if (empty($cfgRelation['db']) && $GLOBALS['dblist']->databases->exists('phpmyadmin')) {
-                $this->relation->fixPmaTables('phpmyadmin', false);
-            }
+            $this->initRelationParamsCache();
         }
     }
 

@@ -1174,7 +1174,7 @@ class Util
                 && ! isset($GLOBALS['show_as_php']) // 'Submit query' does the same
                 && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $sql_query)
             ) {
-                $refresh_link = 'import.php' . Url::getCommon($url_params);
+                $refresh_link = 'sql.php' . Url::getCommon($url_params);
                 $refresh_link = ' [&nbsp;'
                     . self::linkOrButton($refresh_link, __('Refresh')) . ']';
             } else {
@@ -2972,7 +2972,7 @@ class Util
                 mb_substr(
                     $printtype,
                     0,
-                    $GLOBALS['cfg']['LimitChars']
+                    (int) $GLOBALS['cfg']['LimitChars']
                 ) . '...'
             );
             $displayed_type .= '</abbr>';
@@ -4448,7 +4448,7 @@ class Util
         ) {
             $rows = $_SESSION['tmpval']['max_rows'];
         } else {
-            $rows = $GLOBALS['cfg']['MaxRows'];
+            $rows = (int) $GLOBALS['cfg']['MaxRows'];
             $_SESSION['tmpval']['max_rows'] = $rows;
         }
 
@@ -4839,7 +4839,7 @@ class Util
     {
         // The function can be disabled in php.ini
         if (function_exists('set_time_limit')) {
-            @set_time_limit($GLOBALS['cfg']['ExecTimeLimit']);
+            @set_time_limit((int) $GLOBALS['cfg']['ExecTimeLimit']);
         }
     }
 

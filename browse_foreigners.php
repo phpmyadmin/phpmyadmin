@@ -34,10 +34,10 @@ $template = $containerBuilder->get('template');
 $containerBuilder->set(
     'browse_foreigners',
     new BrowseForeigners(
-        $GLOBALS['cfg']['LimitChars'],
-        $GLOBALS['cfg']['MaxRows'],
-        $GLOBALS['cfg']['RepeatCells'],
-        $GLOBALS['cfg']['ShowAll'],
+        (int) $GLOBALS['cfg']['LimitChars'],
+        (int) $GLOBALS['cfg']['MaxRows'],
+        (int) $GLOBALS['cfg']['RepeatCells'],
+        (bool) $GLOBALS['cfg']['ShowAll'],
         $GLOBALS['pmaThemeImage'],
         $template
     )
