@@ -352,7 +352,8 @@ class DbiDummy implements DbiExtension
      */
     public function affectedRows($link = null, $get_from_cache = true)
     {
-        return 0;
+        global $cached_affected_rows;
+        return $cached_affected_rows ?? 0;
     }
 
     /**
@@ -1843,7 +1844,74 @@ class DbiDummy implements DbiExtension
                     ],
                 ],
             ],
-
+            [
+                'query' => 'SHOW GLOBAL STATUS',
+                'columns' => ['Variable_name', 'Value'],
+                'result' => [
+                    ['Aborted_clients', '0'],
+                    ['Aborted_connects', '0'],
+                    ['Com_delete_multi', '0'],
+                    ['Com_create_function', '0'],
+                    ['Com_empty_query', '0'],
+                ],
+            ],
+            [
+                'query' => 'SHOW GLOBAL VARIABLES',
+                'columns' => ['Variable_name', 'Value'],
+                'result' => [
+                    ['auto_increment_increment', '1'],
+                    ['auto_increment_offset', '1'],
+                    ['automatic_sp_privileges', 'ON'],
+                    ['back_log', '50'],
+                    ['big_tables', 'OFF'],
+                    ['version', '8.0.2'],
+                ],
+            ],
+            [
+                'query' => 'SELECT start_time, user_host, Sec_to_Time(Sum(Time_to_Sec(query_time))) as query_time, Sec_to_Time(Sum(Time_to_Sec(lock_time))) as lock_time, SUM(rows_sent) AS rows_sent, SUM(rows_examined) AS rows_examined, db, sql_text, COUNT(sql_text) AS \'#\' FROM `mysql`.`slow_log` WHERE start_time > FROM_UNIXTIME(0) AND start_time < FROM_UNIXTIME(10) GROUP BY sql_text',
+                'columns' => ['sql_text', '#'],
+                'result' => [
+                    ['insert sql_text', 11],
+                    ['update sql_text', 10],
+                ],
+            ],
+            [
+                'query' => 'SELECT TIME(event_time) as event_time, user_host, thread_id, server_id, argument, count(argument) as \'#\' FROM `mysql`.`general_log` WHERE command_type=\'Query\' AND event_time > FROM_UNIXTIME(0) AND event_time < FROM_UNIXTIME(10) AND argument REGEXP \'^(INSERT|SELECT|UPDATE|DELETE)\' GROUP by argument',
+                'columns' => ['sql_text', '#', 'argument'],
+                'result' => [
+                    ['insert sql_text', 10, 'argument argument2'],
+                    ['update sql_text', 11, 'argument3 argument4'],
+                ],
+            ],
+            [
+                'query' => 'SET PROFILING=1;',
+                'result' => [],
+            ],
+            [
+                'query' => 'query',
+                'result' => [],
+            ],
+            [
+                'query' => 'EXPLAIN query',
+                'columns' => ['sql_text', '#', 'argument'],
+                'result' => [
+                    ['insert sql_text', 10, 'argument argument2'],
+                ],
+            ],
+            [
+                'query' => 'SELECT seq,state,duration FROM INFORMATION_SCHEMA.PROFILING WHERE QUERY_ID=1 ORDER BY seq',
+                'result' => [],
+            ],
+            [
+                'query' => 'SHOW GLOBAL VARIABLES WHERE Variable_name IN ("general_log","slow_query_log","long_query_time","log_output")',
+                'columns' => ['Variable_name', 'Value'],
+                'result' => [
+                    ['general_log', 'OFF'],
+                    ['log_output', 'FILE'],
+                    ['long_query_time', '10.000000'],
+                    ['slow_query_log', 'OFF'],
+                ],
+            ],
         ];
         /**
          * Current database.
