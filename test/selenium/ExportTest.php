@@ -137,14 +137,17 @@ class ExportTest extends TestBase
     /**
      * Function that goes to the import page, uploads a file and submit form
      *
-     * @param string $type   level: server, db or import
+     * @param string $type   level: server, db, table or import
      * @param string $plugin format: csv, json, etc
      *
      * @return string export string
      */
     private function _doExport($type, $plugin)
     {
-        $this->expandMore();
+        if ($type !== 'table') {
+            $this->expandMore();
+        }
+
         $this->waitForElement('partialLinkText', 'Export')->click();
         $this->waitAjax();
 

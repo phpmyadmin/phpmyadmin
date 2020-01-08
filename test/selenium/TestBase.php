@@ -510,7 +510,11 @@ abstract class TestBase extends TestCase
      */
     public function byPartialLinkText(string $partialLinkText): WebDriverElement
     {
-        return $this->webDriver->findElement(WebDriverBy::partialLinkText($partialLinkText));
+        return $this->webDriver->wait(30, 500)->until(
+            WebDriverExpectedCondition::elementToBeClickable(
+                WebDriverBy::partialLinkText($partialLinkText)
+            )
+        );
     }
 
     /**
@@ -552,7 +556,7 @@ abstract class TestBase extends TestCase
      */
     public function isUnsuccessLogin()
     {
-        return $this->isElementPresent('cssSelector', 'div.error');
+        return $this->isElementPresent('id', 'pma_errors');
     }
 
     /**
@@ -562,8 +566,10 @@ abstract class TestBase extends TestCase
      */
     public function gotoHomepage()
     {
-        $e = $this->byPartialLinkText('Server: ');
-        $e->click();
+        $this->waitAjax();
+
+        $this->byPartialLinkText('Server: ')->click();
+
         $this->waitAjax();
     }
 
@@ -612,13 +618,21 @@ abstract class TestBase extends TestCase
      * @param string $func Locate using - cssSelector, xpath, tagName, partialLinkText, linkText, name, id, className
      * @param string $arg  Selector
      *
-     * @return WebDriverElement Element waited for
+     * @return WebDriverElement|RemoteWebElement Element waited for
      */
     public function waitForElement(string $func, $arg): WebDriverElement
     {
-        return $this->webDriver->wait(30, 500)->until(
-            WebDriverExpectedCondition::presenceOfElementLocated(WebDriverBy::$func($arg))
+        $el = $this->webDriver->wait(30, 500)->until(
+            WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::$func($arg))
         );
+
+        usleep(150000);
+
+        $this->webDriver->executeScript('window.scrollTo(0, arguments[0].getBoundingClientRect().top + window.pageYOffset - (window.innerHeight / 2))', [$el]);
+
+        usleep(300000);
+
+        return $el;
     }
 
     /**
@@ -818,7 +832,10 @@ abstract class TestBase extends TestCase
      */
     public function typeInTextArea($text, $index = 0)
     {
-        $this->waitForElement('cssSelector', 'div.cm-s-default');
+        if (! $index) {
+            $this->waitForElement('cssSelector', 'div.cm-s-default');
+        }
+
         $this->webDriver->executeScript(
             "$('.cm-s-default')[" . $index . "].CodeMirror.setValue('" . $text . "');"
         );
@@ -850,7 +867,7 @@ abstract class TestBase extends TestCase
             $this->waitUntilElementIsPresent(
                 'cssSelector',
                 'li.submenuhover.submenu.shown',
-                5000
+                5
             );
         } catch (WebDriverException $e) {
             return;
@@ -873,11 +890,11 @@ abstract class TestBase extends TestCase
             'xpath',
             "//th//a[contains(., '" . $table . "')]"
         )->click();
-        $this->waitAjax();
 
-        $this->waitForElement(
-            'xpath',
-            "//a[@class='tabactive' and contains(., 'Browse')]"
+        $this->waitUntilElementIsPresent(
+            'partialLinkText',
+            'Table: ' . $table,
+            30
         );
     }
 
@@ -966,9 +983,15 @@ abstract class TestBase extends TestCase
      */
     public function scrollToBottom()
     {
-        $this->webDriver->executeScript(
-            'window.scrollTo(0,document.body.scrollHeight);'
-        );
+        do {
+            $this->webDriver->executeScript('window.scrollTo(0, document.body.scrollHeight)');
+
+            usleep(500000);
+
+            $scrollY = $this->webDriver->executeScript('return Math.ceil(window.innerHeight + window.scrollY)');
+
+            $height = $this->webDriver->executeScript('return document.body.scrollHeight');
+        } while ($height > $scrollY);
     }
 
     /**

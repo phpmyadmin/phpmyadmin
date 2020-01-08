@@ -9,6 +9,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
+use Facebook\WebDriver\Remote\LocalFileDetector;
+use Facebook\WebDriver\Remote\RemoteWebElement;
+
 /**
  * ImportTest class
  *
@@ -100,28 +103,20 @@ class ImportTest extends TestBase
     private function _doImport($type)
     {
         $this->waitForElement('partialLinkText', 'Import')->click();
+
         $this->waitAjax();
-        $this->waitForElement('id', 'input_import_file');
 
-        $this->waitForElement('cssSelector', 'label[for=radio_local_import_file]')->click();
+        $el = $this->waitForElement('id', 'input_import_file');
 
-        $this->selectByValue(
-            $this->byName('local_import_file'),
-            $type . '_import.sql'
-        );
+        if (! ($el instanceof RemoteWebElement)) {
+            $this->markTestSkipped('Not support set local file.');
+        }
 
-        $this->webDriver->wait(5);
+        $el->setFileDetector(new LocalFileDetector())
+            ->sendKeys(__DIR__ . '/../test_data/' . $type . '_import.sql');
 
-        $this->webDriver->executeScript(
-            'window.scrollTo(0,' .
-            $this->byId('buttonGo')->getLocation()->getY()
-            . ')'
-        );
-        $this->webDriver->wait(5);
-        $this->scrollToBottom();
-        $this->waitUntilElementIsVisible('id', 'buttonGo', 30);
+        $this->waitForElement('id', 'buttonGo')->click();
 
-        $this->byId('buttonGo')->click();
         $this->waitUntilElementIsVisible(
             'xpath',
             "//div[@class='alert alert-success' and contains(., 'Import has been successfully')]",

@@ -73,6 +73,10 @@ class QueryByExampleTest extends TestBase
         $this->waitForElement('name', 'criteriaAlias[0]')->sendKeys('ID');
         $this->waitForElement('name', 'criteriaAlias[1]')->sendKeys('VAL');
 
+        /* Click show checkbox for the columns */
+        $this->waitForElement('name', 'criteriaShow[0]')->click();
+        $this->waitForElement('name', 'criteriaShow[1]')->click();
+
         /* Set Sort orders */
         $this->selectByLabel(
             $this->waitForElement('name', 'criteriaSort[0]'),

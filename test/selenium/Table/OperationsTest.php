@@ -47,7 +47,6 @@ class OperationsTest extends TestBase
 
         $this->waitAjax();
 
-        $this->expandMore();
         $this->byXPath("//a[contains(., 'Operations')]")->click();
 
         $this->waitAjax();

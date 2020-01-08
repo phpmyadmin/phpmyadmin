@@ -162,6 +162,9 @@ class SqlQueryTest extends TestBase
     private function _testInlineEdit()
     {
         $this->waitForElement('cssSelector', 'a.inline_edit_sql')->click();
+
+        $this->waitAjax();
+
         // empty current query
         $this->typeInTextArea('', 1);
 
