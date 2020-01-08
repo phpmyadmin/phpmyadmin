@@ -1794,7 +1794,7 @@ class Privileges
 
         if (isset($_GET['validate_username'])) {
             $sql_query = "SELECT * FROM `mysql`.`user` WHERE `User` = '"
-                . $_GET['username'] . "';";
+                . $this->dbi->escapeString($_GET['username']) . "';";
             $res = $this->dbi->query($sql_query);
             $row = $this->dbi->fetchRow($res);
             if (empty($row)) {
