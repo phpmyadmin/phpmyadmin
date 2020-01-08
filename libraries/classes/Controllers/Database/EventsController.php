@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Rte\Events;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -34,10 +35,10 @@ class EventsController extends AbstractController
              * Displays the header and tabs
              */
             if (! empty($table) && in_array($table, $this->dbi->getTables($db))) {
-                include_once ROOT_PATH . 'libraries/tbl_common.inc.php';
+                Common::table();
             } else {
                 $table = '';
-                include_once ROOT_PATH . 'libraries/db_common.inc.php';
+                Common::database();
 
                 list(
                     $tables,

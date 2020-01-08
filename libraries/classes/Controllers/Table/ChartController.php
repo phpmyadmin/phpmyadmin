@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\SqlParser\Components\Limit;
 use PhpMyAdmin\SqlParser\Parser;
@@ -72,7 +73,7 @@ class ChartController extends AbstractController
                 'table'
             );
             $url_params['back'] = Url::getFromRoute('/table/sql');
-            include ROOT_PATH . 'libraries/tbl_common.inc.php';
+            Common::table();
             $this->dbi->selectDb($db);
         } elseif (strlen($db) > 0) {
             $url_params['goto'] = Util::getScriptNameForOption(
@@ -80,14 +81,14 @@ class ChartController extends AbstractController
                 'database'
             );
             $url_params['back'] = Url::getFromRoute('/sql');
-            include ROOT_PATH . 'libraries/db_common.inc.php';
+            Common::database();
         } else {
             $url_params['goto'] = Util::getScriptNameForOption(
                 $cfg['DefaultTabServer'],
                 'server'
             );
             $url_params['back'] = Url::getFromRoute('/sql');
-            include ROOT_PATH . 'libraries/server_common.inc.php';
+            Common::server();
         }
 
         $data = [];
@@ -149,7 +150,7 @@ class ChartController extends AbstractController
         global $db, $table, $sql_query;
 
         if (strlen($table) > 0 && strlen($db) > 0) {
-            include ROOT_PATH . 'libraries/tbl_common.inc.php';
+            Common::table();
         }
 
         $parser = new Parser($sql_query);

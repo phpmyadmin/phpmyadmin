@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ReplicationGui;
@@ -46,7 +47,7 @@ class ReplicationController extends AbstractController
     {
         global $replication_info, $server_slave_replication, $url_params;
 
-        require_once ROOT_PATH . 'libraries/server_common.inc.php';
+        Common::server();
         ReplicationInfo::load();
 
         $header = $this->response->getHeader();

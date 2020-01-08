@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Relation;
@@ -172,7 +173,7 @@ class SearchController extends AbstractController
      */
     public function index(): void
     {
-        require_once ROOT_PATH . 'libraries/tbl_common.inc.php';
+        Common::table();
 
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();

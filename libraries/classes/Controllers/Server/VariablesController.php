@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Util;
@@ -30,7 +31,7 @@ class VariablesController extends AbstractController
      */
     public function index(array $params): string
     {
-        include ROOT_PATH . 'libraries/server_common.inc.php';
+        Common::server();
 
         $filterValue = ! empty($params['filter']) ? $params['filter'] : '';
 

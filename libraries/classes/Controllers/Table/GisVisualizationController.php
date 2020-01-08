@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Gis\GisVisualization;
@@ -51,7 +52,7 @@ final class GisVisualizationController extends AbstractController
     {
         global $cfg, $url_params;
 
-        require_once ROOT_PATH . 'libraries/db_common.inc.php';
+        Common::database();
 
         // SQL query for retrieving GIS data
         $sqlQuery = '';

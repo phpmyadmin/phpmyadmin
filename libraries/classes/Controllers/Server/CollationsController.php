@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
@@ -68,7 +69,7 @@ class CollationsController extends AbstractController
      */
     public function index(): string
     {
-        include_once ROOT_PATH . 'libraries/server_common.inc.php';
+        Common::server();
 
         $charsets = [];
         /** @var Charset $charset */

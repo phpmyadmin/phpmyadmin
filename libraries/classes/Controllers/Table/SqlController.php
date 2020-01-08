@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
@@ -52,7 +53,7 @@ final class SqlController extends AbstractController
 
         PageSettings::showGroup('Sql');
 
-        require ROOT_PATH . 'libraries/tbl_common.inc.php';
+        Common::table();
 
         $err_url = Url::getFromRoute('/table/sql') . $err_url;
 

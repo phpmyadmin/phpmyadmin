@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
@@ -52,7 +53,7 @@ class ViewOperationsController extends AbstractController
         $scripts = $header->getScripts();
         $scripts->addFile('table/operations.js');
 
-        require ROOT_PATH . 'libraries/tbl_common.inc.php';
+        Common::table();
 
         $url_params['goto'] = $url_params['back'] = Url::getFromRoute('/view/operations');
         $url_query .= Url::getCommon($url_params, '&');

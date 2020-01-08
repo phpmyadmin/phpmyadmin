@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
@@ -58,7 +59,7 @@ final class TrackingController extends AbstractController
         $scripts->addFile('table/tracking.js');
 
         define('TABLE_MAY_BE_ABSENT', true);
-        require ROOT_PATH . 'libraries/tbl_common.inc.php';
+        Common::table();
 
         if (Tracker::isActive()
             && Tracker::isTracked($GLOBALS['db'], $GLOBALS['table'])

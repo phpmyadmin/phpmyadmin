@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Html\Generator;
@@ -29,7 +30,7 @@ class ViewCreateController extends AbstractController
         global $message, $sep, $sql_query, $arr, $view_columns, $column_map, $systemDb, $pma_transformation_data;
         global $containerBuilder, $new_transformations_sql, $view, $item, $parts, $db;
 
-        require ROOT_PATH . 'libraries/db_common.inc.php';
+        Common::database();
 
         $url_params['goto'] = Url::getFromRoute('/table/structure');
         $url_params['back'] = Url::getFromRoute('/view/create');

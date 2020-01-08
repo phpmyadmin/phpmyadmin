@@ -7,6 +7,7 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\CentralColumns;
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\Database\ExportController;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\MultSubmits;
@@ -174,13 +175,13 @@ if (! empty($submit_mult) && ! empty($what)) {
     unset($message);
 
     if (strlen($table) > 0) {
-        include ROOT_PATH . 'libraries/tbl_common.inc.php';
+        Common::table();
         $url_query .= Url::getCommon([
             'goto' => Url::getFromRoute('/table/sql'),
             'back' => Url::getFromRoute('/table/sql'),
         ], '&');
     } elseif (strlen($db) > 0) {
-        include ROOT_PATH . 'libraries/db_common.inc.php';
+        Common::database();
 
         list(
             $tables,
@@ -194,7 +195,7 @@ if (! empty($submit_mult) && ! empty($what)) {
             $pos
         ) = Util::getDbInfo($db, $sub_part ?? '');
     } else {
-        include_once ROOT_PATH . 'libraries/server_common.inc.php';
+        Common::server();
     }
 
     // Builds the query

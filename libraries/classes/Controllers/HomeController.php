@@ -12,6 +12,7 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\GitRevision;
@@ -76,7 +77,7 @@ class HomeController extends AbstractController
         $show_query = '1';
 
         if ($server > 0) {
-            include ROOT_PATH . 'libraries/server_common.inc.php';
+            Common::server();
         }
 
         $languageManager = LanguageManager::getInstance();

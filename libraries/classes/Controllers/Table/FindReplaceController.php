@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Response;
@@ -59,7 +60,7 @@ class FindReplaceController extends AbstractController
      */
     public function index(): void
     {
-        require_once ROOT_PATH . 'libraries/tbl_common.inc.php';
+        Common::table();
 
         if (isset($_POST['find'])) {
             $this->findAction();

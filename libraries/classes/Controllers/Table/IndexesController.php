@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
@@ -43,7 +44,7 @@ class IndexesController extends AbstractController
     public function index(): void
     {
         if (! isset($_POST['create_edit_table'])) {
-            include_once ROOT_PATH . 'libraries/tbl_common.inc.php';
+            Common::table();
         }
         if (isset($_POST['index'])) {
             if (is_array($_POST['index'])) {
