@@ -3,7 +3,11 @@
   <div class="navigationbar">
     <ul id="topmenu" class="resizable-menu">
       {% for tab in tabs %}
-        {{ get_html_tab(tab, url_params) }}
+        <li{{ tab.active ? ' class="active"' }}>
+          <a href="{{ url(tab.route, url_params|merge(tab.args ?? [])) }}" class="tab{{ tab.active ? 'active' }}">
+            {{ get_icon(tab.icon, tab.text, false, true, 'TabsMode') }}
+          </a>
+        </li>
       {% endfor %}
       <div class="clearfloat"></div>
     </ul>
