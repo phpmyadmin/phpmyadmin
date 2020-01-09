@@ -32,7 +32,15 @@
                 {% if host.user is empty %}
                   <span class="text-danger">{% trans 'Any' %}</span>
                 {% else %}
-                  {{ host.user }}
+                 <a class="edit_user_anchor" href="{{ url('/server/privileges', {
+                  'username': host.user,
+                  'hostname': host.host,
+                  'dbname': '',
+                  'tablename': '',
+                  'routinename': '',
+                }) }}">
+                 {{ host.user }}
+                 </a>
                 {% endif %}
               </label>
             </td>
