@@ -10,6 +10,9 @@ phpMyAdmin - ChangeLog
 - issue #14909 Add a configuration option to define the 1st day of week
 - issue #12726 Made user names clickable in user accounts overview
 
+5.0.2 (not yet released)
+- issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page
+
 5.0.1 (2020-01-07)
 - issue #15719 Fixed error 500 when browsing a table when $cfg['LimitChars'] used a string and not an int value
 - issue #14936 Fixed display NULL on numeric fields has showing empty string since 5.0.0
