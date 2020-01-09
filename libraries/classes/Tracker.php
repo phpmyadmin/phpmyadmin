@@ -716,8 +716,8 @@ class Tracker
                     $result['identifier'] = 'CREATE DATABASE' ;
                     $result['tablename']  = '' ;
 
-                    // In case of CREATE DATABASE, table field of the CreateStatement is actually name of the database
-                    $GLOBALS['db']        = $statement->name->table;
+                    // In case of CREATE DATABASE, database field of the CreateStatement is the name of the database
+                    $GLOBALS['db']        = $statement->name->database;
                 } elseif ($options[6] == 'INDEX'
                           || $options[6] == 'UNIQUE INDEX'
                           || $options[6] == 'FULLTEXT INDEX'
