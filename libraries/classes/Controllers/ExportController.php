@@ -308,7 +308,11 @@ final class ExportController extends AbstractController
             $this->response->disable();
             //Disable all active buffers (see: ob_get_status(true) at this point)
             do {
-                $hasBuffer = @ob_end_clean();
+                if (ob_get_length() > 0) {
+                    $hasBuffer = ob_end_clean();
+                } else {
+                    $hasBuffer = false;
+                }
             } while ($hasBuffer);
         }
 

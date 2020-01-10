@@ -2732,7 +2732,7 @@ class Privileges
             $_POST['old_usergroup'] ?? null;
         $this->setUserGroup($_POST['username'], $old_usergroup);
 
-        if ($create_user_real === null) {
+        if ($create_user_real !== null) {
             $queries[] = $create_user_real;
         }
         $queries[] = $real_sql_query;
