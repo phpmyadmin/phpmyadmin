@@ -63,6 +63,17 @@ $font-family-monospace: monospace;
 
 $font-size-base: 0.82rem;
 
+// Navbar
+
+$navbar-padding-y: 0;
+$navbar-padding-x: 0;
+$navbar-nav-link-padding-x: 2px;
+$navbar-nav-link-padding-y: 2px;
+$navbar-light-color: #00f;
+$navbar-light-hover-color: #f00;
+$navbar-light-active-color: #00f;
+$navbar-light-disabled-color: #00f;
+
 // Card
 
 $card-border-radius: 0;
