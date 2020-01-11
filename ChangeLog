@@ -15,6 +15,7 @@ phpMyAdmin - ChangeLog
 - issue #15767 Fixed can not copy user account since 5.0 - "error #1133"
 - issue #15772 Fixed error code 500 during pagination of the tables in a database
 - issue        Fix php error "Trying to access array offset on value of type null" on column distinct values feature
+- issue #15741 Fix fatal javascript error on clicking "Pick from Central Columns"
 
 5.0.1 (2020-01-07)
 - issue #15719 Fixed error 500 when browsing a table when $cfg['LimitChars'] used a string and not an int value

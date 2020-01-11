@@ -79,7 +79,7 @@ class CentralColumnsController extends AbstractController
             return;
         }
         if (isset($_POST['getColumnList'])) {
-            $this->response->addJSON($this->getColumnList([
+            $this->response->addJSON('message', $this->getColumnList([
                 'cur_table' => $_POST['cur_table'] ?? null,
             ]));
             return;

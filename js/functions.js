@@ -3586,7 +3586,7 @@ AJAX.registerOnload('functions.js', function () {
                 url: href,
                 data: params,
                 success: function (data) {
-                    centralColumnList[db + '_' + table] = JSON.parse(data.message);
+                    centralColumnList[db + '_' + table] = data.message;
                 },
                 async:false
             });
