@@ -100,6 +100,8 @@
             {% if not tbl_is_view and not db_is_system_schema %}
                 <td class="edit text-center print_ignore">
                     <a class="change_column_anchor ajax" href="{{ url('/table/structure', url_params|merge({
+                      'db': db,
+                      'table': table,
                       'field': row['Field'],
                       'change_column': 1
                     })) }}">
