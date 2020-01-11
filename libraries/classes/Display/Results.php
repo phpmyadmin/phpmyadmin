@@ -4442,7 +4442,7 @@ class Results
                 $meta
             );
         } else {
-            $column_for_first_row = $row[$sorted_column_index];
+            $column_for_first_row = ($row !== null) ? $row[$sorted_column_index] : '';
         }
 
         $column_for_first_row = mb_strtoupper(
@@ -4471,7 +4471,7 @@ class Results
                 $meta
             );
         } else {
-            $column_for_last_row = $row[$sorted_column_index];
+            $column_for_last_row = ($row !== null) ? $row[$sorted_column_index] : '';
         }
 
         $column_for_last_row = mb_strtoupper(
