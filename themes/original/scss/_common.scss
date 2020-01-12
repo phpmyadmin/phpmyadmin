@@ -3376,10 +3376,6 @@ body {
   }
 }
 
-.scrollindicator {
-  display: none;
-}
-
 /* templates/database/multi_table_query */
 
 .multi_table_query_form {
@@ -3423,12 +3419,6 @@ body {
     &.tabs {
       display: flex;
     }
-  }
-
-  .scrollindicator {
-    padding: 5px;
-    cursor: pointer;
-    display: inline;
   }
 
   .responsivetable {

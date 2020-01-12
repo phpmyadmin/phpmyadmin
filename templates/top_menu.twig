@@ -5,7 +5,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+      <ul id="topmenu" class="navbar-nav">
         {% for tab in tabs %}
           <li class="nav-item{{ tab.active ? ' active' }}">
             <a class="nav-link text-nowrap" href="{{ url(tab.route, url_params|merge(tab.args ?? [])) }}">

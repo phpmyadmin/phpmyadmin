@@ -961,10 +961,6 @@ ul {
   vertical-align: -3px;
 }
 
-.scrollindicator {
-  display: none;
-}
-
 // default tab styles
 .tabactive {
   background: #fff !important;
@@ -3785,12 +3781,6 @@ body .ui-dialog {
     &.tabs {
       display: flex;
     }
-  }
-
-  .scrollindicator {
-    padding: 5px;
-    cursor: pointer;
-    display: inline;
   }
 
   .responsivetable {
