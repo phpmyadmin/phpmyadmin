@@ -391,6 +391,38 @@ class Common
     }
 
     /**
+     * Get the status if the page already exists
+     * If no such exists, returns negative index.
+     *
+     * @param string $pg name
+     *
+     * @return bool if the page already exists
+     */
+    public function getPageExists(string $pg): bool
+    {
+        $cfgRelation = $this->relation->getRelationsParam();
+        if (! $cfgRelation['pdfwork']) {
+            return false;
+        }
+
+        $query = 'SELECT `page_nr`'
+            . ' FROM ' . Util::backquote($cfgRelation['db'])
+            . '.' . Util::backquote($cfgRelation['pdf_pages'])
+            . " WHERE `page_descr` = '" . $this->dbi->escapeString($pg) . "'";
+        $pageNos = $this->dbi->fetchResult(
+            $query,
+            null,
+            null,
+            DatabaseInterface::CONNECT_CONTROL,
+            DatabaseInterface::QUERY_STORE
+        );
+        if (is_array($pageNos) && count($pageNos) > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Get the id of the page to load. If a default page exists it will be returned.
      * If no such exists, returns the id of the first page of the database.
      *

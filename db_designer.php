@@ -76,8 +76,23 @@ if (isset($_POST['operation'])) {
         if ($_POST['save_page'] == 'same') {
             $page = $_POST['selected_page'];
         } else { // new
-            $page = $designerCommon->createNewPage($_POST['selected_value'], $_POST['db']);
-            $response->addJSON('id', $page);
+            if ($designerCommon->getPageExists($_POST['selected_value'])) {
+                $response->addJSON(
+                    'message',
+                    /* l10n: The user tries to save a page with an existing name in Designer */
+                    __(
+                        sprintf(
+                            "There already exists a page named \"%s\" please rename it to something else.",
+                            htmlspecialchars($_POST['selected_value'])
+                        )
+                    )
+                );
+                $response->setRequestStatus(false);
+                return;
+            } else {
+                $page = $designerCommon->createNewPage($_POST['selected_value'], $_POST['db']);
+                $response->addJSON('id', $page);
+            }
         }
         $success = $designerCommon->saveTablePositions($page);
         $response->setRequestStatus($success);
