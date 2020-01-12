@@ -563,9 +563,9 @@ class Common
     public function addNewRelation($db, $T1, $F1, $T2, $F2, $on_delete, $on_update, $DB1, $DB2)
     {
         $tables = $this->dbi->getTablesFull($DB1, $T1);
-        $type_T1 = mb_strtoupper($tables[$T1]['ENGINE']);
+        $type_T1 = mb_strtoupper($tables[$T1]['ENGINE'] ?? '');
         $tables = $this->dbi->getTablesFull($DB2, $T2);
-        $type_T2 = mb_strtoupper($tables[$T2]['ENGINE']);
+        $type_T2 = mb_strtoupper($tables[$T2]['ENGINE'] ?? '');
 
         // native foreign key
         if (Util::isForeignKeySupported($type_T1)
