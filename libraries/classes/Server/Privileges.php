@@ -2681,8 +2681,8 @@ class Privileges
     public function mergePrivMapFromResult(array &$privMap, $result)
     {
         while ($row = $this->dbi->fetchAssoc($result)) {
-            $user = $row['User'];
-            $host = $row['Host'];
+            $user = (string) $row['User'];
+            $host = (string) $row['Host'];
             if (! isset($privMap[$user])) {
                 $privMap[$user] = [];
             }
@@ -4497,10 +4497,10 @@ class Privileges
         $dbname_is_wildcard = null;
 
         if (isset($_REQUEST['username'])) {
-            $username = $_REQUEST['username'];
+            $username = (string) $_REQUEST['username'];
         }
         if (isset($_REQUEST['hostname'])) {
-            $hostname = $_REQUEST['hostname'];
+            $hostname = (string) $_REQUEST['hostname'];
         }
         /**
          * Checks if a dropdown box has been used for selecting a database / table
