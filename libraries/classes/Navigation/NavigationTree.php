@@ -1082,7 +1082,7 @@ class NavigationTree
             // if node name itself is in sterile, then allow
             if ($node->isGroup
                 || (! in_array($parentName, $sterile) && ! $node->isNew)
-                || in_array($node->realName, $sterile)
+                || (in_array($node->realName, $sterile) && !empty($node->children))
             ) {
                 $retval .= "<div class='block'>";
                 $iClass = '';
