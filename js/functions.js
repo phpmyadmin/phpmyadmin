@@ -2280,6 +2280,10 @@ Functions.ajaxShowMessage = function (message, timeout, type) {
             Messages.strDismiss
         );
     }
+    // Hide spinner if this is not a loading message
+    if (msg !== Messages.strLoading) {
+        $retval.css('background-image', 'none');
+    }
     Functions.highlightSql($retval);
 
     return $retval;

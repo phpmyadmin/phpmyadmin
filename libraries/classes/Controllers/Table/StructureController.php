@@ -291,8 +291,7 @@ class StructureController extends AbstractController
                 }
             } else {
                 $this->response->setRequestStatus(false);
-                $message = Message::error(__('No column selected.'));
-                $this->response->addJSON('message', $message);
+                $this->response->addJSON('message', __('No column selected.'));
             }
         }
 
