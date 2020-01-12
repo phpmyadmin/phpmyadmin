@@ -20,6 +20,7 @@ use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\SqlParser\Components\CreateDefinition;
+use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
@@ -329,6 +330,13 @@ class ExportSql extends ExportPlugin
                     sprintf(__('Add %s statement'), '<code>CREATE VIEW</code>')
                 );
                 $subgroup_create_view->setSubgroupHeader($leaf);
+
+                $leaf = new BoolPropertyItem(
+                    "simple_view_export",
+                    /* l10n: Allow simplifying exported view syntax to only "CREATE VIEW" */
+                    __('Use simple view export')
+                );
+                $subgroup_create_view->addProperty($leaf);
 
                 $leaf = new BoolPropertyItem(
                     'view_current_user',
@@ -1569,20 +1577,32 @@ class ExportSql extends ExportPlugin
              * statement.
              */
             if ($view) {
+                //TODO: use parser
                 $create_query = preg_replace(
                     '/' . preg_quote(Util::backquote($db), '/') . '\./',
                     '',
                     $create_query
                 );
+                $parser = new Parser($create_query);
+                /**
+                 * `CREATE TABLE` statement.
+                 *
+                 * @var CreateStatement
+                 */
+                $statement = $parser->statements[0];
 
                 // exclude definition of current user
                 if (isset($GLOBALS['sql_view_current_user'])) {
-                    $create_query = preg_replace(
-                        '/(^|\s)DEFINER=([\S]+)/',
-                        '',
-                        $create_query
-                    );
+                    $statement->options->remove('DEFINER');
                 }
+
+                if (isset($GLOBALS['sql_simple_view_export'])) {
+                    $statement->options->remove('SQL SECURITY');
+                    $statement->options->remove('INVOKER');
+                    $statement->options->remove('ALGORITHM');
+                    $statement->options->remove('DEFINER');
+                }
+                $create_query = $statement->build();
 
                 // whether to replace existing view or not
                 if (isset($GLOBALS['sql_or_replace_view'])) {

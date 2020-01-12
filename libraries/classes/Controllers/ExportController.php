@@ -169,6 +169,7 @@ final class ExportController extends AbstractController
             'sql_create_view',
             'sql_create_trigger',
             'sql_view_current_user',
+            'sql_simple_view_export',
             'sql_if_not_exists',
             'sql_or_replace_view',
             'sql_auto_increment',
