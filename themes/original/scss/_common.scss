@@ -683,10 +683,7 @@ li.last.database {
 
 /* specific elements */
 
-/* topmenu */
-
 ul {
-  &#topmenu,
   &#topmenu2,
   &.tabs {
     font-weight: bold;
@@ -701,7 +698,6 @@ ul {
     clear: both;
   }
 
-  &#topmenu li,
   &#topmenu2 li {
     float: $left;
     margin: 0;
@@ -710,7 +706,6 @@ ul {
   }
 }
 
-#topmenu img,
 #topmenu2 img {
   vertical-align: middle;
   margin-#{$right}: 0.1em;
@@ -719,16 +714,6 @@ ul {
 /* default tab styles */
 
 ul {
-  &#topmenu {
-    a,
-    span {
-      display: block;
-      margin: 2px 2px 0;
-      padding: 2px 2px 0;
-      white-space: nowrap;
-    }
-  }
-
   &#topmenu2 a {
     display: block;
     margin: 0.1em;
@@ -756,64 +741,7 @@ fieldset.caution a {
   }
 }
 
-#topmenu {
-  margin-top: 0.5em;
-  padding: 0.1em 0.3em 0.1em 0.3em;
-}
-
 ul {
-  &#topmenu {
-    ul {
-      -moz-box-shadow: 2px 2px 3px #666;
-      -webkit-box-shadow: 2px 2px 3px #666;
-      box-shadow: 2px 2px 3px #666;
-    }
-
-    > li {
-      border-bottom: 1pt solid black;
-    }
-
-    a,
-    span {
-      background-color: $bg-one;
-      border: 0 solid $bg-two;
-      border-width: 1pt 1pt 0 1pt;
-      -moz-border-radius: 0.4em 0.4em 0 0;
-      border-radius: 0.4em 0.4em 0 0;
-    }
-
-    ul {
-      a {
-        border-width: 1pt 0 0 0;
-        -moz-border-radius: 0;
-        border-radius: 0;
-      }
-
-      li:first-child a {
-        border-width: 0;
-      }
-
-      a:hover,
-      .tabactive {
-        text-decoration: none;
-      }
-    }
-
-    > li > {
-      a:hover,
-      .tabactive {
-        margin: 0;
-        padding: 2px 4px;
-        text-decoration: none;
-      }
-    }
-
-    a.tab:hover,
-    .tabactive {
-      background-color: $body-bg;
-    }
-  }
-
   &#topmenu2 a {
     &.tab:hover,
     &.tabactive {
@@ -822,10 +750,6 @@ ul {
       border-radius: 0.3em;
       text-decoration: none;
     }
-  }
-
-  &#topmenu > li.active {
-    border-bottom: 1pt solid $body-bg;
   }
 }
 
@@ -3496,17 +3420,9 @@ body {
 
 @media only screen and (max-width: 768px) {
   ul {
-    &#topmenu,
     &.tabs {
       display: flex;
     }
-  }
-
-  .navigationbar {
-    display: inline-flex;
-    margin: 0 !important;
-    border-radius: 0 !important;
-    overflow: auto;
   }
 
   .scrollindicator {
