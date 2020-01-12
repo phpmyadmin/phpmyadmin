@@ -527,8 +527,9 @@ class Results
             // no delete link
             $displayParts['del_lnk']  = self::NO_EDIT_OR_DELETE;
         }
+
         // Other settings
-        $displayParts['sort_lnk']  = (string) '0';
+        $displayParts['sort_lnk']  = (string) '1';
         $displayParts['nav_bar']   = (string) '0';
         $displayParts['bkm_form']  = (string) '1';
         $displayParts['text_btn']  = (string) '1';
@@ -2120,7 +2121,13 @@ class Results
 
         $draggable_html = '<th';
         $th_class = [];
-        $th_class[] = 'draggable';
+
+
+        // The columns should not be draggable for show queries
+        if (! $this->__get('is_show')) {
+            $th_class[] = 'draggable';
+        }
+
         $this->_getClassForNumericColumnType($fields_meta, $th_class);
         if ($col_visib && ! $col_visib_j) {
             $th_class[] = 'hide';
