@@ -3658,7 +3658,7 @@ AJAX.registerOnload('functions.js', function () {
                     $('#col_list').append(fields);
                     resultPointer = i;
                     if (resultPointer === listSize) {
-                        $('.tblFooters').hide();
+                        $('#seeMore').hide();
                     }
                     return false;
                 });
