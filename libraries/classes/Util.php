@@ -2187,11 +2187,6 @@ class Util
         if ($value == '') {
             $value = $text;
         }
-        if ($GLOBALS['cfg']['ActionLinksMode'] == 'text') {
-            return ' <input class="btn btn-link" type="submit" name="' . $button_name . '"'
-                . ' value="' . htmlspecialchars($value) . '"'
-                . ' title="' . htmlspecialchars($text) . '">' . "\n";
-        }
         return '<button class="btn btn-link ' . $button_class . '" type="submit"'
             . ' name="' . $button_name . '" value="' . htmlspecialchars($value)
             . '" title="' . htmlspecialchars($text) . '">' . "\n"
