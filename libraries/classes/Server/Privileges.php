@@ -1383,8 +1383,8 @@ class Privileges
         foreach ($allPrivileges as $privilege) {
             $userHost = $privilege['User'] . '@' . $privilege['Host'];
             $privileges[$userHost] = $privileges[$userHost] ?? [];
-            $privileges[$userHost]['user'] = $privilege['User'];
-            $privileges[$userHost]['host'] = $privilege['Host'];
+            $privileges[$userHost]['user'] = (string) $privilege['User'];
+            $privileges[$userHost]['host'] = (string) $privilege['Host'];
             $privileges[$userHost]['privileges'] = $privileges[$userHost]['privileges'] ?? [];
             $privileges[$userHost]['privileges'][] = $this->getSpecificPrivilege($privilege);
         }
@@ -2803,10 +2803,10 @@ class Privileges
         $routinename = null;
 
         if (isset($_REQUEST['username'])) {
-            $username = $_REQUEST['username'];
+            $username = (string) $_REQUEST['username'];
         }
         if (isset($_REQUEST['hostname'])) {
-            $hostname = $_REQUEST['hostname'];
+            $hostname = (string) $_REQUEST['hostname'];
         }
         /**
          * Checks if a dropdown box has been used for selecting a database / table

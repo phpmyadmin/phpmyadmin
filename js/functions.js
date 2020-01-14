@@ -2305,6 +2305,10 @@ Functions.ajaxShowMessage = function (message, timeout, type) {
             Messages.strDismiss
         );
     }
+    // Hide spinner if this is not a loading message
+    if (msg !== Messages.strLoading) {
+        $retval.css('background-image', 'none');
+    }
     Functions.highlightSql($retval);
 
     return $retval;
@@ -3679,7 +3683,7 @@ AJAX.registerOnload('functions.js', function () {
                     $('#col_list').append(fields);
                     resultPointer = i;
                     if (resultPointer === listSize) {
-                        $('.tblFooters').hide();
+                        $('#seeMore').hide();
                     }
                     return false;
                 });

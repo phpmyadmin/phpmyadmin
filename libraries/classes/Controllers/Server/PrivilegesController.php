@@ -451,8 +451,8 @@ class PrivilegesController extends AbstractController
             || (isset($_POST['submit_mult']) && $_POST['submit_mult'] == 'export')
         ) {
             [$title, $export] = $serverPrivileges->getListForExportUserDefinition(
-                $username ?? null,
-                $hostname ?? null
+                $username ?? '',
+                $hostname ?? ''
             );
 
             unset($username, $hostname, $grants, $one_grant);

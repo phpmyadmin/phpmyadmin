@@ -99,7 +99,20 @@ class DesignerController extends AbstractController
             } elseif ($_POST['operation'] == 'savePage') {
                 if ($_POST['save_page'] == 'same') {
                     $page = $_POST['selected_page'];
-                } else { // new
+                } elseif ($this->designerCommon->getPageExists($_POST['selected_value'])) {
+                    $this->response->addJSON(
+                        'message',
+                        /* l10n: The user tries to save a page with an existing name in Designer */
+                        __(
+                            sprintf(
+                                "There already exists a page named \"%s\" please rename it to something else.",
+                                htmlspecialchars($_POST['selected_value'])
+                            )
+                        )
+                    );
+                    $this->response->setRequestStatus(false);
+                    return;
+                } else {
                     $page = $this->designerCommon->createNewPage($_POST['selected_value'], $_POST['db']);
                     $this->response->addJSON('id', $page);
                 }
