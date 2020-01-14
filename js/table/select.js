@@ -132,7 +132,7 @@ AJAX.registerOnload('table/select.js', function () {
             }
 
             if (values['geom_func[' + a + ']'] &&
-                $.isArray(values['geom_func[' + a + ']'], geomUnaryFunctions) >= 0) {
+                $.inArray(values['geom_func[' + a + ']'], geomUnaryFunctions) >= 0) {
                 continue;
             }
 
