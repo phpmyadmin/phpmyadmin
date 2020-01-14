@@ -758,14 +758,6 @@ class NavigationTree
                 unset($prefixes[$key]);
             }
         }
-        // rfe #1634 Don't group if there's only one group and no other items
-        if (count($prefixes) === 1) {
-            $keys = array_keys($prefixes);
-            $key = $keys[0];
-            if ($prefixes[$key] == count($node->children) - 1) {
-                unset($prefixes[$key]);
-            }
-        }
         if (count($prefixes)) {
             /** @var Node[] $groups */
             $groups = [];
