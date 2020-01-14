@@ -431,7 +431,7 @@ Functions.sprintf = function () {
  */
 Functions.hideShowDefaultValue = function ($defaultType) {
     if ($defaultType.val() === 'USER_DEFINED') {
-        $defaultType.siblings('.default_value').show().focus();
+        $defaultType.siblings('.default_value').show().trigger('focus');
     } else {
         $defaultType.siblings('.default_value').hide();
         if ($defaultType.val() === 'NULL') {
@@ -956,7 +956,7 @@ Functions.checkTableEditForm = function (theForm, fieldsCnt) {
     var $input = $('input.textfield[name=\'table\']');
     if ($input.val() === '') {
         alert(Messages.strFormEmpty);
-        $input.focus();
+        $input.trigger('focus');
         return false;
     }
 
@@ -3051,7 +3051,7 @@ AJAX.registerOnload('functions.js', function () {
         if ($form.is('.create_table_form.ajax')) {
             submitChangesInCreateTableForm('submit_partition_change=1');
         } else {
-            $form.submit();
+            $form.trigger('submit');
         }
     });
 
@@ -3145,7 +3145,7 @@ AJAX.registerOnload('functions.js', function () {
             $('#pma_username').val('').prop('required', false);
             $('#user_exists_warning').css('display', 'none');
         } else if (this.value === 'userdefined') {
-            $('#pma_username').trigger('focus').select().prop('required', true);
+            $('#pma_username').trigger('focus').trigger('select').prop('required', true);
         }
     });
 
@@ -3162,7 +3162,7 @@ AJAX.registerOnload('functions.js', function () {
             $('#text_pma_pw').prop('required', false).val('');
         } else if (this.value === 'userdefined') {
             $('#text_pma_pw2').prop('required', true);
-            $('#text_pma_pw').prop('required', true).trigger('focus').select();
+            $('#text_pma_pw').prop('required', true).trigger('focus').trigger('select');
         } else {
             $('#text_pma_pw2').prop('required', false);
             $('#text_pma_pw').prop('required', false);
@@ -4158,7 +4158,7 @@ AJAX.registerOnload('functions.js', function () {
         // Check where to load the new content
         if ($(this).closest('#pma_navigation').length === 0) {
             // For the main page we don't need to do anything,
-            $(this).closest('form').submit();
+            $(this).closest('form').trigger('submit');
         } else {
             // but for the navigation we need to manually replace the content
             Navigation.treePagination($(this));
@@ -4781,7 +4781,7 @@ AJAX.registerOnload('functions.js', function () {
     /* Trigger filtering of the list based on incoming database name */
     var $filter = $('#filterText');
     if ($filter.val()) {
-        $filter.trigger('keyup').select();
+        $filter.trigger('keyup').trigger('select');
     }
 });
 
@@ -4895,7 +4895,7 @@ Functions.ignorePhpErrors = function (clearPrevErrors) {
     if (clearPrevious) {
         var $pmaReportErrorsForm = $('#pma_report_errors_form');
         $pmaReportErrorsForm.find('input[name="send_error_report"]').val(0); // change send_error_report to '0'
-        $pmaReportErrorsForm.submit();
+        $pmaReportErrorsForm.trigger('submit');
     }
 
     // remove displayed errors

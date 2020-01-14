@@ -1696,7 +1696,7 @@ Navigation.showFullName = function ($containerELem) {
             var $fullNameLayer = $('#full_name_layer');
             if ($fullNameLayer.length === 0) {
                 $('body').append('<div id="full_name_layer" class="hide"></div>');
-                $('#full_name_layer').mouseleave(function () {
+                $('#full_name_layer').on('mouseleave', function () {
                     /** mouseleave */
                     $(this).addClass('hide')
                         .removeClass('hovering');

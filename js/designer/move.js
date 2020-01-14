@@ -552,13 +552,13 @@ DesignerMove.addTableToTablesList = function (index, tableDom) {
         '        designer_url_table_name="' + dbEncoded + '.' + tableEncoded + '">' + $('<div/>').text(db + '.' + table).html() + '</td>' +
         '</tr>');
     $('#id_scroll_tab table').first().append($newTableLine);
-    $($newTableLine).find('.scroll_tab_struct').click(function () {
+    $($newTableLine).find('.scroll_tab_struct').on('click', function () {
         DesignerMove.startTabUpd(db, table);
     });
     $($newTableLine).on('click', '.designer_Tabs2,.designer_Tabs', function () {
         DesignerMove.selectTab($(this).attr('designer_url_table_name'));
     });
-    $($newTableLine).find('.scroll_tab_checkbox').click(function () {
+    $($newTableLine).find('.scroll_tab_checkbox').on('click', function () {
         DesignerMove.visibleTab(this,$(this).val());
     });
     var $tablesCounter = $('#tables_counter');
@@ -682,7 +682,7 @@ DesignerMove.save = function (url) {
         document.getElementById('t_h_' + key + '_').value = document.getElementById('check_vis_' + key).checked ? 1 : 0;
     }
     document.getElementById('container-form').action = url;
-    $('#container-form').submit();
+    $('#container-form').trigger('submit');
 };
 
 DesignerMove.getUrlPos = function (forceString) {
@@ -2016,16 +2016,16 @@ DesignerMove.enableTableEvents = function (index, element) {
         DesignerMove.clickField(params[3], params[0], params[1], params[2]);
     });
 
-    $(element).find('.tab_zag_noquery').mouseover(function () {
+    $(element).find('.tab_zag_noquery').on('mouseover', function () {
         DesignerMove.tableOnOver($(this).attr('table_name'),0, $(this).attr('query_set'));
     });
-    $(element).find('.tab_zag_noquery').mouseout(function () {
+    $(element).find('.tab_zag_noquery').on('mouseout', function () {
         DesignerMove.tableOnOver($(this).attr('table_name'),1, $(this).attr('query_set'));
     });
-    $(element).find('.tab_zag_query').mouseover(function () {
+    $(element).find('.tab_zag_query').on('mouseover', function () {
         DesignerMove.tableOnOver($(this).attr('table_name'),0, 1);
     });
-    $(element).find('.tab_zag_query').mouseout(function () {
+    $(element).find('.tab_zag_query').on('mouseout', function () {
         DesignerMove.tableOnOver($(this).attr('table_name'),1, 1);
     });
 
@@ -2161,7 +2161,7 @@ AJAX.registerOnload('designer/move.js', function () {
         DesignerMove.sideMenuRight(this);
         return false;
     });
-    $('#side_menu').hover(function () {
+    $('#side_menu').on('hover', function () {
         DesignerMove.showText();
         return false;
     }, function () {
@@ -2187,7 +2187,7 @@ AJAX.registerOnload('designer/move.js', function () {
     $('.designer_tab').each(DesignerMove.enableTableEvents);
     $('.designer_tab').each(DesignerMove.addTableToTablesList);
 
-    $('input#del_button').click(function () {
+    $('input#del_button').on('click', function () {
         DesignerMove.updRelation();
     });
     $('input#cancel_button').on('click', function () {

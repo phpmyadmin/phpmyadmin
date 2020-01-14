@@ -770,7 +770,7 @@ AJAX.registerOnload('config.js', function () {
             disabled = true;
         }
         $form.find('input[type=submit]').prop('disabled', disabled);
-    }).submit(function (e) {
+    }).on('submit', function (e) {
         var $form = $(this);
         if ($form.attr('name') === 'prefs_export' && $('#export_local_storage')[0].checked) {
             e.preventDefault();

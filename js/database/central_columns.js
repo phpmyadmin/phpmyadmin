@@ -69,7 +69,7 @@ AJAX.registerOnload('database/central_columns.js', function () {
         AJAX.source = $(this);
         $.post('index.php?route=/database/central-columns', editColumnData, AJAX.responseHandler);
     });
-    $('#multi_edit_central_columns').submit(function (event) {
+    $('#multi_edit_central_columns').on('submit', function (event) {
         event.preventDefault();
         event.stopPropagation();
         var argsep = CommonParams.get('arg_separator');
@@ -209,7 +209,7 @@ AJAX.registerOnload('database/central_columns.js', function () {
             });
         }
     });
-    $('#add_column').submit(function (e) {
+    $('#add_column').on('submit', function (e) {
         var selectvalue = $('#column-select').val();
         if (selectvalue === '') {
             e.preventDefault();
@@ -225,7 +225,7 @@ AJAX.registerOnload('database/central_columns.js', function () {
             $addColDivLinkSpan.html('+');
         }
     });
-    $('#add_new').submit(function () {
+    $('#add_new').on('submit', function () {
         $('#add_new').toggle();
     });
     $('#tableslistcontainer').find('select.default_type').on('change', function () {
