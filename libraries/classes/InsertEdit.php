@@ -1503,6 +1503,7 @@ class InsertEdit
             $input_min_max = 'min="' . $min_max_values[0] . '" '
                 . 'max="' . $min_max_values[1] . '"';
             $data_type = 'INT';
+            $input_type="number";
         }
         return '<input type="' . $input_type . '"'
             . ' name="fields' . $column_name_appendix . '"'

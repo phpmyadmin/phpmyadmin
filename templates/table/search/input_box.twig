@@ -79,14 +79,17 @@
     </select>
 {% else %}
     {% set the_class = 'textfield' %}
+    {% set input_type = 'text' %}
     {% if column_type == 'date' %}
         {% set the_class = the_class ~ ' datefield' %}
     {% elseif column_type == 'datetime' or column_type starts with 'timestamp' %}
         {% set the_class = the_class ~ ' datetimefield' %}
     {% elseif column_type starts with 'bit' %}
         {% set the_class = the_class ~ ' bit' %}
+    {% elseif true_type == 'INT' %}
+        {% set input_type = 'number' %}
     {% endif %}
-    <input type="text"
+    <input type="{{ input_type }}"
         name="criteriaValues[{{ column_index }}]"
         size="40"
         class="{{ the_class }}"

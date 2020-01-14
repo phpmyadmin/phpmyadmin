@@ -953,6 +953,11 @@ class SearchController extends AbstractController
             '',
             ''
         );
+        //true_type is used to set type as number for INT
+        $true_type  = preg_replace('@\(.*@s', '', $type);
+        if (in_array((string)$true_type, $this->dbi->types->getIntegerTypes())){
+             $true_type='INT';
+        }
         $value = $this->template->render('table/search/input_box', [
             'str' => '',
             'column_type' => (string) $type,
@@ -963,6 +968,7 @@ class SearchController extends AbstractController
             'column_name_hash' => md5($this->_columnNames[$column_index]),
             'foreign_data' => $foreignData,
             'table' => $this->table,
+            'true_type' => (string)$true_type,
             'column_index' => $search_index,
             'foreign_max_limit' => $GLOBALS['cfg']['ForeignKeyMaxLimit'],
             'criteria_values' => $entered_value,
