@@ -4785,7 +4785,7 @@ class Results
                         __('Create view'),
                         true
                     ),
-                    ['class' => 'create_view ajax']
+                    ['class' => 'create_view ajax btn']
                 )
                 . '</span>' . "\n";
         }
@@ -4831,7 +4831,10 @@ class Results
                 __('Copy to clipboard'),
                 true
             ),
-            ['id' => 'copyToClipBoard']
+            [
+                'id' => 'copyToClipBoard' ,
+                'class' => 'btn',
+            ]
         );
     }
 
@@ -4851,7 +4854,10 @@ class Results
                 __('Print'),
                 true
             ),
-            ['id' => 'printView'],
+            [
+                'id' => 'printView' ,
+                'class' => 'btn',
+            ],
             'print_view'
         );
     }
@@ -4958,9 +4964,9 @@ class Results
                         'b_tblexport',
                         __('Export'),
                         true
-                    )
-                )
-            . "\n";
+                ),
+                ['class' => 'btn']
+            );
 
             // prepare chart
             $results_operations_html .= Generator::linkOrButton(
@@ -4969,9 +4975,9 @@ class Results
                         'b_chart',
                         __('Display chart'),
                         true
-                    )
-                )
-            . "\n";
+                ),
+                ['class' => 'btn']
+            );
 
             // prepare GIS chart
             $geometry_found = false;
@@ -4991,9 +4997,9 @@ class Results
                             'b_globe',
                             __('Visualize GIS data'),
                             true
-                        )
-                    )
-                    . "\n";
+                        ),
+                        ['class' => 'btn']
+                    );
             }
         }
 

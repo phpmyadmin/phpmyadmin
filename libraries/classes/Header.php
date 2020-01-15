@@ -116,11 +116,6 @@ class Header
     private $template;
 
     /**
-     * @var Navigation
-     */
-    private $navigation;
-
-    /**
      * Creates a new class instance
      */
     public function __construct()
@@ -155,11 +150,6 @@ class Header
         }
 
         $this->userPreferences = new UserPreferences();
-        $this->navigation = new Navigation(
-            $this->template,
-            new Relation($GLOBALS['dbi']),
-            $GLOBALS['dbi']
-        );
     }
 
     /**
@@ -436,7 +426,12 @@ class Header
                 }
 
                 if ($this->_menuEnabled && $GLOBALS['server'] > 0) {
-                    $navigation = $this->navigation->getDisplay();
+                    $nav = new Navigation(
+                        $this->template,
+                        new Relation($GLOBALS['dbi']),
+                        $GLOBALS['dbi']
+                    );
+                    $navigation = $nav->getDisplay();
                 }
 
                 $customHeader = Config::renderHeader();

@@ -20,6 +20,8 @@ phpMyAdmin - ChangeLog
 - issue #15432 Fixed names of the pages in the designer should be unique
 - issue #14310 Fixed column selector "See more" removes "Preview SQL" and "Save" area
 - issue        Fixed wrong jQuery function call in table search page
+- issue #15761 Fix uncaught TypeError when using "$cfg['ServerDefault'] = 0;"
+- issue #15780 Fixed unexpected UI of action links (text only mode)
 
 5.0.1 (2020-01-07)
 - issue #15719 Fixed error 500 when browsing a table when $cfg['LimitChars'] used a string and not an int value
