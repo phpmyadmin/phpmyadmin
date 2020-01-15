@@ -23,6 +23,7 @@ phpMyAdmin - ChangeLog
 - issue        Fixed wrong jQuery function call in table search page
 - issue #15761 Fix uncaught TypeError when using "$cfg['ServerDefault'] = 0;"
 - issue #15780 Fixed unexpected UI of action links (text only mode)
+- issue #15674 Replace twig/extensions with phpmyadmin/twig-i18n-extension
 
 5.0.1 (2020-01-07)
 - issue #15719 Fixed error 500 when browsing a table when $cfg['LimitChars'] used a string and not an int value

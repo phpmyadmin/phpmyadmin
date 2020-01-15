@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Twig\I18n;
 
+use PhpMyAdmin\Twig\Extensions\Node\TransNode;
 use Twig\Compiler;
-use Twig\Extensions\Node\TransNode;
 use Twig\Node\Expression\AbstractExpression;
 use Twig\Node\Node;
 
