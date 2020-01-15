@@ -386,8 +386,9 @@ class Data
 
         // Set all class properties
         $this->db_isLocal = false;
+        // can be null if $cfg['ServerDefault'] = 0;
         $serverHostToLower = mb_strtolower(
-            $GLOBALS['cfg']['Server']['host']
+            (string) $GLOBALS['cfg']['Server']['host']
         );
         if ($serverHostToLower === 'localhost'
             || $GLOBALS['cfg']['Server']['host'] === '127.0.0.1'
