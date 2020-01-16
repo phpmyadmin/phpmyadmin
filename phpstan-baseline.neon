@@ -3038,7 +3038,7 @@ parameters:
 			path: libraries/classes/Transformations.php
 
 		-
-			message: "#^PhpMyAdmin\\\\Twig\\\\I18n\\\\NodeTrans\\:\\:__construct\\(\\) does not call parent constructor from Twig_Extensions_Node_Trans\\.$#"
+			message: "#^PhpMyAdmin\\\\Twig\\\\I18n\\\\NodeTrans\\:\\:__construct\\(\\) does not call parent constructor from PhpMyAdmin\\\\Twig\\\\Extensions\\\\Node\\\\TransNode\\.$#"
 			count: 1
 			path: libraries/classes/Twig/I18n/NodeTrans.php
 
