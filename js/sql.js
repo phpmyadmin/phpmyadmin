@@ -1020,6 +1020,10 @@ Sql.initProfilingTables = function () {
     if (!$.tablesorter) {
         return;
     }
+    // Added to allow two direction sorting
+    $('#profiletable')
+        .find('thead th')
+        .off('click mousedown');
 
     $('#profiletable').tablesorter({
         widgets: ['zebra'],
@@ -1032,6 +1036,10 @@ Sql.initProfilingTables = function () {
             }
         }
     });
+    // Added to allow two direction sorting
+    $('#profilesummarytable')
+        .find('thead th')
+        .off('click mousedown');
 
     $('#profilesummarytable').tablesorter({
         widgets: ['zebra'],
