@@ -13,6 +13,7 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\DatabaseInterface;
 
 /**
  * PhpMyAdmin\Server\UserGroups class
@@ -28,25 +29,27 @@ class UserGroups
      *
      * @return string HTML to list the users belonging to a given user group
      */
-    public static function getHtmlForListingUsersofAGroup($userGroup)
+    public static function getHtmlForListingUsersofAGroup(string $userGroup): string
     {
+        /** @var DatabaseInterface $dbi */
+        global $dbi;
         $users = [];
         $numRows = 0;
-        $relation = new Relation($GLOBALS['dbi']);
+        $relation = new Relation($dbi);
 
         $userGroupSpecialChars = htmlspecialchars($userGroup);
         $cfgRelation = $relation->getRelationsParam();
         $usersTable = Util::backquote($cfgRelation['db'])
             . '.' . Util::backquote($cfgRelation['users']);
         $sql_query = 'SELECT `username` FROM ' . $usersTable
-            . " WHERE `usergroup`='" . $GLOBALS['dbi']->escapeString($userGroup)
+            . " WHERE `usergroup`='" . $dbi->escapeString($userGroup)
             . "'";
         $result = $relation->queryAsControlUser($sql_query, false);
         if ($result) {
-            $numRows = $GLOBALS['dbi']->numRows($result);
+            $numRows = $dbi->numRows($result);
             if ($numRows != 0) {
                 $i = 0;
-                while ($row = $GLOBALS['dbi']->fetchRow($result)) {
+                while ($row = $dbi->fetchRow($result)) {
                     $i++;
                     $user = [];
                     $user['count'] = $i;
@@ -55,7 +58,7 @@ class UserGroups
                 }
             }
         }
-        $GLOBALS['dbi']->freeResult($result);
+        $dbi->freeResult($result);
         $template = new Template();
         return $template->render('/server/user_groups/user_listings', [
             'user_group_special_chars' => $userGroupSpecialChars,
@@ -69,22 +72,24 @@ class UserGroups
      *
      * @return string HTML for the 'user groups' table
      */
-    public static function getHtmlForUserGroupsTable()
+    public static function getHtmlForUserGroupsTable(): string
     {
-        $relation = new Relation($GLOBALS['dbi']);
+        /** @var DatabaseInterface $dbi */
+        global $dbi;
+        $relation = new Relation($dbi);
         $cfgRelation = $relation->getRelationsParam();
         $groupTable = Util::backquote($cfgRelation['db'])
             . '.' . Util::backquote($cfgRelation['usergroups']);
         $sql_query = 'SELECT * FROM ' . $groupTable . ' ORDER BY `usergroup` ASC';
         $result = $relation->queryAsControlUser($sql_query, false);
-        $numRows = $GLOBALS['dbi']->numRows($result);
+        $numRows = $dbi->numRows($result);
         $userGroups = [];
         $userGroupsValues = [];
         $action = Url::getFromRoute('/server/privileges');
         $hidden_inputs = null;
         if ($result && $numRows) {
             $hidden_inputs = Url::getHiddenInputs();
-            while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
+            while ($row = $dbi->fetchAssoc($result)) {
                 $groupName = $row['usergroup'];
                 if (! isset($userGroups[$groupName])) {
                     $userGroups[$groupName] = [];
@@ -130,9 +135,9 @@ class UserGroups
         }
         $addUserUrl = Url::getFromRoute('/server/user-groups', ['addUserGroup' => 1]);
         $addUserIcon = Generator::getIcon('b_usradd');
-        $GLOBALS['dbi']->freeResult($result);
+        $dbi->freeResult($result);
         $template = new Template();
-        return  $template->render('server/user_groups/user_groups', [
+        return $template->render('server/user_groups/user_groups', [
             'action' => $action,
             'hidden_inputs' => isset($hidden_inputs) ? $hidden_inputs : '',
             'result' => $result,
@@ -152,7 +157,7 @@ class UserGroups
      *
      * @return string comma separated list of allowed menu tab names
      */
-    public static function getAllowedTabNames(array $row, $level)
+    public static function getAllowedTabNames(array $row, string $level): string
     {
         $tabNames = [];
         $tabs = Util::getMenuTabList($level);
@@ -173,20 +178,22 @@ class UserGroups
      *
      * @return void
      */
-    public static function delete($userGroup)
+    public static function delete(string $userGroup): void
     {
-        $relation = new Relation($GLOBALS['dbi']);
+        /** @var DatabaseInterface $dbi */
+        global $dbi;
+        $relation = new Relation($dbi);
         $cfgRelation = $relation->getRelationsParam();
         $userTable = Util::backquote($cfgRelation['db'])
             . '.' . Util::backquote($cfgRelation['users']);
         $groupTable = Util::backquote($cfgRelation['db'])
             . '.' . Util::backquote($cfgRelation['usergroups']);
         $sql_query = 'DELETE FROM ' . $userTable
-            . " WHERE `usergroup`='" . $GLOBALS['dbi']->escapeString($userGroup)
+            . " WHERE `usergroup`='" . $dbi->escapeString($userGroup)
             . "'";
         $relation->queryAsControlUser($sql_query, true);
         $sql_query = 'DELETE FROM ' . $groupTable
-            . " WHERE `usergroup`='" . $GLOBALS['dbi']->escapeString($userGroup)
+            . " WHERE `usergroup`='" . $dbi->escapeString($userGroup)
             . "'";
         $relation->queryAsControlUser($sql_query, true);
     }
@@ -198,16 +205,18 @@ class UserGroups
      *
      * @return string HTML for add/edit user group dialog
      */
-    public static function getHtmlToEditUserGroup($userGroup = null)
+    public static function getHtmlToEditUserGroup(?string $userGroup = null): string
     {
-        $relation = new Relation($GLOBALS['dbi']);
+        /** @var DatabaseInterface $dbi */
+        global $dbi;
+        $relation = new Relation($dbi);
         $urlParams = [];
 
         $editUserGroupSpecialChars = '';
-        if ($userGroup != null) {
+        if ($userGroup !== null) {
             $editUserGroupSpecialChars = htmlspecialchars($userGroup);
         }
-        if ($userGroup != null) {
+        if ($userGroup !== null) {
             $urlParams['userGroup'] = $userGroup;
             $urlParams['editUserGroupSubmit'] = '1';
         } else {
@@ -218,16 +227,16 @@ class UserGroups
             'db' => [],
             'table' => [],
         ];
-        if ($userGroup != null) {
+        if ($userGroup !== null) {
             $cfgRelation = $relation->getRelationsParam();
             $groupTable = Util::backquote($cfgRelation['db'])
                 . '.' . Util::backquote($cfgRelation['usergroups']);
             $sql_query = 'SELECT * FROM ' . $groupTable
-                . " WHERE `usergroup`='" . $GLOBALS['dbi']->escapeString($userGroup)
+                . " WHERE `usergroup`='" . $dbi->escapeString($userGroup)
                 . "'";
             $result = $relation->queryAsControlUser($sql_query, false);
             if ($result) {
-                while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
+                while ($row = $dbi->fetchAssoc($result)) {
                     $key = $row['tab'];
                     $value = $row['allowed'];
                     if (substr($key, 0, 7) == 'server_' && $value == 'Y') {
@@ -241,7 +250,7 @@ class UserGroups
                     }
                 }
             }
-            $GLOBALS['dbi']->freeResult($result);
+            $dbi->freeResult($result);
         }
         $tabList = self::getTabList(
             __('Server-level tabs'),
@@ -279,7 +288,7 @@ class UserGroups
      *
      * @return string HTML for checkbox groups
      */
-    public static function getTabList($title, $level, array $selected)
+    public static function getTabList(string $title, string $level, array $selected): string
     {
         $tabs = Util::getMenuTabList($level);
         $tabDetails = [];
@@ -306,9 +315,11 @@ class UserGroups
      *
      * @return void
      */
-    public static function edit($userGroup, $new = false)
+    public static function edit(string $userGroup, bool $new = false): void
     {
-        $relation = new Relation($GLOBALS['dbi']);
+        /** @var DatabaseInterface $dbi */
+        global $dbi;
+        $relation = new Relation($dbi);
         $tabs = Util::getMenuTabList();
         $cfgRelation = $relation->getRelationsParam();
         $groupTable = Util::backquote($cfgRelation['db'])
@@ -316,7 +327,7 @@ class UserGroups
 
         if (! $new) {
             $sql_query = 'DELETE FROM ' . $groupTable
-                . " WHERE `usergroup`='" . $GLOBALS['dbi']->escapeString($userGroup)
+                . " WHERE `usergroup`='" . $dbi->escapeString($userGroup)
                 . "';";
             $relation->queryAsControlUser($sql_query, true);
         }
@@ -332,7 +343,7 @@ class UserGroups
                 }
                 $tabName = $tabGroupName . '_' . $tab;
                 $allowed = isset($_POST[$tabName]) && $_POST[$tabName] == 'Y';
-                $sql_query .= "('" . $GLOBALS['dbi']->escapeString($userGroup) . "', '" . $tabName . "', '"
+                $sql_query .= "('" . $dbi->escapeString($userGroup) . "', '" . $tabName . "', '"
                     . ($allowed ? 'Y' : 'N') . "')";
                 $first = false;
             }
