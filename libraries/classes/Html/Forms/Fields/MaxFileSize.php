@@ -24,7 +24,7 @@ class MaxFileSize implements FieldGenerator
      *
      * @return string the INPUT field
      *
-     * @access  public
+     * @access public
      */
     public static function generate($max_size): string
     {

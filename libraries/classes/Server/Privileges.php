@@ -194,7 +194,7 @@ class Privileges
      *
      * @return array
      *
-     * @global  resource $user_link the database connection
+     * @global resource $user_link the database connection
      */
     public function extractPrivInfo($row = null, $enableHTML = false, $tablePrivs = false)
     {
@@ -629,8 +629,8 @@ class Privileges
      *
      * @return string html snippet
      *
-     * @global  array     $cfg         the phpMyAdmin configuration
-     * @global  resource  $user_link   the database connection
+     * @global array     $cfg         the phpMyAdmin configuration
+     * @global resource  $user_link   the database connection
      */
     public function getHtmlToDisplayPrivilegesTable(
         $db = '*',

@@ -40,7 +40,7 @@ class Generator
      *
      * @return string  the html link
      *
-     * @access  public
+     * @access public
      */
     public static function showCopyToClipboard(string $text): string
     {
@@ -88,7 +88,7 @@ class Generator
      *
      * @return string
      *
-     * @access  public
+     * @access public
      */
     public static function showHint($message): string
     {
@@ -117,7 +117,7 @@ class Generator
      * @throws Twig_Error_Runtime
      * @throws Twig_Error_Syntax
      *
-     * @access  public
+     * @access public
      */
     public static function getHtmlTab(array $tab, array $url_params = []): string
     {
@@ -224,7 +224,7 @@ class Generator
      *
      * @return string              html content
      *
-     * @access  public
+     * @access public
      */
     public static function getButtonOrImage(
         $button_name,
@@ -730,7 +730,7 @@ class Generator
      * @throws Twig_Error_Runtime
      * @throws Twig_Error_Syntax
      *
-     * @access  public
+     * @access public
      */
     public static function getMessage(
         $message,
@@ -1005,7 +1005,7 @@ class Generator
      *
      * @return string  the html link
      *
-     * @access  public
+     * @access public
      */
     public static function showPHPDocumentation($target): string
     {
@@ -1397,7 +1397,7 @@ class Generator
      *
      * @return string the  html content
      *
-     * @access  public
+     * @access public
      *
      * @todo    use $pos from $_url_params
      */
@@ -1513,7 +1513,7 @@ class Generator
      *
      * @global array  $cfg the configuration array
      *
-     * @access  public
+     * @access public
      */
     public static function formatSql($sqlQuery, $truncate = false): string
     {

@@ -66,47 +66,47 @@ class Message
     /**
      * The message number
      *
-     * @access  protected
-     * @var     integer
+     * @access protected
+     * @var    integer
      */
     protected $number = Message::NOTICE;
 
     /**
      * The locale string identifier
      *
-     * @access  protected
-     * @var     string
+     * @access protected
+     * @var    string
      */
     protected $string = '';
 
     /**
      * The formatted message
      *
-     * @access  protected
-     * @var     string
+     * @access protected
+     * @var    string
      */
     protected $message = '';
 
     /**
      * Whether the message was already displayed
      *
-     * @access  protected
-     * @var     boolean
+     * @access protected
+     * @var    boolean
      */
     protected $isDisplayed = false;
 
     /**
      * Whether to use BB code when displaying.
      *
-     * @access  protected
-     * @var     boolean
+     * @access protected
+     * @var    boolean
      */
     protected $useBBCode = true;
 
     /**
      * Unique id
      *
-     * @access  protected
+     * @access protected
      * @var string
      */
     protected $hash = null;
@@ -114,16 +114,16 @@ class Message
     /**
      * holds parameters
      *
-     * @access  protected
-     * @var     array
+     * @access protected
+     * @var    array
      */
     protected $params = [];
 
     /**
      * holds additional messages
      *
-     * @access  protected
-     * @var     array
+     * @access protected
+     * @var    array
      */
     protected $addedMessages = [];
 
@@ -619,7 +619,7 @@ class Message
      *
      * @return mixed  the sanitized message(s)
      *
-     * @access  public
+     * @access public
      * @static
      */
     public static function sanitize($message)
@@ -643,7 +643,7 @@ class Message
      *
      * @return string  the decoded message
      *
-     * @access  public
+     * @access public
      * @static
      */
     public static function decodeBB(string $message): string

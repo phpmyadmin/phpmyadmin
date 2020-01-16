@@ -212,7 +212,7 @@ class Bookmark
      *
      * @return array|bool the bookmark parameters for the current user
      *
-     * @access  public
+     * @access public
      */
     public static function getParams(string $user)
     {
@@ -356,7 +356,7 @@ class Bookmark
      *
      * @return Bookmark|null the bookmark
      *
-     * @access  public
+     * @access public
      */
     public static function get(
         DatabaseInterface $dbi,

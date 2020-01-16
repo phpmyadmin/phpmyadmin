@@ -35,7 +35,7 @@ EOT;
      *
      * @return string  OASIS OpenDocument data
      *
-     * @access  public
+     * @access public
      */
     public static function create($mime, $data)
     {

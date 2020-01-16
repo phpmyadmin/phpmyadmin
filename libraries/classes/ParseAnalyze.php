@@ -26,7 +26,7 @@ class ParseAnalyze
      *
      * @return array
      *
-     * @access  public
+     * @access public
      */
     public static function sqlQuery($sql_query, $db)
     {

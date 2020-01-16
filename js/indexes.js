@@ -624,9 +624,9 @@ AJAX.registerOnload('indexes.js', function () {
          * @var $currRow Object containing reference to the current field's row
          */
         var $currRow = $anchor.parents('tr');
-        /** @var    Number of columns in the key */
+        /** @var {number} rows Number of columns in the key */
         var rows = $anchor.parents('td').attr('rowspan') || 1;
-        /** @var    Rows that should be hidden */
+        /** @var {number} $rowsToHide Rows that should be hidden */
         var $rowsToHide = $currRow;
         for (var i = 1, $lastRow = $currRow.next(); i < rows; i++, $lastRow = $lastRow.next()) {
             $rowsToHide = $rowsToHide.add($lastRow);

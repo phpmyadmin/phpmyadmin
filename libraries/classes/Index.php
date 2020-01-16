@@ -677,7 +677,7 @@ class Index
      *
      * @return string HTML for showing index
      *
-     * @access  public
+     * @access public
      */
     public static function getHtmlForIndexes($table, $schema, $print_mode = false)
     {
@@ -857,7 +857,7 @@ class Index
      *
      * @return string  Output HTML
      *
-     * @access  public
+     * @access public
      */
     public static function findDuplicates($table, $schema)
     {

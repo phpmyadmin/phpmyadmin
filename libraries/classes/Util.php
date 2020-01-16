@@ -54,7 +54,7 @@ class Util
      *
      * @return string the message
      *
-     * @access  public
+     * @access public
      */
     public static function getFormattedMaximumUploadSize($max_upload_size)
     {
@@ -73,7 +73,7 @@ class Util
      *
      * @return string the escaped string
      *
-     * @access  public
+     * @access public
      */
     public static function escapeMysqlWildcards($name)
     {
@@ -88,7 +88,7 @@ class Util
      *
      * @return string   the escaped string
      *
-     * @access  public
+     * @access public
      */
     public static function unescapeMysqlWildcards($name)
     {
@@ -143,7 +143,7 @@ class Util
      *
      * @return string  the URL link
      *
-     * @access  public
+     * @access public
      */
     public static function getMySQLDocuURL($link, $anchor = '')
     {
@@ -326,7 +326,7 @@ class Util
      *
      * @return mixed    the "backquoted" database, table or field name
      *
-     * @access  public
+     * @access public
      */
     public static function backquote($a_name, $do_it = true)
     {
@@ -352,7 +352,7 @@ class Util
      *
      * @return mixed the "backquoted" database, table or field name
      *
-     * @access  public
+     * @access public
      */
     public static function backquoteCompat(
         $a_name,
@@ -397,7 +397,7 @@ class Util
      *
      * @return boolean whether profiling is supported
      *
-     * @access  public
+     * @access public
      */
     public static function profilingSupported()
     {
@@ -425,7 +425,7 @@ class Util
      *
      * @return array|null the formatted value and its unit
      *
-     * @access  public
+     * @access public
      */
     public static function formatByteDown($value, $limes = 6, $comma = 0)
     {
@@ -505,7 +505,7 @@ class Util
      *
      * @return string   the formatted value and its unit
      *
-     * @access  public
+     * @access public
      */
     public static function formatNumber(
         $value,
@@ -660,7 +660,7 @@ class Util
      *
      * @return string   the formatted date
      *
-     * @access  public
+     * @access public
      */
     public static function localisedDate($timestamp = -1, $format = '')
     {
@@ -1072,7 +1072,7 @@ class Util
      *
      * @return string
      *
-     * @access  public
+     * @access public
      */
     public static function pageselector(
         $name,

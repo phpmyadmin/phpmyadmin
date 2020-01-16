@@ -1058,7 +1058,7 @@ class DatabaseInterface implements DbalInterface
      * @return int  a value representing whether $a should be before $b in the
      *              sorted array or not
      *
-     * @access  private
+     * @access private
      */
     private static function _usortComparisonCallback($a, $b): int
     {

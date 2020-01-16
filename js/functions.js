@@ -589,7 +589,7 @@ Functions.parseVersionString = function (str) {
     var min = parseInt(x[1], 10) || 0;
     var pat = parseInt(x[2], 10) || 0;
     var hotfix = parseInt(x[3], 10) || 0;
-    return  maj * 100000000 + min * 1000000 + pat * 10000 + hotfix * 100 + add;
+    return maj * 100000000 + min * 1000000 + pat * 10000 + hotfix * 100 + add;
 };
 
 /**
@@ -2267,8 +2267,8 @@ Functions.ajaxShowMessage = function (message, timeout, type) {
     // Remove all old messages, if any
     $('span.ajax_notification[id^=ajax_message_num]').remove();
     /**
-     * @var    $retval    a jQuery object containing the reference
-     *                    to the created AJAX message
+     * @var $retval    a jQuery object containing the reference
+     *                 to the created AJAX message
      */
     var $retval = $(
         '<span class="ajax_notification" id="ajax_message_num_' +
@@ -3079,7 +3079,7 @@ AJAX.registerOnload('functions.js', function () {
  *
  * @see    Messages.strPasswordEmpty
  * @see    Messages.strPasswordNotSame
- * @param  object $the_form The form to be validated
+ * @param {object} $theForm The form to be validated
  * @return bool
  */
 Functions.checkPassword = function ($theForm) {
@@ -3505,7 +3505,7 @@ AJAX.registerOnload('functions.js', function () {
                     '</fieldset>' +
                     '</div>';
         /**
-         * @var  Defines functions to be called when the buttons in
+         * @var {object} buttonOptions Defines functions to be called when the buttons in
          * the buttonOptions jQuery dialog bar are pressed
          */
         var buttonOptions = {};
@@ -3812,7 +3812,7 @@ Functions.indexEditorDialog = function (url, title, callbackSuccess, callbackFai
     var buttonOptions = {};
     buttonOptions[Messages.strGo] = function () {
         /**
-         * @var    the_form    object referring to the export form
+         * @var the_form object referring to the export form
          */
         var $form = $('#index_frm');
         Functions.ajaxShowMessage(Messages.strProcessingRequest);
@@ -5086,8 +5086,8 @@ Functions.getImage = function (image, alternate, attributes) {
  * NOTE: Depending on server's configuration, the configuration table may be or
  * not persistent.
  *
- * @param  {string}     key         Configuration key.
- * @param  {object}     value       Configuration value.
+ * @param {string}     key         Configuration key.
+ * @param {object}     value       Configuration value.
  */
 Functions.configSet = function (key, value) {
     var serialized = JSON.stringify(value);
@@ -5124,10 +5124,10 @@ Functions.configSet = function (key, value) {
  * If value should not be cached and the up-to-date configuration value from
  * right from the server is required, the third parameter should be `false`.
  *
- * @param  {string}     key         Configuration key.
- * @param  {boolean}    cached      Configuration type.
+ * @param {string}     key         Configuration key.
+ * @param {boolean}    cached      Configuration type.
  *
- * @return {object}                 Configuration value.
+ * @return {object}                Configuration value.
  */
 Functions.configGet = function (key, cached) {
     var isCached = (typeof cached !== 'undefined') ? cached : true;
