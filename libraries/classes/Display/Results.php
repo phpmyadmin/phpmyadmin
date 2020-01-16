@@ -4155,8 +4155,8 @@ class Results
         ]  = $this->_setDisplayPartsAndTotal($displayParts);
 
         // 1.2 Defines offsets for the next and previous pages
-        $pos_next = null;
-        $pos_prev = null;
+        $pos_next = 0;
+        $pos_prev = 0;
         if ($displayParts['nav_bar'] == '1') {
             [$pos_next, $pos_prev] = $this->_getOffsets();
         } // end if
@@ -4195,7 +4195,7 @@ class Results
 
         // 2.1 Prepares a messages with position information
         $sqlQueryMessage = '';
-        if (($displayParts['nav_bar'] == '1') && isset($pos_next)) {
+        if (($displayParts['nav_bar'] == '1') && $pos_next !== null) {
             $message = $this->_setMessageInformation(
                 $sorted_column_message,
                 $analyzed_sql_results,
@@ -4330,7 +4330,7 @@ class Results
     /**
      * Get offsets for next page and previous page
      *
-     * @return  array           array with two elements - $pos_next, $pos_prev
+     * @return int[] array with two elements - $pos_next, $pos_prev
      *
      * @access private
      *
