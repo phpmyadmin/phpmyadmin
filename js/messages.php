@@ -765,6 +765,7 @@ $js_messages['strU2FError'] = __('Failed security key activation (%s).');
 /* Designer */
 $js_messages['strTableAlreadyExists'] = _pgettext('The table already exists in the designer and can not be added once more.', 'Table %s already exists!');
 $js_messages['strHide'] = __('Hide');
+$js_messages['strShow'] = __('Show');
 $js_messages['strStructure'] = __('Structure');
 
 echo "var Messages = [];\n";
