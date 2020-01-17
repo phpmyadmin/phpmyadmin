@@ -26,6 +26,7 @@ phpMyAdmin - ChangeLog
 - issue #15674 Replace twig/extensions with phpmyadmin/twig-i18n-extension
 - issue #15799 Change location of profiling state documentation to fix column ordering
 - issue #15720 Fix designer adding all available tables to a designer page after adding a new relationship
+- issue #15791 Replace facebook/webdriver by php-webdriver/webdriver
 
 5.0.1 (2020-01-07)
 - issue #15719 Fixed error 500 when browsing a table when $cfg['LimitChars'] used a string and not an int value
