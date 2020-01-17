@@ -942,7 +942,7 @@ class StructureController extends AbstractController
             $sql_query = 'ALTER TABLE ' . Util::backquote($this->table) . ' ';
             $sql_query .= implode(', ', $changes) . $key_query;
             if (isset($_POST['online_transaction'])) {
-                $sql_query .= ', ALGORITHM=INPLACE';
+                $sql_query .= ', ALGORITHM=INPLACE, LOCK=NONE';
             }
             $sql_query .= ';';
 
