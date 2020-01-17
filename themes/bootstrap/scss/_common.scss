@@ -934,19 +934,7 @@ li.last.database {
   margin-bottom: 15px;
 }
 
-/* specific elements */
-
-#topmenu {
-  margin-top: 0.5em;
-  padding: 0.1em 0.3em;
-
-  a {
-    text-shadow: 0 1px 0 #fff;
-  }
-}
-
 ul {
-  &#topmenu,
   &#topmenu2,
   &.tabs {
     font-weight: bold;
@@ -961,7 +949,6 @@ ul {
     clear: both;
   }
 
-  &#topmenu li,
   &#topmenu2 li {
     float: left;
     margin: 0;
@@ -969,19 +956,9 @@ ul {
   }
 }
 
-#topmenu img,
 #topmenu2 img {
   margin-#{$right}: 0.5em;
   vertical-align: -3px;
-}
-
-.menucontainer {
-  background: linear-gradient(#fff, #dcdcdc);
-  border-top: 1px solid #aaa;
-}
-
-.scrollindicator {
-  display: none;
 }
 
 // default tab styles
@@ -1022,64 +999,6 @@ fieldset.caution a {
 }
 
 ul {
-  &#topmenu {
-    ul {
-      @if $direction == rtl {
-        -moz-box-shadow: -1px 1px 6px #ddd;
-        -webkit-box-shadow: -2px 2px 3px #666;
-        box-shadow: -2px 2px 3px #666;
-      } @else {
-        -moz-box-shadow: 1px 1px 6px #ddd;
-        -webkit-box-shadow: 2px 2px 3px #666;
-        box-shadow: 2px 2px 3px #666;
-      }
-
-      &.only {
-        #{$left}: 0;
-      }
-    }
-
-    > li {
-      border-#{$right}: 1px solid #fff;
-      border-#{$left}: 1px solid #ccc;
-      border-bottom: 1px solid #ccc;
-
-      &:first-child {
-        border-#{$left}: 0;
-      }
-    }
-
-    a,
-    span {
-      padding: 0.6em;
-    }
-
-    ul {
-      a {
-        border-width: 1pt 0 0 0;
-        -moz-border-radius: 0;
-        -webkit-border-radius: 0;
-        border-radius: 0;
-      }
-
-      li:first-child a {
-        border-width: 0;
-      }
-
-      a:hover,
-      .tabactive {
-        text-decoration: none;
-      }
-    }
-
-    > li > {
-      a:hover,
-      .tabactive {
-        text-decoration: none;
-      }
-    }
-  }
-
   &#topmenu2 a {
     &.tab:hover,
     &.tabactive {
@@ -1090,14 +1009,7 @@ ul {
       text-decoration: none;
     }
   }
-
-  // to be able to cancel the bottom border, use <li class="active">
-  &#topmenu > li.active {
-    border-#{$right}: 0;
-    border-bottom-color: #fff;
-  }
 }
-// end topmenu
 
 // zoom search
 div#dataDisplay {
@@ -3866,23 +3778,9 @@ body .ui-dialog {
 
 @media only screen and (max-width: 768px) {
   ul {
-    &#topmenu,
     &.tabs {
       display: flex;
     }
-  }
-
-  .navigationbar {
-    display: inline-flex;
-    margin: 0 !important;
-    border-radius: 0 !important;
-    overflow: auto;
-  }
-
-  .scrollindicator {
-    padding: 5px;
-    cursor: pointer;
-    display: inline;
   }
 
   .responsivetable {
