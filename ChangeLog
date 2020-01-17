@@ -10,6 +10,7 @@ phpMyAdmin - ChangeLog
 - issue #14909 Add a configuration option to define the 1st day of week
 - issue #12726 Made user names clickable in user accounts overview
 - issue #15729 Improve virtuality dropdown for MariaDB > 10.1
+- issue #15312 Added an option to perform ALTER ONLINE (ALGORITHM=INPLACE) when editing a table structure
 
 5.0.2 (not yet released)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page
