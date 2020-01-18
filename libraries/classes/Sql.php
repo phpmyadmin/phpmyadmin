@@ -391,7 +391,7 @@ class Sql
      *
      * @return string html for the set column
      */
-    private function getHtmlForSetColumn($db, $table, $column, $curr_value): string
+    public function getHtmlForSetColumn($db, $table, $column, $curr_value): string
     {
         $values = $this->getValuesForColumn($db, $table, $column);
 
@@ -722,29 +722,6 @@ class Sql
         $_SESSION['tmpval']['pos'] = $this->getStartPosToDisplayRow($unlim_num_rows);
 
         return $unlim_num_rows;
-    }
-
-    /**
-     * Function to get values for Set Columns
-     *
-     * @param string $db    the current database
-     * @param string $table the current table
-     *
-     * @return void
-     */
-    public function getSetValues($db, $table)
-    {
-        $column = $_POST['column'];
-        $curr_value = $_POST['curr_value'];
-        $response = Response::getInstance();
-        $select = $this->getHtmlForSetColumn(
-            $db,
-            $table,
-            $column,
-            $curr_value
-        );
-        $response->addJSON('select', $select);
-        exit;
     }
 
     /**

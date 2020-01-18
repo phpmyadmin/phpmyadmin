@@ -951,7 +951,6 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     if ($td.is('.truncated')) {
                         postParams = {
                             'ajax_request': true,
-                            'get_set_values': true,
                             'server': g.server,
                             'db': g.db,
                             'table': g.table,
@@ -963,7 +962,6 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     } else {
                         postParams = {
                             'ajax_request': true,
-                            'get_set_values': true,
                             'server': g.server,
                             'db': g.db,
                             'table': g.table,
@@ -972,7 +970,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                         };
                     }
 
-                    g.lastXHR = $.post('index.php?route=/sql', postParams, function (data) {
+                    g.lastXHR = $.post('index.php?route=/sql/get-set-values', postParams, function (data) {
                         g.lastXHR = null;
                         $editArea.removeClass('edit_area_loading');
                         $editArea.append(data.select);

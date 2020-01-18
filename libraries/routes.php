@@ -592,6 +592,9 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $routes->post('/get-enum-values', function () use ($controller) {
             $controller->getEnumValues();
         });
+        $routes->post('/get-set-values', function () use ($controller) {
+            $controller->getSetValues();
+        });
     });
     $routes->addGroup('/table', function (RouteCollector $routes) use ($containerBuilder) {
         $routes->addRoute(['GET', 'POST'], '/add-field', function () use ($containerBuilder) {

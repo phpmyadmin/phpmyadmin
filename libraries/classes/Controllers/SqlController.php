@@ -124,12 +124,6 @@ class SqlController extends AbstractController
             $db = $_POST['bkm_fields']['bkm_database'];
         }
 
-        // Find possible values for set fields during grid edit.
-        if (isset($_POST['get_set_values']) && $_POST['get_set_values'] == true) {
-            $this->sql->getSetValues($db, $table);
-            return;
-        }
-
         if (isset($_GET['get_default_fk_check_value'])
             && $_GET['get_default_fk_check_value'] == true
         ) {
@@ -293,5 +287,28 @@ class SqlController extends AbstractController
         ]);
 
         $this->response->addJSON('dropdown', $dropdown);
+    }
+
+    /**
+     * Get possible values for SET fields during grid edit.
+     *
+     * @return void
+     */
+    public function getSetValues(): void
+    {
+        global $db, $table;
+
+        $this->checkUserPrivileges->getPrivileges();
+
+        $column = $_POST['column'];
+        $curr_value = $_POST['curr_value'];
+        $select = $this->sql->getHtmlForSetColumn(
+            $db,
+            $table,
+            $column,
+            $curr_value
+        );
+
+        $this->response->addJSON('select', $select);
     }
 }
