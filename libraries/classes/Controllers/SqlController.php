@@ -124,14 +124,6 @@ class SqlController extends AbstractController
             $db = $_POST['bkm_fields']['bkm_database'];
         }
 
-        // During grid edit, if we have a relational field, show the dropdown for it.
-        if (isset($_POST['get_relational_values'])
-            && $_POST['get_relational_values'] == true
-        ) {
-            $this->sql->getRelationalValues($db, $table);
-            return;
-        }
-
         // Just like above, find possible values for enum fields during grid edit.
         if (isset($_POST['get_enum_values']) && $_POST['get_enum_values'] == true) {
             $this->sql->getEnumOrSetValues($db, $table, 'enum');
@@ -254,5 +246,36 @@ class SqlController extends AbstractController
             $selected ?? null,
             $complete_query ?? null
         );
+    }
+
+    /**
+     * Get values for the relational columns
+     *
+     * During grid edit, if we have a relational field, show the dropdown for it.
+     *
+     * @return void
+     */
+    public function getRelationalValues(): void
+    {
+        global $db, $table;
+
+        $this->checkUserPrivileges->getPrivileges();
+
+        $column = $_POST['column'];
+        if ($_SESSION['tmpval']['relational_display'] == 'D'
+            && isset($_POST['relation_key_or_display_column'])
+            && $_POST['relation_key_or_display_column']
+        ) {
+            $curr_value = $_POST['relation_key_or_display_column'];
+        } else {
+            $curr_value = $_POST['curr_value'];
+        }
+        $dropdown = $this->sql->getHtmlForRelationalColumnDropdown(
+            $db,
+            $table,
+            $column,
+            $curr_value
+        );
+        $this->response->addJSON('dropdown', $dropdown);
     }
 }

@@ -881,7 +881,6 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                      */
                     postParams = {
                         'ajax_request' : true,
-                        'get_relational_values' : true,
                         'server' : g.server,
                         'db' : g.db,
                         'table' : g.table,
@@ -890,7 +889,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                         'relation_key_or_display_column' : relationKeyOrDisplayColumn
                     };
 
-                    g.lastXHR = $.post('index.php?route=/sql', postParams, function (data) {
+                    g.lastXHR = $.post('index.php?route=/sql/get-relational-values', postParams, function (data) {
                         g.lastXHR = null;
                         $editArea.removeClass('edit_area_loading');
                         if ($(data.dropdown).is('select')) {

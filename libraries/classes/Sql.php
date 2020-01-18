@@ -241,7 +241,7 @@ class Sql
      *
      * @return string html for the dropdown
      */
-    private function getHtmlForRelationalColumnDropdown($db, $table, $column, $curr_value)
+    public function getHtmlForRelationalColumnDropdown($db, $table, $column, $curr_value)
     {
         $foreigners = $this->relation->getForeigners($db, $table, $column);
 
@@ -743,36 +743,6 @@ class Sql
         $_SESSION['tmpval']['pos'] = $this->getStartPosToDisplayRow($unlim_num_rows);
 
         return $unlim_num_rows;
-    }
-
-    /**
-     * Function to get values for the relational columns
-     *
-     * @param string $db    the current database
-     * @param string $table the current table
-     *
-     * @return void
-     */
-    public function getRelationalValues($db, $table)
-    {
-        $column = $_POST['column'];
-        if ($_SESSION['tmpval']['relational_display'] == 'D'
-            && isset($_POST['relation_key_or_display_column'])
-            && $_POST['relation_key_or_display_column']
-        ) {
-            $curr_value = $_POST['relation_key_or_display_column'];
-        } else {
-            $curr_value = $_POST['curr_value'];
-        }
-        $dropdown = $this->getHtmlForRelationalColumnDropdown(
-            $db,
-            $table,
-            $column,
-            $curr_value
-        );
-        $response = Response::getInstance();
-        $response->addJSON('dropdown', $dropdown);
-        exit;
     }
 
     /**

@@ -580,10 +580,15 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             });
         });
     });
-    $routes->addRoute(['GET', 'POST'], '/sql', function () use ($containerBuilder) {
+    $routes->addGroup('/sql', function (RouteCollector $routes) use ($containerBuilder) {
         /** @var SqlController $controller */
         $controller = $containerBuilder->get(SqlController::class);
-        $controller->index();
+        $routes->addRoute(['GET', 'POST'], '', function () use ($controller) {
+            $controller->index();
+        });
+        $routes->post('/get-relational-values', function () use ($controller) {
+            $controller->getRelationalValues();
+        });
     });
     $routes->addGroup('/table', function (RouteCollector $routes) use ($containerBuilder) {
         $routes->addRoute(['GET', 'POST'], '/add-field', function () use ($containerBuilder) {
