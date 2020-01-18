@@ -124,16 +124,6 @@ class SqlController extends AbstractController
             $db = $_POST['bkm_fields']['bkm_database'];
         }
 
-        if (isset($_GET['get_default_fk_check_value'])
-            && $_GET['get_default_fk_check_value'] == true
-        ) {
-            $this->response->addJSON(
-                'default_fk_check_value',
-                Util::isForeignKeyCheck()
-            );
-            return;
-        }
-
         /**
          * Check ajax request to set the column order and visibility
          */
@@ -310,5 +300,18 @@ class SqlController extends AbstractController
         );
 
         $this->response->addJSON('select', $select);
+    }
+
+    /**
+     * @return void
+     */
+    public function getDefaultForeignKeyCheckValue(): void
+    {
+        $this->checkUserPrivileges->getPrivileges();
+
+        $this->response->addJSON(
+            'default_fk_check_value',
+            Util::isForeignKeyCheck()
+        );
     }
 }

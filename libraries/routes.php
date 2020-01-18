@@ -595,6 +595,9 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $routes->post('/get-set-values', function () use ($controller) {
             $controller->getSetValues();
         });
+        $routes->get('/get-default-fk-check-value', function () use ($controller) {
+            $controller->getDefaultForeignKeyCheckValue();
+        });
     });
     $routes->addGroup('/table', function (RouteCollector $routes) use ($containerBuilder) {
         $routes->addRoute(['GET', 'POST'], '/add-field', function () use ($containerBuilder) {
