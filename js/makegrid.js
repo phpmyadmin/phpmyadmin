@@ -926,14 +926,13 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                      */
                     postParams = {
                         'ajax_request' : true,
-                        'get_enum_values' : true,
                         'server' : g.server,
                         'db' : g.db,
                         'table' : g.table,
                         'column' : fieldName,
                         'curr_value' : currValue
                     };
-                    g.lastXHR = $.post('index.php?route=/sql', postParams, function (data) {
+                    g.lastXHR = $.post('index.php?route=/sql/get-enum-values', postParams, function (data) {
                         g.lastXHR = null;
                         $editArea.removeClass('edit_area_loading');
                         $editArea.append(data.dropdown);

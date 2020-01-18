@@ -361,27 +361,6 @@ class Sql
     }
 
     /**
-     * Get the HTML for the enum column dropdown
-     * During grid edit, if we have a enum field, returns the html for the
-     * dropdown
-     *
-     * @param string $db         current database
-     * @param string $table      current table
-     * @param string $column     current column
-     * @param string $curr_value currently selected value
-     *
-     * @return string html for the dropdown
-     */
-    private function getHtmlForEnumColumnDropdown($db, $table, $column, $curr_value)
-    {
-        $values = $this->getValuesForColumn($db, $table, $column);
-        return $this->template->render('sql/enum_column_dropdown', [
-            'values' => $values,
-            'selected_values' => [$curr_value],
-        ]);
-    }
-
-    /**
      * Get value of a column for a specific row (marked by $where_clause)
      *
      * @param string $db           current database
@@ -456,7 +435,7 @@ class Sql
      *
      * @return array array containing the value list for the column
      */
-    private function getValuesForColumn($db, $table, $column)
+    public function getValuesForColumn($db, $table, $column)
     {
         $field_info_query = $GLOBALS['dbi']->getColumnsSql($db, $table, $column);
 
@@ -746,36 +725,25 @@ class Sql
     }
 
     /**
-     * Function to get values for Enum or Set Columns
+     * Function to get values for Set Columns
      *
-     * @param string $db         the current database
-     * @param string $table      the current table
-     * @param string $columnType whether enum or set
+     * @param string $db    the current database
+     * @param string $table the current table
      *
      * @return void
      */
-    public function getEnumOrSetValues($db, $table, $columnType)
+    public function getSetValues($db, $table)
     {
         $column = $_POST['column'];
         $curr_value = $_POST['curr_value'];
         $response = Response::getInstance();
-        if ($columnType == 'enum') {
-            $dropdown = $this->getHtmlForEnumColumnDropdown(
-                $db,
-                $table,
-                $column,
-                $curr_value
-            );
-            $response->addJSON('dropdown', $dropdown);
-        } else {
-            $select = $this->getHtmlForSetColumn(
-                $db,
-                $table,
-                $column,
-                $curr_value
-            );
-            $response->addJSON('select', $select);
-        }
+        $select = $this->getHtmlForSetColumn(
+            $db,
+            $table,
+            $column,
+            $curr_value
+        );
+        $response->addJSON('select', $select);
         exit;
     }
 

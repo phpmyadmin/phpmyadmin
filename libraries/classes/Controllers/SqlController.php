@@ -124,15 +124,9 @@ class SqlController extends AbstractController
             $db = $_POST['bkm_fields']['bkm_database'];
         }
 
-        // Just like above, find possible values for enum fields during grid edit.
-        if (isset($_POST['get_enum_values']) && $_POST['get_enum_values'] == true) {
-            $this->sql->getEnumOrSetValues($db, $table, 'enum');
-            return;
-        }
-
         // Find possible values for set fields during grid edit.
         if (isset($_POST['get_set_values']) && $_POST['get_set_values'] == true) {
-            $this->sql->getEnumOrSetValues($db, $table, 'set');
+            $this->sql->getSetValues($db, $table);
             return;
         }
 
@@ -276,6 +270,28 @@ class SqlController extends AbstractController
             $column,
             $curr_value
         );
+        $this->response->addJSON('dropdown', $dropdown);
+    }
+
+    /**
+     * Get possible values for enum fields during grid edit.
+     *
+     * @return void
+     */
+    public function getEnumValues(): void
+    {
+        global $db, $table;
+
+        $this->checkUserPrivileges->getPrivileges();
+
+        $column = $_POST['column'];
+        $curr_value = $_POST['curr_value'];
+        $values = $this->sql->getValuesForColumn($db, $table, $column);
+        $dropdown = $this->template->render('sql/enum_column_dropdown', [
+            'values' => $values,
+            'selected_values' => [$curr_value],
+        ]);
+
         $this->response->addJSON('dropdown', $dropdown);
     }
 }

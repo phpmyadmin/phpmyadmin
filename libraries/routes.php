@@ -589,6 +589,9 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $routes->post('/get-relational-values', function () use ($controller) {
             $controller->getRelationalValues();
         });
+        $routes->post('/get-enum-values', function () use ($controller) {
+            $controller->getEnumValues();
+        });
     });
     $routes->addGroup('/table', function (RouteCollector $routes) use ($containerBuilder) {
         $routes->addRoute(['GET', 'POST'], '/add-field', function () use ($containerBuilder) {
