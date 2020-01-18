@@ -384,7 +384,6 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     'table': g.table,
                     'token': g.token,
                     'server': g.server,
-                    'set_col_prefs': true,
                     'table_create_time': g.tableCreateTime
                 };
                 if (g.colOrder.length > 0) {
@@ -393,7 +392,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 if (g.colVisib.length > 0) {
                     $.extend(postParams, { 'col_visib': g.colVisib.toString() });
                 }
-                $.post('index.php?route=/sql', postParams, function (data) {
+                $.post('index.php?route=/sql/set-column-preferences', postParams, function (data) {
                     if (data.success !== true) {
                         var $tempDiv = $(document.createElement('div'));
                         $tempDiv.html(data.error);

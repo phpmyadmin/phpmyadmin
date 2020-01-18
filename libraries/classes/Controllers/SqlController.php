@@ -11,6 +11,7 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
@@ -122,14 +123,6 @@ class SqlController extends AbstractController
         // This one is just to fill $db
         if (isset($_POST['bkm_fields']['bkm_database'])) {
             $db = $_POST['bkm_fields']['bkm_database'];
-        }
-
-        /**
-         * Check ajax request to set the column order and visibility
-         */
-        if (isset($_POST['set_col_prefs']) && $_POST['set_col_prefs'] == true) {
-            $this->sql->setColumnOrderOrVisibility($table, $db);
-            return;
         }
 
         // Default to browse if no query set and we have table
@@ -313,5 +306,36 @@ class SqlController extends AbstractController
             'default_fk_check_value',
             Util::isForeignKeyCheck()
         );
+    }
+
+    /**
+     * @return void
+     */
+    public function setColumnOrderOrVisibility(): void
+    {
+        global $db, $table;
+
+        $this->checkUserPrivileges->getPrivileges();
+
+        $tableObject = $this->dbi->getTable($db, $table);
+        $status = false;
+
+        // set column order
+        if (isset($_POST['col_order'])) {
+            $status = $this->sql->setColumnProperty($tableObject, 'col_order');
+        }
+
+        // set column visibility
+        if ($status === true && isset($_POST['col_visib'])) {
+            $status = $this->sql->setColumnProperty($tableObject, 'col_visib');
+        }
+
+        if ($status instanceof Message) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', $status->getString());
+            return;
+        }
+
+        $this->response->setRequestStatus($status === true);
     }
 }
