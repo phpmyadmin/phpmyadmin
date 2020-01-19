@@ -599,6 +599,16 @@ function addNewContinueInsertionFiels (event) {
             $anchor.attr('href', newHref);
         };
 
+        var restoreValue = function () {
+            if ($(this).closest('tr').find('span.column_type').html() === 'enum') {
+                if ($(this).val() === $checkedValue) {
+                    $(this).prop('checked', true);
+                } else {
+                    $(this).prop('checked', false);
+                }
+            }
+        };
+
         while (currRows < targetRows) {
             /**
              * @var $last_row    Object referring to the last row
@@ -609,6 +619,7 @@ function addNewContinueInsertionFiels (event) {
             // (also needs improvement because it should be calculated
             //  just once per cloned row, not once per column)
             var newRowIndex = 0;
+            var $checkedValue = $lastRow.find('input:checked').val();
 
             // Clone the insert tables
             $lastRow
@@ -619,6 +630,22 @@ function addNewContinueInsertionFiels (event) {
                 .end()
                 .find('.foreign_values_anchor')
                 .each(tempReplaceAnchor);
+
+            var $oldRow = $lastRow.find('.textfield');
+            $oldRow.each(restoreValue);
+
+            // set the value of enum field of new row to default
+            var $newRow = $('#insertForm').find('.insertRowTable:last');
+            $newRow.find('.textfield').each(function () {
+                if ($(this).closest('tr').find('span.column_type').html() === 'enum') {
+                    if ($(this).val() === $(this).closest('tr').find('span.default_value').html()) {
+                        $(this).prop('checked', true);
+                    } else {
+                        $(this).prop('checked', false);
+                    }
+                }
+            });
+
 
             // Insert/Clone the ignore checkboxes
             if (currRows === 1) {
@@ -667,15 +694,6 @@ function addNewContinueInsertionFiels (event) {
                 $(this).attr('tabindex', tabIndex);
                 // update the IDs of textfields to ensure that they are unique
                 $(this).attr('id', 'field_' + tabIndex + '_3');
-
-                // special handling for radio fields after updating ids to unique
-                if ($(this).closest('tr').find('span.column_type').html() === 'enum') {
-                    if ($(this).val() === $(this).closest('tr').find('span.default_value').html()) {
-                        $(this).prop('checked', true);
-                    } else {
-                        $(this).prop('checked', false);
-                    }
-                }
             });
         $('.control_at_footer')
             .each(function () {
