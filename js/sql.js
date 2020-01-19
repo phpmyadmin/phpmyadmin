@@ -155,7 +155,9 @@ Sql.getFieldName = function ($tableResults, $thisField) {
     // of the column name so we strip it ( .clone() to .end() )
     var fieldName = $tableResults
         .find('thead')
-        .find('th:eq(' + (thisFieldIndex - leftActionSkip) + ') a')
+        .find('th')
+        .eq(thisFieldIndex - leftActionSkip)
+        .find('a')
         .clone()    // clone the element
         .children() // select all the children
         .remove()   // remove all of them
@@ -865,7 +867,7 @@ Sql.changeClassForColumn = function ($thisTh, newClass, isAddClass) {
     if (! $table.length) {
         $table = $thisTh.parents('table').siblings('.table_results');
     }
-    var $tds = $table.find('tbody tr').find('td.data:eq(' + thIndex + ')');
+    var $tds = $table.find('tbody tr').find('td.data').eq(thIndex);
     if (isAddClass === undefined) {
         $tds.toggleClass(newClass);
     } else {

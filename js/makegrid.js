@@ -92,7 +92,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 n: n,
                 obj: obj,
                 objLeft: $(obj).position().left,
-                objWidth: $(g.t).find('th.draggable:visible:eq(' + n + ') span').outerWidth()
+                objWidth: $(g.t).find('th.draggable:visible').eq(n).find('span').outerWidth()
             };
             $(document.body).css('cursor', 'col-resize').noSelect();
             if (g.isCellEditActive) {
@@ -242,8 +242,8 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
          */
         resize: function (n, nw) {
             $(g.t).find('tr').each(function () {
-                $(this).find('th.draggable:visible:eq(' + n + ') span,' +
-                             'td:visible:eq(' + (g.actionSpan + n) + ') span')
+                $(this).find('th.draggable:visible').eq(n).find('span')
+                    .add($(this).find('td:visible').eq(g.actionSpan + n).find('span'))
                     .css('width', nw);
             });
         },
@@ -304,11 +304,11 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
             // adjust the column visibility list
             if (newn < oldn) {
-                $(g.cList).find('.lDiv div:eq(' + newn + ')')
-                    .before($(g.cList).find('.lDiv div:eq(' + oldn + ')'));
+                $(g.cList).find('.lDiv div').eq(newn)
+                    .before($(g.cList).find('.lDiv div').eq(oldn));
             } else {
-                $(g.cList).find('.lDiv div:eq(' + newn + ')')
-                    .after($(g.cList).find('.lDiv div:eq(' + oldn + ')'));
+                $(g.cList).find('.lDiv div').eq(newn)
+                    .after($(g.cList).find('.lDiv div').eq(oldn));
             }
             // adjust the colOrder
             var tmp = g.colOrder[oldn];
@@ -481,10 +481,10 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                             .hide();
                     });
                     g.colVisib[n] = 0;
-                    $(g.cList).find('.lDiv div:eq(' + n + ') input').prop('checked', false);
+                    $(g.cList).find('.lDiv div').eq(n).find('input').prop('checked', false);
                 } else {
                     // cannot hide, force the checkbox to stay checked
-                    $(g.cList).find('.lDiv div:eq(' + n + ') input').prop('checked', true);
+                    $(g.cList).find('.lDiv div').eq(n).find('input').prop('checked', true);
                     return false;
                 }
             } else {    // column n is not visible
@@ -494,7 +494,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                         .show();
                 });
                 g.colVisib[n] = 1;
-                $(g.cList).find('.lDiv div:eq(' + n + ') input').prop('checked', true);
+                $(g.cList).find('.lDiv div').eq(n).find('input').prop('checked', true);
             }
             return true;
         },
@@ -552,7 +552,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
         reposDrop: function () {
             var $th = $(t).find('th:not(.draggable)');
             for (var i = 0; i < $th.length; i++) {
-                var $cd = $(g.cDrop).find('div:eq(' + i + ')');   // column drop-down arrow
+                var $cd = $(g.cDrop).find('div').eq(i);   // column drop-down arrow
                 var pos = $($th[i]).position();
                 $cd.css({
                     left: pos.left + $($th[i]).width() - $cd.width(),
@@ -713,13 +713,13 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 }
                 if (data.transformations !== undefined) {
                     $.each(data.transformations, function (cellIndex, value) {
-                        var $thisField = $(g.t).find('.to_be_saved:eq(' + cellIndex + ')');
+                        var $thisField = $(g.t).find('.to_be_saved').eq(cellIndex);
                         $thisField.find('span').html(value);
                     });
                 }
                 if (data.relations !== undefined) {
                     $.each(data.relations, function (cellIndex, value) {
-                        var $thisField = $(g.t).find('.to_be_saved:eq(' + cellIndex + ')');
+                        var $thisField = $(g.t).find('.to_be_saved').eq(cellIndex);
                         $thisField.find('span').html(value);
                     });
                 }
