@@ -534,7 +534,7 @@ class CreateAddField
         $sqlQuery = 'ALTER TABLE ' .
             Util::backquote($table) . ' ' . $sqlStatement;
         if (isset($_POST['online_transaction'])) {
-            $sqlQuery .= ', ALGORITHM=INPLACE';
+            $sqlQuery .= ', ALGORITHM=INPLACE, LOCK=NONE';
         }
         $sqlQuery .= ';';
 
