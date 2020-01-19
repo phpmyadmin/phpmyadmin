@@ -528,6 +528,8 @@ DesignerMove.addTableToTablesList = function (index, tableDom) {
     var table = $(tableDom).find('.small_tab_pref').attr('table_name');
     var dbEncoded = $(tableDom).find('.small_tab_pref').attr('db_url');
     var tableEncoded = $(tableDom).find('.small_tab_pref').attr('table_name_url');
+    var tableIsChecked = $(tableDom).css('display') === 'block' ? 'checked' : '';
+    var checkboxStatus = (tableIsChecked === 'checked') ? Messages.strHide : Messages.strShow;
     var $newTableLine = $('<tr>' +
         '    <td title="' + Messages.strStructure + '"' +
         '        width="1px"' +
@@ -540,12 +542,11 @@ DesignerMove.addTableToTablesList = function (index, tableDom) {
         '    </td>' +
         '    <td width="1px">' +
         '        <input class="scroll_tab_checkbox"' +
-        '            title="' + Messages.strHide + '"' +
+        '            title="' + checkboxStatus + '"' +
         '            id="check_vis_' + dbEncoded + '.' + tableEncoded + '"' +
         '            style="margin:0;"' +
         '            type="checkbox"' +
-        '            value="' + dbEncoded + '.' + tableEncoded + '"' +
-        '            checked="checked"' +
+        '            value="' + dbEncoded + '.' + tableEncoded + '"' + tableIsChecked +
         '            />' +
         '    </td>' +
         '    <td class="designer_Tabs"' +
@@ -559,6 +560,9 @@ DesignerMove.addTableToTablesList = function (index, tableDom) {
         DesignerMove.selectTab($(this).attr('designer_url_table_name'));
     });
     $($newTableLine).find('.scroll_tab_checkbox').on('click', function () {
+        $(this).attr('title', function (i, currentvalue) {
+            return currentvalue === Messages.strHide ? Messages.strShow : Messages.strHide;
+        });
         DesignerMove.visibleTab(this,$(this).val());
     });
     var $tablesCounter = $('#tables_counter');
@@ -1589,6 +1593,7 @@ DesignerMove.visibleTab = function (id, tN) {
         document.getElementById(tN).style.display = 'none';
     }
     DesignerMove.reload();
+    DesignerMove.markUnsaved();
 };
 
 // max/min all tables

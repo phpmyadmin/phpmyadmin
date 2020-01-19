@@ -23,37 +23,37 @@ class Theme
 {
     /**
      * @var string theme version
-     * @access  protected
+     * @access protected
      */
     public $version = '0.0.0.0';
 
     /**
      * @var string theme name
-     * @access  protected
+     * @access protected
      */
     public $name = '';
 
     /**
      * @var string theme id
-     * @access  protected
+     * @access protected
      */
     public $id = '';
 
     /**
      * @var string theme path
-     * @access  protected
+     * @access protected
      */
     public $path = '';
 
     /**
      * @var string image path
-     * @access  protected
+     * @access protected
      */
     public $img_path = '';
 
     /**
      * @var integer last modification time for info file
-     * @access  protected
+     * @access protected
      */
     public $mtime_info = 0;
 
@@ -62,7 +62,7 @@ class Theme
      * is identical
      *
      * @var integer filesize for info file
-     * @access  protected
+     * @access protected
      */
     public $filesize_info = 0;
 
@@ -101,7 +101,7 @@ class Theme
      *
      * @return boolean whether loading them info was successful or not
      *
-     * @access  public
+     * @access public
      */
     public function loadInfo()
     {
@@ -297,7 +297,7 @@ class Theme
      *
      * @return string name
      *
-     * @access  public
+     * @access public
      */
     public function getName()
     {

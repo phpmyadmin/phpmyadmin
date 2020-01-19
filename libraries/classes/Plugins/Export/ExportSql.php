@@ -754,8 +754,7 @@ class ExportSql extends ExportPlugin
         }
 
         if (isset($GLOBALS['sql_use_transaction'])) {
-            $head .= 'SET AUTOCOMMIT = 0;' . $crlf
-                . 'START TRANSACTION;' . $crlf;
+            $head .= 'START TRANSACTION;' . $crlf;
         }
 
         /* Change timezone if we should export timestamps in UTC */

@@ -189,6 +189,7 @@ class Normalization
             'is_virtual_columns_supported' => Util::isVirtualColumnsSupported(),
             'browse_mime' => $GLOBALS['cfg']['BrowseMIME'],
             'server_type' => Util::getServerType(),
+            'server_version' => $this->dbi->getVersion(),
             'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
             'char_editing' => $GLOBALS['cfg']['CharEditing'],
             'attribute_types' => $this->dbi->types->getAttributes(),

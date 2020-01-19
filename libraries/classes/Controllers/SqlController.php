@@ -11,6 +11,7 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
@@ -124,44 +125,6 @@ class SqlController extends AbstractController
             $db = $_POST['bkm_fields']['bkm_database'];
         }
 
-        // During grid edit, if we have a relational field, show the dropdown for it.
-        if (isset($_POST['get_relational_values'])
-            && $_POST['get_relational_values'] == true
-        ) {
-            $this->sql->getRelationalValues($db, $table);
-            return;
-        }
-
-        // Just like above, find possible values for enum fields during grid edit.
-        if (isset($_POST['get_enum_values']) && $_POST['get_enum_values'] == true) {
-            $this->sql->getEnumOrSetValues($db, $table, 'enum');
-            return;
-        }
-
-        // Find possible values for set fields during grid edit.
-        if (isset($_POST['get_set_values']) && $_POST['get_set_values'] == true) {
-            $this->sql->getEnumOrSetValues($db, $table, 'set');
-            return;
-        }
-
-        if (isset($_GET['get_default_fk_check_value'])
-            && $_GET['get_default_fk_check_value'] == true
-        ) {
-            $this->response->addJSON(
-                'default_fk_check_value',
-                Util::isForeignKeyCheck()
-            );
-            return;
-        }
-
-        /**
-         * Check ajax request to set the column order and visibility
-         */
-        if (isset($_POST['set_col_prefs']) && $_POST['set_col_prefs'] == true) {
-            $this->sql->setColumnOrderOrVisibility($table, $db);
-            return;
-        }
-
         // Default to browse if no query set and we have table
         // (needed for browsing from DefaultTabTable)
         if (empty($sql_query) && strlen($table) > 0 && strlen($db) > 0) {
@@ -182,8 +145,6 @@ class SqlController extends AbstractController
             $db,
             $table_from_sql,
         ] = ParseAnalyze::sqlQuery($sql_query, $db);
-        // @todo: possibly refactor
-        extract($analyzed_sql_results);
 
         if ($table != $table_from_sql && ! empty($table_from_sql)) {
             $table = $table_from_sql;
@@ -256,5 +217,125 @@ class SqlController extends AbstractController
             $selected ?? null,
             $complete_query ?? null
         );
+    }
+
+    /**
+     * Get values for the relational columns
+     *
+     * During grid edit, if we have a relational field, show the dropdown for it.
+     *
+     * @return void
+     */
+    public function getRelationalValues(): void
+    {
+        global $db, $table;
+
+        $this->checkUserPrivileges->getPrivileges();
+
+        $column = $_POST['column'];
+        if ($_SESSION['tmpval']['relational_display'] == 'D'
+            && isset($_POST['relation_key_or_display_column'])
+            && $_POST['relation_key_or_display_column']
+        ) {
+            $curr_value = $_POST['relation_key_or_display_column'];
+        } else {
+            $curr_value = $_POST['curr_value'];
+        }
+        $dropdown = $this->sql->getHtmlForRelationalColumnDropdown(
+            $db,
+            $table,
+            $column,
+            $curr_value
+        );
+        $this->response->addJSON('dropdown', $dropdown);
+    }
+
+    /**
+     * Get possible values for enum fields during grid edit.
+     *
+     * @return void
+     */
+    public function getEnumValues(): void
+    {
+        global $db, $table;
+
+        $this->checkUserPrivileges->getPrivileges();
+
+        $column = $_POST['column'];
+        $curr_value = $_POST['curr_value'];
+        $values = $this->sql->getValuesForColumn($db, $table, $column);
+        $dropdown = $this->template->render('sql/enum_column_dropdown', [
+            'values' => $values,
+            'selected_values' => [$curr_value],
+        ]);
+
+        $this->response->addJSON('dropdown', $dropdown);
+    }
+
+    /**
+     * Get possible values for SET fields during grid edit.
+     *
+     * @return void
+     */
+    public function getSetValues(): void
+    {
+        global $db, $table;
+
+        $this->checkUserPrivileges->getPrivileges();
+
+        $column = $_POST['column'];
+        $curr_value = $_POST['curr_value'];
+        $select = $this->sql->getHtmlForSetColumn(
+            $db,
+            $table,
+            $column,
+            $curr_value
+        );
+
+        $this->response->addJSON('select', $select);
+    }
+
+    /**
+     * @return void
+     */
+    public function getDefaultForeignKeyCheckValue(): void
+    {
+        $this->checkUserPrivileges->getPrivileges();
+
+        $this->response->addJSON(
+            'default_fk_check_value',
+            Util::isForeignKeyCheck()
+        );
+    }
+
+    /**
+     * @return void
+     */
+    public function setColumnOrderOrVisibility(): void
+    {
+        global $db, $table;
+
+        $this->checkUserPrivileges->getPrivileges();
+
+        $tableObject = $this->dbi->getTable($db, $table);
+        $status = false;
+
+        // set column order
+        if (isset($_POST['col_order'])) {
+            $status = $this->sql->setColumnProperty($tableObject, 'col_order');
+        }
+
+        // set column visibility
+        if ($status === true && isset($_POST['col_visib'])) {
+            $status = $this->sql->setColumnProperty($tableObject, 'col_visib');
+        }
+
+        if ($status instanceof Message) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', $status->getString());
+            return;
+        }
+
+        $this->response->setRequestStatus($status === true);
     }
 }

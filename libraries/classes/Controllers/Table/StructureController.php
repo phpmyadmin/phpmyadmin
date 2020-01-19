@@ -824,8 +824,6 @@ class StructureController extends AbstractController
             $analyzed_sql_results,
             $db,
         ] = ParseAnalyze::sqlQuery($sql_query, $db);
-        // @todo: possibly refactor
-        extract($analyzed_sql_results);
 
         $sql = new Sql();
         $this->response->addHTML(
@@ -938,8 +936,12 @@ class StructureController extends AbstractController
                     $err_url
                 );
             }
+
             $sql_query = 'ALTER TABLE ' . Util::backquote($this->table) . ' ';
             $sql_query .= implode(', ', $changes) . $key_query;
+            if (isset($_POST['online_transaction'])) {
+                $sql_query .= ', ALGORITHM=INPLACE, LOCK=NONE';
+            }
             $sql_query .= ';';
 
             // If there is a request for SQL previewing.
@@ -1317,7 +1319,10 @@ class StructureController extends AbstractController
 
         $engine = $this->table_obj->getStorageEngine();
         return $this->template->render('table/structure/display_structure', [
-            'url_params' => $url_params,
+            'url_params' => [
+                'db' => $this->db,
+                'table' => $this->table,
+            ],
             'collations' => $collations,
             'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
             'displayIndexesHtml' => Index::getHtmlForDisplayIndexes(),

@@ -29,7 +29,7 @@ class MySQLDocumentation
      *
      * @return string  the html link
      *
-     * @access  public
+     * @access public
      */
     public static function show(
         $link,
@@ -66,7 +66,7 @@ class MySQLDocumentation
      *
      * @return string  the html link
      *
-     * @access  public
+     * @access public
      */
     public static function showDocumentation($page, $anchor = '', $bbcode = false): string
     {

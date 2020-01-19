@@ -530,8 +530,14 @@ class CreateAddField
                 $errorUrl
             );
         }
+
         $sqlQuery = 'ALTER TABLE ' .
-            Util::backquote($table) . ' ' . $sqlStatement . ';';
+            Util::backquote($table) . ' ' . $sqlStatement;
+        if (isset($_POST['online_transaction'])) {
+            $sqlQuery .= ', ALGORITHM=INPLACE, LOCK=NONE';
+        }
+        $sqlQuery .= ';';
+
         // If there is a request for SQL previewing.
         if (isset($_POST['preview_sql'])) {
             Core::previewSQL($sqlQuery);

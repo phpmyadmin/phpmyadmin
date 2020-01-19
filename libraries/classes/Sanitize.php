@@ -240,7 +240,7 @@ class Sanitize
      *
      * @return string   the formatted string
      *
-     * @access  public
+     * @access public
      */
     public static function jsFormat($a_string = '', $add_backquotes = true)
     {

@@ -15,11 +15,11 @@ var DragDropImport = {
      */
     liveUploadCount: 0,
     /**
-     * @var  string array, allowed extensions
+     * @var string array, allowed extensions
      */
     allowedExtensions: ['sql', 'xml', 'ldi', 'mediawiki', 'shp'],
     /**
-     * @var  string array, allowed extensions for compressed files
+     * @var string array, allowed extensions for compressed files
      */
     allowedCompressedExtensions: ['gz', 'bz2', 'zip'],
     /**

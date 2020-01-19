@@ -355,7 +355,7 @@ class Table
     /**
      * Returns the Table storage Engine for current table.
      *
-     * @return   string               Return storage engine info if it is set for
+     * @return string                 Return storage engine info if it is set for
      *                                the selected table else return blank.
      */
     public function getStorageEngine()

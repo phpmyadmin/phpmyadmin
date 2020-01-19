@@ -897,10 +897,7 @@ td.disabled {
 
 /* specific elements */
 
-/* topmenu */
-
 ul {
-  &#topmenu,
   &#topmenu2 {
     list-style-type: none;
     margin: 0;
@@ -918,7 +915,6 @@ ul {
     clear: both;
   }
 
-  &#topmenu li,
   &#topmenu2 li {
     float: $left;
     margin: 0;
@@ -928,24 +924,9 @@ ul {
   }
 }
 
-#topmenu img,
 #topmenu2 img {
   margin-#{$right}: 0.5em;
   vertical-align: -3px;
-}
-
-.menucontainer {
-  background-color: $th-background;
-  height: 48px;
-}
-
-.scrollindicator {
-  display: none;
-}
-
-/* default tab styles */
-#topmenu .tabactive {
-  background: #fff !important;
 }
 
 #topmenu2 .tabactive {
@@ -1033,65 +1014,14 @@ fieldset.caution li {
   }
 }
 
-#topmenu {
-  padding-#{$left}: 20px;
-  padding-#{$right}: 20px;
-}
-
 /* default tab styles */
 ul {
-  &#topmenu {
-    ul.only {
-      #{$left}: 0;
-    }
-
-    a,
-    span {
-      padding: 5px 10px;
-      height: 28px;
-      line-height: 28px;
-      font-family: $font-family-extra-bold;
-      text-transform: uppercase;
-      color: #666;
-      font-weight: normal;
-    }
-
-    ul {
-      a {
-        border-width: 1pt 0 0 0;
-      }
-
-      li:first-child a {
-        border-width: 0;
-      }
-
-      a:hover,
-      .tabactive {
-        text-decoration: none;
-      }
-    }
-
-    /* enabled hover/active tabs */
-    > li > {
-      a:hover,
-      .tabactive {
-        text-decoration: none;
-        color: #333;
-      }
-    }
-  }
-
   &#topmenu2 a {
     text-decoration: none;
 
     &:hover {
       text-decoration: none;
     }
-  }
-
-  /* to be able to cancel the bottom border, use <li class="active"> */
-  &#topmenu > li.active {
-    border-#{$right}: 0;
   }
 }
 

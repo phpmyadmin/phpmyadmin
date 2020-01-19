@@ -61,14 +61,23 @@ final class ImportController extends AbstractController
         global $timestamp, $maximum_time, $timeout_passed, $import_file, $go_sql, $sql_file, $error, $max_sql_len, $msg;
         global $file_to_unlink, $sql_query_disabled, $executed_queries, $run_query, $reset_charset, $bookmark_created;
         global $result, $import_file_name, $sql_data, $import_notice, $read_multiply, $my_die, $active_page;
+        global $show_as_php, $reload, $charset_connection, $is_js_confirmed, $MAX_FILE_SIZE, $message_to_show;
+        global $noplugin, $skip_queries;
+
+        $charset_of_file = $_POST['charset_of_file'] ?? null;
+        $format = $_POST['format'] ?? '';
+        $import_type = $_POST['import_type'] ?? null;
+        $is_js_confirmed = $_POST['is_js_confirmed'] ?? null;
+        $MAX_FILE_SIZE = $_POST['MAX_FILE_SIZE'] ?? null;
+        $message_to_show = $_POST['message_to_show'] ?? null;
+        $noplugin = $_POST['noplugin'] ?? null;
+        $skip_queries = $_POST['skip_queries'] ?? null;
+        $local_import_file = $_POST['local_import_file'] ?? null;
+        $show_as_php = $_POST['show_as_php'] ?? null;
 
         /* Enable LOAD DATA LOCAL INFILE for LDI plugin */
-        if (isset($_POST['format']) && $_POST['format'] == 'ldi') {
+        if ($format === 'ldi') {
             define('PMA_ENABLE_LDI', 1);
-        }
-
-        if (isset($_POST['show_as_php'])) {
-            $GLOBALS['show_as_php'] = $_POST['show_as_php'];
         }
 
         // If there is a request to 'Simulate DML'.
@@ -88,7 +97,7 @@ final class ImportController extends AbstractController
         // If it's a console bookmark add request
         if (isset($_POST['console_bookmark_add'])) {
             if (isset($_POST['label'], $_POST['db'], $_POST['bookmark_query'], $_POST['shared'])) {
-                $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
+                $cfgBookmark = Bookmark::getParams($cfg['Server']['user']);
                 $bookmarkFields = [
                     'bkm_database' => $_POST['db'],
                     'bkm_user' => $cfgBookmark['user'],
@@ -98,7 +107,7 @@ final class ImportController extends AbstractController
                 $isShared = ($_POST['shared'] == 'true' ? true : false);
                 $bookmark = Bookmark::createBookmark(
                     $this->dbi,
-                    $GLOBALS['cfg']['Server']['user'],
+                    $cfg['Server']['user'],
                     $bookmarkFields,
                     $isShared
                 );
@@ -116,34 +125,11 @@ final class ImportController extends AbstractController
             }
         }
 
-        $format = '';
-
-        /**
-         * Sets globals from $_POST
-         */
-        $post_params = [
-            'charset_of_file',
-            'format',
-            'import_type',
-            'is_js_confirmed',
-            'MAX_FILE_SIZE',
-            'message_to_show',
-            'noplugin',
-            'skip_queries',
-            'local_import_file',
-        ];
-
-        foreach ($post_params as $one_post_param) {
-            if (isset($_POST[$one_post_param])) {
-                $GLOBALS[$one_post_param] = $_POST[$one_post_param];
-            }
-        }
-
         // reset import messages for ajax request
         $_SESSION['Import_message']['message'] = null;
         $_SESSION['Import_message']['go_back_url'] = null;
         // default values
-        $GLOBALS['reload'] = false;
+        $reload = false;
 
         // Use to identify current cycle is executing
         // a multiquery statement or stored routine
@@ -192,7 +178,7 @@ final class ImportController extends AbstractController
 
             // refresh navigation and main panels
             if (preg_match('/^(DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $sql_query)) {
-                $GLOBALS['reload'] = true;
+                $reload = true;
                 $ajax_reload['reload'] = true;
             }
 
@@ -244,7 +230,7 @@ final class ImportController extends AbstractController
 
             // so we can obtain the message
             $_SESSION['Import_message']['message'] = $message->getDisplay();
-            $_SESSION['Import_message']['go_back_url'] = $GLOBALS['goto'];
+            $_SESSION['Import_message']['go_back_url'] = $goto;
 
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $message);
@@ -365,7 +351,7 @@ final class ImportController extends AbstractController
                 case 0: // bookmarked query that have to be run
                     $bookmark = Bookmark::get(
                         $this->dbi,
-                        $GLOBALS['cfg']['Server']['user'],
+                        $cfg['Server']['user'],
                         $db,
                         $id_bookmark,
                         'id',
@@ -388,7 +374,7 @@ final class ImportController extends AbstractController
                         '/^(DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i',
                         $import_text
                     )) {
-                        $GLOBALS['reload'] = true;
+                        $reload = true;
                         $ajax_reload['reload'] = true;
                     }
 
@@ -404,7 +390,7 @@ final class ImportController extends AbstractController
                 case 1: // bookmarked query that have to be displayed
                     $bookmark = Bookmark::get(
                         $this->dbi,
-                        $GLOBALS['cfg']['Server']['user'],
+                        $cfg['Server']['user'],
                         $db,
                         $id_bookmark
                     );
@@ -426,7 +412,7 @@ final class ImportController extends AbstractController
                 case 2: // bookmarked query that have to be deleted
                     $bookmark = Bookmark::get(
                         $this->dbi,
-                        $GLOBALS['cfg']['Server']['user'],
+                        $cfg['Server']['user'],
                         $db,
                         $id_bookmark
                     );
@@ -453,7 +439,7 @@ final class ImportController extends AbstractController
         } // end bookmarks reading
 
         // Do no run query if we show PHP code
-        if (isset($GLOBALS['show_as_php'])) {
+        if (isset($show_as_php)) {
             $run_query = false;
             $go_sql = true;
         }
@@ -610,7 +596,7 @@ final class ImportController extends AbstractController
 
         // Reset charset back, if we did some changes
         if ($reset_charset) {
-            $this->dbi->query('SET CHARACTER SET ' . $GLOBALS['charset_connection']);
+            $this->dbi->query('SET CHARACTER SET ' . $charset_connection);
             $this->dbi->setCollation($collation_connection);
         }
 
@@ -655,7 +641,7 @@ final class ImportController extends AbstractController
         // Did we hit timeout? Tell it user.
         if ($timeout_passed) {
             $url_params['timeout_passed'] = '1';
-            $url_params['offset'] = $GLOBALS['offset'];
+            $url_params['offset'] = $offset;
             if (isset($local_import_file)) {
                 $url_params['local_import_file'] = $local_import_file;
             }
@@ -692,14 +678,15 @@ final class ImportController extends AbstractController
         // (but if the query is too large, in case of an imported file, the parser
         //  can choke on it so avoid parsing)
         $sqlLength = mb_strlen($sql_query);
-        if ($sqlLength <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
+        if ($sqlLength <= $cfg['MaxCharactersInDisplayedSQL']) {
             [
                 $analyzed_sql_results,
                 $db,
                 $table_from_sql,
             ] = ParseAnalyze::sqlQuery($sql_query, $db);
-            // @todo: possibly refactor
-            extract($analyzed_sql_results);
+
+            $reload = $analyzed_sql_results['reload'];
+            $offset = $analyzed_sql_results['offset'];
 
             if ($table != $table_from_sql && ! empty($table_from_sql)) {
                 $table = $table_from_sql;
@@ -736,8 +723,9 @@ final class ImportController extends AbstractController
                     $db,
                     $table_from_sql,
                 ] = ParseAnalyze::sqlQuery($sql_query, $db);
-                // @todo: possibly refactor
-                extract($analyzed_sql_results);
+
+                $offset = $analyzed_sql_results['offset'];
+                $reload = $analyzed_sql_results['reload'];
 
                 // Check if User is allowed to issue a 'DROP DATABASE' Statement
                 if ($this->sql->hasNoRightsToDropDatabase(
@@ -784,7 +772,7 @@ final class ImportController extends AbstractController
             // since only one bookmark has to be added for all the queries submitted through
             // the SQL tab
             if (! empty($_POST['bkm_label']) && ! empty($import_text)) {
-                $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
+                $cfgBookmark = Bookmark::getParams($cfg['Server']['user']);
                 $this->sql->storeTheQueryAsBookmark(
                     $db,
                     $cfgBookmark['user'],
@@ -800,7 +788,7 @@ final class ImportController extends AbstractController
         } elseif ($result) {
             // Save a Bookmark with more than one queries (if Bookmark label given).
             if (! empty($_POST['bkm_label']) && ! empty($import_text)) {
-                $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
+                $cfgBookmark = Bookmark::getParams($cfg['Server']['user']);
                 $this->sql->storeTheQueryAsBookmark(
                     $db,
                     $cfgBookmark['user'],

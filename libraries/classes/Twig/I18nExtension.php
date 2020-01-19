@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Twig;
 
+use PhpMyAdmin\Twig\Extensions\I18nExtension as TwigI18nExtension;
 use PhpMyAdmin\Twig\I18n\TokenParserTrans;
-use Twig\Extensions\I18nExtension as TwigI18nExtension;
 use Twig\TokenParser\TokenParserInterface;
 use Twig\TwigFilter;
 

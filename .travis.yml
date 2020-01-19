@@ -54,6 +54,7 @@ jobs:
   include:
     - stage: "Lint and analyse code"
       name: "Lint files"
+      before_install: phpenv config-rm xdebug.ini
       before_script: skip
       after_script: skip
       after_success: skip
@@ -65,6 +66,7 @@ jobs:
 
     - stage: "Lint and analyse code"
       name: "Run phpstan"
+      before_install: phpenv config-rm xdebug.ini
       before_script: skip
       after_script: skip
       after_success: skip

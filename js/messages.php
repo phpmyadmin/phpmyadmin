@@ -719,6 +719,7 @@ $javascriptMessages = [
     /* Designer */
     'strTableAlreadyExists' => _pgettext('The table already exists in the designer and can not be added once more.', 'Table %s already exists!'),
     'strHide' => __('Hide'),
+    'strShow' => __('Show'),
     'strStructure' => __('Structure'),
 ];
 

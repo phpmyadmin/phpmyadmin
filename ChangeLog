@@ -9,6 +9,8 @@ phpMyAdmin - ChangeLog
 - issue #15491 Improve complexity of generated passwords
 - issue #14909 Add a configuration option to define the 1st day of week
 - issue #12726 Made user names clickable in user accounts overview
+- issue #15729 Improve virtuality dropdown for MariaDB > 10.1
+- issue #15312 Added an option to perform ALTER ONLINE (ALGORITHM=INPLACE) when editing a table structure
 
 5.0.2 (not yet released)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page
@@ -22,6 +24,14 @@ phpMyAdmin - ChangeLog
 - issue        Fixed wrong jQuery function call in table search page
 - issue #15761 Fix uncaught TypeError when using "$cfg['ServerDefault'] = 0;"
 - issue #15780 Fixed unexpected UI of action links (text only mode)
+- issue #15674 Replace twig/extensions with phpmyadmin/twig-i18n-extension
+- issue #15799 Change location of profiling state documentation to fix column ordering
+- issue #15720 Fix designer adding all available tables to a designer page after adding a new relationship
+- issue #15791 Replace facebook/webdriver by php-webdriver/webdriver
+- issue #15802 Removed SET AUTOCOMMIT=0 from SQL export
+- issue #15818 Fix table borders missing on theme original since 5.0.0
+- issue #13864 Fix ENUM's radiobuttons reset on "Continue insertion with" changes
+- issue #15811 Fixed browse foreign values doesn't show a modal with grid edit
 
 5.0.1 (2020-01-07)
 - issue #15719 Fixed error 500 when browsing a table when $cfg['LimitChars'] used a string and not an int value

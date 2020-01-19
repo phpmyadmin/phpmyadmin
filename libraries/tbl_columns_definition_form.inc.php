@@ -531,6 +531,7 @@ $html = $template->render('columns_definitions/column_definitions_form', [
     'is_virtual_columns_supported' => Util::isVirtualColumnsSupported(),
     'browse_mime' => $GLOBALS['cfg']['BrowseMIME'] ?? null,
     'server_type' => Util::getServerType(),
+    'server_version' => $GLOBALS['dbi']->getVersion(),
     'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
     'char_editing' => $GLOBALS['cfg']['CharEditing'] ?? null,
     'attribute_types' => $GLOBALS['dbi']->types->getAttributes(),

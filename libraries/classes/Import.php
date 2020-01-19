@@ -452,7 +452,7 @@ class Import
      *
      * @return string The column's "Excel" name
      *
-     * @access  public
+     * @access public
      */
     public function getColumnAlphaName(int $num): string
     {
@@ -500,7 +500,7 @@ class Import
      *
      * @return int The column number
      *
-     * @access  public
+     * @access public
      */
     public function getColumnNumberFromName(string $name): int
     {
@@ -536,7 +536,7 @@ class Import
      *
      * @return int Precision of the given decimal size notation
      *
-     * @access  public
+     * @access public
      */
     public function getDecimalPrecision(string $last_cumulative_size): int
     {
@@ -555,7 +555,7 @@ class Import
      *
      * @return int Scale of the given decimal size notation
      *
-     * @access  public
+     * @access public
      */
     public function getDecimalScale(string $last_cumulative_size): int
     {
@@ -574,7 +574,7 @@ class Import
      * @return array Contains the precision, scale, and full size
      *                representation of the given decimal cell
      *
-     * @access  public
+     * @access public
      */
     public function getDecimalSize(string $cell): array
     {
@@ -604,7 +604,7 @@ class Import
      *
      * @return string|int Size of the given cell in the type-appropriate format
      *
-     * @access  public
+     * @access public
      * @todo    Handle the error cases more elegantly
      */
     public function detectSize(
@@ -808,7 +808,7 @@ class Import
      * @return int  The MySQL type representation
      *               (VARCHAR or INT or BIGINT or DECIMAL or NONE)
      *
-     * @access  public
+     * @access public
      */
     public function detectType(?int $last_cumulative_type, ?string $cell): int
     {
@@ -856,7 +856,7 @@ class Import
      *
      * @return array|bool array(array $types, array $sizes)
      *
-     * @access  public
+     * @access public
      * @todo    Handle the error case more elegantly
      */
     public function analyzeTable(array &$table)
@@ -963,7 +963,7 @@ class Import
      *
      * @return void
      *
-     * @access  public
+     * @access public
      */
     public function buildSql(
         string $db_name,
@@ -1348,7 +1348,7 @@ class Import
      *
      * @return void
      *
-     * @access  public
+     * @access public
      */
     public function stop(Message $error_message): void
     {

@@ -580,10 +580,27 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             });
         });
     });
-    $routes->addRoute(['GET', 'POST'], '/sql', function () use ($containerBuilder) {
+    $routes->addGroup('/sql', function (RouteCollector $routes) use ($containerBuilder) {
         /** @var SqlController $controller */
         $controller = $containerBuilder->get(SqlController::class);
-        $controller->index();
+        $routes->addRoute(['GET', 'POST'], '', function () use ($controller) {
+            $controller->index();
+        });
+        $routes->post('/get-relational-values', function () use ($controller) {
+            $controller->getRelationalValues();
+        });
+        $routes->post('/get-enum-values', function () use ($controller) {
+            $controller->getEnumValues();
+        });
+        $routes->post('/get-set-values', function () use ($controller) {
+            $controller->getSetValues();
+        });
+        $routes->get('/get-default-fk-check-value', function () use ($controller) {
+            $controller->getDefaultForeignKeyCheckValue();
+        });
+        $routes->post('/set-column-preferences', function () use ($controller) {
+            $controller->setColumnOrderOrVisibility();
+        });
     });
     $routes->addGroup('/table', function (RouteCollector $routes) use ($containerBuilder) {
         $routes->addRoute(['GET', 'POST'], '/add-field', function () use ($containerBuilder) {

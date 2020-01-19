@@ -943,7 +943,7 @@ class LanguageManager
      *
      * @return string
      *
-     * @access  public
+     * @access public
      */
     public function getSelectorDisplay(Template $template, $use_fieldset = false, $show_doc = true)
     {

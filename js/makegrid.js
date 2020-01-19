@@ -384,7 +384,6 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     'table': g.table,
                     'token': g.token,
                     'server': g.server,
-                    'set_col_prefs': true,
                     'table_create_time': g.tableCreateTime
                 };
                 if (g.colOrder.length > 0) {
@@ -393,7 +392,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 if (g.colVisib.length > 0) {
                     $.extend(postParams, { 'col_visib': g.colVisib.toString() });
                 }
-                $.post('index.php?route=/sql', postParams, function (data) {
+                $.post('index.php?route=/sql/set-column-preferences', postParams, function (data) {
                     if (data.success !== true) {
                         var $tempDiv = $(document.createElement('div'));
                         $tempDiv.html(data.error);
@@ -881,7 +880,6 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                      */
                     postParams = {
                         'ajax_request' : true,
-                        'get_relational_values' : true,
                         'server' : g.server,
                         'db' : g.db,
                         'table' : g.table,
@@ -890,7 +888,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                         'relation_key_or_display_column' : relationKeyOrDisplayColumn
                     };
 
-                    g.lastXHR = $.post('index.php?route=/sql', postParams, function (data) {
+                    g.lastXHR = $.post('index.php?route=/sql/get-relational-values', postParams, function (data) {
                         g.lastXHR = null;
                         $editArea.removeClass('edit_area_loading');
                         if ($(data.dropdown).is('select')) {
@@ -927,14 +925,13 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                      */
                     postParams = {
                         'ajax_request' : true,
-                        'get_enum_values' : true,
                         'server' : g.server,
                         'db' : g.db,
                         'table' : g.table,
                         'column' : fieldName,
                         'curr_value' : currValue
                     };
-                    g.lastXHR = $.post('index.php?route=/sql', postParams, function (data) {
+                    g.lastXHR = $.post('index.php?route=/sql/get-enum-values', postParams, function (data) {
                         g.lastXHR = null;
                         $editArea.removeClass('edit_area_loading');
                         $editArea.append(data.dropdown);
@@ -953,7 +950,6 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     if ($td.is('.truncated')) {
                         postParams = {
                             'ajax_request': true,
-                            'get_set_values': true,
                             'server': g.server,
                             'db': g.db,
                             'table': g.table,
@@ -965,7 +961,6 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     } else {
                         postParams = {
                             'ajax_request': true,
-                            'get_set_values': true,
                             'server': g.server,
                             'db': g.db,
                             'table': g.table,
@@ -974,7 +969,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                         };
                     }
 
-                    g.lastXHR = $.post('index.php?route=/sql', postParams, function (data) {
+                    g.lastXHR = $.post('index.php?route=/sql/get-set-values', postParams, function (data) {
                         g.lastXHR = null;
                         $editArea.removeClass('edit_area_loading');
                         $editArea.append(data.select);

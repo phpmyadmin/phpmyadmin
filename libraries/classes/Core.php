@@ -187,7 +187,7 @@ class Core
      *
      * @return string  The secured path
      *
-     * @access  public
+     * @access public
      */
     public static function securePath(string $path): string
     {
@@ -256,7 +256,7 @@ class Core
      *
      * @return string  the URL
      *
-     * @access  public
+     * @access public
      */
     public static function getPHPDocLink(string $target): string
     {
@@ -970,7 +970,7 @@ class Core
      *
      * @return string|bool the ip of the user
      *
-     * @access  private
+     * @access private
      */
     public static function getIp()
     {

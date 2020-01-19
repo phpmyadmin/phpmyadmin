@@ -92,8 +92,8 @@ class Transformations
      *
      * @return array    array[mimetype], array[transformation]
      *
-     * @access  public
-     * @staticvar   array   mimetypes
+     * @access public
+     * @staticvar array   mimetypes
      */
     public function getAvailableMimeTypes()
     {
@@ -337,7 +337,7 @@ class Transformations
      *
      * @return boolean  true, if comment-query was made.
      *
-     * @access  public
+     * @access public
      */
     public function setMime(
         $db,

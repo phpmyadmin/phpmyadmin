@@ -105,7 +105,7 @@ class File
      *
      * @see     File::cleanUp()
      *
-     * @access  public
+     * @access public
      */
     public function __destruct()
     {
@@ -117,7 +117,7 @@ class File
      *
      * @return boolean success
      *
-     * @access  public
+     * @access public
      */
     public function cleanUp(): bool
     {
@@ -133,7 +133,7 @@ class File
      *
      * @return boolean success
      *
-     * @access  public
+     * @access public
      */
     public function delete(): bool
     {
@@ -148,7 +148,7 @@ class File
      *
      * @return boolean File::$_is_temp
      *
-     * @access  public
+     * @access public
      */
     public function isTemp(?bool $is_temp = null): bool
     {
@@ -166,7 +166,7 @@ class File
      *
      * @return void
      *
-     * @access  public
+     * @access public
      */
     public function setName(?string $name): void
     {
@@ -179,7 +179,7 @@ class File
      * @return string|false the binary file content,
      *                      or false if no content
      *
-     * @access  public
+     * @access public
      */
     public function getRawContent()
     {
@@ -210,7 +210,7 @@ class File
      * @return string|false the binary file content as a string,
      *                      or false if no content
      *
-     * @access  public
+     * @access public
      */
     public function getContent()
     {
@@ -226,7 +226,7 @@ class File
      *
      * @return bool
      *
-     * @access  public
+     * @access public
      */
     public function isUploaded(): bool
     {
@@ -256,7 +256,7 @@ class File
      *
      * @return boolean success
      *
-     * @access  public
+     * @access public
      */
     public function setUploadedFile(string $name): bool
     {
@@ -279,7 +279,7 @@ class File
      *
      * @return boolean success
      *
-     * @access  public
+     * @access public
      */
     public function setUploadedFromTblChangeRequest(
         string $key,
@@ -363,7 +363,7 @@ class File
      *
      * @return array
      *
-     * @access  public
+     * @access public
      * @static
      */
     public function fetchUploadedFromTblChangeRequestMultiple(
@@ -390,7 +390,7 @@ class File
      *
      * @return boolean success
      *
-     * @access  public
+     * @access public
      */
     public function setSelectedFromTblChangeRequest(
         string $key,
@@ -413,7 +413,7 @@ class File
      *
      * @return Message|null error message
      *
-     * @access  public
+     * @access public
      */
     public function getError(): ?Message
     {
@@ -425,7 +425,7 @@ class File
      *
      * @return boolean whether an error occurred or not
      *
-     * @access  public
+     * @access public
      */
     public function isError(): bool
     {
@@ -441,7 +441,7 @@ class File
      *
      * @return boolean success
      *
-     * @access  public
+     * @access public
      */
     public function checkTblChangeForm(string $key, string $rownumber): bool
     {
@@ -466,7 +466,7 @@ class File
      *
      * @return boolean success
      *
-     * @access  public
+     * @access public
      */
     public function setLocalSelectedFile(string $name): bool
     {
@@ -496,7 +496,7 @@ class File
      *
      * @return boolean whether the file is readable or not
      *
-     * @access  public
+     * @access public
      */
     public function isReadable(): bool
     {
@@ -513,7 +513,7 @@ class File
      * @return boolean whether uploaded file is fine or not
      *
      * @todo move check of $cfg['TempDir'] into Config?
-     * @access  public
+     * @access public
      */
     public function checkUploadedFile(): bool
     {
@@ -562,12 +562,12 @@ class File
     /**
      * Detects what compression the file uses
      *
-     * @return  string|false false on error, otherwise string MIME type of
-     *                       compression, none for none
+     * @return string|false false on error, otherwise string MIME type of
+     *                      compression, none for none
      *
-     * @todo    move file read part into readChunk() or getChunk()
-     * @todo    add support for compression plugins
-     * @access  protected
+     * @todo   move file read part into readChunk() or getChunk()
+     * @todo   add support for compression plugins
+     * @access protected
      */
     protected function detectCompression()
     {
@@ -789,7 +789,7 @@ class File
      *
      * @return string MIME type of compression, none for none
      *
-     * @access  public
+     * @access public
      */
     public function getCompression(): string
     {

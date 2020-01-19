@@ -49,7 +49,7 @@ class Relation
      *
      * @return resource|boolean the result set, or false if no result set
      *
-     * @access  public
+     * @access public
      */
     public function queryAsControlUser($sql, $show_error = true, $options = 0)
     {
@@ -478,7 +478,7 @@ class Relation
      *
      * @return string[]    the relation parameters for the current user
      *
-     * @access  protected
+     * @access protected
      */
     public function checkRelationsParam(): array
     {
@@ -767,7 +767,7 @@ class Relation
      *
      * @return bool false if upgrade failed
      *
-     * @access  public
+     * @access public
      */
     public function tryUpgradeTransformations()
     {
@@ -842,7 +842,7 @@ class Relation
      *
      * @return array    db,table,column
      *
-     * @access  public
+     * @access public
      */
     public function getForeigners($db, $table, $column = '', $source = 'both')
     {
@@ -923,7 +923,7 @@ class Relation
      *
      * @return string|false field name or false
      *
-     * @access  public
+     * @access public
      */
     public function getDisplayField($db, $table)
     {
@@ -985,7 +985,7 @@ class Relation
      *
      * @return array    [column_name] = comment
      *
-     * @access  public
+     * @access public
      */
     public function getComments($db, $table = '')
     {
@@ -1015,7 +1015,7 @@ class Relation
      *
      * @return string   comment
      *
-     * @access  public
+     * @access public
      */
     public function getDbComment($db)
     {
@@ -1053,7 +1053,7 @@ class Relation
      *
      * @return array comments
      *
-     * @access  public
+     * @access public
      */
     public function getDbComments()
     {
@@ -1093,7 +1093,7 @@ class Relation
      *
      * @return boolean  true, if comment-query was made.
      *
-     * @access  public
+     * @access public
      */
     public function setDbComment($db, $comment = '')
     {
@@ -1138,7 +1138,7 @@ class Relation
      *
      * @return void
      *
-     * @access  public
+     * @access public
      */
     public function setHistory($db, $table, $username, $sqlquery)
     {
@@ -1198,7 +1198,7 @@ class Relation
      *
      * @return array|bool list of history items
      *
-     * @access  public
+     * @access public
      */
     public function getHistory($username)
     {
@@ -1247,7 +1247,7 @@ class Relation
      *
      * @return void
      *
-     * @access  public
+     * @access public
      */
     public function purgeHistory($username)
     {
@@ -1294,7 +1294,7 @@ class Relation
      *
      * @return array   the <option value=""><option>s
      *
-     * @access  protected
+     * @access protected
      */
     public function buildForeignDropdown(array $foreign, $data, $mode)
     {
@@ -1396,7 +1396,7 @@ class Relation
      *
      * @return string   the <option value=""><option>s
      *
-     * @access  public
+     * @access public
      */
     public function foreignDropdown(
         array $disp_row,
@@ -1484,7 +1484,7 @@ class Relation
      *
      * @return array    data about the foreign keys
      *
-     * @access  public
+     * @access public
      */
     public function getForeignData(
         $foreigners,

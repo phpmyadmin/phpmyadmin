@@ -241,7 +241,7 @@ class Sql
      *
      * @return string html for the dropdown
      */
-    private function getHtmlForRelationalColumnDropdown($db, $table, $column, $curr_value)
+    public function getHtmlForRelationalColumnDropdown($db, $table, $column, $curr_value)
     {
         $foreigners = $this->relation->getForeigners($db, $table, $column);
 
@@ -361,27 +361,6 @@ class Sql
     }
 
     /**
-     * Get the HTML for the enum column dropdown
-     * During grid edit, if we have a enum field, returns the html for the
-     * dropdown
-     *
-     * @param string $db         current database
-     * @param string $table      current table
-     * @param string $column     current column
-     * @param string $curr_value currently selected value
-     *
-     * @return string html for the dropdown
-     */
-    private function getHtmlForEnumColumnDropdown($db, $table, $column, $curr_value)
-    {
-        $values = $this->getValuesForColumn($db, $table, $column);
-        return $this->template->render('sql/enum_column_dropdown', [
-            'values' => $values,
-            'selected_values' => [$curr_value],
-        ]);
-    }
-
-    /**
      * Get value of a column for a specific row (marked by $where_clause)
      *
      * @param string $db           current database
@@ -412,7 +391,7 @@ class Sql
      *
      * @return string html for the set column
      */
-    private function getHtmlForSetColumn($db, $table, $column, $curr_value): string
+    public function getHtmlForSetColumn($db, $table, $column, $curr_value): string
     {
         $values = $this->getValuesForColumn($db, $table, $column);
 
@@ -456,7 +435,7 @@ class Sql
      *
      * @return array array containing the value list for the column
      */
-    private function getValuesForColumn($db, $table, $column)
+    public function getValuesForColumn($db, $table, $column)
     {
         $field_info_query = $GLOBALS['dbi']->getColumnsSql($db, $table, $column);
 
@@ -629,9 +608,9 @@ class Sql
      * @param Table  $pmatable      Table instance
      * @param string $request_index col_order|col_visib
      *
-     * @return boolean
+     * @return boolean|Message
      */
-    private function setColumnProperty($pmatable, $request_index)
+    public function setColumnProperty($pmatable, $request_index)
     {
         $property_value = array_map('intval', explode(',', $_POST[$request_index]));
         switch ($request_index) {
@@ -644,47 +623,11 @@ class Sql
             default:
                 $property_to_set = '';
         }
-        $retval = $pmatable->setUiProp(
+        return $pmatable->setUiProp(
             $property_to_set,
             $property_value,
             $_POST['table_create_time'] ?? null
         );
-        if (! is_bool($retval)) {
-            $response = Response::getInstance();
-            $response->setRequestStatus(false);
-            $response->addJSON('message', $retval->getString());
-            exit;
-        }
-
-        return $retval;
-    }
-
-    /**
-     * Function to check the request for setting the column order or visibility
-     *
-     * @param string $table the current table
-     * @param string $db    the current database
-     *
-     * @return void
-     */
-    public function setColumnOrderOrVisibility($table, $db)
-    {
-        $pmatable = new Table($table, $db);
-        $retval = false;
-
-        // set column order
-        if (isset($_POST['col_order'])) {
-            $retval = $this->setColumnProperty($pmatable, 'col_order');
-        }
-
-        // set column visibility
-        if ($retval === true && isset($_POST['col_visib'])) {
-            $retval = $this->setColumnProperty($pmatable, 'col_visib');
-        }
-
-        $response = Response::getInstance();
-        $response->setRequestStatus($retval === true);
-        exit;
     }
 
     /**
@@ -743,70 +686,6 @@ class Sql
         $_SESSION['tmpval']['pos'] = $this->getStartPosToDisplayRow($unlim_num_rows);
 
         return $unlim_num_rows;
-    }
-
-    /**
-     * Function to get values for the relational columns
-     *
-     * @param string $db    the current database
-     * @param string $table the current table
-     *
-     * @return void
-     */
-    public function getRelationalValues($db, $table)
-    {
-        $column = $_POST['column'];
-        if ($_SESSION['tmpval']['relational_display'] == 'D'
-            && isset($_POST['relation_key_or_display_column'])
-            && $_POST['relation_key_or_display_column']
-        ) {
-            $curr_value = $_POST['relation_key_or_display_column'];
-        } else {
-            $curr_value = $_POST['curr_value'];
-        }
-        $dropdown = $this->getHtmlForRelationalColumnDropdown(
-            $db,
-            $table,
-            $column,
-            $curr_value
-        );
-        $response = Response::getInstance();
-        $response->addJSON('dropdown', $dropdown);
-        exit;
-    }
-
-    /**
-     * Function to get values for Enum or Set Columns
-     *
-     * @param string $db         the current database
-     * @param string $table      the current table
-     * @param string $columnType whether enum or set
-     *
-     * @return void
-     */
-    public function getEnumOrSetValues($db, $table, $columnType)
-    {
-        $column = $_POST['column'];
-        $curr_value = $_POST['curr_value'];
-        $response = Response::getInstance();
-        if ($columnType == 'enum') {
-            $dropdown = $this->getHtmlForEnumColumnDropdown(
-                $db,
-                $table,
-                $column,
-                $curr_value
-            );
-            $response->addJSON('dropdown', $dropdown);
-        } else {
-            $select = $this->getHtmlForSetColumn(
-                $db,
-                $table,
-                $column,
-                $curr_value
-            );
-            $response->addJSON('select', $select);
-        }
-        exit;
     }
 
     /**
@@ -2090,8 +1969,6 @@ class Sql
                 $db,
                 $table_from_sql,
             ] = ParseAnalyze::sqlQuery($sql_query, $db);
-            // @todo: possibly refactor
-            extract($analyzed_sql_results);
 
             if ($table != $table_from_sql && ! empty($table_from_sql)) {
                 $table = $table_from_sql;

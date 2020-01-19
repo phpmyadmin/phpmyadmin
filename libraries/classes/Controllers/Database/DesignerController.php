@@ -105,7 +105,7 @@ class DesignerController extends AbstractController
                         /* l10n: The user tries to save a page with an existing name in Designer */
                         __(
                             sprintf(
-                                "There already exists a page named \"%s\" please rename it to something else.",
+                                'There already exists a page named "%s" please rename it to something else.',
                                 htmlspecialchars($_POST['selected_value'])
                             )
                         )

@@ -54,6 +54,7 @@
             'content_cells': content_cells,
             'change_column': change_column,
             'is_virtual_columns_supported': is_virtual_columns_supported,
+            'server_version' : server_version,
             'browse_mime': browse_mime,
             'server_type': server_type,
             'max_rows': max_rows,
@@ -145,6 +146,7 @@
         </div>
     {% endif %}
     <fieldset class="tblFooters">
+        <input type="checkbox" name="online_transaction" value="ONLINE_TRANSACTION_ENABLED" />{% trans %}Online transaction{% context %}Online transaction part of the SQL DDL for InnoDB{% endtrans %}{{ show_mysql_docu('innodb-online-ddl') }}
         <input class="btn btn-secondary preview_sql" type="button"
             value="{% trans 'Preview SQL' %}">
         <input class="btn btn-primary" type="submit"
