@@ -16,8 +16,6 @@ use Twig_Error_Loader;
 use Twig_Error_Runtime;
 use Twig_Error_Syntax;
 
-require_once ROOT_PATH . 'libraries/config.default.php';
-
 /**
  * ErrorTest class
  *

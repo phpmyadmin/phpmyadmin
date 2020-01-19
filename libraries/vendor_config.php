@@ -10,9 +10,11 @@
  */
 declare(strict_types=1);
 
+// phpcs:disable PSR1.Files.SideEffects
 if (! defined('PHPMYADMIN')) {
     exit;
 }
+// phpcs:enable
 
 /**
  * Path to vendor autoload file. Useful when you want to

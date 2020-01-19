@@ -12,6 +12,7 @@ use PhpMyAdmin\Pdf as PdfLib;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Util;
 
+// phpcs:disable PSR1.Files.SideEffects
 /**
  * Skip the plugin if TCPDF is not available.
  */
@@ -26,6 +27,7 @@ if (! class_exists('TCPDF')) {
 if (getcwd() == __DIR__) {
     die('Attack stopped');
 }
+// phpcs:enable
 
 /**
  * Extends the "TCPDF" class and helps

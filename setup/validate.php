@@ -10,7 +10,9 @@ use PhpMyAdmin\Config\Validator;
 use PhpMyAdmin\Core;
 
 if (! defined('ROOT_PATH')) {
+    // phpcs:disable PSR1.Files.SideEffects
     define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
+    // phpcs:enable
 }
 
 /**

@@ -12,7 +12,9 @@ use PhpMyAdmin\Response;
 use function FastRoute\simpleDispatcher;
 
 if (! defined('ROOT_PATH')) {
+    // phpcs:disable PSR1.Files.SideEffects
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+    // phpcs:enable
 }
 
 global $containerBuilder, $route;
@@ -33,7 +35,9 @@ if (($route === '/' || $route === '') && isset($_GET['db']) && mb_strlen($_GET['
 }
 
 if ($route === '/import-status') {
+    // phpcs:disable PSR1.Files.SideEffects
     define('PMA_MINIMUM_COMMON', true);
+    // phpcs:enable
 }
 
 require_once ROOT_PATH . 'libraries/common.inc.php';

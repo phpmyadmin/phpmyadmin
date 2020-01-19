@@ -13,6 +13,7 @@ use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 
+// phpcs:disable PSR1.Files.SideEffects
 /**
  * Skip the plugin if TCPDF is not available.
  */
@@ -27,6 +28,7 @@ if (! class_exists('TCPDF')) {
 if (getcwd() == __DIR__) {
     die('Attack stopped');
 }
+// phpcs:enable
 
 /**
  * Pdf Relation Schema Class

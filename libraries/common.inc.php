@@ -71,10 +71,12 @@ if (PHP_VERSION_ID < 70103) {
     );
 }
 
+// phpcs:disable PSR1.Files.SideEffects
 /**
  * for verification in all procedural scripts under libraries
  */
 define('PHPMYADMIN', true);
+// phpcs:enable
 
 /**
  * Load vendor configuration.

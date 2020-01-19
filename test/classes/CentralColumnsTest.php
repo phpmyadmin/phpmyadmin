@@ -18,8 +18,6 @@ use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 
-$GLOBALS['server'] = 1;
-
 /**
  * tests for PhpMyAdmin\CentralColumns
  *

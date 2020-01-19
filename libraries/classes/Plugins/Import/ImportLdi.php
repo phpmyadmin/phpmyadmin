@@ -15,12 +15,13 @@ use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Util;
 
+// phpcs:disable PSR1.Files.SideEffects
 // We need relations enabled and we work only on database
 if (! isset($GLOBALS['plugin_param']) || $GLOBALS['plugin_param'] !== 'table') {
     $GLOBALS['skip_import'] = true;
-
     return;
 }
+// phpcs:enable
 
 /**
  * Handles the import for the CSV format using load data

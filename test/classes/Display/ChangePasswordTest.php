@@ -13,8 +13,6 @@ use PhpMyAdmin\Display\ChangePassword;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
 
-require_once ROOT_PATH . 'libraries/config.default.php';
-
 /**
  * ChangePasswordTest class
  *

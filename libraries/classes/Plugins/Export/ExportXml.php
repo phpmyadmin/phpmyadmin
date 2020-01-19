@@ -18,11 +18,13 @@ use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Util;
 
+// phpcs:disable PSR1.Files.SideEffects
 /* Can't do server export */
 if (! isset($GLOBALS['db']) || strlen($GLOBALS['db']) === 0) {
     $GLOBALS['skip_import'] = true;
     return;
 }
+// phpcs:enable
 
 /**
  * Handles the export for the XML class

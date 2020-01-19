@@ -17,8 +17,6 @@ use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionException;
 use ReflectionMethod;
 
-require_once ROOT_PATH . 'libraries/config.default.php';
-
 /**
  * tests for PhpMyAdmin\Plugins\Auth\AuthenticationCookie class
  *

@@ -66,7 +66,10 @@ if (! empty($submit_mult)
     || ! empty($selected_fld)
     || ! empty($_POST['rows_to_delete']))
 ) {
+    // phpcs:disable PSR1.Files.SideEffects
     define('PMA_SUBMIT_MULT', 1);
+    // phpcs:enable
+
     if (! empty($_POST['selected_dbs'])) {
         // coming from server database view - do something with
         // selected databases

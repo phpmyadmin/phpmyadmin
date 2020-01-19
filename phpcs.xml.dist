@@ -12,9 +12,6 @@
     <rule ref="Generic.Metrics.NestingLevel.TooHigh">
         <severity>4</severity>
     </rule>
-    <rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
-        <severity>4</severity>
-    </rule>
     <rule ref="PSR2.Classes.PropertyDeclaration.Underscore">
         <severity>4</severity>
     </rule>

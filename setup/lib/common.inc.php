@@ -9,12 +9,10 @@ declare(strict_types=1);
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\DatabaseInterface;
 
-/**
- * Do not include full common.
- *
- * @ignore
- */
+// phpcs:disable PSR1.Files.SideEffects
 define('PMA_MINIMUM_COMMON', true);
+// phpcs:enable
+
 chdir('..');
 
 if (! file_exists(ROOT_PATH . 'libraries/common.inc.php')) {

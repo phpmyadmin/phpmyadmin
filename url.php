@@ -12,15 +12,17 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
 
 if (! defined('ROOT_PATH')) {
+    // phpcs:disable PSR1.Files.SideEffects
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+    // phpcs:enable
 }
 
 global $containerBuilder;
 
-/**
- * Gets core libraries and defines some variables
- */
+// phpcs:disable PSR1.Files.SideEffects
 define('PMA_MINIMUM_COMMON', true);
+// phpcs:enable
+
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 // Load database service because services.yaml is not available here

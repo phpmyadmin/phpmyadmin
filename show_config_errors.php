@@ -7,7 +7,9 @@
 declare(strict_types=1);
 
 if (! defined('ROOT_PATH')) {
+    // phpcs:disable PSR1.Files.SideEffects
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+    // phpcs:enable
 }
 
 // rfc2616 - Section 14.21
@@ -31,7 +33,9 @@ if (isset($_SERVER['HTTP_USER_AGENT'])
 }
 header('Content-Type: text/html; charset=utf-8');
 
+// phpcs:disable PSR1.Files.SideEffects
 define('PHPMYADMIN', true);
+// phpcs:enable
 
 require ROOT_PATH . 'libraries/vendor_config.php';
 

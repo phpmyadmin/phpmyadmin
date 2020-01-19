@@ -16,6 +16,7 @@ use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 
+// phpcs:disable PSR1.Files.SideEffects
 /**
  * Skip the plugin if TCPDF is not available.
  */
@@ -23,6 +24,7 @@ if (! class_exists('TCPDF')) {
     $GLOBALS['skip_import'] = true;
     return;
 }
+// phpcs:enable
 
 /**
  * Handles the export for the PDF class

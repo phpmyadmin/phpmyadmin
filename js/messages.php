@@ -12,7 +12,9 @@ use PhpMyAdmin\Sanitize;
 global $cfg, $PMA_Theme;
 
 if (! defined('ROOT_PATH')) {
+    // phpcs:disable PSR1.Files.SideEffects
     define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
+    // phpcs:enable
 }
 
 if (! defined('TESTSUITE')) {
@@ -27,9 +29,12 @@ if (! defined('TESTSUITE')) {
 
     // Avoid loading the full common.inc.php because this would add many
     // non-js-compatible stuff like DOCTYPE
+    // phpcs:disable PSR1.Files.SideEffects
     define('PMA_MINIMUM_COMMON', true);
     define('PMA_PATH_TO_BASEDIR', '../');
     define('PMA_NO_SESSION', true);
+    // phpcs:enable
+
     require_once ROOT_PATH . 'libraries/common.inc.php';
 }
 

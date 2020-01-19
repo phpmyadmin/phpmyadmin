@@ -12,9 +12,6 @@ use PhpMyAdmin\ListDatabase;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionClass;
 
-$GLOBALS['server'] = 1;
-$GLOBALS['cfg']['Server']['DisableIS'] = false;
-
 /**
  * tests for ListDatabase class
  *
@@ -36,6 +33,8 @@ class ListDatabaseTest extends PmaTestCase
      */
     protected function setUp(): void
     {
+        $GLOBALS['server'] = 1;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['only_db'] = ['single\\_db'];
         $this->object = new ListDatabase();
     }
