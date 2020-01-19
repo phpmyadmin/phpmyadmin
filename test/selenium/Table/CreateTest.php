@@ -126,7 +126,7 @@ class CreateTest extends TestBase
         $this->waitForElement('partialLinkText', 'Structure')->click();
 
         $this->waitForElement('id', 'tablestructure');
-        $this->waitForElement('id', 'table_strucuture_id');
+        $this->waitForElement('id', 'table_structure_id');
 
         // make assertions for first row
         $this->assertStringContainsString(
