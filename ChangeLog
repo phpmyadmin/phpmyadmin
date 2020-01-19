@@ -30,6 +30,8 @@ phpMyAdmin - ChangeLog
 - issue #15791 Replace facebook/webdriver by php-webdriver/webdriver
 - issue #15802 Removed SET AUTOCOMMIT=0 from SQL export
 - issue #15818 Fix table borders missing on theme original since 5.0.0
+- issue #13864 Fix ENUM's radiobuttons reset on "Continue insertion with" changes
+- issue #15811 Fixed browse foreign values doesn't show a modal with grid edit
 
 5.0.1 (2020-01-07)
 - issue #15719 Fixed error 500 when browsing a table when $cfg['LimitChars'] used a string and not an int value
