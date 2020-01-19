@@ -51,7 +51,7 @@ use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
-global $containerBuilder, $error_handler, $PMA_Config, $server, $dbi, $lang, $cfg;
+global $containerBuilder, $error_handler, $PMA_Config, $server, $dbi, $lang, $cfg, $isConfigLoading;
 
 /**
  * block attempts to directly run this script
@@ -127,6 +127,9 @@ Core::cleanupPathInfo();
 /******************************************************************************/
 /* parsing configuration file                  LABEL_parsing_config_file      */
 
+/** @var bool $isConfigLoading Indication for the error handler */
+$isConfigLoading = false;
+
 /**
  * Force reading of config file, because we removed sensitive values
  * in the previous iteration.
@@ -134,6 +137,8 @@ Core::cleanupPathInfo();
  * @var Config $PMA_Config
  */
 $PMA_Config = $containerBuilder->get('config');
+
+register_shutdown_function([Config::class, 'fatalErrorHandler']);
 
 /**
  * include session handling after the globals, to prevent overwriting

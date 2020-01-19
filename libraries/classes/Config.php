@@ -19,11 +19,6 @@ use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\Utils\HttpRequest;
 
 /**
- * Indication for error handler (see end of this file).
- */
-$GLOBALS['pma_config_loading'] = false;
-
-/**
  * Configuration class
  *
  * @package PhpMyAdmin
@@ -773,6 +768,8 @@ class Config
      */
     public function loadDefaults(): bool
     {
+        global $isConfigLoading;
+
         /** @var array<string,mixed> $cfg */
         $cfg = [];
         if (! @file_exists($this->default_source)) {
@@ -784,11 +781,13 @@ class Config
         if ($canUseErrorReporting) {
             $oldErrorReporting = error_reporting(0);
         }
+
         ob_start();
-        $GLOBALS['pma_config_loading'] = true;
+        $isConfigLoading = true;
         $eval_result = include $this->default_source;
-        $GLOBALS['pma_config_loading'] = false;
+        $isConfigLoading = false;
         ob_end_clean();
+
         if ($canUseErrorReporting) {
             error_reporting($oldErrorReporting);
         }
@@ -821,6 +820,8 @@ class Config
      */
     public function load(?string $source = null): bool
     {
+        global $isConfigLoading;
+
         $this->loadDefaults();
 
         if (null !== $source) {
@@ -842,11 +843,13 @@ class Config
         if ($canUseErrorReporting) {
             $oldErrorReporting = error_reporting(0);
         }
+
         ob_start();
-        $GLOBALS['pma_config_loading'] = true;
+        $isConfigLoading = true;
         $eval_result = include $this->getSource();
-        $GLOBALS['pma_config_loading'] = false;
+        $isConfigLoading = false;
         ob_end_clean();
+
         if ($canUseErrorReporting) {
             error_reporting($oldErrorReporting);
         }
@@ -1560,9 +1563,9 @@ class Config
      */
     public static function fatalErrorHandler(): void
     {
-        if (! isset($GLOBALS['pma_config_loading'])
-            || ! $GLOBALS['pma_config_loading']
-        ) {
+        global $isConfigLoading;
+
+        if (! isset($isConfigLoading) || ! $isConfigLoading) {
             return;
         }
 
@@ -1774,8 +1777,4 @@ class Config
             $this->settings['Servers'] = $new_servers;
         }
     }
-}
-
-if (! defined('TESTSUITE')) {
-    register_shutdown_function([Config::class, 'fatalErrorHandler']);
 }
