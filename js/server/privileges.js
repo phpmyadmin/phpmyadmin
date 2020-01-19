@@ -359,7 +359,7 @@ AJAX.registerOnload('server/privileges.js', function () {
                 $('#initials_table')
                     .prop('id', 'initials_table_old')
                     .after(data.message).show('medium')
-                    .siblings('h2').not(':first').remove();
+                    .siblings('h2').not().first().remove();
                 // prevent double initials table
                 $('#initials_table_old').remove();
             } else {

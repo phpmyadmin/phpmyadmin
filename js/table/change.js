@@ -383,7 +383,7 @@ AJAX.registerOnload('table/change.js', function () {
         // Current value
         var value = $span.parent('td').children('input[type=\'text\']').val();
         // Field name
-        var field = $span.parents('tr').children('td:first').find('input[type=\'hidden\']').val();
+        var field = $span.parents('tr').children('td').first().find('input[type=\'hidden\']').val();
         // Column type
         var type = $span.parents('tr').find('span.column_type').text();
         // Names of input field and null checkbox
@@ -480,7 +480,7 @@ function addNewContinueInsertionFiels (event) {
     /**
      * @var columnCount   Number of number of columns table has.
      */
-    var columnCount = $('table.insertRowTable:first').find('tr').has('input[name*=\'fields_name\']').length;
+    var columnCount = $('table.insertRowTable').first().find('tr').has('input[name*=\'fields_name\']').length;
     /**
      * @var curr_rows   Number of current insert rows already on page
      */
@@ -602,7 +602,7 @@ function addNewContinueInsertionFiels (event) {
             /**
              * @var $last_row    Object referring to the last row
              */
-            var $lastRow = $('#insertForm').find('.insertRowTable:last');
+            var $lastRow = $('#insertForm').find('.insertRowTable').last();
 
             // need to access this at more than one level
             // (also needs improvement because it should be calculated
@@ -622,13 +622,13 @@ function addNewContinueInsertionFiels (event) {
             // Insert/Clone the ignore checkboxes
             if (currRows === 1) {
                 $('<input id="insert_ignore_1" type="checkbox" name="insert_ignore_1" checked="checked">')
-                    .insertBefore('table.insertRowTable:last')
+                    .insertBefore('table.insertRowTable').last()
                     .after('<label for="insert_ignore_1">' + Messages.strIgnore + '</label>');
             } else {
                 /**
                  * @var $last_checkbox   Object reference to the last checkbox in #insertForm
                  */
-                var $lastCheckbox = $('#insertForm').children('input:checkbox:last');
+                var $lastCheckbox = $('#insertForm').children('input:checkbox').last();
 
                 /** name of {@link $lastCheckbox} */
                 var lastCheckboxName = $lastCheckbox.attr('name');
@@ -638,21 +638,21 @@ function addNewContinueInsertionFiels (event) {
                 var newName = lastCheckboxName.replace(/\d+/, lastCheckboxIndex + 1);
 
                 $('<br><div class="clearfloat"></div>')
-                    .insertBefore('table.insertRowTable:last');
+                    .insertBefore('table.insertRowTable').last();
 
                 $lastCheckbox
                     .clone()
                     .attr({ 'id': newName, 'name': newName })
                     .prop('checked', true)
-                    .insertBefore('table.insertRowTable:last');
+                    .insertBefore('table.insertRowTable').last();
 
-                $('label[for^=insert_ignore]:last')
+                $('label[for^=insert_ignore]').last()
                     .clone()
                     .attr('for', newName)
-                    .insertBefore('table.insertRowTable:last');
+                    .insertBefore('table.insertRowTable').last();
 
                 $('<br>')
-                    .insertBefore('table.insertRowTable:last');
+                    .insertBefore('table.insertRowTable').last();
             }
             currRows++;
         }
@@ -689,7 +689,7 @@ function addNewContinueInsertionFiels (event) {
         var checkLock = jQuery.isEmptyObject(AJAX.lockedTargets);
         if (checkLock || confirm(Messages.strConfirmRowChange) === true) {
             while (currRows > targetRows) {
-                $('input[id^=insert_ignore]:last')
+                $('input[id^=insert_ignore]').last()
                     .nextUntil('fieldset')
                     .addBack()
                     .remove();

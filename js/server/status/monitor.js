@@ -466,7 +466,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
         /* Reorder all charts that it fills all column cells */
         var numColumns;
-        var $tr = $('#chartGrid').find('tr:first');
+        var $tr = $('#chartGrid').find('tr').first();
 
         var tempManageCols = function () {
             if (numColumns > monitorSettings.columns) {
@@ -480,7 +480,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
         var tempAddCol = function () {
             if ($(this).next().length !== 0) {
-                $(this).append($(this).next().find('td:first'));
+                $(this).append($(this).next().find('td').first());
             }
         };
 
@@ -494,7 +494,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             if ($tr.next().length > 0) {
                 var cnt = monitorSettings.columns - $tr.find('td').length;
                 for (var i = 0; i < cnt; i++) {
-                    $tr.append($tr.next().find('td:first'));
+                    $tr.append($tr.next().find('td').first());
                     $tr.nextAll().each(tempAddCol);
                 }
             }
@@ -1072,7 +1072,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         var numCharts = $('#chartGrid').find('.monitorChart').length;
         var numMissingCells = (monitorSettings.columns - numCharts % monitorSettings.columns) % monitorSettings.columns;
         for (i = 0; i < numMissingCells; i++) {
-            $('#chartGrid').find('tr:last').append('<td></td>');
+            $('#chartGrid').find('tr').last().append('<td></td>');
         }
 
         // Empty cells should keep their size so you can drop onto them
@@ -1211,7 +1211,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             if (!chartSize) {
                 calculateChartSize();
             }
-            $('#chartGrid').find('tr:last').append(
+            $('#chartGrid').find('tr').last().append(
                 '<td><div id="gridChartContainer' + runtime.chartAI + '" class="">' +
                 '<div class="ui-state-default monitorChart"' +
                 ' id="gridchart' + runtime.chartAI + '"' +
@@ -1988,8 +1988,8 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                     '</span></th><th class="right">' + data.sum.TOTAL + '</th></tr></tfoot>');
 
         // Append a tooltip to the count column, if there exist one
-        if ($('#logTable').find('tr:first th:last').text().indexOf('#') > -1) {
-            $('#logTable').find('tr:first th:last').append('&nbsp;' + Functions.getImage('b_help', '', { 'class': 'qroupedQueryInfoIcon' }));
+        if ($('#logTable').find('tr').first().find('th').last().text().indexOf('#') > -1) {
+            $('#logTable').find('tr').first().find('th').last().append('&nbsp;' + Functions.getImage('b_help', '', { 'class': 'qroupedQueryInfoIcon' }));
 
             var tooltipContent = Messages.strCountColumnExplanation;
             if (groupInserts) {

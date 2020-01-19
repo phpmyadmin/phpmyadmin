@@ -801,15 +801,15 @@ RTE.ROUTINE = {
         case 'MEDIUMTEXT':
         case 'LONGBLOB':
         case 'LONGTEXT':
-            $text.closest('tr').find('a:first').hide();
+            $text.closest('tr').find('a').first().hide();
             $len.parent().hide();
             $noLen.show();
             break;
         default:
             if ($type.val() === 'ENUM' || $type.val() === 'SET') {
-                $text.closest('tr').find('a:first').show();
+                $text.closest('tr').find('a').first().show();
             } else {
-                $text.closest('tr').find('a:first').hide();
+                $text.closest('tr').find('a').first().hide();
             }
             $len.parent().show();
             $noLen.hide();

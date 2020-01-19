@@ -80,7 +80,7 @@ AJAX.registerOnload('database/central_columns.js', function () {
     });
     $('#add_new').find('td').each(function () {
         if ($(this).attr('name') !== 'undefined') {
-            $(this).find('input,select:first').attr('name', $(this).attr('name'));
+            $(this).find('input,select').first().attr('name', $(this).attr('name'));
         }
     });
     $('#field_0_0').attr('required','required');
@@ -138,7 +138,7 @@ AJAX.registerOnload('database/central_columns.js', function () {
         var rownum = $(this).data('rownum');
         $('#f_' + rownum + ' td').each(function () {
             if ($(this).attr('name') !== 'undefined') {
-                $(this).find(':input[type!="hidden"],select:first')
+                $(this).find(':input[type!="hidden"],select').first()
                     .attr('name', $(this).attr('name'));
             }
         });
@@ -192,7 +192,7 @@ AJAX.registerOnload('database/central_columns.js', function () {
     });
     $('#table-select').on('change', function () {
         var selectValue = $(this).val();
-        var defaultColumnSelect = $('#column-select').find('option:first');
+        var defaultColumnSelect = $('#column-select').find('option').first();
         var href = 'index.php?route=/database/central-columns';
         var params = {
             'ajax_request' : true,

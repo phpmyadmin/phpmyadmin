@@ -2942,7 +2942,7 @@ AJAX.registerOnload('functions.js', function () {
                             /**
                              * @var curr_last_row   Object referring to the last <tr> element in {@link tablesTable}
                              */
-                            var currLastRow = $(tablesTable).find('tr:last');
+                            var currLastRow = $(tablesTable).find('tr').last();
                             /**
                              * @var curr_last_row_index_string   String containing the index of {@link currLastRow}
                              */
@@ -3416,7 +3416,7 @@ var $enumEditorDialog = null;
 AJAX.registerOnload('functions.js', function () {
     $(document).on('click', 'a.open_enum_editor', function () {
         // Get the name of the column that is being edited
-        var colname = $(this).closest('tr').find('input:first').val();
+        var colname = $(this).closest('tr').find('input').first().val();
         var title;
         var i;
         // And use it to make up a title for the page
@@ -3541,7 +3541,7 @@ AJAX.registerOnload('functions.js', function () {
             buttons: buttonOptions,
             open: function () {
                 // Focus the "Go" button after opening the dialog
-                $(this).closest('.ui-dialog').find('.ui-dialog-buttonpane button:first').trigger('focus');
+                $(this).closest('.ui-dialog').find('.ui-dialog-buttonpane button').first().trigger('focus');
             },
             close: function () {
                 $(this).remove();
@@ -3687,7 +3687,7 @@ AJAX.registerOnload('functions.js', function () {
                     }
                     return false;
                 });
-                $(this).closest('.ui-dialog').find('.ui-dialog-buttonpane button:first').trigger('focus');
+                $(this).closest('.ui-dialog').find('.ui-dialog-buttonpane button').first().trigger('focus');
             },
             close: function () {
                 $('#col_list').off('click', '.pick');
@@ -3714,7 +3714,7 @@ AJAX.registerOnload('functions.js', function () {
                     Functions.getImage('b_drop') +
                     '</td></tr>'
                 )
-                .find('tr:last')
+                .find('tr').last()
                 .show('fast');
         }
     });
@@ -3785,7 +3785,7 @@ AJAX.registerOnload('functions.js', function () {
         while (rowsToAdd--) {
             var $indexColumns = $('#index_columns');
             var $newrow = $indexColumns
-                .find('tbody > tr:first')
+                .find('tbody > tr').first()
                 .clone()
                 .appendTo(
                     $indexColumns.find('tbody')
@@ -4585,7 +4585,7 @@ AJAX.registerOnload('functions.js', function () {
                 // was also prevented in IE
                 $(this).trigger('blur');
 
-                $(this).closest('.ui-dialog').find('.ui-button:first').trigger('click');
+                $(this).closest('.ui-dialog').find('.ui-button').first().trigger('click');
             }
         }); // end $(document).on()
     }
@@ -4954,8 +4954,8 @@ AJAX.registerOnload('functions.js', function () {
 
             // There could be multiple submit buttons on the same form,
             // we assume all of them behave identical and just click one.
-            if (! $form.find('input[type="submit"]:first') ||
-                ! $form.find('input[type="submit"]:first').trigger('click')
+            if (! $form.find('input[type="submit"]').first() ||
+                ! $form.find('input[type="submit"]').first().trigger('click')
             ) {
                 $form.trigger('submit');
             }

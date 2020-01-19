@@ -79,7 +79,7 @@
     MenuResizer.prototype.resize = function () {
         var wmax = this.widthCalculator.call(this.$container);
         var windowWidth = $(window).width();
-        var $submenu = this.$container.find('.submenu:last');
+        var $submenu = this.$container.find('.submenu').last();
         var submenuW = $submenu.outerWidth(true);
         var $submenuUl = $submenu.find('ul');
         var $li = this.$container.find('> li');
