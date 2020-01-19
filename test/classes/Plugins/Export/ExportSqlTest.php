@@ -559,7 +559,6 @@ class ExportSqlTest extends PmaTestCase
         $this->assertStringContainsString(
             "SET FOREIGN_KEY_CHECKS=0;\n" .
             "SET SQL_MODE = \"NO_AUTO_VALUE_ON_ZERO\";\n" .
-            "SET AUTOCOMMIT = 0;\n" .
             "START TRANSACTION;\n" .
             "SET time_zone = \"+00:00\";\n",
             $result
