@@ -25,6 +25,8 @@
         <severity>0</severity>
     </rule>
 
+    <rule ref="Generic.CodeAnalysis.UselessOverridingMethod"/>
+
     <rule ref="Generic.Strings.UnnecessaryStringConcat">
         <properties>
             <property name="allowMultiline" value="true"/>

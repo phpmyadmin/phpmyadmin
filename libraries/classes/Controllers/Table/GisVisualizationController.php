@@ -29,23 +29,6 @@ final class GisVisualizationController extends AbstractController
     protected $visualization;
 
     /**
-     * @param Response          $response Response object
-     * @param DatabaseInterface $dbi      DatabaseInterface object
-     * @param Template          $template Template object
-     * @param string            $db       Database name
-     * @param string            $table    Table name
-     */
-    public function __construct(
-        $response,
-        $dbi,
-        Template $template,
-        $db,
-        $table
-    ) {
-        parent::__construct($response, $dbi, $template, $db, $table);
-    }
-
-    /**
      * @return void
      */
     public function index(): void
