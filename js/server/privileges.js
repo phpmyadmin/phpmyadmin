@@ -173,12 +173,13 @@ AJAX.registerOnload('server/privileges.js', function () {
 
                         // Re-check the classes of each row
                         $form
-                            .find('tbody').find('tr:odd')
-                            .removeClass('even').addClass('odd')
-                            .end()
-                            .find('tr:even')
-                            .removeClass('odd').addClass('even');
-
+                            .find('tbody').find('tr').each(function (index) {
+                                if (index >= 0 && index % 2 === 0) {
+                                    $(this).removeClass('odd').addClass('even');
+                                } else if (index >= 0 && index % 2 !== 0) {
+                                    $(this).removeClass('even').addClass('odd');
+                                }
+                            });
                         // update the checkall checkbox
                         $(Functions.checkboxesSel).trigger('change');
                     });
