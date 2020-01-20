@@ -17,5 +17,4 @@ use Exception;
  */
 class ExportException extends Exception
 {
-
 }

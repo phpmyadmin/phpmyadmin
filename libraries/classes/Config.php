@@ -9,7 +9,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use DirectoryIterator;
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Error;
 use PhpMyAdmin\LanguageManager;

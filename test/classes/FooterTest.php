@@ -21,7 +21,6 @@ use ReflectionClass;
  */
 class FooterTest extends PmaTestCase
 {
-
     /**
      * @var array store private attributes of PhpMyAdmin\Footer
      */

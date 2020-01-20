@@ -152,8 +152,8 @@ abstract class TableStats
                 $db = rawurldecode($_POST['t_db'][$key]);
                 $tbl = rawurldecode($_POST['t_tbl'][$key]);
                 if ($this->db . '.' . $this->tableName === $db . '.' . $tbl) {
-                    $this->x = (double) $_POST['t_x'][$key];
-                    $this->y = (double) $_POST['t_y'][$key];
+                    $this->x = (float) $_POST['t_x'][$key];
+                    $this->y = (float) $_POST['t_y'][$key];
                     break;
                 }
             }

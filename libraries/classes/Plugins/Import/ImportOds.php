@@ -398,13 +398,13 @@ class ImportOds extends ImportPlugin
                 (string) $cell_attrs['value-type']
             )
         ) {
-            $value = (double) $cell_attrs['value'];
+            $value = (float) $cell_attrs['value'];
 
             return $value;
         } elseif ($_REQUEST['ods_recognize_currency']
             && ! strcmp('currency', (string) $cell_attrs['value-type'])
         ) {
-            $value = (double) $cell_attrs['value'];
+            $value = (float) $cell_attrs['value'];
 
             return $value;
         }

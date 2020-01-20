@@ -6,20 +6,19 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Preferences;
 
-use PhpMyAdmin\Controllers\AbstractController;
-
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\BaseForm;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\UserPreferencesHeader;
-use PhpMyAdmin\TwoFactor;
 
 /**
  * User preferences page.

@@ -8,8 +8,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Display;
 
-use PhpMyAdmin\Html\MySQLDocumentation;
-use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Server\Privileges;

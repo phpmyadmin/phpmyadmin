@@ -15,5 +15,4 @@ namespace PhpMyAdmin\Html\Forms\Fields;
  */
 interface FieldGenerator
 {
-
 }
