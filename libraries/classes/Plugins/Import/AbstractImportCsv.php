@@ -2,8 +2,6 @@
 /**
  * Super class of CSV import plugins for phpMyAdmin
  *
- * @package    PhpMyAdmin-Import
- * @subpackage CSV
  */
 declare(strict_types=1);
 
@@ -19,8 +17,6 @@ use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 /**
  * Super class of the import plugins for the CSV format
  *
- * @package    PhpMyAdmin-Import
- * @subpackage CSV
  */
 abstract class AbstractImportCsv extends ImportPlugin
 {

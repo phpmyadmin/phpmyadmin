@@ -1,8 +1,6 @@
 <?php
 /**
  * Contains abstract class to hold table preferences/statistics
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -21,7 +19,6 @@ use function rawurldecode;
  * This class preserves the table co-ordinates,fields
  * and helps in drawing/generating the tables.
  *
- * @package PhpMyAdmin
  * @abstract
  */
 abstract class TableStats

@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers\Table
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
@@ -20,8 +17,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Displays add field form and handles it.
- *
- * @package PhpMyAdmin\Controllers\Table
  */
 class AddFieldController extends AbstractController
 {

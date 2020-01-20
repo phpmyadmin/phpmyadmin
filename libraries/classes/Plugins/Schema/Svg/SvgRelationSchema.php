@@ -1,8 +1,6 @@
 <?php
 /**
  * Contains PhpMyAdmin\Plugins\Schema\Svg\RelationStatsSvg class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -27,7 +25,6 @@ use PhpMyAdmin\Plugins\Schema\Svg\TableStatsSvg;
  * inherits ExportRelationSchema class has common functionality added
  * to this class
  *
- * @package PhpMyAdmin
  * @name Svg_Relation_Schema
  */
 class SvgRelationSchema extends ExportRelationSchema

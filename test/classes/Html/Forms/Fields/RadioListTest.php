@@ -1,8 +1,6 @@
 <?php
 /**
  * Test for PhpMyAdmin\Html\Forms\Fields\MaxFileSize class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -17,8 +15,6 @@ use Twig_Error_Syntax;
 
 /**
  * Test for PhpMyAdmin\Html\Forms\Fields\MaxFileSize class
- *
- * @package PhpMyAdmin-test
  */
 class RadioListTest extends PmaTestCase
 {

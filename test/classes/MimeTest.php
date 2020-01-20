@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\Mime
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Test for mime detection.
- *
- * @package PhpMyAdmin-test
  */
 class MimeTest extends TestCase
 {

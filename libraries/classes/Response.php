@@ -1,8 +1,6 @@
 <?php
 /**
  * Manages the rendering of pages in PMA
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -16,8 +14,6 @@ use PhpMyAdmin\OutputBuffering;
 
 /**
  * Singleton class used to manage the rendering of pages in PMA
- *
- * @package PhpMyAdmin
  */
 class Response
 {

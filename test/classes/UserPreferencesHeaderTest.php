@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for methods under PhpMyAdmin\UserPreferencesHeader class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -20,8 +18,6 @@ use Twig_Error_Syntax;
 
 /**
  * tests for methods under PhpMyAdmin\UserPreferencesHeader class
- *
- * @package PhpMyAdmin-test
  */
 class UserPreferencesHeaderTest extends PmaTestCase
 {

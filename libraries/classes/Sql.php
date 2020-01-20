@@ -1,8 +1,6 @@
 <?php
 /**
  * Set of functions for the SQL executor
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -32,8 +30,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Set of functions for the SQL executor
- *
- * @package PhpMyAdmin
  */
 class Sql
 {

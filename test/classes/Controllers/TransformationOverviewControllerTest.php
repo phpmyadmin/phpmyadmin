@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds TransformationOverviewControllerTest class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -17,8 +15,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for TransformationOverviewController class
- *
- * @package PhpMyAdmin-test
  */
 class TransformationOverviewControllerTest extends TestCase
 {

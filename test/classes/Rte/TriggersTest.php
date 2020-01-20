@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Rte\Triggers
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -15,8 +13,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * This class is for testing PhpMyAdmin\Rte\Triggers methods
- *
- * @package PhpMyAdmin-test
  */
 class TriggersTest extends TestCase
 {

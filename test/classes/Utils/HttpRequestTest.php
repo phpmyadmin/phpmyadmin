@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\Utils\HttpRequest class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -12,9 +10,6 @@ use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Utils\HttpRequest;
 use ReflectionClass;
 
-/**
- * @package PhpMyAdmin\Tests\Utils
- */
 class HttpRequestTest extends PmaTestCase
 {
     /** @var HttpRequest */

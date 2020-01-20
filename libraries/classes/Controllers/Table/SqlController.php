@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers\Table
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
@@ -16,8 +13,6 @@ use PhpMyAdmin\Url;
 
 /**
  * Table SQL executor
- *
- * @package PhpMyAdmin\Controllers\Table
  */
 final class SqlController extends AbstractController
 {

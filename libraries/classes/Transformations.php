@@ -11,8 +11,6 @@
  *
  * Please provide a comment for your function,
  * what it does and what parameters are available.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -25,8 +23,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Transformations class
- *
- * @package PhpMyAdmin
  */
 class Transformations
 {

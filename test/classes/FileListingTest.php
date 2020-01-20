@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\FileListing
- *
- * @package PhpMyAdmin\Tests
  */
 
 namespace PhpMyAdmin\Tests;
@@ -10,9 +8,6 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\FileListing;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @package PhpMyAdmin\Tests
- */
 class FileListingTest extends TestCase
 {
     /** @var FileListing $fileListing */

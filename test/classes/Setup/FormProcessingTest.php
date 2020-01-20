@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for methods under Formset processing library
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * tests for methods under Formset processing library
- *
- * @package PhpMyAdmin-test
  */
 class FormProcessingTest extends PmaTestCase
 {

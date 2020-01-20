@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for FormDisplayTemplate
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for FormDisplayTemplate
- *
- * @package PhpMyAdmin-test
  */
 class FormDisplayTemplateTest extends TestCase
 {

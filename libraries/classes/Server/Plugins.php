@@ -1,16 +1,10 @@
 <?php
-/**
- * @package PhpMyAdmin\Server
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Server;
 
 use PhpMyAdmin\DatabaseInterface;
 
-/**
- * @package PhpMyAdmin\Server
- */
 class Plugins
 {
     /** @var DatabaseInterface */

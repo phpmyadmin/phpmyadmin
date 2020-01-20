@@ -6,8 +6,6 @@
  * in testsuite. Feel free to include other queries which your test will
  * need.
  *
- * @package    PhpMyAdmin-DBI
- * @subpackage Dummy
  */
 declare(strict_types=1);
 
@@ -22,8 +20,6 @@ use PhpMyAdmin\Dbal\DbiExtension;
  * in testsuite. Feel free to include other queries which your test will
  * need.
  *
- * @package    PhpMyAdmin-DBI
- * @subpackage Dummy
  */
 class DbiDummy implements DbiExtension
 {

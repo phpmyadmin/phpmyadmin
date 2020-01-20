@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\Setup\ServersController
- *
- * @package PhpMyAdmin\Controllers\Setup
  */
 declare(strict_types=1);
 
@@ -12,9 +10,6 @@ use PhpMyAdmin\Config\Forms\Setup\ServersForm;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Setup\FormProcessing;
 
-/**
- * @package PhpMyAdmin\Controllers\Setup
- */
 class ServersController extends AbstractController
 {
     /**

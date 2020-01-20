@@ -1,8 +1,6 @@
 <?php
 /**
  * SQL data types definition
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -12,8 +10,6 @@ use PhpMyAdmin\DatabaseInterface;
 
 /**
  * Class holding type definitions for MySQL and MariaDB.
- *
- * @package PhpMyAdmin
  */
 class Types
 {

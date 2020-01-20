@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for Types.php
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PhpMyAdmin\Types;
 
 /**
  * Testcase for MySQL types handling.
- *
- * @package PhpMyAdmin-test
  */
 class TypesTest extends PmaTestCase
 {

@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
@@ -19,8 +16,6 @@ use PhpMyAdmin\Util;
 
 /**
  * View manipulations
- *
- * @package PhpMyAdmin\Controllers
  */
 class ViewOperationsController extends AbstractController
 {

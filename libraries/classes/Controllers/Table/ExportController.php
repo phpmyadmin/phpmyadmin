@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers\Table
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
@@ -20,9 +17,6 @@ use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
-/**
- * @package PhpMyAdmin\Controllers\Table
- */
 class ExportController extends AbstractController
 {
     /** @var Export */

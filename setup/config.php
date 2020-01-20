@@ -1,8 +1,6 @@
 <?php
 /**
  * Front controller for config view / download and clear
- *
- * @package PhpMyAdmin-Setup
  */
 declare(strict_types=1);
 

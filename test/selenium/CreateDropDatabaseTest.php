@@ -2,8 +2,6 @@
 /**
  * Selenium TestCase for creating and deleting databases
  *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  */
 declare(strict_types=1);
 
@@ -12,8 +10,6 @@ namespace PhpMyAdmin\Tests\Selenium;
 /**
  * CreateDropDatabaseTest class
  *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  * @group      selenium
  */
 class CreateDropDatabaseTest extends TestBase

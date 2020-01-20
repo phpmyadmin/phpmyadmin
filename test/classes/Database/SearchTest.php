@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Database\Search
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -15,8 +13,6 @@ use ReflectionClass;
 
 /**
  * Tests for database search.
- *
- * @package PhpMyAdmin-test
  */
 class SearchTest extends PmaTestCase
 {

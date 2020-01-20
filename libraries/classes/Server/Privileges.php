@@ -1,8 +1,6 @@
 <?php
 /**
  * set of functions with the Privileges section in pma
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -24,8 +22,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Privileges class
- *
- * @package PhpMyAdmin
  */
 class Privileges
 {

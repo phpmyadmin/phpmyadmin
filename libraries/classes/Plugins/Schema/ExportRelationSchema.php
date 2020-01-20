@@ -2,8 +2,6 @@
 /**
  * Contains PhpMyAdmin\Plugins\Schema\ExportRelationSchema class which is
  * inherited by all schema classes.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -18,8 +16,6 @@ use function rawurldecode;
  * This class is inherited by all schema classes
  * It contains those methods which are common in them
  * it works like factory pattern
- *
- * @package PhpMyAdmin
  */
 class ExportRelationSchema
 {

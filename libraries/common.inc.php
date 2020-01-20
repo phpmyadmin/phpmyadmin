@@ -26,8 +26,6 @@
  * - loading of an authentication library
  * - db connection
  * - authentication work
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 

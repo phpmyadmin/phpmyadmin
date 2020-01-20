@@ -1,8 +1,6 @@
 <?php
 /**
  * JavaScript management
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -12,8 +10,6 @@ namespace PhpMyAdmin;
  * Collects information about which JavaScript
  * files and objects are necessary to render
  * the page and generates the relevant code.
- *
- * @package PhpMyAdmin
  */
 class Scripts
 {

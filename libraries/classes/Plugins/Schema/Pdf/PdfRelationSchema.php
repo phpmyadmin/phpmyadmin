@@ -1,8 +1,6 @@
 <?php
 /**
  * PDF schema handling
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -40,7 +38,6 @@ if (getcwd() == __DIR__) {
  * to this class
  *
  * @name Pdf_Relation_Schema
- * @package PhpMyAdmin
  */
 class PdfRelationSchema extends ExportRelationSchema
 {

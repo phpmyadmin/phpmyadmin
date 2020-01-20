@@ -5,8 +5,6 @@
  *
  * This code is based on the OS Classes from the phpsysinfo project
  * (https://phpsysinfo.github.io/phpsysinfo/)
- *
- * @package PhpMyAdmin-sysinfo
  */
 declare(strict_types=1);
 
@@ -16,8 +14,6 @@ use PhpMyAdmin\SysInfoBase;
 
 /**
  * PhpMyAdmin\SysInfo class
- *
- * @package PhpMyAdmin
  */
 class SysInfo
 {

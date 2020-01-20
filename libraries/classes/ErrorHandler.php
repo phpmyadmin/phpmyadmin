@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds class PhpMyAdmin\ErrorHandler
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use PhpMyAdmin\Url;
 
 /**
  * handling errors
- *
- * @package PhpMyAdmin
  */
 class ErrorHandler
 {

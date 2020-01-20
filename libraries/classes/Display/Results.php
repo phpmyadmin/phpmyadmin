@@ -1,8 +1,6 @@
 <?php
 /**
  * Hold the PhpMyAdmin\Display\Results class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -36,8 +34,6 @@ use stdClass;
  * Handle all the functionalities related to displaying results
  * of sql queries, stored procedure, browsing sql processes or
  * displaying binary log.
- *
- * @package PhpMyAdmin
  */
 class Results
 {
@@ -631,7 +627,6 @@ class Results
      *               by the SQL query without any programmatically appended
      *               LIMIT clause (just a copy of $unlim_num_rows if it exists,
      *               else computed inside this function)
-     *
      *
      * @access private
      *

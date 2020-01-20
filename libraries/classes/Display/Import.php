@@ -1,8 +1,6 @@
 <?php
 /**
  * functions for displaying import for: server, database and table
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -20,8 +18,6 @@ use PhpMyAdmin\Template;
 
 /**
  * PhpMyAdmin\Display\Import class
- *
- * @package PhpMyAdmin
  */
 class Import
 {

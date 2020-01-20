@@ -1,8 +1,6 @@
 <?php
 /**
  * Various checks and message functions used on index page.
- *
- * @package PhpMyAdmin-Setup
  */
 declare(strict_types=1);
 
@@ -15,8 +13,6 @@ use PhpMyAdmin\VersionInformation;
  * PhpMyAdmin\Setup\Index class
  *
  * Various checks and message functions used on index page.
- *
- * @package PhpMyAdmin-Setup
  */
 class Index
 {

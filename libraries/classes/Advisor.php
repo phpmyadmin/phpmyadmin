@@ -2,8 +2,6 @@
 /**
  * A simple rules engine, that parses and executes the rules in advisory_rules.txt.
  * Adjusted to phpMyAdmin.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -21,8 +19,6 @@ use function array_merge_recursive;
 
 /**
  * Advisor class
- *
- * @package PhpMyAdmin
  */
 class Advisor
 {

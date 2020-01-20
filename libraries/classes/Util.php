@@ -1,8 +1,6 @@
 <?php
 /**
  * Hold the PhpMyAdmin\Util class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -18,8 +16,6 @@ use stdClass;
 
 /**
  * Misc functions used all over the scripts.
- *
- * @package PhpMyAdmin
  */
 class Util
 {

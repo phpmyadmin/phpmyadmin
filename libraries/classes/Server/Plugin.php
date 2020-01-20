@@ -1,8 +1,6 @@
 <?php
 /**
  * Server Plugin value object
- *
- * @package PhpMyAdmin\Server
  */
 declare(strict_types=1);
 
@@ -10,8 +8,6 @@ namespace PhpMyAdmin\Server;
 
 /**
  * Server Plugin value object
- *
- * @package PhpMyAdmin\Server
  */
 final class Plugin
 {

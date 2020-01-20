@@ -1,8 +1,6 @@
 <?php
 /**
  * Abstract class for the import plugins
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 /**
  * Provides a common interface that will have to be implemented by all of the
  * import plugins.
- *
- * @package PhpMyAdmin
  */
 abstract class ImportPlugin
 {

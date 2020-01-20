@@ -1,8 +1,6 @@
 <?php
 /**
  * MySQL charset metadata and manipulations
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PhpMyAdmin\Charsets\Collation;
 
 /**
  * Class used to manage MySQL charsets
- *
- * @package PhpMyAdmin
  */
 class Charsets
 {

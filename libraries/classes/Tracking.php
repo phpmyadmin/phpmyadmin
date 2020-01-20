@@ -1,8 +1,6 @@
 <?php
 /**
  * Functions used for database and table tracking
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -12,8 +10,6 @@ use PhpMyAdmin\Html\Generator;
 
 /**
  * PhpMyAdmin\Tracking class
- *
- * @package PhpMyAdmin
  */
 class Tracking
 {

@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\Properties\Options\OptionsPropertyGroup class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use ReflectionProperty;
 
 /**
  * Tests for PhpMyAdmin\Properties\Options\OptionsPropertyGroup class
- *
- * @package PhpMyAdmin-test
  */
 class OptionsPropertyGroupTest extends TestCase
 {

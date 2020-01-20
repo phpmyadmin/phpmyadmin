@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers\Table
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
@@ -14,8 +11,6 @@ use PhpMyAdmin\Response;
 
 /**
  * Displays index edit/creation form and handles it.
- *
- * @package PhpMyAdmin\Controllers\Table
  */
 class IndexesController extends AbstractController
 {

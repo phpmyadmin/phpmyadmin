@@ -1,8 +1,6 @@
 <?php
 /**
  * hold PhpMyAdmin\Twig\CoreExtension class
- *
- * @package PhpMyAdmin\Twig
  */
 declare(strict_types=1);
 
@@ -11,9 +9,6 @@ namespace PhpMyAdmin\Twig;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 
-/**
- * @package PhpMyAdmin\Twig
- */
 class CoreExtension extends AbstractExtension
 {
     /**

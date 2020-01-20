@@ -14,8 +14,6 @@
  * config.inc.php
  *
  * All directives are explained in the documentation
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 

@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
@@ -24,8 +21,6 @@ use function imagesy;
 
 /**
  * Wrapper script for rendering transformations
- *
- * @package PhpMyAdmin\Controllers
  */
 class TransformationWrapperController extends AbstractController
 {

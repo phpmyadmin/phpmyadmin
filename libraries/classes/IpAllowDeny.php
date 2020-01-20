@@ -2,8 +2,6 @@
 /**
  * This library is used with the server IP allow/deny host authentication
  * feature
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PhpMyAdmin\Core;
 
 /**
  * PhpMyAdmin\IpAllowDeny class
- *
- * @package PhpMyAdmin
  */
 class IpAllowDeny
 {

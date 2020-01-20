@@ -2,8 +2,6 @@
 /**
  * PDF schema export code
  *
- * @package    PhpMyAdmin-Schema
- * @subpackage EPS
  */
 declare(strict_types=1);
 
@@ -20,8 +18,6 @@ use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
 /**
  * Handles the schema export for the EPS format
  *
- * @package    PhpMyAdmin-Schema
- * @subpackage EPS
  */
 class SchemaEps extends SchemaPlugin
 {

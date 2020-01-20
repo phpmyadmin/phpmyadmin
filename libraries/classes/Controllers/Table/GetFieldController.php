@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers\Table
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
@@ -14,8 +11,6 @@ use function ini_set;
 
 /**
  * Provides download to a given field defined in parameters.
- *
- * @package PhpMyAdmin\Controllers\Table
  */
 class GetFieldController extends AbstractController
 {

@@ -1,8 +1,6 @@
 <?php
 /**
  * Value object class for a collation
- *
- * @package PhpMyAdmin\Charsets
  */
 declare(strict_types=1);
 
@@ -10,8 +8,6 @@ namespace PhpMyAdmin\Charsets;
 
 /**
  * Value object class for a collation
- *
- * @package PhpMyAdmin\Charsets
  */
 final class Collation
 {

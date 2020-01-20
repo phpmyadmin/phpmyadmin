@@ -1,8 +1,6 @@
 <?php
 /**
  * Contains PhpMyAdmin\Plugins\Schema\Pdf\TableStatsPdf class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -19,7 +17,6 @@ use PhpMyAdmin\Plugins\Schema\TableStats;
  * and helps in drawing/generating the Tables in PDF document.
  *
  * @name    Table_Stats_Pdf
- * @package PhpMyAdmin
  * @see     PMA_Schema_PDF
  */
 class TableStatsPdf extends TableStats

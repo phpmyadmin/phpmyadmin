@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Database\Designer
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -17,8 +15,6 @@ use ReflectionMethod;
 
 /**
  * Tests for PhpMyAdmin\Database\Designer
- *
- * @package PhpMyAdmin-test
  */
 class DesignerTest extends TestCase
 {

@@ -1,8 +1,6 @@
 <?php
 /**
  * phpinfo() wrapper to allow displaying only when configured to do so.
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -10,8 +8,6 @@ namespace PhpMyAdmin\Controllers;
 
 /**
  * phpinfo() wrapper to allow displaying only when configured to do so.
- *
- * @package PhpMyAdmin\Controllers
  */
 class PhpInfoController extends AbstractController
 {

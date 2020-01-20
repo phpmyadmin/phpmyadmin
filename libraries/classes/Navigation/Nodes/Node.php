@@ -1,8 +1,6 @@
 <?php
 /**
  * Functionality for the navigation tree in the left frame
- *
- * @package PhpMyAdmin-Navigation
  */
 declare(strict_types=1);
 
@@ -15,8 +13,6 @@ use PhpMyAdmin\Util;
 
 /**
  * The Node is the building block for the collapsible navigation tree
- *
- * @package PhpMyAdmin-Navigation
  */
 class Node
 {

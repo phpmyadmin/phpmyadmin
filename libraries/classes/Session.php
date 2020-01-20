@@ -2,8 +2,6 @@
 /**
  * Session handling
  *
- * @package PhpMyAdmin
- *
  * @see     https://www.php.net/manual/en/features.sessions.php
  */
 declare(strict_types=1);
@@ -17,8 +15,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Session class
- *
- * @package PhpMyAdmin
  */
 class Session
 {

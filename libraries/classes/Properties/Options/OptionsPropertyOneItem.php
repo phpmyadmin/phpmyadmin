@@ -1,8 +1,6 @@
 <?php
 /**
  * Superclass for the single Property Item classes.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -11,8 +9,6 @@ namespace PhpMyAdmin\Properties\Options;
 /**
  * Parents only single property items (not groups).
  * Defines possible options and getters and setters for them.
- *
- * @package PhpMyAdmin
  */
 abstract class OptionsPropertyOneItem extends OptionsPropertyItem
 {

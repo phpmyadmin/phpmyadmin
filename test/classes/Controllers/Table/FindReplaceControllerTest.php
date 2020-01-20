@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Tests\Controllers\Table
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
@@ -14,9 +11,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Types;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @package PhpMyAdmin\Tests\Controllers\Table
- */
 class FindReplaceControllerTest extends TestCase
 {
     protected function setUp(): void

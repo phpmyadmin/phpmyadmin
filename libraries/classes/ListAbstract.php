@@ -1,8 +1,6 @@
 <?php
 /**
  * hold the ListAbstract base class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -15,8 +13,6 @@ use ArrayObject;
  *
  * @todo add caching
  * @abstract
- * @package PhpMyAdmin
- * @since   phpMyAdmin 2.9.10
  */
 abstract class ListAbstract extends ArrayObject
 {

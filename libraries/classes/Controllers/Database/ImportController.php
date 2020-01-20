@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers\Database
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
@@ -11,9 +8,6 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Display\Import;
 use PhpMyAdmin\Util;
 
-/**
- * @package PhpMyAdmin\Controllers\Database
- */
 final class ImportController extends AbstractController
 {
     public function index(): void

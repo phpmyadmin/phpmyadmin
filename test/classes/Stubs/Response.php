@@ -6,8 +6,6 @@
  * respectively, what make it easy to determine whether the output is correct in test
  * suite. Feel free to modify for any future test needs.
  *
- * @package    PhpMyAdmin
- * @subpackage Stubs
  */
 declare(strict_types=1);
 
@@ -16,9 +14,6 @@ namespace PhpMyAdmin\Tests\Stubs;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Message;
 
-/**
- * @package PhpMyAdmin\Tests\Stubs
- */
 class Response
 {
     /**

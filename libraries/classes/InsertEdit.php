@@ -1,8 +1,6 @@
 <?php
 /**
  * set of functions with the insert/edit features in pma
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use PhpMyAdmin\Plugins\TransformationsPlugin;
 
 /**
  * PhpMyAdmin\InsertEdit class
- *
- * @package PhpMyAdmin
  */
 class InsertEdit
 {

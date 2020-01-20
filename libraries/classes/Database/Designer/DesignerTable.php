@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Database\Designer\DesignerTable class
- *
- * @package PhpMyAdmin-Designer
  */
 
 namespace PhpMyAdmin\Database\Designer;
@@ -11,8 +9,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Common functions for Designer
- *
- * @package PhpMyAdmin-Designer
  */
 class DesignerTable
 {

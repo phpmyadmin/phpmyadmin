@@ -2,8 +2,6 @@
 /**
  * CSV export code
  *
- * @package    PhpMyAdmin-Export
- * @subpackage CSV
  */
 declare(strict_types=1);
 
@@ -21,8 +19,6 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 /**
  * Handles the export for the CSV format
  *
- * @package    PhpMyAdmin-Export
- * @subpackage CSV
  */
 class ExportCsv extends ExportPlugin
 {

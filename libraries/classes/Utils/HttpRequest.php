@@ -1,8 +1,6 @@
 <?php
 /**
  * Hold the PhpMyAdmin\Utils\HttpRequest class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -10,8 +8,6 @@ namespace PhpMyAdmin\Utils;
 
 /**
  * Handles HTTP requests
- *
- * @package PhpMyAdmin
  */
 class HttpRequest
 {

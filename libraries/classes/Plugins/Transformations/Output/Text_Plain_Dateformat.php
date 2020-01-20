@@ -2,8 +2,6 @@
 /**
  * Text Plain Date Format Transformations plugin for phpMyAdmin
  *
- * @package    PhpMyAdmin-Transformations
- * @subpackage DateFormat
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\DateFormatTransformationsPlugin;
 /**
  * Handles the date format transformation for text plain
  *
- * @package    PhpMyAdmin-Transformations
- * @subpackage DateFormat
  */
 // @codingStandardsIgnoreLine
 class Text_Plain_Dateformat extends DateFormatTransformationsPlugin

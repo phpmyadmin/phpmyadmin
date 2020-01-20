@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * tests for PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup class
- *
- * @package PhpMyAdmin-test
  */
 class OptionsPropertyMainGroupTest extends TestCase
 {

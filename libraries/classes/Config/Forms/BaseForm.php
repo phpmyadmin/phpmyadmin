@@ -1,8 +1,6 @@
 <?php
 /**
  * Base class for preferences.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PhpMyAdmin\Config\FormDisplay;
 
 /**
  * Base form for user preferences
- *
- * @package PhpMyAdmin
  */
 abstract class BaseForm extends FormDisplay
 {

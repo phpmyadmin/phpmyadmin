@@ -1,8 +1,6 @@
 <?php
 /**
  * Second authentication factor handling
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -20,8 +18,6 @@ use PragmaRX\Google2FAQRCode\Google2FA;
  * HOTP and TOTP based two-factor authentication
  *
  * Also known as Google, Authy, or OTP
- *
- * @package PhpMyAdmin
  */
 class Application extends TwoFactorPlugin
 {

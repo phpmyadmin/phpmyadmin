@@ -2,8 +2,6 @@
 /**
  * PhpMyAdmin\Server\Status\Data class
  * Used by server_status_*.php pages
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -20,8 +18,6 @@ use PhpMyAdmin\Url;
  * TODO: Use lazy initialisation for some of the properties
  *       since not all of the server_status_*.php pages need
  *       all the data that this class provides.
- *
- * @package PhpMyAdmin
  */
 class Data
 {

@@ -1,8 +1,6 @@
 <?php
 /**
  * Interface for the zip extension
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -12,8 +10,6 @@ use ZipArchive;
 
 /**
  * Transformations class
- *
- * @package PhpMyAdmin
  */
 class ZipExtension
 {

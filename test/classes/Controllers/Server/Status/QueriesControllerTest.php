@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds QueriesControllerTest
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -17,9 +15,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @package PhpMyAdmin\Tests\Controllers\Server\Status
- */
 class QueriesControllerTest extends TestCase
 {
     /** @var Data */

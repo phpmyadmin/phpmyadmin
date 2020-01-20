@@ -2,8 +2,6 @@
 /**
  * Abstract class for the substring transformations plugins
  *
- * @package    PhpMyAdmin-Transformations
- * @subpackage Substring
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use stdClass;
 
 /**
  * Provides common methods for all of the substring transformations plugins.
- *
- * @package PhpMyAdmin
  */
 abstract class SubstringTransformationsPlugin extends TransformationsPlugin
 {

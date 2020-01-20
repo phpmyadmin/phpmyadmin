@@ -4,8 +4,6 @@
  *
  * @todo       Pretty much everything
  * @todo       Importing of accented characters seems to fail
- * @package    PhpMyAdmin-Import
- * @subpackage ODS
  */
 declare(strict_types=1);
 
@@ -23,8 +21,6 @@ use SimpleXMLElement;
 /**
  * Handles the import for the ODS format
  *
- * @package    PhpMyAdmin-Import
- * @subpackage ODS
  */
 class ImportOds extends ImportPlugin
 {

@@ -1,8 +1,6 @@
 <?php
 /**
  * Common functions for generating lists of Routines, Triggers and Events.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -21,8 +19,6 @@ use PhpMyAdmin\Util;
 
 /**
  * PhpMyAdmin\Rte\RteList class
- *
- * @package PhpMyAdmin
  */
 class RteList
 {

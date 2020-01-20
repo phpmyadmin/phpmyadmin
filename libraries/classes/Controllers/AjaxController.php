@@ -1,8 +1,6 @@
 <?php
 /**
  * Generic AJAX endpoint for getting information about database
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -16,8 +14,6 @@ use PhpMyAdmin\Template;
 
 /**
  * Generic AJAX endpoint for getting information about database
- *
- * @package PhpMyAdmin\Controllers
  */
 class AjaxController extends AbstractController
 {

@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\UserPreferences class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -19,8 +17,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Functions for displaying user preferences pages
- *
- * @package PhpMyAdmin
  */
 class UserPreferences
 {

@@ -1,8 +1,6 @@
 <?php
 /**
  * Verbose descriptions for settings.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PhpMyAdmin\Sanitize;
 /**
  * Base class for forms, loads default configuration options, checks allowed
  * values etc.
- *
- * @package PhpMyAdmin
  */
 class Descriptions
 {

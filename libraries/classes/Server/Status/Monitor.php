@@ -1,8 +1,6 @@
 <?php
 /**
  * functions for displaying server status sub item: monitor
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use PhpMyAdmin\Util;
 
 /**
  * functions for displaying server status sub item: monitor
- *
- * @package PhpMyAdmin
  */
 class Monitor
 {

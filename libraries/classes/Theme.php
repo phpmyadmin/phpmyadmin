@@ -1,8 +1,6 @@
 <?php
 /**
  * hold Theme class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -17,7 +15,6 @@ use PhpMyAdmin\ThemeManager;
  * @todo add the possibility to make a theme depend on another theme
  * and by default on original
  * @todo make all components optional - get missing components from 'parent' theme
- * @package PhpMyAdmin
  */
 class Theme
 {

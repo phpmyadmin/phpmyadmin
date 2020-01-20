@@ -3,8 +3,6 @@
  * CSV import plugin for phpMyAdmin
  *
  * @todo       add an option for handling NULL values
- * @package    PhpMyAdmin-Import
- * @subpackage CSV
  */
 declare(strict_types=1);
 
@@ -20,8 +18,6 @@ use PhpMyAdmin\Util;
 /**
  * Handles the import for the CSV format
  *
- * @package    PhpMyAdmin-Import
- * @subpackage CSV
  */
 class ImportCsv extends AbstractImportCsv
 {

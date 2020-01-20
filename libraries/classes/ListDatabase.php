@@ -1,8 +1,6 @@
 <?php
 /**
  * holds the ListDatabase class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -19,8 +17,6 @@ use PhpMyAdmin\Util;
  * </code>
  *
  * @todo this object should be attached to the PMA_Server object
- * @package PhpMyAdmin
- * @since   phpMyAdmin 2.9.10
  */
 class ListDatabase extends ListAbstract
 {

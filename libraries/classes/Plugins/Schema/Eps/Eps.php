@@ -1,8 +1,6 @@
 <?php
 /**
  * Classes to create relation schema in EPS format.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -15,7 +13,6 @@ use PhpMyAdmin\Response;
  * This Class is EPS Library and
  * helps in developing structure of EPS Schema Export
  *
- * @package PhpMyAdmin
  * @access  public
  * @see     https://www.php.net/manual/en/book.xmlwriter.php
  */

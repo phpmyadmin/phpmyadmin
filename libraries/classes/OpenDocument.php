@@ -1,8 +1,6 @@
 <?php
 /**
  * Simple interface for creating OASIS OpenDocument files.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -12,8 +10,6 @@ use PhpMyAdmin\ZipExtension;
 
 /**
  * Simplfied OpenDocument creator class
- *
- * @package PhpMyAdmin
  */
 class OpenDocument
 {

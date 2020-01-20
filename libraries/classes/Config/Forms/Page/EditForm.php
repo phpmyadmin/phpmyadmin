@@ -1,8 +1,6 @@
 <?php
 /**
  * User preferences form
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -12,9 +10,6 @@ use PhpMyAdmin\Config\Forms\BaseForm;
 use PhpMyAdmin\Config\Forms\User\FeaturesForm;
 use PhpMyAdmin\Config\Forms\User\MainForm;
 
-/**
- * @package PhpMyAdmin\Config\Forms\Page
- */
 class EditForm extends BaseForm
 {
     /**

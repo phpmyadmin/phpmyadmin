@@ -1,8 +1,6 @@
 <?php
 /**
  * Helper functions for RTE
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -10,8 +8,6 @@ namespace PhpMyAdmin\Rte;
 
 /**
  * PhpMyAdmin\Rte\Words class
- *
- * @package PhpMyAdmin
  */
 class Words
 {

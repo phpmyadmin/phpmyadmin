@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers\Table
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
@@ -25,8 +22,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Manipulation of table data like inserting, replacing and updating.
- *
- * @package PhpMyAdmin\Controllers\Table
  */
 final class ReplaceController extends AbstractController
 {

@@ -2,8 +2,6 @@
 /**
  * Abstract class for the formatted transformations plugins
  *
- * @package    PhpMyAdmin-Transformations
- * @subpackage Formatted
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use stdClass;
 
 /**
  * Provides common methods for all of the formatted transformations plugins.
- *
- * @package PhpMyAdmin
  */
 abstract class FormattedTransformationsPlugin extends TransformationsPlugin
 {

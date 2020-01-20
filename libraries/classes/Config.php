@@ -1,8 +1,6 @@
 <?php
 /**
  * Configuration handling.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -19,8 +17,6 @@ use PhpMyAdmin\Utils\HttpRequest;
 
 /**
  * Configuration class
- *
- * @package PhpMyAdmin
  */
 class Config
 {

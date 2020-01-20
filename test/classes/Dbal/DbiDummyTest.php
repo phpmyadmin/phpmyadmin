@@ -1,8 +1,6 @@
 <?php
 /**
  * Test for faked database access
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -12,8 +10,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Tests basic functionality of dummy dbi driver
- *
- * @package PhpMyAdmin-test
  */
 class DbiDummyTest extends TestCase
 {

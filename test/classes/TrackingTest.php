@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Tracking
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -18,8 +16,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for PhpMyAdmin\Tracking
- *
- * @package PhpMyAdmin-test
  */
 class TrackingTest extends TestCase
 {

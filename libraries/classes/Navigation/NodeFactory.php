@@ -1,8 +1,6 @@
 <?php
 /**
  * This class is responsible for creating Node objects
- *
- * @package PhpMyAdmin-navigation
  */
 declare(strict_types=1);
 
@@ -12,8 +10,6 @@ use PhpMyAdmin\Navigation\Nodes\Node;
 
 /**
  * Node factory - instantiates Node objects or objects derived from the Node class
- *
- * @package PhpMyAdmin-Navigation
  */
 class NodeFactory
 {

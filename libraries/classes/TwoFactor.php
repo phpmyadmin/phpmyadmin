@@ -1,8 +1,6 @@
 <?php
 /**
  * Two authentication factor handling
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -19,8 +17,6 @@ use Samyoul\U2F\U2FServer\U2FServer;
 
 /**
  * Two factor authentication wrapper class
- *
- * @package PhpMyAdmin
  */
 class TwoFactor
 {

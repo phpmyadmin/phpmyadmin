@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for Footer class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -16,8 +14,6 @@ use ReflectionClass;
 
 /**
  * Tests for Footer class
- *
- * @package PhpMyAdmin-test
  */
 class FooterTest extends PmaTestCase
 {

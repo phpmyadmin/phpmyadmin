@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Tests\Table
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Table;
@@ -9,9 +6,6 @@ namespace PhpMyAdmin\Tests\Table;
 use PhpMyAdmin\Table\Search;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @package PhpMyAdmin\Tests\Table
- */
 class SearchTest extends TestCase
 {
     /** @var Search */

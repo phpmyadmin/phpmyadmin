@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Controllers\Table\RelationController
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -17,8 +15,6 @@ use stdClass;
 
 /**
  * Tests for PhpMyAdmin\Controllers\Table\RelationController
- *
- * @package PhpMyAdmin-test
  */
 class RelationControllerTest extends PmaTestCase
 {

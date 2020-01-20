@@ -1,8 +1,6 @@
 <?php
 /**
  * Displays git revision
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -16,8 +14,6 @@ use PhpMyAdmin\Util;
 
 /**
  * PhpMyAdmin\Display\GitRevision class
- *
- * @package PhpMyAdmin
  */
 class GitRevision
 {

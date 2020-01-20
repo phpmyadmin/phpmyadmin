@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Tests\Controllers\Table
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
@@ -13,9 +10,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Url;
 
-/**
- * @package PhpMyAdmin\Tests\Controllers\Table
- */
 class PrivilegesControllerTest extends PmaTestCase
 {
     public function testIndex(): void

@@ -1,8 +1,6 @@
 <?php
 /**
  * Database structure manipulation
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -29,8 +27,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Handles database structure logic
- *
- * @package PhpMyAdmin\Controllers
  */
 class StructureController extends AbstractController
 {

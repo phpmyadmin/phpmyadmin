@@ -2,8 +2,6 @@
 /**
  * Abstract class for the external transformations plugins
  *
- * @package    PhpMyAdmin-Transformations
- * @subpackage External
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use stdClass;
 
 /**
  * Provides common methods for all of the external transformations plugins.
- *
- * @package PhpMyAdmin
  */
 abstract class ExternalTransformationsPlugin extends TransformationsPlugin
 {

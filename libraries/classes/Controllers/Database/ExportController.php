@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers\Database
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
@@ -17,9 +14,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
-/**
- * @package PhpMyAdmin\Controllers\Database
- */
 final class ExportController extends AbstractController
 {
     /** @var Export */

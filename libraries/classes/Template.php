@@ -1,8 +1,6 @@
 <?php
 /**
  * hold PhpMyAdmin\Template class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -35,8 +33,6 @@ use Twig_TemplateWrapper;
 
 /**
  * Handle front end templating
- *
- * @package PhpMyAdmin
  */
 class Template
 {

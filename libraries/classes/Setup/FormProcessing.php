@@ -1,8 +1,6 @@
 <?php
 /**
  * Formset processing library
- *
- * @package PhpMyAdmin-Setup
  */
 declare(strict_types=1);
 
@@ -16,8 +14,6 @@ use PhpMyAdmin\Url;
 
 /**
  * PhpMyAdmin\Setup\FormProcessing class
- *
- * @package PhpMyAdmin-Setup
  */
 class FormProcessing
 {

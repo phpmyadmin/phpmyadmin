@@ -1,8 +1,6 @@
 <?php
 /**
  * Main interface for database interactions
- *
- * @package PhpMyAdmin-DBI
  */
 declare(strict_types=1);
 
@@ -19,8 +17,6 @@ use PhpMyAdmin\SqlParser\Context;
 
 /**
  * Main interface for database interactions
- *
- * @package PhpMyAdmin-DBI
  */
 class DatabaseInterface implements DbalInterface
 {

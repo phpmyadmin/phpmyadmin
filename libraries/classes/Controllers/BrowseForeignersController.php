@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\BrowseForeignersController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -16,8 +14,6 @@ use PhpMyAdmin\Template;
 
 /**
  * Display selection for relational field values
- *
- * @package PhpMyAdmin\Controllers
  */
 class BrowseForeignersController extends AbstractController
 {

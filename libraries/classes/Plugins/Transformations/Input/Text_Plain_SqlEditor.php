@@ -2,8 +2,6 @@
 /**
  * SQL editing with syntax highlighted CodeMirror editor
  *
- * @package    PhpMyAdmin-Transformations
- * @subpackage SQL
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\CodeMirrorEditorTransformationPlugin;
 /**
  * SQL editing with syntax highlighted CodeMirror editor
  *
- * @package    PhpMyAdmin-Transformations
- * @subpackage SQL
  */
 // @codingStandardsIgnoreLine
 class Text_Plain_SqlEditor extends CodeMirrorEditorTransformationPlugin

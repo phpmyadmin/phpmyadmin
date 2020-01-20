@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for Script.php
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use ReflectionProperty;
 
 /**
  * Tests for Script.php
- *
- * @package PhpMyAdmin-test
  */
 class ScriptsTest extends PmaTestCase
 {

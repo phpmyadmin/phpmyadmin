@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for Table.php
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -19,8 +17,6 @@ use stdClass;
 
 /**
  * Tests behaviour of Table class
- *
- * @package PhpMyAdmin-test
  */
 class TableTest extends PmaTestCase
 {

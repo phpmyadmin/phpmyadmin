@@ -2,8 +2,6 @@
 /**
  * Selenium TestCase for settings related tests
  *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  */
 declare(strict_types=1);
 
@@ -12,8 +10,6 @@ namespace PhpMyAdmin\Tests\Selenium;
 /**
  * ServerSettingsTest class
  *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  * @group      selenium
  */
 class ServerSettingsTest extends TestBase

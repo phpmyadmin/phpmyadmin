@@ -5,8 +5,6 @@
  *
  * All directives are explained in documentation in the doc/ folder
  * or at <https://docs.phpmyadmin.net/>.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 

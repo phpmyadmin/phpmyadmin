@@ -2,8 +2,6 @@
 /**
  * The top-level class of the "Options" subtree of the object-oriented
  * properties system (the other subtree is "Plugin").
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -15,8 +13,6 @@ use PhpMyAdmin\Properties\PropertyItem;
  * Superclass for
  *  - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem and
  *  - OptionsProperty Group
- *
- * @package PhpMyAdmin
  */
 abstract class OptionsPropertyItem extends PropertyItem
 {

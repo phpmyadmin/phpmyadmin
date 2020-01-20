@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\Database\MultiTableQueryController
- *
- * @package PhpMyAdmin\Controllers\Database
  */
 declare(strict_types=1);
 
@@ -12,8 +10,6 @@ use PhpMyAdmin\Database\MultiTableQuery;
 
 /**
  * Handles database multi-table querying
- *
- * @package PhpMyAdmin\Controllers\Database
  */
 class MultiTableQueryController extends AbstractController
 {

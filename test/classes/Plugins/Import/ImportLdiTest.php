@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Plugins\Import\ImportLdi class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -16,8 +14,6 @@ use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * Tests for PhpMyAdmin\Plugins\Import\ImportLdi class
- *
- * @package PhpMyAdmin-test
  */
 class ImportLdiTest extends PmaTestCase
 {

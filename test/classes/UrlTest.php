@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for methods in URL class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for methods in URL class
- *
- * @package PhpMyAdmin-test
  */
 class UrlTest extends TestCase
 {

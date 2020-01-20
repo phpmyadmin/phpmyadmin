@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportTexytext class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -18,7 +16,6 @@ use ReflectionProperty;
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportTexytext class
  *
- * @package PhpMyAdmin-test
  * @group medium
  */
 class ExportTexytextTest extends PmaTestCase

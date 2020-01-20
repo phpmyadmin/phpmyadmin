@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds PluginsControllerTest class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -18,8 +16,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for PluginsController class
- *
- * @package PhpMyAdmin-test
  */
 class PluginsControllerTest extends TestCase
 {

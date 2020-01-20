@@ -1,8 +1,6 @@
 <?php
 /**
  * Saved searches managing
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -10,8 +8,6 @@ namespace PhpMyAdmin;
 
 /**
  * Saved searches managing
- *
- * @package PhpMyAdmin
  */
 class SavedSearches
 {

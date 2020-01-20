@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\ErrorReport class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PhpMyAdmin\Utils\HttpRequest;
 
 /**
  * Error reporting functions used to generate and submit error reports
- *
- * @package PhpMyAdmin
  */
 class ErrorReport
 {

@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\Server\Status\AdvisorController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -16,8 +14,6 @@ use PhpMyAdmin\Template;
 
 /**
  * Displays the advisor feature
- *
- * @package PhpMyAdmin\Controllers
  */
 class AdvisorController extends AbstractController
 {

@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for Charset Conversions
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for Charset Conversions
- *
- * @package PhpMyAdmin-test
  */
 class EncodingTest extends TestCase
 {

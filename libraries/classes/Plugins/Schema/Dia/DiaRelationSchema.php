@@ -1,8 +1,6 @@
 <?php
 /**
  * Classes to create relation schema in Dia format.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -26,7 +24,6 @@ use PhpMyAdmin\Plugins\Schema\Svg\TableStatsSvg;
  * inherits ExportRelationSchema class has common functionality added
  * to this class
  *
- * @package PhpMyAdmin
  * @name    Dia_Relation_Schema
  */
 class DiaRelationSchema extends ExportRelationSchema

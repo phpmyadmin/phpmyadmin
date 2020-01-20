@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds VariablesControllerTest
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -16,9 +14,6 @@ use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @package PhpMyAdmin\Tests\Controllers\Server\Status
- */
 class VariablesControllerTest extends TestCase
 {
     /** @var Data */

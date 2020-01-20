@@ -1,8 +1,6 @@
 <?php
 /**
  * Bootstrap for phpMyAdmin tests
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 

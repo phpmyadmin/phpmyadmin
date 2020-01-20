@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
@@ -40,8 +37,6 @@ use stdClass;
 /**
  * Displays table structure infos like columns, indexes, size, rows
  * and allows manipulation of indexes and columns.
- *
- * @package PhpMyAdmin\Controllers
  */
 class StructureController extends AbstractController
 {

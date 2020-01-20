@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\Display\ChangePassword
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -17,8 +15,6 @@ use PHPUnit\Framework\TestCase;
  * ChangePasswordTest class
  *
  * this class is for testing PhpMyAdmin\Display\ChangePassword functions
- *
- * @package PhpMyAdmin-test
  */
 class ChangePasswordTest extends TestCase
 {

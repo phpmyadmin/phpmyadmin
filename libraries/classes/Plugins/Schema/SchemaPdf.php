@@ -2,8 +2,6 @@
 /**
  * PDF schema export code
  *
- * @package    PhpMyAdmin-Schema
- * @subpackage PDF
  */
 declare(strict_types=1);
 
@@ -20,8 +18,6 @@ use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
 /**
  * Handles the schema export for the PDF format
  *
- * @package    PhpMyAdmin-Schema
- * @subpackage PDF
  */
 class SchemaPdf extends SchemaPlugin
 {

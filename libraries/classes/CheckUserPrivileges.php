@@ -1,8 +1,6 @@
 <?php
 /**
  * Get user's global privileges and some db-specific privileges
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PhpMyAdmin\Util;
 
 /**
  * PhpMyAdmin\CheckUserPrivileges class
- *
- * @package PhpMyAdmin
  */
 class CheckUserPrivileges
 {

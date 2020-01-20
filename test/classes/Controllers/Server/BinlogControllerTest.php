@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds BinlogControllerTest
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -19,8 +17,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for BinlogController class
- *
- * @package PhpMyAdmin-test
  */
 class BinlogControllerTest extends TestCase
 {

@@ -1,8 +1,6 @@
 <?php
 /**
  * Main loader script
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 

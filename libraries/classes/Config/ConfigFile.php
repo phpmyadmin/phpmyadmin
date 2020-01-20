@@ -1,8 +1,6 @@
 <?php
 /**
  * Config file management
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PhpMyAdmin\Core;
 /**
  * Config file management class.
  * Stores its data in $_SESSION
- *
- * @package PhpMyAdmin
  */
 class ConfigFile
 {

@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers\Server
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
@@ -18,8 +15,6 @@ use PhpMyAdmin\Url;
 
 /**
  * Displays the 'User groups' sub page under 'Users' page.
- *
- * @package PhpMyAdmin\Controllers\Server
  */
 class UserGroupsController extends AbstractController
 {

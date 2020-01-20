@@ -1,8 +1,6 @@
 <?php
 /**
  * phpMyAdmin theme manager
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -10,8 +8,6 @@ namespace PhpMyAdmin;
 
 /**
  * phpMyAdmin theme manager
- *
- * @package PhpMyAdmin
  */
 class ThemeManager
 {

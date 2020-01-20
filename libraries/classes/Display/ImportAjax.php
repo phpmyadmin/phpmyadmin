@@ -1,8 +1,6 @@
 <?php
 /**
  * Handles plugins that show the upload progress
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -12,8 +10,6 @@ use PhpMyAdmin\Core;
 
 /**
  * PhpMyAdmin\Display\ImportAjax class
- *
- * @package PhpMyAdmin
  */
 class ImportAjax
 {

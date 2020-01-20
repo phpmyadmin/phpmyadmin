@@ -5,8 +5,6 @@
  * a new host, just drop it into $hosts below. Contributed by
  * Matthew Hawkins.
  *
- * @package    PhpMyAdmin
- * @subpackage Example
  */
 declare(strict_types=1);
 

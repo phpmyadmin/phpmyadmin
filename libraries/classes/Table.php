@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the Table class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -30,7 +28,6 @@ use PhpMyAdmin\Util;
  * Handles everything related to tables
  *
  * @todo make use of Message and Error
- * @package PhpMyAdmin
  */
 class Table
 {

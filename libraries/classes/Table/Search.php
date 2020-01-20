@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Table
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Table;
@@ -9,9 +6,6 @@ namespace PhpMyAdmin\Table;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Util;
 
-/**
- * @package PhpMyAdmin\Table
- */
 final class Search
 {
     /** @var DatabaseInterface */

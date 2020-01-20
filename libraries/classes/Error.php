@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds class PhpMyAdmin\Error
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use Throwable;
 
 /**
  * a single error
- *
- * @package PhpMyAdmin
  */
 class Error extends Message
 {

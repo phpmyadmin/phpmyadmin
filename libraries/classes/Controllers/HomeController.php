@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\HomeController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -29,9 +27,6 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\Util;
 
-/**
- * @package PhpMyAdmin\Controllers
- */
 class HomeController extends AbstractController
 {
     /** @var Config */

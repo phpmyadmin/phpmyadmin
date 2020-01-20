@@ -1,8 +1,6 @@
 <?php
 /**
  * Contains functions used by browse foreigners
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -10,8 +8,6 @@ namespace PhpMyAdmin;
 
 /**
  * PhpMyAdmin\BrowseForeigners class
- *
- * @package PhpMyAdmin
  */
 class BrowseForeigners
 {

@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\RelationCleanup
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -17,8 +15,6 @@ use PHPUnit\Framework\TestCase;
  * PhpMyAdmin\Tests\RelationCleanupTest class
  *
  * this class is for testing PhpMyAdmin\RelationCleanup methods
- *
- * @package PhpMyAdmin-test
  */
 class RelationCleanupTest extends TestCase
 {

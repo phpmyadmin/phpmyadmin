@@ -6,8 +6,6 @@
  * phpMyAdmin, it is not intended to be perfect code and look, only
  * shows how you can integrate this functionality in your application.
  *
- * @package    PhpMyAdmin
- * @subpackage Example
  */
 declare(strict_types=1);
 

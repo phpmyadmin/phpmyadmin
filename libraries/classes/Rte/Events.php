@@ -1,8 +1,6 @@
 <?php
 /**
  * Functions for event management.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -17,8 +15,6 @@ use PhpMyAdmin\Util;
 
 /**
  * PhpMyAdmin\Rte\Events class
- *
- * @package PhpMyAdmin
  */
 class Events
 {

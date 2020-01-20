@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds StatusControllerTest
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -18,9 +16,6 @@ use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @package PhpMyAdmin\Tests\Controllers\Server\Status
- */
 class StatusControllerTest extends TestCase
 {
     protected function setUp(): void

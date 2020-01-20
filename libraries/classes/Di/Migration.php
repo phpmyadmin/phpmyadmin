@@ -1,8 +1,6 @@
 <?php
 /**
  * Migration from home-made DI to Symfony DI
- *
- * @package PhpMyAdmin\Di
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
  * Migration from home-made DI to Symfony DI
- *
- * @package PhpMyAdmin\Di
  */
 class Migration
 {

@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Import class
- *
- * @package PhpMyAdmin-Import
  */
 declare(strict_types=1);
 
@@ -17,8 +15,6 @@ use PhpMyAdmin\SqlParser\Utils\Query;
 
 /**
  * Library that provides common import functions that are used by import plugins
- *
- * @package PhpMyAdmin
  */
 class Import
 {

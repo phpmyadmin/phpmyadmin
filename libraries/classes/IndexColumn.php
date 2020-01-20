@@ -1,8 +1,6 @@
 <?php
 /**
  * holds the database index columns class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -10,8 +8,6 @@ namespace PhpMyAdmin;
 
 /**
  * Index column wrapper
- *
- * @package PhpMyAdmin
  */
 class IndexColumn
 {

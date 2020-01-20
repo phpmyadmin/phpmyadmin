@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\Server\Status\StatusController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -18,8 +16,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Object the server status page: processes, connections and traffic.
- *
- * @package PhpMyAdmin\Controllers\Server\Status
  */
 class StatusController extends AbstractController
 {

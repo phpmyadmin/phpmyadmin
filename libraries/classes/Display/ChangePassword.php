@@ -1,8 +1,6 @@
 <?php
 /**
  * Displays form for password change
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -17,8 +15,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Displays form for password change
- *
- * @package PhpMyAdmin
  */
 class ChangePassword
 {

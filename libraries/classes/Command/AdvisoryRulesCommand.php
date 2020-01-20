@@ -1,8 +1,6 @@
 <?php
 /**
  * Translates advisory rules to Gettext format
- *
- * @package PhpMyAdmin\Command
  */
 declare(strict_types=1);
 
@@ -15,8 +13,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Translates advisory rules to Gettext format
- *
- * @package PhpMyAdmin\Command
  */
 class AdvisoryRulesCommand extends Command
 {

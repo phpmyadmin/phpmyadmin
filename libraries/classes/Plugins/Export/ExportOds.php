@@ -2,8 +2,6 @@
 /**
  * Set of functions used to build OpenDocument Spreadsheet dumps of tables
  *
- * @package    PhpMyAdmin-Export
- * @subpackage ODS
  */
 declare(strict_types=1);
 
@@ -22,8 +20,6 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 /**
  * Handles the export for the ODS class
  *
- * @package    PhpMyAdmin-Export
- * @subpackage ODS
  */
 class ExportOds extends ExportPlugin
 {

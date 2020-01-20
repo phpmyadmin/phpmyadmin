@@ -1,8 +1,6 @@
 <?php
 /**
  * Used to render the console of PMA's pages
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use PhpMyAdmin\Template;
 
 /**
  * Class used to output the console
- *
- * @package PhpMyAdmin
  */
 class Console
 {

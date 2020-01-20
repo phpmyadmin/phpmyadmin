@@ -1,8 +1,6 @@
 <?php
 /**
  * Test for PhpMyAdmin\Gis\GisPolygon
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use TCPDF;
 
 /**
  * Tests for PhpMyAdmin\Gis\GisPolygon class
- *
- * @package PhpMyAdmin-test
  */
 class GisPolygonTest extends GisGeomTestCase
 {

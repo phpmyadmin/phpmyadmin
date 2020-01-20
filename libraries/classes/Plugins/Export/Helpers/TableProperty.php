@@ -2,8 +2,6 @@
 /**
  * Holds the PhpMyAdmin\Plugins\Export\Helpers\TableProperty class
  *
- * @package    PhpMyAdmin-Export
- * @subpackage CodeGen
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use PhpMyAdmin\Plugins\Export\ExportCodegen;
 /**
  * PhpMyAdmin\Plugins\Export\Helpers\TableProperty class
  *
- * @package    PhpMyAdmin-Export
- * @subpackage CodeGen
  */
 class TableProperty
 {

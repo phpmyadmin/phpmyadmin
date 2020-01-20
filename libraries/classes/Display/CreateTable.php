@@ -20,8 +20,6 @@
  * We cannot reliably detect the db-specific privileges, so no more
  * warnings about the lack of privileges for CREATE TABLE. Tested
  * on MySQL 5.0.18.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -32,8 +30,6 @@ use PhpMyAdmin\Template;
 
 /**
  * PhpMyAdmin\Display\CreateTable class
- *
- * @package PhpMyAdmin
  */
 class CreateTable
 {

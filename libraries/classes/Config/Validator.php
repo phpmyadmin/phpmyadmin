@@ -1,8 +1,6 @@
 <?php
 /**
  * Form validation for configuration editor
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -28,8 +26,6 @@ use function mysqli_connect;
  * no errors, key must be set with an empty value.
  *
  * Validation functions are assigned in $cfg_db['_validators'] (config.values.php).
- *
- * @package PhpMyAdmin
  */
 class Validator
 {

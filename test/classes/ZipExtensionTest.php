@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests zip extension usage.
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use ZipArchive;
 
 /**
  * Tests zip extension usage.
- *
- * @package PhpMyAdmin-test
  */
 class ZipExtensionTest extends PmaTestCase
 {

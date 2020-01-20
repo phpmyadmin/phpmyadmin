@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for methods under Config file generator
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -16,8 +14,6 @@ use ReflectionClass;
 
 /**
  * Tests for PhpMyAdmin\Setup\ConfigGenerator
- *
- * @package PhpMyAdmin-test
  */
 class ConfigGeneratorTest extends PmaTestCase
 {

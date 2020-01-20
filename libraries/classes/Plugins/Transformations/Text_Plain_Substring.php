@@ -2,8 +2,6 @@
 /**
  * Text Plain Substring Transformations plugin for phpMyAdmin
  *
- * @package    PhpMyAdmin-Transformations
- * @subpackage Substring
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\SubstringTransformationsPlugin;
 /**
  * Handles the substring transformation for text plain
  *
- * @package    PhpMyAdmin-Transformations
- * @subpackage Substring
  */
 // @codingStandardsIgnoreLine
 class Text_Plain_Substring extends SubstringTransformationsPlugin

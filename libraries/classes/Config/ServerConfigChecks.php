@@ -1,8 +1,6 @@
 <?php
 /**
  * Server config checks management
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -21,8 +19,6 @@ use PhpMyAdmin\Util;
  *
  * Outputs results to message list, must be called between SetupIndex::messagesBegin()
  * and SetupIndex::messagesEnd()
- *
- * @package PhpMyAdmin
  */
 class ServerConfigChecks
 {

@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Database\Designer\Common class
- *
- * @package PhpMyAdmin-Designer
  */
 declare(strict_types=1);
 
@@ -18,8 +16,6 @@ use function rawurlencode;
 
 /**
  * Common functions for Designer
- *
- * @package PhpMyAdmin-Designer
  */
 class Common
 {

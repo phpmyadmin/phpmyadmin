@@ -2,8 +2,6 @@
 /**
  * Abstract class for the download transformations plugins
  *
- * @package    PhpMyAdmin-Transformations
- * @subpackage Download
  */
 declare(strict_types=1);
 
@@ -15,8 +13,6 @@ use stdClass;
 
 /**
  * Provides common methods for all of the download transformations plugins.
- *
- * @package PhpMyAdmin
  */
 abstract class DownloadTransformationsPlugin extends TransformationsPlugin
 {

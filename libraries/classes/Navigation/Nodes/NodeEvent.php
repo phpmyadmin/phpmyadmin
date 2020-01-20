@@ -1,8 +1,6 @@
 <?php
 /**
  * Functionality for the navigation tree
- *
- * @package PhpMyAdmin-Navigation
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PhpMyAdmin\Url;
 
 /**
  * Represents a event node in the navigation tree
- *
- * @package PhpMyAdmin-Navigation
  */
 class NodeEvent extends NodeDatabaseChild
 {

@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for sysinfo library
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * tests for sysinfo library
- *
- * @package PhpMyAdmin-test
  */
 class SysInfoTest extends TestCase
 {

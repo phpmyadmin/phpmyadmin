@@ -1,8 +1,6 @@
 <?php
 /**
  * Code for displaying server selection
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Displays the MySQL servers choice form
- *
- * @package PhpMyAdmin
  */
 class Select
 {

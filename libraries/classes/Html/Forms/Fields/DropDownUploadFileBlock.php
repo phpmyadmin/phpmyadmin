@@ -1,8 +1,6 @@
 <?php
 /**
  * HTML Generator for drop down for file upload
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -15,8 +13,6 @@ use PhpMyAdmin\Util;
 
 /**
  * * HTML Generator for drop down for file upload
- *
- * @package PhpMyAdmin
  */
 class DropDownUploadFileBlock implements FieldGenerator
 {

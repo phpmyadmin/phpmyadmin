@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\ErrorReport
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -20,8 +18,6 @@ use ReflectionClass;
  * PhpMyAdmin\Tests\ErrorReportTest class
  *
  * this class is for testing PhpMyAdmin\ErrorReport methods
- *
- * @package PhpMyAdmin-test
  */
 class ErrorReportTest extends TestCase
 {

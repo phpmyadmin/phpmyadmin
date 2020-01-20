@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Dbal
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Dbal;
@@ -13,8 +10,6 @@ use PhpMyAdmin\Table;
 
 /**
  * Main interface for database interactions
- *
- * @package PhpMyAdmin\Dbal
  */
 interface DbalInterface
 {

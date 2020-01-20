@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers\Preferences
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Preferences;
@@ -22,8 +19,6 @@ use PhpMyAdmin\UserPreferencesHeader;
 
 /**
  * User preferences page.
- *
- * @package PhpMyAdmin\Controllers\Preferences
  */
 class FormsController extends AbstractController
 {

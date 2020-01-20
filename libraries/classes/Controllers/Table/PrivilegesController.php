@@ -1,8 +1,6 @@
 <?php
 /**
  * Controller for table privileges
- *
- * @package PhpMyAdmin\Controllers\Table
  */
 declare(strict_types=1);
 
@@ -16,8 +14,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Controller for table privileges
- *
- * @package PhpMyAdmin\Controllers\Table
  */
 class PrivilegesController extends AbstractController
 {

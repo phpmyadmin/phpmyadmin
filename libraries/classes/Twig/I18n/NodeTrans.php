@@ -1,8 +1,6 @@
 <?php
 /**
  * hold PhpMyAdmin\Twig\I18n\NodeTrans class
- *
- * @package PhpMyAdmin\Twig\I18n
  */
 declare(strict_types=1);
 
@@ -13,9 +11,6 @@ use Twig\Compiler;
 use Twig\Node\Expression\AbstractExpression;
 use Twig\Node\Node;
 
-/**
- * @package PhpMyAdmin\Twig\I18n
- */
 class NodeTrans extends TransNode
 {
     /**

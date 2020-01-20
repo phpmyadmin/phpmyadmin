@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PMA_StorageEngine_pbxt
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PhpMyAdmin\Engines\Pbxt;
- *
- * @package PhpMyAdmin-test
  */
 class PbxtTest extends PmaTestCase
 {

@@ -3,8 +3,6 @@
  * XML import plugin for phpMyAdmin
  *
  * @todo       Improve efficiency
- * @package    PhpMyAdmin-Import
- * @subpackage XML
  */
 declare(strict_types=1);
 
@@ -20,8 +18,6 @@ use SimpleXMLElement;
 /**
  * Handles the import for the XML format
  *
- * @package    PhpMyAdmin-Import
- * @subpackage XML
  */
 class ImportXml extends ImportPlugin
 {

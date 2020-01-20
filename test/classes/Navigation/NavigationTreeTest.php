@@ -1,8 +1,6 @@
 <?php
 /**
  * Test for PhpMyAdmin\Navigation\NavigationTree class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -15,8 +13,6 @@ use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PhpMyAdmin\Navigation\NavigationTree class
- *
- * @package PhpMyAdmin-test
  */
 class NavigationTreeTest extends PmaTestCase
 {

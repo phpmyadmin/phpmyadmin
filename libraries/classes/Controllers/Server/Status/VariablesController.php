@@ -1,8 +1,6 @@
 <?php
 /**
  * Displays a list of server status variables
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -11,9 +9,6 @@ namespace PhpMyAdmin\Controllers\Server\Status;
 use PhpMyAdmin\Common;
 use PhpMyAdmin\Html\Generator;
 
-/**
- * @package PhpMyAdmin\Controllers\Server\Status
- */
 class VariablesController extends AbstractController
 {
     /**

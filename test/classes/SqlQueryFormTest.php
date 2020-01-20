@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\SqlQueryForm
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -20,8 +18,6 @@ use PHPUnit\Framework\TestCase;
  * PhpMyAdmin\Tests\SqlQueryFormTest class
  *
  * this class is for testing PhpMyAdmin\SqlQueryForm methods
- *
- * @package PhpMyAdmin-test
  */
 class SqlQueryFormTest extends TestCase
 {

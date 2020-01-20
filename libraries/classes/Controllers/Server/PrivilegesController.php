@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers\Server
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
@@ -26,8 +23,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Server privileges and users manipulations.
- *
- * @package PhpMyAdmin\Controllers\Server
  */
 class PrivilegesController extends AbstractController
 {

@@ -1,8 +1,6 @@
 <?php
 /**
  * Displays status of phpMyAdmin configuration storage
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -13,9 +11,6 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 
-/**
- * @package PhpMyAdmin\Controllers
- */
 class CheckRelationsController extends AbstractController
 {
     /** @var Relation */

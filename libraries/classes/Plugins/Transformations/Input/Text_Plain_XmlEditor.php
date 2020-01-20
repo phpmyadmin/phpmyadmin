@@ -2,8 +2,6 @@
 /**
  * XML (and HTML) editing with syntax highlighted CodeMirror editor
  *
- * @package    PhpMyAdmin-Transformations
- * @subpackage XML
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\CodeMirrorEditorTransformationPlugin;
 /**
  * XML (and HTML) editing with syntax highlighted CodeMirror editor
  *
- * @package    PhpMyAdmin-Transformations
- * @subpackage XML
  */
 // @codingStandardsIgnoreLine
 class Text_Plain_XmlEditor extends CodeMirrorEditorTransformationPlugin

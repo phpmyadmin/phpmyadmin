@@ -1,15 +1,10 @@
 <?php
-/**
- * @package PhpMyAdmin
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
 /**
  * Shared code for server, database and table level pages.
- *
- * @package PhpMyAdmin
  */
 final class Common
 {

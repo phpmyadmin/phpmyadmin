@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers\Preferences
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Preferences;
@@ -15,9 +12,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\UserPreferencesHeader;
 
-/**
- * @package PhpMyAdmin\Controllers\Preferences
- */
 class TwoFactorController extends AbstractController
 {
     /** @var Relation */

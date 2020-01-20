@@ -3,7 +3,6 @@
  * Holds the PhpMyAdmin\MultSubmits class
  *
  * @usedby  mult_submits.inc.php
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -13,8 +12,6 @@ use PhpMyAdmin\Html\Forms\Fields\FKCheckbox;
 
 /**
  * Functions for multi submit forms
- *
- * @package PhpMyAdmin
  */
 class MultSubmits
 {

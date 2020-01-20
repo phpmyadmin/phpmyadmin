@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\MultSubmits
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -16,8 +14,6 @@ use PHPUnit\Framework\TestCase;
  * PhpMyAdmin\Tests\MultSubmitsTest class
  *
  * this class is for testing PhpMyAdmin\MultSubmits methods
- *
- * @package PhpMyAdmin-test
  */
 class MultSubmitsTest extends TestCase
 {

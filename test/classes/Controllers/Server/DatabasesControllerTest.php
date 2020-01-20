@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds DatabasesControllerTest class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -19,8 +17,6 @@ use stdClass;
 
 /**
  * Tests for DatabasesController class
- *
- * @package PhpMyAdmin-test
  */
 class DatabasesControllerTest extends TestCase
 {

@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers\Table
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
@@ -18,8 +15,6 @@ use PhpMyAdmin\Url;
 
 /**
  * Displays form for editing and inserting new table rows.
- *
- * @package PhpMyAdmin\Controllers\Table
  */
 class ChangeController extends AbstractController
 {

@@ -1,8 +1,6 @@
 <?php
 /**
  * holds the database index class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use PhpMyAdmin\Html\MySQLDocumentation;
 /**
  * Index manipulation class
  *
- * @package PhpMyAdmin
- * @since   phpMyAdmin 3.0.0
  */
 class Index
 {

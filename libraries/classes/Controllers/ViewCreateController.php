@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
@@ -16,8 +13,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Handles creation of VIEWs.
- *
- * @package PhpMyAdmin\Controllers
  */
 class ViewCreateController extends AbstractController
 {

@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for operations
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -15,8 +13,6 @@ use ReflectionMethod;
 
 /**
  * tests for operations
- *
- * @package PhpMyAdmin-test
  */
 class OperationsTest extends TestCase
 {

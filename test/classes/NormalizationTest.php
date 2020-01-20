@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\Normalization
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -22,8 +20,6 @@ use stdClass;
 
 /**
  * tests for PhpMyAdmin\Normalization
- *
- * @package PhpMyAdmin-test
  */
 class NormalizationTest extends TestCase
 {

@@ -1,8 +1,6 @@
 <?php
 /**
  * Handles visualization of GIS data
- *
- * @package PhpMyAdmin-GIS
  */
 declare(strict_types=1);
 
@@ -15,8 +13,6 @@ use TCPDF;
 
 /**
  * Handles visualization of GIS data
- *
- * @package PhpMyAdmin-GIS
  */
 class GisVisualization
 {

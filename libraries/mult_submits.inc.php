@@ -1,8 +1,6 @@
 <?php
 /**
  * Helper for multi submit forms
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 

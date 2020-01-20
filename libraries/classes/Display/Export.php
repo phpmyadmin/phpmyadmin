@@ -1,8 +1,6 @@
 <?php
 /**
  * functions for displaying server, database and table export
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -28,8 +26,6 @@ use Twig_Error_Syntax;
 
 /**
  * PhpMyAdmin\Display\Export class
- *
- * @package PhpMyAdmin
  */
 class Export
 {

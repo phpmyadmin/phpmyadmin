@@ -1,8 +1,6 @@
 <?php
 /**
  * Test for PhpMyAdmin\Header class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -17,7 +15,6 @@ use ReflectionProperty;
 /**
  * Test for PhpMyAdmin\Header class
  *
- * @package PhpMyAdmin-test
  * @group medium
  */
 class HeaderTest extends PmaTestCase

@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Rte\Routines
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -17,8 +15,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * This class is for testing PhpMyAdmin\Rte\Routines methods
- *
- * @package PhpMyAdmin-test
  */
 class RoutinesTest extends TestCase
 {

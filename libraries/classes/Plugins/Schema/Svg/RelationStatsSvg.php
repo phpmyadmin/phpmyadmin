@@ -1,8 +1,6 @@
 <?php
 /**
  * Contains PhpMyAdmin\Plugins\Schema\Svg\RelationStatsSvg class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -18,7 +16,6 @@ use PhpMyAdmin\Plugins\Schema\RelationStats;
  * master table's master field to foreign table's foreign key
  * in SVG XML document.
  *
- * @package PhpMyAdmin
  * @name    Relation_Stats_Svg
  * @see     PMA_SVG::printElementLine
  */

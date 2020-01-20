@@ -3,8 +3,6 @@
  * StructureControllerTest class
  *
  * this class is for testing StructureController class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -25,8 +23,6 @@ use ReflectionClass;
  * StructureControllerTest class
  *
  * this class is for testing StructureController class
- *
- * @package PhpMyAdmin-test
  */
 class StructureControllerTest extends PmaTestCase
 {

@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds EnginesControllerTest class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -18,8 +16,6 @@ use PHPStan\Testing\TestCase;
 
 /**
  * Tests for EnginesController class
- *
- * @package PhpMyAdmin-test
  */
 class EnginesControllerTest extends TestCase
 {

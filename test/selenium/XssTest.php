@@ -2,8 +2,6 @@
 /**
  * Selenium TestCase for SQL query window related tests
  *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  */
 declare(strict_types=1);
 
@@ -12,8 +10,6 @@ namespace PhpMyAdmin\Tests\Selenium;
 /**
  * XssTest class
  *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  * @group      selenium
  */
 class XssTest extends TestBase

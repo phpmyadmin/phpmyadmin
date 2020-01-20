@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\Server\CollationsController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -19,8 +17,6 @@ use PhpMyAdmin\Template;
 
 /**
  * Handles viewing character sets and collations
- *
- * @package PhpMyAdmin\Controllers
  */
 class CollationsController extends AbstractController
 {

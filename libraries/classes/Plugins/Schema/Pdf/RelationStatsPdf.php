@@ -1,8 +1,6 @@
 <?php
 /**
  * Contains PhpMyAdmin\Plugins\Schema\Pdf\RelationStatsPdf class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -19,7 +17,6 @@ use PhpMyAdmin\Plugins\Schema\RelationStats;
  * in PDF document.
  *
  * @name    Relation_Stats_Pdf
- * @package PhpMyAdmin
  * @see     PMA_Schema_PDF::SetDrawColor PMA_Schema_PDF::setLineWidthScale
  *          Pdf::lineScale
  */

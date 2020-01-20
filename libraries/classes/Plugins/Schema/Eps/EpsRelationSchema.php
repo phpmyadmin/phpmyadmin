@@ -1,8 +1,6 @@
 <?php
 /**
  * Classes to create relation schema in EPS format.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -24,7 +22,6 @@ use PhpMyAdmin\Plugins\Schema\Svg\TableStatsSvg;
  * This class inherits ExportRelationSchema class has common functionality added
  * to this class
  *
- * @package PhpMyAdmin
  * @name    Eps_Relation_Schema
  */
 class EpsRelationSchema extends ExportRelationSchema

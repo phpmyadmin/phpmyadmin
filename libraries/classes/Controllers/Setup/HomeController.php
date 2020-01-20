@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\Setup\HomeController
- *
- * @package PhpMyAdmin\Controllers\Setup
  */
 declare(strict_types=1);
 
@@ -16,9 +14,6 @@ use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Setup\Index;
 
-/**
- * @package PhpMyAdmin\Controllers\Setup
- */
 class HomeController extends AbstractController
 {
     /**

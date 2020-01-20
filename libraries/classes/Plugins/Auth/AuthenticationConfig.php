@@ -2,8 +2,6 @@
 /**
  * Config Authentication plugin for phpMyAdmin
  *
- * @package    PhpMyAdmin-Authentication
- * @subpackage Config
  */
 declare(strict_types=1);
 
@@ -17,8 +15,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Handles the config authentication method
- *
- * @package PhpMyAdmin-Authentication
  */
 class AuthenticationConfig extends AuthenticationPlugin
 {

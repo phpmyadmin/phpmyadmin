@@ -2,8 +2,6 @@
 /**
  * Text Plain JSON Transformations plugin for phpMyAdmin
  *
- * @package    PhpMyAdmin-Transformations
- * @subpackage SQL
  */
 declare(strict_types=1);
 
@@ -16,8 +14,6 @@ use stdClass;
 /**
  * Handles the json transformation for text plain
  *
- * @package    PhpMyAdmin-Transformations
- * @subpackage JSON
  */
 // @codingStandardsIgnoreLine
 class Text_Plain_Json extends TransformationsPlugin

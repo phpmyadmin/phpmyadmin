@@ -2,8 +2,6 @@
 /**
  * Set of functions used to build SQL dumps of tables
  *
- * @package    PhpMyAdmin-Export
- * @subpackage SQL
  */
 declare(strict_types=1);
 
@@ -32,8 +30,6 @@ use PhpMyAdmin\Util;
 /**
  * Handles the export for the SQL class
  *
- * @package    PhpMyAdmin-Export
- * @subpackage SQL
  */
 class ExportSql extends ExportPlugin
 {

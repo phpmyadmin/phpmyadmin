@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers\Database
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
@@ -20,8 +17,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Query by Example controller
- *
- * @package PhpMyAdmin\Controllers\Database
  */
 class QueryByExampleController extends AbstractController
 {

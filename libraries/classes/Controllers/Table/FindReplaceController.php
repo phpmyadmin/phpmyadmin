@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers\Table
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
@@ -17,8 +14,6 @@ use PhpMyAdmin\Util;
  * Handles find and replace tab.
  *
  * Displays find and replace form, allows previewing and do the replacing.
- *
- * @package PhpMyAdmin\Controllers\Table
  */
 class FindReplaceController extends AbstractController
 {

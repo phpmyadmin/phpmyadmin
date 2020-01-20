@@ -1,8 +1,6 @@
 <?php
 /**
  * Exporting of translated messages from PHP to Javascript
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 

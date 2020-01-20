@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds AdvisorControllerTest
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -21,8 +19,6 @@ use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 /**
  * Tests for AdvisorController class
- *
- * @package PhpMyAdmin-test
  */
 class AdvisorControllerTest extends TestCase
 {

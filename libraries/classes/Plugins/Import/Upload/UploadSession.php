@@ -1,8 +1,6 @@
 <?php
 /**
  * Provides upload functionalities for the import plugins
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PhpMyAdmin\Plugins\UploadInterface;
 
 /**
  * Implementation for session
- *
- * @package PhpMyAdmin
  */
 class UploadSession implements UploadInterface
 {

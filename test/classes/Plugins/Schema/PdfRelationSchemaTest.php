@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PdfRelationSchema class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PdfRelationSchema class
- *
- * @package PhpMyAdmin-test
  */
 class PdfRelationSchemaTest extends PmaTestCase
 {

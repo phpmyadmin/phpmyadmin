@@ -1,8 +1,6 @@
 <?php
 /**
  * Base class for all GIS data type classes
- *
- * @package PhpMyAdmin-GIS
  */
 declare(strict_types=1);
 
@@ -12,8 +10,6 @@ use TCPDF;
 
 /**
  * Base class for all GIS data type classes.
- *
- * @package PhpMyAdmin-GIS
  */
 abstract class GisGeometry
 {

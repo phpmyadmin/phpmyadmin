@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Controllers\Table\IndexesController
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -21,8 +19,6 @@ use PhpMyAdmin\Url;
 
 /**
  * Tests for PhpMyAdmin\Controllers\Table\IndexesController
- *
- * @package PhpMyAdmin-test
  */
 class IndexesControllerTest extends PmaTestCase
 {

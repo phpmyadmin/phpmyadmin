@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\Database\AbstractController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -15,8 +13,6 @@ use PhpMyAdmin\Template;
 
 /**
  * Handles database related logic
- *
- * @package PhpMyAdmin\Controllers
  */
 abstract class AbstractController extends Controller
 {

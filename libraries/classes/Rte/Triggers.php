@@ -1,8 +1,6 @@
 <?php
 /**
  * Functions for trigger management.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -17,8 +15,6 @@ use PhpMyAdmin\Util;
 
 /**
  * PhpMyAdmin\Rte\Triggers class
- *
- * @package PhpMyAdmin
  */
 class Triggers
 {

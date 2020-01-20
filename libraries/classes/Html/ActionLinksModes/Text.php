@@ -1,8 +1,6 @@
 <?php
 /**
  * Text link generator
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -10,8 +8,6 @@ namespace PhpMyAdmin\Html\ActionLinksModes;
 
 /**
  * Text link generator
- *
- * @package PhpMyAdmin
  */
 class Text implements ActionLinksModesInterface
 {

@@ -1,8 +1,6 @@
 <?php
 /**
  * URL redirector to avoid leaking Referer with some sensitive information.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 

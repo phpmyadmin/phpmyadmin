@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for FormDisplay class in config folder
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -18,8 +16,6 @@ use ReflectionProperty;
 
 /**
  * Tests for PMA_FormDisplay class
- *
- * @package PhpMyAdmin-test
  */
 class FormDisplayTest extends PmaTestCase
 {

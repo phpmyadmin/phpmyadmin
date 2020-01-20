@@ -1,8 +1,6 @@
 <?php
 /**
  * Handles DB QBE search
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -21,8 +19,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Class to handle database QBE search
- *
- * @package PhpMyAdmin
  */
 class Qbe
 {

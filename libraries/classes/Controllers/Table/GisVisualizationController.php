@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers\Table
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
@@ -15,8 +12,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Handles creation of the GIS visualizations.
- *
- * @package PhpMyAdmin\Controllers\Table
  */
 final class GisVisualizationController extends AbstractController
 {

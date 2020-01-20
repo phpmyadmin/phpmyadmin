@@ -1,8 +1,6 @@
 <?php
 /**
  * Used to render the header of PMA's pages
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use function ini_get;
 
 /**
  * Class used to output the HTTP and HTML headers
- *
- * @package PhpMyAdmin
  */
 class Header
 {

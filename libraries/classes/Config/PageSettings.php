@@ -1,8 +1,6 @@
 <?php
 /**
  * Page-related settings
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -18,8 +16,6 @@ use PhpMyAdmin\UserPreferences;
 
 /**
  * Page-related settings
- *
- * @package PhpMyAdmin
  */
 class PageSettings
 {

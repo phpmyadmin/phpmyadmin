@@ -2,8 +2,6 @@
 /**
  * Text Plain XML Transformations plugin for phpMyAdmin
  *
- * @package    PhpMyAdmin-Transformations
- * @subpackage SQL
  */
 declare(strict_types=1);
 
@@ -16,8 +14,6 @@ use stdClass;
 /**
  * Handles the XML transformation for text plain
  *
- * @package    PhpMyAdmin-Transformations
- * @subpackage XML
  */
 // @codingStandardsIgnoreLine
 class Text_Plain_Xml extends TransformationsPlugin

@@ -1,8 +1,6 @@
 <?php
 /**
  * PDF schema handling
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -34,7 +32,6 @@ if (getcwd() == __DIR__) {
  * in developing the structure of PDF Schema Export
  *
  * @access  public
- * @package PhpMyAdmin
  * @see     TCPDF
  */
 class Pdf extends PdfLib

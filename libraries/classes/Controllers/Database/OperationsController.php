@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers\Database
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
@@ -24,8 +21,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Handles miscellaneous database operations.
- *
- * @package PhpMyAdmin\Controllers\Database
  */
 class OperationsController extends AbstractController
 {

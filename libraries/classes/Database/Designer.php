@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Database\Designer class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -20,8 +18,6 @@ use stdClass;
 
 /**
  * Set of functions related to database designer
- *
- * @package PhpMyAdmin
  */
 class Designer
 {

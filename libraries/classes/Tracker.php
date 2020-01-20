@@ -1,8 +1,6 @@
 <?php
 /**
  * Tracking changes on databases, tables and views
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -26,7 +24,6 @@ use PhpMyAdmin\Util;
 /**
  * This class tracks changes on databases, tables and views.
  *
- * @package PhpMyAdmin
  * @todo use stristr instead of strstr
  */
 class Tracker

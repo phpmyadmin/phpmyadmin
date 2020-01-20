@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\Server\DatabasesController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -25,8 +23,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Handles viewing and creating and deleting databases
- *
- * @package PhpMyAdmin\Controllers
  */
 class DatabasesController extends AbstractController
 {

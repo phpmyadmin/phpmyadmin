@@ -1,8 +1,6 @@
 <?php
 /**
  * Generate HTML for MySQL Documentation
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Generate HTML for MySQL Documentation
- *
- * @package PhpMyAdmin
  */
 class MySQLDocumentation
 {

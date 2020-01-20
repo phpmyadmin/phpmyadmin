@@ -2,8 +2,6 @@
 /**
  * Application OctetStream Download Transformations plugin for phpMyAdmin
  *
- * @package    PhpMyAdmin-Transformations
- * @subpackage Download
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\DownloadTransformationsPlugin;
 /**
  * Handles the download transformation for application octetstream
  *
- * @package    PhpMyAdmin-Transformations
- * @subpackage Download
  */
 // @codingStandardsIgnoreLine
 class Application_Octetstream_Download extends DownloadTransformationsPlugin

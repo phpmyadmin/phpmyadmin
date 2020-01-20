@@ -1,8 +1,6 @@
 <?php
 /**
  * Handles Database Search
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -16,8 +14,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Class to handle database search
- *
- * @package PhpMyAdmin
  */
 class Search
 {

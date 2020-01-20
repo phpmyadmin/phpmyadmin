@@ -1,8 +1,6 @@
 <?php
 /**
  * Output buffering wrapper
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -10,8 +8,6 @@ namespace PhpMyAdmin;
 
 /**
  * Output buffering wrapper class
- *
- * @package PhpMyAdmin
  */
 class OutputBuffering
 {

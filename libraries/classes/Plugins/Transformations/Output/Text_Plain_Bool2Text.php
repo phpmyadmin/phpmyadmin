@@ -2,8 +2,6 @@
 /**
  * Text Plain Bool2Text Transformations plugin for phpMyAdmin
  *
- * @package    PhpMyAdmin-Transformations
- * @subpackage Bool2Text
  */
 declare(strict_types=1);
 
@@ -16,8 +14,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\Bool2TextTransformationsPlugin;
  * Has one option: the output format (default 'T/F')
  * or 'Y/N'
  *
- * @package    PhpMyAdmin-Transformations
- * @subpackage Bool2Text
  */
 // @codingStandardsIgnoreLine
 class Text_Plain_Bool2Text extends Bool2TextTransformationsPlugin

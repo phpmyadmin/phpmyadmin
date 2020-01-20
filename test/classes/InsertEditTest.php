@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\InsertEdit
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -22,7 +20,6 @@ use stdClass;
 /**
  * Tests for PhpMyAdmin\InsertEdit
  *
- * @package PhpMyAdmin-test
  * @group medium
  */
 class InsertEditTest extends TestCase

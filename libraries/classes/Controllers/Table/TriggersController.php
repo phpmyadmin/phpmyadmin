@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers\Table
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
@@ -13,8 +10,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Triggers management.
- *
- * @package PhpMyAdmin\Controllers\Table
  */
 class TriggersController extends AbstractController
 {

@@ -2,8 +2,6 @@
 /**
  * Display form for changing/adding table fields/columns.
  * Included by /table/add-field and /table/create
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 

@@ -1,8 +1,6 @@
 <?php
 /**
  * Functions for displaying user preferences pages
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -15,8 +13,6 @@ use PhpMyAdmin\Message;
 
 /**
  * PhpMyAdmin\CentralColumns class
- *
- * @package PhpMyAdmin
  */
 class CentralColumns
 {

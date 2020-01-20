@@ -1,8 +1,6 @@
 <?php
 /**
  * hold PhpMyAdmin\Twig\PluginsExtension class
- *
- * @package PhpMyAdmin\Twig
  */
 declare(strict_types=1);
 
@@ -11,9 +9,6 @@ namespace PhpMyAdmin\Twig;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
-/**
- * @package PhpMyAdmin\Twig
- */
 class PluginsExtension extends AbstractExtension
 {
     /**

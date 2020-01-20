@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
@@ -11,8 +8,6 @@ use PhpMyAdmin\VersionInformation;
 
 /**
  * A caching proxy for retrieving version information from https://www.phpmyadmin.net/.
- *
- * @package PhpMyAdmin\Controllers
  */
 class VersionCheckController extends AbstractController
 {

@@ -1,8 +1,6 @@
 <?php
 /**
  * Handle error report submission
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -18,8 +16,6 @@ use PhpMyAdmin\UserPreferences;
 
 /**
  * Handle error report submission
- *
- * @package PhpMyAdmin\Controllers
  */
 class ErrorReportController extends AbstractController
 {

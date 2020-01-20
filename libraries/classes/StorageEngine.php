@@ -1,8 +1,6 @@
 <?php
 /**
  * Library for extracting information about the available storage engines
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -38,8 +36,6 @@ define('PMA_ENGINE_DETAILS_TYPE_BOOLEAN', 3); // 'ON' or 'OFF'
 
 /**
  * Base Storage Engine Class
- *
- * @package PhpMyAdmin
  */
 class StorageEngine
 {

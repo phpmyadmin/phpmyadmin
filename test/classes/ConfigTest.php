@@ -2,7 +2,6 @@
 /**
  * Test for PhpMyAdmin\Config class
  *
- * @package PhpMyAdmin-test
  * @group current
  */
 declare(strict_types=1);
@@ -15,8 +14,6 @@ use PHPUnit\Framework\Exception;
 
 /**
  * Tests behaviour of PhpMyAdmin\Config class
- *
- * @package PhpMyAdmin-test
  */
 class ConfigTest extends PmaTestCase
 {

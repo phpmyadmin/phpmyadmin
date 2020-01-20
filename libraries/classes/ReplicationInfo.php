@@ -1,14 +1,8 @@
 <?php
-/**
- * @package PhpMyAdmin
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-/**
- * @package PhpMyAdmin
- */
 final class ReplicationInfo
 {
     public static function load(): void

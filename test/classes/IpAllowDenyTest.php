@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\IpAllowDeny
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -16,8 +14,6 @@ use PHPUnit\Framework\TestCase;
  * PhpMyAdmin\Tests\IpAllowDenyTest class
  *
  * this class is for testing PhpMyAdmin\IpAllowDeny
- *
- * @package PhpMyAdmin-test
  */
 class IpAllowDenyTest extends TestCase
 {

@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\Setup\AbstractController
- *
- * @package PhpMyAdmin\Controllers\Setup
  */
 declare(strict_types=1);
 
@@ -13,9 +11,6 @@ use PhpMyAdmin\Config\Forms\BaseForm;
 use PhpMyAdmin\Config\Forms\Setup\SetupFormList;
 use PhpMyAdmin\Template;
 
-/**
- * @package PhpMyAdmin\Controllers\Setup
- */
 abstract class AbstractController
 {
     /** @var ConfigFile */

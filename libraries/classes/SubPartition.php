@@ -1,8 +1,6 @@
 <?php
 /**
  * Library for extracting information about the sub-partitions
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -10,8 +8,6 @@ namespace PhpMyAdmin;
 
 /**
  * Represents a sub partition of a table
- *
- * @package PhpMyAdmin
  */
 class SubPartition
 {

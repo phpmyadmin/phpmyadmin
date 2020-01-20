@@ -1,8 +1,6 @@
 <?php
 /**
  * Functionality for the navigation tree
- *
- * @package PhpMyAdmin-Navigation
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use PhpMyAdmin\Url;
 
 /**
  * Represents a container for functions nodes in the navigation tree
- *
- * @package PhpMyAdmin-Navigation
  */
 class NodeFunctionContainer extends NodeDatabaseChildContainer
 {

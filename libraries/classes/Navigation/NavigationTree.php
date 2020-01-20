@@ -1,8 +1,6 @@
 <?php
 /**
  * Functionality for the navigation tree
- *
- * @package PhpMyAdmin-Navigation
  */
 declare(strict_types=1);
 
@@ -23,8 +21,6 @@ use PhpMyAdmin\Url;
 
 /**
  * Displays a collapsible of database objects in the navigation frame
- *
- * @package PhpMyAdmin-Navigation
  */
 class NavigationTree
 {

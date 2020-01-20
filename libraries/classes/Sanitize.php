@@ -1,8 +1,6 @@
 <?php
 /**
  * This class includes various sanitization methods that can be called statically
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use PhpMyAdmin\Util;
 
 /**
  * This class includes various sanitization methods that can be called statically
- *
- * @package PhpMyAdmin
  */
 class Sanitize
 {

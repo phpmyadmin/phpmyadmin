@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers\Database
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
@@ -20,8 +17,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Tracking configuration for database.
- *
- * @package PhpMyAdmin\Controllers\Database
  */
 class TrackingController extends AbstractController
 {

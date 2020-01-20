@@ -1,8 +1,6 @@
 <?php
 /**
  * The PBXT storage engine
- *
- * @package PhpMyAdmin-Engines
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use PhpMyAdmin\Util;
 
 /**
  * The PBXT storage engine
- *
- * @package PhpMyAdmin-Engines
  */
 class Pbxt extends StorageEngine
 {

@@ -1,8 +1,6 @@
 <?php
 /**
  * ActionLinksModesInterface builder
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -10,8 +8,6 @@ namespace PhpMyAdmin\Html\ActionLinksModes;
 
 /**
  * ActionLinksModesInterface builder
- *
- * @package PhpMyAdmin
  */
 class Factory
 {

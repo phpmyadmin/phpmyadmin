@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\UserPreferencesHeader class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -17,8 +15,6 @@ use Twig_Error_Syntax;
 
 /**
  * Functions for displaying user preferences header
- *
- * @package PhpMyAdmin
  */
 class UserPreferencesHeader
 {

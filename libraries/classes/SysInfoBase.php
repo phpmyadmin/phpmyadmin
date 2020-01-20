@@ -1,8 +1,6 @@
 <?php
 /**
  * Hold PhpMyAdmin\SysInfoBase class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -10,8 +8,6 @@ namespace PhpMyAdmin;
 
 /**
  * Basic sysinfo class not providing any real data.
- *
- * @package PhpMyAdmin
  */
 class SysInfoBase
 {

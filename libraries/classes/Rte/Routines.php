@@ -1,8 +1,6 @@
 <?php
 /**
  * Functions for routine management.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -25,8 +23,6 @@ use PhpMyAdmin\Util;
 
 /**
  * PhpMyAdmin\Rte\Routines class
- *
- * @package PhpMyAdmin
  */
 class Routines
 {

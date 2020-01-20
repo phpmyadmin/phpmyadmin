@@ -1,8 +1,6 @@
 <?php
 /**
  * Test for Message class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Test for Message class
- *
- * @package PhpMyAdmin-test
  */
 class MessageTest extends PmaTestCase
 {

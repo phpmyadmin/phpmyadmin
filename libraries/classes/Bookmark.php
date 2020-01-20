@@ -1,8 +1,6 @@
 <?php
 /**
  * Handles bookmarking SQL queries
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -10,8 +8,6 @@ namespace PhpMyAdmin;
 
 /**
  * Handles bookmarking SQL queries
- *
- * @package PhpMyAdmin
  */
 class Bookmark
 {

@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for Linter.php.
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PhpMyAdmin\Linter
- *
- * @package PhpMyAdmin-test
  */
 class LinterTest extends PmaTestCase
 {

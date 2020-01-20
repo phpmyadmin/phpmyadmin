@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\Server\Status\ProcessesController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -13,9 +11,6 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Util;
 
-/**
- * @package PhpMyAdmin\Controllers\Server\Status
- */
 class ProcessesController extends AbstractController
 {
     /**

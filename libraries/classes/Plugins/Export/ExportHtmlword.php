@@ -2,8 +2,6 @@
 /**
  * HTML-Word export code
  *
- * @package    PhpMyAdmin-Export
- * @subpackage HTML-Word
  */
 declare(strict_types=1);
 
@@ -22,8 +20,6 @@ use PhpMyAdmin\Util;
 /**
  * Handles the export for the HTML-Word format
  *
- * @package    PhpMyAdmin-Export
- * @subpackage HTML-Word
  */
 class ExportHtmlword extends ExportPlugin
 {

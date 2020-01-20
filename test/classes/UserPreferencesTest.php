@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for methods under PhpMyAdmin\UserPreferences class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -17,8 +15,6 @@ use PhpMyAdmin\UserPreferences;
 
 /**
  * tests for methods under PhpMyAdmin\UserPreferences class
- *
- * @package PhpMyAdmin-test
  */
 class UserPreferencesTest extends PmaTestCase
 {

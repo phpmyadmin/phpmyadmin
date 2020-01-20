@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PMA_StorageEngine_binlog
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PhpMyAdmin\Engines\Binlog
- *
- * @package PhpMyAdmin-test
  */
 class BinlogTest extends PmaTestCase
 {
