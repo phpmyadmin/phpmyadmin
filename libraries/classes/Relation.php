@@ -1332,7 +1332,7 @@ class Relation
                 $key = htmlspecialchars($key);
             } else {
                 $key = '0x' . bin2hex($key);
-                if (false !== strpos($data, '0x')) {
+                if (strpos($data, '0x') !== false) {
                     $selected = ($key == trim($data));
                 } else {
                     $selected = ($key == '0x' . $data);
@@ -1405,7 +1405,7 @@ class Relation
         $data,
         $max = null
     ) {
-        if (null === $max) {
+        if ($max === null) {
             $max = $GLOBALS['cfg']['ForeignKeyMaxLimit'];
         }
 

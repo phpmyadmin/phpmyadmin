@@ -1086,9 +1086,7 @@ class Results
             //  where-query.
             $name = $fields_meta[$i]->name;
             $condition_field = isset($highlight_columns[$name])
-                || isset($highlight_columns[Util::backquote($name)])
-                ? true
-                : false;
+                || isset($highlight_columns[Util::backquote($name)]);
 
             // Prepare comment-HTML-wrappers for each row, if defined/enabled.
             $comments = $this->_getCommentForRow($comments_map, $fields_meta[$i]);
@@ -2802,9 +2800,7 @@ class Results
             //  where-query.
             $condition_field = isset($highlight_columns)
                 && (isset($highlight_columns[$meta->name])
-                || isset($highlight_columns[Util::backquote($meta->name)]))
-                ? true
-                : false;
+                || isset($highlight_columns[Util::backquote($meta->name)]));
 
             // Wrap MIME-transformations. [MIME]
             $default_function = [
@@ -3792,12 +3788,12 @@ class Results
         // if binary fields are protected
         // or transformation plugin is of non text type
         // such as image
-        if ((false !== stripos($field_flags, self::BINARY_FIELD)
+        if ((stripos($field_flags, self::BINARY_FIELD) !== false
             && ($GLOBALS['cfg']['ProtectBinary'] === 'all'
             || ($GLOBALS['cfg']['ProtectBinary'] === 'noblob'
-            && false === stripos($meta->type, self::BLOB_FIELD))
+            && stripos($meta->type, self::BLOB_FIELD) === false)
             || ($GLOBALS['cfg']['ProtectBinary'] === 'blob'
-            && false !== stripos($meta->type, self::BLOB_FIELD))))
+            && stripos($meta->type, self::BLOB_FIELD) !== false)))
             || $bIsText
         ) {
             $class = str_replace('grid_edit', '', $class);
@@ -3818,7 +3814,7 @@ class Results
         $displayedColumn = $column;
         if (! (is_object($transformation_plugin)
             && strpos($transformation_plugin->getName(), 'Link') !== false)
-            && false === stripos($field_flags, self::BINARY_FIELD)
+            && stripos($field_flags, self::BINARY_FIELD) === false
         ) {
             [
                 $is_field_truncated,
@@ -3837,7 +3833,7 @@ class Results
             // some results of PROCEDURE ANALYSE() are reported as
             // being BINARY but they are quite readable,
             // so don't treat them as BINARY
-        } elseif (false !== stripos($field_flags, self::BINARY_FIELD)
+        } elseif (stripos($field_flags, self::BINARY_FIELD) !== false
             && ! (isset($is_analyse) && $is_analyse)
         ) {
             // we show the BINARY or BLOB message and field's size
@@ -3868,7 +3864,7 @@ class Results
             $result = strip_tags($column);
             // disable inline grid editing
             // if binary or blob data is not shown
-            if (false !== stripos($result, $binary_or_blob)) {
+            if (stripos($result, $binary_or_blob) !== false) {
                 $class = str_replace('grid_edit', '', $class);
             }
             $formatted = true;
@@ -4408,7 +4404,7 @@ class Results
         // check for non printable sorted row data
         $meta = $fields_meta[$sorted_column_index];
 
-        if (false !== stripos($meta->type, self::BLOB_FIELD)
+        if (stripos($meta->type, self::BLOB_FIELD) !== false
             || ($meta->type == self::GEOMETRY_FIELD)
         ) {
             $column_for_first_row = $this->_handleNonPrintableContents(
@@ -4437,7 +4433,7 @@ class Results
 
         // check for non printable sorted row data
         $meta = $fields_meta[$sorted_column_index];
-        if (false !== stripos($meta->type, self::BLOB_FIELD)
+        if (stripos($meta->type, self::BLOB_FIELD) !== false
             || ($meta->type == self::GEOMETRY_FIELD)
         ) {
             $column_for_last_row = $this->_handleNonPrintableContents(
@@ -5093,7 +5089,7 @@ class Results
         if (($_SESSION['tmpval']['display_binary']
             && $meta->type === self::STRING_FIELD)
             || ($_SESSION['tmpval']['display_blob']
-            && false !== stripos($meta->type, self::BLOB_FIELD))
+            && stripos($meta->type, self::BLOB_FIELD) !== false)
         ) {
             // in this case, restart from the original $content
             if (mb_check_encoding($content, 'utf-8')

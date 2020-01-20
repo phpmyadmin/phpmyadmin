@@ -42,19 +42,19 @@ class TokenParserTrans extends TransTokenParser
             $body = $this->parser->subparse([$this, 'decideForFork']);
             $next = $stream->next()->getValue();
 
-            if ('plural' === $next) {
+            if ($next === 'plural') {
                 $count = $this->parser->getExpressionParser()->parseExpression();
                 $stream->expect(Token::BLOCK_END_TYPE);
                 $plural = $this->parser->subparse([$this, 'decideForFork']);
 
-                if ('notes' === $stream->next()->getValue()) {
+                if ($stream->next()->getValue() === 'notes') {
                     $stream->expect(Token::BLOCK_END_TYPE);
                     $notes = $this->parser->subparse([$this, 'decideForEnd'], true);
                 }
-            } elseif ('context' === $next) {
+            } elseif ($next === 'context') {
                 $stream->expect(Token::BLOCK_END_TYPE);
                 $context = $this->parser->subparse([$this, 'decideForEnd'], true);
-            } elseif ('notes' === $next) {
+            } elseif ($next === 'notes') {
                 $stream->expect(Token::BLOCK_END_TYPE);
                 $notes = $this->parser->subparse([$this, 'decideForEnd'], true);
             }

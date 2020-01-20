@@ -515,10 +515,8 @@ class ErrorHandler
      */
     public function hasErrorsForPrompt(): bool
     {
-        return (
-            $GLOBALS['cfg']['SendErrorReports'] != 'never'
-            && $this->countErrors() !=  $this->countUserErrors()
-        );
+        return $GLOBALS['cfg']['SendErrorReports'] != 'never'
+            && $this->countErrors() !=  $this->countUserErrors();
     }
 
     /**

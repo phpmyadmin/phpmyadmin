@@ -728,7 +728,7 @@ parameters:
 			path: libraries/classes/Database/Qbe.php
 
 		-
-			message: "#^Strict comparison using \\=\\=\\= between null and array will always evaluate to false\\.$#"
+			message: "#^Strict comparison using \\=\\=\\= between array and null will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Database/Qbe.php
 

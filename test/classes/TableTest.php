@@ -1520,7 +1520,7 @@ class TableTest extends PmaTestCase
 
         //removeUiProp
         $table->removeUiProp($property);
-        $is_define_property = isset($table->uiprefs[$property]) ? true : false;
+        $is_define_property = isset($table->uiprefs[$property]);
         $this->assertEquals(
             false,
             $is_define_property

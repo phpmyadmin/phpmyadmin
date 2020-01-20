@@ -458,7 +458,7 @@ class DatabaseInterface implements DbalInterface
                         )
                     )
                     . '\')';
-            } elseif (true === $tbl_is_group) {
+            } elseif ($tbl_is_group === true) {
                 $sql_where_table = 'AND t.`TABLE_NAME` LIKE \''
                     . Util::escapeMysqlWildcards(
                         $this->escapeString($table)
@@ -561,7 +561,7 @@ class DatabaseInterface implements DbalInterface
         ?string $table_type = null,
         $link = self::CONNECT_USER
     ): array {
-        if (true === $limit_count) {
+        if ($limit_count === true) {
             $limit_count = $GLOBALS['cfg']['MaxTableList'];
         }
 
@@ -645,12 +645,12 @@ class DatabaseInterface implements DbalInterface
         // this is why we fall back to SHOW TABLE STATUS even for MySQL >= 50002
         if (empty($tables)) {
             foreach ($databases as $each_database) {
-                if ($table || (true === $tbl_is_group) || ! empty($table_type)) {
+                if ($table || ($tbl_is_group === true) || ! empty($table_type)) {
                     $sql = 'SHOW TABLE STATUS FROM '
                         . Util::backquote($each_database)
                         . ' WHERE';
                     $needAnd = false;
-                    if ($table || (true === $tbl_is_group)) {
+                    if ($table || ($tbl_is_group === true)) {
                         if (is_array($table)) {
                             $sql .= ' `Name` IN (\''
                                 . implode(
@@ -880,7 +880,7 @@ class DatabaseInterface implements DbalInterface
     ): array {
         $sort_order = strtoupper($sort_order);
 
-        if (true === $limit_count) {
+        if ($limit_count === true) {
             $limit_count = $GLOBALS['cfg']['MaxDbList'];
         }
 
@@ -1008,7 +1008,7 @@ class DatabaseInterface implements DbalInterface
 
                     // for InnoDB, this does not contain the number of
                     // overhead bytes but the total free space
-                    if ('InnoDB' != $row['Engine']) {
+                    if ($row['Engine'] != 'InnoDB') {
                         $databases[$database_name]['SCHEMA_DATA_FREE']
                             += $row['Data_free'];
                     }
@@ -1143,19 +1143,19 @@ class DatabaseInterface implements DbalInterface
             $array_keys = [];
 
             // get columns information from information_schema
-            if (null !== $database) {
+            if ($database !== null) {
                 $sql_wheres[] = '`TABLE_SCHEMA` = \''
                     . $this->escapeString($database, $link) . '\' ';
             } else {
                 $array_keys[] = 'TABLE_SCHEMA';
             }
-            if (null !== $table) {
+            if ($table !== null) {
                 $sql_wheres[] = '`TABLE_NAME` = \''
                     . $this->escapeString($table, $link) . '\' ';
             } else {
                 $array_keys[] = 'TABLE_NAME';
             }
-            if (null !== $column) {
+            if ($column !== null) {
                 $sql_wheres[] = '`COLUMN_NAME` = \''
                     . $this->escapeString($column, $link) . '\' ';
             } else {
@@ -1184,7 +1184,7 @@ class DatabaseInterface implements DbalInterface
         }
 
         $columns = [];
-        if (null === $database) {
+        if ($database === null) {
             foreach ($GLOBALS['dblist']->databases as $database) {
                 $columns[$database] = $this->getColumnsFull(
                     $database,
@@ -1194,7 +1194,7 @@ class DatabaseInterface implements DbalInterface
                 );
             }
             return $columns;
-        } elseif (null === $table) {
+        } elseif ($table === null) {
             $tables = $this->getTables($database);
             foreach ($tables as $table) {
                 $columns[$table] = $this->getColumnsFull(
@@ -1208,7 +1208,7 @@ class DatabaseInterface implements DbalInterface
         }
         $sql = 'SHOW FULL COLUMNS FROM '
             . Util::backquote($database) . '.' . Util::backquote($table);
-        if (null !== $column) {
+        if ($column !== null) {
             $sql .= " LIKE '" . $this->escapeString($column, $link) . "'";
         }
 
@@ -1273,7 +1273,7 @@ class DatabaseInterface implements DbalInterface
             $ordinal_position++;
         }
 
-        if (null !== $column) {
+        if ($column !== null) {
             return reset($columns);
         }
 
@@ -1517,9 +1517,9 @@ class DatabaseInterface implements DbalInterface
         );
 
         if (is_array($version)) {
-            $this->_version_str = isset($version['@@version']) ? $version['@@version'] : '';
+            $this->_version_str = $version['@@version'] ?? '';
             $this->_version_int = self::versionToInt($this->_version_str);
-            $this->_version_comment = isset($version['@@version_comment']) ? $version['@@version_comment'] : '';
+            $this->_version_comment = $version['@@version_comment'] ?? '';
             if (stripos($this->_version_str, 'mariadb') !== false) {
                 $this->_is_mariadb = true;
             }
@@ -1874,7 +1874,7 @@ class DatabaseInterface implements DbalInterface
         $fetch_function = 'fetchAssoc';
 
         // no nested array if only one field is in result
-        if (null === $key && 1 === $this->numFields($result)) {
+        if ($key === null && $this->numFields($result) === 1) {
             $value = 0;
             $fetch_function = 'fetchRow';
         }
@@ -1884,7 +1884,7 @@ class DatabaseInterface implements DbalInterface
             $fetch_function = 'fetchRow';
         }
 
-        if (null === $key) {
+        if ($key === null) {
             while ($row = $this->$fetch_function($result)) {
                 $resultrows[] = $this->_fetchValue($row, $value);
             }
@@ -1893,7 +1893,7 @@ class DatabaseInterface implements DbalInterface
                 while ($row = $this->$fetch_function($result)) {
                     $result_target =& $resultrows;
                     foreach ($key as $key_index) {
-                        if (null === $key_index) {
+                        if ($key_index === null) {
                             $result_target =& $result_target[];
                             continue;
                         }

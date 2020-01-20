@@ -251,7 +251,7 @@ class Table
             WHERE TABLE_SCHEMA = '" . $this->_dbi->escapeString((string) $db) . "'
                 AND TABLE_NAME = '" . $this->_dbi->escapeString((string) $table) . "'"
         );
-        return $result ? true : false;
+        return (bool) $result;
     }
 
     /**
@@ -272,7 +272,7 @@ class Table
                 AND TABLE_NAME = '" . $this->_dbi->escapeString($this->_name) . "'
                 AND IS_UPDATABLE = 'YES'"
         );
-        return $result ? true : false;
+        return (bool) $result;
     }
 
     /**
@@ -329,7 +329,7 @@ class Table
             return '';
         }
 
-        if (null === $info) {
+        if ($info === null) {
             return $this->_dbi->getCachedTableContent([$db, $table]);
         }
 
@@ -402,7 +402,7 @@ class Table
     public function getNumRows()
     {
         $table_num_row_info = $this->getStatusInfo('TABLE_ROWS', false, true);
-        if (false === $table_num_row_info) {
+        if ($table_num_row_info === false) {
             $table_num_row_info = $this->_dbi->getTable($this->_db_name, $GLOBALS['showtable']['Name'])
             ->countRecords(true);
         }
@@ -529,7 +529,7 @@ class Table
             $query .= ' ' . $attribute;
 
             if ($is_timestamp
-                && false !== stripos($attribute, 'TIMESTAMP')
+                && stripos($attribute, 'TIMESTAMP') !== false
                 && strlen($length) !== 0
                 && $length !== 0
             ) {
@@ -753,7 +753,7 @@ class Table
             }
         }
         // for a VIEW, $row_count is always false at this point
-        if (false !== $row_count
+        if ($row_count !== false
             && $row_count >= $GLOBALS['cfg']['MaxExactCount']
         ) {
             return $row_count;
@@ -1561,7 +1561,7 @@ class Table
             $new_name = strtolower($new_name);
         }
 
-        if (null !== $new_db && $new_db !== $this->getDbName()) {
+        if ($new_db !== null && $new_db !== $this->getDbName()) {
             // Ensure the target is valid
             if (! $GLOBALS['dblist']->databases->exists($new_db)) {
                 $this->errors[] = __('Invalid database:') . ' ' . $new_db;

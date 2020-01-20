@@ -99,7 +99,7 @@ class Transformations
     {
         static $stack = null;
 
-        if (null !== $stack) {
+        if ($stack !== null) {
             return $stack;
         }
 

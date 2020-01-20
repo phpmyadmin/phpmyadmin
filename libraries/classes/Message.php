@@ -675,7 +675,7 @@ class Message
      */
     public function getHash(): string
     {
-        if (null === $this->hash) {
+        if ($this->hash === null) {
             $this->hash = md5(
                 $this->getNumber() .
                 $this->string .
@@ -821,9 +821,9 @@ class Message
      */
     public function getMessageWithIcon(string $message): string
     {
-        if ('error' === $this->getLevel()) {
+        if ($this->getLevel() === 'error') {
             $image = 's_error';
-        } elseif ('success' === $this->getLevel()) {
+        } elseif ($this->getLevel() === 'success') {
             $image = 's_success';
         } else {
             $image = 's_notice';

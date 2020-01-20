@@ -40,16 +40,16 @@ class NodeTrans extends TransNode
         $tag = null
     ) {
         $nodes = ['body' => $body];
-        if (null !== $count) {
+        if ($count !== null) {
             $nodes['count'] = $count;
         }
-        if (null !== $plural) {
+        if ($plural !== null) {
             $nodes['plural'] = $plural;
         }
-        if (null !== $context) {
+        if ($context !== null) {
             $nodes['context'] = $context;
         }
-        if (null !== $notes) {
+        if ($notes !== null) {
             $nodes['notes'] = $notes;
         }
 
@@ -106,7 +106,7 @@ class NodeTrans extends TransNode
             $compiler->raw('), array(');
 
             foreach ($vars as $var) {
-                if ('count' === $var->getAttribute('name')) {
+                if ($var->getAttribute('name') === 'count') {
                     $compiler
                         ->string('%count%')
                         ->raw(' => abs(')

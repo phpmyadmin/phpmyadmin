@@ -318,8 +318,8 @@ class Config
         // some versions return Microsoft-IIS, some Microsoft/IIS
         // we could use a preg_match() but it's slower
         if (Core::getenv('SERVER_SOFTWARE')
-            && false !== stripos(Core::getenv('SERVER_SOFTWARE'), 'Microsoft')
-            && false !== stripos(Core::getenv('SERVER_SOFTWARE'), 'IIS')
+            && stripos(Core::getenv('SERVER_SOFTWARE'), 'Microsoft') !== false
+            && stripos(Core::getenv('SERVER_SOFTWARE'), 'IIS') !== false
         ) {
             $this->set('PMA_IS_IIS', 1);
         } else {
@@ -338,10 +338,10 @@ class Config
         $this->set('PMA_IS_WINDOWS', 0);
         // If PHP_OS is defined then continue
         if (defined('PHP_OS')) {
-            if (false !== stripos(PHP_OS, 'win') && false === stripos(PHP_OS, 'darwin')) {
+            if (stripos(PHP_OS, 'win') !== false && stripos(PHP_OS, 'darwin') === false) {
                 // Is it some version of Windows
                 $this->set('PMA_IS_WINDOWS', 1);
-            } elseif (false !== stripos(PHP_OS, 'OS/2')) {
+            } elseif (stripos(PHP_OS, 'OS/2') !== false) {
                 // Is it OS/2 (No file permissions like Windows)
                 $this->set('PMA_IS_WINDOWS', 1);
             }
@@ -438,10 +438,10 @@ class Config
 
         $branch = false;
         // are we on any branch?
-        if (false !== strpos($ref_head, '/')) {
+        if (strpos($ref_head, '/') !== false) {
             // remove ref: prefix
             $ref_head = substr(trim($ref_head), 5);
-            if (0 === strpos($ref_head, 'refs/heads/')) {
+            if (strpos($ref_head, 'refs/heads/') === 0) {
                 $branch = substr($ref_head, 11);
             } else {
                 $branch = basename($ref_head);
@@ -824,7 +824,7 @@ class Config
 
         $this->loadDefaults();
 
-        if (null !== $source) {
+        if ($source !== null) {
             $this->setSource($source);
         }
 
@@ -1269,7 +1269,7 @@ class Config
         $this->set('enable_upload', true);
         // if set "php_admin_value file_uploads Off" in httpd.conf
         // ini_get() also returns the string "Off" in this case:
-        if ('off' == strtolower(ini_get('file_uploads'))) {
+        if (strtolower(ini_get('file_uploads')) == 'off') {
             $this->set('enable_upload', false);
         }
     }
@@ -1307,7 +1307,7 @@ class Config
      */
     public function isHttps(): bool
     {
-        if (null !== $this->get('is_https')) {
+        if ($this->get('is_https') !== null) {
             return $this->get('is_https');
         }
 
@@ -1350,7 +1350,7 @@ class Config
     {
         static $cookie_path = null;
 
-        if (null !== $cookie_path && ! defined('TESTSUITE')) {
+        if ($cookie_path !== null && ! defined('TESTSUITE')) {
             return $cookie_path;
         }
 
@@ -1467,7 +1467,7 @@ class Config
         ?int $validity = null,
         bool $httponly = true
     ): bool {
-        if (strlen($value) > 0 && null !== $default && $value === $default
+        if (strlen($value) > 0 && $default !== null && $value === $default
         ) {
             // default value is used
             if ($this->issetCookie($cookie)) {

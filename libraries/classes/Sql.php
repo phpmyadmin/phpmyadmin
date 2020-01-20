@@ -644,8 +644,7 @@ class Sql
             $GLOBALS['cfg']['Server']['user'],
             $_POST['bkm_fields'],
             (isset($_POST['bkm_all_users'])
-                && $_POST['bkm_all_users'] == 'true' ? true : false
-            )
+                && $_POST['bkm_all_users'] == 'true')
         );
         $result = $bookmark->save();
         $response = Response::getInstance();
@@ -1395,7 +1394,7 @@ class Sql
     {
         $row = $GLOBALS['dbi']->fetchRow($result);
         $field_flags = $GLOBALS['dbi']->fieldFlags($result, 0);
-        if (false !== stripos($field_flags, DisplayResults::BINARY_FIELD)) {
+        if (stripos($field_flags, DisplayResults::BINARY_FIELD) !== false) {
             $row[0] = bin2hex($row[0]);
         }
         $response = Response::getInstance();
@@ -2111,7 +2110,7 @@ class Sql
         $warning_messages = $this->operations->getWarningMessagesArray();
 
         // No rows returned -> move back to the calling page
-        if ((0 == $num_rows && 0 == $unlim_num_rows)
+        if (($num_rows == 0 && $unlim_num_rows == 0)
             || $analyzed_sql_results['is_affected']
         ) {
             $html_output = $this->getQueryResponseForNoResultsReturned(
@@ -2172,7 +2171,7 @@ class Sql
      */
     private function getStartPosToDisplayRow($number_of_line, $max_rows = null)
     {
-        if (null === $max_rows) {
+        if ($max_rows === null) {
             $max_rows = $_SESSION['tmpval']['max_rows'];
         }
 
@@ -2191,14 +2190,14 @@ class Sql
      */
     public function calculatePosForLastPage($db, $table, $pos)
     {
-        if (null === $pos) {
+        if ($pos === null) {
             $pos = $_SESSION['tmpval']['pos'];
         }
 
         $_table = new Table($table, $db);
         $unlim_num_rows = $_table->countRecords(true);
         //If position is higher than number of rows
-        if ($unlim_num_rows <= $pos && 0 != $pos) {
+        if ($unlim_num_rows <= $pos && $pos != 0) {
             $pos = $this->getStartPosToDisplayRow($unlim_num_rows);
         }
 

@@ -248,7 +248,7 @@ class Url
         static $separator = null;
         static $html_separator = null;
 
-        if (null === $separator) {
+        if ($separator === null) {
             // use separators defined by php, but prefer ';'
             // as recommended by W3C
             // (see https://www.w3.org/TR/1999/REC-html401-19991224/appendix

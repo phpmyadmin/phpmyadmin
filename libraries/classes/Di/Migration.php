@@ -33,11 +33,11 @@ class Migration
      */
     public static function getInstance(?ContainerBuilder $containerBuilder = null): self
     {
-        if (null !== self::$instance) {
+        if (self::$instance !== null) {
             return self::$instance;
         }
 
-        if (null === $containerBuilder) {
+        if ($containerBuilder === null) {
             throw new InvalidArgumentException('Container builder should be sent for ' . self::class . ' creation');
         }
 

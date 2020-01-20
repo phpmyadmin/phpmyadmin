@@ -67,13 +67,13 @@ abstract class ListAbstract extends ArrayObject
         $selected = '',
         $include_information_schema = true
     ) {
-        if (true === $selected) {
+        if ($selected === true) {
             $selected = $this->getDefault();
         }
 
         $options = '';
         foreach ($this as $each_item) {
-            if (false === $include_information_schema
+            if ($include_information_schema === false
                 && $GLOBALS['dbi']->isSystemSchema($each_item)
             ) {
                 continue;

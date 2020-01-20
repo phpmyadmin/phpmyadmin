@@ -104,7 +104,7 @@ final class ImportController extends AbstractController
                     'bkm_sql_query' => $_POST['bookmark_query'],
                     'bkm_label' => $_POST['label'],
                 ];
-                $isShared = ($_POST['shared'] == 'true' ? true : false);
+                $isShared = ($_POST['shared'] == 'true');
                 $bookmark = Bookmark::createBookmark(
                     $this->dbi,
                     $cfg['Server']['user'],
@@ -457,11 +457,11 @@ final class ImportController extends AbstractController
 
         // Calculate value of the limit
         $memoryUnit = mb_strtolower(substr((string) $memory_limit, -1));
-        if ('m' == $memoryUnit) {
+        if ($memoryUnit == 'm') {
             $memory_limit = (int) substr((string) $memory_limit, 0, -1) * 1024 * 1024;
-        } elseif ('k' == $memoryUnit) {
+        } elseif ($memoryUnit == 'k') {
             $memory_limit = (int) substr((string) $memory_limit, 0, -1) * 1024;
-        } elseif ('g' == $memoryUnit) {
+        } elseif ($memoryUnit == 'g') {
             $memory_limit = (int) substr((string) $memory_limit, 0, -1) * 1024 * 1024 * 1024;
         } else {
             $memory_limit = (int) $memory_limit;

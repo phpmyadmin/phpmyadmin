@@ -246,8 +246,8 @@ class Generator
      */
     public static function getDbLink($database = ''): string
     {
-        if ('' === (string) $database) {
-            if ('' === (string) $GLOBALS['db']) {
+        if ((string) $database === '') {
+            if ((string) $GLOBALS['db'] === '') {
                 return '';
             }
             $database = $GLOBALS['db'];
@@ -741,7 +741,7 @@ class Generator
         $template = new Template();
         $retval = '';
 
-        if (null === $sql_query) {
+        if ($sql_query === null) {
             if (! empty($GLOBALS['display_query'])) {
                 $sql_query = $GLOBALS['display_query'];
             } elseif (! empty($GLOBALS['unparsed_sql'])) {

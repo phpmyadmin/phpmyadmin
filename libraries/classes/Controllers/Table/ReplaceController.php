@@ -587,7 +587,7 @@ final class ReplaceController extends AbstractController
          * WHERE clause information so that /table/change does not go back
          * to the current record
          */
-        if (isset($_POST['after_insert']) && 'new_insert' == $_POST['after_insert']) {
+        if (isset($_POST['after_insert']) && $_POST['after_insert'] == 'new_insert') {
             unset($_POST['where_clause']);
         }
 

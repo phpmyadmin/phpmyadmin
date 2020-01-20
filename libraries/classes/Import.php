@@ -711,7 +711,7 @@ class Import
                     return $size[self::FULL];
                 }
 
-                return ($last_cumulative_size . ',' . $size[self::D]);
+                return $last_cumulative_size . ',' . $size[self::D];
             } elseif (! isset($last_cumulative_type) || $last_cumulative_type == self::NONE) {
                 /**
                  * This is the first row to be analyzed
@@ -759,7 +759,7 @@ class Import
                 }
 
                 /* Use $newInt + $oldD as new M */
-                return (($newInt + $oldD) . ',' . $oldD);
+                return ($newInt + $oldD) . ',' . $oldD;
             } elseif ($last_cumulative_type == self::BIGINT || $last_cumulative_type == self::INT) {
                 /**
                  * The last cumulative type was BIGINT or INT

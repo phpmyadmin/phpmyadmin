@@ -805,12 +805,12 @@ class Export
         }
 
         $response->setRequestStatus(true);
-        if ('create' == $_POST['templateAction']) {
+        if ($_POST['templateAction'] == 'create') {
             $response->addJSON(
                 'data',
                 $this->getOptionsForTemplates($_POST['exportType'])
             );
-        } elseif ('load' == $_POST['templateAction']) {
+        } elseif ($_POST['templateAction'] == 'load') {
             $data = null;
             while ($row = $GLOBALS['dbi']->fetchAssoc(
                 $result,

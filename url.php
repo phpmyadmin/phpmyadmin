@@ -51,4 +51,4 @@ if (! Core::isValid($_GET['url'])
     // Do not display the value of $_GET['url'] to avoid showing injected content
     echo __('Taking you to the target site.');
 }
-die();
+die;

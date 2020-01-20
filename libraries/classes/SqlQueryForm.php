@@ -62,7 +62,7 @@ class SqlQueryForm
             $display_tab = 'full';
         }
         // query to show
-        if (true === $query) {
+        if ($query === true) {
             $query = $GLOBALS['sql_query'];
         }
 

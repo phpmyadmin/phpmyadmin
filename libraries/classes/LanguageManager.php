@@ -711,7 +711,7 @@ class LanguageManager
         }
 
         /* Process all files */
-        while (false !== ($file = readdir($handle))) {
+        while (($file = readdir($handle)) !== false) {
             $path = LOCALE_PATH
                 . '/' . $file
                 . '/LC_MESSAGES/phpmyadmin.mo';

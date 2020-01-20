@@ -69,7 +69,7 @@ class FileListing
 
         return $template->render('file_select_options', [
             'filesList' => $list,
-            'active' => $active
+            'active' => $active,
         ]);
     }
 

@@ -351,7 +351,7 @@ class Pdf extends PdfLib
     public function getTriggers($db, $table)
     {
         $triggers = $GLOBALS['dbi']->getTriggers($db, $table);
-        if ([] === $triggers) {
+        if ($triggers === []) {
             return; //prevents printing blank trigger list for any table
         }
 
@@ -745,7 +745,7 @@ class Pdf extends PdfLib
                  * @todo do not deactivate completely the display
                  * but show the field's name and [BLOB]
                  */
-                    if (false !== stripos($this->fields[$i]->flags, 'BINARY')) {
+                    if (stripos($this->fields[$i]->flags, 'BINARY') !== false) {
                         $this->display_column[$i] = false;
                         unset($this->colTitles[$i]);
                     }

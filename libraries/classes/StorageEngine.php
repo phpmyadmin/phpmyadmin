@@ -106,7 +106,7 @@ class StorageEngine
     {
         static $storage_engines = null;
 
-        if (null == $storage_engines) {
+        if ($storage_engines == null) {
             $storage_engines
                 = $GLOBALS['dbi']->fetchResult('SHOW STORAGE ENGINES', 'Engine');
             if ($GLOBALS['dbi']->getVersion() >= 50708) {

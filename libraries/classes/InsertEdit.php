@@ -2117,7 +2117,7 @@ class InsertEdit
             $special_chars = Util::addMicroseconds($column['Default']);
         } elseif ($trueType == 'binary' || $trueType == 'varbinary') {
             $special_chars = bin2hex($column['Default']);
-        } elseif ('text' === substr($trueType, -4)) {
+        } elseif (substr($trueType, -4) === 'text') {
             $textDefault = substr($column['Default'], 1, -1);
             $special_chars = stripcslashes($textDefault !== false ? $textDefault : $column['Default']);
         } else {
@@ -2477,7 +2477,7 @@ class InsertEdit
         $relation_field_value
     ) {
         $foreigner = $this->relation->searchColumnInForeigners($map, $relation_field);
-        if ('K' == $_SESSION['tmpval']['relational_display']) {
+        if ($_SESSION['tmpval']['relational_display'] == 'K') {
             // user chose "relational key" in the display options, so
             // the title contains the display field
             $title = ! empty($dispval)
@@ -2498,7 +2498,7 @@ class InsertEdit
         ];
         $output = '<a href="' . Url::getFromRoute('/sql', $_url_params) . '"' . $title . '>';
 
-        if ('D' == $_SESSION['tmpval']['relational_display']) {
+        if ($_SESSION['tmpval']['relational_display'] == 'D') {
             // user chose "relational display field" in the
             // display options, so show display field in the cell
             $output .= ! empty($dispval) ? htmlspecialchars($dispval) : '';
@@ -2594,7 +2594,7 @@ class InsertEdit
     ) {
         if (empty($multi_edit_funcs[$key])) {
             return $current_value;
-        } elseif ('UUID' === $multi_edit_funcs[$key]) {
+        } elseif ($multi_edit_funcs[$key] === 'UUID') {
             /* This way user will know what UUID new row has */
             $uuid = $this->dbi->fetchValue('SELECT UUID()');
             return "'" . $uuid . "'";
@@ -2687,8 +2687,8 @@ class InsertEdit
                 . ' = ' . $current_value_as_an_array;
         } elseif (! (empty($multi_edit_funcs[$key])
             && isset($multi_edit_columns_prev[$key])
-            && (("'" . $this->dbi->escapeString($multi_edit_columns_prev[$key]) . "'" === $current_value)
-            || ('0x' . $multi_edit_columns_prev[$key] === $current_value)))
+            && (($current_value === "'" . $this->dbi->escapeString($multi_edit_columns_prev[$key]) . "'")
+            || ($current_value === '0x' . $multi_edit_columns_prev[$key])))
             && ! empty($current_value)
         ) {
             // avoid setting a field to NULL when it's already NULL
@@ -2755,7 +2755,7 @@ class InsertEdit
             );
         }
 
-        if (false !== $possibly_uploaded_val) {
+        if ($possibly_uploaded_val !== false) {
             $current_value = $possibly_uploaded_val;
         } elseif (! empty($multi_edit_funcs[$key])) {
             $current_value = "'" . $this->dbi->escapeString($current_value)
@@ -3004,7 +3004,7 @@ class InsertEdit
             'sql_query' => $_POST['sql_query'],
         ];
 
-        if (0 === strpos($goto, 'tbl_') || 0 === strpos($goto, 'index.php?route=/table')) {
+        if (strpos($goto, 'tbl_') === 0 || strpos($goto, 'index.php?route=/table') === 0) {
             $url_params['table'] = $table;
         }
 
@@ -3182,14 +3182,14 @@ class InsertEdit
         $extracted_columnspec
             = Util::extractColumnSpec($column['Type']);
 
-        if (-1 === $column['len']) {
+        if ($column['len'] === -1) {
             $column['len'] = $this->dbi->fieldLen(
                 $current_result,
                 $column_number
             );
             // length is unknown for geometry fields,
             // make enough space to edit very simple WKTs
-            if (-1 === $column['len']) {
+            if ($column['len'] === -1) {
                 $column['len'] = 30;
             }
         }

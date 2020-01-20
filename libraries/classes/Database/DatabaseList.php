@@ -50,7 +50,7 @@ class DatabaseList
      */
     public function getDatabaseList(): ListDatabase
     {
-        if (null === $this->databases) {
+        if ($this->databases === null) {
             $this->databases = new ListDatabase();
         }
 

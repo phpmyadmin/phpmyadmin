@@ -233,7 +233,7 @@ class Export
         $memory_limit_num = (int) substr($memory_limit, 0, -1);
         $lowerLastChar = strtolower(substr($memory_limit, -1));
         // 2 MB as default
-        if (empty($memory_limit) || '-1' == $memory_limit) {
+        if (empty($memory_limit) || $memory_limit == '-1') {
             $memory_limit = 2 * 1024 * 1024;
         } elseif ($lowerLastChar == 'm') {
             $memory_limit = $memory_limit_num * 1024 * 1024;

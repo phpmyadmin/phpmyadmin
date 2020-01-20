@@ -953,7 +953,7 @@ class Util
                 ) {
                     $con_val = '= ' . $row[$i];
                 } elseif (($meta->type == 'blob') || ($meta->type == 'string')
-                    && false !== stripos($field_flags, 'BINARY')
+                    && stripos($field_flags, 'BINARY') !== false
                     && ! empty($row[$i])
                 ) {
                     // hexify only if this is a true not empty BLOB or a BINARY
@@ -1403,7 +1403,7 @@ class Util
             $spec_in_brackets = '';
         }
 
-        if ('enum' == $type || 'set' == $type) {
+        if ($type == 'enum' || $type == 'set') {
             // Define our working vars
             $enum_set_values = self::parseEnumSetValues($columnspec, false);
             $printtype = $type
@@ -1421,7 +1421,7 @@ class Util
             // this would be a BINARY or VARBINARY column type;
             // by the way, a BLOB should not show the BINARY attribute
             // because this is not accepted in MySQL syntax.
-            if (false !== strpos($printtype, 'binary')
+            if (strpos($printtype, 'binary') !== false
                 && ! preg_match('@binary[\(]@', $printtype)
             ) {
                 $printtype = str_replace('binary', '', $printtype);
@@ -1535,7 +1535,7 @@ class Util
         } elseif ($GLOBALS['cfg']['DefaultForeignKeyChecks'] === 'disable') {
             return false;
         }
-        return ($GLOBALS['dbi']->getVariable('FOREIGN_KEY_CHECKS') == 'ON');
+        return $GLOBALS['dbi']->getVariable('FOREIGN_KEY_CHECKS') == 'ON';
     }
 
     /**
@@ -1775,7 +1775,7 @@ class Util
         /* Optional escaping */
         if ($escape !== null) {
             if (is_array($escape)) {
-                $escape_class = new $escape[1];
+                $escape_class = new $escape[1]();
                 $escape_method = $escape[0];
             }
             foreach ($replace as $key => $val) {
@@ -2608,7 +2608,7 @@ class Util
         $tooltip_aliasname = [];
 
         // Special speedup for newer MySQL Versions (in 4.0 format changed)
-        if (true === $cfg['SkipLockedTables']) {
+        if ($cfg['SkipLockedTables'] === true) {
             $db_info_result = $GLOBALS['dbi']->query(
                 'SHOW OPEN TABLES FROM ' . self::backquote($db) . ' WHERE In_use > 0;'
             );

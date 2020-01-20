@@ -218,7 +218,7 @@ class Bookmark
     {
         static $cfgBookmark = null;
 
-        if (null !== $cfgBookmark) {
+        if ($cfgBookmark !== null) {
             return $cfgBookmark;
         }
 

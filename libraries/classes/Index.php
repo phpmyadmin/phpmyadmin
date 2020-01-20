@@ -355,15 +355,15 @@ class Index
         }
         if (isset($params['Index_choice'])) {
             $this->_choice = $params['Index_choice'];
-        } elseif ('PRIMARY' == $this->_name) {
+        } elseif ($this->_name == 'PRIMARY') {
             $this->_choice = 'PRIMARY';
-        } elseif ('FULLTEXT' == $this->_type) {
+        } elseif ($this->_type == 'FULLTEXT') {
             $this->_choice = 'FULLTEXT';
             $this->_type = '';
-        } elseif ('SPATIAL' == $this->_type) {
+        } elseif ($this->_type == 'SPATIAL') {
             $this->_choice = 'SPATIAL';
             $this->_type = '';
-        } elseif ('0' == $this->_non_unique) {
+        } elseif ($this->_non_unique == '0') {
             $this->_choice = 'UNIQUE';
         } else {
             $this->_choice = 'INDEX';
@@ -561,7 +561,7 @@ class Index
      */
     public function isPacked()
     {
-        if (null === $this->_packed) {
+        if ($this->_packed === null) {
             return __('No');
         }
 

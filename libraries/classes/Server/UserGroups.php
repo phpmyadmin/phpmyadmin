@@ -139,7 +139,7 @@ class UserGroups
         $template = new Template();
         return $template->render('server/user_groups/user_groups', [
             'action' => $action,
-            'hidden_inputs' => isset($hidden_inputs) ? $hidden_inputs : '',
+            'hidden_inputs' => $hidden_inputs ?? '',
             'result' => $result,
             'has_rows' => $numRows,
             'user_groups_values' => $userGroupsValues,

@@ -467,7 +467,7 @@ class Advisor
      */
     protected function defineRulesFiles(): array
     {
-        $isMariaDB = false !== strpos($this->getVariables()['version'], 'MariaDB');
+        $isMariaDB = strpos($this->getVariables()['version'], 'MariaDB') !== false;
         $ruleFiles = [self::GENERIC_RULES_FILE];
         // If MariaDB (= not MySQL) OR MYSQL < 8.0.3, add another rules file.
         if ($isMariaDB || $this->globals['PMA_MYSQL_INT_VERSION'] < 80003) {

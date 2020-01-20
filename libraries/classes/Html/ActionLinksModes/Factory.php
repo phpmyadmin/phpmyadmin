@@ -24,7 +24,7 @@ class Factory
      */
     public static function build(string $mode): ActionLinksModesInterface
     {
-        if ('text' === $mode) {
+        if ($mode === 'text') {
             return new Text();
         }
         return new Image();

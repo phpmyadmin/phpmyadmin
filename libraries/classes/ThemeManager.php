@@ -276,7 +276,7 @@ class ThemeManager
     {
         $this->themes = [];
 
-        if (false === ($handleThemes = opendir($this->_themes_path))) {
+        if (($handleThemes = opendir($this->_themes_path)) === false) {
             trigger_error(
                 'phpMyAdmin-ERROR: cannot open themes folder: '
                 . $this->_themes_path,
@@ -286,7 +286,7 @@ class ThemeManager
         }
 
         // check for themes directory
-        while (false !== ($PMA_Theme = readdir($handleThemes))) {
+        while (($PMA_Theme = readdir($handleThemes)) !== false) {
             // Skip non dirs, . and ..
             if ($PMA_Theme == '.'
                 || $PMA_Theme == '..'

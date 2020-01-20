@@ -47,14 +47,14 @@ class Text_Plain_Binarytoip extends TransformationsPlugin
      */
     public function applyTransformation($buffer, array $options = [], ?stdClass $meta = null)
     {
-        if (0 !== strpos($buffer, '0x')) {
+        if (strpos($buffer, '0x') !== 0) {
             return $buffer;
         }
 
         $ipHex = substr($buffer, 2);
         $ipBin = hex2bin($ipHex);
 
-        if (false === $ipBin) {
+        if ($ipBin === false) {
             return $buffer;
         }
 

@@ -83,7 +83,7 @@ class ImportAjax
         ) {
             return false;
         }
-        return (ini_get('apc.enabled') && ini_get('apc.rfc1867'));
+        return ini_get('apc.enabled') && ini_get('apc.rfc1867');
     }
 
     /**

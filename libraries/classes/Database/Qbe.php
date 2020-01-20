@@ -269,8 +269,8 @@ class Qbe
      */
     private function _loadCriterias()
     {
-        if (null === $this->_currentSearch
-            || null === $this->_currentSearch->getCriterias()
+        if ($this->_currentSearch === null
+            || $this->_currentSearch->getCriterias() === null
         ) {
             return $this;
         }
@@ -347,7 +347,7 @@ class Qbe
             DatabaseInterface::QUERY_STORE
         );
         $all_tables_count = $this->dbi->numRows($all_tables);
-        if (0 == $all_tables_count) {
+        if ($all_tables_count == 0) {
             Message::error(__('No tables found in database.'))->display();
             exit;
         }
@@ -1449,7 +1449,7 @@ class Qbe
             // we can check which of our columns has a where clause
             if (! empty($this->_criteria[$column_index])) {
                 if (mb_substr($this->_criteria[$column_index], 0, 1) == '='
-                    || false !== stripos($this->_criteria[$column_index], 'is')
+                    || stripos($this->_criteria[$column_index], 'is') !== false
                 ) {
                     $where_clause_columns[$column] = $column;
                     $where_clause_tables[$table]  = $table;
@@ -1834,7 +1834,7 @@ class Qbe
         $currentSearch = $this->_getCurrentSearch();
         $currentSearchId = null;
         $currentSearchName = null;
-        if (null != $currentSearch) {
+        if ($currentSearch != null) {
             $currentSearchId = $currentSearch->getId();
             $currentSearchName = $currentSearch->getSearchName();
         }
@@ -1856,7 +1856,7 @@ class Qbe
         $html_output .= '<input type="hidden" name="action" id="action" value="">';
         $html_output .= '<input class="btn btn-secondary" type="submit" name="saveSearch" id="saveSearch" '
             . 'value="' . __('Create bookmark') . '">';
-        if (null !== $currentSearchId) {
+        if ($currentSearchId !== null) {
             $html_output .= '<input class="btn btn-secondary" type="submit" name="updateSearch" '
                 . 'id="updateSearch" value="' . __('Update bookmark') . '">';
             $html_output .= '<input class="btn btn-secondary" type="submit" name="deleteSearch" '

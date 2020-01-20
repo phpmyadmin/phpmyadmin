@@ -68,13 +68,13 @@ class ListDatabase extends ListAbstract
         $command = '';
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $command .= 'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`';
-            if (null !== $like_db_name) {
+            if ($like_db_name !== null) {
                 $command .= " WHERE `SCHEMA_NAME` LIKE '" . $like_db_name . "'";
             }
         } else {
-            if ($GLOBALS['dbs_to_test'] === false || null !== $like_db_name) {
+            if ($GLOBALS['dbs_to_test'] === false || $like_db_name !== null) {
                 $command .= 'SHOW DATABASES';
-                if (null !== $like_db_name) {
+                if ($like_db_name !== null) {
                     $command .= " LIKE '" . $like_db_name . "'";
                 }
             } else {

@@ -350,14 +350,14 @@ class DbiMysqli implements DbiExtension
     {
         $GLOBALS['errno'] = 0;
 
-        if (null !== $mysqli && false !== $mysqli) {
+        if ($mysqli !== null && $mysqli !== false) {
             $error_number = $mysqli->errno;
             $error_message = $mysqli->error;
         } else {
             $error_number = $mysqli->connect_errno;
             $error_message = $mysqli->connect_error;
         }
-        if (0 == $error_number) {
+        if ($error_number == 0) {
             return false;
         }
 
@@ -568,7 +568,7 @@ class DbiMysqli implements DbiExtension
             if (($type == MYSQLI_TYPE_TINY_BLOB || $type == MYSQLI_TYPE_BLOB
                 || $type == MYSQLI_TYPE_MEDIUM_BLOB || $type == MYSQLI_TYPE_LONG_BLOB
                 || $type == MYSQLI_TYPE_VAR_STRING || $type == MYSQLI_TYPE_STRING)
-                && 63 == $charsetNumber
+                && $charsetNumber == 63
             ) {
                 $flags[] = 'binary';
             }

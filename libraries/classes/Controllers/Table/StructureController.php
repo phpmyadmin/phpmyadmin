@@ -113,7 +113,7 @@ class StructureController extends AbstractController
         $reread_info = $this->table_obj->getStatusInfo(null, true);
         $showtable = $this->table_obj->getStatusInfo(
             null,
-            (isset($reread_info) && $reread_info ? true : false)
+            (isset($reread_info) && $reread_info)
         );
         if ($this->table_obj->isView()) {
             $tbl_is_view = true;

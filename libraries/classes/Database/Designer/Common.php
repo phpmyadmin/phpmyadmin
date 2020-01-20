@@ -54,7 +54,7 @@ class Common
     public function getTablesInfo(string $db = null, string $table = null): array
     {
         $designerTables = [];
-        $db = $db === null ? $GLOBALS['db'] : $db;
+        $db = $db ?? $GLOBALS['db'];
         // seems to be needed later
         $this->dbi->selectDb($db);
         if ($db === null && $table === null) {
@@ -417,10 +417,7 @@ class Common
             DatabaseInterface::CONNECT_CONTROL,
             DatabaseInterface::QUERY_STORE
         );
-        if (is_array($pageNos) && count($pageNos) > 0) {
-            return true;
-        }
-        return false;
+        return is_array($pageNos) && count($pageNos) > 0;
     }
 
     /**

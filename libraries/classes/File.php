@@ -152,7 +152,7 @@ class File
      */
     public function isTemp(?bool $is_temp = null): bool
     {
-        if (null !== $is_temp) {
+        if ($is_temp !== null) {
             $this->_is_temp = $is_temp;
         }
 
@@ -183,7 +183,7 @@ class File
      */
     public function getRawContent()
     {
-        if (null === $this->_content) {
+        if ($this->_content === null) {
             if ($this->isUploaded() && ! $this->checkUploadedFile()) {
                 return false;
             }
@@ -605,7 +605,7 @@ class File
      */
     public function getHandle()
     {
-        if (null === $this->_handle) {
+        if ($this->_handle === null) {
             $this->open();
         }
         return $this->_handle;
@@ -685,7 +685,7 @@ class File
                 return false;
         }
 
-        return ($this->_handle !== false);
+        return $this->_handle !== false;
     }
 
     /**
@@ -792,7 +792,7 @@ class File
      */
     public function getCompression(): string
     {
-        if (null === $this->_compression) {
+        if ($this->_compression === null) {
             return $this->detectCompression();
         }
 

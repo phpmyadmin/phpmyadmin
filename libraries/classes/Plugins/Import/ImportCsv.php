@@ -463,7 +463,7 @@ class ImportCsv extends AbstractImportCsv
                     }
 
                     // unquoted NULL string
-                    if (false === $need_end && $value === 'NULL') {
+                    if ($need_end === false && $value === 'NULL') {
                         $value = null;
                     }
 

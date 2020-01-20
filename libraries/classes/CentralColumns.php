@@ -94,7 +94,7 @@ class CentralColumns
     {
         static $cfgCentralColumns = null;
 
-        if (null !== $cfgCentralColumns) {
+        if ($cfgCentralColumns !== null) {
             return $cfgCentralColumns;
         }
 

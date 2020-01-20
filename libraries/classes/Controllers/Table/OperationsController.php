@@ -105,7 +105,7 @@ class OperationsController extends AbstractController
         $this->dbi->selectDb($db);
 
         $reread_info = $pma_table->getStatusInfo(null, false);
-        $GLOBALS['showtable'] = $pma_table->getStatusInfo(null, (isset($reread_info) && $reread_info ? true : false));
+        $GLOBALS['showtable'] = $pma_table->getStatusInfo(null, (isset($reread_info) && $reread_info));
         if ($pma_table->isView()) {
             $tbl_is_view = true;
             $tbl_storage_engine = __('View');
@@ -238,7 +238,7 @@ class OperationsController extends AbstractController
                     . Util::backquote($table);
                 $sql_query     .= "\r\n" . implode("\r\n", $table_alters);
                 $sql_query     .= ';';
-                $result         = $this->dbi->query($sql_query) ? true : false;
+                $result         = (bool) $this->dbi->query($sql_query);
                 $reread_info    = true;
                 unset($table_alters);
                 $warning_messages = $this->operations->getWarningMessagesArray();

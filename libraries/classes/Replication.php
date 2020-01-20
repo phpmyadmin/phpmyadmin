@@ -26,7 +26,7 @@ class Replication
     public function extractDbOrTable($string, $what = 'db')
     {
         $list = explode('.', $string);
-        if ('db' == $what) {
+        if ($what == 'db') {
             return $list[0];
         } else {
             return $list[1];

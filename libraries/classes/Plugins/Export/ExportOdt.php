@@ -307,7 +307,7 @@ class ExportOdt extends ExportPlugin
                         . htmlspecialchars($GLOBALS[$what . '_null'])
                         . '</text:p>'
                         . '</table:table-cell>';
-                } elseif (false !== stripos($field_flags[$j], 'BINARY')
+                } elseif (stripos($field_flags[$j], 'BINARY') !== false
                     && $fields_meta[$j]->blob
                 ) {
                     // ignore BLOB

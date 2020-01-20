@@ -338,7 +338,7 @@ final class RelationController extends AbstractController
 
         // @todo should be: $server->db($db)->table($table)->primary()
         $primary = Index::getPrimary($foreignTable, $_POST['foreignDb']);
-        if (false === $primary) {
+        if ($primary === false) {
             return;
         }
 
