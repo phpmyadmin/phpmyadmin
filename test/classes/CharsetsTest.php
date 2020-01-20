@@ -18,18 +18,12 @@ use PHPUnit\Framework\TestCase;
  */
 class CharsetsTest extends TestCase
 {
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
     }
 
-    /**
-     * @return void
-     */
     public function testFindCollationByName(): void
     {
         $this->assertNull(Charsets::findCollationByName(

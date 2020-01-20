@@ -20,9 +20,6 @@ class PluginsTest extends TestCase
      */
     private $plugins;
 
-    /**
-     * @return void
-     */
     public function testGetAll(): void
     {
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
@@ -55,9 +52,6 @@ class PluginsTest extends TestCase
         ], $plugin->toArray());
     }
 
-    /**
-     * @return void
-     */
     public function testGetAllWithoutInformationSchema(): void
     {
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;

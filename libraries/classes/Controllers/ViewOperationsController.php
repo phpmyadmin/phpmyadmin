@@ -39,9 +39,6 @@ class ViewOperationsController extends AbstractController
         $this->operations = $operations;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $sql_query, $url_query, $url_params, $reload, $result, $warning_messages;

@@ -18,17 +18,11 @@ use PHPUnit\Framework\TestCase;
  */
 class EncodingTest extends TestCase
 {
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         Encoding::initEngine();
     }
 
-    /**
-     * @return void
-     */
     protected function tearDown(): void
     {
         Encoding::initEngine();

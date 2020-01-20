@@ -35,9 +35,6 @@ class TwoFactorController extends AbstractController
         $this->relation = $relation;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $cfg;

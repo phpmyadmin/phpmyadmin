@@ -33,9 +33,6 @@ class SchemaExportController
         $this->relation = $relation;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $cfgRelation;

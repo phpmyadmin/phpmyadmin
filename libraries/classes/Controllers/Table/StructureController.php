@@ -101,9 +101,6 @@ class StructureController extends AbstractController
         $this->table_obj = $this->dbi->getTable($this->db, $this->table);
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $containerBuilder, $sql_query, $reread_info, $showtable;

@@ -50,9 +50,6 @@ final class ExportController extends AbstractController
         $this->relation = $relation;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $containerBuilder, $db, $export_type, $filename_template, $sql_query, $err_url, $message;

@@ -38,9 +38,6 @@ class CollationsControllerTest extends TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
     }
 
-    /**
-     * @return void
-     */
     public function testIndexAction(): void
     {
         $controller = new CollationsController(

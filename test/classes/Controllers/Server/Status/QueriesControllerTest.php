@@ -27,9 +27,6 @@ class QueriesControllerTest extends TestCase
      */
     private $data;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
@@ -110,9 +107,6 @@ class QueriesControllerTest extends TestCase
         ];
     }
 
-    /**
-     * @return void
-     */
     public function testIndex(): void
     {
         $controller = new QueriesController(

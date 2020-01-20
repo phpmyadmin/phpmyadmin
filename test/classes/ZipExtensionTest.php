@@ -24,9 +24,6 @@ class ZipExtensionTest extends PmaTestCase
      */
     private $zipExtension;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $this->zipExtension = new ZipExtension();

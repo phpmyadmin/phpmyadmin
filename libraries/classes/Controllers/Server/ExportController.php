@@ -34,9 +34,6 @@ final class ExportController extends AbstractController
         $this->export = $export;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $db, $table, $sql_query, $num_tables, $unlim_num_rows;

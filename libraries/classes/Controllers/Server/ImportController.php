@@ -16,9 +16,6 @@ use PhpMyAdmin\Display\Import;
  */
 final class ImportController extends AbstractController
 {
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $db, $max_upload_size, $table;

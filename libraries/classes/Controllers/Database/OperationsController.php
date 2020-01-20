@@ -68,9 +68,6 @@ class OperationsController extends AbstractController
         $this->relationCleanup = $relationCleanup;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $cfg, $db, $server, $url_query, $sql_query, $move, $message, $tables_full;

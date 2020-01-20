@@ -29,9 +29,6 @@ class AdvisoryRulesCommand extends Command
     /** @var array */
     private $locations = [];
 
-    /**
-     * @return void
-     */
     protected function configure(): void
     {
         $this->setDescription('Translates advisory rules to Gettext format');

@@ -53,9 +53,6 @@ class ManageController extends AbstractController
         $this->relation = $relation;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $cf, $error, $filename, $import_handle, $json, $PMA_Config, $lang, $max_upload_size;

@@ -480,9 +480,6 @@ class DbiDummy implements DbiExtension
         }
     }
 
-    /**
-     * @return void
-     */
     private function init(): void
     {
         /**

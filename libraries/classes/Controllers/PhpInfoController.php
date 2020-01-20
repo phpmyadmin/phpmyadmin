@@ -15,9 +15,6 @@ namespace PhpMyAdmin\Controllers;
  */
 class PhpInfoController extends AbstractController
 {
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $cfg;

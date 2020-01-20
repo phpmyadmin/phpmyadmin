@@ -13,9 +13,6 @@ namespace PhpMyAdmin\Controllers;
  */
 class ChangeLogController extends AbstractController
 {
-    /**
-     * @return void
-     */
     public function index(): void
     {
         $this->response->disable();

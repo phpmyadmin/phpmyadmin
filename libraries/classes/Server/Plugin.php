@@ -171,105 +171,66 @@ final class Plugin
         ];
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @return string|null
-     */
     public function getVersion(): ?string
     {
         return $this->version;
     }
 
-    /**
-     * @return string
-     */
     public function getStatus(): string
     {
         return $this->status;
     }
 
-    /**
-     * @return string
-     */
     public function getType(): string
     {
         return $this->type;
     }
 
-    /**
-     * @return string|null
-     */
     public function getTypeVersion(): ?string
     {
         return $this->typeVersion;
     }
 
-    /**
-     * @return string|null
-     */
     public function getLibrary(): ?string
     {
         return $this->library;
     }
 
-    /**
-     * @return string|null
-     */
     public function getLibraryVersion(): ?string
     {
         return $this->libraryVersion;
     }
 
-    /**
-     * @return string|null
-     */
     public function getAuthor(): ?string
     {
         return $this->author;
     }
 
-    /**
-     * @return string|null
-     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * @return string
-     */
     public function getLicense(): string
     {
         return $this->license;
     }
 
-    /**
-     * @return string|null
-     */
     public function getLoadOption(): ?string
     {
         return $this->loadOption;
     }
 
-    /**
-     * @return string|null
-     */
     public function getMaturity(): ?string
     {
         return $this->maturity;
     }
 
-    /**
-     * @return string|null
-     */
     public function getAuthVersion(): ?string
     {
         return $this->authVersion;

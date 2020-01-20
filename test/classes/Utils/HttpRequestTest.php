@@ -22,9 +22,6 @@ class HttpRequestTest extends PmaTestCase
      */
     private $httpRequest;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $this->httpRequest = new HttpRequest();

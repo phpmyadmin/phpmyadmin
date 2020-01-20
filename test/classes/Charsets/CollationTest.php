@@ -14,9 +14,6 @@ use PHPUnit\Framework\TestCase;
  */
 class CollationTest extends TestCase
 {
-    /**
-     * @return void
-     */
     public function testFromServer(): void
     {
         $serverCollation = [

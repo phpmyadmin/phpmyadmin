@@ -52,9 +52,6 @@ class FormsController extends AbstractController
         $this->relation = $relation;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $cf, $form_param, $form_class, $form_display, $url_params, $error, $tabHash, $hash;

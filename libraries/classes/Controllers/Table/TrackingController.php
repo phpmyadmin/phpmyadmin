@@ -43,9 +43,6 @@ final class TrackingController extends AbstractController
         $this->tracking = $tracking;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $pmaThemeImage, $text_dir, $url_query, $url_params, $msg;

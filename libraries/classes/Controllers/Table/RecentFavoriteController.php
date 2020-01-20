@@ -16,9 +16,6 @@ use PhpMyAdmin\RecentFavoriteTable;
  */
 class RecentFavoriteController extends AbstractController
 {
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $containerBuilder;

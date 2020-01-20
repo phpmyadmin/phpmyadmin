@@ -40,9 +40,6 @@ class EnginesControllerTest extends TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
     }
 
-    /**
-     * @return void
-     */
     public function testIndex(): void
     {
         $controller = new EnginesController(
@@ -89,9 +86,6 @@ class EnginesControllerTest extends TestCase
         );
     }
 
-    /**
-     * @return void
-     */
     public function testShow(): void
     {
         $controller = new EnginesController(

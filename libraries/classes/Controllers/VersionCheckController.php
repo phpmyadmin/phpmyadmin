@@ -16,9 +16,6 @@ use PhpMyAdmin\VersionInformation;
  */
 class VersionCheckController extends AbstractController
 {
-    /**
-     * @return void
-     */
     public function index(): void
     {
         $_GET['ajax_request'] = 'true';

@@ -355,9 +355,6 @@ class HomeController extends AbstractController
         ))->display();
     }
 
-    /**
-     * @return void
-     */
     private function checkRequirements(): void
     {
         global $cfg, $server, $lang;

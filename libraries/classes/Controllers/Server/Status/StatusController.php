@@ -39,9 +39,6 @@ class StatusController extends AbstractController
         $this->replicationGui = $replicationGui;
     }
 
-    /**
-     * @return string
-     */
     public function index(): string
     {
         global $replication_info;
@@ -88,9 +85,6 @@ class StatusController extends AbstractController
         ]);
     }
 
-    /**
-     * @return int
-     */
     private function getStartTime(): int
     {
         return (int) $this->dbi->fetchValue(
@@ -250,9 +244,6 @@ class StatusController extends AbstractController
         ];
     }
 
-    /**
-     * @return string
-     */
     private function getReplicationInfo(): string
     {
         global $replication_info, $replication_types;

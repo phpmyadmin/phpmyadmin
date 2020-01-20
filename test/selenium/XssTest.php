@@ -18,9 +18,6 @@ namespace PhpMyAdmin\Tests\Selenium;
  */
 class XssTest extends TestBase
 {
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();

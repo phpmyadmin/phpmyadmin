@@ -21,9 +21,6 @@ use PhpMyAdmin\Util;
  */
 class ViewCreateController extends AbstractController
 {
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $text_dir, $url_params, $view_algorithm_options, $view_with_options, $view_security_options;

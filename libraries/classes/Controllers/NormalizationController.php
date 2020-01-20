@@ -35,9 +35,6 @@ class NormalizationController extends AbstractController
         $this->normalization = $normalization;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $db, $table;

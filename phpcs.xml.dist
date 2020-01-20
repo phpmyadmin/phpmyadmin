@@ -4,7 +4,9 @@
     name="phpMyAdmin"
     xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd"
 >
-    <rule ref="vendor/phpmyadmin/coding-standard/PhpMyAdmin/ruleset.xml"/>
+    <rule ref="vendor/phpmyadmin/coding-standard/PhpMyAdmin/ruleset.xml">
+        <exclude name="PEAR.Commenting.FunctionComment.Missing"/>
+    </rule>
 
     <rule ref="Generic.Files.LineLength.TooLong">
         <severity>4</severity>

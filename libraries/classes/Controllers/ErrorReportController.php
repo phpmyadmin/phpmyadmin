@@ -48,9 +48,6 @@ class ErrorReportController extends AbstractController
         $this->errorHandler = $errorHandler;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $cfg;

@@ -19,9 +19,6 @@ use PhpMyAdmin\Response;
  */
 class IndexesController extends AbstractController
 {
-    /**
-     * @return void
-     */
     public function index(): void
     {
         if (! isset($_POST['create_edit_table'])) {

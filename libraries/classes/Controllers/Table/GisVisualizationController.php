@@ -25,9 +25,6 @@ final class GisVisualizationController extends AbstractController
      */
     protected $visualization;
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $cfg, $url_params;

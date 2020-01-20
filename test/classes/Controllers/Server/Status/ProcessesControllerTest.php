@@ -27,9 +27,6 @@ class ProcessesControllerTest extends TestCase
      */
     private $data;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
@@ -101,9 +98,6 @@ class ProcessesControllerTest extends TestCase
         $this->data = new Data();
     }
 
-    /**
-     * @return void
-     */
     public function testIndex(): void
     {
         $controller = new ProcessesController(
@@ -213,9 +207,6 @@ class ProcessesControllerTest extends TestCase
         );
     }
 
-    /**
-     * @return void
-     */
     public function testRefresh(): void
     {
         $process = [

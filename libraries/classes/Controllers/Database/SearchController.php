@@ -17,9 +17,6 @@ use PhpMyAdmin\Util;
  */
 class SearchController extends AbstractController
 {
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $cfg, $db, $err_url, $url_query, $url_params, $tables, $num_tables, $total_num_tables, $sub_part;

@@ -53,9 +53,6 @@ class CreateController extends AbstractController
         $this->config = $config;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $num_fields, $action, $sql_query, $result, $db, $table;

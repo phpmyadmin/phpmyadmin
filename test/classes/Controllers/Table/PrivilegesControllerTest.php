@@ -18,9 +18,6 @@ use PhpMyAdmin\Url;
  */
 class PrivilegesControllerTest extends PmaTestCase
 {
-    /**
-     * @return void
-     */
     public function testIndex(): void
     {
         global $dbi, $db, $table, $server, $cfg, $PMA_PHP_SELF, $is_grantuser, $is_createuser;

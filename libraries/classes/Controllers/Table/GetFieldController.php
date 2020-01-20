@@ -19,9 +19,6 @@ use function ini_set;
  */
 class GetFieldController extends AbstractController
 {
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $db, $table;

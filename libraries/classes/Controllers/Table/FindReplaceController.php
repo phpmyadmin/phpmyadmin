@@ -55,9 +55,6 @@ class FindReplaceController extends AbstractController
         );
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         Common::table();
@@ -161,9 +158,6 @@ class FindReplaceController extends AbstractController
         );
     }
 
-    /**
-     * @return void
-     */
     public function findAction(): void
     {
         $useRegex = array_key_exists('useRegex', $_POST)
@@ -179,9 +173,6 @@ class FindReplaceController extends AbstractController
         $this->response->addJSON('preview', $preview);
     }
 
-    /**
-     * @return void
-     */
     public function replaceAction(): void
     {
         $this->replace(

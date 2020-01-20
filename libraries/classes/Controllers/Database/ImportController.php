@@ -16,9 +16,6 @@ use PhpMyAdmin\Util;
  */
 final class ImportController extends AbstractController
 {
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $db, $max_upload_size, $table, $tables, $num_tables, $total_num_tables, $is_show_stats;

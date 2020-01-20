@@ -46,9 +46,6 @@ class DesignerController extends AbstractController
         $this->designerCommon = $designerCommon;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $db, $script_display_field, $tab_column, $tables_all_keys, $tables_pk_or_unique_keys;

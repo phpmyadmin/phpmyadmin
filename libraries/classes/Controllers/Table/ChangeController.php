@@ -52,9 +52,6 @@ class ChangeController extends AbstractController
         $this->relation = $relation;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $cfg, $is_upload, $db, $table, $text_dir, $disp_message, $url_params;

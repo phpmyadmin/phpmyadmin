@@ -26,9 +26,6 @@ class VariablesControllerTest extends TestCase
      */
     private $data;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
@@ -126,9 +123,6 @@ class VariablesControllerTest extends TestCase
         $this->data = new Data();
     }
 
-    /**
-     * @return void
-     */
     public function testIndex(): void
     {
         $controller = new VariablesController(

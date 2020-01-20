@@ -26,9 +26,6 @@ use Williamdes\MariaDBMySQLKBS\SlimData as KBSlimData;
  */
 class VariablesControllerTest extends TestCase
 {
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
@@ -83,9 +80,6 @@ class VariablesControllerTest extends TestCase
         $GLOBALS['dbi'] = $dbi;
     }
 
-    /**
-     * @return void
-     */
     public function testIndex(): void
     {
         $controller = new VariablesController(

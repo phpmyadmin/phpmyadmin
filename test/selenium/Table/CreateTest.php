@@ -20,9 +20,6 @@ use PhpMyAdmin\Tests\Selenium\TestBase;
  */
 class CreateTest extends TestBase
 {
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();

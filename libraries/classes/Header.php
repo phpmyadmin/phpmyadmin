@@ -695,9 +695,6 @@ class Header
         return 'v=' . urlencode(PMA_VERSION);
     }
 
-    /**
-     * @return string
-     */
     private function getVariablesForJavaScript(): string
     {
         global $cfg, $pmaThemeImage;

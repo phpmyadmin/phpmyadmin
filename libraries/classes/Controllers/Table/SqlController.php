@@ -38,9 +38,6 @@ final class SqlController extends AbstractController
         $this->sqlQueryForm = $sqlQueryForm;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $url_query, $err_url, $goto, $back;

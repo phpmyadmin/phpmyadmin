@@ -11,9 +11,6 @@ namespace PhpMyAdmin;
  */
 final class ReplicationInfo
 {
-    /**
-     * @return void
-     */
     public static function load(): void
     {
         global $dbi, $url_params;

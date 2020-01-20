@@ -14,9 +14,6 @@ use PHPUnit\Framework\TestCase;
  */
 class PluginTest extends TestCase
 {
-    /**
-     * @return Plugin
-     */
     public function testFromState(): Plugin
     {
         $plugin = Plugin::fromState([

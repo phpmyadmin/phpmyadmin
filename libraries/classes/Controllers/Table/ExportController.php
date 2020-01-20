@@ -54,9 +54,6 @@ class ExportController extends AbstractController
         $this->relation = $relation;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $db, $url_query, $url_params, $table, $export_page_title, $replaces;

@@ -14,9 +14,6 @@ use PHPUnit\Framework\TestCase;
  */
 class CharsetTest extends TestCase
 {
-    /**
-     * @return void
-     */
     public function testFromServer(): void
     {
         $serverCharset = [

@@ -50,9 +50,6 @@ final class ImportController extends AbstractController
         $this->sql = $sql;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $cfg, $collation_connection, $db, $import_type, $pmaThemeImage, $table, $goto, $display_query;

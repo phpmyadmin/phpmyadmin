@@ -15,9 +15,6 @@ namespace PhpMyAdmin\Controllers;
  */
 class LicenseController extends AbstractController
 {
-    /**
-     * @return void
-     */
     public function index(): void
     {
         $this->response->disable();

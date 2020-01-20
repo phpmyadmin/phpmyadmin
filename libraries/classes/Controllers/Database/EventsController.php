@@ -20,9 +20,6 @@ use PhpMyAdmin\Util;
  */
 class EventsController extends AbstractController
 {
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $_PMA_RTE, $table, $db, $tables, $num_tables, $total_num_tables, $sub_part, $errors, $titles;

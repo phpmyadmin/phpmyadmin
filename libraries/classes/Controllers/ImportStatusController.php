@@ -29,9 +29,6 @@ class ImportStatusController
         $this->template = $template;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $SESSION_KEY, $upload_id, $plugins, $timestamp;

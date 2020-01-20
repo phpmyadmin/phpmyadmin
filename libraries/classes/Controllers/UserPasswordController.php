@@ -37,9 +37,6 @@ class UserPasswordController extends AbstractController
         $this->userPassword = $userPassword;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $cfg, $hostname, $username, $password, $change_password_message, $msg;

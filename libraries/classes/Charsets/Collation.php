@@ -117,65 +117,41 @@ final class Collation
         );
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @return string
-     */
     public function getDescription(): string
     {
         return $this->description;
     }
 
-    /**
-     * @return string
-     */
     public function getCharset(): string
     {
         return $this->charset;
     }
 
-    /**
-     * @return int
-     */
     public function getId(): int
     {
         return $this->id;
     }
 
-    /**
-     * @return bool
-     */
     public function isDefault(): bool
     {
         return $this->isDefault;
     }
 
-    /**
-     * @return bool
-     */
     public function isCompiled(): bool
     {
         return $this->isCompiled;
     }
 
-    /**
-     * @return int
-     */
     public function getSortLength(): int
     {
         return $this->sortLength;
     }
 
-    /**
-     * @return string
-     */
     public function getPadAttribute(): string
     {
         return $this->padAttribute;

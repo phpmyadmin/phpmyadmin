@@ -41,9 +41,6 @@ class QueryByExampleController extends AbstractController
         $this->relation = $relation;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $db, $pmaThemeImage, $url_query, $savedSearchList, $savedSearch, $currentSearchId;

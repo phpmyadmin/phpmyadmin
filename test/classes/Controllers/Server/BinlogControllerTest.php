@@ -47,9 +47,6 @@ class BinlogControllerTest extends TestCase
         Util::cacheSet('profiling_supported', true);
     }
 
-    /**
-     * @return void
-     */
     public function testIndex(): void
     {
         $binaryLogs = [

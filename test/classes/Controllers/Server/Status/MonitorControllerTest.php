@@ -27,9 +27,6 @@ class MonitorControllerTest extends TestCase
      */
     private $data;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
@@ -49,9 +46,6 @@ class MonitorControllerTest extends TestCase
         $this->data = new Data();
     }
 
-    /**
-     * @return void
-     */
     public function testIndex(): void
     {
         $controller = new MonitorController(
@@ -147,9 +141,6 @@ class MonitorControllerTest extends TestCase
         );
     }
 
-    /**
-     * @return void
-     */
     public function testLogDataTypeSlow(): void
     {
         $response = Response::getInstance();
@@ -197,9 +188,6 @@ class MonitorControllerTest extends TestCase
         );
     }
 
-    /**
-     * @return void
-     */
     public function testLogDataTypeGeneral(): void
     {
         $value = [
@@ -256,9 +244,6 @@ class MonitorControllerTest extends TestCase
         );
     }
 
-    /**
-     * @return void
-     */
     public function testLoggingVars(): void
     {
         $value = [
@@ -290,9 +275,6 @@ class MonitorControllerTest extends TestCase
         );
     }
 
-    /**
-     * @return void
-     */
     public function testQueryAnalyzer(): void
     {
         global $cached_affected_rows;

@@ -39,9 +39,6 @@ class AdvisorController extends AbstractController
         $this->advisor = $advisor;
     }
 
-    /**
-     * @return string
-     */
     public function index(): string
     {
         $scripts = $this->response->getHeader()->getScripts();

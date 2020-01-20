@@ -95,17 +95,11 @@ class TwoFactor
         return $result;
     }
 
-    /**
-     * @return bool
-     */
     public function isWritable(): bool
     {
         return $this->_writable;
     }
 
-    /**
-     * @return TwoFactorPlugin
-     */
     public function getBackend(): TwoFactorPlugin
     {
         return $this->_backend;
@@ -119,9 +113,6 @@ class TwoFactor
         return $this->_available;
     }
 
-    /**
-     * @return bool
-     */
     public function showSubmit(): bool
     {
         $backend = $this->_backend;

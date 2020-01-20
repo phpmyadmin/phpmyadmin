@@ -86,9 +86,6 @@ class UserPreferencesHeader
         ) . '<div class="clearfloat"></div></div>';
     }
 
-    /**
-     * @return string
-     */
     protected static function displayTabsWithIcon(): string
     {
         $form_param = $_GET['form'] ?? null;
@@ -115,9 +112,6 @@ class UserPreferencesHeader
         return $content;
     }
 
-    /**
-     * @return string|null
-     */
     protected static function displayConfigurationSavedMessage(): ?string
     {
         // show "configuration saved" message and reload navigation panel if needed

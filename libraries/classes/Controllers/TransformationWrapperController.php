@@ -54,9 +54,6 @@ class TransformationWrapperController extends AbstractController
         $this->relation = $relation;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $cn, $db, $table, $transform_key, $request_params, $size_params, $where_clause, $row;

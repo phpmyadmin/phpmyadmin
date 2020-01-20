@@ -49,9 +49,6 @@ class NavigationController extends AbstractController
         $this->relation = $relation;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         if (! $this->response->isAjax()) {

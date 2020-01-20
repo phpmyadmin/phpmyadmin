@@ -38,9 +38,6 @@ class UserGroupsController extends AbstractController
         $this->relation = $relation;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         $cfgRelation = $this->relation->getRelationsParam();

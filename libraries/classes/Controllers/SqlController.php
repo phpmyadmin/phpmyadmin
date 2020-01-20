@@ -49,9 +49,6 @@ class SqlController extends AbstractController
         $this->checkUserPrivileges = $checkUserPrivileges;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $cfg, $db, $display_query, $pmaThemeImage, $sql_query, $table, $message;
@@ -295,9 +292,6 @@ class SqlController extends AbstractController
         $this->response->addJSON('select', $select);
     }
 
-    /**
-     * @return void
-     */
     public function getDefaultForeignKeyCheckValue(): void
     {
         $this->checkUserPrivileges->getPrivileges();
@@ -308,9 +302,6 @@ class SqlController extends AbstractController
         );
     }
 
-    /**
-     * @return void
-     */
     public function setColumnOrderOrVisibility(): void
     {
         global $db, $table;

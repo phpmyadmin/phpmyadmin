@@ -20,17 +20,11 @@ class FileListingTest extends TestCase
      */
     private $fileListing;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $this->fileListing = new FileListing();
     }
 
-    /**
-     * @return void
-     */
     public function testGetDirContent(): void
     {
         $this->assertFalse($this->fileListing->getDirContent('nonexistent directory'));
@@ -46,9 +40,6 @@ class FileListingTest extends TestCase
         );
     }
 
-    /**
-     * @return void
-     */
     public function testGetFileSelectOptions(): void
     {
         $fixturesDir = ROOT_PATH . 'test/classes/_data/file_listing';
@@ -98,9 +89,6 @@ HTML;
         );
     }
 
-    /**
-     * @return void
-     */
     public function testSupportedDecompressionsEmptyList(): void
     {
         $GLOBALS['cfg']['ZipDump'] = false;
@@ -122,9 +110,6 @@ HTML;
         $this->assertEquals('gz|bz2|zip', $this->fileListing->supportedDecompressions());
     }
 
-    /**
-     * @return void
-     */
     public function testSupportedDecompressionsPartial(): void
     {
         $GLOBALS['cfg']['ZipDump'] = true;

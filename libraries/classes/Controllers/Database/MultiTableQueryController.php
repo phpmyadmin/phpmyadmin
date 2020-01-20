@@ -17,9 +17,6 @@ use PhpMyAdmin\Database\MultiTableQuery;
  */
 class MultiTableQueryController extends AbstractController
 {
-    /**
-     * @return string
-     */
     public function index(): string
     {
         $header = $this->response->getHeader();

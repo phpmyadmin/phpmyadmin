@@ -19,9 +19,6 @@ use PHPUnit\Framework\TestCase;
  */
 class FindReplaceControllerTest extends TestCase
 {
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
@@ -74,9 +71,6 @@ class FindReplaceControllerTest extends TestCase
         $GLOBALS['dbi'] = $dbi;
     }
 
-    /**
-     * @return void
-     */
     public function testReplace(): void
     {
         $tableSearch = new FindReplaceController(

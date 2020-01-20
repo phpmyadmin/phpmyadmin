@@ -38,9 +38,6 @@ class TransformationOverviewControllerTest extends TestCase
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
     }
 
-    /**
-     * @return void
-     */
     public function testIndexAction(): void
     {
         $controller = new TransformationOverviewController(

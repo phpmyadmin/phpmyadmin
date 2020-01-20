@@ -51,9 +51,6 @@ class Application extends TwoFactorPlugin
         }
     }
 
-    /**
-     * @return Google2FA
-     */
     public function getGoogle2fa(): Google2FA
     {
         return $this->_google2fa;

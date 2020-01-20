@@ -20,9 +20,6 @@ use Samyoul\U2F\U2FServer\SignRequest;
  */
 class TwoFactorTest extends PmaTestCase
 {
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $GLOBALS['server'] = 1;

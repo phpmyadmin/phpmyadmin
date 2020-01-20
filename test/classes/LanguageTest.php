@@ -37,9 +37,6 @@ class LanguageTest extends PmaTestCase
         $this->manager = new LanguageManager();
     }
 
-    /**
-     * @return void
-     */
     protected function tearDown(): void
     {
         // Ensure we have English locale after tests

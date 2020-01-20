@@ -17,9 +17,6 @@ class SearchTest extends TestCase
     /** @var Search */
     private $search;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         global $dbi;
@@ -27,9 +24,6 @@ class SearchTest extends TestCase
         $this->search = new Search($dbi);
     }
 
-    /**
-     * @return void
-     */
     public function testBuildSqlQuery(): void
     {
         $_POST['distinct'] = true;
@@ -107,9 +101,6 @@ class SearchTest extends TestCase
         );
     }
 
-    /**
-     * @return void
-     */
     public function testBuildSqlQueryWithWhereClause(): void
     {
         $_POST['zoom_submit'] = true;

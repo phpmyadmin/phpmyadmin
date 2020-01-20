@@ -14,9 +14,6 @@ use PhpMyAdmin\Plugins\AuthenticationPlugin;
  */
 class LogoutController
 {
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $auth_plugin, $token_mismatch;

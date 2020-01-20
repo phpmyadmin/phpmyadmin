@@ -65,9 +65,6 @@ final class ReplaceController extends AbstractController
         $this->relation = $relation;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $containerBuilder, $db, $table, $url_params, $message;

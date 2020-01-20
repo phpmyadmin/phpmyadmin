@@ -15,9 +15,6 @@ use PhpMyAdmin\ThemeManager;
  */
 class ThemesController extends AbstractController
 {
-    /**
-     * @return string
-     */
     public function index(): string
     {
         $this->response->getFooter()->setMinimal();
