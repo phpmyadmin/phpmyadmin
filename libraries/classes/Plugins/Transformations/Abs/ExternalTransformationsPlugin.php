@@ -79,7 +79,6 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
 
         $allowed_programs = [];
 
-        //
         // WARNING:
         //
         // It's up to administrator to allow anything here. Note that users may

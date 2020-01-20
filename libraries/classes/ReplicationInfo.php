@@ -113,7 +113,6 @@ final class ReplicationInfo
          */
         // TODO change to regexp or something, to allow for negative match.
         // To e.g. highlight 'Last_Error'
-        //
         $slave_variables_alerts = [
             'Slave_IO_Running' => 'No',
             'Slave_SQL_Running' => 'No',
