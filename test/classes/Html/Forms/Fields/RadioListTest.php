@@ -22,7 +22,6 @@ use Twig_Error_Syntax;
  */
 class RadioListTest extends PmaTestCase
 {
-
     /**
      * Test for getRadioFields
      *

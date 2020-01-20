@@ -21,7 +21,6 @@ use Twig_Error_Syntax;
  */
 class DropDown implements FieldGenerator
 {
-
     /**
      * Generates and returns an HTML dropdown
      *

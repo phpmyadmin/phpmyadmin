@@ -364,7 +364,6 @@ class Validator
         return $result;
     }
 
-
     /**
      * Validates regular expression
      *

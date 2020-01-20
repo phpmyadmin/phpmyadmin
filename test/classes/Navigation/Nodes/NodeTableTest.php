@@ -36,7 +36,6 @@ class NodeTableTest extends PmaTestCase
         $GLOBALS['cfg']['NavigationTreeTableLevel'] = 1;
     }
 
-
     /**
      * Test for __construct
      *

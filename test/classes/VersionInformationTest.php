@@ -92,7 +92,6 @@ class VersionInformationTest extends PmaTestCase
         );
     }
 
-
     /**
      * Data provider for version parsing
      *

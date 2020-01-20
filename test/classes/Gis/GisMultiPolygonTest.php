@@ -349,7 +349,6 @@ class GisMultiPolygonTest extends GisGeomTestCase
         ];
     }
 
-
     /**
      * test case for prepareRowAsPng() method
      *

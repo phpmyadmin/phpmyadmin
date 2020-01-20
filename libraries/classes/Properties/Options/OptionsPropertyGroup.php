@@ -60,7 +60,6 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Count
         );
     }
 
-
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
     /**

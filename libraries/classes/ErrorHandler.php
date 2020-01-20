@@ -357,7 +357,7 @@ class ErrorHandler
         // if preference is not 'never' and
         // there are 'actual' errors to be reported
         if ($GLOBALS['cfg']['SendErrorReports'] != 'never'
-            &&  $this->countErrors() !=  $this->countUserErrors()
+            && $this->countErrors() !=  $this->countUserErrors()
         ) {
             // add report button.
             $retval .= '<form method="post" action="' . Url::getFromRoute('/error-report')

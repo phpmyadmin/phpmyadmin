@@ -135,7 +135,6 @@ class AuthenticationHttpTest extends PmaTestCase
      */
     public function testAuthLogoutUrl()
     {
-
         $_REQUEST['old_usr'] = '1';
         $GLOBALS['cfg']['Server']['LogoutURL'] = 'https://example.com/logout';
 
@@ -421,7 +420,6 @@ class AuthenticationHttpTest extends PmaTestCase
      */
     public function testAuthFails()
     {
-
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();

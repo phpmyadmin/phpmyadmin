@@ -440,7 +440,6 @@ class Results
         $editable,
         $is_browse_dist
     ) {
-
         $this->__set('unlim_num_rows', $unlim_num_rows);
         $this->__set('fields_meta', $fields_meta);
         $this->__set('is_count', $is_count);
@@ -1389,7 +1388,6 @@ class Results
         array &$displayParts,
         $full_or_partial_text_link
     ) {
-
         $button_html = '';
         $display_params = $this->__get('display_params');
 
@@ -1586,7 +1584,6 @@ class Results
      */
     private function _getFullOrPartialTextButtonOrLink()
     {
-
         $url_params_full_text = [
             'db' => $this->__get('db'),
             'table' => $this->__get('table'),
@@ -1667,7 +1664,6 @@ class Results
         $col_visib,
         $col_visib_j
     ) {
-
         $sorted_header_html = '';
 
         // Checks if the table name is required; it's the case
@@ -1832,7 +1828,7 @@ class Results
             $query_head = $is_first_clause ? "\nORDER BY " : '';
             // Again a check to see if the given column is a aggregate column
             if (mb_strpos($name_to_use_in_sort, '(') !== false) {
-                $sort_order .=  $query_head . $name_to_use_in_sort . ' ' ;
+                $sort_order .=  $query_head . $name_to_use_in_sort . ' ';
             } else {
                 if (strlen($sort_tbl_new) > 0) {
                     $sort_tbl_new .= '.';
@@ -1840,7 +1836,7 @@ class Results
                 $sort_order .=  $query_head . $sort_tbl_new
                   . Util::backquote(
                       $name_to_use_in_sort
-                  ) . ' ' ;
+                  ) . ' ';
             }
 
             // For a special case where the code generates two dots between
@@ -1918,7 +1914,6 @@ class Results
         $sort_tbl,
         $name_to_use_in_sort
     ) {
-
         $index_in_expression = 0;
 
         foreach ($sort_expression_nodirection as $index => $clause) {
@@ -2115,7 +2110,6 @@ class Results
         $order_link,
         $comments
     ) {
-
         $draggable_html = '<th';
         $th_class = [];
         $th_class[] = 'draggable';
@@ -2164,7 +2158,6 @@ class Results
         $fields_meta,
         $comments
     ) {
-
         $draggable_html = '<th';
         $th_class = [];
         $th_class[] = 'draggable';
@@ -2207,7 +2200,6 @@ class Results
         $full_or_partial_text_link,
         $colspan
     ) {
-
         $right_column_html = '';
         $display_params = $this->__get('display_params');
 
@@ -3084,7 +3076,6 @@ class Results
      */
     private function _getRowInfoForSpecialLinks(array $row, $col_order)
     {
-
         $row_info = [];
         $fields_meta = $this->__get('fields_meta');
 
@@ -3231,7 +3222,6 @@ class Results
         $clause_is_unique,
         $url_sql_query
     ) {
-
         $_url_params = [
             'db'               => $this->__get('db'),
             'table'            => $this->__get('table'),
@@ -3298,7 +3288,6 @@ class Results
         $del_lnk,
         array $row
     ) {
-
         $goto = $this->__get('goto');
 
         if ($del_lnk == self::DELETE_ROW) { // delete row case
@@ -3380,7 +3369,6 @@ class Results
      */
     private function _getActionLinkContent($icon, $display_text)
     {
-
         $linkContent = '';
 
         if (isset($GLOBALS['cfg']['RowActionType'])
@@ -3446,7 +3434,6 @@ class Results
         $del_str,
         ?string $js_conf
     ) {
-
         if (! isset($js_conf)) {
             $js_conf = '';
         }
@@ -3560,7 +3547,6 @@ class Results
         $default_function,
         array $transform_options
     ) {
-
         if (! isset($column) || $column === null) {
             $cell = $this->_buildNullDisplay(
                 'right ' . $class,
@@ -3948,7 +3934,6 @@ class Results
      */
     public function setConfigParamsForDisplayTable()
     {
-
         $sql_md5 = md5($this->__get('sql_query'));
         $query = [];
         if (isset($_SESSION['tmpval']['query'][$sql_md5])) {
@@ -4338,7 +4323,6 @@ class Results
      */
     private function _getOffsets()
     {
-
         if ($_SESSION['tmpval']['max_rows'] == self::ALL_ROWS) {
             $pos_next     = 0;
             $pos_prev     = 0;
@@ -4511,7 +4495,6 @@ class Results
         $pre_count,
         $after_count
     ) {
-
         $unlim_num_rows = $this->__get('unlim_num_rows'); // To use in isset()
 
         if (! empty($analyzed_sql_results['statement']->limit)) {
@@ -5516,7 +5499,6 @@ class Results
      */
     private function _getDeleteLink($del_url, $del_str, $js_conf, $class)
     {
-
         $ret = '';
         if (empty($del_url)) {
             return $ret;

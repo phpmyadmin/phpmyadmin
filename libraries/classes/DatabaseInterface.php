@@ -392,7 +392,6 @@ class DatabaseInterface implements DbalInterface
         return $tables;
     }
 
-
     /**
      * returns
      *
@@ -853,7 +852,6 @@ class DatabaseInterface implements DbalInterface
 
         return $views;
     }
-
 
     /**
      * returns array with databases containing extended infos about them

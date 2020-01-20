@@ -1017,7 +1017,6 @@ class ResultsTest extends PmaTestCase
         );
     }
 
-
     /**
      * Data provider for testGetSpecialLinkUrl
      *
@@ -1067,7 +1066,6 @@ class ResultsTest extends PmaTestCase
             ],
         ];
     }
-
 
     /**
      * Test _getSpecialLinkUrl
@@ -1151,7 +1149,6 @@ class ResultsTest extends PmaTestCase
         );
     }
 
-
     /**
      * Data provider for testGetRowInfoForSpecialLinks
      *
@@ -1198,7 +1195,6 @@ class ResultsTest extends PmaTestCase
             ],
         ];
     }
-
 
     /**
      * Test _getRowInfoForSpecialLinks
@@ -1257,7 +1253,6 @@ class ResultsTest extends PmaTestCase
         ];
     }
 
-
     /**
      * Test _setHighlightedColumnGlobalField
      *
@@ -1280,7 +1275,6 @@ class ResultsTest extends PmaTestCase
             $this->object->__get('highlight_columns')
         );
     }
-
 
     /**
      * Data provider for testGetPartialText
@@ -1333,7 +1327,6 @@ class ResultsTest extends PmaTestCase
         ];
     }
 
-
     /**
      * Test _getPartialText
      *
@@ -1358,7 +1351,6 @@ class ResultsTest extends PmaTestCase
             )
         );
     }
-
 
     /**
      * Data provider for testHandleNonPrintableContents
@@ -1475,7 +1467,6 @@ class ResultsTest extends PmaTestCase
         ];
     }
 
-
     /**
      * Test _handleNonPrintableContents
      *
@@ -1531,7 +1522,6 @@ class ResultsTest extends PmaTestCase
             )
         );
     }
-
 
     /**
      * Data provider for testGetDataCellForNonNumericColumns
@@ -1667,7 +1657,6 @@ class ResultsTest extends PmaTestCase
             ],
         ];
     }
-
 
     /**
      * Test _getDataCellForNonNumericColumns

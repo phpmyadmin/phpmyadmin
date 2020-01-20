@@ -184,7 +184,6 @@ class Privileges
         unset($row['Table_priv']);
     }
 
-
     /**
      * Extracts the privilege information of a priv table row
      *
@@ -3593,7 +3592,6 @@ class Privileges
 
         return false;
     }
-
 
     /**
      * Get SQL queries for Display and Add user

@@ -42,7 +42,7 @@ class UrlTest extends TestCase
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
         $separator = Url::getArgSeparator();
-        $expected = 'server=x' . htmlentities($separator) . 'lang=en' ;
+        $expected = 'server=x' . htmlentities($separator) . 'lang=en';
 
         $expected = '?db=db'
             . htmlentities($separator) . $expected;
@@ -61,7 +61,7 @@ class UrlTest extends TestCase
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
         $separator = Url::getArgSeparator();
-        $expected = 'server=x' . htmlentities($separator) . 'lang=en' ;
+        $expected = 'server=x' . htmlentities($separator) . 'lang=en';
 
         $expected = '?db=db'
             . htmlentities($separator) . 'table=table'
@@ -84,7 +84,7 @@ class UrlTest extends TestCase
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
         $separator = Url::getArgSeparator();
-        $expected = 'server=x' . $separator . 'lang=en' ;
+        $expected = 'server=x' . $separator . 'lang=en';
 
         $expected = '#ABC#db=db' . $separator . 'table=table' . $separator
             . $expected;
@@ -111,7 +111,7 @@ class UrlTest extends TestCase
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
         $separator = Url::getArgSeparator();
-        $expected = '?server=x' . htmlentities($separator) . 'lang=en' ;
+        $expected = '?server=x' . htmlentities($separator) . 'lang=en';
         $this->assertEquals($expected, Url::getCommon());
     }
 }

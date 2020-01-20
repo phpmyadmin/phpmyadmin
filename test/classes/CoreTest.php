@@ -1113,7 +1113,6 @@ class CoreTest extends PmaTestCase
         $this->assertFalse(Core::isValid($var, 'identic', $compare));
     }
 
-
     /**
      * Test for Core::isValid
      *

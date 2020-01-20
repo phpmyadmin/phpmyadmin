@@ -520,7 +520,6 @@ class ImportMediawiki extends ImportPlugin
         return $items;
     }
 
-
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
     /**

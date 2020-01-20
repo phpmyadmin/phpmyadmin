@@ -1669,7 +1669,6 @@ class Relation
         }
     }
 
-
     /**
      * Performs SQL query used for renaming table.
      *
@@ -1707,7 +1706,6 @@ class Relation
             . '\'';
         $this->queryAsControlUser($query);
     }
-
 
     /**
      * Rename a table in relation tables

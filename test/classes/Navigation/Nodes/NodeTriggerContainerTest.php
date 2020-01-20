@@ -28,7 +28,6 @@ class NodeTriggerContainerTest extends PmaTestCase
         $GLOBALS['server'] = 0;
     }
 
-
     /**
      * Test for __construct
      *

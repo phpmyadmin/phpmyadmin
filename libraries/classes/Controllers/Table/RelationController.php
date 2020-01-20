@@ -368,7 +368,7 @@ final class RelationController extends AbstractController
 
             while ($row = $this->dbi->fetchArray($tables_rs)) {
                 if (isset($row['Engine'])
-                    &&  mb_strtoupper($row['Engine']) == $storageEngine
+                    && mb_strtoupper($row['Engine']) == $storageEngine
                 ) {
                     $tables[] = htmlspecialchars($row['Name']);
                 }

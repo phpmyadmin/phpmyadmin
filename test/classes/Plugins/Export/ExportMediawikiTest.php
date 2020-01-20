@@ -338,6 +338,7 @@ class ExportMediawikiTest extends PmaTestCase
             $result
         );
     }
+
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportMediawiki::exportData
      *

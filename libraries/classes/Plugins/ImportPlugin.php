@@ -48,7 +48,6 @@ abstract class ImportPlugin
      */
     abstract public function doImport(array &$sql_data = []);
 
-
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
     /**

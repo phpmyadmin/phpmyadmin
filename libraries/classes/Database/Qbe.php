@@ -384,6 +384,7 @@ class Qbe
         // sets the largest width found
         $this->_realwidth = $this->_form_column_width . 'ex';
     }
+
     /**
      * Provides select options list containing column names
      *

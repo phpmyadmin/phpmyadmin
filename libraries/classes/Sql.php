@@ -934,7 +934,6 @@ class Sql
         $table,
         array $analyzed_sql_results
     ) {
-
         /* Shortcut for not analyzed/empty query */
         if (empty($analyzed_sql_results)) {
             return 0;
@@ -1135,6 +1134,7 @@ class Sql
             $extra_data,
         ];
     }
+
     /**
      * Delete related transformation information
      *

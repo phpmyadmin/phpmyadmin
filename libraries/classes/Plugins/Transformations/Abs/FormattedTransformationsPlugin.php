@@ -49,7 +49,6 @@ abstract class FormattedTransformationsPlugin extends TransformationsPlugin
             . '" sandbox=""></iframe>';
     }
 
-
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
     /**

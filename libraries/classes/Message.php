@@ -732,7 +732,6 @@ class Message
         return $this->message;
     }
 
-
     /**
      * returns Message::$string
      *

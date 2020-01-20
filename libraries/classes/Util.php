@@ -480,7 +480,6 @@ class Util
         ];
     } // end of the 'formatByteDown' function
 
-
     /**
      * Formats $value to the given length and appends SI prefixes
      * with a $length of 0 no truncation occurs, number is only formatted
@@ -1194,7 +1193,6 @@ class Util
 
         return $gotopage;
     } // end function
-
 
     /**
      * Calculate page number through position

@@ -23,7 +23,6 @@ use Twig_Error_Syntax;
  */
 class DropDownTest extends PmaTestCase
 {
-
     /**
      * Test for getDropdown
      *

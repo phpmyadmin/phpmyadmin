@@ -22,7 +22,6 @@ use Twig_Error_Syntax;
  */
 class FKCheckbox implements FieldGenerator
 {
-
     /**
      * Get HTML for Foreign key check checkbox
      *

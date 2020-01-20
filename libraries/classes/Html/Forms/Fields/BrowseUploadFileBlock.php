@@ -18,7 +18,6 @@ use PhpMyAdmin\Util;
  */
 class BrowseUploadFileBlock implements FieldGenerator
 {
-
     /**
      * Prepare the form used to browse anywhere on the local server for a file to
      * import

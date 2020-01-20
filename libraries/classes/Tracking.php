@@ -1236,7 +1236,6 @@ class Tracking
         return $untracked_tables;
     }
 
-
     /**
      * Get untracked tables
      *

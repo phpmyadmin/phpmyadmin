@@ -57,6 +57,7 @@ class TrackerTest extends PmaTestCase
 
         $cfg['dbi'] = $dbi;
     }
+
     /**
      * Test for Tracker::enable
      *

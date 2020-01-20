@@ -207,7 +207,6 @@ class ImportShpTest extends PmaTestCase
             );
         }
 
-
         $this->assertStringContainsString(
             "GeomFromText('POINT(1294523.1759236",
             $sql_query

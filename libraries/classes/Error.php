@@ -216,7 +216,6 @@ class Error extends Message
         $this->file = self::relPath($file);
     }
 
-
     /**
      * returns unique PhpMyAdmin\Error::$hash, if not exists it will be created
      *

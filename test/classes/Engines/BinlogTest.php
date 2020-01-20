@@ -50,7 +50,6 @@ class BinlogTest extends PmaTestCase
         unset($this->object);
     }
 
-
     /**
      * Test for getMysqlHelpPage
      *

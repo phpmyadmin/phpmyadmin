@@ -193,7 +193,6 @@ class Table
         . $this->getName($backquoted);
     }
 
-
     /**
      * Checks the storage engine used to create table
      *
@@ -407,7 +406,7 @@ class Table
             $table_num_row_info = $this->_dbi->getTable($this->_db_name, $GLOBALS['showtable']['Name'])
             ->countRecords(true);
         }
-        return $table_num_row_info ?: 0 ;
+        return $table_num_row_info ?: 0;
     }
 
     /**

@@ -61,7 +61,6 @@ abstract class TextLinkTransformationsPlugin extends TransformationsPlugin
             . '</a>';
     }
 
-
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
     /**

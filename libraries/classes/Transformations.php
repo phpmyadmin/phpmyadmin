@@ -440,7 +440,6 @@ class Transformations
         return false;
     }
 
-
     /**
      * GLOBAL Plugin functions
      */

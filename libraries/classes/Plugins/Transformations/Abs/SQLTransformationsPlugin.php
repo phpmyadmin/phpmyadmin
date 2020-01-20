@@ -46,7 +46,6 @@ abstract class SQLTransformationsPlugin extends TransformationsPlugin
         return Generator::formatSql($buffer);
     }
 
-
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
     /**

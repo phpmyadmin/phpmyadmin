@@ -186,7 +186,6 @@ class EncodingTest extends TestCase
         );
     }
 
-
     /**
      * Test for Encoding::kanjiFileConv
      *
@@ -212,7 +211,6 @@ class EncodingTest extends TestCase
         $this->assertEquals($string, $expected);
         unlink($result);
     }
-
 
     /**
      * Test for Encoding::kanjiEncodingForm

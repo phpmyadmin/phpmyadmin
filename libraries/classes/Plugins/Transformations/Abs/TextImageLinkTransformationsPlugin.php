@@ -64,7 +64,6 @@ abstract class TextImageLinkTransformationsPlugin extends TransformationsPlugin
         ]);
     }
 
-
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
     /**

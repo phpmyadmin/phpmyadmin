@@ -177,7 +177,6 @@ class FooterTest extends PmaTestCase
      */
     public function testGetSelfLinkWithImage()
     {
-
         $GLOBALS['cfg']['TabsMode'] = 'icons';
         $GLOBALS['cfg']['ServerDefault'] = 1;
 

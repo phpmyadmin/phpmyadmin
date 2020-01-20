@@ -285,7 +285,6 @@ abstract class TestBase extends TestCase
      */
     public function getCapabilities(): DesiredCapabilities
     {
-
         switch ($GLOBALS['TESTSUITE_SELENIUM_BROWSER']) {
             case 'chrome':
             default:

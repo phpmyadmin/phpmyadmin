@@ -18,7 +18,6 @@ use PHPUnit\Framework\TestCase;
  */
 class GisFactoryTest extends TestCase
 {
-
     /**
      * Test factory method
      *

@@ -349,7 +349,6 @@ class Import
         ];
     }
 
-
     /**
      * Returns next part of imported file/buffer
      *
@@ -1339,7 +1338,6 @@ class Import
         global $import_notice;
         $import_notice = $message;
     }
-
 
     /**
      * Stops the import on (mostly upload/file related) error

@@ -952,7 +952,6 @@ class ExportOdtTest extends PmaTestCase
      */
     public function testExportStructure()
     {
-
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();

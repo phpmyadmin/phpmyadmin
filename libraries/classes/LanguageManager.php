@@ -933,7 +933,6 @@ class LanguageManager
         }
     }
 
-
     /**
      * Returns HTML code for the language selector
      *

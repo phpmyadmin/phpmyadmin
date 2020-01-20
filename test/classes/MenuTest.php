@@ -95,7 +95,6 @@ class MenuTest extends PmaTestCase
         $menu->display();
     }
 
-
     /**
      * Table menu setTable test
      *

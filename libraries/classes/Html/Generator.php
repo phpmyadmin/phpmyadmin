@@ -1411,7 +1411,6 @@ class Generator
         $name = 'pos',
         $classes = []
     ): string {
-
         // This is often coming from $cfg['MaxTableList'] and
         // people sometimes set it to empty string
         $max_count = intval($max_count);

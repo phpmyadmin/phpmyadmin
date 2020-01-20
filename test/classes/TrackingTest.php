@@ -810,7 +810,6 @@ class TrackingTest extends TestCase
         );
     }
 
-
     /**
      * Tests for getEntries() method.
      *

@@ -290,7 +290,6 @@ class Encoding
         return $dist;
     }
 
-
     /**
      * Kanji file encoding convert
      *

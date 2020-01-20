@@ -110,7 +110,6 @@ class Tracker
         return $tablename;
     }
 
-
     /**
      * Gets the tracking status of a table, is it active or deactive ?
      *
@@ -292,7 +291,6 @@ class Tracker
         return $result;
     }
 
-
     /**
      * Removes all tracking data for a table or a version of a table
      *
@@ -385,8 +383,6 @@ class Tracker
 
         return $relation->queryAsControlUser($sql_query);
     }
-
-
 
     /**
      * Changes tracking of a table.
@@ -485,7 +481,6 @@ class Tracker
         return self::_changeTracking($dbname, $tablename, $version, 1);
     }
 
-
     /**
      * Deactivates tracking of a table.
      *
@@ -501,7 +496,6 @@ class Tracker
     {
         return self::_changeTracking($dbname, $tablename, $version, 0);
     }
-
 
     /**
      * Gets the newest version of a tracking job
@@ -525,12 +519,11 @@ class Tracker
 
         if ($statement != '') {
             $sql_query .= " AND FIND_IN_SET('"
-                . $statement . "',tracking) > 0" ;
+                . $statement . "',tracking) > 0";
         }
         $row = $GLOBALS['dbi']->fetchArray($relation->queryAsControlUser($sql_query));
         return $row[0] ?? -1;
     }
-
 
     /**
      * Gets the record of a tracking job.
@@ -656,7 +649,6 @@ class Tracker
         return $data;
     }
 
-
     /**
      * Parses a query. Gets
      *  - statement identifier (UPDATE, ALTER TABLE, ...)
@@ -707,10 +699,10 @@ class Tracker
 
                 if ($options[6] == 'VIEW' || $options[6] == 'TABLE') {
                     $result['identifier'] = 'CREATE ' . $options[6];
-                    $result['tablename']  = $statement->name->table ;
+                    $result['tablename']  = $statement->name->table;
                 } elseif ($options[6] == 'DATABASE') {
-                    $result['identifier'] = 'CREATE DATABASE' ;
-                    $result['tablename']  = '' ;
+                    $result['identifier'] = 'CREATE DATABASE';
+                    $result['tablename']  = '';
 
                     // In case of CREATE DATABASE, database field of the CreateStatement is the name of the database
                     $GLOBALS['db']        = $statement->name->database;
@@ -723,7 +715,7 @@ class Tracker
 
                     // In case of CREATE INDEX, we have to get the table name from body of the statement
                     $result['tablename']  = $statement->body[3]->value == '.' ? $statement->body[4]->value
-                                                                              : $statement->body[2]->value ;
+                                                                              : $statement->body[2]->value;
                 }
             } elseif ($statement instanceof AlterStatement) { // Parse ALTER statement
                 if (empty($options) || ! isset($options[3])) {
@@ -731,13 +723,13 @@ class Tracker
                 }
 
                 if ($options[3] == 'VIEW' || $options[3] == 'TABLE') {
-                    $result['identifier']   = 'ALTER ' . $options[3] ;
-                    $result['tablename']    = $statement->table->table ;
+                    $result['identifier']   = 'ALTER ' . $options[3];
+                    $result['tablename']    = $statement->table->table;
                 } elseif ($options[3] == 'DATABASE') {
-                    $result['identifier']   = 'ALTER DATABASE' ;
-                    $result['tablename']    = '' ;
+                    $result['identifier']   = 'ALTER DATABASE';
+                    $result['tablename']    = '';
 
-                    $GLOBALS['db']          = $statement->table->table ;
+                    $GLOBALS['db']          = $statement->table->table;
                 }
             } elseif ($statement instanceof DropStatement) { // Parse DROP statement
                 if (empty($options) || ! isset($options[1])) {
@@ -745,15 +737,15 @@ class Tracker
                 }
 
                 if ($options[1] == 'VIEW' || $options[1] == 'TABLE') {
-                    $result['identifier'] = 'DROP ' . $options[1] ;
+                    $result['identifier'] = 'DROP ' . $options[1];
                     $result['tablename']  = $statement->fields[0]->table;
                 } elseif ($options[1] == 'DATABASE') {
-                    $result['identifier'] = 'DROP DATABASE' ;
+                    $result['identifier'] = 'DROP DATABASE';
                     $result['tablename']  = '';
 
                     $GLOBALS['db']        = $statement->fields[0]->table;
                 } elseif ($options[1] == 'INDEX') {
-                    $result['identifier']   = 'DROP INDEX' ;
+                    $result['identifier']   = 'DROP INDEX';
                     $result['tablename']    = $statement->table->table;
                 }
             } elseif ($statement instanceof RenameStatement) { // Parse RENAME statement
@@ -763,7 +755,7 @@ class Tracker
             }
 
             if (isset($result['identifier'])) {
-                return $result ;
+                return $result;
             }
 
             /*
@@ -791,14 +783,13 @@ class Tracker
 
             // Parse TRUNCATE statement
             if ($statement instanceof TruncateStatement) {
-                $result['identifier']   = 'TRUNCATE' ;
+                $result['identifier']   = 'TRUNCATE';
                 $result['tablename']    = $statement->table->table;
             }
         }
 
         return $result;
     }
-
 
     /**
      * Analyzes a given SQL statement and saves tracking data.
@@ -888,7 +879,7 @@ class Tracker
                 );
 
                 // Add log information
-                $query = self::getLogComment() . $query ;
+                $query = self::getLogComment() . $query;
 
                 // Mark it as untouchable
                 $sql_query = " /*NOTRACK*/\n"

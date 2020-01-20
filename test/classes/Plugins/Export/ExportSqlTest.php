@@ -701,7 +701,6 @@ class ExportSqlTest extends PmaTestCase
      */
     public function testExportEvents()
     {
-
         $GLOBALS['crlf'] = "\n";
         $GLOBALS['sql_structure_or_data'] = 'structure';
         $GLOBALS['sql_procedure_function'] = true;
@@ -939,7 +938,6 @@ class ExportSqlTest extends PmaTestCase
             $result
         );
     }
-
 
     /**
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::getTableDef
@@ -1307,7 +1305,6 @@ class ExportSqlTest extends PmaTestCase
      */
     public function testExportStructure()
     {
-
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
@@ -1888,7 +1885,6 @@ class ExportSqlTest extends PmaTestCase
      */
     public function testMakeCreateTableMSSQLCompatible()
     {
-
         $query = "CREATE TABLE IF NOT EXISTS (\" date DEFAULT NULL,\n" .
             "\" date DEFAULT NULL\n\" date NOT NULL,\n\" date NOT NULL\n," .
             " \" date NOT NULL DEFAULT 'asd'," .

@@ -34,6 +34,7 @@ $AUTH_MAP = [
 ];
 
 // phpcs:disable PSR1.Files.SideEffects
+
 /**
  * Simple function to show HTML page with given content.
  *
@@ -82,6 +83,7 @@ function Die_error($e)
     Show_page($contents);
     exit;
 }
+
 // phpcs:enable
 
 /* Need to have cookie visible from parent directory */

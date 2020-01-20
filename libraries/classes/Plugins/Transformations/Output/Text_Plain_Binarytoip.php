@@ -61,7 +61,6 @@ class Text_Plain_Binarytoip extends TransformationsPlugin
         return @inet_ntop($ipBin);
     }
 
-
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
     /**

@@ -26,6 +26,7 @@ class LoginTest extends TestBase
         parent::setUp();
         $this->logOutIfLoggedIn();
     }
+
     /**
      * Test for successful login
      *

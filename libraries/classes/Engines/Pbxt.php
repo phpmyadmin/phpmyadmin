@@ -157,6 +157,7 @@ class Pbxt extends StorageEngine
     }
 
     //--------------------
+
     /**
      * Get information about pages
      *
@@ -171,6 +172,7 @@ class Pbxt extends StorageEngine
     }
 
     //--------------------
+
     /**
      * Get content of documentation page
      *

@@ -1138,6 +1138,7 @@ class AuthenticationCookieTest extends PmaTestCase
             $encryptedCookie
         );
     }
+
     /**
      * Data provider for secrets splitting.
      *

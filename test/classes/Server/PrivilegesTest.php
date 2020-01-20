@@ -543,7 +543,6 @@ class PrivilegesTest extends TestCase
         unset($_POST['change_copy']);
     }
 
-
     /**
      * Test for getListForExportUserDefinition
      *
@@ -974,7 +973,6 @@ class PrivilegesTest extends TestCase
      */
     public function testGetSqlQueriesForDisplayAndAddUser()
     {
-
         $GLOBALS['dbi']->expects($this->any())->method('getVersion')
             ->will($this->returnValue(50706));
         $this->serverPrivileges->dbi = $GLOBALS['dbi'];

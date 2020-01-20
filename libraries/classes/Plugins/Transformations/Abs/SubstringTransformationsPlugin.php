@@ -77,7 +77,6 @@ abstract class SubstringTransformationsPlugin extends TransformationsPlugin
         return htmlspecialchars($newtext);
     }
 
-
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
     /**

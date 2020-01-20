@@ -58,7 +58,6 @@ class HomeController extends AbstractController
         $this->themeManager = $themeManager;
     }
 
-
     /**
      * @param array $params Request parameters
      *

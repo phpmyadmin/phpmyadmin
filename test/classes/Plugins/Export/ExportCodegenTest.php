@@ -55,7 +55,6 @@ class ExportCodegenTest extends PmaTestCase
      */
     public function testInitSpecificVariables()
     {
-
         $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportCodegen', 'initSpecificVariables');
         $method->setAccessible(true);
         $method->invoke($this->object, null);

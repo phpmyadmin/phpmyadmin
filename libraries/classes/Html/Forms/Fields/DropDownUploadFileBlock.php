@@ -20,7 +20,6 @@ use PhpMyAdmin\Util;
  */
 class DropDownUploadFileBlock implements FieldGenerator
 {
-
     /**
      * Prepare the form used to select a file to import from the server upload
      * directory

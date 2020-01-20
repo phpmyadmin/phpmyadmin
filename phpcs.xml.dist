@@ -36,6 +36,22 @@
 
     <rule ref="Squiz.Strings.DoubleQuoteUsage"/>
 
+    <rule ref="Squiz.WhiteSpace.FunctionOpeningBraceSpace"/>
+    <rule ref="Squiz.WhiteSpace.FunctionSpacing">
+        <properties>
+            <property name="spacing" value="1" />
+            <property name="spacingBeforeFirst" value="0"/>
+            <property name="spacingAfterLast" value="0"/>
+        </properties>
+    </rule>
+    <rule ref="Squiz.WhiteSpace.LogicalOperatorSpacing"/>
+    <rule ref="Squiz.WhiteSpace.SemicolonSpacing"/>
+    <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace">
+        <properties>
+            <property name="ignoreBlankLines" value="false"/>
+        </properties>
+    </rule>
+
     <arg value="sp"/>
     <arg name="colors"/>
     <arg name="extensions" value="php"/>

@@ -201,7 +201,6 @@ class Sanitize
         return $message;
     }
 
-
     /**
      * Sanitize a filename by removing anything besides legit characters
      *

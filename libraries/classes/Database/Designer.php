@@ -303,7 +303,6 @@ class Designer
         ]);
     }
 
-
     /**
      * Returns HTML for Designer page
      *

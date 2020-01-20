@@ -344,7 +344,6 @@ class ExportPdf extends ExportPlugin
         return true;
     }
 
-
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
     /**

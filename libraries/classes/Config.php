@@ -1484,7 +1484,7 @@ class Config
 
         $httpCookieName = $this->getCookieName($cookie);
 
-        if (! $this->issetCookie($cookie) ||  $this->getCookie($cookie) !== $value) {
+        if (! $this->issetCookie($cookie) || $this->getCookie($cookie) !== $value) {
             // set cookie with new value
             /* Calculate cookie validity */
             if ($validity === null) {

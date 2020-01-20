@@ -21,7 +21,6 @@ use Twig_Error_Syntax;
  */
 class RadioList implements FieldGenerator
 {
-
     /**
      * Generates a set of radio HTML fields
      *

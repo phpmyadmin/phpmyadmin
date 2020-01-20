@@ -543,7 +543,6 @@ class ExportXml extends ExportPlugin
         return true;
     }
 
-
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
     /**

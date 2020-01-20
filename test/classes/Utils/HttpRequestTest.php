@@ -177,7 +177,6 @@ class HttpRequestTest extends PmaTestCase
         $this->validateHttp($result, $expected);
     }
 
-
     /**
      * Test for http request using generic interface
      *

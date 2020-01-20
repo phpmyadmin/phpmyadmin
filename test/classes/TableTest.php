@@ -872,7 +872,6 @@ class TableTest extends PmaTestCase
         );
     }
 
-
     /**
      * Test for duplicateInfo
      *
@@ -910,6 +909,7 @@ class TableTest extends PmaTestCase
             $ret
         );
     }
+
     /**
      * Test for isUpdatableView
      *
@@ -1177,7 +1177,6 @@ class TableTest extends PmaTestCase
             $table->getLastMessage()
         );
     }
-
 
     /**
      * Test for getUniqueColumns

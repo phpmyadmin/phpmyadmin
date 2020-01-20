@@ -92,8 +92,7 @@ class NodeTrans extends TransNode
         if ($vars) {
             $compiler
                 ->write('echo strtr(' . $function . '(')
-                ->subcompile($msg)
-            ;
+                ->subcompile($msg);
 
             if ($this->hasNode('plural')) {
                 $compiler
@@ -101,8 +100,7 @@ class NodeTrans extends TransNode
                     ->subcompile($msg1)
                     ->raw(', abs(')
                     ->subcompile($this->hasNode('count') ? $this->getNode('count') : null)
-                    ->raw(')')
-                ;
+                    ->raw(')');
             }
 
             $compiler->raw('), array(');
@@ -113,15 +111,13 @@ class NodeTrans extends TransNode
                         ->string('%count%')
                         ->raw(' => abs(')
                         ->subcompile($this->hasNode('count') ? $this->getNode('count') : null)
-                        ->raw('), ')
-                    ;
+                        ->raw('), ');
                 } else {
                     $compiler
                         ->string('%' . $var->getAttribute('name') . '%')
                         ->raw(' => ')
                         ->subcompile($var)
-                        ->raw(', ')
-                    ;
+                        ->raw(', ');
                 }
             }
 
@@ -142,8 +138,7 @@ class NodeTrans extends TransNode
                     ->subcompile($msg1)
                     ->raw(', abs(')
                     ->subcompile($this->hasNode('count') ? $this->getNode('count') : null)
-                    ->raw(')')
-                ;
+                    ->raw(')');
             }
 
             $compiler->raw(");\n");
