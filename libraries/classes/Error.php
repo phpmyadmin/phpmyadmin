@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use Exception;
 use PhpMyAdmin\Message;
+use Throwable;
 
 /**
  * a single error
@@ -225,7 +225,7 @@ class Error extends Message
     {
         try {
             $backtrace = serialize($this->getBacktrace());
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             $backtrace = '';
         }
         if ($this->hash === null) {

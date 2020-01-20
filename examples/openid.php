@@ -132,7 +132,7 @@ if (isset($_POST['identifier']) && is_string($_POST['identifier'])) {
 /* Create OpenID object */
 try {
     $o = new OpenID_RelyingParty($returnTo, $realm, $identifier);
-} catch (Exception $e) {
+} catch (Throwable $e) {
     Die_error($e);
 }
 
@@ -140,7 +140,7 @@ try {
 if (isset($_POST['start'])) {
     try {
         $authRequest = $o->prepare();
-    } catch (Exception $e) {
+    } catch (Throwable $e) {
         Die_error($e);
     }
 
@@ -160,7 +160,7 @@ if (isset($_POST['start'])) {
     /* Check reply */
     try {
         $message = new OpenID_Message($queryString, OpenID_Message::FORMAT_HTTP);
-    } catch (Exception $e) {
+    } catch (Throwable $e) {
         Die_error($e);
     }
 

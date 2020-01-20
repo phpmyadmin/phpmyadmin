@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use Exception;
 use PDO;
 use PHPUnit\Framework\TestCase;
+use Throwable;
 
 /**
  * Environment tests
@@ -56,7 +56,7 @@ class EnvironmentTest extends TestCase
                 $pdo->errorCode(),
                 'Error trying to show tables for database'
             );
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             $this->markTestSkipped('Error: ' . $e->getMessage());
         }
 

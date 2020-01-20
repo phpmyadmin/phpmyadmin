@@ -292,7 +292,7 @@ class Advisor
             if (isset($rule['precondition'])) {
                 try {
                      $precond = $this->ruleExprEvaluate($rule['precondition']);
-                } catch (Exception $e) {
+                } catch (Throwable $e) {
                     $this->storeError(
                         sprintf(
                             __('Failed evaluating precondition for rule \'%s\'.'),
@@ -309,7 +309,7 @@ class Advisor
             } else {
                 try {
                     $value = $this->ruleExprEvaluate($rule['formula']);
-                } catch (Exception $e) {
+                } catch (Throwable $e) {
                     $this->storeError(
                         sprintf(
                             __('Failed calculating value for rule \'%s\'.'),
@@ -328,7 +328,7 @@ class Advisor
                     } else {
                         $this->addRule('notfired', $rule);
                     }
-                } catch (Exception $e) {
+                } catch (Throwable $e) {
                     $this->storeError(
                         sprintf(
                             __('Failed running test for rule \'%s\'.'),
@@ -415,7 +415,7 @@ class Advisor
                     try {
                         /* Translate */
                         $str = $this->translate($jst[0], $jst[1]);
-                    } catch (Exception $e) {
+                    } catch (Throwable $e) {
                         $this->storeError(
                             sprintf(
                                 __('Failed formatting string for rule \'%s\'.'),

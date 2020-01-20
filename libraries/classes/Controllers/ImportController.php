@@ -6,7 +6,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
-use Exception;
 use PhpMyAdmin\Bookmark;
 use PhpMyAdmin\Console;
 use PhpMyAdmin\Core;
@@ -24,6 +23,7 @@ use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Throwable;
 
 /**
  * @package PhpMyAdmin\Controllers
@@ -578,7 +578,7 @@ final class ImportController extends AbstractController
                 try {
                     $import_plugin->doImport($sql_data);
                     Util::handleDisableFKCheckCleanup($default_fk_check);
-                } catch (Exception $e) {
+                } catch (Throwable $e) {
                     Util::handleDisableFKCheckCleanup($default_fk_check);
                     throw $e;
                 }
