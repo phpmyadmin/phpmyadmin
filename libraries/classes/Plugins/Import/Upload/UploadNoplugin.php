@@ -51,7 +51,7 @@ class UploadNoplugin implements UploadInterface
                 'percent'  => 0,
                 'total'    => 0,
                 'complete' => 0,
-                'plugin'   => UploadNoplugin::getIdKey(),
+                'plugin'   => self::getIdKey(),
             ];
         }
         return $_SESSION[$SESSION_KEY][$id];

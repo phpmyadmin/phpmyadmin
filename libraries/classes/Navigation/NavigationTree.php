@@ -879,7 +879,7 @@ class NavigationTree
         $this->groupTree();
         $children = $this->tree->children;
         usort($children, [
-            NavigationTree::class,
+            self::class,
             'sortNode',
         ]);
         $this->setVisibility();
@@ -921,7 +921,7 @@ class NavigationTree
             $listContent .= $this->getPageSelector($node);
             $children = $node->children;
             usort($children, [
-                NavigationTree::class,
+                self::class,
                 'sortNode',
             ]);
 
@@ -1229,7 +1229,7 @@ class NavigationTree
             usort(
                 $children,
                 [
-                    NavigationTree::class,
+                    self::class,
                     'sortNode',
                 ]
             );
@@ -1315,7 +1315,7 @@ class NavigationTree
 
         $children = $this->tree->children;
         usort($children, [
-            NavigationTree::class,
+            self::class,
             'sortNode',
         ]);
         $this->setVisibility();

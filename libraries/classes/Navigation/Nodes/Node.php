@@ -41,7 +41,7 @@ class Node
     /**
      * @var int May be one of CONTAINER or OBJECT
      */
-    public $type = Node::OBJECT;
+    public $type = self::OBJECT;
     /**
      * @var bool Whether this object has been created while grouping nodes
      *           Only relevant if the node is of type CONTAINER
@@ -122,14 +122,14 @@ class Node
      * @param bool   $isGroup Whether this object has been created
      *                        while grouping nodes
      */
-    public function __construct($name, $type = Node::OBJECT, $isGroup = false)
+    public function __construct($name, $type = self::OBJECT, $isGroup = false)
     {
         if (strlen((string) $name)) {
             $this->name = $name;
             $this->realName = $name;
         }
-        if ($type === Node::CONTAINER) {
-            $this->type = Node::CONTAINER;
+        if ($type === self::CONTAINER) {
+            $this->type = self::CONTAINER;
         }
         $this->isGroup = (bool) $isGroup;
         $this->relation = new Relation($GLOBALS['dbi']);
@@ -207,14 +207,14 @@ class Node
     {
         $parents = [];
         if ($self
-            && ($this->type != Node::CONTAINER || $containers)
+            && ($this->type != self::CONTAINER || $containers)
             && (! $this->isGroup || $groups)
         ) {
             $parents[] = $this;
         }
         $parent = $this->parent;
         while ($parent !== null) {
-            if (($parent->type != Node::CONTAINER || $containers)
+            if (($parent->type != self::CONTAINER || $containers)
                 && (! $parent->isGroup || $groups)
             ) {
                 $parents[] = $parent;
@@ -259,7 +259,7 @@ class Node
             }
         } else {
             foreach ($this->children as $child) {
-                if ($child->type == Node::OBJECT || $child->hasChildren(false)) {
+                if ($child->type == self::OBJECT || $child->hasChildren(false)) {
                     $retval = true;
                     break;
                 }
@@ -289,7 +289,7 @@ class Node
 
         foreach ($this->parent->children as $child) {
             if ($child !== $this
-                && ($child->type == Node::OBJECT || $child->hasChildren(false))
+                && ($child->type == self::OBJECT || $child->hasChildren(false))
             ) {
                 $retval = true;
                 break;
@@ -308,7 +308,7 @@ class Node
     {
         $retval = 0;
         foreach ($this->children as $child) {
-            if ($child->type == Node::OBJECT) {
+            if ($child->type == self::OBJECT) {
                 $retval++;
             } else {
                 $retval += $child->numChildren();
@@ -780,7 +780,7 @@ class Node
         if ($this->isGroup || $match) {
             $result[] = 'loaded';
         }
-        if ($this->type == Node::CONTAINER) {
+        if ($this->type == self::CONTAINER) {
             $result[] = 'container';
         }
 

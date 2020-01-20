@@ -52,7 +52,7 @@ class UploadProgress implements UploadInterface
                 'percent'  => 0,
                 'total'    => 0,
                 'complete' => 0,
-                'plugin'   => UploadProgress::getIdKey(),
+                'plugin'   => self::getIdKey(),
             ];
         }
         $ret = $_SESSION[$SESSION_KEY][$id];
@@ -86,7 +86,7 @@ class UploadProgress implements UploadInterface
                 'percent'  => 100,
                 'total'    => $ret['total'],
                 'complete' => $ret['total'],
-                'plugin'   => UploadProgress::getIdKey(),
+                'plugin'   => self::getIdKey(),
             ];
         }
 

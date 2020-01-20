@@ -267,12 +267,12 @@ class ExportCodegen extends ExportPlugin
             $lines[] = 'using System.Collections;';
             $lines[] = 'using System.Collections.Generic;';
             $lines[] = 'using System.Text;';
-            $lines[] = 'namespace ' . ExportCodegen::cgMakeIdentifier($db_alias);
+            $lines[] = 'namespace ' . self::cgMakeIdentifier($db_alias);
             $lines[] = '{';
             $lines[] = '    #region '
-                . ExportCodegen::cgMakeIdentifier($table_alias);
+                . self::cgMakeIdentifier($table_alias);
             $lines[] = '    public class '
-                . ExportCodegen::cgMakeIdentifier($table_alias);
+                . self::cgMakeIdentifier($table_alias);
             $lines[] = '    {';
             $lines[] = '        #region Member Variables';
             foreach ($tableProperties as $tableProperty) {
@@ -283,7 +283,7 @@ class ExportCodegen extends ExportPlugin
             $lines[] = '        #endregion';
             $lines[] = '        #region Constructors';
             $lines[] = '        public '
-                . ExportCodegen::cgMakeIdentifier($table_alias) . '() { }';
+                . self::cgMakeIdentifier($table_alias) . '() { }';
             $temp = [];
             foreach ($tableProperties as $tableProperty) {
                 if (! $tableProperty->isPK()) {
@@ -293,7 +293,7 @@ class ExportCodegen extends ExportPlugin
                 }
             }
             $lines[] = '        public '
-                . ExportCodegen::cgMakeIdentifier($table_alias)
+                . self::cgMakeIdentifier($table_alias)
                 . '('
                 . implode(', ', $temp)
                 . ')';
@@ -349,11 +349,11 @@ class ExportCodegen extends ExportPlugin
         $lines = [];
         $lines[] = '<?xml version="1.0" encoding="utf-8" ?' . '>';
         $lines[] = '<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" '
-            . 'namespace="' . ExportCodegen::cgMakeIdentifier($db_alias) . '" '
-            . 'assembly="' . ExportCodegen::cgMakeIdentifier($db_alias) . '">';
+            . 'namespace="' . self::cgMakeIdentifier($db_alias) . '" '
+            . 'assembly="' . self::cgMakeIdentifier($db_alias) . '">';
         $lines[] = '    <class '
-            . 'name="' . ExportCodegen::cgMakeIdentifier($table_alias) . '" '
-            . 'table="' . ExportCodegen::cgMakeIdentifier($table_alias) . '">';
+            . 'name="' . self::cgMakeIdentifier($table_alias) . '" '
+            . 'table="' . self::cgMakeIdentifier($table_alias) . '">';
         $result = $GLOBALS['dbi']->query(
             sprintf(
                 'DESC %s.%s',

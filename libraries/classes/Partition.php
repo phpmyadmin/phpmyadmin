@@ -154,7 +154,7 @@ class Partition extends SubPartition
      */
     public static function getPartitions($db, $table)
     {
-        if (Partition::havePartitioning()) {
+        if (self::havePartitioning()) {
             $result = $GLOBALS['dbi']->fetchResult(
                 'SELECT * FROM `information_schema`.`PARTITIONS`'
                 . " WHERE `TABLE_SCHEMA` = '" . $GLOBALS['dbi']->escapeString($db)
@@ -196,7 +196,7 @@ class Partition extends SubPartition
      */
     public static function getPartitionNames($db, $table)
     {
-        if (Partition::havePartitioning()) {
+        if (self::havePartitioning()) {
             return $GLOBALS['dbi']->fetchResult(
                 'SELECT DISTINCT `PARTITION_NAME` FROM `information_schema`.`PARTITIONS`'
                 . " WHERE `TABLE_SCHEMA` = '" . $GLOBALS['dbi']->escapeString($db)
@@ -217,7 +217,7 @@ class Partition extends SubPartition
      */
     public static function getPartitionMethod($db, $table)
     {
-        if (Partition::havePartitioning()) {
+        if (self::havePartitioning()) {
             $partition_method = $GLOBALS['dbi']->fetchResult(
                 'SELECT `PARTITION_METHOD` FROM `information_schema`.`PARTITIONS`'
                 . " WHERE `TABLE_SCHEMA` = '" . $GLOBALS['dbi']->escapeString($db) . "'"

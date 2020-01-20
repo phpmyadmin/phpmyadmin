@@ -73,7 +73,7 @@ class Url
             }
         }
 
-        return Url::getHiddenFields($params);
+        return self::getHiddenFields($params);
     }
 
     /**
@@ -122,7 +122,7 @@ class Url
             }
 
             if (is_array($value)) {
-                $fields .= Url::getHiddenFields($value, $name, true);
+                $fields .= self::getHiddenFields($value, $name, true);
             } else {
                 // do not generate an ending "\n" because
                 // Url::getHiddenInputs() is sometimes called
@@ -168,7 +168,7 @@ class Url
     public static function getCommon($params = [], $divider = '?')
     {
         return htmlspecialchars(
-            Url::getCommonRaw($params, $divider)
+            self::getCommonRaw($params, $divider)
         );
     }
 
@@ -206,7 +206,7 @@ class Url
     {
         /** @var Config $PMA_Config */
         global $PMA_Config;
-        $separator = Url::getArgSeparator();
+        $separator = self::getArgSeparator();
 
         // avoid overwriting when creating navi panel links to servers
         if (isset($GLOBALS['server'])

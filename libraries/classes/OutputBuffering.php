@@ -95,7 +95,7 @@ class OutputBuffering
             }
             register_shutdown_function(
                 [
-                    OutputBuffering::class,
+                    self::class,
                     'stop',
                 ]
             );
@@ -112,7 +112,7 @@ class OutputBuffering
      */
     public static function stop()
     {
-        $buffer = OutputBuffering::getInstance();
+        $buffer = self::getInstance();
         if ($buffer->_on) {
             $buffer->_on = false;
             $buffer->_content = ob_get_contents();

@@ -130,17 +130,17 @@ class Index
      */
     public static function singleton($schema, $table, $index_name = '')
     {
-        Index::_loadIndexes($table, $schema);
-        if (! isset(Index::$_registry[$schema][$table][$index_name])) {
+        self::_loadIndexes($table, $schema);
+        if (! isset(self::$_registry[$schema][$table][$index_name])) {
             $index = new Index();
             if (strlen($index_name) > 0) {
                 $index->setName($index_name);
-                Index::$_registry[$schema][$table][$index->getName()] = $index;
+                self::$_registry[$schema][$table][$index->getName()] = $index;
             }
             return $index;
         }
 
-        return Index::$_registry[$schema][$table][$index_name];
+        return self::$_registry[$schema][$table][$index_name];
     }
 
     /**
@@ -153,10 +153,10 @@ class Index
      */
     public static function getFromTable($table, $schema)
     {
-        Index::_loadIndexes($table, $schema);
+        self::_loadIndexes($table, $schema);
 
-        if (isset(Index::$_registry[$schema][$table])) {
-            return Index::$_registry[$schema][$table];
+        if (isset(self::$_registry[$schema][$table])) {
+            return self::$_registry[$schema][$table];
         }
 
         return [];
@@ -175,27 +175,27 @@ class Index
     {
         $indexes = [];
         foreach (self::getFromTable($table, $schema) as $index) {
-            if (($choices & Index::PRIMARY)
+            if (($choices & self::PRIMARY)
                 && $index->getChoice() == 'PRIMARY'
             ) {
                 $indexes[] = $index;
             }
-            if (($choices & Index::UNIQUE)
+            if (($choices & self::UNIQUE)
                 && $index->getChoice() == 'UNIQUE'
             ) {
                 $indexes[] = $index;
             }
-            if (($choices & Index::INDEX)
+            if (($choices & self::INDEX)
                 && $index->getChoice() == 'INDEX'
             ) {
                 $indexes[] = $index;
             }
-            if (($choices & Index::SPATIAL)
+            if (($choices & self::SPATIAL)
                 && $index->getChoice() == 'SPATIAL'
             ) {
                 $indexes[] = $index;
             }
-            if (($choices & Index::FULLTEXT)
+            if (($choices & self::FULLTEXT)
                 && $index->getChoice() == 'FULLTEXT'
             ) {
                 $indexes[] = $index;
@@ -214,10 +214,10 @@ class Index
      */
     public static function getPrimary($table, $schema)
     {
-        Index::_loadIndexes($table, $schema);
+        self::_loadIndexes($table, $schema);
 
-        if (isset(Index::$_registry[$schema][$table]['PRIMARY'])) {
-            return Index::$_registry[$schema][$table]['PRIMARY'];
+        if (isset(self::$_registry[$schema][$table]['PRIMARY'])) {
+            return self::$_registry[$schema][$table]['PRIMARY'];
         }
 
         return false;
@@ -233,7 +233,7 @@ class Index
      */
     private static function _loadIndexes($table, $schema)
     {
-        if (isset(Index::$_registry[$schema][$table])) {
+        if (isset(self::$_registry[$schema][$table])) {
             return true;
         }
 
@@ -241,11 +241,11 @@ class Index
         foreach ($_raw_indexes as $_each_index) {
             $_each_index['Schema'] = $schema;
             $keyName = $_each_index['Key_name'];
-            if (! isset(Index::$_registry[$schema][$table][$keyName])) {
+            if (! isset(self::$_registry[$schema][$table][$keyName])) {
                 $key = new Index($_each_index);
-                Index::$_registry[$schema][$table][$keyName] = $key;
+                self::$_registry[$schema][$table][$keyName] = $key;
             } else {
-                $key = Index::$_registry[$schema][$table][$keyName];
+                $key = self::$_registry[$schema][$table][$keyName];
             }
 
             $key->addColumn($_each_index);
@@ -504,10 +504,10 @@ class Index
             . ' id="select_index_choice" '
             . ($edit_table ? 'disabled="disabled"' : '') . '>';
 
-        foreach (Index::getIndexChoices() as $each_index_choice) {
+        foreach (self::getIndexChoices() as $each_index_choice) {
             if ($each_index_choice === 'PRIMARY'
                 && $this->_choice !== 'PRIMARY'
-                && Index::getPrimary($this->_table, $this->_schema)
+                && self::getPrimary($this->_table, $this->_schema)
             ) {
                 // skip PRIMARY if there is already one in the table
                 continue;
@@ -531,7 +531,7 @@ class Index
     public function generateIndexTypeSelector()
     {
         $types = ['' => '--'];
-        foreach (Index::getIndexTypes() as $type) {
+        foreach (self::getIndexTypes() as $type) {
             $types[$type] = $type;
         }
 
@@ -681,7 +681,7 @@ class Index
      */
     public static function getHtmlForIndexes($table, $schema, $print_mode = false)
     {
-        $indexes = Index::getFromTable($table, $schema);
+        $indexes = self::getFromTable($table, $schema);
 
         $no_indexes_class = count($indexes) > 0 ? ' hide' : '';
         $no_indexes  = "<div class='no_indexes_defined" . $no_indexes_class . "'>";
@@ -699,7 +699,7 @@ class Index
                 $r .= '</fieldset>';
                 return $r;
             }
-            $r .= Index::findDuplicates($table, $schema);
+            $r .= self::findDuplicates($table, $schema);
         } else {
             $r  = '<h3>' . __('Indexes') . '</h3>';
             $r .= $no_indexes;
@@ -861,7 +861,7 @@ class Index
      */
     public static function findDuplicates($table, $schema)
     {
-        $indexes = Index::getFromTable($table, $schema);
+        $indexes = self::getFromTable($table, $schema);
 
         $output  = '';
 

@@ -58,9 +58,9 @@ class Message
      * @var array
      */
     public static $level =  [
-        Message::SUCCESS => 'success',
-        Message::NOTICE  => 'notice',
-        Message::ERROR   => 'error',
+        self::SUCCESS => 'success',
+        self::NOTICE  => 'notice',
+        self::ERROR   => 'error',
     ];
 
     /**
@@ -69,7 +69,7 @@ class Message
      * @access protected
      * @var    integer
      */
-    protected $number = Message::NOTICE;
+    protected $number = self::NOTICE;
 
     /**
      * The locale string identifier
@@ -138,9 +138,9 @@ class Message
      */
     public function __construct(
         string $string = '',
-        int $number = Message::NOTICE,
+        int $number = self::NOTICE,
         array $params = [],
-        int $sanitize = Message::SANITIZE_NONE
+        int $sanitize = self::SANITIZE_NONE
     ) {
         $this->setString($string, $sanitize & self::SANITIZE_STRING);
         $this->setNumber($number);
@@ -230,7 +230,7 @@ class Message
      *
      * @static
      */
-    public static function raw(string $message, int $type = Message::NOTICE): self
+    public static function raw(string $message, int $type = self::NOTICE): self
     {
         $r = new Message('', $type);
         $r->setMessage($message);

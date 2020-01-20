@@ -68,8 +68,8 @@ class Pdf extends TCPDF
         $this->SetAuthor('phpMyAdmin ' . PMA_VERSION);
         $this->AddFont('DejaVuSans', '', 'dejavusans.php');
         $this->AddFont('DejaVuSans', 'B', 'dejavusansb.php');
-        $this->SetFont(Pdf::PMA_PDF_FONT, '', 14);
-        $this->setFooterFont([Pdf::PMA_PDF_FONT, '', 14]);
+        $this->SetFont(self::PMA_PDF_FONT, '', 14);
+        $this->setFooterFont([self::PMA_PDF_FONT, '', 14]);
     }
 
     /**
@@ -83,7 +83,7 @@ class Pdf extends TCPDF
         // Check if footer for this page already exists
         if (! isset($this->footerset[$this->page])) {
             $this->SetY(-15);
-            $this->SetFont(Pdf::PMA_PDF_FONT, '', 14);
+            $this->SetFont(self::PMA_PDF_FONT, '', 14);
             $this->Cell(
                 0,
                 6,

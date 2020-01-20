@@ -51,7 +51,7 @@ class UploadApc implements UploadInterface
                 'percent'  => 0,
                 'total'    => 0,
                 'complete' => 0,
-                'plugin'   => UploadApc::getIdKey(),
+                'plugin'   => self::getIdKey(),
             ];
         }
         $ret = $_SESSION[$SESSION_KEY][$id];

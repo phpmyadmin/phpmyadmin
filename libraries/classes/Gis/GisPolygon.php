@@ -445,7 +445,7 @@ class GisPolygon extends GisGeometry
     {
         // If area is negative then it's in clockwise orientation,
         // i.e. it's an outer ring
-        return GisPolygon::area($ring) < 0;
+        return self::area($ring) < 0;
     }
 
     /**
@@ -559,11 +559,11 @@ class GisPolygon extends GisGeometry
 
             // One of the points should be inside the polygon,
             // unless epsilon chosen is too large
-            if (GisPolygon::isPointInsidePolygon($pointA, $ring)) {
+            if (self::isPointInsidePolygon($pointA, $ring)) {
                 return $pointA;
             }
 
-            if (GisPolygon::isPointInsidePolygon($pointB, $ring)) {
+            if (self::isPointInsidePolygon($pointB, $ring)) {
                 return $pointB;
             }
 
