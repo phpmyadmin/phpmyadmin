@@ -56,7 +56,7 @@ class General
         // this just in case.
         $errors[] = $error . '<br>'
             . __('The backed up query was:')
-            . '"' . htmlspecialchars($createStatement) . '"' . '<br>'
+            . '"' . htmlspecialchars($createStatement) . '"<br>'
             . __('MySQL said: ') . $this->dbi->getError();
 
         return $errors;

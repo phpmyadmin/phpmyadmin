@@ -25,6 +25,12 @@
         <severity>0</severity>
     </rule>
 
+    <rule ref="Generic.Strings.UnnecessaryStringConcat">
+        <properties>
+            <property name="allowMultiline" value="true"/>
+        </properties>
+    </rule>
+
     <rule ref="Squiz.Arrays.ArrayDeclaration">
         <exclude name="Squiz.Arrays.ArrayDeclaration.DoubleArrowNotAligned"/>
         <exclude name="Squiz.Arrays.ArrayDeclaration.KeyNotAligned"/>
