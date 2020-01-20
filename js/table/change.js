@@ -184,6 +184,15 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
         $('#salt_' + target.id).remove();
     }
 
+    // Alert Message for PASSWORD_HASH to alert it as a PHP function and not SQL function
+    var new_alert_box = '<br><p name=salt[multi_edit][' + multi_edit + '][' + urlField + ']' +
+        ' id=salt_' + target.id + ' placeholder=\'' + PMA_messages.strEncryptionKey + '\'+ style="background-color:#FEF3CD;color:#8E6F29;padding:20px;">' + 'ALERT: PASSWORD_HASH is a PHP function and not a SQL function' + '<p>';
+    if (target.value === 'PASSWORD_HASH'){
+        if (!($('#salt_' + target.id).length)) {
+            $this_input.after(new_alert_box);
+        }
+    }
+
     if (target.value === 'AES_DECRYPT'
             || target.value === 'AES_ENCRYPT'
             || target.value === 'MD5') {
