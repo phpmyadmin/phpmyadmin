@@ -1382,8 +1382,8 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                                     var $existingQuery = $(g.o).find('.result_query');
                                     // If two query box exists update query in second else add a second box
                                     if ($existingQuery.find('div.sqlOuter').length > 1) {
-                                        $existingQuery.children(':nth-child(4)').remove();
-                                        $existingQuery.children(':nth-child(4)').remove();
+                                        $existingQuery.children(document.querySelectorAll(':nth-child(4)')).remove();
+                                        $existingQuery.children(document.querySelectorAll(':nth-child(4)')).remove();
                                         $existingQuery.append(sqlOuter + tools);
                                     } else {
                                         $existingQuery.append(sqlOuter + tools);
