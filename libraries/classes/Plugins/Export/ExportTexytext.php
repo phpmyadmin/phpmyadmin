@@ -1,9 +1,6 @@
 <?php
 /**
  * Export to Texy! text.
- *
- * @package    PhpMyAdmin-Export
- * @subpackage Texy!text
  */
 declare(strict_types=1);
 
@@ -21,15 +18,9 @@ use PhpMyAdmin\Util;
 
 /**
  * Handles the export for the Texy! text class
- *
- * @package    PhpMyAdmin-Export
- * @subpackage Texy!text
  */
 class ExportTexytext extends ExportPlugin
 {
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();

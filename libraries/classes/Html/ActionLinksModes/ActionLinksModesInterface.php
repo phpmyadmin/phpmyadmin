@@ -1,8 +1,6 @@
 <?php
 /**
  * Interface for links (image, text, …)
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -10,8 +8,6 @@ namespace PhpMyAdmin\Html\ActionLinksModes;
 
 /**
  * Interface for links (image, text, …)
- *
- * @package PhpMyAdmin
  */
 interface ActionLinksModesInterface
 {

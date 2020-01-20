@@ -2,8 +2,6 @@
 /**
  * Ensure the database and the table exist (else move to the "parent" script)
  * and display headers
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 

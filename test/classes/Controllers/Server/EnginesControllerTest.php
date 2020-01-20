@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds EnginesControllerTest class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -18,8 +16,6 @@ use PHPStan\Testing\TestCase;
 
 /**
  * Tests for EnginesController class
- *
- * @package PhpMyAdmin-test
  */
 class EnginesControllerTest extends TestCase
 {
@@ -40,9 +36,6 @@ class EnginesControllerTest extends TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
     }
 
-    /**
-     * @return void
-     */
     public function testIndex(): void
     {
         $controller = new EnginesController(
@@ -89,9 +82,6 @@ class EnginesControllerTest extends TestCase
         );
     }
 
-    /**
-     * @return void
-     */
     public function testShow(): void
     {
         $controller = new EnginesController(

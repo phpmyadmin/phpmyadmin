@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for Config File Management
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use stdClass;
 
 /**
  * Tests for Config File Management
- *
- * @package PhpMyAdmin-test
  */
 class ConfigFileTest extends PmaTestCase
 {

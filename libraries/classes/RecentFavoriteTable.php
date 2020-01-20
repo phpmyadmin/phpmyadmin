@@ -1,8 +1,6 @@
 <?php
 /**
  * Recent and Favorite table list handling
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -15,7 +13,6 @@ use PhpMyAdmin\Html\Generator;
  *
  * @TODO Change the release version in table pma_recent
  * (#recent in documentation)
- * @package PhpMyAdmin
  */
 class RecentFavoriteTable
 {
@@ -43,9 +40,7 @@ class RecentFavoriteTable
      */
     private static $_instances = [];
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
     /**

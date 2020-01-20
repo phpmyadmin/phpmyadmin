@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\Database\EventsController
- *
- * @package PhpMyAdmin\Controllers\Database
  */
 declare(strict_types=1);
 
@@ -15,14 +13,9 @@ use PhpMyAdmin\Util;
 
 /**
  * Events management.
- *
- * @package PhpMyAdmin\Controllers\Database
  */
 class EventsController extends AbstractController
 {
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $_PMA_RTE, $table, $db, $tables, $num_tables, $total_num_tables, $sub_part, $errors, $titles;

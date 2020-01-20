@@ -1,8 +1,6 @@
 <?php
 /**
  * Class with Font related methods.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -10,8 +8,6 @@ namespace PhpMyAdmin;
 
 /**
  * Class with Font related methods.
- *
- * @package PhpMyAdmin
  */
 class Font
 {

@@ -1,8 +1,6 @@
 <?php
 /**
  * hold PhpMyAdmin\Twig\MessageExtension class
- *
- * @package PhpMyAdmin\Twig
  */
 declare(strict_types=1);
 
@@ -12,9 +10,6 @@ use PhpMyAdmin\Message;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 
-/**
- * @package PhpMyAdmin\Twig
- */
 class MessageExtension extends AbstractExtension
 {
     /**

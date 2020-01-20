@@ -1,8 +1,6 @@
 <?php
 /**
  * Set of functions used with the relation and PDF feature
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -15,19 +13,13 @@ use PhpMyAdmin\SqlParser\Utils\Table as TableUtils;
 
 /**
  * Set of functions used with the relation and PDF feature
- *
- * @package PhpMyAdmin
  */
 class Relation
 {
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     public $dbi;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
     /**

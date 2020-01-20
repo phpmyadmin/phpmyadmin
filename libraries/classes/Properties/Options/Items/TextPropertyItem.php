@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Properties\Options\Items\TextPropertyItem class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -12,8 +10,6 @@ use PhpMyAdmin\Properties\Options\OptionsPropertyOneItem;
 
 /**
  * Single property item class of type text
- *
- * @package PhpMyAdmin
  */
 class TextPropertyItem extends OptionsPropertyOneItem
 {

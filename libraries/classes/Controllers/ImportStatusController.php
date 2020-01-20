@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
@@ -13,8 +10,6 @@ use PhpMyAdmin\Template;
 
 /**
  * Import progress bar backend
- *
- * @package PhpMyAdmin\Controllers
  */
 class ImportStatusController
 {
@@ -29,9 +24,6 @@ class ImportStatusController
         $this->template = $template;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $SESSION_KEY, $upload_id, $plugins, $timestamp;

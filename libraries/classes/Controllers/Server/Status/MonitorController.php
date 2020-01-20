@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\Server\Status\MonitorController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -16,14 +14,9 @@ use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\SysInfo;
 use PhpMyAdmin\Template;
 
-/**
- * @package PhpMyAdmin\Controllers\Server\Status
- */
 class MonitorController extends AbstractController
 {
-    /**
-     * @var Monitor
-     */
+    /** @var Monitor */
     private $monitor;
 
     /**

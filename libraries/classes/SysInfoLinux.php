@@ -1,8 +1,6 @@
 <?php
 /**
  * Hold PhpMyAdmin\SysInfoLinux class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PhpMyAdmin\SysInfoBase;
 
 /**
  * Linux based SysInfo class
- *
- * @package PhpMyAdmin
  */
 class SysInfoLinux extends SysInfoBase
 {

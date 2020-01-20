@@ -1,8 +1,6 @@
 <?php
 /**
  * Second authentication factor handling
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -14,14 +12,10 @@ use PhpMyAdmin\Plugins\TwoFactorPlugin;
  * Simple two-factor authentication auth asking just for confirmation.
  *
  * This has no practical use, but can be used for testing.
- *
- * @package PhpMyAdmin
  */
 class Simple extends TwoFactorPlugin
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     public static $id = 'simple';
 
     /**

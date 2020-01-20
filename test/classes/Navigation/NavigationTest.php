@@ -1,8 +1,6 @@
 <?php
 /**
  * Test for PhpMyAdmin\Navigation\Navigation class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -16,14 +14,10 @@ use PhpMyAdmin\Url;
 
 /**
  * Tests for PhpMyAdmin\Navigation\Navigation class
- *
- * @package PhpMyAdmin-test
  */
 class NavigationTest extends PmaTestCase
 {
-    /**
-     * @var Navigation
-     */
+    /** @var Navigation */
     protected $object;
 
     /**

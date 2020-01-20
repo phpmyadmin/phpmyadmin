@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\Server\Status\AbstractController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -16,14 +14,10 @@ use PhpMyAdmin\Template;
 
 /**
  * Abstract class Controller
- *
- * @package PhpMyAdmin\Controllers\Server\Status
  */
 abstract class AbstractController extends Controller
 {
-    /**
-     * @var Data
-     */
+    /** @var Data */
     protected $data;
 
     /**

@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds DatabasesControllerTest class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -19,14 +17,9 @@ use stdClass;
 
 /**
  * Tests for DatabasesController class
- *
- * @package PhpMyAdmin-test
  */
 class DatabasesControllerTest extends TestCase
 {
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
@@ -41,9 +34,6 @@ class DatabasesControllerTest extends TestCase
         $GLOBALS['text_dir'] = 'text_dir';
     }
 
-    /**
-     * @return void
-     */
     public function testIndexAction(): void
     {
         global $cfg, $dblist, $is_create_db_priv;

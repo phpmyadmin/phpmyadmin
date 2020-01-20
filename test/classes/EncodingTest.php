@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for Charset Conversions
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,22 +11,14 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for Charset Conversions
- *
- * @package PhpMyAdmin-test
  */
 class EncodingTest extends TestCase
 {
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         Encoding::initEngine();
     }
 
-    /**
-     * @return void
-     */
     protected function tearDown(): void
     {
         Encoding::initEngine();
@@ -85,9 +75,12 @@ class EncodingTest extends TestCase
 
     /**
      * This group is used on debian packaging to exclude the test
+     *
      * @see https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=854821#27
-     * @group extension-iconv
+     *
      * @return void
+     *
+     * @group extension-iconv
      */
     public function testIconv()
     {

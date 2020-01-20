@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Tests\Controllers\Database
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Database;
@@ -13,14 +10,8 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Url;
 
-/**
- * @package PhpMyAdmin\Tests\Controllers\Database
- */
 class PrivilegesControllerTest extends PmaTestCase
 {
-    /**
-     * @return void
-     */
     public function testIndex(): void
     {
         global $dbi, $db, $server, $cfg, $PMA_PHP_SELF, $is_grantuser, $is_createuser;

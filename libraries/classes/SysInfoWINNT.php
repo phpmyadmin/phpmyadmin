@@ -1,8 +1,6 @@
 <?php
 /**
  * Hold PhpMyAdmin\SysInfoWINNT class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use function is_string;
 
 /**
  * Windows NT based SysInfo class
- *
- * @package PhpMyAdmin
  */
 class SysInfoWINNT extends SysInfoBase
 {

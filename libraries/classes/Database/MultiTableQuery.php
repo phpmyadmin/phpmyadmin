@@ -1,8 +1,6 @@
 <?php
 /**
  * Handles DB Multi-table query
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -16,8 +14,6 @@ use PhpMyAdmin\Url;
 
 /**
  * Class to handle database Multi-table querying
- *
- * @package PhpMyAdmin
  */
 class MultiTableQuery
 {
@@ -53,14 +49,10 @@ class MultiTableQuery
      */
     private $tables;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
     /**
-     * Constructor
-     *
      * @param DatabaseInterface $dbi                DatabaseInterface instance
      * @param Template          $template           Template instance
      * @param string            $dbName             Database name

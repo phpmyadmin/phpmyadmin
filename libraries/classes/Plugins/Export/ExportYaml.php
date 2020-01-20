@@ -1,9 +1,6 @@
 <?php
 /**
  * Set of functions used to build YAML dumps of tables
- *
- * @package    PhpMyAdmin-Export
- * @subpackage YAML
  */
 declare(strict_types=1);
 
@@ -18,15 +15,9 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 
 /**
  * Handles the export for the YAML format
- *
- * @package    PhpMyAdmin-Export
- * @subpackage YAML
  */
 class ExportYaml extends ExportPlugin
 {
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();

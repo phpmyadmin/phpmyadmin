@@ -1,8 +1,6 @@
 <?php
 /**
  * Value object class for a character set
- *
- * @package PhpMyAdmin\Charsets
  */
 declare(strict_types=1);
 
@@ -10,8 +8,6 @@ namespace PhpMyAdmin\Charsets;
 
 /**
  * Value object class for a character set
- *
- * @package PhpMyAdmin\Charsets
  */
 final class Charset
 {
@@ -76,33 +72,21 @@ final class Charset
         );
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @return string
-     */
     public function getDescription(): string
     {
         return $this->description;
     }
 
-    /**
-     * @return string
-     */
     public function getDefaultCollation(): string
     {
         return $this->defaultCollation;
     }
 
-    /**
-     * @return int
-     */
     public function getMaxLength(): int
     {
         return $this->maxLength;

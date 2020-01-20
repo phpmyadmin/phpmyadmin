@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for transformation wrappers
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,14 +11,10 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * tests for transformation wrappers
- *
- * @package PhpMyAdmin-test
  */
 class TransformationsTest extends TestCase
 {
-    /**
-     * @var Transformations
-     */
+    /** @var Transformations */
     private $transformations;
 
     /**

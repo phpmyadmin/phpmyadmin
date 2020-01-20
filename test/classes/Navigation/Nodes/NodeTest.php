@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for Node class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -15,8 +13,6 @@ use ReflectionMethod;
 
 /**
  * Tests for Node class
- *
- * @package PhpMyAdmin-test
  */
 class NodeTest extends PmaTestCase
 {

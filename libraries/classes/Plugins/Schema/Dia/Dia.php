@@ -1,8 +1,6 @@
 <?php
 /**
  * Classes to create relation schema in Dia format.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -16,15 +14,13 @@ use XMLWriter;
  * This Class inherits the XMLwriter class and
  * helps in developing structure of DIA Schema Export
  *
- * @package PhpMyAdmin
- * @access  public
  * @see     https://www.php.net/manual/en/book.xmlwriter.php
+ *
+ * @access  public
  */
 class Dia extends XMLWriter
 {
     /**
-     * The "Dia" constructor
-     *
      * Upon instantiation This starts writing the Dia XML document
      *
      * @see XMLWriter::openMemory(),XMLWriter::setIndent(),XMLWriter::startDocument()

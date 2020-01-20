@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
@@ -25,9 +22,6 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use Throwable;
 
-/**
- * @package PhpMyAdmin\Controllers
- */
 final class ImportController extends AbstractController
 {
     /** @var Import */
@@ -50,9 +44,6 @@ final class ImportController extends AbstractController
         $this->sql = $sql;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $cfg, $collation_connection, $db, $import_type, $pmaThemeImage, $table, $goto, $display_query;

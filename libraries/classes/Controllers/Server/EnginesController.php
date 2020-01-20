@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\Server\EnginesController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use PhpMyAdmin\StorageEngine;
 
 /**
  * Handles viewing storage engine details
- *
- * @package PhpMyAdmin\Controllers
  */
 class EnginesController extends AbstractController
 {

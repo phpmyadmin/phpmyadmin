@@ -1,8 +1,6 @@
 <?php
 /**
  * Hold PhpMyAdmin\SysInfoSunOS class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -12,8 +10,6 @@ use PhpMyAdmin\SysInfoBase;
 
 /**
  * SunOS based SysInfo class
- *
- * @package PhpMyAdmin
  */
 class SysInfoSunOS extends SysInfoBase
 {

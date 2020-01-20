@@ -1,8 +1,6 @@
 <?php
 /**
  * Set of functions used for cleaning up phpMyAdmin tables
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -14,19 +12,13 @@ use PhpMyAdmin\Util;
 
 /**
  * PhpMyAdmin\RelationCleanup class
- *
- * @package PhpMyAdmin
  */
 class RelationCleanup
 {
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     public $relation;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     public $dbi;
 
     /**

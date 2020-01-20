@@ -1,8 +1,6 @@
 <?php
 /**
  * Classes to create relation schema in EPS format.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -24,14 +22,11 @@ use PhpMyAdmin\Plugins\Schema\Svg\TableStatsSvg;
  * This class inherits ExportRelationSchema class has common functionality added
  * to this class
  *
- * @package PhpMyAdmin
  * @name    Eps_Relation_Schema
  */
 class EpsRelationSchema extends ExportRelationSchema
 {
-    /**
-     * @var TableStatsDia[]|TableStatsEps[]|TableStatsPdf[]|TableStatsSvg[]
-     */
+    /** @var TableStatsDia[]|TableStatsEps[]|TableStatsPdf[]|TableStatsSvg[] */
     private $_tables = [];
 
     /** @var RelationStatsEps[] Relations */
@@ -40,8 +35,6 @@ class EpsRelationSchema extends ExportRelationSchema
     private $_tablewidth;
 
     /**
-     * The "PMA_EPS_Relation_Schema" constructor
-     *
      * Upon instantiation This starts writing the EPS document
      * user will be prompted for download as .eps extension
      *

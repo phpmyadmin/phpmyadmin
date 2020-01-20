@@ -1,8 +1,6 @@
 <?php
 /**
  * Contains PhpMyAdmin\Plugins\Schema\Eps\TableStatsEps class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -17,9 +15,9 @@ use PhpMyAdmin\Plugins\Schema\TableStats;
  * This class preserves the table co-ordinates,fields
  * and helps in drawing/generating the Tables in EPS.
  *
- * @package PhpMyAdmin
- * @name    Table_Stats_Eps
  * @see     PMA_EPS
+ *
+ * @name    Table_Stats_Eps
  */
 class TableStatsEps extends TableStats
 {
@@ -30,8 +28,6 @@ class TableStatsEps extends TableStats
     public $currentCell = 0;
 
     /**
-     * The "PhpMyAdmin\Plugins\Schema\Eps\TableStatsEps" constructor
-     *
      * @see PMA_EPS, Table_Stats_Eps::Table_Stats_setWidth,
      *      PhpMyAdmin\Plugins\Schema\Eps\TableStatsEps::Table_Stats_setHeight
      *

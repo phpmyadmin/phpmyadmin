@@ -1,9 +1,6 @@
 <?php
 /**
  * CSV import plugin for phpMyAdmin using LOAD DATA
- *
- * @package    PhpMyAdmin-Import
- * @subpackage LDI
  */
 declare(strict_types=1);
 
@@ -25,15 +22,9 @@ if (! isset($GLOBALS['plugin_param']) || $GLOBALS['plugin_param'] !== 'table') {
 
 /**
  * Handles the import for the CSV format using load data
- *
- * @package    PhpMyAdmin-Import
- * @subpackage LDI
  */
 class ImportLdi extends AbstractImportCsv
 {
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();

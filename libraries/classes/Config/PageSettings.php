@@ -1,8 +1,6 @@
 <?php
 /**
  * Page-related settings
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -18,8 +16,6 @@ use PhpMyAdmin\UserPreferences;
 
 /**
  * Page-related settings
- *
- * @package PhpMyAdmin
  */
 class PageSettings
 {
@@ -51,14 +47,10 @@ class PageSettings
      */
     private $_HTML = '';
 
-    /**
-     * @var UserPreferences
-     */
+    /** @var UserPreferences */
     private $userPreferences;
 
     /**
-     * Constructor
-     *
      * @param string $formGroupName The name of config form group to display
      * @param string $elemId        Id of the div containing settings
      */

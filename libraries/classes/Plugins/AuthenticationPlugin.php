@@ -1,8 +1,6 @@
 <?php
 /**
  * Abstract class for the authentication plugins
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -22,8 +20,6 @@ use PhpMyAdmin\Url;
 /**
  * Provides a common interface that will have to be implemented by all of the
  * authentication plugins.
- *
- * @package PhpMyAdmin
  */
 abstract class AuthenticationPlugin
 {
@@ -41,19 +37,12 @@ abstract class AuthenticationPlugin
      */
     public $password = '';
 
-    /**
-     * @var IpAllowDeny
-     */
+    /** @var IpAllowDeny */
     protected $ipAllowDeny;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
-    /**
-     * AuthenticationPlugin constructor.
-     */
     public function __construct()
     {
         $this->ipAllowDeny = new IpAllowDeny();

@@ -1,8 +1,6 @@
 <?php
 /**
  * The InnoDB storage engine
- *
- * @package PhpMyAdmin-Engines
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PhpMyAdmin\Util;
 
 /**
  * The InnoDB storage engine
- *
- * @package PhpMyAdmin-Engines
  */
 class Innodb extends StorageEngine
 {

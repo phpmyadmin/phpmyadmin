@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for FormList classes in config folder
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,14 +12,9 @@ use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PMA_FormDisplay class
- *
- * @package PhpMyAdmin-test
  */
 class FormListTest extends PmaTestCase
 {
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();

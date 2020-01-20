@@ -1,8 +1,6 @@
 <?php
 /**
  * Two authentication factor handling
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -20,14 +18,10 @@ use PhpMyAdmin\TwoFactor;
  * This is basic implementation which does no
  * additional authentication, subclasses are expected
  * to implement this.
- *
- * @package PhpMyAdmin
  */
 class TwoFactorPlugin
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     public static $id = '';
 
     /**
@@ -35,24 +29,16 @@ class TwoFactorPlugin
      */
     public static $showSubmit = true;
 
-    /**
-     * @var TwoFactor
-     */
+    /** @var TwoFactor */
     protected $_twofactor;
 
-    /**
-     * @var boolean
-     */
+    /** @var boolean */
     protected $_provided;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $_message;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
     /**

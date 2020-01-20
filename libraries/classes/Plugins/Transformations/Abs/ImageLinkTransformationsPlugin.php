@@ -1,9 +1,6 @@
 <?php
 /**
  * Abstract class for the link transformations plugins
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage Link
  */
 declare(strict_types=1);
 
@@ -15,8 +12,6 @@ use stdClass;
 
 /**
  * Provides common methods for all of the link transformations plugins.
- *
- * @package PhpMyAdmin
  */
 abstract class ImageLinkTransformationsPlugin extends TransformationsPlugin
 {

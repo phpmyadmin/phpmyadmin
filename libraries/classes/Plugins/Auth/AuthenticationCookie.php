@@ -1,9 +1,6 @@
 <?php
 /**
  * Cookie Authentication plugin for phpMyAdmin
- *
- * @package    PhpMyAdmin-Authentication
- * @subpackage Cookie
  */
 declare(strict_types=1);
 
@@ -26,8 +23,6 @@ use ReCaptcha;
 
 /**
  * Handles the cookie authentication method
- *
- * @package PhpMyAdmin-Authentication
  */
 class AuthenticationCookie extends AuthenticationPlugin
 {
@@ -41,9 +36,6 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     private $_use_openssl;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();

@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Tracker
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -18,8 +16,6 @@ use ReflectionProperty;
 
 /**
  * Tests for PhpMyAdmin\Tracker
- *
- * @package PhpMyAdmin-test
  */
 class TrackerTest extends PmaTestCase
 {

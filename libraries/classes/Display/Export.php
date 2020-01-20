@@ -1,8 +1,6 @@
 <?php
 /**
  * functions for displaying server, database and table export
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -28,24 +26,15 @@ use Twig_Error_Syntax;
 
 /**
  * PhpMyAdmin\Display\Export class
- *
- * @package PhpMyAdmin
  */
 class Export
 {
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         $this->relation = new Relation($GLOBALS['dbi']);

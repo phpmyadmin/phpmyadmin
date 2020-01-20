@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for Error.php
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Error class testing.
- *
- * @package PhpMyAdmin-test
  */
 class ErrorTest extends PmaTestCase
 {

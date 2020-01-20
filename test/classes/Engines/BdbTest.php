@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Engines\Bdb
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,14 +11,10 @@ use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PhpMyAdmin\Engines\Bdb
- *
- * @package PhpMyAdmin-test
  */
 class BdbTest extends PmaTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @access protected */
     protected $object;
 
     /**

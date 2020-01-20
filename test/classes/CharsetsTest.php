@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for MySQL Charsets
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,23 +11,15 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for MySQL Charsets
- *
- * @package PhpMyAdmin-test
  */
 class CharsetsTest extends TestCase
 {
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
     }
 
-    /**
-     * @return void
-     */
     public function testFindCollationByName(): void
     {
         $this->assertNull(Charsets::findCollationByName(

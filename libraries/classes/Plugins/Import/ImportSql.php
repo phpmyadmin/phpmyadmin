@@ -1,9 +1,6 @@
 <?php
 /**
  * SQL import plugin for phpMyAdmin
- *
- * @package    PhpMyAdmin-Import
- * @subpackage SQL
  */
 declare(strict_types=1);
 
@@ -20,15 +17,9 @@ use PhpMyAdmin\SqlParser\Utils\BufferedQuery;
 
 /**
  * Handles the import for the SQL format
- *
- * @package    PhpMyAdmin-Import
- * @subpackage SQL
  */
 class ImportSql extends ImportPlugin
 {
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();

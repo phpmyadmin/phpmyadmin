@@ -2,7 +2,6 @@
 /**
  * Test for PhpMyAdmin\Config class
  *
- * @package PhpMyAdmin-test
  * @group current
  */
 declare(strict_types=1);
@@ -15,8 +14,6 @@ use PHPUnit\Framework\Exception;
 
 /**
  * Tests behaviour of PhpMyAdmin\Config class
- *
- * @package PhpMyAdmin-test
  */
 class ConfigTest extends PmaTestCase
 {
@@ -25,14 +22,10 @@ class ConfigTest extends PmaTestCase
      */
     protected $backupGlobals = false;
 
-    /**
-     * @var Config
-     */
+    /** @var Config */
     protected $object;
 
-    /**
-     * @var Config to test file permission
-     */
+    /** @var Config to test file permission */
     protected $permTestObj;
 
     /**

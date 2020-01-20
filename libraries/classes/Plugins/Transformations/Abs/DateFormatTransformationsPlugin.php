@@ -1,9 +1,6 @@
 <?php
 /**
  * Abstract class for the date format transformations plugins
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage DateFormat
  */
 declare(strict_types=1);
 
@@ -16,8 +13,6 @@ use stdClass;
 
 /**
  * Provides common methods for all of the date format transformations plugins.
- *
- * @package PhpMyAdmin
  */
 abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
 {

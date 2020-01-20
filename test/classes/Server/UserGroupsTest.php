@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Server\UserGroups
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for PhpMyAdmin\Server\UserGroups
- *
- * @package PhpMyAdmin-test
  */
 class UserGroupsTest extends TestCase
 {

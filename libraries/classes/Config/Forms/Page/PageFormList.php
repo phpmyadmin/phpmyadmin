@@ -1,8 +1,6 @@
 <?php
 /**
  * Page preferences form
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -10,14 +8,9 @@ namespace PhpMyAdmin\Config\Forms\Page;
 
 use PhpMyAdmin\Config\Forms\BaseFormList;
 
-/**
- * @package PhpMyAdmin\Config\Forms\Page
- */
 class PageFormList extends BaseFormList
 {
-    /**
-     * @var array
-     */
+    /** @var array */
     protected static $all = [
         'Browse',
         'DbStructure',
@@ -28,8 +21,6 @@ class PageFormList extends BaseFormList
         'Sql',
         'TableStructure',
     ];
-    /**
-     * @var string
-     */
+    /** @var string */
     protected static $ns = '\\PhpMyAdmin\\Config\\Forms\\Page\\';
 }

@@ -1,8 +1,6 @@
 <?php
 /**
  * hold PhpMyAdmin\Twig\I18n\TokenParserTrans class
- *
- * @package PhpMyAdmin\Twig\I18n
  */
 declare(strict_types=1);
 
@@ -12,9 +10,6 @@ use PhpMyAdmin\Twig\Extensions\TokenParser\TransTokenParser;
 use Twig\Token;
 use Twig_Error_Syntax;
 
-/**
- * @package PhpMyAdmin\Twig\I18n
- */
 class TokenParserTrans extends TransTokenParser
 {
     /**

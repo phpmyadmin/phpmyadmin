@@ -1,8 +1,6 @@
 <?php
 /**
  * Generic plugin interface.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -25,8 +23,6 @@ use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
 
 /**
  * PhpMyAdmin\Plugins class
- *
- * @package PhpMyAdmin
  */
 class Plugins
 {

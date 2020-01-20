@@ -2,9 +2,6 @@
 /**
  * This class extends ShapeFile class to cater the following phpMyAdmin
  * specific requirements.
- *
- * @package    PhpMyAdmin-Import
- * @subpackage ESRI_Shape
  */
 declare(strict_types=1);
 
@@ -14,8 +11,6 @@ use PhpMyAdmin\ShapeFile\ShapeFile;
 
 /**
  * ShapeFileImport class
- *
- * @package PhpMyAdmin
  */
 class ShapeFileImport extends ShapeFile
 {

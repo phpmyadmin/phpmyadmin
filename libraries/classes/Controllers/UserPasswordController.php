@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
@@ -15,14 +12,10 @@ use PhpMyAdmin\UserPassword;
 
 /**
  * Displays and handles the form where the user can change their password.
- *
- * @package PhpMyAdmin\Controllers
  */
 class UserPasswordController extends AbstractController
 {
-    /**
-     * @var UserPassword
-     */
+    /** @var UserPassword */
     private $userPassword;
 
     /**
@@ -37,9 +30,6 @@ class UserPasswordController extends AbstractController
         $this->userPassword = $userPassword;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $cfg, $hostname, $username, $password, $change_password_message, $msg;

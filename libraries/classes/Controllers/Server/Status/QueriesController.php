@@ -1,8 +1,6 @@
 <?php
 /**
  * Displays query statistics for the server
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -10,9 +8,6 @@ namespace PhpMyAdmin\Controllers\Server\Status;
 
 use PhpMyAdmin\Common;
 
-/**
- * @package PhpMyAdmin\Controllers\Server\Status
- */
 class QueriesController extends AbstractController
 {
     /**

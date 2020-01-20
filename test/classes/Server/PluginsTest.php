@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Tests\Server
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Server;
@@ -10,19 +7,11 @@ use PhpMyAdmin\Server\Plugin;
 use PhpMyAdmin\Server\Plugins;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @package PhpMyAdmin\Tests\Server
- */
 class PluginsTest extends TestCase
 {
-    /**
-     * @var Plugins
-     */
+    /** @var Plugins */
     private $plugins;
 
-    /**
-     * @return void
-     */
     public function testGetAll(): void
     {
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
@@ -55,9 +44,6 @@ class PluginsTest extends TestCase
         ], $plugin->toArray());
     }
 
-    /**
-     * @return void
-     */
     public function testGetAllWithoutInformationSchema(): void
     {
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;

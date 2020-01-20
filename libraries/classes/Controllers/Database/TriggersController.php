@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\Database\TriggersController
- *
- * @package PhpMyAdmin\Controllers\Database
  */
 declare(strict_types=1);
 
@@ -15,14 +13,9 @@ use PhpMyAdmin\Util;
 
 /**
  * Triggers management.
- *
- * @package PhpMyAdmin\Controllers\Database
  */
 class TriggersController extends AbstractController
 {
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $_PMA_RTE, $db, $table, $tables, $num_tables, $total_num_tables, $sub_part, $is_show_stats;

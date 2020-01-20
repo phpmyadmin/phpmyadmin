@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for ListDatabase class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use ReflectionClass;
 
 /**
  * tests for ListDatabase class
- *
- * @package PhpMyAdmin-test
  */
 class ListDatabaseTest extends PmaTestCase
 {

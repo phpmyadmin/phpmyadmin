@@ -1,8 +1,6 @@
 <?php
 /**
  * Test for faked database access
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -16,14 +14,10 @@ use stdClass;
 
 /**
  * Tests basic functionality of dummy dbi driver
- *
- * @package PhpMyAdmin-test
  */
 class DatabaseInterfaceTest extends PmaTestCase
 {
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $_dbi;
 
     /**

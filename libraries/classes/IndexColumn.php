@@ -1,8 +1,6 @@
 <?php
 /**
  * holds the database index columns class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -10,19 +8,13 @@ namespace PhpMyAdmin;
 
 /**
  * Index column wrapper
- *
- * @package PhpMyAdmin
  */
 class IndexColumn
 {
-    /**
-     * @var string The column name
-     */
+    /** @var string The column name */
     private $_name = '';
 
-    /**
-     * @var integer The column sequence number in the index, starting with 1.
-     */
+    /** @var integer The column sequence number in the index, starting with 1. */
     private $_seq_in_index = 1;
 
     /**
@@ -59,8 +51,6 @@ class IndexColumn
     private $_cardinality = null;
 
     /**
-     * Constructor
-     *
      * @param array $params an array containing the parameters of the index column
      */
     public function __construct(array $params = [])

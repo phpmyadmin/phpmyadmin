@@ -1,8 +1,6 @@
 <?php
 /**
  * General functions.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -15,14 +13,10 @@ use PhpMyAdmin\Util;
 
 /**
  * PhpMyAdmin\Rte\General class
- *
- * @package PhpMyAdmin
  */
 class General
 {
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**

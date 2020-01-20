@@ -1,8 +1,6 @@
 <?php
 /**
  * Test for Menu class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Test for Menu class
- *
- * @package PhpMyAdmin-test
  */
 class MenuTest extends PmaTestCase
 {

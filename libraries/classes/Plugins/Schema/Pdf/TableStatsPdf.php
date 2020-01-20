@@ -1,8 +1,6 @@
 <?php
 /**
  * Contains PhpMyAdmin\Plugins\Schema\Pdf\TableStatsPdf class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -18,9 +16,9 @@ use PhpMyAdmin\Plugins\Schema\TableStats;
  * This class preserves the table co-ordinates,fields
  * and helps in drawing/generating the Tables in PDF document.
  *
- * @name    Table_Stats_Pdf
- * @package PhpMyAdmin
  * @see     PMA_Schema_PDF
+ *
+ * @name    Table_Stats_Pdf
  */
 class TableStatsPdf extends TableStats
 {
@@ -32,8 +30,6 @@ class TableStatsPdf extends TableStats
     private $_ff = PdfLib::PMA_PDF_FONT;
 
     /**
-     * The "PhpMyAdmin\Plugins\Schema\Pdf\TableStatsPdf" constructor
-     *
      * @see PMA_Schema_PDF, Table_Stats_Pdf::Table_Stats_setWidth,
      *     PhpMyAdmin\Plugins\Schema\Pdf\TableStatsPdf::Table_Stats_setHeight
      *

@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for all input/output transformation plugins
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -31,8 +29,6 @@ use ReflectionMethod;
 
 /**
  * Tests for different input/output transformation plugins
- *
- * @package PhpMyAdmin-test
  */
 class TransformationPluginsTest extends PmaTestCase
 {

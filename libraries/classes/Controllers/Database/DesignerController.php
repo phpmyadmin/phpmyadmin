@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers\Database
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
@@ -14,9 +11,6 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
-/**
- * @package PhpMyAdmin\Controllers\Database
- */
 class DesignerController extends AbstractController
 {
     /** @var Designer */
@@ -46,9 +40,6 @@ class DesignerController extends AbstractController
         $this->designerCommon = $designerCommon;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $db, $script_display_field, $tab_column, $tables_all_keys, $tables_pk_or_unique_keys;

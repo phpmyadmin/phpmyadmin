@@ -1,21 +1,13 @@
 <?php
 /**
  * Simple script to set correct charset for changelog
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
-/**
- * @package PhpMyAdmin\Controllers
- */
 class ChangeLogController extends AbstractController
 {
-    /**
-     * @return void
-     */
     public function index(): void
     {
         $this->response->disable();

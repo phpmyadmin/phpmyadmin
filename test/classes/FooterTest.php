@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for Footer class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -16,19 +14,13 @@ use ReflectionClass;
 
 /**
  * Tests for Footer class
- *
- * @package PhpMyAdmin-test
  */
 class FooterTest extends PmaTestCase
 {
-    /**
-     * @var array store private attributes of PhpMyAdmin\Footer
-     */
+    /** @var array store private attributes of PhpMyAdmin\Footer */
     public $privates = [];
 
-    /**
-     * @access protected
-     */
+    /** @access protected */
     protected $object;
 
     /**

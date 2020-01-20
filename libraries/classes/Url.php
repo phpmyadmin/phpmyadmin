@@ -1,8 +1,6 @@
 <?php
 /**
  * Static methods for URL/hidden inputs generating
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -10,8 +8,6 @@ namespace PhpMyAdmin;
 
 /**
  * Static methods for URL/hidden inputs generating
- *
- * @package PhpMyAdmin
  */
 class Url
 {

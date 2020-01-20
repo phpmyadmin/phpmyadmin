@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds StatusControllerTest
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -18,14 +16,8 @@ use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @package PhpMyAdmin\Tests\Controllers\Server\Status
- */
 class StatusControllerTest extends TestCase
 {
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
@@ -123,9 +115,6 @@ class StatusControllerTest extends TestCase
         $GLOBALS['dbi'] = $dbi;
     }
 
-    /**
-     * @return void
-     */
     public function testIndex(): void
     {
         $data = new Data();

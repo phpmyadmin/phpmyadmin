@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers\Table
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
@@ -21,8 +18,6 @@ use PhpMyAdmin\Util;
  *
  * Display table search form, create SQL query from form data
  * and call Sql::executeQueryAndSendQueryResponse() to execute it.
- *
- * @package PhpMyAdmin\Controllers\Table
  */
 class SearchController extends AbstractController
 {
@@ -72,14 +67,10 @@ class SearchController extends AbstractController
     /** @var Search */
     private $search;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
     /**
-     * Constructor
-     *
      * @param Response          $response Response object
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param Template          $template Template object

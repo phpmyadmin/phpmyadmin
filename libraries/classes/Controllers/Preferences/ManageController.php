@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers\Preferences
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Preferences;
@@ -23,8 +20,6 @@ use PhpMyAdmin\Util;
 
 /**
  * User preferences management page.
- *
- * @package PhpMyAdmin\Controllers\Preferences
  */
 class ManageController extends AbstractController
 {
@@ -53,9 +48,6 @@ class ManageController extends AbstractController
         $this->relation = $relation;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $cf, $error, $filename, $import_handle, $json, $PMA_Config, $lang, $max_upload_size;

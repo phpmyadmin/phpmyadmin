@@ -1,8 +1,6 @@
 <?php
 /**
  * Base class for phpMyAdmin tests
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -15,19 +13,13 @@ use ReflectionProperty;
 
 /**
  * Base class for phpMyAdmin tests
- *
- * @package PhpMyAdmin-test
  */
 class PmaTestCase extends TestCase
 {
-    /**
-     * @var Response|null
-     */
+    /** @var Response|null */
     protected $restoreInstance = null;
 
-    /**
-     * @var ReflectionProperty|null
-     */
+    /** @var ReflectionProperty|null */
     protected $attrInstance = null;
 
     /**

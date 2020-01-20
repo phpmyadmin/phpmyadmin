@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
@@ -25,9 +22,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
-/**
- * @package PhpMyAdmin\Controllers
- */
 final class ExportController extends AbstractController
 {
     /** @var Export */
@@ -50,9 +44,6 @@ final class ExportController extends AbstractController
         $this->relation = $relation;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $containerBuilder, $db, $export_type, $filename_template, $sql_query, $err_url, $message;

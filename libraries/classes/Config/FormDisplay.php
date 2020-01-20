@@ -8,8 +8,6 @@
  *                 eg. Servers/1/verbose
  * o translated_path - work_path modified for HTML field name, a path with
  *                     slashes changed to hyphens, eg. Servers-4-verbose
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -22,8 +20,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Form management class, displays and processes forms
- *
- * @package PhpMyAdmin
  */
 class FormDisplay
 {
@@ -94,14 +90,10 @@ class FormDisplay
      */
     private $_userprefsDisallow;
 
-    /**
-     * @var FormDisplayTemplate
-     */
+    /** @var FormDisplayTemplate */
     private $formDisplayTemplate;
 
     /**
-     * Constructor
-     *
      * @param ConfigFile $cf Config file instance
      */
     public function __construct(ConfigFile $cf)

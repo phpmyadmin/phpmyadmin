@@ -1,8 +1,6 @@
 <?php
 /**
  * Functions for routine management.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -25,39 +23,25 @@ use PhpMyAdmin\Util;
 
 /**
  * PhpMyAdmin\Rte\Routines class
- *
- * @package PhpMyAdmin
  */
 class Routines
 {
-    /**
-     * @var Export
-     */
+    /** @var Export */
     private $export;
 
-    /**
-     * @var Footer
-     */
+    /** @var Footer */
     private $footer;
 
-    /**
-     * @var General
-     */
+    /** @var General */
     private $general;
 
-    /**
-     * @var RteList
-     */
+    /** @var RteList */
     private $rteList;
 
-    /**
-     * @var Words
-     */
+    /** @var Words */
     private $words;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**

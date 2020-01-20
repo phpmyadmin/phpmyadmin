@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for ThemeManager class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use PhpMyAdmin\ThemeManager;
 
 /**
  * tests for ThemeManager class
- *
- * @package PhpMyAdmin-test
  */
 class ThemeManagerTest extends PmaTestCase
 {

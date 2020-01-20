@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for libraries/SystemDatabase.php
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for libraries/SystemDatabase.php
- *
- * @package PhpMyAdmin-test
  */
 class SystemDatabaseTest extends PmaTestCase
 {

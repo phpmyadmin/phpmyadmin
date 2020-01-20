@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Dbi\DbiMysqli class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -15,14 +13,10 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for PhpMyAdmin\Dbi\DbiMysqli class
- *
- * @package PhpMyAdmin-test
  */
 class DbiMysqliTest extends TestCase
 {
-    /**
-     * @var DbiMysqli
-     */
+    /** @var DbiMysqli */
     protected $object;
 
     /**

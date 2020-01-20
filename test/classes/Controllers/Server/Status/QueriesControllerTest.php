@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds QueriesControllerTest
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -17,19 +15,11 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @package PhpMyAdmin\Tests\Controllers\Server\Status
- */
 class QueriesControllerTest extends TestCase
 {
-    /**
-     * @var Data
-     */
+    /** @var Data */
     private $data;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
@@ -110,9 +100,6 @@ class QueriesControllerTest extends TestCase
         ];
     }
 
-    /**
-     * @return void
-     */
     public function testIndex(): void
     {
         $controller = new QueriesController(

@@ -1,8 +1,6 @@
 <?php
 /**
  * Config file management
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PhpMyAdmin\Core;
 /**
  * Config file management class.
  * Stores its data in $_SESSION
- *
- * @package PhpMyAdmin
  */
 class ConfigFile
 {
@@ -84,8 +80,6 @@ class ConfigFile
     private $_flattenArrayResult;
 
     /**
-     * Constructor
-     *
      * @param array|null $baseConfig base configuration read from
      *                               {@link PhpMyAdmin\Config::$base_config},
      *                               use only when not in PMA Setup

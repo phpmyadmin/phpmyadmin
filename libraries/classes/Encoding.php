@@ -1,8 +1,6 @@
 <?php
 /**
  * Hold the PhpMyAdmin\Encoding class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PhpMyAdmin\Template;
 
 /**
  * Encoding conversion helper class
- *
- * @package PhpMyAdmin
  */
 class Encoding
 {

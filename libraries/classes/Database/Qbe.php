@@ -1,8 +1,6 @@
 <?php
 /**
  * Handles DB QBE search
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -21,8 +19,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Class to handle database QBE search
- *
- * @package PhpMyAdmin
  */
 class Qbe
 {
@@ -216,24 +212,16 @@ class Qbe
      */
     private $_currentSearch = null;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     public $dbi;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
     /**
-     * Public Constructor
-     *
      * @param Relation          $relation        Relation object
      * @param Template          $template        Template object
      * @param DatabaseInterface $dbi             DatabaseInterface object

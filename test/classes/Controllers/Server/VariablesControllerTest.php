@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds VariablesControllerTest class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -21,14 +19,9 @@ use Williamdes\MariaDBMySQLKBS\SlimData as KBSlimData;
 
 /**
  * Tests for VariablesController class
- *
- * @package PhpMyAdmin-test
  */
 class VariablesControllerTest extends TestCase
 {
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
@@ -83,9 +76,6 @@ class VariablesControllerTest extends TestCase
         $GLOBALS['dbi'] = $dbi;
     }
 
-    /**
-     * @return void
-     */
     public function testIndex(): void
     {
         $controller = new VariablesController(

@@ -1,8 +1,6 @@
 <?php
 /**
  * Interface to the MySQL Improved extension (MySQLi)
- *
- * @package PhpMyAdmin-DBI
  */
 declare(strict_types=1);
 
@@ -17,14 +15,10 @@ use function mysqli_init;
 
 /**
  * Interface to the MySQL Improved extension (MySQLi)
- *
- * @package PhpMyAdmin-DBI
  */
 class DbiMysqli implements DbiExtension
 {
-    /**
-     * @var array
-     */
+    /** @var array */
     private static $pma_mysqli_flag_names = [
         MYSQLI_NUM_FLAG => 'num',
         MYSQLI_PART_KEY_FLAG => 'part_key',

@@ -1,8 +1,6 @@
 <?php
 /**
  * Hold the PhpMyAdmin\Display\Results class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -36,8 +34,6 @@ use stdClass;
  * Handle all the functionalities related to displaying results
  * of sql queries, stored procedure, browsing sql processes or
  * displaying binary log.
- *
- * @package PhpMyAdmin
  */
 class Results
 {
@@ -193,24 +189,16 @@ class Results
      */
     public $transformation_info;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var Transformations
-     */
+    /** @var Transformations */
     private $transformations;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
     /**
-     * Constructor for PhpMyAdmin\Display\Results class
-     *
      * @param string $db        the database name
      * @param string $table     the table name
      * @param int    $server    the server id
@@ -469,7 +457,6 @@ class Results
      * @return array the modified display parts
      *
      * @access private
-     *
      */
     private function _setDisplayPartsForPrintView(array $displayParts)
     {
@@ -493,7 +480,6 @@ class Results
      * @return array the modified display parts
      *
      * @access private
-     *
      */
     private function _setDisplayPartsForShow(array $displayParts)
     {
@@ -542,7 +528,6 @@ class Results
      * @return array the modified display parts
      *
      * @access private
-     *
      */
     private function _setDisplayPartsForNonData(array $displayParts)
     {
@@ -573,7 +558,6 @@ class Results
      * @return array the modified display parts
      *
      * @access private
-     *
      */
     private function _setDisplayPartsForSelect(array $displayParts)
     {
@@ -630,6 +614,8 @@ class Results
      * Defines the parts to display for the results of a SQL query
      * and the total number of rows
      *
+     * @see     getTable()
+     *
      * @param array $displayParts the parts to display (see a few
      *                            lines above for explanations)
      *
@@ -640,10 +626,7 @@ class Results
      *               LIMIT clause (just a copy of $unlim_num_rows if it exists,
      *               else computed inside this function)
      *
-     *
      * @access private
-     *
-     * @see     getTable()
      */
     private function _setDisplayPartsAndTotal(array $displayParts)
     {
@@ -713,13 +696,13 @@ class Results
      * Return true if we are executing a query in the form of
      * "SELECT * FROM <a table> ..."
      *
+     * @see     _getTableHeaders(), _getColumnParams()
+     *
      * @param array $analyzed_sql_results analyzed sql results
      *
      * @return boolean
      *
      * @access private
-     *
-     * @see     _getTableHeaders(), _getColumnParams()
      */
     private function _isSelect(array $analyzed_sql_results)
     {
@@ -736,6 +719,9 @@ class Results
     /**
      * Get a navigation button
      *
+     * @see     _getMoveBackwardButtonsForTableNavigation(),
+     *          _getMoveForwardButtonsForTableNavigation()
+     *
      * @param string  $caption            iconic caption for button
      * @param string  $title              text for button
      * @param integer $pos                position for next query
@@ -748,9 +734,6 @@ class Results
      * @return string                     html content
      *
      * @access private
-     *
-     * @see     _getMoveBackwardButtonsForTableNavigation(),
-     *          _getMoveForwardButtonsForTableNavigation()
      */
     private function _getTableNavigationButton(
         $caption,
@@ -847,6 +830,8 @@ class Results
     /**
      * Get a navigation bar to browse among the results of a SQL query
      *
+     * @see getTable()
+     *
      * @param integer $posNext       the offset for the "next" page
      * @param integer $posPrevious   the offset for the "previous" page
      * @param boolean $isInnodb      whether its InnoDB or not
@@ -855,8 +840,6 @@ class Results
      * @return string html content
      *
      * @access private
-     *
-     * @see getTable()
      */
     private function _getTableNavigation(
         $posNext,
@@ -927,14 +910,14 @@ class Results
     /**
      * Prepare move backward buttons - previous and first
      *
+     * @see     _getTableNavigation()
+     *
      * @param string  $html_sql_query the sql encoded by html special characters
      * @param integer $pos_prev       the offset for the "previous" page
      *
      * @return string                 html content
      *
      * @access private
-     *
-     * @see     _getTableNavigation()
      */
     private function _getMoveBackwardButtonsForTableNavigation(
         $html_sql_query,
@@ -959,6 +942,8 @@ class Results
     /**
      * Prepare move forward buttons - next and last
      *
+     * @see    _getTableNavigation()
+     *
      * @param string  $html_sql_query the sql encoded by htmlspecialchars()
      * @param integer $pos_next       the offset for the "next" page
      * @param boolean $is_innodb      whether it's InnoDB or not
@@ -966,8 +951,6 @@ class Results
      * @return string   html content
      *
      * @access private
-     *
-     * @see    _getTableNavigation()
      */
     private function _getMoveForwardButtonsForTableNavigation(
         $html_sql_query,
@@ -1025,6 +1008,8 @@ class Results
     /**
      * Get the headers of the results table, for all of the columns
      *
+     * @see    getTableHeaders()
+     *
      * @param array   $displayParts                which elements to display
      * @param array   $analyzed_sql_results        analyzed sql results
      * @param array   $sort_expression             sort expression
@@ -1038,8 +1023,6 @@ class Results
      * @return string html content
      *
      * @access private
-     *
-     * @see    getTableHeaders()
      */
     private function _getTableHeadersForColumns(
         array $displayParts,
@@ -1142,6 +1125,8 @@ class Results
     /**
      * Get the headers of the results table
      *
+     * @see getTable()
+     *
      * @param array        $displayParts              which elements to display
      * @param array        $analyzedSqlResults        analyzed sql results
      * @param string       $unsortedSqlQuery          the unsorted sql query
@@ -1153,8 +1138,6 @@ class Results
      * @return string html content
      *
      * @access private
-     *
-     * @see getTable()
      */
     private function _getTableHeaders(
         array &$displayParts,
@@ -1244,14 +1227,14 @@ class Results
     /**
      * Prepare unsorted sql query and sort by key drop down
      *
+     * @see    _getTableHeaders()
+     *
      * @param array      $analyzed_sql_results analyzed sql results
      * @param array|null $sort_expression      sort expression
      *
      * @return array     two element array - $unsorted_sql_query, $drop_down_html
      *
      * @access private
-     *
-     * @see    _getTableHeaders()
      */
     private function _getUnsortedSqlAndSortByKeyDropDown(
         array $analyzed_sql_results,
@@ -1293,6 +1276,8 @@ class Results
     /**
      * Prepare sort by key dropdown - html code segment
      *
+     * @see _getTableHeaders()
+     *
      * @param Index[]    $indexes          the indexes of the table for sort criteria
      * @param array|null $sortExpression   the sort expression
      * @param string     $unsortedSqlQuery the unsorted sql query
@@ -1300,8 +1285,6 @@ class Results
      * @return string html content
      *
      * @access private
-     *
-     * @see _getTableHeaders()
      */
     private function _getSortByKeyDropDown(
         $indexes,
@@ -1373,14 +1356,14 @@ class Results
      * Set column span, row span and prepare html with full/partial
      * text button or link
      *
+     * @see    _getTableHeaders()
+     *
      * @param array  $displayParts              which elements to display
      * @param string $full_or_partial_text_link full/partial link or text button
      *
      * @return array 2 element array - $colspan, $button_html
      *
      * @access private
-     *
-     * @see    _getTableHeaders()
      */
     private function _getFieldVisibilityParams(
         array &$displayParts,
@@ -1442,13 +1425,13 @@ class Results
     /**
      * Get table comments as array
      *
+     * @see     _getTableHeaders()
+     *
      * @param array $analyzed_sql_results analyzed sql results
      *
      * @return array table comments
      *
      * @access private
-     *
-     * @see     _getTableHeaders()
      */
     private function _getTableCommentsArray(array $analyzed_sql_results)
     {
@@ -1475,13 +1458,13 @@ class Results
     /**
      * Set global array for store highlighted header fields
      *
+     * @see     _getTableHeaders()
+     *
      * @param array $analyzed_sql_results analyzed sql results
      *
      * @return void
      *
      * @access private
-     *
-     * @see     _getTableHeaders()
      */
     private function _setHighlightedColumnGlobalField(array $analyzed_sql_results)
     {
@@ -1501,13 +1484,13 @@ class Results
     /**
      * Prepare data for column restoring and show/hide
      *
+     * @see _getTableHeaders()
+     *
      * @param array $analyzedSqlResults analyzed sql results
      *
      * @return string html content
      *
      * @access private
-     *
-     * @see _getTableHeaders()
      */
     private function _getDataForResettingColumnOrder(array $analyzedSqlResults): string
     {
@@ -1539,11 +1522,11 @@ class Results
     /**
      * Prepare option fields block
      *
+     * @see _getTableHeaders()
+     *
      * @return string html content
      *
      * @access private
-     *
-     * @see _getTableHeaders()
      */
     private function _getOptionsBlock()
     {
@@ -1574,11 +1557,11 @@ class Results
     /**
      * Get full/partial text button or link
      *
+     * @see     _getTableHeaders()
+     *
      * @return string html content
      *
      * @access private
-     *
-     * @see     _getTableHeaders()
      */
     private function _getFullOrPartialTextButtonOrLink()
     {
@@ -1611,14 +1594,14 @@ class Results
     /**
      * Get comment for row
      *
+     * @see _getTableHeaders()
+     *
      * @param array $commentsMap comments array
      * @param array $fieldsMeta  set of field properties
      *
      * @return string html content
      *
      * @access private
-     *
-     * @see _getTableHeaders()
      */
     private function _getCommentForRow(array $commentsMap, $fieldsMeta)
     {
@@ -1631,6 +1614,8 @@ class Results
 
     /**
      * Prepare parameters and html for sorted table header fields
+     *
+     * @see    _getTableHeaders()
      *
      * @param stdClass $fields_meta                 set of field properties
      * @param array    $sort_expression             sort expression
@@ -1647,8 +1632,6 @@ class Results
      * @return array   2 element array - $order_link, $sorted_header_html
      *
      * @access private
-     *
-     * @see    _getTableHeaders()
      */
     private function _getOrderLinkAndSortedHeaderHtml(
         $fields_meta,
@@ -1751,6 +1734,8 @@ class Results
     /**
      * Prepare parameters and html for sorted table header fields
      *
+     * @see    _getOrderLinkAndSortedHeaderHtml()
+     *
      * @param array    $sort_expression             sort expression
      * @param array    $sort_expression_nodirection sort expression without direction
      * @param string   $sort_tbl                    The name of the table to which
@@ -1763,8 +1748,6 @@ class Results
      * @return array   3 element array - $single_sort_order, $sort_order, $order_img
      *
      * @access private
-     *
-     * @see    _getOrderLinkAndSortedHeaderHtml()
      */
     private function _getSingleAndMultiSortUrls(
         array $sort_expression,
@@ -1895,6 +1878,8 @@ class Results
     /**
      * Check whether the column is sorted
      *
+     * @see     _getTableHeaders()
+     *
      * @param array  $sort_expression             sort expression
      * @param array  $sort_expression_nodirection sort expression without direction
      * @param string $sort_tbl                    the table name
@@ -1903,8 +1888,6 @@ class Results
      * @return boolean                   the column sorted or not
      *
      * @access private
-     *
-     * @see     _getTableHeaders()
      */
     private function _isInSorted(
         array $sort_expression,
@@ -1974,6 +1957,8 @@ class Results
     /**
      * Get sort url parameters - sort order and order image
      *
+     * @see     _getSingleAndMultiSortUrls()
+     *
      * @param array   $sort_direction the sort direction
      * @param string  $sort_order     the sorting order
      * @param integer $index          the index of sort direction array.
@@ -1981,8 +1966,6 @@ class Results
      * @return array                  2 element array - $sort_order, $order_img
      *
      * @access private
-     *
-     * @see     _getSingleAndMultiSortUrls()
      */
     private function _getSortingUrlParams(array $sort_direction, $sort_order, $index)
     {
@@ -2032,6 +2015,8 @@ class Results
     /**
      * Get sort order link
      *
+     * @see    _getTableHeaders()
+     *
      * @param string   $order_img       the sort order image
      * @param stdClass $fields_meta     set of field properties
      * @param string   $order_url       the url for sort
@@ -2040,8 +2025,6 @@ class Results
      * @return string the sort order link
      *
      * @access private
-     *
-     * @see    _getTableHeaders()
      */
     private function _getSortOrderLink(
         $order_img,
@@ -2068,12 +2051,12 @@ class Results
      * Check if the column contains numeric data. If yes, then set the
      * column header's alignment right
      *
+     * @see  _getDraggableClassForSortableColumns()
+     *
      * @param stdClass $fields_meta set of field properties
      * @param array    $th_class    array containing classes
      *
      * @return void
-     *
-     * @see  _getDraggableClassForSortableColumns()
      */
     private function _getClassForNumericColumnType($fields_meta, array &$th_class)
     {
@@ -2088,6 +2071,8 @@ class Results
     /**
      * Prepare columns to draggable effect for sortable columns
      *
+     * @see    _getTableHeaders()
+     *
      * @param boolean  $col_visib   the column is visible (false)
      *                              array                the column is not visible (string array)
      * @param string   $col_visib_j element of $col_visib array
@@ -2098,8 +2083,6 @@ class Results
      * @return string  html content
      *
      * @access private
-     *
-     * @see    _getTableHeaders()
      */
     private function _getDraggableClassForSortableColumns(
         $col_visib,
@@ -2136,6 +2119,8 @@ class Results
     /**
      * Prepare columns to draggable effect for non sortable columns
      *
+     * @see    _getTableHeaders()
+     *
      * @param boolean  $col_visib       the column is visible (false)
      *                                  array                    the column is not visible (string array)
      * @param string   $col_visib_j     element of $col_visib array
@@ -2146,8 +2131,6 @@ class Results
      * @return string  html content
      *
      * @access private
-     *
-     * @see    _getTableHeaders()
      */
     private function _getDraggableClassForNonSortableColumns(
         $col_visib,
@@ -2183,6 +2166,8 @@ class Results
     /**
      * Prepare column to show at right side - check boxes or empty column
      *
+     * @see     _getTableHeaders()
+     *
      * @param array  $displayParts              which elements to display
      * @param string $full_or_partial_text_link full/partial link or text button
      * @param string $colspan                   column span of table header
@@ -2190,8 +2175,6 @@ class Results
      * @return string  html content
      *
      * @access private
-     *
-     * @see     _getTableHeaders()
      */
     private function _getColumnAtRightSide(
         array &$displayParts,
@@ -2242,6 +2225,9 @@ class Results
     /**
      * Prepares the display for a value
      *
+     * @see     _getDataCellForGeometryColumns(),
+     *          _getDataCellForNonNumericColumns()
+     *
      * @param string $class          class of table cell
      * @param bool   $conditionField whether to add CSS class condition
      * @param string $value          value to display
@@ -2249,9 +2235,6 @@ class Results
      * @return string  the td
      *
      * @access private
-     *
-     * @see     _getDataCellForGeometryColumns(),
-     *          _getDataCellForNonNumericColumns()
      */
     private function _buildValueDisplay($class, $conditionField, $value)
     {
@@ -2265,6 +2248,10 @@ class Results
     /**
      * Prepares the display for a null value
      *
+     * @see     _getDataCellForNumericColumns(),
+     *          _getDataCellForGeometryColumns(),
+     *          _getDataCellForNonNumericColumns()
+     *
      * @param string   $class          class of table cell
      * @param bool     $conditionField whether to add CSS class condition
      * @param stdClass $meta           the meta-information about this field
@@ -2273,10 +2260,6 @@ class Results
      * @return string  the td
      *
      * @access private
-     *
-     * @see     _getDataCellForNumericColumns(),
-     *          _getDataCellForGeometryColumns(),
-     *          _getDataCellForNonNumericColumns()
      */
     private function _buildNullDisplay($class, $conditionField, $meta, $align = '')
     {
@@ -2292,6 +2275,10 @@ class Results
     /**
      * Prepares the display for an empty value
      *
+     * @see     _getDataCellForNumericColumns(),
+     *          _getDataCellForGeometryColumns(),
+     *          _getDataCellForNonNumericColumns()
+     *
      * @param string   $class          class of table cell
      * @param bool     $conditionField whether to add CSS class condition
      * @param stdClass $meta           the meta-information about this field
@@ -2300,10 +2287,6 @@ class Results
      * @return string  the td
      *
      * @access private
-     *
-     * @see     _getDataCellForNumericColumns(),
-     *          _getDataCellForGeometryColumns(),
-     *          _getDataCellForNonNumericColumns()
      */
     private function _buildEmptyDisplay($class, $conditionField, $meta, $align = '')
     {
@@ -2317,6 +2300,8 @@ class Results
 
     /**
      * Adds the relevant classes.
+     *
+     * @see _buildNullDisplay(), _getRowData()
      *
      * @param string                       $class                 class of table cell
      * @param bool                         $condition_field       whether to add CSS class
@@ -2333,8 +2318,6 @@ class Results
      * @return string the list of classes
      *
      * @access private
-     *
-     * @see _buildNullDisplay(), _getRowData()
      */
     private function _addClass(
         $class,
@@ -2394,6 +2377,8 @@ class Results
     /**
      * Prepare the body of the results table
      *
+     * @see     getTable()
+     *
      * @param integer $dt_result            the link id associated to the query
      *                                      which results have to be displayed
      * @param array   $displayParts         which elements to display
@@ -2404,10 +2389,7 @@ class Results
      * @return string  html content
      *
      * @global array  $row                  current row data
-     *
      * @access private
-     *
-     * @see     getTable()
      */
     private function _getTableBody(
         &$dt_result,
@@ -2719,6 +2701,8 @@ class Results
     /**
      * Get the values for one data row
      *
+     * @see     _getTableBody()
+     *
      * @param integer              $dt_result            the link id associated to
      *                                                   the query which results
      *                                                   have to be displayed
@@ -2739,8 +2723,6 @@ class Results
      * @return string  html content
      *
      * @access private
-     *
-     * @see     _getTableBody()
      */
     private function _getRowValues(
         &$dt_result,
@@ -3087,13 +3069,13 @@ class Results
     /**
      * Get url sql query without conditions to shorten URLs
      *
+     * @see     _getTableBody()
+     *
      * @param array $analyzed_sql_results analyzed sql results
      *
      * @return string analyzed sql query
      *
      * @access private
-     *
-     * @see     _getTableBody()
      */
     private function _getUrlSqlQuery(array $analyzed_sql_results)
     {
@@ -3125,13 +3107,13 @@ class Results
     /**
      * Get column order and column visibility
      *
+     * @see    _getTableBody()
+     *
      * @param array $analyzed_sql_results analyzed sql results
      *
      * @return array 2 element array - $col_order, $col_visib
      *
      * @access private
-     *
-     * @see    _getTableBody()
      */
     private function _getColumnParams(array $analyzed_sql_results)
     {
@@ -3163,13 +3145,13 @@ class Results
     /**
      * Get HTML for repeating headers
      *
+     * @see    _getTableBody()
+     *
      * @param array $display_params holds various display info
      *
      * @return string html content
      *
      * @access private
-     *
-     * @see    _getTableBody()
      */
     private function _getRepeatingHeaders(
         array $display_params
@@ -3202,6 +3184,8 @@ class Results
     /**
      * Get modified links
      *
+     * @see     _getTableBody()
+     *
      * @param string  $where_clause     the where clause of the sql
      * @param boolean $clause_is_unique the unique condition of clause
      * @param string  $url_sql_query    the analyzed sql query
@@ -3210,8 +3194,6 @@ class Results
      *                 $edit_str, $copy_str, $edit_anchor_class
      *
      * @access private
-     *
-     * @see     _getTableBody()
      */
     private function _getModifiedLinks(
         $where_clause,
@@ -3264,6 +3246,8 @@ class Results
     /**
      * Get delete and kill links
      *
+     * @see     _getTableBody()
+     *
      * @param string  $where_clause     the where clause of the sql
      * @param boolean $clause_is_unique the unique condition of clause
      * @param string  $url_sql_query    the analyzed sql query
@@ -3274,8 +3258,6 @@ class Results
      *                                  $del_url, $del_str, $js_conf
      *
      * @access private
-     *
-     * @see     _getTableBody()
      */
     private function _getDeleteAndKillLinks(
         $where_clause,
@@ -3354,14 +3336,14 @@ class Results
     /**
      * Get content inside the table row action links (Edit/Copy/Delete)
      *
+     * @see     _getModifiedLinks(), _getDeleteAndKillLinks()
+     *
      * @param string $icon         The name of the file to get
      * @param string $display_text The text displaying after the image icon
      *
      * @return string
      *
      * @access private
-     *
-     * @see     _getModifiedLinks(), _getDeleteAndKillLinks()
      */
     private function _getActionLinkContent($icon, $display_text)
     {
@@ -3393,6 +3375,8 @@ class Results
     /**
      * Prepare placed links
      *
+     * @see     _getTableBody()
+     *
      * @param string      $dir               the direction of links should place
      * @param string      $del_url           the url for delete row
      * @param array       $displayParts      which elements to display
@@ -3411,8 +3395,6 @@ class Results
      * @return string                      html content
      *
      * @access private
-     *
-     * @see     _getTableBody()
      */
     private function _getPlacedLinks(
         $dir,
@@ -3455,6 +3437,8 @@ class Results
     /**
      * Get the combined classes for a column
      *
+     * @see     _getTableBody()
+     *
      * @param string $grid_edit_class  the class for all editable columns
      * @param string $not_null_class   the class for not null columns
      * @param string $relation_class   the class for relations in a column
@@ -3464,8 +3448,6 @@ class Results
      * @return string the combined classes
      *
      * @access private
-     *
-     * @see     _getTableBody()
      */
     private function _getClassesForColumn(
         $grid_edit_class,
@@ -3481,13 +3463,13 @@ class Results
     /**
      * Get class for datetime related fields
      *
+     * @see    _getTableBody()
+     *
      * @param string $type the type of the column field
      *
      * @return string   the class for the column
      *
      * @access private
-     *
-     * @see    _getTableBody()
      */
     private function _getClassForDateTimeRelatedFields($type)
     {
@@ -3510,6 +3492,8 @@ class Results
     /**
      * Prepare data cell for numeric type fields
      *
+     * @see    _getTableBody()
+     *
      * @param string|null           $column                the column's value
      * @param string                $class                 the html class for column
      * @param boolean               $condition_field       the column should highlighted
@@ -3528,8 +3512,6 @@ class Results
      * @return string the prepared cell, html content
      *
      * @access private
-     *
-     * @see    _getTableBody()
      */
     private function _getDataCellForNumericColumns(
         ?string $column,
@@ -3585,6 +3567,8 @@ class Results
     /**
      * Get data cell for geometry type fields
      *
+     * @see     _getTableBody()
+     *
      * @param string|null           $column                the relevant column in data row
      * @param string                $class                 the html class for column
      * @param stdClass              $meta                  the meta-information about
@@ -3603,8 +3587,6 @@ class Results
      * @return string the prepared data cell, html content
      *
      * @access private
-     *
-     * @see     _getTableBody()
      */
     private function _getDataCellForGeometryColumns(
         ?string $column,
@@ -3732,6 +3714,8 @@ class Results
     /**
      * Get data cell for non numeric type fields
      *
+     * @see    _getTableBody()
+     *
      * @param string|null           $column                the relevant column in data row
      * @param string                $class                 the html class for column
      * @param stdClass              $meta                  the meta-information about
@@ -3757,8 +3741,6 @@ class Results
      * @return string the prepared data cell, html content
      *
      * @access private
-     *
-     * @see    _getTableBody()
      */
     private function _getDataCellForNonNumericColumns(
         ?string $column,
@@ -3919,13 +3901,12 @@ class Results
      * Checks the posted options for viewing query results
      * and sets appropriate values in the session.
      *
+     * @return void
+     *
      * @todo    make maximum remembered queries configurable
      * @todo    move/split into SQL class!?
      * @todo    currently this is called twice unnecessary
      * @todo    ignore LIMIT and ORDER in query!?
-     *
-     * @return void
-     *
      * @access public
      */
     public function setConfigParamsForDisplayTable()
@@ -4311,11 +4292,11 @@ class Results
     /**
      * Get offsets for next page and previous page
      *
+     * @see    getTable()
+     *
      * @return int[] array with two elements - $pos_next, $pos_prev
      *
      * @access private
-     *
-     * @see    getTable()
      */
     private function _getOffsets()
     {
@@ -4343,6 +4324,8 @@ class Results
     /**
      * Prepare sorted column message
      *
+     * @see     getTable()
+     *
      * @param integer $dt_result                   the link id associated to the
      *                                             query which results have to
      *                                             be displayed
@@ -4351,8 +4334,6 @@ class Results
      * @return string|null html content, null if not found sorted column
      *
      * @access private
-     *
-     * @see     getTable()
      */
     private function _getSortedColumnMessage(
         &$dt_result,
@@ -4468,6 +4449,8 @@ class Results
     /**
      * Set the content that needs to be shown in message
      *
+     * @see     getTable()
+     *
      * @param string  $sorted_column_message the message for sorted column
      * @param array   $analyzed_sql_results  the analyzed query
      * @param integer $total                 the total number of rows returned by
@@ -4480,8 +4463,6 @@ class Results
      * @return Message an object of Message
      *
      * @access private
-     *
-     * @see     getTable()
      */
     private function _setMessageInformation(
         $sorted_column_message,
@@ -4575,13 +4556,13 @@ class Results
     /**
      * Set the value of $map array for linking foreign key related tables
      *
+     * @see      getTable()
+     *
      * @param array $map the list of relations
      *
      * @return void
      *
      * @access private
-     *
-     * @see      getTable()
      */
     private function _setParamForLinkForeignKeyRelatedTables(array &$map)
     {
@@ -4635,6 +4616,8 @@ class Results
     /**
      * Prepare multi field edit/delete links
      *
+     * @see     getTable()
+     *
      * @param integer $dt_result            the link id associated to the query which
      *                                      results have to be displayed
      * @param array   $analyzed_sql_results analyzed sql results
@@ -4643,8 +4626,6 @@ class Results
      * @return string html content
      *
      * @access private
-     *
-     * @see     getTable()
      */
     private function _getMultiRowOperationLinks(
         &$dt_result,
@@ -4743,14 +4724,14 @@ class Results
     /**
      * Generates HTML to display the Create view in span tag
      *
+     * @see _getResultsOperations()
+     *
      * @param array $analyzed_sql_results analyzed sql results
      * @param array $params               Array with URL Parameters
      *
      * @return string
      *
      * @access private
-     *
-     * @see _getResultsOperations()
      */
     private function _getLinkForCreateView(array $analyzed_sql_results, array $params): string
     {
@@ -4779,7 +4760,6 @@ class Results
      * @return string
      *
      * @access public
-     *
      */
     public function getCreateViewQueryResultOp(array $analyzed_sql_results)
     {
@@ -4844,6 +4824,8 @@ class Results
     /**
      * Get operations that are available on results.
      *
+     * @see     getTable()
+     *
      * @param array   $displayParts         the parts to display
      * @param array   $analyzed_sql_results analyzed sql results
      * @param boolean $only_view            Whether to show only view
@@ -4851,8 +4833,6 @@ class Results
      * @return string  html content
      *
      * @access private
-     *
-     * @see     getTable()
      */
     private function _getResultsOperations(
         array $displayParts,
@@ -4983,8 +4963,8 @@ class Results
         }
 
         // CREATE VIEW
+
         /**
-         *
          * @todo detect privileges to create a view
          *       (but see 2006-01-19 note in PhpMyAdmin\Display\CreateTable,
          *        I think we cannot detect db-specific privileges reliably)
@@ -5011,6 +4991,10 @@ class Results
      * Verifies what to do with non-printable contents (binary or BLOB)
      * in Browse mode.
      *
+     * @see     _getDataCellForGeometryColumns(),
+     *          _getDataCellForNonNumericColumns(),
+     *          _getSortedColumnMessage()
+     *
      * @param string      $category              BLOB|BINARY|GEOMETRY
      * @param string|null $content               the binary content
      * @param mixed       $transformation_plugin transformation plugin.
@@ -5027,10 +5011,6 @@ class Results
      * @return mixed  string or float
      *
      * @access private
-     *
-     * @see     _getDataCellForGeometryColumns(),
-     *          _getDataCellForNonNumericColumns(),
-     *          _getSortedColumnMessage()
      */
     private function _handleNonPrintableContents(
         $category,
@@ -5133,7 +5113,6 @@ class Results
      * @return string  formatted data
      *
      * @access private
-     *
      */
     private function _getFromForeign(array $map, $meta, $where_comparison)
     {
@@ -5168,6 +5147,9 @@ class Results
      * Prepares the displayable content of a data cell in Browse mode,
      * taking into account foreign key description field and transformations
      *
+     * @see     _getDataCellForNumericColumns(), _getDataCellForGeometryColumns(),
+     *          _getDataCellForNonNumericColumns(),
+     *
      * @param string                $class                 css classes for the td element
      * @param bool                  $condition_field       whether the column is a part of
      *                                                     the where clause
@@ -5191,10 +5173,6 @@ class Results
      * @return string  formatted data
      *
      * @access private
-     *
-     * @see     _getDataCellForNumericColumns(), _getDataCellForGeometryColumns(),
-     *          _getDataCellForNonNumericColumns(),
-     *
      */
     private function _getRowData(
         $class,
@@ -5346,6 +5324,8 @@ class Results
     /**
      * Prepares a checkbox for multi-row submits
      *
+     * @see     _getTableBody(), _getCheckboxAndLinks()
+     *
      * @param string $del_url           delete url
      * @param array  $displayParts      array with explicit indexes for all
      *                                  the display elements
@@ -5358,8 +5338,6 @@ class Results
      * @return string  the generated HTML
      *
      * @access private
-     *
-     * @see     _getTableBody(), _getCheckboxAndLinks()
      */
     private function _getCheckboxForMultiRowSubmissions(
         $del_url,
@@ -5395,6 +5373,8 @@ class Results
     /**
      * Prepares an Edit link
      *
+     * @see     _getTableBody(), _getCheckboxAndLinks()
+     *
      * @param string $edit_url          edit url
      * @param string $class             css classes for td element
      * @param string $edit_str          text for the edit link
@@ -5404,8 +5384,6 @@ class Results
      * @return string  the generated HTML
      *
      * @access private
-     *
-     * @see     _getTableBody(), _getCheckboxAndLinks()
      */
     private function _getEditLink(
         $edit_url,
@@ -5436,6 +5414,8 @@ class Results
     /**
      * Prepares an Copy link
      *
+     * @see     _getTableBody(), _getCheckboxAndLinks()
+     *
      * @param string $copy_url          copy url
      * @param string $copy_str          text for the copy link
      * @param string $where_clause      where clause
@@ -5445,8 +5425,6 @@ class Results
      * @return string  the generated HTML
      *
      * @access private
-     *
-     * @see     _getTableBody(), _getCheckboxAndLinks()
      */
     private function _getCopyLink(
         $copy_url,
@@ -5482,6 +5460,8 @@ class Results
     /**
      * Prepares a Delete link
      *
+     * @see     _getTableBody(), _getCheckboxAndLinks()
+     *
      * @param string $del_url delete url
      * @param string $del_str text for the delete link
      * @param string $js_conf text for the JS confirmation
@@ -5490,8 +5470,6 @@ class Results
      * @return string  the generated HTML
      *
      * @access private
-     *
-     * @see     _getTableBody(), _getCheckboxAndLinks()
      */
     private function _getDeleteLink($del_url, $del_str, $js_conf, $class)
     {
@@ -5521,6 +5499,8 @@ class Results
      * Prepare checkbox and links at some position (left or right)
      * (only called for horizontal mode)
      *
+     * @see     _getPlacedLinks()
+     *
      * @param string $position          the position of the checkbox and links
      * @param string $del_url           delete url
      * @param array  $displayParts      array with explicit indexes for all the
@@ -5540,8 +5520,6 @@ class Results
      * @return string  the generated HTML
      *
      * @access private
-     *
-     * @see     _getPlacedLinks()
      */
     private function _getCheckboxAndLinks(
         $position,
@@ -5637,14 +5615,14 @@ class Results
      * and Session pftext variable
      * (string is truncated only if necessary)
      *
+     * @see     _handleNonPrintableContents(), _getDataCellForGeometryColumns(),
+     *          _getDataCellForNonNumericColumns
+     *
      * @param string $str string to be truncated
      *
      * @return array
      *
      * @access private
-     *
-     * @see     _handleNonPrintableContents(), _getDataCellForGeometryColumns(),
-     *          _getDataCellForNonNumericColumns
      */
     private function _getPartialText($str): array
     {

@@ -1,8 +1,6 @@
 <?php
 /**
  * file upload functions
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -18,7 +16,6 @@ use PhpMyAdmin\ZipExtension;
  *
  * @todo when uploading a file into a blob field, should we also consider using
  *       chunks like in import? UPDATE `table` SET `field` = `field` + [chunk]
- * @package PhpMyAdmin
  */
 class File
 {
@@ -52,39 +49,25 @@ class File
      */
     protected $_compression = null;
 
-    /**
-     * @var integer
-     */
+    /** @var integer */
     protected $_offset = 0;
 
-    /**
-     * @var integer size of chunk to read with every step
-     */
+    /** @var integer size of chunk to read with every step */
     protected $_chunk_size = 32768;
 
-    /**
-     * @var resource|null file handle
-     */
+    /** @var resource|null file handle */
     protected $_handle = null;
 
-    /**
-     * @var boolean whether to decompress content before returning
-     */
+    /** @var boolean whether to decompress content before returning */
     protected $_decompress = false;
 
-    /**
-     * @var string charset of file
-     */
+    /** @var string charset of file */
     protected $_charset = null;
 
-    /**
-     * @var ZipExtension
-     */
+    /** @var ZipExtension */
     private $zipExtension;
 
     /**
-     * constructor
-     *
      * @param boolean|string $name file name or false
      *
      * @access public

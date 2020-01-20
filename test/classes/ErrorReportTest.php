@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\ErrorReport
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -20,19 +18,12 @@ use ReflectionClass;
  * PhpMyAdmin\Tests\ErrorReportTest class
  *
  * this class is for testing PhpMyAdmin\ErrorReport methods
- *
- * @package PhpMyAdmin-test
  */
 class ErrorReportTest extends TestCase
 {
-    /**
-     * @var ErrorReport $errorReport
-     */
+    /** @var ErrorReport $errorReport */
     private $errorReport;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $GLOBALS['server'] = 1;
@@ -60,9 +51,6 @@ class ErrorReportTest extends TestCase
         $this->errorReport->setSubmissionUrl('http://localhost');
     }
 
-    /**
-     * @return void
-     */
     public function testGetData(): void
     {
         $actual = $this->errorReport->getData('unknown');
@@ -116,9 +104,6 @@ class ErrorReportTest extends TestCase
         $this->assertEquals($report, $actual);
     }
 
-    /**
-     * @return void
-     */
     public function testSend(): void
     {
         $submissionUrl = 'http://localhost';
@@ -146,9 +131,6 @@ class ErrorReportTest extends TestCase
         $this->assertEquals($return, $this->errorReport->send($report));
     }
 
-    /**
-     * @return void
-     */
     public function testGetForm(): void
     {
         $_POST['exception'] = [];

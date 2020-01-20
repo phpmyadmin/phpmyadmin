@@ -1,9 +1,6 @@
 <?php
 /**
  * Handles the binary to IPv4/IPv6 transformation for text plain
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage BinaryToIP
  */
 declare(strict_types=1);
 
@@ -14,9 +11,6 @@ use stdClass;
 
 /**
  * Handles the binary to IPv4/IPv6 transformation for text plain
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage BinaryToIP
  */
 // @codingStandardsIgnoreLine
 class Text_Plain_Binarytoip extends TransformationsPlugin

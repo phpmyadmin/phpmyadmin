@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Tests\Charsets
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Charsets;
@@ -9,14 +6,8 @@ namespace PhpMyAdmin\Tests\Charsets;
 use PhpMyAdmin\Charsets\Charset;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @package PhpMyAdmin\Tests\Charsets
- */
 class CharsetTest extends TestCase
 {
-    /**
-     * @return void
-     */
     public function testFromServer(): void
     {
         $serverCharset = [

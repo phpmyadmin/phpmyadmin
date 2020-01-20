@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Sql
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -15,14 +13,10 @@ use stdClass;
 
 /**
  * Tests for PhpMyAdmin\Sql
- *
- * @package PhpMyAdmin-test
  */
 class SqlTest extends TestCase
 {
-    /**
-     * @var Sql
-     */
+    /** @var Sql */
     private $sql;
 
     /**

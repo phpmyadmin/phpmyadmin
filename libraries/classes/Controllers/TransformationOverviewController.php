@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\TransformationOverviewController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -15,14 +13,10 @@ use PhpMyAdmin\Transformations;
 
 /**
  * Lists available transformation plugins
- *
- * @package PhpMyAdmin\Controllers
  */
 class TransformationOverviewController extends AbstractController
 {
-    /**
-     * @var Transformations
-     */
+    /** @var Transformations */
     private $transformations;
 
     /**

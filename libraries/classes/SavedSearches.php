@@ -1,8 +1,6 @@
 <?php
 /**
  * Saved searches managing
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -10,8 +8,6 @@ namespace PhpMyAdmin;
 
 /**
  * Saved searches managing
- *
- * @package PhpMyAdmin
  */
 class SavedSearches
 {
@@ -57,14 +53,10 @@ class SavedSearches
      */
     private $_criterias = null;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
     /**
-     * Public constructor
-     *
      * @param array    $config   Global configuration
      * @param Relation $relation Relation instance
      */

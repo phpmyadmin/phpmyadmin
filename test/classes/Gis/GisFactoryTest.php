@@ -1,8 +1,6 @@
 <?php
 /**
  * Test for PhpMyAdmin\Gis\GisFactory
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Test class for PhpMyAdmin\Gis\GisFactory
- *
- * @package PhpMyAdmin-test
  */
 class GisFactoryTest extends TestCase
 {

@@ -1,9 +1,6 @@
 <?php
 /**
  * Abstract class for the prepend/append transformations plugins
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage PreApPend
  */
 declare(strict_types=1);
 
@@ -14,9 +11,6 @@ use stdClass;
 
 /**
  * Provides common methods for all of the prepend/append transformations plugins.
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage PreApPend
  */
 abstract class PreApPendTransformationsPlugin extends TransformationsPlugin
 {

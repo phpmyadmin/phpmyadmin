@@ -1,8 +1,6 @@
 <?php
 /**
  * Produce a PDF report (export) from a query
- *
- * @package PhpMyAdmin-Export
  */
 declare(strict_types=1);
 
@@ -28,8 +26,6 @@ if (! class_exists('TCPDF')) {
 
 /**
  * Handles the export for the PDF class
- *
- * @package PhpMyAdmin-Export
  */
 class ExportPdf extends ExportPlugin
 {
@@ -47,9 +43,6 @@ class ExportPdf extends ExportPlugin
      */
     private $_pdfReportTitle;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();

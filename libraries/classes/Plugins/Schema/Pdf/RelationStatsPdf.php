@@ -1,8 +1,6 @@
 <?php
 /**
  * Contains PhpMyAdmin\Plugins\Schema\Pdf\RelationStatsPdf class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -18,16 +16,14 @@ use PhpMyAdmin\Plugins\Schema\RelationStats;
  * master table's master field to foreign table's foreign key
  * in PDF document.
  *
- * @name    Relation_Stats_Pdf
- * @package PhpMyAdmin
  * @see     PMA_Schema_PDF::SetDrawColor PMA_Schema_PDF::setLineWidthScale
  *          Pdf::lineScale
+ *
+ * @name    Relation_Stats_Pdf
  */
 class RelationStatsPdf extends RelationStats
 {
     /**
-     * The "PhpMyAdmin\Plugins\Schema\Pdf\RelationStatsPdf" constructor
-     *
      * @param Pdf    $diagram       The PDF diagram
      * @param string $master_table  The master table name
      * @param string $master_field  The relation field in the master table

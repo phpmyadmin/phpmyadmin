@@ -1,8 +1,6 @@
 <?php
 /**
  * set of functions with the Privileges section in pma
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -24,29 +22,19 @@ use PhpMyAdmin\Util;
 
 /**
  * Privileges class
- *
- * @package PhpMyAdmin
  */
 class Privileges
 {
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
-    /**
-     * @var RelationCleanup
-     */
+    /** @var RelationCleanup */
     private $relationCleanup;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     public $dbi;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     public $relation;
 
     /**

@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for environment like OS, PHP, modules, ...
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use Throwable;
 
 /**
  * Environment tests
- *
- * @package PhpMyAdmin-test
  */
 class EnvironmentTest extends TestCase
 {

@@ -1,8 +1,6 @@
 <?php
 /**
  * Config file generator
- *
- * @package PhpMyAdmin-Setup
  */
 declare(strict_types=1);
 
@@ -12,8 +10,6 @@ use PhpMyAdmin\Config\ConfigFile;
 
 /**
  * Config file generation class
- *
- * @package PhpMyAdmin
  */
 class ConfigGenerator
 {

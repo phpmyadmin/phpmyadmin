@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
@@ -40,39 +37,25 @@ use stdClass;
 /**
  * Displays table structure infos like columns, indexes, size, rows
  * and allows manipulation of indexes and columns.
- *
- * @package PhpMyAdmin\Controllers
  */
 class StructureController extends AbstractController
 {
-    /**
-     * @var Table  The table object
-     */
+    /** @var Table  The table object */
     protected $table_obj;
 
-    /**
-     * @var string  The URL query string
-     */
+    /** @var string  The URL query string */
     protected $_url_query;
 
-    /**
-     * @var CreateAddField
-     */
+    /** @var CreateAddField */
     private $createAddField;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var Transformations
-     */
+    /** @var Transformations */
     private $transformations;
 
     /**
-     * StructureController constructor
-     *
      * @param Response          $response        Response object
      * @param DatabaseInterface $dbi             DatabaseInterface object
      * @param Template          $template        Template object
@@ -101,9 +84,6 @@ class StructureController extends AbstractController
         $this->table_obj = $this->dbi->getTable($this->db, $this->table);
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $containerBuilder, $sql_query, $reread_info, $showtable;

@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Server\Users
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -16,8 +14,6 @@ use PHPUnit\Framework\TestCase;
  * PhpMyAdmin\Tests\Server\UsersTest class
  *
  * This class is for testing PhpMyAdmin\Server\Users methods
- *
- * @package PhpMyAdmin-test
  */
 class UsersTest extends TestCase
 {

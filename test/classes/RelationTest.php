@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Relation
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,14 +12,11 @@ use PHPUnit\Framework\TestCase;
 /**
  * Tests for PhpMyAdmin\Relation
  *
- * @package PhpMyAdmin-test
  * @group medium
  */
 class RelationTest extends TestCase
 {
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
     /**

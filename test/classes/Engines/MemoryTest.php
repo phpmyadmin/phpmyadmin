@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PMA_StorageEngine_memory
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,14 +11,10 @@ use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PhpMyAdmin\Engines\Memory
- *
- * @package PhpMyAdmin-test
  */
 class MemoryTest extends PmaTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @access protected */
     protected $object;
 
     /**

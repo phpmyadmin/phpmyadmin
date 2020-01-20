@@ -1,8 +1,6 @@
 <?php
 /**
  * HTML Generator for drop down
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -16,8 +14,6 @@ use Twig_Error_Syntax;
 
 /**
  * HTML Generator for drop down
- *
- * @package PhpMyAdmin
  */
 class DropDown implements FieldGenerator
 {

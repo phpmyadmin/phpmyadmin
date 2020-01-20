@@ -1,9 +1,6 @@
 <?php
 /**
  * Set of functions used to build NHibernate dumps of tables
- *
- * @package    PhpMyAdmin-Export
- * @subpackage CodeGen
  */
 declare(strict_types=1);
 
@@ -20,9 +17,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Handles the export for the CodeGen class
- *
- * @package    PhpMyAdmin-Export
- * @subpackage CodeGen
  */
 class ExportCodegen extends ExportPlugin
 {
@@ -39,9 +33,6 @@ class ExportCodegen extends ExportPlugin
      */
     private $_cgHandlers;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();

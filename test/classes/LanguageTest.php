@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for Advisor class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,14 +11,10 @@ use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests behaviour of PMA_Advisor class
- *
- * @package PhpMyAdmin-test
  */
 class LanguageTest extends PmaTestCase
 {
-    /**
-     * @var LanguageManager
-     */
+    /** @var LanguageManager */
     private $manager;
 
     /**
@@ -37,9 +31,6 @@ class LanguageTest extends PmaTestCase
         $this->manager = new LanguageManager();
     }
 
-    /**
-     * @return void
-     */
     protected function tearDown(): void
     {
         // Ensure we have English locale after tests

@@ -1,8 +1,6 @@
 <?php
 /**
  * Image link generator
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -12,8 +10,6 @@ use PhpMyAdmin\Html\Generator;
 
 /**
  * Image link generator
- *
- * @package PhpMyAdmin
  */
 class Image implements ActionLinksModesInterface
 {

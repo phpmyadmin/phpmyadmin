@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Database\Designer\Common
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -15,14 +13,10 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for PhpMyAdmin\Database\Designer\Common
- *
- * @package PhpMyAdmin-test
  */
 class CommonTest extends TestCase
 {
-    /**
-     * @var Common
-     */
+    /** @var Common */
     private $designerCommon;
 
     /**

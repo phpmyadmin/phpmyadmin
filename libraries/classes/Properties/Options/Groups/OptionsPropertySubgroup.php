@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PhpMyAdmin\Properties\PropertyItem;
 
 /**
  * Group property item class of type subgroup
- *
- * @package PhpMyAdmin
  */
 class OptionsPropertySubgroup extends OptionsPropertyGroup
 {

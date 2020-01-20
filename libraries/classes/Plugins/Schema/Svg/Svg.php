@@ -1,8 +1,6 @@
 <?php
 /**
  * Classes to create relation schema in SVG format.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -16,9 +14,9 @@ use XMLWriter;
  * This Class inherits the XMLwriter class and
  * helps in developing structure of SVG Schema Export
  *
- * @package PhpMyAdmin
- * @access  public
  * @see     https://www.php.net/manual/en/book.xmlwriter.php
+ *
+ * @access  public
  */
 class Svg extends XMLWriter
 {
@@ -28,8 +26,6 @@ class Svg extends XMLWriter
     public $fontSize;
 
     /**
-     * The "PhpMyAdmin\Plugins\Schema\Svg\Svg" constructor
-     *
      * Upon instantiation This starts writing the RelationStatsSvg XML document
      *
      * @see XMLWriter::openMemory(),XMLWriter::setIndent(),XMLWriter::startDocument()

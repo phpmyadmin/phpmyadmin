@@ -1,9 +1,6 @@
 <?php
 /**
  * Base class for Selenium tests
- *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  */
 declare(strict_types=1);
 
@@ -30,15 +27,11 @@ use Throwable;
 /**
  * Base class for Selenium tests.
  *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  * @group      selenium
  */
 abstract class TestBase extends TestCase
 {
-    /**
-     * @var RemoteWebDriver
-     */
+    /** @var RemoteWebDriver */
     protected $webDriver;
 
     /**

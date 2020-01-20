@@ -1,8 +1,6 @@
 <?php
 /**
  * Simple wrapper just to enable error reporting and include config
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 

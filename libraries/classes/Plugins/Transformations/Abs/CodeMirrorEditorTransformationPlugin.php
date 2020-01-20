@@ -1,8 +1,6 @@
 <?php
 /**
  * Abstract class for syntax highlighted editors using CodeMirror
- *
- * @package PhpMyAdmin-Transformations
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use stdClass;
 
 /**
  * Provides common methods for all the CodeMirror syntax highlighted editors
- *
- * @package PhpMyAdmin-Transformations
  */
 abstract class CodeMirrorEditorTransformationPlugin extends IOTransformationsPlugin
 {

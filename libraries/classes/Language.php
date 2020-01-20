@@ -1,8 +1,6 @@
 <?php
 /**
  * Hold the PhpMyAdmin\Language class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -12,8 +10,6 @@ use PhpMyAdmin\LanguageManager;
 
 /**
  * Language object
- *
- * @package PhpMyAdmin
  */
 class Language
 {

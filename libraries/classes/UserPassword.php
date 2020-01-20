@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\UserPassword class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -19,14 +17,10 @@ use PhpMyAdmin\Util;
 
 /**
  * Functions for user password
- *
- * @package PhpMyAdmin
  */
 class UserPassword
 {
-    /**
-     * @var Privileges
-     */
+    /** @var Privileges */
     private $serverPrivileges;
 
     /**

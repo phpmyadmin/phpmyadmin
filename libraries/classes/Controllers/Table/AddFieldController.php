@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers\Table
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
@@ -20,8 +17,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Displays add field form and handles it.
- *
- * @package PhpMyAdmin\Controllers\Table
  */
 class AddFieldController extends AbstractController
 {
@@ -54,9 +49,6 @@ class AddFieldController extends AbstractController
         $this->config = $config;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $err_url, $message, $action, $active_page, $sql_query;

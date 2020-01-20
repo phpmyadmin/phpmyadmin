@@ -2,9 +2,6 @@
 /**
  * HTTP Authentication plugin for phpMyAdmin.
  * NOTE: Requires PHP loaded as a Apache module.
- *
- * @package    PhpMyAdmin-Authentication
- * @subpackage HTTP
  */
 declare(strict_types=1);
 
@@ -18,8 +15,6 @@ use PhpMyAdmin\Response;
 
 /**
  * Handles the HTTP authentication methods
- *
- * @package PhpMyAdmin-Authentication
  */
 class AuthenticationHttp extends AuthenticationPlugin
 {

@@ -1,8 +1,6 @@
 <?php
 /**
  * Export exception
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -12,8 +10,6 @@ use Exception;
 
 /**
  * Export exception
- *
- * @package PhpMyAdmin
  */
 class ExportException extends Exception
 {

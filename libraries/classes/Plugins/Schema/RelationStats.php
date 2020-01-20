@@ -1,8 +1,6 @@
 <?php
 /**
  * Contains abstract class to hold relation preferences/statistics
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -17,7 +15,6 @@ use PhpMyAdmin\Plugins\Schema\TableStats;
  * and helps in generating the Table references and then connects
  * master table's master field to foreign table's foreign key.
  *
- * @package PhpMyAdmin
  * @abstract
  */
 abstract class RelationStats
@@ -35,8 +32,6 @@ abstract class RelationStats
     public $wTick;
 
     /**
-     * The constructor
-     *
      * @param object $diagram       The diagram
      * @param string $master_table  The master table name
      * @param string $master_field  The relation field in the master table

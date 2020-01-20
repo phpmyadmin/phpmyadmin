@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
@@ -24,8 +21,6 @@ use function imagesy;
 
 /**
  * Wrapper script for rendering transformations
- *
- * @package PhpMyAdmin\Controllers
  */
 class TransformationWrapperController extends AbstractController
 {
@@ -54,9 +49,6 @@ class TransformationWrapperController extends AbstractController
         $this->relation = $relation;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $cn, $db, $table, $transform_key, $request_params, $size_params, $where_clause, $row;

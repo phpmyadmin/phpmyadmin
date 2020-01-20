@@ -1,8 +1,6 @@
 <?php
 /**
  * Contains PhpMyAdmin\Plugins\Schema\Dia\TableStatsDia class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -17,9 +15,9 @@ use PhpMyAdmin\Plugins\Schema\TableStats;
  * This class preserves the table co-ordinates,fields
  * and helps in drawing/generating the Tables in dia XML document.
  *
- * @package PhpMyAdmin
- * @name    Table_Stats_Dia
  * @see     PMA_DIA
+ *
+ * @name    Table_Stats_Dia
  */
 class TableStatsDia extends TableStats
 {
@@ -27,8 +25,6 @@ class TableStatsDia extends TableStats
     public $tableColor;
 
     /**
-     * The "PhpMyAdmin\Plugins\Schema\Dia\TableStatsDia" constructor
-     *
      * @param Dia     $diagram    The current dia document
      * @param string  $db         The database name
      * @param string  $tableName  The table name

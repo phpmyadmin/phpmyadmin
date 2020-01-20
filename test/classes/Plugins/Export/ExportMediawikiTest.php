@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportMediawiki class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -17,7 +15,6 @@ use ReflectionProperty;
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportMediawiki class
  *
- * @package PhpMyAdmin-test
  * @group medium
  */
 class ExportMediawikiTest extends PmaTestCase

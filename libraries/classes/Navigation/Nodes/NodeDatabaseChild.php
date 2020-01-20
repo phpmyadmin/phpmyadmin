@@ -1,8 +1,6 @@
 <?php
 /**
  * Functionality for the navigation tree
- *
- * @package PhpMyAdmin-Navigation
  */
 declare(strict_types=1);
 
@@ -15,8 +13,6 @@ use PhpMyAdmin\Url;
  * Represents a node that is a child of a database node
  * This may either be a concrete child such as table or a container
  * such as table container
- *
- * @package PhpMyAdmin-Navigation
  */
 abstract class NodeDatabaseChild extends Node
 {

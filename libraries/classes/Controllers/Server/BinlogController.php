@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\Server\BinlogController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -19,8 +17,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Handles viewing binary logs
- *
- * @package PhpMyAdmin\Controllers
  */
 class BinlogController extends AbstractController
 {

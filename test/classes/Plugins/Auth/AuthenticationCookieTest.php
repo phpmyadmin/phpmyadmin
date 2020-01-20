@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\Plugins\Auth\AuthenticationCookie class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -19,14 +17,10 @@ use ReflectionMethod;
 
 /**
  * tests for PhpMyAdmin\Plugins\Auth\AuthenticationCookie class
- *
- * @package PhpMyAdmin-test
  */
 class AuthenticationCookieTest extends PmaTestCase
 {
-    /**
-     * @var AuthenticationCookie
-     */
+    /** @var AuthenticationCookie */
     protected $object;
 
     /**

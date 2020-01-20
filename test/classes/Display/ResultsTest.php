@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for displaying results
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -21,14 +19,10 @@ use stdClass;
 
 /**
  * Test cases for displaying results.
- *
- * @package PhpMyAdmin-test
  */
 class ResultsTest extends PmaTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @access protected */
     protected $object;
 
     /**

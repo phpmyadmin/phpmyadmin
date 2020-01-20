@@ -1,19 +1,10 @@
 <?php
-/**
- * @package PhpMyAdmin
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-/**
- * @package PhpMyAdmin
- */
 final class ReplicationInfo
 {
-    /**
-     * @return void
-     */
     public static function load(): void
     {
         global $dbi, $url_params;
@@ -116,7 +107,6 @@ final class ReplicationInfo
          */
         // TODO change to regexp or something, to allow for negative match.
         // To e.g. highlight 'Last_Error'
-        //
         $slave_variables_alerts = [
             'Slave_IO_Running' => 'No',
             'Slave_SQL_Running' => 'No',

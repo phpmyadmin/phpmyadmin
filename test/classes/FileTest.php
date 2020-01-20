@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for File class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * tests for PhpMyAdmin\File class
- *
- * @package PhpMyAdmin-test
  */
 class FileTest extends PmaTestCase
 {

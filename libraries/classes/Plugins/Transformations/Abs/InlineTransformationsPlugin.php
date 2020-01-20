@@ -1,9 +1,6 @@
 <?php
 /**
  * Abstract class for the inline transformations plugins
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage Inline
  */
 declare(strict_types=1);
 
@@ -15,8 +12,6 @@ use stdClass;
 
 /**
  * Provides common methods for all of the inline transformations plugins.
- *
- * @package PhpMyAdmin
  */
 abstract class InlineTransformationsPlugin extends TransformationsPlugin
 {

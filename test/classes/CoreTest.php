@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Core class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -16,8 +14,6 @@ use stdClass;
 
 /**
  * Tests for PhpMyAdmin\Core class
- *
- * @package PhpMyAdmin-test
  */
 class CoreTest extends PmaTestCase
 {

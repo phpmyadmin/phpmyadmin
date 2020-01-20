@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Rte\Events
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -15,14 +13,10 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * This class is for testing PhpMyAdmin\Rte\Events methods
- *
- * @package PhpMyAdmin-test
  */
 class EventsTest extends TestCase
 {
-    /**
-     * @var Events
-     */
+    /** @var Events */
     private $events;
 
     /**

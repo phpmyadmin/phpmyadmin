@@ -1,8 +1,6 @@
 <?php
 /**
  * Used to render the header of PMA's pages
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use function ini_get;
 
 /**
  * Class used to output the HTTP and HTML headers
- *
- * @package PhpMyAdmin
  */
 class Header
 {
@@ -105,14 +101,10 @@ class Header
      */
     private $_headerIsSent;
 
-    /**
-     * @var UserPreferences
-     */
+    /** @var UserPreferences */
     private $userPreferences;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     private $template;
 
     /**
@@ -695,9 +687,6 @@ class Header
         return 'v=' . urlencode(PMA_VERSION);
     }
 
-    /**
-     * @return string
-     */
     private function getVariablesForJavaScript(): string
     {
         global $cfg, $pmaThemeImage;

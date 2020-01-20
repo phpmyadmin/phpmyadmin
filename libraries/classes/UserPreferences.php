@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\UserPreferences class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -19,24 +17,15 @@ use PhpMyAdmin\Util;
 
 /**
  * Functions for displaying user preferences pages
- *
- * @package PhpMyAdmin
  */
 class UserPreferences
 {
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         $this->relation = new Relation($GLOBALS['dbi']);

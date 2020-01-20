@@ -1,8 +1,6 @@
 <?php
 /**
  * Set of functions for the SQL executor
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -32,39 +30,24 @@ use PhpMyAdmin\Util;
 
 /**
  * Set of functions for the SQL executor
- *
- * @package PhpMyAdmin
  */
 class Sql
 {
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var RelationCleanup
-     */
+    /** @var RelationCleanup */
     private $relationCleanup;
 
-    /**
-     * @var Transformations
-     */
+    /** @var Transformations */
     private $transformations;
 
-    /**
-     * @var Operations
-     */
+    /** @var Operations */
     private $operations;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     private $template;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         /** @var DatabaseInterface $dbi */

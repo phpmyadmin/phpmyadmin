@@ -1,8 +1,6 @@
 <?php
 /**
  * Functionality for the navigation tree
- *
- * @package PhpMyAdmin-Navigation
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use PhpMyAdmin\Url;
 
 /**
  * Represents a container for trigger nodes in the navigation tree
- *
- * @package PhpMyAdmin-Navigation
  */
 class NodeTriggerContainer extends Node
 {

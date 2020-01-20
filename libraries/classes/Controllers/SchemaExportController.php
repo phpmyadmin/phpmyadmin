@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
@@ -12,8 +9,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Schema export handler
- *
- * @package PhpMyAdmin\Controllers
  */
 class SchemaExportController
 {
@@ -33,9 +28,6 @@ class SchemaExportController
         $this->relation = $relation;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $cfgRelation;

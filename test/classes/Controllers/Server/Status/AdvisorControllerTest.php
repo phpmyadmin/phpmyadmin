@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds AdvisorControllerTest
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -21,14 +19,9 @@ use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 /**
  * Tests for AdvisorController class
- *
- * @package PhpMyAdmin-test
  */
 class AdvisorControllerTest extends TestCase
 {
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
@@ -98,9 +91,6 @@ class AdvisorControllerTest extends TestCase
         $GLOBALS['dbi'] = $dbi;
     }
 
-    /**
-     * @return void
-     */
     public function testIndex(): void
     {
         $controller = new AdvisorController(

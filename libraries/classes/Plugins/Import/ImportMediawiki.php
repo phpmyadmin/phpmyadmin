@@ -1,9 +1,6 @@
 <?php
 /**
  * MediaWiki import plugin for phpMyAdmin
- *
- * @package    PhpMyAdmin-Import
- * @subpackage MediaWiki
  */
 declare(strict_types=1);
 
@@ -15,9 +12,6 @@ use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 
 /**
  * Handles the import for the MediaWiki format
- *
- * @package    PhpMyAdmin-Import
- * @subpackage MediaWiki
  */
 class ImportMediawiki extends ImportPlugin
 {
@@ -28,9 +22,6 @@ class ImportMediawiki extends ImportPlugin
      */
     private $_analyze;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();

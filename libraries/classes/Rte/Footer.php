@@ -1,8 +1,6 @@
 <?php
 /**
  * Common functions for generating the footer for Routines, Triggers and Events.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -16,19 +14,13 @@ use PhpMyAdmin\Util;
 
 /**
  * PhpMyAdmin\Rte\Footer class
- *
- * @package PhpMyAdmin
  */
 class Footer
 {
-    /**
-     * @var Words
-     */
+    /** @var Words */
     private $words;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**

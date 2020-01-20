@@ -1,8 +1,6 @@
 <?php
 /**
  * User preferences form
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -10,9 +8,6 @@ namespace PhpMyAdmin\Config\Forms;
 
 use PhpMyAdmin\Config\ConfigFile;
 
-/**
- * @package PhpMyAdmin\Config\Forms
- */
 class BaseFormList
 {
     /**
@@ -20,14 +15,10 @@ class BaseFormList
      */
     protected static $all = [];
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected static $ns = 'PhpMyAdmin\\Config\\Forms\\';
 
-    /**
-     * @var array
-     */
+    /** @var array */
     private $_forms;
 
     /**
@@ -62,8 +53,6 @@ class BaseFormList
     }
 
     /**
-     * Constructor
-     *
      * @param ConfigFile $cf Config file instance
      */
     public function __construct(ConfigFile $cf)

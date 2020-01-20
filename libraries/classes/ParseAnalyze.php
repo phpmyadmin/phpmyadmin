@@ -1,8 +1,6 @@
 <?php
 /**
  * Parse and analyse a SQL query
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PhpMyAdmin\SqlParser\Utils\Query;
 
 /**
  * PhpMyAdmin\ParseAnalyze class
- *
- * @package PhpMyAdmin
  */
 class ParseAnalyze
 {

@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for ErrorHandler
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,14 +12,10 @@ use ReflectionClass;
 
 /**
  * Test for PhpMyAdmin\ErrorHandler class.
- *
- * @package PhpMyAdmin-test
  */
 class ErrorHandlerTest extends PmaTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @access protected */
     protected $object;
 
     /**

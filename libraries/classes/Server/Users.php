@@ -1,8 +1,6 @@
 <?php
 /**
  * set of common functions for sub tabs in server level `Users` page
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -12,8 +10,6 @@ use PhpMyAdmin\Url;
 
 /**
  * PhpMyAdmin\Server\Users class
- *
- * @package PhpMyAdmin
  */
 class Users
 {

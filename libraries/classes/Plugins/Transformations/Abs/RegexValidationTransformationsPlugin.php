@@ -1,9 +1,6 @@
 <?php
 /**
  * Abstract class for the regex validation input transformations plugins
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage RegexValidation
  */
 declare(strict_types=1);
 
@@ -15,9 +12,6 @@ use stdClass;
 /**
  * Provides common methods for all of the regex validation
  * input transformations plugins.
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage RegexValidation
  */
 abstract class RegexValidationTransformationsPlugin extends IOTransformationsPlugin
 {

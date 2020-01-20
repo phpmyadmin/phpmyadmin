@@ -26,8 +26,6 @@
  * - loading of an authentication library
  * - db connection
  * - authentication work
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -121,12 +119,10 @@ Core::checkExtensions();
  */
 Core::configure();
 
-/******************************************************************************/
 /* start procedural code                       label_start_procedural         */
 
 Core::cleanupPathInfo();
 
-/******************************************************************************/
 /* parsing configuration file                  LABEL_parsing_config_file      */
 
 /** @var bool $isConfigLoading Indication for the error handler */
@@ -287,7 +283,6 @@ if (Core::isValid($_POST['sql_query'])) {
 //$_REQUEST['server']; // checked later in this file
 //$_REQUEST['lang'];   // checked by LABEL_loading_language_file
 
-/******************************************************************************/
 /* loading language file                       LABEL_loading_language_file    */
 
 /**
@@ -309,7 +304,6 @@ Core::checkConfiguration();
 /* Check request for possible attacks */
 Core::checkRequest();
 
-/******************************************************************************/
 /* setup servers                                       LABEL_setup_servers    */
 
 $PMA_Config->checkServers();
@@ -328,7 +322,6 @@ $diMigration->setGlobal('url_params', ['server' => $containerBuilder->getParamet
  */
 $PMA_Config->enableBc();
 
-/******************************************************************************/
 /* setup themes                                          LABEL_theme_setup    */
 
 ThemeManager::initializeTheme();

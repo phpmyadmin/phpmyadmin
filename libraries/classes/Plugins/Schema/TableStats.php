@@ -1,8 +1,6 @@
 <?php
 /**
  * Contains abstract class to hold table preferences/statistics
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -21,7 +19,6 @@ use function rawurldecode;
  * This class preserves the table co-ordinates,fields
  * and helps in drawing/generating the tables.
  *
- * @package PhpMyAdmin
  * @abstract
  */
 abstract class TableStats
@@ -41,19 +38,13 @@ abstract class TableStats
     public $heightCell = 0;
     protected $offline;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     protected $relation;
 
-    /**
-     * @var Font
-     */
+    /** @var Font */
     protected $font;
 
     /**
-     * Constructor
-     *
      * @param Pdf\Pdf|Svg\Svg|Eps\Eps|Dia\Dia|Pdf\Pdf $diagram        schema diagram
      * @param string                                  $db             current db name
      * @param integer                                 $pageNumber     current page number (from the

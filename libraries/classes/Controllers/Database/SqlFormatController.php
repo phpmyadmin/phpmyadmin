@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers\Database
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
@@ -10,8 +7,6 @@ use PhpMyAdmin\SqlParser\Utils\Formatter;
 
 /**
  * Format SQL for SQL editors.
- *
- * @package PhpMyAdmin\Controllers\Database
  */
 class SqlFormatController extends AbstractController
 {

@@ -1,8 +1,6 @@
 <?php
 /**
  * Functions for the replication GUI
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -10,19 +8,13 @@ namespace PhpMyAdmin;
 
 /**
  * Functions for the replication GUI
- *
- * @package PhpMyAdmin
  */
 class ReplicationGui
 {
-    /**
-     * @var Replication
-     */
+    /** @var Replication */
     private $replication;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     private $template;
 
     /**

@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for *PhpMyAdmin\Properties\PropertyItem class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -19,8 +17,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * tests for *PhpMyAdmin\Properties\PropertyItem class
- *
- * @package PhpMyAdmin-test
  */
 class PropertyItemsTest extends TestCase
 {

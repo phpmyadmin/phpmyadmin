@@ -1,9 +1,6 @@
 <?php
 /**
  * SignOn Authentication plugin for phpMyAdmin
- *
- * @package    PhpMyAdmin-Authentication
- * @subpackage SignOn
  */
 declare(strict_types=1);
 
@@ -15,8 +12,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Handles the SignOn authentication method
- *
- * @package PhpMyAdmin-Authentication
  */
 class AuthenticationSignon extends AuthenticationPlugin
 {

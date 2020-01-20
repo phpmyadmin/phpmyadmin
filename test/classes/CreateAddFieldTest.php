@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\CreateAddField
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,14 +11,10 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * This class is for testing PhpMyAdmin\CreateAddField methods
- *
- * @package PhpMyAdmin-test
  */
 class CreateAddFieldTest extends TestCase
 {
-    /**
-     * @var CreateAddField
-     */
+    /** @var CreateAddField */
     private $createAddField;
 
     /**

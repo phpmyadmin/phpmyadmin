@@ -1,8 +1,6 @@
 <?php
 /**
  * Superclass for the Property Group classes.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -15,7 +13,6 @@ use Countable;
  * properties.
  *
  * @todo    modify descriptions if needed, when the options are integrated
- * @package PhpMyAdmin
  */
 abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Countable
 {

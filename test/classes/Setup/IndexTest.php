@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for methods under PhpMyAdmin\Setup\Index
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * tests for methods under PhpMyAdmin\Setup\Index
- *
- * @package PhpMyAdmin-test
  */
 class IndexTest extends TestCase
 {

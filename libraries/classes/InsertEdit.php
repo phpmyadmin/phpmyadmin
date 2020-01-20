@@ -1,8 +1,6 @@
 <?php
 /**
  * set of functions with the insert/edit features in pma
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use PhpMyAdmin\Plugins\TransformationsPlugin;
 
 /**
  * PhpMyAdmin\InsertEdit class
- *
- * @package PhpMyAdmin
  */
 class InsertEdit
 {
@@ -26,29 +22,19 @@ class InsertEdit
      */
     private $dbi;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var Transformations
-     */
+    /** @var Transformations */
     private $transformations;
 
-    /**
-     * @var FileListing
-     */
+    /** @var FileListing */
     private $fileListing;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
     /**
-     * Constructor
-     *
      * @param DatabaseInterface $dbi DatabaseInterface instance
      */
     public function __construct(DatabaseInterface $dbi)

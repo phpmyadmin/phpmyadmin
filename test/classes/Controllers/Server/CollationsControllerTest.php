@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds CollationsControllerTest class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -16,8 +14,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for CollationsController class
- *
- * @package PhpMyAdmin-test
  */
 class CollationsControllerTest extends TestCase
 {
@@ -38,9 +34,6 @@ class CollationsControllerTest extends TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
     }
 
-    /**
-     * @return void
-     */
     public function testIndexAction(): void
     {
         $controller = new CollationsController(

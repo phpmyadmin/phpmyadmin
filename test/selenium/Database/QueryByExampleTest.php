@@ -1,9 +1,6 @@
 <?php
 /**
  * Selenium TestCase for 'query by example' tests
- *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  */
 declare(strict_types=1);
 
@@ -14,8 +11,6 @@ use PhpMyAdmin\Tests\Selenium\TestBase;
 /**
  * QueryByExampleTest class
  *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  * @group      selenium
  */
 class QueryByExampleTest extends TestBase

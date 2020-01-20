@@ -1,8 +1,6 @@
 <?php
 /**
  * HTML Generator
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -28,8 +26,6 @@ use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
 
 /**
  * HTML Generator
- *
- * @package PhpMyAdmin
  */
 class Generator
 {

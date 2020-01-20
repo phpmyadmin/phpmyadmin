@@ -1,8 +1,6 @@
 <?php
 /**
  * Replication helpers
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -10,8 +8,6 @@ namespace PhpMyAdmin;
 
 /**
  * PhpMyAdmin\Replication class
- *
- * @package PhpMyAdmin
  */
 class Replication
 {

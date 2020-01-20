@@ -1,8 +1,6 @@
 <?php
 /**
  * Two authentication factor handling
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -19,39 +17,25 @@ use Samyoul\U2F\U2FServer\U2FServer;
 
 /**
  * Two factor authentication wrapper class
- *
- * @package PhpMyAdmin
  */
 class TwoFactor
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     public $user;
 
-    /**
-     * @var array
-     */
+    /** @var array */
     public $config;
 
-    /**
-     * @var boolean
-     */
+    /** @var boolean */
     protected $_writable;
 
-    /**
-     * @var TwoFactorPlugin
-     */
+    /** @var TwoFactorPlugin */
     protected $_backend;
 
-    /**
-     * @var array
-     */
+    /** @var array */
     protected $_available;
 
-    /**
-     * @var UserPreferences
-     */
+    /** @var UserPreferences */
     private $userPreferences;
 
     /**
@@ -95,17 +79,11 @@ class TwoFactor
         return $result;
     }
 
-    /**
-     * @return bool
-     */
     public function isWritable(): bool
     {
         return $this->_writable;
     }
 
-    /**
-     * @return TwoFactorPlugin
-     */
     public function getBackend(): TwoFactorPlugin
     {
         return $this->_backend;
@@ -119,9 +97,6 @@ class TwoFactor
         return $this->_available;
     }
 
-    /**
-     * @return bool
-     */
     public function showSubmit(): bool
     {
         $backend = $this->_backend;

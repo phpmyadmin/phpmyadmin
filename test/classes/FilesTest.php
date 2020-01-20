@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for bookmark.lib.php
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * tests for bookmark.lib.php
- *
- * @package PhpMyAdmin-test
  */
 class FilesTest extends TestCase
 {

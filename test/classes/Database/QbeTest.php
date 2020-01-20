@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Database\Qbe
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -17,14 +15,10 @@ use ReflectionClass;
 
 /**
  * Tests for PhpMyAdmin\Database\Qbe class
- *
- * @package PhpMyAdmin-test
  */
 class QbeTest extends PmaTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @access protected */
     protected $object;
 
     /**

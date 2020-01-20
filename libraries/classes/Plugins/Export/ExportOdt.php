@@ -1,9 +1,6 @@
 <?php
 /**
  * Set of functions used to build OpenDocument Text dumps of tables
- *
- * @package    PhpMyAdmin-Export
- * @subpackage ODT
  */
 declare(strict_types=1);
 
@@ -22,15 +19,9 @@ use PhpMyAdmin\Util;
 
 /**
  * Handles the export for the ODT class
- *
- * @package    PhpMyAdmin-Export
- * @subpackage ODT
  */
 class ExportOdt extends ExportPlugin
 {
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();

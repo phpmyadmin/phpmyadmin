@@ -1,8 +1,6 @@
 <?php
 /**
  * Abstract parent class for all Gis<Geom_type> test classes
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -12,8 +10,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Abstract parent class for all Gis<Geom_type> test classes
- *
- * @package PhpMyAdmin-test
  */
 abstract class GisGeomTestCase extends TestCase
 {

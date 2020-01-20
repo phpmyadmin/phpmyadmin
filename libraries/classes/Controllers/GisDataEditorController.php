@@ -1,8 +1,6 @@
 <?php
 /**
  * Editor for Geometry data types.
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use PhpMyAdmin\Gis\GisVisualization;
 
 /**
  * Editor for Geometry data types.
- *
- * @package PhpMyAdmin\Controllers
  */
 class GisDataEditorController extends AbstractController
 {

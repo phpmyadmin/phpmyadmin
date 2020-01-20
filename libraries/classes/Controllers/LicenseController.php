@@ -1,8 +1,6 @@
 <?php
 /**
  * Simple script to set correct charset for the license
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -10,14 +8,9 @@ namespace PhpMyAdmin\Controllers;
 
 /**
  * Simple script to set correct charset for the license
- *
- * @package PhpMyAdmin\Controllers
  */
 class LicenseController extends AbstractController
 {
-    /**
-     * @return void
-     */
     public function index(): void
     {
         $this->response->disable();

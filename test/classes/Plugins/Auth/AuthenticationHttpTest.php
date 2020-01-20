@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\Plugins\Auth\AuthenticationHttp class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,14 +12,10 @@ use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * tests for PhpMyAdmin\Plugins\Auth\AuthenticationHttp class
- *
- * @package PhpMyAdmin-test
  */
 class AuthenticationHttpTest extends PmaTestCase
 {
-    /**
-     * @var AuthenticationHttp
-     */
+    /** @var AuthenticationHttp */
     protected $object;
 
     /**

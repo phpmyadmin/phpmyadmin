@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for Pdf class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * tests for Pdf class
- *
- * @package PhpMyAdmin-test
  */
 class PdfTest extends PmaTestCase
 {

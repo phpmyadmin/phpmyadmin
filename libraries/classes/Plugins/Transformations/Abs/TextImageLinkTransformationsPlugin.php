@@ -1,9 +1,6 @@
 <?php
 /**
  * Abstract class for the image link transformations plugins
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage ImageLink
  */
 declare(strict_types=1);
 
@@ -16,8 +13,6 @@ use stdClass;
 
 /**
  * Provides common methods for all of the image link transformations plugins.
- *
- * @package PhpMyAdmin
  */
 abstract class TextImageLinkTransformationsPlugin extends TransformationsPlugin
 {

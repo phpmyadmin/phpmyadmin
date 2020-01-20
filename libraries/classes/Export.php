@@ -1,8 +1,6 @@
 <?php
 /**
  * function for the main export logic
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -16,14 +14,10 @@ use PhpMyAdmin\Plugins\SchemaPlugin;
 
 /**
  * PhpMyAdmin\Export class
- *
- * @package PhpMyAdmin
  */
 class Export
 {
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**

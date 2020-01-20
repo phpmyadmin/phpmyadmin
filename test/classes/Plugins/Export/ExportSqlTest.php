@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportSql class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -20,7 +18,6 @@ use stdClass;
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportSql class
  *
- * @package PhpMyAdmin-test
  * @group medium
  */
 class ExportSqlTest extends PmaTestCase

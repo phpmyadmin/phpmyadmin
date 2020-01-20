@@ -1,8 +1,6 @@
 <?php
 /**
  * holds the database index class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -13,9 +11,6 @@ use PhpMyAdmin\Html\MySQLDocumentation;
 
 /**
  * Index manipulation class
- *
- * @package PhpMyAdmin
- * @since   phpMyAdmin 3.0.0
  */
 class Index
 {
@@ -32,19 +27,13 @@ class Index
      */
     private static $_registry = [];
 
-    /**
-     * @var string The name of the schema
-     */
+    /** @var string The name of the schema */
     private $_schema = '';
 
-    /**
-     * @var string The name of the table
-     */
+    /** @var string The name of the table */
     private $_table = '';
 
-    /**
-     * @var string The name of the index
-     */
+    /** @var string The name of the index */
     private $_name = '';
 
     /**
@@ -83,9 +72,7 @@ class Index
      */
     private $_comment = '';
 
-    /**
-     * @var integer 0 if the index cannot contain duplicates, 1 if it can.
-     */
+    /** @var integer 0 if the index cannot contain duplicates, 1 if it can. */
     private $_non_unique = 0;
 
     /**
@@ -110,8 +97,6 @@ class Index
     private $_parser = null;
 
     /**
-     * Constructor
-     *
      * @param array $params parameters
      */
     public function __construct(array $params = [])

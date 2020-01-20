@@ -1,8 +1,6 @@
 <?php
 /**
  * TCPDF wrapper class.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -18,8 +16,6 @@ use TCPDF_FONTS;
 
 /**
  * PDF export base class providing basic configuration.
- *
- * @package PhpMyAdmin
  */
 class Pdf extends TCPDF
 {

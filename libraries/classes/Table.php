@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the Table class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -30,7 +28,6 @@ use PhpMyAdmin\Util;
  * Handles everything related to tables
  *
  * @todo make use of Message and Error
- * @package PhpMyAdmin
  */
 class Table
 {
@@ -41,54 +38,34 @@ class Table
     public const PROP_COLUMN_ORDER = 'col_order';
     public const PROP_COLUMN_VISIB = 'col_visib';
 
-    /**
-     * @var string  engine (innodb, myisam, bdb, ...)
-     */
+    /** @var string  engine (innodb, myisam, bdb, ...) */
     public $engine = '';
 
-    /**
-     * @var string  type (view, base table, system view)
-     */
+    /** @var string  type (view, base table, system view) */
     public $type = '';
 
-    /**
-     * @var array UI preferences
-     */
+    /** @var array UI preferences */
     public $uiprefs;
 
-    /**
-     * @var array errors occurred
-     */
+    /** @var array errors occurred */
     public $errors = [];
 
-    /**
-     * @var array messages
-     */
+    /** @var array messages */
     public $messages = [];
 
-    /**
-     * @var string  table name
-     */
+    /** @var string  table name */
     protected $_name = '';
 
-    /**
-     * @var string  database name
-     */
+    /** @var string  database name */
     protected $_db_name = '';
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     protected $_dbi;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
     /**
-     * Constructor
-     *
      * @param string                 $table_name table name
      * @param string                 $db_name    database name
      * @param DatabaseInterface|null $dbi        database interface for the table
@@ -516,7 +493,6 @@ class Table
         //
         // MySQL permits a non-standard syntax for FLOAT and DOUBLE,
         // see https://dev.mysql.com/doc/refman/5.5/en/floating-point-types.html
-        //
         $pattern = '@^(DATE|TINYBLOB|TINYTEXT|BLOB|TEXT|'
             . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN|UUID)$@i';
         if (strlen($length) !== 0 && ! preg_match($pattern, $type)) {

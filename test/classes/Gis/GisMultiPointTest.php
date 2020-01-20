@@ -1,8 +1,6 @@
 <?php
 /**
  * Test for PhpMyAdmin\Gis\GisMultiPoint
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use TCPDF;
 
 /**
  * Tests for PhpMyAdmin\Gis\GisMultiPoint class
- *
- * @package PhpMyAdmin-test
  */
 class GisMultiPointTest extends GisGeomTestCase
 {

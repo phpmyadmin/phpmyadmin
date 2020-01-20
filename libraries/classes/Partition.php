@@ -1,8 +1,6 @@
 <?php
 /**
  * Library for extracting information about the partitions
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -12,18 +10,12 @@ use PhpMyAdmin\SubPartition;
 
 /**
  * base Partition Class
- *
- * @package PhpMyAdmin
  */
 class Partition extends SubPartition
 {
-    /**
-     * @var string partition description
-     */
+    /** @var string partition description */
     protected $description;
-    /**
-     * @var SubPartition[] sub partitions
-     */
+    /** @var SubPartition[] sub partitions */
     protected $subPartitions = [];
 
     /**

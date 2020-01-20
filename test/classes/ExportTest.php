@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\Export
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -16,14 +14,11 @@ use PHPUnit\Framework\TestCase;
  *
  * this class is for testing PhpMyAdmin\Export methods
  *
- * @package PhpMyAdmin-test
  * @group large
  */
 class ExportTest extends TestCase
 {
-    /**
-     * @var Export
-     */
+    /** @var Export */
     private $export;
 
     /**

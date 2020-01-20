@@ -1,9 +1,6 @@
 <?php
 /**
  * Selenium TestCase for user related tests
- *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  */
 declare(strict_types=1);
 
@@ -12,8 +9,6 @@ namespace PhpMyAdmin\Tests\Selenium;
 /**
  * CreateRemoveUserTest class
  *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  * @group      selenium
  */
 class CreateRemoveUserTest extends TestBase

@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers\Table
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
@@ -21,9 +18,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
-/**
- * @package PhpMyAdmin\Controllers\Table
- */
 class OperationsController extends AbstractController
 {
     /** @var Operations */
@@ -61,9 +55,6 @@ class OperationsController extends AbstractController
         $this->relation = $relation;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $containerBuilder, $url_query, $url_params, $reread_info, $tbl_is_view, $tbl_storage_engine;

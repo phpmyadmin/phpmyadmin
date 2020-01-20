@@ -3,8 +3,6 @@
  * Logging functionality for webserver.
  *
  * This includes web server specific code to log some information.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use PhpMyAdmin\Core;
 
 /**
  * Misc logging functions
- *
- * @package PhpMyAdmin
  */
 class Logging
 {

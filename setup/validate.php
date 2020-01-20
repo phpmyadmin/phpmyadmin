@@ -1,8 +1,6 @@
 <?php
 /**
  * Validation callback.
- *
- * @package PhpMyAdmin-Setup
  */
 declare(strict_types=1);
 

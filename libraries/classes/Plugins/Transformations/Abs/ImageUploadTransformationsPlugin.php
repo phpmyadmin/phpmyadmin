@@ -1,9 +1,6 @@
 <?php
 /**
  * Abstract class for the image upload input transformations plugins
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage ImageUpload
  */
 declare(strict_types=1);
 
@@ -15,8 +12,6 @@ use stdClass;
 
 /**
  * Provides common methods for all of the image upload transformations plugins.
- *
- * @package PhpMyAdmin
  */
 abstract class ImageUploadTransformationsPlugin extends IOTransformationsPlugin
 {

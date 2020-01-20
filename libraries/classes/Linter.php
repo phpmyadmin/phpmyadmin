@@ -1,8 +1,6 @@
 <?php
 /**
  * Analyzes a query and gives user feedback.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -15,8 +13,6 @@ use PhpMyAdmin\SqlParser\Utils\Error as ParserError;
 
 /**
  * The linter itself.
- *
- * @package PhpMyAdmin
  */
 class Linter
 {

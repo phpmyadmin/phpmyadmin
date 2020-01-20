@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for methods in PhpMyAdmin\VersionInformation class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use stdClass;
 
 /**
  * Tests for methods in PhpMyAdmin\VersionInformation class
- *
- * @package PhpMyAdmin-test
  */
 class VersionInformationTest extends PmaTestCase
 {

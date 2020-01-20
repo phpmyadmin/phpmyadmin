@@ -1,8 +1,6 @@
 <?php
 /**
  * Test for PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -16,8 +14,6 @@ use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * Tests for PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild class
- *
- * @package PhpMyAdmin-test
  */
 class NodeDatabaseChildTest extends PmaTestCase
 {

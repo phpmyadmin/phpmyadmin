@@ -1,8 +1,6 @@
 <?php
 /**
  * hold PhpMyAdmin\TablePartitionDefinition class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -10,9 +8,6 @@ namespace PhpMyAdmin;
 
 use function array_merge;
 
-/**
- * @package PhpMyAdmin
- */
 class TablePartitionDefinition
 {
     /**

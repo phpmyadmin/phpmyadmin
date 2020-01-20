@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\FileListing class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -10,8 +8,6 @@ namespace PhpMyAdmin;
 
 /**
  * Functions for listing directories
- *
- * @package PhpMyAdmin
  */
 class FileListing
 {

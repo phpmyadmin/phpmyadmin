@@ -1,8 +1,6 @@
 <?php
 /**
  * Represents container node that carries children of a database
- *
- * @package PhpMyAdmin-Navigation
  */
 declare(strict_types=1);
 
@@ -10,8 +8,6 @@ namespace PhpMyAdmin\Navigation\Nodes;
 
 /**
  * Represents container node that carries children of a database
- *
- * @package PhpMyAdmin-Navigation
  */
 abstract class NodeDatabaseChildContainer extends NodeDatabaseChild
 {

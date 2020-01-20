@@ -1,8 +1,6 @@
 <?php
 /**
  * Second authentication factor handling
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -12,14 +10,10 @@ use PhpMyAdmin\Plugins\TwoFactorPlugin;
 
 /**
  * Invalid two-factor authentication showing that configured choice is not available.
- *
- * @package PhpMyAdmin
  */
 class Invalid extends TwoFactorPlugin
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     public static $id = 'invalid';
 
     public static $showSubmit = false;

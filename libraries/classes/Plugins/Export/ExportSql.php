@@ -1,9 +1,6 @@
 <?php
 /**
  * Set of functions used to build SQL dumps of tables
- *
- * @package    PhpMyAdmin-Export
- * @subpackage SQL
  */
 declare(strict_types=1);
 
@@ -31,9 +28,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Handles the export for the SQL class
- *
- * @package    PhpMyAdmin-Export
- * @subpackage SQL
  */
 class ExportSql extends ExportPlugin
 {
@@ -44,9 +38,6 @@ class ExportSql extends ExportPlugin
      */
     private $_sent_charset = false;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();

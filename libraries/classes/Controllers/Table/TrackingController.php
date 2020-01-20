@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers\Table
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
@@ -15,9 +12,6 @@ use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Tracking;
 use PhpMyAdmin\Url;
 
-/**
- * @package PhpMyAdmin\Controllers\Table
- */
 final class TrackingController extends AbstractController
 {
     /** @var Tracking */
@@ -43,9 +37,6 @@ final class TrackingController extends AbstractController
         $this->tracking = $tracking;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $pmaThemeImage, $text_dir, $url_query, $url_params, $msg;

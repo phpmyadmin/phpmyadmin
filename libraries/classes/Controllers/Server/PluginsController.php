@@ -2,8 +2,6 @@
 
 /**
  * Holds the PhpMyAdmin\Controllers\Server\PluginsController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -18,14 +16,10 @@ use PhpMyAdmin\Template;
 
 /**
  * Handles viewing server plugin details
- *
- * @package PhpMyAdmin\Controllers
  */
 class PluginsController extends AbstractController
 {
-    /**
-     * @var Plugins
-     */
+    /** @var Plugins */
     private $plugins;
 
     /**

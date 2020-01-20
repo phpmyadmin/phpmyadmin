@@ -3,8 +3,6 @@
  * StructureControllerTest class
  *
  * this class is for testing StructureController class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -25,29 +23,19 @@ use ReflectionClass;
  * StructureControllerTest class
  *
  * this class is for testing StructureController class
- *
- * @package PhpMyAdmin-test
  */
 class StructureControllerTest extends PmaTestCase
 {
-    /**
-     * @var \PhpMyAdmin\Tests\Stubs\Response
-     */
+    /** @var \PhpMyAdmin\Tests\Stubs\Response */
     private $response;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var Replication
-     */
+    /** @var Replication */
     private $replication;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     private $template;
 
     /**

@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Operations class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -19,19 +17,13 @@ use PhpMyAdmin\Plugins\Export\ExportSql;
 
 /**
  * Set of functions with the operations section in phpMyAdmin
- *
- * @package PhpMyAdmin
  */
 class Operations
 {
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**

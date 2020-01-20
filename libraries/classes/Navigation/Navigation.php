@@ -2,8 +2,6 @@
 /**
  * This class is responsible for instantiating
  * the various components of the navigation panel
- *
- * @package PhpMyAdmin-navigation
  */
 declare(strict_types=1);
 
@@ -21,29 +19,19 @@ use PhpMyAdmin\Util;
 
 /**
  * The navigation panel - displays server, db and table selection tree
- *
- * @package PhpMyAdmin-Navigation
  */
 class Navigation
 {
-    /**
-     * @var Template
-     */
+    /** @var Template */
     private $template;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @var NavigationTree
-     */
+    /** @var NavigationTree */
     private $tree;
 
     /**

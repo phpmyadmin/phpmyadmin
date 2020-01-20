@@ -1,8 +1,6 @@
 <?php
 /**
  * hold PhpMyAdmin\SystemDatabase class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -13,19 +11,12 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Util;
 
-/**
- * @package PhpMyAdmin
- */
 class SystemDatabase
 {
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     protected $dbi;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
     /**

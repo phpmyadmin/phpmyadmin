@@ -1,9 +1,6 @@
 <?php
 /**
  * Selenium TestCase for typing and executing SQL query tests
- *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  */
 declare(strict_types=1);
 
@@ -12,8 +9,6 @@ namespace PhpMyAdmin\Tests\Selenium;
 /**
  * SqlQueryTest class
  *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  * @group      selenium
  */
 class SqlQueryTest extends TestBase

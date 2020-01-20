@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers\Database
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
@@ -16,8 +13,6 @@ use PhpMyAdmin\Url;
 
 /**
  * Database SQL executor
- *
- * @package PhpMyAdmin\Controllers\Database
  */
 class SqlController extends AbstractController
 {
@@ -37,9 +32,6 @@ class SqlController extends AbstractController
         $this->sqlQueryForm = $sqlQueryForm;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $goto, $back;

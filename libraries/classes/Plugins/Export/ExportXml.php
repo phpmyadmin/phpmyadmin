@@ -1,9 +1,6 @@
 <?php
 /**
  * Set of functions used to build XML dumps of tables
- *
- * @package    PhpMyAdmin-Export
- * @subpackage XML
  */
 declare(strict_types=1);
 
@@ -28,9 +25,6 @@ if (! isset($GLOBALS['db']) || strlen($GLOBALS['db']) === 0) {
 
 /**
  * Handles the export for the XML class
- *
- * @package    PhpMyAdmin-Export
- * @subpackage XML
  */
 class ExportXml extends ExportPlugin
 {
@@ -47,9 +41,6 @@ class ExportXml extends ExportPlugin
      */
     private $_tables;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();

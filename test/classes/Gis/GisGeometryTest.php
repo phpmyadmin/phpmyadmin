@@ -1,8 +1,6 @@
 <?php
 /**
  * Test for PhpMyAdmin\Gis\GisGeometry
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,14 +11,10 @@ use ReflectionClass;
 
 /**
  * Tests for PhpMyAdmin\Gis\GisGeometry class
- *
- * @package PhpMyAdmin-test
  */
 class GisGeometryTest extends TestCase
 {
-    /**
-     * @access protected
-     */
+    /** @access protected */
     protected $object;
 
     /**

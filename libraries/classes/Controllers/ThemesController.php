@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
@@ -10,14 +7,9 @@ use PhpMyAdmin\ThemeManager;
 
 /**
  * Displays list of themes.
- *
- * @package PhpMyAdmin\Controllers
  */
 class ThemesController extends AbstractController
 {
-    /**
-     * @return string
-     */
     public function index(): string
     {
         $this->response->getFooter()->setMinimal();

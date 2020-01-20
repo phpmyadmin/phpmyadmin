@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers\Table
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
@@ -21,14 +18,10 @@ use function mb_strtoupper;
  * Display table relations for viewing and editing.
  *
  * Includes phpMyAdmin relations and InnoDB relations.
- *
- * @package PhpMyAdmin\Controllers\Table
  */
 final class RelationController extends AbstractController
 {
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
     /**

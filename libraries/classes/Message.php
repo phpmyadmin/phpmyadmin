@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds class Message
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -38,8 +36,6 @@ use PhpMyAdmin\Sanitize;
  * // add the retrieved tooltip reference to the original message
  * $message->addMessage($hint);
  * </code>
- *
- * @package PhpMyAdmin
  */
 class Message
 {
@@ -128,8 +124,6 @@ class Message
     protected $addedMessages = [];
 
     /**
-     * Constructor
-     *
      * @param string  $string   The message to be displayed
      * @param integer $number   A numeric representation of the type of message
      * @param array   $params   An array of parameters to use in the message

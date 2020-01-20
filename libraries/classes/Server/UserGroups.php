@@ -1,8 +1,6 @@
 <?php
 /**
  * set of functions for user group handling
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -17,8 +15,6 @@ use PhpMyAdmin\Util;
 
 /**
  * PhpMyAdmin\Server\UserGroups class
- *
- * @package PhpMyAdmin
  */
 class UserGroups
 {

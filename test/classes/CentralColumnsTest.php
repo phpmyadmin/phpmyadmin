@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\CentralColumns
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -20,8 +18,6 @@ use ReflectionClass;
 
 /**
  * tests for PhpMyAdmin\CentralColumns
- *
- * @package PhpMyAdmin-test
  */
 class CentralColumnsTest extends TestCase
 {

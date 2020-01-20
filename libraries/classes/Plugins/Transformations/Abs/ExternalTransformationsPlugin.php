@@ -1,9 +1,6 @@
 <?php
 /**
  * Abstract class for the external transformations plugins
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage External
  */
 declare(strict_types=1);
 
@@ -14,8 +11,6 @@ use stdClass;
 
 /**
  * Provides common methods for all of the external transformations plugins.
- *
- * @package PhpMyAdmin
  */
 abstract class ExternalTransformationsPlugin extends TransformationsPlugin
 {
@@ -79,7 +74,6 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
 
         $allowed_programs = [];
 
-        //
         // WARNING:
         //
         // It's up to administrator to allow anything here. Note that users may

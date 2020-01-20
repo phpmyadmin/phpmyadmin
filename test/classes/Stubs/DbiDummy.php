@@ -5,9 +5,6 @@
  * It has hardcoded results for given queries what makes easy to use it
  * in testsuite. Feel free to include other queries which your test will
  * need.
- *
- * @package    PhpMyAdmin-DBI
- * @subpackage Dummy
  */
 declare(strict_types=1);
 
@@ -21,15 +18,10 @@ use PhpMyAdmin\Dbal\DbiExtension;
  * It has hardcoded results for given queries what makes easy to use it
  * in testsuite. Feel free to include other queries which your test will
  * need.
- *
- * @package    PhpMyAdmin-DBI
- * @subpackage Dummy
  */
 class DbiDummy implements DbiExtension
 {
-    /**
-     * @var array
-     */
+    /** @var array */
     private $_queries = [];
 
     /**
@@ -37,9 +29,6 @@ class DbiDummy implements DbiExtension
      */
     public const OFFSET_GLOBAL = 1000;
 
-    /**
-     * DbiDummy constructor.
-     */
     public function __construct()
     {
         $this->init();
@@ -480,9 +469,6 @@ class DbiDummy implements DbiExtension
         }
     }
 
-    /**
-     * @return void
-     */
     private function init(): void
     {
         /**

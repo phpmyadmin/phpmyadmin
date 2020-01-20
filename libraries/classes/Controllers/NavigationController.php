@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
@@ -19,8 +16,6 @@ use PhpMyAdmin\Util;
  * The navigation panel
  *
  * Displays server, database and table selection tree.
- *
- * @package PhpMyAdmin\Controllers
  */
 class NavigationController extends AbstractController
 {
@@ -49,9 +44,6 @@ class NavigationController extends AbstractController
         $this->relation = $relation;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         if (! $this->response->isAjax()) {

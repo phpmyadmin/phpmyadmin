@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Controllers
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
@@ -19,9 +16,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
-/**
- * @package PhpMyAdmin\Controllers
- */
 class SqlController extends AbstractController
 {
     /** @var Sql */
@@ -49,9 +43,6 @@ class SqlController extends AbstractController
         $this->checkUserPrivileges = $checkUserPrivileges;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $cfg, $db, $display_query, $pmaThemeImage, $sql_query, $table, $message;
@@ -295,9 +286,6 @@ class SqlController extends AbstractController
         $this->response->addJSON('select', $select);
     }
 
-    /**
-     * @return void
-     */
     public function getDefaultForeignKeyCheckValue(): void
     {
         $this->checkUserPrivileges->getPrivileges();
@@ -308,9 +296,6 @@ class SqlController extends AbstractController
         );
     }
 
-    /**
-     * @return void
-     */
     public function setColumnOrderOrVisibility(): void
     {
         global $db, $table;

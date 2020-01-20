@@ -1,8 +1,6 @@
 <?php
 /**
  * PDF schema handling
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -40,7 +38,6 @@ if (getcwd() == __DIR__) {
  * to this class
  *
  * @name Pdf_Relation_Schema
- * @package PhpMyAdmin
  */
 class PdfRelationSchema extends ExportRelationSchema
 {
@@ -51,9 +48,7 @@ class PdfRelationSchema extends ExportRelationSchema
     private $_withDoc;
     private $_tableOrder;
 
-    /**
-     * @var TableStatsPdf[]
-     */
+    /** @var TableStatsPdf[] */
     private $_tables = [];
     private $_ff = PdfLib::PMA_PDF_FONT;
     private $_xMax = 0;
@@ -67,19 +62,13 @@ class PdfRelationSchema extends ExportRelationSchema
     private $_rightMargin = 10;
     private $_tablewidth;
 
-    /**
-     * @var RelationStatsPdf[]
-     */
+    /** @var RelationStatsPdf[] */
     protected $relations = [];
 
-    /**
-     * @var Transformations
-     */
+    /** @var Transformations */
     private $transformations;
 
     /**
-     * The "PdfRelationSchema" constructor
-     *
      * @see PMA_Schema_PDF
      *
      * @param string $db database name

@@ -1,9 +1,6 @@
 <?php
 /**
  * Image JPEG Upload Input Transformations plugin for phpMyAdmin
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage ImageUpload
  */
 declare(strict_types=1);
 
@@ -14,9 +11,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\ImageUploadTransformationsPlugin;
 /**
  * Handles the image upload input transformation for JPEG.
  * Has two option: width & height of the thumbnail
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage ImageUpload
  */
 // @codingStandardsIgnoreLine
 class Image_JPEG_Upload extends ImageUploadTransformationsPlugin

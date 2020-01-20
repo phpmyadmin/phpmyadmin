@@ -1,8 +1,6 @@
 <?php
 /**
  * Functions used for database and table tracking
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -12,24 +10,16 @@ use PhpMyAdmin\Html\Generator;
 
 /**
  * PhpMyAdmin\Tracking class
- *
- * @package PhpMyAdmin
  */
 class Tracking
 {
-    /**
-     * @var SqlQueryForm
-     */
+    /** @var SqlQueryForm */
     private $sqlQueryForm;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     protected $relation;
 
     /**

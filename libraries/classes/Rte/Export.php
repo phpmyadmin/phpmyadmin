@@ -1,8 +1,6 @@
 <?php
 /**
  * Common functions for the export functionality for Routines, Triggers and Events.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -15,19 +13,13 @@ use PhpMyAdmin\Util;
 
 /**
  * PhpMyAdmin\Rte\Export class
- *
- * @package PhpMyAdmin
  */
 class Export
 {
-    /**
-     * @var Words
-     */
+    /** @var Words */
     private $words;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**

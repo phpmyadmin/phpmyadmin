@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\ReplicationGui
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -19,8 +17,6 @@ use PHPUnit\Framework\TestCase;
  * PhpMyAdmin\Tests\ReplicationGuiTest class
  *
  * this class is for testing PhpMyAdmin\ReplicationGui methods
- *
- * @package PhpMyAdmin-test
  */
 class ReplicationGuiTest extends TestCase
 {

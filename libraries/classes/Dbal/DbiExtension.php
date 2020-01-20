@@ -1,8 +1,6 @@
 <?php
 /**
  * Contract for every database extension supported by phpMyAdmin
- *
- * @package PhpMyAdmin-DBI
  */
 declare(strict_types=1);
 
@@ -10,8 +8,6 @@ namespace PhpMyAdmin\Dbal;
 
 /**
  * Contract for every database extension supported by phpMyAdmin
- *
- * @package PhpMyAdmin-DBI
  */
 interface DbiExtension
 {

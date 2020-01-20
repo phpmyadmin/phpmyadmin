@@ -1,8 +1,6 @@
 <?php
 /**
  * Used to render the footer of PMA's pages
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -12,8 +10,6 @@ use Traversable;
 
 /**
  * Class used to output the footer
- *
- * @package PhpMyAdmin
  */
 class Footer
 {
@@ -47,14 +43,10 @@ class Footer
      */
     private $_isEnabled;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     private $template;
 
     /**

@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportCodegen class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -17,14 +15,11 @@ use ReflectionProperty;
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportCodegen class
  *
- * @package PhpMyAdmin-test
  * @group medium
  */
 class ExportCodegenTest extends PmaTestCase
 {
-    /**
-     * @var ExportCodegen
-     */
+    /** @var ExportCodegen */
     protected $object;
 
     /**

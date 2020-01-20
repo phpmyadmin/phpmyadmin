@@ -7,7 +7,6 @@
  * @usedby  /table/sql
  * @usedby  /table/structure
  * @usedby  /table/tracking
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -17,14 +16,10 @@ use PhpMyAdmin\Html\MySQLDocumentation;
 
 /**
  * PhpMyAdmin\SqlQueryForm class
- *
- * @package PhpMyAdmin
  */
 class SqlQueryForm
 {
-    /**
-     * @var Template
-     */
+    /** @var Template */
     private $template;
 
     /**

@@ -1,8 +1,6 @@
 <?php
 /**
  * Abstract class for the export plugins
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -18,8 +16,6 @@ use PhpMyAdmin\Transformations;
  * export plugins. Some of the plugins will also implement other public
  * methods, but those are not declared here, because they are not implemented
  * by all export plugins.
- *
- * @package PhpMyAdmin
  */
 abstract class ExportPlugin
 {
@@ -31,24 +27,15 @@ abstract class ExportPlugin
      */
     protected $properties;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     public $relation;
 
-    /**
-     * @var Export
-     */
+    /** @var Export */
     protected $export;
 
-    /**
-     * @var Transformations
-     */
+    /** @var Transformations */
     protected $transformations;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         $this->relation = new Relation($GLOBALS['dbi']);

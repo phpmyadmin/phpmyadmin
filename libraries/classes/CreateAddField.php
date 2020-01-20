@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\CreateAddField class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -12,19 +10,13 @@ use PhpMyAdmin\Html\Generator;
 
 /**
  * Set of functions for /table/create and /table/add-field
- *
- * @package PhpMyAdmin
  */
 class CreateAddField
 {
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**
-     * Constructor
-     *
      * @param DatabaseInterface $dbi DatabaseInterface interface
      */
     public function __construct(DatabaseInterface $dbi)

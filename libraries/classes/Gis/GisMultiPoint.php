@@ -1,8 +1,6 @@
 <?php
 /**
  * Handles actions related to GIS MULTIPOINT objects
- *
- * @package PhpMyAdmin-GIS
  */
 declare(strict_types=1);
 
@@ -12,8 +10,6 @@ use TCPDF;
 
 /**
  * Handles actions related to GIS MULTIPOINT objects
- *
- * @package PhpMyAdmin-GIS
  */
 class GisMultiPoint extends GisGeometry
 {

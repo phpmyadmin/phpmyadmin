@@ -1,9 +1,6 @@
 <?php
 /**
  * ESRI Shape file import plugin for phpMyAdmin
- *
- * @package    PhpMyAdmin-Import
- * @subpackage ESRI_Shape
  */
 declare(strict_types=1);
 
@@ -23,20 +20,12 @@ use PhpMyAdmin\ZipExtension;
 
 /**
  * Handles the import for ESRI Shape files
- *
- * @package    PhpMyAdmin-Import
- * @subpackage ESRI_Shape
  */
 class ImportShp extends ImportPlugin
 {
-    /**
-     * @var ZipExtension
-     */
+    /** @var ZipExtension */
     private $zipExtension;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();

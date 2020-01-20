@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\Server\VariablesController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -17,8 +15,6 @@ use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
 
 /**
  * Handles viewing and editing server variables
- *
- * @package PhpMyAdmin\Controllers
  */
 class VariablesController extends AbstractController
 {

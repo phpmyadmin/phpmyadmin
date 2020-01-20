@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds ProcessesControllerTest
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -17,19 +15,11 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @package PhpMyAdmin\Tests\Controllers\Server\Status
- */
 class ProcessesControllerTest extends TestCase
 {
-    /**
-     * @var Data
-     */
+    /** @var Data */
     private $data;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
@@ -101,9 +91,6 @@ class ProcessesControllerTest extends TestCase
         $this->data = new Data();
     }
 
-    /**
-     * @return void
-     */
     public function testIndex(): void
     {
         $controller = new ProcessesController(
@@ -213,9 +200,6 @@ class ProcessesControllerTest extends TestCase
         );
     }
 
-    /**
-     * @return void
-     */
     public function testRefresh(): void
     {
         $process = [

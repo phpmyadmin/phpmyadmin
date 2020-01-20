@@ -1,8 +1,6 @@
 <?php
 /**
  * Library for extracting information about the available storage engines
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -38,35 +36,23 @@ define('PMA_ENGINE_DETAILS_TYPE_BOOLEAN', 3); // 'ON' or 'OFF'
 
 /**
  * Base Storage Engine Class
- *
- * @package PhpMyAdmin
  */
 class StorageEngine
 {
-    /**
-     * @var string engine name
-     */
+    /** @var string engine name */
     public $engine  = 'dummy';
 
-    /**
-     * @var string engine title/description
-     */
+    /** @var string engine title/description */
     public $title   = 'PMA Dummy Engine Class';
 
-    /**
-     * @var string engine lang description
-     */
+    /** @var string engine lang description */
     public $comment
         = 'If you read this text inside phpMyAdmin, something went wrong...';
 
-    /**
-     * @var integer engine supported by current server
-     */
+    /** @var integer engine supported by current server */
     public $support = PMA_ENGINE_SUPPORT_NO;
 
     /**
-     * Constructor
-     *
      * @param string $engine The engine ID
      */
     public function __construct($engine)

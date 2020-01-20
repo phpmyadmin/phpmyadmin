@@ -3,8 +3,6 @@
  * Core functions used all over the scripts.
  * This script is distinct from libraries/common.inc.php because this
  * script is called from /test.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -15,8 +13,6 @@ use PhpMyAdmin\Display\Error as DisplayError;
 
 /**
  * Core class
- *
- * @package PhpMyAdmin
  */
 class Core
 {

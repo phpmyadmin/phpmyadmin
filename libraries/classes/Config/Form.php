@@ -1,8 +1,6 @@
 <?php
 /**
  * Form handling code.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PhpMyAdmin\Config\ConfigFile;
 /**
  * Base class for forms, loads default configuration options, checks allowed
  * values etc.
- *
- * @package PhpMyAdmin
  */
 class Form
 {
@@ -61,7 +57,7 @@ class Form
     private $_configFile;
 
     /**
-     * Constructor, reads default config values
+     * Reads default config values
      *
      * @param string     $formName Form name
      * @param array      $form     Form data

@@ -1,8 +1,6 @@
 <?php
 /**
  * HTML Generator for "browse"
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PhpMyAdmin\Util;
 
 /**
  * HTML Generator for "browse"
- *
- * @package PhpMyAdmin
  */
 class BrowseUploadFileBlock implements FieldGenerator
 {

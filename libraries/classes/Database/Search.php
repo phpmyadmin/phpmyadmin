@@ -1,8 +1,6 @@
 <?php
 /**
  * Handles Database Search
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -16,8 +14,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Class to handle database search
- *
- * @package PhpMyAdmin
  */
 class Search
 {
@@ -85,19 +81,13 @@ class Search
      */
     private $criteriaColumnName;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
     /**
-     * Public Constructor
-     *
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param string            $db       Database name
      * @param Template          $template Template object

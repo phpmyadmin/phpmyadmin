@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportOdt class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -19,7 +17,6 @@ use stdClass;
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportOdt class
  *
- * @package PhpMyAdmin-test
  * @group medium
  */
 class ExportOdtTest extends PmaTestCase

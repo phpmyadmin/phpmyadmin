@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for NodeFactory class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -15,8 +13,6 @@ use PHPUnit\Framework\Exception;
 
 /**
  * Tests for NodeFactory class
- *
- * @package PhpMyAdmin-test
  */
 class NodeFactoryTest extends PmaTestCase
 {

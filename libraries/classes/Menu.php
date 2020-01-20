@@ -1,8 +1,6 @@
 <?php
 /**
  * Generates and renders the top menu
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -10,8 +8,6 @@ namespace PhpMyAdmin;
 
 /**
  * Class for generating the top menu
- *
- * @package PhpMyAdmin
  */
 class Menu
 {
@@ -30,9 +26,7 @@ class Menu
      */
     private $_table;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
     /** @var Template */

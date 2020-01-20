@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\Server\Privileges
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -25,14 +23,10 @@ use stdClass;
  * PhpMyAdmin\Tests\Server\PrivilegesTest class
  *
  * this class is for testing PhpMyAdmin\Server\Privileges methods
- *
- * @package PhpMyAdmin-test
  */
 class PrivilegesTest extends TestCase
 {
-    /**
-     * @var Privileges $serverPrivileges
-     */
+    /** @var Privileges $serverPrivileges */
     private $serverPrivileges;
 
     /**

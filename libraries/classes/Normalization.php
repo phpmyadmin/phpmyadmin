@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Normalization class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -14,8 +12,6 @@ use PhpMyAdmin\Html\Generator;
 
 /**
  * Set of functions used for normalization
- *
- * @package PhpMyAdmin
  */
 class Normalization
 {
@@ -26,24 +22,16 @@ class Normalization
      */
     private $dbi;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var Transformations
-     */
+    /** @var Transformations */
     private $transformations;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
     /**
-     * Constructor
-     *
      * @param DatabaseInterface $dbi             DatabaseInterface instance
      * @param Relation          $relation        Relation instance
      * @param Transformations   $transformations Transformations instance
