@@ -1,7 +1,6 @@
 <?php
 /**
  * Selenium TestCase for normalization
- *
  */
 declare(strict_types=1);
 

@@ -1,7 +1,6 @@
 <?php
 /**
  * SQL editing with syntax highlighted CodeMirror editor
- *
  */
 declare(strict_types=1);
 
@@ -11,7 +10,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\CodeMirrorEditorTransformationPlugin;
 
 /**
  * SQL editing with syntax highlighted CodeMirror editor
- *
  */
 // @codingStandardsIgnoreLine
 class Text_Plain_SqlEditor extends CodeMirrorEditorTransformationPlugin

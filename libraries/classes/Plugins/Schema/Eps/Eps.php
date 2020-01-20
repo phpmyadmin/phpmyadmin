@@ -13,8 +13,9 @@ use PhpMyAdmin\Response;
  * This Class is EPS Library and
  * helps in developing structure of EPS Schema Export
  *
- * @access  public
  * @see     https://www.php.net/manual/en/book.xmlwriter.php
+ *
+ * @access  public
  */
 class Eps
 {

@@ -1,7 +1,6 @@
 <?php
 /**
  * MediaWiki import plugin for phpMyAdmin
- *
  */
 declare(strict_types=1);
 
@@ -13,7 +12,6 @@ use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 
 /**
  * Handles the import for the MediaWiki format
- *
  */
 class ImportMediawiki extends ImportPlugin
 {

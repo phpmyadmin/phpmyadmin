@@ -16,8 +16,9 @@ use PhpMyAdmin\Plugins\Schema\TableStats;
  * This class preserves the table co-ordinates,fields
  * and helps in drawing/generating the Tables in PDF document.
  *
- * @name    Table_Stats_Pdf
  * @see     PMA_Schema_PDF
+ *
+ * @name    Table_Stats_Pdf
  */
 class TableStatsPdf extends TableStats
 {

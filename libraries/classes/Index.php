@@ -11,7 +11,6 @@ use PhpMyAdmin\Html\MySQLDocumentation;
 
 /**
  * Index manipulation class
- *
  */
 class Index
 {

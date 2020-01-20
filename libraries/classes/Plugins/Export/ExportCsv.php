@@ -1,7 +1,6 @@
 <?php
 /**
  * CSV export code
- *
  */
 declare(strict_types=1);
 
@@ -18,7 +17,6 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 
 /**
  * Handles the export for the CSV format
- *
  */
 class ExportCsv extends ExportPlugin
 {

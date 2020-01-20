@@ -1,7 +1,6 @@
 <?php
 /**
  * Cookie Authentication plugin for phpMyAdmin
- *
  */
 declare(strict_types=1);
 

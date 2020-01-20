@@ -15,8 +15,9 @@ use PhpMyAdmin\Plugins\Schema\TableStats;
  * This class preserves the table co-ordinates,fields
  * and helps in drawing/generating the Tables in SVG XML document.
  *
- * @name    Table_Stats_Svg
  * @see     PMA_SVG
+ *
+ * @name    Table_Stats_Svg
  */
 class TableStatsSvg extends TableStats
 {

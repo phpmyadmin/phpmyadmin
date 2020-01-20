@@ -1,7 +1,6 @@
 <?php
 /**
  * Text Plain Regex Validation Input Transformations plugin for phpMyAdmin
- *
  */
 declare(strict_types=1);
 
@@ -12,7 +11,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\RegexValidationTransformationsPlugin;
 /**
  * Handles the input regex validation transformation for text plain.
  * Has one option: the regular expression
- *
  */
 // @codingStandardsIgnoreLine
 class Text_Plain_RegexValidation extends RegexValidationTransformationsPlugin

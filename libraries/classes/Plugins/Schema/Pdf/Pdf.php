@@ -31,8 +31,9 @@ if (getcwd() == __DIR__) {
  * Extends the "TCPDF" class and helps
  * in developing the structure of PDF Schema Export
  *
- * @access  public
  * @see     TCPDF
+ *
+ * @access  public
  */
 class Pdf extends PdfLib
 {

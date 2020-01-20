@@ -1,7 +1,6 @@
 <?php
 /**
  * Application OctetStream Hex Transformations plugin for phpMyAdmin
- *
  */
 declare(strict_types=1);
 
@@ -11,7 +10,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\HexTransformationsPlugin;
 
 /**
  * Handles the hex transformation for application octetstream
- *
  */
 // @codingStandardsIgnoreLine
 class Application_Octetstream_Hex extends HexTransformationsPlugin

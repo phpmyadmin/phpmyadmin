@@ -15,8 +15,9 @@ use PhpMyAdmin\Plugins\Schema\TableStats;
  * This class preserves the table co-ordinates,fields
  * and helps in drawing/generating the Tables in EPS.
  *
- * @name    Table_Stats_Eps
  * @see     PMA_EPS
+ *
+ * @name    Table_Stats_Eps
  */
 class TableStatsEps extends TableStats
 {

@@ -1,7 +1,6 @@
 <?php
 /**
  * Text Plain Image Link Transformations plugin for phpMyAdmin
- *
  */
 declare(strict_types=1);
 
@@ -11,7 +10,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\TextImageLinkTransformationsPlugin;
 
 /**
  * Handles the image link transformation for text plain
- *
  */
 // @codingStandardsIgnoreLine
 class Text_Plain_Imagelink extends TextImageLinkTransformationsPlugin

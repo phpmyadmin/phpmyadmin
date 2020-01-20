@@ -1,7 +1,6 @@
 <?php
 /**
  * Abstract class for the regex validation input transformations plugins
- *
  */
 declare(strict_types=1);
 
@@ -13,7 +12,6 @@ use stdClass;
 /**
  * Provides common methods for all of the regex validation
  * input transformations plugins.
- *
  */
 abstract class RegexValidationTransformationsPlugin extends IOTransformationsPlugin
 {

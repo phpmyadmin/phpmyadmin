@@ -16,9 +16,10 @@ use PhpMyAdmin\Plugins\Schema\RelationStats;
  * master table's master field to foreign table's foreign key
  * in PDF document.
  *
- * @name    Relation_Stats_Pdf
  * @see     PMA_Schema_PDF::SetDrawColor PMA_Schema_PDF::setLineWidthScale
  *          Pdf::lineScale
+ *
+ * @name    Relation_Stats_Pdf
  */
 class RelationStatsPdf extends RelationStats
 {

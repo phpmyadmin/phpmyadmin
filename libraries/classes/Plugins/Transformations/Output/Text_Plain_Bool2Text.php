@@ -1,7 +1,6 @@
 <?php
 /**
  * Text Plain Bool2Text Transformations plugin for phpMyAdmin
- *
  */
 declare(strict_types=1);
 
@@ -13,7 +12,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\Bool2TextTransformationsPlugin;
  * Handles the Boolean to Text transformation for text plain.
  * Has one option: the output format (default 'T/F')
  * or 'Y/N'
- *
  */
 // @codingStandardsIgnoreLine
 class Text_Plain_Bool2Text extends Bool2TextTransformationsPlugin

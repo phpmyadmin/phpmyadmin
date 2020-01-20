@@ -1,7 +1,6 @@
 <?php
 /**
  * Abstract class for the prepend/append transformations plugins
- *
  */
 declare(strict_types=1);
 
@@ -12,7 +11,6 @@ use stdClass;
 
 /**
  * Provides common methods for all of the prepend/append transformations plugins.
- *
  */
 abstract class PreApPendTransformationsPlugin extends TransformationsPlugin
 {

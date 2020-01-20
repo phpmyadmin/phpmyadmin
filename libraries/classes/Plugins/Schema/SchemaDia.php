@@ -1,7 +1,6 @@
 <?php
 /**
  * Dia schema export code
- *
  */
 declare(strict_types=1);
 
@@ -16,7 +15,6 @@ use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
 
 /**
  * Handles the schema export for the Dia format
- *
  */
 class SchemaDia extends SchemaPlugin
 {

@@ -1,7 +1,6 @@
 <?php
 /**
  * JSON editing with syntax highlighted CodeMirror editor
- *
  */
 declare(strict_types=1);
 
@@ -11,7 +10,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\CodeMirrorEditorTransformationPlugin;
 
 /**
  * JSON editing with syntax highlighted CodeMirror editor
- *
  */
 // @codingStandardsIgnoreLine
 class Text_Plain_JsonEditor extends CodeMirrorEditorTransformationPlugin

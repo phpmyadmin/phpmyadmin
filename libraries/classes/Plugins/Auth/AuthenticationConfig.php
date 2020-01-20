@@ -1,7 +1,6 @@
 <?php
 /**
  * Config Authentication plugin for phpMyAdmin
- *
  */
 declare(strict_types=1);
 

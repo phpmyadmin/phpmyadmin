@@ -1,7 +1,6 @@
 <?php
 /**
  * PhpMyAdmin\Plugins\Export\Helpers\Pdf class
- *
  */
 declare(strict_types=1);
 
@@ -16,7 +15,6 @@ use TCPDF_STATIC;
 
 /**
  * Adapted from a LGPL script by Philip Clarke
- *
  */
 class Pdf extends PdfLib
 {

@@ -1,7 +1,6 @@
 <?php
 /**
  * Selenium TestCase for import related tests
- *
  */
 declare(strict_types=1);
 

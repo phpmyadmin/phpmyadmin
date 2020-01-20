@@ -1,7 +1,6 @@
 <?php
 /**
  * Abstract class for the formatted transformations plugins
- *
  */
 declare(strict_types=1);
 

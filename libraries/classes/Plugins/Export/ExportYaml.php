@@ -1,7 +1,6 @@
 <?php
 /**
  * Set of functions used to build YAML dumps of tables
- *
  */
 declare(strict_types=1);
 
@@ -16,7 +15,6 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 
 /**
  * Handles the export for the YAML format
- *
  */
 class ExportYaml extends ExportPlugin
 {

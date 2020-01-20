@@ -1,7 +1,6 @@
 <?php
 /**
  * ESRI Shape file import plugin for phpMyAdmin
- *
  */
 declare(strict_types=1);
 
@@ -21,7 +20,6 @@ use PhpMyAdmin\ZipExtension;
 
 /**
  * Handles the import for ESRI Shape files
- *
  */
 class ImportShp extends ImportPlugin
 {

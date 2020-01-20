@@ -5,7 +5,6 @@
  * This is just example how to use session based single signon with
  * phpMyAdmin, it is not intended to be perfect code and look, only
  * shows how you can integrate this functionality in your application.
- *
  */
 declare(strict_types=1);
 

@@ -1,7 +1,6 @@
 <?php
 /**
  * Export to Texy! text.
- *
  */
 declare(strict_types=1);
 
@@ -19,7 +18,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Handles the export for the Texy! text class
- *
  */
 class ExportTexytext extends ExportPlugin
 {

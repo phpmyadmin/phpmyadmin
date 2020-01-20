@@ -17,7 +17,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Handles the import for the CSV format
- *
  */
 class ImportCsv extends AbstractImportCsv
 {

@@ -16,8 +16,9 @@ use PhpMyAdmin\Plugins\Schema\RelationStats;
  * master table's master field to foreign table's foreign key
  * in EPS document.
  *
- * @name    Relation_Stats_Eps
  * @see     PMA_EPS
+ *
+ * @name    Relation_Stats_Eps
  */
 class RelationStatsEps extends RelationStats
 {

@@ -17,7 +17,6 @@ use SimpleXMLElement;
 
 /**
  * Handles the import for the XML format
- *
  */
 class ImportXml extends ImportPlugin
 {

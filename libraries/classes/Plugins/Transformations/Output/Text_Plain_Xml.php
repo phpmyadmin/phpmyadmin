@@ -1,7 +1,6 @@
 <?php
 /**
  * Text Plain XML Transformations plugin for phpMyAdmin
- *
  */
 declare(strict_types=1);
 
@@ -13,7 +12,6 @@ use stdClass;
 
 /**
  * Handles the XML transformation for text plain
- *
  */
 // @codingStandardsIgnoreLine
 class Text_Plain_Xml extends TransformationsPlugin

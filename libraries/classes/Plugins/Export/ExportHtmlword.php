@@ -1,7 +1,6 @@
 <?php
 /**
  * HTML-Word export code
- *
  */
 declare(strict_types=1);
 
@@ -19,7 +18,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Handles the export for the HTML-Word format
- *
  */
 class ExportHtmlword extends ExportPlugin
 {

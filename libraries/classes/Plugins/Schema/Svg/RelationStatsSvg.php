@@ -16,8 +16,9 @@ use PhpMyAdmin\Plugins\Schema\RelationStats;
  * master table's master field to foreign table's foreign key
  * in SVG XML document.
  *
- * @name    Relation_Stats_Svg
  * @see     PMA_SVG::printElementLine
+ *
+ * @name    Relation_Stats_Svg
  */
 class RelationStatsSvg extends RelationStats
 {

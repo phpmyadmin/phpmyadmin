@@ -20,7 +20,6 @@ use SimpleXMLElement;
 
 /**
  * Handles the import for the ODS format
- *
  */
 class ImportOds extends ImportPlugin
 {

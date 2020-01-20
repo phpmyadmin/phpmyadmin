@@ -1,7 +1,6 @@
 <?php
 /**
  * Selenium TestCase for SQL query window related tests
- *
  */
 declare(strict_types=1);
 

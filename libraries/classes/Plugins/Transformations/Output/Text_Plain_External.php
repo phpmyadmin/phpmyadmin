@@ -1,7 +1,6 @@
 <?php
 /**
  * Text Plain External Transformations plugin for phpMyAdmin
- *
  */
 declare(strict_types=1);
 
@@ -11,7 +10,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\ExternalTransformationsPlugin;
 
 /**
  * Handles the external transformation for text plain
- *
  */
 // @codingStandardsIgnoreLine
 class Text_Plain_External extends ExternalTransformationsPlugin

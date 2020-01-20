@@ -1,7 +1,6 @@
 <?php
 /**
  * Blob SQL Transformations plugin for phpMyAdmin
- *
  */
 declare(strict_types=1);
 
@@ -11,7 +10,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\SQLTransformationsPlugin;
 
 /**
  * Handles the sql transformation for blob data
- *
  */
 // @codingStandardsIgnoreLine
 class Text_Octetstream_Sql extends SQLTransformationsPlugin

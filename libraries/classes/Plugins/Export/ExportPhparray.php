@@ -1,7 +1,6 @@
 <?php
 /**
  * Set of functions used to build dumps of tables as PHP Arrays
- *
  */
 declare(strict_types=1);
 
@@ -17,7 +16,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Handles the export for the PHP Array class
- *
  */
 class ExportPhparray extends ExportPlugin
 {

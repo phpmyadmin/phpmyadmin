@@ -1,7 +1,6 @@
 <?php
 /**
  * Set of functions used to build OpenDocument Text dumps of tables
- *
  */
 declare(strict_types=1);
 
@@ -20,7 +19,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Handles the export for the ODT class
- *
  */
 class ExportOdt extends ExportPlugin
 {

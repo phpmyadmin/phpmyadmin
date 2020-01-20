@@ -1,7 +1,6 @@
 <?php
 /**
  * Base class for Selenium tests
- *
  */
 declare(strict_types=1);
 

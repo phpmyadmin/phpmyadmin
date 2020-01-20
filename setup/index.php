@@ -1,7 +1,6 @@
 <?php
 /**
  * Front controller for setup script
- *
  */
 declare(strict_types=1);
 

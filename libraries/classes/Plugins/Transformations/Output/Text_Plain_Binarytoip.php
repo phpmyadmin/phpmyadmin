@@ -1,7 +1,6 @@
 <?php
 /**
  * Handles the binary to IPv4/IPv6 transformation for text plain
- *
  */
 declare(strict_types=1);
 
@@ -12,7 +11,6 @@ use stdClass;
 
 /**
  * Handles the binary to IPv4/IPv6 transformation for text plain
- *
  */
 // @codingStandardsIgnoreLine
 class Text_Plain_Binarytoip extends TransformationsPlugin

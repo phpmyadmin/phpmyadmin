@@ -1,7 +1,6 @@
 <?php
 /**
  * Image JPEG Link Transformations plugin for phpMyAdmin
- *
  */
 declare(strict_types=1);
 
@@ -11,7 +10,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\ImageLinkTransformationsPlugin;
 
 /**
  * Handles the link transformation for image jpeg
- *
  */
 // @codingStandardsIgnoreLine
 class Image_JPEG_Link extends ImageLinkTransformationsPlugin

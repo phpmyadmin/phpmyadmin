@@ -1,7 +1,6 @@
 <?php
 /**
  * Class for exporting CSV dumps of tables for excel
- *
  */
 declare(strict_types=1);
 
@@ -17,7 +16,6 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 
 /**
  * Handles the export for the CSV-Excel format
- *
  */
 class ExportExcel extends ExportCsv
 {

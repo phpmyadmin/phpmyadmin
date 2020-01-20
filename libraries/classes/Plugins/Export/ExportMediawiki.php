@@ -1,7 +1,6 @@
 <?php
 /**
  * Set of functions used to build MediaWiki dumps of tables
- *
  */
 declare(strict_types=1);
 
@@ -19,7 +18,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Handles the export for the MediaWiki class
- *
  */
 class ExportMediawiki extends ExportPlugin
 {

@@ -1,7 +1,6 @@
 <?php
 /**
  * Set of functions used to build OpenDocument Spreadsheet dumps of tables
- *
  */
 declare(strict_types=1);
 
@@ -19,7 +18,6 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 
 /**
  * Handles the export for the ODS class
- *
  */
 class ExportOds extends ExportPlugin
 {

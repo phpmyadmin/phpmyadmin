@@ -1,7 +1,6 @@
 <?php
 /**
  * Selenium TestCase for creating and deleting databases
- *
  */
 declare(strict_types=1);
 

@@ -1,7 +1,6 @@
 <?php
 /**
  * Set of functions used to build SQL dumps of tables
- *
  */
 declare(strict_types=1);
 
@@ -29,7 +28,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Handles the export for the SQL class
- *
  */
 class ExportSql extends ExportPlugin
 {

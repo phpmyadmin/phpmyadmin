@@ -14,8 +14,9 @@ namespace PhpMyAdmin\Plugins\Schema\Dia;
  * master table's master field to foreign table's foreign key
  * in dia XML document.
  *
- * @name    Relation_Stats_Dia
  * @see     PMA_DIA
+ *
+ * @name    Relation_Stats_Dia
  */
 class RelationStatsDia
 {

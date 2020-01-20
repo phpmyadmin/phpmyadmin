@@ -1,7 +1,6 @@
 <?php
 /**
  * PDF schema export code
- *
  */
 declare(strict_types=1);
 
@@ -17,7 +16,6 @@ use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
 
 /**
  * Handles the schema export for the EPS format
- *
  */
 class SchemaEps extends SchemaPlugin
 {

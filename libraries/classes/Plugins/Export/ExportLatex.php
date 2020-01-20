@@ -1,7 +1,6 @@
 <?php
 /**
  * Set of methods used to build dumps of tables as Latex
- *
  */
 declare(strict_types=1);
 
@@ -19,7 +18,6 @@ use PhpMyAdmin\Util;
 
 /**
  * Handles the export for the Latex format
- *
  */
 class ExportLatex extends ExportPlugin
 {

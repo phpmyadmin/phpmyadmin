@@ -1,7 +1,6 @@
 <?php
 /**
  * Abstract class for the text file upload input transformations plugins
- *
  */
 declare(strict_types=1);
 
@@ -13,7 +12,6 @@ use stdClass;
 /**
  * Provides common methods for all of the text file upload
  * input transformations plugins.
- *
  */
 abstract class TextFileUploadTransformationsPlugin extends IOTransformationsPlugin
 {

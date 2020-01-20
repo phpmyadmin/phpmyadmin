@@ -15,8 +15,9 @@ use PhpMyAdmin\Plugins\Schema\TableStats;
  * This class preserves the table co-ordinates,fields
  * and helps in drawing/generating the Tables in dia XML document.
  *
- * @name    Table_Stats_Dia
  * @see     PMA_DIA
+ *
+ * @name    Table_Stats_Dia
  */
 class TableStatsDia extends TableStats
 {

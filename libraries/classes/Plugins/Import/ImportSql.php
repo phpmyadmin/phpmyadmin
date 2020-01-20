@@ -1,7 +1,6 @@
 <?php
 /**
  * SQL import plugin for phpMyAdmin
- *
  */
 declare(strict_types=1);
 
@@ -18,7 +17,6 @@ use PhpMyAdmin\SqlParser\Utils\BufferedQuery;
 
 /**
  * Handles the import for the SQL format
- *
  */
 class ImportSql extends ImportPlugin
 {

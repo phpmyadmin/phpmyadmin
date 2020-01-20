@@ -111,8 +111,9 @@ class ThemeManager
      *
      * @param string $path path to themes folder
      *
-     * @access public
      * @return boolean success
+     *
+     * @access public
      */
     public function setThemesPath($path)
     {
@@ -129,8 +130,9 @@ class ThemeManager
      *
      * @param boolean $per_server Whether to enable per server flag
      *
-     * @access public
      * @return void
+     *
+     * @access public
      */
     public function setThemePerServer($per_server)
     {
@@ -142,8 +144,9 @@ class ThemeManager
      *
      * @param string $theme theme name
      *
-     * @access public
      * @return bool true on success
+     *
+     * @access public
      */
     public function setActiveTheme($theme = null)
     {
@@ -171,6 +174,7 @@ class ThemeManager
      * Returns name for storing theme
      *
      * @return string cookie name
+     *
      * @access public
      */
     public function getThemeCookieName()
@@ -187,6 +191,7 @@ class ThemeManager
      * returns name of theme stored in the cookie
      *
      * @return string|bool theme name from cookie or false
+     *
      * @access public
      */
     public function getThemeCookie()
@@ -206,6 +211,7 @@ class ThemeManager
      * save theme in cookie
      *
      * @return bool true
+     *
      * @access public
      */
     public function setThemeCookie()
@@ -227,6 +233,7 @@ class ThemeManager
      * @param string $folder Folder name to test
      *
      * @return boolean
+     *
      * @access private
      */
     private function _checkThemeFolder($folder)
@@ -249,6 +256,7 @@ class ThemeManager
      * read all themes
      *
      * @return bool true
+     *
      * @access public
      */
     public function loadThemes()
@@ -296,6 +304,7 @@ class ThemeManager
      * @param string $theme name fo theme to check for
      *
      * @return bool
+     *
      * @access public
      */
     public function checkTheme($theme)
@@ -309,6 +318,7 @@ class ThemeManager
      * @param boolean $form whether enclosed by from tags or not
      *
      * @return string
+     *
      * @access public
      */
     public function getHtmlSelectBox($form = true)
@@ -348,6 +358,7 @@ class ThemeManager
      * Renders the previews for all themes
      *
      * @return string
+     *
      * @access public
      */
     public function getPrintPreviews()
@@ -363,6 +374,7 @@ class ThemeManager
      * Theme initialization
      *
      * @return void
+     *
      * @access public
      */
     public static function initializeTheme()
@@ -377,13 +389,17 @@ class ThemeManager
         $GLOBALS['PMA_Theme'] = $tmanager->theme;
 
         // BC
+
         /**
          * the theme path
+         *
          * @global string $GLOBALS['pmaThemePath']
          */
         $GLOBALS['pmaThemePath']    = $GLOBALS['PMA_Theme']->getPath();
+
         /**
          * the theme image path
+         *
          * @global string $GLOBALS['pmaThemeImage']
          */
         $GLOBALS['pmaThemeImage']   = $GLOBALS['PMA_Theme']->getImgPath();

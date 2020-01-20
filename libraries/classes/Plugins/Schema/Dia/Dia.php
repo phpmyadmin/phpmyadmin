@@ -14,8 +14,9 @@ use XMLWriter;
  * This Class inherits the XMLwriter class and
  * helps in developing structure of DIA Schema Export
  *
- * @access  public
  * @see     https://www.php.net/manual/en/book.xmlwriter.php
+ *
+ * @access  public
  */
 class Dia extends XMLWriter
 {

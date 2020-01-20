@@ -1,7 +1,6 @@
 <?php
 /**
  * Set of methods used to build dumps of tables as JSON
- *
  */
 declare(strict_types=1);
 
@@ -17,7 +16,6 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 
 /**
  * Handles the export for the JSON format
- *
  */
 class ExportJson extends ExportPlugin
 {

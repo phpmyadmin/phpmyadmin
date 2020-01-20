@@ -1,7 +1,6 @@
 <?php
 /**
  * Text Plain SQL Transformations plugin for phpMyAdmin
- *
  */
 declare(strict_types=1);
 
@@ -12,7 +11,6 @@ use PhpMyAdmin\Response;
 
 /**
  * Handles the sql transformation for text plain
- *
  */
 // @codingStandardsIgnoreLine
 class Text_Plain_Sql extends SQLTransformationsPlugin

@@ -1,7 +1,6 @@
 <?php
 /**
  * Abstract class for the Bool2Text transformations plugins
- *
  */
 declare(strict_types=1);
 
@@ -12,7 +11,6 @@ use stdClass;
 
 /**
  * Provides common methods for all of the Bool2Text transformations plugins.
- *
  */
 abstract class Bool2TextTransformationsPlugin extends TransformationsPlugin
 {

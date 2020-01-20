@@ -1,7 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Plugins\Export\Helpers\TableProperty class
- *
  */
 declare(strict_types=1);
 
@@ -11,7 +10,6 @@ use PhpMyAdmin\Plugins\Export\ExportCodegen;
 
 /**
  * PhpMyAdmin\Plugins\Export\Helpers\TableProperty class
- *
  */
 class TableProperty
 {
