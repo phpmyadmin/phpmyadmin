@@ -59,8 +59,6 @@ class MultiTableQuery
     public $template;
 
     /**
-     * Constructor
-     *
      * @param DatabaseInterface $dbi                DatabaseInterface instance
      * @param Template          $template           Template instance
      * @param string            $dbName             Database name

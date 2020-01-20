@@ -51,9 +51,6 @@ abstract class AuthenticationPlugin
      */
     public $template;
 
-    /**
-     * AuthenticationPlugin constructor.
-     */
     public function __construct()
     {
         $this->ipAllowDeny = new IpAllowDeny();

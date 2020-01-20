@@ -87,8 +87,6 @@ class Table
     private $relation;
 
     /**
-     * Constructor
-     *
      * @param string                 $table_name table name
      * @param string                 $db_name    database name
      * @param DatabaseInterface|null $dbi        database interface for the table

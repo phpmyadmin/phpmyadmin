@@ -24,9 +24,6 @@ use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
  */
 class SchemaSvg extends SchemaPlugin
 {
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         $this->setProperties();

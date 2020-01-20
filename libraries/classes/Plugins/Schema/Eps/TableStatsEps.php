@@ -30,8 +30,6 @@ class TableStatsEps extends TableStats
     public $currentCell = 0;
 
     /**
-     * The "PhpMyAdmin\Plugins\Schema\Eps\TableStatsEps" constructor
-     *
      * @see PMA_EPS, Table_Stats_Eps::Table_Stats_setWidth,
      *      PhpMyAdmin\Plugins\Schema\Eps\TableStatsEps::Table_Stats_setHeight
      *

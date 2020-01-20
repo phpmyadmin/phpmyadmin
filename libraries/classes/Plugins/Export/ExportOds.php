@@ -27,9 +27,6 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
  */
 class ExportOds extends ExportPlugin
 {
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();

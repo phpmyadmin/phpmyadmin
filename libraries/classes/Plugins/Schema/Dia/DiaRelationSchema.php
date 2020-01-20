@@ -44,8 +44,6 @@ class DiaRelationSchema extends ExportRelationSchema
     public static $objectId = 0;
 
     /**
-     * The "PhpMyAdmin\Plugins\Schema\Dia\DiaRelationSchema" constructor
-     *
      * Upon instantiation This outputs the Dia XML document
      * that user can download
      *

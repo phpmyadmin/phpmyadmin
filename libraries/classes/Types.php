@@ -23,8 +23,6 @@ class Types
     private $_dbi;
 
     /**
-     * Constructor
-     *
      * @param DatabaseInterface $dbi Database interface instance
      */
     public function __construct($dbi)

@@ -35,8 +35,6 @@ abstract class RelationStats
     public $wTick;
 
     /**
-     * The constructor
-     *
      * @param object $diagram       The diagram
      * @param string $master_table  The master table name
      * @param string $master_field  The relation field in the master table

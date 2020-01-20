@@ -34,9 +34,6 @@ class ImportShp extends ImportPlugin
      */
     private $zipExtension;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();

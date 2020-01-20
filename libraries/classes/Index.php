@@ -110,8 +110,6 @@ class Index
     private $_parser = null;
 
     /**
-     * Constructor
-     *
      * @param array $params parameters
      */
     public function __construct(array $params = [])

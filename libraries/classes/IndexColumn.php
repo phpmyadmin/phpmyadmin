@@ -59,8 +59,6 @@ class IndexColumn
     private $_cardinality = null;
 
     /**
-     * Constructor
-     *
      * @param array $params an array containing the parameters of the index column
      */
     public function __construct(array $params = [])

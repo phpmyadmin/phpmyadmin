@@ -63,8 +63,6 @@ class SavedSearches
     private $relation;
 
     /**
-     * Public constructor
-     *
      * @param array    $config   Global configuration
      * @param Relation $relation Relation instance
      */

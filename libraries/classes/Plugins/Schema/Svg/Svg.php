@@ -28,8 +28,6 @@ class Svg extends XMLWriter
     public $fontSize;
 
     /**
-     * The "PhpMyAdmin\Plugins\Schema\Svg\Svg" constructor
-     *
      * Upon instantiation This starts writing the RelationStatsSvg XML document
      *
      * @see XMLWriter::openMemory(),XMLWriter::setIndent(),XMLWriter::startDocument()

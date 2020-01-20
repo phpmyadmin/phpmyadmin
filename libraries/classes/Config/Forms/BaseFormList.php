@@ -62,8 +62,6 @@ class BaseFormList
     }
 
     /**
-     * Constructor
-     *
      * @param ConfigFile $cf Config file instance
      */
     public function __construct(ConfigFile $cf)

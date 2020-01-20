@@ -65,11 +65,6 @@ class ThemeManager
      */
     public const FALLBACK_THEME = 'pmahomme';
 
-    /**
-     * Constructor for Theme Manager class
-     *
-     * @access public
-     */
     public function __construct()
     {
         $this->themes = [];

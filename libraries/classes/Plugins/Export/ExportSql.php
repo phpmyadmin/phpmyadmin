@@ -44,9 +44,6 @@ class ExportSql extends ExportPlugin
      */
     private $_sent_charset = false;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();

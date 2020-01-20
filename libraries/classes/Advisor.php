@@ -37,8 +37,6 @@ class Advisor
     protected $expression;
 
     /**
-     * Constructor
-     *
      * @param DatabaseInterface  $dbi        DatabaseInterface object
      * @param ExpressionLanguage $expression ExpressionLanguage object
      */

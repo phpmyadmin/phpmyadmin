@@ -28,9 +28,6 @@ class ImportMediawiki extends ImportPlugin
      */
     private $_analyze;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();

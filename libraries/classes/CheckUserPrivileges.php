@@ -24,8 +24,6 @@ class CheckUserPrivileges
     private $dbi;
 
     /**
-     * Constructor
-     *
      * @param DatabaseInterface $dbi DatabaseInterface object
      */
     public function __construct(DatabaseInterface $dbi)

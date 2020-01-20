@@ -83,8 +83,6 @@ class File
     private $zipExtension;
 
     /**
-     * constructor
-     *
      * @param boolean|string $name file name or false
      *
      * @access public

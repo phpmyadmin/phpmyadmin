@@ -23,8 +23,6 @@ use XMLWriter;
 class Dia extends XMLWriter
 {
     /**
-     * The "Dia" constructor
-     *
      * Upon instantiation This starts writing the Dia XML document
      *
      * @see XMLWriter::openMemory(),XMLWriter::setIndent(),XMLWriter::startDocument()

@@ -62,8 +62,6 @@ class TableProperty
     public $ext;
 
     /**
-     * Constructor
-     *
      * @param array $row table row
      */
     public function __construct(array $row)

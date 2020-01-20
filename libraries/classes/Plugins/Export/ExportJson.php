@@ -27,9 +27,6 @@ class ExportJson extends ExportPlugin
 {
     private $first = true;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();

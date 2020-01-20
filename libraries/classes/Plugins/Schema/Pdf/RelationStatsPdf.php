@@ -26,8 +26,6 @@ use PhpMyAdmin\Plugins\Schema\RelationStats;
 class RelationStatsPdf extends RelationStats
 {
     /**
-     * The "PhpMyAdmin\Plugins\Schema\Pdf\RelationStatsPdf" constructor
-     *
      * @param Pdf    $diagram       The PDF diagram
      * @param string $master_table  The master table name
      * @param string $master_field  The relation field in the master table

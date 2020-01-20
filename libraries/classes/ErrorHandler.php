@@ -36,9 +36,6 @@ class ErrorHandler
      */
     protected $error_reporting = 0;
 
-    /**
-     * Constructor - set PHP error handler
-     */
     public function __construct()
     {
         /**

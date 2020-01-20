@@ -39,9 +39,6 @@ class ExportCodegen extends ExportPlugin
      */
     private $_cgHandlers;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();

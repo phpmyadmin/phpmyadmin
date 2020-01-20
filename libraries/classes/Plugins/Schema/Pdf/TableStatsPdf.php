@@ -32,8 +32,6 @@ class TableStatsPdf extends TableStats
     private $_ff = PdfLib::PMA_PDF_FONT;
 
     /**
-     * The "PhpMyAdmin\Plugins\Schema\Pdf\TableStatsPdf" constructor
-     *
      * @see PMA_Schema_PDF, Table_Stats_Pdf::Table_Stats_setWidth,
      *     PhpMyAdmin\Plugins\Schema\Pdf\TableStatsPdf::Table_Stats_setHeight
      *

@@ -115,8 +115,6 @@ class DatabaseInterface implements DbalInterface
     private $relation;
 
     /**
-     * Constructor
-     *
      * @param DbiExtension $ext Object to be used for database queries
      */
     public function __construct(DbiExtension $ext)

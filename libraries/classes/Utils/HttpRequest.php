@@ -19,9 +19,6 @@ class HttpRequest
     private $proxyUser;
     private $proxyPass;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         global $cfg;

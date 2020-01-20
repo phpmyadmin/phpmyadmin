@@ -232,8 +232,6 @@ class Qbe
     public $template;
 
     /**
-     * Public Constructor
-     *
      * @param Relation          $relation        Relation object
      * @param Template          $template        Template object
      * @param DatabaseInterface $dbi             DatabaseInterface object

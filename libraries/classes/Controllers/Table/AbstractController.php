@@ -31,8 +31,6 @@ abstract class AbstractController extends Controller
     protected $table;
 
     /**
-     * Constructor
-     *
      * @param Response          $response Response object
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param Template          $template Template object

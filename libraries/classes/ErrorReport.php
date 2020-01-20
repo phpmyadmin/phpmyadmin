@@ -41,8 +41,6 @@ class ErrorReport
     public $template;
 
     /**
-     * Constructor
-     *
      * @param HttpRequest $httpRequest HttpRequest instance
      * @param Relation    $relation    Relation instance
      * @param Template    $template    Template instance

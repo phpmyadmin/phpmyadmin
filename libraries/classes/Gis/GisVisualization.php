@@ -119,7 +119,7 @@ class GisVisualization
     }
 
     /**
-     * Constructor. Stores user specified options.
+     * Stores user specified options.
      *
      * @param string     $sql_query SQL to fetch raw data for visualization
      * @param array      $options   Users specified options

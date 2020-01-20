@@ -93,8 +93,6 @@ class Error extends Message
     protected $hide_location = false;
 
     /**
-     * Constructor
-     *
      * @param integer $errno   error number
      * @param string  $errstr  error message
      * @param string  $errfile file

@@ -28,9 +28,6 @@ use SimpleXMLElement;
  */
 class ImportOds extends ImportPlugin
 {
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();

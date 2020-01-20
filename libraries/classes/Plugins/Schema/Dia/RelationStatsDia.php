@@ -37,8 +37,6 @@ class RelationStatsDia
     public $referenceColor;
 
     /**
-     * The "PhpMyAdmin\Plugins\Schema\Dia\RelationStatsDia" constructor
-     *
      * @see Relation_Stats_Dia::_getXy
      *
      * @param Dia           $diagram       The DIA diagram

@@ -24,9 +24,6 @@ use PhpMyAdmin\Util;
  */
 class ListDatabase extends ListAbstract
 {
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();

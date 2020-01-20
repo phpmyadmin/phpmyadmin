@@ -78,8 +78,6 @@ class SearchController extends AbstractController
     private $relation;
 
     /**
-     * Constructor
-     *
      * @param Response          $response Response object
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param Template          $template Template object

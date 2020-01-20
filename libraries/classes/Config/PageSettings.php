@@ -57,8 +57,6 @@ class PageSettings
     private $userPreferences;
 
     /**
-     * Constructor
-     *
      * @param string $formGroupName The name of config form group to display
      * @param string $elemId        Id of the div containing settings
      */

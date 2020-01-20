@@ -25,9 +25,6 @@ use PhpMyAdmin\Util;
  */
 class ExportPhparray extends ExportPlugin
 {
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();

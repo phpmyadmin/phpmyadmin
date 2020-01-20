@@ -25,8 +25,6 @@ use PhpMyAdmin\Plugins\Schema\RelationStats;
 class RelationStatsSvg extends RelationStats
 {
     /**
-     * The "PhpMyAdmin\Plugins\Schema\Svg\RelationStatsSvg" constructor
-     *
      * @param Svg    $diagram       The SVG diagram
      * @param string $master_table  The master table name
      * @param string $master_field  The relation field in the master table

@@ -88,9 +88,6 @@ class Theme
      */
     public $template;
 
-    /**
-     * Theme constructor.
-     */
     public function __construct()
     {
         $this->template = new Template();

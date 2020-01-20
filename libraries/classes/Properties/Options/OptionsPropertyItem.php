@@ -40,8 +40,6 @@ abstract class OptionsPropertyItem extends PropertyItem
     private $_force;
 
     /**
-     * constructor
-     *
      * @param string $name Item name
      * @param string $text Item text
      */

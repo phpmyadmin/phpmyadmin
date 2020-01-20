@@ -26,9 +26,6 @@ use PhpMyAdmin\SqlParser\Utils\BufferedQuery;
  */
 class ImportSql extends ImportPlugin
 {
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();

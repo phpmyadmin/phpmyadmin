@@ -24,9 +24,6 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
  */
 class ExportYaml extends ExportPlugin
 {
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();

@@ -19,8 +19,6 @@ use PhpMyAdmin\Config\FormDisplay;
 abstract class BaseForm extends FormDisplay
 {
     /**
-     * Constructor
-     *
      * @param ConfigFile $cf       Config file instance
      * @param int|null   $serverId 0 if new server, validation; >= 1 if editing a server
      */

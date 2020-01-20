@@ -25,9 +25,6 @@ use SimpleXMLElement;
  */
 class ImportXml extends ImportPlugin
 {
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();

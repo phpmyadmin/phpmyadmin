@@ -27,9 +27,6 @@ use PhpMyAdmin\Util;
  */
 class ExportHtmlword extends ExportPlugin
 {
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();

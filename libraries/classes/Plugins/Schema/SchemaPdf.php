@@ -25,9 +25,6 @@ use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
  */
 class SchemaPdf extends SchemaPlugin
 {
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         $this->setProperties();

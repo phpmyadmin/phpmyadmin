@@ -42,8 +42,6 @@ class Normalization
     public $template;
 
     /**
-     * Constructor
-     *
      * @param DatabaseInterface $dbi             DatabaseInterface instance
      * @param Relation          $relation        Relation instance
      * @param Transformations   $transformations Transformations instance

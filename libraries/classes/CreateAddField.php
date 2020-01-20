@@ -23,8 +23,6 @@ class CreateAddField
     private $dbi;
 
     /**
-     * Constructor
-     *
      * @param DatabaseInterface $dbi DatabaseInterface interface
      */
     public function __construct(DatabaseInterface $dbi)

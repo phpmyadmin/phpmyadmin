@@ -78,8 +78,6 @@ class PdfRelationSchema extends ExportRelationSchema
     private $transformations;
 
     /**
-     * The "PdfRelationSchema" constructor
-     *
      * @see PMA_Schema_PDF
      *
      * @param string $db database name

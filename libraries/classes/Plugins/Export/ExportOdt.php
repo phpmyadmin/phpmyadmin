@@ -28,9 +28,6 @@ use PhpMyAdmin\Util;
  */
 class ExportOdt extends ExportPlugin
 {
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();

@@ -209,8 +209,6 @@ class Results
     public $template;
 
     /**
-     * Constructor for PhpMyAdmin\Display\Results class
-     *
      * @param string $db        the database name
      * @param string $table     the table name
      * @param int    $server    the server id

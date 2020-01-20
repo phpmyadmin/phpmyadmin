@@ -27,8 +27,6 @@ class TableStatsDia extends TableStats
     public $tableColor;
 
     /**
-     * The "PhpMyAdmin\Plugins\Schema\Dia\TableStatsDia" constructor
-     *
      * @param Dia     $diagram    The current dia document
      * @param string  $db         The database name
      * @param string  $tableName  The table name

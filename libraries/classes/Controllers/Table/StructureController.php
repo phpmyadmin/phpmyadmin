@@ -71,8 +71,6 @@ class StructureController extends AbstractController
     private $transformations;
 
     /**
-     * StructureController constructor
-     *
      * @param Response          $response        Response object
      * @param DatabaseInterface $dbi             DatabaseInterface object
      * @param Template          $template        Template object

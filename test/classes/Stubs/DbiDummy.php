@@ -37,9 +37,6 @@ class DbiDummy implements DbiExtension
      */
     public const OFFSET_GLOBAL = 1000;
 
-    /**
-     * DbiDummy constructor.
-     */
     public function __construct()
     {
         $this->init();

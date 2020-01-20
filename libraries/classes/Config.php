@@ -79,8 +79,6 @@ class Config
     public $done = false;
 
     /**
-     * constructor
-     *
      * @param string $source source to read config from
      */
     public function __construct(?string $source = null)

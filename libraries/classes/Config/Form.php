@@ -61,7 +61,7 @@ class Form
     private $_configFile;
 
     /**
-     * Constructor, reads default config values
+     * Reads default config values
      *
      * @param string     $formName Form name
      * @param array      $form     Form data

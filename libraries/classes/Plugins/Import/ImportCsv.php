@@ -32,9 +32,6 @@ class ImportCsv extends AbstractImportCsv
      */
     private $_analyze;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();

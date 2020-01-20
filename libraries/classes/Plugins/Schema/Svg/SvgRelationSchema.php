@@ -45,8 +45,6 @@ class SvgRelationSchema extends ExportRelationSchema
     private $_tablewidth;
 
     /**
-     * The "PhpMyAdmin\Plugins\Schema\Svg\SvgRelationSchema" constructor
-     *
      * Upon instantiation This starts writing the SVG XML document
      * user will be prompted for download as .svg extension
      *

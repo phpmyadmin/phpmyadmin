@@ -42,9 +42,6 @@ class Import
     public const SIZES = 1;
     public const FORMATTEDSQL = 2;
 
-    /**
-     * Import constructor.
-     */
     public function __construct()
     {
         $GLOBALS['cfg']['Server']['DisableIS'] = false;

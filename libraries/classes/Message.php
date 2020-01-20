@@ -128,8 +128,6 @@ class Message
     protected $addedMessages = [];
 
     /**
-     * Constructor
-     *
      * @param string  $string   The message to be displayed
      * @param integer $number   A numeric representation of the type of message
      * @param array   $params   An array of parameters to use in the message

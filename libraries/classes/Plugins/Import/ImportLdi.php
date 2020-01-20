@@ -31,9 +31,6 @@ if (! isset($GLOBALS['plugin_param']) || $GLOBALS['plugin_param'] !== 'table') {
  */
 class ImportLdi extends AbstractImportCsv
 {
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();

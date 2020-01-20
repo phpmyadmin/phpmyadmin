@@ -26,9 +26,6 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
  */
 class ExportCsv extends ExportPlugin
 {
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();

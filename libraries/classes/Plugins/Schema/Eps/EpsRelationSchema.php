@@ -40,8 +40,6 @@ class EpsRelationSchema extends ExportRelationSchema
     private $_tablewidth;
 
     /**
-     * The "PMA_EPS_Relation_Schema" constructor
-     *
      * Upon instantiation This starts writing the EPS document
      * user will be prompted for download as .eps extension
      *

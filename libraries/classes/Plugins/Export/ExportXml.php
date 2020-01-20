@@ -47,9 +47,6 @@ class ExportXml extends ExportPlugin
      */
     private $_tables;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();

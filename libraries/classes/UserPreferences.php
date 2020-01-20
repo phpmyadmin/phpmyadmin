@@ -34,9 +34,6 @@ class UserPreferences
      */
     public $template;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         $this->relation = new Relation($GLOBALS['dbi']);

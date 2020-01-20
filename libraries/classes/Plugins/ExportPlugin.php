@@ -46,9 +46,6 @@ abstract class ExportPlugin
      */
     protected $transformations;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         $this->relation = new Relation($GLOBALS['dbi']);

@@ -65,8 +65,6 @@ class StorageEngine
     public $support = PMA_ENGINE_SUPPORT_NO;
 
     /**
-     * Constructor
-     *
      * @param string $engine The engine ID
      */
     public function __construct($engine)

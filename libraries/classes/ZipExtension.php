@@ -22,9 +22,6 @@ class ZipExtension
      */
     private $zip;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         $this->zip = new ZipArchive();

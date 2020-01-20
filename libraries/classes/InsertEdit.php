@@ -47,8 +47,6 @@ class InsertEdit
     public $template;
 
     /**
-     * Constructor
-     *
      * @param DatabaseInterface $dbi DatabaseInterface instance
      */
     public function __construct(DatabaseInterface $dbi)

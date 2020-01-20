@@ -52,8 +52,6 @@ abstract class TableStats
     protected $font;
 
     /**
-     * Constructor
-     *
      * @param Pdf\Pdf|Svg\Svg|Eps\Eps|Dia\Dia|Pdf\Pdf $diagram        schema diagram
      * @param string                                  $db             current db name
      * @param integer                                 $pageNumber     current page number (from the

@@ -47,9 +47,6 @@ class ExportPdf extends ExportPlugin
      */
     private $_pdfReportTitle;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();

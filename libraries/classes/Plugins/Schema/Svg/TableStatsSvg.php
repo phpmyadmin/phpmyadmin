@@ -30,8 +30,6 @@ class TableStatsSvg extends TableStats
     public $currentCell = 0;
 
     /**
-     * The "PhpMyAdmin\Plugins\Schema\Svg\TableStatsSvg" constructor
-     *
      * @see PMA_SVG, Table_Stats_Svg::Table_Stats_setWidth,
      *       PhpMyAdmin\Plugins\Schema\Svg\TableStatsSvg::Table_Stats_setHeight
      *

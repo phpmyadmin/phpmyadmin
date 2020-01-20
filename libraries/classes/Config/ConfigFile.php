@@ -84,8 +84,6 @@ class ConfigFile
     private $_flattenArrayResult;
 
     /**
-     * Constructor
-     *
      * @param array|null $baseConfig base configuration read from
      *                               {@link PhpMyAdmin\Config::$base_config},
      *                               use only when not in PMA Setup

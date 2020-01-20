@@ -33,9 +33,6 @@ class MultSubmits
      */
     private $operations;
 
-    /**
-     * MultSubmits constructor.
-     */
     public function __construct()
     {
         $this->transformations = new Transformations();

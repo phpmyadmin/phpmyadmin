@@ -22,9 +22,6 @@ use stdClass;
 // @codingStandardsIgnoreLine
 class Text_Plain_Json extends TransformationsPlugin
 {
-    /**
-     * No-arg constructor
-     */
     public function __construct()
     {
         if (! empty($GLOBALS['cfg']['CodemirrorEnable'])) {

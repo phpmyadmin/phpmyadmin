@@ -52,9 +52,6 @@ class Template
      */
     public const BASE_PATH = 'templates/';
 
-    /**
-     * Template constructor
-     */
     public function __construct()
     {
         global $cfg;

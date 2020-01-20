@@ -31,9 +31,6 @@ abstract class ImportPlugin
      */
     protected $import;
 
-    /**
-     * ImportPlugin constructor.
-     */
     public function __construct()
     {
         $this->import = new Import();

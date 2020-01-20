@@ -62,9 +62,6 @@ class Sql
      */
     private $template;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         /** @var DatabaseInterface $dbi */

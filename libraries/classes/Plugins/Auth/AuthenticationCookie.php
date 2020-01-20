@@ -41,9 +41,6 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     private $_use_openssl;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();

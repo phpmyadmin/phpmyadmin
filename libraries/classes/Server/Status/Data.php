@@ -309,9 +309,6 @@ class Data
         ];
     }
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         global $replication_info;

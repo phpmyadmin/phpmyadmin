@@ -96,8 +96,6 @@ class Search
     public $template;
 
     /**
-     * Public Constructor
-     *
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param string            $db       Database name
      * @param Template          $template Template object
