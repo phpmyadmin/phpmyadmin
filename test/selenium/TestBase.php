@@ -36,9 +36,7 @@ use Throwable;
  */
 abstract class TestBase extends TestCase
 {
-    /**
-     * @var RemoteWebDriver
-     */
+    /** @var RemoteWebDriver */
     protected $webDriver;
 
     /**

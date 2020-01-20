@@ -24,14 +24,10 @@ use PhpMyAdmin\Plugins\Export\ExportSql;
  */
 class Operations
 {
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**

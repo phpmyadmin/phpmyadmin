@@ -20,9 +20,7 @@ use PHPUnit\Framework\TestCase;
  */
 class DbiMysqliTest extends TestCase
 {
-    /**
-     * @var DbiMysqli
-     */
+    /** @var DbiMysqli */
     protected $object;
 
     /**

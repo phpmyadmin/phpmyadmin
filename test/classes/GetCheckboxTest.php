@@ -20,9 +20,7 @@ use PHPUnit\Framework\TestCase;
  */
 class GetCheckboxTest extends TestCase
 {
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
     /**

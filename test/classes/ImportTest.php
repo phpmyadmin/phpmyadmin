@@ -21,9 +21,7 @@ use PHPUnit\Framework\TestCase;
  */
 class ImportTest extends TestCase
 {
-    /**
-     * @var Import $import
-     */
+    /** @var Import $import */
     private $import;
 
     /**

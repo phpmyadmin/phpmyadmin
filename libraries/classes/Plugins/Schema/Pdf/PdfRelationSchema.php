@@ -51,9 +51,7 @@ class PdfRelationSchema extends ExportRelationSchema
     private $_withDoc;
     private $_tableOrder;
 
-    /**
-     * @var TableStatsPdf[]
-     */
+    /** @var TableStatsPdf[] */
     private $_tables = [];
     private $_ff = PdfLib::PMA_PDF_FONT;
     private $_xMax = 0;
@@ -67,14 +65,10 @@ class PdfRelationSchema extends ExportRelationSchema
     private $_rightMargin = 10;
     private $_tablewidth;
 
-    /**
-     * @var RelationStatsPdf[]
-     */
+    /** @var RelationStatsPdf[] */
     protected $relations = [];
 
-    /**
-     * @var Transformations
-     */
+    /** @var Transformations */
     private $transformations;
 
     /**

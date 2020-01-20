@@ -22,9 +22,7 @@ use PhpMyAdmin\Html\MySQLDocumentation;
  */
 class SqlQueryForm
 {
-    /**
-     * @var Template
-     */
+    /** @var Template */
     private $template;
 
     /**

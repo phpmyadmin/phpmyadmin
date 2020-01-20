@@ -17,9 +17,7 @@ use PhpMyAdmin\Html\Generator;
  */
 class CreateAddField
 {
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**

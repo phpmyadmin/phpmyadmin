@@ -30,34 +30,22 @@ class ThemeManager
      */
     private $_themes_path = './themes/';
 
-    /**
-     * @var array available themes
-     */
+    /** @var array available themes */
     public $themes = [];
 
-    /**
-     * @var string  cookie name
-     */
+    /** @var string  cookie name */
     public $cookie_name = 'pma_theme';
 
-    /**
-     * @var boolean
-     */
+    /** @var boolean */
     public $per_server = false;
 
-    /**
-     * @var string name of active theme
-     */
+    /** @var string name of active theme */
     public $active_theme = '';
 
-    /**
-     * @var Theme Theme active theme
-     */
+    /** @var Theme Theme active theme */
     public $theme = null;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     public $theme_default;
 
     /**

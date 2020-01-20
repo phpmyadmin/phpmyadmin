@@ -18,19 +18,13 @@ use PhpMyAdmin\Html\Forms\Fields\FKCheckbox;
  */
 class MultSubmits
 {
-    /**
-     * @var Transformations
-     */
+    /** @var Transformations */
     private $transformations;
 
-    /**
-     * @var RelationCleanup
-     */
+    /** @var RelationCleanup */
     private $relationCleanup;
 
-    /**
-     * @var Operations
-     */
+    /** @var Operations */
     private $operations;
 
     public function __construct()

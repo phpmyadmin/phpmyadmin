@@ -56,9 +56,7 @@ class DatabaseInterface implements DbalInterface
      */
     public const CONNECT_AUXILIARY = 0x102;
 
-    /**
-     * @var DbiExtension
-     */
+    /** @var DbiExtension */
     private $_extension;
 
     /**
@@ -68,50 +66,30 @@ class DatabaseInterface implements DbalInterface
      */
     private $_links;
 
-    /**
-     * @var array Table data cache
-     */
+    /** @var array Table data cache */
     private $_table_cache;
 
-    /**
-     * @var array Current user and host cache
-     */
+    /** @var array Current user and host cache */
     private $_current_user;
 
-    /**
-     * @var null|string lower_case_table_names value cache
-     */
+    /** @var null|string lower_case_table_names value cache */
     private $_lower_case_table_names = null;
 
-    /**
-     * @var boolean Whether connection is MariaDB
-     */
+    /** @var boolean Whether connection is MariaDB */
     private $_is_mariadb = false;
-    /**
-     * @var boolean Whether connection is Percona
-     */
+    /** @var boolean Whether connection is Percona */
     private $_is_percona = false;
-    /**
-     * @var integer Server version as number
-     */
+    /** @var integer Server version as number */
     private $_version_int = 55000;
-    /**
-     * @var string Server version
-     */
+    /** @var string Server version */
     private $_version_str = '5.50.0';
-    /**
-     * @var string Server version comment
-     */
+    /** @var string Server version comment */
     private $_version_comment = '';
 
-    /**
-     * @var Types MySQL types data
-     */
+    /** @var Types MySQL types data */
     public $types;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
     /**

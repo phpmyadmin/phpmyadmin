@@ -47,14 +47,10 @@ class Footer
      */
     private $_isEnabled;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     private $template;
 
     /**

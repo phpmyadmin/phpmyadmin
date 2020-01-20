@@ -20,14 +20,10 @@ use ReflectionProperty;
  */
 class PmaTestCase extends TestCase
 {
-    /**
-     * @var Response|null
-     */
+    /** @var Response|null */
     protected $restoreInstance = null;
 
-    /**
-     * @var ReflectionProperty|null
-     */
+    /** @var ReflectionProperty|null */
     protected $attrInstance = null;
 
     /**

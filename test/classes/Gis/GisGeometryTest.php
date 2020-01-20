@@ -18,9 +18,7 @@ use ReflectionClass;
  */
 class GisGeometryTest extends TestCase
 {
-    /**
-     * @access protected
-     */
+    /** @access protected */
     protected $object;
 
     /**

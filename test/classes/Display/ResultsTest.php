@@ -26,9 +26,7 @@ use stdClass;
  */
 class ResultsTest extends PmaTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @access protected */
     protected $object;
 
     /**

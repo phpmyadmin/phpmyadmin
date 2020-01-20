@@ -29,9 +29,7 @@ use PhpMyAdmin\ZipExtension;
  */
 class ImportShp extends ImportPlugin
 {
-    /**
-     * @var ZipExtension
-     */
+    /** @var ZipExtension */
     private $zipExtension;
 
     public function __construct()

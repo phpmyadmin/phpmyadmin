@@ -18,9 +18,7 @@ use PHPUnit\Framework\TestCase;
  */
 class CreateAddFieldTest extends TestCase
 {
-    /**
-     * @var CreateAddField
-     */
+    /** @var CreateAddField */
     private $createAddField;
 
     /**

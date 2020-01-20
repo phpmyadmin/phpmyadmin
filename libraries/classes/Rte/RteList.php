@@ -26,19 +26,13 @@ use PhpMyAdmin\Util;
  */
 class RteList
 {
-    /**
-     * @var Words
-     */
+    /** @var Words */
     private $words;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**

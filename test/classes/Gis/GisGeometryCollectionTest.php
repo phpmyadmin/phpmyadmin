@@ -19,9 +19,7 @@ use TCPDF;
  */
 class GisGeometryCollectionTest extends TestCase
 {
-    /**
-     * @access protected
-     */
+    /** @access protected */
     protected $object;
 
     /**

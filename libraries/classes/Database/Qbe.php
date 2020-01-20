@@ -216,19 +216,13 @@ class Qbe
      */
     private $_currentSearch = null;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     public $dbi;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
     /**

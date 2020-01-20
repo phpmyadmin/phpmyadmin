@@ -45,29 +45,19 @@ use stdClass;
  */
 class StructureController extends AbstractController
 {
-    /**
-     * @var Table  The table object
-     */
+    /** @var Table  The table object */
     protected $table_obj;
 
-    /**
-     * @var string  The URL query string
-     */
+    /** @var string  The URL query string */
     protected $_url_query;
 
-    /**
-     * @var CreateAddField
-     */
+    /** @var CreateAddField */
     private $createAddField;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var Transformations
-     */
+    /** @var Transformations */
     private $transformations;
 
     /**

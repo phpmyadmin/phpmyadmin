@@ -24,34 +24,22 @@ use Samyoul\U2F\U2FServer\U2FServer;
  */
 class TwoFactor
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     public $user;
 
-    /**
-     * @var array
-     */
+    /** @var array */
     public $config;
 
-    /**
-     * @var boolean
-     */
+    /** @var boolean */
     protected $_writable;
 
-    /**
-     * @var TwoFactorPlugin
-     */
+    /** @var TwoFactorPlugin */
     protected $_backend;
 
-    /**
-     * @var array
-     */
+    /** @var array */
     protected $_available;
 
-    /**
-     * @var UserPreferences
-     */
+    /** @var UserPreferences */
     private $userPreferences;
 
     /**

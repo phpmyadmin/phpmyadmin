@@ -30,24 +30,16 @@ use ReflectionClass;
  */
 class StructureControllerTest extends PmaTestCase
 {
-    /**
-     * @var \PhpMyAdmin\Tests\Stubs\Response
-     */
+    /** @var \PhpMyAdmin\Tests\Stubs\Response */
     private $response;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var Replication
-     */
+    /** @var Replication */
     private $replication;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     private $template;
 
     /**

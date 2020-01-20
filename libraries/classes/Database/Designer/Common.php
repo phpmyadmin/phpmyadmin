@@ -23,14 +23,10 @@ use function rawurlencode;
  */
 class Common
 {
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**

@@ -19,9 +19,7 @@ use PHPUnit\Framework\TestCase;
  */
 class RelationTest extends TestCase
 {
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
     /**

@@ -34,44 +34,28 @@ use PhpMyAdmin\Util;
  */
 class StructureController extends AbstractController
 {
-    /**
-     * @var int Number of tables
-     */
+    /** @var int Number of tables */
     protected $numTables;
 
-    /**
-     * @var int Current position in the list
-     */
+    /** @var int Current position in the list */
     protected $position;
 
-    /**
-     * @var bool DB is information_schema
-     */
+    /** @var bool DB is information_schema */
     protected $dbIsSystemSchema;
 
-    /**
-     * @var int Number of tables
-     */
+    /** @var int Number of tables */
     protected $totalNumTables;
 
-    /**
-     * @var array Tables in the database
-     */
+    /** @var array Tables in the database */
     protected $tables;
 
-    /**
-     * @var bool whether stats show or not
-     */
+    /** @var bool whether stats show or not */
     protected $isShowStats;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var Replication
-     */
+    /** @var Replication */
     private $replication;
 
     /**

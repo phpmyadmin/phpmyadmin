@@ -37,29 +37,19 @@ use PhpMyAdmin\Util;
  */
 class Sql
 {
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var RelationCleanup
-     */
+    /** @var RelationCleanup */
     private $relationCleanup;
 
-    /**
-     * @var Transformations
-     */
+    /** @var Transformations */
     private $transformations;
 
-    /**
-     * @var Operations
-     */
+    /** @var Operations */
     private $operations;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     private $template;
 
     public function __construct()

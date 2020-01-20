@@ -20,9 +20,7 @@ use stdClass;
  */
 class SqlTest extends TestCase
 {
-    /**
-     * @var Sql
-     */
+    /** @var Sql */
     private $sql;
 
     /**

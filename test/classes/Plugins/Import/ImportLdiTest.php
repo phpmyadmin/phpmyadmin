@@ -21,9 +21,7 @@ use PHPUnit\Framework\MockObject\MockObject;
  */
 class ImportLdiTest extends PmaTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @access protected */
     protected $object;
 
     /**

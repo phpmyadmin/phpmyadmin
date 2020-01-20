@@ -72,9 +72,7 @@ class SearchController extends AbstractController
     /** @var Search */
     private $search;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
     /**

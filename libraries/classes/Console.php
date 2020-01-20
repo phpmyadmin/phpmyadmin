@@ -35,14 +35,10 @@ class Console
      */
     private $_isAjax;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
     /**

@@ -20,9 +20,7 @@ use PHPUnit\Framework\TestCase;
  */
 class EventsTest extends TestCase
 {
-    /**
-     * @var Events
-     */
+    /** @var Events */
     private $events;
 
     /**

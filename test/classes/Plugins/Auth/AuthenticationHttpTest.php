@@ -19,9 +19,7 @@ use PhpMyAdmin\Tests\PmaTestCase;
  */
 class AuthenticationHttpTest extends PmaTestCase
 {
-    /**
-     * @var AuthenticationHttp
-     */
+    /** @var AuthenticationHttp */
     protected $object;
 
     /**

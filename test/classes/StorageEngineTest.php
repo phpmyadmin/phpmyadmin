@@ -18,9 +18,7 @@ use PhpMyAdmin\Tests\PmaTestCase;
  */
 class StorageEngineTest extends PmaTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @access protected */
     protected $object;
 
     /**

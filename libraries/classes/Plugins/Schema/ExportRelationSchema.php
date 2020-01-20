@@ -34,9 +34,7 @@ class ExportRelationSchema
     protected $pageNumber;
     protected $offline;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     protected $relation;
 
     /**

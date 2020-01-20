@@ -13,9 +13,7 @@ use PhpMyAdmin\DatabaseInterface;
  */
 class Plugins
 {
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**

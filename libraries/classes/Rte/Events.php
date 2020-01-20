@@ -22,34 +22,22 @@ use PhpMyAdmin\Util;
  */
 class Events
 {
-    /**
-     * @var Export
-     */
+    /** @var Export */
     private $export;
 
-    /**
-     * @var Footer
-     */
+    /** @var Footer */
     private $footer;
 
-    /**
-     * @var General
-     */
+    /** @var General */
     private $general;
 
-    /**
-     * @var RteList
-     */
+    /** @var RteList */
     private $rteList;
 
-    /**
-     * @var Words
-     */
+    /** @var Words */
     private $words;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**

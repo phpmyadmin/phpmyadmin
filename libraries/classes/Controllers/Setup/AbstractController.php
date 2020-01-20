@@ -18,14 +18,10 @@ use PhpMyAdmin\Template;
  */
 abstract class AbstractController
 {
-    /**
-     * @var ConfigFile
-     */
+    /** @var ConfigFile */
     protected $config;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     protected $template;
 
     /**

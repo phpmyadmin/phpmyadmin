@@ -19,19 +19,13 @@ use PhpMyAdmin\Template;
  */
 abstract class AbstractController
 {
-    /**
-     * @var Response
-     */
+    /** @var Response */
     protected $response;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     protected $dbi;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     protected $template;
 
     /**

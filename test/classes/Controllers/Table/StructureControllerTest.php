@@ -28,14 +28,10 @@ use ReflectionClass;
  */
 class StructureControllerTest extends PmaTestCase
 {
-    /**
-     * @var ResponseStub
-     */
+    /** @var ResponseStub */
     private $_response;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     private $template;
 
     /**

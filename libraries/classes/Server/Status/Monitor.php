@@ -19,9 +19,7 @@ use PhpMyAdmin\Util;
  */
 class Monitor
 {
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**

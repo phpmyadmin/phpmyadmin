@@ -26,9 +26,7 @@ use PhpMyAdmin\Util;
  */
 class ServerConfigChecks
 {
-    /**
-     * @var ConfigFile configurations being checked
-     */
+    /** @var ConfigFile configurations being checked */
     protected $cfg;
 
     /**

@@ -19,9 +19,7 @@ use Twig\Error\LoaderError;
  */
 class TemplateTest extends PmaTestCase
 {
-    /**
-     * @var Template
-     */
+    /** @var Template */
     protected $template;
 
     /**

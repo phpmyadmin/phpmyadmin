@@ -21,9 +21,7 @@ use PHPUnit\Framework\TestCase;
  */
 class ExportTest extends TestCase
 {
-    /**
-     * @var Export
-     */
+    /** @var Export */
     private $export;
 
     /**

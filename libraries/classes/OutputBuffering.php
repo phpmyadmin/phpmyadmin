@@ -19,9 +19,7 @@ class OutputBuffering
     private $_mode;
     private $_content;
 
-    /**
-     * @var bool
-     */
+    /** @var bool */
     private $_on;
 
     /**

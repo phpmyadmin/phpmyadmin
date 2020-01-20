@@ -30,9 +30,7 @@ use stdClass;
  */
 class PrivilegesTest extends TestCase
 {
-    /**
-     * @var Privileges $serverPrivileges
-     */
+    /** @var Privileges $serverPrivileges */
     private $serverPrivileges;
 
     /**

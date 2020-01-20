@@ -17,9 +17,7 @@ use PhpMyAdmin\Plugins\TwoFactorPlugin;
  */
 class Invalid extends TwoFactorPlugin
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     public static $id = 'invalid';
 
     public static $showSubmit = false;

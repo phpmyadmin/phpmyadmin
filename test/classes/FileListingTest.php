@@ -15,9 +15,7 @@ use PHPUnit\Framework\TestCase;
  */
 class FileListingTest extends TestCase
 {
-    /**
-     * @var FileListing $fileListing
-     */
+    /** @var FileListing $fileListing */
     private $fileListing;
 
     protected function setUp(): void

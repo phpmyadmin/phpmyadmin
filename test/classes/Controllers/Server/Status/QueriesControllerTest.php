@@ -22,9 +22,7 @@ use PHPUnit\Framework\TestCase;
  */
 class QueriesControllerTest extends TestCase
 {
-    /**
-     * @var Data
-     */
+    /** @var Data */
     private $data;
 
     protected function setUp(): void

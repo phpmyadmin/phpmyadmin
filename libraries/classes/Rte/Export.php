@@ -20,14 +20,10 @@ use PhpMyAdmin\Util;
  */
 class Export
 {
-    /**
-     * @var Words
-     */
+    /** @var Words */
     private $words;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**

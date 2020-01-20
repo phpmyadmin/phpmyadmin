@@ -21,9 +21,7 @@ use PhpMyAdmin\Template;
  */
 class MonitorController extends AbstractController
 {
-    /**
-     * @var Monitor
-     */
+    /** @var Monitor */
     private $monitor;
 
     /**

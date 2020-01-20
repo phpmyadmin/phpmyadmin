@@ -21,9 +21,7 @@ use stdClass;
  */
 class DatabaseInterfaceTest extends PmaTestCase
 {
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $_dbi;
 
     /**

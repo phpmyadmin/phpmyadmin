@@ -46,9 +46,7 @@ class Bookmark
      */
     private $_query;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**

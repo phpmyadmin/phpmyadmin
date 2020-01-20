@@ -19,9 +19,7 @@ use ZipArchive;
  */
 class ZipExtensionTest extends PmaTestCase
 {
-    /**
-     * @var ZipExtension
-     */
+    /** @var ZipExtension */
     private $zipExtension;
 
     protected function setUp(): void

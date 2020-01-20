@@ -20,14 +20,10 @@ use PhpMyAdmin\SqlParser\Utils\Table as TableUtils;
  */
 class Relation
 {
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     public $dbi;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
     /**

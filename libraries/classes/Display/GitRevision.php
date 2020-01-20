@@ -21,19 +21,13 @@ use PhpMyAdmin\Util;
  */
 class GitRevision
 {
-    /**
-     * @var Response
-     */
+    /** @var Response */
     private $response;
 
-    /**
-     * @var Config
-     */
+    /** @var Config */
     private $config;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     private $template;
 
     /**

@@ -18,9 +18,7 @@ use PhpMyAdmin\Types;
  */
 class TypesTest extends PmaTestCase
 {
-    /**
-     * @var Types
-     */
+    /** @var Types */
     protected $object;
 
     /**

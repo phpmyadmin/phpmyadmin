@@ -32,19 +32,13 @@ class Index
      */
     private static $_registry = [];
 
-    /**
-     * @var string The name of the schema
-     */
+    /** @var string The name of the schema */
     private $_schema = '';
 
-    /**
-     * @var string The name of the table
-     */
+    /** @var string The name of the table */
     private $_table = '';
 
-    /**
-     * @var string The name of the index
-     */
+    /** @var string The name of the index */
     private $_name = '';
 
     /**
@@ -83,9 +77,7 @@ class Index
      */
     private $_comment = '';
 
-    /**
-     * @var integer 0 if the index cannot contain duplicates, 1 if it can.
-     */
+    /** @var integer 0 if the index cannot contain duplicates, 1 if it can. */
     private $_non_unique = 0;
 
     /**

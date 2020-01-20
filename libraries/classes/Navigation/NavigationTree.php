@@ -28,9 +28,7 @@ use PhpMyAdmin\Url;
  */
 class NavigationTree
 {
-    /**
-     * @var Node Reference to the root node of the tree
-     */
+    /** @var Node Reference to the root node of the tree */
     private $tree;
     /**
      * @var array The actual paths to all expanded nodes in the tree
@@ -89,14 +87,10 @@ class NavigationTree
      */
     private $largeGroupWarning = false;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     private $template;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**

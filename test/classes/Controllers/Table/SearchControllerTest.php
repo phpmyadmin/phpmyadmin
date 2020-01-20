@@ -24,14 +24,10 @@ use stdClass;
  */
 class SearchControllerTest extends PmaTestCase
 {
-    /**
-     * @var ResponseStub
-     */
+    /** @var ResponseStub */
     private $_response;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     private $template;
 
     /**

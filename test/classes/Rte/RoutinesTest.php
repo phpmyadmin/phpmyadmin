@@ -22,9 +22,7 @@ use PHPUnit\Framework\TestCase;
  */
 class RoutinesTest extends TestCase
 {
-    /**
-     * @var Routines
-     */
+    /** @var Routines */
     private $routines;
 
     /**

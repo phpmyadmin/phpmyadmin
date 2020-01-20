@@ -26,9 +26,7 @@ abstract class ImportPlugin
      */
     protected $properties;
 
-    /**
-     * @var Import
-     */
+    /** @var Import */
     protected $import;
 
     public function __construct()

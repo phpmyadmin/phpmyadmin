@@ -56,14 +56,10 @@ class Charsets
      */
     private static $serverCharset = null;
 
-    /**
-     * @var array<string, Charset>
-     */
+    /** @var array<string, Charset> */
     private static $charsets = [];
 
-    /**
-     * @var array<string, array<string, Collation>>
-     */
+    /** @var array<string, array<string, Collation>> */
     private static $collations = [];
 
     /**

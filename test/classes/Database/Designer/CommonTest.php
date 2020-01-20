@@ -20,9 +20,7 @@ use PHPUnit\Framework\TestCase;
  */
 class CommonTest extends TestCase
 {
-    /**
-     * @var Common
-     */
+    /** @var Common */
     private $designerCommon;
 
     /**

@@ -47,14 +47,10 @@ class Pdf extends PdfLib
     private $currentTable;
     private $aliases;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var Transformations
-     */
+    /** @var Transformations */
     private $transformations;
 
     /**

@@ -41,14 +41,10 @@ abstract class AuthenticationPlugin
      */
     public $password = '';
 
-    /**
-     * @var IpAllowDeny
-     */
+    /** @var IpAllowDeny */
     protected $ipAllowDeny;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
     public function __construct()

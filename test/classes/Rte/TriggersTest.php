@@ -20,9 +20,7 @@ use PHPUnit\Framework\TestCase;
  */
 class TriggersTest extends TestCase
 {
-    /**
-     * @var Triggers
-     */
+    /** @var Triggers */
     private $triggers;
 
     /**

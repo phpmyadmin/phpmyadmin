@@ -22,9 +22,7 @@ use ReflectionProperty;
  */
 class ServerConfigChecksTest extends PmaTestCase
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     private $sessionID;
 
     /**

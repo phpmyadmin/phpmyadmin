@@ -24,9 +24,7 @@ use ReflectionMethod;
  */
 class AuthenticationCookieTest extends PmaTestCase
 {
-    /**
-     * @var AuthenticationCookie
-     */
+    /** @var AuthenticationCookie */
     protected $object;
 
     /**

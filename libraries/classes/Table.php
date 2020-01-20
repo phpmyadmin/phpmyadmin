@@ -41,49 +41,31 @@ class Table
     public const PROP_COLUMN_ORDER = 'col_order';
     public const PROP_COLUMN_VISIB = 'col_visib';
 
-    /**
-     * @var string  engine (innodb, myisam, bdb, ...)
-     */
+    /** @var string  engine (innodb, myisam, bdb, ...) */
     public $engine = '';
 
-    /**
-     * @var string  type (view, base table, system view)
-     */
+    /** @var string  type (view, base table, system view) */
     public $type = '';
 
-    /**
-     * @var array UI preferences
-     */
+    /** @var array UI preferences */
     public $uiprefs;
 
-    /**
-     * @var array errors occurred
-     */
+    /** @var array errors occurred */
     public $errors = [];
 
-    /**
-     * @var array messages
-     */
+    /** @var array messages */
     public $messages = [];
 
-    /**
-     * @var string  table name
-     */
+    /** @var string  table name */
     protected $_name = '';
 
-    /**
-     * @var string  database name
-     */
+    /** @var string  database name */
     protected $_db_name = '';
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     protected $_dbi;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
     /**

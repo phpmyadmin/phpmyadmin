@@ -20,9 +20,7 @@ use PhpMyAdmin\Template;
  */
 abstract class AbstractController extends Controller
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $db;
 
     /**

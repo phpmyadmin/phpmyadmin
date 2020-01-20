@@ -21,14 +21,10 @@ use PhpMyAdmin\Template;
  */
 class BrowseForeignersController extends AbstractController
 {
-    /**
-     * @var BrowseForeigners
-     */
+    /** @var BrowseForeigners */
     private $browseForeigners;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
     /**

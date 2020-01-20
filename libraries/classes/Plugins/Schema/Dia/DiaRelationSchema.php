@@ -31,9 +31,7 @@ use PhpMyAdmin\Plugins\Schema\Svg\TableStatsSvg;
  */
 class DiaRelationSchema extends ExportRelationSchema
 {
-    /**
-     * @var TableStatsDia[]|TableStatsEps[]|TableStatsPdf[]|TableStatsSvg[]
-     */
+    /** @var TableStatsDia[]|TableStatsEps[]|TableStatsPdf[]|TableStatsSvg[] */
     private $_tables = [];
     /** @var RelationStatsDia[] Relations */
     private $_relations = [];

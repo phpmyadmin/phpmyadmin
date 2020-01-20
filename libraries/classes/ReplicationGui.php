@@ -15,14 +15,10 @@ namespace PhpMyAdmin;
  */
 class ReplicationGui
 {
-    /**
-     * @var Replication
-     */
+    /** @var Replication */
     private $replication;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     private $template;
 
     /**

@@ -25,9 +25,7 @@ use PragmaRX\Google2FAQRCode\Google2FA;
  */
 class Application extends TwoFactorPlugin
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     public static $id = 'application';
 
     protected $_google2fa;

@@ -34,14 +34,10 @@ use PhpMyAdmin\Util;
  */
 class HomeController extends AbstractController
 {
-    /**
-     * @var Config
-     */
+    /** @var Config */
     private $config;
 
-    /**
-     * @var ThemeManager
-     */
+    /** @var ThemeManager */
     private $themeManager;
 
     /**

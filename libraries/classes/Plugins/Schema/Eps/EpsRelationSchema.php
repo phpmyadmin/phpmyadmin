@@ -29,9 +29,7 @@ use PhpMyAdmin\Plugins\Schema\Svg\TableStatsSvg;
  */
 class EpsRelationSchema extends ExportRelationSchema
 {
-    /**
-     * @var TableStatsDia[]|TableStatsEps[]|TableStatsPdf[]|TableStatsSvg[]
-     */
+    /** @var TableStatsDia[]|TableStatsEps[]|TableStatsPdf[]|TableStatsSvg[] */
     private $_tables = [];
 
     /** @var RelationStatsEps[] Relations */

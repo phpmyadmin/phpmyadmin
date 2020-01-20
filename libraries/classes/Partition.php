@@ -17,13 +17,9 @@ use PhpMyAdmin\SubPartition;
  */
 class Partition extends SubPartition
 {
-    /**
-     * @var string partition description
-     */
+    /** @var string partition description */
     protected $description;
-    /**
-     * @var SubPartition[] sub partitions
-     */
+    /** @var SubPartition[] sub partitions */
     protected $subPartitions = [];
 
     /**

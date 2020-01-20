@@ -41,14 +41,10 @@ abstract class TableStats
     public $heightCell = 0;
     protected $offline;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     protected $relation;
 
-    /**
-     * @var Font
-     */
+    /** @var Font */
     protected $font;
 
     /**

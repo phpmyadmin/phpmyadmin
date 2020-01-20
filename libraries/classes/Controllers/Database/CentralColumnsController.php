@@ -20,9 +20,7 @@ use PhpMyAdmin\Template;
  */
 class CentralColumnsController extends AbstractController
 {
-    /**
-     * @var CentralColumns
-     */
+    /** @var CentralColumns */
     private $centralColumns;
 
     /**

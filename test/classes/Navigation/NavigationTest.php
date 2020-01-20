@@ -21,9 +21,7 @@ use PhpMyAdmin\Url;
  */
 class NavigationTest extends PmaTestCase
 {
-    /**
-     * @var Navigation
-     */
+    /** @var Navigation */
     protected $object;
 
     /**

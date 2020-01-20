@@ -17,9 +17,7 @@ use ReflectionClass;
  */
 class HttpRequestTest extends PmaTestCase
 {
-    /**
-     * @var HttpRequest
-     */
+    /** @var HttpRequest */
     private $httpRequest;
 
     protected function setUp(): void

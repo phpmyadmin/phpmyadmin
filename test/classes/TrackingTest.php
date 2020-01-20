@@ -23,9 +23,7 @@ use PHPUnit\Framework\TestCase;
  */
 class TrackingTest extends TestCase
 {
-    /**
-     * @var Tracking $tracking
-     */
+    /** @var Tracking $tracking */
     private $tracking;
 
     /**

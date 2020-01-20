@@ -18,9 +18,7 @@ use PhpMyAdmin\Tests\PmaTestCase;
  */
 class LanguageTest extends PmaTestCase
 {
-    /**
-     * @var LanguageManager
-     */
+    /** @var LanguageManager */
     private $manager;
 
     /**

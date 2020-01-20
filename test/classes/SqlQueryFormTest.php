@@ -25,9 +25,7 @@ use PHPUnit\Framework\TestCase;
  */
 class SqlQueryFormTest extends TestCase
 {
-    /**
-     * @var SqlQueryForm
-     */
+    /** @var SqlQueryForm */
     private $sqlQueryForm;
 
     /**

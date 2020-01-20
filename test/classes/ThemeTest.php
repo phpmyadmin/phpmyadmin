@@ -19,14 +19,10 @@ use PhpMyAdmin\Theme;
  */
 class ThemeTest extends PmaTestCase
 {
-    /**
-     * @var Theme
-     */
+    /** @var Theme */
     protected $object;
 
-    /**
-     * @var Theme backup for session theme
-     */
+    /** @var Theme backup for session theme */
     protected $backup;
 
     /**

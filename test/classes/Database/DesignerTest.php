@@ -22,9 +22,7 @@ use ReflectionMethod;
  */
 class DesignerTest extends TestCase
 {
-    /**
-     * @var Designer
-     */
+    /** @var Designer */
     private $designer;
 
     /**

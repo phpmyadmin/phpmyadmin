@@ -105,14 +105,10 @@ class Header
      */
     private $_headerIsSent;
 
-    /**
-     * @var UserPreferences
-     */
+    /** @var UserPreferences */
     private $userPreferences;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     private $template;
 
     /**

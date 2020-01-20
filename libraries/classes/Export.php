@@ -21,9 +21,7 @@ use PhpMyAdmin\Plugins\SchemaPlugin;
  */
 class Export
 {
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**

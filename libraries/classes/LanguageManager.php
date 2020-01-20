@@ -671,9 +671,7 @@ class LanguageManager
     private $_lang_failed_cookie;
     private $_lang_failed_request;
 
-    /**
-     * @var LanguageManager
-     */
+    /** @var LanguageManager */
     private static $instance;
 
     /**

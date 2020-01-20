@@ -28,9 +28,7 @@ use Twig_Error_Syntax;
  */
 class Key extends TwoFactorPlugin
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     public static $id = 'key';
 
     /**

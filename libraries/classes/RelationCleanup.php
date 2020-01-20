@@ -19,14 +19,10 @@ use PhpMyAdmin\Util;
  */
 class RelationCleanup
 {
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     public $relation;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     public $dbi;
 
     /**

@@ -18,9 +18,7 @@ use PhpMyAdmin\Tests\PmaTestCase;
  */
 class FontTest extends PmaTestCase
 {
-    /**
-     * @var Font
-     */
+    /** @var Font */
     private $font;
 
     /**

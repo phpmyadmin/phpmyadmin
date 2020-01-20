@@ -17,19 +17,13 @@ use PhpMyAdmin\Html\Generator;
  */
 class Tracking
 {
-    /**
-     * @var SqlQueryForm
-     */
+    /** @var SqlQueryForm */
     private $sqlQueryForm;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     protected $relation;
 
     /**

@@ -15,69 +15,43 @@ namespace PhpMyAdmin\Server;
  */
 final class Plugin
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     private $name;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     private $version;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $status;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $type;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     private $typeVersion;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     private $library;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     private $libraryVersion;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     private $author;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     private $description;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $license;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     private $loadOption;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     private $maturity;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     private $authVersion;
 
     /**

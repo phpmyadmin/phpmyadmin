@@ -94,9 +94,7 @@ class FormDisplay
      */
     private $_userprefsDisallow;
 
-    /**
-     * @var FormDisplayTemplate
-     */
+    /** @var FormDisplayTemplate */
     private $formDisplayTemplate;
 
     /**

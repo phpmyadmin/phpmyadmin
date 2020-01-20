@@ -29,24 +29,16 @@ use PhpMyAdmin\Util;
  */
 class Privileges
 {
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
-    /**
-     * @var RelationCleanup
-     */
+    /** @var RelationCleanup */
     private $relationCleanup;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     public $dbi;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     public $relation;
 
     /**

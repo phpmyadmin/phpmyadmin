@@ -20,9 +20,7 @@ use ReflectionClass;
  */
 class SearchTest extends PmaTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @access protected */
     protected $object;
 
     /**

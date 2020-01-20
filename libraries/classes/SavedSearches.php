@@ -57,9 +57,7 @@ class SavedSearches
      */
     private $_criterias = null;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
     /**

@@ -21,14 +21,10 @@ use PhpMyAdmin\Util;
  */
 class Footer
 {
-    /**
-     * @var Words
-     */
+    /** @var Words */
     private $words;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**

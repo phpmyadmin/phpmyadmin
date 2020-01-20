@@ -19,9 +19,7 @@ use ReflectionProperty;
  */
 class ScriptsTest extends PmaTestCase
 {
-    /**
-     * @var Scripts
-     */
+    /** @var Scripts */
     protected $object;
 
     /**

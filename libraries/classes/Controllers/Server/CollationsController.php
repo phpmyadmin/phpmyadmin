@@ -24,14 +24,10 @@ use PhpMyAdmin\Template;
  */
 class CollationsController extends AbstractController
 {
-    /**
-     * @var array|null
-     */
+    /** @var array|null */
     private $charsets;
 
-    /**
-     * @var array|null
-     */
+    /** @var array|null */
     private $collations;
 
     /**

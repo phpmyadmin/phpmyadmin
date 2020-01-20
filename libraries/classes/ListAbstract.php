@@ -20,9 +20,7 @@ use ArrayObject;
  */
 abstract class ListAbstract extends ArrayObject
 {
-    /**
-     * @var mixed   empty item
-     */
+    /** @var mixed   empty item */
     protected $item_empty = '';
 
     /**

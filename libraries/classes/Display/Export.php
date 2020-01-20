@@ -33,14 +33,10 @@ use Twig_Error_Syntax;
  */
 class Export
 {
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
     public function __construct()

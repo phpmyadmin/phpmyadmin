@@ -18,9 +18,7 @@ use PhpMyAdmin\Util;
  */
 class CheckUserPrivileges
 {
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**

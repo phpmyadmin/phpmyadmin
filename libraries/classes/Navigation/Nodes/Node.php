@@ -38,9 +38,7 @@ class Node
      *             This will never change after being assigned
      */
     public $realName = '';
-    /**
-     * @var int May be one of CONTAINER or OBJECT
-     */
+    /** @var int May be one of CONTAINER or OBJECT */
     public $type = self::OBJECT;
     /**
      * @var bool Whether this object has been created while grouping nodes
@@ -72,26 +70,18 @@ class Node
      *          Only relevant if the node is of type CONTAINER
      */
     public $separatorDepth = 1;
-    /**
-     * @var string|array An IMG tag, used when rendering the node, an array for NodeTabl
-     */
+    /** @var string|array An IMG tag, used when rendering the node, an array for NodeTabl */
     public $icon;
     /**
      * @var array An array of A tags, used when rendering the node
      *            The indexes in the array may be 'icon' and 'text'
      */
     public $links;
-    /**
-     * @var string HTML title
-     */
+    /** @var string HTML title */
     public $title;
-    /**
-     * @var string Extra CSS classes for the node
-     */
+    /** @var string Extra CSS classes for the node */
     public $classes = '';
-    /**
-     * @var bool Whether this node is a link for creating new objects
-     */
+    /** @var bool Whether this node is a link for creating new objects */
     public $isNew = false;
     /**
      * @var int The position for the pagination of
@@ -104,14 +94,10 @@ class Node
      */
     public $pos3 = 0;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     protected $relation;
 
-    /**
-     * @var string $displayName  display name for the navigation tree
-     */
+    /** @var string $displayName  display name for the navigation tree */
     public $displayName;
 
     /**

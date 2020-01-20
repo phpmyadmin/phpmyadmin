@@ -25,14 +25,10 @@ class ConfigTest extends PmaTestCase
      */
     protected $backupGlobals = false;
 
-    /**
-     * @var Config
-     */
+    /** @var Config */
     protected $object;
 
-    /**
-     * @var Config to test file permission
-     */
+    /** @var Config to test file permission */
     protected $permTestObj;
 
     /**

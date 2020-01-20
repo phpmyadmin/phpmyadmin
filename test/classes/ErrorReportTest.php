@@ -25,9 +25,7 @@ use ReflectionClass;
  */
 class ErrorReportTest extends TestCase
 {
-    /**
-     * @var ErrorReport $errorReport
-     */
+    /** @var ErrorReport $errorReport */
     private $errorReport;
 
     protected function setUp(): void

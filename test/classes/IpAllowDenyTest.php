@@ -21,9 +21,7 @@ use PHPUnit\Framework\TestCase;
  */
 class IpAllowDenyTest extends TestCase
 {
-    /**
-     * @var IpAllowDeny
-     */
+    /** @var IpAllowDeny */
     private $ipAllowDeny;
 
     /**

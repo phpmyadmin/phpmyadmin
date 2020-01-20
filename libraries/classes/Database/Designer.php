@@ -25,19 +25,13 @@ use stdClass;
  */
 class Designer
 {
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
     /**

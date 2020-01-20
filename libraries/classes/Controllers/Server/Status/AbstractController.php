@@ -21,9 +21,7 @@ use PhpMyAdmin\Template;
  */
 abstract class AbstractController extends Controller
 {
-    /**
-     * @var Data
-     */
+    /** @var Data */
     protected $data;
 
     /**

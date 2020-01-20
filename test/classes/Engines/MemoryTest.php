@@ -18,9 +18,7 @@ use PhpMyAdmin\Tests\PmaTestCase;
  */
 class MemoryTest extends PmaTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @access protected */
     protected $object;
 
     /**

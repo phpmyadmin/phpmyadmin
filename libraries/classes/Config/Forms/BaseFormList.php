@@ -20,14 +20,10 @@ class BaseFormList
      */
     protected static $all = [];
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected static $ns = 'PhpMyAdmin\\Config\\Forms\\';
 
-    /**
-     * @var array
-     */
+    /** @var array */
     private $_forms;
 
     /**

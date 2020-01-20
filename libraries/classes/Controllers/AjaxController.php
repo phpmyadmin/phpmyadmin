@@ -21,9 +21,7 @@ use PhpMyAdmin\Template;
  */
 class AjaxController extends AbstractController
 {
-    /**
-     * @var Config
-     */
+    /** @var Config */
     private $config;
 
     /**

@@ -26,9 +26,7 @@ class BrowseForeigners
     /** @var string */
     private $themeImage;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
     /**

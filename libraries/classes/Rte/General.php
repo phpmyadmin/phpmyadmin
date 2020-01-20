@@ -20,9 +20,7 @@ use PhpMyAdmin\Util;
  */
 class General
 {
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**

@@ -83,9 +83,7 @@ class Theme
         'icons',
     ];
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
     public function __construct()

@@ -18,9 +18,7 @@ use PHPUnit\Framework\TestCase;
  */
 class TransformationsTest extends TestCase
 {
-    /**
-     * @var Transformations
-     */
+    /** @var Transformations */
     private $transformations;
 
     /**

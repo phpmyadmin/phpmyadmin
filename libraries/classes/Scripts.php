@@ -32,9 +32,7 @@ class Scripts
      */
     private $_code;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     private $template;
 
     /**

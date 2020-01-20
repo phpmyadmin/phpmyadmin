@@ -23,9 +23,7 @@ use PhpMyAdmin\Template;
  */
 class PluginsController extends AbstractController
 {
-    /**
-     * @var Plugins
-     */
+    /** @var Plugins */
     private $plugins;
 
     /**

@@ -20,9 +20,7 @@ use PhpMyAdmin\Util;
  */
 final class GisVisualizationController extends AbstractController
 {
-    /**
-     * @var GisVisualization
-     */
+    /** @var GisVisualization */
     protected $visualization;
 
     public function index(): void

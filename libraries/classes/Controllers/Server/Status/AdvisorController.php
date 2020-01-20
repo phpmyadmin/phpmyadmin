@@ -21,9 +21,7 @@ use PhpMyAdmin\Template;
  */
 class AdvisorController extends AbstractController
 {
-    /**
-     * @var Advisor
-     */
+    /** @var Advisor */
     private $advisor;
 
     /**

@@ -24,51 +24,33 @@ use PhpMyAdmin\Utils\HttpRequest;
  */
 class Config
 {
-    /**
-     * @var string  default config source
-     */
+    /** @var string  default config source */
     public $default_source = ROOT_PATH . 'libraries/config.default.php';
 
-    /**
-     * @var array   default configuration settings
-     */
+    /** @var array   default configuration settings */
     public $default = [];
 
-    /**
-     * @var array   configuration settings, without user preferences applied
-     */
+    /** @var array   configuration settings, without user preferences applied */
     public $base_settings = [];
 
-    /**
-     * @var array   configuration settings
-     */
+    /** @var array   configuration settings */
     public $settings = [];
 
-    /**
-     * @var string  config source
-     */
+    /** @var string  config source */
     public $source = '';
 
-    /**
-     * @var int     source modification time
-     */
+    /** @var int     source modification time */
     public $source_mtime = 0;
     public $default_source_mtime = 0;
     public $set_mtime = 0;
 
-    /**
-     * @var boolean
-     */
+    /** @var boolean */
     public $error_config_file = false;
 
-    /**
-     * @var boolean
-     */
+    /** @var boolean */
     public $error_config_default_file = false;
 
-    /**
-     * @var array
-     */
+    /** @var array */
     public $default_server = [];
 
     /**

@@ -24,9 +24,7 @@ use PhpMyAdmin\Util;
  */
 class UserPassword
 {
-    /**
-     * @var Privileges
-     */
+    /** @var Privileges */
     private $serverPrivileges;
 
     /**

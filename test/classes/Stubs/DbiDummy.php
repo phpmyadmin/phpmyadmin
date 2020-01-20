@@ -27,9 +27,7 @@ use PhpMyAdmin\Dbal\DbiExtension;
  */
 class DbiDummy implements DbiExtension
 {
-    /**
-     * @var array
-     */
+    /** @var array */
     private $_queries = [];
 
     /**

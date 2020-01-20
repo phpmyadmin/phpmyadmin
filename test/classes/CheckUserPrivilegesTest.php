@@ -18,9 +18,7 @@ use PHPUnit\Framework\TestCase;
  */
 class CheckUserPrivilegesTest extends TestCase
 {
-    /**
-     * @var CheckUserPrivileges
-     */
+    /** @var CheckUserPrivileges */
     private $checkUserPrivileges;
 
     /**

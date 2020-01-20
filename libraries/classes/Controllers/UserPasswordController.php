@@ -20,9 +20,7 @@ use PhpMyAdmin\UserPassword;
  */
 class UserPasswordController extends AbstractController
 {
-    /**
-     * @var UserPassword
-     */
+    /** @var UserPassword */
     private $userPassword;
 
     /**

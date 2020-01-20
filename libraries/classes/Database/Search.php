@@ -85,14 +85,10 @@ class Search
      */
     private $criteriaColumnName;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
     /**

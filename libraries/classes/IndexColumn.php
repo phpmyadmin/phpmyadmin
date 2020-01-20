@@ -15,14 +15,10 @@ namespace PhpMyAdmin;
  */
 class IndexColumn
 {
-    /**
-     * @var string The column name
-     */
+    /** @var string The column name */
     private $_name = '';
 
-    /**
-     * @var integer The column sequence number in the index, starting with 1.
-     */
+    /** @var integer The column sequence number in the index, starting with 1. */
     private $_seq_in_index = 1;
 
     /**

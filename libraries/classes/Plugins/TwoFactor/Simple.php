@@ -19,9 +19,7 @@ use PhpMyAdmin\Plugins\TwoFactorPlugin;
  */
 class Simple extends TwoFactorPlugin
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     public static $id = 'simple';
 
     /**

@@ -19,9 +19,7 @@ use ReflectionClass;
  */
 class ErrorHandlerTest extends PmaTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @access protected */
     protected $object;
 
     /**

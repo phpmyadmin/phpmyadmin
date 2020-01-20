@@ -21,14 +21,10 @@ use PhpMyAdmin\Util;
  */
 class DataDictionaryController extends AbstractController
 {
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var Transformations
-     */
+    /** @var Transformations */
     private $transformations;
 
     /**

@@ -19,9 +19,7 @@ use PhpMyAdmin\Tests\PmaTestCase;
  */
 class ImportMediawikiTest extends PmaTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @access protected */
     protected $object;
 
     /**

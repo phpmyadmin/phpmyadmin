@@ -19,9 +19,7 @@ use PhpMyAdmin\Tests\PmaTestCase;
  */
 class ImportOdsTest extends PmaTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @access protected */
     protected $object;
 
     /**

@@ -19,9 +19,7 @@ use PhpMyAdmin\Tests\PmaTestCase;
  */
 class ImportSqlTest extends PmaTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @access protected */
     protected $object;
 
     /**

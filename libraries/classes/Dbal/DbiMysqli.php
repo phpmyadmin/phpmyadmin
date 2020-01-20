@@ -22,9 +22,7 @@ use function mysqli_init;
  */
 class DbiMysqli implements DbiExtension
 {
-    /**
-     * @var array
-     */
+    /** @var array */
     private static $pma_mysqli_flag_names = [
         MYSQLI_NUM_FLAG => 'num',
         MYSQLI_PART_KEY_FLAG => 'part_key',

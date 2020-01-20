@@ -19,14 +19,10 @@ use PHPUnit\Framework\TestCase;
  */
 class FormDisplayTemplateTest extends TestCase
 {
-    /**
-     * @var FormDisplayTemplate
-     */
+    /** @var FormDisplayTemplate */
     protected $formDisplayTemplate;
 
-    /**
-     * @var Config
-     */
+    /** @var Config */
     protected $config;
 
     /**

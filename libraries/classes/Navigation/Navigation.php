@@ -26,24 +26,16 @@ use PhpMyAdmin\Util;
  */
 class Navigation
 {
-    /**
-     * @var Template
-     */
+    /** @var Template */
     private $template;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @var NavigationTree
-     */
+    /** @var NavigationTree */
     private $tree;
 
     /**

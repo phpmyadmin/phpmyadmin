@@ -22,9 +22,7 @@ use PhpMyAdmin\UserPreferences;
  */
 class UserPreferencesTest extends PmaTestCase
 {
-    /**
-     * @var UserPreferences
-     */
+    /** @var UserPreferences */
     private $userPreferences;
 
     /**

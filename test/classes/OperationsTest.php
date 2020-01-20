@@ -20,9 +20,7 @@ use ReflectionMethod;
  */
 class OperationsTest extends TestCase
 {
-    /**
-     * @var Operations
-     */
+    /** @var Operations */
     private $operations;
 
     /**

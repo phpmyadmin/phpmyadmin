@@ -31,19 +31,13 @@ abstract class ExportPlugin
      */
     protected $properties;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     public $relation;
 
-    /**
-     * @var Export
-     */
+    /** @var Export */
     protected $export;
 
-    /**
-     * @var Transformations
-     */
+    /** @var Transformations */
     protected $transformations;
 
     public function __construct()

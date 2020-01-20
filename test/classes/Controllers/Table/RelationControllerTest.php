@@ -22,14 +22,10 @@ use stdClass;
  */
 class RelationControllerTest extends PmaTestCase
 {
-    /**
-     * @var \PhpMyAdmin\Tests\Stubs\Response
-     */
+    /** @var \PhpMyAdmin\Tests\Stubs\Response */
     private $_response;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     private $template;
 
     /**

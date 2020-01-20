@@ -23,9 +23,7 @@ use ReflectionProperty;
  */
 class FormDisplayTest extends PmaTestCase
 {
-    /**
-     * @var FormDisplay
-     */
+    /** @var FormDisplay */
     protected $object;
 
     /**

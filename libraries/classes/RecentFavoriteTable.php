@@ -43,9 +43,7 @@ class RecentFavoriteTable
      */
     private static $_instances = [];
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
     /**

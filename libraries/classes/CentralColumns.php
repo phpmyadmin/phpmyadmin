@@ -55,14 +55,10 @@ class CentralColumns
      */
     private $disableIs;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
     /**

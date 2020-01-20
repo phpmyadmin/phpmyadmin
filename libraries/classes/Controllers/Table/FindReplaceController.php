@@ -22,19 +22,13 @@ use PhpMyAdmin\Util;
  */
 class FindReplaceController extends AbstractController
 {
-    /**
-     * @var array
-     */
+    /** @var array */
     private $_columnNames;
 
-    /**
-     * @var array
-     */
+    /** @var array */
     private $_columnTypes;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $_connectionCharSet;
 
     /**

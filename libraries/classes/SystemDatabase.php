@@ -18,14 +18,10 @@ use PhpMyAdmin\Util;
  */
 class SystemDatabase
 {
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     protected $dbi;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
     /**

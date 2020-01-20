@@ -20,9 +20,7 @@ use PhpMyAdmin\Transformations;
  */
 class TransformationOverviewController extends AbstractController
 {
-    /**
-     * @var Transformations
-     */
+    /** @var Transformations */
     private $transformations;
 
     /**

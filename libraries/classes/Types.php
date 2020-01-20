@@ -17,9 +17,7 @@ use PhpMyAdmin\DatabaseInterface;
  */
 class Types
 {
-    /**
-     * @var DatabaseInterface Database interface
-     */
+    /** @var DatabaseInterface Database interface */
     private $_dbi;
 
     /**

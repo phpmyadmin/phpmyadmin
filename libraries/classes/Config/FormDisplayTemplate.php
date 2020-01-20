@@ -20,19 +20,13 @@ use PhpMyAdmin\Template;
  */
 class FormDisplayTemplate
 {
-    /**
-     * @var int
-     */
+    /** @var int */
     public $group;
 
-    /**
-     * @var Config
-     */
+    /** @var Config */
     protected $config;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
     /**

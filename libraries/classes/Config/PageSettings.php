@@ -51,9 +51,7 @@ class PageSettings
      */
     private $_HTML = '';
 
-    /**
-     * @var UserPreferences
-     */
+    /** @var UserPreferences */
     private $userPreferences;
 
     /**

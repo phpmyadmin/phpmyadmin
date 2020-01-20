@@ -26,9 +26,7 @@ use function mb_strtoupper;
  */
 final class RelationController extends AbstractController
 {
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
     /**

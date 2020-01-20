@@ -22,9 +22,7 @@ use PHPUnit\Framework\TestCase;
  */
 class ProcessesControllerTest extends TestCase
 {
-    /**
-     * @var Data
-     */
+    /** @var Data */
     private $data;
 
     protected function setUp(): void

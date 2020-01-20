@@ -15,9 +15,7 @@ use PHPUnit\Framework\TestCase;
  */
 class PluginsTest extends TestCase
 {
-    /**
-     * @var Plugins
-     */
+    /** @var Plugins */
     private $plugins;
 
     public function testGetAll(): void

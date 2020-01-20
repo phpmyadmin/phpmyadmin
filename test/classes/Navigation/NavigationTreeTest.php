@@ -20,9 +20,7 @@ use PhpMyAdmin\Tests\PmaTestCase;
  */
 class NavigationTreeTest extends PmaTestCase
 {
-    /**
-     * @var NavigationTree
-     */
+    /** @var NavigationTree */
     protected $object;
 
     /**

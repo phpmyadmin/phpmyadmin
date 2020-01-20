@@ -25,9 +25,7 @@ use PhpMyAdmin\TwoFactor;
  */
 class TwoFactorPlugin
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     public static $id = '';
 
     /**
@@ -35,24 +33,16 @@ class TwoFactorPlugin
      */
     public static $showSubmit = true;
 
-    /**
-     * @var TwoFactor
-     */
+    /** @var TwoFactor */
     protected $_twofactor;
 
-    /**
-     * @var boolean
-     */
+    /** @var boolean */
     protected $_provided;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $_message;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
     /**

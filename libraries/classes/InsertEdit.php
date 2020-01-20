@@ -26,24 +26,16 @@ class InsertEdit
      */
     private $dbi;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var Transformations
-     */
+    /** @var Transformations */
     private $transformations;
 
-    /**
-     * @var FileListing
-     */
+    /** @var FileListing */
     private $fileListing;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
     /**

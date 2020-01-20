@@ -25,19 +25,13 @@ class ErrorReport
      */
     private $submissionUrl = 'https://reports.phpmyadmin.net/incidents/create';
 
-    /**
-     * @var HttpRequest
-     */
+    /** @var HttpRequest */
     private $httpRequest;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
     /**

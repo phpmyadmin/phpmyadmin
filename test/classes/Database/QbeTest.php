@@ -22,9 +22,7 @@ use ReflectionClass;
  */
 class QbeTest extends PmaTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @access protected */
     protected $object;
 
     /**

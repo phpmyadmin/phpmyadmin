@@ -17,9 +17,7 @@ use ZipArchive;
  */
 class ZipExtension
 {
-    /**
-     * @var ZipArchive
-     */
+    /** @var ZipArchive */
     private $zip;
 
     public function __construct()

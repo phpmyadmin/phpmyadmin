@@ -58,9 +58,7 @@ class Pdf extends PdfLib
     private $_withDoc;
     private $_db;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
     /**

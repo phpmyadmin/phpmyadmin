@@ -22,9 +22,7 @@ use ReflectionProperty;
  */
 class ExportCodegenTest extends PmaTestCase
 {
-    /**
-     * @var ExportCodegen
-     */
+    /** @var ExportCodegen */
     protected $object;
 
     /**

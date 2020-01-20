@@ -30,9 +30,7 @@ class Menu
      */
     private $_table;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
     /** @var Template */

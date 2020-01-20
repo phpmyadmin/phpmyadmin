@@ -22,14 +22,10 @@ use PHPUnit\Framework\TestCase;
  */
 class RelationCleanupTest extends TestCase
 {
-    /**
-     * @var Relation|MockObject
-     */
+    /** @var Relation|MockObject */
     private $relation;
 
-    /**
-     * @var RelationCleanup
-     */
+    /** @var RelationCleanup */
     private $relationCleanup;
 
     /**
