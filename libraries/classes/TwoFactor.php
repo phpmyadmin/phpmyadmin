@@ -45,8 +45,8 @@ class TwoFactor
      */
     public function __construct($user)
     {
-        /** @var DatabaseInterface $dbi */
         global $dbi;
+
         $dbi->initRelationParamsCache();
 
         $this->userPreferences = new UserPreferences();

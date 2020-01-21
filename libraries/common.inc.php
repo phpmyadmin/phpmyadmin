@@ -38,6 +38,7 @@ use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Logging;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\MoTranslator\Loader;
+use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Session;
@@ -49,7 +50,7 @@ use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
-global $containerBuilder, $error_handler, $PMA_Config, $server, $dbi, $lang, $cfg, $isConfigLoading;
+global $containerBuilder, $error_handler, $PMA_Config, $server, $dbi, $lang, $cfg, $isConfigLoading, $auth_plugin;
 
 /**
  * block attempts to directly run this script
@@ -374,8 +375,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         if (isset($_POST['pma_password']) && strlen($_POST['pma_password']) > 256) {
             $_POST['pma_password'] = substr($_POST['pma_password'], 0, 256);
         }
-        $auth_plugin = new $auth_class();
 
+        /** @var AuthenticationPlugin $auth_plugin */
+        $auth_plugin = new $auth_class();
         $auth_plugin->authenticate();
 
         // Try to connect MySQL with the control user profile (will be used to

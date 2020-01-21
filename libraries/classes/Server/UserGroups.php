@@ -6,7 +6,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Server;
 
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
@@ -27,8 +26,8 @@ class UserGroups
      */
     public static function getHtmlForListingUsersofAGroup(string $userGroup): string
     {
-        /** @var DatabaseInterface $dbi */
         global $dbi;
+
         $users = [];
         $numRows = 0;
         $relation = new Relation($dbi);
@@ -70,8 +69,8 @@ class UserGroups
      */
     public static function getHtmlForUserGroupsTable(): string
     {
-        /** @var DatabaseInterface $dbi */
         global $dbi;
+
         $relation = new Relation($dbi);
         $cfgRelation = $relation->getRelationsParam();
         $groupTable = Util::backquote($cfgRelation['db'])
@@ -176,8 +175,8 @@ class UserGroups
      */
     public static function delete(string $userGroup): void
     {
-        /** @var DatabaseInterface $dbi */
         global $dbi;
+
         $relation = new Relation($dbi);
         $cfgRelation = $relation->getRelationsParam();
         $userTable = Util::backquote($cfgRelation['db'])
@@ -203,8 +202,8 @@ class UserGroups
      */
     public static function getHtmlToEditUserGroup(?string $userGroup = null): string
     {
-        /** @var DatabaseInterface $dbi */
         global $dbi;
+
         $relation = new Relation($dbi);
         $urlParams = [];
 
@@ -313,8 +312,8 @@ class UserGroups
      */
     public static function edit(string $userGroup, bool $new = false): void
     {
-        /** @var DatabaseInterface $dbi */
         global $dbi;
+
         $relation = new Relation($dbi);
         $tabs = Util::getMenuTabList();
         $cfgRelation = $relation->getRelationsParam();

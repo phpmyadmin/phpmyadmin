@@ -616,8 +616,8 @@ class FormDisplay
 
         $this->_errors = [];
         foreach ($forms as $formName) {
-            /** @var Form $form */
             if (isset($this->_forms[$formName])) {
+                /** @var Form $form */
                 $form = $this->_forms[$formName];
             } else {
                 continue;

@@ -108,7 +108,6 @@ abstract class AuthenticationPlugin
      */
     public function logOut()
     {
-        /** @var Config $PMA_Config */
         global $PMA_Config;
 
         /* Obtain redirect URL (before doing logout) */

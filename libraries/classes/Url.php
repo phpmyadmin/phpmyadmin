@@ -33,7 +33,6 @@ class Url
         $indent = 0,
         $skip = []
     ) {
-        /** @var Config $PMA_Config */
         global $PMA_Config;
 
         if (is_array($db)) {
@@ -200,8 +199,8 @@ class Url
      */
     public static function getCommonRaw($params = [], $divider = '?')
     {
-        /** @var Config $PMA_Config */
         global $PMA_Config;
+
         $separator = self::getArgSeparator();
 
         // avoid overwriting when creating navi panel links to servers

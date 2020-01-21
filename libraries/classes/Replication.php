@@ -43,7 +43,6 @@ class Replication
      */
     public function slaveControl($action, $control = null, $link = null)
     {
-        /** @var DatabaseInterface $dbi */
         global $dbi;
 
         $action = mb_strtoupper($action);

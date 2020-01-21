@@ -334,7 +334,6 @@ class HomeController extends AbstractController
     {
         global $PMA_Config;
 
-        /** @var Config $PMA_Config */
         if (! $this->response->isAjax() || ! $PMA_Config->isGitRevision()) {
             return '';
         }

@@ -854,7 +854,6 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function logOut()
     {
-        /** @var Config $PMA_Config */
         global $PMA_Config;
 
         // -> delete password cookie(s)

@@ -196,7 +196,6 @@ class ThemeManager
      */
     public function getThemeCookie()
     {
-        /** @var Config $PMA_Config */
         global $PMA_Config;
 
         $name = $this->getThemeCookieName();

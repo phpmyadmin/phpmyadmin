@@ -78,7 +78,6 @@ class ErrorReport
      */
     public function getData(string $exceptionType = 'js'): array
     {
-        /** @var Config $PMA_Config */
         global $PMA_Config;
 
         $relParams = $this->relation->getRelationsParam();

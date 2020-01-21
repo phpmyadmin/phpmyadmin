@@ -61,7 +61,6 @@ $length_values_input_size = 8;
 
 $content_cells = [];
 
-/** @var string $db */
 $form_params = [
     'db' => $db,
 ];

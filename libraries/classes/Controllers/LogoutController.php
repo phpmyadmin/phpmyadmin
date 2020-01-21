@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Plugins\AuthenticationPlugin;
 
 class LogoutController
 {
@@ -17,7 +16,6 @@ class LogoutController
             return;
         }
 
-        /** @var AuthenticationPlugin $auth_plugin */
         $auth_plugin->logOut();
     }
 }

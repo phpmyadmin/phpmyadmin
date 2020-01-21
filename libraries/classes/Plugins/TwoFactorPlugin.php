@@ -6,7 +6,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
@@ -145,7 +144,6 @@ class TwoFactorPlugin
      */
     public function getAppId($return_url)
     {
-        /** @var Config $PMA_Config */
         global $PMA_Config;
 
         $url = $PMA_Config->get('PmaAbsoluteUri');
