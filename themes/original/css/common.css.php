@@ -2096,7 +2096,7 @@ fieldset .disabled-field td {
 }
 
 #table_name_col_no_outer {
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 #table_name_col_no {
