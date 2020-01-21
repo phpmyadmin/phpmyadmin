@@ -9,7 +9,6 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Message;
 
 /**
  * PhpMyAdmin\CentralColumns class

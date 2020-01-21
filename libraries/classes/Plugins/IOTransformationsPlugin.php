@@ -6,8 +6,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins;
 
-use PhpMyAdmin\Plugins\TransformationsPlugin;
-
 /**
  * Provides a common interface that will have to be implemented
  * by all of the Input/Output transformations plugins.

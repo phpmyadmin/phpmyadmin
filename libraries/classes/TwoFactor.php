@@ -6,12 +6,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\TwoFactor\Application;
 use PhpMyAdmin\Plugins\TwoFactor\Invalid;
 use PhpMyAdmin\Plugins\TwoFactor\Key;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
-use PhpMyAdmin\UserPreferences;
 use PragmaRX\Google2FAQRCode\Google2FA;
 use Samyoul\U2F\U2FServer\U2FServer;
 

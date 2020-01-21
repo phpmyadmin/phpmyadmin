@@ -7,7 +7,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Error;
-use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Error class testing.

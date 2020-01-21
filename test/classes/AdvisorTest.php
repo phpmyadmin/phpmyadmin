@@ -8,7 +8,6 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Advisor;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Tests\PmaTestCase;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 /**

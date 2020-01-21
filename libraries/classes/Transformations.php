@@ -16,10 +16,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\TransformationsInterface;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Util;
 
 /**
  * Transformations class

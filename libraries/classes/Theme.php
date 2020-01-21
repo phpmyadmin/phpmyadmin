@@ -6,9 +6,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Template;
-use PhpMyAdmin\ThemeManager;
-
 /**
  * handles theme
  *

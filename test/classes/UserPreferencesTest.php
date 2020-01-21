@@ -9,7 +9,6 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
 

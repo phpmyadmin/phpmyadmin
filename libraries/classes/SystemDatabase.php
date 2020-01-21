@@ -7,9 +7,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use mysqli_result;
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Util;
 
 class SystemDatabase
 {

@@ -6,9 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Html\MySQLDocumentation;
-use PhpMyAdmin\Util;
 
 /**
  * This class includes various sanitization methods that can be called statically

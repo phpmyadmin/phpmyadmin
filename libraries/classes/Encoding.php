@@ -6,9 +6,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Core;
-use PhpMyAdmin\Template;
-
 /**
  * Encoding conversion helper class
  */

@@ -6,8 +6,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\ZipExtension;
-
 /**
  * Simplfied OpenDocument creator class
  */

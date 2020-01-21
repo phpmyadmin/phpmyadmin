@@ -8,7 +8,6 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Pdf;
-use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * tests for Pdf class

@@ -6,12 +6,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Core;
-use PhpMyAdmin\Footer;
-use PhpMyAdmin\Header;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\OutputBuffering;
-
 /**
  * Singleton class used to manage the rendering of pages in PMA
  */

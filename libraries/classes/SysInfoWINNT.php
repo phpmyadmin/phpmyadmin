@@ -7,7 +7,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use COM;
-use PhpMyAdmin\SysInfoBase;
 use function is_string;
 
 /**

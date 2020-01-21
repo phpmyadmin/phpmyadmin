@@ -6,10 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Html\MySQLDocumentation;
-use PhpMyAdmin\Language;
-use PhpMyAdmin\Template;
 
 /**
  * Language selection manager

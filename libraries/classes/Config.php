@@ -7,12 +7,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use DirectoryIterator;
-use PhpMyAdmin\Core;
-use PhpMyAdmin\Error;
-use PhpMyAdmin\LanguageManager;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\ThemeManager;
-use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\Utils\HttpRequest;
 
 /**

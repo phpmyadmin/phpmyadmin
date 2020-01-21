@@ -9,7 +9,6 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Footer;
-use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionClass;
 
 /**

@@ -7,7 +7,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Index;
-use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Test for Index class

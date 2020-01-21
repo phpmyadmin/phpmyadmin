@@ -7,7 +7,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tests\PmaTestCase;
 use Twig\Error\LoaderError;
 
 /**

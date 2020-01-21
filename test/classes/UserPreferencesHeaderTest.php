@@ -9,7 +9,6 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\UserPreferencesHeader;
 use Throwable;
 use Twig_Error_Loader;

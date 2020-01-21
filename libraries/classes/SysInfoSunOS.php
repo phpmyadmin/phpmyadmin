@@ -6,8 +6,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\SysInfoBase;
-
 /**
  * SunOS based SysInfo class
  */
