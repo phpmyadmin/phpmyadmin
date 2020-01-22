@@ -92,7 +92,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 n: n,
                 obj: obj,
                 objLeft: $(obj).position().left,
-                objWidth: $(g.t).find('th.draggable:visible:eq(' + n + ') span').outerWidth()
+                objWidth: $(g.t).find('th.draggable:visible').eq(n).find('span').outerWidth()
             };
             $(document.body).css('cursor', 'col-resize').noSelect();
             if (g.isCellEditActive) {
@@ -242,8 +242,8 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
          */
         resize: function (n, nw) {
             $(g.t).find('tr').each(function () {
-                $(this).find('th.draggable:visible:eq(' + n + ') span,' +
-                             'td:visible:eq(' + (g.actionSpan + n) + ') span')
+                $(this).find('th.draggable:visible').eq(n).find('span')
+                    .add($(this).find('td:visible').eq(g.actionSpan + n).find('span'))
                     .css('width', nw);
             });
         },
@@ -253,9 +253,9 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
          */
         reposRsz: function () {
             $(g.cRsz).find('div').hide();
-            var $firstRowCols = $(g.t).find('tr:first th.draggable:visible');
+            var $firstRowCols = $(g.t).find('tr').first().find('th.draggable:visible');
             var $resizeHandles = $(g.cRsz).find('div').removeClass('condition');
-            $(g.t).find('table.pma_table').find('thead th:first').removeClass('before-condition');
+            $(g.t).find('table.pma_table').find('thead th').first().removeClass('before-condition');
             for (var n = 0, l = $firstRowCols.length; n < l; n++) {
                 var $col = $($firstRowCols[n]);
                 var colWidth;
@@ -274,7 +274,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 }
             }
             if ($($resizeHandles[0]).hasClass('condition')) {
-                $(g.t).find('thead th:first').addClass('before-condition');
+                $(g.t).find('thead th').first().addClass('before-condition');
             }
             $(g.cRsz).css('height', $(g.t).height());
         },
@@ -304,11 +304,11 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
             // adjust the column visibility list
             if (newn < oldn) {
-                $(g.cList).find('.lDiv div:eq(' + newn + ')')
-                    .before($(g.cList).find('.lDiv div:eq(' + oldn + ')'));
+                $(g.cList).find('.lDiv div').eq(newn)
+                    .before($(g.cList).find('.lDiv div').eq(oldn));
             } else {
-                $(g.cList).find('.lDiv div:eq(' + newn + ')')
-                    .after($(g.cList).find('.lDiv div:eq(' + oldn + ')'));
+                $(g.cList).find('.lDiv div').eq(newn)
+                    .after($(g.cList).find('.lDiv div').eq(oldn));
             }
             // adjust the colOrder
             var tmp = g.colOrder[oldn];
@@ -480,10 +480,10 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                             .hide();
                     });
                     g.colVisib[n] = 0;
-                    $(g.cList).find('.lDiv div:eq(' + n + ') input').prop('checked', false);
+                    $(g.cList).find('.lDiv div').eq(n).find('input').prop('checked', false);
                 } else {
                     // cannot hide, force the checkbox to stay checked
-                    $(g.cList).find('.lDiv div:eq(' + n + ') input').prop('checked', true);
+                    $(g.cList).find('.lDiv div').eq(n).find('input').prop('checked', true);
                     return false;
                 }
             } else {    // column n is not visible
@@ -493,7 +493,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                         .show();
                 });
                 g.colVisib[n] = 1;
-                $(g.cList).find('.lDiv div:eq(' + n + ') input').prop('checked', true);
+                $(g.cList).find('.lDiv div').eq(n).find('input').prop('checked', true);
             }
             return true;
         },
@@ -511,7 +511,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
             g.sendColPrefs();
 
             // check visible first row headers count
-            g.visibleHeadersCount = $(g.t).find('tr:first th.draggable:visible').length;
+            g.visibleHeadersCount = $(g.t).find('tr').first().find('th.draggable:visible').length;
             g.refreshRestoreButton();
         },
 
@@ -551,7 +551,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
         reposDrop: function () {
             var $th = $(t).find('th:not(.draggable)');
             for (var i = 0; i < $th.length; i++) {
-                var $cd = $(g.cDrop).find('div:eq(' + i + ')');   // column drop-down arrow
+                var $cd = $(g.cDrop).find('div').eq(i);   // column drop-down arrow
                 var pos = $($th[i]).position();
                 $cd.css({
                     left: pos.left + $($th[i]).width() - $cd.width(),
@@ -712,13 +712,13 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 }
                 if (data.transformations !== undefined) {
                     $.each(data.transformations, function (cellIndex, value) {
-                        var $thisField = $(g.t).find('.to_be_saved:eq(' + cellIndex + ')');
+                        var $thisField = $(g.t).find('.to_be_saved').eq(cellIndex);
                         $thisField.find('span').html(value);
                     });
                 }
                 if (data.relations !== undefined) {
                     $.each(data.relations, function (cellIndex, value) {
-                        var $thisField = $(g.t).find('.to_be_saved:eq(' + cellIndex + ')');
+                        var $thisField = $(g.t).find('.to_be_saved').eq(cellIndex);
                         $thisField.find('span').html(value);
                     });
                 }
@@ -1378,7 +1378,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                                 var tools = $resultQuery.find('.tools').wrap('<p>').parent().html();
                                 // sqlOuter and tools will not be present if 'Show SQL queries' configuration is off
                                 if (typeof sqlOuter !== 'undefined' && typeof tools !== 'undefined') {
-                                    $(g.o).find('.result_query:not(:last)').remove();
+                                    $(g.o).find('.result_query').not().last().remove();
                                     var $existingQuery = $(g.o).find('.result_query');
                                     // If two query box exists update query in second else add a second box
                                     if ($existingQuery.find('div.sqlOuter').length > 1) {
@@ -1558,7 +1558,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
             g.cRsz.className = 'cRsz';
 
             // get data columns in the first row of the table
-            var $firstRowCols = $(g.t).find('tr:first th.draggable');
+            var $firstRowCols = $(g.t).find('tr').first().find('th.draggable');
 
             // create column borders
             $firstRowCols.each(function () {
@@ -1594,7 +1594,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
             g.reorderHint = Messages.strColOrderHint;
 
             // get data columns in the first row of the table
-            var $firstRowCols = $(g.t).find('tr:first th.draggable');
+            var $firstRowCols = $(g.t).find('tr').first().find('th.draggable');
 
             // initialize column order
             var $colOrder = $(g.o).find('.col_order');   // check if column order is passed from PHP
@@ -1689,7 +1689,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
             g.showAllColText = Messages.strShowAllCol;
 
             // get data columns in the first row of the table
-            var $firstRowCols = $(g.t).find('tr:first th.draggable');
+            var $firstRowCols = $(g.t).find('tr').first().find('th.draggable');
 
             var i;
             // initialize column visibility
@@ -2156,14 +2156,14 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
     g.o = $(t).parents('.sqlqueryresults');
 
     // get data columns in the first row of the table
-    var $firstRowCols = $(t).find('tr:first th.draggable');
+    var $firstRowCols = $(t).find('tr').first().find('th.draggable');
 
     // initialize visible headers count
     g.visibleHeadersCount = $firstRowCols.filter(':visible').length;
 
     // assign first column (actions) span
-    if (! $(t).find('tr:first th:first').hasClass('draggable')) {  // action header exist
-        g.actionSpan = $(t).find('tr:first th:first').prop('colspan');
+    if (! $(t).find('tr').first().find('th').first().hasClass('draggable')) {  // action header exist
+        g.actionSpan = $(t).find('tr').first().find('th').first().prop('colspan');
     } else {
         g.actionSpan = 0;
     }

@@ -58,7 +58,7 @@
     MenuResizer.prototype.resize = function () {
         var wmax = this.widthCalculator.call(this.$container);
         var windowWidth = $(window).width();
-        var $submenu = this.$container.find('.nav-item.dropdown:last');
+        var $submenu = this.$container.find('.nav-item.dropdown').last();
         var submenuW = $submenu.outerWidth(true);
         var $submenuUl = $submenu.find('.dropdown-menu');
         var $li = this.$container.find('> li');

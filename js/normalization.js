@@ -664,7 +664,7 @@ AJAX.registerOnload('normalization.js', function () {
         });
 
         if (repeatingCols !== '') {
-            var newColName = $('#extra input[type=checkbox]:checked:first').val();
+            var newColName = $('#extra input[type=checkbox]:checked').first().val();
             repeatingCols = repeatingCols.slice(0, -2);
             var confirmStr = Functions.sprintf(Messages.strMoveRepeatingGroup, Functions.escapeHtml(repeatingCols), Functions.escapeHtml(CommonParams.get('table')));
             confirmStr += '<input type="text" name="repeatGroupTable" placeholder="' + Messages.strNewTablePlaceholder + '">' +

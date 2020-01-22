@@ -50,7 +50,7 @@ DatabaseStructure.adjustTotals = function () {
     /**
      * @var $allTr jQuery object that references all the rows in the list of tables
      */
-    var $allTr = $('#tablesForm').find('table.data tbody:first tr');
+    var $allTr = $('#tablesForm').find('table.data tbody').first().find('tr');
     // New summary values for the table
     var tableSum = $allTr.length;
     var rowsSum = 0;

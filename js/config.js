@@ -615,10 +615,10 @@ function setupConfigTabs () {
                 e.preventDefault();
                 setTab($(this).attr('href').substr(1));
             })
-            .filter(':first')
+            .first()
             .parent()
             .addClass('active');
-        $this.find('div.tabs_contents fieldset').hide().filter(':first').show();
+        $this.find('div.tabs_contents fieldset').hide().first().show();
     });
 }
 

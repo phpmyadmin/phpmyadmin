@@ -280,7 +280,8 @@ AJAX.registerOnload('table/select.js', function () {
         // Get the column name.
         var columnName = $(this)
             .closest('tr')
-            .find('th:first')
+            .find('th')
+            .first()
             .text();
 
         // Get the data-type of column excluding size.

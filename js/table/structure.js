@@ -215,7 +215,7 @@ AJAX.registerOnload('table/structure.js', function () {
 
                     // by default select the (new) last option to add new column
                     // (in case last column is dropped)
-                    $('select[name=after_field] option:last').attr('selected','selected');
+                    $('select[name=after_field] option').last().attr('selected','selected');
 
                     // refresh table stats
                     if (data.tableStat) {

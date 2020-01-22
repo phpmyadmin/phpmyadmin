@@ -863,7 +863,7 @@ Export.addAlias = function (type, name, field, value) {
 
     var row = $('#alias_data tfoot tr').clone();
     row.find('th').text(type);
-    row.find('td:first').text(name);
+    row.find('td').first().text(name);
     row.find('input').attr('name', field);
     row.find('input').val(value);
     row.find('.alias_remove').on('click', function () {

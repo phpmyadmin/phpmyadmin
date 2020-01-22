@@ -145,9 +145,9 @@ Sql.getFieldName = function ($tableResults, $thisField) {
     var thisFieldIndex = $thisField.index();
     // ltr or rtl direction does not impact how the DOM was generated
     // check if the action column in the left exist
-    var leftActionExist = !$tableResults.find('th:first').hasClass('draggable');
+    var leftActionExist = !$tableResults.find('th').first().hasClass('draggable');
     // number of column span for checkbox and Actions
-    var leftActionSkip = leftActionExist ? $tableResults.find('th:first').attr('colspan') - 1 : 0;
+    var leftActionSkip = leftActionExist ? $tableResults.find('th').first().attr('colspan') - 1 : 0;
 
     // If this column was sorted, the text of the a element contains something
     // like <small>1</small> that is useful to indicate the order in case
@@ -155,7 +155,9 @@ Sql.getFieldName = function ($tableResults, $thisField) {
     // of the column name so we strip it ( .clone() to .end() )
     var fieldName = $tableResults
         .find('thead')
-        .find('th:eq(' + (thisFieldIndex - leftActionSkip) + ') a')
+        .find('th')
+        .eq(thisFieldIndex - leftActionSkip)
+        .find('a')
         .clone()    // clone the element
         .children() // select all the children
         .remove()   // remove all of them
@@ -163,7 +165,7 @@ Sql.getFieldName = function ($tableResults, $thisField) {
         .text();    // grab the text
     // happens when just one row (headings contain no a)
     if (fieldName === '') {
-        var $heading = $tableResults.find('thead').find('th:eq(' + (thisFieldIndex - leftActionSkip) + ')').children('span');
+        var $heading = $tableResults.find('thead').find('th').eq(thisFieldIndex - leftActionSkip).children('span');
         // may contain column comment enclosed in a span - detach it temporarily to read the column name
         var $tempColComment = $heading.children().detach();
         fieldName = $heading.text();
@@ -856,7 +858,7 @@ AJAX.registerOnload('sql.js', function () {
 Sql.changeClassForColumn = function ($thisTh, newClass, isAddClass) {
     // index 0 is the th containing the big T
     var thIndex = $thisTh.index();
-    var hasBigT = $thisTh.closest('tr').children(':first').hasClass('column_action');
+    var hasBigT = $thisTh.closest('tr').children().first().hasClass('column_action');
     // .eq() is zero-based
     if (hasBigT) {
         thIndex--;
@@ -865,7 +867,7 @@ Sql.changeClassForColumn = function ($thisTh, newClass, isAddClass) {
     if (! $table.length) {
         $table = $thisTh.parents('table').siblings('.table_results');
     }
-    var $tds = $table.find('tbody tr').find('td.data:eq(' + thIndex + ')');
+    var $tds = $table.find('tbody tr').find('td.data').eq(thIndex);
     if (isAddClass === undefined) {
         $tds.toggleClass(newClass);
     } else {
@@ -1084,12 +1086,12 @@ Sql.initStickyColumns = function ($tableResults) {
  */
 Sql.rearrangeStickyColumns = function ($stickyColumns, $tableResults) {
     var $originalHeader = $tableResults.find('thead');
-    var $originalColumns = $originalHeader.find('tr:first').children();
+    var $originalColumns = $originalHeader.find('tr').first().children();
     var $clonedHeader = $originalHeader.clone();
     var isFirefox = navigator.userAgent.indexOf('Firefox') > -1;
     var isSafari = navigator.userAgent.indexOf('Safari') > -1;
     // clone width per cell
-    $clonedHeader.find('tr:first').children().each(function (i) {
+    $clonedHeader.find('tr').first().children().each(function (i) {
         var width = $originalColumns.eq(i).width();
         if (! isFirefox && ! isSafari) {
             width += 1;
