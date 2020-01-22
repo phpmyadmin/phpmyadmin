@@ -199,7 +199,11 @@ class Form
         $paths = $this->fields;
         $this->fields = [];
         foreach ($paths as $path) {
-            $key = ltrim(
+            $key = '';
+            if (mb_strpos((string) $path, ':group:') === 0) {
+                $key = ':group:';
+            }
+            $key .= ltrim(
                 mb_substr($path, (int) mb_strrpos($path, '/')),
                 '/'
             );
