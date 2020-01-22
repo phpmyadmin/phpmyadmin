@@ -7,6 +7,19 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\MySQLDocumentation;
+use function closedir;
+use function count;
+use function explode;
+use function file_exists;
+use function is_dir;
+use function opendir;
+use function preg_grep;
+use function readdir;
+use function strtolower;
+use function trigger_error;
+use function uasort;
+use function ucfirst;
+use const E_USER_ERROR;
 
 /**
  * Language selection manager

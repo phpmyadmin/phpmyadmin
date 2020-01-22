@@ -8,6 +8,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Mime;
 use PHPUnit\Framework\TestCase;
+use function chr;
 
 /**
  * Test for mime detection.

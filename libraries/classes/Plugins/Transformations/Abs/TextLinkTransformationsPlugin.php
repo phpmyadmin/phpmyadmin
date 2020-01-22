@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\Transformations\Abs;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Sanitize;
 use stdClass;
+use function htmlspecialchars;
 
 /**
  * Provides common methods for all of the link transformations plugins.

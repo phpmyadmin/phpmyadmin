@@ -14,6 +14,15 @@ use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Util;
+use function count;
+use function htmlspecialchars;
+use function is_array;
+use function mb_substr;
+use function rtrim;
+use function str_replace;
+use function stripslashes;
+use function strlen;
+use const PHP_VERSION;
 
 // phpcs:disable PSR1.Files.SideEffects
 /* Can't do server export */

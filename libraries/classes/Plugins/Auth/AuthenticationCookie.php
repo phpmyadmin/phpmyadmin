@@ -20,6 +20,20 @@ use PhpMyAdmin\Util;
 use phpseclib\Crypt;
 use phpseclib\Crypt\Random;
 use ReCaptcha;
+use function class_exists;
+use function count;
+use function defined;
+use function explode;
+use function function_exists;
+use function in_array;
+use function ini_get;
+use function intval;
+use function is_array;
+use function json_decode;
+use function preg_match;
+use function session_id;
+use function strlen;
+use function time;
 
 /**
  * Handles the cookie authentication method

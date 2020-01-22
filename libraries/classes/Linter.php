@@ -10,6 +10,11 @@ use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\UtfString;
 use PhpMyAdmin\SqlParser\Utils\Error as ParserError;
+use function defined;
+use function htmlspecialchars;
+use function mb_strlen;
+use function sprintf;
+use function strlen;
 
 /**
  * The linter itself.

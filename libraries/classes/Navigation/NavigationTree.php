@@ -18,6 +18,17 @@ use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use function array_key_exists;
+use function array_shift;
+use function base64_decode;
+use function count;
+use function explode;
+use function floor;
+use function sort;
+use function sprintf;
+use function strcasecmp;
+use function strlen;
+use function strstr;
 
 /**
  * Displays a collapsible of database objects in the navigation frame

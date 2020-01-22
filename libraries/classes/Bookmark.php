@@ -6,6 +6,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function count;
+use function preg_match_all;
+use function preg_replace;
+use function str_replace;
+use function strlen;
+use const PREG_SET_ORDER;
+
 /**
  * Handles bookmarking SQL queries
  */

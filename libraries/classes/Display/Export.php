@@ -23,6 +23,12 @@ use Throwable;
 use Twig_Error_Loader;
 use Twig_Error_Runtime;
 use Twig_Error_Syntax;
+use function explode;
+use function function_exists;
+use function in_array;
+use function mb_strpos;
+use function strlen;
+use function urldecode;
 
 /**
  * PhpMyAdmin\Display\Export class

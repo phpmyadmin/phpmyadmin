@@ -7,6 +7,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Import\Upload;
 
 use PhpMyAdmin\Plugins\UploadInterface;
+use function array_key_exists;
+use function trim;
 
 /**
  * Implementation for no plugin

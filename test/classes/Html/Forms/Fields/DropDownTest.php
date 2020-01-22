@@ -13,6 +13,7 @@ use Throwable;
 use Twig_Error_Loader;
 use Twig_Error_Runtime;
 use Twig_Error_Syntax;
+use function htmlspecialchars;
 
 /**
  * Test for PhpMyAdmin\Html\Forms\Fields\MaxFileSize class

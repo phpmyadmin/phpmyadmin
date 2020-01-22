@@ -8,6 +8,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Theme;
+use function filemtime;
 
 /**
  * Test class for Theme.

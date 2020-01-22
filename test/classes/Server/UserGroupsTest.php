@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Tests\Server;
 use PhpMyAdmin\Server\UserGroups;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
+use function htmlspecialchars;
 
 /**
  * Tests for PhpMyAdmin\Server\UserGroups

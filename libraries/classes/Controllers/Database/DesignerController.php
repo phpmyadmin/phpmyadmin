@@ -10,6 +10,9 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+use function htmlspecialchars;
+use function in_array;
+use function sprintf;
 
 class DesignerController extends AbstractController
 {

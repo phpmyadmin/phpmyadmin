@@ -6,6 +6,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function array_merge;
+use function is_array;
+use function is_string;
+use function preg_match;
+use function sort;
+use function strlen;
+use function usort;
+
 /**
  * handles database lists
  *

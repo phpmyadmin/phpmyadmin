@@ -6,6 +6,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function ceil;
+use function is_array;
+use function mb_strlen;
+use function mb_strtolower;
+use function preg_replace;
+use function str_replace;
+
 /**
  * Class with Font related methods.
  */

@@ -10,6 +10,10 @@ use PhpMyAdmin\Plugins\Schema\Dia\TableStatsDia;
 use PhpMyAdmin\Plugins\Schema\Eps\TableStatsEps;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Plugins\Schema\Pdf\TableStatsPdf;
+use function in_array;
+use function max;
+use function min;
+use function sprintf;
 
 /**
  * RelationStatsSvg Relation Schema Class

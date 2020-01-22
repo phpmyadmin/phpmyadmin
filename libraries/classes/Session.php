@@ -8,6 +8,18 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function defined;
+use function function_exists;
+use function htmlspecialchars;
+use function implode;
+use function ini_get;
+use function preg_replace;
+use function session_regenerate_id;
+use function session_status;
+use function session_unset;
+use const PHP_SESSION_ACTIVE;
+use function session_name;
+
 /**
  * Session class
  */

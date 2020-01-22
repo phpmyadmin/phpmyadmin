@@ -14,6 +14,10 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function intval;
+use function is_array;
+use function min;
+use function strlen;
 
 /**
  * Displays add field form and handles it.

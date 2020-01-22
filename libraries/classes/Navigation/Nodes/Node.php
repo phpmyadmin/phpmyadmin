@@ -10,6 +10,17 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Util;
+use function array_keys;
+use function array_reverse;
+use function array_slice;
+use function base64_encode;
+use function count;
+use function implode;
+use function in_array;
+use function sort;
+use function strlen;
+use function strpos;
+use function strstr;
 
 /**
  * The Node is the building block for the collapsible navigation tree

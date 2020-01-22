@@ -12,7 +12,15 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+use function array_key_exists;
+use function array_keys;
+use function array_values;
+use function htmlspecialchars;
 use function mb_strtoupper;
+use function md5;
+use function strtoupper;
+use function uksort;
+use function usort;
 
 /**
  * Display table relations for viewing and editing.

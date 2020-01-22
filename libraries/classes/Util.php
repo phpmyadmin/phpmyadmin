@@ -13,6 +13,19 @@ use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Token;
 use phpseclib\Crypt\Random;
 use stdClass;
+use function array_merge;
+use function count;
+use function explode;
+use function in_array;
+use function is_array;
+use function mb_strstr;
+use function mb_strtolower;
+use function mb_substr;
+use function sprintf;
+use function str_replace;
+use function strtr;
+use function uksort;
+use function strlen;
 
 /**
  * Misc functions used all over the scripts.

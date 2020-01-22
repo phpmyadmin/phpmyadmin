@@ -12,6 +12,17 @@ use PhpMyAdmin\SqlParser\Statements\InsertStatement;
 use PhpMyAdmin\SqlParser\Statements\ReplaceStatement;
 use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
+use function max;
+use function mb_chr;
+use function mb_ord;
+use function mb_stripos;
+use function mb_strlen;
+use function mb_strtoupper;
+use function mb_substr;
+use function preg_match;
+use function strncmp;
+use function time;
+use function trim;
 
 /**
  * Library that provides common import functions that are used by import plugins

@@ -8,6 +8,7 @@ namespace PhpMyAdmin\Plugins;
 
 use PhpMyAdmin\Import;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
+use function strlen;
 
 /**
  * Provides a common interface that will have to be implemented by all of the

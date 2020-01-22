@@ -8,6 +8,9 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
+use function count;
+use function is_array;
+use function json_decode;
 
 /**
  * Displays index edit/creation form and handles it.

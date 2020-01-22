@@ -10,6 +10,8 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Header;
 use ReflectionProperty;
+use function define;
+use function defined;
 
 /**
  * Test for PhpMyAdmin\Header class

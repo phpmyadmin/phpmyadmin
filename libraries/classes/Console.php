@@ -6,6 +6,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function count;
+use function sprintf;
+
 /**
  * Class used to output the console
  */

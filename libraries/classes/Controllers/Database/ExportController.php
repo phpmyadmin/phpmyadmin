@@ -13,6 +13,9 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function htmlspecialchars;
+use function is_array;
+use function str_replace;
 
 final class ExportController extends AbstractController
 {

@@ -16,6 +16,15 @@ use PhpMyAdmin\Session;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Url;
+use function defined;
+use function htmlspecialchars;
+use function intval;
+use function max;
+use function min;
+use function session_destroy;
+use function session_unset;
+use function sprintf;
+use function time;
 
 /**
  * Provides a common interface that will have to be implemented by all of the

@@ -5,6 +5,7 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\VersionInformation;
+use function json_encode;
 
 /**
  * A caching proxy for retrieving version information from https://www.phpmyadmin.net/.

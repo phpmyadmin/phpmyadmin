@@ -6,6 +6,21 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function file_exists;
+use function file_get_contents;
+use function filemtime;
+use function filesize;
+use function in_array;
+use function is_array;
+use function is_dir;
+use function is_readable;
+use function json_decode;
+use function sprintf;
+use function trigger_error;
+use function trim;
+use function version_compare;
+use const E_USER_ERROR;
+
 /**
  * handles theme
  *

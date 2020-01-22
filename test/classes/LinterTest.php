@@ -7,6 +7,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Linter;
+use function str_repeat;
 
 /**
  * Tests for PhpMyAdmin\Linter

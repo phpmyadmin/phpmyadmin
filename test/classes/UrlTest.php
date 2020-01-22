@@ -8,6 +8,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
+use function htmlentities;
 
 /**
  * Tests for methods in URL class

@@ -16,6 +16,20 @@ use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function array_fill;
+use function array_multisort;
+use function count;
+use function explode;
+use function htmlspecialchars;
+use function implode;
+use function in_array;
+use function key;
+use function max;
+use function mb_strlen;
+use function mb_strtoupper;
+use function mb_substr;
+use function str_replace;
+use function reset;
 
 /**
  * Class to handle database QBE search

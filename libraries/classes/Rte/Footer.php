@@ -11,6 +11,8 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function mb_strtolower;
+use function strtolower;
 
 /**
  * PhpMyAdmin\Rte\Footer class

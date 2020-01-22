@@ -7,6 +7,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Selenium\Database;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
+use function str_replace;
+use const MYSQLI_ASSOC;
 
 /**
  * ProceduresTest class

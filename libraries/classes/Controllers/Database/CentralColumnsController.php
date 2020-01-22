@@ -12,6 +12,9 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+use function is_bool;
+use function parse_str;
+use function sprintf;
 
 class CentralColumnsController extends AbstractController
 {

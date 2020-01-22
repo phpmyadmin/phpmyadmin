@@ -20,6 +20,17 @@ use PhpMyAdmin\SqlParser\Utils\Routine;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function array_merge;
+use function count;
+use function htmlspecialchars;
+use function in_array;
+use function is_array;
+use function max;
+use function mb_strtoupper;
+use function sprintf;
+use function trigger_error;
+use const E_USER_WARNING;
+use function mb_strtolower;
 
 /**
  * PhpMyAdmin\Rte\Routines class

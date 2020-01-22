@@ -8,6 +8,16 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
+use function array_flip;
+use function array_merge;
+use function basename;
+use function http_build_query;
+use function is_array;
+use function json_decode;
+use function json_encode;
+use function strpos;
+use function time;
+use function urlencode;
 
 /**
  * Functions for displaying user preferences pages

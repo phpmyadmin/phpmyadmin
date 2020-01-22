@@ -11,6 +11,15 @@ use PhpMyAdmin\Index;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Util;
+use function count;
+use function explode;
+use function in_array;
+use function intval;
+use function is_array;
+use function is_string;
+use function json_decode;
+use function json_encode;
+use function mb_strtoupper;
 use function rawurlencode;
 
 /**

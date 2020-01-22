@@ -26,6 +26,17 @@ use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\Util;
+use function count;
+use function extension_loaded;
+use function file_exists;
+use function ini_get;
+use function preg_match;
+use function sprintf;
+use function strlen;
+use function trigger_error;
+use const E_USER_NOTICE;
+use const E_USER_WARNING;
+use const PHP_VERSION;
 
 class HomeController extends AbstractController
 {

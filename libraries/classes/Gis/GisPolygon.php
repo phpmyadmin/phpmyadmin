@@ -7,6 +7,16 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Gis;
 
 use TCPDF;
+use function array_merge;
+use function array_slice;
+use function count;
+use function explode;
+use function hexdec;
+use function imagecolorallocate;
+use function imagefilledpolygon;
+use function mb_strlen;
+use function mb_strpos;
+use function mb_substr;
 
 /**
  * Handles actions related to GIS POLYGON objects

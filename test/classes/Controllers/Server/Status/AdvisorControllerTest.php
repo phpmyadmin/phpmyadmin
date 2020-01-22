@@ -16,6 +16,8 @@ use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
+use function htmlspecialchars;
+use function json_encode;
 
 /**
  * Tests for AdvisorController class

@@ -6,6 +6,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function array_values;
+
 /**
  * base Partition Class
  */

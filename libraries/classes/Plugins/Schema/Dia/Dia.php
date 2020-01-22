@@ -9,6 +9,9 @@ namespace PhpMyAdmin\Plugins\Schema\Dia;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Response;
 use XMLWriter;
+use function ob_end_clean;
+use function ob_get_clean;
+use function strlen;
 
 /**
  * This Class inherits the XMLwriter class and

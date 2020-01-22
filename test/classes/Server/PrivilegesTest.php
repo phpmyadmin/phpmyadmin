@@ -18,6 +18,8 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
 use stdClass;
+use function htmlspecialchars;
+use function implode;
 
 /**
  * PhpMyAdmin\Tests\Server\PrivilegesTest class

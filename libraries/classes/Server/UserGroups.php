@@ -11,6 +11,11 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function htmlspecialchars;
+use function implode;
+use function in_array;
+use function mb_substr;
+use function substr;
 
 /**
  * PhpMyAdmin\Server\UserGroups class

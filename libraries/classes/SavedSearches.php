@@ -6,6 +6,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function count;
+use function intval;
+use function is_string;
+use function json_decode;
+use function json_encode;
+use function max;
+use function min;
+
 /**
  * Saved searches managing
  */

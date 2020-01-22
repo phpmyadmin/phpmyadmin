@@ -9,6 +9,8 @@ namespace PhpMyAdmin\Plugins\Transformations\Abs;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use PhpMyAdmin\Url;
 use stdClass;
+use function bin2hex;
+use function intval;
 
 /**
  * Provides common methods for all of the image upload transformations plugins.

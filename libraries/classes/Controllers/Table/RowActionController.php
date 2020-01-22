@@ -5,6 +5,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Url;
+use function is_array;
 
 /**
  * Handle row specific actions like edit, delete, export.

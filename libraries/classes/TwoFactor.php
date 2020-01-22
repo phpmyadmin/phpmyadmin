@@ -12,6 +12,10 @@ use PhpMyAdmin\Plugins\TwoFactor\Key;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
 use PragmaRX\Google2FAQRCode\Google2FA;
 use Samyoul\U2F\U2FServer\U2FServer;
+use function array_merge;
+use function class_exists;
+use function in_array;
+use function ucfirst;
 
 /**
  * Two factor authentication wrapper class

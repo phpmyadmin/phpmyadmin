@@ -7,6 +7,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Gis;
 
 use TCPDF;
+use function array_merge;
+use function count;
+use function mb_strlen;
+use function mb_strpos;
+use function mb_substr;
+use function str_split;
 
 /**
  * Handles actions related to GIS GEOMETRYCOLLECTION objects

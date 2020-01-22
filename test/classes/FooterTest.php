@@ -10,6 +10,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Footer;
 use ReflectionClass;
+use function json_encode;
 
 /**
  * Tests for Footer class

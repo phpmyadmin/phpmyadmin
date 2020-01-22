@@ -11,6 +11,14 @@ use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Setup\Index as SetupIndex;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function count;
+use function function_exists;
+use function htmlspecialchars;
+use function implode;
+use function ini_get;
+use function preg_match;
+use function sprintf;
+use function strlen;
 
 /**
  * Performs various compatibility, security and consistency checks on current config

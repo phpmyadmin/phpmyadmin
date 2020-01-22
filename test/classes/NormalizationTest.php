@@ -17,6 +17,7 @@ use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use stdClass;
+use function json_encode;
 
 /**
  * tests for PhpMyAdmin\Normalization

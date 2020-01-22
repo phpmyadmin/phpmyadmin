@@ -10,6 +10,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
+use function array_keys;
 
 /**
  * Lists available transformation plugins

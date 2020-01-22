@@ -6,6 +6,23 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function array_intersect;
+use function array_map;
+use function explode;
+use function fclose;
+use function feof;
+use function fgets;
+use function fopen;
+use function function_exists;
+use function fwrite;
+use function iconv;
+use function mb_convert_encoding;
+use function mb_convert_kana;
+use function mb_detect_encoding;
+use function tempnam;
+use function unlink;
+use function mb_list_encodings;
+
 /**
  * Encoding conversion helper class
  */

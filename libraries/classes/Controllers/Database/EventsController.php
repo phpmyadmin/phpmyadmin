@@ -10,6 +10,8 @@ use PhpMyAdmin\Common;
 use PhpMyAdmin\Rte\Events;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function in_array;
+use function strlen;
 
 /**
  * Events management.

@@ -16,6 +16,8 @@ use Throwable;
 use Twig_Error_Loader;
 use Twig_Error_Runtime;
 use Twig_Error_Syntax;
+use function json_decode;
+use function json_encode;
 
 /**
  * Hardware key based two-factor authentication

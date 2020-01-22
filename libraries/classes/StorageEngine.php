@@ -19,6 +19,13 @@ use PhpMyAdmin\Engines\Ndbcluster;
 use PhpMyAdmin\Engines\Pbxt;
 use PhpMyAdmin\Engines\PerformanceSchema;
 use PhpMyAdmin\Html\Generator;
+use function array_key_exists;
+use function define;
+use function explode;
+use function htmlspecialchars;
+use function mb_stripos;
+use function mb_strtolower;
+use function sprintf;
 
 /**
 * defines

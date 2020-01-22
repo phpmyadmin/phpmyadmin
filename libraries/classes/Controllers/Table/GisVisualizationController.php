@@ -9,6 +9,7 @@ use PhpMyAdmin\Gis\GisVisualization;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function array_merge;
 
 /**
  * Handles creation of the GIS visualizations.

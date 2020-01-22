@@ -8,6 +8,18 @@ namespace PhpMyAdmin;
 
 use DirectoryIterator;
 use PhpMyAdmin\Utils\HttpRequest;
+use function array_slice;
+use function defined;
+use function explode;
+use function function_exists;
+use function gd_info;
+use function implode;
+use function ini_get;
+use function intval;
+use function mb_strstr;
+use function preg_match;
+use function stripos;
+use function strtolower;
 
 /**
  * Configuration class

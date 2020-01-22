@@ -19,6 +19,15 @@ use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
+use function array_values;
+use function class_exists;
+use function count;
+use function implode;
+use function in_array;
+use function is_file;
+use function method_exists;
+use function parse_str;
+use function sprintf;
 
 /**
  * Manipulation of table data like inserting, replacing and updating.

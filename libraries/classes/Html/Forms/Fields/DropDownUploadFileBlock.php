@@ -10,6 +10,8 @@ use PhpMyAdmin\FileListing;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Util;
+use function htmlspecialchars;
+use function sprintf;
 
 /**
  * * HTML Generator for drop down for file upload

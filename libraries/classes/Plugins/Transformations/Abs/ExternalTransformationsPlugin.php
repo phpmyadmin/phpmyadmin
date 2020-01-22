@@ -8,6 +8,15 @@ namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use stdClass;
+use function count;
+use function fclose;
+use function feof;
+use function fgets;
+use function fwrite;
+use function htmlspecialchars;
+use function is_resource;
+use function proc_close;
+use function proc_open;
 
 /**
  * Provides common methods for all of the external transformations plugins.

@@ -14,6 +14,7 @@ use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
+use function htmlspecialchars;
 
 class ProcessesControllerTest extends TestCase
 {

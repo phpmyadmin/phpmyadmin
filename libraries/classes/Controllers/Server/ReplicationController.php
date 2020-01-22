@@ -13,6 +13,7 @@ use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+use function is_array;
 
 /**
  * Server replications

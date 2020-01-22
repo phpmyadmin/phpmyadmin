@@ -12,6 +12,7 @@ use PhpMyAdmin\Config\ServerConfigChecks;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionException;
 use ReflectionProperty;
+use function array_keys;
 
 /**
  * Tests for ServeConfigChecks class

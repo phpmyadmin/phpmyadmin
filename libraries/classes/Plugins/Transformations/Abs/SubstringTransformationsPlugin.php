@@ -8,6 +8,9 @@ namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use stdClass;
+use function htmlspecialchars;
+use function mb_strlen;
+use function mb_substr;
 
 /**
  * Provides common methods for all of the substring transformations plugins.

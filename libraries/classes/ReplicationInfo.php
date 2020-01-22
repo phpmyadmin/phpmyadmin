@@ -3,6 +3,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function count;
+use function explode;
+
 final class ReplicationInfo
 {
     public static function load(): void

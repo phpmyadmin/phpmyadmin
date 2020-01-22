@@ -7,6 +7,8 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\FileListing;
 use PHPUnit\Framework\TestCase;
+use function array_values;
+use function extension_loaded;
 
 class FileListingTest extends TestCase
 {

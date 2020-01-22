@@ -11,6 +11,8 @@ use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use function array_keys;
+use function md5;
 
 /**
  * Class to handle database Multi-table querying

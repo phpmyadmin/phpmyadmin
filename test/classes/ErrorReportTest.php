@@ -13,6 +13,12 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Utils\HttpRequest;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
+use function define;
+use function defined;
+use function json_encode;
+use function phpversion;
+use const JSON_PRETTY_PRINT;
+use const JSON_UNESCAPED_SLASHES;
 
 /**
  * PhpMyAdmin\Tests\ErrorReportTest class

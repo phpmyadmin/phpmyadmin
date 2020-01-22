@@ -12,6 +12,8 @@ use PhpMyAdmin\Config\Form;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionClass;
 use ReflectionProperty;
+use function array_keys;
+use function preg_match;
 
 /**
  * Tests for PMA_Form class

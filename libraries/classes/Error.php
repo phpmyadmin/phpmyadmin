@@ -7,6 +7,17 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use Throwable;
+use const E_COMPILE_ERROR;
+use const E_COMPILE_WARNING;
+use const E_CORE_ERROR;
+use const E_CORE_WARNING;
+use const E_ERROR;
+use const E_NOTICE;
+use const E_PARSE;
+use const E_USER_ERROR;
+use const E_USER_WARNING;
+use const E_WARNING;
+use const E_USER_NOTICE;
 
 /**
  * a single error

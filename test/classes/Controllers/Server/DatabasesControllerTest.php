@@ -14,6 +14,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PHPUnit\Framework\TestCase;
 use stdClass;
+use function sprintf;
 
 /**
  * Tests for DatabasesController class

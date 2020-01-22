@@ -16,6 +16,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Url;
+use function sprintf;
 
 /**
  * Tests for PhpMyAdmin\Controllers\Table\IndexesController

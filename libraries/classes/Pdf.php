@@ -9,6 +9,9 @@ namespace PhpMyAdmin;
 use Exception;
 use TCPDF;
 use TCPDF_FONTS;
+use function count;
+use function strlen;
+use function strtr;
 
 /**
  * PDF export base class providing basic configuration.

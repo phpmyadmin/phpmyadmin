@@ -8,6 +8,8 @@ namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisPoint;
 use TCPDF;
+use function function_exists;
+use function imagecreatetruecolor;
 
 /**
  * Tests for PhpMyAdmin\Gis\GisPoint class.

@@ -8,6 +8,7 @@ namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use stdClass;
+use function htmlspecialchars;
 
 /**
  * Provides common methods for all of the text file upload

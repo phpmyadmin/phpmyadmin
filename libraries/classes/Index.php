@@ -8,6 +8,11 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
+use function array_pop;
+use function count;
+use function htmlspecialchars;
+use function sprintf;
+use function strlen;
 
 /**
  * Index manipulation class

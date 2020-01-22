@@ -7,6 +7,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Display;
 
 use PhpMyAdmin\Core;
+use function extension_loaded;
+use function function_exists;
+use function ini_get;
+use function json_encode;
+use function ucwords;
+use function uniqid;
 
 /**
  * PhpMyAdmin\Display\ImportAjax class

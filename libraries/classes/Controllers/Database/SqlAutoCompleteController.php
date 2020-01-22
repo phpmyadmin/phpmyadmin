@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use function json_encode;
+
 /**
  * Table/Column autocomplete in SQL editors.
  */

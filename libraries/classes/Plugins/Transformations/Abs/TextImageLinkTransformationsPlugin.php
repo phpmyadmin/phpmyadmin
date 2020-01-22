@@ -10,6 +10,7 @@ use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Template;
 use stdClass;
+use function htmlspecialchars;
 
 /**
  * Provides common methods for all of the image link transformations plugins.

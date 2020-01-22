@@ -12,6 +12,11 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use function array_fill;
+use function count;
+use function is_array;
+use function mb_strpos;
+use function strlen;
 
 /**
  * Displays form for editing and inserting new table rows.

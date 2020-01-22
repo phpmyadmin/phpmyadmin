@@ -8,6 +8,10 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ErrorHandler;
 use ReflectionClass;
+use const E_RECOVERABLE_ERROR;
+use const E_USER_NOTICE;
+use const E_USER_WARNING;
+use const E_WARNING;
 
 /**
  * Test for PhpMyAdmin\ErrorHandler class.

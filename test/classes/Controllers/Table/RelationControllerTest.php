@@ -18,7 +18,7 @@ use stdClass;
  */
 class RelationControllerTest extends PmaTestCase
 {
-    /** @var \PhpMyAdmin\Tests\Stubs\Response */
+    /** @var ResponseStub */
     private $_response;
 
     /** @var Template */

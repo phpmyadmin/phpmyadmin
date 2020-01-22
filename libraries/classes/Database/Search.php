@@ -11,6 +11,16 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+use function array_intersect;
+use function array_key_exists;
+use function count;
+use function explode;
+use function htmlspecialchars;
+use function implode;
+use function intval;
+use function is_array;
+use function is_string;
+use function strlen;
 
 /**
  * Class to handle database search

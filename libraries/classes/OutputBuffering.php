@@ -6,6 +6,20 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function defined;
+use function flush;
+use function function_exists;
+use function header;
+use function ini_get;
+use function ob_end_clean;
+use function ob_flush;
+use function ob_get_contents;
+use function ob_get_length;
+use function ob_get_level;
+use function ob_get_status;
+use function ob_start;
+use function register_shutdown_function;
+
 /**
  * Output buffering wrapper class
  */

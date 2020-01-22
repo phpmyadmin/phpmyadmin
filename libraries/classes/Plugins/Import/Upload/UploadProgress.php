@@ -8,6 +8,9 @@ namespace PhpMyAdmin\Plugins\Import\Upload;
 
 use PhpMyAdmin\Display\ImportAjax;
 use PhpMyAdmin\Plugins\UploadInterface;
+use function array_key_exists;
+use function function_exists;
+use function trim;
 
 /**
  * Implementation for upload progress

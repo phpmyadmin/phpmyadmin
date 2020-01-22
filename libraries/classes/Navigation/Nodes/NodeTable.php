@@ -9,6 +9,9 @@ namespace PhpMyAdmin\Navigation\Nodes;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function in_array;
+use function intval;
+use function strpos;
 
 /**
  * Represents a columns node in the navigation tree

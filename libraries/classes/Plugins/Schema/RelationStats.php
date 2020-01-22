@@ -6,6 +6,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema;
 
+use function abs;
+use function array_search;
+use function min;
+
 /**
  * Relations preferences/statistics
  *

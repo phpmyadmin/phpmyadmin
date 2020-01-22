@@ -16,6 +16,8 @@ use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use ReflectionProperty;
 use stdClass;
+use function md5;
+use function sprintf;
 
 /**
  * Tests for PhpMyAdmin\InsertEdit

@@ -6,7 +6,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function array_intersect_key;
 use function array_merge;
+use function array_splice;
+use function min;
 
 class TablePartitionDefinition
 {

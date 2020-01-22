@@ -11,7 +11,11 @@ use PhpMyAdmin\Font;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Util;
+use function array_flip;
+use function array_keys;
+use function array_merge;
 use function rawurldecode;
+use function sprintf;
 
 /**
  * Table preferences/statistics

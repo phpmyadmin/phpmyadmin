@@ -6,6 +6,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function htmlentities;
+use function htmlspecialchars;
+use function http_build_query;
+use function ini_get;
+use function is_array;
+use function mb_strpos;
+use function strlen;
+
 /**
  * Static methods for URL/hidden inputs generating
  */

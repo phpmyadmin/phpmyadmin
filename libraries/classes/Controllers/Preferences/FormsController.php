@@ -16,6 +16,8 @@ use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\UserPreferencesHeader;
+use function define;
+use function ltrim;
 
 /**
  * User preferences page.

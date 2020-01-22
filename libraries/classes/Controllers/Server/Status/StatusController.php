@@ -13,6 +13,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+use function implode;
 
 /**
  * Object the server status page: processes, connections and traffic.

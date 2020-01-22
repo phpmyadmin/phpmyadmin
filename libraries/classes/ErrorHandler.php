@@ -6,6 +6,20 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function array_splice;
+use function count;
+use function defined;
+use function error_reporting;
+use function function_exists;
+use function htmlspecialchars;
+use function set_error_handler;
+use const E_DEPRECATED;
+use const E_STRICT;
+use const E_USER_ERROR;
+use const E_USER_NOTICE;
+use const E_USER_WARNING;
+use const E_NOTICE;
+
 /**
  * handling errors
  */

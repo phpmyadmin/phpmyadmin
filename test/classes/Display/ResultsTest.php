@@ -16,6 +16,8 @@ use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Transformations;
 use ReflectionClass;
 use stdClass;
+use function count;
+use function hex2bin;
 
 /**
  * Test cases for displaying results.

@@ -10,6 +10,8 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
+use function htmlspecialchars;
+use function sprintf;
 
 /**
  * PhpMyAdmin\Rte\General class

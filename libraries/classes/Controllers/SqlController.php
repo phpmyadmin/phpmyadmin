@@ -15,6 +15,10 @@ use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function mb_strpos;
+use function strlen;
+use function strpos;
+use function urlencode;
 
 class SqlController extends AbstractController
 {

@@ -8,6 +8,8 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Scripts;
 use ReflectionProperty;
+use function define;
+use function defined;
 
 /**
  * Tests for Script.php

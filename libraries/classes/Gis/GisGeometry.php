@@ -7,6 +7,15 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Gis;
 
 use TCPDF;
+use function explode;
+use function floatval;
+use function intval;
+use function mb_strlen;
+use function mb_strripos;
+use function mb_substr;
+use function preg_match;
+use function str_replace;
+use function trim;
 
 /**
  * Base class for all GIS data type classes.

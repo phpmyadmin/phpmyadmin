@@ -11,6 +11,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Stubs;
 
 use PhpMyAdmin\Dbal\DbiExtension;
+use function count;
+use function is_array;
+use function is_bool;
+use function preg_replace;
+use function str_replace;
+use function trim;
 
 /**
  * Fake database driver for testing purposes

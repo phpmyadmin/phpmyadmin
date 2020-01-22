@@ -7,6 +7,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use ArrayObject;
+use function htmlspecialchars;
+use function in_array;
 
 /**
  * Generic list class

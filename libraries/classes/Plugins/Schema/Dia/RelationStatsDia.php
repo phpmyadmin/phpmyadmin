@@ -6,6 +6,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Dia;
 
+use function array_search;
+use function shuffle;
+
 /**
  * Relation preferences/statistics
  *

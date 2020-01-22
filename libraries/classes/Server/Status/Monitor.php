@@ -9,6 +9,19 @@ namespace PhpMyAdmin\Server\Status;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\SysInfo;
 use PhpMyAdmin\Util;
+use function array_sum;
+use function count;
+use function implode;
+use function is_numeric;
+use function json_decode;
+use function mb_strlen;
+use function mb_strpos;
+use function mb_strtolower;
+use function mb_substr;
+use function microtime;
+use function preg_match;
+use function preg_replace;
+use function strlen;
 
 /**
  * functions for displaying server status sub item: monitor

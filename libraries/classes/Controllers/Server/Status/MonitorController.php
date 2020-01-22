@@ -13,6 +13,8 @@ use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\SysInfo;
 use PhpMyAdmin\Template;
+use function is_numeric;
+use function microtime;
 
 class MonitorController extends AbstractController
 {

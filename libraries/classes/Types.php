@@ -6,6 +6,15 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function array_diff;
+use function array_merge;
+use function htmlspecialchars;
+use function in_array;
+use function mb_strtoupper;
+use function sort;
+use function sprintf;
+use function strncasecmp;
+
 /**
  * Class holding type definitions for MySQL and MariaDB.
  */

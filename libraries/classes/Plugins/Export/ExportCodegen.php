@@ -14,6 +14,11 @@ use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Util;
+use function implode;
+use function preg_match;
+use function preg_replace;
+use function sprintf;
+use function ucfirst;
 
 /**
  * Handles the export for the CodeGen class

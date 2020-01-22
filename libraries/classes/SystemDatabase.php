@@ -7,6 +7,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use mysqli_result;
+use function count;
+use function sprintf;
 
 class SystemDatabase
 {

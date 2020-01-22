@@ -12,6 +12,17 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Util;
 use Williamdes\MariaDBMySQLKBS\KBException;
 use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
+use function header;
+use function htmlspecialchars;
+use function implode;
+use function in_array;
+use function is_numeric;
+use function mb_strtolower;
+use function pow;
+use function preg_match;
+use function str_replace;
+use function strtolower;
+use function trim;
 
 /**
  * Handles viewing and editing server variables

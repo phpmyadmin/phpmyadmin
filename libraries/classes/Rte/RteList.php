@@ -16,6 +16,9 @@ use PhpMyAdmin\SqlParser\Utils\Routine;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function count;
+use function htmlspecialchars;
+use function sprintf;
 
 /**
  * PhpMyAdmin\Rte\RteList class

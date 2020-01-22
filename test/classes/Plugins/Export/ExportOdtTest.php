@@ -13,6 +13,7 @@ use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
 use stdClass;
+use function array_shift;
 
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportOdt class

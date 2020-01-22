@@ -13,6 +13,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
 use PHPStan\Testing\TestCase;
+use function htmlspecialchars;
 
 /**
  * Tests for EnginesController class

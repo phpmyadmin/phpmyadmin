@@ -10,6 +10,12 @@ use PhpMyAdmin\Response;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use ReflectionProperty;
+use function array_slice;
+use function call_user_func_array;
+use function count;
+use function end;
+use function is_array;
+use function is_int;
 
 /**
  * Base class for phpMyAdmin tests

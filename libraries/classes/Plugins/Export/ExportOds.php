@@ -15,6 +15,12 @@ use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
+use function bin2hex;
+use function date;
+use function htmlspecialchars;
+use function stripos;
+use function stripslashes;
+use function strtotime;
 
 /**
  * Handles the export for the ODS class

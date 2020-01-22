@@ -14,6 +14,14 @@ use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Util;
 use SimpleXMLElement;
+use function count;
+use function in_array;
+use function libxml_disable_entity_loader;
+use function simplexml_load_string;
+use function str_replace;
+use function strcmp;
+use function strlen;
+use const LIBXML_COMPACT;
 
 /**
  * Handles the import for the XML format

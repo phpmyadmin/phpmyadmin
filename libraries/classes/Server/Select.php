@@ -8,6 +8,11 @@ namespace PhpMyAdmin\Server;
 
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function count;
+use function htmlspecialchars;
+use function implode;
+use function is_array;
+use function strpos;
 
 /**
  * Displays the MySQL servers choice form

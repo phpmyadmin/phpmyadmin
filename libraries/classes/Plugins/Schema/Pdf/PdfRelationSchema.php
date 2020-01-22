@@ -10,6 +10,18 @@ use PhpMyAdmin\Pdf as PdfLib;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
+use function ceil;
+use function class_exists;
+use function getcwd;
+use function in_array;
+use function intval;
+use function max;
+use function min;
+use function rsort;
+use function sort;
+use function sprintf;
+use function str_replace;
+use function strtotime;
 
 // phpcs:disable PSR1.Files.SideEffects
 /**

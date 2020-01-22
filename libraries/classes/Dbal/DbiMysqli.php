@@ -12,6 +12,20 @@ use mysqli_stmt;
 use PhpMyAdmin\DatabaseInterface;
 use stdClass;
 use function mysqli_init;
+use const MYSQLI_AUTO_INCREMENT_FLAG;
+use const MYSQLI_BLOB_FLAG;
+use const MYSQLI_ENUM_FLAG;
+use const MYSQLI_MULTIPLE_KEY_FLAG;
+use const MYSQLI_NOT_NULL_FLAG;
+use const MYSQLI_NUM_FLAG;
+use const MYSQLI_PART_KEY_FLAG;
+use const MYSQLI_PRI_KEY_FLAG;
+use const MYSQLI_SET_FLAG;
+use const MYSQLI_TIMESTAMP_FLAG;
+use const MYSQLI_UNIQUE_KEY_FLAG;
+use const MYSQLI_UNSIGNED_FLAG;
+use const MYSQLI_ZEROFILL_FLAG;
+use function defined;
 
 /**
  * Interface to the MySQL Improved extension (MySQLi)

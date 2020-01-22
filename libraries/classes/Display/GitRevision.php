@@ -11,6 +11,10 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+use function htmlspecialchars;
+use function sprintf;
+use function strtotime;
+use function substr;
 
 /**
  * PhpMyAdmin\Display\GitRevision class

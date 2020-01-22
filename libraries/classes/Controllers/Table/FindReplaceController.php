@@ -9,6 +9,16 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+use function array_key_exists;
+use function count;
+use function is_array;
+use function mb_strtolower;
+use function preg_match;
+use function preg_replace;
+use function str_ireplace;
+use function str_replace;
+use function strncasecmp;
+use function strpos;
 
 /**
  * Handles find and replace tab.

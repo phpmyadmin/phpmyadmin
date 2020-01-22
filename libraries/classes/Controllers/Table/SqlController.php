@@ -10,6 +10,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use function htmlspecialchars;
 
 /**
  * Table SQL executor

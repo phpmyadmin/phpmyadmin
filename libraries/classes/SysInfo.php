@@ -10,6 +10,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function in_array;
+use function ucfirst;
+use const PHP_OS;
+
 /**
  * PhpMyAdmin\SysInfo class
  */

@@ -9,6 +9,16 @@ namespace PhpMyAdmin\Plugins\Import;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
+use function count;
+use function explode;
+use function mb_strlen;
+use function mb_strpos;
+use function mb_substr;
+use function preg_match;
+use function str_replace;
+use function strcmp;
+use function strlen;
+use function trim;
 
 /**
  * Handles the import for the MediaWiki format

@@ -10,6 +10,7 @@ use PhpMyAdmin\Export;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Transformations;
+use function stripos;
 
 /**
  * Provides a common interface that will have to be implemented by all of the

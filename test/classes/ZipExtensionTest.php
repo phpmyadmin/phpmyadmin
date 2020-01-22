@@ -8,6 +8,11 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ZipExtension;
 use ZipArchive;
+use function fclose;
+use function fopen;
+use function fwrite;
+use function tempnam;
+use function unlink;
 
 /**
  * Tests zip extension usage.

@@ -10,6 +10,14 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Sanitize;
 use stdClass;
+use function hash;
+use function htmlspecialchars;
+use function mb_strpos;
+use function ob_end_clean;
+use function ob_get_contents;
+use function ob_start;
+use function preg_quote;
+use function serialize;
 
 /**
  * Tests for PhpMyAdmin\Core class

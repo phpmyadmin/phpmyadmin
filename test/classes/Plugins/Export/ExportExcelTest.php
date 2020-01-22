@@ -10,6 +10,7 @@ use PhpMyAdmin\Plugins\Export\ExportExcel;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
+use function array_shift;
 
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportExcel class

@@ -10,6 +10,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Display\ChangePassword;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
+use function htmlspecialchars;
 
 /**
  * ChangePasswordTest class

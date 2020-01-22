@@ -11,6 +11,10 @@ use PhpMyAdmin\Import;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
+use function implode;
+use function sprintf;
+use function time;
+use const PHP_INT_MAX;
 
 /**
  * Tests for import functions

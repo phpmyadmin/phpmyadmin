@@ -3,6 +3,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function explode;
+use function strlen;
+use function strpos;
+
 /**
  * Shared code for server, database and table level pages.
  */

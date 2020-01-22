@@ -9,6 +9,8 @@ namespace PhpMyAdmin\Engines;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Util;
+use function preg_match;
+use function sprintf;
 
 /**
  * The PBXT storage engine

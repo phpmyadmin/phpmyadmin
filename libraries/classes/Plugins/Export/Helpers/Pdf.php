@@ -12,6 +12,10 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 use TCPDF_STATIC;
+use function array_key_exists;
+use function count;
+use function ksort;
+use function stripos;
 
 /**
  * Adapted from a LGPL script by Philip Clarke

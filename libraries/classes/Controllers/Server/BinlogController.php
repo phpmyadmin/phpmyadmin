@@ -14,6 +14,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+use function array_key_exists;
 
 /**
  * Handles viewing binary logs

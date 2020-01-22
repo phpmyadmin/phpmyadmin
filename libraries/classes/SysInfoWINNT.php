@@ -7,7 +7,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use COM;
+use function class_exists;
+use function count;
+use function in_array;
 use function is_string;
+use function trim;
 
 /**
  * Windows NT based SysInfo class

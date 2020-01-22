@@ -16,6 +16,11 @@ use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Util;
+use function bin2hex;
+use function htmlspecialchars;
+use function str_replace;
+use function stripos;
+use function stripslashes;
 
 /**
  * Handles the export for the ODT class

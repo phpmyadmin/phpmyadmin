@@ -11,6 +11,17 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+use function array_search;
+use function htmlspecialchars;
+use function in_array;
+use function intval;
+use function is_numeric;
+use function mb_strtolower;
+use function preg_match;
+use function str_ireplace;
+use function str_replace;
+use function strncasecmp;
+use function count;
 
 /**
  * Handles table zoom search tab.

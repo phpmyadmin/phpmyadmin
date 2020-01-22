@@ -16,6 +16,18 @@ use PhpMyAdmin\SqlParser\Statements\InsertStatement;
 use PhpMyAdmin\SqlParser\Statements\RenameStatement;
 use PhpMyAdmin\SqlParser\Statements\TruncateStatement;
 use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
+use function array_values;
+use function count;
+use function explode;
+use function is_array;
+use function mb_strpos;
+use function mb_strstr;
+use function mb_substr;
+use function preg_replace;
+use function rtrim;
+use function serialize;
+use function str_replace;
+use function trim;
 
 /**
  * This class tracks changes on databases, tables and views.

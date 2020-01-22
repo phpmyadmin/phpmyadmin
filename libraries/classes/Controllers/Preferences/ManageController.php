@@ -17,6 +17,19 @@ use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\UserPreferencesHeader;
 use PhpMyAdmin\Util;
+use function array_merge;
+use function is_array;
+use function is_uploaded_file;
+use function json_decode;
+use function json_encode;
+use function parse_url;
+use function str_replace;
+use function urlencode;
+use function var_export;
+use const JSON_PRETTY_PRINT;
+use const PHP_URL_PATH;
+use const UPLOAD_ERR_OK;
+use function mb_strpos;
 
 /**
  * User preferences management page.

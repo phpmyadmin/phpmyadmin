@@ -8,6 +8,9 @@ namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use stdClass;
+use function bin2hex;
+use function chunk_split;
+use function intval;
 
 /**
  * Provides common methods for all of the hex transformations plugins.

@@ -7,6 +7,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Schema\Svg;
 
 use PhpMyAdmin\Plugins\Schema\RelationStats;
+use function shuffle;
+use function sqrt;
 
 /**
  * Relation preferences/statistics

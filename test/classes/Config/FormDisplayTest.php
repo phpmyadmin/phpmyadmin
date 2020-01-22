@@ -13,6 +13,8 @@ use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;
+use function function_exists;
+use function gettype;
 
 /**
  * Tests for PMA_FormDisplay class

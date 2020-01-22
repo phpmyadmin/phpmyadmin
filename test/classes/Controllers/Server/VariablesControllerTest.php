@@ -16,6 +16,8 @@ use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
 use Williamdes\MariaDBMySQLKBS\SlimData as KBSlimData;
+use function htmlspecialchars;
+use function str_replace;
 
 /**
  * Tests for VariablesController class

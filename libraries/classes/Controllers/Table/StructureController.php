@@ -33,6 +33,17 @@ use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use stdClass;
+use function array_keys;
+use function array_splice;
+use function count;
+use function implode;
+use function in_array;
+use function is_array;
+use function mb_strtoupper;
+use function sprintf;
+use function str_replace;
+use function trim;
+use function strpos;
 
 /**
  * Displays table structure infos like columns, indexes, size, rows

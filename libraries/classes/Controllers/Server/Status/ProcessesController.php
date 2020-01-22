@@ -10,6 +10,11 @@ use PhpMyAdmin\Common;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Util;
+use function array_keys;
+use function count;
+use function mb_strtolower;
+use function strlen;
+use function ucfirst;
 
 class ProcessesController extends AbstractController
 {

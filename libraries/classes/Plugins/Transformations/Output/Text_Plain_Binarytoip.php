@@ -8,6 +8,10 @@ namespace PhpMyAdmin\Plugins\Transformations\Output;
 
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use stdClass;
+use function hex2bin;
+use function inet_ntop;
+use function strpos;
+use function substr;
 
 /**
  * Handles the binary to IPv4/IPv6 transformation for text plain

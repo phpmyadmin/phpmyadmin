@@ -7,6 +7,16 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Setup;
 
 use PhpMyAdmin\Config\ConfigFile;
+use function array_keys;
+use function count;
+use function gmdate;
+use function implode;
+use function is_array;
+use function mb_strpos;
+use function preg_replace;
+use function strtr;
+use function var_export;
+use const DATE_RFC1123;
 
 /**
  * Config file generation class

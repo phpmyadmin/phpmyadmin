@@ -20,6 +20,13 @@ use PhpMyAdmin\Server\Users;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function header;
+use function implode;
+use function is_array;
+use function ob_get_clean;
+use function ob_start;
+use function str_replace;
+use function urlencode;
 
 /**
  * Server privileges and users manipulations.

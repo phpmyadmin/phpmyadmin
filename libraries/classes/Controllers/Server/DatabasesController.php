@@ -20,6 +20,16 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function array_key_exists;
+use function array_keys;
+use function array_search;
+use function count;
+use function explode;
+use function in_array;
+use function mb_strlen;
+use function mb_strtolower;
+use function strlen;
+use function strpos;
 
 /**
  * Handles viewing and creating and deleting databases

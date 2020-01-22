@@ -17,6 +17,15 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function array_merge;
+use function count;
+use function htmlspecialchars;
+use function implode;
+use function mb_strstr;
+use function mb_strtolower;
+use function mb_strtoupper;
+use function preg_replace;
+use function sprintf;
 
 class OperationsController extends AbstractController
 {

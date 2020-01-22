@@ -10,6 +10,19 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Di\Migration;
 use PhpMyAdmin\Display\Error as DisplayError;
+use function gettype;
+use function in_array;
+use function is_array;
+use function is_numeric;
+use function is_scalar;
+use function is_string;
+use function json_encode;
+use function preg_replace;
+use function sprintf;
+use function strlen;
+use function strtolower;
+use function vsprintf;
+use function strtr;
 
 /**
  * Core class

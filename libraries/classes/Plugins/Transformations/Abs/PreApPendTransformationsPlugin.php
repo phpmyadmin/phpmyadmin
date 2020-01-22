@@ -8,6 +8,7 @@ namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use stdClass;
+use function htmlspecialchars;
 
 /**
  * Provides common methods for all of the prepend/append transformations plugins.

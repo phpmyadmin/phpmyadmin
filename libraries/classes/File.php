@@ -6,6 +6,18 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function bin2hex;
+use function extension_loaded;
+use function fclose;
+use function file_get_contents;
+use function filesize;
+use function fopen;
+use function fread;
+use function function_exists;
+use function is_string;
+use function trim;
+use function unlink;
+
 /**
  * File wrapper class
  *

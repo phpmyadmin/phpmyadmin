@@ -23,6 +23,20 @@ use Twig_Error_Runtime;
 use Twig_Error_Syntax;
 use Williamdes\MariaDBMySQLKBS\KBException;
 use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
+use function array_merge;
+use function basename;
+use function ceil;
+use function count;
+use function htmlentities;
+use function htmlspecialchars;
+use function implode;
+use function is_array;
+use function mb_strlen;
+use function sprintf;
+use function strpos;
+use function trigger_error;
+use function urlencode;
+use const E_USER_NOTICE;
 
 /**
  * HTML Generator

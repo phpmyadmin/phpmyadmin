@@ -9,6 +9,8 @@ namespace PhpMyAdmin\Plugins\Transformations\Abs;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Util;
 use stdClass;
+use function htmlspecialchars;
+use function long2ip;
 
 /**
  * Provides common methods for all of the long to IPv4 transformations plugins.

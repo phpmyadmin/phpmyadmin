@@ -7,6 +7,16 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\Generator;
+use function array_merge;
+use function count;
+use function implode;
+use function in_array;
+use function intval;
+use function json_decode;
+use function min;
+use function preg_replace;
+use function strlen;
+use function trim;
 
 /**
  * Set of functions for /table/create and /table/add-field

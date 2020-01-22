@@ -11,6 +11,7 @@ use PhpMyAdmin\Display\Export;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
+use function htmlspecialchars;
 
 /**
  * this class is for testing PhpMyAdmin\Display\Export methods

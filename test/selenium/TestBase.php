@@ -23,6 +23,20 @@ use mysqli;
 use mysqli_result;
 use PHPUnit\Framework\TestCase;
 use Throwable;
+use function getenv;
+use function is_string;
+use function json_encode;
+use function mb_strtolower;
+use function mb_substr;
+use function preg_match;
+use function rand;
+use function sha1;
+use function sprintf;
+use function strlen;
+use function substr;
+use function trim;
+use function usleep;
+use function curl_init;
 
 /**
  * Base class for Selenium tests.

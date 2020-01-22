@@ -6,6 +6,16 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function array_unshift;
+use function count;
+use function htmlspecialchars;
+use function is_array;
+use function is_float;
+use function is_int;
+use function md5;
+use function sprintf;
+use function strlen;
+
 /**
  * a single message
  *

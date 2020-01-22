@@ -6,6 +6,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function md5;
+use function strpos;
+
 /**
  * Collects information about which JavaScript
  * files and objects are necessary to render

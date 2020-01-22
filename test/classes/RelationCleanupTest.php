@@ -10,6 +10,7 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
+use function array_merge;
 
 /**
  * PhpMyAdmin\Tests\RelationCleanupTest class

@@ -10,6 +10,10 @@ use PhpMyAdmin\Advisor;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use function addcslashes;
+use function array_search;
+use function implode;
+use function strstr;
 
 /**
  * Translates advisory rules to Gettext format

@@ -13,6 +13,11 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function htmlspecialchars;
+use function is_array;
+use function mb_strtolower;
+use function sprintf;
+use function strlen;
 
 /**
  * Displays table create form and handles it.

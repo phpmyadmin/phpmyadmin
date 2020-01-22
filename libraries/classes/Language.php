@@ -6,6 +6,15 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function addcslashes;
+use function function_exists;
+use function in_array;
+use function preg_match;
+use function setlocale;
+use function str_replace;
+use function strcmp;
+use function strpos;
+
 /**
  * Language object
  */

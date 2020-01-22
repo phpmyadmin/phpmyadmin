@@ -8,6 +8,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Server\Privileges;
+use function strlen;
 
 /**
  * Functions for user password

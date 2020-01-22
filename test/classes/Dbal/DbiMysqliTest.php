@@ -10,6 +10,9 @@ use mysqli;
 use mysqli_result;
 use PhpMyAdmin\Dbal\DbiMysqli;
 use PHPUnit\Framework\TestCase;
+use const MYSQLI_ASSOC;
+use const MYSQLI_BOTH;
+use const MYSQLI_NUM;
 
 /**
  * Tests for PhpMyAdmin\Dbi\DbiMysqli class

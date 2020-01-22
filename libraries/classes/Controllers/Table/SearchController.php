@@ -12,6 +12,15 @@ use PhpMyAdmin\Sql;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+use function in_array;
+use function intval;
+use function mb_strtolower;
+use function md5;
+use function preg_match;
+use function preg_replace;
+use function str_ireplace;
+use function str_replace;
+use function strncasecmp;
 
 /**
  * Handles table search tab.

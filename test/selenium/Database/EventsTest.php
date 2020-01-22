@@ -7,6 +7,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Selenium\Database;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
+use function date;
+use function sleep;
+use function strtotime;
 
 /**
  * EventsTest class

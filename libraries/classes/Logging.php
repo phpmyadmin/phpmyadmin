@@ -8,6 +8,17 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function closelog;
+use function date;
+use function error_log;
+use function function_exists;
+use function openlog;
+use function syslog;
+use const LOG_AUTHPRIV;
+use const LOG_NDELAY;
+use const LOG_PID;
+use const LOG_WARNING;
+
 /**
  * Misc logging functions
  */

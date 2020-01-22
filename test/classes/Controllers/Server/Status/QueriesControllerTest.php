@@ -14,6 +14,8 @@ use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
+use function array_sum;
+use function htmlspecialchars;
 
 class QueriesControllerTest extends TestCase
 {

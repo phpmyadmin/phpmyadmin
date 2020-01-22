@@ -13,6 +13,7 @@ use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
+use function htmlspecialchars;
 
 /**
  * PhpMyAdmin\Tests\SqlQueryFormTest class

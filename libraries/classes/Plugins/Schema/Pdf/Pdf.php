@@ -9,6 +9,14 @@ namespace PhpMyAdmin\Plugins\Schema\Pdf;
 use PhpMyAdmin\Pdf as PdfLib;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Util;
+use function class_exists;
+use function count;
+use function getcwd;
+use function max;
+use function mb_ord;
+use function str_replace;
+use function strlen;
+use function ucfirst;
 
 // phpcs:disable PSR1.Files.SideEffects
 /**

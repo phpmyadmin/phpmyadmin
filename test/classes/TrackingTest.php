@@ -13,6 +13,8 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracking;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
+use function htmlspecialchars;
+use function sprintf;
 
 /**
  * Tests for PhpMyAdmin\Tracking

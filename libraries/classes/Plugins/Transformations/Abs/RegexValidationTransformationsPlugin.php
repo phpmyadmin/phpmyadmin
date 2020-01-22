@@ -8,6 +8,9 @@ namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use stdClass;
+use function htmlspecialchars;
+use function preg_match;
+use function sprintf;
 
 /**
  * Provides common methods for all of the regex validation

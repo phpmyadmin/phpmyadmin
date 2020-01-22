@@ -6,6 +6,19 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function array_key_exists;
+use function closedir;
+use function htmlspecialchars;
+use function is_dir;
+use function ksort;
+use function opendir;
+use function readdir;
+use function sprintf;
+use function trigger_error;
+use function trim;
+use const E_USER_ERROR;
+use const E_USER_WARNING;
+
 /**
  * phpMyAdmin theme manager
  */

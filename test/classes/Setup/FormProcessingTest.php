@@ -8,6 +8,8 @@ namespace PhpMyAdmin\Tests\Setup;
 
 use PhpMyAdmin\Setup\FormProcessing;
 use PhpMyAdmin\Tests\PmaTestCase;
+use function ob_get_clean;
+use function ob_start;
 
 /**
  * tests for methods under Formset processing library

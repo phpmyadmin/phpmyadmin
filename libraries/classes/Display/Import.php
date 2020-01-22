@@ -14,6 +14,8 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Template;
+use function function_exists;
+use function intval;
 
 /**
  * PhpMyAdmin\Display\Import class

@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\Transformations\Output;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Response;
 use stdClass;
+use function htmlspecialchars;
 
 /**
  * Handles the XML transformation for text plain

@@ -10,6 +10,8 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
+use function parse_url;
+use function sprintf;
 
 /**
  * Two factor authentication plugin class

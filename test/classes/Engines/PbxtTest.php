@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Tests\Engines;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Engines\Pbxt;
 use PhpMyAdmin\Tests\PmaTestCase;
+use function sprintf;
 
 /**
  * Tests for PhpMyAdmin\Engines\Pbxt;

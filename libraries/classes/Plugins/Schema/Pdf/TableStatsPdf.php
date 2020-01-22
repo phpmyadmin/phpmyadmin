@@ -9,6 +9,10 @@ namespace PhpMyAdmin\Plugins\Schema\Pdf;
 use PhpMyAdmin\Pdf as PdfLib;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Plugins\Schema\TableStats;
+use function count;
+use function in_array;
+use function max;
+use function sprintf;
 
 /**
  * Table preferences/statistics

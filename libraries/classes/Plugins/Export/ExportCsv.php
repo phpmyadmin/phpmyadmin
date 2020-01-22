@@ -14,6 +14,12 @@ use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
+use function mb_strtolower;
+use function mb_substr;
+use function preg_replace;
+use function str_replace;
+use function stripslashes;
+use function trim;
 
 /**
  * Handles the export for the CSV format

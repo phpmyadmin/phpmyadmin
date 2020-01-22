@@ -15,6 +15,10 @@ use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Util;
+use function htmlspecialchars;
+use function in_array;
+use function str_replace;
+use function stripslashes;
 
 /**
  * Handles the export for the HTML-Word format

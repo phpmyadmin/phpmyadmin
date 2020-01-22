@@ -8,6 +8,7 @@ namespace PhpMyAdmin\Config\Forms;
 
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\FormDisplay;
+use function is_int;
 
 /**
  * Base form for user preferences

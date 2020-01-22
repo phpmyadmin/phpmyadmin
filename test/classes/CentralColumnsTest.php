@@ -15,6 +15,8 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
+use function array_slice;
+use function ceil;
 
 /**
  * tests for PhpMyAdmin\CentralColumns

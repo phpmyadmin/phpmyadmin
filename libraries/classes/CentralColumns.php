@@ -9,6 +9,16 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\Html\Generator;
+use function array_unique;
+use function count;
+use function htmlspecialchars;
+use function implode;
+use function in_array;
+use function is_bool;
+use function mb_strtoupper;
+use function sprintf;
+use function trim;
+use function explode;
 
 /**
  * PhpMyAdmin\CentralColumns class

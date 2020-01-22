@@ -9,6 +9,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\Forms\Fields\FKCheckbox;
+use function count;
+use function htmlspecialchars;
+use function in_array;
+use function mb_strlen;
+use function mb_strpos;
+use function mb_substr;
+use function preg_replace;
 
 /**
  * Functions for multi submit forms

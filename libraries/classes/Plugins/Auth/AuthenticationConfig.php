@@ -11,6 +11,12 @@ use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Util;
+use function count;
+use function defined;
+use function sprintf;
+use function trigger_error;
+use const E_USER_NOTICE;
+use const E_USER_WARNING;
 
 /**
  * Handles the config authentication method

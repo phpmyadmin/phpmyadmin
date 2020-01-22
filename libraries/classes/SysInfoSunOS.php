@@ -6,6 +6,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function explode;
+use function is_readable;
+use function shell_exec;
+use function trim;
+
 /**
  * SunOS based SysInfo class
  */

@@ -24,6 +24,21 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function ceil;
+use function count;
+use function htmlspecialchars;
+use function implode;
+use function in_array;
+use function json_decode;
+use function json_encode;
+use function max;
+use function md5;
+use function sha1;
+use function sprintf;
+use function str_replace;
+use function strtotime;
+use function urlencode;
+use function array_search;
 
 /**
  * Handles database structure logic

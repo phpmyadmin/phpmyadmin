@@ -14,6 +14,18 @@ use PhpMyAdmin\Html\Forms\Fields\RadioList;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Plugins\Export\ExportSql;
+use function array_merge;
+use function count;
+use function explode;
+use function htmlspecialchars;
+use function implode;
+use function mb_strtolower;
+use function mb_strtoupper;
+use function sprintf;
+use function str_replace;
+use function strlen;
+use function strtolower;
+use function urldecode;
 
 /**
  * Set of functions with the operations section in phpMyAdmin

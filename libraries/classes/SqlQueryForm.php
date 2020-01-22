@@ -13,6 +13,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\MySQLDocumentation;
+use function htmlspecialchars;
+use function sprintf;
+use function strlen;
+use function strpos;
 
 /**
  * PhpMyAdmin\SqlQueryForm class

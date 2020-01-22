@@ -7,6 +7,16 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Gis;
 
 use TCPDF;
+use function count;
+use function hexdec;
+use function imagecolorallocate;
+use function imageline;
+use function imagestring;
+use function json_encode;
+use function mb_strlen;
+use function mb_substr;
+use function mt_rand;
+use function trim;
 
 /**
  * Handles actions related to GIS LINESTRING objects

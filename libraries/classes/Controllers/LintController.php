@@ -8,6 +8,7 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Linter;
+use function json_encode;
 
 /**
  * Represents the interface between the linter and the query editor.

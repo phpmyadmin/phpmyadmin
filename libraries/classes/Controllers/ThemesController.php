@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\ThemeManager;
+use function preg_replace;
 
 /**
  * Displays list of themes.

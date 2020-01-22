@@ -13,6 +13,10 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Template;
+use function array_keys;
+use function ksort;
+use function mb_strtolower;
+use function preg_replace;
 
 /**
  * Handles viewing server plugin details

@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Tests\Plugins\Import;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportCsv;
 use PhpMyAdmin\Tests\PmaTestCase;
+use function basename;
 
 /**
  * Tests for PhpMyAdmin\Plugins\Import\ImportCsv class

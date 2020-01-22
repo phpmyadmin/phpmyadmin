@@ -7,6 +7,16 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\Generator;
+use function count;
+use function htmlspecialchars;
+use function in_array;
+use function ini_set;
+use function intval;
+use function is_array;
+use function mb_strstr;
+use function sprintf;
+use function strtotime;
+use function preg_replace;
 
 /**
  * PhpMyAdmin\Tracking class

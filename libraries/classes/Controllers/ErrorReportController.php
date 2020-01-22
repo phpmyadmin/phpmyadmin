@@ -13,6 +13,11 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\UserPreferences;
+use function count;
+use function in_array;
+use function is_string;
+use function json_decode;
+use function time;
 
 /**
  * Handle error report submission

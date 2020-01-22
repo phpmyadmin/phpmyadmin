@@ -8,6 +8,7 @@ namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Tests\PmaTestCase;
+use function is_string;
 
 /**
  * Tests for PhpMyAdmin\Navigation\Nodes\NodeView class

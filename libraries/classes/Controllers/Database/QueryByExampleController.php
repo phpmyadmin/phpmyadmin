@@ -14,6 +14,9 @@ use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function array_merge;
+use function sprintf;
+use function stripos;
 
 /**
  * Query by Example controller

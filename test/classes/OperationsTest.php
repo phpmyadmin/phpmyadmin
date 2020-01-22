@@ -10,6 +10,7 @@ use PhpMyAdmin\Operations;
 use PhpMyAdmin\Relation;
 use PHPUnit\Framework\TestCase;
 use ReflectionMethod;
+use function hash;
 
 /**
  * tests for operations

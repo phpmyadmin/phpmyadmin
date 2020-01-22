@@ -18,6 +18,9 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function count;
+use function mb_strtolower;
+use function strlen;
 
 /**
  * Handles miscellaneous database operations.

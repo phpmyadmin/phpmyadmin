@@ -10,6 +10,13 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function array_merge;
+use function explode;
+use function htmlspecialchars;
+use function in_array;
+use function sprintf;
+use function strpos;
+use function substr;
 
 /**
  * Handles creation of VIEWs.

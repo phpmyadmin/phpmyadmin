@@ -8,6 +8,9 @@ namespace PhpMyAdmin\Controllers\Server\Status;
 
 use PhpMyAdmin\Common;
 use PhpMyAdmin\Html\Generator;
+use function in_array;
+use function is_numeric;
+use function mb_strpos;
 
 class VariablesController extends AbstractController
 {

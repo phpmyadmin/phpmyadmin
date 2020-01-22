@@ -6,6 +6,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function mb_strpos;
+use function mb_substr;
+use function preg_match;
+use function preg_replace;
+use function strpos;
+
 /**
  * PhpMyAdmin\CheckUserPrivileges class
  */

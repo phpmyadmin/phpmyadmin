@@ -9,6 +9,10 @@ use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use function intval;
+use function json_decode;
+use function json_encode;
+use function min;
 
 /**
  * Normalization process (temporarily specific to 1NF).

@@ -6,6 +6,17 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use function array_keys;
+use function file_get_contents;
+use function htmlspecialchars;
+use function is_readable;
+use function ob_get_clean;
+use function ob_start;
+use function preg_replace;
+use function printf;
+use function readgzfile;
+use function substr;
+
 class ChangeLogController extends AbstractController
 {
     public function index(): void

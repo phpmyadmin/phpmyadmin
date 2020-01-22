@@ -10,6 +10,8 @@ namespace PhpMyAdmin\Plugins\Schema;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function htmlspecialchars;
+use function intval;
 use function rawurldecode;
 
 /**

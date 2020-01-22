@@ -21,6 +21,16 @@ use PhpMyAdmin\SqlParser\Utils\Misc;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function count;
+use function in_array;
+use function ini_set;
+use function is_array;
+use function ob_end_clean;
+use function ob_get_length;
+use function register_shutdown_function;
+use function strlen;
+use function time;
+use const PHP_EOL;
 
 final class ExportController extends AbstractController
 {

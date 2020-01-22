@@ -7,6 +7,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server\Status;
 
 use PhpMyAdmin\Common;
+use function array_sum;
+use function arsort;
+use function count;
+use function str_replace;
 
 class QueriesController extends AbstractController
 {

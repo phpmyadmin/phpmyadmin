@@ -7,6 +7,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Config;
 
 use PhpMyAdmin\Core;
+use function array_diff;
+use function array_flip;
+use function array_keys;
+use function array_walk;
+use function count;
+use function is_array;
+use function preg_replace;
 
 /**
  * Config file management class.

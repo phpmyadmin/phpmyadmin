@@ -13,6 +13,15 @@ use PhpMyAdmin\MoTranslator\Loader;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\Util;
+use function date_default_timezone_get;
+use function date_default_timezone_set;
+use function floatval;
+use function htmlspecialchars;
+use function ini_get;
+use function ini_set;
+use function str_replace;
+use function strlen;
+use function trim;
 
 /**
  * Test for PhpMyAdmin\Util class

@@ -8,7 +8,16 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\Navigation;
+use function defined;
+use function gmdate;
+use function header;
+use function htmlspecialchars;
+use function implode;
 use function ini_get;
+use function is_bool;
+use function strlen;
+use function strtolower;
+use function urlencode;
 
 /**
  * Class used to output the HTTP and HTML headers

@@ -7,6 +7,8 @@ use PhpMyAdmin\Common;
 use PhpMyAdmin\Rte\Triggers;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function in_array;
+use function strlen;
 
 /**
  * Triggers management.

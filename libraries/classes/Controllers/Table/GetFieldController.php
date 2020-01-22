@@ -7,7 +7,10 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Mime;
 use PhpMyAdmin\Util;
+use function htmlspecialchars;
 use function ini_set;
+use function sprintf;
+use function strlen;
 
 /**
  * Provides download to a given field defined in parameters.

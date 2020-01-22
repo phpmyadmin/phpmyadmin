@@ -9,6 +9,14 @@ namespace PhpMyAdmin\Controllers;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Gis\GisFactory;
 use PhpMyAdmin\Gis\GisVisualization;
+use function array_merge;
+use function in_array;
+use function intval;
+use function mb_strpos;
+use function mb_strtoupper;
+use function mb_substr;
+use function substr;
+use function trim;
 
 /**
  * Editor for Geometry data types.

@@ -10,6 +10,15 @@ use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
 use stdClass;
+use function checkdate;
+use function gmdate;
+use function htmlspecialchars;
+use function mb_strlen;
+use function mb_strtolower;
+use function mb_substr;
+use function mktime;
+use function preg_match;
+use function strtotime;
 
 /**
  * Provides common methods for all of the date format transformations plugins.

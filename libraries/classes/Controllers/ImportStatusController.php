@@ -7,6 +7,12 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Display\ImportAjax;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
+use function header;
+use function ini_get;
+use function session_start;
+use function session_write_close;
+use function time;
+use function usleep;
 
 /**
  * Import progress bar backend

@@ -6,6 +6,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function strftime;
+
 /**
  * Simplfied OpenDocument creator class
  */

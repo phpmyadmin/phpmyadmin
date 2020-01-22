@@ -30,6 +30,9 @@ use Twig_Error_Loader;
 use Twig_Error_Runtime;
 use Twig_Error_Syntax;
 use Twig_TemplateWrapper;
+use function sprintf;
+use function trigger_error;
+use const E_USER_WARNING;
 
 /**
  * Handle front end templating

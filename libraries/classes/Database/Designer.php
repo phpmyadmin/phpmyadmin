@@ -15,6 +15,11 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 use stdClass;
+use function count;
+use function intval;
+use function json_decode;
+use function json_encode;
+use function strpos;
 
 /**
  * Set of functions related to database designer

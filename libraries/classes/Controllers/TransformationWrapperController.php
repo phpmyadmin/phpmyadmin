@@ -10,6 +10,8 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
+use function define;
+use function htmlspecialchars;
 use function imagecopyresampled;
 use function imagecreatefromstring;
 use function imagecreatetruecolor;
@@ -18,6 +20,11 @@ use function imagejpeg;
 use function imagepng;
 use function imagesx;
 use function imagesy;
+use function in_array;
+use function intval;
+use function str_replace;
+use function stripos;
+use function substr;
 
 /**
  * Wrapper script for rendering transformations

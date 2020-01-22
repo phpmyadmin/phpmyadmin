@@ -14,6 +14,8 @@ use PhpMyAdmin\Rte\Routines;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function in_array;
+use function strlen;
 
 /**
  * Routines management.

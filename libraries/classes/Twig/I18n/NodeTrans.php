@@ -10,6 +10,9 @@ use PhpMyAdmin\Twig\Extensions\Node\TransNode;
 use Twig\Compiler;
 use Twig\Node\Expression\AbstractExpression;
 use Twig\Node\Node;
+use function array_merge;
+use function str_replace;
+use function trim;
 
 class NodeTrans extends TransNode
 {

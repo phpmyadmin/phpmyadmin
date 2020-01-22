@@ -16,6 +16,8 @@ use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use function implode;
+use function is_array;
 
 class ExportController extends AbstractController
 {
