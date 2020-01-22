@@ -307,4 +307,33 @@ class FormTest extends PmaTestCase
             $this->object->name
         );
     }
+
+    /**
+     * Test for Form::cleanGroupPaths
+     *
+     * @return void
+     */
+    public function testCleanGroupPaths(): void
+    {
+        $this->object = $this->getMockBuilder(Form::class)
+            ->disableOriginalConstructor()
+            ->setMethods(['readFormPaths', 'readTypes'])
+            ->getMock();
+
+        $this->object->expects($this->exactly(1))->method('readFormPaths')->with([
+            ':group:OpenDocument-OpenOffice 試算表',
+            'group:test/data',
+            'Export/ods_columns',
+            'Export/ods_null',
+            ':group:end',
+        ]);
+
+        $this->object->loadForm('pmaform', [
+            ':group:OpenDocument/OpenOffice 試算表',
+            'group:test/data',
+            'Export/ods_columns',
+            'Export/ods_null',
+            ':group:end',
+        ]);
+    }
 }
