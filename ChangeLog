@@ -22,6 +22,7 @@ phpMyAdmin - ChangeLog
 - issue #13864 Fix ENUM's radiobuttons reset on "Continue insertion with" changes
 - issue #15811 Fixed browse foreign values doesn't show a modal with grid edit
 - issue #15817 Fix "new table" layout issue on original theme
+- issue #15798 Fixed not needed prompt before abandoning changes on SQL tab after only changing a checkbox
 
 5.0.1 (2020-01-07)
 - issue #15719 Fixed error 500 when browsing a table when $cfg['LimitChars'] used a string and not an int value
