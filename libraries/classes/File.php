@@ -6,15 +6,31 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function basename;
 use function bin2hex;
+use function bzopen;
+use function bzread;
 use function extension_loaded;
 use function fclose;
+use function feof;
 use function file_get_contents;
 use function filesize;
 use function fopen;
 use function fread;
 use function function_exists;
+use function gzopen;
+use function gzread;
+use function is_link;
+use function is_readable;
 use function is_string;
+use function is_uploaded_file;
+use function mb_strcut;
+use function move_uploaded_file;
+use function ob_end_clean;
+use function ob_start;
+use function sprintf;
+use function strlen;
+use function tempnam;
 use function trim;
 use function unlink;
 

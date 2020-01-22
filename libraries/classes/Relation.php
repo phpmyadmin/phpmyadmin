@@ -10,6 +10,35 @@ use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Utils\Table as TableUtils;
+use function array_reverse;
+use function array_search;
+use function array_shift;
+use function asort;
+use function bin2hex;
+use function count;
+use function defined;
+use function explode;
+use function file_get_contents;
+use function htmlspecialchars;
+use function implode;
+use function in_array;
+use function is_array;
+use function is_string;
+use function ksort;
+use function mb_check_encoding;
+use function mb_strlen;
+use function mb_strtolower;
+use function mb_strtoupper;
+use function mb_substr;
+use function natcasesort;
+use function preg_match;
+use function sprintf;
+use function str_replace;
+use function strlen;
+use function strpos;
+use function trim;
+use function uksort;
+use function usort;
 
 /**
  * Set of functions used with the relation and PDF feature

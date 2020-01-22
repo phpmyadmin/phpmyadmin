@@ -25,6 +25,29 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\Util;
+use function bin2hex;
+use function count;
+use function defined;
+use function explode;
+use function implode;
+use function in_array;
+use function intval;
+use function is_array;
+use function mb_strlen;
+use function mb_strpos;
+use function mb_substr;
+use function preg_quote;
+use function preg_replace;
+use function preg_split;
+use function sprintf;
+use function str_repeat;
+use function str_replace;
+use function stripos;
+use function strtotime;
+use function strtoupper;
+use function trigger_error;
+use const E_USER_ERROR;
+use const PHP_VERSION;
 
 /**
  * Handles the export for the SQL class

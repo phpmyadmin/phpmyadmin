@@ -17,6 +17,19 @@ use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\ZipExtension;
+use function count;
+use function extension_loaded;
+use function file_exists;
+use function file_put_contents;
+use function mb_strlen;
+use function mb_substr;
+use function pathinfo;
+use function strcmp;
+use function strlen;
+use function substr;
+use function trim;
+use function unlink;
+use const LOCK_EX;
 
 /**
  * Handles the import for ESRI Shape files

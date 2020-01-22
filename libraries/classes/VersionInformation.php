@@ -8,6 +8,19 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Utils\HttpRequest;
 use stdClass;
+use function count;
+use function explode;
+use function intval;
+use function is_numeric;
+use function is_object;
+use function json_decode;
+use function preg_match;
+use function strlen;
+use function strpos;
+use function substr;
+use function time;
+use function version_compare;
+use const PHP_VERSION;
 
 /**
  * Responsible for retrieving version information and notifiying about latest version
