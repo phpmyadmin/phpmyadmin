@@ -288,15 +288,15 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
         shiftCol: function (oldn, newn) {
             $(g.t).find('tr').each(function () {
                 if (newn < oldn) {
-                    $(this).find('th.draggable:eq(' + newn + '),' +
-                                 'td:eq(' + (g.actionSpan + newn) + ')')
-                        .before($(this).find('th.draggable:eq(' + oldn + '),' +
-                                                'td:eq(' + (g.actionSpan + oldn) + ')'));
+                    $(this).find('th.draggable').eq(newn)
+                        .add($(this).find('td').eq(g.actionSpan + newn))
+                        .before($(this).find('th.draggable').eq(oldn)
+                            .add($(this).find('td').eq(g.actionSpan + oldn)));
                 } else {
-                    $(this).find('th.draggable:eq(' + newn + '),' +
-                                 'td:eq(' + (g.actionSpan + newn) + ')')
-                        .after($(this).find('th.draggable:eq(' + oldn + '),' +
-                                               'td:eq(' + (g.actionSpan + oldn) + ')'));
+                    $(this).find('th.draggable').eq(newn)
+                        .add($(this).find('td').eq(g.actionSpan + newn))
+                        .after($(this).find('th.draggable').eq(oldn)
+                            .add($(this).find('td').eq(g.actionSpan + oldn)));
                 }
             });
             // reposition the column resize bars
@@ -475,8 +475,8 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 // can hide if more than one column is visible
                 if (g.visibleHeadersCount > 1) {
                     $(g.t).find('tr').each(function () {
-                        $(this).find('th.draggable:eq(' + n + '),' +
-                                     'td:eq(' + (g.actionSpan + n) + ')')
+                        $(this).find('th.draggable').eq(n)
+                            .add($(this).find('td').eq(g.actionSpan + n))
                             .hide();
                     });
                     g.colVisib[n] = 0;
@@ -488,8 +488,8 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 }
             } else {    // column n is not visible
                 $(g.t).find('tr').each(function () {
-                    $(this).find('th.draggable:eq(' + n + '),' +
-                                 'td:eq(' + (g.actionSpan + n) + ')')
+                    $(this).find('th.draggable').eq(n)
+                        .add($(this).find('td').eq(g.actionSpan + n))
                         .show();
                 });
                 g.colVisib[n] = 1;
@@ -1382,8 +1382,8 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                                     var $existingQuery = $(g.o).find('.result_query');
                                     // If two query box exists update query in second else add a second box
                                     if ($existingQuery.find('div.sqlOuter').length > 1) {
-                                        $existingQuery.children(':nth-child(4)').remove();
-                                        $existingQuery.children(':nth-child(4)').remove();
+                                        $existingQuery.children(document.querySelectorAll(':nth-child(4)')).remove();
+                                        $existingQuery.children(document.querySelectorAll(':nth-child(4)')).remove();
                                         $existingQuery.append(sqlOuter + tools);
                                     } else {
                                         $existingQuery.append(sqlOuter + tools);

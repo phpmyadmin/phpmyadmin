@@ -57,7 +57,7 @@ Indexes.checkIndexType = function () {
     /**
      * @var Object Table header for the size column.
      */
-    var $sizeHeader = $('#index_columns').find('thead tr th:nth-child(2)');
+    var $sizeHeader = $('#index_columns').find(document.querySelectorAll('thead tr th:nth-child(2)'));
     /**
      * @var Object Inputs to specify the columns for the index.
      */

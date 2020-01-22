@@ -1167,7 +1167,7 @@ class NavigationTree
                 }
             }
 
-            $retval .= "<div class='block " . $divClass . "'>";
+            $retval .= "<div class='block second" . $divClass . "'>";
 
             if (isset($node->links['icon']) && ! empty($node->links['icon'])) {
                 $args = [];

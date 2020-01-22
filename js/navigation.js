@@ -486,8 +486,8 @@ $(function () {
         dialog.executeDialog($(this).parent());
     });
     /** Export Triggers and Events */
-    $(document).on('click', 'li.trigger div:eq(1) a.ajax img,' +
-        ' li.event div:eq(1) a.ajax img', function (event) {
+    $(document).on('click', 'li.trigger div.second a.ajax img,' +
+        ' li.event div.second a.ajax img', function (event) {
         event.preventDefault();
         var dialog = new RTE.Object();
         dialog.exportDialog($(this).parent());
