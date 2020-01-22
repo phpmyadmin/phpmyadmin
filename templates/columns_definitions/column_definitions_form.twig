@@ -146,7 +146,9 @@
         </div>
     {% endif %}
     <fieldset class="tblFooters">
-        <input type="checkbox" name="online_transaction" value="ONLINE_TRANSACTION_ENABLED" />{% trans %}Online transaction{% context %}Online transaction part of the SQL DDL for InnoDB{% endtrans %}{{ show_mysql_docu('innodb-online-ddl') }}
+        {% if action == url('/table/add-field') %}
+            <input type="checkbox" name="online_transaction" value="ONLINE_TRANSACTION_ENABLED" />{% trans %}Online transaction{% context %}Online transaction part of the SQL DDL for InnoDB{% endtrans %}{{ show_mysql_docu('innodb-online-ddl') }}
+        {% endif %}
         <input class="btn btn-secondary preview_sql" type="button"
             value="{% trans 'Preview SQL' %}">
         <input class="btn btn-primary" type="submit"
