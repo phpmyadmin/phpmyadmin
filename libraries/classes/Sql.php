@@ -1642,7 +1642,7 @@ class Sql
      * @param array               $analyzed_sql_results analysed sql results
      * @param string              $db                   current database
      * @param string              $table                current table
-     * @param string|null         $message              message to show
+     * @param Message|string|null $message              message to show
      * @param array|null          $sql_data             sql data
      * @param DisplayResults      $displayResultsObject Instance of DisplayResults
      * @param string              $pmaThemeImage        uri of the theme image
@@ -1782,7 +1782,7 @@ class Sql
             $scripts->addFile('makegrid.js');
             $scripts->addFile('sql.js');
             if (isset($message)) {
-                $message = Message::success($message);
+                $message = is_string($message) ? Message::success($message) : $message;
                 $tableMaintenanceHtml = Generator::getMessage(
                     $message,
                     $GLOBALS['sql_query'],

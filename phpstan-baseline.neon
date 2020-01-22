@@ -2808,11 +2808,6 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#5 \\$message of method PhpMyAdmin\\\\Sql\\:\\:getQueryResponseForResultsReturned\\(\\) expects string\\|null, PhpMyAdmin\\\\Message\\|string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\StorageEngine\\:\\:resolveTypeSize\\(\\) should return array but returns array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/StorageEngine.php

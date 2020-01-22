@@ -151,6 +151,13 @@ var AJAX = {
      * @return void
      */
     lockPageHandler: function (event) {
+        // don't consider checkbox event
+        if (typeof event.target !== 'undefined') {
+            if (event.target.type === 'checkbox') {
+                return;
+            }
+        }
+
         var newHash = null;
         var oldHash = null;
         var lockId;
