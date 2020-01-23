@@ -919,7 +919,7 @@ class Export
         string $export_type
     ): void {
         // In case the we need to dump just the raw query
-        if ($whatStrucOrData == 'raw') {
+        if ($whatStrucOrData === 'raw') {
             if (! $export_plugin->exportRawQuery(
                 $err_url,
                 $sql_query,

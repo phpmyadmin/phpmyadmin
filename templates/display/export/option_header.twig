@@ -6,7 +6,7 @@
         {% elseif export_type == 'database' %}
             {{ 'Exporting tables from "%s" database'|trans|format(db) }}
         {% elseif export_type == 'raw' %}
-            {{ 'Exporting raw query' }}
+            {% trans 'Exporting raw query' %}
         {% else %}
             {{ 'Exporting rows from "%s" table'|trans|format(table) }}
         {% endif %}
