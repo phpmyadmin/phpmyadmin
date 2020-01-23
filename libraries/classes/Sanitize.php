@@ -354,8 +354,6 @@ class Sanitize
      *
      * @param string[] $whitelist list of variables to allow
      *
-     * @return void
-     *
      * @access public
      */
     public static function removeRequestVars(&$whitelist): void

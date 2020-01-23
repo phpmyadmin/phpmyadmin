@@ -16,8 +16,6 @@ class IndexTest extends TestCase
 {
     /**
      * SetUp for test cases
-     *
-     * @return void
      */
     protected function setUp(): void
     {

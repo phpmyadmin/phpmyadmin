@@ -160,8 +160,6 @@ class BrowseForeigners
      * @param array       $foreignData   foreign column data
      * @param string|null $fieldkey      field key
      * @param string      $current_value current columns's value
-     *
-     * @return string
      */
     public function getHtmlForRelationalFieldSelection(
         string $db,
@@ -307,8 +305,6 @@ class BrowseForeigners
      * Function to get html for the goto page option
      *
      * @param array|null $foreignData foreign data
-     *
-     * @return string
      */
     private function getHtmlForGotoPage(?array $foreignData): string
     {
@@ -343,8 +339,6 @@ class BrowseForeigners
      * Function to get foreign limit
      *
      * @param string|null $foreignShowAll foreign navigation
-     *
-     * @return string
      */
     public function getForeignLimit(?string $foreignShowAll): ?string
     {

@@ -113,8 +113,6 @@ class Generator
      *
      * @param string $message the message for the tooltip
      *
-     * @return string
-     *
      * @access public
      */
     public static function showHint($message): string
@@ -307,8 +305,6 @@ class Generator
      * @param string $component       'mysql' (eventually, 'php')
      * @param string $minimum_version of this component
      * @param string $bugref          bug reference for this component
-     *
-     * @return string
      */
     public static function getExternalBug(
         $functionality,
@@ -457,8 +453,6 @@ class Generator
 
     /**
      * Returns information about SSL status for current connection
-     *
-     * @return string
      */
     public static function getServerSSL(): string
     {
@@ -749,8 +743,6 @@ class Generator
      * @param Message|string $message   the message to display
      * @param string         $sql_query the query to display
      * @param string         $type      the type (level) of the message
-     *
-     * @return string
      *
      * @throws Throwable
      * @throws Twig_Error_Loader
@@ -1072,8 +1064,6 @@ class Generator
      *                                    not required).
      * @param bool        $exit           Whether execution should be stopped or
      *                                    the error message should be returned.
-     *
-     * @return string
      *
      * @global string $table The current table.
      * @global string $db    The current database.
@@ -1565,8 +1555,6 @@ class Generator
      * creates a drop-down list.
      *
      * @param string $selected The value to mark as selected in HTML mode
-     *
-     * @return string
      */
     public static function getSupportedDatatypes($selected): string
     {

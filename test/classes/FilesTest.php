@@ -20,8 +20,6 @@ class FilesTest extends TestCase
      * @param string $name     Filename to test
      * @param string $expected Expected output
      *
-     * @return void
-     *
      * @dataProvider listScripts
      */
     public function testDynamicJs($name, $expected): void

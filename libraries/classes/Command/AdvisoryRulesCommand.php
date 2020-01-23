@@ -41,8 +41,6 @@ class AdvisoryRulesCommand extends Command
     /**
      * @param InputInterface  $input  input
      * @param OutputInterface $output output
-     *
-     * @return int
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
@@ -86,8 +84,6 @@ class AdvisoryRulesCommand extends Command
      * @param array  $rules rules array
      * @param int    $index rule index
      * @param string $type  rule type
-     *
-     * @return void
      */
     private function addMessage(string $file, array $rules, int $index, string $type): void
     {

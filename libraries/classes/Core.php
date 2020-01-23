@@ -254,8 +254,6 @@ class Core
      *
      * @param string       $error_message the error message or named error message
      * @param string|array $message_args  arguments applied to $error_message
-     *
-     * @return void
      */
     public static function fatalError(
         string $error_message,
@@ -341,8 +339,6 @@ class Core
      * @param string $extension Extension name
      * @param bool   $fatal     Whether the error is fatal.
      * @param string $extra     Extra string to append to message.
-     *
-     * @return void
      */
     public static function warnMissingExtension(
         string $extension,
@@ -411,8 +407,6 @@ class Core
      * in Moodle)
      *
      * @param string|int $size size (Default = 0)
-     *
-     * @return int
      */
     public static function getRealSize($size = 0): int
     {
@@ -521,8 +515,6 @@ class Core
      *
      * @param string $uri         the header to send
      * @param bool   $use_refresh whether to use Refresh: header when running on IIS
-     *
-     * @return void
      */
     public static function sendHeaderLocation(string $uri, bool $use_refresh = false): void
     {
@@ -564,8 +556,6 @@ class Core
 
     /**
      * Outputs application/json headers. This includes no caching.
-     *
-     * @return void
      */
     public static function headerJSON(): void
     {
@@ -584,8 +574,6 @@ class Core
 
     /**
      * Outputs headers to prevent caching in browser (and on the way).
-     *
-     * @return void
      */
     public static function noCacheHeader(): void
     {
@@ -615,8 +603,6 @@ class Core
      * @param string $mimetype MIME type to include in headers.
      * @param int    $length   Length of content (optional)
      * @param bool   $no_cache Whether to include no-caching headers.
-     *
-     * @return void
      */
     public static function downloadHeader(
         string $filename,
@@ -677,8 +663,6 @@ class Core
      * @param string $path  path in the array
      * @param array  $array the array
      * @param mixed  $value value to store
-     *
-     * @return void
      */
     public static function arrayWrite(string $path, array &$array, $value): void
     {
@@ -699,8 +683,6 @@ class Core
      *
      * @param string $path  path in the array
      * @param array  $array the array
-     *
-     * @return void
      */
     public static function arrayRemove(string $path, array &$array): void
     {
@@ -843,8 +825,6 @@ class Core
      * Displays SQL query before executing.
      *
      * @param array|string $query_data Array containing queries or query itself
-     *
-     * @return void
      */
     public static function previewSQL($query_data): void
     {
@@ -891,8 +871,6 @@ class Core
      * Creates some globals from $_POST variables matching a pattern
      *
      * @param array $post_patterns The patterns to search for
-     *
-     * @return void
      */
     public static function setPostAsGlobal(array $post_patterns): void
     {
@@ -909,8 +887,6 @@ class Core
      * Creates some globals from $_REQUEST
      *
      * @param string $param db|table
-     *
-     * @return void
      */
     public static function setGlobalDbOrTable(string $param): void
     {
@@ -925,8 +901,6 @@ class Core
     /**
      * PATH_INFO could be compromised if set, so remove it from PHP_SELF
      * and provide a clean PHP_SELF here
-     *
-     * @return void
      */
     public static function cleanupPathInfo(): void
     {
@@ -974,8 +948,6 @@ class Core
 
     /**
      * Checks that required PHP extensions are there.
-     *
-     * @return void
      */
     public static function checkExtensions(): void
     {
@@ -1064,8 +1036,6 @@ class Core
      * * strips p: prefix(es)
      *
      * @param string $name User given hostname
-     *
-     * @return string
      */
     public static function sanitizeMySQLHost(string $name): string
     {
@@ -1082,8 +1052,6 @@ class Core
      * * strips part behind null byte
      *
      * @param string $name User given username
-     *
-     * @return string
      */
     public static function sanitizeMySQLUser(string $name): string
     {
@@ -1183,8 +1151,6 @@ class Core
 
     /**
      * Applies changes to PHP configuration.
-     *
-     * @return void
      */
     public static function configure(): void
     {
@@ -1211,8 +1177,6 @@ class Core
 
     /**
      * Check whether PHP configuration matches our needs.
-     *
-     * @return void
      */
     public static function checkConfiguration(): void
     {
@@ -1249,8 +1213,6 @@ class Core
 
     /**
      * Checks request and fails with fatal error if something problematic is found
-     *
-     * @return void
      */
     public static function checkRequest(): void
     {

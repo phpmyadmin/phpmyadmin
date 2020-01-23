@@ -19,8 +19,6 @@ class MaxFileSizeTest extends PmaTestCase
      *
      * @param int $size Size
      *
-     * @return void
-     *
      * @dataProvider providerGenerate
      */
     public function testGenerate($size): void

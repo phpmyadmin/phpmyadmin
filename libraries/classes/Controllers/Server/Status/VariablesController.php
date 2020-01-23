@@ -117,8 +117,6 @@ class VariablesController extends AbstractController
      * Flush status variables if requested
      *
      * @param string $flush Variable name
-     *
-     * @return void
      */
     private function flush(string $flush): void
     {

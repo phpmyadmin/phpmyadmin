@@ -18,8 +18,6 @@ class FontTest extends PmaTestCase
 
     /**
      * Sets up the fixture
-     *
-     * @return void
      */
     protected function setUp(): void
     {

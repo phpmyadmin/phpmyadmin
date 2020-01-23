@@ -77,8 +77,6 @@ class FindReplaceController extends AbstractController
 
     /**
      * Gets all the columns of a table along with their types.
-     *
-     * @return void
      */
     private function _loadTableInfo(): void
     {
@@ -119,8 +117,6 @@ class FindReplaceController extends AbstractController
 
     /**
      * Display selection form action
-     *
-     * @return void
      */
     public function displaySelectionFormAction(): void
     {

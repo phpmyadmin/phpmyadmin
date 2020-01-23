@@ -30,8 +30,6 @@ class UtilTest extends PmaTestCase
 {
     /**
      * Test for createGISData
-     *
-     * @return void
      */
     public function testCreateGISDataOldMysql(): void
     {
@@ -47,8 +45,6 @@ class UtilTest extends PmaTestCase
 
     /**
      * Test for createGISData
-     *
-     * @return void
      */
     public function testCreateGISDataNewMysql(): void
     {
@@ -64,8 +60,6 @@ class UtilTest extends PmaTestCase
 
     /**
      * Test for getGISFunctions
-     *
-     * @return void
      */
     public function testGetGISFunctions(): void
     {
@@ -130,8 +124,6 @@ class UtilTest extends PmaTestCase
      *
      * @param string $collation Collation
      * @param string $expected  Expected Charset Query
-     *
-     * @return void
      *
      * @test
      * @dataProvider charsetQueryData
@@ -346,8 +338,6 @@ class UtilTest extends PmaTestCase
      * @param string $bit Value
      * @param string $val Expected value
      *
-     * @return void
-     *
      * @covers \PhpMyAdmin\Util::convertBitDefaultValue
      * @dataProvider providerConvertBitDefaultValue
      */
@@ -431,8 +421,6 @@ class UtilTest extends PmaTestCase
      * @param string $a Expected value
      * @param string $b String to escape
      *
-     * @return void
-     *
      * @covers \PhpMyAdmin\Util::escapeMysqlWildcards
      * @dataProvider providerUnEscapeMysqlWildcards
      */
@@ -450,8 +438,6 @@ class UtilTest extends PmaTestCase
      * @param string $a String to unescape
      * @param string $b Expected value
      *
-     * @return void
-     *
      * @covers \PhpMyAdmin\Util::unescapeMysqlWildcards
      * @dataProvider providerUnEscapeMysqlWildcards
      */
@@ -468,8 +454,6 @@ class UtilTest extends PmaTestCase
      *
      * @param string $in  string to evaluate
      * @param string $out expected output
-     *
-     * @return void
      *
      * @covers \PhpMyAdmin\Util::expandUserString
      * @dataProvider providerExpandUserString
@@ -543,8 +527,6 @@ class UtilTest extends PmaTestCase
      *
      * @param string $in  Column specification
      * @param array  $out Expected value
-     *
-     * @return void
      *
      * @covers \PhpMyAdmin\Util::extractColumnSpec
      * @dataProvider providerExtractColumnSpec
@@ -694,8 +676,6 @@ class UtilTest extends PmaTestCase
      * @param int|string $size     Size
      * @param int        $expected Expected value
      *
-     * @return void
-     *
      * @covers \PhpMyAdmin\Util::extractValueFromFormattedSize
      * @dataProvider providerExtractValueFromFormattedSize
      */
@@ -739,8 +719,6 @@ class UtilTest extends PmaTestCase
      *
      * @param string $a Engine
      * @param bool   $e Expected Value
-     *
-     * @return void
      *
      * @covers \PhpMyAdmin\Util::isForeignKeySupported
      * @dataProvider providerIsForeignKeySupported
@@ -789,8 +767,6 @@ class UtilTest extends PmaTestCase
      * @param int   $b Sensitiveness
      * @param int   $c Number of decimals to retain
      * @param array $e Expected value
-     *
-     * @return void
      *
      * @covers \PhpMyAdmin\Util::formatByteDown
      * @dataProvider providerFormatByteDown
@@ -924,8 +900,6 @@ class UtilTest extends PmaTestCase
      * @param int   $b Sensitiveness
      * @param int   $c Number of decimals to retain
      * @param array $d Expected value
-     *
-     * @return void
      *
      * @covers \PhpMyAdmin\Util::formatNumber
      * @dataProvider providerFormatNumber
@@ -1081,8 +1055,6 @@ class UtilTest extends PmaTestCase
      * @param string $unit Unit
      * @param string $res  Result
      *
-     * @return void
-     *
      * @covers \PhpMyAdmin\Util::getFormattedMaximumUploadSize
      * @dataProvider providerGetFormattedMaximumUploadSize
      */
@@ -1146,8 +1118,6 @@ class UtilTest extends PmaTestCase
      * @param string $target Target
      * @param array  $result Expected value
      *
-     * @return void
-     *
      * @covers \PhpMyAdmin\Util::getTitleForTarget
      * @dataProvider providerGetTitleForTarget
      */
@@ -1201,8 +1171,6 @@ class UtilTest extends PmaTestCase
      * @param string $b Format
      * @param string $e Expected output
      *
-     * @return void
-     *
      * @covers \PhpMyAdmin\Util::localisedDate
      * @dataProvider providerLocalisedDate
      */
@@ -1245,8 +1213,6 @@ class UtilTest extends PmaTestCase
      *
      * @param int    $a Timespan in seconds
      * @param string $e Expected output
-     *
-     * @return void
      *
      * @covers \PhpMyAdmin\Util::timespanFormat
      * @dataProvider providerTimespanFormat
@@ -1291,8 +1257,6 @@ class UtilTest extends PmaTestCase
      * @param int    $b Length
      * @param string $e Expected output
      *
-     * @return void
-     *
      * @covers \PhpMyAdmin\Util::printableBitValue
      * @dataProvider providerPrintableBitValue
      */
@@ -1330,8 +1294,6 @@ class UtilTest extends PmaTestCase
      *
      * @param string $param    String
      * @param string $expected Expected output
-     *
-     * @return void
      *
      * @covers \PhpMyAdmin\Util::unQuote
      * @dataProvider providerUnQuote
@@ -1377,8 +1339,6 @@ class UtilTest extends PmaTestCase
      * @param string $param    String
      * @param string $expected Expected output
      *
-     * @return void
-     *
      * @covers \PhpMyAdmin\Util::unQuote
      * @dataProvider providerUnQuoteSelectedChar
      */
@@ -1422,8 +1382,6 @@ class UtilTest extends PmaTestCase
      *
      * @param string $a String
      * @param string $b Expected output
-     *
-     * @return void
      *
      * @covers \PhpMyAdmin\Util::backquote
      * @dataProvider providerBackquote
@@ -1480,8 +1438,6 @@ class UtilTest extends PmaTestCase
      * @param string $entry               String
      * @param string $expectedNoneOutput  Expected none output
      * @param string $expectedMssqlOutput Expected MSSQL output
-     *
-     * @return void
      *
      * @covers \PhpMyAdmin\Util::backquoteCompat
      * @dataProvider providerBackquoteCompat
@@ -1578,8 +1534,6 @@ class UtilTest extends PmaTestCase
      * @param string $a String
      * @param string $e Expected output
      *
-     * @return void
-     *
      * @covers \PhpMyAdmin\Util::userDir
      * @dataProvider providerUserDir
      */
@@ -1614,8 +1568,6 @@ class UtilTest extends PmaTestCase
      *
      * @param string $a String
      * @param string $e Expected output
-     *
-     * @return void
      *
      * @covers \PhpMyAdmin\Util::duplicateFirstNewline
      * @dataProvider providerDuplicateFirstNewline
@@ -1688,8 +1640,6 @@ class UtilTest extends PmaTestCase
 
     /**
      * Test for PhpMyAdmin\Util::buildActionTitles
-     *
-     * @return void
      */
     public function testBuildActionTitles(): void
     {
@@ -1724,8 +1674,6 @@ class UtilTest extends PmaTestCase
      *
      * @param bool  $expected Expected result for a given input
      * @param mixed $input    Input data to check
-     *
-     * @return void
      *
      * @dataProvider providerIsInteger
      */

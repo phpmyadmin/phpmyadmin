@@ -20,8 +20,6 @@ class ProcessesController extends AbstractController
 {
     /**
      * @param array $params Request parameters
-     *
-     * @return string
      */
     public function index(array $params): string
     {
@@ -57,8 +55,6 @@ class ProcessesController extends AbstractController
      * Only sends the process list table
      *
      * @param array $params Request parameters
-     *
-     * @return string
      */
     public function refresh(array $params): string
     {
@@ -107,8 +103,6 @@ class ProcessesController extends AbstractController
 
     /**
      * @param array $params Request parameters
-     *
-     * @return string
      */
     private function getList(array $params): string
     {

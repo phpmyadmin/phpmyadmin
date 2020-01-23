@@ -280,8 +280,6 @@ class Url
     /**
      * @param string $route                Route to use
      * @param array  $additionalParameters Additional URL parameters
-     *
-     * @return string
      */
     public static function getFromRoute(string $route, array $additionalParameters = []): string
     {

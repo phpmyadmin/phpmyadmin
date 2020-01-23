@@ -18,8 +18,6 @@ class DescriptionTest extends PmaTestCase
 {
     /**
      * Setup tests
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -30,8 +28,6 @@ class DescriptionTest extends PmaTestCase
      * @param string $item     item
      * @param string $type     type
      * @param string $expected expected result
-     *
-     * @return void
      *
      * @dataProvider getValues
      */

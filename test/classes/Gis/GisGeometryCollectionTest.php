@@ -27,8 +27,6 @@ class GisGeometryCollectionTest extends TestCase
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      *
-     * @return void
-     *
      * @access protected
      */
     protected function setUp(): void
@@ -39,8 +37,6 @@ class GisGeometryCollectionTest extends TestCase
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
-     *
-     * @return void
      *
      * @access protected
      */
@@ -54,8 +50,6 @@ class GisGeometryCollectionTest extends TestCase
      *
      * @param string $spatial string to parse
      * @param array  $output  expected parsed output
-     *
-     * @return void
      *
      * @dataProvider providerForScaleRow
      */
@@ -92,8 +86,6 @@ class GisGeometryCollectionTest extends TestCase
      * @param int    $index    index in $gis_data
      * @param string $empty    empty parameter
      * @param string $output   expected output
-     *
-     * @return void
      *
      * @dataProvider providerForGenerateWkt
      */
@@ -144,8 +136,6 @@ class GisGeometryCollectionTest extends TestCase
      *
      * @param string $value  string to parse
      * @param array  $output expected parsed output
-     *
-     * @return void
      *
      * @dataProvider providerForGenerateParams
      */

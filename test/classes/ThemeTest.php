@@ -24,8 +24,6 @@ class ThemeTest extends PmaTestCase
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -41,8 +39,6 @@ class ThemeTest extends PmaTestCase
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -258,8 +254,6 @@ class ThemeTest extends PmaTestCase
      * @param string $file     file name for image
      * @param string $fallback fallback image
      * @param string $output   expected output
-     *
-     * @return void
      *
      * @dataProvider providerForGetImgPath
      */

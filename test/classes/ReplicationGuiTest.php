@@ -29,8 +29,6 @@ class ReplicationGuiTest extends TestCase
 
     /**
      * Prepares environment for the test.
-     *
-     * @return void
      */
     protected function setUp(): void
     {

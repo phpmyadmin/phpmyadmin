@@ -17,8 +17,6 @@ class OperationsTest extends TestBase
 {
     /**
      * setUp function
-     *
-     * @return void
      */
     protected function setUp(): void
     {

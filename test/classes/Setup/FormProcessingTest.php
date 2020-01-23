@@ -18,8 +18,6 @@ class FormProcessingTest extends PmaTestCase
 {
     /**
      * Prepares environment for the test.
-     *
-     * @return void
      */
     protected function setUp(): void
     {

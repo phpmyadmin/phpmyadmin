@@ -21,8 +21,6 @@ class BrowseUploadFileBlockTest extends PmaTestCase
      * @param string $unit Unit
      * @param string $res  Result
      *
-     * @return void
-     *
      * @covers \PhpMyAdmin\Html\Forms\Fields\BrowseUploadFileBlock::generate
      * @dataProvider providerGetBrowseUploadFileBlock
      */

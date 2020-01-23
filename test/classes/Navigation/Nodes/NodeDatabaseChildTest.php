@@ -27,8 +27,6 @@ class NodeDatabaseChildTest extends PmaTestCase
     /**
      * Sets up the fixture.
      *
-     * @return void
-     *
      * @access protected
      */
     protected function setUp(): void
@@ -48,8 +46,6 @@ class NodeDatabaseChildTest extends PmaTestCase
 
     /**
      * Tears down the fixture.
-     *
-     * @return void
      *
      * @access protected
      */

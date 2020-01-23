@@ -33,8 +33,6 @@ class VariablesController extends AbstractController
      * Index action
      *
      * @param array $params Request parameters
-     *
-     * @return string
      */
     public function index(array $params): string
     {

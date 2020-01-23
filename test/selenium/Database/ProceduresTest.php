@@ -26,8 +26,6 @@ class ProceduresTest extends TestBase
 
     /**
      * Setup the browser environment to run the selenium test case
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -61,8 +59,6 @@ class ProceduresTest extends TestBase
 
     /**
      * Restore initial state
-     *
-     * @return void
      */
     protected function tearDown(): void
     {

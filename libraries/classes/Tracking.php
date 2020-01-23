@@ -649,8 +649,6 @@ class Tracking
      * Function to get html for schema snapshot
      *
      * @param array $params url parameters
-     *
-     * @return string
      */
     public function getHtmlForSchemaSnapshot(array $params): string
     {

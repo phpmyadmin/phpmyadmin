@@ -21,8 +21,6 @@ class TriggersTest extends TestCase
 
     /**
      * Set up
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -41,8 +39,6 @@ class TriggersTest extends TestCase
      *
      * @param array $in  Input
      * @param array $out Expected output
-     *
-     * @return void
      *
      * @dataProvider providerGetDataFromRequestEmpty
      */
@@ -113,8 +109,6 @@ class TriggersTest extends TestCase
      *
      * @param array $data    Data for trigger
      * @param array $matcher Matcher
-     *
-     * @return void
      *
      * @dataProvider providerGetEditorFormAdd
      * @group medium
@@ -188,8 +182,6 @@ class TriggersTest extends TestCase
      * @param array $data    Data for trigger
      * @param array $matcher Matcher
      *
-     * @return void
-     *
      * @dataProvider providerGetEditorFormEdit
      * @group medium
      */
@@ -261,8 +253,6 @@ class TriggersTest extends TestCase
      *
      * @param array $data    Data for trigger
      * @param array $matcher Matcher
-     *
-     * @return void
      *
      * @dataProvider providerGetEditorFormAjax
      */

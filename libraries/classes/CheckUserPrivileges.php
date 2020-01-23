@@ -87,8 +87,6 @@ class CheckUserPrivileges
      * @param string $show_grants_str     string containing grants for user
      * @param string $show_grants_dbname  name of db extracted from grant string
      * @param string $show_grants_tblname name of table extracted from grant string
-     *
-     * @return void
      */
     public function checkRequiredPrivilegesForAdjust(
         string $show_grants_str,
@@ -156,8 +154,6 @@ class CheckUserPrivileges
      * Since MySQL 4.1.2, we can easily detect current user's grants using $userlink
      * (no control user needed) and we don't have to try any other method for
      * detection
-     *
-     * @return void
      *
      * @todo fix to get really all privileges, not only explicitly defined for this user
      * from MySQL manual: (https://dev.mysql.com/doc/refman/5.0/en/show-grants.html)
@@ -336,8 +332,6 @@ class CheckUserPrivileges
 
     /**
      * Get user's global privileges and some db-specific privileges
-     *
-     * @return void
      */
     public function getPrivileges(): void
     {

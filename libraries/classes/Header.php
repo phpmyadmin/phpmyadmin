@@ -155,8 +155,6 @@ class Header
 
     /**
      * Loads common scripts
-     *
-     * @return void
      */
     private function _addDefaultScripts(): void
     {
@@ -267,8 +265,6 @@ class Header
     /**
      * Returns, as a string, a list of parameters
      * used on the client side
-     *
-     * @return string
      */
     public function getJsParamsCode(): string
     {
@@ -285,8 +281,6 @@ class Header
 
     /**
      * Disables the rendering of the header
-     *
-     * @return void
      */
     public function disable(): void
     {
@@ -298,8 +292,6 @@ class Header
      * we are servicing an ajax request
      *
      * @param bool $isAjax Whether we are servicing an ajax request
-     *
-     * @return void
      */
     public function setAjax(bool $isAjax): void
     {
@@ -331,8 +323,6 @@ class Header
      * Setter for the ID attribute in the BODY tag
      *
      * @param string $id Value for the ID attribute
-     *
-     * @return void
      */
     public function setBodyId(string $id): void
     {
@@ -343,8 +333,6 @@ class Header
      * Setter for the title of the page
      *
      * @param string $title New title
-     *
-     * @return void
      */
     public function setTitle(string $title): void
     {
@@ -353,8 +341,6 @@ class Header
 
     /**
      * Disables the display of the top menu
-     *
-     * @return void
      */
     public function disableMenuAndConsole(): void
     {
@@ -364,8 +350,6 @@ class Header
 
     /**
      * Disables the display of the top menu
-     *
-     * @return void
      */
     public function disableWarnings(): void
     {
@@ -374,8 +358,6 @@ class Header
 
     /**
      * Turns on 'print view' mode
-     *
-     * @return void
      */
     public function enablePrintView(): void
     {
@@ -485,8 +467,6 @@ class Header
     /**
      * Returns the message to be displayed at the top of
      * the page, including the executed SQL query, if any.
-     *
-     * @return string
      */
     public function getMessage(): string
     {
@@ -512,8 +492,6 @@ class Header
 
     /**
      * Sends out the HTTP headers
-     *
-     * @return void
      */
     public function sendHttpHeaders(): void
     {
@@ -630,8 +608,6 @@ class Header
     /**
      * If the page is missing the title, this function
      * will set it to something reasonable
-     *
-     * @return string
      */
     public function getPageTitle(): string
     {
@@ -661,8 +637,6 @@ class Header
      *
      * @param string $db    Database name where the table is located.
      * @param string $table The table name
-     *
-     * @return string
      */
     private function _addRecentTable(string $db, string $table): string
     {

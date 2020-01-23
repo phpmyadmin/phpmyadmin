@@ -35,8 +35,6 @@ class PrivilegesController extends AbstractController
 
     /**
      * @param array $params Request parameters
-     *
-     * @return string
      */
     public function index(array $params): string
     {

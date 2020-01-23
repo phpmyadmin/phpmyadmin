@@ -296,8 +296,6 @@ class DatabasesController extends AbstractController
      *
      * @param string|null $sortBy    sort by
      * @param string|null $sortOrder sort order
-     *
-     * @return void
      */
     private function setSortDetails(?string $sortBy, ?string $sortOrder): void
     {

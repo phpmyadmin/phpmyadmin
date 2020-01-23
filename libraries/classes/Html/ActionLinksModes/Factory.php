@@ -15,8 +15,6 @@ class Factory
      * Build an ActionLinksModesInterface to generate the HTML element
      *
      * @param string $mode Mode (text, image)
-     *
-     * @return ActionLinksModesInterface
      */
     public static function build(string $mode): ActionLinksModesInterface
     {

@@ -19,8 +19,6 @@ class TypesTest extends PmaTestCase
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -150,8 +148,6 @@ class TypesTest extends PmaTestCase
      * @param bool   $null   Whether field can be NULL
      * @param string $output Expected output
      *
-     * @return void
-     *
      * @dataProvider providerForGetTypeOperators
      */
     public function testGetTypeOperators($type, $null, $output): void
@@ -258,8 +254,6 @@ class TypesTest extends PmaTestCase
      *
      * @param string $type The data type to get a description.
      *
-     * @return void
-     *
      * @dataProvider providerForTestGetTypeDescription
      */
     public function testGetTypeDescription($type): void
@@ -338,8 +332,6 @@ class TypesTest extends PmaTestCase
      *
      * @param string $class  The class to get function list.
      * @param array  $output Expected function list
-     *
-     * @return void
      *
      * @dataProvider providerFortTestGetFunctionsClass
      */
@@ -766,8 +758,6 @@ class TypesTest extends PmaTestCase
      *
      * @param string $type   Type to check
      * @param string $output Expected result
-     *
-     * @return void
      *
      * @dataProvider providerFortTestGetTypeClass
      */

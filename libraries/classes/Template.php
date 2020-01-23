@@ -93,8 +93,6 @@ class Template
      *
      * @param string $templateName Template path name
      *
-     * @return Twig_TemplateWrapper
-     *
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError
@@ -127,8 +125,6 @@ class Template
     /**
      * @param string $template Template path name
      * @param array  $data     Associative array of template variables
-     *
-     * @return string
      *
      * @throws Throwable
      * @throws Twig_Error_Loader

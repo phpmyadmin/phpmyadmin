@@ -39,8 +39,6 @@ class DesignerTable
 
     /**
      * The table engine supports or not foreign keys
-     *
-     * @return bool
      */
     public function supportsForeignkeys(): bool
     {
@@ -49,8 +47,6 @@ class DesignerTable
 
     /**
      * Get the database name
-     *
-     * @return string
      */
     public function getDatabaseName(): string
     {
@@ -59,8 +55,6 @@ class DesignerTable
 
     /**
      * Get the table name
-     *
-     * @return string
      */
     public function getTableName(): string
     {
@@ -69,8 +63,6 @@ class DesignerTable
 
     /**
      * Get the table engine
-     *
-     * @return string
      */
     public function getTableEngine(): string
     {
@@ -89,8 +81,6 @@ class DesignerTable
 
     /**
      * Get the db and table separated with a dot
-     *
-     * @return string
      */
     public function getDbTableString(): string
     {

@@ -134,8 +134,6 @@ class Node
      * Adds a child node to this node
      *
      * @param Node $child A child node
-     *
-     * @return void
      */
     public function addChild($child): void
     {
@@ -176,8 +174,6 @@ class Node
      * Removes a child node from this node
      *
      * @param string $name The name of child to be removed
-     *
-     * @return void
      */
     public function removeChild($name): void
     {
@@ -271,8 +267,6 @@ class Node
      * the third level of the tree (columns and indexes), for which the function
      * always returns true. This is because we want to render the containers
      * for these nodes
-     *
-     * @return bool
      */
     public function hasSiblings(): bool
     {

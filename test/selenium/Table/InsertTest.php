@@ -18,8 +18,6 @@ class InsertTest extends TestBase
     /**
      * Setup the browser environment to run the selenium t
      * est case
-     *
-     * @return void
      */
     protected function setUp(): void
     {

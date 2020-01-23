@@ -27,8 +27,6 @@ class FormListTest extends PmaTestCase
      * @param string $class  Class to test
      * @param string $prefix Reuturned class prefix
      *
-     * @return void
-     *
      * @dataProvider formObjects
      */
     public function testForms($class, $prefix): void

@@ -151,8 +151,6 @@ class Message
 
     /**
      * magic method: return string representation for this object
-     *
-     * @return string
      */
     public function __toString(): string
     {
@@ -403,8 +401,6 @@ class Message
      * Set whether we should use BB Code when rendering.
      *
      * @param bool $useBBCode Use BB Code?
-     *
-     * @return void
      */
     public function setBBCode(bool $useBBCode): void
     {
@@ -416,8 +412,6 @@ class Message
      *
      * @param string $message  A localized string
      * @param bool   $sanitize Whether to sanitize $message or not
-     *
-     * @return void
      */
     public function setMessage(string $message, bool $sanitize = false): void
     {
@@ -432,8 +426,6 @@ class Message
      *
      * @param string   $string   string to set
      * @param bool|int $sanitize whether to sanitize $string or not
-     *
-     * @return void
      */
     public function setString(string $string, $sanitize = true): void
     {
@@ -447,8 +439,6 @@ class Message
      * set message type number
      *
      * @param int $number message type number to set
-     *
-     * @return void
      */
     public function setNumber(int $number): void
     {
@@ -464,8 +454,6 @@ class Message
      * </code>
      *
      * @param mixed $param parameter to add
-     *
-     * @return void
      */
     public function addParam($param): void
     {
@@ -485,8 +473,6 @@ class Message
      * </code>
      *
      * @param string $param parameter to add
-     *
-     * @return void
      */
     public function addParamHtml(string $param): void
     {
@@ -498,8 +484,6 @@ class Message
      *
      * @param Message[] $messages  to be added
      * @param string    $separator to use between this and previous string/message
-     *
-     * @return void
      */
     public function addMessages(array $messages, string $separator = ' '): void
     {
@@ -513,8 +497,6 @@ class Message
      *
      * @param string[] $messages  to be added
      * @param string   $separator to use between this and previous string/message
-     *
-     * @return void
      */
     public function addMessagesString(array $messages, string $separator = ' '): void
     {
@@ -528,8 +510,6 @@ class Message
      *
      * @param Message $message   to be added
      * @param string  $separator to use between this and previous string/message
-     *
-     * @return void
      */
     private function addMessageToList(self $message, string $separator): void
     {
@@ -544,8 +524,6 @@ class Message
      *
      * @param self   $message   to be added
      * @param string $separator to use between this and previous string/message
-     *
-     * @return void
      */
     public function addMessage(self $message, string $separator = ' '): void
     {
@@ -557,8 +535,6 @@ class Message
      *
      * @param string $message   to be added
      * @param string $separator to use between this and previous string/message
-     *
-     * @return void
      */
     public function addText(string $message, string $separator = ' '): void
     {
@@ -570,8 +546,6 @@ class Message
      *
      * @param string $message   to be added
      * @param string $separator to use between this and previous string/message
-     *
-     * @return void
      */
     public function addHtml(string $message, string $separator = ' '): void
     {
@@ -583,8 +557,6 @@ class Message
      *
      * @param array|string $params   parameters to set
      * @param bool|int     $sanitize whether to sanitize params
-     *
-     * @return void
      */
     public function setParams($params, $sanitize = false): void
     {
@@ -726,8 +698,6 @@ class Message
 
     /**
      * Returns only message string without image & other HTML.
-     *
-     * @return string
      */
     public function getOnlyMessage(): string
     {
@@ -766,8 +736,6 @@ class Message
 
     /**
      * Displays the message in HTML
-     *
-     * @return void
      */
     public function display(): void
     {

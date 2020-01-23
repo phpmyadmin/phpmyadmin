@@ -129,8 +129,6 @@ class VariablesControllerTest extends TestCase
 
     /**
      * Test for formatVariable()
-     *
-     * @return void
      */
     public function testFormatVariable(): void
     {

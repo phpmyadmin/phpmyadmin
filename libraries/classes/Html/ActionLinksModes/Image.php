@@ -22,8 +22,6 @@ class Image implements ActionLinksModesInterface
      * @param string $text  Text of the generated element
      * @param string $image Image of the generated element, if image mode
      * @param string $value Value of the generated element
-     *
-     * @return string
      */
     public static function generate(
         string $name,

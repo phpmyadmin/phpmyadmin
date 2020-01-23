@@ -23,8 +23,6 @@ class DropDownTest extends PmaTestCase
     /**
      * Test for getDropdown
      *
-     * @return void
-     *
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
@@ -53,8 +51,6 @@ class DropDownTest extends PmaTestCase
 
     /**
      * Test for getDropdown
-     *
-     * @return void
      *
      * @throws Throwable
      * @throws Twig_Error_Loader
@@ -95,8 +91,6 @@ class DropDownTest extends PmaTestCase
 
     /**
      * Test for getDropdown
-     *
-     * @return void
      *
      * @throws Throwable
      * @throws Twig_Error_Loader

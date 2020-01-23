@@ -27,8 +27,6 @@ class GisPolygonTest extends GisGeomTestCase
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      *
-     * @return void
-     *
      * @access protected
      */
     protected function setUp(): void
@@ -39,8 +37,6 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
-     *
-     * @return void
      *
      * @access protected
      */
@@ -208,8 +204,6 @@ class GisPolygonTest extends GisGeomTestCase
      * @param array $ring array of points forming the ring
      * @param float $area area of the ring
      *
-     * @return void
-     *
      * @dataProvider providerForTestArea
      */
     public function testArea($ring, $area): void
@@ -292,8 +286,6 @@ class GisPolygonTest extends GisGeomTestCase
      * @param array $polygon  array of points forming the ring
      * @param bool  $isInside output
      *
-     * @return void
-     *
      * @dataProvider providerForTestIsPointInsidePolygon
      */
     public function testIsPointInsidePolygon($point, $polygon, $isInside): void
@@ -374,8 +366,6 @@ class GisPolygonTest extends GisGeomTestCase
      * test for getPointOnSurface
      *
      * @param array $ring array of points forming the ring
-     *
-     * @return void
      *
      * @dataProvider providerForTestGetPointOnSurface
      */
@@ -683,8 +673,6 @@ class GisPolygonTest extends GisGeomTestCase
      * test case for isOuterRing() method
      *
      * @param array $ring coordinates of the points in a ring
-     *
-     * @return void
      *
      * @dataProvider providerForIsOuterRing
      */

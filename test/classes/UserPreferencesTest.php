@@ -24,8 +24,6 @@ class UserPreferencesTest extends PmaTestCase
 
     /**
      * Setup various pre conditions
-     *
-     * @return void
      */
     protected function setUp(): void
     {

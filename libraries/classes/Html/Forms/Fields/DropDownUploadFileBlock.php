@@ -24,8 +24,6 @@ class DropDownUploadFileBlock implements FieldGenerator
      *
      * @param ImportPlugin[] $import_list array of import plugins
      * @param string         $uploaddir   upload directory
-     *
-     * @return string
      */
     public static function generate($import_list, $uploaddir): string
     {

@@ -19,8 +19,6 @@ class BrowseUploadFileBlock implements FieldGenerator
      * import
      *
      * @param string $max_upload_size maximum upload size
-     *
-     * @return string
      */
     public static function generate(string $max_upload_size): string
     {

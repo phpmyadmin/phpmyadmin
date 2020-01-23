@@ -26,8 +26,6 @@ class RelationControllerTest extends PmaTestCase
 
     /**
      * Configures environment
-     *
-     * @return void
      */
     protected function setUp(): void
     {

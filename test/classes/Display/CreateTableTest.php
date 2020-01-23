@@ -20,8 +20,6 @@ class CreateTableTest extends TestCase
 {
     /**
      * Test for setUp
-     *
-     * @return void
      */
     protected function setUp(): void
     {

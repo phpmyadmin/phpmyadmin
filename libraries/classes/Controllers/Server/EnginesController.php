@@ -17,8 +17,6 @@ class EnginesController extends AbstractController
 {
     /**
      * Index action
-     *
-     * @return string
      */
     public function index(): string
     {
@@ -33,8 +31,6 @@ class EnginesController extends AbstractController
      * Displays details about a given Storage Engine
      *
      * @param array $params Request params
-     *
-     * @return string
      */
     public function show(array $params): string
     {

@@ -22,8 +22,6 @@ class HeaderTest extends PmaTestCase
 {
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {

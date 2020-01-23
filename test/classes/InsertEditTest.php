@@ -30,8 +30,6 @@ class InsertEditTest extends TestCase
 
     /**
      * Setup for test cases
-     *
-     * @return void
      */
     protected function setUp(): void
     {

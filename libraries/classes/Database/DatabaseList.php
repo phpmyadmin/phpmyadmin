@@ -41,8 +41,6 @@ class DatabaseList
 
     /**
      * Accessor to PMA::$databases
-     *
-     * @return ListDatabase
      */
     public function getDatabaseList(): ListDatabase
     {

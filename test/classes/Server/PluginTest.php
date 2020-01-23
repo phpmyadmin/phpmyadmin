@@ -50,8 +50,6 @@ class PluginTest extends TestCase
     /**
      * @param Plugin $plugin Plugin object to be tested
      *
-     * @return void
-     *
      * @depends testFromState
      */
     public function testToArray(Plugin $plugin): void

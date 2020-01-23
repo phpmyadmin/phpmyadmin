@@ -59,8 +59,6 @@ class ConfigTest extends PmaTestCase
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -79,8 +77,6 @@ class ConfigTest extends PmaTestCase
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -132,8 +128,6 @@ class ConfigTest extends PmaTestCase
      * @param string $os      Expected parsed OS (or null if none)
      * @param string $browser Expected parsed browser (or null if none)
      * @param string $version Expected browser version (or null if none)
-     *
-     * @return void
      *
      * @dataProvider userAgentProvider
      */
@@ -338,8 +332,6 @@ class ConfigTest extends PmaTestCase
      * @param string $server Server identification
      * @param bool   $iis    Whether server should be detected as IIS
      *
-     * @return void
-     *
      * @dataProvider serverNames
      */
     public function testCheckWebServer($server, $iis): void
@@ -513,8 +505,6 @@ class ConfigTest extends PmaTestCase
      * @param string $pmaAbsoluteUri  phpMyAdmin absolute URI
      * @param int    $port            server port
      * @param bool   $expected        expected result
-     *
-     * @return void
      *
      * @dataProvider httpsParams
      */
@@ -763,8 +753,6 @@ class ConfigTest extends PmaTestCase
      * @param string $absolute The absolute URL used for phpMyAdmin
      * @param string $expected Expected root path
      *
-     * @return void
-     *
      * @dataProvider rootUris
      */
     public function testGetRootPath($request, $absolute, $expected): void
@@ -870,8 +858,6 @@ class ConfigTest extends PmaTestCase
      *
      * @param string $source File name of config to load
      * @param bool   $result Expected result of loading
-     *
-     * @return void
      *
      * @dataProvider configPaths
      */
@@ -1029,8 +1015,6 @@ class ConfigTest extends PmaTestCase
     /**
      * Test for getTempDir
      *
-     * @return void
-     *
      * @group file-system
      */
     public function testGetTempDir(): void
@@ -1045,8 +1029,6 @@ class ConfigTest extends PmaTestCase
 
     /**
      * Test for getUploadTempDir
-     *
-     * @return void
      *
      * @group file-system
      */
@@ -1501,8 +1483,6 @@ class ConfigTest extends PmaTestCase
      * @param array $expected expected result
      * @param bool  $error    error
      *
-     * @return void
-     *
      * @dataProvider serverSettingsProvider
      */
     public function testCheckServers($settings, $expected, $error = false): void
@@ -1558,8 +1538,6 @@ class ConfigTest extends PmaTestCase
      * @param array  $settings settings array
      * @param string $request  request
      * @param int    $expected expected result
-     *
-     * @return void
      *
      * @dataProvider selectServerProvider
      * @depends testCheckServers

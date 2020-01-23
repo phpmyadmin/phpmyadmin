@@ -156,8 +156,6 @@ class DatabaseInterface implements DbalInterface
      * Checks whether database extension is loaded
      *
      * @param string $extension mysql extension to check
-     *
-     * @return bool
      */
     public static function checkDbExtension(string $extension = 'mysqli'): bool
     {
@@ -204,8 +202,6 @@ class DatabaseInterface implements DbalInterface
      *
      * @param array|null $contentPath Array with the target path
      * @param mixed      $value       Target value
-     *
-     * @return void
      */
     public function cacheTableContent(?array $contentPath, $value): void
     {
@@ -234,8 +230,6 @@ class DatabaseInterface implements DbalInterface
 
     /**
      * Clear the table cache.
-     *
-     * @return void
      */
     public function clearTableCache(): void
     {
@@ -248,8 +242,6 @@ class DatabaseInterface implements DbalInterface
      *
      * @param array       $tables information for tables of some databases
      * @param string|bool $table  table name
-     *
-     * @return void
      */
     private function _cacheTableData(array $tables, $table): void
     {
@@ -284,8 +276,6 @@ class DatabaseInterface implements DbalInterface
      * @param mixed       $link   link type
      * @param object|bool $result Query result
      * @param int|float   $time   Time to execute query
-     *
-     * @return void
      */
     private function _dbgQuery(string $query, $link, $result, $time): void
     {
@@ -1311,8 +1301,6 @@ class DatabaseInterface implements DbalInterface
      * @param string $table    name of table to retrieve columns from
      * @param string $column   name of column, null to show all columns
      * @param bool   $full     whether to return full info or only column names
-     *
-     * @return string
      */
     public function getColumnsSql(
         string $database,
@@ -1511,8 +1499,6 @@ class DatabaseInterface implements DbalInterface
      * Convert version string to integer.
      *
      * @param string $version MySQL server version
-     *
-     * @return int
      */
     public static function versionToInt(string $version): int
     {
@@ -1524,8 +1510,6 @@ class DatabaseInterface implements DbalInterface
      * Function called just after a connection to the MySQL database server has
      * been established. It sets the connection collation, and determines the
      * version of MySQL which is running.
-     *
-     * @return void
      */
     public function postConnect(): void
     {
@@ -1612,8 +1596,6 @@ class DatabaseInterface implements DbalInterface
      * Sets collation connection for user link
      *
      * @param string $collation collation to set
-     *
-     * @return void
      */
     public function setCollation(string $collation): void
     {
@@ -1665,8 +1647,6 @@ class DatabaseInterface implements DbalInterface
      * Function called just after a connection to the MySQL database server has
      * been established. It sets the connection collation, and determines the
      * version of MySQL which is running.
-     *
-     * @return void
      */
     public function postConnectControl(): void
     {
@@ -2495,8 +2475,6 @@ class DatabaseInterface implements DbalInterface
      * @param string $schema_name        Name of schema (database) to test
      * @param bool   $testForMysqlSchema Whether 'mysql' schema should
      *                                   be treated the same as IS and DD
-     *
-     * @return bool
      */
     public function isSystemSchema(
         string $schema_name,
@@ -2679,8 +2657,6 @@ class DatabaseInterface implements DbalInterface
      *
      * @param string $dbname database name to select
      * @param int    $link   link type
-     *
-     * @return bool
      */
     public function selectDb(string $dbname, $link = self::CONNECT_USER): bool
     {
@@ -2743,8 +2719,6 @@ class DatabaseInterface implements DbalInterface
      * Frees memory associated with the result
      *
      * @param object $result database result
-     *
-     * @return void
      */
     public function freeResult($result): void
     {
@@ -3012,8 +2986,6 @@ class DatabaseInterface implements DbalInterface
 
     /**
      * Checks if this database server is running on Amazon RDS.
-     *
-     * @return bool
      */
     public function isAmazonRds(): bool
     {
@@ -3032,8 +3004,6 @@ class DatabaseInterface implements DbalInterface
      * Gets SQL for killing a process.
      *
      * @param int $process Process ID
-     *
-     * @return string
      */
     public function getKillQuery(int $process): string
     {
@@ -3046,8 +3016,6 @@ class DatabaseInterface implements DbalInterface
 
     /**
      * Get the phpmyadmin database manager
-     *
-     * @return SystemDatabase
      */
     public function getSystemDatabase(): SystemDatabase
     {
@@ -3059,8 +3027,6 @@ class DatabaseInterface implements DbalInterface
      *
      * @param string $db_name    DB name
      * @param string $table_name Table name
-     *
-     * @return Table
      */
     public function getTable(string $db_name, string $table_name): Table
     {
@@ -3100,8 +3066,6 @@ class DatabaseInterface implements DbalInterface
 
     /**
      * returns default server collation from show variables
-     *
-     * @return string
      */
     public function getServerCollation(): string
     {
@@ -3110,8 +3074,6 @@ class DatabaseInterface implements DbalInterface
 
     /**
      * Server version as number
-     *
-     * @return int
      */
     public function getVersion(): int
     {
@@ -3120,8 +3082,6 @@ class DatabaseInterface implements DbalInterface
 
     /**
      * Server version
-     *
-     * @return string
      */
     public function getVersionString(): string
     {
@@ -3130,8 +3090,6 @@ class DatabaseInterface implements DbalInterface
 
     /**
      * Server version comment
-     *
-     * @return string
      */
     public function getVersionComment(): string
     {
@@ -3140,8 +3098,6 @@ class DatabaseInterface implements DbalInterface
 
     /**
      * Whether connection is MariaDB
-     *
-     * @return bool
      */
     public function isMariaDB(): bool
     {
@@ -3150,8 +3106,6 @@ class DatabaseInterface implements DbalInterface
 
     /**
      * Whether connection is Percona
-     *
-     * @return bool
      */
     public function isPercona(): bool
     {
@@ -3162,8 +3116,6 @@ class DatabaseInterface implements DbalInterface
      * Load correct database driver
      *
      * @param DbiExtension|null $extension Force the use of an alternative extension
-     *
-     * @return self
      */
     public static function load(?DbiExtension $extension = null): self
     {

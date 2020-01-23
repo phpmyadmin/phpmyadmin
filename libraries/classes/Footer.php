@@ -73,8 +73,6 @@ class Footer
 
     /**
      * Returns the message for demo server to error messages
-     *
-     * @return string
      */
     private function _getDemoMessage(): string
     {
@@ -128,8 +126,6 @@ class Footer
 
     /**
      * Renders the debug messages
-     *
-     * @return string
      */
     public function getDebugMessage(): string
     {
@@ -151,8 +147,6 @@ class Footer
 
     /**
      * Returns the url of the current page
-     *
-     * @return string
      */
     public function getSelfUrl(): string
     {
@@ -206,8 +200,6 @@ class Footer
      * Renders the link to open a new page
      *
      * @param string $url The url of the page
-     *
-     * @return string
      */
     private function _getSelfLink(string $url): string
     {
@@ -230,8 +222,6 @@ class Footer
 
     /**
      * Renders the link to open a new page
-     *
-     * @return string
      */
     public function getErrorMessages(): string
     {
@@ -250,8 +240,6 @@ class Footer
 
     /**
      * Saves query in history
-     *
-     * @return void
      */
     private function _setHistory(): void
     {
@@ -272,8 +260,6 @@ class Footer
 
     /**
      * Disables the rendering of the footer
-     *
-     * @return void
      */
     public function disable(): void
     {
@@ -285,8 +271,6 @@ class Footer
      * we are servicing an ajax request
      *
      * @param bool $isAjax Whether we are servicing an ajax request
-     *
-     * @return void
      */
     public function setAjax(bool $isAjax): void
     {
@@ -295,8 +279,6 @@ class Footer
 
     /**
      * Turn on minimal display mode
-     *
-     * @return void
      */
     public function setMinimal(): void
     {
@@ -315,8 +297,6 @@ class Footer
 
     /**
      * Renders the footer
-     *
-     * @return string
      */
     public function getDisplay(): string
     {

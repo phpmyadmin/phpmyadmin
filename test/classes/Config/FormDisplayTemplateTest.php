@@ -23,8 +23,6 @@ class FormDisplayTemplateTest extends TestCase
 
     /**
      * Setup tests
-     *
-     * @return void
      */
     protected function setUp(): void
     {

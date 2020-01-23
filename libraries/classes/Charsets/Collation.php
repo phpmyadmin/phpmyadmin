@@ -101,8 +101,6 @@ final class Collation
 
     /**
      * @param array $state State obtained from the database server
-     *
-     * @return self
      */
     public static function fromServer(array $state): self
     {

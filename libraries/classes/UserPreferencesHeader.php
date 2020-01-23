@@ -25,8 +25,6 @@ class UserPreferencesHeader
      * @param Template $template Template object used to render data
      * @param Relation $relation Relation object
      *
-     * @return string
-     *
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
@@ -41,8 +39,6 @@ class UserPreferencesHeader
 
     /**
      * @param Template $template Template object used to render data
-     *
-     * @return string
      *
      * @throws Throwable
      * @throws Twig_Error_Loader
@@ -122,8 +118,6 @@ class UserPreferencesHeader
 
     /**
      * @param Relation $relation Relation instance
-     *
-     * @return string|null
      */
     protected static function sessionStorageWarning(Relation $relation): ?string
     {

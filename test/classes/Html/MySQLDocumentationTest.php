@@ -17,8 +17,6 @@ class MySQLDocumentationTest extends PmaTestCase
     /**
      * Test for \PhpMyAdmin\Html\MySQLDocumentation::showDocumentation
      *
-     * @return void
-     *
      * @covers \PhpMyAdmin\Html\MySQLDocumentation::showDocumentation
      */
     public function testShowDocumentation(): void

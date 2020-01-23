@@ -15,8 +15,6 @@ class ExportTest extends TestBase
 {
     /**
      * Setup the browser environment to run the selenium test case
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -41,8 +39,6 @@ class ExportTest extends TestBase
      * @param string $plugin   Export format
      * @param array  $expected Array of expected strings
      *
-     * @return void
-     *
      * @dataProvider exportDataProvider
      * @group large
      */
@@ -60,8 +56,6 @@ class ExportTest extends TestBase
      *
      * @param string $plugin   Export format
      * @param array  $expected Array of expected strings
-     *
-     * @return void
      *
      * @dataProvider exportDataProvider
      * @group large
@@ -82,8 +76,6 @@ class ExportTest extends TestBase
      *
      * @param string $plugin   Export format
      * @param array  $expected Array of expected strings
-     *
-     * @return void
      *
      * @dataProvider exportDataProvider
      * @group large

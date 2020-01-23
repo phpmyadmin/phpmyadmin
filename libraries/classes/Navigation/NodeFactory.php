@@ -79,8 +79,6 @@ class NodeFactory
      * @param int    $type    Type of node, may be one of CONTAINER or OBJECT
      * @param bool   $isGroup Whether this object has been created
      *                        while grouping nodes
-     *
-     * @return Node
      */
     public static function getInstance(
         $class = 'Node',
@@ -97,8 +95,6 @@ class NodeFactory
      *
      * @param string $name    An identifier for the new node
      * @param string $classes Extra CSS classes for the node
-     *
-     * @return Node
      */
     public static function getInstanceForNewNode(
         string $name,

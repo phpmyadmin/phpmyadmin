@@ -39,8 +39,6 @@ class CollationTest extends TestCase
      * @param string $collation   Collation for which description is reqd
      * @param string $description Expected Description
      *
-     * @return void
-     *
      * @dataProvider providerTestBuildDescription
      */
     public function testBuildDescription($collation, $description): void

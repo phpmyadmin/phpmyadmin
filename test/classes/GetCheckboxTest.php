@@ -23,8 +23,6 @@ class GetCheckboxTest extends TestCase
 
     /**
      * Sets up the fixture
-     *
-     * @return void
      */
     protected function setUp(): void
     {

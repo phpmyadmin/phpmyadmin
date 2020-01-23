@@ -31,8 +31,6 @@ class ResultsTest extends PmaTestCase
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      *
-     * @return void
-     *
      * @access protected
      */
     protected function setUp(): void
@@ -60,8 +58,6 @@ class ResultsTest extends PmaTestCase
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
-     *
-     * @return void
      *
      * @access protected
      */
@@ -1255,8 +1251,6 @@ class ResultsTest extends PmaTestCase
      * @param array $analyzed_sql the analyzed query
      * @param array $output       setting value of _setHighlightedColumnGlobalField
      *
-     * @return void
-     *
      * @dataProvider dataProviderForTestSetHighlightedColumnGlobalField
      */
     public function testSetHighlightedColumnGlobalField($analyzed_sql, $output): void
@@ -1330,8 +1324,6 @@ class ResultsTest extends PmaTestCase
      * @param int    $limitChars Partial or Full text
      * @param string $str        the string to be tested
      * @param bool   $output     return value of _getPartialText
-     *
-     * @return void
      *
      * @dataProvider dataProviderForTestGetPartialText
      */

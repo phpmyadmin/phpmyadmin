@@ -52,8 +52,6 @@ class AuthenticationSignon extends AuthenticationPlugin
      * Set cookie params
      *
      * @param array $sessionCookieParams The cookie params
-     *
-     * @return void
      */
     public function setCookieParams(array $sessionCookieParams = null): void
     {

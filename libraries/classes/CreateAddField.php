@@ -442,8 +442,6 @@ class CreateAddField
      *
      * @param string $db    database name
      * @param string $table table name
-     *
-     * @return string
      */
     public function getTableCreationQuery(string $db, string $table): string
     {
@@ -482,8 +480,6 @@ class CreateAddField
 
     /**
      * Function to get the number of fields for the table creation form
-     *
-     * @return int
      */
     public function getNumberOfFieldsFromRequest(): int
     {

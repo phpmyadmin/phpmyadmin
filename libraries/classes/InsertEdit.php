@@ -619,8 +619,6 @@ class InsertEdit
      * @param array $column      description of column in given table
      * @param array $foreigners  keys into foreign fields
      * @param array $foreignData data about the foreign keys
-     *
-     * @return string
      */
     private function getNullifyCodeForNullColumn(
         array $column,
@@ -3071,8 +3069,6 @@ class InsertEdit
      *
      * @param array  $column               column
      * @param string $column_name_appendix column name appendix
-     *
-     * @return string
      */
     private function getHtmlForFunctionOption(array $column, $column_name_appendix): string
     {

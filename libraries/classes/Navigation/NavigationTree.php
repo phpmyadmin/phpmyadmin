@@ -699,8 +699,6 @@ class NavigationTree
      *                   to group the whole tree. If
      *                   passed as an argument, $node
      *                   must be of type CONTAINER
-     *
-     * @return void
      */
     public function groupTree(?Node $node = null): void
     {

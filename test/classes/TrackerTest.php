@@ -21,8 +21,6 @@ class TrackerTest extends PmaTestCase
     /**
      * Setup function for test cases
      *
-     * @return void
-     *
      * @access protected
      */
     protected function setUp(): void
@@ -116,8 +114,6 @@ class TrackerTest extends PmaTestCase
      *
      * @param string $string   String to test against
      * @param string $expected Expected Table Name
-     *
-     * @return void
      *
      * @test
      * @dataProvider getTableNameData
@@ -595,8 +591,6 @@ class TrackerTest extends PmaTestCase
      *
      * @param array $fetchArrayReturn Value to be returned by mocked fetchArray
      * @param array $expectedArray    Expected array
-     *
-     * @return void
      *
      * @test
      * @dataProvider getTrackedDataProvider

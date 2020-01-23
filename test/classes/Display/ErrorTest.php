@@ -24,8 +24,6 @@ class ErrorTest extends TestCase
     /**
      * Test for Error::display
      *
-     * @return void
-     *
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
@@ -52,8 +50,6 @@ class ErrorTest extends TestCase
 
     /**
      * Test for Error::display
-     *
-     * @return void
      *
      * @throws Throwable
      * @throws Twig_Error_Loader

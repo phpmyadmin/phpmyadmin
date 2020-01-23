@@ -22,8 +22,6 @@ class UserPreferencesHeaderTest extends PmaTestCase
 {
     /**
      * Setup various pre conditions
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -33,8 +31,6 @@ class UserPreferencesHeaderTest extends PmaTestCase
 
     /**
      * Test for getContent with selected tab
-     *
-     * @return void
      *
      * @throws Throwable
      * @throws Twig_Error_Loader
@@ -71,8 +67,6 @@ class UserPreferencesHeaderTest extends PmaTestCase
     /**
      * Test for getContent with "saved" get parameter
      *
-     * @return void
-     *
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
@@ -96,8 +90,6 @@ class UserPreferencesHeaderTest extends PmaTestCase
 
     /**
      * Test for getContent with session storage
-     *
-     * @return void
      *
      * @throws Throwable
      * @throws Twig_Error_Loader

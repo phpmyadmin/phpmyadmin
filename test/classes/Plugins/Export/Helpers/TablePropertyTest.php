@@ -18,8 +18,6 @@ class TablePropertyTest extends PmaTestCase
 
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -37,8 +35,6 @@ class TablePropertyTest extends PmaTestCase
 
     /**
      * tearDown for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -111,8 +107,6 @@ class TablePropertyTest extends PmaTestCase
      * @param string $nullable nullable value
      * @param string $expected expected output
      *
-     * @return void
-     *
      * @dataProvider isNotNullProvider
      */
     public function testIsNotNull($nullable, $expected): void
@@ -153,8 +147,6 @@ class TablePropertyTest extends PmaTestCase
      *
      * @param string $key      key value
      * @param string $expected expected output
-     *
-     * @return void
      *
      * @dataProvider isUniqueProvider
      */
@@ -204,8 +196,6 @@ class TablePropertyTest extends PmaTestCase
      *
      * @param string $type     type value
      * @param string $expected expected output
-     *
-     * @return void
      *
      * @dataProvider getDotNetPrimitiveTypeProvider
      */
@@ -279,8 +269,6 @@ class TablePropertyTest extends PmaTestCase
      *
      * @param string $type     type value
      * @param string $expected expected output
-     *
-     * @return void
      *
      * @dataProvider getDotNetObjectTypeProvider
      */

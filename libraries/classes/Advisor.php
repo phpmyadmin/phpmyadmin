@@ -263,8 +263,6 @@ class Advisor
      *
      * @param string    $description description of an error.
      * @param Throwable $exception   exception raised
-     *
-     * @return void
      */
     public function storeError(string $description, Throwable $exception): void
     {
@@ -278,8 +276,6 @@ class Advisor
 
     /**
      * Executes advisor rules
-     *
-     * @return bool
      */
     public function runRules(): bool
     {
@@ -354,8 +350,6 @@ class Advisor
      * Escapes percent string to be used in format string.
      *
      * @param string $str string to escape
-     *
-     * @return string
      */
     public static function escapePercent(string $str): string
     {
@@ -367,8 +361,6 @@ class Advisor
      *
      * @param string $str   the string
      * @param string $param the parameters
-     *
-     * @return string
      *
      * @throws Exception
      */
@@ -407,8 +399,6 @@ class Advisor
      *
      * @param string $type type of rule
      * @param array  $rule rule itself
-     *
-     * @return void
      *
      * @throws Exception
      */

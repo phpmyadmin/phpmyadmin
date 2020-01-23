@@ -21,8 +21,6 @@ class MultSubmitsTest extends TestCase
 
     /**
      * Test for setUp
-     *
-     * @return void
      */
     protected function setUp(): void
     {

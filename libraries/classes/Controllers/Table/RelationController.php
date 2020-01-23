@@ -54,8 +54,6 @@ final class RelationController extends AbstractController
 
     /**
      * Index
-     *
-     * @return void
      */
     public function index(): void
     {
@@ -207,8 +205,6 @@ final class RelationController extends AbstractController
      *
      * @param Table $table       table
      * @param array $cfgRelation relation parameters
-     *
-     * @return void
      */
     private function updateForDisplayField(Table $table, array $cfgRelation): void
     {
@@ -232,8 +228,6 @@ final class RelationController extends AbstractController
      * @param Table $table            Table
      * @param array $options          Options
      * @param array $relationsForeign External relations
-     *
-     * @return void
      */
     private function updateForForeignKeys(Table $table, array $options, array $relationsForeign): void
     {
@@ -287,8 +281,6 @@ final class RelationController extends AbstractController
      * @param Table $table       Table
      * @param array $cfgRelation Relation parameters
      * @param array $relations   Relations
-     *
-     * @return void
      */
     private function updateForInternalRelation(Table $table, array $cfgRelation, array $relations): void
     {
@@ -314,8 +306,6 @@ final class RelationController extends AbstractController
 
     /**
      * Send table columns for foreign table dropdown
-     *
-     * @return void
      */
     public function getDropdownValueForTable(): void
     {
@@ -350,8 +340,6 @@ final class RelationController extends AbstractController
      * Send database selection values for dropdown
      *
      * @param string $storageEngine Storage engine.
-     *
-     * @return void
      */
     public function getDropdownValueForDatabase(string $storageEngine): void
     {

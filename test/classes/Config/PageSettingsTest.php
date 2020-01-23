@@ -17,8 +17,6 @@ class PageSettingsTest extends PmaTestCase
 {
     /**
      * Setup tests
-     *
-     * @return void
      */
     protected function setUp(): void
     {

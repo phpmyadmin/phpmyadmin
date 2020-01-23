@@ -22,8 +22,6 @@ class OperationsTest extends TestCase
 
     /**
      * Set up global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {

@@ -52,8 +52,6 @@ class SanitizeTest extends TestCase
      * @param string $link     link
      * @param string $expected expected result
      *
-     * @return void
-     *
      * @dataProvider docLinks
      */
     public function testDoc($link, $expected): void
@@ -189,8 +187,6 @@ class SanitizeTest extends TestCase
      * @param string $value    Value
      * @param string $expected Expected output
      *
-     * @return void
-     *
      * @dataProvider variables
      */
     public function testGetJsValue($key, $value, $expected): void
@@ -273,8 +269,6 @@ class SanitizeTest extends TestCase
      *
      * @param string $target expected output
      * @param string $source string to be escaped
-     *
-     * @return void
      *
      * @dataProvider escapeDataProvider
      */

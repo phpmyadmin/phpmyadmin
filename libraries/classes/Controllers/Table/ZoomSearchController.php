@@ -154,8 +154,6 @@ class ZoomSearchController extends AbstractController
     /**
      * Gets all the columns of a table along with their types, collations
      * and whether null or not.
-     *
-     * @return void
      */
     private function _loadTableInfo(): void
     {

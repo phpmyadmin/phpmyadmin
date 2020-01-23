@@ -93,8 +93,6 @@ HTML;
     }
 
     /**
-     * @return void
-     *
      * @requires extension bz2 1
      */
     public function testSupportedDecompressionsFull(): void

@@ -218,8 +218,6 @@ class SqlController extends AbstractController
      * Get values for the relational columns
      *
      * During grid edit, if we have a relational field, show the dropdown for it.
-     *
-     * @return void
      */
     public function getRelationalValues(): void
     {
@@ -247,8 +245,6 @@ class SqlController extends AbstractController
 
     /**
      * Get possible values for enum fields during grid edit.
-     *
-     * @return void
      */
     public function getEnumValues(): void
     {
@@ -269,8 +265,6 @@ class SqlController extends AbstractController
 
     /**
      * Get possible values for SET fields during grid edit.
-     *
-     * @return void
      */
     public function getSetValues(): void
     {

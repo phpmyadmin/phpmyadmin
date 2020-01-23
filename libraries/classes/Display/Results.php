@@ -4769,8 +4769,6 @@ class Results
      * @param array $analyzed_sql_results analyzed sql results
      * @param array $params               Array with URL Parameters
      *
-     * @return string
-     *
      * @access private
      */
     private function _getLinkForCreateView(array $analyzed_sql_results, array $params): string

@@ -170,8 +170,6 @@ class File
      *
      * @param string|null $name file name
      *
-     * @return void
-     *
      * @access public
      */
     public function setName(?string $name): void
@@ -229,8 +227,6 @@ class File
 
     /**
      * Whether file is uploaded.
-     *
-     * @return bool
      *
      * @access public
      */
@@ -596,8 +592,6 @@ class File
      * Sets whether the content should be decompressed before returned
      *
      * @param bool $decompress whether to decompress
-     *
-     * @return void
      */
     public function setDecompressContent(bool $decompress): void
     {
@@ -621,8 +615,6 @@ class File
      * Sets the file handle
      *
      * @param resource $handle file handle
-     *
-     * @return void
      */
     public function setHandle($handle): void
     {
@@ -631,8 +623,6 @@ class File
 
     /**
      * Sets error message for unsupported compression.
-     *
-     * @return void
      */
     public function errorUnsupported(): void
     {
@@ -648,8 +638,6 @@ class File
 
     /**
      * Attempts to open the file.
-     *
-     * @return bool
      */
     public function open(): bool
     {
@@ -698,8 +686,6 @@ class File
      * Opens file from zip
      *
      * @param string|null $specific_entry Entry to open
-     *
-     * @return bool
      */
     public function openZip(?string $specific_entry = null): bool
     {
@@ -715,8 +701,6 @@ class File
 
     /**
      * Checks whether we've reached end of file
-     *
-     * @return bool
      */
     public function eof(): bool
     {
@@ -728,8 +712,6 @@ class File
 
     /**
      * Closes the file
-     *
-     * @return void
      */
     public function close(): void
     {
@@ -747,8 +729,6 @@ class File
      * Reads data from file
      *
      * @param int $size Number of bytes to read
-     *
-     * @return string
      */
     public function read(int $size): string
     {
@@ -781,8 +761,6 @@ class File
      * Sets the character set of the file
      *
      * @param string $charset character set of the file
-     *
-     * @return void
      */
     public function setCharset(string $charset): void
     {
@@ -829,8 +807,6 @@ class File
      * Sets the chunk size
      *
      * @param int $chunk_size the chunk size
-     *
-     * @return void
      */
     public function setChunkSize(int $chunk_size): void
     {

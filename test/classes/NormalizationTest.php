@@ -28,8 +28,6 @@ class NormalizationTest extends TestCase
 
     /**
      * prepares environment for tests
-     *
-     * @return void
      */
     protected function setUp(): void
     {

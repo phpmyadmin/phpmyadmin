@@ -80,8 +80,6 @@ class TablePartitionDefinition
 
     /**
      * @param string $paramLabel Label searched in request
-     *
-     * @return int
      */
     protected static function extractPartitionCount(string $paramLabel): int
     {

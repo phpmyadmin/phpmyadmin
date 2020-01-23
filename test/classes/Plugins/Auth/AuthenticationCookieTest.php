@@ -33,8 +33,6 @@ class AuthenticationCookieTest extends PmaTestCase
 
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -52,8 +50,6 @@ class AuthenticationCookieTest extends PmaTestCase
 
     /**
      * tearDown for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -1074,8 +1070,6 @@ class AuthenticationCookieTest extends PmaTestCase
      * @param string $mac    mac
      * @param string $aes    aes
      *
-     * @return void
-     *
      * @dataProvider secretsProvider
      */
     public function testMACSecretSplit($secret, $mac, $aes): void
@@ -1092,8 +1086,6 @@ class AuthenticationCookieTest extends PmaTestCase
      * @param string $secret secret
      * @param string $mac    mac
      * @param string $aes    aes
-     *
-     * @return void
      *
      * @dataProvider secretsProvider
      */
@@ -1223,8 +1215,6 @@ class AuthenticationCookieTest extends PmaTestCase
      * @param bool   $nopass   nopass
      * @param array  $rules    rules
      * @param string $expected expected result
-     *
-     * @return void
      *
      * @dataProvider checkRulesProvider
      */

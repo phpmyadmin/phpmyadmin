@@ -49,8 +49,6 @@ class BinlogController extends AbstractController
      * Index action
      *
      * @param array $params Request params
-     *
-     * @return string
      */
     public function index(array $params): string
     {
@@ -128,8 +126,6 @@ class BinlogController extends AbstractController
      * @param string $log      Binary log file name
      * @param int    $position Position to display
      * @param int    $maxRows  Maximum number of rows
-     *
-     * @return string
      */
     private function getSqlQuery(
         string $log,

@@ -292,8 +292,6 @@ class HomeController extends AbstractController
 
     /**
      * @param array $params Request parameters
-     *
-     * @return void
      */
     public function setTheme(array $params): void
     {
@@ -310,8 +308,6 @@ class HomeController extends AbstractController
 
     /**
      * @param array $params Request parameters
-     *
-     * @return void
      */
     public function setCollationConnection(array $params): void
     {

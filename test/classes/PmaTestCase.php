@@ -30,8 +30,6 @@ class PmaTestCase extends TestCase
 
     /**
      * This method is called before the first test of this test class is run.
-     *
-     * @return void
      */
     public static function setUpBeforeClass(): void
     {
@@ -105,8 +103,6 @@ class PmaTestCase extends TestCase
 
     /**
      * Tear down function for mockResponse method
-     *
-     * @return void
      */
     protected function tearDown(): void
     {

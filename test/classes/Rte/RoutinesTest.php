@@ -23,8 +23,6 @@ class RoutinesTest extends TestCase
 
     /**
      * Set up
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -45,8 +43,6 @@ class RoutinesTest extends TestCase
      *
      * @param array $in  Input
      * @param array $out Expected output
-     *
-     * @return void
      *
      * @dataProvider providerGetDataFromRequest
      */
@@ -312,8 +308,6 @@ class RoutinesTest extends TestCase
      * @param mixed $index   Index
      * @param array $matcher Matcher
      *
-     * @return void
-     *
      * @depends testGetParameterRowEmpty
      * @dataProvider providerGetParameterRow
      */
@@ -393,8 +387,6 @@ class RoutinesTest extends TestCase
      *
      * @param array $data    Data for routine
      * @param array $matcher Matcher
-     *
-     * @return void
      *
      * @depends testGetParameterRow
      * @dataProvider providerGetParameterRowAjax
@@ -1161,8 +1153,6 @@ class RoutinesTest extends TestCase
      * @param array  $request Request
      * @param string $query   Query
      * @param int    $num_err Error number
-     *
-     * @return void
      *
      * @dataProvider providerGetQueryFromRequest
      */

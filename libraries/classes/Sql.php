@@ -451,8 +451,6 @@ class Sql
      * @param string      $table          current table
      * @param string|null $complete_query complete query
      * @param string      $bkm_user       bookmarking user
-     *
-     * @return string
      */
     public function getHtmlForBookmark(
         array $displayParts,
@@ -535,8 +533,6 @@ class Sql
      * @param array     $analyzed_sql_results the analyzed query and other variables set
      *                                        after analyzing the query
      * @param bool|null $find_real_end        whether the real end should be found
-     *
-     * @return bool
      */
     public function isJustBrowsing(array $analyzed_sql_results, ?bool $find_real_end): bool
     {
@@ -1395,8 +1391,6 @@ class Sql
     /**
      * Returns a message for successful creation of a bookmark or null if a bookmark
      * was not created
-     *
-     * @return string
      */
     private function getBookmarkCreatedMessage(): string
     {
@@ -1557,8 +1551,6 @@ class Sql
      * @param bool           $showSql        whether to show sql
      * @param array          $sqlData        sql data
      * @param Message|string $displayMessage display message
-     *
-     * @return string
      */
     private function getHtmlForPreviousUpdateQuery(
         ?string $displayQuery,
@@ -1585,8 +1577,6 @@ class Sql
      * @param string $database     current database
      * @param bool   $editable     whether the results table can be editable or not
      * @param bool   $hasUniqueKey whether there is a unique key
-     *
-     * @return string
      */
     private function getMessageIfMissingColumnIndex($table, $database, $editable, $hasUniqueKey): string
     {
@@ -1633,8 +1623,6 @@ class Sql
      *                                    like check table, optimize table,
      *                                    analyze table or repair table
      * @param string      $database       current database
-     *
-     * @return string
      */
     private function getHtmlForIndexesProblems(?string $queryType, ?array $selectedTables, string $database): string
     {

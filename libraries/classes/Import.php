@@ -106,8 +106,6 @@ class Import
      * @param string $full     query to display, this might be commented
      * @param array  $sql_data SQL parse data storage
      *
-     * @return void
-     *
      * @access public
      */
     public function executeQuery(string $sql, string $full, array &$sql_data): void
@@ -193,8 +191,6 @@ class Import
      * @param string $sql      query to run
      * @param string $full     query to display, this might be commented
      * @param array  $sql_data SQL parse data storage
-     *
-     * @return void
      *
      * @access public
      */
@@ -982,8 +978,6 @@ class Import
      * @param array|null $options        Associative array of options
      * @param array      $sql_data       2-element array with sql data
      *
-     * @return void
-     *
      * @access public
      */
     public function buildSql(
@@ -1366,8 +1360,6 @@ class Import
      *
      * @param Message $error_message The error message
      *
-     * @return void
-     *
      * @access public
      */
     public function stop(Message $error_message): void
@@ -1395,8 +1387,6 @@ class Import
 
     /**
      * Handles request for Simulation of UPDATE/DELETE queries.
-     *
-     * @return void
      */
     public function handleSimulateDmlRequest(): void
     {
@@ -1620,8 +1610,6 @@ class Import
      * Handles request for ROLLBACK.
      *
      * @param string $sql_query SQL query(s)
-     *
-     * @return void
      */
     public function handleRollbackRequest(string $sql_query): void
     {
@@ -1665,8 +1653,6 @@ class Import
      * Checks if ROLLBACK is possible for a SQL query or not.
      *
      * @param string $sql_query SQL query
-     *
-     * @return bool
      */
     public function checkIfRollbackPossible(string $sql_query): bool
     {
@@ -1704,8 +1690,6 @@ class Import
      * Checks if a table is 'InnoDB' or not.
      *
      * @param string $table Table details
-     *
-     * @return bool
      */
     public function isTableTransactional(string $table): bool
     {

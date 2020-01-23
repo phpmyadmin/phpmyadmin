@@ -26,8 +26,6 @@ class IndexesControllerTest extends PmaTestCase
     /**
      * Setup function for test cases
      *
-     * @return void
-     *
      * @access protected
      */
     protected function setUp(): void

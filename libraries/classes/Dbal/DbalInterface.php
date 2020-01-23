@@ -45,15 +45,11 @@ interface DbalInterface
      *
      * @param array|null $contentPath Array with the target path
      * @param mixed      $value       Target value
-     *
-     * @return void
      */
     public function cacheTableContent(?array $contentPath, $value): void;
 
     /**
      * Clear the table cache.
-     *
-     * @return void
      */
     public function clearTableCache(): void;
 
@@ -225,8 +221,6 @@ interface DbalInterface
      * @param string $table    name of table to retrieve columns from
      * @param string $column   name of column, null to show all columns
      * @param bool   $full     whether to return full info or only column names
-     *
-     * @return string
      */
     public function getColumnsSql(
         string $database,
@@ -327,8 +321,6 @@ interface DbalInterface
      * Function called just after a connection to the MySQL database server has
      * been established. It sets the connection collation, and determines the
      * version of MySQL which is running.
-     *
-     * @return void
      */
     public function postConnect(): void;
 
@@ -336,8 +328,6 @@ interface DbalInterface
      * Sets collation connection for user link
      *
      * @param string $collation collation to set
-     *
-     * @return void
      */
     public function setCollation(string $collation): void;
 
@@ -345,8 +335,6 @@ interface DbalInterface
      * Function called just after a connection to the MySQL database server has
      * been established. It sets the connection collation, and determines the
      * version of MySQL which is running.
-     *
-     * @return void
      */
     public function postConnectControl(): void;
 
@@ -603,8 +591,6 @@ interface DbalInterface
      * @param bool   $testForMysqlSchema Whether 'mysql' schema should
      *                                   be treated the same as IS and
      *                                   DD
-     *
-     * @return bool
      */
     public function isSystemSchema(string $schema_name, bool $testForMysqlSchema = false): bool;
 
@@ -636,8 +622,6 @@ interface DbalInterface
      *
      * @param string $dbname database name to select
      * @param int    $link   link type
-     *
-     * @return bool
      */
     public function selectDb(string $dbname, $link = DatabaseInterface::CONNECT_USER): bool;
 
@@ -682,8 +666,6 @@ interface DbalInterface
      * Frees memory associated with the result
      *
      * @param object $result database result
-     *
-     * @return void
      */
     public function freeResult($result): void;
 
@@ -839,8 +821,6 @@ interface DbalInterface
 
     /**
      * Checks if this database server is running on Amazon RDS.
-     *
-     * @return bool
      */
     public function isAmazonRds(): bool;
 
@@ -848,15 +828,11 @@ interface DbalInterface
      * Gets SQL for killing a process.
      *
      * @param int $process Process ID
-     *
-     * @return string
      */
     public function getKillQuery(int $process): string;
 
     /**
      * Get the phpmyadmin database manager
-     *
-     * @return SystemDatabase
      */
     public function getSystemDatabase(): SystemDatabase;
 
@@ -865,8 +841,6 @@ interface DbalInterface
      *
      * @param string $db_name    DB name
      * @param string $table_name Table name
-     *
-     * @return Table
      */
     public function getTable(string $db_name, string $table_name): Table;
 
@@ -881,43 +855,31 @@ interface DbalInterface
 
     /**
      * returns default server collation from show variables
-     *
-     * @return string
      */
     public function getServerCollation(): string;
 
     /**
      * Server version as number
-     *
-     * @return int
      */
     public function getVersion(): int;
 
     /**
      * Server version
-     *
-     * @return string
      */
     public function getVersionString(): string;
 
     /**
      * Server version comment
-     *
-     * @return string
      */
     public function getVersionComment(): string;
 
     /**
      * Whether connection is MariaDB
-     *
-     * @return bool
      */
     public function isMariaDB(): bool;
 
     /**
      * Whether connection is Percona
-     *
-     * @return bool
      */
     public function isPercona(): bool;
 

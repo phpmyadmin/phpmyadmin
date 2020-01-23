@@ -20,8 +20,6 @@ class EventsTest extends TestBase
 {
     /**
      * Setup the browser environment to run the selenium test case
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -49,8 +47,6 @@ class EventsTest extends TestBase
 
     /**
      * Tear Down function for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {

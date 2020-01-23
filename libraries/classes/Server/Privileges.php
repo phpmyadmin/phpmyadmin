@@ -2561,8 +2561,6 @@ class Privileges
 
     /**
      * update Message For Reload
-     *
-     * @return Message|null
      */
     public function updateMessageForReload(): ?Message
     {

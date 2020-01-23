@@ -143,8 +143,6 @@ class Config
 
     /**
      * sets system and application settings
-     *
-     * @return void
      */
     public function checkSystem(): void
     {
@@ -166,8 +164,6 @@ class Config
 
     /**
      * whether to use gzip output compression or not
-     *
-     * @return void
      */
     public function checkOutputCompression(): void
     {
@@ -187,8 +183,6 @@ class Config
      * Sets the client platform based on user agent
      *
      * @param string $user_agent the user agent
-     *
-     * @return void
      */
     private function _setClientPlatform(string $user_agent): void
     {
@@ -212,8 +206,6 @@ class Config
      * Based on a phpBuilder article:
      *
      * @see http://www.phpbuilder.net/columns/tim20000821.php
-     *
-     * @return void
      */
     public function checkClient(): void
     {
@@ -319,8 +311,6 @@ class Config
 
     /**
      * Whether GD2 is present
-     *
-     * @return void
      */
     public function checkGd2(): void
     {
@@ -353,8 +343,6 @@ class Config
 
     /**
      * Whether the Web server php is running on is IIS
-     *
-     * @return void
      */
     public function checkWebServer(): void
     {
@@ -372,8 +360,6 @@ class Config
 
     /**
      * Whether the os php is running on is windows or not
-     *
-     * @return void
      */
     public function checkWebServerOs(): void
     {
@@ -395,8 +381,6 @@ class Config
      * detects if Git revision
      *
      * @param string $git_location (optional) verified git directory
-     *
-     * @return bool
      */
     public function isGitRevision(&$git_location = null): bool
     {
@@ -458,8 +442,6 @@ class Config
 
     /**
      * detects Git revision, if running inside repo
-     *
-     * @return void
      */
     public function checkGitRevision(): void
     {
@@ -858,8 +840,6 @@ class Config
      * should be called on object creation
      *
      * @param string $source config file
-     *
-     * @return bool
      */
     public function load(?string $source = null): bool
     {
@@ -934,8 +914,6 @@ class Config
 
     /**
      * Sets the connection collation
-     *
-     * @return void
      */
     private function _setConnectionCollation(): void
     {
@@ -950,8 +928,6 @@ class Config
     /**
      * Loads user preferences and merges them with current config
      * must be called after control connection has been established
-     *
-     * @return void
      */
     public function loadUserPreferences(): void
     {
@@ -1127,8 +1103,6 @@ class Config
      * set source
      *
      * @param string $source source
-     *
-     * @return void
      */
     public function setSource(string $source): void
     {
@@ -1182,8 +1156,6 @@ class Config
     /**
      * verifies the permissions on config file (if asked by configuration)
      * (must be called after config.inc.php has been merged)
-     *
-     * @return void
      */
     public function checkPermissions(): void
     {
@@ -1209,8 +1181,6 @@ class Config
     /**
      * Checks for errors
      * (must be called after config.inc.php has been merged)
-     *
-     * @return void
      */
     public function checkErrors(): void
     {
@@ -1256,8 +1226,6 @@ class Config
      *
      * @param string $setting configuration option
      * @param mixed  $value   new value for configuration option
-     *
-     * @return void
      */
     public function set(string $setting, $value): void
     {
@@ -1299,8 +1267,6 @@ class Config
 
     /**
      * checks if upload is enabled
-     *
-     * @return void
      */
     public function checkUpload(): void
     {
@@ -1322,8 +1288,6 @@ class Config
      * Used with permission from Moodle (https://moodle.org/) by Martin Dougiamas
      *
      * this section generates $max_upload_size in bytes
-     *
-     * @return void
      */
     public function checkUploadSize(): void
     {
@@ -1345,8 +1309,6 @@ class Config
      * Checks if protocol is https
      *
      * This function checks if the https protocol on the active connection.
-     *
-     * @return bool
      */
     public function isHttps(): bool
     {
@@ -1386,8 +1348,6 @@ class Config
 
     /**
      * Get phpMyAdmin root path
-     *
-     * @return string
      */
     public function getRootPath(): string
     {
@@ -1433,8 +1393,6 @@ class Config
 
     /**
      * enables backward compatibility
-     *
-     * @return void
      */
     public function enableBc(): void
     {
@@ -1578,8 +1536,6 @@ class Config
      * Get the real cookie name
      *
      * @param string $cookieName The name of the cookie
-     *
-     * @return string
      */
     public function getCookieName(string $cookieName): string
     {
@@ -1601,8 +1557,6 @@ class Config
     /**
      * Error handler to catch fatal errors when loading configuration
      * file
-     *
-     * @return void
      */
     public static function fatalErrorHandler(): void
     {
@@ -1632,8 +1586,6 @@ class Config
      *
      * @param string $filename File to check and render
      * @param string $id       Div ID
-     *
-     * @return string
      */
     private static function _renderCustom(string $filename, string $id): string
     {
@@ -1650,8 +1602,6 @@ class Config
 
     /**
      * Renders user configured footer
-     *
-     * @return string
      */
     public static function renderFooter(): string
     {
@@ -1660,8 +1610,6 @@ class Config
 
     /**
      * Renders user configured footer
-     *
-     * @return string
      */
     public static function renderHeader(): string
     {
@@ -1672,8 +1620,6 @@ class Config
      * Returns temporary dir path
      *
      * @param string $name Directory name
-     *
-     * @return string|null
      */
     public function getTempDir(string $name): ?string
     {
@@ -1702,8 +1648,6 @@ class Config
 
     /**
      * Returns temporary directory
-     *
-     * @return string|null
      */
     public function getUploadTempDir(): ?string
     {
@@ -1726,8 +1670,6 @@ class Config
 
     /**
      * Selects server based on request parameters.
-     *
-     * @return int
      */
     public function selectServer(): int
     {
@@ -1782,8 +1724,6 @@ class Config
 
     /**
      * Checks whether Servers configuration is valid and possibly apply fixups.
-     *
-     * @return void
      */
     public function checkServers(): void
     {

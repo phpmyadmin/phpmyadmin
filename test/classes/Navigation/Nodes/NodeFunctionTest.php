@@ -16,8 +16,6 @@ class NodeFunctionTest extends PmaTestCase
 {
     /**
      * SetUp for test cases
-     *
-     * @return void
      */
     protected function setUp(): void
     {

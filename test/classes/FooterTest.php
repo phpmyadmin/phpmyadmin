@@ -27,8 +27,6 @@ class FooterTest extends PmaTestCase
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      *
-     * @return void
-     *
      * @access protected
      */
     protected function setUp(): void
@@ -55,8 +53,6 @@ class FooterTest extends PmaTestCase
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
-     *
-     * @return void
      *
      * @access protected
      */

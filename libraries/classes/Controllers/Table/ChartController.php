@@ -24,8 +24,6 @@ class ChartController extends AbstractController
 {
     /**
      * Execute the query and return the result
-     *
-     * @return void
      */
     public function index(): void
     {
@@ -143,8 +141,6 @@ class ChartController extends AbstractController
 
     /**
      * Handle ajax request
-     *
-     * @return void
      */
     public function ajax(): void
     {

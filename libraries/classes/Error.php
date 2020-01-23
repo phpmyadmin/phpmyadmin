@@ -201,8 +201,6 @@ class Error extends Message
      * Toggles location hiding
      *
      * @param bool $hide Whether to hide
-     *
-     * @return void
      */
     public function setHideLocation(bool $hide): void
     {
@@ -215,8 +213,6 @@ class Error extends Message
      * We don't store full arguments to avoid wakeup or memory problems.
      *
      * @param array $backtrace backtrace
-     *
-     * @return void
      */
     public function setBacktrace(array $backtrace): void
     {
@@ -227,8 +223,6 @@ class Error extends Message
      * sets PhpMyAdmin\Error::$_line
      *
      * @param int $line the line
-     *
-     * @return void
      */
     public function setLine(int $line): void
     {
@@ -239,8 +233,6 @@ class Error extends Message
      * sets PhpMyAdmin\Error::$_file
      *
      * @param string $file the file
-     *
-     * @return void
      */
     public function setFile(string $file): void
     {
@@ -343,8 +335,6 @@ class Error extends Message
 
     /**
      * returns title for error
-     *
-     * @return string
      */
     public function getTitle(): string
     {
@@ -353,8 +343,6 @@ class Error extends Message
 
     /**
      * Get HTML backtrace
-     *
-     * @return string
      */
     public function getBacktraceDisplay(): string
     {
@@ -401,8 +389,6 @@ class Error extends Message
      *
      * @param array  $step      backtrace step
      * @param string $separator Arguments separator to use
-     *
-     * @return string
      */
     public static function getFunctionCall(array $step, string $separator): string
     {
@@ -433,8 +419,6 @@ class Error extends Message
      *
      * @param string $arg      argument to process
      * @param string $function function name
-     *
-     * @return string
      */
     public static function getArg($arg, string $function): string
     {
@@ -474,8 +458,6 @@ class Error extends Message
 
     /**
      * Gets the error as string of HTML
-     *
-     * @return string
      */
     public function getDisplay(): string
     {
@@ -508,8 +490,6 @@ class Error extends Message
 
     /**
      * whether this error is a user error
-     *
-     * @return bool
      */
     public function isUserError(): bool
     {

@@ -19,8 +19,6 @@ class TransformationsTest extends TestCase
 
     /**
      * Set up global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -50,8 +48,6 @@ class TransformationsTest extends TestCase
      *
      * @param string $input    String to parse
      * @param array  $expected Expected result
-     *
-     * @return void
      *
      * @dataProvider getOptionsData
      */
@@ -284,8 +280,6 @@ class TransformationsTest extends TestCase
      * @param string $value    value
      * @param string $expected expected result
      *
-     * @return void
-     *
      * @dataProvider fixupData
      */
     public function testFixup($value, $expected): void
@@ -331,8 +325,6 @@ class TransformationsTest extends TestCase
      * @param string $file                transformation file
      * @param string $expectedDescription expected description
      *
-     * @return void
-     *
      * @dataProvider providerGetDescription
      */
     public function testGetDescription($file, $expectedDescription): void
@@ -369,8 +361,6 @@ class TransformationsTest extends TestCase
      *
      * @param string $file         transformation file
      * @param string $expectedName expected name
-     *
-     * @return void
      *
      * @dataProvider providerGetName
      */

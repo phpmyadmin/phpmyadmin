@@ -117,8 +117,6 @@ class Encoding
 
     /**
      * Initializes encoding engine detecting available backends.
-     *
-     * @return void
      */
     public static function initEngine(): void
     {
@@ -153,8 +151,6 @@ class Encoding
      * Setter for engine. Use with caution, mostly useful for testing.
      *
      * @param int $engine Engine encoding
-     *
-     * @return void
      */
     public static function setEngine(int $engine): void
     {
@@ -163,8 +159,6 @@ class Encoding
 
     /**
      * Checks whether there is any charset conversion supported
-     *
-     * @return bool
      */
     public static function isSupported(): bool
     {
@@ -223,8 +217,6 @@ class Encoding
 
     /**
      * Detects whether Kanji encoding is available
-     *
-     * @return bool
      */
     public static function canConvertKanji(): bool
     {
@@ -233,8 +225,6 @@ class Encoding
 
     /**
      * Setter for Kanji encodings. Use with caution, mostly useful for testing.
-     *
-     * @return string
      */
     public static function getKanjiEncodings(): string
     {
@@ -245,8 +235,6 @@ class Encoding
      * Setter for Kanji encodings. Use with caution, mostly useful for testing.
      *
      * @param string $value Kanji encodings list
-     *
-     * @return void
      */
     public static function setKanjiEncodings(string $value): void
     {
@@ -255,8 +243,6 @@ class Encoding
 
     /**
      * Reverses SJIS & EUC-JP position in the encoding codes list
-     *
-     * @return void
      */
     public static function kanjiChangeOrder(): void
     {

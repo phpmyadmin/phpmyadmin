@@ -45,8 +45,6 @@ class IndexesController extends AbstractController
      * Display the form to edit/create an index
      *
      * @param Index $index An Index instance.
-     *
-     * @return void
      */
     public function displayForm(Index $index): void
     {
@@ -112,8 +110,6 @@ class IndexesController extends AbstractController
      * and moves back to /table/sql
      *
      * @param Index $index An Index instance.
-     *
-     * @return void
      */
     public function doSaveData(Index $index): void
     {

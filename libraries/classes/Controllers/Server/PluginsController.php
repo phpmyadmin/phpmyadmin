@@ -40,8 +40,6 @@ class PluginsController extends AbstractController
 
     /**
      * Index action
-     *
-     * @return string
      */
     public function index(): string
     {

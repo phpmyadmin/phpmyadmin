@@ -93,8 +93,6 @@ class StructureController extends AbstractController
      * Retrieves database information for further use
      *
      * @param string $subPart Page part name
-     *
-     * @return void
      */
     private function getDatabaseInfo(string $subPart): void
     {
@@ -326,8 +324,6 @@ class StructureController extends AbstractController
 
     /**
      * Handles actions related to multiple tables
-     *
-     * @return void
      */
     public function multiSubmitAction(): void
     {
@@ -854,8 +850,6 @@ class StructureController extends AbstractController
      * Function to check if a table is already in favorite list.
      *
      * @param string $currentTable current table
-     *
-     * @return bool
      */
     protected function checkFavoriteTable(string $currentTable): bool
     {

@@ -164,8 +164,6 @@ final class GisVisualizationController extends AbstractController
     /**
      * @param string $filename File name
      * @param string $format   Save format
-     *
-     * @return void
      */
     private function saveToFile(string $filename, string $format): void
     {

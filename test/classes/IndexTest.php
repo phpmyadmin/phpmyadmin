@@ -18,8 +18,6 @@ class IndexTest extends PmaTestCase
 
     /**
      * Configures parameters.
-     *
-     * @return void
      */
     protected function setUp(): void
     {

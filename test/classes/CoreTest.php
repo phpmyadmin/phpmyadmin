@@ -26,8 +26,6 @@ class CoreTest extends PmaTestCase
 {
     /**
      * Setup for test cases
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -294,8 +292,6 @@ class CoreTest extends PmaTestCase
      * @param bool       $include   whether the page is going to be included
      * @param int        $expected  Expected value
      *
-     * @return void
-     *
      * @dataProvider providerTestGotoNowhere
      */
     public function testGotoNowhere($page, $whiteList, $include, $expected): void
@@ -369,8 +365,6 @@ class CoreTest extends PmaTestCase
      * @param string $request   The REQUEST_URI value
      * @param string $path_info The PATH_INFO value
      * @param string $expected  Expected result
-     *
-     * @return void
      *
      * @dataProvider providerTestPathInfo
      */
@@ -485,8 +479,6 @@ class CoreTest extends PmaTestCase
      * @param string $size     Size
      * @param int    $expected Expected value
      *
-     * @return void
-     *
      * @dataProvider providerTestGetRealSize
      */
     public function testGetRealSize($size, $expected): void
@@ -549,8 +541,6 @@ class CoreTest extends PmaTestCase
      *
      * @param string $link URL where to go
      * @param string $url  Expected value
-     *
-     * @return void
      *
      * @dataProvider providerTestLinkURL
      */
@@ -731,8 +721,6 @@ class CoreTest extends PmaTestCase
      * @param string $url      URL to test
      * @param mixed  $expected Expected result
      *
-     * @return void
-     *
      * @dataProvider provideTestIsAllowedDomain
      */
     public function testIsAllowedDomain($url, $expected): void
@@ -793,8 +781,6 @@ class CoreTest extends PmaTestCase
      * @param mixed $var     Variable to check
      * @param mixed $type    Type
      * @param mixed $compare Compared value
-     *
-     * @return void
      *
      * @dataProvider providerTestNoVarType
      */
@@ -1122,8 +1108,6 @@ class CoreTest extends PmaTestCase
      * @param mixed $var     Variable
      * @param mixed $compare Compare
      *
-     * @return void
-     *
      * @dataProvider provideTestSimilarType
      */
     public function testSimilarType($var, $compare): void
@@ -1203,8 +1187,6 @@ class CoreTest extends PmaTestCase
      * @param string $data     Serialized data
      * @param mixed  $expected Expected result
      *
-     * @return void
-     *
      * @dataProvider provideTestSafeUnserialize
      */
     public function testSafeUnserialize($data, $expected): void
@@ -1275,8 +1257,6 @@ class CoreTest extends PmaTestCase
      *
      * @param string $host     Test host name
      * @param string $expected Expected result
-     *
-     * @return void
      *
      * @dataProvider provideTestSanitizeMySQLHost
      */

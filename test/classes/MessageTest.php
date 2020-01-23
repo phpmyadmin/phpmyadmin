@@ -24,8 +24,6 @@ class MessageTest extends PmaTestCase
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      *
-     * @return void
-     *
      * @access protected
      */
     protected function setUp(): void
@@ -36,8 +34,6 @@ class MessageTest extends PmaTestCase
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
-     *
-     * @return void
      *
      * @access protected
      */
@@ -433,8 +429,6 @@ class MessageTest extends PmaTestCase
      * @param string $actual   BB code string
      * @param string $expected Expected decoded string
      *
-     * @return void
-     *
      * @dataProvider decodeBBDataProvider
      */
     public function testDecodeBB($actual, $expected): void
@@ -633,8 +627,6 @@ HTML
      * @param int    $rows   Number of rows
      * @param string $output Expected string
      *
-     * @return void
-     *
      * @dataProvider providerAffectedRows
      */
     public function testAffectedRows($rows, $output): void
@@ -681,8 +673,6 @@ HTML
      * @param int    $rows   Number of rows
      * @param string $output Expected string
      *
-     * @return void
-     *
      * @dataProvider providerInsertedRows
      */
     public function testInsertedRows($rows, $output): void
@@ -728,8 +718,6 @@ HTML
      *
      * @param int    $rows   Number of rows
      * @param string $output Expected string
-     *
-     * @return void
      *
      * @dataProvider providerDeletedRows
      */

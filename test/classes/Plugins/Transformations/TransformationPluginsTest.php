@@ -39,8 +39,6 @@ class TransformationPluginsTest extends PmaTestCase
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      *
-     * @return void
-     *
      * @access protected
      */
     protected function setUp(): void
@@ -64,8 +62,6 @@ class TransformationPluginsTest extends PmaTestCase
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
-     *
-     * @return void
      *
      * @access protected
      */
@@ -716,8 +712,6 @@ class TransformationPluginsTest extends PmaTestCase
      * @param string $method   the method name
      * @param mixed  $expected the expected output
      * @param array  $args     the array of arguments
-     *
-     * @return void
      *
      * @dataProvider multiDataProvider
      * @group medium

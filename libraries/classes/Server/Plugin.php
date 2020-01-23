@@ -97,8 +97,6 @@ final class Plugin
 
     /**
      * @param array $state array with the properties
-     *
-     * @return self
      */
     public static function fromState(array $state): self
     {

@@ -19,8 +19,6 @@ class CreateAddFieldTest extends TestCase
 
     /**
      * Set up for test cases
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -32,8 +30,6 @@ class CreateAddFieldTest extends TestCase
      *
      * @param string $expected Expected result
      * @param array  $request  $_REQUEST array
-     *
-     * @return void
      *
      * @dataProvider providerGetPartitionsDefinition
      */
@@ -75,8 +71,6 @@ class CreateAddFieldTest extends TestCase
      * @param string $table    Table name
      * @param array  $request  $_REQUEST array
      *
-     * @return void
-     *
      * @dataProvider providerGetTableCreationQuery
      */
     public function testGetTableCreationQuery($expected, $db, $table, $request): void
@@ -115,8 +109,6 @@ class CreateAddFieldTest extends TestCase
      *
      * @param string $expected Expected result
      * @param array  $request  $_REQUEST array
-     *
-     * @return void
      *
      * @dataProvider providerGetNumberOfFieldsFromRequest
      */

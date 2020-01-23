@@ -41,8 +41,6 @@ class Plugins
 
     /**
      * @param array $row Row fetched from database
-     *
-     * @return Plugin
      */
     private function mapRowToPlugin(array $row): Plugin
     {

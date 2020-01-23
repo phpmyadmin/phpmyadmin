@@ -20,8 +20,6 @@ class SysInfoTest extends TestCase
      * @param string $os       OS name as returned by PHP_OS
      * @param string $expected Expected detected OS name
      *
-     * @return void
-     *
      * @dataProvider sysInfoOsProvider
      */
     public function testGetSysInfoOs($os, $expected): void

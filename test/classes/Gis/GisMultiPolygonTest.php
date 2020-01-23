@@ -27,8 +27,6 @@ class GisMultiPolygonTest extends GisGeomTestCase
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      *
-     * @return void
-     *
      * @access protected
      */
     protected function setUp(): void
@@ -39,8 +37,6 @@ class GisMultiPolygonTest extends GisGeomTestCase
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
-     *
-     * @return void
      *
      * @access protected
      */
@@ -223,8 +219,6 @@ class GisMultiPolygonTest extends GisGeomTestCase
      *
      * @param array  $row_data array of GIS data
      * @param string $shape    expected shape in WKT
-     *
-     * @return void
      *
      * @dataProvider providerForTestGetShape
      */

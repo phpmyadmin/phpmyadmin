@@ -2932,8 +2932,6 @@ class Util
      *
      * @param int  $length Length of string
      * @param bool $asHex  (optional) Send the result as hex
-     *
-     * @return string
      */
     public static function generateRandom(int $length, bool $asHex = false): string
     {
@@ -3108,8 +3106,6 @@ class Util
      * Check that input is an int or an int in a string
      *
      * @param mixed $input input to check
-     *
-     * @return bool
      */
     public static function isInteger($input): bool
     {

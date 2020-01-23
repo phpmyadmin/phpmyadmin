@@ -17,8 +17,6 @@ class OptionsPropertyItemTest extends TestCase
 
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -27,8 +25,6 @@ class OptionsPropertyItemTest extends TestCase
 
     /**
      * tearDown for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {

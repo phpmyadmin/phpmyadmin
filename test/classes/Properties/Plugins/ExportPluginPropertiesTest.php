@@ -18,8 +18,6 @@ class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
 
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -28,8 +26,6 @@ class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
 
     /**
      * tearDown for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {

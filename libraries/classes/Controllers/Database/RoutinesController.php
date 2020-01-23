@@ -40,8 +40,6 @@ class RoutinesController extends AbstractController
 
     /**
      * @param array $params Request parameters
-     *
-     * @return void
      */
     public function index(array $params): void
     {

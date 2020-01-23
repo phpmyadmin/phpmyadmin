@@ -168,8 +168,6 @@ class SearchController extends AbstractController
 
     /**
      * Index action
-     *
-     * @return void
      */
     public function index(): void
     {
@@ -276,8 +274,6 @@ class SearchController extends AbstractController
 
     /**
      * Display selection form action
-     *
-     * @return void
      */
     public function displaySelectionFormAction(): void
     {

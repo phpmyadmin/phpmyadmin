@@ -62,8 +62,6 @@ class Export
 
     /**
      * Sets a session variable upon a possible fatal error during export
-     *
-     * @return void
      */
     public function shutdown(): void
     {
@@ -76,8 +74,6 @@ class Export
 
     /**
      * Detect ob_gzhandler
-     *
-     * @return bool
      */
     public function isGzHandlerEnabled(): bool
     {
@@ -484,8 +480,6 @@ class Export
      *
      * @param string $object_name the name of current object to be stored
      * @param bool   $append      optional boolean to append to an existing index or not
-     *
-     * @return void
      */
     public function saveObjectInBuffer(string $object_name, bool $append = false): void
     {
@@ -598,8 +592,6 @@ class Export
      * @param bool         $do_dates        whether to add dates
      * @param array        $aliases         alias information for db/table/column
      * @param string       $separate_files  whether it is a separate-files export
-     *
-     * @return void
      */
     public function exportServer(
         $db_select,
@@ -667,8 +659,6 @@ class Export
      * @param bool         $do_dates        whether to add dates
      * @param array        $aliases         Alias information for db/table/column
      * @param string       $separate_files  whether it is a separate-files export
-     *
-     * @return void
      */
     public function exportDatabase(
         string $db,
@@ -919,8 +909,6 @@ class Export
      * @param string       $limit_from      starting limit
      * @param string       $sql_query       query for which exporting is requested
      * @param array        $aliases         Alias information for db/table/column
-     *
-     * @return void
      */
     public function exportTable(
         string $db,
@@ -1071,8 +1059,6 @@ class Export
      * @param string $db          the database name
      * @param string $table       the table name
      * @param string $export_type Export type
-     *
-     * @return void
      */
     public function showPage(string $db, string $table, string $export_type): void
     {
@@ -1225,8 +1211,6 @@ class Export
      * call and include the appropriate Schema Class depending on $export_type
      *
      * @param string|null $export_type format of the export
-     *
-     * @return void
      */
     public function processExportSchema(?string $export_type): void
     {

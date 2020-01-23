@@ -205,8 +205,6 @@ class Response
      * we are servicing an ajax request
      *
      * @param bool $isAjax Whether we are servicing an ajax request
-     *
-     * @return void
      */
     public function setAjax(bool $isAjax): void
     {
@@ -233,8 +231,6 @@ class Response
      * whether it is a success or an error
      *
      * @param bool $state Whether the request was successfully processed
-     *
-     * @return void
      */
     public function setRequestStatus(bool $state): void
     {
@@ -244,8 +240,6 @@ class Response
     /**
      * Returns true or false depending on whether
      * we are servicing an ajax request
-     *
-     * @return bool
      */
     public function isAjax(): bool
     {
@@ -569,8 +563,6 @@ class Response
      * Sets http response code.
      *
      * @param int $responseCode will set the response code.
-     *
-     * @return void
      */
     public function setHttpResponseCode(int $responseCode): void
     {

@@ -24,8 +24,6 @@ class ExportTest extends TestCase
 
     /**
      * Test for setUp
-     *
-     * @return void
      */
     protected function setUp(): void
     {

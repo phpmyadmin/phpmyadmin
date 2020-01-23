@@ -21,8 +21,6 @@ class LanguageTest extends PmaTestCase
 
     /**
      * Setup for Language tests.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -153,8 +151,6 @@ class LanguageTest extends PmaTestCase
      * @param string $agent   Value for HTTP User-Agent header
      * @param string $default Value for default language
      * @param string $expect  Expected language name
-     *
-     * @return void
      *
      * @dataProvider selectDataProvider
      */
@@ -288,8 +284,6 @@ class LanguageTest extends PmaTestCase
      * Test for setting and parsing locales
      *
      * @param string $locale locale name
-     *
-     * @return void
      *
      * @group large
      * @dataProvider listLocales

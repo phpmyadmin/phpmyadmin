@@ -33,8 +33,6 @@ class PrivilegesTest extends TestCase
 
     /**
      * Prepares environment for the test.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -1057,8 +1055,6 @@ class PrivilegesTest extends TestCase
 
     /**
      * Test for getHtmlForTableSpecificPrivileges
-     *
-     * @return void
      */
     public function testGetHtmlToDisplayPrivilegesTableWithTableSpecific(): void
     {
