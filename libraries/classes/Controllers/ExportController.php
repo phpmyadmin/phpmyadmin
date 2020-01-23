@@ -415,7 +415,7 @@ final class ExportController extends AbstractController
 
         // For raw query export, filename will be export.extension
         if ($export_type === 'raw') {
-            $filename = 'export.' . $export_plugin->getProperties()->getExtension();
+            [$filename ] = $this->export->getFinalFilenameAndMimetypeForFilename($export_plugin, $compression, 'export');
         }
 
         // Open file on server if needed
