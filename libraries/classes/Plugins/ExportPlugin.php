@@ -153,6 +153,7 @@ abstract class ExportPlugin
         string $sql_query,
         string $crlf
     ): bool {
+        return false;
     }
 
     /**

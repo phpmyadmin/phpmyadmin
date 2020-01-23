@@ -925,6 +925,9 @@ class Export
                 $sql_query,
                 $crlf
             )) {
+                $GLOBALS['message'] = Message::error(
+                    __('Exporting a raw query is not supported for this export method.')
+                );
                 return;
             }
         }
