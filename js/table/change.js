@@ -634,7 +634,7 @@ function addNewContinueInsertionFiels (event) {
             $oldRow.each(restoreValue);
 
             // set the value of enum field of new row to default
-            var $newRow = $('#insertForm').find('.insertRowTable:last');
+            var $newRow = $('#insertForm').find('.insertRowTable').last();
             $newRow.find('.textfield').each(function () {
                 if ($(this).closest('tr').find('span.column_type').html() === 'enum') {
                     if ($(this).val() === $(this).closest('tr').find('span.default_value').html()) {
