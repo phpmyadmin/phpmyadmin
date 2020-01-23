@@ -293,6 +293,8 @@ class RteList
             $routine['type'],
             $routine['name']
         );
+        $params = [];
+        $stmt = (object) [];
         if ($definition !== null) {
             $parser = new Parser($definition);
 
@@ -302,9 +304,11 @@ class RteList
             $stmt = $parser->statements[0];
 
             $params = Routine::getParameters($stmt);
+        }
 
-            if (Util::currentUserHasPrivilege('EXECUTE', $db)) {
-                $execute_action = 'execute_routine';
+        if (Util::currentUserHasPrivilege('EXECUTE', $db, null, $routine['name'])) {
+            $execute_action = 'execute_routine';
+            if ($definition !== null) {
                 for ($i = 0; $i < $params['num']; $i++) {
                     if ($routine['type'] == 'PROCEDURE'
                         && $params['dir'][$i] == 'OUT'
@@ -314,20 +318,19 @@ class RteList
                     $execute_action = 'execute_dialog';
                     break;
                 }
-                $query_part = $execute_action . '=1&amp;item_name='
-                    . urlencode($routine['name']) . '&amp;' . $type_link;
-                $retval .= '                <a class="ajax exec_anchor"'
-                                                 . ' href="db_routines.php'
-                                                 . $url_query
-                                                 . ($execute_action == 'execute_routine'
-                                                     ? '" data-post="' . $query_part
-                                                     : '&amp;' . $query_part)
-                                                 . '">' . $titles['Execute'] . "</a>\n";
-            } else {
-                $retval .= "                {$titles['NoExecute']}\n";
             }
+            $query_part = $execute_action . '=1&amp;item_name='
+                . urlencode($routine['name']) . '&amp;' . $type_link;
+            $retval .= '                <a class="ajax exec_anchor"'
+                                             . ' href="db_routines.php'
+                                             . $url_query
+                                             . ($execute_action == 'execute_routine'
+                                                 ? '" data-post="' . $query_part
+                                                 : '&amp;' . $query_part)
+                                             . '">' . $titles['Execute'] . "</a>\n";
+        } else {
+            $retval .= "                {$titles['NoExecute']}\n";
         }
-
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
         if ((Util::currentUserHasPrivilege('CREATE ROUTINE', $db)

@@ -671,7 +671,16 @@ class Routines
         // Get required data
         $retval['item_name'] = $routine['SPECIFIC_NAME'];
         $retval['item_type'] = $routine['ROUTINE_TYPE'];
-
+        
+        $retval['item_num_params']       = '';
+        $retval['item_param_dir']        = '';
+        $retval['item_param_name']       = '';
+        $retval['item_param_type']       = '';
+        $retval['item_param_length']     = '';
+        $retval['item_param_length_arr'] = '';
+        $retval['item_param_opts_num']   = '';
+        $retval['item_param_opts_text']  = '';
+        
         $definition
             = $this->dbi->getDefinition(
                 $db,
@@ -679,70 +688,67 @@ class Routines
                 $routine['SPECIFIC_NAME']
             );
 
-        if ($definition === null) {
-            return false;
-        }
+        if ($definition !== null) {
+            $parser = new Parser($definition);
 
-        $parser = new Parser($definition);
+            /**
+             * @var CreateStatement $stmt
+             */
+            $stmt = $parser->statements[0];
 
-        /**
-         * @var CreateStatement $stmt
-         */
-        $stmt = $parser->statements[0];
+            $params = Routine::getParameters($stmt);
+            $retval['item_num_params']       = $params['num'];
+            $retval['item_param_dir']        = $params['dir'];
+            $retval['item_param_name']       = $params['name'];
+            $retval['item_param_type']       = $params['type'];
+            $retval['item_param_length']     = $params['length'];
+            $retval['item_param_length_arr'] = $params['length_arr'];
+            $retval['item_param_opts_num']   = $params['opts'];
+            $retval['item_param_opts_text']  = $params['opts'];
 
-        $params = Routine::getParameters($stmt);
-        $retval['item_num_params']       = $params['num'];
-        $retval['item_param_dir']        = $params['dir'];
-        $retval['item_param_name']       = $params['name'];
-        $retval['item_param_type']       = $params['type'];
-        $retval['item_param_length']     = $params['length'];
-        $retval['item_param_length_arr'] = $params['length_arr'];
-        $retval['item_param_opts_num']   = $params['opts'];
-        $retval['item_param_opts_text']  = $params['opts'];
-
-        // Get extra data
-        if (! $all) {
-            return $retval;
-        }
-
-        if ($retval['item_type'] == 'FUNCTION') {
-            $retval['item_type_toggle'] = 'PROCEDURE';
-        } else {
-            $retval['item_type_toggle'] = 'FUNCTION';
-        }
-        $retval['item_returntype']      = '';
-        $retval['item_returnlength']    = '';
-        $retval['item_returnopts_num']  = '';
-        $retval['item_returnopts_text'] = '';
-
-        if (! empty($routine['DTD_IDENTIFIER'])) {
-            $options = [];
-            foreach ($stmt->return->options->options as $opt) {
-                $options[] = is_string($opt) ? $opt : $opt['value'];
+            // Get extra data
+            if (! $all) {
+                return $retval;
             }
 
-            $retval['item_returntype']      = $stmt->return->name;
-            $retval['item_returnlength']    = implode(',', $stmt->return->parameters);
-            $retval['item_returnopts_num']  = implode(' ', $options);
-            $retval['item_returnopts_text'] = implode(' ', $options);
-        }
+            if ($retval['item_type'] == 'FUNCTION') {
+                $retval['item_type_toggle'] = 'PROCEDURE';
+            } else {
+                $retval['item_type_toggle'] = 'FUNCTION';
+            }
+            $retval['item_returntype']      = '';
+            $retval['item_returnlength']    = '';
+            $retval['item_returnopts_num']  = '';
+            $retval['item_returnopts_text'] = '';
 
-        $retval['item_definer'] = $stmt->options->has('DEFINER');
-        $retval['item_definition'] = $routine['ROUTINE_DEFINITION'];
-        $retval['item_isdeterministic'] = '';
-        if ($routine['IS_DETERMINISTIC'] == 'YES') {
-            $retval['item_isdeterministic'] = " checked='checked'";
-        }
-        $retval['item_securitytype_definer'] = '';
-        $retval['item_securitytype_invoker'] = '';
-        if ($routine['SECURITY_TYPE'] == 'DEFINER') {
-            $retval['item_securitytype_definer'] = " selected='selected'";
-        } elseif ($routine['SECURITY_TYPE'] == 'INVOKER') {
-            $retval['item_securitytype_invoker'] = " selected='selected'";
-        }
-        $retval['item_sqldataaccess'] = $routine['SQL_DATA_ACCESS'];
-        $retval['item_comment']       = $routine['ROUTINE_COMMENT'];
+            if (! empty($routine['DTD_IDENTIFIER'])) {
+                $options = [];
+                foreach ($stmt->return->options->options as $opt) {
+                    $options[] = is_string($opt) ? $opt : $opt['value'];
+                }
 
+                $retval['item_returntype']      = $stmt->return->name;
+                $retval['item_returnlength']    = implode(',', $stmt->return->parameters);
+                $retval['item_returnopts_num']  = implode(' ', $options);
+                $retval['item_returnopts_text'] = implode(' ', $options);
+            }
+
+            $retval['item_definer'] = $stmt->options->has('DEFINER');
+            $retval['item_definition'] = $routine['ROUTINE_DEFINITION'];
+            $retval['item_isdeterministic'] = '';
+            if ($routine['IS_DETERMINISTIC'] == 'YES') {
+                $retval['item_isdeterministic'] = " checked='checked'";
+            }
+            $retval['item_securitytype_definer'] = '';
+            $retval['item_securitytype_invoker'] = '';
+            if ($routine['SECURITY_TYPE'] == 'DEFINER') {
+                $retval['item_securitytype_definer'] = " selected='selected'";
+            } elseif ($routine['SECURITY_TYPE'] == 'INVOKER') {
+                $retval['item_securitytype_invoker'] = " selected='selected'";
+            }
+            $retval['item_sqldataaccess'] = $routine['SQL_DATA_ACCESS'];
+            $retval['item_comment']       = $routine['ROUTINE_COMMENT'];
+        }
         return $retval;
     }
 
@@ -844,17 +850,22 @@ class Routines
             'item_comment',
         ];
         foreach ($need_escape as $key => $index) {
-            $routine[$index] = htmlentities($routine[$index], ENT_QUOTES, 'UTF-8');
+            if ($routine[$index] !== null) {
+                $routine[$index] = htmlentities($routine[$index], ENT_QUOTES, 'UTF-8');
+            }
         }
-        for ($i = 0; $i < $routine['item_num_params']; $i++) {
-            $routine['item_param_name'][$i]   = htmlentities(
-                $routine['item_param_name'][$i],
-                ENT_QUOTES
-            );
-            $routine['item_param_length'][$i] = htmlentities(
-                $routine['item_param_length'][$i],
-                ENT_QUOTES
-            );
+        if ($routine['item_num_params'] !== null) {
+            for ($i = 0; $i < $routine['item_num_params']; $i++) {
+                $routine['item_param_name'][$i]   = htmlentities(
+                    $routine['item_param_name'][$i],
+                    ENT_QUOTES
+                );
+            
+                $routine['item_param_length'][$i] = htmlentities(
+                    $routine['item_param_length'][$i],
+                    ENT_QUOTES
+                );
+            }
         }
 
         // Handle some logic first

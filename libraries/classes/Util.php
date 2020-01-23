@@ -3967,19 +3967,24 @@ class Util
      *            // 'CREATE ROUTINE' privilege or, if not, checks if the
      *            // user has this privilege on database 'mydb'.
      *
-     * @param string $priv The privilege to check
-     * @param mixed  $db   null, to only check global privileges
-     *                     string, db name where to also check for privileges
-     * @param mixed  $tbl  null, to only check global/db privileges
-     *                     string, table name where to also check for privileges
+     * @param string      $priv    The privilege to check
+     * @param mixed       $db      null, to only check global privileges
+     *                             string, db name where to also check
+     *                             for privileges
+     * @param mixed       $tbl     null, to only check global/db privileges
+     *                             string, table name where to also check
+     *                             for privileges
+     * @param string|null $routine null,to check for database-specific routine privileges
      *
      * @return bool
      */
-    public static function currentUserHasPrivilege($priv, $db = null, $tbl = null)
+    public static function currentUserHasPrivilege($priv, $db = null, $tbl = null, ?string $routine = null)
     {
         // Get the username for the current user in the format
         // required to use in the information schema database.
         list($user, $host) = $GLOBALS['dbi']->getCurrentUserAndHost();
+
+        $escapedDbName = $GLOBALS['dbi']->escapeString($db);
 
         if ($user === '') { // MySQL is started with --skip-grant-tables
             return true;
@@ -4017,7 +4022,7 @@ class Util
                     'SCHEMA_PRIVILEGES',
                     $username,
                     $priv,
-                    $GLOBALS['dbi']->escapeString($db)
+                    $escapedDbName
                 )
             );
             if ($schema_privileges) {
@@ -4040,7 +4045,7 @@ class Util
                     'TABLE_PRIVILEGES',
                     $username,
                     $priv,
-                    $GLOBALS['dbi']->escapeString($db),
+                    $escapedDbName,
                     $GLOBALS['dbi']->escapeString($tbl)
                 )
             );
@@ -4048,8 +4053,21 @@ class Util
                 return true;
             }
         }
+        if ($routine !== null) {
+            $grants = $GLOBALS['dbi']->fetchResult(
+                'SHOW GRANTS FOR CURRENT_USER()'
+            );
+            foreach ($grants as $grant) {
+                if (strpos($grant, $priv)
+                 && strpos($grant, 'ON PROCEDURE')
+                 && mb_strpos($grant, $escapedDbName)
+                 && mb_strpos($grant, $routine)) {
+                    return true;
+                }
+            }
+        }
         // If we reached this point, the user does not
-        // have even valid table-wise privileges.
+        // have even valid routine privileges.
         return false;
     }
 
