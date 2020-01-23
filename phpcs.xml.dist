@@ -10,6 +10,7 @@
         <exclude name="PEAR.Commenting.FileComment.Missing"/>
         <exclude name="PEAR.Commenting.FileComment.MissingPackageTag"/>
         <exclude name="PEAR.Commenting.FunctionComment.Missing"/>
+        <exclude name="PEAR.Commenting.FunctionComment.MissingReturn"/>
     </rule>
 
     <rule ref="Generic.Files.LineLength.TooLong">
