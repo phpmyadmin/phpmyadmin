@@ -13,6 +13,27 @@ use PhpMyAdmin\SqlParser\Statements\AlterStatement;
 use PhpMyAdmin\SqlParser\Statements\DropStatement;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
+use function array_map;
+use function array_sum;
+use function bin2hex;
+use function ceil;
+use function count;
+use function explode;
+use function htmlentities;
+use function htmlspecialchars;
+use function in_array;
+use function is_array;
+use function is_bool;
+use function microtime;
+use function session_start;
+use function session_write_close;
+use function sprintf;
+use function str_replace;
+use function stripos;
+use function strlen;
+use function strpos;
+use function ucwords;
+use const ENT_COMPAT;
 
 /**
  * Set of functions for the SQL executor

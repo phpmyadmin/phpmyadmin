@@ -14,16 +14,29 @@ use function array_merge;
 use function array_shift;
 use function call_user_func_array;
 use function count;
+use function error_clear_last;
+use function error_get_last;
+use function explode;
+use function filter_var;
 use function htmlspecialchars;
+use function intval;
 use function is_array;
+use function is_object;
 use function mb_strpos;
 use function mb_substr;
 use function mysql_close;
 use function mysql_connect;
 use function mysqli_close;
 use function mysqli_connect;
+use function preg_match;
+use function preg_replace;
+use function sprintf;
 use function str_replace;
-use function error_clear_last;
+use function trim;
+use const FILTER_FLAG_IPV4;
+use const FILTER_FLAG_IPV6;
+use const FILTER_VALIDATE_IP;
+use const PHP_INT_MAX;
 
 /**
  * Validation class for various validation functions

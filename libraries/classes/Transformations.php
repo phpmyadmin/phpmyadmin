@@ -17,6 +17,27 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Plugins\TransformationsInterface;
+use function array_shift;
+use function class_exists;
+use function closedir;
+use function count;
+use function explode;
+use function ltrim;
+use function mb_strtolower;
+use function mb_substr;
+use function opendir;
+use function preg_match;
+use function preg_replace;
+use function readdir;
+use function rtrim;
+use function sort;
+use function str_replace;
+use function stripslashes;
+use function strlen;
+use function strpos;
+use function trim;
+use function ucfirst;
+use function ucwords;
 
 /**
  * Transformations class

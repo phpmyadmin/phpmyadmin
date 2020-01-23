@@ -7,6 +7,21 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use ZipArchive;
+use function array_combine;
+use function count;
+use function crc32;
+use function getdate;
+use function gzcompress;
+use function implode;
+use function is_array;
+use function is_string;
+use function pack;
+use function preg_match;
+use function str_replace;
+use function strcmp;
+use function strlen;
+use function strpos;
+use function substr;
 
 /**
  * Transformations class

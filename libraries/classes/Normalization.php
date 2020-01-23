@@ -10,6 +10,7 @@ use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\Html\Generator;
 use function array_merge;
+use function array_pop;
 use function array_unique;
 use function count;
 use function explode;
@@ -21,8 +22,8 @@ use function json_encode;
 use function mb_strtoupper;
 use function sort;
 use function sprintf;
-use function trim;
 use function str_replace;
+use function trim;
 
 /**
  * Set of functions used for normalization

@@ -17,17 +17,18 @@ use PhpMyAdmin\Util;
 use function array_splice;
 use function basename;
 use function count;
+use function is_array;
 use function mb_strlen;
 use function mb_strpos;
 use function mb_strtolower;
 use function mb_substr;
+use function preg_grep;
 use function preg_replace;
 use function preg_split;
 use function rtrim;
 use function strlen;
 use function strtr;
 use function trim;
-use function preg_grep;
 
 /**
  * Handles the import for the CSV format

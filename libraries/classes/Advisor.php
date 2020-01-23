@@ -10,7 +10,25 @@ namespace PhpMyAdmin;
 use Exception;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 use Throwable;
+use function array_merge;
 use function array_merge_recursive;
+use function count;
+use function file;
+use function htmlspecialchars;
+use function implode;
+use function mb_substr;
+use function pow;
+use function preg_match;
+use function preg_replace;
+use function preg_replace_callback;
+use function preg_split;
+use function round;
+use function rtrim;
+use function sprintf;
+use function strpos;
+use function substr;
+use function vsprintf;
+use const FILE_IGNORE_NEW_LINES;
 
 /**
  * Advisor class

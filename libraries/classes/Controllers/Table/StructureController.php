@@ -39,11 +39,15 @@ use function count;
 use function implode;
 use function in_array;
 use function is_array;
+use function mb_strpos;
 use function mb_strtoupper;
 use function sprintf;
 use function str_replace;
-use function trim;
+use function strlen;
 use function strpos;
+use function strrpos;
+use function substr;
+use function trim;
 
 /**
  * Displays table structure infos like columns, indexes, size, rows

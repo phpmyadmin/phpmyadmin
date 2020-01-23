@@ -11,6 +11,8 @@ use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
 use TCPDF;
 use function array_merge;
+use function base64_encode;
+use function count;
 use function imagecolorallocate;
 use function imagecreatetruecolor;
 use function imagedestroy;
@@ -19,12 +21,12 @@ use function imagepng;
 use function intval;
 use function is_numeric;
 use function mb_strlen;
+use function mb_strpos;
 use function mb_strtolower;
 use function mb_substr;
 use function ob_get_clean;
 use function ob_start;
 use const PNG_ALL_FILTERS;
-use function base64_encode;
 
 /**
  * Handles visualization of GIS data

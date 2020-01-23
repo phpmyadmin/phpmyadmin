@@ -16,7 +16,10 @@ use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function array_diff;
 use function array_fill;
+use function array_keys;
+use function array_map;
 use function array_multisort;
 use function count;
 use function explode;
@@ -28,8 +31,12 @@ use function max;
 use function mb_strlen;
 use function mb_strtoupper;
 use function mb_substr;
-use function str_replace;
+use function min;
 use function reset;
+use function sprintf;
+use function str_replace;
+use function stripos;
+use function strlen;
 
 /**
  * Class to handle database QBE search

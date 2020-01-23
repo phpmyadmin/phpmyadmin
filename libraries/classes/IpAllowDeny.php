@@ -7,6 +7,23 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function bin2hex;
+use function dechex;
+use function explode;
+use function hash_equals;
+use function hexdec;
+use function inet_pton;
+use function ip2long;
+use function is_array;
+use function mb_strpos;
+use function mb_strtolower;
+use function mb_substr;
+use function min;
+use function pow;
+use function preg_match;
+use function str_replace;
+use function substr_replace;
+
 /**
  * PhpMyAdmin\IpAllowDeny class
  */

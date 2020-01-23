@@ -12,17 +12,35 @@ use PhpMyAdmin\SqlParser\Statements\InsertStatement;
 use PhpMyAdmin\SqlParser\Statements\ReplaceStatement;
 use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
+use function abs;
+use function count;
+use function explode;
+use function htmlspecialchars;
+use function implode;
+use function is_array;
+use function is_numeric;
 use function max;
 use function mb_chr;
 use function mb_ord;
 use function mb_stripos;
 use function mb_strlen;
+use function mb_strpos;
 use function mb_strtoupper;
 use function mb_substr;
+use function mb_substr_count;
+use function pow;
 use function preg_match;
+use function preg_replace;
+use function sprintf;
+use function strcmp;
+use function strlen;
 use function strncmp;
+use function strpos;
+use function strtoupper;
+use function substr;
 use function time;
 use function trim;
+use function unlink;
 
 /**
  * Library that provides common import functions that are used by import plugins

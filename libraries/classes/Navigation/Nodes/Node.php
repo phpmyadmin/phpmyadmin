@@ -17,6 +17,8 @@ use function base64_encode;
 use function count;
 use function implode;
 use function in_array;
+use function is_string;
+use function preg_match;
 use function sort;
 use function strlen;
 use function strpos;

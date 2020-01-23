@@ -13,12 +13,22 @@ use function function_exists;
 use function htmlspecialchars;
 use function implode;
 use function ini_get;
+use function ini_set;
 use function preg_replace;
+use function session_abort;
+use function session_cache_limiter;
+use function session_destroy;
+use function session_id;
+use function session_name;
 use function session_regenerate_id;
+use function session_save_path;
+use function session_set_cookie_params;
+use function session_start;
 use function session_status;
 use function session_unset;
+use function session_write_close;
+use function setcookie;
 use const PHP_SESSION_ACTIVE;
-use function session_name;
 
 /**
  * Session class

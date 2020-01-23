@@ -17,6 +17,25 @@ use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
+use function array_flip;
+use function array_keys;
+use function array_search;
+use function count;
+use function explode;
+use function function_exists;
+use function gettype;
+use function implode;
+use function is_array;
+use function is_bool;
+use function is_numeric;
+use function mb_substr;
+use function preg_match;
+use function settype;
+use function sprintf;
+use function str_replace;
+use function trigger_error;
+use function trim;
+use const E_USER_WARNING;
 
 /**
  * Form management class, displays and processes forms

@@ -21,6 +21,26 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use Throwable;
+use function define;
+use function htmlspecialchars;
+use function in_array;
+use function ini_get;
+use function ini_set;
+use function intval;
+use function is_array;
+use function is_link;
+use function is_uploaded_file;
+use function mb_strlen;
+use function mb_strtolower;
+use function preg_match;
+use function preg_quote;
+use function preg_replace;
+use function sprintf;
+use function strlen;
+use function substr;
+use function time;
+use function trim;
+use function unlink;
 
 final class ImportController extends AbstractController
 {

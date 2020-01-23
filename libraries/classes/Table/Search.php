@@ -5,6 +5,18 @@ namespace PhpMyAdmin\Table;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Util;
+use function count;
+use function explode;
+use function implode;
+use function in_array;
+use function is_array;
+use function mb_strpos;
+use function preg_match;
+use function str_replace;
+use function strlen;
+use function strncasecmp;
+use function strpos;
+use function trim;
 
 final class Search
 {

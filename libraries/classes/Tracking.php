@@ -7,16 +7,24 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\Generator;
+use function array_key_exists;
+use function array_merge;
+use function array_multisort;
 use function count;
+use function date;
 use function htmlspecialchars;
 use function in_array;
 use function ini_set;
 use function intval;
 use function is_array;
+use function is_object;
 use function mb_strstr;
-use function sprintf;
-use function strtotime;
 use function preg_replace;
+use function rtrim;
+use function sprintf;
+use function strlen;
+use function strtotime;
+use const SORT_ASC;
 
 /**
  * PhpMyAdmin\Tracking class

@@ -12,16 +12,19 @@ use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 use function array_search;
+use function count;
 use function htmlspecialchars;
 use function in_array;
 use function intval;
 use function is_numeric;
+use function json_encode;
 use function mb_strtolower;
+use function md5;
 use function preg_match;
+use function preg_replace;
 use function str_ireplace;
 use function str_replace;
 use function strncasecmp;
-use function count;
 
 /**
  * Handles table zoom search tab.

@@ -22,15 +22,24 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function array_merge;
 use function count;
+use function explode;
+use function htmlentities;
 use function htmlspecialchars;
+use function implode;
 use function in_array;
 use function is_array;
+use function is_string;
 use function max;
+use function mb_strpos;
+use function mb_strtolower;
 use function mb_strtoupper;
+use function preg_match;
 use function sprintf;
+use function stripos;
+use function substr;
 use function trigger_error;
 use const E_USER_WARNING;
-use function mb_strtolower;
+use const ENT_QUOTES;
 
 /**
  * PhpMyAdmin\Rte\Routines class

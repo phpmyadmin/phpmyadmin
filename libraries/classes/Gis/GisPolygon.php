@@ -14,9 +14,17 @@ use function explode;
 use function hexdec;
 use function imagecolorallocate;
 use function imagefilledpolygon;
+use function imagestring;
+use function json_encode;
+use function max;
 use function mb_strlen;
 use function mb_strpos;
 use function mb_substr;
+use function min;
+use function mt_rand;
+use function pow;
+use function sqrt;
+use function trim;
 
 /**
  * Handles actions related to GIS POLYGON objects

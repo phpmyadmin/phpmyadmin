@@ -11,6 +11,38 @@ use PhpMyAdmin\Controllers\Server\ExportController as ServerExportController;
 use PhpMyAdmin\Controllers\Table\ExportController as TableExportController;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\SchemaPlugin;
+use function array_merge_recursive;
+use function error_get_last;
+use function fclose;
+use function file_exists;
+use function fopen;
+use function function_exists;
+use function fwrite;
+use function gzencode;
+use function header;
+use function htmlentities;
+use function htmlspecialchars;
+use function implode;
+use function in_array;
+use function ini_get;
+use function is_array;
+use function is_file;
+use function is_numeric;
+use function is_object;
+use function is_writable;
+use function mb_strlen;
+use function mb_strpos;
+use function mb_strtolower;
+use function mb_substr;
+use function ob_list_handlers;
+use function preg_match;
+use function preg_replace;
+use function strlen;
+use function strtolower;
+use function substr;
+use function time;
+use function trim;
+use function urlencode;
 
 /**
  * PhpMyAdmin\Export class

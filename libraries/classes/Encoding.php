@@ -19,9 +19,9 @@ use function iconv;
 use function mb_convert_encoding;
 use function mb_convert_kana;
 use function mb_detect_encoding;
+use function mb_list_encodings;
 use function tempnam;
 use function unlink;
-use function mb_list_encodings;
 
 /**
  * Encoding conversion helper class

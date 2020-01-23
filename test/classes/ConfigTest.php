@@ -10,6 +10,35 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
 use PHPUnit\Framework\Exception;
+use function array_merge;
+use function array_replace_recursive;
+use function chdir;
+use function constant;
+use function define;
+use function defined;
+use function file_put_contents;
+use function filemtime;
+use function fileperms;
+use function function_exists;
+use function gd_info;
+use function getcwd;
+use function mb_strstr;
+use function mkdir;
+use function ob_end_clean;
+use function ob_get_contents;
+use function ob_start;
+use function phpinfo;
+use function preg_match;
+use function realpath;
+use function rmdir;
+use function strip_tags;
+use function stristr;
+use function sys_get_temp_dir;
+use function unlink;
+use const DIRECTORY_SEPARATOR;
+use const INFO_MODULES;
+use const PHP_EOL;
+use const PHP_OS;
 
 /**
  * Tests behaviour of PhpMyAdmin\Config class

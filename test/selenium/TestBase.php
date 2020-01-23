@@ -23,8 +23,15 @@ use mysqli;
 use mysqli_result;
 use PHPUnit\Framework\TestCase;
 use Throwable;
+use function curl_close;
+use function curl_errno;
+use function curl_error;
+use function curl_exec;
+use function curl_init;
+use function curl_setopt;
 use function getenv;
 use function is_string;
+use function json_decode;
 use function json_encode;
 use function mb_strtolower;
 use function mb_substr;
@@ -36,7 +43,13 @@ use function strlen;
 use function substr;
 use function trim;
 use function usleep;
-use function curl_init;
+use const CURLOPT_CUSTOMREQUEST;
+use const CURLOPT_HTTPHEADER;
+use const CURLOPT_POSTFIELDS;
+use const CURLOPT_RETURNTRANSFER;
+use const CURLOPT_URL;
+use const CURLOPT_USERPWD;
+use const PHP_EOL;
 
 /**
  * Base class for Selenium tests.

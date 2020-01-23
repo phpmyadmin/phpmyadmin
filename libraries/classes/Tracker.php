@@ -23,10 +23,13 @@ use function is_array;
 use function mb_strpos;
 use function mb_strstr;
 use function mb_substr;
+use function preg_quote;
 use function preg_replace;
 use function rtrim;
 use function serialize;
 use function str_replace;
+use function strtotime;
+use function substr;
 use function trim;
 
 /**

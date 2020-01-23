@@ -7,17 +7,24 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\MySQLDocumentation;
+use function array_keys;
+use function array_merge;
 use function count;
 use function htmlspecialchars;
+use function in_array;
+use function is_array;
+use function is_bool;
+use function is_int;
+use function is_string;
 use function preg_match;
 use function preg_replace;
 use function preg_replace_callback;
+use function str_replace;
 use function strlen;
 use function strncmp;
 use function strtolower;
 use function strtr;
 use function substr;
-use function str_replace;
 
 /**
  * This class includes various sanitization methods that can be called statically
