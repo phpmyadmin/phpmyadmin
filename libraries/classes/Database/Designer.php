@@ -167,8 +167,9 @@ class Designer
                 . '";';
 
             $result = $this->dbi->fetchSingleRow($query);
-
-            $params = json_decode((string) $result['settings_data'], true);
+            if (is_array($result)) {
+                $params = json_decode((string) $result['settings_data'], true);
+            }
         }
 
         return $params;
