@@ -168,7 +168,8 @@ final class ExportController extends AbstractController
             $unlim_num_rows = 0;
         }
 
-        if (isset($_POST['raw_query'])) {
+        $isReturnBackFromRawExport = isset($_POST['export_type']) && $_POST['export_type'] === 'raw';
+        if (isset($_POST['raw_query']) || $isReturnBackFromRawExport) {
             $export_type = 'raw';
         } else {
             $export_type = 'table';
