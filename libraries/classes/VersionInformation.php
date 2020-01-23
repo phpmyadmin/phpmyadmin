@@ -185,7 +185,7 @@ class VersionInformation
      * @param string $type      PHP or MySQL
      * @param string $condition version condition
      *
-     * @return boolean whether the condition is met
+     * @return bool whether the condition is met
      */
     public function evaluateVersionCondition(string $type, string $condition)
     {

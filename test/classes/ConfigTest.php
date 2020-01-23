@@ -335,8 +335,8 @@ class ConfigTest extends PmaTestCase
     /**
      * Web server detection test
      *
-     * @param string  $server Server identification
-     * @param boolean $iis    Whether server should be detected as IIS
+     * @param string $server Server identification
+     * @param bool   $iis    Whether server should be detected as IIS
      *
      * @return void
      *
@@ -868,8 +868,8 @@ class ConfigTest extends PmaTestCase
     /**
      * Tests loading of config file
      *
-     * @param string  $source File name of config to load
-     * @param boolean $result Expected result of loading
+     * @param string $source File name of config to load
+     * @param bool   $result Expected result of loading
      *
      * @return void
      *

@@ -35,7 +35,7 @@ class IpAllowDeny
      * @param string $testRange string of IP range to match
      * @param string $ipToTest  string of IP to test against range
      *
-     * @return boolean    whether the IP mask matches
+     * @return bool whether the IP mask matches
      *
      * @access public
      */
@@ -70,7 +70,7 @@ class IpAllowDeny
      * @param string $testRange string of IP range to match
      * @param string $ipToTest  string of IP to test against range
      *
-     * @return boolean    whether the IP mask matches
+     * @return bool whether the IP mask matches
      *
      * @access public
      */
@@ -140,7 +140,7 @@ class IpAllowDeny
      * @param string $test_range string of IP range to match
      * @param string $ip_to_test string of IP to test against range
      *
-     * @return boolean    whether the IP mask matches
+     * @return bool whether the IP mask matches
      *
      * @access public
      */

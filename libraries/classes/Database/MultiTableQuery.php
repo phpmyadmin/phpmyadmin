@@ -39,7 +39,7 @@ class MultiTableQuery
      * Default number of columns
      *
      * @access private
-     * @var integer
+     * @var int
      */
     private $defaultNoOfColumns;
 
@@ -58,7 +58,7 @@ class MultiTableQuery
      * @param DatabaseInterface $dbi                DatabaseInterface instance
      * @param Template          $template           Template instance
      * @param string            $dbName             Database name
-     * @param integer           $defaultNoOfColumns Default number of columns
+     * @param int               $defaultNoOfColumns Default number of columns
      */
     public function __construct(
         DatabaseInterface $dbi,

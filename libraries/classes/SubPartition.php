@@ -17,17 +17,17 @@ class SubPartition
     protected $table;
     /** @var string partition name */
     protected $name;
-    /** @var integer ordinal */
+    /** @var int ordinal */
     protected $ordinal;
     /** @var string partition method */
     protected $method;
     /** @var string partition expression */
     protected $expression;
-    /** @var integer no of table rows in the partition */
+    /** @var int no of table rows in the partition */
     protected $rows;
-    /** @var integer data length */
+    /** @var int data length */
     protected $dataLength;
-    /** @var integer index length */
+    /** @var int index length */
     protected $indexLength;
     /** @var string partition comment */
     protected $comment;
@@ -118,7 +118,7 @@ class SubPartition
     /**
      * Returns the number of data rows
      *
-     * @return integer number of rows
+     * @return int number of rows
      */
     public function getRows()
     {
@@ -128,7 +128,7 @@ class SubPartition
     /**
      * Returns the data length
      *
-     * @return integer data length
+     * @return int data length
      */
     public function getDataLength()
     {
@@ -138,7 +138,7 @@ class SubPartition
     /**
      * Returns the index length
      *
-     * @return integer index length
+     * @return int index length
      */
     public function getIndexLength()
     {

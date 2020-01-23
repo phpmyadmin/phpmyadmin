@@ -14,7 +14,7 @@ class IndexColumn
     /** @var string The column name */
     private $_name = '';
 
-    /** @var integer The column sequence number in the index, starting with 1. */
+    /** @var int The column sequence number in the index, starting with 1. */
     private $_seq_in_index = 1;
 
     /**
@@ -27,7 +27,7 @@ class IndexColumn
      * The number of indexed characters if the column is only partly indexed,
      * NULL if the entire column is indexed.
      *
-     * @var integer
+     * @var int
      */
     private $_sub_part = null;
 
@@ -46,7 +46,7 @@ class IndexColumn
      * for small tables. The higher the cardinality, the greater the chance that
      * MySQL uses the index when doing joins.
      *
-     * @var integer
+     * @var int
      */
     private $_cardinality = null;
 
@@ -120,7 +120,7 @@ class IndexColumn
     /**
      * Returns whether the column is nullable
      *
-     * @param boolean $as_text whether to returned the string representation
+     * @param bool $as_text whether to returned the string representation
      *
      * @return string nullability of the column. True/false or Yes/No depending
      *                on the value of the $as_text parameter

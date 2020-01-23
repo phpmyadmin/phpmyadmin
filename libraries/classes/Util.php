@@ -99,7 +99,7 @@ class Util
      *
      * @param string $value Configuration option name
      *
-     * @return boolean Whether to show icons.
+     * @return bool Whether to show icons.
      */
     public static function showIcons($value)
     {
@@ -111,7 +111,7 @@ class Util
      *
      * @param string $value Configuration option name
      *
-     * @return boolean Whether to show text.
+     * @return bool Whether to show text.
      */
     public static function showText($value)
     {
@@ -121,7 +121,7 @@ class Util
     /**
      * Returns the formatted maximum size for an upload
      *
-     * @param integer $max_upload_size the size
+     * @param int $max_upload_size the size
      *
      * @return string the message
      *
@@ -283,7 +283,7 @@ class Util
      *
      * @param string   $db           name of db
      * @param string   $tables       name of tables
-     * @param integer  $limit_offset list offset
+     * @param int      $limit_offset list offset
      * @param int|bool $limit_count  max tables to return
      *
      * @return array    (recursive) grouped table list
@@ -390,10 +390,10 @@ class Util
      *
      * </code>
      *
-     * @param mixed   $a_name the database, table or field name to "backquote"
-     *                        or array of it
-     * @param boolean $do_it  a flag to bypass this function (used by dump
-     *                        functions)
+     * @param mixed $a_name the database, table or field name to "backquote"
+     *                      or array of it
+     * @param bool  $do_it  a flag to bypass this function (used by dump
+     *                      functions)
      *
      * @return mixed    the "backquoted" database, table or field name
      *
@@ -414,12 +414,12 @@ class Util
      *
      * </code>
      *
-     * @param mixed   $a_name        the database, table or field name to
-     *                               "backquote" or array of it
-     * @param string  $compatibility string compatibility mode (used by dump
-     *                               functions)
-     * @param boolean $do_it         a flag to bypass this function (used by dump
-     *                               functions)
+     * @param mixed  $a_name        the database, table or field name to
+     *                              "backquote" or array of it
+     * @param string $compatibility string compatibility mode (used by dump
+     *                              functions)
+     * @param bool   $do_it         a flag to bypass this function (used by dump
+     *                              functions)
      *
      * @return mixed the "backquoted" database, table or field name
      *
@@ -466,7 +466,7 @@ class Util
     /**
      * Verifies if current MySQL server supports profiling
      *
-     * @return boolean whether profiling is supported
+     * @return bool whether profiling is supported
      *
      * @access public
      */
@@ -566,12 +566,12 @@ class Util
      * echo formatNumber(0, 6);             //       0
      * </code>
      *
-     * @param double  $value          the value to format
-     * @param integer $digits_left    number of digits left of the comma
-     * @param integer $digits_right   number of digits right of the comma
-     * @param boolean $only_down      do not reformat numbers below 1
-     * @param boolean $noTrailingZero removes trailing zeros right of the comma
-     *                                (default: true)
+     * @param double $value          the value to format
+     * @param int    $digits_left    number of digits left of the comma
+     * @param int    $digits_right   number of digits right of the comma
+     * @param bool   $only_down      do not reformat numbers below 1
+     * @param bool   $noTrailingZero removes trailing zeros right of the comma
+     *                               (default: true)
      *
      * @return string   the formatted value and its unit
      *
@@ -692,7 +692,7 @@ class Util
      *
      * @param string $formatted_size the size expression (for example 8MB)
      *
-     * @return integer  The numerical part of the expression (for example 8)
+     * @return int The numerical part of the expression (for example 8)
      */
     public static function extractValueFromFormattedSize($formatted_size)
     {
@@ -725,8 +725,8 @@ class Util
     /**
      * Writes localised date
      *
-     * @param integer $timestamp the current timestamp
-     * @param string  $format    format
+     * @param int    $timestamp the current timestamp
+     * @param string $format    format
      *
      * @return string   the formatted date
      *
@@ -885,7 +885,7 @@ class Util
      *
      * @param string[] $params  The names of the parameters needed by the calling
      *                          script
-     * @param boolean  $request Check parameters in request
+     * @param bool     $request Check parameters in request
      *
      * @return void
      *
@@ -920,16 +920,16 @@ class Util
     /**
      * Function to generate unique condition for specified row.
      *
-     * @param resource       $handle               current query result
-     * @param integer        $fields_cnt           number of fields
-     * @param stdClass[]     $fields_meta          meta information about fields
-     * @param array          $row                  current row
-     * @param boolean        $force_unique         generate condition only on pk
-     *                                             or unique
-     * @param string|boolean $restrict_to_table    restrict the unique condition
-     *                                             to this table or false if
-     *                                             none
-     * @param array|null     $analyzed_sql_results the analyzed query
+     * @param resource    $handle               current query result
+     * @param int         $fields_cnt           number of fields
+     * @param stdClass[]  $fields_meta          meta information about fields
+     * @param array       $row                  current row
+     * @param bool        $force_unique         generate condition only on pk
+     *                                          or unique
+     * @param string|bool $restrict_to_table    restrict the unique condition
+     *                                          to this table or false if
+     *                                          none
+     * @param array|null  $analyzed_sql_results the analyzed query
      *
      * @return array the calculated condition and whether condition is unique
      *
@@ -1105,8 +1105,8 @@ class Util
     /**
      * Generate the charset query part
      *
-     * @param string  $collation Collation
-     * @param boolean $override  (optional) force 'CHARACTER SET' keyword
+     * @param string $collation Collation
+     * @param bool   $override  (optional) force 'CHARACTER SET' keyword
      *
      * @return string
      */
@@ -1334,7 +1334,7 @@ class Util
      *
      * @param string $var variable name
      *
-     * @return boolean
+     * @return bool
      */
     public static function cacheExists($var)
     {
@@ -1574,7 +1574,7 @@ class Util
      *
      * @param string $engine engine
      *
-     * @return boolean
+     * @return bool
      */
     public static function isForeignKeySupported($engine)
     {
@@ -2930,8 +2930,8 @@ class Util
     /**
      * Generates random string consisting of ASCII chars
      *
-     * @param integer $length Length of string
-     * @param bool    $asHex  (optional) Send the result as hex
+     * @param int  $length Length of string
+     * @param bool $asHex  (optional) Send the result as hex
      *
      * @return string
      */

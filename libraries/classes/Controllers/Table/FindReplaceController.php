@@ -193,11 +193,11 @@ class FindReplaceController extends AbstractController
     /**
      * Returns HTML for previewing strings found and their replacements
      *
-     * @param int     $columnIndex index of the column
-     * @param string  $find        string to find in the column
-     * @param string  $replaceWith string to replace with
-     * @param boolean $useRegex    to use Regex replace or not
-     * @param string  $charSet     character set of the connection
+     * @param int    $columnIndex index of the column
+     * @param string $find        string to find in the column
+     * @param string $replaceWith string to replace with
+     * @param bool   $useRegex    to use Regex replace or not
+     * @param string $charSet     character set of the connection
      *
      * @return string HTML for previewing strings found and their replacements
      */
@@ -320,11 +320,11 @@ class FindReplaceController extends AbstractController
     /**
      * Replaces a given string in a column with a give replacement
      *
-     * @param int     $columnIndex index of the column
-     * @param string  $find        string to find in the column
-     * @param string  $replaceWith string to replace with
-     * @param boolean $useRegex    to use Regex replace or not
-     * @param string  $charSet     character set of the connection
+     * @param int    $columnIndex index of the column
+     * @param string $find        string to find in the column
+     * @param string $replaceWith string to replace with
+     * @param bool   $useRegex    to use Regex replace or not
+     * @param string $charSet     character set of the connection
      *
      * @return void
      */

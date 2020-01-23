@@ -279,7 +279,7 @@ class Advisor
     /**
      * Executes advisor rules
      *
-     * @return boolean
+     * @return bool
      */
     public function runRules(): bool
     {
@@ -653,8 +653,8 @@ class Advisor
     /**
      * Formats interval like 10 per hour
      *
-     * @param float   $num       number to format
-     * @param integer $precision required precision
+     * @param float $num       number to format
+     * @param int   $precision required precision
      *
      * @return string formatted string
      */

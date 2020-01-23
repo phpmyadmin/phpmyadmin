@@ -291,7 +291,7 @@ class CoreTest extends PmaTestCase
      *
      * @param string     $page      Page
      * @param array|null $whiteList White list
-     * @param boolean    $include   whether the page is going to be included
+     * @param bool       $include   whether the page is going to be included
      * @param int        $expected  Expected value
      *
      * @return void

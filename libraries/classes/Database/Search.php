@@ -55,7 +55,7 @@ class Search
      * Already set search type
      *
      * @access private
-     * @var integer
+     * @var int
      */
     private $criteriaSearchType;
 

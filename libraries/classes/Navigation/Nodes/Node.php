@@ -666,7 +666,7 @@ class Node
      *
      * @param string $db database name
      *
-     * @return boolean whether to hide
+     * @return bool whether to hide
      */
     private function isHideDb($db)
     {
@@ -759,7 +759,7 @@ class Node
     /**
      * Returns CSS classes for a node
      *
-     * @param boolean $match Whether the node matched loaded tree
+     * @param bool $match Whether the node matched loaded tree
      *
      * @return string with html classes.
      */
@@ -785,7 +785,7 @@ class Node
     /**
      * Returns icon for the node
      *
-     * @param boolean $match Whether the node matched loaded tree
+     * @param bool $match Whether the node matched loaded tree
      *
      * @return string with image name
      */

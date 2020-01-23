@@ -493,9 +493,9 @@ class Operations
     /**
      * Get sql query for copy/rename table and boolean for whether copy/rename or not
      *
-     * @param array   $tables_full array of all tables in given db or dbs
-     * @param boolean $move        whether database name is empty or not
-     * @param string  $db          database name
+     * @param array  $tables_full array of all tables in given db or dbs
+     * @param bool   $move        whether database name is empty or not
+     * @param string $db          database name
      *
      * @return array SQL queries for the constraints
      */
@@ -593,9 +593,9 @@ class Operations
     /**
      * Handle the views, return the boolean value whether table rename/copy or not
      *
-     * @param array   $views views as an array
-     * @param boolean $move  whether database name is empty or not
-     * @param string  $db    database name
+     * @param array  $views views as an array
+     * @param bool   $move  whether database name is empty or not
+     * @param string $db    database name
      *
      * @return void
      */
@@ -804,8 +804,8 @@ class Operations
     /**
      * Duplicate the bookmarks for the db (done once for each db)
      *
-     * @param boolean $_error whether table rename/copy or not
-     * @param string  $db     database name
+     * @param bool   $_error whether table rename/copy or not
+     * @param string $db     database name
      *
      * @return void
      */

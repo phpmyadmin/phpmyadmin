@@ -34,11 +34,11 @@ class Sanitize
     /**
      * Checks whether given link is valid
      *
-     * @param string  $url   URL to check
-     * @param boolean $http  Whether to allow http links
-     * @param boolean $other Whether to allow ftp and mailto links
+     * @param string $url   URL to check
+     * @param bool   $http  Whether to allow http links
+     * @param bool   $other Whether to allow ftp and mailto links
      *
-     * @return boolean True if string can be used as link
+     * @return bool True if string can be used as link
      */
     public static function checkLink($url, $http = false, $other = false)
     {
@@ -153,9 +153,9 @@ class Sanitize
      *
      * <a title="<?php echo Sanitize::sanitizeMessage($foo, true); ?>">bar</a>
      *
-     * @param string  $message the message
-     * @param boolean $escape  whether to escape html in result
-     * @param boolean $safe    whether string is safe (can keep < and > chars)
+     * @param string $message the message
+     * @param bool   $escape  whether to escape html in result
+     * @param bool   $safe    whether string is safe (can keep < and > chars)
      *
      * @return string   the sanitized message
      */
@@ -222,8 +222,8 @@ class Sanitize
      *
      *    When exporting, avoiding generation of an unexpected double-extension file
      *
-     * @param string  $filename    The filename
-     * @param boolean $replaceDots Whether to also replace dots
+     * @param string $filename    The filename
+     * @param bool   $replaceDots Whether to also replace dots
      *
      * @return string  the sanitized filename
      */
@@ -246,8 +246,8 @@ class Sanitize
      * This function is used to displays a javascript confirmation box for
      * "DROP/DELETE/ALTER" queries.
      *
-     * @param string  $a_string       the string to format
-     * @param boolean $add_backquotes whether to add backquotes to the string or not
+     * @param string $a_string       the string to format
+     * @param bool   $add_backquotes whether to add backquotes to the string or not
      *
      * @return string   the formatted string
      *

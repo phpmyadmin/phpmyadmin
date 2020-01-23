@@ -106,7 +106,7 @@ class Svg extends XMLWriter
     /**
      * Set document font size
      *
-     * @param integer $value sets the font size in pixels
+     * @param int $value sets the font size in pixels
      *
      * @return void
      */
@@ -118,7 +118,7 @@ class Svg extends XMLWriter
     /**
      * Get document font size
      *
-     * @return integer returns the font size
+     * @return int returns the font size
      */
     public function getFontSize()
     {
@@ -134,10 +134,10 @@ class Svg extends XMLWriter
      *
      * @see XMLWriter::startElement(),XMLWriter::writeAttribute()
      *
-     * @param integer $width  total width of the RelationStatsSvg document
-     * @param integer $height total height of the RelationStatsSvg document
-     * @param integer $x      min-x of the view box
-     * @param integer $y      min-y of the view box
+     * @param int $width  total width of the RelationStatsSvg document
+     * @param int $height total height of the RelationStatsSvg document
+     * @param int $x      min-x of the view box
+     * @param int $y      min-y of the view box
      *
      * @return void
      */
@@ -215,7 +215,7 @@ class Svg extends XMLWriter
      * @param int         $x      The x attr defines the left position of the element
      *                            (e.g. x="0" places the element 0 pixels from the
      *                            left of the browser window)
-     * @param integer     $y      The y attribute defines the top position of the
+     * @param int         $y      The y attribute defines the top position of the
      *                            element (e.g. y="0" places the element 0 pixels
      *                            from the top of the browser window)
      * @param int|string  $width  The width attribute defines the width the element
@@ -259,13 +259,13 @@ class Svg extends XMLWriter
      * @see XMLWriter::startElement(), XMLWriter::writeAttribute(),
      * XMLWriter::endElement()
      *
-     * @param string  $name   RelationStatsSvg element name i.e line
-     * @param integer $x1     Defines the start of the line on the x-axis
-     * @param integer $y1     Defines the start of the line on the y-axis
-     * @param integer $x2     Defines the end of the line on the x-axis
-     * @param integer $y2     Defines the end of the line on the y-axis
-     * @param string  $styles The style attribute defines the style the element
-     *                        styles can be defined like CSS styles
+     * @param string $name   RelationStatsSvg element name i.e line
+     * @param int    $x1     Defines the start of the line on the x-axis
+     * @param int    $y1     Defines the start of the line on the y-axis
+     * @param int    $x2     Defines the end of the line on the x-axis
+     * @param int    $y2     Defines the end of the line on the y-axis
+     * @param string $styles The style attribute defines the style the element
+     *                       styles can be defined like CSS styles
      *
      * @return void
      */

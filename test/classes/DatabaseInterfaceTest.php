@@ -236,7 +236,7 @@ class DatabaseInterfaceTest extends PmaTestCase
      * Test for getConnectionParams
      *
      * @param array      $server_cfg Server configuration
-     * @param integer    $mode       Mode to test
+     * @param int        $mode       Mode to test
      * @param array|null $server     Server array to test
      * @param array      $expected   Expected result
      *

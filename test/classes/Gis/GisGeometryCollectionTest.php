@@ -88,10 +88,10 @@ class GisGeometryCollectionTest extends TestCase
     /**
      * Test for generateWkt
      *
-     * @param array   $gis_data array of GIS data
-     * @param integer $index    index in $gis_data
-     * @param string  $empty    empty parameter
-     * @param string  $output   expected output
+     * @param array  $gis_data array of GIS data
+     * @param int    $index    index in $gis_data
+     * @param string $empty    empty parameter
+     * @param string $output   expected output
      *
      * @return void
      *
@@ -366,12 +366,12 @@ class GisGeometryCollectionTest extends TestCase
     /**
      * Test for prepareRowAsOl
      *
-     * @param string  $spatial    string to parse
-     * @param integer $srid       SRID
-     * @param string  $label      field label
-     * @param string  $line_color line color
-     * @param array   $scale_data scaling parameters
-     * @param string  $output     expected output
+     * @param string $spatial    string to parse
+     * @param int    $srid       SRID
+     * @param string $label      field label
+     * @param string $line_color line color
+     * @param array  $scale_data scaling parameters
+     * @param string $output     expected output
      *
      * @return void
      *

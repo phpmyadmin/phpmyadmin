@@ -48,7 +48,7 @@ class DatabasesController extends AbstractController
     /** @var string sort order of databases */
     private $sortOrder;
 
-    /** @var boolean whether to show database statistics */
+    /** @var bool whether to show database statistics */
     private $hasStatistics;
 
     /** @var int position in list navigation */

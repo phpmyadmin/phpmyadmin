@@ -109,7 +109,7 @@ class Error extends Message
     /**
      * The line in which the error occurred
      *
-     * @var integer
+     * @var int
      */
     protected $line = 0;
 
@@ -126,10 +126,10 @@ class Error extends Message
     protected $hide_location = false;
 
     /**
-     * @param integer $errno   error number
-     * @param string  $errstr  error message
-     * @param string  $errfile file
-     * @param integer $errline line
+     * @param int    $errno   error number
+     * @param string $errstr  error message
+     * @param string $errfile file
+     * @param int    $errline line
      */
     public function __construct(int $errno, string $errstr, string $errfile, int $errline)
     {
@@ -200,7 +200,7 @@ class Error extends Message
     /**
      * Toggles location hiding
      *
-     * @param boolean $hide Whether to hide
+     * @param bool $hide Whether to hide
      *
      * @return void
      */
@@ -226,7 +226,7 @@ class Error extends Message
     /**
      * sets PhpMyAdmin\Error::$_line
      *
-     * @param integer $line the line
+     * @param int $line the line
      *
      * @return void
      */
@@ -277,7 +277,7 @@ class Error extends Message
      * pass $count = -1 to get full backtrace.
      * The same can be done by not passing $count at all.
      *
-     * @param integer $count Number of stack frames.
+     * @param int $count Number of stack frames.
      *
      * @return array PhpMyAdmin\Error::$_backtrace
      */
@@ -302,7 +302,7 @@ class Error extends Message
     /**
      * returns PhpMyAdmin\Error::$line
      *
-     * @return integer PhpMyAdmin\Error::$line
+     * @return int PhpMyAdmin\Error::$line
      */
     public function getLine(): int
     {
@@ -509,7 +509,7 @@ class Error extends Message
     /**
      * whether this error is a user error
      *
-     * @return boolean
+     * @return bool
      */
     public function isUserError(): bool
     {

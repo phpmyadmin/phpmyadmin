@@ -44,7 +44,7 @@ class OutputBuffering
     /**
      * This function could be used eventually to support more modes.
      *
-     * @return integer  the output buffer mode
+     * @return int the output buffer mode
      */
     private function _getMode()
     {

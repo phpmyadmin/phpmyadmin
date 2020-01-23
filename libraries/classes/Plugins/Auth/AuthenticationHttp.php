@@ -29,7 +29,7 @@ class AuthenticationHttp extends AuthenticationPlugin
     /**
      * Displays authentication form and redirect as necessary
      *
-     * @return boolean   always true (no return indeed)
+     * @return bool always true (no return indeed)
      */
     public function showLoginForm()
     {
@@ -51,7 +51,7 @@ class AuthenticationHttp extends AuthenticationPlugin
     /**
      * Displays authentication form
      *
-     * @return boolean
+     * @return bool
      */
     public function authForm()
     {
@@ -104,7 +104,7 @@ class AuthenticationHttp extends AuthenticationPlugin
     /**
      * Gets authentication credentials
      *
-     * @return boolean   whether we get authentication settings or not
+     * @return bool whether we get authentication settings or not
      */
     public function readCredentials()
     {

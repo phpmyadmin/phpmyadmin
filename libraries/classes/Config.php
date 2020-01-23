@@ -108,17 +108,17 @@ class Config
     public $default_source_mtime = 0;
     public $set_mtime = 0;
 
-    /** @var boolean */
+    /** @var bool */
     public $error_config_file = false;
 
-    /** @var boolean */
+    /** @var bool */
     public $error_config_default_file = false;
 
     /** @var array */
     public $default_server = [];
 
     /**
-     * @var boolean whether init is done or not
+     * @var bool whether init is done or not
      * set this to false to force some initial checks
      * like checking for required functions
      */
@@ -396,7 +396,7 @@ class Config
      *
      * @param string $git_location (optional) verified git directory
      *
-     * @return boolean
+     * @return bool
      */
     public function isGitRevision(&$git_location = null): bool
     {
@@ -807,7 +807,7 @@ class Config
     /**
      * loads default values from default source
      *
-     * @return boolean     success
+     * @return bool success
      */
     public function loadDefaults(): bool
     {
@@ -1138,7 +1138,7 @@ class Config
     /**
      * check config source
      *
-     * @return boolean whether source is valid or not
+     * @return bool whether source is valid or not
      */
     public function checkConfigSource(): bool
     {
@@ -1469,7 +1469,7 @@ class Config
      *
      * @param string $cookieName name of cookie to remove
      *
-     * @return boolean result of setcookie()
+     * @return bool result of setcookie()
      */
     public function removeCookie(string $cookieName): bool
     {
@@ -1501,7 +1501,7 @@ class Config
      * @param int    $validity validity of cookie in seconds (default is one month)
      * @param bool   $httponly whether cookie is only for HTTP (and not for scripts)
      *
-     * @return boolean result of setcookie()
+     * @return bool result of setcookie()
      */
     public function setCookie(
         string $cookie,
@@ -1727,7 +1727,7 @@ class Config
     /**
      * Selects server based on request parameters.
      *
-     * @return integer
+     * @return int
      */
     public function selectServer(): int
     {

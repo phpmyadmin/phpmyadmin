@@ -55,7 +55,7 @@ class StorageEngine
     public $comment
         = 'If you read this text inside phpMyAdmin, something went wrong...';
 
-    /** @var integer engine supported by current server */
+    /** @var int engine supported by current server */
     public $support = PMA_ENGINE_SUPPORT_NO;
 
     /**
@@ -124,12 +124,12 @@ class StorageEngine
     /**
      * Returns HTML code for storage engine select box
      *
-     * @param string  $name                    The name of the select form element
-     * @param string  $id                      The ID of the form field
-     * @param string  $selected                The selected engine
-     * @param boolean $offerUnavailableEngines Should unavailable storage
-     *                                         engines be offered?
-     * @param boolean $addEmpty                Whether to provide empty option
+     * @param string $name                    The name of the select form element
+     * @param string $id                      The ID of the form field
+     * @param string $selected                The selected engine
+     * @param bool   $offerUnavailableEngines Should unavailable storage
+     *                                        engines be offered?
+     * @param bool   $addEmpty                Whether to provide empty option
      *
      * @return string html selectbox
      *
@@ -220,7 +220,7 @@ class StorageEngine
      *
      * @param string $engine name of engine
      *
-     * @return boolean whether $engine is valid or not
+     * @return bool whether $engine is valid or not
      *
      * @static
      */
@@ -295,7 +295,7 @@ class StorageEngine
      * PMA_ENGINE_DETAILS_TYPE_SIZE type needs to be
      * handled differently for a particular engine.
      *
-     * @param integer $value Value to format
+     * @param int $value Value to format
      *
      * @return array the formatted value and its unit
      */

@@ -73,7 +73,7 @@ class BaseFormList
      *                               on failed validation
      * @param bool $checkFormSubmit  whether check for $_POST['submit_save']
      *
-     * @return boolean whether processing was successful
+     * @return bool whether processing was successful
      */
     public function process($allowPartialSave = true, $checkFormSubmit = true)
     {
@@ -113,7 +113,7 @@ class BaseFormList
     /**
      * Tells whether form validation failed
      *
-     * @return boolean
+     * @return bool
      */
     public function hasErrors()
     {

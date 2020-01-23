@@ -207,8 +207,8 @@ class DbiDummy implements DbiExtension
     /**
      * Adjusts the result pointer to an arbitrary row in the result
      *
-     * @param object  $result database result
-     * @param integer $offset offset to seek
+     * @param object $result database result
+     * @param int    $offset offset to seek
      *
      * @return bool true on success, false on failure
      */
@@ -252,7 +252,7 @@ class DbiDummy implements DbiExtension
      *
      * @param object $link the connection object
      *
-     * @return boolean false
+     * @return bool false
      */
     public function nextResult($link)
     {
@@ -288,7 +288,7 @@ class DbiDummy implements DbiExtension
      *
      * @param object $link mysql link
      *
-     * @return integer version of the MySQL protocol used
+     * @return int version of the MySQL protocol used
      */
     public function getProtoInfo($link)
     {

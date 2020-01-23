@@ -377,7 +377,7 @@ class Innodb extends StorageEngine
      *
      * (do not confuse this with phpMyAdmin's storage engine plugins!)
      *
-     * @return boolean whether this feature is supported or not
+     * @return bool whether this feature is supported or not
      */
     public function supportsFilePerTable()
     {

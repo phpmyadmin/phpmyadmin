@@ -57,7 +57,7 @@ class ExportSql extends ExportPlugin
     /**
      * Whether charset header was sent.
      *
-     * @var boolean
+     * @var bool
      */
     private $_sent_charset = false;
 

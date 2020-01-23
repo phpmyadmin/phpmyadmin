@@ -63,7 +63,7 @@ class Partition extends SubPartition
     /**
      * Whether there are sub partitions
      *
-     * @return boolean
+     * @return bool
      */
     public function hasSubPartitions()
     {
@@ -73,7 +73,7 @@ class Partition extends SubPartition
     /**
      * Returns the number of data rows
      *
-     * @return integer number of rows
+     * @return int number of rows
      */
     public function getRows()
     {
@@ -91,7 +91,7 @@ class Partition extends SubPartition
     /**
      * Returns the total data length
      *
-     * @return integer data length
+     * @return int data length
      */
     public function getDataLength()
     {
@@ -109,7 +109,7 @@ class Partition extends SubPartition
     /**
      * Returns the tatal index length
      *
-     * @return integer index length
+     * @return int index length
      */
     public function getIndexLength()
     {
@@ -226,7 +226,7 @@ class Partition extends SubPartition
     /**
      * checks if MySQL server supports partitioning
      *
-     * @return boolean
+     * @return bool
      *
      * @static
      * @staticvar boolean $have_partitioning

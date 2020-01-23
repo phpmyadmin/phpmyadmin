@@ -65,7 +65,7 @@ class Key extends TwoFactorPlugin
     /**
      * Checks authentication, returns true on success
      *
-     * @return boolean
+     * @return bool
      */
     public function check()
     {
@@ -155,7 +155,7 @@ class Key extends TwoFactorPlugin
     /**
      * Performs backend configuration
      *
-     * @return boolean
+     * @return bool
      */
     public function configure()
     {

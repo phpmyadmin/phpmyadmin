@@ -105,7 +105,7 @@ class ErrorHandler
     /**
      * Toggles location hiding
      *
-     * @param boolean $hide Whether to hide
+     * @param bool $hide Whether to hide
      *
      * @return void
      */
@@ -160,10 +160,10 @@ class ErrorHandler
      * This calls the addError() function, escaping the error string
      * Ignores the errors wherever Error Control Operator (@) is used.
      *
-     * @param integer $errno   error number
-     * @param string  $errstr  error string
-     * @param string  $errfile error file
-     * @param integer $errline error line
+     * @param int    $errno   error number
+     * @param string $errstr  error string
+     * @param string $errfile error file
+     * @param int    $errline error line
      *
      * @return void
      */
@@ -204,11 +204,11 @@ class ErrorHandler
      * Do not use the context parameter as we want to avoid storing the
      * complete $GLOBALS inside $_SESSION['errors']
      *
-     * @param string  $errstr  error string
-     * @param integer $errno   error number
-     * @param string  $errfile error file
-     * @param integer $errline error line
-     * @param boolean $escape  whether to escape the error string
+     * @param string $errstr  error string
+     * @param int    $errno   error number
+     * @param string $errfile error file
+     * @param int    $errline error line
+     * @param bool   $escape  whether to escape the error string
      *
      * @return void
      */
@@ -265,8 +265,8 @@ class ErrorHandler
     /**
      * trigger a custom error
      *
-     * @param string  $errorInfo   error message
-     * @param integer $errorNumber error number
+     * @param string $errorInfo   error message
+     * @param int    $errorNumber error number
      *
      * @return void
      */
@@ -434,7 +434,7 @@ class ErrorHandler
      *
      * @param bool $check Whether to check for session errors
      *
-     * @return integer number of errors occurred
+     * @return int number of errors occurred
      */
     public function countErrors(bool $check = true): int
     {
@@ -444,7 +444,7 @@ class ErrorHandler
     /**
      * return count of user errors
      *
-     * @return integer number of user errors occurred
+     * @return int number of user errors occurred
      */
     public function countUserErrors(): int
     {
@@ -463,7 +463,7 @@ class ErrorHandler
     /**
      * whether use errors occurred or not
      *
-     * @return boolean
+     * @return bool
      */
     public function hasUserErrors(): bool
     {
@@ -473,7 +473,7 @@ class ErrorHandler
     /**
      * whether errors occurred or not
      *
-     * @return boolean
+     * @return bool
      */
     public function hasErrors(): bool
     {
@@ -483,7 +483,7 @@ class ErrorHandler
     /**
      * number of errors to be displayed
      *
-     * @return integer number of errors to be displayed
+     * @return int number of errors to be displayed
      */
     public function countDisplayErrors(): int
     {
@@ -497,7 +497,7 @@ class ErrorHandler
     /**
      * whether there are errors to display or not
      *
-     * @return boolean
+     * @return bool
      */
     public function hasDisplayErrors(): bool
     {
@@ -524,7 +524,7 @@ class ErrorHandler
      * This distinguishes between the actual errors
      *      and user errors raised to warn user.
      *
-     * @return boolean true if there are errors to be "prompted", false otherwise
+     * @return bool true if there are errors to be "prompted", false otherwise
      */
     public function hasErrorsForPrompt(): bool
     {

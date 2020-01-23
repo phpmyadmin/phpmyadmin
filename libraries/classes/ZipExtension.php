@@ -182,7 +182,7 @@ class ZipExtension
      *
      * @param array|string $data contents of the file/files
      * @param array|string $name name of the file/files in the archive
-     * @param integer      $time the current timestamp
+     * @param int          $time the current timestamp
      *
      * @return string|bool the ZIP file contents, or false if there was an error.
      */

@@ -249,7 +249,7 @@ class PdfRelationSchema extends ExportRelationSchema
     /**
      * Set Show Grid
      *
-     * @param boolean $value show grid of the document or not
+     * @param bool $value show grid of the document or not
      *
      * @return void
      */
@@ -261,7 +261,7 @@ class PdfRelationSchema extends ExportRelationSchema
     /**
      * Returns whether to show grid
      *
-     * @return boolean whether to show grid
+     * @return bool whether to show grid
      */
     public function isShowGrid()
     {
@@ -271,7 +271,7 @@ class PdfRelationSchema extends ExportRelationSchema
     /**
      * Set Data Dictionary
      *
-     * @param boolean $value show selected database data dictionary or not
+     * @param bool $value show selected database data dictionary or not
      *
      * @return void
      */
@@ -283,7 +283,7 @@ class PdfRelationSchema extends ExportRelationSchema
     /**
      * Return whether to show selected database data dictionary or not
      *
-     * @return boolean whether to show selected database data dictionary or not
+     * @return bool whether to show selected database data dictionary or not
      */
     public function isWithDataDictionary()
     {

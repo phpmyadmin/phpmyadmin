@@ -28,13 +28,13 @@ class TableStatsDia extends TableStats
     public $tableColor;
 
     /**
-     * @param Dia     $diagram    The current dia document
-     * @param string  $db         The database name
-     * @param string  $tableName  The table name
-     * @param integer $pageNumber The current page number (from the
-     *                            $cfg['Servers'][$i]['table_coords'] table)
-     * @param boolean $showKeys   Whether to display ONLY keys or not
-     * @param boolean $offline    Whether the coordinates are sent from the browser
+     * @param Dia    $diagram    The current dia document
+     * @param string $db         The database name
+     * @param string $tableName  The table name
+     * @param int    $pageNumber The current page number (from the
+     *                           $cfg['Servers'][$i]['table_coords'] table)
+     * @param bool   $showKeys   Whether to display ONLY keys or not
+     * @param bool   $offline    Whether the coordinates are sent from the browser
      */
     public function __construct(
         $diagram,
@@ -86,10 +86,10 @@ class TableStatsDia extends TableStats
      *
      * @see    Dia
      *
-     * @param boolean $showColor Whether to show color for tables text or not
-     *                           if showColor is true then an array of $listOfColors
-     *                           will be used to choose the random colors for tables
-     *                           text we can change/add more colors to this array
+     * @param bool $showColor Whether to show color for tables text or not
+     *                        if showColor is true then an array of $listOfColors
+     *                        will be used to choose the random colors for tables
+     *                        text we can change/add more colors to this array
      *
      * @return void
      *

@@ -57,7 +57,7 @@ class CentralColumns
     /**
      * Disable use of INFORMATION_SCHEMA
      *
-     * @var boolean
+     * @var bool
      */
     private $disableIs;
 
@@ -187,10 +187,10 @@ class CentralColumns
     /**
      * return the existing columns in central list among the given list of columns
      *
-     * @param string  $db        the selected database
-     * @param string  $cols      comma separated list of given columns
-     * @param boolean $allFields set if need all the fields of existing columns,
-     *                           otherwise only column_name is returned
+     * @param string $db        the selected database
+     * @param string $cols      comma separated list of given columns
+     * @param bool   $allFields set if need all the fields of existing columns,
+     *                          otherwise only column_name is returned
      *
      * @return array list of columns in central columns among given set of columns
      */
@@ -581,10 +581,10 @@ class CentralColumns
      * return the columns present in central list of columns for a given
      * table of a given database
      *
-     * @param string  $db        given database
-     * @param string  $table     given table
-     * @param boolean $allFields set if need all the fields of existing columns,
-     *                           otherwise only column_name is returned
+     * @param string $db        given database
+     * @param string $table     given table
+     * @param bool   $allFields set if need all the fields of existing columns,
+     *                          otherwise only column_name is returned
      *
      * @return array columns present in central list from given table of given db.
      */

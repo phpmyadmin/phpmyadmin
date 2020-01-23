@@ -360,8 +360,8 @@ class GisMultiPoint extends GisGeometry
     /**
      * Generate parameters for the GIS data editor from the value of the GIS column.
      *
-     * @param string  $value Value of the GIS column
-     * @param integer $index Index of the geometry
+     * @param string $value Value of the GIS column
+     * @param int    $index Index of the geometry
      *
      * @return array params for the GIS data editor from the value of the GIS column
      *

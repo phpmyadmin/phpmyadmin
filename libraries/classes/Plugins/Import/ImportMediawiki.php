@@ -573,7 +573,7 @@ class ImportMediawiki extends ImportPlugin
     /**
      * Manage $inside_structure_comment
      *
-     * @param boolean $inside_structure_comment Value to test
+     * @param bool $inside_structure_comment Value to test
      *
      * @return bool
      */

@@ -266,10 +266,10 @@ class Transformations
     /**
      * Gets the mimetypes for all columns of a table
      *
-     * @param string  $db       the name of the db to check for
-     * @param string  $table    the name of the table to check for
-     * @param boolean $strict   whether to include only results having a mimetype set
-     * @param boolean $fullName whether to use full column names as the key
+     * @param string $db       the name of the db to check for
+     * @param string $table    the name of the table to check for
+     * @param bool   $strict   whether to include only results having a mimetype set
+     * @param bool   $fullName whether to use full column names as the key
      *
      * @return array|bool [field_name][field_key] = field_value
      *
@@ -338,18 +338,18 @@ class Transformations
     /**
      * Set a single mimetype to a certain value.
      *
-     * @param string  $db                 the name of the db
-     * @param string  $table              the name of the table
-     * @param string  $key                the name of the column
-     * @param string  $mimetype           the mimetype of the column
-     * @param string  $transformation     the transformation of the column
-     * @param string  $transformationOpts the transformation options of the column
-     * @param string  $inputTransform     the input transformation of the column
-     * @param string  $inputTransformOpts the input transformation options of the column
-     * @param boolean $forcedelete        force delete, will erase any existing
-     *                                    comments for this column
+     * @param string $db                 the name of the db
+     * @param string $table              the name of the table
+     * @param string $key                the name of the column
+     * @param string $mimetype           the mimetype of the column
+     * @param string $transformation     the transformation of the column
+     * @param string $transformationOpts the transformation options of the column
+     * @param string $inputTransform     the input transformation of the column
+     * @param string $inputTransformOpts the input transformation options of the column
+     * @param bool   $forcedelete        force delete, will erase any existing
+     *                                   comments for this column
      *
-     * @return boolean  true, if comment-query was made.
+     * @return bool true, if comment-query was made.
      *
      * @access public
      */
@@ -466,7 +466,7 @@ class Transformations
      * @param string $table  Table name
      * @param string $column Column name
      *
-     * @return boolean State of the query execution
+     * @return bool State of the query execution
      */
     public function clear($db, $table = '', $column = '')
     {

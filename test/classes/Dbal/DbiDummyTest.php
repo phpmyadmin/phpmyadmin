@@ -87,9 +87,9 @@ class DbiDummyTest extends TestCase
     /**
      * Test for error formatting
      *
-     * @param integer $number   error number
-     * @param string  $message  error message
-     * @param string  $expected expected result
+     * @param int    $number   error number
+     * @param string $message  error message
+     * @param string $expected expected result
      *
      * @return void
      *

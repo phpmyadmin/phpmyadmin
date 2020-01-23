@@ -755,7 +755,7 @@ class LanguageManager
     /**
      * Checks whether there are some languages available
      *
-     * @return boolean
+     * @return bool
      */
     public function hasChoice()
     {
@@ -941,8 +941,8 @@ class LanguageManager
      * Returns HTML code for the language selector
      *
      * @param Template $template     Template instance
-     * @param boolean  $use_fieldset whether to use fieldset for selection
-     * @param boolean  $show_doc     whether to show documentation links
+     * @param bool     $use_fieldset whether to use fieldset for selection
+     * @param bool     $show_doc     whether to show documentation links
      *
      * @return string
      *

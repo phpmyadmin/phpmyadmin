@@ -169,7 +169,7 @@ class RecentFavoriteTable
      * Trim recent.favorite table according to the
      * NumRecentTables/NumFavoriteTables configuration.
      *
-     * @return boolean True if trimming occurred
+     * @return bool True if trimming occurred
      */
     public function trim()
     {
@@ -303,8 +303,8 @@ class RecentFavoriteTable
      * @param string $db    database
      * @param string $table table
      *
-     * @return boolean|Message True if invalid and removed, False if not invalid,
-     *                            Message if error while removing
+     * @return bool|Message True if invalid and removed, False if not invalid,
+     * Message if error while removing
      */
     public function removeIfInvalid($db, $table)
     {

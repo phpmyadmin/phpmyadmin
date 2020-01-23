@@ -51,12 +51,12 @@ abstract class TableStats
     /**
      * @param Pdf\Pdf|Svg\Svg|Eps\Eps|Dia\Dia|Pdf\Pdf $diagram        schema diagram
      * @param string                                  $db             current db name
-     * @param integer                                 $pageNumber     current page number (from the
+     * @param int                                     $pageNumber     current page number (from the
      *                                                                $cfg['Servers'][$i]['table_coords'] table)
      * @param string                                  $tableName      table name
-     * @param boolean                                 $showKeys       whether to display keys or not
-     * @param boolean                                 $tableDimension whether to display table position or not
-     * @param boolean                                 $offline        whether the coordinates are sent
+     * @param bool                                    $showKeys       whether to display keys or not
+     * @param bool                                    $tableDimension whether to display table position or not
+     * @param bool                                    $offline        whether the coordinates are sent
      *                                                                from the browser
      */
     public function __construct(

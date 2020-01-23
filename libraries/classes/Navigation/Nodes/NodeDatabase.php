@@ -63,12 +63,12 @@ class NodeDatabase extends Node
      * This method is overridden by the PhpMyAdmin\Navigation\Nodes\NodeDatabase
      * and PhpMyAdmin\Navigation\Nodes\NodeTable classes
      *
-     * @param string  $type         The type of item we are looking for
-     *                              ('tables', 'views', etc)
-     * @param string  $searchClause A string used to filter the results of
-     *                              the query
-     * @param boolean $singleItem   Whether to get presence of a single known
-     *                              item or false in none
+     * @param string $type         The type of item we are looking for
+     *                             ('tables', 'views', etc)
+     * @param string $searchClause A string used to filter the results of
+     *                             the query
+     * @param bool   $singleItem   Whether to get presence of a single known
+     *                             item or false in none
      *
      * @return int
      */
@@ -101,11 +101,11 @@ class NodeDatabase extends Node
     /**
      * Returns the number of tables or views present inside this database
      *
-     * @param string  $which        tables|views
-     * @param string  $searchClause A string used to filter the results of
-     *                              the query
-     * @param boolean $singleItem   Whether to get presence of a single known
-     *                              item or false in none
+     * @param string $which        tables|views
+     * @param string $searchClause A string used to filter the results of
+     *                             the query
+     * @param bool   $singleItem   Whether to get presence of a single known
+     *                             item or false in none
      *
      * @return int
      */
@@ -154,10 +154,10 @@ class NodeDatabase extends Node
     /**
      * Returns the number of tables present inside this database
      *
-     * @param string  $searchClause A string used to filter the results of
-     *                              the query
-     * @param boolean $singleItem   Whether to get presence of a single known
-     *                              item or false in none
+     * @param string $searchClause A string used to filter the results of
+     *                             the query
+     * @param bool   $singleItem   Whether to get presence of a single known
+     *                             item or false in none
      *
      * @return int
      */
@@ -173,10 +173,10 @@ class NodeDatabase extends Node
     /**
      * Returns the number of views present inside this database
      *
-     * @param string  $searchClause A string used to filter the results of
-     *                              the query
-     * @param boolean $singleItem   Whether to get presence of a single known
-     *                              item or false in none
+     * @param string $searchClause A string used to filter the results of
+     *                             the query
+     * @param bool   $singleItem   Whether to get presence of a single known
+     *                             item or false in none
      *
      * @return int
      */
@@ -192,10 +192,10 @@ class NodeDatabase extends Node
     /**
      * Returns the number of procedures present inside this database
      *
-     * @param string  $searchClause A string used to filter the results of
-     *                              the query
-     * @param boolean $singleItem   Whether to get presence of a single known
-     *                              item or false in none
+     * @param string $searchClause A string used to filter the results of
+     *                             the query
+     * @param bool   $singleItem   Whether to get presence of a single known
+     *                             item or false in none
      *
      * @return int
      */
@@ -238,10 +238,10 @@ class NodeDatabase extends Node
     /**
      * Returns the number of functions present inside this database
      *
-     * @param string  $searchClause A string used to filter the results of
-     *                              the query
-     * @param boolean $singleItem   Whether to get presence of a single known
-     *                              item or false in none
+     * @param string $searchClause A string used to filter the results of
+     *                             the query
+     * @param bool   $singleItem   Whether to get presence of a single known
+     *                             item or false in none
      *
      * @return int
      */
@@ -284,10 +284,10 @@ class NodeDatabase extends Node
     /**
      * Returns the number of events present inside this database
      *
-     * @param string  $searchClause A string used to filter the results of
-     *                              the query
-     * @param boolean $singleItem   Whether to get presence of a single known
-     *                              item or false in none
+     * @param string $searchClause A string used to filter the results of
+     *                             the query
+     * @param bool   $singleItem   Whether to get presence of a single known
+     *                             item or false in none
      *
      * @return int
      */
@@ -329,9 +329,9 @@ class NodeDatabase extends Node
     /**
      * Returns the WHERE clause for searching inside a database
      *
-     * @param string  $searchClause A string used to filter the results of the query
-     * @param boolean $singleItem   Whether to get presence of a single known item
-     * @param string  $columnName   Name of the column in the result set to match
+     * @param string $searchClause A string used to filter the results of the query
+     * @param bool   $singleItem   Whether to get presence of a single known item
+     * @param string $columnName   Name of the column in the result set to match
      *
      * @return string WHERE clause for searching
      */

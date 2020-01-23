@@ -111,7 +111,7 @@ class ConfigGenerator
      *
      * @param array $array Array to check
      *
-     * @return boolean
+     * @return bool
      */
     private static function _isZeroBasedArray(array $array)
     {

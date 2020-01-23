@@ -423,27 +423,27 @@ class Results
     /**
      * Set properties which were not initialized at the constructor
      *
-     * @param integer  $unlim_num_rows the total number of rows returned by
+     * @param int      $unlim_num_rows the total number of rows returned by
      *                                 the SQL query without any appended
      *                                 "LIMIT" clause programmatically
      * @param stdClass $fields_meta    meta information about fields
-     * @param boolean  $is_count       statement is SELECT COUNT
-     * @param integer  $is_export      statement contains INTO OUTFILE
-     * @param boolean  $is_func        statement contains a function like SUM()
-     * @param integer  $is_analyse     statement contains PROCEDURE ANALYSE
-     * @param integer  $num_rows       total no. of rows returned by SQL query
-     * @param integer  $fields_cnt     total no.of fields returned by SQL query
+     * @param bool     $is_count       statement is SELECT COUNT
+     * @param int      $is_export      statement contains INTO OUTFILE
+     * @param bool     $is_func        statement contains a function like SUM()
+     * @param int      $is_analyse     statement contains PROCEDURE ANALYSE
+     * @param int      $num_rows       total no. of rows returned by SQL query
+     * @param int      $fields_cnt     total no.of fields returned by SQL query
      * @param double   $querytime      time taken for execute the SQL query
      * @param string   $pmaThemeImage  path for theme images directory
      * @param string   $text_dir       text direction
-     * @param boolean  $is_maint       statement contains a maintenance command
-     * @param boolean  $is_explain     statement contains EXPLAIN
-     * @param boolean  $is_show        statement contains SHOW
+     * @param bool     $is_maint       statement contains a maintenance command
+     * @param bool     $is_explain     statement contains EXPLAIN
+     * @param bool     $is_show        statement contains SHOW
      * @param array    $showtable      table definitions
      * @param string   $printview      print view was requested
      * @param string   $url_query      URL query
-     * @param boolean  $editable       whether the results set is editable
-     * @param boolean  $is_browse_dist whether browsing distinct values
+     * @param bool     $editable       whether the results set is editable
+     * @param bool     $is_browse_dist whether browsing distinct values
      *
      * @return void
      */
@@ -740,7 +740,7 @@ class Results
      *
      * @param array $analyzed_sql_results analyzed sql results
      *
-     * @return boolean
+     * @return bool
      *
      * @access private
      */
@@ -762,14 +762,14 @@ class Results
      * @see     _getMoveBackwardButtonsForTableNavigation(),
      *          _getMoveForwardButtonsForTableNavigation()
      *
-     * @param string  $caption            iconic caption for button
-     * @param string  $title              text for button
-     * @param integer $pos                position for next query
-     * @param string  $html_sql_query     query ready for display
-     * @param boolean $back               whether 'begin' or 'previous'
-     * @param string  $onsubmit           optional onsubmit clause
-     * @param string  $input_for_real_end optional hidden field for special treatment
-     * @param string  $onclick            optional onclick clause
+     * @param string $caption            iconic caption for button
+     * @param string $title              text for button
+     * @param int    $pos                position for next query
+     * @param string $html_sql_query     query ready for display
+     * @param bool   $back               whether 'begin' or 'previous'
+     * @param string $onsubmit           optional onsubmit clause
+     * @param string $input_for_real_end optional hidden field for special treatment
+     * @param string $onclick            optional onclick clause
      *
      * @return string                     html content
      *
@@ -872,10 +872,10 @@ class Results
      *
      * @see getTable()
      *
-     * @param integer $posNext       the offset for the "next" page
-     * @param integer $posPrevious   the offset for the "previous" page
-     * @param boolean $isInnodb      whether its InnoDB or not
-     * @param string  $sortByKeyHtml the sort by key dialog
+     * @param int    $posNext       the offset for the "next" page
+     * @param int    $posPrevious   the offset for the "previous" page
+     * @param bool   $isInnodb      whether its InnoDB or not
+     * @param string $sortByKeyHtml the sort by key dialog
      *
      * @return string html content
      *
@@ -952,8 +952,8 @@ class Results
      *
      * @see     _getTableNavigation()
      *
-     * @param string  $html_sql_query the sql encoded by html special characters
-     * @param integer $pos_prev       the offset for the "previous" page
+     * @param string $html_sql_query the sql encoded by html special characters
+     * @param int    $pos_prev       the offset for the "previous" page
      *
      * @return string                 html content
      *
@@ -984,9 +984,9 @@ class Results
      *
      * @see    _getTableNavigation()
      *
-     * @param string  $html_sql_query the sql encoded by htmlspecialchars()
-     * @param integer $pos_next       the offset for the "next" page
-     * @param boolean $is_innodb      whether it's InnoDB or not
+     * @param string $html_sql_query the sql encoded by htmlspecialchars()
+     * @param int    $pos_next       the offset for the "next" page
+     * @param bool   $is_innodb      whether it's InnoDB or not
      *
      * @return string   html content
      *
@@ -1050,15 +1050,15 @@ class Results
      *
      * @see    getTableHeaders()
      *
-     * @param array   $displayParts                which elements to display
-     * @param array   $analyzed_sql_results        analyzed sql results
-     * @param array   $sort_expression             sort expression
-     * @param array   $sort_expression_nodirection sort expression
-     *                                             without direction
-     * @param array   $sort_direction              sort direction
-     * @param boolean $is_limited_display          with limited operations
-     *                                             or not
-     * @param string  $unsorted_sql_query          query without the sort part
+     * @param array  $displayParts                which elements to display
+     * @param array  $analyzed_sql_results        analyzed sql results
+     * @param array  $sort_expression             sort expression
+     * @param array  $sort_expression_nodirection sort expression
+     *                                            without direction
+     * @param array  $sort_direction              sort direction
+     * @param bool   $is_limited_display          with limited operations
+     *                                            or not
+     * @param string $unsorted_sql_query          query without the sort part
      *
      * @return string html content
      *
@@ -1173,7 +1173,7 @@ class Results
      * @param array        $sortExpression            sort expression
      * @param array|string $sortExpressionNoDirection sort expression without direction
      * @param array        $sortDirection             sort direction
-     * @param boolean      $isLimitedDisplay          with limited operations or not
+     * @param bool         $isLimitedDisplay          with limited operations or not
      *
      * @return string html content
      *
@@ -1660,12 +1660,12 @@ class Results
      * @param stdClass $fields_meta                 set of field properties
      * @param array    $sort_expression             sort expression
      * @param array    $sort_expression_nodirection sort expression without direction
-     * @param integer  $column_index                the index of the column
+     * @param int      $column_index                the index of the column
      * @param string   $unsorted_sql_query          the unsorted sql query
-     * @param integer  $session_max_rows            maximum rows resulted by sql
+     * @param int      $session_max_rows            maximum rows resulted by sql
      * @param string   $comments                    comment for row
      * @param array    $sort_direction              sort direction
-     * @param boolean  $col_visib                   column is visible(false)
+     * @param bool     $col_visib                   column is visible(false)
      *                                              array                                column isn't visible(string array)
      * @param string   $col_visib_j                 element of $col_visib array
      *
@@ -1925,7 +1925,7 @@ class Results
      * @param string $sort_tbl                    the table name
      * @param string $name_to_use_in_sort         the sorting column name
      *
-     * @return boolean                   the column sorted or not
+     * @return bool the column sorted or not
      *
      * @access private
      */
@@ -1999,9 +1999,9 @@ class Results
      *
      * @see     _getSingleAndMultiSortUrls()
      *
-     * @param array   $sort_direction the sort direction
-     * @param string  $sort_order     the sorting order
-     * @param integer $index          the index of sort direction array.
+     * @param array  $sort_direction the sort direction
+     * @param string $sort_order     the sorting order
+     * @param int    $index          the index of sort direction array.
      *
      * @return array                  2 element array - $sort_order, $order_img
      *
@@ -2113,7 +2113,7 @@ class Results
      *
      * @see    _getTableHeaders()
      *
-     * @param boolean  $col_visib   the column is visible (false)
+     * @param bool     $col_visib   the column is visible (false)
      *                              array                the column is not visible (string array)
      * @param string   $col_visib_j element of $col_visib array
      * @param stdClass $fields_meta set of field properties
@@ -2161,10 +2161,10 @@ class Results
      *
      * @see    _getTableHeaders()
      *
-     * @param boolean  $col_visib       the column is visible (false)
+     * @param bool     $col_visib       the column is visible (false)
      *                                  array                    the column is not visible (string array)
      * @param string   $col_visib_j     element of $col_visib array
-     * @param boolean  $condition_field whether to add CSS class condition
+     * @param bool     $condition_field whether to add CSS class condition
      * @param stdClass $fields_meta     set of field properties
      * @param string   $comments        the comment for the column
      *
@@ -2419,12 +2419,12 @@ class Results
      *
      * @see     getTable()
      *
-     * @param integer $dt_result            the link id associated to the query
-     *                                      which results have to be displayed
-     * @param array   $displayParts         which elements to display
-     * @param array   $map                  the list of relations
-     * @param array   $analyzed_sql_results analyzed sql results
-     * @param boolean $is_limited_display   with limited operations or not
+     * @param int   $dt_result            the link id associated to the query
+     *                                    which results have to be displayed
+     * @param array $displayParts         which elements to display
+     * @param array $map                  the list of relations
+     * @param array $analyzed_sql_results analyzed sql results
+     * @param bool  $is_limited_display   with limited operations or not
      *
      * @return string  html content
      *
@@ -2743,22 +2743,22 @@ class Results
      *
      * @see     _getTableBody()
      *
-     * @param integer              $dt_result            the link id associated to
-     *                                                   the query which results
-     *                                                   have to be displayed
-     * @param array                $row                  current row data
-     * @param integer              $row_no               the index of current row
-     * @param array|boolean        $col_order            the column order false when
-     *                                                   a property not found false
-     *                                                   when a property not found
-     * @param array                $map                  the list of relations
-     * @param string               $grid_edit_class      the class for all editable
-     *                                                   columns
-     * @param boolean|array|string $col_visib            column is visible(false);
-     *                                                   column isn't visible(string
-     *                                                   array)
-     * @param string               $url_sql_query        the analyzed sql query
-     * @param array                $analyzed_sql_results analyzed sql results
+     * @param int               $dt_result            the link id associated to
+     *                                                the query which results
+     *                                                have to be displayed
+     * @param array             $row                  current row data
+     * @param int               $row_no               the index of current row
+     * @param array|bool        $col_order            the column order false when
+     *                                                a property not found false
+     *                                                when a property not found
+     * @param array             $map                  the list of relations
+     * @param string            $grid_edit_class      the class for all editable
+     *                                                columns
+     * @param bool|array|string $col_visib            column is visible(false);
+     *                                                column isn't visible(string
+     *                                                array)
+     * @param string            $url_sql_query        the analyzed sql query
+     * @param array             $analyzed_sql_results analyzed sql results
      *
      * @return string  html content
      *
@@ -3087,8 +3087,8 @@ class Results
     /**
      * Prepare row information for display special links
      *
-     * @param array         $row       current row data
-     * @param array|boolean $col_order the column order
+     * @param array      $row       current row data
+     * @param array|bool $col_order the column order
      *
      * @return array associative array with column nama -> value
      */
@@ -3226,9 +3226,9 @@ class Results
      *
      * @see     _getTableBody()
      *
-     * @param string  $where_clause     the where clause of the sql
-     * @param boolean $clause_is_unique the unique condition of clause
-     * @param string  $url_sql_query    the analyzed sql query
+     * @param string $where_clause     the where clause of the sql
+     * @param bool   $clause_is_unique the unique condition of clause
+     * @param string $url_sql_query    the analyzed sql query
      *
      * @return array   5 element array - $edit_url, $copy_url,
      *                 $edit_str, $copy_str, $edit_anchor_class
@@ -3288,11 +3288,11 @@ class Results
      *
      * @see     _getTableBody()
      *
-     * @param string  $where_clause     the where clause of the sql
-     * @param boolean $clause_is_unique the unique condition of clause
-     * @param string  $url_sql_query    the analyzed sql query
-     * @param string  $del_lnk          the delete link of current row
-     * @param array   $row              the current row
+     * @param string $where_clause     the where clause of the sql
+     * @param bool   $clause_is_unique the unique condition of clause
+     * @param string $url_sql_query    the analyzed sql query
+     * @param string $del_lnk          the delete link of current row
+     * @param array  $row              the current row
      *
      * @return array                    3 element array
      *                                  $del_url, $del_str, $js_conf
@@ -3420,7 +3420,7 @@ class Results
      * @param string      $dir               the direction of links should place
      * @param string      $del_url           the url for delete row
      * @param array       $displayParts      which elements to display
-     * @param integer     $row_no            the index of current row
+     * @param int         $row_no            the index of current row
      * @param string      $where_clause      the where clause of the sql
      * @param string      $where_clause_html the html encoded where clause
      * @param array       $condition_array   array of keys (primary, unique, condition)
@@ -3536,12 +3536,12 @@ class Results
      *
      * @param string|null           $column                the column's value
      * @param string                $class                 the html class for column
-     * @param boolean               $condition_field       the column should highlighted
+     * @param bool                  $condition_field       the column should highlighted
      *                                                     or not
      * @param stdClass              $meta                  the meta-information about this
      *                                                     field
      * @param array                 $map                   the list of relations
-     * @param boolean               $is_field_truncated    the condition for blob data
+     * @param bool                  $is_field_truncated    the condition for blob data
      *                                                     replacements
      * @param array                 $analyzed_sql_results  the analyzed query
      * @param TransformationsPlugin $transformation_plugin the name of transformation plugin
@@ -3615,7 +3615,7 @@ class Results
      *                                                     this field
      * @param array                 $map                   the list of relations
      * @param array                 $_url_params           the parameters for generate url
-     * @param boolean               $condition_field       the column should highlighted
+     * @param bool                  $condition_field       the column should highlighted
      *                                                     or not
      * @param TransformationsPlugin $transformation_plugin the name of transformation
      *                                                     function
@@ -3763,20 +3763,20 @@ class Results
      * @param array                 $map                   the list of relations
      * @param array                 $_url_params           the parameters for generate
      *                                                     url
-     * @param boolean               $condition_field       the column should highlighted
+     * @param bool                  $condition_field       the column should highlighted
      *                                                     or not
      * @param TransformationsPlugin $transformation_plugin the name of transformation
      *                                                     function
      * @param string                $default_function      the default transformation
      *                                                     function
      * @param string                $transform_options     the transformation parameters
-     * @param boolean               $is_field_truncated    is data truncated due to
+     * @param bool                  $is_field_truncated    is data truncated due to
      *                                                     LimitChars
      * @param array                 $analyzed_sql_results  the analyzed query
-     * @param integer               $dt_result             the link id associated to
+     * @param int                   $dt_result             the link id associated to
      *                                                     the query which results
      *                                                     have to be displayed
-     * @param integer               $col_index             the column index
+     * @param int                   $col_index             the column index
      *
      * @return string the prepared data cell, html content
      *
@@ -4096,11 +4096,11 @@ class Results
     /**
      * Prepare a table of results returned by a SQL query.
      *
-     * @param integer $dt_result            the link id associated to the query
-     *                                      which results have to be displayed
-     * @param array   $displayParts         the parts to display
-     * @param array   $analyzed_sql_results analyzed sql results
-     * @param boolean $is_limited_display   With limited operations or not
+     * @param int   $dt_result            the link id associated to the query
+     *                                    which results have to be displayed
+     * @param array $displayParts         the parts to display
+     * @param array $analyzed_sql_results analyzed sql results
+     * @param bool  $is_limited_display   With limited operations or not
      *
      * @return string   Generated HTML content for resulted table
      *
@@ -4366,10 +4366,10 @@ class Results
      *
      * @see     getTable()
      *
-     * @param integer $dt_result                   the link id associated to the
-     *                                             query which results have to
-     *                                             be displayed
-     * @param string  $sort_expression_nodirection sort expression without direction
+     * @param int    $dt_result                   the link id associated to the
+     *                                            query which results have to
+     *                                            be displayed
+     * @param string $sort_expression_nodirection sort expression without direction
      *
      * @return string|null html content, null if not found sorted column
      *
@@ -4491,14 +4491,14 @@ class Results
      *
      * @see     getTable()
      *
-     * @param string  $sorted_column_message the message for sorted column
-     * @param array   $analyzed_sql_results  the analyzed query
-     * @param integer $total                 the total number of rows returned by
-     *                                       the SQL query without any
-     *                                       programmatically appended LIMIT clause
-     * @param integer $pos_next              the offset for next page
-     * @param string  $pre_count             the string renders before row count
-     * @param string  $after_count           the string renders after row count
+     * @param string $sorted_column_message the message for sorted column
+     * @param array  $analyzed_sql_results  the analyzed query
+     * @param int    $total                 the total number of rows returned by
+     *                                      the SQL query without any
+     *                                      programmatically appended LIMIT clause
+     * @param int    $pos_next              the offset for next page
+     * @param string $pre_count             the string renders before row count
+     * @param string $after_count           the string renders after row count
      *
      * @return Message an object of Message
      *
@@ -4658,10 +4658,10 @@ class Results
      *
      * @see     getTable()
      *
-     * @param integer $dt_result            the link id associated to the query which
-     *                                      results have to be displayed
-     * @param array   $analyzed_sql_results analyzed sql results
-     * @param string  $del_link             the display element - 'del_link'
+     * @param int    $dt_result            the link id associated to the query which
+     *                                     results have to be displayed
+     * @param array  $analyzed_sql_results analyzed sql results
+     * @param string $del_link             the display element - 'del_link'
      *
      * @return string html content
      *
@@ -4866,9 +4866,9 @@ class Results
      *
      * @see     getTable()
      *
-     * @param array   $displayParts         the parts to display
-     * @param array   $analyzed_sql_results analyzed sql results
-     * @param boolean $only_view            Whether to show only view
+     * @param array $displayParts         the parts to display
+     * @param array $analyzed_sql_results analyzed sql results
+     * @param bool  $only_view            Whether to show only view
      *
      * @return string  html content
      *
@@ -5046,7 +5046,7 @@ class Results
      * @param stdClass    $meta                  the meta-information about the field
      * @param array       $url_params            parameters that should go to the
      *                                           download link
-     * @param boolean     $is_truncated          the result is truncated or not
+     * @param bool        $is_truncated          the result is truncated or not
      *
      * @return mixed  string or float
      *

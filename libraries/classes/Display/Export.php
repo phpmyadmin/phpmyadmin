@@ -52,7 +52,7 @@ class Export
      *
      * @param string $str option name
      *
-     * @return boolean
+     * @return bool
      */
     private function checkboxCheck($str)
     {

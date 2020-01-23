@@ -53,7 +53,7 @@ class RelationStatsSvg extends RelationStats
      *
      * @see    PMA_SVG
      *
-     * @param boolean $showColor Whether to use one color per relation or not
+     * @param bool $showColor Whether to use one color per relation or not
      *
      * @return void
      *

@@ -1040,7 +1040,7 @@ class NavigationTree
      * @param array $tree  Tree to check
      * @param array $paths Paths to check
      *
-     * @return boolean
+     * @return bool
      */
     private function findTreeMatch(array $tree, array $paths)
     {

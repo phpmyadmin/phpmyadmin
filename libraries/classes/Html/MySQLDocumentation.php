@@ -59,9 +59,9 @@ class MySQLDocumentation
     /**
      * Displays a link to the phpMyAdmin documentation
      *
-     * @param string  $page   Page in documentation
-     * @param string  $anchor Optional anchor in page
-     * @param boolean $bbcode Optional flag indicating whether to output bbcode
+     * @param string $page   Page in documentation
+     * @param string $anchor Optional anchor in page
+     * @param bool   $bbcode Optional flag indicating whether to output bbcode
      *
      * @return string  the html link
      *

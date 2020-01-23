@@ -237,10 +237,10 @@ class ReplicationGui
     /**
      * This function returns html code for table with replication status.
      *
-     * @param string  $type     either master or slave
-     * @param boolean $isHidden if true, then default style is set to hidden,
-     *                          default value false
-     * @param boolean $hasTitle if true, then title is displayed, default true
+     * @param string $type     either master or slave
+     * @param bool   $isHidden if true, then default style is set to hidden,
+     *                         default value false
+     * @param bool   $hasTitle if true, then title is displayed, default true
      *
      * @return string HTML code
      */
@@ -473,7 +473,7 @@ class ReplicationGui
     /**
      * handle control requests for Slave Change Master
      *
-     * @return boolean
+     * @return bool
      */
     public function handleRequestForSlaveChangeMaster()
     {
@@ -547,7 +547,7 @@ class ReplicationGui
     /**
      * handle control requests for Slave Server Control
      *
-     * @return boolean
+     * @return bool
      */
     public function handleRequestForSlaveServerControl()
     {
@@ -578,7 +578,7 @@ class ReplicationGui
     /**
      * handle control requests for Slave Skip Error
      *
-     * @return boolean
+     * @return bool
      */
     public function handleRequestForSlaveSkipError()
     {

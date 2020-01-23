@@ -71,7 +71,7 @@ class Message
      * The message number
      *
      * @access protected
-     * @var    integer
+     * @var int
      */
     protected $number = self::NOTICE;
 
@@ -95,7 +95,7 @@ class Message
      * Whether the message was already displayed
      *
      * @access protected
-     * @var    boolean
+     * @var bool
      */
     protected $isDisplayed = false;
 
@@ -103,7 +103,7 @@ class Message
      * Whether to use BB code when displaying.
      *
      * @access protected
-     * @var    boolean
+     * @var bool
      */
     protected $useBBCode = true;
 
@@ -132,11 +132,11 @@ class Message
     protected $addedMessages = [];
 
     /**
-     * @param string  $string   The message to be displayed
-     * @param integer $number   A numeric representation of the type of message
-     * @param array   $params   An array of parameters to use in the message
-     * @param integer $sanitize A flag to indicate what to sanitize, see
-     *                          constant definitions above
+     * @param string $string   The message to be displayed
+     * @param int    $number   A numeric representation of the type of message
+     * @param array  $params   An array of parameters to use in the message
+     * @param int    $sanitize A flag to indicate what to sanitize, see
+     *                         constant definitions above
      */
     public function __construct(
         string $string = '',
@@ -225,8 +225,8 @@ class Message
      *
      * shorthand for getting a customized message
      *
-     * @param string  $message A localized string
-     * @param integer $type    A numeric representation of the type of message
+     * @param string $message A localized string
+     * @param int    $type    A numeric representation of the type of message
      *
      * @return Message
      *
@@ -245,7 +245,7 @@ class Message
      *
      * shorthand for getting a customized message
      *
-     * @param integer $rows Number of rows
+     * @param int $rows Number of rows
      *
      * @return Message
      *
@@ -265,7 +265,7 @@ class Message
      *
      * shorthand for getting a customized message
      *
-     * @param integer $rows Number of rows
+     * @param int $rows Number of rows
      *
      * @return Message
      *
@@ -285,7 +285,7 @@ class Message
      *
      * shorthand for getting a customized message
      *
-     * @param integer $rows Number of rows
+     * @param int $rows Number of rows
      *
      * @return Message
      *
@@ -352,9 +352,9 @@ class Message
      * returns whether this message is a success message or not
      * and optionally makes this message a success message
      *
-     * @param boolean $set Whether to make this message of SUCCESS type
+     * @param bool $set Whether to make this message of SUCCESS type
      *
-     * @return boolean whether this is a success message or not
+     * @return bool whether this is a success message or not
      */
     public function isSuccess(bool $set = false): bool
     {
@@ -369,9 +369,9 @@ class Message
      * returns whether this message is a notice message or not
      * and optionally makes this message a notice message
      *
-     * @param boolean $set Whether to make this message of NOTICE type
+     * @param bool $set Whether to make this message of NOTICE type
      *
-     * @return boolean whether this is a notice message or not
+     * @return bool whether this is a notice message or not
      */
     public function isNotice(bool $set = false): bool
     {
@@ -386,9 +386,9 @@ class Message
      * returns whether this message is an error message or not
      * and optionally makes this message an error message
      *
-     * @param boolean $set Whether to make this message of ERROR type
+     * @param bool $set Whether to make this message of ERROR type
      *
-     * @return boolean Whether this is an error message or not
+     * @return bool Whether this is an error message or not
      */
     public function isError(bool $set = false): bool
     {
@@ -402,7 +402,7 @@ class Message
     /**
      * Set whether we should use BB Code when rendering.
      *
-     * @param boolean $useBBCode Use BB Code?
+     * @param bool $useBBCode Use BB Code?
      *
      * @return void
      */
@@ -414,8 +414,8 @@ class Message
     /**
      * set raw message (overrides string)
      *
-     * @param string  $message  A localized string
-     * @param boolean $sanitize Whether to sanitize $message or not
+     * @param string $message  A localized string
+     * @param bool   $sanitize Whether to sanitize $message or not
      *
      * @return void
      */
@@ -430,8 +430,8 @@ class Message
     /**
      * set string (does not take effect if raw message is set)
      *
-     * @param string      $string   string to set
-     * @param boolean|int $sanitize whether to sanitize $string or not
+     * @param string   $string   string to set
+     * @param bool|int $sanitize whether to sanitize $string or not
      *
      * @return void
      */
@@ -446,7 +446,7 @@ class Message
     /**
      * set message type number
      *
-     * @param integer $number message type number to set
+     * @param int $number message type number to set
      *
      * @return void
      */
@@ -747,7 +747,7 @@ class Message
     /**
      * returns Message::$number
      *
-     * @return integer Message::$number
+     * @return int Message::$number
      */
     public function getNumber(): int
     {
@@ -801,9 +801,9 @@ class Message
     /**
      * sets and returns whether the message was displayed or not
      *
-     * @param boolean $isDisplayed whether to set displayed flag
+     * @param bool $isDisplayed whether to set displayed flag
      *
-     * @return boolean Message::$isDisplayed
+     * @return bool Message::$isDisplayed
      */
     public function isDisplayed(bool $isDisplayed = false): bool
     {

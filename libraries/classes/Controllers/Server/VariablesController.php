@@ -219,8 +219,8 @@ class VariablesController extends AbstractController
     /**
      * Format Variable
      *
-     * @param string  $name  variable name
-     * @param integer $value variable value
+     * @param string $name  variable name
+     * @param int    $value variable value
      *
      * @return array formatted string and bool if string is HTML formatted
      */

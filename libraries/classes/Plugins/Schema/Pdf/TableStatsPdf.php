@@ -37,17 +37,17 @@ class TableStatsPdf extends TableStats
      * @see PMA_Schema_PDF, Table_Stats_Pdf::Table_Stats_setWidth,
      *     PhpMyAdmin\Plugins\Schema\Pdf\TableStatsPdf::Table_Stats_setHeight
      *
-     * @param object  $diagram        The PDF diagram
-     * @param string  $db             The database name
-     * @param string  $tableName      The table name
-     * @param integer $fontSize       The font size
-     * @param integer $pageNumber     The current page number (from the
-     *                                $cfg['Servers'][$i]['table_coords'] table)
-     * @param integer $sameWideWidth  The max. width among tables
-     * @param boolean $showKeys       Whether to display keys or not
-     * @param boolean $tableDimension Whether to display table position or not
-     * @param boolean $offline        Whether the coordinates are sent
-     *                                from the browser
+     * @param object $diagram        The PDF diagram
+     * @param string $db             The database name
+     * @param string $tableName      The table name
+     * @param int    $fontSize       The font size
+     * @param int    $pageNumber     The current page number (from the
+     *                               $cfg['Servers'][$i]['table_coords'] table)
+     * @param int    $sameWideWidth  The max. width among tables
+     * @param bool   $showKeys       Whether to display keys or not
+     * @param bool   $tableDimension Whether to display table position or not
+     * @param bool   $offline        Whether the coordinates are sent
+     *                               from the browser
      */
     public function __construct(
         $diagram,
@@ -117,7 +117,7 @@ class TableStatsPdf extends TableStats
      *
      * @see    PMA_Schema_PDF
      *
-     * @param integer $fontSize The font size
+     * @param int $fontSize The font size
      *
      * @return void
      *
@@ -157,9 +157,9 @@ class TableStatsPdf extends TableStats
      *
      * @see    PMA_Schema_PDF
      *
-     * @param integer         $fontSize The font size
-     * @param boolean         $withDoc  Whether to include links to documentation
-     * @param boolean|integer $setColor Whether to display color
+     * @param int      $fontSize The font size
+     * @param bool     $withDoc  Whether to include links to documentation
+     * @param bool|int $setColor Whether to display color
      *
      * @return void
      *

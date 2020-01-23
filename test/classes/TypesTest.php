@@ -146,9 +146,9 @@ class TypesTest extends PmaTestCase
     /**
      * Test for getting type operators
      *
-     * @param string  $type   Type of field
-     * @param boolean $null   Whether field can be NULL
-     * @param string  $output Expected output
+     * @param string $type   Type of field
+     * @param bool   $null   Whether field can be NULL
+     * @param string $output Expected output
      *
      * @return void
      *
@@ -214,10 +214,10 @@ class TypesTest extends PmaTestCase
     /**
      * Test for getTypeOperatorsHtml
      *
-     * @param string  $type             Type of field
-     * @param boolean $null             Whether field can be NULL
-     * @param string  $selectedOperator Option to be selected
-     * @param string  $output           Expected output
+     * @param string $type             Type of field
+     * @param bool   $null             Whether field can be NULL
+     * @param string $selectedOperator Option to be selected
+     * @param string $output           Expected output
      *
      * @return void
      *

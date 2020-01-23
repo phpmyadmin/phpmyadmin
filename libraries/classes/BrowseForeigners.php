@@ -52,13 +52,13 @@ class BrowseForeigners
     /**
      * Function to get html for one relational key
      *
-     * @param integer $horizontal_count   the current horizontal count
-     * @param string  $header             table header
-     * @param array   $keys               all the keys
-     * @param integer $indexByKeyname     index by keyname
-     * @param array   $descriptions       descriptions
-     * @param integer $indexByDescription index by description
-     * @param string  $current_value      current value on the edit form
+     * @param int    $horizontal_count   the current horizontal count
+     * @param string $header             table header
+     * @param array  $keys               all the keys
+     * @param int    $indexByKeyname     index by keyname
+     * @param array  $descriptions       descriptions
+     * @param int    $indexByDescription index by description
+     * @param string $current_value      current value on the edit form
      *
      * @return array the generated html
      */

@@ -61,7 +61,7 @@ class Theme
     public $img_path = '';
 
     /**
-     * @var integer last modification time for info file
+     * @var int last modification time for info file
      * @access protected
      */
     public $mtime_info = 0;
@@ -70,7 +70,7 @@ class Theme
      * needed because sometimes, the mtime for different themes
      * is identical
      *
-     * @var integer filesize for info file
+     * @var int filesize for info file
      * @access protected
      */
     public $filesize_info = 0;
@@ -103,7 +103,7 @@ class Theme
     /**
      * Loads theme information
      *
-     * @return boolean whether loading them info was successful or not
+     * @return bool whether loading them info was successful or not
      *
      * @access public
      */
@@ -273,7 +273,7 @@ class Theme
      *
      * @param string $version version to compare to
      *
-     * @return boolean true if theme version is equal or higher to $version
+     * @return bool true if theme version is equal or higher to $version
      *
      * @access public
      */

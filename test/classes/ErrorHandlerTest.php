@@ -93,14 +93,14 @@ class ErrorHandlerTest extends PmaTestCase
     /**
      * Test for getDispErrors when PHP errors are not shown
      *
-     * @param integer $errno       error number
-     * @param string  $errstr      error string
-     * @param string  $errfile     error file
-     * @param integer $errline     error line
-     * @param string  $output_show expected output if showing of errors is
-     *                             enabled
-     * @param string  $output_hide expected output if showing of errors is
-     *                             disabled and 'sendErrorReports' is set to 'never'
+     * @param int    $errno       error number
+     * @param string $errstr      error string
+     * @param string $errfile     error file
+     * @param int    $errline     error line
+     * @param string $output_show expected output if showing of errors is
+     *                            enabled
+     * @param string $output_hide expected output if showing of errors is
+     *                            disabled and 'sendErrorReports' is set to 'never'
      *
      * @return void
      *
@@ -131,14 +131,14 @@ class ErrorHandlerTest extends PmaTestCase
     /**
      * Test for getDispErrors when PHP errors are shown
      *
-     * @param integer $errno       error number
-     * @param string  $errstr      error string
-     * @param string  $errfile     error file
-     * @param integer $errline     error line
-     * @param string  $output_show expected output if showing of errors is
-     *                             enabled
-     * @param string  $output_hide expected output if showing of errors is
-     *                             disabled
+     * @param int    $errno       error number
+     * @param string $errstr      error string
+     * @param string $errfile     error file
+     * @param int    $errline     error line
+     * @param string $output_show expected output if showing of errors is
+     *                            enabled
+     * @param string $output_hide expected output if showing of errors is
+     *                            disabled
      *
      * @return void
      *

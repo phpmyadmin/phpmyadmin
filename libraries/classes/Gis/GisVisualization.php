@@ -81,10 +81,10 @@ class GisVisualization
     /**
      * Factory
      *
-     * @param string  $sql_query SQL to fetch raw data for visualization
-     * @param array   $options   Users specified options
-     * @param integer $row       number of rows
-     * @param integer $pos       start position
+     * @param string $sql_query SQL to fetch raw data for visualization
+     * @param array  $options   Users specified options
+     * @param int    $row       number of rows
+     * @param int    $pos       start position
      *
      * @return GisVisualization
      *
@@ -130,8 +130,8 @@ class GisVisualization
      *
      * @param string     $sql_query SQL to fetch raw data for visualization
      * @param array      $options   Users specified options
-     * @param integer    $row       number of rows
-     * @param integer    $pos       start position
+     * @param int        $row       number of rows
+     * @param int        $pos       start position
      * @param array|null $data      raw data. If set, parameters other than $options
      *                              will be ignored
      *
@@ -163,9 +163,9 @@ class GisVisualization
     /**
      * Returns sql for fetching raw data
      *
-     * @param string  $sql_query The SQL to modify.
-     * @param integer $rows      Number of rows.
-     * @param integer $pos       Start position.
+     * @param string $sql_query The SQL to modify.
+     * @param int    $rows      Number of rows.
+     * @param int    $pos       Start position.
      *
      * @return string the modified sql query.
      */

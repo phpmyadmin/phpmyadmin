@@ -64,11 +64,11 @@ class Relation
     /**
      * Executes a query as controluser if possible, otherwise as normal user
      *
-     * @param string  $sql        the query to execute
-     * @param boolean $show_error whether to display SQL error messages or not
-     * @param int     $options    query options
+     * @param string $sql        the query to execute
+     * @param bool   $show_error whether to display SQL error messages or not
+     * @param int    $options    query options
      *
-     * @return resource|boolean the result set, or false if no result set
+     * @return resource|bool the result set, or false if no result set
      *
      * @access public
      */
@@ -433,10 +433,10 @@ class Relation
     /**
      * prints out one diagnostic message for a feature
      *
-     * @param string  $feature_name       feature name in a message string
-     * @param string  $relation_parameter the $GLOBALS['cfgRelation'] parameter to check
-     * @param array   $messages           utility messages
-     * @param boolean $skip_line          whether to skip a line after the message
+     * @param string $feature_name       feature name in a message string
+     * @param string $relation_parameter the $GLOBALS['cfgRelation'] parameter to check
+     * @param array  $messages           utility messages
+     * @param bool   $skip_line          whether to skip a line after the message
      *
      * @return string
      */
@@ -464,10 +464,10 @@ class Relation
     /**
      * prints out one diagnostic message for a configuration parameter
      *
-     * @param string  $parameter            config parameter name to display
-     * @param boolean $relationParameterSet whether this parameter is set
-     * @param array   $messages             utility messages
-     * @param string  $docAnchor            anchor in documentation
+     * @param string $parameter            config parameter name to display
+     * @param bool   $relationParameterSet whether this parameter is set
+     * @param array  $messages             utility messages
+     * @param string $docAnchor            anchor in documentation
      *
      * @return string
      */
@@ -770,7 +770,7 @@ class Relation
      *
      * @param string $tableDbName The table or table.db
      *
-     * @return boolean The table is accessible
+     * @return bool The table is accessible
      */
     public function canAccessStorageTable(string $tableDbName): bool
     {
@@ -1112,7 +1112,7 @@ class Relation
      * @param string $db      the name of the db
      * @param string $comment the value of the column
      *
-     * @return boolean  true, if comment-query was made.
+     * @return bool true, if comment-query was made.
      *
      * @access public
      */
@@ -1494,14 +1494,14 @@ class Relation
     /**
      * Gets foreign keys in preparation for a drop-down selector
      *
-     * @param array|boolean $foreigners     array of the foreign keys
-     * @param string        $field          the foreign field name
-     * @param bool          $override_total whether to override the total
-     * @param string        $foreign_filter a possible filter
-     * @param string        $foreign_limit  a possible LIMIT clause
-     * @param bool          $get_total      optional, whether to get total num of rows
-     *                                      in $foreignData['the_total;]
-     *                                      (has an effect of performance)
+     * @param array|bool $foreigners     array of the foreign keys
+     * @param string     $field          the foreign field name
+     * @param bool       $override_total whether to override the total
+     * @param string     $foreign_filter a possible filter
+     * @param string     $foreign_limit  a possible LIMIT clause
+     * @param bool       $get_total      optional, whether to get total num of rows
+     *                                   in $foreignData['the_total;]
+     *                                   (has an effect of performance)
      *
      * @return array    data about the foreign keys
      *
@@ -2077,8 +2077,8 @@ class Relation
     /**
      * Creates PMA tables in the given db, updates if already exists.
      *
-     * @param string  $db     database
-     * @param boolean $create whether to create tables if they don't exist.
+     * @param string $db     database
+     * @param bool   $create whether to create tables if they don't exist.
      *
      * @return void
      */
@@ -2162,8 +2162,8 @@ class Relation
     /**
      * Get Html for PMA tables fixing anchor.
      *
-     * @param boolean $allTables whether to create all tables
-     * @param boolean $createDb  whether to create the pmadb also
+     * @param bool $allTables whether to create all tables
+     * @param bool $createDb  whether to create the pmadb also
      *
      * @return string Html
      */
@@ -2213,9 +2213,9 @@ class Relation
     /**
      * Gets the relations info and status, depending on the condition
      *
-     * @param boolean $condition whether to look for foreigners or not
-     * @param string  $db        database name
-     * @param string  $table     table name
+     * @param bool   $condition whether to look for foreigners or not
+     * @param string $db        database name
+     * @param string $table     table name
      *
      * @return array ($res_rel, $have_rel)
      */
@@ -2244,7 +2244,7 @@ class Relation
     /**
      * Verifies if all the pmadb tables are defined
      *
-     * @return boolean
+     * @return bool
      */
     public function arePmadbTablesDefined()
     {

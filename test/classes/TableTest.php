@@ -398,9 +398,9 @@ class TableTest extends PmaTestCase
     /**
      * Test name validation
      *
-     * @param string  $name          name to test
-     * @param boolean $result        expected result
-     * @param boolean $is_backquoted is backquoted
+     * @param string $name          name to test
+     * @param bool   $result        expected result
+     * @param bool   $is_backquoted is backquoted
      *
      * @return void
      *

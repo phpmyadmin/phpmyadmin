@@ -33,7 +33,7 @@ class TwoFactorPlugin
     /** @var TwoFactor */
     protected $_twofactor;
 
-    /** @var boolean */
+    /** @var bool */
     protected $_provided;
 
     /** @var string */
@@ -78,7 +78,7 @@ class TwoFactorPlugin
     /**
      * Checks authentication, returns true on success
      *
-     * @return boolean
+     * @return bool
      */
     public function check()
     {
@@ -108,7 +108,7 @@ class TwoFactorPlugin
     /**
      * Performs backend configuration
      *
-     * @return boolean
+     * @return bool
      */
     public function configure()
     {
@@ -140,7 +140,7 @@ class TwoFactorPlugin
      *
      * Either hostname or hostname with scheme.
      *
-     * @param boolean $return_url Whether to generate URL
+     * @param bool $return_url Whether to generate URL
      *
      * @return string
      */

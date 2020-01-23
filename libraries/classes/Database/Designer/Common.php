@@ -324,7 +324,7 @@ class Common
      *
      * @param int $pg page id
      *
-     * @return boolean success/failure
+     * @return bool success/failure
      */
     public function deletePage($pg)
     {
@@ -486,7 +486,7 @@ class Common
      *
      * @param int $pg pdf page id
      *
-     * @return boolean success/failure
+     * @return bool success/failure
      */
     public function saveTablePositions($pg)
     {

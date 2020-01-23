@@ -223,7 +223,7 @@ abstract class GisGeometry
      *
      * @param string     $point_set  string of comma separated points
      * @param array|null $scale_data data related to scaling
-     * @param boolean    $linear     if true, as a 1D array, else as a 2D array
+     * @param bool       $linear     if true, as a 1D array, else as a 2D array
      *
      * @return array scaled points
      *

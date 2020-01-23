@@ -122,7 +122,7 @@ class ListDatabase extends ListAbstract
     /**
      * checks the only_db configuration
      *
-     * @return boolean false if there is no only_db, otherwise true
+     * @return bool false if there is no only_db, otherwise true
      */
     protected function checkOnlyDatabase()
     {

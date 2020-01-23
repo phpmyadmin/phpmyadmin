@@ -207,7 +207,7 @@ abstract class TestBase extends TestCase
     /**
      * Has TESTSUITE_SERVER, TESTSUITE_USER and TESTSUITE_DATABASE variables set
      *
-     * @return boolean
+     * @return bool
      */
     public function hasTestSuiteDatabaseServer(): bool
     {
@@ -374,7 +374,7 @@ abstract class TestBase extends TestCase
     /**
      * Checks whether user is a superuser.
      *
-     * @return boolean
+     * @return bool
      */
     protected function isSuperUser()
     {
@@ -535,7 +535,7 @@ abstract class TestBase extends TestCase
     /**
      * Returns true if the browser is safari
      *
-     * @return boolean
+     * @return bool
      */
     public function isSafari(): bool
     {
@@ -557,7 +557,7 @@ abstract class TestBase extends TestCase
     /**
      * Checks whether the login is successful
      *
-     * @return boolean
+     * @return bool
      */
     public function isSuccessLogin()
     {
@@ -567,7 +567,7 @@ abstract class TestBase extends TestCase
     /**
      * Checks whether the login is unsuccessful
      *
-     * @return boolean
+     * @return bool
      */
     public function isUnsuccessLogin()
     {
@@ -591,7 +591,7 @@ abstract class TestBase extends TestCase
      *
      * @param string $query SQL Query to be webDriver->executeScriptd
      *
-     * @return void|boolean|mysqli_result
+     * @return void|bool|mysqli_result
      *
      * @throws Exception
      */
@@ -603,7 +603,7 @@ abstract class TestBase extends TestCase
     /**
      * Check if user is logged in to phpmyadmin
      *
-     * @return boolean Where or not user is logged in
+     * @return bool Where or not user is logged in
      */
     public function isLoggedIn()
     {
@@ -643,9 +643,9 @@ abstract class TestBase extends TestCase
     /**
      * Wait for an element to be present on the page or timeout
      *
-     * @param string  $func    Locate using - cssSelector, xpath, tagName, partialLinkText, linkText, name, id, className
-     * @param string  $arg     Selector
-     * @param integer $timeout Timeout in seconds
+     * @param string $func    Locate using - cssSelector, xpath, tagName, partialLinkText, linkText, name, id, className
+     * @param string $arg     Selector
+     * @param int    $timeout Timeout in seconds
      *
      * @return WebDriverElement
      */
@@ -659,9 +659,9 @@ abstract class TestBase extends TestCase
     /**
      * Wait for an element to be visible on the page or timeout
      *
-     * @param string  $func    Locate using - cssSelector, xpath, tagName, partialLinkText, linkText, name, id, className
-     * @param string  $arg     Selector
-     * @param integer $timeout Timeout in seconds
+     * @param string $func    Locate using - cssSelector, xpath, tagName, partialLinkText, linkText, name, id, className
+     * @param string $arg     Selector
+     * @param int    $timeout Timeout in seconds
      *
      * @return WebDriverElement
      */

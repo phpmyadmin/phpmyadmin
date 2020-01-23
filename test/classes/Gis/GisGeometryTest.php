@@ -176,10 +176,10 @@ class GisGeometryTest extends TestCase
     /**
      * tests extractPoints method
      *
-     * @param string  $point_set  String of comma separated points
-     * @param array   $scale_data Data related to scaling
-     * @param boolean $linear     If true, as a 1D array, else as a 2D array
-     * @param array   $output     Expected output
+     * @param string $point_set  String of comma separated points
+     * @param array  $scale_data Data related to scaling
+     * @param bool   $linear     If true, as a 1D array, else as a 2D array
+     * @param array  $output     Expected output
      *
      * @return void
      *

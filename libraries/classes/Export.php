@@ -366,8 +366,8 @@ class Export
     /**
      * Open the export file
      *
-     * @param string  $filename     the export filename
-     * @param boolean $quick_export whether it's a quick export or not
+     * @param string $filename     the export filename
+     * @param bool   $quick_export whether it's a quick export or not
      *
      * @return array the full save filename, possible message and the file handle
      */
@@ -482,8 +482,8 @@ class Export
      * Saves the dump_buffer for a particular table in an array
      * Used in separate files export
      *
-     * @param string  $object_name the name of current object to be stored
-     * @param boolean $append      optional boolean to append to an existing index or not
+     * @param string $object_name the name of current object to be stored
+     * @param bool   $append      optional boolean to append to an existing index or not
      *
      * @return void
      */

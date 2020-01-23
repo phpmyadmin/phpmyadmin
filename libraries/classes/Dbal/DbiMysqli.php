@@ -204,7 +204,7 @@ class DbiMysqli implements DbiExtension
      * @param string $databaseName database name to select
      * @param mysqli $mysqli       the mysqli object
      *
-     * @return boolean
+     * @return bool
      */
     public function selectDb($databaseName, $mysqli)
     {
@@ -295,7 +295,7 @@ class DbiMysqli implements DbiExtension
      * Adjusts the result pointer to an arbitrary row in the result
      *
      * @param mysqli_result $result database result
-     * @param integer       $offset offset to seek
+     * @param int           $offset offset to seek
      *
      * @return bool true on success, false on failure
      */

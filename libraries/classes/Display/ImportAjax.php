@@ -74,8 +74,8 @@ class ImportAjax
     /**
      * Checks if APC bar extension is available and configured correctly.
      *
-     * @return boolean true if APC extension is available and if rfc1867 is enabled,
-     *                      false if it is not
+     * @return bool true if APC extension is available and if rfc1867 is enabled,
+     * false if it is not
      */
     public static function apcCheck()
     {
@@ -92,7 +92,7 @@ class ImportAjax
      * Checks if PhpMyAdmin\Plugins\Import\Upload\UploadProgress bar extension is
      * available.
      *
-     * @return boolean true if PhpMyAdmin\Plugins\Import\Upload\UploadProgress
+     * @return bool true if PhpMyAdmin\Plugins\Import\Upload\UploadProgress
      * extension is available, false if it is not
      */
     public static function progressCheck()
@@ -104,8 +104,8 @@ class ImportAjax
     /**
      * Checks if PHP 5.4 session upload-progress feature is available.
      *
-     * @return boolean true if PHP 5.4 session upload-progress is available,
-     *                 false if it is not
+     * @return bool true if PHP 5.4 session upload-progress is available,
+     * false if it is not
      */
     public static function sessionCheck()
     {
@@ -116,7 +116,7 @@ class ImportAjax
      * Default plugin for handling import.
      * If no other plugin is available, noplugin is used.
      *
-     * @return boolean true
+     * @return bool true
      */
     public static function nopluginCheck()
     {

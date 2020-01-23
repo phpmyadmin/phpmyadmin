@@ -201,8 +201,8 @@ class Privileges
      * Extracts the privilege information of a priv table row
      *
      * @param array|null $row        the row
-     * @param boolean    $enableHTML add <dfn> tag with tooltips
-     * @param boolean    $tablePrivs whether row contains table privileges
+     * @param bool       $enableHTML add <dfn> tag with tooltips
+     * @param bool       $tablePrivs whether row contains table privileges
      *
      * @return array
      *
@@ -635,9 +635,9 @@ class Privileges
     /**
      * Displays the privileges form table
      *
-     * @param string  $db     the database
-     * @param string  $table  the table
-     * @param boolean $submit whether to display the submit button or not
+     * @param string $db     the database
+     * @param string $table  the table
+     * @param bool   $submit whether to display the submit button or not
      *
      * @return string html snippet
      *
@@ -1670,7 +1670,7 @@ class Privileges
     /**
      * Returns number of defined user groups
      *
-     * @return integer
+     * @return int
      */
     public function getUserGroupCount()
     {
@@ -3186,7 +3186,7 @@ class Privileges
     /**
      * Get HTML snippet for display user properties
      *
-     * @param boolean      $dbname_is_wildcard whether database name is wildcard or not
+     * @param bool         $dbname_is_wildcard whether database name is wildcard or not
      * @param string       $url_dbname         url database name that urlencode() string
      * @param string       $username           username
      * @param string       $hostname           host name
@@ -3456,14 +3456,14 @@ class Privileges
      * Prepares queries for adding users and
      * also create database and return query and message
      *
-     * @param boolean $_error               whether user create or not
-     * @param string  $real_sql_query       SQL query for add a user
-     * @param string  $sql_query            SQL query to be displayed
-     * @param string  $username             username
-     * @param string  $hostname             host name
-     * @param string  $dbname               database name
-     * @param string  $alter_real_sql_query SQL query for ALTER USER
-     * @param string  $alter_sql_query      SQL query for ALTER USER to be displayed
+     * @param bool   $_error               whether user create or not
+     * @param string $real_sql_query       SQL query for add a user
+     * @param string $sql_query            SQL query to be displayed
+     * @param string $username             username
+     * @param string $hostname             host name
+     * @param string $dbname               database name
+     * @param string $alter_real_sql_query SQL query for ALTER USER
+     * @param string $alter_sql_query      SQL query for ALTER USER to be displayed
      *
      * @return array, $message
      */
@@ -3579,7 +3579,7 @@ class Privileges
      * Check if MariaDB's 'simple_password_check'
      * OR 'cracklib_password_check' is ACTIVE
      *
-     * @return boolean if atleast one of the plugins is ACTIVE
+     * @return bool if atleast one of the plugins is ACTIVE
      */
     public function checkIfMariaDBPwdCheckPluginActive()
     {

@@ -49,7 +49,7 @@ class HttpRequestTest extends PmaTestCase
     /**
      * Skip test if CURL extension is not installed
      *
-     * @param boolean $ssl_flags Whether to check support for SSL flags
+     * @param bool $ssl_flags Whether to check support for SSL flags
      *
      * @return void
      */

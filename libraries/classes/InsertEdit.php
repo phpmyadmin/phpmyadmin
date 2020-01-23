@@ -199,7 +199,7 @@ class InsertEdit
      * @param string $local_query        query performed
      * @param array  $result             MySQL result handle
      *
-     * @return boolean
+     * @return bool
      */
     private function showEmptyResultMessageOrSetUniqueCondition(
         array $rows,
@@ -292,9 +292,9 @@ class InsertEdit
     /**
      * Show type information or function selectors in Insert/Edit
      *
-     * @param string  $which      function|type
-     * @param array   $url_params containing url parameters
-     * @param boolean $is_show    whether to show the element in $which
+     * @param string $which      function|type
+     * @param array  $url_params containing url parameters
+     * @param bool   $is_show    whether to show the element in $which
      *
      * @return string an HTML snippet
      */
@@ -353,9 +353,9 @@ class InsertEdit
      /**
       * Analyze the table column array
       *
-      * @param array   $column         description of column in given table
-      * @param array   $comments_map   comments for every column that has a comment
-      * @param boolean $timestamp_seen whether a timestamp has been seen
+      * @param array $column         description of column in given table
+      * @param array $comments_map   comments for every column that has a comment
+      * @param bool  $timestamp_seen whether a timestamp has been seen
       *
       * @return array                   description of column in given table
       */
@@ -427,7 +427,7 @@ class InsertEdit
       * @param array $column description of column in given table
       * @param array $types  the types to verify
       *
-      * @return boolean whether the column's type if one of the $types
+      * @return bool whether the column's type if one of the $types
       */
     public function isColumn(array $column, array $types)
     {
@@ -442,8 +442,8 @@ class InsertEdit
     /**
      * Retrieve set, enum, timestamp table columns
      *
-     * @param array   $column         description of column in given table
-     * @param boolean $timestamp_seen whether a timestamp has been seen
+     * @param array $column         description of column in given table
+     * @param bool  $timestamp_seen whether a timestamp has been seen
      *
      * @return array $column['pma_type'], $column['wrap'], $column['first_timestamp']
      */
@@ -485,18 +485,18 @@ class InsertEdit
      * Note: from the MySQL manual: "BINARY doesn't affect how the column is
      *       stored or retrieved" so it does not mean that the contents is binary
      *
-     * @param array   $column                description of column in given table
-     * @param boolean $is_upload             upload or no
-     * @param string  $column_name_appendix  the name attribute
-     * @param string  $onChangeClause        onchange clause for fields
-     * @param array   $no_support_types      list of datatypes that are not (yet)
-     *                                       handled by PMA
-     * @param integer $tabindex_for_function +3000
-     * @param integer $tabindex              tab index
-     * @param integer $idindex               id index
-     * @param boolean $insert_mode           insert mode or edit mode
-     * @param boolean $readOnly              is column read only or not
-     * @param array   $foreignData           foreign key data
+     * @param array  $column                description of column in given table
+     * @param bool   $is_upload             upload or no
+     * @param string $column_name_appendix  the name attribute
+     * @param string $onChangeClause        onchange clause for fields
+     * @param array  $no_support_types      list of datatypes that are not (yet)
+     *                                      handled by PMA
+     * @param int    $tabindex_for_function +3000
+     * @param int    $tabindex              tab index
+     * @param int    $idindex               id index
+     * @param bool   $insert_mode           insert mode or edit mode
+     * @param bool   $readOnly              is column read only or not
+     * @param array  $foreignData           foreign key data
      *
      * @return string                           an html snippet
      */
@@ -550,16 +550,16 @@ class InsertEdit
     /**
      * The null column
      *
-     * @param array   $column               description of column in given table
-     * @param string  $column_name_appendix the name attribute
-     * @param boolean $real_null_value      is column value null or not null
-     * @param integer $tabindex             tab index
-     * @param integer $tabindex_for_null    +6000
-     * @param integer $idindex              id index
-     * @param string  $vkey                 [multi_edit]['row_id']
-     * @param array   $foreigners           keys into foreign fields
-     * @param array   $foreignData          data about the foreign keys
-     * @param boolean $readOnly             is column read only or not
+     * @param array  $column               description of column in given table
+     * @param string $column_name_appendix the name attribute
+     * @param bool   $real_null_value      is column value null or not null
+     * @param int    $tabindex             tab index
+     * @param int    $tabindex_for_null    +6000
+     * @param int    $idindex              id index
+     * @param string $vkey                 [multi_edit]['row_id']
+     * @param array  $foreigners           keys into foreign fields
+     * @param array  $foreignData          data about the foreign keys
+     * @param bool   $readOnly             is column read only or not
      *
      * @return string                       an html snippet
      */
@@ -658,36 +658,36 @@ class InsertEdit
      * Get the HTML elements for value column in insert form
      * (here, "column" is used in the sense of HTML column in HTML table)
      *
-     * @param array   $column                description of column in given table
-     * @param string  $backup_field          hidden input field
-     * @param string  $column_name_appendix  the name attribute
-     * @param string  $onChangeClause        onchange clause for fields
-     * @param integer $tabindex              tab index
-     * @param integer $tabindex_for_value    offset for the values tabindex
-     * @param integer $idindex               id index
-     * @param string  $data                  description of the column field
-     * @param string  $special_chars         special characters
-     * @param array   $foreignData           data about the foreign keys
-     * @param array   $paramTableDbArray     array containing $table and $db
-     * @param integer $rownumber             the row number
-     * @param array   $titles                An HTML IMG tag for a particular icon from
-     *                                       a theme, which may be an actual file or
-     *                                       an icon from a sprite
-     * @param string  $text_dir              text direction
-     * @param string  $special_chars_encoded replaced char if the string starts
-     *                                       with a \r\n pair (0x0d0a) add an extra \n
-     * @param string  $vkey                  [multi_edit]['row_id']
-     * @param boolean $is_upload             is upload or not
-     * @param integer $biggest_max_file_size 0 integer
-     * @param string  $default_char_editing  default char editing mode which is stored
-     *                                       in the config.inc.php script
-     * @param array   $no_support_types      list of datatypes that are not (yet)
-     *                                       handled by PMA
-     * @param array   $gis_data_types        list of GIS data types
-     * @param array   $extracted_columnspec  associative array containing type,
-     *                                       spec_in_brackets and possibly
-     *                                       enum_set_values (another array)
-     * @param boolean $readOnly              is column read only or not
+     * @param array  $column                description of column in given table
+     * @param string $backup_field          hidden input field
+     * @param string $column_name_appendix  the name attribute
+     * @param string $onChangeClause        onchange clause for fields
+     * @param int    $tabindex              tab index
+     * @param int    $tabindex_for_value    offset for the values tabindex
+     * @param int    $idindex               id index
+     * @param string $data                  description of the column field
+     * @param string $special_chars         special characters
+     * @param array  $foreignData           data about the foreign keys
+     * @param array  $paramTableDbArray     array containing $table and $db
+     * @param int    $rownumber             the row number
+     * @param array  $titles                An HTML IMG tag for a particular icon from
+     *                                      a theme, which may be an actual file or
+     *                                      an icon from a sprite
+     * @param string $text_dir              text direction
+     * @param string $special_chars_encoded replaced char if the string starts
+     *                                      with a \r\n pair (0x0d0a) add an extra \n
+     * @param string $vkey                  [multi_edit]['row_id']
+     * @param bool   $is_upload             is upload or not
+     * @param int    $biggest_max_file_size 0 integer
+     * @param string $default_char_editing  default char editing mode which is stored
+     *                                      in the config.inc.php script
+     * @param array  $no_support_types      list of datatypes that are not (yet)
+     *                                      handled by PMA
+     * @param array  $gis_data_types        list of GIS data types
+     * @param array  $extracted_columnspec  associative array containing type,
+     *                                      spec_in_brackets and possibly
+     *                                      enum_set_values (another array)
+     * @param bool   $readOnly              is column read only or not
      *
      * @return string an html snippet
      */
@@ -858,20 +858,20 @@ class InsertEdit
     /**
      * Get HTML for foreign link in insert form
      *
-     * @param array   $column               description of column in given table
-     * @param string  $backup_field         hidden input field
-     * @param string  $column_name_appendix the name attribute
-     * @param string  $onChangeClause       onchange clause for fields
-     * @param integer $tabindex             tab index
-     * @param integer $tabindex_for_value   offset for the values tabindex
-     * @param integer $idindex              id index
-     * @param string  $data                 data to edit
-     * @param array   $paramTableDbArray    array containing $table and $db
-     * @param integer $rownumber            the row number
-     * @param array   $titles               An HTML IMG tag for a particular icon from
-     *                                      a theme, which may be an actual file or
-     *                                      an icon from a sprite
-     * @param boolean $readOnly             is column read only or not
+     * @param array  $column               description of column in given table
+     * @param string $backup_field         hidden input field
+     * @param string $column_name_appendix the name attribute
+     * @param string $onChangeClause       onchange clause for fields
+     * @param int    $tabindex             tab index
+     * @param int    $tabindex_for_value   offset for the values tabindex
+     * @param int    $idindex              id index
+     * @param string $data                 data to edit
+     * @param array  $paramTableDbArray    array containing $table and $db
+     * @param int    $rownumber            the row number
+     * @param array  $titles               An HTML IMG tag for a particular icon from
+     *                                     a theme, which may be an actual file or
+     *                                     an icon from a sprite
+     * @param bool   $readOnly             is column read only or not
      *
      * @return string                       an html snippet
      */
@@ -924,16 +924,16 @@ class InsertEdit
     /**
      * Get HTML to display foreign data
      *
-     * @param array   $column               description of column in given table
-     * @param string  $backup_field         hidden input field
-     * @param string  $column_name_appendix the name attribute
-     * @param string  $onChangeClause       onchange clause for fields
-     * @param integer $tabindex             tab index
-     * @param integer $tabindex_for_value   offset for the values tabindex
-     * @param integer $idindex              id index
-     * @param string  $data                 data to edit
-     * @param array   $foreignData          data about the foreign keys
-     * @param boolean $readOnly             is display read only or not
+     * @param array  $column               description of column in given table
+     * @param string $backup_field         hidden input field
+     * @param string $column_name_appendix the name attribute
+     * @param string $onChangeClause       onchange clause for fields
+     * @param int    $tabindex             tab index
+     * @param int    $tabindex_for_value   offset for the values tabindex
+     * @param int    $idindex              id index
+     * @param string $data                 data to edit
+     * @param array  $foreignData          data about the foreign keys
+     * @param bool   $readOnly             is display read only or not
      *
      * @return string                       an html snippet
      */
@@ -986,18 +986,18 @@ class InsertEdit
     /**
      * Get HTML textarea for insert form
      *
-     * @param array   $column                column information
-     * @param string  $backup_field          hidden input field
-     * @param string  $column_name_appendix  the name attribute
-     * @param string  $onChangeClause        onchange clause for fields
-     * @param integer $tabindex              tab index
-     * @param integer $tabindex_for_value    offset for the values tabindex
-     * @param integer $idindex               id index
-     * @param string  $text_dir              text direction
-     * @param string  $special_chars_encoded replaced char if the string starts
-     *                                       with a \r\n pair (0x0d0a) add an extra \n
-     * @param string  $data_type             the html5 data-* attribute type
-     * @param boolean $readOnly              is column read only or not
+     * @param array  $column                column information
+     * @param string $backup_field          hidden input field
+     * @param string $column_name_appendix  the name attribute
+     * @param string $onChangeClause        onchange clause for fields
+     * @param int    $tabindex              tab index
+     * @param int    $tabindex_for_value    offset for the values tabindex
+     * @param int    $idindex               id index
+     * @param string $text_dir              text direction
+     * @param string $special_chars_encoded replaced char if the string starts
+     *                                      with a \r\n pair (0x0d0a) add an extra \n
+     * @param string $data_type             the html5 data-* attribute type
+     * @param bool   $readOnly              is column read only or not
      *
      * @return string                       an html snippet
      */
@@ -1057,18 +1057,18 @@ class InsertEdit
     /**
      * Get HTML for enum type
      *
-     * @param array   $column               description of column in given table
-     * @param string  $backup_field         hidden input field
-     * @param string  $column_name_appendix the name attribute
-     * @param array   $extracted_columnspec associative array containing type,
-     *                                      spec_in_brackets and possibly
-     *                                      enum_set_values (another array)
-     * @param string  $onChangeClause       onchange clause for fields
-     * @param integer $tabindex             tab index
-     * @param integer $tabindex_for_value   offset for the values tabindex
-     * @param integer $idindex              id index
-     * @param mixed   $data                 data to edit
-     * @param boolean $readOnly             is column read only or not
+     * @param array  $column               description of column in given table
+     * @param string $backup_field         hidden input field
+     * @param string $column_name_appendix the name attribute
+     * @param array  $extracted_columnspec associative array containing type,
+     *                                     spec_in_brackets and possibly
+     *                                     enum_set_values (another array)
+     * @param string $onChangeClause       onchange clause for fields
+     * @param int    $tabindex             tab index
+     * @param int    $tabindex_for_value   offset for the values tabindex
+     * @param int    $idindex              id index
+     * @param mixed  $data                 data to edit
+     * @param bool   $readOnly             is column read only or not
      *
      * @return string an html snippet
      */
@@ -1148,15 +1148,15 @@ class InsertEdit
     /**
      * Get HTML drop down for more than 20 string length
      *
-     * @param array   $column               description of column in given table
-     * @param string  $column_name_appendix the name attribute
-     * @param string  $onChangeClause       onchange clause for fields
-     * @param integer $tabindex             tab index
-     * @param integer $tabindex_for_value   offset for the values tabindex
-     * @param integer $idindex              id index
-     * @param string  $data                 data to edit
-     * @param array   $column_enum_values   $column['values']
-     * @param boolean $readOnly             is column read only or not
+     * @param array  $column               description of column in given table
+     * @param string $column_name_appendix the name attribute
+     * @param string $onChangeClause       onchange clause for fields
+     * @param int    $tabindex             tab index
+     * @param int    $tabindex_for_value   offset for the values tabindex
+     * @param int    $idindex              id index
+     * @param string $data                 data to edit
+     * @param array  $column_enum_values   $column['values']
+     * @param bool   $readOnly             is column read only or not
      *
      * @return string                       an html snippet
      */
@@ -1206,15 +1206,15 @@ class InsertEdit
     /**
      * Get HTML radio button for less than 20 string length
      *
-     * @param string  $column_name_appendix the name attribute
-     * @param string  $onChangeClause       onchange clause for fields
-     * @param integer $tabindex             tab index
-     * @param array   $column               description of column in given table
-     * @param integer $tabindex_for_value   offset for the values tabindex
-     * @param integer $idindex              id index
-     * @param string  $data                 data to edit
-     * @param array   $column_enum_values   $column['values']
-     * @param boolean $readOnly             is column read only or not
+     * @param string $column_name_appendix the name attribute
+     * @param string $onChangeClause       onchange clause for fields
+     * @param int    $tabindex             tab index
+     * @param array  $column               description of column in given table
+     * @param int    $tabindex_for_value   offset for the values tabindex
+     * @param int    $idindex              id index
+     * @param string $data                 data to edit
+     * @param array  $column_enum_values   $column['values']
+     * @param bool   $readOnly             is column read only or not
      *
      * @return string                       an html snippet
      */
@@ -1259,18 +1259,18 @@ class InsertEdit
     /**
      * Get the HTML for 'set' pma type
      *
-     * @param array   $column               description of column in given table
-     * @param array   $extracted_columnspec associative array containing type,
-     *                                      spec_in_brackets and possibly
-     *                                      enum_set_values (another array)
-     * @param string  $backup_field         hidden input field
-     * @param string  $column_name_appendix the name attribute
-     * @param string  $onChangeClause       onchange clause for fields
-     * @param integer $tabindex             tab index
-     * @param integer $tabindex_for_value   offset for the values tabindex
-     * @param integer $idindex              id index
-     * @param string  $data                 description of the column field
-     * @param boolean $readOnly             is column read only or not
+     * @param array  $column               description of column in given table
+     * @param array  $extracted_columnspec associative array containing type,
+     *                                     spec_in_brackets and possibly
+     *                                     enum_set_values (another array)
+     * @param string $backup_field         hidden input field
+     * @param string $column_name_appendix the name attribute
+     * @param string $onChangeClause       onchange clause for fields
+     * @param int    $tabindex             tab index
+     * @param int    $tabindex_for_value   offset for the values tabindex
+     * @param int    $idindex              id index
+     * @param string $data                 description of the column field
+     * @param bool   $readOnly             is column read only or not
      *
      * @return string                       an html snippet
      */
@@ -1358,20 +1358,20 @@ class InsertEdit
      * @param array       $column                description of column in given table
      * @param string|null $data                  data to edit
      * @param string      $special_chars         special characters
-     * @param integer     $biggest_max_file_size biggest max file size for uploading
+     * @param int         $biggest_max_file_size biggest max file size for uploading
      * @param string      $backup_field          hidden input field
      * @param string      $column_name_appendix  the name attribute
      * @param string      $onChangeClause        onchange clause for fields
-     * @param integer     $tabindex              tab index
-     * @param integer     $tabindex_for_value    offset for the values tabindex
-     * @param integer     $idindex               id index
+     * @param int         $tabindex              tab index
+     * @param int         $tabindex_for_value    offset for the values tabindex
+     * @param int         $idindex               id index
      * @param string      $text_dir              text direction
      * @param string      $special_chars_encoded replaced char if the string starts
      *                                           with a \r\n pair (0x0d0a) add an
      *                                           extra \n
      * @param string      $vkey                  [multi_edit]['row_id']
-     * @param boolean     $is_upload             is upload or not
-     * @param boolean     $readOnly              is column read only or not
+     * @param bool        $is_upload             is upload or not
+     * @param bool        $readOnly              is column read only or not
      *
      * @return string                           an html snippet
      */
@@ -1477,16 +1477,16 @@ class InsertEdit
     /**
      * Get HTML input type
      *
-     * @param array   $column               description of column in given table
-     * @param string  $column_name_appendix the name attribute
-     * @param string  $special_chars        special characters
-     * @param integer $fieldsize            html field size
-     * @param string  $onChangeClause       onchange clause for fields
-     * @param integer $tabindex             tab index
-     * @param integer $tabindex_for_value   offset for the values tabindex
-     * @param integer $idindex              id index
-     * @param string  $data_type            the html5 data-* attribute type
-     * @param boolean $readOnly             is column read only or not
+     * @param array  $column               description of column in given table
+     * @param string $column_name_appendix the name attribute
+     * @param string $special_chars        special characters
+     * @param int    $fieldsize            html field size
+     * @param string $onChangeClause       onchange clause for fields
+     * @param int    $tabindex             tab index
+     * @param int    $tabindex_for_value   offset for the values tabindex
+     * @param int    $idindex              id index
+     * @param string $data_type            the html5 data-* attribute type
+     * @param bool   $readOnly             is column read only or not
      *
      * @return string                       an html snippet
      */
@@ -1582,8 +1582,8 @@ class InsertEdit
     /**
      * Retrieve the maximum upload file size
      *
-     * @param array   $column                description of column in given table
-     * @param integer $biggest_max_file_size biggest max file size for uploading
+     * @param array $column                description of column in given table
+     * @param int   $biggest_max_file_size biggest max file size for uploading
      *
      * @return array an html snippet and $biggest_max_file_size
      */
@@ -1625,24 +1625,24 @@ class InsertEdit
      * Get HTML for the Value column of other datatypes
      * (here, "column" is used in the sense of HTML column in HTML table)
      *
-     * @param array   $column                description of column in given table
-     * @param string  $default_char_editing  default char editing mode which is stored
-     *                                       in the config.inc.php script
-     * @param string  $backup_field          hidden input field
-     * @param string  $column_name_appendix  the name attribute
-     * @param string  $onChangeClause        onchange clause for fields
-     * @param integer $tabindex              tab index
-     * @param string  $special_chars         special characters
-     * @param integer $tabindex_for_value    offset for the values tabindex
-     * @param integer $idindex               id index
-     * @param string  $text_dir              text direction
-     * @param string  $special_chars_encoded replaced char if the string starts
-     *                                       with a \r\n pair (0x0d0a) add an extra \n
-     * @param string  $data                  data to edit
-     * @param array   $extracted_columnspec  associative array containing type,
-     *                                       spec_in_brackets and possibly
-     *                                       enum_set_values (another array)
-     * @param boolean $readOnly              is column read only or not
+     * @param array  $column                description of column in given table
+     * @param string $default_char_editing  default char editing mode which is stored
+     *                                      in the config.inc.php script
+     * @param string $backup_field          hidden input field
+     * @param string $column_name_appendix  the name attribute
+     * @param string $onChangeClause        onchange clause for fields
+     * @param int    $tabindex              tab index
+     * @param string $special_chars         special characters
+     * @param int    $tabindex_for_value    offset for the values tabindex
+     * @param int    $idindex               id index
+     * @param string $text_dir              text direction
+     * @param string $special_chars_encoded replaced char if the string starts
+     *                                      with a \r\n pair (0x0d0a) add an extra \n
+     * @param string $data                  data to edit
+     * @param array  $extracted_columnspec  associative array containing type,
+     *                                      spec_in_brackets and possibly
+     *                                      enum_set_values (another array)
+     * @param bool   $readOnly              is column read only or not
      *
      * @return string an html snippet
      */
@@ -1731,7 +1731,7 @@ class InsertEdit
      *                                    spec_in_brackets and possibly enum_set_values
      *                                    (another array)
      *
-     * @return integer      field size
+     * @return int field size
      */
     private function getColumnSize(array $column, array $extracted_columnspec)
     {
@@ -1809,9 +1809,9 @@ class InsertEdit
      *
      * @param array|null $where_clause       where clause
      * @param string     $after_insert       insert mode, e.g. new_insert, same_insert
-     * @param integer    $tabindex           tab index
-     * @param integer    $tabindex_for_value offset for the values tabindex
-     * @param boolean    $found_unique_key   boolean variable for unique key
+     * @param int        $tabindex           tab index
+     * @param int        $tabindex_for_value offset for the values tabindex
+     * @param bool       $found_unique_key   boolean variable for unique key
      *
      * @return string an html snippet
      */
@@ -1854,8 +1854,8 @@ class InsertEdit
      * Get a HTML drop down for submit types
      *
      * @param array|null $where_clause       where clause
-     * @param integer    $tabindex           tab index
-     * @param integer    $tabindex_for_value offset for the values tabindex
+     * @param int        $tabindex           tab index
+     * @param int        $tabindex_for_value offset for the values tabindex
      *
      * @return string                       an html snippet
      */
@@ -1887,7 +1887,7 @@ class InsertEdit
      *
      * @param array|null $where_clause     where clause
      * @param string     $after_insert     insert mode, e.g. new_insert, same_insert
-     * @param boolean    $found_unique_key boolean variable for unique key
+     * @param bool       $found_unique_key boolean variable for unique key
      *
      * @return string                   an html snippet
      */
@@ -1937,8 +1937,8 @@ class InsertEdit
     /**
      * get Submit button and Reset button for action panel
      *
-     * @param integer $tabindex           tab index
-     * @param integer $tabindex_for_value offset for the values tabindex
+     * @param int $tabindex           tab index
+     * @param int $tabindex_for_value offset for the values tabindex
      *
      * @return string an html snippet
      */
@@ -2001,15 +2001,15 @@ class InsertEdit
     /**
      * Prepares the field value and retrieve special chars, backup field and data array
      *
-     * @param array   $current_row          a row of the table
-     * @param array   $column               description of column in given table
-     * @param array   $extracted_columnspec associative array containing type,
-     *                                      spec_in_brackets and possibly
-     *                                      enum_set_values (another array)
-     * @param boolean $real_null_value      whether column value null or not null
-     * @param array   $gis_data_types       list of GIS data types
-     * @param string  $column_name_appendix string to append to column name in input
-     * @param bool    $as_is                use the data as is, used in repopulating
+     * @param array  $current_row          a row of the table
+     * @param array  $column               description of column in given table
+     * @param array  $extracted_columnspec associative array containing type,
+     *                                     spec_in_brackets and possibly
+     *                                     enum_set_values (another array)
+     * @param bool   $real_null_value      whether column value null or not null
+     * @param array  $gis_data_types       list of GIS data types
+     * @param string $column_name_appendix string to append to column name in input
+     * @param bool   $as_is                use the data as is, used in repopulating
      *
      * @return array $real_null_value, $data, $special_chars, $backup_field,
      *               $special_chars_encoded
@@ -2110,8 +2110,8 @@ class InsertEdit
     /**
      * display default values
      *
-     * @param array   $column          description of column in given table
-     * @param boolean $real_null_value whether column value null or not null
+     * @param array $column          description of column in given table
+     * @param bool  $real_null_value whether column value null or not null
      *
      * @return array $real_null_value, $data, $special_chars,
      *               $backup_field, $special_chars_encoded
@@ -2327,9 +2327,9 @@ class InsertEdit
     /**
      * Builds the sql query
      *
-     * @param boolean $is_insertignore $_POST['submit_type'] == 'insertignore'
-     * @param array   $query_fields    column names array
-     * @param array   $value_sets      array of query values
+     * @param bool  $is_insertignore $_POST['submit_type'] == 'insertignore'
+     * @param array $query_fields    column names array
+     * @param array $value_sets      array of query values
      *
      * @return array of query
      */
@@ -2656,20 +2656,20 @@ class InsertEdit
     /**
      * Get query values array and query fields array for insert and update in multi edit
      *
-     * @param array   $multi_edit_columns_name      multiple edit columns name array
-     * @param array   $multi_edit_columns_null      multiple edit columns null array
-     * @param string  $current_value                current value in the column in loop
-     * @param array   $multi_edit_columns_prev      multiple edit previous columns array
-     * @param array   $multi_edit_funcs             multiple edit functions array
-     * @param boolean $is_insert                    boolean value whether insert or not
-     * @param array   $query_values                 SET part of the sql query
-     * @param array   $query_fields                 array of query fields
-     * @param string  $current_value_as_an_array    current value in the column
-     *                                              as an array
-     * @param array   $value_sets                   array of valu sets
-     * @param string  $key                          an md5 of the column name
-     * @param array   $multi_edit_columns_null_prev array of multiple edit columns
-     *                                              null previous
+     * @param array  $multi_edit_columns_name      multiple edit columns name array
+     * @param array  $multi_edit_columns_null      multiple edit columns null array
+     * @param string $current_value                current value in the column in loop
+     * @param array  $multi_edit_columns_prev      multiple edit previous columns array
+     * @param array  $multi_edit_funcs             multiple edit functions array
+     * @param bool   $is_insert                    boolean value whether insert or not
+     * @param array  $query_values                 SET part of the sql query
+     * @param array  $query_fields                 array of query fields
+     * @param string $current_value_as_an_array    current value in the column
+     *                                             as an array
+     * @param array  $value_sets                   array of valu sets
+     * @param string $key                          an md5 of the column name
+     * @param array  $multi_edit_columns_null_prev array of multiple edit columns
+     *                                             null previous
      *
      * @return array ($query_values, $query_fields)
      */
@@ -2740,12 +2740,12 @@ class InsertEdit
      * @param array|null   $multi_edit_columns_type      array of multi edit column types
      * @param string       $current_value                current column value in the form
      * @param array|null   $multi_edit_auto_increment    multi edit auto increment
-     * @param integer      $rownumber                    index of where clause array
+     * @param int          $rownumber                    index of where clause array
      * @param array        $multi_edit_columns_name      multi edit column names array
      * @param array        $multi_edit_columns_null      multi edit columns null array
      * @param array        $multi_edit_columns_null_prev multi edit columns previous null
-     * @param boolean      $is_insert                    whether insert or not
-     * @param boolean      $using_key                    whether editing or new row
+     * @param bool         $is_insert                    whether insert or not
+     * @param bool         $using_key                    whether editing or new row
      * @param string       $where_clause                 where clause
      * @param string       $table                        table name
      * @param array        $multi_edit_funcs             multiple edit functions array

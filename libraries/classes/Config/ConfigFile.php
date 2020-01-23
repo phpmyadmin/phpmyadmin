@@ -409,7 +409,7 @@ class ConfigFile
     /**
      * Returns DSN of given server
      *
-     * @param integer $server server index
+     * @param int $server server index
      *
      * @return string
      */

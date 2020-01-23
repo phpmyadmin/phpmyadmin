@@ -54,7 +54,7 @@ class Application extends TwoFactorPlugin
     /**
      * Checks authentication, returns true on success
      *
-     * @return boolean
+     * @return bool
      *
      * @throws IncompatibleWithGoogleAuthenticatorException
      * @throws InvalidCharactersException
@@ -106,7 +106,7 @@ class Application extends TwoFactorPlugin
     /**
      * Performs backend configuration
      *
-     * @return boolean
+     * @return bool
      *
      * @throws IncompatibleWithGoogleAuthenticatorException
      * @throws InvalidCharactersException

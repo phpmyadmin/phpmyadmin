@@ -310,8 +310,8 @@ class UserGroups
     /**
      * Add/update a user group with allowed menu tabs.
      *
-     * @param string  $userGroup user group name
-     * @param boolean $new       whether this is a new user group
+     * @param string $userGroup user group name
+     * @param bool   $new       whether this is a new user group
      *
      * @return void
      */

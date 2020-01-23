@@ -122,7 +122,7 @@ class Bookmark
     /**
      * Adds a bookmark
      *
-     * @return boolean whether the INSERT succeeds or not
+     * @return bool whether the INSERT succeeds or not
      *
      * @access public
      */
@@ -245,7 +245,7 @@ class Bookmark
      * @param string            $user       Current user
      * @param array             $bkm_fields the properties of the bookmark to add; here,
      *                                      $bkm_fields['bkm_sql_query'] is urlencoded
-     * @param boolean           $all_users  whether to make the bookmark
+     * @param bool              $all_users  whether to make the bookmark
      *                                      available for all users
      *
      * @return Bookmark|false
@@ -351,9 +351,9 @@ class Bookmark
      * @param string            $db                  the current database name
      * @param int|string        $id                  an identifier of the bookmark to get
      * @param string            $id_field            which field to look up the identifier
-     * @param boolean           $action_bookmark_all true: get all bookmarks regardless
+     * @param bool              $action_bookmark_all true: get all bookmarks regardless
      *                                               of the owning user
-     * @param boolean           $exact_user_match    whether to ignore bookmarks with no user
+     * @param bool              $exact_user_match    whether to ignore bookmarks with no user
      *
      * @return Bookmark|null the bookmark
      *

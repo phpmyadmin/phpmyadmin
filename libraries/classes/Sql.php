@@ -161,7 +161,7 @@ class Sql
      *
      * @param array $fields_meta meta fields
      *
-     * @return boolean whether the result set has columns from just one table
+     * @return bool whether the result set has columns from just one table
      */
     private function resultSetHasJustOneTable(array $fields_meta)
     {
@@ -189,7 +189,7 @@ class Sql
      * @param string $table       table name
      * @param array  $fields_meta meta fields
      *
-     * @return boolean whether the result set contains a unique key
+     * @return bool whether the result set contains a unique key
      */
     private function resultSetContainsUniqueKey($db, $table, array $fields_meta)
     {
@@ -488,7 +488,7 @@ class Sql
      * @param array $analyzed_sql_results the analyzed query and other variables set
      *                                    after analyzing the query
      *
-     * @return boolean
+     * @return bool
      */
     private function isRememberSortingOrder(array $analyzed_sql_results)
     {
@@ -511,7 +511,7 @@ class Sql
      * @param array $analyzed_sql_results the analyzed query and other variables set
      *                                    after analyzing the query
      *
-     * @return boolean
+     * @return bool
      */
     private function isAppendLimitClause(array $analyzed_sql_results)
     {
@@ -532,11 +532,11 @@ class Sql
     /**
      * Function to check whether this query is for just browsing
      *
-     * @param array        $analyzed_sql_results the analyzed query and other variables set
-     *                                           after analyzing the query
-     * @param boolean|null $find_real_end        whether the real end should be found
+     * @param array     $analyzed_sql_results the analyzed query and other variables set
+     *                                        after analyzing the query
+     * @param bool|null $find_real_end        whether the real end should be found
      *
-     * @return boolean
+     * @return bool
      */
     public function isJustBrowsing(array $analyzed_sql_results, ?bool $find_real_end): bool
     {
@@ -562,7 +562,7 @@ class Sql
      * @param array $analyzed_sql_results the analyzed query and other variables set
      *                                    after analyzing the query
      *
-     * @return boolean
+     * @return bool
      */
     private function isDeleteTransformationInfo(array $analyzed_sql_results)
     {
@@ -574,12 +574,12 @@ class Sql
     /**
      * Function to check whether the user has rights to drop the database
      *
-     * @param array   $analyzed_sql_results  the analyzed query and other variables set
-     *                                       after analyzing the query
-     * @param boolean $allowUserDropDatabase whether the user is allowed to drop db
-     * @param boolean $is_superuser          whether this user is a superuser
+     * @param array $analyzed_sql_results  the analyzed query and other variables set
+     *                                     after analyzing the query
+     * @param bool  $allowUserDropDatabase whether the user is allowed to drop db
+     * @param bool  $is_superuser          whether this user is a superuser
      *
-     * @return boolean
+     * @return bool
      */
     public function hasNoRightsToDropDatabase(
         array $analyzed_sql_results,
@@ -598,7 +598,7 @@ class Sql
      * @param Table  $pmatable      Table instance
      * @param string $request_index col_order|col_visib
      *
-     * @return boolean|Message
+     * @return bool|Message
      */
     public function setColumnProperty($pmatable, $request_index)
     {
@@ -742,9 +742,9 @@ class Sql
     /**
      * Responds an error when an error happens when executing the query
      *
-     * @param boolean $is_gotofile    whether goto file or not
-     * @param string  $error          error after executing the query
-     * @param string  $full_sql_query full sql query
+     * @param bool   $is_gotofile    whether goto file or not
+     * @param string $error          error after executing the query
+     * @param string $full_sql_query full sql query
      *
      * @return void
      */
@@ -764,11 +764,11 @@ class Sql
     /**
      * Function to store the query as a bookmark
      *
-     * @param string       $db                     the current database
-     * @param string       $bkm_user               the bookmarking user
-     * @param string       $sql_query_for_bookmark the query to be stored in bookmark
-     * @param string       $bkm_label              bookmark label
-     * @param boolean|null $bkm_replace            whether to replace existing bookmarks
+     * @param string    $db                     the current database
+     * @param string    $bkm_user               the bookmarking user
+     * @param string    $sql_query_for_bookmark the query to be stored in bookmark
+     * @param string    $bkm_label              bookmark label
+     * @param bool|null $bkm_replace            whether to replace existing bookmarks
      *
      * @return void
      */
@@ -843,8 +843,8 @@ class Sql
     /**
      * Function to get the affected or changed number of rows after executing a query
      *
-     * @param boolean $is_affected whether the query affected a table
-     * @param mixed   $result      results of executing the query
+     * @param bool  $is_affected whether the query affected a table
+     * @param mixed $result      results of executing the query
      *
      * @return int    number of rows affected or changed
      */
@@ -1006,14 +1006,14 @@ class Sql
     /**
      * Function to handle all aspects relating to executing the query
      *
-     * @param array        $analyzed_sql_results   analyzed sql results
-     * @param string       $full_sql_query         full sql query
-     * @param boolean      $is_gotofile            whether to go to a file
-     * @param string|null  $db                     current database
-     * @param string|null  $table                  current table
-     * @param boolean|null $find_real_end          whether to find the real end
-     * @param string       $sql_query_for_bookmark sql query to be stored as bookmark
-     * @param array        $extra_data             extra data
+     * @param array       $analyzed_sql_results   analyzed sql results
+     * @param string      $full_sql_query         full sql query
+     * @param bool        $is_gotofile            whether to go to a file
+     * @param string|null $db                     current database
+     * @param string|null $table                  current table
+     * @param bool|null   $find_real_end          whether to find the real end
+     * @param string      $sql_query_for_bookmark sql query to be stored as bookmark
+     * @param array       $extra_data             extra data
      *
      * @return mixed
      */
@@ -1581,10 +1581,10 @@ class Sql
     /**
      * To get the message if a column index is missing. If not will return null
      *
-     * @param string  $table        current table
-     * @param string  $database     current database
-     * @param boolean $editable     whether the results table can be editable or not
-     * @param boolean $hasUniqueKey whether there is a unique key
+     * @param string $table        current table
+     * @param string $database     current database
+     * @param bool   $editable     whether the results table can be editable or not
+     * @param bool   $hasUniqueKey whether there is a unique key
      *
      * @return string
      */

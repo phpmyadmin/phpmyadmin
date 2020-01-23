@@ -78,7 +78,7 @@ class Import
     /**
      * Checks whether timeout is getting close
      *
-     * @return boolean true if timeout is close
+     * @return bool true if timeout is close
      *
      * @access public
      */
@@ -1603,7 +1603,7 @@ class Import
      *
      * @param string $matched_row_query SQL query
      *
-     * @return integer Number of rows returned
+     * @return int Number of rows returned
      */
     public function executeMatchedRowQuery(string $matched_row_query): int
     {

@@ -70,12 +70,12 @@ class Pdf extends PdfLib
     /**
      * Constructs PDF for schema export.
      *
-     * @param string  $orientation page orientation
-     * @param string  $unit        unit
-     * @param string  $paper       the format used for pages
-     * @param int     $pageNumber  schema page number that is being exported
-     * @param boolean $withDoc     with document dictionary
-     * @param string  $db          the database name
+     * @param string $orientation page orientation
+     * @param string $unit        unit
+     * @param string $paper       the format used for pages
+     * @param int    $pageNumber  schema page number that is being exported
+     * @param bool   $withDoc     with document dictionary
+     * @param string $db          the database name
      *
      * @access public
      */
@@ -144,9 +144,9 @@ class Pdf extends PdfLib
      * @param float|int $h      The cell height
      * @param string    $txt    The text to output
      * @param mixed     $border Whether to add borders or not
-     * @param integer   $ln     Where to put the cursor once the output is done
+     * @param int       $ln     Where to put the cursor once the output is done
      * @param string    $align  Align mode
-     * @param integer   $fill   Whether to fill the cell with a color or not
+     * @param int       $fill   Whether to fill the cell with a color or not
      * @param string    $link   Link
      *
      * @return void

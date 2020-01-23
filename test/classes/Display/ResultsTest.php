@@ -110,10 +110,10 @@ class ResultsTest extends PmaTestCase
     /**
      * Test for navigation buttons
      *
-     * @param string  $caption        iconic caption for button
-     * @param string  $title          text for button
-     * @param integer $pos            position for next query
-     * @param string  $html_sql_query query ready for display
+     * @param string $caption        iconic caption for button
+     * @param string $title          text for button
+     * @param int    $pos            position for next query
+     * @param string $html_sql_query query ready for display
      *
      * @return void
      *
@@ -952,21 +952,21 @@ class ResultsTest extends PmaTestCase
     /**
      * Test for _getPlacedLinks
      *
-     * @param string  $dir               the direction of links should place
-     * @param string  $del_url           the url for delete row
-     * @param array   $displayParts      which elements to display
-     * @param integer $row_no            the index of current row
-     * @param string  $where_clause      the where clause of the sql
-     * @param string  $where_clause_html the html encoded where clause
-     * @param array   $condition_array   array of keys (primary, unique, condition)
-     * @param string  $edit_url          the url for edit row
-     * @param string  $copy_url          the url for copy row
-     * @param string  $edit_anchor_class the class for html element for edit
-     * @param string  $edit_str          the label for edit row
-     * @param string  $copy_str          the label for copy row
-     * @param string  $del_str           the label for delete row
-     * @param string  $js_conf           text for the JS confirmation
-     * @param string  $output            output of _getPlacedLinks
+     * @param string $dir               the direction of links should place
+     * @param string $del_url           the url for delete row
+     * @param array  $displayParts      which elements to display
+     * @param int    $row_no            the index of current row
+     * @param string $where_clause      the where clause of the sql
+     * @param string $where_clause_html the html encoded where clause
+     * @param array  $condition_array   array of keys (primary, unique, condition)
+     * @param string $edit_url          the url for edit row
+     * @param string $copy_url          the url for copy row
+     * @param string $edit_anchor_class the class for html element for edit
+     * @param string $edit_str          the label for edit row
+     * @param string $copy_str          the label for copy row
+     * @param string $del_str           the label for delete row
+     * @param string $js_conf           text for the JS confirmation
+     * @param string $output            output of _getPlacedLinks
      *
      * @return void
      *
@@ -1066,12 +1066,12 @@ class ResultsTest extends PmaTestCase
     /**
      * Test _getSpecialLinkUrl
      *
-     * @param string  $db           the database name
-     * @param string  $table        the table name
-     * @param string  $column_value column value
-     * @param array   $row_info     information about row
-     * @param string  $field_name   column name
-     * @param boolean $output       output of _getSpecialLinkUrl
+     * @param string $db           the database name
+     * @param string $table        the table name
+     * @param string $column_value column value
+     * @param array  $row_info     information about row
+     * @param string $field_name   column name
+     * @param bool   $output       output of _getSpecialLinkUrl
      *
      * @return void
      *
@@ -1195,11 +1195,11 @@ class ResultsTest extends PmaTestCase
     /**
      * Test _getRowInfoForSpecialLinks
      *
-     * @param array   $fields_meta  meta information about fields
-     * @param integer $fields_count number of fields
-     * @param array   $row          current row data
-     * @param array   $col_order    the column order
-     * @param boolean $output       output of _getRowInfoForSpecialLinks
+     * @param array $fields_meta  meta information about fields
+     * @param int   $fields_count number of fields
+     * @param array $row          current row data
+     * @param array $col_order    the column order
+     * @param bool  $output       output of _getRowInfoForSpecialLinks
      *
      * @return void
      *
@@ -1326,10 +1326,10 @@ class ResultsTest extends PmaTestCase
     /**
      * Test _getPartialText
      *
-     * @param string  $pftext     Partial or Full text
-     * @param integer $limitChars Partial or Full text
-     * @param string  $str        the string to be tested
-     * @param boolean $output     return value of _getPartialText
+     * @param string $pftext     Partial or Full text
+     * @param int    $limitChars Partial or Full text
+     * @param string $str        the string to be tested
+     * @param bool   $output     return value of _getPartialText
      *
      * @return void
      *
@@ -1466,20 +1466,20 @@ class ResultsTest extends PmaTestCase
     /**
      * Test _handleNonPrintableContents
      *
-     * @param boolean $display_binary        show binary contents?
-     * @param boolean $display_blob          show blob contents?
-     * @param string  $category              BLOB|BINARY|GEOMETRY
-     * @param string  $content               the binary content
-     * @param string  $transformation_plugin transformation plugin.
-     *                                       Can also be the default function:
-     *                                       PhpMyAdmin\Core::mimeDefaultFunction
-     * @param array   $transform_options     transformation parameters
-     * @param string  $default_function      default transformation function
-     * @param object  $meta                  the meta-information about the field
-     * @param array   $url_params            parameters that should go to the
-     *                                       download link
-     * @param boolean $is_truncated          the result is truncated or not
-     * @param string  $output                the output of this function
+     * @param bool   $display_binary        show binary contents?
+     * @param bool   $display_blob          show blob contents?
+     * @param string $category              BLOB|BINARY|GEOMETRY
+     * @param string $content               the binary content
+     * @param string $transformation_plugin transformation plugin.
+     *                                      Can also be the default function:
+     *                                      PhpMyAdmin\Core::mimeDefaultFunction
+     * @param array  $transform_options     transformation parameters
+     * @param string $default_function      default transformation function
+     * @param object $meta                  the meta-information about the field
+     * @param array  $url_params            parameters that should go to the
+     *                                      download link
+     * @param bool   $is_truncated          the result is truncated or not
+     * @param string $output                the output of this function
      *
      * @return void
      *
@@ -1657,23 +1657,23 @@ class ResultsTest extends PmaTestCase
     /**
      * Test _getDataCellForNonNumericColumns
      *
-     * @param boolean $protectBinary         all|blob|noblob|no
-     * @param string  $column                the relevant column in data row
-     * @param string  $class                 the html class for column
-     * @param object  $meta                  the meta-information about the field
-     * @param array   $map                   the list of relations
-     * @param array   $_url_params           the parameters for generate url
-     * @param boolean $condition_field       the column should highlighted
-     *                                       or not
-     * @param string  $transformation_plugin the name of transformation function
-     * @param string  $default_function      the default transformation function
-     * @param array   $transform_options     the transformation parameters
-     * @param boolean $is_field_truncated    is data truncated due to LimitChars
-     * @param array   $analyzed_sql_results  the analyzed query
-     * @param integer $dt_result             the link id associated to the query
-     *                                       which results have to be displayed
-     * @param integer $col_index             the column index
-     * @param string  $output                the output of this function
+     * @param bool   $protectBinary         all|blob|noblob|no
+     * @param string $column                the relevant column in data row
+     * @param string $class                 the html class for column
+     * @param object $meta                  the meta-information about the field
+     * @param array  $map                   the list of relations
+     * @param array  $_url_params           the parameters for generate url
+     * @param bool   $condition_field       the column should highlighted
+     *                                      or not
+     * @param string $transformation_plugin the name of transformation function
+     * @param string $default_function      the default transformation function
+     * @param array  $transform_options     the transformation parameters
+     * @param bool   $is_field_truncated    is data truncated due to LimitChars
+     * @param array  $analyzed_sql_results  the analyzed query
+     * @param int    $dt_result             the link id associated to the query
+     *                                      which results have to be displayed
+     * @param int    $col_index             the column index
+     * @param string $output                the output of this function
      *
      * @return void
      *

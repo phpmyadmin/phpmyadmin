@@ -261,7 +261,7 @@ class SavedSearches
     /**
      * Save the search
      *
-     * @return boolean
+     * @return bool
      */
     public function save()
     {
@@ -362,7 +362,7 @@ class SavedSearches
     /**
      * Delete the search
      *
-     * @return boolean
+     * @return bool
      */
     public function delete()
     {

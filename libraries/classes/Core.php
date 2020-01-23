@@ -148,7 +148,7 @@ class Core
      * @param mixed $type    var type or array of valid values to check against $var
      * @param mixed $compare var to compare with $var
      *
-     * @return boolean whether valid or not
+     * @return bool whether valid or not
      *
      * @todo add some more var types like hex, bin, ...?
      */
@@ -385,7 +385,7 @@ class Core
      *
      * @param string $db database to count tables for
      *
-     * @return integer count of tables in $db
+     * @return int count of tables in $db
      */
     public static function getTableCount(string $db): int
     {
@@ -412,7 +412,7 @@ class Core
      *
      * @param string|int $size size (Default = 0)
      *
-     * @return integer
+     * @return int
      */
     public static function getRealSize($size = 0): int
     {
@@ -442,11 +442,11 @@ class Core
      * Checks given $page against given $whitelist and returns true if valid
      * it optionally ignores query parameters in $page (script.php?ignored)
      *
-     * @param string  $page      page to check
-     * @param array   $whitelist whitelist to check page against
-     * @param boolean $include   whether the page is going to be included
+     * @param string $page      page to check
+     * @param array  $whitelist whitelist to check page against
+     * @param bool   $include   whether the page is going to be included
      *
-     * @return boolean whether $page is valid or not (in $whitelist or not)
+     * @return bool whether $page is valid or not (in $whitelist or not)
      */
     public static function checkPageValidity(&$page, array $whitelist = [], $include = false): bool
     {
@@ -773,8 +773,8 @@ class Core
      *
      * @param string $url URL of external site.
      *
-     * @return boolean True: if domain of $url is allowed domain,
-     *                 False: otherwise.
+     * @return bool True: if domain of $url is allowed domain,
+     * False: otherwise.
      */
     public static function isAllowedDomain(string $url): bool
     {

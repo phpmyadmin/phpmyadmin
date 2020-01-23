@@ -22,8 +22,8 @@ class Select
     /**
      * Renders the server selection in list or selectbox form, or option tags only
      *
-     * @param boolean $not_only_options whether to include form tags or not
-     * @param boolean $omit_fieldset    whether to omit fieldset tag or not
+     * @param bool $not_only_options whether to include form tags or not
+     * @param bool $omit_fieldset    whether to omit fieldset tag or not
      *
      * @return string
      */

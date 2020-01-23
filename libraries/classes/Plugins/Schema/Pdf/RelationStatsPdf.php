@@ -53,8 +53,8 @@ class RelationStatsPdf extends RelationStats
      *
      * @see    Pdf
      *
-     * @param boolean $showColor Whether to use one color per relation or not
-     * @param integer $i         The id of the link to draw
+     * @param bool $showColor Whether to use one color per relation or not
+     * @param int  $i         The id of the link to draw
      *
      * @return void
      *

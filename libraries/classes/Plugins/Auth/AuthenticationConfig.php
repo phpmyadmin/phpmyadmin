@@ -26,7 +26,7 @@ class AuthenticationConfig extends AuthenticationPlugin
     /**
      * Displays authentication form
      *
-     * @return boolean always true
+     * @return bool always true
      */
     public function showLoginForm()
     {
@@ -48,7 +48,7 @@ class AuthenticationConfig extends AuthenticationPlugin
     /**
      * Gets authentication credentials
      *
-     * @return boolean always true
+     * @return bool always true
      */
     public function readCredentials()
     {

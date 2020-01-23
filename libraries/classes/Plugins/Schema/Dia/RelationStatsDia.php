@@ -110,13 +110,13 @@ class RelationStatsDia
      *
      * @see    PDF
      *
-     * @param boolean $showColor Whether to use one color per relation or not
-     *                           if showColor is true then an array of $listOfColors
-     *                           will be used to choose the random colors for
-     *                           references lines. we can change/add more colors to
-     *                           this
+     * @param bool $showColor Whether to use one color per relation or not
+     *                        if showColor is true then an array of $listOfColors
+     *                        will be used to choose the random colors for
+     *                        references lines. we can change/add more colors to
+     *                        this
      *
-     * @return boolean|void
+     * @return bool|void
      *
      * @access public
      */

@@ -119,10 +119,10 @@ class Normalization
     /**
      * get the html of the form to add the new column to given table
      *
-     * @param integer $numFields  number of columns to add
-     * @param string  $db         current database
-     * @param string  $table      current table
-     * @param array   $columnMeta array containing default values for the fields
+     * @param int    $numFields  number of columns to add
+     * @param string $db         current database
+     * @param string $table      current table
+     * @param array  $columnMeta array containing default values for the fields
      *
      * @return string HTML
      */
@@ -1024,15 +1024,15 @@ class Normalization
     /**
      * check whether a particular column is dependent on given subset of primary key
      *
-     * @param string  $partialKey the partial key, subset of primary key,
-     *                            each column in key supposed to be backquoted
-     * @param string  $column     backquoted column on whose dependency being checked
-     * @param string  $table      current table
-     * @param integer $pkCnt      distinct value count for given partial key
-     * @param integer $colCnt     distinct value count for given column
-     * @param integer $totalRows  total distinct rows count of the table
+     * @param string $partialKey the partial key, subset of primary key,
+     *                           each column in key supposed to be backquoted
+     * @param string $column     backquoted column on whose dependency being checked
+     * @param string $table      current table
+     * @param int    $pkCnt      distinct value count for given partial key
+     * @param int    $colCnt     distinct value count for given column
+     * @param int    $totalRows  total distinct rows count of the table
      *
-     * @return boolean TRUE if $column is dependent on $partialKey, False otherwise
+     * @return bool TRUE if $column is dependent on $partialKey, False otherwise
      */
     private function checkPartialDependency(
         $partialKey,

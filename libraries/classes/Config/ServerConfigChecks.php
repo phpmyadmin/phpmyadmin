@@ -126,9 +126,9 @@ class ServerConfigChecks
     /**
      * Check config of servers
      *
-     * @param boolean $cookieAuthUsed    Cookie auth is used
-     * @param string  $blowfishSecret    Blowfish secret
-     * @param boolean $blowfishSecretSet Blowfish secret set
+     * @param bool   $cookieAuthUsed    Cookie auth is used
+     * @param string $blowfishSecret    Blowfish secret
+     * @param bool   $blowfishSecretSet Blowfish secret set
      *
      * @return array
      */
@@ -236,9 +236,9 @@ class ServerConfigChecks
     /**
      * Set blowfish secret
      *
-     * @param string  $blowfishSecret    Blowfish secret
-     * @param boolean $cookieAuthServer  Cookie auth is used
-     * @param boolean $blowfishSecretSet Blowfish secret set
+     * @param string $blowfishSecret    Blowfish secret
+     * @param bool   $cookieAuthServer  Cookie auth is used
+     * @param bool   $blowfishSecretSet Blowfish secret set
      *
      * @return array
      */
@@ -337,9 +337,9 @@ class ServerConfigChecks
     /**
      * Check config of servers
      *
-     * @param boolean $cookieAuthUsed    Cookie auth is used
-     * @param boolean $blowfishSecretSet Blowfish secret set
-     * @param string  $blowfishSecret    Blowfish secret
+     * @param bool   $cookieAuthUsed    Cookie auth is used
+     * @param bool   $blowfishSecretSet Blowfish secret set
+     * @param string $blowfishSecret    Blowfish secret
      *
      * @return void
      */
@@ -544,7 +544,7 @@ class ServerConfigChecks
      *
      * @param string $name Function name
      *
-     * @return boolean
+     * @return bool
      */
     protected function functionExists($name)
     {

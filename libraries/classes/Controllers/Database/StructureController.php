@@ -708,8 +708,8 @@ class StructureController extends AbstractController
     /**
      * Returns whether the row count is approximated
      *
-     * @param array   $current_table array containing details about the table
-     * @param boolean $table_is_view whether the table is a view
+     * @param array $current_table array containing details about the table
+     * @param bool  $table_is_view whether the table is a view
      *
      * @return array
      */
@@ -899,9 +899,9 @@ class StructureController extends AbstractController
      *
      * @internal param bool $table_is_view whether table is view or not
      *
-     * @param array   $current_table current table
-     * @param integer $sum_size      total table size
-     * @param integer $overhead_size overhead size
+     * @param array $current_table current table
+     * @param int   $sum_size      total table size
+     * @param int   $overhead_size overhead size
      *
      * @return array
      */
@@ -1008,13 +1008,13 @@ class StructureController extends AbstractController
     /**
      * Get values for ARIA/MARIA tables
      *
-     * @param array   $current_table      current table
-     * @param integer $sum_size           sum size
-     * @param integer $overhead_size      overhead size
-     * @param integer $formatted_size     formatted size
-     * @param string  $unit               unit
-     * @param integer $formatted_overhead overhead formatted
-     * @param string  $overhead_unit      overhead unit
+     * @param array  $current_table      current table
+     * @param int    $sum_size           sum size
+     * @param int    $overhead_size      overhead size
+     * @param int    $formatted_size     formatted size
+     * @param string $unit               unit
+     * @param int    $formatted_overhead overhead formatted
+     * @param string $overhead_unit      overhead unit
      *
      * @return array
      */
@@ -1069,8 +1069,8 @@ class StructureController extends AbstractController
     /**
      * Get values for InnoDB table
      *
-     * @param array   $current_table current table
-     * @param integer $sum_size      sum size
+     * @param array $current_table current table
+     * @param int   $sum_size      sum size
      *
      * @return array
      */

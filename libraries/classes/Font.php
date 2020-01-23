@@ -174,10 +174,10 @@ class Font
      *
      * @param string     $text      string of which the width will be calculated
      * @param string     $font      name of the font like Arial,sans-serif etc
-     * @param integer    $fontSize  size of font
+     * @param int        $fontSize  size of font
      * @param array|null $charLists list of characters and their width modifiers
      *
-     * @return integer width of the text
+     * @return int width of the text
      *
      * @access public
      */

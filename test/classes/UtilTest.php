@@ -1287,9 +1287,9 @@ class UtilTest extends PmaTestCase
     /**
      * test for generating string contains printable bit value of selected data
      *
-     * @param integer $a Value
-     * @param int     $b Length
-     * @param string  $e Expected output
+     * @param int    $a Value
+     * @param int    $b Length
+     * @param string $e Expected output
      *
      * @return void
      *

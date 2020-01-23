@@ -20,14 +20,14 @@ class RadioList implements FieldGenerator
     /**
      * Generates a set of radio HTML fields
      *
-     * @param string  $html_field_name the radio HTML field
-     * @param array   $choices         the choices values and labels
-     * @param string  $checked_choice  the choice to check by default
-     * @param boolean $line_break      whether to add HTML line break after a choice
-     * @param boolean $escape_label    whether to use htmlspecialchars() on label
-     * @param string  $class           enclose each choice with a div of this class
-     * @param string  $id_prefix       prefix for the id attribute, name will be
-     *                                 used if this is not supplied
+     * @param string $html_field_name the radio HTML field
+     * @param array  $choices         the choices values and labels
+     * @param string $checked_choice  the choice to check by default
+     * @param bool   $line_break      whether to add HTML line break after a choice
+     * @param bool   $escape_label    whether to use htmlspecialchars() on label
+     * @param string $class           enclose each choice with a div of this class
+     * @param string $id_prefix       prefix for the id attribute, name will be
+     *                                used if this is not supplied
      *
      * @return string                  set of html radio fields
      *

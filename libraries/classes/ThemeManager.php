@@ -45,7 +45,7 @@ class ThemeManager
     /** @var string  cookie name */
     public $cookie_name = 'pma_theme';
 
-    /** @var boolean */
+    /** @var bool */
     public $per_server = false;
 
     /** @var string name of active theme */
@@ -124,7 +124,7 @@ class ThemeManager
      *
      * @param string $path path to themes folder
      *
-     * @return boolean success
+     * @return bool success
      *
      * @access public
      */
@@ -141,7 +141,7 @@ class ThemeManager
     /**
      * sets if there are different themes per server
      *
-     * @param boolean $per_server Whether to enable per server flag
+     * @param bool $per_server Whether to enable per server flag
      *
      * @return void
      *
@@ -244,7 +244,7 @@ class ThemeManager
      *
      * @param string $folder Folder name to test
      *
-     * @return boolean
+     * @return bool
      *
      * @access private
      */
@@ -327,7 +327,7 @@ class ThemeManager
     /**
      * returns HTML selectbox, with or without form enclosed
      *
-     * @param boolean $form whether enclosed by from tags or not
+     * @param bool $form whether enclosed by from tags or not
      *
      * @return string
      *

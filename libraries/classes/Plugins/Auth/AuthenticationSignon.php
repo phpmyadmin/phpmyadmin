@@ -30,7 +30,7 @@ class AuthenticationSignon extends AuthenticationPlugin
     /**
      * Displays authentication form
      *
-     * @return boolean   always true (no return indeed)
+     * @return bool always true (no return indeed)
      */
     public function showLoginForm()
     {
@@ -107,7 +107,7 @@ class AuthenticationSignon extends AuthenticationPlugin
     /**
      * Gets authentication credentials
      *
-     * @return boolean   whether we get authentication settings or not
+     * @return bool whether we get authentication settings or not
      */
     public function readCredentials()
     {

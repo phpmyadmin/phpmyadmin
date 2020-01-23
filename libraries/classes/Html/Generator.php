@@ -78,9 +78,9 @@ class Generator
     /**
      * Get a link to variable documentation
      *
-     * @param string  $name       The variable name
-     * @param boolean $useMariaDB Use only MariaDB documentation
-     * @param string  $text       (optional) The text for the link
+     * @param string $name       The variable name
+     * @param bool   $useMariaDB Use only MariaDB documentation
+     * @param string $text       (optional) The text for the link
      *
      * @return string link or empty string
      */
@@ -414,11 +414,11 @@ class Generator
      * This function takes into account the ActionLinksMode
      * configuration setting and wraps the image tag in a span tag.
      *
-     * @param string  $icon          name of icon file
-     * @param string  $alternate     alternate text
-     * @param boolean $force_text    whether to force alternate text to be displayed
-     * @param boolean $menu_icon     whether this icon is for the menu bar or not
-     * @param string  $control_param which directive controls the display
+     * @param string $icon          name of icon file
+     * @param string $alternate     alternate text
+     * @param bool   $force_text    whether to force alternate text to be displayed
+     * @param bool   $menu_icon     whether this icon is for the menu bar or not
+     * @param string $control_param which directive controls the display
      *
      * @return string an html snippet
      */
@@ -602,16 +602,16 @@ class Generator
     /**
      * Renders a single link for the top of the navigation panel
      *
-     * @param string  $link        The url for the link
-     * @param bool    $showText    Whether to show the text or to
-     *                             only use it for title attributes
-     * @param string  $text        The text to display and use for title attributes
-     * @param bool    $showIcon    Whether to show the icon
-     * @param string  $icon        The filename of the icon to show
-     * @param string  $linkId      Value to use for the ID attribute
-     * @param boolean $disableAjax Whether to disable ajax page loading for this link
-     * @param string  $linkTarget  The name of the target frame for the link
-     * @param array   $classes     HTML classes to apply
+     * @param string $link        The url for the link
+     * @param bool   $showText    Whether to show the text or to
+     *                            only use it for title attributes
+     * @param string $text        The text to display and use for title attributes
+     * @param bool   $showIcon    Whether to show the icon
+     * @param string $icon        The filename of the icon to show
+     * @param string $linkId      Value to use for the ID attribute
+     * @param bool   $disableAjax Whether to disable ajax page loading for this link
+     * @param string $linkTarget  The name of the target frame for the link
+     * @param array  $classes     HTML classes to apply
      *
      * @return string HTML code for one link
      */
@@ -1042,9 +1042,9 @@ class Generator
     /**
      * Displays a link to the documentation as an icon
      *
-     * @param string  $link   documentation link
-     * @param string  $target optional link target
-     * @param boolean $bbcode optional flag indicating whether to output bbcode
+     * @param string $link   documentation link
+     * @param string $target optional link target
+     * @param bool   $bbcode optional flag indicating whether to output bbcode
      *
      * @return string the html link
      *
@@ -1532,8 +1532,8 @@ class Generator
     /**
      * format sql strings
      *
-     * @param string  $sqlQuery raw SQL string
-     * @param boolean $truncate truncate the query if it is too long
+     * @param string $sqlQuery raw SQL string
+     * @param bool   $truncate truncate the query if it is too long
      *
      * @return string the formatted sql
      *

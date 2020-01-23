@@ -62,7 +62,7 @@ class SearchController extends AbstractController
      * Whether a geometry column is present
      *
      * @access private
-     * @var boolean
+     * @var bool
      */
     private $_geomColumnFlag;
     /**
@@ -338,8 +338,8 @@ class SearchController extends AbstractController
      * Provides a column's type, collation, operators list, and criteria value
      * to display in table search form
      *
-     * @param integer $search_index Row number in table search form
-     * @param integer $column_index Column index in ColumnNames array
+     * @param int $search_index Row number in table search form
+     * @param int $column_index Column index in ColumnNames array
      *
      * @return array Array containing column's properties
      */

@@ -61,21 +61,21 @@ abstract class AuthenticationPlugin
     /**
      * Displays authentication form
      *
-     * @return boolean
+     * @return bool
      */
     abstract public function showLoginForm();
 
     /**
      * Gets authentication credentials
      *
-     * @return boolean
+     * @return bool
      */
     abstract public function readCredentials();
 
     /**
      * Set the user and password after last checkings if required
      *
-     * @return boolean
+     * @return bool
      */
     public function storeCredentials()
     {
@@ -328,7 +328,7 @@ abstract class AuthenticationPlugin
      * Checks whether two factor authentication is active
      * for given user and performs it.
      *
-     * @return boolean|void
+     * @return bool|void
      */
     public function checkTwoFactor()
     {

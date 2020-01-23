@@ -15,7 +15,7 @@ class MaxFileSize implements FieldGenerator
      * Generates a hidden field which should indicate to the browser
      * the maximum size for upload
      *
-     * @param integer $max_size the size
+     * @param int $max_size the size
      *
      * @return string the INPUT field
      *

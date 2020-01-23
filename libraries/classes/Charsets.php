@@ -68,7 +68,7 @@ class Charsets
      * Loads charset data from the server
      *
      * @param DatabaseInterface $dbi       DatabaseInterface instance
-     * @param boolean           $disableIs Disable use of INFORMATION_SCHEMA
+     * @param bool              $disableIs Disable use of INFORMATION_SCHEMA
      *
      * @return void
      */
@@ -103,7 +103,7 @@ class Charsets
      * Loads collation data from the server
      *
      * @param DatabaseInterface $dbi       DatabaseInterface instance
-     * @param boolean           $disableIs Disable use of INFORMATION_SCHEMA
+     * @param bool              $disableIs Disable use of INFORMATION_SCHEMA
      *
      * @return void
      */
@@ -142,7 +142,7 @@ class Charsets
       * Get current server charset
       *
       * @param DatabaseInterface $dbi       DatabaseInterface instance
-      * @param boolean           $disableIs Disable use of INFORMATION_SCHEMA
+      * @param bool              $disableIs Disable use of INFORMATION_SCHEMA
       *
       * @return Charset
       */
@@ -164,7 +164,7 @@ class Charsets
      * Get all server charsets
      *
      * @param DatabaseInterface $dbi       DatabaseInterface instance
-     * @param boolean           $disableIs Disable use of INFORMATION_SCHEMA
+     * @param bool              $disableIs Disable use of INFORMATION_SCHEMA
      *
      * @return array
      */
@@ -178,7 +178,7 @@ class Charsets
      * Get all server collations
      *
      * @param DatabaseInterface $dbi       DatabaseInterface instance
-     * @param boolean           $disableIs Disable use of INFORMATION_SCHEMA
+     * @param bool              $disableIs Disable use of INFORMATION_SCHEMA
      *
      * @return array
      */

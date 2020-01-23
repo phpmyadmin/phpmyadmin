@@ -54,14 +54,14 @@ class Pdf extends PdfLib
     /**
      * Constructs PDF and configures standard parameters.
      *
-     * @param string  $orientation page orientation
-     * @param string  $unit        unit
-     * @param string  $format      the format used for pages
-     * @param boolean $unicode     true means that the input text is unicode
-     * @param string  $encoding    charset encoding; default is UTF-8.
-     * @param boolean $diskcache   if true reduce the RAM memory usage by caching
-     *                             temporary data on filesystem (slower).
-     * @param boolean $pdfa        If TRUE set the document to PDF/A mode.
+     * @param string $orientation page orientation
+     * @param string $unit        unit
+     * @param string $format      the format used for pages
+     * @param bool   $unicode     true means that the input text is unicode
+     * @param string $encoding    charset encoding; default is UTF-8.
+     * @param bool   $diskcache   if true reduce the RAM memory usage by caching
+     *                            temporary data on filesystem (slower).
+     * @param bool   $pdfa        If TRUE set the document to PDF/A mode.
      *
      * @access public
      */
@@ -93,10 +93,10 @@ class Pdf extends PdfLib
      * @param float|int $h       cell height. Default value: 0
      * @param mixed     $y       starting y position, leave empty for current
      *                           position
-     * @param boolean   $addpage if true add a page, otherwise only return
+     * @param bool      $addpage if true add a page, otherwise only return
      *                           the true/false state
      *
-     * @return boolean true in case of page break, false otherwise.
+     * @return bool true in case of page break, false otherwise.
      */
     public function checkPageBreak($h = 0, $y = '', $addpage = true)
     {

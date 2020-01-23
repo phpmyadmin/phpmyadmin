@@ -71,7 +71,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     /**
      * Forces (not)using of openSSL
      *
-     * @param boolean $use The flag
+     * @param bool $use The flag
      *
      * @return void
      */
@@ -85,7 +85,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * this function MUST exit/quit the application
      *
-     * @return boolean|void
+     * @return bool|void
      *
      * @global string $conn_error the last connection error
      */
@@ -246,7 +246,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * it directly switches to showFailure() if user inactivity timeout is reached
      *
-     * @return boolean   whether we get authentication settings or not
+     * @return bool whether we get authentication settings or not
      */
     public function readCredentials()
     {
@@ -423,7 +423,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     /**
      * Set the user and password after last checkings if required
      *
-     * @return boolean always true
+     * @return bool always true
      */
     public function storeCredentials()
     {

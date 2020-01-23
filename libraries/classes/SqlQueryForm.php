@@ -37,12 +37,12 @@ class SqlQueryForm
     /**
      * return HTML for the sql query boxes
      *
-     * @param boolean|string $query       query to display in the textarea
-     *                                    or true to display last executed
-     * @param boolean|string $display_tab sql|full|false
-     *                                    what part to display
-     *                                    false if not inside querywindow
-     * @param string         $delimiter   delimiter
+     * @param bool|string $query       query to display in the textarea
+     *                                 or true to display last executed
+     * @param bool|string $display_tab sql|full|false
+     *                                 what part to display
+     *                                 false if not inside querywindow
+     * @param string      $delimiter   delimiter
      *
      * @return string
      *

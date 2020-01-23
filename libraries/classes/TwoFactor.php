@@ -28,7 +28,7 @@ class TwoFactor
     /** @var array */
     public $config;
 
-    /** @var boolean */
+    /** @var bool */
     protected $_writable;
 
     /** @var TwoFactorPlugin */
@@ -186,9 +186,9 @@ class TwoFactor
     /**
      * Checks authentication, returns true on success
      *
-     * @param boolean $skip_session Skip session cache
+     * @param bool $skip_session Skip session cache
      *
-     * @return boolean
+     * @return bool
      */
     public function check($skip_session = false)
     {
@@ -239,7 +239,7 @@ class TwoFactor
      *
      * @param string $name Backend name
      *
-     * @return boolean
+     * @return bool
      */
     public function configure($name)
     {

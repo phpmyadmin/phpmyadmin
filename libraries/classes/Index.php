@@ -77,7 +77,7 @@ class Index
      */
     private $_comment = '';
 
-    /** @var integer 0 if the index cannot contain duplicates, 1 if it can. */
+    /** @var int 0 if the index cannot contain duplicates, 1 if it can. */
     private $_non_unique = 0;
 
     /**
@@ -219,7 +219,7 @@ class Index
      * @param string $table  table
      * @param string $schema schema
      *
-     * @return boolean whether loading was successful
+     * @return bool whether loading was successful
      */
     private static function _loadIndexes($table, $schema)
     {
@@ -300,7 +300,7 @@ class Index
      *
      * @param string $column the column
      *
-     * @return boolean  true if $column indexed in this index
+     * @return bool true if $column indexed in this index
      */
     public function hasColumn($column)
     {
@@ -369,7 +369,7 @@ class Index
     /**
      * Returns the number of columns of the index
      *
-     * @return integer the number of the columns
+     * @return int the number of the columns
      */
     public function getColumnCount()
     {
@@ -484,7 +484,7 @@ class Index
     /**
      * Returns HTML for the index choice selector
      *
-     * @param boolean $edit_table whether this is table editing
+     * @param bool $edit_table whether this is table editing
      *
      * @return string HTML for the index choice selector
      */
@@ -561,7 +561,7 @@ class Index
     /**
      * Returns integer 0 if the index cannot contain duplicates, 1 if it can
      *
-     * @return integer 0 if the index cannot contain duplicates, 1 if it can
+     * @return int 0 if the index cannot contain duplicates, 1 if it can
      */
     public function getNonUnique()
     {
@@ -571,7 +571,7 @@ class Index
     /**
      * Returns whether the index is a 'Unique' index
      *
-     * @param boolean $as_text whether to output should be in text
+     * @param bool $as_text whether to output should be in text
      *
      * @return mixed whether the index is a 'Unique' index
      */
@@ -661,9 +661,9 @@ class Index
     /**
      * Show index data
      *
-     * @param string  $table      The table name
-     * @param string  $schema     The schema name
-     * @param boolean $print_mode Whether the output is for the print mode
+     * @param string $table      The table name
+     * @param string $schema     The schema name
+     * @param bool   $print_mode Whether the output is for the print mode
      *
      * @return string HTML for showing index
      *

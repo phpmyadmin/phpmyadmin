@@ -62,9 +62,9 @@ class CreateAddField
      * Initiate the column creation statement according to the table creation or
      * add columns to a existing table
      *
-     * @param int     $fieldCount    number of columns
-     * @param boolean $isCreateTable true if requirement is to get the statement
-     *                               for table creation
+     * @param int  $fieldCount    number of columns
+     * @param bool $isCreateTable true if requirement is to get the statement
+     *                            for table creation
      *
      * @return array An array of initial sql statements
      *                             according to the request
@@ -152,11 +152,11 @@ class CreateAddField
     /**
      * Create relevant index statements
      *
-     * @param array   $index         an array of index columns
-     * @param string  $indexChoice   index choice that which represents
-     *                               the index type of $indexed_fields
-     * @param boolean $isCreateTable true if requirement is to get the statement
-     *                               for table creation
+     * @param array  $index         an array of index columns
+     * @param string $indexChoice   index choice that which represents
+     *                              the index type of $indexed_fields
+     * @param bool   $isCreateTable true if requirement is to get the statement
+     *                              for table creation
      *
      * @return array an array of sql statements for indexes
      */
@@ -223,8 +223,8 @@ class CreateAddField
     /**
      * Statement prefix for the buildColumnCreationStatement()
      *
-     * @param boolean $isCreateTable true if requirement is to get the statement
-     *                               for table creation
+     * @param bool $isCreateTable true if requirement is to get the statement
+     *                            for table creation
      *
      * @return string prefix
      */
@@ -240,11 +240,11 @@ class CreateAddField
     /**
      * Merge index definitions for one type of index
      *
-     * @param array   $definitions    the index definitions to merge to
-     * @param boolean $isCreateTable  true if requirement is to get the statement
-     *                                for table creation
-     * @param array   $indexedColumns the columns for one type of index
-     * @param string  $indexKeyword   the index keyword to use in the definition
+     * @param array  $definitions    the index definitions to merge to
+     * @param bool   $isCreateTable  true if requirement is to get the statement
+     *                               for table creation
+     * @param array  $indexedColumns the columns for one type of index
+     * @param string $indexKeyword   the index keyword to use in the definition
      *
      * @return array
      */
@@ -269,8 +269,8 @@ class CreateAddField
      * Returns sql statement according to the column and index specifications as
      * requested
      *
-     * @param boolean $isCreateTable true if requirement is to get the statement
-     *                               for table creation
+     * @param bool $isCreateTable true if requirement is to get the statement
+     *                            for table creation
      *
      * @return string sql statement
      */
@@ -378,8 +378,8 @@ class CreateAddField
     /**
      * Returns the definition of a partition/subpartition
      *
-     * @param array   $partition      array of partition/subpartition detiails
-     * @param boolean $isSubPartition whether a subpartition
+     * @param array $partition      array of partition/subpartition detiails
+     * @param bool  $isSubPartition whether a subpartition
      *
      * @return string partition/subpartition definition
      */
