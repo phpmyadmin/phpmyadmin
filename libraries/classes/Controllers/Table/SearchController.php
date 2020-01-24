@@ -935,9 +935,10 @@ class SearchController extends AbstractController
         //Gets column's type and collation
         $type = $this->_columnTypes[$column_index];
         $collation = $this->_columnCollations[$column_index];
+        $cleanType = preg_replace('@\(.*@s', '', $this->_columnTypes[$column_index]);
         //Gets column's comparison operators depending on column type
         $typeOperators = $this->dbi->types->getTypeOperatorsHtml(
-            preg_replace('@\(.*@s', '', $this->_columnTypes[$column_index]),
+            $cleanType,
             $this->_columnNullFlags[$column_index],
             $selected_operator
         );
@@ -953,9 +954,28 @@ class SearchController extends AbstractController
             '',
             ''
         );
+        $html_attributes = '';
+         if (in_array($cleanType, $this->dbi->types->getIntegerTypes())) {
+             $extracted_columnspec = Util::extractColumnSpec(
+                  $type
+             );
+            $is_unsigned = $extracted_columnspec['unsigned'];
+            $min_max_values = $this->dbi->types->getIntegerRange(
+                      $cleanType,
+                     ! $is_unsigned
+            );
+            $html_attributes = 'min="' . $min_max_values[0] . '" '
+                      . 'max="' . $min_max_values[1] . '"';
+            $type = 'INT';
+          }
+
+        $html_attributes .=
+        " onchange= 'return verifyAfterSearchFieldChange(".$column_index.")'";
+
         $value = $this->template->render('table/search/input_box', [
             'str' => '',
             'column_type' => (string) $type,
+            'html_attributes' => $html_attributes,
             'column_id' => 'fieldID_',
             'in_zoom_search_edit' => false,
             'foreigners' => $this->_foreigners,

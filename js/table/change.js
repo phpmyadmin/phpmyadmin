@@ -149,6 +149,38 @@ function checkForCheckbox (multiEdit) {
     return true;
 }
 
+// eslint-disable-next-line no-unused-vars
+function verifyAfterSearchFieldChange (index) {
+    var $thisInput = $('input[name=\'criteriaValues[' + index + ']\']');
+    // validation for integer type
+    if ($thisInput.data('type') === 'INT') {
+        var mini = parseInt($thisInput.attr('min'));
+        var maxi = parseInt($thisInput.attr('max'));
+        $('#tbl_search_form').validate();
+        $thisInput.rules('add', {
+            number: {
+                param : true
+            },
+            min: {
+                param: mini,
+                depends: function () {
+                    if (isNaN($thisInput.val())) {
+                        return false;
+                    } return true;
+                }
+            },
+            max: {
+                param: maxi,
+                depends: function () {
+                    if (isNaN($thisInput.val())) {
+                        return false;
+                    } return true;
+                }
+            }
+        });
+    }
+}
+
 function verificationsAfterFieldChange (urlField, multiEdit, theType) {
     var evt = window.event || arguments.callee.caller.arguments[0];
     var target = evt.target || evt.srcElement;
