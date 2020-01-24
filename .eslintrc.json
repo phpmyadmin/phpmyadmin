@@ -34,7 +34,6 @@
         "new-cap": "error",
         "no-array-constructor": "error",
         "no-eval": "error",
-        "no-jquery/no-sizzle": "warn",
         "no-loop-func": "error",
         "no-multiple-empty-lines": "error",
         "no-new-func": "error",
