@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2018-03-19 21:41+0000\n"
+"PO-Revision-Date: 2020-01-25 11:21+0000\n"
 "Last-Translator: Nabin Ghimire <nnabinn@hotmail.com>\n"
-"Language-Team: Nepali <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"ne/>\n"
+"Language-Team: Nepali <https://hosted.weblate.org/projects/phpmyadmin/4-9/ne/"
+">\n"
 "Language: ne\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.20-dev\n"
+"X-Generator: Weblate 3.11-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -329,24 +329,25 @@ msgstr "तथ्याङ्क %1$s लाई %2$s मा प्रतिल�
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
-msgstr "phpMyAdmin कन्फिगरेसन भण्डारण निष्क्रिय भएको छ। %s किन हो जान्नुहोस %s ।"
+msgstr ""
+"phpMyAdmin कन्फिगरेसन सङ्ग्रह निष्क्रिय भएको छ। %s किन हो जान्नुहोस %s ।"
 
 #: db_qbe.php:133
 msgid "You have to choose at least one column to display!"
-msgstr "तपाईंले प्रदर्शन गर्न कम्तिमा एउटा स्तम्भ चयन गर्नुपर्ने हुन्छ!"
+msgstr "तपाईंले कम्तिमा एउटा स्तम्भ चयन गर्नुपर्ने हुन्छ!"
 
 #: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
 msgid "Multi-table query"
-msgstr ""
+msgstr "बहु-तालिका प्रश्न"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
 msgid "Query by example"
 msgstr ""
 
 #: db_qbe.php:168
-#, php-format
+#, fuzzy, php-format
 msgid "Switch to %svisual builder%s"
-msgstr ""
+msgstr "%svisual builder%s मा स्विच गर्नुहोस्"
 
 #: db_search.php:32 libraries/classes/Plugins/Auth/AuthenticationConfig.php:84
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:99
@@ -356,8 +357,9 @@ msgid "Access denied!"
 msgstr "पहुँच अस्वीकृत!"
 
 #: db_tracking.php:55 db_tracking.php:80
+#, fuzzy
 msgid "Tracking data deleted successfully."
-msgstr ""
+msgstr "ट्र्याकिंग डाटा सफलतापूर्वक हटाइयो।"
 
 #: db_tracking.php:64
 #, php-format
@@ -372,7 +374,7 @@ msgstr "कुनैपनि डेटाबेस चयन गरिएको
 #: db_tracking.php:153
 #, fuzzy
 msgid "Database Log"
-msgstr "तथ्याङ्क प्रवेश"
+msgstr "डाटाबेस लग"
 
 #: error_report.php:73
 msgid ""
@@ -422,11 +424,11 @@ msgstr ""
 #: gis_data_editor.php:199
 #, php-format
 msgid "Geometry %d:"
-msgstr ""
+msgstr "ज्यामिति %d:"
 
 #: gis_data_editor.php:221
 msgid "Point:"
-msgstr ""
+msgstr "बिन्दु:"
 
 #: gis_data_editor.php:222 gis_data_editor.php:249 gis_data_editor.php:305
 #: gis_data_editor.php:378 js/messages.php:521
@@ -442,12 +444,12 @@ msgstr ""
 #: js/messages.php:524
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "बिन्दु %d"
 
 #: gis_data_editor.php:260 gis_data_editor.php:316 gis_data_editor.php:394
 #: js/messages.php:530
 msgid "Add a point"
-msgstr ""
+msgstr "एउटा बिन्दु प्रबिस्ट गर्नुहोस"
 
 #: gis_data_editor.php:277
 #, php-format
@@ -822,21 +824,24 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:42
+#, fuzzy
 msgid "Confirm"
-msgstr ""
+msgstr "पुष्टि गर्नुहोस्"
 
 #: js/messages.php:43
-#, php-format
+#, fuzzy, php-format
 msgid "Do you really want to execute \"%s\"?"
-msgstr ""
+msgstr "के तपाइँ \"%s\" साँच्चिकै कार्यान्वयन गर्न चाहानुहुन्छ?"
 
 #: js/messages.php:45 libraries/classes/MultSubmits.php:498
 msgid "You are about to DESTROY a complete database!"
-msgstr ""
+msgstr "तपाईं पूरा डाटाबेस नष्ट गर्न जाँदै हुनुहुन्छ!"
 
 #: js/messages.php:47
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
+"डाटाबेस उही नाममा पुन: नामकरण गर्न सकिदैन। नाम परिवर्तन गर्नुहोस् र फेरि "
+"प्रयास गर्नुहोस्"
 
 #: js/messages.php:49
 msgid "You are about to DESTROY a complete table!"
@@ -847,16 +852,12 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr ""
 
 #: js/messages.php:52
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "यो तालिकाको लागि ट्रैकिंग डेटा मेट्नुहोस्"
+msgstr "यो तालिकाको लागि ट्रैकिंग डेटा मेट्नुहोस्?"
 
 #: js/messages.php:54
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "यो तालिकाको लागि ट्रैकिंग डेटा मेट्नुहोस्"
+msgstr "यी तालिकाहरुका लागि ट्रैकिंग डेटा मेट्नुहोस्"
 
 #: js/messages.php:56
 #, fuzzy
