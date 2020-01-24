@@ -2682,4 +2682,97 @@ class UtilTest extends PmaTestCase
             ],
         ];
     }
+
+    /**
+     * Test for Util::getProtoFromForwardedHeader
+     *
+     * @param string $header The http Forwarded header
+     * @param string $proto  The protocol http/https
+     *
+     * @return void
+     *
+     * @dataProvider providerForwardedHeaders
+     */
+    public function testGetProtoFromForwardedHeader(string $header, string $proto): void
+    {
+        $protocolDetected = Util::getProtoFromForwardedHeader($header);
+        $this->assertEquals($proto, $protocolDetected);
+    }
+
+    /**
+     * Data provider for Util::getProtoFromForwardedHeader test
+     * @source https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Forwarded MDN docs
+     * @source https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/ Nginx docs
+     *
+     * @return array
+     */
+    public function providerForwardedHeaders(): array
+    {
+        return [
+            [
+                '',
+                '',
+            ],
+            [
+                '=',
+                '',
+            ],
+            [
+                'https',
+                '',
+            ],
+            [
+                'https',
+                '',
+            ],
+            [
+                '=https',
+                '',
+            ],
+            [
+                '=http',
+                '',
+            ],
+            [
+                'For="[2001:db8:cafe::17]:4711"',
+                '',
+            ],
+            [
+                'for=192.0.2.60;proto=http;by=203.0.113.43',
+                'http',
+            ],
+            [
+                'for=192.0.2.43, for=198.51.100.17',
+                '',
+            ],
+            [
+                'for=123.34.567.89',
+                '',
+            ],
+            [
+                'for=192.0.2.43, for="[2001:db8:cafe::17]"',
+                '',
+            ],
+            [
+                'for=12.34.56.78;host=example.com;proto=https, for=23.45.67.89',
+                'https',
+            ],
+            [
+                'for=12.34.56.78, for=23.45.67.89;secret=egah2CGj55fSJFs, for=10.1.2.3',
+                '',
+            ],
+            [
+                'for=injected;by="',
+                '',
+            ],
+            [
+                'for=injected;by=", for=real',
+                '',
+            ],
+            [
+                'for=192.0.2.60;proto=http;by=203.0.113.43',
+                'http',
+            ],
+        ];
+    }
 }
