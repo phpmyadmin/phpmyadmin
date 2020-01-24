@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:48-0300\n"
-"PO-Revision-Date: 2018-03-19 21:41+0000\n"
+"PO-Revision-Date: 2020-01-25 11:21+0000\n"
 "Last-Translator: Nabin Ghimire <nnabinn@hotmail.com>\n"
 "Language-Team: Nepali <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ne/>\n"
@@ -17,33 +17,36 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.20-dev\n"
+"X-Generator: Weblate 3.11-dev\n"
 
 #: index.php:52
 #, php-format
 msgid "Error 404! The page %s was not found."
-msgstr ""
+msgstr "त्रुटि ४०४! पृष्ठ %s फेला परेन।"
 
 #: index.php:59
 msgid "Error 405! Request method not allowed."
-msgstr ""
+msgstr "त्रुटि ४०५! अनुरोध विधिलाई अनुमति छैन।"
 
 #: js/messages.php:45
+#, fuzzy
 msgid "Confirm"
-msgstr ""
+msgstr "पुष्टि गर्नुहोस्"
 
 #: js/messages.php:46
-#, php-format
+#, fuzzy, php-format
 msgid "Do you really want to execute \"%s\"?"
-msgstr ""
+msgstr "के तपाइँ \"%s\" साँच्चिकै कार्यान्वयन गर्न चाहानुहुन्छ?"
 
 #: js/messages.php:48 libraries/classes/MultSubmits.php:517
 msgid "You are about to DESTROY a complete database!"
-msgstr ""
+msgstr "तपाईं पूरा डाटाबेस नष्ट गर्न जाँदै हुनुहुन्छ!"
 
 #: js/messages.php:50
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
+"डाटाबेस उही नाममा पुन: नामकरण गर्न सकिदैन। नाम परिवर्तन गर्नुहोस् र फेरि "
+"प्रयास गर्नुहोस्"
 
 #: js/messages.php:52
 msgid "You are about to DESTROY a complete table!"
@@ -54,16 +57,12 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr ""
 
 #: js/messages.php:55
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "यो तालिकाको लागि ट्रैकिंग डेटा मेट्नुहोस्"
+msgstr "यो तालिकाको लागि ट्रैकिंग डेटा मेट्नुहोस्?"
 
 #: js/messages.php:57
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "यो तालिकाको लागि ट्रैकिंग डेटा मेट्नुहोस्"
+msgstr "यी तालिकाहरुका लागि ट्रैकिंग डेटा मेट्नुहोस्"
 
 #: js/messages.php:59
 #, fuzzy
@@ -5450,7 +5449,7 @@ msgstr "तपाईंले प्रदर्शन गर्न कम्त
 #: libraries/classes/Controllers/Database/QueryByExampleController.php:172
 #: templates/database/multi_table_query/form.twig:3
 msgid "Multi-table query"
-msgstr ""
+msgstr "बहु-तालिका प्रश्न"
 
 #: libraries/classes/Controllers/Database/QueryByExampleController.php:177
 #: templates/database/multi_table_query/form.twig:9
