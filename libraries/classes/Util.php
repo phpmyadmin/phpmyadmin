@@ -3144,4 +3144,27 @@ class Util
 
         return $titles;
     }
+
+    /**
+     * Get the protocol from the RFC 7239 Forwarded header
+     * @param string $headerContents The Forwarded header contents
+     * @return string the protocol http/https
+     */
+    public static function getProtoFromForwardedHeader(string $headerContents): string
+    {
+        if (strpos($headerContents, '=') !== false) {// does not contain any equal sign
+            $hops = explode(',', $headerContents);
+            $parts = explode(';', $hops[0]);
+            foreach ($parts as $part) {
+                [
+                    $keyName,
+                    $value,
+                ] = explode('=', $part);
+                if (strtolower(trim($keyName)) === 'proto') {
+                    return empty($value) ? '' : $value;
+                }
+            }
+        }
+        return '';
+    }
 }

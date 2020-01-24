@@ -104,13 +104,19 @@ abstract class TestBase extends TestCase
             return;
         }
 
-        $this->_mysqli = new mysqli(
-            $GLOBALS['TESTSUITE_SERVER'],
-            $GLOBALS['TESTSUITE_USER'],
-            $GLOBALS['TESTSUITE_PASSWORD'],
-            'mysql',
-            (int) $GLOBALS['TESTSUITE_PORT']
-        );
+        try {
+            $this->_mysqli = new mysqli(
+                $GLOBALS['TESTSUITE_SERVER'],
+                $GLOBALS['TESTSUITE_USER'],
+                $GLOBALS['TESTSUITE_PASSWORD'],
+                'mysql',
+                (int) $GLOBALS['TESTSUITE_PORT']
+            );
+        } catch (Exception $e) {
+            // when localhost is used, it tries to connect to a socket and throws and error
+            $this->markTestSkipped('Failed to connect to MySQL (' . $e->getMessage() . ')');
+            return;
+        }
 
         if ($this->_mysqli->connect_errno) {
             $this->markTestSkipped('Failed to connect to MySQL (' . $this->_mysqli->error . ')');

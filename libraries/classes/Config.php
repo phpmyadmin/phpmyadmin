@@ -1337,6 +1337,9 @@ class Config
         } elseif (strtolower(Core::getenv('HTTP_CLOUDFRONT_FORWARDED_PROTO')) === 'https') {
             // Amazon CloudFront, issue #15621
             $is_https = true;
+        } elseif (Util::getProtoFromForwardedHeader(Core::getenv('HTTP_FORWARDED')) === 'https') {
+            // RFC 7239 Forwarded header
+            $is_https = true;
         } elseif (Core::getenv('SERVER_PORT') == 443) {
             $is_https = true;
         }

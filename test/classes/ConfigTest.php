@@ -497,6 +497,7 @@ class ConfigTest extends PmaTestCase
      *
      * @param string $scheme          http scheme
      * @param string $https           https
+     * @param string $forwarded       forwarded header
      * @param string $uri             request uri
      * @param string $lb              http https from lb
      * @param string $front           http front end https
@@ -508,10 +509,11 @@ class ConfigTest extends PmaTestCase
      *
      * @dataProvider httpsParams
      */
-    public function testIsHttps($scheme, $https, $uri, $lb, $front, $proto, $protoCloudFront, $pmaAbsoluteUri, $port, $expected): void
+    public function testIsHttps($scheme, $https, string $forwarded, $uri, $lb, $front, $proto, $protoCloudFront, $pmaAbsoluteUri, $port, $expected): void
     {
         $_SERVER['HTTP_SCHEME'] = $scheme;
         $_SERVER['HTTPS'] = $https;
+        $_SERVER['HTTP_FORWARDED'] = $forwarded;
         $_SERVER['REQUEST_URI'] = $uri;
         $_SERVER['HTTP_HTTPS_FROM_LB'] = $lb;
         $_SERVER['HTTP_FRONT_END_HTTPS'] = $front;
@@ -538,6 +540,7 @@ class ConfigTest extends PmaTestCase
                 '',
                 '',
                 '',
+                '',
                 'http',
                 '',
                 '',
@@ -546,6 +549,7 @@ class ConfigTest extends PmaTestCase
             ],
             [
                 'http',
+                '',
                 '',
                 'http://',
                 '',
@@ -562,6 +566,7 @@ class ConfigTest extends PmaTestCase
                 '',
                 '',
                 '',
+                '',
                 'http',
                 '',
                 '',
@@ -570,6 +575,7 @@ class ConfigTest extends PmaTestCase
             ],
             [
                 'http',
+                '',
                 '',
                 '',
                 '',
@@ -585,6 +591,7 @@ class ConfigTest extends PmaTestCase
                 '',
                 '',
                 '',
+                '',
                 'on',
                 'http',
                 '',
@@ -596,6 +603,7 @@ class ConfigTest extends PmaTestCase
                 'http',
                 '',
                 '',
+                '',
                 'on',
                 '',
                 'http',
@@ -606,6 +614,7 @@ class ConfigTest extends PmaTestCase
             ],
             [
                 'http',
+                '',
                 '',
                 'https://',
                 '',
@@ -622,6 +631,7 @@ class ConfigTest extends PmaTestCase
                 '',
                 '',
                 '',
+                '',
                 'http',
                 '',
                 '',
@@ -634,6 +644,7 @@ class ConfigTest extends PmaTestCase
                 '',
                 '',
                 '',
+                '',
                 'http',
                 '',
                 '',
@@ -642,6 +653,7 @@ class ConfigTest extends PmaTestCase
             ],
             [
                 'http',
+                '',
                 '',
                 '',
                 '',
@@ -658,6 +670,7 @@ class ConfigTest extends PmaTestCase
                 '',
                 '',
                 '',
+                '',
                 'https',
                 'http',
                 '',
@@ -673,11 +686,13 @@ class ConfigTest extends PmaTestCase
                 '',
                 '',
                 '',
+                '',
                 80,
                 true,
             ],
             [
                 'http',
+                '',
                 '',
                 '',
                 '',
@@ -689,6 +704,7 @@ class ConfigTest extends PmaTestCase
                 false,
             ],
             [
+                '',
                 '',
                 '',
                 '',
@@ -708,9 +724,23 @@ class ConfigTest extends PmaTestCase
                 '',
                 '',
                 '',
+                '',
                 'http://127.0.0.1',
                 80,
                 false,
+            ],
+            [
+                '',
+                '',
+                'for=12.34.56.78;host=example.com;proto=https, for=23.45.67.89',
+                '',
+                '',
+                '',
+                '',
+                '',
+                'http://127.0.0.1',
+                80,
+                true,
             ],
         ];
     }
