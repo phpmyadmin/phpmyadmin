@@ -88,6 +88,8 @@
     {% endif %}
     <input type="text"
         name="criteriaValues[{{ column_index }}]"
+        data-type="{{ column_type }}"
+       {{ html_attributes |  raw  }}
         size="40"
         class="{{ the_class }}"
         id="{{ column_id }}{{ column_index }}"
