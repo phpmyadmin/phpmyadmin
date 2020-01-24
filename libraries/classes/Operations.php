@@ -6,11 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Charsets\Charset;
-use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\Engines\Innodb;
-use PhpMyAdmin\Html\Forms\Fields\DropDown;
-use PhpMyAdmin\Html\Forms\Fields\RadioList;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Plugins\Export\ExportSql;
@@ -20,7 +16,6 @@ use function explode;
 use function htmlspecialchars;
 use function implode;
 use function mb_strtolower;
-use function mb_strtoupper;
 use function sprintf;
 use function str_replace;
 use function strlen;
@@ -519,454 +514,11 @@ class Operations
     }
 
     /**
-     * Get the HTML snippet for order the table
-     *
-     * @param array $columns columns array
-     *
-     * @return string
-     */
-    public function getHtmlForOrderTheTable(array $columns)
-    {
-        $html_output = '<div>';
-        $html_output .= '<form method="post" id="alterTableOrderby" '
-            . 'action="' . Url::getFromRoute('/table/operations') . '">';
-        $html_output .= Url::getHiddenInputs(
-            $GLOBALS['db'],
-            $GLOBALS['table']
-        );
-        $html_output .= '<fieldset id="fieldset_table_order">'
-            . '<legend>' . __('Alter table order by') . '</legend>'
-            . '<select name="order_field">';
-
-        foreach ($columns as $fieldname) {
-            $html_output .= '<option '
-                . 'value="' . htmlspecialchars($fieldname['Field']) . '">'
-                . htmlspecialchars($fieldname['Field']) . '</option>' . "\n";
-        }
-        $html_output .= '</select> ' . __('(singly)') . ' '
-            . '<br>'
-            . '<input id="order_order_asc" name="order_order"'
-            . ' type="radio" value="asc" checked="checked">'
-            . '<label for="order_order_asc">' . __('Ascending') . '</label>'
-            . '<input id="order_order_desc" name="order_order"'
-            . ' type="radio" value="desc">'
-            . '<label for="order_order_desc">' . __('Descending') . '</label>'
-            . '</fieldset>'
-            . '<fieldset class="tblFooters">'
-            . '<input type="hidden" name="submitorderby" value="1">'
-            . '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">'
-            . '</fieldset>'
-            . '</form>'
-            . '</div>';
-
-         return $html_output;
-    }
-
-    /**
-     * Get the HTML snippet for move table
-     *
-     * @return string
-     */
-    public function getHtmlForMoveTable()
-    {
-        $html_output = '<div>';
-        $html_output .= '<form method="post" action="' . Url::getFromRoute('/table/operations')
-            . '" id="moveTableForm" class="ajax"'
-            . ' onsubmit="return Functions.emptyCheckTheField(this, \'new_name\')">'
-            . Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
-
-        $html_output .= '<input type="hidden" name="reload" value="1">'
-            . '<input type="hidden" name="what" value="data">'
-            . '<fieldset id="fieldset_table_rename">';
-
-        $html_output .= '<legend>' . __('Move table to (database<b>.</b>table)')
-            . '</legend>';
-
-        if (count($GLOBALS['dblist']->databases) > $GLOBALS['cfg']['MaxDbList']) {
-            $html_output .= '<input type="text" maxlength="100" '
-                . 'name="target_db" value="' . htmlspecialchars($GLOBALS['db'])
-                . '">';
-        } else {
-            $html_output .= '<select class="halfWidth" name="target_db">'
-                . $GLOBALS['dblist']->databases->getHtmlOptions(true, false)
-                . '</select>';
-        }
-        $html_output .= '&nbsp;<strong>.</strong>&nbsp;';
-        $html_output .= '<input class="halfWidth" type="text" name="new_name"'
-            . ' maxlength="64" required="required" '
-            . 'value="' . htmlspecialchars($GLOBALS['table']) . '"><br>';
-
-        // starting with MySQL 5.0.24, SHOW CREATE TABLE includes the AUTO_INCREMENT
-        // next value but users can decide if they want it or not for the operation
-
-        $html_output .= '<input type="checkbox" name="sql_auto_increment" '
-            . 'value="1" id="checkbox_auto_increment_mv" checked="checked">'
-            . '<label for="checkbox_auto_increment_mv">'
-            . __('Add AUTO_INCREMENT value')
-            . '</label><br>';
-
-        if ($GLOBALS['table_priv'] && $GLOBALS['col_priv']
-            && $GLOBALS['is_reload_priv']
-        ) {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" '
-                . 'value="1" id="checkbox_privileges_tables_move" '
-                . 'checked="checked">';
-        } else {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" '
-                . 'value="1" id="checkbox_privileges_tables_move" title="' . __(
-                    'You don\'t have sufficient privileges to perform this '
-                    . 'operation; Please refer to the documentation for more details'
-                )
-                . '" disabled>';
-        }
-        $html_output .= '<label for="checkbox_privileges_tables_move">'
-            . __('Adjust privileges') . MySQLDocumentation::showDocumentation('faq', 'faq6-39')
-            . '</label><br>';
-
-        $html_output .= '</fieldset><fieldset class="tblFooters">'
-            . '<input class="btn btn-primary" type="submit" name="submit_move" value="' . __('Go') . '">'
-            . '</fieldset>'
-            . '</form>'
-            . '</div>';
-
-        return $html_output;
-    }
-
-    /**
-     * Get the HTML div for Table option
-     *
-     * @param Table  $pma_table          Table object
-     * @param string $comment            Comment
-     * @param string $tbl_collation      table collation
-     * @param string $tbl_storage_engine table storage engine
-     * @param string $pack_keys          pack keys
-     * @param string $auto_increment     value of auto increment
-     * @param string $delay_key_write    delay key write
-     * @param string $transactional      value of transactional
-     * @param string $page_checksum      value of page checksum
-     * @param string $checksum           the checksum
-     *
-     * @return string
-     */
-    public function getTableOptionDiv(
-        $pma_table,
-        $comment,
-        $tbl_collation,
-        $tbl_storage_engine,
-        $pack_keys,
-        $auto_increment,
-        $delay_key_write,
-        $transactional,
-        $page_checksum,
-        $checksum
-    ) {
-        $html_output = '<div>';
-        $html_output .= '<form method="post" action="' . Url::getFromRoute('/table/operations');
-        $html_output .= '" id="tableOptionsForm" class="ajax">';
-        $html_output .= Url::getHiddenInputs(
-            $GLOBALS['db'],
-            $GLOBALS['table']
-        );
-        $html_output .= '<input type="hidden" name="reload" value="1">';
-
-        $html_output .= $this->getTableOptionFieldset(
-            $pma_table,
-            $comment,
-            $tbl_collation,
-            $tbl_storage_engine,
-            $pack_keys,
-            $delay_key_write,
-            $auto_increment,
-            $transactional,
-            $page_checksum,
-            $checksum
-        );
-
-        $html_output .= '<fieldset class="tblFooters">'
-            . '<input type="hidden" name="submitoptions" value="1">'
-            . '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">'
-            . '</fieldset>'
-            . '</form>'
-            . '</div>';
-
-        return $html_output;
-    }
-
-    /**
-     * Get HTML for the rename table part of table options
-     *
-     * @return string
-     */
-    private function getHtmlForRenameTable()
-    {
-        $html_output = '<tr><td class="vmiddle">' . __('Rename table to') . '</td>'
-            . '<td>'
-            . '<input type="text" name="new_name" maxlength="64" '
-            . 'value="' . htmlspecialchars($GLOBALS['table'])
-            . '" required="required">'
-            . '</td></tr>'
-            . '<tr><td></td><td>';
-
-        if ($GLOBALS['table_priv'] && $GLOBALS['col_priv']
-            && $GLOBALS['is_reload_priv']
-        ) {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" '
-                . 'value="1" id="checkbox_privileges_table_options" '
-                . 'checked="checked">';
-        } else {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" '
-                . 'value="1" id="checkbox_privileges_table_options" title="' . __(
-                    'You don\'t have sufficient privileges to perform this '
-                    . 'operation; Please refer to the documentation for more details'
-                )
-                . '" disabled>';
-        }
-        $html_output .= '<label for="checkbox_privileges_table_options">'
-            . __('Adjust privileges') . '&nbsp;'
-            . MySQLDocumentation::showDocumentation('faq', 'faq6-39') . '</label>';
-
-        $html_output .= '</td></tr>';
-        return $html_output;
-    }
-
-    /**
-     * Get HTML for the table comments part of table options
-     *
-     * @param string $current_value of the table comments
-     *
-     * @return string
-     */
-    private function getHtmlForTableComments($current_value)
-    {
-        $commentLength = $this->dbi->getVersion() >= 50503 ? 2048 : 60;
-        return '<tr><td class="vmiddle">' . __('Table comments') . '</td>'
-            . '<td><input type="text" name="comment" '
-            . 'maxlength="' . $commentLength . '"'
-            . 'value="' . htmlspecialchars($current_value) . '">'
-            . '<input type="hidden" name="prev_comment" value="'
-            . htmlspecialchars($current_value) . '">'
-            . '</td>'
-            . '</tr>';
-    }
-
-    /**
-     * Get HTML for the PACK KEYS part of table options
-     *
-     * @param string $current_value of the pack keys option
-     *
-     * @return string
-     */
-    private function getHtmlForPackKeys($current_value)
-    {
-        $html_output = '<tr>'
-            . '<td class="vmiddle"><label for="new_pack_keys">PACK_KEYS</label></td>'
-            . '<td><select name="new_pack_keys" id="new_pack_keys">';
-
-        $html_output .= '<option value="DEFAULT"';
-        if ($current_value == 'DEFAULT') {
-            $html_output .= 'selected="selected"';
-        }
-        $html_output .= '>DEFAULT</option>
-                <option value="0"';
-        if ($current_value == '0') {
-            $html_output .= 'selected="selected"';
-        }
-        $html_output .= '>0</option>
-                <option value="1" ';
-        if ($current_value == '1') {
-            $html_output .= 'selected="selected"';
-        }
-        $html_output .= '>1</option>'
-            . '</select>'
-            . '</td>'
-            . '</tr>';
-
-        return $html_output;
-    }
-
-    /**
-     * Get HTML fieldset for Table option, it contains HTML table for options
-     *
-     * @param Table  $pma_table          Table object
-     * @param string $comment            Comment
-     * @param string $tbl_collation      table collation
-     * @param string $tbl_storage_engine table storage engine
-     * @param string $pack_keys          pack keys
-     * @param string $delay_key_write    delay key write
-     * @param string $auto_increment     value of auto increment
-     * @param string $transactional      value of transactional
-     * @param string $page_checksum      value of page checksum
-     * @param string $checksum           the checksum
-     *
-     * @return string
-     */
-    private function getTableOptionFieldset(
-        $pma_table,
-        $comment,
-        $tbl_collation,
-        $tbl_storage_engine,
-        $pack_keys,
-        $delay_key_write,
-        $auto_increment,
-        $transactional,
-        $page_checksum,
-        $checksum
-    ) {
-        $html_output = '<fieldset>'
-            . '<legend>' . __('Table options') . '</legend>';
-
-        $html_output .= '<table>';
-        $html_output .= $this->getHtmlForRenameTable();
-        $html_output .= $this->getHtmlForTableComments($comment);
-
-        //Storage engine
-        $html_output .= '<tr><td class="vmiddle">' . __('Storage Engine')
-            . '&nbsp;' . MySQLDocumentation::show('Storage_engines')
-            . '</td>'
-            . '<td>'
-            . StorageEngine::getHtmlSelect(
-                'new_tbl_storage_engine',
-                null,
-                $tbl_storage_engine
-            )
-            . '</td>'
-            . '</tr>';
-
-        //Table character set
-        $html_output .= '<tr><td class="vmiddle">' . __('Collation') . '</td>'
-            . '<td>';
-        $html_output .= '<select lang="en" dir="ltr" name="tbl_collation">' . "\n";
-        $html_output .= '<option value=""></option>' . "\n";
-
-        $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
-        $collations = Charsets::getCollations($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
-        /** @var Charset $charset */
-        foreach ($charsets as $charset) {
-            $html_output .= '<optgroup label="' . $charset->getName()
-                . '" title="' . $charset->getDescription() . '">' . "\n";
-            /** @var Collation $collation */
-            foreach ($collations[$charset->getName()] as $collation) {
-                $html_output .= '<option value="' . $collation->getName()
-                    . '" title="' . $collation->getDescription() . '"'
-                    . ($tbl_collation == $collation->getName() ? ' selected' : '') . '>'
-                    . $collation->getName() . '</option>' . "\n";
-            }
-            $html_output .= '</optgroup>' . "\n";
-        }
-        $html_output .= '</select>' . "\n";
-        $html_output .= '</td>'
-            . '</tr>';
-
-        // Change all Column collations
-        $html_output .= '<tr><td></td><td>'
-            . '<input type="checkbox" name="change_all_collations" value="1" '
-            . 'id="checkbox_change_all_collations">'
-            . '<label for="checkbox_change_all_collations">'
-            . __('Change all column collations')
-            . '</label>'
-            . '</td></tr>';
-
-        if ($pma_table->isEngine(['MYISAM', 'ARIA', 'ISAM'])) {
-            $html_output .= $this->getHtmlForPackKeys($pack_keys);
-        } // end if (MYISAM|ISAM)
-
-        if ($pma_table->isEngine(['MYISAM', 'ARIA'])) {
-            $html_output .= $this->getHtmlForTableRow(
-                'new_checksum',
-                'CHECKSUM',
-                $checksum
-            );
-
-            $html_output .= $this->getHtmlForTableRow(
-                'new_delay_key_write',
-                'DELAY_KEY_WRITE',
-                $delay_key_write
-            );
-        } // end if (MYISAM)
-
-        if ($pma_table->isEngine('ARIA')) {
-            $html_output .= $this->getHtmlForTableRow(
-                'new_transactional',
-                'TRANSACTIONAL',
-                $transactional
-            );
-
-            $html_output .= $this->getHtmlForTableRow(
-                'new_page_checksum',
-                'PAGE_CHECKSUM',
-                $page_checksum
-            );
-        } // end if (ARIA)
-
-        if (strlen($auto_increment) > 0
-            && $pma_table->isEngine(['MYISAM', 'ARIA', 'INNODB', 'PBXT', 'ROCKSDB'])
-        ) {
-            $html_output .= '<tr><td class="vmiddle">'
-                . '<label for="auto_increment_opt">AUTO_INCREMENT</label></td>'
-                . '<td><input type="number" name="new_auto_increment" '
-                . 'id="auto_increment_opt"'
-                . 'value="' . $auto_increment . '"></td>'
-                . '</tr> ';
-        } // end if (MYISAM|INNODB)
-
-        $possible_row_formats = $this->getPossibleRowFormat();
-
-        // for MYISAM there is also COMPRESSED but it can be set only by the
-        // myisampack utility, so don't offer here the choice because if we
-        // try it inside an ALTER TABLE, MySQL (at least in 5.1.23-maria)
-        // does not return a warning
-        // (if the table was compressed, it can be seen on the Structure page)
-
-        if (isset($possible_row_formats[$tbl_storage_engine])) {
-            $current_row_format
-                = mb_strtoupper($GLOBALS['showtable']['Row_format']);
-            $html_output .= '<tr><td class="vmiddle">'
-                . '<label for="new_row_format">ROW_FORMAT</label></td>'
-                . '<td>';
-            $html_output .= DropDown::generate(
-                'new_row_format',
-                $possible_row_formats[$tbl_storage_engine],
-                $current_row_format,
-                'new_row_format'
-            );
-            $html_output .= '</td></tr>';
-        }
-        $html_output .= '</table>'
-            . '</fieldset>';
-
-        return $html_output;
-    }
-
-    /**
-     * Get the common HTML table row (tr) for new_checksum, new_delay_key_write,
-     * new_transactional and new_page_checksum
-     *
-     * @param string $attribute class, name and id attribute
-     * @param string $label     label value
-     * @param string $val       checksum, delay_key_write, transactional, page_checksum
-     *
-     * @return string
-     */
-    private function getHtmlForTableRow($attribute, $label, $val)
-    {
-        return '<tr>'
-            . '<td class="vmiddle">'
-            . '<label for="' . $attribute . '">' . $label . '</label>'
-            . '</td>'
-            . '<td>'
-            . '<input type="checkbox" name="' . $attribute . '" id="' . $attribute . '"'
-            . ' value="1"' . (! empty($val) && $val == 1 ? ' checked="checked"' : '')
-            . '>'
-            . '</td>'
-            . '</tr>';
-    }
-
-    /**
      * Get array of possible row formats
      *
      * @return array
      */
-    private function getPossibleRowFormat()
+    public function getPossibleRowFormat()
     {
         // the outer array is for engines, the inner array contains the dropdown
         // option values as keys then the dropdown option labels
@@ -1023,312 +575,93 @@ class Operations
     }
 
     /**
-     * Get HTML div for copy table
+     * @param Table $tableObject Table object
      *
-     * @return string
+     * @return array
      */
-    public function getHtmlForCopytable()
+    public function getMaintenanceActions(Table $tableObject): array
     {
-        $html_output = '<div>';
-        $html_output .= '<form method="post" action="' . Url::getFromRoute('/table/operations')
-            . '" name="copyTable" '
-            . 'id="copyTable" '
-            . ' class="ajax" '
-            . 'onsubmit="return Functions.emptyCheckTheField(this, \'new_name\')">'
-            . Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
-            . '<input type="hidden" name="reload" value="1">';
+        global $table;
 
-        $html_output .= '<fieldset>';
-        $html_output .= '<legend>'
-            . __('Copy table to (database<b>.</b>table)') . '</legend>';
+        $actions = [];
 
-        if (count($GLOBALS['dblist']->databases) > $GLOBALS['cfg']['MaxDbList']) {
-            $html_output .= '<input class="halfWidth" type="text" maxlength="100" '
-                . 'name="target_db" '
-                . 'value="' . htmlspecialchars($GLOBALS['db']) . '">';
-        } else {
-            $html_output .= '<select class="halfWidth" name="target_db">'
-                . $GLOBALS['dblist']->databases->getHtmlOptions(true, false)
-                . '</select>';
+        if ($tableObject->isEngine(['MYISAM', 'ARIA', 'INNODB', 'BERKELEYDB', 'TOKUDB'])) {
+            $actions[] = [
+                'params' => [
+                    'sql_query' => 'ANALYZE TABLE ' . Util::backquote($table),
+                    'table_maintenance' => 'Go',
+                ],
+                'message' => __('Analyze table'),
+                'link' => 'ANALYZE_TABLE',
+            ];
         }
-        $html_output .= '&nbsp;<strong>.</strong>&nbsp;';
-        $html_output .= '<input class="halfWidth" type="text" required="required" '
-            . 'name="new_name" maxlength="64" '
-            . 'value="' . htmlspecialchars($GLOBALS['table']) . '"><br>';
 
-        $choices = [
-            'structure' => __('Structure only'),
-            'data'      => __('Structure and data'),
-            'dataonly'  => __('Data only'),
+        if ($tableObject->isEngine(['MYISAM', 'ARIA', 'INNODB', 'TOKUDB'])) {
+            $actions[] = [
+                'params' => [
+                    'sql_query' => 'CHECK TABLE ' . Util::backquote($table),
+                    'table_maintenance' => 'Go',
+                ],
+                'message' => __('Check table'),
+                'link' => 'CHECK_TABLE',
+            ];
+        }
+
+        $actions[] = [
+            'params' => [
+                'sql_query' => 'CHECKSUM TABLE ' . Util::backquote($table),
+                'table_maintenance' => 'Go',
+            ],
+            'message' => __('Checksum table'),
+            'link' => 'CHECKSUM_TABLE',
         ];
 
-        $html_output .= RadioList::generate(
-            'what',
-            $choices,
-            'data',
-            true
-        );
-        $html_output .= '<br>';
-
-        $html_output .= '<input type="checkbox" name="drop_if_exists" '
-            . 'value="true" id="checkbox_drop">'
-            . '<label for="checkbox_drop">'
-            . sprintf(__('Add %s'), 'DROP TABLE') . '</label><br>'
-            . '<input type="checkbox" name="sql_auto_increment" '
-            . 'value="1" id="checkbox_auto_increment_cp">'
-            . '<label for="checkbox_auto_increment_cp">'
-            . __('Add AUTO_INCREMENT value') . '</label><br>';
-
-        // display "Add constraints" choice only if there are
-        // foreign keys
-        if ($this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'foreign')) {
-            $html_output .= '<input type="checkbox" name="add_constraints" '
-                . 'value="1" id="checkbox_constraints" checked="checked">';
-            $html_output .= '<label for="checkbox_constraints">'
-                . __('Add constraints') . '</label><br>';
-        } // endif
-
-        $html_output .= '<br>';
-
-        if ($GLOBALS['table_priv'] && $GLOBALS['col_priv']
-            && $GLOBALS['is_reload_priv']
-        ) {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" '
-                . 'value="1" id="checkbox_adjust_privileges" checked="checked">';
-        } else {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" '
-                . 'value="1" id="checkbox_adjust_privileges" title="' . __(
-                    'You don\'t have sufficient privileges to perform this '
-                    . 'operation; Please refer to the documentation for more details'
-                )
-                . '" disabled>';
-        }
-        $html_output .= '<label for="checkbox_adjust_privileges">'
-            . __('Adjust privileges') . MySQLDocumentation::showDocumentation('faq', 'faq6-39')
-            . '</label><br>';
-
-        $pma_switch_to_new = isset($_SESSION['pma_switch_to_new']) && $_SESSION['pma_switch_to_new'];
-
-        $html_output .= '<input type="checkbox" name="switch_to_new" value="true"'
-            . 'id="checkbox_switch"'
-            . ($pma_switch_to_new ? ' checked="checked"' : '') . '>';
-        $html_output .= '<label for="checkbox_switch">'
-            . __('Switch to copied table') . '</label>'
-            . '</fieldset>';
-
-        $html_output .= '<fieldset class="tblFooters">'
-            . '<input class="btn btn-primary" type="submit" name="submit_copy" value="' . __('Go') . '">'
-            . '</fieldset>'
-            . '</form>'
-            . '</div>';
-
-        return $html_output;
-    }
-
-    /**
-     * Get HTML snippet for table maintenance
-     *
-     * @param Table $pma_table  Table object
-     * @param array $url_params array of URL parameters
-     *
-     * @return string
-     */
-    public function getHtmlForTableMaintenance($pma_table, array $url_params)
-    {
-        $html_output = '<div>';
-        $html_output .= '<fieldset>'
-            . '<legend>' . __('Table maintenance') . '</legend>';
-        $html_output .= '<ul id="tbl_maintenance">';
-
-        // Note: BERKELEY (BDB) is no longer supported, starting with MySQL 5.1
-        $html_output .= $this->getListofMaintainActionLink($pma_table, $url_params);
-
-        $html_output .= '</ul>'
-            . '</fieldset>'
-            . '</div>';
-
-        return $html_output;
-    }
-
-    /**
-     * Get HTML 'li' having a link of maintain action
-     *
-     * @param Table $pma_table  Table object
-     * @param array $url_params Array of URL parameters
-     *
-     * @return string
-     */
-    private function getListofMaintainActionLink($pma_table, array $url_params)
-    {
-        $html_output = '';
-
-        // analyze table
-        if ($pma_table->isEngine(['MYISAM', 'ARIA', 'INNODB', 'BERKELEYDB', 'TOKUDB'])) {
-            $params = [
-                'sql_query' => 'ANALYZE TABLE '
-                    . Util::backquote($GLOBALS['table']),
-                'table_maintenance' => 'Go',
+        if ($tableObject->isEngine(['INNODB'])) {
+            $actions[] = [
+                'params' => [
+                    'sql_query' => 'ALTER TABLE ' . Util::backquote($table) . ' ENGINE = InnoDB;',
+                ],
+                'message' => __('Defragment table'),
+                'link' => 'InnoDB_File_Defragmenting',
             ];
-            $html_output .= $this->getMaintainActionlink(
-                __('Analyze table'),
-                $params,
-                $url_params,
-                'ANALYZE_TABLE'
-            );
         }
 
-        // check table
-        if ($pma_table->isEngine(['MYISAM', 'ARIA', 'INNODB', 'TOKUDB'])) {
-            $params = [
-                'sql_query' => 'CHECK TABLE '
-                    . Util::backquote($GLOBALS['table']),
-                'table_maintenance' => 'Go',
-            ];
-            $html_output .= $this->getMaintainActionlink(
-                __('Check table'),
-                $params,
-                $url_params,
-                'CHECK_TABLE'
-            );
-        }
-
-        // checksum table
-        $params = [
-            'sql_query' => 'CHECKSUM TABLE '
-                . Util::backquote($GLOBALS['table']),
-            'table_maintenance' => 'Go',
+        $actions[] = [
+            'params' => [
+                'sql_query' => 'FLUSH TABLE ' . Util::backquote($table),
+                'message_to_show' => sprintf(
+                    __('Table %s has been flushed.'),
+                    htmlspecialchars($table)
+                ),
+                'reload' => true,
+            ],
+            'message' => __('Flush the table (FLUSH)'),
+            'link' => 'FLUSH',
         ];
-        $html_output .= $this->getMaintainActionlink(
-            __('Checksum table'),
-            $params,
-            $url_params,
-            'CHECKSUM_TABLE'
-        );
 
-        // defragment table
-        if ($pma_table->isEngine(['INNODB'])) {
-            $params = [
-                'sql_query' => 'ALTER TABLE '
-                . Util::backquote($GLOBALS['table'])
-                . ' ENGINE = InnoDB;',
+        if ($tableObject->isEngine(['MYISAM', 'ARIA', 'INNODB', 'BERKELEYDB', 'TOKUDB'])) {
+            $actions[] = [
+                'params' => [
+                    'sql_query' => 'OPTIMIZE TABLE ' . Util::backquote($table),
+                    'table_maintenance' => 'Go',
+                ],
+                'message' => __('Optimize table'),
+                'link' => 'OPTIMIZE_TABLE',
             ];
-            $html_output .= $this->getMaintainActionlink(
-                __('Defragment table'),
-                $params,
-                $url_params,
-                'InnoDB_File_Defragmenting'
-            );
         }
 
-        // flush table
-        $params = [
-            'sql_query' => 'FLUSH TABLE '
-                . Util::backquote($GLOBALS['table']),
-            'message_to_show' => sprintf(
-                __('Table %s has been flushed.'),
-                htmlspecialchars($GLOBALS['table'])
-            ),
-            'reload' => 1,
-        ];
-        $html_output .= $this->getMaintainActionlink(
-            __('Flush the table (FLUSH)'),
-            $params,
-            $url_params,
-            'FLUSH'
-        );
-
-        // optimize table
-        if ($pma_table->isEngine(['MYISAM', 'ARIA', 'INNODB', 'BERKELEYDB', 'TOKUDB'])) {
-            $params = [
-                'sql_query' => 'OPTIMIZE TABLE '
-                    . Util::backquote($GLOBALS['table']),
-                'table_maintenance' => 'Go',
+        if ($tableObject->isEngine(['MYISAM', 'ARIA'])) {
+            $actions[] = [
+                'params' => [
+                    'sql_query' => 'REPAIR TABLE ' . Util::backquote($table),
+                    'table_maintenance' => 'Go',
+                ],
+                'message' => __('Repair table'),
+                'link' => 'REPAIR_TABLE',
             ];
-            $html_output .= $this->getMaintainActionlink(
-                __('Optimize table'),
-                $params,
-                $url_params,
-                'OPTIMIZE_TABLE'
-            );
         }
 
-        // repair table
-        if ($pma_table->isEngine(['MYISAM', 'ARIA'])) {
-            $params = [
-                'sql_query' => 'REPAIR TABLE '
-                    . Util::backquote($GLOBALS['table']),
-                'table_maintenance' => 'Go',
-            ];
-            $html_output .= $this->getMaintainActionlink(
-                __('Repair table'),
-                $params,
-                $url_params,
-                'REPAIR_TABLE'
-            );
-        }
-
-        return $html_output;
-    }
-
-    /**
-     * Get maintain action HTML link
-     *
-     * @param string $action_message action message
-     * @param array  $params         url parameters array
-     * @param array  $url_params     additional url parameters
-     * @param string $link           contains name of page/anchor that is being linked
-     *
-     * @return string
-     */
-    private function getMaintainActionlink($action_message, array $params, array $url_params, $link)
-    {
-        return '<li>'
-            . Generator::linkOrButton(
-                Url::getFromRoute('/sql', array_merge($url_params, $params)),
-                $action_message,
-                ['class' => 'maintain_action ajax']
-            )
-            . MySQLDocumentation::show($link)
-            . '</li>';
-    }
-
-    /**
-     * Get HTML for Delete data or table (truncate table, drop table)
-     *
-     * @param array $truncate_table_url_params url parameter array for truncate table
-     * @param array $dropTableUrlParams        url parameter array for drop table
-     *
-     * @return string
-     */
-    public function getHtmlForDeleteDataOrTable(
-        array $truncate_table_url_params,
-        array $dropTableUrlParams
-    ) {
-        $html_output = '<div>'
-            . '<fieldset class="caution">'
-            . '<legend>' . __('Delete data or table') . '</legend>';
-
-        $html_output .= '<ul>';
-
-        if (! empty($truncate_table_url_params)) {
-            $html_output .= $this->getDeleteDataOrTablelink(
-                $truncate_table_url_params,
-                'TRUNCATE_TABLE',
-                __('Empty the table (TRUNCATE)'),
-                'truncate_tbl_anchor'
-            );
-        }
-        if (! empty($dropTableUrlParams)) {
-            $html_output .= $this->getDeleteDataOrTablelink(
-                $dropTableUrlParams,
-                'DROP_TABLE',
-                __('Delete the table (DROP)'),
-                'drop_tbl_anchor'
-            );
-        }
-        $html_output .= '</ul></fieldset></div>';
-
-        return $html_output;
+        return $actions;
     }
 
     /**
@@ -1356,15 +689,12 @@ class Operations
     }
 
     /**
-     * Get HTML snippet for partition maintenance
-     *
-     * @param array $partition_names array of partition names for a specific db/table
-     * @param array $url_params      url parameters
-     *
-     * @return string
+     * @return array<string, string>
      */
-    public function getHtmlForPartitionMaintenance(array $partition_names, array $url_params)
+    public function getPartitionMaintenanceChoices(): array
     {
+        global $db, $table;
+
         $choices = [
             'ANALYZE' => __('Analyze'),
             'CHECK' => __('Check'),
@@ -1374,144 +704,93 @@ class Operations
             'TRUNCATE' => __('Truncate'),
         ];
 
-        $partition_method = Partition::getPartitionMethod(
-            $GLOBALS['db'],
-            $GLOBALS['table']
-        );
-        // add COALESCE or DROP option to choices array depeding on Partition method
-        if ($partition_method == 'RANGE'
-            || $partition_method == 'RANGE COLUMNS'
-            || $partition_method == 'LIST'
-            || $partition_method == 'LIST COLUMNS'
+        $partitionMethod = Partition::getPartitionMethod($db, $table);
+
+        // add COALESCE or DROP option to choices array depending on Partition method
+        if ($partitionMethod == 'RANGE'
+            || $partitionMethod == 'RANGE COLUMNS'
+            || $partitionMethod == 'LIST'
+            || $partitionMethod == 'LIST COLUMNS'
         ) {
             $choices['DROP'] = __('Drop');
         } else {
             $choices['COALESCE'] = __('Coalesce');
         }
 
-        $html_output = '<div>'
-            . '<form id="partitionsForm" class="ajax" '
-            . 'method="post" action="' . Url::getFromRoute('/table/operations') . '">'
-            . Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
-            . '<fieldset>'
-            . '<legend>'
-            . __('Partition maintenance')
-            . MySQLDocumentation::show('partitioning_maintenance')
-            . '</legend>';
-
-        $html_select = '<select id="partition_name" name="partition_name[]"'
-            . ' multiple="multiple" required="required">' . "\n";
-        $first = true;
-        foreach ($partition_names as $one_partition) {
-            $one_partition = htmlspecialchars($one_partition);
-            $html_select .= '<option value="' . $one_partition . '"';
-            if ($first) {
-                $html_select .= ' selected="selected"';
-                $first = false;
-            }
-            $html_select .=  '>' . $one_partition . '</option>' . "\n";
-        }
-        $html_select .= '</select>' . "\n";
-        $html_output .= sprintf(__('Partition %s'), $html_select);
-
-        $html_output .= '<div class="clearfloat">';
-        $html_output .= RadioList::generate(
-            'partition_operation',
-            $choices,
-            'ANALYZE',
-            false,
-            true,
-            'floatleft'
-        );
-        $this_url_params = array_merge(
-            $url_params,
-            [
-                'sql_query' => 'ALTER TABLE '
-                . Util::backquote($GLOBALS['table'])
-                . ' REMOVE PARTITIONING;',
-            ]
-        );
-        $html_output .= '<div class="clearfloat"><br>';
-
-        $html_output .= '<a href="' . Url::getFromRoute('/sql', $this_url_params) . '">'
-            . __('Remove partitioning') . '</a>';
-
-        $html_output .= '</fieldset>'
-            . '<fieldset class="tblFooters">'
-            . '<input type="hidden" name="submit_partition" value="1">'
-            . '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">'
-            . '</fieldset>'
-            . '</form>'
-            . '</div>';
-
-        return $html_output;
+        return $choices;
     }
 
     /**
-     * Get the HTML for Referential Integrity check
+     * @param array $urlParams          Array of url parameters.
+     * @param bool  $hasRelationFeature If relation feature is enabled.
      *
-     * @param array $foreign    all Relations to foreign tables for a given table
-     *                          or optionally a given column in a table
-     * @param array $url_params array of url parameters
-     *
-     * @return string
+     * @return array
      */
-    public function getHtmlForReferentialIntegrityCheck(array $foreign, array $url_params)
-    {
-        $html_output = '<div>'
-            . '<fieldset>'
-            . '<legend>' . __('Check referential integrity:') . '</legend>';
+    public function getForeignersForReferentialIntegrityCheck(
+        array $urlParams,
+        $hasRelationFeature
+    ): array {
+        global $db, $table;
 
-        $html_output .= '<ul>';
+        if (! $hasRelationFeature) {
+            return [];
+        }
+
+        $foreigners = [];
+        $this->dbi->selectDb($db);
+        $foreign = $this->relation->getForeigners($db, $table, '', 'internal');
 
         foreach ($foreign as $master => $arr) {
-            $join_query  = 'SELECT '
-                . Util::backquote($GLOBALS['table']) . '.*'
-                . ' FROM ' . Util::backquote($GLOBALS['table'])
+            $joinQuery  = 'SELECT '
+                . Util::backquote($table) . '.*'
+                . ' FROM ' . Util::backquote($table)
                 . ' LEFT JOIN '
                 . Util::backquote($arr['foreign_db'])
                 . '.'
                 . Util::backquote($arr['foreign_table']);
-            if ($arr['foreign_table'] == $GLOBALS['table']) {
-                $foreign_table = $GLOBALS['table'] . '1';
-                $join_query .= ' AS ' . Util::backquote($foreign_table);
+
+            if ($arr['foreign_table'] == $table) {
+                $foreignTable = $table . '1';
+                $joinQuery .= ' AS ' . Util::backquote($foreignTable);
             } else {
-                $foreign_table = $arr['foreign_table'];
+                $foreignTable = $arr['foreign_table'];
             }
-            $join_query .= ' ON '
-                . Util::backquote($GLOBALS['table']) . '.'
+
+            $joinQuery .= ' ON '
+                . Util::backquote($table) . '.'
                 . Util::backquote($master)
                 . ' = '
                 . Util::backquote($arr['foreign_db'])
                 . '.'
-                . Util::backquote($foreign_table) . '.'
+                . Util::backquote($foreignTable) . '.'
                 . Util::backquote($arr['foreign_field'])
                 . ' WHERE '
                 . Util::backquote($arr['foreign_db'])
                 . '.'
-                . Util::backquote($foreign_table) . '.'
+                . Util::backquote($foreignTable) . '.'
                 . Util::backquote($arr['foreign_field'])
                 . ' IS NULL AND '
-                . Util::backquote($GLOBALS['table']) . '.'
+                . Util::backquote($table) . '.'
                 . Util::backquote($master)
                 . ' IS NOT NULL';
-            $this_url_params = array_merge(
-                $url_params,
+            $thisUrlParams = array_merge(
+                $urlParams,
                 [
-                    'sql_query' => $join_query,
-                    'sql_signature' => Core::signSqlQuery($join_query),
+                    'sql_query' => $joinQuery,
+                    'sql_signature' => Core::signSqlQuery($joinQuery),
                 ]
             );
 
-            $html_output .= '<li>'
-                . '<a href="' . Url::getFromRoute('/sql', $this_url_params) . '">'
-                . $master . '&nbsp;->&nbsp;' . $arr['foreign_db'] . '.'
-                . $arr['foreign_table'] . '.' . $arr['foreign_field']
-                . '</a></li>' . "\n";
-        } //  foreach $foreign
-        $html_output .= '</ul></fieldset></div>';
+            $foreigners[] = [
+                'params' => $thisUrlParams,
+                'master' => $master,
+                'db' => $arr['foreign_db'],
+                'table' => $arr['foreign_table'],
+                'field' => $arr['foreign_field'],
+            ];
+        }
 
-        return $html_output;
+        return $foreigners;
     }
 
     /**
