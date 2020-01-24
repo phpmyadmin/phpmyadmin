@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
@@ -283,71 +284,66 @@ class OperationsController extends AbstractController
             $pos,
         ] = Util::getDbInfo($db, $sub_part ?? '');
 
-        echo "\n";
-
+        $oldMessage = '';
         if (isset($message)) {
-            echo Generator::getMessage($message, $sql_query);
+            $oldMessage = Generator::getMessage($message, $sql_query);
             unset($message);
         }
 
         $db_collation = $this->dbi->getDbCollation($db);
         $is_information_schema = $this->dbi->isSystemSchema($db);
 
-        if (! $is_information_schema) {
-            if ($cfgRelation['commwork']) {
-                /**
-                 * database comment
-                 */
-                $this->response->addHTML($this->operations->getHtmlForDatabaseComment($db));
-            }
+        if ($is_information_schema) {
+            return;
+        }
 
-            $this->response->addHTML('<div>');
-            $this->response->addHTML(CreateTable::getHtml($db));
-            $this->response->addHTML('</div>');
+        $databaseComment = '';
+        if ($cfgRelation['commwork']) {
+            $databaseComment = $this->relation->getDbComment($db);
+        }
 
-            /**
-             * rename database
-             */
-            if ($db != 'mysql') {
-                $this->response->addHTML($this->operations->getHtmlForRenameDatabase($db, $db_collation));
-            }
+        $createTable = CreateTable::getHtml($db);
 
-            // Drop link if allowed
-            // Don't even try to drop information_schema.
-            // You won't be able to. Believe me. You won't.
-            // Don't allow to easily drop mysql database, RFE #1327514.
-            if (($this->dbi->isSuperuser() || $cfg['AllowUserDropDatabase'])
-                && ! $db_is_system_schema
-                && $db != 'mysql'
-            ) {
-                $this->response->addHTML($this->operations->getHtmlForDropDatabaseLink($db));
-            }
-            /**
-             * Copy database
-             */
-            $this->response->addHTML($this->operations->getHtmlForCopyDatabase($db, $db_collation));
+        $hasAdjustPrivileges = $GLOBALS['db_priv'] && $GLOBALS['table_priv']
+            && $GLOBALS['col_priv'] && $GLOBALS['proc_priv'] && $GLOBALS['is_reload_priv'];
 
-            /**
-             * Change database charset
-             */
-            $this->response->addHTML($this->operations->getHtmlForChangeDatabaseCharset($db, $db_collation));
+        $isDropDatabaseAllowed = ($this->dbi->isSuperuser() || $cfg['AllowUserDropDatabase'])
+            && ! $db_is_system_schema && $db !== 'mysql';
 
-            if (! $cfgRelation['allworks']
-                && $cfg['PmaNoRelation_DisableWarning'] == false
-            ) {
-                $message = Message::notice(
-                    __(
-                        'The phpMyAdmin configuration storage has been deactivated. ' .
-                        '%sFind out why%s.'
-                    )
-                );
-                $message->addParamHtml('<a href="' . Url::getFromRoute('/check-relations') . '" data-post="' . $url_query . '">');
-                $message->addParamHtml('</a>');
-                /* Show error if user has configured something, notice elsewhere */
-                if (! empty($cfg['Servers'][$server]['pmadb'])) {
-                    $message->isError(true);
-                }
+        $switchToNew = isset($_SESSION['pma_switch_to_new']) && $_SESSION['pma_switch_to_new'];
+
+        $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
+        $collations = Charsets::getCollations($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
+
+        if (! $cfgRelation['allworks']
+            && $cfg['PmaNoRelation_DisableWarning'] == false
+        ) {
+            $message = Message::notice(
+                __(
+                    'The phpMyAdmin configuration storage has been deactivated. ' .
+                    '%sFind out why%s.'
+                )
+            );
+            $message->addParamHtml('<a href="' . Url::getFromRoute('/check-relations') . '" data-post="' . $url_query . '">');
+            $message->addParamHtml('</a>');
+            /* Show error if user has configured something, notice elsewhere */
+            if (! empty($cfg['Servers'][$server]['pmadb'])) {
+                $message->isError(true);
             }
         }
+
+        $this->response->addHTML($this->template->render('database/operations/index', [
+            'message' => $oldMessage,
+            'db' => $db,
+            'has_comment' => $cfgRelation['commwork'],
+            'db_comment' => $databaseComment,
+            'create_table' => $createTable,
+            'db_collation' => $db_collation,
+            'has_adjust_privileges' => $hasAdjustPrivileges,
+            'is_drop_database_allowed' => $isDropDatabaseAllowed,
+            'switch_to_new' => $switchToNew,
+            'charsets' => $charsets,
+            'collations' => $collations,
+        ]));
     }
 }
