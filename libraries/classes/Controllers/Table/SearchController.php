@@ -45,6 +45,13 @@ class SearchController extends AbstractController
      */
     private $_columnTypes;
     /**
+     * Types of columns without any replacement
+     *
+     * @access private
+     * @var array
+     */
+    private $_originalColumnTypes;
+    /**
      * Collations of columns
      *
      * @access private
@@ -103,6 +110,7 @@ class SearchController extends AbstractController
         $this->_columnNames = [];
         $this->_columnNullFlags = [];
         $this->_columnTypes = [];
+        $this->_originalColumnTypes = [];
         $this->_columnCollations = [];
         $this->_geomColumnFlag = false;
         $this->_foreigners = [];
@@ -132,6 +140,8 @@ class SearchController extends AbstractController
             $this->_columnNames[] = $row['Field'];
 
             $type = $row['Type'];
+            // before any replacement
+            $this->_originalColumnTypes[] = mb_strtolower($type);
             // check whether table contains geometric columns
             if (in_array($type, $geom_types)) {
                 $this->_geomColumnFlag = true;
@@ -352,9 +362,10 @@ class SearchController extends AbstractController
         //Gets column's type and collation
         $type = $this->_columnTypes[$column_index];
         $collation = $this->_columnCollations[$column_index];
+        $cleanType = preg_replace('@\(.*@s', '', $type);
         //Gets column's comparison operators depending on column type
         $typeOperators = $this->dbi->types->getTypeOperatorsHtml(
-            preg_replace('@\(.*@s', '', $this->_columnTypes[$column_index]),
+            $cleanType,
             $this->_columnNullFlags[$column_index],
             $selected_operator
         );
@@ -370,9 +381,27 @@ class SearchController extends AbstractController
             '',
             ''
         );
+        $htmlAttributes = '';
+        if (in_array($cleanType, $this->dbi->types->getIntegerTypes())) {
+            $extractedColumnspec = Util::extractColumnSpec(
+                $this->_originalColumnTypes[$column_index]
+            );
+            $is_unsigned = $extractedColumnspec['unsigned'];
+            $minMaxValues = $this->dbi->types->getIntegerRange(
+                $cleanType,
+                ! $is_unsigned
+            );
+            $htmlAttributes = 'min="' . $minMaxValues[0] . '" '
+                            . 'max="' . $minMaxValues[1] . '"';
+            $type = 'INT';
+        }
+
+        $htmlAttributes .= " onchange= 'return verifyAfterSearchFieldChange(" . $column_index . ")'";
+
         $value = $this->template->render('table/search/input_box', [
             'str' => '',
             'column_type' => (string) $type,
+            'html_attributes' => $htmlAttributes,
             'column_id' => 'fieldID_',
             'in_zoom_search_edit' => false,
             'foreigners' => $this->_foreigners,

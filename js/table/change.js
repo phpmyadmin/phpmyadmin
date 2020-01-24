@@ -148,6 +148,56 @@ function checkForCheckbox (multiEdit) {
     return true;
 }
 
+// used in Search page mostly for INT fields
+// eslint-disable-next-line no-unused-vars
+function verifyAfterSearchFieldChange (index) {
+    var $thisInput = $('input[name=\'criteriaValues[' + index + ']\']');
+    // validation for integer type
+    if ($thisInput.data('type') === 'INT') {
+        $('#tbl_search_form').validate();
+        validateIntField($thisInput, true);
+    }
+}
+
+/**
+ * Validate the an input contains an int value
+ * @param {jQuery} jqueryInput the Jquery object
+ * @param {boolean} returnValueIfIsNumber the value to return if the validator passes
+ * @returns {void}
+ */
+function validateIntField (jqueryInput, returnValueIfIsNumber) {
+    var mini = parseInt(jqueryInput.attr('min'));
+    var maxi = parseInt(jqueryInput.attr('max'));
+    jqueryInput.rules('add', {
+        number: {
+            param: true,
+            depends: function () {
+                return returnValueIfIsNumber;
+            }
+        },
+        min: {
+            param: mini,
+            depends: function () {
+                if (isNaN(jqueryInput.val())) {
+                    return false;
+                } else {
+                    return returnValueIfIsNumber;
+                }
+            }
+        },
+        max: {
+            param: maxi,
+            depends: function () {
+                if (isNaN(jqueryInput.val())) {
+                    return false;
+                } else {
+                    return returnValueIfIsNumber;
+                }
+            }
+        }
+    });
+}
+
 function verificationsAfterFieldChange (urlField, multiEdit, theType) {
     var evt = window.event || arguments.callee.caller.arguments[0];
     var target = evt.target || evt.srcElement;
@@ -230,36 +280,7 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
         }
         // validation for integer type
         if ($thisInput.data('type') === 'INT') {
-            var mini = parseInt($thisInput.attr('min'));
-            var maxi = parseInt($thisInput.attr('max'));
-            $thisInput.rules('add', {
-                number: {
-                    param : true,
-                    depends: function () {
-                        return checkForCheckbox(multiEdit);
-                    }
-                },
-                min: {
-                    param: mini,
-                    depends: function () {
-                        if (isNaN($thisInput.val())) {
-                            return false;
-                        } else {
-                            return checkForCheckbox(multiEdit);
-                        }
-                    }
-                },
-                max: {
-                    param: maxi,
-                    depends: function () {
-                        if (isNaN($thisInput.val())) {
-                            return false;
-                        } else {
-                            return checkForCheckbox(multiEdit);
-                        }
-                    }
-                }
-            });
+            validateIntField($thisInput, checkForCheckbox(multiEdit));
             // validation for CHAR types
         } else if ($thisInput.data('type') === 'CHAR') {
             var maxlen = $thisInput.data('maxlength');
