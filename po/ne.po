@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:37-0300\n"
-"PO-Revision-Date: 2018-03-19 21:41+0000\n"
+"PO-Revision-Date: 2020-01-25 12:21+0000\n"
 "Last-Translator: Nabin Ghimire <nnabinn@hotmail.com>\n"
-"Language-Team: Nepali <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"ne/>\n"
+"Language-Team: Nepali <https://hosted.weblate.org/projects/phpmyadmin/5-0/ne/"
+">\n"
 "Language: ne\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.20-dev\n"
+"X-Generator: Weblate 3.11-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -124,7 +124,7 @@ msgstr "तपाईंले प्रदर्शन गर्न कम्त
 
 #: db_qbe.php:159 templates/database/multi_table_query/form.twig:3
 msgid "Multi-table query"
-msgstr ""
+msgstr "बहु-तालिका प्रश्न"
 
 #: db_qbe.php:163 templates/database/multi_table_query/form.twig:3
 msgid "Query by example"
@@ -295,16 +295,12 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr ""
 
 #: js/messages.php:56
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "यो तालिकाको लागि ट्रैकिंग डेटा मेट्नुहोस्"
+msgstr "यो तालिकाको लागि ट्रैकिंग डेटा मेट्नुहोस्?"
 
 #: js/messages.php:58
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "यो तालिकाको लागि ट्रैकिंग डेटा मेट्नुहोस्"
+msgstr "यी तालिकाहरुका लागि ट्रैकिंग डेटा मेट्नुहोस्"
 
 #: js/messages.php:60
 #, fuzzy
