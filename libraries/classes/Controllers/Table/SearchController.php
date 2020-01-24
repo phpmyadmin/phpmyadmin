@@ -45,6 +45,13 @@ class SearchController extends AbstractController
      */
     private $_columnTypes;
     /**
+     * Types of columns without any replacement
+     *
+     * @access private
+     * @var array
+     */
+    private $_originalColumnTypes;
+    /**
      * Collations of columns
      *
      * @access private
@@ -116,6 +123,7 @@ class SearchController extends AbstractController
         $this->_columnNames = [];
         $this->_columnNullFlags = [];
         $this->_columnTypes = [];
+        $this->_originalColumnTypes = [];
         $this->_columnCollations = [];
         $this->_geomColumnFlag = false;
         $this->_foreigners = [];
@@ -150,6 +158,8 @@ class SearchController extends AbstractController
             $this->_columnNames[] = $row['Field'];
 
             $type = $row['Type'];
+            // before any replacement
+            $this->_originalColumnTypes[] = mb_strtolower($type);
             // check whether table contains geometric columns
             if (in_array($type, $geom_types)) {
                 $this->_geomColumnFlag = true;
@@ -935,7 +945,7 @@ class SearchController extends AbstractController
         //Gets column's type and collation
         $type = $this->_columnTypes[$column_index];
         $collation = $this->_columnCollations[$column_index];
-        $cleanType = preg_replace('@\(.*@s', '', $this->_columnTypes[$column_index]);
+        $cleanType = preg_replace('@\(.*@s', '', $type);
         //Gets column's comparison operators depending on column type
         $typeOperators = $this->dbi->types->getTypeOperatorsHtml(
             $cleanType,
@@ -957,7 +967,7 @@ class SearchController extends AbstractController
         $html_attributes = '';
         if (in_array($cleanType, $this->dbi->types->getIntegerTypes())) {
             $extracted_columnspec = Util::extractColumnSpec(
-                $type
+                $this->_originalColumnTypes[$column_index]
             );
             $is_unsigned = $extracted_columnspec['unsigned'];
             $min_max_values = $this->dbi->types->getIntegerRange(
