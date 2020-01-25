@@ -369,6 +369,22 @@ class UtilTest extends PmaTestCase
                 "b'010111010'",
                 '010111010',
             ],
+            'database name starting with b' => [
+                'big database',
+                'big database',
+            ],
+            "database name containing b'" => [
+                "a b'ig database",
+                "a b'ig database",
+            ],
+            'database name in single quotes' => [
+                "'a*database*name'",
+                "'a*database*name'",
+            ],
+            "database name with multiple b'" => [
+                "b'ens datab'ase'",
+                "b'ens datab'ase'",
+            ],
         ];
     }
 
