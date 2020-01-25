@@ -1378,7 +1378,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                                 var tools = $resultQuery.find('.tools').wrap('<p>').parent().html();
                                 // sqlOuter and tools will not be present if 'Show SQL queries' configuration is off
                                 if (typeof sqlOuter !== 'undefined' && typeof tools !== 'undefined') {
-                                    $(g.o).find('.result_query').not().last().remove();
+                                    $(g.o).find('.result_query').not($(g.o).find('.result_query').last()).remove();
                                     var $existingQuery = $(g.o).find('.result_query');
                                     // If two query box exists update query in second else add a second box
                                     if ($existingQuery.find('div.sqlOuter').length > 1) {
