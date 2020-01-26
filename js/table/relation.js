@@ -191,12 +191,12 @@ AJAX.registerOnload('table/relation.js', function () {
 
         // Update form parameter names.
         $newRow.find('select[name^="foreign_key_fields_name"]')
-           .not($newRow.find('select[name^="foreign_key_fields_name"]').first())
-              .find('select[name^="destination_foreign_column"]')
-              .not($newRow.find('select[name^="foreign_key_fields_name"]')
-                  .not($newRow.find('select[name^="foreign_key_fields_name"]').first())
-                  .find('select[name^="destination_foreign_column"]').first())
-            .each(function () {
+            .not($newRow.find('select[name^="foreign_key_fields_name"]').first())
+            .find('select[name^="destination_foreign_column"]')
+            .not($newRow.find('select[name^="foreign_key_fields_name"]')
+                .not($newRow.find('select[name^="foreign_key_fields_name"]').first())
+                .find('select[name^="destination_foreign_column"]').first()
+            ).each(function () {
                 $(this).parent().remove();
             });
         $newRow.find('input, select').each(function () {
