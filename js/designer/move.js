@@ -21,16 +21,25 @@ AJAX.registerTeardown('designer/move.js', function () {
 });
 
 AJAX.registerOnload('designer/move.js', function () {
-    $('#page_content').css({ 'margin-left': '3px' });
+    var $content = $('#page_content');
+    var $img = $('#toggleFullscreen').find('img');
+    var $span = $img.siblings('span');
+
+    $content.css({ 'margin-left': '3px' });
     $(document).on('fullscreenchange', function () {
-        if (! $.fn.fullScreen()) {
-            $('#page_content').removeClass('content_fullscreen')
+        if (!$.fn.fullScreen() || !$content.fullScreen()) {
+            $content.removeClass('content_fullscreen')
                 .css({ 'width': 'auto', 'height': 'auto' });
-            var $img = $('#toggleFullscreen').find('img');
-            var $span = $img.siblings('span');
-            $span.text($span.data('enter'));
+            $('#osn_tab').css({ 'width': 'auto', 'height': 'auto' });
             $img.attr('src', $img.data('enter'))
                 .attr('title', $span.data('enter'));
+            $span.text($span.data('enter'));
+
+            // Saving the fullscreen state in config when
+            // designer exists fullscreen mode via ESC key
+
+            var valueSent = 'off';
+            DesignerMove.saveValueInConfig('full_screen', valueSent);
         }
     });
 
@@ -260,8 +269,6 @@ DesignerMove.resizeOsnTab = function () {
     osnTabWidth  = maxX + 50;
     osnTabHeight = maxY + 50;
     DesignerMove.canvasPos();
-    document.getElementById('osn_tab').style.width = osnTabWidth + 'px';
-    document.getElementById('osn_tab').style.height = osnTabHeight + 'px';
 };
 
 /**
@@ -512,12 +519,17 @@ DesignerMove.toggleFullscreen = function () {
         $content
             .addClass('content_fullscreen')
             .css({ 'width': screen.width - 5, 'height': screen.height - 5 });
+
+        $('#osn_tab').css({ 'width': screen.width + 'px', 'height': screen.height});
         valueSent = 'on';
         $content.fullScreen(true);
     } else {
         $img.attr('src', $img.data('enter'))
             .attr('title', $span.data('enter'));
         $span.text($span.data('enter'));
+        $content.removeClass('content_fullscreen')
+                .css({ 'width': 'auto', 'height': 'auto' });
+        $('#osn_tab').css({ 'width': 'auto', 'height': 'auto'});
         $content.fullScreen(false);
         valueSent = 'off';
     }
