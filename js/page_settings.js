@@ -18,6 +18,7 @@ function showSettings (selector) {
     };
 
     // Keeping a clone to restore in case the user cancels the operation
+
     var $clone = $(selector + ' .page_settings').clone(true);
     $(selector)
         .dialog({
@@ -33,6 +34,11 @@ function showSettings (selector) {
             },
             buttons: buttons
         });
+
+    var $buttonSet = $('.ui-dialog-buttonset');
+    $buttonSet.children().first().attr("class", "btn btn-primary");
+    $buttonSet.children().last().attr("class", "btn btn-secondary");
+
 }
 
 function showPageSettings () {
