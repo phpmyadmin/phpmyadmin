@@ -999,7 +999,7 @@ class ExportSql extends ExportPlugin
 
             foreach ($event_names as $event_name) {
                 if (! empty($GLOBALS['sql_drop_table'])) {
-                    $text .= 'DROP EVENT '
+                    $text .= 'DROP EVENT IF EXISTS '
                         . Util::backquote($event_name)
                         . $delimiter . $crlf;
                 }
