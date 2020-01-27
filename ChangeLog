@@ -12,6 +12,7 @@ phpMyAdmin - ChangeLog
 - issue #15729 Improve virtuality dropdown for MariaDB > 10.1
 - issue #15312 Added an option to perform ALTER ONLINE (ALGORITHM=INPLACE) when editing a table structure
 - issue        Added missing 'IF EXISTS' to 'DROP EVENT' when exporting databases
+- issue #15232 Improve the padding in query result tool links
 
 5.0.2 (not yet released)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page
