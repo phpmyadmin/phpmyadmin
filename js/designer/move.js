@@ -91,7 +91,7 @@ DesignerMove.mouseDown = function (e) {
         curClick = e.target.parentNode.parentNode.parentNode.parentNode;
     } else if (e.target.className === 'tab_zag_2') {
         curClick = e.target.parentNode.parentNode.parentNode;
-    } else if (e.target.className === 'icon') {
+    } else if (e.target.id === 'layer_menu_sizer_btn') {
         layerMenuCurClick = 1;
     } else if (e.target.className === 'M_butt') {
         return false;
@@ -1709,17 +1709,19 @@ DesignerMove.showLeftMenu = function (idThis) {
 DesignerMove.sideMenuRight = function (idThis) {
     $('#side_menu').toggleClass('right');
     $('#layer_menu').toggleClass('left');
-    var icon = $(idThis.childNodes[0]);
-    var current = icon.attr('src');
-    icon.attr('src', icon.attr('data-right')).attr('data-right', current);
-
-    icon = $(document.getElementById('layer_menu_sizer').childNodes[0])
+    var moveMenuIcon = $(idThis.getElementsByTagName('img')[0]);
+    var resizeIcon = $('#layer_menu_sizer > img')
         .toggleClass('floatleft')
-        .toggleClass('floatright')
-        .children();
-    current = icon.attr('src');
-    icon.attr('src', icon.attr('data-right'));
-    icon.attr('data-right', current);
+        .toggleClass('floatright');
+
+    var srcResizeIcon = resizeIcon.attr('src');
+    resizeIcon.attr('src', resizeIcon.attr('data-right'));
+    resizeIcon.attr('data-right', srcResizeIcon);
+
+    var srcMoveIcon = moveMenuIcon.attr('src');
+    moveMenuIcon.attr('src', moveMenuIcon.attr('data-right'));
+    moveMenuIcon.attr('data-right', srcMoveIcon);
+
     menuMoved = !menuMoved;
     DesignerMove.saveValueInConfig('side_menu', $('#side_menu').hasClass('right'));
     $('#key_Left_Right').toggleClass('M_butt_Selected_down');
