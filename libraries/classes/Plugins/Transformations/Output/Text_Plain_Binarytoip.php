@@ -6,12 +6,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Output;
 
+use PhpMyAdmin\Utils\FormatConverter;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use stdClass;
-use function hex2bin;
-use function inet_ntop;
-use function strpos;
-use function substr;
 
 /**
  * Handles the binary to IPv4/IPv6 transformation for text plain
@@ -45,18 +42,7 @@ class Text_Plain_Binarytoip extends TransformationsPlugin
      */
     public function applyTransformation($buffer, array $options = [], ?stdClass $meta = null)
     {
-        if (strpos($buffer, '0x') !== 0) {
-            return $buffer;
-        }
-
-        $ipHex = substr($buffer, 2);
-        $ipBin = hex2bin($ipHex);
-
-        if ($ipBin === false) {
-            return $buffer;
-        }
-
-        return @inet_ntop($ipBin);
+        return FormatConverter::binaryToIp($buffer);
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
