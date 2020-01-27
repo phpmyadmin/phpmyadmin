@@ -1892,6 +1892,17 @@ Cookie authentication options
 
     reCaptcha will be then used in :ref:`cookie`.
 
+.. config:option:: $cfg['CaptchaSiteVerifyURL']
+
+    :type: string
+    :default: ``''``
+
+    The URL for the reCaptcha service to do siteverify action.
+
+    reCaptcha will be then used in :ref:`cookie`.
+
+    .. versionadded:: 5.1.0
+
 Navigation panel setup
 ----------------------
 

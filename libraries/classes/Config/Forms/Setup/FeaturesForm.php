@@ -49,6 +49,7 @@ class FeaturesForm extends \PhpMyAdmin\Config\Forms\User\FeaturesForm
             'LoginCookieDeleteAll',
             'CaptchaLoginPublicKey',
             'CaptchaLoginPrivateKey',
+            'CaptchaSiteVerifyURL',
         ];
         $result['Developer'] = [
             'UserprefsDeveloperTab',

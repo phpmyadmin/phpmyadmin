@@ -268,20 +268,22 @@ class AuthenticationCookie extends AuthenticationPlugin
                 && ! empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
             ) {
                 if (! empty($_POST['g-recaptcha-response'])) {
+                    $captchaSiteVerifyURL = $GLOBALS['cfg']['CaptchaSiteVerifyURL'] ?? '';
+                    $captchaSiteVerifyURL = empty($captchaSiteVerifyURL) ? null : $captchaSiteVerifyURL;
                     if (function_exists('curl_init')) {
                         $reCaptcha = new ReCaptcha\ReCaptcha(
                             $GLOBALS['cfg']['CaptchaLoginPrivateKey'],
-                            new ReCaptcha\RequestMethod\CurlPost()
+                            new ReCaptcha\RequestMethod\CurlPost(null, $captchaSiteVerifyURL)
                         );
                     } elseif (ini_get('allow_url_fopen')) {
                         $reCaptcha = new ReCaptcha\ReCaptcha(
                             $GLOBALS['cfg']['CaptchaLoginPrivateKey'],
-                            new ReCaptcha\RequestMethod\Post()
+                            new ReCaptcha\RequestMethod\Post($captchaSiteVerifyURL)
                         );
                     } else {
                         $reCaptcha = new ReCaptcha\ReCaptcha(
                             $GLOBALS['cfg']['CaptchaLoginPrivateKey'],
-                            new ReCaptcha\RequestMethod\SocketPost()
+                            new ReCaptcha\RequestMethod\SocketPost(null, $captchaSiteVerifyURL)
                         );
                     }
 
