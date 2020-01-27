@@ -168,10 +168,17 @@ final class ExportController extends AbstractController
             $unlim_num_rows = 0;
         }
 
+        $isReturnBackFromRawExport = isset($_POST['export_type']) && $_POST['export_type'] === 'raw';
+        if (isset($_POST['raw_query']) || $isReturnBackFromRawExport) {
+            $export_type = 'raw';
+        } else {
+            $export_type = 'table';
+        }
+
         $displayExport = new DisplayExport();
         $this->response->addHTML(
             $displayExport->getDisplay(
-                'database',
+                $export_type,
                 $db,
                 $table,
                 $sql_query,

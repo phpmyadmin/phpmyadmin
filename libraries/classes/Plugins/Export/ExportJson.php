@@ -287,4 +287,74 @@ class ExportJson extends ExportPlugin
 
         return true;
     }
+
+    /**
+     * Outputs result raw query in JSON format
+     *
+     * @param string $err_url   the url to go back in case of error
+     * @param string $sql_query the rawquery to output
+     * @param string $crlf      the end of line sequence
+     *
+     * @return bool if succeeded
+     */
+    public function exportRawQuery(string $err_url, string $sql_query, string $crlf): bool
+    {
+        $buffer = $this->encode(
+            [
+                'type' => 'raw',
+                'data' => '@@DATA@@',
+            ]
+        );
+        list($header, $footer) = explode('"@@DATA@@"', $buffer);
+
+        if (! $this->export->outputHandler($header . $crlf . '[' . $crlf)) {
+            return false;
+        }
+
+        $result = $GLOBALS['dbi']->query(
+            $sql_query,
+            DatabaseInterface::CONNECT_USER,
+            DatabaseInterface::QUERY_UNBUFFERED
+        );
+        $columns_cnt = $GLOBALS['dbi']->numFields($result);
+
+        $columns = [];
+        for ($i = 0; $i < $columns_cnt; $i++) {
+            $col_as = $GLOBALS['dbi']->fieldName($result, $i);
+            $columns[$i] = stripslashes($col_as);
+        }
+
+        $record_cnt = 0;
+        while ($record = $GLOBALS['dbi']->fetchRow($result)) {
+            $record_cnt++;
+
+            if ($record_cnt > 1) {
+                if (! $this->export->outputHandler(',' . $crlf)) {
+                    return false;
+                }
+            }
+
+            $data = [];
+
+            for ($i = 0; $i < $columns_cnt; $i++) {
+                $data[$columns[$i]] = $record[$i];
+            }
+
+            $encodedData = $this->encode($data);
+            if (! $encodedData) {
+                return false;
+            }
+            if (! $this->export->outputHandler($encodedData)) {
+                return false;
+            }
+        }
+
+        if (! $this->export->outputHandler($crlf . ']' . $crlf . $footer . $crlf)) {
+            return false;
+        }
+
+        $GLOBALS['dbi']->freeResult($result);
+
+        return true;
+    }
 }

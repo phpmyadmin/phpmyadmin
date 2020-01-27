@@ -280,6 +280,52 @@ class Export
     }
 
     /**
+     * Returns the filename and MIME type for a compression and an export plugin
+     *
+     * @param ExportPlugin $exportPlugin the export plugin
+     * @param string       $compression  compression asked
+     * @param string       $filename     the filename
+     *
+     * @return string[]    the filename and mime type
+     */
+    public function getFinalFilenameAndMimetypeForFilename(
+        ExportPlugin $exportPlugin,
+        string $compression,
+        string $filename
+    ): array {
+        // Grab basic dump extension and mime type
+        // Check if the user already added extension;
+        // get the substring where the extension would be if it was included
+        $extensionStartPos = mb_strlen($filename) - mb_strlen(
+            $exportPlugin->getProperties()->getExtension()
+        ) - 1;
+        $userExtension = mb_substr(
+            $filename,
+            $extensionStartPos,
+            mb_strlen($filename)
+        );
+        $requiredExtension = '.' . $exportPlugin->getProperties()->getExtension();
+        if (mb_strtolower($userExtension) != $requiredExtension) {
+            $filename  .= $requiredExtension;
+        }
+        $mime_type  = $exportPlugin->getProperties()->getMimeType();
+
+        // If dump is going to be compressed, set correct mime_type and add
+        // compression to extension
+        if ($compression === 'gzip') {
+            $filename  .= '.gz';
+            $mime_type = 'application/x-gzip';
+        } elseif ($compression === 'zip') {
+            $filename  .= '.zip';
+            $mime_type = 'application/zip';
+        }
+        return [
+            $filename,
+            $mime_type,
+        ];
+    }
+
+    /**
      * Return the filename and MIME type for export file
      *
      * @param string       $export_type       type of export
@@ -313,6 +359,14 @@ class Export
                     $filename_template
                 );
             }
+        } elseif ($export_type == 'raw') {
+            if (! empty($remember_template)) {
+                $GLOBALS['PMA_Config']->setUserValue(
+                    'pma_raw_filename_template',
+                    'Export/file_template_raw',
+                    $filename_template
+                );
+            }
         } else {
             if (! empty($remember_template)) {
                 $GLOBALS['PMA_Config']->setUserValue(
@@ -325,38 +379,13 @@ class Export
         $filename = Util::expandUserString($filename_template);
         // remove dots in filename (coming from either the template or already
         // part of the filename) to avoid a remote code execution vulnerability
-        $filename = Sanitize::sanitizeFilename($filename, $replaceDots = true);
+        $filename = Sanitize::sanitizeFilename($filename, true);
 
-        // Grab basic dump extension and mime type
-        // Check if the user already added extension;
-        // get the substring where the extension would be if it was included
-        $extension_start_pos = mb_strlen($filename) - mb_strlen(
-            $export_plugin->getProperties()->getExtension()
-        ) - 1;
-        $user_extension = mb_substr(
-            $filename,
-            $extension_start_pos,
-            mb_strlen($filename)
+        return $this->getFinalFilenameAndMimetypeForFilename(
+            $export_plugin,
+            $compression,
+            $filename
         );
-        $required_extension = '.' . $export_plugin->getProperties()->getExtension();
-        if (mb_strtolower($user_extension) != $required_extension) {
-            $filename  .= $required_extension;
-        }
-        $mime_type  = $export_plugin->getProperties()->getMimeType();
-
-        // If dump is going to be compressed, set correct mime_type and add
-        // compression to extension
-        if ($compression == 'gzip') {
-            $filename  .= '.gz';
-            $mime_type = 'application/x-gzip';
-        } elseif ($compression == 'zip') {
-            $filename  .= '.zip';
-            $mime_type = 'application/zip';
-        }
-        return [
-            $filename,
-            $mime_type,
-        ];
     }
 
     /**
@@ -886,6 +915,41 @@ class Export
 
             if ($separate_files == 'database') {
                 $this->saveObjectInBuffer('events');
+            }
+        }
+    }
+
+    /**
+     * Export raw query
+     *
+     * @param string       $whatStrucOrData whether to export structure for each table or raw
+     * @param ExportPlugin $export_plugin   the selected export plugin
+     * @param string       $crlf            end of line character(s)
+     * @param string       $err_url         the URL in case of error
+     * @param string       $sql_query       the query to be executed
+     * @param string       $export_type     the export type
+     *
+     * @return void
+     */
+    public static function exportRaw(
+        string $whatStrucOrData,
+        ExportPlugin $export_plugin,
+        string $crlf,
+        string $err_url,
+        string $sql_query,
+        string $export_type
+    ): void {
+        // In case the we need to dump just the raw query
+        if ($whatStrucOrData === 'raw') {
+            if (! $export_plugin->exportRawQuery(
+                $err_url,
+                $sql_query,
+                $crlf
+            )) {
+                $GLOBALS['message'] = Message::error(
+                    __('Exporting a raw query is not supported for this export method.')
+                );
+                return;
             }
         }
     }

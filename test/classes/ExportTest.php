@@ -7,6 +7,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Export;
+use PhpMyAdmin\Plugins\Export\ExportPhparray;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -102,5 +103,30 @@ class ExportTest extends TestCase
         ];
         $actual = $this->export->mergeAliases($aliases1, $aliases2);
         $this->assertEquals($expected, $actual);
+    }
+
+    /**
+     * Test for getFinalFilenameAndMimetypeForFilename
+     *
+     * @return void
+     */
+    public function testGetFinalFilenameAndMimetypeForFilename()
+    {
+        $exportPlugin = new ExportPhparray();
+        $finalFileName = $this->export->getFinalFilenameAndMimetypeForFilename($exportPlugin, 'zip', 'myfilename');
+        $this->assertSame([
+            'myfilename.php.zip',
+            'application/zip',
+        ], $finalFileName);
+        $finalFileName = $this->export->getFinalFilenameAndMimetypeForFilename($exportPlugin, 'gzip', 'myfilename');
+        $this->assertSame([
+            'myfilename.php.gz',
+            'application/x-gzip',
+        ], $finalFileName);
+        $finalFileName = $this->export->getFinalFilenameAndMimetypeForFilename($exportPlugin, 'gzip', 'export.db1.table1.file');
+        $this->assertSame([
+            'export.db1.table1.file.php.gz',
+            'application/x-gzip',
+        ], $finalFileName);
     }
 }

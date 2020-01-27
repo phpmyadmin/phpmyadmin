@@ -334,6 +334,10 @@ final class ExportController extends AbstractController
                 'db' => $db,
                 'table' => $table,
             ]);
+        } elseif ($export_type === 'raw') {
+            $err_url = Url::getFromRoute('/server/export', [
+                'sql_query' => $sql_query,
+            ]);
         } else {
             Core::fatalError(__('Bad parameters!'));
         }
@@ -409,6 +413,11 @@ final class ExportController extends AbstractController
             $mime_type = '';
         }
 
+        // For raw query export, filename will be export.extension
+        if ($export_type === 'raw') {
+            [$filename ] = $this->export->getFinalFilenameAndMimetypeForFilename($export_plugin, $compression, 'export');
+        }
+
         // Open file on server if needed
         if ($save_on_server) {
             list($save_filename, $message, $file_handle) = $this->export->openFile(
@@ -481,6 +490,10 @@ final class ExportController extends AbstractController
             $do_dates = isset($GLOBALS[$what . '_dates']);
 
             $whatStrucOrData = $GLOBALS[$what . '_structure_or_data'];
+
+            if ($export_type === 'raw') {
+                $whatStrucOrData = 'raw';
+            }
 
             /**
              * Builds the dump
@@ -556,6 +569,15 @@ final class ExportController extends AbstractController
                         $separate_files
                     );
                 }
+            } elseif ($export_type === 'raw') {
+                Export::exportRaw(
+                    $whatStrucOrData,
+                    $export_plugin,
+                    $crlf,
+                    $err_url,
+                    $sql_query,
+                    $export_type
+                );
             } else {
                 // We export just one table
                 // $allrows comes from the form when "Dump all rows" has been selected

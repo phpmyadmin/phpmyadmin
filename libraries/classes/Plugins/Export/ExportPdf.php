@@ -233,6 +233,29 @@ class ExportPdf extends ExportPlugin
     } // end of the 'PMA_exportData()' function
 
     /**
+     * Outputs result of raw query in PDF format
+     *
+     * @param string $err_url   the url to go back in case of error
+     * @param string $sql_query the rawquery to output
+     * @param string $crlf      the end of line sequence
+     *
+     * @return bool if succeeded
+     */
+    public function exportRawQuery(string $err_url, string $sql_query, string $crlf): bool
+    {
+        $pdf = $this->_getPdf();
+        $attr = [
+            'dbAlias'      => '----',
+            'tableAlias'   => '----',
+            'purpose'      => __('Query result data'),
+        ];
+        $pdf->setAttributes($attr);
+        $pdf->mysqlReport($sql_query);
+
+        return true;
+    }
+
+    /**
      * Outputs table structure
      *
      * @param string $db          database name

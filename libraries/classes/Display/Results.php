@@ -4933,6 +4933,12 @@ class Results
                 $_url_params['single_table'] = 'true';
             }
 
+            // In case this query doesn't involve any tables,
+            // implies only raw query is to be exported
+            if (! $analyzed_sql_results['select_tables']) {
+                $_url_params['raw_query'] = 'true';
+            }
+
             if (! $header_shown) {
                 $results_operations_html .= $header;
                 $header_shown = true;
