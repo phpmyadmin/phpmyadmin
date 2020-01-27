@@ -2466,8 +2466,18 @@ $(function () {
      * Allows the user to dismiss a notification
      * created with Functions.ajaxShowMessage()
      */
-    $(document).on('click', 'span.ajax_notification.dismissable', function () {
-        Functions.ajaxRemoveMessage($(this));
+    var holdStarter = null;
+    $(document).on('mousedown', 'span.ajax_notification.dismissable', function () {
+        holdStarter = setTimeout(function () {
+            holdStarter = null;
+        }, 250);
+    });
+
+    $(document).on('mouseup', 'span.ajax_notification.dismissable', function () {
+        if (holdStarter && event.which === 1) {
+            clearTimeout(holdStarter);
+            Functions.ajaxRemoveMessage($(this));
+        }
     });
     /**
      * The below two functions hide the "Dismiss notification" tooltip when a user
