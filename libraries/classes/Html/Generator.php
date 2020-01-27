@@ -958,7 +958,7 @@ class Generator
             ) {
                 $refresh_link = Url::getFromRoute('/sql', $url_params);
                 $refresh_link = ' [&nbsp;'
-                    . self::linkOrButton($refresh_link, __('Refresh')) . ']';
+                    . self::linkOrButton($refresh_link, __('Refresh')) . '&nbsp;]';
             } else {
                 $refresh_link = '';
             } //refresh
@@ -997,13 +997,13 @@ class Generator
                 && ! $query_too_big
                 && empty($GLOBALS['show_as_php'])
             ) {
-                $inline_edit_link = ' ['
+                $inline_edit_link = ' [&nbsp;'
                     . self::linkOrButton(
                         '#',
                         _pgettext('Inline edit query', 'Edit inline'),
                         ['class' => 'inline_edit_sql']
                     )
-                    . ']';
+                    . '&nbsp;]';
             } else {
                 $inline_edit_link = '';
             }
