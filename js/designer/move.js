@@ -520,7 +520,7 @@ DesignerMove.toggleFullscreen = function () {
             .addClass('content_fullscreen')
             .css({ 'width': screen.width - 5, 'height': screen.height - 5 });
 
-        $('#osn_tab').css({ 'width': screen.width + 'px', 'height': screen.height});
+        $('#osn_tab').css({ 'width': screen.width + 'px', 'height': screen.height });
         valueSent = 'on';
         $content.fullScreen(true);
     } else {
@@ -528,8 +528,8 @@ DesignerMove.toggleFullscreen = function () {
             .attr('title', $span.data('enter'));
         $span.text($span.data('enter'));
         $content.removeClass('content_fullscreen')
-                .css({ 'width': 'auto', 'height': 'auto' });
-        $('#osn_tab').css({ 'width': 'auto', 'height': 'auto'});
+            .css({ 'width': 'auto', 'height': 'auto' });
+        $('#osn_tab').css({ 'width': 'auto', 'height': 'auto' });
         $content.fullScreen(false);
         valueSent = 'off';
     }
