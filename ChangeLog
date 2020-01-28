@@ -30,6 +30,7 @@ phpMyAdmin - ChangeLog
 - issue #15831 Fixed DB names starting with "b" being cut off in <option>, User account page
 - issue #15850 Fixed display content from "information_schema.PROCESSLIST"
 - issue #15836 Fixed "has no type" error on export and import pages for "Chinese traditional" users
+- issue #15863 Fixed designer move menu icon not changing directions and tables menu list resize button
 
 5.0.1 (2020-01-07)
 - issue #15719 Fixed error 500 when browsing a table when $cfg['LimitChars'] used a string and not an int value
