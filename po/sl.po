@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:48-0300\n"
-"PO-Revision-Date: 2019-12-25 16:21+0000\n"
+"PO-Revision-Date: 2020-01-29 20:50+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Weblate 3.11-dev\n"
 
 #: index.php:52
 #, php-format
@@ -16733,7 +16733,7 @@ msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
-"Za natančnejša povprečja je priporočljivo, da pred zagonom analitika pustite "
+"Za natančnejša povprečja je priporočljivo, da pred zagonom analitike pustite "
 "strežnik delovati dlje kot en dan"
 
 #: libraries/advisory_rules_generic.txt:54
