@@ -221,6 +221,26 @@ class Form
     }
 
     /**
+     * Remove slashes from group names
+     * @see issue #15836
+     *
+     * @param array $form The form data
+     *
+     * @return array
+     */
+    protected function cleanGroupPaths(array $form): array
+    {
+        foreach ($form as &$name) {
+            if (is_string($name)) {
+                if (mb_strpos($name, ':group:') === 0) {
+                    $name = str_replace('/', '-', $name);
+                }
+            }
+        }
+        return $form;
+    }
+
+    /**
      * Reads form settings and prepares class to work with given subset of
      * config file
      *
@@ -232,6 +252,7 @@ class Form
     public function loadForm($formName, array $form)
     {
         $this->name = $formName;
+        $form = $this->cleanGroupPaths($form);
         $this->readFormPaths($form);
         $this->readTypes();
     }
