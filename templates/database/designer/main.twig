@@ -227,11 +227,10 @@ var designerConfig = {{ designer_config|raw }};
                 {% trans 'Number of tables:' %} <span id="tables_counter">0</span>
             </div>
             <div id="layer_menu_sizer">
-                <div class="floatleft">
-                    <img class="icon"
-                        data-right="{{ theme.getImgPath('designer/resizeright.png') }}"
-                        src="{{ theme.getImgPath('designer/resize.png') }}">
-                </div>
+                  <img class="icon floatleft"
+                      id="layer_menu_sizer_btn"
+                      data-right="{{ theme.getImgPath('designer/resizeright.png') }}"
+                      src="{{ theme.getImgPath('designer/resize.png') }}">
             </div>
         </div>
         {# end layer_menu #}

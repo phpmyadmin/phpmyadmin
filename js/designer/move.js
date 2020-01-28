@@ -20,16 +20,25 @@ AJAX.registerTeardown('designer/move.js', function () {
 });
 
 AJAX.registerOnload('designer/move.js', function () {
-    $('#page_content').css({ 'margin-left': '3px' });
+    var $content = $('#page_content');
+    var $img = $('#toggleFullscreen').find('img');
+    var $span = $img.siblings('span');
+
+    $content.css({ 'margin-left': '3px' });
     $(document).on('fullscreenchange', function () {
-        if (! $.fn.fullScreen()) {
-            $('#page_content').removeClass('content_fullscreen')
+        if (!$.fn.fullScreen() || !$content.fullScreen()) {
+            $content.removeClass('content_fullscreen')
                 .css({ 'width': 'auto', 'height': 'auto' });
-            var $img = $('#toggleFullscreen').find('img');
-            var $span = $img.siblings('span');
-            $span.text($span.data('enter'));
+            $('#osn_tab').css({ 'width': 'auto', 'height': 'auto' });
             $img.attr('src', $img.data('enter'))
                 .attr('title', $span.data('enter'));
+            $span.text($span.data('enter'));
+
+            // Saving the fullscreen state in config when
+            // designer exists fullscreen mode via ESC key
+
+            var valueSent = 'off';
+            DesignerMove.saveValueInConfig('full_screen', valueSent);
         }
     });
 
@@ -90,7 +99,7 @@ DesignerMove.mouseDown = function (e) {
         curClick = e.target.parentNode.parentNode.parentNode.parentNode;
     } else if (e.target.className === 'tab_zag_2') {
         curClick = e.target.parentNode.parentNode.parentNode;
-    } else if (e.target.className === 'icon') {
+    } else if (e.target.id === 'layer_menu_sizer_btn') {
         layerMenuCurClick = 1;
     } else if (e.target.className === 'M_butt') {
         return false;
@@ -259,8 +268,6 @@ DesignerMove.resizeOsnTab = function () {
     osnTabWidth  = maxX + 50;
     osnTabHeight = maxY + 50;
     DesignerMove.canvasPos();
-    document.getElementById('osn_tab').style.width = osnTabWidth + 'px';
-    document.getElementById('osn_tab').style.height = osnTabHeight + 'px';
 };
 
 /**
@@ -511,12 +518,17 @@ DesignerMove.toggleFullscreen = function () {
         $content
             .addClass('content_fullscreen')
             .css({ 'width': screen.width - 5, 'height': screen.height - 5 });
+
+        $('#osn_tab').css({ 'width': screen.width + 'px', 'height': screen.height });
         valueSent = 'on';
         $content.fullScreen(true);
     } else {
         $img.attr('src', $img.data('enter'))
             .attr('title', $span.data('enter'));
         $span.text($span.data('enter'));
+        $content.removeClass('content_fullscreen')
+            .css({ 'width': 'auto', 'height': 'auto' });
+        $('#osn_tab').css({ 'width': 'auto', 'height': 'auto' });
         $content.fullScreen(false);
         valueSent = 'off';
     }
@@ -1710,17 +1722,19 @@ DesignerMove.showLeftMenu = function (idThis) {
 DesignerMove.sideMenuRight = function (idThis) {
     $('#side_menu').toggleClass('right');
     $('#layer_menu').toggleClass('left');
-    var icon = $(idThis.childNodes[0]);
-    var current = icon.attr('src');
-    icon.attr('src', icon.attr('data-right')).attr('data-right', current);
-
-    icon = $(document.getElementById('layer_menu_sizer').childNodes[0])
+    var moveMenuIcon = $(idThis.getElementsByTagName('img')[0]);
+    var resizeIcon = $('#layer_menu_sizer > img')
         .toggleClass('floatleft')
-        .toggleClass('floatright')
-        .children();
-    current = icon.attr('src');
-    icon.attr('src', icon.attr('data-right'));
-    icon.attr('data-right', current);
+        .toggleClass('floatright');
+
+    var srcResizeIcon = resizeIcon.attr('src');
+    resizeIcon.attr('src', resizeIcon.attr('data-right'));
+    resizeIcon.attr('data-right', srcResizeIcon);
+
+    var srcMoveIcon = moveMenuIcon.attr('src');
+    moveMenuIcon.attr('src', moveMenuIcon.attr('data-right'));
+    moveMenuIcon.attr('data-right', srcMoveIcon);
+
     menuMoved = !menuMoved;
     DesignerMove.saveValueInConfig('side_menu', $('#side_menu').hasClass('right'));
     $('#key_Left_Right').toggleClass('M_butt_Selected_down');
