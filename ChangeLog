@@ -16,6 +16,7 @@ phpMyAdmin - ChangeLog
 - issue #15064 Support exporting raw SQL queries
 - issue #15555 Added ip2long transformation
 - issue #15194 Fixed horizontal scroll on structure edit page
+- issue #14820 Move table hide buttons in navigation to avoid hiding a table by mistake
 
 5.0.2 (not yet released)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page
