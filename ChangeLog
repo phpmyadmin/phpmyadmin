@@ -15,6 +15,7 @@ phpMyAdmin - ChangeLog
 - issue #15232 Improve the padding in query result tool links
 - issue #15064 Support exporting raw SQL queries
 - issue #15555 Added ip2long transformation
+- issue #15194 Fixed horizontal scroll on structure edit page
 
 5.0.2 (not yet released)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page
