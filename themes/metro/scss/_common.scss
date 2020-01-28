@@ -2652,6 +2652,9 @@ form.append_fields_form .tblFooters {
 }
 
 #table_columns {
+  display: block;
+  overflow: auto;
+
   input {
     &[type="text"],
     &[type="password"],

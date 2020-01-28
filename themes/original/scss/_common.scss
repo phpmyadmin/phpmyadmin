@@ -2128,6 +2128,9 @@ input#auto_increment_opt {
 }
 
 #table_columns {
+  display: block;
+  overflow: auto;
+
   input {
     &[type="text"],
     &[type="password"],
