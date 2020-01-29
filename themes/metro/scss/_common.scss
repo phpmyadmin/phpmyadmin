@@ -2760,6 +2760,11 @@ form.append_fields_form .tblFooters {
   }
 }
 
+.table_results {
+  display: block;
+  overflow: auto;
+}
+
 .modal-copy input {
   display: block;
   width: 100%;

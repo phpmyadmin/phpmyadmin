@@ -2625,6 +2625,11 @@ input#auto_increment_opt {
   }
 }
 
+.table_results {
+  display: block;
+  overflow: auto;
+}
+
 .modal-copy input {
   display: block;
   width: 100%;
