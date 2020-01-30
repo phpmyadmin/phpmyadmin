@@ -438,8 +438,8 @@ AJAX.registerOnload('sql.js', function () {
      * @name    appendToggleSpan
      */
     // do not add this link more than once
-    if (! $('#sqlqueryform').find('a').is('#togglequerybox')) {
-        $('<a id="togglequerybox"></a>')
+    if (! $('#sqlqueryform').find('button').is('#togglequerybox')) {
+        $('<button class="btn btn-secondary" id="togglequerybox"></button>')
             .html(Messages.strHideQueryBox)
             .appendTo('#sqlqueryform')
         // initially hidden because at this point, nothing else
