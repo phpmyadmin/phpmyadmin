@@ -405,8 +405,6 @@ Indexes.showAddIndexDialog = function (sourceArray, arrayIndex, targetColumns, c
                                 containment: $('#index_columns').find('tbody'),
                                 tolerance: 'pointer'
                             });
-                            // We dont need the slider at this moment.
-                            $(this).find('fieldset.tblFooters').remove();
                         },
                         modal: true,
                         buttons: buttonOptions,
