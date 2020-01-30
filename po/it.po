@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:37-0300\n"
-"PO-Revision-Date: 2019-06-19 16:50+0000\n"
-"Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/it/>\n"
+"PO-Revision-Date: 2020-01-31 11:50+0000\n"
+"Last-Translator: Alessandro Re <alescann86@gmail.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
+"it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7\n"
+"X-Generator: Weblate 3.11-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -1962,10 +1962,8 @@ msgid "%d object(s) created."
 msgstr "%d oggetto/i creato/i."
 
 #: js/messages.php:591
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
-msgstr "Nomi colonne"
+msgstr "Nome colonna"
 
 #: js/messages.php:592 libraries/classes/SqlQueryForm.php:430
 msgid "Submit"
@@ -2352,8 +2350,7 @@ msgid "Failed security key activation (%s)."
 msgstr "Attivazione della chiave di sicurezza (%s) fallita."
 
 #: js/messages.php:766
-#, fuzzy, php-format
-#| msgid "Table %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
@@ -9114,10 +9111,8 @@ msgstr ""
 "pannello di navigazione."
 
 #: libraries/classes/Navigation/NavigationTree.php:795
-#, fuzzy
-#| msgid "Groups:"
 msgid "Groups"
-msgstr "Gruppi:"
+msgstr "Gruppi"
 
 #: libraries/classes/Navigation/NavigationTree.php:961
 #, php-format
@@ -10138,8 +10133,6 @@ msgstr "Visualizza commenti"
 #: libraries/classes/Plugins/Export/ExportLatex.php:156
 #: libraries/classes/Plugins/Export/ExportOdt.php:116
 #: libraries/classes/Plugins/Export/ExportSql.php:132
-#, fuzzy
-#| msgid "Display MIME types"
 msgid "Display media (MIME) types"
 msgstr "Mostra tipi MIME"
 
@@ -13641,10 +13634,8 @@ msgid "As defined:"
 msgstr "Come definito:"
 
 #: templates/transformation_overview.twig:1
-#, fuzzy
-#| msgid "Available MIME types"
 msgid "Available media (MIME) types"
-msgstr "Tipi-MIME disponibili"
+msgstr "Tipi MIME disponibili"
 
 #: templates/transformation_overview.twig:13
 msgid "Available browser display transformations"
@@ -13657,8 +13648,6 @@ msgstr "Trasformazione della visualizzazione del browser"
 
 #: templates/transformation_overview.twig:19
 #: templates/transformation_overview.twig:38
-#, fuzzy
-#| msgid "Description"
 msgctxt "for media (MIME) type transformation"
 msgid "Description"
 msgstr "Descrizione"
@@ -14610,26 +14599,20 @@ msgid "License"
 msgstr "Licenza"
 
 #: templates/server/plugins/index.twig:37
-#, fuzzy
-#| msgid "active"
 msgid "inactive"
-msgstr "attivo"
+msgstr "inattivo"
 
 #: templates/server/plugins/index.twig:39
 msgid "disabled"
 msgstr "disabilitato"
 
 #: templates/server/plugins/index.twig:41
-#, fuzzy
-#| msgid "Deleting"
 msgid "deleting"
-msgstr "Cancellazione"
+msgstr "cancellazione"
 
 #: templates/server/plugins/index.twig:43
-#, fuzzy
-#| msgid "Delete"
 msgid "deleted"
-msgstr "Elimina"
+msgstr "eliminato"
 
 #: templates/table/search/fields_table.twig:10
 #: templates/database/designer/main.twig:521
@@ -14813,10 +14796,8 @@ msgid "List of changes"
 msgstr "Lista dei cambiamenti"
 
 #: templates/table/structure/display_structure.twig:70
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media (MIME) type:"
-msgstr "Tipo MIME"
+msgstr "Tipo MIME:"
 
 #: templates/table/structure/display_structure.twig:91
 #: templates/table/tracking/structure_snapshot_columns.twig:47
@@ -15781,10 +15762,9 @@ msgid "See table structure"
 msgstr "Guarda la struttura della tabella"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Seleziona tutto"
+msgstr "Seleziona \"%s\""
 
 #: templates/database/designer/database_tables.twig:109
 #, php-format
