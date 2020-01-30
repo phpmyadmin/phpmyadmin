@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:48-0300\n"
-"PO-Revision-Date: 2019-07-09 14:00+0000\n"
-"Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
+"PO-Revision-Date: 2020-01-31 11:50+0000\n"
+"Last-Translator: Alessandro Re <alescann86@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/it/>\n"
 "Language: it\n"
@@ -13,17 +13,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.8-dev\n"
+"X-Generator: Weblate 3.11-dev\n"
 
 #: index.php:52
-#, fuzzy, php-format
-#| msgid "Source database `%s` was not found!"
+#, php-format
 msgid "Error 404! The page %s was not found."
-msgstr "Database di origine `%s` non é stato trovato!"
+msgstr "Errore 404! La pagine %s non é stata trovata."
 
 #: index.php:59
 msgid "Error 405! Request method not allowed."
-msgstr ""
+msgstr "Errore 405! Il metodo richiesto non è permesso."
 
 #: js/messages.php:45
 msgid "Confirm"
@@ -1718,10 +1717,8 @@ msgid "%d object(s) created."
 msgstr "%d oggetto/i creato/i."
 
 #: js/messages.php:590
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
-msgstr "Nomi colonne"
+msgstr "Nome colonna"
 
 #: js/messages.php:591 templates/sql/query.twig:149
 msgid "Submit"
@@ -2111,8 +2108,7 @@ msgid "Failed security key activation (%s)."
 msgstr "Attivazione della chiave di sicurezza (%s) fallita."
 
 #: js/messages.php:765
-#, fuzzy, php-format
-#| msgid "Table %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
@@ -3237,8 +3233,6 @@ msgstr "Chiave etichetta"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:546
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #: templates/database/data_dictionary/index.twig:25
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media type"
 msgstr "Tipo MIME"
 
@@ -3405,7 +3399,7 @@ msgstr "Controllo delle chiavi esterne"
 
 #: libraries/classes/Config/Descriptions.php:285
 msgid "First day of calendar"
-msgstr ""
+msgstr "Primo giorno del calendario"
 
 #: libraries/classes/Config/Descriptions.php:286
 msgid "Browse mode"
@@ -12765,8 +12759,6 @@ msgstr "Dic"
 
 #. l10n: Short week day name for Sunday
 #: libraries/classes/Util.php:695
-#, fuzzy
-#| msgid "Sun"
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "Dom"
@@ -14634,17 +14626,11 @@ msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: templates/javascript/variables.twig:11
-#, fuzzy
-#| msgctxt "Year suffix"
-#| msgid "none"
 msgid "none"
-msgstr "Nessuno"
+msgstr "nessuno"
 
 #. l10n: Previous month. Display text for previous month link in calendar
 #: templates/javascript/variables.twig:16
-#, fuzzy
-#| msgctxt "Previous month"
-#| msgid "Prev"
 msgid "Prev"
 msgstr "Prec"
 
@@ -15688,8 +15674,6 @@ msgstr "Trasformazione della visualizzazione del browser"
 
 #: templates/transformation_overview.twig:19
 #: templates/transformation_overview.twig:38
-#, fuzzy
-#| msgid "Description"
 msgctxt "for media type transformation"
 msgid "Description"
 msgstr "Descrizione"
