@@ -182,8 +182,6 @@ class SqlController extends AbstractController
             $db,
             $table_from_sql,
         ] = ParseAnalyze::sqlQuery($sql_query, $db);
-        // @todo: possibly refactor
-        extract($analyzed_sql_results);
 
         if ($table != $table_from_sql && ! empty($table_from_sql)) {
             $table = $table_from_sql;

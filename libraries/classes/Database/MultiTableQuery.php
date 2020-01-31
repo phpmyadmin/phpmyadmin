@@ -116,12 +116,8 @@ class MultiTableQuery
      */
     public static function displayResults($sqlQuery, $db, $pmaThemeImage)
     {
-        list(
-            $analyzedSqlResults,
-            $db,
-        ) = ParseAnalyze::sqlQuery($sqlQuery, $db);
+        list(,$db,) = ParseAnalyze::sqlQuery($sqlQuery, $db);
 
-        extract($analyzedSqlResults);
         $goto = Url::getFromRoute('/database/multi_table_query');
         $sql = new Sql();
         $sql->executeQueryAndSendQueryResponse(

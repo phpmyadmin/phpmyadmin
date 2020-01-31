@@ -684,8 +684,9 @@ final class ImportController extends AbstractController
                 $db,
                 $table_from_sql,
             ] = ParseAnalyze::sqlQuery($sql_query, $db);
-            // @todo: possibly refactor
-            extract($analyzed_sql_results);
+
+            $reload = $analyzed_sql_results['reload'];
+            $offset = $analyzed_sql_results['offset'];
 
             if ($table != $table_from_sql && ! empty($table_from_sql)) {
                 $table = $table_from_sql;
@@ -722,8 +723,9 @@ final class ImportController extends AbstractController
                     $db,
                     $table_from_sql,
                 ] = ParseAnalyze::sqlQuery($sql_query, $db);
-                // @todo: possibly refactor
-                extract($analyzed_sql_results);
+
+                $offset = $analyzed_sql_results['offset'];
+                $reload = $analyzed_sql_results['reload'];
 
                 // Check if User is allowed to issue a 'DROP DATABASE' Statement
                 if ($this->sql->hasNoRightsToDropDatabase(

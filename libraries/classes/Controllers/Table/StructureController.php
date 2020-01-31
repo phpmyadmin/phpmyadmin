@@ -824,8 +824,6 @@ class StructureController extends AbstractController
             $analyzed_sql_results,
             $db,
         ] = ParseAnalyze::sqlQuery($sql_query, $db);
-        // @todo: possibly refactor
-        extract($analyzed_sql_results);
 
         $sql = new Sql();
         $this->response->addHTML(
