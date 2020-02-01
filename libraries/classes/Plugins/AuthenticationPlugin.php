@@ -190,7 +190,8 @@ abstract class AuthenticationPlugin
             return __('Access denied!');
         } elseif ($failure == 'no-activity') {
             return sprintf(
-                __('No activity within %s seconds; please log in again.'),
+                __('You have been automatically logged out due to inactivity of %s seconds.'
+                . ' Once you log in again, you should be able to resume the work where you left off.'),
                 intval($GLOBALS['cfg']['LoginCookieValidity'])
             );
         }
