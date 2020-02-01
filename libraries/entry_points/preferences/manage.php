@@ -83,7 +83,7 @@ if (isset($_POST['submit_export'], $_POST['export_type']) && $_POST['export_type
         // read from POST value (json)
         $json = isset($_POST['json']) ? $_POST['json'] : null;
     }
-
+ 
     // hide header message
     $_SESSION['userprefs_autoload'] = true;
 

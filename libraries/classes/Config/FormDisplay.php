@@ -514,7 +514,7 @@ class FormDisplay
         );
     }
 
-    /**
+    /** 
      * Displays errors
      *
      * @return string|null HTML for errors

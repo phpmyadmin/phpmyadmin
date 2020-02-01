@@ -110,7 +110,7 @@ class FormDisplayTemplate
             'class' => 'tabs responsivetable row',
             'items' => $items,
         ]);
-        $htmlOutput .= '<div class="tabs_contents row">';
+        $htmlOutput .= '<div class="tabs_contents col">';
         return $htmlOutput;
     }
 

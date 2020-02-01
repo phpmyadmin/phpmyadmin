@@ -19,7 +19,7 @@ use PhpMyAdmin\UserPreferencesHeader;
 
 if (! defined('PHPMYADMIN')) {
     exit;
-}
+} 
 
 global $containerBuilder, $cf, $form_param, $form_class, $form_display, $url_params, $error, $tabHash, $hash;
 
@@ -85,7 +85,7 @@ echo UserPreferencesHeader::getContent($template, $relation);
 
 if ($form_display->hasErrors()) {
     $formErrors = $form_display->displayErrors();
-}
+} 
 
 echo $template->render('preferences/forms/main', [
     'error' => $error ? $error->getDisplay() : '',
