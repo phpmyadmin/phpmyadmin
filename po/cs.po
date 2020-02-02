@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2019-12-05 12:05+0000\n"
+"PO-Revision-Date: 2020-02-03 16:50+0000\n"
 "Last-Translator: Petr Pešula <p.pesula@gmail.com>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-9/cs/"
-">\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-9/cs/>"
+"\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.10-dev\n"
+"X-Generator: Weblate 3.11-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -338,13 +338,11 @@ msgstr "Musíte zvolit alespoň jedno pole, které si přejete zobrazit!"
 #, fuzzy
 #| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Vícetabulkový dotaz"
+msgstr "Dotaz na více tabulek"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "Příklad dotazu"
+msgstr "Dotaz podle příkladu"
 
 #: db_qbe.php:168
 #, php-format
@@ -1796,7 +1794,7 @@ msgstr "Nebyla vybrána žádná databáze."
 
 #: js/messages.php:374
 msgid "No accounts selected."
-msgstr "Nebyly vybrány žádné účty."
+msgstr "Nebyl vybrán žádný účet."
 
 #: js/messages.php:375
 msgid "Dropping column"
