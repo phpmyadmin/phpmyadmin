@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:37-0300\n"
-"PO-Revision-Date: 2018-10-02 16:39+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"cs/>\n"
+"PO-Revision-Date: 2020-02-03 17:50+0000\n"
+"Last-Translator: Petr Pešula <p.pesula@gmail.com>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/5-0/cs/>"
+"\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 3.11-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -125,13 +125,11 @@ msgstr "Musíte zvolit alespoň jedno pole, které si přejete zobrazit!"
 #, fuzzy
 #| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Simulovat dotaz"
+msgstr "Dotaz na více tabulek"
 
 #: db_qbe.php:163 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "Dotaz selhal"
+msgstr "Dotaz podle příkladu"
 
 #: db_qbe.php:182
 #, php-format
@@ -529,10 +527,8 @@ msgid "Y values"
 msgstr "Hodnoty Y"
 
 #: js/messages.php:146
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "Prosím zadejte stejnou hodnotu znovu"
+msgstr "Nejprve zadejte dotaz SQL."
 
 #: js/messages.php:149
 msgid "The host name is empty!"
@@ -1102,16 +1098,12 @@ msgid "Please select the file you want to import."
 msgstr "Prosím zvolte soubor, který chcete nahrát."
 
 #: js/messages.php:339
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
-msgstr "Prosím zadejte platný název stránky"
+msgstr "Zadejte platný název tabulky."
 
 #: js/messages.php:341
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
-msgstr "Prosím zadejte platný název stránky"
+msgstr "Zadejte platný název databáze."
 
 #: js/messages.php:342
 msgid "No files available on server for import!"
@@ -1274,10 +1266,8 @@ msgid "No databases selected."
 msgstr "Nebyla vybrána žádná databáze."
 
 #: js/messages.php:382
-#, fuzzy
-#| msgid "No column selected."
 msgid "No accounts selected."
-msgstr "Nebyl vybrán žádný sloupec."
+msgstr "Nebyl vybrán žádný účet."
 
 #: js/messages.php:383
 msgid "Dropping column"
@@ -1477,8 +1467,9 @@ msgid "Browse foreign values"
 msgstr "Projít hodnoty cizích klíčů"
 
 #: js/messages.php:434
+#, fuzzy
 msgid "No previously auto-saved query is available. Loading default query."
-msgstr ""
+msgstr "Dosud neuložený dotaz není k dispozici. Načítání výchozího dotazu."
 
 #: js/messages.php:435
 msgid ""
