@@ -19,6 +19,10 @@ body#loginform {
   margin: 0;
   background-color: #666;
 
+  form#login_form label {
+    display: none !important;
+  }
+
   #page_content {
     background-color: $navi-background;
     margin: 0 !important;
@@ -138,10 +142,6 @@ body#loginform {
       clear: none;
     }
   }
-}
-
-form.login label {
-  display: none;
 }
 
 .turnOffSelect {
