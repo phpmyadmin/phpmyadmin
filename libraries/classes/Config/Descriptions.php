@@ -491,6 +491,7 @@ class Descriptions
                 'Open the linked page in the main window (main) or in a new one '
                 . '(new).'
             ),
+            
             'NavigationLogoLinkWindow_name' => __('Logo link target'),
             'NavigationDisplayServers_desc' => __('Display server choice at the top of the navigation panel.'),
             'NavigationDisplayServers_name' => __('Display servers selection'),
