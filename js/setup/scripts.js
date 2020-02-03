@@ -102,7 +102,7 @@ function ajaxValidate (parent, id, values) {
             } else {
                 for (var key in response) {
                     var value = response[key];
-                    error[key] = jQuery.isArray(value) ? value : [value];
+                    error[key] = Array.isArray(value) ? value : [value];
                 }
             }
             displayErrors(error);

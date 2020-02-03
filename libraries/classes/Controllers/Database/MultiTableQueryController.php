@@ -1,25 +1,18 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\Database\MultiTableQueryController
- *
- * @package PhpMyAdmin\Controllers\Database
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Database\MultiTableQuery;
-use PhpMyAdmin\Template;
 
 /**
  * Handles database multi-table querying
- * @package PhpMyAdmin\Controllers\Database
  */
 class MultiTableQueryController extends AbstractController
 {
-    /**
-     * @return string
-     */
     public function index(): string
     {
         $header = $this->response->getHeader();
@@ -35,7 +28,6 @@ class MultiTableQueryController extends AbstractController
 
     /**
      * @param array $params Request parameters
-     * @return void
      */
     public function displayResults(array $params): void
     {
@@ -50,6 +42,7 @@ class MultiTableQueryController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return array JSON
      */
     public function table(array $params): array

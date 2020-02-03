@@ -2,11 +2,10 @@
 /**
  * Ensure the database and the table exist (else move to the "parent" script)
  * and display headers
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
+use PhpMyAdmin\Controllers\Database\SqlController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
@@ -16,7 +15,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-global $db, $table, $dbi, $is_db, $is_table, $message, $show_as_php, $sql_query;
+global $containerBuilder, $db, $table, $dbi, $is_db, $is_table, $message, $show_as_php, $sql_query;
 
 if (empty($is_db)) {
     if (strlen($db) > 0) {
@@ -101,7 +100,9 @@ if (empty($is_table)
             }
 
             if (! $is_table) {
-                include ROOT_PATH . 'libraries/entry_points/database/sql.php';
+                /** @var SqlController $controller */
+                $controller = $containerBuilder->get(SqlController::class);
+                $controller->index();
                 exit;
             }
         }

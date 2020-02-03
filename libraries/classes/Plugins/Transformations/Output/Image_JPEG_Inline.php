@@ -1,9 +1,6 @@
 <?php
 /**
  * Image JPEG Inline Transformations plugin for phpMyAdmin
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage Inline
  */
 declare(strict_types=1);
 
@@ -13,9 +10,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\InlineTransformationsPlugin;
 
 /**
  * Handles the inline transformation for image jpeg
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage Inline
  */
 // @codingStandardsIgnoreLine
 class Image_JPEG_Inline extends InlineTransformationsPlugin
@@ -27,7 +21,7 @@ class Image_JPEG_Inline extends InlineTransformationsPlugin
      */
     public static function getMIMEType()
     {
-        return "Image";
+        return 'Image';
     }
 
     /**
@@ -37,6 +31,6 @@ class Image_JPEG_Inline extends InlineTransformationsPlugin
      */
     public static function getMIMESubtype()
     {
-        return "JPEG";
+        return 'JPEG';
     }
 }

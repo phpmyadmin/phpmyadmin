@@ -1,20 +1,16 @@
 <?php
 /**
  * Functionality for the navigation tree
- *
- * @package PhpMyAdmin-Navigation
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 
 /**
  * Represents a procedure node in the navigation tree
- *
- * @package PhpMyAdmin-Navigation
  */
 class NodeProcedure extends NodeDatabaseChild
 {
@@ -29,7 +25,7 @@ class NodeProcedure extends NodeDatabaseChild
     public function __construct($name, $type = Node::OBJECT, $isGroup = false)
     {
         parent::__construct($name, $type, $isGroup);
-        $this->icon = Util::getImage('b_routines', __('Procedure'));
+        $this->icon = Generator::getImage('b_routines', __('Procedure'));
         $this->links = [
             'text' => Url::getFromRoute('/database/routines', [
                 'server' => $GLOBALS['server'],

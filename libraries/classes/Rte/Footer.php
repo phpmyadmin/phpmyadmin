@@ -1,37 +1,31 @@
 <?php
 /**
  * Common functions for generating the footer for Routines, Triggers and Events.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Rte;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function mb_strtolower;
+use function strtolower;
 
 /**
  * PhpMyAdmin\Rte\Footer class
- *
- * @package PhpMyAdmin
  */
 class Footer
 {
-    /**
-     * @var Words
-     */
+    /** @var Words */
     private $words;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**
-     * Footer constructor.
-     *
      * @param DatabaseInterface $dbi DatabaseInterface object
      */
     public function __construct(DatabaseInterface $dbi)
@@ -63,10 +57,10 @@ class Footer
         }
 
         $icon = mb_strtolower($name) . '_add';
-        $retval  = "";
-        $retval .= "<!-- ADD " . $name . " FORM START -->\n";
+        $retval  = '';
+        $retval .= '<!-- ADD ' . $name . " FORM START -->\n";
         $retval .= "<fieldset class='left'>\n";
-        $retval .= "<legend>" . _pgettext('Create new procedure', 'New') . "</legend>\n";
+        $retval .= '<legend>' . _pgettext('Create new procedure', 'New') . "</legend>\n";
         $retval .= "        <div class='wrap'>\n";
         if (Util::currentUserHasPrivilege($priv, $db, $table)) {
             $retval .= '            <a class="ajax add_anchor" ';
@@ -77,17 +71,17 @@ class Footer
             ]);
             $retval .= '" onclick="$.datepicker.initialized = false;">';
             $icon = 'b_' . $icon;
-            $retval .= Util::getIcon($icon);
+            $retval .= Generator::getIcon($icon);
             $retval .= $this->words->get('add') . "</a>\n";
         } else {
             $icon = 'bd_' . $icon;
-            $retval .= Util::getIcon($icon);
+            $retval .= Generator::getIcon($icon);
             $retval .= $this->words->get('add') . "\n";
         }
-        $retval .= "            " . Util::showMySQLDocu($docu) . "\n";
+        $retval .= '            ' . MySQLDocumentation::show($docu) . "\n";
         $retval .= "        </div>\n";
         $retval .= "</fieldset>\n";
-        $retval .= "<!-- ADD " . $name . " FORM END -->\n\n";
+        $retval .= '<!-- ADD ' . $name . " FORM END -->\n\n";
 
         return $retval;
     }
@@ -135,12 +129,12 @@ class Footer
         $options = [
             0 => [
                 'label' => __('OFF'),
-                'value' => "SET GLOBAL event_scheduler=\"OFF\"",
+                'value' => 'SET GLOBAL event_scheduler="OFF"',
                 'selected' => $es_state != 'on',
             ],
             1 => [
                 'label' => __('ON'),
-                'value' => "SET GLOBAL event_scheduler=\"ON\"",
+                'value' => 'SET GLOBAL event_scheduler="ON"',
                 'selected' => $es_state == 'on',
             ],
         ];
@@ -151,16 +145,19 @@ class Footer
         $retval .= $this->getLinks('CREATE_EVENT', 'EVENT', 'EVENT');
         $retval .= "    <fieldset class='right'>\n";
         $retval .= "        <legend>\n";
-        $retval .= "            " . __('Event scheduler status') . "\n";
+        $retval .= '            ' . __('Event scheduler status') . "\n";
         $retval .= "        </legend>\n";
         $retval .= "        <div class='wrap'>\n";
         // show the toggle button
-        $retval .= Util::toggleButton(
-            Url::getFromRoute('/sql', [
-                'db' => $db,
-                'table' => $table,
-                'goto' => Url::getFromRoute('/database/events', ['db' => $db]),
-            ]),
+        $retval .= Generator::toggleButton(
+            Url::getFromRoute(
+                '/sql',
+                [
+                    'db' => $db,
+                    'table' => $table,
+                    'goto' => Url::getFromRoute('/database/events', ['db' => $db]),
+                ]
+            ),
             'sql_query',
             $options,
             'Functions.slidingMessage(data.sql_query);'
@@ -168,7 +165,7 @@ class Footer
         $retval .= "        </div>\n";
         $retval .= "    </fieldset>\n";
         $retval .= "    <div class='clearfloat'></div>\n";
-        $retval .= "</div>";
+        $retval .= '</div>';
         $retval .= "<!-- FOOTER LINKS END -->\n";
 
         return $retval;

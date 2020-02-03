@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds ProcessesControllerTest
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -16,21 +14,13 @@ use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
+use function htmlspecialchars;
 
-/**
- * Class ProcessesControllerTest
- * @package PhpMyAdmin\Tests\Controllers\Server\Status
- */
 class ProcessesControllerTest extends TestCase
 {
-    /**
-     * @var Data
-     */
+    /** @var Data */
     private $data;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
@@ -81,7 +71,7 @@ class ProcessesControllerTest extends TestCase
             ],
             [
                 "SELECT concat('Com_', variable_name), variable_value "
-                . "FROM data_dictionary.GLOBAL_STATEMENTS",
+                . 'FROM data_dictionary.GLOBAL_STATEMENTS',
                 0,
                 1,
                 DatabaseInterface::CONNECT_USER,
@@ -102,9 +92,6 @@ class ProcessesControllerTest extends TestCase
         $this->data = new Data();
     }
 
-    /**
-     * @return void
-     */
     public function testIndex(): void
     {
         $controller = new ProcessesController(
@@ -214,9 +201,6 @@ class ProcessesControllerTest extends TestCase
         );
     }
 
-    /**
-     * @return void
-     */
     public function testRefresh(): void
     {
         $process = [

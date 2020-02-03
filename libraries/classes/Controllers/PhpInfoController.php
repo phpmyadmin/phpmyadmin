@@ -1,21 +1,21 @@
 <?php
 /**
  * phpinfo() wrapper to allow displaying only when configured to do so.
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use function phpinfo;
+use const INFO_CONFIGURATION;
+use const INFO_GENERAL;
+use const INFO_MODULES;
+
 /**
  * phpinfo() wrapper to allow displaying only when configured to do so.
- * @package PhpMyAdmin\Controllers
  */
 class PhpInfoController extends AbstractController
 {
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $cfg;

@@ -1,18 +1,17 @@
 <?php
 /**
  * Two authentication factor handling
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
+use function parse_url;
+use function sprintf;
 
 /**
  * Two factor authentication plugin class
@@ -20,14 +19,10 @@ use PhpMyAdmin\TwoFactor;
  * This is basic implementation which does no
  * additional authentication, subclasses are expected
  * to implement this.
- *
- * @package PhpMyAdmin
  */
 class TwoFactorPlugin
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     public static $id = '';
 
     /**
@@ -35,24 +30,16 @@ class TwoFactorPlugin
      */
     public static $showSubmit = true;
 
-    /**
-     * @var TwoFactor
-     */
+    /** @var TwoFactor */
     protected $_twofactor;
 
-    /**
-     * @var boolean
-     */
+    /** @var bool */
     protected $_provided;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $_message;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
     /**
@@ -91,7 +78,7 @@ class TwoFactorPlugin
     /**
      * Checks authentication, returns true on success
      *
-     * @return boolean
+     * @return bool
      */
     public function check()
     {
@@ -121,7 +108,7 @@ class TwoFactorPlugin
     /**
      * Performs backend configuration
      *
-     * @return boolean
+     * @return bool
      */
     public function configure()
     {
@@ -153,13 +140,12 @@ class TwoFactorPlugin
      *
      * Either hostname or hostname with scheme.
      *
-     * @param boolean $return_url Whether to generate URL
+     * @param bool $return_url Whether to generate URL
      *
      * @return string
      */
     public function getAppId($return_url)
     {
-        /** @var Config $PMA_Config */
         global $PMA_Config;
 
         $url = $PMA_Config->get('PmaAbsoluteUri');

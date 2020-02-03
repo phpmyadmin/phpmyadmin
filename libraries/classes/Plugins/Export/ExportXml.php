@@ -1,16 +1,12 @@
 <?php
 /**
  * Set of functions used to build XML dumps of tables
- *
- * @package    PhpMyAdmin-Export
- * @subpackage XML
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -18,18 +14,26 @@ use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Util;
+use function count;
+use function htmlspecialchars;
+use function is_array;
+use function mb_substr;
+use function rtrim;
+use function str_replace;
+use function stripslashes;
+use function strlen;
+use const PHP_VERSION;
 
+// phpcs:disable PSR1.Files.SideEffects
 /* Can't do server export */
 if (! isset($GLOBALS['db']) || strlen($GLOBALS['db']) === 0) {
     $GLOBALS['skip_import'] = true;
     return;
 }
+// phpcs:enable
 
 /**
  * Handles the export for the XML class
- *
- * @package    PhpMyAdmin-Export
- * @subpackage XML
  */
 class ExportXml extends ExportPlugin
 {
@@ -46,9 +50,6 @@ class ExportXml extends ExportPlugin
      */
     private $_tables;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();
@@ -87,51 +88,51 @@ class ExportXml extends ExportPlugin
         // $exportPluginProperties
         // this will be shown as "Format specific options"
         $exportSpecificOptions = new OptionsPropertyRootGroup(
-            "Format Specific Options"
+            'Format Specific Options'
         );
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup("general_opts");
+        $generalOptions = new OptionsPropertyMainGroup('general_opts');
         // create primary items and add them to the group
-        $leaf = new HiddenPropertyItem("structure_or_data");
+        $leaf = new HiddenPropertyItem('structure_or_data');
         $generalOptions->addProperty($leaf);
         // add the main group to the root group
         $exportSpecificOptions->addProperty($generalOptions);
 
         // export structure main group
         $structure = new OptionsPropertyMainGroup(
-            "structure",
+            'structure',
             __('Object creation options (all are recommended)')
         );
 
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
-            "export_events",
+            'export_events',
             __('Events')
         );
         $structure->addProperty($leaf);
         $leaf = new BoolPropertyItem(
-            "export_functions",
+            'export_functions',
             __('Functions')
         );
         $structure->addProperty($leaf);
         $leaf = new BoolPropertyItem(
-            "export_procedures",
+            'export_procedures',
             __('Procedures')
         );
         $structure->addProperty($leaf);
         $leaf = new BoolPropertyItem(
-            "export_tables",
+            'export_tables',
             __('Tables')
         );
         $structure->addProperty($leaf);
         $leaf = new BoolPropertyItem(
-            "export_triggers",
+            'export_triggers',
             __('Triggers')
         );
         $structure->addProperty($leaf);
         $leaf = new BoolPropertyItem(
-            "export_views",
+            'export_views',
             __('Views')
         );
         $structure->addProperty($leaf);
@@ -139,12 +140,12 @@ class ExportXml extends ExportPlugin
 
         // data main group
         $data = new OptionsPropertyMainGroup(
-            "data",
+            'data',
             __('Data dump options')
         );
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
-            "export_contents",
+            'export_contents',
             __('Export contents')
         );
         $data->addProperty($leaf);
@@ -200,7 +201,7 @@ class ExportXml extends ExportPlugin
                 $sql = htmlspecialchars(rtrim($sql));
                 $sql = str_replace("\n", "\n                ", $sql);
 
-                $head .= "                " . $sql . $crlf;
+                $head .= '                ' . $sql . $crlf;
                 $head .= '            </pma:' . $type . '>' . $crlf;
             }
         }
@@ -226,7 +227,7 @@ class ExportXml extends ExportPlugin
             || isset($GLOBALS['xml_export_tables'])
             || isset($GLOBALS['xml_export_triggers'])
             || isset($GLOBALS['xml_export_views']);
-        $export_data = isset($GLOBALS['xml_export_contents']) ? true : false;
+        $export_data = isset($GLOBALS['xml_export_contents']);
 
         if ($GLOBALS['output_charset_conversion']) {
             $charset = $GLOBALS['charset'];
@@ -311,7 +312,7 @@ class ExportXml extends ExportPlugin
                 $head .= '            <pma:' . $type . ' name="' . htmlspecialchars($table) . '">'
                     . $crlf;
 
-                $tbl = "                " . htmlspecialchars($tbl);
+                $tbl = '                ' . htmlspecialchars($tbl);
                 $tbl = str_replace("\n", "\n                ", $tbl);
 
                 $head .= $tbl . ';' . $crlf;
@@ -330,7 +331,7 @@ class ExportXml extends ExportPlugin
 
                             // Do some formatting
                             $code = mb_substr(rtrim($code), 0, -3);
-                            $code = "                " . htmlspecialchars($code);
+                            $code = '                ' . htmlspecialchars($code);
                             $code = str_replace("\n", "\n                ", $code);
 
                             $head .= $code . $crlf;
@@ -359,7 +360,7 @@ class ExportXml extends ExportPlugin
             ) {
                 // Export events
                 $events = $GLOBALS['dbi']->fetchResult(
-                    "SELECT EVENT_NAME FROM information_schema.EVENTS "
+                    'SELECT EVENT_NAME FROM information_schema.EVENTS '
                     . "WHERE EVENT_SCHEMA='" . $GLOBALS['dbi']->escapeString($db)
                     . "'"
                 );
@@ -541,7 +542,6 @@ class ExportXml extends ExportPlugin
 
         return true;
     }
-
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 

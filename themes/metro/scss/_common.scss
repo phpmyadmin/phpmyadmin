@@ -1,95 +1,5 @@
-// Common styles for the Metro theme
-
-/* fonts */
-
-@font-face {
-  font-family: 'IcoMoon';
-  src: local('☺');
-  src: url('../fonts/IcoMoon.eot');
-  src:
-    url('../fonts/IcoMoon.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/IcoMoon.svg#IcoMoon') format('svg'),
-    url('../fonts/IcoMoon.woff') format('woff'),
-    url('../fonts/IcoMoon.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Open Sans';
-  src: local('☺'), local('Open Sans'), local('OpenSans');
-  src: url('../fonts/opensans-regular-webfont.eot');
-  src:
-    url('../fonts/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/opensans-regular-webfont.woff') format('woff'),
-    url('../fonts/opensans-regular-webfont.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Open Sans Light';
-  src: local('☺'), local('Open Sans Light'), local('OpenSans-Light');
-  src: url('../fonts/opensans-light-webfont.eot');
-  src:
-    url('../fonts/opensans-light-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/opensans-light-webfont.woff') format('woff'),
-    url('../fonts/opensans-light-webfont.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Open Sans Bold';
-  src: local('☺'), local('Open Sans Bold'), local('OpenSans-Bold');
-  src: url('../fonts/opensans-bold-webfont.eot');
-  src:
-    url('../fonts/opensans-bold-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/opensans-bold-webfont.woff') format('woff'),
-    url('../fonts/opensans-bold-webfont.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Open Sans Extrabold';
-  src: local('☺'), local('Open Sans Extrabold'), local('OpenSans-Extrabold');
-  src: url('../fonts/opensans-extrabold-webfont.eot');
-  src:
-    url('../fonts/opensans-extrabold-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/opensans-extrabold-webfont.woff') format('woff'),
-    url('../fonts/opensans-extrabold-webfont.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-*:focus {
-  outline: none;
-}
-
 #li_select_fontsize {
   display: none;
-}
-
-/* general tags */
-html {
-  font-size: 100%;
-}
-
-input,
-select,
-textarea {
-  font-size: 1em;
-}
-
-body {
-  font-family: $font-family;
-  padding: 0;
-  margin-#{$left}: $navi-width;
-  color: $main-color;
-  background: $main-background;
-  line-height: 1;
-  font-size: 11px;
 }
 
 /* Override style formats by html tags */
@@ -118,7 +28,7 @@ body#loginform {
   }
 
   div.container {
-    color: $main-background;
+    color: $body-bg;
     text-align: $left;
     width: 48em;
     margin-#{$left}: auto;
@@ -128,7 +38,7 @@ body#loginform {
       /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
       font-family: 'IcoMoon';
       font-size: 220px;
-      color: $main-background;
+      color: $body-bg;
       content: "a";
       float: $left;
       margin-#{$right}: 20px;
@@ -145,7 +55,7 @@ body#loginform {
   h1 {
     display: inline-block;
     text-align: $left;
-    color: $main-background;
+    color: $body-bg;
     font-size: 2.5em;
     padding-top: 0;
     margin-#{$right}: -50%;
@@ -197,7 +107,7 @@ body#loginform {
     background: $navi-background;
     color: $navi-color;
     padding-#{$left}: 0 !important;
-    font-family: $font-family;
+    font-family: $font-family-base;
     min-width: 100%;
 
     &:hover {
@@ -228,12 +138,6 @@ body#loginform {
       clear: none;
     }
   }
-
-  .error {
-    float: $left;
-    width: 48em;
-    margin-top: -280px;
-  }
 }
 
 form.login label {
@@ -249,13 +153,6 @@ form.login label {
 
 #page_content {
   margin: 20px !important;
-}
-
-textarea,
-tt,
-pre,
-code {
-  font-family: $font-family-fixed !important;
 }
 
 h1 {
@@ -357,7 +254,7 @@ button.mult_submit {
 
   a {
     border: 1px solid $border-color;
-    background: $main-background;
+    background: $body-bg;
     padding: 4px 8px;
   }
 }
@@ -417,8 +314,8 @@ input {
     color: $th-color;
     padding: 5px;
     margin: 6px;
-    font-family: $font-family;
-    background-color: $main-background;
+    font-family: $font-family-base;
+    background-color: $body-bg;
 
     &:focus {
       border: 1px solid $navi-hover-background;
@@ -446,7 +343,7 @@ textarea {
   overflow: visible;
   border: 1px solid $browse-gray-color;
   color: $th-color;
-  background-color: $main-background;
+  background-color: $body-bg;
 }
 
 fieldset {
@@ -458,7 +355,7 @@ fieldset {
   fieldset {
     margin: 20px;
     margin-bottom: 0;
-    background-color: $main-background;
+    background-color: $body-bg;
     border: none;
   }
 }
@@ -466,7 +363,7 @@ fieldset {
 legend {
   padding: 0 5px;
   width: initial;
-  font-size: 1rem;
+  font-size: 1em;
 }
 
 .some-margin {
@@ -503,9 +400,9 @@ select {
   border: 1px solid $browse-gray-color;
   color: $th-color;
   padding: 4px;
-  font-family: $font-family;
+  font-family: $font-family-base;
   margin: 5px;
-  background-color: $main-background;
+  background-color: $body-bg;
   max-width: 17em;
 
   &:focus {
@@ -528,10 +425,6 @@ select {
   float: $right;
 }
 
-.center {
-  text-align: center;
-}
-
 .displayblock {
   display: block;
 }
@@ -552,11 +445,6 @@ table {
 th.left,
 td.left {
   text-align: $left;
-}
-
-th.center,
-td.center {
-  text-align: center;
 }
 
 th.right,
@@ -802,12 +690,12 @@ table tr.hover:not(.nopointer) th {
 th.condition {
   border: 1px solid $browse-warning-color;
   background: $browse-warning-color;
-  color: $main-background !important;
+  color: $body-bg !important;
 
   a {
     border: 1px solid $browse-warning-color;
     background: $browse-warning-color;
-    color: $main-background !important;
+    color: $body-bg !important;
   }
 }
 
@@ -837,7 +725,7 @@ table {
 }
 
 .value {
-  font-family: $font-family-fixed;
+  font-family: $font-family-monospace;
 }
 
 .attention {
@@ -907,95 +795,6 @@ td .icon {
 
 #pma_errors #pma_errors {
   padding: 0;
-}
-
-.success h1,
-.notice h1 {
-  text-align: $left;
-  margin: 0 0 0.2em 0;
-  color: $navi-color;
-}
-
-div {
-  &.error h1 {
-    text-align: $left;
-    margin: 0 0 0.2em 0;
-    color: $navi-color;
-  }
-
-  &.success,
-  &.notice,
-  &.error,
-  &.footnotes {
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    margin: 0 0 1px;
-    border: 1px solid;
-    background-repeat: no-repeat;
-
-    @if $direction == rtl {
-      background-position: 99% 50%;
-      padding: 10px 35px 10px 10px;
-    } @else {
-      background-position: 10px 50%;
-      padding: 10px 10px 10px 10px;
-    }
-  }
-
-  &.success {
-    margin: 0 0 1em 0;
-    border: none;
-  }
-}
-
-.success a,
-.notice a,
-.error a {
-  text-decoration: underline;
-  color: $button-color;
-}
-
-.success {
-  color: $button-color;
-  background-color: $browse-success-color;
-}
-
-h1.success,
-div.success {
-  border-color: $browse-success-color;
-}
-
-.notice,
-.footnotes {
-  color: $button-color;
-  background-color: $blue-header;
-}
-
-h1.notice {
-  border-color: $blue-header;
-}
-
-div {
-  &.notice,
-  &.footnotes {
-    border-color: $blue-header;
-  }
-}
-
-.notice a {
-  color: $button-color;
-}
-
-.error {
-  border: 1px solid $browse-warning-color !important;
-  color: $button-color;
-  background-color: $browse-warning-color;
-}
-
-h1.error,
-div.error {
-  border-color: $main-color;
 }
 
 .confirmation {
@@ -1098,16 +897,7 @@ td.disabled {
 
 /* specific elements */
 
-/* topmenu */
-
-#topmenu .error {
-  background: #eee;
-  border: 0 !important;
-  color: #aaa;
-}
-
 ul {
-  &#topmenu,
   &#topmenu2 {
     list-style-type: none;
     margin: 0;
@@ -1125,7 +915,6 @@ ul {
     clear: both;
   }
 
-  &#topmenu li,
   &#topmenu2 li {
     float: $left;
     margin: 0;
@@ -1135,24 +924,9 @@ ul {
   }
 }
 
-#topmenu img,
 #topmenu2 img {
   margin-#{$right}: 0.5em;
   vertical-align: -3px;
-}
-
-.menucontainer {
-  background-color: $th-background;
-  height: 48px;
-}
-
-.scrollindicator {
-  display: none;
-}
-
-/* default tab styles */
-#topmenu .tabactive {
-  background: #fff !important;
 }
 
 #topmenu2 .tabactive {
@@ -1240,65 +1014,14 @@ fieldset.caution li {
   }
 }
 
-#topmenu {
-  padding-#{$left}: 20px;
-  padding-#{$right}: 20px;
-}
-
 /* default tab styles */
 ul {
-  &#topmenu {
-    ul.only {
-      #{$left}: 0;
-    }
-
-    a,
-    span {
-      padding: 5px 10px;
-      height: 28px;
-      line-height: 28px;
-      font-family: $font-family-extra-bold;
-      text-transform: uppercase;
-      color: #666;
-      font-weight: normal;
-    }
-
-    ul {
-      a {
-        border-width: 1pt 0 0 0;
-      }
-
-      li:first-child a {
-        border-width: 0;
-      }
-
-      a:hover,
-      .tabactive {
-        text-decoration: none;
-      }
-    }
-
-    /* enabled hover/active tabs */
-    > li > {
-      a:hover,
-      .tabactive {
-        text-decoration: none;
-        color: #333;
-      }
-    }
-  }
-
   &#topmenu2 a {
     text-decoration: none;
 
     &:hover {
       text-decoration: none;
     }
-  }
-
-  /* to be able to cancel the bottom border, use <li class="active"> */
-  &#topmenu > li.active {
-    border-#{$right}: 0;
   }
 }
 
@@ -1380,64 +1103,15 @@ div#tablestatistics table {
   width: 100%;
 }
 
-#serverinfo {
-  padding: 12px 30px;
-  overflow: hidden;
-  margin: 0;
-  margin-#{$left}: -1em;
-  font-family: $font-family;
-  color: $button-color;
-  background: $navi-background;
-  height: 15px;
-  box-sizing: content-box;
-
-  .item {
-    font-family: $font-family;
-    white-space: nowrap;
-    color: $button-color;
-
-    &::before {
-      padding-#{$left}: 5px;
-      padding-#{$right}: 5px;
-      /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
-      font-family: "IcoMoon";
-      font-size: 10px;
-      color: #eee;
-      content: "";
-    }
-  }
-
-  a {
-    &:hover {
-      text-decoration: none;
-    }
-
-    &:first-child {
-      display: none !important;
-    }
-  }
-
-  .separator,
-  .icon {
-    display: none;
-  }
-}
-
 #page_nav_icons {
   position: fixed;
   top: 0;
   #{$right}: 0;
   z-index: 99;
-  padding: 0.25em 0;
-}
-
-#goto_pagetop,
-#lock_page_icon {
-  padding: 0.25em;
+  padding: $breadcrumb-padding-y $breadcrumb-padding-x;
 }
 
 #page_settings_icon {
-  padding: 0.25em;
   cursor: pointer;
   display: none;
 }
@@ -1454,15 +1128,10 @@ div#tablestatistics table {
   margin-#{$left}: 10px;
 }
 
-#serverinfo img {
-  margin: 0 0.1em 0;
-  margin-#{$left}: 0.2em;
-}
-
 #textSQLDUMP {
   width: 95%;
   height: 95%;
-  font-family: $font-family-fixed;
+  font-family: $font-family-monospace;
   font-size: 110%;
 }
 
@@ -1807,27 +1476,6 @@ div {
       margin: 0 0.5em;
       line-height: 2em;
     }
-  }
-}
-
-p.notice {
-  margin: 1.5em 0;
-  border: 1px solid #000;
-  background-repeat: no-repeat;
-  background-color: #555;
-  color: #d4fb6a;
-
-  @if $direction == rtl {
-    background-position: 99% 50%;
-    padding: 25px 10px 10px 10px;
-  } @else {
-    background-position: 10px 50%;
-    padding: 10px 10px 10px 25px;
-  }
-
-  a {
-    color: #fff;
-    text-decoration: underline;
   }
 }
 
@@ -2190,7 +1838,7 @@ div.sqlvalidate,
   padding: 1em;
   margin: 1em;
   overflow: auto;
-  background-color: $main-background;
+  background-color: $body-bg;
   border: 1px solid $border-color;
   direction: ltr;
 }
@@ -3004,6 +2652,9 @@ form.append_fields_form .tblFooters {
 }
 
 #table_columns {
+  display: block;
+  overflow: auto;
+
   input {
     &[type="text"],
     &[type="password"],
@@ -3147,6 +2798,7 @@ form.append_fields_form .tblFooters {
 .tooltip {
   background: #333 !important;
   opacity: 0.8 !important;
+  z-index: 9999;
   border: 1px solid #000 !important;
   font-size: 10px !important;
   font-weight: normal !important;
@@ -3405,6 +3057,10 @@ body .ui-widget {
   font-size: 1em;
 }
 
+body #ui-datepicker-div {
+  z-index: 9999 !important;
+}
+
 .ui-dialog fieldset legend a {
   color: #235a81;
 }
@@ -3432,7 +3088,6 @@ div#page_content div {
     }
   }
 
-  &.notice,
   &.result_query {
     margin-top: 1em;
   }
@@ -4193,7 +3848,7 @@ body {
     }
 
     .ui-dialog-buttonpane button {
-      font-family: $font-family;
+      font-family: $font-family-base;
       color: $button-color;
       background-color: $navi-background;
       background-image: none;
@@ -4267,16 +3922,4 @@ body {
   .query-form__multi-sql-query {
     float: left;
   }
-}
-
-// Bootstrap
-
-.card-header {
-  font-size: 2.8em;
-  font-family: $font-family-light;
-  padding: 0;
-}
-
-.card-body ul {
-  padding-#{$left}: 0;
 }

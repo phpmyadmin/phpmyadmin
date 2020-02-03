@@ -1,9 +1,6 @@
 <?php
 /**
  * Abstract class for the link transformations plugins
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage Link
  */
 declare(strict_types=1);
 
@@ -12,11 +9,10 @@ namespace PhpMyAdmin\Plugins\Transformations\Abs;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Url;
 use stdClass;
+use function htmlspecialchars;
 
 /**
  * Provides common methods for all of the link transformations plugins.
- *
- * @package PhpMyAdmin
  */
 abstract class ImageLinkTransformationsPlugin extends TransformationsPlugin
 {
@@ -62,6 +58,6 @@ abstract class ImageLinkTransformationsPlugin extends TransformationsPlugin
      */
     public static function getName()
     {
-        return "ImageLink";
+        return 'ImageLink';
     }
 }

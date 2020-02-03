@@ -250,7 +250,7 @@ Navigation.traverseForPaths = function () {
                 pos2Name = $(this)
                     .parent()
                     .parent()
-                    .find('span.pos2_name:last')
+                    .find('span.pos2_name').last()
                     .text();
             }
             var pos2Value = $(this).find('span.pos2_value').text();
@@ -258,7 +258,7 @@ Navigation.traverseForPaths = function () {
                 pos2Value = $(this)
                     .parent()
                     .parent()
-                    .find('span.pos2_value:last')
+                    .find('span.pos2_value').last()
                     .text();
             }
 
@@ -486,8 +486,8 @@ $(function () {
         dialog.executeDialog($(this).parent());
     });
     /** Export Triggers and Events */
-    $(document).on('click', 'li.trigger div:eq(1) a.ajax img,' +
-        ' li.event div:eq(1) a.ajax img', function (event) {
+    $(document).on('click', 'li.trigger div.second a.ajax img,' +
+        ' li.event div.second a.ajax img', function (event) {
         event.preventDefault();
         var dialog = new RTE.Object();
         dialog.exportDialog($(this).parent());
@@ -773,7 +773,7 @@ Navigation.showCurrent = function () {
                 return;
             }
             // If loaded database in navigation is not same as current one
-            if ($('#pma_navigation_tree_content').find('span.loaded_db:first').text()
+            if ($('#pma_navigation_tree_content').find('span.loaded_db').first().text()
                 !== $('#navi_db_select').val()
             ) {
                 Navigation.loadChildNodes(false, $('option:selected', $('#navi_db_select')), function () {
@@ -811,7 +811,7 @@ Navigation.showCurrent = function () {
     Navigation.showFullName($('#pma_navigation_tree'));
 
     function fullExpand (table, $dbItem) {
-        var $expander = $dbItem.children('div:first').children('a.expander');
+        var $expander = $dbItem.children('div').first().children('a.expander');
         // if not loaded or loaded but collapsed
         if (! $expander.hasClass('loaded') ||
             $expander.find('img').is('.ic_b_plus')
@@ -831,7 +831,7 @@ Navigation.showCurrent = function () {
             var $container = $dbItem.children('div.list_container');
             var $tableContainer = $container.children('ul').children('li.tableContainer');
             if ($tableContainer.length > 0) {
-                var $expander = $tableContainer.children('div:first').children('a.expander');
+                var $expander = $tableContainer.children('div').first().children('a.expander');
                 $tableContainer.addClass('selected');
                 Navigation.expandTreeNode($expander, function () {
                     Navigation.scrollToView($dbItem, true);
@@ -868,7 +868,7 @@ Navigation.showCurrent = function () {
                         var $cont = $(this).children('div.list_container');
                         if (! $cont.is(':visible')) {
                             $(this)
-                                .children('div:first')
+                                .children('div').first()
                                 .children('a.expander')
                                 .trigger('click');
                         }
@@ -896,7 +896,7 @@ Navigation.showCurrent = function () {
                 itemName, null, true
             );
             // Show directly
-            showTableOrView($whichItem, $relatedContainer.children('div:first').children('a.expander'));
+            showTableOrView($whichItem, $relatedContainer.children('div').first().children('a.expander'));
         // else if item not there, try loading once
         } else {
             var $subContainers = $dbItem.find('.subContainer');
@@ -906,7 +906,7 @@ Navigation.showCurrent = function () {
                 $subContainers.each(function (index) {
                     $containers[index] = $(this);
                     $expander = $containers[index]
-                        .children('div:first')
+                        .children('div').first()
                         .children('a.expander');
                     if (! $expander.hasClass('loaded')) {
                         loadAndShowTableOrView($expander, $containers[index], itemName);
@@ -915,7 +915,7 @@ Navigation.showCurrent = function () {
             // else if no subContainers
             } else {
                 $expander = $dbItem
-                    .children('div:first')
+                    .children('div').first()
                     .children('a.expander');
                 if (! $expander.hasClass('loaded')) {
                     loadAndShowTableOrView($expander, $dbItem, itemName);
@@ -1115,11 +1115,11 @@ Navigation.treePagination = function ($this) {
                 if (val) {
                     $parent.find('li.fast_filter input.searchClause').val(val);
                 }
-                $parent.find('span.pos2_value:first').text(
-                    $parent.find('span.pos2_value:last').text()
+                $parent.find('span.pos2_value').first().text(
+                    $parent.find('span.pos2_value').last().text()
                 );
-                $parent.find('span.pos3_value:first').text(
-                    $parent.find('span.pos3_value:last').text()
+                $parent.find('span.pos3_value').first().text(
+                    $parent.find('span.pos3_value').last().text()
                 );
             }
         } else {
@@ -1164,8 +1164,27 @@ Navigation.ResizeHandler = function () {
         var windowWidth = $(window).width();
         $('#pma_navigation').width(pos);
         $('body').css('margin-' + this.left, pos + 'px');
-        // Issue #15127
-        $('#floating_menubar, #pma_console')
+        // Issue #15127 : Adding fixed positioning to menubar
+        // Issue #15570 : Panels on homescreen go underneath of floating menubar
+        $('#floating_menubar')
+            .css('margin-' + this.left, $('#pma_navigation').width() + $('#pma_navigation_resizer').width())
+            .css(this.left, 0)
+            .css({
+                'position': 'fixed',
+                'top': 0,
+                'width': '100%',
+                'z-index': 99
+            })
+            .append($('#server-breadcrumb'))
+            .append($('#topmenucontainer'));
+        // Allow the DOM to render, then adjust the padding on the body
+        setTimeout(function () {
+            $('body').css(
+                'padding-top',
+                $('#floating_menubar').outerHeight(true)
+            );
+        }, 2);
+        $('#pma_console')
             .css('margin-' + this.left, (pos + resizerWidth) + 'px');
         $resizer.css(this.left, pos + 'px');
         if (pos === 0) {
@@ -1597,7 +1616,7 @@ Navigation.FastFilter.Filter.prototype.request = function () {
     var url = $('#pma_navigation').find('a.navigation_url').attr('href');
     var params = self.$this.find('> ul > li > form.fast_filter').first().serialize();
 
-    if (self.$this.find('> ul > li > form.fast_filter:first input[name=searchClause]').length === 0) {
+    if (self.$this.find('> ul > li > form.fast_filter').first().find('input[name=searchClause]').length === 0) {
         var $input = $('#pma_navigation_tree').find('li.fast_filter.db_fast_filter input.searchClause');
         if ($input.length && $input.val() !== $input[0].defaultValue) {
             params += CommonParams.get('arg_separator') + 'searchClause=' + encodeURIComponent($input.val());
@@ -1677,7 +1696,7 @@ Navigation.showFullName = function ($containerELem) {
             var $fullNameLayer = $('#full_name_layer');
             if ($fullNameLayer.length === 0) {
                 $('body').append('<div id="full_name_layer" class="hide"></div>');
-                $('#full_name_layer').mouseleave(function () {
+                $('#full_name_layer').on('mouseleave', function () {
                     /** mouseleave */
                     $(this).addClass('hide')
                         .removeClass('hovering');

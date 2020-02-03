@@ -1,20 +1,16 @@
 <?php
 /**
  * Functionality for the navigation tree
- *
- * @package PhpMyAdmin-Navigation
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 
 /**
  * Represents a trigger node in the navigation tree
- *
- * @package PhpMyAdmin-Navigation
  */
 class NodeTrigger extends Node
 {
@@ -29,7 +25,7 @@ class NodeTrigger extends Node
     public function __construct($name, $type = Node::OBJECT, $isGroup = false)
     {
         parent::__construct($name, $type, $isGroup);
-        $this->icon = Util::getImage('b_triggers');
+        $this->icon = Generator::getImage('b_triggers');
         $this->links = [
             'text' => Url::getFromRoute('/database/triggers', [
                 'server' => $GLOBALS['server'],

@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for methods in Sanitize class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for methods in Sanitize class
- *
- * @package PhpMyAdmin-test
  */
 class SanitizeTest extends TestCase
 {
@@ -55,8 +51,6 @@ class SanitizeTest extends TestCase
      *
      * @param string $link     link
      * @param string $expected expected result
-     *
-     * @return void
      *
      * @dataProvider docLinks
      */
@@ -194,8 +188,6 @@ class SanitizeTest extends TestCase
      * @param string $expected Expected output
      *
      * @dataProvider variables
-     *
-     * @return void
      */
     public function testGetJsValue($key, $value, $expected): void
     {
@@ -223,7 +215,7 @@ class SanitizeTest extends TestCase
      */
     public function testJsFormat()
     {
-        $this->assertEquals("`foo`", Sanitize::jsFormat('foo'));
+        $this->assertEquals('`foo`', Sanitize::jsFormat('foo'));
     }
 
     /**
@@ -277,8 +269,6 @@ class SanitizeTest extends TestCase
      *
      * @param string $target expected output
      * @param string $source string to be escaped
-     *
-     * @return void
      *
      * @dataProvider escapeDataProvider
      */

@@ -1,23 +1,28 @@
 <?php
 /**
  * Hold the PhpMyAdmin\LanguageManager class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Core;
-use PhpMyAdmin\Language;
-use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\Html\MySQLDocumentation;
+use function closedir;
+use function count;
+use function explode;
+use function file_exists;
+use function is_dir;
+use function opendir;
+use function preg_grep;
+use function readdir;
+use function strtolower;
+use function trigger_error;
+use function uasort;
+use function ucfirst;
+use const E_USER_ERROR;
 
 /**
  * Language selection manager
- *
- * @package PhpMyAdmin
  */
 class LanguageManager
 {
@@ -37,6 +42,13 @@ class LanguageManager
             'Afrikaans',
             '',
             'af|afrikaans',
+            '',
+        ],
+        'am' => [
+            'am',
+            'Amharic',
+            'አማርኛ',
+            'am|amharic',
             '',
         ],
         'ar' => [
@@ -665,9 +677,7 @@ class LanguageManager
     private $_lang_failed_cookie;
     private $_lang_failed_request;
 
-    /**
-     * @var LanguageManager
-     */
+    /** @var LanguageManager */
     private static $instance;
 
     /**
@@ -705,12 +715,12 @@ class LanguageManager
         }
 
         /* Process all files */
-        while (false !== ($file = readdir($handle))) {
+        while (($file = readdir($handle)) !== false) {
             $path = LOCALE_PATH
                 . '/' . $file
                 . '/LC_MESSAGES/phpmyadmin.mo';
-            if ($file != "."
-                && $file != ".."
+            if ($file != '.'
+                && $file != '..'
                 && @file_exists($path)
             ) {
                 $result[] = $file;
@@ -745,7 +755,7 @@ class LanguageManager
     /**
      * Checks whether there are some languages available
      *
-     * @return boolean
+     * @return bool
      */
     public function hasChoice()
     {
@@ -927,17 +937,16 @@ class LanguageManager
         }
     }
 
-
     /**
      * Returns HTML code for the language selector
      *
      * @param Template $template     Template instance
-     * @param boolean  $use_fieldset whether to use fieldset for selection
-     * @param boolean  $show_doc     whether to show documentation links
+     * @param bool     $use_fieldset whether to use fieldset for selection
+     * @param bool     $show_doc     whether to show documentation links
      *
      * @return string
      *
-     * @access  public
+     * @access public
      */
     public function getSelectorDisplay(Template $template, $use_fieldset = false, $show_doc = true)
     {
@@ -952,7 +961,7 @@ class LanguageManager
         $language_title = __('Language')
             . (__('Language') != 'Language' ? ' - <em>Language</em>' : '');
         if ($show_doc) {
-            $language_title .= Util::showDocu('faq', 'faq7-2');
+            $language_title .= MySQLDocumentation::showDocumentation('faq', 'faq7-2');
         }
 
         $available_languages = $this->sortedLanguages();

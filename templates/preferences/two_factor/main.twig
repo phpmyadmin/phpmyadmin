@@ -40,7 +40,7 @@
       <div class="card-body">
       <p>{% trans "You have enabled two factor authentication." %}</p>
       <p>{{ backend_description }}</p>
-      <form method="post" action="{{ url('/preferences/twofactor') }}">
+      <form method="post" action="{{ url('/preferences/two-factor') }}">
         {{ get_hidden_inputs() }}
         <input class="btn btn-secondary" type="submit" name="2fa_remove" value="
           {%- trans "Disable two-factor authentication" %}">
@@ -57,7 +57,7 @@
         {% trans "Configure two-factor authentication" %}
       </div>
       <div class="card-body">
-      <form method="post" action="{{ url('/preferences/twofactor') }}">
+      <form method="post" action="{{ url('/preferences/two-factor') }}">
         {{ get_hidden_inputs() }}
         {% for backend in backends %}
           <label class="displayblock">

@@ -32,7 +32,15 @@
                 {% if host.user is empty %}
                   <span class="text-danger">{% trans 'Any' %}</span>
                 {% else %}
-                  {{ host.user }}
+                 <a class="edit_user_anchor" href="{{ url('/server/privileges', {
+                  'username': host.user,
+                  'hostname': host.host,
+                  'dbname': '',
+                  'tablename': '',
+                  'routinename': '',
+                }) }}">
+                 {{ host.user }}
+                 </a>
                 {% endif %}
               </label>
             </td>
@@ -53,7 +61,7 @@
             {% endif %}
             <td>{{ host.has_grant ? 'Yes'|trans : 'No'|trans }}</td>
             {% if is_grantuser %}
-              <td class="center">
+              <td class="text-center">
                 <a class="edit_user_anchor" href="{{ url('/server/privileges', {
                   'username': host.user,
                   'hostname': host.host,
@@ -66,7 +74,7 @@
               </td>
             {% endif %}
             {% if menus_work and user_group_count > 0 %}
-              <td class="center">
+              <td class="text-center">
                 {% if host.user is not empty %}
                   <a class="edit_user_group_anchor ajax" href="{{ url('/server/privileges', {'username': host.user}) }}">
                     {{ get_icon('b_usrlist', 'Edit user group'|trans) }}
@@ -74,7 +82,7 @@
                 {% endif %}
               </td>
             {% endif %}
-            <td class="center">
+            <td class="text-center">
               <a class="export_user_anchor ajax" href="{{ url('/server/privileges', {
                 'username': host.user,
                 'hostname': host.host,

@@ -1,9 +1,6 @@
 <?php
 /**
  * Class for exporting CSV dumps of tables for excel
- *
- * @package    PhpMyAdmin-Export
- * @subpackage CSV-Excel
  */
 declare(strict_types=1);
 
@@ -19,9 +16,6 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 
 /**
  * Handles the export for the CSV-Excel format
- *
- * @package    PhpMyAdmin-Export
- * @subpackage CSV-Excel
  */
 class ExportExcel extends ExportCsv
 {
@@ -42,11 +36,11 @@ class ExportExcel extends ExportCsv
         // $exportPluginProperties
         // this will be shown as "Format specific options"
         $exportSpecificOptions = new OptionsPropertyRootGroup(
-            "Format Specific Options"
+            'Format Specific Options'
         );
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup("general_opts");
+        $generalOptions = new OptionsPropertyMainGroup('general_opts');
         // create primary items and add them to the group
         $leaf = new TextPropertyItem(
             'null',

@@ -29,6 +29,8 @@ require_once ROOT_PATH . 'libraries/vendor_config.php';
 require_once AUTOLOAD_FILE;
 
 $GLOBALS['PMA_Config'] = new Config(CONFIG_FILE);
+$GLOBALS['PMA_Config']->set('environment', 'production');
+$GLOBALS['cfg']['environment'] = 'production';
 $GLOBALS['dbi'] = new DatabaseInterface(new DbiDummy());
 
 $tplDir = dirname(__FILE__) . '/../templates';

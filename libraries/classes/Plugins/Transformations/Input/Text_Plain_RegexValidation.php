@@ -1,9 +1,6 @@
 <?php
 /**
  * Text Plain Regex Validation Input Transformations plugin for phpMyAdmin
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage RegexValidation
  */
 declare(strict_types=1);
 
@@ -14,9 +11,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\RegexValidationTransformationsPlugin;
 /**
  * Handles the input regex validation transformation for text plain.
  * Has one option: the regular expression
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage RegexValidation
  */
 // @codingStandardsIgnoreLine
 class Text_Plain_RegexValidation extends RegexValidationTransformationsPlugin
@@ -28,7 +22,7 @@ class Text_Plain_RegexValidation extends RegexValidationTransformationsPlugin
      */
     public static function getMIMEType()
     {
-        return "Text";
+        return 'Text';
     }
 
     /**
@@ -38,6 +32,6 @@ class Text_Plain_RegexValidation extends RegexValidationTransformationsPlugin
      */
     public static function getMIMESubtype()
     {
-        return "Plain";
+        return 'Plain';
     }
 }

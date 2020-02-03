@@ -1,8 +1,6 @@
 <?php
 /**
  * Functions for routine management.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -12,6 +10,8 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Parser;
@@ -20,47 +20,51 @@ use PhpMyAdmin\SqlParser\Utils\Routine;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function array_merge;
+use function count;
+use function explode;
+use function htmlentities;
+use function htmlspecialchars;
+use function implode;
+use function in_array;
+use function is_array;
+use function is_string;
+use function max;
+use function mb_strpos;
+use function mb_strtolower;
+use function mb_strtoupper;
+use function preg_match;
+use function sprintf;
+use function stripos;
+use function substr;
+use function trigger_error;
+use const E_USER_WARNING;
+use const ENT_QUOTES;
 
 /**
  * PhpMyAdmin\Rte\Routines class
- *
- * @package PhpMyAdmin
  */
 class Routines
 {
-    /**
-     * @var Export
-     */
+    /** @var Export */
     private $export;
 
-    /**
-     * @var Footer
-     */
+    /** @var Footer */
     private $footer;
 
-    /**
-     * @var General
-     */
+    /** @var General */
     private $general;
 
-    /**
-     * @var RteList
-     */
+    /** @var RteList */
     private $rteList;
 
-    /**
-     * @var Words
-     */
+    /** @var Words */
     private $words;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**
-     * Routines constructor.
-     *
      * @param DatabaseInterface $dbi DatabaseInterface object
      */
     public function __construct(DatabaseInterface $dbi)
@@ -192,7 +196,7 @@ class Routines
                 $routine = $this->getDataFromRequest();
                 $mode = 'add';
             } elseif (! empty($_REQUEST['edit_item'])) {
-                $title = __("Edit routine");
+                $title = __('Edit routine');
                 if (! $operation && ! empty($_GET['item_name'])
                     && empty($_POST['editor_process_edit'])
                 ) {
@@ -218,7 +222,7 @@ class Routines
                     $response->addJSON('paramTemplate', $this->getParameterRow());
                     $response->addJSON('type', $routine['item_type']);
                 } else {
-                    echo "\n\n<h2>$title</h2>\n\n$editor";
+                    echo "\n\n<h2>" . $title . "</h2>\n\n" . $editor;
                 }
                 exit;
             } else {
@@ -289,7 +293,7 @@ class Routines
 
                     $privilegesBackup = $this->backupPrivileges();
 
-                    $drop_routine = "DROP {$_POST['item_original_type']} "
+                    $drop_routine = 'DROP ' . $_POST['item_original_type'] . ' '
                         . Util::backquote($_POST['item_original_name'])
                         . ";\n";
                     $result = $this->dbi->tryQuery($drop_routine);
@@ -301,7 +305,7 @@ class Routines
                         . '<br>'
                         . __('MySQL said: ') . $this->dbi->getError();
                     } else {
-                        list($newErrors, $message) = $this->create(
+                        [$newErrors, $message] = $this->create(
                             $routine_query,
                             $create_routine,
                             $privilegesBackup
@@ -350,7 +354,7 @@ class Routines
             $message->addHtml('</ul>');
         }
 
-        $output = Util::getMessage($message, $sql_query);
+        $output = Generator::getMessage($message, $sql_query);
         $response = Response::getInstance();
         if (! $response->isAjax()) {
             return $errors;
@@ -546,7 +550,7 @@ class Routines
             'item_definer',
         ];
         foreach ($indices as $index) {
-            $retval[$index] = isset($_POST[$index]) ? $_POST[$index] : '';
+            $retval[$index] = $_POST[$index] ?? '';
         }
 
         $retval['item_type']         = 'PROCEDURE';
@@ -653,14 +657,14 @@ class Routines
         $retval  = [];
 
         // Build and execute the query
-        $fields  = "SPECIFIC_NAME, ROUTINE_TYPE, DTD_IDENTIFIER, "
-                 . "ROUTINE_DEFINITION, IS_DETERMINISTIC, SQL_DATA_ACCESS, "
-                 . "ROUTINE_COMMENT, SECURITY_TYPE";
-        $where   = "ROUTINE_SCHEMA " . Util::getCollateForIS() . "="
+        $fields  = 'SPECIFIC_NAME, ROUTINE_TYPE, DTD_IDENTIFIER, '
+                 . 'ROUTINE_DEFINITION, IS_DETERMINISTIC, SQL_DATA_ACCESS, '
+                 . 'ROUTINE_COMMENT, SECURITY_TYPE';
+        $where   = 'ROUTINE_SCHEMA ' . Util::getCollateForIS() . '='
                  . "'" . $this->dbi->escapeString($db) . "' "
                  . "AND SPECIFIC_NAME='" . $this->dbi->escapeString($name) . "'"
                  . "AND ROUTINE_TYPE='" . $this->dbi->escapeString($type) . "'";
-        $query   = "SELECT $fields FROM INFORMATION_SCHEMA.ROUTINES WHERE $where;";
+        $query   = 'SELECT ' . $fields . ' FROM INFORMATION_SCHEMA.ROUTINES WHERE ' . $where . ';';
 
         $routine = $this->dbi->fetchSingleRow($query, 'ASSOC');
 
@@ -895,10 +899,10 @@ class Routines
         if ($mode == 'edit') {
             $original_routine = "<input name='item_original_name' "
                               . "type='hidden' "
-                              . "value='{$routine['item_original_name']}'>\n"
+                              . "value='" . $routine['item_original_name'] . "'>\n"
                               . "<input name='item_original_type' "
                               . "type='hidden' "
-                              . "value='{$routine['item_original_type']}'>\n";
+                              . "value='" . $routine['item_original_type'] . "'>\n";
         }
         $isfunction_class   = '';
         $isprocedure_class  = '';
@@ -913,33 +917,33 @@ class Routines
         }
 
         // Create the output
-        $retval  = "";
-        $retval .= "<!-- START " . mb_strtoupper($mode)
+        $retval  = '';
+        $retval .= '<!-- START ' . mb_strtoupper($mode)
             . " ROUTINE FORM -->\n\n";
         $retval .= '<form class="rte_form" action="' . Url::getFromRoute('/database/routines') . '" method="post">' . "\n";
-        $retval .= "<input name='{$mode}_item' type='hidden' value='1'>\n";
+        $retval .= "<input name='" . $mode . "_item' type='hidden' value='1'>\n";
         $retval .= $original_routine;
         $retval .= Url::getHiddenInputs($db) . "\n";
         $retval .= "<fieldset>\n";
-        $retval .= "<legend>" . __('Details') . "</legend>\n";
+        $retval .= '<legend>' . __('Details') . "</legend>\n";
         $retval .= "<table class='rte_table'>\n";
         $retval .= "<tr>\n";
-        $retval .= "    <td>" . __('Routine name') . "</td>\n";
+        $retval .= '    <td>' . __('Routine name') . "</td>\n";
         $retval .= "    <td><input type='text' name='item_name' maxlength='64'\n";
-        $retval .= "               value='{$routine['item_name']}'></td>\n";
+        $retval .= "               value='" . $routine['item_name'] . "'></td>\n";
         $retval .= "</tr>\n";
         $retval .= "<tr>\n";
-        $retval .= "    <td>" . __('Type') . "</td>\n";
+        $retval .= '    <td>' . __('Type') . "</td>\n";
         $retval .= "    <td>\n";
         if ($response->isAjax()) {
             $retval .= "        <select name='item_type'>\n"
-                . "<option value='PROCEDURE'$isprocedure_select>PROCEDURE</option>\n"
-                . "<option value='FUNCTION'$isfunction_select>FUNCTION</option>\n"
+                . "<option value='PROCEDURE'" . $isprocedure_select . ">PROCEDURE</option>\n"
+                . "<option value='FUNCTION'" . $isfunction_select . ">FUNCTION</option>\n"
                 . "</select>\n";
         } else {
             $retval .= "<input name='item_type' type='hidden'"
-                . " value='{$routine['item_type']}'>\n"
-                . "<div class='font_weight_bold center half_width'>\n"
+                . " value='" . $routine['item_type'] . "'>\n"
+                . "<div class='font_weight_bold text-center w-50'>\n"
                 . $routine['item_type'] . "\n"
                 . "</div>\n"
                 . "<input type='submit' name='routine_changetype'\n"
@@ -949,58 +953,58 @@ class Routines
         $retval .= "    </td>\n";
         $retval .= "</tr>\n";
         $retval .= "<tr>\n";
-        $retval .= "    <td>" . __('Parameters') . "</td>\n";
+        $retval .= '    <td>' . __('Parameters') . "</td>\n";
         $retval .= "    <td>\n";
         // parameter handling start
         $retval .= "        <table class='routine_params_table'>\n";
         $retval .= "        <thead>\n";
         $retval .= "        <tr>\n";
         $retval .= "            <td></td>\n";
-        $retval .= "            <th class='routine_direction_cell$isprocedure_class'>"
+        $retval .= "            <th class='routine_direction_cell" . $isprocedure_class . "'>"
             . __('Direction') . "</th>\n";
-        $retval .= "            <th>" . __('Name') . "</th>\n";
-        $retval .= "            <th>" . __('Type') . "</th>\n";
-        $retval .= "            <th>" . __('Length/Values') . "</th>\n";
+        $retval .= '            <th>' . __('Name') . "</th>\n";
+        $retval .= '            <th>' . __('Type') . "</th>\n";
+        $retval .= '            <th>' . __('Length/Values') . "</th>\n";
         $retval .= "            <th colspan='2'>" . __('Options') . "</th>\n";
         $retval .= "            <th class='routine_param_remove hide'>&nbsp;</th>\n";
-        $retval .= "        </tr>";
+        $retval .= '        </tr>';
         $retval .= "        </thead>\n";
         $retval .= "        <tbody>\n";
         for ($i = 0; $i < $routine['item_num_params']; $i++) { // each parameter
             $retval .= $this->getParameterRow($routine, $i, $isprocedure_class);
         }
         $retval .= "        </tbody>\n";
-        $retval .= "        </table>";
-        $retval .= "    </td>";
-        $retval .= "</tr>";
-        $retval .= "<tr>";
-        $retval .= "    <td>&nbsp;</td>";
-        $retval .= "    <td>";
+        $retval .= '        </table>';
+        $retval .= '    </td>';
+        $retval .= '</tr>';
+        $retval .= '<tr>';
+        $retval .= '    <td>&nbsp;</td>';
+        $retval .= '    <td>';
         $retval .= "        <input type='button'";
         $retval .= "               name='routine_addparameter'";
         $retval .= "               value='" . __('Add parameter') . "'>";
-        $retval .= "        <input " . $disableRemoveParam . "";
+        $retval .= '        <input ' . $disableRemoveParam . '';
         $retval .= "               type='submit' ";
         $retval .= "               name='routine_removeparameter'";
         $retval .= "               value='" . __('Remove last parameter') . "'>";
-        $retval .= "    </td>";
-        $retval .= "</tr>";
+        $retval .= '    </td>';
+        $retval .= '</tr>';
         // parameter handling end
         $retval .= "<tr class='routine_return_row" . $isfunction_class . "'>";
-        $retval .= "    <td>" . __('Return type') . "</td>";
+        $retval .= '    <td>' . __('Return type') . '</td>';
         $retval .= "    <td><select name='item_returntype'>";
         $retval .= Util::getSupportedDatatypes(true, $routine['item_returntype']);
-        $retval .= "    </select></td>";
-        $retval .= "</tr>";
+        $retval .= '    </select></td>';
+        $retval .= '</tr>';
         $retval .= "<tr class='routine_return_row" . $isfunction_class . "'>";
-        $retval .= "    <td>" . __('Return length/values') . "</td>";
+        $retval .= '    <td>' . __('Return length/values') . '</td>';
         $retval .= "    <td><input type='text' name='item_returnlength'";
         $retval .= "        value='" . $routine['item_returnlength'] . "'></td>";
         $retval .= "    <td class='hide no_len'>---</td>";
-        $retval .= "</tr>";
+        $retval .= '</tr>';
         $retval .= "<tr class='routine_return_row" . $isfunction_class . "'>";
-        $retval .= "    <td>" . __('Return options') . "</td>";
-        $retval .= "    <td><div>";
+        $retval .= '    <td>' . __('Return options') . '</td>';
+        $retval .= '    <td><div>';
         $retval .= '<select lang="en" dir="ltr" name="item_returnopts_text">' . "\n";
         $retval .= '<option value="">' . __('Charset') . '</option>' . "\n";
         $retval .= '<option value=""></option>' . "\n";
@@ -1015,40 +1019,40 @@ class Routines
         }
 
         $retval .= '</select>' . "\n";
-        $retval .= "    </div>";
+        $retval .= '    </div>';
         $retval .= "    <div><select name='item_returnopts_num'>";
         $retval .= "        <option value=''></option>";
         foreach ($param_opts_num as $key => $value) {
-            $selected = "";
+            $selected = '';
             if (! empty($routine['item_returnopts_num'])
                 && $routine['item_returnopts_num'] == $value
             ) {
                 $selected = " selected='selected'";
             }
-            $retval .= "<option" . $selected . ">" . $value . "</option>";
+            $retval .= '<option' . $selected . '>' . $value . '</option>';
         }
-        $retval .= "    </select></div>";
+        $retval .= '    </select></div>';
         $retval .= "    <div class='hide no_opts'>---</div>";
-        $retval .= "</td>";
-        $retval .= "</tr>";
-        $retval .= "<tr>";
-        $retval .= "    <td>" . __('Definition') . "</td>";
+        $retval .= '</td>';
+        $retval .= '</tr>';
+        $retval .= '<tr>';
+        $retval .= '    <td>' . __('Definition') . '</td>';
         $retval .= "    <td><textarea name='item_definition' rows='15' cols='40'>";
         $retval .= $routine['item_definition'];
-        $retval .= "</textarea></td>";
-        $retval .= "</tr>";
-        $retval .= "<tr>";
-        $retval .= "    <td>" . __('Is deterministic') . "</td>";
+        $retval .= '</textarea></td>';
+        $retval .= '</tr>';
+        $retval .= '<tr>';
+        $retval .= '    <td>' . __('Is deterministic') . '</td>';
         $retval .= "    <td><input type='checkbox' name='item_isdeterministic'"
-            . $routine['item_isdeterministic'] . "></td>";
-        $retval .= "</tr>";
+            . $routine['item_isdeterministic'] . '></td>';
+        $retval .= '</tr>';
         if (isset($_REQUEST['edit_item'])
             && ! empty($_REQUEST['edit_item'])
         ) {
-            $retval .= "<tr>";
-            $retval .= "    <td>" . __('Adjust privileges');
-            $retval .= Util::showDocu('faq', 'faq6-39');
-            $retval .= "</td>";
+            $retval .= '<tr>';
+            $retval .= '    <td>' . __('Adjust privileges');
+            $retval .= MySQLDocumentation::showDocumentation('faq', 'faq6-39');
+            $retval .= '</td>';
             if ($GLOBALS['proc_priv']
                 && $GLOBALS['is_reload_priv']
             ) {
@@ -1057,48 +1061,48 @@ class Routines
             } else {
                 $retval .= "    <td><input type='checkbox' "
                     . "name='item_adjust_privileges' value='1' title='" . __(
-                        "You do not have sufficient privileges to perform this "
-                        . "operation; Please refer to the documentation for more "
-                        . "details"
+                        'You do not have sufficient privileges to perform this '
+                        . 'operation; Please refer to the documentation for more '
+                        . 'details'
                     )
                     . "' disabled></td>";
             }
-            $retval .= "</tr>";
+            $retval .= '</tr>';
         }
 
-        $retval .= "<tr>";
-        $retval .= "    <td>" . __('Definer') . "</td>";
+        $retval .= '<tr>';
+        $retval .= '    <td>' . __('Definer') . '</td>';
         $retval .= "    <td><input type='text' name='item_definer'";
         $retval .= "               value='" . $routine['item_definer'] . "'></td>";
-        $retval .= "</tr>";
-        $retval .= "<tr>";
-        $retval .= "    <td>" . __('Security type') . "</td>";
+        $retval .= '</tr>';
+        $retval .= '<tr>';
+        $retval .= '    <td>' . __('Security type') . '</td>';
         $retval .= "    <td><select name='item_securitytype'>";
         $retval .= "        <option value='DEFINER'"
-            . $routine['item_securitytype_definer'] . ">DEFINER</option>";
+            . $routine['item_securitytype_definer'] . '>DEFINER</option>';
         $retval .= "        <option value='INVOKER'"
-            . $routine['item_securitytype_invoker'] . ">INVOKER</option>";
-        $retval .= "    </select></td>";
-        $retval .= "</tr>";
-        $retval .= "<tr>";
-        $retval .= "    <td>" . __('SQL data access') . "</td>";
+            . $routine['item_securitytype_invoker'] . '>INVOKER</option>';
+        $retval .= '    </select></td>';
+        $retval .= '</tr>';
+        $retval .= '<tr>';
+        $retval .= '    <td>' . __('SQL data access') . '</td>';
         $retval .= "    <td><select name='item_sqldataaccess'>";
         foreach ($param_sqldataaccess as $key => $value) {
-            $selected = "";
+            $selected = '';
             if ($routine['item_sqldataaccess'] == $value) {
                 $selected = " selected='selected'";
             }
-            $retval .= "        <option" . $selected . ">" . $value . "</option>";
+            $retval .= '        <option' . $selected . '>' . $value . '</option>';
         }
-        $retval .= "    </select></td>";
-        $retval .= "</tr>";
-        $retval .= "<tr>";
-        $retval .= "    <td>" . __('Comment') . "</td>";
+        $retval .= '    </select></td>';
+        $retval .= '</tr>';
+        $retval .= '<tr>';
+        $retval .= '    <td>' . __('Comment') . '</td>';
         $retval .= "    <td><input type='text' name='item_comment' maxlength='64'";
         $retval .= "    value='" . $routine['item_comment'] . "'></td>";
-        $retval .= "</tr>";
-        $retval .= "</table>";
-        $retval .= "</fieldset>";
+        $retval .= '</tr>';
+        $retval .= '</table>';
+        $retval .= '</fieldset>';
         if ($response->isAjax()) {
             $retval .= "<input type='hidden' name='editor_process_" . $mode . "'";
             $retval .= "       value='true'>";
@@ -1107,10 +1111,10 @@ class Routines
             $retval .= "<fieldset class='tblFooters'>";
             $retval .= "    <input type='submit' name='editor_process_" . $mode . "'";
             $retval .= "           value='" . __('Go') . "'>";
-            $retval .= "</fieldset>";
+            $retval .= '</fieldset>';
         }
-        $retval .= "</form>";
-        $retval .= "<!-- END " . mb_strtoupper($mode) . " ROUTINE FORM -->";
+        $retval .= '</form>';
+        $retval .= '<!-- END ' . mb_strtoupper($mode) . ' ROUTINE FORM -->';
 
         return $retval;
     }
@@ -1124,8 +1128,7 @@ class Routines
     {
         global $errors, $param_sqldataaccess, $param_directions, $dbi;
 
-        $_POST['item_type'] = isset($_POST['item_type'])
-            ? $_POST['item_type'] : '';
+        $_POST['item_type'] = $_POST['item_type'] ?? '';
 
         $query = 'CREATE ';
         if (! empty($_POST['item_definer'])) {
@@ -1133,16 +1136,16 @@ class Routines
                 $arr = explode('@', $_POST['item_definer']);
 
                 $do_backquote = true;
-                if (substr($arr[0], 0, 1) === "`"
-                    && substr($arr[0], -1) === "`"
+                if (substr($arr[0], 0, 1) === '`'
+                    && substr($arr[0], -1) === '`'
                 ) {
                     $do_backquote = false;
                 }
                 $query .= 'DEFINER=' . Util::backquote($arr[0], $do_backquote);
 
                 $do_backquote = true;
-                if (substr($arr[1], 0, 1) === "`"
-                    && substr($arr[1], -1) === "`"
+                if (substr($arr[1], 0, 1) === '`'
+                    && substr($arr[1], -1) === '`'
                 ) {
                     $do_backquote = false;
                 }
@@ -1189,12 +1192,12 @@ class Routines
                         && ! empty($_POST['item_param_dir'][$i])
                         && in_array($_POST['item_param_dir'][$i], $param_directions)
                     ) {
-                        $params .= $_POST['item_param_dir'][$i] . " "
+                        $params .= $_POST['item_param_dir'][$i] . ' '
                             . Util::backquote($item_param_name[$i])
-                            . " " . $item_param_type[$i];
+                            . ' ' . $item_param_type[$i];
                     } elseif ($_POST['item_type'] == 'FUNCTION') {
                         $params .= Util::backquote($item_param_name[$i])
-                            . " " . $item_param_type[$i];
+                            . ' ' . $item_param_type[$i];
                     } elseif (! $warned_about_dir) {
                         $warned_about_dir = true;
                         $errors[] = sprintf(
@@ -1210,7 +1213,7 @@ class Routines
                             $item_param_type[$i]
                         )
                     ) {
-                        $params .= "(" . $item_param_length[$i] . ")";
+                        $params .= '(' . $item_param_length[$i] . ')';
                     } elseif ($item_param_length[$i] == ''
                         && preg_match(
                             '@^(ENUM|SET|VARCHAR|VARBINARY)$@i',
@@ -1243,8 +1246,8 @@ class Routines
                                 );
                         }
                     }
-                    if ($i != (count($item_param_name) - 1)) {
-                        $params .= ", ";
+                    if ($i != count($item_param_name) - 1) {
+                        $params .= ', ';
                     }
                 } else {
                     $errors[] = __(
@@ -1254,11 +1257,9 @@ class Routines
                 }
             }
         }
-        $query .= "(" . $params . ") ";
+        $query .= '(' . $params . ') ';
         if ($_POST['item_type'] == 'FUNCTION') {
-            $item_returntype = isset($_POST['item_returntype'])
-                ? $_POST['item_returntype']
-                : null;
+            $item_returntype = $_POST['item_returntype'] ?? null;
 
             if (! empty($item_returntype)
                 && in_array(
@@ -1266,7 +1267,7 @@ class Routines
                     Util::getSupportedDatatypes()
                 )
             ) {
-                $query .= "RETURNS " . $item_returntype;
+                $query .= 'RETURNS ' . $item_returntype;
             } else {
                 $errors[] = __('You must provide a valid return type for the routine.');
             }
@@ -1277,7 +1278,7 @@ class Routines
                     $item_returntype
                 )
             ) {
-                $query .= "(" . $_POST['item_returnlength'] . ")";
+                $query .= '(' . $_POST['item_returnlength'] . ')';
             } elseif (empty($_POST['item_returnlength'])
                 && preg_match(
                     '@^(ENUM|SET|VARCHAR|VARBINARY)$@i',
@@ -1391,40 +1392,40 @@ class Routines
                             $all_functions
                         )
                     ) {
-                        $queries[] = "SET @p$i="
+                        $queries[] = 'SET @p' . $i . '='
                             . $_POST['funcs'][$routine['item_param_name'][$i]]
-                            . "('$value');\n";
+                            . "('" . $value . "');\n";
                     } else {
-                        $queries[] = "SET @p$i='$value';\n";
+                        $queries[] = 'SET @p' . $i . "='" . $value . "';\n";
                     }
-                    $args[] = "@p$i";
+                    $args[] = '@p' . $i;
                 } else {
-                    $args[] = "@p$i";
+                    $args[] = '@p' . $i;
                 }
                 if ($routine['item_type'] == 'PROCEDURE') {
                     if ($routine['item_param_dir'][$i] == 'OUT'
                         || $routine['item_param_dir'][$i] == 'INOUT'
                     ) {
-                        $end_query[] = "@p$i AS "
+                        $end_query[] = '@p' . $i . ' AS '
                             . Util::backquote($routine['item_param_name'][$i]);
                     }
                 }
             }
             if ($routine['item_type'] == 'PROCEDURE') {
-                $queries[] = "CALL " . Util::backquote($routine['item_name'])
-                           . "(" . implode(', ', $args) . ");\n";
+                $queries[] = 'CALL ' . Util::backquote($routine['item_name'])
+                           . '(' . implode(', ', $args) . ");\n";
                 if (count($end_query)) {
-                    $queries[] = "SELECT " . implode(', ', $end_query) . ";\n";
+                    $queries[] = 'SELECT ' . implode(', ', $end_query) . ";\n";
                 }
             } else {
-                $queries[] = "SELECT " . Util::backquote($routine['item_name'])
-                           . "(" . implode(', ', $args) . ") "
-                           . "AS " . Util::backquote($routine['item_name'])
+                $queries[] = 'SELECT ' . Util::backquote($routine['item_name'])
+                           . '(' . implode(', ', $args) . ') '
+                           . 'AS ' . Util::backquote($routine['item_name'])
                             . ";\n";
             }
 
             // Get all the queries as one SQL statement
-            $multiple_query = implode("", $queries);
+            $multiple_query = implode('', $queries);
 
             $outcome = true;
             $affected = 0;
@@ -1439,34 +1440,34 @@ class Routines
             $nbResultsetToDisplay = 0;
             if ($outcome) {
                 // Pass the SQL queries through the "pretty printer"
-                $output  = Util::formatSql(implode("\n", $queries));
+                $output  = Generator::formatSql(implode("\n", $queries));
 
                 // Display results
-                $output .= "<fieldset><legend>";
+                $output .= '<fieldset><legend>';
                 $output .= sprintf(
                     __('Execution results of routine %s'),
                     Util::backquote(htmlspecialchars($routine['item_name']))
                 );
-                $output .= "</legend>";
+                $output .= '</legend>';
 
                 do {
                     $result = $this->dbi->storeResult();
                     $num_rows = $this->dbi->numRows($result);
 
                     if (($result !== false) && ($num_rows > 0)) {
-                        $output .= "<table><tr>";
+                        $output .= '<table><tr>';
                         foreach ($this->dbi->getFieldsMeta($result) as $field) {
-                            $output .= "<th>";
+                            $output .= '<th>';
                             $output .= htmlspecialchars($field->name);
-                            $output .= "</th>";
+                            $output .= '</th>';
                         }
-                        $output .= "</tr>";
+                        $output .= '</tr>';
 
                         while ($row = $this->dbi->fetchAssoc($result)) {
-                            $output .= "<tr>" . $this->browseRow($row) . "</tr>";
+                            $output .= '<tr>' . $this->browseRow($row) . '</tr>';
                         }
 
-                        $output .= "</table>";
+                        $output .= '</table>';
                         $nbResultsetToDisplay++;
                         $affected = $num_rows;
                     }
@@ -1475,14 +1476,14 @@ class Routines
                         break;
                     }
 
-                    $output .= "<br>";
+                    $output .= '<br>';
 
                     $this->dbi->freeResult($result);
                 } while ($outcome = $this->dbi->nextResult());
             }
 
             if ($outcome) {
-                $output .= "</fieldset>";
+                $output .= '</fieldset>';
 
                 $message = __('Your SQL query has been executed successfully.');
                 if ($routine['item_type'] == 'PROCEDURE') {
@@ -1550,14 +1551,14 @@ class Routines
             if ($routine !== false) {
                 $form = $this->getExecuteForm($routine);
                 if ($response->isAjax()) {
-                    $title = __("Execute routine") . " " . Util::backquote(
+                    $title = __('Execute routine') . ' ' . Util::backquote(
                         htmlentities($_GET['item_name'], ENT_QUOTES)
                     );
                     $response->addJSON('message', $form);
                     $response->addJSON('title', $title);
                     $response->addJSON('dialog', true);
                 } else {
-                    echo "\n\n<h2>" . __("Execute routine") . "</h2>\n\n";
+                    echo "\n\n<h2>" . __('Execute routine') . "</h2>\n\n";
                     echo $form;
                 }
                 exit;
@@ -1593,7 +1594,7 @@ class Routines
             } else {
                 $value = htmlspecialchars($value);
             }
-            $output .= "<td>" . $value . "</td>";
+            $output .= '<td>' . $value . '</td>';
         }
         return $output;
     }
@@ -1622,33 +1623,33 @@ class Routines
         }
 
         // Create the output
-        $retval  = "";
+        $retval  = '';
         $retval .= "<!-- START ROUTINE EXECUTE FORM -->\n\n";
         $retval .= '<form action="' . Url::getFromRoute('/database/routines') . '" method="post"' . "\n";
         $retval .= "       class='rte_form ajax' onsubmit='return false'>\n";
         $retval .= "<input type='hidden' name='item_name'\n";
-        $retval .= "       value='{$routine['item_name']}'>\n";
+        $retval .= "       value='" . $routine['item_name'] . "'>\n";
         $retval .= "<input type='hidden' name='item_type'\n";
-        $retval .= "       value='{$routine['item_type']}'>\n";
+        $retval .= "       value='" . $routine['item_type'] . "'>\n";
         $retval .= Url::getHiddenInputs($db) . "\n";
         $retval .= "<fieldset>\n";
         if (! $response->isAjax()) {
-            $retval .= "<legend>{$routine['item_name']}</legend>\n";
+            $retval .= '<legend>' . $routine['item_name'] . "</legend>\n";
             $retval .= "<table class='rte_table'>\n";
             $retval .= "<caption class='tblHeaders'>\n";
             $retval .= __('Routine parameters');
             $retval .= "</caption>\n";
         } else {
-            $retval .= "<legend>" . __('Routine parameters') . "</legend>\n";
+            $retval .= '<legend>' . __('Routine parameters') . "</legend>\n";
             $retval .= "<table class='rte_table'>\n";
         }
         $retval .= "<tr>\n";
-        $retval .= "<th>" . __('Name') . "</th>\n";
-        $retval .= "<th>" . __('Type') . "</th>\n";
+        $retval .= '<th>' . __('Name') . "</th>\n";
+        $retval .= '<th>' . __('Type') . "</th>\n";
         if ($cfg['ShowFunctionFields']) {
-            $retval .= "<th>" . __('Function') . "</th>\n";
+            $retval .= '<th>' . __('Function') . "</th>\n";
         }
-        $retval .= "<th>" . __('Value') . "</th>\n";
+        $retval .= '<th>' . __('Value') . "</th>\n";
         $retval .= "</tr>\n";
         // Get a list of data types that are not yet supported.
         $no_support_types = Util::unsupportedDatatypes();
@@ -1659,12 +1660,12 @@ class Routines
                 continue;
             }
             $retval .= "\n<tr>\n";
-            $retval .= "<td>{$routine['item_param_name'][$i]}</td>\n";
-            $retval .= "<td>{$routine['item_param_type'][$i]}</td>\n";
+            $retval .= '<td>' . $routine['item_param_name'][$i] . "</td>\n";
+            $retval .= '<td>' . $routine['item_param_type'][$i] . "</td>\n";
             if ($cfg['ShowFunctionFields']) {
                 $retval .= "<td>\n";
-                if (false !== stripos($routine['item_param_type'][$i], 'enum')
-                    || false !== stripos($routine['item_param_type'][$i], 'set')
+                if (stripos($routine['item_param_type'][$i], 'enum') !== false
+                    || stripos($routine['item_param_type'][$i], 'set') !== false
                     || in_array(
                         mb_strtolower($routine['item_param_type'][$i]),
                         $no_support_types
@@ -1684,8 +1685,8 @@ class Routines
                     ];
                     $retval .= "<select name='funcs["
                         . $routine['item_param_name'][$i] . "]'>";
-                    $retval .= Util::getFunctionsForField($field, false, []);
-                    $retval .= "</select>";
+                    $retval .= Generator::getFunctionsForField($field, false, []);
+                    $retval .= '</select>';
                 }
                 $retval .= "</td>\n";
             }
@@ -1720,7 +1721,7 @@ class Routines
             )) {
                 $retval .= "\n";
             } else {
-                $retval .= "<input class='$class' type='text' name='params["
+                $retval .= "<input class='" . $class . "' type='text' name='params["
                     . $routine['item_param_name'][$i] . "]'>\n";
             }
             $retval .= "</td>\n";

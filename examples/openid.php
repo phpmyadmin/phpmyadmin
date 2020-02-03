@@ -10,9 +10,6 @@
  *
  * User first authenticates using OpenID and based on content of $AUTH_MAP
  * the login information is passed to phpMyAdmin in session data.
- *
- * @package    PhpMyAdmin
- * @subpackage Example
  */
 declare(strict_types=1);
 
@@ -32,6 +29,8 @@ $AUTH_MAP = [
         'password' => '',
     ],
 ];
+
+// phpcs:disable PSR1.Files.SideEffects
 
 /**
  * Simple function to show HTML page with given content.
@@ -76,12 +75,13 @@ function Show_page($contents)
 function Die_error($e)
 {
     $contents = "<div class='relyingparty_results'>\n";
-    $contents .= "<pre>" . htmlspecialchars($e->getMessage()) . "</pre>\n";
+    $contents .= '<pre>' . htmlspecialchars($e->getMessage()) . "</pre>\n";
     $contents .= "</div class='relyingparty_results'>";
     Show_page($contents);
     exit;
 }
 
+// phpcs:enable
 
 /* Need to have cookie visible from parent directory */
 session_set_cookie_params(0, '/', '', $secure_cookie, true);
@@ -129,7 +129,7 @@ if (isset($_POST['identifier']) && is_string($_POST['identifier'])) {
 /* Create OpenID object */
 try {
     $o = new OpenID_RelyingParty($returnTo, $realm, $identifier);
-} catch (Exception $e) {
+} catch (Throwable $e) {
     Die_error($e);
 }
 
@@ -137,13 +137,13 @@ try {
 if (isset($_POST['start'])) {
     try {
         $authRequest = $o->prepare();
-    } catch (Exception $e) {
+    } catch (Throwable $e) {
         Die_error($e);
     }
 
     $url = $authRequest->getAuthorizeURL();
 
-    header("Location: $url");
+    header('Location: ' . $url);
     exit;
 } else {
     /* Grab query string */
@@ -157,7 +157,7 @@ if (isset($_POST['start'])) {
     /* Check reply */
     try {
         $message = new OpenID_Message($queryString, OpenID_Message::FORMAT_HTTP);
-    } catch (Exception $e) {
+    } catch (Throwable $e) {
         Die_error($e);
     }
 

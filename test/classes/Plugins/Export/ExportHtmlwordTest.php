@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportHtmlword class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,11 +12,14 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
+use function array_shift;
+use function htmlspecialchars_decode;
+use function ob_get_clean;
+use function ob_start;
 
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportHtmlword class
  *
- * @package PhpMyAdmin-test
  * @group medium
  */
 class ExportHtmlwordTest extends PmaTestCase
@@ -27,8 +28,6 @@ class ExportHtmlwordTest extends PmaTestCase
 
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -43,8 +42,6 @@ class ExportHtmlwordTest extends PmaTestCase
 
     /**
      * tearDown for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -387,7 +384,7 @@ class ExportHtmlwordTest extends PmaTestCase
 
         $this->assertEquals(
             '<h2>Dumping data for table testTable</h2>' .
-            '<table class="width100" cellspacing="1"><tr class="print-category">' .
+            '<table class="w-100" cellspacing="1"><tr class="print-category">' .
             '<td class="print"><strong>foobar</strong></td>' .
             '<td class="print"><strong>foobar</strong></td>' .
             '<td class="print"><strong>foobar</strong></td>' .
@@ -446,7 +443,7 @@ class ExportHtmlwordTest extends PmaTestCase
             ->will($this->returnValue(1));
 
         $this->assertEquals(
-            '<table class="width100" cellspacing="1">' .
+            '<table class="w-100" cellspacing="1">' .
             '<tr class="print-category"><th class="print">Column</th>' .
             '<td class="print"><strong>Type</strong></td>' .
             '<td class="print"><strong>Null</strong></td>' .
@@ -558,7 +555,7 @@ class ExportHtmlwordTest extends PmaTestCase
         );
 
         $this->assertEquals(
-            '<table class="width100" cellspacing="1">' .
+            '<table class="w-100" cellspacing="1">' .
             '<tr class="print-category"><th class="print">Column</th>' .
             '<td class="print"><strong>Type</strong></td>' .
             '<td class="print"><strong>Null</strong></td>' .
@@ -721,7 +718,7 @@ class ExportHtmlwordTest extends PmaTestCase
         );
 
         $this->assertEquals(
-            '<table class="width100" cellspacing="1">' .
+            '<table class="w-100" cellspacing="1">' .
             '<tr class="print-category"><th class="print">Column</th>' .
             '<td class="print"><strong>Type</strong></td>' .
             '<td class="print"><strong>Null</strong></td>' .
@@ -777,7 +774,6 @@ class ExportHtmlwordTest extends PmaTestCase
      */
     public function testExportStructure()
     {
-
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
@@ -819,9 +815,9 @@ class ExportHtmlwordTest extends PmaTestCase
                 'db',
                 'tbl',
                 "\n",
-                "example.com",
-                "create_table",
-                "test"
+                'example.com',
+                'create_table',
+                'test'
             )
         );
         $result = ob_get_clean();
@@ -837,9 +833,9 @@ class ExportHtmlwordTest extends PmaTestCase
                 'db',
                 'tbl',
                 "\n",
-                "example.com",
-                "triggers",
-                "test"
+                'example.com',
+                'triggers',
+                'test'
             )
         );
         $result = ob_get_clean();
@@ -855,9 +851,9 @@ class ExportHtmlwordTest extends PmaTestCase
                 'db',
                 'tbl',
                 "\n",
-                "example.com",
-                "create_view",
-                "test"
+                'example.com',
+                'create_view',
+                'test'
             )
         );
         $result = ob_get_clean();
@@ -873,9 +869,9 @@ class ExportHtmlwordTest extends PmaTestCase
                 'db',
                 'tbl',
                 "\n",
-                "example.com",
-                "stand_in",
-                "test"
+                'example.com',
+                'stand_in',
+                'test'
             )
         );
         $result = ob_get_clean();

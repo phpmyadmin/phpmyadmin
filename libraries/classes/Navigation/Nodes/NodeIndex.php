@@ -1,20 +1,16 @@
 <?php
 /**
  * Functionality for the navigation tree
- *
- * @package PhpMyAdmin-Navigation
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 
 /**
  * Represents a index node in the navigation tree
- *
- * @package PhpMyAdmin-Navigation
  */
 class NodeIndex extends Node
 {
@@ -29,7 +25,7 @@ class NodeIndex extends Node
     public function __construct($name, $type = Node::OBJECT, $isGroup = false)
     {
         parent::__construct($name, $type, $isGroup);
-        $this->icon = Util::getImage('b_index', __('Index'));
+        $this->icon = Generator::getImage('b_index', __('Index'));
         $this->links = [
             'text' => Url::getFromRoute('/table/indexes', [
                 'server' => $GLOBALS['server'],

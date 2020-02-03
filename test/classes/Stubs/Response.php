@@ -5,9 +5,6 @@
  * It will concatenate HTML and JSON for given calls to addHTML and addJSON
  * respectively, what make it easy to determine whether the output is correct in test
  * suite. Feel free to modify for any future test needs.
- *
- * @package    PhpMyAdmin
- * @subpackage Stubs
  */
 declare(strict_types=1);
 
@@ -15,12 +12,8 @@ namespace PhpMyAdmin\Tests\Stubs;
 
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Message;
+use function is_array;
 
-/**
- * Class Response
- *
- * @package PhpMyAdmin\Tests\Stubs
- */
 class Response
 {
     /**

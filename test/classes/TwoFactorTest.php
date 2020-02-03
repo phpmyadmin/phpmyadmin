@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for TwoFactor class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -12,17 +10,14 @@ use PhpMyAdmin\Plugins\TwoFactor\Application;
 use PhpMyAdmin\TwoFactor;
 use Samyoul\U2F\U2FServer\RegistrationRequest;
 use Samyoul\U2F\U2FServer\SignRequest;
+use function count;
+use function in_array;
 
 /**
  * Tests behaviour of TwoFactor class
- *
- * @package PhpMyAdmin-test
  */
 class TwoFactorTest extends PmaTestCase
 {
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $GLOBALS['server'] = 1;

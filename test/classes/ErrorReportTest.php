@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\ErrorReport
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -15,24 +13,23 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Utils\HttpRequest;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
+use function define;
+use function defined;
+use function json_encode;
+use function phpversion;
+use const JSON_PRETTY_PRINT;
+use const JSON_UNESCAPED_SLASHES;
 
 /**
  * PhpMyAdmin\Tests\ErrorReportTest class
  *
  * this class is for testing PhpMyAdmin\ErrorReport methods
- *
- * @package PhpMyAdmin-test
  */
 class ErrorReportTest extends TestCase
 {
-    /**
-     * @var ErrorReport $errorReport
-     */
+    /** @var ErrorReport $errorReport */
     private $errorReport;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $GLOBALS['server'] = 1;
@@ -60,9 +57,6 @@ class ErrorReportTest extends TestCase
         $this->errorReport->setSubmissionUrl('http://localhost');
     }
 
-    /**
-     * @return void
-     */
     public function testGetData(): void
     {
         $actual = $this->errorReport->getData('unknown');
@@ -116,9 +110,6 @@ class ErrorReportTest extends TestCase
         $this->assertEquals($report, $actual);
     }
 
-    /**
-     * @return void
-     */
     public function testSend(): void
     {
         $submissionUrl = 'http://localhost';
@@ -132,10 +123,10 @@ class ErrorReportTest extends TestCase
             ->method('create')
             ->with(
                 $submissionUrl,
-                "POST",
+                'POST',
                 false,
                 json_encode($report),
-                "Content-Type: application/json"
+                'Content-Type: application/json'
             )
             ->willReturn($return);
 
@@ -146,9 +137,6 @@ class ErrorReportTest extends TestCase
         $this->assertEquals($return, $this->errorReport->send($report));
     }
 
-    /**
-     * @return void
-     */
     public function testGetForm(): void
     {
         $_POST['exception'] = [];
@@ -310,10 +298,10 @@ class ErrorReportTest extends TestCase
     /**
      * Test the url sanitization
      *
-     * @dataProvider urlsToSanitize
      * @param string $url    The url to test
      * @param array  $result The result
-     * @return void
+     *
+     * @dataProvider urlsToSanitize
      */
     public function testSanitizeUrl(string $url, array $result): void
     {

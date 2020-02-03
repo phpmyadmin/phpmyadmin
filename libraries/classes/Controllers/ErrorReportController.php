@@ -1,7 +1,6 @@
 <?php
 /**
  * Handle error report submission
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -14,10 +13,14 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\UserPreferences;
+use function count;
+use function in_array;
+use function is_string;
+use function json_decode;
+use function time;
 
 /**
  * Handle error report submission
- * @package PhpMyAdmin\Controllers
  */
 class ErrorReportController extends AbstractController
 {
@@ -46,9 +49,6 @@ class ErrorReportController extends AbstractController
         $this->errorHandler = $errorHandler;
     }
 
-    /**
-     * @return void
-     */
     public function index(): void
     {
         global $cfg;
@@ -81,7 +81,7 @@ class ErrorReportController extends AbstractController
                     $_SESSION['prev_error_subm_time'] = time();
                     $_SESSION['error_subm_count'] = (
                     isset($_SESSION['error_subm_count'])
-                        ? ($_SESSION['error_subm_count'] + 1)
+                        ? $_SESSION['error_subm_count'] + 1
                         : 0
                     );
                 }
@@ -95,13 +95,13 @@ class ErrorReportController extends AbstractController
                 } else {
                     $decoded_response = json_decode($server_response, true);
                     $success = ! empty($decoded_response) ?
-                        $decoded_response["success"] : false;
+                        $decoded_response['success'] : false;
                 }
 
                 /* Message to show to the user */
                 if ($success) {
                     if ((isset($_POST['automatic'])
-                            && $_POST['automatic'] === "true")
+                            && $_POST['automatic'] === 'true')
                         || $cfg['SendErrorReports'] == 'always'
                     ) {
                         $msg = __(
@@ -139,9 +139,9 @@ class ErrorReportController extends AbstractController
                         $this->response->addJSON('errSubmitMsg', $msg);
                     }
                 } elseif ($_POST['exception_type'] == 'php') {
-                    $jsCode = 'Functions.ajaxShowMessage("<div class=\"error\">'
+                    $jsCode = 'Functions.ajaxShowMessage(\'<div class="alert alert-danger" role="alert">'
                         . $msg
-                        . '</div>", false);';
+                        . '</div>\', false);';
                     $this->response->getFooter()->getScripts()->addCode($jsCode);
                 }
 
@@ -152,10 +152,10 @@ class ErrorReportController extends AbstractController
 
                 /* Persist always send settings */
                 if (isset($_POST['always_send'])
-                    && $_POST['always_send'] === "true"
+                    && $_POST['always_send'] === 'true'
                 ) {
                     $userPreferences = new UserPreferences();
-                    $userPreferences->persistOption("SendErrorReports", "always", "ask");
+                    $userPreferences->persistOption('SendErrorReports', 'always', 'ask');
                 }
             }
         } elseif (! empty($_POST['get_settings'])) {

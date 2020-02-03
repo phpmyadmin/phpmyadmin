@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportOdt class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -15,11 +13,11 @@ use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
 use stdClass;
+use function array_shift;
 
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportOdt class
  *
- * @package PhpMyAdmin-test
  * @group medium
  */
 class ExportOdtTest extends PmaTestCase
@@ -28,8 +26,6 @@ class ExportOdtTest extends PmaTestCase
 
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -48,8 +44,6 @@ class ExportOdtTest extends PmaTestCase
 
     /**
      * tearDown for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -131,7 +125,7 @@ class ExportOdtTest extends PmaTestCase
         );
 
         $this->assertEquals(
-            "Dump table",
+            'Dump table',
             $generalOptions->getText()
         );
 
@@ -319,11 +313,11 @@ class ExportOdtTest extends PmaTestCase
         );
 
         $this->assertStringContainsString(
-            "<office:document-content",
+            '<office:document-content',
             $GLOBALS['odt_buffer']
         );
         $this->assertStringContainsString(
-            "office:version",
+            'office:version',
             $GLOBALS['odt_buffer']
         );
     }
@@ -345,12 +339,12 @@ class ExportOdtTest extends PmaTestCase
         );
 
         $this->assertStringContainsString(
-            "header",
+            'header',
             $GLOBALS['odt_buffer']
         );
 
         $this->assertStringContainsString(
-            "</office:text></office:body></office:document-content>",
+            '</office:text></office:body></office:document-content>',
             $GLOBALS['odt_buffer']
         );
     }
@@ -369,12 +363,12 @@ class ExportOdtTest extends PmaTestCase
         );
 
         $this->assertStringContainsString(
-            "header",
+            'header',
             $GLOBALS['odt_buffer']
         );
 
         $this->assertStringContainsString(
-            "Database d&amp;b</text:h>",
+            'Database d&amp;b</text:h>',
             $GLOBALS['odt_buffer']
         );
     }
@@ -431,7 +425,7 @@ class ExportOdtTest extends PmaTestCase
         $flags[] = $a;
 
         $a = new stdClass();
-        $a->type = "timestamp";
+        $a->type = 'timestamp';
         $a->blob = false;
         $a->numeric = false;
         $flags[] = $a;
@@ -480,15 +474,15 @@ class ExportOdtTest extends PmaTestCase
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['what'] = 'foo';
-        $GLOBALS['foo_null'] = "&";
+        $GLOBALS['foo_null'] = '&';
 
         $this->assertTrue(
             $this->object->exportData(
                 'db',
                 'ta<ble',
                 "\n",
-                "example.com",
-                "SELECT"
+                'example.com',
+                'SELECT'
             )
         );
 
@@ -559,7 +553,7 @@ class ExportOdtTest extends PmaTestCase
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['what'] = 'foo';
-        $GLOBALS['foo_null'] = "&";
+        $GLOBALS['foo_null'] = '&';
         $GLOBALS['foo_columns'] = true;
 
         $this->assertTrue(
@@ -567,8 +561,8 @@ class ExportOdtTest extends PmaTestCase
                 'db',
                 'table',
                 "\n",
-                "example.com",
-                "SELECT"
+                'example.com',
+                'SELECT'
             )
         );
 
@@ -618,7 +612,7 @@ class ExportOdtTest extends PmaTestCase
         $GLOBALS['mediawiki_caption'] = true;
         $GLOBALS['mediawiki_headers'] = true;
         $GLOBALS['what'] = 'foo';
-        $GLOBALS['foo_null'] = "&";
+        $GLOBALS['foo_null'] = '&';
         $GLOBALS['odt_buffer'] = '';
 
         $this->assertTrue(
@@ -626,8 +620,8 @@ class ExportOdtTest extends PmaTestCase
                 'db',
                 'table',
                 "\n",
-                "example.com",
-                "SELECT"
+                'example.com',
+                'SELECT'
             )
         );
 
@@ -770,7 +764,7 @@ class ExportOdtTest extends PmaTestCase
                 'database',
                 '',
                 "\n",
-                "example.com",
+                'example.com',
                 true,
                 true,
                 true
@@ -873,7 +867,7 @@ class ExportOdtTest extends PmaTestCase
                 'database',
                 '',
                 "\n",
-                "example.com",
+                'example.com',
                 true,
                 true,
                 true
@@ -917,33 +911,31 @@ class ExportOdtTest extends PmaTestCase
         $method->setAccessible(true);
         $result = $method->invoke($this->object, 'database', 'ta<ble');
 
-        $this->assertTrue(
+        $this->assertSame($result, $GLOBALS['odt_buffer']);
+
+        $this->assertStringContainsString(
+            '<table:table table:name="ta&lt;ble_triggers">',
             $result
         );
 
         $this->assertStringContainsString(
-            '<table:table table:name="ta&lt;ble_triggers">',
-            $GLOBALS['odt_buffer']
-        );
-
-        $this->assertStringContainsString(
             '<text:p>tna&quot;me</text:p>',
-            $GLOBALS['odt_buffer']
+            $result
         );
 
         $this->assertStringContainsString(
             '<text:p>ac&gt;t</text:p>',
-            $GLOBALS['odt_buffer']
+            $result
         );
 
         $this->assertStringContainsString(
             '<text:p>manip&amp;</text:p>',
-            $GLOBALS['odt_buffer']
+            $result
         );
 
         $this->assertStringContainsString(
             '<text:p>def</text:p>',
-            $GLOBALS['odt_buffer']
+            $result
         );
     }
 
@@ -954,7 +946,6 @@ class ExportOdtTest extends PmaTestCase
      */
     public function testExportStructure()
     {
-
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
@@ -970,7 +961,7 @@ class ExportOdtTest extends PmaTestCase
 
         $this->object->expects($this->at(0))
             ->method('getTableDef')
-            ->with('db', 't&bl', "\n", "example.com", false, false, false, false)
+            ->with('db', 't&bl', "\n", 'example.com', false, false, false, false)
             ->will($this->returnValue('dumpText1'));
 
         $this->object->expects($this->once())
@@ -984,7 +975,7 @@ class ExportOdtTest extends PmaTestCase
                 'db',
                 't&bl',
                 "\n",
-                "example.com",
+                'example.com',
                 false,
                 false,
                 false,
@@ -1007,9 +998,9 @@ class ExportOdtTest extends PmaTestCase
                 'db',
                 't&bl',
                 "\n",
-                "example.com",
-                "create_table",
-                "test"
+                'example.com',
+                'create_table',
+                'test'
             )
         );
 
@@ -1027,9 +1018,9 @@ class ExportOdtTest extends PmaTestCase
                 'db',
                 't&bl',
                 "\n",
-                "example.com",
-                "triggers",
-                "test"
+                'example.com',
+                'triggers',
+                'test'
             )
         );
 
@@ -1047,9 +1038,9 @@ class ExportOdtTest extends PmaTestCase
                 'db',
                 't&bl',
                 "\n",
-                "example.com",
-                "create_view",
-                "test"
+                'example.com',
+                'create_view',
+                'test'
             )
         );
 
@@ -1066,9 +1057,9 @@ class ExportOdtTest extends PmaTestCase
                 'db',
                 't&bl',
                 "\n",
-                "example.com",
-                "stand_in",
-                "test"
+                'example.com',
+                'stand_in',
+                'test'
             )
         );
 

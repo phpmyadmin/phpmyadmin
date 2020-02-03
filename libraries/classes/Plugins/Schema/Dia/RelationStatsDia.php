@@ -1,12 +1,13 @@
 <?php
 /**
  * Contains PhpMyAdmin\Plugins\Schema\Dia\RelationStatsDia class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Dia;
+
+use function array_search;
+use function shuffle;
 
 /**
  * Relation preferences/statistics
@@ -16,9 +17,9 @@ namespace PhpMyAdmin\Plugins\Schema\Dia;
  * master table's master field to foreign table's foreign key
  * in dia XML document.
  *
- * @package PhpMyAdmin
- * @name    Relation_Stats_Dia
  * @see     PMA_DIA
+ *
+ * @name    Relation_Stats_Dia
  */
 class RelationStatsDia
 {
@@ -37,15 +38,13 @@ class RelationStatsDia
     public $referenceColor;
 
     /**
-     * The "PhpMyAdmin\Plugins\Schema\Dia\RelationStatsDia" constructor
+     * @see Relation_Stats_Dia::_getXy
      *
      * @param Dia           $diagram       The DIA diagram
      * @param TableStatsDia $master_table  The master table name
      * @param string        $master_field  The relation field in the master table
      * @param TableStatsDia $foreign_table The foreign table name
      * @param string        $foreign_field The relation field in the foreign table
-     *
-     * @see Relation_Stats_Dia::_getXy
      */
     public function __construct(
         $diagram,
@@ -109,16 +108,17 @@ class RelationStatsDia
      * Database reference Object and their attributes are involved
      * in the combination of displaying Database - reference on Dia Document.
      *
-     * @param boolean $showColor Whether to use one color per relation or not
-     *                           if showColor is true then an array of $listOfColors
-     *                           will be used to choose the random colors for
-     *                           references lines. we can change/add more colors to
-     *                           this
+     * @see    PDF
      *
-     * @return boolean|void
+     * @param bool $showColor Whether to use one color per relation or not
+     *                        if showColor is true then an array of $listOfColors
+     *                        will be used to choose the random colors for
+     *                        references lines. we can change/add more colors to
+     *                        this
+     *
+     * @return bool|void
      *
      * @access public
-     * @see    PDF
      */
     public function relationDraw($showColor)
     {
@@ -223,5 +223,6 @@ class RelationStatsDia
             </dia:connections>
             </dia:object>'
         );
+        return;
     }
 }

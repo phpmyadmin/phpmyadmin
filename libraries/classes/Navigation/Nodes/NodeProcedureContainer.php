@@ -1,21 +1,17 @@
 <?php
 /**
  * Functionality for the navigation tree
- *
- * @package PhpMyAdmin-Navigation
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 
 /**
  * Represents a container for procedure nodes in the navigation tree
- *
- * @package PhpMyAdmin-Navigation
  */
 class NodeProcedureContainer extends NodeDatabaseChildContainer
 {
@@ -25,7 +21,7 @@ class NodeProcedureContainer extends NodeDatabaseChildContainer
     public function __construct()
     {
         parent::__construct(__('Procedures'), Node::CONTAINER);
-        $this->icon = Util::getImage('b_routines', __('Procedures'));
+        $this->icon = Generator::getImage('b_routines', __('Procedures'));
         $this->links = [
             'text' => Url::getFromRoute('/database/routines', [
                 'server' => $GLOBALS['server'],
@@ -39,12 +35,11 @@ class NodeProcedureContainer extends NodeDatabaseChildContainer
         $this->realName = 'procedures';
 
         $newLabel = _pgettext('Create new procedure', 'New');
-        $new = NodeFactory::getInstance(
-            'Node',
-            $newLabel
+        $new = NodeFactory::getInstanceForNewNode(
+            $newLabel,
+            'new_procedure italics'
         );
-        $new->isNew = true;
-        $new->icon = Util::getImage('b_routine_add', $newLabel);
+        $new->icon = Generator::getImage('b_routine_add', $newLabel);
         $new->links = [
             'text' => Url::getFromRoute('/database/routines', [
                 'server' => $GLOBALS['server'],
@@ -55,7 +50,6 @@ class NodeProcedureContainer extends NodeDatabaseChildContainer
                 'add_item' => 1,
             ]) . '&amp;db=%2$s',
         ];
-        $new->classes = 'new_procedure italics';
         $this->addChild($new);
     }
 }

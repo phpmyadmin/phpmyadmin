@@ -1,20 +1,23 @@
 <?php
 /**
  * Hold PhpMyAdmin\SysInfoLinux class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\SysInfo;
-use PhpMyAdmin\SysInfoBase;
+use function array_combine;
+use function array_merge;
+use function file_get_contents;
+use function intval;
+use function is_readable;
+use function mb_strpos;
+use function mb_substr;
+use function preg_match_all;
+use function preg_split;
 
 /**
  * Linux based SysInfo class
- *
- * @package PhpMyAdmin
  */
 class SysInfoLinux extends SysInfoBase
 {
@@ -28,12 +31,19 @@ class SysInfoLinux extends SysInfoBase
     public function loadavg()
     {
         $buf = file_get_contents('/proc/stat');
+        if ($buf === false) {
+            $buf = '';
+        }
+        $pos = mb_strpos($buf, "\n");
+        if ($pos === false) {
+            $pos = 0;
+        }
         $nums = preg_split(
-            "/\s+/",
+            '/\s+/',
             mb_substr(
                 $buf,
                 0,
-                mb_strpos($buf, "\n")
+                $pos
             )
         );
 

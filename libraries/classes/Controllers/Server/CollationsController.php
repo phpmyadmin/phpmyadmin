@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\Server\CollationsController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -11,6 +9,7 @@ namespace PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
@@ -18,24 +17,16 @@ use PhpMyAdmin\Template;
 
 /**
  * Handles viewing character sets and collations
- *
- * @package PhpMyAdmin\Controllers
  */
 class CollationsController extends AbstractController
 {
-    /**
-     * @var array|null
-     */
+    /** @var array|null */
     private $charsets;
 
-    /**
-     * @var array|null
-     */
+    /** @var array|null */
     private $collations;
 
     /**
-     * CollationsController constructor.
-     *
      * @param Response          $response   Response object
      * @param DatabaseInterface $dbi        DatabaseInterface object
      * @param Template          $template   Template object
@@ -70,7 +61,7 @@ class CollationsController extends AbstractController
      */
     public function index(): string
     {
-        include_once ROOT_PATH . 'libraries/server_common.inc.php';
+        Common::server();
 
         $charsets = [];
         /** @var Charset $charset */

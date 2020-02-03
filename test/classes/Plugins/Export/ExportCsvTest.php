@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportCsv class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,11 +11,13 @@ use PhpMyAdmin\Plugins\Export\ExportCsv;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
+use function array_shift;
+use function ob_get_clean;
+use function ob_start;
 
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportCsv class
  *
- * @package PhpMyAdmin-test
  * @group medium
  */
 class ExportCsvTest extends PmaTestCase
@@ -26,8 +26,6 @@ class ExportCsvTest extends PmaTestCase
 
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -37,8 +35,6 @@ class ExportCsvTest extends PmaTestCase
 
     /**
      * tearDown for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -267,7 +263,7 @@ class ExportCsvTest extends PmaTestCase
         );
 
         $this->assertEquals(
-            ";",
+            ';',
             $GLOBALS['csv_separator']
         );
 
@@ -302,7 +298,7 @@ class ExportCsvTest extends PmaTestCase
         );
 
         $this->assertEquals(
-            ";",
+            ';',
             $GLOBALS['csv_separator']
         );
 
@@ -335,7 +331,7 @@ class ExportCsvTest extends PmaTestCase
         );
 
         $this->assertEquals(
-            ",",
+            ',',
             $GLOBALS['csv_separator']
         );
 
@@ -607,7 +603,7 @@ class ExportCsvTest extends PmaTestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            "\"foo\"bar;customNull;",
+            '"foo"bar;customNull;',
             $result
         );
 
@@ -661,7 +657,7 @@ class ExportCsvTest extends PmaTestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            "\"foo\"\"bar;\"test\";",
+            '"foo""bar;"test";',
             $result
         );
 
@@ -768,7 +764,7 @@ class ExportCsvTest extends PmaTestCase
         $this->assertEquals(
             "\"foo#\"bar\"\"foo#\"bar;\"test\n" .
             "\"\"test\n" .
-            "\";",
+            '";',
             $result
         );
     }

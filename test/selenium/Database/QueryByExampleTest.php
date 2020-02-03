@@ -1,46 +1,39 @@
 <?php
 /**
  * Selenium TestCase for 'query by example' tests
- *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium\Database;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
+use function trim;
 
 /**
  * QueryByExampleTest class
  *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  * @group      selenium
  */
 class QueryByExampleTest extends TestBase
 {
     /**
      * Setup the browser environment to run the selenium test case
-     *
-     * @return void
      */
     protected function setUp(): void
     {
         parent::setUp();
 
         $this->dbQuery(
-            "CREATE TABLE `test_table` ("
-            . " `id` int(11) NOT NULL AUTO_INCREMENT,"
-            . " `val` int(11) NOT NULL,"
-            . " PRIMARY KEY (`id`)"
-            . ")"
+            'CREATE TABLE `test_table` ('
+            . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
+            . ' `val` int(11) NOT NULL,'
+            . ' PRIMARY KEY (`id`)'
+            . ')'
         );
         $this->dbQuery(
-            "INSERT INTO `test_table` (val) VALUES (2), (6), (5), (3), (4), (4), (5);"
+            'INSERT INTO `test_table` (val) VALUES (2), (6), (5), (3), (4), (4), (5);'
         );
 
-        $this->maximize();
         $this->login();
     }
 
@@ -119,7 +112,7 @@ class QueryByExampleTest extends TestBase
 
         $this->scrollToBottom();
 
-        $expected = "SELECT `test_table`.`id` AS `ID`, `test_table`.`val` AS `VAL`"
+        $expected = 'SELECT `test_table`.`id` AS `ID`, `test_table`.`val` AS `VAL`'
             . "\nFROM `test_table`"
             . "\nWHERE ((`test_table`.`id` > 1) AND (`test_table`.`val` < 6))"
             . "\nORDER BY `test_table`.`val` ASC, `test_table`.`id` DESC";

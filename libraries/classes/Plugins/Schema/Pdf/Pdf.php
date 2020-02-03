@@ -1,8 +1,6 @@
 <?php
 /**
  * PDF schema handling
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -11,7 +9,16 @@ namespace PhpMyAdmin\Plugins\Schema\Pdf;
 use PhpMyAdmin\Pdf as PdfLib;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Util;
+use function class_exists;
+use function count;
+use function getcwd;
+use function max;
+use function mb_ord;
+use function str_replace;
+use function strlen;
+use function ucfirst;
 
+// phpcs:disable PSR1.Files.SideEffects
 /**
  * Skip the plugin if TCPDF is not available.
  */
@@ -26,14 +33,15 @@ if (! class_exists('TCPDF')) {
 if (getcwd() == __DIR__) {
     die('Attack stopped');
 }
+// phpcs:enable
 
 /**
  * Extends the "TCPDF" class and helps
  * in developing the structure of PDF Schema Export
  *
- * @access  public
- * @package PhpMyAdmin
  * @see     TCPDF
+ *
+ * @access  public
  */
 class Pdf extends PdfLib
 {
@@ -56,20 +64,18 @@ class Pdf extends PdfLib
     private $_withDoc;
     private $_db;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
     /**
      * Constructs PDF for schema export.
      *
-     * @param string  $orientation page orientation
-     * @param string  $unit        unit
-     * @param string  $paper       the format used for pages
-     * @param int     $pageNumber  schema page number that is being exported
-     * @param boolean $withDoc     with document dictionary
-     * @param string  $db          the database name
+     * @param string $orientation page orientation
+     * @param string $unit        unit
+     * @param string $paper       the format used for pages
+     * @param int    $pageNumber  schema page number that is being exported
+     * @param bool   $withDoc     with document dictionary
+     * @param string $db          the database name
      *
      * @access public
      */
@@ -132,18 +138,18 @@ class Pdf extends PdfLib
     /**
      * Outputs a scaled cell
      *
+     * @see TCPDF::Cell()
+     *
      * @param float|int $w      The cell width
      * @param float|int $h      The cell height
      * @param string    $txt    The text to output
      * @param mixed     $border Whether to add borders or not
-     * @param integer   $ln     Where to put the cursor once the output is done
+     * @param int       $ln     Where to put the cursor once the output is done
      * @param string    $align  Align mode
-     * @param integer   $fill   Whether to fill the cell with a color or not
+     * @param int       $fill   Whether to fill the cell with a color or not
      * @param string    $link   Link
      *
      * @return void
-     *
-     * @see TCPDF::Cell()
      */
     public function cellScale(
         $w,
@@ -163,14 +169,14 @@ class Pdf extends PdfLib
     /**
      * Draws a scaled line
      *
+     * @see TCPDF::Line()
+     *
      * @param float $x1 The horizontal position of the starting point
      * @param float $y1 The vertical position of the starting point
      * @param float $x2 The horizontal position of the ending point
      * @param float $y2 The vertical position of the ending point
      *
      * @return void
-     *
-     * @see TCPDF::Line()
      */
     public function lineScale($x1, $y1, $x2, $y2)
     {
@@ -184,12 +190,12 @@ class Pdf extends PdfLib
     /**
      * Sets x and y scaled positions
      *
+     * @see TCPDF::SetXY()
+     *
      * @param float $x The x position
      * @param float $y The y position
      *
      * @return void
-     *
-     * @see TCPDF::SetXY()
      */
     public function setXyScale($x, $y)
     {
@@ -201,11 +207,11 @@ class Pdf extends PdfLib
     /**
      * Sets the X scaled positions
      *
+     * @see TCPDF::SetX()
+     *
      * @param float $x The x position
      *
      * @return void
-     *
-     * @see TCPDF::SetX()
      */
     public function setXScale($x)
     {
@@ -216,11 +222,11 @@ class Pdf extends PdfLib
     /**
      * Sets the scaled font size
      *
+     * @see TCPDF::SetFontSize()
+     *
      * @param float $size The font size (in points)
      *
      * @return void
-     *
-     * @see TCPDF::SetFontSize()
      */
     public function setFontSizeScale($size)
     {
@@ -232,11 +238,11 @@ class Pdf extends PdfLib
     /**
      * Sets the scaled line width
      *
+     * @see TCPDF::SetLineWidth()
+     *
      * @param float $width The line width
      *
      * @return void
-     *
-     * @see TCPDF::SetLineWidth()
      */
     public function setLineWidthScale($width)
     {
@@ -247,9 +253,9 @@ class Pdf extends PdfLib
     /**
      * This method is used to render the page header.
      *
-     * @return void
-     *
      * @see TCPDF::Header()
+     *
+     * @return void
      */
     // @codingStandardsIgnoreLine
     public function Header()
@@ -259,7 +265,7 @@ class Pdf extends PdfLib
         // This function must be named "Header" to work with the TCPDF library
         if ($this->_withDoc) {
             if ($this->_offline || $this->_pageNumber == -1) {
-                $pg_name = __("PDF export page");
+                $pg_name = __('PDF export page');
             } else {
                 $test_query = 'SELECT * FROM '
                     . Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
@@ -281,9 +287,9 @@ class Pdf extends PdfLib
     /**
      * This function must be named "Footer" to work with the TCPDF library
      *
-     * @return void
-     *
      * @see PDF::Footer()
+     *
+     * @return void
      */
     // @codingStandardsIgnoreLine
     public function Footer()
@@ -385,7 +391,7 @@ class Pdf extends PdfLib
             if ($c == ' ') {
                 $sep = $i;
             }
-            $l += isset($cw[mb_ord($c)]) ? $cw[mb_ord($c)] : 0 ;
+            $l += $cw[mb_ord($c)] ?? 0;
             if ($l > $wmax) {
                 if ($sep == -1) {
                     if ($i == $j) {

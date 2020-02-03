@@ -5,19 +5,17 @@
  *
  * This code is based on the OS Classes from the phpsysinfo project
  * (https://phpsysinfo.github.io/phpsysinfo/)
- *
- * @package PhpMyAdmin-sysinfo
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\SysInfoBase;
+use function in_array;
+use function ucfirst;
+use const PHP_OS;
 
 /**
  * PhpMyAdmin\SysInfo class
- *
- * @package PhpMyAdmin
  */
 class SysInfo
 {

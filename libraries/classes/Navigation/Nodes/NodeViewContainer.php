@@ -1,21 +1,17 @@
 <?php
 /**
  * Functionality for the navigation tree
- *
- * @package PhpMyAdmin-Navigation
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 
 /**
  * Represents a container for view nodes in the navigation tree
- *
- * @package PhpMyAdmin-Navigation
  */
 class NodeViewContainer extends NodeDatabaseChildContainer
 {
@@ -25,7 +21,7 @@ class NodeViewContainer extends NodeDatabaseChildContainer
     public function __construct()
     {
         parent::__construct(__('Views'), Node::CONTAINER);
-        $this->icon = Util::getImage('b_views', __('Views'));
+        $this->icon = Generator::getImage('b_views', __('Views'));
         $this->links = [
             'text' => Url::getFromRoute('/database/structure', [
                 'server' => $GLOBALS['server'],
@@ -42,12 +38,11 @@ class NodeViewContainer extends NodeDatabaseChildContainer
         $this->realName = 'views';
 
         $newLabel = _pgettext('Create new view', 'New');
-        $new = NodeFactory::getInstance(
-            'Node',
-            $newLabel
+        $new = NodeFactory::getInstanceForNewNode(
+            $newLabel,
+            'new_view italics'
         );
-        $new->isNew = true;
-        $new->icon = Util::getImage('b_view_add', $newLabel);
+        $new->icon = Generator::getImage('b_view_add', $newLabel);
         $new->links = [
             'text' => Url::getFromRoute('/view/create', [
                 'server' => $GLOBALS['server'],
@@ -56,7 +51,6 @@ class NodeViewContainer extends NodeDatabaseChildContainer
                 'server' => $GLOBALS['server'],
             ]) . '&amp;db=%2$s',
         ];
-        $new->classes = 'new_view italics';
         $this->addChild($new);
     }
 }

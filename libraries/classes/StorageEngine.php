@@ -1,8 +1,6 @@
 <?php
 /**
  * Library for extracting information about the available storage engines
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -20,7 +18,14 @@ use PhpMyAdmin\Engines\Myisam;
 use PhpMyAdmin\Engines\Ndbcluster;
 use PhpMyAdmin\Engines\Pbxt;
 use PhpMyAdmin\Engines\PerformanceSchema;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\Html\Generator;
+use function array_key_exists;
+use function define;
+use function explode;
+use function htmlspecialchars;
+use function mb_stripos;
+use function mb_strtolower;
+use function sprintf;
 
 /**
 * defines
@@ -37,35 +42,23 @@ define('PMA_ENGINE_DETAILS_TYPE_BOOLEAN', 3); // 'ON' or 'OFF'
 
 /**
  * Base Storage Engine Class
- *
- * @package PhpMyAdmin
  */
 class StorageEngine
 {
-    /**
-     * @var string engine name
-     */
+    /** @var string engine name */
     public $engine  = 'dummy';
 
-    /**
-     * @var string engine title/description
-     */
+    /** @var string engine title/description */
     public $title   = 'PMA Dummy Engine Class';
 
-    /**
-     * @var string engine lang description
-     */
+    /** @var string engine lang description */
     public $comment
         = 'If you read this text inside phpMyAdmin, something went wrong...';
 
-    /**
-     * @var integer engine supported by current server
-     */
+    /** @var int engine supported by current server */
     public $support = PMA_ENGINE_SUPPORT_NO;
 
     /**
-     * Constructor
-     *
      * @param string $engine The engine ID
      */
     public function __construct($engine)
@@ -74,9 +67,7 @@ class StorageEngine
         if (! empty($storage_engines[$engine])) {
             $this->engine  = $engine;
             $this->title   = $storage_engines[$engine]['Engine'];
-            $this->comment = (isset($storage_engines[$engine]['Comment'])
-                ? $storage_engines[$engine]['Comment']
-                : '');
+            $this->comment = ($storage_engines[$engine]['Comment'] ?? '');
             switch ($storage_engines[$engine]['Support']) {
                 case 'DEFAULT':
                     $this->support = PMA_ENGINE_SUPPORT_DEFAULT;
@@ -97,16 +88,17 @@ class StorageEngine
     /**
      * Returns array of storage engines
      *
+     * @return array[] array of storage engines
+     *
      * @static
      * @staticvar array $storage_engines storage engines
      * @access public
-     * @return array[] array of storage engines
      */
     public static function getStorageEngines()
     {
         static $storage_engines = null;
 
-        if (null == $storage_engines) {
+        if ($storage_engines == null) {
             $storage_engines
                 = $GLOBALS['dbi']->fetchResult('SHOW STORAGE ENGINES', 'Engine');
             if ($GLOBALS['dbi']->getVersion() >= 50708) {
@@ -118,7 +110,7 @@ class StorageEngine
                         );
                     }
                 );
-                foreach (explode(",", $disabled) as $engine) {
+                foreach (explode(',', $disabled) as $engine) {
                     if (isset($storage_engines[$engine])) {
                         $storage_engines[$engine]['Support'] = 'DISABLED';
                     }
@@ -132,15 +124,16 @@ class StorageEngine
     /**
      * Returns HTML code for storage engine select box
      *
-     * @param string  $name                    The name of the select form element
-     * @param string  $id                      The ID of the form field
-     * @param string  $selected                The selected engine
-     * @param boolean $offerUnavailableEngines Should unavailable storage
-     *                                         engines be offered?
-     * @param boolean $addEmpty                Whether to provide empty option
+     * @param string $name                    The name of the select form element
+     * @param string $id                      The ID of the form field
+     * @param string $selected                The selected engine
+     * @param bool   $offerUnavailableEngines Should unavailable storage
+     *                                        engines be offered?
+     * @param bool   $addEmpty                Whether to provide empty option
+     *
+     * @return string html selectbox
      *
      * @static
-     * @return string html selectbox
      */
     public static function getHtmlSelect(
         $name = 'engine',
@@ -187,6 +180,7 @@ class StorageEngine
      * @param string $engine The engine ID
      *
      * @return StorageEngine The engine plugin
+     *
      * @static
      */
     public static function getEngine($engine)
@@ -226,12 +220,13 @@ class StorageEngine
      *
      * @param string $engine name of engine
      *
+     * @return bool whether $engine is valid or not
+     *
      * @static
-     * @return boolean whether $engine is valid or not
      */
     public static function isValid($engine)
     {
-        if ($engine == "PBMS") {
+        if ($engine == 'PBMS') {
             return true;
         }
         $storage_engines = self::getStorageEngines();
@@ -253,7 +248,7 @@ class StorageEngine
                   . '    <td>' . "\n";
             if (! empty($details['desc'])) {
                 $ret .= '        '
-                    . Util::showHint($details['desc'])
+                    . Generator::showHint($details['desc'])
                     . "\n";
             }
             $ret .= '    </td>' . "\n"
@@ -300,7 +295,7 @@ class StorageEngine
      * PMA_ENGINE_DETAILS_TYPE_SIZE type needs to be
      * handled differently for a particular engine.
      *
-     * @param integer $value Value to format
+     * @param int $value Value to format
      *
      * @return array the formatted value and its unit
      */

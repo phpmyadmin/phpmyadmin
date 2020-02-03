@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\Database\DataDictionaryController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -15,26 +13,18 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
+use function count;
+use function str_replace;
 
-/**
- * Class DataDictionaryController
- * @package PhpMyAdmin\Controllers\Database
- */
 class DataDictionaryController extends AbstractController
 {
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var Transformations
-     */
+    /** @var Transformations */
     private $transformations;
 
     /**
-     * DataDictionaryController constructor.
-     *
      * @param Response          $response        Response instance
      * @param DatabaseInterface $dbi             DatabaseInterface instance
      * @param Template          $template        Template object
@@ -51,8 +41,6 @@ class DataDictionaryController extends AbstractController
 
     /**
      * @param array $params Request parameters
-     *
-     * @return string
      */
     public function index(array $params): string
     {

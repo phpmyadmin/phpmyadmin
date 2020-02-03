@@ -1,8 +1,6 @@
 <?php
 /**
  * Provides upload functionalities for the import plugins
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -10,11 +8,12 @@ namespace PhpMyAdmin\Plugins\Import\Upload;
 
 use PhpMyAdmin\Display\ImportAjax;
 use PhpMyAdmin\Plugins\UploadInterface;
+use function array_key_exists;
+use function function_exists;
+use function trim;
 
 /**
  * Implementation for upload progress
- *
- * @package PhpMyAdmin
  */
 class UploadProgress implements UploadInterface
 {
@@ -41,7 +40,7 @@ class UploadProgress implements UploadInterface
     {
         global $SESSION_KEY;
 
-        if (trim($id) == "") {
+        if (trim($id) == '') {
             return null;
         }
 
@@ -52,7 +51,7 @@ class UploadProgress implements UploadInterface
                 'percent'  => 0,
                 'total'    => 0,
                 'complete' => 0,
-                'plugin'   => UploadProgress::getIdKey(),
+                'plugin'   => self::getIdKey(),
             ];
         }
         $ret = $_SESSION[$SESSION_KEY][$id];
@@ -86,7 +85,7 @@ class UploadProgress implements UploadInterface
                 'percent'  => 100,
                 'total'    => $ret['total'],
                 'complete' => $ret['total'],
-                'plugin'   => UploadProgress::getIdKey(),
+                'plugin'   => self::getIdKey(),
             ];
         }
 

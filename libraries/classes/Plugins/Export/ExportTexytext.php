@@ -1,16 +1,12 @@
 <?php
 /**
  * Export to Texy! text.
- *
- * @package    PhpMyAdmin-Export
- * @subpackage Texy!text
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -18,21 +14,17 @@ use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
+use function htmlspecialchars;
+use function in_array;
+use function str_replace;
+use function stripslashes;
 
 /**
  * Handles the export for the Texy! text class
- *
- * @package    PhpMyAdmin-Export
- * @subpackage Texy!text
  */
 class ExportTexytext extends ExportPlugin
 {
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();
@@ -56,16 +48,16 @@ class ExportTexytext extends ExportPlugin
         // $exportPluginProperties
         // this will be shown as "Format specific options"
         $exportSpecificOptions = new OptionsPropertyRootGroup(
-            "Format Specific Options"
+            'Format Specific Options'
         );
 
         // what to dump (structure/data/both) main group
         $dumpWhat = new OptionsPropertyMainGroup(
-            "general_opts",
+            'general_opts',
             __('Dump table')
         );
         // create primary items and add them to the group
-        $leaf = new RadioPropertyItem("structure_or_data");
+        $leaf = new RadioPropertyItem('structure_or_data');
         $leaf->setValues(
             [
                 'structure'          => __('structure'),
@@ -79,13 +71,13 @@ class ExportTexytext extends ExportPlugin
 
         // data options main group
         $dataOptions = new OptionsPropertyMainGroup(
-            "data",
+            'data',
             __('Data dump options')
         );
         $dataOptions->setForce('structure');
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
-            "columns",
+            'columns',
             __('Put columns names in the first row')
         );
         $dataOptions->addProperty($leaf);
@@ -194,7 +186,9 @@ class ExportTexytext extends ExportPlugin
         $this->initAlias($aliases, $db_alias, $table_alias);
 
         if (! $this->export->outputHandler(
-            '== ' . __('Dumping data for table') . ' ' . $table_alias . "\n\n"
+            $table_alias != ''
+                ? '== ' . __('Dumping data for table') . ' ' . $table_alias . "\n\n"
+                : '==' . __('Dumping data for query result') . "\n\n"
         )
         ) {
             return false;
@@ -251,6 +245,20 @@ class ExportTexytext extends ExportPlugin
         $GLOBALS['dbi']->freeResult($result);
 
         return true;
+    }
+
+    /**
+     * Outputs result raw query in TexyText format
+     *
+     * @param string $err_url   the url to go back in case of error
+     * @param string $sql_query the rawquery to output
+     * @param string $crlf      the end of line sequence
+     *
+     * @return bool if succeeded
+     */
+    public function exportRawQuery(string $err_url, string $sql_query, string $crlf): bool
+    {
+        return $this->exportData('', '', $crlf, $err_url, $sql_query);
     }
 
     /**
@@ -611,11 +619,11 @@ class ExportTexytext extends ExportPlugin
             . $fmt_pre . htmlspecialchars($col_alias) . $fmt_post;
         $definition .= '|' . htmlspecialchars($type);
         $definition .= '|'
-            . (($column['Null'] == '' || $column['Null'] == 'NO')
+            . ($column['Null'] == '' || $column['Null'] == 'NO'
                 ? __('No') : __('Yes'));
         $definition .= '|'
             . htmlspecialchars(
-                isset($column['Default']) ? $column['Default'] : ''
+                $column['Default'] ?? ''
             );
 
         return $definition;

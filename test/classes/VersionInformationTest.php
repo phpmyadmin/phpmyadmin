@@ -1,21 +1,16 @@
 <?php
 /**
  * Tests for methods in PhpMyAdmin\VersionInformation class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\VersionInformation;
 use stdClass;
 
 /**
  * Tests for methods in PhpMyAdmin\VersionInformation class
- *
- * @package PhpMyAdmin-test
  */
 class VersionInformationTest extends PmaTestCase
 {
@@ -24,32 +19,30 @@ class VersionInformationTest extends PmaTestCase
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
         $this->_releases = [];
 
         $release = new stdClass();
-        $release->date = "2015-09-08";
-        $release->php_versions = ">=5.3,<7.1";
-        $release->version = "4.4.14.1";
-        $release->mysql_versions = ">=5.5";
+        $release->date = '2015-09-08';
+        $release->php_versions = '>=5.3,<7.1';
+        $release->version = '4.4.14.1';
+        $release->mysql_versions = '>=5.5';
         $this->_releases[] = $release;
 
         $release = new stdClass();
-        $release->date = "2015-09-09";
-        $release->php_versions = ">=5.3,<7.0";
-        $release->version = "4.4.13.3";
-        $release->mysql_versions = ">=5.5";
+        $release->date = '2015-09-09';
+        $release->php_versions = '>=5.3,<7.0';
+        $release->version = '4.4.13.3';
+        $release->mysql_versions = '>=5.5';
         $this->_releases[] = $release;
 
         $release = new stdClass();
-        $release->date = "2015-05-13";
-        $release->php_versions = ">=5.2,<5.3";
-        $release->version = "4.0.10.10";
-        $release->mysql_versions = ">=5.0";
+        $release->date = '2015-05-13';
+        $release->php_versions = '>=5.2,<5.3';
+        $release->version = '4.0.10.10';
+        $release->mysql_versions = '>=5.0';
         $this->_releases[] = $release;
     }
 
@@ -79,8 +72,6 @@ class VersionInformationTest extends PmaTestCase
      * @param string $version Version string
      * @param int    $numeric Integer matching version
      *
-     * @return void
-     *
      * @dataProvider dataVersions
      */
     public function testVersionToInt($version, $numeric): void
@@ -91,7 +82,6 @@ class VersionInformationTest extends PmaTestCase
             $versionInformation->versionToInt($version)
         );
     }
-
 
     /**
      * Data provider for version parsing

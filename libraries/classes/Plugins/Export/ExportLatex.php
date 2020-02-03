@@ -1,16 +1,12 @@
 <?php
 /**
  * Set of methods used to build dumps of tables as Latex
- *
- * @package    PhpMyAdmin-Export
- * @subpackage Latex
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -18,21 +14,20 @@ use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
+use function count;
+use function in_array;
+use function mb_strpos;
+use function mb_substr;
+use function str_replace;
+use function stripslashes;
+use const PHP_VERSION;
 
 /**
  * Handles the export for the Latex format
- *
- * @package    PhpMyAdmin-Export
- * @subpackage Latex
  */
 class ExportLatex extends ExportPlugin
 {
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();
@@ -79,14 +74,14 @@ class ExportLatex extends ExportPlugin
         // $exportPluginProperties
         // this will be shown as "Format specific options"
         $exportSpecificOptions = new OptionsPropertyRootGroup(
-            "Format Specific Options"
+            'Format Specific Options'
         );
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup("general_opts");
+        $generalOptions = new OptionsPropertyMainGroup('general_opts');
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
-            "caption",
+            'caption',
             __('Include table caption')
         );
         $generalOptions->addProperty($leaf);
@@ -95,11 +90,11 @@ class ExportLatex extends ExportPlugin
 
         // what to dump (structure/data/both) main group
         $dumpWhat = new OptionsPropertyMainGroup(
-            "dump_what",
+            'dump_what',
             __('Dump table')
         );
         // create primary items and add them to the group
-        $leaf = new RadioPropertyItem("structure_or_data");
+        $leaf = new RadioPropertyItem('structure_or_data');
         $leaf->setValues(
             [
                 'structure'          => __('structure'),
@@ -114,44 +109,44 @@ class ExportLatex extends ExportPlugin
         // structure options main group
         if (! $hide_structure) {
             $structureOptions = new OptionsPropertyMainGroup(
-                "structure",
+                'structure',
                 __('Object creation options')
             );
             $structureOptions->setForce('data');
             // create primary items and add them to the group
             $leaf = new TextPropertyItem(
-                "structure_caption",
+                'structure_caption',
                 __('Table caption:')
             );
             $leaf->setDoc('faq6-27');
             $structureOptions->addProperty($leaf);
             $leaf = new TextPropertyItem(
-                "structure_continued_caption",
+                'structure_continued_caption',
                 __('Table caption (continued):')
             );
             $leaf->setDoc('faq6-27');
             $structureOptions->addProperty($leaf);
             $leaf = new TextPropertyItem(
-                "structure_label",
+                'structure_label',
                 __('Label key:')
             );
             $leaf->setDoc('faq6-27');
             $structureOptions->addProperty($leaf);
             if (! empty($GLOBALS['cfgRelation']['relation'])) {
                 $leaf = new BoolPropertyItem(
-                    "relation",
+                    'relation',
                     __('Display foreign key relationships')
                 );
                 $structureOptions->addProperty($leaf);
             }
             $leaf = new BoolPropertyItem(
-                "comments",
+                'comments',
                 __('Display comments')
             );
             $structureOptions->addProperty($leaf);
             if (! empty($GLOBALS['cfgRelation']['mimework'])) {
                 $leaf = new BoolPropertyItem(
-                    "mime",
+                    'mime',
                     __('Display media types')
                 );
                 $structureOptions->addProperty($leaf);
@@ -162,30 +157,30 @@ class ExportLatex extends ExportPlugin
 
         // data options main group
         $dataOptions = new OptionsPropertyMainGroup(
-            "data",
+            'data',
             __('Data dump options')
         );
         $dataOptions->setForce('structure');
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
-            "columns",
+            'columns',
             __('Put columns names in the first row:')
         );
         $dataOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
-            "data_caption",
+            'data_caption',
             __('Table caption:')
         );
         $leaf->setDoc('faq6-27');
         $dataOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
-            "data_continued_caption",
+            'data_continued_caption',
             __('Table caption (continued):')
         );
         $leaf->setDoc('faq6-27');
         $dataOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
-            "data_label",
+            'data_label',
             __('Label key:')
         );
         $leaf->setDoc('faq6-27');
@@ -422,10 +417,10 @@ class ExportLatex extends ExportPlugin
                 }
 
                 // last column ... no need for & character
-                if ($i == ($columns_cnt - 1)) {
+                if ($i == $columns_cnt - 1) {
                     $buffer .= $column_value;
                 } else {
-                    $buffer .= $column_value . " & ";
+                    $buffer .= $column_value . ' & ';
                 }
             }
             $buffer .= ' \\\\ \\hline ' . $crlf;
@@ -443,6 +438,20 @@ class ExportLatex extends ExportPlugin
 
         return true;
     } // end getTableLaTeX
+
+    /**
+     * Outputs result raw query
+     *
+     * @param string $err_url   the url to go back in case of error
+     * @param string $sql_query the rawquery to output
+     * @param string $crlf      the seperator for a file
+     *
+     * @return bool if succeeded
+     */
+    public function exportRawQuery(string $err_url, string $sql_query, string $crlf): bool
+    {
+        return $this->exportData('', '', $crlf, $err_url, $sql_query);
+    }
 
     /**
      * Outputs table's structure
@@ -620,9 +629,9 @@ class ExportLatex extends ExportPlugin
             }
 
             $local_buffer = $col_as . "\000" . $type . "\000"
-                . (($row['Null'] == '' || $row['Null'] == 'NO')
+                . ($row['Null'] == '' || $row['Null'] == 'NO'
                     ? __('No') : __('Yes'))
-                . "\000" . (isset($row['Default']) ? $row['Default'] : '');
+                . "\000" . ($row['Default'] ?? '');
 
             if ($do_relation && $have_rel) {
                 $local_buffer .= "\000";

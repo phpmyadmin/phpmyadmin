@@ -7,22 +7,23 @@
  * @usedby  /table/sql
  * @usedby  /table/structure
  * @usedby  /table/tracking
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Html\MySQLDocumentation;
+use function htmlspecialchars;
+use function sprintf;
+use function strlen;
+use function strpos;
+
 /**
  * PhpMyAdmin\SqlQueryForm class
- *
- * @package PhpMyAdmin
  */
 class SqlQueryForm
 {
-    /**
-     * @var Template
-     */
+    /** @var Template */
     private $template;
 
     /**
@@ -36,12 +37,12 @@ class SqlQueryForm
     /**
      * return HTML for the sql query boxes
      *
-     * @param boolean|string $query       query to display in the textarea
-     *                                    or true to display last executed
-     * @param boolean|string $display_tab sql|full|false
-     *                                    what part to display
-     *                                    false if not inside querywindow
-     * @param string         $delimiter   delimiter
+     * @param bool|string $query       query to display in the textarea
+     *                                 or true to display last executed
+     * @param bool|string $display_tab sql|full|false
+     *                                 what part to display
+     *                                 false if not inside querywindow
+     * @param string      $delimiter   delimiter
      *
      * @return string
      *
@@ -60,7 +61,7 @@ class SqlQueryForm
             $display_tab = 'full';
         }
         // query to show
-        if (true === $query) {
+        if ($query === true) {
             $query = $GLOBALS['sql_query'];
         }
 
@@ -80,7 +81,7 @@ class SqlQueryForm
         }
 
         if ($display_tab === 'full' || $display_tab === 'sql') {
-            list($legend, $query, $columns_list) = $this->init($query);
+            [$legend, $query, $columns_list] = $this->init($query);
         }
 
         $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
@@ -190,7 +191,7 @@ class SqlQueryForm
                 );
             }
         }
-        $legend .= ': ' . Util::showMySQLDocu('SELECT');
+        $legend .= ': ' . MySQLDocumentation::show('SELECT');
 
         return [
             $legend,

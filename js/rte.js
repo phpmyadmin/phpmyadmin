@@ -169,7 +169,7 @@ RTE.COMMON = {
                 /**
                  * Display the dialog to the user
                  */
-                data.message = '<textarea cols="40" rows="15" class="all100">' + data.message + '</textarea>';
+                data.message = '<textarea cols="40" rows="15" class="w-100">' + data.message + '</textarea>';
                 var $ajaxDialog = $('<div>' + data.message + '</div>').dialog({
                     width: 500,
                     buttons: buttonOptions,
@@ -801,15 +801,15 @@ RTE.ROUTINE = {
         case 'MEDIUMTEXT':
         case 'LONGBLOB':
         case 'LONGTEXT':
-            $text.closest('tr').find('a:first').hide();
+            $text.closest('tr').find('a').first().hide();
             $len.parent().hide();
             $noLen.show();
             break;
         default:
             if ($type.val() === 'ENUM' || $type.val() === 'SET') {
-                $text.closest('tr').find('a:first').show();
+                $text.closest('tr').find('a').first().show();
             } else {
-                $text.closest('tr').find('a:first').hide();
+                $text.closest('tr').find('a').first().hide();
             }
             $len.parent().show();
             $noLen.hide();

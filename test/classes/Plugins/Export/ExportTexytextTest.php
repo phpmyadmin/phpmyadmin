@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportTexytext class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,11 +12,13 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
+use function array_shift;
+use function ob_get_clean;
+use function ob_start;
 
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportTexytext class
  *
- * @package PhpMyAdmin-test
  * @group medium
  */
 class ExportTexytextTest extends PmaTestCase
@@ -27,8 +27,6 @@ class ExportTexytextTest extends PmaTestCase
 
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -46,8 +44,6 @@ class ExportTexytextTest extends PmaTestCase
 
     /**
      * tearDown for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -116,7 +112,7 @@ class ExportTexytextTest extends PmaTestCase
         );
 
         $this->assertEquals(
-            "Dump table",
+            'Dump table',
             $generalOptions->getText()
         );
 
@@ -271,8 +267,8 @@ class ExportTexytextTest extends PmaTestCase
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['what'] = 'foo';
-        $GLOBALS['foo_columns'] = "&";
-        $GLOBALS['foo_null'] = ">";
+        $GLOBALS['foo_columns'] = '&';
+        $GLOBALS['foo_null'] = '>';
 
         ob_start();
         $this->assertTrue(
@@ -280,19 +276,19 @@ class ExportTexytextTest extends PmaTestCase
                 'db',
                 'ta<ble',
                 "\n",
-                "example.com",
-                "SELECT"
+                'example.com',
+                'SELECT'
             )
         );
         $result = ob_get_clean();
 
         $this->assertStringContainsString(
-            "|fName1|fNa&amp;quot;me2|fName3",
+            '|fName1|fNa&amp;quot;me2|fName3',
             $result
         );
 
         $this->assertStringContainsString(
-            "|&amp;gt;|0|test",
+            '|&amp;gt;|0|test',
             $result
         );
     }
@@ -450,7 +446,7 @@ class ExportTexytextTest extends PmaTestCase
             'db',
             'table',
             "\n",
-            "example.com",
+            'example.com',
             true,
             true,
             true
@@ -509,7 +505,6 @@ class ExportTexytextTest extends PmaTestCase
      */
     public function testExportStructure()
     {
-
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
@@ -525,7 +520,7 @@ class ExportTexytextTest extends PmaTestCase
 
         $this->object->expects($this->at(0))
             ->method('getTableDef')
-            ->with('db', 't&bl', "\n", "example.com", false, false, false, false)
+            ->with('db', 't&bl', "\n", 'example.com', false, false, false, false)
             ->will($this->returnValue('dumpText1'));
 
         $this->object->expects($this->once())
@@ -539,7 +534,7 @@ class ExportTexytextTest extends PmaTestCase
                 'db',
                 't&bl',
                 "\n",
-                "example.com",
+                'example.com',
                 false,
                 false,
                 false,
@@ -563,9 +558,9 @@ class ExportTexytextTest extends PmaTestCase
                 'db',
                 't&bl',
                 "\n",
-                "example.com",
-                "create_table",
-                "test"
+                'example.com',
+                'create_table',
+                'test'
             )
         );
         $result = ob_get_clean();
@@ -582,9 +577,9 @@ class ExportTexytextTest extends PmaTestCase
                 'db',
                 't&bl',
                 "\n",
-                "example.com",
-                "triggers",
-                "test"
+                'example.com',
+                'triggers',
+                'test'
             )
         );
         $result = ob_get_clean();
@@ -601,9 +596,9 @@ class ExportTexytextTest extends PmaTestCase
                 'db',
                 't&bl',
                 "\n",
-                "example.com",
-                "create_view",
-                "test"
+                'example.com',
+                'create_view',
+                'test'
             )
         );
         $result = ob_get_clean();
@@ -620,9 +615,9 @@ class ExportTexytextTest extends PmaTestCase
                 'db',
                 't&bl',
                 "\n",
-                "example.com",
-                "stand_in",
-                "test"
+                'example.com',
+                'stand_in',
+                'test'
             )
         );
         $result = ob_get_clean();

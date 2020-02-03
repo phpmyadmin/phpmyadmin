@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds AdvisorControllerTest
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -12,22 +10,20 @@ use PhpMyAdmin\Advisor;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\AdvisorController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
+use function htmlspecialchars;
+use function json_encode;
 
 /**
  * Tests for AdvisorController class
- *
- * @package PhpMyAdmin-test
  */
 class AdvisorControllerTest extends TestCase
 {
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
@@ -40,7 +36,7 @@ class AdvisorControllerTest extends TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
 
-        require_once ROOT_PATH . 'libraries/replication.inc.php';
+        ReplicationInfo::load();
 
         //this data is needed when PhpMyAdmin\Server\Status\Data constructs
         $serverStatus = [
@@ -79,7 +75,7 @@ class AdvisorControllerTest extends TestCase
             ],
             [
                 "SELECT concat('Com_', variable_name), variable_value "
-                . "FROM data_dictionary.GLOBAL_STATEMENTS",
+                . 'FROM data_dictionary.GLOBAL_STATEMENTS',
                 0,
                 1,
                 DatabaseInterface::CONNECT_USER,
@@ -97,9 +93,6 @@ class AdvisorControllerTest extends TestCase
         $GLOBALS['dbi'] = $dbi;
     }
 
-    /**
-     * @return void
-     */
     public function testIndex(): void
     {
         $controller = new AdvisorController(

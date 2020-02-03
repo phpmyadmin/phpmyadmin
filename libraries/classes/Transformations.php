@@ -11,22 +11,36 @@
  *
  * Please provide a comment for your function,
  * what it does and what parameters are available.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\TransformationsInterface;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Util;
+use function array_shift;
+use function class_exists;
+use function closedir;
+use function count;
+use function explode;
+use function ltrim;
+use function mb_strtolower;
+use function mb_substr;
+use function opendir;
+use function preg_match;
+use function preg_replace;
+use function readdir;
+use function rtrim;
+use function sort;
+use function str_replace;
+use function stripslashes;
+use function strlen;
+use function strpos;
+use function trim;
+use function ucfirst;
+use function ucwords;
 
 /**
  * Transformations class
- *
- * @package PhpMyAdmin
  */
 class Transformations
 {
@@ -53,7 +67,7 @@ class Transformations
         $result = [];
 
         if (strlen($option_string) === 0
-            || ! $transform_options = explode(",", $option_string)
+            || ! $transform_options = explode(',', $option_string)
         ) {
             return $result;
         }
@@ -90,15 +104,16 @@ class Transformations
     /**
      * Gets all available MIME-types
      *
-     * @access  public
-     * @staticvar   array   mimetypes
      * @return array    array[mimetype], array[transformation]
+     *
+     * @access public
+     * @staticvar array   mimetypes
      */
     public function getAvailableMimeTypes()
     {
         static $stack = null;
 
-        if (null !== $stack) {
+        if ($stack !== null) {
             return $stack;
         }
 
@@ -138,7 +153,7 @@ class Transformations
                 if (preg_match('|^[^.].*_.*_.*\.php$|', $file)) {
                     // File contains transformation functions.
                     $parts = explode('_', str_replace('.php', '', $file));
-                    $mimetype = $parts[0] . "/" . $parts[1];
+                    $mimetype = $parts[0] . '/' . $parts[1];
                     $stack['mimetype'][$mimetype] = $mimetype;
 
                     $stack[$prefix . 'transformation'][] = $mimetype . ': ' . $parts[2];
@@ -172,7 +187,7 @@ class Transformations
     public function getClassName($filename)
     {
         // get the transformation class name
-        $class_name = explode(".php", $filename);
+        $class_name = explode('.php', $filename);
         $class_name = 'PhpMyAdmin\\' . str_replace('/', '\\', mb_substr($class_name[0], 18));
 
         return $class_name;
@@ -230,12 +245,12 @@ class Transformations
     {
         $value = str_replace(
             [
-                "jpeg",
-                "png",
+                'jpeg',
+                'png',
             ],
             [
-                "JPEG",
-                "PNG",
+                'JPEG',
+                'PNG',
             ],
             $value
         );
@@ -251,14 +266,14 @@ class Transformations
     /**
      * Gets the mimetypes for all columns of a table
      *
-     * @param string  $db       the name of the db to check for
-     * @param string  $table    the name of the table to check for
-     * @param boolean $strict   whether to include only results having a mimetype set
-     * @param boolean $fullName whether to use full column names as the key
-     *
-     * @access public
+     * @param string $db       the name of the db to check for
+     * @param string $table    the name of the table to check for
+     * @param bool   $strict   whether to include only results having a mimetype set
+     * @param bool   $fullName whether to use full column names as the key
      *
      * @return array|bool [field_name][field_key] = field_value
+     *
+     * @access public
      */
     public function getMime($db, $table, $strict = false, $fullName = false)
     {
@@ -271,11 +286,11 @@ class Transformations
 
         $com_qry = '';
         if ($fullName) {
-            $com_qry .= "SELECT CONCAT("
+            $com_qry .= 'SELECT CONCAT('
                 . "`db_name`, '.', `table_name`, '.', `column_name`"
-                . ") AS column_name, ";
+                . ') AS column_name, ';
         } else {
-            $com_qry  = "SELECT `column_name`, ";
+            $com_qry  = 'SELECT `column_name`, ';
         }
         $com_qry .= '`mimetype`,
                     `transformation`,
@@ -323,20 +338,20 @@ class Transformations
     /**
      * Set a single mimetype to a certain value.
      *
-     * @param string  $db                 the name of the db
-     * @param string  $table              the name of the table
-     * @param string  $key                the name of the column
-     * @param string  $mimetype           the mimetype of the column
-     * @param string  $transformation     the transformation of the column
-     * @param string  $transformationOpts the transformation options of the column
-     * @param string  $inputTransform     the input transformation of the column
-     * @param string  $inputTransformOpts the input transformation options of the column
-     * @param boolean $forcedelete        force delete, will erase any existing
-     *                                    comments for this column
+     * @param string $db                 the name of the db
+     * @param string $table              the name of the table
+     * @param string $key                the name of the column
+     * @param string $mimetype           the mimetype of the column
+     * @param string $transformation     the transformation of the column
+     * @param string $transformationOpts the transformation options of the column
+     * @param string $inputTransform     the input transformation of the column
+     * @param string $inputTransformOpts the input transformation options of the column
+     * @param bool   $forcedelete        force delete, will erase any existing
+     *                                   comments for this column
      *
-     * @access  public
+     * @return bool true, if comment-query was made.
      *
-     * @return boolean  true, if comment-query was made.
+     * @access public
      */
     public function setMime(
         $db,
@@ -439,7 +454,6 @@ class Transformations
         return false;
     }
 
-
     /**
      * GLOBAL Plugin functions
      */
@@ -452,7 +466,7 @@ class Transformations
      * @param string $table  Table name
      * @param string $column Column name
      *
-     * @return boolean State of the query execution
+     * @return bool State of the query execution
      */
     public function clear($db, $table = '', $column = '')
     {

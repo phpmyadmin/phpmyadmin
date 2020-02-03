@@ -1,28 +1,22 @@
 <?php
 /**
  * Tests for Script.php
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Scripts;
-use PhpMyAdmin\Tests\PmaTestCase;
-use ReflectionClass;
 use ReflectionProperty;
+use function define;
+use function defined;
 
 /**
  * Tests for Script.php
- *
- * @package PhpMyAdmin-test
  */
 class ScriptsTest extends PmaTestCase
 {
-    /**
-     * @var Scripts
-     */
+    /** @var Scripts */
     protected $object;
 
     /**
@@ -30,7 +24,6 @@ class ScriptsTest extends PmaTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
@@ -45,7 +38,6 @@ class ScriptsTest extends PmaTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {

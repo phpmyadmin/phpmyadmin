@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for Config File Management
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -11,22 +9,24 @@ namespace PhpMyAdmin\Tests\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Tests\PmaTestCase;
 use stdClass;
+use function array_keys;
+use function count;
 
 /**
  * Tests for Config File Management
- *
- * @package PhpMyAdmin-test
  */
 class ConfigFileTest extends PmaTestCase
 {
     /**
      * Any valid key that exists in config.default.php and isn't empty
+     *
      * @var string
      */
     public const SIMPLE_KEY_WITH_DEFAULT_VALUE = 'DefaultQueryTable';
 
     /**
      * Object under test
+     *
      * @var ConfigFile
      */
     protected $object;
@@ -35,7 +35,6 @@ class ConfigFileTest extends PmaTestCase
      * Setup function for test cases
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
@@ -45,8 +44,6 @@ class ConfigFileTest extends PmaTestCase
 
     /**
      * TearDown function for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -58,6 +55,7 @@ class ConfigFileTest extends PmaTestCase
      * Test for new ConfigFile()
      *
      * @return void
+     *
      * @test
      */
     public function testNewObjectState()
@@ -71,7 +69,7 @@ class ConfigFileTest extends PmaTestCase
         // Check environment state
         $this->assertEquals(
             [],
-            $_SESSION["ConfigFile1"]
+            $_SESSION['ConfigFile1']
         );
 
         // Validate default value used in tests
@@ -85,6 +83,7 @@ class ConfigFileTest extends PmaTestCase
      * Test for ConfigFile::setPersistKeys()
      *
      * @return void
+     *
      * @test
      */
     public function testPersistentKeys()
@@ -137,6 +136,7 @@ class ConfigFileTest extends PmaTestCase
      * Test for ConfigFile::setAllowedKeys
      *
      * @return void
+     *
      * @test
      */
     public function testAllowedKeys()
@@ -177,6 +177,7 @@ class ConfigFileTest extends PmaTestCase
      * Test for ConfigFile::setCfgUpdateReadMapping
      *
      * @return void
+     *
      * @test
      */
     public function testConfigReadMapping()
@@ -213,6 +214,7 @@ class ConfigFileTest extends PmaTestCase
      * Test for ConfigFile::resetConfigData
      *
      * @return void
+     *
      * @test
      */
     public function testResetConfigData()
@@ -229,6 +231,7 @@ class ConfigFileTest extends PmaTestCase
      * Test for ConfigFile::setConfigData
      *
      * @return void
+     *
      * @test
      */
     public function testSetConfigData()
@@ -250,6 +253,7 @@ class ConfigFileTest extends PmaTestCase
      * Test for ConfigFile::set and ConfigFile::get
      *
      * @return void
+     *
      * @test
      */
     public function testBasicSetUsage()
@@ -292,6 +296,7 @@ class ConfigFileTest extends PmaTestCase
      * Test for ConfigFile::set - in PMA Setup
      *
      * @return void
+     *
      * @test
      */
     public function testConfigFileSetInSetup()
@@ -309,6 +314,7 @@ class ConfigFileTest extends PmaTestCase
      * Test for ConfigFile::set - in user preferences
      *
      * @return void
+     *
      * @test
      */
     public function testConfigFileSetInUserPreferences()
@@ -341,6 +347,7 @@ class ConfigFileTest extends PmaTestCase
      * Test for ConfigFile::getFlatDefaultConfig
      *
      * @return void
+     *
      * @test
      * @group medium
      */
@@ -373,6 +380,7 @@ class ConfigFileTest extends PmaTestCase
      * Test for ConfigFile::updateWithGlobalConfig
      *
      * @return void
+     *
      * @test
      */
     public function testUpdateWithGlobalConfig()
@@ -394,18 +402,19 @@ class ConfigFileTest extends PmaTestCase
      * Test for ConfigFile::getCanonicalPath
      *
      * @return void
+     *
      * @test
      */
     public function testGetCanonicalPath()
     {
         $this->assertEquals(
-            "Servers/1/abcd",
-            $this->object->getCanonicalPath("Servers/2/abcd")
+            'Servers/1/abcd',
+            $this->object->getCanonicalPath('Servers/2/abcd')
         );
 
         $this->assertEquals(
-            "Servers/foo/bar",
-            $this->object->getCanonicalPath("Servers/foo/bar")
+            'Servers/foo/bar',
+            $this->object->getCanonicalPath('Servers/foo/bar')
         );
     }
 
@@ -413,6 +422,7 @@ class ConfigFileTest extends PmaTestCase
      * Test for ConfigFile::getDbEntry
      *
      * @return void
+     *
      * @test
      */
     public function testGetDbEntry()
@@ -436,6 +446,7 @@ class ConfigFileTest extends PmaTestCase
      * Test for ConfigFile::getServerCount
      *
      * @return void
+     *
      * @test
      */
     public function testGetServerCount()
@@ -485,6 +496,7 @@ class ConfigFileTest extends PmaTestCase
      * Test for ConfigFile::getServers
      *
      * @return void
+     *
      * @test
      */
     public function testGetServers()
@@ -505,6 +517,7 @@ class ConfigFileTest extends PmaTestCase
      * Test for ConfigFile::getServerDSN
      *
      * @return void
+     *
      * @test
      */
     public function testGetServerDSN()
@@ -518,16 +531,16 @@ class ConfigFileTest extends PmaTestCase
             [
                 'Servers' => [
                     1 => [
-                        "auth_type" => "config",
-                        "user" => "testUser",
-                        "host" => "example.com",
-                        "port" => "21",
+                        'auth_type' => 'config',
+                        'user' => 'testUser',
+                        'host' => 'example.com',
+                        'port' => '21',
                     ],
                 ],
             ]
         );
         $this->assertEquals(
-            "mysqli://testUser@example.com:21",
+            'mysqli://testUser@example.com:21',
             $this->object->getServerDSN(1)
         );
 
@@ -535,18 +548,18 @@ class ConfigFileTest extends PmaTestCase
             [
                 'Servers' => [
                     1 => [
-                        "auth_type" => "config",
-                        "user" => "testUser",
-                        "host" => "localhost",
-                        "port" => "21",
-                        "socket" => "123",
-                        "password" => "",
+                        'auth_type' => 'config',
+                        'user' => 'testUser',
+                        'host' => 'localhost',
+                        'port' => '21',
+                        'socket' => '123',
+                        'password' => '',
                     ],
                 ],
             ]
         );
         $this->assertEquals(
-            "mysqli://testUser@123",
+            'mysqli://testUser@123',
             $this->object->getServerDSN(1)
         );
 
@@ -554,17 +567,17 @@ class ConfigFileTest extends PmaTestCase
             [
                 'Servers' => [
                     1 => [
-                        "auth_type" => "config",
-                        "user" => "testUser",
-                        "host" => "example.com",
-                        "port" => "21",
-                        "password" => "testPass",
+                        'auth_type' => 'config',
+                        'user' => 'testUser',
+                        'host' => 'example.com',
+                        'port' => '21',
+                        'password' => 'testPass',
                     ],
                 ],
             ]
         );
         $this->assertEquals(
-            "mysqli://testUser:***@example.com:21",
+            'mysqli://testUser:***@example.com:21',
             $this->object->getServerDSN(1)
         );
     }
@@ -573,6 +586,7 @@ class ConfigFileTest extends PmaTestCase
      * Test for ConfigFile::getServerName
      *
      * @return void
+     *
      * @test
      */
     public function testGetServerName()
@@ -599,6 +613,7 @@ class ConfigFileTest extends PmaTestCase
      * Test for ConfigFile::getConfigArray
      *
      * @return void
+     *
      * @test
      */
     public function testGetConfigArray()

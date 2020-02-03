@@ -2,7 +2,6 @@
 /**
  * Test for PhpMyAdmin\Config class
  *
- * @package PhpMyAdmin-test
  * @group current
  */
 declare(strict_types=1);
@@ -10,14 +9,39 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Tests\PmaTestCase;
-use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\Exception;
+use function array_merge;
+use function array_replace_recursive;
+use function chdir;
+use function constant;
+use function define;
+use function defined;
+use function file_put_contents;
+use function filemtime;
+use function fileperms;
+use function function_exists;
+use function gd_info;
+use function getcwd;
+use function mb_strstr;
+use function mkdir;
+use function ob_end_clean;
+use function ob_get_contents;
+use function ob_start;
+use function phpinfo;
+use function preg_match;
+use function realpath;
+use function rmdir;
+use function strip_tags;
+use function stristr;
+use function sys_get_temp_dir;
+use function unlink;
+use const DIRECTORY_SEPARATOR;
+use const INFO_MODULES;
+use const PHP_EOL;
+use const PHP_OS;
 
 /**
  * Tests behaviour of PhpMyAdmin\Config class
- *
- * @package PhpMyAdmin-test
  */
 class ConfigTest extends PmaTestCase
 {
@@ -26,21 +50,15 @@ class ConfigTest extends PmaTestCase
      */
     protected $backupGlobals = false;
 
-    /**
-     * @var Config
-     */
+    /** @var Config */
     protected $object;
 
-    /**
-     * @var Config to test file permission
-     */
+    /** @var Config to test file permission */
     protected $permTestObj;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -53,14 +71,12 @@ class ConfigTest extends PmaTestCase
         $GLOBALS['cfg']['ProxyUrl'] = '';
 
         //for testing file permissions
-        $this->permTestObj = new Config(ROOT_PATH . "config.sample.inc.php");
+        $this->permTestObj = new Config(ROOT_PATH . 'config.sample.inc.php');
     }
 
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -73,6 +89,7 @@ class ConfigTest extends PmaTestCase
      * Test for CheckSystem
      *
      * @return void
+     *
      * @group medium
      */
     public function testCheckSystem()
@@ -90,19 +107,18 @@ class ConfigTest extends PmaTestCase
      */
     public function testCheckOutputCompression()
     {
-
         $this->object->set('OBGzip', 'auto');
 
         $this->object->set('PMA_USR_BROWSER_AGENT', 'IE');
         $this->object->set('PMA_USR_BROWSER_VER', 6);
         $this->object->checkOutputCompression();
-        $this->assertTrue($this->object->get("OBGzip"));
+        $this->assertTrue($this->object->get('OBGzip'));
 
         $this->object->set('OBGzip', 'auto');
         $this->object->set('PMA_USR_BROWSER_AGENT', 'MOZILLA');
         $this->object->set('PMA_USR_BROWSER_VER', 5);
         $this->object->checkOutputCompression();
-        $this->assertTrue($this->object->get("OBGzip"));
+        $this->assertTrue($this->object->get('OBGzip'));
     }
 
     /**
@@ -112,8 +128,6 @@ class ConfigTest extends PmaTestCase
      * @param string $os      Expected parsed OS (or null if none)
      * @param string $browser Expected parsed browser (or null if none)
      * @param string $version Expected browser version (or null if none)
-     *
-     * @return void
      *
      * @dataProvider userAgentProvider
      */
@@ -274,7 +288,7 @@ class ConfigTest extends PmaTestCase
         if (function_exists('gd_info')) {
             $this->object->checkGd2();
             $gd_nfo = gd_info();
-            if (mb_strstr($gd_nfo["GD Version"], '2.')) {
+            if (mb_strstr($gd_nfo['GD Version'], '2.')) {
                 $this->assertEquals(
                     1,
                     $this->object->get('PMA_IS_GD2'),
@@ -315,10 +329,8 @@ class ConfigTest extends PmaTestCase
     /**
      * Web server detection test
      *
-     * @param string  $server Server identification
-     * @param boolean $iis    Whether server should be detected as IIS
-     *
-     * @return void
+     * @param string $server Server identification
+     * @param bool   $iis    Whether server should be detected as IIS
      *
      * @dataProvider serverNames
      */
@@ -339,11 +351,11 @@ class ConfigTest extends PmaTestCase
     {
         return [
             [
-                "Microsoft-IIS 7.0",
+                'Microsoft-IIS 7.0',
                 1,
             ],
             [
-                "Apache/2.2.17",
+                'Apache/2.2.17',
                 0,
             ],
         ];
@@ -394,8 +406,9 @@ class ConfigTest extends PmaTestCase
 
         $this->object->default_source = $prevDefaultSource;
 
+        /** @var array<string,mixed> $cfg */
+        $cfg = [];
         include $this->object->default_source;
-
         $loadedConf = $cfg;
         unset($cfg);
 
@@ -452,7 +465,7 @@ class ConfigTest extends PmaTestCase
      */
     public function testGetAndSet()
     {
-        $this->assertNull($this->object->get("unresisting_setting"));
+        $this->assertNull($this->object->get('unresisting_setting'));
 
         $this->object->set('test_setting', 'test_value');
 
@@ -468,44 +481,48 @@ class ConfigTest extends PmaTestCase
     {
         echo $this->object->getSource();
 
-        $this->assertEmpty($this->object->getSource(), "Source is null by default");
+        $this->assertEmpty($this->object->getSource(), 'Source is null by default');
 
-        $this->object->setSource(ROOT_PATH . "config.sample.inc.php");
+        $this->object->setSource(ROOT_PATH . 'config.sample.inc.php');
 
         $this->assertEquals(
-            ROOT_PATH . "config.sample.inc.php",
+            ROOT_PATH . 'config.sample.inc.php',
             $this->object->getSource(),
-            "Cant set new source"
+            'Cant set new source'
         );
     }
 
     /**
      * test for IsHttp
      *
-     * @param string $scheme   http scheme
-     * @param string $https    https
-     * @param string $uri      request uri
-     * @param string $lb       http https from lb
-     * @param string $front    http front end https
-     * @param string $proto    http x forwarded proto
-     * @param int    $port     server port
-     * @param bool   $expected expected result
-     *
-     * @return void
+     * @param string $scheme          http scheme
+     * @param string $https           https
+     * @param string $forwarded       forwarded header
+     * @param string $uri             request uri
+     * @param string $lb              http https from lb
+     * @param string $front           http front end https
+     * @param string $proto           http x forwarded proto
+     * @param string $protoCloudFront http cloudfront forwarded proto
+     * @param string $pmaAbsoluteUri  phpMyAdmin absolute URI
+     * @param int    $port            server port
+     * @param bool   $expected        expected result
      *
      * @dataProvider httpsParams
      */
-    public function testIsHttps($scheme, $https, $uri, $lb, $front, $proto, $port, $expected): void
+    public function testIsHttps($scheme, $https, string $forwarded, $uri, $lb, $front, $proto, $protoCloudFront, $pmaAbsoluteUri, $port, $expected): void
     {
         $_SERVER['HTTP_SCHEME'] = $scheme;
         $_SERVER['HTTPS'] = $https;
+        $_SERVER['HTTP_FORWARDED'] = $forwarded;
         $_SERVER['REQUEST_URI'] = $uri;
         $_SERVER['HTTP_HTTPS_FROM_LB'] = $lb;
         $_SERVER['HTTP_FRONT_END_HTTPS'] = $front;
         $_SERVER['HTTP_X_FORWARDED_PROTO'] = $proto;
+        $_SERVER['HTTP_CLOUDFRONT_FORWARDED_PROTO'] = $protoCloudFront;
         $_SERVER['SERVER_PORT'] = $port;
 
         $this->object->set('is_https', null);
+        $this->object->set('PmaAbsoluteUri', $pmaAbsoluteUri);
         $this->assertEquals($expected, $this->object->isHttps());
     }
 
@@ -523,17 +540,23 @@ class ConfigTest extends PmaTestCase
                 '',
                 '',
                 '',
+                '',
                 'http',
+                '',
+                '',
                 80,
                 false,
             ],
             [
                 'http',
+                '',
                 '',
                 'http://',
                 '',
                 '',
                 'http',
+                '',
+                '',
                 80,
                 false,
             ],
@@ -543,7 +566,10 @@ class ConfigTest extends PmaTestCase
                 '',
                 '',
                 '',
+                '',
                 'http',
+                '',
+                '',
                 443,
                 true,
             ],
@@ -553,7 +579,23 @@ class ConfigTest extends PmaTestCase
                 '',
                 '',
                 '',
+                '',
                 'https',
+                '',
+                '',
+                80,
+                true,
+            ],
+            [
+                'http',
+                '',
+                '',
+                '',
+                '',
+                'on',
+                'http',
+                '',
+                '',
                 80,
                 true,
             ],
@@ -563,27 +605,23 @@ class ConfigTest extends PmaTestCase
                 '',
                 '',
                 'on',
+                '',
                 'http',
+                '',
+                '',
                 80,
                 true,
             ],
             [
                 'http',
                 '',
-                '',
-                'on',
-                '',
-                'http',
-                80,
-                true,
-            ],
-            [
-                'http',
                 '',
                 'https://',
                 '',
                 '',
                 'http',
+                '',
+                '',
                 80,
                 true,
             ],
@@ -593,7 +631,10 @@ class ConfigTest extends PmaTestCase
                 '',
                 '',
                 '',
+                '',
                 'http',
+                '',
+                '',
                 80,
                 true,
             ],
@@ -603,7 +644,101 @@ class ConfigTest extends PmaTestCase
                 '',
                 '',
                 '',
+                '',
                 'http',
+                '',
+                '',
+                80,
+                true,
+            ],
+            [
+                'http',
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                'https',
+                '',
+                80,
+                true,
+            ],
+            [
+                'http',
+                '',
+                '',
+                '',
+                '',
+                '',
+                'https',
+                'http',
+                '',
+                80,
+                true,
+            ],
+            [
+                'https',
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                80,
+                true,
+            ],
+            [
+                'http',
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                8080,
+                false,
+            ],
+            [
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                'https://127.0.0.1',
+                80,
+                true,
+            ],
+            [
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                'http://127.0.0.1',
+                80,
+                false,
+            ],
+            [
+                '',
+                '',
+                'for=12.34.56.78;host=example.com;proto=https, for=23.45.67.89',
+                '',
+                '',
+                '',
+                '',
+                '',
+                'http://127.0.0.1',
                 80,
                 true,
             ],
@@ -647,8 +782,6 @@ class ConfigTest extends PmaTestCase
      * @param string $request  The request URL used for phpMyAdmin
      * @param string $absolute The absolute URL used for phpMyAdmin
      * @param string $expected Expected root path
-     *
-     * @return void
      *
      * @dataProvider rootUris
      */
@@ -753,10 +886,8 @@ class ConfigTest extends PmaTestCase
     /**
      * Tests loading of config file
      *
-     * @param string  $source File name of config to load
-     * @param boolean $result Expected result of loading
-     *
-     * @return void
+     * @param string $source File name of config to load
+     * @param bool   $result Expected result of loading
      *
      * @dataProvider configPaths
      */
@@ -796,6 +927,7 @@ class ConfigTest extends PmaTestCase
      * Test for loading user preferences
      *
      * @return void
+     *
      * @todo Test actually preferences loading
      * @doesNotPerformAssertions
      */
@@ -812,9 +944,9 @@ class ConfigTest extends PmaTestCase
     public function testSetUserValue()
     {
         $this->object->setUserValue(null, 'lang', 'cs', 'en');
-        $this->object->setUserValue("TEST_COOKIE_USER_VAL", '', 'cfg_val_1');
+        $this->object->setUserValue('TEST_COOKIE_USER_VAL', '', 'cfg_val_1');
         $this->assertEquals(
-            $this->object->getUserValue("TEST_COOKIE_USER_VAL", 'fail'),
+            $this->object->getUserValue('TEST_COOKIE_USER_VAL', 'fail'),
             'cfg_val_1'
         );
     }
@@ -836,13 +968,11 @@ class ConfigTest extends PmaTestCase
      */
     public function testGetThemeUniqueValue()
     {
-        $partial_sum = (
-            $this->object->source_mtime +
+        $partial_sum = $this->object->source_mtime +
             $this->object->default_source_mtime +
             $this->object->get('user_preferences_mtime') +
             $GLOBALS['PMA_Theme']->mtime_info +
-            $GLOBALS['PMA_Theme']->filesize_info
-        );
+            $GLOBALS['PMA_Theme']->filesize_info;
 
         $this->assertEquals($partial_sum, $this->object->getThemeUniqueValue());
     }
@@ -913,6 +1043,36 @@ class ConfigTest extends PmaTestCase
     }
 
     /**
+     * Test for getTempDir
+     *
+     * @group file-system
+     */
+    public function testGetTempDir(): void
+    {
+        $this->object->set('TempDir', sys_get_temp_dir() . DIRECTORY_SEPARATOR);
+        // Check no double slash is here
+        $this->assertEquals(
+            sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'upload',
+            $this->object->getTempDir('upload')
+        );
+    }
+
+    /**
+     * Test for getUploadTempDir
+     *
+     * @group file-system
+     */
+    public function testGetUploadTempDir(): void
+    {
+        $this->object->set('TempDir', realpath(sys_get_temp_dir()) . DIRECTORY_SEPARATOR);
+
+        $this->assertEquals(
+            $this->object->getTempDir('upload'),
+            $this->object->getUploadTempDir()
+        );
+    }
+
+    /**
      * Test for isGitRevision
      *
      * @return void
@@ -949,13 +1109,14 @@ class ConfigTest extends PmaTestCase
     /**
      * Test for isGitRevision
      *
-     * @group git-revision
      * @return void
+     *
+     * @group git-revision
      */
     public function testIsGitRevisionLocalGitDir()
     {
         $cwd = getcwd();
-        $test_dir = "gittestdir";
+        $test_dir = 'gittestdir';
 
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
@@ -1010,13 +1171,14 @@ class ConfigTest extends PmaTestCase
     /**
      * Test for isGitRevision
      *
-     * @group git-revision
      * @return void
+     *
+     * @group git-revision
      */
     public function testIsGitRevisionExternalGitDir()
     {
         $cwd = getcwd();
-        $test_dir = "gittestdir";
+        $test_dir = 'gittestdir';
 
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
@@ -1072,13 +1234,14 @@ class ConfigTest extends PmaTestCase
     /**
      * Test for checkGitRevision packs folder
      *
-     * @group git-revision
      * @return void
+     *
+     * @group git-revision
      */
     public function testCheckGitRevisionPacksFolder()
     {
         $cwd = getcwd();
-        $test_dir = "gittestdir";
+        $test_dir = 'gittestdir';
 
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
@@ -1123,8 +1286,8 @@ class ConfigTest extends PmaTestCase
             $this->object->get('PMA_VERSION_GIT_BRANCH')
         );
 
-        rmdir(".git/objects/pack");
-        rmdir(".git/objects");
+        rmdir('.git/objects/pack');
+        rmdir('.git/objects');
         unlink('.git/packed-refs');
         unlink('.git/HEAD');
         unlink('.git/config');
@@ -1137,13 +1300,14 @@ class ConfigTest extends PmaTestCase
     /**
      * Test for checkGitRevision packs folder
      *
-     * @group git-revision
      * @return void
+     *
+     * @group git-revision
      */
     public function testCheckGitRevisionRefFile()
     {
         $cwd = getcwd();
-        $test_dir = "gittestdir";
+        $test_dir = 'gittestdir';
 
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
@@ -1180,8 +1344,8 @@ class ConfigTest extends PmaTestCase
         rmdir('.git/refs/remotes/origin');
         rmdir('.git/refs/remotes');
         rmdir('.git/refs');
-        rmdir(".git/objects/pack");
-        rmdir(".git/objects");
+        rmdir('.git/objects/pack');
+        rmdir('.git/objects');
         unlink('.git/HEAD');
         unlink('.git/config');
         rmdir('.git');
@@ -1193,13 +1357,14 @@ class ConfigTest extends PmaTestCase
     /**
      * Test for checkGitRevision with packs as file
      *
-     * @group git-revision
      * @return void
+     *
+     * @group git-revision
      */
     public function testCheckGitRevisionPacksFile()
     {
         $cwd = getcwd();
-        $test_dir = "gittestdir";
+        $test_dir = 'gittestdir';
 
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
@@ -1253,9 +1418,9 @@ class ConfigTest extends PmaTestCase
             $this->object->get('PMA_VERSION_GIT_BRANCH')
         );
 
-        unlink(".git/objects/info/packs");
-        rmdir(".git/objects/info");
-        rmdir(".git/objects");
+        unlink('.git/objects/info/packs');
+        rmdir('.git/objects/info');
+        rmdir('.git/objects');
         unlink('.git/packed-refs');
         unlink('.git/HEAD');
         unlink('.git/config');
@@ -1348,8 +1513,6 @@ class ConfigTest extends PmaTestCase
      * @param array $expected expected result
      * @param bool  $error    error
      *
-     * @return void
-     *
      * @dataProvider serverSettingsProvider
      */
     public function testCheckServers($settings, $expected, $error = false): void
@@ -1405,8 +1568,6 @@ class ConfigTest extends PmaTestCase
      * @param array  $settings settings array
      * @param string $request  request
      * @param int    $expected expected result
-     *
-     * @return void
      *
      * @dataProvider selectServerProvider
      * @depends testCheckServers

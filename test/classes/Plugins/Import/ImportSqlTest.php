@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Plugins\Import\ImportSql class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,14 +12,10 @@ use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PhpMyAdmin\Plugins\Import\ImportSql class
- *
- * @package PhpMyAdmin-test
  */
 class ImportSqlTest extends PmaTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @access protected */
     protected $object;
 
     /**
@@ -29,7 +23,6 @@ class ImportSqlTest extends PmaTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
@@ -57,7 +50,6 @@ class ImportSqlTest extends PmaTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {

@@ -1,9 +1,6 @@
 <?php
 /**
  * PDF schema export code
- *
- * @package    PhpMyAdmin-Schema
- * @subpackage SVG
  */
 declare(strict_types=1);
 
@@ -18,15 +15,9 @@ use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
 
 /**
  * Handles the schema export for the SVG format
- *
- * @package    PhpMyAdmin-Schema
- * @subpackage SVG
  */
 class SchemaSvg extends SchemaPlugin
 {
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         $this->setProperties();
@@ -48,11 +39,11 @@ class SchemaSvg extends SchemaPlugin
         // $schemaPluginProperties
         // this will be shown as "Format specific options"
         $exportSpecificOptions = new OptionsPropertyRootGroup(
-            "Format Specific Options"
+            'Format Specific Options'
         );
 
         // specific options main group
-        $specificOptions = new OptionsPropertyMainGroup("general_opts");
+        $specificOptions = new OptionsPropertyMainGroup('general_opts');
         // add options common to all plugins
         $this->addCommonOptions($specificOptions);
 

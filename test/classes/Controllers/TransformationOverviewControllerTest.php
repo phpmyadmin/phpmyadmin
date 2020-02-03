@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds TransformationOverviewControllerTest class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -17,15 +15,11 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for TransformationOverviewController class
- *
- * @package PhpMyAdmin-test
  */
 class TransformationOverviewControllerTest extends TestCase
 {
     /**
      * Prepares environment for the test.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -38,9 +32,6 @@ class TransformationOverviewControllerTest extends TestCase
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
     }
 
-    /**
-     * @return void
-     */
     public function testIndexAction(): void
     {
         $controller = new TransformationOverviewController(
@@ -50,7 +41,7 @@ class TransformationOverviewControllerTest extends TestCase
             new Transformations()
         );
 
-        $actual = $controller->indexAction();
+        $actual = $controller->index();
 
         $this->assertStringContainsString(
             __('Available media types'),

@@ -1,35 +1,31 @@
 <?php
 /**
  * Test for PhpMyAdmin\Import
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Import;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
+use function implode;
+use function sprintf;
+use function time;
+use const PHP_INT_MAX;
 
 /**
  * Tests for import functions
- *
- * @package PhpMyAdmin-test
  */
 class ImportTest extends TestCase
 {
-    /**
-     * @var Import $import
-     */
+    /** @var Import $import */
     private $import;
 
     /**
      * Prepares environment for the test.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -153,8 +149,6 @@ class ImportTest extends TestCase
      * @param string $expected Expected result of the function
      * @param int    $num      The column number
      *
-     * @return void
-     *
      * @dataProvider provGetColumnAlphaName
      */
     public function testGetColumnAlphaName($expected, $num): void
@@ -202,8 +196,6 @@ class ImportTest extends TestCase
      *
      * @param int         $expected Expected result of the function
      * @param string|null $name     column name(i.e. "A", or "BC", etc.)
-     *
-     * @return void
      *
      * @dataProvider provGetColumnNumberFromName
      */
@@ -253,8 +245,6 @@ class ImportTest extends TestCase
      * @param int         $expected Expected result of the function
      * @param string|null $size     Size of field
      *
-     * @return void
-     *
      * @dataProvider provGetDecimalPrecision
      */
     public function testGetDecimalPrecision($expected, $size): void
@@ -295,8 +285,6 @@ class ImportTest extends TestCase
      * @param int         $expected Expected result of the function
      * @param string|null $size     Size of field
      *
-     * @return void
-     *
      * @dataProvider provGetDecimalScale
      */
     public function testGetDecimalScale($expected, $size): void
@@ -336,8 +324,6 @@ class ImportTest extends TestCase
      *
      * @param array       $expected Expected result of the function
      * @param string|null $cell     Cell content
-     *
-     * @return void
      *
      * @dataProvider provGetDecimalSize
      */
@@ -393,8 +379,6 @@ class ImportTest extends TestCase
      *                              BIGINT or DECIMAL or NONE)
      * @param string|null $cell     String representation of the cell for which a
      *                              best-fit type is to be determined
-     *
-     * @return void
      *
      * @dataProvider provDetectType
      */
@@ -573,7 +557,7 @@ class ImportTest extends TestCase
 
         $this->assertEquals(
             [
-                'sql_query' => Util::formatSql(
+                'sql_query' => Generator::formatSql(
                     $analyzed_sql_results['query']
                 ),
                 'matched_rows' => 2,

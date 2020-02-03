@@ -44,7 +44,7 @@ AJAX.registerOnload('server/databases.js', function () {
         });
         if (! selectedDbs.length) {
             Functions.ajaxShowMessage(
-                $('<div class="notice"></div>').text(
+                $('<div class="alert alert-primary" role="alert"></div>').text(
                     Messages.strNoDatabasesSelected
                 ),
                 2000

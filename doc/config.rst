@@ -9,7 +9,7 @@ All configurable data is placed in :file:`config.inc.php` in phpMyAdmin's
 toplevel directory.  If this file does not exist, please refer to the
 :ref:`setup` section to create one. This file only needs to contain the
 parameters you want to change from their corresponding default value in
-:file:`libraries/config.default.php` (this file is not inteded for changes).
+:file:`libraries/config.default.php` (this file is not intended for changes).
 
 .. seealso::
 
@@ -711,7 +711,7 @@ Server connection settings
 
     More information on regular expressions can be found in the `PCRE
     pattern syntax
-    <https://secure.php.net/manual/en/reference.pcre.pattern.syntax.php>`_ portion
+    <https://www.php.net/manual/en/reference.pcre.pattern.syntax.php>`_ portion
     of the PHP reference manual.
 
 .. config:option:: $cfg['Servers'][$i]['verbose']
@@ -1458,7 +1458,7 @@ Server connection settings
     An associative array of session cookie parameters of other authentication system.
     It is not needed if the other system doesn't use session_set_cookie_params().
     Keys should include 'lifetime', 'path', 'domain', 'secure' or 'httponly'.
-    Valid values are mentioned in `session_get_cookie_params <https://secure.php.net/manual/en/
+    Valid values are mentioned in `session_get_cookie_params <https://www.php.net/manual/en/
     function.session-get-cookie-params.php>`_, they should be set to same values as the
     other application uses. Takes effect only if
     :config:option:`$cfg['Servers'][$i]['SignonScript']` is not configured.
@@ -1588,14 +1588,14 @@ Generic settings
     :type: boolean
     :default: false
 
-    Whether `persistent connections <https://secure.php.net/manual/en/features
+    Whether `persistent connections <https://www.php.net/manual/en/features
     .persistent-connections.php>`_ should be used or not. Works with
     following extensions:
 
-    * mysql (`mysql\_pconnect <https://secure.php.net/manual/en/function.mysql-
+    * mysql (`mysql\_pconnect <https://www.php.net/manual/en/function.mysql-
       pconnect.php>`_),
     * mysqli (requires PHP 5.3.0 or newer, `more information
-      <https://secure.php.net/manual/en/mysqli.persistconns.php>`_).
+      <https://www.php.net/manual/en/mysqli.persistconns.php>`_).
 
 .. config:option:: $cfg['ForceSSL']
 
@@ -1632,7 +1632,7 @@ Generic settings
     :default: ``''``
 
     Path for storing session data (`session\_save\_path PHP parameter
-    <https://secure.php.net/session_save_path>`_).
+    <https://www.php.net/session_save_path>`_).
 
     .. warning::
 
@@ -1798,7 +1798,7 @@ Cookie authentication options
 
     Define how long a login cookie is valid. Please note that php
     configuration option `session.gc\_maxlifetime
-    <https://secure.php.net/manual/en/session.configuration.php#ini.session.gc-
+    <https://www.php.net/manual/en/session.configuration.php#ini.session.gc-
     maxlifetime>`_ might limit session validity and if the session is lost,
     the login cookie is also invalidated. So it is a good idea to set
     ``session.gc_maxlifetime`` at least to the same value of
@@ -3432,6 +3432,18 @@ Developer
 .. warning::
 
     These settings might have huge effect on performance or security.
+
+.. config:option:: $cfg['environment']
+
+    :type: string
+    :default: ``'production'``
+
+    Sets the working environment.
+
+    This only needs to be changed when you are developing phpMyAdmin itself.
+    The ``development`` mode may display debug information in some places.
+
+    Possible values are ``'production'`` or ``'development'``.
 
 .. config:option:: $cfg['DBG']
 

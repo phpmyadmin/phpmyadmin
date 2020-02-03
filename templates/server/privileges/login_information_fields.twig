@@ -75,12 +75,12 @@
     {{ auth_plugin_dropdown|raw }}
 
     <div id="ssl_reqd_warning"{{ auth_plugin != 'sha256_password' ? ' class="hide"' }}>
-      {% filter notice %}
+      {% apply notice %}
         {% trans %}
           This method requires using an '<em>SSL connection</em>' or an '<em>unencrypted connection that encrypts the password using RSA</em>'; while connecting to the server.
         {% endtrans %}
         {{ show_mysql_docu('sha256-authentication-plugin') }}
-      {% endfilter %}
+      {% endapply %}
     </div>
   </div>
   {# Generate password added here via jQuery #}

@@ -1,23 +1,21 @@
 <?php
 /**
  * Holds the PhpMyAdmin\UserPreferencesHeader class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Config\Forms\User\UserFormList;
+use PhpMyAdmin\Html\Generator;
 use Throwable;
 use Twig_Error_Loader;
 use Twig_Error_Runtime;
 use Twig_Error_Syntax;
+use function sprintf;
 
 /**
  * Functions for displaying user preferences header
- *
- * @package PhpMyAdmin
  */
 class UserPreferencesHeader
 {
@@ -27,7 +25,6 @@ class UserPreferencesHeader
      * @param Template $template Template object used to render data
      * @param Relation $relation Relation object
      *
-     * @return string
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
@@ -43,7 +40,6 @@ class UserPreferencesHeader
     /**
      * @param Template $template Template object used to render data
      *
-     * @return string
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
@@ -54,21 +50,21 @@ class UserPreferencesHeader
         global $route;
 
         // build user preferences menu
-        $content = Util::getHtmlTab(
-            [
-                'link' => 'index.php?route=/preferences/manage',
-                'text' => __('Manage your settings'),
-                'active' => $route === '/preferences/manage',
-            ]
-        ) . "\n";
+        $content = Generator::getHtmlTab(
+                [
+                    'link' => 'index.php?route=/preferences/manage',
+                    'text' => __('Manage your settings'),
+                    'active' => $route === '/preferences/manage',
+                ]
+            ) . "\n";
         /* Second authentication factor */
-        $content .= Util::getHtmlTab(
-            [
-                'link' => 'index.php?route=/preferences/twofactor',
-                'text' => __('Two-factor authentication'),
-                'active' => $route === '/preferences/twofactor',
-            ]
-        ) . "\n";
+        $content .= Generator::getHtmlTab(
+                [
+                    'link' => 'index.php?route=/preferences/two-factor',
+                    'text' => __('Two-factor authentication'),
+                    'active' => $route === '/preferences/two-factor',
+                ]
+            ) . "\n";
 
         $content .= self::displayTabsWithIcon();
 
@@ -83,9 +79,6 @@ class UserPreferencesHeader
         ) . '<div class="clearfloat"></div></div>';
     }
 
-    /**
-     * @return string
-     */
     protected static function displayTabsWithIcon(): string
     {
         $form_param = $_GET['form'] ?? null;
@@ -107,14 +100,11 @@ class UserPreferencesHeader
                 'icon' => $tabs_icons[$formset],
                 'active' => $route === '/preferences/forms' && $formset === $form_param,
             ];
-            $content .= Util::getHtmlTab($tab, ['form' => $formset]) . "\n";
+            $content .= Generator::getHtmlTab($tab, ['form' => $formset]) . "\n";
         }
         return $content;
     }
 
-    /**
-     * @return string|null
-     */
     protected static function displayConfigurationSavedMessage(): ?string
     {
         // show "configuration saved" message and reload navigation panel if needed
@@ -128,8 +118,6 @@ class UserPreferencesHeader
 
     /**
      * @param Relation $relation Relation instance
-     *
-     * @return string|null
      */
     protected static function sessionStorageWarning(Relation $relation): ?string
     {

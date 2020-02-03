@@ -1,9 +1,6 @@
 <?php
 /**
  * Text Plain Long To IPv4 Transformations plugin for phpMyAdmin
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage LongToIPv4
  */
 declare(strict_types=1);
 
@@ -13,9 +10,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\LongToIPv4TransformationsPlugin;
 
 /**
  * Handles the long to ipv4 transformation for text plain
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage LongToIPv4
  */
 // @codingStandardsIgnoreLine
 class Text_Plain_Longtoipv4 extends LongToIPv4TransformationsPlugin
@@ -27,7 +21,7 @@ class Text_Plain_Longtoipv4 extends LongToIPv4TransformationsPlugin
      */
     public static function getMIMEType()
     {
-        return "Text";
+        return 'Text';
     }
 
     /**
@@ -37,6 +31,6 @@ class Text_Plain_Longtoipv4 extends LongToIPv4TransformationsPlugin
      */
     public static function getMIMESubtype()
     {
-        return "Plain";
+        return 'Plain';
     }
 }

@@ -25,8 +25,8 @@
   </ul>
 </div>
 
-<div class="row">  
-  <table id="serverstatusqueriesdetails" class="width100 data sortable noclick col-md-4 col-12 ">
+<div class="row">
+  <table id="serverstatusqueriesdetails" class="w-100 data sortable noclick col-md-4 col-12 ">
     <colgroup>
       <col class="namecol">
       <col class="valuecol" span="3">
@@ -53,7 +53,7 @@
     </tbody>
   </table>
 
-  <div id="serverstatusquerieschart" class="width100 col-12 col-md-6" data-chart="{{ chart|json_encode }}"></div>
+  <div id="serverstatusquerieschart" class="w-100 col-12 col-md-6" data-chart="{{ chart|json_encode }}"></div>
 </div>
 {% else %}
   {{ 'Not enough privilege to view query statistics.'|trans|error }}

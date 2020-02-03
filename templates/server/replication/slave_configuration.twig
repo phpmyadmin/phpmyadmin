@@ -100,12 +100,12 @@
       </ul>
     </div>
   {% elseif not has_slave_configure %}
-    {% filter format('<a href="' ~ url('/server/replication') ~ '" data-post="' ~ get_common(url_params|merge({
+    {% apply format('<a href="' ~ url('/server/replication') ~ '" data-post="' ~ get_common(url_params|merge({
       'sl_configure': true,
       'repl_clear_scr': true
     })) ~ '">', '</a>')|raw %}
       {% trans 'This server is not configured as slave in a replication process. Would you like to %sconfigure%s it?' %}
-    {% endfilter %}
+    {% endapply %}
   {% endif %}
 </fieldset>
 </div>

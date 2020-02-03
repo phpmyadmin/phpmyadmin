@@ -1,8 +1,6 @@
 <?php
 /**
  * User preferences form
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -10,10 +8,6 @@ namespace PhpMyAdmin\Config\Forms\User;
 
 use PhpMyAdmin\Config\Forms\BaseForm;
 
-/**
- * Class FeaturesForm
- * @package PhpMyAdmin\Config\Forms\User
- */
 class FeaturesForm extends BaseForm
 {
     /**

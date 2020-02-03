@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Server\Users
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -16,8 +14,6 @@ use PHPUnit\Framework\TestCase;
  * PhpMyAdmin\Tests\Server\UsersTest class
  *
  * This class is for testing PhpMyAdmin\Server\Users methods
- *
- * @package PhpMyAdmin-test
  */
 class UsersTest extends TestCase
 {
@@ -49,9 +45,9 @@ class UsersTest extends TestCase
             $html
         );
 
-        //validate 3: not-active for /server/user_groups
+        //validate 3: not-active for /server/user-groups
         $this->assertStringContainsString(
-            '<a href="index.php?route=/server/user_groups',
+            '<a href="index.php?route=/server/user-groups',
             $html
         );
         $this->assertStringContainsString(

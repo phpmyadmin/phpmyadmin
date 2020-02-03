@@ -170,7 +170,7 @@ var Console = {
                 ConsoleMessages.showInstructions(Console.config.EnterExecutes);
             });
 
-            $(document).ajaxComplete(function (event, xhr, ajaxOptions) {
+            $(document).on('ajaxComplete', function (event, xhr, ajaxOptions) {
                 if (ajaxOptions.dataType && ajaxOptions.dataType.indexOf('json') !== -1) {
                     return;
                 }
@@ -1117,7 +1117,7 @@ var ConsoleDebug = {
     },
     initialize: function () {
         // Try to get debug info after every AJAX request
-        $(document).ajaxSuccess(function (event, xhr, settings, data) {
+        $(document).on('ajaxSuccess', function (event, xhr, settings, data) {
             if (data.debug) {
                 ConsoleDebug.showLog(data.debug, settings.url);
             }

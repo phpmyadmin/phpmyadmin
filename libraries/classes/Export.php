@@ -1,30 +1,58 @@
 <?php
 /**
  * function for the main export logic
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Controllers\Database\ExportController as DatabaseExportController;
+use PhpMyAdmin\Controllers\Server\ExportController as ServerExportController;
+use PhpMyAdmin\Controllers\Table\ExportController as TableExportController;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\SchemaPlugin;
+use function array_merge_recursive;
+use function error_get_last;
+use function fclose;
+use function file_exists;
+use function fopen;
+use function function_exists;
+use function fwrite;
+use function gzencode;
+use function header;
+use function htmlentities;
+use function htmlspecialchars;
+use function implode;
+use function in_array;
+use function ini_get;
+use function is_array;
+use function is_file;
+use function is_numeric;
+use function is_object;
+use function is_writable;
+use function mb_strlen;
+use function mb_strpos;
+use function mb_strtolower;
+use function mb_substr;
+use function ob_list_handlers;
+use function preg_match;
+use function preg_replace;
+use function strlen;
+use function strtolower;
+use function substr;
+use function time;
+use function trim;
+use function urlencode;
 
 /**
  * PhpMyAdmin\Export class
- *
- * @package PhpMyAdmin
  */
 class Export
 {
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**
-     * Export constructor.
      * @param DatabaseInterface $dbi DatabaseInterface instance
      */
     public function __construct($dbi)
@@ -34,13 +62,11 @@ class Export
 
     /**
      * Sets a session variable upon a possible fatal error during export
-     *
-     * @return void
      */
     public function shutdown(): void
     {
         $error = error_get_last();
-        if ($error != null && mb_strpos($error['message'], "execution time")) {
+        if ($error != null && mb_strpos($error['message'], 'execution time')) {
             //set session variable to check if there was error while exporting
             $_SESSION['pma_export_error'] = $error['message'];
         }
@@ -48,8 +74,6 @@ class Export
 
     /**
      * Detect ob_gzhandler
-     *
-     * @return bool
      */
     public function isGzHandlerEnabled(): bool
     {
@@ -98,7 +122,7 @@ class Export
             $line = Encoding::kanjiStrConv(
                 $line,
                 $GLOBALS['knjenc'],
-                isset($GLOBALS['xkana']) ? $GLOBALS['xkana'] : ''
+                $GLOBALS['xkana'] ?? ''
             );
         }
 
@@ -231,7 +255,7 @@ class Export
         $memory_limit_num = (int) substr($memory_limit, 0, -1);
         $lowerLastChar = strtolower(substr($memory_limit, -1));
         // 2 MB as default
-        if (empty($memory_limit) || '-1' == $memory_limit) {
+        if (empty($memory_limit) || $memory_limit == '-1') {
             $memory_limit = 2 * 1024 * 1024;
         } elseif ($lowerLastChar == 'm') {
             $memory_limit = $memory_limit_num * 1024 * 1024;
@@ -253,6 +277,52 @@ class Export
         // Some memory is needed for compression, assume 1/3
         $memory_limit /= 8;
         return $memory_limit;
+    }
+
+    /**
+     * Returns the filename and MIME type for a compression and an export plugin
+     *
+     * @param ExportPlugin $exportPlugin the export plugin
+     * @param string       $compression  compression asked
+     * @param string       $filename     the filename
+     *
+     * @return string[]    the filename and mime type
+     */
+    public function getFinalFilenameAndMimetypeForFilename(
+        ExportPlugin $exportPlugin,
+        string $compression,
+        string $filename
+    ): array {
+        // Grab basic dump extension and mime type
+        // Check if the user already added extension;
+        // get the substring where the extension would be if it was included
+        $extensionStartPos = mb_strlen($filename) - mb_strlen(
+            $exportPlugin->getProperties()->getExtension()
+        ) - 1;
+        $userExtension = mb_substr(
+            $filename,
+            $extensionStartPos,
+            mb_strlen($filename)
+        );
+        $requiredExtension = '.' . $exportPlugin->getProperties()->getExtension();
+        if (mb_strtolower($userExtension) != $requiredExtension) {
+            $filename  .= $requiredExtension;
+        }
+        $mime_type  = $exportPlugin->getProperties()->getMimeType();
+
+        // If dump is going to be compressed, set correct mime_type and add
+        // compression to extension
+        if ($compression === 'gzip') {
+            $filename  .= '.gz';
+            $mime_type = 'application/x-gzip';
+        } elseif ($compression === 'zip') {
+            $filename  .= '.zip';
+            $mime_type = 'application/zip';
+        }
+        return [
+            $filename,
+            $mime_type,
+        ];
     }
 
     /**
@@ -289,6 +359,14 @@ class Export
                     $filename_template
                 );
             }
+        } elseif ($export_type == 'raw') {
+            if (! empty($remember_template)) {
+                $GLOBALS['PMA_Config']->setUserValue(
+                    'pma_raw_filename_template',
+                    'Export/file_template_raw',
+                    $filename_template
+                );
+            }
         } else {
             if (! empty($remember_template)) {
                 $GLOBALS['PMA_Config']->setUserValue(
@@ -301,45 +379,20 @@ class Export
         $filename = Util::expandUserString($filename_template);
         // remove dots in filename (coming from either the template or already
         // part of the filename) to avoid a remote code execution vulnerability
-        $filename = Sanitize::sanitizeFilename($filename, $replaceDots = true);
+        $filename = Sanitize::sanitizeFilename($filename, true);
 
-        // Grab basic dump extension and mime type
-        // Check if the user already added extension;
-        // get the substring where the extension would be if it was included
-        $extension_start_pos = mb_strlen($filename) - mb_strlen(
-            $export_plugin->getProperties()->getExtension()
-        ) - 1;
-        $user_extension = mb_substr(
-            $filename,
-            $extension_start_pos,
-            mb_strlen($filename)
+        return $this->getFinalFilenameAndMimetypeForFilename(
+            $export_plugin,
+            $compression,
+            $filename
         );
-        $required_extension = "." . $export_plugin->getProperties()->getExtension();
-        if (mb_strtolower($user_extension) != $required_extension) {
-            $filename  .= $required_extension;
-        }
-        $mime_type  = $export_plugin->getProperties()->getMimeType();
-
-        // If dump is going to be compressed, set correct mime_type and add
-        // compression to extension
-        if ($compression == 'gzip') {
-            $filename  .= '.gz';
-            $mime_type = 'application/x-gzip';
-        } elseif ($compression == 'zip') {
-            $filename  .= '.zip';
-            $mime_type = 'application/zip';
-        }
-        return [
-            $filename,
-            $mime_type,
-        ];
     }
 
     /**
      * Open the export file
      *
-     * @param string  $filename     the export filename
-     * @param boolean $quick_export whether it's a quick export or not
+     * @param string $filename     the export filename
+     * @param bool   $quick_export whether it's a quick export or not
      *
      * @return array the full save filename, possible message and the file handle
      */
@@ -454,10 +507,8 @@ class Export
      * Saves the dump_buffer for a particular table in an array
      * Used in separate files export
      *
-     * @param string  $object_name the name of current object to be stored
-     * @param boolean $append      optional boolean to append to an existing index or not
-     *
-     * @return void
+     * @param string $object_name the name of current object to be stored
+     * @param bool   $append      optional boolean to append to an existing index or not
      */
     public function saveObjectInBuffer(string $object_name, bool $append = false): void
     {
@@ -570,8 +621,6 @@ class Export
      * @param bool         $do_dates        whether to add dates
      * @param array        $aliases         alias information for db/table/column
      * @param string       $separate_files  whether it is a separate-files export
-     *
-     * @return void
      */
     public function exportServer(
         $db_select,
@@ -639,8 +688,6 @@ class Export
      * @param bool         $do_dates        whether to add dates
      * @param array        $aliases         Alias information for db/table/column
      * @param string       $separate_files  whether it is a separate-files export
-     *
-     * @return void
      */
     public function exportDatabase(
         string $db,
@@ -731,7 +778,7 @@ class Export
 
                         $size = $this->dbi->fetchValue($query);
                         //Converting the size to MB
-                        $size = ($size / 1024) / 1024;
+                        $size = $size / 1024 / 1024;
                         if ($size > $table_size) {
                             continue;
                         }
@@ -873,6 +920,41 @@ class Export
     }
 
     /**
+     * Export raw query
+     *
+     * @param string       $whatStrucOrData whether to export structure for each table or raw
+     * @param ExportPlugin $export_plugin   the selected export plugin
+     * @param string       $crlf            end of line character(s)
+     * @param string       $err_url         the URL in case of error
+     * @param string       $sql_query       the query to be executed
+     * @param string       $export_type     the export type
+     *
+     * @return void
+     */
+    public static function exportRaw(
+        string $whatStrucOrData,
+        ExportPlugin $export_plugin,
+        string $crlf,
+        string $err_url,
+        string $sql_query,
+        string $export_type
+    ): void {
+        // In case the we need to dump just the raw query
+        if ($whatStrucOrData === 'raw') {
+            if (! $export_plugin->exportRawQuery(
+                $err_url,
+                $sql_query,
+                $crlf
+            )) {
+                $GLOBALS['message'] = Message::error(
+                    __('Exporting a raw query is not supported for this export method.')
+                );
+                return;
+            }
+        }
+    }
+
+    /**
      * Export at the table level
      *
      * @param string       $db              the database to export
@@ -891,8 +973,6 @@ class Export
      * @param string       $limit_from      starting limit
      * @param string       $sql_query       query for which exporting is requested
      * @param array        $aliases         Alias information for db/table/column
-     *
-     * @return void
      */
     public function exportTable(
         string $db,
@@ -1043,21 +1123,26 @@ class Export
      * @param string $db          the database name
      * @param string $table       the table name
      * @param string $export_type Export type
-     *
-     * @return void
      */
     public function showPage(string $db, string $table, string $export_type): void
     {
-        global $cfg;
+        global $active_page, $containerBuilder;
+
         if ($export_type == 'server') {
             $active_page = Url::getFromRoute('/server/export');
-            include_once ROOT_PATH . 'libraries/entry_points/server/export.php';
+            /** @var ServerExportController $controller */
+            $controller = $containerBuilder->get(ServerExportController::class);
+            $controller->index();
         } elseif ($export_type == 'database') {
             $active_page = Url::getFromRoute('/database/export');
-            include_once ROOT_PATH . 'libraries/entry_points/database/export.php';
+            /** @var DatabaseExportController $controller */
+            $controller = $containerBuilder->get(DatabaseExportController::class);
+            $controller->index();
         } else {
             $active_page = Url::getFromRoute('/table/export');
-            include_once ROOT_PATH . 'libraries/entry_points/table/export.php';
+            /** @var TableExportController $controller */
+            $controller = $containerBuilder->get(TableExportController::class);
+            $controller->index();
         }
         exit;
     }
@@ -1125,15 +1210,15 @@ class Export
      *
      * @return mixed result of the query
      */
-    public function lockTables(string $db, array $tables, string $lockType = "WRITE")
+    public function lockTables(string $db, array $tables, string $lockType = 'WRITE')
     {
         $locks = [];
         foreach ($tables as $table) {
-            $locks[] = Util::backquote($db) . "."
-                . Util::backquote($table) . " " . $lockType;
+            $locks[] = Util::backquote($db) . '.'
+                . Util::backquote($table) . ' ' . $lockType;
         }
 
-        $sql = "LOCK TABLES " . implode(", ", $locks);
+        $sql = 'LOCK TABLES ' . implode(', ', $locks);
         return $this->dbi->tryQuery($sql);
     }
 
@@ -1144,7 +1229,7 @@ class Export
      */
     public function unlockTables()
     {
-        return $this->dbi->tryQuery("UNLOCK TABLES");
+        return $this->dbi->tryQuery('UNLOCK TABLES');
     }
 
     /**
@@ -1190,8 +1275,6 @@ class Export
      * call and include the appropriate Schema Class depending on $export_type
      *
      * @param string|null $export_type format of the export
-     *
-     * @return void
      */
     public function processExportSchema(?string $export_type): void
     {
@@ -1208,7 +1291,7 @@ class Export
         // get the specific plugin
         /** @var SchemaPlugin $export_plugin */
         $export_plugin = Plugins::getPlugin(
-            "schema",
+            'schema',
             $export_type,
             'libraries/classes/Plugins/Schema/'
         );

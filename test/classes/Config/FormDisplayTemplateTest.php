@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for FormDisplayTemplate
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,25 +12,17 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for FormDisplayTemplate
- *
- * @package PhpMyAdmin-test
  */
 class FormDisplayTemplateTest extends TestCase
 {
-    /**
-     * @var FormDisplayTemplate
-     */
+    /** @var FormDisplayTemplate */
     protected $formDisplayTemplate;
 
-    /**
-     * @var Config
-     */
+    /** @var Config */
     protected $config;
 
     /**
      * Setup tests
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -121,7 +111,7 @@ class FormDisplayTemplateTest extends TestCase
             'e2',
         ];
 
-        $result = $this->formDisplayTemplate->displayFieldsetTop("TitleTest", "DescTest", $errors, $attributes);
+        $result = $this->formDisplayTemplate->displayFieldsetTop('TitleTest', 'DescTest', $errors, $attributes);
 
         $this->assertStringContainsString(
             '<fieldset class="optbox" name="attrname">',
@@ -165,8 +155,8 @@ class FormDisplayTemplateTest extends TestCase
         $opts['errors'] = ['e1'];
         $opts['userprefs_allow'] = false;
         $opts['setvalue'] = ':group';
-        $opts['doc'] = "https://example.com/";
-        $opts['comment'] = "testComment";
+        $opts['doc'] = 'https://example.com/';
+        $opts['comment'] = 'testComment';
         $opts['comment_warning'] = true;
         $opts['show_restore_default'] = true;
         $result = $this->formDisplayTemplate->displayInput(
@@ -211,7 +201,7 @@ class FormDisplayTemplateTest extends TestCase
         );
 
         $this->assertStringContainsString(
-            '<input type="text" class="all85" name="test/path" id="test/path" ' .
+            '<input type="text" class="w-75" name="test/path" id="test/path" ' .
             'class="custom field-error" value="val">',
             $result
         );
@@ -232,7 +222,7 @@ class FormDisplayTemplateTest extends TestCase
         $opts = [];
         $opts['errors'] = [];
         $opts['setvalue'] = 'setVal';
-        $opts['comment'] = "testComment";
+        $opts['comment'] = 'testComment';
         $opts['show_restore_default'] = true;
         $opts['userprefs_comment'] = 'userprefsComment';
         $opts['userprefs_allow'] = true;
@@ -333,7 +323,7 @@ class FormDisplayTemplateTest extends TestCase
             $opts
         );
         $this->assertStringContainsString(
-            '<select class="all85" name="test/path" id="test/path">',
+            '<select class="w-75" name="test/path" id="test/path">',
             $result
         );
 
@@ -374,7 +364,7 @@ class FormDisplayTemplateTest extends TestCase
         );
 
         $this->assertStringContainsString(
-            '<select class="all85" name="test/path" id="test/path">',
+            '<select class="w-75" name="test/path" id="test/path">',
             $result
         );
 

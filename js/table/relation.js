@@ -164,7 +164,7 @@ AJAX.registerOnload('table/relation.js', function () {
 
         // Add foreign field.
         var $sourceElem = $('select[name^="destination_foreign_column[' +
-            $(this).attr('data-index') + ']"]:last').parent();
+            $(this).attr('data-index') + ']"]').last().parent();
         $sourceElem
             .clone(true, true)
             .insertAfter($sourceElem)
@@ -190,11 +190,15 @@ AJAX.registerOnload('table/relation.js', function () {
         $newRow.find('a.add_foreign_key_field').attr('data-index', newIndex);
 
         // Update form parameter names.
-        $newRow.find('select[name^="foreign_key_fields_name"]:not(:first), ' +
-            'select[name^="destination_foreign_column"]:not(:first)'
-        ).each(function () {
-            $(this).parent().remove();
-        });
+        $newRow.find('select[name^="foreign_key_fields_name"]')
+            .not($newRow.find('select[name^="foreign_key_fields_name"]').first())
+            .find('select[name^="destination_foreign_column"]')
+            .not($newRow.find('select[name^="foreign_key_fields_name"]')
+                .not($newRow.find('select[name^="foreign_key_fields_name"]').first())
+                .find('select[name^="destination_foreign_column"]').first()
+            ).each(function () {
+                $(this).parent().remove();
+            });
         $newRow.find('input, select').each(function () {
             $(this).attr('name',
                 $(this).attr('name').replace(/\d/, newIndex)

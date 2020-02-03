@@ -1,38 +1,46 @@
 <?php
 /**
  * Functions used for database and table tracking
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Html\Generator;
+use function array_key_exists;
+use function array_merge;
+use function array_multisort;
+use function count;
+use function date;
+use function htmlspecialchars;
+use function in_array;
+use function ini_set;
+use function intval;
+use function is_array;
+use function is_object;
+use function mb_strstr;
+use function preg_replace;
+use function rtrim;
+use function sprintf;
+use function strlen;
+use function strtotime;
+use const SORT_ASC;
+
 /**
  * PhpMyAdmin\Tracking class
- *
- * @package PhpMyAdmin
  */
 class Tracking
 {
-    /**
-     * @var SqlQueryForm
-     */
+    /** @var SqlQueryForm */
     private $sqlQueryForm;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     protected $relation;
 
     /**
-     * Tracking constructor.
-     *
      * @param SqlQueryForm $sqlQueryForm SqlQueryForm instance
      * @param Template     $template     Template instance
      * @param Relation     $relation     Relation instance
@@ -113,14 +121,14 @@ class Tracking
     {
         $relation = $this->relation;
         $cfgRelation = $relation->getRelationsParam();
-        $sql_query = " SELECT * FROM " .
-            Util::backquote($cfgRelation['db']) . "." .
+        $sql_query = ' SELECT * FROM ' .
+            Util::backquote($cfgRelation['db']) . '.' .
             Util::backquote($cfgRelation['tracking']) .
             " WHERE db_name = '" . $GLOBALS['dbi']->escapeString($GLOBALS['db']) .
             "' " .
             " AND table_name = '" .
             $GLOBALS['dbi']->escapeString($GLOBALS['table']) . "' " .
-            " ORDER BY version DESC ";
+            ' ORDER BY version DESC ';
 
         return $relation->queryAsControlUser($sql_query);
     }
@@ -171,7 +179,7 @@ class Tracking
             'table' => $GLOBALS['table'],
             'selectable_tables_num_rows' => $selectableTablesNumRows,
             'selectable_tables_entries' => $selectableTablesEntries,
-            'selected_table' => isset($_POST['table']) ? $_POST['table'] : null,
+            'selected_table' => $_POST['table'] ?? null,
             'last_version' => $lastVersion,
             'versions' => $versions,
             'type' => $type,
@@ -204,12 +212,12 @@ class Tracking
         $relation = $this->relation;
         $cfgRelation = $relation->getRelationsParam();
 
-        $sql_query = " SELECT DISTINCT db_name, table_name FROM " .
-            Util::backquote($cfgRelation['db']) . "." .
+        $sql_query = ' SELECT DISTINCT db_name, table_name FROM ' .
+            Util::backquote($cfgRelation['db']) . '.' .
             Util::backquote($cfgRelation['tracking']) .
             " WHERE db_name = '" . $GLOBALS['dbi']->escapeString($GLOBALS['db']) .
             "' " .
-            " ORDER BY db_name, table_name";
+            ' ORDER BY db_name, table_name';
 
         return $relation->queryAsControlUser($sql_query);
     }
@@ -217,14 +225,14 @@ class Tracking
     /**
      * Function to get html for tracking report and tracking report export
      *
-     * @param array   $data             data
-     * @param array   $url_params       url params
-     * @param boolean $selection_schema selection schema
-     * @param boolean $selection_data   selection data
-     * @param boolean $selection_both   selection both
-     * @param int     $filter_ts_to     filter time stamp from
-     * @param int     $filter_ts_from   filter time stamp tp
-     * @param array   $filter_users     filter users
+     * @param array $data             data
+     * @param array $url_params       url params
+     * @param bool  $selection_schema selection schema
+     * @param bool  $selection_data   selection data
+     * @param bool  $selection_both   selection both
+     * @param int   $filter_ts_to     filter time stamp from
+     * @param int   $filter_ts_from   filter time stamp tp
+     * @param array $filter_users     filter users
      *
      * @return string
      */
@@ -246,7 +254,7 @@ class Tracking
             . htmlspecialchars($data['tracking']) . '</small><br>';
         $html .= '<br>';
 
-        list($str1, $str2, $str3, $str4, $str5) = $this->getHtmlForElementsOfTrackingReport(
+        [$str1, $str2, $str3, $str4, $str5] = $this->getHtmlForElementsOfTrackingReport(
             $selection_schema,
             $selection_data,
             $selection_both
@@ -255,7 +263,7 @@ class Tracking
         // Prepare delete link content here
         $drop_image_or_text = '';
         if (Util::showIcons('ActionLinksMode')) {
-            $drop_image_or_text .= Util::getImage(
+            $drop_image_or_text .= Generator::getImage(
                 'b_drop',
                 __('Delete tracking data row from report')
             );
@@ -306,9 +314,9 @@ class Tracking
     /**
      * Generate HTML element for report form
      *
-     * @param boolean $selection_schema selection schema
-     * @param boolean $selection_data   selection data
-     * @param boolean $selection_both   selection both
+     * @param bool $selection_schema selection schema
+     * @param bool $selection_data   selection data
+     * @param bool $selection_both   selection both
      *
      * @return array
      */
@@ -348,20 +356,20 @@ class Tracking
     /**
      * Generate HTML for export form
      *
-     * @param array   $data               data
-     * @param array   $url_params         url params
-     * @param boolean $selection_schema   selection schema
-     * @param boolean $selection_data     selection data
-     * @param boolean $selection_both     selection both
-     * @param int     $filter_ts_to       filter time stamp from
-     * @param int     $filter_ts_from     filter time stamp tp
-     * @param array   $filter_users       filter users
-     * @param string  $str1               HTML for logtype select
-     * @param string  $str2               HTML for "from date"
-     * @param string  $str3               HTML for "to date"
-     * @param string  $str4               HTML for user
-     * @param string  $str5               HTML for "list report"
-     * @param string  $drop_image_or_text HTML for image or text
+     * @param array  $data               data
+     * @param array  $url_params         url params
+     * @param bool   $selection_schema   selection schema
+     * @param bool   $selection_data     selection data
+     * @param bool   $selection_both     selection both
+     * @param int    $filter_ts_to       filter time stamp from
+     * @param int    $filter_ts_from     filter time stamp tp
+     * @param array  $filter_users       filter users
+     * @param string $str1               HTML for logtype select
+     * @param string $str2               HTML for "from date"
+     * @param string $str3               HTML for "to date"
+     * @param string $str4               HTML for user
+     * @param string $str5               HTML for "list report"
+     * @param string $drop_image_or_text HTML for image or text
      *
      * @return string HTML for form
      */
@@ -399,7 +407,7 @@ class Tracking
         );
 
         if ($selection_schema || $selection_both && count($data['ddlog']) > 0) {
-            list($temp, $ddlog_count) = $this->getHtmlForDataDefinitionStatements(
+            [$temp, $ddlog_count] = $this->getHtmlForDataDefinitionStatements(
                 $data,
                 $filter_users,
                 $filter_ts_from,
@@ -488,8 +496,8 @@ class Tracking
 
         $str_export2 = '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">';
 
-        $html .= "<br>" . sprintf(__('Export as %s'), $str_export1)
-            . $str_export2 . "<br>";
+        $html .= '<br>' . sprintf(__('Export as %s'), $str_export1)
+            . $str_export2 . '<br>';
         $html .= '</form>';
         return $html;
     }
@@ -517,7 +525,9 @@ class Tracking
         $drop_image_or_text
     ) {
         // no need for the secondth returned parameter
-        list($html,) = $this->getHtmlForDataStatements(
+        [
+            $html,
+        ] = $this->getHtmlForDataStatements(
             $data,
             $filter_users,
             $filter_ts_from,
@@ -553,7 +563,7 @@ class Tracking
         array $url_params,
         $drop_image_or_text
     ) {
-        list($html, $line_number) = $this->getHtmlForDataStatements(
+        [$html, $line_number] = $this->getHtmlForDataStatements(
             $data,
             $filter_users,
             $filter_ts_from,
@@ -609,7 +619,7 @@ class Tracking
                 && (in_array('*', $filterUsers)
                 || in_array($entry['username'], $filterUsers))
             ) {
-                $entry['formated_statement'] = Util::formatSql($entry['statement'], true);
+                $entry['formated_statement'] = Generator::formatSql($entry['statement'], true);
                 $deleteParam = 'delete_' . $whichLog;
                 $entry['url_params'] = Url::getCommon($urlParams + [
                     'report' => 'true',
@@ -639,8 +649,6 @@ class Tracking
      * Function to get html for schema snapshot
      *
      * @param array $params url parameters
-     *
-     * @return string
      */
     public function getHtmlForSchemaSnapshot(array $params): string
     {
@@ -662,7 +670,7 @@ class Tracking
             $drop_create_statements .= $data['ddlog'][1]['statement'];
         }
         // Print SQL code
-        $html .= Util::getMessage(
+        $html .= Generator::getMessage(
             sprintf(
                 __('Version %s snapshot (SQL code)'),
                 htmlspecialchars($_POST['version'])
@@ -796,13 +804,13 @@ class Tracking
     public function exportAsSqlDump(array $entries)
     {
         $html = '';
-        $new_query = "# "
+        $new_query = '# '
             . __(
                 'You can execute the dump by creating and using a temporary database. '
                 . 'Please ensure that you have the privileges to do so.'
             )
             . "\n"
-            . "# " . __('Comment out these two lines if you do not need them.') . "\n"
+            . '# ' . __('Comment out these two lines if you do not need them.') . "\n"
             . "\n"
             . "CREATE database IF NOT EXISTS pma_temp_db; \n"
             . "USE pma_temp_db; \n"
@@ -859,7 +867,7 @@ class Tracking
 
         // Replace all multiple whitespaces by a single space
         $table = htmlspecialchars(preg_replace('/\s+/', ' ', $_POST['table']));
-        $dump = "# " . sprintf(
+        $dump = '# ' . sprintf(
             __('Tracking report for table `%s`'),
             $table
         )
@@ -1172,7 +1180,7 @@ class Tracking
             && $GLOBALS['dbi']->numRows($allTablesResult) > 0;
         if ($headVersionExists) {
             while ($oneResult = $GLOBALS['dbi']->fetchArray($allTablesResult)) {
-                list($tableName, $versionNumber) = $oneResult;
+                [$tableName, $versionNumber] = $oneResult;
                 $tableQuery = ' SELECT * FROM ' .
                      Util::backquote($cfgRelation['db']) . '.' .
                      Util::backquote($cfgRelation['tracking']) .
@@ -1209,9 +1217,9 @@ class Tracking
     /**
      * Helper function: Recursive function for getting table names from $table_list
      *
-     * @param array   $table_list Table list
-     * @param string  $db         Current database
-     * @param boolean $testing    Testing
+     * @param array  $table_list Table list
+     * @param string $db         Current database
+     * @param bool   $testing    Testing
      *
      * @return array
      */
@@ -1233,7 +1241,6 @@ class Tracking
         }
         return $untracked_tables;
     }
-
 
     /**
      * Get untracked tables
@@ -1278,7 +1285,7 @@ class Tracking
             'version' => $versionData['version'],
         ], $params));
 
-        return Util::toggleButton(
+        return Generator::toggleButton(
             $link,
             'toggle_activation',
             $options,

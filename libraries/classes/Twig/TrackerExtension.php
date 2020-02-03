@@ -1,8 +1,6 @@
 <?php
 /**
  * hold PhpMyAdmin\Twig\TrackerExtension class
- *
- * @package PhpMyAdmin\Twig
  */
 declare(strict_types=1);
 
@@ -11,11 +9,6 @@ namespace PhpMyAdmin\Twig;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
-/**
- * Class TrackerExtension
- *
- * @package PhpMyAdmin\Twig
- */
 class TrackerExtension extends AbstractExtension
 {
     /**

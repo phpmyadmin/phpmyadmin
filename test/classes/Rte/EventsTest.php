@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Rte\Events
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -15,20 +13,14 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * This class is for testing PhpMyAdmin\Rte\Events methods
- *
- * @package PhpMyAdmin-test
  */
 class EventsTest extends TestCase
 {
-    /**
-     * @var Events
-     */
+    /** @var Events */
     private $events;
 
     /**
      * Set up
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -46,8 +38,6 @@ class EventsTest extends TestCase
 
     /**
      * Tear down
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -62,8 +52,6 @@ class EventsTest extends TestCase
      *
      * @param array $in  Input
      * @param array $out Expected output
-     *
-     * @return void
      *
      * @dataProvider providerGetDataFromRequest
      */
@@ -161,8 +149,6 @@ class EventsTest extends TestCase
      * @param array $data    Data for routine
      * @param array $matcher Matcher
      *
-     * @return void
-     *
      * @dataProvider providerGetEditorFormAdd
      */
     public function testGetEditorFormAdd($data, $matcher): void
@@ -245,10 +231,8 @@ class EventsTest extends TestCase
     /**
      * Test for getEditorForm
      *
-     * @param array $data    Data for routine
-     * @param array $matcher Matcher
-     *
-     * @return void
+     * @param array  $data    Data for routine
+     * @param string $matcher Matcher
      *
      * @dataProvider providerGetEditorFormEdit
      */
@@ -266,7 +250,7 @@ class EventsTest extends TestCase
      *
      * @return array
      */
-    public function providerGetEditorFormEdit()
+    public function providerGetEditorFormEdit(): array
     {
         $data = [
             'item_name'           => 'foo',
@@ -335,8 +319,6 @@ class EventsTest extends TestCase
      * @param array $data    Data for routine
      * @param array $matcher Matcher
      *
-     * @return void
-     *
      * @dataProvider providerGetEditorFormAjax
      */
     public function testGetEditorFormAjax($data, $matcher): void
@@ -396,8 +378,6 @@ class EventsTest extends TestCase
      * @param array  $request Request
      * @param string $query   Query
      * @param array  $num_err Error number
-     *
-     * @return void
      *
      * @dataProvider providerGetQueryFromRequest
      */

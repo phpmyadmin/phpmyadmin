@@ -1,19 +1,16 @@
 <?php
 /**
  * Classes to create relation schema in Dia format.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Dia;
 
-use PhpMyAdmin\Plugins\Schema\Dia\TableStatsDia;
 use PhpMyAdmin\Plugins\Schema\Eps\TableStatsEps;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Plugins\Schema\Pdf\TableStatsPdf;
 use PhpMyAdmin\Plugins\Schema\Svg\TableStatsSvg;
-use PhpMyAdmin\Relation;
+use function in_array;
 
 /**
  * Dia Relation Schema Class
@@ -27,14 +24,11 @@ use PhpMyAdmin\Relation;
  * inherits ExportRelationSchema class has common functionality added
  * to this class
  *
- * @package PhpMyAdmin
  * @name    Dia_Relation_Schema
  */
 class DiaRelationSchema extends ExportRelationSchema
 {
-    /**
-     * @var TableStatsDia[]|TableStatsEps[]|TableStatsPdf[]|TableStatsSvg[]
-     */
+    /** @var TableStatsDia[]|TableStatsEps[]|TableStatsPdf[]|TableStatsSvg[] */
     private $_tables = [];
     /** @var RelationStatsDia[] Relations */
     private $_relations = [];
@@ -45,14 +39,12 @@ class DiaRelationSchema extends ExportRelationSchema
     public static $objectId = 0;
 
     /**
-     * The "PhpMyAdmin\Plugins\Schema\Dia\DiaRelationSchema" constructor
-     *
      * Upon instantiation This outputs the Dia XML document
      * that user can download
      *
-     * @param string $db database name
-     *
      * @see Dia,TableStatsDia,RelationStatsDia
+     *
+     * @param string $db database name
      */
     public function __construct($db)
     {
@@ -143,6 +135,7 @@ class DiaRelationSchema extends ExportRelationSchema
      * Output Dia Document for download
      *
      * @return void
+     *
      * @access public
      */
     public function showOutput()
@@ -153,6 +146,8 @@ class DiaRelationSchema extends ExportRelationSchema
     /**
      * Defines relation objects
      *
+     * @see    TableStatsDia::__construct(),RelationStatsDia::__construct()
+     *
      * @param string $masterTable  The master table name
      * @param string $masterField  The relation field in the master table
      * @param string $foreignTable The foreign table name
@@ -162,7 +157,6 @@ class DiaRelationSchema extends ExportRelationSchema
      * @return void
      *
      * @access private
-     * @see    TableStatsDia::__construct(),RelationStatsDia::__construct()
      */
     private function _addRelation(
         $masterTable,
@@ -205,10 +199,11 @@ class DiaRelationSchema extends ExportRelationSchema
      * foreign table's foreign field using Dia object
      * type Database - Reference
      *
+     * @see    RelationStatsDia::relationDraw()
+     *
      * @return void
      *
      * @access private
-     * @see    RelationStatsDia::relationDraw()
      */
     private function _drawRelations()
     {
@@ -223,10 +218,11 @@ class DiaRelationSchema extends ExportRelationSchema
      * Tables are generated using Dia object type Database - Table
      * primary fields are underlined and bold in tables
      *
+     * @see    TableStatsDia::tableDraw()
+     *
      * @return void
      *
      * @access private
-     * @see    TableStatsDia::tableDraw()
      */
     private function _drawTables()
     {

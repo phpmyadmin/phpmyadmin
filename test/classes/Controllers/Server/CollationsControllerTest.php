@@ -1,14 +1,11 @@
 <?php
 /**
  * Holds CollationsControllerTest class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
-use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\CollationsController;
 use PhpMyAdmin\Response;
@@ -17,15 +14,11 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for CollationsController class
- *
- * @package PhpMyAdmin-test
  */
 class CollationsControllerTest extends TestCase
 {
     /**
      * Prepares environment for the test.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -39,9 +32,6 @@ class CollationsControllerTest extends TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
     }
 
-    /**
-     * @return void
-     */
     public function testIndexAction(): void
     {
         $controller = new CollationsController(

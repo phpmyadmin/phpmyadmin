@@ -1,20 +1,19 @@
 <?php
 /**
  * Verbose descriptions for settings.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;
 
 use PhpMyAdmin\Sanitize;
+use function htmlspecialchars;
+use function sprintf;
+use function str_replace;
 
 /**
  * Base class for forms, loads default configuration options, checks allowed
  * values etc.
- *
- * @package PhpMyAdmin
  */
 class Descriptions
 {

@@ -549,7 +549,7 @@ AJAX.registerOnload('normalization.js', function () {
         var argsep = CommonParams.get('arg_separator');
         var datastring = $('#newCols :input').serialize();
         datastring += argsep + 'ajax_request=1' + argsep + 'do_save_data=1' + argsep + 'field_where=last';
-        $.post('index.php?route=/table/addfield', datastring, function (data) {
+        $.post('index.php?route=/table/add-field', datastring, function (data) {
             if (data.success) {
                 $.post(
                     'index.php?route=/sql',
@@ -617,7 +617,7 @@ AJAX.registerOnload('normalization.js', function () {
         var datastring = $('#newCols :input').serialize();
         var argsep = CommonParams.get('arg_separator');
         datastring += argsep + 'field_key[0]=primary_0' + argsep + 'ajax_request=1' + argsep + 'do_save_data=1' + argsep + 'field_where=last';
-        $.post('index.php?route=/table/addfield', datastring, function (data) {
+        $.post('index.php?route=/table/add-field', datastring, function (data) {
             if (data.success === true) {
                 $('#mainContent h4').html(Messages.strPrimaryKeyAdded);
                 $('#mainContent p').html(Messages.strToNextStep);
@@ -664,7 +664,7 @@ AJAX.registerOnload('normalization.js', function () {
         });
 
         if (repeatingCols !== '') {
-            var newColName = $('#extra input[type=checkbox]:checked:first').val();
+            var newColName = $('#extra input[type=checkbox]:checked').first().val();
             repeatingCols = repeatingCols.slice(0, -2);
             var confirmStr = Functions.sprintf(Messages.strMoveRepeatingGroup, Functions.escapeHtml(repeatingCols), Functions.escapeHtml(CommonParams.get('table')));
             confirmStr += '<input type="text" name="repeatGroupTable" placeholder="' + Messages.strNewTablePlaceholder + '">' +
@@ -726,7 +726,7 @@ AJAX.registerOnload('normalization.js', function () {
             return false;
         }
         $('#newCols').insertAfter('#mainContent h4');
-        $('#newCols').html('<div class="center">' + Messages.strLoading + '<br>' + Messages.strWaitForPd + '</div>');
+        $('#newCols').html('<div class="text-center">' + Messages.strLoading + '<br>' + Messages.strWaitForPd + '</div>');
         $.post(
             'index.php?route=/normalization',
             {

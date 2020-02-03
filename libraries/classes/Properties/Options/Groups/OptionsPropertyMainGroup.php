@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -12,8 +10,6 @@ use PhpMyAdmin\Properties\Options\OptionsPropertyGroup;
 
 /**
  * Group property item class of type main
- *
- * @package PhpMyAdmin
  */
 class OptionsPropertyMainGroup extends OptionsPropertyGroup
 {
@@ -29,6 +25,6 @@ class OptionsPropertyMainGroup extends OptionsPropertyGroup
      */
     public function getItemType()
     {
-        return "main";
+        return 'main';
     }
 }

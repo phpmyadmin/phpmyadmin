@@ -1,34 +1,27 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\Server\Status\MonitorController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\SysInfo;
 use PhpMyAdmin\Template;
+use function is_numeric;
+use function microtime;
 
-/**
- * Class MonitorController
- * @package PhpMyAdmin\Controllers\Server\Status
- */
 class MonitorController extends AbstractController
 {
-    /**
-     * @var Monitor
-     */
+    /** @var Monitor */
     private $monitor;
 
     /**
-     * MonitorController constructor.
-     *
      * @param Response          $response Response object
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param Template          $template Template object
@@ -46,7 +39,7 @@ class MonitorController extends AbstractController
      */
     public function index(): string
     {
-        require_once ROOT_PATH . 'libraries/server_common.inc.php';
+        Common::server();
 
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();
@@ -87,11 +80,12 @@ class MonitorController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return array JSON
      */
     public function chartingData(array $params): array
     {
-        require_once ROOT_PATH . 'libraries/server_common.inc.php';
+        Common::server();
 
         if (! $this->response->isAjax()) {
             return [];
@@ -107,11 +101,12 @@ class MonitorController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return array JSON
      */
     public function logDataTypeSlow(array $params): array
     {
-        require_once ROOT_PATH . 'libraries/server_common.inc.php';
+        Common::server();
 
         if (! $this->response->isAjax()) {
             return [];
@@ -128,11 +123,12 @@ class MonitorController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return array JSON
      */
     public function logDataTypeGeneral(array $params): array
     {
-        require_once ROOT_PATH . 'libraries/server_common.inc.php';
+        Common::server();
 
         if (! $this->response->isAjax()) {
             return [];
@@ -151,11 +147,12 @@ class MonitorController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return array JSON
      */
     public function loggingVars(array $params): array
     {
-        require_once ROOT_PATH . 'libraries/server_common.inc.php';
+        Common::server();
 
         if (! $this->response->isAjax()) {
             return [];
@@ -172,11 +169,12 @@ class MonitorController extends AbstractController
 
     /**
      * @param array $params Request parameters
+     *
      * @return array JSON
      */
     public function queryAnalyzer(array $params): array
     {
-        require_once ROOT_PATH . 'libraries/server_common.inc.php';
+        Common::server();
 
         if (! $this->response->isAjax()) {
             return [];

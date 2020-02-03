@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for Form class in config folder
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -14,23 +12,19 @@ use PhpMyAdmin\Config\Form;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionClass;
 use ReflectionProperty;
+use function array_keys;
+use function preg_match;
 
 /**
  * Tests for PMA_Form class
- *
- * @package PhpMyAdmin-test
  */
 class FormTest extends PmaTestCase
 {
-    /**
-     * @var Form
-     */
+    /** @var Form */
     protected $object;
 
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -50,8 +44,6 @@ class FormTest extends PmaTestCase
 
     /**
      * tearDown for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -62,6 +54,7 @@ class FormTest extends PmaTestCase
      * Test for Form::__constructor
      *
      * @return void
+     *
      * @group medium
      */
     public function testContructor()
@@ -91,16 +84,16 @@ class FormTest extends PmaTestCase
         $attrFieldsTypes->setAccessible(true);
         $attrFieldsTypes->setValue(
             $this->object,
-            ["7" => "Seven"]
+            ['7' => 'Seven']
         );
 
         $this->assertNull(
-            $this->object->getOptionType("123/4/5/6")
+            $this->object->getOptionType('123/4/5/6')
         );
 
         $this->assertEquals(
-            "Seven",
-            $this->object->getOptionType("123/4/5/7")
+            'Seven',
+            $this->object->getOptionType('123/4/5/7')
         );
     }
 
@@ -116,7 +109,7 @@ class FormTest extends PmaTestCase
                 'NHibernate C# DO',
                 'NHibernate XML',
             ],
-            $this->object->getOptionValueList("Export/codegen_format")
+            $this->object->getOptionValueList('Export/codegen_format')
         );
 
         $this->assertEquals(
@@ -125,7 +118,7 @@ class FormTest extends PmaTestCase
                 '1' => 1,
                 '0' => 0,
             ],
-            $this->object->getOptionValueList("OBGzip")
+            $this->object->getOptionValueList('OBGzip')
         );
 
         $this->assertEquals(
@@ -133,9 +126,9 @@ class FormTest extends PmaTestCase
                 'none' => 'Nowhere',
                 'left' => 'Left',
                 'right' => 'Right',
-                'both' =>   "Both",
+                'both' =>   'Both',
             ],
-            $this->object->getOptionValueList("RowActionLinks")
+            $this->object->getOptionValueList('RowActionLinks')
         );
     }
 
@@ -151,8 +144,8 @@ class FormTest extends PmaTestCase
         $method->setAccessible(true);
 
         $array = [
-            "foo" => [
-                "bar" => [
+            'foo' => [
+                'bar' => [
                     'test' => 1,
                     1 => ':group:end',
                 ],
@@ -169,17 +162,17 @@ class FormTest extends PmaTestCase
         );
 
         $this->assertEquals(
-            "pma_form1",
+            'pma_form1',
             $result['pma_form1']
         );
 
         $this->assertEquals(
-            "pma_form2",
+            'pma_form2',
             $result['pma_form2']
         );
 
         $this->assertEquals(
-            "preffoo/foo/bar/test",
+            'preffoo/foo/bar/test',
             $result[0]
         );
 
@@ -203,8 +196,8 @@ class FormTest extends PmaTestCase
         $method->setAccessible(true);
 
         $array = [
-            "foo" => [
-                "bar" => [
+            'foo' => [
+                'bar' => [
                     'test' => 1,
                     1 => ':group:end',
                 ],
@@ -221,7 +214,7 @@ class FormTest extends PmaTestCase
         );
 
         $this->assertEquals(
-            "foo/bar/test",
+            'foo/bar/test',
             $result['test']
         );
 
@@ -233,15 +226,15 @@ class FormTest extends PmaTestCase
         $key = $keys[0];
 
         $this->assertRegExp(
-            "/^\:group\:end\:(\d+)$/",
+            '/^\:group\:end\:(\d+)$/',
             $key
         );
 
-        preg_match("/^\:group\:end\:(\d+)$/", $key, $matches);
+        preg_match('/^\:group\:end\:(\d+)$/', $key, $matches);
         $digit = $matches[1];
 
         $this->assertEquals(
-            "foo/bar/:group:end:" . $digit,
+            'foo/bar/:group:end:' . $digit,
             $result[':group:end:' . $digit]
         );
     }
@@ -258,10 +251,10 @@ class FormTest extends PmaTestCase
         $method->setAccessible(true);
 
         $this->object->fields = [
-            "pma_form1" => "Servers/1/port",
-            "pma_form2" => "Servers/1/auth_type",
-            ":group:end:0" => "preffoo/foo/bar/test",
-            "1" => "preffoo/foo/bar/:group:end:0",
+            'pma_form1' => 'Servers/1/port',
+            'pma_form2' => 'Servers/1/auth_type',
+            ':group:end:0' => 'preffoo/foo/bar/test',
+            '1' => 'preffoo/foo/bar/:group:end:0',
         ];
 
         $attrFieldsTypes = $reflection->getProperty('_fieldsTypes');
@@ -271,10 +264,10 @@ class FormTest extends PmaTestCase
 
         $this->assertEquals(
             [
-                "pma_form1" => "integer",
-                "pma_form2" => "select",
-                ":group:end:0" => "group",
-                "1" => "NULL",
+                'pma_form1' => 'integer',
+                'pma_form2' => 'select',
+                ':group:end:0' => 'group',
+                '1' => 'NULL',
             ],
             $attrFieldsTypes->getValue($this->object)
         );
@@ -305,5 +298,34 @@ class FormTest extends PmaTestCase
             'pmaform',
             $this->object->name
         );
+    }
+
+    /**
+     * Test for Form::cleanGroupPaths
+     *
+     * @return void
+     */
+    public function testCleanGroupPaths(): void
+    {
+        $this->object = $this->getMockBuilder(Form::class)
+            ->disableOriginalConstructor()
+            ->setMethods(['readFormPaths', 'readTypes'])
+            ->getMock();
+
+        $this->object->expects($this->exactly(1))->method('readFormPaths')->with([
+            ':group:OpenDocument-OpenOffice 試算表',
+            'group:test/data',
+            'Export/ods_columns',
+            'Export/ods_null',
+            ':group:end',
+        ]);
+
+        $this->object->loadForm('pmaform', [
+            ':group:OpenDocument/OpenOffice 試算表',
+            'group:test/data',
+            'Export/ods_columns',
+            'Export/ods_null',
+            ':group:end',
+        ]);
     }
 }

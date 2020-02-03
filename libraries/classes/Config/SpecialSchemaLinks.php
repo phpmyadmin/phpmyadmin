@@ -1,8 +1,6 @@
 <?php
 /**
  * Links configuration for MySQL system tables
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -11,10 +9,6 @@ namespace PhpMyAdmin\Config;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
-/**
- * Class SpecialSchemaLinks
- * @package PhpMyAdmin\Config
- */
 class SpecialSchemaLinks
 {
     /**

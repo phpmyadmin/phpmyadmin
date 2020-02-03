@@ -1,8 +1,6 @@
 <?php
 /**
  * Abstract class for the transformations plugins
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use stdClass;
 /**
  * Provides a common interface that will have to
  * be implemented by all of the transformations plugins.
- *
- * @package PhpMyAdmin
  */
 abstract class TransformationsPlugin implements TransformationsInterface
 {

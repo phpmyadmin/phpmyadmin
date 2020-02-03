@@ -12,7 +12,7 @@ AJAX.registerTeardown('database/tracking.js', function () {
  */
 AJAX.registerOnload('database/tracking.js', function () {
     var $versions = $('#versions');
-    $versions.find('tr:first th').append($('<div class="sorticon"></div>'));
+    $versions.find('tr').first().find('th').append($('<div class="sorticon"></div>'));
     $versions.tablesorter({
         sortList: [[1, 0]],
         headers: {
@@ -25,7 +25,7 @@ AJAX.registerOnload('database/tracking.js', function () {
     });
 
     var $noVersions = $('#noversions');
-    $noVersions.find('tr:first th').append($('<div class="sorticon"></div>'));
+    $noVersions.find('tr').first().find('th').append($('<div class="sorticon"></div>'));
     $noVersions.tablesorter({
         sortList: [[1, 0]],
         headers: {

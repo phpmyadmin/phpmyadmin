@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Core class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -11,24 +9,23 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Sanitize;
-use PhpMyAdmin\Tests\PmaTestCase;
 use stdClass;
+use function hash;
+use function htmlspecialchars;
+use function mb_strpos;
+use function ob_end_clean;
+use function ob_get_contents;
+use function ob_start;
+use function preg_quote;
+use function serialize;
 
 /**
  * Tests for PhpMyAdmin\Core class
- *
- * @package PhpMyAdmin-test
  */
 class CoreTest extends PmaTestCase
 {
-    protected $goto_whitelist = [
-        'index.php',
-    ];
-
     /**
      * Setup for test cases
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -46,14 +43,14 @@ class CoreTest extends PmaTestCase
     public function testArrayRead()
     {
         $arr = [
-            "int" => 1,
-            "str" => "str_val",
-            "arr" => [
+            'int' => 1,
+            'str' => 'str_val',
+            'arr' => [
                 'val1',
                 'val2',
                 'val3',
             ],
-            "sarr" => [
+            'sarr' => [
                 'arr1' => [
                     1,
                     2,
@@ -149,14 +146,14 @@ class CoreTest extends PmaTestCase
     public function testArrayWrite()
     {
         $arr = [
-            "int" => 1,
-            "str" => "str_val",
-            "arr" => [
+            'int' => 1,
+            'str' => 'str_val',
+            'arr' => [
                 'val1',
                 'val2',
                 'val3',
             ],
-            "sarr" => [
+            'sarr' => [
                 'arr1' => [
                     1,
                     2,
@@ -218,14 +215,14 @@ class CoreTest extends PmaTestCase
     public function testArrayRemove()
     {
         $arr = [
-            "int" => 1,
-            "str" => "str_val",
-            "arr" => [
+            'int' => 1,
+            'str' => 'str_val',
+            'arr' => [
                 'val1',
                 'val2',
                 'val3',
             ],
-            "sarr" => [
+            'sarr' => [
                 'arr1' => [
                     1,
                     2,
@@ -292,10 +289,8 @@ class CoreTest extends PmaTestCase
      *
      * @param string     $page      Page
      * @param array|null $whiteList White list
-     * @param boolean    $include   whether the page is going to be included
+     * @param bool       $include   whether the page is going to be included
      * @param int        $expected  Expected value
-     *
-     * @return void
      *
      * @dataProvider providerTestGotoNowhere
      */
@@ -326,37 +321,37 @@ class CoreTest extends PmaTestCase
             ],
             [
                 'shell.php',
-                $this->goto_whitelist,
+                ['index.php'],
                 false,
                 false,
             ],
             [
                 'shell.php',
-                $this->goto_whitelist,
+                ['index.php'],
                 true,
                 false,
             ],
             [
                 'index.php?sql.php&test=true',
-                $this->goto_whitelist,
+                ['index.php'],
                 false,
                 true,
             ],
             [
                 'index.php?sql.php&test=true',
-                $this->goto_whitelist,
+                ['index.php'],
                 true,
                 false,
             ],
             [
                 'index.php%3Fsql.php%26test%3Dtrue',
-                $this->goto_whitelist,
+                ['index.php'],
                 false,
                 true,
             ],
             [
                 'index.php%3Fsql.php%26test%3Dtrue',
-                $this->goto_whitelist,
+                ['index.php'],
                 true,
                 false,
             ],
@@ -370,8 +365,6 @@ class CoreTest extends PmaTestCase
      * @param string $request   The REQUEST_URI value
      * @param string $path_info The PATH_INFO value
      * @param string $expected  Expected result
-     *
-     * @return void
      *
      * @dataProvider providerTestPathInfo
      */
@@ -453,8 +446,8 @@ class CoreTest extends PmaTestCase
      */
     public function testFatalErrorMessage()
     {
-        $this->expectOutputRegex("/FatalError!/");
-        Core::fatalError("FatalError!");
+        $this->expectOutputRegex('/FatalError!/');
+        Core::fatalError('FatalError!');
     }
 
     /**
@@ -464,19 +457,19 @@ class CoreTest extends PmaTestCase
      */
     public function testFatalErrorMessageWithArgs()
     {
-        $message = "Fatal error #%d in file %s.";
+        $message = 'Fatal error #%d in file %s.';
         $params = [
             1,
             'error_file.php',
         ];
 
-        $this->expectOutputRegex("/Fatal error #1 in file error_file.php./");
+        $this->expectOutputRegex('/Fatal error #1 in file error_file.php./');
         Core::fatalError($message, $params);
 
-        $message = "Fatal error in file %s.";
+        $message = 'Fatal error in file %s.';
         $params = 'error_file.php';
 
-        $this->expectOutputRegex("/Fatal error in file error_file.php./");
+        $this->expectOutputRegex('/Fatal error in file error_file.php./');
         Core::fatalError($message, $params);
     }
 
@@ -485,8 +478,6 @@ class CoreTest extends PmaTestCase
      *
      * @param string $size     Size
      * @param int    $expected Expected value
-     *
-     * @return void
      *
      * @dataProvider providerTestGetRealSize
      */
@@ -550,8 +541,6 @@ class CoreTest extends PmaTestCase
      *
      * @param string $link URL where to go
      * @param string $url  Expected value
-     *
-     * @return void
      *
      * @dataProvider providerTestLinkURL
      */
@@ -659,12 +648,12 @@ class CoreTest extends PmaTestCase
     <meta http-equiv=\"expires\" content=\"0\">"
             . "\n    <meta http-equiv=\"Pragma\" content=\"no-cache\">"
             . "\n    <meta http-equiv=\"Cache-Control\" content=\"no-cache\">"
-            . "\n    <meta http-equiv=\"Refresh\" content=\"0;url=" . $testUri_html . "\">"
+            . "\n    <meta http-equiv=\"Refresh\" content=\"0;url=" . $testUri_html . '">'
             . "\n    <script type=\"text/javascript\">\n        //<![CDATA[
         setTimeout(function() { window.location = decodeURI('" . $testUri_js . "'); }, 2000);
         //]]>\n    </script>\n</head>
 <body>\n<script type=\"text/javascript\">\n    //<![CDATA[
-    document.write('<p><a href=\"" . $testUri_html . "\">" . __('Go') . "</a></p>');
+    document.write('<p><a href=\"" . $testUri_html . '">' . __('Go') . "</a></p>');
     //]]>\n</script>\n</body>\n</html>
 ";
 
@@ -732,8 +721,6 @@ class CoreTest extends PmaTestCase
      * @param string $url      URL to test
      * @param mixed  $expected Expected result
      *
-     * @return void
-     *
      * @dataProvider provideTestIsAllowedDomain
      */
     public function testIsAllowedDomain($url, $expected): void
@@ -794,8 +781,6 @@ class CoreTest extends PmaTestCase
      * @param mixed $var     Variable to check
      * @param mixed $type    Type
      * @param mixed $compare Compared value
-     *
-     * @return void
      *
      * @dataProvider providerTestNoVarType
      */
@@ -1117,14 +1102,11 @@ class CoreTest extends PmaTestCase
         $this->assertFalse(Core::isValid($var, 'identic', $compare));
     }
 
-
     /**
      * Test for Core::isValid
      *
      * @param mixed $var     Variable
      * @param mixed $compare Compare
-     *
-     * @return void
      *
      * @dataProvider provideTestSimilarType
      */
@@ -1158,7 +1140,7 @@ class CoreTest extends PmaTestCase
             ],
             [
                 'string',
-                "string",
+                'string',
             ],
             [
                 [
@@ -1204,8 +1186,6 @@ class CoreTest extends PmaTestCase
      *
      * @param string $data     Serialized data
      * @param mixed  $expected Expected result
-     *
-     * @return void
      *
      * @dataProvider provideTestSafeUnserialize
      */
@@ -1277,8 +1257,6 @@ class CoreTest extends PmaTestCase
      *
      * @param string $host     Test host name
      * @param string $expected Expected result
-     *
-     * @return void
      *
      * @dataProvider provideTestSanitizeMySQLHost
      */

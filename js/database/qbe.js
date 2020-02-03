@@ -31,7 +31,7 @@ AJAX.registerOnload('database/qbe.js', function () {
 
     $('#tblQbe').width($('#tblQbe').parent().width());
     $('#tblQbeFooters').width($('#tblQbeFooters').parent().width());
-    $('#tblQbe').resize(function () {
+    $('#tblQbe').on('resize', function () {
         var newWidthTblQbe = $('#textSqlquery').next().width();
         $('#tblQbe').width(newWidthTblQbe);
         $('#tblQbeFooters').width(newWidthTblQbe);

@@ -1,22 +1,31 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\Server\VariablesController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Util;
 use Williamdes\MariaDBMySQLKBS\KBException;
 use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
+use function header;
+use function htmlspecialchars;
+use function implode;
+use function in_array;
+use function is_numeric;
+use function mb_strtolower;
+use function pow;
+use function preg_match;
+use function str_replace;
+use function strtolower;
+use function trim;
 
 /**
  * Handles viewing and editing server variables
- *
- * @package PhpMyAdmin\Controllers
  */
 class VariablesController extends AbstractController
 {
@@ -24,12 +33,10 @@ class VariablesController extends AbstractController
      * Index action
      *
      * @param array $params Request parameters
-     *
-     * @return string
      */
     public function index(array $params): string
     {
-        include ROOT_PATH . 'libraries/server_common.inc.php';
+        Common::server();
 
         $filterValue = ! empty($params['filter']) ? $params['filter'] : '';
 
@@ -54,15 +61,17 @@ class VariablesController extends AbstractController
             foreach ($serverVars as $name => $value) {
                 $hasSessionValue = isset($serverVarsSession[$name])
                     && $serverVarsSession[$name] !== $value;
-                $docLink = Util::linkToVarDocumentation(
+                $docLink = Generator::linkToVarDocumentation(
                     $name,
                     $this->dbi->isMariaDB(),
                     str_replace('_', '&nbsp;', $name)
                 );
 
-                list($formattedValue, $isEscaped) = $this->formatVariable($name, $value);
+                [$formattedValue, $isEscaped] = $this->formatVariable($name, $value);
                 if ($hasSessionValue) {
-                    list($sessionFormattedValue, ) = $this->formatVariable(
+                    [
+                        $sessionFormattedValue,
+                    ] = $this->formatVariable(
                         $name,
                         $serverVarsSession[$name]
                     );
@@ -120,7 +129,7 @@ class VariablesController extends AbstractController
                     Util::formatByteDown($varValue[1], 3, 3)
                 );
             } else {
-                throw new KBException("Not a type=byte");
+                throw new KBException('Not a type=byte');
             }
         } catch (KBException $e) {
             $json['message'] = $varValue[1];
@@ -164,7 +173,7 @@ class VariablesController extends AbstractController
                     $exp[mb_strtolower($matches[3])]
                 );
             } else {
-                throw new KBException("Not a type=byte or regex not matching");
+                throw new KBException('Not a type=byte or regex not matching');
             }
         } catch (KBException $e) {
             $value = $this->dbi->escapeString($value);
@@ -175,7 +184,7 @@ class VariablesController extends AbstractController
         }
 
         $json = [];
-        if (! preg_match("/[^a-zA-Z0-9_]+/", $params['varName'])
+        if (! preg_match('/[^a-zA-Z0-9_]+/', $params['varName'])
             && $this->dbi->query(
                 'SET GLOBAL ' . $params['varName'] . ' = ' . $value
             )
@@ -187,7 +196,7 @@ class VariablesController extends AbstractController
                 . '";',
                 'NUM'
             );
-            list($formattedValue, $isHtmlFormatted) = $this->formatVariable(
+            [$formattedValue, $isHtmlFormatted] = $this->formatVariable(
                 $params['varName'],
                 $varValue[1]
             );
@@ -208,8 +217,8 @@ class VariablesController extends AbstractController
     /**
      * Format Variable
      *
-     * @param string  $name  variable name
-     * @param integer $value variable value
+     * @param string $name  variable name
+     * @param int    $value variable value
      *
      * @return array formatted string and bool if string is HTML formatted
      */
@@ -233,7 +242,7 @@ class VariablesController extends AbstractController
                         )
                     );
                 } else {
-                    throw new KBException("Not a type=byte or regex not matching");
+                    throw new KBException('Not a type=byte or regex not matching');
                 }
             } catch (KBException $e) {
                 $formattedValue = Util::formatNumber($value, 0);

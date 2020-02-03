@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for sysinfo library
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * tests for sysinfo library
- *
- * @package PhpMyAdmin-test
  */
 class SysInfoTest extends TestCase
 {
@@ -23,8 +19,6 @@ class SysInfoTest extends TestCase
      *
      * @param string $os       OS name as returned by PHP_OS
      * @param string $expected Expected detected OS name
-     *
-     * @return void
      *
      * @dataProvider sysInfoOsProvider
      */

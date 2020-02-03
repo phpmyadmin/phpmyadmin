@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\Plugins\Auth\AuthenticationHttp class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -11,23 +9,20 @@ namespace PhpMyAdmin\Tests\Plugins\Auth;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Plugins\Auth\AuthenticationHttp;
 use PhpMyAdmin\Tests\PmaTestCase;
+use function base64_encode;
+use function ob_get_clean;
+use function ob_start;
 
 /**
  * tests for PhpMyAdmin\Plugins\Auth\AuthenticationHttp class
- *
- * @package PhpMyAdmin-test
  */
 class AuthenticationHttpTest extends PmaTestCase
 {
-    /**
-     * @var AuthenticationHttp
-     */
+    /** @var AuthenticationHttp */
     protected $object;
 
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -38,8 +33,8 @@ class AuthenticationHttpTest extends PmaTestCase
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
-        $GLOBALS['lang'] = "en";
-        $GLOBALS['text_dir'] = "ltr";
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['token_provided'] = true;
         $GLOBALS['token_mismatch'] = false;
         $this->object = new AuthenticationHttp();
@@ -47,8 +42,6 @@ class AuthenticationHttpTest extends PmaTestCase
 
     /**
      * tearDown for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -135,7 +128,6 @@ class AuthenticationHttpTest extends PmaTestCase
      */
     public function testAuthLogoutUrl()
     {
-
         $_REQUEST['old_usr'] = '1';
         $GLOBALS['cfg']['Server']['LogoutURL'] = 'https://example.com/logout';
 
@@ -214,6 +206,7 @@ class AuthenticationHttpTest extends PmaTestCase
      * @param string $old_usr        value for $_REQUEST['old_usr']
      *
      * @return void
+     *
      * @dataProvider readCredentialsProvider
      */
     public function testAuthCheck(
@@ -420,7 +413,6 @@ class AuthenticationHttpTest extends PmaTestCase
      */
     public function testAuthFails()
     {
-
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();

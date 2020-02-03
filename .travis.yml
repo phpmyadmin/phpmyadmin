@@ -49,12 +49,12 @@ jobs:
   allow_failures:
     - php: nightly
     - os: osx
-    - name: "PHP 7.1 with dbase extension"
-    - name: "PHP 7.4"
+    - name: "PHPUnit tests in random order"
 
   include:
     - stage: "Lint and analyse code"
       name: "Lint files"
+      before_install: phpenv config-rm xdebug.ini
       before_script: skip
       after_script: skip
       after_success: skip
@@ -66,6 +66,7 @@ jobs:
 
     - stage: "Lint and analyse code"
       name: "Run phpstan"
+      before_install: phpenv config-rm xdebug.ini
       before_script: skip
       after_script: skip
       after_success: skip
@@ -87,9 +88,10 @@ jobs:
       env: CI_MODE=test
 
     - stage: "PHP Unit tests"
-      php: 7.4snapshot
+      php: 7.4
       name: "PHP 7.4"
       env: CI_MODE=test
+      before_install: phpenv config-rm xdebug.ini
 
     - stage: "PHP Unit tests"
       php: nightly
@@ -107,9 +109,12 @@ jobs:
       node_js: 10
       before_install:
         - brew link --force gettext
-        - echo "memory_limit=-1" > /usr/local/etc/php/7.3/conf.d/50-travis.ini
-        - echo "pcre.jit=0" >> /usr/local/etc/php/7.3/conf.d/50-travis.ini
+        - echo "memory_limit=-1" > /usr/local/etc/php/7.4/conf.d/50-travis.ini
+        - echo "pcre.jit=0" >> /usr/local/etc/php/7.4/conf.d/50-travis.ini
         - mysql.server start
+        - sleep 5
+        # Enable password access
+        - mysql -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('');"
       addons:
         homebrew:
           packages:
@@ -128,10 +133,10 @@ jobs:
         - YARN_GPG=no
       before_install:
         - choco install php composer mariadb
-        - export PATH=/c/tools/php73:/c/ProgramData/ComposerSetup/bin:/c/"Program Files"/"MariaDB 10.4"/bin:$PATH
+        - export PATH=/c/tools/php74:/c/ProgramData/ComposerSetup/bin:/c/"Program Files"/"MariaDB 10.4"/bin:$PATH
         - PHP_EXTENSIONS="mysqli curl bz2 gd2 pdo_mysql"
-        - for php_ext in $PHP_EXTENSIONS ; do sed -i -e "s/^;extension=${php_ext}/extension=${php_ext}/" /c/tools/php73/php.ini ; done
-        - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /c/tools/php73/php.ini
+        - for php_ext in $PHP_EXTENSIONS ; do sed -i -e "s/^;extension=${php_ext}/extension=${php_ext}/" /c/tools/php74/php.ini ; done
+        - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /c/tools/php74/php.ini
         - find . -type f -name "*.php" -print0 | xargs -0 sed -i ':a;N;$!ba;s/\r//g'
 
     - stage: "PHP Unit tests"
@@ -140,9 +145,18 @@ jobs:
       env: CI_MODE=test
       install:
         - pecl channel-update pecl.php.net
-        - pecl install dbase-7.0.0beta1
+        - pecl install dbase
+        - php -m |grep -F 'dbase'
         - composer install --no-interaction
         - yarn install --non-interactive
+
+    - stage: "PHP Unit tests"
+      php: 7.4
+      name: "PHPUnit tests in random order"
+      env: CI_MODE=test
+      script:
+        - scripts/generate-mo --quiet
+        - vendor/bin/phpunit --configuration phpunit.xml.dist --exclude-group selenium --order-by=random --stop-on-failure
 
     - stage: "Documentation"
       name: "Build docs"
@@ -156,6 +170,7 @@ jobs:
 
     - stage: "Documentation"
       name: "Build API docs"
+      before_install: phpenv config-rm xdebug.ini
       before_script: skip
       after_script: skip
       after_success: skip
@@ -179,6 +194,7 @@ jobs:
         - TESTSUITE_SELENIUM_BROWSER=chrome
         - TESTSUITE_USER=root
         - TESTSUITE_URL=http://127.0.0.1:8000
+      before_install: phpenv config-rm xdebug.ini
       install:
         - ./test/install-browserstack
         - composer install --no-interaction

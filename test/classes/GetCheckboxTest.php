@@ -2,7 +2,6 @@
 /**
  * * Test for checkbox.phtml
  *
- * @package PhpMyAdmin-test
  * @group common.lib-tests
  */
 declare(strict_types=1);
@@ -15,20 +14,15 @@ use PHPUnit\Framework\TestCase;
 /**
  * * Test for checkbox.phtml
  *
- * @package PhpMyAdmin-test
  * @group common.lib-tests
  */
 class GetCheckboxTest extends TestCase
 {
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
     /**
      * Sets up the fixture
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -42,8 +36,8 @@ class GetCheckboxTest extends TestCase
      */
     public function testGetCheckbox()
     {
-        $name = "test_display_html_checkbox";
-        $label = "text_label_for_checkbox";
+        $name = 'test_display_html_checkbox';
+        $label = 'text_label_for_checkbox';
 
         $this->assertSame(
             $this->template->render('checkbox', [
@@ -66,8 +60,8 @@ class GetCheckboxTest extends TestCase
      */
     public function testGetCheckboxChecked()
     {
-        $name = "test_display_html_checkbox";
-        $label = "text_label_for_checkbox";
+        $name = 'test_display_html_checkbox';
+        $label = 'text_label_for_checkbox';
 
         $this->assertSame(
             $this->template->render('checkbox', [
@@ -90,8 +84,8 @@ class GetCheckboxTest extends TestCase
      */
     public function testGetCheckboxOnclick()
     {
-        $name = "test_display_html_checkbox";
-        $label = "text_label_for_checkbox";
+        $name = 'test_display_html_checkbox';
+        $label = 'text_label_for_checkbox';
 
         $this->assertSame(
             $this->template->render('checkbox', [
@@ -114,8 +108,8 @@ class GetCheckboxTest extends TestCase
      */
     public function testGetCheckboxCheckedOnclick()
     {
-        $name = "test_display_html_checkbox";
-        $label = "text_label_for_checkbox";
+        $name = 'test_display_html_checkbox';
+        $label = 'text_label_for_checkbox';
 
         $this->assertSame(
             $this->template->render('checkbox', [

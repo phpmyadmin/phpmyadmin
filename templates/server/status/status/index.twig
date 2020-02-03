@@ -7,7 +7,7 @@
   <div class="row"><p>{{ 'This MySQL server has been running for %1$s. It started up on %2$s.'|trans|format(uptime, start_time) }}</p></div>
 
 <div class="row justify-content-between">
-  <table id="serverstatustraffic" class="width100 data noclick col-12 col-md-5">
+  <table id="serverstatustraffic" class="w-100 data noclick col-12 col-md-5">
     <thead>
       <tr>
         <th>
@@ -30,7 +30,7 @@
     </tbody>
   </table>
 
-  <table id="serverstatusconnections" class="width100 data noclick col-12 col-md-6">
+  <table id="serverstatusconnections" class="w-100 data noclick col-12 col-md-6">
     <thead>
       <tr>
         <th>{% trans 'Connections' %}</th>
@@ -54,7 +54,7 @@
 </div>
 
   {% if is_master or is_slave %}
-    <p class="notice clearfloat">
+    <p class="alert alert-primary clearfloat" role="alert">
       {% if is_master and is_slave %}
         {% trans 'This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</b> process.' %}
       {% elseif is_master %}

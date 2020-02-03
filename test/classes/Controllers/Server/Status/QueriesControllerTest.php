@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds QueriesControllerTest
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -16,21 +14,14 @@ use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
+use function array_sum;
+use function htmlspecialchars;
 
-/**
- * Class QueriesControllerTest
- * @package PhpMyAdmin\Tests\Controllers\Server\Status
- */
 class QueriesControllerTest extends TestCase
 {
-    /**
-     * @var Data
-     */
+    /** @var Data */
     private $data;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
@@ -81,7 +72,7 @@ class QueriesControllerTest extends TestCase
             ],
             [
                 "SELECT concat('Com_', variable_name), variable_value "
-                . "FROM data_dictionary.GLOBAL_STATEMENTS",
+                . 'FROM data_dictionary.GLOBAL_STATEMENTS',
                 0,
                 1,
                 DatabaseInterface::CONNECT_USER,
@@ -111,9 +102,6 @@ class QueriesControllerTest extends TestCase
         ];
     }
 
-    /**
-     * @return void
-     */
     public function testIndex(): void
     {
         $controller = new QueriesController(
@@ -198,7 +186,7 @@ class QueriesControllerTest extends TestCase
         );
 
         $this->assertStringContainsString(
-            '<div id="serverstatusquerieschart" class="width100 col-12 col-md-6" data-chart="',
+            '<div id="serverstatusquerieschart" class="w-100 col-12 col-md-6" data-chart="',
             $html
         );
     }

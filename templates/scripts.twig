@@ -13,8 +13,10 @@ AJAX.scriptHandler
 {% endfor %}
 ;
 $(function() {
-{% for file in files if file.has_onload %}
+{% for file in files %}
+  {% if file.has_onload %}
   AJAX.fireOnload('{{ file.filename|escape_js_string }}');
+  {% endif %}
 {% endfor %}
 });
 {% endif %}

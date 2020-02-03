@@ -1,37 +1,9 @@
-body {
-  font-family: $font-family;
-  padding: 0;
-  margin: 0;
-  margin-#{$left}: $navi-width;
-  color: $main-color;
-  background: $main-background;
-}
-
 #page_content {
   margin: 0 0.5em;
 }
 
-.desktop50 {
-  width: 50%;
-}
-
-.all100 {
-  width: 100%;
-}
-
-.all85 {
-  width: 85%;
-}
-
 .auth_config_tbl {
   margin: 0 auto;
-}
-
-textarea,
-tt,
-pre,
-code {
-  font-family: $font-family-fixed;
 }
 
 h2 {
@@ -158,8 +130,8 @@ a img {
 }
 
 hr {
-  color: $main-color;
-  background-color: $main-color;
+  color: $body-color;
+  background-color: $body-color;
   border: 0;
   height: 1px;
 }
@@ -373,7 +345,7 @@ fieldset {
     -webkit-box-shadow: 3px 3px 15px #bbb;
     box-shadow: 3px 3px 15px #bbb;
     width: initial;
-    font-size: 1rem;
+    font-size: 1em;
   }
 }
 
@@ -453,10 +425,6 @@ select {
   float: $right;
 }
 
-.center {
-  text-align: center;
-}
-
 .displayblock {
   display: block;
 }
@@ -477,11 +445,6 @@ table {
 th.left,
 td.left {
   text-align: $left;
-}
-
-th.center,
-td.center {
-  text-align: center;
 }
 
 th.right,
@@ -692,7 +655,7 @@ table {
 }
 
 .value {
-  font-family: $font-family-fixed;
+  font-family: $font-family-monospace;
 }
 
 .attention {
@@ -759,97 +722,6 @@ td .icon {
 #pma_footer {
   position: relative;
   padding: 0 0.5em;
-}
-
-.success h1,
-.notice h1 {
-  border-bottom: 2px solid;
-  font-weight: bold;
-  text-align: $left;
-  margin: 0 0 0.2em 0;
-}
-
-div {
-  &.error h1 {
-    border-bottom: 2px solid;
-    font-weight: bold;
-    text-align: $left;
-    margin: 0 0 0.2em 0;
-  }
-
-  &.success,
-  &.notice,
-  &.error {
-    margin: 0.5em 0 0.5em;
-    border: 1px solid;
-    background-repeat: no-repeat;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    -moz-box-shadow: 0 1px 1px #fff inset;
-    -webkit-box-shadow: 0 1px 1px #fff inset;
-    box-shadow: 0 1px 1px #fff inset;
-
-    @if $direction == rtl {
-      background-position: 99% 50%;
-      padding: 10px 35px 10px 10px;
-    } @else {
-      background-position: 10px 50%;
-      padding: 10px 10px 10px 10px;
-    }
-  }
-}
-
-.success a,
-.notice a,
-.error a {
-  text-decoration: underline;
-}
-
-.success {
-  color: #000;
-  background-color: #ebf8a4;
-}
-
-h1.success,
-div.success {
-  border-color: #a2d246;
-}
-
-.success h1 {
-  border-color: #0f0;
-}
-
-.notice {
-  color: #000;
-  background-color: #e8eef1;
-}
-
-h1.notice,
-div.notice {
-  border-color: #3a6c7e;
-}
-
-.notice h1 {
-  border-color: #ffb10a;
-}
-
-.error {
-  border: 1px solid maroon !important;
-  color: #000;
-  background: pink;
-}
-
-h1.error {
-  border-color: #333;
-}
-
-div.error {
-  border-color: #333;
-
-  h1 {
-    border-color: #f00;
-  }
 }
 
 .confirmation {
@@ -1062,25 +934,7 @@ li.last.database {
   margin-bottom: 15px;
 }
 
-/* specific elements */
-
-#topmenu {
-  margin-top: 0.5em;
-  padding: 0.1em 0.3em;
-
-  a {
-    text-shadow: 0 1px 0 #fff;
-  }
-
-  .error {
-    background: #eee;
-    border: 0 !important;
-    color: #aaa;
-  }
-}
-
 ul {
-  &#topmenu,
   &#topmenu2,
   &.tabs {
     font-weight: bold;
@@ -1095,7 +949,6 @@ ul {
     clear: both;
   }
 
-  &#topmenu li,
   &#topmenu2 li {
     float: left;
     margin: 0;
@@ -1103,19 +956,9 @@ ul {
   }
 }
 
-#topmenu img,
 #topmenu2 img {
   margin-#{$right}: 0.5em;
   vertical-align: -3px;
-}
-
-.menucontainer {
-  background: linear-gradient(#fff, #dcdcdc);
-  border-top: 1px solid #aaa;
-}
-
-.scrollindicator {
-  display: none;
 }
 
 // default tab styles
@@ -1156,64 +999,6 @@ fieldset.caution a {
 }
 
 ul {
-  &#topmenu {
-    ul {
-      @if $direction == rtl {
-        -moz-box-shadow: -1px 1px 6px #ddd;
-        -webkit-box-shadow: -2px 2px 3px #666;
-        box-shadow: -2px 2px 3px #666;
-      } @else {
-        -moz-box-shadow: 1px 1px 6px #ddd;
-        -webkit-box-shadow: 2px 2px 3px #666;
-        box-shadow: 2px 2px 3px #666;
-      }
-
-      &.only {
-        #{$left}: 0;
-      }
-    }
-
-    > li {
-      border-#{$right}: 1px solid #fff;
-      border-#{$left}: 1px solid #ccc;
-      border-bottom: 1px solid #ccc;
-
-      &:first-child {
-        border-#{$left}: 0;
-      }
-    }
-
-    a,
-    span {
-      padding: 0.6em;
-    }
-
-    ul {
-      a {
-        border-width: 1pt 0 0 0;
-        -moz-border-radius: 0;
-        -webkit-border-radius: 0;
-        border-radius: 0;
-      }
-
-      li:first-child a {
-        border-width: 0;
-      }
-
-      a:hover,
-      .tabactive {
-        text-decoration: none;
-      }
-    }
-
-    > li > {
-      a:hover,
-      .tabactive {
-        text-decoration: none;
-      }
-    }
-  }
-
   &#topmenu2 a {
     &.tab:hover,
     &.tabactive {
@@ -1224,14 +1009,7 @@ ul {
       text-decoration: none;
     }
   }
-
-  // to be able to cancel the bottom border, use <li class="active">
-  &#topmenu > li.active {
-    border-#{$right}: 0;
-    border-bottom-color: #fff;
-  }
 }
-// end topmenu
 
 // zoom search
 div#dataDisplay {
@@ -1310,44 +1088,15 @@ div#tablestatistics table {
   width: 100%;
 }
 
-#serverinfo {
-  background: #888;
-  padding: 0.3em 0.9em;
-  padding-#{$left}: 2.2em;
-  text-shadow: 0 1px 0 #000;
-  max-width: 100%;
-  max-height: 16px;
-  overflow: hidden;
-  box-sizing: content-box;
-
-  .item {
-    white-space: nowrap;
-    color: #fff;
-  }
-
-  img {
-    margin: 0 0.1em 0;
-    margin-#{$left}: 0.2em;
-  }
-}
-
 #page_nav_icons {
   position: fixed;
   top: 0;
   #{$right}: 0;
   z-index: 99;
-  padding: 0.25em 0;
-}
-
-#goto_pagetop,
-#lock_page_icon {
-  padding: 0.25em;
-  background: #888;
+  padding: $breadcrumb-padding-y $breadcrumb-padding-x;
 }
 
 #page_settings_icon {
-  padding: 0.25em;
-  background: #888;
   cursor: pointer;
   display: none;
 }
@@ -1355,15 +1104,6 @@ div#tablestatistics table {
 #page_settings_modal,
 #pma_navigation_settings {
   display: none;
-}
-
-#span_table_comment {
-  font-weight: bold;
-  font-style: italic;
-  white-space: nowrap;
-  margin-#{$left}: 10px;
-  color: #d6d6d6;
-  text-shadow: none;
 }
 
 #textSQLDUMP {
@@ -1713,34 +1453,6 @@ div {
 
 // end server variables
 
-p.notice {
-  margin: 1.5em 0;
-  border: 1px solid #000;
-  background-repeat: no-repeat;
-
-  @if $direction == rtl {
-    background-position: 99% 50%;
-    padding: 25px 10px 10px 10px;
-  } @else {
-    background-position: 10px 50%;
-    padding: 10px 10px 10px 25px;
-  }
-
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  -moz-box-shadow: 0 1px 2px #fff inset;
-  -webkit-box-shadow: 0 1px 2px #fff inset;
-  box-shadow: 0 1px 2px #fff inset;
-  background-color: #555;
-  color: #d4fb6a;
-
-  a {
-    color: #fff;
-    text-decoration: underline;
-  }
-}
-
 // profiling
 
 div#profilingchart {
@@ -2015,15 +1727,6 @@ div.sqlvalidate {
     background: $bg-one;
     text-align: $left;
   }
-
-  .success,
-  .error {
-    margin-bottom: 0;
-    border-bottom: none !important;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    padding-bottom: 5px;
-  }
 }
 
 #PMA_slidingMessage code.sql,
@@ -2061,7 +1764,7 @@ div {
     width: 202px;
     position: relative;
     margin: 0 auto 1em;
-    color: $main-color;
+    color: $body-color;
 
     div.percentage {
       position: absolute;
@@ -2511,7 +2214,7 @@ table#index_columns {
       border: 0 #c83838 solid;
       border-width: 1px 0;
       list-style: none;
-      font-family: $font-family;
+      font-family: $font-family-base;
       font-size: small;
     }
 
@@ -2551,7 +2254,7 @@ table#index_columns {
       small {
         display: block;
         font-weight: normal;
-        font-family: $font-family;
+        font-family: $font-family-base;
         font-size: x-small;
         color: #444;
       }
@@ -2812,6 +2515,9 @@ input#auto_increment_opt {
 }
 
 #table_columns {
+  display: block;
+  overflow: auto;
+
   input {
     &[type=text],
     &[type=password],
@@ -2964,6 +2670,7 @@ input#auto_increment_opt {
 .tooltip {
   background: #333 !important;
   opacity: 0.8 !important;
+  z-index: 9999;
   border: 1px solid #000 !important;
   -moz-border-radius: 0.3em !important;
   -webkit-border-radius: 0.3em !important;
@@ -3089,7 +2796,7 @@ input#auto_increment_opt {
   }
 
   .btn-link {
-    color: $main-color;
+    color: $body-color;
 
     &:hover {
       color: #fff;
@@ -3272,7 +2979,6 @@ div#page_content div {
     }
   }
 
-  &.notice,
   &.result_query {
     margin-top: 1em;
   }
@@ -4075,23 +3781,9 @@ body .ui-dialog {
 
 @media only screen and (max-width: 768px) {
   ul {
-    &#topmenu,
     &.tabs {
       display: flex;
     }
-  }
-
-  .navigationbar {
-    display: inline-flex;
-    margin: 0 !important;
-    border-radius: 0 !important;
-    overflow: auto;
-  }
-
-  .scrollindicator {
-    padding: 5px;
-    cursor: pointer;
-    display: inline;
   }
 
   .responsivetable {
@@ -4104,11 +3796,6 @@ body .ui-dialog {
 
   .largescreenonly {
     display: none;
-  }
-
-  .width100,
-  .desktop50 {
-    width: 100%;
   }
 
   .width96 {

@@ -161,7 +161,7 @@ AJAX.registerOnload('table/operations.js', function () {
             } else if (typeof data !== 'undefined' && data.success === true) {
                 $tempDiv = $('<div id=\'temp_div\'></div>');
                 $tempDiv.html(data.message);
-                var $success = $tempDiv.find('.result_query .success');
+                var $success = $tempDiv.find('.result_query .alert-success');
                 Functions.ajaxShowMessage($success);
                 $('<div class=\'sqlqueryresults ajax\'></div>').prependTo('#page_content');
                 $('.sqlqueryresults').html(data.message);

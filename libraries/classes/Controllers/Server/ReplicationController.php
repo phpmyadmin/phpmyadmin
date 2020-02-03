@@ -1,21 +1,22 @@
 <?php
 /**
  * Server replications
- * @package PhpMyAdmin\Controllers\Server
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ReplicationGui;
+use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+use function is_array;
 
 /**
  * Server replications
- * @package PhpMyAdmin\Controllers\Server
  */
 class ReplicationController extends AbstractController
 {
@@ -36,15 +37,13 @@ class ReplicationController extends AbstractController
 
     /**
      * @param array $params Request parameters
-     *
-     * @return string
      */
     public function index(array $params): string
     {
         global $replication_info, $server_slave_replication, $url_params;
 
-        require_once ROOT_PATH . 'libraries/server_common.inc.php';
-        require_once ROOT_PATH . 'libraries/replication.inc.php';
+        Common::server();
+        ReplicationInfo::load();
 
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();

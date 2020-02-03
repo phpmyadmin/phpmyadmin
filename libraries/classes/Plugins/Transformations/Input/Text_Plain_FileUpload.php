@@ -1,9 +1,6 @@
 <?php
 /**
  * Text Plain File Upload Input Transformations plugin for phpMyAdmin
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage TextFileUpload
  */
 declare(strict_types=1);
 
@@ -13,9 +10,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\TextFileUploadTransformationsPlugin;
 
 /**
  * Handles the input text file upload transformation for text plain.
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage TextFileUpload
  */
 // @codingStandardsIgnoreLine
 class Text_Plain_FileUpload extends TextFileUploadTransformationsPlugin
@@ -27,7 +21,7 @@ class Text_Plain_FileUpload extends TextFileUploadTransformationsPlugin
      */
     public static function getMIMEType()
     {
-        return "Text";
+        return 'Text';
     }
 
     /**
@@ -37,6 +31,6 @@ class Text_Plain_FileUpload extends TextFileUploadTransformationsPlugin
      */
     public static function getMIMESubtype()
     {
-        return "Plain";
+        return 'Plain';
     }
 }

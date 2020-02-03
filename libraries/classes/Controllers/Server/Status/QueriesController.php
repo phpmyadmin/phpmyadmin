@@ -1,17 +1,17 @@
 <?php
 /**
  * Displays query statistics for the server
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;
 
-/**
- * Class QueriesController
- * @package PhpMyAdmin\Controllers\Server\Status
- */
+use PhpMyAdmin\Common;
+use function array_sum;
+use function arsort;
+use function count;
+use function str_replace;
+
 class QueriesController extends AbstractController
 {
     /**
@@ -19,7 +19,7 @@ class QueriesController extends AbstractController
      */
     public function index(): string
     {
-        require_once ROOT_PATH . 'libraries/server_common.inc.php';
+        Common::server();
 
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();

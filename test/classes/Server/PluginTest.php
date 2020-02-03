@@ -1,7 +1,4 @@
 <?php
-/**
- * @package PhpMyAdmin\Tests\Server
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Server;
@@ -9,14 +6,8 @@ namespace PhpMyAdmin\Tests\Server;
 use PhpMyAdmin\Server\Plugin;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @package PhpMyAdmin\Tests\Server
- */
 class PluginTest extends TestCase
 {
-    /**
-     * @return Plugin
-     */
     public function testFromState(): Plugin
     {
         $plugin = Plugin::fromState([
@@ -58,8 +49,6 @@ class PluginTest extends TestCase
 
     /**
      * @param Plugin $plugin Plugin object to be tested
-     *
-     * @return void
      *
      * @depends testFromState
      */

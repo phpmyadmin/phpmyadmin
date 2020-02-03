@@ -1,9 +1,6 @@
 <?php
 /**
  * Text Plain Image Link Transformations plugin for phpMyAdmin
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage ImageLink
  */
 declare(strict_types=1);
 
@@ -13,9 +10,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\TextImageLinkTransformationsPlugin;
 
 /**
  * Handles the image link transformation for text plain
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage ImageLink
  */
 // @codingStandardsIgnoreLine
 class Text_Plain_Imagelink extends TextImageLinkTransformationsPlugin
@@ -27,7 +21,7 @@ class Text_Plain_Imagelink extends TextImageLinkTransformationsPlugin
      */
     public static function getMIMEType()
     {
-        return "Text";
+        return 'Text';
     }
 
     /**
@@ -37,6 +31,6 @@ class Text_Plain_Imagelink extends TextImageLinkTransformationsPlugin
      */
     public static function getMIMESubtype()
     {
-        return "Plain";
+        return 'Plain';
     }
 }

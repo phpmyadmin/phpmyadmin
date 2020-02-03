@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\Setup\HomeController
- *
- * @package PhpMyAdmin\Controllers\Setup
  */
 declare(strict_types=1);
 
@@ -15,15 +13,14 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Setup\Index;
+use function preg_replace;
+use function uniqid;
 
-/**
- * Class HomeController
- * @package PhpMyAdmin\Controllers\Setup
- */
 class HomeController extends AbstractController
 {
     /**
      * @param array $params Request parameters
+     *
      * @return string HTML
      */
     public function index(array $params): string
@@ -137,7 +134,7 @@ class HomeController extends AbstractController
                 $servers[$id] = [
                     'id' => $id,
                     'name' => $this->config->getServerName($id),
-                    'auth_type' => $this->config->getValue("Servers/$id/auth_type"),
+                    'auth_type' => $this->config->getValue('Servers/' . $id . '/auth_type'),
                     'dsn' => $this->config->getServerDSN($id),
                     'params' => [
                         'token' => $_SESSION[' PMA_token '],
@@ -153,7 +150,7 @@ class HomeController extends AbstractController
                         ],
                     ],
                 ];
-                $serverDefaultOptions['values'][(string) $id] = $this->config->getServerName($id) . " [$id]";
+                $serverDefaultOptions['values'][(string) $id] = $this->config->getServerName($id) . ' [' . $id . ']';
             }
         } else {
             $serverDefaultOptions['values']['1'] = __('- none -');

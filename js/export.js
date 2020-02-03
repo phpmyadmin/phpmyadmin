@@ -311,7 +311,7 @@ AJAX.registerOnload('export.js', function () {
     });
 
     // When MS Excel is selected as the Format automatically Switch to Character Set as windows-1252
-    $('#plugins').change(function () {
+    $('#plugins').on('change', function () {
         var selectedPluginName = $('#plugins').find('option:selected').val();
         if (selectedPluginName === 'excel') {
             $('#select_charset').val('windows-1252');
@@ -736,7 +736,7 @@ Export.checkTimeOut = function (timeLimit) {
         $.get('index.php?route=/export', params, function (data) {
             if (data.message === 'timeout') {
                 Functions.ajaxShowMessage(
-                    '<div class="error">' +
+                    '<div class="alert alert-danger" role="alert">' +
                     Messages.strTimeOutError +
                     '</div>',
                     false
@@ -863,7 +863,7 @@ Export.addAlias = function (type, name, field, value) {
 
     var row = $('#alias_data tfoot tr').clone();
     row.find('th').text(type);
-    row.find('td:first').text(name);
+    row.find('td').first().text(name);
     row.find('input').attr('name', field);
     row.find('input').val(value);
     row.find('.alias_remove').on('click', function () {

@@ -2,19 +2,30 @@
 /**
  * This library is used with the server IP allow/deny host authentication
  * feature
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Core;
+use function bin2hex;
+use function dechex;
+use function explode;
+use function hash_equals;
+use function hexdec;
+use function inet_pton;
+use function ip2long;
+use function is_array;
+use function mb_strpos;
+use function mb_strtolower;
+use function mb_substr;
+use function min;
+use function pow;
+use function preg_match;
+use function str_replace;
+use function substr_replace;
 
 /**
  * PhpMyAdmin\IpAllowDeny class
- *
- * @package PhpMyAdmin
  */
 class IpAllowDeny
 {
@@ -24,9 +35,9 @@ class IpAllowDeny
      * @param string $testRange string of IP range to match
      * @param string $ipToTest  string of IP to test against range
      *
-     * @return boolean    whether the IP mask matches
+     * @return bool whether the IP mask matches
      *
-     * @access  public
+     * @access public
      */
     public function ipMaskTest($testRange, $ipToTest)
     {
@@ -45,7 +56,7 @@ class IpAllowDeny
     /**
      * Based on IP Pattern Matcher
      * Originally by J.Adams <jna@retina.net>
-     * Found on <https://secure.php.net/manual/en/function.ip2long.php>
+     * Found on <https://www.php.net/manual/en/function.ip2long.php>
      * Modified for phpMyAdmin
      *
      * Matches:
@@ -59,9 +70,9 @@ class IpAllowDeny
      * @param string $testRange string of IP range to match
      * @param string $ipToTest  string of IP to test against range
      *
-     * @return boolean    whether the IP mask matches
+     * @return bool whether the IP mask matches
      *
-     * @access  public
+     * @access public
      */
     public function ipv4MaskTest($testRange, $ipToTest)
     {
@@ -129,9 +140,9 @@ class IpAllowDeny
      * @param string $test_range string of IP range to match
      * @param string $ip_to_test string of IP to test against range
      *
-     * @return boolean    whether the IP mask matches
+     * @return bool whether the IP mask matches
      *
-     * @access  public
+     * @access public
      */
     public function ipv6MaskTest($test_range, $ip_to_test)
     {
@@ -199,7 +210,7 @@ class IpAllowDeny
                 $origval = hexdec($orig);
 
                 // OR it with (2^flexbits)-1, with flexbits limited to 4 at a time
-                $newval = $origval | (pow(2, min(4, $flexbits)) - 1);
+                $newval = $origval | pow(2, min(4, $flexbits)) - 1;
 
                 // Convert it back to a hexadecimal character
                 $new = dechex($newval);
@@ -222,41 +233,41 @@ class IpAllowDeny
     /**
      * Runs through IP Allow rules the use of it below for more information
      *
+     * @see     Core::getIp()
+     *
      * @return bool Whether rule has matched
      *
-     * @access  public
-     *
-     * @see     Core::getIp()
+     * @access public
      */
     public function allow()
     {
-        return $this->allowDeny("allow");
+        return $this->allowDeny('allow');
     }
 
     /**
      * Runs through IP Deny rules the use of it below for more information
      *
+     * @see     Core::getIp()
+     *
      * @return bool Whether rule has matched
      *
-     * @access  public
-     *
-     * @see     Core::getIp()
+     * @access public
      */
     public function deny()
     {
-        return $this->allowDeny("deny");
+        return $this->allowDeny('deny');
     }
 
     /**
      * Runs through IP Allow/Deny rules the use of it below for more information
      *
+     * @see     Core::getIp()
+     *
      * @param string $type 'allow' | 'deny' type of rule to match
      *
      * @return bool   Whether rule has matched
      *
-     * @access  public
-     *
-     * @see     Core::getIp()
+     * @access public
      */
     private function allowDeny($type)
     {

@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds EnginesControllerTest class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -10,25 +8,20 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\EnginesController;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 use PHPStan\Testing\TestCase;
+use function htmlspecialchars;
 
 /**
  * Tests for EnginesController class
- *
- * @package PhpMyAdmin-test
  */
 class EnginesControllerTest extends TestCase
 {
     /**
      * Prepares environment for the test.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -42,9 +35,6 @@ class EnginesControllerTest extends TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
     }
 
-    /**
-     * @return void
-     */
     public function testIndex(): void
     {
         $controller = new EnginesController(
@@ -91,16 +81,8 @@ class EnginesControllerTest extends TestCase
         );
     }
 
-    /**
-     * @return void
-     */
     public function testShow(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $GLOBALS['dbi'] = $dbi;
-
         $controller = new EnginesController(
             Response::getInstance(),
             $GLOBALS['dbi'],
@@ -120,7 +102,7 @@ class EnginesControllerTest extends TestCase
         );
 
         $this->assertStringContainsString(
-            Util::showMySQLDocu($enginePlugin->getMysqlHelpPage()),
+            MySQLDocumentation::show($enginePlugin->getMysqlHelpPage()),
             $actual
         );
 

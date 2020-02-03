@@ -1,8 +1,6 @@
 <?php
 /**
  * Common functions for the export functionality for Routines, Triggers and Events.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
@@ -12,27 +10,22 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
+use function htmlspecialchars;
+use function sprintf;
+use function trim;
 
 /**
  * PhpMyAdmin\Rte\Export class
- *
- * @package PhpMyAdmin
  */
 class Export
 {
-    /**
-     * @var Words
-     */
+    /** @var Words */
     private $words;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**
-     * Export constructor.
-     *
      * @param DatabaseInterface $dbi DatabaseInterface object
      */
     public function __construct(DatabaseInterface $dbi)
@@ -67,7 +60,7 @@ class Export
                 $export_data = '<textarea cols="40" rows="15" style="width: 100%;">'
                    . $export_data . '</textarea>';
                 echo "<fieldset>\n"
-                   , "<legend>$title</legend>\n"
+                   , '<legend>' . $title . "</legend>\n"
                    , $export_data
                    , "</fieldset>\n";
             }

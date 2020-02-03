@@ -1,19 +1,14 @@
 <?php
 /**
  * tests for methods under PhpMyAdmin\UserPreferencesHeader class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tests\PmaTestCase;
-use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\UserPreferencesHeader;
 use Throwable;
 use Twig_Error_Loader;
@@ -22,15 +17,11 @@ use Twig_Error_Syntax;
 
 /**
  * tests for methods under PhpMyAdmin\UserPreferencesHeader class
- *
- * @package PhpMyAdmin-test
  */
 class UserPreferencesHeaderTest extends PmaTestCase
 {
     /**
      * Setup various pre conditions
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -41,7 +32,6 @@ class UserPreferencesHeaderTest extends PmaTestCase
     /**
      * Test for getContent with selected tab
      *
-     * @return void
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
@@ -77,7 +67,6 @@ class UserPreferencesHeaderTest extends PmaTestCase
     /**
      * Test for getContent with "saved" get parameter
      *
-     * @return void
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime
@@ -102,7 +91,6 @@ class UserPreferencesHeaderTest extends PmaTestCase
     /**
      * Test for getContent with session storage
      *
-     * @return void
      * @throws Throwable
      * @throws Twig_Error_Loader
      * @throws Twig_Error_Runtime

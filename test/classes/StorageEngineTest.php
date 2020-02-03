@@ -1,26 +1,19 @@
 <?php
 /**
  * Tests for StorageEngine.php
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\StorageEngine;
-use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for StorageEngine.php
- *
- * @package PhpMyAdmin-test
  */
 class StorageEngineTest extends PmaTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @access protected */
     protected $object;
 
     /**
@@ -28,7 +21,6 @@ class StorageEngineTest extends PmaTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
@@ -44,7 +36,6 @@ class StorageEngineTest extends PmaTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -58,7 +49,6 @@ class StorageEngineTest extends PmaTestCase
      */
     public function testGetStorageEngines()
     {
-
         $this->assertEquals(
             [
                 'dummy' => [
@@ -108,8 +98,6 @@ class StorageEngineTest extends PmaTestCase
      *
      * @param string $expectedClass Class that should be selected
      * @param string $engineName    Engine name
-     *
-     * @return void
      *
      * @dataProvider providerGetEngine
      */
@@ -191,7 +179,6 @@ class StorageEngineTest extends PmaTestCase
      */
     public function testIsValid()
     {
-
         $this->assertTrue(
             $this->object->isValid('PBMS')
         );
@@ -213,7 +200,6 @@ class StorageEngineTest extends PmaTestCase
      */
     public function testGetPage()
     {
-
         $this->assertEquals(
             '',
             $this->object->getPage('Foo')
@@ -227,7 +213,6 @@ class StorageEngineTest extends PmaTestCase
      */
     public function testGetInfoPages()
     {
-
         $this->assertEquals(
             [],
             $this->object->getInfoPages()
@@ -241,7 +226,6 @@ class StorageEngineTest extends PmaTestCase
      */
     public function testGetVariablesLikePattern()
     {
-
         $this->assertEquals(
             '',
             $this->object->getVariablesLikePattern()
@@ -255,7 +239,6 @@ class StorageEngineTest extends PmaTestCase
      */
     public function testGetMysqlHelpPage()
     {
-
         $this->assertEquals(
             'dummy-storage-engine',
             $this->object->getMysqlHelpPage()
@@ -269,7 +252,6 @@ class StorageEngineTest extends PmaTestCase
      */
     public function testGetVariables()
     {
-
         $this->assertEquals(
             [],
             $this->object->getVariables()
@@ -314,7 +296,6 @@ class StorageEngineTest extends PmaTestCase
      */
     public function testGetComment()
     {
-
         $this->assertEquals(
             'dummy comment',
             $this->object->getComment()
@@ -328,7 +309,6 @@ class StorageEngineTest extends PmaTestCase
      */
     public function testGetTitle()
     {
-
         $this->assertEquals(
             'dummy',
             $this->object->getTitle()
@@ -342,7 +322,6 @@ class StorageEngineTest extends PmaTestCase
      */
     public function testResolveTypeSize()
     {
-
         $this->assertEquals(
             [
                 0 => 12,

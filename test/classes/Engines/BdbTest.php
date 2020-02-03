@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for PhpMyAdmin\Engines\Bdb
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,14 +11,10 @@ use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PhpMyAdmin\Engines\Bdb
- *
- * @package PhpMyAdmin-test
  */
 class BdbTest extends PmaTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @access protected */
     protected $object;
 
     /**
@@ -28,7 +22,6 @@ class BdbTest extends PmaTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
@@ -41,7 +34,6 @@ class BdbTest extends PmaTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {

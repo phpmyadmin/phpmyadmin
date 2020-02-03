@@ -1,9 +1,6 @@
 <?php
 /**
  * Selenium TestCase for table related tests
- *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  */
 declare(strict_types=1);
 
@@ -14,36 +11,32 @@ use PhpMyAdmin\Tests\Selenium\TestBase;
 /**
  * StructureTest class
  *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  * @group      selenium
  */
 class StructureTest extends TestBase
 {
     /**
      * Setup the browser environment to run the selenium test case
-     *
-     * @return void
      */
     protected function setUp(): void
     {
         parent::setUp();
         $this->dbQuery(
-            "CREATE TABLE `test_table` ("
-            . " `id` int(11) NOT NULL AUTO_INCREMENT,"
-            . " `val` int(11) NOT NULL,"
-            . " PRIMARY KEY (`id`)"
-            . ")"
+            'CREATE TABLE `test_table` ('
+            . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
+            . ' `val` int(11) NOT NULL,'
+            . ' PRIMARY KEY (`id`)'
+            . ')'
         );
         $this->dbQuery(
-            "CREATE TABLE `test_table2` ("
-            . " `id` int(11) NOT NULL AUTO_INCREMENT,"
-            . " `val` int(11) NOT NULL,"
-            . " PRIMARY KEY (`id`)"
-            . ")"
+            'CREATE TABLE `test_table2` ('
+            . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
+            . ' `val` int(11) NOT NULL,'
+            . ' PRIMARY KEY (`id`)'
+            . ')'
         );
         $this->dbQuery(
-            "INSERT INTO `test_table` (val) VALUES (2);"
+            'INSERT INTO `test_table` (val) VALUES (2);'
         );
 
         $this->login();
@@ -52,7 +45,6 @@ class StructureTest extends TestBase
         // Let the Database page load
         $this->waitAjax();
         $this->expandMore();
-        $this->maximize();
     }
 
     /**
@@ -68,18 +60,18 @@ class StructureTest extends TestBase
 
         $this->waitForElement(
             'cssSelector',
-            "button.submitOK"
+            'button.submitOK'
         )->click();
 
         $this->assertNotNull(
             $this->waitForElement(
                 'xpath',
-                "//div[@class='success' and contains(., "
+                "//div[@class='alert alert-success' and contains(., "
                 . "'MySQL returned an empty result')]"
             )
         );
 
-        $result = $this->dbQuery("SELECT count(*) as c FROM test_table");
+        $result = $this->dbQuery('SELECT count(*) as c FROM test_table');
         $row = $result->fetch_assoc();
         $this->assertEquals(0, $row['c']);
     }
@@ -96,11 +88,11 @@ class StructureTest extends TestBase
         $this->byCssSelector("label[for='tablesForm_checkall']")->click();
 
         $this->selectByLabel(
-            $this->byName("submit_mult"),
+            $this->byName('submit_mult'),
             'Drop'
         );
 
-        $this->waitForElement('id', "buttonYes")
+        $this->waitForElement('id', 'buttonYes')
             ->click();
 
         $this->waitForElement(
@@ -108,7 +100,7 @@ class StructureTest extends TestBase
             "//*[contains(., 'No tables found in database')]"
         );
 
-        $result = $this->dbQuery("SHOW TABLES;");
+        $result = $this->dbQuery('SHOW TABLES;');
         $this->assertEquals(0, $result->num_rows);
     }
 }

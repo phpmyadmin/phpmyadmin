@@ -1,8 +1,6 @@
 <?php
 /**
  * Tests for Footer class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -11,26 +9,18 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Footer;
-use PhpMyAdmin\Tests\PmaTestCase;
-use PhpMyAdmin\Theme;
 use ReflectionClass;
+use function json_encode;
 
 /**
  * Tests for Footer class
- *
- * @package PhpMyAdmin-test
  */
 class FooterTest extends PmaTestCase
 {
-
-    /**
-     * @var array store private attributes of PhpMyAdmin\Footer
-     */
+    /** @var array store private attributes of PhpMyAdmin\Footer */
     public $privates = [];
 
-    /**
-     * @access protected
-     */
+    /** @access protected */
     protected $object;
 
     /**
@@ -38,7 +28,6 @@ class FooterTest extends PmaTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
@@ -66,7 +55,6 @@ class FooterTest extends PmaTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -176,7 +164,6 @@ class FooterTest extends PmaTestCase
      */
     public function testGetSelfLinkWithImage()
     {
-
         $GLOBALS['cfg']['TabsMode'] = 'icons';
         $GLOBALS['cfg']['ServerDefault'] = 1;
 
@@ -268,6 +255,7 @@ class FooterTest extends PmaTestCase
      * Test for displaying footer
      *
      * @return void
+     *
      * @group medium
      */
     public function testDisplay()

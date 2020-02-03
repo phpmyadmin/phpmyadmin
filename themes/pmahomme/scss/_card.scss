@@ -1,0 +1,21 @@
+.card {
+  @if $direction == rtl {
+    -moz-box-shadow: -2px 2px 5px #ccc;
+    -webkit-box-shadow: -2px 2px 5px #ccc;
+    box-shadow: -2px 2px 5px #ccc;
+  } @else {
+    -moz-box-shadow: 2px 2px 5px #ccc;
+    -webkit-box-shadow: 2px 2px 5px #ccc;
+    box-shadow: 2px 2px 5px #ccc;
+  }
+}
+
+.card-header {
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  font-size: 1.6em;
+  text-shadow: 0 1px 0 #777;
+  -moz-box-shadow: 1px 1px 15px #999 inset;
+  -webkit-box-shadow: 1px 1px 15px #999 inset;
+  box-shadow: 1px 1px 15px #999 inset;
+}

@@ -22,7 +22,7 @@
                 <tbody>
                     {% for version in versions %}
                         <tr>
-                            <td class="center">
+                            <td class="text-center">
                                 <input type="checkbox" name="selected_tbl[]"
                                     class="checkall" id="selected_tbl_{{ version.table_name }}"
                                     value="{{ version.table_name }}">
@@ -122,9 +122,10 @@
                 </tr>
             </thead>
             <tbody>
-                {% for table_name in untracked_tables if get_tracker_version(db, table_name) == -1 %}
+                {% for table_name in untracked_tables %}
+                  {% if get_tracker_version(db, table_name) == -1 %}
                     <tr>
-                        <td class="center">
+                        <td class="text-center">
                             <input type="checkbox" name="selected_tbl[]"
                                 class="checkall" id="selected_tbl_{{ table_name }}"
                                 value="{{ table_name }}">
@@ -143,6 +144,7 @@
                             </a>
                         </td>
                     </tr>
+                  {% endif %}
                 {% endfor %}
             </tbody>
         </table>

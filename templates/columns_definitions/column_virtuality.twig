@@ -15,13 +15,13 @@
 </select>
 
 {% if char_editing == 'textarea' %}
-    {% spaceless %}
+    {% apply spaceless %}
     <textarea name="field_expression[{{ column_number }}]"
         cols="15"
         class="textfield expression">
         {{ expression }}
     </textarea>
-    {% endspaceless %}
+    {% endapply %}
 {% else %}
     <input type="text"
         name="field_expression[{{ column_number }}]"

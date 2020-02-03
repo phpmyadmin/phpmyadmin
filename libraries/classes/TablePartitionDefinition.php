@@ -1,20 +1,16 @@
 <?php
 /**
  * hold PhpMyAdmin\TablePartitionDefinition class
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function array_intersect_key;
 use function array_merge;
+use function array_splice;
+use function min;
 
-/**
- * Class TablePartitionDefinition
- *
- * @package PhpMyAdmin
- */
 class TablePartitionDefinition
 {
     /**
@@ -84,8 +80,6 @@ class TablePartitionDefinition
 
     /**
      * @param string $paramLabel Label searched in request
-     *
-     * @return int
      */
     protected static function extractPartitionCount(string $paramLabel): int
     {

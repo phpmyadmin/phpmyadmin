@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\Server\DatabasesController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -12,49 +10,48 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function array_key_exists;
+use function array_keys;
+use function array_search;
+use function count;
+use function explode;
+use function in_array;
+use function mb_strlen;
+use function mb_strtolower;
+use function strlen;
+use function strpos;
 
 /**
  * Handles viewing and creating and deleting databases
- *
- * @package PhpMyAdmin\Controllers
  */
 class DatabasesController extends AbstractController
 {
-    /**
-     * @var array array of database details
-     */
+    /** @var array array of database details */
     private $databases = [];
 
-    /**
-     * @var int number of databases
-     */
+    /** @var int number of databases */
     private $databaseCount = 0;
 
-    /**
-     * @var string sort by column
-     */
+    /** @var string sort by column */
     private $sortBy;
 
-    /**
-     * @var string sort order of databases
-     */
+    /** @var string sort order of databases */
     private $sortOrder;
 
-    /**
-     * @var boolean whether to show database statistics
-     */
+    /** @var bool whether to show database statistics */
     private $hasStatistics;
 
-    /**
-     * @var int position in list navigation
-     */
+    /** @var int position in list navigation */
     private $position;
 
     /**
@@ -86,8 +83,8 @@ class DatabasesController extends AbstractController
         $scripts = $header->getScripts();
         $scripts->addFile('server/databases.js');
 
-        include_once ROOT_PATH . 'libraries/replication.inc.php';
-        include_once ROOT_PATH . 'libraries/server_common.inc.php';
+        Common::server();
+        ReplicationInfo::load();
 
         $this->setSortDetails($params['sort_by'], $params['sort_order']);
         $this->hasStatistics = ! empty($params['statistics']);
@@ -192,7 +189,7 @@ class DatabasesController extends AbstractController
          */
         $sqlQuery = 'CREATE DATABASE ' . Util::backquote($params['new_db']);
         if (! empty($params['db_collation'])) {
-            list($databaseCharset) = explode('_', $params['db_collation']);
+            [$databaseCharset] = explode('_', $params['db_collation']);
             $charsets = Charsets::getCharsets(
                 $this->dbi,
                 $cfg['Server']['DisableIS']
@@ -233,7 +230,7 @@ class DatabasesController extends AbstractController
 
             $json = [
                 'message' => $message,
-                'sql_query' => Util::getMessage(null, $sqlQuery, 'success'),
+                'sql_query' => Generator::getMessage(null, $sqlQuery, 'success'),
                 'url_query' => $scriptName . Url::getCommon(
                     ['db' => $params['new_db']],
                     strpos($scriptName, '?') === false ? '?' : '&'
@@ -299,8 +296,6 @@ class DatabasesController extends AbstractController
      *
      * @param string|null $sortBy    sort by
      * @param string|null $sortOrder sort order
-     *
-     * @return void
      */
     private function setSortDetails(?string $sortBy, ?string $sortOrder): void
     {
@@ -356,14 +351,14 @@ class DatabasesController extends AbstractController
             foreach ($replicationTypes as $type) {
                 if ($replication_info[$type]['status']) {
                     $key = array_search(
-                        $database["SCHEMA_NAME"],
+                        $database['SCHEMA_NAME'],
                         $replication_info[$type]['Ignore_DB']
                     );
                     if (strlen((string) $key) > 0) {
                         $replication[$type]['is_replicated'] = false;
                     } else {
                         $key = array_search(
-                            $database["SCHEMA_NAME"],
+                            $database['SCHEMA_NAME'],
                             $replication_info[$type]['Do_DB']
                         );
 

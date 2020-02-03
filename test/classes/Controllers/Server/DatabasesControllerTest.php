@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds DatabasesControllerTest class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -16,17 +14,13 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PHPUnit\Framework\TestCase;
 use stdClass;
+use function sprintf;
 
 /**
  * Tests for DatabasesController class
- *
- * @package PhpMyAdmin-test
  */
 class DatabasesControllerTest extends TestCase
 {
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $GLOBALS['PMA_Config'] = new Config();
@@ -38,12 +32,9 @@ class DatabasesControllerTest extends TestCase
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['pmaThemeImage'] = 'image';
-        $GLOBALS['text_dir'] = "text_dir";
+        $GLOBALS['text_dir'] = 'text_dir';
     }
 
-    /**
-     * @return void
-     */
     public function testIndexAction(): void
     {
         global $cfg, $dblist, $is_create_db_priv;
@@ -133,7 +124,7 @@ class DatabasesControllerTest extends TestCase
 
         $this->assertArrayHasKey('message', $actual);
         $this->assertInstanceOf(Message::class, $actual['message']);
-        $this->assertStringContainsString('<div class="error">', $actual['message']->getDisplay());
+        $this->assertStringContainsString('<div class="alert alert-danger" role="alert">', $actual['message']->getDisplay());
         $this->assertStringContainsString('CreateDatabaseError', $actual['message']->getDisplay());
 
         $dbi->method('tryQuery')
@@ -146,7 +137,7 @@ class DatabasesControllerTest extends TestCase
 
         $this->assertArrayHasKey('message', $actual);
         $this->assertInstanceOf(Message::class, $actual['message']);
-        $this->assertStringContainsString('<div class="success">', $actual['message']->getDisplay());
+        $this->assertStringContainsString('<div class="alert alert-success" role="alert">', $actual['message']->getDisplay());
         $this->assertStringContainsString(
             sprintf(__('Database %1$s has been created.'), 'pma_test'),
             $actual['message']->getDisplay()
@@ -182,7 +173,7 @@ class DatabasesControllerTest extends TestCase
 
         $this->assertArrayHasKey('message', $actual);
         $this->assertInstanceOf(Message::class, $actual['message']);
-        $this->assertStringContainsString('<div class="error">', $actual['message']->getDisplay());
+        $this->assertStringContainsString('<div class="alert alert-danger" role="alert">', $actual['message']->getDisplay());
         $this->assertStringContainsString(__('No databases selected.'), $actual['message']->getDisplay());
     }
 }

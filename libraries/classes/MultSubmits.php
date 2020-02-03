@@ -3,38 +3,34 @@
  * Holds the PhpMyAdmin\MultSubmits class
  *
  * @usedby  mult_submits.inc.php
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Html\Forms\Fields\FKCheckbox;
+use function count;
+use function htmlspecialchars;
+use function in_array;
+use function mb_strlen;
+use function mb_strpos;
+use function mb_substr;
+use function preg_replace;
+
 /**
  * Functions for multi submit forms
- *
- * @package PhpMyAdmin
  */
 class MultSubmits
 {
-    /**
-     * @var Transformations
-     */
+    /** @var Transformations */
     private $transformations;
 
-    /**
-     * @var RelationCleanup
-     */
+    /** @var RelationCleanup */
     private $relationCleanup;
 
-    /**
-     * @var Operations
-     */
+    /** @var Operations */
     private $operations;
 
-    /**
-     * MultSubmits constructor.
-     */
     public function __construct()
     {
         $this->transformations = new Transformations();
@@ -372,7 +368,7 @@ class MultSubmits
             $_REQUEST['pos'] = $sql->calculatePosForLastPage(
                 $db,
                 $table,
-                isset($_REQUEST['pos']) ? $_REQUEST['pos'] : null
+                $_REQUEST['pos'] ?? null
             );
         }
 
@@ -523,7 +519,7 @@ class MultSubmits
         // Display option to disable foreign key checks while dropping tables
         if ($what === 'drop_tbl' || $what === 'empty_tbl' || $what === 'row_delete') {
             $html .= '<div id="foreignkeychk">';
-            $html .= Util::getFKCheckbox();
+            $html .= FKCheckbox::generate();
             $html .= '</div>';
         }
         $html .= '<input id="buttonYes" class="btn btn-secondary" type="submit" name="mult_btn" value="'
@@ -639,7 +635,7 @@ class MultSubmits
             unset($fullQueryViews);
         }
 
-        $fullQueryViews = isset($fullQueryViews) ? $fullQueryViews : null;
+        $fullQueryViews = $fullQueryViews ?? null;
 
         return [
             $fullQuery,

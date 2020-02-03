@@ -1,8 +1,6 @@
 <?php
 /**
  * Test for PhpMyAdmin\Navigation\Navigation class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -16,21 +14,16 @@ use PhpMyAdmin\Url;
 
 /**
  * Tests for PhpMyAdmin\Navigation\Navigation class
- *
- * @package PhpMyAdmin-test
  */
 class NavigationTest extends PmaTestCase
 {
-    /**
-     * @var Navigation
-     */
+    /** @var Navigation */
     protected $object;
 
     /**
      * Sets up the fixture.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
@@ -55,7 +48,6 @@ class NavigationTest extends PmaTestCase
      * Tears down the fixture.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -66,12 +58,13 @@ class NavigationTest extends PmaTestCase
      * Tests hideNavigationItem() method.
      *
      * @return void
+     *
      * @test
      */
     public function testHideNavigationItem()
     {
-        $expectedQuery = "INSERT INTO `pmadb`.`navigationhiding`"
-            . "(`username`, `item_name`, `item_type`, `db_name`, `table_name`)"
+        $expectedQuery = 'INSERT INTO `pmadb`.`navigationhiding`'
+            . '(`username`, `item_name`, `item_type`, `db_name`, `table_name`)'
             . " VALUES ('user','itemName','itemType','db','')";
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -91,11 +84,12 @@ class NavigationTest extends PmaTestCase
      * Tests unhideNavigationItem() method.
      *
      * @return void
+     *
      * @test
      */
     public function testUnhideNavigationItem()
     {
-        $expectedQuery = "DELETE FROM `pmadb`.`navigationhiding`"
+        $expectedQuery = 'DELETE FROM `pmadb`.`navigationhiding`'
             . " WHERE `username`='user' AND `item_name`='itemName'"
             . " AND `item_type`='itemType' AND `db_name`='db'";
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
@@ -116,6 +110,7 @@ class NavigationTest extends PmaTestCase
      * Tests getItemUnhideDialog() method.
      *
      * @return void
+     *
      * @test
      */
     public function testGetItemUnhideDialog()

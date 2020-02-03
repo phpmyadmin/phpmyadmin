@@ -1,21 +1,29 @@
 <?php
 /**
  * Handles Database Search
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+use function array_intersect;
+use function array_key_exists;
+use function count;
+use function explode;
+use function htmlspecialchars;
+use function implode;
+use function intval;
+use function is_array;
+use function is_string;
+use function strlen;
 
 /**
  * Class to handle database search
- *
- * @package PhpMyAdmin
  */
 class Search
 {
@@ -47,7 +55,7 @@ class Search
      * Already set search type
      *
      * @access private
-     * @var integer
+     * @var int
      */
     private $criteriaSearchType;
 
@@ -83,19 +91,13 @@ class Search
      */
     private $criteriaColumnName;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
     /**
-     * Public Constructor
-     *
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param string            $db       Database name
      * @param Template          $template Template object
@@ -225,8 +227,8 @@ class Search
         $allColumns = $this->dbi->getColumns($GLOBALS['db'], $table);
         $likeClauses = [];
         // Based on search type, decide like/regex & '%'/''
-        $like_or_regex   = (($this->criteriaSearchType == 5) ? 'REGEXP' : 'LIKE');
-        $automatic_wildcard   = (($this->criteriaSearchType < 4) ? '%' : '');
+        $like_or_regex   = ($this->criteriaSearchType == 5 ? 'REGEXP' : 'LIKE');
+        $automatic_wildcard   = ($this->criteriaSearchType < 4 ? '%' : '');
         // For "as regular expression" (search option 5), LIKE won't be used
         // Usage example: If user is searching for a literal $ in a regexp search,
         // they should enter \$ as the value.
@@ -234,9 +236,9 @@ class Search
             $this->criteriaSearchString
         );
         // Extract search words or pattern
-        $search_words = (($this->criteriaSearchType > 2)
+        $search_words = $this->criteriaSearchType > 2
             ? [$criteriaSearchStringEscaped]
-            : explode(' ', $criteriaSearchStringEscaped));
+            : explode(' ', $criteriaSearchStringEscaped);
 
         foreach ($search_words as $search_word) {
             // Eliminates empty values
@@ -321,16 +323,16 @@ class Search
     {
         $choices = [
             '1' => $this->searchTypes[1] . ' '
-                . Util::showHint(
+                . Generator::showHint(
                     __('Words are separated by a space character (" ").')
                 ),
             '2' => $this->searchTypes[2] . ' '
-                . Util::showHint(
+                . Generator::showHint(
                     __('Words are separated by a space character (" ").')
                 ),
             '3' => $this->searchTypes[3],
             '4' => $this->searchTypes[4],
-            '5' => $this->searchTypes[5] . ' ' . Util::showMySQLDocu('Regexp'),
+            '5' => $this->searchTypes[5] . ' ' . MySQLDocumentation::show('Regexp'),
         ];
         return $this->template->render('database/search/main', [
             'db' => $this->db,
@@ -339,8 +341,7 @@ class Search
             'criteria_search_type' => $this->criteriaSearchType,
             'criteria_tables' => $this->criteriaTables,
             'tables_names_only' => $this->tablesNamesOnly,
-            'criteria_column_name' => isset($this->criteriaColumnName)
-                ? $this->criteriaColumnName : null,
+            'criteria_column_name' => $this->criteriaColumnName ?? null,
         ]);
     }
 }

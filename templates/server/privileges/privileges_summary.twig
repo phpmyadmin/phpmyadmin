@@ -27,7 +27,7 @@
                 {% if privileges|length == 0 %}
                     {% set colspan = type == 'database' ? 7 : (type == 'table' ? 6 : 5) %}
                     <tr>
-                        <td colspan="{{ colspan }}"><center><em>{% trans 'None' %}</em></center></td>
+                        <td class="text-center" colspan="{{ colspan }}"><em>{% trans 'None' %}</em></td>
                     </tr>
                 {% else %}
                     {% for privilege in privileges %}

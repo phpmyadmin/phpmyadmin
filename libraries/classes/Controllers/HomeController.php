@@ -1,8 +1,6 @@
 <?php
 /**
  * Holds the PhpMyAdmin\Controllers\HomeController
- *
- * @package PhpMyAdmin\Controllers
  */
 declare(strict_types=1);
 
@@ -12,9 +10,11 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\GitRevision;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\RecentFavoriteTable;
@@ -26,26 +26,27 @@ use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\Util;
+use function count;
+use function extension_loaded;
+use function file_exists;
+use function ini_get;
+use function preg_match;
+use function sprintf;
+use function strlen;
+use function trigger_error;
+use const E_USER_NOTICE;
+use const E_USER_WARNING;
+use const PHP_VERSION;
 
-/**
- * Class HomeController
- * @package PhpMyAdmin\Controllers
- */
 class HomeController extends AbstractController
 {
-    /**
-     * @var Config
-     */
+    /** @var Config */
     private $config;
 
-    /**
-     * @var ThemeManager
-     */
+    /** @var ThemeManager */
     private $themeManager;
 
     /**
-     * HomeController constructor.
-     *
      * @param Response          $response     Response instance
      * @param DatabaseInterface $dbi          DatabaseInterface instance
      * @param Template          $template     Template object
@@ -58,7 +59,6 @@ class HomeController extends AbstractController
         $this->config = $config;
         $this->themeManager = $themeManager;
     }
-
 
     /**
      * @param array $params Request parameters
@@ -78,13 +78,13 @@ class HomeController extends AbstractController
         $show_query = '1';
 
         if ($server > 0) {
-            include ROOT_PATH . 'libraries/server_common.inc.php';
+            Common::server();
         }
 
         $languageManager = LanguageManager::getInstance();
 
         if (! empty($message)) {
-            $displayMessage = Util::getMessage($message);
+            $displayMessage = Generator::getMessage($message);
             unset($message);
         }
         if (isset($_SESSION['partial_logout'])) {
@@ -114,13 +114,13 @@ class HomeController extends AbstractController
 
                 if (($cfg['Server']['auth_type'] != 'config') && $cfg['ShowChgPassword']) {
                     $changePassword = $this->template->render('list/item', [
-                        'content' => Util::getImage('s_passwd') . ' ' . __(
+                        'content' => Generator::getImage('s_passwd') . ' ' . __(
                             'Change password'
                         ),
                         'id' => 'li_change_password',
                         'class' => 'no_bullets',
                         'url' => [
-                            'href' => Url::getFromRoute('/user_password'),
+                            'href' => Url::getFromRoute('/user-password'),
                             'target' => null,
                             'id' => 'change_password_anchor',
                             'class' => 'ajax',
@@ -151,7 +151,7 @@ class HomeController extends AbstractController
                 }
 
                 $userPreferences = $this->template->render('list/item', [
-                    'content' => Util::getImage('b_tblops') . ' ' . __(
+                    'content' => Generator::getImage('b_tblops') . ' ' . __(
                         'More settings'
                     ),
                     'id' => 'li_user_preferences',
@@ -197,7 +197,7 @@ class HomeController extends AbstractController
             $databaseServer = [
                 'host' => $hostInfo,
                 'type' => Util::getServerType(),
-                'connection' => Util::getServerSSL(),
+                'connection' => Generator::getServerSSL(),
                 'version' => $this->dbi->getVersionString() . ' - ' . $this->dbi->getVersionComment(),
                 'protocol' => $this->dbi->getProtoInfo(),
                 'user' => $this->dbi->fetchValue('SELECT USER();'),
@@ -292,7 +292,6 @@ class HomeController extends AbstractController
 
     /**
      * @param array $params Request parameters
-     * @return void
      */
     public function setTheme(array $params): void
     {
@@ -309,7 +308,6 @@ class HomeController extends AbstractController
 
     /**
      * @param array $params Request parameters
-     * @return void
      */
     public function setCollationConnection(array $params): void
     {
@@ -343,7 +341,6 @@ class HomeController extends AbstractController
     {
         global $PMA_Config;
 
-        /** @var Config $PMA_Config */
         if (! $this->response->isAjax() || ! $PMA_Config->isGitRevision()) {
             return '';
         }
@@ -355,9 +352,6 @@ class HomeController extends AbstractController
         ))->display();
     }
 
-    /**
-     * @return void
-     */
     private function checkRequirements(): void
     {
         global $cfg, $server, $lang;

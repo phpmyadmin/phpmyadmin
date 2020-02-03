@@ -8,7 +8,7 @@
 
 /* global contr */ // js/designer/init.js
 /* global fromArray:writable */ // js/designer/move.js
-/* global pmaThemeImage */ // js/messages.php
+/* global pmaThemeImage */ // templates/javascript/variables.twig
 
 var DesignerHistory = {};
 
@@ -101,15 +101,17 @@ DesignerHistory.display = function (init, finit) {
             } else {
                 str += '<img src="' + pmaThemeImage + 'designer/and_icon.png" onclick="DesignerHistory.andOr(' + i + ')" title="AND"></td>';
             }
-            str += '<td style="padding-left: 5px;" class="right">' + Functions.getImage('b_sbrowse', 'column name') + '</td>' +
-                '<td width="175" style="padding-left: 5px">' + historyArray[i].getColumnName() + '<td>';
+            str += '<td style="padding-left: 5px;" class="right">' + Functions.getImage('b_sbrowse', Messages.strColumnName) + '</td>' +
+                '<td width="175" style="padding-left: 5px">' + $('<div/>').text(historyArray[i].getColumnName()).html() + '<td>';
             if (historyArray[i].getType() === 'GroupBy' || historyArray[i].getType() === 'OrderBy') {
-                str += '<td class="center">' + Functions.getImage('s_info', DesignerHistory.detail(i)) + '</td>' +
-                    '<td title="' + DesignerHistory.detail(i) + '">' + historyArray[i].getType() + '</td>' +
+                var detailDescGroupBy = $('<div/>').text(DesignerHistory.detail(i)).html();
+                str += '<td class="text-center">' + Functions.getImage('s_info', DesignerHistory.detail(i)) + '</td>' +
+                    '<td title="' + detailDescGroupBy + '">' + historyArray[i].getType() + '</td>' +
                     '<td onclick=DesignerHistory.historyDelete(' + i + ')>' + Functions.getImage('b_drop', Messages.strDelete) + '</td>';
             } else {
-                str += '<td class="center">' + Functions.getImage('s_info', DesignerHistory.detail(i)) + '</td>' +
-                    '<td title="' + DesignerHistory.detail(i) + '">' + historyArray[i].getType() + '</td>' +
+                var detailDesc = $('<div/>').text(DesignerHistory.detail(i)).html();
+                str += '<td class="text-center">' + Functions.getImage('s_info', DesignerHistory.detail(i)) + '</td>' +
+                    '<td title="' + detailDesc + '">' + historyArray[i].getType() + '</td>' +
                     '<td onclick=DesignerHistory.historyEdit(' + i + ')>' + Functions.getImage('b_edit', Messages.strEdit) + '</td>' +
                     '<td onclick=DesignerHistory.historyDelete(' + i + ')>' + Functions.getImage('b_drop', Messages.strDelete) + '</td>';
             }

@@ -1,20 +1,31 @@
 <?php
 /**
  * Recent and Favorite table list handling
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
+
+use PhpMyAdmin\Html\Generator;
+use function array_key_exists;
+use function array_merge;
+use function array_pop;
+use function array_unique;
+use function array_unshift;
+use function count;
+use function htmlspecialchars;
+use function json_decode;
+use function json_encode;
+use function max;
+use function md5;
+use function ucfirst;
+use const SORT_REGULAR;
 
 /**
  * Handles the recently used and favorite tables.
  *
  * @TODO Change the release version in table pma_recent
  * (#recent in documentation)
- *
- * @package PhpMyAdmin
  */
 class RecentFavoriteTable
 {
@@ -42,9 +53,7 @@ class RecentFavoriteTable
      */
     private static $_instances = [];
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
     /**
@@ -102,7 +111,7 @@ class RecentFavoriteTable
     {
         // Read from phpMyAdmin database, if recent tables is not in session
         $sql_query
-            = " SELECT `tables` FROM " . $this->_getPmaTable() .
+            = ' SELECT `tables` FROM ' . $this->_getPmaTable() .
             " WHERE `username` = '" . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']) . "'";
 
         $return = [];
@@ -125,7 +134,7 @@ class RecentFavoriteTable
     {
         $username = $GLOBALS['cfg']['Server']['user'];
         $sql_query
-            = " REPLACE INTO " . $this->_getPmaTable() . " (`username`, `tables`)" .
+            = ' REPLACE INTO ' . $this->_getPmaTable() . ' (`username`, `tables`)' .
                 " VALUES ('" . $GLOBALS['dbi']->escapeString($username) . "', '"
                 . $GLOBALS['dbi']->escapeString(
                     json_encode($this->_tables)
@@ -160,7 +169,7 @@ class RecentFavoriteTable
      * Trim recent.favorite table according to the
      * NumRecentTables/NumFavoriteTables configuration.
      *
-     * @return boolean True if trimming occurred
+     * @return bool True if trimming occurred
      */
     public function trim()
     {
@@ -187,7 +196,7 @@ class RecentFavoriteTable
             if ($this->_tableType == 'recent') {
                 foreach ($this->_tables as $table) {
                     $html .= '<li class="warp_link">';
-                    $recent_url = Url::getFromRoute('/table/recent_favorite', [
+                    $recent_url = Url::getFromRoute('/table/recent-favorite', [
                         'db' => $table['db'],
                         'table' => $table['table'],
                     ]);
@@ -208,14 +217,14 @@ class RecentFavoriteTable
                         'remove_favorite' => true,
                     ]);
                     $html .= 'href="' . $fav_rm_url
-                        . '" title="' . __("Remove from Favorites")
+                        . '" title="' . __('Remove from Favorites')
                         . '" data-favtargetn="'
-                        . md5($table['db'] . "." . $table['table'])
+                        . md5($table['db'] . '.' . $table['table'])
                         . '" >'
-                        . Util::getIcon('b_favorite')
+                        . Generator::getIcon('b_favorite')
                         . '</a>';
 
-                    $table_url = Url::getFromRoute('/table/recent_favorite', [
+                    $table_url = Url::getFromRoute('/table/recent-favorite', [
                         'db' => $table['db'],
                         'table' => $table['table'],
                     ]);
@@ -294,8 +303,8 @@ class RecentFavoriteTable
      * @param string $db    database
      * @param string $table table
      *
-     * @return boolean|Message True if invalid and removed, False if not invalid,
-     *                            Message if error while removing
+     * @return bool|Message True if invalid and removed, False if not invalid,
+     * Message if error while removing
      */
     public function removeIfInvalid($db, $table)
     {
@@ -381,10 +390,14 @@ class RecentFavoriteTable
     private function _getPmaTable(): ?string
     {
         $cfgRelation = $this->relation->getRelationsParam();
+        if (! $cfgRelation['recentwork']) {
+            return null;
+        }
+
         if (! empty($cfgRelation['db'])
             && ! empty($cfgRelation[$this->_tableType])
         ) {
-            return Util::backquote($cfgRelation['db']) . "."
+            return Util::backquote($cfgRelation['db']) . '.'
                 . Util::backquote($cfgRelation[$this->_tableType]);
         }
         return null;

@@ -5,14 +5,14 @@
  *
  * For changing this file you should know what you are doing. For this reason
  * options here are not part of normal configuration.
- *
- * @package PhpMyAdmin
  */
 declare(strict_types=1);
 
+// phpcs:disable PSR1.Files.SideEffects
 if (! defined('PHPMYADMIN')) {
     exit;
 }
+// phpcs:enable
 
 /**
  * Path to vendor autoload file. Useful when you want to

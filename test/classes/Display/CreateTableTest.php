@@ -1,32 +1,25 @@
 <?php
 /**
  * tests for PhpMyAdmin\Display\CreateTable
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Display;
 
 use PhpMyAdmin\Display\CreateTable;
-use PhpMyAdmin\Theme;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
 
 /**
  * PhpMyAdmin\Tests\Display\CreateTableTest class
  *
  * this class is for testing PhpMyAdmin\Display\CreateTable methods
- *
- * @package PhpMyAdmin-test
  */
 class CreateTableTest extends TestCase
 {
     /**
      * Test for setUp
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -35,18 +28,18 @@ class CreateTableTest extends TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['MaxRows'] = 10;
-        $GLOBALS['cfg']['ServerDefault'] = "PMA_server";
+        $GLOBALS['cfg']['ServerDefault'] = 'PMA_server';
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $GLOBALS['cfg']['LimitChars'] = 100;
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
-        $GLOBALS['cfg']['Server']['host'] = "localhost";
-        $GLOBALS['cfg']['Server']['user'] = "pma_user";
+        $GLOBALS['cfg']['Server']['host'] = 'localhost';
+        $GLOBALS['cfg']['Server']['user'] = 'pma_user';
         $GLOBALS['cfg']['ShowHint'] = true;
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
         $GLOBALS['PMA_PHP_SELF'] = Url::getFromRoute('/server/privileges');
 
         //$_SESSION
-        $_SESSION['relation'][$GLOBALS['server']] = "relation";
+        $_SESSION['relation'][$GLOBALS['server']] = 'relation';
     }
 
     /**
@@ -56,14 +49,14 @@ class CreateTableTest extends TestCase
      */
     public function testPMAGetHtmlForCreateTable()
     {
-        $db = "pma_db";
+        $db = 'pma_db';
 
         //Call the test function
         $html = CreateTable::getHtml($db);
 
         //getImage
         $this->assertStringContainsString(
-            Util::getImage('b_table_add'),
+            Generator::getImage('b_table_add'),
             $html
         );
 

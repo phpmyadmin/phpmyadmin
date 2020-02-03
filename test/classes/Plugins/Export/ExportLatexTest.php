@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportLatex class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,11 +11,13 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
+use function array_shift;
+use function ob_get_clean;
+use function ob_start;
 
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportLatex class
  *
- * @package PhpMyAdmin-test
  * @group medium
  */
 class ExportLatexTest extends PmaTestCase
@@ -26,8 +26,6 @@ class ExportLatexTest extends PmaTestCase
 
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -48,8 +46,6 @@ class ExportLatexTest extends PmaTestCase
 
     /**
      * tearDown for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -592,7 +588,7 @@ class ExportLatexTest extends PmaTestCase
 
         ob_start();
         $this->assertTrue(
-            $this->object->exportData('db', 'tbl', "\n", "example.com", "SELECT")
+            $this->object->exportData('db', 'tbl', "\n", 'example.com', 'SELECT')
         );
         $result = ob_get_clean();
 
@@ -648,7 +644,7 @@ class ExportLatexTest extends PmaTestCase
 
         ob_start();
         $this->assertTrue(
-            $this->object->exportData('db', 'tbl', "\n", "example.com", "SELECT")
+            $this->object->exportData('db', 'tbl', "\n", 'example.com', 'SELECT')
         );
         $result = ob_get_clean();
 
@@ -765,7 +761,7 @@ class ExportLatexTest extends PmaTestCase
                 'database',
                 '',
                 "\n",
-                "example.com",
+                'example.com',
                 'test',
                 'test',
                 true,
@@ -872,7 +868,7 @@ class ExportLatexTest extends PmaTestCase
                 'database',
                 '',
                 "\n",
-                "example.com",
+                'example.com',
                 'test',
                 'test',
                 true,
@@ -948,7 +944,7 @@ class ExportLatexTest extends PmaTestCase
                 'database',
                 '',
                 "\n",
-                "example.com",
+                'example.com',
                 'test',
                 'test'
             )
@@ -971,7 +967,7 @@ class ExportLatexTest extends PmaTestCase
                 'database',
                 '',
                 "\n",
-                "example.com",
+                'example.com',
                 'triggers',
                 'test'
             )

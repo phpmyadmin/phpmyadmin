@@ -1,8 +1,6 @@
 <?php
 /**
  * tests for PhpMyAdmin\Properties\Options\OptionsPropertyGroup class
- *
- * @package PhpMyAdmin-test
  */
 declare(strict_types=1);
 
@@ -13,8 +11,6 @@ use ReflectionProperty;
 
 /**
  * Tests for PhpMyAdmin\Properties\Options\OptionsPropertyGroup class
- *
- * @package PhpMyAdmin-test
  */
 class OptionsPropertyGroupTest extends TestCase
 {
@@ -22,8 +18,6 @@ class OptionsPropertyGroupTest extends TestCase
 
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -32,8 +26,6 @@ class OptionsPropertyGroupTest extends TestCase
 
     /**
      * tearDown for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
