@@ -34,12 +34,14 @@ class NodeTriggerContainer extends Node
         ];
         $this->realName = 'triggers';
 
+        $newLabel = _pgettext('Create new trigger', 'New');
         $new = NodeFactory::getInstance(
             'Node',
-            _pgettext('Create new trigger', 'New')
+            $newLabel
         );
         $new->isNew = true;
         $new->icon = Util::getImage('b_trigger_add', '');
+        $new->title = $newLabel;
         $new->links = [
             'text' => 'db_triggers.php?server=' . $GLOBALS['server']
                 . '&amp;db=%3$s&amp;add_item=1',

@@ -41,6 +41,7 @@ class NodeFunctionContainer extends NodeDatabaseChildContainer
         );
         $new->isNew = true;
         $new->icon = Util::getImage('b_routine_add', $newLabel);
+        $new->title = $newLabel;
         $new->links = [
             'text' => 'db_routines.php?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s&add_item=1&amp;item_type=FUNCTION',
