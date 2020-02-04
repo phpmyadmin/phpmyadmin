@@ -161,6 +161,11 @@ class UtilExtension extends AbstractExtension
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
+                'get_docu_url',
+                'PhpMyAdmin\Util::getdocuURL',
+                ['is_safe' => ['html']]
+            ),
+            new TwigFunction(
                 'show_php_docu',
                 '\PhpMyAdmin\Html\Generator::showPHPDocumentation',
                 ['is_safe' => ['html']]

@@ -228,7 +228,9 @@ class Util
         $lang = 'en';
         if (isset($GLOBALS['dbi'])) {
             $serverVersion = $GLOBALS['dbi']->getVersion();
-            if ($serverVersion >= 50700) {
+            if ($serverVersion >= 80000) {
+                $mysql = '8.0';
+            } elseif ($serverVersion >= 50700) {
                 $mysql = '5.7';
             } elseif ($serverVersion >= 50600) {
                 $mysql = '5.6';
@@ -243,6 +245,23 @@ class Util
         }
 
         return Core::linkURL($url);
+    }
+
+    /**
+     * Get a URL link to the official documentation page of either MySQL
+     * or MariaDB depending on the databse server
+     * of the user.
+     * @param bool $isMariaDB if the database server is MariaDB
+     *
+     * @return string The URL link
+     */
+    public static function getDocuURL(bool $isMariaDB = false): string
+    {
+        if ($isMariaDB) {
+            $url = 'https://mariadb.com/kb/en/documentation/';
+            return Core::linkURL($url);
+        }
+        return self::getMySQLDocuURL('');
     }
 
     /**
