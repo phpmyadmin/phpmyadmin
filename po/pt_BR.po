@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:48-0300\n"
-"PO-Revision-Date: 2019-12-25 16:21+0000\n"
+"PO-Revision-Date: 2020-02-06 01:50+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/pt_BR/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Weblate 3.11-dev\n"
 
 #: index.php:52
 #, php-format
@@ -16593,10 +16593,8 @@ msgid "Enter:"
 msgstr "Entrar:"
 
 #: templates/menu/breadcrumbs.twig:27
-#, fuzzy
-#| msgid "Views:"
 msgid "View:"
-msgstr "Views:"
+msgstr "View:"
 
 #: templates/database/designer/page_selector.twig:2
 msgid "Select page"
