@@ -556,7 +556,7 @@ class Generator
         $retval = '<option></option>' . "\n";
         // loop on the dropdown array and print all available options for that
         // field.
-        $functions = $GLOBALS['dbi']->types->getFunctions($field['True_Type']);
+        $functions = $GLOBALS['dbi']->types->getAllFunctions();
         foreach ($functions as $function) {
             $retval .= '<option';
             if (isset($foreignData['foreign_link']) && $foreignData['foreign_link'] !== false
@@ -567,29 +567,6 @@ class Generator
             $retval .= '>' . $function . '</option>' . "\n";
             $dropdown_built[$function] = true;
         }
-
-        // Create separator before all functions list
-        if (count($functions) > 0) {
-            $retval .= '<option value="" disabled="disabled">--------</option>'
-                . "\n";
-        }
-
-        // For compatibility's sake, do not let out all other functions. Instead
-        // print a separator (blank) and then show ALL functions which weren't
-        // shown yet.
-        $functions = $GLOBALS['dbi']->types->getAllFunctions();
-        foreach ($functions as $function) {
-            // Skip already included functions
-            if (isset($dropdown_built[$function])) {
-                continue;
-            }
-            $retval .= '<option';
-            if ($default_function === $function) {
-                $retval .= ' selected="selected"';
-            }
-            $retval .= '>' . $function . '</option>' . "\n";
-        } // end for
-
         return $retval;
     }
 
