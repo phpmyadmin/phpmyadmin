@@ -308,6 +308,15 @@ services:
       userPreferences: '@user_preferences'
       relation: '@relation'
 
+  PhpMyAdmin\Controllers\Preferences\NavigationController:
+    class: 'PhpMyAdmin\Controllers\Preferences\NavigationController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      userPreferences: '@user_preferences'
+      relation: '@relation'
+
   PhpMyAdmin\Controllers\Preferences\SqlController:
     class: 'PhpMyAdmin\Controllers\Preferences\SqlController'
     arguments:

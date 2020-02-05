@@ -41,6 +41,7 @@ use PhpMyAdmin\Controllers\PhpInfoController;
 use PhpMyAdmin\Controllers\Preferences\FeaturesController;
 use PhpMyAdmin\Controllers\Preferences\FormsController;
 use PhpMyAdmin\Controllers\Preferences\ManageController;
+use PhpMyAdmin\Controllers\Preferences\NavigationController as PreferencesNavigationController;
 use PhpMyAdmin\Controllers\Preferences\SqlController as PreferencesSqlController;
 use PhpMyAdmin\Controllers\Preferences\TwoFactorController;
 use PhpMyAdmin\Controllers\SchemaExportController;
@@ -373,6 +374,11 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $routes->addRoute(['GET', 'POST'], '/manage', function () use ($containerBuilder) {
             /** @var ManageController $controller */
             $controller = $containerBuilder->get(ManageController::class);
+            $controller->index();
+        });
+        $routes->addRoute(['GET', 'POST'], '/navigation', function () use ($containerBuilder) {
+            /** @var PreferencesNavigationController $controller */
+            $controller = $containerBuilder->get(PreferencesNavigationController::class);
             $controller->index();
         });
         $routes->addRoute(['GET', 'POST'], '/sql', function () use ($containerBuilder) {

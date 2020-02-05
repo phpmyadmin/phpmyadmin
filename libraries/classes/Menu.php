@@ -568,6 +568,7 @@ class Menu
             '/preferences/features',
             '/preferences/forms',
             '/preferences/manage',
+            '/preferences/navigation',
             '/preferences/sql',
             '/preferences/two-factor',
         ]);

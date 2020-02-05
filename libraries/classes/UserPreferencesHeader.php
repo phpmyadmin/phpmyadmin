@@ -84,6 +84,15 @@ class UserPreferencesHeader
                 ]
             ) . "\n";
 
+        $content .= Generator::getHtmlTab(
+                [
+                    'link' => 'index.php?route=/preferences/navigation',
+                    'text' => __('Navigation panel'),
+                    'icon' => 'b_select',
+                    'active' => $route === '/preferences/navigation',
+                ]
+            ) . "\n";
+
         $content .= self::displayTabsWithIcon();
 
         return '<div class=container-fluid><div class=row>' .
@@ -101,7 +110,6 @@ class UserPreferencesHeader
     {
         $form_param = $_GET['form'] ?? null;
         $tabs_icons = [
-            'Navi' => 'b_select',
             'Main' => 'b_props',
             'Import' => 'b_import',
             'Export' => 'b_export',
@@ -109,7 +117,7 @@ class UserPreferencesHeader
         $route = $_GET['route'] ?? $_POST['route'] ?? '';
         $content = null;
         foreach (UserFormList::getAll() as $formset) {
-            if ($formset === 'Features' || $formset === 'Sql') {
+            if ($formset === 'Features' || $formset === 'Sql' || $formset === 'Navi') {
                 continue;
             }
 
