@@ -4,8 +4,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Preferences;
 
 use PhpMyAdmin\Config\ConfigFile;
-use PhpMyAdmin\Config\Forms\BaseForm;
-use PhpMyAdmin\Config\Forms\User\UserFormList;
+use PhpMyAdmin\Config\Forms\User\ExportForm;
+use PhpMyAdmin\Config\Forms\User\FeaturesForm;
+use PhpMyAdmin\Config\Forms\User\ImportForm;
+use PhpMyAdmin\Config\Forms\User\MainForm;
+use PhpMyAdmin\Config\Forms\User\NaviForm;
+use PhpMyAdmin\Config\Forms\User\SqlForm;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
@@ -51,27 +55,44 @@ class FormsController extends AbstractController
 
     public function index(): void
     {
-        global $cf, $form_param, $form_class, $form_display, $url_params, $error, $tabHash, $hash;
+        global $cf, $url_params, $error, $tabHash, $hash;
         global $server, $PMA_Config;
 
         $cf = new ConfigFile($PMA_Config->base_settings);
         $this->userPreferences->pageInit($cf);
 
         // handle form processing
-        $form_param = $_GET['form'] ?? null;
-        $form_class = UserFormList::get($form_param);
-        if ($form_class === null) {
-            Core::fatalError(__('Incorrect form specified!'));
-        }
+        $formParam = $_GET['form'] ?? null;
 
-        /** @var BaseForm $form_display */
-        $form_display = new $form_class($cf, 1);
+        switch ($formParam) {
+            case 'Features':
+                $formDisplay = new FeaturesForm($cf, 1);
+                break;
+            case 'Sql':
+                $formDisplay = new SqlForm($cf, 1);
+                break;
+            case 'Navi':
+                $formDisplay = new NaviForm($cf, 1);
+                break;
+            case 'Main':
+                $formDisplay = new MainForm($cf, 1);
+                break;
+            case 'Export':
+                $formDisplay = new ExportForm($cf, 1);
+                break;
+            case 'Import':
+                $formDisplay = new ImportForm($cf, 1);
+                break;
+            default:
+                Core::fatalError(__('Incorrect form specified!'));
+                return;
+        }
 
         if (isset($_POST['revert'])) {
             // revert erroneous fields to their default values
-            $form_display->fixErrors();
+            $formDisplay->fixErrors();
             // redirect
-            $url_params = ['form' => $form_param];
+            $url_params = ['form' => $formParam];
             Core::sendHeaderLocation(
                 './index.php?route=/preferences/forms'
                 . Url::getCommonRaw($url_params, '&')
@@ -80,7 +101,7 @@ class FormsController extends AbstractController
         }
 
         $error = null;
-        if ($form_display->process(false) && ! $form_display->hasErrors()) {
+        if ($formDisplay->process(false) && ! $formDisplay->hasErrors()) {
             // Load 2FA settings
             $twoFactor = new TwoFactor($GLOBALS['cfg']['Server']['user']);
             // save settings
@@ -94,7 +115,7 @@ class FormsController extends AbstractController
                 $hash = ltrim($tabHash, '#');
                 $this->userPreferences->redirect(
                     'index.php?route=/preferences/forms',
-                    ['form' => $form_param],
+                    ['form' => $formParam],
                     $hash
                 );
                 return;
@@ -108,24 +129,24 @@ class FormsController extends AbstractController
         $scripts = $header->getScripts();
         $scripts->addFile('config.js');
 
-        echo UserPreferencesHeader::getContent($this->template, $this->relation);
+        $this->response->addHTML(UserPreferencesHeader::getContent($this->template, $this->relation));
 
-        if ($form_display->hasErrors()) {
-            $formErrors = $form_display->displayErrors();
+        if ($formDisplay->hasErrors()) {
+            $formErrors = $formDisplay->displayErrors();
         }
 
-        echo $this->template->render('preferences/forms/main', [
+        $this->response->addHTML($this->template->render('preferences/forms/main', [
             'error' => $error ? $error->getDisplay() : '',
-            'has_errors' => $form_display->hasErrors(),
+            'has_errors' => $formDisplay->hasErrors(),
             'errors' => $formErrors ?? null,
-            'form' => $form_display->getDisplay(
+            'form' => $formDisplay->getDisplay(
                 true,
                 true,
                 true,
-                Url::getFromRoute('/preferences/forms', ['form' => $form_param]),
+                Url::getFromRoute('/preferences/forms', ['form' => $formParam]),
                 ['server' => $server]
             ),
-        ]);
+        ]));
 
         if ($this->response->isAjax()) {
             $this->response->addJSON('disableNaviSettings', true);
