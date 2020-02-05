@@ -565,6 +565,7 @@ class Menu
         $tabs['settings']['route'] = '/preferences/manage';
         $tabs['settings']['text'] = __('Settings');
         $tabs['settings']['active'] = in_array($route, [
+            '/preferences/features',
             '/preferences/forms',
             '/preferences/manage',
             '/preferences/two-factor',

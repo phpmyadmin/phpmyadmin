@@ -44,7 +44,8 @@ class UserPreferencesHeaderTest extends PmaTestCase
             ->getMock();
 
         $GLOBALS['dbi'] = $dbi;
-        $_GET['route'] = '/preferences/forms';
+        $GLOBALS['route'] = '/preferences/features';
+        $_GET['route'] = '/preferences/features';
         $_GET['form'] = 'Features';
 
         $template = new Template();
@@ -55,7 +56,7 @@ class UserPreferencesHeaderTest extends PmaTestCase
             $content
         );
         $this->assertStringContainsString(
-            '<a href="index.php?route=/preferences/forms&amp;form=Features&amp;server=0&amp;lang=en" class="tabactive">',
+            '<a href="index.php?route=/preferences/features&amp;server=0&amp;lang=en" class="tabactive">',
             $content
         );
         $this->assertStringContainsString(
