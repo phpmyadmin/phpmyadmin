@@ -281,6 +281,15 @@ services:
       dbi: '@dbi'
       template: '@template'
 
+  PhpMyAdmin\Controllers\Preferences\ExportController:
+    class: 'PhpMyAdmin\Controllers\Preferences\ExportController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      userPreferences: '@user_preferences'
+      relation: '@relation'
+
   PhpMyAdmin\Controllers\Preferences\FeaturesController:
     class: 'PhpMyAdmin\Controllers\Preferences\FeaturesController'
     arguments:

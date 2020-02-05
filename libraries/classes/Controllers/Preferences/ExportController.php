@@ -1,10 +1,11 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Preferences;
 
 use PhpMyAdmin\Config\ConfigFile;
-use PhpMyAdmin\Config\Forms\User\ImportForm;
+use PhpMyAdmin\Config\Forms\User\ExportForm;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
@@ -15,13 +16,8 @@ use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\UserPreferencesHeader;
-use function define;
-use function ltrim;
 
-/**
- * User preferences page.
- */
-class FormsController extends AbstractController
+class ExportController extends AbstractController
 {
     /** @var UserPreferences */
     private $userPreferences;
@@ -50,40 +46,25 @@ class FormsController extends AbstractController
 
     public function index(): void
     {
-        global $cf, $url_params, $error, $tabHash, $hash;
+        global $cfg, $cf, $error, $tabHash, $hash;
         global $server, $PMA_Config;
 
         $cf = new ConfigFile($PMA_Config->base_settings);
         $this->userPreferences->pageInit($cf);
 
-        // handle form processing
-        $formParam = $_GET['form'] ?? null;
-
-        switch ($formParam) {
-            case 'Import':
-                $formDisplay = new ImportForm($cf, 1);
-                break;
-            default:
-                Core::fatalError(__('Incorrect form specified!'));
-                return;
-        }
+        $formDisplay = new ExportForm($cf, 1);
 
         if (isset($_POST['revert'])) {
             // revert erroneous fields to their default values
             $formDisplay->fixErrors();
-            // redirect
-            $url_params = ['form' => $formParam];
-            Core::sendHeaderLocation(
-                './index.php?route=/preferences/forms'
-                . Url::getCommonRaw($url_params, '&')
-            );
+            Core::sendHeaderLocation('./index.php?route=/preferences/export');
             return;
         }
 
         $error = null;
         if ($formDisplay->process(false) && ! $formDisplay->hasErrors()) {
             // Load 2FA settings
-            $twoFactor = new TwoFactor($GLOBALS['cfg']['Server']['user']);
+            $twoFactor = new TwoFactor($cfg['Server']['user']);
             // save settings
             $result = $this->userPreferences->save($cf->getConfigArray());
             // save back the 2FA setting only
@@ -94,8 +75,8 @@ class FormsController extends AbstractController
                 $tabHash = $_POST['tab_hash'] ?? null;
                 $hash = ltrim($tabHash, '#');
                 $this->userPreferences->redirect(
-                    'index.php?route=/preferences/forms',
-                    ['form' => $formParam],
+                    'index.php?route=/preferences/export',
+                    null,
                     $hash
                 );
                 return;
@@ -123,7 +104,7 @@ class FormsController extends AbstractController
                 true,
                 true,
                 true,
-                Url::getFromRoute('/preferences/forms', ['form' => $formParam]),
+                Url::getFromRoute('/preferences/export'),
                 ['server' => $server]
             ),
         ]));

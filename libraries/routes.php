@@ -38,6 +38,7 @@ use PhpMyAdmin\Controllers\LogoutController;
 use PhpMyAdmin\Controllers\NavigationController;
 use PhpMyAdmin\Controllers\NormalizationController;
 use PhpMyAdmin\Controllers\PhpInfoController;
+use PhpMyAdmin\Controllers\Preferences\ExportController as PreferencesExportController;
 use PhpMyAdmin\Controllers\Preferences\FeaturesController;
 use PhpMyAdmin\Controllers\Preferences\FormsController;
 use PhpMyAdmin\Controllers\Preferences\MainPanelController;
@@ -365,6 +366,11 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $routes->addRoute(['GET', 'POST'], '/forms', function () use ($containerBuilder) {
             /** @var FormsController $controller */
             $controller = $containerBuilder->get(FormsController::class);
+            $controller->index();
+        });
+        $routes->addRoute(['GET', 'POST'], '/export', function () use ($containerBuilder) {
+            /** @var PreferencesExportController $controller */
+            $controller = $containerBuilder->get(PreferencesExportController::class);
             $controller->index();
         });
         $routes->addRoute(['GET', 'POST'], '/features', function () use ($containerBuilder) {

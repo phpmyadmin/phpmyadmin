@@ -102,6 +102,15 @@ class UserPreferencesHeader
                 ]
             ) . "\n";
 
+        $content .= Generator::getHtmlTab(
+                [
+                    'link' => 'index.php?route=/preferences/export',
+                    'text' => __('Export'),
+                    'icon' => 'b_export',
+                    'active' => $route === '/preferences/export',
+                ]
+            ) . "\n";
+
         $content .= self::displayTabsWithIcon();
 
         return '<div class=container-fluid><div class=row>' .
@@ -120,12 +129,16 @@ class UserPreferencesHeader
         $form_param = $_GET['form'] ?? null;
         $tabs_icons = [
             'Import' => 'b_import',
-            'Export' => 'b_export',
         ];
         $route = $_GET['route'] ?? $_POST['route'] ?? '';
         $content = null;
         foreach (UserFormList::getAll() as $formset) {
-            if ($formset === 'Features' || $formset === 'Sql' || $formset === 'Navi' || $formset === 'Main') {
+            if ($formset === 'Features'
+                || $formset === 'Sql'
+                || $formset === 'Navi'
+                || $formset === 'Main'
+                || $formset === 'Export'
+            ) {
                 continue;
             }
 
