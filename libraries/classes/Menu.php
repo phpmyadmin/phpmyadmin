@@ -567,7 +567,7 @@ class Menu
         $tabs['settings']['active'] = in_array($route, [
             '/preferences/export',
             '/preferences/features',
-            '/preferences/forms',
+            '/preferences/import',
             '/preferences/main-panel',
             '/preferences/manage',
             '/preferences/navigation',

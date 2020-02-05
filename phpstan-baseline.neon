@@ -3063,16 +3063,6 @@ parameters:
 			path: libraries/classes/Url.php
 
 		-
-			message: "#^Cannot call static method getName\\(\\) on string\\|null\\.$#"
-			count: 1
-			path: libraries/classes/UserPreferencesHeader.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\UserPreferencesHeader\\:\\:displayTabsWithIcon\\(\\) should return string but returns string\\|null\\.$#"
-			count: 1
-			path: libraries/classes/UserPreferencesHeader.php
-
-		-
 			message: "#^Strict comparison using \\=\\=\\= between float\\|int and null will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Util.php

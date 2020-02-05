@@ -6,7 +6,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\Html\Generator;
 use Throwable;
 use Twig_Error_Loader;
@@ -111,7 +110,14 @@ class UserPreferencesHeader
                 ]
             ) . "\n";
 
-        $content .= self::displayTabsWithIcon();
+        $content .= Generator::getHtmlTab(
+                [
+                    'link' => 'index.php?route=/preferences/import',
+                    'text' => __('Import'),
+                    'icon' => 'b_import',
+                    'active' => $route === '/preferences/import',
+                ]
+            ) . "\n";
 
         return '<div class=container-fluid><div class=row>' .
         $template->render(
@@ -122,36 +128,6 @@ class UserPreferencesHeader
                 'content' => $content,
             ]
         ) . '<div class="clearfloat"></div></div>';
-    }
-
-    protected static function displayTabsWithIcon(): string
-    {
-        $form_param = $_GET['form'] ?? null;
-        $tabs_icons = [
-            'Import' => 'b_import',
-        ];
-        $route = $_GET['route'] ?? $_POST['route'] ?? '';
-        $content = null;
-        foreach (UserFormList::getAll() as $formset) {
-            if ($formset === 'Features'
-                || $formset === 'Sql'
-                || $formset === 'Navi'
-                || $formset === 'Main'
-                || $formset === 'Export'
-            ) {
-                continue;
-            }
-
-            $formset_class = UserFormList::get($formset);
-            $tab = [
-                'link' => 'index.php?route=/preferences/forms',
-                'text' => $formset_class::getName(),
-                'icon' => $tabs_icons[$formset],
-                'active' => $route === '/preferences/forms' && $formset === $form_param,
-            ];
-            $content .= Generator::getHtmlTab($tab, ['form' => $formset]) . "\n";
-        }
-        return $content;
     }
 
     protected static function displayConfigurationSavedMessage(): ?string

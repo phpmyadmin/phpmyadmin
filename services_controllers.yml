@@ -299,8 +299,8 @@ services:
       userPreferences: '@user_preferences'
       relation: '@relation'
 
-  PhpMyAdmin\Controllers\Preferences\FormsController:
-    class: 'PhpMyAdmin\Controllers\Preferences\FormsController'
+  PhpMyAdmin\Controllers\Preferences\ImportController:
+    class: 'PhpMyAdmin\Controllers\Preferences\ImportController'
     arguments:
       response: '@response'
       dbi: '@dbi'
