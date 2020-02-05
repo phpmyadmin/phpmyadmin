@@ -12,6 +12,7 @@ namespace PhpMyAdmin\Properties\Plugins;
 class SchemaPluginProperties extends PluginPropertyItem
 {
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
+
     /**
      * Returns the property item type of either an instance of
      *  - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem ( f.e. "bool",
