@@ -9,12 +9,8 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
-use function array_merge;
-use function sprintf;
 
 /**
  * View manipulations
@@ -38,10 +34,10 @@ class ViewOperationsController extends AbstractController
 
     public function index(): void
     {
-        global $sql_query, $url_query, $url_params, $reload, $result, $warning_messages;
-        global $drop_view_url_params, $db, $table;
+        global $sql_query, $url_params, $reload, $result, $warning_messages;
+        global $db, $table;
 
-        $pma_table = new Table($table, $db);
+        $tableObject = $this->dbi->getTable($db, $table);
 
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();
@@ -50,24 +46,20 @@ class ViewOperationsController extends AbstractController
         Common::table();
 
         $url_params['goto'] = $url_params['back'] = Url::getFromRoute('/view/operations');
-        $url_query .= Url::getCommon($url_params, '&');
 
-        /**
-         * Updates if required
-         */
-        $_message = new Message();
-        $_type = 'success';
+        $message = new Message();
+        $type = 'success';
         if (isset($_POST['submitoptions'])) {
             if (isset($_POST['new_name'])) {
-                if ($pma_table->rename($_POST['new_name'])) {
-                    $_message->addText($pma_table->getLastMessage());
+                if ($tableObject->rename($_POST['new_name'])) {
+                    $message->addText($tableObject->getLastMessage());
                     $result = true;
-                    $table = $pma_table->getName();
+                    $table = $tableObject->getName();
                     /* Force reread after rename */
-                    $pma_table->getStatusInfo(null, true);
+                    $tableObject->getStatusInfo(null, true);
                     $reload = true;
                 } else {
-                    $_message->addText($pma_table->getLastError());
+                    $message->addText($tableObject->getLastError());
                     $result = false;
                 }
             }
@@ -78,54 +70,32 @@ class ViewOperationsController extends AbstractController
         if (isset($result)) {
             // set to success by default, because result set could be empty
             // (for example, a table rename)
-            if (empty($_message->getString())) {
+            if (empty($message->getString())) {
                 if ($result) {
-                    $_message->addText(
+                    $message->addText(
                         __('Your SQL query has been executed successfully.')
                     );
                 } else {
-                    $_message->addText(__('Error'));
+                    $message->addText(__('Error'));
                 }
                 // $result should exist, regardless of $_message
-                $_type = $result ? 'success' : 'error';
+                $type = $result ? 'success' : 'error';
             }
             if (! empty($warning_messages)) {
-                $_message->addMessagesString($warning_messages);
-                $_message->isError(true);
-                unset($warning_messages);
+                $message->addMessagesString($warning_messages);
+                $message->isError(true);
             }
-            echo Generator::getMessage(
-                $_message,
+            $this->response->addHTML(Generator::getMessage(
+                $message,
                 $sql_query,
-                $_type
-            );
+                $type
+            ));
         }
-        unset($_message, $_type);
 
-        $drop_view_url_params = array_merge(
-            $url_params,
-            [
-                'sql_query' => 'DROP VIEW ' . Util::backquote($table),
-                'goto' => Url::getFromRoute('/table/structure'),
-                'reload' => '1',
-                'purge' => '1',
-                'message_to_show' => sprintf(
-                    __('View %s has been dropped.'),
-                    $table
-                ),
-                'table' => $table,
-            ]
-        );
-
-        echo $this->template->render('table/operations/view', [
+        $this->response->addHTML($this->template->render('table/operations/view', [
             'db' => $db,
             'table' => $table,
-            'delete_data_or_table_link' => $this->operations->getDeleteDataOrTablelink(
-                $drop_view_url_params,
-                'DROP VIEW',
-                __('Delete the view (DROP)'),
-                'drop_view_anchor'
-            ),
-        ]);
+            'url_params' => $url_params,
+        ]));
     }
 }

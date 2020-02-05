@@ -665,30 +665,6 @@ class Operations
     }
 
     /**
-     * Get the HTML link for Truncate table, Drop table and Drop db
-     *
-     * @param array  $url_params url parameter array for delete data or table
-     * @param string $syntax     TRUNCATE_TABLE or DROP_TABLE or DROP_DATABASE
-     * @param string $link       link to be shown
-     * @param string $htmlId     id of the link
-     *
-     * @return string html output
-     */
-    public function getDeleteDataOrTablelink(array $url_params, $syntax, $link, $htmlId)
-    {
-        return '<li>' . Generator::linkOrButton(
-                Url::getFromRoute('/sql', $url_params),
-                $link,
-                [
-                    'id' => $htmlId,
-                    'class' => 'ajax',
-                ]
-            )
-            . MySQLDocumentation::show($syntax)
-            . '</li>';
-    }
-
-    /**
      * @return array<string, string>
      */
     public function getPartitionMaintenanceChoices(): array
