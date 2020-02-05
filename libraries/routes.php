@@ -40,6 +40,7 @@ use PhpMyAdmin\Controllers\NormalizationController;
 use PhpMyAdmin\Controllers\PhpInfoController;
 use PhpMyAdmin\Controllers\Preferences\FeaturesController;
 use PhpMyAdmin\Controllers\Preferences\FormsController;
+use PhpMyAdmin\Controllers\Preferences\MainPanelController;
 use PhpMyAdmin\Controllers\Preferences\ManageController;
 use PhpMyAdmin\Controllers\Preferences\NavigationController as PreferencesNavigationController;
 use PhpMyAdmin\Controllers\Preferences\SqlController as PreferencesSqlController;
@@ -369,6 +370,11 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $routes->addRoute(['GET', 'POST'], '/features', function () use ($containerBuilder) {
             /** @var FeaturesController $controller */
             $controller = $containerBuilder->get(FeaturesController::class);
+            $controller->index();
+        });
+        $routes->addRoute(['GET', 'POST'], '/main-panel', function () use ($containerBuilder) {
+            /** @var MainPanelController $controller */
+            $controller = $containerBuilder->get(MainPanelController::class);
             $controller->index();
         });
         $routes->addRoute(['GET', 'POST'], '/manage', function () use ($containerBuilder) {

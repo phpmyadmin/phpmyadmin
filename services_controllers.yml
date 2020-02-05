@@ -299,6 +299,15 @@ services:
       userPreferences: '@user_preferences'
       relation: '@relation'
 
+  PhpMyAdmin\Controllers\Preferences\MainPanelController:
+    class: 'PhpMyAdmin\Controllers\Preferences\MainPanelController'
+    arguments:
+      response: '@response'
+      dbi: '@dbi'
+      template: '@template'
+      userPreferences: '@user_preferences'
+      relation: '@relation'
+
   PhpMyAdmin\Controllers\Preferences\ManageController:
     class: 'PhpMyAdmin\Controllers\Preferences\ManageController'
     arguments:
