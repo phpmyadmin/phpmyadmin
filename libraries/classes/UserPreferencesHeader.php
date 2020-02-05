@@ -75,6 +75,15 @@ class UserPreferencesHeader
                 ]
             ) . "\n";
 
+        $content .= Generator::getHtmlTab(
+                [
+                    'link' => 'index.php?route=/preferences/sql',
+                    'text' => __('SQL queries'),
+                    'icon' => 'b_sql',
+                    'active' => $route === '/preferences/sql',
+                ]
+            ) . "\n";
+
         $content .= self::displayTabsWithIcon();
 
         return '<div class=container-fluid><div class=row>' .
@@ -92,7 +101,6 @@ class UserPreferencesHeader
     {
         $form_param = $_GET['form'] ?? null;
         $tabs_icons = [
-            'Sql' => 'b_sql',
             'Navi' => 'b_select',
             'Main' => 'b_props',
             'Import' => 'b_import',
@@ -101,7 +109,7 @@ class UserPreferencesHeader
         $route = $_GET['route'] ?? $_POST['route'] ?? '';
         $content = null;
         foreach (UserFormList::getAll() as $formset) {
-            if ($formset === 'Features') {
+            if ($formset === 'Features' || $formset === 'Sql') {
                 continue;
             }
 
