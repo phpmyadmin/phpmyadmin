@@ -42,40 +42,49 @@ class MonitorController extends AbstractController
         Common::server();
 
         $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
-        $scripts->addFile('vendor/jquery/jquery.sortableTable.js');
-        $scripts->addFile('vendor/jqplot/jquery.jqplot.js');
-        $scripts->addFile('vendor/jqplot/plugins/jqplot.pieRenderer.js');
-        $scripts->addFile('vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js');
-        $scripts->addFile('vendor/jqplot/plugins/jqplot.canvasTextRenderer.js');
-        $scripts->addFile('vendor/jqplot/plugins/jqplot.canvasAxisLabelRenderer.js');
-        $scripts->addFile('vendor/jqplot/plugins/jqplot.dateAxisRenderer.js');
-        $scripts->addFile('vendor/jqplot/plugins/jqplot.highlighter.js');
-        $scripts->addFile('vendor/jqplot/plugins/jqplot.cursor.js');
-        $scripts->addFile('jqplot/plugins/jqplot.byteFormatter.js');
-        $scripts->addFile('server/status/monitor.js');
-        $scripts->addFile('server/status/sorter.js');
+        try{
+            $scripts = $header->getScripts();
+            $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
+            $scripts->addFile('vendor/jquery/jquery.sortableTable.js');
+            $scripts->addFile('vendor/jqplot/jquery.jqplot.js');
+            $scripts->addFile('vendor/jqplot/plugins/jqplot.pieRenderer.js');
+            $scripts->addFile('vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js');
+            $scripts->addFile('vendor/jqplot/plugins/jqplot.canvasTextRenderer.js');
+            $scripts->addFile('vendor/jqplot/plugins/jqplot.canvasAxisLabelRenderer.js');
+            $scripts->addFile('vendor/jqplot/plugins/jqplot.dateAxisRenderer.js');
+            $scripts->addFile('vendor/jqplot/plugins/jqplot.highlighter.js');
+            $scripts->addFile('vendor/jqplot/plugins/jqplot.cursor.js');
+            $scripts->addFile('jqplot/plugins/jqplot.byteFormatter.js');
+            $scripts->addFile('server/status/monitor.js');
+            $scripts->addFile('server/status/sorter.js');
 
-        $form = [
-            'server_time' => microtime(true) * 1000,
-            'server_os' => SysInfo::getOs(),
-            'is_superuser' => $this->dbi->isSuperuser(),
-            'server_db_isLocal' => $this->data->db_isLocal,
-        ];
+            $form = [
+                'server_time' => microtime(true) * 1000,
+                'server_os' => SysInfo::getOs(),
+                'is_superuser' => $this->dbi->isSuperuser(),
+                'server_db_isLocal' => $this->data->db_isLocal,
+            ];
 
-        $javascriptVariableNames = [];
-        foreach ($this->data->status as $name => $value) {
-            if (is_numeric($value)) {
-                $javascriptVariableNames[] = $name;
+            $javascriptVariableNames = [];
+            foreach ($this->data->status as $name => $value) {
+                if (is_numeric($value)) {
+                    $javascriptVariableNames[] = $name;
+                }
             }
+
+            return $this->template->render('server/status/monitor/index', [
+                'image_path' => $GLOBALS['pmaThemeImage'],
+                'javascript_variable_names' => $javascriptVariableNames,
+                'form' => $form,
+                ]);
+            }
+
+        catch(Exception $err){
+            return $err->getMessage();
         }
 
-        return $this->template->render('server/status/monitor/index', [
-            'image_path' => $GLOBALS['pmaThemeImage'],
-            'javascript_variable_names' => $javascriptVariableNames,
-            'form' => $form,
-        ]);
+                
+        
     }
 
     /**
