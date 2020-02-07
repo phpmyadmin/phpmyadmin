@@ -2789,6 +2789,18 @@ class UtilTest extends PmaTestCase
                 'for=192.0.2.60;proto=http;by=203.0.113.43',
                 'http',
             ],
+            [
+                'for=12.34.45.67;secret="special;proto=abc;test=1";proto=http,for=23.45.67.89',
+                'http',
+            ],
+            [
+                'for=12.34.45.67;secret="special;proto=abc;test=1";proto=418,for=23.45.67.89',
+                '',
+            ],
+            /*[ // this test case is very special and would need a different implementation
+                'for=12.34.45.67;secret="special;proto=http;test=1";proto=https,for=23.45.67.89',
+                'https'
+            ]*/
         ];
     }
 }
