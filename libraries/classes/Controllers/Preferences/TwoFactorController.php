@@ -32,9 +32,15 @@ class TwoFactorController extends AbstractController
 
     public function index(): void
     {
-        global $cfg;
+        global $cfg, $route;
 
-        echo UserPreferencesHeader::getContent($this->template, $this->relation);
+        $cfgRelation = $this->relation->getRelationsParam();
+
+        echo $this->template->render('preferences/header', [
+            'route' => $route,
+            'is_saved' => ! empty($_GET['saved']),
+            'has_config_storage' => $cfgRelation['userconfigwork'],
+        ]);
 
         $twoFactor = new TwoFactor($cfg['Server']['user']);
 

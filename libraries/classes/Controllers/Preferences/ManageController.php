@@ -67,7 +67,7 @@ class ManageController extends AbstractController
     public function index(): void
     {
         global $cf, $error, $filename, $import_handle, $json, $PMA_Config, $lang, $max_upload_size;
-        global $new_config, $config, $return_url, $form_display, $all_ok, $params, $query;
+        global $new_config, $config, $return_url, $form_display, $all_ok, $params, $query, $route;
 
         $cf = new ConfigFile($PMA_Config->base_settings);
         $this->userPreferences->pageInit($cf);
@@ -153,7 +153,13 @@ class ManageController extends AbstractController
                 }
                 if (! $all_ok) {
                     // mimic original form and post json in a hidden field
-                    echo UserPreferencesHeader::getContent($this->template, $this->relation);
+                    $cfgRelation = $this->relation->getRelationsParam();
+
+                    echo $this->template->render('preferences/header', [
+                        'route' => $route,
+                        'is_saved' => ! empty($_GET['saved']),
+                        'has_config_storage' => $cfgRelation['userconfigwork'],
+                    ]);
 
                     echo $this->template->render('preferences/manage/error', [
                         'form_errors' => $form_display->displayErrors(),
@@ -224,7 +230,14 @@ class ManageController extends AbstractController
         $scripts = $header->getScripts();
         $scripts->addFile('config.js');
 
-        echo UserPreferencesHeader::getContent($this->template, $this->relation);
+        $cfgRelation = $this->relation->getRelationsParam();
+
+        echo $this->template->render('preferences/header', [
+            'route' => $route,
+            'is_saved' => ! empty($_GET['saved']),
+            'has_config_storage' => $cfgRelation['userconfigwork'],
+        ]);
+
         if ($error) {
             if (! $error instanceof Message) {
                 $error = Message::error($error);

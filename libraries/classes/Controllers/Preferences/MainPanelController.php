@@ -47,7 +47,7 @@ class MainPanelController extends AbstractController
     public function index(): void
     {
         global $cfg, $cf, $error, $tabHash, $hash;
-        global $server, $PMA_Config;
+        global $server, $PMA_Config, $route;
 
         $cf = new ConfigFile($PMA_Config->base_settings);
         $this->userPreferences->pageInit($cf);
@@ -90,7 +90,13 @@ class MainPanelController extends AbstractController
         $scripts = $header->getScripts();
         $scripts->addFile('config.js');
 
-        $this->response->addHTML(UserPreferencesHeader::getContent($this->template, $this->relation));
+        $cfgRelation = $this->relation->getRelationsParam();
+
+        $this->response->addHTML($this->template->render('preferences/header', [
+            'route' => $route,
+            'is_saved' => ! empty($_GET['saved']),
+            'has_config_storage' => $cfgRelation['userconfigwork'],
+        ]));
 
         if ($formDisplay->hasErrors()) {
             $formErrors = $formDisplay->displayErrors();
