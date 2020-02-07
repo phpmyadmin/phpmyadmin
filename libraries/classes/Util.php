@@ -3156,12 +3156,15 @@ class Util
             $hops = explode(',', $headerContents);
             $parts = explode(';', $hops[0]);
             foreach ($parts as $part) {
-                [
-                    $keyName,
-                    $value,
-                ] = explode('=', $part);
-                if (strtolower(trim($keyName)) === 'proto') {
-                    return empty($value) ? '' : $value;
+                $keyValueArray = explode('=', $part, 2);
+                if (count($keyValueArray) === 2) {
+                    [
+                        $keyName,
+                        $value,
+                    ] = $keyValueArray;
+                    if (strtolower(trim($keyName)) === 'proto' && in_array($value, ['http', 'https'])) {
+                        return empty($value) ? '' : $value;
+                    }
                 }
             }
         }
