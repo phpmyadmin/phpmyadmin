@@ -129,6 +129,7 @@ class Navigation
             'is_navigation_settings_enabled' => ! defined('PMA_DISABLE_NAVI_SETTINGS'),
             'navigation_settings' => $navigationSettings ?? '',
             'is_drag_drop_import_enabled' => $cfg['enable_drag_drop_import'] === true,
+            'is_mariadb' => $this->dbi->isMariaDB(),
         ]);
     }
 
