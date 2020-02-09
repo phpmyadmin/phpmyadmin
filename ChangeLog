@@ -17,6 +17,8 @@ phpMyAdmin - ChangeLog
 - issue #15555 Added ip2long transformation
 - issue #15194 Fixed horizontal scroll on structure edit page
 - issue #14820 Move table hide buttons in navigation to avoid hiding a table by mistake
+- issue #14947 Use correct MySQL version if the version is 8.0 or above for documentation links
+- issue #15790 Use "MariaDB Documentation" instead of "MySQL Documentation" on a MariaDB server
 
 5.0.2 (not yet released)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page
