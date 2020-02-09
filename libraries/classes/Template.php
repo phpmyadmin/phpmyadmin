@@ -55,11 +55,11 @@ class Template
     {
         global $cfg;
 
-        /** @var Config $config */
+        /** @var Config|null $config */
         $config = $GLOBALS['PMA_Config'];
         if (static::$twig === null) {
             $loader = new FilesystemLoader(self::BASE_PATH);
-            $cache_dir = $config->getTempDir('twig');
+            $cache_dir = $config !== null ? $config->getTempDir('twig') : null;
             /* Twig expects false when cache is not configured */
             if ($cache_dir === null) {
                 $cache_dir = false;

@@ -220,7 +220,9 @@ class Url
             $params['server'] = $GLOBALS['server'];
         }
 
-        if (empty($PMA_Config->getCookie('pma_lang')) && ! empty($GLOBALS['lang'])) {
+        // Can be null when the user is missing an extension.
+        // See: Core::checkExtensions()
+        if ($PMA_Config !== null && empty($PMA_Config->getCookie('pma_lang')) && ! empty($GLOBALS['lang'])) {
             $params['lang'] = $GLOBALS['lang'];
         }
 

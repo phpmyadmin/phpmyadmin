@@ -326,7 +326,7 @@ class Core
         ];
 
         $lang = 'en';
-        if (in_array($GLOBALS['lang'], $php_doc_languages)) {
+        if (isset($GLOBALS['lang']) && in_array($GLOBALS['lang'], $php_doc_languages)) {
             $lang = $GLOBALS['lang'];
         }
 
@@ -345,6 +345,9 @@ class Core
         bool $fatal = false,
         string $extra = ''
     ): void {
+        /** @var ErrorHandler $error_handler */
+        global $error_handler;
+
         /* Gettext does not have to be loaded yet here */
         if (function_exists('__')) {
             $message = __(
@@ -367,11 +370,11 @@ class Core
             return;
         }
 
-        $GLOBALS['error_handler']->addError(
+        $error_handler->addError(
             $message,
             E_USER_WARNING,
             '',
-            '',
+            0,
             false
         );
     }
