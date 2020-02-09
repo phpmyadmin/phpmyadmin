@@ -331,7 +331,7 @@ class Core
         ];
 
         $lang = 'en';
-        if (in_array($GLOBALS['lang'], $php_doc_languages)) {
+        if (isset($GLOBALS['lang']) && in_array($GLOBALS['lang'], $php_doc_languages)) {
             $lang = $GLOBALS['lang'];
         }
 
