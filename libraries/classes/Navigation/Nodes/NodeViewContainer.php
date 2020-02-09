@@ -25,14 +25,12 @@ class NodeViewContainer extends NodeDatabaseChildContainer
         $this->links = [
             'text' => Url::getFromRoute('/database/structure', [
                 'server' => $GLOBALS['server'],
-                'db' => '%1\$s',
                 'tbl_type' => 'view',
-            ]),
+            ]) . '&amp;db=%1$s',
             'icon' => Url::getFromRoute('/database/structure', [
                 'server' => $GLOBALS['server'],
-                'db' => '%1\$s',
                 'tbl_type' => 'view',
-            ]),
+            ]) . '&amp;db=%1$s',
         ];
         $this->classes = 'viewContainer subContainer';
         $this->realName = 'views';
