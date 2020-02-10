@@ -438,7 +438,7 @@ class Core
         ];
 
         if (preg_match('/^([0-9]+)([KMGT])/i', $size, $matches)) {
-            return $matches[1] * $binaryprefixes[$matches[2]];
+            return (int) ($matches[1] * $binaryprefixes[$matches[2]]);
         }
 
         return (int) $size;
