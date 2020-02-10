@@ -1145,6 +1145,8 @@ div#tablestatistics table {
 // user privileges
 #fieldset_add_user_login {
   div.item {
+    display: flex;
+    align-items: center;
     border-bottom: 1px solid silver;
     padding-bottom: 0.3em;
     margin-bottom: 0.3em;
@@ -1157,6 +1159,7 @@ div#tablestatistics table {
     max-width: 100%;
     text-align: $right;
     padding-#{$right}: 0.5em;
+    margin-bottom: 0;
   }
 
   input {
