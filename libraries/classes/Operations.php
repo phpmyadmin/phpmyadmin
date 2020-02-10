@@ -1208,6 +1208,8 @@ class Operations
                 . '<label for="auto_increment_opt">AUTO_INCREMENT</label></td>'
                 . '<td><input type="number" name="new_auto_increment" '
                 . 'id="auto_increment_opt"'
+                . 'value="' . $auto_increment . '">'
+                . '<input type="hidden" name="hidden_auto_increment" '
                 . 'value="' . $auto_increment . '"></td>'
                 . '</tr> ';
         } // end if (MYISAM|INNODB)
@@ -1938,6 +1940,7 @@ class Operations
             && ! empty($_POST['new_auto_increment'])
             && (! isset($auto_increment)
             || $_POST['new_auto_increment'] !== $auto_increment)
+            && $_POST['new_auto_increment'] !== $_POST['hidden_auto_increment']
         ) {
             $table_alters[] = 'auto_increment = '
                 . $this->dbi->escapeString($_POST['new_auto_increment']);
