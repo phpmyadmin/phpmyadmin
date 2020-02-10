@@ -473,7 +473,7 @@ AJAX.registerOnload('table/change.js', function () {
                     || thisElemSubmitTypeVal === 'insertignore'
                     || thisElemSubmitTypeVal === 'showinsert'
                 ) {
-                    $(valueField).val(0);
+                    $(valueField).val(null);
                 } else {
                     $(valueField).val(previousValue);
                 }
