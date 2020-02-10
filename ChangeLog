@@ -36,6 +36,7 @@ phpMyAdmin - ChangeLog
 - issue        Fixed some php uncaught errors and notices on user missing extension
 - issue #15926 Fixed PhpMyAdmin\Core::getRealSize('8000M') returns a float instead of an int
 - issue #15410 Fixed auto increment reset issue where the last value of AI was saved an could destroy the "good" value
+- issue #15187 Fixed editing a row and using 'insert as new row' uses primary key 0 instead of NULL
 
 5.0.1 (2020-01-07)
 - issue #15719 Fixed error 500 when browsing a table when $cfg['LimitChars'] used a string and not an int value
