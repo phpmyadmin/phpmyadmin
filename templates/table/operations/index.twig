@@ -181,6 +181,7 @@
       {% if has_auto_increment %}
         <div class="form-group form-inline">
           <label for="auto_increment_opt">AUTO_INCREMENT</label>
+          <input type="hidden" name="hidden_auto_increment" value="{{ auto_increment }}">
           <input class="form-control" id="auto_increment_opt" type="number" name="new_auto_increment" value="{{ auto_increment }}">
         </div>
       {% endif %}

@@ -887,6 +887,7 @@ class Operations
             && ! empty($_POST['new_auto_increment'])
             && (! isset($auto_increment)
             || $_POST['new_auto_increment'] !== $auto_increment)
+            && $_POST['new_auto_increment'] !== $_POST['hidden_auto_increment']
         ) {
             $table_alters[] = 'auto_increment = '
                 . $this->dbi->escapeString($_POST['new_auto_increment']);
