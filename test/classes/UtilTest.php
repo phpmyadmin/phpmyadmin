@@ -1821,6 +1821,18 @@ class UtilTest extends PmaTestCase
                 'http',
             ],
             [
+                'for=192.0.2.60;proto=htTp;by=203.0.113.43',
+                'http',
+            ],
+            [
+                'for=192.0.2.60;proto=HTTP;by=203.0.113.43',
+                'http',
+            ],
+            [
+                'for=192.0.2.60;proto= http;by=203.0.113.43',
+                'http',
+            ],
+            [
                 'for=12.34.45.67;secret="special;proto=abc;test=1";proto=http,for=23.45.67.89',
                 'http',
             ],
