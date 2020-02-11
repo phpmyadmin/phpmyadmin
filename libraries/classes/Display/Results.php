@@ -1816,7 +1816,7 @@ class Results
                 );
             $sort_direction[$special_index] = preg_match(
                 '@time|date@i',
-                $fields_meta->type
+                $fields_meta->type ?? ''
             ) ? self::DESCENDING_SORT_DIR : self::ASCENDING_SORT_DIR;
         }
 
@@ -5070,13 +5070,14 @@ class Results
         $is_truncated = false;
         $result = '[' . $category;
 
-        if (isset($content)) {
+        if ($content !== null) {
             $size = strlen($content);
             $display_size = Util::formatByteDown($size, 3, 1);
             $result .= ' - ' . $display_size[0] . ' ' . $display_size[1];
         } else {
             $result .= ' - NULL';
             $size = 0;
+            $content = '';
         }
 
         $result .= ']';

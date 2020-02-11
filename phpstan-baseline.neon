@@ -913,28 +913,8 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#1 \\$data of function bin2hex expects string, string\\|null given\\.$#"
-			count: 2
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Trying to invoke string but it might not be a callable\\.$#"
 			count: 5
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Parameter \\#1 \\$var of function mb_check_encoding expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, string\\|null given\\.$#"
-			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
