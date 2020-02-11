@@ -13,6 +13,9 @@
             {% endif %}
             {% if logo.source is not empty %}
               <img id="imgpmalogo" src="{{ logo.source }}" alt="phpMyAdmin">
+              {% if theme == 'metro' %}
+                <h id="show">phpMyAdmin</h>
+              {% endif %}
             {% else %}
               <h1>phpMyAdmin</h1>
             {% endif %}

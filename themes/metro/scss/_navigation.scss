@@ -77,13 +77,13 @@
     height: 15px;
     line-height: 100%;
     box-sizing: content-box;
+  }
 
-    &::after {
-      font-family: $font-family-extra-bold;
-      text-transform: uppercase;
-      margin-#{$left}: 5px;
-      content: "phpMyAdmin";
-    }
+  #pmalogo #show {
+    font-family: $font-family-extra-bold;
+    text-transform: uppercase;
+    margin-#{$left}: 5px;
+    color: white;
   }
 
   #imgpmalogo {

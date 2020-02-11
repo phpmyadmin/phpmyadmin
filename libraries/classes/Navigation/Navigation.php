@@ -14,6 +14,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function count;
@@ -41,6 +42,9 @@ class Navigation
 
     /** @var NavigationTree */
     private $tree;
+
+    /** @var ThemeManager */
+    private $tmanager;
 
     /**
      * @param Template          $template Template instance
@@ -114,9 +118,12 @@ class Navigation
             $navRender = $this->tree->renderPath();
         }
 
+        $tmanager = ThemeManager::getInstance();
+
         return $this->template->render('navigation/main', [
             'is_ajax' => $response->isAjax(),
             'logo' => $logo,
+            'theme' => $tmanager->theme->getId(),
             'is_synced' => $cfg['NavigationLinkWithMainPanel'],
             'is_highlighted' => $cfg['NavigationTreePointerEnable'],
             'is_autoexpanded' => $cfg['NavigationTreeAutoexpandSingleDb'],
