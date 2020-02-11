@@ -4985,8 +4985,9 @@ class Util
                         $keyName,
                         $value,
                     ] = $keyValueArray;
+                    $value = trim(strtolower($value));
                     if (strtolower(trim($keyName)) === 'proto' && in_array($value, ['http', 'https'])) {
-                        return empty($value) ? '' : $value;
+                        return $value;
                     }
                 }
             }
