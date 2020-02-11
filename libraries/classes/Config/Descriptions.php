@@ -488,8 +488,8 @@ class Descriptions
             'NavigationLogoLink_desc' => __('URL where logo in the navigation panel will point to.'),
             'NavigationLogoLink_name' => __('Logo link URL'),
             'NavigationLogoLinkWindow_desc' => __(
-                'Open the linked page in the main window ([kbd]main[/kbd]) or in a new one '
-                . '([kbd]new[/kbd]).'
+                'Open the linked page in the main window ([code]main[/code]) or in a new one '
+                . '([code]new[/code]).'
             ),
             'NavigationLogoLinkWindow_name' => __('Logo link target'),
             'NavigationDisplayServers_desc' => __('Display server choice at the top of the navigation panel.'),
