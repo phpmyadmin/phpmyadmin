@@ -60,6 +60,7 @@ if ($routeInfo[0] === Dispatcher::NOT_FOUND) {
     $response->setHttpResponseCode(405);
     Message::error(__('Error 405! Request method not allowed.'))->display();
 } elseif ($routeInfo[0] === Dispatcher::FOUND) {
-    $handler = $routeInfo[1];
-    $handler($routeInfo[2]);
+    [$controllerName, $action] = $routeInfo[1];
+    $controller = $containerBuilder->get($controllerName);
+    $controller->$action($routeInfo[2]);
 }

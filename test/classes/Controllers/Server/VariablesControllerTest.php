@@ -12,6 +12,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
@@ -80,13 +81,16 @@ class VariablesControllerTest extends TestCase
 
     public function testIndex(): void
     {
+        $response = new ResponseStub();
+
         $controller = new VariablesController(
-            Response::getInstance(),
+            $response,
             $GLOBALS['dbi'],
             new Template()
         );
 
-        $html = $controller->index([]);
+        $controller->index();
+        $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(
             Generator::getIcon('b_save', __('Save')),

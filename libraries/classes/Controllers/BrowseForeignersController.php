@@ -37,15 +37,20 @@ class BrowseForeignersController extends AbstractController
         $this->relation = $relation;
     }
 
-    /**
-     * @param array $params Request parameters
-     *
-     * @return string HTML
-     */
-    public function index(array $params): string
+    public function index(): void
     {
+        $params = [
+            'db' => $_POST['db'] ?? null,
+            'table' => $_POST['table'] ?? null,
+            'field' => $_POST['field'] ?? null,
+            'fieldkey' => $_POST['fieldkey'] ?? null,
+            'data' => $_POST['data'] ?? null,
+            'foreign_showAll' => $_POST['foreign_showAll'] ?? null,
+            'foreign_filter' => $_POST['foreign_filter'] ?? null,
+        ];
+
         if (! isset($params['db'], $params['table'], $params['field'])) {
-            return '';
+            return;
         }
 
         $this->response->getFooter()->setMinimal();
@@ -69,13 +74,13 @@ class BrowseForeignersController extends AbstractController
             true
         );
 
-        return $this->browseForeigners->getHtmlForRelationalFieldSelection(
+        $this->response->addHTML($this->browseForeigners->getHtmlForRelationalFieldSelection(
             $params['db'],
             $params['table'],
             $params['field'],
             $foreignData,
             $params['fieldkey'] ?? '',
             $params['data'] ?? ''
-        );
+        ));
     }
 }

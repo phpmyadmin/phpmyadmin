@@ -15,11 +15,13 @@ use function json_encode;
  */
 class LintController extends AbstractController
 {
-    /**
-     * @param array $params Request parameters
-     */
-    public function index(array $params): void
+    public function index(): void
     {
+        $params = [
+            'sql_query' => $_POST['sql_query'] ?? null,
+            'options' => $_POST['options'] ?? null,
+        ];
+
         /**
          * The SQL query to be analyzed.
          *

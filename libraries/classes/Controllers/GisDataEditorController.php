@@ -23,16 +23,13 @@ use function trim;
  */
 class GisDataEditorController extends AbstractController
 {
-    /**
-     * @return array
-     */
-    public function index(): array
+    public function index(): void
     {
         global $gis_data, $gis_types, $start, $geom_type, $gis_obj, $srid, $wkt, $wkt_with_zero;
         global $result, $visualizationSettings, $data, $visualization, $open_layers, $geom_count;
 
         if (! isset($_POST['field'])) {
-            return [];
+            return;
         }
 
         // Get data if any posted
@@ -109,12 +106,12 @@ class GisDataEditorController extends AbstractController
 
         // If the call is to update the WKT and visualization make an AJAX response
         if (isset($_POST['generate']) && $_POST['generate'] == true) {
-            $extra_data = [
-                'result'        => $result,
+            $this->response->addJSON([
+                'result' => $result,
                 'visualization' => $visualization,
-                'openLayers'    => $open_layers,
-            ];
-            return $extra_data;
+                'openLayers' => $open_layers,
+            ]);
+            return;
         }
 
         $geom_count = 1;
@@ -141,6 +138,7 @@ class GisDataEditorController extends AbstractController
             'gis_data' => $gis_data,
             'result' => $result,
         ]);
-        return ['gis_editor' => $templateOutput];
+
+        $this->response->addJSON(['gis_editor' => $templateOutput]);
     }
 }

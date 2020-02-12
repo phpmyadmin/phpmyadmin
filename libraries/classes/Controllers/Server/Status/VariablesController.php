@@ -14,13 +14,16 @@ use function mb_strpos;
 
 class VariablesController extends AbstractController
 {
-    /**
-     * @param array $params Request parameters
-     *
-     * @return string HTML
-     */
-    public function index(array $params): string
+    public function index(): void
     {
+        $params = [
+            'flush' => $_POST['flush'] ?? null,
+            'filterAlert' => $_POST['filterAlert'] ?? null,
+            'filterText' => $_POST['filterText'] ?? null,
+            'filterCategory' => $_POST['filterCategory'] ?? null,
+            'dontFormat' => $_POST['dontFormat'] ?? null,
+        ];
+
         Common::server();
 
         $header = $this->response->getHeader();
@@ -102,7 +105,7 @@ class VariablesController extends AbstractController
             }
         }
 
-        return $this->template->render('server/status/variables/index', [
+        $this->response->addHTML($this->template->render('server/status/variables/index', [
             'is_data_loaded' => $this->data->dataLoaded,
             'filter_text' => ! empty($params['filterText']) ? $params['filterText'] : '',
             'is_only_alerts' => ! empty($params['filterAlert']),
@@ -110,7 +113,7 @@ class VariablesController extends AbstractController
             'categories' => $categories ?? [],
             'links' => $links ?? [],
             'variables' => $variables ?? [],
-        ]);
+        ]));
     }
 
     /**

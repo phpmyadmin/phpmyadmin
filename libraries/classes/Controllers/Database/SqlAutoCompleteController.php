@@ -10,10 +10,7 @@ use function json_encode;
  */
 class SqlAutoCompleteController extends AbstractController
 {
-    /**
-     * @return array JSON
-     */
-    public function index(): array
+    public function index(): void
     {
         global $cfg, $db, $sql_autocomplete;
 
@@ -31,6 +28,6 @@ class SqlAutoCompleteController extends AbstractController
                 }
             }
         }
-        return ['tables' => json_encode($sql_autocomplete)];
+        $this->response->addJSON(['tables' => json_encode($sql_autocomplete)]);
     }
 }

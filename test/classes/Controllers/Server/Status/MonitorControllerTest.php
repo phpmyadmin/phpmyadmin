@@ -8,10 +8,10 @@ namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\MonitorController;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
 
@@ -41,15 +41,18 @@ class MonitorControllerTest extends TestCase
 
     public function testIndex(): void
     {
+        $response = new Response();
+
         $controller = new MonitorController(
-            Response::getInstance(),
+            $response,
             $GLOBALS['dbi'],
             new Template(),
             $this->data,
             new Monitor($GLOBALS['dbi'])
         );
 
-        $html = $controller->index();
+        $controller->index();
+        $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(
             '<div class="tabLinks row">',
@@ -136,7 +139,7 @@ class MonitorControllerTest extends TestCase
 
     public function testLogDataTypeSlow(): void
     {
-        $response = Response::getInstance();
+        $response = new Response();
         $response->setAjax(true);
 
         $controller = new MonitorController(
@@ -147,10 +150,11 @@ class MonitorControllerTest extends TestCase
             new Monitor($GLOBALS['dbi'])
         );
 
-        $ret = $controller->logDataTypeSlow([
-            'time_start' => '0',
-            'time_end' => '10',
-        ]);
+        $_POST['time_start'] = '0';
+        $_POST['time_end'] = '10';
+
+        $controller->logDataTypeSlow();
+        $ret = $response->getJSONResult();
 
         $resultRows = [
             [
@@ -195,7 +199,7 @@ class MonitorControllerTest extends TestCase
             'argument' => 'argument3 argument4',
         ];
 
-        $response = Response::getInstance();
+        $response = new Response();
         $response->setAjax(true);
 
         $controller = new MonitorController(
@@ -206,12 +210,12 @@ class MonitorControllerTest extends TestCase
             new Monitor($GLOBALS['dbi'])
         );
 
-        $ret = $controller->logDataTypeGeneral([
-            'time_start' => '0',
-            'time_end' => '10',
-            'limitTypes' => '1',
-            'removeVariables' => null,
-        ]);
+        $_POST['time_start'] = '0';
+        $_POST['time_end'] = '10';
+        $_POST['limitTypes'] = '1';
+
+        $controller->logDataTypeGeneral();
+        $ret = $response->getJSONResult();
 
         $resultRows = [
             $value,
@@ -246,7 +250,7 @@ class MonitorControllerTest extends TestCase
             'slow_query_log' => 'OFF',
         ];
 
-        $response = Response::getInstance();
+        $response = new Response();
         $response->setAjax(true);
 
         $controller = new MonitorController(
@@ -257,10 +261,10 @@ class MonitorControllerTest extends TestCase
             new Monitor($GLOBALS['dbi'])
         );
 
-        $ret = $controller->loggingVars([
-            'varName' => 'varName',
-            'varValue' => null,
-        ]);
+        $_POST['varName'] = 'varName';
+
+        $controller->loggingVars();
+        $ret = $response->getJSONResult();
 
         $this->assertEquals(
             $value,
@@ -281,7 +285,7 @@ class MonitorControllerTest extends TestCase
             'argument' => 'argument argument2',
         ];
 
-        $response = Response::getInstance();
+        $response = new Response();
         $response->setAjax(true);
 
         $controller = new MonitorController(
@@ -292,10 +296,11 @@ class MonitorControllerTest extends TestCase
             new Monitor($GLOBALS['dbi'])
         );
 
-        $ret = $controller->queryAnalyzer([
-            'database' => 'database',
-            'query' => 'query',
-        ]);
+        $_POST['database'] = 'database';
+        $_POST['query'] = 'query';
+
+        $controller->queryAnalyzer();
+        $ret = $response->getJSONResult();
 
         $this->assertEquals(
             'cached_affected_rows',

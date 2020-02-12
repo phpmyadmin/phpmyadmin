@@ -107,16 +107,14 @@ class StructureController extends AbstractController
         $this->isShowStats = $isShowStats;
     }
 
-    /**
-     * Index action
-     *
-     * @param array $parameters Request parameters
-     *
-     * @return string HTML
-     */
-    public function index(array $parameters): string
+    public function index(): void
     {
         global $cfg;
+
+        $parameters = [
+            'sort' => $_REQUEST['sort'] ?? null,
+            'sort_order' => $_REQUEST['sort_order'] ?? null,
+        ];
 
         Common::database();
 
@@ -126,8 +124,8 @@ class StructureController extends AbstractController
         ]);
 
         // Drops/deletes/etc. multiple tables if required
-        if ((! empty($parameters['submit_mult']) && isset($parameters['selected_tbl']))
-            || isset($parameters['mult_btn'])
+        if ((! empty($_POST['submit_mult']) && isset($_POST['selected_tbl']))
+            || isset($_POST['mult_btn'])
         ) {
             $this->multiSubmitAction();
         }
@@ -179,31 +177,30 @@ class StructureController extends AbstractController
             $createTable = CreateTable::getHtml($this->db);
         }
 
-        return $this->template->render('database/structure/index', [
+        $this->response->addHTML($this->template->render('database/structure/index', [
             'database' => $this->db,
             'has_tables' => $this->numTables > 0,
             'list_navigator_html' => $listNavigator ?? '',
             'table_list_html' => $tableList ?? '',
             'is_system_schema' => ! empty($this->dbIsSystemSchema),
             'create_table_html' => $createTable,
-        ]);
+        ]));
     }
 
-    /**
-     * Add or remove favorite tables
-     *
-     * @param array $parameters Request parameters
-     *
-     * @return array
-     */
-    public function addRemoveFavoriteTablesAction(array $parameters): ?array
+    public function addRemoveFavoriteTablesAction(): void
     {
         global $cfg;
+
+        $parameters = [
+            'favorite_table' => $_REQUEST['favorite_table'] ?? null,
+            'favoriteTables' => $_REQUEST['favoriteTables'] ?? null,
+            'sync_favorite_tables' => $_REQUEST['sync_favorite_tables'] ?? null,
+        ];
 
         Common::database();
 
         if (! $this->response->isAjax()) {
-            return [];
+            return;
         }
 
         $favoriteInstance = RecentFavoriteTable::getInstance('favorite');
@@ -219,22 +216,26 @@ class StructureController extends AbstractController
         if (isset($parameters['sync_favorite_tables'])) {
             $cfgRelation = $this->relation->getRelationsParam();
             if ($cfgRelation['favoritework']) {
-                return $this->synchronizeFavoriteTables($favoriteInstance, $user, $favoriteTables);
+                $this->response->addJSON($this->synchronizeFavoriteTables(
+                    $favoriteInstance,
+                    $user,
+                    $favoriteTables
+                ));
             }
-            return [];
+            return;
         }
         $changes = true;
         $titles = Util::buildActionTitles();
         $favoriteTable = $parameters['favorite_table'] ?? '';
         $alreadyFavorite = $this->checkFavoriteTable($favoriteTable);
 
-        if (isset($parameters['remove_favorite'])) {
+        if (isset($_REQUEST['remove_favorite'])) {
             if ($alreadyFavorite) {
                 // If already in favorite list, remove it.
                 $favoriteInstance->remove($this->db, $favoriteTable);
                 $alreadyFavorite = false; // for favorite_anchor template
             }
-        } elseif (isset($parameters['add_favorite'])) {
+        } elseif (isset($_REQUEST['add_favorite'])) {
             if (! $alreadyFavorite) {
                 $numTables = count($favoriteInstance->getTables());
                 if ($numTables == $cfg['NumFavoriteTables']) {
@@ -255,7 +256,8 @@ class StructureController extends AbstractController
             $json['message'] = $this->template->render('components/error_message', [
                 'msg' => __('Favorite List is full!'),
             ]);
-            return $json;
+            $this->response->addJSON($json);
+            return;
         }
         // Check if current table is already in favorite list.
         $favoriteParams = [
@@ -276,22 +278,23 @@ class StructureController extends AbstractController
             'titles' => $titles,
         ]);
 
-        return $json;
+        $this->response->addJSON($json);
     }
 
     /**
      * Handles request for real row count on database level view page.
-     *
-     * @param array $parameters Request parameters
-     *
-     * @return array JSON
      */
-    public function handleRealRowCountRequestAction(array $parameters): array
+    public function handleRealRowCountRequestAction(): void
     {
+        $parameters = [
+            'real_row_count_all' => $_REQUEST['real_row_count_all'] ?? null,
+            'table' => $_REQUEST['table'] ?? null,
+        ];
+
         Common::database();
 
         if (! $this->response->isAjax()) {
-            return [];
+            return;
         }
 
         // If there is a request to update all table's row count.
@@ -303,7 +306,8 @@ class StructureController extends AbstractController
             // Format the number.
             $realRowCount = Util::formatNumber($realRowCount, 0);
 
-            return ['real_row_count' => $realRowCount];
+            $this->response->addJSON(['real_row_count' => $realRowCount]);
+            return;
         }
 
         // Array to store the results.
@@ -319,7 +323,7 @@ class StructureController extends AbstractController
             ];
         }
 
-        return ['real_row_count_all' => json_encode($realRowCountAll)];
+        $this->response->addJSON(['real_row_count_all' => json_encode($realRowCountAll)]);
     }
 
     /**

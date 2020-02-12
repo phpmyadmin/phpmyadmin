@@ -14,10 +14,7 @@ use function str_replace;
 
 class QueriesController extends AbstractController
 {
-    /**
-     * @return string HTML
-     */
-    public function index(): string
+    public function index(): void
     {
         Common::server();
 
@@ -77,11 +74,11 @@ class QueriesController extends AbstractController
             }
         }
 
-        return $this->template->render('server/status/queries/index', [
+        $this->response->addHTML($this->template->render('server/status/queries/index', [
             'is_data_loaded' => $this->data->dataLoaded,
             'stats' => $stats ?? null,
             'queries' => $queries ?? [],
             'chart' => $chart ?? [],
-        ]);
+        ]));
     }
 }

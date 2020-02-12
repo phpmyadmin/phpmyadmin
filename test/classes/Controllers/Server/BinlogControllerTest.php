@@ -9,8 +9,8 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
@@ -94,16 +94,18 @@ class BinlogControllerTest extends TestCase
         $dbi->expects($this->at(4))->method('fetchAssoc')
             ->will($this->returnValue(false));
 
+        $response = new Response();
+
         $controller = new BinlogController(
-            Response::getInstance(),
+            $response,
             $dbi,
             new Template()
         );
-        $actual = $controller->index([
-            'log' => 'index1',
-            'pos' => '3',
-            'is_full_query' => null,
-        ]);
+
+        $_POST['log'] = 'index1';
+        $_POST['pos'] = '3';
+        $controller->index();
+        $actual = $response->getHTMLResult();
 
         $this->assertStringContainsString(
             'Select binary log to view',

@@ -36,7 +36,7 @@ class StatusController extends AbstractController
         $this->replicationGui = $replicationGui;
     }
 
-    public function index(): string
+    public function index(): void
     {
         global $replication_info;
 
@@ -69,7 +69,7 @@ class StatusController extends AbstractController
             }
         }
 
-        return $this->template->render('server/status/status/index', [
+        $this->response->addHTML($this->template->render('server/status/status/index', [
             'is_data_loaded' => $this->data->dataLoaded,
             'network_traffic' => $networkTraffic ?? null,
             'uptime' => $uptime ?? null,
@@ -79,7 +79,7 @@ class StatusController extends AbstractController
             'is_master' => $replication_info['master']['status'],
             'is_slave' => $replication_info['slave']['status'],
             'replication' => $replication,
-        ]);
+        ]));
     }
 
     private function getStartTime(): int

@@ -38,10 +38,7 @@ class PluginsController extends AbstractController
         $this->plugins = $plugins;
     }
 
-    /**
-     * Index action
-     */
-    public function index(): string
+    public function index(): void
     {
         Common::server();
 
@@ -65,9 +62,10 @@ class PluginsController extends AbstractController
                 mb_strtolower($type)
             );
         }
-        return $this->template->render('server/plugins/index', [
+
+        $this->response->addHTML($this->template->render('server/plugins/index', [
             'plugins' => $plugins,
             'clean_types' => $cleanTypes,
-        ]);
+        ]));
     }
 }

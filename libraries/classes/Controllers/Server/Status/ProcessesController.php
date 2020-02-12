@@ -18,11 +18,16 @@ use function ucfirst;
 
 class ProcessesController extends AbstractController
 {
-    /**
-     * @param array $params Request parameters
-     */
-    public function index(array $params): string
+    public function index(): void
     {
+        $params = [
+            'showExecuting' => $_POST['showExecuting'] ?? null,
+            'full' => $_POST['full'] ?? null,
+            'column_name' => $_POST['column_name'] ?? null,
+            'order_by_field' => $_POST['order_by_field'] ?? null,
+            'sort_order' => $_POST['sort_order'] ?? null,
+        ];
+
         Common::server();
 
         $header = $this->response->getHeader();
@@ -44,36 +49,40 @@ class ProcessesController extends AbstractController
 
         $serverProcessList = $this->getList($params);
 
-        return $this->template->render('server/status/processes/index', [
+        $this->response->addHTML($this->template->render('server/status/processes/index', [
             'url_params' => $urlParams,
             'is_checked' => $isChecked,
             'server_process_list' => $serverProcessList,
-        ]);
+        ]));
     }
 
     /**
      * Only sends the process list table
-     *
-     * @param array $params Request parameters
      */
-    public function refresh(array $params): string
+    public function refresh(): void
     {
+        $params = [
+            'showExecuting' => $_POST['showExecuting'] ?? null,
+            'full' => $_POST['full'] ?? null,
+            'column_name' => $_POST['column_name'] ?? null,
+            'order_by_field' => $_POST['order_by_field'] ?? null,
+            'sort_order' => $_POST['sort_order'] ?? null,
+        ];
+
         if (! $this->response->isAjax()) {
-            return '';
+            return;
         }
 
-        return $this->getList($params);
+        $this->response->addHTML($this->getList($params));
     }
 
     /**
      * @param array $params Request parameters
-     *
-     * @return array
      */
-    public function kill(array $params): array
+    public function kill(array $params): void
     {
         if (! $this->response->isAjax()) {
-            return [];
+            return;
         }
 
         $kill = (int) $params['id'];
@@ -95,10 +104,7 @@ class ProcessesController extends AbstractController
         }
         $message->addParam($kill);
 
-        $json = [];
-        $json['message'] = $message;
-
-        return $json;
+        $this->response->addJSON(['message' => $message]);
     }
 
     /**

@@ -39,12 +39,9 @@ class DataDictionaryController extends AbstractController
         $this->transformations = $transformations;
     }
 
-    /**
-     * @param array $params Request parameters
-     */
-    public function index(array $params): string
+    public function index(): void
     {
-        $this->db = $params['database'];
+        Util::checkParameters(['db'], true);
 
         $header = $this->response->getHeader();
         $header->enablePrintView();
@@ -141,10 +138,10 @@ class DataDictionaryController extends AbstractController
             ];
         }
 
-        return $this->template->render('database/data_dictionary/index', [
+        $this->response->addHTML($this->template->render('database/data_dictionary/index', [
             'database' => $this->db,
             'comment' => $comment,
             'tables' => $tables,
-        ]);
+        ]));
     }
 }

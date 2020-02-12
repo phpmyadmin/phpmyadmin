@@ -9,9 +9,9 @@ namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\QueriesController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
 use function array_sum;
@@ -104,14 +104,17 @@ class QueriesControllerTest extends TestCase
 
     public function testIndex(): void
     {
+        $response = new Response();
+
         $controller = new QueriesController(
-            Response::getInstance(),
+            $response,
             $GLOBALS['dbi'],
             new Template(),
             $this->data
         );
 
-        $html = $controller->index();
+        $controller->index();
+        $html = $response->getHTMLResult();
 
         $hourFactor = 3600 / $this->data->status['Uptime'];
         $usedQueries = $this->data->used_queries;

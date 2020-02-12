@@ -54,12 +54,7 @@ class CollationsController extends AbstractController
         );
     }
 
-    /**
-     * Index action
-     *
-     * @return string HTML
-     */
-    public function index(): string
+    public function index(): void
     {
         Common::server();
 
@@ -83,8 +78,8 @@ class CollationsController extends AbstractController
             ];
         }
 
-        return $this->template->render('server/collations/index', [
+        $this->response->addHTML($this->template->render('server/collations/index', [
             'charsets' => $charsets,
-        ]);
+        ]));
     }
 }

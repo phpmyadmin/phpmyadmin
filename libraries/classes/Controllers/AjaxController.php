@@ -33,78 +33,70 @@ class AjaxController extends AbstractController
         $this->config = $config;
     }
 
-    /**
-     * @return array JSON
-     */
-    public function databases(): array
+    public function databases(): void
     {
         global $dblist;
 
-        return ['databases' => $dblist->databases];
+        $this->response->addJSON(['databases' => $dblist->databases]);
     }
 
-    /**
-     * @param array $params Request parameters
-     *
-     * @return array JSON
-     */
-    public function tables(array $params): array
+    public function tables(): void
     {
-        return ['tables' => $this->dbi->getTables($params['database'])];
-    }
-
-    /**
-     * @param array $params Request parameters
-     *
-     * @return array JSON
-     */
-    public function columns(array $params): array
-    {
-        return [
-            'columns' => $this->dbi->getColumnNames(
-                $params['database'],
-                $params['table']
-            ),
-        ];
-    }
-
-    /**
-     * @param array $params Request parameters
-     *
-     * @return array JSON
-     */
-    public function getConfig(array $params): array
-    {
-        if (! isset($params['key'])) {
+        if (! isset($_POST['db'])) {
             $this->response->setRequestStatus(false);
-            return ['message' => Message::error()];
+            $this->response->addJSON(['message' => Message::error()]);
+            return;
         }
 
-        return ['value' => $this->config->get($params['key'])];
+        $this->response->addJSON(['tables' => $this->dbi->getTables($_POST['db'])]);
     }
 
-    /**
-     * @param array $params Request parameters
-     *
-     * @return array
-     */
-    public function setConfig(array $params): array
+    public function columns(): void
     {
-        if (! isset($params['key'], $params['value'])) {
+        if (! isset($_POST['db'], $_POST['table'])) {
             $this->response->setRequestStatus(false);
-            return ['message' => Message::error()];
+            $this->response->addJSON(['message' => Message::error()]);
+            return;
+        }
+
+        $this->response->addJSON([
+            'columns' => $this->dbi->getColumnNames(
+                $_POST['db'],
+                $_POST['table']
+            ),
+        ]);
+    }
+
+    public function getConfig(): void
+    {
+        if (! isset($_POST['key'])) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON(['message' => Message::error()]);
+            return;
+        }
+
+        $this->response->addJSON(['value' => $this->config->get($_POST['key'])]);
+    }
+
+    public function setConfig(): void
+    {
+        if (! isset($_POST['key'], $_POST['value'])) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON(['message' => Message::error()]);
+            return;
         }
 
         $result = $this->config->setUserValue(
             null,
-            $params['key'],
-            json_decode($params['value'])
+            $_POST['key'],
+            json_decode($_POST['value'])
         );
-        $json = [];
-        if ($result !== true) {
-            $this->response->setRequestStatus(false);
-            $json['message'] = $result;
+
+        if ($result === true) {
+            return;
         }
-        return $json;
+
+        $this->response->setRequestStatus(false);
+        $this->response->addJSON(['message' => $result]);
     }
 }

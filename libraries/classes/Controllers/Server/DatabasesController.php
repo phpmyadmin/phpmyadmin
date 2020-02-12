@@ -67,17 +67,17 @@ class DatabasesController extends AbstractController
         $checkUserPrivileges->getPrivileges();
     }
 
-    /**
-     * Index action
-     *
-     * @param array $params Request parameters
-     *
-     * @return string HTML
-     */
-    public function index(array $params): string
+    public function index(): void
     {
         global $cfg, $server, $dblist, $is_create_db_priv;
         global $replication_info, $db_to_create, $pmaThemeImage, $text_dir;
+
+        $params = [
+            'statistics' => $_REQUEST['statistics'] ?? null,
+            'pos' => $_REQUEST['pos'] ?? null,
+            'sort_by' => $_REQUEST['sort_by'] ?? null,
+            'sort_order' => $_REQUEST['sort_order'] ?? null,
+        ];
 
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();
@@ -141,7 +141,7 @@ class DatabasesController extends AbstractController
 
         $headerStatistics = $this->getStatisticsColumns();
 
-        return $this->template->render('server/databases/index', [
+        $this->response->addHTML($this->template->render('server/databases/index', [
             'is_create_database_shown' => $cfg['ShowCreateDb'],
             'has_create_database_privileges' => $is_create_db_priv,
             'has_statistics' => $this->hasStatistics,
@@ -159,22 +159,21 @@ class DatabasesController extends AbstractController
             'is_drop_allowed' => $this->dbi->isSuperuser() || $cfg['AllowUserDropDatabase'],
             'pma_theme_image' => $pmaThemeImage,
             'text_dir' => $text_dir,
-        ]);
+        ]));
     }
 
-    /**
-     * Handles creating a new database
-     *
-     * @param array $params Request parameters
-     *
-     * @return array JSON
-     */
-    public function create(array $params): array
+    public function create(): void
     {
         global $cfg, $db;
 
+        $params = [
+            'new_db' => $_POST['new_db'] ?? null,
+            'db_collation' => $_POST['db_collation'] ?? null,
+        ];
+
         if (! isset($params['new_db']) || mb_strlen($params['new_db']) === 0 || ! $this->response->isAjax()) {
-            return ['message' => Message::error()];
+            $this->response->addJSON(['message' => Message::error()]);
+            return;
         }
 
         // lower_case_table_names=1 `DB` becomes `db`
@@ -238,19 +237,20 @@ class DatabasesController extends AbstractController
             ];
         }
 
-        return $json;
+        $this->response->addJSON($json);
     }
 
     /**
      * Handles dropping multiple databases
-     *
-     * @param array $params Request parameters
-     *
-     * @return array JSON
      */
-    public function destroy(array $params): array
+    public function destroy(): void
     {
         global $submit_mult, $mult_btn, $selected, $err_url, $cfg;
+
+        $params = [
+            'drop_selected_dbs' => $_POST['drop_selected_dbs'] ?? null,
+            'selected_dbs' => $_POST['selected_dbs'] ?? null,
+        ];
 
         if (! isset($params['drop_selected_dbs'])
             || ! $this->response->isAjax()
@@ -288,7 +288,7 @@ class DatabasesController extends AbstractController
             $this->response->setRequestStatus($message->isSuccess());
         }
 
-        return $json;
+        $this->response->addJSON($json);
     }
 
     /**

@@ -29,13 +29,10 @@ use function trim;
  */
 class VariablesController extends AbstractController
 {
-    /**
-     * Index action
-     *
-     * @param array $params Request parameters
-     */
-    public function index(array $params): string
+    public function index(): void
     {
+        $params = ['filter' => $_GET['filter'] ?? null];
+
         Common::server();
 
         $filterValue = ! empty($params['filter']) ? $params['filter'] : '';
@@ -89,25 +86,23 @@ class VariablesController extends AbstractController
             }
         }
 
-        return $this->template->render('server/variables/index', [
+        $this->response->addHTML($this->template->render('server/variables/index', [
             'variables' => $variables,
             'filter_value' => $filterValue,
             'is_superuser' => $this->dbi->isSuperuser(),
             'is_mariadb' => $this->dbi->isMariaDB(),
-        ]);
+        ]));
     }
 
     /**
      * Handle the AJAX request for a single variable value
      *
      * @param array $params Request parameters
-     *
-     * @return array
      */
-    public function getValue(array $params): array
+    public function getValue(array $params): void
     {
         if (! $this->response->isAjax()) {
-            return [];
+            return;
         }
 
         // Send with correct charset
@@ -135,20 +130,23 @@ class VariablesController extends AbstractController
             $json['message'] = $varValue[1];
         }
 
-        return $json;
+        $this->response->addJSON($json);
     }
 
     /**
      * Handle the AJAX request for setting value for a single variable
      *
-     * @param array $params Request parameters
-     *
-     * @return array
+     * @param array $vars Request parameters
      */
-    public function setValue(array $params): array
+    public function setValue(array $vars): void
     {
+        $params = [
+            'varName' => $vars['name'],
+            'varValue' => $_POST['varValue'] ?? null,
+        ];
+
         if (! $this->response->isAjax()) {
-            return [];
+            return;
         }
 
         $value = $params['varValue'];
@@ -211,7 +209,7 @@ class VariablesController extends AbstractController
             $json['error'] = __('Setting variable failed');
         }
 
-        return $json;
+        $this->response->addJSON($json);
     }
 
     /**

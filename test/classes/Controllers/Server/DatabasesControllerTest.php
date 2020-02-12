@@ -10,8 +10,8 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\DatabasesController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\Stubs\Response;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 use function sprintf;
@@ -45,18 +45,16 @@ class DatabasesControllerTest extends TestCase
             'employees',
         ];
 
+        $response = new Response();
+
         $controller = new DatabasesController(
-            Response::getInstance(),
+            $response,
             $GLOBALS['dbi'],
             new Template()
         );
 
-        $actual = $controller->index([
-            'statistics' => null,
-            'pos' => null,
-            'sort_by' => null,
-            'sort_order' => null,
-        ]);
+        $controller->index();
+        $actual = $response->getHTMLResult();
 
         $this->assertStringContainsString('data-filter-row="SAKILA"', $actual);
         $this->assertStringContainsString('sakila', $actual);
@@ -74,15 +72,22 @@ class DatabasesControllerTest extends TestCase
         $this->assertStringContainsString(__('No privileges to create databases'), $actual);
         $this->assertStringNotContainsString(__('Indexes'), $actual);
 
+        $response = new Response();
+
+        $controller = new DatabasesController(
+            $response,
+            $GLOBALS['dbi'],
+            new Template()
+        );
+
         $cfg['ShowCreateDb'] = true;
         $is_create_db_priv = true;
+        $_REQUEST['statistics'] = '1';
+        $_REQUEST['sort_by'] = 'SCHEMA_TABLES';
+        $_REQUEST['sort_order'] = 'desc';
 
-        $actual = $controller->index([
-            'statistics' => '1',
-            'pos' => null,
-            'sort_by' => 'SCHEMA_TABLES',
-            'sort_order' => 'desc',
-        ]);
+        $controller->index();
+        $actual = $response->getHTMLResult();
 
         $this->assertStringNotContainsString(__('Enable statistics'), $actual);
         $this->assertStringContainsString(__('Indexes'), $actual);
@@ -108,7 +113,7 @@ class DatabasesControllerTest extends TestCase
         $dbi->method('getError')
             ->willReturn('CreateDatabaseError');
 
-        $response = Response::getInstance();
+        $response = new Response();
         $response->setAjax(true);
 
         $controller = new DatabasesController(
@@ -117,30 +122,37 @@ class DatabasesControllerTest extends TestCase
             new Template()
         );
 
-        $actual = $controller->create([
-            'new_db' => 'pma_test',
-            'db_collation' => null,
-        ]);
+        $_POST['new_db'] = 'pma_test';
+
+        $controller->create();
+        $actual = $response->getJSONResult();
 
         $this->assertArrayHasKey('message', $actual);
-        $this->assertInstanceOf(Message::class, $actual['message']);
-        $this->assertStringContainsString('<div class="alert alert-danger" role="alert">', $actual['message']->getDisplay());
-        $this->assertStringContainsString('CreateDatabaseError', $actual['message']->getDisplay());
+        $this->assertStringContainsString('<div class="alert alert-danger" role="alert">', $actual['message']);
+        $this->assertStringContainsString('CreateDatabaseError', $actual['message']);
 
         $dbi->method('tryQuery')
             ->willReturn(true);
 
-        $actual = $controller->create([
-            'new_db' => 'pma_test',
-            'db_collation' => 'utf8_general_ci',
-        ]);
+        $response = new Response();
+        $response->setAjax(true);
+
+        $controller = new DatabasesController(
+            $response,
+            $dbi,
+            new Template()
+        );
+
+        $_POST['db_collation'] = 'utf8_general_ci';
+
+        $controller->create();
+        $actual = $response->getJSONResult();
 
         $this->assertArrayHasKey('message', $actual);
-        $this->assertInstanceOf(Message::class, $actual['message']);
-        $this->assertStringContainsString('<div class="alert alert-success" role="alert">', $actual['message']->getDisplay());
+        $this->assertStringContainsString('<div class="alert alert-success" role="alert">', $actual['message']);
         $this->assertStringContainsString(
             sprintf(__('Database %1$s has been created.'), 'pma_test'),
-            $actual['message']->getDisplay()
+            $actual['message']
         );
     }
 
@@ -155,7 +167,7 @@ class DatabasesControllerTest extends TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $response = Response::getInstance();
+        $response = new Response();
         $response->setAjax(true);
 
         $cfg['AllowUserDropDatabase'] = true;
@@ -166,14 +178,13 @@ class DatabasesControllerTest extends TestCase
             new Template()
         );
 
-        $actual = $controller->destroy([
-            'drop_selected_dbs' => true,
-            'selected_dbs' => null,
-        ]);
+        $_POST['drop_selected_dbs'] = '1';
+
+        $controller->destroy();
+        $actual = $response->getJSONResult();
 
         $this->assertArrayHasKey('message', $actual);
-        $this->assertInstanceOf(Message::class, $actual['message']);
-        $this->assertStringContainsString('<div class="alert alert-danger" role="alert">', $actual['message']->getDisplay());
-        $this->assertStringContainsString(__('No databases selected.'), $actual['message']->getDisplay());
+        $this->assertStringContainsString('<div class="alert alert-danger" role="alert">', $actual['message']);
+        $this->assertStringContainsString(__('No databases selected.'), $actual['message']);
     }
 }

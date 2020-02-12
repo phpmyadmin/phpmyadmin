@@ -45,14 +45,15 @@ class BinlogController extends AbstractController
         );
     }
 
-    /**
-     * Index action
-     *
-     * @param array $params Request params
-     */
-    public function index(array $params): string
+    public function index(): void
     {
         global $cfg, $pmaThemeImage;
+
+        $params = [
+            'log' => $_POST['log'] ?? null,
+            'pos' => $_POST['pos'] ?? null,
+            'is_full_query' => $_POST['is_full_query'] ?? null,
+        ];
 
         Common::server();
 
@@ -105,7 +106,7 @@ class BinlogController extends AbstractController
             $values[] = $value;
         }
 
-        return $this->template->render('server/binlog/index', [
+        $this->response->addHTML($this->template->render('server/binlog/index', [
             'url_params' => $urlParams,
             'binary_logs' => $this->binaryLogs,
             'log' => $params['log'],
@@ -119,7 +120,7 @@ class BinlogController extends AbstractController
             'has_icons' => Util::showIcons('TableNavigationLinksMode'),
             'is_full_query' => $isFullQuery,
             'image_path' => $pmaThemeImage,
-        ]);
+        ]));
     }
 
     /**

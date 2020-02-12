@@ -34,10 +34,7 @@ class SqlController extends AbstractController
         $this->sqlQueryForm = $sqlQueryForm;
     }
 
-    /**
-     * @return string HTML
-     */
-    public function index(): string
+    public function index(): void
     {
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();
@@ -49,6 +46,6 @@ class SqlController extends AbstractController
 
         Common::server();
 
-        return $this->sqlQueryForm->getHtml();
+        $this->response->addHTML($this->sqlQueryForm->getHtml());
     }
 }
