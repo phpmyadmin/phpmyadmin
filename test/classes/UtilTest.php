@@ -2057,10 +2057,10 @@ class UtilTest extends PmaTestCase
     /**
      * localised date test, globals are defined
      *
-     * @param int    $a Current timestamp
-     * @param string $b Format
-     * @param string $e Expected output
-     * @param string $tz Timezone to set
+     * @param int    $a      Current timestamp
+     * @param string $b      Format
+     * @param string $e      Expected output
+     * @param string $tz     Timezone to set
      * @param string $locale Locale to set
      *
      * @return void
@@ -2127,6 +2127,13 @@ class UtilTest extends PmaTestCase
             ],
             [
                 1227455558,
+                '%a %A %b %B %P',
+                'Mon Mon Nov Nov AM',
+                'Asia/Tokyo',
+                'en',
+            ],
+            [
+                1227455558,
                 '%Y-%m-%d %H:%M:%S %a',
                 '2008-11-24 00:52:38 月',
                 'Asia/Tokyo',
@@ -2136,6 +2143,13 @@ class UtilTest extends PmaTestCase
                 1227455558,
                 '%a %A %b %B',
                 '月 月 11 月 11 月',
+                'Asia/Tokyo',
+                'ja',
+            ],
+            [
+                1227455558,
+                '%a %A %b %B %P',
+                '月 月 11 月 11 月 午前',
                 'Asia/Tokyo',
                 'ja',
             ],
