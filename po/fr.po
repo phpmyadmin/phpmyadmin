@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:36-0300\n"
-"PO-Revision-Date: 2020-01-04 14:21+0000\n"
+"PO-Revision-Date: 2020-02-13 14:50+0000\n"
 "Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/4-9/fr/"
 ">\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Weblate 3.11-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -13298,7 +13298,7 @@ msgstr "Lier les paramètres"
 
 #: libraries/classes/SqlQueryForm.php:308
 msgid "Bookmark this SQL query:"
-msgstr "Conserver cette requête SQL dans les signets : "
+msgstr "Conserver cette requête SQL dans les signets :"
 
 #: libraries/classes/SqlQueryForm.php:322
 msgid "Replace existing bookmark of same name"
@@ -13368,7 +13368,7 @@ msgstr "La base de données cible « %s » n'existe pas !"
 
 #: libraries/classes/Table.php:1462
 msgid "Invalid database:"
-msgstr "Nom de base de données invalide : "
+msgstr "Base de données invalide :"
 
 #: libraries/classes/Table.php:1479
 msgid "Invalid table name:"
@@ -14046,7 +14046,7 @@ msgstr ""
 #: libraries/common.inc.php:344
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
-"Le fichier de configuration contient un type d'authentification invalide : "
+"Le fichier de configuration contient un type d'authentification invalide :"
 
 #: libraries/common.inc.php:397
 #, php-format
@@ -14730,7 +14730,7 @@ msgstr "utilisé"
 
 #: templates/privileges/add_privileges_table.twig:3
 msgid "Add privileges on the following table:"
-msgstr "Ajouter des privilèges sur cette table : "
+msgstr "Ajouter des privilèges sur cette table :"
 
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:84 templates/console/display.twig:175
@@ -14799,11 +14799,11 @@ msgstr "Créer une version"
 #: templates/start_and_number_of_rows_panel.twig:10
 #: templates/display/export/options_rows.twig:10
 msgid "Number of rows:"
-msgstr "Nombre de lignes : "
+msgstr "Nombre de lignes :"
 
 #: templates/display/export/options_output_format.twig:3
 msgid "File name template:"
-msgstr "Modèle de nom de fichier : "
+msgstr "Modèle de nom de fichier :"
 
 #: templates/display/export/options_output_format.twig:11
 msgid "use this for future exports"
@@ -14866,7 +14866,7 @@ msgstr "Les transferts envoyés vers ce serveur ne sont pas permis."
 #: templates/display/import/import.twig:97
 #: templates/display/export/options_output_charset.twig:3
 msgid "Character set of the file:"
-msgstr "Jeu de caractères du fichier : "
+msgstr "Jeu de caractères du fichier :"
 
 #: templates/display/import/import.twig:124
 msgid "Partial import:"
@@ -14902,7 +14902,7 @@ msgstr "Autres options :"
 #: templates/display/import/import.twig:174
 #: templates/display/export/options_format.twig:2
 msgid "Format-specific options:"
-msgstr "Options spécifiques au format : "
+msgstr "Options spécifiques au format :"
 
 #: templates/display/import/import.twig:176
 #: templates/display/export/options_format.twig:4
@@ -14916,7 +14916,7 @@ msgstr ""
 #: templates/display/import/import.twig:185
 #: templates/display/export/options_format.twig:12
 msgid "Encoding Conversion:"
-msgstr "Conversion de l'encodage : "
+msgstr "Conversion de l'encodage :"
 
 #: templates/columns_definitions/column_virtuality.twig:29
 #: templates/table/structure/display_partitions.twig:26
@@ -14943,7 +14943,7 @@ msgstr "Masquer/Afficher les tables sans relations"
 
 #: templates/database/designer/table_list.twig:25
 msgid "Number of tables:"
-msgstr "Nombre de tables : "
+msgstr "Nombre de tables :"
 
 #: templates/database/structure/favorite_anchor.twig:4
 msgid "Add to Favorites"
@@ -15475,7 +15475,7 @@ msgstr "Page à supprimer"
 
 #: templates/table/index_form.twig:15
 msgid "Index name:"
-msgstr "Nom de l'index : "
+msgstr "Nom de l'index :"
 
 #: templates/table/index_form.twig:16
 msgid ""
@@ -15498,7 +15498,7 @@ msgstr "Taille du bloc de clé :"
 
 #: templates/table/index_form.twig:65
 msgid "Index type:"
-msgstr "Type d'index : "
+msgstr "Type d'index :"
 
 #: templates/table/index_form.twig:77
 msgid "Parser:"
@@ -15506,7 +15506,7 @@ msgstr "Analyseur :"
 
 #: templates/table/index_form.twig:93
 msgid "Comment:"
-msgstr "Commentaire : "
+msgstr "Commentaire :"
 
 #: templates/table/index_form.twig:118
 #: templates/database/structure/table_header.twig:38
@@ -15576,7 +15576,7 @@ msgstr ""
 
 #: templates/display/export/options_output_compression.twig:4
 msgid "Compression:"
-msgstr "Compression : "
+msgstr "Compression :"
 
 #: templates/display/export/options_output_compression.twig:11
 msgid "zipped"
@@ -15652,7 +15652,7 @@ msgstr "Regroupement"
 #: templates/display/export/options_quick_export.twig:2
 #: templates/display/export/options_output.twig:2
 msgid "Output:"
-msgstr "Sortie : "
+msgstr "Sortie :"
 
 #: templates/table/gis_visualization/gis_visualization.twig:3
 msgid "Display GIS Visualization"
@@ -15758,7 +15758,7 @@ msgstr "Rechercher :"
 
 #: templates/table/search/search_and_replace.twig:3
 msgid "Replace with:"
-msgstr "Remplacer par : "
+msgstr "Remplacer par :"
 
 #: templates/table/search/search_and_replace.twig:19
 msgid "Use regular expression"
@@ -15978,7 +15978,7 @@ msgstr ""
 
 #: templates/start_and_number_of_rows_panel.twig:3
 msgid "Start row:"
-msgstr "Ligne de départ : "
+msgstr "Ligne de départ :"
 
 #: templates/database/central_columns/add_column.twig:13
 msgid "Select a column."
@@ -16002,11 +16002,11 @@ msgstr "Mots ou valeurs à rechercher (joker : « % ») :"
 
 #: templates/database/search/selection_form.twig:29
 msgid "Inside tables:"
-msgstr "Dans les tables : "
+msgstr "Dans les tables :"
 
 #: templates/database/search/selection_form.twig:51
 msgid "Inside column:"
-msgstr "Dans la colonne : "
+msgstr "Dans la colonne :"
 
 #: templates/view_create.twig:13
 #: templates/table/structure/display_structure.twig:138
@@ -16085,7 +16085,7 @@ msgstr ""
 #: templates/server/databases/create.twig:8
 #: templates/server/databases/create.twig:36
 msgid "Create database"
-msgstr "Création d'une base de données :"
+msgstr "Création d'une base de données"
 
 #: templates/database/designer/page_save_as.twig:17
 msgid "Save to selected page"
@@ -16107,7 +16107,7 @@ msgstr "Aucun(e)"
 
 #: templates/display/export/options_rows.twig:2
 msgid "Rows:"
-msgstr "Lignes : "
+msgstr "Lignes :"
 
 #: templates/display/export/options_rows.twig:7
 msgid "Dump some row(s)"
@@ -16115,7 +16115,7 @@ msgstr "Décharger quelques lignes"
 
 #: templates/display/export/options_rows.twig:23
 msgid "Row to begin at:"
-msgstr "Ligne de début : "
+msgstr "Ligne de début :"
 
 #: templates/display/export/options_rows.twig:32
 msgid "Dump all rows"
@@ -16250,7 +16250,7 @@ msgstr "Aucun(e)"
 
 #: templates/columns_definitions/column_default.twig:5
 msgid "As defined:"
-msgstr "Tel que défini : "
+msgstr "Tel que défini :"
 
 #: templates/database/designer/page_selector.twig:2
 msgid "Select page"
@@ -16296,11 +16296,11 @@ msgstr "colonne(s)"
 
 #: templates/columns_definitions/column_definitions_form.twig:74
 msgid "Collation:"
-msgstr "Interclassement : "
+msgstr "Interclassement :"
 
 #: templates/columns_definitions/column_definitions_form.twig:77
 msgid "Storage Engine:"
-msgstr "Moteur de stockage : "
+msgstr "Moteur de stockage :"
 
 #: templates/columns_definitions/column_definitions_form.twig:82
 msgid "Connection:"
@@ -16308,7 +16308,7 @@ msgstr "Connexion :"
 
 #: templates/columns_definitions/column_definitions_form.twig:128
 msgid "PARTITION definition:"
-msgstr "Définition de PARTITION : "
+msgstr "Définition de PARTITION :"
 
 #: templates/table/search/options.twig:6
 msgid "Select columns (at least one):"
@@ -16324,7 +16324,7 @@ msgstr "Nombre de lignes par page"
 
 #: templates/table/search/options.twig:45
 msgid "Display order:"
-msgstr "Ordre d'affichage : "
+msgstr "Ordre d'affichage :"
 
 #: templates/database/tracking/tracked_tables.twig:2
 msgid "Tracked tables"
@@ -16393,11 +16393,11 @@ msgstr "Titre du graphique :"
 
 #: templates/table/chart/tbl_chart.twig:56
 msgid "X-Axis:"
-msgstr "Axe des X : "
+msgstr "Axe des X :"
 
 #: templates/table/chart/tbl_chart.twig:71
 msgid "Series:"
-msgstr "Séries : "
+msgstr "Séries :"
 
 #: templates/table/chart/tbl_chart.twig:102
 msgid "X-Axis label:"
@@ -16537,11 +16537,11 @@ msgstr "Secret/clef :"
 
 #: templates/table/search/options_zoom.twig:6
 msgid "Use this column to label each point"
-msgstr "Utiliser cette colonne pour décrire chaque point :"
+msgstr "Utiliser cette colonne pour décrire chaque point"
 
 #: templates/table/search/options_zoom.twig:32
 msgid "Maximum rows to plot"
-msgstr "Nombre maximum de lignes de données à utiliser pour le graphique :"
+msgstr "Nombre maximum de lignes à utiliser pour le graphique"
 
 #: templates/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
