@@ -1183,17 +1183,20 @@ class UtilTest extends PmaTestCase
     /**
      * localised date test, globals are defined
      *
-     * @param string $a Current timestamp
-     * @param string $b Format
-     * @param string $e Expected output
+     * @param int    $a      Current timestamp
+     * @param string $b      Format
+     * @param string $e      Expected output
+     * @param string $tz     Timezone to set
+     * @param string $locale Locale to set
      *
      * @covers \PhpMyAdmin\Util::localisedDate
      * @dataProvider providerLocalisedDate
      */
-    public function testLocalisedDate($a, $b, $e): void
+    public function testLocalisedDate(int $a, string $b, string $e, string $tz, string $locale): void
     {
+        _setlocale(LC_ALL, $locale);
         $tmpTimezone = date_default_timezone_get();
-        date_default_timezone_set('Europe/London');
+        date_default_timezone_set($tz);
 
         $this->assertEquals(
             $e,
@@ -1201,6 +1204,7 @@ class UtilTest extends PmaTestCase
         );
 
         date_default_timezone_set($tmpTimezone);
+        _setlocale(LC_ALL, 'en');
     }
 
     /**
@@ -1215,11 +1219,85 @@ class UtilTest extends PmaTestCase
                 1227455558,
                 '',
                 'Nov 23, 2008 at 03:52 PM',
+                'Europe/London',
+                'en',
             ],
             [
                 1227455558,
                 '%Y-%m-%d %H:%M:%S %a',
                 '2008-11-23 15:52:38 Sun',
+                'Europe/London',
+                'en',
+            ],
+            [
+                1227455558,
+                '%Y-%m-%d %H:%M:%S %a',
+                '2008-11-23 16:52:38 Sun',
+                'Europe/Paris',
+                'en',
+            ],
+            [
+                1227455558,
+                '%Y-%m-%d %H:%M:%S %a',
+                '2008-11-24 00:52:38 Mon',
+                'Asia/Tokyo',
+                'en',
+            ],
+            [
+                1227455558,
+                '%a %A %b %B',
+                'Mon Mon Nov Nov',
+                'Asia/Tokyo',
+                'en',
+            ],
+            [
+                1227455558,
+                '%a %A %b %B %P',
+                'Mon Mon Nov Nov AM',
+                'Asia/Tokyo',
+                'en',
+            ],
+            [
+                1227455558,
+                '%Y-%m-%d %H:%M:%S %a',
+                '2008-11-24 00:52:38 月',
+                'Asia/Tokyo',
+                'ja',
+            ],
+            [
+                1227455558,
+                '%a %A %b %B',
+                '月 月 11 月 11 月',
+                'Asia/Tokyo',
+                'ja',
+            ],
+            [
+                1227455558,
+                '%a %A %b %B %P',
+                '月 月 11 月 11 月 午前',
+                'Asia/Tokyo',
+                'ja',
+            ],
+            [
+                1227455558,
+                '月月',
+                '月月',
+                'Asia/Tokyo',
+                'ja',
+            ],
+            [
+                1227455558,
+                '%Y 年 2 月 %d 日 %H:%M',
+                '2008 年 2 月 24 日 00:52',
+                'Asia/Tokyo',
+                'ja',
+            ],
+            [
+                1227455558,
+                '%Y 年 2 � %d 日 %H:%M',
+                '2008 年 2 � 24 日 00:52',
+                'Asia/Tokyo',
+                'ja',
             ],
         ];
     }

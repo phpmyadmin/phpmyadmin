@@ -1378,6 +1378,10 @@ class StructureController extends AbstractController
             )->getStatusInfo(null, true);
         }
 
+        if (is_string($showtable)) {
+            $showtable = [];
+        }
+
         if (empty($showtable['Data_length'])) {
             $showtable['Data_length'] = 0;
         }

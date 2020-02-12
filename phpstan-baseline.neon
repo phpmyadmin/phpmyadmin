@@ -3588,11 +3588,6 @@ parameters:
 			path: test/classes/UtilTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$timestamp of static method PhpMyAdmin\\\\Util\\:\\:localisedDate\\(\\) expects int, string given\\.$#"
-			count: 1
-			path: test/classes/UtilTest.php
-
-		-
 			message: "#^Cannot access property \\$version on stdClass\\|null\\.$#"
 			count: 1
 			path: test/classes/VersionInformationTest.php
