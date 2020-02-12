@@ -34,10 +34,7 @@ class MonitorController extends AbstractController
         $this->monitor = $monitor;
     }
 
-    /**
-     * @return string HTML
-     */
-    public function index(): string
+    public function index(): void
     {
         Common::server();
 
@@ -71,121 +68,106 @@ class MonitorController extends AbstractController
             }
         }
 
-        return $this->template->render('server/status/monitor/index', [
+        $this->response->addHTML($this->template->render('server/status/monitor/index', [
             'image_path' => $GLOBALS['pmaThemeImage'],
             'javascript_variable_names' => $javascriptVariableNames,
             'form' => $form,
+        ]));
+    }
+
+    /**
+     * @param array $params Request parameters
+     */
+    public function chartingData(array $params): void
+    {
+        Common::server();
+
+        if (! $this->response->isAjax()) {
+            return;
+        }
+
+        $this->response->addJSON([
+            'message' => $this->monitor->getJsonForChartingData(
+                $params['requiredData'] ?? ''
+            ),
         ]);
     }
 
     /**
      * @param array $params Request parameters
-     *
-     * @return array JSON
      */
-    public function chartingData(array $params): array
+    public function logDataTypeSlow(array $params): void
     {
         Common::server();
 
         if (! $this->response->isAjax()) {
-            return [];
+            return;
         }
 
-        $json = [];
-        $json['message'] = $this->monitor->getJsonForChartingData(
-            $params['requiredData'] ?? ''
-        );
-
-        return $json;
+        $this->response->addJSON([
+            'message' => $this->monitor->getJsonForLogDataTypeSlow(
+                (int) $params['time_start'],
+                (int) $params['time_end']
+            ),
+        ]);
     }
 
     /**
      * @param array $params Request parameters
-     *
-     * @return array JSON
      */
-    public function logDataTypeSlow(array $params): array
+    public function logDataTypeGeneral(array $params): void
     {
         Common::server();
 
         if (! $this->response->isAjax()) {
-            return [];
+            return;
         }
 
-        $json = [];
-        $json['message'] = $this->monitor->getJsonForLogDataTypeSlow(
-            (int) $params['time_start'],
-            (int) $params['time_end']
-        );
-
-        return $json;
+        $this->response->addJSON([
+            'message' => $this->monitor->getJsonForLogDataTypeGeneral(
+                (int) $params['time_start'],
+                (int) $params['time_end'],
+                (bool) $params['limitTypes'],
+                (bool) $params['removeVariables']
+            ),
+        ]);
     }
 
     /**
      * @param array $params Request parameters
-     *
-     * @return array JSON
      */
-    public function logDataTypeGeneral(array $params): array
+    public function loggingVars(array $params): void
     {
         Common::server();
 
         if (! $this->response->isAjax()) {
-            return [];
+            return;
         }
 
-        $json = [];
-        $json['message'] = $this->monitor->getJsonForLogDataTypeGeneral(
-            (int) $params['time_start'],
-            (int) $params['time_end'],
-            (bool) $params['limitTypes'],
-            (bool) $params['removeVariables']
-        );
-
-        return $json;
+        $this->response->addJSON([
+            'message' => $this->monitor->getJsonForLoggingVars(
+                $params['varName'],
+                $params['varValue']
+            ),
+        ]);
     }
 
     /**
      * @param array $params Request parameters
-     *
-     * @return array JSON
      */
-    public function loggingVars(array $params): array
+    public function queryAnalyzer(array $params): void
     {
         Common::server();
 
         if (! $this->response->isAjax()) {
-            return [];
+            return;
         }
 
-        $json = [];
-        $json['message'] = $this->monitor->getJsonForLoggingVars(
-            $params['varName'],
-            $params['varValue']
-        );
-
-        return $json;
-    }
-
-    /**
-     * @param array $params Request parameters
-     *
-     * @return array JSON
-     */
-    public function queryAnalyzer(array $params): array
-    {
-        Common::server();
-
-        if (! $this->response->isAjax()) {
-            return [];
-        }
-
-        $json = [];
-        $json['message'] = $this->monitor->getJsonForQueryAnalyzer(
-            $params['database'] ?? '',
-            $params['query'] ?? ''
-        );
-
-        return $json;
+        $this->response->addJSON([
+            'message' => $this->monitor->getJsonForQueryAnalyzer(
+                $params['database'] ?? '',
+                $params['query'] ?? ''
+            ),
+        ]);
     }
 }

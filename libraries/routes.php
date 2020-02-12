@@ -94,7 +94,6 @@ use PhpMyAdmin\Controllers\UserPasswordController;
 use PhpMyAdmin\Controllers\VersionCheckController;
 use PhpMyAdmin\Controllers\ViewCreateController;
 use PhpMyAdmin\Controllers\ViewOperationsController;
-use PhpMyAdmin\Response;
 
 global $containerBuilder;
 
@@ -102,15 +101,12 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/** @var Response $response */
-$response = $containerBuilder->get(Response::class);
-
-return function (RouteCollector $routes) use ($containerBuilder, $response) {
-    $routes->addGroup('', function (RouteCollector $routes) use ($containerBuilder, $response) {
+return function (RouteCollector $routes) use ($containerBuilder) {
+    $routes->addGroup('', function (RouteCollector $routes) use ($containerBuilder) {
         /** @var HomeController $controller */
         $controller = $containerBuilder->get(HomeController::class);
-        $routes->addRoute(['GET', 'POST'], '[/]', function () use ($response, $controller) {
-            $response->addHTML($controller->index(['access_time' => $_REQUEST['access_time'] ?? null]));
+        $routes->addRoute(['GET', 'POST'], '[/]', function () use ($controller) {
+            $controller->index(['access_time' => $_REQUEST['access_time'] ?? null]);
         });
         $routes->post('/set-theme', function () use ($controller) {
             $controller->setTheme(['set_theme' => $_POST['set_theme']]);
@@ -118,41 +114,41 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $routes->post('/collation-connection', function () use ($controller) {
             $controller->setCollationConnection(['collation_connection' => $_POST['collation_connection']]);
         });
-        $routes->addRoute(['GET', 'POST'], '/recent-table', function () use ($response, $controller) {
-            $response->addJSON($controller->reloadRecentTablesList());
+        $routes->addRoute(['GET', 'POST'], '/recent-table', function () use ($controller) {
+            $controller->reloadRecentTablesList();
         });
-        $routes->addRoute(['GET', 'POST'], '/git-revision', function () use ($response, $controller) {
-            $response->addHTML($controller->gitRevision());
+        $routes->addRoute(['GET', 'POST'], '/git-revision', function () use ($controller) {
+            $controller->gitRevision();
         });
     });
-    $routes->addGroup('/ajax', function (RouteCollector $routes) use ($containerBuilder, $response) {
+    $routes->addGroup('/ajax', function (RouteCollector $routes) use ($containerBuilder) {
         /** @var AjaxController $controller */
         $controller = $containerBuilder->get(AjaxController::class);
-        $routes->post('/list-databases', function () use ($response, $controller) {
-            $response->addJSON($controller->databases());
+        $routes->post('/list-databases', function () use ($controller) {
+            $controller->databases();
         });
-        $routes->post('/list-tables/{database}', function (array $vars) use ($response, $controller) {
-            $response->addJSON($controller->tables($vars));
+        $routes->post('/list-tables/{database}', function (array $vars) use ($controller) {
+            $controller->tables($vars);
         });
-        $routes->post('/list-columns/{database}/{table}', function (array $vars) use ($response, $controller) {
-            $response->addJSON($controller->columns($vars));
+        $routes->post('/list-columns/{database}/{table}', function (array $vars) use ($controller) {
+            $controller->columns($vars);
         });
-        $routes->post('/config-get', function () use ($response, $controller) {
-            $response->addJSON($controller->getConfig([
+        $routes->post('/config-get', function () use ($controller) {
+            $controller->getConfig([
                 'key' => $_POST['key'] ?? null,
-            ]));
+            ]);
         });
-        $routes->post('/config-set', function () use ($response, $controller) {
-            $response->addJSON($controller->setConfig([
+        $routes->post('/config-set', function () use ($controller) {
+            $controller->setConfig([
                 'key' => $_POST['key'] ?? null,
                 'value' => $_POST['value'] ?? null,
-            ]));
+            ]);
         });
     });
-    $routes->addRoute(['GET', 'POST'], '/browse-foreigners', function () use ($containerBuilder, $response) {
+    $routes->addRoute(['GET', 'POST'], '/browse-foreigners', function () use ($containerBuilder) {
         /** @var BrowseForeignersController $controller */
         $controller = $containerBuilder->get(BrowseForeignersController::class);
-        $response->addHTML($controller->index([
+        $controller->index([
             'db' => $_POST['db'] ?? null,
             'table' => $_POST['table'] ?? null,
             'field' => $_POST['field'] ?? null,
@@ -160,32 +156,32 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             'data' => $_POST['data'] ?? null,
             'foreign_showAll' => $_POST['foreign_showAll'] ?? null,
             'foreign_filter' => $_POST['foreign_filter'] ?? null,
-        ]));
+        ]);
     });
     $routes->get('/changelog', function () use ($containerBuilder) {
         /** @var ChangeLogController $controller */
         $controller = $containerBuilder->get(ChangeLogController::class);
         $controller->index();
     });
-    $routes->addRoute(['GET', 'POST'], '/check-relations', function () use ($containerBuilder, $response) {
+    $routes->addRoute(['GET', 'POST'], '/check-relations', function () use ($containerBuilder) {
         /** @var CheckRelationsController $controller */
         $controller = $containerBuilder->get(CheckRelationsController::class);
-        $response->addHTML($controller->index([
+        $controller->index([
             'create_pmadb' => $_POST['create_pmadb'] ?? null,
             'fixall_pmadb' => $_POST['fixall_pmadb'] ?? null,
             'fix_pmadb' => $_POST['fix_pmadb'] ?? null,
-        ]));
+        ]);
     });
-    $routes->addGroup('/database', function (RouteCollector $routes) use ($containerBuilder, $response) {
+    $routes->addGroup('/database', function (RouteCollector $routes) use ($containerBuilder) {
         $routes->addRoute(['GET', 'POST'], '/central-columns', function () use ($containerBuilder) {
             /** @var CentralColumnsController $controller */
             $controller = $containerBuilder->get(CentralColumnsController::class);
             $controller->index();
         });
-        $routes->get('/data-dictionary/{database}', function (array $vars) use ($containerBuilder, $response) {
+        $routes->get('/data-dictionary/{database}', function (array $vars) use ($containerBuilder) {
             /** @var DataDictionaryController $controller */
             $controller = $containerBuilder->get(DataDictionaryController::class);
-            $response->addHTML($controller->index($vars));
+            $controller->index($vars);
         });
         $routes->addRoute(['GET', 'POST'], '/designer', function () use ($containerBuilder) {
             /** @var DesignerController $controller */
@@ -207,17 +203,17 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             $controller = $containerBuilder->get(DatabaseImportController::class);
             $controller->index();
         });
-        $routes->addGroup('/multi_table_query', function (RouteCollector $routes) use ($containerBuilder, $response) {
+        $routes->addGroup('/multi_table_query', function (RouteCollector $routes) use ($containerBuilder) {
             /** @var MultiTableQueryController $controller */
             $controller = $containerBuilder->get(MultiTableQueryController::class);
-            $routes->get('', function () use ($response, $controller) {
-                $response->addHTML($controller->index());
+            $routes->get('', function () use ($controller) {
+                $controller->index();
             });
-            $routes->get('/tables', function () use ($response, $controller) {
-                $response->addJSON($controller->table([
+            $routes->get('/tables', function () use ($controller) {
+                $controller->table([
                     'tables' => $_GET['tables'],
                     'db' => $_GET['db'] ?? null,
-                ]));
+                ]);
             });
             $routes->post('/query', function () use ($controller) {
                 $controller->displayResults([
@@ -248,49 +244,49 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             $controller = $containerBuilder->get(SearchController::class);
             $controller->index();
         });
-        $routes->addGroup('/sql', function (RouteCollector $routes) use ($containerBuilder, $response) {
+        $routes->addGroup('/sql', function (RouteCollector $routes) use ($containerBuilder) {
             $routes->addRoute(['GET', 'POST'], '', function () use ($containerBuilder) {
                 /** @var DatabaseSqlController $controller */
                 $controller = $containerBuilder->get(DatabaseSqlController::class);
                 $controller->index();
             });
-            $routes->post('/autocomplete', function () use ($containerBuilder, $response) {
+            $routes->post('/autocomplete', function () use ($containerBuilder) {
                 /** @var SqlAutoCompleteController $controller */
                 $controller = $containerBuilder->get(SqlAutoCompleteController::class);
-                $response->addJSON($controller->index());
+                $controller->index();
             });
-            $routes->post('/format', function () use ($containerBuilder, $response) {
+            $routes->post('/format', function () use ($containerBuilder) {
                 /** @var SqlFormatController $controller */
                 $controller = $containerBuilder->get(SqlFormatController::class);
-                $response->addJSON($controller->index(['sql' => $_POST['sql'] ?? null]));
+                $controller->index(['sql' => $_POST['sql'] ?? null]);
             });
         });
-        $routes->addGroup('/structure', function (RouteCollector $routes) use ($containerBuilder, $response) {
+        $routes->addGroup('/structure', function (RouteCollector $routes) use ($containerBuilder) {
             /** @var StructureController $controller */
             $controller = $containerBuilder->get(StructureController::class);
-            $routes->addRoute(['GET', 'POST'], '', function () use ($response, $controller) {
-                $response->addHTML($controller->index([
+            $routes->addRoute(['GET', 'POST'], '', function () use ($controller) {
+                $controller->index([
                     'submit_mult' => $_POST['submit_mult'] ?? null,
                     'selected_tbl' => $_POST['selected_tbl'] ?? null,
                     'mult_btn' => $_POST['mult_btn'] ?? null,
                     'sort' => $_REQUEST['sort'] ?? null,
                     'sort_order' => $_REQUEST['sort_order'] ?? null,
-                ]));
+                ]);
             });
-            $routes->addRoute(['GET', 'POST'], '/favorite-table', function () use ($response, $controller) {
-                $response->addJSON($controller->addRemoveFavoriteTablesAction([
+            $routes->addRoute(['GET', 'POST'], '/favorite-table', function () use ($controller) {
+                $controller->addRemoveFavoriteTablesAction([
                     'favorite_table' => $_REQUEST['favorite_table'] ?? null,
                     'favoriteTables' => $_REQUEST['favoriteTables'] ?? null,
                     'sync_favorite_tables' => $_REQUEST['sync_favorite_tables'] ?? null,
                     'add_favorite' => $_REQUEST['add_favorite'] ?? null,
                     'remove_favorite' => $_REQUEST['remove_favorite'] ?? null,
-                ]));
+                ]);
             });
-            $routes->addRoute(['GET', 'POST'], '/real-row-count', function () use ($response, $controller) {
-                $response->addJSON($controller->handleRealRowCountRequestAction([
+            $routes->addRoute(['GET', 'POST'], '/real-row-count', function () use ($controller) {
+                $controller->handleRealRowCountRequestAction([
                     'real_row_count_all' => $_REQUEST['real_row_count_all'] ?? null,
                     'table' => $_REQUEST['table'] ?? null,
-                ]));
+                ]);
             });
         });
         $routes->addRoute(['GET', 'POST'], '/tracking', function () use ($containerBuilder) {
@@ -314,10 +310,10 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $controller = $containerBuilder->get(ExportController::class);
         $controller->index();
     });
-    $routes->addRoute(['GET', 'POST'], '/gis-data-editor', function () use ($containerBuilder, $response) {
+    $routes->addRoute(['GET', 'POST'], '/gis-data-editor', function () use ($containerBuilder) {
         /** @var GisDataEditorController $controller */
         $controller = $containerBuilder->get(GisDataEditorController::class);
-        $response->addJSON($controller->index());
+        $controller->index();
     });
     $routes->addRoute(['GET', 'POST'], '/import', function () use ($containerBuilder) {
         /** @var ImportController $controller */
@@ -409,53 +405,53 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
         $controller = $containerBuilder->get(SchemaExportController::class);
         $controller->index();
     });
-    $routes->addGroup('/server', function (RouteCollector $routes) use ($containerBuilder, $response) {
-        $routes->addRoute(['GET', 'POST'], '/binlog', function () use ($containerBuilder, $response) {
+    $routes->addGroup('/server', function (RouteCollector $routes) use ($containerBuilder) {
+        $routes->addRoute(['GET', 'POST'], '/binlog', function () use ($containerBuilder) {
             /** @var BinlogController $controller */
             $controller = $containerBuilder->get(BinlogController::class);
-            $response->addHTML($controller->index([
+            $controller->index([
                 'log' => $_POST['log'] ?? null,
                 'pos' => $_POST['pos'] ?? null,
                 'is_full_query' => $_POST['is_full_query'] ?? null,
-            ]));
+            ]);
         });
-        $routes->get('/collations', function () use ($containerBuilder, $response) {
+        $routes->get('/collations', function () use ($containerBuilder) {
             /** @var CollationsController $controller */
             $controller = $containerBuilder->get(CollationsController::class);
-            $response->addHTML($controller->index());
+            $controller->index();
         });
-        $routes->addGroup('/databases', function (RouteCollector $routes) use ($containerBuilder, $response) {
+        $routes->addGroup('/databases', function (RouteCollector $routes) use ($containerBuilder) {
             /** @var DatabasesController $controller */
             $controller = $containerBuilder->get(DatabasesController::class);
-            $routes->addRoute(['GET', 'POST'], '', function () use ($response, $controller) {
-                $response->addHTML($controller->index([
+            $routes->addRoute(['GET', 'POST'], '', function () use ($controller) {
+                $controller->index([
                     'statistics' => $_REQUEST['statistics'] ?? null,
                     'pos' => $_REQUEST['pos'] ?? null,
                     'sort_by' => $_REQUEST['sort_by'] ?? null,
                     'sort_order' => $_REQUEST['sort_order'] ?? null,
-                ]));
+                ]);
             });
-            $routes->post('/create', function () use ($response, $controller) {
-                $response->addJSON($controller->create([
+            $routes->post('/create', function () use ($controller) {
+                $controller->create([
                     'new_db' => $_POST['new_db'] ?? null,
                     'db_collation' => $_POST['db_collation'] ?? null,
-                ]));
+                ]);
             });
-            $routes->post('/destroy', function () use ($response, $controller) {
-                $response->addJSON($controller->destroy([
+            $routes->post('/destroy', function () use ($controller) {
+                $controller->destroy([
                     'drop_selected_dbs' => $_POST['drop_selected_dbs'] ?? null,
                     'selected_dbs' => $_POST['selected_dbs'] ?? null,
-                ]));
+                ]);
             });
         });
-        $routes->addGroup('/engines', function (RouteCollector $routes) use ($containerBuilder, $response) {
+        $routes->addGroup('/engines', function (RouteCollector $routes) use ($containerBuilder) {
             /** @var EnginesController $controller */
             $controller = $containerBuilder->get(EnginesController::class);
-            $routes->get('', function () use ($response, $controller) {
-                $response->addHTML($controller->index());
+            $routes->get('', function () use ($controller) {
+                $controller->index();
             });
-            $routes->get('/{engine}[/{page}]', function (array $vars) use ($response, $controller) {
-                $response->addHTML($controller->show($vars));
+            $routes->get('/{engine}[/{page}]', function (array $vars) use ($controller) {
+                $controller->show($vars);
             });
         });
         $routes->addRoute(['GET', 'POST'], '/export', function () use ($containerBuilder) {
@@ -468,120 +464,120 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             $controller = $containerBuilder->get(ServerImportController::class);
             $controller->index();
         });
-        $routes->get('/plugins', function () use ($containerBuilder, $response) {
+        $routes->get('/plugins', function () use ($containerBuilder) {
             /** @var PluginsController $controller */
             $controller = $containerBuilder->get(PluginsController::class);
-            $response->addHTML($controller->index());
+            $controller->index();
         });
         $routes->addRoute(['GET', 'POST'], '/privileges', function () use ($containerBuilder) {
             /** @var PrivilegesController $controller */
             $controller = $containerBuilder->get(PrivilegesController::class);
             $controller->index();
         });
-        $routes->addRoute(['GET', 'POST'], '/replication', function () use ($containerBuilder, $response) {
+        $routes->addRoute(['GET', 'POST'], '/replication', function () use ($containerBuilder) {
             /** @var ReplicationController $controller */
             $controller = $containerBuilder->get(ReplicationController::class);
-            $response->addHTML($controller->index([
+            $controller->index([
                 'url_params' => $_POST['url_params'] ?? null,
                 'mr_configure' => $_POST['mr_configure'] ?? null,
                 'sl_configure' => $_POST['sl_configure'] ?? null,
                 'repl_clear_scr' => $_POST['repl_clear_scr'] ?? null,
-            ]));
+            ]);
         });
-        $routes->addRoute(['GET', 'POST'], '/sql', function () use ($containerBuilder, $response) {
+        $routes->addRoute(['GET', 'POST'], '/sql', function () use ($containerBuilder) {
             /** @var ServerSqlController $controller */
             $controller = $containerBuilder->get(ServerSqlController::class);
-            $response->addHTML($controller->index());
+            $controller->index();
         });
-        $routes->addGroup('/status', function (RouteCollector $routes) use ($containerBuilder, $response) {
-            $routes->get('', function () use ($containerBuilder, $response) {
+        $routes->addGroup('/status', function (RouteCollector $routes) use ($containerBuilder) {
+            $routes->get('', function () use ($containerBuilder) {
                 /** @var StatusController $controller */
                 $controller = $containerBuilder->get(StatusController::class);
-                $response->addHTML($controller->index());
+                $controller->index();
             });
-            $routes->get('/advisor', function () use ($containerBuilder, $response) {
+            $routes->get('/advisor', function () use ($containerBuilder) {
                 /** @var AdvisorController $controller */
                 $controller = $containerBuilder->get(AdvisorController::class);
-                $response->addHTML($controller->index());
+                $controller->index();
             });
-            $routes->addGroup('/monitor', function (RouteCollector $routes) use ($containerBuilder, $response) {
+            $routes->addGroup('/monitor', function (RouteCollector $routes) use ($containerBuilder) {
                 /** @var MonitorController $controller */
                 $controller = $containerBuilder->get(MonitorController::class);
-                $routes->get('', function () use ($response, $controller) {
-                    $response->addHTML($controller->index());
+                $routes->get('', function () use ($controller) {
+                    $controller->index();
                 });
-                $routes->post('/chart', function () use ($response, $controller) {
-                    $response->addJSON($controller->chartingData([
+                $routes->post('/chart', function () use ($controller) {
+                    $controller->chartingData([
                         'requiredData' => $_POST['requiredData'] ?? null,
-                    ]));
+                    ]);
                 });
-                $routes->post('/slow-log', function () use ($response, $controller) {
-                    $response->addJSON($controller->logDataTypeSlow([
+                $routes->post('/slow-log', function () use ($controller) {
+                    $controller->logDataTypeSlow([
                         'time_start' => $_POST['time_start'] ?? null,
                         'time_end' => $_POST['time_end'] ?? null,
-                    ]));
+                    ]);
                 });
-                $routes->post('/general-log', function () use ($response, $controller) {
-                    $response->addJSON($controller->logDataTypeGeneral([
+                $routes->post('/general-log', function () use ($controller) {
+                    $controller->logDataTypeGeneral([
                         'time_start' => $_POST['time_start'] ?? null,
                         'time_end' => $_POST['time_end'] ?? null,
                         'limitTypes' => $_POST['limitTypes'] ?? null,
                         'removeVariables' => $_POST['removeVariables'] ?? null,
-                    ]));
+                    ]);
                 });
-                $routes->post('/log-vars', function () use ($response, $controller) {
-                    $response->addJSON($controller->loggingVars([
+                $routes->post('/log-vars', function () use ($controller) {
+                    $controller->loggingVars([
                         'varName' => $_POST['varName'] ?? null,
                         'varValue' => $_POST['varValue'] ?? null,
-                    ]));
+                    ]);
                 });
-                $routes->post('/query', function () use ($response, $controller) {
-                    $response->addJSON($controller->queryAnalyzer([
+                $routes->post('/query', function () use ($controller) {
+                    $controller->queryAnalyzer([
                         'database' => $_POST['database'] ?? null,
                         'query' => $_POST['query'] ?? null,
-                    ]));
+                    ]);
                 });
             });
-            $routes->addGroup('/processes', function (RouteCollector $routes) use ($containerBuilder, $response) {
+            $routes->addGroup('/processes', function (RouteCollector $routes) use ($containerBuilder) {
                 /** @var ProcessesController $controller */
                 $controller = $containerBuilder->get(ProcessesController::class);
-                $routes->addRoute(['GET', 'POST'], '', function () use ($response, $controller) {
-                    $response->addHTML($controller->index([
+                $routes->addRoute(['GET', 'POST'], '', function () use ($controller) {
+                    $controller->index([
                         'showExecuting' => $_POST['showExecuting'] ?? null,
                         'full' => $_POST['full'] ?? null,
                         'column_name' => $_POST['column_name'] ?? null,
                         'order_by_field' => $_POST['order_by_field'] ?? null,
                         'sort_order' => $_POST['sort_order'] ?? null,
-                    ]));
+                    ]);
                 });
-                $routes->post('/refresh', function () use ($response, $controller) {
-                    $response->addHTML($controller->refresh([
+                $routes->post('/refresh', function () use ($controller) {
+                    $controller->refresh([
                         'showExecuting' => $_POST['showExecuting'] ?? null,
                         'full' => $_POST['full'] ?? null,
                         'column_name' => $_POST['column_name'] ?? null,
                         'order_by_field' => $_POST['order_by_field'] ?? null,
                         'sort_order' => $_POST['sort_order'] ?? null,
-                    ]));
+                    ]);
                 });
-                $routes->post('/kill/{id:\d+}', function (array $vars) use ($response, $controller) {
-                    $response->addJSON($controller->kill($vars));
+                $routes->post('/kill/{id:\d+}', function (array $vars) use ($controller) {
+                    $controller->kill($vars);
                 });
             });
-            $routes->get('/queries', function () use ($containerBuilder, $response) {
+            $routes->get('/queries', function () use ($containerBuilder) {
                 /** @var QueriesController $controller */
                 $controller = $containerBuilder->get(QueriesController::class);
-                $response->addHTML($controller->index());
+                $controller->index();
             });
-            $routes->addRoute(['GET', 'POST'], '/variables', function () use ($containerBuilder, $response) {
+            $routes->addRoute(['GET', 'POST'], '/variables', function () use ($containerBuilder) {
                 /** @var StatusVariables $controller */
                 $controller = $containerBuilder->get(StatusVariables::class);
-                $response->addHTML($controller->index([
+                $controller->index([
                     'flush' => $_POST['flush'] ?? null,
                     'filterAlert' => $_POST['filterAlert'] ?? null,
                     'filterText' => $_POST['filterText'] ?? null,
                     'filterCategory' => $_POST['filterCategory'] ?? null,
                     'dontFormat' => $_POST['dontFormat'] ?? null,
-                ]));
+                ]);
             });
         });
         $routes->addRoute(['GET', 'POST'], '/user-groups', function () use ($containerBuilder) {
@@ -589,22 +585,22 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             $controller = $containerBuilder->get(UserGroupsController::class);
             $controller->index();
         });
-        $routes->addGroup('/variables', function (RouteCollector $routes) use ($containerBuilder, $response) {
+        $routes->addGroup('/variables', function (RouteCollector $routes) use ($containerBuilder) {
             /** @var VariablesController $controller */
             $controller = $containerBuilder->get(VariablesController::class);
-            $routes->get('', function () use ($response, $controller) {
-                $response->addHTML($controller->index([
+            $routes->get('', function () use ($controller) {
+                $controller->index([
                     'filter' => $_GET['filter'] ?? null,
-                ]));
+                ]);
             });
-            $routes->get('/get/{name}', function (array $vars) use ($response, $controller) {
-                $response->addJSON($controller->getValue($vars));
+            $routes->get('/get/{name}', function (array $vars) use ($controller) {
+                $controller->getValue($vars);
             });
-            $routes->post('/set/{name}', function (array $vars) use ($response, $controller) {
-                $response->addJSON($controller->setValue([
+            $routes->post('/set/{name}', function (array $vars) use ($controller) {
+                $controller->setValue([
                     'varName' => $vars['name'],
                     'varValue' => $_POST['varValue'] ?? null,
-                ]));
+                ]);
             });
         });
     });
@@ -737,16 +733,16 @@ return function (RouteCollector $routes) use ($containerBuilder, $response) {
             $controller->index();
         });
     });
-    $routes->get('/themes', function () use ($containerBuilder, $response) {
+    $routes->get('/themes', function () use ($containerBuilder) {
         /** @var ThemesController $controller */
         $controller = $containerBuilder->get(ThemesController::class);
-        $response->addHTML($controller->index());
+        $controller->index();
     });
-    $routes->addGroup('/transformation', function (RouteCollector $routes) use ($containerBuilder, $response) {
-        $routes->addRoute(['GET', 'POST'], '/overview', function () use ($containerBuilder, $response) {
+    $routes->addGroup('/transformation', function (RouteCollector $routes) use ($containerBuilder) {
+        $routes->addRoute(['GET', 'POST'], '/overview', function () use ($containerBuilder) {
             /** @var TransformationOverviewController $controller */
             $controller = $containerBuilder->get(TransformationOverviewController::class);
-            $response->addHTML($controller->index());
+            $controller->index();
         });
         $routes->addRoute(['GET', 'POST'], '/wrapper', function () use ($containerBuilder) {
             /** @var TransformationWrapperController $controller */

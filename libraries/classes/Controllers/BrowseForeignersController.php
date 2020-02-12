@@ -39,13 +39,11 @@ class BrowseForeignersController extends AbstractController
 
     /**
      * @param array $params Request parameters
-     *
-     * @return string HTML
      */
-    public function index(array $params): string
+    public function index(array $params): void
     {
         if (! isset($params['db'], $params['table'], $params['field'])) {
-            return '';
+            return;
         }
 
         $this->response->getFooter()->setMinimal();
@@ -69,13 +67,13 @@ class BrowseForeignersController extends AbstractController
             true
         );
 
-        return $this->browseForeigners->getHtmlForRelationalFieldSelection(
+        $this->response->addHTML($this->browseForeigners->getHtmlForRelationalFieldSelection(
             $params['db'],
             $params['table'],
             $params['field'],
             $foreignData,
             $params['fieldkey'] ?? '',
             $params['data'] ?? ''
-        );
+        ));
     }
 }

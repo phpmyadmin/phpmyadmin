@@ -11,7 +11,7 @@ use function preg_replace;
  */
 class ThemesController extends AbstractController
 {
-    public function index(): string
+    public function index(): void
     {
         $this->response->getFooter()->setMinimal();
         $header = $this->response->getHeader();
@@ -19,13 +19,13 @@ class ThemesController extends AbstractController
         $header->setTitle('phpMyAdmin - ' . __('Theme'));
         $header->disableMenuAndConsole();
 
-        return $this->template->render('themes', [
+        $this->response->addHTML($this->template->render('themes', [
             'version' => preg_replace(
                 '/([0-9]*)\.([0-9]*)\..*/',
                 '\1_\2',
                 PMA_VERSION
             ),
             'previews' => ThemeManager::getInstance()->getPrintPreviews(),
-        ]);
+        ]));
     }
 }

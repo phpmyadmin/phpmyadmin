@@ -33,10 +33,7 @@ class TransformationOverviewController extends AbstractController
         $this->transformations = $transformations;
     }
 
-    /**
-     * @return string HTML
-     */
-    public function index(): string
+    public function index(): void
     {
         $header = $this->response->getHeader();
         $header->disableMenuAndConsole();
@@ -67,9 +64,9 @@ class TransformationOverviewController extends AbstractController
             }
         }
 
-        return $this->template->render('transformation_overview', [
+        $this->response->addHTML($this->template->render('transformation_overview', [
             'mime_types' => $mimeTypes,
             'transformations' => $transformations,
-        ]);
+        ]));
     }
 }

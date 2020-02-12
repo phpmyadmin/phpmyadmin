@@ -11,9 +11,9 @@ use PhpMyAdmin\Controllers\Server\Status\StatusController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Replication;
 use PhpMyAdmin\ReplicationGui;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\Stubs\Response;
 use PHPUnit\Framework\TestCase;
 
 class StatusControllerTest extends TestCase
@@ -131,16 +131,19 @@ class StatusControllerTest extends TestCase
         $data->status['Aborted_connects'] = $abortedConnections;
         $data->status['Connections'] = $connections;
 
+        $response = new Response();
         $template = new Template();
+
         $controller = new StatusController(
-            Response::getInstance(),
+            $response,
             $GLOBALS['dbi'],
             $template,
             $data,
             new ReplicationGui(new Replication(), $template)
         );
 
-        $html = $controller->index();
+        $controller->index();
+        $html = $response->getHTMLResult();
 
         $traffic = $bytesReceived + $bytesSent;
         $trafficHtml = 'Network traffic since startup: ' . $traffic . ' B';

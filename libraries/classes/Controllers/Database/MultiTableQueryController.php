@@ -13,7 +13,7 @@ use PhpMyAdmin\Database\MultiTableQuery;
  */
 class MultiTableQueryController extends AbstractController
 {
-    public function index(): string
+    public function index(): void
     {
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();
@@ -23,7 +23,7 @@ class MultiTableQueryController extends AbstractController
 
         $queryInstance = new MultiTableQuery($this->dbi, $this->template, $this->db);
 
-        return $queryInstance->getFormHtml();
+        $this->response->addHTML($queryInstance->getFormHtml());
     }
 
     /**
@@ -42,16 +42,13 @@ class MultiTableQueryController extends AbstractController
 
     /**
      * @param array $params Request parameters
-     *
-     * @return array JSON
      */
-    public function table(array $params): array
+    public function table(array $params): void
     {
         $constrains = $this->dbi->getForeignKeyConstrains(
             $params['db'],
             $params['tables']
         );
-
-        return ['foreignKeyConstrains' => $constrains];
+        $this->response->addJSON(['foreignKeyConstrains' => $constrains]);
     }
 }

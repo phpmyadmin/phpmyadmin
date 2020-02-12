@@ -34,7 +34,7 @@ class AdvisorController extends AbstractController
         $this->advisor = $advisor;
     }
 
-    public function index(): string
+    public function index(): void
     {
         $scripts = $this->response->getHeader()->getScripts();
         $scripts->addFile('server/status/advisor.js');
@@ -44,8 +44,8 @@ class AdvisorController extends AbstractController
             $data = json_encode($this->advisor->run());
         }
 
-        return $this->template->render('server/status/advisor/index', [
+        $this->response->addHTML($this->template->render('server/status/advisor/index', [
             'data' => $data,
-        ]);
+        ]));
     }
 }

@@ -15,16 +15,13 @@ use PhpMyAdmin\StorageEngine;
  */
 class EnginesController extends AbstractController
 {
-    /**
-     * Index action
-     */
-    public function index(): string
+    public function index(): void
     {
         Common::server();
 
-        return $this->template->render('server/engines/index', [
+        $this->response->addHTML($this->template->render('server/engines/index', [
             'engines' => StorageEngine::getStorageEngines(),
-        ]);
+        ]));
     }
 
     /**
@@ -32,7 +29,7 @@ class EnginesController extends AbstractController
      *
      * @param array $params Request params
      */
-    public function show(array $params): string
+    public function show(array $params): void
     {
         Common::server();
 
@@ -53,9 +50,9 @@ class EnginesController extends AbstractController
             ];
         }
 
-        return $this->template->render('server/engines/show', [
+        $this->response->addHTML($this->template->render('server/engines/show', [
             'engine' => $engine,
             'page' => $page,
-        ]);
+        ]));
     }
 }

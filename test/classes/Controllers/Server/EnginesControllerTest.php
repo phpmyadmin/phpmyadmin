@@ -9,9 +9,9 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\EnginesController;
 use PhpMyAdmin\Html\MySQLDocumentation;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\Stubs\Response;
 use PHPStan\Testing\TestCase;
 use function htmlspecialchars;
 
@@ -37,13 +37,16 @@ class EnginesControllerTest extends TestCase
 
     public function testIndex(): void
     {
+        $response = new Response();
+
         $controller = new EnginesController(
-            Response::getInstance(),
+            $response,
             $GLOBALS['dbi'],
             new Template()
         );
 
-        $actual = $controller->index();
+        $controller->index();
+        $actual = $response->getHTMLResult();
 
         $this->assertStringContainsString(
             '<th>Storage Engine</th>',
@@ -83,16 +86,19 @@ class EnginesControllerTest extends TestCase
 
     public function testShow(): void
     {
+        $response = new Response();
+
         $controller = new EnginesController(
-            Response::getInstance(),
+            $response,
             $GLOBALS['dbi'],
             new Template()
         );
 
-        $actual = $controller->show([
+        $controller->show([
             'engine' => 'Pbxt',
             'page' => 'page',
         ]);
+        $actual = $response->getHTMLResult();
 
         $enginePlugin = StorageEngine::getEngine('Pbxt');
 

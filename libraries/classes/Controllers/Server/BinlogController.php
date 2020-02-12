@@ -50,7 +50,7 @@ class BinlogController extends AbstractController
      *
      * @param array $params Request params
      */
-    public function index(array $params): string
+    public function index(array $params): void
     {
         global $cfg, $pmaThemeImage;
 
@@ -105,7 +105,7 @@ class BinlogController extends AbstractController
             $values[] = $value;
         }
 
-        return $this->template->render('server/binlog/index', [
+        $this->response->addHTML($this->template->render('server/binlog/index', [
             'url_params' => $urlParams,
             'binary_logs' => $this->binaryLogs,
             'log' => $params['log'],
@@ -119,7 +119,7 @@ class BinlogController extends AbstractController
             'has_icons' => Util::showIcons('TableNavigationLinksMode'),
             'is_full_query' => $isFullQuery,
             'image_path' => $pmaThemeImage,
-        ]);
+        ]));
     }
 
     /**

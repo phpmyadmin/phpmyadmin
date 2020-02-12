@@ -8,8 +8,8 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\CollationsController;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\Stubs\Response;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -34,13 +34,16 @@ class CollationsControllerTest extends TestCase
 
     public function testIndexAction(): void
     {
+        $response = new Response();
+
         $controller = new CollationsController(
-            Response::getInstance(),
+            $response,
             $GLOBALS['dbi'],
             new Template()
         );
 
-        $actual = $controller->index();
+        $controller->index();
+        $actual = $response->getHTMLResult();
 
         $this->assertStringContainsString(
             '<div id="div_mysql_charset_collations" class="row">',

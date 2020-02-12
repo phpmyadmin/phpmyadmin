@@ -42,7 +42,7 @@ class DataDictionaryController extends AbstractController
     /**
      * @param array $params Request parameters
      */
-    public function index(array $params): string
+    public function index(array $params): void
     {
         $this->db = $params['database'];
 
@@ -141,10 +141,10 @@ class DataDictionaryController extends AbstractController
             ];
         }
 
-        return $this->template->render('database/data_dictionary/index', [
+        $this->response->addHTML($this->template->render('database/data_dictionary/index', [
             'database' => $this->db,
             'comment' => $comment,
             'tables' => $tables,
-        ]);
+        ]));
     }
 }

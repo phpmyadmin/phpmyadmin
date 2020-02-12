@@ -31,7 +31,7 @@ class CheckRelationsController extends AbstractController
     /**
      * @param array $params Request parameters
      */
-    public function index(array $params): string
+    public function index(array $params): void
     {
         global $db;
 
@@ -51,6 +51,6 @@ class CheckRelationsController extends AbstractController
             $this->relation->fixPmaTables($cfgRelation['db']);
         }
 
-        return $this->relation->getRelationsParamDiagnostic($cfgRelation);
+        $this->response->addHTML($this->relation->getRelationsParamDiagnostic($cfgRelation));
     }
 }

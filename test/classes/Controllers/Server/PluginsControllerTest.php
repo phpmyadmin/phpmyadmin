@@ -9,9 +9,9 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\PluginsController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\Stubs\Response;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -70,13 +70,16 @@ class PluginsControllerTest extends TestCase
             ->method('freeResult')
             ->will($this->returnValue(true));
 
+        $response = new Response();
+
         $controller = new PluginsController(
-            Response::getInstance(),
+            $response,
             $dbi,
             new Template(),
             new Plugins($dbi)
         );
-        $actual = $controller->index();
+        $controller->index();
+        $actual = $response->getHTMLResult();
 
         //validate 1:Items
         $this->assertStringContainsString(

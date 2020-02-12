@@ -16,10 +16,8 @@ class VariablesController extends AbstractController
 {
     /**
      * @param array $params Request parameters
-     *
-     * @return string HTML
      */
-    public function index(array $params): string
+    public function index(array $params): void
     {
         Common::server();
 
@@ -102,7 +100,7 @@ class VariablesController extends AbstractController
             }
         }
 
-        return $this->template->render('server/status/variables/index', [
+        $this->response->addHTML($this->template->render('server/status/variables/index', [
             'is_data_loaded' => $this->data->dataLoaded,
             'filter_text' => ! empty($params['filterText']) ? $params['filterText'] : '',
             'is_only_alerts' => ! empty($params['filterAlert']),
@@ -110,7 +108,7 @@ class VariablesController extends AbstractController
             'categories' => $categories ?? [],
             'links' => $links ?? [],
             'variables' => $variables ?? [],
-        ]);
+        ]));
     }
 
     /**

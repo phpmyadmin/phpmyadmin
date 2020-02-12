@@ -33,66 +33,57 @@ class AjaxController extends AbstractController
         $this->config = $config;
     }
 
-    /**
-     * @return array JSON
-     */
-    public function databases(): array
+    public function databases(): void
     {
         global $dblist;
 
-        return ['databases' => $dblist->databases];
+        $this->response->addJSON(['databases' => $dblist->databases]);
     }
 
     /**
      * @param array $params Request parameters
-     *
-     * @return array JSON
      */
-    public function tables(array $params): array
+    public function tables(array $params): void
     {
-        return ['tables' => $this->dbi->getTables($params['database'])];
+        $this->response->addJSON(['tables' => $this->dbi->getTables($params['database'])]);
     }
 
     /**
      * @param array $params Request parameters
-     *
-     * @return array JSON
      */
-    public function columns(array $params): array
+    public function columns(array $params): void
     {
-        return [
+        $this->response->addJSON([
             'columns' => $this->dbi->getColumnNames(
                 $params['database'],
                 $params['table']
             ),
-        ];
+        ]);
     }
 
     /**
      * @param array $params Request parameters
-     *
-     * @return array JSON
      */
-    public function getConfig(array $params): array
+    public function getConfig(array $params): void
     {
         if (! isset($params['key'])) {
             $this->response->setRequestStatus(false);
-            return ['message' => Message::error()];
+            $this->response->addJSON(['message' => Message::error()]);
+            return;
         }
 
-        return ['value' => $this->config->get($params['key'])];
+        $this->response->addJSON(['value' => $this->config->get($params['key'])]);
     }
 
     /**
      * @param array $params Request parameters
-     *
-     * @return array
      */
-    public function setConfig(array $params): array
+    public function setConfig(array $params): void
     {
         if (! isset($params['key'], $params['value'])) {
             $this->response->setRequestStatus(false);
-            return ['message' => Message::error()];
+            $this->response->addJSON(['message' => Message::error()]);
+            return;
         }
 
         $result = $this->config->setUserValue(
@@ -100,11 +91,12 @@ class AjaxController extends AbstractController
             $params['key'],
             json_decode($params['value'])
         );
-        $json = [];
-        if ($result !== true) {
-            $this->response->setRequestStatus(false);
-            $json['message'] = $result;
+
+        if ($result === true) {
+            return;
         }
-        return $json;
+
+        $this->response->setRequestStatus(false);
+        $this->response->addJSON(['message' => $result]);
     }
 }

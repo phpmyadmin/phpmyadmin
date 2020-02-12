@@ -21,7 +21,7 @@ class ProcessesController extends AbstractController
     /**
      * @param array $params Request parameters
      */
-    public function index(array $params): string
+    public function index(array $params): void
     {
         Common::server();
 
@@ -44,11 +44,11 @@ class ProcessesController extends AbstractController
 
         $serverProcessList = $this->getList($params);
 
-        return $this->template->render('server/status/processes/index', [
+        $this->response->addHTML($this->template->render('server/status/processes/index', [
             'url_params' => $urlParams,
             'is_checked' => $isChecked,
             'server_process_list' => $serverProcessList,
-        ]);
+        ]));
     }
 
     /**
@@ -56,24 +56,22 @@ class ProcessesController extends AbstractController
      *
      * @param array $params Request parameters
      */
-    public function refresh(array $params): string
+    public function refresh(array $params): void
     {
         if (! $this->response->isAjax()) {
-            return '';
+            return;
         }
 
-        return $this->getList($params);
+        $this->response->addHTML($this->getList($params));
     }
 
     /**
      * @param array $params Request parameters
-     *
-     * @return array
      */
-    public function kill(array $params): array
+    public function kill(array $params): void
     {
         if (! $this->response->isAjax()) {
-            return [];
+            return;
         }
 
         $kill = (int) $params['id'];
@@ -95,10 +93,7 @@ class ProcessesController extends AbstractController
         }
         $message->addParam($kill);
 
-        $json = [];
-        $json['message'] = $message;
-
-        return $json;
+        $this->response->addJSON(['message' => $message]);
     }
 
     /**

@@ -11,9 +11,9 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\AdvisorController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ReplicationInfo;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\Stubs\Response;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 use function htmlspecialchars;
@@ -95,15 +95,18 @@ class AdvisorControllerTest extends TestCase
 
     public function testIndex(): void
     {
+        $response = new Response();
+
         $controller = new AdvisorController(
-            Response::getInstance(),
+            $response,
             $GLOBALS['dbi'],
             new Template(),
             new Data(),
             new Advisor($GLOBALS['dbi'], new ExpressionLanguage())
         );
 
-        $html = $controller->index();
+        $controller->index();
+        $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(
             '<a href="#openAdvisorInstructions">',

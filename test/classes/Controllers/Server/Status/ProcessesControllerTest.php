@@ -9,9 +9,9 @@ namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\ProcessesController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
 use function htmlspecialchars;
@@ -94,20 +94,23 @@ class ProcessesControllerTest extends TestCase
 
     public function testIndex(): void
     {
+        $response = new Response();
+
         $controller = new ProcessesController(
-            Response::getInstance(),
+            $response,
             $GLOBALS['dbi'],
             new Template(),
             $this->data
         );
 
-        $html = $controller->index([
+        $controller->index([
             'showExecuting' => null,
             'full' => null,
             'column_name' => null,
             'order_by_field' => null,
             'sort_order' => null,
         ]);
+        $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(
             'Note: Enabling the auto refresh here might cause '
@@ -162,13 +165,14 @@ class ProcessesControllerTest extends TestCase
             $html
         );
 
-        $html = $controller->index([
+        $controller->index([
             'showExecuting' => null,
             'full' => '1',
             'column_name' => 'Database',
             'order_by_field' => 'db',
             'sort_order' => 'ASC',
         ]);
+        $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(
             'Truncate shown queries',
@@ -183,13 +187,14 @@ class ProcessesControllerTest extends TestCase
             $html
         );
 
-        $html = $controller->index([
+        $controller->index([
             'showExecuting' => null,
             'full' => '1',
             'column_name' => 'Host',
             'order_by_field' => 'Host',
             'sort_order' => 'DESC',
         ]);
+        $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(
             'Host',
@@ -217,20 +222,24 @@ class ProcessesControllerTest extends TestCase
         $GLOBALS['dbi']->expects($this->any())->method('fetchAssoc')
             ->will($this->onConsecutiveCalls($process));
 
+        $response = new Response();
+        $response->setAjax(true);
+
         $controller = new ProcessesController(
-            Response::getInstance(),
+            $response,
             $GLOBALS['dbi'],
             new Template(),
             $this->data
         );
 
-        $html = $controller->refresh([
+        $controller->refresh([
             'showExecuting' => null,
             'full' => '1',
             'column_name' => null,
             'order_by_field' => 'process',
             'sort_order' => 'DESC',
         ]);
+        $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(
             'index.php?route=/server/status/processes',

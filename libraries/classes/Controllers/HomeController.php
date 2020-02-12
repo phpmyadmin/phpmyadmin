@@ -62,15 +62,13 @@ class HomeController extends AbstractController
 
     /**
      * @param array $params Request parameters
-     *
-     * @return string HTML
      */
-    public function index(array $params): string
+    public function index(array $params): void
     {
         global $cfg, $server, $collation_connection, $message, $show_query, $db, $table;
 
         if ($this->response->isAjax() && ! empty($params['access_time'])) {
-            return '';
+            return;
         }
 
         $db = '';
@@ -266,7 +264,7 @@ class HomeController extends AbstractController
 
         $this->checkRequirements();
 
-        return $this->template->render('home/index', [
+        $this->response->addHTML($this->template->render('home/index', [
             'message' => $displayMessage ?? '',
             'partial_logout' => $partialLogout ?? '',
             'is_git_revision' => $this->config->isGitRevision(),
@@ -287,7 +285,7 @@ class HomeController extends AbstractController
             'is_version_checked' => $cfg['VersionCheck'],
             'phpmyadmin_version' => PMA_VERSION,
             'config_storage_message' => $configStorageMessage ?? '',
-        ]);
+        ]));
     }
 
     /**
@@ -321,35 +319,30 @@ class HomeController extends AbstractController
         $this->response->header('Location: index.php?route=/' . Url::getCommonRaw([], '&'));
     }
 
-    /**
-     * @return array JSON
-     */
-    public function reloadRecentTablesList(): array
+    public function reloadRecentTablesList(): void
     {
         if (! $this->response->isAjax()) {
-            return [];
+            return;
         }
-        return [
+
+        $this->response->addJSON([
             'list' => RecentFavoriteTable::getInstance('recent')->getHtmlList(),
-        ];
+        ]);
     }
 
-    /**
-     * @return string HTML
-     */
-    public function gitRevision(): string
+    public function gitRevision(): void
     {
         global $PMA_Config;
 
         if (! $this->response->isAjax() || ! $PMA_Config->isGitRevision()) {
-            return '';
+            return;
         }
 
-        return (new GitRevision(
+        $this->response->addHTML((new GitRevision(
             $this->response,
             $this->config,
             $this->template
-        ))->display();
+        ))->display());
     }
 
     private function checkRequirements(): void

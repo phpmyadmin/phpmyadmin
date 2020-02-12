@@ -9,9 +9,9 @@ namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\VariablesController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\Stubs\Response;
 use PHPUnit\Framework\TestCase;
 
 class VariablesControllerTest extends TestCase
@@ -118,20 +118,23 @@ class VariablesControllerTest extends TestCase
 
     public function testIndex(): void
     {
+        $response = new Response();
+
         $controller = new VariablesController(
-            Response::getInstance(),
+            $response,
             $GLOBALS['dbi'],
             new Template(),
             $this->data
         );
 
-        $html = $controller->index([
+        $controller->index([
             'flush' => null,
             'filterAlert' => null,
             'filterText' => null,
             'filterCategory' => null,
             'dontFormat' => null,
         ]);
+        $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(
             '<fieldset id="tableFilter">',
