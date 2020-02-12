@@ -2080,6 +2080,7 @@ class UtilTest extends PmaTestCase
         );
 
         date_default_timezone_set($tmpTimezone);
+        _setlocale(LC_ALL, 'en');
     }
 
     /**
@@ -2164,6 +2165,13 @@ class UtilTest extends PmaTestCase
                 1227455558,
                 '%Y 年 2 月 %d 日 %H:%M',
                 '2008 年 2 月 24 日 00:52',
+                'Asia/Tokyo',
+                'ja',
+            ],
+            [
+                1227455558,
+                '%Y 年 2 � %d 日 %H:%M',
+                '2008 年 2 � 24 日 00:52',
                 'Asia/Tokyo',
                 'ja',
             ],
