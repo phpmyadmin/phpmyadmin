@@ -1204,7 +1204,7 @@ class Generator
             // Adds a link to MySQL documentation.
             $error_msg .= '<p>' . "\n"
                 . '    <strong>' . __('MySQL said: ') . '</strong>'
-                . MySQLDocumentation::show('Error-messages-server')
+                . MySQLDocumentation::show('server-error-reference')
                 . "\n"
                 . '</p>' . "\n";
 
