@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2019-12-23 15:37-0300\n"
-"PO-Revision-Date: 2020-01-04 14:21+0000\n"
+"PO-Revision-Date: 2020-02-13 14:50+0000\n"
 "Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/5-0/fr/"
 ">\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Weblate 3.11-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -12588,7 +12588,7 @@ msgstr "Lier les paramètres"
 
 #: libraries/classes/SqlQueryForm.php:321
 msgid "Bookmark this SQL query:"
-msgstr "Conserver cette requête SQL dans les signets : "
+msgstr "Conserver cette requête SQL dans les signets :"
 
 #: libraries/classes/SqlQueryForm.php:329 templates/sql/bookmark.twig:22
 msgid "Let every user access this bookmark"
@@ -12662,7 +12662,7 @@ msgstr "La base de données cible « %s » n'existe pas !"
 
 #: libraries/classes/Table.php:1559
 msgid "Invalid database:"
-msgstr "Nom de base de données invalide : "
+msgstr "Base de données invalide :"
 
 #: libraries/classes/Table.php:1576
 msgid "Invalid table name:"
@@ -13352,7 +13352,7 @@ msgstr ""
 #: libraries/common.inc.php:359
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
-"Le fichier de configuration contient un type d'authentification invalide : "
+"Le fichier de configuration contient un type d'authentification invalide :"
 
 #: libraries/common.inc.php:412
 #, php-format
@@ -13608,7 +13608,7 @@ msgstr "Thème"
 #: templates/display/export/options_output_charset.twig:3
 #: templates/display/import/import.twig:97
 msgid "Character set of the file:"
-msgstr "Jeu de caractères du fichier : "
+msgstr "Jeu de caractères du fichier :"
 
 #: templates/columns_definitions/column_default.twig:3
 msgctxt "for default"
@@ -13617,7 +13617,7 @@ msgstr "Aucun(e)"
 
 #: templates/columns_definitions/column_default.twig:5
 msgid "As defined:"
-msgstr "Tel que défini : "
+msgstr "Tel que défini :"
 
 #: templates/transformation_overview.twig:1
 msgid "Available media (MIME) types"
@@ -13960,7 +13960,7 @@ msgstr "Options de transformation de saisie"
 
 #: templates/table/index_form.twig:15
 msgid "Index name:"
-msgstr "Nom de l'index : "
+msgstr "Nom de l'index :"
 
 #: templates/table/index_form.twig:16
 msgid ""
@@ -13983,7 +13983,7 @@ msgstr "Taille du bloc de clé :"
 
 #: templates/table/index_form.twig:69
 msgid "Index type:"
-msgstr "Type d'index : "
+msgstr "Type d'index :"
 
 #: templates/table/index_form.twig:81
 msgid "Parser:"
@@ -13991,7 +13991,7 @@ msgstr "Analyseur :"
 
 #: templates/table/index_form.twig:97
 msgid "Comment:"
-msgstr "Commentaire : "
+msgstr "Commentaire :"
 
 #: templates/table/index_form.twig:122
 #: templates/database/structure/table_header.twig:36
@@ -14009,7 +14009,7 @@ msgstr "Statistiques sur les bases de données"
 #: templates/server/databases/index.twig:19
 #: templates/server/databases/index.twig:57
 msgid "Create database"
-msgstr "Création d'une base de données :"
+msgstr "Création d'une base de données"
 
 #: templates/server/databases/index.twig:68
 msgid "No privileges to create databases"
@@ -14198,7 +14198,7 @@ msgstr "Obtenir d'autres thèmes !"
 
 #: templates/display/export/options_rows.twig:2
 msgid "Rows:"
-msgstr "Lignes : "
+msgstr "Lignes :"
 
 #: templates/display/export/options_rows.twig:7
 msgid "Dump some row(s)"
@@ -14208,11 +14208,11 @@ msgstr "Décharger quelques lignes"
 #: templates/start_and_number_of_rows_panel.twig:10
 #: templates/display/results/table_navigation.twig:53
 msgid "Number of rows:"
-msgstr "Nombre de lignes : "
+msgstr "Nombre de lignes :"
 
 #: templates/display/export/options_rows.twig:23
 msgid "Row to begin at:"
-msgstr "Ligne de début : "
+msgstr "Ligne de début :"
 
 #: templates/display/export/options_rows.twig:32
 msgid "Dump all rows"
@@ -14284,7 +14284,7 @@ msgstr "Vérifier"
 
 #: templates/display/export/options_output_format.twig:3
 msgid "File name template:"
-msgstr "Modèle de nom de fichier : "
+msgstr "Modèle de nom de fichier :"
 
 #: templates/display/export/options_output_format.twig:11
 msgid "use this for future exports"
@@ -14362,11 +14362,11 @@ msgstr "Titre du graphique :"
 
 #: templates/table/chart/tbl_chart.twig:56
 msgid "X-Axis:"
-msgstr "Axe des X : "
+msgstr "Axe des X :"
 
 #: templates/table/chart/tbl_chart.twig:71
 msgid "Series:"
-msgstr "Séries : "
+msgstr "Séries :"
 
 #: templates/table/chart/tbl_chart.twig:100
 msgid "X-Axis label:"
@@ -14402,7 +14402,7 @@ msgstr "Enregistrer le graphique comme image"
 
 #: templates/display/export/options_output_compression.twig:4
 msgid "Compression:"
-msgstr "Compression : "
+msgstr "Compression :"
 
 #: templates/display/export/options_output_compression.twig:11
 msgid "zipped"
@@ -14701,11 +14701,11 @@ msgstr "colonne(s)"
 
 #: templates/columns_definitions/column_definitions_form.twig:73
 msgid "Collation:"
-msgstr "Interclassement : "
+msgstr "Interclassement :"
 
 #: templates/columns_definitions/column_definitions_form.twig:76
 msgid "Storage Engine:"
-msgstr "Moteur de stockage : "
+msgstr "Moteur de stockage :"
 
 #: templates/columns_definitions/column_definitions_form.twig:81
 msgid "Connection:"
@@ -14713,7 +14713,7 @@ msgstr "Connexion :"
 
 #: templates/columns_definitions/column_definitions_form.twig:132
 msgid "PARTITION definition:"
-msgstr "Définition de PARTITION : "
+msgstr "Définition de PARTITION :"
 
 #: templates/home/index.twig:28
 msgid "General settings"
@@ -15065,11 +15065,11 @@ msgstr "Rechercher :"
 
 #: templates/database/search/main.twig:29
 msgid "Inside tables:"
-msgstr "Dans les tables : "
+msgstr "Dans les tables :"
 
 #: templates/database/search/main.twig:56
 msgid "Inside column:"
-msgstr "Dans la colonne : "
+msgstr "Dans la colonne :"
 
 #: templates/login/twofactor/application_configure.twig:3
 msgid ""
@@ -15141,11 +15141,11 @@ msgstr ""
 
 #: templates/table/search/selection_form.twig:29
 msgid "Use this column to label each point"
-msgstr "Utiliser cette colonne pour décrire chaque point :"
+msgstr "Utiliser cette colonne pour décrire chaque point"
 
 #: templates/table/search/selection_form.twig:55
 msgid "Maximum rows to plot"
-msgstr "Nombre maximum de lignes de données à utiliser pour le graphique :"
+msgstr "Nombre maximum de lignes à utiliser pour le graphique"
 
 #: templates/table/search/selection_form.twig:80
 msgid "Do a \"query by example\" (wildcard: \"%\")"
@@ -15165,11 +15165,11 @@ msgstr "Nombre de lignes par page"
 
 #: templates/table/search/selection_form.twig:145
 msgid "Display order:"
-msgstr "Ordre d'affichage : "
+msgstr "Ordre d'affichage :"
 
 #: templates/table/search/selection_form.twig:183
 msgid "Replace with:"
-msgstr "Remplacer par : "
+msgstr "Remplacer par :"
 
 #: templates/table/search/selection_form.twig:199
 msgid "Use regular expression"
@@ -15256,7 +15256,7 @@ msgstr "Créer %s"
 
 #: templates/start_and_number_of_rows_panel.twig:3
 msgid "Start row:"
-msgstr "Ligne de départ : "
+msgstr "Ligne de départ :"
 
 #: templates/server/replication/slave_configuration.twig:4
 msgid "Master connection:"
@@ -15588,7 +15588,7 @@ msgstr "Masquer/Afficher les tables sans relations"
 
 #: templates/database/designer/main.twig:227
 msgid "Number of tables:"
-msgstr "Nombre de tables : "
+msgstr "Nombre de tables :"
 
 #: templates/database/designer/main.twig:386
 msgid "Delete relationship"
@@ -15639,7 +15639,7 @@ msgstr "Voir la sortie en texte"
 #: templates/display/export/options_output.twig:2
 #: templates/display/export/options_quick_export.twig:2
 msgid "Output:"
-msgstr "Sortie : "
+msgstr "Sortie :"
 
 #: templates/display/export/options_output.twig:26
 msgid "Save output to a file"
@@ -16091,7 +16091,7 @@ msgstr "Critères de recherche supplémentaires"
 #: templates/display/export/options_format.twig:2
 #: templates/display/import/import.twig:175
 msgid "Format-specific options:"
-msgstr "Options spécifiques au format : "
+msgstr "Options spécifiques au format :"
 
 #: templates/display/export/options_format.twig:4
 #: templates/display/import/import.twig:177
@@ -16105,7 +16105,7 @@ msgstr ""
 #: templates/display/export/options_format.twig:12
 #: templates/display/import/import.twig:186
 msgid "Encoding Conversion:"
-msgstr "Conversion de l'encodage : "
+msgstr "Conversion de l'encodage :"
 
 #: templates/server/status/advisor/index.twig:7
 msgid "Instructions"
@@ -16304,7 +16304,7 @@ msgstr "Préfixer avec \\ les passe-partouts _ et % pour un usage littéral."
 
 #: templates/server/privileges/privileges_summary.twig:71
 msgid "Add privileges on the following table:"
-msgstr "Ajouter des privilèges sur cette table : "
+msgstr "Ajouter des privilèges sur cette table :"
 
 #: templates/server/privileges/privileges_summary.twig:86
 msgid "Add privileges on the following routine:"
