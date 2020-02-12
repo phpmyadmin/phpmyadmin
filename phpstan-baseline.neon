@@ -3248,34 +3248,9 @@ parameters:
 			path: test/classes/ConfigTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$response of class PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController constructor expects PhpMyAdmin\\\\Response, PhpMyAdmin\\\\Tests\\\\Stubs\\\\Response given\\.$#"
-			count: 10
-			path: test/classes/Controllers/Database/StructureControllerTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, string\\|false given\\.$#"
 			count: 3
 			path: test/classes/Controllers/Server/Status/AdvisorControllerTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$response of class PhpMyAdmin\\\\Controllers\\\\Table\\\\IndexesController constructor expects PhpMyAdmin\\\\Response, PhpMyAdmin\\\\Tests\\\\Stubs\\\\Response given\\.$#"
-			count: 2
-			path: test/classes/Controllers/Table/IndexesControllerTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$response of class PhpMyAdmin\\\\Controllers\\\\Table\\\\RelationController constructor expects PhpMyAdmin\\\\Response, PhpMyAdmin\\\\Tests\\\\Stubs\\\\Response given\\.$#"
-			count: 4
-			path: test/classes/Controllers/Table/RelationControllerTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$response of class PhpMyAdmin\\\\Controllers\\\\Table\\\\SearchController constructor expects PhpMyAdmin\\\\Response, PhpMyAdmin\\\\Tests\\\\Stubs\\\\Response given\\.$#"
-			count: 2
-			path: test/classes/Controllers/Table/SearchControllerTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$response of class PhpMyAdmin\\\\Controllers\\\\Table\\\\StructureController constructor expects PhpMyAdmin\\\\Response, PhpMyAdmin\\\\Tests\\\\Stubs\\\\Response given\\.$#"
-			count: 5
-			path: test/classes/Controllers/Table/StructureControllerTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with int and bool will always evaluate to false\\.$#"

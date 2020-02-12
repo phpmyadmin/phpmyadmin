@@ -14,7 +14,7 @@ use PhpMyAdmin\Header;
 use PhpMyAdmin\Message;
 use function is_array;
 
-class Response
+class Response extends \PhpMyAdmin\Response
 {
     /**
      * PhpMyAdmin\Header instance
@@ -154,10 +154,8 @@ class Response
      * whether it is a success or an error
      *
      * @param bool $state Whether the request was successfully processed
-     *
-     * @return void
      */
-    public function setRequestStatus($state)
+    public function setRequestStatus(bool $state): void
     {
         $this->_isSuccess = $state;
     }
@@ -190,10 +188,8 @@ class Response
      * we are servicing an ajax request
      *
      * @param bool $isAjax Whether we are servicing an ajax request
-     *
-     * @return void
      */
-    public function setAjax($isAjax)
+    public function setAjax(bool $isAjax): void
     {
         $this->_isAjax = (bool) $isAjax;
     }
@@ -201,10 +197,8 @@ class Response
     /**
      * Returns true or false depending on whether
      * we are servicing an ajax request
-     *
-     * @return bool
      */
-    public function isAjax()
+    public function isAjax(): bool
     {
         return $this->_isAjax;
     }
