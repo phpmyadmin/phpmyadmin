@@ -933,7 +933,7 @@ AJAX.registerOnload('export.js', function () {
                 'server': CommonParams.get('server'),
                 'db': database,
             };
-            var url = 'index.php?route=/ajax/list-tables/' + encodeURIComponent(database);
+            var url = 'index.php?route=/ajax/list-tables';
             $.post(url, params, function (response) {
                 if (response.success === true) {
                     $.each(response.tables, function (idx, value) {
@@ -958,7 +958,7 @@ AJAX.registerOnload('export.js', function () {
             'db': database,
             'table': table,
         };
-        var url = 'index.php?route=/ajax/list-columns/' + encodeURIComponent(database) + '/' + encodeURIComponent(table);
+        var url = 'index.php?route=/ajax/list-columns';
         $.post(url, params, function (response) {
             if (response.success === true) {
                 $.each(response.columns, function (idx, value) {

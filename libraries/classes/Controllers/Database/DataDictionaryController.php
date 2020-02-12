@@ -39,12 +39,9 @@ class DataDictionaryController extends AbstractController
         $this->transformations = $transformations;
     }
 
-    /**
-     * @param array $params Request parameters
-     */
-    public function index(array $params): void
+    public function index(): void
     {
-        $this->db = $params['database'];
+        Util::checkParameters(['db'], true);
 
         $header = $this->response->getHeader();
         $header->enablePrintView();

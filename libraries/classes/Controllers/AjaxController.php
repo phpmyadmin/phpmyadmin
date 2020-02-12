@@ -40,23 +40,29 @@ class AjaxController extends AbstractController
         $this->response->addJSON(['databases' => $dblist->databases]);
     }
 
-    /**
-     * @param array $params Request parameters
-     */
-    public function tables(array $params): void
+    public function tables(): void
     {
-        $this->response->addJSON(['tables' => $this->dbi->getTables($params['database'])]);
+        if (! isset($_POST['db'])) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON(['message' => Message::error()]);
+            return;
+        }
+
+        $this->response->addJSON(['tables' => $this->dbi->getTables($_POST['db'])]);
     }
 
-    /**
-     * @param array $params Request parameters
-     */
-    public function columns(array $params): void
+    public function columns(): void
     {
+        if (! isset($_POST['db'], $_POST['table'])) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON(['message' => Message::error()]);
+            return;
+        }
+
         $this->response->addJSON([
             'columns' => $this->dbi->getColumnNames(
-                $params['database'],
-                $params['table']
+                $_POST['db'],
+                $_POST['table']
             ),
         ]);
     }

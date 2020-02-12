@@ -107,8 +107,8 @@ return function (RouteCollector $routes) {
     });
     $routes->addGroup('/ajax', function (RouteCollector $routes) {
         $routes->post('/list-databases', [AjaxController::class, 'databases']);
-        $routes->post('/list-tables/{database}', [AjaxController::class, 'tables']);
-        $routes->post('/list-columns/{database}/{table}', [AjaxController::class, 'columns']);
+        $routes->post('/list-tables', [AjaxController::class, 'tables']);
+        $routes->post('/list-columns', [AjaxController::class, 'columns']);
         $routes->post('/config-get', [AjaxController::class, 'getConfig']);
         $routes->post('/config-set', [AjaxController::class, 'setConfig']);
     });
@@ -117,7 +117,7 @@ return function (RouteCollector $routes) {
     $routes->addRoute(['GET', 'POST'], '/check-relations', [CheckRelationsController::class, 'index']);
     $routes->addGroup('/database', function (RouteCollector $routes) {
         $routes->addRoute(['GET', 'POST'], '/central-columns', [CentralColumnsController::class, 'index']);
-        $routes->get('/data-dictionary/{database}', [DataDictionaryController::class, 'index']);
+        $routes->get('/data-dictionary', [DataDictionaryController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/designer', [DesignerController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/events', [EventsController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/export', [DatabaseExportController::class, 'index']);
