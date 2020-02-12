@@ -28,12 +28,15 @@ class CheckRelationsController extends AbstractController
         $this->relation = $relation;
     }
 
-    /**
-     * @param array $params Request parameters
-     */
-    public function index(array $params): void
+    public function index(): void
     {
         global $db;
+
+        $params = [
+            'create_pmadb' => $_POST['create_pmadb'] ?? null,
+            'fixall_pmadb' => $_POST['fixall_pmadb'] ?? null,
+            'fix_pmadb' => $_POST['fix_pmadb'] ?? null,
+        ];
 
         // If request for creating the pmadb
         if (isset($params['create_pmadb']) && $this->relation->createPmaDatabase()) {

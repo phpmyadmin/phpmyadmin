@@ -53,12 +53,7 @@ class DatabasesControllerTest extends TestCase
             new Template()
         );
 
-        $controller->index([
-            'statistics' => null,
-            'pos' => null,
-            'sort_by' => null,
-            'sort_order' => null,
-        ]);
+        $controller->index();
         $actual = $response->getHTMLResult();
 
         $this->assertStringContainsString('data-filter-row="SAKILA"', $actual);
@@ -87,13 +82,11 @@ class DatabasesControllerTest extends TestCase
 
         $cfg['ShowCreateDb'] = true;
         $is_create_db_priv = true;
+        $_REQUEST['statistics'] = '1';
+        $_REQUEST['sort_by'] = 'SCHEMA_TABLES';
+        $_REQUEST['sort_order'] = 'desc';
 
-        $controller->index([
-            'statistics' => '1',
-            'pos' => null,
-            'sort_by' => 'SCHEMA_TABLES',
-            'sort_order' => 'desc',
-        ]);
+        $controller->index();
         $actual = $response->getHTMLResult();
 
         $this->assertStringNotContainsString(__('Enable statistics'), $actual);
@@ -129,10 +122,9 @@ class DatabasesControllerTest extends TestCase
             new Template()
         );
 
-        $controller->create([
-            'new_db' => 'pma_test',
-            'db_collation' => null,
-        ]);
+        $_POST['new_db'] = 'pma_test';
+
+        $controller->create();
         $actual = $response->getJSONResult();
 
         $this->assertArrayHasKey('message', $actual);
@@ -151,10 +143,9 @@ class DatabasesControllerTest extends TestCase
             new Template()
         );
 
-        $controller->create([
-            'new_db' => 'pma_test',
-            'db_collation' => 'utf8_general_ci',
-        ]);
+        $_POST['db_collation'] = 'utf8_general_ci';
+
+        $controller->create();
         $actual = $response->getJSONResult();
 
         $this->assertArrayHasKey('message', $actual);
@@ -187,10 +178,9 @@ class DatabasesControllerTest extends TestCase
             new Template()
         );
 
-        $controller->destroy([
-            'drop_selected_dbs' => true,
-            'selected_dbs' => null,
-        ]);
+        $_POST['drop_selected_dbs'] = '1';
+
+        $controller->destroy();
         $actual = $response->getJSONResult();
 
         $this->assertArrayHasKey('message', $actual);

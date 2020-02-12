@@ -11,11 +11,9 @@ use function strlen;
  */
 class SqlFormatController extends AbstractController
 {
-    /**
-     * @param array $params Request parameters
-     */
-    public function index(array $params): void
+    public function index(): void
     {
+        $params = ['sql' => $_POST['sql'] ?? null];
         $query = strlen((string) $params['sql']) > 0 ? $params['sql'] : '';
         $this->response->addJSON(['sql' => Formatter::format($query)]);
     }

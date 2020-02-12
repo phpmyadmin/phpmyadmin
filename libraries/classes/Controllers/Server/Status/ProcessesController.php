@@ -18,11 +18,16 @@ use function ucfirst;
 
 class ProcessesController extends AbstractController
 {
-    /**
-     * @param array $params Request parameters
-     */
-    public function index(array $params): void
+    public function index(): void
     {
+        $params = [
+            'showExecuting' => $_POST['showExecuting'] ?? null,
+            'full' => $_POST['full'] ?? null,
+            'column_name' => $_POST['column_name'] ?? null,
+            'order_by_field' => $_POST['order_by_field'] ?? null,
+            'sort_order' => $_POST['sort_order'] ?? null,
+        ];
+
         Common::server();
 
         $header = $this->response->getHeader();
@@ -53,11 +58,17 @@ class ProcessesController extends AbstractController
 
     /**
      * Only sends the process list table
-     *
-     * @param array $params Request parameters
      */
-    public function refresh(array $params): void
+    public function refresh(): void
     {
+        $params = [
+            'showExecuting' => $_POST['showExecuting'] ?? null,
+            'full' => $_POST['full'] ?? null,
+            'column_name' => $_POST['column_name'] ?? null,
+            'order_by_field' => $_POST['order_by_field'] ?? null,
+            'sort_order' => $_POST['sort_order'] ?? null,
+        ];
+
         if (! $this->response->isAjax()) {
             return;
         }

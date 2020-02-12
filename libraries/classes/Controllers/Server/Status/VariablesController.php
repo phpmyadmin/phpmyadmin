@@ -14,11 +14,16 @@ use function mb_strpos;
 
 class VariablesController extends AbstractController
 {
-    /**
-     * @param array $params Request parameters
-     */
-    public function index(array $params): void
+    public function index(): void
     {
+        $params = [
+            'flush' => $_POST['flush'] ?? null,
+            'filterAlert' => $_POST['filterAlert'] ?? null,
+            'filterText' => $_POST['filterText'] ?? null,
+            'filterCategory' => $_POST['filterCategory'] ?? null,
+            'dontFormat' => $_POST['dontFormat'] ?? null,
+        ];
+
         Common::server();
 
         $header = $this->response->getHeader();

@@ -75,11 +75,10 @@ class MonitorController extends AbstractController
         ]));
     }
 
-    /**
-     * @param array $params Request parameters
-     */
-    public function chartingData(array $params): void
+    public function chartingData(): void
     {
+        $params = ['requiredData' => $_POST['requiredData'] ?? null];
+
         Common::server();
 
         if (! $this->response->isAjax()) {
@@ -93,11 +92,13 @@ class MonitorController extends AbstractController
         ]);
     }
 
-    /**
-     * @param array $params Request parameters
-     */
-    public function logDataTypeSlow(array $params): void
+    public function logDataTypeSlow(): void
     {
+        $params = [
+            'time_start' => $_POST['time_start'] ?? null,
+            'time_end' => $_POST['time_end'] ?? null,
+        ];
+
         Common::server();
 
         if (! $this->response->isAjax()) {
@@ -112,11 +113,15 @@ class MonitorController extends AbstractController
         ]);
     }
 
-    /**
-     * @param array $params Request parameters
-     */
-    public function logDataTypeGeneral(array $params): void
+    public function logDataTypeGeneral(): void
     {
+        $params = [
+            'time_start' => $_POST['time_start'] ?? null,
+            'time_end' => $_POST['time_end'] ?? null,
+            'limitTypes' => $_POST['limitTypes'] ?? null,
+            'removeVariables' => $_POST['removeVariables'] ?? null,
+        ];
+
         Common::server();
 
         if (! $this->response->isAjax()) {
@@ -133,11 +138,13 @@ class MonitorController extends AbstractController
         ]);
     }
 
-    /**
-     * @param array $params Request parameters
-     */
-    public function loggingVars(array $params): void
+    public function loggingVars(): void
     {
+        $params = [
+            'varName' => $_POST['varName'] ?? null,
+            'varValue' => $_POST['varValue'] ?? null,
+        ];
+
         Common::server();
 
         if (! $this->response->isAjax()) {
@@ -152,11 +159,13 @@ class MonitorController extends AbstractController
         ]);
     }
 
-    /**
-     * @param array $params Request parameters
-     */
-    public function queryAnalyzer(array $params): void
+    public function queryAnalyzer(): void
     {
+        $params = [
+            'database' => $_POST['database'] ?? null,
+            'query' => $_POST['query'] ?? null,
+        ];
+
         Common::server();
 
         if (! $this->response->isAjax()) {

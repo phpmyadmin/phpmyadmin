@@ -487,9 +487,8 @@ class StructureControllerTest extends PmaTestCase
         $property = $class->getProperty('tables');
         $property->setAccessible(true);
 
-        $controller->handleRealRowCountRequestAction([
-            'table' => 'table',
-        ]);
+        $_REQUEST['table'] = 'table';
+        $controller->handleRealRowCountRequestAction();
         $json = $this->response->getJSONResult();
         $this->assertEquals(
             6,
@@ -498,10 +497,8 @@ class StructureControllerTest extends PmaTestCase
 
         // Fall into another branch
         $property->setValue($controller, [['TABLE_NAME' => 'table']]);
-        $controller->handleRealRowCountRequestAction([
-            'table' => 'table',
-            'real_row_count_all' => 'abc',
-        ]);
+        $_REQUEST['real_row_count_all'] = 'abc';
+        $controller->handleRealRowCountRequestAction();
         $json = $this->response->getJSONResult();
 
         $expectedResult = [[

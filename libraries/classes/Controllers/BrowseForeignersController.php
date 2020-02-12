@@ -37,11 +37,18 @@ class BrowseForeignersController extends AbstractController
         $this->relation = $relation;
     }
 
-    /**
-     * @param array $params Request parameters
-     */
-    public function index(array $params): void
+    public function index(): void
     {
+        $params = [
+            'db' => $_POST['db'] ?? null,
+            'table' => $_POST['table'] ?? null,
+            'field' => $_POST['field'] ?? null,
+            'fieldkey' => $_POST['fieldkey'] ?? null,
+            'data' => $_POST['data'] ?? null,
+            'foreign_showAll' => $_POST['foreign_showAll'] ?? null,
+            'foreign_filter' => $_POST['foreign_filter'] ?? null,
+        ];
+
         if (! isset($params['db'], $params['table'], $params['field'])) {
             return;
         }

@@ -26,12 +26,14 @@ class MultiTableQueryController extends AbstractController
         $this->response->addHTML($queryInstance->getFormHtml());
     }
 
-    /**
-     * @param array $params Request parameters
-     */
-    public function displayResults(array $params): void
+    public function displayResults(): void
     {
         global $pmaThemeImage;
+
+        $params = [
+            'sql_query' => $_POST['sql_query'],
+            'db' => $_POST['db'] ?? $_GET['db'] ?? null,
+        ];
 
         MultiTableQuery::displayResults(
             $params['sql_query'],
@@ -40,11 +42,12 @@ class MultiTableQueryController extends AbstractController
         );
     }
 
-    /**
-     * @param array $params Request parameters
-     */
-    public function table(array $params): void
+    public function table(): void
     {
+        $params = [
+            'tables' => $_GET['tables'],
+            'db' => $_GET['db'] ?? null,
+        ];
         $constrains = $this->dbi->getForeignKeyConstrains(
             $params['db'],
             $params['tables']

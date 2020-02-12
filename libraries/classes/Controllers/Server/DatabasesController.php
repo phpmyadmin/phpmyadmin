@@ -67,15 +67,17 @@ class DatabasesController extends AbstractController
         $checkUserPrivileges->getPrivileges();
     }
 
-    /**
-     * Index action
-     *
-     * @param array $params Request parameters
-     */
-    public function index(array $params): void
+    public function index(): void
     {
         global $cfg, $server, $dblist, $is_create_db_priv;
         global $replication_info, $db_to_create, $pmaThemeImage, $text_dir;
+
+        $params = [
+            'statistics' => $_REQUEST['statistics'] ?? null,
+            'pos' => $_REQUEST['pos'] ?? null,
+            'sort_by' => $_REQUEST['sort_by'] ?? null,
+            'sort_order' => $_REQUEST['sort_order'] ?? null,
+        ];
 
         $header = $this->response->getHeader();
         $scripts = $header->getScripts();
@@ -160,14 +162,14 @@ class DatabasesController extends AbstractController
         ]));
     }
 
-    /**
-     * Handles creating a new database
-     *
-     * @param array $params Request parameters
-     */
-    public function create(array $params): void
+    public function create(): void
     {
         global $cfg, $db;
+
+        $params = [
+            'new_db' => $_POST['new_db'] ?? null,
+            'db_collation' => $_POST['db_collation'] ?? null,
+        ];
 
         if (! isset($params['new_db']) || mb_strlen($params['new_db']) === 0 || ! $this->response->isAjax()) {
             $this->response->addJSON(['message' => Message::error()]);
@@ -240,12 +242,15 @@ class DatabasesController extends AbstractController
 
     /**
      * Handles dropping multiple databases
-     *
-     * @param array $params Request parameters
      */
-    public function destroy(array $params): void
+    public function destroy(): void
     {
         global $submit_mult, $mult_btn, $selected, $err_url, $cfg;
+
+        $params = [
+            'drop_selected_dbs' => $_POST['drop_selected_dbs'] ?? null,
+            'selected_dbs' => $_POST['selected_dbs'] ?? null,
+        ];
 
         if (! isset($params['drop_selected_dbs'])
             || ! $this->response->isAjax()

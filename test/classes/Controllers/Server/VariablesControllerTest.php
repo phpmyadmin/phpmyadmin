@@ -89,7 +89,7 @@ class VariablesControllerTest extends TestCase
             new Template()
         );
 
-        $controller->index([]);
+        $controller->index();
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(

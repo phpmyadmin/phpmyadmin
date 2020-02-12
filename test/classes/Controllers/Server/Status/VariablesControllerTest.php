@@ -127,13 +127,7 @@ class VariablesControllerTest extends TestCase
             $this->data
         );
 
-        $controller->index([
-            'flush' => null,
-            'filterAlert' => null,
-            'filterText' => null,
-            'filterCategory' => null,
-            'dontFormat' => null,
-        ]);
+        $controller->index();
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(

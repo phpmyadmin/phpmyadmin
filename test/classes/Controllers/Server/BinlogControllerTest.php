@@ -101,11 +101,10 @@ class BinlogControllerTest extends TestCase
             $dbi,
             new Template()
         );
-        $controller->index([
-            'log' => 'index1',
-            'pos' => '3',
-            'is_full_query' => null,
-        ]);
+
+        $_POST['log'] = 'index1';
+        $_POST['pos'] = '3';
+        $controller->index();
         $actual = $response->getHTMLResult();
 
         $this->assertStringContainsString(

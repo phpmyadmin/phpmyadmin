@@ -35,12 +35,16 @@ class ReplicationController extends AbstractController
         $this->replicationGui = $replicationGui;
     }
 
-    /**
-     * @param array $params Request parameters
-     */
-    public function index(array $params): void
+    public function index(): void
     {
         global $replication_info, $server_slave_replication, $url_params;
+
+        $params = [
+            'url_params' => $_POST['url_params'] ?? null,
+            'mr_configure' => $_POST['mr_configure'] ?? null,
+            'sl_configure' => $_POST['sl_configure'] ?? null,
+            'repl_clear_scr' => $_POST['repl_clear_scr'] ?? null,
+        ];
 
         Common::server();
         ReplicationInfo::load();

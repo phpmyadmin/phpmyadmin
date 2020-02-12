@@ -29,13 +29,10 @@ use function trim;
  */
 class VariablesController extends AbstractController
 {
-    /**
-     * Index action
-     *
-     * @param array $params Request parameters
-     */
-    public function index(array $params): void
+    public function index(): void
     {
+        $params = ['filter' => $_GET['filter'] ?? null];
+
         Common::server();
 
         $filterValue = ! empty($params['filter']) ? $params['filter'] : '';
@@ -139,10 +136,15 @@ class VariablesController extends AbstractController
     /**
      * Handle the AJAX request for setting value for a single variable
      *
-     * @param array $params Request parameters
+     * @param array $vars Request parameters
      */
-    public function setValue(array $params): void
+    public function setValue(array $vars): void
     {
+        $params = [
+            'varName' => $vars['name'],
+            'varValue' => $_POST['varValue'] ?? null,
+        ];
+
         if (! $this->response->isAjax()) {
             return;
         }

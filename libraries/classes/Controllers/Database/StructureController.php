@@ -107,14 +107,14 @@ class StructureController extends AbstractController
         $this->isShowStats = $isShowStats;
     }
 
-    /**
-     * Index action
-     *
-     * @param array $parameters Request parameters
-     */
-    public function index(array $parameters): void
+    public function index(): void
     {
         global $cfg;
+
+        $parameters = [
+            'sort' => $_REQUEST['sort'] ?? null,
+            'sort_order' => $_REQUEST['sort_order'] ?? null,
+        ];
 
         Common::database();
 
@@ -124,8 +124,8 @@ class StructureController extends AbstractController
         ]);
 
         // Drops/deletes/etc. multiple tables if required
-        if ((! empty($parameters['submit_mult']) && isset($parameters['selected_tbl']))
-            || isset($parameters['mult_btn'])
+        if ((! empty($_POST['submit_mult']) && isset($_POST['selected_tbl']))
+            || isset($_POST['mult_btn'])
         ) {
             $this->multiSubmitAction();
         }
@@ -187,14 +187,15 @@ class StructureController extends AbstractController
         ]));
     }
 
-    /**
-     * Add or remove favorite tables
-     *
-     * @param array $parameters Request parameters
-     */
-    public function addRemoveFavoriteTablesAction(array $parameters): void
+    public function addRemoveFavoriteTablesAction(): void
     {
         global $cfg;
+
+        $parameters = [
+            'favorite_table' => $_REQUEST['favorite_table'] ?? null,
+            'favoriteTables' => $_REQUEST['favoriteTables'] ?? null,
+            'sync_favorite_tables' => $_REQUEST['sync_favorite_tables'] ?? null,
+        ];
 
         Common::database();
 
@@ -228,13 +229,13 @@ class StructureController extends AbstractController
         $favoriteTable = $parameters['favorite_table'] ?? '';
         $alreadyFavorite = $this->checkFavoriteTable($favoriteTable);
 
-        if (isset($parameters['remove_favorite'])) {
+        if (isset($_REQUEST['remove_favorite'])) {
             if ($alreadyFavorite) {
                 // If already in favorite list, remove it.
                 $favoriteInstance->remove($this->db, $favoriteTable);
                 $alreadyFavorite = false; // for favorite_anchor template
             }
-        } elseif (isset($parameters['add_favorite'])) {
+        } elseif (isset($_REQUEST['add_favorite'])) {
             if (! $alreadyFavorite) {
                 $numTables = count($favoriteInstance->getTables());
                 if ($numTables == $cfg['NumFavoriteTables']) {
@@ -282,11 +283,14 @@ class StructureController extends AbstractController
 
     /**
      * Handles request for real row count on database level view page.
-     *
-     * @param array $parameters Request parameters
      */
-    public function handleRealRowCountRequestAction(array $parameters): void
+    public function handleRealRowCountRequestAction(): void
     {
+        $parameters = [
+            'real_row_count_all' => $_REQUEST['real_row_count_all'] ?? null,
+            'table' => $_REQUEST['table'] ?? null,
+        ];
+
         Common::database();
 
         if (! $this->response->isAjax()) {

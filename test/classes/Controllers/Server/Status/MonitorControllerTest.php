@@ -150,10 +150,10 @@ class MonitorControllerTest extends TestCase
             new Monitor($GLOBALS['dbi'])
         );
 
-        $controller->logDataTypeSlow([
-            'time_start' => '0',
-            'time_end' => '10',
-        ]);
+        $_POST['time_start'] = '0';
+        $_POST['time_end'] = '10';
+
+        $controller->logDataTypeSlow();
         $ret = $response->getJSONResult();
 
         $resultRows = [
@@ -210,12 +210,11 @@ class MonitorControllerTest extends TestCase
             new Monitor($GLOBALS['dbi'])
         );
 
-        $controller->logDataTypeGeneral([
-            'time_start' => '0',
-            'time_end' => '10',
-            'limitTypes' => '1',
-            'removeVariables' => null,
-        ]);
+        $_POST['time_start'] = '0';
+        $_POST['time_end'] = '10';
+        $_POST['limitTypes'] = '1';
+
+        $controller->logDataTypeGeneral();
         $ret = $response->getJSONResult();
 
         $resultRows = [
@@ -262,10 +261,9 @@ class MonitorControllerTest extends TestCase
             new Monitor($GLOBALS['dbi'])
         );
 
-        $controller->loggingVars([
-            'varName' => 'varName',
-            'varValue' => null,
-        ]);
+        $_POST['varName'] = 'varName';
+
+        $controller->loggingVars();
         $ret = $response->getJSONResult();
 
         $this->assertEquals(
@@ -298,10 +296,10 @@ class MonitorControllerTest extends TestCase
             new Monitor($GLOBALS['dbi'])
         );
 
-        $controller->queryAnalyzer([
-            'database' => 'database',
-            'query' => 'query',
-        ]);
+        $_POST['database'] = 'database';
+        $_POST['query'] = 'query';
+
+        $controller->queryAnalyzer();
         $ret = $response->getJSONResult();
 
         $this->assertEquals(

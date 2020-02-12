@@ -103,13 +103,7 @@ class ProcessesControllerTest extends TestCase
             $this->data
         );
 
-        $controller->index([
-            'showExecuting' => null,
-            'full' => null,
-            'column_name' => null,
-            'order_by_field' => null,
-            'sort_order' => null,
-        ]);
+        $controller->index();
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(
@@ -165,13 +159,12 @@ class ProcessesControllerTest extends TestCase
             $html
         );
 
-        $controller->index([
-            'showExecuting' => null,
-            'full' => '1',
-            'column_name' => 'Database',
-            'order_by_field' => 'db',
-            'sort_order' => 'ASC',
-        ]);
+        $_POST['full'] = '1';
+        $_POST['column_name'] = 'Database';
+        $_POST['order_by_field'] = 'db';
+        $_POST['sort_order'] = 'ASC';
+
+        $controller->index();
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(
@@ -187,13 +180,11 @@ class ProcessesControllerTest extends TestCase
             $html
         );
 
-        $controller->index([
-            'showExecuting' => null,
-            'full' => '1',
-            'column_name' => 'Host',
-            'order_by_field' => 'Host',
-            'sort_order' => 'DESC',
-        ]);
+        $_POST['column_name'] = 'Host';
+        $_POST['order_by_field'] = 'Host';
+        $_POST['sort_order'] = 'DESC';
+
+        $controller->index();
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(
@@ -232,13 +223,11 @@ class ProcessesControllerTest extends TestCase
             $this->data
         );
 
-        $controller->refresh([
-            'showExecuting' => null,
-            'full' => '1',
-            'column_name' => null,
-            'order_by_field' => 'process',
-            'sort_order' => 'DESC',
-        ]);
+        $_POST['full'] = '1';
+        $_POST['order_by_field'] = 'process';
+        $_POST['sort_order'] = 'DESC';
+
+        $controller->refresh();
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(

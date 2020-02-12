@@ -60,14 +60,11 @@ class HomeController extends AbstractController
         $this->themeManager = $themeManager;
     }
 
-    /**
-     * @param array $params Request parameters
-     */
-    public function index(array $params): void
+    public function index(): void
     {
         global $cfg, $server, $collation_connection, $message, $show_query, $db, $table;
 
-        if ($this->response->isAjax() && ! empty($params['access_time'])) {
+        if ($this->response->isAjax() && ! empty($_REQUEST['access_time'])) {
             return;
         }
 
@@ -288,31 +285,25 @@ class HomeController extends AbstractController
         ]));
     }
 
-    /**
-     * @param array $params Request parameters
-     */
-    public function setTheme(array $params): void
+    public function setTheme(): void
     {
-        $this->themeManager->setActiveTheme($params['set_theme']);
+        $this->themeManager->setActiveTheme($_POST['set_theme']);
         $this->themeManager->setThemeCookie();
 
         $userPreferences = new UserPreferences();
         $preferences = $userPreferences->load();
-        $preferences['config_data']['ThemeDefault'] = $params['set_theme'];
+        $preferences['config_data']['ThemeDefault'] = $_POST['set_theme'];
         $userPreferences->save($preferences['config_data']);
 
         $this->response->header('Location: index.php?route=/' . Url::getCommonRaw([], '&'));
     }
 
-    /**
-     * @param array $params Request parameters
-     */
-    public function setCollationConnection(array $params): void
+    public function setCollationConnection(): void
     {
         $this->config->setUserValue(
             null,
             'DefaultConnectionCollation',
-            $params['collation_connection'],
+            $_POST['collation_connection'],
             'utf8mb4_unicode_ci'
         );
 

@@ -61,26 +61,20 @@ class AjaxController extends AbstractController
         ]);
     }
 
-    /**
-     * @param array $params Request parameters
-     */
-    public function getConfig(array $params): void
+    public function getConfig(): void
     {
-        if (! isset($params['key'])) {
+        if (! isset($_POST['key'])) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON(['message' => Message::error()]);
             return;
         }
 
-        $this->response->addJSON(['value' => $this->config->get($params['key'])]);
+        $this->response->addJSON(['value' => $this->config->get($_POST['key'])]);
     }
 
-    /**
-     * @param array $params Request parameters
-     */
-    public function setConfig(array $params): void
+    public function setConfig(): void
     {
-        if (! isset($params['key'], $params['value'])) {
+        if (! isset($_POST['key'], $_POST['value'])) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON(['message' => Message::error()]);
             return;
@@ -88,8 +82,8 @@ class AjaxController extends AbstractController
 
         $result = $this->config->setUserValue(
             null,
-            $params['key'],
-            json_decode($params['value'])
+            $_POST['key'],
+            json_decode($_POST['value'])
         );
 
         if ($result === true) {
