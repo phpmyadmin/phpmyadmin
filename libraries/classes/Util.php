@@ -665,7 +665,7 @@ class Util
             // Adds a link to MySQL documentation.
             $error_msg .= '<p>' . "\n"
                 . '    <strong>' . __('MySQL said: ') . '</strong>'
-                . self::showMySQLDocu('Error-messages-server')
+                . self::showMySQLDocu('server-error-reference')
                 . "\n"
                 . '</p>' . "\n";
 
