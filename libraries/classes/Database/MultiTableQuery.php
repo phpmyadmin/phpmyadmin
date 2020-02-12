@@ -112,7 +112,7 @@ class MultiTableQuery
     {
         list(,$db,) = ParseAnalyze::sqlQuery($sqlQuery, $db);
 
-        $goto = Url::getFromRoute('/database/multi_table_query');
+        $goto = Url::getFromRoute('/database/multi-table-query');
         $sql = new Sql();
         $sql->executeQueryAndSendQueryResponse(
             null, // analyzed_sql_results

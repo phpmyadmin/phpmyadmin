@@ -164,9 +164,9 @@ class QueryByExampleController extends AbstractController
 
         $secondaryTabs = [
             'multi' => [
-                'link' => Url::getFromRoute('/database/multi_table_query'),
+                'link' => Url::getFromRoute('/database/multi-table-query'),
                 'text' => __('Multi-table query'),
-                'active' => $route === '/database/multi_table_query',
+                'active' => $route === '/database/multi-table-query',
             ],
             'qbe' => [
                 'link' => Url::getFromRoute('/database/qbe'),

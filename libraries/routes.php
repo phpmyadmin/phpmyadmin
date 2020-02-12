@@ -122,7 +122,7 @@ return function (RouteCollector $routes) {
         $routes->addRoute(['GET', 'POST'], '/events', [EventsController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/export', [DatabaseExportController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/import', [DatabaseImportController::class, 'index']);
-        $routes->addGroup('/multi_table_query', function (RouteCollector $routes) {
+        $routes->addGroup('/multi-table-query', function (RouteCollector $routes) {
             $routes->get('', [MultiTableQueryController::class, 'index']);
             $routes->get('/tables', [MultiTableQueryController::class, 'table']);
             $routes->post('/query', [MultiTableQueryController::class, 'displayResults']);
