@@ -198,7 +198,7 @@ class SearchTest extends PmaTestCase
             $main
         );
         $this->assertStringContainsString(
-            '<a id="togglequerybox"',
+            '<button class="btn btn-secondary" id="togglequerybox"',
             $main
         );
     }
