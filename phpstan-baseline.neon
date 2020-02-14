@@ -728,11 +728,6 @@ parameters:
 			path: libraries/classes/Database/Qbe.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of function strtolower expects string, \\(array\\|float\\|int\\) given\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:_cacheTableData\\(\\) expects bool\\|string, array\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
