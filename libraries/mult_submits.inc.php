@@ -19,36 +19,28 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-$request_params = [
-    'clause_is_unique',
-    'from_prefix',
-    'goto',
-    'mult_btn',
-    'original_sql_query',
-    'query_type',
-    'reload',
-    'selected',
-    'selected_fld',
-    'selected_recent_table',
-    'sql_query',
-    'submit_mult',
-    'table_type',
-    'to_prefix',
-    'url_query',
-];
+global $containerBuilder, $db, $table,  $clause_is_unique, $from_prefix, $goto, $message;
+global $mult_btn, $original_sql_query, $query_type, $reload, $dbi, $dblist;
+global $selected, $selected_fld, $selected_recent_table, $sql_query;
+global $submit_mult, $table_type, $to_prefix, $url_query, $pmaThemeImage;
 
-foreach ($request_params as $one_request_param) {
-    if (isset($_POST[$one_request_param])) {
-        $GLOBALS[$one_request_param] = $_POST[$one_request_param];
-    }
-}
+$clause_is_unique = $_POST['clause_is_unique'] ?? $clause_is_unique ?? null;
+$from_prefix = $_POST['from_prefix'] ?? $from_prefix ?? null;
+$goto = $_POST['goto'] ?? $goto ?? null;
+$mult_btn = $_POST['mult_btn'] ?? $mult_btn ?? null;
+$original_sql_query = $_POST['original_sql_query'] ?? $original_sql_query ?? null;
+$query_type = $_POST['query_type'] ?? $query_type ?? null;
+$reload = $_POST['reload'] ?? $reload ?? null;
+$selected = $_POST['selected'] ?? $selected ?? null;
+$selected_fld = $_POST['selected_fld'] ?? $selected_fld ?? null;
+$selected_recent_table = $_POST['selected_recent_table'] ?? $selected_recent_table ?? null;
+$sql_query = $_POST['sql_query'] ?? $sql_query ?? null;
+$submit_mult = $_POST['submit_mult'] ?? $submit_mult ?? null;
+$table_type = $_POST['table_type'] ?? $table_type ?? null;
+$to_prefix = $_POST['to_prefix'] ?? $to_prefix ?? null;
+$url_query = $_POST['url_query'] ?? $url_query ?? null;
+
 $response = Response::getInstance();
-
-global $containerBuilder, $db, $table,  $clause_is_unique, $from_prefix, $goto, $message,
-       $mult_btn, $original_sql_query, $query_type, $reload,
-       $selected, $selected_fld, $selected_recent_table, $sql_query,
-       $submit_mult, $table_type, $to_prefix, $url_query, $pmaThemeImage;
-
 $multSubmits = new MultSubmits();
 $template = new Template();
 
@@ -77,7 +69,7 @@ if (! empty($submit_mult)
         // coming from database structure view - do something with
         // selected tables
         $selected = $_POST['selected_tbl'];
-        $centralColumns = new CentralColumns($GLOBALS['dbi']);
+        $centralColumns = new CentralColumns($dbi);
         switch ($submit_mult) {
             case 'add_prefix_tbl':
             case 'replace_prefix_tbl':
@@ -103,7 +95,7 @@ if (! empty($submit_mult)
                 $controller->index();
                 exit;
             case 'copy_tbl':
-                $views = $GLOBALS['dbi']->getVirtualTables($db);
+                $views = $dbi->getVirtualTables($db);
                 list($full_query, $reload, $full_query_views)
                 = $multSubmits->getQueryFromSelected(
                     $submit_mult,
@@ -129,9 +121,9 @@ if (! empty($submit_mult)
                 exit;
             case 'show_create':
                 $show_create = $template->render('database/structure/show_create', [
-                    'db' => $GLOBALS['db'],
+                    'db' => $db,
                     'db_objects' => $selected,
-                    'dbi' => $GLOBALS['dbi'],
+                    'dbi' => $dbi,
                 ]);
                 // Send response to client.
                 $response->addJSON('message', $show_create);
@@ -149,7 +141,7 @@ if (! empty($submit_mult)
                 break;
             case 'make_consistent_with_central_list':
                 $centralColsError = $centralColumns->makeConsistentWithList(
-                    $GLOBALS['db'],
+                    $db,
                     $selected
                 );
                 break;
@@ -167,7 +159,7 @@ if (empty($db)) {
 if (empty($table)) {
     $table = '';
 }
-$views = $GLOBALS['dbi']->getVirtualTables($db);
+$views = $dbi->getVirtualTables($db);
 
 /**
  * Displays the confirmation form if required
@@ -242,18 +234,18 @@ if (! empty($submit_mult) && ! empty($what)) {
      */
     if ($query_type == 'primary_fld') {
         // Gets table primary key
-        $GLOBALS['dbi']->selectDb($db);
-        $result = $GLOBALS['dbi']->query(
+        $dbi->selectDb($db);
+        $result = $dbi->query(
             'SHOW KEYS FROM ' . Util::backquote($table) . ';'
         );
         $primary = '';
-        while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
+        while ($row = $dbi->fetchAssoc($result)) {
             // Backups the list of primary keys
             if ($row['Key_name'] == 'PRIMARY') {
                 $primary .= $row['Column_name'] . ', ';
             }
         } // end while
-        $GLOBALS['dbi']->freeResult($result);
+        $dbi->freeResult($result);
     }
 
     $default_fk_check_value = false;
@@ -325,16 +317,16 @@ if (! empty($submit_mult) && ! empty($what)) {
             null // complete_query
         );
     } elseif (! $run_parts) {
-        $GLOBALS['dbi']->selectDb($db);
-        $result = $GLOBALS['dbi']->tryQuery($sql_query);
+        $dbi->selectDb($db);
+        $result = $dbi->tryQuery($sql_query);
         if ($result && ! empty($sql_query_views)) {
             $sql_query .= ' ' . $sql_query_views . ';';
-            $result = $GLOBALS['dbi']->tryQuery($sql_query_views);
+            $result = $dbi->tryQuery($sql_query_views);
             unset($sql_query_views);
         }
 
         if (! $result) {
-            $message = Message::error($GLOBALS['dbi']->getError());
+            $message = Message::error($dbi->getError());
         }
     }
     if ($query_type == 'drop_tbl'
@@ -346,7 +338,7 @@ if (! empty($submit_mult) && ! empty($what)) {
     if ($rebuild_database_list) {
         // avoid a problem with the database list navigator
         // when dropping a db from server_databases
-        $GLOBALS['dblist']->databases->build();
+        $dblist->databases->build();
     }
 } elseif (isset($submit_mult)
     && ($submit_mult == 'sync_unique_columns_central_list'
