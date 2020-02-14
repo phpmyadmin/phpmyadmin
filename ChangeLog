@@ -40,6 +40,7 @@ phpMyAdmin - ChangeLog
 - issue #15877 Fixed php error "preg_match() expects parameter 2 to be string, null given" on some specific tables
 - issue #15795 Fix broken link on "MySQL said" error message
 - issue #15781 Fix illegal string offset error on structure page of 'information_schema' database
+- issue #15745 Fix version 5.0.1 suggests 4.9.4 as latest stable version
 
 5.0.1 (2020-01-07)
 - issue #15719 Fixed error 500 when browsing a table when $cfg['LimitChars'] used a string and not an int value
