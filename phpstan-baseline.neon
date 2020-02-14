@@ -1583,11 +1583,6 @@ parameters:
 			path: libraries/classes/Menu.php
 
 		-
-			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, array\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Message.php
-
-		-
 			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchArray\\(\\) expects object, resource\\|true given\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/Navigation.php

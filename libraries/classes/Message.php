@@ -555,10 +555,10 @@ class Message
     /**
      * set all params at once, usually used in conjunction with string
      *
-     * @param array|string $params   parameters to set
-     * @param bool|int     $sanitize whether to sanitize params
+     * @param array    $params   parameters to set
+     * @param bool|int $sanitize whether to sanitize params
      */
-    public function setParams($params, $sanitize = false): void
+    public function setParams(array $params, $sanitize = false): void
     {
         if ($sanitize) {
             $params = self::sanitize($params);
@@ -569,9 +569,9 @@ class Message
     /**
      * return all parameters
      *
-     * @return array|string
+     * @return array
      */
-    public function getParams()
+    public function getParams(): array
     {
         return $this->params;
     }
