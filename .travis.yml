@@ -131,7 +131,8 @@ jobs:
         - CI_MODE=test
         - YARN_GPG=no
       before_install:
-        - choco install php composer mariadb
+        - choco install php composer
+        - choco install mariadb --version=10.4.8
         - export PATH=/c/tools/php74:/c/ProgramData/ComposerSetup/bin:/c/"Program Files"/"MariaDB 10.4"/bin:$PATH
         - PHP_EXTENSIONS="mysqli curl bz2 gd2 pdo_mysql"
         - for php_ext in $PHP_EXTENSIONS ; do sed -i -e "s/^;extension=${php_ext}/extension=${php_ext}/" /c/tools/php74/php.ini ; done
