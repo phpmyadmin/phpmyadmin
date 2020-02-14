@@ -8,16 +8,6 @@ parameters:
 			path: libraries/classes/Advisor.php
 
 		-
-			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, array\\<int, string\\>\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Advisor.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Advisor\\:\\:splitJustification\\(\\) should return array\\<string\\> but returns array\\<int, string\\|null\\>\\.$#"
-			count: 1
-			path: libraries/classes/Advisor.php
-
-		-
 			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Advisor.php
