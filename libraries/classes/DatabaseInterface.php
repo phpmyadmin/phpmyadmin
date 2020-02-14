@@ -708,14 +708,14 @@ class DatabaseInterface
                     if ($sort_by == 'Data_length') {
                         foreach ($each_tables as $table_name => $table_data) {
                             ${$sort_by}[$table_name] = strtolower(
-                                $table_data['Data_length']
-                                + $table_data['Index_length']
+                                (string) ($table_data['Data_length']
+                                + $table_data['Index_length'])
                             );
                         }
                     } else {
                         foreach ($each_tables as $table_name => $table_data) {
                             ${$sort_by}[$table_name]
-                                = strtolower($table_data[$sort_by]);
+                                = strtolower($table_data[$sort_by] ?? '');
                         }
                     }
 
