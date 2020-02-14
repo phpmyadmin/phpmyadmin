@@ -176,10 +176,6 @@ select {
 }
 
 input {
-  &[type=number] {
-    width: 50px;
-  }
-
   &[type=text],
   &[type=password],
   &[type=number],
