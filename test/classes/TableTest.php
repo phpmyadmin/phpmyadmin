@@ -701,7 +701,6 @@ class TableTest extends PmaTestCase
             $query
         );
 
-        $type = 'INT';
         $default_type = 'NONE';
         $move_to = '-first';
         $query = Table::generateFieldSpec(
@@ -727,7 +726,6 @@ class TableTest extends PmaTestCase
             $query
         );
 
-        $type = 'INT';
         $default_type = 'NONE';
         $move_to = '-first';
         $query = Table::generateFieldSpec(
@@ -754,7 +752,6 @@ class TableTest extends PmaTestCase
             $query
         );
 
-        $type = 'INT';
         $default_type = 'NONE';
         $move_to = '-first';
         $query = Table::generateFieldSpec(
@@ -781,7 +778,6 @@ class TableTest extends PmaTestCase
             $query
         );
 
-        $type = 'INT';
         $default_type = 'NONE';
         $move_to = '-first';
         $query = Table::generateFieldSpec(
@@ -808,7 +804,6 @@ class TableTest extends PmaTestCase
             $query
         );
 
-        $type = 'INT';
         $default_type = 'NONE';
         $move_to = '-first';
         $query = Table::generateFieldSpec(
@@ -835,7 +830,6 @@ class TableTest extends PmaTestCase
             $query
         );
 
-        $type = 'INT';
         $default_type = 'NONE';
         $move_to = '-first';
         $query = Table::generateFieldSpec(

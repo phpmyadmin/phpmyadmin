@@ -1032,7 +1032,7 @@ abstract class TestBase extends TestCase
             curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
             $result = curl_exec($ch);
-            if (curl_errno($ch)) {
+            if ($ch !== false && curl_errno($ch)) {
                 echo 'Error: ' . curl_error($ch) . PHP_EOL;
             }
             curl_close($ch);
@@ -1058,7 +1058,7 @@ abstract class TestBase extends TestCase
                 if (isset($proj->automation_session)) {
                     echo 'Test failed, get more information here: ' . $proj->automation_session->public_url . PHP_EOL;
                 }
-                if (curl_errno($ch)) {
+                if ($ch !== false && curl_errno($ch)) {
                     echo 'Error: ' . curl_error($ch) . PHP_EOL;
                 }
                 curl_close($ch);
