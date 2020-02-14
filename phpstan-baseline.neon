@@ -18,11 +18,6 @@ parameters:
 			path: libraries/classes/Advisor.php
 
 		-
-			message: "#^Parameter \\#1 \\$value of static method PhpMyAdmin\\\\Util\\:\\:formatByteDown\\(\\) expects float\\|int, float\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Advisor.php
-
-		-
 			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Advisor.php

@@ -385,7 +385,7 @@ class Advisor
     public static function splitJustification(array $rule): array
     {
         $jst = preg_split('/\s*\|\s*/', $rule['justification'], 2);
-        if (count($jst) > 1) {
+        if ($jst !== null && count($jst) > 1) {
             return [
                 $jst[0],
                 $jst[1],
@@ -691,9 +691,9 @@ class Advisor
      *
      * This function is used when evaluating advisory_rules.txt
      *
-     * @param double|string $value the value to format
-     * @param int           $limes the sensitiveness
-     * @param int           $comma the number of decimals to retain
+     * @param double|int $value the value to format
+     * @param int        $limes the sensitiveness
+     * @param int        $comma the number of decimals to retain
      *
      * @return string the formatted value with unit
      */

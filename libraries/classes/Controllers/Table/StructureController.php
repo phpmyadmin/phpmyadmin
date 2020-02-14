@@ -1224,7 +1224,6 @@ class StructureController extends AbstractController
             $this->db,
             $this->table
         );
-        $columns_list = [];
 
         $titles = [
             'Change' => Generator::getIcon('b_edit', __('Change')),

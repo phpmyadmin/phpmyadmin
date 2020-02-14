@@ -382,7 +382,6 @@ class StructureController extends AbstractController
             $overhead = '';
             $input_class = ['checkall'];
 
-            $table_is_view = false;
             // Sets parameters for links
             $tableUrlParams = [
                 'db' => $this->db,

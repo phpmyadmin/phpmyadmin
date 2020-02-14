@@ -72,7 +72,6 @@ final class ExportController extends AbstractController
         //check if it's the GET request to check export time out
         if (isset($_GET['check_time_out'])) {
             if (isset($_SESSION['pma_export_error'])) {
-                $err = $_SESSION['pma_export_error'];
                 unset($_SESSION['pma_export_error']);
                 echo 'timeout';
             } else {
@@ -483,7 +482,7 @@ final class ExportController extends AbstractController
                 || isset($GLOBALS[$what . '_comments']);
             $do_mime     = isset($GLOBALS[$what . '_mime']);
             if ($do_relation || $do_comments || $do_mime) {
-                $cfgRelation = $this->relation->getRelationsParam();
+                $this->relation->getRelationsParam();
             }
 
             // Include dates in export?

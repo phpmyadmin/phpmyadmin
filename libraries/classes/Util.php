@@ -409,16 +409,16 @@ class Util
      *
      * </code>
      *
-     * @param mixed $a_name the database, table or field name to "backquote"
-     *                      or array of it
-     * @param bool  $do_it  a flag to bypass this function (used by dump
-     *                      functions)
+     * @param array|string $a_name the database, table or field name to "backquote"
+     *                             or array of it
+     * @param bool         $do_it  a flag to bypass this function (used by dump
+     *                             functions)
      *
-     * @return mixed    the "backquoted" database, table or field name
+     * @return mixed the "backquoted" database, table or field name
      *
      * @access public
      */
-    public static function backquote($a_name, $do_it = true)
+    public static function backquote($a_name, ?bool $do_it = true)
     {
         return static::backquoteCompat($a_name, 'NONE', $do_it);
     } // end of the 'backquote()' function
@@ -433,12 +433,12 @@ class Util
      *
      * </code>
      *
-     * @param mixed  $a_name        the database, table or field name to
-     *                              "backquote" or array of it
-     * @param string $compatibility string compatibility mode (used by dump
-     *                              functions)
-     * @param bool   $do_it         a flag to bypass this function (used by dump
-     *                              functions)
+     * @param array|string $a_name        the database, table or field name to
+     *                                    "backquote" or array of it
+     * @param string       $compatibility string compatibility mode (used by dump
+     *                                    functions)
+     * @param bool         $do_it         a flag to bypass this function (used by dump
+     *                                    functions)
      *
      * @return mixed the "backquoted" database, table or field name
      *
@@ -446,8 +446,8 @@ class Util
      */
     public static function backquoteCompat(
         $a_name,
-        $compatibility = 'MSSQL',
-        $do_it = true
+        string $compatibility = 'MSSQL',
+        ?bool $do_it = true
     ) {
         if (is_array($a_name)) {
             foreach ($a_name as &$data) {

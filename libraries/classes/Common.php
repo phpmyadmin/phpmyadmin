@@ -119,7 +119,7 @@ final class Common
             [$db_charset] = explode('_', $_POST['db_collation']);
             $sql_query = 'ALTER DATABASE ' . Util::backquote($db)
                 . ' DEFAULT' . Util::getCharsetQueryPart($_POST['db_collation']);
-            $result = $dbi->query($sql_query);
+            $dbi->query($sql_query);
             $message = Message::success();
 
             /**

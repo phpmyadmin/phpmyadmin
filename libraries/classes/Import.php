@@ -988,6 +988,7 @@ class Import
         ?array $options = null,
         array &$sql_data
     ): void {
+        global $import_notice;
         /* Needed to quell the beast that is Message */
         $import_notice = null;
 
@@ -1351,7 +1352,6 @@ class Import
 
         $message .= '</ul></ul>';
 
-        global $import_notice;
         $import_notice = $message;
     }
 

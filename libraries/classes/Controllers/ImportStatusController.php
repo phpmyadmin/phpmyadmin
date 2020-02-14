@@ -34,11 +34,11 @@ class ImportStatusController
     {
         global $SESSION_KEY, $upload_id, $plugins, $timestamp;
 
-        list(
+        [
             $SESSION_KEY,
             $upload_id,
-            $plugins
-        ) = ImportAjax::uploadProgressSetup();
+            $plugins,
+        ] = ImportAjax::uploadProgressSetup();
 
         // $_GET["message"] is used for asking for an import message
         if (isset($_GET['message']) && $_GET['message']) {

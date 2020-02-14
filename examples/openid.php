@@ -105,7 +105,7 @@ if ($returnTo[strlen($returnTo) - 1] != '/') {
 $returnTo .= 'openid.php';
 
 /* Display form */
-if (! count($_GET) && ! count($_POST) || isset($_GET['phpMyAdmin'])) {
+if ((! count($_GET) && ! count($_POST)) || isset($_GET['phpMyAdmin'])) {
     /* Show simple form */
     $content = '<form action="openid.php" method="post">
 OpenID: <input type="text" name="identifier"><br>
