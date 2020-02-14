@@ -123,7 +123,7 @@ class GitRevision
         return $this->template->render('list/item', [
             'content' => $name,
             'id' => 'li_pma_version_git',
-            'class' => null,
+            'class' => 'list-group-item',
             'url' => [
                 'href' => null,
                 'target' => null,

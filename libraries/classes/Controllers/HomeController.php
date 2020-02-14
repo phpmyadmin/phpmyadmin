@@ -113,7 +113,7 @@ class HomeController extends AbstractController
                             'Change password'
                         ),
                         'id' => 'li_change_password',
-                        'class' => 'no_bullets',
+                        'class' => 'list-group-item',
                         'url' => [
                             'href' => Url::getFromRoute('/user-password'),
                             'target' => null,
@@ -150,7 +150,7 @@ class HomeController extends AbstractController
                         'More settings'
                     ),
                     'id' => 'li_user_preferences',
-                    'class' => 'no_bullets',
+                    'class' => 'list-group-item',
                     'url' => [
                         'href' => Url::getFromRoute('/preferences/manage'),
                         'target' => null,
@@ -218,8 +218,8 @@ class HomeController extends AbstractController
         if ($cfg['ShowPhpInfo']) {
             $phpInfo = $this->template->render('list/item', [
                 'content' => __('Show PHP information'),
-                'id' => 'li_phpinfo',
-                'class' => null,
+                'id' => null,
+                'class' => 'list-group-item',
                 'url' => [
                     'href' => Url::getFromRoute('/phpinfo'),
                     'target' => '_blank',

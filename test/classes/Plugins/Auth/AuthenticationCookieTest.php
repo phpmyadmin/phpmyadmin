@@ -309,7 +309,7 @@ class AuthenticationCookieTest extends PmaTestCase
         $loc = LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo';
         if (is_readable($loc)) {
             $this->assertStringContainsString(
-                '<select name="lang" class="autosubmit form-control" lang="en" dir="ltr" ' .
+                '<select name="lang" class="autosubmit" lang="en" dir="ltr" ' .
                 'id="sel-lang">',
                 $result
             );
