@@ -385,7 +385,7 @@ class Advisor
     public static function splitJustification(array $rule): array
     {
         $jst = preg_split('/\s*\|\s*/', $rule['justification'], 2);
-        if ($jst !== null && count($jst) > 1) {
+        if ($jst !== false && count($jst) > 1) {
             return [
                 $jst[0],
                 $jst[1],
