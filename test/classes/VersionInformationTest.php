@@ -277,7 +277,6 @@ class VersionInformationTest extends PmaTestCase
         $this->assertEquals('4.0.10.10', $compatible['version']);
     }
 
-
     /**
      * Tests getLatestCompatibleVersion() with an new PHP version
      *
