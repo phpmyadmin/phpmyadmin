@@ -570,19 +570,19 @@ class DbiMysqli implements DbiExtension
      * @param mysqli_result $result result set identifier
      * @param int           $i      field
      *
-     * @return string|bool name of $i. field in $result
+     * @return string name of $i. field in $result
      */
     public function fieldName($result, $i)
     {
         if ($i >= $this->numFields($result)) {
-            return false;
+            return '';
         }
         /** @var stdClass $fieldDefinition */
         $fieldDefinition = $result->fetch_field_direct($i);
         if ($fieldDefinition !== false) {
             return $fieldDefinition->name;
         }
-        return false;
+        return '';
     }
 
     /**
