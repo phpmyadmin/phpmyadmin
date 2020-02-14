@@ -210,7 +210,7 @@ class VersionInformationTest extends PmaTestCase
      *
      * @return void
      */
-    public function testGetLaestCompatibleVersionWithMultipleServers()
+    public function testGetLatestCompatibleVersionWithMultipleServers()
     {
         $GLOBALS['cfg']['Servers'] = [
             [],
@@ -241,7 +241,7 @@ class VersionInformationTest extends PmaTestCase
      *
      * @return void
      */
-    public function testGetLaestCompatibleVersionWithOldPHPVersion()
+    public function testGetLatestCompatibleVersionWithOldPHPVersion()
     {
         $GLOBALS['cfg']['Servers'] = [
             [],
@@ -275,6 +275,281 @@ class VersionInformationTest extends PmaTestCase
         $compatible = $mockVersionInfo
             ->getLatestCompatibleVersion($this->_releases);
         $this->assertEquals('4.0.10.10', $compatible['version']);
+    }
+
+
+    /**
+     * Tests getLatestCompatibleVersion() with an new PHP version
+     *
+     * @dataProvider dataProviderVersionConditions
+     * @param array[]     $versions           The versions to use
+     * @param array[]     $conditions         The conditions that will be executed
+     * @param string|null $matchedLastVersion The version that will be matched
+     * @return void
+     */
+    public function testGetLatestCompatibleVersionWithNewPHPVersion(array $versions, array $conditions, ?string $matchedLastVersion): void
+    {
+        $GLOBALS['cfg']['Servers'] = [];
+
+        $mockVersionInfo = $this->getMockBuilder(VersionInformation::class)
+            ->setMethods(['evaluateVersionCondition'])
+            ->getMock();
+
+        $i = 0;
+        foreach ($conditions as $conditionArray) {
+            [
+                $condition,
+                $returnValue,
+            ] = $conditionArray;
+            $mockVersionInfo->expects($this->at($i))
+                ->method('evaluateVersionCondition')
+                ->with('PHP', $condition)
+                ->will($this->returnValue($returnValue));
+            $i++;
+        }
+        /** @var VersionInformation $mockVersionInfo */
+        $compatible = $mockVersionInfo->getLatestCompatibleVersion($versions);
+        $this->assertEquals($matchedLastVersion, $compatible['version'] ?? null);
+    }
+
+    /**
+     * Provider for testGetLatestCompatibleVersionWithNewPHPVersion
+     * Returns the conditions to be used for mocks
+     * @return array[]
+     */
+    public function dataProviderVersionConditions(): array
+    {
+        return [
+            [
+                [
+                    (object) [
+                        'date' => '2019-12-26',
+                        'php_versions' => '>=5.5,<8.0',
+                        'version' => '4.9.3',
+                        'mysql_versions' => '>=5.5',
+                    ],
+                    (object) [
+                        'date' => '2019-12-26',
+                        'php_versions' => '>=7.1,<8.0',
+                        'version' => '5.0.0',
+                        'mysql_versions' => '>=5.5',
+                    ],
+                ],
+                [
+                    [
+                        '>=5.5',
+                        true,
+                    ],
+                    [
+                        '<8.0',
+                        true,
+                    ],
+                    [
+                        '>=7.1',
+                        true,
+                    ],
+                    [
+                        '<8.0',
+                        false,
+                    ],
+                ],
+                '4.9.3',
+            ],
+            [
+                [
+                    (object) [
+                        'date' => '2019-12-26',
+                        'php_versions' => '>=5.5,<7.0',
+                        'version' => '6.0.0',
+                        'mysql_versions' => '>=5.5',
+                    ],
+                    (object) [
+                        'date' => '2019-12-26',
+                        'php_versions' => '>=7.1,<8.0',
+                        'version' => '5.0.0',
+                        'mysql_versions' => '>=5.5',
+                    ],
+                ],
+                [
+                    [
+                        '>=5.5',
+                        true,
+                    ],
+                    [
+                        '<7.0',
+                        true,
+                    ],
+                    [
+                        '>=7.1',
+                        false,
+                    ],
+                ],
+                '6.0.0',
+            ],
+            [
+                [
+                    (object) [
+                        'date' => '2019-12-26',
+                        'php_versions' => '>=5.5,<7.0',
+                        'version' => '6.0.0-rc1',
+                        'mysql_versions' => '>=5.5',
+                    ],
+                    (object) [
+                        'date' => '2019-12-26',
+                        'php_versions' => '>=7.1,<8.0',
+                        'version' => '6.0.0-rc2',
+                        'mysql_versions' => '>=5.5',
+                    ],
+                ],
+                [
+                    [
+                        '>=5.5',
+                        true,
+                    ],
+                    [
+                        '<7.0',
+                        true,
+                    ],
+                    [
+                        '>=7.1',
+                        false,
+                    ],
+                ],
+                '6.0.0-rc1',
+            ],
+            [
+                [
+                    (object) [
+                        'date' => '2019-12-26',
+                        'php_versions' => '>=5.5,<7.0',
+                        'version' => '6.0.0',
+                        'mysql_versions' => '>=5.5',
+                    ],
+                    (object) [
+                        'date' => '2019-12-26',
+                        'php_versions' => '>=7.1,<8.0',
+                        'version' => '5.0.0',
+                        'mysql_versions' => '>=5.5',
+                    ],
+                ],
+                [
+                    [
+                        '>=5.5',
+                        false,
+                    ],
+                    [
+                        '>=7.1',
+                        true,
+                    ],
+                    [
+                        '<8.0',
+                        false,
+                    ],
+                ],
+                null,
+            ],
+            [
+                [
+                    (object) [
+                        'date' => '2019-12-26',
+                        'php_versions' => '>=5.5,<7.0',
+                        'version' => '6.0.0',
+                        'mysql_versions' => '>=5.5',
+                    ],
+                    (object) [
+                        'date' => '2019-12-26',
+                        'php_versions' => '>=7.1,<8.0',
+                        'version' => '5.0.0',
+                        'mysql_versions' => '>=5.5',
+                    ],
+                ],
+                [
+                    [
+                        '>=5.5',
+                        false,
+                    ],
+                    [
+                        '>=7.1',
+                        true,
+                    ],
+                    [
+                        '<8.0',
+                        true,
+                    ],
+                ],
+                '5.0.0',
+            ],
+            [
+                [
+                    (object) [
+                        'date' => '2019-12-26',
+                        'php_versions' => '>=5.5,<8.0',
+                        'version' => '4.9.3',
+                        'mysql_versions' => '>=5.5',
+                    ],
+                    (object) [
+                        'date' => '2019-12-26',
+                        'php_versions' => '>=7.1,<8.0',
+                        'version' => '5.0.0',
+                        'mysql_versions' => '>=5.5',
+                    ],
+                ],
+                [
+                    [
+                        '>=5.5',
+                        true,
+                    ],
+                    [
+                        '<8.0',
+                        true,
+                    ],
+                    [
+                        '>=7.1',
+                        true,
+                    ],
+                    [
+                        '<8.0',
+                        true,
+                    ],
+                ],
+                '5.0.0',
+            ],
+            [
+                [
+                    (object) [
+                        'date' => '2019-12-26',
+                        'php_versions' => '>=7.1,<8.0',
+                        'version' => '5.0.0',
+                        'mysql_versions' => '>=5.5',
+                    ],
+                    (object) [
+                        'date' => '2019-12-26',
+                        'php_versions' => '>=5.5,<8.0',
+                        'version' => '4.9.3',
+                        'mysql_versions' => '>=5.5',
+                    ],
+                ],
+                [
+                    [
+                        '>=7.1',
+                        true,
+                    ],
+                    [
+                        '<8.0',
+                        true,
+                    ],
+                    [
+                        '>=5.5',
+                        true,
+                    ],
+                    [
+                        '<8.0',
+                        true,
+                    ],
+                ],
+                '5.0.0',
+            ],
+        ];
     }
 
     /**

@@ -148,6 +148,8 @@ class VersionInformation
      */
     public function getLatestCompatibleVersion(array $releases)
     {
+        // Maintains the latest compatible version
+        $latestRelease = null;
         foreach ($releases as $release) {
             $phpVersions = $release->php_versions;
             $phpConditions = explode(',', $phpVersions);
@@ -157,7 +159,7 @@ class VersionInformation
                 }
             }
 
-            // We evalute MySQL version constraint if there are only
+            // We evaluate MySQL version constraint if there are only
             // one server configured.
             if (count($GLOBALS['cfg']['Servers']) === 1) {
                 $mysqlVersions = $release->mysql_versions;
@@ -168,15 +170,17 @@ class VersionInformation
                     }
                 }
             }
-
-            return [
-                'version' => $release->version,
-                'date' => $release->date,
-            ];
+            // To compare the current release with the previous latest release or no release is set
+            if ($latestRelease === null || version_compare($latestRelease['version'], $release->version, '<')) {
+                $latestRelease = [
+                    'version' => $release->version,
+                    'date' => $release->date
+                ];
+            }
         }
 
         // no compatible version
-        return null;
+        return $latestRelease;
     }
 
     /**
