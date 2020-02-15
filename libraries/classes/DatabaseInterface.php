@@ -957,7 +957,7 @@ class DatabaseInterface
             $databases = $this->fetchResult($sql, 'SCHEMA_NAME', null, $link);
 
             $mysql_error = $this->getError($link);
-            if (! count($databases) && $GLOBALS['errno']) {
+            if (! count($databases) && isset($GLOBALS['errno'])) {
                 Util::mysqlDie($mysql_error, $sql);
             }
 
