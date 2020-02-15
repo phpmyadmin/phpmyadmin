@@ -527,25 +527,24 @@ class Header
             'Referrer-Policy: no-referrer'
         );
         header(
-            "Content-Security-Policy: default-src 'self' "
+            "Content-Security-Policy: child-src 'self' "
             . $captcha_url
             . $GLOBALS['cfg']['CSPAllow'] . ';'
             . "script-src 'self' 'unsafe-inline' 'unsafe-eval' "
             . $captcha_url
             . $GLOBALS['cfg']['CSPAllow'] . ';'
             . "style-src 'self' 'unsafe-inline' "
-            . $captcha_url
             . $GLOBALS['cfg']['CSPAllow']
             . ';'
             . "img-src 'self' data: "
             . $GLOBALS['cfg']['CSPAllow']
             . $map_tile_urls
-            . $captcha_url
             . ';'
             . "object-src 'none';"
+            . "form-action 'self';"
         );
         header(
-            "X-Content-Security-Policy: default-src 'self' "
+            "X-Content-Security-Policy: child-src 'self' "
             . $captcha_url
             . $GLOBALS['cfg']['CSPAllow'] . ';'
             . 'options inline-script eval-script;'
@@ -553,28 +552,26 @@ class Header
             . "img-src 'self' data: "
             . $GLOBALS['cfg']['CSPAllow']
             . $map_tile_urls
-            . $captcha_url
             . ';'
             . "object-src 'none';"
+            . "form-action 'self';"
         );
         header(
-            "X-WebKit-CSP: default-src 'self' "
+            "X-WebKit-CSP: child-src 'self' "
             . $captcha_url
             . $GLOBALS['cfg']['CSPAllow'] . ';'
             . "script-src 'self' "
-            . $captcha_url
             . $GLOBALS['cfg']['CSPAllow']
             . " 'unsafe-inline' 'unsafe-eval';"
             . 'referrer no-referrer;'
             . "style-src 'self' 'unsafe-inline' "
-            . $captcha_url
             . ';'
             . "img-src 'self' data: "
             . $GLOBALS['cfg']['CSPAllow']
             . $map_tile_urls
-            . $captcha_url
             . ';'
             . "object-src 'none';"
+            . "form-action 'self';"
         );
         // Re-enable possible disabled XSS filters
         // see https://www.owasp.org/index.php/List_of_useful_HTTP_headers
