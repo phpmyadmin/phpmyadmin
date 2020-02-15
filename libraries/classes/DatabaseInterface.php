@@ -794,7 +794,7 @@ class DatabaseInterface
                     $each_tables[$table_name]['TABLE_COMMENT']
                         =& $each_tables[$table_name]['Comment'];
 
-                    if (strtoupper($each_tables[$table_name]['Comment']) === 'VIEW'
+                    if (strtoupper($each_tables[$table_name]['Comment'] ?? '') === 'VIEW'
                         && $each_tables[$table_name]['Engine'] == null
                     ) {
                         $each_tables[$table_name]['TABLE_TYPE'] = 'VIEW';
