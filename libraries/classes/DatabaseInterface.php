@@ -801,7 +801,7 @@ class DatabaseInterface implements DbalInterface
                     $each_tables[$table_name]['TABLE_COMMENT']
                         =& $each_tables[$table_name]['Comment'];
 
-                    if (strtoupper($each_tables[$table_name]['Comment']) === 'VIEW'
+                    if (strtoupper($each_tables[$table_name]['Comment'] ?? '') === 'VIEW'
                         && $each_tables[$table_name]['Engine'] == null
                     ) {
                         $each_tables[$table_name]['TABLE_TYPE'] = 'VIEW';
@@ -959,7 +959,7 @@ class DatabaseInterface implements DbalInterface
             $databases = $this->fetchResult($sql, 'SCHEMA_NAME', null, $link);
 
             $mysql_error = $this->getError($link);
-            if (! count($databases) && $GLOBALS['errno']) {
+            if (! count($databases) && isset($GLOBALS['errno'])) {
                 Generator::mysqlDie($mysql_error, $sql);
             }
 

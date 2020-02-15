@@ -591,8 +591,7 @@ class QbeTest extends PmaTestCase
             'table1.deleted',
         ];
         $this->assertEquals(
-            'FROM `table1`
-',
+            'FROM `table1`' . "\n",
             $this->_callProtectedFunction(
                 '_getSQLQuery',
                 [['`table1`.`id`']]
